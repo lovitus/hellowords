@@ -21,10 +21,12 @@ Artwork should avoid expensive blur/filter chains. Only `transform` and
 `opacity` are animated during camera and scene transitions. Temporary
 `will-change` hints are removed after transitions.
 
-The semantic universe uses a single DPR-capped Canvas, 320 px spatial-hash
-cells, viewport culling and zoom-tier label limits of 90/150/260/420/650. The
-overview loads one representative shard; zoom and search hydrate only required
-topic shards. Its live DOM budget remains independent of the 10,000-word count.
+The semantic universe uses a single DPR-capped Canvas, 320 px repository
+spatial-hash cells, viewport culling, screen-space label collision and zoom-tier
+candidate limits of 44/76/170/300/480/720. Its overview loads 24 small topic
+neighborhoods distributed across all ten realms; zoom and search hydrate only
+required topic shards. Its live DOM budget remains independent of the
+10,000-word count.
 
 ## Interaction limits
 

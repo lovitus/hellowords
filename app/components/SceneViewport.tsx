@@ -4,7 +4,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useCallback, useEffect, useRef } from "react";
-import type { Label, Portal as ScenePortal, Scene } from "../domain";
+import { computeSceneLabelLayout, type Label, type Portal as ScenePortal, type Scene } from "../domain";
 
 interface SceneViewportProps {
   scene: Scene;
@@ -36,6 +36,20 @@ function distance(a: Point, b: Point): number {
   return Math.hypot(a.x - b.x, a.y - b.y);
 }
 
+function portalAtScreenPoint(portals: readonly ScenePortal[], camera: Camera, point: Point): ScenePortal | undefined {
+  const effectiveScale = camera.fit * camera.scale;
+  const sceneX = (point.x - camera.x) / effectiveScale;
+  const sceneY = (point.y - camera.y) / effectiveScale;
+  return [...portals]
+    .filter((portal) => (
+      sceneX >= portal.x
+      && sceneX <= portal.x + portal.width
+      && sceneY >= portal.y
+      && sceneY <= portal.y + portal.height
+    ))
+    .sort((first, second) => first.width * first.height - second.width * second.height)[0];
+}
+
 export function SceneViewport({
   scene,
   meaningVisible,
@@ -53,6 +67,9 @@ export function SceneViewport({
   const frameRef = useRef<number | null>(null);
   const settleRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastNavigationRef = useRef(0);
+  const zoomFocusRef = useRef<Point | null>(null);
+  const zoomDirectionRef = useRef<"in" | "out" | null>(null);
+  const portalCandidateRef = useRef<ScenePortal | null>(null);
 
   const clampCamera = useCallback(
     (camera: Camera): Camera => {
@@ -77,14 +94,41 @@ export function SceneViewport({
   const applyCamera = useCallback(() => {
     frameRef.current = null;
     const surface = surfaceRef.current;
-    if (!surface) return;
+    const viewport = viewportRef.current;
+    if (!surface || !viewport) return;
     const camera = (cameraRef.current = clampCamera(cameraRef.current));
     const effectiveScale = camera.fit * camera.scale;
-    const zoomLevel = camera.scale < 1.48 ? 0 : camera.scale < 2.25 ? 1 : 2;
+    const zoomLevel = camera.scale < 1.12 ? 0 : camera.scale < 1.9 ? 1 : 2;
     surface.style.transform = `translate3d(${camera.x}px, ${camera.y}px, 0) scale(${effectiveScale})`;
     surface.style.setProperty("--label-inverse", String(1 / effectiveScale));
+    surface.style.setProperty("--scene-zoom", camera.scale.toFixed(3));
     surface.dataset.zoomLevel = String(zoomLevel);
-  }, [clampCamera]);
+
+    const layout = computeSceneLabelLayout(
+      scene.labels,
+      camera,
+      {
+        width: viewport.clientWidth,
+        height: viewport.clientHeight,
+        compact: viewport.clientWidth <= 900,
+      },
+      meaningVisible,
+    );
+    const byId = new Map(layout.map((item) => [item.id, item]));
+    let visibleCount = 0;
+    for (const element of surface.querySelectorAll<HTMLButtonElement>(".word-label")) {
+      const item = byId.get(element.dataset.labelId ?? "");
+      const opacity = item?.opacity ?? 0;
+      const interactive = Boolean(item?.interactive);
+      element.style.setProperty("--label-opacity", opacity.toFixed(3));
+      element.dataset.visible = String(opacity > 0.025);
+      element.dataset.interactive = String(interactive);
+      element.tabIndex = interactive ? 0 : -1;
+      element.setAttribute("aria-hidden", String(!interactive));
+      if (opacity >= 0.12) visibleCount += 1;
+    }
+    surface.dataset.visibleLabelCount = String(visibleCount);
+  }, [clampCamera, meaningVisible, scene.labels]);
 
   const requestCameraFrame = useCallback(() => {
     if (frameRef.current === null) frameRef.current = requestAnimationFrame(applyCamera);
@@ -94,49 +138,40 @@ export function SceneViewport({
     const viewport = viewportRef.current;
     if (!viewport) return;
     const fit = Math.min(viewport.clientWidth / scene.width, viewport.clientHeight / scene.height);
-    const initialScale = viewport.clientHeight > viewport.clientWidth * 1.25 ? 1.55 : 1;
+    const initialScale = viewport.clientHeight > viewport.clientWidth * 1.25 ? 1.3 : 1;
     cameraRef.current = {
       fit,
       scale: initialScale,
       x: (viewport.clientWidth - scene.width * fit * initialScale) / 2,
       y: (viewport.clientHeight - scene.height * fit * initialScale) / 2,
     };
+    zoomFocusRef.current = { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
+    zoomDirectionRef.current = null;
+    portalCandidateRef.current = null;
     requestCameraFrame();
   }, [requestCameraFrame, scene.height, scene.width]);
-
-  const portalNearFocus = useCallback(
-    (portal: ScenePortal): boolean => {
-      const viewport = viewportRef.current;
-      if (!viewport) return false;
-      const camera = cameraRef.current;
-      const effective = camera.fit * camera.scale;
-      const projected = {
-        x: camera.x + (portal.x + portal.width / 2) * effective,
-        y: camera.y + (portal.y + portal.height / 2) * effective,
-      };
-      const center = { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
-      return distance(projected, center) <= Math.min(viewport.clientWidth, viewport.clientHeight) * 0.34;
-    },
-    [],
-  );
 
   const evaluateNavigation = useCallback(() => {
     const now = performance.now();
     if (now - lastNavigationRef.current < 350) return;
     const camera = cameraRef.current;
-    const portal = scene.portals.find(
-      (candidate) => camera.scale >= (candidate.enterScale ?? 3.6) && portalNearFocus(candidate),
-    );
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    const focus = zoomFocusRef.current ?? { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
+    const candidate = portalCandidateRef.current ?? portalAtScreenPoint(scene.portals, camera, focus);
+    const portal = zoomDirectionRef.current === "in" && candidate && camera.scale >= (candidate.enterScale ?? 3.6)
+      ? candidate
+      : undefined;
     if (portal) {
       lastNavigationRef.current = now;
       onEnterScene(portal.childSceneId);
       return;
     }
-    if (scene.parentId && camera.scale < EXIT_SCALE) {
+    if (scene.parentId && zoomDirectionRef.current === "out" && camera.scale < EXIT_SCALE) {
       lastNavigationRef.current = now;
       onExitScene();
     }
-  }, [onEnterScene, onExitScene, portalNearFocus, scene.parentId, scene.portals]);
+  }, [onEnterScene, onExitScene, scene.parentId, scene.portals]);
 
   const scheduleNavigationCheck = useCallback(() => {
     if (settleRef.current) clearTimeout(settleRef.current);
@@ -146,20 +181,39 @@ export function SceneViewport({
   const zoomAt = useCallback(
     (point: Point, factor: number) => {
       const camera = cameraRef.current;
+      const previousFocus = zoomFocusRef.current;
       const minimum = scene.parentId ? 0.68 : 0.9;
       const nextScale = Math.min(MAX_SCALE, Math.max(minimum, camera.scale * factor));
       if (nextScale === camera.scale) return;
       const ratio = nextScale / camera.scale;
-      cameraRef.current = {
+      const nextCamera = {
         ...camera,
         scale: nextScale,
         x: point.x - (point.x - camera.x) * ratio,
         y: point.y - (point.y - camera.y) * ratio,
       };
+      cameraRef.current = nextCamera;
+      zoomFocusRef.current = point;
+      zoomDirectionRef.current = factor > 1 ? "in" : "out";
+      if (factor > 1) {
+        const portal = portalAtScreenPoint(scene.portals, camera, point)
+          ?? portalAtScreenPoint(scene.portals, nextCamera, point);
+        if (portal) {
+          portalCandidateRef.current = portal;
+        } else if (!previousFocus || distance(previousFocus, point) > 16) {
+          portalCandidateRef.current = null;
+        }
+      } else {
+        portalCandidateRef.current = null;
+      }
+      if (factor > 1 && nextScale >= 2.65) {
+        const portal = portalCandidateRef.current;
+        if (portal) onPrefetchScene(portal.childSceneId);
+      }
       requestCameraFrame();
       scheduleNavigationCheck();
     },
-    [requestCameraFrame, scene.parentId, scheduleNavigationCheck],
+    [onPrefetchScene, requestCameraFrame, scene.parentId, scene.portals, scheduleNavigationCheck],
   );
 
   useEffect(() => {
@@ -170,6 +224,8 @@ export function SceneViewport({
     observer.observe(viewport);
     return () => observer.disconnect();
   }, [resetCamera, scene.id, transitionKey]);
+
+  useEffect(() => requestCameraFrame(), [meaningVisible, requestCameraFrame]);
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -251,6 +307,8 @@ export function SceneViewport({
       x: viewport.clientWidth / 2 - (portal.x + portal.width / 2) * effective,
       y: viewport.clientHeight / 2 - (portal.y + portal.height / 2) * effective,
     };
+    zoomFocusRef.current = { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
+    zoomDirectionRef.current = "in";
     requestCameraFrame();
     if (settleRef.current) clearTimeout(settleRef.current);
     onEnterScene(portal.childSceneId);
@@ -289,8 +347,14 @@ export function SceneViewport({
                 type="button"
                 className="word-label"
                 data-testid="word-label"
+                data-label-id={label.id}
                 data-min-level={label.minLevel ?? 0}
+                data-priority={label.priority}
+                data-visible="false"
+                data-interactive="false"
                 style={{ left: label.x, top: label.y }}
+                tabIndex={-1}
+                aria-hidden="true"
                 aria-label={meaningVisible ? `${label.word}，${label.translation}` : label.word}
                 onClick={(event) => {
                   event.stopPropagation();

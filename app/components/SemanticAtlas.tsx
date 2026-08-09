@@ -25,7 +25,9 @@ export interface SemanticAtlasProps {
 
 interface Camera { x: number; y: number; scale: number }
 interface Size { width: number; height: number }
+interface Point { x: number; y: number }
 interface HitRegion { node: SemanticNode; x: number; y: number; width: number; height: number }
+interface ScreenRect { x: number; y: number; width: number; height: number }
 interface RealmOverview {
   id: string;
   title: string;
@@ -106,11 +108,12 @@ function constrainCamera(camera: Camera, world: SemanticBounds, size: Size): Cam
 }
 
 function visibleLimit(scale: number): number {
-  if (scale < 0.18) return 90;
-  if (scale < 0.38) return 150;
-  if (scale < 0.8) return 260;
-  if (scale < 1.5) return 420;
-  return 650;
+  if (scale < 0.07) return 44;
+  if (scale < 0.18) return 76;
+  if (scale < 0.38) return 170;
+  if (scale < 0.8) return 300;
+  if (scale < 1.5) return 480;
+  return 720;
 }
 
 function buildRealmOverview(clusters: readonly SemanticCluster[]): RealmOverview[] {
@@ -139,14 +142,30 @@ function buildRealmOverview(clusters: readonly SemanticCluster[]): RealmOverview
   });
 }
 
-function pickLabels(nodes: readonly SemanticNode[], camera: Camera, size: Size, selectedId?: string): SemanticNode[] {
+function pickLabels(
+  nodes: readonly SemanticNode[],
+  camera: Camera,
+  size: Size,
+  selectedId?: string,
+  reserved: readonly ScreenRect[] = [],
+): SemanticNode[] {
   const limit = visibleLimit(camera.scale);
-  const collisionCell = 18;
+  const collisionCell = 12;
   const occupied = new Set<string>();
+  let acceptedCount = 0;
+  for (const rect of reserved) {
+    const minColumn = Math.floor((rect.x - rect.width / 2) / collisionCell);
+    const maxColumn = Math.floor((rect.x + rect.width / 2) / collisionCell);
+    const minRow = Math.floor((rect.y - rect.height / 2) / collisionCell);
+    const maxRow = Math.floor((rect.y + rect.height / 2) / collisionCell);
+    for (let row = minRow; row <= maxRow; row += 1) {
+      for (let column = minColumn; column <= maxColumn; column += 1) occupied.add(`${column}:${row}`);
+    }
+  }
   return [...nodes]
     .sort((a, b) => Number(b.id === selectedId) - Number(a.id === selectedId) || b.importance - a.importance || a.rank - b.rank)
     .filter((node) => {
-      if (occupied.size >= limit) return false;
+      if (acceptedCount >= limit) return false;
       const screenX = node.x * camera.scale + camera.x;
       const screenY = node.y * camera.scale + camera.y;
       if (screenX < -100 || screenX > size.width + 100 || screenY < -30 || screenY > size.height + 30) return false;
@@ -165,8 +184,39 @@ function pickLabels(nodes: readonly SemanticNode[], camera: Camera, size: Size, 
       for (let row = minRow; row <= maxRow; row += 1) {
         for (let column = minColumn; column <= maxColumn; column += 1) occupied.add(`${column}:${row}`);
       }
+      acceptedCount += 1;
       return true;
     });
+}
+
+function pickCompactRealmRepresentatives(
+  nodes: readonly SemanticNode[],
+  clusters: readonly SemanticCluster[],
+  realms: readonly RealmOverview[],
+  camera: Camera,
+): { labels: SemanticNode[]; positions: Map<string, Point> } {
+  const realmByCluster = new Map(clusters.map((cluster) => [cluster.id, cluster.realmId ?? cluster.id]));
+  const nodesByRealm = new Map<string, SemanticNode[]>();
+  for (const node of nodes) {
+    const realmId = realmByCluster.get(node.clusterId);
+    if (!realmId) continue;
+    const group = nodesByRealm.get(realmId) ?? [];
+    group.push(node);
+    nodesByRealm.set(realmId, group);
+  }
+  const labels: SemanticNode[] = [];
+  const positions = new Map<string, Point>();
+  for (const realm of realms) {
+    const node = [...(nodesByRealm.get(realm.id) ?? [])]
+      .sort((left, right) => right.importance - left.importance || left.word.length - right.word.length || left.rank - right.rank)[0];
+    if (!node) continue;
+    labels.push(node);
+    positions.set(node.id, {
+      x: realm.x * camera.scale + camera.x,
+      y: realm.y * camera.scale + camera.y + 38,
+    });
+  }
+  return { labels, positions };
 }
 
 function roundedRect(context: CanvasRenderingContext2D, x: number, y: number, width: number, height: number, radius: number): void {
@@ -276,25 +326,44 @@ export function SemanticAtlas({
       height: bounds.height + 100 / camera.scale,
     });
     const display = displayRef.current;
-    const labels = camera.scale < OVERVIEW_SCALE ? [] : pickLabels(candidates, camera, size, display.selected?.id);
+    const overview = camera.scale < OVERVIEW_SCALE;
+    const compactOverview = size.width < 600;
+    const realms = overview ? buildRealmOverview(currentRepository.manifest.clusters) : [];
+    const reserved = realms.map((realm) => ({
+      x: realm.x * camera.scale + camera.x,
+      y: realm.y * camera.scale + camera.y,
+      width: compactOverview ? 90 : 118,
+      height: compactOverview ? 52 : 62,
+    }));
+    const compactRepresentatives = overview && compactOverview
+      ? pickCompactRealmRepresentatives(candidates, currentRepository.manifest.clusters, realms, camera)
+      : null;
+    const labels = compactRepresentatives?.labels
+      ?? pickLabels(candidates, camera, size, display.selected?.id, reserved);
+    const labelPositions = compactRepresentatives?.positions ?? new Map<string, Point>();
     const clusters = new Map(currentRepository.manifest.clusters.map((cluster) => [cluster.id, cluster]));
     hitsRef.current = [];
+    canvas.dataset.renderedLabelCount = String(labels.length);
+    canvas.dataset.zoomTier = overview ? "realms" : camera.scale < 0.38 ? "topics" : "words";
 
-    if (camera.scale < OVERVIEW_SCALE) {
-      for (const realm of buildRealmOverview(currentRepository.manifest.clusters)) drawRealmOverview(context, realm, camera);
+    if (overview) {
+      for (const realm of realms) drawRealmOverview(context, realm, camera, compactOverview);
     } else if (camera.scale < 1.15) {
       for (const cluster of currentRepository.manifest.clusters) drawClusterTitle(context, cluster, camera, display.showMeanings);
     }
     for (const node of labels) {
       const cluster = clusters.get(node.clusterId);
-      const screenX = node.x * camera.scale + camera.x;
-      const screenY = node.y * camera.scale + camera.y;
+      const position = labelPositions.get(node.id);
+      const screenX = position?.x ?? node.x * camera.scale + camera.x;
+      const screenY = position?.y ?? node.y * camera.scale + camera.y;
       const isSelected = display.selected?.id === node.id;
       const fontSize = clamp(10.5 + camera.scale * 3.2 + node.importance * 2.2, 11, 18);
       context.font = `${node.rank < 1200 || isSelected ? 650 : 520} ${fontSize}px ui-sans-serif, system-ui, sans-serif`;
       const wordWidth = context.measureText(node.word).width;
       let meaningWidth = 0;
-      const meaning = display.showMeanings && camera.scale >= 0.58 ? node.meaning.split("\n")[0].slice(0, 24) : "";
+      const meaning = (isSelected || (display.showMeanings && camera.scale >= 0.58))
+        ? node.meaning.split("\n")[0].slice(0, 24)
+        : "";
       if (meaning) {
         context.font = `400 ${Math.max(10, fontSize - 3)}px ui-sans-serif, system-ui, sans-serif`;
         meaningWidth = context.measureText(meaning).width;
@@ -356,10 +425,9 @@ export function SemanticAtlas({
         setTotalCount(manifest.entryCount);
         setManifestReady(true);
         cameraRef.current = fitCamera(manifest, sizeRef.current);
-        // The overview needs cluster geography plus only one representative
-        // shard. Remaining regions hydrate during idle time or as the camera
-        // moves, so opening the universe never blocks on all 10,000 entries.
-        await repository.loadShard(manifest.shards[0], controller.signal);
+        // A few representative topics per realm keep the overview useful while
+        // the remaining topic shards stay viewport/search driven.
+        await repository.loadOverview(controller.signal);
         setLoadedCount(repository.loadedNodes.length);
         setStatus("ready");
         setAnnouncement(`词汇宇宙已打开，已载入 ${repository.loadedNodes.length} 个词`);
@@ -450,9 +518,9 @@ export function SemanticAtlas({
     displayRef.current.selected = node;
     setSelected(node);
     onSelectWord?.(node);
-    setAnnouncement(`${node.word}${showMeanings && node.meaning ? `，${node.meaning.split("\n")[0]}` : ""}`);
+    setAnnouncement(`${node.word}${node.meaning ? `，${node.meaning.split("\n")[0]}` : ""}`);
     scheduleRender();
-  }, [onSelectWord, scheduleRender, showMeanings]);
+  }, [onSelectWord, scheduleRender]);
 
   const selectAt = useCallback((x: number, y: number) => {
     for (let index = hitsRef.current.length - 1; index >= 0; index -= 1) {
@@ -607,7 +675,7 @@ export function SemanticAtlas({
             <small>#{selected.rank} · {selected.partsOfSpeech.join(" · ") || "word"}</small>
             <h2>{selected.word}</h2>
             {selected.phonetic ? <p className="semantic-atlas__phonetic">/{selected.phonetic}/</p> : null}
-            {showMeanings ? <p>{selected.meaning}</p> : <p className="semantic-atlas__muted">释义已关闭，先凭场景理解它。</p>}
+            <p>{selected.meaning}</p>
           </aside>
         ) : null}
 
@@ -625,11 +693,12 @@ function drawRealmOverview(
   context: CanvasRenderingContext2D,
   realm: RealmOverview,
   camera: Camera,
+  compact: boolean,
 ): void {
   const x = realm.x * camera.scale + camera.x;
   const y = realm.y * camera.scale + camera.y;
-  const width = 130;
-  const height = 62;
+  const width = compact ? 86 : 114;
+  const height = compact ? 48 : 58;
   context.save();
   context.shadowColor = "rgba(35, 48, 40, .1)";
   context.shadowBlur = 18;
@@ -642,20 +711,20 @@ function drawRealmOverview(
   context.lineWidth = 1;
   context.stroke();
   context.beginPath();
-  context.arc(x - width / 2 + 15, y - height / 2 + 15, 4, 0, Math.PI * 2);
+  context.arc(x - width / 2 + 12, y - height / 2 + 12, compact ? 3 : 4, 0, Math.PI * 2);
   context.fillStyle = realm.color;
   context.fill();
   context.textAlign = "center";
   context.textBaseline = "middle";
   context.fillStyle = "#29463b";
-  context.font = "750 10.5px ui-sans-serif, system-ui, sans-serif";
-  context.fillText(realm.title, x, y - 13, width - 18);
+  context.font = `${compact ? 700 : 750} ${compact ? 8 : 9.5}px ui-sans-serif, system-ui, sans-serif`;
+  context.fillText(realm.title, x, y - (compact ? 10 : 12), width - 14);
   context.fillStyle = "#4f675d";
-  context.font = "600 12px ui-sans-serif, system-ui, sans-serif";
-  context.fillText(realm.translation, x, y + 4, width - 18);
+  context.font = `600 ${compact ? 10 : 11}px ui-sans-serif, system-ui, sans-serif`;
+  context.fillText(realm.translation, x, y + (compact ? 3 : 4), width - 14);
   context.fillStyle = "rgba(58, 73, 65, .56)";
-  context.font = "500 9.5px ui-sans-serif, system-ui, sans-serif";
-  context.fillText(`${realm.topicCount} 个主题 · ${realm.count.toLocaleString()} 词`, x, y + 21, width - 18);
+  context.font = `500 ${compact ? 7.5 : 8.5}px ui-sans-serif, system-ui, sans-serif`;
+  context.fillText(`${realm.topicCount} 主题 · ${realm.count.toLocaleString()} 词`, x, y + (compact ? 16 : 20), width - 14);
   context.restore();
 }
 

@@ -124,7 +124,6 @@
 .semantic-atlas__card h2 { margin: 8px 0 0; font-family: Georgia, serif; font-size: 34px; font-weight: 500; }
 .semantic-atlas__card p { margin: 8px 0 0; color: #52665d; line-height: 1.55; white-space: pre-line; }
 .semantic-atlas__card .semantic-atlas__phonetic { color: #92744b; font-family: Georgia, serif; }
-.semantic-atlas__card .semantic-atlas__muted { color: #838b84; font-style: italic; }
 
 .semantic-atlas__hud {
   position: absolute;

@@ -362,6 +362,7 @@ a:focus-visible {
 }
 
 .word-label {
+  --label-opacity: 0;
   position: absolute;
   z-index: 2;
   display: flex;
@@ -374,15 +375,37 @@ a:focus-visible {
   background: rgba(251, 248, 239, 0.88);
   box-shadow: 0 5px 18px rgba(27, 57, 52, 0.16);
   color: #193733;
-  cursor: default;
+  cursor: pointer;
   font-size: 13px;
   font-weight: 750;
   letter-spacing: 0.01em;
   line-height: 1;
-  pointer-events: auto;
+  opacity: var(--label-opacity);
+  pointer-events: none;
   transform: translate(-50%, -50%) scale(var(--label-inverse));
   transform-origin: center;
+  transition: opacity 150ms cubic-bezier(0.22, 0.75, 0.25, 1), box-shadow 150ms ease, background 150ms ease;
+  visibility: hidden;
   white-space: nowrap;
+}
+
+.word-label[data-visible="true"] {
+  visibility: visible;
+}
+
+.word-label[data-visible="false"] {
+  transition: opacity 150ms cubic-bezier(0.22, 0.75, 0.25, 1), visibility 0s linear 150ms;
+}
+
+.word-label[data-interactive="true"] {
+  pointer-events: auto;
+}
+
+.word-label[data-interactive="true"]:hover,
+.word-label[data-interactive="true"]:focus-visible {
+  z-index: 4;
+  background: rgba(255, 253, 246, 0.98);
+  box-shadow: 0 8px 26px rgba(27, 57, 52, 0.24);
 }
 
 .word-label::before {
@@ -400,12 +423,6 @@ a:focus-visible {
   color: var(--ink-soft);
   font-size: 11px;
   font-weight: 600;
-}
-
-.scene-surface[data-zoom-level="0"] .word-label[data-min-level="1"],
-.scene-surface[data-zoom-level="0"] .word-label[data-min-level="2"],
-.scene-surface[data-zoom-level="1"] .word-label[data-min-level="2"] {
-  display: none;
 }
 
 .scene-hotspot {
@@ -537,11 +554,6 @@ a:focus-visible {
   line-height: 1.55;
 }
 
-.word-dock .meaning-muted {
-  color: rgba(50, 77, 72, 0.55);
-  font-style: italic;
-}
-
 .word-dock-close {
   position: absolute;
   top: 12px;
@@ -616,10 +628,6 @@ a:focus-visible {
 @keyframes spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 900px) {
-  .scene-surface[data-zoom-level="1"] .word-label[data-min-level="1"] {
-    display: none;
-  }
-
   .app-header {
     grid-template-columns: 1fr auto;
     height: 66px;

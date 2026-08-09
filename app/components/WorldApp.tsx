@@ -238,11 +238,7 @@ export function WorldApp() {
             </button>
             <span className="eyebrow">WORD ENCOUNTER</span>
             <strong>{selectedLabel.word}</strong>
-            {meaningVisible ? (
-              <p>{selectedLabel.translation}</p>
-            ) : (
-              <p className="meaning-muted">释义已关闭，保持沉浸式探索。</p>
-            )}
+            <p>{selectedLabel.translation}</p>
             <button
               type="button"
               className="listen-button"

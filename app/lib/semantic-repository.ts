@@ -334,11 +334,36 @@ export class SemanticRepository {
     const worldArea = manifest.world.width * manifest.world.height;
     const visibleAreaRatio = worldArea > 0 ? (bounds.width * bounds.height) / worldArea : 1;
     if (manifest.source === "semantic" && visibleAreaRatio > 0.45) {
-      const loaded = candidates.filter((shard) => this.loaded.has(shard.path));
-      const fresh = loaded.length ? [] : candidates.filter((shard) => !this.loaded.has(shard.path)).slice(0, 4);
-      candidates = [...loaded, ...fresh];
+      // A world-scale viewport uses the deliberately balanced overview sample;
+      // loading every intersecting topic here would defeat semantic sharding.
+      candidates = candidates.filter((shard) => this.loaded.has(shard.path));
     }
     const groups = await Promise.all(candidates.map((shard) => this.loadShard(shard, signal)));
+    return groups.flat();
+  }
+
+  /** Load a few small, spatially representative topics per semantic realm. */
+  async loadOverview(signal?: AbortSignal): Promise<SemanticNode[]> {
+    const manifest = await this.loadManifest(signal);
+    if (manifest.source !== "semantic") return this.loadShard(manifest.shards[0], signal);
+    const realmByCluster = new Map(manifest.clusters.map((cluster) => [cluster.id, cluster.realmId ?? cluster.id]));
+    const grouped = new Map<string, SemanticShardDescriptor[]>();
+    for (const shard of manifest.shards) {
+      const realmId = shard.clusterIds?.map((clusterId) => realmByCluster.get(clusterId)).find(Boolean);
+      if (!realmId) continue;
+      const entries = grouped.get(realmId) ?? [];
+      entries.push(shard);
+      grouped.set(realmId, entries);
+    }
+    // Two modest topics per realm create an evenly distributed overview. The
+    // four broadest realms contribute a third topic, yielding 24 spatially
+    // distinct word neighborhoods without loading their largest shards.
+    const descriptors = grouped.size
+      ? [...grouped.values()].flatMap((entries) => [...entries]
+          .sort((left, right) => Math.abs(left.count - 80) - Math.abs(right.count - 80))
+          .slice(0, entries.length >= 5 ? 3 : 2))
+      : manifest.shards.slice(0, 10);
+    const groups = await Promise.all(descriptors.map((descriptor) => this.loadShard(descriptor, signal)));
     return groups.flat();
   }
 
