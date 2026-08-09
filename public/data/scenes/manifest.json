@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "rootSceneId": "apartment",
+  "scenes": [
+    { "id": "apartment", "title": "Apartment", "parentId": null },
+    { "id": "kitchen", "title": "Kitchen", "parentId": "apartment" },
+    { "id": "coffee-machine", "title": "Coffee machine", "parentId": "kitchen" },
+    { "id": "water-tank", "title": "Water tank", "parentId": "coffee-machine" },
+    { "id": "polymer", "title": "Polymer", "parentId": "water-tank" }
+  ]
+}

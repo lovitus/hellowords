@@ -1,0 +1,28 @@
+{
+  "id": "polymer",
+  "title": "Polymer",
+  "translation": "聚合物",
+  "subtitle": "A material becomes a landscape",
+  "asset": "/scenes/polymer.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "water-tank",
+  "labels": [
+    { "id": "polymer", "word": "polymer", "translation": "聚合物", "x": 800, "y": 72, "priority": 1, "minLevel": 0 },
+    { "id": "molecule", "word": "molecule", "translation": "分子", "x": 575, "y": 370, "priority": 1, "minLevel": 0 },
+    { "id": "chain", "word": "chain", "translation": "链", "x": 970, "y": 420, "priority": 1, "minLevel": 0 },
+    { "id": "structure", "word": "structure", "translation": "结构", "x": 790, "y": 670, "priority": 1, "minLevel": 0 },
+    { "id": "bond", "word": "bond", "translation": "化学键", "x": 770, "y": 330, "priority": 2, "minLevel": 1 },
+    { "id": "monomer", "word": "monomer", "translation": "单体", "x": 390, "y": 520, "priority": 2, "minLevel": 1 },
+    { "id": "density", "word": "density", "translation": "密度", "x": 1160, "y": 610, "priority": 2, "minLevel": 1 },
+    { "id": "flexible", "word": "flexible", "translation": "柔韧的", "x": 1030, "y": 255, "priority": 2, "minLevel": 1 },
+    { "id": "elastic", "word": "elastic", "translation": "有弹性的", "x": 1270, "y": 370, "priority": 2, "minLevel": 1 },
+    { "id": "synthetic", "word": "synthetic", "translation": "合成的", "x": 320, "y": 275, "priority": 2, "minLevel": 1 },
+    { "id": "particle", "word": "particle", "translation": "粒子", "x": 650, "y": 555, "priority": 3, "minLevel": 2 },
+    { "id": "thermal", "word": "thermal", "translation": "热的", "x": 1100, "y": 745, "priority": 3, "minLevel": 2 },
+    { "id": "resistant", "word": "resistant", "translation": "耐受的", "x": 1325, "y": 540, "priority": 3, "minLevel": 2 },
+    { "id": "recyclable", "word": "recyclable", "translation": "可回收的", "x": 430, "y": 720, "priority": 3, "minLevel": 2 },
+    { "id": "microscopic", "word": "microscopic", "translation": "微观的", "x": 765, "y": 190, "priority": 3, "minLevel": 2 }
+  ],
+  "portals": []
+}

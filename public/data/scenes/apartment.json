@@ -1,0 +1,31 @@
+{
+  "id": "apartment",
+  "title": "Apartment",
+  "translation": "公寓",
+  "subtitle": "A quiet home above the city",
+  "asset": "/scenes/apartment.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": null,
+  "labels": [
+    { "id": "apartment", "word": "apartment", "translation": "公寓", "x": 790, "y": 74, "priority": 1, "minLevel": 0 },
+    { "id": "living-room", "word": "living room", "translation": "客厅", "x": 485, "y": 250, "priority": 1, "minLevel": 0 },
+    { "id": "kitchen", "word": "kitchen", "translation": "厨房", "x": 1175, "y": 255, "priority": 1, "minLevel": 0 },
+    { "id": "bedroom", "word": "bedroom", "translation": "卧室", "x": 405, "y": 630, "priority": 1, "minLevel": 0 },
+    { "id": "bathroom", "word": "bathroom", "translation": "浴室", "x": 1150, "y": 655, "priority": 1, "minLevel": 0 },
+    { "id": "balcony", "word": "balcony", "translation": "阳台", "x": 790, "y": 793, "priority": 2, "minLevel": 1 },
+    { "id": "sofa", "word": "sofa", "translation": "沙发", "x": 445, "y": 385, "priority": 2, "minLevel": 1 },
+    { "id": "rug", "word": "rug", "translation": "地毯", "x": 594, "y": 486, "priority": 2, "minLevel": 1 },
+    { "id": "counter", "word": "counter", "translation": "操作台", "x": 1175, "y": 382, "priority": 2, "minLevel": 1 },
+    { "id": "stove", "word": "stove", "translation": "炉灶", "x": 1285, "y": 402, "priority": 2, "minLevel": 1 },
+    { "id": "bed", "word": "bed", "translation": "床", "x": 420, "y": 700, "priority": 2, "minLevel": 1 },
+    { "id": "bathtub", "word": "bathtub", "translation": "浴缸", "x": 1186, "y": 738, "priority": 2, "minLevel": 1 },
+    { "id": "cushion", "word": "cushion", "translation": "靠垫", "x": 379, "y": 367, "priority": 3, "minLevel": 2 },
+    { "id": "shelf", "word": "shelf", "translation": "架子", "x": 1050, "y": 325, "priority": 3, "minLevel": 2 },
+    { "id": "pillow", "word": "pillow", "translation": "枕头", "x": 330, "y": 669, "priority": 3, "minLevel": 2 },
+    { "id": "faucet", "word": "faucet", "translation": "水龙头", "x": 1092, "y": 405, "priority": 3, "minLevel": 2 }
+  ],
+  "portals": [
+    { "id": "enter-kitchen", "label": "Enter the kitchen", "translation": "进入厨房", "childSceneId": "kitchen", "x": 1010, "y": 150, "width": 380, "height": 360, "enterScale": 3.6 }
+  ]
+}

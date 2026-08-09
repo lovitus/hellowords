@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">A microscopic polymer landscape</title>
+  <desc id="desc">Linked molecules form flexible chains across a soft abstract material surface.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#162f32"/><stop offset=".55" stop-color="#315b59"/><stop offset="1" stop-color="#b68161"/></linearGradient>
+    <radialGradient id="orb"><stop offset="0" stop-color="#fff4c7"/><stop offset=".55" stop-color="#e1ad69"/><stop offset="1" stop-color="#9d5d45"/></radialGradient>
+    <radialGradient id="orb2"><stop offset="0" stop-color="#e3fbf5"/><stop offset=".6" stop-color="#79b7ae"/><stop offset="1" stop-color="#356d69"/></radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M0 640Q250 520 460 690t430-40 400 23 310-62v289H0Z" fill="#f0d3b1" opacity=".2"/>
+  <path d="M-40 380C250 180 400 530 650 330s420-70 590-190 290 60 400-25" fill="none" stroke="#8ec8bb" stroke-width="31" stroke-linecap="round" opacity=".55"/>
+  <path d="M-20 680c230-250 470 100 700-80s430 130 650-40 280 55 350 105" fill="none" stroke="#e8b47b" stroke-width="25" stroke-linecap="round" opacity=".7"/>
+  <g stroke="#d6eee7" stroke-width="12" opacity=".85"><path d="M290 540l140-125 145 90 150-172 140 120 170-74 150 147 160-92"/><path d="M430 415l-75-159m220 249 24 180m126-352-40-151m180 271 37 172m113-246 63-178m87 325 100 116"/></g>
+  <g fill="url(#orb)" stroke="#f5d7a0" stroke-width="8"><circle cx="290" cy="540" r="57"/><circle cx="575" cy="505" r="66"/><circle cx="825" cy="453" r="62"/><circle cx="1145" cy="526" r="64"/><circle cx="1380" cy="434" r="52"/></g>
+  <g fill="url(#orb2)" stroke="#bce3d9" stroke-width="8"><circle cx="430" cy="415" r="69"/><circle cx="725" cy="333" r="54"/><circle cx="995" cy="379" r="72"/><circle cx="1305" cy="434" r="46"/><circle cx="355" cy="256" r="46"/><circle cx="599" cy="685" r="45"/><circle cx="902" cy="625" r="50"/><circle cx="1078" cy="201" r="43"/><circle cx="1245" cy="642" r="55"/></g>
+  <g fill="#ecf8f4" opacity=".72"><circle cx="151" cy="260" r="12"/><circle cx="219" cy="180" r="8"/><circle cx="480" cy="150" r="13"/><circle cx="772" cy="180" r="9"/><circle cx="910" cy="145" r="12"/><circle cx="1450" cy="225" r="10"/><circle cx="1502" cy="532" r="14"/><circle cx="104" cy="730" r="11"/><circle cx="730" cy="778" r="13"/><circle cx="1035" cy="756" r="8"/></g>
+</svg>

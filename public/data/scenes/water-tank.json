@@ -1,0 +1,32 @@
+{
+  "id": "water-tank",
+  "title": "Water tank",
+  "translation": "水箱",
+  "subtitle": "Shape, surface and material",
+  "asset": "/scenes/water-tank.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "coffee-machine",
+  "labels": [
+    { "id": "water-tank", "word": "water tank", "translation": "水箱", "x": 800, "y": 72, "priority": 1, "minLevel": 0 },
+    { "id": "reservoir", "word": "reservoir", "translation": "储水器", "x": 690, "y": 390, "priority": 1, "minLevel": 0 },
+    { "id": "plastic", "word": "plastic", "translation": "塑料", "x": 1060, "y": 330, "priority": 1, "minLevel": 0 },
+    { "id": "transparent", "word": "transparent", "translation": "透明的", "x": 600, "y": 260, "priority": 1, "minLevel": 0 },
+    { "id": "capacity", "word": "capacity", "translation": "容量", "x": 510, "y": 600, "priority": 2, "minLevel": 1 },
+    { "id": "surface", "word": "surface", "translation": "表面", "x": 960, "y": 470, "priority": 2, "minLevel": 1 },
+    { "id": "wall", "word": "wall", "translation": "壁", "x": 1040, "y": 545, "priority": 2, "minLevel": 1 },
+    { "id": "rim", "word": "rim", "translation": "边缘", "x": 745, "y": 175, "priority": 2, "minLevel": 1 },
+    { "id": "groove", "word": "groove", "translation": "凹槽", "x": 1095, "y": 645, "priority": 2, "minLevel": 1 },
+    { "id": "rubber", "word": "rubber", "translation": "橡胶", "x": 438, "y": 735, "priority": 2, "minLevel": 1 },
+    { "id": "smooth", "word": "smooth", "translation": "光滑的", "x": 900, "y": 270, "priority": 3, "minLevel": 2 },
+    { "id": "rigid", "word": "rigid", "translation": "坚硬的", "x": 1020, "y": 400, "priority": 3, "minLevel": 2 },
+    { "id": "hollow", "word": "hollow", "translation": "中空的", "x": 662, "y": 480, "priority": 3, "minLevel": 2 },
+    { "id": "molded", "word": "molded", "translation": "模制的", "x": 1150, "y": 270, "priority": 3, "minLevel": 2 },
+    { "id": "durable", "word": "durable", "translation": "耐用的", "x": 1145, "y": 488, "priority": 3, "minLevel": 2 },
+    { "id": "scratch", "word": "scratch", "translation": "划痕", "x": 948, "y": 615, "priority": 3, "minLevel": 2 },
+    { "id": "seam", "word": "seam", "translation": "接缝", "x": 804, "y": 680, "priority": 3, "minLevel": 2 }
+  ],
+  "portals": [
+    { "id": "enter-polymer", "label": "Inspect the plastic surface", "translation": "查看塑料表面", "childSceneId": "polymer", "x": 850, "y": 180, "width": 370, "height": 480, "enterScale": 3.6 }
+  ]
+}

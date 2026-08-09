@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">An illustrated apartment seen from above</title>
+  <desc id="desc">Living room, kitchen, bedroom, bathroom and balcony in a calm evening palette.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#cfe8e4"/><stop offset="1" stop-color="#f4dec2"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f2e7d5"/><stop offset="1" stop-color="#dcc6aa"/></linearGradient>
+    <linearGradient id="kitchen" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#dbe9e1"/><stop offset="1" stop-color="#b8d0c3"/></linearGradient>
+    <pattern id="tiles" width="44" height="44" patternUnits="userSpaceOnUse"><rect width="44" height="44" fill="#d9e7e4"/><path d="M44 0H0V44" fill="none" stroke="#c2d5d2" stroke-width="2"/></pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1420" cy="110" r="170" fill="#f7efcf" opacity=".72"/>
+  <path d="M0 735C220 680 350 760 560 718S920 692 1140 745s324 6 460-28v183H0Z" fill="#aac9bf"/>
+  <rect x="110" y="90" width="1380" height="720" rx="32" fill="#293d3b"/>
+  <rect x="132" y="112" width="1336" height="676" rx="19" fill="url(#floor)"/>
+  <path d="M790 112v676M132 540h1336M960 112v428" stroke="#293d3b" stroke-width="18"/>
+  <rect x="969" y="121" width="490" height="410" fill="url(#kitchen)"/>
+  <rect x="969" y="549" width="490" height="230" fill="url(#tiles)"/>
+  <rect x="141" y="549" width="640" height="230" fill="#e5d7ca"/>
+  <rect x="292" y="284" width="310" height="160" rx="48" fill="#6e8f86"/>
+  <rect x="325" y="300" width="94" height="68" rx="22" fill="#d7b88c"/>
+  <rect x="460" y="300" width="105" height="68" rx="22" fill="#b86551"/>
+  <rect x="352" y="402" width="322" height="26" rx="13" fill="#38534e"/>
+  <ellipse cx="565" cy="470" rx="170" ry="58" fill="#c49e70" opacity=".62"/>
+  <ellipse cx="565" cy="465" rx="95" ry="40" fill="#e8d4b5"/>
+  <rect x="162" y="148" width="66" height="300" rx="14" fill="#c9805f"/>
+  <rect x="176" y="164" width="38" height="272" rx="8" fill="#f1d4af"/>
+  <rect x="1010" y="145" width="410" height="82" rx="14" fill="#f3f0e6"/>
+  <g fill="#738f85"><rect x="1025" y="160" width="74" height="52" rx="8"/><rect x="1112" y="160" width="74" height="52" rx="8"/><rect x="1199" y="160" width="74" height="52" rx="8"/><rect x="1286" y="160" width="118" height="52" rx="8"/></g>
+  <rect x="1010" y="376" width="410" height="112" rx="18" fill="#f7f1e4"/>
+  <rect x="1042" y="397" width="106" height="60" rx="22" fill="#8fb5b0"/>
+  <path d="M1075 400v-50q0-34 35-34h24" fill="none" stroke="#455e5b" stroke-width="13" stroke-linecap="round"/>
+  <rect x="1230" y="382" width="135" height="98" rx="16" fill="#4c625f"/>
+  <circle cx="1263" cy="411" r="10" fill="#e1b568"/><circle cx="1300" cy="411" r="10" fill="#d9d6c6"/><circle cx="1337" cy="411" r="10" fill="#d9d6c6"/>
+  <rect x="1307" y="435" width="36" height="27" rx="7" fill="#b8d0c3"/>
+  <rect x="220" y="604" width="370" height="129" rx="34" fill="#8e6f65"/>
+  <rect x="244" y="621" width="136" height="76" rx="25" fill="#eee1cf"/>
+  <rect x="396" y="621" width="170" height="76" rx="25" fill="#caa283"/>
+  <rect x="1040" y="626" width="305" height="108" rx="45" fill="#e9efea"/>
+  <ellipse cx="1193" cy="677" rx="120" ry="51" fill="#c4dad7"/>
+  <rect x="1375" y="574" width="48" height="165" rx="18" fill="#64827a"/>
+  <rect x="800" y="746" width="150" height="27" rx="13" fill="#6f8f87"/>
+  <g fill="#49635e"><circle cx="854" cy="747" r="22"/><circle cx="897" cy="747" r="22"/></g>
+</svg>
