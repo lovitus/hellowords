@@ -2,11 +2,18 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SceneViewport } from "./SceneViewport";
-import { VocabularyAtlas } from "./VocabularyAtlas";
-import { loadScene, prefetchScene, prepareScene, type Scene } from "../lib/scene-repository";
+import { SemanticAtlas } from "./SemanticAtlas";
+import {
+  loadScene,
+  loadSceneManifest,
+  prefetchScene,
+  prepareScene,
+  type Scene,
+} from "../lib/scene-repository";
+import type { Label } from "../domain";
 
-const ROOT_SCENE = "apartment";
 const MEANING_KEY = "hellowords:meaning-visible";
+const DISCOVERED_KEY = "hellowords:discovered-words";
 
 export function WorldApp() {
   const [scene, setScene] = useState<Scene | null>(null);
@@ -16,17 +23,19 @@ export function WorldApp() {
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [transitionKey, setTransitionKey] = useState(0);
+  const [selectedLabel, setSelectedLabel] = useState<Label | null>(null);
+  const [discoveredCount, setDiscoveredCount] = useState(0);
   const navigationRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     const storedMeaningVisible = window.localStorage.getItem(MEANING_KEY) === "true";
     queueMicrotask(() => setMeaningVisible(storedMeaningVisible));
     const controller = new AbortController();
-    void prepareScene(ROOT_SCENE, controller.signal)
+    void loadSceneManifest(controller.signal)
+      .then((manifest) => prepareScene(manifest.rootSceneId, controller.signal))
       .then((initialScene) => {
         setScene(initialScene);
         setHistory([initialScene]);
-        initialScene.portals.slice(0, 1).forEach((portal) => prefetchScene(portal.childSceneId));
       })
       .catch((error: unknown) => {
         if (!controller.signal.aborted) setLoadError(error instanceof Error ? error.message : "Scene failed to load");
@@ -36,6 +45,42 @@ export function WorldApp() {
       });
     return () => controller.abort();
   }, []);
+
+  useEffect(() => {
+    if (!scene) return;
+    let discovered: string[] = [];
+    try {
+      const stored = JSON.parse(window.localStorage.getItem(DISCOVERED_KEY) ?? "[]") as unknown;
+      if (Array.isArray(stored)) discovered = stored.filter((word): word is string => typeof word === "string");
+    } catch {
+      discovered = [];
+    }
+    const next = new Set(discovered);
+    scene.labels.forEach((label) => next.add(label.word.toLocaleLowerCase()));
+    const serialized = [...next].sort();
+    window.localStorage.setItem(DISCOVERED_KEY, JSON.stringify(serialized));
+    let active = true;
+    queueMicrotask(() => {
+      if (!active) return;
+      setDiscoveredCount(serialized.length);
+      setSelectedLabel(null);
+    });
+    return () => {
+      active = false;
+    };
+  }, [scene]);
+
+  useEffect(() => {
+    if (!scene || scene.portals.length !== 1) return;
+    const target = scene.portals[0].childSceneId;
+    const prefetch = () => prefetchScene(target);
+    if (typeof window.requestIdleCallback === "function") {
+      const handle = window.requestIdleCallback(prefetch, { timeout: 1_500 });
+      return () => window.cancelIdleCallback(handle);
+    }
+    const handle = window.setTimeout(prefetch, 900);
+    return () => window.clearTimeout(handle);
+  }, [scene]);
 
   const settleScene = useCallback((from: string, nextScene: Scene, startedAt: number) => {
     requestAnimationFrame(() => {
@@ -69,7 +114,6 @@ export function WorldApp() {
           direction === "forward" ? [...current, nextScene] : current.slice(0, -1),
         );
         setTransitionKey((key) => key + 1);
-        nextScene.portals.slice(0, 1).forEach((portal) => prefetchScene(portal.childSceneId));
         settleScene(scene.id, nextScene, startedAt);
       } catch (error: unknown) {
         if (!controller.signal.aborted) setLoadError(error instanceof Error ? error.message : "Scene failed to load");
@@ -111,6 +155,11 @@ export function WorldApp() {
     return meaningVisible && scene.translation ? `${scene.title} · ${scene.translation}` : scene.title;
   }, [meaningVisible, scene]);
 
+  const setMeaningPreference = useCallback((visible: boolean) => {
+    setMeaningVisible(visible);
+    window.localStorage.setItem(MEANING_KEY, String(visible));
+  }, []);
+
   return (
     <main
       className="world-app"
@@ -134,19 +183,18 @@ export function WorldApp() {
           ))}
         </nav>
         <div className="header-actions">
-          <button type="button" className="atlas-button" onClick={() => setAtlasOpen(true)} aria-label="10,000+ 词汇地图">
-            <span aria-hidden="true">⌕</span><span className="atlas-button-label">10,000+ 词汇地图</span>
+          <span className="discovery-count" aria-label={`已遇见 ${discoveredCount} 个词`}>
+            <i aria-hidden="true" /><span>已遇见</span><b>{discoveredCount}</b>
+          </span>
+          <button type="button" className="atlas-button" onClick={() => setAtlasOpen(true)} aria-label="打开 10,000+ 词汇宇宙">
+            <span aria-hidden="true">⌕</span><span className="atlas-button-label">10,000+ 词汇宇宙</span>
           </button>
           <button
             type="button"
             className="meaning-toggle"
             data-testid="meaning-toggle"
             aria-pressed={meaningVisible}
-            onClick={() => {
-              const next = !meaningVisible;
-              setMeaningVisible(next);
-              window.localStorage.setItem(MEANING_KEY, String(next));
-            }}
+            onClick={() => setMeaningPreference(!meaningVisible)}
           >
             <span className="toggle-track"><span /></span>
             释义
@@ -167,6 +215,8 @@ export function WorldApp() {
             transitionKey={transitionKey}
             onEnterScene={(sceneId) => void navigate(sceneId, "forward")}
             onExitScene={goBack}
+            onSelectWord={setSelectedLabel}
+            onPrefetchScene={prefetchScene}
           />
         ) : (
           <div className="opening-state"><span /><p>正在展开词汇世界…</p></div>
@@ -176,13 +226,49 @@ export function WorldApp() {
         {history.length > 1 ? (
           <button type="button" className="back-button" onClick={goBack} disabled={loading}>← 返回上一层</button>
         ) : null}
+        {selectedLabel ? (
+          <aside className="word-dock" aria-label={`${selectedLabel.word} word details`}>
+            <button
+              type="button"
+              className="word-dock-close"
+              onClick={() => setSelectedLabel(null)}
+              aria-label="关闭单词卡"
+            >
+              ×
+            </button>
+            <span className="eyebrow">WORD ENCOUNTER</span>
+            <strong>{selectedLabel.word}</strong>
+            {meaningVisible ? (
+              <p>{selectedLabel.translation}</p>
+            ) : (
+              <p className="meaning-muted">释义已关闭，保持沉浸式探索。</p>
+            )}
+            <button
+              type="button"
+              className="listen-button"
+              onClick={() => {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(selectedLabel.word);
+                utterance.lang = "en-US";
+                utterance.rate = 0.86;
+                window.speechSynthesis.speak(utterance);
+              }}
+            >
+              <span aria-hidden="true">◖))</span> 听发音
+            </button>
+          </aside>
+        ) : null}
       </section>
 
       <div className="scene-announcement sr-only" aria-live="polite">
         {scene ? `Entered ${scene.title}` : ""}
       </div>
-      <VocabularyAtlas open={atlasOpen} onClose={() => setAtlasOpen(false)} />
-      {atlasOpen ? <button className="atlas-scrim" type="button" onClick={() => setAtlasOpen(false)} aria-label="Close vocabulary atlas" /> : null}
+      <SemanticAtlas
+        open={atlasOpen}
+        onClose={() => setAtlasOpen(false)}
+        showMeanings={meaningVisible}
+        onShowMeaningsChange={setMeaningPreference}
+      />
     </main>
   );
 }

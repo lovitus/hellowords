@@ -167,9 +167,31 @@ a:focus-visible {
   gap: 10px;
 }
 
+.discovery-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.discovery-count i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(214, 166, 93, 0.15);
+}
+
+.discovery-count b {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
 .atlas-button,
 .meaning-toggle,
-.icon-button,
 .back-button,
 .zoom-controls button {
   border: 1px solid var(--line);
@@ -180,7 +202,6 @@ a:focus-visible {
 
 .atlas-button:hover,
 .meaning-toggle:hover,
-.icon-button:hover,
 .back-button:hover,
 .zoom-controls button:hover {
   border-color: rgba(49, 92, 86, 0.42);
@@ -481,6 +502,74 @@ a:focus-visible {
   font-weight: 700;
 }
 
+.word-dock {
+  position: absolute;
+  z-index: 18;
+  right: 30px;
+  top: 32px;
+  width: min(270px, calc(100vw - 40px));
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  border-radius: 22px 22px 22px 7px;
+  background: rgba(249, 246, 236, 0.92);
+  box-shadow: 0 20px 64px rgba(23, 49, 46, 0.2);
+  backdrop-filter: blur(18px) saturate(1.1);
+  animation: word-dock-open 180ms ease both;
+}
+
+@keyframes word-dock-open {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.word-dock > strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 31px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.word-dock p {
+  margin: 7px 0 16px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.word-dock .meaning-muted {
+  color: rgba(50, 77, 72, 0.55);
+  font-style: italic;
+}
+
+.word-dock-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.listen-button {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 13px;
+  border: 1px solid rgba(49, 92, 86, 0.2);
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff8e8;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 750;
+}
+
 .loading-pill,
 .error-pill {
   position: absolute;
@@ -526,165 +615,11 @@ a:focus-visible {
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-.atlas-panel {
-  position: fixed;
-  z-index: 101;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: min(590px, 94vw);
-  display: flex;
-  flex-direction: column;
-  padding: 34px;
-  border-left: 1px solid rgba(33, 63, 58, 0.13);
-  background: rgba(248, 244, 235, 0.98);
-  box-shadow: -30px 0 80px rgba(26, 50, 46, 0.22);
-  animation: atlas-open 220ms ease both;
-}
-
-@keyframes atlas-open {
-  from { transform: translateX(35px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-.atlas-scrim {
-  position: fixed;
-  z-index: 100;
-  inset: 0;
-  border: 0;
-  background: rgba(20, 43, 39, 0.3);
-  backdrop-filter: blur(4px);
-}
-
-.atlas-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.atlas-header h2 {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 38px;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-}
-
-.atlas-header p {
-  margin: 7px 0 0;
-  color: var(--ink-soft);
-  font-size: 12px;
-}
-
-.icon-button {
-  width: 38px;
-  height: 38px;
-  flex: 0 0 38px;
-  border-radius: 50%;
-  font-size: 22px;
-}
-
-.atlas-search {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  margin-top: 26px;
-  padding: 0 15px;
-  border: 1px solid var(--line);
-  border-radius: 15px;
-  background: white;
-}
-
-.atlas-search input {
-  width: 100%;
-  height: 48px;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: var(--ink);
-}
-
-.atlas-search > span:last-child {
-  color: var(--ink-soft);
-  font-size: 11px;
-}
-
-.atlas-results {
-  min-height: 0;
-  margin: 18px -8px 0;
-  padding: 0 8px;
-  overflow: auto;
-  list-style: none;
-}
-
-.atlas-results li {
-  display: grid;
-  grid-template-columns: 38px minmax(120px, 1fr) minmax(130px, 1.25fr) auto;
-  align-items: center;
-  gap: 10px;
-  min-height: 58px;
-  border-bottom: 1px solid var(--line);
-}
-
-.atlas-rank {
-  color: rgba(36, 65, 60, 0.38);
-  font-size: 10px;
-  font-variant-numeric: tabular-nums;
-}
-
-.atlas-word {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.atlas-word strong {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.atlas-word small,
-.atlas-group {
-  color: var(--ink-soft);
-  font-size: 9px;
-}
-
-.atlas-meaning {
-  overflow: hidden;
-  color: #506762;
-  font-size: 12px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.atlas-group {
-  padding: 5px 7px;
-  border-radius: 999px;
-  background: #e3ebe5;
-  white-space: nowrap;
-}
-
-.atlas-status {
-  margin: auto;
-  color: var(--ink-soft);
-}
-
-.atlas-status.error {
-  color: #8c4338;
-}
-
-.atlas-footer {
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-  color: var(--ink-soft);
-  font-size: 10px;
-  line-height: 1.5;
-}
-
 @media (max-width: 900px) {
+  .scene-surface[data-zoom-level="1"] .word-label[data-min-level="1"] {
+    display: none;
+  }
+
   .app-header {
     grid-template-columns: 1fr auto;
     height: 66px;
@@ -702,6 +637,14 @@ a:focus-visible {
   }
 
   .atlas-button-label {
+    display: none;
+  }
+
+  .discovery-count {
+    gap: 5px;
+  }
+
+  .discovery-count span {
     display: none;
   }
 
@@ -739,6 +682,12 @@ a:focus-visible {
     left: 16px;
     bottom: 20px;
   }
+
+  .word-dock {
+    top: auto;
+    right: 16px;
+    bottom: 74px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -770,18 +719,6 @@ a:focus-visible {
     height: 36px;
   }
 
-  .atlas-panel {
-    width: 100vw;
-    padding: 24px 18px;
-  }
-
-  .atlas-results li {
-    grid-template-columns: 28px minmax(100px, 1fr) minmax(100px, 1fr);
-  }
-
-  .atlas-group {
-    display: none;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

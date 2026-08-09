@@ -11,13 +11,20 @@ Status: initial protective ceilings; recalibrate after repeated main-branch runs
 | Visible mobile labels | <= 16 |
 | Live DOM nodes | <= 1,500 |
 | Individual SVG, gzip | <= 350 KiB |
+| Individual raster asset | <= 1.2 MiB |
 | Initial JavaScript, gzip | <= 300 KiB |
+| Largest semantic shard, gzip | <= 300 KiB |
 | Cold initial encoded bytes | <= 1 MiB |
 | Cold initial requests | <= 20 |
 
 Artwork should avoid expensive blur/filter chains. Only `transform` and
 `opacity` are animated during camera and scene transitions. Temporary
 `will-change` hints are removed after transitions.
+
+The semantic universe uses a single DPR-capped Canvas, 320 px spatial-hash
+cells, viewport culling and zoom-tier label limits of 90/150/260/420/650. The
+overview loads one representative shard; zoom and search hydrate only required
+topic shards. Its live DOM budget remains independent of the 10,000-word count.
 
 ## Interaction limits
 
@@ -54,6 +61,10 @@ Three scenarios report separately:
 1. cold start and the first three-level descent;
 2. a warmed deterministic sequence of 40 enter/return transitions;
 3. 100 enter/return transitions followed by a retained-memory check.
+
+A separate semantic-universe scenario loads all 10,000 entries, focuses an
+exact search result and performs a deterministic pan/zoom sequence while gating
+DOM size, duplicate shard requests, JS heap, long tasks and browser CPU.
 
 CPU sampling uses CDP `SystemInfo.getProcessInfo().cpuTime`. Linux PSS is sampled
 from `smaps_rollup`; RSS from `/proc/<pid>/status` is recorded as a higher-rate,

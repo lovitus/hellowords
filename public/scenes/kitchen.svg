@@ -42,4 +42,8 @@
   <rect x="1230" y="378" width="99" height="54" rx="10" fill="#697e79"/>
   <path d="M1326 394h66v105" fill="none" stroke="#435957" stroke-width="15" stroke-linecap="round"/>
   <rect x="1373" y="485" width="56" height="64" rx="12" fill="#d9aa73"/>
+  <rect x="665" y="430" width="145" height="34" rx="8" fill="#b98b60" stroke="#6d5140" stroke-width="6"/><ellipse cx="625" cy="420" rx="58" ry="25" fill="#e8d1a7" stroke="#6a817a" stroke-width="8"/>
+  <path d="M408 438q18-72 82-72t86 72Z" fill="#526e68" stroke="#314a45" stroke-width="8"/><path d="M576 414h75" stroke="#314a45" stroke-width="15" stroke-linecap="round"/>
+  <path d="M915 528h55v145q-25 25-55 0Z" fill="#e9c979" opacity=".9"/><g stroke="#405b56" stroke-width="8" stroke-linecap="round"><path d="M1420 300v125"/><path d="M1390 315h60m-55 35h50m-45 35h40"/></g>
+  <g fill="#d9ede7"><ellipse cx="675" cy="420" rx="46" ry="19"/><path d="M630 420q45 65 90 0"/></g>
 </svg>

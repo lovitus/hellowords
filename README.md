@@ -1,26 +1,31 @@
 # HelloWords · 词境
 
-HelloWords is a calm, zoomable vocabulary world. Learners explore illustrated
-SVG scene slices, move from places to objects to parts and materials, and reveal
-Chinese meanings only when they choose. The first version intentionally avoids
-quizzes and streak pressure.
+HelloWords is a calm, zoomable vocabulary world. Learners move from illustrated
+places to objects, anatomy, nature, materials and microscopic detail, then roam
+a spatial semantic universe containing every shipped word. Chinese meanings are
+off by default, and the experience intentionally avoids quiz and streak pressure.
 
 ## Included in this version
 
-- five-level scene chain: apartment → kitchen → coffee machine → water tank →
-  polymer;
+- 18 reachable scene slices across home, city, nature and health, with 432
+  curated object and detail anchors;
+- four premium 1600 × 900 establishing illustrations plus lightweight deep
+  cutaway SVG scenes;
 - mouse, touch, wheel and pinch camera controls;
 - automatic zoom entry, zoom-out return, breadcrumbs and explicit controls;
 - English labels with a Chinese-meaning toggle that is off by default;
-- a lazily loaded, searchable atlas of exactly 10,000 ranked English words;
+- a Canvas-based semantic universe where all 10,000 ranked English words have
+  deterministic coordinates across 10 realms, 44 topics and 704 subclusters;
+- passive discovery tracking, searchable word focus, encounter cards and local
+  pronunciation without compulsory testing;
 - desktop and mobile layouts, keyboard-accessible controls and reduced motion;
 - deterministic data generation, complete integrity checks and source notices;
 - GitHub Actions build, browser tests, bundle analysis, and Chromium CPU/memory
   measurement.
 
-The product states clearly that illustrated scene anchors are curated while the
-remaining entries live in the searchable vocabulary atlas. It does not claim
-that all 10,000 words were individually illustrated.
+All 10,000 entries are spatially reachable and searchable. The product still
+distinguishes 432 naturally illustrated anchors from words organized in the
+semantic universe; it does not claim that every entry was individually drawn.
 
 ## Local development
 
@@ -42,8 +47,10 @@ PERF_RUN=1 npm run test:perf
 ## Vocabulary data
 
 Frequency order comes from `wordfreq 3.1.1`; Chinese meanings and phonetics come
-from ECDICT at commit `bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b`. Generated
-data is split into ten rank bands and is not bundled into initial JavaScript.
+from ECDICT at commit `bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b`;
+semantic grouping uses the pinned Princeton WordNet 3.0 archive. Ranked data is
+split into ten bands and semantic data into 44 topic shards, neither of which
+is bundled into initial JavaScript.
 
 See [data sources](docs/data-sources.md) and
 [third-party notices](public/data/THIRD_PARTY_NOTICES.md) for versions,

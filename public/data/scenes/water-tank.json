@@ -24,7 +24,14 @@
     { "id": "molded", "word": "molded", "translation": "模制的", "x": 1150, "y": 270, "priority": 3, "minLevel": 2 },
     { "id": "durable", "word": "durable", "translation": "耐用的", "x": 1145, "y": 488, "priority": 3, "minLevel": 2 },
     { "id": "scratch", "word": "scratch", "translation": "划痕", "x": 948, "y": 615, "priority": 3, "minLevel": 2 },
-    { "id": "seam", "word": "seam", "translation": "接缝", "x": 804, "y": 680, "priority": 3, "minLevel": 2 }
+    { "id": "seam", "word": "seam", "translation": "接缝", "x": 804, "y": 680, "priority": 3, "minLevel": 2 },
+    { "id": "waterline", "word": "waterline", "translation": "水位线", "x": 700, "y": 395, "priority": 2, "minLevel": 1 },
+    { "id": "condensation", "word": "condensation", "translation": "冷凝水", "x": 555, "y": 315, "priority": 3, "minLevel": 2 },
+    { "id": "reflection", "word": "reflection", "translation": "反光", "x": 540, "y": 520, "priority": 3, "minLevel": 2 },
+    { "id": "base", "word": "base", "translation": "底座", "x": 760, "y": 770, "priority": 2, "minLevel": 1 },
+    { "id": "foot", "word": "foot", "translation": "支脚", "x": 520, "y": 780, "priority": 3, "minLevel": 2 },
+    { "id": "texture", "word": "texture", "translation": "纹理", "x": 1280, "y": 470, "priority": 2, "minLevel": 1 },
+    { "id": "granule", "word": "granule", "translation": "颗粒", "x": 1335, "y": 390, "priority": 3, "minLevel": 2 }
   ],
   "portals": [
     { "id": "enter-polymer", "label": "Inspect the plastic surface", "translation": "查看塑料表面", "childSceneId": "polymer", "x": 850, "y": 180, "width": 370, "height": 480, "enterScale": 3.6 }

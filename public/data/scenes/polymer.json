@@ -22,7 +22,16 @@
     { "id": "thermal", "word": "thermal", "translation": "热的", "x": 1100, "y": 745, "priority": 3, "minLevel": 2 },
     { "id": "resistant", "word": "resistant", "translation": "耐受的", "x": 1325, "y": 540, "priority": 3, "minLevel": 2 },
     { "id": "recyclable", "word": "recyclable", "translation": "可回收的", "x": 430, "y": 720, "priority": 3, "minLevel": 2 },
-    { "id": "microscopic", "word": "microscopic", "translation": "微观的", "x": 765, "y": 190, "priority": 3, "minLevel": 2 }
+    { "id": "microscopic", "word": "microscopic", "translation": "微观的", "x": 765, "y": 190, "priority": 3, "minLevel": 2 },
+    { "id": "atom", "word": "atom", "translation": "原子", "x": 430, "y": 415, "priority": 2, "minLevel": 1 },
+    { "id": "carbon", "word": "carbon", "translation": "碳", "x": 575, "y": 505, "priority": 2, "minLevel": 1 },
+    { "id": "hydrogen", "word": "hydrogen", "translation": "氢", "x": 725, "y": 333, "priority": 2, "minLevel": 1 },
+    { "id": "branch", "word": "branch", "translation": "支链", "x": 995, "y": 379, "priority": 3, "minLevel": 2 },
+    { "id": "cross-link", "word": "cross-link", "translation": "交联", "x": 1145, "y": 526, "priority": 3, "minLevel": 2 },
+    { "id": "tensile", "word": "tensile", "translation": "抗拉的", "x": 1380, "y": 434, "priority": 3, "minLevel": 2 },
+    { "id": "viscosity", "word": "viscosity", "translation": "黏度", "x": 599, "y": 685, "priority": 3, "minLevel": 2 },
+    { "id": "crystalline", "word": "crystalline", "translation": "结晶的", "x": 1078, "y": 201, "priority": 3, "minLevel": 2 },
+    { "id": "amorphous", "word": "amorphous", "translation": "非晶的", "x": 1245, "y": 642, "priority": 3, "minLevel": 2 }
   ],
   "portals": []
 }

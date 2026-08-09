@@ -6,10 +6,17 @@ import { brotliCompressSync, gzipSync } from "node:zlib";
 const root = resolve(process.cwd(), "dist");
 const outputRoot = resolve(process.cwd(), "artifacts/build");
 const budgets = {
+  totalClientJavaScriptGzipBytes: Number(
+    process.env.BUILD_MAX_TOTAL_CLIENT_JS_GZIP_BYTES ?? 300 * 1024,
+  ),
   largestClientJavaScriptGzipBytes: Number(
     process.env.BUILD_MAX_CLIENT_JS_GZIP_BYTES ?? 300 * 1024,
   ),
   largestSvgGzipBytes: Number(process.env.BUILD_MAX_SVG_GZIP_BYTES ?? 350 * 1024),
+  largestRasterBytes: Number(process.env.BUILD_MAX_RASTER_BYTES ?? 1_200 * 1024),
+  largestSemanticShardGzipBytes: Number(
+    process.env.BUILD_MAX_SEMANTIC_SHARD_GZIP_BYTES ?? 300 * 1024,
+  ),
 };
 
 async function walk(directory) {
@@ -44,19 +51,34 @@ const clientJavaScript = files.filter(
     !/(^|\/)(server|worker)(\/|$)/.test(file.path),
 );
 const svg = files.filter((file) => file.path.endsWith(".svg"));
+const raster = files.filter((file) => /\.(?:avif|jpe?g|png|webp)$/u.test(file.path));
+const semanticShards = files.filter((file) => /^client\/data\/semantic\/topics\/.+\.json$/u.test(file.path));
 const largest = (entries, field) =>
   entries.reduce((current, entry) =>
     !current || entry[field] > current[field] ? entry : current,
   null);
 const largestClientJavaScript = largest(clientJavaScript, "gzipBytes");
 const largestSvg = largest(svg, "gzipBytes");
+const largestRaster = largest(raster, "bytes");
+const largestSemanticShard = largest(semanticShards, "gzipBytes");
+const totalClientJavaScriptGzipBytes = clientJavaScript.reduce(
+  (sum, file) => sum + file.gzipBytes,
+  0,
+);
 const checks = {
   hasClientJavaScript: clientJavaScript.length > 0,
+  totalClientJavaScript:
+    totalClientJavaScriptGzipBytes <= budgets.totalClientJavaScriptGzipBytes,
   clientJavaScript:
     largestClientJavaScript === null ||
     largestClientJavaScript.gzipBytes <= budgets.largestClientJavaScriptGzipBytes,
   svg:
     largestSvg === null || largestSvg.gzipBytes <= budgets.largestSvgGzipBytes,
+  raster:
+    largestRaster === null || largestRaster.bytes <= budgets.largestRasterBytes,
+  semanticShard:
+    largestSemanticShard === null ||
+    largestSemanticShard.gzipBytes <= budgets.largestSemanticShardGzipBytes,
 };
 const manifest = {
   schemaVersion: 1,
@@ -67,13 +89,12 @@ const manifest = {
     bytes: files.reduce((sum, file) => sum + file.bytes, 0),
     gzipBytes: files.reduce((sum, file) => sum + file.gzipBytes, 0),
     brotliBytes: files.reduce((sum, file) => sum + file.brotliBytes, 0),
-    clientJavaScriptGzipBytes: clientJavaScript.reduce(
-      (sum, file) => sum + file.gzipBytes,
-      0,
-    ),
+    clientJavaScriptGzipBytes: totalClientJavaScriptGzipBytes,
   },
   largestClientJavaScript,
   largestSvg,
+  largestRaster,
+  largestSemanticShard,
   budgets,
   checks,
   files,
@@ -92,6 +113,8 @@ const summary = [
   `- Client JavaScript gzip: ${(manifest.totals.clientJavaScriptGzipBytes / 1024).toFixed(1)} KiB`,
   `- Largest client JavaScript gzip: ${largestClientJavaScript ? `${(largestClientJavaScript.gzipBytes / 1024).toFixed(1)} KiB (${largestClientJavaScript.path})` : "not found"}`,
   `- Largest SVG gzip: ${largestSvg ? `${(largestSvg.gzipBytes / 1024).toFixed(1)} KiB (${largestSvg.path})` : "none"}`,
+  `- Largest raster: ${largestRaster ? `${(largestRaster.bytes / 1024).toFixed(1)} KiB (${largestRaster.path})` : "none"}`,
+  `- Largest semantic shard gzip: ${largestSemanticShard ? `${(largestSemanticShard.gzipBytes / 1024).toFixed(1)} KiB (${largestSemanticShard.path})` : "none"}`,
   "",
 ].join("\n");
 await writeFile(resolve(outputRoot, "summary.md"), summary);
@@ -102,6 +125,6 @@ if (process.env.GITHUB_STEP_SUMMARY) {
 }
 
 if (!Object.values(checks).every(Boolean)) {
-  console.error(JSON.stringify({ budgets, checks, largestClientJavaScript, largestSvg }, null, 2));
+  console.error(JSON.stringify({ budgets, checks, largestClientJavaScript, largestSvg, largestRaster, largestSemanticShard }, null, 2));
   process.exitCode = 1;
 }

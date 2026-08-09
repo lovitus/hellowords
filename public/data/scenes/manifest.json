@@ -1,11 +1,24 @@
 {
   "schemaVersion": 1,
-  "rootSceneId": "apartment",
+  "rootSceneId": "world-map",
   "scenes": [
-    { "id": "apartment", "title": "Apartment", "parentId": null },
+    { "id": "world-map", "title": "World atlas", "parentId": null },
+    { "id": "apartment", "title": "Apartment", "parentId": "world-map" },
     { "id": "kitchen", "title": "Kitchen", "parentId": "apartment" },
     { "id": "coffee-machine", "title": "Coffee machine", "parentId": "kitchen" },
     { "id": "water-tank", "title": "Water tank", "parentId": "coffee-machine" },
-    { "id": "polymer", "title": "Polymer", "parentId": "water-tank" }
+    { "id": "polymer", "title": "Polymer", "parentId": "water-tank" },
+    { "id": "city-street", "title": "City street", "parentId": "world-map" },
+    { "id": "transit-hub", "title": "Transit hub", "parentId": "city-street" },
+    { "id": "electric-bus", "title": "Electric bus", "parentId": "transit-hub" },
+    { "id": "battery", "title": "Battery pack", "parentId": "electric-bus" },
+    { "id": "science-museum", "title": "Science museum", "parentId": "city-street" },
+    { "id": "human-body", "title": "Human body", "parentId": "science-museum" },
+    { "id": "heart", "title": "Heart", "parentId": "human-body" },
+    { "id": "blood-cell", "title": "Blood cell", "parentId": "heart" },
+    { "id": "city-park", "title": "City park", "parentId": "world-map" },
+    { "id": "oak-tree", "title": "Oak tree", "parentId": "city-park" },
+    { "id": "leaf", "title": "Leaf", "parentId": "oak-tree" },
+    { "id": "plant-cell", "title": "Plant cell", "parentId": "leaf" }
   ]
 }

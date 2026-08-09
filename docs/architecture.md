@@ -9,26 +9,28 @@ version. English labels are visible in the scene, Chinese meanings are off by
 default, and zooming into or out of a portal changes scene slices without
 exposing loading mechanics.
 
-The first release must provide both:
+The product provides both:
 
-- a small set of illustrated, semantically natural scene chains; and
-- a searchable vocabulary atlas containing at least 10,000 ranked English
-  display words with Chinese meanings.
+- a branching set of illustrated, semantically natural scene chains; and
+- a zoomable, searchable semantic universe containing exactly 10,000 ranked
+  English display words with Chinese meanings.
 
 The UI must distinguish natural scene anchors from atlas entries. It must not
   claim that every vocabulary entry has been hand-illustrated.
 
 ## Rendering decision
 
-Each illustrated slice is an external SVG loaded as an image. The SVG is
+Each illustrated slice is an external image: premium JPEGs establish the four
+broad places and lightweight SVG cutaways handle deeper levels. Artwork is
 decorative; labels, portals, focus targets, and navigation are separate HTML
 layers driven by typed scene data. This keeps the browser DOM independent of
 SVG drawing complexity and makes translations and placement editable without
 rewriting artwork.
 
 Only the current scene is normally mounted. During a transition the current and
-next surfaces may coexist briefly. Ten thousand vocabulary entries are never
-rendered at once; atlas results and scene labels are windowed.
+next surfaces may coexist briefly. The semantic universe uses one Canvas, a
+spatial hash, viewport culling and zoom-dependent label budgets; ten thousand
+vocabulary entries never become ten thousand DOM nodes.
 
 The client is divided into four layers:
 
@@ -77,9 +79,15 @@ Every shipped entry includes:
 - source references and data-license metadata;
 - an atlas group so every entry is reachable without loading the full dataset.
 
-The vocabulary atlas is sharded by rank band. Its manifest contains counts,
-hashes and license metadata. Chinese data is loaded only when the user opens a
-meaning or searches the atlas; it is not part of the initial scene bundle.
+The ranked vocabulary is sharded by rank band. A second deterministic semantic
+build maps every entry into 10 realms, 44 topics and 704 subclusters using
+WordNet synsets/lexnames plus explicit fallbacks for inflections, names,
+abbreviations, contractions and function words. The semantic universe is
+sharded by topic and loads only the overview shard initially; viewport movement
+and search request the rest on demand.
+
+Scene encounters are recorded passively in local storage. Selecting a label
+opens an optional word card and pronunciation action, but no exam is required.
 
 ## Accessibility and input
 
@@ -103,4 +111,3 @@ metrics, DOM counters and JS heap supplement those process-level measurements.
 
 GitHub Actions is the authoritative build path. Local commands mirror its
 steps, but do not replace the workflow evidence.
-

@@ -1,0 +1,34 @@
+{
+  "id": "world-map", "title": "World atlas", "translation": "词境世界", "subtitle": "Choose a path from the whole world", "asset": "/scenes/world-map-premium.jpg", "width": 1600, "height": 900, "parentId": null,
+  "labels": [
+    {"id":"apartment","word":"apartment","translation":"公寓","x":225,"y":350,"priority":1,"minLevel":0},
+    {"id":"building","word":"building","translation":"建筑","x":790,"y":235,"priority":1,"minLevel":0},
+    {"id":"oak","word":"oak","translation":"橡树","x":1260,"y":290,"priority":1,"minLevel":0},
+    {"id":"street","word":"street","translation":"街道","x":800,"y":455,"priority":1,"minLevel":0},
+    {"id":"station","word":"station","translation":"车站","x":900,"y":410,"priority":1,"minLevel":0},
+    {"id":"pond","word":"pond","translation":"池塘","x":1320,"y":600,"priority":1,"minLevel":0},
+    {"id":"balcony","word":"balcony","translation":"阳台","x":90,"y":285,"priority":2,"minLevel":1},
+    {"id":"bedroom","word":"bedroom","translation":"卧室","x":285,"y":345,"priority":2,"minLevel":1},
+    {"id":"kitchen","word":"kitchen","translation":"厨房","x":320,"y":285,"priority":2,"minLevel":1},
+    {"id":"garden","word":"garden","translation":"花园","x":450,"y":625,"priority":2,"minLevel":1},
+    {"id":"bicycle","word":"bicycle","translation":"自行车","x":245,"y":800,"priority":2,"minLevel":1},
+    {"id":"bus","word":"bus","translation":"公交车","x":965,"y":480,"priority":2,"minLevel":1},
+    {"id":"shop","word":"shop","translation":"商店","x":825,"y":340,"priority":2,"minLevel":1},
+    {"id":"pedestrian","word":"pedestrian","translation":"行人","x":915,"y":360,"priority":2,"minLevel":1},
+    {"id":"crosswalk","word":"crosswalk","translation":"人行横道","x":800,"y":525,"priority":2,"minLevel":1},
+    {"id":"path","word":"path","translation":"小径","x":1200,"y":430,"priority":2,"minLevel":1},
+    {"id":"greenhouse","word":"greenhouse","translation":"温室","x":1035,"y":690,"priority":2,"minLevel":1},
+    {"id":"deer","word":"deer","translation":"鹿","x":1300,"y":790,"priority":3,"minLevel":2},
+    {"id":"bird","word":"bird","translation":"鸟","x":1470,"y":145,"priority":3,"minLevel":2},
+    {"id":"hill","word":"hill","translation":"山丘","x":1270,"y":82,"priority":3,"minLevel":2},
+    {"id":"flower","word":"flower","translation":"花朵","x":1410,"y":730,"priority":3,"minLevel":2},
+    {"id":"bridge","word":"bridge","translation":"桥","x":230,"y":140,"priority":3,"minLevel":2},
+    {"id":"river","word":"river","translation":"河流","x":330,"y":170,"priority":3,"minLevel":2},
+    {"id":"roof","word":"roof","translation":"屋顶","x":690,"y":175,"priority":3,"minLevel":2}
+  ],
+  "portals": [
+    {"id":"enter-home","label":"Explore home","translation":"探索家园","childSceneId":"apartment","x":25,"y":175,"width":460,"height":660,"enterScale":3.6},
+    {"id":"enter-city","label":"Explore the city","translation":"探索城市","childSceneId":"city-street","x":530,"y":125,"width":550,"height":450,"enterScale":3.6},
+    {"id":"enter-nature","label":"Explore nature","translation":"探索自然","childSceneId":"city-park","x":1000,"y":120,"width":570,"height":700,"enterScale":3.6}
+  ]
+}

@@ -312,3 +312,65 @@ test("scene slices stay within CPU and memory budgets", async ({ browser, page }
     2,
   );
 });
+
+test("the semantic universe exposes all 10,000 words without a 10,000-node DOM", async ({ browser, page }, testInfo) => {
+  test.skip(testInfo.project.name !== "performance");
+  const requestedData: string[] = [];
+  page.on("request", (request) => {
+    if (/\/data\/semantic\/.+\.json/.test(request.url())) requestedData.push(request.url());
+  });
+  await preparePage(page);
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await waitForWorld(page);
+
+  const sampler = new BrowserMetricsSampler(browser, page);
+  await sampler.start();
+  await page.getByRole("button", { name: /10,000\+ 词汇宇宙/ }).click();
+  const dialog = page.getByRole("dialog", { name: "可缩放语义词汇宇宙" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator(".semantic-atlas__hud")).toContainText(/总词库\s*10,000/);
+
+  const search = page.getByPlaceholder("搜索 10,000 个词…");
+  await search.fill("scripture");
+  await expect(dialog.locator(".semantic-atlas__results li").first()).toContainText(
+    /scripture/i,
+  );
+  await expect(dialog.locator(".semantic-atlas__hud")).toContainText(/已载入\s*10,000/, { timeout: 15_000 });
+  await search.fill("");
+
+  const canvas = dialog.locator("canvas");
+  const box = await canvas.boundingBox();
+  expect(box).not.toBeNull();
+  await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
+  for (let index = 0; index < 30; index += 1) {
+    await page.mouse.wheel(index < 15 ? 0 : index % 2 ? 48 : -48, index < 15 ? -38 : 0);
+  }
+  await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+
+  const metrics = await sampler.stop();
+  const liveDomNodes = await page.evaluate(() => document.querySelectorAll("*").length);
+  const longTasks = await page.evaluate(() => window.__WORLD_PERF__.longTasks);
+  const semanticSummary = {
+    schemaVersion: 1,
+    entryCount: 10_000,
+    liveDomNodes,
+    requestedFiles: [...new Set(requestedData)].length,
+    duplicateRequests: requestedData.length - new Set(requestedData).size,
+    browserCpuMs: metrics.browserCpuMs,
+    peakJsHeapMiB: (metrics.peakPageMetrics.JSHeapUsedSize ?? 0) / 1024 / 1024,
+    peakRssMiB: metrics.peakRssMiB,
+    peakPssMiB: metrics.peakPssMiB,
+    longTasks,
+  };
+  await mkdir("artifacts/perf", { recursive: true });
+  await writeFile(
+    "artifacts/perf/semantic-summary.json",
+    `${JSON.stringify(semanticSummary, null, 2)}\n`,
+  );
+
+  expect(semanticSummary.liveDomNodes).toBeLessThanOrEqual(500);
+  expect(semanticSummary.duplicateRequests).toBe(0);
+  expect(semanticSummary.peakJsHeapMiB).toBeLessThanOrEqual(budgets.peakJsHeapMiB);
+  expect(semanticSummary.browserCpuMs).toBeLessThanOrEqual(5_000);
+  expect(longTasks.filter((duration) => duration > 50).length).toBeLessThanOrEqual(3);
+});

@@ -25,7 +25,13 @@
     { "id": "coil", "word": "coil", "translation": "线圈", "x": 850, "y": 395, "priority": 3, "minLevel": 2 },
     { "id": "cable", "word": "cable", "translation": "电缆", "x": 1290, "y": 662, "priority": 3, "minLevel": 2 },
     { "id": "nozzle", "word": "nozzle", "translation": "喷嘴", "x": 1164, "y": 642, "priority": 3, "minLevel": 2 },
-    { "id": "portafilter", "word": "portafilter", "translation": "手柄滤杯", "x": 815, "y": 600, "priority": 3, "minLevel": 2 }
+    { "id": "portafilter", "word": "portafilter", "translation": "手柄滤杯", "x": 815, "y": 600, "priority": 3, "minLevel": 2 },
+    { "id": "housing", "word": "housing", "translation": "外壳", "x": 1310, "y": 205, "priority": 2, "minLevel": 1 },
+    { "id": "heating-element", "word": "heating element", "translation": "加热元件", "x": 855, "y": 445, "priority": 2, "minLevel": 1 },
+    { "id": "sensor", "word": "sensor", "translation": "传感器", "x": 985, "y": 460, "priority": 3, "minLevel": 2 },
+    { "id": "circuit-board", "word": "circuit board", "translation": "电路板", "x": 1205, "y": 410, "priority": 2, "minLevel": 1 },
+    { "id": "connector", "word": "connector", "translation": "连接器", "x": 1280, "y": 520, "priority": 3, "minLevel": 2 },
+    { "id": "screw", "word": "screw", "translation": "螺钉", "x": 270, "y": 700, "priority": 3, "minLevel": 2 }
   ],
   "portals": [
     { "id": "enter-water-tank", "label": "Inspect the water tank", "translation": "查看水箱", "childSceneId": "water-tank", "x": 300, "y": 125, "width": 350, "height": 520, "enterScale": 3.6 }

@@ -93,27 +93,47 @@ test("starts as a calm target-language world and persists the meaning toggle", a
   await expect(page.getByTestId("word-translation").first()).toBeVisible();
 });
 
-test("loads the 10,000-word atlas only when requested and searches it", async ({ page }) => {
+test("loads the 10,000-word universe only when requested and locates every searched word", async ({ page }) => {
   const vocabularyRequests: string[] = [];
   page.on("request", (request) => {
-    if (request.url().includes("/data/vocabulary/rank-")) vocabularyRequests.push(request.url());
+    if (/\/data\/(?:vocabulary|semantic)\/.+\.json/.test(request.url())) vocabularyRequests.push(request.url());
   });
   await openWorld(page);
   expect(vocabularyRequests).toHaveLength(0);
 
-  await page.getByRole("button", { name: /10,000\+ 词汇地图/ }).click();
-  await expect(page.getByText("10,000 个常用词，按需载入")).toBeVisible();
-  const search = page.getByPlaceholder("搜索英文或中文…");
+  await page.getByRole("button", { name: /10,000\+ 词汇宇宙/ }).click();
+  await expect(page.getByRole("dialog", { name: "可缩放语义词汇宇宙" })).toBeVisible();
+  const search = page.getByPlaceholder("搜索 10,000 个词…");
   await search.fill("coffee");
-  await expect(page.locator(".atlas-results li").first()).toContainText(/coffee/i);
-  expect(vocabularyRequests).toHaveLength(10);
+  const result = page.locator(".semantic-atlas__results li").first();
+  await expect(result).toContainText(/coffee/i);
+  await result.getByRole("button").click();
+  await expect(page.getByRole("complementary", { name: "已选择的词" })).toContainText(/coffee/i);
+  expect(vocabularyRequests.length).toBeGreaterThan(1);
+});
+
+test("records passive discoveries and opens a calm word encounter card", async ({ page }) => {
+  await openWorld(page);
+  await expect(page.getByLabel(/已遇见 \d+ 个词/)).toBeVisible();
+
+  const label = page.getByTestId("word-label").first();
+  const word = (await label.innerText()).trim();
+  await label.click();
+  const card = page.getByRole("complementary", { name: new RegExp(`${word} word details`, "i") });
+  await expect(card).toBeVisible();
+  await expect(card).toContainText("释义已关闭");
+
+  await page.getByTestId("meaning-toggle").click();
+  await expect(card).not.toContainText("释义已关闭");
+  await card.getByRole("button", { name: "关闭单词卡" }).click();
+  await expect(card).toBeHidden();
 });
 
 test("enters a scene slice on zoom and returns to its parent", async ({ page }) => {
   const requestedSceneAssets: string[] = [];
   page.on("response", (response) => {
     const url = response.url();
-    if (/\/scenes\/.*\.(?:svg|webp|avif)(?:\?|$)/.test(url)) {
+    if (/\/scenes\/.*\.(?:svg|jpe?g|webp|avif)(?:\?|$)/.test(url)) {
       requestedSceneAssets.push(url);
     }
   });

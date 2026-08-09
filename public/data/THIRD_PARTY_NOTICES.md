@@ -73,3 +73,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Princeton WordNet
+
+- Project: Princeton WordNet 3.0
+- Upstream: <https://wordnet.princeton.edu/>
+- Pinned archive SHA-256:
+  `cbda5ea6eef7f36a97a43d4a75f85e07fccbb4f23657d27b4ccbc93e2646ab59`
+- License: Princeton WordNet License
+
+WordNet lexical categories, synsets and lemma relations are used to organize
+the derived semantic universe. The complete upstream license text is shipped
+at `public/data/semantic/WORDNET-LICENSE.txt`.

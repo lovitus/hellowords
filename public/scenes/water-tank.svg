@@ -29,4 +29,6 @@
   <path d="M1194 240q105 37 175 0M1194 332q105 37 175 0M1194 424q105 37 175 0M1194 516q105 37 175 0" fill="none" stroke="#6e9b93" stroke-width="10" opacity=".55"/>
   <circle cx="1284" cy="282" r="30" fill="#b7d1ca"/><circle cx="1334" cy="390" r="21" fill="#d4af7e"/><circle cx="1235" cy="480" r="25" fill="#89aaa2"/>
   <path d="M1146 694h265" stroke="#765f4e" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#f6fffc" opacity=".72"><path d="M540 280q25 38 0 58-25-20 0-58Z"/><path d="M620 310q20 30 0 46-20-16 0-46Z"/><path d="M700 270q18 28 0 42-18-14 0-42Z"/></g><path d="M535 500q70-40 115-10" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" opacity=".35"/>
+  <path d="M430 775h680" stroke="#263f3a" stroke-width="18" stroke-linecap="round"/><g fill="#28413c"><rect x="455" y="770" width="105" height="42" rx="18"/><rect x="980" y="770" width="105" height="42" rx="18"/></g>
 </svg>

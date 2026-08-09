@@ -24,7 +24,7 @@ test("server-renders the HelloWords product shell", async () => {
   assert.match(html, /<title>HelloWords · 词境<\/title>/i);
   assert.match(html, /data-testid="world-app"/i);
   assert.match(html, /HelloWords/);
-  assert.match(html, /10,000\+ 词汇地图/);
+  assert.match(html, /10,000\+ 词汇宇宙/);
   assert.match(html, /data-testid="meaning-toggle"/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });

@@ -4,7 +4,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useCallback, useEffect, useRef } from "react";
-import type { Portal as ScenePortal, Scene } from "../domain";
+import type { Label, Portal as ScenePortal, Scene } from "../domain";
 
 interface SceneViewportProps {
   scene: Scene;
@@ -12,6 +12,8 @@ interface SceneViewportProps {
   transitionKey: number;
   onEnterScene: (sceneId: string) => void;
   onExitScene: () => void;
+  onSelectWord: (label: Label) => void;
+  onPrefetchScene: (sceneId: string) => void;
 }
 
 interface Camera {
@@ -40,6 +42,8 @@ export function SceneViewport({
   transitionKey,
   onEnterScene,
   onExitScene,
+  onSelectWord,
+  onPrefetchScene,
 }: SceneViewportProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const surfaceRef = useRef<HTMLDivElement>(null);
@@ -239,7 +243,7 @@ export function SceneViewport({
     const viewport = viewportRef.current;
     if (!viewport) return;
     const camera = cameraRef.current;
-      const targetScale = Math.max((portal.enterScale ?? 3.6) + 0.05, camera.scale);
+    const targetScale = Math.max((portal.enterScale ?? 3.6) + 0.05, camera.scale);
     const effective = camera.fit * targetScale;
     cameraRef.current = {
       ...camera,
@@ -288,6 +292,10 @@ export function SceneViewport({
                 data-min-level={label.minLevel ?? 0}
                 style={{ left: label.x, top: label.y }}
                 aria-label={meaningVisible ? `${label.word}，${label.translation}` : label.word}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  onSelectWord(label);
+                }}
               >
                 <span>{label.word}</span>
                 {meaningVisible ? (
@@ -310,6 +318,8 @@ export function SceneViewport({
                 event.stopPropagation();
                 focusPortal(portal);
               }}
+              onFocus={() => onPrefetchScene(portal.childSceneId)}
+              onPointerEnter={() => onPrefetchScene(portal.childSceneId)}
               aria-label={meaningVisible && portal.translation ? `${portal.label}，${portal.translation}` : portal.label}
             >
               <span aria-hidden="true">＋</span>

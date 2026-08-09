@@ -25,7 +25,13 @@
     { "id": "drain", "word": "drain", "translation": "排水口", "x": 826, "y": 535, "priority": 3, "minLevel": 2 },
     { "id": "mug", "word": "mug", "translation": "马克杯", "x": 1380, "y": 520, "priority": 3, "minLevel": 2 },
     { "id": "socket", "word": "socket", "translation": "插座", "x": 1135, "y": 330, "priority": 3, "minLevel": 2 },
-    { "id": "steam", "word": "steam", "translation": "蒸汽", "x": 1080, "y": 325, "priority": 3, "minLevel": 2 }
+    { "id": "steam", "word": "steam", "translation": "蒸汽", "x": 1080, "y": 325, "priority": 3, "minLevel": 2 },
+    { "id": "pantry", "word": "pantry", "translation": "食品储藏柜", "x": 1450, "y": 180, "priority": 2, "minLevel": 1 },
+    { "id": "dish-towel", "word": "dish towel", "translation": "擦碗布", "x": 930, "y": 650, "priority": 3, "minLevel": 2 },
+    { "id": "cutting-board", "word": "cutting board", "translation": "砧板", "x": 700, "y": 470, "priority": 2, "minLevel": 1 },
+    { "id": "saucepan", "word": "saucepan", "translation": "炖锅", "x": 430, "y": 430, "priority": 3, "minLevel": 2 },
+    { "id": "utensil", "word": "utensil", "translation": "厨具", "x": 1420, "y": 390, "priority": 3, "minLevel": 2 },
+    { "id": "bowl", "word": "bowl", "translation": "碗", "x": 620, "y": 420, "priority": 3, "minLevel": 2 }
   ],
   "portals": [
     { "id": "enter-coffee-machine", "label": "Inspect the coffee machine", "translation": "查看咖啡机", "childSceneId": "coffee-machine", "x": 1130, "y": 315, "width": 290, "height": 330, "enterScale": 3.6 }

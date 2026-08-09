@@ -38,4 +38,7 @@
   <rect x="698" y="676" width="416" height="71" rx="26" fill="#526b65"/>
   <g stroke="#91a8a1" stroke-width="7"><path d="M741 698h331M735 721h344"/></g>
   <path d="M1260 590h102q66 0 66 68v98" fill="none" stroke="#2d403c" stroke-width="15"/>
+  <rect x="1135" y="380" width="170" height="145" rx="16" fill="#497363" stroke="#263f39" stroke-width="10"/><g stroke="#d7bd70" stroke-width="7"><path d="M1160 410h115m-115 34h75m-75 34h105"/></g><g fill="#e9cb75"><circle cx="1165" cy="410" r="8"/><circle cx="1235" cy="444" r="8"/><circle cx="1265" cy="478" r="8"/></g>
+  <rect x="972" y="425" width="38" height="38" rx="8" fill="#d2a05f" stroke="#3e5a54" stroke-width="7"/><path d="M1008 444h62" stroke="#a76a51" stroke-width="8"/><rect x="1250" y="510" width="68" height="35" rx="8" fill="#e4dfd1" stroke="#405b55" stroke-width="7"/>
+  <g fill="#d0a05c" stroke="#2d4943" stroke-width="5"><circle cx="270" cy="700" r="13"/><path d="M261 691l18 18m0-18-18 18"/></g>
 </svg>
