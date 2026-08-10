@@ -3,7 +3,7 @@
   "title": "Kitchen",
   "translation": "厨房",
   "subtitle": "Morning light and familiar tools",
-  "asset": "/scenes/kitchen.svg",
+  "asset": "/scenes/kitchen-premium-v2.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "apartment",
@@ -13,7 +13,7 @@
       "word": "kitchen",
       "translation": "厨房",
       "x": 800,
-      "y": 70,
+      "y": 65,
       "priority": 1,
       "minLevel": 0,
       "sourceVisualRegion": "whole-kitchen"
@@ -22,181 +22,391 @@
       "id": "refrigerator",
       "word": "refrigerator",
       "translation": "冰箱",
-      "x": 205,
-      "y": 430,
+      "x": 92,
+      "y": 256,
       "priority": 1.001,
       "minLevel": 0,
       "sourceVisualRegion": "verified-refrigerator"
     },
     {
+      "id": "window",
+      "word": "window",
+      "translation": "窗户",
+      "x": 348,
+      "y": 218,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-window"
+    },
+    {
       "id": "cabinet",
       "word": "cabinet",
       "translation": "橱柜",
-      "x": 480,
-      "y": 180,
-      "priority": 1.002,
+      "x": 751,
+      "y": 122,
+      "priority": 1.003,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-cabinet"
+      "sourceVisualRegion": "verified-upper-cabinet"
     },
     {
       "id": "sink",
       "word": "sink",
       "translation": "水槽",
-      "x": 825,
-      "y": 488,
-      "priority": 1.003,
+      "x": 382,
+      "y": 443,
+      "priority": 1.004,
       "minLevel": 0,
       "sourceVisualRegion": "verified-sink"
     },
     {
-      "id": "coffee-machine",
-      "word": "coffee machine",
-      "translation": "咖啡机",
-      "x": 1280,
-      "y": 370,
-      "priority": 1.004,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-coffee-machine"
-    },
-    {
-      "id": "countertop",
-      "word": "countertop",
-      "translation": "台面",
-      "x": 1000,
-      "y": 480,
+      "id": "stovetop",
+      "word": "stovetop",
+      "translation": "炉灶",
+      "x": 1006,
+      "y": 469,
       "priority": 1.005,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-countertop"
+      "sourceVisualRegion": "verified-stovetop"
     },
     {
       "id": "oven",
       "word": "oven",
       "translation": "烤箱",
-      "x": 520,
-      "y": 620,
-      "priority": 2.006,
-      "minLevel": 1,
+      "x": 901,
+      "y": 638,
+      "priority": 1.006,
+      "minLevel": 0,
       "sourceVisualRegion": "verified-oven"
     },
     {
-      "id": "kettle",
-      "word": "kettle",
-      "translation": "水壶",
-      "x": 1068,
-      "y": 410,
-      "priority": 2.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-kettle"
+      "id": "coffee-machine",
+      "word": "coffee machine",
+      "translation": "咖啡机",
+      "x": 1452,
+      "y": 418,
+      "priority": 1.007,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-coffee-machine"
     },
     {
-      "id": "window",
-      "word": "window",
-      "translation": "窗户",
-      "x": 915,
-      "y": 220,
-      "priority": 2.008,
+      "id": "kitchen-island",
+      "word": "kitchen island",
+      "translation": "厨房岛台",
+      "x": 504,
+      "y": 721,
+      "priority": 1.008,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "pendant-light",
+      "word": "pendant light",
+      "translation": "吊灯",
+      "x": 367,
+      "y": 116,
+      "priority": 2.009,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-window"
+      "sourceVisualRegion": "verified-pendant-light"
+    },
+    {
+      "id": "range-hood",
+      "word": "range hood",
+      "translation": "抽油烟机",
+      "x": 1015,
+      "y": 84,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-range-hood"
+    },
+    {
+      "id": "faucet",
+      "word": "faucet",
+      "translation": "水龙头",
+      "x": 403,
+      "y": 342,
+      "priority": 2.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-faucet"
     },
     {
       "id": "drawer",
       "word": "drawer",
       "translation": "抽屉",
-      "x": 710,
-      "y": 575,
-      "priority": 2.009,
+      "x": 1344,
+      "y": 710,
+      "priority": 2.012,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-drawer"
+      "sourceVisualRegion": "verified-open-drawer"
     },
     {
-      "id": "tile",
-      "word": "tile",
-      "translation": "瓷砖",
-      "x": 250,
-      "y": 350,
-      "priority": 2.01,
+      "id": "blender",
+      "word": "blender",
+      "translation": "搅拌机",
+      "x": 825,
+      "y": 352,
+      "priority": 2.013,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-tile"
+      "sourceVisualRegion": "verified-blender"
     },
     {
-      "id": "handle",
-      "word": "handle",
-      "translation": "把手",
-      "x": 282,
-      "y": 540,
-      "priority": 3.011,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-handle"
+      "id": "kettle",
+      "word": "kettle",
+      "translation": "电热水壶",
+      "x": 694,
+      "y": 367,
+      "priority": 2.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-kettle"
     },
     {
-      "id": "tap",
-      "word": "tap",
-      "translation": "龙头",
-      "x": 850,
+      "id": "toaster",
+      "word": "toaster",
+      "translation": "烤面包机",
+      "x": 765,
       "y": 380,
-      "priority": 3.012,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-tap"
+      "priority": 2.015,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-toaster"
     },
     {
-      "id": "drain",
-      "word": "drain",
-      "translation": "排水口",
-      "x": 831,
-      "y": 488,
-      "priority": 3.013,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-drain"
+      "id": "countertop",
+      "word": "countertop",
+      "translation": "操作台面",
+      "x": 747,
+      "y": 454,
+      "priority": 2.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-countertop"
     },
     {
-      "id": "dish-towel",
-      "word": "dish towel",
-      "translation": "擦碗布",
-      "x": 942,
-      "y": 600,
-      "priority": 3.014,
+      "id": "dish-rack",
+      "word": "dish rack",
+      "translation": "碗碟架",
+      "x": 545,
+      "y": 390,
+      "priority": 3.017,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-dish-towel"
+      "sourceVisualRegion": "verified-dish-rack"
     },
     {
       "id": "cutting-board",
       "word": "cutting board",
       "translation": "砧板",
-      "x": 738,
-      "y": 447,
-      "priority": 4.015,
-      "minLevel": 3,
+      "x": 679,
+      "y": 333,
+      "priority": 3.018,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-cutting-board"
-    },
-    {
-      "id": "bowl",
-      "word": "bowl",
-      "translation": "碗",
-      "x": 625,
-      "y": 420,
-      "priority": 4.016,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-bowl"
-    },
-    {
-      "id": "spatula",
-      "word": "spatula",
-      "translation": "锅铲",
-      "x": 1400,
-      "y": 505,
-      "priority": 5.017,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-spatula"
     },
     {
       "id": "frying-pan",
       "word": "frying pan",
       "translation": "煎锅",
-      "x": 495,
-      "y": 415,
-      "priority": 5.018,
-      "minLevel": 4,
+      "x": 926,
+      "y": 446,
+      "priority": 3.019,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-frying-pan"
+    },
+    {
+      "id": "saucepan",
+      "word": "saucepan",
+      "translation": "长柄锅",
+      "x": 1013,
+      "y": 439,
+      "priority": 3.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-saucepan"
+    },
+    {
+      "id": "stockpot",
+      "word": "stockpot",
+      "translation": "汤锅",
+      "x": 1107,
+      "y": 431,
+      "priority": 3.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-stockpot"
+    },
+    {
+      "id": "utensil-crock",
+      "word": "utensil crock",
+      "translation": "厨具收纳筒",
+      "x": 1250,
+      "y": 436,
+      "priority": 3.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-utensil-crock"
+    },
+    {
+      "id": "fruit-bowl",
+      "word": "fruit bowl",
+      "translation": "水果碗",
+      "x": 108,
+      "y": 600,
+      "priority": 3.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-fruit-bowl"
+    },
+    {
+      "id": "bread",
+      "word": "bread",
+      "translation": "面包",
+      "x": 348,
+      "y": 525,
+      "priority": 3.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bread"
+    },
+    {
+      "id": "dish-towel",
+      "word": "dish towel",
+      "translation": "厨房巾",
+      "x": 728,
+      "y": 773,
+      "priority": 3.025,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-dish-towel"
+    },
+    {
+      "id": "soap-dispenser",
+      "word": "soap dispenser",
+      "translation": "皂液器",
+      "x": 301,
+      "y": 385,
+      "priority": 4.026,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-soap-dispenser"
+    },
+    {
+      "id": "sponge",
+      "word": "sponge",
+      "translation": "海绵",
+      "x": 277,
+      "y": 419,
+      "priority": 4.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-sponge"
+    },
+    {
+      "id": "potted-herb",
+      "word": "potted herb",
+      "translation": "盆栽香草",
+      "x": 912,
+      "y": 376,
+      "priority": 4.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-potted-herb"
+    },
+    {
+      "id": "storage-jar",
+      "word": "storage jar",
+      "translation": "储物罐",
+      "x": 190,
+      "y": 451,
+      "priority": 4.029,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-storage-jar"
+    },
+    {
+      "id": "knife",
+      "word": "knife",
+      "translation": "厨刀",
+      "x": 486,
+      "y": 548,
+      "priority": 4.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-knife"
+    },
+    {
+      "id": "bowl",
+      "word": "bowl",
+      "translation": "碗",
+      "x": 560,
+      "y": 542,
+      "priority": 4.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bowl"
+    },
+    {
+      "id": "drinking-glass",
+      "word": "drinking glass",
+      "translation": "玻璃水杯",
+      "x": 674,
+      "y": 564,
+      "priority": 4.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-drinking-glass"
+    },
+    {
+      "id": "plate",
+      "word": "plate",
+      "translation": "餐盘",
+      "x": 504,
+      "y": 605,
+      "priority": 4.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-plate"
+    },
+    {
+      "id": "wooden-spoon",
+      "word": "wooden spoon",
+      "translation": "木勺",
+      "x": 1254,
+      "y": 361,
+      "priority": 5.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wooden-spoon"
+    },
+    {
+      "id": "wire-whisk",
+      "word": "wire whisk",
+      "translation": "钢丝打蛋器",
+      "x": 1298,
+      "y": 366,
+      "priority": 5.035,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wire-whisk"
+    },
+    {
+      "id": "ladle",
+      "word": "ladle",
+      "translation": "汤勺",
+      "x": 1321,
+      "y": 394,
+      "priority": 5.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-ladle"
+    },
+    {
+      "id": "spice-jar",
+      "word": "spice jar",
+      "translation": "香料罐",
+      "x": 1360,
+      "y": 140,
+      "priority": 5.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-spice-jar"
+    },
+    {
+      "id": "pepper-mill",
+      "word": "pepper mill",
+      "translation": "胡椒研磨器",
+      "x": 1490,
+      "y": 194,
+      "priority": 5.038,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-pepper-mill"
+    },
+    {
+      "id": "mug",
+      "word": "mug",
+      "translation": "马克杯",
+      "x": 1407,
+      "y": 480,
+      "priority": 5.039,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-mug"
     }
   ],
   "portals": [
@@ -205,10 +415,10 @@
       "label": "Inspect the coffee machine",
       "translation": "查看咖啡机",
       "childSceneId": "coffee-machine",
-      "x": 1180,
-      "y": 285,
-      "width": 270,
-      "height": 280,
+      "x": 1320,
+      "y": 305,
+      "width": 250,
+      "height": 252,
       "enterScale": 3.6,
       "sourceVisualRegion": "portal-coffee-machine"
     }
@@ -216,24 +426,25 @@
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/kitchen.svg",
-    "rationale": "Kept only the appliances, fixtures and utensils drawn in the SVG; removed cooking actions, recipes and absent tools.",
+    "reviewedAsset": "/scenes/kitchen-premium-v2.jpg",
+    "reviewedAssetSha256": "296f9a957c21cdcb67e1f1b628d0daa4d35a1cbdc1e5c987899a87bbdb6169b1",
+    "rationale": "Re-anchored every term to a clearly identifiable object or part in the premium kitchen photograph; the coffee-machine portal is tightly bounded to the complete black appliance on the far-right counter.",
     "previousLabelCount": 57,
-    "retainedLabelCount": 19,
-    "removedLabelCount": 38,
+    "retainedLabelCount": 40,
+    "removedLabelCount": 17,
     "removedExamples": [
-      "chef knife",
-      "whisk",
-      "blender",
-      "recipe",
       "boiling",
-      "sharp"
+      "recipe",
+      "ingredient",
+      "microwave",
+      "dishwasher",
+      "rolling pin"
     ]
   },
   "visualRegions": [
     {
       "id": "whole-kitchen",
-      "description": "Complete illustrated kitchen",
+      "description": "Complete photographed kitchen interior",
       "kind": "whole",
       "x": 0,
       "y": 0,
@@ -242,174 +453,363 @@
     },
     {
       "id": "portal-coffee-machine",
-      "description": "Coffee machine on the right countertop",
+      "description": "Complete black coffee machine on the far-right countertop",
       "kind": "object",
-      "x": 1180,
-      "y": 285,
-      "width": 270,
-      "height": 280
+      "x": 1320,
+      "y": 305,
+      "width": 250,
+      "height": 252
     },
     {
       "id": "verified-refrigerator",
-      "description": "Human-verified visible anchor for refrigerator",
+      "description": "Visible stainless-steel refrigerator at the far left",
       "kind": "object",
-      "x": 145,
-      "y": 385,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-cabinet",
-      "description": "Human-verified visible anchor for cabinet",
-      "kind": "object",
-      "x": 420,
-      "y": 135,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-sink",
-      "description": "Human-verified visible anchor for sink",
-      "kind": "object",
-      "x": 765,
-      "y": 443,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-coffee-machine",
-      "description": "Human-verified visible anchor for coffee machine",
-      "kind": "object",
-      "x": 1220,
-      "y": 325,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-countertop",
-      "description": "Human-verified visible anchor for countertop",
-      "kind": "object",
-      "x": 940,
-      "y": 435,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-oven",
-      "description": "Human-verified visible anchor for oven",
-      "kind": "object",
-      "x": 460,
-      "y": 575,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-kettle",
-      "description": "Human-verified visible anchor for kettle",
-      "kind": "object",
-      "x": 1008,
-      "y": 365,
-      "width": 120,
-      "height": 90
+      "x": 0,
+      "y": 97,
+      "width": 200,
+      "height": 342
     },
     {
       "id": "verified-window",
-      "description": "Human-verified visible anchor for window",
+      "description": "Large sunlit window above the sink",
       "kind": "object",
-      "x": 855,
-      "y": 175,
-      "width": 120,
+      "x": 207,
+      "y": 0,
+      "width": 291,
+      "height": 320
+    },
+    {
+      "id": "verified-upper-cabinet",
+      "description": "Wooden upper cabinet in the image center",
+      "kind": "object",
+      "x": 554,
+      "y": 0,
+      "width": 416,
+      "height": 241
+    },
+    {
+      "id": "verified-sink",
+      "description": "Double-basin sink beneath the window",
+      "kind": "object",
+      "x": 270,
+      "y": 414,
+      "width": 230,
+      "height": 54
+    },
+    {
+      "id": "verified-stovetop",
+      "description": "Black glass stovetop beneath the pans",
+      "kind": "object",
+      "x": 809,
+      "y": 439,
+      "width": 411,
+      "height": 67
+    },
+    {
+      "id": "verified-oven",
+      "description": "Built-in black oven below the stovetop",
+      "kind": "object",
+      "x": 804,
+      "y": 500,
+      "width": 197,
+      "height": 303
+    },
+    {
+      "id": "verified-coffee-machine",
+      "description": "Black coffee machine at the far right",
+      "kind": "object",
+      "x": 1323,
+      "y": 306,
+      "width": 243,
+      "height": 248
+    },
+    {
+      "id": "verified-kitchen-island",
+      "description": "Stone-topped green kitchen island in the foreground",
+      "kind": "object",
+      "x": 0,
+      "y": 485,
+      "width": 875,
+      "height": 415
+    },
+    {
+      "id": "verified-pendant-light",
+      "description": "Large green pendant light in front of the window",
+      "kind": "object",
+      "x": 253,
+      "y": 0,
+      "width": 225,
+      "height": 181
+    },
+    {
+      "id": "verified-range-hood",
+      "description": "Metal range hood above the cooking area",
+      "kind": "object",
+      "x": 837,
+      "y": 0,
+      "width": 392,
+      "height": 151
+    },
+    {
+      "id": "verified-faucet",
+      "description": "Curved metal faucet over the sink",
+      "kind": "object",
+      "x": 380,
+      "y": 275,
+      "width": 54,
+      "height": 159
+    },
+    {
+      "id": "verified-open-drawer",
+      "description": "Open wooden cutlery drawer on the right",
+      "kind": "object",
+      "x": 1145,
+      "y": 569,
+      "width": 420,
+      "height": 233
+    },
+    {
+      "id": "verified-blender",
+      "description": "Glass-jar blender beside the toaster",
+      "kind": "object",
+      "x": 787,
+      "y": 270,
+      "width": 77,
+      "height": 159
+    },
+    {
+      "id": "verified-kettle",
+      "description": "White electric kettle on the back counter",
+      "kind": "object",
+      "x": 661,
+      "y": 322,
+      "width": 78,
       "height": 90
     },
     {
-      "id": "verified-drawer",
-      "description": "Human-verified visible anchor for drawer",
+      "id": "verified-toaster",
+      "description": "Stainless-steel toaster on the back counter",
       "kind": "object",
-      "x": 650,
-      "y": 530,
-      "width": 120,
-      "height": 90
+      "x": 729,
+      "y": 347,
+      "width": 69,
+      "height": 66
     },
     {
-      "id": "verified-tile",
-      "description": "Human-verified visible anchor for tile",
-      "kind": "object",
-      "x": 190,
-      "y": 305,
-      "width": 120,
-      "height": 90
+      "id": "verified-countertop",
+      "description": "Continuous pale stone countertop along the back wall",
+      "kind": "part",
+      "x": 628,
+      "y": 407,
+      "width": 972,
+      "height": 233
     },
     {
-      "id": "verified-handle",
-      "description": "Human-verified visible anchor for handle",
+      "id": "verified-dish-rack",
+      "description": "Wire dish rack holding white plates",
       "kind": "object",
-      "x": 222,
-      "y": 495,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-tap",
-      "description": "Human-verified visible anchor for tap",
-      "kind": "object",
-      "x": 790,
-      "y": 335,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-drain",
-      "description": "Human-verified visible anchor for drain",
-      "kind": "object",
-      "x": 771,
-      "y": 443,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-dish-towel",
-      "description": "Human-verified visible anchor for dish towel",
-      "kind": "object",
-      "x": 882,
-      "y": 555,
-      "width": 120,
-      "height": 90
+      "x": 462,
+      "y": 351,
+      "width": 164,
+      "height": 76
     },
     {
       "id": "verified-cutting-board",
-      "description": "Human-verified visible anchor for cutting board",
+      "description": "Upright wooden cutting board against the backsplash",
       "kind": "object",
-      "x": 678,
-      "y": 402,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-bowl",
-      "description": "Human-verified visible anchor for bowl",
-      "kind": "object",
-      "x": 565,
-      "y": 375,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-spatula",
-      "description": "Human-verified visible anchor for spatula",
-      "kind": "object",
-      "x": 1340,
-      "y": 460,
-      "width": 120,
-      "height": 90
+      "x": 636,
+      "y": 255,
+      "width": 85,
+      "height": 148
     },
     {
       "id": "verified-frying-pan",
-      "description": "Human-verified visible anchor for frying pan",
+      "description": "Black frying pan on the front-left burner",
+      "kind": "object",
+      "x": 845,
+      "y": 413,
+      "width": 176,
+      "height": 67
+    },
+    {
+      "id": "verified-saucepan",
+      "description": "Small black saucepan on the stovetop",
+      "kind": "object",
+      "x": 966,
+      "y": 391,
+      "width": 94,
+      "height": 99
+    },
+    {
+      "id": "verified-stockpot",
+      "description": "Large lidded stockpot on the stovetop",
+      "kind": "object",
+      "x": 1042,
+      "y": 388,
+      "width": 129,
+      "height": 98
+    },
+    {
+      "id": "verified-utensil-crock",
+      "description": "Stoneware crock holding cooking utensils",
+      "kind": "object",
+      "x": 1155,
+      "y": 308,
+      "width": 182,
+      "height": 184
+    },
+    {
+      "id": "verified-fruit-bowl",
+      "description": "Wooden bowl filled with fruit on the island",
+      "kind": "object",
+      "x": 0,
+      "y": 522,
+      "width": 220,
+      "height": 143
+    },
+    {
+      "id": "verified-bread",
+      "description": "Sliced loaf of bread on the island",
+      "kind": "object",
+      "x": 260,
+      "y": 482,
+      "width": 190,
+      "height": 91
+    },
+    {
+      "id": "verified-dish-towel",
+      "description": "Striped dish towel hanging from the island rail",
+      "kind": "object",
+      "x": 675,
+      "y": 672,
+      "width": 106,
+      "height": 228
+    },
+    {
+      "id": "verified-soap-dispenser",
+      "description": "Green soap dispenser beside the faucet",
+      "kind": "object",
+      "x": 285,
+      "y": 346,
+      "width": 34,
+      "height": 81
+    },
+    {
+      "id": "verified-sponge",
+      "description": "Yellow cleaning sponge beside the sink",
+      "kind": "object",
+      "x": 247,
+      "y": 402,
+      "width": 62,
+      "height": 30
+    },
+    {
+      "id": "verified-potted-herb",
+      "description": "Potted green herb between the blender and stovetop",
+      "kind": "object",
+      "x": 865,
+      "y": 309,
+      "width": 94,
+      "height": 115
+    },
+    {
+      "id": "verified-storage-jar",
+      "description": "Glass storage jar filled with cereal",
+      "kind": "object",
+      "x": 136,
+      "y": 428,
+      "width": 105,
+      "height": 154
+    },
+    {
+      "id": "verified-knife",
+      "description": "Kitchen knife lying beside the breadboard",
       "kind": "object",
       "x": 435,
-      "y": 370,
-      "width": 120,
-      "height": 90
+      "y": 516,
+      "width": 103,
+      "height": 61
+    },
+    {
+      "id": "verified-bowl",
+      "description": "Green ceramic bowl on the island",
+      "kind": "object",
+      "x": 511,
+      "y": 505,
+      "width": 102,
+      "height": 73
+    },
+    {
+      "id": "verified-drinking-glass",
+      "description": "Clear drinking glass on the island",
+      "kind": "object",
+      "x": 638,
+      "y": 516,
+      "width": 70,
+      "height": 102
+    },
+    {
+      "id": "verified-plate",
+      "description": "Large ceramic plate in the foreground",
+      "kind": "object",
+      "x": 392,
+      "y": 566,
+      "width": 224,
+      "height": 77
+    },
+    {
+      "id": "verified-wooden-spoon",
+      "description": "Tall wooden spoon in the utensil crock",
+      "kind": "part",
+      "x": 1234,
+      "y": 308,
+      "width": 40,
+      "height": 116
+    },
+    {
+      "id": "verified-wire-whisk",
+      "description": "Wire balloon whisk in the utensil crock",
+      "kind": "part",
+      "x": 1274,
+      "y": 316,
+      "width": 53,
+      "height": 100
+    },
+    {
+      "id": "verified-ladle",
+      "description": "Metal ladle in the utensil crock",
+      "kind": "part",
+      "x": 1298,
+      "y": 351,
+      "width": 51,
+      "height": 84
+    },
+    {
+      "id": "verified-spice-jar",
+      "description": "Glass spice jar on the wooden shelf",
+      "kind": "object",
+      "x": 1340,
+      "y": 108,
+      "width": 40,
+      "height": 65
+    },
+    {
+      "id": "verified-pepper-mill",
+      "description": "Tall wooden pepper mill on the right shelf",
+      "kind": "object",
+      "x": 1468,
+      "y": 147,
+      "width": 50,
+      "height": 102
+    },
+    {
+      "id": "verified-mug",
+      "description": "Green ceramic mug beneath the coffee spout",
+      "kind": "object",
+      "x": 1366,
+      "y": 447,
+      "width": 81,
+      "height": 71
     }
   ]
 }

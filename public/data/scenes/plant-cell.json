@@ -3,17 +3,17 @@
   "title": "Plant cell",
   "translation": "植物细胞",
   "subtitle": "The living machinery within a leaf",
-  "asset": "/scenes/plant-cell.svg",
+  "asset": "/scenes/plant-cell-premium-v2.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "leaf",
   "labels": [
     {
-      "id": "cell",
-      "word": "cell",
-      "translation": "细胞",
-      "x": 800,
-      "y": 110,
+      "id": "plant-cell",
+      "word": "plant cell",
+      "translation": "植物细胞",
+      "x": 790,
+      "y": 105,
       "priority": 1,
       "minLevel": 0,
       "sourceVisualRegion": "whole-cell"
@@ -22,185 +22,326 @@
       "id": "cell-wall",
       "word": "cell wall",
       "translation": "细胞壁",
-      "x": 180,
-      "y": 430,
+      "x": 805,
+      "y": 792,
       "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "cell-wall"
+      "sourceVisualRegion": "bottom-cell-wall"
     },
     {
-      "id": "nucleus",
-      "word": "nucleus",
-      "translation": "细胞核",
-      "x": 560,
-      "y": 430,
+      "id": "plasma-membrane",
+      "word": "plasma membrane",
+      "translation": "质膜",
+      "x": 1480,
+      "y": 520,
       "priority": 1.002,
       "minLevel": 0,
-      "sourceVisualRegion": "nucleus"
-    },
-    {
-      "id": "vacuole",
-      "word": "vacuole",
-      "translation": "液泡",
-      "x": 975,
-      "y": 450,
-      "priority": 1.003,
-      "minLevel": 0,
-      "sourceVisualRegion": "vacuole"
-    },
-    {
-      "id": "chloroplast",
-      "word": "chloroplast",
-      "translation": "叶绿体",
-      "x": 1180,
-      "y": 290,
-      "priority": 2.004,
-      "minLevel": 1,
-      "sourceVisualRegion": "chloroplast-top-right"
+      "sourceVisualRegion": "plasma-membrane"
     },
     {
       "id": "cytoplasm",
       "word": "cytoplasm",
       "translation": "细胞质",
-      "x": 350,
-      "y": 600,
-      "priority": 2.005,
-      "minLevel": 1,
+      "x": 785,
+      "y": 155,
+      "priority": 1.003,
+      "minLevel": 0,
       "sourceVisualRegion": "cytoplasm"
-    },
-    {
-      "id": "mitochondrion",
-      "word": "mitochondrion",
-      "translation": "线粒体",
-      "x": 365,
-      "y": 490,
-      "priority": 2.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "mitochondria"
-    },
-    {
-      "id": "ribosome",
-      "word": "ribosome",
-      "translation": "核糖体",
-      "x": 820,
-      "y": 210,
-      "priority": 2.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "ribosomes"
-    },
-    {
-      "id": "nucleolus",
-      "word": "nucleolus",
-      "translation": "核仁",
-      "x": 540,
-      "y": 400,
-      "priority": 2.008,
-      "minLevel": 1,
-      "sourceVisualRegion": "nucleolus"
-    },
-    {
-      "id": "nuclear-envelope",
-      "word": "nuclear envelope",
-      "translation": "核膜",
-      "x": 630,
-      "y": 500,
-      "priority": 3.009,
-      "minLevel": 2,
-      "sourceVisualRegion": "nucleus"
     },
     {
       "id": "central-vacuole",
       "word": "central vacuole",
       "translation": "中央液泡",
-      "x": 1050,
-      "y": 600,
-      "priority": 3.01,
-      "minLevel": 2,
-      "sourceVisualRegion": "vacuole"
+      "x": 1010,
+      "y": 445,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "central-vacuole"
     },
     {
-      "id": "tonoplast",
-      "word": "tonoplast",
-      "translation": "液泡膜",
-      "x": 1200,
-      "y": 540,
-      "priority": 3.011,
-      "minLevel": 2,
-      "sourceVisualRegion": "vacuole-membrane"
-    },
-    {
-      "id": "chromosome",
-      "word": "chromosome",
-      "translation": "染色体",
-      "x": 590,
+      "id": "nucleus",
+      "word": "nucleus",
+      "translation": "细胞核",
+      "x": 485,
       "y": 350,
-      "priority": 3.012,
-      "minLevel": 2,
-      "sourceVisualRegion": "chromatin"
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "nucleus"
+    },
+    {
+      "id": "chloroplast",
+      "word": "chloroplast",
+      "translation": "叶绿体",
+      "x": 1120,
+      "y": 250,
+      "priority": 1.006,
+      "minLevel": 0,
+      "sourceVisualRegion": "chloroplast-cutaway"
+    },
+    {
+      "id": "mitochondrion",
+      "word": "mitochondrion",
+      "translation": "线粒体",
+      "x": 1370,
+      "y": 480,
+      "priority": 2,
+      "minLevel": 1,
+      "sourceVisualRegion": "right-mitochondrion"
     },
     {
       "id": "rough-endoplasmic-reticulum",
       "word": "rough endoplasmic reticulum",
       "translation": "粗面内质网",
-      "x": 760,
-      "y": 270,
-      "priority": 4.013,
-      "minLevel": 3,
-      "sourceVisualRegion": "endoplasmic-reticulum"
+      "x": 625,
+      "y": 250,
+      "priority": 2.001,
+      "minLevel": 1,
+      "sourceVisualRegion": "rough-er"
     },
     {
       "id": "smooth-endoplasmic-reticulum",
       "word": "smooth endoplasmic reticulum",
       "translation": "光面内质网",
-      "x": 735,
-      "y": 620,
-      "priority": 4.014,
-      "minLevel": 3,
-      "sourceVisualRegion": "endoplasmic-reticulum"
+      "x": 710,
+      "y": 565,
+      "priority": 2.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "smooth-er"
     },
     {
-      "id": "cell-membrane",
-      "word": "cell membrane",
-      "translation": "细胞膜",
-      "x": 1360,
-      "y": 430,
-      "priority": 4.015,
-      "minLevel": 3,
-      "sourceVisualRegion": "cell-membrane"
+      "id": "golgi-apparatus",
+      "word": "Golgi apparatus",
+      "translation": "高尔基体",
+      "x": 445,
+      "y": 625,
+      "priority": 2.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "golgi-apparatus"
     },
     {
-      "id": "chloroplast-interior",
-      "word": "chloroplast interior",
-      "translation": "叶绿体内部",
-      "x": 1210,
-      "y": 320,
-      "priority": 5.016,
+      "id": "nucleolus",
+      "word": "nucleolus",
+      "translation": "核仁",
+      "x": 470,
+      "y": 365,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "nucleolus"
+    },
+    {
+      "id": "ribosome",
+      "word": "ribosome",
+      "translation": "核糖体",
+      "x": 650,
+      "y": 245,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "ribosomes"
+    },
+    {
+      "id": "tonoplast",
+      "word": "tonoplast",
+      "translation": "液泡膜",
+      "x": 1225,
+      "y": 590,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "tonoplast"
+    },
+    {
+      "id": "chromatin",
+      "word": "chromatin",
+      "translation": "染色质",
+      "x": 535,
+      "y": 350,
+      "priority": 3,
+      "minLevel": 2,
+      "sourceVisualRegion": "chromatin"
+    },
+    {
+      "id": "nuclear-envelope",
+      "word": "nuclear envelope",
+      "translation": "核膜",
+      "x": 600,
+      "y": 410,
+      "priority": 3.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "nuclear-envelope"
+    },
+    {
+      "id": "golgi-cisterna",
+      "word": "Golgi cisterna",
+      "translation": "高尔基池",
+      "x": 425,
+      "y": 625,
+      "priority": 3.002,
+      "minLevel": 2,
+      "sourceVisualRegion": "golgi-cisternae"
+    },
+    {
+      "id": "transport-vesicle",
+      "word": "transport vesicle",
+      "translation": "运输囊泡",
+      "x": 575,
+      "y": 650,
+      "priority": 3.003,
+      "minLevel": 2,
+      "sourceVisualRegion": "golgi-vesicles"
+    },
+    {
+      "id": "cytoskeleton",
+      "word": "cytoskeleton",
+      "translation": "细胞骨架",
+      "x": 1320,
+      "y": 610,
+      "priority": 3.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "cytoskeleton"
+    },
+    {
+      "id": "chloroplast-envelope",
+      "word": "chloroplast envelope",
+      "translation": "叶绿体包膜",
+      "x": 1130,
+      "y": 118,
+      "priority": 3.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "chloroplast-envelope"
+    },
+    {
+      "id": "granum",
+      "word": "granum",
+      "translation": "基粒",
+      "x": 1025,
+      "y": 205,
+      "priority": 4,
+      "minLevel": 3,
+      "sourceVisualRegion": "chloroplast-grana"
+    },
+    {
+      "id": "thylakoid-stack",
+      "word": "thylakoid stack",
+      "translation": "类囊体堆",
+      "x": 1235,
+      "y": 270,
+      "priority": 4.001,
+      "minLevel": 3,
+      "sourceVisualRegion": "chloroplast-grana"
+    },
+    {
+      "id": "starch-grain",
+      "word": "starch grain",
+      "translation": "淀粉粒",
+      "x": 1265,
+      "y": 345,
+      "priority": 4.002,
+      "minLevel": 3,
+      "sourceVisualRegion": "chloroplast-starch-grain"
+    },
+    {
+      "id": "mitochondrial-crista",
+      "word": "mitochondrial crista",
+      "translation": "线粒体嵴",
+      "x": 1370,
+      "y": 480,
+      "priority": 4.003,
+      "minLevel": 3,
+      "sourceVisualRegion": "right-mitochondrion"
+    },
+    {
+      "id": "vacuolar-sap",
+      "word": "vacuolar sap",
+      "translation": "液泡液",
+      "x": 1000,
+      "y": 485,
+      "priority": 4.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "central-vacuole"
+    },
+    {
+      "id": "free-ribosome",
+      "word": "free ribosome",
+      "translation": "游离核糖体",
+      "x": 820,
+      "y": 150,
+      "priority": 4.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "ribosomes"
+    },
+    {
+      "id": "nuclear-pore",
+      "word": "nuclear pore",
+      "translation": "核孔",
+      "x": 620,
+      "y": 250,
+      "priority": 5,
       "minLevel": 4,
-      "sourceVisualRegion": "chloroplast-top-right"
+      "sourceVisualRegion": "nuclear-envelope"
+    },
+    {
+      "id": "rough-er-cisterna",
+      "word": "rough ER cisterna",
+      "translation": "粗面内质网池",
+      "x": 610,
+      "y": 220,
+      "priority": 5.001,
+      "minLevel": 4,
+      "sourceVisualRegion": "rough-er"
+    },
+    {
+      "id": "smooth-er-tubule",
+      "word": "smooth ER tubule",
+      "translation": "光面内质网小管",
+      "x": 700,
+      "y": 575,
+      "priority": 5.002,
+      "minLevel": 4,
+      "sourceVisualRegion": "smooth-er"
+    },
+    {
+      "id": "mitochondrial-matrix",
+      "word": "mitochondrial matrix",
+      "translation": "线粒体基质",
+      "x": 915,
+      "y": 665,
+      "priority": 5.003,
+      "minLevel": 4,
+      "sourceVisualRegion": "lower-mitochondrion"
+    },
+    {
+      "id": "vesicle",
+      "word": "vesicle",
+      "translation": "囊泡",
+      "x": 1305,
+      "y": 570,
+      "priority": 5.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "blue-vesicle"
     }
   ],
   "portals": [
     {
       "id": "enter-chloroplast",
-      "label": "Enter a chloroplast",
-      "translation": "进入叶绿体",
+      "label": "Enter the cutaway chloroplast",
+      "translation": "进入剖开的叶绿体",
       "childSceneId": "chloroplast-interior",
-      "x": 1080,
-      "y": 235,
-      "width": 210,
-      "height": 120,
-      "enterScale": 3.6,
-      "sourceVisualRegion": "chloroplast-top-right"
+      "x": 900,
+      "y": 78,
+      "width": 535,
+      "height": 365,
+      "enterScale": 2.8,
+      "sourceVisualRegion": "chloroplast-cutaway"
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/plant-cell.svg",
-    "rationale": "Kept organelles and boundaries that are directly drawn; removed invisible molecules, biochemical processes and structures not separately illustrated.",
+    "reviewedAsset": "/scenes/plant-cell-premium-v2.jpg",
+    "reviewedAssetSha256": "2c873d870fc8c2344b4686460647c941c01740723a0901936e70a012e118146e",
+    "rationale": "Re-anchored every term to a structure visibly resolved in the premium plant-cell cutaway, including the cell boundaries, organelles, membranes, folds, particles and the exposed upper-right chloroplast; biochemical processes and unseen molecules remain excluded.",
     "previousLabelCount": 56,
-    "retainedLabelCount": 17,
-    "removedLabelCount": 39,
+    "retainedLabelCount": 31,
+    "removedLabelCount": 25,
     "removedExamples": [
       "enzyme",
       "glucose",
@@ -213,129 +354,219 @@
   "visualRegions": [
     {
       "id": "whole-cell",
-      "description": "Complete plant cell cutaway",
+      "description": "Complete polygonal plant cell cutaway inside the thick golden wall",
       "kind": "whole",
-      "x": 125,
-      "y": 85,
-      "width": 1350,
-      "height": 750
+      "x": 120,
+      "y": 20,
+      "width": 1400,
+      "height": 820
     },
     {
-      "id": "cell-wall",
-      "description": "Thick pale-green outer wall",
+      "id": "bottom-cell-wall",
+      "description": "Thick layered golden cell wall running across the lower edge",
       "kind": "part",
-      "x": 135,
-      "y": 90,
-      "width": 1330,
-      "height": 740
-    },
-    {
-      "id": "cell-membrane",
-      "description": "Dark green inner boundary",
-      "kind": "part",
-      "x": 205,
-      "y": 145,
-      "width": 1190,
-      "height": 610
-    },
-    {
-      "id": "cytoplasm",
-      "description": "Pale dotted material inside the membrane",
-      "kind": "object",
-      "x": 230,
-      "y": 175,
-      "width": 1140,
-      "height": 550
-    },
-    {
-      "id": "vacuole",
-      "description": "Large translucent central vacuole",
-      "kind": "object",
-      "x": 630,
-      "y": 180,
-      "width": 620,
-      "height": 555
-    },
-    {
-      "id": "vacuole-membrane",
-      "description": "Teal outline around the central vacuole",
-      "kind": "part",
-      "x": 620,
-      "y": 175,
-      "width": 640,
-      "height": 570
-    },
-    {
-      "id": "nucleus",
-      "description": "Large pink nucleus at left-center",
-      "kind": "object",
-      "x": 410,
-      "y": 285,
-      "width": 300,
-      "height": 295
-    },
-    {
-      "id": "nucleolus",
-      "description": "Pale round body inside the nucleus",
-      "kind": "part",
-      "x": 470,
-      "y": 330,
-      "width": 145,
-      "height": 150
-    },
-    {
-      "id": "chromatin",
-      "description": "Two curved purple strands inside the nucleus",
-      "kind": "part",
-      "x": 475,
-      "y": 315,
-      "width": 175,
-      "height": 210
-    },
-    {
-      "id": "chloroplasts",
-      "description": "Four green oval chloroplasts",
-      "kind": "object",
-      "x": 300,
-      "y": 185,
-      "width": 1035,
-      "height": 545
-    },
-    {
-      "id": "chloroplast-top-right",
-      "description": "Upper-right green chloroplast",
-      "kind": "object",
-      "x": 1080,
-      "y": 235,
-      "width": 210,
+      "x": 115,
+      "y": 725,
+      "width": 1405,
       "height": 120
     },
     {
-      "id": "mitochondria",
-      "description": "Two orange bean-shaped mitochondria",
-      "kind": "object",
-      "x": 300,
-      "y": 430,
-      "width": 940,
-      "height": 360
+      "id": "plasma-membrane",
+      "description": "Thin translucent membrane immediately inside the rigid cell wall",
+      "kind": "part",
+      "x": 155,
+      "y": 55,
+      "width": 1350,
+      "height": 705
     },
     {
-      "id": "endoplasmic-reticulum",
-      "description": "Purple curved membrane strands",
+      "id": "cytoplasm",
+      "description": "Translucent green material surrounding the organelles and vacuole",
       "kind": "object",
-      "x": 600,
-      "y": 210,
-      "width": 360,
+      "x": 180,
+      "y": 75,
+      "width": 1300,
+      "height": 675
+    },
+    {
+      "id": "central-vacuole",
+      "description": "Large clear green fluid compartment occupying the cell center",
+      "kind": "object",
+      "x": 585,
+      "y": 205,
+      "width": 735,
       "height": 470
     },
     {
-      "id": "ribosomes",
-      "description": "Small dark and yellow dots in the cytoplasm",
+      "id": "tonoplast",
+      "description": "Thin curved membrane outlining the central vacuole",
+      "kind": "part",
+      "x": 570,
+      "y": 190,
+      "width": 770,
+      "height": 505
+    },
+    {
+      "id": "nucleus",
+      "description": "Large purple spherical nucleus at the left of the vacuole",
       "kind": "object",
-      "x": 600,
-      "y": 175,
-      "width": 380,
-      "height": 590
+      "x": 275,
+      "y": 160,
+      "width": 455,
+      "height": 410
+    },
+    {
+      "id": "nucleolus",
+      "description": "Dark purple round nucleolus inside the nucleus",
+      "kind": "part",
+      "x": 415,
+      "y": 300,
+      "width": 120,
+      "height": 125
+    },
+    {
+      "id": "chromatin",
+      "description": "Fine pink thread network filling the nuclear interior",
+      "kind": "part",
+      "x": 355,
+      "y": 235,
+      "width": 270,
+      "height": 245
+    },
+    {
+      "id": "nuclear-envelope",
+      "description": "Layered purple membrane enclosing the nucleus",
+      "kind": "part",
+      "x": 290,
+      "y": 180,
+      "width": 425,
+      "height": 360
+    },
+    {
+      "id": "rough-er",
+      "description": "Ribosome-studded flattened membrane sheets around the nucleus",
+      "kind": "object",
+      "x": 235,
+      "y": 145,
+      "width": 620,
+      "height": 485
+    },
+    {
+      "id": "smooth-er",
+      "description": "Blue tubular membrane network extending below and right of the nucleus",
+      "kind": "object",
+      "x": 510,
+      "y": 465,
+      "width": 370,
+      "height": 190
+    },
+    {
+      "id": "golgi-apparatus",
+      "description": "Orange stack of curved membranes below the nucleus",
+      "kind": "object",
+      "x": 315,
+      "y": 515,
+      "width": 325,
+      "height": 220
+    },
+    {
+      "id": "golgi-cisternae",
+      "description": "Individual flattened orange sacs within the Golgi stack",
+      "kind": "part",
+      "x": 335,
+      "y": 550,
+      "width": 225,
+      "height": 135
+    },
+    {
+      "id": "golgi-vesicles",
+      "description": "Round orange transport vesicles budding around the Golgi stack",
+      "kind": "part",
+      "x": 490,
+      "y": 500,
+      "width": 165,
+      "height": 225
+    },
+    {
+      "id": "ribosomes",
+      "description": "Small gold particles attached to membranes or floating in cytoplasm",
+      "kind": "object",
+      "x": 240,
+      "y": 125,
+      "width": 720,
+      "height": 515
+    },
+    {
+      "id": "chloroplast-cutaway",
+      "description": "Huge opened chloroplast with exposed green membrane stacks at upper right",
+      "kind": "object",
+      "x": 895,
+      "y": 70,
+      "width": 550,
+      "height": 380
+    },
+    {
+      "id": "chloroplast-envelope",
+      "description": "Thick double green envelope around the opened chloroplast",
+      "kind": "part",
+      "x": 895,
+      "y": 70,
+      "width": 550,
+      "height": 380
+    },
+    {
+      "id": "chloroplast-grana",
+      "description": "Multiple dark green stacks of thylakoid discs in the opened chloroplast",
+      "kind": "part",
+      "x": 965,
+      "y": 125,
+      "width": 370,
+      "height": 220
+    },
+    {
+      "id": "chloroplast-starch-grain",
+      "description": "Large pale oval starch grain inside the opened chloroplast",
+      "kind": "part",
+      "x": 1175,
+      "y": 280,
+      "width": 195,
+      "height": 145
+    },
+    {
+      "id": "right-mitochondrion",
+      "description": "Orange mitochondrion with white folded cristae at middle right",
+      "kind": "object",
+      "x": 1280,
+      "y": 410,
+      "width": 190,
+      "height": 145
+    },
+    {
+      "id": "lower-mitochondrion",
+      "description": "Orange mitochondrion below the central vacuole",
+      "kind": "object",
+      "x": 825,
+      "y": 595,
+      "width": 200,
+      "height": 145
+    },
+    {
+      "id": "cytoskeleton",
+      "description": "Fine filament network crossing the cytoplasm between organelles",
+      "kind": "object",
+      "x": 545,
+      "y": 85,
+      "width": 920,
+      "height": 675
+    },
+    {
+      "id": "blue-vesicle",
+      "description": "Round blue membrane-bound vesicle beside the right mitochondrion",
+      "kind": "object",
+      "x": 1240,
+      "y": 515,
+      "width": 135,
+      "height": 135
     }
   ]
 }

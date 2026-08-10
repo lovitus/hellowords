@@ -2,8 +2,8 @@
   "id": "oak-tree",
   "title": "Oak tree",
   "translation": "橡树",
-  "subtitle": "From roots to crown",
-  "asset": "/scenes/oak-tree.svg",
+  "subtitle": "A living world around an ancient trunk",
+  "asset": "/scenes/oak-tree-premium-v2.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "city-park",
@@ -12,261 +12,582 @@
       "id": "oak",
       "word": "oak",
       "translation": "橡树",
-      "x": 800,
-      "y": 70,
+      "x": 760,
+      "y": 390,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "whole-tree"
-    },
-    {
-      "id": "crown",
-      "word": "crown",
-      "translation": "树冠",
-      "x": 530,
-      "y": 150,
-      "priority": 1.001,
-      "minLevel": 0,
-      "sourceVisualRegion": "crown"
+      "sourceVisualRegion": "main-trunk"
     },
     {
       "id": "trunk",
       "word": "trunk",
       "translation": "树干",
-      "x": 820,
-      "y": 430,
-      "priority": 1.002,
+      "x": 625,
+      "y": 300,
+      "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "trunk"
-    },
-    {
-      "id": "root",
-      "word": "root",
-      "translation": "树根",
-      "x": 560,
-      "y": 800,
-      "priority": 1.003,
-      "minLevel": 0,
-      "sourceVisualRegion": "roots"
-    },
-    {
-      "id": "soil",
-      "word": "soil",
-      "translation": "土壤",
-      "x": 1320,
-      "y": 800,
-      "priority": 1.004,
-      "minLevel": 0,
-      "sourceVisualRegion": "soil"
+      "sourceVisualRegion": "main-trunk"
     },
     {
       "id": "branch",
       "word": "branch",
       "translation": "树枝",
+      "x": 290,
+      "y": 205,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "major-limbs"
+    },
+    {
+      "id": "bough",
+      "word": "bough",
+      "translation": "粗树枝",
+      "x": 1100,
+      "y": 70,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "major-limbs"
+    },
+    {
+      "id": "root",
+      "word": "root",
+      "translation": "树根",
       "x": 520,
-      "y": 310,
-      "priority": 2.005,
-      "minLevel": 1,
-      "sourceVisualRegion": "branches"
+      "y": 774,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "root-system"
     },
     {
       "id": "bark",
       "word": "bark",
       "translation": "树皮",
-      "x": 930,
-      "y": 500,
-      "priority": 2.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "bark"
+      "x": 603,
+      "y": 240,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "bark-texture"
+    },
+    {
+      "id": "oak-leaf",
+      "word": "oak leaf",
+      "translation": "橡树叶",
+      "x": 1380,
+      "y": 120,
+      "priority": 1.006,
+      "minLevel": 0,
+      "sourceVisualRegion": "upper-right-leaf-cluster"
     },
     {
       "id": "acorn",
       "word": "acorn",
       "translation": "橡子",
-      "x": 1070,
-      "y": 330,
-      "priority": 2.007,
+      "x": 1302,
+      "y": 291,
+      "priority": 1.007,
+      "minLevel": 0,
+      "sourceVisualRegion": "acorn-cluster"
+    },
+    {
+      "id": "squirrel",
+      "word": "squirrel",
+      "translation": "松鼠",
+      "x": 287,
+      "y": 118,
+      "priority": 2.008,
       "minLevel": 1,
-      "sourceVisualRegion": "acorn"
+      "sourceVisualRegion": "squirrel"
+    },
+    {
+      "id": "woodpecker",
+      "word": "woodpecker",
+      "translation": "啄木鸟",
+      "x": 468,
+      "y": 274,
+      "priority": 2.009,
+      "minLevel": 1,
+      "sourceVisualRegion": "woodpecker"
+    },
+    {
+      "id": "bird-nest",
+      "word": "bird nest",
+      "translation": "鸟巢",
+      "x": 792,
+      "y": 83,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "bird-nest"
+    },
+    {
+      "id": "spider-web",
+      "word": "spider web",
+      "translation": "蜘蛛网",
+      "x": 240,
+      "y": 431,
+      "priority": 2.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "spider-web"
+    },
+    {
+      "id": "bracket-fungus",
+      "word": "bracket fungus",
+      "translation": "层孔菌",
+      "x": 979,
+      "y": 565,
+      "priority": 2.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "bracket-fungi"
+    },
+    {
+      "id": "moss",
+      "word": "moss",
+      "translation": "苔藓",
+      "x": 758,
+      "y": 632,
+      "priority": 2.013,
+      "minLevel": 1,
+      "sourceVisualRegion": "moss-covered-base"
+    },
+    {
+      "id": "wildflower",
+      "word": "wildflower",
+      "translation": "野花",
+      "x": 1315,
+      "y": 674,
+      "priority": 2.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "wildflowers"
     },
     {
       "id": "hollow",
       "word": "hollow",
       "translation": "树洞",
-      "x": 730,
-      "y": 540,
-      "priority": 3.008,
+      "x": 716,
+      "y": 285,
+      "priority": 3.015,
       "minLevel": 2,
-      "sourceVisualRegion": "hollow"
+      "sourceVisualRegion": "tree-hollow"
     },
     {
-      "id": "seedling",
-      "word": "seedling",
-      "translation": "幼苗",
-      "x": 1260,
+      "id": "stag-beetle",
+      "word": "stag beetle",
+      "translation": "锹形虫",
+      "x": 811,
+      "y": 508,
+      "priority": 3.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "stag-beetle"
+    },
+    {
+      "id": "caterpillar",
+      "word": "caterpillar",
+      "translation": "毛毛虫",
+      "x": 1050,
+      "y": 401,
+      "priority": 3.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "caterpillar"
+    },
+    {
+      "id": "ivy",
+      "word": "ivy",
+      "translation": "常春藤",
+      "x": 520,
+      "y": 525,
+      "priority": 3.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "ivy-vine"
+    },
+    {
+      "id": "lichen",
+      "word": "lichen",
+      "translation": "地衣",
+      "x": 650,
+      "y": 507,
+      "priority": 3.019,
+      "minLevel": 2,
+      "sourceVisualRegion": "lichen-patches"
+    },
+    {
+      "id": "fern",
+      "word": "fern",
+      "translation": "蕨类植物",
+      "x": 100,
       "y": 720,
-      "priority": 4.009,
-      "minLevel": 3,
-      "sourceVisualRegion": "seedling"
+      "priority": 3.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "fern-patch"
     },
     {
-      "id": "growth-ring",
-      "word": "growth ring",
-      "translation": "生长轮",
-      "x": 800,
-      "y": 620,
-      "priority": 5.01,
+      "id": "daisy",
+      "word": "daisy",
+      "translation": "雏菊",
+      "x": 1400,
+      "y": 680,
+      "priority": 3.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "wildflowers"
+    },
+    {
+      "id": "leaf-lobe",
+      "word": "leaf lobe",
+      "translation": "叶裂片",
+      "x": 1460,
+      "y": 126,
+      "priority": 4.022,
+      "minLevel": 3,
+      "sourceVisualRegion": "upper-right-leaf-cluster"
+    },
+    {
+      "id": "leaf-vein",
+      "word": "leaf vein",
+      "translation": "叶脉",
+      "x": 1330,
+      "y": 125,
+      "priority": 4.023,
+      "minLevel": 3,
+      "sourceVisualRegion": "upper-right-leaf-cluster"
+    },
+    {
+      "id": "acorn-cap",
+      "word": "acorn cap",
+      "translation": "橡子壳斗",
+      "x": 1284,
+      "y": 269,
+      "priority": 4.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "acorn-cluster"
+    },
+    {
+      "id": "tree-fork",
+      "word": "tree fork",
+      "translation": "树杈",
+      "x": 875,
+      "y": 115,
+      "priority": 4.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "major-limbs"
+    },
+    {
+      "id": "root-flare",
+      "word": "root flare",
+      "translation": "根颈膨大部",
+      "x": 768,
+      "y": 675,
+      "priority": 4.026,
+      "minLevel": 3,
+      "sourceVisualRegion": "root-system"
+    },
+    {
+      "id": "fallen-leaf",
+      "word": "fallen leaf",
+      "translation": "落叶",
+      "x": 872,
+      "y": 829,
+      "priority": 4.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "ground-details"
+    },
+    {
+      "id": "pebble",
+      "word": "pebble",
+      "translation": "小石子",
+      "x": 744,
+      "y": 858,
+      "priority": 4.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "ground-details"
+    },
+    {
+      "id": "bark-fissure",
+      "word": "bark fissure",
+      "translation": "树皮裂缝",
+      "x": 610,
+      "y": 360,
+      "priority": 5.029,
       "minLevel": 4,
-      "sourceVisualRegion": "growth-rings"
+      "sourceVisualRegion": "bark-texture"
+    },
+    {
+      "id": "splintered-wood",
+      "word": "splintered wood",
+      "translation": "裂开的木头",
+      "x": 409,
+      "y": 466,
+      "priority": 5.03,
+      "minLevel": 4,
+      "sourceVisualRegion": "splintered-wood"
+    },
+    {
+      "id": "ivy-leaf",
+      "word": "ivy leaf",
+      "translation": "常春藤叶",
+      "x": 548,
+      "y": 455,
+      "priority": 5.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "ivy-vine"
+    },
+    {
+      "id": "spider",
+      "word": "spider",
+      "translation": "蜘蛛",
+      "x": 242,
+      "y": 427,
+      "priority": 5.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "spider-web"
+    },
+    {
+      "id": "rootlet",
+      "word": "rootlet",
+      "translation": "细根",
+      "x": 1090,
+      "y": 807,
+      "priority": 5.033,
+      "minLevel": 4,
+      "sourceVisualRegion": "root-system"
+    },
+    {
+      "id": "leaf-litter",
+      "word": "leaf litter",
+      "translation": "林地落叶层",
+      "x": 444,
+      "y": 752,
+      "priority": 5.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "ground-details"
     }
   ],
   "portals": [
     {
       "id": "enter-leaf",
-      "label": "Magnify the canopy",
-      "translation": "放大树冠",
+      "label": "Enter the oak leaf",
+      "translation": "进入橡树叶",
       "childSceneId": "leaf",
-      "x": 930,
-      "y": 75,
-      "width": 355,
-      "height": 330,
+      "x": 1135,
+      "y": 40,
+      "width": 450,
+      "height": 280,
       "enterScale": 3.6,
-      "sourceVisualRegion": "leaf-region"
+      "sourceVisualRegion": "upper-right-leaf-cluster"
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/oak-tree.svg",
-    "rationale": "Kept the clearly drawn crown, trunk, branches, bark, roots, soil, rings, hollow, acorn and seedling; removed insects, fungi and biological processes not present.",
+    "reviewedAsset": "/scenes/oak-tree-premium-v2.jpg",
+    "reviewedAssetSha256": "17be818b6515e7fb1adfd9532254612274f9ab84de17808b1e44c807976a9a3e",
+    "rationale": "Verified every anchor against the photographic oak close-up, retaining only distinct tree parts, wildlife, fungi, plants and ground details that are visibly identifiable at the marked pixel.",
     "previousLabelCount": 56,
-    "retainedLabelCount": 11,
-    "removedLabelCount": 45,
+    "retainedLabelCount": 35,
+    "removedLabelCount": 21,
     "removedExamples": [
-      "woodpecker",
-      "beetle",
-      "caterpillar",
-      "pollination",
+      "crown",
+      "seedling",
+      "growth ring",
       "sap flow",
-      "lichen"
+      "pollination"
     ]
   },
   "visualRegions": [
     {
-      "id": "whole-tree",
-      "description": "Complete oak from crown to roots",
+      "id": "whole-oak",
+      "description": "Photographic close-up of the mature oak and woodland floor",
       "kind": "whole",
-      "x": 180,
-      "y": 40,
-      "width": 1250,
-      "height": 850
-    },
-    {
-      "id": "crown",
-      "description": "Overlapping green crown at the top",
-      "kind": "object",
-      "x": 240,
-      "y": 35,
-      "width": 1140,
-      "height": 470
-    },
-    {
-      "id": "branches",
-      "description": "Brown branches beneath the crown",
-      "kind": "part",
-      "x": 380,
-      "y": 110,
-      "width": 930,
-      "height": 340
-    },
-    {
-      "id": "trunk",
-      "description": "Central brown trunk",
-      "kind": "part",
-      "x": 600,
-      "y": 250,
-      "width": 400,
-      "height": 480
-    },
-    {
-      "id": "bark",
-      "description": "Dark outer surface of the trunk",
-      "kind": "part",
-      "x": 610,
-      "y": 280,
-      "width": 380,
-      "height": 430
-    },
-    {
-      "id": "growth-rings",
-      "description": "Exposed oval growth-ring section",
-      "kind": "part",
-      "x": 670,
-      "y": 565,
-      "width": 260,
-      "height": 155
-    },
-    {
-      "id": "hollow",
-      "description": "Dark tree hollow in the lower trunk",
-      "kind": "part",
-      "x": 665,
-      "y": 465,
-      "width": 135,
-      "height": 190
-    },
-    {
-      "id": "roots",
-      "description": "Large roots spreading through the soil",
-      "kind": "part",
-      "x": 210,
-      "y": 675,
-      "width": 1190,
-      "height": 225
-    },
-    {
-      "id": "soil",
-      "description": "Brown soil layer across the bottom",
-      "kind": "object",
       "x": 0,
-      "y": 625,
+      "y": 0,
       "width": 1600,
-      "height": 275
+      "height": 900
     },
     {
-      "id": "acorn",
-      "description": "Single acorn hanging at upper right",
+      "id": "main-trunk",
+      "description": "Massive central oak trunk from fork to root flare",
       "kind": "object",
-      "x": 1025,
-      "y": 245,
-      "width": 100,
+      "x": 400,
+      "y": 0,
+      "width": 640,
+      "height": 735
+    },
+    {
+      "id": "major-limbs",
+      "description": "Large branches spreading across the upper photograph",
+      "kind": "part",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 300
+    },
+    {
+      "id": "root-system",
+      "description": "Exposed roots and flared trunk base across the foreground",
+      "kind": "part",
+      "x": 100,
+      "y": 590,
+      "width": 1400,
+      "height": 310
+    },
+    {
+      "id": "bark-texture",
+      "description": "Deeply ridged bark on the front face of the trunk",
+      "kind": "part",
+      "x": 400,
+      "y": 100,
+      "width": 520,
+      "height": 520
+    },
+    {
+      "id": "upper-right-leaf-cluster",
+      "description": "Sunlit cluster of lobed oak leaves at the upper right",
+      "kind": "object",
+      "x": 1125,
+      "y": 35,
+      "width": 475,
+      "height": 305
+    },
+    {
+      "id": "acorn-cluster",
+      "description": "Hanging green acorns and textured caps on the right branch",
+      "kind": "object",
+      "x": 1220,
+      "y": 240,
+      "width": 190,
       "height": 170
     },
     {
-      "id": "seedling",
-      "description": "Small seedling at lower right",
+      "id": "squirrel",
+      "description": "Red squirrel perched on the upper-left branch",
       "kind": "object",
-      "x": 1160,
-      "y": 610,
-      "width": 210,
-      "height": 220
-    },
-    {
-      "id": "ground-leaves",
-      "description": "Two green leaves at the base of the trunk",
-      "kind": "object",
-      "x": 545,
-      "y": 690,
-      "width": 475,
-      "height": 95
-    },
-    {
-      "id": "leaf-region",
-      "description": "Upper-right canopy cluster used to magnify into the leaf slice",
-      "kind": "object",
-      "x": 930,
+      "x": 195,
       "y": 75,
-      "width": 355,
-      "height": 330
+      "width": 155,
+      "height": 120
+    },
+    {
+      "id": "woodpecker",
+      "description": "Black and white woodpecker clinging to the trunk",
+      "kind": "object",
+      "x": 430,
+      "y": 215,
+      "width": 85,
+      "height": 145
+    },
+    {
+      "id": "bird-nest",
+      "description": "Woven bird nest resting in the upper trunk fork",
+      "kind": "object",
+      "x": 720,
+      "y": 25,
+      "width": 195,
+      "height": 135
+    },
+    {
+      "id": "spider-web",
+      "description": "Circular spider web stretched beside the left trunk",
+      "kind": "object",
+      "x": 70,
+      "y": 305,
+      "width": 330,
+      "height": 270
+    },
+    {
+      "id": "bracket-fungi",
+      "description": "Layered brown bracket fungi on the right trunk base",
+      "kind": "object",
+      "x": 900,
+      "y": 475,
+      "width": 180,
+      "height": 185
+    },
+    {
+      "id": "moss-covered-base",
+      "description": "Bright moss spreading over bark and exposed roots",
+      "kind": "object",
+      "x": 300,
+      "y": 325,
+      "width": 820,
+      "height": 475
+    },
+    {
+      "id": "wildflowers",
+      "description": "Small white woodland flowers to the lower right",
+      "kind": "object",
+      "x": 1150,
+      "y": 580,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "tree-hollow",
+      "description": "Dark oval hollow in the central trunk bark",
+      "kind": "part",
+      "x": 660,
+      "y": 215,
+      "width": 125,
+      "height": 150
+    },
+    {
+      "id": "stag-beetle",
+      "description": "Dark stag beetle climbing the mossy trunk",
+      "kind": "object",
+      "x": 770,
+      "y": 460,
+      "width": 95,
+      "height": 105
+    },
+    {
+      "id": "caterpillar",
+      "description": "Striped green caterpillar on a right-side oak leaf",
+      "kind": "object",
+      "x": 990,
+      "y": 360,
+      "width": 155,
+      "height": 80
+    },
+    {
+      "id": "ivy-vine",
+      "description": "Ivy vine and pointed leaves climbing the left trunk",
+      "kind": "object",
+      "x": 405,
+      "y": 350,
+      "width": 235,
+      "height": 320
+    },
+    {
+      "id": "lichen-patches",
+      "description": "Pale branching lichen patches on the central bark",
+      "kind": "object",
+      "x": 570,
+      "y": 375,
+      "width": 220,
+      "height": 190
+    },
+    {
+      "id": "fern-patch",
+      "description": "Green fern fronds on the lower-left woodland floor",
+      "kind": "object",
+      "x": 0,
+      "y": 630,
+      "width": 220,
+      "height": 190
+    },
+    {
+      "id": "ground-details",
+      "description": "Leaf litter and small stones between the foreground roots",
+      "kind": "object",
+      "x": 240,
+      "y": 700,
+      "width": 900,
+      "height": 200
+    },
+    {
+      "id": "splintered-wood",
+      "description": "Pale splintered remnant projecting from the left trunk",
+      "kind": "part",
+      "x": 365,
+      "y": 370,
+      "width": 165,
+      "height": 205
     }
   ]
 }

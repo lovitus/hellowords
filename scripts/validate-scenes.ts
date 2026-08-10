@@ -30,6 +30,7 @@ interface AnchorAudit {
   status: "human-verified";
   policy: "visible-object-or-part-only";
   reviewedAsset: string;
+  reviewedAssetSha256?: string;
   rationale: string;
   previousLabelCount: number;
   retainedLabelCount: number;
@@ -60,6 +61,17 @@ const MIN_ROOT_BRANCHES = 3;
 const MIN_DEEP_PATHS = 6;
 const MIN_DEEP_PATH_SCENES = 5;
 const DENSITY_LEVELS = [0, 1, 2, 3, 4] as const;
+const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
+  kitchen: 36,
+  "science-museum": 28,
+  "oak-tree": 32,
+  leaf: 28,
+  "plant-cell": 28,
+  "chloroplast-interior": 24,
+};
+const MIN_PREMIUM_OVERVIEW_LABELS = 12;
+const MIN_PREMIUM_LABELS_PER_LOD = 3;
+const MAX_RASTER_BYTES = 1_228_800;
 const VISUAL_REGION_KINDS = new Set<VisualRegionKind>([
   "whole",
   "object",
@@ -78,7 +90,7 @@ const FORBIDDEN_UNGROUNDED: Readonly<Record<string, readonly string[]>> = {
     "walking trail",
     "fallen leaves",
   ],
-  kitchen: ["boiling", "frying", "recipe", "ingredient", "chef knife", "whisk"],
+  kitchen: ["boiling", "frying", "recipe", "ingredient"],
   bedroom: ["sleep", "dream", "cozy", "alarm clock", "slippers"],
   polymer: ["thermoplastic", "polymerization", "molecular weight", "recycling"],
   "oxygen-molecule": ["combustion", "oxidation", "hypoxia", "inhale"],
@@ -145,6 +157,25 @@ function validateAnchorAudit(scene: AuditedScene): void {
   if (!DENSITY_LEVELS.every((level) => densityBands.has(level))) {
     throw new Error(`Scene ${scene.id} does not preserve all five authored zoom bands`);
   }
+  const premiumMinimum = PREMIUM_DENSITY_MINIMUMS[scene.id];
+  if (premiumMinimum !== undefined) {
+    if (scene.labels.length < premiumMinimum) {
+      throw new Error(
+        `Premium scene ${scene.id} has ${scene.labels.length} labels; expected at least ${premiumMinimum}`,
+      );
+    }
+    const lodCounts = DENSITY_LEVELS.map((level) => (
+      scene.labels.filter((label) => label.minLevel === level).length
+    ));
+    if (lodCounts[0] + lodCounts[1] < MIN_PREMIUM_OVERVIEW_LABELS) {
+      throw new Error(`Premium scene ${scene.id} needs at least ${MIN_PREMIUM_OVERVIEW_LABELS} overview labels`);
+    }
+    if (lodCounts.some((count) => count < MIN_PREMIUM_LABELS_PER_LOD)) {
+      throw new Error(
+        `Premium scene ${scene.id} needs at least ${MIN_PREMIUM_LABELS_PER_LOD} labels in every LOD`,
+      );
+    }
+  }
   const displayWords = new Set(scene.labels.map((label) => label.word.toLocaleLowerCase()));
   for (const example of anchorAudit.removedExamples) {
     if (displayWords.has(example.toLocaleLowerCase())) {
@@ -197,6 +228,35 @@ function rectangleInside(
   );
 }
 
+function readJpegDimensions(asset: Buffer): { width: number; height: number } {
+  const startOfFrameMarkers = new Set([
+    0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf,
+  ]);
+  let offset = 2;
+  while (offset + 8 < asset.length) {
+    if (asset[offset] !== 0xff) {
+      offset += 1;
+      continue;
+    }
+    const marker = asset[offset + 1];
+    offset += 2;
+    if (marker === 0xd8 || marker === 0xd9 || marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) {
+      continue;
+    }
+    if (offset + 2 > asset.length) break;
+    const segmentLength = asset.readUInt16BE(offset);
+    if (segmentLength < 2 || offset + segmentLength > asset.length) break;
+    if (startOfFrameMarkers.has(marker)) {
+      return {
+        height: asset.readUInt16BE(offset + 3),
+        width: asset.readUInt16BE(offset + 5),
+      };
+    }
+    offset += segmentLength;
+  }
+  throw new Error("JPEG has no readable frame dimensions");
+}
+
 async function main() {
   const manifestBytes = await readFile(resolve(dataRoot, "manifest.json"));
   const manifest = JSON.parse(manifestBytes.toString("utf8")) as SceneManifest;
@@ -240,6 +300,24 @@ async function main() {
       } else if (scene.asset.endsWith(".jpg") || scene.asset.endsWith(".jpeg")) {
         if (asset[0] !== 0xff || asset[1] !== 0xd8 || asset[2] !== 0xff) {
           throw new Error(`Asset ${scene.asset} is not a valid JPEG`);
+        }
+        const dimensions = readJpegDimensions(asset);
+        if (dimensions.width !== scene.width || dimensions.height !== scene.height) {
+          throw new Error(
+            `Asset ${scene.asset} is ${dimensions.width}x${dimensions.height}; expected ${scene.width}x${scene.height}`,
+          );
+        }
+        if (assetStat.size > MAX_RASTER_BYTES) {
+          throw new Error(`Asset ${scene.asset} exceeds the ${MAX_RASTER_BYTES}-byte raster budget`);
+        }
+        if (scene.asset.includes("-premium-v2.")) {
+          if (!scene.anchorAudit.reviewedAssetSha256?.match(/^[a-f0-9]{64}$/)) {
+            throw new Error(`Scene ${scene.id} needs a reviewed SHA-256 for its premium-v2 asset`);
+          }
+          const assetSha256 = createHash("sha256").update(asset).digest("hex");
+          if (assetSha256 !== scene.anchorAudit.reviewedAssetSha256) {
+            throw new Error(`Scene ${scene.id} audit hash does not match ${scene.asset}`);
+          }
         }
       } else {
         throw new Error(`Unsupported scene asset type: ${scene.asset}`);

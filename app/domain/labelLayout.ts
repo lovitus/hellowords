@@ -35,6 +35,17 @@ export interface VocabularyZoomCue {
   readonly minLod: 2 | 3 | 4;
 }
 
+export interface VocabularyCueBatchCandidate {
+  readonly cue: VocabularyZoomCue;
+  readonly labels: readonly Label[];
+  readonly nextLod: 2 | 3 | 4;
+}
+
+export interface VocabularyCueRevealBatch extends VocabularyCueBatchCandidate {
+  /** Includes absorbed small cues, which must be hidden while this cue owns them. */
+  readonly sourceCueIds: readonly string[];
+}
+
 const DEFAULT_REVEAL_BANDS = [
   { start: 0.52, end: 0.76 },
   // Overview scenes are now deliberately smaller, human-audited sets. Reveal
@@ -211,6 +222,105 @@ export function buildVocabularyZoomCues(
       || first.x - second.x
     ))
     .slice(0, Math.max(0, maxCues));
+}
+
+function uniqueBatchLabels(batches: readonly VocabularyCueBatchCandidate[]): Label[] {
+  const labels = new Map<string, Label>();
+  for (const batch of batches) {
+    for (const label of batch.labels) labels.set(label.id, label);
+  }
+  return [...labels.values()].sort((first, second) => (
+    first.priority - second.priority || first.id.localeCompare(second.id)
+  ));
+}
+
+function batchFitsSpan(labels: readonly Label[], maximumSpanX: number, maximumSpanY: number): boolean {
+  if (labels.length < 2) return true;
+  const xs = labels.map((label) => label.x);
+  const ys = labels.map((label) => label.y);
+  return Math.max(...xs) - Math.min(...xs) <= maximumSpanX
+    && Math.max(...ys) - Math.min(...ys) <= maximumSpanY;
+}
+
+/**
+ * Produces truthful green zoom batches. Only the currently nearest LOD is
+ * eligible. A cue with fewer than `minimumWordCount` labels is either merged
+ * with nearby cues at that same LOD or omitted; returned counts are always the
+ * exact deduplicated labels owned by the displayed cue.
+ */
+export function consolidateVocabularyCueBatches(
+  candidates: readonly VocabularyCueBatchCandidate[],
+  minimumWordCount = 4,
+  maximumSpanX = Number.POSITIVE_INFINITY,
+  maximumSpanY = Number.POSITIVE_INFINITY,
+): VocabularyCueRevealBatch[] {
+  const minimum = Math.max(1, Math.floor(minimumWordCount));
+  const nextLod = candidates.reduce<number>(
+    (lowest, candidate) => Math.min(lowest, candidate.nextLod),
+    Number.POSITIVE_INFINITY,
+  );
+  if (!Number.isFinite(nextLod)) return [];
+
+  const eligible = candidates
+    .filter((candidate) => candidate.nextLod === nextLod)
+    .map((candidate) => ({
+      ...candidate,
+      labels: uniqueBatchLabels([candidate]),
+    }));
+  const ready = eligible
+    .filter((candidate) => candidate.labels.length >= minimum)
+    .map((candidate) => ({ ...candidate, sourceCueIds: [candidate.cue.id] }));
+  let small = eligible.filter((candidate) => candidate.labels.length < minimum);
+
+  while (small.length > 1) {
+    const combinations: Array<{
+      batches: VocabularyCueBatchCandidate[];
+      labels: Label[];
+      mask: number;
+      spanArea: number;
+    }> = [];
+    for (let mask = 1; mask < 2 ** small.length; mask += 1) {
+      if ((mask & (mask - 1)) === 0) continue;
+      const batches = small.filter((_, index) => (mask & (1 << index)) !== 0);
+      const labels = uniqueBatchLabels(batches);
+      if (labels.length < minimum || !batchFitsSpan(labels, maximumSpanX, maximumSpanY)) continue;
+      const xs = labels.map((label) => label.x);
+      const ys = labels.map((label) => label.y);
+      combinations.push({
+        batches,
+        labels,
+        mask,
+        spanArea: (Math.max(...xs) - Math.min(...xs)) * (Math.max(...ys) - Math.min(...ys)),
+      });
+    }
+    const selected = combinations.sort((first, second) => (
+      first.labels.length - second.labels.length
+      || first.spanArea - second.spanArea
+      || first.batches.length - second.batches.length
+      || first.batches.map((batch) => batch.cue.id).join("|")
+        .localeCompare(second.batches.map((batch) => batch.cue.id).join("|"))
+    ))[0];
+    if (!selected) break;
+
+    const primary = [...selected.batches].sort((first, second) => (
+      second.labels.length - first.labels.length
+      || first.cue.id.localeCompare(second.cue.id)
+    ))[0];
+    ready.push({
+      cue: primary.cue,
+      labels: selected.labels,
+      nextLod: primary.nextLod,
+      sourceCueIds: selected.batches.map((batch) => batch.cue.id).sort(),
+    });
+    small = small.filter((_, index) => (selected.mask & (1 << index)) === 0);
+  }
+
+  return ready.sort((first, second) => (
+    first.nextLod - second.nextLod
+    || first.cue.y - second.cue.y
+    || first.cue.x - second.cue.x
+    || first.cue.id.localeCompare(second.cue.id)
+  ));
 }
 
 function placementOffsets(

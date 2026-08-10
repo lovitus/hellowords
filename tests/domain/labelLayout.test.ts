@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   buildVocabularyZoomCues,
+  consolidateVocabularyCueBatches,
   computeSceneLabelLayout,
   sceneLabelLod,
   sceneLabelRevealOpacity,
@@ -119,6 +120,76 @@ test("vocabulary zoom cues never compete with a child-scene portal", () => {
     "the cue must sit on a real authored label anchor rather than an averaged empty point",
   );
   assert.equal(cues[0].minLod, 2);
+});
+
+test("vocabulary cue batches merge nearby same-LOD words and never advertise fewer than four", () => {
+  const labels = [
+    label("one", 100, 1, 2, 100),
+    label("two", 140, 2, 2, 120),
+    label("three", 210, 3, 2, 130),
+    label("four", 240, 4, 2, 150),
+    label("later", 180, 5, 3, 140),
+  ];
+  const firstCue = {
+    id: "first",
+    x: 100,
+    y: 100,
+    anchorLabelId: "one",
+    labelIds: ["one", "two"],
+    minLod: 2 as const,
+  };
+  const secondCue = {
+    id: "second",
+    x: 210,
+    y: 130,
+    anchorLabelId: "three",
+    labelIds: ["three", "four"],
+    minLod: 2 as const,
+  };
+  const laterCue = {
+    id: "later",
+    x: 180,
+    y: 140,
+    anchorLabelId: "later",
+    labelIds: ["later"],
+    minLod: 3 as const,
+  };
+  const batches = consolidateVocabularyCueBatches([
+    { cue: firstCue, labels: labels.slice(0, 2), nextLod: 2 },
+    { cue: secondCue, labels: labels.slice(2, 4), nextLod: 2 },
+    { cue: laterCue, labels: labels.slice(4), nextLod: 3 },
+  ], 4, 300, 200);
+
+  assert.equal(batches.length, 1);
+  assert.equal(batches[0].labels.length, 4);
+  assert.deepEqual(batches[0].sourceCueIds, ["first", "second"]);
+  assert.ok(batches.every((batch) => batch.labels.length >= 4));
+  assert.equal(batches[0].nextLod, 2, "later LODs cannot be pulled into the current reveal count");
+});
+
+test("a sparse or spatially disconnected vocabulary cue is hidden instead of overstating its count", () => {
+  const nearby = [
+    label("one", 100, 1, 2, 100),
+    label("two", 130, 2, 2, 120),
+  ];
+  const distant = [
+    label("three", 1_300, 3, 2, 700),
+    label("four", 1_350, 4, 2, 740),
+  ];
+  const batches = consolidateVocabularyCueBatches([
+    {
+      cue: { id: "near", x: 100, y: 100, anchorLabelId: "one", labelIds: ["one", "two"], minLod: 2 },
+      labels: nearby,
+      nextLod: 2,
+    },
+    {
+      cue: { id: "far", x: 1_300, y: 700, anchorLabelId: "three", labelIds: ["three", "four"], minLod: 2 },
+      labels: distant,
+      nextLod: 2,
+    },
+  ], 4, 300, 200);
+
+  assert.deepEqual(batches, []);
 });
 
 test("translations consume more collision space without changing the DOM budget", () => {

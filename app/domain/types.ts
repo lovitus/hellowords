@@ -73,6 +73,8 @@ export interface SceneAnchorAudit {
   readonly status: "human-verified";
   readonly policy: "visible-object-or-part-only";
   readonly reviewedAsset: string;
+  /** Pins audited anchors to the exact reviewed raster bytes when available. */
+  readonly reviewedAssetSha256?: string;
   readonly rationale: string;
   readonly previousLabelCount: number;
   readonly retainedLabelCount: number;

@@ -9,10 +9,18 @@ import {
   prepareScene,
   type Scene,
 } from "../lib/scene-repository";
-import type { Label } from "../domain";
+import {
+  parseDiscoveredEntries,
+  recordDiscoveredLabels,
+  serializeDiscoveredEntries,
+  type Label,
+} from "../domain";
 
 const MEANING_KEY = "hellowords:meaning-visible";
-const DISCOVERED_KEY = "hellowords:discovered-words";
+// v1 counted every label as soon as its scene loaded, including words the user
+// never saw. Keep that data untouched, but start the truthful dwell-based model
+// in a new namespace so existing inflated totals do not leak into the UI.
+const DISCOVERED_KEY = "hellowords:encountered-labels:v2";
 
 export function WorldApp() {
   const [scene, setScene] = useState<Scene | null>(null);
@@ -34,10 +42,16 @@ export function WorldApp() {
   const navigationPhaseRef = useRef<"idle" | "committing" | "navigating">("idle");
   const transitionTargetIdRef = useRef<string | null>(null);
   const transitionStartedAtRef = useRef(0);
+  const discoveredEntriesRef = useRef<ReadonlySet<string>>(new Set());
 
   useEffect(() => {
     const storedMeaningVisible = window.localStorage.getItem(MEANING_KEY) === "true";
-    queueMicrotask(() => setMeaningVisible(storedMeaningVisible));
+    const discoveredEntries = parseDiscoveredEntries(window.localStorage.getItem(DISCOVERED_KEY));
+    discoveredEntriesRef.current = discoveredEntries;
+    queueMicrotask(() => {
+      setMeaningVisible(storedMeaningVisible);
+      setDiscoveredCount(discoveredEntries.size);
+    });
     const controller = new AbortController();
     void loadSceneManifest(controller.signal)
       .then((manifest) => {
@@ -65,21 +79,9 @@ export function WorldApp() {
 
   useEffect(() => {
     if (!scene) return;
-    let discovered: string[] = [];
-    try {
-      const stored = JSON.parse(window.localStorage.getItem(DISCOVERED_KEY) ?? "[]") as unknown;
-      if (Array.isArray(stored)) discovered = stored.filter((word): word is string => typeof word === "string");
-    } catch {
-      discovered = [];
-    }
-    const next = new Set(discovered);
-    scene.labels.forEach((label) => next.add(label.word.toLocaleLowerCase()));
-    const serialized = [...next].sort();
-    window.localStorage.setItem(DISCOVERED_KEY, JSON.stringify(serialized));
     let active = true;
     queueMicrotask(() => {
       if (!active) return;
-      setDiscoveredCount(serialized.length);
       setSelectedLabel(null);
     });
     return () => {
@@ -221,6 +223,23 @@ export function WorldApp() {
     window.localStorage.setItem(MEANING_KEY, String(visible));
   }, []);
 
+  const recordEncounteredLabels = useCallback((labels: readonly Label[]) => {
+    if (labels.length === 0) return;
+    const next = recordDiscoveredLabels(discoveredEntriesRef.current, labels);
+    const serialized = serializeDiscoveredEntries(next);
+    discoveredEntriesRef.current = next;
+    try {
+      window.localStorage.setItem(DISCOVERED_KEY, serialized);
+    } catch {
+      // The in-memory count remains truthful when storage is unavailable.
+    }
+    setDiscoveredCount(next.size);
+  }, []);
+
+  const recordEncounteredLabel = useCallback((label: Label) => {
+    recordEncounteredLabels([label]);
+  }, [recordEncounteredLabels]);
+
   return (
     <main
       className="world-app"
@@ -289,6 +308,8 @@ export function WorldApp() {
                 onCommitScene={() => false}
                 onEnterScene={async () => false}
                 onExitScene={() => undefined}
+                onLabelsEncountered={() => undefined}
+                onLabelEncountered={() => undefined}
                 onSelectWord={() => undefined}
                 onPrefetchScene={() => undefined}
               />
@@ -303,6 +324,8 @@ export function WorldApp() {
               onCommitScene={beginSceneCommit}
               onEnterScene={(sceneId, source) => navigate(sceneId, "forward", source)}
               onExitScene={() => goBack("zoom")}
+              onLabelsEncountered={recordEncounteredLabels}
+              onLabelEncountered={recordEncounteredLabel}
               onSelectWord={setSelectedLabel}
               onPrefetchScene={prefetchScene}
             />

@@ -5,8 +5,11 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
+  advanceLabelDwell,
   buildVocabularyZoomCues,
+  consolidateVocabularyCueBatches,
   computeSceneLabelLayout,
+  LABEL_ENCOUNTER_OPACITY,
   sceneLabelLod,
   sceneLabelRevealOpacity,
   type Label,
@@ -30,6 +33,8 @@ interface SceneViewportProps {
     source: "zoom" | "pointer" | "keyboard",
   ) => Promise<boolean>;
   onExitScene: () => void;
+  onLabelsEncountered: (labels: readonly Label[]) => void;
+  onLabelEncountered: (label: Label) => void;
   onSelectWord: (label: Label) => void;
   onPrefetchScene: (sceneId: string) => void;
 }
@@ -83,12 +88,6 @@ function portalAtScreenPoint(portals: readonly ScenePortal[], camera: Camera, po
     .sort((first, second) => first.width * first.height - second.width * second.height)[0];
 }
 
-interface VocabularyCueBatch {
-  readonly cue: VocabularyZoomCue;
-  readonly labels: readonly Label[];
-  readonly nextLod: 2 | 3 | 4;
-}
-
 export function SceneViewport({
   scene,
   meaningVisible,
@@ -98,6 +97,8 @@ export function SceneViewport({
   onCommitScene,
   onEnterScene,
   onExitScene,
+  onLabelsEncountered,
+  onLabelEncountered,
   onSelectWord,
   onPrefetchScene,
 }: SceneViewportProps) {
@@ -109,6 +110,9 @@ export function SceneViewport({
   const frameRef = useRef<number | null>(null);
   const cameraAnimationRef = useRef<number | null>(null);
   const settleRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const encounterDwellRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const visibleSinceRef = useRef<ReadonlyMap<string, number>>(new Map());
+  const encounteredLabelIdsRef = useRef(new Set<string>());
   const lastNavigationRef = useRef(0);
   const zoomFocusRef = useRef<Point | null>(null);
   const zoomDirectionRef = useRef<"in" | "out" | null>(null);
@@ -120,6 +124,7 @@ export function SceneViewport({
   const committingRef = useRef(false);
   const [previewPortal, setPreviewPortal] = useState<ScenePortal | null>(null);
   const [previewPhase, setPreviewPhase] = useState<"preview" | "armed">("preview");
+  const [encounterTick, setEncounterTick] = useState(0);
   const labelsById = useMemo(
     () => new Map(scene.labels.map((label) => [label.id, label])),
     [scene.labels],
@@ -221,6 +226,7 @@ export function SceneViewport({
     const byId = new Map(layout.map((item) => [item.id, item]));
     let visibleCount = 0;
     let emergingCount = 0;
+    const dwellEligibleLabelIds: string[] = [];
     for (const element of surface.querySelectorAll<HTMLButtonElement>(".word-label")) {
       const item = byId.get(element.dataset.labelId ?? "");
       const ownsFocus = document.activeElement === element;
@@ -260,35 +266,92 @@ export function SceneViewport({
       if (element.getAttribute("aria-hidden") !== hiddenValue) {
         element.setAttribute("aria-hidden", hiddenValue);
       }
-      if (opacity >= 0.52) visibleCount += 1;
+      if (opacity >= LABEL_ENCOUNTER_OPACITY) visibleCount += 1;
       else if (opacity > 0.025) emergingCount += 1;
+      if (
+        viewerInteractiveRef.current
+        && item?.interactive
+        && item.opacity >= LABEL_ENCOUNTER_OPACITY
+      ) {
+        dwellEligibleLabelIds.push(item.id);
+      }
     }
     surface.dataset.visibleLabelCount = String(visibleCount);
     surface.dataset.emergingLabelCount = String(emergingCount);
 
+    if (encounterDwellRef.current) {
+      clearTimeout(encounterDwellRef.current);
+      encounterDwellRef.current = null;
+    }
+    const dwell = advanceLabelDwell(
+      visibleSinceRef.current,
+      dwellEligibleLabelIds,
+      encounteredLabelIdsRef.current,
+      performance.now(),
+    );
+    visibleSinceRef.current = dwell.visibleSince;
+    if (dwell.newlyEncounteredIds.length > 0) {
+      const encountered = dwell.newlyEncounteredIds.flatMap((id) => {
+        const label = labelsById.get(id);
+        if (!label) return [];
+        encounteredLabelIdsRef.current.add(id);
+        return [label];
+      });
+      if (encountered.length > 0) onLabelsEncountered(encountered);
+    }
+    if (dwell.nextCheckInMs !== null) {
+      encounterDwellRef.current = setTimeout(() => {
+        encounterDwellRef.current = null;
+        setEncounterTick((current) => current + 1);
+      }, Math.max(1, Math.ceil(dwell.nextCheckInMs)));
+    }
+
     const minimumEligibleLod = Math.max(2, zoomLevel) as 2 | 3 | 4;
-    const cueBatches = vocabularyZoomCues.flatMap((cue): VocabularyCueBatch[] => {
+    const cueCandidates = vocabularyZoomCues.flatMap((cue) => {
       const hidden = cue.labelIds
         .map((id) => labelsById.get(id))
         .filter((label): label is Label => Boolean(label))
         .filter((label) => (
           sceneLabelLod(label) >= minimumEligibleLod
-          && sceneLabelRevealOpacity(label, camera.scale) < 0.52
+          && sceneLabelRevealOpacity(label, camera.scale) < LABEL_ENCOUNTER_OPACITY
         ));
       const nextLod = hidden.reduce<number>(
         (lowest, label) => Math.min(lowest, sceneLabelLod(label)),
         Number.POSITIVE_INFINITY,
       );
       if (nextLod < 2 || nextLod > 4) return [];
+      const targetScale = Math.min(MAX_SCALE, Math.max(
+        camera.scale + 0.28,
+        VOCABULARY_REVEAL_SCALE[nextLod as 2 | 3 | 4],
+        ...hidden
+          .filter((label) => sceneLabelLod(label) === nextLod)
+          .map((label) => (label.minScale ?? 0) + 0.34),
+      ));
+      const revealable = hidden.filter((label) => (
+        sceneLabelLod(label) === nextLod
+        && sceneLabelRevealOpacity(label, targetScale) >= LABEL_ENCOUNTER_OPACITY
+      ));
+      if (revealable.length === 0) return [];
       return [{
         cue,
-        labels: hidden.filter((label) => sceneLabelLod(label) === nextLod),
+        labels: revealable,
         nextLod: nextLod as 2 | 3 | 4,
       }];
     });
-    const nextSceneLod = cueBatches.reduce<number>(
+    const nextSceneLod = cueCandidates.reduce<number>(
       (lowest, batch) => Math.min(lowest, batch.nextLod),
       Number.POSITIVE_INFINITY,
+    );
+    const nextSceneScale = Number.isFinite(nextSceneLod)
+      ? Math.min(MAX_SCALE, Math.max(camera.scale + 0.28, VOCABULARY_REVEAL_SCALE[nextSceneLod as 2 | 3 | 4]))
+      : MAX_SCALE;
+    const visibleSceneWidth = viewport.clientWidth / Math.max(0.001, camera.fit * nextSceneScale);
+    const visibleSceneHeight = viewport.clientHeight / Math.max(0.001, camera.fit * nextSceneScale);
+    const cueBatches = consolidateVocabularyCueBatches(
+      cueCandidates,
+      4,
+      visibleSceneWidth * 0.4,
+      visibleSceneHeight * 0.4,
     );
     const cueLimit = viewport.clientWidth <= 700 ? 3 : 4;
     let activeCueCount = 0;
@@ -297,21 +360,32 @@ export function SceneViewport({
       const active = Boolean(
         batch
         && batch.nextLod === nextSceneLod
-        && batch.labels.length > 0
+        && batch.labels.length >= 4
         && activeCueCount < cueLimit
         && viewerInteractiveRef.current,
       );
       if (active && batch) {
         activeCueCount += 1;
+        const centroid = {
+          x: batch.labels.reduce((sum, label) => sum + label.x, 0) / batch.labels.length,
+          y: batch.labels.reduce((sum, label) => sum + label.y, 0) / batch.labels.length,
+        };
         const nextLabel = [...batch.labels].sort((first, second) => (
-          Math.hypot(first.x - batch.cue.x, first.y - batch.cue.y)
-            - Math.hypot(second.x - batch.cue.x, second.y - batch.cue.y)
+          Math.hypot(first.x - centroid.x, first.y - centroid.y)
+            - Math.hypot(second.x - centroid.x, second.y - centroid.y)
           || first.priority - second.priority
           || first.id.localeCompare(second.id)
         ))[0];
+        const targetScale = Math.min(MAX_SCALE, Math.max(
+          camera.scale + 0.28,
+          VOCABULARY_REVEAL_SCALE[batch.nextLod],
+          ...batch.labels.map((label) => (label.minScale ?? 0) + 0.34),
+        ));
         element.dataset.nextLod = String(batch.nextLod);
         element.dataset.hiddenWordCount = String(batch.labels.length);
         element.dataset.nextLabelId = nextLabel.id;
+        element.dataset.targetScale = targetScale.toFixed(3);
+        element.dataset.sourceCueIds = batch.sourceCueIds.join(" ");
         element.dataset.visualRegion = nextLabel.sourceVisualRegion ?? batch.cue.id;
         element.dataset.anchorX = String(nextLabel.x);
         element.dataset.anchorY = String(nextLabel.y);
@@ -327,11 +401,15 @@ export function SceneViewport({
     }
     surface.dataset.vocabularyCueLod = Number.isFinite(nextSceneLod) ? String(nextSceneLod) : "none";
     surface.dataset.visibleVocabularyCueCount = String(activeCueCount);
-  }, [clampCamera, labelsById, scene.labels, showPortalPreview, vocabularyZoomCues]);
+  }, [clampCamera, labelsById, onLabelsEncountered, scene.labels, showPortalPreview, vocabularyZoomCues]);
 
   const requestCameraFrame = useCallback(() => {
     if (frameRef.current === null) frameRef.current = requestAnimationFrame(applyCamera);
   }, [applyCamera]);
+
+  useEffect(() => {
+    if (encounterTick > 0) requestCameraFrame();
+  }, [encounterTick, requestCameraFrame]);
 
   const resetCamera = useCallback(() => {
     const viewport = viewportRef.current;
@@ -515,9 +593,9 @@ export function SceneViewport({
     if (!viewport || !viewerInteractive || committingRef.current || element.dataset.active !== "true") return;
     const nextLod = Number(element.dataset.nextLod) as 2 | 3 | 4;
     const nextLabelId = element.dataset.nextLabelId ?? cue.anchorLabelId;
-    const revealedCount = Number(element.dataset.hiddenWordCount) || 1;
+    const revealedCount = Number(element.dataset.hiddenWordCount);
     const nextLabel = labelsById.get(nextLabelId);
-    if (!nextLabel || !VOCABULARY_REVEAL_SCALE[nextLod]) return;
+    if (!nextLabel || !VOCABULARY_REVEAL_SCALE[nextLod] || revealedCount < 4) return;
 
     if (cameraAnimationRef.current !== null) cancelAnimationFrame(cameraAnimationRef.current);
     if (settleRef.current) clearTimeout(settleRef.current);
@@ -526,7 +604,8 @@ export function SceneViewport({
     zoomDirectionRef.current = null;
 
     const start = { ...cameraRef.current };
-    const authoredTarget = nextLabel.minScale === undefined ? 0 : nextLabel.minScale + 0.34;
+    const authoredTarget = Number(element.dataset.targetScale)
+      || (nextLabel.minScale === undefined ? 0 : nextLabel.minScale + 0.34);
     const targetScale = Math.min(
       MAX_SCALE,
       Math.max(start.scale + 0.28, VOCABULARY_REVEAL_SCALE[nextLod], authoredTarget),
@@ -619,9 +698,19 @@ export function SceneViewport({
       if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
       if (cameraAnimationRef.current !== null) cancelAnimationFrame(cameraAnimationRef.current);
       if (settleRef.current) clearTimeout(settleRef.current);
+      if (encounterDwellRef.current) clearTimeout(encounterDwellRef.current);
     },
     [],
   );
+
+  const reportClickedLabel = useCallback((label: Label) => {
+    visibleSinceRef.current = new Map(
+      [...visibleSinceRef.current].filter(([id]) => id !== label.id),
+    );
+    if (encounteredLabelIdsRef.current.has(label.id)) return;
+    encounteredLabelIdsRef.current.add(label.id);
+    onLabelEncountered(label);
+  }, [onLabelEncountered]);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!viewerInteractive || committingRef.current) return;
@@ -737,6 +826,7 @@ export function SceneViewport({
                 aria-label={meaningVisible ? `${label.word}，${label.translation}` : label.word}
                 onClick={(event) => {
                   event.stopPropagation();
+                  reportClickedLabel(label);
                   onSelectWord(label);
                 }}
               >
@@ -753,10 +843,6 @@ export function SceneViewport({
           <div className="vocabulary-zoom-layer" aria-label="可放大显示更多词的区域">
             {vocabularyZoomCues.map((cue) => {
               const anchor = labelsById.get(cue.anchorLabelId);
-              const initialCount = cue.labelIds.filter((id) => {
-                const label = labelsById.get(id);
-                return label && sceneLabelLod(label) === cue.minLod;
-              }).length;
               return (
                 <button
                   key={cue.id}
@@ -769,14 +855,14 @@ export function SceneViewport({
                   data-active="false"
                   data-next-label-id={cue.anchorLabelId}
                   data-next-lod={cue.minLod}
-                  data-hidden-word-count={initialCount}
+                  data-hidden-word-count="0"
                   data-visual-region={anchor?.sourceVisualRegion ?? cue.id}
                   data-anchor-x={cue.x}
                   data-anchor-y={cue.y}
                   style={{ left: cue.x, top: cue.y }}
                   tabIndex={-1}
                   aria-hidden="true"
-                  aria-label={`放大此区域，显示 ${initialCount} 个词`}
+                  aria-label="放大此区域，显示更多词"
                   onClick={(event) => {
                     event.stopPropagation();
                     focusVocabularyCue(cue, event.currentTarget, event.detail === 0);
@@ -785,7 +871,7 @@ export function SceneViewport({
                   <span className="vocabulary-zoom-cue-icon" aria-hidden="true">Aa</span>
                   <span className="vocabulary-zoom-cue-copy">
                     <span>放大 ·</span>
-                    <strong className="vocabulary-zoom-cue-count">{initialCount} 个词</strong>
+                    <strong className="vocabulary-zoom-cue-count">更多词</strong>
                   </span>
                 </button>
               );

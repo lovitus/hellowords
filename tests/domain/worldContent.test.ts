@@ -1,8 +1,13 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import test from "node:test";
-import { buildVocabularyZoomCues, type Scene } from "../../app/domain";
+import {
+  buildVocabularyZoomCues,
+  computeSceneLabelLayout,
+  type Scene,
+} from "../../app/domain";
 
 interface Manifest {
   rootSceneId: string;
@@ -24,6 +29,7 @@ interface AuditedScene extends Scene {
     status: "human-verified";
     policy: "visible-object-or-part-only";
     reviewedAsset: string;
+    reviewedAssetSha256?: string;
     rationale: string;
     previousLabelCount: number;
     retainedLabelCount: number;
@@ -36,6 +42,34 @@ interface AuditedScene extends Scene {
 }
 
 const projectRoot = resolve(import.meta.dirname, "../..");
+
+function readJpegDimensions(bytes: Buffer): { width: number; height: number } {
+  const frameMarkers = new Set([
+    0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf,
+  ]);
+  let offset = 2;
+  while (offset + 8 < bytes.length) {
+    if (bytes[offset] !== 0xff) {
+      offset += 1;
+      continue;
+    }
+    const marker = bytes[offset + 1];
+    offset += 2;
+    if (marker === 0xd8 || marker === 0xd9 || marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) {
+      continue;
+    }
+    const length = bytes.readUInt16BE(offset);
+    if (length < 2 || offset + length > bytes.length) break;
+    if (frameMarkers.has(marker)) {
+      return {
+        height: bytes.readUInt16BE(offset + 3),
+        width: bytes.readUInt16BE(offset + 5),
+      };
+    }
+    offset += length;
+  }
+  throw new Error("JPEG has no readable dimensions");
+}
 
 async function loadWorld(): Promise<{ manifest: Manifest; scenes: AuditedScene[] }> {
   const dataRoot = resolve(projectRoot, "public/data/scenes");
@@ -160,7 +194,7 @@ test("known floating-label regressions stay removed and critical portals match v
       "walking trail",
       "fallen leaves",
     ],
-    kitchen: ["boiling", "recipe", "chef knife", "whisk"],
+    kitchen: ["boiling", "frying", "recipe", "ingredient"],
     bedroom: ["sleep", "dream", "cozy", "alarm clock"],
     polymer: ["thermoplastic", "polymerization", "molecular weight"],
     "oxygen-molecule": ["combustion", "oxidation", "hypoxia"],
@@ -243,6 +277,55 @@ test("vocabulary zoom cues use real non-portal object anchors in every scene", a
   assert.ok(cueCount >= scenes.length * 2, "the world exposes useful reveal-only zoom guidance");
 });
 
+test("premium exploration scenes stay visually dense across every zoom band", async () => {
+  const { scenes } = await loadWorld();
+  const byId = new Map(scenes.map((scene) => [scene.id, scene]));
+  const minimums: Readonly<Record<string, number>> = {
+    kitchen: 36,
+    "science-museum": 28,
+    "oak-tree": 32,
+    leaf: 28,
+    "plant-cell": 28,
+    "chloroplast-interior": 24,
+  };
+  for (const [sceneId, minimum] of Object.entries(minimums)) {
+    const scene = byId.get(sceneId);
+    assert.ok(scene, `${sceneId} exists`);
+    assert.match(scene.asset, /-premium-v2\.jpg$/, `${sceneId} uses reviewed premium art`);
+    assert.ok(scene.labels.length >= minimum, `${sceneId} carries useful vocabulary density`);
+    const lodCounts = [0, 1, 2, 3, 4].map((level) => (
+      scene.labels.filter((label) => label.minLevel === level).length
+    ));
+    assert.ok(lodCounts[0] + lodCounts[1] >= 12, `${sceneId} has a rich overview`);
+    assert.ok(lodCounts.every((count) => count >= 3), `${sceneId} rewards every zoom band`);
+    const desktopWidth = 1_280;
+    const desktopHeight = 632;
+    const desktopFit = Math.min(desktopWidth / scene.width, desktopHeight / scene.height);
+    const desktopLayout = computeSceneLabelLayout(
+      scene.labels,
+      {
+        fit: desktopFit,
+        scale: 1,
+        x: (desktopWidth - scene.width * desktopFit) / 2,
+        y: (desktopHeight - scene.height * desktopFit) / 2,
+      },
+      { width: desktopWidth, height: desktopHeight, compact: false },
+      false,
+    );
+    assert.ok(
+      desktopLayout.filter((label) => label.interactive).length >= 12,
+      `${sceneId} actually exposes at least twelve non-colliding overview labels`,
+    );
+    const assetPath = resolve(projectRoot, "public", scene.asset.replace(/^\//, ""));
+    const bytes = await readFile(assetPath);
+    assert.equal(
+      createHash("sha256").update(bytes).digest("hex"),
+      scene.anchorAudit.reviewedAssetSha256,
+      `${sceneId} audit is tied to the exact reviewed pixels`,
+    );
+  }
+});
+
 test("every scene uses a real, accessible external visual asset", async () => {
   const { scenes } = await loadWorld();
   assert.equal(new Set(scenes.map((scene) => scene.asset)).size, scenes.length, "each semantic slice has its own visual");
@@ -257,6 +340,7 @@ test("every scene uses a real, accessible external visual asset", async () => {
       assert.ok(source.includes('viewBox="0 0 1600 900"'), `${scene.id} coordinate system`);
     } else {
       assert.deepEqual([...bytes.subarray(0, 3)], [0xff, 0xd8, 0xff], `${scene.id} JPEG signature`);
+      assert.deepEqual(readJpegDimensions(bytes), { width: 1600, height: 900 }, `${scene.id} raster dimensions`);
     }
   }
 });

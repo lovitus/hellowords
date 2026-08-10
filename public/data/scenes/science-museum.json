@@ -3,251 +3,600 @@
   "title": "Science museum",
   "translation": "科学馆",
   "subtitle": "Curiosity becomes discovery",
-  "asset": "/scenes/science-museum.svg",
+  "asset": "/scenes/science-museum-premium-v2.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "city-street",
   "labels": [
     {
-      "id": "museum",
-      "word": "museum",
-      "translation": "博物馆",
-      "x": 800,
-      "y": 145,
+      "id": "dinosaur-skeleton",
+      "word": "dinosaur skeleton",
+      "translation": "恐龙骨架",
+      "x": 172,
+      "y": 247,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "whole-gallery"
+      "sourceVisualRegion": "dinosaur-skeleton"
     },
     {
-      "id": "gallery",
-      "word": "gallery",
-      "translation": "展厅",
-      "x": 118,
-      "y": 190,
+      "id": "telescope",
+      "word": "telescope",
+      "translation": "望远镜",
+      "x": 601,
+      "y": 292,
       "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "whole-gallery"
+      "sourceVisualRegion": "telescope"
     },
     {
-      "id": "display-case",
-      "word": "display case",
-      "translation": "展柜",
-      "x": 820,
-      "y": 690,
+      "id": "solar-system-model",
+      "word": "solar system model",
+      "translation": "太阳系模型",
+      "x": 785,
+      "y": 165,
       "priority": 1.002,
       "minLevel": 0,
-      "sourceVisualRegion": "display-case"
+      "sourceVisualRegion": "solar-system-model"
     },
     {
-      "id": "exhibit",
-      "word": "exhibit",
-      "translation": "展品",
-      "x": 360,
-      "y": 545,
+      "id": "globe",
+      "word": "globe",
+      "translation": "地球仪",
+      "x": 764,
+      "y": 326,
       "priority": 1.003,
       "minLevel": 0,
-      "sourceVisualRegion": "left-exhibit"
+      "sourceVisualRegion": "globe"
     },
     {
-      "id": "model",
-      "word": "model",
-      "translation": "模型",
-      "x": 1050,
-      "y": 370,
-      "priority": 2.004,
+      "id": "human-anatomical-model",
+      "word": "human anatomical model",
+      "translation": "人体解剖模型",
+      "x": 1301,
+      "y": 430,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "human-body-model"
+    },
+    {
+      "id": "microscope",
+      "word": "microscope",
+      "translation": "显微镜",
+      "x": 941,
+      "y": 401,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "microscope"
+    },
+    {
+      "id": "robotic-arm",
+      "word": "robotic arm",
+      "translation": "机械臂",
+      "x": 1080,
+      "y": 354,
+      "priority": 1.006,
+      "minLevel": 0,
+      "sourceVisualRegion": "robotic-arm"
+    },
+    {
+      "id": "dna-model",
+      "word": "DNA model",
+      "translation": "DNA模型",
+      "x": 1543,
+      "y": 284,
+      "priority": 1.007,
+      "minLevel": 0,
+      "sourceVisualRegion": "dna-model"
+    },
+    {
+      "id": "triceratops-skull",
+      "word": "Triceratops skull",
+      "translation": "三角龙头骨",
+      "x": 403,
+      "y": 391,
+      "priority": 2.008,
       "minLevel": 1,
-      "sourceVisualRegion": "body-model"
+      "sourceVisualRegion": "triceratops-skull"
     },
     {
-      "id": "planet",
-      "word": "planet",
-      "translation": "行星",
-      "x": 685,
-      "y": 350,
-      "priority": 2.005,
+      "id": "ammonite-fossil",
+      "word": "ammonite fossil",
+      "translation": "菊石化石",
+      "x": 100,
+      "y": 487,
+      "priority": 2.009,
       "minLevel": 1,
-      "sourceVisualRegion": "planet-model"
+      "sourceVisualRegion": "ammonite-fossil"
     },
     {
-      "id": "display",
-      "word": "display",
-      "translation": "展示屏",
-      "x": 690,
-      "y": 585,
-      "priority": 3.006,
+      "id": "amethyst-cluster",
+      "word": "amethyst cluster",
+      "translation": "紫水晶簇",
+      "x": 252,
+      "y": 489,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "amethyst-cluster"
+    },
+    {
+      "id": "meteorite",
+      "word": "meteorite",
+      "translation": "陨石",
+      "x": 442,
+      "y": 575,
+      "priority": 2.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "meteorite"
+    },
+    {
+      "id": "solar-panel",
+      "word": "solar panel",
+      "translation": "太阳能板",
+      "x": 742,
+      "y": 389,
+      "priority": 2.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "solar-panel"
+    },
+    {
+      "id": "atom-model",
+      "word": "atom model",
+      "translation": "原子模型",
+      "x": 868,
+      "y": 552,
+      "priority": 2.013,
+      "minLevel": 1,
+      "sourceVisualRegion": "atom-model"
+    },
+    {
+      "id": "interactive-kiosk",
+      "word": "interactive kiosk",
+      "translation": "互动信息台",
+      "x": 1039,
+      "y": 529,
+      "priority": 2.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "interactive-kiosk"
+    },
+    {
+      "id": "dinosaur-skull",
+      "word": "dinosaur skull",
+      "translation": "恐龙头骨",
+      "x": 335,
+      "y": 166,
+      "priority": 3.015,
       "minLevel": 2,
-      "sourceVisualRegion": "display-plinth"
+      "sourceVisualRegion": "dinosaur-skull"
     },
     {
-      "id": "interactive-screen",
-      "word": "interactive screen",
-      "translation": "互动屏",
-      "x": 1370,
-      "y": 350,
-      "priority": 2.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "kiosk-screen"
+      "id": "rib-cage",
+      "word": "rib cage",
+      "translation": "胸廓",
+      "x": 146,
+      "y": 236,
+      "priority": 3.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "dinosaur-rib-cage"
     },
     {
-      "id": "information",
-      "word": "information",
-      "translation": "信息",
-      "x": 1370,
-      "y": 500,
-      "priority": 4.008,
+      "id": "jupiter",
+      "word": "Jupiter",
+      "translation": "木星",
+      "x": 735,
+      "y": 154,
+      "priority": 3.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "solar-system-model"
+    },
+    {
+      "id": "saturn",
+      "word": "Saturn",
+      "translation": "土星",
+      "x": 864,
+      "y": 181,
+      "priority": 3.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "solar-system-model"
+    },
+    {
+      "id": "newton-cradle",
+      "word": "Newton cradle",
+      "translation": "牛顿摆",
+      "x": 663,
+      "y": 545,
+      "priority": 3.019,
+      "minLevel": 2,
+      "sourceVisualRegion": "newton-cradle"
+    },
+    {
+      "id": "prism",
+      "word": "prism",
+      "translation": "棱镜",
+      "x": 752,
+      "y": 563,
+      "priority": 3.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "optics-display"
+    },
+    {
+      "id": "gyroscope",
+      "word": "gyroscope",
+      "translation": "陀螺仪",
+      "x": 675,
+      "y": 704,
+      "priority": 3.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "gyroscope"
+    },
+    {
+      "id": "headphones",
+      "word": "headphones",
+      "translation": "耳机",
+      "x": 1028,
+      "y": 701,
+      "priority": 3.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "control-console"
+    },
+    {
+      "id": "jaw",
+      "word": "jaw",
+      "translation": "下颌骨",
+      "x": 357,
+      "y": 215,
+      "priority": 4.023,
       "minLevel": 3,
-      "sourceVisualRegion": "kiosk-controls"
+      "sourceVisualRegion": "dinosaur-skull"
     },
     {
-      "id": "exhibit-label",
-      "word": "exhibit label",
-      "translation": "展品说明牌",
-      "x": 290,
-      "y": 735,
-      "priority": 5.009,
+      "id": "teeth",
+      "word": "teeth",
+      "translation": "牙齿",
+      "x": 380,
+      "y": 199,
+      "priority": 4.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "dinosaur-skull"
+    },
+    {
+      "id": "spine",
+      "word": "spine",
+      "translation": "脊柱",
+      "x": 180,
+      "y": 177,
+      "priority": 4.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "dinosaur-spine"
+    },
+    {
+      "id": "orbital-ring",
+      "word": "orbital ring",
+      "translation": "轨道环",
+      "x": 916,
+      "y": 153,
+      "priority": 4.026,
+      "minLevel": 3,
+      "sourceVisualRegion": "solar-system-model"
+    },
+    {
+      "id": "spectrum",
+      "word": "spectrum",
+      "translation": "光谱",
+      "x": 813,
+      "y": 584,
+      "priority": 4.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "optics-display"
+    },
+    {
+      "id": "display-screen",
+      "word": "display screen",
+      "translation": "显示屏",
+      "x": 1032,
+      "y": 517,
+      "priority": 4.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "interactive-kiosk"
+    },
+    {
+      "id": "robot-gripper",
+      "word": "robot gripper",
+      "translation": "机器人夹爪",
+      "x": 1018,
+      "y": 410,
+      "priority": 4.029,
+      "minLevel": 3,
+      "sourceVisualRegion": "robotic-arm"
+    },
+    {
+      "id": "telescope-lens",
+      "word": "telescope lens",
+      "translation": "望远镜镜片",
+      "x": 650,
+      "y": 258,
+      "priority": 5.03,
       "minLevel": 4,
-      "sourceVisualRegion": "exhibit-label"
+      "sourceVisualRegion": "telescope"
+    },
+    {
+      "id": "tripod",
+      "word": "tripod",
+      "translation": "三脚架",
+      "x": 588,
+      "y": 417,
+      "priority": 5.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "telescope"
+    },
+    {
+      "id": "microscope-objective",
+      "word": "microscope objective",
+      "translation": "显微镜物镜",
+      "x": 919,
+      "y": 394,
+      "priority": 5.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "microscope"
+    },
+    {
+      "id": "microscope-stage",
+      "word": "microscope stage",
+      "translation": "显微镜载物台",
+      "x": 944,
+      "y": 423,
+      "priority": 5.033,
+      "minLevel": 4,
+      "sourceVisualRegion": "microscope"
+    },
+    {
+      "id": "robotic-joint",
+      "word": "robotic joint",
+      "translation": "机械关节",
+      "x": 1085,
+      "y": 300,
+      "priority": 5.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "robotic-arm"
     }
   ],
   "portals": [
     {
       "id": "enter-human-body",
-      "label": "Explore the human body",
-      "translation": "探索人体",
+      "label": "Enter the human body",
+      "translation": "进入人体",
       "childSceneId": "human-body",
-      "x": 930,
-      "y": 190,
-      "width": 330,
-      "height": 510,
+      "x": 1168,
+      "y": 105,
+      "width": 270,
+      "height": 680,
       "enterScale": 3.6,
-      "sourceVisualRegion": "body-model"
+      "sourceVisualRegion": "human-body-model"
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/science-museum.svg",
-    "rationale": "Removed named facilities, staff, fossils and instruments that the simplified display case does not visibly depict.",
+    "reviewedAsset": "/scenes/science-museum-premium-v2.jpg",
+    "reviewedAssetSha256": "bcbea6aab65d8e9da5403a6473f1c92de1c9c7171ab054ab3a089878fef9e009",
+    "rationale": "Re-authored every anchor against the 1600 by 900 photographic museum scene, keeping only clearly visible exhibits and identifiable parts at their actual pixels; the human-body portal tightly encloses the complete anatomical model inside the illuminated glass cylinder.",
     "previousLabelCount": 56,
-    "retainedLabelCount": 10,
-    "removedLabelCount": 46,
+    "retainedLabelCount": 35,
+    "removedLabelCount": 21,
     "removedExamples": [
-      "microscope",
-      "telescope",
-      "dinosaur",
       "curator",
       "planetarium",
-      "gift shop"
+      "gift shop",
+      "ticket desk",
+      "laboratory"
     ]
   },
   "visualRegions": [
     {
       "id": "whole-gallery",
-      "description": "The complete museum display case and gallery wall",
+      "description": "Complete photographic science museum gallery and its displayed exhibits",
       "kind": "whole",
-      "x": 80,
-      "y": 120,
-      "width": 1440,
-      "height": 610
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 900
     },
     {
-      "id": "display-case",
-      "description": "Large glass-fronted exhibition case",
+      "id": "dinosaur-skeleton",
+      "description": "Large mounted dinosaur skeleton spanning the upper-left gallery",
       "kind": "object",
-      "x": 80,
-      "y": 160,
-      "width": 1440,
-      "height": 560
+      "x": 0,
+      "y": 105,
+      "width": 440,
+      "height": 255
     },
     {
-      "id": "gallery-lighting",
-      "description": "Arched overhead display lights",
-      "kind": "object",
-      "x": 400,
-      "y": 55,
-      "width": 700,
-      "height": 190
+      "id": "dinosaur-skull",
+      "description": "Toothed dinosaur skull and lower jaw at the upper left",
+      "kind": "part",
+      "x": 245,
+      "y": 105,
+      "width": 190,
+      "height": 135
     },
     {
-      "id": "spotlight",
-      "description": "Angled spotlight at the upper left",
-      "kind": "object",
-      "x": 210,
-      "y": 205,
-      "width": 300,
-      "height": 270
+      "id": "dinosaur-rib-cage",
+      "description": "Curved ribs in the mounted dinosaur skeleton",
+      "kind": "part",
+      "x": 60,
+      "y": 175,
+      "width": 200,
+      "height": 140
     },
     {
-      "id": "left-exhibit",
-      "description": "Illuminated exhibit on the left plinth",
-      "kind": "object",
-      "x": 205,
-      "y": 350,
-      "width": 330,
-      "height": 300
+      "id": "dinosaur-spine",
+      "description": "Horizontal vertebral column along the dinosaur back",
+      "kind": "part",
+      "x": 0,
+      "y": 135,
+      "width": 285,
+      "height": 80
     },
     {
-      "id": "planet-model",
-      "description": "Circular astronomy model near the center",
+      "id": "triceratops-skull",
+      "description": "Three-horned Triceratops skull on the left display plinth",
       "kind": "object",
-      "x": 540,
-      "y": 235,
-      "width": 300,
-      "height": 285
+      "x": 325,
+      "y": 300,
+      "width": 165,
+      "height": 170
     },
     {
-      "id": "display-plinth",
-      "description": "Dark green display plinth below the astronomy model",
+      "id": "ammonite-fossil",
+      "description": "Large spiral ammonite fossil on the front-left pedestal",
       "kind": "object",
-      "x": 590,
-      "y": 485,
-      "width": 205,
-      "height": 200
+      "x": 30,
+      "y": 395,
+      "width": 145,
+      "height": 175
     },
     {
-      "id": "body-model",
-      "description": "Human anatomy model in the right half of the case",
+      "id": "amethyst-cluster",
+      "description": "Purple amethyst crystal cluster beside the ammonite",
       "kind": "object",
-      "x": 930,
-      "y": 190,
-      "width": 330,
-      "height": 510
+      "x": 175,
+      "y": 410,
+      "width": 165,
+      "height": 155
+    },
+    {
+      "id": "meteorite",
+      "description": "Large dark pitted meteorite on the central foreground pedestal",
+      "kind": "object",
+      "x": 330,
+      "y": 475,
+      "width": 250,
+      "height": 220
+    },
+    {
+      "id": "telescope",
+      "description": "Black optical telescope and tripod left of the globe",
+      "kind": "object",
+      "x": 520,
+      "y": 215,
+      "width": 160,
+      "height": 255
+    },
+    {
+      "id": "solar-system-model",
+      "description": "Suspended planets and orbital rings across the upper center",
+      "kind": "object",
+      "x": 545,
+      "y": 105,
+      "width": 500,
+      "height": 125
+    },
+    {
+      "id": "globe",
+      "description": "Illuminated terrestrial globe in the center display",
+      "kind": "object",
+      "x": 685,
+      "y": 265,
+      "width": 150,
+      "height": 125
+    },
+    {
+      "id": "solar-panel",
+      "description": "Blue rectangular solar panel mounted before the globe",
+      "kind": "object",
+      "x": 650,
+      "y": 345,
+      "width": 185,
+      "height": 100
+    },
+    {
+      "id": "microscope",
+      "description": "White laboratory microscope on the central rear plinth",
+      "kind": "object",
+      "x": 865,
+      "y": 335,
+      "width": 150,
+      "height": 135
+    },
+    {
+      "id": "robotic-arm",
+      "description": "Articulated beige robotic arm with black gripper",
+      "kind": "object",
+      "x": 995,
+      "y": 245,
+      "width": 155,
+      "height": 220
+    },
+    {
+      "id": "human-body-model",
+      "description": "Complete standing human anatomical model inside the right glass cylinder",
+      "kind": "object",
+      "x": 1168,
+      "y": 105,
+      "width": 270,
+      "height": 680
+    },
+    {
+      "id": "dna-model",
+      "description": "Blue and red DNA double-helix model at the far right",
+      "kind": "object",
+      "x": 1480,
+      "y": 185,
+      "width": 120,
+      "height": 215
+    },
+    {
+      "id": "newton-cradle",
+      "description": "Row of suspended metal balls on a small black base",
+      "kind": "object",
+      "x": 610,
+      "y": 475,
+      "width": 110,
+      "height": 130
+    },
+    {
+      "id": "optics-display",
+      "description": "Glass prism splitting a bright beam into a rainbow spectrum",
+      "kind": "object",
+      "x": 710,
+      "y": 520,
+      "width": 145,
+      "height": 100
+    },
+    {
+      "id": "atom-model",
+      "description": "Small orbital atom model inside the center glass case",
+      "kind": "object",
+      "x": 810,
+      "y": 480,
+      "width": 140,
+      "height": 140
+    },
+    {
+      "id": "gyroscope",
+      "description": "Brass ring gyroscope on the lower-center floor display",
+      "kind": "object",
+      "x": 605,
+      "y": 610,
+      "width": 145,
+      "height": 220
     },
     {
       "id": "interactive-kiosk",
-      "description": "Interactive kiosk at far right",
+      "description": "Angled galaxy display and controls on the center-right pedestal",
       "kind": "object",
-      "x": 1230,
-      "y": 250,
+      "x": 950,
+      "y": 455,
+      "width": 180,
+      "height": 230
+    },
+    {
+      "id": "control-console",
+      "description": "Colored control buttons and headphones on the front console",
+      "kind": "object",
+      "x": 805,
+      "y": 675,
       "width": 285,
-      "height": 430
-    },
-    {
-      "id": "kiosk-screen",
-      "description": "Dark screen on the interactive kiosk",
-      "kind": "part",
-      "x": 1270,
-      "y": 300,
-      "width": 210,
-      "height": 105
-    },
-    {
-      "id": "kiosk-controls",
-      "description": "Two visible control buttons on the kiosk",
-      "kind": "part",
-      "x": 1260,
-      "y": 440,
-      "width": 220,
-      "height": 165
-    },
-    {
-      "id": "exhibit-label",
-      "description": "Small exhibit label below the case",
-      "kind": "object",
-      "x": 185,
-      "y": 700,
-      "width": 210,
-      "height": 75
+      "height": 95
     }
   ]
 }
