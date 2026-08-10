@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import test from "node:test";
-import type { Scene } from "../../app/domain/types";
+import { buildVocabularyZoomCues, type Scene } from "../../app/domain";
 
 interface Manifest {
   rootSceneId: string;
@@ -208,6 +208,39 @@ test("known floating-label regressions stay removed and critical portals match v
     byId.get("heart")?.labels.find((label) => label.word === "chamber")?.translation,
     "心腔",
   );
+});
+
+test("vocabulary zoom cues use real non-portal object anchors in every scene", async () => {
+  const { scenes } = await loadWorld();
+  let cueCount = 0;
+  for (const scene of scenes) {
+    const cues = buildVocabularyZoomCues(
+      scene.labels,
+      scene.portals,
+      scene.width,
+      scene.height,
+    );
+    assert.ok(cues.length <= 4, `${scene.id} cue budget`);
+    assert.ok(cues.length >= 1, `${scene.id} has a reveal-only vocabulary cue`);
+    cueCount += cues.length;
+    for (const cue of cues) {
+      const anchor = scene.labels.find((label) => label.id === cue.anchorLabelId);
+      assert.ok(anchor, `${scene.id}/${cue.id} anchor label`);
+      assert.equal(cue.x, anchor.x, `${scene.id}/${cue.id} authored anchor x`);
+      assert.equal(cue.y, anchor.y, `${scene.id}/${cue.id} authored anchor y`);
+      assert.ok(cue.labelIds.includes(anchor.id), `${scene.id}/${cue.id} anchor membership`);
+      assert.ok(
+        scene.portals.every((portal) => !(
+          cue.x >= portal.x
+          && cue.x <= portal.x + portal.width
+          && cue.y >= portal.y
+          && cue.y <= portal.y + portal.height
+        )),
+        `${scene.id}/${cue.id} must not compete with an entry portal`,
+      );
+    }
+  }
+  assert.ok(cueCount >= scenes.length * 2, "the world exposes useful reveal-only zoom guidance");
 });
 
 test("every scene uses a real, accessible external visual asset", async () => {

@@ -1,4 +1,4 @@
-import type { Label } from "./types";
+import type { Label, Portal } from "./types";
 
 export interface SceneLabelCamera {
   readonly x: number;
@@ -23,6 +23,16 @@ export interface SceneLabelLayoutItem {
   /** Small screen-pixel displacement used to resolve a local collision. */
   readonly offsetX: number;
   readonly offsetY: number;
+}
+
+export interface VocabularyZoomCue {
+  readonly id: string;
+  readonly x: number;
+  readonly y: number;
+  /** A real authored object point used as the cue's visual anchor. */
+  readonly anchorLabelId: string;
+  readonly labelIds: readonly string[];
+  readonly minLod: 2 | 3 | 4;
 }
 
 const DEFAULT_REVEAL_BANDS = [
@@ -131,6 +141,78 @@ function stableHash(value: string): number {
   return hash >>> 0;
 }
 
+/**
+ * Creates a small, stable set of spatial hints for vocabulary that will be
+ * revealed by zooming without entering a child scene. Labels inside a portal
+ * are intentionally excluded: the portal's gold entry marker owns that area,
+ * so a green "more words" marker cannot contradict it.
+ */
+export function buildVocabularyZoomCues(
+  labels: readonly Label[],
+  portals: readonly Portal[],
+  sceneWidth: number,
+  sceneHeight: number,
+  maxCues = 4,
+): VocabularyZoomCue[] {
+  const columns = 4;
+  const rows = 3;
+  const cellWidth = sceneWidth / columns;
+  const cellHeight = sceneHeight / rows;
+  const groups = new Map<string, Label[]>();
+  const isInsidePortal = (label: Label) => portals.some((portal) => (
+    label.x >= portal.x
+    && label.x <= portal.x + portal.width
+    && label.y >= portal.y
+    && label.y <= portal.y + portal.height
+  ));
+
+  for (const label of labels) {
+    const lod = sceneLabelLod(label);
+    if (lod < 2 || isInsidePortal(label)) continue;
+    const column = Math.min(columns - 1, Math.max(0, Math.floor(label.x / cellWidth)));
+    const row = Math.min(rows - 1, Math.max(0, Math.floor(label.y / cellHeight)));
+    const key = `${column}-${row}`;
+    const group = groups.get(key) ?? [];
+    group.push(label);
+    groups.set(key, group);
+  }
+
+  return [...groups.entries()]
+    .map(([cell, group]) => {
+      const ordered = [...group].sort((first, second) => (
+        sceneLabelLod(first) - sceneLabelLod(second)
+        || first.priority - second.priority
+        || first.id.localeCompare(second.id)
+      ));
+      const minLod = sceneLabelLod(ordered[0]) as 2 | 3 | 4;
+      const centroid = {
+        x: group.reduce((sum, label) => sum + label.x, 0) / group.length,
+        y: group.reduce((sum, label) => sum + label.y, 0) / group.length,
+      };
+      const anchor = [...group].sort((first, second) => (
+        Math.hypot(first.x - centroid.x, first.y - centroid.y)
+          - Math.hypot(second.x - centroid.x, second.y - centroid.y)
+        || first.priority - second.priority
+        || first.id.localeCompare(second.id)
+      ))[0];
+      return {
+        id: `vocabulary-${cell}`,
+        x: anchor.x,
+        y: anchor.y,
+        anchorLabelId: anchor.id,
+        labelIds: ordered.map((label) => label.id),
+        minLod,
+      } satisfies VocabularyZoomCue;
+    })
+    .sort((first, second) => (
+      second.labelIds.length - first.labelIds.length
+      || first.minLod - second.minLod
+      || first.y - second.y
+      || first.x - second.x
+    ))
+    .slice(0, Math.max(0, maxCues));
+}
+
 function placementOffsets(
   id: string,
   width: number,
@@ -152,8 +234,14 @@ function placementOffsets(
   const rotation = stableHash(id) % firstRing.length;
   const rotated = firstRing.slice(rotation).concat(firstRing.slice(0, rotation));
   return [
-    [0, 0],
-    ...rotated,
+    // Labels are callouts, not stickers: prefer a short upward stem so the
+    // authored object pixel remains visible and unmistakably anchored.
+    [0, -vertical],
+    ...rotated.filter(([x, y]) => x !== 0 || y !== -vertical),
+    [0, -vertical * 0.58],
+    [0, vertical * 0.58],
+    [-horizontal * 0.55, 0],
+    [horizontal * 0.55, 0],
     [0, -vertical * 2],
     [0, vertical * 2],
     [-horizontal * 1.7, 0],

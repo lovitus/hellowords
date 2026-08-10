@@ -3,8 +3,17 @@
 /* SVG scene slices intentionally remain external images so their drawing nodes do not enter the app DOM. */
 /* eslint-disable @next/next/no-img-element */
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { computeSceneLabelLayout, type Label, type Portal as ScenePortal, type Scene } from "../domain";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  buildVocabularyZoomCues,
+  computeSceneLabelLayout,
+  sceneLabelLod,
+  sceneLabelRevealOpacity,
+  type Label,
+  type Portal as ScenePortal,
+  type Scene,
+  type VocabularyZoomCue,
+} from "../domain";
 
 interface SceneViewportProps {
   scene: Scene;
@@ -42,6 +51,11 @@ const EXIT_SCALE = 0.82;
 const MAX_SCALE = 4.15;
 const PORTAL_PREVIEW_LEAD = 1;
 const PORTAL_ARMED_PROGRESS = 0.82;
+const VOCABULARY_REVEAL_SCALE: Readonly<Record<2 | 3 | 4, number>> = {
+  2: 1.42,
+  3: 2.2,
+  4: 3.12,
+};
 
 function distance(a: Point, b: Point): number {
   return Math.hypot(a.x - b.x, a.y - b.y);
@@ -67,6 +81,12 @@ function portalAtScreenPoint(portals: readonly ScenePortal[], camera: Camera, po
       && sceneY <= portal.y + portal.height
     ))
     .sort((first, second) => first.width * first.height - second.width * second.height)[0];
+}
+
+interface VocabularyCueBatch {
+  readonly cue: VocabularyZoomCue;
+  readonly labels: readonly Label[];
+  readonly nextLod: 2 | 3 | 4;
 }
 
 export function SceneViewport({
@@ -95,10 +115,19 @@ export function SceneViewport({
   const portalCandidateRef = useRef<ScenePortal | null>(null);
   const previewPortalRef = useRef<ScenePortal | null>(null);
   const previewRef = useRef<HTMLDivElement>(null);
+  const vocabularyAnnouncementRef = useRef<HTMLParagraphElement>(null);
   const previewPhaseRef = useRef<"preview" | "armed">("preview");
   const committingRef = useRef(false);
   const [previewPortal, setPreviewPortal] = useState<ScenePortal | null>(null);
   const [previewPhase, setPreviewPhase] = useState<"preview" | "armed">("preview");
+  const labelsById = useMemo(
+    () => new Map(scene.labels.map((label) => [label.id, label])),
+    [scene.labels],
+  );
+  const vocabularyZoomCues = useMemo(
+    () => buildVocabularyZoomCues(scene.labels, scene.portals, scene.width, scene.height, 4),
+    [scene.height, scene.labels, scene.portals, scene.width],
+  );
 
   const viewerInteractive = transitionPhase === "active" && !interactionLocked;
   const viewerInteractiveRef = useRef(viewerInteractive);
@@ -170,6 +199,13 @@ export function SceneViewport({
       const selected = region.dataset.portalId === activePortal?.id;
       region.dataset.candidate = String(selected);
       region.style.setProperty("--portal-progress", selected ? portalProgress.toFixed(3) : "0");
+      const hotspot = region.querySelector<HTMLElement>(".scene-hotspot");
+      if (hotspot) {
+        hotspot.dataset.cueState = selected
+          ? (nextPreviewPhase === "armed" ? "armed" : "candidate")
+          : "idle";
+        hotspot.dataset.progress = selected ? portalProgress.toFixed(3) : "0.000";
+      }
     }
 
     const layout = computeSceneLabelLayout(
@@ -213,7 +249,8 @@ export function SceneViewport({
       element.style.setProperty("--label-anchor-y", `${anchorY.toFixed(2)}px`);
       element.style.setProperty("--label-leader-length", `${displacement.toFixed(2)}px`);
       element.style.setProperty("--label-leader-angle", `${leaderAngle.toFixed(2)}deg`);
-      element.dataset.displaced = String(displacement >= 14);
+      element.dataset.displaced = String(displacement >= 4);
+      element.dataset.anchorMode = displacement >= 4 ? "leader" : "stem";
       if (element.dataset.visible !== visibleValue) element.dataset.visible = visibleValue;
       if (element.dataset.interactive !== interactiveValue) {
         element.dataset.interactive = interactiveValue;
@@ -228,7 +265,69 @@ export function SceneViewport({
     }
     surface.dataset.visibleLabelCount = String(visibleCount);
     surface.dataset.emergingLabelCount = String(emergingCount);
-  }, [clampCamera, scene.labels, showPortalPreview]);
+
+    const minimumEligibleLod = Math.max(2, zoomLevel) as 2 | 3 | 4;
+    const cueBatches = vocabularyZoomCues.flatMap((cue): VocabularyCueBatch[] => {
+      const hidden = cue.labelIds
+        .map((id) => labelsById.get(id))
+        .filter((label): label is Label => Boolean(label))
+        .filter((label) => (
+          sceneLabelLod(label) >= minimumEligibleLod
+          && sceneLabelRevealOpacity(label, camera.scale) < 0.52
+        ));
+      const nextLod = hidden.reduce<number>(
+        (lowest, label) => Math.min(lowest, sceneLabelLod(label)),
+        Number.POSITIVE_INFINITY,
+      );
+      if (nextLod < 2 || nextLod > 4) return [];
+      return [{
+        cue,
+        labels: hidden.filter((label) => sceneLabelLod(label) === nextLod),
+        nextLod: nextLod as 2 | 3 | 4,
+      }];
+    });
+    const nextSceneLod = cueBatches.reduce<number>(
+      (lowest, batch) => Math.min(lowest, batch.nextLod),
+      Number.POSITIVE_INFINITY,
+    );
+    const cueLimit = viewport.clientWidth <= 700 ? 3 : 4;
+    let activeCueCount = 0;
+    for (const element of surface.querySelectorAll<HTMLButtonElement>(".vocabulary-zoom-cue")) {
+      const batch = cueBatches.find((candidate) => candidate.cue.id === element.dataset.cueId);
+      const active = Boolean(
+        batch
+        && batch.nextLod === nextSceneLod
+        && batch.labels.length > 0
+        && activeCueCount < cueLimit
+        && viewerInteractiveRef.current,
+      );
+      if (active && batch) {
+        activeCueCount += 1;
+        const nextLabel = [...batch.labels].sort((first, second) => (
+          Math.hypot(first.x - batch.cue.x, first.y - batch.cue.y)
+            - Math.hypot(second.x - batch.cue.x, second.y - batch.cue.y)
+          || first.priority - second.priority
+          || first.id.localeCompare(second.id)
+        ))[0];
+        element.dataset.nextLod = String(batch.nextLod);
+        element.dataset.hiddenWordCount = String(batch.labels.length);
+        element.dataset.nextLabelId = nextLabel.id;
+        element.dataset.visualRegion = nextLabel.sourceVisualRegion ?? batch.cue.id;
+        element.dataset.anchorX = String(nextLabel.x);
+        element.dataset.anchorY = String(nextLabel.y);
+        element.style.left = `${nextLabel.x}px`;
+        element.style.top = `${nextLabel.y}px`;
+        const count = element.querySelector<HTMLElement>(".vocabulary-zoom-cue-count");
+        if (count) count.textContent = `${batch.labels.length} 个词`;
+        element.setAttribute("aria-label", `放大此区域，显示 ${batch.labels.length} 个词`);
+      }
+      element.dataset.active = String(active);
+      element.tabIndex = active ? 0 : -1;
+      element.setAttribute("aria-hidden", String(!active));
+    }
+    surface.dataset.vocabularyCueLod = Number.isFinite(nextSceneLod) ? String(nextSceneLod) : "none";
+    surface.dataset.visibleVocabularyCueCount = String(activeCueCount);
+  }, [clampCamera, labelsById, scene.labels, showPortalPreview, vocabularyZoomCues]);
 
   const requestCameraFrame = useCallback(() => {
     if (frameRef.current === null) frameRef.current = requestAnimationFrame(applyCamera);
@@ -407,6 +506,86 @@ export function SceneViewport({
     [viewerInteractive, onPrefetchScene, requestCameraFrame, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview],
   );
 
+  const focusVocabularyCue = useCallback((
+    cue: VocabularyZoomCue,
+    element: HTMLButtonElement,
+    keyboardTriggered: boolean,
+  ) => {
+    const viewport = viewportRef.current;
+    if (!viewport || !viewerInteractive || committingRef.current || element.dataset.active !== "true") return;
+    const nextLod = Number(element.dataset.nextLod) as 2 | 3 | 4;
+    const nextLabelId = element.dataset.nextLabelId ?? cue.anchorLabelId;
+    const revealedCount = Number(element.dataset.hiddenWordCount) || 1;
+    const nextLabel = labelsById.get(nextLabelId);
+    if (!nextLabel || !VOCABULARY_REVEAL_SCALE[nextLod]) return;
+
+    if (cameraAnimationRef.current !== null) cancelAnimationFrame(cameraAnimationRef.current);
+    if (settleRef.current) clearTimeout(settleRef.current);
+    portalCandidateRef.current = null;
+    showPortalPreview(null);
+    zoomDirectionRef.current = null;
+
+    const start = { ...cameraRef.current };
+    const authoredTarget = nextLabel.minScale === undefined ? 0 : nextLabel.minScale + 0.34;
+    const targetScale = Math.min(
+      MAX_SCALE,
+      Math.max(start.scale + 0.28, VOCABULARY_REVEAL_SCALE[nextLod], authoredTarget),
+    );
+    const effectiveScale = start.fit * targetScale;
+    const target = {
+      fit: start.fit,
+      scale: targetScale,
+      x: viewport.clientWidth / 2 - nextLabel.x * effectiveScale,
+      y: viewport.clientHeight / 2 - nextLabel.y * effectiveScale,
+    };
+    const focusRevealedWord = () => {
+      zoomFocusRef.current = { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
+      requestCameraFrame();
+      if (vocabularyAnnouncementRef.current) {
+        vocabularyAnnouncementRef.current.textContent = `已放大此区域，显示 ${revealedCount} 个词`;
+      }
+      if (!keyboardTriggered) return;
+      requestAnimationFrame(() => {
+        const word = surfaceRef.current?.querySelector<HTMLButtonElement>(
+          `.word-label[data-label-id="${CSS.escape(nextLabelId)}"]`,
+        );
+        const fallback = surfaceRef.current?.querySelector<HTMLButtonElement>(
+          ".word-label[data-interactive=\"true\"]",
+        );
+        if (word?.tabIndex === 0) word.focus();
+        else fallback?.focus();
+      });
+    };
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) {
+      cameraRef.current = target;
+      cameraAnimationRef.current = null;
+      focusRevealedWord();
+      return;
+    }
+
+    const startedAt = performance.now();
+    const duration = 240;
+    const animate = (now: number) => {
+      const linear = Math.min(1, (now - startedAt) / duration);
+      const eased = 1 - (1 - linear) ** 3;
+      cameraRef.current = {
+        fit: start.fit,
+        scale: start.scale + (target.scale - start.scale) * eased,
+        x: start.x + (target.x - start.x) * eased,
+        y: start.y + (target.y - start.y) * eased,
+      };
+      requestCameraFrame();
+      if (linear < 1) {
+        cameraAnimationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      cameraAnimationRef.current = null;
+      focusRevealedWord();
+    };
+    cameraAnimationRef.current = requestAnimationFrame(animate);
+  }, [labelsById, requestCameraFrame, showPortalPreview, viewerInteractive]);
+
   useEffect(() => {
     resetCamera();
     const viewport = viewportRef.current;
@@ -547,6 +726,9 @@ export function SceneViewport({
                 data-lod={label.minLevel ?? 0}
                 data-priority={label.priority}
                 data-visual-region={label.sourceVisualRegion}
+                data-anchor-x={label.x}
+                data-anchor-y={label.y}
+                data-anchor-mode="stem"
                 data-visible="false"
                 data-interactive="false"
                 style={{ left: label.x, top: label.y }}
@@ -568,6 +750,47 @@ export function SceneViewport({
               </button>
             ))}
           </div>
+          <div className="vocabulary-zoom-layer" aria-label="可放大显示更多词的区域">
+            {vocabularyZoomCues.map((cue) => {
+              const anchor = labelsById.get(cue.anchorLabelId);
+              const initialCount = cue.labelIds.filter((id) => {
+                const label = labelsById.get(id);
+                return label && sceneLabelLod(label) === cue.minLod;
+              }).length;
+              return (
+                <button
+                  key={cue.id}
+                  type="button"
+                  className="vocabulary-zoom-cue"
+                  data-testid="scene-vocabulary-cue"
+                  data-cue-id={cue.id}
+                  data-cue-kind="vocabulary"
+                  data-zoom-action="reveal-words"
+                  data-active="false"
+                  data-next-label-id={cue.anchorLabelId}
+                  data-next-lod={cue.minLod}
+                  data-hidden-word-count={initialCount}
+                  data-visual-region={anchor?.sourceVisualRegion ?? cue.id}
+                  data-anchor-x={cue.x}
+                  data-anchor-y={cue.y}
+                  style={{ left: cue.x, top: cue.y }}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  aria-label={`放大此区域，显示 ${initialCount} 个词`}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    focusVocabularyCue(cue, event.currentTarget, event.detail === 0);
+                  }}
+                >
+                  <span className="vocabulary-zoom-cue-icon" aria-hidden="true">Aa</span>
+                  <span className="vocabulary-zoom-cue-copy">
+                    <span>放大 ·</span>
+                    <strong className="vocabulary-zoom-cue-count">{initialCount} 个词</strong>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
           {scene.portals.map((portal) => (
             <div
               key={portal.id}
@@ -581,6 +804,10 @@ export function SceneViewport({
                 type="button"
                 className="scene-hotspot"
                 data-testid="scene-hotspot"
+                data-cue-kind="portal"
+                data-zoom-action="enter-scene"
+                data-cue-state="idle"
+                data-progress="0.000"
                 data-target-scene={portal.childSceneId}
                 aria-describedby={previewPortal?.id === portal.id ? `portal-preview-${scene.id}` : undefined}
                 onClick={(event) => {
@@ -609,11 +836,11 @@ export function SceneViewport({
                     requestCameraFrame();
                   }
                 }}
-                aria-label={meaningVisible && portal.translation ? `${portal.label}，${portal.translation}` : portal.label}
+                aria-label={`进入 ${portalTargetTitles[portal.childSceneId] ?? portal.label}${meaningVisible && portal.translation ? `，${portal.translation}` : ""}`}
               >
-                <span className="scene-hotspot-icon" aria-hidden="true">＋</span>
+                <span className="scene-hotspot-icon" aria-hidden="true">↘</span>
                 <span className="scene-hotspot-caption" aria-hidden="true">
-                  {portalTargetTitles[portal.childSceneId] ?? portal.label}
+                  进入 · {portalTargetTitles[portal.childSceneId] ?? portal.label}
                 </span>
               </button>
             </div>
@@ -624,6 +851,11 @@ export function SceneViewport({
 
       {viewerInteractive ? (
         <>
+          <aside className="scene-cue-legend" data-testid="scene-cue-legend" aria-label="缩放提示图例">
+            <span><i data-kind="portal" aria-hidden="true" />进入下一场景</span>
+            <span><i data-kind="vocabulary" aria-hidden="true" />放大显示更多词</span>
+          </aside>
+          <p ref={vocabularyAnnouncementRef} className="sr-only" aria-live="polite" />
           <div className="zoom-controls" aria-label="Zoom controls">
             <button type="button" onClick={() => zoomAt(viewportCenter(), 1.34)} aria-label="Zoom in">＋</button>
             <button type="button" onClick={() => zoomAt(viewportCenter(), 0.74)} aria-label="Zoom out">−</button>
@@ -649,7 +881,7 @@ export function SceneViewport({
               </span>
             </div>
           ) : (
-            <p className="gesture-hint">拖动探索 · 滚轮或双指缩放 · 对准入口查看下一层</p>
+            <p className="gesture-hint">拖动探索 · 滚轮或双指缩放 · 选择彩色提示</p>
           )}
         </>
       ) : null}

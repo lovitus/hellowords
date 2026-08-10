@@ -44,6 +44,17 @@ Each scene covers five progressive density bands:
 
 All five bands remain available, but there is no minimum label count per scene. An eight-label polymer diagram is more trustworthy than a 48-label diagram padded with invisible material properties and manufacturing processes.
 
+## Exploration cues and anchors
+
+The viewer uses two deliberately different zoom cues:
+
+- a gold `进入 · …` marker identifies a real portal and promises that zooming or activating it will enter the named child scene;
+- a green `放大 · … 个词` marker identifies a non-portal object region and keeps the current scene while revealing the next vocabulary detail band.
+
+Vocabulary cues are generated only from reviewed label anchors outside every portal. Each cue sits on a real authored object point, names the number of currently hidden words it can reveal, and advances to the next useful detail band after activation. Desktop shows at most four such cues and compact screens at most three, so guidance does not become another label cloud.
+
+Every visible word is rendered as a callout: a green anchor dot remains on the exact reviewed pixel while a short leader connects it to the collision-adjusted word capsule. This keeps the semantic attachment visible even when nearby labels must move apart for readability.
+
 Translations remain authored for the visible scene meaning. For example, `chamber` is `心腔` in the heart cutaway. Removed spatial labels are not deleted from the application vocabulary; they remain learnable in the semantic atlas without pretending that the current image depicts them.
 
 ## Per-scene audit result

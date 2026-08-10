@@ -433,8 +433,8 @@ a:focus-visible {
   top: 50%;
   left: 50%;
   width: var(--label-leader-length);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(157, 91, 53, 0.45), rgba(157, 91, 53, 0.15));
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(31, 87, 72, 0.72), rgba(31, 87, 72, 0.2));
   content: "";
   pointer-events: none;
   transform: rotate(var(--label-leader-angle));
@@ -445,19 +445,15 @@ a:focus-visible {
   position: absolute;
   top: 50%;
   left: 50%;
-  display: none;
-  width: 6px;
-  height: 6px;
-  border: 1px solid rgba(255, 252, 241, 0.92);
+  display: block;
+  width: 8px;
+  height: 8px;
+  border: 2px solid rgba(255, 252, 241, 0.96);
   border-radius: 50%;
-  background: var(--copper);
-  box-shadow: 0 1px 5px rgba(27, 57, 52, 0.32);
+  background: #236752;
+  box-shadow: 0 1px 6px rgba(21, 63, 51, 0.38), 0 0 0 2px rgba(35, 103, 82, 0.18);
   pointer-events: none;
   transform: translate(calc(var(--label-anchor-x) - 50%), calc(var(--label-anchor-y) - 50%));
-}
-
-.word-label[data-displaced="true"] .word-anchor-marker {
-  display: block;
 }
 
 .word-label[data-lod="3"],
@@ -501,6 +497,96 @@ a:focus-visible {
   background: var(--copper);
 }
 
+.vocabulary-zoom-layer {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vocabulary-zoom-cue {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  min-width: 116px;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 11px 4px 4px;
+  border: 1px solid rgba(225, 249, 235, 0.9);
+  border-radius: 999px;
+  background: rgba(28, 101, 77, 0.94);
+  box-shadow: 0 9px 26px rgba(15, 60, 47, 0.25), 0 0 0 3px rgba(221, 247, 232, 0.15);
+  color: #f5fff9;
+  cursor: zoom-in;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(var(--label-inverse)) translate(-22px, -50%);
+  transform-origin: 0 0;
+  transition: opacity 150ms ease, visibility 0s linear 150ms, box-shadow 150ms ease, background 150ms ease;
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+.vocabulary-zoom-cue[data-active="true"] {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 150ms ease, box-shadow 150ms ease, background 150ms ease;
+  visibility: visible;
+}
+
+.vocabulary-zoom-cue:hover,
+.vocabulary-zoom-cue:focus-visible {
+  background: rgba(22, 114, 82, 0.98);
+  box-shadow: 0 12px 30px rgba(11, 56, 43, 0.32), 0 0 0 4px rgba(222, 250, 234, 0.3);
+  outline: 2px solid rgba(247, 255, 250, 0.96);
+  outline-offset: 2px;
+}
+
+.vocabulary-zoom-cue-icon {
+  position: relative;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border: 1px solid rgba(244, 255, 249, 0.78);
+  border-radius: 50%;
+  background: rgba(242, 255, 248, 0.16);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.vocabulary-zoom-cue-icon::after {
+  position: absolute;
+  inset: -5px;
+  border: 1px solid rgba(164, 235, 201, 0.55);
+  border-radius: 50%;
+  content: "";
+}
+
+.vocabulary-zoom-cue-copy {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  line-height: 1;
+}
+
+.vocabulary-zoom-cue-copy > span {
+  color: rgba(232, 255, 242, 0.72);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.vocabulary-zoom-cue-copy strong {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 .word-translation {
   padding-left: 6px;
   border-left: 1px solid rgba(32, 62, 57, 0.15);
@@ -514,37 +600,37 @@ a:focus-visible {
   position: absolute;
   display: grid;
   place-items: center;
-  border: 2px dashed rgba(248, 244, 228, 0.5);
+  border: 2px dashed rgba(231, 181, 86, 0.72);
   border-radius: 30px;
-  background: rgba(244, 235, 207, 0.055);
+  background: rgba(237, 178, 65, 0.075);
   pointer-events: none;
   transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .scene-hotspot-region:hover,
 .scene-hotspot-region:focus-within {
-  border-color: rgba(255, 248, 217, 0.88);
-  background: rgba(255, 244, 207, 0.12);
+  border-color: rgba(255, 225, 153, 0.98);
+  background: rgba(255, 200, 86, 0.15);
 }
 
 .scene-hotspot-region[data-candidate="true"] {
-  border-color: rgba(255, 243, 190, 0.96);
-  background: rgba(240, 179, 91, 0.09);
-  box-shadow: inset 0 0 0 1px rgba(255, 250, 222, 0.26), 0 0 34px rgba(216, 148, 71, 0.2);
+  border-color: rgba(255, 225, 148, 1);
+  background: rgba(240, 179, 62, 0.17);
+  box-shadow: inset 0 0 0 1px rgba(255, 248, 210, 0.42), 0 0 38px rgba(213, 145, 36, 0.31);
 }
 
 .scene-hotspot {
   position: relative;
-  z-index: 3;
+  z-index: 7;
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 244, 209, 0.94);
   border-radius: 50%;
-  background: rgba(246, 241, 227, 0.86);
-  box-shadow: 0 7px 24px rgba(25, 50, 46, 0.18);
-  color: var(--sage-dark);
+  background: linear-gradient(145deg, rgba(243, 190, 83, 0.98), rgba(201, 132, 38, 0.98));
+  box-shadow: 0 8px 26px rgba(92, 57, 12, 0.3), 0 0 0 3px rgba(255, 225, 158, 0.2);
+  color: #3e2a0b;
   cursor: zoom-in;
   pointer-events: auto;
   transform: scale(var(--label-inverse));
@@ -565,26 +651,26 @@ a:focus-visible {
 }
 
 .scene-hotspot-icon {
-  font-size: 19px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 800;
 }
 
 .scene-hotspot-caption {
   position: absolute;
   top: calc(100% + 7px);
   left: 50%;
-  max-width: 150px;
-  padding: 5px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.68);
+  max-width: 190px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 239, 194, 0.88);
   border-radius: 999px;
-  background: rgba(31, 60, 56, 0.82);
-  box-shadow: 0 5px 16px rgba(25, 50, 46, 0.16);
-  color: rgba(255, 250, 231, 0.94);
-  font-size: 9px;
-  font-weight: 750;
-  letter-spacing: 0.04em;
+  background: rgba(94, 62, 17, 0.92);
+  box-shadow: 0 6px 18px rgba(62, 38, 8, 0.24);
+  color: #fff5d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
   line-height: 1;
-  opacity: 0.78;
+  opacity: 1;
   pointer-events: none;
   transform: translateX(-50%);
   transition: opacity 160ms ease, transform 160ms ease;
@@ -613,6 +699,54 @@ a:focus-visible {
   display: grid;
   grid-template-columns: repeat(3, 40px);
   gap: 7px;
+}
+
+.scene-cue-legend {
+  position: absolute;
+  z-index: 14;
+  top: 24px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 999px;
+  background: rgba(249, 247, 238, 0.88);
+  box-shadow: 0 8px 25px rgba(23, 52, 47, 0.13);
+  color: #284b44;
+  font-size: 9px;
+  font-weight: 760;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+}
+
+.scene-cue-legend > span {
+  display: flex;
+  min-height: 22px;
+  align-items: center;
+  gap: 5px;
+  padding: 0 7px 0 4px;
+  white-space: nowrap;
+}
+
+.scene-cue-legend i {
+  display: block;
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(20, 49, 43, 0.22);
+}
+
+.scene-cue-legend i[data-kind="portal"] {
+  background: #d99a36;
+}
+
+.scene-cue-legend i[data-kind="vocabulary"] {
+  background: #236f55;
 }
 
 .zoom-controls button {
@@ -655,10 +789,10 @@ a:focus-visible {
   align-items: center;
   gap: 11px;
   padding: 8px 15px 8px 9px;
-  border: 1px solid rgba(255, 250, 225, 0.62);
+  border: 1px solid rgba(255, 226, 151, 0.76);
   border-radius: 999px;
-  background: rgba(28, 57, 53, 0.88);
-  box-shadow: 0 13px 38px rgba(20, 47, 43, 0.24);
+  background: rgba(73, 52, 21, 0.93);
+  box-shadow: 0 13px 38px rgba(67, 40, 8, 0.3);
   color: #fff9e8;
   pointer-events: none;
   transform: translateX(-50%);
@@ -688,7 +822,7 @@ a:focus-visible {
   position: absolute;
   inset: 3px;
   border-radius: inherit;
-  background: #264944;
+  background: #5a401b;
   content: "";
 }
 
@@ -955,6 +1089,11 @@ a:focus-visible {
     bottom: 78px;
   }
 
+  .scene-cue-legend {
+    top: 14px;
+    right: 16px;
+  }
+
   .zoom-controls {
     right: 16px;
     bottom: 20px;
@@ -996,6 +1135,33 @@ a:focus-visible {
   .scene-portal-preview {
     display: flex;
     max-width: calc(100vw - 32px);
+  }
+
+  .scene-cue-legend {
+    right: 10px;
+    display: grid;
+    gap: 0;
+    padding: 4px;
+    border-radius: 14px;
+    font-size: 8px;
+  }
+
+  .scene-cue-legend > span {
+    min-height: 19px;
+    padding-right: 5px;
+  }
+
+  .scene-hotspot-caption {
+    max-width: 180px;
+    font-size: 12px;
+  }
+
+  .vocabulary-zoom-cue-copy > span {
+    font-size: 10px;
+  }
+
+  .vocabulary-zoom-cue-copy strong {
+    font-size: 12px;
   }
 
   .zoom-controls {

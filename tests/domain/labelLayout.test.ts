@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  buildVocabularyZoomCues,
   computeSceneLabelLayout,
   sceneLabelLod,
   sceneLabelRevealOpacity,
@@ -57,7 +58,7 @@ test("authored min and max scales fade a label both in and out", () => {
   assert.equal(sceneLabelRevealOpacity(authored, 2.5), 0);
 });
 
-test("screen-space layout preserves the priority anchor and nudges a colliding label", () => {
+test("screen-space layout uses anchored callouts and nudges a colliding label", () => {
   const labels = [
     label("primary", 100, 1, 0),
     label("secondary", 105, 2, 1),
@@ -72,13 +73,52 @@ test("screen-space layout preserves the priority anchor and nudges a colliding l
   const primary = layout.find((item) => item.id === "primary")!;
   const secondary = layout.find((item) => item.id === "secondary")!;
   assert.equal(primary.offsetX, 0);
-  assert.equal(primary.offsetY, 0);
+  assert.ok(primary.offsetY < 0, "the preferred callout sits above its exact object point");
+  assert.equal(primary.screenX - primary.offsetX, 125);
+  assert.equal(primary.screenY - primary.offsetY, 125);
   assert.ok(primary.opacity > 0.95);
   assert.ok(secondary.opacity > 0.95);
   assert.ok(
     Math.hypot(secondary.offsetX, secondary.offsetY) > 0,
     "a lower-priority collision should use a nearby callout slot instead of disappearing",
   );
+});
+
+test("vocabulary zoom cues never compete with a child-scene portal", () => {
+  const labels = [
+    label("portal-detail", 200, 1, 2, 180),
+    label("nearby-detail", 640, 2, 2, 180),
+    label("nearby-part", 700, 3, 3, 220),
+    label("lower-detail", 1_300, 2, 4, 700),
+  ];
+  const cues = buildVocabularyZoomCues(
+    labels,
+    [{
+      id: "enter-object",
+      label: "Enter object",
+      childSceneId: "object",
+      x: 100,
+      y: 100,
+      width: 240,
+      height: 220,
+    }],
+    1_600,
+    900,
+  );
+
+  assert.equal(cues.length, 2);
+  assert.ok(cues.every((cue) => !cue.labelIds.includes("portal-detail")));
+  assert.deepEqual(cues[0].labelIds, ["nearby-detail", "nearby-part"]);
+  assert.ok(cues[0].labelIds.includes(cues[0].anchorLabelId));
+  assert.ok(
+    labels.some((item) => (
+      item.id === cues[0].anchorLabelId
+      && item.x === cues[0].x
+      && item.y === cues[0].y
+    )),
+    "the cue must sit on a real authored label anchor rather than an averaged empty point",
+  );
+  assert.equal(cues[0].minLod, 2);
 });
 
 test("translations consume more collision space without changing the DOM budget", () => {
