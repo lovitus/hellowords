@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  buildVocabularyRevealSummary,
   buildVocabularyZoomCues,
   consolidateVocabularyCueBatches,
   computeSceneLabelLayout,
@@ -161,13 +162,58 @@ test("vocabulary cue batches merge nearby same-LOD words and never advertise few
   ], 4, 300, 200);
 
   assert.equal(batches.length, 1);
+  assert.equal(batches[0].mode, "region");
   assert.equal(batches[0].labels.length, 4);
   assert.deepEqual(batches[0].sourceCueIds, ["first", "second"]);
   assert.ok(batches.every((batch) => batch.labels.length >= 4));
   assert.equal(batches[0].nextLod, 2, "later LODs cannot be pulled into the current reveal count");
 });
 
-test("a sparse or spatially disconnected vocabulary cue is hidden instead of overstating its count", () => {
+test("vocabulary cue counts are exact unique label ids across overlapping source cues", () => {
+  const labels = [
+    label("one", 100, 1, 2, 100),
+    label("two", 140, 2, 2, 120),
+    label("three", 180, 3, 2, 140),
+    label("four", 220, 4, 2, 160),
+  ];
+  const batches = consolidateVocabularyCueBatches([
+    {
+      cue: {
+        id: "left",
+        x: 100,
+        y: 100,
+        anchorLabelId: "one",
+        labelIds: ["one", "two", "three"],
+        minLod: 2,
+      },
+      labels: labels.slice(0, 3),
+      nextLod: 2,
+    },
+    {
+      cue: {
+        id: "right",
+        x: 180,
+        y: 140,
+        anchorLabelId: "three",
+        labelIds: ["three", "four"],
+        minLod: 2,
+      },
+      labels: labels.slice(2),
+      nextLod: 2,
+    },
+  ], 4, 300, 200);
+
+  assert.equal(batches.length, 1);
+  assert.equal(batches[0].mode, "region");
+  assert.deepEqual(batches[0].labels.map((item) => item.id), ["one", "two", "three", "four"]);
+  assert.equal(
+    new Set(batches[0].labels.map((item) => item.id)).size,
+    batches[0].labels.length,
+    "the number shown to a user must never count the same word anchor twice",
+  );
+});
+
+test("sparse or spatially disconnected cues remain honest compact fallbacks instead of going silent", () => {
   const nearby = [
     label("one", 100, 1, 2, 100),
     label("two", 130, 2, 2, 120),
@@ -189,7 +235,55 @@ test("a sparse or spatially disconnected vocabulary cue is hidden instead of ove
     },
   ], 4, 300, 200);
 
-  assert.deepEqual(batches, []);
+  assert.equal(batches.length, 2);
+  assert.ok(batches.every((batch) => batch.mode === "compact"));
+  assert.deepEqual(
+    batches.map((batch) => ({ id: batch.cue.id, words: batch.labels.map((item) => item.id) })),
+    [
+      { id: "near", words: ["one", "two"] },
+      { id: "far", words: ["three", "four"] },
+    ],
+  );
+  assert.equal(
+    new Set(batches.flatMap((batch) => batch.labels.map((item) => item.id))).size,
+    4,
+    "fallback guidance must report every actual word once without inventing a four-word region",
+  );
+});
+
+test("scene-wide reveal summary covers hidden labels that the four regional cue budget cannot", () => {
+  const hidden = [
+    label("north-west", 100, 1, 2, 100),
+    label("north-east", 1_500, 2, 2, 100),
+    label("middle-left", 100, 3, 2, 450),
+    label("middle-right", 1_500, 4, 2, 450),
+    label("south-west", 100, 5, 2, 800),
+    label("deep", 800, 6, 3, 450),
+  ];
+  const labels = [
+    label("visible", 800, 0, 0, 100),
+    ...hidden,
+    { ...hidden[0], word: "duplicate authoring must not inflate the count" },
+    { ...label("beyond-maximum", 800, 7, 4, 800), minScale: 4.8 },
+  ];
+
+  const regionalCues = buildVocabularyZoomCues(labels, [], 1_600, 900, 4);
+  const regionalIds = new Set(regionalCues.flatMap((cue) => cue.labelIds));
+  assert.ok(
+    hidden.some((item) => !regionalIds.has(item.id)),
+    "this fixture must prove the regional cue budget does not cover the whole scene",
+  );
+
+  const summary = buildVocabularyRevealSummary(labels, 1, 4);
+  assert.deepEqual(summary.hiddenLabels.map((item) => item.id), hidden.map((item) => item.id));
+  assert.equal(new Set(summary.hiddenLabels.map((item) => item.id)).size, summary.hiddenLabels.length);
+  assert.equal(summary.nextLod, 2);
+  assert.deepEqual(
+    summary.nextLabels.map((item) => item.id),
+    hidden.filter((item) => item.minLevel === 2).map((item) => item.id),
+  );
+  assert.notEqual(summary.targetScale, null);
+  assert.ok(summary.targetScale! > 1 && summary.targetScale! <= 4);
 });
 
 test("translations consume more collision space without changing the DOM budget", () => {

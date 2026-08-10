@@ -499,33 +499,37 @@ a:focus-visible {
 
 .vocabulary-zoom-layer {
   position: absolute;
-  z-index: 5;
+  /* Vocabulary targets must stay above word labels, including a hovered one. */
+  z-index: 8;
   inset: 0;
   pointer-events: none;
 }
 
 .vocabulary-zoom-cue {
   position: absolute;
-  z-index: 5;
-  display: flex;
-  min-width: 116px;
-  min-height: 44px;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 11px 4px 4px;
-  border: 1px solid rgba(225, 249, 235, 0.9);
-  border-radius: 999px;
-  background: rgba(28, 101, 77, 0.94);
-  box-shadow: 0 9px 26px rgba(15, 60, 47, 0.25), 0 0 0 3px rgba(221, 247, 232, 0.15);
+  z-index: 8;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  padding: 5px;
+  border: 2px solid rgba(226, 255, 239, 0.96);
+  border-radius: 50%;
+  background: rgba(23, 103, 75, 0.96);
+  box-shadow:
+    0 9px 26px rgba(10, 54, 40, 0.3),
+    0 0 0 4px rgba(159, 235, 194, 0.24),
+    0 0 0 10px rgba(32, 126, 91, 0.1);
   color: #f5fff9;
   cursor: zoom-in;
   opacity: 0;
   pointer-events: none;
-  transform: scale(var(--label-inverse)) translate(-22px, -50%);
+  transform: scale(var(--label-inverse)) translate(-50%, -50%);
   transform-origin: 0 0;
   transition: opacity 150ms ease, visibility 0s linear 150ms, box-shadow 150ms ease, background 150ms ease;
+  touch-action: manipulation;
   visibility: hidden;
-  white-space: nowrap;
 }
 
 .vocabulary-zoom-cue[data-active="true"] {
@@ -533,58 +537,187 @@ a:focus-visible {
   pointer-events: auto;
   transition: opacity 150ms ease, box-shadow 150ms ease, background 150ms ease;
   visibility: visible;
+  animation: vocabulary-cue-breathe 2.8s ease-in-out infinite;
 }
 
 .vocabulary-zoom-cue:hover,
 .vocabulary-zoom-cue:focus-visible {
-  background: rgba(22, 114, 82, 0.98);
-  box-shadow: 0 12px 30px rgba(11, 56, 43, 0.32), 0 0 0 4px rgba(222, 250, 234, 0.3);
+  background: rgba(15, 119, 80, 1);
+  box-shadow: 0 12px 30px rgba(11, 56, 43, 0.34), 0 0 0 5px rgba(222, 250, 234, 0.34);
   outline: 2px solid rgba(247, 255, 250, 0.96);
   outline-offset: 2px;
+}
+
+@keyframes vocabulary-cue-breathe {
+  0%, 100% {
+    box-shadow: 0 9px 26px rgba(10, 54, 40, 0.3), 0 0 0 4px rgba(159, 235, 194, 0.24), 0 0 0 9px rgba(32, 126, 91, 0.08);
+  }
+  50% {
+    box-shadow: 0 11px 29px rgba(10, 54, 40, 0.33), 0 0 0 5px rgba(159, 235, 194, 0.3), 0 0 0 13px rgba(32, 126, 91, 0.04);
+  }
 }
 
 .vocabulary-zoom-cue-icon {
   position: relative;
   display: grid;
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
+  width: 38px;
+  height: 38px;
   place-items: center;
-  border: 1px solid rgba(244, 255, 249, 0.78);
+  border: 1px dashed rgba(230, 255, 241, 0.82);
   border-radius: 50%;
-  background: rgba(242, 255, 248, 0.16);
+  background: rgba(242, 255, 248, 0.1);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: -0.05em;
 }
 
 .vocabulary-zoom-cue-icon::after {
   position: absolute;
-  inset: -5px;
-  border: 1px solid rgba(164, 235, 201, 0.55);
+  inset: -8px;
+  border: 1px solid rgba(164, 235, 201, 0.68);
   border-radius: 50%;
   content: "";
 }
 
 .vocabulary-zoom-cue-copy {
-  display: grid;
-  gap: 2px;
-  text-align: left;
+  position: absolute;
+  z-index: 1;
+  top: calc(100% - 7px);
+  left: 50%;
+  display: block;
+  padding: 4px 7px;
+  border: 1px solid rgba(222, 255, 236, 0.8);
+  border-radius: 999px;
+  background: rgba(12, 77, 55, 0.96);
+  box-shadow: 0 4px 12px rgba(8, 45, 34, 0.24);
+  pointer-events: none;
+  transform: translateX(-50%);
+  text-align: center;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .vocabulary-zoom-cue-copy > span {
-  color: rgba(232, 255, 242, 0.72);
-  font-size: 12px;
-  font-weight: 750;
-  letter-spacing: 0.12em;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
 }
 
 .vocabulary-zoom-cue-copy strong {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+}
+
+/* One-to-three-word leftovers still get a truthful anchor without another pill. */
+.vocabulary-zoom-cue[data-cue-mode="compact"] {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 5px;
+  border-width: 2px;
+  box-shadow: 0 7px 20px rgba(10, 54, 40, 0.28), 0 0 0 4px rgba(159, 235, 194, 0.22);
+}
+
+.vocabulary-zoom-cue[data-cue-mode="compact"][data-active="true"] {
+  animation-name: vocabulary-compact-cue-breathe;
+}
+
+.vocabulary-zoom-cue[data-cue-mode="compact"] .vocabulary-zoom-cue-icon {
+  width: 30px;
+  height: 30px;
+  border-style: dotted;
+  font-size: 10px;
+}
+
+.vocabulary-zoom-cue[data-cue-mode="compact"] .vocabulary-zoom-cue-icon::after {
+  inset: -7px;
+}
+
+.vocabulary-zoom-cue[data-cue-mode="compact"] .vocabulary-zoom-cue-copy {
+  top: calc(100% - 6px);
+  padding: 3px 6px;
+}
+
+.vocabulary-zoom-cue[data-cue-mode="compact"] .vocabulary-zoom-cue-copy strong {
+  font-size: 10px;
+}
+
+@keyframes vocabulary-compact-cue-breathe {
+  0%, 100% {
+    box-shadow: 0 7px 20px rgba(10, 54, 40, 0.28), 0 0 0 4px rgba(159, 235, 194, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 22px rgba(10, 54, 40, 0.31), 0 0 0 7px rgba(159, 235, 194, 0.13);
+  }
+}
+
+/*
+ * A screen-space summary for the vocabulary still hidden at deeper LODs.
+ * It is intentionally separate from the green object markers: the summary
+ * explains the global action while the small rings show where to perform it.
+ */
+.scene-vocabulary-summary {
+  position: absolute;
+  z-index: 17;
+  top: 22px;
+  left: 50%;
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 14px 6px 7px;
+  border: 1px solid rgba(215, 250, 231, 0.86);
+  border-radius: 999px;
+  background: rgba(20, 78, 61, 0.9);
+  box-shadow: 0 10px 30px rgba(12, 48, 39, 0.24), 0 0 0 3px rgba(221, 249, 233, 0.12);
+  color: #f5fff8;
+  cursor: zoom-in;
+  font-size: 12px;
+  font-weight: 760;
+  line-height: 1.15;
+  pointer-events: auto;
+  touch-action: manipulation;
+  transform: translateX(-50%);
+  transition: opacity 150ms ease, transform 150ms ease, visibility 0s linear 0s;
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
+}
+
+.scene-vocabulary-summary[hidden],
+.scene-vocabulary-summary[data-active="false"] {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.scene-vocabulary-summary:hover,
+.scene-vocabulary-summary:focus-visible {
+  background: rgba(15, 94, 67, 0.96);
+  box-shadow: 0 12px 34px rgba(10, 48, 37, 0.3), 0 0 0 4px rgba(222, 250, 234, 0.25);
+}
+
+.scene-vocabulary-summary::before {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  border: 1px dashed rgba(226, 255, 239, 0.9);
+  border-radius: 50%;
+  background: rgba(239, 255, 247, 0.1);
+  content: "Aa";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  letter-spacing: -0.04em;
+}
+
+.scene-vocabulary-summary strong {
+  font-variant-numeric: tabular-nums;
 }
 
 .word-translation {
@@ -598,6 +731,7 @@ a:focus-visible {
 .scene-hotspot-region {
   --portal-progress: 0;
   position: absolute;
+  z-index: 9;
   display: grid;
   place-items: center;
   border: 2px dashed rgba(231, 181, 86, 0.72);
@@ -633,6 +767,7 @@ a:focus-visible {
   color: #3e2a0b;
   cursor: zoom-in;
   pointer-events: auto;
+  touch-action: manipulation;
   transform: scale(var(--label-inverse));
 }
 
@@ -1089,6 +1224,10 @@ a:focus-visible {
     bottom: 78px;
   }
 
+  .scene-vocabulary-summary {
+    top: 14px;
+  }
+
   .scene-cue-legend {
     top: 14px;
     right: 16px;
@@ -1137,6 +1276,24 @@ a:focus-visible {
     max-width: calc(100vw - 32px);
   }
 
+  .scene-vocabulary-summary {
+    top: auto;
+    bottom: 76px;
+    max-width: calc(100vw - 32px);
+    min-height: 48px;
+    padding-right: 12px;
+    overflow: hidden;
+    font-size: 11px;
+    text-overflow: ellipsis;
+  }
+
+  /* The portal preview is the more consequential zoom promise. */
+  .viewer-shell:has(.scene-portal-preview) .scene-vocabulary-summary {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
   .scene-cue-legend {
     right: 10px;
     display: grid;
@@ -1156,20 +1313,16 @@ a:focus-visible {
     font-size: 12px;
   }
 
-  .vocabulary-zoom-cue-copy > span {
-    font-size: 10px;
-  }
-
   .vocabulary-zoom-cue-copy strong {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .zoom-controls {
-    grid-template-columns: repeat(3, 36px);
+    grid-template-columns: repeat(3, 44px);
   }
 
   .zoom-controls button {
-    height: 36px;
+    height: 44px;
   }
 
 }
@@ -1202,6 +1355,10 @@ a:focus-visible {
     border-radius: 0;
     background: rgba(25, 52, 48, 0.32);
     transform: none !important;
+  }
+
+  .vocabulary-zoom-cue[data-active="true"] {
+    animation: none !important;
   }
 
   .scene-transition-veil[data-state="loading"]::before {

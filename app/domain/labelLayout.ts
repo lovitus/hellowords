@@ -44,6 +44,18 @@ export interface VocabularyCueBatchCandidate {
 export interface VocabularyCueRevealBatch extends VocabularyCueBatchCandidate {
   /** Includes absorbed small cues, which must be hidden while this cue owns them. */
   readonly sourceCueIds: readonly string[];
+  /** Sparse batches stay perceivable without pretending to be a large region. */
+  readonly mode: "region" | "compact";
+}
+
+export interface VocabularyRevealSummary {
+  /** Every currently hidden label that can really cross the visibility gate at a deeper scale. */
+  readonly hiddenLabels: readonly Label[];
+  /** The nearest authored LOD among those hidden labels. */
+  readonly nextLabels: readonly Label[];
+  readonly nextLod: LabelLod | null;
+  /** First scale at which the leading label in the next LOD really becomes visible. */
+  readonly targetScale: number | null;
 }
 
 const DEFAULT_REVEAL_BANDS = [
@@ -109,6 +121,80 @@ export function sceneLabelRevealOpacity(label: Label, scale: number): number {
 
 export function sceneLabelLod(label: Label): LabelLod {
   return Math.min(4, Math.max(0, Math.round(label.minLevel ?? 0))) as LabelLod;
+}
+
+function nextVocabularyRevealScale(
+  label: Label,
+  currentScale: number,
+  maximumScale: number,
+  visibilityThreshold: number,
+): number | null {
+  if (sceneLabelRevealOpacity(label, currentScale) >= visibilityThreshold) return null;
+  const maximum = Math.max(currentScale, maximumScale);
+  const step = 0.02;
+  let before = currentScale;
+  for (let probe = currentScale + step; probe < maximum + step; probe += step) {
+    const scale = Math.min(maximum, probe);
+    if (sceneLabelRevealOpacity(label, scale) >= visibilityThreshold) {
+      let lower = before;
+      let upper = scale;
+      for (let iteration = 0; iteration < 8; iteration += 1) {
+        const middle = (lower + upper) / 2;
+        if (sceneLabelRevealOpacity(label, middle) >= visibilityThreshold) upper = middle;
+        else lower = middle;
+      }
+      return upper;
+    }
+    if (scale === maximum) break;
+    before = scale;
+  }
+  return null;
+}
+
+/**
+ * Describes vocabulary that zooming can still reveal. This intentionally scans
+ * every scene label rather than the bounded spatial cue set, so a cue limit,
+ * portal overlap, or sparse grid cell can never make hidden vocabulary silent.
+ */
+export function buildVocabularyRevealSummary(
+  labels: readonly Label[],
+  currentScale: number,
+  maximumScale: number,
+  visibilityThreshold = 0.52,
+): VocabularyRevealSummary {
+  const revealScales = new Map<string, number>();
+  const unique = new Map<string, Label>();
+  for (const label of labels) {
+    const revealScale = nextVocabularyRevealScale(
+      label,
+      currentScale,
+      maximumScale,
+      visibilityThreshold,
+    );
+    if (revealScale === null) continue;
+    const previousScale = revealScales.get(label.id);
+    if (previousScale !== undefined && previousScale <= revealScale) continue;
+    unique.set(label.id, label);
+    revealScales.set(label.id, revealScale);
+  }
+
+  const hiddenLabels = [...unique.values()].sort((first, second) => (
+    sceneLabelLod(first) - sceneLabelLod(second)
+    || (revealScales.get(first.id) ?? maximumScale) - (revealScales.get(second.id) ?? maximumScale)
+    || first.priority - second.priority
+    || first.id.localeCompare(second.id)
+  ));
+  const nextLod = hiddenLabels.length > 0 ? sceneLabelLod(hiddenLabels[0]) : null;
+  const nextLabels = nextLod === null
+    ? []
+    : hiddenLabels.filter((label) => sceneLabelLod(label) === nextLod);
+  const leadingLabel = nextLabels[0];
+  return {
+    hiddenLabels,
+    nextLabels,
+    nextLod,
+    targetScale: leadingLabel ? revealScales.get(leadingLabel.id) ?? null : null,
+  };
 }
 
 function estimatedLabelSize(
@@ -244,9 +330,9 @@ function batchFitsSpan(labels: readonly Label[], maximumSpanX: number, maximumSp
 
 /**
  * Produces truthful green zoom batches. Only the currently nearest LOD is
- * eligible. A cue with fewer than `minimumWordCount` labels is either merged
- * with nearby cues at that same LOD or omitted; returned counts are always the
- * exact deduplicated labels owned by the displayed cue.
+ * eligible. A cue with fewer than `minimumWordCount` labels is merged when
+ * possible and otherwise returned as a compact cue; no real hidden batch is
+ * silently discarded. Returned counts are always exact, deduplicated labels.
  */
 export function consolidateVocabularyCueBatches(
   candidates: readonly VocabularyCueBatchCandidate[],
@@ -267,9 +353,13 @@ export function consolidateVocabularyCueBatches(
       ...candidate,
       labels: uniqueBatchLabels([candidate]),
     }));
-  const ready = eligible
+  const ready: VocabularyCueRevealBatch[] = eligible
     .filter((candidate) => candidate.labels.length >= minimum)
-    .map((candidate) => ({ ...candidate, sourceCueIds: [candidate.cue.id] }));
+    .map((candidate) => ({
+      ...candidate,
+      sourceCueIds: [candidate.cue.id],
+      mode: "region" as const,
+    }));
   let small = eligible.filter((candidate) => candidate.labels.length < minimum);
 
   while (small.length > 1) {
@@ -311,8 +401,17 @@ export function consolidateVocabularyCueBatches(
       labels: selected.labels,
       nextLod: primary.nextLod,
       sourceCueIds: selected.batches.map((batch) => batch.cue.id).sort(),
+      mode: "region",
     });
     small = small.filter((_, index) => (selected.mask & (1 << index)) === 0);
+  }
+
+  for (const candidate of small) {
+    ready.push({
+      ...candidate,
+      sourceCueIds: [candidate.cue.id],
+      mode: "compact",
+    });
   }
 
   return ready.sort((first, second) => (

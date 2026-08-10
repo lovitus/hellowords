@@ -391,6 +391,64 @@ test("five continuous LOD bands reveal grounded scene vocabulary smoothly", asyn
   await expect(detailLabel).toBeHidden();
 });
 
+test("hidden vocabulary always has truthful zoom guidance on desktop and mobile", async ({ page }) => {
+  await openWorld(page);
+  const surface = page.locator(".scene-surface");
+  const summary = page.getByTestId("scene-vocabulary-summary");
+
+  await expect(summary).toHaveAttribute("data-active", "true");
+  const hiddenBefore = Number(await summary.getAttribute("data-hidden-word-count"));
+  const nextLod = Number(await summary.getAttribute("data-next-lod"));
+  expect(hiddenBefore, "the scene-wide cue reports actual remaining vocabulary").toBeGreaterThan(0);
+  expect(nextLod, "the scene-wide cue reports a reachable next LOD").toBeGreaterThanOrEqual(2);
+  await expect(summary).toHaveAttribute(
+    "aria-label",
+    `本场景还有 ${hiddenBefore} 个词，继续放大`,
+  );
+
+  const activeRegionCues = page.locator(
+    '[data-testid="scene-vocabulary-cue"][data-active="true"]',
+  );
+  for (let index = 0; index < await activeRegionCues.count(); index += 1) {
+    const cue = activeRegionCues.nth(index);
+    const count = Number(await cue.getAttribute("data-hidden-word-count"));
+    const mode = await cue.getAttribute("data-cue-mode");
+    expect(["region", "compact"]).toContain(mode);
+    if (mode === "region") {
+      expect(count, "a full local marker represents a useful region").toBeGreaterThanOrEqual(4);
+    } else {
+      expect(count, "a compact marker honestly preserves a sparse remainder").toBeGreaterThan(0);
+      expect(count).toBeLessThan(4);
+    }
+    await expect(cue).toHaveAttribute("aria-hidden", "false");
+    await expect(cue).toHaveAttribute("tabindex", "0");
+    await expect(cue).toHaveAttribute("aria-label", `此处还有 ${count} 个词，放大查看`);
+  }
+
+  await summary.focus();
+  await expect(summary).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(surface).toHaveAttribute("data-lod-level", String(nextLod));
+  await expect.poll(async () => page.locator(
+    `.word-label[data-min-level="${nextLod}"][data-interactive="true"]`,
+  ).count(), {
+    message: "activating the scene-wide cue must make its next LOD keyboard-readable",
+  }).toBeGreaterThan(0);
+  await expect(page.locator(".word-label:focus")).toHaveCount(1);
+
+  const activeAfter = await summary.getAttribute("data-active");
+  const hiddenAfter = Number(await summary.getAttribute("data-hidden-word-count"));
+  if (activeAfter === "true") {
+    expect(hiddenAfter, "the remaining count decreases after revealing the next batch").toBeLessThan(hiddenBefore);
+    await expect(summary).toHaveAttribute(
+      "aria-label",
+      `本场景还有 ${hiddenAfter} 个词，继续放大`,
+    );
+  } else {
+    expect(hiddenAfter, "the summary becomes inactive only when no revealable words remain").toBe(0);
+  }
+});
+
 test("enters a scene slice on zoom and returns to its parent", async ({ page }) => {
   const requestedSceneAssets: string[] = [];
   page.on("response", (response) => {

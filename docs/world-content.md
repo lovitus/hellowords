@@ -49,9 +49,9 @@ All five bands remain available. Newly upgraded premium scenes must contain at l
 The viewer uses two deliberately different zoom cues:
 
 - a gold `进入 · …` marker identifies a real portal and promises that zooming or activating it will enter the named child scene;
-- a green `放大 · … 个词` marker identifies a non-portal object region and keeps the current scene while revealing the next vocabulary detail band.
+- a compact green `Aa` ring with an exact `… 个词` badge identifies a non-portal object region and keeps the current scene while revealing the next vocabulary detail band.
 
-Vocabulary cues are generated only from reviewed label anchors outside every portal. Each cue sits on a real authored object point, names the number of currently hidden words it can reveal, and advances to the next useful detail band after activation. Desktop shows at most four such cues and compact screens at most three, so guidance does not become another label cloud.
+Vocabulary cues are generated only from reviewed label anchors outside every portal. Each cue sits on a real authored object point, names the number of currently hidden words it can reveal, and advances to the next useful detail band after activation. A screen-space `还有 … 词 · 继续放大` summary makes the scene-wide hidden total explicit even when the user has not noticed a local anchor. Desktop shows at most six local cues and compact screens at most four, so every useful area is signposted without rebuilding the old label cloud. Primary region targets are 52 × 52 CSS pixels; truthful one-to-three-word leftovers use compact 44 × 44 green anchors instead of disappearing. Both remain above word labels and use green rings rather than the solid gold portal treatment. Mobile zoom controls and the global summary also keep a minimum 44-pixel touch target. The green cue pulse is disabled when reduced motion is requested.
 
 Every visible word is rendered as a callout: a green anchor dot remains on the exact reviewed pixel while a short leader connects it to the collision-adjusted word capsule. This keeps the semantic attachment visible even when nearby labels must move apart for readability.
 

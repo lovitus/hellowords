@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import test from "node:test";
 import {
+  buildVocabularyRevealSummary,
   buildVocabularyZoomCues,
   computeSceneLabelLayout,
   type Scene,
@@ -275,6 +276,59 @@ test("vocabulary zoom cues use real non-portal object anchors in every scene", a
     }
   }
   assert.ok(cueCount >= scenes.length * 2, "the world exposes useful reveal-only zoom guidance");
+});
+
+test("every scene with future vocabulary exposes a truthful scene-wide zoom summary", async () => {
+  const { scenes } = await loadWorld();
+  let futureVocabularySceneCount = 0;
+
+  for (const scene of scenes) {
+    const summary = buildVocabularyRevealSummary(scene.labels, 1, 4);
+    if (summary.hiddenLabels.length === 0) continue;
+    futureVocabularySceneCount += 1;
+
+    const hiddenIds = summary.hiddenLabels.map((label) => label.id);
+    const nextIds = summary.nextLabels.map((label) => label.id);
+    assert.equal(
+      new Set(hiddenIds).size,
+      hiddenIds.length,
+      `${scene.id} summary count is deduplicated by stable label id`,
+    );
+    assert.ok(nextIds.length > 0, `${scene.id} summary names a real next reveal batch`);
+    assert.ok(
+      nextIds.every((id) => hiddenIds.includes(id)),
+      `${scene.id} next reveal batch is a subset of its hidden count`,
+    );
+    assert.ok(summary.nextLod !== null, `${scene.id} summary exposes the next LOD`);
+    assert.ok(
+      summary.nextLabels.every((label) => label.minLevel === summary.nextLod),
+      `${scene.id} next batch belongs to exactly one honest LOD`,
+    );
+    assert.notEqual(summary.targetScale, null, `${scene.id} summary exposes a target scale`);
+    assert.ok(
+      summary.targetScale! > 1 && summary.targetScale! <= 4,
+      `${scene.id} summary points to a reachable higher scale`,
+    );
+
+    const regionalIds = new Set(buildVocabularyZoomCues(
+      scene.labels,
+      scene.portals,
+      scene.width,
+      scene.height,
+    ).flatMap((cue) => cue.labelIds));
+    const hiddenOutsideRegionalBudget = hiddenIds.filter((id) => !regionalIds.has(id));
+    if (hiddenOutsideRegionalBudget.length > 0) {
+      assert.ok(
+        summary.hiddenLabels.some((label) => hiddenOutsideRegionalBudget.includes(label.id)),
+        `${scene.id} global guidance covers words omitted by the regional cue budget`,
+      );
+    }
+  }
+
+  assert.ok(
+    futureVocabularySceneCount >= Math.floor(scenes.length * 0.9),
+    "nearly every authored scene should reward continued zooming",
+  );
 });
 
 test("premium exploration scenes stay visually dense across every zoom band", async () => {
