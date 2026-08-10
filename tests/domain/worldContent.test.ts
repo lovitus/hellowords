@@ -345,7 +345,11 @@ test("premium exploration scenes stay visually dense across every zoom band", as
   for (const [sceneId, minimum] of Object.entries(minimums)) {
     const scene = byId.get(sceneId);
     assert.ok(scene, `${sceneId} exists`);
-    assert.match(scene.asset, /-premium-v2\.jpg$/, `${sceneId} uses reviewed premium art`);
+    if (sceneId === "science-museum") {
+      assert.equal(scene.asset, "/scenes/science-museum-bright-v3.jpg", `${sceneId} uses reviewed bright art`);
+    } else {
+      assert.match(scene.asset, /-premium-v2\.jpg$/, `${sceneId} uses reviewed premium art`);
+    }
     assert.ok(scene.labels.length >= minimum, `${sceneId} carries useful vocabulary density`);
     const lodCounts = [0, 1, 2, 3, 4].map((level) => (
       scene.labels.filter((label) => label.minLevel === level).length

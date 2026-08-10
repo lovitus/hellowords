@@ -5,7 +5,7 @@ These six 1600 × 900 JPEG scenes were created with the built-in image generatio
 | Scene | Final asset | SHA-256 |
 |---|---|---|
 | Kitchen | `kitchen-premium-v2.jpg` | `296f9a957c21cdcb67e1f1b628d0daa4d35a1cbdc1e5c987899a87bbdb6169b1` |
-| Science museum | `science-museum-premium-v2.jpg` | `bcbea6aab65d8e9da5403a6473f1c92de1c9c7171ab054ab3a089878fef9e009` |
+| Science museum | `science-museum-bright-v3.jpg` | `bce6c971902dac590e494ca87db56a3d68064194db484c5d795f59bdd49482aa` |
 | Oak tree | `oak-tree-premium-v2.jpg` | `17be818b6515e7fb1adfd9532254612274f9ab84de17808b1e44c807976a9a3e` |
 | Leaf | `leaf-premium-v2.jpg` | `e4e61dc6ab6aacede72b9913d4d824c9b923fd046340220329df69e82b29312f` |
 | Plant cell | `plant-cell-premium-v2.jpg` | `2c873d870fc8c2344b4686460647c941c01740723a0901936e70a012e118146e` |

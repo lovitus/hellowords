@@ -10,6 +10,7 @@ async function openWorld(page: Page) {
   await expect(app).toBeVisible();
   await expect(app).toHaveAttribute("data-scene-loading", "false");
   await expect(app).not.toHaveAttribute("data-scene-id", /^(?:|loading)$/);
+  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-positioned", "true");
   return app;
 }
 
@@ -218,11 +219,13 @@ test("reduced motion and keyboard navigation preserve the warm parent path", asy
   const app = await openWorld(page);
   const parent = await currentScene(app);
   const portal = page.locator(HOTSPOT).first();
+  await expect(portal).toBeVisible();
   const child = await portal.getAttribute("data-target-scene");
   expect(child).toBeTruthy();
 
   await portal.focus();
-  await page.keyboard.press("Enter");
+  await expect(portal).toBeFocused();
+  await portal.press("Enter");
   await expect(app).toHaveAttribute("data-scene-id", child as string);
   await page.getByRole("button", { name: parent === "world-map" ? "World atlas" : parent }).click();
   await expect(app).toHaveAttribute("data-scene-id", parent);

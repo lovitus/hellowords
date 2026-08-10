@@ -141,6 +141,22 @@ MEANING_TOPIC_RULES = [
 PROPER_NAME_RE = re.compile(r"男子名|女子名|男名|女名|人名|姓氏|\(姓\)")
 NAMED_ENTITY_RE = re.compile(r"公司|网站|球队|品牌|大学|城市|首府|通讯社|报社|广播公司|微软|三星|苹果手机|脸谱网")
 COLLOQUIAL_CONTRACTIONS = frozenset({"gonna", "wanna", "gotta", "kinda", "sorta", "lemme", "dunno"})
+DEGREE_SUFFIX_FALSE_POSITIVES = frozenset({"after", "daughter", "other", "water", "weather", "west", "winter"})
+
+# The semantic atlas exposes subcluster IDs as durable navigation keys. Topic
+# corrections may move entries, but must not make those public IDs churn. These
+# aliases keep the frozen v1 bucket set while routing newly corrected entries
+# into an existing compatible destination bucket.
+STABLE_SUBCLUSTER_ALIASES = {
+    "determiners-pronouns:adjective": ("determiners-pronouns--general-adjective", "General adjective"),
+}
+
+# Two corrected false positives formerly supplied singleton frozen buckets.
+# Keep those public buckets meaningful and non-empty with nearby degree words.
+STABLE_DEGREE_SUBCLUSTERS = {
+    "hottest": ("comparison-degree--general-phenomenon", "General phenomenon"),
+    "later": ("comparison-degree--general-time", "General time"),
+}
 
 POS_CODE = {"noun": "n", "verb": "v", "adjective": "a", "adverb": "r"}
 GRAMMAR_POS = frozenset({"determiner", "pronoun", "preposition", "conjunction", "auxiliary", "modal", "interjection"})
@@ -338,7 +354,11 @@ def choose_topic(entry, sense, relation: str) -> tuple[str, str]:
     parts = entry.get("partsOfSpeech", [])
     word = entry["displayWord"].lower()
     meaning = entry.get("meaning", "").lower()
-    if any(part in ("adjective", "adverb") for part in parts) and (
+    # Some frequent nouns and function words carry a secondary adjective or
+    # adverb tag, so an -er suffix alone would misclassify them as degree forms.
+    # Keep the v1 rule stable except for audited false positives.
+    if word not in DEGREE_SUFFIX_FALSE_POSITIVES and any(
+            part in ("adjective", "adverb") for part in parts) and (
             re.search(r"(er|est)$", word) or "比较级" in meaning or "最高级" in meaning):
         return "comparison-degree", "form-rule"
     if not sense:
@@ -423,10 +443,17 @@ def assign_semantics(entries, index, synsets, exceptions):
                          next(iter(entry.get("partsOfSpeech", [])), "general"))
             label = f"General {pos_label}"
             candidate = f"{topic}:general-{slug(pos_label)}"
+        stable = STABLE_DEGREE_SUBCLUSTERS.get(entry["displayWord"].lower())
+        if stable is None:
+            stable = STABLE_SUBCLUSTER_ALIASES.get(candidate)
+        if stable is not None:
+            subcluster_id, label = stable
+        else:
+            subcluster_id = candidate.replace(":", "--", 1)
         assignments.append({
             "entry": entry, "sense": sense, "topicId": topic, "realmId": TOPICS[topic][0],
             "method": method, "relation": relation, "lemma": lemma,
-            "subclusterId": candidate.replace(":", "--", 1), "subclusterLabel": label,
+            "subclusterId": subcluster_id, "subclusterLabel": label,
         })
     return assignments
 

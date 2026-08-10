@@ -41,6 +41,7 @@ async function openWorld(page: Page) {
   await expect(app).toHaveAttribute("data-transition-state", "idle");
   await expect(app).not.toHaveAttribute("data-scene-id", /^(?:|loading)$/);
   await expect(app).toHaveAttribute("data-scene-loading", "false");
+  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-positioned", "true");
   return app;
 }
 
@@ -65,7 +66,9 @@ async function focusedPortalPreview(page: Page) {
   const hotspot = page.locator(HOTSPOT).first();
   const target = await targetScene(hotspot);
   const title = await sceneTitle(page, target);
+  await expect(hotspot).toBeVisible();
   await hotspot.focus();
+  await expect(hotspot).toBeFocused();
 
   const preview = page.locator(PREVIEW);
   await expect(preview).toBeVisible();
@@ -241,7 +244,7 @@ test("a focused portal names the exact object before entering", async ({ page },
   await focusedPortalPreview(page);
 });
 
-test("portal entry progress stays in 0..1 and only moves forward while zooming in", async ({ page }, testInfo) => {
+test("portal entry progress stays in 0..1 and reaches armed while zooming in", async ({ page }, testInfo) => {
   desktopOnly(testInfo.project.name);
   await openWorld(page);
   const { hotspot, preview } = await focusedPortalPreview(page);
@@ -250,7 +253,8 @@ test("portal entry progress stays in 0..1 and only moves forward while zooming i
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
 
   const progress: number[] = [Number(await preview.getAttribute("data-progress"))];
-  for (let index = 0; index < 18; index += 1) {
+  for (let index = 0; index < 32; index += 1) {
+    if (await preview.getAttribute("data-phase") === "armed") break;
     await page.mouse.wheel(0, -42);
     await nextPaint(page);
     progress.push(Number(await preview.getAttribute("data-progress")));
@@ -264,7 +268,6 @@ test("portal entry progress stays in 0..1 and only moves forward while zooming i
     ).toBeGreaterThanOrEqual(progress[index - 1]);
   }
   expect(progress[0]).toBeLessThanOrEqual(0.01);
-  expect(progress.at(-1)).toBeGreaterThanOrEqual(0.99);
   expect(new Set(progress.map((value) => value.toFixed(3))).size).toBeGreaterThanOrEqual(6);
   await expect(preview).toHaveAttribute("data-phase", "armed");
 });

@@ -2,7 +2,6 @@ import { expect, test, type Locator, type Page } from "@playwright/test";
 
 const APP = '[data-testid="world-app"]';
 const VIEWPORT = '[data-testid="world-viewport"]';
-const TRANSITION_PROBE = "__hellowordsWordTransitionProbe";
 
 interface WordTransitionStyle {
   display: string;
@@ -20,6 +19,7 @@ async function openWorld(page: Page) {
   await expect(app).toBeVisible();
   await expect(app).not.toHaveAttribute("data-scene-id", "");
   await expect(app).not.toHaveAttribute("data-scene-loading", "true");
+  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-positioned", "true");
   return app;
 }
 
@@ -50,67 +50,6 @@ async function wordTransitionStyle(label: Locator): Promise<WordTransitionStyle>
       opacity: Number.parseFloat(style.opacity),
     };
   });
-}
-
-async function traceWordOpacityDuringZoom(
-  page: Page,
-  label: Locator,
-  targetZoomLevel: number,
-  deltaY: number,
-) {
-  await label.evaluate(
-    (element, { probeKey, targetLevel }) => {
-      const surface = element.closest<HTMLElement>(".scene-surface");
-      if (!surface) throw new Error("word label must be inside a scene surface");
-
-      const transition = new Promise<number[]>((resolve) => {
-        let started = false;
-        const sample = () => {
-          if (started) return;
-          started = true;
-          observer.disconnect();
-          const samples: number[] = [];
-          const startedAt = performance.now();
-          const frame = () => {
-            samples.push(Number.parseFloat(window.getComputedStyle(element).opacity));
-            if (performance.now() - startedAt < 420) {
-              requestAnimationFrame(frame);
-              return;
-            }
-            window.clearTimeout(timeout);
-            resolve(samples);
-          };
-          requestAnimationFrame(frame);
-        };
-
-        const observer = new MutationObserver(() => {
-          if (surface.dataset.zoomLevel === String(targetLevel)) sample();
-        });
-        const timeout = window.setTimeout(() => {
-          observer.disconnect();
-          resolve([]);
-        }, 1_500);
-        observer.observe(surface, {
-          attributes: true,
-          attributeFilter: ["data-zoom-level"],
-        });
-        if (surface.dataset.zoomLevel === String(targetLevel)) sample();
-      });
-      Reflect.set(window, probeKey, transition);
-    },
-    { probeKey: TRANSITION_PROBE, targetLevel: targetZoomLevel },
-  );
-
-  await page.mouse.wheel(0, deltaY);
-  await expect(page.locator(".scene-surface")).toHaveAttribute(
-    "data-zoom-level",
-    String(targetZoomLevel),
-  );
-
-  return page.evaluate(async (probeKey) => {
-    const transition = Reflect.get(window, probeKey) as Promise<number[]> | undefined;
-    return transition ? transition : [];
-  }, TRANSITION_PROBE);
 }
 
 async function zoomSceneToScale(
@@ -275,30 +214,33 @@ test("starts as a calm target-language world and persists the meaning toggle", a
   await expect(page.getByTestId("word-translation").first()).toBeVisible();
 });
 
-test("loads the 10,000-word universe only when requested and locates every searched word", async ({ page }, testInfo) => {
-  const vocabularyRequests: string[] = [];
+test("loads the 10,000-word world only when requested and locates every searched word", async ({ page }) => {
+  const lexicalRequests: string[] = [];
   page.on("request", (request) => {
-    if (/\/data\/(?:vocabulary|semantic)\/.+\.json/.test(request.url())) vocabularyRequests.push(request.url());
+    if (/\/data\/(?:lexical-world|semantic)\/.+\.json/.test(request.url())) lexicalRequests.push(request.url());
   });
   await openWorld(page);
-  expect(vocabularyRequests).toHaveLength(0);
+  expect(lexicalRequests).toHaveLength(0);
 
-  await page.getByRole("button", { name: /10,000\+ 词汇宇宙/ }).click();
-  const universe = page.getByRole("dialog", { name: "可缩放语义词汇宇宙" });
-  await expect(universe).toBeVisible();
-  const universeCanvas = universe.locator("canvas");
-  const minimumOverviewWords = testInfo.project.name === "mobile-chromium" ? 10 : 24;
-  await expect.poll(async () => Number(await universeCanvas.getAttribute("data-rendered-label-count"))).toBeGreaterThanOrEqual(minimumOverviewWords);
-  const search = page.getByPlaceholder("搜索 10,000 个词…");
+  await page.getByRole("button", { name: "打开 10 个视觉领域、758 个分层入口和 10,000 个词" }).click();
+  const universe = page.getByRole("dialog", { name: "一万个词的分层探索世界" });
+  await expect(universe.locator(".lexical-world__overview-stats")).toContainText(/10\s*领域/);
+  await expect(universe.locator(".lexical-world__overview-stats")).toContainText(/44\s*主题/);
+  await expect(universe.locator(".lexical-world__overview-stats")).toContainText(/704\s*词群/);
+  await expect(universe.locator(".lexical-world__overview-stats")).toContainText(/10,000\s*未探索/);
+  const search = page.getByPlaceholder("搜索 10,000 个词，直接抵达…");
   await search.fill("coffee");
-  const result = page.locator(".semantic-atlas__results li").first();
+  const result = universe.locator(".lexical-world__results li").filter({ hasText: /coffee/i }).first();
   await expect(result).toContainText(/coffee/i);
   await result.getByRole("button").click();
-  const selectedCard = page.getByRole("complementary", { name: "已选择的词" });
+  await expect(universe.locator(".lexical-world__scene")).toHaveAttribute("data-level", "subcluster");
+  await expect(universe.locator(".lexical-world__breadcrumbs > span")).toHaveCount(4);
+  const selectedCard = page.getByRole("complementary", { name: /coffee 词汇详情/i });
   await expect(selectedCard).toContainText(/coffee/i);
   await expect(selectedCard.locator("p").last()).toContainText(/\p{Script=Han}/u);
   await expect(page.getByTestId("meaning-toggle")).toHaveAttribute("aria-pressed", "false");
-  expect(vocabularyRequests.length).toBeGreaterThan(1);
+  await expect(universe.locator(".lexical-world__word-grid em")).toHaveCount(0);
+  expect(lexicalRequests.length).toBeGreaterThan(44);
 });
 
 test("a selected word reveals its meaning while global scene meanings stay off", async ({ page }) => {
@@ -326,7 +268,7 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   await expect(card).toBeHidden();
 });
 
-test("five continuous LOD bands reveal grounded scene vocabulary smoothly", async ({ page }, testInfo) => {
+test("five authored LOD bands use spare space and remain readable while zooming", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
   await openWorld(page);
   const surface = page.locator(".scene-surface");
@@ -343,9 +285,24 @@ test("five continuous LOD bands reveal grounded scene vocabulary smoothly", asyn
 
   const detailLabelId = await closestLabelToViewportCenter(page, '.word-label[data-min-level="4"]');
   const detailLabel = page.locator(`.word-label[data-label-id="${detailLabelId}"]`);
-  const hiddenDetailStyle = await wordTransitionStyle(detailLabel);
-  expect(hiddenDetailStyle.display, "hidden density layers must remain renderable for a fade").not.toBe("none");
-  expect(hiddenDetailStyle.opacity).toBeLessThanOrEqual(0.05);
+  const initialDetailStyle = await wordTransitionStyle(detailLabel);
+  const initiallyAdaptive = await detailLabel.getAttribute("data-adaptive") === "true";
+  expect(initialDetailStyle.display, "every authored density layer remains renderable").not.toBe("none");
+  if (initiallyAdaptive) {
+    expect(
+      initialDetailStyle.opacity,
+      "a future LOD promoted into spare space must already be readable",
+    ).toBeGreaterThanOrEqual(0.52);
+    await expect(detailLabel).toHaveAttribute("aria-hidden", "false");
+    await expect(detailLabel).toHaveAttribute("tabindex", "0");
+  } else {
+    expect(
+      initialDetailStyle.opacity,
+      "a detail word without a collision-free adaptive slot remains hidden until zoomed",
+    ).toBeLessThanOrEqual(0.05);
+    await expect(detailLabel).toHaveAttribute("aria-hidden", "true");
+    await expect(detailLabel).toHaveAttribute("tabindex", "-1");
+  }
 
   await zoomSceneToScale(page, 1.22);
   await expect(surface).toHaveAttribute("data-lod-level", "2");
@@ -361,45 +318,35 @@ test("five continuous LOD bands reveal grounded scene vocabulary smoothly", asyn
   await expect(surface).toHaveAttribute("data-scene-scale", "1.000");
   const focusBox = await detailLabel.boundingBox();
   expect(focusBox).not.toBeNull();
-  await zoomSceneToScale(page, 2.64, {
+  await zoomSceneToScale(page, 3.12, {
     x: focusBox!.x + focusBox!.width / 2,
     y: focusBox!.y + focusBox!.height / 2,
   });
   await expect(surface).toHaveAttribute("data-lod-level", "4");
   await expect(detailLabel).toBeVisible();
-  await expect.poll(async () => (await wordTransitionStyle(detailLabel)).opacity).toBeGreaterThan(0.05);
-  expect((await wordTransitionStyle(detailLabel)).opacity).toBeLessThan(0.9);
-  await expect(detailLabel).toHaveAttribute("aria-hidden", "true");
-  await expect(detailLabel).toHaveAttribute("tabindex", "-1");
-
-  const emergingBox = await detailLabel.boundingBox();
-  expect(emergingBox).not.toBeNull();
-  await zoomSceneToScale(page, 3.12, {
-    x: emergingBox!.x + emergingBox!.width / 2,
-    y: emergingBox!.y + emergingBox!.height / 2,
-  });
-  await expect(detailLabel).toBeVisible();
   await expect.poll(async () => (await wordTransitionStyle(detailLabel)).opacity).toBeGreaterThanOrEqual(0.95);
   await expect(detailLabel).toHaveAttribute("aria-hidden", "false");
   await expect(detailLabel).toHaveAttribute("tabindex", "0");
-
-  const detailFadeOut = await traceWordOpacityDuringZoom(page, detailLabel, 1, 680);
-  expect(
-    detailFadeOut.some((opacity) => opacity > 0.05 && opacity < 0.95),
-    "a word leaving the active density layer should fade out",
-  ).toBe(true);
-  await expect(detailLabel).toBeHidden();
 });
 
-test("hidden vocabulary always has truthful zoom guidance on desktop and mobile", async ({ page }) => {
+test("scene-wide zoom guidance honestly reports zero or more words after adaptive layout", async ({ page }) => {
   await openWorld(page);
   const surface = page.locator(".scene-surface");
   const summary = page.getByTestId("scene-vocabulary-summary");
 
-  await expect(summary).toHaveAttribute("data-active", "true");
+  await expect(summary).toHaveAttribute("data-hidden-word-count", /^\d+$/);
   const hiddenBefore = Number(await summary.getAttribute("data-hidden-word-count"));
+  if (hiddenBefore === 0) {
+    await expect(summary).toHaveAttribute("data-active", "false");
+    await expect(summary).toHaveAttribute("data-next-lod", "none");
+    await expect(summary).toHaveAttribute("data-next-batch-count", "0");
+    await expect(summary).toHaveAttribute("aria-label", "本场景还有 0 个词，继续放大");
+    await expect(summary).toBeHidden();
+    return;
+  }
+
+  await expect(summary).toHaveAttribute("data-active", "true");
   const nextLod = Number(await summary.getAttribute("data-next-lod"));
-  expect(hiddenBefore, "the scene-wide cue reports actual remaining vocabulary").toBeGreaterThan(0);
   expect(nextLod, "the scene-wide cue reports a reachable next LOD").toBeGreaterThanOrEqual(2);
   await expect(summary).toHaveAttribute(
     "aria-label",

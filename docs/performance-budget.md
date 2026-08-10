@@ -26,13 +26,13 @@ continuous LOD bands, viewport culling and a screen-space collision index keep
 the fully readable set within the budgets above. Hidden labels are removed from
 pointer, keyboard and accessibility navigation.
 
-The semantic universe uses a single DPR-capped Canvas, 320 px repository
-spatial-hash cells, viewport culling, screen-space label collision and zoom-tier
-candidate limits of 44/76/170/300/480/720. It exposes four visible levels
-(realm, topic, semantic subcluster and word). Its overview loads 24 small topic
-neighborhoods distributed across all ten realms; zoom and search hydrate only
-required topic shards. Its live DOM budget remains independent of the
-10,000-word count.
+The lexical world uses unscaled HTML at four explicit levels: overview, realm,
+topic and semantic subcluster. Normal browsing hydrates only the selected
+branch and topic shard. Search may query all 44 topic shards, but requests are
+deduplicated and the active virtual word window is capped at 80 cards on
+desktop and 40 on mobile. The lexical dialog stays below 450 live DOM nodes and
+the complete page below 900 while browsing a large subcluster, so DOM size is
+independent of the 10,000-word count.
 
 ## Interaction limits
 
@@ -70,9 +70,10 @@ Three scenarios report separately:
 2. a warmed deterministic sequence of 40 enter/return transitions;
 3. 100 enter/return transitions followed by a retained-memory check.
 
-A separate semantic-universe scenario loads all 10,000 entries, focuses an
-exact search result and performs a deterministic pan/zoom sequence while gating
-DOM size, duplicate shard requests, JS heap, long tasks and browser CPU.
+A separate lexical-world scenario searches across all 10,000 entries, resolves
+an exact result into its hierarchy, opens a large subcluster and scrolls its
+virtual list to the end while gating DOM size, duplicate shard requests, JS
+heap, long tasks and browser CPU.
 
 CPU sampling uses CDP `SystemInfo.getProcessInfo().cpuTime`. Linux PSS is sampled
 from `smaps_rollup`; RSS from `/proc/<pid>/status` is recorded as a higher-rate,

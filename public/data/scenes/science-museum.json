@@ -3,7 +3,7 @@
   "title": "Science museum",
   "translation": "科学馆",
   "subtitle": "Curiosity becomes discovery",
-  "asset": "/scenes/science-museum-premium-v2.jpg",
+  "asset": "/scenes/science-museum-bright-v3.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "city-street",
@@ -12,8 +12,8 @@
       "id": "dinosaur-skeleton",
       "word": "dinosaur skeleton",
       "translation": "恐龙骨架",
-      "x": 172,
-      "y": 247,
+      "x": 210,
+      "y": 260,
       "priority": 1,
       "minLevel": 0,
       "sourceVisualRegion": "dinosaur-skeleton"
@@ -22,8 +22,8 @@
       "id": "telescope",
       "word": "telescope",
       "translation": "望远镜",
-      "x": 601,
-      "y": 292,
+      "x": 646,
+      "y": 303,
       "priority": 1.001,
       "minLevel": 0,
       "sourceVisualRegion": "telescope"
@@ -32,8 +32,8 @@
       "id": "solar-system-model",
       "word": "solar system model",
       "translation": "太阳系模型",
-      "x": 785,
-      "y": 165,
+      "x": 875,
+      "y": 164,
       "priority": 1.002,
       "minLevel": 0,
       "sourceVisualRegion": "solar-system-model"
@@ -42,8 +42,8 @@
       "id": "globe",
       "word": "globe",
       "translation": "地球仪",
-      "x": 764,
-      "y": 326,
+      "x": 808,
+      "y": 333,
       "priority": 1.003,
       "minLevel": 0,
       "sourceVisualRegion": "globe"
@@ -52,8 +52,8 @@
       "id": "human-anatomical-model",
       "word": "human anatomical model",
       "translation": "人体解剖模型",
-      "x": 1301,
-      "y": 430,
+      "x": 1490,
+      "y": 469,
       "priority": 1.004,
       "minLevel": 0,
       "sourceVisualRegion": "human-body-model"
@@ -62,8 +62,8 @@
       "id": "microscope",
       "word": "microscope",
       "translation": "显微镜",
-      "x": 941,
-      "y": 401,
+      "x": 990,
+      "y": 403,
       "priority": 1.005,
       "minLevel": 0,
       "sourceVisualRegion": "microscope"
@@ -72,8 +72,8 @@
       "id": "robotic-arm",
       "word": "robotic arm",
       "translation": "机械臂",
-      "x": 1080,
-      "y": 354,
+      "x": 1140,
+      "y": 367,
       "priority": 1.006,
       "minLevel": 0,
       "sourceVisualRegion": "robotic-arm"
@@ -82,8 +82,8 @@
       "id": "dna-model",
       "word": "DNA model",
       "translation": "DNA模型",
-      "x": 1543,
-      "y": 284,
+      "x": 1292,
+      "y": 401,
       "priority": 1.007,
       "minLevel": 0,
       "sourceVisualRegion": "dna-model"
@@ -92,8 +92,8 @@
       "id": "triceratops-skull",
       "word": "Triceratops skull",
       "translation": "三角龙头骨",
-      "x": 403,
-      "y": 391,
+      "x": 444,
+      "y": 405,
       "priority": 2.008,
       "minLevel": 1,
       "sourceVisualRegion": "triceratops-skull"
@@ -102,8 +102,8 @@
       "id": "ammonite-fossil",
       "word": "ammonite fossil",
       "translation": "菊石化石",
-      "x": 100,
-      "y": 487,
+      "x": 103,
+      "y": 500,
       "priority": 2.009,
       "minLevel": 1,
       "sourceVisualRegion": "ammonite-fossil"
@@ -112,8 +112,8 @@
       "id": "amethyst-cluster",
       "word": "amethyst cluster",
       "translation": "紫水晶簇",
-      "x": 252,
-      "y": 489,
+      "x": 278,
+      "y": 501,
       "priority": 2.01,
       "minLevel": 1,
       "sourceVisualRegion": "amethyst-cluster"
@@ -122,8 +122,8 @@
       "id": "meteorite",
       "word": "meteorite",
       "translation": "陨石",
-      "x": 442,
-      "y": 575,
+      "x": 481,
+      "y": 590,
       "priority": 2.011,
       "minLevel": 1,
       "sourceVisualRegion": "meteorite"
@@ -132,8 +132,8 @@
       "id": "solar-panel",
       "word": "solar panel",
       "translation": "太阳能板",
-      "x": 742,
-      "y": 389,
+      "x": 810,
+      "y": 400,
       "priority": 2.012,
       "minLevel": 1,
       "sourceVisualRegion": "solar-panel"
@@ -142,8 +142,8 @@
       "id": "atom-model",
       "word": "atom model",
       "translation": "原子模型",
-      "x": 868,
-      "y": 552,
+      "x": 938,
+      "y": 568,
       "priority": 2.013,
       "minLevel": 1,
       "sourceVisualRegion": "atom-model"
@@ -152,8 +152,8 @@
       "id": "interactive-kiosk",
       "word": "interactive kiosk",
       "translation": "互动信息台",
-      "x": 1039,
-      "y": 529,
+      "x": 1105,
+      "y": 535,
       "priority": 2.014,
       "minLevel": 1,
       "sourceVisualRegion": "interactive-kiosk"
@@ -162,8 +162,8 @@
       "id": "dinosaur-skull",
       "word": "dinosaur skull",
       "translation": "恐龙头骨",
-      "x": 335,
-      "y": 166,
+      "x": 359,
+      "y": 169,
       "priority": 3.015,
       "minLevel": 2,
       "sourceVisualRegion": "dinosaur-skull"
@@ -172,8 +172,8 @@
       "id": "rib-cage",
       "word": "rib cage",
       "translation": "胸廓",
-      "x": 146,
-      "y": 236,
+      "x": 125,
+      "y": 249,
       "priority": 3.016,
       "minLevel": 2,
       "sourceVisualRegion": "dinosaur-rib-cage"
@@ -182,8 +182,8 @@
       "id": "jupiter",
       "word": "Jupiter",
       "translation": "木星",
-      "x": 735,
-      "y": 154,
+      "x": 810,
+      "y": 150,
       "priority": 3.017,
       "minLevel": 2,
       "sourceVisualRegion": "solar-system-model"
@@ -192,8 +192,8 @@
       "id": "saturn",
       "word": "Saturn",
       "translation": "土星",
-      "x": 864,
-      "y": 181,
+      "x": 950,
+      "y": 180,
       "priority": 3.018,
       "minLevel": 2,
       "sourceVisualRegion": "solar-system-model"
@@ -202,8 +202,8 @@
       "id": "newton-cradle",
       "word": "Newton cradle",
       "translation": "牛顿摆",
-      "x": 663,
-      "y": 545,
+      "x": 721,
+      "y": 568,
       "priority": 3.019,
       "minLevel": 2,
       "sourceVisualRegion": "newton-cradle"
@@ -212,8 +212,8 @@
       "id": "prism",
       "word": "prism",
       "translation": "棱镜",
-      "x": 752,
-      "y": 563,
+      "x": 818,
+      "y": 577,
       "priority": 3.02,
       "minLevel": 2,
       "sourceVisualRegion": "optics-display"
@@ -222,8 +222,8 @@
       "id": "gyroscope",
       "word": "gyroscope",
       "translation": "陀螺仪",
-      "x": 675,
-      "y": 704,
+      "x": 727,
+      "y": 735,
       "priority": 3.021,
       "minLevel": 2,
       "sourceVisualRegion": "gyroscope"
@@ -232,18 +232,18 @@
       "id": "headphones",
       "word": "headphones",
       "translation": "耳机",
-      "x": 1028,
-      "y": 701,
+      "x": 1092,
+      "y": 729,
       "priority": 3.022,
       "minLevel": 2,
-      "sourceVisualRegion": "control-console"
+      "sourceVisualRegion": "headphones"
     },
     {
       "id": "jaw",
       "word": "jaw",
       "translation": "下颌骨",
-      "x": 357,
-      "y": 215,
+      "x": 376,
+      "y": 221,
       "priority": 4.023,
       "minLevel": 3,
       "sourceVisualRegion": "dinosaur-skull"
@@ -252,7 +252,7 @@
       "id": "teeth",
       "word": "teeth",
       "translation": "牙齿",
-      "x": 380,
+      "x": 393,
       "y": 199,
       "priority": 4.024,
       "minLevel": 3,
@@ -262,8 +262,8 @@
       "id": "spine",
       "word": "spine",
       "translation": "脊柱",
-      "x": 180,
-      "y": 177,
+      "x": 192,
+      "y": 171,
       "priority": 4.025,
       "minLevel": 3,
       "sourceVisualRegion": "dinosaur-spine"
@@ -272,8 +272,8 @@
       "id": "orbital-ring",
       "word": "orbital ring",
       "translation": "轨道环",
-      "x": 916,
-      "y": 153,
+      "x": 967,
+      "y": 170,
       "priority": 4.026,
       "minLevel": 3,
       "sourceVisualRegion": "solar-system-model"
@@ -282,8 +282,8 @@
       "id": "spectrum",
       "word": "spectrum",
       "translation": "光谱",
-      "x": 813,
-      "y": 584,
+      "x": 864,
+      "y": 593,
       "priority": 4.027,
       "minLevel": 3,
       "sourceVisualRegion": "optics-display"
@@ -292,71 +292,71 @@
       "id": "display-screen",
       "word": "display screen",
       "translation": "显示屏",
-      "x": 1032,
-      "y": 517,
+      "x": 1105,
+      "y": 532,
       "priority": 4.028,
       "minLevel": 3,
-      "sourceVisualRegion": "interactive-kiosk"
+      "sourceVisualRegion": "display-screen"
     },
     {
       "id": "robot-gripper",
       "word": "robot gripper",
       "translation": "机器人夹爪",
-      "x": 1018,
-      "y": 410,
+      "x": 1086,
+      "y": 394,
       "priority": 4.029,
       "minLevel": 3,
-      "sourceVisualRegion": "robotic-arm"
+      "sourceVisualRegion": "robot-gripper"
     },
     {
       "id": "telescope-lens",
       "word": "telescope lens",
       "translation": "望远镜镜片",
-      "x": 650,
-      "y": 258,
+      "x": 714,
+      "y": 267,
       "priority": 5.03,
       "minLevel": 4,
-      "sourceVisualRegion": "telescope"
+      "sourceVisualRegion": "telescope-lens"
     },
     {
       "id": "tripod",
       "word": "tripod",
       "translation": "三脚架",
-      "x": 588,
-      "y": 417,
+      "x": 631,
+      "y": 412,
       "priority": 5.031,
       "minLevel": 4,
-      "sourceVisualRegion": "telescope"
+      "sourceVisualRegion": "telescope-tripod"
     },
     {
       "id": "microscope-objective",
       "word": "microscope objective",
       "translation": "显微镜物镜",
-      "x": 919,
-      "y": 394,
+      "x": 965,
+      "y": 392,
       "priority": 5.032,
       "minLevel": 4,
-      "sourceVisualRegion": "microscope"
+      "sourceVisualRegion": "microscope-objective"
     },
     {
       "id": "microscope-stage",
       "word": "microscope stage",
       "translation": "显微镜载物台",
-      "x": 944,
-      "y": 423,
+      "x": 990,
+      "y": 431,
       "priority": 5.033,
       "minLevel": 4,
-      "sourceVisualRegion": "microscope"
+      "sourceVisualRegion": "microscope-stage"
     },
     {
       "id": "robotic-joint",
       "word": "robotic joint",
       "translation": "机械关节",
-      "x": 1085,
-      "y": 300,
+      "x": 1167,
+      "y": 329,
       "priority": 5.034,
       "minLevel": 4,
-      "sourceVisualRegion": "robotic-arm"
+      "sourceVisualRegion": "robotic-joint"
     }
   ],
   "portals": [
@@ -365,10 +365,10 @@
       "label": "Enter the human body",
       "translation": "进入人体",
       "childSceneId": "human-body",
-      "x": 1168,
-      "y": 105,
-      "width": 270,
-      "height": 680,
+      "x": 1400,
+      "y": 310,
+      "width": 160,
+      "height": 335,
       "enterScale": 3.6,
       "sourceVisualRegion": "human-body-model"
     }
@@ -376,9 +376,9 @@
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/science-museum-premium-v2.jpg",
-    "reviewedAssetSha256": "bcbea6aab65d8e9da5403a6473f1c92de1c9c7171ab054ab3a089878fef9e009",
-    "rationale": "Re-authored every anchor against the 1600 by 900 photographic museum scene, keeping only clearly visible exhibits and identifiable parts at their actual pixels; the human-body portal tightly encloses the complete anatomical model inside the illuminated glass cylinder.",
+    "reviewedAsset": "/scenes/science-museum-bright-v3.jpg",
+    "reviewedAssetSha256": "bce6c971902dac590e494ca87db56a3d68064194db484c5d795f59bdd49482aa",
+    "rationale": "Re-authored all 35 anchors against the exact 1600 by 900 sunlit museum pixels, retaining only separately identifiable exhibits and parts; the human-body portal now tightly encloses the smaller anatomical model in its isolated right-side life-science alcove.",
     "previousLabelCount": 56,
     "retainedLabelCount": 35,
     "removedLabelCount": 21,
@@ -393,7 +393,7 @@
   "visualRegions": [
     {
       "id": "whole-gallery",
-      "description": "Complete photographic science museum gallery and its displayed exhibits",
+      "description": "Complete sunlit photographic science museum gallery and its displayed exhibits",
       "kind": "whole",
       "x": 0,
       "y": 0,
@@ -402,30 +402,30 @@
     },
     {
       "id": "dinosaur-skeleton",
-      "description": "Large mounted dinosaur skeleton spanning the upper-left gallery",
+      "description": "Large mounted dinosaur skeleton spanning the upper-left sunlit gallery",
       "kind": "object",
       "x": 0,
       "y": 105,
-      "width": 440,
-      "height": 255
+      "width": 450,
+      "height": 310
     },
     {
       "id": "dinosaur-skull",
       "description": "Toothed dinosaur skull and lower jaw at the upper left",
       "kind": "part",
-      "x": 245,
+      "x": 285,
       "y": 105,
-      "width": 190,
-      "height": 135
+      "width": 160,
+      "height": 155
     },
     {
       "id": "dinosaur-rib-cage",
       "description": "Curved ribs in the mounted dinosaur skeleton",
       "kind": "part",
-      "x": 60,
-      "y": 175,
-      "width": 200,
-      "height": 140
+      "x": 0,
+      "y": 180,
+      "width": 225,
+      "height": 150
     },
     {
       "id": "dinosaur-spine",
@@ -433,170 +433,242 @@
       "kind": "part",
       "x": 0,
       "y": 135,
-      "width": 285,
-      "height": 80
+      "width": 315,
+      "height": 100
     },
     {
       "id": "triceratops-skull",
       "description": "Three-horned Triceratops skull on the left display plinth",
       "kind": "object",
-      "x": 325,
-      "y": 300,
-      "width": 165,
-      "height": 170
+      "x": 340,
+      "y": 295,
+      "width": 210,
+      "height": 200
     },
     {
       "id": "ammonite-fossil",
       "description": "Large spiral ammonite fossil on the front-left pedestal",
       "kind": "object",
-      "x": 30,
-      "y": 395,
-      "width": 145,
-      "height": 175
+      "x": 0,
+      "y": 405,
+      "width": 210,
+      "height": 200
     },
     {
       "id": "amethyst-cluster",
       "description": "Purple amethyst crystal cluster beside the ammonite",
       "kind": "object",
-      "x": 175,
-      "y": 410,
-      "width": 165,
-      "height": 155
+      "x": 190,
+      "y": 425,
+      "width": 180,
+      "height": 185
     },
     {
       "id": "meteorite",
       "description": "Large dark pitted meteorite on the central foreground pedestal",
       "kind": "object",
-      "x": 330,
-      "y": 475,
-      "width": 250,
+      "x": 350,
+      "y": 495,
+      "width": 260,
       "height": 220
     },
     {
       "id": "telescope",
-      "description": "Black optical telescope and tripod left of the globe",
+      "description": "Black optical telescope and its tripod left of the globe",
       "kind": "object",
-      "x": 520,
+      "x": 560,
       "y": 215,
-      "width": 160,
-      "height": 255
+      "width": 200,
+      "height": 300
+    },
+    {
+      "id": "telescope-lens",
+      "description": "Blue-black objective lens at the right end of the telescope barrel",
+      "kind": "part",
+      "x": 685,
+      "y": 235,
+      "width": 75,
+      "height": 70
+    },
+    {
+      "id": "telescope-tripod",
+      "description": "Three metal support legs beneath the optical telescope",
+      "kind": "part",
+      "x": 585,
+      "y": 320,
+      "width": 120,
+      "height": 195
     },
     {
       "id": "solar-system-model",
       "description": "Suspended planets and orbital rings across the upper center",
       "kind": "object",
-      "x": 545,
-      "y": 105,
-      "width": 500,
-      "height": 125
+      "x": 590,
+      "y": 100,
+      "width": 560,
+      "height": 140
     },
     {
       "id": "globe",
       "description": "Illuminated terrestrial globe in the center display",
       "kind": "object",
-      "x": 685,
+      "x": 735,
       "y": 265,
-      "width": 150,
-      "height": 125
+      "width": 155,
+      "height": 150
     },
     {
       "id": "solar-panel",
       "description": "Blue rectangular solar panel mounted before the globe",
       "kind": "object",
-      "x": 650,
-      "y": 345,
-      "width": 185,
-      "height": 100
+      "x": 695,
+      "y": 360,
+      "width": 225,
+      "height": 110
     },
     {
       "id": "microscope",
       "description": "White laboratory microscope on the central rear plinth",
       "kind": "object",
-      "x": 865,
-      "y": 335,
-      "width": 150,
-      "height": 135
+      "x": 920,
+      "y": 310,
+      "width": 140,
+      "height": 190
+    },
+    {
+      "id": "microscope-objective",
+      "description": "Black objective-lens assembly below the microscope head",
+      "kind": "part",
+      "x": 930,
+      "y": 355,
+      "width": 75,
+      "height": 80
+    },
+    {
+      "id": "microscope-stage",
+      "description": "Flat black specimen stage at the center of the microscope",
+      "kind": "part",
+      "x": 955,
+      "y": 405,
+      "width": 80,
+      "height": 60
     },
     {
       "id": "robotic-arm",
       "description": "Articulated beige robotic arm with black gripper",
       "kind": "object",
-      "x": 995,
-      "y": 245,
-      "width": 155,
-      "height": 220
+      "x": 1040,
+      "y": 270,
+      "width": 180,
+      "height": 230
+    },
+    {
+      "id": "robot-gripper",
+      "description": "Small black two-finger gripper at the end of the robotic arm",
+      "kind": "part",
+      "x": 1040,
+      "y": 340,
+      "width": 90,
+      "height": 85
+    },
+    {
+      "id": "robotic-joint",
+      "description": "Large circular articulated shoulder joint on the robotic arm",
+      "kind": "part",
+      "x": 1120,
+      "y": 275,
+      "width": 100,
+      "height": 150
     },
     {
       "id": "human-body-model",
-      "description": "Complete standing human anatomical model inside the right glass cylinder",
+      "description": "Complete standing human anatomical model inside the isolated right life-science alcove",
       "kind": "object",
-      "x": 1168,
-      "y": 105,
-      "width": 270,
-      "height": 680
+      "x": 1385,
+      "y": 292,
+      "width": 190,
+      "height": 365
     },
     {
       "id": "dna-model",
-      "description": "Blue and red DNA double-helix model at the far right",
+      "description": "Multicolored DNA double-helix model in a separate illuminated case",
       "kind": "object",
-      "x": 1480,
-      "y": 185,
-      "width": 120,
-      "height": 215
+      "x": 1225,
+      "y": 282,
+      "width": 130,
+      "height": 255
     },
     {
       "id": "newton-cradle",
       "description": "Row of suspended metal balls on a small black base",
       "kind": "object",
-      "x": 610,
-      "y": 475,
-      "width": 110,
-      "height": 130
+      "x": 660,
+      "y": 500,
+      "width": 125,
+      "height": 155
     },
     {
       "id": "optics-display",
       "description": "Glass prism splitting a bright beam into a rainbow spectrum",
       "kind": "object",
-      "x": 710,
-      "y": 520,
+      "x": 765,
+      "y": 525,
       "width": 145,
-      "height": 100
+      "height": 115
     },
     {
       "id": "atom-model",
       "description": "Small orbital atom model inside the center glass case",
       "kind": "object",
-      "x": 810,
-      "y": 480,
-      "width": 140,
-      "height": 140
+      "x": 880,
+      "y": 500,
+      "width": 120,
+      "height": 145
     },
     {
       "id": "gyroscope",
       "description": "Brass ring gyroscope on the lower-center floor display",
       "kind": "object",
-      "x": 605,
-      "y": 610,
-      "width": 145,
-      "height": 220
+      "x": 655,
+      "y": 625,
+      "width": 150,
+      "height": 230
     },
     {
       "id": "interactive-kiosk",
       "description": "Angled galaxy display and controls on the center-right pedestal",
       "kind": "object",
-      "x": 950,
-      "y": 455,
-      "width": 180,
-      "height": 230
+      "x": 1010,
+      "y": 470,
+      "width": 200,
+      "height": 205
+    },
+    {
+      "id": "display-screen",
+      "description": "Blue galaxy display panel on the angled interactive kiosk",
+      "kind": "part",
+      "x": 1025,
+      "y": 480,
+      "width": 175,
+      "height": 110
     },
     {
       "id": "control-console",
       "description": "Colored control buttons and headphones on the front console",
       "kind": "object",
-      "x": 805,
-      "y": 675,
-      "width": 285,
-      "height": 95
+      "x": 840,
+      "y": 660,
+      "width": 315,
+      "height": 145
+    },
+    {
+      "id": "headphones",
+      "description": "Black over-ear headphones resting beside the colored controls",
+      "kind": "object",
+      "x": 1040,
+      "y": 650,
+      "width": 125,
+      "height": 150
     }
   ]
 }

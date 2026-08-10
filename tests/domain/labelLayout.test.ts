@@ -1,12 +1,14 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  buildPortalCueProtectedRegions,
   buildVocabularyRevealSummary,
   buildVocabularyZoomCues,
   consolidateVocabularyCueBatches,
   computeSceneLabelLayout,
   sceneLabelLod,
   sceneLabelRevealOpacity,
+  sceneLabelVisibilityBudget,
   type Label,
 } from "../../app/domain";
 
@@ -301,6 +303,136 @@ test("translations consume more collision space without changing the DOM budget"
     withMeanings.filter((item) => item.interactive).length
       < withoutMeanings.filter((item) => item.interactive).length,
   );
+});
+
+function spaciousFutureLabels(count = 80): Label[] {
+  return Array.from({ length: count }, (_, index) => label(
+    `future-${index}`,
+    65 + (index % 10) * 112,
+    index + 1,
+    index < 4 ? 0 : 2,
+    70 + Math.floor(index / 10) * 76,
+  ));
+}
+
+test("a spacious desktop fills empty overview regions with higher-LOD words before their fixed band", () => {
+  const labels = spaciousFutureLabels();
+  const viewport = { width: 1_200, height: 700, compact: false };
+  const layout = computeSceneLabelLayout(
+    labels,
+    { x: 0, y: 0, fit: 1, scale: 1 },
+    viewport,
+    false,
+  );
+  const visible = layout.filter((item) => item.interactive);
+  const adaptive = visible.filter((item) => item.adaptive);
+
+  assert.ok(visible.length >= 28, "large usable space should not stop at the four overview words");
+  assert.ok(adaptive.length >= 20, "spare capacity should pull useful LOD 2 anchors forward");
+  assert.ok(
+    adaptive.every((item) => item.lod === 2),
+    "the adaptive pass still follows the authored LOD order",
+  );
+  assert.ok(
+    visible.length < labels.length,
+    "the overview retains deeper vocabulary as a real zoom reward",
+  );
+});
+
+test("zoom raises the adaptive allowance and reveals more words without scaling their layout size", () => {
+  const labels = spaciousFutureLabels();
+  const viewport = { width: 1_200, height: 700, compact: false };
+  const overview = computeSceneLabelLayout(
+    labels,
+    { x: 0, y: 0, fit: 1, scale: 1 },
+    viewport,
+    false,
+  );
+  const zoomed = computeSceneLabelLayout(
+    labels,
+    // Keep projected anchor positions constant so this assertion isolates LOD
+    // density rather than viewport cropping.
+    { x: 0, y: 0, fit: 0.5, scale: 2 },
+    viewport,
+    false,
+  );
+  assert.ok(
+    zoomed.filter((item) => item.interactive).length
+      > overview.filter((item) => item.interactive).length,
+  );
+});
+
+test("crowding obeys priority and budget while a selected word keeps a readable slot", () => {
+  const labels = Array.from({ length: 30 }, (_, index) => label(
+    `crowded-${index}`,
+    300,
+    index + 1,
+    2,
+    200,
+  ));
+  const layout = computeSceneLabelLayout(
+    labels,
+    { x: 0, y: 0, fit: 1, scale: 1 },
+    { width: 600, height: 400, compact: false },
+    false,
+    { selectedLabelId: "crowded-29", maximumVisibleLabels: 6 },
+  );
+  const visibleIds = layout.filter((item) => item.interactive).map((item) => item.id);
+
+  assert.ok(visibleIds.length <= 5, "the overview fill fraction preserves later zoom capacity");
+  assert.ok(visibleIds.includes("crowded-29"), "the selected word cannot lose its local collision");
+  assert.ok(visibleIds.includes("crowded-0"), "the highest authored priority remains visible");
+  assert.ok(visibleIds.includes("crowded-1"), "priority order decides the remaining crowded slots");
+});
+
+test("portal cue footprint is reserved before adaptive labels are placed", () => {
+  const viewport = { width: 1_000, height: 600, compact: false };
+  const camera = { x: 0, y: 0, fit: 1, scale: 1 };
+  const portal = {
+    id: "portal",
+    label: "Enter",
+    childSceneId: "child",
+    x: 400,
+    y: 200,
+    width: 200,
+    height: 200,
+  };
+  const [protectedRegion] = buildPortalCueProtectedRegions([portal], camera, viewport);
+  const [placed] = computeSceneLabelLayout(
+    [label("selected-object", 500, 99, 2, 300)],
+    camera,
+    viewport,
+    false,
+    { selectedLabelId: "selected-object", protectedRegions: [protectedRegion] },
+  );
+
+  assert.equal(placed.interactive, true);
+  assert.ok(
+    placed.screenY < protectedRegion.top || placed.screenY > protectedRegion.bottom,
+    "the word moves clear of the gold cue and caption rather than sitting beneath it",
+  );
+});
+
+test("mobile uses a smaller adaptive budget and still fills more than a token handful", () => {
+  const labels = Array.from({ length: 80 }, (_, index) => label(
+    `mobile-${index}`,
+    45 + (index % 5) * 74,
+    index + 1,
+    2,
+    55 + Math.floor(index / 5) * 47,
+  ));
+  const viewport = { width: 390, height: 780, compact: true };
+  const budget = sceneLabelVisibilityBudget(viewport, false);
+  const visible = computeSceneLabelLayout(
+    labels,
+    { x: 0, y: 0, fit: 1, scale: 1 },
+    viewport,
+    false,
+  ).filter((item) => item.interactive);
+
+  assert.ok(budget <= 28);
+  assert.ok(visible.length >= 10, "mobile should expose a useful first-screen vocabulary set");
+  assert.ok(visible.length <= budget, "mobile density stays bounded for tap readability");
 });
 
 function denseSceneLabels(): Label[] {

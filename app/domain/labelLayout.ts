@@ -18,11 +18,32 @@ export interface SceneLabelLayoutItem {
   readonly lod: 0 | 1 | 2 | 3 | 4;
   readonly opacity: number;
   readonly interactive: boolean;
+  /** True when spare screen space lets a future authored LOD appear early. */
+  readonly adaptive: boolean;
+  /** Estimated native screen-pixel footprint used by the collision pass. */
+  readonly width: number;
+  readonly height: number;
   readonly screenX: number;
   readonly screenY: number;
   /** Small screen-pixel displacement used to resolve a local collision. */
   readonly offsetX: number;
   readonly offsetY: number;
+}
+
+export interface SceneLabelProtectedRegion {
+  readonly left: number;
+  readonly right: number;
+  readonly top: number;
+  readonly bottom: number;
+}
+
+export interface SceneLabelLayoutOptions {
+  /** A selected or keyboard-focused word always wins its local collision. */
+  readonly selectedLabelId?: string | null;
+  /** Screen-space controls, such as portal cues, that word pills must avoid. */
+  readonly protectedRegions?: readonly SceneLabelProtectedRegion[];
+  /** Primarily useful for deterministic authoring tools and tests. */
+  readonly maximumVisibleLabels?: number;
 }
 
 export interface VocabularyZoomCue {
@@ -79,6 +100,8 @@ const DEFAULT_RETIRE_BANDS = [
 
 type LabelLod = SceneLabelLayoutItem["lod"];
 
+const revealScaleCache = new WeakMap<Label, Map<string, number | null>>();
+
 interface LabelBounds {
   readonly left: number;
   readonly right: number;
@@ -131,9 +154,15 @@ function nextVocabularyRevealScale(
 ): number | null {
   if (sceneLabelRevealOpacity(label, currentScale) >= visibilityThreshold) return null;
   const maximum = Math.max(currentScale, maximumScale);
+  const cacheKey = `${maximum.toFixed(3)}:${visibilityThreshold.toFixed(3)}`;
+  const labelCache = revealScaleCache.get(label) ?? new Map<string, number | null>();
+  if (!revealScaleCache.has(label)) revealScaleCache.set(label, labelCache);
+  const cached = labelCache.get(cacheKey);
+  if (cached !== undefined) return cached !== null && cached > currentScale ? cached : null;
+
   const step = 0.02;
-  let before = currentScale;
-  for (let probe = currentScale + step; probe < maximum + step; probe += step) {
+  let before = 0;
+  for (let probe = step; probe < maximum + step; probe += step) {
     const scale = Math.min(maximum, probe);
     if (sceneLabelRevealOpacity(label, scale) >= visibilityThreshold) {
       let lower = before;
@@ -143,11 +172,13 @@ function nextVocabularyRevealScale(
         if (sceneLabelRevealOpacity(label, middle) >= visibilityThreshold) upper = middle;
         else lower = middle;
       }
-      return upper;
+      labelCache.set(cacheKey, upper);
+      return upper > currentScale ? upper : null;
     }
     if (scale === maximum) break;
     before = scale;
   }
+  labelCache.set(cacheKey, null);
   return null;
 }
 
@@ -161,10 +192,12 @@ export function buildVocabularyRevealSummary(
   currentScale: number,
   maximumScale: number,
   visibilityThreshold = 0.52,
+  visibleLabelIds?: ReadonlySet<string>,
 ): VocabularyRevealSummary {
   const revealScales = new Map<string, number>();
   const unique = new Map<string, Label>();
   for (const label of labels) {
+    if (visibleLabelIds?.has(label.id)) continue;
     const revealScale = nextVocabularyRevealScale(
       label,
       currentScale,
@@ -195,6 +228,68 @@ export function buildVocabularyRevealSummary(
     nextLod,
     targetScale: leadingLabel ? revealScales.get(leadingLabel.id) ?? null : null,
   };
+}
+
+/**
+ * A conservative upper bound for readable native-size pills. The collision
+ * pass remains authoritative; this budget only prevents a large empty scene
+ * from filling every future LOD at once and preserves a reward for zooming.
+ */
+export function sceneLabelVisibilityBudget(
+  viewport: SceneLabelViewport,
+  meaningVisible: boolean,
+): number {
+  const area = Math.max(0, viewport.width) * Math.max(0, viewport.height);
+  const areaPerLabel = viewport.compact
+    ? (meaningVisible ? 26_000 : 17_000)
+    : (meaningVisible ? 31_000 : 20_000);
+  const minimum = viewport.compact ? 12 : 20;
+  const maximum = viewport.compact ? 28 : 56;
+  return Math.round(clamp(Math.floor(area / areaPerLabel), minimum, maximum));
+}
+
+/** The number of readable pills the current zoom should try to expose. */
+export function sceneLabelDensityTarget(
+  viewport: SceneLabelViewport,
+  meaningVisible: boolean,
+  scale: number,
+  maximumVisibleLabels = sceneLabelVisibilityBudget(viewport, meaningVisible),
+): number {
+  const maximum = Math.max(1, Math.floor(maximumVisibleLabels));
+  const fill = 0.7 + 0.3 * smoothstep(0.9, 2.8, scale);
+  return Math.max(1, Math.ceil(maximum * fill));
+}
+
+/**
+ * Converts authored portal rectangles to the screen-space footprint of their
+ * gold button and caption. Protecting only the cue (rather than the whole
+ * object region) keeps nearby object vocabulary available.
+ */
+export function buildPortalCueProtectedRegions(
+  portals: readonly Portal[],
+  camera: SceneLabelCamera,
+  viewport: SceneLabelViewport,
+): SceneLabelProtectedRegion[] {
+  const effectiveScale = camera.fit * camera.scale;
+  const cueWidth = viewport.compact ? 154 : 204;
+  const cueTop = viewport.compact ? 30 : 32;
+  const cueBottom = viewport.compact ? 56 : 62;
+  return portals.flatMap((portal) => {
+    const centerX = camera.x + (portal.x + portal.width / 2) * effectiveScale;
+    const centerY = camera.y + (portal.y + portal.height / 2) * effectiveScale;
+    if (
+      centerX < -cueWidth / 2
+      || centerX > viewport.width + cueWidth / 2
+      || centerY < -cueBottom
+      || centerY > viewport.height + cueTop
+    ) return [];
+    return [{
+      left: centerX - cueWidth / 2,
+      right: centerX + cueWidth / 2,
+      top: centerY - cueTop,
+      bottom: centerY + cueBottom,
+    }];
+  });
 }
 
 function estimatedLabelSize(
@@ -430,6 +525,12 @@ function placementOffsets(
 ): ReadonlyArray<readonly [number, number]> {
   const horizontal = Math.min(compact ? 58 : 72, Math.max(30, width * 0.54));
   const vertical = height + (compact ? 2 : 4);
+  const maximumLeader = compact ? 100 : 150;
+  const wideHorizontal = Math.min(
+    maximumLeader,
+    Math.max(horizontal * 1.85, width * 0.62),
+  );
+  const wideVertical = Math.min(maximumLeader, vertical * 3);
   const firstRing: Array<readonly [number, number]> = [
     [0, -vertical],
     [0, vertical],
@@ -442,7 +543,7 @@ function placementOffsets(
   ];
   const rotation = stableHash(id) % firstRing.length;
   const rotated = firstRing.slice(rotation).concat(firstRing.slice(0, rotation));
-  return [
+  const candidates: ReadonlyArray<readonly [number, number]> = [
     // Labels are callouts, not stickers: prefer a short upward stem so the
     // authored object pixel remains visible and unmistakably anchored.
     [0, -vertical],
@@ -459,7 +560,25 @@ function placementOffsets(
     [horizontal * 1.45, -vertical * 1.55],
     [-horizontal * 1.45, vertical * 1.55],
     [horizontal * 1.45, vertical * 1.55],
+    // A final bounded ring can use genuinely empty screen space. It is only a
+    // fallback after every near-anchor slot fails, and the DOM draws a leader
+    // all the way back to the audited object point so the semantic attachment
+    // never changes.
+    [-wideHorizontal, 0],
+    [wideHorizontal, 0],
+    [0, -wideVertical],
+    [0, wideVertical],
+    [-wideHorizontal * 0.68, -wideVertical * 0.68],
+    [wideHorizontal * 0.68, -wideVertical * 0.68],
+    [-wideHorizontal * 0.68, wideVertical * 0.68],
+    [wideHorizontal * 0.68, wideVertical * 0.68],
   ];
+  return candidates.map(([x, y]) => {
+    const distance = Math.hypot(x, y);
+    if (distance <= maximumLeader) return [x, y] as const;
+    const ratio = maximumLeader / distance;
+    return [x * ratio, y * ratio] as const;
+  });
 }
 
 function boundsAt(
@@ -541,37 +660,83 @@ export function computeSceneLabelLayout(
   camera: SceneLabelCamera,
   viewport: SceneLabelViewport,
   meaningVisible: boolean,
+  options: SceneLabelLayoutOptions = {},
 ): SceneLabelLayoutItem[] {
   const effectiveScale = camera.fit * camera.scale;
   const candidates = labels
     .map((label) => {
       const lod = sceneLabelLod(label);
-      const opacity = sceneLabelRevealOpacity(label, camera.scale);
+      const naturalOpacity = sceneLabelRevealOpacity(label, camera.scale);
+      const futureRevealScale = nextVocabularyRevealScale(
+        label,
+        camera.scale,
+        4.15,
+        0.52,
+      );
       const screenX = camera.x + label.x * effectiveScale;
       const screenY = camera.y + label.y * effectiveScale;
       const size = estimatedLabelSize(label, meaningVisible, lod);
-      return { label, lod, opacity, screenX, screenY, ...size };
+      return {
+        label,
+        lod,
+        naturalOpacity,
+        futureRevealScale,
+        screenX,
+        screenY,
+        ...size,
+      };
     })
-    .filter(({ opacity, screenX, screenY }) => (
-      opacity > 0.025
+    .filter(({ label, naturalOpacity, futureRevealScale, screenX, screenY }) => (
+      (naturalOpacity > 0.025
+        || futureRevealScale !== null
+        || label.id === options.selectedLabelId)
       && screenX >= -18
       && screenX <= viewport.width + 18
       && screenY >= -18
       && screenY <= viewport.height + 18
     ))
     .sort((first, second) => (
-      Number(second.opacity >= 0.52) - Number(first.opacity >= 0.52)
-      || second.opacity - first.opacity
+      Number(second.label.id === options.selectedLabelId)
+        - Number(first.label.id === options.selectedLabelId)
+      || Number(second.naturalOpacity >= 0.52) - Number(first.naturalOpacity >= 0.52)
+      || Number(second.naturalOpacity > 0.025) - Number(first.naturalOpacity > 0.025)
       || first.label.priority - second.label.priority
       || first.lod - second.lod
+      || (first.futureRevealScale ?? camera.scale) - (second.futureRevealScale ?? camera.scale)
       || first.label.id.localeCompare(second.label.id)
     ));
 
   const collisionIndex = createCollisionIndex(viewport.compact ? 40 : 48);
+  for (const region of options.protectedRegions ?? []) collisionIndex.add(region);
   const visible = new Map<string, SceneLabelLayoutItem>();
   const padding = viewport.compact ? 1 : 2;
   const edgeMargin = viewport.compact ? 3 : 6;
+  const maximumVisibleLabels = Math.max(1, Math.floor(
+    options.maximumVisibleLabels ?? sceneLabelVisibilityBudget(viewport, meaningVisible),
+  ));
+  // At overview scale use roughly 70% of the screen's safe capacity; the
+  // allowance rises continuously so zoom still reveals another layer.
+  const adaptiveTarget = sceneLabelDensityTarget(
+    viewport,
+    meaningVisible,
+    camera.scale,
+    maximumVisibleLabels,
+  );
+  let interactiveCount = 0;
   for (const candidate of candidates) {
+    const selected = candidate.label.id === options.selectedLabelId;
+    const naturallyInteractive = candidate.naturalOpacity >= 0.52;
+    const canFillSpareSpace = candidate.futureRevealScale !== null
+      && interactiveCount < adaptiveTarget;
+    const adaptive = !naturallyInteractive && (selected || canFillSpareSpace);
+    const candidateOpacity = selected
+      ? Math.max(1, candidate.naturalOpacity)
+      : naturallyInteractive && interactiveCount >= maximumVisibleLabels
+        ? 0
+        : adaptive
+          ? Math.max(0.82, candidate.naturalOpacity)
+          : candidate.naturalOpacity;
+    if (candidateOpacity <= 0.025) continue;
     const placement = placementOffsets(
       candidate.label.id,
       candidate.width,
@@ -598,12 +763,17 @@ export function computeSceneLabelLayout(
         candidate.height,
       ));
     }
-    const opacity = blocked ? 0 : candidate.opacity;
+    const opacity = blocked ? 0 : candidateOpacity;
+    const interactive = !blocked && opacity >= 0.52;
+    if (interactive) interactiveCount += 1;
     visible.set(candidate.label.id, {
       id: candidate.label.id,
       lod: candidate.lod,
       opacity,
-      interactive: !blocked && opacity >= 0.52,
+      interactive,
+      adaptive: !blocked && adaptive,
+      width: candidate.width,
+      height: candidate.height,
       screenX: candidate.screenX + offsetX,
       screenY: candidate.screenY + offsetY,
       offsetX,
@@ -616,6 +786,9 @@ export function computeSceneLabelLayout(
     lod: sceneLabelLod(label),
     opacity: 0,
     interactive: false,
+    adaptive: false,
+    width: 0,
+    height: 0,
     screenX: Number.NaN,
     screenY: Number.NaN,
     offsetX: 0,

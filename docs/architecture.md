@@ -12,8 +12,8 @@ exposing loading mechanics.
 The product provides both:
 
 - a branching set of illustrated, semantically natural scene chains; and
-- a zoomable, searchable semantic universe containing exactly 10,000 ranked
-  English display words with Chinese meanings.
+- a searchable lexical world containing exactly 10,000 ranked English display
+  words with Chinese meanings, organized into explicit semantic levels.
 
 The UI must distinguish natural scene anchors from atlas entries. It must not
   claim that every vocabulary entry has been hand-illustrated.
@@ -28,8 +28,8 @@ SVG drawing complexity and makes translations and placement editable without
 rewriting artwork.
 
 Only the current scene is normally mounted. During a transition the current and
-next surfaces may coexist briefly. The semantic universe uses one Canvas, a
-spatial hash, viewport culling and zoom-dependent label budgets; ten thousand
+next surfaces may coexist briefly. The lexical world uses explicit realm,
+topic and subcluster navigation plus a virtualized HTML word list; ten thousand
 vocabulary entries never become ten thousand DOM nodes.
 
 The client is divided into four layers:
@@ -37,7 +37,7 @@ The client is divided into four layers:
 1. `domain`: camera, scene graph, portal hysteresis, vocabulary types;
 2. `data`: lazy repositories, validation, source metadata, small caches;
 3. `runtime`: explicit gesture/transition state and request cancellation;
-4. `ui`: viewport, labels, controls, breadcrumbs, search and atlas.
+4. `ui`: viewport, labels, controls, breadcrumbs, search and lexical world.
 
 High-frequency pointer input is accumulated in mutable camera state and applied
 once per animation frame. React state is reserved for low-frequency changes
@@ -85,11 +85,12 @@ Every shipped entry includes:
 The ranked vocabulary is sharded by rank band. A second deterministic semantic
 build maps every entry into 10 realms, 44 topics and 704 subclusters using
 WordNet synsets/lexnames plus explicit fallbacks for inflections, names,
-abbreviations, contractions and function words. The semantic universe makes
-those relationships visible as four zoom levels: realms, topics, semantic
-subclusters and individual words. It is sharded by topic and initially loads a
-small, spatially balanced set of neighborhoods across all ten realms; viewport
-movement and search request the rest on demand.
+abbreviations, contractions and function words. The lexical world makes those
+relationships visible as four explicit levels: overview, realms, topics, and
+semantic subclusters containing individual words. Normal browsing loads only
+the selected realm/topic branch and its word shard. Full search intentionally
+queries all topic shards, deduplicates requests, and resolves each result back
+to its complete navigation path.
 
 Scene encounters are recorded passively in local storage. Selecting a label
 opens an optional word card and pronunciation action, but no exam is required.

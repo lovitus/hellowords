@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { LexicalWorld } from "./LexicalWorld";
 import { SceneViewport } from "./SceneViewport";
-import { SemanticAtlas } from "./SemanticAtlas";
 import {
   isScenePrepared,
   loadSceneManifest,
@@ -30,7 +30,8 @@ export function WorldApp() {
   const [history, setHistory] = useState<Scene[]>([]);
   const [sceneTitles, setSceneTitles] = useState<Record<string, string>>({});
   const [meaningVisible, setMeaningVisible] = useState(false);
-  const [atlasOpen, setAtlasOpen] = useState(false);
+  const [lexicalWorldOpen, setLexicalWorldOpen] = useState(false);
+  const [lexicalWorldInitialFocus, setLexicalWorldInitialFocus] = useState<"auto" | "search">("auto");
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [transitionState, setTransitionState] = useState<"loading" | "incoming" | "idle">("loading");
@@ -306,7 +307,11 @@ export function WorldApp() {
       data-transition-cache={transitionWarm ? "warm" : "cold"}
       aria-busy={loading}
     >
-      <header className="app-header">
+      <header
+        className="app-header"
+        inert={lexicalWorldOpen ? true : undefined}
+        aria-hidden={lexicalWorldOpen ? true : undefined}
+      >
         <a href="#world" className="brand" aria-label="HelloWords home">
           <span className="brand-mark">H</span>
           <span><strong>HelloWords</strong><small>词境</small></span>
@@ -329,8 +334,20 @@ export function WorldApp() {
           <span className="discovery-count" aria-label={`已遇见 ${discoveredCount} 个词`}>
             <i aria-hidden="true" /><span>已遇见</span><b>{discoveredCount}</b>
           </span>
-          <button type="button" className="atlas-button" onClick={() => setAtlasOpen(true)} aria-label="打开 10,000+ 词汇宇宙" disabled={loading}>
-            <span aria-hidden="true">⌕</span><span className="atlas-button-label">10,000+ 词汇宇宙</span>
+          <button
+            type="button"
+            className="atlas-button"
+            onClick={(event) => {
+              setLexicalWorldInitialFocus(event.detail === 0 ? "search" : "auto");
+              setLexicalWorldOpen(true);
+            }}
+            aria-label="打开 10 个视觉领域、758 个分层入口和 10,000 个词"
+            aria-haspopup="dialog"
+            aria-expanded={lexicalWorldOpen}
+            disabled={loading}
+          >
+            <span aria-hidden="true">⌕</span>
+            <span className="atlas-button-label">10 领域 · 10,000 词</span>
           </button>
           <button
             type="button"
@@ -346,7 +363,12 @@ export function WorldApp() {
         </div>
       </header>
 
-      <section id="world" className="world-stage">
+      <section
+        id="world"
+        className="world-stage"
+        inert={lexicalWorldOpen ? true : undefined}
+        aria-hidden={lexicalWorldOpen ? true : undefined}
+      >
         <div className="scene-heading">
           <span className="eyebrow">EXPLORE / {String(history.length).padStart(2, "0")}</span>
           <h1 ref={sceneHeadingRef} tabIndex={-1}>{sceneTitle}</h1>
@@ -442,14 +464,19 @@ export function WorldApp() {
         ) : null}
       </section>
 
-      <div className="scene-announcement sr-only" aria-live="polite">
+      <div
+        className="scene-announcement sr-only"
+        aria-live="polite"
+        aria-hidden={lexicalWorldOpen ? true : undefined}
+      >
         {announcedSceneTitle ? `Entered ${announcedSceneTitle}` : ""}
       </div>
-      <SemanticAtlas
-        open={atlasOpen}
-        onClose={() => setAtlasOpen(false)}
+      <LexicalWorld
+        open={lexicalWorldOpen}
+        onClose={() => setLexicalWorldOpen(false)}
         showMeanings={meaningVisible}
         onShowMeaningsChange={setMeaningPreference}
+        initialFocus={lexicalWorldInitialFocus}
       />
     </main>
   );

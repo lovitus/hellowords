@@ -2,21 +2,22 @@
 
 HelloWords is a calm, zoomable vocabulary world. Learners move from illustrated
 places to objects, anatomy, nature, materials and microscopic detail, then roam
-a spatial semantic universe containing every shipped word. Chinese meanings are
+a structured lexical world containing every shipped word. Chinese meanings are
 off by default, and the experience intentionally avoids quiz and streak pressure.
 
 ## Included in this version
 
 - 30 reachable scene slices across home, city, nature, transport, health and
-  microscopic science, with 1,622 contextual anchors in five zoom bands;
-- four premium 1600 × 900 establishing illustrations plus lightweight deep
-  cutaway SVG scenes;
+  microscopic science, with 606 human-verified contextual anchors representing
+  543 distinct English display terms in five zoom bands;
+- ten premium 1600 × 900 scene illustrations plus lightweight deep cutaway
+  SVG scenes;
 - mouse, touch, wheel and pinch camera controls;
 - automatic zoom entry, zoom-out return, breadcrumbs and explicit controls;
 - English labels with a Chinese-meaning toggle that is off by default;
-- a Canvas-based semantic universe where all 10,000 ranked English words have
-  deterministic coordinates across four visible levels: 10 realms, 44 topics,
-  704 subclusters and individual words;
+- a virtualized HTML lexical world where all 10,000 ranked English words remain
+  reachable across four explicit levels: 10 realms, 44 topics, 704 subclusters
+  and individual words;
 - passive discovery tracking, searchable word focus, encounter cards and local
   pronunciation without compulsory testing;
 - desktop and mobile layouts, keyboard-accessible controls and reduced motion;
@@ -24,10 +25,10 @@ off by default, and the experience intentionally avoids quiz and streak pressure
 - GitHub Actions build, browser tests, bundle analysis, and Chromium CPU/memory
   measurement.
 
-All 10,000 entries are spatially reachable and searchable. The product still
-distinguishes 1,622 manually contextualized scene anchors from words organized
-in the semantic universe; it does not claim that every entry was individually
-drawn.
+All 10,000 entries are hierarchically reachable and searchable. The product
+still distinguishes 606 human-verified contextual scene anchors representing
+543 distinct display terms from words organized in the lexical world; it does
+not claim that every entry was individually drawn.
 
 ## Local development
 

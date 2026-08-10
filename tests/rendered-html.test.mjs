@@ -24,17 +24,18 @@ test("server-renders the HelloWords product shell", async () => {
   assert.match(html, /<title>HelloWords · 词境<\/title>/i);
   assert.match(html, /data-testid="world-app"/i);
   assert.match(html, /HelloWords/);
-  assert.match(html, /10,000\+ 词汇宇宙/);
+  assert.match(html, /aria-label="打开 10 个视觉领域、758 个分层入口和 10,000 个词"/);
   assert.match(html, /data-testid="meaning-toggle"/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
 
 test("ships product assets and removes the disposable starter", async () => {
-  const [page, layout, packageJson, vocabularyManifest, apartmentScene] = await Promise.all([
+  const [page, layout, packageJson, vocabularyManifest, lexicalManifest, apartmentScene] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
     readFile(new URL("../public/data/vocabulary/manifest.json", import.meta.url), "utf8"),
+    readFile(new URL("../public/data/lexical-world/manifest.json", import.meta.url), "utf8"),
     readFile(new URL("../public/data/scenes/apartment.json", import.meta.url), "utf8"),
   ]);
 
@@ -42,6 +43,13 @@ test("ships product assets and removes the disposable starter", async () => {
   assert.match(layout, /lang="zh-CN"/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton|drizzle/);
   assert.equal(JSON.parse(vocabularyManifest).entryCount, 10_000);
+  assert.deepEqual(JSON.parse(lexicalManifest).stats, {
+    realms: 10,
+    topics: 44,
+    subclusters: 704,
+    nodes: 10_000,
+    emptySubclusters: 0,
+  });
   assert.equal(JSON.parse(apartmentScene).id, "apartment");
   await assert.rejects(access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)));
 });

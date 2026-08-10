@@ -24,7 +24,7 @@ The graph contains 30 reachable scenes and 29 parent-to-child portals. Six root-
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 606 human-verified anchors representing 543 distinct English display terms. The previous 1,622-label set was a topic vocabulary list rather than a visual annotation set: 1,016 entries remain removed because the named object, part, action or property cannot be pointed to in the published image. This release adds 119 grounded anchors by upgrading six sparse scenes with richer artwork, not by restoring floating topic words. Global vocabulary remains available in the semantic atlas; a word only appears over a scene when the scene itself supplies visual evidence.
+Spatial scenes now contain 606 human-verified anchors representing 543 distinct English display terms. The previous 1,622-label set was a topic vocabulary list rather than a visual annotation set: 1,016 entries remain removed because the named object, part, action or property cannot be pointed to in the published image. This release adds 119 grounded anchors by upgrading six sparse scenes with richer artwork, not by restoring floating topic words. Global vocabulary remains available in the lexical world; a word only appears over a scene when the scene itself supplies visual evidence.
 
 Every scene JSON contains:
 
@@ -55,7 +55,7 @@ Vocabulary cues are generated only from reviewed label anchors outside every por
 
 Every visible word is rendered as a callout: a green anchor dot remains on the exact reviewed pixel while a short leader connects it to the collision-adjusted word capsule. This keeps the semantic attachment visible even when nearby labels must move apart for readability.
 
-Translations remain authored for the visible scene meaning. For example, `chamber` is `心腔` in the heart cutaway. Removed spatial labels are not deleted from the application vocabulary; they remain learnable in the semantic atlas without pretending that the current image depicts them.
+Translations remain authored for the visible scene meaning. For example, `chamber` is `心腔` in the heart cutaway. Removed spatial labels are not deleted from the application vocabulary; they remain learnable in the lexical world without pretending that the current image depicts them.
 
 ## Per-scene audit result
 

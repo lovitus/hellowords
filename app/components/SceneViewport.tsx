@@ -6,6 +6,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   advanceLabelDwell,
+  buildPortalCueProtectedRegions,
   buildVocabularyRevealSummary,
   buildVocabularyZoomCues,
   consolidateVocabularyCueBatches,
@@ -40,16 +41,59 @@ interface SceneViewportProps {
   onPrefetchScene: (sceneId: string) => void;
 }
 
-interface Camera {
+export interface SceneViewportCamera {
   x: number;
   y: number;
   scale: number;
   fit: number;
 }
 
+type Camera = SceneViewportCamera;
+
 interface Point {
   x: number;
   y: number;
+}
+
+interface SceneRect extends Point {
+  width: number;
+  height: number;
+}
+
+export function projectScenePointToScreen(point: Point, camera: SceneViewportCamera): Point {
+  const effectiveScale = camera.fit * camera.scale;
+  return {
+    x: camera.x + point.x * effectiveScale,
+    y: camera.y + point.y * effectiveScale,
+  };
+}
+
+export function projectSceneRectToScreen(rect: SceneRect, camera: SceneViewportCamera): SceneRect {
+  const topLeft = projectScenePointToScreen(rect, camera);
+  const effectiveScale = camera.fit * camera.scale;
+  return {
+    ...topLeft,
+    width: rect.width * effectiveScale,
+    height: rect.height * effectiveScale,
+  };
+}
+
+export function setStylePropertyIfChanged(
+  style: Pick<CSSStyleDeclaration, "getPropertyValue" | "setProperty">,
+  property: string,
+  value: string,
+): boolean {
+  if (style.getPropertyValue(property) === value) return false;
+  style.setProperty(property, value);
+  return true;
+}
+
+function setDatasetValueIfChanged(element: HTMLElement, key: string, value: string): void {
+  if (element.dataset[key] !== value) element.dataset[key] = value;
+}
+
+function setAttributeIfChanged(element: HTMLElement, name: string, value: string): void {
+  if (element.getAttribute(name) !== value) element.setAttribute(name, value);
 }
 
 const ENTER_SETTLE_MS = 150;
@@ -108,6 +152,8 @@ export function SceneViewport({
 }: SceneViewportProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const surfaceRef = useRef<HTMLDivElement>(null);
+  const labelLayerRef = useRef<HTMLDivElement>(null);
+  const interactionLayerRef = useRef<HTMLDivElement>(null);
   const cameraRef = useRef<Camera>({ x: 0, y: 0, scale: 1, fit: 1 });
   const pointersRef = useRef(new Map<number, Point>());
   const previousPointersRef = useRef(new Map<number, Point>());
@@ -120,6 +166,7 @@ export function SceneViewport({
   const encounterDwellRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const visibleSinceRef = useRef<ReadonlyMap<string, number>>(new Map());
   const encounteredLabelIdsRef = useRef(new Set<string>());
+  const selectedLabelIdRef = useRef<string | null>(null);
   const lastNavigationRef = useRef(0);
   const zoomFocusRef = useRef<Point | null>(null);
   const zoomDirectionRef = useRef<"in" | "out" | null>(null);
@@ -133,6 +180,7 @@ export function SceneViewport({
   const parentZoomPrefetchRef = useRef(false);
   const [previewPortal, setPreviewPortal] = useState<ScenePortal | null>(null);
   const [previewPhase, setPreviewPhase] = useState<"preview" | "armed">("preview");
+  const [interactionPositioned, setInteractionPositioned] = useState(false);
   const [encounterTick, setEncounterTick] = useState(0);
   const labelsById = useMemo(
     () => new Map(scene.labels.map((label) => [label.id, label])),
@@ -178,17 +226,23 @@ export function SceneViewport({
   const applyCamera = useCallback(() => {
     frameRef.current = null;
     const surface = surfaceRef.current;
+    const labelLayer = labelLayerRef.current;
+    const interactionLayer = interactionLayerRef.current;
     const viewport = viewportRef.current;
-    if (!surface || !viewport) return;
+    if (!surface || !labelLayer || !interactionLayer || !viewport) return;
     const camera = (cameraRef.current = clampCamera(cameraRef.current));
     const effectiveScale = camera.fit * camera.scale;
     const zoomLevel = sceneLodLevel(camera.scale);
-    surface.style.transform = `translate3d(${camera.x}px, ${camera.y}px, 0) scale(${effectiveScale})`;
-    surface.style.setProperty("--label-inverse", String(1 / effectiveScale));
-    surface.style.setProperty("--scene-zoom", camera.scale.toFixed(3));
-    surface.dataset.zoomLevel = String(zoomLevel);
-    surface.dataset.lodLevel = String(zoomLevel);
-    surface.dataset.sceneScale = camera.scale.toFixed(3);
+    const sceneScaleValue = camera.scale.toFixed(3);
+    setStylePropertyIfChanged(
+      surface.style,
+      "transform",
+      `translate3d(${camera.x}px, ${camera.y}px, 0) scale(${effectiveScale})`,
+    );
+    setStylePropertyIfChanged(surface.style, "--scene-zoom", sceneScaleValue);
+    setDatasetValueIfChanged(surface, "zoomLevel", String(zoomLevel));
+    setDatasetValueIfChanged(surface, "lodLevel", String(zoomLevel));
+    setDatasetValueIfChanged(surface, "sceneScale", sceneScaleValue);
 
     const activePortal = portalCandidateRef.current ?? previewPortalRef.current;
     const enterScale = activePortal?.enterScale ?? 3.6;
@@ -205,76 +259,114 @@ export function SceneViewport({
       setPreviewPhase(nextPreviewPhase);
     }
     if (previewRef.current) {
-      previewRef.current.dataset.progress = portalProgress.toFixed(3);
-      previewRef.current.dataset.phase = nextPreviewPhase;
-      previewRef.current.style.setProperty("--portal-progress", portalProgress.toFixed(3));
+      const progressValue = portalProgress.toFixed(3);
+      setDatasetValueIfChanged(previewRef.current, "progress", progressValue);
+      setDatasetValueIfChanged(previewRef.current, "phase", nextPreviewPhase);
+      setStylePropertyIfChanged(previewRef.current.style, "--portal-progress", progressValue);
     }
-    for (const region of surface.querySelectorAll<HTMLElement>(".scene-hotspot-region")) {
+    const devicePixelRatio = Math.max(1, window.devicePixelRatio || 1);
+    const snapToDevicePixel = (value: number) => (
+      Math.round(value * devicePixelRatio) / devicePixelRatio
+    );
+    for (const region of interactionLayer.querySelectorAll<HTMLElement>(".scene-hotspot-region")) {
+      const portal = scene.portals.find((candidate) => candidate.id === region.dataset.portalId);
+      if (portal) {
+        const bounds = projectSceneRectToScreen(portal, camera);
+        const left = snapToDevicePixel(bounds.x);
+        const top = snapToDevicePixel(bounds.y);
+        const right = snapToDevicePixel(bounds.x + bounds.width);
+        const bottom = snapToDevicePixel(bounds.y + bounds.height);
+        setStylePropertyIfChanged(region.style, "left", `${left.toFixed(2)}px`);
+        setStylePropertyIfChanged(region.style, "top", `${top.toFixed(2)}px`);
+        setStylePropertyIfChanged(region.style, "width", `${Math.max(0, right - left).toFixed(2)}px`);
+        setStylePropertyIfChanged(region.style, "height", `${Math.max(0, bottom - top).toFixed(2)}px`);
+      }
       const selected = region.dataset.portalId === activePortal?.id;
-      region.dataset.candidate = String(selected);
-      region.style.setProperty("--portal-progress", selected ? portalProgress.toFixed(3) : "0");
+      setDatasetValueIfChanged(region, "candidate", String(selected));
+      setStylePropertyIfChanged(
+        region.style,
+        "--portal-progress",
+        selected ? portalProgress.toFixed(3) : "0",
+      );
       const hotspot = region.querySelector<HTMLElement>(".scene-hotspot");
       if (hotspot) {
-        hotspot.dataset.cueState = selected
+        setDatasetValueIfChanged(hotspot, "cueState", selected
           ? (nextPreviewPhase === "armed" ? "armed" : "candidate")
-          : "idle";
-        hotspot.dataset.progress = selected ? portalProgress.toFixed(3) : "0.000";
+          : "idle");
+        setDatasetValueIfChanged(
+          hotspot,
+          "progress",
+          selected ? portalProgress.toFixed(3) : "0.000",
+        );
       }
     }
 
+    const labelViewport = {
+      width: viewport.clientWidth,
+      height: viewport.clientHeight,
+      compact: viewport.clientWidth <= 900,
+    };
+    const activeElement = document.activeElement;
+    const focusedLabelId = activeElement instanceof HTMLButtonElement
+      && activeElement.matches(".word-label")
+      ? activeElement.dataset.labelId ?? null
+      : null;
     const layout = computeSceneLabelLayout(
       scene.labels,
       camera,
-      {
-        width: viewport.clientWidth,
-        height: viewport.clientHeight,
-        compact: viewport.clientWidth <= 900,
-      },
+      labelViewport,
       meaningVisibleRef.current,
+      {
+        selectedLabelId: focusedLabelId ?? selectedLabelIdRef.current,
+        protectedRegions: buildPortalCueProtectedRegions(
+          scene.portals,
+          camera,
+          labelViewport,
+        ),
+      },
     );
     const byId = new Map(layout.map((item) => [item.id, item]));
     let visibleCount = 0;
     let emergingCount = 0;
     const dwellEligibleLabelIds: string[] = [];
-    for (const element of surface.querySelectorAll<HTMLButtonElement>(".word-label")) {
+    for (const element of labelLayer.querySelectorAll<HTMLButtonElement>(".word-label")) {
       const item = byId.get(element.dataset.labelId ?? "");
-      const ownsFocus = document.activeElement === element;
+      const ownsFocus = activeElement === element;
       const opacity = ownsFocus ? Math.max(1, item?.opacity ?? 0) : item?.opacity ?? 0;
       const interactive = viewerInteractiveRef.current && (ownsFocus || Boolean(item?.interactive));
       const opacityStyle = opacity.toFixed(3);
-      const offsetXStyle = `${(item?.offsetX ?? 0).toFixed(2)}px`;
-      const offsetYStyle = `${(item?.offsetY ?? 0).toFixed(2)}px`;
       const anchorX = -(item?.offsetX ?? 0);
       const anchorY = -(item?.offsetY ?? 0);
       const displacement = Math.hypot(anchorX, anchorY);
       const leaderAngle = Math.atan2(anchorY, anchorX) * 180 / Math.PI;
       const visibleValue = String(opacity > 0.025);
       const interactiveValue = String(interactive);
+      const adaptiveValue = String(Boolean(item?.adaptive));
       const hiddenValue = String(!interactive);
-      if (element.style.getPropertyValue("--label-opacity") !== opacityStyle) {
-        element.style.setProperty("--label-opacity", opacityStyle);
+      setStylePropertyIfChanged(element.style, "--label-opacity", opacityStyle);
+      if (item && Number.isFinite(item.screenX) && Number.isFinite(item.screenY)) {
+        // The artwork keeps its single composited camera transform, while text
+        // is projected into this unscaled sibling overlay. Pixel-snapped
+        // left/top values let the browser rasterize glyphs at their native
+        // size instead of repeatedly scaling an already-rasterized label.
+        const leftStyle = `${snapToDevicePixel(item.screenX).toFixed(2)}px`;
+        const topStyle = `${snapToDevicePixel(item.screenY).toFixed(2)}px`;
+        setStylePropertyIfChanged(element.style, "left", leftStyle);
+        setStylePropertyIfChanged(element.style, "top", topStyle);
       }
-      if (element.style.getPropertyValue("--label-offset-x") !== offsetXStyle) {
-        element.style.setProperty("--label-offset-x", offsetXStyle);
-      }
-      if (element.style.getPropertyValue("--label-offset-y") !== offsetYStyle) {
-        element.style.setProperty("--label-offset-y", offsetYStyle);
-      }
-      element.style.setProperty("--label-anchor-x", `${anchorX.toFixed(2)}px`);
-      element.style.setProperty("--label-anchor-y", `${anchorY.toFixed(2)}px`);
-      element.style.setProperty("--label-leader-length", `${displacement.toFixed(2)}px`);
-      element.style.setProperty("--label-leader-angle", `${leaderAngle.toFixed(2)}deg`);
-      element.dataset.displaced = String(displacement >= 4);
-      element.dataset.anchorMode = displacement >= 4 ? "leader" : "stem";
-      if (element.dataset.visible !== visibleValue) element.dataset.visible = visibleValue;
-      if (element.dataset.interactive !== interactiveValue) {
-        element.dataset.interactive = interactiveValue;
-      }
+      setStylePropertyIfChanged(element.style, "--label-anchor-x", `${anchorX.toFixed(2)}px`);
+      setStylePropertyIfChanged(element.style, "--label-anchor-y", `${anchorY.toFixed(2)}px`);
+      setStylePropertyIfChanged(element.style, "--label-leader-length", `${displacement.toFixed(2)}px`);
+      setStylePropertyIfChanged(element.style, "--label-leader-angle", `${leaderAngle.toFixed(2)}deg`);
+      setDatasetValueIfChanged(element, "displaced", String(displacement >= 4));
+      setDatasetValueIfChanged(element, "leaderSpan", displacement >= 82 ? "long" : "short");
+      setDatasetValueIfChanged(element, "anchorMode", displacement >= 4 ? "leader" : "stem");
+      setDatasetValueIfChanged(element, "visible", visibleValue);
+      setDatasetValueIfChanged(element, "interactive", interactiveValue);
+      setDatasetValueIfChanged(element, "adaptive", adaptiveValue);
       const nextTabIndex = interactive ? 0 : -1;
       if (element.tabIndex !== nextTabIndex) element.tabIndex = nextTabIndex;
-      if (element.getAttribute("aria-hidden") !== hiddenValue) {
-        element.setAttribute("aria-hidden", hiddenValue);
-      }
+      setAttributeIfChanged(element, "aria-hidden", hiddenValue);
       if (opacity >= LABEL_ENCOUNTER_OPACITY) visibleCount += 1;
       else if (opacity > 0.025) emergingCount += 1;
       if (
@@ -285,8 +377,11 @@ export function SceneViewport({
         dwellEligibleLabelIds.push(item.id);
       }
     }
-    surface.dataset.visibleLabelCount = String(visibleCount);
-    surface.dataset.emergingLabelCount = String(emergingCount);
+    setDatasetValueIfChanged(surface, "visibleLabelCount", String(visibleCount));
+    setDatasetValueIfChanged(surface, "emergingLabelCount", String(emergingCount));
+    setDatasetValueIfChanged(labelLayer, "visibleLabelCount", String(visibleCount));
+    setDatasetValueIfChanged(labelLayer, "emergingLabelCount", String(emergingCount));
+    setDatasetValueIfChanged(labelLayer, "sceneScale", sceneScaleValue);
 
     if (encounterDwellRef.current) {
       clearTimeout(encounterDwellRef.current);
@@ -315,11 +410,15 @@ export function SceneViewport({
       }, Math.max(1, Math.ceil(dwell.nextCheckInMs)));
     }
 
+    const actuallyVisibleLabelIds = new Set(
+      layout.filter((item) => item.interactive).map((item) => item.id),
+    );
     const revealSummary = buildVocabularyRevealSummary(
       scene.labels,
       camera.scale,
       MAX_SCALE,
       LABEL_ENCOUNTER_OPACITY,
+      actuallyVisibleLabelIds,
     );
     const globallyHiddenIds = new Set(revealSummary.hiddenLabels.map((label) => label.id));
     const cueCandidates = vocabularyZoomCues.flatMap((cue) => {
@@ -367,7 +466,7 @@ export function SceneViewport({
     );
     const cueLimit = viewport.clientWidth <= 700 ? 4 : 6;
     let activeCueCount = 0;
-    for (const element of surface.querySelectorAll<HTMLButtonElement>(".vocabulary-zoom-cue")) {
+    for (const element of interactionLayer.querySelectorAll<HTMLButtonElement>(".vocabulary-zoom-cue")) {
       const batch = cueBatches.find((candidate) => candidate.cue.id === element.dataset.cueId);
       const active = Boolean(
         batch
@@ -392,31 +491,48 @@ export function SceneViewport({
           VOCABULARY_REVEAL_SCALE[batch.nextLod],
           ...batch.labels.map((label) => (label.minScale ?? 0) + 0.34),
         ));
-        element.dataset.nextLod = String(batch.nextLod);
-        element.dataset.hiddenWordCount = String(batch.labels.length);
-        element.dataset.nextLabelId = nextLabel.id;
-        element.dataset.targetScale = targetScale.toFixed(3);
-        element.dataset.sourceCueIds = batch.sourceCueIds.join(" ");
-        element.dataset.cueMode = batch.mode;
-        element.dataset.visualRegion = nextLabel.sourceVisualRegion ?? batch.cue.id;
-        element.dataset.anchorX = String(nextLabel.x);
-        element.dataset.anchorY = String(nextLabel.y);
-        element.style.left = `${nextLabel.x}px`;
-        element.style.top = `${nextLabel.y}px`;
+        setDatasetValueIfChanged(element, "nextLod", String(batch.nextLod));
+        setDatasetValueIfChanged(element, "hiddenWordCount", String(batch.labels.length));
+        setDatasetValueIfChanged(element, "nextLabelId", nextLabel.id);
+        setDatasetValueIfChanged(element, "targetScale", targetScale.toFixed(3));
+        setDatasetValueIfChanged(element, "sourceCueIds", batch.sourceCueIds.join(" "));
+        setDatasetValueIfChanged(element, "cueMode", batch.mode);
+        setDatasetValueIfChanged(element, "visualRegion", nextLabel.sourceVisualRegion ?? batch.cue.id);
+        setDatasetValueIfChanged(element, "anchorX", String(nextLabel.x));
+        setDatasetValueIfChanged(element, "anchorY", String(nextLabel.y));
+        const cuePosition = projectScenePointToScreen(nextLabel, camera);
+        setStylePropertyIfChanged(
+          element.style,
+          "left",
+          `${snapToDevicePixel(cuePosition.x).toFixed(2)}px`,
+        );
+        setStylePropertyIfChanged(
+          element.style,
+          "top",
+          `${snapToDevicePixel(cuePosition.y).toFixed(2)}px`,
+        );
         const count = element.querySelector<HTMLElement>(".vocabulary-zoom-cue-count");
         if (count) {
-          count.textContent = batch.mode === "compact"
+          const countValue = batch.mode === "compact"
             ? `+${batch.labels.length}`
             : `${batch.labels.length} 个词`;
+          if (count.textContent !== countValue) count.textContent = countValue;
         }
-        element.setAttribute("aria-label", `此处还有 ${batch.labels.length} 个词，放大查看`);
+        setAttributeIfChanged(element, "aria-label", `此处还有 ${batch.labels.length} 个词，放大查看`);
       }
-      element.dataset.active = String(active);
-      element.tabIndex = active ? 0 : -1;
-      element.setAttribute("aria-hidden", String(!active));
+      setDatasetValueIfChanged(element, "active", String(active));
+      const cueTabIndex = active ? 0 : -1;
+      if (element.tabIndex !== cueTabIndex) element.tabIndex = cueTabIndex;
+      setAttributeIfChanged(element, "aria-hidden", String(!active));
     }
-    surface.dataset.vocabularyCueLod = Number.isFinite(nextSceneLod) ? String(nextSceneLod) : "none";
-    surface.dataset.visibleVocabularyCueCount = String(activeCueCount);
+    setDatasetValueIfChanged(
+      surface,
+      "vocabularyCueLod",
+      Number.isFinite(nextSceneLod) ? String(nextSceneLod) : "none",
+    );
+    setDatasetValueIfChanged(surface, "visibleVocabularyCueCount", String(activeCueCount));
+    setDatasetValueIfChanged(interactionLayer, "sceneScale", sceneScaleValue);
+    if (!interactionPositioned) setInteractionPositioned(true);
 
     const summaryElement = vocabularySummaryRef.current;
     if (summaryElement) {
@@ -429,28 +545,31 @@ export function SceneViewport({
         && !activePortal,
       );
       const hiddenCount = revealSummary.hiddenLabels.length;
-      summaryElement.hidden = !summaryActive;
-      summaryElement.dataset.active = String(summaryActive);
-      summaryElement.dataset.hiddenWordCount = String(hiddenCount);
-      summaryElement.dataset.nextBatchCount = String(revealSummary.nextLabels.length);
-      summaryElement.dataset.nextLod = revealSummary.nextLod === null
-        ? "none"
-        : String(revealSummary.nextLod);
+      const summaryHidden = !summaryActive;
+      if (summaryElement.hidden !== summaryHidden) summaryElement.hidden = summaryHidden;
+      setDatasetValueIfChanged(summaryElement, "active", String(summaryActive));
+      setDatasetValueIfChanged(summaryElement, "hiddenWordCount", String(hiddenCount));
+      setDatasetValueIfChanged(summaryElement, "nextBatchCount", String(revealSummary.nextLabels.length));
+      setDatasetValueIfChanged(
+        summaryElement,
+        "nextLod",
+        revealSummary.nextLod === null ? "none" : String(revealSummary.nextLod),
+      );
       if (leadingLabel && revealSummary.targetScale !== null) {
-        summaryElement.dataset.nextLabelId = leadingLabel.id;
-        summaryElement.dataset.targetScale = Math.min(
+        setDatasetValueIfChanged(summaryElement, "nextLabelId", leadingLabel.id);
+        setDatasetValueIfChanged(summaryElement, "targetScale", Math.min(
           MAX_SCALE,
           Math.max(camera.scale + 0.28, revealSummary.targetScale + 0.08),
-        ).toFixed(3);
+        ).toFixed(3));
       } else {
-        delete summaryElement.dataset.nextLabelId;
-        delete summaryElement.dataset.targetScale;
+        if (summaryElement.dataset.nextLabelId !== undefined) delete summaryElement.dataset.nextLabelId;
+        if (summaryElement.dataset.targetScale !== undefined) delete summaryElement.dataset.targetScale;
       }
       const count = summaryElement.querySelector<HTMLElement>("strong");
-      if (count) count.textContent = String(hiddenCount);
-      summaryElement.setAttribute("aria-label", `本场景还有 ${hiddenCount} 个词，继续放大`);
+      if (count && count.textContent !== String(hiddenCount)) count.textContent = String(hiddenCount);
+      setAttributeIfChanged(summaryElement, "aria-label", `本场景还有 ${hiddenCount} 个词，继续放大`);
     }
-  }, [clampCamera, labelsById, onLabelsEncountered, scene.labels, showPortalPreview, vocabularyZoomCues]);
+  }, [clampCamera, interactionPositioned, labelsById, onLabelsEncountered, scene.labels, scene.portals, showPortalPreview, vocabularyZoomCues]);
 
   const requestCameraFrame = useCallback(() => {
     if (frameRef.current === null) frameRef.current = requestAnimationFrame(applyCamera);
@@ -794,10 +913,10 @@ export function SceneViewport({
       }
       if (!keyboardTriggered) return;
       requestAnimationFrame(() => {
-        const word = surfaceRef.current?.querySelector<HTMLButtonElement>(
+        const word = labelLayerRef.current?.querySelector<HTMLButtonElement>(
           `.word-label[data-label-id="${CSS.escape(nextLabelId)}"]`,
         );
-        const fallback = surfaceRef.current?.querySelector<HTMLButtonElement>(
+        const fallback = labelLayerRef.current?.querySelector<HTMLButtonElement>(
           ".word-label[data-interactive=\"true\"]",
         );
         if (word?.tabIndex === 0) word.focus();
@@ -835,6 +954,7 @@ export function SceneViewport({
   }, [labelsById, requestCameraFrame, showPortalPreview, stopWheelAnimation, viewerInteractive]);
 
   useEffect(() => {
+    selectedLabelIdRef.current = null;
     parentZoomPrefetchRef.current = false;
     if (!scene.parentId) return;
     onPrefetchScene(scene.parentId);
@@ -994,43 +1114,60 @@ export function SceneViewport({
           style={{ width: scene.width, height: scene.height }}
         >
           <img className="scene-art" src={scene.asset} alt="" draggable={false} />
-          <div className="label-layer" aria-label="Words in this scene">
-            {scene.labels.map((label) => (
-              <button
-                key={label.id}
-                type="button"
-                className="word-label"
-                data-testid="word-label"
-                data-label-id={label.id}
-                data-min-level={label.minLevel ?? 0}
-                data-lod={label.minLevel ?? 0}
-                data-priority={label.priority}
-                data-visual-region={label.sourceVisualRegion}
-                data-anchor-x={label.x}
-                data-anchor-y={label.y}
-                data-anchor-mode="stem"
-                data-visible="false"
-                data-interactive="false"
-                style={{ left: label.x, top: label.y }}
-                tabIndex={-1}
-                aria-hidden="true"
-                aria-label={meaningVisible ? `${label.word}，${label.translation}` : label.word}
-                onClick={(event) => {
-                  event.stopPropagation();
-                  reportClickedLabel(label);
-                  onSelectWord(label);
-                }}
-              >
-                <span className="word-anchor-marker" aria-hidden="true" />
-                <span>{label.word}</span>
-                {meaningVisible ? (
-                  <span className="word-translation" data-testid="word-translation">
-                    {label.translation}
-                  </span>
-                ) : null}
-              </button>
-            ))}
-          </div>
+        </div>
+        <div
+          ref={labelLayerRef}
+          className="label-layer"
+          data-testid="scene-label-layer"
+          data-coordinate-space="screen"
+          aria-label="Words in this scene"
+        >
+          {scene.labels.map((label) => (
+            <button
+              key={label.id}
+              type="button"
+              className="word-label"
+              data-testid="word-label"
+              data-label-id={label.id}
+              data-min-level={label.minLevel ?? 0}
+              data-lod={label.minLevel ?? 0}
+              data-priority={label.priority}
+              data-visual-region={label.sourceVisualRegion}
+              data-anchor-x={label.x}
+              data-anchor-y={label.y}
+              data-anchor-mode="stem"
+              data-leader-span="short"
+              data-visible="false"
+              data-interactive="false"
+              data-adaptive="false"
+              tabIndex={-1}
+              aria-hidden="true"
+              aria-label={meaningVisible ? `${label.word}，${label.translation}` : label.word}
+              onClick={(event) => {
+                event.stopPropagation();
+                selectedLabelIdRef.current = label.id;
+                requestCameraFrame();
+                reportClickedLabel(label);
+                onSelectWord(label);
+              }}
+            >
+              <span className="word-anchor-marker" aria-hidden="true" />
+              <span>{label.word}</span>
+              {meaningVisible ? (
+                <span className="word-translation" data-testid="word-translation">
+                  {label.translation}
+                </span>
+              ) : null}
+            </button>
+          ))}
+        </div>
+        <div
+          ref={interactionLayerRef}
+          className="scene-interaction-layer"
+          data-testid="scene-interaction-layer"
+          data-coordinate-space="screen"
+          data-positioned={String(interactionPositioned)}
+        >
           <div className="vocabulary-zoom-layer" aria-label="可放大显示更多词的区域">
             {vocabularyZoomCues.map((cue) => {
               const anchor = labelsById.get(cue.anchorLabelId);
@@ -1050,7 +1187,6 @@ export function SceneViewport({
                   data-visual-region={anchor?.sourceVisualRegion ?? cue.id}
                   data-anchor-x={cue.x}
                   data-anchor-y={cue.y}
-                  style={{ left: cue.x, top: cue.y }}
                   tabIndex={-1}
                   aria-hidden="true"
                   aria-label="放大此区域，显示更多词"
@@ -1079,7 +1215,6 @@ export function SceneViewport({
               data-portal-id={portal.id}
               data-visual-region={portal.sourceVisualRegion}
               data-candidate="false"
-              style={{ left: portal.x, top: portal.y, width: portal.width, height: portal.height }}
             >
               <button
                 type="button"

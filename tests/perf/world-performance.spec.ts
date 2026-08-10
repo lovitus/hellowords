@@ -318,11 +318,14 @@ test("scene slices stay within CPU and memory budgets", async ({ browser, page }
   );
 });
 
-test("the semantic universe exposes all 10,000 words without a 10,000-node DOM", async ({ browser, page }, testInfo) => {
+test("the lexical world searches 44 shards without duplicate requests or an unbounded DOM", async ({ browser, page }, testInfo) => {
   test.skip(testInfo.project.name !== "performance");
   const requestedData: string[] = [];
+  const requestedTopicShards: string[] = [];
   page.on("request", (request) => {
-    if (/\/data\/semantic\/.+\.json/.test(request.url())) requestedData.push(request.url());
+    const pathname = new URL(request.url()).pathname;
+    if (/\/data\/(?:lexical-world|semantic)\/.+\.json$/.test(pathname)) requestedData.push(pathname);
+    if (/\/data\/semantic\/topics\/.+\.json$/.test(pathname)) requestedTopicShards.push(pathname);
   });
   await preparePage(page);
   await page.goto("/", { waitUntil: "domcontentloaded" });
@@ -330,36 +333,47 @@ test("the semantic universe exposes all 10,000 words without a 10,000-node DOM",
 
   const sampler = new BrowserMetricsSampler(browser, page);
   await sampler.start();
-  await page.getByRole("button", { name: /10,000\+ 词汇宇宙/ }).click();
-  const dialog = page.getByRole("dialog", { name: "可缩放语义词汇宇宙" });
+  await page.getByRole("button", { name: "打开 10 个视觉领域、758 个分层入口和 10,000 个词" }).click();
+  const dialog = page.getByRole("dialog", { name: "一万个词的分层探索世界" });
   await expect(dialog).toBeVisible();
-  await expect(dialog.locator(".semantic-atlas__hud")).toContainText(/总词库\s*10,000/);
+  const overviewStats = dialog.locator(".lexical-world__overview-stats");
+  await expect(overviewStats).toContainText(/10\s*领域/);
+  await expect(overviewStats).toContainText(/44\s*主题/);
+  await expect(overviewStats).toContainText(/704\s*词群/);
+  await expect(overviewStats).toContainText(/10,000\s*未探索/);
 
-  const search = page.getByPlaceholder("搜索 10,000 个词…");
-  await search.fill("scripture");
-  await expect(dialog.locator(".semantic-atlas__results li").first()).toContainText(
-    /scripture/i,
-  );
-  await expect(dialog.locator(".semantic-atlas__hud")).toContainText(/已载入\s*10,000/, { timeout: 15_000 });
-  await search.fill("");
+  const search = page.getByPlaceholder("搜索 10,000 个词，直接抵达…");
+  await search.fill("just");
+  const result = dialog.locator(".lexical-world__results li").first();
+  await expect(result.locator("strong")).toHaveText(/^just$/i);
+  await expect.poll(
+    () => new Set(requestedTopicShards).size,
+    { timeout: 15_000 },
+  ).toBe(44);
+  await result.getByRole("button").click();
+  await expect(dialog.locator(".lexical-world__scene")).toHaveAttribute("data-level", "subcluster");
 
-  const canvas = dialog.locator("canvas");
-  const box = await canvas.boundingBox();
-  expect(box).not.toBeNull();
-  await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
-  for (let index = 0; index < 30; index += 1) {
-    await page.mouse.wheel(index < 15 ? 0 : index % 2 ? 48 : -48, index < 15 ? -38 : 0);
-  }
+  const wordScroll = dialog.locator(".lexical-world__word-scroll");
+  await expect(wordScroll).toHaveAttribute("data-label-budget", "80");
+  await wordScroll.evaluate((element) => {
+    element.scrollTop = element.scrollHeight;
+    element.dispatchEvent(new Event("scroll", { bubbles: true }));
+  });
   await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
 
   const metrics = await sampler.stop();
   const liveDomNodes = await page.evaluate(() => document.querySelectorAll("*").length);
+  const lexicalDomNodes = await dialog.locator("*").count();
+  const activeWordCards = await dialog.locator(".lexical-world__word-grid > button").count();
   const longTasks = await page.evaluate(() => window.__WORLD_PERF__.longTasks);
-  const semanticSummary = {
+  const lexicalSummary = {
     schemaVersion: 1,
     entryCount: 10_000,
     liveDomNodes,
+    lexicalDomNodes,
+    activeWordCards,
     requestedFiles: [...new Set(requestedData)].length,
+    requestedTopicShards: [...new Set(requestedTopicShards)].length,
     duplicateRequests: requestedData.length - new Set(requestedData).size,
     browserCpuMs: metrics.browserCpuMs,
     peakJsHeapMiB: (metrics.peakPageMetrics.JSHeapUsedSize ?? 0) / 1024 / 1024,
@@ -370,12 +384,16 @@ test("the semantic universe exposes all 10,000 words without a 10,000-node DOM",
   await mkdir("artifacts/perf", { recursive: true });
   await writeFile(
     "artifacts/perf/semantic-summary.json",
-    `${JSON.stringify(semanticSummary, null, 2)}\n`,
+    `${JSON.stringify(lexicalSummary, null, 2)}\n`,
   );
 
-  expect(semanticSummary.liveDomNodes).toBeLessThanOrEqual(500);
-  expect(semanticSummary.duplicateRequests).toBe(0);
-  expect(semanticSummary.peakJsHeapMiB).toBeLessThanOrEqual(budgets.peakJsHeapMiB);
-  expect(semanticSummary.browserCpuMs).toBeLessThanOrEqual(5_000);
+  expect(lexicalSummary.requestedTopicShards).toBe(44);
+  expect(lexicalSummary.activeWordCards).toBeGreaterThan(0);
+  expect(lexicalSummary.activeWordCards).toBeLessThanOrEqual(80);
+  expect(lexicalSummary.lexicalDomNodes).toBeLessThanOrEqual(450);
+  expect(lexicalSummary.liveDomNodes).toBeLessThanOrEqual(900);
+  expect(lexicalSummary.duplicateRequests).toBe(0);
+  expect(lexicalSummary.peakJsHeapMiB).toBeLessThanOrEqual(budgets.peakJsHeapMiB);
+  expect(lexicalSummary.browserCpuMs).toBeLessThanOrEqual(5_000);
   expect(longTasks.filter((duration) => duration > 50).length).toBeLessThanOrEqual(3);
 });
