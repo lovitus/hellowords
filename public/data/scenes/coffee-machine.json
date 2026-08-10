@@ -13,207 +13,170 @@
       "word": "coffee machine",
       "translation": "咖啡机",
       "x": 800,
-      "y": 72,
+      "y": 455,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-machine"
     },
     {
       "id": "water-tank",
       "word": "water tank",
       "translation": "水箱",
-      "x": 470,
-      "y": 355,
-      "priority": 1,
-      "minLevel": 0
+      "x": 465,
+      "y": 415,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-water-tank"
     },
     {
       "id": "boiler",
       "word": "boiler",
       "translation": "锅炉",
-      "x": 820,
-      "y": 355,
-      "priority": 1,
-      "minLevel": 0
+      "x": 850,
+      "y": 375,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-boiler"
     },
     {
       "id": "control-panel",
       "word": "control panel",
       "translation": "控制面板",
-      "x": 1065,
-      "y": 255,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1120,
+      "y": 275,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-control-panel"
     },
     {
       "id": "drip-tray",
       "word": "drip tray",
       "translation": "滴水盘",
-      "x": 940,
-      "y": 735,
-      "priority": 1,
-      "minLevel": 0
+      "x": 905,
+      "y": 710,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-drip-tray"
     },
     {
       "id": "lid",
       "word": "lid",
       "translation": "盖子",
-      "x": 448,
-      "y": 180,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "filter",
-      "word": "filter",
-      "translation": "滤网",
-      "x": 790,
-      "y": 530,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "pump",
-      "word": "pump",
-      "translation": "水泵",
-      "x": 666,
-      "y": 555,
-      "priority": 1,
-      "minLevel": 0
+      "x": 468,
+      "y": 175,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-lid"
     },
     {
       "id": "pipe",
       "word": "pipe",
       "translation": "管道",
-      "x": 625,
+      "x": 700,
       "y": 420,
-      "priority": 1,
-      "minLevel": 0
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-pipe"
     },
     {
-      "id": "gauge",
-      "word": "gauge",
+      "id": "pressure-gauge",
+      "word": "pressure gauge",
       "translation": "压力表",
-      "x": 1064,
-      "y": 365,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1100,
+      "y": 245,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-pressure-gauge"
     },
     {
-      "id": "button",
-      "word": "button",
-      "translation": "按钮",
-      "x": 1012,
-      "y": 262,
-      "priority": 1,
-      "minLevel": 0
+      "id": "control-button",
+      "word": "control button",
+      "translation": "控制按钮",
+      "x": 1115,
+      "y": 318,
+      "priority": 2.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-control-button"
     },
     {
       "id": "steam-wand",
       "word": "steam wand",
       "translation": "蒸汽棒",
-      "x": 1180,
-      "y": 560,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1210,
+      "y": 570,
+      "priority": 2.009,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-steam-wand"
     },
     {
-      "id": "seal",
-      "word": "seal",
-      "translation": "密封圈",
-      "x": 506,
-      "y": 485,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "valve",
-      "word": "valve",
-      "translation": "阀门",
-      "x": 710,
-      "y": 392,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "coil",
-      "word": "coil",
-      "translation": "线圈",
+      "id": "heating-coil",
+      "word": "heating coil",
+      "translation": "加热管",
       "x": 850,
-      "y": 395,
-      "priority": 1,
-      "minLevel": 0
+      "y": 350,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-heating-coil"
     },
     {
       "id": "cable",
       "word": "cable",
       "translation": "电缆",
-      "x": 1290,
-      "y": 662,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1400,
+      "y": 660,
+      "priority": 3.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-cable"
     },
     {
       "id": "nozzle",
       "word": "nozzle",
       "translation": "喷嘴",
-      "x": 1164,
-      "y": 642,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1198,
+      "y": 721,
+      "priority": 3.012,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-nozzle"
     },
     {
       "id": "portafilter",
       "word": "portafilter",
       "translation": "手柄滤杯",
-      "x": 815,
-      "y": 600,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1015,
+      "y": 590,
+      "priority": 3.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-portafilter"
     },
     {
       "id": "housing",
       "word": "housing",
       "translation": "外壳",
-      "x": 1310,
-      "y": 205,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "heating-element",
-      "word": "heating element",
-      "translation": "加热元件",
-      "x": 855,
-      "y": 445,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "sensor",
-      "word": "sensor",
-      "translation": "传感器",
-      "x": 985,
+      "x": 270,
       "y": 460,
-      "priority": 2,
-      "minLevel": 1
+      "priority": 3.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-housing"
     },
     {
       "id": "circuit-board",
       "word": "circuit board",
       "translation": "电路板",
-      "x": 1205,
-      "y": 410,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1220,
+      "y": 450,
+      "priority": 3.015,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-circuit-board"
     },
     {
       "id": "connector",
       "word": "connector",
       "translation": "连接器",
-      "x": 1280,
-      "y": 520,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1285,
+      "y": 528,
+      "priority": 4.016,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-connector"
     },
     {
       "id": "screw",
@@ -221,314 +184,49 @@
       "translation": "螺钉",
       "x": 270,
       "y": 700,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "espresso",
-      "word": "espresso",
-      "translation": "浓缩咖啡",
-      "x": 709,
-      "y": 277,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "coffee-bean",
-      "word": "coffee bean",
-      "translation": "咖啡豆",
-      "x": 241,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "grinder",
-      "word": "grinder",
-      "translation": "磨豆机",
-      "x": 319,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "burr",
-      "word": "burr",
-      "translation": "磨盘",
-      "x": 397,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "hopper",
-      "word": "hopper",
-      "translation": "豆仓",
-      "x": 475,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "dose",
-      "word": "dose",
-      "translation": "粉量",
-      "x": 553,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "tamper",
-      "word": "tamper",
-      "translation": "压粉器",
-      "x": 631,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "brew-group",
-      "word": "brew group",
-      "translation": "冲煮头",
-      "x": 709,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "shower-screen",
-      "word": "shower screen",
-      "translation": "分水网",
-      "x": 241,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "pressure-gauge",
-      "word": "pressure gauge",
-      "translation": "压力表",
-      "x": 319,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "thermostat",
-      "word": "thermostat",
-      "translation": "恒温器",
-      "x": 397,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "solenoid",
-      "word": "solenoid",
-      "translation": "电磁阀",
-      "x": 475,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "flow-meter",
-      "word": "flow meter",
-      "translation": "流量计",
-      "x": 553,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "extraction",
-      "word": "extraction",
-      "translation": "萃取",
-      "x": 631,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "crema",
-      "word": "crema",
-      "translation": "咖啡油脂",
-      "x": 709,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "aroma",
-      "word": "aroma",
-      "translation": "香气",
-      "x": 241,
-      "y": 493,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "roast",
-      "word": "roast",
-      "translation": "烘焙度",
-      "x": 319,
-      "y": 493,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "grind-size",
-      "word": "grind size",
-      "translation": "研磨粗细",
-      "x": 397,
-      "y": 493,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "brew-ratio",
-      "word": "brew ratio",
-      "translation": "粉水比",
-      "x": 258,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "milk-froth",
-      "word": "milk froth",
-      "translation": "奶泡",
-      "x": 320,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "purge",
-      "word": "purge",
-      "translation": "排空",
-      "x": 382,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "descale",
-      "word": "descale",
-      "translation": "除垢",
-      "x": 444,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "rinse-cycle",
-      "word": "rinse cycle",
-      "translation": "冲洗循环",
-      "x": 506,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "grounds-bin",
-      "word": "grounds bin",
-      "translation": "咖啡渣盒",
-      "x": 568,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
+      "priority": 4.017,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-screw"
     },
     {
       "id": "filter-basket",
       "word": "filter basket",
       "translation": "滤粉碗",
-      "x": 630,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "heating-coil",
-      "word": "heating coil",
-      "translation": "加热管",
-      "x": 692,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
+      "x": 850,
+      "y": 590,
+      "priority": 4.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-filter-basket"
     },
     {
       "id": "water-inlet",
       "word": "water inlet",
       "translation": "进水口",
-      "x": 258,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "rubber-seal",
-      "word": "rubber seal",
-      "translation": "橡胶密封圈",
-      "x": 320,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "control-button",
-      "word": "control button",
-      "translation": "控制按钮",
-      "x": 382,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "brew-chamber",
-      "word": "brew chamber",
-      "translation": "冲煮腔",
-      "x": 444,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
+      "x": 605,
+      "y": 455,
+      "priority": 4.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-water-inlet"
     },
     {
       "id": "water-pump",
       "word": "water pump",
       "translation": "水泵",
-      "x": 506,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
+      "x": 674,
+      "y": 548,
+      "priority": 5.02,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-water-pump"
     },
     {
-      "id": "steam-pressure",
-      "word": "steam pressure",
-      "translation": "蒸汽压力",
-      "x": 568,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "chamber",
-      "word": "chamber",
-      "translation": "腔室",
-      "x": 630,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "automatic",
-      "word": "automatic",
-      "translation": "自动运行的",
-      "x": 692,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
+      "id": "brew-group",
+      "word": "brew group",
+      "translation": "冲煮头",
+      "x": 850,
+      "y": 560,
+      "priority": 5.021,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-brew-group"
     }
   ],
   "portals": [
@@ -537,11 +235,238 @@
       "label": "Inspect the water tank",
       "translation": "查看水箱",
       "childSceneId": "water-tank",
-      "x": 300,
-      "y": 125,
-      "width": 350,
-      "height": 520,
-      "enterScale": 3.6
+      "x": 305,
+      "y": 135,
+      "width": 330,
+      "height": 545,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-water-tank"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/coffee-machine.svg",
+    "rationale": "Kept the components explicitly rendered in the cutaway and removed duplicate names, invisible internals, coffee properties and machine cycles.",
+    "previousLabelCount": 58,
+    "retainedLabelCount": 22,
+    "removedLabelCount": 36,
+    "removedExamples": [
+      "grinder",
+      "thermostat",
+      "solenoid",
+      "espresso",
+      "aroma",
+      "automatic"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-machine",
+      "description": "Complete coffee-machine cutaway and housing",
+      "kind": "whole",
+      "x": 210,
+      "y": 140,
+      "width": 1230,
+      "height": 650
+    },
+    {
+      "id": "portal-water-tank",
+      "description": "Transparent water tank on the left",
+      "kind": "object",
+      "x": 305,
+      "y": 135,
+      "width": 330,
+      "height": 545
+    },
+    {
+      "id": "verified-water-tank",
+      "description": "Human-verified visible anchor for water tank",
+      "kind": "object",
+      "x": 405,
+      "y": 370,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-boiler",
+      "description": "Human-verified visible anchor for boiler",
+      "kind": "object",
+      "x": 790,
+      "y": 330,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-control-panel",
+      "description": "Human-verified visible anchor for control panel",
+      "kind": "object",
+      "x": 1060,
+      "y": 230,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-drip-tray",
+      "description": "Human-verified visible anchor for drip tray",
+      "kind": "object",
+      "x": 845,
+      "y": 665,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-lid",
+      "description": "Human-verified visible anchor for lid",
+      "kind": "object",
+      "x": 408,
+      "y": 130,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-pipe",
+      "description": "Human-verified visible anchor for pipe",
+      "kind": "object",
+      "x": 640,
+      "y": 375,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-pressure-gauge",
+      "description": "Human-verified visible anchor for pressure gauge",
+      "kind": "object",
+      "x": 1040,
+      "y": 200,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-control-button",
+      "description": "Human-verified visible anchor for control button",
+      "kind": "object",
+      "x": 1055,
+      "y": 273,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-steam-wand",
+      "description": "Human-verified visible anchor for steam wand",
+      "kind": "object",
+      "x": 1150,
+      "y": 525,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-heating-coil",
+      "description": "Human-verified visible anchor for heating coil",
+      "kind": "object",
+      "x": 790,
+      "y": 305,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-cable",
+      "description": "Human-verified visible anchor for cable",
+      "kind": "object",
+      "x": 1340,
+      "y": 615,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-nozzle",
+      "description": "Human-verified visible anchor for nozzle",
+      "kind": "object",
+      "x": 1138,
+      "y": 676,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-portafilter",
+      "description": "Human-verified visible anchor for portafilter",
+      "kind": "object",
+      "x": 955,
+      "y": 545,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-housing",
+      "description": "Human-verified visible anchor for housing",
+      "kind": "object",
+      "x": 210,
+      "y": 415,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-circuit-board",
+      "description": "Human-verified visible anchor for circuit board",
+      "kind": "object",
+      "x": 1160,
+      "y": 405,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-connector",
+      "description": "Human-verified visible anchor for connector",
+      "kind": "object",
+      "x": 1225,
+      "y": 483,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-screw",
+      "description": "Human-verified visible anchor for screw",
+      "kind": "object",
+      "x": 210,
+      "y": 655,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-filter-basket",
+      "description": "Human-verified visible anchor for filter basket",
+      "kind": "object",
+      "x": 790,
+      "y": 545,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-water-inlet",
+      "description": "Human-verified visible anchor for water inlet",
+      "kind": "object",
+      "x": 545,
+      "y": 410,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-water-pump",
+      "description": "Human-verified visible anchor for water pump",
+      "kind": "object",
+      "x": 614,
+      "y": 503,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-brew-group",
+      "description": "Human-verified visible anchor for brew group",
+      "kind": "object",
+      "x": 790,
+      "y": 515,
+      "width": 120,
+      "height": 90
     }
   ]
 }

@@ -13,540 +13,270 @@
       "word": "park",
       "translation": "公园",
       "x": 800,
-      "y": 72,
+      "y": 450,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-park"
     },
     {
       "id": "tree",
       "word": "tree",
       "translation": "树",
-      "x": 1210,
-      "y": 340,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "meadow",
-      "word": "meadow",
-      "translation": "草地",
-      "x": 690,
-      "y": 680,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1150,
+      "y": 280,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "oak-tree"
     },
     {
       "id": "pond",
       "word": "pond",
       "translation": "池塘",
-      "x": 330,
-      "y": 680,
-      "priority": 1,
-      "minLevel": 0
+      "x": 170,
+      "y": 720,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "pond"
     },
     {
       "id": "path",
       "word": "path",
       "translation": "小径",
-      "x": 815,
-      "y": 610,
-      "priority": 1,
-      "minLevel": 0
+      "x": 760,
+      "y": 700,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "main-path"
     },
     {
       "id": "playground",
       "word": "playground",
       "translation": "游乐场",
-      "x": 260,
-      "y": 425,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "bench",
-      "word": "bench",
-      "translation": "长椅",
-      "x": 980,
-      "y": 540,
-      "priority": 1,
-      "minLevel": 0
+      "x": 250,
+      "y": 420,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "playground"
     },
     {
       "id": "fountain",
       "word": "fountain",
       "translation": "喷泉",
-      "x": 770,
-      "y": 400,
-      "priority": 1,
-      "minLevel": 0
+      "x": 610,
+      "y": 410,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "fountain"
+    },
+    {
+      "id": "bench",
+      "word": "bench",
+      "translation": "长椅",
+      "x": 830,
+      "y": 540,
+      "priority": 1.006,
+      "minLevel": 0,
+      "sourceVisualRegion": "park-bench"
     },
     {
       "id": "flower",
       "word": "flower",
       "translation": "花朵",
-      "x": 1110,
-      "y": 660,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "grass",
-      "word": "grass",
-      "translation": "草",
-      "x": 570,
-      "y": 735,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1010,
+      "y": 755,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "flowers"
     },
     {
       "id": "duck",
       "word": "duck",
       "translation": "鸭子",
-      "x": 365,
-      "y": 650,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "bird",
-      "word": "bird",
-      "translation": "鸟",
-      "x": 1010,
-      "y": 250,
-      "priority": 1,
-      "minLevel": 0
+      "x": 185,
+      "y": 735,
+      "priority": 2.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "ducks"
     },
     {
       "id": "squirrel",
       "word": "squirrel",
       "translation": "松鼠",
-      "x": 1300,
-      "y": 600,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "bridge",
-      "word": "bridge",
-      "translation": "小桥",
-      "x": 480,
-      "y": 590,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "shrub",
-      "word": "shrub",
-      "translation": "灌木",
-      "x": 1450,
-      "y": 625,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1142,
+      "y": 344,
+      "priority": 2.009,
+      "minLevel": 1,
+      "sourceVisualRegion": "squirrel"
     },
     {
       "id": "branch",
       "word": "branch",
       "translation": "树枝",
-      "x": 1250,
-      "y": 275,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1240,
+      "y": 110,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "tree-branch"
     },
     {
       "id": "trunk",
       "word": "trunk",
       "translation": "树干",
-      "x": 1215,
+      "x": 1120,
       "y": 485,
-      "priority": 1,
-      "minLevel": 0
+      "priority": 2.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "tree-trunk"
     },
     {
       "id": "bark",
       "word": "bark",
       "translation": "树皮",
-      "x": 1250,
-      "y": 520,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "shade",
-      "word": "shade",
-      "translation": "树荫",
-      "x": 1330,
-      "y": 570,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "picnic",
-      "word": "picnic",
-      "translation": "野餐",
-      "x": 655,
-      "y": 545,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "kite",
-      "word": "kite",
-      "translation": "风筝",
-      "x": 510,
-      "y": 240,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "cloud",
-      "word": "cloud",
-      "translation": "云",
-      "x": 755,
-      "y": 170,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "breeze",
-      "word": "breeze",
-      "translation": "微风",
-      "x": 930,
-      "y": 195,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "sunlight",
-      "word": "sunlight",
-      "translation": "阳光",
-      "x": 1380,
-      "y": 150,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "gazebo",
-      "word": "gazebo",
-      "translation": "凉亭",
-      "x": 1167,
-      "y": 302,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "walking-trail",
-      "word": "walking trail",
-      "translation": "步行道",
-      "x": 952,
-      "y": 487,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "flower-bed",
-      "word": "flower bed",
-      "translation": "花坛",
-      "x": 1245,
-      "y": 302,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "lawn",
-      "word": "lawn",
-      "translation": "草坪",
-      "x": 1030,
-      "y": 487,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "sprinkler",
-      "word": "sprinkler",
-      "translation": "喷灌器",
-      "x": 1323,
-      "y": 302,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "trash-bin",
-      "word": "trash bin",
-      "translation": "垃圾桶",
-      "x": 1108,
-      "y": 487,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "drinking-fountain",
-      "word": "drinking fountain",
-      "translation": "直饮水台",
-      "x": 1401,
-      "y": 302,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "dog-leash",
-      "word": "dog leash",
-      "translation": "狗绳",
-      "x": 1186,
-      "y": 487,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "jogger",
-      "word": "jogger",
-      "translation": "慢跑者",
-      "x": 1479,
-      "y": 302,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "stroller",
-      "word": "stroller",
-      "translation": "婴儿车",
-      "x": 1264,
-      "y": 487,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "skateboarding",
-      "word": "skateboarding",
-      "translation": "滑板运动",
-      "x": 1011,
-      "y": 374,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "picnic-table",
-      "word": "picnic table",
-      "translation": "野餐桌",
-      "x": 796,
-      "y": 559,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "barbecue",
-      "word": "barbecue",
-      "translation": "烧烤架",
-      "x": 1089,
-      "y": 374,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "playground-slide",
-      "word": "playground slide",
-      "translation": "滑梯",
-      "x": 874,
-      "y": 559,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "swing",
-      "word": "swing",
-      "translation": "秋千",
-      "x": 1167,
-      "y": 374,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "sandbox",
-      "word": "sandbox",
-      "translation": "沙坑",
-      "x": 952,
-      "y": 559,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "community-garden",
-      "word": "community garden",
-      "translation": "社区花园",
-      "x": 1245,
-      "y": 374,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "park-ranger",
-      "word": "park ranger",
-      "translation": "公园管理员",
-      "x": 1030,
-      "y": 559,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "butterfly",
-      "word": "butterfly",
-      "translation": "蝴蝶",
-      "x": 1323,
-      "y": 374,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "bee",
-      "word": "bee",
-      "translation": "蜜蜂",
-      "x": 1108,
-      "y": 559,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "rabbit",
-      "word": "rabbit",
-      "translation": "兔子",
-      "x": 1401,
-      "y": 374,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "fallen-leaves",
-      "word": "fallen leaves",
-      "translation": "落叶",
-      "x": 1186,
-      "y": 559,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "shade-tree",
-      "word": "shade tree",
-      "translation": "遮阴树",
-      "x": 1479,
-      "y": 374,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "pond-edge",
-      "word": "pond edge",
-      "translation": "池塘边缘",
-      "x": 1264,
-      "y": 559,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "park-bench",
-      "word": "park bench",
-      "translation": "公园长椅",
-      "x": 1028,
-      "y": 323,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "stone-path",
-      "word": "stone path",
-      "translation": "石子路",
-      "x": 813,
-      "y": 508,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "wooden-bridge",
-      "word": "wooden bridge",
-      "translation": "木桥",
-      "x": 1090,
-      "y": 323,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "duck-pond",
-      "word": "duck pond",
-      "translation": "鸭池",
-      "x": 875,
-      "y": 508,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "bird-feeder",
-      "word": "bird feeder",
-      "translation": "喂鸟器",
-      "x": 1152,
-      "y": 323,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "garden-gate",
-      "word": "garden gate",
-      "translation": "花园门",
-      "x": 937,
-      "y": 508,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "park-sign",
-      "word": "park sign",
-      "translation": "公园标牌",
-      "x": 1214,
-      "y": 323,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "water-fountain",
-      "word": "water fountain",
-      "translation": "喷泉",
-      "x": 1028,
-      "y": 323,
-      "priority": 5,
-      "minLevel": 4
+      "x": 1085,
+      "y": 430,
+      "priority": 2.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "tree-bark"
     },
     {
       "id": "tree-canopy",
       "word": "tree canopy",
       "translation": "树冠",
-      "x": 813,
-      "y": 508,
-      "priority": 5,
-      "minLevel": 4
+      "x": 990,
+      "y": 95,
+      "priority": 2.013,
+      "minLevel": 1,
+      "sourceVisualRegion": "tree-canopy"
     },
     {
-      "id": "picnic-blanket",
-      "word": "picnic blanket",
-      "translation": "野餐毯",
-      "x": 1090,
-      "y": 323,
-      "priority": 5,
-      "minLevel": 4
+      "id": "lamp-post",
+      "word": "lamp post",
+      "translation": "路灯柱",
+      "x": 845,
+      "y": 450,
+      "priority": 2.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "lamp-post"
     },
     {
-      "id": "flower-border",
-      "word": "flower border",
-      "translation": "花境",
-      "x": 875,
-      "y": 508,
-      "priority": 5,
-      "minLevel": 4
+      "id": "wooden-bridge",
+      "word": "wooden bridge",
+      "translation": "木桥",
+      "x": 440,
+      "y": 625,
+      "priority": 3.015,
+      "minLevel": 2,
+      "sourceVisualRegion": "wooden-bridge"
     },
     {
-      "id": "running-path",
-      "word": "running path",
-      "translation": "跑步道",
-      "x": 1152,
-      "y": 323,
-      "priority": 5,
-      "minLevel": 4
+      "id": "pond-edge",
+      "word": "pond edge",
+      "translation": "池塘边缘",
+      "x": 315,
+      "y": 650,
+      "priority": 3.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "pond-edge"
+    },
+    {
+      "id": "stone-path",
+      "word": "stone path",
+      "translation": "石子路",
+      "x": 1360,
+      "y": 575,
+      "priority": 3.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "woodland-path"
+    },
+    {
+      "id": "flower-bed",
+      "word": "flower bed",
+      "translation": "花坛",
+      "x": 690,
+      "y": 515,
+      "priority": 3.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "flower-bed"
+    },
+    {
+      "id": "lily-pad",
+      "word": "lily pad",
+      "translation": "睡莲叶",
+      "x": 205,
+      "y": 812,
+      "priority": 4.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "lily-pads"
+    },
+    {
+      "id": "fern",
+      "word": "fern",
+      "translation": "蕨类植物",
+      "x": 1470,
+      "y": 785,
+      "priority": 4.02,
+      "minLevel": 3,
+      "sourceVisualRegion": "ferns"
+    },
+    {
+      "id": "rock",
+      "word": "rock",
+      "translation": "岩石",
+      "x": 455,
+      "y": 780,
+      "priority": 4.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "rocks"
+    },
+    {
+      "id": "picnic",
+      "word": "picnic",
+      "translation": "野餐",
+      "x": 285,
+      "y": 520,
+      "priority": 4.022,
+      "minLevel": 3,
+      "sourceVisualRegion": "picnic"
+    },
+    {
+      "id": "kite",
+      "word": "kite",
+      "translation": "风筝",
+      "x": 270,
+      "y": 115,
+      "priority": 5.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "kite"
+    },
+    {
+      "id": "bird",
+      "word": "bird",
+      "translation": "鸟",
+      "x": 1120,
+      "y": 675,
+      "priority": 5.024,
+      "minLevel": 4,
+      "sourceVisualRegion": "foreground-bird"
+    },
+    {
+      "id": "skyline",
+      "word": "skyline",
+      "translation": "城市天际线",
+      "x": 175,
+      "y": 220,
+      "priority": 5.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "skyline"
+    },
+    {
+      "id": "root",
+      "word": "root",
+      "translation": "树根",
+      "x": 1010,
+      "y": 650,
+      "priority": 5.026,
+      "minLevel": 4,
+      "sourceVisualRegion": "tree-roots"
     }
   ],
   "portals": [
@@ -555,22 +285,286 @@
       "label": "Explore the oak tree",
       "translation": "探索橡树",
       "childSceneId": "oak-tree",
-      "x": 1070,
-      "y": 155,
-      "width": 350,
-      "height": 510,
-      "enterScale": 3.6
+      "x": 650,
+      "y": 0,
+      "width": 900,
+      "height": 710,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "oak-tree"
     },
     {
       "id": "enter-pond-edge",
       "label": "Explore the pond edge",
       "translation": "探索池塘边缘",
       "childSceneId": "pond-edge",
-      "x": 835,
-      "y": 430,
+      "x": 0,
+      "y": 560,
+      "width": 500,
+      "height": 340,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "pond-edge"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/city-park-premium.jpg",
+    "rationale": "Re-anchored the photo to objects that are actually visible. Removed invented amenities, animals and activities such as sprinkler, barbecue, rabbit and skateboarding.",
+    "previousLabelCount": 60,
+    "retainedLabelCount": 27,
+    "removedLabelCount": 33,
+    "removedExamples": [
+      "sprinkler",
+      "barbecue",
+      "rabbit",
+      "skateboarding",
+      "drinking fountain",
+      "bird feeder"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-park",
+      "description": "Complete photographed city park",
+      "kind": "whole",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "id": "oak-tree",
+      "description": "Large mature oak dominating the right half",
+      "kind": "object",
+      "x": 650,
+      "y": 0,
+      "width": 900,
+      "height": 710
+    },
+    {
+      "id": "tree-trunk",
+      "description": "Broad oak trunk in the foreground",
+      "kind": "part",
+      "x": 910,
+      "y": 90,
+      "width": 330,
+      "height": 690
+    },
+    {
+      "id": "tree-bark",
+      "description": "Deeply furrowed bark on the oak trunk",
+      "kind": "part",
+      "x": 950,
+      "y": 150,
+      "width": 250,
+      "height": 520
+    },
+    {
+      "id": "tree-branch",
+      "description": "Large oak branches across the upper half",
+      "kind": "part",
+      "x": 500,
+      "y": 0,
+      "width": 1050,
+      "height": 300
+    },
+    {
+      "id": "tree-canopy",
+      "description": "Leafy oak canopy across the top",
+      "kind": "part",
+      "x": 200,
+      "y": 0,
+      "width": 1380,
+      "height": 270
+    },
+    {
+      "id": "tree-roots",
+      "description": "Exposed roots at the base of the oak",
+      "kind": "part",
+      "x": 850,
+      "y": 650,
+      "width": 500,
+      "height": 250
+    },
+    {
+      "id": "squirrel",
+      "description": "Visible squirrel in the fork of the oak",
+      "kind": "object",
+      "x": 1040,
+      "y": 250,
+      "width": 210,
+      "height": 170
+    },
+    {
+      "id": "pond",
+      "description": "Duck pond at the lower left",
+      "kind": "object",
+      "x": 0,
+      "y": 545,
       "width": 390,
-      "height": 330,
-      "enterScale": 3.6
+      "height": 355
+    },
+    {
+      "id": "pond-edge",
+      "description": "Planted stone edge around the lower-left pond",
+      "kind": "object",
+      "x": 0,
+      "y": 520,
+      "width": 500,
+      "height": 380
+    },
+    {
+      "id": "ducks",
+      "description": "Several ducks swimming in the pond",
+      "kind": "object",
+      "x": 35,
+      "y": 620,
+      "width": 330,
+      "height": 230
+    },
+    {
+      "id": "lily-pads",
+      "description": "Round lily pads on the pond surface",
+      "kind": "object",
+      "x": 15,
+      "y": 690,
+      "width": 310,
+      "height": 160
+    },
+    {
+      "id": "wooden-bridge",
+      "description": "Small wooden footbridge over the pond",
+      "kind": "object",
+      "x": 285,
+      "y": 495,
+      "width": 300,
+      "height": 180
+    },
+    {
+      "id": "fountain",
+      "description": "Tiered stone fountain in the middle distance",
+      "kind": "object",
+      "x": 600,
+      "y": 225,
+      "width": 250,
+      "height": 245
+    },
+    {
+      "id": "playground",
+      "description": "Playground equipment at upper left",
+      "kind": "object",
+      "x": 60,
+      "y": 180,
+      "width": 350,
+      "height": 310
+    },
+    {
+      "id": "park-bench",
+      "description": "Dark park bench beside the central path",
+      "kind": "object",
+      "x": 760,
+      "y": 390,
+      "width": 220,
+      "height": 170
+    },
+    {
+      "id": "lamp-post",
+      "description": "Black lamp post beside the bench",
+      "kind": "object",
+      "x": 810,
+      "y": 250,
+      "width": 100,
+      "height": 300
+    },
+    {
+      "id": "main-path",
+      "description": "Broad stone walking path through the center",
+      "kind": "object",
+      "x": 430,
+      "y": 430,
+      "width": 500,
+      "height": 470
+    },
+    {
+      "id": "woodland-path",
+      "description": "Shaded dirt path at the far right",
+      "kind": "object",
+      "x": 1290,
+      "y": 240,
+      "width": 310,
+      "height": 480
+    },
+    {
+      "id": "flower-bed",
+      "description": "Dense flowering bed beneath the oak and along the path",
+      "kind": "object",
+      "x": 430,
+      "y": 420,
+      "width": 970,
+      "height": 480
+    },
+    {
+      "id": "flowers",
+      "description": "Individual pink, white and purple flowers in the foreground",
+      "kind": "object",
+      "x": 470,
+      "y": 650,
+      "width": 950,
+      "height": 250
+    },
+    {
+      "id": "ferns",
+      "description": "Green ferns beside the right path",
+      "kind": "object",
+      "x": 1290,
+      "y": 610,
+      "width": 310,
+      "height": 290
+    },
+    {
+      "id": "rocks",
+      "description": "Large rocks at the pond and path edges",
+      "kind": "object",
+      "x": 0,
+      "y": 500,
+      "width": 1600,
+      "height": 390
+    },
+    {
+      "id": "picnic",
+      "description": "People seated on a blanket near the playground",
+      "kind": "object",
+      "x": 190,
+      "y": 350,
+      "width": 270,
+      "height": 195
+    },
+    {
+      "id": "kite",
+      "description": "Small orange kite in the upper-left sky",
+      "kind": "object",
+      "x": 185,
+      "y": 35,
+      "width": 120,
+      "height": 105
+    },
+    {
+      "id": "foreground-bird",
+      "description": "Blue bird standing among flowers near the oak roots",
+      "kind": "object",
+      "x": 1040,
+      "y": 610,
+      "width": 180,
+      "height": 135
+    },
+    {
+      "id": "skyline",
+      "description": "Distant city buildings at the upper left",
+      "kind": "object",
+      "x": 20,
+      "y": 80,
+      "width": 450,
+      "height": 170
     }
   ]
 }

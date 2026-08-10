@@ -12,434 +12,287 @@
       "id": "lithium-ion-cell",
       "word": "lithium ion cell",
       "translation": "锂离子电芯",
-      "x": 170,
-      "y": 115,
+      "x": 800,
+      "y": 455,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-lithium-cell"
     },
     {
       "id": "electrode",
       "word": "electrode",
       "translation": "电极",
-      "x": 422,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 760,
+      "y": 400,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-electrode"
     },
     {
       "id": "positive-terminal",
       "word": "positive terminal",
       "translation": "正极端",
-      "x": 674,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 540,
+      "y": 140,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-positive-terminal"
     },
     {
       "id": "negative-terminal",
       "word": "negative terminal",
       "translation": "负极端",
-      "x": 926,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1060,
+      "y": 140,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-negative-terminal"
     },
     {
       "id": "metal-can",
       "word": "metal can",
       "translation": "金属外壳",
-      "x": 1178,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 285,
+      "y": 300,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-metal-can"
     },
     {
       "id": "jelly-roll",
       "word": "jelly roll",
       "translation": "卷芯",
-      "x": 1430,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 750,
+      "y": 470,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-jelly-roll"
     },
     {
       "id": "foil",
       "word": "foil",
       "translation": "箔片",
-      "x": 170,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 760,
+      "y": 420,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-foil"
     },
     {
-      "id": "copper-foil",
-      "word": "copper foil",
-      "translation": "铜箔",
-      "x": 422,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "aluminum-foil",
-      "word": "aluminum foil",
-      "translation": "铝箔",
-      "x": 674,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "electrolyte-salt",
-      "word": "electrolyte salt",
-      "translation": "电解质盐",
-      "x": 926,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "solvent",
-      "word": "solvent",
-      "translation": "溶剂",
-      "x": 1178,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "vent-disk",
-      "word": "vent disk",
-      "translation": "防爆片",
-      "x": 1430,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "safety-valve",
-      "word": "safety valve",
-      "translation": "安全阀",
-      "x": 170,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "gasket",
-      "word": "gasket",
-      "translation": "垫圈",
-      "x": 422,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
+      "id": "separator",
+      "word": "separator",
+      "translation": "隔膜",
+      "x": 760,
+      "y": 445,
+      "priority": 3.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-separator"
     },
     {
       "id": "tab",
       "word": "tab",
       "translation": "极耳",
-      "x": 674,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
+      "x": 540,
+      "y": 235,
+      "priority": 3.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-tab"
     },
     {
       "id": "winding",
       "word": "winding",
       "translation": "卷绕层",
-      "x": 926,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "graphite",
-      "word": "graphite",
-      "translation": "石墨",
-      "x": 1178,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "lithium",
-      "word": "lithium",
-      "translation": "锂",
-      "x": 1430,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "nickel",
-      "word": "nickel",
-      "translation": "镍",
-      "x": 170,
-      "y": 730,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "cobalt",
-      "word": "cobalt",
-      "translation": "钴",
-      "x": 422,
-      "y": 730,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "manganese",
-      "word": "manganese",
-      "translation": "锰",
-      "x": 548,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "phosphate",
-      "word": "phosphate",
-      "translation": "磷酸盐",
-      "x": 620,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "oxide",
-      "word": "oxide",
-      "translation": "氧化物",
-      "x": 692,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1125,
+      "y": 465,
+      "priority": 3.009,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-winding"
     },
     {
       "id": "ion-migration",
       "word": "ion migration",
       "translation": "离子迁移",
-      "x": 764,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
+      "x": 820,
+      "y": 355,
+      "priority": 4.01,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-ion-migration"
     },
     {
       "id": "ion",
       "word": "ion",
       "translation": "离子",
-      "x": 800,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "electron",
-      "word": "electron",
-      "translation": "电子",
-      "x": 878,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "lattice",
-      "word": "lattice",
-      "translation": "晶格",
-      "x": 956,
-      "y": 414,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "intercalation",
-      "word": "intercalation",
-      "translation": "嵌入反应",
-      "x": 1034,
-      "y": 414,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "porosity",
-      "word": "porosity",
-      "translation": "孔隙率",
-      "x": 566,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "impedance",
-      "word": "impedance",
-      "translation": "阻抗",
-      "x": 644,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "resistance",
-      "word": "resistance",
-      "translation": "电阻",
-      "x": 722,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "state-of-charge",
-      "word": "state of charge",
-      "translation": "荷电状态",
-      "x": 800,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "cycle-life",
-      "word": "cycle life",
-      "translation": "循环寿命",
-      "x": 878,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
+      "x": 735,
+      "y": 470,
+      "priority": 4.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-ion"
     },
     {
       "id": "electron-flow",
       "word": "electron flow",
       "translation": "电子流",
-      "x": 956,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
+      "x": 820,
+      "y": 545,
+      "priority": 5.012,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-electron-flow"
     },
     {
-      "id": "oxidize",
-      "word": "oxidize",
-      "translation": "氧化",
-      "x": 1034,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "reduce",
-      "word": "reduce",
-      "translation": "还原",
-      "x": 566,
-      "y": 558,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "recharge",
-      "word": "recharge",
-      "translation": "再充电",
-      "x": 583,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "overcharge",
-      "word": "overcharge",
-      "translation": "过度充电",
-      "x": 645,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "short-circuit",
-      "word": "short circuit",
-      "translation": "短路",
-      "x": 707,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "swell",
-      "word": "swell",
-      "translation": "膨胀",
-      "x": 769,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "degrade",
-      "word": "degrade",
-      "translation": "衰减",
-      "x": 831,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "balance",
-      "word": "balance",
-      "translation": "均衡",
-      "x": 893,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "monitor",
-      "word": "monitor",
-      "translation": "监测",
-      "x": 955,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "dissipate-heat",
-      "word": "dissipate heat",
-      "translation": "散热",
-      "x": 583,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "flammable",
-      "word": "flammable",
-      "translation": "易燃的",
-      "x": 645,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "rechargeable",
-      "word": "rechargeable",
-      "translation": "可充电的",
-      "x": 707,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "depleted",
-      "word": "depleted",
-      "translation": "电量耗尽的",
-      "x": 769,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "hazardous",
-      "word": "hazardous",
-      "translation": "有危险的",
-      "x": 831,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
+      "id": "electron",
+      "word": "electron",
+      "translation": "电子",
+      "x": 900,
+      "y": 570,
+      "priority": 5.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-electron"
     }
   ],
-  "portals": []
+  "portals": [],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/lithium-ion-cell.svg",
+    "rationale": "Kept the cell enclosure, terminals, rolled layers, separator, tab and explicitly drawn ion/electron paths; removed unlabeled material identities, performance parameters and failure states.",
+    "previousLabelCount": 48,
+    "retainedLabelCount": 14,
+    "removedLabelCount": 34,
+    "removedExamples": [
+      "copper foil",
+      "graphite",
+      "cobalt",
+      "cycle life",
+      "overcharge",
+      "flammable"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-lithium-cell",
+      "description": "Complete lithium-ion cell cutaway",
+      "kind": "whole",
+      "x": 230,
+      "y": 100,
+      "width": 1160,
+      "height": 700
+    },
+    {
+      "id": "verified-electrode",
+      "description": "Human-verified visible anchor for electrode",
+      "kind": "object",
+      "x": 700,
+      "y": 355,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-positive-terminal",
+      "description": "Human-verified visible anchor for positive terminal",
+      "kind": "object",
+      "x": 480,
+      "y": 95,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-negative-terminal",
+      "description": "Human-verified visible anchor for negative terminal",
+      "kind": "object",
+      "x": 1000,
+      "y": 95,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-metal-can",
+      "description": "Human-verified visible anchor for metal can",
+      "kind": "object",
+      "x": 225,
+      "y": 255,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-jelly-roll",
+      "description": "Human-verified visible anchor for jelly roll",
+      "kind": "object",
+      "x": 690,
+      "y": 425,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-foil",
+      "description": "Human-verified visible anchor for foil",
+      "kind": "object",
+      "x": 700,
+      "y": 375,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-separator",
+      "description": "Human-verified visible anchor for separator",
+      "kind": "object",
+      "x": 700,
+      "y": 400,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-tab",
+      "description": "Human-verified visible anchor for tab",
+      "kind": "object",
+      "x": 480,
+      "y": 190,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-winding",
+      "description": "Human-verified visible anchor for winding",
+      "kind": "object",
+      "x": 1065,
+      "y": 420,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-ion-migration",
+      "description": "Human-verified visible anchor for ion migration",
+      "kind": "object",
+      "x": 760,
+      "y": 310,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-ion",
+      "description": "Human-verified visible anchor for ion",
+      "kind": "object",
+      "x": 675,
+      "y": 425,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-electron-flow",
+      "description": "Human-verified visible anchor for electron flow",
+      "kind": "object",
+      "x": 760,
+      "y": 500,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-electron",
+      "description": "Human-verified visible anchor for electron",
+      "kind": "object",
+      "x": 840,
+      "y": 525,
+      "width": 120,
+      "height": 90
+    }
+  ]
 }

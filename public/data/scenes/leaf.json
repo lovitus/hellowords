@@ -13,504 +13,130 @@
       "word": "leaf",
       "translation": "叶片",
       "x": 800,
-      "y": 72,
+      "y": 115,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-leaf"
     },
     {
       "id": "blade",
       "word": "blade",
       "translation": "叶片主体",
-      "x": 800,
+      "x": 470,
       "y": 430,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "vein",
-      "word": "vein",
-      "translation": "叶脉",
-      "x": 835,
-      "y": 460,
-      "priority": 1,
-      "minLevel": 0
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "blade"
     },
     {
       "id": "midrib",
       "word": "midrib",
       "translation": "主脉",
-      "x": 790,
-      "y": 520,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "stem",
-      "word": "stem",
-      "translation": "叶柄",
       "x": 800,
-      "y": 790,
-      "priority": 1,
-      "minLevel": 0
+      "y": 440,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "midrib"
     },
     {
-      "id": "surface",
-      "word": "surface",
-      "translation": "表面",
-      "x": 650,
+      "id": "vein",
+      "word": "vein",
+      "translation": "叶脉",
+      "x": 1060,
       "y": 360,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "tip",
-      "word": "tip",
-      "translation": "叶尖",
-      "x": 800,
-      "y": 155,
-      "priority": 1,
-      "minLevel": 0
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "veins"
     },
     {
       "id": "margin",
       "word": "margin",
       "translation": "叶缘",
-      "x": 1120,
-      "y": 430,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "base",
-      "word": "base",
-      "translation": "叶基",
-      "x": 800,
-      "y": 690,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "pore",
-      "word": "pore",
-      "translation": "气孔",
-      "x": 1040,
-      "y": 550,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "wax",
-      "word": "wax",
-      "translation": "蜡质层",
-      "x": 590,
-      "y": 270,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "chlorophyll",
-      "word": "chlorophyll",
-      "translation": "叶绿素",
-      "x": 590,
-      "y": 500,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "sunlight",
-      "word": "sunlight",
-      "translation": "阳光",
-      "x": 1260,
-      "y": 200,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "oxygen",
-      "word": "oxygen",
-      "translation": "氧气",
-      "x": 1260,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "carbon-dioxide",
-      "word": "carbon dioxide",
-      "translation": "二氧化碳",
-      "x": 330,
-      "y": 260,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "water",
-      "word": "water",
-      "translation": "水",
-      "x": 420,
-      "y": 650,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "sugar",
-      "word": "sugar",
-      "translation": "糖",
-      "x": 1120,
-      "y": 670,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "photosynthesis",
-      "word": "photosynthesis",
-      "translation": "光合作用",
-      "x": 800,
-      "y": 310,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "epidermis",
-      "word": "epidermis",
-      "translation": "表皮",
-      "x": 510,
-      "y": 405,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "tissue",
-      "word": "tissue",
-      "translation": "组织",
-      "x": 950,
-      "y": 380,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "cell",
-      "word": "cell",
-      "translation": "细胞",
-      "x": 930,
-      "y": 510,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "stomata",
-      "word": "stomata",
-      "translation": "气孔群",
-      "x": 1080,
-      "y": 590,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "moisture",
-      "word": "moisture",
-      "translation": "水分",
-      "x": 530,
-      "y": 610,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "pigment",
-      "word": "pigment",
-      "translation": "色素",
-      "x": 710,
-      "y": 580,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "leaf-blade",
-      "word": "leaf blade",
-      "translation": "叶片",
-      "x": 1179,
-      "y": 412,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1240,
+      "y": 560,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "margin"
     },
     {
       "id": "petiole",
       "word": "petiole",
       "translation": "叶柄",
-      "x": 711,
-      "y": 484,
-      "priority": 2,
-      "minLevel": 1
+      "x": 800,
+      "y": 785,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "petiole"
     },
     {
-      "id": "vein-network",
-      "word": "vein network",
-      "translation": "叶脉网",
-      "x": 789,
-      "y": 484,
-      "priority": 2,
-      "minLevel": 1
+      "id": "surface",
+      "word": "surface",
+      "translation": "表面",
+      "x": 560,
+      "y": 570,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "blade"
     },
     {
-      "id": "leaf-tip",
-      "word": "leaf tip",
-      "translation": "叶尖",
-      "x": 867,
-      "y": 484,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "leaf-base",
-      "word": "leaf base",
-      "translation": "叶基",
-      "x": 945,
-      "y": 484,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "leaf-edge",
-      "word": "leaf edge",
-      "translation": "叶缘",
-      "x": 1023,
-      "y": 484,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "upper-surface",
-      "word": "upper surface",
-      "translation": "上表面",
-      "x": 1101,
-      "y": 484,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "lower-surface",
-      "word": "lower surface",
-      "translation": "下表面",
-      "x": 1179,
-      "y": 484,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "guard-cell",
-      "word": "guard cell",
-      "translation": "保卫细胞",
-      "x": 711,
-      "y": 556,
-      "priority": 3,
-      "minLevel": 2
+      "id": "stomata",
+      "word": "stomata",
+      "translation": "气孔群",
+      "x": 1060,
+      "y": 585,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "stomata"
     },
     {
       "id": "stomatal-pore",
       "word": "stomatal pore",
       "translation": "气孔开口",
-      "x": 789,
-      "y": 556,
-      "priority": 3,
-      "minLevel": 2
+      "x": 1070,
+      "y": 570,
+      "priority": 3.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "stomatal-pore"
     },
     {
-      "id": "vascular-bundle",
-      "word": "vascular bundle",
-      "translation": "维管束",
-      "x": 867,
-      "y": 556,
-      "priority": 3,
-      "minLevel": 2
+      "id": "vein-network",
+      "word": "vein network",
+      "translation": "叶脉网",
+      "x": 560,
+      "y": 310,
+      "priority": 3.009,
+      "minLevel": 2,
+      "sourceVisualRegion": "veins"
     },
     {
-      "id": "xylem",
-      "word": "xylem",
-      "translation": "木质部",
-      "x": 945,
-      "y": 556,
-      "priority": 3,
-      "minLevel": 2
+      "id": "cell",
+      "word": "cell",
+      "translation": "细胞",
+      "x": 1120,
+      "y": 650,
+      "priority": 4.01,
+      "minLevel": 3,
+      "sourceVisualRegion": "cell-pattern"
     },
     {
-      "id": "phloem",
-      "word": "phloem",
-      "translation": "韧皮部",
-      "x": 1023,
-      "y": 556,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "mesophyll",
-      "word": "mesophyll",
-      "translation": "叶肉",
-      "x": 1101,
-      "y": 556,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "palisade-layer",
-      "word": "palisade layer",
-      "translation": "栅栏组织",
-      "x": 1179,
-      "y": 556,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "spongy-layer",
-      "word": "spongy layer",
-      "translation": "海绵组织",
-      "x": 711,
-      "y": 628,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "air-space",
-      "word": "air space",
-      "translation": "细胞间隙",
-      "x": 789,
-      "y": 628,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "cuticle",
-      "word": "cuticle",
-      "translation": "角质层",
-      "x": 867,
-      "y": 628,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "transpiration",
-      "word": "transpiration",
-      "translation": "蒸腾作用",
-      "x": 728,
-      "y": 433,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "gas-exchange",
-      "word": "gas exchange",
-      "translation": "气体交换",
-      "x": 790,
-      "y": 433,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "wilting",
-      "word": "wilting",
-      "translation": "萎蔫",
-      "x": 852,
-      "y": 433,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "autumn-color",
-      "word": "autumn color",
-      "translation": "秋色",
-      "x": 914,
-      "y": 433,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "compound-leaf",
-      "word": "compound leaf",
-      "translation": "复叶",
-      "x": 976,
-      "y": 433,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "chloroplast-interior",
-      "word": "chloroplast interior",
-      "translation": "叶绿体内部",
-      "x": 1038,
-      "y": 433,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "leaf-vein",
-      "word": "leaf vein",
-      "translation": "叶脉",
-      "x": 1100,
-      "y": 433,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "water-transport",
-      "word": "water transport",
-      "translation": "水分运输",
-      "x": 1162,
-      "y": 433,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "oxygen-release",
-      "word": "oxygen release",
-      "translation": "氧气释放",
-      "x": 728,
-      "y": 433,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "sunlight-absorption",
-      "word": "sunlight absorption",
-      "translation": "阳光吸收",
-      "x": 790,
-      "y": 433,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "wax-coating",
-      "word": "wax coating",
-      "translation": "蜡质层",
-      "x": 852,
-      "y": 433,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "green-pigment",
-      "word": "green pigment",
-      "translation": "绿色色素",
-      "x": 914,
-      "y": 433,
-      "priority": 5,
-      "minLevel": 4
+      "id": "sunlight",
+      "word": "sunlight",
+      "translation": "阳光",
+      "x": 1350,
+      "y": 120,
+      "priority": 4.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "sun"
     },
     {
       "id": "leaf-tissue",
       "word": "leaf tissue",
       "translation": "叶组织",
-      "x": 976,
-      "y": 433,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "leaf-margin",
-      "word": "leaf margin",
-      "translation": "叶缘",
-      "x": 1038,
-      "y": 433,
-      "priority": 5,
-      "minLevel": 4
+      "x": 1040,
+      "y": 620,
+      "priority": 5.012,
+      "minLevel": 4,
+      "sourceVisualRegion": "plant-cell-region"
     }
   ],
   "portals": [
@@ -519,11 +145,157 @@
       "label": "Enter a plant cell",
       "translation": "进入植物细胞",
       "childSceneId": "plant-cell",
-      "x": 835,
-      "y": 420,
-      "width": 220,
-      "height": 200,
-      "enterScale": 3.6
+      "x": 930,
+      "y": 455,
+      "width": 270,
+      "height": 210,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "plant-cell-region"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/leaf.svg",
+    "rationale": "Kept visible external leaf anatomy, stomata, tissue pattern, sun and diagrammed gas/water marks; removed invisible chemistry and internal tissue layers not drawn separately.",
+    "previousLabelCount": 56,
+    "retainedLabelCount": 13,
+    "removedLabelCount": 43,
+    "removedExamples": [
+      "xylem",
+      "phloem",
+      "mesophyll",
+      "photosynthesis",
+      "glucose",
+      "chlorophyll"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-leaf",
+      "description": "Complete magnified leaf",
+      "kind": "whole",
+      "x": 285,
+      "y": 90,
+      "width": 1030,
+      "height": 710
+    },
+    {
+      "id": "blade",
+      "description": "Broad green leaf blade",
+      "kind": "object",
+      "x": 300,
+      "y": 105,
+      "width": 1000,
+      "height": 680
+    },
+    {
+      "id": "margin",
+      "description": "Pale outline around the leaf blade",
+      "kind": "part",
+      "x": 285,
+      "y": 90,
+      "width": 1030,
+      "height": 710
+    },
+    {
+      "id": "midrib",
+      "description": "Vertical central midrib",
+      "kind": "part",
+      "x": 760,
+      "y": 105,
+      "width": 80,
+      "height": 690
+    },
+    {
+      "id": "veins",
+      "description": "Branching pale lateral veins",
+      "kind": "part",
+      "x": 350,
+      "y": 180,
+      "width": 900,
+      "height": 550
+    },
+    {
+      "id": "petiole",
+      "description": "Short stalk below the blade",
+      "kind": "part",
+      "x": 770,
+      "y": 750,
+      "width": 65,
+      "height": 150
+    },
+    {
+      "id": "stomata",
+      "description": "Four pale oval stomata on the blade",
+      "kind": "part",
+      "x": 570,
+      "y": 300,
+      "width": 570,
+      "height": 360
+    },
+    {
+      "id": "stomatal-pore",
+      "description": "Inner slit of a right-side stoma",
+      "kind": "part",
+      "x": 980,
+      "y": 510,
+      "width": 125,
+      "height": 95
+    },
+    {
+      "id": "cell-pattern",
+      "description": "Visible honeycomb tissue pattern across the blade",
+      "kind": "diagram",
+      "x": 360,
+      "y": 180,
+      "width": 860,
+      "height": 500
+    },
+    {
+      "id": "sun",
+      "description": "Large yellow sun disk at upper right",
+      "kind": "object",
+      "x": 1165,
+      "y": 0,
+      "width": 365,
+      "height": 320
+    },
+    {
+      "id": "gas-marks",
+      "description": "Teal curved gas marks at the right of the leaf",
+      "kind": "diagram",
+      "x": 1310,
+      "y": 310,
+      "width": 170,
+      "height": 190
+    },
+    {
+      "id": "water-marks",
+      "description": "Blue water marks at the lower left",
+      "kind": "diagram",
+      "x": 300,
+      "y": 730,
+      "width": 190,
+      "height": 150
+    },
+    {
+      "id": "light-marks",
+      "description": "Ochre curved light marks at the left",
+      "kind": "diagram",
+      "x": 100,
+      "y": 280,
+      "width": 180,
+      "height": 230
+    },
+    {
+      "id": "plant-cell-region",
+      "description": "Honeycomb plant-cell pattern near the lower-right blade",
+      "kind": "diagram",
+      "x": 930,
+      "y": 455,
+      "width": 270,
+      "height": 210
     }
   ]
 }

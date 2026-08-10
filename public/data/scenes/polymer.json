@@ -13,162 +13,40 @@
       "word": "polymer",
       "translation": "聚合物",
       "x": 800,
-      "y": 72,
+      "y": 450,
       "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "molecule",
-      "word": "molecule",
-      "translation": "分子",
-      "x": 575,
-      "y": 370,
-      "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-polymer"
     },
     {
       "id": "chain",
       "word": "chain",
       "translation": "链",
-      "x": 970,
-      "y": 420,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "structure",
-      "word": "structure",
-      "translation": "结构",
-      "x": 790,
-      "y": 670,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "bond",
-      "word": "bond",
-      "translation": "化学键",
-      "x": 770,
-      "y": 330,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "monomer",
-      "word": "monomer",
-      "translation": "单体",
-      "x": 390,
-      "y": 520,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "density",
-      "word": "density",
-      "translation": "密度",
-      "x": 1160,
-      "y": 610,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "flexible",
-      "word": "flexible",
-      "translation": "柔韧的",
-      "x": 1030,
-      "y": 255,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "elastic",
-      "word": "elastic",
-      "translation": "有弹性的",
-      "x": 1270,
-      "y": 370,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "synthetic",
-      "word": "synthetic",
-      "translation": "合成的",
-      "x": 320,
-      "y": 275,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "particle",
-      "word": "particle",
-      "translation": "粒子",
-      "x": 650,
-      "y": 555,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "thermal",
-      "word": "thermal",
-      "translation": "热的",
-      "x": 1100,
-      "y": 745,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "resistant",
-      "word": "resistant",
-      "translation": "耐受的",
-      "x": 1325,
-      "y": 540,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "recyclable",
-      "word": "recyclable",
-      "translation": "可回收的",
-      "x": 430,
-      "y": 720,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "microscopic",
-      "word": "microscopic",
-      "translation": "微观的",
-      "x": 765,
-      "y": 190,
-      "priority": 1,
-      "minLevel": 0
+      "x": 800,
+      "y": 450,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-chain"
     },
     {
       "id": "atom",
       "word": "atom",
       "translation": "原子",
-      "x": 430,
+      "x": 825,
+      "y": 453,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-atom"
+    },
+    {
+      "id": "bond",
+      "word": "bond",
+      "translation": "化学键",
+      "x": 900,
       "y": 415,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "carbon",
-      "word": "carbon",
-      "translation": "碳",
-      "x": 575,
-      "y": 505,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "hydrogen",
-      "word": "hydrogen",
-      "translation": "氢",
-      "x": 725,
-      "y": 333,
-      "priority": 1,
-      "minLevel": 0
+      "priority": 2.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-bond"
     },
     {
       "id": "branch",
@@ -176,342 +54,131 @@
       "translation": "支链",
       "x": 995,
       "y": 379,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "cross-link",
-      "word": "cross-link",
-      "translation": "交联",
-      "x": 1145,
-      "y": 526,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "tensile",
-      "word": "tensile",
-      "translation": "抗拉的",
-      "x": 1380,
-      "y": 434,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "viscosity",
-      "word": "viscosity",
-      "translation": "黏度",
-      "x": 599,
-      "y": 685,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "crystalline",
-      "word": "crystalline",
-      "translation": "结晶的",
-      "x": 1078,
-      "y": 201,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "amorphous",
-      "word": "amorphous",
-      "translation": "非晶的",
-      "x": 1245,
-      "y": 642,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "macromolecule",
-      "word": "macromolecule",
-      "translation": "高分子",
-      "x": 1034,
-      "y": 342,
-      "priority": 2,
-      "minLevel": 1
+      "priority": 3.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-branch"
     },
     {
       "id": "backbone",
       "word": "backbone",
       "translation": "主链",
-      "x": 566,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
+      "x": 780,
+      "y": 445,
+      "priority": 4.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-backbone"
     },
     {
       "id": "side-group",
       "word": "side group",
       "translation": "侧基",
-      "x": 644,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
+      "x": 902,
+      "y": 625,
+      "priority": 5.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-side-group"
     },
     {
-      "id": "repeating-unit",
-      "word": "repeating unit",
-      "translation": "重复单元",
-      "x": 722,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "copolymer",
-      "word": "copolymer",
-      "translation": "共聚物",
-      "x": 800,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "thermoplastic",
-      "word": "thermoplastic",
-      "translation": "热塑性塑料",
-      "x": 878,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "thermoset",
-      "word": "thermoset",
-      "translation": "热固性塑料",
-      "x": 956,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "elastomer",
-      "word": "elastomer",
-      "translation": "弹性体",
-      "x": 1034,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "resin",
-      "word": "resin",
-      "translation": "树脂",
-      "x": 566,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "catalyst",
-      "word": "catalyst",
-      "translation": "催化剂",
-      "x": 644,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "polymerization",
-      "word": "polymerization",
-      "translation": "聚合反应",
-      "x": 722,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "extrusion",
-      "word": "extrusion",
-      "translation": "挤出成型",
-      "x": 800,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "injection-molding",
-      "word": "injection molding",
-      "translation": "注塑成型",
-      "x": 878,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "blow-molding",
-      "word": "blow molding",
-      "translation": "吹塑成型",
-      "x": 956,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "tensile-strength",
-      "word": "tensile strength",
-      "translation": "抗拉强度",
-      "x": 1034,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "flexibility",
-      "word": "flexibility",
-      "translation": "柔韧性",
-      "x": 566,
-      "y": 558,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "brittleness",
-      "word": "brittleness",
-      "translation": "脆性",
-      "x": 644,
-      "y": 558,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "melting-point",
-      "word": "melting point",
-      "translation": "熔点",
-      "x": 722,
-      "y": 558,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "glass-transition",
-      "word": "glass transition",
-      "translation": "玻璃化转变",
-      "x": 583,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "biodegradable",
-      "word": "biodegradable",
-      "translation": "可生物降解的",
-      "x": 645,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "microplastic",
-      "word": "microplastic",
-      "translation": "微塑料",
-      "x": 707,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "pellet",
-      "word": "pellet",
-      "translation": "塑料颗粒",
-      "x": 769,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "sheet",
-      "word": "sheet",
-      "translation": "薄片",
-      "x": 831,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "foam",
-      "word": "foam",
-      "translation": "泡沫材料",
-      "x": 893,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "chain-branch",
-      "word": "chain branch",
-      "translation": "支链",
-      "x": 955,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "molecular-bond",
-      "word": "molecular bond",
-      "translation": "分子键",
-      "x": 1017,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "crosslink",
-      "word": "crosslink",
-      "translation": "交联键",
-      "x": 583,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "amorphous-region",
-      "word": "amorphous region",
-      "translation": "非晶区",
-      "x": 645,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "crystalline-region",
-      "word": "crystalline region",
-      "translation": "结晶区",
-      "x": 707,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "elasticity",
-      "word": "elasticity",
-      "translation": "弹性",
-      "x": 769,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "recycling",
-      "word": "recycling",
-      "translation": "回收利用",
-      "x": 831,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "molecular-weight",
-      "word": "molecular weight",
-      "translation": "分子量",
-      "x": 893,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
+      "id": "particle",
+      "word": "particle",
+      "translation": "粒子",
+      "x": 151,
+      "y": 260,
+      "priority": 5.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-particle"
     }
   ],
-  "portals": []
+  "portals": [],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/polymer.svg",
+    "rationale": "Reduced the abstract polymer illustration to the chain, atoms, bonds, branch and side groups that have distinct drawn marks; removed material properties, types and manufacturing processes.",
+    "previousLabelCount": 56,
+    "retainedLabelCount": 8,
+    "removedLabelCount": 48,
+    "removedExamples": [
+      "thermoplastic",
+      "polymerization",
+      "density",
+      "elastic",
+      "recycling",
+      "molecular weight"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-polymer",
+      "description": "Complete linked polymer chain across the material field",
+      "kind": "whole",
+      "x": 180,
+      "y": 120,
+      "width": 1280,
+      "height": 680
+    },
+    {
+      "id": "verified-chain",
+      "description": "Human-verified visible anchor for chain",
+      "kind": "object",
+      "x": 740,
+      "y": 405,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-atom",
+      "description": "Human-verified visible anchor for atom",
+      "kind": "object",
+      "x": 765,
+      "y": 408,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-bond",
+      "description": "Human-verified visible anchor for bond",
+      "kind": "object",
+      "x": 840,
+      "y": 370,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-branch",
+      "description": "Human-verified visible anchor for branch",
+      "kind": "object",
+      "x": 935,
+      "y": 334,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-backbone",
+      "description": "Human-verified visible anchor for backbone",
+      "kind": "object",
+      "x": 720,
+      "y": 400,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-side-group",
+      "description": "Human-verified visible anchor for side group",
+      "kind": "object",
+      "x": 842,
+      "y": 580,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-particle",
+      "description": "Human-verified visible anchor for particle",
+      "kind": "object",
+      "x": 91,
+      "y": 215,
+      "width": 120,
+      "height": 90
+    }
+  ]
 }

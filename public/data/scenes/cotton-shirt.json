@@ -12,434 +12,268 @@
       "id": "cotton-shirt",
       "word": "cotton shirt",
       "translation": "棉衬衫",
-      "x": 170,
-      "y": 115,
+      "x": 800,
+      "y": 460,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-shirt"
     },
     {
       "id": "cotton-boll",
       "word": "cotton boll",
       "translation": "棉铃",
-      "x": 422,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "cottonseed",
-      "word": "cottonseed",
-      "translation": "棉籽",
-      "x": 674,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "lint",
-      "word": "lint",
-      "translation": "棉绒",
-      "x": 926,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "yarn",
-      "word": "yarn",
-      "translation": "纱线",
-      "x": 1178,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "thread",
-      "word": "thread",
-      "translation": "线",
-      "x": 1430,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 240,
+      "y": 270,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-cotton-boll"
     },
     {
       "id": "fabric",
       "word": "fabric",
       "translation": "织物",
-      "x": 170,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 740,
+      "y": 500,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-fabric"
     },
     {
       "id": "weave",
       "word": "weave",
       "translation": "织法",
-      "x": 422,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1375,
+      "y": 255,
+      "priority": 2.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-weave"
     },
     {
       "id": "warp",
       "word": "warp",
       "translation": "经纱",
-      "x": 674,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1340,
+      "y": 245,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-warp"
     },
     {
       "id": "weft",
       "word": "weft",
       "translation": "纬纱",
-      "x": 926,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1385,
+      "y": 285,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-weft"
     },
     {
-      "id": "loom",
-      "word": "loom",
-      "translation": "织布机",
-      "x": 1178,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "spindle",
-      "word": "spindle",
-      "translation": "纺锭",
-      "x": 1430,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "bobbin",
-      "word": "bobbin",
-      "translation": "线轴",
-      "x": 170,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "needle",
-      "word": "needle",
-      "translation": "针",
-      "x": 422,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
+      "id": "thread",
+      "word": "thread",
+      "translation": "线",
+      "x": 1370,
+      "y": 260,
+      "priority": 3.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-thread"
     },
     {
       "id": "stitch",
       "word": "stitch",
       "translation": "针脚",
-      "x": 674,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1360,
+      "y": 675,
+      "priority": 3.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-stitch"
     },
     {
       "id": "hem",
       "word": "hem",
       "translation": "衣边",
-      "x": 926,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "sewing-machine",
-      "word": "sewing machine",
-      "translation": "缝纫机",
-      "x": 1178,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "seam-allowance",
-      "word": "seam allowance",
-      "translation": "缝份",
-      "x": 1430,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "pattern-piece",
-      "word": "pattern piece",
-      "translation": "纸样",
-      "x": 170,
-      "y": 730,
-      "priority": 2,
-      "minLevel": 1
+      "x": 800,
+      "y": 780,
+      "priority": 3.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-hem"
     },
     {
       "id": "armhole",
       "word": "armhole",
       "translation": "袖窿",
-      "x": 422,
-      "y": 730,
-      "priority": 2,
-      "minLevel": 1
+      "x": 600,
+      "y": 370,
+      "priority": 4.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-armhole"
     },
     {
       "id": "neckline",
       "word": "neckline",
       "translation": "领口线",
-      "x": 548,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
+      "x": 800,
+      "y": 210,
+      "priority": 4.01,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-neckline"
     },
     {
       "id": "placket",
       "word": "placket",
       "translation": "门襟",
-      "x": 620,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "yoke",
-      "word": "yoke",
-      "translation": "过肩",
-      "x": 692,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "dye",
-      "word": "dye",
-      "translation": "染料",
-      "x": 764,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "presser-foot",
-      "word": "presser foot",
-      "translation": "压脚",
       "x": 800,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
+      "y": 500,
+      "priority": 5.011,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-placket"
     },
     {
       "id": "sleeve-cap",
       "word": "sleeve cap",
       "translation": "袖山",
-      "x": 878,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "dart",
-      "word": "dart",
-      "translation": "省道",
-      "x": 956,
-      "y": 414,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "gusset",
-      "word": "gusset",
-      "translation": "衬片",
-      "x": 1034,
-      "y": 414,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "interfacing",
-      "word": "interfacing",
-      "translation": "衬布",
-      "x": 566,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "label",
-      "word": "label",
-      "translation": "衣标",
-      "x": 644,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "bleach",
-      "word": "bleach",
-      "translation": "漂白剂",
-      "x": 722,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "detergent",
-      "word": "detergent",
-      "translation": "洗涤剂",
-      "x": 800,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "harvest",
-      "word": "harvest",
-      "translation": "采收",
-      "x": 878,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "gin",
-      "word": "gin",
-      "translation": "轧棉",
-      "x": 956,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "card",
-      "word": "card",
-      "translation": "梳棉",
-      "x": 1034,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "comb",
-      "word": "comb",
-      "translation": "精梳",
-      "x": 566,
-      "y": 558,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "twist",
-      "word": "twist",
-      "translation": "加捻",
-      "x": 583,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "wind",
-      "word": "wind",
-      "translation": "卷绕",
-      "x": 645,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "cut-out",
-      "word": "cut out",
-      "translation": "裁剪",
-      "x": 707,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "pin",
-      "word": "pin",
-      "translation": "用珠针固定",
-      "x": 769,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "baste",
-      "word": "baste",
-      "translation": "疏缝",
-      "x": 831,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "press",
-      "word": "press",
-      "translation": "熨压",
-      "x": 893,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "iron",
-      "word": "iron",
-      "translation": "熨烫",
-      "x": 955,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "button-up",
-      "word": "button up",
-      "translation": "扣好纽扣",
-      "x": 583,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "shrink",
-      "word": "shrink",
-      "translation": "缩水",
-      "x": 645,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "fade",
-      "word": "fade",
-      "translation": "褪色",
-      "x": 707,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "breathable",
-      "word": "breathable",
-      "translation": "透气的",
-      "x": 769,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "absorbent",
-      "word": "absorbent",
-      "translation": "吸水的",
-      "x": 831,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
+      "x": 1030,
+      "y": 220,
+      "priority": 5.012,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-sleeve-cap"
     }
   ],
-  "portals": []
+  "portals": [],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/cotton-shirt.svg",
+    "rationale": "Kept the shirt silhouette, cotton boll and magnified woven/stitch details; removed tools, industrial processes and performance properties not visible in the material study.",
+    "previousLabelCount": 48,
+    "retainedLabelCount": 13,
+    "removedLabelCount": 35,
+    "removedExamples": [
+      "loom",
+      "sewing machine",
+      "dye",
+      "harvest",
+      "iron",
+      "breathable"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-shirt",
+      "description": "Complete central cotton shirt",
+      "kind": "whole",
+      "x": 360,
+      "y": 130,
+      "width": 880,
+      "height": 650
+    },
+    {
+      "id": "verified-cotton-boll",
+      "description": "Human-verified visible anchor for cotton boll",
+      "kind": "object",
+      "x": 180,
+      "y": 225,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-fabric",
+      "description": "Human-verified visible anchor for fabric",
+      "kind": "object",
+      "x": 680,
+      "y": 455,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-weave",
+      "description": "Human-verified visible anchor for weave",
+      "kind": "object",
+      "x": 1315,
+      "y": 210,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-warp",
+      "description": "Human-verified visible anchor for warp",
+      "kind": "object",
+      "x": 1280,
+      "y": 200,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-weft",
+      "description": "Human-verified visible anchor for weft",
+      "kind": "object",
+      "x": 1325,
+      "y": 240,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-thread",
+      "description": "Human-verified visible anchor for thread",
+      "kind": "object",
+      "x": 1310,
+      "y": 215,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-stitch",
+      "description": "Human-verified visible anchor for stitch",
+      "kind": "object",
+      "x": 1300,
+      "y": 630,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-hem",
+      "description": "Human-verified visible anchor for hem",
+      "kind": "object",
+      "x": 740,
+      "y": 735,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-armhole",
+      "description": "Human-verified visible anchor for armhole",
+      "kind": "object",
+      "x": 540,
+      "y": 325,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-neckline",
+      "description": "Human-verified visible anchor for neckline",
+      "kind": "object",
+      "x": 740,
+      "y": 165,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-placket",
+      "description": "Human-verified visible anchor for placket",
+      "kind": "object",
+      "x": 740,
+      "y": 455,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-sleeve-cap",
+      "description": "Human-verified visible anchor for sleeve cap",
+      "kind": "object",
+      "x": 970,
+      "y": 175,
+      "width": 120,
+      "height": 90
+    }
+  ]
 }

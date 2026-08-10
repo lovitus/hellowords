@@ -13,517 +13,260 @@
       "word": "oak",
       "translation": "橡树",
       "x": 800,
-      "y": 72,
+      "y": 70,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-tree"
     },
     {
       "id": "crown",
       "word": "crown",
       "translation": "树冠",
-      "x": 800,
-      "y": 260,
-      "priority": 1,
-      "minLevel": 0
+      "x": 530,
+      "y": 150,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "crown"
     },
     {
       "id": "trunk",
       "word": "trunk",
       "translation": "树干",
-      "x": 805,
-      "y": 560,
-      "priority": 1,
-      "minLevel": 0
+      "x": 820,
+      "y": 430,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "trunk"
     },
     {
       "id": "root",
       "word": "root",
       "translation": "树根",
-      "x": 790,
-      "y": 770,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "branch",
-      "word": "branch",
-      "translation": "树枝",
-      "x": 1040,
-      "y": 390,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "leaf",
-      "word": "leaf",
-      "translation": "叶子",
-      "x": 1090,
-      "y": 250,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "bark",
-      "word": "bark",
-      "translation": "树皮",
-      "x": 875,
-      "y": 580,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "twig",
-      "word": "twig",
-      "translation": "细枝",
-      "x": 1160,
-      "y": 350,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "acorn",
-      "word": "acorn",
-      "translation": "橡子",
-      "x": 535,
-      "y": 390,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "bud",
-      "word": "bud",
-      "translation": "芽",
-      "x": 1210,
-      "y": 300,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "canopy",
-      "word": "canopy",
-      "translation": "林冠",
-      "x": 700,
-      "y": 230,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "sap",
-      "word": "sap",
-      "translation": "树液",
-      "x": 780,
-      "y": 500,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "ring",
-      "word": "ring",
-      "translation": "年轮",
-      "x": 890,
-      "y": 685,
-      "priority": 1,
-      "minLevel": 0
+      "x": 560,
+      "y": 800,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "roots"
     },
     {
       "id": "soil",
       "word": "soil",
       "translation": "土壤",
-      "x": 800,
-      "y": 810,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1320,
+      "y": 800,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "soil"
     },
     {
-      "id": "taproot",
-      "word": "taproot",
-      "translation": "主根",
-      "x": 805,
-      "y": 840,
-      "priority": 1,
-      "minLevel": 0
+      "id": "branch",
+      "word": "branch",
+      "translation": "树枝",
+      "x": 520,
+      "y": 310,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "branches"
     },
     {
-      "id": "root-hair",
-      "word": "root hair",
-      "translation": "根毛",
-      "x": 1040,
-      "y": 810,
-      "priority": 1,
-      "minLevel": 0
+      "id": "bark",
+      "word": "bark",
+      "translation": "树皮",
+      "x": 930,
+      "y": 500,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "bark"
     },
     {
-      "id": "lichen",
-      "word": "lichen",
-      "translation": "地衣",
-      "x": 700,
-      "y": 625,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "moss",
-      "word": "moss",
-      "translation": "苔藓",
-      "x": 910,
-      "y": 740,
-      "priority": 1,
-      "minLevel": 0
+      "id": "acorn",
+      "word": "acorn",
+      "translation": "橡子",
+      "x": 1070,
+      "y": 330,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "acorn"
     },
     {
       "id": "hollow",
       "word": "hollow",
       "translation": "树洞",
-      "x": 720,
-      "y": 560,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "knot",
-      "word": "knot",
-      "translation": "树结",
-      "x": 850,
-      "y": 480,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "texture",
-      "word": "texture",
-      "translation": "纹理",
-      "x": 840,
-      "y": 640,
-      "priority": 2,
-      "minLevel": 1
+      "x": 730,
+      "y": 540,
+      "priority": 3.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "hollow"
     },
     {
       "id": "seedling",
       "word": "seedling",
       "translation": "幼苗",
-      "x": 1250,
-      "y": 715,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "fungus",
-      "word": "fungus",
-      "translation": "真菌",
-      "x": 615,
-      "y": 745,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "habitat",
-      "word": "habitat",
-      "translation": "栖息地",
-      "x": 370,
-      "y": 590,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "root-system",
-      "word": "root system",
-      "translation": "根系",
-      "x": 1349,
-      "y": 167,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "heartwood",
-      "word": "heartwood",
-      "translation": "心材",
-      "x": 881,
-      "y": 239,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "sapwood",
-      "word": "sapwood",
-      "translation": "边材",
-      "x": 959,
-      "y": 239,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "cambium",
-      "word": "cambium",
-      "translation": "形成层",
-      "x": 1037,
-      "y": 239,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1260,
+      "y": 720,
+      "priority": 4.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "seedling"
     },
     {
       "id": "growth-ring",
       "word": "growth ring",
       "translation": "生长轮",
-      "x": 1115,
-      "y": 239,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "cavity",
-      "word": "cavity",
-      "translation": "树洞",
-      "x": 1193,
-      "y": 239,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "woodpecker",
-      "word": "woodpecker",
-      "translation": "啄木鸟",
-      "x": 1271,
-      "y": 239,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "beetle",
-      "word": "beetle",
-      "translation": "甲虫",
-      "x": 1349,
-      "y": 239,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "caterpillar",
-      "word": "caterpillar",
-      "translation": "毛毛虫",
-      "x": 881,
-      "y": 311,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "gall",
-      "word": "gall",
-      "translation": "虫瘿",
-      "x": 959,
-      "y": 311,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "lobe",
-      "word": "lobe",
-      "translation": "叶裂",
-      "x": 1037,
-      "y": 311,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "leaf-stalk",
-      "word": "leaf stalk",
-      "translation": "叶柄",
-      "x": 1115,
-      "y": 311,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "catkin",
-      "word": "catkin",
-      "translation": "柔荑花序",
-      "x": 1193,
-      "y": 311,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "oak-apple",
-      "word": "oak apple",
-      "translation": "橡树瘿",
-      "x": 1271,
-      "y": 311,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "seed-coat",
-      "word": "seed coat",
-      "translation": "种皮",
-      "x": 1349,
-      "y": 311,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "germination",
-      "word": "germination",
-      "translation": "萌发",
-      "x": 881,
-      "y": 383,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "pollination",
-      "word": "pollination",
-      "translation": "授粉",
-      "x": 959,
-      "y": 383,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "tree-ring",
-      "word": "tree ring",
-      "translation": "年轮",
-      "x": 1037,
-      "y": 383,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "woody",
-      "word": "woody",
-      "translation": "木质的",
-      "x": 898,
-      "y": 188,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "deciduous",
-      "word": "deciduous",
-      "translation": "落叶性的",
-      "x": 960,
-      "y": 188,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "mature",
-      "word": "mature",
-      "translation": "成熟的",
-      "x": 1022,
-      "y": 188,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "shelter",
-      "word": "shelter",
-      "translation": "庇护处",
-      "x": 1084,
-      "y": 188,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "carbon-storage",
-      "word": "carbon storage",
-      "translation": "碳储存",
-      "x": 1146,
-      "y": 188,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "oak-woodland",
-      "word": "oak woodland",
-      "translation": "橡树林",
-      "x": 1208,
-      "y": 188,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "fine-root",
-      "word": "fine root",
-      "translation": "细根",
-      "x": 1270,
-      "y": 188,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "branch-collar",
-      "word": "branch collar",
-      "translation": "枝领",
-      "x": 1332,
-      "y": 188,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "tree-crown",
-      "word": "tree crown",
-      "translation": "树冠",
-      "x": 898,
-      "y": 188,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "sap-flow",
-      "word": "sap flow",
-      "translation": "树液流动",
-      "x": 960,
-      "y": 188,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "bark-fissure",
-      "word": "bark fissure",
-      "translation": "树皮裂纹",
-      "x": 1022,
-      "y": 188,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "acorn-cap",
-      "word": "acorn cap",
-      "translation": "橡斗",
-      "x": 1084,
-      "y": 188,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "tree-hollow",
-      "word": "tree hollow",
-      "translation": "树洞",
-      "x": 1146,
-      "y": 188,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "root-zone",
-      "word": "root zone",
-      "translation": "根区",
-      "x": 1208,
-      "y": 188,
-      "priority": 5,
-      "minLevel": 4
+      "x": 800,
+      "y": 620,
+      "priority": 5.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "growth-rings"
     }
   ],
   "portals": [
     {
       "id": "enter-leaf",
-      "label": "Inspect a leaf",
-      "translation": "观察叶片",
+      "label": "Magnify the canopy",
+      "translation": "放大树冠",
       "childSceneId": "leaf",
-      "x": 975,
-      "y": 160,
-      "width": 280,
-      "height": 230,
-      "enterScale": 3.6
+      "x": 930,
+      "y": 75,
+      "width": 355,
+      "height": 330,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "leaf-region"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/oak-tree.svg",
+    "rationale": "Kept the clearly drawn crown, trunk, branches, bark, roots, soil, rings, hollow, acorn and seedling; removed insects, fungi and biological processes not present.",
+    "previousLabelCount": 56,
+    "retainedLabelCount": 11,
+    "removedLabelCount": 45,
+    "removedExamples": [
+      "woodpecker",
+      "beetle",
+      "caterpillar",
+      "pollination",
+      "sap flow",
+      "lichen"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-tree",
+      "description": "Complete oak from crown to roots",
+      "kind": "whole",
+      "x": 180,
+      "y": 40,
+      "width": 1250,
+      "height": 850
+    },
+    {
+      "id": "crown",
+      "description": "Overlapping green crown at the top",
+      "kind": "object",
+      "x": 240,
+      "y": 35,
+      "width": 1140,
+      "height": 470
+    },
+    {
+      "id": "branches",
+      "description": "Brown branches beneath the crown",
+      "kind": "part",
+      "x": 380,
+      "y": 110,
+      "width": 930,
+      "height": 340
+    },
+    {
+      "id": "trunk",
+      "description": "Central brown trunk",
+      "kind": "part",
+      "x": 600,
+      "y": 250,
+      "width": 400,
+      "height": 480
+    },
+    {
+      "id": "bark",
+      "description": "Dark outer surface of the trunk",
+      "kind": "part",
+      "x": 610,
+      "y": 280,
+      "width": 380,
+      "height": 430
+    },
+    {
+      "id": "growth-rings",
+      "description": "Exposed oval growth-ring section",
+      "kind": "part",
+      "x": 670,
+      "y": 565,
+      "width": 260,
+      "height": 155
+    },
+    {
+      "id": "hollow",
+      "description": "Dark tree hollow in the lower trunk",
+      "kind": "part",
+      "x": 665,
+      "y": 465,
+      "width": 135,
+      "height": 190
+    },
+    {
+      "id": "roots",
+      "description": "Large roots spreading through the soil",
+      "kind": "part",
+      "x": 210,
+      "y": 675,
+      "width": 1190,
+      "height": 225
+    },
+    {
+      "id": "soil",
+      "description": "Brown soil layer across the bottom",
+      "kind": "object",
+      "x": 0,
+      "y": 625,
+      "width": 1600,
+      "height": 275
+    },
+    {
+      "id": "acorn",
+      "description": "Single acorn hanging at upper right",
+      "kind": "object",
+      "x": 1025,
+      "y": 245,
+      "width": 100,
+      "height": 170
+    },
+    {
+      "id": "seedling",
+      "description": "Small seedling at lower right",
+      "kind": "object",
+      "x": 1160,
+      "y": 610,
+      "width": 210,
+      "height": 220
+    },
+    {
+      "id": "ground-leaves",
+      "description": "Two green leaves at the base of the trunk",
+      "kind": "object",
+      "x": 545,
+      "y": 690,
+      "width": 475,
+      "height": 95
+    },
+    {
+      "id": "leaf-region",
+      "description": "Upper-right canopy cluster used to magnify into the leaf slice",
+      "kind": "object",
+      "x": 930,
+      "y": 75,
+      "width": 355,
+      "height": 330
     }
   ]
 }

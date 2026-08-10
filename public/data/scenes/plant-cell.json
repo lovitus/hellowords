@@ -12,505 +12,171 @@
       "id": "cell",
       "word": "cell",
       "translation": "细胞",
-      "x": 170,
-      "y": 115,
+      "x": 800,
+      "y": 110,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-cell"
     },
     {
       "id": "cell-wall",
       "word": "cell wall",
       "translation": "细胞壁",
-      "x": 422,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "membrane",
-      "word": "membrane",
-      "translation": "细胞膜",
-      "x": 674,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 180,
+      "y": 430,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "cell-wall"
     },
     {
       "id": "nucleus",
       "word": "nucleus",
       "translation": "细胞核",
-      "x": 926,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 560,
+      "y": 430,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "nucleus"
     },
     {
       "id": "vacuole",
       "word": "vacuole",
       "translation": "液泡",
-      "x": 1178,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 975,
+      "y": 450,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "vacuole"
     },
     {
       "id": "chloroplast",
       "word": "chloroplast",
       "translation": "叶绿体",
-      "x": 1430,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1180,
+      "y": 290,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "chloroplast-top-right"
     },
     {
       "id": "cytoplasm",
       "word": "cytoplasm",
       "translation": "细胞质",
-      "x": 170,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 350,
+      "y": 600,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "cytoplasm"
     },
     {
       "id": "mitochondrion",
       "word": "mitochondrion",
       "translation": "线粒体",
-      "x": 422,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 365,
+      "y": 490,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "mitochondria"
     },
     {
       "id": "ribosome",
       "word": "ribosome",
       "translation": "核糖体",
-      "x": 674,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "organelle",
-      "word": "organelle",
-      "translation": "细胞器",
-      "x": 926,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "chromosome",
-      "word": "chromosome",
-      "translation": "染色体",
-      "x": 1178,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "protein",
-      "word": "protein",
-      "translation": "蛋白质",
-      "x": 1430,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "enzyme",
-      "word": "enzyme",
-      "translation": "酶",
-      "x": 170,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "glucose",
-      "word": "glucose",
-      "translation": "葡萄糖",
-      "x": 422,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "fiber",
-      "word": "fiber",
-      "translation": "纤维",
-      "x": 674,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "pore",
-      "word": "pore",
-      "translation": "细胞孔",
-      "x": 926,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "fluid",
-      "word": "fluid",
-      "translation": "液体",
-      "x": 1178,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "molecule",
-      "word": "molecule",
-      "translation": "分子",
-      "x": 1430,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "energy",
-      "word": "energy",
-      "translation": "能量",
-      "x": 926,
-      "y": 282,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "division",
-      "word": "division",
-      "translation": "分裂",
-      "x": 1004,
-      "y": 282,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "growth",
-      "word": "growth",
-      "translation": "生长",
-      "x": 1082,
-      "y": 282,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "transport",
-      "word": "transport",
-      "translation": "运输",
-      "x": 1160,
-      "y": 282,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "storage",
-      "word": "storage",
-      "translation": "储存",
-      "x": 1238,
-      "y": 282,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "structure",
-      "word": "structure",
-      "translation": "结构",
-      "x": 1316,
-      "y": 282,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "nuclear-envelope",
-      "word": "nuclear envelope",
-      "translation": "核膜",
-      "x": 1394,
-      "y": 282,
-      "priority": 2,
-      "minLevel": 1
+      "x": 820,
+      "y": 210,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "ribosomes"
     },
     {
       "id": "nucleolus",
       "word": "nucleolus",
       "translation": "核仁",
-      "x": 926,
-      "y": 354,
-      "priority": 2,
-      "minLevel": 1
+      "x": 540,
+      "y": 400,
+      "priority": 2.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "nucleolus"
     },
     {
-      "id": "rough-endoplasmic-reticulum",
-      "word": "rough endoplasmic reticulum",
-      "translation": "粗面内质网",
-      "x": 1004,
-      "y": 354,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "smooth-endoplasmic-reticulum",
-      "word": "smooth endoplasmic reticulum",
-      "translation": "光面内质网",
-      "x": 1082,
-      "y": 354,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "golgi-apparatus",
-      "word": "golgi apparatus",
-      "translation": "高尔基体",
-      "x": 1160,
-      "y": 354,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "vesicle",
-      "word": "vesicle",
-      "translation": "囊泡",
-      "x": 1238,
-      "y": 354,
-      "priority": 2,
-      "minLevel": 1
+      "id": "nuclear-envelope",
+      "word": "nuclear envelope",
+      "translation": "核膜",
+      "x": 630,
+      "y": 500,
+      "priority": 3.009,
+      "minLevel": 2,
+      "sourceVisualRegion": "nucleus"
     },
     {
       "id": "central-vacuole",
       "word": "central vacuole",
       "translation": "中央液泡",
-      "x": 1316,
-      "y": 354,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1050,
+      "y": 600,
+      "priority": 3.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "vacuole"
     },
     {
       "id": "tonoplast",
       "word": "tonoplast",
       "translation": "液泡膜",
-      "x": 1394,
-      "y": 354,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1200,
+      "y": 540,
+      "priority": 3.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "vacuole-membrane"
     },
     {
-      "id": "plasmodesma",
-      "word": "plasmodesma",
-      "translation": "胞间连丝",
-      "x": 926,
-      "y": 426,
-      "priority": 3,
-      "minLevel": 2
+      "id": "chromosome",
+      "word": "chromosome",
+      "translation": "染色体",
+      "x": 590,
+      "y": 350,
+      "priority": 3.012,
+      "minLevel": 2,
+      "sourceVisualRegion": "chromatin"
     },
     {
-      "id": "microtubule",
-      "word": "microtubule",
-      "translation": "微管",
-      "x": 1004,
-      "y": 426,
-      "priority": 3,
-      "minLevel": 2
+      "id": "rough-endoplasmic-reticulum",
+      "word": "rough endoplasmic reticulum",
+      "translation": "粗面内质网",
+      "x": 760,
+      "y": 270,
+      "priority": 4.013,
+      "minLevel": 3,
+      "sourceVisualRegion": "endoplasmic-reticulum"
     },
     {
-      "id": "microfilament",
-      "word": "microfilament",
-      "translation": "微丝",
-      "x": 1082,
-      "y": 426,
-      "priority": 3,
-      "minLevel": 2
+      "id": "smooth-endoplasmic-reticulum",
+      "word": "smooth endoplasmic reticulum",
+      "translation": "光面内质网",
+      "x": 735,
+      "y": 620,
+      "priority": 4.014,
+      "minLevel": 3,
+      "sourceVisualRegion": "endoplasmic-reticulum"
     },
     {
-      "id": "cytoskeleton",
-      "word": "cytoskeleton",
-      "translation": "细胞骨架",
-      "x": 1160,
-      "y": 426,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "peroxisome",
-      "word": "peroxisome",
-      "translation": "过氧化物酶体",
-      "x": 1238,
-      "y": 426,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "cytosol",
-      "word": "cytosol",
-      "translation": "细胞质基质",
-      "x": 1316,
-      "y": 426,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "cellulose",
-      "word": "cellulose",
-      "translation": "纤维素",
-      "x": 1394,
-      "y": 426,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "pectin",
-      "word": "pectin",
-      "translation": "果胶",
-      "x": 926,
-      "y": 498,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "turgor-pressure",
-      "word": "turgor pressure",
-      "translation": "膨压",
-      "x": 1004,
-      "y": 498,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "osmosis",
-      "word": "osmosis",
-      "translation": "渗透作用",
-      "x": 1082,
-      "y": 498,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "mitosis",
-      "word": "mitosis",
-      "translation": "有丝分裂",
-      "x": 943,
-      "y": 303,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "gene-expression",
-      "word": "gene expression",
-      "translation": "基因表达",
-      "x": 1005,
-      "y": 303,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "protein-synthesis",
-      "word": "protein synthesis",
-      "translation": "蛋白质合成",
-      "x": 1067,
-      "y": 303,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "cellular-respiration",
-      "word": "cellular respiration",
-      "translation": "细胞呼吸",
-      "x": 1129,
-      "y": 303,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "cell-cycle",
-      "word": "cell cycle",
-      "translation": "细胞周期",
-      "x": 1191,
-      "y": 303,
-      "priority": 4,
-      "minLevel": 3
+      "id": "cell-membrane",
+      "word": "cell membrane",
+      "translation": "细胞膜",
+      "x": 1360,
+      "y": 430,
+      "priority": 4.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "cell-membrane"
     },
     {
       "id": "chloroplast-interior",
       "word": "chloroplast interior",
       "translation": "叶绿体内部",
-      "x": 1253,
-      "y": 303,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "cell-junction",
-      "word": "cell junction",
-      "translation": "细胞连接",
-      "x": 1315,
-      "y": 303,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "membrane-protein",
-      "word": "membrane protein",
-      "translation": "膜蛋白",
-      "x": 1377,
-      "y": 303,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "water-channel",
-      "word": "water channel",
-      "translation": "水通道",
-      "x": 943,
-      "y": 303,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "starch-grain",
-      "word": "starch grain",
-      "translation": "淀粉粒",
-      "x": 1005,
-      "y": 303,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "cell-division",
-      "word": "cell division",
-      "translation": "细胞分裂",
-      "x": 1067,
-      "y": 303,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "energy-transfer",
-      "word": "energy transfer",
-      "translation": "能量转移",
-      "x": 1129,
-      "y": 303,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "organelle-membrane",
-      "word": "organelle membrane",
-      "translation": "细胞器膜",
-      "x": 1191,
-      "y": 303,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "cytoplasmic-stream",
-      "word": "cytoplasmic stream",
-      "translation": "细胞质流动",
-      "x": 1253,
-      "y": 303,
-      "priority": 5,
-      "minLevel": 4
+      "x": 1210,
+      "y": 320,
+      "priority": 5.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "chloroplast-top-right"
     }
   ],
   "portals": [
@@ -519,11 +185,157 @@
       "label": "Enter a chloroplast",
       "translation": "进入叶绿体",
       "childSceneId": "chloroplast-interior",
-      "x": 1025,
+      "x": 1080,
+      "y": 235,
+      "width": 210,
+      "height": 120,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "chloroplast-top-right"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/plant-cell.svg",
+    "rationale": "Kept organelles and boundaries that are directly drawn; removed invisible molecules, biochemical processes and structures not separately illustrated.",
+    "previousLabelCount": 56,
+    "retainedLabelCount": 17,
+    "removedLabelCount": 39,
+    "removedExamples": [
+      "enzyme",
+      "glucose",
+      "osmosis",
+      "mitosis",
+      "gene expression",
+      "plasmodesma"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-cell",
+      "description": "Complete plant cell cutaway",
+      "kind": "whole",
+      "x": 125,
+      "y": 85,
+      "width": 1350,
+      "height": 750
+    },
+    {
+      "id": "cell-wall",
+      "description": "Thick pale-green outer wall",
+      "kind": "part",
+      "x": 135,
+      "y": 90,
+      "width": 1330,
+      "height": 740
+    },
+    {
+      "id": "cell-membrane",
+      "description": "Dark green inner boundary",
+      "kind": "part",
+      "x": 205,
+      "y": 145,
+      "width": 1190,
+      "height": 610
+    },
+    {
+      "id": "cytoplasm",
+      "description": "Pale dotted material inside the membrane",
+      "kind": "object",
+      "x": 230,
+      "y": 175,
+      "width": 1140,
+      "height": 550
+    },
+    {
+      "id": "vacuole",
+      "description": "Large translucent central vacuole",
+      "kind": "object",
+      "x": 630,
+      "y": 180,
+      "width": 620,
+      "height": 555
+    },
+    {
+      "id": "vacuole-membrane",
+      "description": "Teal outline around the central vacuole",
+      "kind": "part",
+      "x": 620,
+      "y": 175,
+      "width": 640,
+      "height": 570
+    },
+    {
+      "id": "nucleus",
+      "description": "Large pink nucleus at left-center",
+      "kind": "object",
+      "x": 410,
+      "y": 285,
+      "width": 300,
+      "height": 295
+    },
+    {
+      "id": "nucleolus",
+      "description": "Pale round body inside the nucleus",
+      "kind": "part",
+      "x": 470,
+      "y": 330,
+      "width": 145,
+      "height": 150
+    },
+    {
+      "id": "chromatin",
+      "description": "Two curved purple strands inside the nucleus",
+      "kind": "part",
+      "x": 475,
+      "y": 315,
+      "width": 175,
+      "height": 210
+    },
+    {
+      "id": "chloroplasts",
+      "description": "Four green oval chloroplasts",
+      "kind": "object",
+      "x": 300,
+      "y": 185,
+      "width": 1035,
+      "height": 545
+    },
+    {
+      "id": "chloroplast-top-right",
+      "description": "Upper-right green chloroplast",
+      "kind": "object",
+      "x": 1080,
+      "y": 235,
+      "width": 210,
+      "height": 120
+    },
+    {
+      "id": "mitochondria",
+      "description": "Two orange bean-shaped mitochondria",
+      "kind": "object",
+      "x": 300,
+      "y": 430,
+      "width": 940,
+      "height": 360
+    },
+    {
+      "id": "endoplasmic-reticulum",
+      "description": "Purple curved membrane strands",
+      "kind": "object",
+      "x": 600,
       "y": 210,
-      "width": 390,
-      "height": 330,
-      "enterScale": 3.6
+      "width": 360,
+      "height": 470
+    },
+    {
+      "id": "ribosomes",
+      "description": "Small dark and yellow dots in the cytoplasm",
+      "kind": "object",
+      "x": 600,
+      "y": 175,
+      "width": 380,
+      "height": 590
     }
   ]
 }

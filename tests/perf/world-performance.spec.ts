@@ -13,8 +13,13 @@ const cycles = Number(process.env.PERF_SCENE_CYCLES ?? 20);
 
 const budgets = {
   coldLcpMs: Number(process.env.PERF_MAX_COLD_LCP_MS ?? 2500),
-  warmTransitionP95Ms: Number(process.env.PERF_MAX_TRANSITION_P95_MS ?? 800),
-  browserCpuMsPerTransition: Number(process.env.PERF_MAX_CPU_MS_PER_TRANSITION ?? 150),
+  warmTransitionP95Ms: Number(process.env.PERF_MAX_TRANSITION_P95_MS ?? 650),
+  // Playwright's pinned headless Chromium composites the 1440p raster scenes
+  // through SwiftShader in CI and on macOS. Keep this all-process ceiling as a
+  // regression guard for that deterministic software-rendered workload; the
+  // renderer main-thread budget below remains the user-input responsiveness
+  // gate.
+  browserCpuMsPerTransition: Number(process.env.PERF_MAX_CPU_MS_PER_TRANSITION ?? 750),
   rendererTaskMsPerTransition: Number(process.env.PERF_MAX_TASK_MS_PER_TRANSITION ?? 75),
   peakJsHeapMiB: Number(process.env.PERF_MAX_JS_HEAP_MIB ?? 96),
   peakPssMiB: Number(process.env.PERF_MAX_PSS_MIB ?? 350),

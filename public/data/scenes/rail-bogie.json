@@ -12,434 +12,326 @@
       "id": "rail-bogie",
       "word": "rail bogie",
       "translation": "铁路转向架",
-      "x": 170,
-      "y": 115,
+      "x": 800,
+      "y": 260,
       "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "wheelset",
-      "word": "wheelset",
-      "translation": "轮对",
-      "x": 422,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "wheel-flange",
-      "word": "wheel flange",
-      "translation": "轮缘",
-      "x": 674,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "wheel-tread",
-      "word": "wheel tread",
-      "translation": "轮面",
-      "x": 926,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "axle-box",
-      "word": "axle box",
-      "translation": "轴箱",
-      "x": 1178,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "bearing",
-      "word": "bearing",
-      "translation": "轴承",
-      "x": 1430,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "suspension-spring",
-      "word": "suspension spring",
-      "translation": "悬挂弹簧",
-      "x": 170,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "damper",
-      "word": "damper",
-      "translation": "减震器",
-      "x": 422,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-bogie"
     },
     {
       "id": "bogie-frame",
       "word": "bogie frame",
       "translation": "转向架构架",
-      "x": 674,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 800,
+      "y": 300,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "bogie-frame"
     },
     {
-      "id": "bolster",
-      "word": "bolster",
-      "translation": "摇枕",
-      "x": 926,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "id": "wheelset",
+      "word": "wheelset",
+      "translation": "轮对",
+      "x": 800,
+      "y": 675,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "wheelset"
     },
     {
-      "id": "brake-disc",
-      "word": "brake disc",
-      "translation": "制动盘",
-      "x": 1178,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "brake-pad",
-      "word": "brake pad",
-      "translation": "制动片",
-      "x": 1430,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "brake-caliper",
-      "word": "brake caliper",
-      "translation": "制动卡钳",
-      "x": 170,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
+      "id": "suspension-spring",
+      "word": "suspension spring",
+      "translation": "悬挂弹簧",
+      "x": 390,
+      "y": 400,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "springs"
     },
     {
       "id": "traction-motor",
       "word": "traction motor",
       "translation": "牵引电机",
-      "x": 422,
+      "x": 800,
       "y": 525,
-      "priority": 1,
-      "minLevel": 0
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "motor"
+    },
+    {
+      "id": "wheel-tread",
+      "word": "wheel tread",
+      "translation": "轮面",
+      "x": 430,
+      "y": 780,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "left-wheel"
+    },
+    {
+      "id": "wheel-flange",
+      "word": "wheel flange",
+      "translation": "轮缘",
+      "x": 1170,
+      "y": 745,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "right-wheel"
+    },
+    {
+      "id": "axle-box",
+      "word": "axle box",
+      "translation": "轴箱",
+      "x": 330,
+      "y": 625,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "left-wheel"
+    },
+    {
+      "id": "damper",
+      "word": "damper",
+      "translation": "减震器",
+      "x": 1270,
+      "y": 480,
+      "priority": 2.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "dampers"
+    },
+    {
+      "id": "bolster",
+      "word": "bolster",
+      "translation": "摇枕",
+      "x": 800,
+      "y": 360,
+      "priority": 2.009,
+      "minLevel": 1,
+      "sourceVisualRegion": "bolster"
     },
     {
       "id": "gearbox",
       "word": "gearbox",
       "translation": "齿轮箱",
-      "x": 674,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
+      "x": 800,
+      "y": 585,
+      "priority": 3.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "gearbox"
     },
     {
       "id": "coupling",
       "word": "coupling",
       "translation": "联轴器",
-      "x": 926,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
+      "x": 940,
+      "y": 650,
+      "priority": 3.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "coupling"
+    },
+    {
+      "id": "brake-pad",
+      "word": "brake pad",
+      "translation": "制动片",
+      "x": 310,
+      "y": 610,
+      "priority": 3.012,
+      "minLevel": 2,
+      "sourceVisualRegion": "brake-blocks"
+    },
+    {
+      "id": "brake-block",
+      "word": "brake block",
+      "translation": "制动闸瓦",
+      "x": 1280,
+      "y": 610,
+      "priority": 3.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "brake-blocks"
     },
     {
       "id": "primary-suspension",
       "word": "primary suspension",
       "translation": "一系悬挂",
-      "x": 1178,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
+      "x": 555,
+      "y": 380,
+      "priority": 4.014,
+      "minLevel": 3,
+      "sourceVisualRegion": "springs"
     },
     {
-      "id": "secondary-suspension",
-      "word": "secondary suspension",
-      "translation": "二系悬挂",
-      "x": 1430,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "air-spring",
-      "word": "air spring",
-      "translation": "空气弹簧",
-      "x": 170,
-      "y": 730,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "anti-roll-bar",
-      "word": "anti roll bar",
-      "translation": "防侧滚杆",
-      "x": 422,
-      "y": 730,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "yaw-damper",
-      "word": "yaw damper",
-      "translation": "抗蛇行减震器",
-      "x": 548,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "torque-arm",
-      "word": "torque arm",
-      "translation": "扭矩臂",
-      "x": 620,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "speed-sensor",
-      "word": "speed sensor",
-      "translation": "速度传感器",
-      "x": 692,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "lubricant",
-      "word": "lubricant",
-      "translation": "润滑剂",
-      "x": 764,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "grease",
-      "word": "grease",
-      "translation": "润滑脂",
+      "id": "rail",
+      "word": "rail",
+      "translation": "钢轨",
       "x": 800,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
+      "y": 755,
+      "priority": 4.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "rail"
     },
     {
-      "id": "fastener",
-      "word": "fastener",
-      "translation": "紧固件",
-      "x": 878,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "weld",
-      "word": "weld",
-      "translation": "焊缝",
-      "x": 956,
-      "y": 414,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "clearance",
-      "word": "clearance",
-      "translation": "间隙",
-      "x": 1034,
-      "y": 414,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "alignment",
-      "word": "alignment",
-      "translation": "对中",
-      "x": 566,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "load",
-      "word": "load",
-      "translation": "载荷",
-      "x": 644,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "vibration",
-      "word": "vibration",
-      "translation": "振动",
-      "x": 722,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "friction",
-      "word": "friction",
-      "translation": "摩擦",
+      "id": "sleeper",
+      "word": "sleeper",
+      "translation": "轨枕",
       "x": 800,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "roll",
-      "word": "roll",
-      "translation": "滚动",
-      "x": 878,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "rotate",
-      "word": "rotate",
-      "translation": "旋转",
-      "x": 956,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "brake",
-      "word": "brake",
-      "translation": "制动",
-      "x": 1034,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "accelerate",
-      "word": "accelerate",
-      "translation": "加速",
-      "x": 566,
-      "y": 558,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "decelerate",
-      "word": "decelerate",
-      "translation": "减速",
-      "x": 583,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "support",
-      "word": "support",
-      "translation": "支撑",
-      "x": 645,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "absorb-shock",
-      "word": "absorb shock",
-      "translation": "吸收冲击",
-      "x": 707,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "transmit-force",
-      "word": "transmit force",
-      "translation": "传递力",
-      "x": 769,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "lubricate",
-      "word": "lubricate",
-      "translation": "润滑",
-      "x": 831,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "inspect",
-      "word": "inspect",
-      "translation": "检查",
-      "x": 893,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "maintain",
-      "word": "maintain",
-      "translation": "维护",
-      "x": 955,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "replace",
-      "word": "replace",
-      "translation": "更换",
-      "x": 583,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "worn",
-      "word": "worn",
-      "translation": "磨损的",
-      "x": 645,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "cracked",
-      "word": "cracked",
-      "translation": "开裂的",
-      "x": 707,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "misaligned",
-      "word": "misaligned",
-      "translation": "错位的",
-      "x": 769,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "serviceable",
-      "word": "serviceable",
-      "translation": "可正常使用的",
-      "x": 831,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
+      "y": 850,
+      "priority": 5.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "sleepers"
     }
   ],
-  "portals": []
+  "portals": [],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/rail-bogie.svg",
+    "rationale": "Kept the frame, two wheels, axle, suspension coils, dampers, central motor/gear housing, brake blocks and rails; removed maintenance actions, failure states and invisible subassemblies.",
+    "previousLabelCount": 48,
+    "retainedLabelCount": 17,
+    "removedLabelCount": 31,
+    "removedExamples": [
+      "lubricant",
+      "alignment",
+      "vibration",
+      "accelerate",
+      "inspect",
+      "misaligned"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-bogie",
+      "description": "Complete rail bogie cutaway",
+      "kind": "whole",
+      "x": 180,
+      "y": 225,
+      "width": 1240,
+      "height": 620
+    },
+    {
+      "id": "bogie-frame",
+      "description": "Large dark trapezoidal structural frame",
+      "kind": "object",
+      "x": 245,
+      "y": 240,
+      "width": 1110,
+      "height": 330
+    },
+    {
+      "id": "bolster",
+      "description": "Orange central bolster beam",
+      "kind": "part",
+      "x": 395,
+      "y": 300,
+      "width": 810,
+      "height": 175
+    },
+    {
+      "id": "left-wheel",
+      "description": "Left steel railway wheel",
+      "kind": "object",
+      "x": 265,
+      "y": 510,
+      "width": 330,
+      "height": 320
+    },
+    {
+      "id": "right-wheel",
+      "description": "Right steel railway wheel",
+      "kind": "object",
+      "x": 1005,
+      "y": 510,
+      "width": 330,
+      "height": 320
+    },
+    {
+      "id": "wheelset",
+      "description": "Two wheels connected by the long central axle",
+      "kind": "object",
+      "x": 265,
+      "y": 510,
+      "width": 1070,
+      "height": 320
+    },
+    {
+      "id": "axle",
+      "description": "Thick horizontal axle connecting the wheels",
+      "kind": "part",
+      "x": 395,
+      "y": 625,
+      "width": 810,
+      "height": 85
+    },
+    {
+      "id": "springs",
+      "description": "Four yellow coil suspension springs",
+      "kind": "object",
+      "x": 315,
+      "y": 280,
+      "width": 930,
+      "height": 240
+    },
+    {
+      "id": "dampers",
+      "description": "Four orange diagonal dampers",
+      "kind": "object",
+      "x": 235,
+      "y": 280,
+      "width": 1145,
+      "height": 335
+    },
+    {
+      "id": "motor",
+      "description": "Central green traction motor housing",
+      "kind": "object",
+      "x": 635,
+      "y": 485,
+      "width": 330,
+      "height": 205
+    },
+    {
+      "id": "gearbox",
+      "description": "Dark round gearbox on the motor",
+      "kind": "object",
+      "x": 735,
+      "y": 525,
+      "width": 140,
+      "height": 125
+    },
+    {
+      "id": "coupling",
+      "description": "Orange shaft extending from the gearbox",
+      "kind": "part",
+      "x": 785,
+      "y": 565,
+      "width": 230,
+      "height": 150
+    },
+    {
+      "id": "brake-blocks",
+      "description": "Two orange brake blocks beside the wheels",
+      "kind": "object",
+      "x": 265,
+      "y": 530,
+      "width": 1070,
+      "height": 185
+    },
+    {
+      "id": "rail",
+      "description": "Dark rail directly beneath the wheels",
+      "kind": "object",
+      "x": 165,
+      "y": 735,
+      "width": 1270,
+      "height": 45
+    },
+    {
+      "id": "sleepers",
+      "description": "Lower horizontal track lines",
+      "kind": "object",
+      "x": 100,
+      "y": 790,
+      "width": 1400,
+      "height": 100
+    }
+  ]
 }

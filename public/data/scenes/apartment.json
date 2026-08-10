@@ -12,541 +12,371 @@
       "id": "apartment",
       "word": "apartment",
       "translation": "公寓",
-      "x": 790,
-      "y": 74,
+      "x": 800,
+      "y": 55,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-apartment"
     },
     {
       "id": "living-room",
       "word": "living room",
       "translation": "客厅",
-      "x": 485,
-      "y": 250,
-      "priority": 1,
-      "minLevel": 0
+      "x": 355,
+      "y": 285,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-living-room"
     },
     {
       "id": "kitchen",
       "word": "kitchen",
       "translation": "厨房",
-      "x": 1175,
+      "x": 1230,
       "y": 255,
-      "priority": 1,
-      "minLevel": 0
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-kitchen"
     },
     {
       "id": "bedroom",
       "word": "bedroom",
       "translation": "卧室",
-      "x": 405,
-      "y": 630,
-      "priority": 1,
-      "minLevel": 0
+      "x": 365,
+      "y": 685,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-bedroom"
     },
     {
       "id": "bathroom",
       "word": "bathroom",
       "translation": "浴室",
-      "x": 1150,
-      "y": 655,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "balcony",
-      "word": "balcony",
-      "translation": "阳台",
-      "x": 790,
-      "y": 793,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1240,
+      "y": 690,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-bathroom"
     },
     {
       "id": "sofa",
       "word": "sofa",
       "translation": "沙发",
-      "x": 445,
-      "y": 385,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "rug",
-      "word": "rug",
-      "translation": "地毯",
-      "x": 594,
-      "y": 486,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "counter",
-      "word": "counter",
-      "translation": "操作台",
-      "x": 1175,
-      "y": 382,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "stove",
-      "word": "stove",
-      "translation": "炉灶",
-      "x": 1285,
-      "y": 402,
-      "priority": 1,
-      "minLevel": 0
+      "x": 205,
+      "y": 350,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-sofa"
     },
     {
       "id": "bed",
       "word": "bed",
       "translation": "床",
-      "x": 420,
-      "y": 700,
-      "priority": 1,
-      "minLevel": 0
+      "x": 320,
+      "y": 720,
+      "priority": 1.006,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-bed"
     },
     {
       "id": "bathtub",
       "word": "bathtub",
       "translation": "浴缸",
-      "x": 1186,
-      "y": 738,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "cushion",
-      "word": "cushion",
-      "translation": "靠垫",
-      "x": 379,
-      "y": 367,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "shelf",
-      "word": "shelf",
-      "translation": "架子",
-      "x": 1050,
-      "y": 325,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "pillow",
-      "word": "pillow",
-      "translation": "枕头",
-      "x": 330,
-      "y": 669,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "faucet",
-      "word": "faucet",
-      "translation": "水龙头",
-      "x": 1092,
-      "y": 405,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "coffee-table",
-      "word": "coffee table",
-      "translation": "茶几",
-      "x": 565,
-      "y": 465,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "floor-lamp",
-      "word": "floor lamp",
-      "translation": "落地灯",
-      "x": 685,
-      "y": 318,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "wardrobe",
-      "word": "wardrobe",
-      "translation": "衣柜",
-      "x": 680,
-      "y": 650,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "shower",
-      "word": "shower",
-      "translation": "淋浴",
-      "x": 1394,
-      "y": 617,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "toilet",
-      "word": "toilet",
-      "translation": "马桶",
-      "x": 1040,
-      "y": 687,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "mirror",
-      "word": "mirror",
-      "translation": "镜子",
-      "x": 1378,
-      "y": 678,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "houseplant",
-      "word": "houseplant",
-      "translation": "室内植物",
-      "x": 710,
-      "y": 460,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "bookcase",
-      "word": "bookcase",
-      "translation": "书柜",
-      "x": 195,
-      "y": 288,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "dining-area",
-      "word": "dining area",
-      "translation": "用餐区",
-      "x": 1122,
-      "y": 222,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "dining-table",
-      "word": "dining table",
-      "translation": "餐桌",
-      "x": 342,
-      "y": 557,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "chair",
-      "word": "chair",
-      "translation": "椅子",
-      "x": 1200,
-      "y": 222,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1005,
+      "y": 725,
+      "priority": 1.007,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-bathtub"
     },
     {
       "id": "television",
       "word": "television",
       "translation": "电视",
-      "x": 420,
-      "y": 557,
-      "priority": 2,
-      "minLevel": 1
+      "x": 510,
+      "y": 275,
+      "priority": 2.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-television"
     },
     {
-      "id": "remote-control",
-      "word": "remote control",
-      "translation": "遥控器",
-      "x": 1278,
-      "y": 222,
-      "priority": 2,
-      "minLevel": 1
+      "id": "rug",
+      "word": "rug",
+      "translation": "地毯",
+      "x": 420,
+      "y": 420,
+      "priority": 2.009,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-rug"
+    },
+    {
+      "id": "counter",
+      "word": "counter",
+      "translation": "操作台",
+      "x": 1210,
+      "y": 375,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-counter"
+    },
+    {
+      "id": "stove",
+      "word": "stove",
+      "translation": "炉灶",
+      "x": 1180,
+      "y": 285,
+      "priority": 2.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-stove"
+    },
+    {
+      "id": "cushion",
+      "word": "cushion",
+      "translation": "靠垫",
+      "x": 255,
+      "y": 340,
+      "priority": 2.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-cushion"
+    },
+    {
+      "id": "shelf",
+      "word": "shelf",
+      "translation": "架子",
+      "x": 505,
+      "y": 155,
+      "priority": 2.013,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-shelf"
+    },
+    {
+      "id": "pillow",
+      "word": "pillow",
+      "translation": "枕头",
+      "x": 255,
+      "y": 680,
+      "priority": 2.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-pillow"
+    },
+    {
+      "id": "faucet",
+      "word": "faucet",
+      "translation": "水龙头",
+      "x": 1470,
+      "y": 300,
+      "priority": 2.015,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-faucet"
+    },
+    {
+      "id": "coffee-table",
+      "word": "coffee table",
+      "translation": "茶几",
+      "x": 430,
+      "y": 390,
+      "priority": 2.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-coffee-table"
+    },
+    {
+      "id": "floor-lamp",
+      "word": "floor lamp",
+      "translation": "落地灯",
+      "x": 245,
+      "y": 255,
+      "priority": 2.017,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-floor-lamp"
+    },
+    {
+      "id": "wardrobe",
+      "word": "wardrobe",
+      "translation": "衣柜",
+      "x": 600,
+      "y": 650,
+      "priority": 2.018,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "shower",
+      "word": "shower",
+      "translation": "淋浴",
+      "x": 1215,
+      "y": 650,
+      "priority": 2.019,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-shower"
+    },
+    {
+      "id": "toilet",
+      "word": "toilet",
+      "translation": "马桶",
+      "x": 1325,
+      "y": 735,
+      "priority": 3.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-toilet"
+    },
+    {
+      "id": "mirror",
+      "word": "mirror",
+      "translation": "镜子",
+      "x": 1460,
+      "y": 610,
+      "priority": 3.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-mirror"
+    },
+    {
+      "id": "houseplant",
+      "word": "houseplant",
+      "translation": "室内植物",
+      "x": 655,
+      "y": 300,
+      "priority": 3.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-houseplant"
+    },
+    {
+      "id": "chair",
+      "word": "chair",
+      "translation": "椅子",
+      "x": 610,
+      "y": 360,
+      "priority": 3.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-chair"
     },
     {
       "id": "picture-frame",
       "word": "picture frame",
       "translation": "相框",
-      "x": 498,
-      "y": 557,
-      "priority": 2,
-      "minLevel": 1
+      "x": 330,
+      "y": 205,
+      "priority": 3.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-picture-frame"
     },
     {
       "id": "vase",
       "word": "vase",
       "translation": "花瓶",
-      "x": 1356,
-      "y": 222,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1025,
+      "y": 315,
+      "priority": 3.025,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-vase"
     },
     {
       "id": "curtain",
       "word": "curtain",
       "translation": "窗帘",
-      "x": 576,
-      "y": 557,
-      "priority": 2,
-      "minLevel": 1
+      "x": 85,
+      "y": 255,
+      "priority": 3.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-curtain"
     },
     {
       "id": "ceiling-light",
       "word": "ceiling light",
       "translation": "顶灯",
-      "x": 1434,
-      "y": 222,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "washing-machine",
-      "word": "washing machine",
-      "translation": "洗衣机",
-      "x": 654,
-      "y": 557,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1120,
+      "y": 90,
+      "priority": 3.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-ceiling-light"
     },
     {
       "id": "towel",
       "word": "towel",
       "translation": "毛巾",
-      "x": 966,
-      "y": 294,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1040,
+      "y": 760,
+      "priority": 4.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-towel"
     },
     {
       "id": "bath-mat",
       "word": "bath mat",
       "translation": "浴室垫",
-      "x": 186,
-      "y": 629,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "shower-curtain",
-      "word": "shower curtain",
-      "translation": "浴帘",
-      "x": 1044,
-      "y": 294,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "soap",
-      "word": "soap",
-      "translation": "肥皂",
-      "x": 264,
-      "y": 629,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "toothbrush",
-      "word": "toothbrush",
-      "translation": "牙刷",
-      "x": 1122,
-      "y": 294,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "toothpaste",
-      "word": "toothpaste",
-      "translation": "牙膏",
-      "x": 342,
-      "y": 629,
-      "priority": 3,
-      "minLevel": 2
+      "x": 1225,
+      "y": 805,
+      "priority": 4.029,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bath-mat"
     },
     {
       "id": "basin",
       "word": "basin",
       "translation": "洗手盆",
-      "x": 1200,
-      "y": 294,
-      "priority": 3,
-      "minLevel": 2
+      "x": 1435,
+      "y": 710,
+      "priority": 4.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-basin"
     },
     {
       "id": "oven-hood",
       "word": "oven hood",
       "translation": "抽油烟机",
-      "x": 420,
-      "y": 629,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "microwave",
-      "word": "microwave",
-      "translation": "微波炉",
-      "x": 1278,
-      "y": 294,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "dishwasher",
-      "word": "dishwasher",
-      "translation": "洗碗机",
-      "x": 498,
-      "y": 629,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "freezer",
-      "word": "freezer",
-      "translation": "冷冻室",
-      "x": 1356,
-      "y": 294,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "doormat",
-      "word": "doormat",
-      "translation": "门垫",
-      "x": 576,
-      "y": 629,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "doorbell",
-      "word": "doorbell",
-      "translation": "门铃",
-      "x": 1434,
-      "y": 294,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "key",
-      "word": "key",
-      "translation": "钥匙",
-      "x": 654,
-      "y": 629,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "dining-chair",
-      "word": "dining chair",
-      "translation": "餐椅",
-      "x": 983,
-      "y": 243,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "ceiling-fan",
-      "word": "ceiling fan",
-      "translation": "吊扇",
-      "x": 203,
-      "y": 578,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "light-switch",
-      "word": "light switch",
-      "translation": "电灯开关",
-      "x": 1045,
-      "y": 243,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "power-outlet",
-      "word": "power outlet",
-      "translation": "电源插座",
-      "x": 265,
-      "y": 578,
-      "priority": 4,
-      "minLevel": 3
+      "x": 1200,
+      "y": 175,
+      "priority": 4.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-oven-hood"
     },
     {
       "id": "laundry-basket",
       "word": "laundry basket",
       "translation": "洗衣篮",
-      "x": 1107,
-      "y": 243,
-      "priority": 4,
-      "minLevel": 3
+      "x": 650,
+      "y": 685,
+      "priority": 4.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-laundry-basket"
     },
     {
       "id": "side-table",
       "word": "side table",
       "translation": "边桌",
-      "x": 327,
-      "y": 578,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "wall-clock",
-      "word": "wall clock",
-      "translation": "挂钟",
-      "x": 1169,
-      "y": 243,
-      "priority": 4,
-      "minLevel": 3
+      "x": 165,
+      "y": 735,
+      "priority": 4.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-side-table"
     },
     {
       "id": "door-handle",
       "word": "door handle",
       "translation": "门把手",
-      "x": 983,
-      "y": 243,
-      "priority": 5,
-      "minLevel": 4
+      "x": 830,
+      "y": 238,
+      "priority": 5.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-door-handle"
     },
     {
       "id": "window-frame",
       "word": "window frame",
       "translation": "窗框",
-      "x": 203,
-      "y": 578,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "bookshelf",
-      "word": "bookshelf",
-      "translation": "书架",
-      "x": 1045,
-      "y": 243,
-      "priority": 5,
-      "minLevel": 4
+      "x": 105,
+      "y": 190,
+      "priority": 5.035,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-window-frame"
     },
     {
       "id": "floor-tile",
       "word": "floor tile",
       "translation": "地砖",
-      "x": 265,
-      "y": 578,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "storage-box",
-      "word": "storage box",
-      "translation": "收纳箱",
-      "x": 1107,
-      "y": 243,
-      "priority": 5,
-      "minLevel": 4
+      "x": 1150,
+      "y": 820,
+      "priority": 5.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-floor-tile"
     }
   ],
   "portals": [
@@ -555,22 +385,394 @@
       "label": "Enter the kitchen",
       "translation": "进入厨房",
       "childSceneId": "kitchen",
-      "x": 1010,
-      "y": 150,
-      "width": 380,
-      "height": 360,
-      "enterScale": 3.6
+      "x": 900,
+      "y": 25,
+      "width": 675,
+      "height": 440,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-kitchen"
     },
     {
       "id": "enter-bedroom",
       "label": "Enter the bedroom",
       "translation": "进入卧室",
       "childSceneId": "bedroom",
-      "x": 170,
-      "y": 500,
-      "width": 500,
-      "height": 330,
-      "enterScale": 3.6
+      "x": 20,
+      "y": 480,
+      "width": 690,
+      "height": 405,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-bedroom"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/apartment-premium.jpg",
+    "rationale": "Re-anchored the photographed cutaway to visible rooms, furniture, fixtures and surfaces; removed appliances and small accessories that cannot be identified.",
+    "previousLabelCount": 60,
+    "retainedLabelCount": 37,
+    "removedLabelCount": 23,
+    "removedExamples": [
+      "washing machine",
+      "microwave",
+      "dishwasher",
+      "doorbell",
+      "toothbrush",
+      "ceiling fan"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-apartment",
+      "description": "Complete two-floor apartment cutaway",
+      "kind": "whole",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "id": "portal-kitchen",
+      "description": "Upper-right kitchen room",
+      "kind": "object",
+      "x": 900,
+      "y": 25,
+      "width": 675,
+      "height": 440
+    },
+    {
+      "id": "portal-bedroom",
+      "description": "Lower-left bedroom room",
+      "kind": "object",
+      "x": 20,
+      "y": 480,
+      "width": 690,
+      "height": 405
+    },
+    {
+      "id": "verified-living-room",
+      "description": "Human-verified visible anchor for living room",
+      "kind": "object",
+      "x": 295,
+      "y": 240,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-kitchen",
+      "description": "Human-verified visible anchor for kitchen",
+      "kind": "object",
+      "x": 1170,
+      "y": 210,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-bedroom",
+      "description": "Human-verified visible anchor for bedroom",
+      "kind": "object",
+      "x": 305,
+      "y": 640,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-bathroom",
+      "description": "Human-verified visible anchor for bathroom",
+      "kind": "object",
+      "x": 1180,
+      "y": 645,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-sofa",
+      "description": "Human-verified visible anchor for sofa",
+      "kind": "object",
+      "x": 145,
+      "y": 305,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-bed",
+      "description": "Human-verified visible anchor for bed",
+      "kind": "object",
+      "x": 260,
+      "y": 675,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-bathtub",
+      "description": "Human-verified visible anchor for bathtub",
+      "kind": "object",
+      "x": 945,
+      "y": 680,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-television",
+      "description": "Human-verified visible anchor for television",
+      "kind": "object",
+      "x": 450,
+      "y": 230,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-rug",
+      "description": "Human-verified visible anchor for rug",
+      "kind": "object",
+      "x": 360,
+      "y": 375,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-counter",
+      "description": "Human-verified visible anchor for counter",
+      "kind": "object",
+      "x": 1150,
+      "y": 330,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-stove",
+      "description": "Human-verified visible anchor for stove",
+      "kind": "object",
+      "x": 1120,
+      "y": 240,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-cushion",
+      "description": "Human-verified visible anchor for cushion",
+      "kind": "object",
+      "x": 195,
+      "y": 295,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-shelf",
+      "description": "Human-verified visible anchor for shelf",
+      "kind": "object",
+      "x": 445,
+      "y": 110,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-pillow",
+      "description": "Human-verified visible anchor for pillow",
+      "kind": "object",
+      "x": 195,
+      "y": 635,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-faucet",
+      "description": "Human-verified visible anchor for faucet",
+      "kind": "object",
+      "x": 1410,
+      "y": 255,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-coffee-table",
+      "description": "Human-verified visible anchor for coffee table",
+      "kind": "object",
+      "x": 370,
+      "y": 345,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-floor-lamp",
+      "description": "Human-verified visible anchor for floor lamp",
+      "kind": "object",
+      "x": 185,
+      "y": 210,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-wardrobe",
+      "description": "Human-verified visible anchor for wardrobe",
+      "kind": "object",
+      "x": 540,
+      "y": 605,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-shower",
+      "description": "Human-verified visible anchor for shower",
+      "kind": "object",
+      "x": 1155,
+      "y": 605,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-toilet",
+      "description": "Human-verified visible anchor for toilet",
+      "kind": "object",
+      "x": 1265,
+      "y": 690,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-mirror",
+      "description": "Human-verified visible anchor for mirror",
+      "kind": "object",
+      "x": 1400,
+      "y": 565,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-houseplant",
+      "description": "Human-verified visible anchor for houseplant",
+      "kind": "object",
+      "x": 595,
+      "y": 255,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-chair",
+      "description": "Human-verified visible anchor for chair",
+      "kind": "object",
+      "x": 550,
+      "y": 315,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-picture-frame",
+      "description": "Human-verified visible anchor for picture frame",
+      "kind": "object",
+      "x": 270,
+      "y": 160,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-vase",
+      "description": "Human-verified visible anchor for vase",
+      "kind": "object",
+      "x": 965,
+      "y": 270,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-curtain",
+      "description": "Human-verified visible anchor for curtain",
+      "kind": "object",
+      "x": 25,
+      "y": 210,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-ceiling-light",
+      "description": "Human-verified visible anchor for ceiling light",
+      "kind": "object",
+      "x": 1060,
+      "y": 45,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-towel",
+      "description": "Human-verified visible anchor for towel",
+      "kind": "object",
+      "x": 980,
+      "y": 715,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-bath-mat",
+      "description": "Human-verified visible anchor for bath mat",
+      "kind": "object",
+      "x": 1165,
+      "y": 760,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-basin",
+      "description": "Human-verified visible anchor for basin",
+      "kind": "object",
+      "x": 1375,
+      "y": 665,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-oven-hood",
+      "description": "Human-verified visible anchor for oven hood",
+      "kind": "object",
+      "x": 1140,
+      "y": 130,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-laundry-basket",
+      "description": "Human-verified visible anchor for laundry basket",
+      "kind": "object",
+      "x": 590,
+      "y": 640,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-side-table",
+      "description": "Human-verified visible anchor for side table",
+      "kind": "object",
+      "x": 105,
+      "y": 690,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-door-handle",
+      "description": "Human-verified visible anchor for door handle",
+      "kind": "object",
+      "x": 770,
+      "y": 193,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-window-frame",
+      "description": "Human-verified visible anchor for window frame",
+      "kind": "object",
+      "x": 45,
+      "y": 145,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-floor-tile",
+      "description": "Human-verified visible anchor for floor tile",
+      "kind": "object",
+      "x": 1090,
+      "y": 775,
+      "width": 120,
+      "height": 90
     }
   ]
 }

@@ -13,54 +13,110 @@
       "word": "body",
       "translation": "身体",
       "x": 800,
-      "y": 72,
+      "y": 285,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-body"
     },
     {
       "id": "head",
       "word": "head",
       "translation": "头部",
       "x": 800,
-      "y": 175,
-      "priority": 1,
-      "minLevel": 0
+      "y": 100,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "head"
     },
     {
       "id": "brain",
       "word": "brain",
       "translation": "大脑",
       "x": 800,
-      "y": 155,
-      "priority": 1,
-      "minLevel": 0
+      "y": 165,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "brain"
     },
     {
       "id": "chest",
       "word": "chest",
       "translation": "胸部",
       "x": 800,
-      "y": 370,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "heart",
-      "word": "heart",
-      "translation": "心脏",
-      "x": 760,
-      "y": 360,
-      "priority": 1,
-      "minLevel": 0
+      "y": 310,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "chest"
     },
     {
       "id": "lung",
       "word": "lung",
       "translation": "肺",
-      "x": 850,
-      "y": 350,
-      "priority": 1,
-      "minLevel": 0
+      "x": 665,
+      "y": 395,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "lungs"
+    },
+    {
+      "id": "heart",
+      "word": "heart",
+      "translation": "心脏",
+      "x": 815,
+      "y": 410,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "heart"
+    },
+    {
+      "id": "arm",
+      "word": "arm",
+      "translation": "手臂",
+      "x": 570,
+      "y": 500,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "left-arm"
+    },
+    {
+      "id": "shoulder",
+      "word": "shoulder",
+      "translation": "肩膀",
+      "x": 685,
+      "y": 335,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "left-arm"
+    },
+    {
+      "id": "elbow",
+      "word": "elbow",
+      "translation": "肘部",
+      "x": 580,
+      "y": 535,
+      "priority": 2.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "left-arm"
+    },
+    {
+      "id": "leg",
+      "word": "leg",
+      "translation": "腿",
+      "x": 750,
+      "y": 760,
+      "priority": 2.009,
+      "minLevel": 1,
+      "sourceVisualRegion": "legs"
+    },
+    {
+      "id": "knee",
+      "word": "knee",
+      "translation": "膝盖",
+      "x": 755,
+      "y": 705,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "legs"
     },
     {
       "id": "face",
@@ -68,449 +124,99 @@
       "translation": "面部",
       "x": 800,
       "y": 210,
-      "priority": 1,
-      "minLevel": 0
+      "priority": 2.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "head"
     },
     {
       "id": "neck",
       "word": "neck",
       "translation": "颈部",
       "x": 800,
-      "y": 260,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "shoulder",
-      "word": "shoulder",
-      "translation": "肩膀",
-      "x": 675,
-      "y": 300,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "stomach",
-      "word": "stomach",
-      "translation": "胃",
-      "x": 760,
-      "y": 470,
-      "priority": 1,
-      "minLevel": 0
+      "y": 270,
+      "priority": 2.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "neck"
     },
     {
       "id": "liver",
       "word": "liver",
       "translation": "肝脏",
-      "x": 850,
-      "y": 450,
-      "priority": 1,
-      "minLevel": 0
+      "x": 760,
+      "y": 490,
+      "priority": 3.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "liver"
+    },
+    {
+      "id": "stomach",
+      "word": "stomach",
+      "translation": "胃",
+      "x": 885,
+      "y": 485,
+      "priority": 3.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "stomach"
     },
     {
       "id": "kidney",
       "word": "kidney",
       "translation": "肾脏",
-      "x": 860,
-      "y": 510,
-      "priority": 1,
-      "minLevel": 0
+      "x": 710,
+      "y": 530,
+      "priority": 3.015,
+      "minLevel": 2,
+      "sourceVisualRegion": "kidneys"
     },
     {
       "id": "intestine",
       "word": "intestine",
       "translation": "肠道",
-      "x": 800,
-      "y": 550,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "arm",
-      "word": "arm",
-      "translation": "手臂",
-      "x": 610,
-      "y": 430,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "elbow",
-      "word": "elbow",
-      "translation": "肘部",
-      "x": 570,
-      "y": 500,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "hand",
-      "word": "hand",
-      "translation": "手",
-      "x": 535,
-      "y": 610,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "finger",
-      "word": "finger",
-      "translation": "手指",
-      "x": 520,
-      "y": 635,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "leg",
-      "word": "leg",
-      "translation": "腿",
-      "x": 740,
-      "y": 710,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "knee",
-      "word": "knee",
-      "translation": "膝盖",
-      "x": 735,
-      "y": 680,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "foot",
-      "word": "foot",
-      "translation": "脚",
-      "x": 710,
-      "y": 840,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "muscle",
-      "word": "muscle",
-      "translation": "肌肉",
-      "x": 950,
+      "x": 815,
       "y": 600,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "bone",
-      "word": "bone",
-      "translation": "骨骼",
-      "x": 650,
-      "y": 600,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "skin",
-      "word": "skin",
-      "translation": "皮肤",
-      "x": 1040,
-      "y": 420,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "blood",
-      "word": "blood",
-      "translation": "血液",
-      "x": 900,
-      "y": 390,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "nervous-system",
-      "word": "nervous system",
-      "translation": "神经系统",
-      "x": 1029,
-      "y": 277,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "circulatory-system",
-      "word": "circulatory system",
-      "translation": "循环系统",
-      "x": 561,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "digestive-system",
-      "word": "digestive system",
-      "translation": "消化系统",
-      "x": 639,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "respiratory-system",
-      "word": "respiratory system",
-      "translation": "呼吸系统",
-      "x": 717,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "endocrine-system",
-      "word": "endocrine system",
-      "translation": "内分泌系统",
-      "x": 795,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "immune-system",
-      "word": "immune system",
-      "translation": "免疫系统",
-      "x": 873,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "reproductive-system",
-      "word": "reproductive system",
-      "translation": "生殖系统",
-      "x": 951,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
+      "priority": 3.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "intestine"
     },
     {
       "id": "spinal-cord",
       "word": "spinal cord",
       "translation": "脊髓",
-      "x": 1029,
-      "y": 349,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "pelvis",
-      "word": "pelvis",
-      "translation": "骨盆",
-      "x": 561,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
+      "x": 800,
+      "y": 730,
+      "priority": 3.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "spine"
     },
     {
       "id": "rib-cage",
       "word": "rib cage",
       "translation": "胸廓",
-      "x": 639,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "skull",
-      "word": "skull",
-      "translation": "颅骨",
-      "x": 717,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "joint",
-      "word": "joint",
-      "translation": "关节",
       "x": 795,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
+      "y": 370,
+      "priority": 4.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "rib-cage"
     },
     {
-      "id": "tendon",
-      "word": "tendon",
-      "translation": "肌腱",
-      "x": 873,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
+      "id": "bone",
+      "word": "bone",
+      "translation": "骨骼",
+      "x": 920,
+      "y": 590,
+      "priority": 4.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "right-arm"
     },
     {
-      "id": "ligament",
-      "word": "ligament",
-      "translation": "韧带",
-      "x": 951,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "cartilage",
-      "word": "cartilage",
-      "translation": "软骨",
-      "x": 1029,
-      "y": 421,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "diaphragm",
-      "word": "diaphragm",
-      "translation": "膈肌",
-      "x": 561,
-      "y": 493,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "pancreas",
-      "word": "pancreas",
-      "translation": "胰腺",
-      "x": 639,
-      "y": 493,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "spleen",
-      "word": "spleen",
-      "translation": "脾脏",
-      "x": 717,
-      "y": 493,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "bladder",
-      "word": "bladder",
-      "translation": "膀胱",
-      "x": 578,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "esophagus",
-      "word": "esophagus",
-      "translation": "食管",
-      "x": 640,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "trachea",
-      "word": "trachea",
-      "translation": "气管",
-      "x": 702,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "anatomy",
-      "word": "anatomy",
-      "translation": "解剖结构",
-      "x": 764,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "organ",
-      "word": "organ",
-      "translation": "器官",
-      "x": 826,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "posture",
-      "word": "posture",
-      "translation": "姿势",
-      "x": 888,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "bone-marrow",
-      "word": "bone marrow",
-      "translation": "骨髓",
-      "x": 950,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "small-intestine",
-      "word": "small intestine",
-      "translation": "小肠",
-      "x": 1012,
-      "y": 298,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "large-intestine",
-      "word": "large intestine",
-      "translation": "大肠",
-      "x": 578,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "thyroid-gland",
-      "word": "thyroid gland",
-      "translation": "甲状腺",
-      "x": 640,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "lymph-node",
-      "word": "lymph node",
-      "translation": "淋巴结",
-      "x": 702,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "body-cavity",
-      "word": "body cavity",
-      "translation": "体腔",
-      "x": 764,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "connective-tissue",
-      "word": "connective tissue",
-      "translation": "结缔组织",
-      "x": 826,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "skin-layer",
-      "word": "skin layer",
-      "translation": "皮肤层",
-      "x": 888,
-      "y": 298,
-      "priority": 5,
-      "minLevel": 4
+      "id": "skin",
+      "word": "skin",
+      "translation": "皮肤",
+      "x": 1015,
+      "y": 560,
+      "priority": 5.02,
+      "minLevel": 4,
+      "sourceVisualRegion": "right-arm"
     }
   ],
   "portals": [
@@ -519,11 +225,184 @@
       "label": "Inspect the heart",
       "translation": "观察心脏",
       "childSceneId": "heart",
+      "x": 735,
+      "y": 330,
+      "width": 175,
+      "height": 170,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "heart"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/human-body.svg",
+    "rationale": "Kept only body regions and organs that are explicitly drawn; removed systems, glands and connective tissues absent from the cutaway.",
+    "previousLabelCount": 56,
+    "retainedLabelCount": 21,
+    "removedLabelCount": 35,
+    "removedExamples": [
+      "endocrine system",
+      "immune system",
+      "thyroid gland",
+      "lymph node",
+      "cartilage",
+      "pancreas"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-body",
+      "description": "Complete human figure in the anatomical cutaway",
+      "kind": "whole",
+      "x": 500,
+      "y": 70,
+      "width": 600,
+      "height": 790
+    },
+    {
+      "id": "head",
+      "description": "Head and face of the figure",
+      "kind": "object",
+      "x": 705,
+      "y": 85,
+      "width": 190,
+      "height": 190
+    },
+    {
+      "id": "brain",
+      "description": "Drawn brain inside the head",
+      "kind": "part",
+      "x": 740,
+      "y": 105,
+      "width": 125,
+      "height": 130
+    },
+    {
+      "id": "neck",
+      "description": "Neck between head and torso",
+      "kind": "part",
+      "x": 730,
+      "y": 230,
+      "width": 150,
+      "height": 105
+    },
+    {
+      "id": "chest",
+      "description": "Upper torso containing the lungs and heart",
+      "kind": "part",
+      "x": 620,
+      "y": 285,
+      "width": 360,
+      "height": 250
+    },
+    {
+      "id": "lungs",
+      "description": "Paired lungs in the upper chest",
+      "kind": "object",
+      "x": 620,
+      "y": 300,
+      "width": 350,
+      "height": 225
+    },
+    {
+      "id": "heart",
+      "description": "Red heart between the lungs",
+      "kind": "object",
+      "x": 735,
+      "y": 330,
+      "width": 175,
+      "height": 170
+    },
+    {
+      "id": "liver",
+      "description": "Ochre liver below the heart",
+      "kind": "object",
+      "x": 700,
+      "y": 430,
+      "width": 150,
+      "height": 110
+    },
+    {
+      "id": "stomach",
+      "description": "Curved stomach at the upper right abdomen",
+      "kind": "object",
+      "x": 815,
+      "y": 425,
+      "width": 140,
+      "height": 115
+    },
+    {
+      "id": "kidneys",
+      "description": "Paired dark kidneys on either side of the abdomen",
+      "kind": "object",
+      "x": 685,
+      "y": 475,
+      "width": 235,
+      "height": 105
+    },
+    {
+      "id": "intestine",
+      "description": "Coiled intestine in the lower abdomen",
+      "kind": "object",
+      "x": 720,
+      "y": 525,
+      "width": 185,
+      "height": 150
+    },
+    {
+      "id": "spine",
+      "description": "Vertical white spinal line",
+      "kind": "part",
+      "x": 775,
+      "y": 245,
+      "width": 55,
+      "height": 605
+    },
+    {
+      "id": "rib-cage",
+      "description": "White rib lines across the upper torso",
+      "kind": "part",
+      "x": 720,
+      "y": 305,
+      "width": 165,
+      "height": 190
+    },
+    {
+      "id": "left-arm",
+      "description": "Left arm and forearm of the figure",
+      "kind": "object",
+      "x": 500,
+      "y": 300,
+      "width": 230,
+      "height": 375
+    },
+    {
+      "id": "right-arm",
+      "description": "Right arm and forearm of the figure",
+      "kind": "object",
+      "x": 875,
+      "y": 345,
+      "width": 230,
+      "height": 330
+    },
+    {
+      "id": "legs",
+      "description": "Paired legs of the figure",
+      "kind": "object",
       "x": 690,
-      "y": 295,
-      "width": 210,
-      "height": 180,
-      "enterScale": 3.6
+      "y": 625,
+      "width": 220,
+      "height": 245
+    },
+    {
+      "id": "anatomy-panel",
+      "description": "Information panel to the right of the body",
+      "kind": "object",
+      "x": 1100,
+      "y": 210,
+      "width": 320,
+      "height": 460
     }
   ]
 }

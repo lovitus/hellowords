@@ -12,505 +12,151 @@
       "id": "electric-bus",
       "word": "electric bus",
       "translation": "电动公交车",
-      "x": 170,
-      "y": 115,
+      "x": 800,
+      "y": 470,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-electric-bus"
     },
     {
       "id": "driver",
       "word": "driver",
       "translation": "司机",
-      "x": 422,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1365,
+      "y": 500,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-driver"
     },
     {
       "id": "seat",
       "word": "seat",
       "translation": "座椅",
-      "x": 674,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 300,
+      "y": 545,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-seat"
     },
     {
       "id": "door",
       "word": "door",
       "translation": "车门",
-      "x": 926,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1095,
+      "y": 470,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-door"
     },
     {
       "id": "wheel",
       "word": "wheel",
       "translation": "车轮",
-      "x": 1178,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 300,
+      "y": 750,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-wheel"
     },
     {
       "id": "battery",
       "word": "battery",
       "translation": "电池",
-      "x": 1430,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 715,
+      "y": 700,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-battery"
     },
     {
       "id": "windshield",
       "word": "windshield",
       "translation": "挡风玻璃",
-      "x": 170,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "mirror",
-      "word": "mirror",
-      "translation": "后视镜",
-      "x": 422,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1380,
+      "y": 400,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-windshield"
     },
     {
       "id": "steering-wheel",
       "word": "steering wheel",
       "translation": "方向盘",
-      "x": 674,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1265,
+      "y": 485,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-steering-wheel"
     },
     {
       "id": "handrail",
       "word": "handrail",
       "translation": "扶手",
-      "x": 926,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "aisle",
-      "word": "aisle",
-      "translation": "过道",
-      "x": 1178,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 690,
+      "y": 380,
+      "priority": 2.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-handrail"
     },
     {
       "id": "window",
       "word": "window",
       "translation": "车窗",
-      "x": 1430,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "x": 720,
+      "y": 400,
+      "priority": 3.009,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-window"
     },
     {
       "id": "roof",
       "word": "roof",
       "translation": "车顶",
-      "x": 170,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
+      "x": 800,
+      "y": 230,
+      "priority": 3.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-roof"
     },
     {
       "id": "motor",
       "word": "motor",
       "translation": "电动机",
-      "x": 422,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "axle",
-      "word": "axle",
-      "translation": "车轴",
-      "x": 674,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "suspension",
-      "word": "suspension",
-      "translation": "悬挂系统",
-      "x": 926,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "charger",
-      "word": "charger",
-      "translation": "充电器",
-      "x": 1178,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "display",
-      "word": "display",
-      "translation": "显示屏",
-      "x": 1430,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "bell",
-      "word": "bell",
-      "translation": "下车铃",
-      "x": 526,
-      "y": 477,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "camera",
-      "word": "camera",
-      "translation": "摄像头",
-      "x": 604,
-      "y": 477,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "vent",
-      "word": "vent",
-      "translation": "通风口",
-      "x": 682,
-      "y": 477,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1060,
+      "y": 700,
+      "priority": 4.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-motor"
     },
     {
       "id": "floor",
       "word": "floor",
       "translation": "地板",
-      "x": 760,
-      "y": 477,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "ramp",
-      "word": "ramp",
-      "translation": "无障碍坡板",
-      "x": 838,
-      "y": 477,
-      "priority": 2,
-      "minLevel": 1
+      "x": 800,
+      "y": 570,
+      "priority": 4.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-floor"
     },
     {
       "id": "route-number",
       "word": "route number",
       "translation": "线路编号",
-      "x": 916,
-      "y": 477,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "rearview-mirror",
-      "word": "rearview mirror",
-      "translation": "后视镜",
-      "x": 994,
-      "y": 477,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "accelerator",
-      "word": "accelerator",
-      "translation": "加速踏板",
-      "x": 526,
-      "y": 549,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "brake-pedal",
-      "word": "brake pedal",
-      "translation": "制动踏板",
-      "x": 604,
-      "y": 549,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "dashboard",
-      "word": "dashboard",
-      "translation": "仪表台",
-      "x": 682,
-      "y": 549,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "speedometer",
-      "word": "speedometer",
-      "translation": "速度表",
-      "x": 760,
-      "y": 549,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "odometer",
-      "word": "odometer",
-      "translation": "里程表",
-      "x": 838,
-      "y": 549,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "gear-selector",
-      "word": "gear selector",
-      "translation": "挡位选择器",
-      "x": 916,
-      "y": 549,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "wiper",
-      "word": "wiper",
-      "translation": "雨刷",
-      "x": 994,
-      "y": 549,
-      "priority": 2,
-      "minLevel": 1
+      "x": 200,
+      "y": 255,
+      "priority": 5.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-route-number"
     },
     {
       "id": "destination-sign",
       "word": "destination sign",
       "translation": "线路牌",
-      "x": 526,
-      "y": 621,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "hand-strap",
-      "word": "hand strap",
-      "translation": "吊环",
-      "x": 604,
-      "y": 621,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "wheelchair-space",
-      "word": "wheelchair space",
-      "translation": "轮椅区",
-      "x": 682,
-      "y": 621,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "folding-door",
-      "word": "folding door",
-      "translation": "折叠门",
-      "x": 760,
-      "y": 621,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "climate-control",
-      "word": "climate control",
-      "translation": "温控系统",
-      "x": 838,
-      "y": 621,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "charging-port",
-      "word": "charging port",
-      "translation": "充电口",
-      "x": 916,
-      "y": 621,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "regenerative-braking",
-      "word": "regenerative braking",
-      "translation": "再生制动",
-      "x": 994,
-      "y": 621,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "inverter",
-      "word": "inverter",
-      "translation": "逆变器",
-      "x": 526,
-      "y": 693,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "drivetrain",
-      "word": "drivetrain",
-      "translation": "传动系统",
-      "x": 604,
-      "y": 693,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "bus-lane",
-      "word": "bus lane",
-      "translation": "公交专用道",
-      "x": 682,
-      "y": 693,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "low-floor",
-      "word": "low floor",
-      "translation": "低地板",
-      "x": 543,
-      "y": 498,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "kneeling-system",
-      "word": "kneeling system",
-      "translation": "车身侧跪系统",
-      "x": 605,
-      "y": 498,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "bell-push",
-      "word": "bell push",
-      "translation": "下车铃按钮",
-      "x": 667,
-      "y": 498,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "fare-reader",
-      "word": "fare reader",
-      "translation": "刷卡机",
-      "x": 729,
-      "y": 498,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "emergency-hatch",
-      "word": "emergency hatch",
-      "translation": "逃生窗",
-      "x": 791,
-      "y": 498,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "depot",
-      "word": "depot",
-      "translation": "车场",
-      "x": 853,
-      "y": 498,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "battery-cable",
-      "word": "battery cable",
-      "translation": "电池电缆",
-      "x": 915,
-      "y": 498,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "traction-motor",
-      "word": "traction motor",
-      "translation": "牵引电机",
-      "x": 977,
-      "y": 498,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "roof-vent",
-      "word": "roof vent",
-      "translation": "车顶通风口",
-      "x": 543,
-      "y": 498,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "priority-seat",
-      "word": "priority seat",
-      "translation": "优先座位",
-      "x": 605,
-      "y": 498,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "grab-rail",
-      "word": "grab rail",
-      "translation": "扶手杆",
-      "x": 667,
-      "y": 498,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "route-display",
-      "word": "route display",
-      "translation": "线路显示屏",
-      "x": 729,
-      "y": 498,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "front-axle",
-      "word": "front axle",
-      "translation": "前轴",
-      "x": 791,
-      "y": 498,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "rear-axle",
-      "word": "rear axle",
-      "translation": "后轴",
-      "x": 853,
-      "y": 498,
-      "priority": 5,
-      "minLevel": 4
+      "x": 290,
+      "y": 250,
+      "priority": 5.014,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-destination-sign"
     }
   ],
   "portals": [
@@ -519,11 +165,175 @@
       "label": "Inspect the battery pack",
       "translation": "查看电池组",
       "childSceneId": "battery",
-      "x": 560,
-      "y": 630,
-      "width": 400,
-      "height": 130,
-      "enterScale": 3.6
+      "x": 465,
+      "y": 640,
+      "width": 505,
+      "height": 125,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-battery"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/electric-bus.svg",
+    "rationale": "Kept the bus shell, driver, seats, door, wheels, floor battery and visible driver/passenger fixtures; removed invisible controls and vehicle systems.",
+    "previousLabelCount": 56,
+    "retainedLabelCount": 15,
+    "removedLabelCount": 41,
+    "removedExamples": [
+      "rearview mirror",
+      "speedometer",
+      "charging port",
+      "inverter",
+      "regenerative braking",
+      "climate control"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-electric-bus",
+      "description": "Complete electric-bus side cutaway",
+      "kind": "whole",
+      "x": 70,
+      "y": 180,
+      "width": 1450,
+      "height": 620
+    },
+    {
+      "id": "portal-battery",
+      "description": "Four-cell floor battery pack",
+      "kind": "object",
+      "x": 465,
+      "y": 640,
+      "width": 505,
+      "height": 125
+    },
+    {
+      "id": "verified-driver",
+      "description": "Human-verified visible anchor for driver",
+      "kind": "object",
+      "x": 1305,
+      "y": 455,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-seat",
+      "description": "Human-verified visible anchor for seat",
+      "kind": "object",
+      "x": 240,
+      "y": 500,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-door",
+      "description": "Human-verified visible anchor for door",
+      "kind": "object",
+      "x": 1035,
+      "y": 425,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-wheel",
+      "description": "Human-verified visible anchor for wheel",
+      "kind": "object",
+      "x": 240,
+      "y": 705,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-battery",
+      "description": "Human-verified visible anchor for battery",
+      "kind": "object",
+      "x": 655,
+      "y": 655,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-windshield",
+      "description": "Human-verified visible anchor for windshield",
+      "kind": "object",
+      "x": 1320,
+      "y": 355,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-steering-wheel",
+      "description": "Human-verified visible anchor for steering wheel",
+      "kind": "object",
+      "x": 1205,
+      "y": 440,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-handrail",
+      "description": "Human-verified visible anchor for handrail",
+      "kind": "object",
+      "x": 630,
+      "y": 335,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-window",
+      "description": "Human-verified visible anchor for window",
+      "kind": "object",
+      "x": 660,
+      "y": 355,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-roof",
+      "description": "Human-verified visible anchor for roof",
+      "kind": "object",
+      "x": 740,
+      "y": 185,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-motor",
+      "description": "Human-verified visible anchor for motor",
+      "kind": "object",
+      "x": 1000,
+      "y": 655,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-floor",
+      "description": "Human-verified visible anchor for floor",
+      "kind": "object",
+      "x": 740,
+      "y": 525,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-route-number",
+      "description": "Human-verified visible anchor for route number",
+      "kind": "object",
+      "x": 140,
+      "y": 210,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-destination-sign",
+      "description": "Human-verified visible anchor for destination sign",
+      "kind": "object",
+      "x": 230,
+      "y": 205,
+      "width": 120,
+      "height": 90
     }
   ]
 }

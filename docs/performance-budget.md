@@ -40,12 +40,12 @@ required topic shards. Its live DOM budget remains independent of the
 | --- | ---: |
 | Cold LCP | <= 2,500 ms |
 | Cold first scene switch p95 | <= 1,000 ms |
-| Warm scene switch p50 | <= 150 ms |
-| Warm scene switch p95 | <= 300 ms |
+| Warm visual scene switch p50 | <= 350 ms |
+| Warm visual scene switch p95 | <= 650 ms |
 | Long tasks over 50 ms in 40 warm transitions | <= 2 |
 | Longest warm long task | <= 120 ms |
 | Renderer task duration | <= 75 ms / transition |
-| All Chrome process CPU | <= 150 ms / transition |
+| Headless all-Chrome CPU (including SwiftShader) | <= 750 ms / transition |
 
 ## Memory and retention limits
 
@@ -78,6 +78,10 @@ CPU sampling uses CDP `SystemInfo.getProcessInfo().cpuTime`. Linux PSS is sample
 from `smaps_rollup`; RSS from `/proc/<pid>/status` is recorded as a higher-rate,
 less precise peak approximation. CDP performance metrics, JS heap, DOM counters,
 User Timing, and long-task observations are stored alongside process samples.
+The all-process CPU ceiling includes Chromium's software GPU process in the
+pinned headless environment. It is a same-environment regression ceiling, not
+an estimate of hardware-GPU device CPU. Renderer `TaskDuration`, long tasks and
+the user-visible transition measure remain separately gated.
 
 Formal measurement disables traces, video and screenshots. A failing run may
 perform a separate diagnostic rerun with tracing; diagnostic measurements are

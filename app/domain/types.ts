@@ -34,6 +34,22 @@ export interface Label {
   readonly lexemeId?: string;
   /** Optional stable reference when one lexeme has multiple senses. */
   readonly senseId?: string;
+  /**
+   * Audited visual region that contains the exact object or part named by this
+   * label. The coordinate remains the real anchor point; runtime layout may
+   * move the pill but draws a leader back to this point.
+   */
+  readonly sourceVisualRegion?: string;
+}
+
+export interface VisualRegion {
+  readonly id: string;
+  readonly description: string;
+  readonly x: number;
+  readonly y: number;
+  readonly width: number;
+  readonly height: number;
+  readonly kind: "whole" | "object" | "part" | "diagram";
 }
 
 export interface Portal {
@@ -41,6 +57,8 @@ export interface Portal {
   readonly label: string;
   readonly translation?: string;
   readonly childSceneId: string;
+  /** Audited visual region containing the object that opens this child scene. */
+  readonly sourceVisualRegion?: string;
   readonly x: number;
   readonly y: number;
   readonly width: number;
@@ -49,6 +67,17 @@ export interface Portal {
   readonly entryCamera?: Camera;
   /** Runtime override; normally supplied by the navigation policy. */
   readonly exitScale?: number;
+}
+
+export interface SceneAnchorAudit {
+  readonly status: "human-verified";
+  readonly policy: "visible-object-or-part-only";
+  readonly reviewedAsset: string;
+  readonly rationale: string;
+  readonly previousLabelCount: number;
+  readonly retainedLabelCount: number;
+  readonly removedLabelCount: number;
+  readonly removedExamples: readonly string[];
 }
 
 export interface Scene {
@@ -61,6 +90,9 @@ export interface Scene {
   readonly height: number;
   readonly parentId?: string | null;
   readonly initialCamera?: Camera;
+  /** Human-audited image regions used to verify word-to-object placement. */
+  readonly visualRegions?: readonly VisualRegion[];
+  readonly anchorAudit?: SceneAnchorAudit;
   readonly labels: readonly Label[];
   readonly portals: readonly Portal[];
 }

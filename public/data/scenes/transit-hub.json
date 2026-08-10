@@ -13,540 +13,120 @@
       "word": "terminal",
       "translation": "交通枢纽",
       "x": 800,
-      "y": 72,
+      "y": 430,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-terminal"
     },
     {
       "id": "platform",
       "word": "platform",
       "translation": "站台",
-      "x": 510,
-      "y": 640,
-      "priority": 1,
-      "minLevel": 0
+      "x": 800,
+      "y": 700,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-platform"
     },
     {
       "id": "bus",
       "word": "bus",
       "translation": "公共汽车",
-      "x": 1090,
-      "y": 575,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1220,
+      "y": 590,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-bus"
     },
     {
       "id": "train",
       "word": "train",
       "translation": "列车",
       "x": 350,
-      "y": 565,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "passenger",
-      "word": "passenger",
-      "translation": "乘客",
-      "x": 735,
-      "y": 545,
-      "priority": 1,
-      "minLevel": 0
+      "y": 600,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-train"
     },
     {
       "id": "concourse",
       "word": "concourse",
       "translation": "中央大厅",
-      "x": 790,
-      "y": 380,
-      "priority": 1,
-      "minLevel": 0
+      "x": 800,
+      "y": 430,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-concourse"
     },
     {
-      "id": "ticket",
-      "word": "ticket",
-      "translation": "车票",
-      "x": 1190,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "schedule",
-      "word": "schedule",
-      "translation": "时刻表",
-      "x": 600,
-      "y": 270,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "gate",
-      "word": "gate",
-      "translation": "闸口",
-      "x": 910,
-      "y": 440,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "escalator",
-      "word": "escalator",
-      "translation": "自动扶梯",
-      "x": 410,
-      "y": 420,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "elevator",
-      "word": "elevator",
-      "translation": "电梯",
-      "x": 1420,
-      "y": 390,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "staircase",
-      "word": "staircase",
-      "translation": "楼梯",
-      "x": 245,
-      "y": 410,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "luggage",
-      "word": "luggage",
-      "translation": "行李",
-      "x": 825,
-      "y": 610,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "bench",
-      "word": "bench",
-      "translation": "长椅",
-      "x": 650,
-      "y": 675,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "canopy",
-      "word": "canopy",
-      "translation": "顶棚",
-      "x": 805,
-      "y": 175,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "turnstile",
-      "word": "turnstile",
-      "translation": "旋转闸机",
-      "x": 940,
-      "y": 530,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "validator",
-      "word": "validator",
-      "translation": "验票机",
-      "x": 1010,
-      "y": 475,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "map",
-      "word": "map",
-      "translation": "线路图",
-      "x": 1360,
+      "id": "departure-board",
+      "word": "departure board",
+      "translation": "发车信息板",
+      "x": 800,
       "y": 285,
-      "priority": 1,
-      "minLevel": 0
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-departure-board"
     },
     {
       "id": "clock",
       "word": "clock",
       "translation": "时钟",
       "x": 800,
-      "y": 245,
-      "priority": 1,
-      "minLevel": 0
+      "y": 190,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-clock"
     },
     {
-      "id": "announcement",
-      "word": "announcement",
-      "translation": "广播通知",
-      "x": 1090,
-      "y": 220,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "queue",
-      "word": "queue",
-      "translation": "队列",
-      "x": 1130,
-      "y": 400,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "uniform",
-      "word": "uniform",
-      "translation": "制服",
-      "x": 1280,
-      "y": 500,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "departure",
-      "word": "departure",
-      "translation": "出发",
-      "x": 520,
-      "y": 315,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "arrival",
-      "word": "arrival",
-      "translation": "到达",
-      "x": 690,
-      "y": 315,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "ticket-machine",
-      "word": "ticket machine",
-      "translation": "售票机",
-      "x": 1077,
-      "y": 437,
-      "priority": 2,
-      "minLevel": 1
+      "id": "escalator",
+      "word": "escalator",
+      "translation": "自动扶梯",
+      "x": 450,
+      "y": 385,
+      "priority": 3.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-escalator"
     },
     {
       "id": "fare-gate",
       "word": "fare gate",
       "translation": "检票闸机",
-      "x": 322,
-      "y": 357,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "information-desk",
-      "word": "information desk",
-      "translation": "问讯处",
-      "x": 1155,
-      "y": 437,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "waiting-area",
-      "word": "waiting area",
-      "translation": "候车区",
-      "x": 400,
-      "y": 357,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "baggage-cart",
-      "word": "baggage cart",
-      "translation": "行李车",
-      "x": 1233,
-      "y": 437,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "locker",
-      "word": "locker",
-      "translation": "储物柜",
-      "x": 478,
-      "y": 357,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "departure-hall",
-      "word": "departure hall",
-      "translation": "出发大厅",
-      "x": 1311,
-      "y": 437,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "arrival-hall",
-      "word": "arrival hall",
-      "translation": "到达大厅",
-      "x": 556,
-      "y": 357,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "bay",
-      "word": "bay",
-      "translation": "站台泊位",
-      "x": 1389,
-      "y": 437,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "shuttle",
-      "word": "shuttle",
-      "translation": "接驳车",
-      "x": 634,
-      "y": 357,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "tram",
-      "word": "tram",
-      "translation": "有轨电车",
-      "x": 921,
-      "y": 509,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "subway",
-      "word": "subway",
-      "translation": "地铁",
-      "x": 166,
-      "y": 429,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "railway-platform",
-      "word": "railway platform",
-      "translation": "铁路站台",
-      "x": 999,
-      "y": 509,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "transfer",
-      "word": "transfer",
-      "translation": "换乘",
-      "x": 244,
-      "y": 429,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "connection",
-      "word": "connection",
-      "translation": "联程",
-      "x": 1077,
-      "y": 509,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "fare-card",
-      "word": "fare card",
-      "translation": "交通卡",
-      "x": 322,
-      "y": 429,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "ticket-office",
-      "word": "ticket office",
-      "translation": "售票处",
-      "x": 1155,
-      "y": 509,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "public-address",
-      "word": "public address",
-      "translation": "公共广播",
-      "x": 400,
-      "y": 429,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "security-check",
-      "word": "security check",
-      "translation": "安检",
-      "x": 1233,
-      "y": 509,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "elevator-lobby",
-      "word": "elevator lobby",
-      "translation": "电梯厅",
-      "x": 478,
-      "y": 429,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "accessible-route",
-      "word": "accessible route",
-      "translation": "无障碍路线",
-      "x": 1311,
-      "y": 509,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "wayfinding",
-      "word": "wayfinding",
-      "translation": "导向系统",
-      "x": 556,
-      "y": 429,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "timetable-screen",
-      "word": "timetable screen",
-      "translation": "时刻表屏幕",
-      "x": 1389,
-      "y": 509,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "service-alert",
-      "word": "service alert",
-      "translation": "运营提醒",
-      "x": 634,
-      "y": 429,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "platform-number",
-      "word": "platform number",
-      "translation": "站台编号",
-      "x": 938,
-      "y": 458,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "departure-board",
-      "word": "departure board",
-      "translation": "发车信息板",
-      "x": 183,
-      "y": 378,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "arrival-board",
-      "word": "arrival board",
-      "translation": "到达信息板",
-      "x": 1000,
-      "y": 458,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "lost-property",
-      "word": "lost property",
-      "translation": "失物招领",
-      "x": 245,
-      "y": 378,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "travel-pass",
-      "word": "travel pass",
-      "translation": "通票",
-      "x": 1062,
-      "y": 458,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "queue-barrier",
-      "word": "queue barrier",
-      "translation": "排队护栏",
-      "x": 307,
-      "y": 378,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "station-clock",
-      "word": "station clock",
-      "translation": "车站时钟",
-      "x": 1124,
-      "y": 458,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "emergency-exit",
-      "word": "emergency exit",
-      "translation": "紧急出口",
-      "x": 938,
-      "y": 458,
-      "priority": 5,
-      "minLevel": 4
+      "x": 850,
+      "y": 555,
+      "priority": 3.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-fare-gate"
     },
     {
       "id": "route-map",
       "word": "route map",
       "translation": "线路图",
-      "x": 183,
-      "y": 378,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "escalator-handrail",
-      "word": "escalator handrail",
-      "translation": "自动扶梯扶手",
-      "x": 1000,
-      "y": 458,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "waiting-bench",
-      "word": "waiting bench",
-      "translation": "候车长椅",
-      "x": 245,
-      "y": 378,
-      "priority": 5,
-      "minLevel": 4
+      "x": 1370,
+      "y": 335,
+      "priority": 4.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-route-map"
     },
     {
       "id": "platform-canopy",
       "word": "platform canopy",
       "translation": "站台雨棚",
-      "x": 1062,
-      "y": 458,
-      "priority": 5,
-      "minLevel": 4
+      "x": 800,
+      "y": 175,
+      "priority": 4.01,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-platform-canopy"
+    },
+    {
+      "id": "escalator-handrail",
+      "word": "escalator handrail",
+      "translation": "自动扶梯扶手",
+      "x": 455,
+      "y": 350,
+      "priority": 5.011,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-escalator-handrail"
     }
   ],
   "portals": [
@@ -555,22 +135,169 @@
       "label": "Board the electric bus",
       "translation": "登上电动公交车",
       "childSceneId": "electric-bus",
-      "x": 940,
-      "y": 380,
-      "width": 430,
-      "height": 330,
-      "enterScale": 3.6
+      "x": 900,
+      "y": 430,
+      "width": 640,
+      "height": 345,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-bus"
     },
     {
       "id": "enter-railway-platform",
       "label": "Enter the railway platform",
       "translation": "进入铁路站台",
       "childSceneId": "railway-platform",
-      "x": 165,
-      "y": 270,
-      "width": 470,
-      "height": 390,
-      "enterScale": 3.6
+      "x": 55,
+      "y": 455,
+      "width": 670,
+      "height": 315,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-railway"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/transit-hub.svg",
+    "rationale": "Reduced the hub to the two vehicles, concourse/platform structure, departure board, clock, escalator, fare gates and route map that are visibly drawn.",
+    "previousLabelCount": 60,
+    "retainedLabelCount": 12,
+    "removedLabelCount": 48,
+    "removedExamples": [
+      "passenger",
+      "luggage",
+      "ticket machine",
+      "elevator",
+      "waiting bench",
+      "announcement"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-terminal",
+      "description": "Complete illustrated transit terminal",
+      "kind": "whole",
+      "x": 0,
+      "y": 100,
+      "width": 1600,
+      "height": 700
+    },
+    {
+      "id": "portal-bus",
+      "description": "Electric bus at the right platform",
+      "kind": "object",
+      "x": 900,
+      "y": 430,
+      "width": 640,
+      "height": 345
+    },
+    {
+      "id": "portal-railway",
+      "description": "Rail vehicle at the left platform",
+      "kind": "object",
+      "x": 55,
+      "y": 455,
+      "width": 670,
+      "height": 315
+    },
+    {
+      "id": "verified-platform",
+      "description": "Human-verified visible anchor for platform",
+      "kind": "object",
+      "x": 740,
+      "y": 655,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-bus",
+      "description": "Human-verified visible anchor for bus",
+      "kind": "object",
+      "x": 1160,
+      "y": 545,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-train",
+      "description": "Human-verified visible anchor for train",
+      "kind": "object",
+      "x": 290,
+      "y": 555,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-concourse",
+      "description": "Human-verified visible anchor for concourse",
+      "kind": "object",
+      "x": 740,
+      "y": 385,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-departure-board",
+      "description": "Human-verified visible anchor for departure board",
+      "kind": "object",
+      "x": 740,
+      "y": 240,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-clock",
+      "description": "Human-verified visible anchor for clock",
+      "kind": "object",
+      "x": 740,
+      "y": 145,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-escalator",
+      "description": "Human-verified visible anchor for escalator",
+      "kind": "object",
+      "x": 390,
+      "y": 340,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-fare-gate",
+      "description": "Human-verified visible anchor for fare gate",
+      "kind": "object",
+      "x": 790,
+      "y": 510,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-route-map",
+      "description": "Human-verified visible anchor for route map",
+      "kind": "object",
+      "x": 1310,
+      "y": 290,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-platform-canopy",
+      "description": "Human-verified visible anchor for platform canopy",
+      "kind": "object",
+      "x": 740,
+      "y": 130,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-escalator-handrail",
+      "description": "Human-verified visible anchor for escalator handrail",
+      "kind": "object",
+      "x": 395,
+      "y": 305,
+      "width": 120,
+      "height": 90
     }
   ]
 }

@@ -12,433 +12,161 @@
       "id": "train-carriage",
       "word": "train carriage",
       "translation": "列车车厢",
-      "x": 170,
-      "y": 115,
+      "x": 800,
+      "y": 80,
       "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "vestibule",
-      "word": "vestibule",
-      "translation": "车厢连接厅",
-      "x": 422,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "gangway",
-      "word": "gangway",
-      "translation": "贯通道",
-      "x": 674,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-carriage"
     },
     {
       "id": "compartment",
       "word": "compartment",
       "translation": "隔间",
-      "x": 926,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "seatback",
-      "word": "seatback",
-      "translation": "椅背",
-      "x": 1178,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "armrest",
-      "word": "armrest",
-      "translation": "扶手",
-      "x": 1430,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "tray-table",
-      "word": "tray table",
-      "translation": "小桌板",
-      "x": 170,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "overhead-rack",
-      "word": "overhead rack",
-      "translation": "行李架",
-      "x": 422,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "luggage-space",
-      "word": "luggage space",
-      "translation": "行李区",
-      "x": 674,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "grab-handle",
-      "word": "grab handle",
-      "translation": "抓手",
-      "x": 926,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "sliding-door",
-      "word": "sliding door",
-      "translation": "滑门",
-      "x": 1178,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "emergency-exit",
-      "word": "emergency exit",
-      "translation": "紧急出口",
-      "x": 1430,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "intercom",
-      "word": "intercom",
-      "translation": "对讲器",
-      "x": 170,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "reading-light",
-      "word": "reading light",
-      "translation": "阅读灯",
-      "x": 422,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "power-socket",
-      "word": "power socket",
-      "translation": "电源插口",
-      "x": 556,
-      "y": 537,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "window-blind",
-      "word": "window blind",
-      "translation": "遮阳帘",
-      "x": 634,
-      "y": 537,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1450,
+      "y": 690,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "carriage-shell"
     },
     {
       "id": "passenger-seat",
       "word": "passenger seat",
       "translation": "乘客座椅",
-      "x": 712,
-      "y": 537,
-      "priority": 2,
-      "minLevel": 1
+      "x": 270,
+      "y": 650,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "seats-left"
     },
     {
-      "id": "aisle-seat",
-      "word": "aisle seat",
-      "translation": "靠过道座位",
-      "x": 790,
-      "y": 537,
-      "priority": 2,
-      "minLevel": 1
+      "id": "sliding-door",
+      "word": "sliding door",
+      "translation": "滑门",
+      "x": 800,
+      "y": 300,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "sliding-door"
+    },
+    {
+      "id": "overhead-rack",
+      "word": "overhead rack",
+      "translation": "行李架",
+      "x": 460,
+      "y": 205,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "overhead-rack"
+    },
+    {
+      "id": "window",
+      "word": "window",
+      "translation": "车窗",
+      "x": 300,
+      "y": 315,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "windows-left"
     },
     {
       "id": "window-seat",
       "word": "window seat",
       "translation": "靠窗座位",
-      "x": 868,
-      "y": 537,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1100,
+      "y": 650,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "seats-right"
     },
     {
-      "id": "priority-seat",
-      "word": "priority seat",
-      "translation": "优先座位",
-      "x": 946,
-      "y": 537,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "headrest",
-      "word": "headrest",
-      "translation": "头枕",
-      "x": 1024,
-      "y": 537,
-      "priority": 2,
-      "minLevel": 1
+      "id": "seatback",
+      "word": "seatback",
+      "translation": "椅背",
+      "x": 520,
+      "y": 550,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "seats-left"
     },
     {
       "id": "upholstery",
       "word": "upholstery",
       "translation": "座椅面料",
-      "x": 556,
-      "y": 609,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1260,
+      "y": 590,
+      "priority": 2.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "seat-cushions"
     },
     {
-      "id": "door-button",
-      "word": "door button",
-      "translation": "车门按钮",
-      "x": 634,
-      "y": 609,
-      "priority": 2,
-      "minLevel": 1
+      "id": "grab-handle",
+      "word": "grab handle",
+      "translation": "抓手",
+      "x": 1040,
+      "y": 250,
+      "priority": 2.009,
+      "minLevel": 1,
+      "sourceVisualRegion": "grab-handles"
     },
     {
       "id": "route-display",
       "word": "route display",
       "translation": "线路显示屏",
-      "x": 712,
-      "y": 609,
-      "priority": 2,
-      "minLevel": 1
+      "x": 800,
+      "y": 145,
+      "priority": 3.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "route-display"
     },
     {
-      "id": "seat-reservation",
-      "word": "seat reservation",
-      "translation": "座位预订",
-      "x": 790,
-      "y": 609,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "ticket-pocket",
-      "word": "ticket pocket",
-      "translation": "车票袋",
-      "x": 868,
-      "y": 609,
-      "priority": 2,
-      "minLevel": 1
+      "id": "door-button",
+      "word": "door button",
+      "translation": "车门按钮",
+      "x": 800,
+      "y": 445,
+      "priority": 3.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "door-buttons"
     },
     {
       "id": "flooring",
       "word": "flooring",
       "translation": "地板层",
-      "x": 946,
-      "y": 609,
-      "priority": 3,
-      "minLevel": 2
+      "x": 800,
+      "y": 720,
+      "priority": 3.012,
+      "minLevel": 2,
+      "sourceVisualRegion": "floor"
     },
     {
       "id": "ceiling-panel",
       "word": "ceiling panel",
       "translation": "顶板",
-      "x": 1024,
-      "y": 609,
-      "priority": 3,
-      "minLevel": 2
+      "x": 1320,
+      "y": 120,
+      "priority": 3.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "carriage-shell"
     },
     {
-      "id": "cctv-camera",
-      "word": "cctv camera",
-      "translation": "监控摄像头",
-      "x": 556,
-      "y": 681,
-      "priority": 3,
-      "minLevel": 2
+      "id": "seat-cushion",
+      "word": "seat cushion",
+      "translation": "座垫",
+      "x": 1035,
+      "y": 590,
+      "priority": 4.014,
+      "minLevel": 3,
+      "sourceVisualRegion": "seat-cushions"
     },
     {
-      "id": "fire-extinguisher",
-      "word": "fire extinguisher",
-      "translation": "灭火器",
-      "x": 634,
-      "y": 681,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "emergency-hammer",
-      "word": "emergency hammer",
-      "translation": "安全锤",
-      "x": 712,
-      "y": 681,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "first-aid-kit",
-      "word": "first aid kit",
-      "translation": "急救箱",
-      "x": 790,
-      "y": 681,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "sit-down",
-      "word": "sit down",
-      "translation": "坐下",
-      "x": 868,
-      "y": 681,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "stand-up",
-      "word": "stand up",
-      "translation": "站起",
-      "x": 946,
-      "y": 681,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "hold-on",
-      "word": "hold on",
-      "translation": "抓稳",
-      "x": 1024,
-      "y": 681,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "move-along",
-      "word": "move along",
-      "translation": "往里走",
-      "x": 556,
-      "y": 753,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "stow-luggage",
-      "word": "stow luggage",
-      "translation": "放置行李",
-      "x": 573,
-      "y": 558,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "validate-a-ticket",
-      "word": "validate a ticket",
-      "translation": "验票",
-      "x": 635,
-      "y": 558,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "open-the-door",
-      "word": "open the door",
-      "translation": "开门",
-      "x": 697,
-      "y": 558,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "close-the-door",
-      "word": "close the door",
-      "translation": "关门",
-      "x": 759,
-      "y": 558,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "crowded",
-      "word": "crowded",
-      "translation": "拥挤的",
-      "x": 821,
-      "y": 558,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "vacant",
-      "word": "vacant",
-      "translation": "空着的",
-      "x": 883,
-      "y": 558,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "occupied",
-      "word": "occupied",
-      "translation": "有人使用的",
-      "x": 945,
-      "y": 558,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "accessible",
-      "word": "accessible",
-      "translation": "无障碍的",
-      "x": 573,
-      "y": 558,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "quiet-carriage",
-      "word": "quiet carriage",
-      "translation": "安静车厢",
-      "x": 635,
-      "y": 558,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "next-stop",
-      "word": "next stop",
-      "translation": "下一站",
-      "x": 697,
-      "y": 558,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "final-stop",
-      "word": "final stop",
-      "translation": "终点站",
-      "x": 759,
-      "y": 558,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "rail-journey",
-      "word": "rail journey",
-      "translation": "铁路旅程",
-      "x": 821,
-      "y": 558,
-      "priority": 5,
-      "minLevel": 4
+      "id": "bogie",
+      "word": "bogie",
+      "translation": "转向架",
+      "x": 800,
+      "y": 835,
+      "priority": 5.015,
+      "minLevel": 4,
+      "sourceVisualRegion": "bogie-area"
     }
   ],
   "portals": [
@@ -447,11 +175,157 @@
       "label": "Inspect the rail bogie",
       "translation": "查看铁路转向架",
       "childSceneId": "rail-bogie",
-      "x": 430,
-      "y": 620,
-      "width": 720,
-      "height": 210,
-      "enterScale": 3.6
+      "x": 80,
+      "y": 755,
+      "width": 1440,
+      "height": 145,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "bogie-area"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/train-carriage.svg",
+    "rationale": "Kept the carriage shell, windows, seats, central sliding door, overhead rack, grab handles, route display, floor and visible underfloor bogie; removed amenities and passenger actions not drawn.",
+    "previousLabelCount": 48,
+    "retainedLabelCount": 16,
+    "removedLabelCount": 32,
+    "removedExamples": [
+      "tray table",
+      "intercom",
+      "power socket",
+      "fire extinguisher",
+      "sit down",
+      "crowded"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-carriage",
+      "description": "Complete train carriage cutaway",
+      "kind": "whole",
+      "x": 75,
+      "y": 55,
+      "width": 1450,
+      "height": 835
+    },
+    {
+      "id": "carriage-shell",
+      "description": "Pale carriage body and curved roof",
+      "kind": "object",
+      "x": 80,
+      "y": 55,
+      "width": 1440,
+      "height": 720
+    },
+    {
+      "id": "windows-left",
+      "description": "Two large left-side windows",
+      "kind": "object",
+      "x": 165,
+      "y": 195,
+      "width": 540,
+      "height": 255
+    },
+    {
+      "id": "windows-right",
+      "description": "Two large right-side windows",
+      "kind": "object",
+      "x": 895,
+      "y": 195,
+      "width": 540,
+      "height": 255
+    },
+    {
+      "id": "seats-left",
+      "description": "Two green passenger seats at left",
+      "kind": "object",
+      "x": 140,
+      "y": 520,
+      "width": 525,
+      "height": 195
+    },
+    {
+      "id": "seats-right",
+      "description": "Two green passenger seats at right",
+      "kind": "object",
+      "x": 905,
+      "y": 520,
+      "width": 525,
+      "height": 195
+    },
+    {
+      "id": "seat-cushions",
+      "description": "Orange seat cushions across the carriage",
+      "kind": "part",
+      "x": 145,
+      "y": 560,
+      "width": 1285,
+      "height": 75
+    },
+    {
+      "id": "sliding-door",
+      "description": "Central double sliding door",
+      "kind": "object",
+      "x": 695,
+      "y": 165,
+      "width": 210,
+      "height": 550
+    },
+    {
+      "id": "door-buttons",
+      "description": "Two round buttons on the central door",
+      "kind": "part",
+      "x": 755,
+      "y": 415,
+      "width": 95,
+      "height": 65
+    },
+    {
+      "id": "overhead-rack",
+      "description": "Dark green overhead rack and yellow slats",
+      "kind": "object",
+      "x": 140,
+      "y": 155,
+      "width": 1320,
+      "height": 105
+    },
+    {
+      "id": "grab-handles",
+      "description": "Four orange hanging grab handles",
+      "kind": "object",
+      "x": 220,
+      "y": 155,
+      "width": 1110,
+      "height": 155
+    },
+    {
+      "id": "route-display",
+      "description": "White route display above the central door",
+      "kind": "object",
+      "x": 600,
+      "y": 95,
+      "width": 400,
+      "height": 95
+    },
+    {
+      "id": "floor",
+      "description": "Horizontal carriage floor above the undercarriage",
+      "kind": "part",
+      "x": 135,
+      "y": 690,
+      "width": 1330,
+      "height": 90
+    },
+    {
+      "id": "bogie-area",
+      "description": "Dark underfloor bogie, wheels and frame",
+      "kind": "object",
+      "x": 80,
+      "y": 755,
+      "width": 1440,
+      "height": 145
     }
   ]
 }

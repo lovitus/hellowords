@@ -1,7 +1,12 @@
 import { createHash } from "node:crypto";
 import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { assertValidSceneGraph, type Scene } from "../app/domain/index";
+import {
+  assertValidSceneGraph,
+  type Label,
+  type Portal,
+  type Scene,
+} from "../app/domain/index";
 
 interface SceneManifest {
   schemaVersion: number;
@@ -9,69 +14,188 @@ interface SceneManifest {
   scenes: Array<{ id: string; title: string; parentId: string | null }>;
 }
 
+type VisualRegionKind = "whole" | "object" | "part" | "diagram";
+
+interface VisualRegion {
+  id: string;
+  description: string;
+  kind: VisualRegionKind;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+interface AnchorAudit {
+  status: "human-verified";
+  policy: "visible-object-or-part-only";
+  reviewedAsset: string;
+  rationale: string;
+  previousLabelCount: number;
+  retainedLabelCount: number;
+  removedLabelCount: number;
+  removedExamples: string[];
+}
+
+interface AuditedLabel extends Label {
+  sourceVisualRegion: string;
+}
+
+interface AuditedPortal extends Portal {
+  sourceVisualRegion: string;
+}
+
+interface AuditedScene extends Scene {
+  anchorAudit: AnchorAudit;
+  visualRegions: VisualRegion[];
+  labels: AuditedLabel[];
+  portals: AuditedPortal[];
+}
+
 const projectRoot = resolve(import.meta.dirname, "..");
 const dataRoot = resolve(projectRoot, "public/data/scenes");
 const publicRoot = resolve(projectRoot, "public");
 const MIN_MATURE_SCENES = 30;
-const MIN_NATURAL_ANCHORS = 1_600;
 const MIN_ROOT_BRANCHES = 3;
-const MIN_LABELS_PER_SCENE = 48;
-const MAX_LABELS_PER_SCENE = 80;
 const MIN_DEEP_PATHS = 6;
 const MIN_DEEP_PATH_SCENES = 5;
 const DENSITY_LEVELS = [0, 1, 2, 3, 4] as const;
+const VISUAL_REGION_KINDS = new Set<VisualRegionKind>([
+  "whole",
+  "object",
+  "part",
+  "diagram",
+]);
 
-const TOPIC_SIGNATURES: Readonly<Record<string, readonly string[]>> = {
-  "world-map": ["apartment", "station", "oak", "harbor", "natural"],
-  apartment: ["living room", "kitchen", "bedroom", "bathroom", "sofa"],
-  kitchen: ["stove", "sink", "spatula", "sharp", "recipe"],
-  "coffee-machine": ["coffee machine", "boiler", "grinder", "chamber", "automatic"],
-  "water-tank": ["tank", "inlet", "outlet", "float switch", "hydrostatic pressure"],
-  polymer: ["polymer", "chain", "polymerization", "thermoplastic", "molecular weight"],
-  bedroom: ["bedroom", "duvet", "wardrobe", "sleep", "curtain rod"],
-  "wardrobe-interior": ["wardrobe", "garment", "zipper", "hang up", "denim"],
-  "cotton-shirt": ["cotton shirt", "yarn", "weave", "sewing machine", "breathable"],
-  "city-street": ["street", "crosswalk", "storefront", "traffic lane", "fire hydrant"],
-  "transit-hub": ["terminal", "platform", "ticket machine", "fare gate", "railway platform"],
-  "electric-bus": ["electric bus", "battery", "charging port", "traction motor", "regenerative braking"],
-  battery: ["battery", "cell", "anode", "cathode", "busbar"],
-  "lithium-ion-cell": ["lithium ion cell", "electrode", "graphite", "ion migration", "cycle life"],
-  "railway-platform": ["rail", "platform", "ballast", "mind the gap", "timetable"],
-  "train-carriage": ["train carriage", "seatback", "overhead rack", "emergency hammer", "rail journey"],
-  "rail-bogie": ["rail bogie", "wheelset", "suspension spring", "traction motor", "friction"],
-  "science-museum": ["exhibit", "microscope", "human body", "planetarium", "curator"],
-  "human-body": ["body", "brain", "heart", "nervous system", "spinal cord"],
-  heart: ["heart", "atrium", "ventricle", "mitral valve", "systole"],
-  "blood-cell": ["blood cell", "red blood cell", "platelet", "hemoglobin", "phagocytosis"],
-  hemoglobin: ["hemoglobin", "heme", "globin", "oxygen binding site", "oxyhemoglobin"],
-  "oxygen-molecule": ["oxygen molecule", "covalent bond", "alveolus", "dissolved oxygen", "essential"],
-  "city-park": ["park", "pond", "playground", "walking trail", "pond edge"],
-  "oak-tree": ["oak", "tree", "trunk", "acorn", "growth ring"],
-  leaf: ["leaf", "vein", "stomata", "xylem", "chloroplast interior"],
-  "plant-cell": ["cell", "nucleus", "vacuole", "chloroplast", "golgi apparatus"],
-  "chloroplast-interior": ["chloroplast interior", "thylakoid", "granum", "photosystem", "calvin cycle"],
-  "pond-edge": ["pond edge", "reed", "lily pad", "tadpole", "freshwater"],
-  frog: ["frog", "amphibian", "webbed foot", "metamorphosis", "hibernate"],
+const FORBIDDEN_UNGROUNDED: Readonly<Record<string, readonly string[]>> = {
+  "city-park": [
+    "sprinkler",
+    "barbecue",
+    "rabbit",
+    "skateboarding",
+    "drinking fountain",
+    "bird feeder",
+    "walking trail",
+    "fallen leaves",
+  ],
+  kitchen: ["boiling", "frying", "recipe", "ingredient", "chef knife", "whisk"],
+  bedroom: ["sleep", "dream", "cozy", "alarm clock", "slippers"],
+  polymer: ["thermoplastic", "polymerization", "molecular weight", "recycling"],
+  "oxygen-molecule": ["combustion", "oxidation", "hypoxia", "inhale"],
+  frog: ["jump", "hibernate", "food chain", "cricket"],
 };
 
-const FORBIDDEN_FILLERS: Readonly<Record<string, readonly string[]>> = {
-  kitchen: ["sleep", "upstairs", "cotton", "leather"],
-  bedroom: ["cook", "stove", "boiler", "battery"],
-  "coffee-machine": ["heart", "lung", "bedroom"],
-  polymer: ["bedroom", "sleep", "passenger", "heart"],
-  "train-carriage": ["chloroplast", "polymer", "stomach"],
-  "oxygen-molecule": ["leather", "synthetic", "sofa", "passenger"],
-  "plant-cell": ["passenger", "brake", "sofa"],
-  frog: ["battery", "sofa", "rail"],
-};
+function validateAnchorAudit(scene: AuditedScene): void {
+  const { anchorAudit } = scene;
+  if (!anchorAudit || anchorAudit.status !== "human-verified") {
+    throw new Error(`Scene ${scene.id} has not been human verified against its visual`);
+  }
+  if (anchorAudit.policy !== "visible-object-or-part-only") {
+    throw new Error(`Scene ${scene.id} uses an unsupported anchor policy`);
+  }
+  if (anchorAudit.reviewedAsset !== scene.asset) {
+    throw new Error(`Scene ${scene.id} audit targets ${anchorAudit.reviewedAsset}, not ${scene.asset}`);
+  }
+  if (anchorAudit.rationale.trim().length < 40) {
+    throw new Error(`Scene ${scene.id} needs a substantive visual-audit rationale`);
+  }
+  if (anchorAudit.retainedLabelCount !== scene.labels.length) {
+    throw new Error(`Scene ${scene.id} retained count does not match its labels`);
+  }
+  if (
+    anchorAudit.previousLabelCount - anchorAudit.retainedLabelCount !==
+    anchorAudit.removedLabelCount
+  ) {
+    throw new Error(`Scene ${scene.id} audit counts do not reconcile`);
+  }
+  if (anchorAudit.removedExamples.length < 3) {
+    throw new Error(`Scene ${scene.id} needs representative removed-label evidence`);
+  }
 
-const CONTEXT_TRANSLATIONS = [
-  ["world-map", "natural", "自然的"],
-  ["kitchen", "sharp", "锋利的"],
-  ["coffee-machine", "chamber", "腔室"],
-  ["coffee-machine", "automatic", "自动运行的"],
-  ["heart", "chamber", "心腔"],
-] as const;
+  const regionById = new Map<string, VisualRegion>();
+  for (const region of scene.visualRegions ?? []) {
+    if (!region.id.trim() || regionById.has(region.id)) {
+      throw new Error(`Scene ${scene.id} has a blank or duplicate visual region: ${region.id}`);
+    }
+    if (!VISUAL_REGION_KINDS.has(region.kind)) {
+      throw new Error(`Scene ${scene.id}/${region.id} has invalid visual-region kind ${region.kind}`);
+    }
+    if (region.description.trim().length < 12) {
+      throw new Error(`Scene ${scene.id}/${region.id} needs a concrete region description`);
+    }
+    if (
+      !Number.isFinite(region.x) ||
+      !Number.isFinite(region.y) ||
+      !Number.isFinite(region.width) ||
+      !Number.isFinite(region.height) ||
+      region.width <= 0 ||
+      region.height <= 0 ||
+      region.x < 0 ||
+      region.y < 0 ||
+      region.x + region.width > scene.width ||
+      region.y + region.height > scene.height
+    ) {
+      throw new Error(`Scene ${scene.id}/${region.id} has an invalid visual-region rectangle`);
+    }
+    regionById.set(region.id, region);
+  }
+  if (!regionById.size) throw new Error(`Scene ${scene.id} has no audited visual regions`);
+
+  const densityBands = new Set(scene.labels.map((label) => label.minLevel));
+  if (!DENSITY_LEVELS.every((level) => densityBands.has(level))) {
+    throw new Error(`Scene ${scene.id} does not preserve all five authored zoom bands`);
+  }
+  const displayWords = new Set(scene.labels.map((label) => label.word.toLocaleLowerCase()));
+  for (const example of anchorAudit.removedExamples) {
+    if (displayWords.has(example.toLocaleLowerCase())) {
+      throw new Error(`Scene ${scene.id} still displays removed example ${example}`);
+    }
+  }
+  for (const label of scene.labels) {
+    if (!label.translation.trim()) throw new Error(`Label ${scene.id}/${label.id} has no translation`);
+    if (!/^[a-z][a-z -]*$/i.test(label.word)) {
+      throw new Error(`Label ${scene.id}/${label.id} is not a natural English display term`);
+    }
+    const region = regionById.get(label.sourceVisualRegion);
+    if (!region) {
+      throw new Error(`Label ${scene.id}/${label.id} references no visual region`);
+    }
+    if (!pointInside(label.x, label.y, region)) {
+      throw new Error(`Label ${scene.id}/${label.id} anchor is outside ${region.id}`);
+    }
+  }
+  for (const portal of scene.portals) {
+    if (!portal.translation?.trim()) throw new Error(`Portal ${scene.id}/${portal.id} has no translation`);
+    const region = regionById.get(portal.sourceVisualRegion);
+    if (!region) {
+      throw new Error(`Portal ${scene.id}/${portal.id} references no visual region`);
+    }
+    if (!rectangleInside(portal, region)) {
+      throw new Error(`Portal ${scene.id}/${portal.id} is outside ${region.id}`);
+    }
+  }
+}
+
+function pointInside(x: number, y: number, region: VisualRegion): boolean {
+  return (
+    x >= region.x &&
+    x <= region.x + region.width &&
+    y >= region.y &&
+    y <= region.y + region.height
+  );
+}
+
+function rectangleInside(
+  rectangle: Pick<Portal, "x" | "y" | "width" | "height">,
+  region: VisualRegion,
+): boolean {
+  return (
+    rectangle.x >= region.x &&
+    rectangle.y >= region.y &&
+    rectangle.x + rectangle.width <= region.x + region.width &&
+    rectangle.y + rectangle.height <= region.y + region.height
+  );
+}
 
 async function main() {
   const manifestBytes = await readFile(resolve(dataRoot, "manifest.json"));
@@ -83,7 +207,7 @@ async function main() {
     manifest.scenes.map(async (manifestScene) => {
       const { id } = manifestScene;
       const bytes = await readFile(resolve(dataRoot, `${id}.json`));
-      const scene = JSON.parse(bytes.toString("utf8")) as Scene;
+      const scene = JSON.parse(bytes.toString("utf8")) as AuditedScene;
       if (scene.id !== id) throw new Error(`Scene file ID mismatch: ${id}`);
       if (scene.title !== manifestScene.title) {
         throw new Error(`Manifest title mismatch for ${id}`);
@@ -94,42 +218,16 @@ async function main() {
       const assetPath = resolve(publicRoot, scene.asset.replace(/^\//, ""));
       const assetStat = await stat(assetPath);
       if (!assetStat.isFile()) throw new Error(`Missing scene asset: ${scene.asset}`);
-      if (scene.labels.length > MAX_LABELS_PER_SCENE) {
-        throw new Error(`Scene ${id} exceeds the ${MAX_LABELS_PER_SCENE}-anchor content budget`);
-      }
-      if (scene.labels.length < MIN_LABELS_PER_SCENE) {
-        throw new Error(`Scene ${id} has fewer than ${MIN_LABELS_PER_SCENE} curated anchors`);
-      }
       if (!scene.translation?.trim()) throw new Error(`Scene ${id} has no translation`);
-      const densityBands = new Set(scene.labels.map((label) => label.minLevel));
-      if (!DENSITY_LEVELS.every((level) => densityBands.has(level))) {
-        throw new Error(`Scene ${id} does not cover all five label-density bands`);
-      }
-      const firstThreeBands = scene.labels.filter((label) => (label.minLevel ?? 0) <= 2).length;
-      if (firstThreeBands < 36) {
-        throw new Error(`Scene ${id} has only ${firstThreeBands} anchors through density level 2`);
-      }
+      validateAnchorAudit(scene);
       const displayWords = scene.labels.map((label) => label.word.toLocaleLowerCase());
       if (new Set(displayWords).size !== displayWords.length) {
         throw new Error(`Scene ${id} repeats a display term`);
       }
-      const signature = TOPIC_SIGNATURES[id];
-      if (!signature) throw new Error(`Scene ${id} has no authored topic signature`);
-      const signatureHits = signature.filter((term) => displayWords.includes(term)).length;
-      if (signatureHits / signature.length < 0.8) {
-        throw new Error(`Scene ${id} covers only ${signatureHits}/${signature.length} signature terms`);
-      }
-      for (const forbidden of FORBIDDEN_FILLERS[id] ?? []) {
-        if (displayWords.includes(forbidden)) throw new Error(`Scene ${id} contains cross-topic filler: ${forbidden}`);
-      }
-      for (const label of scene.labels) {
-        if (!label.translation.trim()) throw new Error(`Label ${id}/${label.id} has no translation`);
-        if (!/^[a-z][a-z -]*$/i.test(label.word)) {
-          throw new Error(`Label ${id}/${label.id} is not a natural English display term`);
+      for (const forbidden of FORBIDDEN_UNGROUNDED[id] ?? []) {
+        if (displayWords.includes(forbidden)) {
+          throw new Error(`Scene ${id} contains a known ungrounded label: ${forbidden}`);
         }
-      }
-      for (const portal of scene.portals) {
-        if (!portal.translation?.trim()) throw new Error(`Portal ${id}/${portal.id} has no translation`);
       }
       const asset = await readFile(assetPath);
       if (scene.asset.endsWith(".svg")) {
@@ -157,9 +255,6 @@ async function main() {
     throw new Error(`World has ${scenes.length} scenes; expected at least ${MIN_MATURE_SCENES}`);
   }
   const labelCount = scenes.reduce((sum, { scene }) => sum + scene.labels.length, 0);
-  if (labelCount < MIN_NATURAL_ANCHORS) {
-    throw new Error(`World has ${labelCount} anchors; expected at least ${MIN_NATURAL_ANCHORS}`);
-  }
   if (root.portals.length < MIN_ROOT_BRANCHES) {
     throw new Error(`World root has ${root.portals.length} branches; expected at least ${MIN_ROOT_BRANCHES}`);
   }
@@ -198,18 +293,24 @@ async function main() {
     throw new Error(`World has ${deepPaths.length} deep leaf paths; expected at least ${MIN_DEEP_PATHS}`);
   }
 
-  for (const [sceneId, word, expected] of CONTEXT_TRANSLATIONS) {
-    const actual = sceneById.get(sceneId)?.labels.find((label) => label.word === word)?.translation;
-    if (actual !== expected) {
-      throw new Error(`Context translation ${sceneId}/${word} is ${JSON.stringify(actual)}; expected ${expected}`);
-    }
-  }
-
+  const previousLabelCount = scenes.reduce(
+    (sum, { scene }) => sum + scene.anchorAudit.previousLabelCount,
+    0,
+  );
+  const removedLabelCount = scenes.reduce(
+    (sum, { scene }) => sum + scene.anchorAudit.removedLabelCount,
+    0,
+  );
   const report = {
     schemaVersion: 1,
     rootSceneId: manifest.rootSceneId,
     sceneCount: scenes.length,
     labelCount,
+    previousLabelCount,
+    removedLabelCount,
+    anchorVerifiedCount: labelCount,
+    minLabelsPerScene: Math.min(...scenes.map(({ scene }) => scene.labels.length)),
+    maxLabelsPerScene: Math.max(...scenes.map(({ scene }) => scene.labels.length)),
     portalCount,
     rootBranchCount: root.portals.length,
     branchCoverage,

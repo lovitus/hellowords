@@ -9,14 +9,40 @@ interface Manifest {
   scenes: Array<{ id: string; title: string; parentId: string | null }>;
 }
 
+interface VisualRegion {
+  id: string;
+  description: string;
+  kind: "whole" | "object" | "part" | "diagram";
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+interface AuditedScene extends Scene {
+  anchorAudit: {
+    status: "human-verified";
+    policy: "visible-object-or-part-only";
+    reviewedAsset: string;
+    rationale: string;
+    previousLabelCount: number;
+    retainedLabelCount: number;
+    removedLabelCount: number;
+    removedExamples: string[];
+  };
+  visualRegions: VisualRegion[];
+  labels: Array<Scene["labels"][number] & { sourceVisualRegion: string }>;
+  portals: Array<Scene["portals"][number] & { sourceVisualRegion: string }>;
+}
+
 const projectRoot = resolve(import.meta.dirname, "../..");
 
-async function loadWorld(): Promise<{ manifest: Manifest; scenes: Scene[] }> {
+async function loadWorld(): Promise<{ manifest: Manifest; scenes: AuditedScene[] }> {
   const dataRoot = resolve(projectRoot, "public/data/scenes");
   const manifest = JSON.parse(await readFile(resolve(dataRoot, "manifest.json"), "utf8")) as Manifest;
   const scenes = await Promise.all(
     manifest.scenes.map(async ({ id }) =>
-      JSON.parse(await readFile(resolve(dataRoot, `${id}.json`), "utf8")) as Scene,
+      JSON.parse(await readFile(resolve(dataRoot, `${id}.json`), "utf8")) as AuditedScene,
     ),
   );
   return { manifest, scenes };
@@ -61,61 +87,127 @@ test("mature world has three subject branches and six deep, fully reachable path
   }
 });
 
-test("every slice has five curated LOD bands and enough logical anchors for dense zoom", async () => {
+test("every spatial label and portal is traceable to a human-verified visual region", async () => {
   const { scenes } = await loadWorld();
-  assert.equal(scenes.reduce((sum, scene) => sum + scene.labels.length, 0), 1_622);
+  let retainedTotal = 0;
+  let removedTotal = 0;
   for (const scene of scenes) {
     assert.equal(scene.width, 1600, `${scene.id} width`);
     assert.equal(scene.height, 900, `${scene.id} height`);
-    assert.ok(scene.labels.length >= 48, `${scene.id} minimum logical anchors`);
-    assert.ok(scene.labels.length <= 80, `${scene.id} content budget`);
+    assert.equal(scene.anchorAudit.status, "human-verified", `${scene.id} audit status`);
+    assert.equal(
+      scene.anchorAudit.policy,
+      "visible-object-or-part-only",
+      `${scene.id} visual-only policy`,
+    );
+    assert.equal(scene.anchorAudit.reviewedAsset, scene.asset, `${scene.id} reviewed asset`);
+    assert.equal(scene.anchorAudit.retainedLabelCount, scene.labels.length, `${scene.id} retained count`);
+    assert.equal(
+      scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount,
+      scene.anchorAudit.removedLabelCount,
+      `${scene.id} audit reconciliation`,
+    );
+    assert.ok(scene.anchorAudit.rationale.length >= 40, `${scene.id} rationale`);
+    assert.ok(scene.anchorAudit.removedExamples.length >= 3, `${scene.id} removed examples`);
+
+    retainedTotal += scene.labels.length;
+    removedTotal += scene.anchorAudit.removedLabelCount;
     assert.deepEqual(
       [...new Set(scene.labels.map((label) => label.minLevel))].sort(),
       [0, 1, 2, 3, 4],
       `${scene.id} density bands`,
-    );
-    assert.ok(
-      scene.labels.filter((label) => (label.minLevel ?? 0) <= 2).length >= 36,
-      `${scene.id} early zoom density`,
     );
     assert.equal(
       new Set(scene.labels.map((label) => label.word.toLocaleLowerCase())).size,
       scene.labels.length,
       `${scene.id} unique display terms`,
     );
+    const regions = new Map(scene.visualRegions.map((region) => [region.id, region]));
+    assert.equal(regions.size, scene.visualRegions.length, `${scene.id} unique visual regions`);
     for (const label of scene.labels) {
       assert.ok(label.translation.trim(), `${scene.id}/${label.id} translation`);
-      assert.ok(label.x >= 0 && label.x <= scene.width, `${scene.id}/${label.id} x`);
-      assert.ok(label.y >= 0 && label.y <= scene.height, `${scene.id}/${label.id} y`);
+      const region = regions.get(label.sourceVisualRegion);
+      assert.ok(region, `${scene.id}/${label.id} source region`);
+      assert.ok(label.x >= region.x && label.x <= region.x + region.width, `${scene.id}/${label.id} x`);
+      assert.ok(label.y >= region.y && label.y <= region.y + region.height, `${scene.id}/${label.id} y`);
+    }
+    for (const portal of scene.portals) {
+      const region = regions.get(portal.sourceVisualRegion);
+      assert.ok(region, `${scene.id}/${portal.id} source region`);
+      assert.ok(portal.x >= region.x && portal.y >= region.y, `${scene.id}/${portal.id} origin`);
+      assert.ok(
+        portal.x + portal.width <= region.x + region.width &&
+          portal.y + portal.height <= region.y + region.height,
+        `${scene.id}/${portal.id} rectangle`,
+      );
     }
   }
+  assert.ok(removedTotal > retainedTotal, "quality audit removes more unsupported labels than it retains");
 });
 
-test("context translations and cross-topic filler regressions stay curated", async () => {
+test("known floating-label regressions stay removed and critical portals match visible objects", async () => {
   const { scenes } = await loadWorld();
   const byId = new Map(scenes.map((scene) => [scene.id, scene]));
-  const translation = (sceneId: string, word: string) =>
-    byId.get(sceneId)?.labels.find((label) => label.word === word)?.translation;
-
-  assert.equal(translation("world-map", "natural"), "自然的");
-  assert.equal(translation("kitchen", "sharp"), "锋利的");
-  assert.equal(translation("coffee-machine", "chamber"), "腔室");
-  assert.equal(translation("coffee-machine", "automatic"), "自动运行的");
-  assert.equal(translation("heart", "chamber"), "心腔");
 
   const forbidden: Record<string, string[]> = {
-    kitchen: ["sleep", "upstairs", "cotton", "leather"],
-    bedroom: ["cook", "stove", "boiler", "battery"],
-    "oxygen-molecule": ["leather", "synthetic", "sofa", "passenger"],
-    "plant-cell": ["passenger", "brake", "sofa"],
+    "city-park": [
+      "sprinkler",
+      "barbecue",
+      "rabbit",
+      "skateboarding",
+      "drinking fountain",
+      "bird feeder",
+      "walking trail",
+      "fallen leaves",
+    ],
+    kitchen: ["boiling", "recipe", "chef knife", "whisk"],
+    bedroom: ["sleep", "dream", "cozy", "alarm clock"],
+    polymer: ["thermoplastic", "polymerization", "molecular weight"],
+    "oxygen-molecule": ["combustion", "oxidation", "hypoxia"],
+    frog: ["jump", "hibernate", "food chain"],
   };
   for (const [sceneId, terms] of Object.entries(forbidden)) {
     const words = new Set(byId.get(sceneId)?.labels.map((label) => label.word.toLocaleLowerCase()));
     for (const term of terms) assert.ok(!words.has(term), `${sceneId} cross-topic filler: ${term}`);
   }
 
-  const allWords = new Set(scenes.flatMap((scene) => scene.labels.map((label) => label.word.toLocaleLowerCase())));
-  assert.ok(allWords.size >= 1_500, `expected broad vocabulary coverage, found ${allWords.size}`);
+  const cityPark = byId.get("city-park");
+  assert.ok(cityPark);
+  assert.deepEqual(
+    cityPark.portals.map(({ id, x, y, width, height }) => [id, x, y, width, height]),
+    [
+      ["enter-oak-tree", 650, 0, 900, 710],
+      ["enter-pond-edge", 0, 560, 500, 340],
+    ],
+  );
+
+  const cityStreet = byId.get("city-street");
+  assert.ok(cityStreet);
+  assert.equal(cityStreet.asset, "/scenes/city-street-museum-v2.jpg");
+  const streetWords = new Set(cityStreet.labels.map((label) => label.word));
+  for (const visibleMuseumTerm of ["science museum", "atom symbol", "telescope", "skeleton"]) {
+    assert.ok(streetWords.has(visibleMuseumTerm), `city street shows ${visibleMuseumTerm}`);
+  }
+  assert.deepEqual(
+    cityStreet.portals.find((portal) => portal.id === "enter-science-museum"),
+    {
+      id: "enter-science-museum",
+      label: "Enter the science museum",
+      translation: "进入科学馆",
+      childSceneId: "science-museum",
+      x: 0,
+      y: 0,
+      width: 285,
+      height: 660,
+      enterScale: 3.6,
+      sourceVisualRegion: "portal-museum",
+    },
+  );
+
+  assert.equal(
+    byId.get("heart")?.labels.find((label) => label.word === "chamber")?.translation,
+    "心腔",
+  );
 });
 
 test("every scene uses a real, accessible external visual asset", async () => {

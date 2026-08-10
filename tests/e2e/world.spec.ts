@@ -326,7 +326,7 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   await expect(card).toBeHidden();
 });
 
-test("five continuous LOD bands make dense scene vocabulary emerge smoothly", async ({ page }, testInfo) => {
+test("five continuous LOD bands reveal grounded scene vocabulary smoothly", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
   await openWorld(page);
   const surface = page.locator(".scene-surface");
@@ -335,10 +335,10 @@ test("five continuous LOD bands make dense scene vocabulary emerge smoothly", as
     [...new Set(labels.map((label) => Number((label as HTMLElement).dataset.minLevel)))].sort()
   ));
   expect(authoredLods).toEqual([0, 1, 2, 3, 4]);
-  expect(await page.getByTestId("word-label").count()).toBeGreaterThanOrEqual(72);
+  expect(await page.getByTestId("word-label").count()).toBeGreaterThanOrEqual(30);
   await expect.poll(() => renderedWordCount(page), {
-    message: "desktop overview must expose at least 20 fully readable scene words",
-  }).toBeGreaterThanOrEqual(20);
+    message: "desktop overview must expose at least 18 fully readable, visually grounded words",
+  }).toBeGreaterThanOrEqual(18);
   const overviewWordCount = await renderedWordCount(page);
 
   const detailLabelId = await closestLabelToViewportCenter(page, '.word-label[data-min-level="4"]');
@@ -350,12 +350,12 @@ test("five continuous LOD bands make dense scene vocabulary emerge smoothly", as
   await zoomSceneToScale(page, 1.22);
   await expect(surface).toHaveAttribute("data-lod-level", "2");
   await expect.poll(() => renderedWordCount(page), {
-    message: "the first zoom step must expose a dense second vocabulary layer",
-  }).toBeGreaterThanOrEqual(34);
+    message: "the first zoom step must preserve a useful grounded vocabulary layer",
+  }).toBeGreaterThanOrEqual(18);
   expect(
     await renderedWordCount(page),
-    "the first zoom step must add words, not merely replace overview labels",
-  ).toBeGreaterThanOrEqual(overviewWordCount + 12);
+    "the first zoom step must not collapse the grounded overview vocabulary",
+  ).toBeGreaterThanOrEqual(overviewWordCount - 2);
 
   await page.getByRole("button", { name: "Fit scene" }).click();
   await expect(surface).toHaveAttribute("data-scene-scale", "1.000");

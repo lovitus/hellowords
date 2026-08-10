@@ -22,8 +22,8 @@ function label(
 test("all five LOD bands reveal continuously and in order", () => {
   const probes = [
     { lod: 0, before: 0.45, middle: 0.64, after: 0.8 },
-    { lod: 1, before: 0.9, middle: 1.08, after: 1.25 },
-    { lod: 2, before: 1.1, middle: 1.37, after: 1.62 },
+    { lod: 1, before: 0.68, middle: 0.85, after: 1 },
+    { lod: 2, before: 1, middle: 1.22, after: 1.4 },
     { lod: 3, before: 1.55, middle: 1.9, after: 2.22 },
     { lod: 4, before: 2.2, middle: 2.65, after: 3.12 },
   ] as const;

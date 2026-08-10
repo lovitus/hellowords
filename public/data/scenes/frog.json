@@ -12,434 +12,295 @@
       "id": "frog",
       "word": "frog",
       "translation": "青蛙",
-      "x": 170,
-      "y": 115,
+      "x": 810,
+      "y": 250,
       "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "amphibian",
-      "word": "amphibian",
-      "translation": "两栖动物",
-      "x": 422,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-frog"
     },
     {
       "id": "foreleg",
       "word": "foreleg",
       "translation": "前腿",
-      "x": 674,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 330,
+      "y": 600,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "forelegs"
     },
     {
       "id": "hind-leg",
       "word": "hind leg",
       "translation": "后腿",
-      "x": 926,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 420,
+      "y": 760,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "hind-legs"
     },
     {
       "id": "webbed-foot",
       "word": "webbed foot",
       "translation": "蹼足",
-      "x": 1178,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "x": 175,
+      "y": 620,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "webbed-feet"
     },
     {
-      "id": "toe-pad",
-      "word": "toe pad",
-      "translation": "趾垫",
-      "x": 1430,
-      "y": 115,
-      "priority": 1,
-      "minLevel": 0
+      "id": "eye",
+      "word": "eye",
+      "translation": "眼睛",
+      "x": 615,
+      "y": 270,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "eyes"
     },
     {
-      "id": "eardrum",
-      "word": "eardrum",
-      "translation": "鼓膜",
-      "x": 170,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
+      "id": "pupil",
+      "word": "pupil",
+      "translation": "瞳孔",
+      "x": 1005,
+      "y": 270,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "pupils"
     },
     {
-      "id": "nostril",
-      "word": "nostril",
-      "translation": "鼻孔",
-      "x": 422,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "eyelid",
-      "word": "eyelid",
-      "translation": "眼睑",
-      "x": 674,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "throat-pouch",
-      "word": "throat pouch",
-      "translation": "鸣囊",
-      "x": 926,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "tongue",
-      "word": "tongue",
-      "translation": "舌头",
-      "x": 1178,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "jaw",
-      "word": "jaw",
-      "translation": "颌",
-      "x": 1430,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "spine",
-      "word": "spine",
-      "translation": "脊柱",
-      "x": 170,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "moist-skin",
-      "word": "moist skin",
-      "translation": "湿润皮肤",
-      "x": 422,
-      "y": 525,
-      "priority": 1,
-      "minLevel": 0
+      "id": "mouth",
+      "word": "mouth",
+      "translation": "嘴",
+      "x": 810,
+      "y": 410,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "mouth"
     },
     {
       "id": "spots",
       "word": "spots",
       "translation": "斑点",
-      "x": 674,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
+      "x": 610,
+      "y": 560,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "skin"
     },
     {
-      "id": "camouflage",
-      "word": "camouflage",
-      "translation": "保护色",
-      "x": 926,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
+      "id": "tongue",
+      "word": "tongue",
+      "translation": "舌头",
+      "x": 1040,
+      "y": 455,
+      "priority": 3.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "tongue"
     },
     {
-      "id": "egg-mass",
-      "word": "egg mass",
-      "translation": "卵块",
-      "x": 1178,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "embryo",
-      "word": "embryo",
-      "translation": "胚胎",
-      "x": 1430,
-      "y": 525,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "hatchling",
-      "word": "hatchling",
-      "translation": "刚孵化的幼体",
-      "x": 170,
-      "y": 730,
-      "priority": 2,
-      "minLevel": 1
+      "id": "heart",
+      "word": "heart",
+      "translation": "心脏",
+      "x": 810,
+      "y": 535,
+      "priority": 3.009,
+      "minLevel": 2,
+      "sourceVisualRegion": "heart"
     },
     {
       "id": "polliwog",
       "word": "polliwog",
       "translation": "蝌蚪",
-      "x": 422,
-      "y": 730,
-      "priority": 2,
-      "minLevel": 1
+      "x": 210,
+      "y": 165,
+      "priority": 4.01,
+      "minLevel": 3,
+      "sourceVisualRegion": "tadpole"
     },
     {
-      "id": "metamorphosis",
-      "word": "metamorphosis",
-      "translation": "变态发育",
-      "x": 548,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
+      "id": "egg-mass",
+      "word": "egg mass",
+      "translation": "卵块",
+      "x": 1375,
+      "y": 135,
+      "priority": 4.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "egg-cluster"
     },
     {
-      "id": "gill",
-      "word": "gill",
-      "translation": "鳃",
-      "x": 620,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "tail-fin",
-      "word": "tail fin",
-      "translation": "尾鳍",
-      "x": 692,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "adult-frog",
-      "word": "adult frog",
-      "translation": "成蛙",
-      "x": 764,
-      "y": 323,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "developing-limb",
-      "word": "developing limb",
-      "translation": "发育中的四肢",
-      "x": 800,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "insect-prey",
-      "word": "insect prey",
-      "translation": "昆虫猎物",
-      "x": 878,
-      "y": 414,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "fly",
-      "word": "fly",
-      "translation": "苍蝇",
-      "x": 956,
-      "y": 414,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "cricket",
-      "word": "cricket",
-      "translation": "蟋蟀",
-      "x": 1034,
-      "y": 414,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "worm",
-      "word": "worm",
-      "translation": "蠕虫",
-      "x": 566,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "predator",
-      "word": "predator",
-      "translation": "捕食者",
-      "x": 644,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "wetland",
-      "word": "wetland",
-      "translation": "湿地",
-      "x": 722,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "food-chain",
-      "word": "food chain",
-      "translation": "食物链",
-      "x": 800,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "jump",
-      "word": "jump",
-      "translation": "跳",
-      "x": 878,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "leap",
-      "word": "leap",
-      "translation": "跃起",
-      "x": 956,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "swim",
-      "word": "swim",
-      "translation": "游泳",
-      "x": 1034,
-      "y": 486,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "dive",
-      "word": "dive",
-      "translation": "潜水",
-      "x": 566,
-      "y": 558,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "breathe",
-      "word": "breathe",
-      "translation": "呼吸",
-      "x": 583,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "blink",
-      "word": "blink",
-      "translation": "眨眼",
-      "x": 645,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "catch-prey",
-      "word": "catch prey",
-      "translation": "捕捉猎物",
-      "x": 707,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "flick-its-tongue",
-      "word": "flick its tongue",
-      "translation": "弹出舌头",
-      "x": 769,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "shed-its-skin",
-      "word": "shed its skin",
-      "translation": "蜕皮",
-      "x": 831,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "hibernate",
-      "word": "hibernate",
-      "translation": "冬眠",
-      "x": 893,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "call",
-      "word": "call",
-      "translation": "鸣叫",
-      "x": 955,
-      "y": 363,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "mate",
-      "word": "mate",
-      "translation": "交配",
-      "x": 583,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "transform",
-      "word": "transform",
-      "translation": "发生形态变化",
-      "x": 645,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "cold-blooded",
-      "word": "cold blooded",
-      "translation": "变温的",
-      "x": 707,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "nocturnal",
-      "word": "nocturnal",
-      "translation": "夜行性的",
-      "x": 769,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "aquatic",
-      "word": "aquatic",
-      "translation": "水生的",
-      "x": 831,
-      "y": 363,
-      "priority": 5,
-      "minLevel": 4
+      "id": "blood-vessel",
+      "word": "blood vessel",
+      "translation": "血管",
+      "x": 810,
+      "y": 655,
+      "priority": 5.012,
+      "minLevel": 4,
+      "sourceVisualRegion": "blood-vessel"
     }
   ],
-  "portals": []
+  "portals": [],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/frog.svg",
+    "rationale": "Kept the large frog's visible external parts, translucent internal diagram, protruding tongue, tadpole and egg cluster; removed behavior, ecology and prey not shown.",
+    "previousLabelCount": 48,
+    "retainedLabelCount": 13,
+    "removedLabelCount": 35,
+    "removedExamples": [
+      "jump",
+      "swim",
+      "hibernate",
+      "cricket",
+      "worm",
+      "food chain"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-frog",
+      "description": "Complete large frog study",
+      "kind": "whole",
+      "x": 70,
+      "y": 145,
+      "width": 1460,
+      "height": 720
+    },
+    {
+      "id": "frog-body",
+      "description": "Large spotted green frog body",
+      "kind": "object",
+      "x": 405,
+      "y": 235,
+      "width": 810,
+      "height": 545
+    },
+    {
+      "id": "head",
+      "description": "Upper head formed by the eye lobes and mouth",
+      "kind": "part",
+      "x": 445,
+      "y": 145,
+      "width": 730,
+      "height": 360
+    },
+    {
+      "id": "eyes",
+      "description": "Two large yellow-green eyes",
+      "kind": "part",
+      "x": 450,
+      "y": 160,
+      "width": 720,
+      "height": 260
+    },
+    {
+      "id": "pupils",
+      "description": "Two dark pupils within the eyes",
+      "kind": "part",
+      "x": 550,
+      "y": 220,
+      "width": 515,
+      "height": 110
+    },
+    {
+      "id": "mouth",
+      "description": "Curved dark mouth line",
+      "kind": "part",
+      "x": 540,
+      "y": 345,
+      "width": 540,
+      "height": 115
+    },
+    {
+      "id": "skin",
+      "description": "Spotted green skin across the body",
+      "kind": "part",
+      "x": 410,
+      "y": 365,
+      "width": 800,
+      "height": 400
+    },
+    {
+      "id": "forelegs",
+      "description": "Upper pair of green legs",
+      "kind": "part",
+      "x": 70,
+      "y": 500,
+      "width": 1460,
+      "height": 220
+    },
+    {
+      "id": "hind-legs",
+      "description": "Lower pair of green legs",
+      "kind": "part",
+      "x": 250,
+      "y": 595,
+      "width": 1110,
+      "height": 255
+    },
+    {
+      "id": "webbed-feet",
+      "description": "Four pointed webbed feet",
+      "kind": "part",
+      "x": 70,
+      "y": 560,
+      "width": 1460,
+      "height": 290
+    },
+    {
+      "id": "internal-sac",
+      "description": "Pale translucent paired internal sac",
+      "kind": "diagram",
+      "x": 625,
+      "y": 390,
+      "width": 370,
+      "height": 260
+    },
+    {
+      "id": "heart",
+      "description": "Red heart-like organ in the center",
+      "kind": "object",
+      "x": 700,
+      "y": 440,
+      "width": 220,
+      "height": 230
+    },
+    {
+      "id": "blood-vessel",
+      "description": "Dark vertical vessel beneath the heart",
+      "kind": "part",
+      "x": 790,
+      "y": 560,
+      "width": 45,
+      "height": 150
+    },
+    {
+      "id": "tongue",
+      "description": "Pink tongue and arrow extending to the right",
+      "kind": "part",
+      "x": 790,
+      "y": 365,
+      "width": 350,
+      "height": 150
+    },
+    {
+      "id": "tadpole",
+      "description": "Single tadpole at upper left",
+      "kind": "object",
+      "x": 110,
+      "y": 95,
+      "width": 280,
+      "height": 190
+    },
+    {
+      "id": "egg-cluster",
+      "description": "Four round frog eggs at upper right",
+      "kind": "object",
+      "x": 1240,
+      "y": 70,
+      "width": 300,
+      "height": 180
+    }
+  ]
 }

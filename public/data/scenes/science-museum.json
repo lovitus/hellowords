@@ -13,504 +13,100 @@
       "word": "museum",
       "translation": "博物馆",
       "x": 800,
-      "y": 72,
+      "y": 145,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-gallery"
     },
     {
       "id": "gallery",
       "word": "gallery",
       "translation": "展厅",
-      "x": 800,
-      "y": 400,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "exhibit",
-      "word": "exhibit",
-      "translation": "展品",
-      "x": 500,
-      "y": 440,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "skeleton",
-      "word": "skeleton",
-      "translation": "骨骼标本",
-      "x": 1130,
-      "y": 455,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "model",
-      "word": "model",
-      "translation": "模型",
-      "x": 350,
-      "y": 500,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "laboratory",
-      "word": "laboratory",
-      "translation": "实验室",
-      "x": 1330,
-      "y": 360,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "microscope",
-      "word": "microscope",
-      "translation": "显微镜",
-      "x": 1320,
-      "y": 520,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "telescope",
-      "word": "telescope",
-      "translation": "望远镜",
-      "x": 280,
-      "y": 380,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "experiment",
-      "word": "experiment",
-      "translation": "实验",
-      "x": 1260,
-      "y": 620,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "discovery",
-      "word": "discovery",
-      "translation": "发现",
-      "x": 760,
-      "y": 700,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "researcher",
-      "word": "researcher",
-      "translation": "研究人员",
-      "x": 1430,
-      "y": 610,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "visitor",
-      "word": "visitor",
-      "translation": "参观者",
-      "x": 885,
-      "y": 590,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "fossil",
-      "word": "fossil",
-      "translation": "化石",
-      "x": 580,
-      "y": 650,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "dinosaur",
-      "word": "dinosaur",
-      "translation": "恐龙",
-      "x": 1030,
-      "y": 370,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "planet",
-      "word": "planet",
-      "translation": "行星",
-      "x": 490,
-      "y": 265,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "space",
-      "word": "space",
-      "translation": "太空",
-      "x": 640,
-      "y": 215,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "electricity",
-      "word": "electricity",
-      "translation": "电",
-      "x": 720,
-      "y": 470,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "magnet",
-      "word": "magnet",
-      "translation": "磁铁",
-      "x": 760,
-      "y": 520,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "lens",
-      "word": "lens",
-      "translation": "镜片",
-      "x": 305,
-      "y": 335,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "specimen",
-      "word": "specimen",
-      "translation": "标本",
-      "x": 1190,
-      "y": 650,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "display",
-      "word": "display",
-      "translation": "展示屏",
-      "x": 930,
-      "y": 250,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "information",
-      "word": "information",
-      "translation": "信息",
-      "x": 860,
-      "y": 300,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "ticket",
-      "word": "ticket",
-      "translation": "门票",
-      "x": 310,
-      "y": 675,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "entrance",
-      "word": "entrance",
-      "translation": "入口",
-      "x": 200,
-      "y": 700,
-      "priority": 2,
-      "minLevel": 1
+      "x": 118,
+      "y": 190,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-gallery"
     },
     {
       "id": "display-case",
       "word": "display case",
       "translation": "展柜",
-      "x": 1364,
-      "y": 387,
-      "priority": 2,
-      "minLevel": 1
+      "x": 820,
+      "y": 690,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "display-case"
+    },
+    {
+      "id": "exhibit",
+      "word": "exhibit",
+      "translation": "展品",
+      "x": 360,
+      "y": 545,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "left-exhibit"
+    },
+    {
+      "id": "model",
+      "word": "model",
+      "translation": "模型",
+      "x": 1050,
+      "y": 370,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "body-model"
+    },
+    {
+      "id": "planet",
+      "word": "planet",
+      "translation": "行星",
+      "x": 685,
+      "y": 350,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "planet-model"
+    },
+    {
+      "id": "display",
+      "word": "display",
+      "translation": "展示屏",
+      "x": 690,
+      "y": 585,
+      "priority": 3.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "display-plinth"
     },
     {
       "id": "interactive-screen",
       "word": "interactive screen",
       "translation": "互动屏",
-      "x": 896,
-      "y": 459,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1370,
+      "y": 350,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "kiosk-screen"
     },
     {
-      "id": "audio-guide",
-      "word": "audio guide",
-      "translation": "语音导览",
-      "x": 974,
-      "y": 459,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "curator",
-      "word": "curator",
-      "translation": "策展人",
-      "x": 1052,
-      "y": 459,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "docent",
-      "word": "docent",
-      "translation": "讲解员",
-      "x": 1130,
-      "y": 459,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "artifact",
-      "word": "artifact",
-      "translation": "展品",
-      "x": 1208,
-      "y": 459,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "replica",
-      "word": "replica",
-      "translation": "复制品",
-      "x": 1286,
-      "y": 459,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "diorama",
-      "word": "diorama",
-      "translation": "立体模型",
-      "x": 1364,
-      "y": 459,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "touch-table",
-      "word": "touch table",
-      "translation": "互动桌",
-      "x": 896,
-      "y": 531,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "planetarium",
-      "word": "planetarium",
-      "translation": "天文馆",
-      "x": 974,
-      "y": 531,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "observatory",
-      "word": "observatory",
-      "translation": "观测台",
-      "x": 1052,
-      "y": 531,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "workshop",
-      "word": "workshop",
-      "translation": "工作坊",
-      "x": 1130,
-      "y": 531,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "lecture-hall",
-      "word": "lecture hall",
-      "translation": "报告厅",
-      "x": 1208,
-      "y": 531,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "gift-shop",
-      "word": "gift shop",
-      "translation": "纪念品商店",
-      "x": 1286,
-      "y": 531,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "membership",
-      "word": "membership",
-      "translation": "会员资格",
-      "x": 1364,
-      "y": 531,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "admission",
-      "word": "admission",
-      "translation": "入场",
-      "x": 896,
-      "y": 603,
-      "priority": 3,
-      "minLevel": 2
+      "id": "information",
+      "word": "information",
+      "translation": "信息",
+      "x": 1370,
+      "y": 500,
+      "priority": 4.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "kiosk-controls"
     },
     {
       "id": "exhibit-label",
       "word": "exhibit label",
       "translation": "展品说明牌",
-      "x": 974,
-      "y": 603,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "archive",
-      "word": "archive",
-      "translation": "档案库",
-      "x": 1052,
-      "y": 603,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "collection",
-      "word": "collection",
-      "translation": "馆藏",
-      "x": 913,
-      "y": 408,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "preservation",
-      "word": "preservation",
-      "translation": "保存维护",
-      "x": 975,
-      "y": 408,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "demonstration",
-      "word": "demonstration",
-      "translation": "演示",
-      "x": 1037,
-      "y": 408,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "hands-on",
-      "word": "hands on",
-      "translation": "可动手操作的",
-      "x": 1099,
-      "y": 408,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "educational",
-      "word": "educational",
-      "translation": "教育性的",
-      "x": 1161,
-      "y": 408,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "accessible",
-      "word": "accessible",
-      "translation": "无障碍的",
-      "x": 1223,
-      "y": 408,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "fossil-specimen",
-      "word": "fossil specimen",
-      "translation": "化石标本",
-      "x": 1285,
-      "y": 408,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "mineral-sample",
-      "word": "mineral sample",
-      "translation": "矿物样本",
-      "x": 1347,
-      "y": 408,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "laboratory-bench",
-      "word": "laboratory bench",
-      "translation": "实验台",
-      "x": 913,
-      "y": 408,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "projection-dome",
-      "word": "projection dome",
-      "translation": "投影穹顶",
-      "x": 975,
-      "y": 408,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "research-model",
-      "word": "research model",
-      "translation": "研究模型",
-      "x": 1037,
-      "y": 408,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "visitor-map",
-      "word": "visitor map",
-      "translation": "参观地图",
-      "x": 1099,
-      "y": 408,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "experiment-station",
-      "word": "experiment station",
-      "translation": "实验台",
-      "x": 1161,
-      "y": 408,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "science-gallery",
-      "word": "science gallery",
-      "translation": "科学展厅",
-      "x": 1223,
-      "y": 408,
-      "priority": 5,
-      "minLevel": 4
+      "x": 290,
+      "y": 735,
+      "priority": 5.009,
+      "minLevel": 4,
+      "sourceVisualRegion": "exhibit-label"
     }
   ],
   "portals": [
@@ -519,11 +115,139 @@
       "label": "Explore the human body",
       "translation": "探索人体",
       "childSceneId": "human-body",
-      "x": 980,
-      "y": 245,
+      "x": 930,
+      "y": 190,
+      "width": 330,
+      "height": 510,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "body-model"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/science-museum.svg",
+    "rationale": "Removed named facilities, staff, fossils and instruments that the simplified display case does not visibly depict.",
+    "previousLabelCount": 56,
+    "retainedLabelCount": 10,
+    "removedLabelCount": 46,
+    "removedExamples": [
+      "microscope",
+      "telescope",
+      "dinosaur",
+      "curator",
+      "planetarium",
+      "gift shop"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-gallery",
+      "description": "The complete museum display case and gallery wall",
+      "kind": "whole",
+      "x": 80,
+      "y": 120,
+      "width": 1440,
+      "height": 610
+    },
+    {
+      "id": "display-case",
+      "description": "Large glass-fronted exhibition case",
+      "kind": "object",
+      "x": 80,
+      "y": 160,
+      "width": 1440,
+      "height": 560
+    },
+    {
+      "id": "gallery-lighting",
+      "description": "Arched overhead display lights",
+      "kind": "object",
+      "x": 400,
+      "y": 55,
+      "width": 700,
+      "height": 190
+    },
+    {
+      "id": "spotlight",
+      "description": "Angled spotlight at the upper left",
+      "kind": "object",
+      "x": 210,
+      "y": 205,
       "width": 300,
-      "height": 500,
-      "enterScale": 3.6
+      "height": 270
+    },
+    {
+      "id": "left-exhibit",
+      "description": "Illuminated exhibit on the left plinth",
+      "kind": "object",
+      "x": 205,
+      "y": 350,
+      "width": 330,
+      "height": 300
+    },
+    {
+      "id": "planet-model",
+      "description": "Circular astronomy model near the center",
+      "kind": "object",
+      "x": 540,
+      "y": 235,
+      "width": 300,
+      "height": 285
+    },
+    {
+      "id": "display-plinth",
+      "description": "Dark green display plinth below the astronomy model",
+      "kind": "object",
+      "x": 590,
+      "y": 485,
+      "width": 205,
+      "height": 200
+    },
+    {
+      "id": "body-model",
+      "description": "Human anatomy model in the right half of the case",
+      "kind": "object",
+      "x": 930,
+      "y": 190,
+      "width": 330,
+      "height": 510
+    },
+    {
+      "id": "interactive-kiosk",
+      "description": "Interactive kiosk at far right",
+      "kind": "object",
+      "x": 1230,
+      "y": 250,
+      "width": 285,
+      "height": 430
+    },
+    {
+      "id": "kiosk-screen",
+      "description": "Dark screen on the interactive kiosk",
+      "kind": "part",
+      "x": 1270,
+      "y": 300,
+      "width": 210,
+      "height": 105
+    },
+    {
+      "id": "kiosk-controls",
+      "description": "Two visible control buttons on the kiosk",
+      "kind": "part",
+      "x": 1260,
+      "y": 440,
+      "width": 220,
+      "height": 165
+    },
+    {
+      "id": "exhibit-label",
+      "description": "Small exhibit label below the case",
+      "kind": "object",
+      "x": 185,
+      "y": 700,
+      "width": 210,
+      "height": 75
     }
   ]
 }

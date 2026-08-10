@@ -13,504 +13,110 @@
       "word": "battery",
       "translation": "电池",
       "x": 800,
-      "y": 72,
+      "y": 450,
       "priority": 1,
-      "minLevel": 0
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-battery"
     },
     {
       "id": "cell",
       "word": "cell",
       "translation": "电芯",
-      "x": 620,
-      "y": 405,
-      "priority": 1,
-      "minLevel": 0
+      "x": 315,
+      "y": 360,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-cell"
     },
     {
       "id": "module",
       "word": "module",
       "translation": "模块",
-      "x": 880,
-      "y": 410,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "energy",
-      "word": "energy",
-      "translation": "能量",
-      "x": 800,
-      "y": 690,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "voltage",
-      "word": "voltage",
-      "translation": "电压",
-      "x": 1120,
-      "y": 300,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "current",
-      "word": "current",
-      "translation": "电流",
-      "x": 1125,
-      "y": 430,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "anode",
-      "word": "anode",
-      "translation": "阳极",
-      "x": 500,
+      "x": 400,
       "y": 360,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "cathode",
-      "word": "cathode",
-      "translation": "阴极",
-      "x": 720,
-      "y": 360,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "electrolyte",
-      "word": "electrolyte",
-      "translation": "电解质",
-      "x": 610,
-      "y": 520,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "separator",
-      "word": "separator",
-      "translation": "隔膜",
-      "x": 800,
-      "y": 500,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "terminal",
-      "word": "terminal",
-      "translation": "接线端",
-      "x": 1045,
-      "y": 210,
-      "priority": 1,
-      "minLevel": 0
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-module"
     },
     {
       "id": "cable",
       "word": "cable",
       "translation": "电缆",
-      "x": 1230,
-      "y": 590,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "fuse",
-      "word": "fuse",
-      "translation": "保险丝",
-      "x": 1040,
-      "y": 560,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "coolant",
-      "word": "coolant",
-      "translation": "冷却液",
-      "x": 420,
-      "y": 650,
-      "priority": 1,
-      "minLevel": 0
+      "x": 1170,
+      "y": 360,
+      "priority": 2.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-cable"
     },
     {
       "id": "casing",
       "word": "casing",
       "translation": "外壳",
-      "x": 320,
-      "y": 300,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "insulation",
-      "word": "insulation",
-      "translation": "绝缘层",
-      "x": 370,
-      "y": 455,
-      "priority": 1,
-      "minLevel": 0
+      "x": 800,
+      "y": 460,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-casing"
     },
     {
       "id": "controller",
       "word": "controller",
       "translation": "控制器",
-      "x": 1280,
-      "y": 320,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "sensor",
-      "word": "sensor",
-      "translation": "传感器",
-      "x": 1210,
-      "y": 460,
-      "priority": 1,
-      "minLevel": 0
-    },
-    {
-      "id": "temperature",
-      "word": "temperature",
-      "translation": "温度",
-      "x": 1320,
-      "y": 520,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "charge",
-      "word": "charge",
-      "translation": "充电",
-      "x": 690,
-      "y": 700,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "discharge",
-      "word": "discharge",
-      "translation": "放电",
-      "x": 930,
-      "y": 700,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "capacity",
-      "word": "capacity",
-      "translation": "容量",
-      "x": 960,
-      "y": 590,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "recycle",
-      "word": "recycle",
-      "translation": "回收",
-      "x": 1250,
-      "y": 700,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "conductor",
-      "word": "conductor",
-      "translation": "导体",
-      "x": 930,
-      "y": 270,
-      "priority": 2,
-      "minLevel": 1
+      "x": 1025,
+      "y": 385,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-controller"
     },
     {
       "id": "busbar",
       "word": "busbar",
       "translation": "母排",
-      "x": 879,
-      "y": 332,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "battery-management-system",
-      "word": "battery management system",
-      "translation": "电池管理系统",
-      "x": 411,
-      "y": 404,
-      "priority": 2,
-      "minLevel": 1
+      "x": 850,
+      "y": 355,
+      "priority": 3.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-busbar"
     },
     {
       "id": "cooling-plate",
       "word": "cooling plate",
       "translation": "冷却板",
-      "x": 489,
-      "y": 404,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "thermal-paste",
-      "word": "thermal paste",
-      "translation": "导热膏",
-      "x": 567,
-      "y": 404,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "contactor",
-      "word": "contactor",
-      "translation": "接触器",
-      "x": 645,
-      "y": 404,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "relay",
-      "word": "relay",
-      "translation": "继电器",
-      "x": 723,
-      "y": 404,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "wiring-harness",
-      "word": "wiring harness",
-      "translation": "线束",
-      "x": 801,
-      "y": 404,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "cell-holder",
-      "word": "cell holder",
-      "translation": "电芯支架",
-      "x": 879,
-      "y": 404,
-      "priority": 2,
-      "minLevel": 1
-    },
-    {
-      "id": "state-of-health",
-      "word": "state of health",
-      "translation": "健康状态",
-      "x": 411,
-      "y": 476,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "power-density",
-      "word": "power density",
-      "translation": "功率密度",
-      "x": 489,
-      "y": 476,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "energy-density",
-      "word": "energy density",
-      "translation": "能量密度",
-      "x": 567,
-      "y": 476,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "kilowatt-hour",
-      "word": "kilowatt hour",
-      "translation": "千瓦时",
-      "x": 645,
-      "y": 476,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "ampere-hour",
-      "word": "ampere hour",
-      "translation": "安时",
-      "x": 723,
-      "y": 476,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "direct-current",
-      "word": "direct current",
-      "translation": "直流电",
-      "x": 801,
-      "y": 476,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "internal-resistance",
-      "word": "internal resistance",
-      "translation": "内阻",
-      "x": 879,
-      "y": 476,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "heat-sink",
-      "word": "heat sink",
-      "translation": "散热片",
-      "x": 411,
-      "y": 548,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "fire-barrier",
-      "word": "fire barrier",
-      "translation": "防火隔层",
-      "x": 489,
-      "y": 548,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "enclosure",
-      "word": "enclosure",
-      "translation": "封装箱",
-      "x": 567,
-      "y": 548,
-      "priority": 3,
-      "minLevel": 2
-    },
-    {
-      "id": "sealant",
-      "word": "sealant",
-      "translation": "密封胶",
-      "x": 428,
-      "y": 353,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "diagnostic-port",
-      "word": "diagnostic port",
-      "translation": "诊断端口",
-      "x": 490,
-      "y": 353,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "isolation-fault",
-      "word": "isolation fault",
-      "translation": "绝缘故障",
-      "x": 552,
-      "y": 353,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "fast-charging",
-      "word": "fast charging",
-      "translation": "快速充电",
-      "x": 614,
-      "y": 353,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "trickle-charging",
-      "word": "trickle charging",
-      "translation": "涓流充电",
-      "x": 676,
-      "y": 353,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "lithium-ion-cell",
-      "word": "lithium ion cell",
-      "translation": "锂离子电芯",
-      "x": 738,
-      "y": 353,
-      "priority": 4,
-      "minLevel": 3
-    },
-    {
-      "id": "current-collector",
-      "word": "current collector",
-      "translation": "集流体",
-      "x": 800,
-      "y": 353,
-      "priority": 4,
-      "minLevel": 3
+      "x": 550,
+      "y": 445,
+      "priority": 3.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-cooling-plate"
     },
     {
       "id": "positive-terminal",
       "word": "positive terminal",
       "translation": "正极端子",
-      "x": 862,
-      "y": 353,
-      "priority": 4,
-      "minLevel": 3
+      "x": 1275,
+      "y": 360,
+      "priority": 4.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-positive-terminal"
     },
     {
       "id": "negative-terminal",
       "word": "negative terminal",
       "translation": "负极端子",
-      "x": 428,
-      "y": 353,
-      "priority": 5,
-      "minLevel": 4
+      "x": 1275,
+      "y": 500,
+      "priority": 4.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-negative-terminal"
     },
     {
-      "id": "temperature-probe",
-      "word": "temperature probe",
-      "translation": "温度探头",
-      "x": 490,
-      "y": 353,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "vent-channel",
-      "word": "vent channel",
-      "translation": "排气通道",
-      "x": 552,
-      "y": 353,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "thermal-runaway",
-      "word": "thermal runaway",
-      "translation": "热失控",
-      "x": 614,
-      "y": 353,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "charge-cycle",
-      "word": "charge cycle",
-      "translation": "充电循环",
-      "x": 676,
-      "y": 353,
-      "priority": 5,
-      "minLevel": 4
-    },
-    {
-      "id": "safety-fuse",
-      "word": "safety fuse",
-      "translation": "安全熔断器",
-      "x": 738,
-      "y": 353,
-      "priority": 5,
-      "minLevel": 4
+      "id": "lithium-ion-cell",
+      "word": "lithium ion cell",
+      "translation": "锂离子电芯",
+      "x": 315,
+      "y": 360,
+      "priority": 5.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-lithium-ion-cell"
     }
   ],
   "portals": [
@@ -519,11 +125,139 @@
       "label": "Inspect a lithium-ion cell",
       "translation": "查看锂离子电芯",
       "childSceneId": "lithium-ion-cell",
-      "x": 430,
-      "y": 245,
-      "width": 430,
-      "height": 390,
-      "enterScale": 3.6
+      "x": 255,
+      "y": 275,
+      "width": 590,
+      "height": 355,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-cell-module"
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/battery.svg",
+    "rationale": "Kept the visible cell modules, cables, enclosure, controller, busbar, cooling plate and terminals; removed hidden chemistry, electrical metrics and charging/failure processes.",
+    "previousLabelCount": 56,
+    "retainedLabelCount": 11,
+    "removedLabelCount": 45,
+    "removedExamples": [
+      "anode",
+      "electrolyte",
+      "voltage",
+      "thermal runaway",
+      "diagnostic port",
+      "fast charging"
+    ]
+  },
+  "visualRegions": [
+    {
+      "id": "whole-battery",
+      "description": "Complete battery-pack cutaway",
+      "kind": "whole",
+      "x": 145,
+      "y": 190,
+      "width": 1330,
+      "height": 530
+    },
+    {
+      "id": "portal-cell-module",
+      "description": "Four left-side cell modules",
+      "kind": "object",
+      "x": 255,
+      "y": 275,
+      "width": 590,
+      "height": 355
+    },
+    {
+      "id": "verified-cell",
+      "description": "Human-verified visible anchor for cell",
+      "kind": "object",
+      "x": 255,
+      "y": 315,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-module",
+      "description": "Human-verified visible anchor for module",
+      "kind": "object",
+      "x": 340,
+      "y": 315,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-cable",
+      "description": "Human-verified visible anchor for cable",
+      "kind": "object",
+      "x": 1110,
+      "y": 315,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-casing",
+      "description": "Human-verified visible anchor for casing",
+      "kind": "object",
+      "x": 740,
+      "y": 415,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-controller",
+      "description": "Human-verified visible anchor for controller",
+      "kind": "object",
+      "x": 965,
+      "y": 340,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-busbar",
+      "description": "Human-verified visible anchor for busbar",
+      "kind": "object",
+      "x": 790,
+      "y": 310,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-cooling-plate",
+      "description": "Human-verified visible anchor for cooling plate",
+      "kind": "object",
+      "x": 490,
+      "y": 400,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-positive-terminal",
+      "description": "Human-verified visible anchor for positive terminal",
+      "kind": "object",
+      "x": 1215,
+      "y": 315,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-negative-terminal",
+      "description": "Human-verified visible anchor for negative terminal",
+      "kind": "object",
+      "x": 1215,
+      "y": 455,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-lithium-ion-cell",
+      "description": "Human-verified visible anchor for lithium ion cell",
+      "kind": "object",
+      "x": 255,
+      "y": 315,
+      "width": 120,
+      "height": 90
     }
   ]
 }

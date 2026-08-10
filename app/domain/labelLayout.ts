@@ -27,8 +27,11 @@ export interface SceneLabelLayoutItem {
 
 const DEFAULT_REVEAL_BANDS = [
   { start: 0.52, end: 0.76 },
-  { start: 0.96, end: 1.2 },
-  { start: 1.2, end: 1.55 },
+  // Overview scenes are now deliberately smaller, human-audited sets. Reveal
+  // the second grounded band at fit scale so the world still feels rich
+  // without padding it with words that the artwork does not contain.
+  { start: 0.72, end: 0.98 },
+  { start: 1.08, end: 1.36 },
   { start: 1.65, end: 2.15 },
   { start: 2.3, end: 3.05 },
 ] as const;
