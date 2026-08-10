@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   clampCamera,
   sceneToViewport,
+  smoothCameraTowards,
   viewportToScene,
   zoomCameraAboutPoint,
 } from "../../app/domain/camera";
@@ -58,3 +59,48 @@ test("invalid scales are rejected", () => {
   );
 });
 
+test("camera smoothing is stable across different frame rates", () => {
+  const camera = { x: -300, y: 80, scale: 0.8 };
+  const target = { x: 120, y: -240, scale: 3.2 };
+  const oneFrame = smoothCameraTowards(camera, target, 16, 60);
+  const twoFrames = smoothCameraTowards(
+    smoothCameraTowards(camera, target, 8, 60),
+    target,
+    8,
+    60,
+  );
+  assert.ok(Math.abs(oneFrame.x - twoFrames.x) < 1e-10);
+  assert.ok(Math.abs(oneFrame.y - twoFrames.y) < 1e-10);
+  assert.ok(Math.abs(oneFrame.scale - twoFrames.scale) < 1e-10);
+  assert.ok(oneFrame.scale > camera.scale && oneFrame.scale < target.scale);
+});
+
+test("camera smoothing validates timing inputs", () => {
+  const camera = { x: 0, y: 0, scale: 1 };
+  assert.throws(() => smoothCameraTowards(camera, camera, -1, 60), RangeError);
+  assert.throws(() => smoothCameraTowards(camera, camera, 16, 0), RangeError);
+});
+
+test("camera smoothing is monotonic, bounded and symmetric in log scale", () => {
+  const target = { x: -420, y: 260, scale: 4 };
+  const zoomIn = [{ x: 80, y: -120, scale: 1 }];
+  for (let frame = 0; frame < 20; frame += 1) {
+    zoomIn.push(smoothCameraTowards(zoomIn.at(-1)!, target, 16, 52));
+  }
+  for (let frame = 1; frame < zoomIn.length; frame += 1) {
+    assert.ok(zoomIn[frame].scale > zoomIn[frame - 1].scale);
+    assert.ok(zoomIn[frame].scale < target.scale);
+    assert.ok(zoomIn[frame].x < zoomIn[frame - 1].x && zoomIn[frame].x > target.x);
+    assert.ok(zoomIn[frame].y > zoomIn[frame - 1].y && zoomIn[frame].y < target.y);
+  }
+
+  const zoomOut = smoothCameraTowards(
+    { x: 0, y: 0, scale: 4 },
+    { x: 0, y: 0, scale: 1 },
+    16,
+    52,
+  );
+  const zoomInLogStep = Math.abs(Math.log(zoomIn[1].scale) - Math.log(1));
+  const zoomOutLogStep = Math.abs(Math.log(zoomOut.scale) - Math.log(4));
+  assert.ok(Math.abs(zoomInLogStep - zoomOutLogStep) < 1e-12);
+});

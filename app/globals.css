@@ -335,6 +335,15 @@ a:focus-visible {
   animation: scene-layer-in 220ms cubic-bezier(0.22, 0.72, 0.24, 1) both;
 }
 
+.world-app[data-transition-cache="warm"] .viewer-shell[data-phase="outgoing"],
+.world-app[data-transition-cache="warm"] .viewer-shell[data-phase="incoming"] {
+  animation-duration: 140ms;
+}
+
+.world-app[data-transition-cache="warm"] .scene-transition-veil {
+  display: none;
+}
+
 @keyframes scene-layer-out {
   from { opacity: 1; }
   to { opacity: 0; }

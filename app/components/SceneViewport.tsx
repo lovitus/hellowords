@@ -13,6 +13,7 @@ import {
   LABEL_ENCOUNTER_OPACITY,
   sceneLabelLod,
   sceneLabelRevealOpacity,
+  smoothCameraTowards,
   type Label,
   type Portal as ScenePortal,
   type Scene,
@@ -52,6 +53,9 @@ interface Point {
 }
 
 const ENTER_SETTLE_MS = 150;
+const WHEEL_RESPONSE_MS = 52;
+const WHEEL_POSITION_EPSILON = 0.08;
+const WHEEL_SCALE_EPSILON = 0.00045;
 const EXIT_SCALE = 0.82;
 const MAX_SCALE = 4.15;
 const PORTAL_PREVIEW_LEAD = 1;
@@ -109,6 +113,9 @@ export function SceneViewport({
   const previousPointersRef = useRef(new Map<number, Point>());
   const frameRef = useRef<number | null>(null);
   const cameraAnimationRef = useRef<number | null>(null);
+  const wheelAnimationRef = useRef<number | null>(null);
+  const wheelTargetRef = useRef<Camera | null>(null);
+  const wheelFrameTimeRef = useRef<number | null>(null);
   const settleRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const encounterDwellRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const visibleSinceRef = useRef<ReadonlyMap<string, number>>(new Map());
@@ -123,6 +130,7 @@ export function SceneViewport({
   const vocabularySummaryRef = useRef<HTMLButtonElement>(null);
   const previewPhaseRef = useRef<"preview" | "armed">("preview");
   const committingRef = useRef(false);
+  const parentZoomPrefetchRef = useRef(false);
   const [previewPortal, setPreviewPortal] = useState<ScenePortal | null>(null);
   const [previewPhase, setPreviewPhase] = useState<"preview" | "armed">("preview");
   const [encounterTick, setEncounterTick] = useState(0);
@@ -448,6 +456,15 @@ export function SceneViewport({
     if (frameRef.current === null) frameRef.current = requestAnimationFrame(applyCamera);
   }, [applyCamera]);
 
+  const stopWheelAnimation = useCallback(() => {
+    if (wheelAnimationRef.current !== null) {
+      cancelAnimationFrame(wheelAnimationRef.current);
+      wheelAnimationRef.current = null;
+    }
+    wheelTargetRef.current = null;
+    wheelFrameTimeRef.current = null;
+  }, []);
+
   useEffect(() => {
     if (encounterTick > 0) requestCameraFrame();
   }, [encounterTick, requestCameraFrame]);
@@ -455,6 +472,7 @@ export function SceneViewport({
   const resetCamera = useCallback(() => {
     const viewport = viewportRef.current;
     if (!viewport) return;
+    stopWheelAnimation();
     const fit = Math.min(viewport.clientWidth / scene.width, viewport.clientHeight / scene.height);
     const initialScale = viewport.clientHeight > viewport.clientWidth * 1.25 ? 1.3 : 1;
     cameraRef.current = {
@@ -474,7 +492,7 @@ export function SceneViewport({
       && document.activeElement.matches(".scene-hotspot");
     if (!portalHasFocus) showPortalPreview(null);
     requestCameraFrame();
-  }, [requestCameraFrame, scene.height, scene.width, showPortalPreview]);
+  }, [requestCameraFrame, scene.height, scene.width, showPortalPreview, stopWheelAnimation]);
 
   const beginPortalTransition = useCallback((
     portal: ScenePortal,
@@ -483,6 +501,7 @@ export function SceneViewport({
     const viewport = viewportRef.current;
     if (!viewport || committingRef.current || interactionLocked) return;
     if (!onCommitScene(portal.childSceneId, source)) return;
+    stopWheelAnimation();
     committingRef.current = true;
     portalCandidateRef.current = portal;
     showPortalPreview(portal);
@@ -544,7 +563,7 @@ export function SceneViewport({
       finishCommit();
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
-  }, [interactionLocked, onCommitScene, onEnterScene, onPrefetchScene, requestCameraFrame, showPortalPreview]);
+  }, [interactionLocked, onCommitScene, onEnterScene, onPrefetchScene, requestCameraFrame, showPortalPreview, stopWheelAnimation]);
 
   const evaluateNavigation = useCallback(() => {
     const now = performance.now();
@@ -576,6 +595,7 @@ export function SceneViewport({
   const zoomAt = useCallback(
     (point: Point, factor: number, previousPoint: Point = point) => {
       if (!viewerInteractive || committingRef.current) return;
+      stopWheelAnimation();
       const camera = cameraRef.current;
       const previousFocus = zoomFocusRef.current;
       const minimum = scene.parentId ? 0.68 : 0.9;
@@ -619,11 +639,115 @@ export function SceneViewport({
         const portal = portalCandidateRef.current;
         if (portal) onPrefetchScene(portal.childSceneId);
       }
+      if (
+        factor < 1
+        && scene.parentId
+        && nextScale <= 1.18
+        && !parentZoomPrefetchRef.current
+      ) {
+        parentZoomPrefetchRef.current = true;
+        onPrefetchScene(scene.parentId);
+      }
       requestCameraFrame();
       scheduleNavigationCheck();
     },
-    [viewerInteractive, onPrefetchScene, requestCameraFrame, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview],
+    [viewerInteractive, onPrefetchScene, requestCameraFrame, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation],
   );
+
+  const queueWheelZoom = useCallback((point: Point, factor: number) => {
+    if (!viewerInteractive || committingRef.current) return;
+    if (settleRef.current) clearTimeout(settleRef.current);
+    if (cameraAnimationRef.current !== null) {
+      cancelAnimationFrame(cameraAnimationRef.current);
+      cameraAnimationRef.current = null;
+    }
+
+    const base = wheelTargetRef.current ?? cameraRef.current;
+    const previousFocus = zoomFocusRef.current;
+    const minimum = scene.parentId ? 0.68 : 0.9;
+    const nextScale = Math.min(MAX_SCALE, Math.max(minimum, base.scale * factor));
+    const ratio = nextScale / base.scale;
+    const target = clampCamera({
+      ...base,
+      scale: nextScale,
+      x: point.x - (point.x - base.x) * ratio,
+      y: point.y - (point.y - base.y) * ratio,
+    });
+    wheelTargetRef.current = target;
+    zoomFocusRef.current = point;
+    if (factor > 1) zoomDirectionRef.current = "in";
+    else if (factor < 1) zoomDirectionRef.current = "out";
+
+    if (factor > 1) {
+      const portal = portalAtScreenPoint(scene.portals, base, point)
+        ?? portalAtScreenPoint(scene.portals, target, point);
+      if (portal) {
+        portalCandidateRef.current = portal;
+        showPortalPreview(portal);
+        if (target.scale >= 2.65) onPrefetchScene(portal.childSceneId);
+      } else if (!previousFocus || distance(previousFocus, point) > 16) {
+        portalCandidateRef.current = null;
+        showPortalPreview(null);
+      }
+    } else if (factor < 1) {
+      portalCandidateRef.current = null;
+      if (target.scale < 2.45) showPortalPreview(null);
+      if (
+        scene.parentId
+        && target.scale <= 1.18
+        && !parentZoomPrefetchRef.current
+      ) {
+        parentZoomPrefetchRef.current = true;
+        onPrefetchScene(scene.parentId);
+      }
+    }
+
+    // Continuous wheel input keeps resetting this timer. Once the user pauses,
+    // navigation can commit after the existing intent dwell without waiting
+    // for the final sub-pixel tail of the camera interpolation.
+    scheduleNavigationCheck();
+
+    if (wheelAnimationRef.current !== null) return;
+    const animate = (now: number) => {
+      const nextTarget = wheelTargetRef.current;
+      if (!nextTarget || committingRef.current) {
+        wheelAnimationRef.current = null;
+        wheelFrameTimeRef.current = null;
+        return;
+      }
+      const previousTime = wheelFrameTimeRef.current ?? now - 16;
+      wheelFrameTimeRef.current = now;
+      const current = cameraRef.current;
+      const smoothed = smoothCameraTowards(
+        current,
+        nextTarget,
+        Math.min(34, Math.max(1, now - previousTime)),
+        WHEEL_RESPONSE_MS,
+      );
+      const settled = (
+        Math.abs(smoothed.x - nextTarget.x) <= WHEEL_POSITION_EPSILON
+        && Math.abs(smoothed.y - nextTarget.y) <= WHEEL_POSITION_EPSILON
+        && Math.abs(Math.log(smoothed.scale / nextTarget.scale)) <= WHEEL_SCALE_EPSILON
+      );
+      cameraRef.current = settled
+        ? { ...nextTarget }
+        : { ...smoothed, fit: nextTarget.fit };
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+        frameRef.current = null;
+      }
+      applyCamera();
+      if (!settled) {
+        wheelAnimationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      wheelAnimationRef.current = null;
+      wheelTargetRef.current = null;
+      wheelFrameTimeRef.current = null;
+      scheduleNavigationCheck();
+    };
+    wheelAnimationRef.current = requestAnimationFrame(animate);
+  }, [applyCamera, clampCamera, onPrefetchScene, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, viewerInteractive]);
 
   const focusVocabularyTarget = useCallback((
     fallbackLabelId: string,
@@ -638,6 +762,7 @@ export function SceneViewport({
     const nextLabel = labelsById.get(nextLabelId);
     if (!nextLabel || !Number.isInteger(nextLod) || nextLod < 0 || nextLod > 4 || revealedCount < 1) return;
 
+    stopWheelAnimation();
     if (cameraAnimationRef.current !== null) cancelAnimationFrame(cameraAnimationRef.current);
     if (settleRef.current) clearTimeout(settleRef.current);
     portalCandidateRef.current = null;
@@ -707,7 +832,13 @@ export function SceneViewport({
       focusRevealedWord();
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
-  }, [labelsById, requestCameraFrame, showPortalPreview, viewerInteractive]);
+  }, [labelsById, requestCameraFrame, showPortalPreview, stopWheelAnimation, viewerInteractive]);
+
+  useEffect(() => {
+    parentZoomPrefetchRef.current = false;
+    if (!scene.parentId) return;
+    onPrefetchScene(scene.parentId);
+  }, [onPrefetchScene, scene.id, scene.parentId]);
 
   useEffect(() => {
     resetCamera();
@@ -731,16 +862,22 @@ export function SceneViewport({
       event.preventDefault();
       const bounds = viewport.getBoundingClientRect();
       const point = { x: event.clientX - bounds.left, y: event.clientY - bounds.top };
-      zoomAt(point, Math.exp(-event.deltaY * 0.0017));
+      const factor = Math.exp(-event.deltaY * 0.0017);
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        zoomAt(point, factor);
+      } else {
+        queueWheelZoom(point, factor);
+      }
     };
     viewport.addEventListener("wheel", onWheel, { passive: false });
     return () => viewport.removeEventListener("wheel", onWheel);
-  }, [zoomAt]);
+  }, [queueWheelZoom, zoomAt]);
 
   useEffect(
     () => () => {
       if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
       if (cameraAnimationRef.current !== null) cancelAnimationFrame(cameraAnimationRef.current);
+      if (wheelAnimationRef.current !== null) cancelAnimationFrame(wheelAnimationRef.current);
       if (settleRef.current) clearTimeout(settleRef.current);
       if (encounterDwellRef.current) clearTimeout(encounterDwellRef.current);
     },
@@ -759,6 +896,7 @@ export function SceneViewport({
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!viewerInteractive || committingRef.current) return;
     if ((event.target as Element).closest("button")) return;
+    stopWheelAnimation();
     event.currentTarget.setPointerCapture(event.pointerId);
     const point = { x: event.clientX, y: event.clientY };
     pointersRef.current.set(event.pointerId, point);
@@ -816,6 +954,15 @@ export function SceneViewport({
     return viewport
       ? { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 }
       : { x: 0, y: 0 };
+  };
+
+  const requestSteppedZoom = (factor: number) => {
+    const point = viewportCenter();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      zoomAt(point, factor);
+    } else {
+      queueWheelZoom(point, factor);
+    }
   };
 
   return (
@@ -1015,8 +1162,8 @@ export function SceneViewport({
           </aside>
           <p ref={vocabularyAnnouncementRef} className="sr-only" aria-live="polite" />
           <div className="zoom-controls" aria-label="Zoom controls">
-            <button type="button" onClick={() => zoomAt(viewportCenter(), 1.34)} aria-label="Zoom in">＋</button>
-            <button type="button" onClick={() => zoomAt(viewportCenter(), 0.74)} aria-label="Zoom out">−</button>
+            <button type="button" onClick={() => requestSteppedZoom(1.34)} aria-label="Zoom in">＋</button>
+            <button type="button" onClick={() => requestSteppedZoom(0.74)} aria-label="Zoom out">−</button>
             <button type="button" onClick={resetCamera} aria-label="Fit scene">⌂</button>
           </div>
           {previewPortal ? (

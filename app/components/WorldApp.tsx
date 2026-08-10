@@ -4,9 +4,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SceneViewport } from "./SceneViewport";
 import { SemanticAtlas } from "./SemanticAtlas";
 import {
+  isScenePrepared,
   loadSceneManifest,
   prefetchScene,
   prepareScene,
+  retainSceneNeighborhood,
   type Scene,
 } from "../lib/scene-repository";
 import {
@@ -33,6 +35,7 @@ export function WorldApp() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [transitionState, setTransitionState] = useState<"loading" | "incoming" | "idle">("loading");
   const [transitionTarget, setTransitionTarget] = useState<string | null>(null);
+  const [transitionWarm, setTransitionWarm] = useState(false);
   const [announcedSceneTitle, setAnnouncedSceneTitle] = useState<string | null>(null);
   const [selectedLabel, setSelectedLabel] = useState<Label | null>(null);
   const [discoveredCount, setDiscoveredCount] = useState(0);
@@ -42,6 +45,8 @@ export function WorldApp() {
   const navigationPhaseRef = useRef<"idle" | "committing" | "navigating">("idle");
   const transitionTargetIdRef = useRef<string | null>(null);
   const transitionStartedAtRef = useRef(0);
+  const transitionWasWarmRef = useRef(false);
+  const preferredChildRef = useRef<string | null>(null);
   const discoveredEntriesRef = useRef<ReadonlySet<string>>(new Set());
 
   useEffect(() => {
@@ -56,9 +61,16 @@ export function WorldApp() {
     void loadSceneManifest(controller.signal)
       .then((manifest) => {
         setSceneTitles(Object.fromEntries(manifest.scenes.map((item) => [item.id, item.title])));
+        retainSceneNeighborhood(manifest.rootSceneId, null);
         return prepareScene(manifest.rootSceneId, controller.signal);
       })
       .then((initialScene) => {
+        preferredChildRef.current = initialScene.portals[0]?.childSceneId ?? null;
+        retainSceneNeighborhood(
+          initialScene.id,
+          initialScene.parentId ?? null,
+          initialScene.portals[0]?.childSceneId,
+        );
         setScene(initialScene);
         setHistory([initialScene]);
         setAnnouncedSceneTitle(initialScene.title);
@@ -90,15 +102,40 @@ export function WorldApp() {
   }, [scene]);
 
   useEffect(() => {
-    if (!scene || scene.portals.length !== 1) return;
-    const target = scene.portals[0].childSceneId;
+    if (!scene) return;
+    const preferredIsChild = scene.portals.some((portal) => portal.childSceneId === preferredChildRef.current);
+    const target = preferredIsChild ? preferredChildRef.current : scene.portals[0]?.childSceneId;
+    preferredChildRef.current = target ?? null;
+    retainSceneNeighborhood(scene.id, scene.parentId ?? null, target);
+    if (!target) return;
     const prefetch = () => prefetchScene(target);
     if (typeof window.requestIdleCallback === "function") {
-      const handle = window.requestIdleCallback(prefetch, { timeout: 1_500 });
+      const handle = window.requestIdleCallback(prefetch, { timeout: 400 });
       return () => window.cancelIdleCallback(handle);
     }
-    const handle = window.setTimeout(prefetch, 900);
+    const handle = window.setTimeout(prefetch, 120);
     return () => window.clearTimeout(handle);
+  }, [scene]);
+
+  const prefetchPreferredScene = useCallback((targetId: string) => {
+    if (!scene) return;
+    const rememberedChild = scene.portals.some((portal) => portal.childSceneId === preferredChildRef.current)
+      ? preferredChildRef.current
+      : scene.portals[0]?.childSceneId ?? null;
+    if (targetId === scene.parentId) {
+      // SceneViewport also warms the exit path. The parent already occupies
+      // its own cache slot and must not replace the preferred child slot.
+      retainSceneNeighborhood(scene.id, scene.parentId ?? null, rememberedChild);
+      prefetchScene(targetId);
+      return;
+    }
+    if (!scene.portals.some((portal) => portal.childSceneId === targetId)) return;
+    // Focus/hover is a stronger intent signal than portal order. Replacing the
+    // speculative child here keeps multi-portal scenes fast without retaining
+    // every branch in memory.
+    preferredChildRef.current = targetId;
+    retainSceneNeighborhood(scene.id, scene.parentId ?? null, targetId);
+    prefetchScene(targetId);
   }, [scene]);
 
   const settleScene = useCallback((from: string, nextScene: Scene, startedAt: number) => {
@@ -123,6 +160,8 @@ export function WorldApp() {
     navigationPhaseRef.current = "committing";
     transitionTargetIdRef.current = targetId;
     transitionStartedAtRef.current = performance.now();
+    transitionWasWarmRef.current = isScenePrepared(targetId);
+    setTransitionWarm(transitionWasWarmRef.current);
     performance.mark("scene-transition-start");
     focusHeadingAfterNavigationRef.current = source === "keyboard";
     setTransitionTarget(sceneTitles[targetId] ?? targetId);
@@ -149,12 +188,24 @@ export function WorldApp() {
       const controller = new AbortController();
       navigationRef.current = controller;
       const startedAt = transitionStartedAtRef.current || performance.now();
+      const wasWarm = transitionWasWarmRef.current;
+      const historyTarget = history.find((item) => item.id === targetId);
+      const targetParentId = direction === "forward" ? scene.id : historyTarget?.parentId ?? null;
+      const backPreferredChild = direction === "back"
+        ? historyIndex === undefined ? scene.id : history[historyIndex + 1]?.id ?? null
+        : null;
+      retainSceneNeighborhood(targetId, targetParentId, backPreferredChild);
       try {
         // Keep the committed target visible for at least one paint, even when
         // the decoded child scene is already in memory.
         await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
         const nextScene = await prepareScene(targetId, controller.signal);
         if (controller.signal.aborted) return false;
+        const nextPreferredChild = direction === "back"
+          ? backPreferredChild
+          : nextScene.portals[0]?.childSceneId;
+        preferredChildRef.current = nextPreferredChild ?? null;
+        retainSceneNeighborhood(nextScene.id, nextScene.parentId ?? null, nextPreferredChild);
         setOutgoingScene(scene);
         setScene(nextScene);
         setHistory((current) =>
@@ -165,7 +216,7 @@ export function WorldApp() {
         setTransitionState("incoming");
         await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
         const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        await new Promise<void>((resolve) => window.setTimeout(resolve, reducedMotion ? 80 : 220));
+        await new Promise<void>((resolve) => window.setTimeout(resolve, reducedMotion ? 80 : wasWarm ? 140 : 220));
         if (controller.signal.aborted) return false;
         setOutgoingScene(null);
         setTransitionState("idle");
@@ -175,6 +226,8 @@ export function WorldApp() {
         navigationPhaseRef.current = "idle";
         transitionTargetIdRef.current = null;
         transitionStartedAtRef.current = 0;
+        transitionWasWarmRef.current = false;
+        setTransitionWarm(false);
         settleScene(scene.id, nextScene, startedAt);
         if (focusHeadingAfterNavigationRef.current) {
           requestAnimationFrame(() => sceneHeadingRef.current?.focus({ preventScroll: true }));
@@ -182,6 +235,7 @@ export function WorldApp() {
         return true;
       } catch (error: unknown) {
         if (!controller.signal.aborted) {
+          retainSceneNeighborhood(scene.id, scene.parentId ?? null, scene.portals[0]?.childSceneId);
           setLoadError(error instanceof Error ? error.message : "Scene failed to load");
           setTransitionState("idle");
           setTransitionTarget(null);
@@ -190,13 +244,15 @@ export function WorldApp() {
           navigationPhaseRef.current = "idle";
           transitionTargetIdRef.current = null;
           transitionStartedAtRef.current = 0;
+          transitionWasWarmRef.current = false;
+          setTransitionWarm(false);
         }
         return false;
       } finally {
         if (navigationRef.current === controller) navigationRef.current = null;
       }
     },
-    [beginSceneCommit, scene, settleScene],
+    [beginSceneCommit, history, scene, settleScene],
   );
 
   const goBack = useCallback((source: "zoom" | "pointer" | "keyboard" = "pointer") => {
@@ -247,6 +303,7 @@ export function WorldApp() {
       data-scene-id={scene?.id ?? "loading"}
       data-scene-loading={String(loading)}
       data-transition-state={transitionState}
+      data-transition-cache={transitionWarm ? "warm" : "cold"}
       aria-busy={loading}
     >
       <header className="app-header">
@@ -327,13 +384,13 @@ export function WorldApp() {
               onLabelsEncountered={recordEncounteredLabels}
               onLabelEncountered={recordEncounteredLabel}
               onSelectWord={setSelectedLabel}
-              onPrefetchScene={prefetchScene}
+              onPrefetchScene={prefetchPreferredScene}
             />
           </>
         ) : (
           <div className="opening-state"><span /><p>正在展开词汇世界…</p></div>
         )}
-        {loading && scene ? (
+        {loading && scene && transitionState === "loading" && !transitionWarm ? (
           <div className="loading-pill" role="status">
             {transitionTarget ? `正在进入 ${transitionTarget}…` : "正在展开下一层…"}
           </div>

@@ -110,6 +110,33 @@ export function zoomAndClampCamera(
   return clampCamera(zoomCameraAboutPoint(camera, nextScale, point), bounds);
 }
 
+/**
+ * Advances a camera toward a target using time-based exponential smoothing.
+ * Logarithmic scale interpolation keeps zoom-in and zoom-out motion symmetric.
+ */
+export function smoothCameraTowards(
+  camera: Camera,
+  target: Camera,
+  deltaMs: number,
+  responseMs: number,
+): Camera {
+  assertCamera(camera);
+  assertCamera(target);
+  finite(deltaMs, "deltaMs");
+  positive(responseMs, "responseMs");
+  if (deltaMs < 0) throw new RangeError("deltaMs cannot be negative");
+  if (deltaMs === 0) return { ...camera };
+  const blend = 1 - Math.exp(-deltaMs / responseMs);
+  return {
+    x: camera.x + (target.x - camera.x) * blend,
+    y: camera.y + (target.y - camera.y) * blend,
+    scale: Math.exp(
+      Math.log(camera.scale)
+      + (Math.log(target.scale) - Math.log(camera.scale)) * blend,
+    ),
+  };
+}
+
 export function sceneToViewport(camera: Camera, point: Point): Point {
   assertCamera(camera);
   return {
@@ -131,4 +158,3 @@ export function assertCamera(camera: Camera): void {
   finite(camera.y, "camera.y");
   positive(camera.scale, "camera.scale");
 }
-

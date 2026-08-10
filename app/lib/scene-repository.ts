@@ -14,8 +14,44 @@ export interface SceneManifest {
   scenes: SceneManifestEntry[];
 }
 
-const sceneCache = new Map<string, Promise<Scene>>();
-const imageCache = new Map<string, Promise<void>>();
+const MAX_RESIDENT_SCENES = 3;
+const MAX_RESIDENT_IMAGES = 3;
+
+type CacheStatus = "pending" | "resolved";
+
+interface SceneCacheEntry {
+  promise: Promise<Scene>;
+  status: CacheStatus;
+  asset?: string;
+}
+
+interface ImageCacheEntry {
+  image: HTMLImageElement;
+  promise: Promise<void>;
+  status: CacheStatus;
+}
+
+export interface SceneCacheSnapshot {
+  residentSceneIds: readonly string[];
+  scenes: readonly {
+    sceneId: string;
+    status: CacheStatus;
+    asset?: string;
+  }[];
+  images: readonly {
+    asset: string;
+    status: CacheStatus;
+    retainedImage: boolean;
+  }[];
+  limits: {
+    scenes: number;
+    images: number;
+  };
+}
+
+const sceneCache = new Map<string, SceneCacheEntry>();
+const imageCache = new Map<string, ImageCacheEntry>();
+let residentSceneIds = new Set<string>();
 let manifestCache: Promise<SceneManifest> | null = null;
 
 function assertFinitePositive(value: number, field: string): void {
@@ -51,68 +87,209 @@ function validateManifest(value: unknown): SceneManifest {
   return manifest;
 }
 
+function abortError(): DOMException {
+  return new DOMException("The operation was aborted", "AbortError");
+}
+
+/**
+ * A caller can stop waiting without cancelling the shared fetch/decode. This
+ * keeps one navigation's AbortController from poisoning a request that an
+ * adjacent-scene prefetch or a second navigation is already using.
+ */
+function waitFor<T>(promise: Promise<T>, signal?: AbortSignal): Promise<T> {
+  if (!signal) return promise;
+  if (signal.aborted) return Promise.reject(abortError());
+  return new Promise<T>((resolve, reject) => {
+    const onAbort = () => {
+      cleanup();
+      reject(abortError());
+    };
+    const cleanup = () => signal.removeEventListener("abort", onAbort);
+    signal.addEventListener("abort", onAbort, { once: true });
+    promise.then(
+      (value) => {
+        cleanup();
+        resolve(value);
+      },
+      (error: unknown) => {
+        cleanup();
+        reject(error);
+      },
+    );
+  });
+}
+
+function pruneCaches(): void {
+  for (const [sceneId] of sceneCache) {
+    if (!residentSceneIds.has(sceneId)) sceneCache.delete(sceneId);
+  }
+
+  const retainedAssets = new Set<string>();
+  for (const sceneId of residentSceneIds) {
+    const asset = sceneCache.get(sceneId)?.asset;
+    if (asset) retainedAssets.add(asset);
+  }
+  for (const [asset, entry] of imageCache) {
+    if (retainedAssets.has(asset)) continue;
+    imageCache.delete(asset);
+    // The cached Image is never inserted in the DOM; clearing its source and
+    // releasing the entry lets the decoded pixel buffer be reclaimed.
+    entry.image.src = "";
+  }
+}
+
+/**
+ * Pins exactly the useful navigation neighborhood: current scene, its parent,
+ * and one preferred child. Passing a new preferred child (for example from
+ * portal focus/hover) replaces the older speculative child immediately.
+ */
+export function retainSceneNeighborhood(
+  currentId: string,
+  parentId: string | null,
+  preferredChildId?: string | null,
+): void {
+  const next = new Set<string>();
+  for (const id of [currentId, parentId, preferredChildId]) {
+    if (id && next.size < MAX_RESIDENT_SCENES) next.add(id);
+  }
+  residentSceneIds = next;
+  pruneCaches();
+}
+
 export function loadSceneManifest(signal?: AbortSignal): Promise<SceneManifest> {
-  if (manifestCache) return manifestCache;
-  manifestCache = fetch("/data/scenes/manifest.json", { signal })
-    .then(async (response) => {
-      if (!response.ok) throw new Error("Unable to load the world map");
-      return validateManifest(await response.json());
-    })
-    .catch((error) => {
-      manifestCache = null;
-      throw error;
-    });
-  return manifestCache;
+  if (!manifestCache) {
+    const request = fetch("/data/scenes/manifest.json")
+      .then(async (response) => {
+        if (!response.ok) throw new Error("Unable to load the world map");
+        return validateManifest(await response.json());
+      })
+      .catch((error) => {
+        if (manifestCache === request) manifestCache = null;
+        throw error;
+      });
+    manifestCache = request;
+  }
+  return waitFor(manifestCache, signal);
 }
 
 export function loadScene(sceneId: string, signal?: AbortSignal): Promise<Scene> {
-  const cached = sceneCache.get(sceneId);
-  if (cached) return cached;
-
-  const request = fetch(`/data/scenes/${encodeURIComponent(sceneId)}.json`, { signal })
-    .then(async (response) => {
-      if (!response.ok) throw new Error(`Unable to load scene ${sceneId}`);
-      return validateScene(await response.json(), sceneId);
-    })
-    .catch((error) => {
-      sceneCache.delete(sceneId);
-      throw error;
-    });
-
-  sceneCache.set(sceneId, request);
-  return request;
+  let entry = sceneCache.get(sceneId);
+  if (!entry) {
+    entry = {
+      status: "pending",
+      promise: Promise.resolve(null as unknown as Scene),
+    };
+    const ownedEntry = entry;
+    ownedEntry.promise = fetch(`/data/scenes/${encodeURIComponent(sceneId)}.json`)
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Unable to load scene ${sceneId}`);
+        const scene = validateScene(await response.json(), sceneId);
+        ownedEntry.status = "resolved";
+        ownedEntry.asset = scene.asset;
+        pruneCaches();
+        return scene;
+      })
+      .catch((error) => {
+        if (sceneCache.get(sceneId) === ownedEntry) sceneCache.delete(sceneId);
+        throw error;
+      });
+    sceneCache.set(sceneId, ownedEntry);
+    // Callers outside WorldApp can still load a scene, but they do not get to
+    // grow the persistent cache beyond the active three-scene neighborhood.
+    if (residentSceneIds.size > 0 && !residentSceneIds.has(sceneId)) pruneCaches();
+  }
+  return waitFor(entry.promise, signal);
 }
 
-export function decodeSceneImage(asset: string): Promise<void> {
-  const cached = imageCache.get(asset);
-  if (cached) return cached;
-
-  const request = new Promise<void>((resolve, reject) => {
+export function decodeSceneImage(asset: string, signal?: AbortSignal): Promise<void> {
+  let entry = imageCache.get(asset);
+  if (!entry) {
     const image = new Image();
     image.decoding = "async";
-    image.onload = () => resolve();
-    image.onerror = () => reject(new Error(`Unable to decode ${asset}`));
-    image.src = asset;
-    if (image.complete) {
-      image.decode().then(resolve, reject);
-    }
-  }).catch((error) => {
-    imageCache.delete(asset);
-    throw error;
-  });
-
-  imageCache.set(asset, request);
-  return request;
+    entry = {
+      image,
+      status: "pending",
+      promise: Promise.resolve(),
+    };
+    const ownedEntry = entry;
+    ownedEntry.promise = new Promise<void>((resolve, reject) => {
+      let decodeStarted = false;
+      const cleanup = () => {
+        image.onload = null;
+        image.onerror = null;
+      };
+      const decode = () => {
+        if (decodeStarted) return;
+        decodeStarted = true;
+        void image.decode().then(
+          () => {
+            cleanup();
+            ownedEntry.status = "resolved";
+            resolve();
+          },
+          (error: unknown) => {
+            cleanup();
+            reject(error);
+          },
+        );
+      };
+      image.onload = decode;
+      image.onerror = () => {
+        cleanup();
+        reject(new Error(`Unable to decode ${asset}`));
+      };
+      image.src = asset;
+      if (image.complete && image.naturalWidth > 0) decode();
+    })
+      .catch((error) => {
+        if (imageCache.get(asset) === ownedEntry) imageCache.delete(asset);
+        throw error;
+      })
+      .finally(pruneCaches);
+    imageCache.set(asset, ownedEntry);
+    if (residentSceneIds.size > 0) pruneCaches();
+  }
+  return waitFor(entry.promise, signal);
 }
 
 export async function prepareScene(sceneId: string, signal?: AbortSignal): Promise<Scene> {
   const scene = await loadScene(sceneId, signal);
-  await decodeSceneImage(scene.asset);
+  await decodeSceneImage(scene.asset, signal);
   return scene;
 }
 
 export function prefetchScene(sceneId: string): void {
-  void loadScene(sceneId)
-    .then((scene) => decodeSceneImage(scene.asset))
-    .catch(() => undefined);
+  void prepareScene(sceneId).catch(() => undefined);
+}
+
+export function isScenePrepared(sceneId: string): boolean {
+  const sceneEntry = sceneCache.get(sceneId);
+  return sceneEntry?.status === "resolved"
+    && !!sceneEntry.asset
+    && imageCache.get(sceneEntry.asset)?.status === "resolved";
+}
+
+export function getSceneCacheSnapshot(): SceneCacheSnapshot {
+  return {
+    residentSceneIds: [...residentSceneIds],
+    scenes: [...sceneCache].map(([sceneId, entry]) => ({
+      sceneId,
+      status: entry.status,
+      ...(entry.asset ? { asset: entry.asset } : {}),
+    })),
+    images: [...imageCache].map(([asset, entry]) => ({
+      asset,
+      status: entry.status,
+      retainedImage: entry.image instanceof Image,
+    })),
+    limits: { scenes: MAX_RESIDENT_SCENES, images: MAX_RESIDENT_IMAGES },
+  };
+}
+
+export function resetSceneRepositoryForTests(): void {
+  for (const entry of imageCache.values()) entry.image.src = "";
+  sceneCache.clear();
+  imageCache.clear();
+  residentSceneIds = new Set();
+  manifestCache = null;
 }
