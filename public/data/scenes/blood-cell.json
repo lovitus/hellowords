@@ -1,9 +1,529 @@
 {
-  "id":"blood-cell","title":"Blood cell","translation":"血细胞","subtitle":"A microscopic river of life","asset":"/scenes/blood-cell.svg","width":1600,"height":900,"parentId":"heart",
-  "labels":[
-    {"id":"blood","word":"blood","translation":"血液","x":800,"y":72,"priority":1,"minLevel":0},{"id":"cell","word":"cell","translation":"细胞","x":750,"y":440,"priority":1,"minLevel":0},{"id":"plasma","word":"plasma","translation":"血浆","x":800,"y":650,"priority":1,"minLevel":0},{"id":"red-blood-cell","word":"red blood cell","translation":"红细胞","x":570,"y":420,"priority":1,"minLevel":0},{"id":"white-blood-cell","word":"white blood cell","translation":"白细胞","x":1030,"y":400,"priority":1,"minLevel":0},{"id":"platelet","word":"platelet","translation":"血小板","x":850,"y":520,"priority":1,"minLevel":0},
-    {"id":"oxygen","word":"oxygen","translation":"氧气","x":480,"y":330,"priority":2,"minLevel":1},{"id":"vessel","word":"vessel","translation":"血管","x":300,"y":650,"priority":2,"minLevel":1},{"id":"immune","word":"immune","translation":"免疫的","x":1100,"y":300,"priority":2,"minLevel":1},{"id":"infection","word":"infection","translation":"感染","x":1240,"y":490,"priority":2,"minLevel":1},{"id":"antibody","word":"antibody","translation":"抗体","x":1150,"y":560,"priority":2,"minLevel":1},{"id":"bacteria","word":"bacteria","translation":"细菌","x":1300,"y":380,"priority":2,"minLevel":1},{"id":"virus","word":"virus","translation":"病毒","x":1370,"y":520,"priority":2,"minLevel":1},{"id":"clot","word":"clot","translation":"血凝块","x":720,"y":570,"priority":2,"minLevel":1},
-    {"id":"iron","word":"iron","translation":"铁","x":470,"y":500,"priority":3,"minLevel":2},{"id":"protein","word":"protein","translation":"蛋白质","x":650,"y":315,"priority":3,"minLevel":2},{"id":"nucleus","word":"nucleus","translation":"细胞核","x":1030,"y":410,"priority":3,"minLevel":2},{"id":"membrane","word":"membrane","translation":"细胞膜","x":610,"y":440,"priority":3,"minLevel":2},{"id":"circulation","word":"circulation","translation":"循环","x":800,"y":750,"priority":3,"minLevel":2},{"id":"tissue","word":"tissue","translation":"组织","x":300,"y":735,"priority":3,"minLevel":2},{"id":"transport","word":"transport","translation":"运输","x":580,"y":700,"priority":3,"minLevel":2},{"id":"defense","word":"defense","translation":"防御","x":1170,"y":670,"priority":3,"minLevel":2},{"id":"healthy","word":"healthy","translation":"健康的","x":900,"y":710,"priority":3,"minLevel":2},{"id":"microscopic","word":"microscopic","translation":"微观的","x":1380,"y":700,"priority":3,"minLevel":2}
+  "id": "blood-cell",
+  "title": "Blood cell",
+  "translation": "血细胞",
+  "subtitle": "A microscopic river of life",
+  "asset": "/scenes/blood-cell.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "heart",
+  "labels": [
+    {
+      "id": "blood",
+      "word": "blood",
+      "translation": "血液",
+      "x": 800,
+      "y": 72,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "cell",
+      "word": "cell",
+      "translation": "细胞",
+      "x": 750,
+      "y": 440,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "plasma",
+      "word": "plasma",
+      "translation": "血浆",
+      "x": 800,
+      "y": 650,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "red-blood-cell",
+      "word": "red blood cell",
+      "translation": "红细胞",
+      "x": 570,
+      "y": 420,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "white-blood-cell",
+      "word": "white blood cell",
+      "translation": "白细胞",
+      "x": 1030,
+      "y": 400,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "platelet",
+      "word": "platelet",
+      "translation": "血小板",
+      "x": 850,
+      "y": 520,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "oxygen",
+      "word": "oxygen",
+      "translation": "氧气",
+      "x": 480,
+      "y": 330,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "vessel",
+      "word": "vessel",
+      "translation": "血管",
+      "x": 300,
+      "y": 650,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "immune",
+      "word": "immune",
+      "translation": "免疫的",
+      "x": 1100,
+      "y": 300,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "infection",
+      "word": "infection",
+      "translation": "感染",
+      "x": 1240,
+      "y": 490,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "antibody",
+      "word": "antibody",
+      "translation": "抗体",
+      "x": 1150,
+      "y": 560,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bacteria",
+      "word": "bacteria",
+      "translation": "细菌",
+      "x": 1300,
+      "y": 380,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "virus",
+      "word": "virus",
+      "translation": "病毒",
+      "x": 1370,
+      "y": 520,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "clot",
+      "word": "clot",
+      "translation": "血凝块",
+      "x": 720,
+      "y": 570,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "iron",
+      "word": "iron",
+      "translation": "铁",
+      "x": 470,
+      "y": 500,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "protein",
+      "word": "protein",
+      "translation": "蛋白质",
+      "x": 650,
+      "y": 315,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "nucleus",
+      "word": "nucleus",
+      "translation": "细胞核",
+      "x": 1030,
+      "y": 410,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "membrane",
+      "word": "membrane",
+      "translation": "细胞膜",
+      "x": 610,
+      "y": 440,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "circulation",
+      "word": "circulation",
+      "translation": "循环",
+      "x": 800,
+      "y": 750,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "tissue",
+      "word": "tissue",
+      "translation": "组织",
+      "x": 300,
+      "y": 735,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "transport",
+      "word": "transport",
+      "translation": "运输",
+      "x": 580,
+      "y": 700,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "defense",
+      "word": "defense",
+      "translation": "防御",
+      "x": 1170,
+      "y": 670,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "healthy",
+      "word": "healthy",
+      "translation": "健康的",
+      "x": 900,
+      "y": 710,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "microscopic",
+      "word": "microscopic",
+      "translation": "微观的",
+      "x": 1380,
+      "y": 700,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "biconcave-disc",
+      "word": "biconcave disc",
+      "translation": "双凹圆盘",
+      "x": 1034,
+      "y": 347,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "cell-count",
+      "word": "cell count",
+      "translation": "血细胞计数",
+      "x": 566,
+      "y": 419,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "blood-type",
+      "word": "blood type",
+      "translation": "血型",
+      "x": 644,
+      "y": 419,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "surface-antigen",
+      "word": "surface antigen",
+      "translation": "表面抗原",
+      "x": 722,
+      "y": 419,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "reticulocyte",
+      "word": "reticulocyte",
+      "translation": "网织红细胞",
+      "x": 800,
+      "y": 419,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "erythrocyte",
+      "word": "erythrocyte",
+      "translation": "红细胞",
+      "x": 878,
+      "y": 419,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "leukocyte",
+      "word": "leukocyte",
+      "translation": "白细胞",
+      "x": 956,
+      "y": 419,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "neutrophil",
+      "word": "neutrophil",
+      "translation": "中性粒细胞",
+      "x": 1034,
+      "y": 419,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "lymphocyte",
+      "word": "lymphocyte",
+      "translation": "淋巴细胞",
+      "x": 566,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "monocyte",
+      "word": "monocyte",
+      "translation": "单核细胞",
+      "x": 644,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "eosinophil",
+      "word": "eosinophil",
+      "translation": "嗜酸性粒细胞",
+      "x": 722,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "basophil",
+      "word": "basophil",
+      "translation": "嗜碱性粒细胞",
+      "x": 800,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "macrophage",
+      "word": "macrophage",
+      "translation": "巨噬细胞",
+      "x": 878,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "clotting-factor",
+      "word": "clotting factor",
+      "translation": "凝血因子",
+      "x": 956,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "fibrin",
+      "word": "fibrin",
+      "translation": "纤维蛋白",
+      "x": 1034,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "scab",
+      "word": "scab",
+      "translation": "血痂",
+      "x": 566,
+      "y": 563,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "pathogen",
+      "word": "pathogen",
+      "translation": "病原体",
+      "x": 644,
+      "y": 563,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "phagocytosis",
+      "word": "phagocytosis",
+      "translation": "吞噬作用",
+      "x": 722,
+      "y": 563,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "inflammation",
+      "word": "inflammation",
+      "translation": "炎症",
+      "x": 583,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "immunity",
+      "word": "immunity",
+      "translation": "免疫力",
+      "x": 645,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "donation",
+      "word": "donation",
+      "translation": "献血",
+      "x": 707,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "smear",
+      "word": "smear",
+      "translation": "血涂片",
+      "x": 769,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "hematocrit",
+      "word": "hematocrit",
+      "translation": "红细胞压积",
+      "x": 831,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "hemoglobin",
+      "word": "hemoglobin",
+      "translation": "血红蛋白",
+      "x": 893,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "cell-membrane",
+      "word": "cell membrane",
+      "translation": "细胞膜",
+      "x": 955,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "blood-plasma",
+      "word": "blood plasma",
+      "translation": "血浆",
+      "x": 1017,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "oxygen-transport",
+      "word": "oxygen transport",
+      "translation": "氧输送",
+      "x": 583,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "platelet-plug",
+      "word": "platelet plug",
+      "translation": "血小板栓",
+      "x": 645,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "immune-response",
+      "word": "immune response",
+      "translation": "免疫反应",
+      "x": 707,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "capillary-flow",
+      "word": "capillary flow",
+      "translation": "毛细血管血流",
+      "x": 769,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "red-pigment",
+      "word": "red pigment",
+      "translation": "红色色素",
+      "x": 831,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "cell-lifespan",
+      "word": "cell lifespan",
+      "translation": "细胞寿命",
+      "x": 893,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    }
   ],
-  "portals":[]
+  "portals": [
+    {
+      "id": "enter-hemoglobin",
+      "label": "Inspect hemoglobin",
+      "translation": "查看血红蛋白",
+      "childSceneId": "hemoglobin",
+      "x": 575,
+      "y": 245,
+      "width": 450,
+      "height": 420,
+      "enterScale": 3.6
+    }
+  ]
 }

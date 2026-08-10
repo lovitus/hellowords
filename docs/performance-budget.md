@@ -7,8 +7,8 @@ Status: initial protective ceilings; recalibrate after repeated main-branch runs
 | Metric | Budget |
 | --- | ---: |
 | Mounted scene surfaces | <= 2 |
-| Visible desktop labels | <= 24 |
-| Visible mobile labels | <= 16 |
+| Fully readable desktop labels | <= 64 |
+| Fully readable mobile labels | <= 32 |
 | Live DOM nodes | <= 1,500 |
 | Individual SVG, gzip | <= 350 KiB |
 | Individual raster asset | <= 1.2 MiB |
@@ -21,9 +21,15 @@ Artwork should avoid expensive blur/filter chains. Only `transform` and
 `opacity` are animated during camera and scene transitions. Temporary
 `will-change` hints are removed after transitions.
 
+The scene viewer keeps a larger authored set in the current slice, but five
+continuous LOD bands, viewport culling and a screen-space collision index keep
+the fully readable set within the budgets above. Hidden labels are removed from
+pointer, keyboard and accessibility navigation.
+
 The semantic universe uses a single DPR-capped Canvas, 320 px repository
 spatial-hash cells, viewport culling, screen-space label collision and zoom-tier
-candidate limits of 44/76/170/300/480/720. Its overview loads 24 small topic
+candidate limits of 44/76/170/300/480/720. It exposes four visible levels
+(realm, topic, semantic subcluster and word). Its overview loads 24 small topic
 neighborhoods distributed across all ten realms; zoom and search hydrate only
 required topic shards. Its live DOM budget remains independent of the
 10,000-word count.

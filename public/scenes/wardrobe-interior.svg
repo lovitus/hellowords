@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img">
+  <title>Wardrobe interior cutaway</title>
+  <desc>An open wooden wardrobe with rails, garments, folded textiles, drawers, shoes and a central cotton shirt.</desc>
+  <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#efe5d1"/><stop offset="1" stop-color="#cab193"/></linearGradient><filter id="s"><feDropShadow dy="14" stdDeviation="18" flood-color="#173f35" flood-opacity=".2"/></filter><pattern id="grain" width="42" height="20" patternUnits="userSpaceOnUse"><path d="M0 10q10-8 20 0t22 0" fill="none" stroke="#f0d8b5" stroke-opacity=".2" stroke-width="3"/></pattern></defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g filter="url(#s)"><rect x="145" y="70" width="1310" height="760" rx="30" fill="#76533f"/><rect x="185" y="110" width="1230" height="680" rx="14" fill="#d9bf9e"/><rect x="185" y="110" width="1230" height="680" rx="14" fill="url(#grain)"/></g>
+  <path d="M565 110v680M1035 110v680M185 620h1230" stroke="#76533f" stroke-width="18"/>
+  <path d="M230 190h285M610 190h380M1080 190h290" stroke="#315c52" stroke-width="14"/>
+  <g fill="none" stroke="#315c52" stroke-width="8"><path d="M300 190v55l-56 36h112l-56-36M435 190v55l-56 36h112l-56-36M710 190v55l-66 42h132l-66-42M860 190v55l-66 42h132l-66-42M1170 190v55l-55 36h110l-55-36M1310 190v55l-55 36h110l-55-36"/></g>
+  <g filter="url(#s)"><path d="M626 270q84-38 168 0l72 90-58 50-28-42v255H640V368l-28 42-58-50z" fill="#f2eee3" stroke="#ba7652" stroke-width="10"/><path d="M692 270q18 55 36 0M640 455h140M650 530h120" stroke="#9a6b54" stroke-width="6" fill="none"/><circle cx="710" cy="415" r="5" fill="#315c52"/><circle cx="710" cy="455" r="5" fill="#315c52"/><circle cx="710" cy="495" r="5" fill="#315c52"/></g>
+  <path d="M235 265h110l50 75v245H235z" fill="#426d61"/><path d="M390 265h105v320H390z" fill="#c57d56"/><path d="M1090 265h115v320H1090z" fill="#d3a44f"/><path d="M1230 265h135v320H1230z" fill="#547e83"/>
+  <g fill="#f1e4cf" stroke="#8a674e" stroke-width="6"><rect x="220" y="650" width="300" height="110" rx="10"/><rect x="1080" y="650" width="300" height="110" rx="10"/></g><g fill="#315c52"><path d="M245 720q55-75 120 0zM380 720q55-75 115 0zM1110 720q55-75 120 0zM1245 720q55-75 110 0z"/></g>
+  <g fill="#af7554"><rect x="575" y="650" width="420" height="48" rx="9"/><rect x="575" y="710" width="420" height="48" rx="9"/></g><circle cx="785" cy="674" r="7" fill="#eed08a"/><circle cx="785" cy="734" r="7" fill="#eed08a"/>
+</svg>

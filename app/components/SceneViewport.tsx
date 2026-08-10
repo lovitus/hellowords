@@ -36,6 +36,14 @@ function distance(a: Point, b: Point): number {
   return Math.hypot(a.x - b.x, a.y - b.y);
 }
 
+function sceneLodLevel(scale: number): 0 | 1 | 2 | 3 | 4 {
+  if (scale < 0.82) return 0;
+  if (scale < 1.2) return 1;
+  if (scale < 1.65) return 2;
+  if (scale < 2.3) return 3;
+  return 4;
+}
+
 function portalAtScreenPoint(portals: readonly ScenePortal[], camera: Camera, point: Point): ScenePortal | undefined {
   const effectiveScale = camera.fit * camera.scale;
   const sceneX = (point.x - camera.x) / effectiveScale;
@@ -98,11 +106,13 @@ export function SceneViewport({
     if (!surface || !viewport) return;
     const camera = (cameraRef.current = clampCamera(cameraRef.current));
     const effectiveScale = camera.fit * camera.scale;
-    const zoomLevel = camera.scale < 1.12 ? 0 : camera.scale < 1.9 ? 1 : 2;
+    const zoomLevel = sceneLodLevel(camera.scale);
     surface.style.transform = `translate3d(${camera.x}px, ${camera.y}px, 0) scale(${effectiveScale})`;
     surface.style.setProperty("--label-inverse", String(1 / effectiveScale));
     surface.style.setProperty("--scene-zoom", camera.scale.toFixed(3));
     surface.dataset.zoomLevel = String(zoomLevel);
+    surface.dataset.lodLevel = String(zoomLevel);
+    surface.dataset.sceneScale = camera.scale.toFixed(3);
 
     const layout = computeSceneLabelLayout(
       scene.labels,
@@ -116,18 +126,41 @@ export function SceneViewport({
     );
     const byId = new Map(layout.map((item) => [item.id, item]));
     let visibleCount = 0;
+    let emergingCount = 0;
     for (const element of surface.querySelectorAll<HTMLButtonElement>(".word-label")) {
       const item = byId.get(element.dataset.labelId ?? "");
-      const opacity = item?.opacity ?? 0;
-      const interactive = Boolean(item?.interactive);
-      element.style.setProperty("--label-opacity", opacity.toFixed(3));
-      element.dataset.visible = String(opacity > 0.025);
-      element.dataset.interactive = String(interactive);
-      element.tabIndex = interactive ? 0 : -1;
-      element.setAttribute("aria-hidden", String(!interactive));
-      if (opacity >= 0.12) visibleCount += 1;
+      const ownsFocus = document.activeElement === element;
+      const opacity = ownsFocus ? Math.max(1, item?.opacity ?? 0) : item?.opacity ?? 0;
+      const interactive = ownsFocus || Boolean(item?.interactive);
+      const opacityStyle = opacity.toFixed(3);
+      const offsetXStyle = `${(item?.offsetX ?? 0).toFixed(2)}px`;
+      const offsetYStyle = `${(item?.offsetY ?? 0).toFixed(2)}px`;
+      const visibleValue = String(opacity > 0.025);
+      const interactiveValue = String(interactive);
+      const hiddenValue = String(!interactive);
+      if (element.style.getPropertyValue("--label-opacity") !== opacityStyle) {
+        element.style.setProperty("--label-opacity", opacityStyle);
+      }
+      if (element.style.getPropertyValue("--label-offset-x") !== offsetXStyle) {
+        element.style.setProperty("--label-offset-x", offsetXStyle);
+      }
+      if (element.style.getPropertyValue("--label-offset-y") !== offsetYStyle) {
+        element.style.setProperty("--label-offset-y", offsetYStyle);
+      }
+      if (element.dataset.visible !== visibleValue) element.dataset.visible = visibleValue;
+      if (element.dataset.interactive !== interactiveValue) {
+        element.dataset.interactive = interactiveValue;
+      }
+      const nextTabIndex = interactive ? 0 : -1;
+      if (element.tabIndex !== nextTabIndex) element.tabIndex = nextTabIndex;
+      if (element.getAttribute("aria-hidden") !== hiddenValue) {
+        element.setAttribute("aria-hidden", hiddenValue);
+      }
+      if (opacity >= 0.52) visibleCount += 1;
+      else if (opacity > 0.025) emergingCount += 1;
     }
     surface.dataset.visibleLabelCount = String(visibleCount);
+    surface.dataset.emergingLabelCount = String(emergingCount);
   }, [clampCamera, meaningVisible, scene.labels]);
 
   const requestCameraFrame = useCallback(() => {
@@ -349,6 +382,7 @@ export function SceneViewport({
                 data-testid="word-label"
                 data-label-id={label.id}
                 data-min-level={label.minLevel ?? 0}
+                data-lod={label.minLevel ?? 0}
                 data-priority={label.priority}
                 data-visible="false"
                 data-interactive="false"
@@ -371,23 +405,27 @@ export function SceneViewport({
             ))}
           </div>
           {scene.portals.map((portal) => (
-            <button
+            <div
               key={portal.id}
-              type="button"
-              className="scene-hotspot"
-              data-testid="scene-hotspot"
-              data-target-scene={portal.childSceneId}
+              className="scene-hotspot-region"
               style={{ left: portal.x, top: portal.y, width: portal.width, height: portal.height }}
-              onClick={(event) => {
-                event.stopPropagation();
-                focusPortal(portal);
-              }}
-              onFocus={() => onPrefetchScene(portal.childSceneId)}
-              onPointerEnter={() => onPrefetchScene(portal.childSceneId)}
-              aria-label={meaningVisible && portal.translation ? `${portal.label}，${portal.translation}` : portal.label}
             >
-              <span aria-hidden="true">＋</span>
-            </button>
+              <button
+                type="button"
+                className="scene-hotspot"
+                data-testid="scene-hotspot"
+                data-target-scene={portal.childSceneId}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  focusPortal(portal);
+                }}
+                onFocus={() => onPrefetchScene(portal.childSceneId)}
+                onPointerEnter={() => onPrefetchScene(portal.childSceneId)}
+                aria-label={meaningVisible && portal.translation ? `${portal.label}，${portal.translation}` : portal.label}
+              >
+                <span aria-hidden="true">＋</span>
+              </button>
+            </div>
           ))}
         </div>
         <div className="viewport-vignette" aria-hidden="true" />

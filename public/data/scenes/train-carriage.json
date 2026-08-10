@@ -1,0 +1,457 @@
+{
+  "id": "train-carriage",
+  "title": "Train carriage",
+  "translation": "列车车厢",
+  "subtitle": "Seats, doors and systems aboard a journey",
+  "asset": "/scenes/train-carriage.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "railway-platform",
+  "labels": [
+    {
+      "id": "train-carriage",
+      "word": "train carriage",
+      "translation": "列车车厢",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "vestibule",
+      "word": "vestibule",
+      "translation": "车厢连接厅",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "gangway",
+      "word": "gangway",
+      "translation": "贯通道",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "compartment",
+      "word": "compartment",
+      "translation": "隔间",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "seatback",
+      "word": "seatback",
+      "translation": "椅背",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "armrest",
+      "word": "armrest",
+      "translation": "扶手",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "tray-table",
+      "word": "tray table",
+      "translation": "小桌板",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "overhead-rack",
+      "word": "overhead rack",
+      "translation": "行李架",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "luggage-space",
+      "word": "luggage space",
+      "translation": "行李区",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "grab-handle",
+      "word": "grab handle",
+      "translation": "抓手",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "sliding-door",
+      "word": "sliding door",
+      "translation": "滑门",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "emergency-exit",
+      "word": "emergency exit",
+      "translation": "紧急出口",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "intercom",
+      "word": "intercom",
+      "translation": "对讲器",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "reading-light",
+      "word": "reading light",
+      "translation": "阅读灯",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "power-socket",
+      "word": "power socket",
+      "translation": "电源插口",
+      "x": 556,
+      "y": 537,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "window-blind",
+      "word": "window blind",
+      "translation": "遮阳帘",
+      "x": 634,
+      "y": 537,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "passenger-seat",
+      "word": "passenger seat",
+      "translation": "乘客座椅",
+      "x": 712,
+      "y": 537,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "aisle-seat",
+      "word": "aisle seat",
+      "translation": "靠过道座位",
+      "x": 790,
+      "y": 537,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "window-seat",
+      "word": "window seat",
+      "translation": "靠窗座位",
+      "x": 868,
+      "y": 537,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "priority-seat",
+      "word": "priority seat",
+      "translation": "优先座位",
+      "x": 946,
+      "y": 537,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "headrest",
+      "word": "headrest",
+      "translation": "头枕",
+      "x": 1024,
+      "y": 537,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "upholstery",
+      "word": "upholstery",
+      "translation": "座椅面料",
+      "x": 556,
+      "y": 609,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "door-button",
+      "word": "door button",
+      "translation": "车门按钮",
+      "x": 634,
+      "y": 609,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "route-display",
+      "word": "route display",
+      "translation": "线路显示屏",
+      "x": 712,
+      "y": 609,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "seat-reservation",
+      "word": "seat reservation",
+      "translation": "座位预订",
+      "x": 790,
+      "y": 609,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "ticket-pocket",
+      "word": "ticket pocket",
+      "translation": "车票袋",
+      "x": 868,
+      "y": 609,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "flooring",
+      "word": "flooring",
+      "translation": "地板层",
+      "x": 946,
+      "y": 609,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "ceiling-panel",
+      "word": "ceiling panel",
+      "translation": "顶板",
+      "x": 1024,
+      "y": 609,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "cctv-camera",
+      "word": "cctv camera",
+      "translation": "监控摄像头",
+      "x": 556,
+      "y": 681,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "fire-extinguisher",
+      "word": "fire extinguisher",
+      "translation": "灭火器",
+      "x": 634,
+      "y": 681,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "emergency-hammer",
+      "word": "emergency hammer",
+      "translation": "安全锤",
+      "x": 712,
+      "y": 681,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "first-aid-kit",
+      "word": "first aid kit",
+      "translation": "急救箱",
+      "x": 790,
+      "y": 681,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "sit-down",
+      "word": "sit down",
+      "translation": "坐下",
+      "x": 868,
+      "y": 681,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "stand-up",
+      "word": "stand up",
+      "translation": "站起",
+      "x": 946,
+      "y": 681,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "hold-on",
+      "word": "hold on",
+      "translation": "抓稳",
+      "x": 1024,
+      "y": 681,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "move-along",
+      "word": "move along",
+      "translation": "往里走",
+      "x": 556,
+      "y": 753,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "stow-luggage",
+      "word": "stow luggage",
+      "translation": "放置行李",
+      "x": 573,
+      "y": 558,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "validate-a-ticket",
+      "word": "validate a ticket",
+      "translation": "验票",
+      "x": 635,
+      "y": 558,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "open-the-door",
+      "word": "open the door",
+      "translation": "开门",
+      "x": 697,
+      "y": 558,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "close-the-door",
+      "word": "close the door",
+      "translation": "关门",
+      "x": 759,
+      "y": 558,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "crowded",
+      "word": "crowded",
+      "translation": "拥挤的",
+      "x": 821,
+      "y": 558,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "vacant",
+      "word": "vacant",
+      "translation": "空着的",
+      "x": 883,
+      "y": 558,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "occupied",
+      "word": "occupied",
+      "translation": "有人使用的",
+      "x": 945,
+      "y": 558,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "accessible",
+      "word": "accessible",
+      "translation": "无障碍的",
+      "x": 573,
+      "y": 558,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "quiet-carriage",
+      "word": "quiet carriage",
+      "translation": "安静车厢",
+      "x": 635,
+      "y": 558,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "next-stop",
+      "word": "next stop",
+      "translation": "下一站",
+      "x": 697,
+      "y": 558,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "final-stop",
+      "word": "final stop",
+      "translation": "终点站",
+      "x": 759,
+      "y": 558,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "rail-journey",
+      "word": "rail journey",
+      "translation": "铁路旅程",
+      "x": 821,
+      "y": 558,
+      "priority": 5,
+      "minLevel": 4
+    }
+  ],
+  "portals": [
+    {
+      "id": "enter-rail-bogie",
+      "label": "Inspect the rail bogie",
+      "translation": "查看铁路转向架",
+      "childSceneId": "rail-bogie",
+      "x": 430,
+      "y": 620,
+      "width": 720,
+      "height": 210,
+      "enterScale": 3.6
+    }
+  ]
+}

@@ -1,0 +1,445 @@
+{
+  "id": "oxygen-molecule",
+  "title": "Oxygen molecule",
+  "translation": "氧分子",
+  "subtitle": "Two atoms moving from air into living tissue",
+  "asset": "/scenes/oxygen-molecule.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "hemoglobin",
+  "labels": [
+    {
+      "id": "oxygen-molecule",
+      "word": "oxygen molecule",
+      "translation": "氧分子",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "oxygen-atom",
+      "word": "oxygen atom",
+      "translation": "氧原子",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "covalent-bond",
+      "word": "covalent bond",
+      "translation": "共价键",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "electron-pair",
+      "word": "electron pair",
+      "translation": "电子对",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "molecular-orbital",
+      "word": "molecular orbital",
+      "translation": "分子轨道",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "gas",
+      "word": "gas",
+      "translation": "气体",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bubble",
+      "word": "bubble",
+      "translation": "气泡",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "atmosphere",
+      "word": "atmosphere",
+      "translation": "大气",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "inhaled-air",
+      "word": "inhaled air",
+      "translation": "吸入气体",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "alveolus",
+      "word": "alveolus",
+      "translation": "肺泡",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bloodstream",
+      "word": "bloodstream",
+      "translation": "血流",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "tissue-cell",
+      "word": "tissue cell",
+      "translation": "组织细胞",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "mitochondria",
+      "word": "mitochondria",
+      "translation": "线粒体",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "respiration",
+      "word": "respiration",
+      "translation": "呼吸作用",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "combustion",
+      "word": "combustion",
+      "translation": "燃烧",
+      "x": 674,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "oxidation",
+      "word": "oxidation",
+      "translation": "氧化作用",
+      "x": 926,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "triplet-oxygen",
+      "word": "triplet oxygen",
+      "translation": "三重态氧",
+      "x": 1178,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "dissolved-oxygen",
+      "word": "dissolved oxygen",
+      "translation": "溶解氧",
+      "x": 1430,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "oxygen-gradient",
+      "word": "oxygen gradient",
+      "translation": "氧浓度梯度",
+      "x": 170,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "diffusion",
+      "word": "diffusion",
+      "translation": "扩散作用",
+      "x": 422,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "redox-reaction",
+      "word": "redox reaction",
+      "translation": "氧化还原反应",
+      "x": 548,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "oxidant",
+      "word": "oxidant",
+      "translation": "氧化剂",
+      "x": 620,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "free-radical",
+      "word": "free radical",
+      "translation": "自由基",
+      "x": 692,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "ozone",
+      "word": "ozone",
+      "translation": "臭氧",
+      "x": 764,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "oxygen-formula",
+      "word": "oxygen formula",
+      "translation": "氧气分子式",
+      "x": 800,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "alveolar-exchange",
+      "word": "alveolar exchange",
+      "translation": "肺泡交换",
+      "x": 878,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "reactive-oxygen-species",
+      "word": "reactive oxygen species",
+      "translation": "活性氧",
+      "x": 956,
+      "y": 414,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "hypoxia",
+      "word": "hypoxia",
+      "translation": "缺氧状态",
+      "x": 1034,
+      "y": 414,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "aerobic-metabolism",
+      "word": "aerobic metabolism",
+      "translation": "有氧代谢",
+      "x": 566,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "water-molecule",
+      "word": "water molecule",
+      "translation": "水分子",
+      "x": 644,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "energy-release",
+      "word": "energy release",
+      "translation": "能量释放",
+      "x": 722,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "concentration",
+      "word": "concentration",
+      "translation": "浓度",
+      "x": 800,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "inhale",
+      "word": "inhale",
+      "translation": "吸气",
+      "x": 878,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "exhale",
+      "word": "exhale",
+      "translation": "呼气",
+      "x": 956,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "dissolve",
+      "word": "dissolve",
+      "translation": "溶解",
+      "x": 1034,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "diffuse-across",
+      "word": "diffuse across",
+      "translation": "扩散穿过",
+      "x": 566,
+      "y": 558,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "react",
+      "word": "react",
+      "translation": "反应",
+      "x": 583,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "oxidize",
+      "word": "oxidize",
+      "translation": "使氧化",
+      "x": 645,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "burn",
+      "word": "burn",
+      "translation": "燃烧",
+      "x": 707,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "sustain-life",
+      "word": "sustain life",
+      "translation": "维持生命",
+      "x": 769,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "breathe-in",
+      "word": "breathe in",
+      "translation": "吸入",
+      "x": 831,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "breathe-out",
+      "word": "breathe out",
+      "translation": "呼出",
+      "x": 893,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "abundant",
+      "word": "abundant",
+      "translation": "丰富的",
+      "x": 955,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "colorless",
+      "word": "colorless",
+      "translation": "无色的",
+      "x": 583,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "odorless",
+      "word": "odorless",
+      "translation": "无味的",
+      "x": 645,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "gaseous",
+      "word": "gaseous",
+      "translation": "气态的",
+      "x": 707,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "essential",
+      "word": "essential",
+      "translation": "必需的",
+      "x": 769,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "reactive",
+      "word": "reactive",
+      "translation": "活泼的",
+      "x": 831,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    }
+  ],
+  "portals": []
+}

@@ -1,50 +1,182 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { computeSceneLabelLayout, sceneLabelRevealOpacity, type Label } from "../../app/domain";
+import {
+  computeSceneLabelLayout,
+  sceneLabelLod,
+  sceneLabelRevealOpacity,
+  type Label,
+} from "../../app/domain";
 
-function label(id: string, x: number, priority: number, minLevel: 0 | 1 | 2): Label {
-  return { id, word: id, translation: `释义${id}`, x, y: 100, priority, minLevel };
+type Lod = NonNullable<Label["minLevel"]>;
+
+function label(
+  id: string,
+  x: number,
+  priority: number,
+  minLevel: Lod,
+  y = 100,
+): Label {
+  return { id, word: id, translation: `释义${id}`, x, y, priority, minLevel };
 }
 
-test("label reveal opacity changes continuously between density bands", () => {
-  const detail = label("detail", 200, 2, 1);
-  assert.equal(sceneLabelRevealOpacity(detail, 0.7), 0);
-  const middle = sceneLabelRevealOpacity(detail, 0.95);
-  assert.ok(middle > 0 && middle < 1);
-  assert.equal(sceneLabelRevealOpacity(detail, 1.2), 1);
+test("all five LOD bands reveal continuously and in order", () => {
+  const probes = [
+    { lod: 0, before: 0.45, middle: 0.64, after: 0.8 },
+    { lod: 1, before: 0.9, middle: 1.08, after: 1.25 },
+    { lod: 2, before: 1.1, middle: 1.37, after: 1.62 },
+    { lod: 3, before: 1.55, middle: 1.9, after: 2.22 },
+    { lod: 4, before: 2.2, middle: 2.65, after: 3.12 },
+  ] as const;
+
+  for (const probe of probes) {
+    const detail = label(`lod-${probe.lod}`, 200, probe.lod + 1, probe.lod);
+    assert.equal(sceneLabelLod(detail), probe.lod);
+    assert.equal(sceneLabelRevealOpacity(detail, probe.before), 0);
+    const middle = sceneLabelRevealOpacity(detail, probe.middle);
+    assert.ok(middle > 0 && middle < 1, `LOD ${probe.lod} must have a partial-opacity interval`);
+    assert.equal(sceneLabelRevealOpacity(detail, probe.after), 1);
+
+    const epsilon = 0.0001;
+    const left = sceneLabelRevealOpacity(detail, probe.middle - epsilon);
+    const right = sceneLabelRevealOpacity(detail, probe.middle + epsilon);
+    assert.ok(Math.abs(right - left) < 0.01, `LOD ${probe.lod} must not jump at an intermediate scale`);
+  }
 });
 
-test("screen-space layout keeps priority labels and reveals more as anchors separate", () => {
+test("authored min and max scales fade a label both in and out", () => {
+  const authored: Label = {
+    ...label("authored", 200, 1, 0),
+    minScale: 1.5,
+    maxScale: 2.5,
+  };
+  assert.equal(sceneLabelRevealOpacity(authored, 1.49), 0);
+  assert.ok(sceneLabelRevealOpacity(authored, 1.62) > 0);
+  assert.equal(sceneLabelRevealOpacity(authored, 1.8), 1);
+  assert.ok(sceneLabelRevealOpacity(authored, 2.35) > 0);
+  assert.ok(sceneLabelRevealOpacity(authored, 2.35) < 1);
+  assert.equal(sceneLabelRevealOpacity(authored, 2.5), 0);
+});
+
+test("screen-space layout preserves the priority anchor and nudges a colliding label", () => {
   const labels = [
     label("primary", 100, 1, 0),
-    label("secondary", 160, 2, 1),
+    label("secondary", 105, 2, 1),
     label("far", 360, 2, 1),
   ];
-  const compact = computeSceneLabelLayout(
+  const layout = computeSceneLabelLayout(
     labels,
-    { x: 0, y: 0, fit: 1, scale: 1 },
+    { x: 0, y: 0, fit: 1, scale: 1.25 },
     { width: 500, height: 300, compact: false },
     false,
   );
-  assert.ok(compact.find((item) => item.id === "primary")!.opacity > 0.9);
-  assert.equal(compact.find((item) => item.id === "secondary")!.opacity, 0);
-  assert.ok(compact.find((item) => item.id === "far")!.opacity > 0.5);
-
-  const zoomed = computeSceneLabelLayout(
-    labels,
-    { x: 0, y: 0, fit: 1, scale: 2 },
-    { width: 900, height: 400, compact: false },
-    false,
+  const primary = layout.find((item) => item.id === "primary")!;
+  const secondary = layout.find((item) => item.id === "secondary")!;
+  assert.equal(primary.offsetX, 0);
+  assert.equal(primary.offsetY, 0);
+  assert.ok(primary.opacity > 0.95);
+  assert.ok(secondary.opacity > 0.95);
+  assert.ok(
+    Math.hypot(secondary.offsetX, secondary.offsetY) > 0,
+    "a lower-priority collision should use a nearby callout slot instead of disappearing",
   );
-  assert.ok(zoomed.filter((item) => item.opacity > 0.5).length > compact.filter((item) => item.opacity > 0.5).length);
 });
 
-test("translations widen labels and collision layout accounts for the preference", () => {
-  const labels = [label("one", 100, 1, 0), label("two", 190, 1, 0)];
+test("translations consume more collision space without changing the DOM budget", () => {
+  const labels = Array.from({ length: 18 }, (_, index) => ({
+    ...label(`word-${index}`, 190 + (index % 3) * 8, 1, 0, 100 + Math.floor(index / 3) * 8),
+    translation: `这是一个较长的场景释义${index}`,
+  }));
   const camera = { x: 0, y: 0, fit: 1, scale: 1 };
-  const viewport = { width: 400, height: 240, compact: false };
+  const viewport = { width: 420, height: 300, compact: false };
   const withoutMeanings = computeSceneLabelLayout(labels, camera, viewport, false);
   const withMeanings = computeSceneLabelLayout(labels, camera, viewport, true);
-  assert.equal(withoutMeanings.filter((item) => item.interactive).length, 2);
-  assert.equal(withMeanings.filter((item) => item.interactive).length, 1);
+  assert.equal(withoutMeanings.length, labels.length);
+  assert.equal(withMeanings.length, labels.length);
+  assert.ok(
+    withMeanings.filter((item) => item.interactive).length
+      < withoutMeanings.filter((item) => item.interactive).length,
+  );
+});
+
+function denseSceneLabels(): Label[] {
+  const overview = Array.from({ length: 40 }, (_, index) => {
+    const column = index % 8;
+    const row = Math.floor(index / 8);
+    return label(
+      `overview-${index}`,
+      105 + column * 195,
+      index < 20 ? 1 : 2,
+      index < 20 ? 0 : 1,
+      105 + row * 170,
+    );
+  });
+  const focusedDetail = Array.from({ length: 48 }, (_, index) => {
+    const column = index % 8;
+    const row = Math.floor(index / 8);
+    return label(
+      `detail-${index}`,
+      430 + column * 105,
+      3,
+      2,
+      230 + row * 86,
+    );
+  });
+  const deepDetail = Array.from({ length: 12 }, (_, index) => label(
+    `deep-${index}`,
+    540 + (index % 4) * 170,
+    4,
+    index < 6 ? 3 : 4,
+    320 + Math.floor(index / 4) * 125,
+  ));
+  return [...overview, ...focusedDetail, ...deepDetail];
+}
+
+test("dense scenes meet desktop, mobile and zoomed-in readability floors", () => {
+  const labels = denseSceneLabels();
+  const desktopFit = Math.min(1440 / 1600, 826 / 900);
+  const desktopOverview = computeSceneLabelLayout(
+    labels,
+    { x: 0, y: 8, fit: desktopFit, scale: 1 },
+    { width: 1440, height: 826, compact: false },
+    false,
+  );
+  assert.ok(
+    desktopOverview.filter((item) => item.opacity >= 0.52).length >= 20,
+    "desktop overview must expose at least 20 readable labels",
+  );
+
+  const mobileFit = Math.min(412 / 1600, 849 / 900);
+  const mobileScale = 1.3;
+  const mobileOverview = computeSceneLabelLayout(
+    labels,
+    {
+      x: (412 - 1600 * mobileFit * mobileScale) / 2,
+      y: (849 - 900 * mobileFit * mobileScale) / 2,
+      fit: mobileFit,
+      scale: mobileScale,
+    },
+    { width: 412, height: 849, compact: true },
+    false,
+  );
+  assert.ok(
+    mobileOverview.filter((item) => item.opacity >= 0.52).length >= 14,
+    "mobile overview must expose at least 14 readable labels",
+  );
+
+  const zoomScale = 1.8;
+  const desktopZoomed = computeSceneLabelLayout(
+    labels,
+    {
+      x: (1440 - 1600 * desktopFit * zoomScale) / 2,
+      y: (826 - 900 * desktopFit * zoomScale) / 2,
+      fit: desktopFit,
+      scale: zoomScale,
+    },
+    { width: 1440, height: 826, compact: false },
+    false,
+  );
+  assert.ok(
+    desktopZoomed.filter((item) => item.opacity >= 0.95).length >= 40,
+    "a focused desktop detail layer must expose at least 40 fully readable labels",
+  );
 });

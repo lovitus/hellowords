@@ -10,7 +10,16 @@ import {
 } from "../../app/lib/semantic-repository";
 
 test("semantic layout is deterministic and remains inside its cluster neighborhood", () => {
-  const entry = { id: "word-table", displayWord: "table", meaning: "n. 桌子", partsOfSpeech: ["noun"], rank: 944 };
+  const entry = {
+    id: "word-table",
+    displayWord: "table",
+    meaning: "n. 桌子",
+    partsOfSpeech: ["noun"],
+    rank: 944,
+    realmId: "objects-technology",
+    topicId: "daily-objects",
+    subclusterId: "daily-objects--furniture",
+  };
   const first = layoutVocabularyEntry(entry);
   const second = layoutVocabularyEntry(entry);
   assert.deepEqual(first, second);
@@ -18,6 +27,9 @@ test("semantic layout is deterministic and remains inside its cluster neighborho
   const cluster = DEFAULT_CLUSTERS.find((candidate) => candidate.id === first.clusterId)!;
   assert.ok(Math.abs(first.x - cluster.x) <= cluster.radius);
   assert.ok(Math.abs(first.y - cluster.y) <= cluster.radius);
+  assert.equal(first.realmId, entry.realmId);
+  assert.equal(first.topicId, entry.topicId);
+  assert.equal(first.subclusterId, entry.subclusterId);
 });
 
 test("cluster inference provides meaningful fallbacks for current vocabulary shards", () => {

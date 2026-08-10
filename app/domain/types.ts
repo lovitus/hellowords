@@ -21,8 +21,12 @@ export interface Label {
   readonly x: number;
   readonly y: number;
   readonly priority: number;
-  /** Discrete label-density band used by the first viewer implementation. */
-  readonly minLevel?: 0 | 1 | 2;
+  /**
+   * Authored level-of-detail band. Five bands let a scene progress from its
+   * overview vocabulary to fine material/process words without a single large
+   * density jump. Runtime opacity remains continuous inside each band.
+   */
+  readonly minLevel?: 0 | 1 | 2 | 3 | 4;
   /** Optional continuous equivalent for future scene authoring tools. */
   readonly minScale?: number;
   readonly maxScale?: number;

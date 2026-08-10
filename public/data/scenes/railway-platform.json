@@ -1,0 +1,457 @@
+{
+  "id": "railway-platform",
+  "title": "Railway platform",
+  "translation": "铁路站台",
+  "subtitle": "A precise choreography of tracks and travelers",
+  "asset": "/scenes/railway-platform.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "transit-hub",
+  "labels": [
+    {
+      "id": "railway-platform",
+      "word": "railway platform",
+      "translation": "铁路站台",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "track",
+      "word": "track",
+      "translation": "轨道",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "rail",
+      "word": "rail",
+      "translation": "钢轨",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "sleeper",
+      "word": "sleeper",
+      "translation": "轨枕",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "ballast",
+      "word": "ballast",
+      "translation": "道砟",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "platform-edge",
+      "word": "platform edge",
+      "translation": "站台边缘",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "tactile-paving",
+      "word": "tactile paving",
+      "translation": "盲道",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "yellow-line",
+      "word": "yellow line",
+      "translation": "黄色安全线",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "station-sign",
+      "word": "station sign",
+      "translation": "站名牌",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "departure-board",
+      "word": "departure board",
+      "translation": "出发信息板",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "loudspeaker",
+      "word": "loudspeaker",
+      "translation": "扬声器",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "waiting-room",
+      "word": "waiting room",
+      "translation": "候车室",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "kiosk",
+      "word": "kiosk",
+      "translation": "售货亭",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "footbridge",
+      "word": "footbridge",
+      "translation": "人行天桥",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "underpass",
+      "word": "underpass",
+      "translation": "地下通道",
+      "x": 674,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "canopy-post",
+      "word": "canopy post",
+      "translation": "雨棚立柱",
+      "x": 926,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "commuter",
+      "word": "commuter",
+      "translation": "通勤者",
+      "x": 1178,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "train-crew",
+      "word": "train crew",
+      "translation": "列车乘务组",
+      "x": 1430,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "guard",
+      "word": "guard",
+      "translation": "列车员",
+      "x": 170,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "porter",
+      "word": "porter",
+      "translation": "搬运员",
+      "x": 422,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "inspector",
+      "word": "inspector",
+      "translation": "查票员",
+      "x": 563,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "fare",
+      "word": "fare",
+      "translation": "票价",
+      "x": 635,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "timetable",
+      "word": "timetable",
+      "translation": "时刻表",
+      "x": 707,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "delay",
+      "word": "delay",
+      "translation": "延误",
+      "x": 779,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "destination",
+      "word": "destination",
+      "translation": "目的地",
+      "x": 815,
+      "y": 419,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "carriage-number",
+      "word": "carriage number",
+      "translation": "车厢号",
+      "x": 893,
+      "y": 419,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "reserved-seat",
+      "word": "reserved seat",
+      "translation": "预留座位",
+      "x": 971,
+      "y": 419,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "one-way-ticket",
+      "word": "one way ticket",
+      "translation": "单程票",
+      "x": 1049,
+      "y": 419,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "return-ticket",
+      "word": "return ticket",
+      "translation": "往返票",
+      "x": 581,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "ticket-barrier",
+      "word": "ticket barrier",
+      "translation": "检票口",
+      "x": 659,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "lost-property",
+      "word": "lost property",
+      "translation": "失物招领",
+      "x": 737,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "rush-hour",
+      "word": "rush hour",
+      "translation": "高峰时段",
+      "x": 815,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "arrive",
+      "word": "arrive",
+      "translation": "到达",
+      "x": 893,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "depart",
+      "word": "depart",
+      "translation": "出发",
+      "x": 971,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "board",
+      "word": "board",
+      "translation": "上车",
+      "x": 1049,
+      "y": 491,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "alight",
+      "word": "alight",
+      "translation": "下车",
+      "x": 581,
+      "y": 563,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "transfer",
+      "word": "transfer",
+      "translation": "转乘",
+      "x": 598,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "commute",
+      "word": "commute",
+      "translation": "通勤",
+      "x": 660,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "wait",
+      "word": "wait",
+      "translation": "等候",
+      "x": 722,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "queue-up",
+      "word": "queue up",
+      "translation": "排队",
+      "x": 784,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "stand-clear",
+      "word": "stand clear",
+      "translation": "请勿靠近",
+      "x": 846,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "mind-the-gap",
+      "word": "mind the gap",
+      "translation": "小心站台缝隙",
+      "x": 908,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "delayed",
+      "word": "delayed",
+      "translation": "晚点的",
+      "x": 970,
+      "y": 368,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "on-time",
+      "word": "on time",
+      "translation": "准点的",
+      "x": 598,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "inbound",
+      "word": "inbound",
+      "translation": "进站方向的",
+      "x": 660,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "outbound",
+      "word": "outbound",
+      "translation": "出站方向的",
+      "x": 722,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "express",
+      "word": "express",
+      "translation": "快车",
+      "x": 784,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "local",
+      "word": "local",
+      "translation": "普通车",
+      "x": 846,
+      "y": 368,
+      "priority": 5,
+      "minLevel": 4
+    }
+  ],
+  "portals": [
+    {
+      "id": "enter-train-carriage",
+      "label": "Board the train carriage",
+      "translation": "进入列车车厢",
+      "childSceneId": "train-carriage",
+      "x": 435,
+      "y": 250,
+      "width": 760,
+      "height": 410,
+      "enterScale": 3.6
+    }
+  ]
+}

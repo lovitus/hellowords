@@ -1,9 +1,529 @@
 {
-  "id":"heart","title":"Heart","translation":"心脏","subtitle":"The rhythm that moves blood","asset":"/scenes/heart.svg","width":1600,"height":900,"parentId":"human-body",
-  "labels":[
-    {"id":"heart","word":"heart","translation":"心脏","x":800,"y":72,"priority":1,"minLevel":0},{"id":"chamber","word":"chamber","translation":"心腔","x":800,"y":500,"priority":1,"minLevel":0},{"id":"artery","word":"artery","translation":"动脉","x":980,"y":260,"priority":1,"minLevel":0},{"id":"vein","word":"vein","translation":"静脉","x":600,"y":290,"priority":1,"minLevel":0},{"id":"blood","word":"blood","translation":"血液","x":805,"y":600,"priority":1,"minLevel":0},{"id":"oxygen","word":"oxygen","translation":"氧气","x":1110,"y":420,"priority":1,"minLevel":0},
-    {"id":"pulse","word":"pulse","translation":"脉搏","x":1230,"y":650,"priority":2,"minLevel":1},{"id":"valve","word":"valve","translation":"瓣膜","x":805,"y":430,"priority":2,"minLevel":1},{"id":"muscle","word":"muscle","translation":"心肌","x":640,"y":570,"priority":2,"minLevel":1},{"id":"rhythm","word":"rhythm","translation":"心律","x":1240,"y":570,"priority":2,"minLevel":1},{"id":"pressure","word":"pressure","translation":"压力","x":1040,"y":690,"priority":2,"minLevel":1},{"id":"vessel","word":"vessel","translation":"血管","x":540,"y":650,"priority":2,"minLevel":1},{"id":"circulation","word":"circulation","translation":"循环","x":800,"y":760,"priority":2,"minLevel":1},{"id":"atrium","word":"atrium","translation":"心房","x":700,"y":410,"priority":2,"minLevel":1},
-    {"id":"ventricle","word":"ventricle","translation":"心室","x":840,"y":565,"priority":3,"minLevel":2},{"id":"aorta","word":"aorta","translation":"主动脉","x":870,"y":220,"priority":3,"minLevel":2},{"id":"capillary","word":"capillary","translation":"毛细血管","x":450,"y":450,"priority":3,"minLevel":2},{"id":"heartbeat","word":"heartbeat","translation":"心跳","x":1240,"y":500,"priority":3,"minLevel":2},{"id":"contraction","word":"contraction","translation":"收缩","x":730,"y":660,"priority":3,"minLevel":2},{"id":"flow","word":"flow","translation":"流动","x":990,"y":530,"priority":3,"minLevel":2},{"id":"tissue","word":"tissue","translation":"组织","x":600,"y":520,"priority":3,"minLevel":2},{"id":"wall","word":"wall","translation":"心壁","x":920,"y":620,"priority":3,"minLevel":2},{"id":"pump","word":"pump","translation":"泵","x":1120,"y":740,"priority":3,"minLevel":2},{"id":"health","word":"health","translation":"健康","x":1370,"y":730,"priority":3,"minLevel":2}
+  "id": "heart",
+  "title": "Heart",
+  "translation": "心脏",
+  "subtitle": "The rhythm that moves blood",
+  "asset": "/scenes/heart.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "human-body",
+  "labels": [
+    {
+      "id": "heart",
+      "word": "heart",
+      "translation": "心脏",
+      "x": 800,
+      "y": 72,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "chamber",
+      "word": "chamber",
+      "translation": "心腔",
+      "x": 800,
+      "y": 500,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "artery",
+      "word": "artery",
+      "translation": "动脉",
+      "x": 980,
+      "y": 260,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "vein",
+      "word": "vein",
+      "translation": "静脉",
+      "x": 600,
+      "y": 290,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "blood",
+      "word": "blood",
+      "translation": "血液",
+      "x": 805,
+      "y": 600,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "oxygen",
+      "word": "oxygen",
+      "translation": "氧气",
+      "x": 1110,
+      "y": 420,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pulse",
+      "word": "pulse",
+      "translation": "脉搏",
+      "x": 1230,
+      "y": 650,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "valve",
+      "word": "valve",
+      "translation": "瓣膜",
+      "x": 805,
+      "y": 430,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "muscle",
+      "word": "muscle",
+      "translation": "心肌",
+      "x": 640,
+      "y": 570,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "rhythm",
+      "word": "rhythm",
+      "translation": "心律",
+      "x": 1240,
+      "y": 570,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pressure",
+      "word": "pressure",
+      "translation": "压力",
+      "x": 1040,
+      "y": 690,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "vessel",
+      "word": "vessel",
+      "translation": "血管",
+      "x": 540,
+      "y": 650,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "circulation",
+      "word": "circulation",
+      "translation": "循环",
+      "x": 800,
+      "y": 760,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "atrium",
+      "word": "atrium",
+      "translation": "心房",
+      "x": 700,
+      "y": 410,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "ventricle",
+      "word": "ventricle",
+      "translation": "心室",
+      "x": 840,
+      "y": 565,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "aorta",
+      "word": "aorta",
+      "translation": "主动脉",
+      "x": 870,
+      "y": 220,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "capillary",
+      "word": "capillary",
+      "translation": "毛细血管",
+      "x": 450,
+      "y": 450,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "heartbeat",
+      "word": "heartbeat",
+      "translation": "心跳",
+      "x": 1240,
+      "y": 500,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "contraction",
+      "word": "contraction",
+      "translation": "收缩",
+      "x": 730,
+      "y": 660,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "flow",
+      "word": "flow",
+      "translation": "流动",
+      "x": 990,
+      "y": 530,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "tissue",
+      "word": "tissue",
+      "translation": "组织",
+      "x": 600,
+      "y": 520,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "wall",
+      "word": "wall",
+      "translation": "心壁",
+      "x": 920,
+      "y": 620,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "pump",
+      "word": "pump",
+      "translation": "泵",
+      "x": 1120,
+      "y": 740,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "health",
+      "word": "health",
+      "translation": "健康",
+      "x": 1370,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "septum",
+      "word": "septum",
+      "translation": "心脏隔膜",
+      "x": 1264,
+      "y": 402,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "mitral-valve",
+      "word": "mitral valve",
+      "translation": "二尖瓣",
+      "x": 796,
+      "y": 474,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "tricuspid-valve",
+      "word": "tricuspid valve",
+      "translation": "三尖瓣",
+      "x": 874,
+      "y": 474,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "pulmonary-valve",
+      "word": "pulmonary valve",
+      "translation": "肺动脉瓣",
+      "x": 952,
+      "y": 474,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "aortic-valve",
+      "word": "aortic valve",
+      "translation": "主动脉瓣",
+      "x": 1030,
+      "y": 474,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "coronary-artery",
+      "word": "coronary artery",
+      "translation": "冠状动脉",
+      "x": 1108,
+      "y": 474,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "coronary-vein",
+      "word": "coronary vein",
+      "translation": "冠状静脉",
+      "x": 1186,
+      "y": 474,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "vena-cava",
+      "word": "vena cava",
+      "translation": "腔静脉",
+      "x": 1264,
+      "y": 474,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "pulmonary-artery",
+      "word": "pulmonary artery",
+      "translation": "肺动脉",
+      "x": 796,
+      "y": 546,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "pulmonary-vein",
+      "word": "pulmonary vein",
+      "translation": "肺静脉",
+      "x": 874,
+      "y": 546,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "pericardium",
+      "word": "pericardium",
+      "translation": "心包",
+      "x": 952,
+      "y": 546,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "myocardium",
+      "word": "myocardium",
+      "translation": "心肌层",
+      "x": 1030,
+      "y": 546,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "endocardium",
+      "word": "endocardium",
+      "translation": "心内膜",
+      "x": 1108,
+      "y": 546,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "sinoatrial-node",
+      "word": "sinoatrial node",
+      "translation": "窦房结",
+      "x": 1186,
+      "y": 546,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "atrioventricular-node",
+      "word": "atrioventricular node",
+      "translation": "房室结",
+      "x": 1264,
+      "y": 546,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "cardiac-cycle",
+      "word": "cardiac cycle",
+      "translation": "心动周期",
+      "x": 796,
+      "y": 618,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "systole",
+      "word": "systole",
+      "translation": "收缩期",
+      "x": 874,
+      "y": 618,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "diastole",
+      "word": "diastole",
+      "translation": "舒张期",
+      "x": 952,
+      "y": 618,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "blood-pressure",
+      "word": "blood pressure",
+      "translation": "血压",
+      "x": 813,
+      "y": 423,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "cardiac-output",
+      "word": "cardiac output",
+      "translation": "心输出量",
+      "x": 875,
+      "y": 423,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "oxygenated-blood",
+      "word": "oxygenated blood",
+      "translation": "含氧血",
+      "x": 937,
+      "y": 423,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "deoxygenated-blood",
+      "word": "deoxygenated blood",
+      "translation": "缺氧血",
+      "x": 999,
+      "y": 423,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "electrocardiogram",
+      "word": "electrocardiogram",
+      "translation": "心电图",
+      "x": 1061,
+      "y": 423,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "murmur",
+      "word": "murmur",
+      "translation": "心脏杂音",
+      "x": 1123,
+      "y": 423,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "left-atrium",
+      "word": "left atrium",
+      "translation": "左心房",
+      "x": 1185,
+      "y": 423,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "right-atrium",
+      "word": "right atrium",
+      "translation": "右心房",
+      "x": 1247,
+      "y": 423,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "left-ventricle",
+      "word": "left ventricle",
+      "translation": "左心室",
+      "x": 813,
+      "y": 423,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "right-ventricle",
+      "word": "right ventricle",
+      "translation": "右心室",
+      "x": 875,
+      "y": 423,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "heart-rhythm",
+      "word": "heart rhythm",
+      "translation": "心律",
+      "x": 937,
+      "y": 423,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "electrical-impulse",
+      "word": "electrical impulse",
+      "translation": "电脉冲",
+      "x": 999,
+      "y": 423,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "heart-rate",
+      "word": "heart rate",
+      "translation": "心率",
+      "x": 1061,
+      "y": 423,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "valve-leaflet",
+      "word": "valve leaflet",
+      "translation": "瓣叶",
+      "x": 1123,
+      "y": 423,
+      "priority": 5,
+      "minLevel": 4
+    }
   ],
-  "portals":[{"id":"enter-blood-cell","label":"Follow a blood cell","translation":"跟随血细胞","childSceneId":"blood-cell","x":900,"y":380,"width":260,"height":260,"enterScale":3.6}]
+  "portals": [
+    {
+      "id": "enter-blood-cell",
+      "label": "Follow a blood cell",
+      "translation": "跟随血细胞",
+      "childSceneId": "blood-cell",
+      "x": 900,
+      "y": 380,
+      "width": 260,
+      "height": 260,
+      "enterScale": 3.6
+    }
+  ]
 }

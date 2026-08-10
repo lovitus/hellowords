@@ -1,12 +1,567 @@
 {
-  "id":"city-street","title":"City street","translation":"城市街道","subtitle":"Movement, work and daily life","asset":"/scenes/city-street-premium.jpg","width":1600,"height":900,"parentId":"world-map",
-  "labels":[
-    {"id":"street","word":"street","translation":"街道","x":800,"y":72,"priority":1,"minLevel":0},{"id":"building","word":"building","translation":"建筑","x":650,"y":250,"priority":1,"minLevel":0},{"id":"shop","word":"shop","translation":"商店","x":510,"y":500,"priority":1,"minLevel":0},{"id":"cafe","word":"cafe","translation":"咖啡馆","x":145,"y":540,"priority":1,"minLevel":0},{"id":"sidewalk","word":"sidewalk","translation":"人行道","x":370,"y":690,"priority":1,"minLevel":0},{"id":"road","word":"road","translation":"道路","x":760,"y":730,"priority":1,"minLevel":0},
-    {"id":"traffic-light","word":"traffic light","translation":"交通灯","x":350,"y":350,"priority":2,"minLevel":1},{"id":"crosswalk","word":"crosswalk","translation":"人行横道","x":705,"y":670,"priority":2,"minLevel":1},{"id":"bus-stop","word":"bus stop","translation":"公交站","x":1120,"y":470,"priority":2,"minLevel":1},{"id":"bicycle","word":"bicycle","translation":"自行车","x":1080,"y":680,"priority":2,"minLevel":1},{"id":"pedestrian","word":"pedestrian","translation":"行人","x":855,"y":540,"priority":2,"minLevel":1},{"id":"taxi","word":"taxi","translation":"出租车","x":535,"y":625,"priority":2,"minLevel":1},{"id":"van","word":"van","translation":"厢式货车","x":430,"y":555,"priority":2,"minLevel":1},{"id":"lane","word":"lane","translation":"车道","x":670,"y":790,"priority":2,"minLevel":1},
-    {"id":"curb","word":"curb","translation":"路缘","x":850,"y":700,"priority":3,"minLevel":2},{"id":"drain","word":"drain","translation":"排水口","x":300,"y":780,"priority":3,"minLevel":2},{"id":"lamp-post","word":"lamp post","translation":"路灯柱","x":1170,"y":325,"priority":3,"minLevel":2},{"id":"sign","word":"sign","translation":"标志牌","x":1215,"y":455,"priority":3,"minLevel":2},{"id":"awning","word":"awning","translation":"遮篷","x":145,"y":430,"priority":3,"minLevel":2},{"id":"window","word":"window","translation":"窗户","x":720,"y":255,"priority":3,"minLevel":2},{"id":"balcony","word":"balcony","translation":"阳台","x":105,"y":175,"priority":3,"minLevel":2},{"id":"entrance","word":"entrance","translation":"入口","x":985,"y":500,"priority":3,"minLevel":2},{"id":"delivery","word":"delivery","translation":"配送","x":420,"y":540,"priority":3,"minLevel":2},{"id":"intersection","word":"intersection","translation":"交叉路口","x":790,"y":625,"priority":3,"minLevel":2}
+  "id": "city-street",
+  "title": "City street",
+  "translation": "城市街道",
+  "subtitle": "Movement, work and daily life",
+  "asset": "/scenes/city-street-premium.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "world-map",
+  "labels": [
+    {
+      "id": "street",
+      "word": "street",
+      "translation": "街道",
+      "x": 800,
+      "y": 72,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "building",
+      "word": "building",
+      "translation": "建筑",
+      "x": 650,
+      "y": 250,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "shop",
+      "word": "shop",
+      "translation": "商店",
+      "x": 510,
+      "y": 500,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "cafe",
+      "word": "cafe",
+      "translation": "咖啡馆",
+      "x": 145,
+      "y": 540,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "sidewalk",
+      "word": "sidewalk",
+      "translation": "人行道",
+      "x": 370,
+      "y": 690,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "road",
+      "word": "road",
+      "translation": "道路",
+      "x": 760,
+      "y": 730,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "traffic-light",
+      "word": "traffic light",
+      "translation": "交通灯",
+      "x": 350,
+      "y": 350,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "crosswalk",
+      "word": "crosswalk",
+      "translation": "人行横道",
+      "x": 705,
+      "y": 670,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bus-stop",
+      "word": "bus stop",
+      "translation": "公交站",
+      "x": 1120,
+      "y": 470,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bicycle",
+      "word": "bicycle",
+      "translation": "自行车",
+      "x": 1080,
+      "y": 680,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pedestrian",
+      "word": "pedestrian",
+      "translation": "行人",
+      "x": 855,
+      "y": 540,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "taxi",
+      "word": "taxi",
+      "translation": "出租车",
+      "x": 535,
+      "y": 625,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "van",
+      "word": "van",
+      "translation": "厢式货车",
+      "x": 430,
+      "y": 555,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "lane",
+      "word": "lane",
+      "translation": "车道",
+      "x": 670,
+      "y": 790,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "curb",
+      "word": "curb",
+      "translation": "路缘",
+      "x": 850,
+      "y": 700,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "drain",
+      "word": "drain",
+      "translation": "排水口",
+      "x": 300,
+      "y": 780,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "lamp-post",
+      "word": "lamp post",
+      "translation": "路灯柱",
+      "x": 1170,
+      "y": 325,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "sign",
+      "word": "sign",
+      "translation": "标志牌",
+      "x": 1215,
+      "y": 455,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "awning",
+      "word": "awning",
+      "translation": "遮篷",
+      "x": 145,
+      "y": 430,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "window",
+      "word": "window",
+      "translation": "窗户",
+      "x": 720,
+      "y": 255,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "balcony",
+      "word": "balcony",
+      "translation": "阳台",
+      "x": 105,
+      "y": 175,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "entrance",
+      "word": "entrance",
+      "translation": "入口",
+      "x": 985,
+      "y": 500,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "delivery",
+      "word": "delivery",
+      "translation": "配送",
+      "x": 420,
+      "y": 540,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "intersection",
+      "word": "intersection",
+      "translation": "交叉路口",
+      "x": 790,
+      "y": 625,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "storefront",
+      "word": "storefront",
+      "translation": "店面",
+      "x": 1175,
+      "y": 312,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "traffic-lane",
+      "word": "traffic lane",
+      "translation": "车道",
+      "x": 170,
+      "y": 207,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "median",
+      "word": "median",
+      "translation": "中央隔离带",
+      "x": 1253,
+      "y": 312,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "road-marking",
+      "word": "road marking",
+      "translation": "道路标线",
+      "x": 248,
+      "y": 207,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "parking-meter",
+      "word": "parking meter",
+      "translation": "停车计时器",
+      "x": 1331,
+      "y": 312,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "fire-hydrant",
+      "word": "fire hydrant",
+      "translation": "消防栓",
+      "x": 326,
+      "y": 207,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "storm-drain",
+      "word": "storm drain",
+      "translation": "雨水口",
+      "x": 1409,
+      "y": 312,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "manhole",
+      "word": "manhole",
+      "translation": "井盖",
+      "x": 404,
+      "y": 207,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "delivery-truck",
+      "word": "delivery truck",
+      "translation": "送货卡车",
+      "x": 941,
+      "y": 384,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "motorcycle",
+      "word": "motorcycle",
+      "translation": "摩托车",
+      "x": 72,
+      "y": 279,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "scooter",
+      "word": "scooter",
+      "translation": "滑板车",
+      "x": 1019,
+      "y": 384,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "helmet",
+      "word": "helmet",
+      "translation": "头盔",
+      "x": 72,
+      "y": 279,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "backpack",
+      "word": "backpack",
+      "translation": "背包",
+      "x": 1097,
+      "y": 384,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "street-vendor",
+      "word": "street vendor",
+      "translation": "街头摊贩",
+      "x": 92,
+      "y": 279,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "billboard",
+      "word": "billboard",
+      "translation": "广告牌",
+      "x": 1175,
+      "y": 384,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "newspaper-stand",
+      "word": "newspaper stand",
+      "translation": "报刊亭",
+      "x": 170,
+      "y": 279,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "alley",
+      "word": "alley",
+      "translation": "小巷",
+      "x": 1253,
+      "y": 384,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "block",
+      "word": "block",
+      "translation": "街区",
+      "x": 248,
+      "y": 279,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "corner",
+      "word": "corner",
+      "translation": "街角",
+      "x": 958,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "rush-hour-traffic",
+      "word": "rush hour traffic",
+      "translation": "高峰车流",
+      "x": 72,
+      "y": 228,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "jaywalking",
+      "word": "jaywalking",
+      "translation": "乱穿马路",
+      "x": 1020,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "roadworks",
+      "word": "roadworks",
+      "translation": "道路施工",
+      "x": 72,
+      "y": 228,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "detour",
+      "word": "detour",
+      "translation": "绕行路线",
+      "x": 1082,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "pothole",
+      "word": "pothole",
+      "translation": "路面坑洞",
+      "x": 77,
+      "y": 228,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "bus-shelter",
+      "word": "bus shelter",
+      "translation": "公交候车亭",
+      "x": 1144,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "traffic-cone",
+      "word": "traffic cone",
+      "translation": "交通锥",
+      "x": 139,
+      "y": 228,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "shop-window",
+      "word": "shop window",
+      "translation": "商店橱窗",
+      "x": 958,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "curb-ramp",
+      "word": "curb ramp",
+      "translation": "路缘坡道",
+      "x": 72,
+      "y": 228,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "bicycle-rack",
+      "word": "bicycle rack",
+      "translation": "自行车架",
+      "x": 1020,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "side-street",
+      "word": "side street",
+      "translation": "支路",
+      "x": 72,
+      "y": 228,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "traffic-camera",
+      "word": "traffic camera",
+      "translation": "交通摄像头",
+      "x": 1082,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "public-bench",
+      "word": "public bench",
+      "translation": "公共长椅",
+      "x": 77,
+      "y": 228,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "taxi-rank",
+      "word": "taxi rank",
+      "translation": "出租车候客区",
+      "x": 1144,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "pedestrian-signal",
+      "word": "pedestrian signal",
+      "translation": "行人信号灯",
+      "x": 139,
+      "y": 228,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "street-tree",
+      "word": "street tree",
+      "translation": "行道树",
+      "x": 1206,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    }
   ],
-  "portals":[
-    {"id":"enter-transit","label":"Enter the transit hub","translation":"进入交通枢纽","childSceneId":"transit-hub","x":850,"y":250,"width":650,"height":340,"enterScale":3.6},
-    {"id":"enter-science-museum","label":"Enter the science museum","translation":"进入科学馆","childSceneId":"science-museum","x":20,"y":80,"width":300,"height":470,"enterScale":3.6}
+  "portals": [
+    {
+      "id": "enter-transit",
+      "label": "Enter the transit hub",
+      "translation": "进入交通枢纽",
+      "childSceneId": "transit-hub",
+      "x": 850,
+      "y": 250,
+      "width": 650,
+      "height": 340,
+      "enterScale": 3.6
+    },
+    {
+      "id": "enter-science-museum",
+      "label": "Enter the science museum",
+      "translation": "进入科学馆",
+      "childSceneId": "science-museum",
+      "x": 20,
+      "y": 80,
+      "width": 300,
+      "height": 470,
+      "enterScale": 3.6
+    }
   ]
 }

@@ -1,0 +1,484 @@
+{
+  "id": "bedroom",
+  "title": "Bedroom",
+  "translation": "卧室",
+  "subtitle": "Rest, textiles and quiet routines",
+  "asset": "/scenes/bedroom.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "apartment",
+  "labels": [
+    {
+      "id": "bedroom",
+      "word": "bedroom",
+      "translation": "卧室",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "duvet",
+      "word": "duvet",
+      "translation": "羽绒被",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "mattress",
+      "word": "mattress",
+      "translation": "床垫",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "headboard",
+      "word": "headboard",
+      "translation": "床头板",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "nightstand",
+      "word": "nightstand",
+      "translation": "床头柜",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bedsheet",
+      "word": "bedsheet",
+      "translation": "床单",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "blanket",
+      "word": "blanket",
+      "translation": "毯子",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "alarm-clock",
+      "word": "alarm clock",
+      "translation": "闹钟",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bedside-lamp",
+      "word": "bedside lamp",
+      "translation": "床头灯",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "curtains",
+      "word": "curtains",
+      "translation": "窗帘",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "dresser",
+      "word": "dresser",
+      "translation": "斗柜",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "laundry-basket",
+      "word": "laundry basket",
+      "translation": "洗衣篮",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "slippers",
+      "word": "slippers",
+      "translation": "拖鞋",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pajamas",
+      "word": "pajamas",
+      "translation": "睡衣",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "hanger",
+      "word": "hanger",
+      "translation": "衣架",
+      "x": 946,
+      "y": 342,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "closet",
+      "word": "closet",
+      "translation": "壁橱",
+      "x": 1024,
+      "y": 342,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "quilt",
+      "word": "quilt",
+      "translation": "被子",
+      "x": 1102,
+      "y": 342,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "pillowcase",
+      "word": "pillowcase",
+      "translation": "枕套",
+      "x": 1180,
+      "y": 342,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "bed-frame",
+      "word": "bed frame",
+      "translation": "床架",
+      "x": 1258,
+      "y": 342,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "vanity",
+      "word": "vanity",
+      "translation": "梳妆台",
+      "x": 1336,
+      "y": 342,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "hamper",
+      "word": "hamper",
+      "translation": "脏衣篓",
+      "x": 1414,
+      "y": 342,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "light-switch",
+      "word": "light switch",
+      "translation": "电灯开关",
+      "x": 946,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "curtain-rod",
+      "word": "curtain rod",
+      "translation": "窗帘杆",
+      "x": 1024,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "ceiling-fan",
+      "word": "ceiling fan",
+      "translation": "吊扇",
+      "x": 1102,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "coverlet",
+      "word": "coverlet",
+      "translation": "床罩",
+      "x": 1180,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "fitted-sheet",
+      "word": "fitted sheet",
+      "translation": "床笠",
+      "x": 1258,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "footboard",
+      "word": "footboard",
+      "translation": "床尾板",
+      "x": 1336,
+      "y": 414,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "drawer-pull",
+      "word": "drawer pull",
+      "translation": "抽屉拉手",
+      "x": 1414,
+      "y": 414,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "outlet",
+      "word": "outlet",
+      "translation": "电源插座",
+      "x": 946,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "blind",
+      "word": "blind",
+      "translation": "百叶帘",
+      "x": 1024,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "radiator",
+      "word": "radiator",
+      "translation": "暖气片",
+      "x": 1102,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "air-conditioner",
+      "word": "air conditioner",
+      "translation": "空调",
+      "x": 1180,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "bedroom-door",
+      "word": "bedroom door",
+      "translation": "卧室门",
+      "x": 1258,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "bedside-rug",
+      "word": "bedside rug",
+      "translation": "床边地毯",
+      "x": 1336,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "rest",
+      "word": "rest",
+      "translation": "休息",
+      "x": 1414,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "sleep",
+      "word": "sleep",
+      "translation": "睡觉",
+      "x": 946,
+      "y": 558,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "wake",
+      "word": "wake",
+      "translation": "醒来",
+      "x": 963,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "nap",
+      "word": "nap",
+      "translation": "小睡",
+      "x": 1025,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "yawn",
+      "word": "yawn",
+      "translation": "打哈欠",
+      "x": 1087,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "dream",
+      "word": "dream",
+      "translation": "做梦",
+      "x": 1149,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "cozy",
+      "word": "cozy",
+      "translation": "舒适温馨的",
+      "x": 1211,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "quiet",
+      "word": "quiet",
+      "translation": "安静的",
+      "x": 1273,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "dim",
+      "word": "dim",
+      "translation": "昏暗的",
+      "x": 1335,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "tidy",
+      "word": "tidy",
+      "translation": "整洁的",
+      "x": 963,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "messy",
+      "word": "messy",
+      "translation": "凌乱的",
+      "x": 1025,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "fold",
+      "word": "fold",
+      "translation": "折叠",
+      "x": 1087,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "make-the-bed",
+      "word": "make the bed",
+      "translation": "整理床铺",
+      "x": 1149,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "change-the-sheets",
+      "word": "change the sheets",
+      "translation": "更换床单",
+      "x": 1211,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "set-the-alarm",
+      "word": "set the alarm",
+      "translation": "设置闹钟",
+      "x": 1273,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "draw-the-curtains",
+      "word": "draw the curtains",
+      "translation": "拉上窗帘",
+      "x": 1335,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "bedside-book",
+      "word": "bedside book",
+      "translation": "床头书",
+      "x": 1397,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    }
+  ],
+  "portals": [
+    {
+      "id": "enter-wardrobe",
+      "label": "Open the wardrobe",
+      "translation": "打开衣柜",
+      "childSceneId": "wardrobe-interior",
+      "x": 1050,
+      "y": 175,
+      "width": 360,
+      "height": 540,
+      "enterScale": 3.6
+    }
+  ]
+}

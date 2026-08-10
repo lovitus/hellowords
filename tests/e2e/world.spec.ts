@@ -113,6 +113,52 @@ async function traceWordOpacityDuringZoom(
   }, TRANSITION_PROBE);
 }
 
+async function zoomSceneToScale(
+  page: Page,
+  targetScale: number,
+  requestedFocus?: { x: number; y: number },
+) {
+  const surface = page.locator(".scene-surface");
+  const viewport = page.locator(VIEWPORT);
+  const box = await viewport.boundingBox();
+  expect(box, "world viewport must have a rendered hit area").not.toBeNull();
+  const focus = requestedFocus ?? {
+    x: box!.x + box!.width / 2,
+    y: box!.y + box!.height / 2,
+  };
+  await page.mouse.move(focus.x, focus.y);
+
+  await expect.poll(async () => {
+    const scale = Number(await surface.getAttribute("data-scene-scale"));
+    if (Number.isFinite(scale) && scale < targetScale) {
+      const factor = Math.min(1.16, targetScale / Math.max(0.01, scale));
+      await page.mouse.wheel(0, -Math.log(factor) / 0.0017);
+    }
+    return Number(await surface.getAttribute("data-scene-scale"));
+  }, { intervals: [60], timeout: 5_000 }).toBeGreaterThanOrEqual(targetScale * 0.995);
+}
+
+async function closestLabelToViewportCenter(page: Page, selector: string) {
+  return page.locator(selector).evaluateAll((labels) => {
+    const viewport = document.querySelector<HTMLElement>('[data-testid="world-viewport"]');
+    if (!viewport) throw new Error("world viewport is required to select a zoom focus");
+    const viewportRect = viewport.getBoundingClientRect();
+    const centerX = viewportRect.left + viewportRect.width / 2;
+    const centerY = viewportRect.top + viewportRect.height / 2;
+    const closest = labels
+      .map((label) => {
+        const rect = label.getBoundingClientRect();
+        return {
+          id: (label as HTMLElement).dataset.labelId ?? "",
+          distance: Math.hypot(rect.left + rect.width / 2 - centerX, rect.top + rect.height / 2 - centerY),
+        };
+      })
+      .sort((first, second) => first.distance - second.distance)[0];
+    if (!closest?.id) throw new Error("an authored detail label is required");
+    return closest.id;
+  });
+}
+
 async function mobileLabelLayout(page: Page): Promise<MobileLabelLayout> {
   return page.getByTestId("word-label").evaluateAll((labels) => {
     const viewport = document.querySelector<HTMLElement>('[data-testid="world-viewport"]');
@@ -280,45 +326,64 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   await expect(card).toBeHidden();
 });
 
-test("zoom reveals finer word layers and fades labels in and out", async ({ page }, testInfo) => {
+test("five continuous LOD bands make dense scene vocabulary emerge smoothly", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
   await openWorld(page);
-  const viewport = page.locator(VIEWPORT);
-  const viewportBox = await viewport.boundingBox();
-  expect(viewportBox).not.toBeNull();
-  await page.mouse.move(
-    viewportBox!.x + viewportBox!.width / 2,
-    viewportBox!.y + viewportBox!.height / 2,
-  );
-
   const surface = page.locator(".scene-surface");
-  await expect(surface).toHaveAttribute("data-zoom-level", "0");
-  await expect.poll(() => renderedWordCount(page)).toBeGreaterThanOrEqual(12);
+  await expect(surface).toHaveAttribute("data-lod-level", "1");
+  const authoredLods = await page.getByTestId("word-label").evaluateAll((labels) => (
+    [...new Set(labels.map((label) => Number((label as HTMLElement).dataset.minLevel)))].sort()
+  ));
+  expect(authoredLods).toEqual([0, 1, 2, 3, 4]);
+  expect(await page.getByTestId("word-label").count()).toBeGreaterThanOrEqual(72);
+  await expect.poll(() => renderedWordCount(page), {
+    message: "desktop overview must expose at least 20 fully readable scene words",
+  }).toBeGreaterThanOrEqual(20);
+  const overviewWordCount = await renderedWordCount(page);
 
-  const detailLabel = page.locator('.word-label[data-label-id="roof"]');
+  const detailLabelId = await closestLabelToViewportCenter(page, '.word-label[data-min-level="4"]');
+  const detailLabel = page.locator(`.word-label[data-label-id="${detailLabelId}"]`);
   const hiddenDetailStyle = await wordTransitionStyle(detailLabel);
   expect(hiddenDetailStyle.display, "hidden density layers must remain renderable for a fade").not.toBe("none");
   expect(hiddenDetailStyle.opacity).toBeLessThanOrEqual(0.05);
-  const detailBox = await detailLabel.boundingBox();
-  expect(detailBox).not.toBeNull();
-  await page.mouse.move(detailBox!.x + detailBox!.width / 2, detailBox!.y + detailBox!.height / 2);
 
-  const detailFadeIn = await traceWordOpacityDuringZoom(page, detailLabel, 1, -300);
+  await zoomSceneToScale(page, 1.22);
+  await expect(surface).toHaveAttribute("data-lod-level", "2");
+  await expect.poll(() => renderedWordCount(page), {
+    message: "the first zoom step must expose a dense second vocabulary layer",
+  }).toBeGreaterThanOrEqual(34);
   expect(
-    detailFadeIn.some((opacity) => opacity > 0.05 && opacity < 0.9),
-    "a detail word should first emerge at a partial opacity",
-  ).toBe(true);
-  await expect.poll(async () => (await wordTransitionStyle(detailLabel)).opacity).toBeGreaterThan(0.2);
+    await renderedWordCount(page),
+    "the first zoom step must add words, not merely replace overview labels",
+  ).toBeGreaterThanOrEqual(overviewWordCount + 12);
 
-  const detailFinish = await traceWordOpacityDuringZoom(page, detailLabel, 2, -100);
-  expect(
-    detailFinish.some((opacity) => opacity > 0.05 && opacity < 0.95),
-    "the detail layer should finish fading in instead of appearing abruptly",
-  ).toBe(true);
+  await page.getByRole("button", { name: "Fit scene" }).click();
+  await expect(surface).toHaveAttribute("data-scene-scale", "1.000");
+  const focusBox = await detailLabel.boundingBox();
+  expect(focusBox).not.toBeNull();
+  await zoomSceneToScale(page, 2.64, {
+    x: focusBox!.x + focusBox!.width / 2,
+    y: focusBox!.y + focusBox!.height / 2,
+  });
+  await expect(surface).toHaveAttribute("data-lod-level", "4");
+  await expect(detailLabel).toBeVisible();
+  await expect.poll(async () => (await wordTransitionStyle(detailLabel)).opacity).toBeGreaterThan(0.05);
+  expect((await wordTransitionStyle(detailLabel)).opacity).toBeLessThan(0.9);
+  await expect(detailLabel).toHaveAttribute("aria-hidden", "true");
+  await expect(detailLabel).toHaveAttribute("tabindex", "-1");
+
+  const emergingBox = await detailLabel.boundingBox();
+  expect(emergingBox).not.toBeNull();
+  await zoomSceneToScale(page, 3.12, {
+    x: emergingBox!.x + emergingBox!.width / 2,
+    y: emergingBox!.y + emergingBox!.height / 2,
+  });
+  await expect(detailLabel).toBeVisible();
   await expect.poll(async () => (await wordTransitionStyle(detailLabel)).opacity).toBeGreaterThanOrEqual(0.95);
-  await expect(surface).toHaveAttribute("data-zoom-level", "2");
+  await expect(detailLabel).toHaveAttribute("aria-hidden", "false");
+  await expect(detailLabel).toHaveAttribute("tabindex", "0");
 
-  const detailFadeOut = await traceWordOpacityDuringZoom(page, detailLabel, 0, 350);
+  const detailFadeOut = await traceWordOpacityDuringZoom(page, detailLabel, 1, 680);
   expect(
     detailFadeOut.some((opacity) => opacity > 0.05 && opacity < 0.95),
     "a word leaving the active density layer should fade out",
@@ -344,13 +409,13 @@ test("enters a scene slice on zoom and returns to its parent", async ({ page }) 
   await zoomOutTo(page, app, parent);
   expect(await sceneId(app)).toBe(parent);
 
-  const requestCount = requestedSceneAssets.length;
+  const requestedBeforeRevisit = new Set(requestedSceneAssets);
   await zoomIntoFirstHotspot(page, app);
   await zoomOutTo(page, app, parent);
   expect(
-    requestedSceneAssets.length,
-    "revisiting the same child must reuse its scene asset",
-  ).toBe(requestCount);
+    new Set(requestedSceneAssets),
+    "revisiting the same child must not introduce a new scene asset URL",
+  ).toEqual(requestedBeforeRevisit);
 });
 
 test("wheel zoom over an object automatically loads its child scene", async ({ page }) => {
@@ -398,7 +463,7 @@ test("mobile viewport exposes touch-safe labels and hotspots", async ({ page }, 
     .poll(async () => (await mobileLabelLayout(page)).count, {
       message: "the initial mobile screen should expose a useful vocabulary set without zooming",
     })
-    .toBeGreaterThanOrEqual(10);
+    .toBeGreaterThanOrEqual(14);
   await expect
     .poll(async () => (await mobileLabelLayout(page)).overlaps, {
       message: "visible mobile word labels should not overlap",
@@ -409,4 +474,8 @@ test("mobile viewport exposes touch-safe labels and hotspots", async ({ page }, 
   const box = await hotspot.boundingBox();
   expect(box).not.toBeNull();
   expect(Math.min(box!.width, box!.height)).toBeGreaterThanOrEqual(32);
+  const visibleLabel = page.locator('.word-label[data-interactive="true"]').first();
+  const labelBox = await visibleLabel.boundingBox();
+  expect(labelBox).not.toBeNull();
+  expect(Math.min(labelBox!.width, labelBox!.height)).toBeGreaterThanOrEqual(28);
 });

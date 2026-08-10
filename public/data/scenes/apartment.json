@@ -8,32 +8,569 @@
   "height": 900,
   "parentId": "world-map",
   "labels": [
-    { "id": "apartment", "word": "apartment", "translation": "公寓", "x": 790, "y": 74, "priority": 1, "minLevel": 0 },
-    { "id": "living-room", "word": "living room", "translation": "客厅", "x": 485, "y": 250, "priority": 1, "minLevel": 0 },
-    { "id": "kitchen", "word": "kitchen", "translation": "厨房", "x": 1175, "y": 255, "priority": 1, "minLevel": 0 },
-    { "id": "bedroom", "word": "bedroom", "translation": "卧室", "x": 405, "y": 630, "priority": 1, "minLevel": 0 },
-    { "id": "bathroom", "word": "bathroom", "translation": "浴室", "x": 1150, "y": 655, "priority": 1, "minLevel": 0 },
-    { "id": "balcony", "word": "balcony", "translation": "阳台", "x": 790, "y": 793, "priority": 2, "minLevel": 1 },
-    { "id": "sofa", "word": "sofa", "translation": "沙发", "x": 445, "y": 385, "priority": 2, "minLevel": 1 },
-    { "id": "rug", "word": "rug", "translation": "地毯", "x": 594, "y": 486, "priority": 2, "minLevel": 1 },
-    { "id": "counter", "word": "counter", "translation": "操作台", "x": 1175, "y": 382, "priority": 2, "minLevel": 1 },
-    { "id": "stove", "word": "stove", "translation": "炉灶", "x": 1285, "y": 402, "priority": 2, "minLevel": 1 },
-    { "id": "bed", "word": "bed", "translation": "床", "x": 420, "y": 700, "priority": 2, "minLevel": 1 },
-    { "id": "bathtub", "word": "bathtub", "translation": "浴缸", "x": 1186, "y": 738, "priority": 2, "minLevel": 1 },
-    { "id": "cushion", "word": "cushion", "translation": "靠垫", "x": 379, "y": 367, "priority": 3, "minLevel": 2 },
-    { "id": "shelf", "word": "shelf", "translation": "架子", "x": 1050, "y": 325, "priority": 3, "minLevel": 2 },
-    { "id": "pillow", "word": "pillow", "translation": "枕头", "x": 330, "y": 669, "priority": 3, "minLevel": 2 },
-    { "id": "faucet", "word": "faucet", "translation": "水龙头", "x": 1092, "y": 405, "priority": 3, "minLevel": 2 },
-    { "id": "coffee-table", "word": "coffee table", "translation": "茶几", "x": 565, "y": 465, "priority": 2, "minLevel": 1 },
-    { "id": "floor-lamp", "word": "floor lamp", "translation": "落地灯", "x": 685, "y": 318, "priority": 3, "minLevel": 2 },
-    { "id": "wardrobe", "word": "wardrobe", "translation": "衣柜", "x": 680, "y": 650, "priority": 2, "minLevel": 1 },
-    { "id": "shower", "word": "shower", "translation": "淋浴", "x": 1394, "y": 617, "priority": 2, "minLevel": 1 },
-    { "id": "toilet", "word": "toilet", "translation": "马桶", "x": 1040, "y": 687, "priority": 2, "minLevel": 1 },
-    { "id": "mirror", "word": "mirror", "translation": "镜子", "x": 1378, "y": 678, "priority": 3, "minLevel": 2 },
-    { "id": "houseplant", "word": "houseplant", "translation": "室内植物", "x": 710, "y": 460, "priority": 3, "minLevel": 2 },
-    { "id": "bookcase", "word": "bookcase", "translation": "书柜", "x": 195, "y": 288, "priority": 3, "minLevel": 2 }
+    {
+      "id": "apartment",
+      "word": "apartment",
+      "translation": "公寓",
+      "x": 790,
+      "y": 74,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "living-room",
+      "word": "living room",
+      "translation": "客厅",
+      "x": 485,
+      "y": 250,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "kitchen",
+      "word": "kitchen",
+      "translation": "厨房",
+      "x": 1175,
+      "y": 255,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bedroom",
+      "word": "bedroom",
+      "translation": "卧室",
+      "x": 405,
+      "y": 630,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bathroom",
+      "word": "bathroom",
+      "translation": "浴室",
+      "x": 1150,
+      "y": 655,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "balcony",
+      "word": "balcony",
+      "translation": "阳台",
+      "x": 790,
+      "y": 793,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "sofa",
+      "word": "sofa",
+      "translation": "沙发",
+      "x": 445,
+      "y": 385,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "rug",
+      "word": "rug",
+      "translation": "地毯",
+      "x": 594,
+      "y": 486,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "counter",
+      "word": "counter",
+      "translation": "操作台",
+      "x": 1175,
+      "y": 382,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "stove",
+      "word": "stove",
+      "translation": "炉灶",
+      "x": 1285,
+      "y": 402,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bed",
+      "word": "bed",
+      "translation": "床",
+      "x": 420,
+      "y": 700,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bathtub",
+      "word": "bathtub",
+      "translation": "浴缸",
+      "x": 1186,
+      "y": 738,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "cushion",
+      "word": "cushion",
+      "translation": "靠垫",
+      "x": 379,
+      "y": 367,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "shelf",
+      "word": "shelf",
+      "translation": "架子",
+      "x": 1050,
+      "y": 325,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pillow",
+      "word": "pillow",
+      "translation": "枕头",
+      "x": 330,
+      "y": 669,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "faucet",
+      "word": "faucet",
+      "translation": "水龙头",
+      "x": 1092,
+      "y": 405,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "coffee-table",
+      "word": "coffee table",
+      "translation": "茶几",
+      "x": 565,
+      "y": 465,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "floor-lamp",
+      "word": "floor lamp",
+      "translation": "落地灯",
+      "x": 685,
+      "y": 318,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "wardrobe",
+      "word": "wardrobe",
+      "translation": "衣柜",
+      "x": 680,
+      "y": 650,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "shower",
+      "word": "shower",
+      "translation": "淋浴",
+      "x": 1394,
+      "y": 617,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "toilet",
+      "word": "toilet",
+      "translation": "马桶",
+      "x": 1040,
+      "y": 687,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "mirror",
+      "word": "mirror",
+      "translation": "镜子",
+      "x": 1378,
+      "y": 678,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "houseplant",
+      "word": "houseplant",
+      "translation": "室内植物",
+      "x": 710,
+      "y": 460,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "bookcase",
+      "word": "bookcase",
+      "translation": "书柜",
+      "x": 195,
+      "y": 288,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "dining-area",
+      "word": "dining area",
+      "translation": "用餐区",
+      "x": 1122,
+      "y": 222,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "dining-table",
+      "word": "dining table",
+      "translation": "餐桌",
+      "x": 342,
+      "y": 557,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "chair",
+      "word": "chair",
+      "translation": "椅子",
+      "x": 1200,
+      "y": 222,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "television",
+      "word": "television",
+      "translation": "电视",
+      "x": 420,
+      "y": 557,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "remote-control",
+      "word": "remote control",
+      "translation": "遥控器",
+      "x": 1278,
+      "y": 222,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "picture-frame",
+      "word": "picture frame",
+      "translation": "相框",
+      "x": 498,
+      "y": 557,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "vase",
+      "word": "vase",
+      "translation": "花瓶",
+      "x": 1356,
+      "y": 222,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "curtain",
+      "word": "curtain",
+      "translation": "窗帘",
+      "x": 576,
+      "y": 557,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "ceiling-light",
+      "word": "ceiling light",
+      "translation": "顶灯",
+      "x": 1434,
+      "y": 222,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "washing-machine",
+      "word": "washing machine",
+      "translation": "洗衣机",
+      "x": 654,
+      "y": 557,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "towel",
+      "word": "towel",
+      "translation": "毛巾",
+      "x": 966,
+      "y": 294,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "bath-mat",
+      "word": "bath mat",
+      "translation": "浴室垫",
+      "x": 186,
+      "y": 629,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "shower-curtain",
+      "word": "shower curtain",
+      "translation": "浴帘",
+      "x": 1044,
+      "y": 294,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "soap",
+      "word": "soap",
+      "translation": "肥皂",
+      "x": 264,
+      "y": 629,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "toothbrush",
+      "word": "toothbrush",
+      "translation": "牙刷",
+      "x": 1122,
+      "y": 294,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "toothpaste",
+      "word": "toothpaste",
+      "translation": "牙膏",
+      "x": 342,
+      "y": 629,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "basin",
+      "word": "basin",
+      "translation": "洗手盆",
+      "x": 1200,
+      "y": 294,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "oven-hood",
+      "word": "oven hood",
+      "translation": "抽油烟机",
+      "x": 420,
+      "y": 629,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "microwave",
+      "word": "microwave",
+      "translation": "微波炉",
+      "x": 1278,
+      "y": 294,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "dishwasher",
+      "word": "dishwasher",
+      "translation": "洗碗机",
+      "x": 498,
+      "y": 629,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "freezer",
+      "word": "freezer",
+      "translation": "冷冻室",
+      "x": 1356,
+      "y": 294,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "doormat",
+      "word": "doormat",
+      "translation": "门垫",
+      "x": 576,
+      "y": 629,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "doorbell",
+      "word": "doorbell",
+      "translation": "门铃",
+      "x": 1434,
+      "y": 294,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "key",
+      "word": "key",
+      "translation": "钥匙",
+      "x": 654,
+      "y": 629,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "dining-chair",
+      "word": "dining chair",
+      "translation": "餐椅",
+      "x": 983,
+      "y": 243,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "ceiling-fan",
+      "word": "ceiling fan",
+      "translation": "吊扇",
+      "x": 203,
+      "y": 578,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "light-switch",
+      "word": "light switch",
+      "translation": "电灯开关",
+      "x": 1045,
+      "y": 243,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "power-outlet",
+      "word": "power outlet",
+      "translation": "电源插座",
+      "x": 265,
+      "y": 578,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "laundry-basket",
+      "word": "laundry basket",
+      "translation": "洗衣篮",
+      "x": 1107,
+      "y": 243,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "side-table",
+      "word": "side table",
+      "translation": "边桌",
+      "x": 327,
+      "y": 578,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "wall-clock",
+      "word": "wall clock",
+      "translation": "挂钟",
+      "x": 1169,
+      "y": 243,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "door-handle",
+      "word": "door handle",
+      "translation": "门把手",
+      "x": 983,
+      "y": 243,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "window-frame",
+      "word": "window frame",
+      "translation": "窗框",
+      "x": 203,
+      "y": 578,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "bookshelf",
+      "word": "bookshelf",
+      "translation": "书架",
+      "x": 1045,
+      "y": 243,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "floor-tile",
+      "word": "floor tile",
+      "translation": "地砖",
+      "x": 265,
+      "y": 578,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "storage-box",
+      "word": "storage box",
+      "translation": "收纳箱",
+      "x": 1107,
+      "y": 243,
+      "priority": 5,
+      "minLevel": 4
+    }
   ],
   "portals": [
-    { "id": "enter-kitchen", "label": "Enter the kitchen", "translation": "进入厨房", "childSceneId": "kitchen", "x": 1010, "y": 150, "width": 380, "height": 360, "enterScale": 3.6 }
+    {
+      "id": "enter-kitchen",
+      "label": "Enter the kitchen",
+      "translation": "进入厨房",
+      "childSceneId": "kitchen",
+      "x": 1010,
+      "y": 150,
+      "width": 380,
+      "height": 360,
+      "enterScale": 3.6
+    },
+    {
+      "id": "enter-bedroom",
+      "label": "Enter the bedroom",
+      "translation": "进入卧室",
+      "childSceneId": "bedroom",
+      "x": 170,
+      "y": 500,
+      "width": 500,
+      "height": 330,
+      "enterScale": 3.6
+    }
   ]
 }

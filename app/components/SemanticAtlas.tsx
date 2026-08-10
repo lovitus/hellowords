@@ -8,6 +8,7 @@ import {
   type SemanticManifest,
   type SemanticNode,
   type SemanticRepository,
+  type SemanticSubcluster,
 } from "../lib/semantic-repository";
 import "./semantic-atlas.css";
 
@@ -39,10 +40,10 @@ interface RealmOverview {
   topicCount: number;
 }
 
-const MIN_SCALE = 0.045;
+const MIN_SCALE = 0.032;
 const MAX_SCALE = 3.2;
 const BACKGROUND = "#f3ede2";
-const OVERVIEW_SCALE = 0.105;
+const OVERVIEW_SCALE = 0.16;
 
 const REALM_COPY: Readonly<Record<string, readonly [string, string]>> = {
   "nature-life": ["NATURE & LIFE", "自然与生命"],
@@ -90,7 +91,7 @@ function fitCamera(manifest: Pick<SemanticManifest, "world" | "clusters">, size:
   };
 }
 
-function cameraAt(node: SemanticNode, size: Size, scale = 1.35): Camera {
+function cameraAt(node: SemanticNode, size: Size, scale = 0.78): Camera {
   return { x: size.width / 2 - node.x * scale, y: size.height / 2 - node.y * scale, scale };
 }
 
@@ -148,6 +149,7 @@ function pickLabels(
   size: Size,
   selectedId?: string,
   reserved: readonly ScreenRect[] = [],
+  positions: Map<string, Point> = new Map(),
 ): SemanticNode[] {
   const limit = visibleLimit(camera.scale);
   const collisionCell = 12;
@@ -162,38 +164,69 @@ function pickLabels(
       for (let column = minColumn; column <= maxColumn; column += 1) occupied.add(`${column}:${row}`);
     }
   }
+  const placementOffsets: Point[] = [{ x: 0, y: 0 }];
+  for (const radius of [18, 36, 54, 72, 90, 108]) {
+    for (let x = -radius; x <= radius; x += 18) {
+      placementOffsets.push({ x, y: -radius }, { x, y: radius });
+    }
+    for (let y = -radius + 18; y < radius; y += 18) {
+      placementOffsets.push({ x: -radius, y }, { x: radius, y });
+    }
+  }
   return [...nodes]
-    .sort((a, b) => Number(b.id === selectedId) - Number(a.id === selectedId) || b.importance - a.importance || a.rank - b.rank)
+    .sort((a, b) => (
+      Number(b.id === selectedId) - Number(a.id === selectedId)
+      || (b.importance - Math.min(b.word.length, 20) * 0.012)
+        - (a.importance - Math.min(a.word.length, 20) * 0.012)
+      || a.rank - b.rank
+    ))
     .filter((node) => {
       if (acceptedCount >= limit) return false;
-      const screenX = node.x * camera.scale + camera.x;
-      const screenY = node.y * camera.scale + camera.y;
-      if (screenX < -100 || screenX > size.width + 100 || screenY < -30 || screenY > size.height + 30) return false;
+      const anchorX = node.x * camera.scale + camera.x;
+      const anchorY = node.y * camera.scale + camera.y;
+      if (anchorX < -100 || anchorX > size.width + 100 || anchorY < -30 || anchorY > size.height + 30) return false;
       const fontSize = clamp(10.5 + camera.scale * 3.2 + node.importance * 2.2, 11, 18);
       const halfWidth = Math.max(24, node.word.length * fontSize * 0.31 + 11);
       const halfHeight = camera.scale >= 0.58 ? fontSize * 1.25 : fontSize * 0.72 + 7;
-      const minColumn = Math.floor((screenX - halfWidth) / collisionCell);
-      const maxColumn = Math.floor((screenX + halfWidth) / collisionCell);
-      const minRow = Math.floor((screenY - halfHeight) / collisionCell);
-      const maxRow = Math.floor((screenY + halfHeight) / collisionCell);
-      for (let row = minRow; row <= maxRow; row += 1) {
-        for (let column = minColumn; column <= maxColumn; column += 1) {
-          if (occupied.has(`${column}:${row}`)) return false;
+      for (const offset of placementOffsets) {
+        const screenX = anchorX + offset.x;
+        const screenY = anchorY + offset.y;
+        if (screenX - halfWidth < 4 || screenX + halfWidth > size.width - 4 || screenY - halfHeight < 4 || screenY + halfHeight > size.height - 4) continue;
+        const minColumn = Math.floor((screenX - halfWidth) / collisionCell);
+        const maxColumn = Math.floor((screenX + halfWidth) / collisionCell);
+        const minRow = Math.floor((screenY - halfHeight) / collisionCell);
+        const maxRow = Math.floor((screenY + halfHeight) / collisionCell);
+        let collides = false;
+        for (let row = minRow; row <= maxRow && !collides; row += 1) {
+          for (let column = minColumn; column <= maxColumn; column += 1) {
+            if (occupied.has(`${column}:${row}`)) {
+              collides = true;
+              break;
+            }
+          }
         }
+        if (collides) continue;
+        for (let row = minRow; row <= maxRow; row += 1) {
+          for (let column = minColumn; column <= maxColumn; column += 1) occupied.add(`${column}:${row}`);
+        }
+        positions.set(node.id, { x: screenX, y: screenY });
+        acceptedCount += 1;
+        return true;
       }
-      for (let row = minRow; row <= maxRow; row += 1) {
-        for (let column = minColumn; column <= maxColumn; column += 1) occupied.add(`${column}:${row}`);
-      }
-      acceptedCount += 1;
-      return true;
+      return false;
     });
 }
 
-function pickCompactRealmRepresentatives(
+function realmCardSize(compact: boolean): { width: number; height: number } {
+  return compact ? { width: 100, height: 92 } : { width: 154, height: 140 };
+}
+
+function pickRealmRepresentatives(
   nodes: readonly SemanticNode[],
   clusters: readonly SemanticCluster[],
   realms: readonly RealmOverview[],
   camera: Camera,
+  compact: boolean,
 ): { labels: SemanticNode[]; positions: Map<string, Point> } {
   const realmByCluster = new Map(clusters.map((cluster) => [cluster.id, cluster.realmId ?? cluster.id]));
   const nodesByRealm = new Map<string, SemanticNode[]>();
@@ -206,17 +239,55 @@ function pickCompactRealmRepresentatives(
   }
   const labels: SemanticNode[] = [];
   const positions = new Map<string, Point>();
+  const offsets = compact
+    ? [{ x: 0, y: 8 }, { x: 0, y: 29 }]
+    : [
+        { x: -38, y: 7 }, { x: 38, y: 7 },
+        { x: -38, y: 31 }, { x: 38, y: 31 },
+        { x: 0, y: 55 },
+      ];
   for (const realm of realms) {
-    const node = [...(nodesByRealm.get(realm.id) ?? [])]
-      .sort((left, right) => right.importance - left.importance || left.word.length - right.word.length || left.rank - right.rank)[0];
-    if (!node) continue;
-    labels.push(node);
-    positions.set(node.id, {
-      x: realm.x * camera.scale + camera.x,
-      y: realm.y * camera.scale + camera.y + 38,
+    const chosen = [...(nodesByRealm.get(realm.id) ?? [])]
+      .sort((left, right) => (
+        (right.importance * 2 - Math.min(right.word.length, 16) * 0.025)
+        - (left.importance * 2 - Math.min(left.word.length, 16) * 0.025)
+        || left.rank - right.rank
+      ))
+      .slice(0, offsets.length);
+    chosen.forEach((node, index) => {
+      labels.push(node);
+      positions.set(node.id, {
+        x: realm.x * camera.scale + camera.x + offsets[index].x,
+        y: realm.y * camera.scale + camera.y + offsets[index].y,
+      });
     });
   }
   return { labels, positions };
+}
+
+function pickSubclusterTitles(
+  subclusters: readonly SemanticSubcluster[],
+  candidates: readonly SemanticNode[],
+  camera: Camera,
+  size: Size,
+): SemanticSubcluster[] {
+  if (camera.scale < 0.38) return [];
+  const loadedIds = new Set(candidates.map((node) => node.subclusterId).filter(Boolean));
+  const occupied = new Set<string>();
+  const limit = camera.scale < 0.7 ? 18 : camera.scale < 1.25 ? 36 : 64;
+  return [...subclusters]
+    .filter((subcluster) => loadedIds.has(subcluster.id) && subcluster.count >= 3)
+    .sort((left, right) => right.count - left.count || left.id.localeCompare(right.id))
+    .filter((subcluster) => {
+      if (occupied.size >= limit) return false;
+      const x = subcluster.x * camera.scale + camera.x;
+      const y = subcluster.y * camera.scale + camera.y;
+      if (x < 36 || x > size.width - 36 || y < 28 || y > size.height - 28) return false;
+      const key = `${Math.floor(x / 110)}:${Math.floor(y / 46)}`;
+      if (occupied.has(key)) return false;
+      occupied.add(key);
+      return true;
+    });
 }
 
 function roundedRect(context: CanvasRenderingContext2D, x: number, y: number, width: number, height: number, radius: number): void {
@@ -329,27 +400,80 @@ export function SemanticAtlas({
     const overview = camera.scale < OVERVIEW_SCALE;
     const compactOverview = size.width < 600;
     const realms = overview ? buildRealmOverview(currentRepository.manifest.clusters) : [];
+    const cardSize = realmCardSize(compactOverview);
     const reserved = realms.map((realm) => ({
       x: realm.x * camera.scale + camera.x,
       y: realm.y * camera.scale + camera.y,
-      width: compactOverview ? 90 : 118,
-      height: compactOverview ? 52 : 62,
+      width: cardSize.width,
+      height: cardSize.height,
     }));
-    const compactRepresentatives = overview && compactOverview
-      ? pickCompactRealmRepresentatives(candidates, currentRepository.manifest.clusters, realms, camera)
+    const overviewRepresentatives = overview
+      ? pickRealmRepresentatives(candidates, currentRepository.manifest.clusters, realms, camera, compactOverview)
       : null;
-    const labels = compactRepresentatives?.labels
-      ?? pickLabels(candidates, camera, size, display.selected?.id, reserved);
-    const labelPositions = compactRepresentatives?.positions ?? new Map<string, Point>();
+    const labelPositions = overviewRepresentatives?.positions ?? new Map<string, Point>();
+    const labels = overviewRepresentatives?.labels
+      ?? pickLabels(candidates, camera, size, display.selected?.id, reserved, labelPositions);
     const clusters = new Map(currentRepository.manifest.clusters.map((cluster) => [cluster.id, cluster]));
+    const subclusters = pickSubclusterTitles(currentRepository.manifest.subclusters, candidates, camera, size);
+    const subclusterById = new Map(currentRepository.manifest.subclusters.map((subcluster) => [subcluster.id, subcluster]));
     hitsRef.current = [];
+    canvas.dataset.candidateCount = String(candidates.length);
     canvas.dataset.renderedLabelCount = String(labels.length);
-    canvas.dataset.zoomTier = overview ? "realms" : camera.scale < 0.38 ? "topics" : "words";
+    canvas.dataset.renderedSubclusterCount = String(subclusters.length);
+    const zoomTier = overview ? "realms" : camera.scale < 0.38 ? "topics" : camera.scale < 0.72 ? "subclusters" : "words";
+    canvas.dataset.zoomTier = zoomTier;
+    if (shellRef.current) {
+      shellRef.current.dataset.zoomTier = zoomTier === "realms"
+        ? "世界 · 10 个领域"
+        : zoomTier === "topics"
+          ? "主题 · 44 个主题"
+          : zoomTier === "subclusters"
+            ? "词群 · 704 个语义簇"
+            : "词汇 · 10,000 个词";
+    }
 
     if (overview) {
       for (const realm of realms) drawRealmOverview(context, realm, camera, compactOverview);
     } else if (camera.scale < 1.15) {
       for (const cluster of currentRepository.manifest.clusters) drawClusterTitle(context, cluster, camera, display.showMeanings);
+    }
+    for (const subcluster of subclusters) drawSubclusterTitle(context, subcluster, camera);
+
+    if (!overview && camera.scale >= 0.72) {
+      context.save();
+      context.strokeStyle = "rgba(65, 91, 79, .12)";
+      context.lineWidth = 0.75;
+      for (const node of labels.slice(0, 180)) {
+        const subcluster = node.subclusterId ? subclusterById.get(node.subclusterId) : undefined;
+        if (!subcluster) continue;
+        const x = node.x * camera.scale + camera.x;
+        const y = node.y * camera.scale + camera.y;
+        const targetX = subcluster.x * camera.scale + camera.x;
+        const targetY = subcluster.y * camera.scale + camera.y;
+        if (Math.hypot(x - targetX, y - targetY) > 190) continue;
+        context.beginPath();
+        context.moveTo(x, y);
+        context.lineTo(targetX, targetY);
+        context.stroke();
+      }
+      context.restore();
+    }
+    if (!overview) {
+      context.save();
+      context.strokeStyle = "rgba(58, 83, 72, .18)";
+      context.lineWidth = 0.7;
+      for (const node of labels) {
+        const position = labelPositions.get(node.id);
+        if (!position) continue;
+        const anchorX = node.x * camera.scale + camera.x;
+        const anchorY = node.y * camera.scale + camera.y;
+        if (Math.hypot(position.x - anchorX, position.y - anchorY) < 8) continue;
+        context.beginPath();
+        context.moveTo(anchorX, anchorY);
+        context.lineTo(position.x, position.y);
+        context.stroke();
+      }
+      context.restore();
     }
     for (const node of labels) {
       const cluster = clusters.get(node.clusterId);
@@ -357,7 +481,9 @@ export function SemanticAtlas({
       const screenX = position?.x ?? node.x * camera.scale + camera.x;
       const screenY = position?.y ?? node.y * camera.scale + camera.y;
       const isSelected = display.selected?.id === node.id;
-      const fontSize = clamp(10.5 + camera.scale * 3.2 + node.importance * 2.2, 11, 18);
+      const fontSize = overview
+        ? compactOverview ? 8.5 : 9.5
+        : clamp(10.5 + camera.scale * 3.2 + node.importance * 2.2, 11, 18);
       context.font = `${node.rank < 1200 || isSelected ? 650 : 520} ${fontSize}px ui-sans-serif, system-ui, sans-serif`;
       const wordWidth = context.measureText(node.word).width;
       let meaningWidth = 0;
@@ -368,15 +494,17 @@ export function SemanticAtlas({
         context.font = `400 ${Math.max(10, fontSize - 3)}px ui-sans-serif, system-ui, sans-serif`;
         meaningWidth = context.measureText(meaning).width;
       }
-      const width = Math.max(wordWidth, meaningWidth) + 18;
-      const height = meaning ? fontSize * 2.4 : fontSize + 13;
+      const width = overview
+        ? Math.min(compactOverview ? 82 : 66, Math.max(34, wordWidth + 10))
+        : Math.max(wordWidth, meaningWidth) + 18;
+      const height = overview ? compactOverview ? 17 : 19 : meaning ? fontSize * 2.4 : fontSize + 13;
       const x = screenX - width / 2;
       const y = screenY - height / 2;
       context.shadowColor = "rgba(36,46,39,.12)";
-      context.shadowBlur = isSelected ? 14 : 7;
+      context.shadowBlur = overview ? 2 : isSelected ? 14 : 7;
       context.shadowOffsetY = 2;
-      roundedRect(context, x, y, width, height, 8);
-      context.fillStyle = isSelected ? "#173f35" : "rgba(255,253,247,.92)";
+      roundedRect(context, x, y, width, height, overview ? 5 : 8);
+      context.fillStyle = isSelected ? "#173f35" : overview ? "rgba(246, 242, 232, .96)" : "rgba(255,253,247,.92)";
       context.fill();
       context.shadowColor = "transparent";
       context.strokeStyle = isSelected ? "#173f35" : `${cluster?.color ?? "#6c756d"}72`;
@@ -386,7 +514,7 @@ export function SemanticAtlas({
       context.textAlign = "center";
       context.textBaseline = "middle";
       context.fillStyle = isSelected ? "#fffdf8" : "#253c34";
-      context.fillText(node.word, screenX, meaning ? screenY - fontSize * 0.42 : screenY + 0.5);
+      context.fillText(node.word, screenX, meaning ? screenY - fontSize * 0.42 : screenY + 0.5, width - 7);
       if (meaning) {
         context.font = `400 ${Math.max(10, fontSize - 3)}px ui-sans-serif, system-ui, sans-serif`;
         context.fillStyle = isSelected ? "rgba(255,255,255,.76)" : "#6f776f";
@@ -697,8 +825,7 @@ function drawRealmOverview(
 ): void {
   const x = realm.x * camera.scale + camera.x;
   const y = realm.y * camera.scale + camera.y;
-  const width = compact ? 86 : 114;
-  const height = compact ? 48 : 58;
+  const { width, height } = realmCardSize(compact);
   context.save();
   context.shadowColor = "rgba(35, 48, 40, .1)";
   context.shadowBlur = 18;
@@ -717,14 +844,14 @@ function drawRealmOverview(
   context.textAlign = "center";
   context.textBaseline = "middle";
   context.fillStyle = "#29463b";
-  context.font = `${compact ? 700 : 750} ${compact ? 8 : 9.5}px ui-sans-serif, system-ui, sans-serif`;
-  context.fillText(realm.title, x, y - (compact ? 10 : 12), width - 14);
+  context.font = `${compact ? 700 : 750} ${compact ? 7.5 : 9.5}px ui-sans-serif, system-ui, sans-serif`;
+  context.fillText(realm.title, x, y - (compact ? 31 : 52), width - 14);
   context.fillStyle = "#4f675d";
-  context.font = `600 ${compact ? 10 : 11}px ui-sans-serif, system-ui, sans-serif`;
-  context.fillText(realm.translation, x, y + (compact ? 3 : 4), width - 14);
+  context.font = `600 ${compact ? 9 : 11}px ui-sans-serif, system-ui, sans-serif`;
+  context.fillText(realm.translation, x, y - (compact ? 18 : 38), width - 14);
   context.fillStyle = "rgba(58, 73, 65, .56)";
-  context.font = `500 ${compact ? 7.5 : 8.5}px ui-sans-serif, system-ui, sans-serif`;
-  context.fillText(`${realm.topicCount} 主题 · ${realm.count.toLocaleString()} 词`, x, y + (compact ? 16 : 20), width - 14);
+  context.font = `500 ${compact ? 7 : 8.5}px ui-sans-serif, system-ui, sans-serif`;
+  context.fillText(`${realm.topicCount} 主题 · ${realm.count.toLocaleString()} 词`, x, y - (compact ? 7 : 24), width - 14);
   context.restore();
 }
 
@@ -747,4 +874,26 @@ function drawClusterTitle(
     context.font = `500 ${Math.max(10, size - 3)}px ui-sans-serif, system-ui, sans-serif`;
     context.fillText(cluster.translation, x, y + size * 1.25);
   }
+}
+
+function drawSubclusterTitle(
+  context: CanvasRenderingContext2D,
+  subcluster: SemanticSubcluster,
+  camera: Camera,
+): void {
+  const x = subcluster.x * camera.scale + camera.x;
+  const y = subcluster.y * camera.scale + camera.y;
+  const size = clamp(8.5 + camera.scale * 2.4, 9, 12);
+  const title = `${subcluster.label.replaceAll("-", " ")} · ${subcluster.count}`;
+  context.save();
+  context.textAlign = "center";
+  context.textBaseline = "middle";
+  context.font = `650 ${size}px ui-sans-serif, system-ui, sans-serif`;
+  const width = Math.min(150, context.measureText(title).width + 16);
+  roundedRect(context, x - width / 2, y - size, width, size * 2, size);
+  context.fillStyle = "rgba(231, 226, 214, .76)";
+  context.fill();
+  context.fillStyle = "rgba(49, 75, 64, .66)";
+  context.fillText(title, x, y, width - 10);
+  context.restore();
 }

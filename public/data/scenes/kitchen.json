@@ -8,32 +8,531 @@
   "height": 900,
   "parentId": "apartment",
   "labels": [
-    { "id": "kitchen", "word": "kitchen", "translation": "厨房", "x": 800, "y": 75, "priority": 1, "minLevel": 0 },
-    { "id": "refrigerator", "word": "refrigerator", "translation": "冰箱", "x": 205, "y": 365, "priority": 1, "minLevel": 0 },
-    { "id": "cabinet", "word": "cabinet", "translation": "橱柜", "x": 610, "y": 190, "priority": 1, "minLevel": 0 },
-    { "id": "sink", "word": "sink", "translation": "水槽", "x": 825, "y": 565, "priority": 1, "minLevel": 0 },
-    { "id": "coffee-machine", "word": "coffee machine", "translation": "咖啡机", "x": 1238, "y": 462, "priority": 1, "minLevel": 0 },
-    { "id": "countertop", "word": "countertop", "translation": "台面", "x": 873, "y": 476, "priority": 2, "minLevel": 1 },
-    { "id": "oven", "word": "oven", "translation": "烤箱", "x": 518, "y": 641, "priority": 2, "minLevel": 1 },
-    { "id": "kettle", "word": "kettle", "translation": "水壶", "x": 1050, "y": 414, "priority": 2, "minLevel": 1 },
-    { "id": "window", "word": "window", "translation": "窗户", "x": 912, "y": 245, "priority": 2, "minLevel": 1 },
-    { "id": "drawer", "word": "drawer", "translation": "抽屉", "x": 675, "y": 612, "priority": 2, "minLevel": 1 },
-    { "id": "tile", "word": "tile", "translation": "瓷砖", "x": 350, "y": 342, "priority": 3, "minLevel": 2 },
-    { "id": "handle", "word": "handle", "translation": "把手", "x": 258, "y": 358, "priority": 3, "minLevel": 2 },
-    { "id": "hinge", "word": "hinge", "translation": "铰链", "x": 512, "y": 218, "priority": 3, "minLevel": 2 },
-    { "id": "tap", "word": "tap", "translation": "龙头", "x": 812, "y": 454, "priority": 3, "minLevel": 2 },
-    { "id": "drain", "word": "drain", "translation": "排水口", "x": 826, "y": 535, "priority": 3, "minLevel": 2 },
-    { "id": "mug", "word": "mug", "translation": "马克杯", "x": 1380, "y": 520, "priority": 3, "minLevel": 2 },
-    { "id": "socket", "word": "socket", "translation": "插座", "x": 1135, "y": 330, "priority": 3, "minLevel": 2 },
-    { "id": "steam", "word": "steam", "translation": "蒸汽", "x": 1080, "y": 325, "priority": 3, "minLevel": 2 },
-    { "id": "pantry", "word": "pantry", "translation": "食品储藏柜", "x": 1450, "y": 180, "priority": 2, "minLevel": 1 },
-    { "id": "dish-towel", "word": "dish towel", "translation": "擦碗布", "x": 930, "y": 650, "priority": 3, "minLevel": 2 },
-    { "id": "cutting-board", "word": "cutting board", "translation": "砧板", "x": 700, "y": 470, "priority": 2, "minLevel": 1 },
-    { "id": "saucepan", "word": "saucepan", "translation": "炖锅", "x": 430, "y": 430, "priority": 3, "minLevel": 2 },
-    { "id": "utensil", "word": "utensil", "translation": "厨具", "x": 1420, "y": 390, "priority": 3, "minLevel": 2 },
-    { "id": "bowl", "word": "bowl", "translation": "碗", "x": 620, "y": 420, "priority": 3, "minLevel": 2 }
+    {
+      "id": "kitchen",
+      "word": "kitchen",
+      "translation": "厨房",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "refrigerator",
+      "word": "refrigerator",
+      "translation": "冰箱",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "cabinet",
+      "word": "cabinet",
+      "translation": "橱柜",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "sink",
+      "word": "sink",
+      "translation": "水槽",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "coffee-machine",
+      "word": "coffee machine",
+      "translation": "咖啡机",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "countertop",
+      "word": "countertop",
+      "translation": "台面",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "oven",
+      "word": "oven",
+      "translation": "烤箱",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "kettle",
+      "word": "kettle",
+      "translation": "水壶",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "window",
+      "word": "window",
+      "translation": "窗户",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "drawer",
+      "word": "drawer",
+      "translation": "抽屉",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "tile",
+      "word": "tile",
+      "translation": "瓷砖",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "handle",
+      "word": "handle",
+      "translation": "把手",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "hinge",
+      "word": "hinge",
+      "translation": "铰链",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "tap",
+      "word": "tap",
+      "translation": "龙头",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "drain",
+      "word": "drain",
+      "translation": "排水口",
+      "x": 674,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "mug",
+      "word": "mug",
+      "translation": "马克杯",
+      "x": 926,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "socket",
+      "word": "socket",
+      "translation": "插座",
+      "x": 1178,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "steam",
+      "word": "steam",
+      "translation": "蒸汽",
+      "x": 1430,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pantry",
+      "word": "pantry",
+      "translation": "食品储藏柜",
+      "x": 966,
+      "y": 367,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "dish-towel",
+      "word": "dish towel",
+      "translation": "擦碗布",
+      "x": 1044,
+      "y": 367,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "cutting-board",
+      "word": "cutting board",
+      "translation": "砧板",
+      "x": 1122,
+      "y": 367,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "saucepan",
+      "word": "saucepan",
+      "translation": "炖锅",
+      "x": 1200,
+      "y": 367,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "utensil",
+      "word": "utensil",
+      "translation": "厨具",
+      "x": 1278,
+      "y": 367,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "bowl",
+      "word": "bowl",
+      "translation": "碗",
+      "x": 1356,
+      "y": 367,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "spatula",
+      "word": "spatula",
+      "translation": "锅铲",
+      "x": 1434,
+      "y": 367,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "ladle",
+      "word": "ladle",
+      "translation": "长柄勺",
+      "x": 966,
+      "y": 439,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "whisk",
+      "word": "whisk",
+      "translation": "打蛋器",
+      "x": 1044,
+      "y": 439,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "tongs",
+      "word": "tongs",
+      "translation": "夹子",
+      "x": 1122,
+      "y": 439,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "colander",
+      "word": "colander",
+      "translation": "滤盆",
+      "x": 1200,
+      "y": 439,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "grater",
+      "word": "grater",
+      "translation": "刨丝器",
+      "x": 1278,
+      "y": 439,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "peeler",
+      "word": "peeler",
+      "translation": "削皮器",
+      "x": 1356,
+      "y": 439,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "chef-knife",
+      "word": "chef knife",
+      "translation": "厨师刀",
+      "x": 1434,
+      "y": 439,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "frying-pan",
+      "word": "frying pan",
+      "translation": "煎锅",
+      "x": 966,
+      "y": 511,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "stockpot",
+      "word": "stockpot",
+      "translation": "汤锅",
+      "x": 1044,
+      "y": 511,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "baking-tray",
+      "word": "baking tray",
+      "translation": "烤盘",
+      "x": 1122,
+      "y": 511,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "measuring-cup",
+      "word": "measuring cup",
+      "translation": "量杯",
+      "x": 1200,
+      "y": 511,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "rolling-pin",
+      "word": "rolling pin",
+      "translation": "擀面杖",
+      "x": 1278,
+      "y": 511,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "toaster",
+      "word": "toaster",
+      "translation": "烤面包机",
+      "x": 1356,
+      "y": 511,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "blender",
+      "word": "blender",
+      "translation": "搅拌机",
+      "x": 1434,
+      "y": 511,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "chopping",
+      "word": "chopping",
+      "translation": "切碎",
+      "x": 966,
+      "y": 583,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "boiling",
+      "word": "boiling",
+      "translation": "煮沸",
+      "x": 1044,
+      "y": 583,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "frying",
+      "word": "frying",
+      "translation": "煎炒",
+      "x": 1122,
+      "y": 583,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "baking",
+      "word": "baking",
+      "translation": "烘烤",
+      "x": 983,
+      "y": 388,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "simmering",
+      "word": "simmering",
+      "translation": "慢炖",
+      "x": 1045,
+      "y": 388,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "seasoning",
+      "word": "seasoning",
+      "translation": "调味",
+      "x": 1107,
+      "y": 388,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "recipe",
+      "word": "recipe",
+      "translation": "食谱",
+      "x": 1169,
+      "y": 388,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "ingredient",
+      "word": "ingredient",
+      "translation": "食材",
+      "x": 1231,
+      "y": 388,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "leftovers",
+      "word": "leftovers",
+      "translation": "剩菜",
+      "x": 1293,
+      "y": 388,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "mixing-bowl",
+      "word": "mixing bowl",
+      "translation": "搅拌碗",
+      "x": 1355,
+      "y": 388,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "oven-mitt",
+      "word": "oven mitt",
+      "translation": "隔热手套",
+      "x": 1417,
+      "y": 388,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "dish-soap",
+      "word": "dish soap",
+      "translation": "洗洁精",
+      "x": 983,
+      "y": 388,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "tea-towel",
+      "word": "tea towel",
+      "translation": "茶巾",
+      "x": 1045,
+      "y": 388,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "pepper-mill",
+      "word": "pepper mill",
+      "translation": "胡椒研磨器",
+      "x": 1107,
+      "y": 388,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "kitchen-scale",
+      "word": "kitchen scale",
+      "translation": "厨房秤",
+      "x": 1169,
+      "y": 388,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "dish-rack",
+      "word": "dish rack",
+      "translation": "碗碟架",
+      "x": 1231,
+      "y": 388,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "can-opener",
+      "word": "can opener",
+      "translation": "开罐器",
+      "x": 1293,
+      "y": 388,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "sharp",
+      "word": "sharp",
+      "translation": "锋利的",
+      "x": 1355,
+      "y": 388,
+      "priority": 5,
+      "minLevel": 4
+    }
   ],
   "portals": [
-    { "id": "enter-coffee-machine", "label": "Inspect the coffee machine", "translation": "查看咖啡机", "childSceneId": "coffee-machine", "x": 1130, "y": 315, "width": 290, "height": 330, "enterScale": 3.6 }
+    {
+      "id": "enter-coffee-machine",
+      "label": "Inspect the coffee machine",
+      "translation": "查看咖啡机",
+      "childSceneId": "coffee-machine",
+      "x": 1130,
+      "y": 315,
+      "width": 290,
+      "height": 330,
+      "enterScale": 3.6
+    }
   ]
 }

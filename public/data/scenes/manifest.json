@@ -2,23 +2,155 @@
   "schemaVersion": 1,
   "rootSceneId": "world-map",
   "scenes": [
-    { "id": "world-map", "title": "World atlas", "parentId": null },
-    { "id": "apartment", "title": "Apartment", "parentId": "world-map" },
-    { "id": "kitchen", "title": "Kitchen", "parentId": "apartment" },
-    { "id": "coffee-machine", "title": "Coffee machine", "parentId": "kitchen" },
-    { "id": "water-tank", "title": "Water tank", "parentId": "coffee-machine" },
-    { "id": "polymer", "title": "Polymer", "parentId": "water-tank" },
-    { "id": "city-street", "title": "City street", "parentId": "world-map" },
-    { "id": "transit-hub", "title": "Transit hub", "parentId": "city-street" },
-    { "id": "electric-bus", "title": "Electric bus", "parentId": "transit-hub" },
-    { "id": "battery", "title": "Battery pack", "parentId": "electric-bus" },
-    { "id": "science-museum", "title": "Science museum", "parentId": "city-street" },
-    { "id": "human-body", "title": "Human body", "parentId": "science-museum" },
-    { "id": "heart", "title": "Heart", "parentId": "human-body" },
-    { "id": "blood-cell", "title": "Blood cell", "parentId": "heart" },
-    { "id": "city-park", "title": "City park", "parentId": "world-map" },
-    { "id": "oak-tree", "title": "Oak tree", "parentId": "city-park" },
-    { "id": "leaf", "title": "Leaf", "parentId": "oak-tree" },
-    { "id": "plant-cell", "title": "Plant cell", "parentId": "leaf" }
+    {
+      "id": "world-map",
+      "title": "World atlas",
+      "parentId": null
+    },
+    {
+      "id": "apartment",
+      "title": "Apartment",
+      "parentId": "world-map"
+    },
+    {
+      "id": "kitchen",
+      "title": "Kitchen",
+      "parentId": "apartment"
+    },
+    {
+      "id": "coffee-machine",
+      "title": "Coffee machine",
+      "parentId": "kitchen"
+    },
+    {
+      "id": "water-tank",
+      "title": "Water tank",
+      "parentId": "coffee-machine"
+    },
+    {
+      "id": "polymer",
+      "title": "Polymer",
+      "parentId": "water-tank"
+    },
+    {
+      "id": "bedroom",
+      "title": "Bedroom",
+      "parentId": "apartment"
+    },
+    {
+      "id": "wardrobe-interior",
+      "title": "Wardrobe interior",
+      "parentId": "bedroom"
+    },
+    {
+      "id": "cotton-shirt",
+      "title": "Cotton shirt",
+      "parentId": "wardrobe-interior"
+    },
+    {
+      "id": "city-street",
+      "title": "City street",
+      "parentId": "world-map"
+    },
+    {
+      "id": "transit-hub",
+      "title": "Transit hub",
+      "parentId": "city-street"
+    },
+    {
+      "id": "electric-bus",
+      "title": "Electric bus",
+      "parentId": "transit-hub"
+    },
+    {
+      "id": "battery",
+      "title": "Battery pack",
+      "parentId": "electric-bus"
+    },
+    {
+      "id": "lithium-ion-cell",
+      "title": "Lithium-ion cell",
+      "parentId": "battery"
+    },
+    {
+      "id": "railway-platform",
+      "title": "Railway platform",
+      "parentId": "transit-hub"
+    },
+    {
+      "id": "train-carriage",
+      "title": "Train carriage",
+      "parentId": "railway-platform"
+    },
+    {
+      "id": "rail-bogie",
+      "title": "Rail bogie",
+      "parentId": "train-carriage"
+    },
+    {
+      "id": "science-museum",
+      "title": "Science museum",
+      "parentId": "city-street"
+    },
+    {
+      "id": "human-body",
+      "title": "Human body",
+      "parentId": "science-museum"
+    },
+    {
+      "id": "heart",
+      "title": "Heart",
+      "parentId": "human-body"
+    },
+    {
+      "id": "blood-cell",
+      "title": "Blood cell",
+      "parentId": "heart"
+    },
+    {
+      "id": "hemoglobin",
+      "title": "Hemoglobin",
+      "parentId": "blood-cell"
+    },
+    {
+      "id": "oxygen-molecule",
+      "title": "Oxygen molecule",
+      "parentId": "hemoglobin"
+    },
+    {
+      "id": "city-park",
+      "title": "City park",
+      "parentId": "world-map"
+    },
+    {
+      "id": "oak-tree",
+      "title": "Oak tree",
+      "parentId": "city-park"
+    },
+    {
+      "id": "leaf",
+      "title": "Leaf",
+      "parentId": "oak-tree"
+    },
+    {
+      "id": "plant-cell",
+      "title": "Plant cell",
+      "parentId": "leaf"
+    },
+    {
+      "id": "chloroplast-interior",
+      "title": "Chloroplast interior",
+      "parentId": "plant-cell"
+    },
+    {
+      "id": "pond-edge",
+      "title": "Pond edge",
+      "parentId": "city-park"
+    },
+    {
+      "id": "frog",
+      "title": "Frog",
+      "parentId": "pond-edge"
+    }
   ]
 }

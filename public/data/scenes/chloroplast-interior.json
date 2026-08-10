@@ -1,0 +1,445 @@
+{
+  "id": "chloroplast-interior",
+  "title": "Chloroplast interior",
+  "translation": "叶绿体内部",
+  "subtitle": "Membrane stacks turning sunlight into stored energy",
+  "asset": "/scenes/chloroplast-interior.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "plant-cell",
+  "labels": [
+    {
+      "id": "chloroplast-interior",
+      "word": "chloroplast interior",
+      "translation": "叶绿体内部",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "outer-envelope",
+      "word": "outer envelope",
+      "translation": "外包膜",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "inner-envelope",
+      "word": "inner envelope",
+      "translation": "内包膜",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "intermembrane-space",
+      "word": "intermembrane space",
+      "translation": "膜间隙",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "stroma",
+      "word": "stroma",
+      "translation": "基质",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "thylakoid",
+      "word": "thylakoid",
+      "translation": "类囊体",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "granum",
+      "word": "granum",
+      "translation": "基粒",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "stroma-lamella",
+      "word": "stroma lamella",
+      "translation": "基质片层",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "thylakoid-lumen",
+      "word": "thylakoid lumen",
+      "translation": "类囊体腔",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "chloroplast-dna",
+      "word": "chloroplast dna",
+      "translation": "叶绿体基因",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "plastoglobule",
+      "word": "plastoglobule",
+      "translation": "质体小球",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "starch-grain",
+      "word": "starch grain",
+      "translation": "淀粉粒",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "chlorophyll-molecule",
+      "word": "chlorophyll molecule",
+      "translation": "叶绿素分子",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "photosystem",
+      "word": "photosystem",
+      "translation": "光系统",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "atp-synthase",
+      "word": "atp synthase",
+      "translation": "能量合成酶",
+      "x": 674,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "electron-carrier",
+      "word": "electron carrier",
+      "translation": "电子载体",
+      "x": 926,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "reaction-center",
+      "word": "reaction center",
+      "translation": "反应中心",
+      "x": 1178,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "light-harvesting-complex",
+      "word": "light harvesting complex",
+      "translation": "捕光复合体",
+      "x": 1430,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "electron-transport-chain",
+      "word": "electron transport chain",
+      "translation": "电子传递链",
+      "x": 170,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "proton-gradient",
+      "word": "proton gradient",
+      "translation": "质子梯度",
+      "x": 422,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "photolysis",
+      "word": "photolysis",
+      "translation": "光解作用",
+      "x": 548,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "carbon-fixation",
+      "word": "carbon fixation",
+      "translation": "碳固定",
+      "x": 620,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "carbohydrate",
+      "word": "carbohydrate",
+      "translation": "碳水化合物",
+      "x": 692,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "photon",
+      "word": "photon",
+      "translation": "光子",
+      "x": 764,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "photosystem-one",
+      "word": "photosystem one",
+      "translation": "光系统一",
+      "x": 800,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "photosystem-two",
+      "word": "photosystem two",
+      "translation": "光系统二",
+      "x": 878,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "atp",
+      "word": "atp",
+      "translation": "三磷酸腺苷",
+      "x": 956,
+      "y": 414,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "nadph",
+      "word": "nadph",
+      "translation": "还原型辅酶",
+      "x": 1034,
+      "y": 414,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "calvin-cycle",
+      "word": "calvin cycle",
+      "translation": "卡尔文循环",
+      "x": 566,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "rubisco",
+      "word": "rubisco",
+      "translation": "核酮糖二磷酸羧化酶",
+      "x": 644,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "triose-phosphate",
+      "word": "triose phosphate",
+      "translation": "磷酸丙糖",
+      "x": 722,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "wavelength",
+      "word": "wavelength",
+      "translation": "波长",
+      "x": 800,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "absorb-light",
+      "word": "absorb light",
+      "translation": "吸收光",
+      "x": 878,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "split-water",
+      "word": "split water",
+      "translation": "分解水",
+      "x": 956,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "emit-oxygen",
+      "word": "emit oxygen",
+      "translation": "释放氧气",
+      "x": 1034,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "transfer-electrons",
+      "word": "transfer electrons",
+      "translation": "传递电子",
+      "x": 566,
+      "y": 558,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "pump-protons",
+      "word": "pump protons",
+      "translation": "泵送质子",
+      "x": 583,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "synthesize-atp",
+      "word": "synthesize atp",
+      "translation": "合成三磷酸腺苷",
+      "x": 645,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "fix-carbon",
+      "word": "fix carbon",
+      "translation": "固定碳",
+      "x": 707,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "make-sugar",
+      "word": "make sugar",
+      "translation": "制造糖",
+      "x": 769,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "store-starch",
+      "word": "store starch",
+      "translation": "储存淀粉",
+      "x": 831,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "light-dependent",
+      "word": "light dependent",
+      "translation": "依赖光的",
+      "x": 893,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "light-independent",
+      "word": "light independent",
+      "translation": "不直接依赖光的",
+      "x": 955,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "green",
+      "word": "green",
+      "translation": "绿色的",
+      "x": 583,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "stacked",
+      "word": "stacked",
+      "translation": "堆叠的",
+      "x": 645,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "membrane-bound",
+      "word": "membrane bound",
+      "translation": "由膜包围的",
+      "x": 707,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "solar-powered",
+      "word": "solar powered",
+      "translation": "由太阳能驱动的",
+      "x": 769,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "biochemical",
+      "word": "biochemical",
+      "translation": "生化的",
+      "x": 831,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    }
+  ],
+  "portals": []
+}

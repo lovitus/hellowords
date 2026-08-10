@@ -26,6 +26,15 @@ export interface SemanticCluster {
   readonly color: string;
 }
 
+export interface SemanticSubcluster {
+  readonly id: string;
+  readonly label: string;
+  readonly topicId: string;
+  readonly count: number;
+  readonly x: number;
+  readonly y: number;
+}
+
 export interface SemanticNode {
   readonly id: string;
   readonly word: string;
@@ -34,6 +43,9 @@ export interface SemanticNode {
   readonly partsOfSpeech: readonly string[];
   readonly rank: number;
   readonly clusterId: string;
+  readonly realmId?: string;
+  readonly topicId?: string;
+  readonly subclusterId?: string;
   readonly x: number;
   readonly y: number;
   /** 0..1; used by the renderer when labels compete for screen space. */
@@ -52,6 +64,7 @@ export interface SemanticManifest {
   readonly entryCount: number;
   readonly world: SemanticBounds;
   readonly clusters: readonly SemanticCluster[];
+  readonly subclusters: readonly SemanticSubcluster[];
   readonly shards: readonly SemanticShardDescriptor[];
   readonly source: "semantic" | "vocabulary-adapter";
 }
@@ -70,6 +83,13 @@ interface RawManifest {
   totalCount?: number;
   world?: SemanticBounds;
   clusters?: SemanticCluster[];
+  subclusters?: Array<{
+    id: string;
+    label: string;
+    topicId: string;
+    count: number;
+    center: [number, number];
+  }>;
   shards?: Array<{
     path: string;
     count: number;
@@ -87,6 +107,9 @@ interface RawVocabularyEntry {
   partsOfSpeech?: string[];
   rank: number;
   clusterId?: string;
+  realmId?: string;
+  topicId?: string;
+  subclusterId?: string;
   x?: number;
   y?: number;
   importance?: number;
@@ -172,6 +195,9 @@ export function layoutVocabularyEntry(
     partsOfSpeech: entry.partsOfSpeech ?? [],
     rank: entry.rank,
     clusterId: cluster.id,
+    realmId: entry.realmId,
+    topicId: entry.topicId,
+    subclusterId: entry.subclusterId,
     x: entry.x ?? cluster.x + Math.cos(angle) * radius,
     y: entry.y ?? cluster.y + Math.sin(angle) * radius * 0.72,
     importance: entry.importance ?? Math.max(0, 1 - Math.log10(Math.max(1, entry.rank)) / 4.2),
@@ -291,6 +317,14 @@ export class SemanticRepository {
         ? { x: raw.world.x ?? 0, y: raw.world.y ?? 0, width: raw.world.width, height: raw.world.height }
         : SEMANTIC_WORLD,
       clusters,
+      subclusters: (raw.subclusters ?? []).map((subcluster) => ({
+        id: subcluster.id,
+        label: subcluster.label,
+        topicId: subcluster.topicId,
+        count: subcluster.count,
+        x: subcluster.center[0],
+        y: subcluster.center[1],
+      })),
       shards: raw.shards.map((shard) => ({
         ...shard,
         bounds: normalizeBounds(shard.bounds),

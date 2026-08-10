@@ -8,32 +8,522 @@
   "height": 900,
   "parentId": "coffee-machine",
   "labels": [
-    { "id": "water-tank", "word": "water tank", "translation": "水箱", "x": 800, "y": 72, "priority": 1, "minLevel": 0 },
-    { "id": "reservoir", "word": "reservoir", "translation": "储水器", "x": 690, "y": 390, "priority": 1, "minLevel": 0 },
-    { "id": "plastic", "word": "plastic", "translation": "塑料", "x": 1060, "y": 330, "priority": 1, "minLevel": 0 },
-    { "id": "transparent", "word": "transparent", "translation": "透明的", "x": 600, "y": 260, "priority": 1, "minLevel": 0 },
-    { "id": "capacity", "word": "capacity", "translation": "容量", "x": 510, "y": 600, "priority": 2, "minLevel": 1 },
-    { "id": "surface", "word": "surface", "translation": "表面", "x": 960, "y": 470, "priority": 2, "minLevel": 1 },
-    { "id": "wall", "word": "wall", "translation": "壁", "x": 1040, "y": 545, "priority": 2, "minLevel": 1 },
-    { "id": "rim", "word": "rim", "translation": "边缘", "x": 745, "y": 175, "priority": 2, "minLevel": 1 },
-    { "id": "groove", "word": "groove", "translation": "凹槽", "x": 1095, "y": 645, "priority": 2, "minLevel": 1 },
-    { "id": "rubber", "word": "rubber", "translation": "橡胶", "x": 438, "y": 735, "priority": 2, "minLevel": 1 },
-    { "id": "smooth", "word": "smooth", "translation": "光滑的", "x": 900, "y": 270, "priority": 3, "minLevel": 2 },
-    { "id": "rigid", "word": "rigid", "translation": "坚硬的", "x": 1020, "y": 400, "priority": 3, "minLevel": 2 },
-    { "id": "hollow", "word": "hollow", "translation": "中空的", "x": 662, "y": 480, "priority": 3, "minLevel": 2 },
-    { "id": "molded", "word": "molded", "translation": "模制的", "x": 1150, "y": 270, "priority": 3, "minLevel": 2 },
-    { "id": "durable", "word": "durable", "translation": "耐用的", "x": 1145, "y": 488, "priority": 3, "minLevel": 2 },
-    { "id": "scratch", "word": "scratch", "translation": "划痕", "x": 948, "y": 615, "priority": 3, "minLevel": 2 },
-    { "id": "seam", "word": "seam", "translation": "接缝", "x": 804, "y": 680, "priority": 3, "minLevel": 2 },
-    { "id": "waterline", "word": "waterline", "translation": "水位线", "x": 700, "y": 395, "priority": 2, "minLevel": 1 },
-    { "id": "condensation", "word": "condensation", "translation": "冷凝水", "x": 555, "y": 315, "priority": 3, "minLevel": 2 },
-    { "id": "reflection", "word": "reflection", "translation": "反光", "x": 540, "y": 520, "priority": 3, "minLevel": 2 },
-    { "id": "base", "word": "base", "translation": "底座", "x": 760, "y": 770, "priority": 2, "minLevel": 1 },
-    { "id": "foot", "word": "foot", "translation": "支脚", "x": 520, "y": 780, "priority": 3, "minLevel": 2 },
-    { "id": "texture", "word": "texture", "translation": "纹理", "x": 1280, "y": 470, "priority": 2, "minLevel": 1 },
-    { "id": "granule", "word": "granule", "translation": "颗粒", "x": 1335, "y": 390, "priority": 3, "minLevel": 2 }
+    {
+      "id": "water-tank",
+      "word": "water tank",
+      "translation": "水箱",
+      "x": 800,
+      "y": 72,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "reservoir",
+      "word": "reservoir",
+      "translation": "储水器",
+      "x": 690,
+      "y": 390,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "plastic",
+      "word": "plastic",
+      "translation": "塑料",
+      "x": 1060,
+      "y": 330,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "transparent",
+      "word": "transparent",
+      "translation": "透明的",
+      "x": 600,
+      "y": 260,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "capacity",
+      "word": "capacity",
+      "translation": "容量",
+      "x": 510,
+      "y": 600,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "surface",
+      "word": "surface",
+      "translation": "表面",
+      "x": 960,
+      "y": 470,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "wall",
+      "word": "wall",
+      "translation": "壁",
+      "x": 1040,
+      "y": 545,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "rim",
+      "word": "rim",
+      "translation": "边缘",
+      "x": 745,
+      "y": 175,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "groove",
+      "word": "groove",
+      "translation": "凹槽",
+      "x": 1095,
+      "y": 645,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "rubber",
+      "word": "rubber",
+      "translation": "橡胶",
+      "x": 438,
+      "y": 735,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "smooth",
+      "word": "smooth",
+      "translation": "光滑的",
+      "x": 900,
+      "y": 270,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "rigid",
+      "word": "rigid",
+      "translation": "坚硬的",
+      "x": 1020,
+      "y": 400,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "hollow",
+      "word": "hollow",
+      "translation": "中空的",
+      "x": 662,
+      "y": 480,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "molded",
+      "word": "molded",
+      "translation": "模制的",
+      "x": 1150,
+      "y": 270,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "durable",
+      "word": "durable",
+      "translation": "耐用的",
+      "x": 1145,
+      "y": 488,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "scratch",
+      "word": "scratch",
+      "translation": "划痕",
+      "x": 948,
+      "y": 615,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "seam",
+      "word": "seam",
+      "translation": "接缝",
+      "x": 804,
+      "y": 680,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "waterline",
+      "word": "waterline",
+      "translation": "水位线",
+      "x": 700,
+      "y": 395,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "condensation",
+      "word": "condensation",
+      "translation": "冷凝水",
+      "x": 555,
+      "y": 315,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "reflection",
+      "word": "reflection",
+      "translation": "反光",
+      "x": 540,
+      "y": 520,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "base",
+      "word": "base",
+      "translation": "底座",
+      "x": 760,
+      "y": 770,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "foot",
+      "word": "foot",
+      "translation": "支脚",
+      "x": 520,
+      "y": 780,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "texture",
+      "word": "texture",
+      "translation": "纹理",
+      "x": 1280,
+      "y": 470,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "granule",
+      "word": "granule",
+      "translation": "颗粒",
+      "x": 1335,
+      "y": 390,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "inlet",
+      "word": "inlet",
+      "translation": "进水口",
+      "x": 1269,
+      "y": 312,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "outlet",
+      "word": "outlet",
+      "translation": "出水口",
+      "x": 801,
+      "y": 384,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "float-switch",
+      "word": "float switch",
+      "translation": "浮球开关",
+      "x": 879,
+      "y": 384,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "overflow",
+      "word": "overflow",
+      "translation": "溢流口",
+      "x": 957,
+      "y": 384,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "fill-level",
+      "word": "fill level",
+      "translation": "水位",
+      "x": 1035,
+      "y": 384,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "air-gap",
+      "word": "air gap",
+      "translation": "空气间隙",
+      "x": 1113,
+      "y": 384,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "sediment",
+      "word": "sediment",
+      "translation": "沉积物",
+      "x": 1191,
+      "y": 384,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "scale-buildup",
+      "word": "scale buildup",
+      "translation": "水垢堆积",
+      "x": 1269,
+      "y": 384,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "corrosion",
+      "word": "corrosion",
+      "translation": "腐蚀",
+      "x": 801,
+      "y": 456,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "leak",
+      "word": "leak",
+      "translation": "泄漏",
+      "x": 879,
+      "y": 456,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "watertight",
+      "word": "watertight",
+      "translation": "不漏水的",
+      "x": 957,
+      "y": 456,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "buoyancy",
+      "word": "buoyancy",
+      "translation": "浮力",
+      "x": 1035,
+      "y": 456,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "hydrostatic-pressure",
+      "word": "hydrostatic pressure",
+      "translation": "静水压力",
+      "x": 1113,
+      "y": 456,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "water-column",
+      "word": "water column",
+      "translation": "水柱",
+      "x": 1191,
+      "y": 456,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "inspection-hatch",
+      "word": "inspection hatch",
+      "translation": "检修口",
+      "x": 1269,
+      "y": 456,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "drain-plug",
+      "word": "drain plug",
+      "translation": "排水塞",
+      "x": 801,
+      "y": 528,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "baffle",
+      "word": "baffle",
+      "translation": "挡板",
+      "x": 879,
+      "y": 528,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "lining",
+      "word": "lining",
+      "translation": "内衬",
+      "x": 957,
+      "y": 528,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "vent-pipe",
+      "word": "vent pipe",
+      "translation": "通气管",
+      "x": 818,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "supply-line",
+      "word": "supply line",
+      "translation": "供水管",
+      "x": 880,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "shutoff",
+      "word": "shutoff",
+      "translation": "截止阀",
+      "x": 942,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "refill",
+      "word": "refill",
+      "translation": "重新注水",
+      "x": 1004,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "empty",
+      "word": "empty",
+      "translation": "排空",
+      "x": 1066,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "rinse",
+      "word": "rinse",
+      "translation": "冲洗",
+      "x": 1128,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "water-droplet",
+      "word": "water droplet",
+      "translation": "水滴",
+      "x": 1190,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "inner-wall",
+      "word": "inner wall",
+      "translation": "内壁",
+      "x": 1252,
+      "y": 333,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "tank-base",
+      "word": "tank base",
+      "translation": "水箱底座",
+      "x": 818,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "pipe-joint",
+      "word": "pipe joint",
+      "translation": "管道接头",
+      "x": 880,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "rubber-gasket",
+      "word": "rubber gasket",
+      "translation": "橡胶垫圈",
+      "x": 942,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "pressure-sensor",
+      "word": "pressure sensor",
+      "translation": "压力传感器",
+      "x": 1004,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "filter-mesh",
+      "word": "filter mesh",
+      "translation": "过滤网",
+      "x": 1066,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "moisture",
+      "word": "moisture",
+      "translation": "水汽",
+      "x": 1128,
+      "y": 333,
+      "priority": 5,
+      "minLevel": 4
+    }
   ],
   "portals": [
-    { "id": "enter-polymer", "label": "Inspect the plastic surface", "translation": "查看塑料表面", "childSceneId": "polymer", "x": 850, "y": 180, "width": 370, "height": 480, "enterScale": 3.6 }
+    {
+      "id": "enter-polymer",
+      "label": "Inspect the plastic surface",
+      "translation": "查看塑料表面",
+      "childSceneId": "polymer",
+      "x": 850,
+      "y": 180,
+      "width": 370,
+      "height": 480,
+      "enterScale": 3.6
+    }
   ]
 }

@@ -1,0 +1,445 @@
+{
+  "id": "rail-bogie",
+  "title": "Rail bogie",
+  "translation": "铁路转向架",
+  "subtitle": "Wheels, suspension and force beneath the carriage",
+  "asset": "/scenes/rail-bogie.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "train-carriage",
+  "labels": [
+    {
+      "id": "rail-bogie",
+      "word": "rail bogie",
+      "translation": "铁路转向架",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "wheelset",
+      "word": "wheelset",
+      "translation": "轮对",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "wheel-flange",
+      "word": "wheel flange",
+      "translation": "轮缘",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "wheel-tread",
+      "word": "wheel tread",
+      "translation": "轮面",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "axle-box",
+      "word": "axle box",
+      "translation": "轴箱",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bearing",
+      "word": "bearing",
+      "translation": "轴承",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "suspension-spring",
+      "word": "suspension spring",
+      "translation": "悬挂弹簧",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "damper",
+      "word": "damper",
+      "translation": "减震器",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bogie-frame",
+      "word": "bogie frame",
+      "translation": "转向架构架",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bolster",
+      "word": "bolster",
+      "translation": "摇枕",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "brake-disc",
+      "word": "brake disc",
+      "translation": "制动盘",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "brake-pad",
+      "word": "brake pad",
+      "translation": "制动片",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "brake-caliper",
+      "word": "brake caliper",
+      "translation": "制动卡钳",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "traction-motor",
+      "word": "traction motor",
+      "translation": "牵引电机",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "gearbox",
+      "word": "gearbox",
+      "translation": "齿轮箱",
+      "x": 674,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "coupling",
+      "word": "coupling",
+      "translation": "联轴器",
+      "x": 926,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "primary-suspension",
+      "word": "primary suspension",
+      "translation": "一系悬挂",
+      "x": 1178,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "secondary-suspension",
+      "word": "secondary suspension",
+      "translation": "二系悬挂",
+      "x": 1430,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "air-spring",
+      "word": "air spring",
+      "translation": "空气弹簧",
+      "x": 170,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "anti-roll-bar",
+      "word": "anti roll bar",
+      "translation": "防侧滚杆",
+      "x": 422,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "yaw-damper",
+      "word": "yaw damper",
+      "translation": "抗蛇行减震器",
+      "x": 548,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "torque-arm",
+      "word": "torque arm",
+      "translation": "扭矩臂",
+      "x": 620,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "speed-sensor",
+      "word": "speed sensor",
+      "translation": "速度传感器",
+      "x": 692,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "lubricant",
+      "word": "lubricant",
+      "translation": "润滑剂",
+      "x": 764,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "grease",
+      "word": "grease",
+      "translation": "润滑脂",
+      "x": 800,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "fastener",
+      "word": "fastener",
+      "translation": "紧固件",
+      "x": 878,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "weld",
+      "word": "weld",
+      "translation": "焊缝",
+      "x": 956,
+      "y": 414,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "clearance",
+      "word": "clearance",
+      "translation": "间隙",
+      "x": 1034,
+      "y": 414,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "alignment",
+      "word": "alignment",
+      "translation": "对中",
+      "x": 566,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "load",
+      "word": "load",
+      "translation": "载荷",
+      "x": 644,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "vibration",
+      "word": "vibration",
+      "translation": "振动",
+      "x": 722,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "friction",
+      "word": "friction",
+      "translation": "摩擦",
+      "x": 800,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "roll",
+      "word": "roll",
+      "translation": "滚动",
+      "x": 878,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "rotate",
+      "word": "rotate",
+      "translation": "旋转",
+      "x": 956,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "brake",
+      "word": "brake",
+      "translation": "制动",
+      "x": 1034,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "accelerate",
+      "word": "accelerate",
+      "translation": "加速",
+      "x": 566,
+      "y": 558,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "decelerate",
+      "word": "decelerate",
+      "translation": "减速",
+      "x": 583,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "support",
+      "word": "support",
+      "translation": "支撑",
+      "x": 645,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "absorb-shock",
+      "word": "absorb shock",
+      "translation": "吸收冲击",
+      "x": 707,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "transmit-force",
+      "word": "transmit force",
+      "translation": "传递力",
+      "x": 769,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "lubricate",
+      "word": "lubricate",
+      "translation": "润滑",
+      "x": 831,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "inspect",
+      "word": "inspect",
+      "translation": "检查",
+      "x": 893,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "maintain",
+      "word": "maintain",
+      "translation": "维护",
+      "x": 955,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "replace",
+      "word": "replace",
+      "translation": "更换",
+      "x": 583,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "worn",
+      "word": "worn",
+      "translation": "磨损的",
+      "x": 645,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "cracked",
+      "word": "cracked",
+      "translation": "开裂的",
+      "x": 707,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "misaligned",
+      "word": "misaligned",
+      "translation": "错位的",
+      "x": 769,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "serviceable",
+      "word": "serviceable",
+      "translation": "可正常使用的",
+      "x": 831,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    }
+  ],
+  "portals": []
+}

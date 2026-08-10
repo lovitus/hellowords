@@ -169,13 +169,15 @@ function validateLabels(
       label.minLevel !== undefined &&
       label.minLevel !== 0 &&
       label.minLevel !== 1 &&
-      label.minLevel !== 2
+      label.minLevel !== 2 &&
+      label.minLevel !== 3 &&
+      label.minLevel !== 4
     ) {
       error(
         issues,
         "label.invalid-level",
         `${path}.minLevel`,
-        "minLevel must be 0, 1, or 2",
+        "minLevel must be an integer from 0 through 4",
       );
     }
     if (label.maxScale !== undefined) {

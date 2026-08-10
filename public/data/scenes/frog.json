@@ -1,0 +1,445 @@
+{
+  "id": "frog",
+  "title": "Frog",
+  "translation": "青蛙",
+  "subtitle": "An amphibian shaped for water and land",
+  "asset": "/scenes/frog.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "pond-edge",
+  "labels": [
+    {
+      "id": "frog",
+      "word": "frog",
+      "translation": "青蛙",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "amphibian",
+      "word": "amphibian",
+      "translation": "两栖动物",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "foreleg",
+      "word": "foreleg",
+      "translation": "前腿",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "hind-leg",
+      "word": "hind leg",
+      "translation": "后腿",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "webbed-foot",
+      "word": "webbed foot",
+      "translation": "蹼足",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "toe-pad",
+      "word": "toe pad",
+      "translation": "趾垫",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "eardrum",
+      "word": "eardrum",
+      "translation": "鼓膜",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "nostril",
+      "word": "nostril",
+      "translation": "鼻孔",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "eyelid",
+      "word": "eyelid",
+      "translation": "眼睑",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "throat-pouch",
+      "word": "throat pouch",
+      "translation": "鸣囊",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "tongue",
+      "word": "tongue",
+      "translation": "舌头",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "jaw",
+      "word": "jaw",
+      "translation": "颌",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "spine",
+      "word": "spine",
+      "translation": "脊柱",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "moist-skin",
+      "word": "moist skin",
+      "translation": "湿润皮肤",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "spots",
+      "word": "spots",
+      "translation": "斑点",
+      "x": 674,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "camouflage",
+      "word": "camouflage",
+      "translation": "保护色",
+      "x": 926,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "egg-mass",
+      "word": "egg mass",
+      "translation": "卵块",
+      "x": 1178,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "embryo",
+      "word": "embryo",
+      "translation": "胚胎",
+      "x": 1430,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "hatchling",
+      "word": "hatchling",
+      "translation": "刚孵化的幼体",
+      "x": 170,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "polliwog",
+      "word": "polliwog",
+      "translation": "蝌蚪",
+      "x": 422,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "metamorphosis",
+      "word": "metamorphosis",
+      "translation": "变态发育",
+      "x": 548,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "gill",
+      "word": "gill",
+      "translation": "鳃",
+      "x": 620,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "tail-fin",
+      "word": "tail fin",
+      "translation": "尾鳍",
+      "x": 692,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "adult-frog",
+      "word": "adult frog",
+      "translation": "成蛙",
+      "x": 764,
+      "y": 323,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "developing-limb",
+      "word": "developing limb",
+      "translation": "发育中的四肢",
+      "x": 800,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "insect-prey",
+      "word": "insect prey",
+      "translation": "昆虫猎物",
+      "x": 878,
+      "y": 414,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "fly",
+      "word": "fly",
+      "translation": "苍蝇",
+      "x": 956,
+      "y": 414,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "cricket",
+      "word": "cricket",
+      "translation": "蟋蟀",
+      "x": 1034,
+      "y": 414,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "worm",
+      "word": "worm",
+      "translation": "蠕虫",
+      "x": 566,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "predator",
+      "word": "predator",
+      "translation": "捕食者",
+      "x": 644,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "wetland",
+      "word": "wetland",
+      "translation": "湿地",
+      "x": 722,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "food-chain",
+      "word": "food chain",
+      "translation": "食物链",
+      "x": 800,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "jump",
+      "word": "jump",
+      "translation": "跳",
+      "x": 878,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "leap",
+      "word": "leap",
+      "translation": "跃起",
+      "x": 956,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "swim",
+      "word": "swim",
+      "translation": "游泳",
+      "x": 1034,
+      "y": 486,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "dive",
+      "word": "dive",
+      "translation": "潜水",
+      "x": 566,
+      "y": 558,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "breathe",
+      "word": "breathe",
+      "translation": "呼吸",
+      "x": 583,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "blink",
+      "word": "blink",
+      "translation": "眨眼",
+      "x": 645,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "catch-prey",
+      "word": "catch prey",
+      "translation": "捕捉猎物",
+      "x": 707,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "flick-its-tongue",
+      "word": "flick its tongue",
+      "translation": "弹出舌头",
+      "x": 769,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "shed-its-skin",
+      "word": "shed its skin",
+      "translation": "蜕皮",
+      "x": 831,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "hibernate",
+      "word": "hibernate",
+      "translation": "冬眠",
+      "x": 893,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "call",
+      "word": "call",
+      "translation": "鸣叫",
+      "x": 955,
+      "y": 363,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "mate",
+      "word": "mate",
+      "translation": "交配",
+      "x": 583,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "transform",
+      "word": "transform",
+      "translation": "发生形态变化",
+      "x": 645,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "cold-blooded",
+      "word": "cold blooded",
+      "translation": "变温的",
+      "x": 707,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "nocturnal",
+      "word": "nocturnal",
+      "translation": "夜行性的",
+      "x": 769,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "aquatic",
+      "word": "aquatic",
+      "translation": "水生的",
+      "x": 831,
+      "y": 363,
+      "priority": 5,
+      "minLevel": 4
+    }
+  ],
+  "portals": []
+}

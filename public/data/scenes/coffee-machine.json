@@ -8,32 +8,540 @@
   "height": 900,
   "parentId": "kitchen",
   "labels": [
-    { "id": "coffee-machine", "word": "coffee machine", "translation": "咖啡机", "x": 800, "y": 72, "priority": 1, "minLevel": 0 },
-    { "id": "water-tank", "word": "water tank", "translation": "水箱", "x": 470, "y": 355, "priority": 1, "minLevel": 0 },
-    { "id": "boiler", "word": "boiler", "translation": "锅炉", "x": 820, "y": 355, "priority": 1, "minLevel": 0 },
-    { "id": "control-panel", "word": "control panel", "translation": "控制面板", "x": 1065, "y": 255, "priority": 1, "minLevel": 0 },
-    { "id": "drip-tray", "word": "drip tray", "translation": "滴水盘", "x": 940, "y": 735, "priority": 1, "minLevel": 0 },
-    { "id": "lid", "word": "lid", "translation": "盖子", "x": 448, "y": 180, "priority": 2, "minLevel": 1 },
-    { "id": "filter", "word": "filter", "translation": "滤网", "x": 790, "y": 530, "priority": 2, "minLevel": 1 },
-    { "id": "pump", "word": "pump", "translation": "水泵", "x": 666, "y": 555, "priority": 2, "minLevel": 1 },
-    { "id": "pipe", "word": "pipe", "translation": "管道", "x": 625, "y": 420, "priority": 2, "minLevel": 1 },
-    { "id": "gauge", "word": "gauge", "translation": "压力表", "x": 1064, "y": 365, "priority": 2, "minLevel": 1 },
-    { "id": "button", "word": "button", "translation": "按钮", "x": 1012, "y": 262, "priority": 2, "minLevel": 1 },
-    { "id": "steam-wand", "word": "steam wand", "translation": "蒸汽棒", "x": 1180, "y": 560, "priority": 2, "minLevel": 1 },
-    { "id": "seal", "word": "seal", "translation": "密封圈", "x": 506, "y": 485, "priority": 3, "minLevel": 2 },
-    { "id": "valve", "word": "valve", "translation": "阀门", "x": 710, "y": 392, "priority": 3, "minLevel": 2 },
-    { "id": "coil", "word": "coil", "translation": "线圈", "x": 850, "y": 395, "priority": 3, "minLevel": 2 },
-    { "id": "cable", "word": "cable", "translation": "电缆", "x": 1290, "y": 662, "priority": 3, "minLevel": 2 },
-    { "id": "nozzle", "word": "nozzle", "translation": "喷嘴", "x": 1164, "y": 642, "priority": 3, "minLevel": 2 },
-    { "id": "portafilter", "word": "portafilter", "translation": "手柄滤杯", "x": 815, "y": 600, "priority": 3, "minLevel": 2 },
-    { "id": "housing", "word": "housing", "translation": "外壳", "x": 1310, "y": 205, "priority": 2, "minLevel": 1 },
-    { "id": "heating-element", "word": "heating element", "translation": "加热元件", "x": 855, "y": 445, "priority": 2, "minLevel": 1 },
-    { "id": "sensor", "word": "sensor", "translation": "传感器", "x": 985, "y": 460, "priority": 3, "minLevel": 2 },
-    { "id": "circuit-board", "word": "circuit board", "translation": "电路板", "x": 1205, "y": 410, "priority": 2, "minLevel": 1 },
-    { "id": "connector", "word": "connector", "translation": "连接器", "x": 1280, "y": 520, "priority": 3, "minLevel": 2 },
-    { "id": "screw", "word": "screw", "translation": "螺钉", "x": 270, "y": 700, "priority": 3, "minLevel": 2 }
+    {
+      "id": "coffee-machine",
+      "word": "coffee machine",
+      "translation": "咖啡机",
+      "x": 800,
+      "y": 72,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "water-tank",
+      "word": "water tank",
+      "translation": "水箱",
+      "x": 470,
+      "y": 355,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "boiler",
+      "word": "boiler",
+      "translation": "锅炉",
+      "x": 820,
+      "y": 355,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "control-panel",
+      "word": "control panel",
+      "translation": "控制面板",
+      "x": 1065,
+      "y": 255,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "drip-tray",
+      "word": "drip tray",
+      "translation": "滴水盘",
+      "x": 940,
+      "y": 735,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "lid",
+      "word": "lid",
+      "translation": "盖子",
+      "x": 448,
+      "y": 180,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "filter",
+      "word": "filter",
+      "translation": "滤网",
+      "x": 790,
+      "y": 530,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pump",
+      "word": "pump",
+      "translation": "水泵",
+      "x": 666,
+      "y": 555,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pipe",
+      "word": "pipe",
+      "translation": "管道",
+      "x": 625,
+      "y": 420,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "gauge",
+      "word": "gauge",
+      "translation": "压力表",
+      "x": 1064,
+      "y": 365,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "button",
+      "word": "button",
+      "translation": "按钮",
+      "x": 1012,
+      "y": 262,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "steam-wand",
+      "word": "steam wand",
+      "translation": "蒸汽棒",
+      "x": 1180,
+      "y": 560,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "seal",
+      "word": "seal",
+      "translation": "密封圈",
+      "x": 506,
+      "y": 485,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "valve",
+      "word": "valve",
+      "translation": "阀门",
+      "x": 710,
+      "y": 392,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "coil",
+      "word": "coil",
+      "translation": "线圈",
+      "x": 850,
+      "y": 395,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "cable",
+      "word": "cable",
+      "translation": "电缆",
+      "x": 1290,
+      "y": 662,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "nozzle",
+      "word": "nozzle",
+      "translation": "喷嘴",
+      "x": 1164,
+      "y": 642,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "portafilter",
+      "word": "portafilter",
+      "translation": "手柄滤杯",
+      "x": 815,
+      "y": 600,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "housing",
+      "word": "housing",
+      "translation": "外壳",
+      "x": 1310,
+      "y": 205,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "heating-element",
+      "word": "heating element",
+      "translation": "加热元件",
+      "x": 855,
+      "y": 445,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "sensor",
+      "word": "sensor",
+      "translation": "传感器",
+      "x": 985,
+      "y": 460,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "circuit-board",
+      "word": "circuit board",
+      "translation": "电路板",
+      "x": 1205,
+      "y": 410,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "connector",
+      "word": "connector",
+      "translation": "连接器",
+      "x": 1280,
+      "y": 520,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "screw",
+      "word": "screw",
+      "translation": "螺钉",
+      "x": 270,
+      "y": 700,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "espresso",
+      "word": "espresso",
+      "translation": "浓缩咖啡",
+      "x": 709,
+      "y": 277,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "coffee-bean",
+      "word": "coffee bean",
+      "translation": "咖啡豆",
+      "x": 241,
+      "y": 349,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "grinder",
+      "word": "grinder",
+      "translation": "磨豆机",
+      "x": 319,
+      "y": 349,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "burr",
+      "word": "burr",
+      "translation": "磨盘",
+      "x": 397,
+      "y": 349,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "hopper",
+      "word": "hopper",
+      "translation": "豆仓",
+      "x": 475,
+      "y": 349,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "dose",
+      "word": "dose",
+      "translation": "粉量",
+      "x": 553,
+      "y": 349,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "tamper",
+      "word": "tamper",
+      "translation": "压粉器",
+      "x": 631,
+      "y": 349,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "brew-group",
+      "word": "brew group",
+      "translation": "冲煮头",
+      "x": 709,
+      "y": 349,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "shower-screen",
+      "word": "shower screen",
+      "translation": "分水网",
+      "x": 241,
+      "y": 421,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "pressure-gauge",
+      "word": "pressure gauge",
+      "translation": "压力表",
+      "x": 319,
+      "y": 421,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "thermostat",
+      "word": "thermostat",
+      "translation": "恒温器",
+      "x": 397,
+      "y": 421,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "solenoid",
+      "word": "solenoid",
+      "translation": "电磁阀",
+      "x": 475,
+      "y": 421,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "flow-meter",
+      "word": "flow meter",
+      "translation": "流量计",
+      "x": 553,
+      "y": 421,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "extraction",
+      "word": "extraction",
+      "translation": "萃取",
+      "x": 631,
+      "y": 421,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "crema",
+      "word": "crema",
+      "translation": "咖啡油脂",
+      "x": 709,
+      "y": 421,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "aroma",
+      "word": "aroma",
+      "translation": "香气",
+      "x": 241,
+      "y": 493,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "roast",
+      "word": "roast",
+      "translation": "烘焙度",
+      "x": 319,
+      "y": 493,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "grind-size",
+      "word": "grind size",
+      "translation": "研磨粗细",
+      "x": 397,
+      "y": 493,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "brew-ratio",
+      "word": "brew ratio",
+      "translation": "粉水比",
+      "x": 258,
+      "y": 298,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "milk-froth",
+      "word": "milk froth",
+      "translation": "奶泡",
+      "x": 320,
+      "y": 298,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "purge",
+      "word": "purge",
+      "translation": "排空",
+      "x": 382,
+      "y": 298,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "descale",
+      "word": "descale",
+      "translation": "除垢",
+      "x": 444,
+      "y": 298,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "rinse-cycle",
+      "word": "rinse cycle",
+      "translation": "冲洗循环",
+      "x": 506,
+      "y": 298,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "grounds-bin",
+      "word": "grounds bin",
+      "translation": "咖啡渣盒",
+      "x": 568,
+      "y": 298,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "filter-basket",
+      "word": "filter basket",
+      "translation": "滤粉碗",
+      "x": 630,
+      "y": 298,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "heating-coil",
+      "word": "heating coil",
+      "translation": "加热管",
+      "x": 692,
+      "y": 298,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "water-inlet",
+      "word": "water inlet",
+      "translation": "进水口",
+      "x": 258,
+      "y": 298,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "rubber-seal",
+      "word": "rubber seal",
+      "translation": "橡胶密封圈",
+      "x": 320,
+      "y": 298,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "control-button",
+      "word": "control button",
+      "translation": "控制按钮",
+      "x": 382,
+      "y": 298,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "brew-chamber",
+      "word": "brew chamber",
+      "translation": "冲煮腔",
+      "x": 444,
+      "y": 298,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "water-pump",
+      "word": "water pump",
+      "translation": "水泵",
+      "x": 506,
+      "y": 298,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "steam-pressure",
+      "word": "steam pressure",
+      "translation": "蒸汽压力",
+      "x": 568,
+      "y": 298,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "chamber",
+      "word": "chamber",
+      "translation": "腔室",
+      "x": 630,
+      "y": 298,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "automatic",
+      "word": "automatic",
+      "translation": "自动运行的",
+      "x": 692,
+      "y": 298,
+      "priority": 5,
+      "minLevel": 4
+    }
   ],
   "portals": [
-    { "id": "enter-water-tank", "label": "Inspect the water tank", "translation": "查看水箱", "childSceneId": "water-tank", "x": 300, "y": 125, "width": 350, "height": 520, "enterScale": 3.6 }
+    {
+      "id": "enter-water-tank",
+      "label": "Inspect the water tank",
+      "translation": "查看水箱",
+      "childSceneId": "water-tank",
+      "x": 300,
+      "y": 125,
+      "width": 350,
+      "height": 520,
+      "enterScale": 3.6
+    }
   ]
 }

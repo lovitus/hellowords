@@ -1,34 +1,704 @@
 {
-  "id": "world-map", "title": "World atlas", "translation": "词境世界", "subtitle": "Choose a path from the whole world", "asset": "/scenes/world-map-premium.jpg", "width": 1600, "height": 900, "parentId": null,
+  "id": "world-map",
+  "title": "World atlas",
+  "translation": "词境世界",
+  "subtitle": "Choose a path from the whole world",
+  "asset": "/scenes/world-map-premium.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": null,
   "labels": [
-    {"id":"apartment","word":"apartment","translation":"公寓","x":225,"y":350,"priority":1,"minLevel":0},
-    {"id":"building","word":"building","translation":"建筑","x":790,"y":235,"priority":1,"minLevel":0},
-    {"id":"oak","word":"oak","translation":"橡树","x":1260,"y":290,"priority":1,"minLevel":0},
-    {"id":"street","word":"street","translation":"街道","x":800,"y":455,"priority":1,"minLevel":0},
-    {"id":"station","word":"station","translation":"车站","x":900,"y":410,"priority":1,"minLevel":0},
-    {"id":"pond","word":"pond","translation":"池塘","x":1320,"y":600,"priority":1,"minLevel":0},
-    {"id":"balcony","word":"balcony","translation":"阳台","x":90,"y":285,"priority":2,"minLevel":1},
-    {"id":"bedroom","word":"bedroom","translation":"卧室","x":285,"y":345,"priority":2,"minLevel":1},
-    {"id":"kitchen","word":"kitchen","translation":"厨房","x":320,"y":285,"priority":2,"minLevel":1},
-    {"id":"garden","word":"garden","translation":"花园","x":450,"y":625,"priority":2,"minLevel":1},
-    {"id":"bicycle","word":"bicycle","translation":"自行车","x":245,"y":800,"priority":2,"minLevel":1},
-    {"id":"bus","word":"bus","translation":"公交车","x":965,"y":480,"priority":2,"minLevel":1},
-    {"id":"shop","word":"shop","translation":"商店","x":825,"y":340,"priority":2,"minLevel":1},
-    {"id":"pedestrian","word":"pedestrian","translation":"行人","x":915,"y":360,"priority":2,"minLevel":1},
-    {"id":"crosswalk","word":"crosswalk","translation":"人行横道","x":800,"y":525,"priority":2,"minLevel":1},
-    {"id":"path","word":"path","translation":"小径","x":1200,"y":430,"priority":2,"minLevel":1},
-    {"id":"greenhouse","word":"greenhouse","translation":"温室","x":1035,"y":690,"priority":2,"minLevel":1},
-    {"id":"deer","word":"deer","translation":"鹿","x":1300,"y":790,"priority":3,"minLevel":2},
-    {"id":"bird","word":"bird","translation":"鸟","x":1470,"y":145,"priority":3,"minLevel":2},
-    {"id":"hill","word":"hill","translation":"山丘","x":1270,"y":82,"priority":3,"minLevel":2},
-    {"id":"flower","word":"flower","translation":"花朵","x":1410,"y":730,"priority":3,"minLevel":2},
-    {"id":"bridge","word":"bridge","translation":"桥","x":230,"y":140,"priority":3,"minLevel":2},
-    {"id":"river","word":"river","translation":"河流","x":330,"y":170,"priority":3,"minLevel":2},
-    {"id":"roof","word":"roof","translation":"屋顶","x":690,"y":175,"priority":3,"minLevel":2}
+    {
+      "id": "apartment",
+      "word": "apartment",
+      "translation": "公寓",
+      "x": 225,
+      "y": 350,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "building",
+      "word": "building",
+      "translation": "建筑",
+      "x": 790,
+      "y": 235,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "oak",
+      "word": "oak",
+      "translation": "橡树",
+      "x": 1260,
+      "y": 290,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "street",
+      "word": "street",
+      "translation": "街道",
+      "x": 800,
+      "y": 455,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "station",
+      "word": "station",
+      "translation": "车站",
+      "x": 900,
+      "y": 410,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pond",
+      "word": "pond",
+      "translation": "池塘",
+      "x": 1320,
+      "y": 600,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "balcony",
+      "word": "balcony",
+      "translation": "阳台",
+      "x": 90,
+      "y": 285,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bedroom",
+      "word": "bedroom",
+      "translation": "卧室",
+      "x": 285,
+      "y": 345,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "kitchen",
+      "word": "kitchen",
+      "translation": "厨房",
+      "x": 320,
+      "y": 285,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "garden",
+      "word": "garden",
+      "translation": "花园",
+      "x": 450,
+      "y": 625,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bicycle",
+      "word": "bicycle",
+      "translation": "自行车",
+      "x": 245,
+      "y": 800,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bus",
+      "word": "bus",
+      "translation": "公交车",
+      "x": 965,
+      "y": 480,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "shop",
+      "word": "shop",
+      "translation": "商店",
+      "x": 825,
+      "y": 340,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pedestrian",
+      "word": "pedestrian",
+      "translation": "行人",
+      "x": 915,
+      "y": 360,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "crosswalk",
+      "word": "crosswalk",
+      "translation": "人行横道",
+      "x": 800,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "path",
+      "word": "path",
+      "translation": "小径",
+      "x": 1200,
+      "y": 430,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "greenhouse",
+      "word": "greenhouse",
+      "translation": "温室",
+      "x": 1035,
+      "y": 690,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "deer",
+      "word": "deer",
+      "translation": "鹿",
+      "x": 1300,
+      "y": 790,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bird",
+      "word": "bird",
+      "translation": "鸟",
+      "x": 1470,
+      "y": 145,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "hill",
+      "word": "hill",
+      "translation": "山丘",
+      "x": 1270,
+      "y": 82,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "flower",
+      "word": "flower",
+      "translation": "花朵",
+      "x": 1410,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "bridge",
+      "word": "bridge",
+      "translation": "桥",
+      "x": 230,
+      "y": 140,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "river",
+      "word": "river",
+      "translation": "河流",
+      "x": 330,
+      "y": 170,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "roof",
+      "word": "roof",
+      "translation": "屋顶",
+      "x": 690,
+      "y": 175,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "mountain",
+      "word": "mountain",
+      "translation": "山脉",
+      "x": 649,
+      "y": 242,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "forest",
+      "word": "forest",
+      "translation": "森林",
+      "x": 1129,
+      "y": 362,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "neighborhood",
+      "word": "neighborhood",
+      "translation": "街区",
+      "x": 177,
+      "y": 397,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "tower",
+      "word": "tower",
+      "translation": "高塔",
+      "x": 727,
+      "y": 242,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "plaza",
+      "word": "plaza",
+      "translation": "广场",
+      "x": 1207,
+      "y": 362,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "railway",
+      "word": "railway",
+      "translation": "铁路",
+      "x": 255,
+      "y": 397,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "tunnel",
+      "word": "tunnel",
+      "translation": "隧道",
+      "x": 805,
+      "y": 242,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "harbor",
+      "word": "harbor",
+      "translation": "港口",
+      "x": 1285,
+      "y": 362,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "island",
+      "word": "island",
+      "translation": "岛屿",
+      "x": 333,
+      "y": 397,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "coastline",
+      "word": "coastline",
+      "translation": "海岸线",
+      "x": 883,
+      "y": 242,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "field",
+      "word": "field",
+      "translation": "田野",
+      "x": 1363,
+      "y": 362,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "orchard",
+      "word": "orchard",
+      "translation": "果园",
+      "x": 411,
+      "y": 397,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "wind-turbine",
+      "word": "wind turbine",
+      "translation": "风力发电机",
+      "x": 961,
+      "y": 242,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "solar-panel",
+      "word": "solar panel",
+      "translation": "太阳能板",
+      "x": 1441,
+      "y": 362,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "factory",
+      "word": "factory",
+      "translation": "工厂",
+      "x": 489,
+      "y": 397,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "school",
+      "word": "school",
+      "translation": "学校",
+      "x": 1039,
+      "y": 242,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "hospital",
+      "word": "hospital",
+      "translation": "医院",
+      "x": 1519,
+      "y": 362,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "library",
+      "word": "library",
+      "translation": "图书馆",
+      "x": 72,
+      "y": 469,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "stadium",
+      "word": "stadium",
+      "translation": "体育场",
+      "x": 571,
+      "y": 314,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "market",
+      "word": "market",
+      "translation": "市场",
+      "x": 1051,
+      "y": 434,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "canal",
+      "word": "canal",
+      "translation": "运河",
+      "x": 99,
+      "y": 469,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "waterfall",
+      "word": "waterfall",
+      "translation": "瀑布",
+      "x": 649,
+      "y": 314,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "boat",
+      "word": "boat",
+      "translation": "小船",
+      "x": 1129,
+      "y": 434,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "skyline",
+      "word": "skyline",
+      "translation": "城市天际线",
+      "x": 177,
+      "y": 469,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "village",
+      "word": "village",
+      "translation": "村庄",
+      "x": 727,
+      "y": 314,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "suburb",
+      "word": "suburb",
+      "translation": "郊区",
+      "x": 1207,
+      "y": 434,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "airport",
+      "word": "airport",
+      "translation": "机场",
+      "x": 255,
+      "y": 469,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "port",
+      "word": "port",
+      "translation": "港口",
+      "x": 805,
+      "y": 314,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "farm",
+      "word": "farm",
+      "translation": "农场",
+      "x": 72,
+      "y": 418,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "beach",
+      "word": "beach",
+      "translation": "海滩",
+      "x": 588,
+      "y": 263,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "valley",
+      "word": "valley",
+      "translation": "山谷",
+      "x": 1068,
+      "y": 383,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "cloud",
+      "word": "cloud",
+      "translation": "云",
+      "x": 100,
+      "y": 418,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "highway",
+      "word": "highway",
+      "translation": "高速公路",
+      "x": 650,
+      "y": 263,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "church",
+      "word": "church",
+      "translation": "教堂",
+      "x": 1130,
+      "y": 383,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "hotel",
+      "word": "hotel",
+      "translation": "酒店",
+      "x": 162,
+      "y": 418,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "restaurant",
+      "word": "restaurant",
+      "translation": "餐馆",
+      "x": 712,
+      "y": 263,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "office",
+      "word": "office",
+      "translation": "办公楼",
+      "x": 1192,
+      "y": 383,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "playground",
+      "word": "playground",
+      "translation": "游乐场",
+      "x": 224,
+      "y": 418,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "parking-lot",
+      "word": "parking lot",
+      "translation": "停车场",
+      "x": 774,
+      "y": 263,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "power-station",
+      "word": "power station",
+      "translation": "发电站",
+      "x": 72,
+      "y": 418,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "reservoir",
+      "word": "reservoir",
+      "translation": "水库",
+      "x": 588,
+      "y": 263,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "wetland",
+      "word": "wetland",
+      "translation": "湿地",
+      "x": 1068,
+      "y": 383,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "meadow",
+      "word": "meadow",
+      "translation": "草地",
+      "x": 100,
+      "y": 418,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "campground",
+      "word": "campground",
+      "translation": "露营地",
+      "x": 650,
+      "y": 263,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "ferry",
+      "word": "ferry",
+      "translation": "渡船",
+      "x": 1130,
+      "y": 383,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "lighthouse",
+      "word": "lighthouse",
+      "translation": "灯塔",
+      "x": 162,
+      "y": 418,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "cliff",
+      "word": "cliff",
+      "translation": "悬崖",
+      "x": 712,
+      "y": 263,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "horizon",
+      "word": "horizon",
+      "translation": "地平线",
+      "x": 1192,
+      "y": 383,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "natural",
+      "word": "natural",
+      "translation": "自然的",
+      "x": 224,
+      "y": 418,
+      "priority": 5,
+      "minLevel": 4
+    }
   ],
   "portals": [
-    {"id":"enter-home","label":"Explore home","translation":"探索家园","childSceneId":"apartment","x":25,"y":175,"width":460,"height":660,"enterScale":3.6},
-    {"id":"enter-city","label":"Explore the city","translation":"探索城市","childSceneId":"city-street","x":530,"y":125,"width":550,"height":450,"enterScale":3.6},
-    {"id":"enter-nature","label":"Explore nature","translation":"探索自然","childSceneId":"city-park","x":1000,"y":120,"width":570,"height":700,"enterScale":3.6}
+    {
+      "id": "enter-home",
+      "label": "Explore home",
+      "translation": "探索家园",
+      "childSceneId": "apartment",
+      "x": 25,
+      "y": 175,
+      "width": 460,
+      "height": 660,
+      "enterScale": 3.6
+    },
+    {
+      "id": "enter-city",
+      "label": "Explore the city",
+      "translation": "探索城市",
+      "childSceneId": "city-street",
+      "x": 530,
+      "y": 125,
+      "width": 550,
+      "height": 450,
+      "enterScale": 3.6
+    },
+    {
+      "id": "enter-nature",
+      "label": "Explore nature",
+      "translation": "探索自然",
+      "childSceneId": "city-park",
+      "x": 1000,
+      "y": 120,
+      "width": 570,
+      "height": 700,
+      "enterScale": 3.6
+    }
   ]
 }

@@ -1,0 +1,457 @@
+{
+  "id": "wardrobe-interior",
+  "title": "Wardrobe interior",
+  "translation": "衣柜内部",
+  "subtitle": "Clothes, fasteners and ordered storage",
+  "asset": "/scenes/wardrobe-interior.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "bedroom",
+  "labels": [
+    {
+      "id": "wardrobe",
+      "word": "wardrobe",
+      "translation": "衣柜",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "closet-rail",
+      "word": "closet rail",
+      "translation": "挂衣杆",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "garment",
+      "word": "garment",
+      "translation": "衣物",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "shirt",
+      "word": "shirt",
+      "translation": "衬衫",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "blouse",
+      "word": "blouse",
+      "translation": "女式衬衫",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "jacket",
+      "word": "jacket",
+      "translation": "夹克",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "coat",
+      "word": "coat",
+      "translation": "外套",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "trousers",
+      "word": "trousers",
+      "translation": "长裤",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "jeans",
+      "word": "jeans",
+      "translation": "牛仔裤",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "skirt",
+      "word": "skirt",
+      "translation": "裙子",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "dress",
+      "word": "dress",
+      "translation": "连衣裙",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "sweater",
+      "word": "sweater",
+      "translation": "毛衣",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "cardigan",
+      "word": "cardigan",
+      "translation": "开襟毛衣",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "suit",
+      "word": "suit",
+      "translation": "西装",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "scarf",
+      "word": "scarf",
+      "translation": "围巾",
+      "x": 674,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "tie",
+      "word": "tie",
+      "translation": "领带",
+      "x": 926,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "belt",
+      "word": "belt",
+      "translation": "腰带",
+      "x": 1178,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "sock",
+      "word": "sock",
+      "translation": "袜子",
+      "x": 1430,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "pocket",
+      "word": "pocket",
+      "translation": "口袋",
+      "x": 170,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "sleeve",
+      "word": "sleeve",
+      "translation": "袖子",
+      "x": 422,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "collar",
+      "word": "collar",
+      "translation": "衣领",
+      "x": 548,
+      "y": 328,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "cuff",
+      "word": "cuff",
+      "translation": "袖口",
+      "x": 620,
+      "y": 328,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "zipper",
+      "word": "zipper",
+      "translation": "拉链",
+      "x": 692,
+      "y": 328,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "buttonhole",
+      "word": "buttonhole",
+      "translation": "扣眼",
+      "x": 764,
+      "y": 328,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "underwear",
+      "word": "underwear",
+      "translation": "内衣",
+      "x": 800,
+      "y": 424,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "shoebox",
+      "word": "shoebox",
+      "translation": "鞋盒",
+      "x": 878,
+      "y": 424,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "cubby",
+      "word": "cubby",
+      "translation": "分格储物格",
+      "x": 956,
+      "y": 424,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "organizer",
+      "word": "organizer",
+      "translation": "收纳架",
+      "x": 1034,
+      "y": 424,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "mothball",
+      "word": "mothball",
+      "translation": "樟脑丸",
+      "x": 566,
+      "y": 496,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "cedar-block",
+      "word": "cedar block",
+      "translation": "雪松防虫块",
+      "x": 644,
+      "y": 496,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "lint-roller",
+      "word": "lint roller",
+      "translation": "粘毛滚筒",
+      "x": 722,
+      "y": 496,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "garment-bag",
+      "word": "garment bag",
+      "translation": "防尘衣袋",
+      "x": 800,
+      "y": 496,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "hang-up",
+      "word": "hang up",
+      "translation": "挂起来",
+      "x": 878,
+      "y": 496,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "try-on",
+      "word": "try on",
+      "translation": "试穿",
+      "x": 956,
+      "y": 496,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "take-off",
+      "word": "take off",
+      "translation": "脱下",
+      "x": 1034,
+      "y": 496,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "get-dressed",
+      "word": "get dressed",
+      "translation": "穿衣",
+      "x": 566,
+      "y": 568,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "match",
+      "word": "match",
+      "translation": "搭配",
+      "x": 583,
+      "y": 373,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "fit",
+      "word": "fit",
+      "translation": "合身",
+      "x": 645,
+      "y": 373,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "loose",
+      "word": "loose",
+      "translation": "宽松的",
+      "x": 707,
+      "y": 373,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "tight",
+      "word": "tight",
+      "translation": "紧身的",
+      "x": 769,
+      "y": 373,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "formal",
+      "word": "formal",
+      "translation": "正式的",
+      "x": 831,
+      "y": 373,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "casual",
+      "word": "casual",
+      "translation": "休闲的",
+      "x": 893,
+      "y": 373,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "seasonal",
+      "word": "seasonal",
+      "translation": "季节性的",
+      "x": 955,
+      "y": 373,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "folded",
+      "word": "folded",
+      "translation": "已折叠的",
+      "x": 583,
+      "y": 373,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "wrinkled",
+      "word": "wrinkled",
+      "translation": "有褶皱的",
+      "x": 645,
+      "y": 373,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "striped",
+      "word": "striped",
+      "translation": "条纹的",
+      "x": 707,
+      "y": 373,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "checked",
+      "word": "checked",
+      "translation": "格纹的",
+      "x": 769,
+      "y": 373,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "denim",
+      "word": "denim",
+      "translation": "牛仔布的",
+      "x": 831,
+      "y": 373,
+      "priority": 5,
+      "minLevel": 4
+    }
+  ],
+  "portals": [
+    {
+      "id": "enter-cotton-shirt",
+      "label": "Inspect the cotton shirt",
+      "translation": "查看棉衬衫",
+      "childSceneId": "cotton-shirt",
+      "x": 565,
+      "y": 165,
+      "width": 470,
+      "height": 590,
+      "enterScale": 3.6
+    }
+  ]
+}

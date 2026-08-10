@@ -7,15 +7,16 @@ off by default, and the experience intentionally avoids quiz and streak pressure
 
 ## Included in this version
 
-- 18 reachable scene slices across home, city, nature and health, with 432
-  curated object and detail anchors;
+- 30 reachable scene slices across home, city, nature, transport, health and
+  microscopic science, with 1,622 contextual anchors in five zoom bands;
 - four premium 1600 × 900 establishing illustrations plus lightweight deep
   cutaway SVG scenes;
 - mouse, touch, wheel and pinch camera controls;
 - automatic zoom entry, zoom-out return, breadcrumbs and explicit controls;
 - English labels with a Chinese-meaning toggle that is off by default;
 - a Canvas-based semantic universe where all 10,000 ranked English words have
-  deterministic coordinates across 10 realms, 44 topics and 704 subclusters;
+  deterministic coordinates across four visible levels: 10 realms, 44 topics,
+  704 subclusters and individual words;
 - passive discovery tracking, searchable word focus, encounter cards and local
   pronunciation without compulsory testing;
 - desktop and mobile layouts, keyboard-accessible controls and reduced motion;
@@ -24,8 +25,9 @@ off by default, and the experience intentionally avoids quiz and streak pressure
   measurement.
 
 All 10,000 entries are spatially reachable and searchable. The product still
-distinguishes 432 naturally illustrated anchors from words organized in the
-semantic universe; it does not claim that every entry was individually drawn.
+distinguishes 1,622 manually contextualized scene anchors from words organized
+in the semantic universe; it does not claim that every entry was individually
+drawn.
 
 ## Local development
 

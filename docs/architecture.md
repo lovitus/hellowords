@@ -42,9 +42,10 @@ The client is divided into four layers:
 High-frequency pointer input is accumulated in mutable camera state and applied
 once per animation frame. React state is reserved for low-frequency changes
 such as scene identity, preference changes, transition state, and selected
-words. Scene labels use continuous scale bands plus screen-space collision
-selection, so vocabulary fades in progressively instead of appearing as whole
-DOM tiers. Only collision-free labels are interactive or keyboard-focusable.
+words. Scene labels use five continuous scale bands plus a spatially indexed
+screen-space collision layout, so vocabulary fades in progressively instead of
+appearing as whole DOM tiers. Dense local collisions receive stable nearby
+callouts; only readable labels are interactive or keyboard-focusable.
 
 ## Scene and portal contract
 
@@ -84,10 +85,11 @@ Every shipped entry includes:
 The ranked vocabulary is sharded by rank band. A second deterministic semantic
 build maps every entry into 10 realms, 44 topics and 704 subclusters using
 WordNet synsets/lexnames plus explicit fallbacks for inflections, names,
-abbreviations, contractions and function words. The semantic universe is
-sharded by topic and initially loads a small, spatially balanced set of topic
-neighborhoods across all ten realms; viewport movement and search request the
-rest on demand.
+abbreviations, contractions and function words. The semantic universe makes
+those relationships visible as four zoom levels: realms, topics, semantic
+subclusters and individual words. It is sharded by topic and initially loads a
+small, spatially balanced set of neighborhoods across all ten realms; viewport
+movement and search request the rest on demand.
 
 Scene encounters are recorded passively in local storage. Selecting a label
 opens an optional word card and pronunciation action, but no exam is required.

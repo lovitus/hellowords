@@ -1,0 +1,457 @@
+{
+  "id": "hemoglobin",
+  "title": "Hemoglobin",
+  "translation": "血红蛋白",
+  "subtitle": "A protein carrier binding life-giving oxygen",
+  "asset": "/scenes/hemoglobin.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "blood-cell",
+  "labels": [
+    {
+      "id": "hemoglobin",
+      "word": "hemoglobin",
+      "translation": "血红蛋白",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "heme",
+      "word": "heme",
+      "translation": "血红素",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "globin",
+      "word": "globin",
+      "translation": "珠蛋白",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "alpha-chain",
+      "word": "alpha chain",
+      "translation": "阿尔法链",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "beta-chain",
+      "word": "beta chain",
+      "translation": "贝塔链",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "iron-ion",
+      "word": "iron ion",
+      "translation": "铁离子",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "oxygen-binding-site",
+      "word": "oxygen binding site",
+      "translation": "氧结合位点",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "protein-subunit",
+      "word": "protein subunit",
+      "translation": "蛋白质亚基",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "tetramer",
+      "word": "tetramer",
+      "translation": "四聚体",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "blood-pigment",
+      "word": "blood pigment",
+      "translation": "血液色素",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "bone-marrow",
+      "word": "bone marrow",
+      "translation": "骨髓",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "hemoglobin-molecule",
+      "word": "hemoglobin molecule",
+      "translation": "血红蛋白分子",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "arterial-blood",
+      "word": "arterial blood",
+      "translation": "动脉血",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "venous-blood",
+      "word": "venous blood",
+      "translation": "静脉血",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "oxygen-saturation",
+      "word": "oxygen saturation",
+      "translation": "血氧饱和度",
+      "x": 674,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "carbon-monoxide",
+      "word": "carbon monoxide",
+      "translation": "一氧化碳",
+      "x": 926,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "oxyhemoglobin",
+      "word": "oxyhemoglobin",
+      "translation": "氧合血红蛋白",
+      "x": 1178,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "deoxyhemoglobin",
+      "word": "deoxyhemoglobin",
+      "translation": "脱氧血红蛋白",
+      "x": 1430,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "affinity",
+      "word": "affinity",
+      "translation": "亲和力",
+      "x": 170,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "partial-pressure",
+      "word": "partial pressure",
+      "translation": "分压",
+      "x": 422,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "binding-curve",
+      "word": "binding curve",
+      "translation": "结合曲线",
+      "x": 548,
+      "y": 308,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "cooperativity",
+      "word": "cooperativity",
+      "translation": "协同作用",
+      "x": 620,
+      "y": 308,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "conformational-change",
+      "word": "conformational change",
+      "translation": "构象变化",
+      "x": 692,
+      "y": 308,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "anemia",
+      "word": "anemia",
+      "translation": "贫血",
+      "x": 764,
+      "y": 308,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "carbaminohemoglobin",
+      "word": "carbaminohemoglobin",
+      "translation": "氨基甲酰血红蛋白",
+      "x": 800,
+      "y": 404,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "allosteric-effect",
+      "word": "allosteric effect",
+      "translation": "变构效应",
+      "x": 878,
+      "y": 404,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "sickle-shape",
+      "word": "sickle shape",
+      "translation": "镰刀形",
+      "x": 956,
+      "y": 404,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "mutation",
+      "word": "mutation",
+      "translation": "突变",
+      "x": 1034,
+      "y": 404,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "iron-deficiency",
+      "word": "iron deficiency",
+      "translation": "缺铁",
+      "x": 566,
+      "y": 476,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "transfusion",
+      "word": "transfusion",
+      "translation": "输血",
+      "x": 644,
+      "y": 476,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "blood-test",
+      "word": "blood test",
+      "translation": "血液检查",
+      "x": 722,
+      "y": 476,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "pulse-oximeter",
+      "word": "pulse oximeter",
+      "translation": "脉搏血氧仪",
+      "x": 800,
+      "y": 476,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "bind-oxygen",
+      "word": "bind oxygen",
+      "translation": "结合氧",
+      "x": 878,
+      "y": 476,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "release-oxygen",
+      "word": "release oxygen",
+      "translation": "释放氧",
+      "x": 956,
+      "y": 476,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "carry-oxygen",
+      "word": "carry oxygen",
+      "translation": "携带氧",
+      "x": 1034,
+      "y": 476,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "pick-up-oxygen",
+      "word": "pick up oxygen",
+      "translation": "摄取氧",
+      "x": 566,
+      "y": 548,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "deliver-oxygen",
+      "word": "deliver oxygen",
+      "translation": "输送氧",
+      "x": 583,
+      "y": 353,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "circulate",
+      "word": "circulate",
+      "translation": "循环流动",
+      "x": 645,
+      "y": 353,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "diffuse",
+      "word": "diffuse",
+      "translation": "扩散",
+      "x": 707,
+      "y": 353,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "saturate",
+      "word": "saturate",
+      "translation": "达到饱和",
+      "x": 769,
+      "y": 353,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "desaturate",
+      "word": "desaturate",
+      "translation": "降低饱和度",
+      "x": 831,
+      "y": 353,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "oxygen-rich",
+      "word": "oxygen rich",
+      "translation": "富氧的",
+      "x": 893,
+      "y": 353,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "oxygen-poor",
+      "word": "oxygen poor",
+      "translation": "缺氧的",
+      "x": 955,
+      "y": 353,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "bright-red",
+      "word": "bright red",
+      "translation": "鲜红的",
+      "x": 583,
+      "y": 353,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "dark-red",
+      "word": "dark red",
+      "translation": "暗红的",
+      "x": 645,
+      "y": 353,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "reversible",
+      "word": "reversible",
+      "translation": "可逆的",
+      "x": 707,
+      "y": 353,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "hereditary",
+      "word": "hereditary",
+      "translation": "遗传性的",
+      "x": 769,
+      "y": 353,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "life-sustaining",
+      "word": "life sustaining",
+      "translation": "维持生命的",
+      "x": 831,
+      "y": 353,
+      "priority": 5,
+      "minLevel": 4
+    }
+  ],
+  "portals": [
+    {
+      "id": "enter-oxygen-molecule",
+      "label": "Follow an oxygen molecule",
+      "translation": "追踪氧分子",
+      "childSceneId": "oxygen-molecule",
+      "x": 620,
+      "y": 260,
+      "width": 360,
+      "height": 360,
+      "enterScale": 3.6
+    }
+  ]
+}

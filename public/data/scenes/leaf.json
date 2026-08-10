@@ -1,9 +1,529 @@
 {
-  "id":"leaf","title":"Leaf","translation":"叶片","subtitle":"A solar workshop in green","asset":"/scenes/leaf.svg","width":1600,"height":900,"parentId":"oak-tree",
-  "labels":[
-    {"id":"leaf","word":"leaf","translation":"叶片","x":800,"y":72,"priority":1,"minLevel":0},{"id":"blade","word":"blade","translation":"叶片主体","x":800,"y":430,"priority":1,"minLevel":0},{"id":"vein","word":"vein","translation":"叶脉","x":835,"y":460,"priority":1,"minLevel":0},{"id":"midrib","word":"midrib","translation":"主脉","x":790,"y":520,"priority":1,"minLevel":0},{"id":"stem","word":"stem","translation":"叶柄","x":800,"y":790,"priority":1,"minLevel":0},{"id":"surface","word":"surface","translation":"表面","x":650,"y":360,"priority":1,"minLevel":0},
-    {"id":"tip","word":"tip","translation":"叶尖","x":800,"y":155,"priority":2,"minLevel":1},{"id":"margin","word":"margin","translation":"叶缘","x":1120,"y":430,"priority":2,"minLevel":1},{"id":"base","word":"base","translation":"叶基","x":800,"y":690,"priority":2,"minLevel":1},{"id":"pore","word":"pore","translation":"气孔","x":1040,"y":550,"priority":2,"minLevel":1},{"id":"wax","word":"wax","translation":"蜡质层","x":590,"y":270,"priority":2,"minLevel":1},{"id":"chlorophyll","word":"chlorophyll","translation":"叶绿素","x":590,"y":500,"priority":2,"minLevel":1},{"id":"sunlight","word":"sunlight","translation":"阳光","x":1260,"y":200,"priority":2,"minLevel":1},{"id":"oxygen","word":"oxygen","translation":"氧气","x":1260,"y":320,"priority":2,"minLevel":1},
-    {"id":"carbon-dioxide","word":"carbon dioxide","translation":"二氧化碳","x":330,"y":260,"priority":3,"minLevel":2},{"id":"water","word":"water","translation":"水","x":420,"y":650,"priority":3,"minLevel":2},{"id":"sugar","word":"sugar","translation":"糖","x":1120,"y":670,"priority":3,"minLevel":2},{"id":"photosynthesis","word":"photosynthesis","translation":"光合作用","x":800,"y":310,"priority":3,"minLevel":2},{"id":"epidermis","word":"epidermis","translation":"表皮","x":510,"y":405,"priority":3,"minLevel":2},{"id":"tissue","word":"tissue","translation":"组织","x":950,"y":380,"priority":3,"minLevel":2},{"id":"cell","word":"cell","translation":"细胞","x":930,"y":510,"priority":3,"minLevel":2},{"id":"stomata","word":"stomata","translation":"气孔群","x":1080,"y":590,"priority":3,"minLevel":2},{"id":"moisture","word":"moisture","translation":"水分","x":530,"y":610,"priority":3,"minLevel":2},{"id":"pigment","word":"pigment","translation":"色素","x":710,"y":580,"priority":3,"minLevel":2}
+  "id": "leaf",
+  "title": "Leaf",
+  "translation": "叶片",
+  "subtitle": "A solar workshop in green",
+  "asset": "/scenes/leaf.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "oak-tree",
+  "labels": [
+    {
+      "id": "leaf",
+      "word": "leaf",
+      "translation": "叶片",
+      "x": 800,
+      "y": 72,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "blade",
+      "word": "blade",
+      "translation": "叶片主体",
+      "x": 800,
+      "y": 430,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "vein",
+      "word": "vein",
+      "translation": "叶脉",
+      "x": 835,
+      "y": 460,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "midrib",
+      "word": "midrib",
+      "translation": "主脉",
+      "x": 790,
+      "y": 520,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "stem",
+      "word": "stem",
+      "translation": "叶柄",
+      "x": 800,
+      "y": 790,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "surface",
+      "word": "surface",
+      "translation": "表面",
+      "x": 650,
+      "y": 360,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "tip",
+      "word": "tip",
+      "translation": "叶尖",
+      "x": 800,
+      "y": 155,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "margin",
+      "word": "margin",
+      "translation": "叶缘",
+      "x": 1120,
+      "y": 430,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "base",
+      "word": "base",
+      "translation": "叶基",
+      "x": 800,
+      "y": 690,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pore",
+      "word": "pore",
+      "translation": "气孔",
+      "x": 1040,
+      "y": 550,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "wax",
+      "word": "wax",
+      "translation": "蜡质层",
+      "x": 590,
+      "y": 270,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "chlorophyll",
+      "word": "chlorophyll",
+      "translation": "叶绿素",
+      "x": 590,
+      "y": 500,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "sunlight",
+      "word": "sunlight",
+      "translation": "阳光",
+      "x": 1260,
+      "y": 200,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "oxygen",
+      "word": "oxygen",
+      "translation": "氧气",
+      "x": 1260,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "carbon-dioxide",
+      "word": "carbon dioxide",
+      "translation": "二氧化碳",
+      "x": 330,
+      "y": 260,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "water",
+      "word": "water",
+      "translation": "水",
+      "x": 420,
+      "y": 650,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "sugar",
+      "word": "sugar",
+      "translation": "糖",
+      "x": 1120,
+      "y": 670,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "photosynthesis",
+      "word": "photosynthesis",
+      "translation": "光合作用",
+      "x": 800,
+      "y": 310,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "epidermis",
+      "word": "epidermis",
+      "translation": "表皮",
+      "x": 510,
+      "y": 405,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "tissue",
+      "word": "tissue",
+      "translation": "组织",
+      "x": 950,
+      "y": 380,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "cell",
+      "word": "cell",
+      "translation": "细胞",
+      "x": 930,
+      "y": 510,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "stomata",
+      "word": "stomata",
+      "translation": "气孔群",
+      "x": 1080,
+      "y": 590,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "moisture",
+      "word": "moisture",
+      "translation": "水分",
+      "x": 530,
+      "y": 610,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "pigment",
+      "word": "pigment",
+      "translation": "色素",
+      "x": 710,
+      "y": 580,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "leaf-blade",
+      "word": "leaf blade",
+      "translation": "叶片",
+      "x": 1179,
+      "y": 412,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "petiole",
+      "word": "petiole",
+      "translation": "叶柄",
+      "x": 711,
+      "y": 484,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "vein-network",
+      "word": "vein network",
+      "translation": "叶脉网",
+      "x": 789,
+      "y": 484,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "leaf-tip",
+      "word": "leaf tip",
+      "translation": "叶尖",
+      "x": 867,
+      "y": 484,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "leaf-base",
+      "word": "leaf base",
+      "translation": "叶基",
+      "x": 945,
+      "y": 484,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "leaf-edge",
+      "word": "leaf edge",
+      "translation": "叶缘",
+      "x": 1023,
+      "y": 484,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "upper-surface",
+      "word": "upper surface",
+      "translation": "上表面",
+      "x": 1101,
+      "y": 484,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "lower-surface",
+      "word": "lower surface",
+      "translation": "下表面",
+      "x": 1179,
+      "y": 484,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "guard-cell",
+      "word": "guard cell",
+      "translation": "保卫细胞",
+      "x": 711,
+      "y": 556,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "stomatal-pore",
+      "word": "stomatal pore",
+      "translation": "气孔开口",
+      "x": 789,
+      "y": 556,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "vascular-bundle",
+      "word": "vascular bundle",
+      "translation": "维管束",
+      "x": 867,
+      "y": 556,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "xylem",
+      "word": "xylem",
+      "translation": "木质部",
+      "x": 945,
+      "y": 556,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "phloem",
+      "word": "phloem",
+      "translation": "韧皮部",
+      "x": 1023,
+      "y": 556,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "mesophyll",
+      "word": "mesophyll",
+      "translation": "叶肉",
+      "x": 1101,
+      "y": 556,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "palisade-layer",
+      "word": "palisade layer",
+      "translation": "栅栏组织",
+      "x": 1179,
+      "y": 556,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "spongy-layer",
+      "word": "spongy layer",
+      "translation": "海绵组织",
+      "x": 711,
+      "y": 628,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "air-space",
+      "word": "air space",
+      "translation": "细胞间隙",
+      "x": 789,
+      "y": 628,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "cuticle",
+      "word": "cuticle",
+      "translation": "角质层",
+      "x": 867,
+      "y": 628,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "transpiration",
+      "word": "transpiration",
+      "translation": "蒸腾作用",
+      "x": 728,
+      "y": 433,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "gas-exchange",
+      "word": "gas exchange",
+      "translation": "气体交换",
+      "x": 790,
+      "y": 433,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "wilting",
+      "word": "wilting",
+      "translation": "萎蔫",
+      "x": 852,
+      "y": 433,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "autumn-color",
+      "word": "autumn color",
+      "translation": "秋色",
+      "x": 914,
+      "y": 433,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "compound-leaf",
+      "word": "compound leaf",
+      "translation": "复叶",
+      "x": 976,
+      "y": 433,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "chloroplast-interior",
+      "word": "chloroplast interior",
+      "translation": "叶绿体内部",
+      "x": 1038,
+      "y": 433,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "leaf-vein",
+      "word": "leaf vein",
+      "translation": "叶脉",
+      "x": 1100,
+      "y": 433,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "water-transport",
+      "word": "water transport",
+      "translation": "水分运输",
+      "x": 1162,
+      "y": 433,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "oxygen-release",
+      "word": "oxygen release",
+      "translation": "氧气释放",
+      "x": 728,
+      "y": 433,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "sunlight-absorption",
+      "word": "sunlight absorption",
+      "translation": "阳光吸收",
+      "x": 790,
+      "y": 433,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "wax-coating",
+      "word": "wax coating",
+      "translation": "蜡质层",
+      "x": 852,
+      "y": 433,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "green-pigment",
+      "word": "green pigment",
+      "translation": "绿色色素",
+      "x": 914,
+      "y": 433,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "leaf-tissue",
+      "word": "leaf tissue",
+      "translation": "叶组织",
+      "x": 976,
+      "y": 433,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "leaf-margin",
+      "word": "leaf margin",
+      "translation": "叶缘",
+      "x": 1038,
+      "y": 433,
+      "priority": 5,
+      "minLevel": 4
+    }
   ],
-  "portals":[{"id":"enter-plant-cell","label":"Enter a plant cell","translation":"进入植物细胞","childSceneId":"plant-cell","x":835,"y":420,"width":220,"height":200,"enterScale":3.6}]
+  "portals": [
+    {
+      "id": "enter-plant-cell",
+      "label": "Enter a plant cell",
+      "translation": "进入植物细胞",
+      "childSceneId": "plant-cell",
+      "x": 835,
+      "y": 420,
+      "width": 220,
+      "height": 200,
+      "enterScale": 3.6
+    }
+  ]
 }

@@ -1,0 +1,457 @@
+{
+  "id": "pond-edge",
+  "title": "Pond edge",
+  "translation": "池塘边缘",
+  "subtitle": "Freshwater life gathered along a shallow shore",
+  "asset": "/scenes/pond-edge.svg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "city-park",
+  "labels": [
+    {
+      "id": "pond-edge",
+      "word": "pond edge",
+      "translation": "池塘边缘",
+      "x": 170,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "shoreline",
+      "word": "shoreline",
+      "translation": "岸线",
+      "x": 422,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "shallow-water",
+      "word": "shallow water",
+      "translation": "浅水",
+      "x": 674,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "mud",
+      "word": "mud",
+      "translation": "泥",
+      "x": 926,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "pebble",
+      "word": "pebble",
+      "translation": "卵石",
+      "x": 1178,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "reed",
+      "word": "reed",
+      "translation": "芦苇",
+      "x": 1430,
+      "y": 115,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "cattail",
+      "word": "cattail",
+      "translation": "香蒲",
+      "x": 170,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "lily-pad",
+      "word": "lily pad",
+      "translation": "睡莲叶",
+      "x": 422,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "water-lily",
+      "word": "water lily",
+      "translation": "睡莲",
+      "x": 674,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "duckweed",
+      "word": "duckweed",
+      "translation": "浮萍",
+      "x": 926,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "algae",
+      "word": "algae",
+      "translation": "藻类",
+      "x": 1178,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "dragonfly",
+      "word": "dragonfly",
+      "translation": "蜻蜓",
+      "x": 1430,
+      "y": 320,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "damselfly",
+      "word": "damselfly",
+      "translation": "豆娘",
+      "x": 170,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "tadpole",
+      "word": "tadpole",
+      "translation": "蝌蚪",
+      "x": 422,
+      "y": 525,
+      "priority": 1,
+      "minLevel": 0
+    },
+    {
+      "id": "snail",
+      "word": "snail",
+      "translation": "蜗牛",
+      "x": 674,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "heron",
+      "word": "heron",
+      "translation": "鹭",
+      "x": 926,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "ripples",
+      "word": "ripples",
+      "translation": "涟漪",
+      "x": 1178,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "water-surface",
+      "word": "water surface",
+      "translation": "水面",
+      "x": 1430,
+      "y": 525,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "pondweed",
+      "word": "pondweed",
+      "translation": "眼子菜",
+      "x": 170,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "sedge",
+      "word": "sedge",
+      "translation": "莎草",
+      "x": 422,
+      "y": 730,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "willow",
+      "word": "willow",
+      "translation": "柳树",
+      "x": 788,
+      "y": 403,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "frogspawn",
+      "word": "frogspawn",
+      "translation": "蛙卵块",
+      "x": 860,
+      "y": 403,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "minnow",
+      "word": "minnow",
+      "translation": "小鱼",
+      "x": 932,
+      "y": 403,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "mud-bank",
+      "word": "mud bank",
+      "translation": "泥岸",
+      "x": 1004,
+      "y": 403,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "rush",
+      "word": "rush",
+      "translation": "灯心草",
+      "x": 1040,
+      "y": 499,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "overhanging-branch",
+      "word": "overhanging branch",
+      "translation": "伸向水面的树枝",
+      "x": 1118,
+      "y": 499,
+      "priority": 2,
+      "minLevel": 1
+    },
+    {
+      "id": "mosquito-larva",
+      "word": "mosquito larva",
+      "translation": "蚊幼虫",
+      "x": 1196,
+      "y": 499,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "water-beetle",
+      "word": "water beetle",
+      "translation": "水生甲虫",
+      "x": 1274,
+      "y": 499,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "backswimmer",
+      "word": "backswimmer",
+      "translation": "仰泳蝽",
+      "x": 806,
+      "y": 571,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "pond-skater",
+      "word": "pond skater",
+      "translation": "水黾",
+      "x": 884,
+      "y": 571,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "freshwater-mussel",
+      "word": "freshwater mussel",
+      "translation": "淡水蚌",
+      "x": 962,
+      "y": 571,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "kingfisher",
+      "word": "kingfisher",
+      "translation": "翠鸟",
+      "x": 1040,
+      "y": 571,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "wade",
+      "word": "wade",
+      "translation": "蹚水",
+      "x": 1118,
+      "y": 571,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "float",
+      "word": "float",
+      "translation": "漂浮",
+      "x": 1196,
+      "y": 571,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "drift",
+      "word": "drift",
+      "translation": "漂流",
+      "x": 1274,
+      "y": 571,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "shimmer",
+      "word": "shimmer",
+      "translation": "闪烁",
+      "x": 806,
+      "y": 643,
+      "priority": 3,
+      "minLevel": 2
+    },
+    {
+      "id": "splash",
+      "word": "splash",
+      "translation": "溅水",
+      "x": 823,
+      "y": 448,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "hatch",
+      "word": "hatch",
+      "translation": "孵化",
+      "x": 885,
+      "y": 448,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "swarm",
+      "word": "swarm",
+      "translation": "成群飞舞",
+      "x": 947,
+      "y": 448,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "skim",
+      "word": "skim",
+      "translation": "掠过水面",
+      "x": 1009,
+      "y": 448,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "murky",
+      "word": "murky",
+      "translation": "浑浊的",
+      "x": 1071,
+      "y": 448,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "still",
+      "word": "still",
+      "translation": "平静的",
+      "x": 1133,
+      "y": 448,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "shallow",
+      "word": "shallow",
+      "translation": "浅的",
+      "x": 1195,
+      "y": 448,
+      "priority": 4,
+      "minLevel": 3
+    },
+    {
+      "id": "damp",
+      "word": "damp",
+      "translation": "潮湿的",
+      "x": 823,
+      "y": 448,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "slippery",
+      "word": "slippery",
+      "translation": "湿滑的",
+      "x": 885,
+      "y": 448,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "freshwater",
+      "word": "freshwater",
+      "translation": "淡水的",
+      "x": 947,
+      "y": 448,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "sunlit",
+      "word": "sunlit",
+      "translation": "阳光照亮的",
+      "x": 1009,
+      "y": 448,
+      "priority": 5,
+      "minLevel": 4
+    },
+    {
+      "id": "shaded",
+      "word": "shaded",
+      "translation": "有阴影的",
+      "x": 1071,
+      "y": 448,
+      "priority": 5,
+      "minLevel": 4
+    }
+  ],
+  "portals": [
+    {
+      "id": "enter-frog",
+      "label": "Meet the pond frog",
+      "translation": "观察池塘青蛙",
+      "childSceneId": "frog",
+      "x": 845,
+      "y": 360,
+      "width": 390,
+      "height": 350,
+      "enterScale": 3.6
+    }
+  ]
+}
