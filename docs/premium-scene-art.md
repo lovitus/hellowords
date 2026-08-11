@@ -1,10 +1,11 @@
 # Premium scene art briefs
 
-These thirty-seven 1600 × 900 JPEG scenes were created with the built-in image generation workflow, inspected at final project resolution, and then anchored from the actual published pixels. Together they cover every authored spatial scene, from the world overview through rooms, transport, gardening, natural habitats, materials and microscopic studies.
+These thirty-seven scenes use reviewed 1600 × 900 JPEG base rasters created with the built-in image generation workflow, inspected at final project resolution, and then anchored from the actual published pixels. The world atlas also has a reviewed 3200 × 1800 high-density tier that replaces the base in place after decoding when camera scale and device-pixel ratio require it. Together they cover every authored spatial scene, from the world overview through rooms, transport, gardening, natural habitats, materials and microscopic studies.
 
 | Scene | Final asset | SHA-256 |
 |---|---|---|
-| World atlas | `world-map-bright-v4.jpg` | `73536e8b31807e9e98300b8ceba03975210b881aabaf3f3e3718308fdfd82157` |
+| World atlas · base (830,333 B) | `world-atlas-master-1600-v1.jpg` | `d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb` |
+| World atlas · 2× high (3,562,736 B) | `world-atlas-master-3200-v1.jpg` | `e30a3750ef9f609056d288268c6692e7dc6fa8b18ff0d93bf37cf3265f405966` |
 | Community garden | `community-garden-premium-v1.jpg` | `391c7d0d1a1b065a0974f2fc7814fbeefec32cf5df727cf0a0c1a5d2feee49df` |
 | Greenhouse interior | `greenhouse-interior-premium-v1.jpg` | `11410d1677366513fc642c948570e08ae66fe20d20f05b2e43bed4245cc78667` |
 | Tomato plant | `tomato-plant-premium-v1.jpg` | `bf640f84a6e83c33bdcbca3857954857e918945507e2b1659fc9d958f5d0ad7c` |
@@ -48,9 +49,11 @@ All prompts requested true 16:9 landscape artwork with no labels, text, UI, call
 
 ### World atlas
 
-Create a bright high-key aerial atlas in clear midday light, arranged as one coherent landscape with four unmistakable districts: a complete apartment cutaway at left, a civic city and transit district above centre, a monumental oak-and-pond park at right, and a greenhouse community garden below. Connect them with pale paths and waterways while keeping each destination complete, non-overlapping and recognizable at thumbnail size. Exclude dusk, black foreground masses, labels, pseudo-signage, people and unrelated fantasy landmarks.
+Generate four complementary bright, high-detail panels with the built-in ImageGen workflow: a complete apartment-and-neighborhood Home district; a civic City district with transit, museum and cafe landmarks; a greenhouse-and-raised-bed Community garden; and a monumental oak, pond and park Nature district. Use neutral daylight, coherent high-oblique editorial realism, no people, labels, pseudo-signage, logos or unrelated fantasy landmarks. Assemble the four accepted panels into one unified 16:9 master so all districts remain complete, non-overlapping and recognizable while supporting much deeper continuous zoom than a single overview prompt.
 
-The final atlas supports 73 grounded anchors in six authored regions and four disjoint portal rectangles. Its luminance audit records a 121.9 mean luma with less than 1% of pixels below 32, replacing the former dusk scene without reusing any old coordinates.
+The final atlas supports 301 grounded anchors in 12 authored zones and four disjoint portal rectangles. Its reviewed base is `world-atlas-master-1600-v1.jpg` (830,333 bytes; SHA-256 `d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb`), and its 2× tier is `world-atlas-master-3200-v1.jpg` (3,562,736 bytes; SHA-256 `e30a3750ef9f609056d288268c6692e7dc6fa8b18ff0d93bf37cf3265f405966`). Runtime first-paints the base, selects the high tier from camera scale, fitted scale and device-pixel ratio, switches both image surfaces only after decode, and reuses the decoded result on later zooms.
+
+The reviewed coordinates remain reproducible from `scripts/data/world-atlas/home-city.json` and `scripts/data/world-atlas/community-nature.json` with `node scripts/assemble-world-atlas.mjs scripts/data/world-atlas/home-city.json scripts/data/world-atlas/community-nature.json --output public/data/scenes/world-map.json --force`. Additional pixel-audited batches can be appended as positional inputs without rewriting the existing batch files. A semantic regression test regenerates the file in a temporary directory and requires byte-for-byte equality with the published scene JSON.
 
 ### Apartment
 

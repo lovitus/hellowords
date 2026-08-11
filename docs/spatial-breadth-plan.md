@@ -6,24 +6,24 @@ The spatial world must grow by adding honest, independently illustrated places, 
 
 **Status: completed, pixel-verified, and expanded.** The final `community-garden-premium-v1.jpg` asset contains 48 grounded anchors in five LOD bands and seven authored zones. Its already-visible greenhouse and potting bench now lead to `greenhouse-interior → tomato-plant` and terminal `potting-workbench` scenes. The world-atlas entrance uses the exact approved rectangle below.
 
-The published `world-map-bright-v4.jpg` depicts a distinct garden district in its lower centre. The rectangle below is disjoint from all three existing root portals, so it remains a fourth root branch without an ambiguous zoom target:
+The published `world-atlas-master-1600-v1.jpg` depicts a distinct garden district in its lower-left quarter. The 1600 × 900 rectangle below is disjoint from all three existing root portals, so it remains a fourth root branch without an ambiguous zoom target; the matching 3200 × 1800 tier preserves the same logical coordinates:
 
 ```json
 {
   "id": "enter-community-garden",
   "childSceneId": "community-garden",
-  "x": 720,
-  "y": 570,
-  "width": 420,
-  "height": 320
+  "x": 80,
+  "y": 470,
+  "width": 545,
+  "height": 325
 }
 ```
 
 Portal separation in the 1600 × 900 authored coordinate system:
 
-- Apartment occupies the left district and ends before the garden starts at `x=720`.
-- City street occupies the upper district and ends before the garden starts at `y=570`.
-- City park starts to the right of the garden portal, whose right edge is `x=1140`.
+- Apartment occupies the upper-left district and ends at `y=320`, before the garden starts at `y=470`.
+- City street occupies the upper-right district and ends at `y=420`, before the garden starts at `y=470`.
+- City park starts at `x=1080`, to the right of the garden portal's `x=625` edge.
 
 ### Production visual brief
 

@@ -289,17 +289,61 @@ async function semanticDirectionalBackgroundDrag(
 ): Promise<{
   start: { x: number; y: number };
   end: { x: number; y: number };
+  direction: SemanticPanDirection;
 }> {
   return field.evaluate((element, { x: directionX, y: directionY }) => {
     const bounds = element.getBoundingClientRect();
-    const xFractions = directionX > 0
+    const plane = element.querySelector<HTMLElement>("[data-testid='semantic-zoom-plane']");
+    const activeBounds = (element as HTMLElement).dataset.activeBounds
+      ?.split(",")
+      .map(Number);
+    if (!plane || activeBounds?.length !== 4 || !activeBounds.every(Number.isFinite)) {
+      throw new Error("semantic field camera and active bounds are required for directional panning");
+    }
+    const matrix = new DOMMatrixReadOnly(getComputedStyle(plane).transform);
+    const scale = matrix.a;
+    if (!Number.isFinite(scale) || scale <= 0) {
+      throw new Error("semantic field camera scale must be positive");
+    }
+    const [rawX, rawY, rawWidth, rawHeight] = activeBounds;
+    const left = Math.max(0, Math.min(1_600, rawX));
+    const top = Math.max(0, Math.min(900, rawY));
+    const right = Math.max(0, Math.min(1_600, rawX + rawWidth));
+    const bottom = Math.max(0, Math.min(900, rawY + rawHeight));
+    const visibleWidth = bounds.width / scale;
+    const visibleHeight = bounds.height / scale;
+    const centerX = (bounds.width / 2 - matrix.e) / scale;
+    const centerY = (bounds.height / 2 - matrix.f) / scale;
+    const minimumCenterX = visibleWidth >= right - left ? (left + right) / 2 : left + visibleWidth / 2;
+    const maximumCenterX = visibleWidth >= right - left ? (left + right) / 2 : right - visibleWidth / 2;
+    const minimumCenterY = visibleHeight >= bottom - top ? (top + bottom) / 2 : top + visibleHeight / 2;
+    const maximumCenterY = visibleHeight >= bottom - top ? (top + bottom) / 2 : bottom - visibleHeight / 2;
+    const directionWithMostTravel = (
+      requested: -1 | 0 | 1,
+      positiveTravel: number,
+      negativeTravel: number,
+    ): -1 | 0 | 1 => {
+      if (requested === 0 || Math.abs(positiveTravel - negativeTravel) <= 1) return requested;
+      return positiveTravel > negativeTravel ? 1 : -1;
+    };
+    const resolvedX = directionWithMostTravel(
+      directionX,
+      Math.max(0, centerX - minimumCenterX) * scale,
+      Math.max(0, maximumCenterX - centerX) * scale,
+    );
+    const resolvedY = directionWithMostTravel(
+      directionY,
+      Math.max(0, centerY - minimumCenterY) * scale,
+      Math.max(0, maximumCenterY - centerY) * scale,
+    );
+    const xFractions = resolvedX > 0
       ? [0.08, 0.16, 0.24, 0.32]
-      : directionX < 0
+      : resolvedX < 0
         ? [0.92, 0.84, 0.76, 0.68]
         : [0.08, 0.16, 0.24, 0.4, 0.6, 0.76, 0.84, 0.92];
-    const yFractions = directionY > 0
+    const yFractions = resolvedY > 0
       ? [0.2, 0.28, 0.36, 0.44]
-      : directionY < 0
+      : resolvedY < 0
         ? [0.8, 0.72, 0.64, 0.56]
         : [0.3, 0.4, 0.5, 0.6, 0.7];
     const inset = 8;
@@ -314,13 +358,14 @@ async function semanticDirectionalBackgroundDrag(
           end: {
             x: Math.max(
               bounds.left + inset,
-              Math.min(bounds.right - inset, x + directionX * bounds.width * 0.58),
+              Math.min(bounds.right - inset, x + resolvedX * bounds.width * 0.58),
             ),
             y: Math.max(
               bounds.top + inset,
-              Math.min(bounds.bottom - inset, y + directionY * bounds.height * 0.58),
+              Math.min(bounds.bottom - inset, y + resolvedY * bounds.height * 0.58),
             ),
           },
+          direction: { x: resolvedX, y: resolvedY },
         };
       }
     }
@@ -354,6 +399,64 @@ async function assertSemanticProgressIsTruthful(field: Locator): Promise<void> {
   expect(snapshot.text).toContain(`${snapshot.live.toLocaleString("en-US")} / 1,013`);
   expect(snapshot.text).toContain(`拖动探索其余 ${snapshot.remaining.toLocaleString("en-US")} 词`);
 }
+
+test("Apartment handoff settles to the complete child before a fresh outward gesture can exit", async ({ page }) => {
+  const app = await openWorld(page);
+  const parentScene = await app.getAttribute("data-scene-id");
+  expect(parentScene).toBe("world-map");
+
+  const apartmentPortal = page.locator(`${HOTSPOT}[data-target-scene="apartment"]`);
+  await expect(apartmentPortal).toBeAttached();
+  await apartmentPortal.evaluate((element: HTMLElement) => element.click());
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+
+  const viewport = page.locator(`.viewer-shell:not([data-phase]) ${VIEWPORT}`);
+  const bounds = await viewport.boundingBox();
+  expect(bounds).not.toBeNull();
+  await page.mouse.move(bounds!.x + bounds!.width / 2, bounds!.y + bounds!.height / 2);
+
+  // Model the tail of the same physical zoom-in stream beyond the old 110ms
+  // settle animation. It must not recrop the newly owned Apartment canvas.
+  for (let index = 0; index < 7; index += 1) {
+    await page.mouse.wheel(0, -80);
+    await nextPaint(page);
+  }
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await page.waitForTimeout(220);
+
+  const childSurface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
+  await expect(childSurface).toHaveAttribute("data-scene-scale", "1.000");
+  const contained = await page.locator(".viewer-shell:not([data-phase]) .scene-art").evaluate((art) => {
+    const artBounds = art.getBoundingClientRect();
+    const viewportBounds = art.closest(".world-viewport")!.getBoundingClientRect();
+    const tolerance = 1;
+    return artBounds.left >= viewportBounds.left - tolerance
+      && artBounds.top >= viewportBounds.top - tolerance
+      && artBounds.right <= viewportBounds.right + tolerance
+      && artBounds.bottom <= viewportBounds.bottom + tolerance;
+  });
+  expect(contained, "the full four-room Apartment image is inside the viewport").toBe(true);
+
+  // Multiple samples from one wheel stream may reveal the child overview, but
+  // cannot cascade immediately back to the parent scene.
+  for (let index = 0; index < 4; index += 1) {
+    await page.mouse.wheel(0, 240);
+    await nextPaint(page);
+  }
+  await expect.poll(async () => Number(await childSurface.getAttribute("data-scene-scale"))).toBeLessThanOrEqual(0.7);
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+
+  // After a real quiet gap, a second outward gesture deliberately crosses the
+  // armed boundary. The departing child remains the reverse continuity tile.
+  await page.waitForTimeout(220);
+  await page.mouse.wheel(0, 240);
+  await expect(app).toHaveAttribute("data-scene-id", parentScene!);
+  const reverseTile = page.locator(CONTINUOUS_TILE);
+  await expect(reverseTile).toHaveAttribute("data-child-scene", "apartment");
+  await expect(reverseTile).toHaveAttribute("data-direction", "back");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(reverseTile).toHaveCount(0);
+});
 
 test("a warmed portal remains one continuous visual tile through forward and reverse zoom", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium", "geometry continuity runs in the desktop viewport");
@@ -750,14 +853,17 @@ test("the largest 1,013-word leaf exposes truthful progress while panning reveal
     { x: -1, y: -1 },
   ] as const satisfies readonly SemanticPanDirection[]) {
     const before = await semanticWordIds(field);
-    await performSemanticDrag(page, await semanticDirectionalBackgroundDrag(field, direction));
+    const drag = await semanticDirectionalBackgroundDrag(field, direction);
+    await performSemanticDrag(page, drag);
     let current = new Set<string>();
     await expect.poll(async () => {
       current = await semanticWordIds(field);
       return new Set([...before].filter((id) => !current.has(id))).size
         + new Set([...current].filter((id) => !before.has(id))).size;
+    }, {
+      message: `requested ${direction.x}:${direction.y}, resolved ${drag.direction.x}:${drag.direction.y} must exchange words`,
     }).toBeGreaterThan(0);
-    expect(current.size, `${direction.x}:${direction.y} must not pan into a zero-word background`)
+    expect(current.size, `${drag.direction.x}:${drag.direction.y} must not pan into a zero-word background`)
       .toBeGreaterThan(0);
     current.forEach((id) => explored.add(id));
     await assertSemanticBudget(field, expectedBudget);
@@ -788,12 +894,22 @@ test("keyboard semantic zoom remains complete when motion is reduced", async ({ 
     ["topic", "subcluster"],
     ["subcluster", "word"],
   ] as const) {
-    const node = field.locator(`${SEMANTIC_NODE}[data-level="${level}"]`).first();
-    await expect(node).toBeVisible();
+    const firstVisibleNode = field.locator(`${SEMANTIC_NODE}[data-level="${level}"]`).first();
+    await expect(firstVisibleNode).toBeVisible();
+    const nodeId = await firstVisibleNode.getAttribute("data-id");
+    expect(nodeId, `${level} keyboard target must expose a stable semantic id`).toBeTruthy();
+    const node = field.locator(
+      `${SEMANTIC_NODE}[data-level="${level}"][data-id="${nodeId as string}"]`,
+    );
     await node.focus();
     await expect(node).toBeFocused();
     await node.press("Enter");
     await expect(field).toHaveAttribute("data-level", nextLevel);
+    // Keyboard activation schedules nearest-node focus on the next paint.
+    // Let that intentional restoration finish before selecting the next
+    // concrete id; a live `.first()` locator can otherwise re-resolve while
+    // asynchronous topic/subcluster layouts finish mounting.
+    await nextPaint(page);
   }
 
   await expect(field.locator(`${SEMANTIC_NODE}[data-level="word"]`).first()).toBeVisible();

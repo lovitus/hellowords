@@ -11,23 +11,31 @@ import {
   clampCenteredOverlayShift,
   continuityViewForMotion,
   fittedSceneCamera,
+  fullyFittedSceneCamera,
+  includeSceneLabelMountTarget,
   isExactForwardPortalTile,
   parentCameraFromChildTile,
   portalRevealProgress,
   projectScenePointToScreen,
   projectSceneRectToScreen,
+  resolveInteractiveVocabularyFocusTarget,
   SceneViewport,
   setStylePropertyIfChanged,
   shouldResetLabelPlacementMemory,
   shouldWriteContinuousTileProgress,
+  vocabularyActivationFocusPoint,
   wheelZoomFactor,
 } from "../../app/components/SceneViewport";
 import {
+  COMPACT_SCENE_LABEL_MOUNT_LIMIT,
   computeSceneLabelLayout,
   DEFAULT_PORTAL_HYSTERESIS_POLICY,
+  DESKTOP_SCENE_LABEL_MOUNT_LIMIT,
   type Label,
   type Scene,
 } from "../../app/domain";
+
+const ROOT = new URL("../../", import.meta.url);
 
 test("label placement memory persists only within one continuous zoom direction", () => {
   assert.equal(shouldResetLabelPlacementMemory(null, "in"), false);
@@ -38,7 +46,119 @@ test("label placement memory persists only within one continuous zoom direction"
   assert.equal(shouldResetLabelPlacementMemory("in", null), false);
 });
 
-const ROOT = new URL("../../", import.meta.url);
+test("keyboard vocabulary activation centers the exact word while pointer activation keeps the zone", () => {
+  const nextLabel = { x: 812, y: 476 };
+  const authoredZoneFocus = { x: 540, y: 320 };
+  assert.deepEqual(
+    vocabularyActivationFocusPoint(nextLabel, authoredZoneFocus, true),
+    nextLabel,
+  );
+  assert.deepEqual(
+    vocabularyActivationFocusPoint(nextLabel, authoredZoneFocus, false),
+    authoredZoneFocus,
+  );
+  assert.deepEqual(
+    vocabularyActivationFocusPoint(nextLabel, { x: Number.NaN, y: 300 }, false),
+    { x: nextLabel.x, y: 300 },
+  );
+
+  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  const focusStart = source.indexOf("const focusVocabularyTarget");
+  const focusEnd = source.indexOf("useEffect(() => {", focusStart);
+  const focusSource = source.slice(focusStart, focusEnd);
+  assert.match(
+    focusSource,
+    /vocabularyActivationFocusPoint\(\s*nextLabel,\s*\{ x: authoredFocusX, y: authoredFocusY \},\s*keyboardTriggered/,
+    "the runtime preserves the keyboard-versus-pointer focus contract",
+  );
+});
+
+test("an exact keyboard target joins only a window with spare bounded capacity", () => {
+  const mounted = new Set(["first", "second"]);
+  const included = includeSceneLabelMountTarget(mounted, "target", 3);
+  assert.notStrictEqual(included, mounted);
+  assert.deepEqual([...included], ["first", "second", "target"]);
+  assert.strictEqual(includeSceneLabelMountTarget(included, "target", 3), included);
+
+  for (const limit of [
+    COMPACT_SCENE_LABEL_MOUNT_LIMIT,
+    DESKTOP_SCENE_LABEL_MOUNT_LIMIT,
+  ] as const) {
+    const full = new Set(Array.from({ length: limit }, (_, index) => `full-${index}`));
+    const bounded = includeSceneLabelMountTarget(full, "overflow-target", limit);
+    assert.strictEqual(bounded, full, `a full ${limit}-node window is not republished`);
+    assert.equal(bounded.size, limit);
+    assert.equal(bounded.has("overflow-target"), false);
+  }
+
+  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  const focusStart = source.indexOf("const focusVocabularyTarget");
+  const focusEnd = source.indexOf("useEffect(() => {", focusStart);
+  const focusSource = source.slice(focusStart, focusEnd);
+  assert.match(
+    focusSource,
+    /includeSceneLabelMountTarget\(\s*mountedLabelIdsRef\.current,\s*nextLabelId,\s*sceneLabelMountLimit[\s\S]*mountedLabelIdsRef\.current = nextMountedLabelIds;[\s\S]*setMountedLabelIds\(nextMountedLabelIds\);\s*pendingLabelWindowPaintRef\.current = true/,
+    "keyboard activation pre-mounts its exact target only when the bounded window has capacity",
+  );
+  assert.doesNotMatch(
+    focusSource,
+    /setMountedLabelIds\(new Set\(mountedLabelIdsRef\.current\)\)/,
+    "keyboard activation never forces a same-membership React publish",
+  );
+  assert.match(
+    source,
+    /labelElementsRef\.current\.set\(label\.id, element\);[\s\S]*label\.id === pendingKeyboardFocusLabelIdRef\.current[\s\S]*requestCameraFrame\(\)/,
+    "the newly connected pending ref guarantees another interactive camera frame",
+  );
+  const labelRefStart = source.indexOf("labelElementsRef.current.set(label.id, element)");
+  const labelRefEnd = source.indexOf("} else labelElementsRef.current.delete", labelRefStart);
+  assert.doesNotMatch(
+    source.slice(labelRefStart, labelRefEnd),
+    /pendingLabelWindowPaintRef\.current = true/,
+    "connecting an already-published target does not leave a synthetic paint flag",
+  );
+});
+
+test("keyboard focus falls back honestly to the first interactive word in its promised batch", () => {
+  const promised = ["blocked", "stable-second", "stable-third"];
+  const layout = [
+    { id: "stable-third", interactive: true },
+    { id: "blocked", interactive: false },
+    { id: "stable-second", interactive: true },
+  ];
+  assert.equal(
+    resolveInteractiveVocabularyFocusTarget("blocked", promised, layout),
+    "stable-second",
+    "the promised batch order, not layout iteration order, selects the fallback",
+  );
+  assert.equal(
+    resolveInteractiveVocabularyFocusTarget("stable-third", promised, layout),
+    "stable-third",
+    "an already-resolved interactive target stays locked",
+  );
+  assert.equal(
+    resolveInteractiveVocabularyFocusTarget("blocked", promised, [
+      { id: "blocked", interactive: false },
+      { id: "stable-second", interactive: false },
+    ]),
+    null,
+  );
+
+  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  const applyStart = source.indexOf("const applyCamera");
+  const mountStart = source.indexOf("const nextMountedLabelIds", applyStart);
+  const resolution = source.slice(applyStart, mountStart);
+  assert.match(
+    resolution,
+    /resolveInteractiveVocabularyFocusTarget\([\s\S]*pendingKeyboardFocusBatchLabelIdsRef\.current[\s\S]*pendingKeyboardFocusLabelIdRef\.current = resolvedKeyboardFocusLabelId/,
+    "the complete final layout resolves a blocked promise before the bounded mount swap",
+  );
+  assert.match(
+    source,
+    /setDatasetValueIfChanged\(\s*contractElement,\s*"nextLabelId",\s*pendingKeyboardFocusLabelId[\s\S]*vocabularyAnnouncementRef\.current\.textContent[\s\S]*focusLabel\.focus\(\)/,
+    "the observable next-word contract and exact announcement update before focus",
+  );
+});
 
 test("selected label collision priority follows the controlled same-scene word card lifetime", () => {
   const viewport = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
@@ -79,6 +199,177 @@ function matchingDivClose(markup: string, openIndex: number): number {
   }
   throw new Error("scene surface has no matching closing div");
 }
+
+test("multi-resolution scenes server-render base and expose one atomic runtime tier contract", () => {
+  const scene: Scene = {
+    id: "asset-tier-contract",
+    title: "Asset tiers",
+    subtitle: "Base first, detail on demand",
+    asset: "/scenes/asset-base.jpg",
+    assets: {
+      base: {
+        src: "/scenes/asset-base.jpg",
+        width: 1_600,
+        height: 900,
+        sha256: "a".repeat(64),
+      },
+      high: {
+        src: "/scenes/asset-high.jpg",
+        width: 3_200,
+        height: 1_800,
+        sha256: "b".repeat(64),
+      },
+    },
+    width: 1_600,
+    height: 900,
+    labels: [],
+    portals: [],
+  };
+  const markup = renderToStaticMarkup(createElement(SceneViewport, {
+    scene,
+    meaningVisible: false,
+    portalTargetTitles: {},
+    onCommitScene: () => "warm" as const,
+    onEnterScene: async () => true,
+    onExitScene: () => undefined,
+    onLabelsEncountered: () => undefined,
+    onLabelEncountered: () => undefined,
+    onSelectWord: () => undefined,
+    onPrefetchScene: () => undefined,
+  }));
+  assert.match(
+    markup,
+    /class="world-viewport"[^>]*--scene-backdrop-image:url\(\/scenes\/asset-base\.jpg\)[^>]*data-active-asset-tier="base"[^>]*data-active-asset-src="\/scenes\/asset-base\.jpg"[^>]*data-desired-asset-tier="base"/,
+  );
+  assert.match(
+    markup,
+    /class="scene-art"[^>]*src="\/scenes\/asset-base\.jpg"[^>]*data-asset-tier="base"/,
+  );
+
+  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  assert.match(source, /reconcileSceneAssetLoad\([\s\S]*camera,[\s\S]*devicePixelRatio/);
+  assert.match(source, /image\.decode\(\)[\s\S]*settleSceneAssetPreload/);
+  assert.match(
+    source,
+    /decodedSceneAssetCache\.getOrLoad\(asset\.src,[\s\S]*cached\.status === "ready"[\s\S]*settleForCurrentScene\(true\)/,
+    "a remounted scene synchronously consumes the page-level decoded high-tier cache",
+  );
+  assert.doesNotMatch(
+    source,
+    /decodedSceneAssetImagesRef|decodedImages\.clear\(\)/,
+    "SceneViewport cleanup cannot discard a shared successful decode",
+  );
+  assert.match(
+    source,
+    /--scene-backdrop-image": `url\(\$\{activeSceneAsset\.src\}\)`[\s\S]*className="scene-art"[\s\S]*src=\{activeSceneAsset\.src\}/,
+    "the blurred backdrop and primary art consume the same decoded tier",
+  );
+  assert.match(
+    source,
+    /className="scene-continuous-tile-art"[\s\S]{0,180}src=\{continuousTile\.scene\.asset\}/,
+    "a portal preview stays on the child canonical asset and cannot trigger unrelated high-tier work",
+  );
+});
+
+test("dense SSR starts from a compact bounded seed and wires low-frequency camera swaps", () => {
+  const labels: Label[] = Array.from({ length: 220 }, (_, index) => ({
+    id: `dense-${index}`,
+    word: `word-${index}`,
+    translation: `词-${index}`,
+    x: 40 + (index % 20) * 42,
+    y: 40 + Math.floor(index / 20) * 46,
+    priority: index,
+    minLevel: (index % 5) as 0 | 1 | 2 | 3 | 4,
+  }));
+  const scene: Scene = {
+    id: "dense-ssr",
+    title: "Dense SSR",
+    subtitle: "Bounded buttons",
+    asset: "/scenes/dense.jpg",
+    width: 900,
+    height: 600,
+    labels,
+    portals: [],
+  };
+  const markup = renderToStaticMarkup(createElement(SceneViewport, {
+    scene,
+    meaningVisible: false,
+    portalTargetTitles: {},
+    onCommitScene: () => "warm" as const,
+    onEnterScene: async () => true,
+    onExitScene: () => undefined,
+    onLabelsEncountered: () => undefined,
+    onLabelEncountered: () => undefined,
+    onSelectWord: () => undefined,
+    onPrefetchScene: () => undefined,
+  }));
+  const mountedLabelCount = markup.match(/data-testid="word-label"/g)?.length ?? 0;
+  assert.ok(mountedLabelCount > 0, "SSR keeps its genuinely painted labels");
+  assert.ok(
+    mountedLabelCount <= COMPACT_SCENE_LABEL_MOUNT_LIMIT,
+    "SSR and hydration share one mobile-safe upper bound instead of all authored labels",
+  );
+  assert.match(markup, /data-testid="scene-word-progress"[^>]*data-total="220"/);
+
+  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  assert.match(source, /buildSceneLabelMountWindow\([\s\S]*previousIds: mountedLabelIdsRef\.current/);
+  assert.match(source, /scene\.labels\.filter\(\(label\) => mountedLabelIds\.has\(label\.id\)\)/);
+  assert.match(
+    source,
+    /focusedLabelId: focusedLabelId \?\? pendingKeyboardFocusLabelId/,
+    "a cue's exact keyboard target enters the bounded mount window first",
+  );
+  const labelLayoutSource = readFileSync(new URL("app/domain/labelLayout.ts", ROOT), "utf8");
+  const mountWindowStart = labelLayoutSource.indexOf("export function buildSceneLabelMountWindow");
+  const mountWindowEnd = labelLayoutSource.indexOf(
+    "export function computeSceneLabelLayout",
+    mountWindowStart,
+  );
+  assert.ok(mountWindowStart >= 0 && mountWindowEnd > mountWindowStart);
+  const mountWindowSource = labelLayoutSource.slice(mountWindowStart, mountWindowEnd);
+  assert.doesNotMatch(
+    mountWindowSource,
+    /const candidates = layout/,
+    "a first render does not mount hidden candidates merely to fill its DOM ceiling",
+  );
+  assert.match(
+    source,
+    /pendingLabelWindowPaintRef\.current = true;[\s\S]*useLayoutEffect\(\(\) => \{[\s\S]*applyCamera\(\)/,
+    "newly mounted buttons receive geometry synchronously after commit",
+  );
+  const applyCameraStart = source.indexOf("const applyCamera");
+  const applyCameraEnd = source.indexOf("const requestCameraFrame", applyCameraStart);
+  const focusCameraFrame = source.slice(applyCameraStart, applyCameraEnd);
+  const pendingFocusQueueStart = focusCameraFrame.indexOf("const pendingKeyboardFocusLabel =");
+  const pendingFocusQueueEnd = focusCameraFrame.indexOf(
+    'setDatasetValueIfChanged(surface, "visibleLabelCount"',
+    pendingFocusQueueStart,
+  );
+  assert.ok(pendingFocusQueueStart >= 0 && pendingFocusQueueEnd > pendingFocusQueueStart);
+  const pendingFocusQueue = focusCameraFrame.slice(pendingFocusQueueStart, pendingFocusQueueEnd);
+  assert.match(pendingFocusQueue, /queueMicrotask\(\(\) => \{/);
+  assert.match(
+    pendingFocusQueue,
+    /pendingKeyboardFocusLabelIdRef\.current !== pendingKeyboardFocusLabelId[\s\S]*!viewerInteractiveRef\.current/,
+  );
+  assert.match(
+    pendingFocusQueue,
+    /!focusLabel\.isConnected[\s\S]*focusLabel\.dataset\.interactive !== "true"[\s\S]*focusLabel\.focus\(\)[\s\S]*pendingKeyboardFocusLabelIdRef\.current = null/,
+    "the exact cue target retries after camera writes and focuses only while safely interactive",
+  );
+  assert.doesNotMatch(
+    pendingFocusQueue,
+    /setMountedLabelIds|setEncounterTick|setInteractionPositioned|setSceneAssetRuntime/,
+    "post-camera focus cannot create a React render loop",
+  );
+  const synchronousPaintStart = source.indexOf("useLayoutEffect(() => {");
+  const synchronousPaintEnd = source.indexOf("const requestCameraFrame", synchronousPaintStart);
+  assert.match(
+    source.slice(synchronousPaintStart, synchronousPaintEnd),
+    /frameRef\.current !== null[\s\S]*cancelAnimationFrame\(frameRef\.current\)[\s\S]*frameRef\.current = null[\s\S]*applyCamera\(\)/,
+    "a synchronous post-commit layout flush cancels its stale scheduled camera frame",
+  );
+});
 
 test("camera frames skip redundant inline-style writes", () => {
   const values = new Map<string, string>();
@@ -179,7 +470,7 @@ test("semantic overscroll gives painted portal pixels ownership and resets with 
   );
   assert.match(
     source.slice(resetStart, cameraResetStart),
-    /\[resetSemanticOverscroll, scene\.id\]/,
+    /\[[^\]]*resetSemanticOverscroll[^\]]*scene\.id[^\]]*\]/,
     "scene ownership changes clear stale overscroll intent",
   );
 });
@@ -241,7 +532,7 @@ test("wheel impulses are normalized across pixel, line and page delta modes", ()
   assert.ok(lineImpulse > 0 && lineImpulse < 1);
 });
 
-test("one ordinary wheel notch stays in a fitted child and the second requests its parent", () => {
+test("two ordinary wheel events can cross the raw scale boundary and therefore need a gesture latch", () => {
   const oneNotch = wheelZoomFactor(120, 0, 826);
   assert.ok(oneNotch > DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale);
   assert.ok(oneNotch * oneNotch < DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale);
@@ -411,7 +702,9 @@ test("active forward continuity uses a fixed compositor tile and freezes outgoin
   const continuityStart = source.indexOf("if (continuityView)");
   const continuityEnd = source.indexOf("let resizeFrame", continuityStart);
   const continuity = source.slice(continuityStart, continuityEnd);
-  assert.match(continuity, /const duration = continuityView\.direction === "back" \? 140 : 110/);
+  assert.match(continuity, /const duration = continuityView\.direction === "back" \? 105 : 80/);
+  assert.match(source, /const HANDOFF_WHEEL_QUIET_MS = 180;/);
+  assert.match(continuity, /quietUntil: now \+ HANDOFF_WHEEL_QUIET_MS/);
   assert.match(
     continuity,
     /continuitySettlingRef\.current = false;[\s\S]*?setMotionFrozen\(false\);[\s\S]*?requestCameraFrame\(\);/,
@@ -427,7 +720,7 @@ test("active forward continuity uses a fixed compositor tile and freezes outgoin
   const portalTransition = source.slice(portalTransitionStart, portalTransitionEnd);
   assert.match(
     portalTransition,
-    /const duration = source === "zoom" \? 140 : readiness === "warm" \? 160 : 220/,
+    /const duration = source === "zoom" \? 110 : readiness === "warm" \? 120 : 170/,
   );
 });
 
@@ -477,6 +770,26 @@ test("reduced motion starts from one stable fitted frame without a reverse tile"
   assert.deepEqual(view?.camera, desktop);
   assert.equal(view?.tileScene, undefined);
   assert.equal(view?.tilePortal, undefined);
+});
+
+test("continuity settlement contains the complete child scene on desktop and portrait viewports", () => {
+  const scene = { x: 0, y: 0, width: 1600, height: 900 };
+  for (const viewport of [
+    { width: 1280, height: 720 },
+    { width: 390, height: 780 },
+  ]) {
+    const camera = fullyFittedSceneCamera(scene, viewport);
+    const projected = projectSceneRectToScreen(scene, camera);
+    assert.equal(camera.scale, 1);
+    assert.ok(projected.x >= -1e-9 && projected.y >= -1e-9);
+    assert.ok(projected.x + projected.width <= viewport.width + 1e-9);
+    assert.ok(projected.y + projected.height <= viewport.height + 1e-9);
+    assert.ok(
+      Math.abs(projected.width - viewport.width) < 1e-9
+      || Math.abs(projected.height - viewport.height) < 1e-9,
+      "contain fit touches one viewport edge without cropping the child",
+    );
+  }
 });
 
 test("continuity owns the camera until the fitted child frame has settled", () => {
@@ -638,10 +951,35 @@ test("scene anchors project into screen coordinates while labels remain outside 
   assert.match(markup, /class="scene-interaction-layer"[^>]*data-coordinate-space="screen"/);
   assert.match(markup, /data-semantic-group="visual-(?:whole|object|part|diagram)"/);
   assert.match(markup, /data-palette-index="\d+"/);
-  assert.match(markup, /--label-semantic-surface:/);
+  const wordButtonMarkup = markup.match(/<button[^>]*class="word-label"[^>]*>/)?.[0] ?? "";
+  assert.ok(wordButtonMarkup, "SSR contains one native word button");
+  assert.match(wordButtonMarkup, /data-word="grain"/);
+  assert.match(wordButtonMarkup, /data-lod="4"/);
+  assert.doesNotMatch(
+    wordButtonMarkup,
+    /data-(?:priority|visual-region|min-level|anchor-mode|leader-span)=/,
+    "word buttons omit redundant static and renderer-internal attributes",
+  );
+  assert.doesNotMatch(
+    wordButtonMarkup,
+    /aria-label=/,
+    "the direct word text supplies the native button's accessible name",
+  );
+  assert.doesNotMatch(
+    markup,
+    /class="word-label"[^>]*style="[^"]*--label-semantic-/,
+    "word buttons do not repeat the shared semantic palette as inline styles",
+  );
 
   const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
   const css = readFileSync(new URL("app/globals.css", ROOT), "utf8");
+  assert.doesNotMatch(
+    source,
+    /style=\{semanticStyle\?\.cssVariables/,
+    "dense scene mounts select one of the static palette rules by data attribute",
+  );
+  assert.match(css, /\.word-label\[data-palette-index="0"\]\s*\{/);
+  assert.match(css, /\.word-label\[data-palette-index="13"\]\s*\{/);
   const wordRule = css.match(/\.word-label\s*\{([\s\S]*?)\}/)?.[1];
   assert.ok(wordRule, "word-label CSS rule exists");
   assert.doesNotMatch(wordRule, /scale\s*\(/, "camera scale must never enter a word transform");
@@ -649,6 +987,12 @@ test("scene anchors project into screen coordinates while labels remain outside 
     wordRule,
     /transform:\s*translate3d\(0px, 0px, 0\) translate\(-50%, -50%\)/,
   );
+  assert.match(wordRule, /box-shadow:\s*0 4px 12px rgba\(27, 57, 52, 0\.12\);/);
+  assert.match(
+    wordRule,
+    /transition:\s*opacity 90ms cubic-bezier\(0\.22, 0\.75, 0\.25, 1\);/,
+  );
+  assert.doesNotMatch(wordRule, /(?:border-color|box-shadow|background)\s+120ms/);
   const cameraFrameStart = source.indexOf("const applyCamera");
   const cameraFrameEnd = source.indexOf("const requestCameraFrame", cameraFrameStart);
   const cameraFrame = source.slice(cameraFrameStart, cameraFrameEnd);
@@ -670,7 +1014,55 @@ test("scene anchors project into screen coordinates while labels remain outside 
     /setStylePropertyIfChanged\(element\.style, "(?:left|top)"/,
     "camera frames do not reposition word labels through layout",
   );
-  assert.match(markup, /class="word-anchor-marker"/, "every pill renders its exact object anchor");
+  assert.match(
+    source,
+    /const labelElementsRef = useRef\(new Map<string, HTMLButtonElement>\(\)\)/,
+    "dense scenes retain a stable id-to-node index instead of querying every label each frame",
+  );
+  assert.doesNotMatch(
+    cameraFrame,
+    /labelLayer\.querySelectorAll<HTMLButtonElement>\("\.word-label"\)/,
+    "camera frames do not rebuild the dense label NodeList",
+  );
+  const hiddenGeometryGuard = cameraFrame.indexOf("(opacity > 0.025 || ownsFocus)");
+  const labelTransformWrite = cameraFrame.indexOf(
+    '`translate3d(${screenX}px, ${screenY}px, 0) translate(-50%, -50%)`',
+  );
+  assert.ok(
+    hiddenGeometryGuard >= 0 && hiddenGeometryGuard < labelTransformWrite,
+    "offscreen and collision-blocked labels skip unobservable geometry writes",
+  );
+  const anchorModeWrite = cameraFrame.indexOf(
+    'setDatasetValueIfChanged(element, "anchorMode"',
+  );
+  const leaderSpanWrite = cameraFrame.indexOf(
+    'setDatasetValueIfChanged(element, "leaderSpan"',
+  );
+  const visibleWrite = cameraFrame.indexOf('setDatasetValueIfChanged(element, "visible"');
+  assert.ok(
+    anchorModeWrite > labelTransformWrite
+      && leaderSpanWrite > labelTransformWrite
+      && visibleWrite > anchorModeWrite
+      && visibleWrite > leaderSpanWrite,
+    "a painted label receives live anchor metadata before its visibility gate opens",
+  );
+  assert.doesNotMatch(
+    markup,
+    /word-anchor-marker/,
+    "the exact object anchor does not cost an extra DOM node per mounted word",
+  );
+  assert.doesNotMatch(
+    markup,
+    /word-label-text/,
+    "the word itself stays a text node instead of costing one wrapper per mounted word",
+  );
+  assert.match(markup, /data-word="[^"]+"/, "the exact word remains available without a wrapper");
+  assert.match(source, /data-word=\{label\.word\}[\s\S]*?>\s*\{label\.word\}/);
+  assert.match(
+    css,
+    /\.word-label::before\s*\{[\s\S]*?width:\s*8px;[\s\S]*?rgba\(255, 252, 241, 0\.96\)[\s\S]*?var\(--label-semantic-dot\)[\s\S]*?0 0 0 2px rgba\(255, 255, 255, 0\.82\)[\s\S]*?0 0 9px 2px var\(--label-semantic-leader-fade\)[\s\S]*?content:\s*"";[\s\S]*?var\(--label-anchor-x\)[\s\S]*?var\(--label-anchor-y\)/,
+    "the label pseudo-element renders the glossy semantic marker at the exact object anchor",
+  );
   assert.match(
     css,
     /\.word-label\[data-displaced="true"\]::after\s*\{[\s\S]*?--label-leader-length/,
@@ -681,6 +1073,17 @@ test("scene anchors project into screen coordinates while labels remain outside 
     /\.word-label\[data-displaced="true"\]::after\s*\{[\s\S]*?rgba\(255, 255, 255, 0\.94\)[\s\S]*?var\(--label-semantic-leader\)/,
     "leaders combine a bright specular edge with their semantic color core",
   );
+  assert.match(
+    css,
+    /\.word-label\[data-displaced="true"\]::after\s*\{[\s\S]*?box-shadow:\s*0 0 7px var\(--label-semantic-leader-fade\);/,
+    "the leader uses one semantic glow without another white paint layer",
+  );
+  assert.match(
+    css,
+    /\.word-label\[data-interactive="true"\]:hover,[\s\S]*?\.word-label\[data-interactive="true"\]:focus-visible\s*\{[\s\S]*?box-shadow:\s*0 8px 22px rgba\(27, 57, 52, 0\.2\);/,
+    "hover and focus use one immediate shadow while the global focus outline stays authoritative",
+  );
+  assert.match(css, /button:focus-visible,[\s\S]*?outline:\s*3px solid/);
   assert.match(
     css,
     /\.word-label\[data-leader-span="long"\]::after\s*\{[\s\S]*?opacity:\s*0\.92/,

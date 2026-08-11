@@ -5,6 +5,7 @@ const VIEWPORT = '[data-testid="world-viewport"]';
 const FIELD = '[data-testid="semantic-zoom-field"]';
 const DIALOG_NAME = "一万个词的分层探索世界";
 const GLOBAL_ENTRY_NAME = "打开 10 个视觉领域、758 个分层入口和 10,000 个词";
+const INDEPENDENT_WHEEL_GESTURE_GAP_MS = 240;
 
 async function openWorld(page: Page): Promise<Locator> {
   await page.goto("/#world", { waitUntil: "domcontentloaded" });
@@ -51,6 +52,21 @@ async function safeZoomPoint(page: Page): Promise<{ x: number; y: number }> {
   });
 }
 
+async function wheelSceneAt(
+  page: Page,
+  point: { x: number; y: number },
+  deltaY: number,
+): Promise<void> {
+  await page.locator(VIEWPORT).dispatchEvent("wheel", {
+    clientX: point.x,
+    clientY: point.y,
+    deltaY,
+    deltaMode: 0,
+    bubbles: true,
+    cancelable: true,
+  });
+}
+
 test("a reviewed spatial word enters its exact semantic realm without search fanout", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium", "the bridge is covered once; progress remains cross-viewport");
   const topicShardRequests: string[] = [];
@@ -60,7 +76,7 @@ test("a reviewed spatial word enters its exact semantic realm without search fan
   });
   await openWorld(page);
 
-  const apartment = page.locator('[data-testid="word-label"][data-label-id="apartment"]');
+  const apartment = page.locator('[data-testid="word-label"][data-label-id="home-apartment"]');
   await expect(apartment).toHaveAttribute("data-interactive", "true");
   await apartment.click();
   const card = page.getByRole("complementary", { name: "apartment word details" });
@@ -144,10 +160,13 @@ test("scene progress conserves its total and switches to pan guidance at maximum
 
   const point = await safeZoomPoint(page);
   await page.mouse.move(point.x, point.y);
-  const surface = page.locator(".scene-surface");
+  // A navigation handoff deliberately consumes its trailing wheel stream.
+  // Start this zoom as a separate user gesture after the handoff quiet window.
+  await page.waitForTimeout(INDEPENDENT_WHEEL_GESTURE_GAP_MS);
+  const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
   await expect.poll(async () => {
     const scale = Number(await surface.getAttribute("data-scene-scale"));
-    if (Number.isFinite(scale) && scale < 4.13) await page.mouse.wheel(0, -480);
+    if (Number.isFinite(scale) && scale < 4.13) await wheelSceneAt(page, point, -480);
     return Number(await surface.getAttribute("data-scene-scale"));
   }, {
     intervals: [45],
@@ -175,13 +194,15 @@ test("continued zoom beyond a spatial image opens the ten-thousand-word plane", 
     await expect(app).toHaveAttribute("data-scene-id", sceneId);
     await expect(app).toHaveAttribute("data-transition-state", "idle");
   }
+  await expect(page.getByTestId("scene-label-layer")).toHaveAttribute("data-motion-frozen", "false");
   await expect(page.getByTestId("scene-minimap")).toHaveAttribute("data-terminal", "true");
   const point = await safeZoomPoint(page);
   await page.mouse.move(point.x, point.y);
+  await page.waitForTimeout(INDEPENDENT_WHEEL_GESTURE_GAP_MS);
   const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
   await expect.poll(async () => {
     const scale = Number(await surface.getAttribute("data-scene-scale"));
-    if (Number.isFinite(scale) && scale < 4.13) await page.mouse.wheel(0, -480);
+    if (Number.isFinite(scale) && scale < 4.13) await wheelSceneAt(page, point, -480);
     return Number(await surface.getAttribute("data-scene-scale"));
   }, { intervals: [45], timeout: 8_000 }).toBeGreaterThanOrEqual(4.13);
 
@@ -190,7 +211,7 @@ test("continued zoom beyond a spatial image opens the ten-thousand-word plane", 
   const dialog = page.getByRole("dialog", { name: DIALOG_NAME });
   const field = dialog.locator(FIELD);
   await expect.poll(async () => {
-    if (await dialog.count() === 0) await page.mouse.wheel(0, -240);
+    if (await dialog.count() === 0) await wheelSceneAt(page, point, -240);
     return dialog.count();
   }, {
     intervals: [75],

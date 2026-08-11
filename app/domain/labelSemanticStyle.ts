@@ -286,6 +286,16 @@ function cssVariablesOf(palette: LabelSemanticPalette): LabelSemanticCssVariable
   };
 }
 
+// The DOM consumes paletteIndex through static CSS. Keep this renderer-neutral
+// contract for other consumers, but share fourteen immutable objects instead
+// of allocating nine-property style payloads for every authored word.
+const CSS_VARIABLES_BY_GROUP = new Map(
+  LABEL_SEMANTIC_PALETTES.map((palette) => [
+    palette.group,
+    Object.freeze(cssVariablesOf(palette)),
+  ] as const),
+);
+
 const NODE_LEVEL_RADIUS_SCALE: Readonly<Record<string, number>> = {
   overview: 1.08,
   realm: 1.06,
@@ -343,7 +353,7 @@ export function resolveLabelSemanticStyle(
       paletteIndex: palette.paletteIndex,
       source: "realm",
       realmId,
-      cssVariables: cssVariablesOf(palette),
+      cssVariables: CSS_VARIABLES_BY_GROUP.get(realmId)!,
     };
   }
 
@@ -355,7 +365,7 @@ export function resolveLabelSemanticStyle(
     paletteIndex: palette.paletteIndex,
     source: fallback.source,
     visualRegionKind: fallback.kind,
-    cssVariables: cssVariablesOf(palette),
+    cssVariables: CSS_VARIABLES_BY_GROUP.get(semanticGroup)!,
   };
 }
 

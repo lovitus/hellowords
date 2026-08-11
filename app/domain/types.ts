@@ -103,12 +103,32 @@ export interface SceneAnchorAudit {
   readonly removedExamples: readonly string[];
 }
 
+export type SceneAssetTier = "base" | "high";
+
+/** Immutable raster bytes reviewed for one spatial-scene resolution. */
+export interface SceneAssetDescriptor {
+  readonly src: string;
+  readonly width: number;
+  readonly height: number;
+  readonly sha256: string;
+}
+
+/**
+ * Optional multi-resolution enhancement. `asset` remains the canonical legacy
+ * base URL, so existing scene JSON and callers continue to work unchanged.
+ */
+export interface SceneAssetSet {
+  readonly base: SceneAssetDescriptor;
+  readonly high?: SceneAssetDescriptor;
+}
+
 export interface Scene {
   readonly id: string;
   readonly title: string;
   readonly translation?: string;
   readonly subtitle: string;
   readonly asset: string;
+  readonly assets?: SceneAssetSet;
   readonly width: number;
   readonly height: number;
   readonly parentId?: string | null;

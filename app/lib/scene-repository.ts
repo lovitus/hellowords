@@ -1,4 +1,4 @@
-import type { Scene } from "../domain";
+import { assertSceneAssetContract, type Scene } from "../domain";
 
 export type { Scene } from "../domain";
 
@@ -71,6 +71,7 @@ function validateScene(value: unknown, requestedId: string): Scene {
   }
   assertFinitePositive(scene.width, "width");
   assertFinitePositive(scene.height, "height");
+  assertSceneAssetContract(scene);
   return scene;
 }
 

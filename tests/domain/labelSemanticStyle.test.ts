@@ -122,12 +122,81 @@ test("style maps preserve one deterministic contract per label", () => {
   assert.equal(map.size, 2);
   assert.equal(map.get("oak")?.semanticGroup, "nature-life");
   assert.equal(map.get("scene")?.semanticGroup, "visual-whole");
+  const sameRealm = resolveLabelSemanticStyle(
+    { ...label, id: "oak-two" },
+    regions,
+    () => "nature-life",
+  );
+  assert.strictEqual(
+    map.get("oak")?.cssVariables,
+    sameRealm.cssVariables,
+    "labels in one palette share its immutable renderer-neutral value object",
+  );
 });
 
-test("every palette keeps readable text and remains distinct from portal/detail accents", () => {
+test("all fourteen spatial rules mirror only the three category differentiators", async () => {
+  const css = await readFile(resolve(import.meta.dirname, "../../app/globals.css"), "utf8");
+  const indices = [...css.matchAll(/\.word-label\[data-palette-index="(\d+)"\]\s*\{/g)]
+    .map((match) => Number(match[1]));
+  assert.deepEqual(indices, LABEL_SEMANTIC_PALETTES.map(({ paletteIndex }) => paletteIndex));
+
+  const spatialVariables = [
+    "--label-semantic-surface",
+    "--label-semantic-border",
+    "--label-semantic-dot",
+  ] as const;
+  const triples = new Set<string>();
+  for (const palette of LABEL_SEMANTIC_PALETTES) {
+    const selector = `.word-label[data-palette-index="${palette.paletteIndex}"] {`;
+    const start = css.indexOf(selector);
+    const end = css.indexOf("}", start);
+    assert.ok(start >= 0 && end > start, `${palette.group} static rule exists`);
+    const rule = css.slice(start, end);
+    const declarations = [...rule.matchAll(/(--label-semantic-[\w-]+):/g)]
+      .map((match) => match[1]);
+    assert.deepEqual(declarations, spatialVariables, `${palette.group} has only three overrides`);
+    for (const variable of spatialVariables) {
+      const actual = rule.match(new RegExp(`${variable}:\\s*([^;]+);`))?.[1]?.trim();
+      assert.equal(actual, palette[variable], `${palette.group} ${variable}`);
+    }
+    triples.add(spatialVariables.map((variable) => palette[variable]).join("|"));
+  }
+  assert.equal(triples.size, LABEL_SEMANTIC_PALETTES.length, "all spatial triples remain distinct");
+
+  const baseRule = css.match(/\.word-label\s*\{([\s\S]*?)\}/)?.[1] ?? "";
+  const commonVariables = {
+    "--label-semantic-surface-hover": "#fdfbf7",
+    "--label-semantic-ink": "#34312a",
+    "--label-semantic-muted": "#605a4f",
+    "--label-semantic-leader": "var(--label-semantic-dot)",
+    "--label-semantic-leader-fade": "rgba(52, 49, 42, 0.24)",
+  } as const;
+  for (const [variable, expected] of Object.entries(commonVariables)) {
+    const actual = baseRule.match(new RegExp(`${variable}:\\s*([^;]+);`))?.[1]?.trim();
+    assert.equal(actual, expected, `${variable} remains one shared high-contrast value`);
+  }
+  assert.doesNotMatch(baseRule, /--label-semantic-ring/, "the existing border owns the focus ring");
+
+  for (const palette of LABEL_SEMANTIC_PALETTES) {
+    const surface = palette["--label-semantic-surface"];
+    assert.ok(contrast(surface, commonVariables["--label-semantic-ink"]) >= 7);
+    assert.ok(contrast(surface, commonVariables["--label-semantic-muted"]) >= 4.5);
+    assert.ok(contrast(
+      commonVariables["--label-semantic-surface-hover"],
+      commonVariables["--label-semantic-ink"],
+    ) >= 7);
+  }
+});
+
+test("every complete domain palette stays readable for semantic zoom consumers", () => {
   assert.equal(LABEL_SEMANTIC_PALETTES.length, 14);
   const reservedAccents = new Set(["#d99a36", "#236f55"]);
   for (const palette of LABEL_SEMANTIC_PALETTES) {
+    assert.equal(
+      Object.keys(palette).filter((key) => key.startsWith("--label-semantic-")).length,
+      9,
+      `${palette.group} keeps all nine renderer-neutral colors`,
+    );
     const surface = palette["--label-semantic-surface"];
     const hover = palette["--label-semantic-surface-hover"];
     const ink = palette["--label-semantic-ink"];
@@ -149,7 +218,6 @@ test("global CSS consumes the semantic variables only on word labels", async () 
     "--label-semantic-muted",
     "--label-semantic-dot",
     "--label-semantic-leader",
-    "--label-semantic-ring",
   ]) {
     assert.match(css, new RegExp(`\\.word-label[\\s\\S]*var\\(${variable}\\)`));
   }

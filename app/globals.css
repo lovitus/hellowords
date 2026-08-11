@@ -659,7 +659,11 @@ a:focus-visible {
   position: absolute;
   z-index: 4;
   inset: 0;
-  contain: layout style;
+  /* The overlay has an explicit viewport-sized inset, so size/paint
+   * containment cannot affect its geometry. Keeping the dense word plane in
+   * one strict boundary prevents scene swaps from invalidating the artwork
+   * and viewer chrome while still clipping leaders at the real viewport. */
+  contain: strict;
   opacity: 1;
   pointer-events: none;
   transition: opacity 90ms ease-out;
@@ -697,14 +701,17 @@ a:focus-visible {
   --label-semantic-ink: #34312a;
   --label-semantic-muted: #605a4f;
   --label-semantic-dot: #7d7567;
-  --label-semantic-leader: rgba(99, 91, 77, 0.7);
-  --label-semantic-leader-fade: rgba(99, 91, 77, 0.19);
-  --label-semantic-ring: rgba(125, 117, 103, 0.22);
+  --label-semantic-leader: var(--label-semantic-dot);
+  --label-semantic-leader-fade: rgba(52, 49, 42, 0.24);
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
   display: flex;
+  /* Each pill owns its internal flex layout and semantic variables. This does
+   * not contain paint (leaders and anchor markers may extend outside the
+   * pill), but it bounds layout/style recalculation for dense atlas mounts. */
+  contain: layout style;
   min-height: 30px;
   align-items: center;
   gap: 5px;
@@ -712,7 +719,7 @@ a:focus-visible {
   border: 1px solid var(--label-semantic-border);
   border-radius: 999px;
   background: var(--label-semantic-surface);
-  box-shadow: 0 5px 18px rgba(27, 57, 52, 0.13), 0 0 0 1px var(--label-semantic-ring);
+  box-shadow: 0 4px 12px rgba(27, 57, 52, 0.12);
   color: var(--label-semantic-ink);
   cursor: pointer;
   font-size: 12px;
@@ -724,9 +731,98 @@ a:focus-visible {
   /* Labels live in screen space: translation positions native-size text without layout. */
   transform: translate3d(0px, 0px, 0) translate(-50%, -50%);
   transform-origin: center;
-  transition: opacity 150ms cubic-bezier(0.22, 0.75, 0.25, 1), border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+  transition: opacity 90ms cubic-bezier(0.22, 0.75, 0.25, 1);
   visibility: hidden;
   white-space: nowrap;
+}
+
+/*
+ * Spatial labels vary only the three colors that materially distinguish a
+ * category. The complete nine-color domain palette remains available to the
+ * lexical overview without multiplying dense scene style declarations.
+ */
+.word-label[data-palette-index="0"] {
+  --label-semantic-surface: #f1f5ef;
+  --label-semantic-border: #b9c9b5;
+  --label-semantic-dot: #6b8069;
+}
+
+.word-label[data-palette-index="1"] {
+  --label-semantic-surface: #f7f1ed;
+  --label-semantic-border: #d6c2b7;
+  --label-semantic-dot: #936f60;
+}
+
+.word-label[data-palette-index="2"] {
+  --label-semantic-surface: #eef4f4;
+  --label-semantic-border: #b8cccc;
+  --label-semantic-dot: #607f82;
+}
+
+.word-label[data-palette-index="3"] {
+  --label-semantic-surface: #f7f0ee;
+  --label-semantic-border: #d8c0ba;
+  --label-semantic-dot: #956b62;
+}
+
+.word-label[data-palette-index="4"] {
+  --label-semantic-surface: #f3f1f6;
+  --label-semantic-border: #cbc5d4;
+  --label-semantic-dot: #7b728d;
+}
+
+.word-label[data-palette-index="5"] {
+  --label-semantic-surface: #f6f0f3;
+  --label-semantic-border: #d5c0ca;
+  --label-semantic-dot: #906a7a;
+}
+
+.word-label[data-palette-index="6"] {
+  --label-semantic-surface: #eef4f2;
+  --label-semantic-border: #b9cbc6;
+  --label-semantic-dot: #647f79;
+}
+
+.word-label[data-palette-index="7"] {
+  --label-semantic-surface: #eef3f6;
+  --label-semantic-border: #bdcbd4;
+  --label-semantic-dot: #637d8c;
+}
+
+.word-label[data-palette-index="8"] {
+  --label-semantic-surface: #f5f3ed;
+  --label-semantic-border: #d3cbb9;
+  --label-semantic-dot: #82775f;
+}
+
+.word-label[data-palette-index="9"] {
+  --label-semantic-surface: #f2f2f6;
+  --label-semantic-border: #c7c7d2;
+  --label-semantic-dot: #727587;
+}
+
+.word-label[data-palette-index="10"] {
+  --label-semantic-surface: #f6f3ed;
+  --label-semantic-border: #d2c9ba;
+  --label-semantic-dot: #7d7567;
+}
+
+.word-label[data-palette-index="11"] {
+  --label-semantic-surface: #f0f4f4;
+  --label-semantic-border: #c0cdcc;
+  --label-semantic-dot: #687e7c;
+}
+
+.word-label[data-palette-index="12"] {
+  --label-semantic-surface: #f2f5f1;
+  --label-semantic-border: #c4cfc0;
+  --label-semantic-dot: #70816d;
+}
+
+.word-label[data-palette-index="13"] {
+  --label-semantic-surface: #f3f2f6;
+  --label-semantic-border: #cbc7d2;
+  --label-semantic-dot: #797587;
 }
 
 .word-label[data-displaced="true"]::after {
@@ -740,9 +836,7 @@ a:focus-visible {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0 34%, rgba(255, 255, 255, 0.12) 42% 100%),
     linear-gradient(90deg, var(--label-semantic-leader), var(--label-semantic-leader-fade));
-  box-shadow:
-    0 0 3px rgba(255, 255, 255, 0.88),
-    0 0 7px var(--label-semantic-leader-fade);
+  box-shadow: 0 0 7px var(--label-semantic-leader-fade);
   content: "";
   pointer-events: none;
   transform: rotate(var(--label-leader-angle));
@@ -754,7 +848,7 @@ a:focus-visible {
   opacity: 0.92;
 }
 
-.word-anchor-marker {
+.word-label::before {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -765,9 +859,9 @@ a:focus-visible {
   border-radius: 50%;
   background: var(--label-semantic-dot);
   box-shadow:
-    0 1px 6px rgba(21, 54, 48, 0.36),
     0 0 0 2px rgba(255, 255, 255, 0.82),
     0 0 9px 2px var(--label-semantic-leader-fade);
+  content: "";
   pointer-events: none;
   transform: translate(calc(var(--label-anchor-x) - 50%), calc(var(--label-anchor-y) - 50%));
 }
@@ -789,7 +883,7 @@ a:focus-visible {
 }
 
 .word-label[data-visible="false"] {
-  transition: opacity 150ms cubic-bezier(0.22, 0.75, 0.25, 1), visibility 0s linear 150ms;
+  transition: opacity 90ms cubic-bezier(0.22, 0.75, 0.25, 1), visibility 0s linear 90ms;
 }
 
 .word-label[data-interactive="true"] {
@@ -800,16 +894,7 @@ a:focus-visible {
 .word-label[data-interactive="true"]:focus-visible {
   z-index: 4;
   background: var(--label-semantic-surface-hover);
-  box-shadow: 0 8px 26px rgba(27, 57, 52, 0.2), 0 0 0 2px var(--label-semantic-ring);
-}
-
-.word-label::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  flex: 0 0 4px;
-  border-radius: 50%;
-  background: var(--label-semantic-dot);
+  box-shadow: 0 8px 22px rgba(27, 57, 52, 0.2);
 }
 
 .vocabulary-zoom-layer {

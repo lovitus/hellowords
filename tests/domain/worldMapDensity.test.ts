@@ -3,11 +3,48 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import test from "node:test";
+import sharpModule from "sharp";
+import {
+  buildPortalCueProtectedRegions,
+  computeSceneLabelLayout,
+  type Scene,
+  type SceneLabelCamera,
+  type SceneLabelLayoutItem,
+  type SceneLabelProtectedRegion,
+  type SceneLabelViewport,
+} from "../../app/domain";
 
 const projectRoot = resolve(import.meta.dirname, "../..");
 const scenePath = resolve(projectRoot, "public/data/scenes/world-map.json");
-const expectedAsset = "/scenes/world-map-bright-v4.jpg";
-const expectedSha256 = "73536e8b31807e9e98300b8ceba03975210b881aabaf3f3e3718308fdfd82157";
+const minimumGroundedLabels = 300;
+const minimumExplorationCoverage = 0.9;
+
+const expectedAssets = {
+  base: {
+    src: "/scenes/world-atlas-master-1600-v1.jpg",
+    width: 1_600,
+    height: 900,
+    sha256: "d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb",
+  },
+  high: {
+    src: "/scenes/world-atlas-master-3200-v1.jpg",
+    width: 3_200,
+    height: 1_800,
+    sha256: "e30a3750ef9f609056d288268c6692e7dc6fa8b18ff0d93bf37cf3265f405966",
+  },
+} as const;
+
+const expectedPortalRectangles = {
+  apartment: { x: 160, y: 45, width: 355, height: 275 },
+  "city-street": { x: 965, y: 140, width: 560, height: 280 },
+  "community-garden": { x: 80, y: 470, width: 545, height: 325 },
+  "city-park": { x: 1_080, y: 475, width: 475, height: 380 },
+} as const;
+
+const explorationViewports = [
+  { name: "desktop", width: 1_280, height: 720, compact: false },
+  { name: "mobile", width: 390, height: 640, compact: true },
+] as const;
 
 interface Rectangle {
   readonly x: number;
@@ -16,53 +53,29 @@ interface Rectangle {
   readonly height: number;
 }
 
-interface WorldMapLabel {
-  readonly id: string;
-  readonly word: string;
-  readonly x: number;
-  readonly y: number;
-  readonly minLevel: 0 | 1 | 2 | 3 | 4;
-  readonly sourceVisualRegion: string;
+interface Bounds {
+  readonly left: number;
+  readonly right: number;
+  readonly top: number;
+  readonly bottom: number;
 }
 
-interface WorldMapPortal extends Rectangle {
-  readonly id: string;
-  readonly childSceneId: string;
-  readonly sourceVisualRegion: string;
+interface ImagePipeline {
+  metadata(): Promise<{
+    readonly format?: string;
+    readonly width?: number;
+    readonly height?: number;
+  }>;
 }
 
-interface WorldMapRegion extends Rectangle {
-  readonly id: string;
+const decodeImage = sharpModule as unknown as (input: string | Buffer) => ImagePipeline;
+
+async function loadScene(): Promise<Scene> {
+  return JSON.parse(await readFile(scenePath, "utf8")) as Scene;
 }
 
-interface WorldMapZone extends Rectangle {
-  readonly id: string;
-  readonly targetScale: number;
-  readonly labelIds: readonly string[];
-}
-
-interface WorldMapScene {
-  readonly id: string;
-  readonly asset: string;
-  readonly width: number;
-  readonly height: number;
-  readonly labels: readonly WorldMapLabel[];
-  readonly portals: readonly WorldMapPortal[];
-  readonly visualRegions: readonly WorldMapRegion[];
-  readonly detailZones: readonly WorldMapZone[];
-  readonly anchorAudit: {
-    readonly status: string;
-    readonly policy: string;
-    readonly reviewedAsset: string;
-    readonly reviewedAssetSha256: string;
-    readonly previousLabelCount: number;
-    readonly retainedLabelCount: number;
-    readonly removedLabelCount: number;
-  };
-}
-
-async function loadScene(): Promise<WorldMapScene> {
-  return JSON.parse(await readFile(scenePath, "utf8")) as WorldMapScene;
+function assetFile(src: string): string {
+  return resolve(projectRoot, "public", src.replace(/^\//u, ""));
 }
 
 function pointInside(point: { readonly x: number; readonly y: number }, rectangle: Rectangle): boolean {
@@ -72,121 +85,332 @@ function pointInside(point: { readonly x: number; readonly y: number }, rectangl
     && point.y <= rectangle.y + rectangle.height;
 }
 
-test("world map retains 107 independently pointable labels across every zoom band", async () => {
-  const scene = await loadScene();
-  assert.equal(scene.id, "world-map");
-  assert.equal(scene.asset, expectedAsset);
-  assert.equal(scene.width, 1600);
-  assert.equal(scene.height, 900);
-  assert.equal(scene.labels.length, 107);
-  assert.equal(scene.visualRegions.length, 107);
-  assert.deepEqual(
-    [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
-    [15, 18, 19, 27, 28],
+function rectangleInside(inner: Rectangle, outer: Rectangle): boolean {
+  return inner.width > 0
+    && inner.height > 0
+    && inner.x >= outer.x
+    && inner.y >= outer.y
+    && inner.x + inner.width <= outer.x + outer.width
+    && inner.y + inner.height <= outer.y + outer.height;
+}
+
+function rectanglesOverlap(first: Rectangle, second: Rectangle): boolean {
+  return first.x < second.x + second.width
+    && first.x + first.width > second.x
+    && first.y < second.y + second.height
+    && first.y + first.height > second.y;
+}
+
+function boundsOverlap(first: Bounds, second: Bounds): boolean {
+  return !(
+    first.right <= second.left
+    || first.left >= second.right
+    || first.bottom <= second.top
+    || first.top >= second.bottom
   );
-  assert.equal(new Set(scene.labels.map((label) => label.id)).size, 107);
-  assert.equal(new Set(scene.labels.map((label) => label.word.toLocaleLowerCase())).size, 107);
+}
 
-  const visibleAdditions = [
-    "mountain-ridge",
-    "bridge-arch",
-    "riverbank",
-    "skylight",
-    "terrace-railing",
-    "coffee-table",
-    "ceiling-light",
-    "townhouse",
-    "dormer-window",
-    "front-door",
-    "garden-fence",
-    "flowering-tree",
-    "outdoor-table",
-    "office-building",
-    "brick-building",
-    "office-window",
-    "cafe-umbrella",
-    "bus-wheel",
-    "bus-windshield",
-    "station-column",
-    "tree-canopy",
-    "root",
-    "deck-railing",
-    "deck-stairs",
-    "park-bench",
-    "evergreen-tree",
-    "greenhouse-frame",
-    "glass-pane",
-    "greenhouse-door",
-    "planter-box",
-    "seedling",
-    "garden-lamp",
-    "shed-roof",
-    "shed-window",
-  ] as const;
-  const labels = new Map(scene.labels.map((label) => [label.id, label]));
-  assert.equal(visibleAdditions.length, 34);
-  for (const labelId of visibleAdditions) {
-    assert.ok(labels.has(labelId), `missing audited world-map addition: ${labelId}`);
-  }
+function itemBounds(item: SceneLabelLayoutItem): Bounds {
+  return {
+    left: item.screenX - item.width / 2,
+    right: item.screenX + item.width / 2,
+    top: item.screenY - item.height / 2,
+    bottom: item.screenY + item.height / 2,
+  };
+}
 
-  assert.equal(scene.anchorAudit.status, "human-verified");
-  assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
-  assert.equal(scene.anchorAudit.reviewedAsset, expectedAsset);
-  assert.equal(scene.anchorAudit.retainedLabelCount, scene.labels.length);
-  assert.equal(
-    scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount,
-    scene.anchorAudit.removedLabelCount,
+function normalizedWord(word: string): string {
+  return word.normalize("NFKC").trim().toLocaleLowerCase("en");
+}
+
+function sampleAxis(sceneLength: number, visibleLength: number): readonly number[] {
+  if (visibleLength >= sceneLength) return [sceneLength / 2];
+  const travel = sceneLength - visibleLength;
+  const intervalCount = Math.max(1, Math.ceil(travel / (visibleLength * 0.25)));
+  return Array.from(
+    { length: intervalCount + 1 },
+    (_, index) => visibleLength / 2 + travel * index / intervalCount,
   );
-});
+}
 
-test("world map additions remain inside audited pixels and one local exploration zone", async () => {
-  const scene = await loadScene();
-  const canvas = { x: 0, y: 0, width: scene.width, height: scene.height };
-  const regions = new Map(scene.visualRegions.map((region) => [region.id, region]));
-  assert.equal(regions.size, scene.visualRegions.length);
-  for (const label of scene.labels) {
-    assert.ok(pointInside(label, canvas), `label leaves canvas: ${label.id}`);
-    const region = regions.get(label.sourceVisualRegion);
-    assert.ok(region, `label has no audited region: ${label.id}`);
-    assert.ok(pointInside(label, region), `label misses audited pixels: ${label.id}`);
-  }
+function centeredCamera(
+  centerX: number,
+  centerY: number,
+  scale: number,
+  fit: number,
+  viewport: SceneLabelViewport,
+): SceneLabelCamera {
+  return {
+    x: viewport.width / 2 - centerX * fit * scale,
+    y: viewport.height / 2 - centerY * fit * scale,
+    fit,
+    scale,
+  };
+}
 
-  const labels = new Map(scene.labels.map((label) => [label.id, label]));
-  const assignedLabels = new Set<string>();
-  for (const zone of scene.detailZones) {
-    assert.ok(zone.targetScale > 1 && zone.targetScale <= 4, `invalid scale: ${zone.id}`);
-    for (const labelId of zone.labelIds) {
-      assert.ok(!assignedLabels.has(labelId), `label reused across zones: ${labelId}`);
-      assignedLabels.add(labelId);
-      const label = labels.get(labelId);
-      assert.ok(label, `zone references unknown label: ${zone.id}/${labelId}`);
-      assert.ok(pointInside(label, zone), `zone misses label: ${zone.id}/${labelId}`);
+/** Covers the whole raster with dense overlapping pans across the authored spatial zoom range. */
+function explorationCameras(scene: Scene, viewport: SceneLabelViewport): readonly SceneLabelCamera[] {
+  const fit = Math.min(viewport.width / scene.width, viewport.height / scene.height);
+  const sweep = [1, 1.55, 2.1, 2.7, 3.35, 4.15].flatMap((scale) => {
+    const effectiveScale = fit * scale;
+    const horizontalCenters = sampleAxis(scene.width, viewport.width / effectiveScale);
+    const verticalCenters = sampleAxis(scene.height, viewport.height / effectiveScale);
+    return horizontalCenters.flatMap((centerX) => verticalCenters.map((centerY) => (
+      centeredCamera(centerX, centerY, scale, fit, viewport)
+    )));
+  });
+  const focusScale = 4.15;
+  const visibleWidth = viewport.width / (fit * focusScale);
+  const visibleHeight = viewport.height / (fit * focusScale);
+  const focusedAnchors = scene.labels.map((label) => centeredCamera(
+    Math.min(
+      scene.width - Math.min(scene.width, visibleWidth) / 2,
+      Math.max(Math.min(scene.width, visibleWidth) / 2, label.x),
+    ),
+    Math.min(
+      scene.height - Math.min(scene.height, visibleHeight) / 2,
+      Math.max(Math.min(scene.height, visibleHeight) / 2, label.y),
+    ),
+    focusScale,
+    fit,
+    viewport,
+  ));
+  return [...sweep, ...focusedAnchors];
+}
+
+type LayoutSignature = ReadonlyArray<readonly [
+  id: string,
+  interactive: boolean,
+  adaptive: boolean,
+  opacity: number,
+  screenX: number,
+  screenY: number,
+  offsetX: number,
+  offsetY: number,
+  placementOrder: number,
+]>;
+
+function layoutSignature(layout: readonly SceneLabelLayoutItem[]): LayoutSignature {
+  return layout.map((item) => [
+    item.id,
+    item.interactive,
+    item.adaptive,
+    item.opacity,
+    item.screenX,
+    item.screenY,
+    item.offsetX,
+    item.offsetY,
+    item.placementOrder,
+  ]);
+}
+
+function assertCollisionFreeFrame(
+  viewportName: string,
+  frameIndex: number,
+  layout: readonly SceneLabelLayoutItem[],
+  protectedRegions: readonly SceneLabelProtectedRegion[],
+  viewport: SceneLabelViewport,
+): void {
+  const visible = layout.filter((item) => item.interactive);
+  for (let index = 0; index < visible.length; index += 1) {
+    const item = visible[index];
+    const bounds = itemBounds(item);
+    assert.ok(bounds.left >= 0 && bounds.right <= viewport.width, `${viewportName}/${frameIndex}/${item.id} x bounds`);
+    assert.ok(bounds.top >= 0 && bounds.bottom <= viewport.height, `${viewportName}/${frameIndex}/${item.id} y bounds`);
+    for (const protectedRegion of protectedRegions) {
+      assert.equal(
+        boundsOverlap(bounds, protectedRegion),
+        false,
+        `${viewportName}/${frameIndex}/${item.id} avoids portal controls`,
+      );
+    }
+    for (let otherIndex = index + 1; otherIndex < visible.length; otherIndex += 1) {
+      assert.equal(
+        boundsOverlap(bounds, itemBounds(visible[otherIndex])),
+        false,
+        `${viewportName}/${frameIndex}/${item.id} overlaps ${visible[otherIndex].id}`,
+      );
     }
   }
-  assert.equal(assignedLabels.size, scene.labels.length);
+}
+
+test("world atlas pins canonical base and on-demand high-resolution bytes", async () => {
+  const scene = await loadScene();
+  assert.equal(scene.id, "world-map");
+  assert.equal(scene.asset, expectedAssets.base.src);
+  assert.equal(scene.width, expectedAssets.base.width);
+  assert.equal(scene.height, expectedAssets.base.height);
+  assert.deepEqual(scene.assets, expectedAssets);
+
+  for (const [tier, descriptor] of Object.entries(expectedAssets)) {
+    const file = assetFile(descriptor.src);
+    const [bytes, metadata] = await Promise.all([
+      readFile(file),
+      decodeImage(file).metadata(),
+    ]);
+    assert.equal(metadata.format, "jpeg", `${tier} encoded format`);
+    assert.equal(metadata.width, descriptor.width, `${tier} decoded width`);
+    assert.equal(metadata.height, descriptor.height, `${tier} decoded height`);
+    assert.equal(
+      createHash("sha256").update(bytes).digest("hex"),
+      descriptor.sha256,
+      `${tier} immutable digest`,
+    );
+  }
+
+  assert.ok(scene.anchorAudit, "the atlas keeps a human anchor audit");
+  assert.equal(scene.anchorAudit.status, "human-verified");
+  assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
+  assert.equal(scene.anchorAudit.reviewedAsset, expectedAssets.base.src);
+  assert.equal(scene.anchorAudit.reviewedAssetSha256, expectedAssets.base.sha256);
+  assert.equal(scene.anchorAudit.retainedLabelCount, scene.labels.length);
 });
 
-test("world map keeps the same four portals and reviewed image bytes", async () => {
+test("world atlas contains 300+ unique grounded words across twelve bounded exploration zones", async () => {
   const scene = await loadScene();
-  assert.deepEqual(
-    scene.portals.map(({ id, childSceneId, x, y, width, height, sourceVisualRegion }) => ({
-      id,
-      childSceneId,
-      x,
-      y,
-      width,
-      height,
-      sourceVisualRegion,
-    })),
-    [
-      { id: "enter-home", childSceneId: "apartment", x: 0, y: 170, width: 520, height: 690, sourceVisualRegion: "portal-home" },
-      { id: "enter-city", childSceneId: "city-street", x: 550, y: 105, width: 570, height: 445, sourceVisualRegion: "portal-city" },
-      { id: "enter-nature", childSceneId: "city-park", x: 1145, y: 70, width: 455, height: 700, sourceVisualRegion: "portal-nature" },
-      { id: "enter-community-garden", childSceneId: "community-garden", x: 720, y: 570, width: 420, height: 320, sourceVisualRegion: "portal-community-garden" },
-    ],
+  const canvas = { x: 0, y: 0, width: scene.width, height: scene.height };
+  const regions = scene.visualRegions;
+  const zones = scene.detailZones;
+  assert.ok(regions, "grounded atlas labels require reviewed visual regions");
+  assert.ok(zones, "the atlas requires authored local exploration zones");
+  assert.ok(scene.labels.length >= minimumGroundedLabels, "the master scene carries hundreds of real anchors");
+  assert.equal(new Set(scene.labels.map(({ id }) => id)).size, scene.labels.length, "label ids stay unique");
+  assert.equal(
+    new Set(scene.labels.map(({ word }) => normalizedWord(word))).size,
+    scene.labels.length,
+    "grounded atlas words stay unique",
   );
 
-  const bytes = await readFile(resolve(projectRoot, "public", scene.asset.replace(/^\//u, "")));
-  assert.equal(createHash("sha256").update(bytes).digest("hex"), expectedSha256);
-  assert.equal(scene.anchorAudit.reviewedAssetSha256, expectedSha256);
+  const regionsById = new Map(regions.map((region) => [region.id, region]));
+  assert.equal(regionsById.size, regions.length, "visual-region ids stay unique");
+  for (const region of regions) {
+    assert.ok(rectangleInside(region, canvas), `visual region leaves the atlas: ${region.id}`);
+  }
+
+  for (const label of scene.labels) {
+    assert.ok(label.word.trim(), `empty word: ${label.id}`);
+    assert.ok(label.translation.trim(), `empty translation: ${label.id}`);
+    assert.ok(pointInside(label, canvas), `anchor leaves the atlas: ${label.id}`);
+    assert.ok(label.sourceVisualRegion, `anchor lacks a reviewed region: ${label.id}`);
+    const region = regionsById.get(label.sourceVisualRegion);
+    assert.ok(region, `anchor references an unknown region: ${label.id}/${label.sourceVisualRegion}`);
+    assert.ok(pointInside(label, region), `anchor misses its reviewed pixels: ${label.id}`);
+  }
+
+  assert.equal(zones.length, 12, "the master raster is explored as twelve local detail groups");
+  const labelsById = new Map(scene.labels.map((label) => [label.id, label]));
+  const zoneMembership = new Map(scene.labels.map((label) => [label.id, 0]));
+  for (const zone of zones) {
+    assert.ok(rectangleInside(zone, canvas), `detail zone leaves the atlas: ${zone.id}`);
+    assert.ok(zone.targetScale > 1 && zone.targetScale <= 4.15, `invalid detail scale: ${zone.id}`);
+    assert.ok(zone.labelIds.length > 0, `empty detail zone: ${zone.id}`);
+    assert.equal(new Set(zone.labelIds).size, zone.labelIds.length, `duplicate label in zone: ${zone.id}`);
+    for (const labelId of zone.labelIds) {
+      const label = labelsById.get(labelId);
+      assert.ok(label, `zone references an unknown label: ${zone.id}/${labelId}`);
+      assert.ok(pointInside(label, zone), `zone misses its anchor: ${zone.id}/${labelId}`);
+      zoneMembership.set(labelId, (zoneMembership.get(labelId) ?? 0) + 1);
+    }
+  }
+  for (const [labelId, memberships] of zoneMembership) {
+    assert.equal(memberships, 1, `every grounded label belongs to exactly one zone: ${labelId}`);
+  }
+
+  for (const level of [0, 1, 2, 3, 4] as const) {
+    assert.ok(
+      scene.labels.filter((label) => label.minLevel === level).length >= 20,
+      `LOD ${level} keeps at least twenty authored anchors`,
+    );
+  }
+});
+
+test("world atlas keeps four exact, non-overlapping spatial entrances", async () => {
+  const scene = await loadScene();
+  const canvas = { x: 0, y: 0, width: scene.width, height: scene.height };
+  const regions = new Map((scene.visualRegions ?? []).map((region) => [region.id, region]));
+  assert.equal(scene.portals.length, 4);
+  assert.deepEqual(
+    [...scene.portals.map(({ childSceneId }) => childSceneId)].sort(),
+    [...Object.keys(expectedPortalRectangles)].sort(),
+  );
+
+  for (const portal of scene.portals) {
+    const expected = expectedPortalRectangles[portal.childSceneId as keyof typeof expectedPortalRectangles];
+    assert.ok(expected, `unexpected atlas destination: ${portal.childSceneId}`);
+    assert.deepEqual(
+      { x: portal.x, y: portal.y, width: portal.width, height: portal.height },
+      expected,
+      `${portal.childSceneId} portal crop`,
+    );
+    assert.ok(rectangleInside(portal, canvas), `portal leaves the atlas: ${portal.id}`);
+    assert.ok(portal.sourceVisualRegion, `portal lacks a reviewed region: ${portal.id}`);
+    const sourceRegion = regions.get(portal.sourceVisualRegion);
+    assert.ok(sourceRegion, `portal references an unknown region: ${portal.id}`);
+    assert.ok(rectangleInside(portal, sourceRegion), `portal leaves its reviewed destination: ${portal.id}`);
+  }
+
+  for (let index = 0; index < scene.portals.length; index += 1) {
+    for (let otherIndex = index + 1; otherIndex < scene.portals.length; otherIndex += 1) {
+      assert.equal(
+        rectanglesOverlap(scene.portals[index], scene.portals[otherIndex]),
+        false,
+        `${scene.portals[index].id} overlaps ${scene.portals[otherIndex].id}`,
+      );
+    }
+  }
+});
+
+test("production label layout reveals at least 90% of the atlas without collisions or camera-history drift", async () => {
+  const scene = await loadScene();
+
+  for (const viewportConfiguration of explorationViewports) {
+    const viewport: SceneLabelViewport = viewportConfiguration;
+    const cameras = explorationCameras(scene, viewport);
+    const signatures: LayoutSignature[] = [];
+    const encountered = new Set<string>();
+
+    for (const [frameIndex, camera] of cameras.entries()) {
+      const protectedRegions = buildPortalCueProtectedRegions(scene.portals, camera, viewport);
+      const layout = computeSceneLabelLayout(
+        scene.labels,
+        camera,
+        viewport,
+        false,
+        { protectedRegions },
+      );
+      assertCollisionFreeFrame(
+        viewportConfiguration.name,
+        frameIndex,
+        layout,
+        protectedRegions,
+        viewport,
+      );
+      for (const item of layout) {
+        if (item.interactive) encountered.add(item.id);
+      }
+      signatures.push(layoutSignature(layout));
+    }
+
+    assert.ok(
+      encountered.size >= Math.ceil(scene.labels.length * minimumExplorationCoverage),
+      `${viewportConfiguration.name} camera sweep reached ${encountered.size}/${scene.labels.length} atlas words`,
+    );
+
+    for (let frameIndex = cameras.length - 1; frameIndex >= 0; frameIndex -= 1) {
+      const camera = cameras[frameIndex];
+      const protectedRegions = buildPortalCueProtectedRegions(scene.portals, camera, viewport);
+      const replay = computeSceneLabelLayout(
+        scene.labels,
+        camera,
+        viewport,
+        false,
+        { protectedRegions },
+      );
+      assert.deepEqual(
+        layoutSignature(replay),
+        signatures[frameIndex],
+        `${viewportConfiguration.name}/${frameIndex} returns to the exact same label set and offsets`,
+      );
+    }
+  }
 });

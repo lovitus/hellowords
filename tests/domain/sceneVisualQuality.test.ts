@@ -135,16 +135,16 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
     },
   },
   "world-map": {
-    asset: "/scenes/world-map-bright-v4.jpg",
-    sha256: "73536e8b31807e9e98300b8ceba03975210b881aabaf3f3e3718308fdfd82157",
+    asset: "/scenes/world-atlas-master-1600-v1.jpg",
+    sha256: "d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb",
     quality: {
       minMeanLuminance: 100,
-      maxMeanLuminance: 190,
-      maxDarkFraction: 0.3,
-      maxDeepDarkFraction: 0.09,
+      maxMeanLuminance: 180,
+      maxDarkFraction: 0.24,
+      maxDeepDarkFraction: 0.04,
       minMeanChroma: 0.1,
-      maxMeanChroma: 0.34,
-      maxChannelMeanSpread: 50,
+      maxMeanChroma: 0.3,
+      maxChannelMeanSpread: 45,
     },
   },
 };
@@ -165,8 +165,8 @@ const portalQualityLimits: Readonly<Record<string, Pick<
   },
   "world-map": {
     minMeanLuminance: 88,
-    maxDarkFraction: 0.34,
-    maxDeepDarkFraction: 0.1,
+    maxDarkFraction: 0.3,
+    maxDeepDarkFraction: 0.045,
   },
 };
 

@@ -106,6 +106,34 @@ test("detects invalid local data and child-parent mismatches", () => {
   assert.ok(codes.has("scene.missing-parent"));
 });
 
+test("optional multi-resolution scene assets participate in graph validation", () => {
+  const enhancedRoot: Scene = {
+    ...root,
+    asset: "/scenes/apartment-base.jpg",
+    width: 1_600,
+    height: 900,
+    assets: {
+      base: {
+        src: "/scenes/apartment-base.jpg",
+        width: 1_600,
+        height: 900,
+        sha256: "a".repeat(64),
+      },
+      high: {
+        src: "/scenes/apartment-high.jpg",
+        width: 3_200,
+        height: 1_700,
+        sha256: "b".repeat(64),
+      },
+    },
+  };
+  const result = validateSceneGraph([enhancedRoot, child]);
+  const codes = new Set(result.issues.map(({ code }) => code));
+  assert.ok(codes.has("asset.high-density-too-low"));
+  assert.ok(codes.has("asset.aspect-ratio-mismatch"));
+  assert.ok(result.issues.some(({ path }) => path === "scenes[0].assets.high"));
+});
+
 test("detail zones reference one truthful in-bounds word batch", () => {
   const zonedChild: Scene = {
     ...child,

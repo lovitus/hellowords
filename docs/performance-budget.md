@@ -10,7 +10,8 @@ Status: initial protective ceilings; recalibrate after repeated main-branch runs
 | Live collision-free desktop vocabulary bubbles | <= 80 |
 | Live collision-free mobile vocabulary bubbles | <= 40 |
 | Live DOM nodes | <= 1,500 |
-| Individual raster asset | <= 1.2 MiB |
+| Initial/base raster asset | <= 1.2 MiB |
+| Declared 2× high-density raster | <= 4.8 MiB |
 | Initial JavaScript, gzip | <= 300 KiB |
 | Largest semantic shard, gzip | <= 300 KiB |
 | Cold initial encoded bytes | <= 1 MiB |
@@ -24,6 +25,13 @@ The scene viewer keeps a larger authored set in the current slice, but five
 continuous LOD bands, viewport culling and a screen-space collision index keep
 the fully readable set within the budgets above. Hidden labels are removed from
 pointer, keyboard and accessibility navigation.
+
+Multi-resolution scenes always server-render and first paint their reviewed
+1600 × 900 base raster. Camera scale, fitted scale and device-pixel ratio then
+select a declared 2× tier. That tier must decode before the main image and blur
+backdrop switch together, and a decoded tier is reused across zoom round trips.
+The larger 4.8 MiB ceiling applies only to these explicit high-density
+descriptors; it does not weaken the 1.2 MiB initial/base ceiling.
 
 The lexical world keeps realms, topics, semantic subclusters, and words on one
 continuous semantic plane. Normal exploration hydrates only the active branch

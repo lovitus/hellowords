@@ -7,6 +7,7 @@ const LABEL_LAYER = '[data-testid="scene-label-layer"]';
 const INTERACTION_LAYER = '[data-testid="scene-interaction-layer"]';
 const TARGET_SCENE = "community-garden";
 const MAX_SCALE = 4.15;
+const LABEL_MOUNT_OVERSCAN_PX = 18;
 
 interface TraceRect {
   readonly left: number;
@@ -47,6 +48,8 @@ interface LabelZoomFrame {
 interface SceneContract {
   readonly labels: ReadonlyArray<{
     readonly id: string;
+    readonly x: number;
+    readonly y: number;
     readonly minLevel?: number;
     readonly maxScale?: number;
   }>;
@@ -326,8 +329,7 @@ async function startLabelZoomTrace(page: Page): Promise<void> {
             const bounds = label.getBoundingClientRect();
             return {
               id: label.dataset.labelId ?? "",
-              word: label.querySelector<HTMLElement>(":scope > span:not(.word-anchor-marker)")
-                ?.textContent?.trim() ?? label.getAttribute("aria-label") ?? "",
+              word: label.dataset.word ?? label.getAttribute("aria-label") ?? "",
               lod: Number(label.dataset.lod),
               interactive: label.dataset.interactive === "true",
               logicalOpacity: Number(label.style.getPropertyValue("--label-opacity")),
@@ -448,6 +450,26 @@ function anchorInsideViewport(label: TraceLabel, frame: LabelZoomFrame): boolean
     && label.anchorX <= frame.viewport.right
     && label.anchorY >= frame.viewport.top
     && label.anchorY <= frame.viewport.bottom;
+}
+
+function authoredAnchorInsideMountOverscan(
+  label: SceneContract["labels"][number],
+  frame: LabelZoomFrame,
+): boolean {
+  const match = frame.cameraTransform.match(
+    /translate3d\((-?[\d.]+)px,\s*(-?[\d.]+)px,\s*0(?:px)?\)\s*scale\(([\d.]+)\)/,
+  );
+  if (!match) throw new Error(`Unable to project authored anchor through ${frame.cameraTransform}`);
+  const translateX = Number(match[1]);
+  const translateY = Number(match[2]);
+  const scale = Number(match[3]);
+  const anchorX = frame.viewport.left + translateX + label.x * scale;
+  const anchorY = frame.viewport.top + translateY + label.y * scale;
+  const overscan = LABEL_MOUNT_OVERSCAN_PX;
+  return anchorX >= frame.viewport.left - overscan
+    && anchorX <= frame.viewport.right + overscan
+    && anchorY >= frame.viewport.top - overscan
+    && anchorY <= frame.viewport.bottom + overscan;
 }
 
 function overlaps(first: TraceRect, second: TraceRect, padding = 0): boolean {
@@ -592,6 +614,7 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
 
   const legalViewportDepartures = new Set<string>();
   const legalSlotChanges = new Set<string>();
+  const authoredLabelsById = new Map(sceneContract.labels.map((label) => [label.id, label]));
   let retainedFrameChecks = 0;
   let stableSlotChecks = 0;
   for (let frameIndex = 0; frameIndex < frames.length; frameIndex += 1) {
@@ -606,7 +629,16 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
     ).toBeGreaterThanOrEqual(previous.scale - 0.001);
     for (const previousLabel of previous.labels.filter((label) => label.interactive)) {
       const current = byId.get(previousLabel.id);
-      expect(current, `label ${previousLabel.id} must remain authored in every frame`).toBeDefined();
+      if (!current) {
+        const authored = authoredLabelsById.get(previousLabel.id);
+        expect(authored, `${previousLabel.id} must remain in the scene data contract`).toBeDefined();
+        expect(
+          authoredAnchorInsideMountOverscan(authored!, frame),
+          `${previousLabel.id} may unmount only after its authored anchor leaves mount overscan`,
+        ).toBe(false);
+        legalViewportDepartures.add(previousLabel.id);
+        continue;
+      }
       if (!anchorInsideViewport(current!, frame)) {
         legalViewportDepartures.add(previousLabel.id);
         continue;

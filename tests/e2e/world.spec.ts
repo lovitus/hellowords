@@ -13,6 +13,16 @@ interface MobileLabelLayout {
   overlaps: string[];
 }
 
+interface SceneLabelContract {
+  readonly id: string;
+  readonly labels: ReadonlyArray<{
+    readonly id: string;
+    readonly x: number;
+    readonly y: number;
+    readonly minLevel?: number;
+  }>;
+}
+
 async function openWorld(page: Page) {
   await page.goto("/", { waitUntil: "domcontentloaded" });
   const app = page.locator(APP);
@@ -27,6 +37,15 @@ async function sceneId(app: Locator) {
   const id = await app.getAttribute("data-scene-id");
   expect(id, "world-app must expose a non-empty data-scene-id").toBeTruthy();
   return id as string;
+}
+
+async function currentSceneLabelContract(page: Page): Promise<SceneLabelContract> {
+  const currentId = await sceneId(page.locator(APP));
+  return page.evaluate(async (id) => {
+    const response = await fetch(`/data/scenes/${encodeURIComponent(id)}.json`);
+    if (!response.ok) throw new Error(`Unable to load scene contract for ${id}`);
+    return response.json() as Promise<SceneLabelContract>;
+  }, currentId);
 }
 
 async function renderedWordCount(page: Page, minimumOpacity = 0.52) {
@@ -55,6 +74,12 @@ async function wordTransitionStyle(label: Locator): Promise<WordTransitionStyle>
   });
 }
 
+function visibleInteractiveWordLabels(page: Page): Locator {
+  return page.locator(
+    '[data-testid="word-label"][data-visible="true"][data-interactive="true"]',
+  );
+}
+
 async function zoomSceneToScale(
   page: Page,
   targetScale: number,
@@ -80,25 +105,25 @@ async function zoomSceneToScale(
   }, { intervals: [60], timeout: 5_000 }).toBeGreaterThanOrEqual(targetScale * 0.995);
 }
 
-async function closestLabelToViewportCenter(page: Page, selector: string) {
-  return page.locator(selector).evaluateAll((labels) => {
-    const viewport = document.querySelector<HTMLElement>('[data-testid="world-viewport"]');
-    if (!viewport) throw new Error("world viewport is required to select a zoom focus");
+async function closestAuthoredLabelToViewportCenter(
+  page: Page,
+  labels: SceneLabelContract["labels"],
+) {
+  return page.locator(VIEWPORT).evaluate((viewport, authoredLabels) => {
     const viewportRect = viewport.getBoundingClientRect();
     const centerX = viewportRect.left + viewportRect.width / 2;
     const centerY = viewportRect.top + viewportRect.height / 2;
     const surface = document.querySelector<HTMLElement>(".scene-surface");
     if (!surface) throw new Error("scene surface is required to project authored anchors");
     const camera = new DOMMatrixReadOnly(surface.style.transform);
-    const closest = labels
+    const closest = authoredLabels
       .map((label) => {
-        const element = label as HTMLElement;
         const anchor = camera.transformPoint({
-          x: Number(element.dataset.anchorX),
-          y: Number(element.dataset.anchorY),
+          x: label.x,
+          y: label.y,
         });
         return {
-          id: element.dataset.labelId ?? "",
+          ...label,
           distance: Math.hypot(
             viewportRect.left + anchor.x - centerX,
             viewportRect.top + anchor.y - centerY,
@@ -107,22 +132,24 @@ async function closestLabelToViewportCenter(page: Page, selector: string) {
       })
       .sort((first, second) => first.distance - second.distance)[0];
     if (!closest?.id) throw new Error("an authored detail label is required");
-    return closest.id;
-  });
+    return closest;
+  }, labels);
 }
 
-async function authoredAnchorScreenPoint(label: Locator): Promise<{ x: number; y: number }> {
-  return label.evaluate((element) => {
+async function authoredAnchorScreenPoint(
+  page: Page,
+  anchor: Pick<SceneLabelContract["labels"][number], "x" | "y">,
+): Promise<{ x: number; y: number }> {
+  return page.locator(VIEWPORT).evaluate((viewport, authoredAnchor) => {
     const surface = document.querySelector<HTMLElement>(".scene-surface");
-    const viewport = document.querySelector<HTMLElement>('[data-testid="world-viewport"]');
-    if (!surface || !viewport) throw new Error("scene camera is required to project an authored anchor");
+    if (!surface) throw new Error("scene camera is required to project an authored anchor");
     const anchor = new DOMMatrixReadOnly(surface.style.transform).transformPoint({
-      x: Number((element as HTMLElement).dataset.anchorX),
-      y: Number((element as HTMLElement).dataset.anchorY),
+      x: authoredAnchor.x,
+      y: authoredAnchor.y,
     });
     const viewportRect = viewport.getBoundingClientRect();
     return { x: viewportRect.left + anchor.x, y: viewportRect.top + anchor.y };
-  });
+  }, anchor);
 }
 
 async function mobileLabelLayout(page: Page): Promise<MobileLabelLayout> {
@@ -230,7 +257,7 @@ test("starts as a calm target-language world and persists the meaning toggle", a
     '[data-testid="scene-vocabulary-cue"][data-cue-source="authored-zone"]',
   ).first();
   await expect(toggle).toHaveAttribute("aria-pressed", "false");
-  await expect(translations.first()).toBeHidden();
+  await expect(translations).toHaveCount(0);
   await expect(detailCue).toHaveAttribute("data-zone-title", /\S+/);
   await expect(detailCue).toHaveAttribute("data-zone-translation", /\S+/);
   const zoneTitle = await detailCue.getAttribute("data-zone-title");
@@ -240,7 +267,9 @@ test("starts as a calm target-language world and persists the meaning toggle", a
 
   await toggle.click();
   await expect(toggle).toHaveAttribute("aria-pressed", "true");
-  await expect(translations.first()).toBeVisible();
+  await expect(
+    visibleInteractiveWordLabels(page).first().getByTestId("word-translation"),
+  ).toBeVisible();
   await expect(detailCue.locator(".vocabulary-zoom-cue-count")).toContainText(zoneTranslation!);
 
   await page.reload({ waitUntil: "domcontentloaded" });
@@ -249,7 +278,9 @@ test("starts as a calm target-language world and persists the meaning toggle", a
     "aria-pressed",
     "true",
   );
-  await expect(page.getByTestId("word-translation").first()).toBeVisible();
+  await expect(
+    visibleInteractiveWordLabels(page).first().getByTestId("word-translation"),
+  ).toBeVisible();
 });
 
 test("loads the 10,000-word field only on request and searches all 44 shards once", async ({ page }) => {
@@ -298,15 +329,18 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   const toggle = page.getByTestId("meaning-toggle");
   await expect(toggle).toHaveAttribute("aria-pressed", "false");
 
-  const label = page.getByTestId("word-label").first();
-  const word = (await label.innerText()).trim();
+  const label = visibleInteractiveWordLabels(page).first();
+  await expect(label).toBeVisible();
+  const word = await label.getAttribute("data-word");
+  expect(word, "the selected visible label must expose its target-language word").toBeTruthy();
+  await expect(page.getByRole("button", { name: word!, exact: true })).toBeVisible();
   await label.click();
-  const card = page.getByRole("complementary", { name: new RegExp(`${word} word details`, "i") });
+  const card = page.getByRole("complementary", { name: `${word!} word details` });
   await expect(card).toBeVisible();
   const selectedMeaning = card.locator("p").first();
   await expect(selectedMeaning).toContainText(/\p{Script=Han}/u);
   await expect(selectedMeaning).not.toContainText("释义已关闭");
-  await expect(page.getByTestId("word-translation").first()).toBeHidden();
+  await expect(page.getByTestId("word-translation")).toHaveCount(0);
 
   const meaning = await selectedMeaning.innerText();
   await toggle.click();
@@ -317,40 +351,85 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   await expect(card).toBeHidden();
 });
 
+test("the 301-word atlas keeps a bounded DOM window and reproduces its fit labels", async ({
+  page,
+}) => {
+  await openWorld(page);
+  const sceneContract = await currentSceneLabelContract(page);
+  const viewportWidth = page.viewportSize()?.width ?? 1280;
+  const mountLimit = viewportWidth <= 900 ? 96 : 180;
+  const readableFloor = viewportWidth <= 900 ? 12 : 18;
+  const labels = page.getByTestId("word-label");
+  const progress = page.getByTestId("scene-word-progress");
+  expect(sceneContract.labels.length).toBeGreaterThanOrEqual(300);
+  await expect(progress).toHaveAttribute("data-total", String(sceneContract.labels.length));
+  await expect.poll(() => labels.count()).toBeGreaterThan(0);
+  await expect.poll(() => labels.count()).toBeLessThanOrEqual(mountLimit);
+
+  const fitSignature = await labels.evaluateAll((nodes) => nodes
+    .filter((node) => (node as HTMLElement).dataset.interactive === "true")
+    .map((node) => {
+      const element = node as HTMLElement;
+      return `${element.dataset.labelId}:${element.style.transform}`;
+    })
+    .sort());
+  expect(fitSignature.length).toBeGreaterThanOrEqual(readableFloor);
+
+  await page.getByRole("button", { name: "Zoom in" }).click();
+  await page.getByRole("button", { name: "Zoom in" }).click();
+  await expect.poll(() => labels.count()).toBeLessThanOrEqual(mountLimit);
+  await page.getByRole("button", { name: "Fit scene" }).click();
+  await expect.poll(async () => labels.evaluateAll((nodes) => nodes
+    .filter((node) => (node as HTMLElement).dataset.interactive === "true")
+    .map((node) => {
+      const element = node as HTMLElement;
+      return `${element.dataset.labelId}:${element.style.transform}`;
+    })
+    .sort())).toEqual(fitSignature);
+  await expect.poll(() => labels.count()).toBeLessThanOrEqual(mountLimit);
+});
+
 test("five authored LOD bands use spare space and remain readable while zooming", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
   await openWorld(page);
+  const sceneContract = await currentSceneLabelContract(page);
   const surface = page.locator(".scene-surface");
   await expect(surface).toHaveAttribute("data-lod-level", "1");
-  const authoredLods = await page.getByTestId("word-label").evaluateAll((labels) => (
-    [...new Set(labels.map((label) => Number((label as HTMLElement).dataset.minLevel)))].sort()
-  ));
+  const authoredLods = [...new Set(sceneContract.labels.map((label) => label.minLevel ?? 0))]
+    .sort((first, second) => first - second);
   expect(authoredLods).toEqual([0, 1, 2, 3, 4]);
-  expect(await page.getByTestId("word-label").count()).toBeGreaterThanOrEqual(30);
+  const mountedLabels = page.getByTestId("word-label");
+  expect(await mountedLabels.count()).toBeGreaterThanOrEqual(30);
+  expect(await mountedLabels.count()).toBeLessThanOrEqual(180);
   await expect.poll(() => renderedWordCount(page), {
     message: "desktop overview must expose at least 18 readable, visually grounded words",
   }).toBeGreaterThanOrEqual(18);
   const overviewReadableWordCount = await renderedWordCount(page);
 
-  const detailLabelId = await closestLabelToViewportCenter(page, '.word-label[data-min-level="4"]');
-  const detailLabel = page.locator(`.word-label[data-label-id="${detailLabelId}"]`);
-  const initialDetailStyle = await wordTransitionStyle(detailLabel);
-  const initiallyAdaptive = await detailLabel.getAttribute("data-adaptive") === "true";
-  expect(initialDetailStyle.display, "every authored density layer remains renderable").not.toBe("none");
-  if (initiallyAdaptive) {
-    expect(
-      initialDetailStyle.opacity,
-      "a future LOD promoted into spare space must already be readable",
-    ).toBeGreaterThanOrEqual(0.52);
-    await expect(detailLabel).toHaveAttribute("aria-hidden", "false");
-    await expect(detailLabel).toHaveAttribute("tabindex", "0");
-  } else {
-    expect(
-      initialDetailStyle.opacity,
-      "a detail word without a collision-free adaptive slot remains hidden until zoomed",
-    ).toBeLessThanOrEqual(0.05);
-    await expect(detailLabel).toHaveAttribute("aria-hidden", "true");
-    await expect(detailLabel).toHaveAttribute("tabindex", "-1");
+  const detailContract = await closestAuthoredLabelToViewportCenter(
+    page,
+    sceneContract.labels.filter((label) => (label.minLevel ?? 0) === 4),
+  );
+  const detailLabel = page.locator(`.word-label[data-label-id="${detailContract.id}"]`);
+  if (await detailLabel.count() === 1) {
+    const initialDetailStyle = await wordTransitionStyle(detailLabel);
+    const initiallyAdaptive = await detailLabel.getAttribute("data-adaptive") === "true";
+    expect(initialDetailStyle.display, "a mounted authored detail remains renderable").not.toBe("none");
+    if (initiallyAdaptive) {
+      expect(
+        initialDetailStyle.opacity,
+        "a future LOD promoted into spare space must already be readable",
+      ).toBeGreaterThanOrEqual(0.52);
+      await expect(detailLabel).toHaveAttribute("aria-hidden", "false");
+      await expect(detailLabel).toHaveAttribute("tabindex", "0");
+    } else {
+      expect(
+        initialDetailStyle.opacity,
+        "a mounted detail without a collision-free adaptive slot remains hidden until zoomed",
+      ).toBeLessThanOrEqual(0.05);
+      await expect(detailLabel).toHaveAttribute("aria-hidden", "true");
+      await expect(detailLabel).toHaveAttribute("tabindex", "-1");
+    }
   }
 
   await zoomSceneToScale(page, 1.22);
@@ -362,9 +441,10 @@ test("five authored LOD bands use spare space and remain readable while zooming"
 
   await page.getByRole("button", { name: "Fit scene" }).click();
   await expect(surface).toHaveAttribute("data-scene-scale", "1.000");
-  const authoredFocus = await authoredAnchorScreenPoint(detailLabel);
+  const authoredFocus = await authoredAnchorScreenPoint(page, detailContract);
   await zoomSceneToScale(page, 3.12, authoredFocus);
   await expect(surface).toHaveAttribute("data-lod-level", "4");
+  await expect(detailLabel).toHaveCount(1);
   await expect(detailLabel).toBeVisible();
   await expect.poll(async () => (await wordTransitionStyle(detailLabel)).opacity).toBeGreaterThanOrEqual(0.95);
   await expect(detailLabel).toHaveAttribute("aria-hidden", "false");
@@ -426,14 +506,27 @@ test("scene-wide zoom guidance honestly reports zero or more words after adaptiv
 
   await summary.focus();
   await expect(summary).toBeFocused();
+  const summaryNextLabelId = await summary.getAttribute("data-next-label-id");
+  expect(summaryNextLabelId).toBeTruthy();
   await page.keyboard.press("Enter");
   await expect(surface).toHaveAttribute("data-lod-level", String(nextLod));
   await expect.poll(async () => page.locator(
-    `.word-label[data-min-level="${nextLod}"][data-interactive="true"]`,
+    `.word-label[data-lod="${nextLod}"][data-interactive="true"]`,
   ).count(), {
     message: "activating the scene-wide cue must make its next LOD keyboard-readable",
   }).toBeGreaterThan(0);
-  await expect(page.locator(".word-label:focus")).toHaveCount(1);
+  const summaryFocusedLabel = page.locator(".word-label:focus");
+  await expect(summaryFocusedLabel).toHaveCount(1);
+  const resolvedSummaryFocusId = await summaryFocusedLabel.getAttribute("data-label-id");
+  expect(resolvedSummaryFocusId).toBeTruthy();
+  expect(
+    await summary.getAttribute("data-next-label-id"),
+    "the summary's live next-word contract matches the collision-safe focused word",
+  ).toBe(resolvedSummaryFocusId);
+  expect(
+    await page.getByTestId("word-label").count(),
+    "the keyboard focus handoff must preserve the compact DOM mount ceiling",
+  ).toBeLessThanOrEqual(96);
 
   const activeAfter = await summary.getAttribute("data-active");
   const hiddenAfter = Number(await summary.getAttribute("data-hidden-word-count"));
@@ -461,10 +554,12 @@ test("an authored detail-zone cue zooms within the scene and reduces its truthfu
 
   const remainingBefore = Number(await cue.getAttribute("data-hidden-word-count"));
   const nextBatchCount = Number(await cue.getAttribute("data-next-batch-count"));
+  const nextLabelId = await cue.getAttribute("data-next-label-id");
   const nextLod = Number(await cue.getAttribute("data-next-lod"));
   const targetScale = Number(await cue.getAttribute("data-target-scale"));
   expect(remainingBefore).toBeGreaterThanOrEqual(nextBatchCount);
   expect(nextBatchCount).toBeGreaterThan(0);
+  expect(nextLabelId).toBeTruthy();
   expect(targetScale).toBeGreaterThan(1);
 
   await cue.focus();
@@ -474,9 +569,16 @@ test("an authored detail-zone cue zooms within the scene and reduces its truthfu
     async () => Number(await surface.getAttribute("data-scene-scale")),
   ).toBeGreaterThanOrEqual(targetScale * 0.995);
   await expect.poll(() => page.locator(
-    `.word-label[data-min-level="${nextLod}"][data-interactive="true"]`,
+    `.word-label[data-lod="${nextLod}"][data-interactive="true"]`,
   ).count()).toBeGreaterThanOrEqual(nextBatchCount);
-  await expect(page.locator(".word-label:focus")).toHaveCount(1);
+  const focusedLabel = page.locator(".word-label:focus");
+  await expect(focusedLabel).toHaveCount(1);
+  const resolvedCueFocusId = await focusedLabel.getAttribute("data-label-id");
+  expect(resolvedCueFocusId).toBeTruthy();
+  expect(
+    await stableCue.getAttribute("data-next-label-id"),
+    "the authored cue's live next-word contract matches the collision-safe focused word",
+  ).toBe(resolvedCueFocusId);
   await expect.poll(
     async () => (await stableCue.getAttribute("data-active")) === "false"
       ? 0
@@ -552,7 +654,7 @@ test("hysteresis prevents scene thrashing near a zoom boundary", async ({ page }
 test("mobile viewport exposes touch-safe labels and hotspots", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile-chromium");
   await openWorld(page);
-  await expect(page.getByTestId("word-label").first()).toBeVisible();
+  await expect(visibleInteractiveWordLabels(page).first()).toBeVisible();
   await expect
     .poll(async () => (await mobileLabelLayout(page)).count, {
       message: "the initial mobile screen should expose a useful vocabulary set without zooming",

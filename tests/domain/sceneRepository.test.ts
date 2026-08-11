@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   getPreparedScene,
   getSceneCacheSnapshot,
+  loadScene,
   prepareScene,
   resetSceneRepositoryForTests,
   retainSceneNeighborhood,
@@ -209,6 +210,30 @@ test("continuous prepare signals share one fetch and one image decode", async ()
   assert.ok(prepared.every(({ id }) => id === "leaf"));
   assert.deepEqual(fetches, ["/data/scenes/leaf.json"]);
   assert.deepEqual(FakeImage.decodeCalls, ["/scenes/leaf.jpg"]);
+});
+
+test("runtime scene loading rejects malformed optional asset metadata without breaking legacy JSON", async () => {
+  installRepositoryFakes();
+  globalThis.fetch = (async () => new Response(JSON.stringify({
+    ...scene("invalid-assets"),
+    assets: {
+      base: {
+        src: "/scenes/not-the-legacy-base.jpg",
+        width: 1600,
+        height: 900,
+        sha256: "not-a-hash",
+      },
+    },
+  }), {
+    status: 200,
+    headers: { "content-type": "application/json" },
+  })) as typeof fetch;
+
+  await assert.rejects(
+    loadScene("invalid-assets"),
+    /assets\.base\.(?:src|sha256)/,
+  );
+  assert.deepEqual(FakeImage.decodeCalls, []);
 });
 
 test("an aborted waiter cannot cancel a shared neighborhood prepare", async () => {

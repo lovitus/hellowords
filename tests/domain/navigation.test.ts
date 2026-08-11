@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  advanceParentExitHysteresis,
+  createParentExitHysteresisState,
   createParentCameraFrame,
   createPortalHysteresisState,
   reducePortalHysteresis,
@@ -9,6 +11,84 @@ import {
   type PortalHysteresisState,
   type PortalZoomSample,
 } from "../../app/domain/navigation";
+
+test("one outward device stream can arm but cannot cross the parent boundary", () => {
+  let state = createParentExitHysteresisState();
+  for (const [now, scale] of [[0, 0.81], [24, 0.68], [48, 0.68], [72, 0.68]] as const) {
+    const result = advanceParentExitHysteresis(state, {
+      now,
+      factor: 0.78,
+      scale,
+      hasParent: true,
+      continuitySettled: true,
+    });
+    assert.equal(result.exitRequested, false);
+    state = result.state;
+  }
+  assert.equal(state.armed, true);
+});
+
+test("a fresh outward gesture crosses the armed child overview boundary", () => {
+  const armed = advanceParentExitHysteresis(createParentExitHysteresisState(), {
+    now: 10,
+    factor: 0.68,
+    scale: 0.68,
+    hasParent: true,
+    continuitySettled: true,
+  });
+  assert.equal(armed.exitRequested, false, "the first gesture only reveals the full child overview");
+
+  const sameGesture = advanceParentExitHysteresis(armed.state, {
+    now: 189,
+    factor: 0.9,
+    scale: 0.68,
+    hasParent: true,
+    continuitySettled: true,
+  });
+  assert.equal(sameGesture.exitRequested, false);
+
+  const freshGesture = advanceParentExitHysteresis(sameGesture.state, {
+    now: 369,
+    factor: 0.9,
+    scale: 0.68,
+    hasParent: true,
+    continuitySettled: true,
+  });
+  assert.equal(freshGesture.exitRequested, true);
+});
+
+test("continuity and inward input clear parent-exit intent", () => {
+  const armed = advanceParentExitHysteresis(createParentExitHysteresisState(), {
+    now: 0,
+    factor: 0.68,
+    scale: 0.68,
+    hasParent: true,
+    continuitySettled: true,
+  }).state;
+  const duringSettle = advanceParentExitHysteresis(armed, {
+    now: 200,
+    factor: 0.68,
+    scale: 0.68,
+    hasParent: true,
+    continuitySettled: false,
+  });
+  assert.deepEqual(duringSettle, {
+    state: createParentExitHysteresisState(),
+    exitRequested: false,
+  });
+
+  const reversed = advanceParentExitHysteresis(armed, {
+    now: 200,
+    factor: 1.2,
+    scale: 0.9,
+    hasParent: true,
+    continuitySettled: true,
+  });
+  assert.deepEqual(reversed, {
+    state: createParentExitHysteresisState(),
+    exitRequested: false,
+  });
+});
 
 const policy: PortalHysteresisPolicy = {
   enterScale: 4,

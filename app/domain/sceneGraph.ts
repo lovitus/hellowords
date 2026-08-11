@@ -1,4 +1,5 @@
 import { assertCamera } from "./camera";
+import { validateSceneAssetContract } from "./sceneAssets";
 import type { Label, Portal, Scene } from "./types";
 
 export type ValidationSeverity = "error" | "warning";
@@ -54,6 +55,14 @@ export function validateSceneGraph(
     requireText(issues, scene.asset, `${path}.asset`, "scene.empty-asset");
     requirePositive(issues, scene.width, `${path}.width`);
     requirePositive(issues, scene.height, `${path}.height`);
+    for (const assetIssue of validateSceneAssetContract(scene)) {
+      error(
+        issues,
+        assetIssue.code,
+        `${path}.${assetIssue.path}`,
+        assetIssue.message,
+      );
+    }
     validateCamera(issues, scene.initialCamera, `${path}.initialCamera`);
     validateLabels(issues, scene, path, options);
     validateDetailZones(issues, scene, path, options);

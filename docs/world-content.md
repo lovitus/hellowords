@@ -31,7 +31,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 1,516 human-verified anchors representing 1,224 distinct English display terms. The current pixel audits also record 471 rejected candidates because the named object, part, action or property cannot be pointed to in the published image. This expansion adds grounded anchors through richer, independently reviewed artwork rather than by restoring floating topic words. Global vocabulary remains available in the lexical world; a word only appears over a scene when the scene itself supplies visual evidence.
+Spatial scenes now contain 1,710 human-verified anchors representing 1,383 distinct English display terms. The current pixel audits also record 467 rejected candidates because the named object, part, action or property cannot be pointed to in the published image. This expansion adds grounded anchors through richer, independently reviewed artwork rather than by restoring floating topic words. Global vocabulary remains available in the lexical world; a word only appears over a scene when the scene itself supplies visual evidence.
 
 Every scene JSON contains:
 
@@ -40,9 +40,9 @@ Every scene JSON contains:
 - `detailZones`, grouping truthful local crops into independently focusable word batches with a target scale;
 - `sourceVisualRegion` on every label and portal.
 
-The 37 high-resolution raster scenes contribute to 193 authored detail zones across the complete spatial world. A zone names and describes one crop, supplies a Chinese title, and references only label anchors that fall inside its rectangle. It therefore gives the viewport enough data to focus a room, exhibit, habitat, material structure or organelle without inventing another scene or reusing a generic background. A label belongs to at most one zone in the same scene.
+The 37 high-resolution raster scenes contribute to 199 authored detail zones across the complete spatial world. The world atlas alone contributes 301 anchors across 12 zones, turning one coherent overview into a large continuously zoomable vocabulary field. A zone names and describes one crop, supplies a Chinese title, and references only label anchors that fall inside its rectangle. It therefore gives the viewport enough data to focus a district, room, exhibit, habitat, material structure or organelle without inventing another scene or reusing a generic background. A label belongs to at most one zone in the same scene.
 
-Spatial labels also use the existing optional `lexemeId` as an audited bridge into the 10,000-word lexical world. There are currently 242 sense-reviewed, word-identical links. The validator loads all 10,000 lexical entries and rejects a missing ID or a link whose display word differs. A separate sense review removed spelling-identical but contextually wrong routes such as electrical `battery` to an artillery group, anatomical `heart` to an emotion concept, and tree `branch` to an organization. Visually valid specialist phrases remain unlinked when the ranked lexicon has no matching entry rather than being forced onto an unrelated word sense.
+Spatial labels also use the existing optional `lexemeId` as an audited bridge into the 10,000-word lexical world. There are currently 230 sense-reviewed, word-identical links. The validator loads all 10,000 lexical entries and rejects a missing ID or a link whose display word differs. A separate sense review removed spelling-identical but contextually wrong routes such as electrical `battery` to an artillery group, anatomical `heart` to an emotion concept, and tree `branch` to an organization. Visually valid specialist phrases remain unlinked when the ranked lexicon has no matching entry rather than being forced onto an unrelated word sense.
 
 The authored `x`/`y` is the point on the object itself, not a pre-arranged card position. Runtime collision handling may move the word capsule, but the guide line and anchor dot continue to point to that authored pixel.
 
@@ -73,7 +73,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 
 | Scene | Before → retained | Main removal reason |
 |---|---:|---|
-| World atlas | 114 → 107 | Zone-by-zone bright-atlas audit adds 34 independently pointable landscape parts, home fixtures, building and bus details, oak-deck parts and greenhouse hardware while preserving the four entrances |
+| World atlas | 304 → 301 | Four built-in ImageGen district panels were assembled into one coherent master, then pixel-audited into 12 zones while preserving four disjoint entrances |
 | Community garden | 56 → 48 | Bright greenhouse, beds, tools, irrigation, compost and flowers retained; inferred activities and sustainability claims removed |
 | Greenhouse interior | 53 → 46 | Sunlit glasshouse grounds its frame, benches, seedlings, crops, tools and a complete tomato portal; climate and growth processes remain removed |
 | Tomato plant | 51 → 44 | Complete supported plant grounds external stem, leaf, flower, fruit, irrigation and visible pest evidence; physiology and underground processes remain removed |
@@ -113,9 +113,9 @@ Translations remain authored for the visible scene meaning. For example, the hea
 
 ## Visual strategy
 
-The atlas and its first-level destinations use high-detail 1600 × 900 raster illustrations because they establish place and atmosphere at a glance. `city-street` now uses `city-street-bright-v4.jpg`: a complete columned science museum with a telescope-and-mineral window stands at left, a complete blank-fronted brick cafe occupies the centre, and a complete arched-glass transit hall anchors the right above the crossing and accessible curb. Its final-pixel audit retains 42 distinct terms, and the three portal silhouettes remain disjoint and legible without words, logos, anatomy displays or pseudo-signage.
+The atlas and its first-level destinations use high-detail raster illustrations because they establish place and atmosphere at a glance. The atlas combines four built-in ImageGen panels—Home, City, Community garden and Nature—into one coherent 16:9 master. Its reviewed 1600 × 900 base raster first-paints quickly, while camera scale and device-pixel ratio select a decoded 3200 × 1800 tier in place for fine zooming. `city-street` uses `city-street-bright-v4.jpg`: a complete columned science museum with a telescope-and-mineral window stands at left, a complete blank-fronted brick cafe occupies the centre, and a complete arched-glass transit hall anchors the right above the crossing and accessible curb. Its final-pixel audit retains 42 distinct terms, and the three portal silhouettes remain disjoint and legible without words, logos, anatomy displays or pseudo-signage.
 
-The world now contains 37 premium 1600 × 900 raster scenes, including the independently illustrated Community garden, Greenhouse, Tomato plant and Potting workbench branch plus upgraded Home, transit, material, natural-history and life-science destinations. This keeps every root entrance visually rewarding, gives Home three tangible rooms, makes both transit branches begin with tangible spaces, and turns the entire `City park → Oak tree → Leaf → Plant cell → Chloroplast` path into one continuous high-detail journey. The exact production briefs and asset digests are recorded in `docs/premium-scene-art.md`.
+The world now contains 37 premium scenes with independently reviewed 1600 × 900 base rasters, including the independently illustrated Community garden, Greenhouse, Tomato plant and Potting workbench branch plus upgraded Home, transit, material, natural-history and life-science destinations. The atlas also has a declared 2× derivative rather than a duplicate scene. This keeps every root entrance visually rewarding, gives Home three tangible rooms, makes both transit branches begin with tangible spaces, and turns the entire `City park → Oak tree → Leaf → Plant cell → Chloroplast` path into one continuous high-detail journey. The exact production briefs and asset digests are recorded in `docs/premium-scene-art.md`.
 
 Every authored spatial scene slice uses its own external visual asset. No runtime spatial scene now depends on an SVG cutaway: all 37 authored spatial destinations use individually audited 1600 × 900 raster artwork, and no image is reused to pretend that two spatial depths are different scenes. The separate 10,000-word semantic field reuses each selected realm's reviewed image while replacing realm, topic, subcluster and word labels on the same plane.
 
@@ -137,6 +137,6 @@ Every authored spatial scene slice uses its own external visual asset. No runtim
 - a child is unreachable, duplicated or missing its parent portal;
 - a translation or accessible asset description is missing;
 - an SVG uses a mismatched viewBox or a raster asset is not a valid JPEG;
-- a JPEG is not exactly 1600 × 900 or exceeds the per-scene raster budget.
+- a base JPEG is not exactly 1600 × 900, a declared high-density tier is not the same aspect ratio at 2× density, an asset hash differs, or either tier exceeds its applicable raster budget.
 
 `tests/domain/worldContent.test.ts` independently locks the expanding 37-plus-scene topology, four disjoint root portals, four mature root branches, six deep paths, audit reconciliation, region containment, five-band staging, known floating-label regressions, premium-scene density, detail-zone integrity, lexical crosswalks, exact asset hashes and the unique external asset contract.

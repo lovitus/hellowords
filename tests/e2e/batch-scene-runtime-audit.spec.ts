@@ -23,7 +23,7 @@ interface RuntimeScene {
   id: string;
   parentId: string | null;
   asset: string;
-  labels: Array<{ id: string; lexemeId?: string }>;
+  labels: Array<{ id: string; lexemeId?: string; sourceVisualRegion?: string }>;
   portals: Array<{ id: string; childSceneId: string }>;
 }
 
@@ -33,7 +33,9 @@ interface SceneRuntimeResult {
   decodedWidth: number;
   decodedHeight: number;
   readableWords: number;
-  labelCount: number;
+  authoredLabelCount: number;
+  mountedLabelCount: number;
+  interactiveLabelCount: number;
   distinctVisualRegions: number;
   distinctSemanticGroups: number;
   distinctPaletteIndices: number;
@@ -94,7 +96,11 @@ async function waitForScene(page: Page, app: Locator, sceneId: string): Promise<
   }).length)).toBeGreaterThan(0);
 }
 
-async function auditCurrentScene(page: Page, scene: RuntimeScene): Promise<SceneRuntimeResult> {
+async function auditCurrentScene(
+  page: Page,
+  scene: RuntimeScene,
+  mode: "desktop" | "mobile",
+): Promise<SceneRuntimeResult> {
   const art = page.locator(".viewer-shell:not([data-phase]) .scene-art");
   await expect(art).toHaveCount(1);
   await expect(art).toHaveAttribute("src", scene.asset);
@@ -110,9 +116,21 @@ async function auditCurrentScene(page: Page, scene: RuntimeScene): Promise<Scene
   expect(new URL(image.src).pathname, `${scene.id} must not render an SVG`).not.toMatch(/\.svg$/i);
   expect(scene.asset, `${scene.id} scene JSON must not reference an SVG`).not.toMatch(/\.svg(?:\?|$)/i);
 
+  const progress = page.getByTestId("scene-word-progress");
+  await expect(progress).toHaveAttribute("data-total", String(scene.labels.length));
+  await expect.poll(async () => {
+    const interactive = await page.getByTestId("word-label").evaluateAll((nodes) => (
+      nodes.filter((node) => (node as HTMLElement).dataset.interactive === "true").length
+    ));
+    return interactive - Number(await progress.getAttribute("data-current"));
+  }, {
+    message: `${scene.id} must mount every label in the complete layout's interactive set`,
+  }).toBe(0);
+
   const linkedLabelIds = scene.labels.filter(({ lexemeId }) => lexemeId).map(({ id }) => id);
-  const labels = await page.getByTestId("word-label").evaluateAll((nodes, linkedIds) => {
-    const linked = new Set(linkedIds);
+  const labels = await page.getByTestId("word-label").evaluateAll((nodes, contract) => {
+    const linked = new Set(contract.linkedLabelIds);
+    const visualRegionById = new Map(contract.visualRegions);
     const readable = nodes.filter((node) => {
       const element = node as HTMLElement;
       const style = getComputedStyle(element);
@@ -123,18 +141,22 @@ async function auditCurrentScene(page: Page, scene: RuntimeScene): Promise<Scene
     });
     const semanticRows = nodes.map((node) => {
       const element = node as HTMLElement;
+      const semanticStyle = getComputedStyle(element);
       return {
         labelId: element.dataset.labelId ?? "",
-        visualRegion: element.dataset.visualRegion ?? "",
+        visualRegion: visualRegionById.get(element.dataset.labelId ?? "") ?? "",
         semanticGroup: element.dataset.semanticGroup ?? "",
         paletteIndex: element.dataset.paletteIndex ?? "",
-        surface: element.style.getPropertyValue("--label-semantic-surface"),
-        border: element.style.getPropertyValue("--label-semantic-border"),
+        surface: semanticStyle.getPropertyValue("--label-semantic-surface"),
+        border: semanticStyle.getPropertyValue("--label-semantic-border"),
       };
     });
     return {
       readableWords: readable.length,
-      labelCount: nodes.length,
+      mountedLabelCount: nodes.length,
+      interactiveLabelCount: nodes.filter((node) => (
+        (node as HTMLElement).dataset.interactive === "true"
+      )).length,
       distinctVisualRegions: new Set(semanticRows.map(({ visualRegion }) => visualRegion)).size,
       distinctSemanticGroups: new Set(semanticRows.map(({ semanticGroup }) => semanticGroup)).size,
       distinctPaletteIndices: new Set(semanticRows.map(({ paletteIndex }) => paletteIndex)).size,
@@ -148,14 +170,23 @@ async function auditCurrentScene(page: Page, scene: RuntimeScene): Promise<Scene
         linked.has(row.labelId) && Number.parseInt(row.paletteIndex, 10) >= 10
       )).length,
     };
-  }, linkedLabelIds);
-  expect(labels.labelCount, `${scene.id} must render its authored labels`).toBeGreaterThan(0);
+  }, {
+    linkedLabelIds,
+    visualRegions: scene.labels.map(
+      ({ id, sourceVisualRegion }) => [id, sourceVisualRegion ?? ""] as const,
+    ),
+  });
+  expect(labels.mountedLabelCount, `${scene.id} must mount a bounded authored window`).toBeGreaterThan(0);
+  expect(labels.mountedLabelCount, `${scene.id} must respect the ${mode} label DOM ceiling`).toBeLessThanOrEqual(
+    mode === "mobile" ? 96 : 180,
+  );
 
   return {
     id: scene.id,
     asset: scene.asset,
     decodedWidth: image.width,
     decodedHeight: image.height,
+    authoredLabelCount: scene.labels.length,
     ...labels,
   };
 }
@@ -255,7 +286,7 @@ async function runTreeAudit(
   expect(visited.has(sceneId), `${sceneId} must be reached only once in the scene tree`).toBe(false);
   visited.add(sceneId);
   await waitForScene(page, app, sceneId);
-  sceneResults.push(await auditCurrentScene(page, scene!));
+  sceneResults.push(await auditCurrentScene(page, scene!, mode));
 
   for (const { childSceneId } of scene!.portals) {
     const portal = await preparePortal(page, childSceneId);

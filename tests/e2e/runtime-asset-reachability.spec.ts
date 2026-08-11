@@ -20,7 +20,18 @@ interface RuntimeScene {
   id: string;
   parentId: string | null;
   asset: string;
+  assets?: {
+    base: RuntimeSceneAssetDescriptor;
+    high?: RuntimeSceneAssetDescriptor;
+  };
   portals: Array<{ childSceneId: string }>;
+}
+
+interface RuntimeSceneAssetDescriptor {
+  src: string;
+  width: number;
+  height: number;
+  sha256: string;
 }
 
 interface BrowserSceneFetch {
@@ -172,11 +183,89 @@ test("every scene-manifest image is deployed, decodable, unique, and root-reacha
     }
   }
 
-  const assets = [...sceneById.values()].map(({ asset }) => asset);
-  expect(new Set(assets).size, "each scene must own a distinct runtime image URL").toBe(assets.length);
+  const canonicalAssets = [...sceneById.values()].map(({ asset }) => asset);
+  expect(new Set(canonicalAssets).size, "each scene must own a distinct runtime image URL").toBe(canonicalAssets.length);
+  const descriptorBySrc = new Map<string, RuntimeSceneAssetDescriptor>();
+  for (const scene of sceneById.values()) {
+    if (!scene.assets) continue;
+    expect(scene.assets.base.src, `${scene.id} base must remain its canonical scene.asset`).toBe(scene.asset);
+    for (const descriptor of [scene.assets.base, scene.assets.high].filter(
+      (candidate): candidate is RuntimeSceneAssetDescriptor => Boolean(candidate),
+    )) {
+      expect(descriptorBySrc.has(descriptor.src), `${descriptor.src} must belong to one asset tier`).toBe(false);
+      descriptorBySrc.set(descriptor.src, descriptor);
+    }
+  }
+  const assets = [...new Set([...canonicalAssets, ...descriptorBySrc.keys()])];
   const decodedAssets = await fetchAndDecodeAssets(page, assets);
   expect(decodedAssets.map(({ asset }) => asset).sort()).toEqual([...assets].sort());
   verifyDecodedAssets(decodedAssets);
+  for (const decoded of decodedAssets) {
+    const descriptor = descriptorBySrc.get(decoded.asset);
+    if (!descriptor) continue;
+    expect(decoded.width, `${decoded.asset} width must match its tier descriptor`).toBe(descriptor.width);
+    expect(decoded.height, `${decoded.asset} height must match its tier descriptor`).toBe(descriptor.height);
+  }
+});
+
+test("world-map swaps its decoded 3200x1800 tier in place and reuses it", async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name === "mobile-chromium", "the exact desktop pixel-demand boundary runs once");
+  const highRequests: string[] = [];
+  const expected = await page.request.get("/data/scenes/world-map.json").then(async (response) => ({
+    status: response.status(),
+    scene: await response.json() as RuntimeScene,
+  }));
+  expect(expected.status).toBe(200);
+  expect(expected.scene.assets?.base).toBeDefined();
+  expect(expected.scene.assets?.high).toMatchObject({ width: 3_200, height: 1_800 });
+  const base = expected.scene.assets!.base;
+  const high = expected.scene.assets!.high!;
+  page.on("request", (request) => {
+    if (new URL(request.url()).pathname === high.src) highRequests.push(request.url());
+  });
+
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const app = page.getByTestId("world-app");
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+  const viewport = page.locator('.viewer-shell:not([data-phase]) [data-testid="world-viewport"]');
+  const art = viewport.locator(".scene-art");
+  await expect(viewport).toHaveAttribute("data-active-asset-tier", "base");
+  await expect(viewport).toHaveAttribute("data-active-asset-src", base.src);
+  await expect(art).toHaveAttribute("src", base.src);
+  await expect.poll(() => art.evaluate((image: HTMLImageElement) => (
+    image.complete ? [image.naturalWidth, image.naturalHeight] : [0, 0]
+  ))).toEqual([base.width, base.height]);
+
+  const zoomIn = page.getByRole("button", { name: "Zoom in" });
+  const zoomOut = page.getByRole("button", { name: "Zoom out" });
+  for (let step = 0; step < 3 && await viewport.getAttribute("data-desired-asset-tier") !== "high"; step += 1) {
+    await zoomIn.click();
+  }
+  await expect(viewport).toHaveAttribute("data-desired-asset-tier", "high");
+  await expect(viewport).toHaveAttribute("data-active-asset-tier", "high");
+  await expect(viewport).toHaveAttribute("data-active-asset-src", high.src);
+  await expect(art).toHaveAttribute("src", high.src);
+  await expect.poll(() => art.evaluate((image: HTMLImageElement) => (
+    image.complete ? [image.naturalWidth, image.naturalHeight] : [0, 0]
+  ))).toEqual([3_200, 1_800]);
+
+  for (let step = 0; step < 3 && await viewport.getAttribute("data-desired-asset-tier") !== "base"; step += 1) {
+    await zoomOut.click();
+  }
+  await expect(viewport).toHaveAttribute("data-desired-asset-tier", "base");
+  await expect(viewport).toHaveAttribute("data-active-asset-tier", "base");
+  const requestsAfterFirstDecode = highRequests.length;
+  expect(requestsAfterFirstDecode).toBeGreaterThan(0);
+  for (let step = 0; step < 3 && await viewport.getAttribute("data-desired-asset-tier") !== "high"; step += 1) {
+    await zoomIn.click();
+  }
+  await expect(viewport).toHaveAttribute("data-active-asset-tier", "high");
+  await expect(art).toHaveAttribute("src", high.src);
+  expect(highRequests, "a decoded high tier must not be fetched again after zooming out and back in")
+    .toHaveLength(requestsAfterFirstDecode);
 });
 
 test("the approved lexical overview and every realm own distinct live semantic tiles", async ({

@@ -55,6 +55,65 @@ async function wheelAtViewportCenter(page: Page, deltaY: number) {
   await page.mouse.wheel(0, deltaY);
 }
 
+async function dispatchWheelSegmentAtViewportCenter(
+  page: Page,
+  deltaY: number,
+  impulses: number,
+) {
+  const viewport = page.locator(`.viewer-shell:not([data-phase]) ${VIEWPORT}`);
+  await expect(viewport).toBeVisible();
+  await viewport.evaluate((element, input) => {
+    const bounds = element.getBoundingClientRect();
+    for (let impulse = 0; impulse < input.impulses; impulse += 1) {
+      element.dispatchEvent(new WheelEvent("wheel", {
+        bubbles: true,
+        cancelable: true,
+        clientX: bounds.left + bounds.width / 2,
+        clientY: bounds.top + bounds.height / 2,
+        deltaY: input.deltaY,
+        deltaMode: WheelEvent.DOM_DELTA_PIXEL,
+      }));
+    }
+  }, { deltaY, impulses });
+}
+
+async function returnToParentWithIndependentWheelGestures(
+  page: Page,
+  app: Locator,
+  child: string,
+  parent: string,
+) {
+  const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
+  const interactionLayer = page.locator(
+    ".viewer-shell:not([data-phase]) [data-testid='scene-interaction-layer']",
+  );
+
+  await expect(page.locator(".viewer-shell[data-phase]")).toHaveCount(0);
+  await expect(interactionLayer).toHaveAttribute("data-motion-frozen", "false");
+  await expect.poll(async () => Number(await surface.getAttribute("data-scene-scale")), {
+    message: "the child must finish its fitted handoff before exit gestures begin",
+  }).toBeCloseTo(1, 2);
+
+  // The handoff guard and the parent-exit latch both distinguish one physical
+  // wheel stream from a later, deliberate gesture. Let the handoff tail go
+  // quiet, use one continuous segment to arm the child overview, then start a
+  // second stream. Several bounded impulses make the physical gesture
+  // equivalent across desktop and emulated high-DPR mobile wheel delivery.
+  await page.waitForTimeout(220);
+  await dispatchWheelSegmentAtViewportCenter(page, 120, 6);
+  await expect.poll(async () => Number(await surface.getAttribute("data-scene-scale")), {
+    message: "the first outward gesture must settle in the armed child overview band",
+  }).toBeLessThanOrEqual(0.7);
+  await expect(app).toHaveAttribute("data-scene-id", child);
+
+  await page.waitForTimeout(220);
+  await dispatchWheelSegmentAtViewportCenter(page, 120, 1);
+  await expect.poll(() => currentScene(app), {
+    message: "a fresh second outward gesture must return to the retained parent",
+  }).toBe(parent);
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+}
+
 async function startLoaderTrace(page: Page) {
   await page.evaluate(() => {
     const trace = { appeared: Boolean(document.querySelector(".loading-pill")) };
@@ -147,6 +206,22 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
   const app = await openWorld(page);
   const parent = await currentScene(app);
   const parentAsset = new URL(await page.locator(".scene-art").getAttribute("src") as string, page.url()).pathname;
+  const parentAssetContract = await page.evaluate(async (sceneId) => {
+    const response = await fetch(`/data/scenes/${sceneId}.json`);
+    if (!response.ok) throw new Error(`Unable to read scene ${sceneId}`);
+    const scene = await response.json() as {
+      asset: string;
+      assets?: { base: { src: string }; high?: { src: string } };
+    };
+    return {
+      manifest: `/data/scenes/${sceneId}.json`,
+      base: new URL(scene.assets?.base.src ?? scene.asset, window.location.href).pathname,
+      high: scene.assets?.high
+        ? new URL(scene.assets.high.src, window.location.href).pathname
+        : null,
+    };
+  }, parent);
+  expect(parentAsset).toBe(parentAssetContract.base);
   const child = await activateFirstPortal(page, app);
   await expect(app).toHaveAttribute("data-transition-state", "idle");
   await expect(page.locator(".viewer-shell[data-phase]")).toHaveCount(0);
@@ -175,20 +250,25 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
     "the decoded parent image remains resident before zoom-out crosses the exit threshold",
   ).toBe(true);
 
-  await expect.poll(async () => {
-    const sceneId = await currentScene(app);
-    const transitionState = await app.getAttribute("data-transition-state");
-    if (sceneId !== parent && transitionState === "idle") {
-      await wheelAtViewportCenter(page, 120);
-    }
-    return sceneId;
-  }, { intervals: [80], timeout: 5_000 }).toBe(parent);
+  await returnToParentWithIndependentWheelGestures(page, app, child, parent);
   await expect(app).toHaveAttribute("data-scene-loading", "false");
 
+  const firstReturnRequests = sceneRequests.slice(requestsBeforeReturn).map((url) => new URL(url).pathname);
   expect(
-    sceneRequests.slice(requestsBeforeReturn),
-    "returning to the retained parent must not fetch scene JSON or its image again",
+    firstReturnRequests.filter((path) => (
+      path === parentAssetContract.manifest || path === parentAssetContract.base
+    )),
+    "returning to the retained parent must not refetch its manifest or already-hot base image",
   ).toEqual([]);
+  const firstHighRequests = parentAssetContract.high
+    ? firstReturnRequests.filter((path) => path === parentAssetContract.high)
+    : [];
+  expect(
+    firstReturnRequests.filter((path) => path !== parentAssetContract.high),
+    "the first return may only add the high-density parent tier required by the restored camera",
+  ).toEqual([]);
+  expect(firstHighRequests.length, "a high-density parent tier is fetched at most once on demand")
+    .toBeLessThanOrEqual(1);
   expect(
     await page.evaluate((assetPath) => (
       (Reflect.get(window, "__hellowordsDecodeCalls") as string[])
@@ -197,6 +277,59 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
     ), parentAsset),
     "returning to the retained parent must not decode its image again",
   ).toBe(parentDecodesBeforeReturn);
+
+  if (firstHighRequests.length > 0) {
+    await expect.poll(() => page.evaluate((assetPath) => (
+      (Reflect.get(window, "__hellowordsDecodeCalls") as string[])
+        .filter((url) => new URL(url, window.location.href).pathname === assetPath)
+        .length
+    ), parentAssetContract.high as string), {
+      message: "an on-demand high-density request must enter the decode pipeline",
+    }).toBeGreaterThan(0);
+  }
+  const parentHighDecodesAfterFirstReturn = parentAssetContract.high
+    ? await page.evaluate((assetPath) => (
+        (Reflect.get(window, "__hellowordsDecodeCalls") as string[])
+          .filter((url) => new URL(url, window.location.href).pathname === assetPath)
+          .length
+      ), parentAssetContract.high)
+    : 0;
+
+  const requestsBeforeSecondRoundTrip = sceneRequests.length;
+  const secondChild = await activateFirstPortal(page, app);
+  expect(secondChild).toBe(child);
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await returnToParentWithIndependentWheelGestures(page, app, child, parent);
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+
+  expect(
+    sceneRequests.slice(requestsBeforeSecondRoundTrip)
+      .map((url) => new URL(url).pathname)
+      .filter((path) => (
+        path === parentAssetContract.manifest
+        || path === parentAssetContract.base
+        || path === parentAssetContract.high
+      )),
+    "a second round trip must reuse the parent manifest, hot base image, and on-demand high tier",
+  ).toEqual([]);
+  expect(
+    await page.evaluate((assetPath) => (
+      (Reflect.get(window, "__hellowordsDecodeCalls") as string[])
+        .filter((url) => new URL(url, window.location.href).pathname === assetPath)
+        .length
+    ), parentAsset),
+    "repeated round trips must keep the parent base decode hot",
+  ).toBe(parentDecodesBeforeReturn);
+  if (parentAssetContract.high) {
+    expect(
+      await page.evaluate((assetPath) => (
+        (Reflect.get(window, "__hellowordsDecodeCalls") as string[])
+          .filter((url) => new URL(url, window.location.href).pathname === assetPath)
+          .length
+      ), parentAssetContract.high),
+      "a keyed parent SceneViewport remount must reuse the shared decoded high tier",
+    ).toBe(parentHighDecodesAfterFirstReturn);
+  }
 });
 
 test("world-map wheel continuity settles apartment before a deliberate second-step exit", async ({ page }, testInfo) => {
@@ -304,6 +437,10 @@ test("world-map wheel continuity settles apartment before a deliberate second-st
     "the complete apartment fits inside the viewport with one contain axis filled",
   ).toBe(true);
 
+  // The five synthetic inertial samples above extend the handoff wheel guard.
+  // Start the deliberate outward notch only after a genuine quiet interval;
+  // assertion/runtime speed must not decide whether that notch is swallowed.
+  await page.waitForTimeout(220);
   await wheelAtViewportCenter(page, 120);
   await expect.poll(async () => {
     if (await app.getAttribute("data-scene-id") !== "apartment") return false;

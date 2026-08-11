@@ -16,6 +16,9 @@ const budgets = {
   ),
   largestSvgGzipBytes: Number(process.env.BUILD_MAX_SVG_GZIP_BYTES ?? 350 * 1024),
   largestRasterBytes: Number(process.env.BUILD_MAX_RASTER_BYTES ?? 1_200 * 1024),
+  largestHighDensityRasterBytes: Number(
+    process.env.BUILD_MAX_HIGH_DENSITY_RASTER_BYTES ?? 4_800 * 1024,
+  ),
   largestSemanticShardGzipBytes: Number(
     process.env.BUILD_MAX_SEMANTIC_SHARD_GZIP_BYTES ?? 300 * 1024,
   ),
@@ -54,6 +57,22 @@ const clientJavaScript = files.filter(
 );
 const svg = files.filter((file) => file.path.endsWith(".svg"));
 const raster = files.filter((file) => /\.(?:avif|jpe?g|png|webp)$/u.test(file.path));
+const sceneManifest = JSON.parse(
+  await readFile(resolve(projectRoot, "public/data/scenes/manifest.json"), "utf8"),
+);
+const highDensityRasterPaths = new Set(
+  (await Promise.all(sceneManifest.scenes.map(async ({ id }) => {
+    const scene = JSON.parse(
+      await readFile(resolve(projectRoot, `public/data/scenes/${id}.json`), "utf8"),
+    );
+    const source = scene.assets?.high?.src;
+    return typeof source === "string"
+      ? `client/${source.replace(/^\//u, "")}`
+      : null;
+  }))).filter(Boolean),
+);
+const standardRaster = raster.filter((file) => !highDensityRasterPaths.has(file.path));
+const highDensityRaster = raster.filter((file) => highDensityRasterPaths.has(file.path));
 const semanticShards = files.filter((file) => /^client\/data\/semantic\/topics\/.+\.json$/u.test(file.path));
 const largest = (entries, field) =>
   entries.reduce((current, entry) =>
@@ -61,7 +80,8 @@ const largest = (entries, field) =>
   null);
 const largestClientJavaScript = largest(clientJavaScript, "gzipBytes");
 const largestSvg = largest(svg, "gzipBytes");
-const largestRaster = largest(raster, "bytes");
+const largestRaster = largest(standardRaster, "bytes");
+const largestHighDensityRaster = largest(highDensityRaster, "bytes");
 const largestSemanticShard = largest(semanticShards, "gzipBytes");
 const totalClientJavaScriptGzipBytes = clientJavaScript.reduce(
   (sum, file) => sum + file.gzipBytes,
@@ -79,6 +99,9 @@ const checks = {
     largestSvg === null || largestSvg.gzipBytes <= budgets.largestSvgGzipBytes,
   raster:
     largestRaster === null || largestRaster.bytes <= budgets.largestRasterBytes,
+  highDensityRaster:
+    largestHighDensityRaster === null
+    || largestHighDensityRaster.bytes <= budgets.largestHighDensityRasterBytes,
   semanticShard:
     largestSemanticShard === null ||
     largestSemanticShard.gzipBytes <= budgets.largestSemanticShardGzipBytes,
@@ -97,6 +120,7 @@ const manifest = {
   largestClientJavaScript,
   largestSvg,
   largestRaster,
+  largestHighDensityRaster,
   largestSemanticShard,
   budgets,
   checks,
@@ -118,6 +142,7 @@ const summary = [
   `- Largest client JavaScript gzip: ${largestClientJavaScript ? `${(largestClientJavaScript.gzipBytes / 1024).toFixed(1)} KiB (${largestClientJavaScript.path})` : "not found"}`,
   `- Largest SVG gzip: ${largestSvg ? `${(largestSvg.gzipBytes / 1024).toFixed(1)} KiB (${largestSvg.path})` : "none"}`,
   `- Largest raster: ${largestRaster ? `${(largestRaster.bytes / 1024).toFixed(1)} KiB (${largestRaster.path})` : "none"}`,
+  `- Largest high-density raster: ${largestHighDensityRaster ? `${(largestHighDensityRaster.bytes / 1024).toFixed(1)} KiB (${largestHighDensityRaster.path})` : "none"}`,
   `- Largest semantic shard gzip: ${largestSemanticShard ? `${(largestSemanticShard.gzipBytes / 1024).toFixed(1)} KiB (${largestSemanticShard.path})` : "none"}`,
   `- Orphan scene assets: ${orphanSceneAssets.length}`,
   ...orphanSceneAssets.map((path) => `  - ${path}`),
@@ -131,6 +156,6 @@ if (process.env.GITHUB_STEP_SUMMARY) {
 }
 
 if (!Object.values(checks).every(Boolean)) {
-  console.error(JSON.stringify({ budgets, checks, largestClientJavaScript, largestSvg, largestRaster, largestSemanticShard }, null, 2));
+  console.error(JSON.stringify({ budgets, checks, largestClientJavaScript, largestSvg, largestRaster, largestHighDensityRaster, largestSemanticShard }, null, 2));
   process.exitCode = 1;
 }

@@ -20,12 +20,16 @@ claim that every vocabulary entry has been hand-illustrated.
 
 ## Rendering decision
 
-Each illustrated slice is an external, independently reviewed 1600 × 900 raster
-image. The current world has 37 raster scenes and no scene-level SVG cutaways.
-Artwork is decorative; labels, portals, focus targets, and navigation are
-separate HTML layers driven by typed scene data. This keeps vocabulary crisp in
-screen space and makes translations and placement editable without rewriting
-artwork.
+Each illustrated slice has an external, independently reviewed 1600 × 900 base
+raster. The current world has 37 raster scenes and no scene-level SVG cutaways.
+The world atlas additionally declares a 3200 × 1800 high-density raster. It
+server-renders and first-paints the base image, then selects the 2× tier from
+camera scale, fitted scale and device-pixel ratio; the main image and backdrop
+switch together only after the larger file has decoded, and that decoded tier
+is reused across zoom round trips. Artwork is decorative; labels, portals,
+focus targets, and navigation are separate HTML layers driven by typed scene
+data. This keeps vocabulary crisp in screen space and makes translations and
+placement editable without rewriting artwork.
 
 Only the current scene is normally mounted. While a portal is approached, the
 decoded child image is clipped to that portal and recursively redrawn as a
@@ -63,8 +67,8 @@ turning unrelated vocabulary into floating labels. The data contract requires
 at least four zones and normally 32 grounded anchors per premium scene; an
 evidence-reviewed terminal specialist slice may declare a lower floor when
 meeting 32 would require duplicate names for the same visible structure.
-The current graph contains 1,516 contextual anchors representing 1,224 distinct
-display terms across 193 authored zones, connected by 36 typed portals.
+The current graph contains 1,710 contextual anchors representing 1,383 distinct
+display terms across 199 authored zones, connected by 36 typed portals.
 
 ## Scene and portal contract
 
@@ -121,7 +125,7 @@ detail without retargeting the semantic camera.
 Scene encounters are recorded passively in local storage. Selecting a label
 opens an optional word card and pronunciation action, but no exam is required.
 When a scene term has an exact entry in the ranked vocabulary, its `lexemeId`
-links directly into the 10,000-word hierarchy. The current graph has 242 such
+links directly into the 10,000-word hierarchy. The current graph has 230 such
 sense-reviewed links. Validation resolves these IDs against every semantic
 shard and rejects missing or word-mismatched links; specialist visual phrases
 are allowed to remain unlinked.

@@ -2,6 +2,7 @@ export * from "./camera";
 export * from "./discovery";
 export * from "./navigation";
 export * from "./sceneGraph";
+export * from "./sceneAssets";
 export * from "./labelLayout";
 export * from "./labelSemanticStyle";
 export * from "./semanticZoom";

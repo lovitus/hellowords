@@ -51,6 +51,16 @@ export interface SceneLabelLayoutOptions {
   }>;
 }
 
+export interface SceneLabelMountWindowOptions {
+  readonly selectedLabelId?: string | null;
+  readonly focusedLabelId?: string | null;
+  /** The previous window is retained as overscan while its anchors remain nearby. */
+  readonly previousIds?: ReadonlySet<string>;
+}
+
+export const DESKTOP_SCENE_LABEL_MOUNT_LIMIT = 180;
+export const COMPACT_SCENE_LABEL_MOUNT_LIMIT = 96;
+
 export interface VocabularyZoomCue {
   readonly id: string;
   readonly x: number;
@@ -118,6 +128,11 @@ const DEFAULT_REVEAL_BANDS = [
 type LabelLod = SceneLabelLayoutItem["lod"];
 
 const revealScaleCache = new WeakMap<Label, Map<string, number | null>>();
+const estimatedSizeCache = new WeakMap<Label, Readonly<{
+  hiddenMeaning: { readonly width: number; readonly height: number };
+  visibleMeaning: { readonly width: number; readonly height: number };
+}>>();
+const placementOffsetCache = new Map<string, ReadonlyArray<readonly [number, number]>>();
 
 interface LabelBounds {
   readonly left: number;
@@ -369,18 +384,25 @@ function estimatedLabelSize(
   meaningVisible: boolean,
   lod: LabelLod,
 ): { width: number; height: number } {
+  const cached = estimatedSizeCache.get(label);
+  if (cached) return cached[meaningVisible ? "visibleMeaning" : "hiddenMeaning"];
   const detailed = lod >= 3;
   // Font-weight 750 makes Latin glyphs slightly wider than a regular canvas
   // estimate. Keep a conservative buffer so the collision model agrees with
   // actual DOM geometry on high-DPR mobile Chromium.
   const wordWidth = Math.max(24, Array.from(label.word).length * (detailed ? 6.55 : 7.15));
-  const translationWidth = meaningVisible
-    ? Array.from(label.translation).length * (detailed ? 9.8 : 10.65) + 15
-    : 0;
-  return {
+  const translationWidth = Array.from(label.translation).length * (detailed ? 9.8 : 10.65) + 15;
+  const hiddenMeaning = {
+    width: Math.min(250, (detailed ? 27 : 31) + wordWidth),
+    height: detailed ? 28 : 30,
+  };
+  const visibleMeaning = {
     width: Math.min(250, (detailed ? 27 : 31) + wordWidth + translationWidth),
     height: detailed ? 28 : 30,
   };
+  const sizes = { hiddenMeaning, visibleMeaning };
+  estimatedSizeCache.set(label, sizes);
+  return sizes[meaningVisible ? "visibleMeaning" : "hiddenMeaning"];
 }
 
 function overlaps(
@@ -632,6 +654,9 @@ function placementOffsets(
   height: number,
   compact: boolean,
 ): ReadonlyArray<readonly [number, number]> {
+  const cacheKey = `${id}:${width.toFixed(2)}:${height.toFixed(2)}:${compact ? 1 : 0}`;
+  const cached = placementOffsetCache.get(cacheKey);
+  if (cached) return cached;
   const horizontal = Math.min(compact ? 58 : 72, Math.max(30, width * 0.54));
   const vertical = height + (compact ? 2 : 4);
   const maximumLeader = compact ? 100 : 150;
@@ -690,7 +715,9 @@ function placementOffsets(
     const bounded = [x * ratio, y * ratio] as const;
     unique.set(`${bounded[0].toFixed(2)}:${bounded[1].toFixed(2)}`, bounded);
   }
-  return [...unique.values()];
+  const offsets = [...unique.values()];
+  placementOffsetCache.set(cacheKey, offsets);
+  return offsets;
 }
 
 function boundsAt(
@@ -740,9 +767,18 @@ function createCollisionIndex(cellSize: number) {
 
   return {
     overlaps(bounds: LabelBounds, padding: number): boolean {
-      return visitCells(bounds, padding, (cell) => (
-        cell.some((placed) => overlaps(bounds, placed, padding))
-      ));
+      // A pill usually spans several grid cells. De-duplicate those references
+      // inside one query so dense overview frames do not compare the same two
+      // bounds repeatedly for every shared cell.
+      const visited = new Set<LabelBounds>();
+      return visitCells(bounds, padding, (cell) => {
+        for (const placed of cell) {
+          if (visited.has(placed)) continue;
+          visited.add(placed);
+          if (overlaps(bounds, placed, padding)) return true;
+        }
+        return false;
+      });
     },
     add(bounds: LabelBounds): void {
       const firstColumn = Math.floor(bounds.left / cellSize);
@@ -772,6 +808,77 @@ export function prioritizeCurrentLabelOrder(
   const prioritized = new Set(current.map((item) => item.id));
   for (const id of retainedLabelIds) prioritized.add(id);
   return prioritized;
+}
+
+export function sceneLabelMountLimit(viewport: Pick<SceneLabelViewport, "compact">): number {
+  return viewport.compact
+    ? COMPACT_SCENE_LABEL_MOUNT_LIMIT
+    : DESKTOP_SCENE_LABEL_MOUNT_LIMIT;
+}
+
+/** Membership equality keeps camera frames from publishing no-op React state. */
+export function sameSceneLabelMountWindow(
+  first: ReadonlySet<string>,
+  second: ReadonlySet<string>,
+): boolean {
+  if (first.size !== second.size) return false;
+  for (const id of first) if (!second.has(id)) return false;
+  return true;
+}
+
+/**
+ * Selects the bounded DOM window for a complete scene layout.
+ *
+ * Layout still owns all authored labels. Every painted/interactive label and
+ * the active keyboard/selection targets enter first. Previous candidates then
+ * remain as stable overscan while they have a finite projection. Hidden
+ * candidates are never mounted merely to fill unused capacity.
+ */
+export function buildSceneLabelMountWindow(
+  labels: readonly Pick<Label, "id" | "priority">[],
+  layout: readonly SceneLabelLayoutItem[],
+  viewport: Pick<SceneLabelViewport, "compact">,
+  options: SceneLabelMountWindowOptions = {},
+): Set<string> {
+  const limit = sceneLabelMountLimit(viewport);
+  const labelIds = new Set(labels.map(({ id }) => id));
+  const layoutById = new Map(layout.map((item) => [item.id, item]));
+  const labelPriority = new Map(labels.map(({ id, priority }, index) => [
+    id,
+    { priority, index },
+  ]));
+  const mounted = new Set<string>();
+  const add = (id: string | null | undefined) => {
+    if (!id || mounted.size >= limit || !labelIds.has(id)) return;
+    mounted.add(id);
+  };
+
+  add(options.focusedLabelId);
+  add(options.selectedLabelId);
+
+  const stableOrder = (first: SceneLabelLayoutItem, second: SceneLabelLayoutItem) => (
+    first.placementOrder - second.placementOrder
+    || (labelPriority.get(first.id)?.priority ?? Number.POSITIVE_INFINITY)
+      - (labelPriority.get(second.id)?.priority ?? Number.POSITIVE_INFINITY)
+    || (labelPriority.get(first.id)?.index ?? Number.POSITIVE_INFINITY)
+      - (labelPriority.get(second.id)?.index ?? Number.POSITIVE_INFINITY)
+    || first.id.localeCompare(second.id)
+  );
+  const essential = layout
+    .filter((item) => item.interactive || item.opacity > 0.025)
+    .sort(stableOrder);
+  for (const item of essential) add(item.id);
+
+  // A production collision pass stays below the corresponding hard limit.
+  // If malformed external layout data exceeds it, focus/selection and the
+  // stable highest-priority painted subset still keep the DOM bounded.
+  if (mounted.size >= limit) return mounted;
+
+  for (const id of options.previousIds ?? []) {
+    const item = layoutById.get(id);
+    if (item && Number.isFinite(item.screenX) && Number.isFinite(item.screenY)) add(id);
+  }
+  return mounted;
 }
 
 /**

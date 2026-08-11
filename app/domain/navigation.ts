@@ -20,6 +20,81 @@ export const DEFAULT_PORTAL_HYSTERESIS_POLICY: PortalHysteresisPolicy = {
   candidateSettleMs: 140,
 };
 
+export interface ParentExitHysteresisPolicy {
+  /** First outward gesture must reach this overview band before exit can arm. */
+  readonly armScale: number;
+  /** A later, independent outward gesture must also cross this scale to exit. */
+  readonly exitScale: number;
+  /** Wheel/pinch samples closer than this belong to one physical gesture. */
+  readonly gestureGapMs: number;
+}
+
+export const DEFAULT_PARENT_EXIT_HYSTERESIS_POLICY: ParentExitHysteresisPolicy = {
+  armScale: 0.82,
+  exitScale: DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale,
+  gestureGapMs: 180,
+};
+
+export interface ParentExitHysteresisState {
+  /** An earlier outward gesture reached the child overview band. */
+  readonly armed: boolean;
+  readonly lastOutwardInputAt: number | null;
+}
+
+export interface ParentExitZoomSample {
+  readonly now: number;
+  readonly factor: number;
+  /** Target camera scale after applying this input sample. */
+  readonly scale: number;
+  readonly hasParent: boolean;
+  /** False while a parent/child continuity camera still owns the viewport. */
+  readonly continuitySettled: boolean;
+}
+
+export interface ParentExitHysteresisResult {
+  readonly state: ParentExitHysteresisState;
+  readonly exitRequested: boolean;
+}
+
+export function createParentExitHysteresisState(): ParentExitHysteresisState {
+  return { armed: false, lastOutwardInputAt: null };
+}
+
+/**
+ * Converts an event stream into a deliberate parent-exit gesture.
+ *
+ * Reaching the overview band only arms the boundary. It cannot exit during
+ * that same wheel/pinch stream, no matter how many events the device emits.
+ * A fresh outward gesture after a quiet gap must then cross the exit scale.
+ */
+export function advanceParentExitHysteresis(
+  previous: ParentExitHysteresisState,
+  sample: ParentExitZoomSample,
+  policy: ParentExitHysteresisPolicy = DEFAULT_PARENT_EXIT_HYSTERESIS_POLICY,
+): ParentExitHysteresisResult {
+  assertParentExitPolicy(policy);
+  assertParentExitSample(previous, sample);
+
+  if (!sample.hasParent || !sample.continuitySettled || sample.factor >= 1) {
+    return { state: createParentExitHysteresisState(), exitRequested: false };
+  }
+
+  const startsFreshGesture = previous.lastOutwardInputAt === null
+    || sample.now - previous.lastOutwardInputAt >= policy.gestureGapMs;
+  const exitRequested = previous.armed
+    && startsFreshGesture
+    && sample.scale <= policy.exitScale;
+  const armed = !exitRequested && (previous.armed || sample.scale <= policy.armScale);
+
+  return {
+    state: {
+      armed,
+      lastOutwardInputAt: sample.now,
+    },
+    exitRequested,
+  };
+}
+
 export interface PortalZoomSample {
   readonly now: number;
   readonly scale: number;
@@ -210,6 +285,42 @@ function assertSample(
       sample.candidatePortal.enterScale <= 0)
   ) {
     throw new RangeError("portal enterScale must be a positive finite number");
+  }
+}
+
+function assertParentExitPolicy(policy: ParentExitHysteresisPolicy): void {
+  if (!Number.isFinite(policy.armScale) || policy.armScale <= 0) {
+    throw new RangeError("armScale must be a positive finite number");
+  }
+  if (!Number.isFinite(policy.exitScale) || policy.exitScale <= 0) {
+    throw new RangeError("exitScale must be a positive finite number");
+  }
+  if (policy.exitScale >= policy.armScale) {
+    throw new RangeError("exitScale must be lower than armScale");
+  }
+  if (!Number.isFinite(policy.gestureGapMs) || policy.gestureGapMs < 0) {
+    throw new RangeError("gestureGapMs must be a non-negative finite number");
+  }
+}
+
+function assertParentExitSample(
+  previous: ParentExitHysteresisState,
+  sample: ParentExitZoomSample,
+): void {
+  if (!Number.isFinite(sample.now) || sample.now < 0) {
+    throw new RangeError("sample.now must be a non-negative finite number");
+  }
+  if (
+    previous.lastOutwardInputAt !== null
+    && sample.now < previous.lastOutwardInputAt
+  ) {
+    throw new RangeError("sample timestamps must be monotonic");
+  }
+  if (!Number.isFinite(sample.factor) || sample.factor <= 0) {
+    throw new RangeError("sample.factor must be a positive finite number");
+  }
+  if (!Number.isFinite(sample.scale) || sample.scale <= 0) {
+    throw new RangeError("sample.scale must be a positive finite number");
   }
 }
 

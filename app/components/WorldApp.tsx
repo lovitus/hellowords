@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { LexicalWorld } from "./LexicalWorld";
 import {
   childCameraFromPortalTile,
-  fittedSceneCamera,
+  fullyFittedSceneCamera,
   parentCameraFromChildTile,
   SceneViewport,
   type ScenePortalNavigator,
@@ -308,7 +308,7 @@ export function WorldApp() {
               nextContinuityView = {
                 direction: "forward",
                 camera: childCameraFromPortalTile(portal, snapshot.camera, nextScene, viewportSize),
-                settledCamera: fittedSceneCamera(nextScene, viewportSize),
+                settledCamera: fullyFittedSceneCamera(nextScene, viewportSize),
               };
             }
           } else {
@@ -323,7 +323,7 @@ export function WorldApp() {
                   scene,
                   viewportSize,
                 ),
-                settledCamera: fittedSceneCamera(nextScene, viewportSize),
+                settledCamera: fullyFittedSceneCamera(nextScene, viewportSize),
                 tileScene: scene,
                 tilePortal: returnPortal,
               };

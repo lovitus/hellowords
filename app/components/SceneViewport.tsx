@@ -3,30 +3,50 @@
 /* SVG scene slices intentionally remain external images so their drawing nodes do not enter the app DOM. */
 /* eslint-disable @next/next/no-img-element */
 
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import {
   advanceLabelDwell,
+  createSceneAssetLoadState,
   buildLabelSemanticStyleMap,
   buildPortalCueProtectedRegions,
+  buildSceneLabelMountWindow,
   buildVocabularyCueRevealState,
   buildVocabularyRevealSummary,
   buildVocabularyZoomCues,
   consolidateVocabularyCueBatches,
   computeSceneLabelLayout,
+  advanceParentExitHysteresis,
+  createParentExitHysteresisState,
   DEFAULT_PORTAL_HYSTERESIS_POLICY,
   LABEL_ENCOUNTER_OPACITY,
   prioritizeCurrentLabelOrder,
+  reconcileSceneAssetLoad,
+  resolveSceneAssets,
   sceneLabelLod,
+  sceneLabelMountLimit,
   sceneLabelRevealOpacity,
   sceneVocabularyCueLimit,
+  sameSceneLabelMountWindow,
+  settleSceneAssetPreload,
   smoothCameraTowards,
   vocabularyCueFocusPoint,
   type Label,
   type Portal as ScenePortal,
   type Scene,
+  type ResolvedSceneAsset,
+  type SceneAssetLoadState,
   type SceneLabelProtectedRegion,
 } from "../domain";
 import { SPATIAL_LEXEME_REALMS } from "../domain/spatialLexemeRealms.generated";
+import { decodedSceneAssetCache } from "../lib/decoded-scene-asset-cache";
 
 interface SceneViewportProps {
   scene: Scene;
@@ -120,6 +140,31 @@ interface SceneRect extends Point {
   height: number;
 }
 
+interface SceneAssetRuntimeSnapshot {
+  readonly sceneId: string;
+  readonly loadState: SceneAssetLoadState;
+}
+
+function createSceneAssetRuntimeSnapshot(sceneId: string): SceneAssetRuntimeSnapshot {
+  return {
+    sceneId,
+    loadState: createSceneAssetLoadState(),
+  };
+}
+
+function sameSceneAssetLoadState(
+  first: SceneAssetLoadState,
+  second: SceneAssetLoadState,
+): boolean {
+  return first.activeTier === second.activeTier
+    && first.desiredTier === second.desiredTier
+    && first.preloadingTier === second.preloadingTier
+    && first.readyTiers.length === second.readyTiers.length
+    && first.readyTiers.every((tier, index) => tier === second.readyTiers[index])
+    && first.failedTiers.length === second.failedTiers.length
+    && first.failedTiers.every((tier, index) => tier === second.failedTiers[index]);
+}
+
 export function projectScenePointToScreen(point: Point, camera: SceneViewportCamera): Point {
   const effectiveScale = camera.fit * camera.scale;
   return {
@@ -164,6 +209,65 @@ export function fittedSceneCamera(
     x: (viewportSize.width - sceneSize.width * fit * scale) / 2,
     y: (viewportSize.height - sceneSize.height * fit * scale) / 2,
   };
+}
+
+/** A true object-fit:contain camera used when continuity settles a scene. */
+export function fullyFittedSceneCamera(
+  sceneSize: { readonly width: number; readonly height: number },
+  viewportSize: { readonly width: number; readonly height: number },
+): SceneViewportCamera {
+  const fit = fitScale(
+    sceneSize.width,
+    sceneSize.height,
+    viewportSize.width,
+    viewportSize.height,
+  );
+  return {
+    fit,
+    scale: 1,
+    x: (viewportSize.width - sceneSize.width * fit) / 2,
+    y: (viewportSize.height - sceneSize.height * fit) / 2,
+  };
+}
+
+/** Keyboard activation must reveal its exact word; pointer activation keeps the authored region composition. */
+export function vocabularyActivationFocusPoint(
+  nextLabel: Pick<Label, "x" | "y">,
+  authoredFocus: Point,
+  keyboardTriggered: boolean,
+): Point {
+  if (keyboardTriggered) return { x: nextLabel.x, y: nextLabel.y };
+  return {
+    x: Number.isFinite(authoredFocus.x) ? authoredFocus.x : nextLabel.x,
+    y: Number.isFinite(authoredFocus.y) ? authoredFocus.y : nextLabel.y,
+  };
+}
+
+/** Adds one exact interaction target without exceeding or republishing the bounded window. */
+export function includeSceneLabelMountTarget(
+  mountedLabelIds: ReadonlySet<string>,
+  targetLabelId: string,
+  limit: number,
+): ReadonlySet<string> {
+  if (mountedLabelIds.has(targetLabelId) || mountedLabelIds.size >= limit) {
+    return mountedLabelIds;
+  }
+  const nextMountedLabelIds = new Set(mountedLabelIds);
+  nextMountedLabelIds.add(targetLabelId);
+  return nextMountedLabelIds;
+}
+
+/** Keeps a promised keyboard batch honest when its preferred word is collision-blocked. */
+export function resolveInteractiveVocabularyFocusTarget(
+  preferredTargetLabelId: string,
+  promisedBatchLabelIds: readonly string[],
+  layout: readonly { readonly id: string; readonly interactive: boolean }[],
+): string | null {
+  const interactiveLabelIds = new Set(
+    layout.filter((item) => item.interactive).map((item) => item.id),
+  );
+  if (interactiveLabelIds.has(preferredTargetLabelId)) return preferredTargetLabelId;
+  return promisedBatchLabelIds.find((id) => interactiveLabelIds.has(id)) ?? null;
 }
 
 /** Maps an object-fit:cover child tile in a parent portal to a child camera. */
@@ -297,6 +401,7 @@ const WHEEL_RESPONSE_MS = 52;
 const WHEEL_POSITION_EPSILON = 0.08;
 const WHEEL_SCALE_EPSILON = 0.00045;
 const EXIT_SCALE = DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale;
+const HANDOFF_WHEEL_QUIET_MS = 180;
 const MAX_SCALE = 4.15;
 const SEMANTIC_OVERSCROLL_THRESHOLD = 0.32;
 const SEMANTIC_OVERSCROLL_WINDOW_MS = 850;
@@ -462,6 +567,49 @@ function portalAtScreenPoint(portals: readonly ScenePortal[], camera: Camera, po
     .sort((first, second) => first.width * first.height - second.width * second.height)[0];
 }
 
+// One compact deterministic seed is identical during SSR and hydration. The
+// first real camera frame reconciles it to genuinely painted labels under the
+// 180/96 viewport ceiling before newly mounted labels become visible.
+const INITIAL_LABEL_MOUNT_VIEWPORT = {
+  width: 390,
+  height: 780,
+  compact: true,
+} as const;
+
+function initialSceneLabelMountWindow(
+  scene: Scene,
+  meaningVisible: boolean,
+  selectedLabelId: string | null,
+): Set<string> {
+  const camera = fullyFittedSceneCamera(scene, INITIAL_LABEL_MOUNT_VIEWPORT);
+  const layout = computeSceneLabelLayout(
+    scene.labels,
+    camera,
+    INITIAL_LABEL_MOUNT_VIEWPORT,
+    meaningVisible,
+    {
+      selectedLabelId,
+      protectedRegions: [
+        ...buildViewerChromeProtectedRegions(
+          INITIAL_LABEL_MOUNT_VIEWPORT.width,
+          INITIAL_LABEL_MOUNT_VIEWPORT.height,
+        ),
+        ...buildPortalCueProtectedRegions(
+          scene.portals,
+          camera,
+          INITIAL_LABEL_MOUNT_VIEWPORT,
+        ),
+      ],
+    },
+  );
+  return buildSceneLabelMountWindow(
+    scene.labels,
+    layout,
+    INITIAL_LABEL_MOUNT_VIEWPORT,
+    { selectedLabelId },
+  );
+}
+
 export function SceneViewport({
   scene,
   meaningVisible,
@@ -489,12 +637,32 @@ export function SceneViewport({
     && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
   const effectiveInitialView = continuityViewForMotion(initialView, reducedContinuityAtMount);
+  const [mountedLabelIds, setMountedLabelIds] = useState<ReadonlySet<string>>(
+    () => initialSceneLabelMountWindow(scene, meaningVisible, selectedLabelId),
+  );
+  const mountedLabelIdsRef = useRef(mountedLabelIds);
+  const pendingLabelWindowPaintRef = useRef(false);
+  const pendingKeyboardFocusLabelIdRef = useRef<string | null>(null);
+  const pendingKeyboardFocusBatchLabelIdsRef = useRef<readonly string[]>([]);
+  const pendingKeyboardFocusContractElementRef = useRef<HTMLButtonElement | null>(null);
+  const queuedKeyboardFocusLabelIdRef = useRef<string | null>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const surfaceRef = useRef<HTMLDivElement>(null);
   const continuousTileRef = useRef<HTMLDivElement>(null);
   const labelLayerRef = useRef<HTMLDivElement>(null);
+  // Camera frames address labels through their stable authored ids. Keeping
+  // the mounted nodes in a ref avoids rebuilding a NodeList and re-reading a
+  // data attribute for every word on every wheel/pinch animation frame.
+  const labelElementsRef = useRef(new Map<string, HTMLButtonElement>());
   const interactionLayerRef = useRef<HTMLDivElement>(null);
   const cameraRef = useRef<Camera>({ x: 0, y: 0, scale: 1, fit: 1 });
+  const resolvedSceneAssets = useMemo(() => resolveSceneAssets(scene), [scene]);
+  const [sceneAssetRuntime, setSceneAssetRuntime] = useState<SceneAssetRuntimeSnapshot>(
+    () => createSceneAssetRuntimeSnapshot(scene.id),
+  );
+  const sceneAssetRuntimeRef = useRef(sceneAssetRuntime);
+  const publishedSceneAssetRuntimeRef = useRef(sceneAssetRuntime);
+  const sceneAssetPreloadRequestRef = useRef(0);
   const pointersRef = useRef(new Map<number, Point>());
   const previousPointersRef = useRef(new Map<number, Point>());
   const frameRef = useRef<number | null>(null);
@@ -534,6 +702,12 @@ export function SceneViewport({
   const initializedSceneRef = useRef<string | null>(null);
   const fittedViewportSizeRef = useRef<{ readonly width: number; readonly height: number } | null>(null);
   const continuitySettlingRef = useRef(false);
+  const continuityWheelGuardRef = useRef({
+    active: Boolean(effectiveInitialView),
+    quietUntil: 0,
+  });
+  const parentExitHysteresisRef = useRef(createParentExitHysteresisState());
+  const parentExitReadyRef = useRef(false);
   const continuityProgressRef = useRef(
     effectiveInitialView?.direction === "back" && effectiveInitialView.tileScene ? 1 : 0,
   );
@@ -562,6 +736,12 @@ export function SceneViewport({
   const [continuousTileDirection, setContinuousTileDirection] = useState<"forward" | "back">(
     effectiveInitialView?.direction === "back" && effectiveInitialView.tileScene ? "back" : "forward",
   );
+  const renderSceneAssetLoadState = sceneAssetRuntime.sceneId === scene.id
+    ? sceneAssetRuntime.loadState
+    : createSceneAssetLoadState();
+  const activeSceneAsset = resolvedSceneAssets.find(
+    ({ tier }) => tier === renderSceneAssetLoadState.activeTier,
+  ) ?? resolvedSceneAssets[0]!;
   // Camera frames own this purely presentational readiness flag. Keeping it in
   // the applyCamera dependency list would rebuild resetCamera after the first
   // frame and cancel a freshly mounted reverse-continuity animation. The ref
@@ -638,6 +818,89 @@ export function SceneViewport({
   useEffect(() => {
     onMotionFrozenChange?.(motionFrozen);
   }, [motionFrozen, onMotionFrozenChange]);
+
+  const commitSceneAssetLoadState = useCallback((
+    sceneId: string,
+    nextLoadState: SceneAssetLoadState,
+  ): boolean => {
+    const current = sceneAssetRuntimeRef.current;
+    if (current.sceneId !== sceneId) return false;
+    const published = publishedSceneAssetRuntimeRef.current;
+    if (
+      sameSceneAssetLoadState(current.loadState, nextLoadState)
+      && published.sceneId === sceneId
+      && sameSceneAssetLoadState(published.loadState, nextLoadState)
+    ) return true;
+    const next = { sceneId, loadState: nextLoadState };
+    sceneAssetRuntimeRef.current = next;
+    publishedSceneAssetRuntimeRef.current = next;
+    setSceneAssetRuntime(next);
+    return true;
+  }, []);
+
+  const preloadSceneAsset = useCallback((asset: ResolvedSceneAsset) => {
+    const requestedSceneId = scene.id;
+    const requestId = sceneAssetPreloadRequestRef.current + 1;
+    sceneAssetPreloadRequestRef.current = requestId;
+    const cached = decodedSceneAssetCache.getOrLoad(asset.src, async () => {
+      const image = new Image();
+      image.decoding = "async";
+      image.src = asset.src;
+      if (typeof image.decode === "function") {
+        await image.decode();
+      } else {
+        await new Promise<void>((resolve, reject) => {
+          image.onload = () => resolve();
+          image.onerror = () => reject(new Error(`Unable to decode ${asset.src}`));
+        });
+      }
+      return image;
+    });
+    const settleForCurrentScene = (decoded: boolean) => {
+      if (
+        sceneAssetPreloadRequestRef.current !== requestId
+        || sceneAssetRuntimeRef.current.sceneId !== requestedSceneId
+      ) return;
+      commitSceneAssetLoadState(
+        requestedSceneId,
+        settleSceneAssetPreload(sceneAssetRuntimeRef.current.loadState, asset.tier, decoded),
+      );
+    };
+    if (cached.status === "ready") {
+      settleForCurrentScene(true);
+      return;
+    }
+    void cached.promise.then(
+      () => {
+        settleForCurrentScene(true);
+      },
+      () => {
+        settleForCurrentScene(false);
+      },
+    );
+  }, [commitSceneAssetLoadState, scene.id]);
+
+  const reconcileSceneAssetForCamera = useCallback((camera: Camera, devicePixelRatio: number) => {
+    const current = sceneAssetRuntimeRef.current;
+    if (current.sceneId !== scene.id) return;
+    const transition = reconcileSceneAssetLoad(
+      scene,
+      current.loadState,
+      camera,
+      devicePixelRatio,
+    );
+    if (!commitSceneAssetLoadState(scene.id, transition.state)) return;
+    if (transition.preloadAsset) preloadSceneAsset(transition.preloadAsset);
+  }, [commitSceneAssetLoadState, preloadSceneAsset, scene]);
+
+  useEffect(() => {
+    const next = createSceneAssetRuntimeSnapshot(scene.id);
+    sceneAssetPreloadRequestRef.current += 1;
+    sceneAssetRuntimeRef.current = next;
+    return () => {
+      sceneAssetPreloadRequestRef.current += 1;
+    };
+  }, [scene.id]);
 
   const showPortalPreview = useCallback((portal: ScenePortal | null) => {
     if (
@@ -723,6 +986,8 @@ export function SceneViewport({
     setDatasetValueIfChanged(surface, "zoomLevel", String(zoomLevel));
     setDatasetValueIfChanged(surface, "lodLevel", String(zoomLevel));
     setDatasetValueIfChanged(surface, "sceneScale", sceneScaleValue);
+    const devicePixelRatio = Math.max(1, window.devicePixelRatio || 1);
+    reconcileSceneAssetForCamera(camera, devicePixelRatio);
 
     const activePortal = portalCandidateRef.current ?? previewPortalRef.current;
     const enterScale = activePortal?.enterScale ?? 3.6;
@@ -763,6 +1028,7 @@ export function SceneViewport({
     }
     const imminentParentExit = Boolean(
       scene.parentId
+      && parentExitReadyRef.current
       && zoomDirectionRef.current === "out"
       && (wheelTargetRef.current?.scale ?? Number.POSITIVE_INFINITY) < EXIT_SCALE
     );
@@ -795,7 +1061,6 @@ export function SceneViewport({
       setDatasetValueIfChanged(previewRef.current, "phase", nextPreviewPhase);
       setStylePropertyIfChanged(previewRef.current.style, "--portal-progress", progressValue);
     }
-    const devicePixelRatio = Math.max(1, window.devicePixelRatio || 1);
     const snapToDevicePixel = (value: number) => (
       Math.round(value * devicePixelRatio) / devicePixelRatio
     );
@@ -860,13 +1125,16 @@ export function SceneViewport({
       && activeElement.matches(".word-label")
       ? activeElement.dataset.labelId ?? null
       : null;
+    let pendingKeyboardFocusLabelId = pendingKeyboardFocusLabelIdRef.current;
     const layout = computeSceneLabelLayout(
       scene.labels,
       camera,
       labelViewport,
       meaningVisibleRef.current,
       {
-        selectedLabelId: focusedLabelId ?? selectedLabelIdRef.current,
+        selectedLabelId: focusedLabelId
+          ?? pendingKeyboardFocusLabelId
+          ?? selectedLabelIdRef.current,
         preferredOffsets: labelPlacementOffsetsRef.current,
         protectedRegions: [
           ...buildViewerChromeProtectedRegions(labelViewport.width, labelViewport.height),
@@ -874,32 +1142,89 @@ export function SceneViewport({
         ],
       },
     );
+    if (pendingKeyboardFocusLabelId) {
+      const resolvedKeyboardFocusLabelId = resolveInteractiveVocabularyFocusTarget(
+        pendingKeyboardFocusLabelId,
+        pendingKeyboardFocusBatchLabelIdsRef.current,
+        layout,
+      );
+      if (
+        resolvedKeyboardFocusLabelId
+        && resolvedKeyboardFocusLabelId !== pendingKeyboardFocusLabelId
+      ) {
+        // A collision can retire the originally promised word even though a
+        // sibling from the same reveal batch is readable. Lock that stable
+        // fallback before building the bounded DOM window; any queued task for
+        // the superseded id will fail its exact-id guard.
+        pendingKeyboardFocusLabelId = resolvedKeyboardFocusLabelId;
+        pendingKeyboardFocusLabelIdRef.current = resolvedKeyboardFocusLabelId;
+        queuedKeyboardFocusLabelIdRef.current = null;
+      }
+    }
     labelPlacementOffsetsRef.current = new Map(layout
       .filter((item) => item.interactive)
       .map((item) => [item.id, {
         offsetX: item.offsetX,
         offsetY: item.offsetY,
       }]));
+    const nextMountedLabelIds = buildSceneLabelMountWindow(
+      scene.labels,
+      layout,
+      labelViewport,
+      {
+        focusedLabelId: focusedLabelId ?? pendingKeyboardFocusLabelId,
+        selectedLabelId: selectedLabelIdRef.current,
+        previousIds: mountedLabelIdsRef.current,
+      },
+    );
+    if (!sameSceneLabelMountWindow(mountedLabelIdsRef.current, nextMountedLabelIds)) {
+      mountedLabelIdsRef.current = nextMountedLabelIds;
+      pendingLabelWindowPaintRef.current = true;
+      setMountedLabelIds(nextMountedLabelIds);
+    }
     const byId = new Map(layout.map((item) => [item.id, item]));
     let visibleCount = 0;
     let emergingCount = 0;
     const dwellEligibleLabelIds: string[] = [];
-    for (const element of labelLayer.querySelectorAll<HTMLButtonElement>(".word-label")) {
-      const item = byId.get(element.dataset.labelId ?? "");
+    for (const item of layout) {
+      const ownsFocus = item.id === focusedLabelId;
+      const opacity = ownsFocus ? Math.max(1, item.opacity) : item.opacity;
+      if (opacity >= LABEL_ENCOUNTER_OPACITY) visibleCount += 1;
+      else if (opacity > 0.025) emergingCount += 1;
+      if (
+        viewerInteractiveRef.current
+        && item.interactive
+        && item.opacity >= LABEL_ENCOUNTER_OPACITY
+      ) {
+        dwellEligibleLabelIds.push(item.id);
+      }
+    }
+    for (const [labelId, element] of labelElementsRef.current) {
+      const item = byId.get(labelId);
       const ownsFocus = activeElement === element;
       const opacity = ownsFocus ? Math.max(1, item?.opacity ?? 0) : item?.opacity ?? 0;
       const interactive = viewerInteractiveRef.current && (ownsFocus || Boolean(item?.interactive));
       const opacityStyle = opacity.toFixed(3);
-      const anchorX = -(item?.offsetX ?? 0);
-      const anchorY = -(item?.offsetY ?? 0);
-      const displacement = Math.hypot(anchorX, anchorY);
-      const leaderAngle = Math.atan2(anchorY, anchorX) * 180 / Math.PI;
       const visibleValue = String(opacity > 0.025);
       const interactiveValue = String(interactive);
       const adaptiveValue = String(Boolean(item?.adaptive));
       const hiddenValue = String(!interactive);
       setStylePropertyIfChanged(element.style, "--label-opacity", opacityStyle);
-      if (item && Number.isFinite(item.screenX) && Number.isFinite(item.screenY)) {
+      // Collision-blocked and offscreen labels are aria-hidden, unfocusable and
+      // fully transparent. Their last geometry cannot be observed, so do not
+      // churn transform/leader custom properties until the label is actually
+      // painted again. A newly visible label receives every value in this same
+      // frame before data-visible opens its CSS visibility gate.
+      if (
+        (opacity > 0.025 || ownsFocus)
+        && item
+        && Number.isFinite(item.screenX)
+        && Number.isFinite(item.screenY)
+      ) {
+        const anchorX = -item.offsetX;
+        const anchorY = -item.offsetY;
+        const displacement = Math.hypot(anchorX, anchorY);
+        const leaderAngle = Math.atan2(anchorY, anchorX) * 180 / Math.PI;
         // The artwork keeps its single composited camera transform, while text
         // is projected into this unscaled sibling overlay. A pixel-snapped
         // translation keeps glyphs native-sized without invalidating layout.
@@ -910,29 +1235,69 @@ export function SceneViewport({
           "transform",
           `translate3d(${screenX}px, ${screenY}px, 0) translate(-50%, -50%)`,
         );
+        setStylePropertyIfChanged(element.style, "--label-anchor-x", `${anchorX.toFixed(2)}px`);
+        setStylePropertyIfChanged(element.style, "--label-anchor-y", `${anchorY.toFixed(2)}px`);
+        setStylePropertyIfChanged(element.style, "--label-leader-length", `${displacement.toFixed(2)}px`);
+        setStylePropertyIfChanged(element.style, "--label-leader-angle", `${leaderAngle.toFixed(2)}deg`);
+        setDatasetValueIfChanged(element, "displaced", String(displacement >= 4));
+        setDatasetValueIfChanged(element, "leaderSpan", displacement >= 82 ? "long" : "short");
+        setDatasetValueIfChanged(element, "anchorMode", displacement >= 4 ? "leader" : "stem");
       }
-      setStylePropertyIfChanged(element.style, "--label-anchor-x", `${anchorX.toFixed(2)}px`);
-      setStylePropertyIfChanged(element.style, "--label-anchor-y", `${anchorY.toFixed(2)}px`);
-      setStylePropertyIfChanged(element.style, "--label-leader-length", `${displacement.toFixed(2)}px`);
-      setStylePropertyIfChanged(element.style, "--label-leader-angle", `${leaderAngle.toFixed(2)}deg`);
-      setDatasetValueIfChanged(element, "displaced", String(displacement >= 4));
-      setDatasetValueIfChanged(element, "leaderSpan", displacement >= 82 ? "long" : "short");
-      setDatasetValueIfChanged(element, "anchorMode", displacement >= 4 ? "leader" : "stem");
       setDatasetValueIfChanged(element, "visible", visibleValue);
       setDatasetValueIfChanged(element, "interactive", interactiveValue);
       setDatasetValueIfChanged(element, "adaptive", adaptiveValue);
       const nextTabIndex = interactive ? 0 : -1;
       if (element.tabIndex !== nextTabIndex) element.tabIndex = nextTabIndex;
       setAttributeIfChanged(element, "aria-hidden", hiddenValue);
-      if (opacity >= LABEL_ENCOUNTER_OPACITY) visibleCount += 1;
-      else if (opacity > 0.025) emergingCount += 1;
-      if (
-        viewerInteractiveRef.current
-        && item?.interactive
-        && item.opacity >= LABEL_ENCOUNTER_OPACITY
-      ) {
-        dwellEligibleLabelIds.push(item.id);
-      }
+    }
+    const pendingKeyboardFocusLabel = pendingKeyboardFocusLabelId
+      ? labelElementsRef.current.get(pendingKeyboardFocusLabelId)
+      : undefined;
+    if (
+      pendingKeyboardFocusLabelId
+      && pendingKeyboardFocusLabel
+      && viewerInteractiveRef.current
+      && pendingKeyboardFocusLabel.isConnected
+      && pendingKeyboardFocusLabel.dataset.interactive === "true"
+      && queuedKeyboardFocusLabelIdRef.current !== pendingKeyboardFocusLabelId
+    ) {
+      queuedKeyboardFocusLabelIdRef.current = pendingKeyboardFocusLabelId;
+      queueMicrotask(() => {
+        if (queuedKeyboardFocusLabelIdRef.current === pendingKeyboardFocusLabelId) {
+          queuedKeyboardFocusLabelIdRef.current = null;
+        }
+        if (
+          pendingKeyboardFocusLabelIdRef.current !== pendingKeyboardFocusLabelId
+          || !viewerInteractiveRef.current
+        ) return;
+        const focusLabel = labelElementsRef.current.get(pendingKeyboardFocusLabelId);
+        if (
+          !focusLabel
+          || !focusLabel.isConnected
+          || focusLabel.dataset.interactive !== "true"
+        ) return;
+        const contractElement = pendingKeyboardFocusContractElementRef.current;
+        if (contractElement?.isConnected) {
+          setDatasetValueIfChanged(
+            contractElement,
+            "nextLabelId",
+            pendingKeyboardFocusLabelId,
+          );
+        }
+        const focusedWord = labelsById.get(pendingKeyboardFocusLabelId)?.word;
+        if (vocabularyAnnouncementRef.current && focusedWord) {
+          vocabularyAnnouncementRef.current.textContent = contractElement?.dataset.zoneTitle
+            ? `已放大到${contractElement.dataset.zoneTitle}，聚焦 ${focusedWord}`
+            : `已放大并聚焦 ${focusedWord}`;
+        }
+        focusLabel.focus();
+        if (document.activeElement === focusLabel) {
+          pendingKeyboardFocusLabelIdRef.current = null;
+          pendingKeyboardFocusBatchLabelIdsRef.current = [];
+          pendingKeyboardFocusContractElementRef.current = null;
+          queuedKeyboardFocusLabelIdRef.current = null;
+        }
+      });
     }
     setDatasetValueIfChanged(surface, "visibleLabelCount", String(visibleCount));
     setDatasetValueIfChanged(surface, "emergingLabelCount", String(emergingCount));
@@ -1102,12 +1467,13 @@ export function SceneViewport({
           x: nextBatchLabels.reduce((sum, label) => sum + label.x, 0) / nextBatchLabels.length,
           y: nextBatchLabels.reduce((sum, label) => sum + label.y, 0) / nextBatchLabels.length,
         };
-        const nextLabel = [...nextBatchLabels].sort((first, second) => (
+        const orderedNextBatchLabels = [...nextBatchLabels].sort((first, second) => (
           Math.hypot(first.x - centroid.x, first.y - centroid.y)
             - Math.hypot(second.x - centroid.x, second.y - centroid.y)
           || first.priority - second.priority
           || first.id.localeCompare(second.id)
-        ))[0];
+        ));
+        const nextLabel = orderedNextBatchLabels[0];
         const fallbackTargetScale = Math.min(MAX_SCALE, Math.max(
           camera.scale + 0.28,
           VOCABULARY_REVEAL_SCALE[batch.nextLod],
@@ -1124,6 +1490,11 @@ export function SceneViewport({
         setDatasetValueIfChanged(element, "hiddenWordCount", String(batch.labels.length));
         setDatasetValueIfChanged(element, "nextBatchCount", String(nextBatchLabels.length));
         setDatasetValueIfChanged(element, "nextLabelId", nextLabel.id);
+        setDatasetValueIfChanged(
+          element,
+          "nextLabelIds",
+          orderedNextBatchLabels.map((label) => label.id).join(" "),
+        );
         setDatasetValueIfChanged(element, "targetScale", targetScale.toFixed(3));
         setDatasetValueIfChanged(element, "cueSource", batch.cue.source);
         if (batch.cue.title) setDatasetValueIfChanged(element, "zoneTitle", batch.cue.title);
@@ -1217,12 +1588,18 @@ export function SceneViewport({
       );
       if (leadingLabel && revealSummary.targetScale !== null) {
         setDatasetValueIfChanged(summaryElement, "nextLabelId", leadingLabel.id);
+        setDatasetValueIfChanged(
+          summaryElement,
+          "nextLabelIds",
+          revealSummary.nextLabels.map((label) => label.id).join(" "),
+        );
         setDatasetValueIfChanged(summaryElement, "targetScale", Math.min(
           MAX_SCALE,
           Math.max(camera.scale + 0.28, revealSummary.targetScale + 0.08),
         ).toFixed(3));
       } else {
         if (summaryElement.dataset.nextLabelId !== undefined) delete summaryElement.dataset.nextLabelId;
+        if (summaryElement.dataset.nextLabelIds !== undefined) delete summaryElement.dataset.nextLabelIds;
         if (summaryElement.dataset.targetScale !== undefined) delete summaryElement.dataset.targetScale;
       }
       setAttributeIfChanged(summaryElement, "aria-label", "继续放大，显示下一批词");
@@ -1233,7 +1610,21 @@ export function SceneViewport({
       viewportWidth,
       viewportHeight,
     });
-  }, [clampCamera, continuousTileDirection, continuousTileState, labelsById, onCameraFrame, onLabelsEncountered, scene.id, scene.labels, scene.parentId, scene.portals, showPortalPreview, vocabularyZoomCues]);
+  }, [clampCamera, continuousTileDirection, continuousTileState, labelsById, onCameraFrame, onLabelsEncountered, reconcileSceneAssetForCamera, scene.id, scene.labels, scene.parentId, scene.portals, showPortalPreview, vocabularyZoomCues]);
+
+  useLayoutEffect(() => {
+    if (pendingLabelWindowPaintRef.current) {
+      pendingLabelWindowPaintRef.current = false;
+      // Ref callbacks have installed the new buttons. Paint their projected
+      // geometry synchronously so data-visible never exposes a zero-position
+      // label between the React window swap and the next browser frame.
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+        frameRef.current = null;
+      }
+      applyCamera();
+    }
+  }, [applyCamera, mountedLabelIds]);
 
   const requestCameraFrame = useCallback(() => {
     if (frameRef.current === null) frameRef.current = requestAnimationFrame(applyCamera);
@@ -1255,6 +1646,9 @@ export function SceneViewport({
     }
     if (!continuitySettlingRef.current) return;
     continuitySettlingRef.current = false;
+    continuityWheelGuardRef.current = { active: false, quietUntil: 0 };
+    parentExitHysteresisRef.current = createParentExitHysteresisState();
+    parentExitReadyRef.current = false;
     continuityProgressRef.current = 0;
     setContinuousTile(null);
     setContinuousTileState("preview");
@@ -1268,6 +1662,29 @@ export function SceneViewport({
     semanticOverscrollTimestampRef.current = null;
   }, []);
 
+  const resetParentExitHysteresis = useCallback(() => {
+    parentExitHysteresisRef.current = createParentExitHysteresisState();
+    parentExitReadyRef.current = false;
+  }, []);
+
+  const sampleParentExitHysteresis = useCallback((factor: number, scale: number) => {
+    const result = advanceParentExitHysteresis(parentExitHysteresisRef.current, {
+      now: performance.now(),
+      factor,
+      scale,
+      hasParent: Boolean(scene.parentId),
+      continuitySettled: !continuitySettlingRef.current,
+    });
+    parentExitHysteresisRef.current = result.state;
+    if (factor >= 1 || !scene.parentId || continuitySettlingRef.current) {
+      parentExitReadyRef.current = false;
+    } else if (result.exitRequested) {
+      // Hold the decision through the remaining samples of this device stream
+      // until the smoothed camera reaches the boundary and navigation commits.
+      parentExitReadyRef.current = true;
+    }
+  }, [scene.parentId]);
+
   const updateZoomDirection = useCallback((next: "in" | "out" | null) => {
     const previous = zoomDirectionRef.current;
     if (shouldResetLabelPlacementMemory(previous, next)) {
@@ -1278,7 +1695,8 @@ export function SceneViewport({
 
   useEffect(() => {
     resetSemanticOverscroll();
-  }, [resetSemanticOverscroll, scene.id]);
+    resetParentExitHysteresis();
+  }, [resetParentExitHysteresis, resetSemanticOverscroll, scene.id]);
 
   useEffect(() => {
     if (encounterTick > 0) requestCameraFrame();
@@ -1288,6 +1706,7 @@ export function SceneViewport({
     const viewport = viewportRef.current;
     if (!viewport || committingRef.current) return;
     resetSemanticOverscroll();
+    resetParentExitHysteresis();
     labelPlacementOffsetsRef.current.clear();
     stopWheelAnimation();
     cancelCameraAnimation();
@@ -1301,6 +1720,10 @@ export function SceneViewport({
     };
     const continuityView = initialViewRef.current;
     initialViewRef.current = undefined;
+    continuityWheelGuardRef.current = {
+      active: Boolean(continuityView),
+      quietUntil: continuityView ? performance.now() + HANDOFF_WHEEL_QUIET_MS : 0,
+    };
     cameraRef.current = continuityView ? { ...continuityView.camera } : fittedCamera;
     continuitySettlingRef.current = Boolean(continuityView && !reducedContinuityAtMount);
     setMotionFrozen(continuitySettlingRef.current);
@@ -1315,7 +1738,7 @@ export function SceneViewport({
       && document.activeElement.matches(".scene-hotspot");
     if (!portalHasFocus && !continuityView) showPortalPreview(null);
     requestCameraFrame();
-  }, [cancelCameraAnimation, reducedContinuityAtMount, requestCameraFrame, resetSemanticOverscroll, scene, showPortalPreview, stopWheelAnimation, updateZoomDirection]);
+  }, [cancelCameraAnimation, reducedContinuityAtMount, requestCameraFrame, resetParentExitHysteresis, resetSemanticOverscroll, scene, showPortalPreview, stopWheelAnimation, updateZoomDirection]);
 
   const beginPortalTransition = useCallback((
     portal: ScenePortal,
@@ -1323,6 +1746,7 @@ export function SceneViewport({
   ) => {
     const viewport = viewportRef.current;
     if (!viewport || committingRef.current || interactionLocked) return;
+    resetParentExitHysteresis();
     stopWheelAnimation();
     cancelCameraAnimation();
     requestContinuousTile(portal);
@@ -1362,9 +1786,9 @@ export function SceneViewport({
       return;
     }
 
-    // Let the portal cover the viewport before ownership moves to the child.
-    // The sharp decoded child tile is recursively redrawn inside that crop, so
-    // the parent raster never has to carry the final high-magnification frame.
+    // Briefly let the portal cover the viewport before ownership moves to the
+    // child. The sharp decoded child tile is recursively redrawn inside that
+    // crop, so the parent raster never carries the final magnified frame.
     const portalCoverScale = Math.max(
       viewport.clientWidth / portal.width,
       viewport.clientHeight / portal.height,
@@ -1381,7 +1805,7 @@ export function SceneViewport({
       x: viewport.clientWidth / 2 - (portal.x + portal.width / 2) * effective,
       y: viewport.clientHeight / 2 - (portal.y + portal.height / 2) * effective,
     };
-    const duration = source === "zoom" ? 140 : readiness === "warm" ? 160 : 220;
+    const duration = source === "zoom" ? 110 : readiness === "warm" ? 120 : 170;
     const startedAt = performance.now();
     const animate = (now: number) => {
       const linear = Math.min(1, (now - startedAt) / duration);
@@ -1443,7 +1867,7 @@ export function SceneViewport({
       });
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
-  }, [applyCamera, cancelCameraAnimation, clampCamera, interactionLocked, onCameraFrame, onCommitScene, onEnterScene, requestCameraFrame, requestContinuousTile, scene.id, showPortalPreview, stopWheelAnimation]);
+  }, [applyCamera, cancelCameraAnimation, clampCamera, interactionLocked, onCameraFrame, onCommitScene, onEnterScene, requestCameraFrame, requestContinuousTile, resetParentExitHysteresis, scene.id, showPortalPreview, stopWheelAnimation]);
 
   useEffect(() => {
     if (!onPortalNavigatorReady) return;
@@ -1464,6 +1888,7 @@ export function SceneViewport({
   }, [beginPortalTransition, interactionLocked, onPortalNavigatorReady, scene.portals]);
 
   const evaluateNavigation = useCallback(() => {
+    if (continuitySettlingRef.current || committingRef.current) return;
     const now = performance.now();
     if (now - lastNavigationRef.current < 350) return;
     const camera = cameraRef.current;
@@ -1479,11 +1904,17 @@ export function SceneViewport({
       beginPortalTransition(portal, "zoom");
       return;
     }
-    if (scene.parentId && zoomDirectionRef.current === "out" && camera.scale < EXIT_SCALE) {
+    if (
+      scene.parentId
+      && parentExitReadyRef.current
+      && zoomDirectionRef.current === "out"
+      && camera.scale <= EXIT_SCALE
+    ) {
       lastNavigationRef.current = now;
+      resetParentExitHysteresis();
       onExitScene();
     }
-  }, [beginPortalTransition, onExitScene, scene.parentId, scene.portals]);
+  }, [beginPortalTransition, onExitScene, resetParentExitHysteresis, scene.parentId, scene.portals]);
 
   const scheduleNavigationCheck = useCallback(() => {
     if (navigationFrameRef.current !== null) return;
@@ -1546,6 +1977,7 @@ export function SceneViewport({
       const previousFocus = zoomFocusRef.current;
       const minimum = scene.parentId ? 0.68 : 0.9;
       const nextScale = Math.min(MAX_SCALE, Math.max(minimum, camera.scale * factor));
+      sampleParentExitHysteresis(factor, nextScale);
       const semanticPortal = factor > 1
         ? portalAtScreenPoint(scene.portals, camera, previousPoint)
         : undefined;
@@ -1601,7 +2033,7 @@ export function SceneViewport({
       requestCameraFrame();
       scheduleNavigationCheck();
     },
-    [cancelCameraAnimation, resetSemanticOverscroll, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, trySemanticOverscroll, updateZoomDirection],
+    [cancelCameraAnimation, resetSemanticOverscroll, sampleParentExitHysteresis, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, trySemanticOverscroll, updateZoomDirection],
   );
 
   const queueWheelZoom = useCallback((point: Point, factor: number) => {
@@ -1617,6 +2049,7 @@ export function SceneViewport({
     const previousFocus = zoomFocusRef.current;
     const minimum = scene.parentId ? 0.68 : 0.9;
     const nextScale = Math.min(MAX_SCALE, Math.max(minimum, base.scale * factor));
+    sampleParentExitHysteresis(factor, nextScale);
     const ratio = nextScale / base.scale;
     const target = clampCamera({
       ...base,
@@ -1704,7 +2137,7 @@ export function SceneViewport({
       wheelFrameTimeRef.current = null;
     };
     wheelAnimationRef.current = requestAnimationFrame(animate);
-  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, resetSemanticOverscroll, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, trySemanticOverscroll, updateZoomDirection, viewerInteractive]);
+  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, resetSemanticOverscroll, sampleParentExitHysteresis, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, trySemanticOverscroll, updateZoomDirection, viewerInteractive]);
 
   const focusVocabularyTarget = useCallback((
     fallbackLabelId: string,
@@ -1718,6 +2151,17 @@ export function SceneViewport({
     const revealedCount = Number(element.dataset.hiddenWordCount);
     const nextLabel = labelsById.get(nextLabelId);
     if (!nextLabel || !Number.isInteger(nextLod) || nextLod < 0 || nextLod > 4 || revealedCount < 1) return;
+    const promisedBatchLabelIds = [...new Set([
+      nextLabelId,
+      ...(element.dataset.nextLabelIds ?? "").split(/\s+/).filter(Boolean),
+    ])].filter((id) => labelsById.has(id));
+
+    // A newer cue, whether pointer- or keyboard-triggered, supersedes any
+    // exact-focus task left by an earlier animation.
+    pendingKeyboardFocusLabelIdRef.current = null;
+    pendingKeyboardFocusBatchLabelIdsRef.current = [];
+    pendingKeyboardFocusContractElementRef.current = null;
+    queuedKeyboardFocusLabelIdRef.current = null;
 
     stopWheelAnimation();
     cancelCameraAnimation();
@@ -1740,11 +2184,14 @@ export function SceneViewport({
       : Math.min(
         MAX_SCALE,
         Math.max(start.scale + 0.28, defaultRevealScale, authoredTarget),
-      );
+    );
     const authoredFocusX = Number(element.dataset.focusX);
     const authoredFocusY = Number(element.dataset.focusY);
-    const focusX = Number.isFinite(authoredFocusX) ? authoredFocusX : nextLabel.x;
-    const focusY = Number.isFinite(authoredFocusY) ? authoredFocusY : nextLabel.y;
+    const { x: focusX, y: focusY } = vocabularyActivationFocusPoint(
+      nextLabel,
+      { x: authoredFocusX, y: authoredFocusY },
+      keyboardTriggered,
+    );
     const effectiveScale = start.fit * targetScale;
     const target = {
       fit: start.fit,
@@ -1754,23 +2201,27 @@ export function SceneViewport({
     };
     const focusRevealedWord = () => {
       zoomFocusRef.current = { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
+      if (keyboardTriggered) {
+        pendingKeyboardFocusLabelIdRef.current = nextLabelId;
+        pendingKeyboardFocusBatchLabelIdsRef.current = promisedBatchLabelIds;
+        pendingKeyboardFocusContractElementRef.current = element;
+        const nextMountedLabelIds = includeSceneLabelMountTarget(
+          mountedLabelIdsRef.current,
+          nextLabelId,
+          sceneLabelMountLimit({ compact: viewport.clientWidth <= 900 }),
+        );
+        if (nextMountedLabelIds !== mountedLabelIdsRef.current) {
+          mountedLabelIdsRef.current = nextMountedLabelIds;
+          setMountedLabelIds(nextMountedLabelIds);
+          pendingLabelWindowPaintRef.current = true;
+        }
+      }
       requestCameraFrame();
-      if (vocabularyAnnouncementRef.current) {
+      if (!keyboardTriggered && vocabularyAnnouncementRef.current) {
         vocabularyAnnouncementRef.current.textContent = element.dataset.zoneTitle
           ? `已放大到${element.dataset.zoneTitle}`
           : "已放大到下一批词汇";
       }
-      if (!keyboardTriggered) return;
-      requestAnimationFrame(() => {
-        const word = labelLayerRef.current?.querySelector<HTMLButtonElement>(
-          `.word-label[data-label-id="${CSS.escape(nextLabelId)}"]`,
-        );
-        const fallback = labelLayerRef.current?.querySelector<HTMLButtonElement>(
-          ".word-label[data-interactive=\"true\"]",
-        );
-        if (word?.tabIndex === 0) word.focus();
-        else fallback?.focus();
-      });
     };
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reducedMotion) {
@@ -1811,6 +2262,10 @@ export function SceneViewport({
 
   useEffect(() => {
     selectedLabelIdRef.current = null;
+    pendingKeyboardFocusLabelIdRef.current = null;
+    pendingKeyboardFocusBatchLabelIdsRef.current = [];
+    pendingKeyboardFocusContractElementRef.current = null;
+    queuedKeyboardFocusLabelIdRef.current = null;
     parentZoomPrefetchRef.current = false;
     if (!scene.parentId) return;
     onPrefetchScene(scene.parentId);
@@ -1834,13 +2289,21 @@ export function SceneViewport({
         );
         const start = { ...cameraRef.current };
         if (reducedContinuityAtMount) {
-          cameraRef.current = target;
+          cameraRef.current = { ...target };
           continuityProgressRef.current = 0;
           continuitySettlingRef.current = false;
+          continuityWheelGuardRef.current = {
+            active: true,
+            quietUntil: performance.now() + HANDOFF_WHEEL_QUIET_MS,
+          };
+          resetParentExitHysteresis();
           requestCameraFrame();
         } else {
           const startedAt = performance.now();
-          const duration = continuityView.direction === "back" ? 140 : 110;
+          // Settle the already-painted handoff promptly; the independent
+          // 180ms input guard still prevents the entering wheel stream from
+          // immediately reversing scene ownership.
+          const duration = continuityView.direction === "back" ? 105 : 80;
           const animate = (now: number) => {
             const linear = Math.min(1, (now - startedAt) / duration);
             const eased = 1 - (1 - linear) ** 3;
@@ -1859,7 +2322,13 @@ export function SceneViewport({
               return;
             }
             cameraAnimationRef.current = null;
+            cameraRef.current = { ...target };
             continuitySettlingRef.current = false;
+            continuityWheelGuardRef.current = {
+              active: true,
+              quietUntil: now + HANDOFF_WHEEL_QUIET_MS,
+            };
+            resetParentExitHysteresis();
             continuityProgressRef.current = 0;
             setMotionFrozen(false);
             if (continuityView.direction === "back") {
@@ -1900,7 +2369,7 @@ export function SceneViewport({
       observer.disconnect();
       if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
     };
-  }, [initialView, reducedContinuityAtMount, requestCameraFrame, resetCamera, scene]);
+  }, [initialView, reducedContinuityAtMount, requestCameraFrame, resetCamera, resetParentExitHysteresis, scene]);
 
   useEffect(() => {
     viewerInteractiveRef.current = viewerInteractive;
@@ -1913,6 +2382,14 @@ export function SceneViewport({
     if (!viewport) return;
     const onWheel = (event: WheelEvent) => {
       event.preventDefault();
+      const now = performance.now();
+      if (continuityWheelGuardRef.current.active) {
+        if (now <= continuityWheelGuardRef.current.quietUntil) {
+          continuityWheelGuardRef.current.quietUntil = now + HANDOFF_WHEEL_QUIET_MS;
+          return;
+        }
+        continuityWheelGuardRef.current = { active: false, quietUntil: 0 };
+      }
       const bounds = viewport.getBoundingClientRect();
       const point = { x: event.clientX - bounds.left, y: event.clientY - bounds.top };
       const factor = wheelZoomFactor(event.deltaY, event.deltaMode, viewport.clientHeight);
@@ -2036,8 +2513,11 @@ export function SceneViewport({
       <div
         ref={viewportRef}
         className="world-viewport"
-        style={{ "--scene-backdrop-image": `url(${scene.asset})` } as CSSProperties}
+        style={{ "--scene-backdrop-image": `url(${activeSceneAsset.src})` } as CSSProperties}
         data-testid="world-viewport"
+        data-active-asset-tier={renderSceneAssetLoadState.activeTier}
+        data-active-asset-src={activeSceneAsset.src}
+        data-desired-asset-tier={renderSceneAssetLoadState.desiredTier}
         aria-busy={interactionLocked}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
@@ -2060,7 +2540,13 @@ export function SceneViewport({
             } : {}),
           } as CSSProperties}
         >
-          <img className="scene-art" src={scene.asset} alt="" draggable={false} />
+          <img
+            className="scene-art"
+            src={activeSceneAsset.src}
+            data-asset-tier={renderSceneAssetLoadState.activeTier}
+            alt=""
+            draggable={false}
+          />
           {continuousTile ? (
             <div
               key={`${continuousTile.portal.id}:${continuousTile.scene.id}`}
@@ -2221,23 +2707,27 @@ export function SceneViewport({
           aria-hidden={motionFrozen ? true : undefined}
           aria-label="Words in this scene"
         >
-          {scene.labels.map((label) => {
+          {scene.labels.filter((label) => mountedLabelIds.has(label.id)).map((label) => {
             const semanticStyle = labelSemanticStyles.get(label.id);
             return (
               <button
                 key={label.id}
+                ref={(element) => {
+                  if (element) {
+                    labelElementsRef.current.set(label.id, element);
+                    if (label.id === pendingKeyboardFocusLabelIdRef.current) {
+                      requestCameraFrame();
+                    }
+                  } else labelElementsRef.current.delete(label.id);
+                }}
                 type="button"
                 className="word-label"
                 data-testid="word-label"
                 data-label-id={label.id}
-                data-min-level={label.minLevel ?? 0}
+                data-word={label.word}
                 data-lod={label.minLevel ?? 0}
-                data-priority={label.priority}
-                data-visual-region={label.sourceVisualRegion}
                 data-anchor-x={label.x}
                 data-anchor-y={label.y}
-                data-anchor-mode="stem"
-                data-leader-span="short"
                 data-semantic-group={semanticStyle?.semanticGroup}
                 data-palette-index={semanticStyle?.paletteIndex}
                 data-visible="false"
@@ -2245,8 +2735,6 @@ export function SceneViewport({
                 data-adaptive="false"
                 tabIndex={-1}
                 aria-hidden="true"
-                aria-label={meaningVisible ? `${label.word}，${label.translation}` : label.word}
-                style={semanticStyle?.cssVariables as CSSProperties | undefined}
                 onClick={(event) => {
                   event.stopPropagation();
                   selectedLabelIdRef.current = label.id;
@@ -2255,8 +2743,7 @@ export function SceneViewport({
                   onSelectWord(label);
                 }}
               >
-                <span className="word-anchor-marker" aria-hidden="true" />
-                <span>{label.word}</span>
+                {label.word}
                 {meaningVisible ? (
                   <span className="word-translation" data-testid="word-translation">
                     {label.translation}

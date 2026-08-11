@@ -3,6 +3,8 @@ import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import {
   assertValidSceneGraph,
+  assertSceneAssetIntegrity,
+  resolveSceneAssets,
   type Label,
   type Portal,
   type Scene,
@@ -568,6 +570,65 @@ function readJpegDimensions(asset: Buffer): { width: number; height: number } {
   throw new Error("JPEG has no readable frame dimensions");
 }
 
+async function validateSceneAssetFile(
+  scene: AuditedScene,
+  descriptor: ReturnType<typeof resolveSceneAssets>[number],
+): Promise<number> {
+  const assetPath = resolve(publicRoot, descriptor.src.replace(/^\//, ""));
+  const assetStat = await stat(assetPath);
+  if (!assetStat.isFile()) throw new Error(`Missing scene asset: ${descriptor.src}`);
+  const asset = await readFile(assetPath);
+  let decodedDimensions = { width: descriptor.width, height: descriptor.height };
+  if (descriptor.src.endsWith(".svg")) {
+    const source = asset.toString("utf8");
+    const expectedViewBox = `viewBox="0 0 ${descriptor.width} ${descriptor.height}"`;
+    if (!source.includes(expectedViewBox)) {
+      throw new Error(`Asset ${descriptor.src} has the wrong viewBox`);
+    }
+    if (!source.includes("<title") || !source.includes("<desc")) {
+      throw new Error(`Asset ${descriptor.src} needs an accessible title and description`);
+    }
+  } else if (descriptor.src.endsWith(".jpg") || descriptor.src.endsWith(".jpeg")) {
+    if (asset[0] !== 0xff || asset[1] !== 0xd8 || asset[2] !== 0xff) {
+      throw new Error(`Asset ${descriptor.src} is not a valid JPEG`);
+    }
+    decodedDimensions = readJpegDimensions(asset);
+    const densityArea = descriptor.width * descriptor.height / (scene.width * scene.height);
+    const maximumBytes = Math.ceil(MAX_RASTER_BYTES * densityArea);
+    if (assetStat.size > maximumBytes) {
+      throw new Error(`Asset ${descriptor.src} exceeds the ${maximumBytes}-byte density-adjusted raster budget`);
+    }
+  } else {
+    throw new Error(`Unsupported scene asset type: ${descriptor.src}`);
+  }
+
+  const requiredSha256 = descriptor.sha256
+    || (descriptor.tier === "base" && scene.id in PREMIUM_DENSITY_MINIMUMS
+      ? scene.anchorAudit.reviewedAssetSha256
+      : undefined);
+  if (scene.assets || (descriptor.tier === "base" && scene.id in PREMIUM_DENSITY_MINIMUMS)) {
+    if (!requiredSha256?.match(/^[a-f0-9]{64}$/)) {
+      throw new Error(`Scene ${scene.id}/${descriptor.tier} needs a reviewed SHA-256`);
+    }
+  }
+  assertSceneAssetIntegrity(
+    { ...descriptor, sha256: requiredSha256 },
+    {
+      ...decodedDimensions,
+      sha256: createHash("sha256").update(asset).digest("hex"),
+    },
+  );
+  if (
+    descriptor.tier === "base"
+    && scene.anchorAudit.reviewedAssetSha256
+    && descriptor.sha256
+    && descriptor.sha256 !== scene.anchorAudit.reviewedAssetSha256
+  ) {
+    throw new Error(`Scene ${scene.id} base descriptor and anchor-audit hashes disagree`);
+  }
+  return assetStat.size;
+}
+
 async function main() {
   const manifestBytes = await readFile(resolve(dataRoot, "manifest.json"));
   const manifest = JSON.parse(manifestBytes.toString("utf8")) as SceneManifest;
@@ -602,9 +663,6 @@ async function main() {
       if ((scene.parentId ?? null) !== manifestScene.parentId) {
         throw new Error(`Manifest parent mismatch for ${id}`);
       }
-      const assetPath = resolve(publicRoot, scene.asset.replace(/^\//, ""));
-      const assetStat = await stat(assetPath);
-      if (!assetStat.isFile()) throw new Error(`Missing scene asset: ${scene.asset}`);
       if (!scene.translation?.trim()) throw new Error(`Scene ${id} has no translation`);
       validateAnchorAudit(scene, lexiconById);
       const displayWords = scene.labels.map((label) => label.word.toLocaleLowerCase());
@@ -616,40 +674,10 @@ async function main() {
           throw new Error(`Scene ${id} contains a known ungrounded label: ${forbidden}`);
         }
       }
-      const asset = await readFile(assetPath);
-      if (scene.asset.endsWith(".svg")) {
-        const source = asset.toString("utf8");
-        const expectedViewBox = `viewBox="0 0 ${scene.width} ${scene.height}"`;
-        if (!source.includes(expectedViewBox)) throw new Error(`Asset ${scene.asset} has the wrong viewBox`);
-        if (!source.includes("<title") || !source.includes("<desc")) {
-          throw new Error(`Asset ${scene.asset} needs an accessible title and description`);
-        }
-      } else if (scene.asset.endsWith(".jpg") || scene.asset.endsWith(".jpeg")) {
-        if (asset[0] !== 0xff || asset[1] !== 0xd8 || asset[2] !== 0xff) {
-          throw new Error(`Asset ${scene.asset} is not a valid JPEG`);
-        }
-        const dimensions = readJpegDimensions(asset);
-        if (dimensions.width !== scene.width || dimensions.height !== scene.height) {
-          throw new Error(
-            `Asset ${scene.asset} is ${dimensions.width}x${dimensions.height}; expected ${scene.width}x${scene.height}`,
-          );
-        }
-        if (assetStat.size > MAX_RASTER_BYTES) {
-          throw new Error(`Asset ${scene.asset} exceeds the ${MAX_RASTER_BYTES}-byte raster budget`);
-        }
-        if (scene.id in PREMIUM_DENSITY_MINIMUMS) {
-          if (!scene.anchorAudit.reviewedAssetSha256?.match(/^[a-f0-9]{64}$/)) {
-            throw new Error(`Scene ${scene.id} needs a reviewed SHA-256 for its premium asset`);
-          }
-          const assetSha256 = createHash("sha256").update(asset).digest("hex");
-          if (assetSha256 !== scene.anchorAudit.reviewedAssetSha256) {
-            throw new Error(`Scene ${scene.id} audit hash does not match ${scene.asset}`);
-          }
-        }
-      } else {
-        throw new Error(`Unsupported scene asset type: ${scene.asset}`);
-      }
-      return { scene, assetBytes: assetStat.size };
+      const assetBytes = (await Promise.all(
+        resolveSceneAssets(scene).map((descriptor) => validateSceneAssetFile(scene, descriptor)),
+      )).reduce((sum, bytes) => sum + bytes, 0);
+      return { scene, assetBytes };
     }),
   );
 
