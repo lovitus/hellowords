@@ -1,7 +1,7 @@
 {
   "source": {
-    "path": "public/scenes/world-atlas-master-1600-v1.jpg",
-    "sha256": "d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb"
+    "path": "public/scenes/world-atlas-master-1600-v2.jpg",
+    "sha256": "d7e918e18d31b62fc31386776ffc242c9fefae6c359ae64bf1e9965b491cb008"
   },
   "coordinateSpace": { "width": 1600, "height": 900 },
   "counts": { "home": 80, "city": 80, "total": 160 },

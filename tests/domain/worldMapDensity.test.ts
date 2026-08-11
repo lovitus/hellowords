@@ -21,16 +21,16 @@ const minimumExplorationCoverage = 0.9;
 
 const expectedAssets = {
   base: {
-    src: "/scenes/world-atlas-master-1600-v1.jpg",
+    src: "/scenes/world-atlas-master-1600-v2.jpg",
     width: 1_600,
     height: 900,
-    sha256: "d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb",
+    sha256: "d7e918e18d31b62fc31386776ffc242c9fefae6c359ae64bf1e9965b491cb008",
   },
   high: {
-    src: "/scenes/world-atlas-master-3200-v1.jpg",
+    src: "/scenes/world-atlas-master-3200-v2.jpg",
     width: 3_200,
     height: 1_800,
-    sha256: "e30a3750ef9f609056d288268c6692e7dc6fa8b18ff0d93bf37cf3265f405966",
+    sha256: "c5fa38cd83c57d2864ee2a1c668e1518a28c8cee77639f5c4b2db875c53c5ded",
   },
 } as const;
 

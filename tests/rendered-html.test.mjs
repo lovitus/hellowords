@@ -22,7 +22,7 @@ test("server-renders the HelloWords product shell", async () => {
   const html = await response.text();
   assert.match(html, /<html[^>]+lang="zh-CN"/i);
   assert.match(html, /<title>HelloWords · 词境<\/title>/i);
-  assert.match(html, /data-testid="world-app"/i);
+  assert.match(html, /data-testid="world-app"[^>]*data-scene-id="loading"/i);
   assert.match(html, /HelloWords/);
   assert.match(html, /aria-label="打开 10 个视觉领域、758 个分层入口和 10,000 个词"/);
   assert.match(html, /data-testid="meaning-toggle"/i);

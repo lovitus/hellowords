@@ -188,6 +188,34 @@ test("all fourteen spatial rules mirror only the three category differentiators"
   }
 });
 
+test("dense spatial labels reveal artwork without losing semantic tint or focus contrast", async () => {
+  const css = await readFile(resolve(import.meta.dirname, "../../app/globals.css"), "utf8");
+  const baseRule = css.match(/\.word-label\s*\{([\s\S]*?)\n\}/)?.[1] ?? "";
+  assert.match(baseRule, /--label-surface-opacity:\s*72%;/);
+  assert.match(baseRule, /--label-border-opacity:\s*70%;/);
+  assert.match(
+    baseRule,
+    /background:\s*color-mix\([\s\S]*?var\(--label-semantic-surface\) var\(--label-surface-opacity\)[\s\S]*?transparent[\s\S]*?\);/,
+  );
+  assert.match(baseRule, /text-shadow:\s*0 1px 1px rgba\(255, 255, 255, 0\.84\);/);
+  assert.doesNotMatch(baseRule, /backdrop-filter/, "dense pills do not create one filter layer each");
+
+  const homeRule = css.match(
+    /\.world-app\[data-scene-id="world-map"\] \.word-label\s*\{([\s\S]*?)\n\}/,
+  )?.[1] ?? "";
+  assert.match(homeRule, /--label-surface-opacity:\s*58%;/);
+  assert.match(homeRule, /--label-border-opacity:\s*64%;/);
+  assert.match(homeRule, /background:\s*rgba\(246, 243, 237, 0\.58\);/);
+  assert.doesNotMatch(homeRule, /backdrop-filter/);
+
+  const activeRule = css.match(
+    /\.word-label\[data-interactive="true"\]:hover,[\s\S]*?\.word-label\[data-interactive="true"\]:focus-visible\s*\{([\s\S]*?)\n\}/,
+  )?.[1] ?? "";
+  assert.match(activeRule, /--label-surface-opacity:\s*92%;/);
+  assert.match(activeRule, /--label-border-opacity:\s*84%;/);
+  assert.match(activeRule, /var\(--label-semantic-surface-hover\)/);
+});
+
 test("every complete domain palette stays readable for semantic zoom consumers", () => {
   assert.equal(LABEL_SEMANTIC_PALETTES.length, 14);
   const reservedAccents = new Set(["#d99a36", "#236f55"]);
