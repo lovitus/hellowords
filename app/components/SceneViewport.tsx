@@ -14,9 +14,11 @@ import {
   consolidateVocabularyCueBatches,
   computeSceneLabelLayout,
   LABEL_ENCOUNTER_OPACITY,
+  prioritizeCurrentLabelOrder,
   sceneLabelLod,
   sceneLabelRevealOpacity,
   smoothCameraTowards,
+  vocabularyCueFocusPoint,
   type Label,
   type Portal as ScenePortal,
   type Scene,
@@ -446,6 +448,8 @@ export function SceneViewport({
   // "remaining words" total increase again. SceneViewport is keyed by
   // scene.id, so this set naturally has the same lifetime as the scene view.
   const revealedLabelIdsRef = useRef(new Set<string>());
+  const labelPlacementRef = useRef(new Map<string, readonly [number, number]>());
+  const activeLabelIdsRef = useRef(new Set<string>());
   const selectedLabelIdRef = useRef<string | null>(null);
   const lastNavigationRef = useRef(0);
   const zoomFocusRef = useRef<Point | null>(null);
@@ -791,6 +795,9 @@ export function SceneViewport({
       meaningVisibleRef.current,
       {
         selectedLabelId: focusedLabelId ?? selectedLabelIdRef.current,
+        retainedLabelIds: revealedLabelIdsRef.current,
+        preferredOffsets: labelPlacementRef.current,
+        activeRetainedLabelIds: activeLabelIdsRef.current,
         protectedRegions: [
           ...buildViewerChromeProtectedRegions(labelViewport.width, labelViewport.height),
           ...buildPortalCueProtectedRegions(scene.portals, camera, labelViewport),
@@ -884,10 +891,17 @@ export function SceneViewport({
       }, Math.max(1, Math.ceil(dwell.nextCheckInMs)));
     }
 
-    const actuallyVisibleLabelIds = new Set(
-      layout.filter((item) => item.interactive).map((item) => item.id),
+    const visibleItemsInPlacementOrder = layout
+      .filter((item) => item.interactive)
+      .sort((first, second) => first.placementOrder - second.placementOrder);
+    revealedLabelIdsRef.current = prioritizeCurrentLabelOrder(
+      revealedLabelIdsRef.current,
+      visibleItemsInPlacementOrder,
     );
-    for (const id of actuallyVisibleLabelIds) revealedLabelIdsRef.current.add(id);
+    activeLabelIdsRef.current = new Set(visibleItemsInPlacementOrder.map((item) => item.id));
+    for (const item of visibleItemsInPlacementOrder) {
+      labelPlacementRef.current.set(item.id, [item.offsetX, item.offsetY]);
+    }
     const revealSummary = buildVocabularyRevealSummary(
       scene.labels,
       camera.scale,
@@ -1016,9 +1030,10 @@ export function SceneViewport({
         if (batch.cue.translation) {
           setDatasetValueIfChanged(element, "zoneTranslation", batch.cue.translation);
         }
-        if (batch.cue.focusX !== undefined && batch.cue.focusY !== undefined) {
-          setDatasetValueIfChanged(element, "focusX", String(batch.cue.focusX));
-          setDatasetValueIfChanged(element, "focusY", String(batch.cue.focusY));
+        const focusPoint = vocabularyCueFocusPoint(batch.cue, nextBatchLabels);
+        if (focusPoint) {
+          setDatasetValueIfChanged(element, "focusX", String(focusPoint.x));
+          setDatasetValueIfChanged(element, "focusY", String(focusPoint.y));
         }
         setDatasetValueIfChanged(element, "sourceCueIds", batch.sourceCueIds.join(" "));
         setDatasetValueIfChanged(element, "cueMode", batch.mode);

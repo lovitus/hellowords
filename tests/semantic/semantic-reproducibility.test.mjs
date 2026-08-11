@@ -19,7 +19,7 @@ test("the pinned semantic generator is byte-for-byte reproducible", { timeout: 3
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "hellowords-semantic-test-"));
   const first = path.join(temporary, "first");
   const second = path.join(temporary, "second");
-  const cachedArchive = "/tmp/hellowords-semantic/wordnet.zip";
+  const cachedArchive = path.join(os.tmpdir(), "hellowords-semantic", "wordnet.zip");
   const common = [path.join(root, "scripts/semantic-generate.py")];
   const sourceArgs = fs.existsSync(cachedArchive) ? ["--wordnet-zip", cachedArchive] : [];
   try {

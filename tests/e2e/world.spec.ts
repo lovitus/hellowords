@@ -87,17 +87,41 @@ async function closestLabelToViewportCenter(page: Page, selector: string) {
     const viewportRect = viewport.getBoundingClientRect();
     const centerX = viewportRect.left + viewportRect.width / 2;
     const centerY = viewportRect.top + viewportRect.height / 2;
+    const surface = document.querySelector<HTMLElement>(".scene-surface");
+    if (!surface) throw new Error("scene surface is required to project authored anchors");
+    const camera = new DOMMatrixReadOnly(surface.style.transform);
     const closest = labels
       .map((label) => {
-        const rect = label.getBoundingClientRect();
+        const element = label as HTMLElement;
+        const anchor = camera.transformPoint({
+          x: Number(element.dataset.anchorX),
+          y: Number(element.dataset.anchorY),
+        });
         return {
-          id: (label as HTMLElement).dataset.labelId ?? "",
-          distance: Math.hypot(rect.left + rect.width / 2 - centerX, rect.top + rect.height / 2 - centerY),
+          id: element.dataset.labelId ?? "",
+          distance: Math.hypot(
+            viewportRect.left + anchor.x - centerX,
+            viewportRect.top + anchor.y - centerY,
+          ),
         };
       })
       .sort((first, second) => first.distance - second.distance)[0];
     if (!closest?.id) throw new Error("an authored detail label is required");
     return closest.id;
+  });
+}
+
+async function authoredAnchorScreenPoint(label: Locator): Promise<{ x: number; y: number }> {
+  return label.evaluate((element) => {
+    const surface = document.querySelector<HTMLElement>(".scene-surface");
+    const viewport = document.querySelector<HTMLElement>('[data-testid="world-viewport"]');
+    if (!surface || !viewport) throw new Error("scene camera is required to project an authored anchor");
+    const anchor = new DOMMatrixReadOnly(surface.style.transform).transformPoint({
+      x: Number((element as HTMLElement).dataset.anchorX),
+      y: Number((element as HTMLElement).dataset.anchorY),
+    });
+    const viewportRect = viewport.getBoundingClientRect();
+    return { x: viewportRect.left + anchor.x, y: viewportRect.top + anchor.y };
   });
 }
 
@@ -338,12 +362,8 @@ test("five authored LOD bands use spare space and remain readable while zooming"
 
   await page.getByRole("button", { name: "Fit scene" }).click();
   await expect(surface).toHaveAttribute("data-scene-scale", "1.000");
-  const focusBox = await detailLabel.boundingBox();
-  expect(focusBox).not.toBeNull();
-  await zoomSceneToScale(page, 3.12, {
-    x: focusBox!.x + focusBox!.width / 2,
-    y: focusBox!.y + focusBox!.height / 2,
-  });
+  const authoredFocus = await authoredAnchorScreenPoint(detailLabel);
+  await zoomSceneToScale(page, 3.12, authoredFocus);
   await expect(surface).toHaveAttribute("data-lod-level", "4");
   await expect(detailLabel).toBeVisible();
   await expect.poll(async () => (await wordTransitionStyle(detailLabel)).opacity).toBeGreaterThanOrEqual(0.95);

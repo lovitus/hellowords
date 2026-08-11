@@ -29,7 +29,7 @@ The graph contains 34 reachable scenes and 33 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 1,288 human-verified anchors representing 1,062 distinct English display terms. The current pixel audits also record 542 rejected candidates because the named object, part, action or property cannot be pointed to in the published image. This expansion adds grounded anchors through richer, independently reviewed artwork rather than by restoring floating topic words. Global vocabulary remains available in the lexical world; a word only appears over a scene when the scene itself supplies visual evidence.
+Spatial scenes now contain 1,335 human-verified anchors representing 1,090 distinct English display terms. The current pixel audits also record 461 rejected candidates because the named object, part, action or property cannot be pointed to in the published image. This expansion adds grounded anchors through richer, independently reviewed artwork rather than by restoring floating topic words. Global vocabulary remains available in the lexical world; a word only appears over a scene when the scene itself supplies visual evidence.
 
 Every scene JSON contains:
 
@@ -38,9 +38,9 @@ Every scene JSON contains:
 - `detailZones`, grouping truthful local crops into independently focusable word batches with a target scale;
 - `sourceVisualRegion` on every label and portal.
 
-The 33 high-resolution raster scenes contribute to 163 authored detail zones across the complete spatial world. A zone names and describes one crop, supplies a Chinese title, and references only label anchors that fall inside its rectangle. It therefore gives the viewport enough data to focus a room, exhibit, habitat, material structure or organelle without inventing another scene or reusing a generic background. A label belongs to at most one zone in the same scene.
+The 34 high-resolution raster scenes contribute to 169 authored detail zones across the complete spatial world. A zone names and describes one crop, supplies a Chinese title, and references only label anchors that fall inside its rectangle. It therefore gives the viewport enough data to focus a room, exhibit, habitat, material structure or organelle without inventing another scene or reusing a generic background. A label belongs to at most one zone in the same scene.
 
-Spatial labels also use the existing optional `lexemeId` as an audited bridge into the 10,000-word lexical world. There are currently 239 sense-reviewed, word-identical links. The validator loads all 10,000 lexical entries and rejects a missing ID or a link whose display word differs. A separate sense review removed spelling-identical but contextually wrong routes such as electrical `battery` to an artillery group, anatomical `heart` to an emotion concept, and tree `branch` to an organization. Visually valid specialist phrases remain unlinked when the ranked lexicon has no matching entry rather than being forced onto an unrelated word sense.
+Spatial labels also use the existing optional `lexemeId` as an audited bridge into the 10,000-word lexical world. There are currently 243 sense-reviewed, word-identical links. The validator loads all 10,000 lexical entries and rejects a missing ID or a link whose display word differs. A separate sense review removed spelling-identical but contextually wrong routes such as electrical `battery` to an artillery group, anatomical `heart` to an emotion concept, and tree `branch` to an organization. Visually valid specialist phrases remain unlinked when the ranked lexicon has no matching entry rather than being forced onto an unrelated word sense.
 
 The authored `x`/`y` is the point on the object itself, not a pre-arranged card position. Runtime collision handling may move the word capsule, but the guide line and anchor dot continue to point to that authored pixel.
 
@@ -71,9 +71,9 @@ Translations remain authored for the visible scene meaning. For example, the hea
 
 | Scene | Before → retained | Main removal reason |
 |---|---:|---|
-| World atlas | 73 → 42 | Unpictured infrastructure, institutions and geographic landmarks |
+| World atlas | 80 → 73 | Bright four-district atlas retains only independently visible buildings, landscapes, garden objects and paths |
 | Community garden | 56 → 48 | Bright greenhouse, beds, tools, irrigation, compost and flowers retained; inferred activities and sustainability claims removed |
-| Apartment | 60 → 47 | Invisible appliances, toiletries and duplicate furniture names |
+| Apartment | 47 → 44 | Bright replacement preserves three room portals while removing an obscured sink and unsupported hallway/dresser claims |
 | Kitchen | 57 → 48 | Refreshed kitchen grounds appliances, food, hand tools and coffee-machine parts; absent processes remain removed |
 | Coffee machine | 58 → 40 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit and electronics; invisible functions and brewing processes remain removed |
 | Water tank | 56 → 36 | Premium clear-reservoir portrait grounds lid, water, molded walls, outlet hardware, mounts and the real Polymer portal; sensors, hidden plumbing, properties and maintenance actions remain removed |
@@ -82,7 +82,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Bathroom | 48 → 45 | New daylight bathroom grounds bath, vanity, toilet, shower, plumbing, tile and linen details; invisible conditions remain removed |
 | Wardrobe interior | 48 → 36 | Premium wardrobe grounds cabinet fittings, distinct garments, shirt parts and nearby bedroom objects; materials and actions remain removed |
 | Cotton shirt | 48 → 40 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools; machinery, factory actions and performance properties remain removed |
-| City street | 59 → 46 | Unpictured street furniture and traffic situations |
+| City street | 46 → 42 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects |
 | City cafe | 52 → 45 | New daylight cafe grounds counter, espresso, pastry, seating and tableware zones; people, branding and text stay excluded |
 | Transit hub | 60 → 48 | Bright multimodal hall grounds separate rail, concourse and electric-bus details; people and service abstractions remain removed |
 | Electric bus | 56 → 40 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; people, branding and operating concepts remain removed |
@@ -98,9 +98,9 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Blood cell | 56 → 36 | Bright capillary cutaway grounds vessel layers, red-cell membrane and skeleton, one neutrophil, platelets and the real Hemoglobin portal; unsupported immune processes remain removed |
 | Hemoglobin | 48 → 22 | Premium molecular view grounds subunits, hemes and the oxygen-binding pocket; diseases and invisible binding behavior remain removed |
 | Oxygen molecule | 48 → 26 | Premium gas-exchange cutaway grounds the airway, alveolus, barrier, blood cells and molecule trail; quantum decoration and invisible physiology remain removed |
-| City park | 60 → 38 | Invented amenities, animals and activities; duplicate place terms |
-| Oak tree | 56 → 43 | Premium woodland close-up grounds wildlife, fungi and texture; invisible processes and growth rings stay removed |
-| Leaf | 56 → 41 | Premium macro grounds anatomy, insects and surface damage; unseen chemistry and internal tissues stay removed |
+| City park | 60 → 39 | Bright replacement grounds two complete habitat portals, park fixtures and visible wildlife while rejecting inferred activities |
+| Oak tree | 56 → 43 | Bright neutral-daylight woodland close-up grounds wildlife, fungi and texture; invisible processes and growth rings stay removed |
+| Leaf | 41 → 36 | Natural-colour macro retains independently visible anatomy, insects and damage while rejecting duplicate vein terms and unsupported underside/curl details |
 | Plant cell | 56 → 37 | Premium 3D cutaway resolves organelles and membranes; unseen molecules and processes stay removed |
 | Chloroplast interior | 48 → 28 | Premium microscopic world resolves membranes and stacks; reactions and unpictured metabolites stay removed |
 | Pond edge | 48 → 40 | Premium spring shallows ground shoreline textures, aquatic plants, insects, fish, tadpoles, snail and the real Frog portal; absent birds, turtles and activities remain removed |
@@ -108,7 +108,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 
 ## Visual strategy
 
-The atlas and its first-level destinations use high-detail 1600 × 900 raster illustrations because they establish place and atmosphere at a glance. `city-street` uses `city-street-museum-v2.jpg`: its left facade visibly carries an atom emblem and telescope/skeleton exhibit windows, so the science-museum portal no longer points to an ordinary shop. Its central storefront now opens into the independently authored city cafe, while the right portal covers the glass transit hall.
+The atlas and its first-level destinations use high-detail 1600 × 900 raster illustrations because they establish place and atmosphere at a glance. `city-street` now uses the brighter `city-street-bright-v3.jpg`: a complete columned science museum with a telescope exhibit stands at left, a complete blank-fronted cafe occupies the centre, and a complete glazed transit hall anchors the right. The three portal silhouettes remain legible without words, logos, anatomy displays or pseudo-signage.
 
 The world now contains 34 premium 1600 × 900 raster scenes, including the independently illustrated Community garden root branch and upgraded Home, transit, material, natural-history and life-science destinations. This keeps every root entrance visually rewarding, gives Home three tangible rooms, makes both transit branches begin with tangible spaces, and turns the entire `City park → Oak tree → Leaf → Plant cell → Chloroplast` path into one continuous high-detail journey. The exact production briefs and asset digests are recorded in `docs/premium-scene-art.md`.
 

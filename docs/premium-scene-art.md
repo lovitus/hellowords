@@ -4,9 +4,9 @@ These thirty-four 1600 × 900 JPEG scenes were created with the built-in image g
 
 | Scene | Final asset | SHA-256 |
 |---|---|---|
-| World atlas | `world-map-premium.jpg` | `c12cf7a72fd5f001cd083a3928edc32f9429dcd624eb59464139643f6f43be1e` |
+| World atlas | `world-map-bright-v4.jpg` | `73536e8b31807e9e98300b8ceba03975210b881aabaf3f3e3718308fdfd82157` |
 | Community garden | `community-garden-premium-v1.jpg` | `391c7d0d1a1b065a0974f2fc7814fbeefec32cf5df727cf0a0c1a5d2feee49df` |
-| Apartment | `apartment-premium.jpg` | `417f00dfa4904f90939d74185d6307c071f958fcffb14512013e801efa893a56` |
+| Apartment | `apartment-bright-v2.jpg` | `90b90990ed24ec4324aa0b9345a0db650baf1a8bd03267ab6f53d5984d8c5ff2` |
 | Kitchen | `kitchen-premium-v3.jpg` | `7623db6c6b87f6f386f6201d5a913de9f31eb016f0894b0a33eec52dc94a7f2e` |
 | Coffee machine | `coffee-machine-premium-v1.jpg` | `02263b2ed81fdab6b4c6c8fad8f93a378482cd14da92a5792885d865c5aca439` |
 | Water tank | `water-tank-premium-v1.jpg` | `f10abe3172ff6702464f85ceb799cc57fd589d287f7147b4c234999b6d0686ad` |
@@ -15,7 +15,7 @@ These thirty-four 1600 × 900 JPEG scenes were created with the built-in image g
 | Bathroom | `bathroom-premium-v1.jpg` | `8b5e929be4f6fec90630342e9c31d1d40e4dfd4f7b207a1fb1c6108f5eb82f22` |
 | Wardrobe interior | `wardrobe-interior-premium-v2.jpg` | `ec0cc25087f206253e5fc04c4a59c5a1011300fde1591c2431680ef963e24925` |
 | Cotton shirt | `cotton-shirt-premium-v2.jpg` | `2cca1b5da611c7bf163adf6ef4e9fd5b66517288050437f5b3a8467c7958965e` |
-| City street | `city-street-museum-v2.jpg` | `20c2d794d2c441ebca54ad5a781fb44fcc25fe88a2d2c5a520631f97ef092c55` |
+| City street | `city-street-bright-v3.jpg` | `f615acf6a5751f9d6033e3ebcb96d1d7f768566db3acaa9170d363d53fb1fd08` |
 | City cafe | `city-cafe-premium-v2.jpg` | `376704b19736218c3af769cd1f2faae8726aa25b7b1e784ffab593876434b88f` |
 | Transit hub | `transit-hub-premium-v2.jpg` | `0404f4a4fcfef1cba37b54231530085b708e498b1e21dd94e5585477f68652f9` |
 | Electric bus | `electric-bus-premium-v2.jpg` | `71fd16eaad65c46a9aa9ea0c85cb87b788337e44c57b76f0365449dda38a9a63` |
@@ -31,17 +31,41 @@ These thirty-four 1600 × 900 JPEG scenes were created with the built-in image g
 | Blood cell | `blood-cell-premium-v2.jpg` | `bfa25f344ebb831bcfd9fc073635b6170aa2cbdfdd666b1e8990400fa8f357e7` |
 | Oxygen molecule | `oxygen-molecule-premium-v2.jpg` | `478765ef5a720f26ce84529409fb217954911e64a2eb64ea5c2f1f8d2c771241` |
 | Hemoglobin | `hemoglobin-premium-v2.jpg` | `205269cf39a7b57650cb8285bc42a68509349904eeb3b5419ca4b5487d5be266` |
-| City park | `city-park-premium.jpg` | `ff3f437984f5480d968caddbc2553c8846aabc4e99d23aecaabb93b9a503ce97` |
+| City park | `city-park-bright-v2.jpg` | `1c55bb1f7b24f1854d1de7507d903d6e730cfc6b9742078f327a3492b8e94782` |
 | Pond edge | `pond-edge-premium-v1.jpg` | `e1afa77fd93b6d067ed69ab6f128247bd06657e9ee78f50a3d38d52c69bd78a7` |
 | Frog | `frog-premium-v1.jpg` | `3fc577cfc9ca50ca8009fac00353b741d4116da89b8cd608e56e6a9ef2b07b13` |
-| Oak tree | `oak-tree-premium-v2.jpg` | `17be818b6515e7fb1adfd9532254612274f9ab84de17808b1e44c807976a9a3e` |
-| Leaf | `leaf-premium-v2.jpg` | `e4e61dc6ab6aacede72b9913d4d824c9b923fd046340220329df69e82b29312f` |
+| Oak tree | `oak-tree-natural-v3.jpg` | `d331191e5c63ff460c3208cc32b4e9d977981749a9f5ddb6a3850d373623fe3b` |
+| Leaf | `leaf-natural-v3.jpg` | `3047a8ee8f00fa78ac31d8b328034b52a62d414a20c7c4bdcc02c82a23ff9e13` |
 | Plant cell | `plant-cell-premium-v2.jpg` | `2c873d870fc8c2344b4686460647c941c01740723a0901936e70a012e118146e` |
 | Chloroplast interior | `chloroplast-interior-premium-v2.jpg` | `00cdd3ec0187bdf608fd5e6d62a983204290275abf54862d78f0dca7bbe81adb` |
 
 ## Selected final prompt set
 
 All prompts requested true 16:9 landscape artwork with no labels, text, UI, callout lines, logos, borders, or watermarks. Every named object had to be visibly present, independently identifiable, and large enough to support a real spatial anchor.
+
+### World atlas
+
+Create a bright high-key aerial atlas in clear midday light, arranged as one coherent landscape with four unmistakable districts: a complete apartment cutaway at left, a civic city and transit district above centre, a monumental oak-and-pond park at right, and a greenhouse community garden below. Connect them with pale paths and waterways while keeping each destination complete, non-overlapping and recognizable at thumbnail size. Exclude dusk, black foreground masses, labels, pseudo-signage, people and unrelated fantasy landmarks.
+
+The final atlas supports 73 grounded anchors in six authored regions and four disjoint portal rectangles. Its luminance audit records a 121.9 mean luma with less than 1% of pixels below 32, replacing the former dusk scene without reusing any old coordinates.
+
+### Apartment
+
+Create a bright editorial two-level apartment cutaway in neutral daylight: living room upper-left, a complete kitchen upper-right, a narrow central stair, a complete bedroom lower-left and a complete bathroom lower-right. Keep the three destination rooms visually separate and large enough to act as non-overlapping portals. Exclude people, anatomy, medical objects, brands, readable text and objects leaking between rooms.
+
+The final-pixel audit retained 44 independently visible terms and rebuilt all three room portals. The completed image has a 140.1 mean luma; every destination crop remains substantially brighter than the former amber cutaway.
+
+### City street
+
+Create a bright elegant civic street in clean daylight with three complete, independently framed destinations: a columned science museum with a telescope exhibit at left, a blank-fronted cafe at centre, and a glazed transit hall at right. Keep ordinary street furniture and vehicles visibly distinct while excluding anatomy displays, pseudo-lettering, logos, readable signs and dark foreground silhouettes.
+
+The final audit retained 42 grounded terms and rebuilt the three disjoint destination portals from the accepted pixels. The image has a 135.1 mean luma and no generated signage.
+
+### City park
+
+Create a bright naturalistic city park in soft midday light. Place a monumental, fully readable oak at right and a complete pond edge with bridge at lower left, separated by a central pale path; add a fountain, gazebo, playground, benches and independently visible park details without staging people or inferred activities. Keep shade natural but lifted enough to preserve bark, roots, shoreline and water texture.
+
+The final audit retained 39 grounded terms in five authored regions and rebuilt two non-overlapping habitat portals. Dark-pixel coverage was reduced substantially while preserving believable tree shade.
 
 ### Community garden
 
@@ -55,11 +79,15 @@ Create a bright, elegant contemporary bathroom in soft natural daylight, compose
 
 ### Oak tree
 
-Create a premium cinematic natural-history view of a mature English oak at a sunlit woodland edge. Fill the frame with a tactile trunk, major limbs, exposed roots, leaves and acorns, while clearly including bark fissures, a tree hollow, knot, broken wood, moss, lichen, bracket fungus, ivy, spiderweb, bird nest, woodpecker, squirrel, caterpillar, beetle, leaf litter, soil, stones and flowers. Make the upper-right leaf cluster the unmistakable next-scene portal.
+Create a bright, neutral-daylight natural-history view of a mature English oak at a woodland edge. Resolve the complete trunk, limbs, roots, bark fissures, tree hollow, knot, broken wood, moss, lichen, bracket fungus and ivy, plus one believable squirrel, woodpecker, nest, spiderweb, insects, leaf litter, stones and flowers. Keep the complete upper-right leaf-and-acorn cluster unobstructed as the next portal; avoid dramatic backlight, excessive yellow-green saturation and crushed shadows.
+
+The final-pixel audit retained 43 terms in five complete authored regions and rebuilt the Leaf portal around the accepted upper-right cluster.
 
 ### Leaf
 
-Move into a luminous macro oak-leaf world. Show the complete lobed leaf, petiole, midrib, several vein orders, curled underside, dew, leaf spot, healed and chewed damage, gall, aphids, ladybird, caterpillar and eggs, spider silk, bud, young leaf, twig and acorn cup. Use one large right-center dew drop to magnify real epidermal texture and form the plant-cell portal.
+Create a bright, low-saturation natural-history macro of a real oak leaf and connected twig. Resolve the lobes, margin, petiole, midrib, secondary and minor veins, bud scales, young leaf, attached acorn cup, gall and visible damage, plus a correctly scaled ladybird, aphids, caterpillar, eggs and spider with connected silk. Use one flattened, optically plausible dew lens over continuous epidermal texture as the plant-cell portal. Exclude plastic translucency, giant organisms, a glass-marble droplet and unsupported underside or curl claims.
+
+The final-pixel audit retained 36 distinct terms across five authored regions and removed duplicate vein names and unpictured leaf surfaces rather than padding the count.
 
 ### Plant cell
 

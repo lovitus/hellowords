@@ -6,9 +6,12 @@ import {
   buildPortalCueProtectedRegions,
   buildVocabularyRevealSummary,
   computeSceneLabelLayout,
+  prioritizeCurrentLabelOrder,
   sceneLabelDensityTarget,
+  sceneLabelRevealOpacity,
   sceneLabelVisibilityBudget,
   type Scene,
+  type SceneLabelCamera,
   type SceneLabelLayoutItem,
   type SceneLabelProtectedRegion,
 } from "../../app/domain";
@@ -37,6 +40,17 @@ const configurations: readonly DensityConfiguration[] = [
   { name: "mobile-meaning", width: 390, height: 780, compact: true, scale: 1.3, meaningVisible: true },
 ];
 
+const microZoomViewports = [
+  { name: "desktop", width: 1_280, height: 632, compact: false },
+  // The scene canvas is shorter than the browser window after mobile chrome.
+  { name: "mobile", width: 390, height: 562, compact: true },
+] as const;
+
+const microZoomScales = Array.from(
+  { length: 64 },
+  (_, index) => Number((1 + index * 0.05).toFixed(2)),
+);
+
 function itemBounds(item: SceneLabelLayoutItem): Bounds {
   return {
     left: item.screenX - item.width / 2,
@@ -53,6 +67,38 @@ function overlaps(first: Bounds, second: Bounds): boolean {
     || first.bottom <= second.top
     || first.top >= second.bottom
   );
+}
+
+function overlapsWithPadding(first: Bounds, second: Bounds, padding: number): boolean {
+  return !(
+    first.right + padding <= second.left
+    || first.left >= second.right + padding
+    || first.bottom + padding <= second.top
+    || first.top >= second.bottom + padding
+  );
+}
+
+function preferredBoundsAt(
+  scene: Scene,
+  labelId: string,
+  item: SceneLabelLayoutItem,
+  camera: SceneLabelCamera,
+): { bounds: Bounds; anchorX: number; anchorY: number } {
+  const label = scene.labels.find((candidate) => candidate.id === labelId);
+  assert.ok(label, `${scene.id}/${labelId} has an authored anchor`);
+  const effectiveScale = camera.fit * camera.scale;
+  const anchorX = camera.x + label.x * effectiveScale;
+  const anchorY = camera.y + label.y * effectiveScale;
+  return {
+    anchorX,
+    anchorY,
+    bounds: {
+      left: anchorX + item.offsetX - item.width / 2,
+      right: anchorX + item.offsetX + item.width / 2,
+      top: anchorY + item.offsetY - item.height / 2,
+      bottom: anchorY + item.offsetY + item.height / 2,
+    },
+  };
 }
 
 function median(values: readonly number[]): number {
@@ -120,7 +166,7 @@ test("all authored scenes fill spare first-screen space without collisions or de
           : configuration.name === "desktop-meaning"
             ? sceneLabelDensityTarget(viewport, true, configuration.scale)
             : configuration.name === "mobile-word"
-              ? 13
+              ? 12
               : 9;
         assert.ok(
           visible.length >= largeSceneFloor,
@@ -198,5 +244,114 @@ test("all authored scenes fill spare first-screen space without collisions or de
     assert.ok(Math.min(...counts) >= expectation.minimum, `${name} minimum density`);
     assert.ok(median(counts) >= expectation.median, `${name} median density`);
     assert.ok(Math.max(...counts) >= expectation.maximum, `${name} useful upper density`);
+  }
+});
+
+test("all authored scenes preserve default LOD disclosure at maximum zoom", async () => {
+  const scenes = await loadScenes();
+  for (const scene of scenes) {
+    for (const label of scene.labels) {
+      if (label.maxScale !== undefined) continue;
+      assert.equal(
+        sceneLabelRevealOpacity(label, 4.15),
+        1,
+        `${scene.id}/${label.id} stays disclosed without an authored maxScale`,
+      );
+    }
+  }
+});
+
+test("all authored scenes keep an owned sticky slot across fixed and centered micro zoom", async () => {
+  const scenes = await loadScenes();
+
+  for (const viewport of microZoomViewports) {
+    for (const scene of scenes) {
+      const fit = Math.min(viewport.width / scene.width, viewport.height / scene.height);
+      const fixedX = (viewport.width - scene.width * fit) / 2;
+      const fixedY = (viewport.height - scene.height * fit) / 2;
+
+      for (const projection of ["fixed", "centered"] as const) {
+        let retainedLabelIds = new Set<string>();
+        const preferredOffsets = new Map<string, readonly [number, number]>();
+        let previousLayout = new Map<string, SceneLabelLayoutItem>();
+        let previousScale = microZoomScales[0];
+
+        for (const scale of microZoomScales) {
+          const camera: SceneLabelCamera = projection === "fixed"
+            ? { x: fixedX, y: fixedY, fit: fit / scale, scale }
+            : {
+              x: (viewport.width - scene.width * fit * scale) / 2,
+              y: (viewport.height - scene.height * fit * scale) / 2,
+              fit,
+              scale,
+            };
+          const protectedRegions = buildPortalCueProtectedRegions(scene.portals, camera, viewport);
+          const layout = computeSceneLabelLayout(
+            scene.labels,
+            camera,
+            viewport,
+            false,
+            { retainedLabelIds, preferredOffsets, protectedRegions },
+          );
+          const layoutById = new Map(layout.map((item) => [item.id, item]));
+          const padding = viewport.compact ? 1 : 2;
+          const edgeMargin = viewport.compact ? 3 : 6;
+
+          for (const [labelId, before] of previousLayout) {
+            if (!before.interactive) continue;
+            const after = layoutById.get(labelId);
+            assert.ok(after, `${scene.id}/${labelId} remains in the layout result`);
+            const { bounds, anchorX, anchorY } = preferredBoundsAt(
+              scene,
+              labelId,
+              before,
+              camera,
+            );
+            const anchorRemainsProjected = anchorX >= -18
+              && anchorX <= viewport.width + 18
+              && anchorY >= -18
+              && anchorY <= viewport.height + 18;
+            const preferredSlotFits = bounds.left >= edgeMargin
+              && bounds.right <= viewport.width - edgeMargin
+              && bounds.top >= edgeMargin
+              && bounds.bottom <= viewport.height - edgeMargin
+              && !protectedRegions.some((region) => (
+                overlapsWithPadding(bounds, region, padding)
+              ));
+            const earlierVisibleItems = layout.filter((item) => (
+              item.id !== labelId
+              && item.interactive
+              && item.placementOrder < after.placementOrder
+            ));
+            const preferredSlotStillOwned = preferredSlotFits
+              && !earlierVisibleItems.some((item) => (
+                overlapsWithPadding(bounds, itemBounds(item), padding)
+              ));
+
+            if (!anchorRemainsProjected || !preferredSlotStillOwned) continue;
+            assert.equal(
+              after.interactive,
+              true,
+              `${viewport.name}/${projection}/${scene.id}/${labelId} does not retire at ${previousScale}→${scale}`,
+            );
+            assert.ok(
+              Math.abs(after.offsetX - before.offsetX) < 0.001
+                && Math.abs(after.offsetY - before.offsetY) < 0.001,
+              `${viewport.name}/${projection}/${scene.id}/${labelId} keeps its slot at ${previousScale}→${scale}`,
+            );
+          }
+
+          const visibleItems = layout
+            .filter((item) => item.interactive)
+            .sort((first, second) => first.placementOrder - second.placementOrder);
+          retainedLabelIds = prioritizeCurrentLabelOrder(retainedLabelIds, visibleItems);
+          for (const item of visibleItems) {
+            preferredOffsets.set(item.id, [item.offsetX, item.offsetY]);
+          }
+          previousLayout = layoutById;
+          previousScale = scale;
+        }
+      }
+    }
   }
 });

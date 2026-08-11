@@ -216,17 +216,20 @@ test("known floating-label regressions stay removed and critical portals match v
   assert.deepEqual(
     cityPark.portals.map(({ id, x, y, width, height }) => [id, x, y, width, height]),
     [
-      ["enter-oak-tree", 650, 0, 900, 710],
-      ["enter-pond-edge", 0, 560, 500, 340],
+      ["enter-oak-tree", 800, 0, 800, 760],
+      ["enter-pond-edge", 0, 550, 700, 350],
     ],
   );
 
   const cityStreet = byId.get("city-street");
   assert.ok(cityStreet);
-  assert.equal(cityStreet.asset, "/scenes/city-street-museum-v2.jpg");
+  assert.equal(cityStreet.asset, "/scenes/city-street-bright-v3.jpg");
   const streetWords = new Set(cityStreet.labels.map((label) => label.word));
-  for (const visibleMuseumTerm of ["science museum", "atom symbol", "telescope", "skeleton"]) {
+  for (const visibleMuseumTerm of ["science museum", "museum entrance", "exhibit window", "telescope"]) {
     assert.ok(streetWords.has(visibleMuseumTerm), `city street shows ${visibleMuseumTerm}`);
+  }
+  for (const rejectedMuseumTerm of ["atom symbol", "skeleton"]) {
+    assert.ok(!streetWords.has(rejectedMuseumTerm), `bright city street rejects ${rejectedMuseumTerm}`);
   }
   assert.deepEqual(
     cityStreet.portals.find((portal) => portal.id === "enter-science-museum"),
@@ -236,9 +239,9 @@ test("known floating-label regressions stay removed and critical portals match v
       translation: "进入科学馆",
       childSceneId: "science-museum",
       x: 0,
-      y: 0,
-      width: 285,
-      height: 660,
+      y: 60,
+      width: 560,
+      height: 560,
       enterScale: 3.6,
       sourceVisualRegion: "portal-museum",
     },
@@ -963,10 +966,10 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
     label: "Enter the bathroom",
     translation: "进入浴室",
     childSceneId: "bathroom",
-    x: 900,
-    y: 480,
-    width: 680,
-    height: 410,
+    x: 918,
+    y: 510,
+    width: 682,
+    height: 390,
     enterScale: 3.6,
     sourceVisualRegion: "portal-bathroom",
   });
@@ -1301,10 +1304,10 @@ test("community garden adds one disjoint root portal and forty-eight grounded an
     label: "Enter the community garden",
     translation: "进入社区花园",
     childSceneId: "community-garden",
-    x: 510,
-    y: 600,
-    width: 470,
-    height: 285,
+    x: 720,
+    y: 570,
+    width: 420,
+    height: 320,
     enterScale: 3.6,
     sourceVisualRegion: "portal-community-garden",
   });
@@ -1373,9 +1376,9 @@ test("city cafe is a new terminal storefront branch with a non-overlapping paren
     translation: "进入城市咖啡馆",
     childSceneId: "city-cafe",
     x: 610,
-    y: 405,
-    width: 250,
-    height: 200,
+    y: 160,
+    width: 370,
+    height: 450,
     enterScale: 3.6,
     sourceVisualRegion: "portal-cafe",
   });

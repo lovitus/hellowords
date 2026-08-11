@@ -6,24 +6,24 @@ The spatial world must grow by adding honest, independently illustrated places, 
 
 **Status: completed and pixel-verified.** The final `community-garden-premium-v1.jpg` asset contains 48 grounded anchors in five LOD bands, seven authored zones and no child portal. The world-atlas entrance uses the exact approved rectangle below.
 
-The published `world-map-premium.jpg` already depicts a distinct garden district in its lower centre. The rectangle below is disjoint from all three existing root portals, so it can become a fourth root branch without an ambiguous zoom target:
+The published `world-map-bright-v4.jpg` depicts a distinct garden district in its lower centre. The rectangle below is disjoint from all three existing root portals, so it remains a fourth root branch without an ambiguous zoom target:
 
 ```json
 {
   "id": "enter-community-garden",
   "childSceneId": "community-garden",
-  "x": 510,
-  "y": 600,
-  "width": 470,
-  "height": 285
+  "x": 720,
+  "y": 570,
+  "width": 420,
+  "height": 320
 }
 ```
 
 Portal separation in the 1600 × 900 authored coordinate system:
 
-- Apartment ends at `x=500`; the new portal starts at `x=510`.
-- City street ends at `y=580`; the new portal starts at `y=600`.
-- City park starts at `x=1040`; the new portal ends at `x=980`.
+- Apartment occupies the left district and ends before the garden starts at `x=720`.
+- City street occupies the upper district and ends before the garden starts at `y=570`.
+- City park starts to the right of the garden portal, whose right edge is `x=1140`.
 
 ### Production visual brief
 

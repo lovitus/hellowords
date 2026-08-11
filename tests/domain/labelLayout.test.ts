@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import {
   buildPortalCueProtectedRegions,
@@ -7,10 +8,13 @@ import {
   buildVocabularyZoomCues,
   consolidateVocabularyCueBatches,
   computeSceneLabelLayout,
+  prioritizeCurrentLabelOrder,
   sceneLabelLod,
   sceneLabelRevealOpacity,
   sceneLabelVisibilityBudget,
+  vocabularyCueFocusPoint,
   type Label,
+  type Scene,
 } from "../../app/domain";
 
 type Lod = NonNullable<Label["minLevel"]>;
@@ -61,6 +65,228 @@ test("authored min and max scales fade a label both in and out", () => {
   assert.ok(sceneLabelRevealOpacity(authored, 2.35) > 0);
   assert.ok(sceneLabelRevealOpacity(authored, 2.35) < 1);
   assert.equal(sceneLabelRevealOpacity(authored, 2.5), 0);
+});
+
+test("default LOD words stay revealed at maximum zoom unless an author explicitly retires them", () => {
+  for (const lod of [0, 1, 2, 3, 4] as const) {
+    const grounded = label(`persistent-${lod}`, 200, lod + 1, lod);
+    assert.equal(
+      sceneLabelRevealOpacity(grounded, 4.15),
+      1,
+      `LOD ${lod} remains readable at maximum zoom`,
+    );
+  }
+});
+
+test("zoom reuses revealed callout slots while newly eligible words fill around them", () => {
+  const labels = Array.from({ length: 18 }, (_, index) => label(
+    `stable-${index}`,
+    180 + (index % 6) * 78,
+    index + 1,
+    index < 8 ? 0 : 2,
+    130 + Math.floor(index / 6) * 68,
+  ));
+  const viewport = { width: 760, height: 420, compact: false };
+  const overview = computeSceneLabelLayout(
+    labels,
+    { x: 0, y: 0, fit: 1, scale: 1 },
+    viewport,
+    false,
+  );
+  const retained = new Set(
+    overview.filter((item) => item.interactive).map((item) => item.id),
+  );
+  const offsets = new Map(
+    overview
+      .filter((item) => item.interactive)
+      .map((item) => [item.id, [item.offsetX, item.offsetY] as const]),
+  );
+  const zoomed = computeSceneLabelLayout(
+    labels,
+    // Keep projected anchors fixed so this isolates slot stability from the
+    // expected movement of objects under the camera.
+    { x: 0, y: 0, fit: 0.5, scale: 2 },
+    viewport,
+    false,
+    { retainedLabelIds: retained, preferredOffsets: offsets },
+  );
+
+  for (const id of retained) {
+    const before = overview.find((item) => item.id === id)!;
+    const after = zoomed.find((item) => item.id === id)!;
+    assert.equal(after.interactive, true, `${id} remains readable`);
+    assert.deepEqual(
+      [after.offsetX, after.offsetY],
+      [before.offsetX, before.offsetY],
+      `${id} keeps the same object-relative callout slot`,
+    );
+  }
+  assert.ok(
+    zoomed.filter((item) => item.interactive).length >= retained.size,
+    "newly revealed vocabulary never reduces the readable set",
+  );
+});
+
+test("maximum zoom does not retire previously readable words that remain in view", () => {
+  const labels = Array.from({ length: 30 }, (_, index) => label(
+    `cumulative-${index}`,
+    70 + (index % 6) * 105,
+    index + 1,
+    (index % 5) as Lod,
+    75 + Math.floor(index / 6) * 62,
+  ));
+  const viewport = { width: 760, height: 430, compact: false };
+  let retained = new Set<string>();
+  let offsets = new Map<string, readonly [number, number]>();
+  let previousCount = 0;
+
+  for (const scale of [1, 1.4, 2.2, 3.2, 4.15]) {
+    const layout = computeSceneLabelLayout(
+      labels,
+      { x: 0, y: 0, fit: 1 / scale, scale },
+      viewport,
+      false,
+      { retainedLabelIds: retained, preferredOffsets: offsets },
+    );
+    const visible = layout.filter((item) => item.interactive);
+    assert.ok(visible.length >= previousCount, `readable count does not fall at scale ${scale}`);
+    for (const id of retained) {
+      assert.equal(
+        layout.find((item) => item.id === id)?.interactive,
+        true,
+        `${id} survives scale ${scale}`,
+      );
+    }
+    retained = new Set(visible.map((item) => item.id));
+    offsets = new Map(visible.map((item) => [item.id, [item.offsetX, item.offsetY] as const]));
+    previousCount = visible.length;
+  }
+});
+
+test("current plant-cell labels stay ahead of hidden disclosure history", () => {
+  const historical = new Set([
+    "chloroplast-stroma",
+    "mitochondrial-intermembrane-space",
+    "cell-wall",
+  ]);
+  const prioritized = prioritizeCurrentLabelOrder(historical, [
+    { id: "chloroplast-stroma", interactive: false, placementOrder: 0 },
+    { id: "mitochondrial-intermembrane-space", interactive: true, placementOrder: 1 },
+    { id: "new-current-label", interactive: true, placementOrder: 2 },
+  ]);
+
+  assert.deepEqual([...prioritized], [
+    "mitochondrial-intermembrane-space",
+    "new-current-label",
+    "chloroplast-stroma",
+    "cell-wall",
+  ]);
+
+  const competing = [
+    label("chloroplast-stroma", 300, 1, 4, 150),
+    label("mitochondrial-intermembrane-space", 300, 2, 4, 150),
+  ];
+  const layout = computeSceneLabelLayout(
+    competing,
+    { x: 0, y: 0, fit: 1, scale: 1.05 },
+    { width: 600, height: 300, compact: false },
+    false,
+    { retainedLabelIds: prioritized, maximumVisibleLabels: 1 },
+  );
+  assert.equal(
+    layout.find((item) => item.id === "mitochondrial-intermembrane-space")?.interactive,
+    true,
+    "the label readable in the latest frame keeps the contested slot",
+  );
+  assert.equal(
+    layout.find((item) => item.id === "chloroplast-stroma")?.interactive,
+    false,
+    "hidden history waits for a genuinely free slot instead of flickering back",
+  );
+});
+
+test("a greedy fallback cannot steal another active label's valid preferred slot", () => {
+  const labels = [
+    label("fallback-first", 300, 1, 4, 160),
+    label("reserved-second", 304, 2, 4, 160),
+  ];
+  const layout = computeSceneLabelLayout(
+    labels,
+    { x: 0, y: 0, fit: 1, scale: 1.05 },
+    { width: 600, height: 400, compact: false },
+    false,
+    {
+      retainedLabelIds: new Set(labels.map((item) => item.id)),
+      activeRetainedLabelIds: new Set(labels.map((item) => item.id)),
+      preferredOffsets: new Map([
+        ["fallback-first", [0, -30] as const],
+        ["reserved-second", [0, 96] as const],
+      ]),
+      protectedRegions: [{ left: 0, right: 600, top: 0, bottom: 225 }],
+      maximumVisibleLabels: 2,
+    },
+  );
+
+  const reserved = layout.find((item) => item.id === "reserved-second")!;
+  assert.equal(reserved.interactive, true);
+  assert.deepEqual(
+    [reserved.offsetX, reserved.offsetY],
+    [0, 96],
+    "the later active label keeps its still-valid previous-frame slot",
+  );
+});
+
+test("plant-cell micro zoom preserves the mitochondrial intermembrane callout", () => {
+  const scene = JSON.parse(readFileSync(
+    new URL("../../public/data/scenes/plant-cell.json", import.meta.url),
+    "utf8",
+  )) as Scene;
+  const viewport = { width: 1_280, height: 632, compact: false };
+  const fit = Math.min(viewport.width / scene.width, viewport.height / scene.height);
+  let retained = new Set<string>();
+  let active = new Set<string>();
+  const offsets = new Map<string, readonly [number, number]>();
+
+  const layoutAt = (scale: number) => computeSceneLabelLayout(
+    scene.labels,
+    {
+      fit,
+      scale,
+      x: (viewport.width - scene.width * fit * scale) / 2,
+      y: (viewport.height - scene.height * fit * scale) / 2,
+    },
+    viewport,
+    false,
+    {
+      retainedLabelIds: retained,
+      activeRetainedLabelIds: active,
+      preferredOffsets: offsets,
+    },
+  );
+  const accept = (layout: ReturnType<typeof computeSceneLabelLayout>) => {
+    const visible = layout
+      .filter((item) => item.interactive)
+      .sort((first, second) => first.placementOrder - second.placementOrder);
+    retained = prioritizeCurrentLabelOrder(retained, visible);
+    active = new Set(visible.map((item) => item.id));
+    for (const item of visible) offsets.set(item.id, [item.offsetX, item.offsetY]);
+  };
+
+  for (let index = 0; index <= 10; index += 1) accept(layoutAt(1 + index * 0.005));
+  const before = layoutAt(1.05).find((item) => (
+    item.id === "mitochondrial-intermembrane-space"
+  ))!;
+  assert.equal(before.interactive, true);
+  accept(layoutAt(1.05));
+  const after = layoutAt(1.055).find((item) => (
+    item.id === "mitochondrial-intermembrane-space"
+  ))!;
+  assert.equal(after.interactive, true, "the current callout survives the 0.005 zoom step");
+  assert.deepEqual(
+    [after.offsetX, after.offsetY],
+    [before.offsetX, before.offsetY],
+    "the callout remains on the same side of its mitochondrial structure",
+  );
 });
 
 test("screen-space layout uses anchored callouts and nudges a colliding label", () => {
@@ -263,6 +489,31 @@ test("authored cue counts all remaining words but targets only the nearest revea
   assert.deepEqual(afterFirstReveal.nextLabels.map((item) => item.id), ["later"]);
   assert.equal(afterFirstReveal.nextLod, 3);
   assert.ok(afterFirstReveal.targetScale! > overview.targetScale!);
+});
+
+test("authored cues focus the next real anchors instead of an empty zone centre", () => {
+  const cue = {
+    id: "zone",
+    x: 800,
+    y: 450,
+    anchorLabelId: "next-a",
+    labelIds: ["next-a", "next-b"],
+    minLod: 2 as const,
+    source: "authored-zone" as const,
+    focusX: 800,
+    focusY: 450,
+  };
+  assert.deepEqual(
+    vocabularyCueFocusPoint(cue, [
+      { x: 120, y: 180 },
+      { x: 280, y: 260 },
+    ]),
+    { x: 200, y: 220 },
+  );
+  assert.deepEqual(
+    vocabularyCueFocusPoint({ ...cue, source: "fallback-grid" }, []),
+    { x: 800, y: 450 },
+  );
 });
 
 test("vocabulary cue batches merge nearby same-LOD words and never advertise fewer than four", () => {

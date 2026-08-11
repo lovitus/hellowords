@@ -250,6 +250,34 @@ async function semanticWordIds(field: Locator): Promise<Set<string>> {
   )));
 }
 
+async function semanticBackgroundDrag(field: Locator): Promise<{
+  start: { x: number; y: number };
+  end: { x: number; y: number };
+}> {
+  return field.evaluate((element) => {
+    const bounds = element.getBoundingClientRect();
+    const xFractions = [0.08, 0.16, 0.24, 0.32, 0.4, 0.6, 0.68, 0.76, 0.84, 0.92];
+    const yFractions = [0.3, 0.4, 0.5, 0.6, 0.7];
+    for (const yFraction of yFractions) {
+      for (const xFraction of xFractions) {
+        const x = bounds.left + bounds.width * xFraction;
+        const y = bounds.top + bounds.height * yFraction;
+        const target = document.elementFromPoint(x, y);
+        if (!target || !element.contains(target) || target.closest("button")) continue;
+        const direction = xFraction <= 0.5 ? 1 : -1;
+        return {
+          start: { x, y },
+          end: {
+            x: x + direction * bounds.width * 0.58,
+            y,
+          },
+        };
+      }
+    }
+    throw new Error("semantic field needs an unobstructed background point for panning");
+  });
+}
+
 async function assertSemanticProgressIsTruthful(field: Locator): Promise<void> {
   const snapshot = await field.evaluate((element) => {
     const root = element as HTMLElement;
@@ -629,11 +657,10 @@ test("the largest 1,013-word leaf exposes truthful progress while panning reveal
 
   const first = await semanticWordIds(field);
   expect(first.size).toBeGreaterThan(0);
-  const bounds = await field.boundingBox();
-  expect(bounds).not.toBeNull();
-  await page.mouse.move(bounds!.x + 12, bounds!.y + bounds!.height * 0.54);
+  const drag = await semanticBackgroundDrag(field);
+  await page.mouse.move(drag.start.x, drag.start.y);
   await page.mouse.down();
-  await page.mouse.move(bounds!.x + bounds!.width * 0.74, bounds!.y + bounds!.height * 0.54, { steps: 8 });
+  await page.mouse.move(drag.end.x, drag.end.y, { steps: 8 });
   await page.mouse.up();
 
   let panned = new Set<string>();
