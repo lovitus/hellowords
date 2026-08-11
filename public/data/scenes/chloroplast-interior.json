@@ -2,8 +2,8 @@
   "id": "chloroplast-interior",
   "title": "Chloroplast interior",
   "translation": "叶绿体内部",
-  "subtitle": "Membrane stacks turning sunlight into stored energy",
-  "asset": "/scenes/chloroplast-interior-premium-v2.jpg",
+  "subtitle": "One continuous organelle from envelope layers to thylakoid surface proteins",
+  "asset": "/scenes/chloroplast-interior-premium-v3.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "plant-cell",
@@ -13,17 +13,17 @@
       "word": "chloroplast",
       "translation": "叶绿体",
       "x": 800,
-      "y": 105,
+      "y": 450,
       "priority": 1,
       "minLevel": 0,
       "sourceVisualRegion": "whole-chloroplast"
     },
     {
-      "id": "double-membrane",
-      "word": "double membrane",
-      "translation": "双层膜",
-      "x": 1430,
-      "y": 105,
+      "id": "chloroplast-envelope",
+      "word": "chloroplast envelope",
+      "translation": "叶绿体包膜",
+      "x": 800,
+      "y": 72,
       "priority": 1.001,
       "minLevel": 0,
       "sourceVisualRegion": "chloroplast-envelope"
@@ -32,68 +32,88 @@
       "id": "stroma",
       "word": "stroma",
       "translation": "基质",
-      "x": 815,
-      "y": 515,
+      "x": 340,
+      "y": 570,
       "priority": 1.002,
       "minLevel": 0,
-      "sourceVisualRegion": "stroma"
+      "sourceVisualRegion": "stroma-field"
     },
     {
       "id": "granum",
       "word": "granum",
       "translation": "基粒",
       "x": 610,
-      "y": 330,
+      "y": 570,
       "priority": 1.003,
       "minLevel": 0,
-      "sourceVisualRegion": "center-granum"
+      "sourceVisualRegion": "central-granum"
     },
     {
       "id": "thylakoid",
       "word": "thylakoid",
       "translation": "类囊体",
-      "x": 1120,
-      "y": 500,
+      "x": 1410,
+      "y": 410,
       "priority": 1.004,
       "minLevel": 0,
-      "sourceVisualRegion": "right-foreground-granum"
+      "sourceVisualRegion": "right-granum-discs"
+    },
+    {
+      "id": "stroma-lamella",
+      "word": "stroma lamella",
+      "translation": "基质片层",
+      "x": 1010,
+      "y": 530,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "foreground-lamella-network"
     },
     {
       "id": "starch-grain",
       "word": "starch grain",
       "translation": "淀粉粒",
-      "x": 300,
-      "y": 590,
-      "priority": 1.005,
+      "x": 205,
+      "y": 475,
+      "priority": 1.006,
       "minLevel": 0,
-      "sourceVisualRegion": "starch-grain"
+      "sourceVisualRegion": "left-starch-grain"
+    },
+    {
+      "id": "dna-loop",
+      "word": "DNA loop",
+      "translation": "DNA 环",
+      "x": 1035,
+      "y": 420,
+      "priority": 1.007,
+      "minLevel": 0,
+      "sourceVisualRegion": "dna-nucleoid"
     },
     {
       "id": "outer-membrane",
       "word": "outer membrane",
       "translation": "外膜",
-      "x": 1440,
-      "y": 75,
+      "x": 800,
+      "y": 43,
       "priority": 2,
       "minLevel": 1,
-      "sourceVisualRegion": "outer-membrane"
+      "sourceVisualRegion": "outer-envelope-membrane"
     },
     {
       "id": "inner-membrane",
       "word": "inner membrane",
       "translation": "内膜",
-      "x": 1410,
-      "y": 130,
+      "x": 800,
+      "y": 96,
       "priority": 2.001,
       "minLevel": 1,
-      "sourceVisualRegion": "inner-membrane"
+      "sourceVisualRegion": "inner-envelope-membrane"
     },
     {
       "id": "intermembrane-space",
       "word": "intermembrane space",
       "translation": "膜间隙",
-      "x": 1425,
-      "y": 103,
+      "x": 800,
+      "y": 68,
       "priority": 2.002,
       "minLevel": 1,
       "sourceVisualRegion": "intermembrane-space"
@@ -102,374 +122,497 @@
       "id": "grana",
       "word": "grana",
       "translation": "基粒群",
-      "x": 930,
-      "y": 270,
+      "x": 900,
+      "y": 220,
       "priority": 2.003,
       "minLevel": 1,
-      "sourceVisualRegion": "grana-group"
-    },
-    {
-      "id": "stroma-lamella",
-      "word": "stroma lamella",
-      "translation": "基质片层",
-      "x": 550,
-      "y": 420,
-      "priority": 2.004,
-      "minLevel": 1,
-      "sourceVisualRegion": "stroma-lamella"
-    },
-    {
-      "id": "plastoglobule",
-      "word": "plastoglobule",
-      "translation": "质体小球",
-      "x": 755,
-      "y": 500,
-      "priority": 2.005,
-      "minLevel": 1,
-      "sourceVisualRegion": "plastoglobules"
-    },
-    {
-      "id": "chloroplast-dna",
-      "word": "chloroplast DNA",
-      "translation": "叶绿体 DNA",
-      "x": 760,
-      "y": 650,
-      "priority": 2.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "chloroplast-nucleoid"
-    },
-    {
-      "id": "thylakoid-disc",
-      "word": "thylakoid disc",
-      "translation": "类囊体圆盘",
-      "x": 1070,
-      "y": 400,
-      "priority": 3,
-      "minLevel": 2,
-      "sourceVisualRegion": "right-foreground-granum"
-    },
-    {
-      "id": "thylakoid-stack",
-      "word": "thylakoid stack",
-      "translation": "类囊体堆",
-      "x": 1230,
-      "y": 555,
-      "priority": 3.001,
-      "minLevel": 2,
-      "sourceVisualRegion": "right-foreground-granum"
+      "sourceVisualRegion": "grana-field"
     },
     {
       "id": "unstacked-thylakoid",
       "word": "unstacked thylakoid",
       "translation": "非堆叠类囊体",
-      "x": 835,
-      "y": 625,
-      "priority": 3.002,
+      "x": 1090,
+      "y": 580,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "foreground-lamella-network"
+    },
+    {
+      "id": "plastoglobule",
+      "word": "plastoglobule",
+      "translation": "质体小球",
+      "x": 375,
+      "y": 592,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "left-stroma-particles"
+    },
+    {
+      "id": "nucleoid",
+      "word": "nucleoid",
+      "translation": "拟核区",
+      "x": 1060,
+      "y": 430,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "dna-nucleoid"
+    },
+    {
+      "id": "thylakoid-disc",
+      "word": "thylakoid disc",
+      "translation": "类囊体圆盘",
+      "x": 1415,
+      "y": 455,
+      "priority": 3,
       "minLevel": 2,
-      "sourceVisualRegion": "unstacked-thylakoid"
+      "sourceVisualRegion": "right-granum-discs"
+    },
+    {
+      "id": "thylakoid-stack",
+      "word": "thylakoid stack",
+      "translation": "类囊体堆",
+      "x": 1215,
+      "y": 295,
+      "priority": 3.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "rear-thylakoid-stack"
     },
     {
       "id": "stacked-thylakoid",
       "word": "stacked thylakoid",
       "translation": "堆叠类囊体",
-      "x": 600,
-      "y": 420,
-      "priority": 3.003,
+      "x": 405,
+      "y": 390,
+      "priority": 3.002,
       "minLevel": 2,
-      "sourceVisualRegion": "center-granum"
-    },
-    {
-      "id": "sunlight-beam",
-      "word": "sunlight beam",
-      "translation": "阳光束",
-      "x": 245,
-      "y": 85,
-      "priority": 3.004,
-      "minLevel": 2,
-      "sourceVisualRegion": "sunlight-beam"
-    },
-    {
-      "id": "thylakoid-junction",
-      "word": "thylakoid junction",
-      "translation": "类囊体连接部",
-      "x": 775,
-      "y": 395,
-      "priority": 4,
-      "minLevel": 3,
-      "sourceVisualRegion": "stroma-lamella"
-    },
-    {
-      "id": "thylakoid-membrane",
-      "word": "thylakoid membrane",
-      "translation": "类囊体膜",
-      "x": 1100,
-      "y": 460,
-      "priority": 4.001,
-      "minLevel": 3,
-      "sourceVisualRegion": "right-foreground-granum"
+      "sourceVisualRegion": "grana-field"
     },
     {
       "id": "granum-top",
       "word": "granum top",
       "translation": "基粒顶部",
-      "x": 1030,
-      "y": 195,
-      "priority": 4.002,
-      "minLevel": 3,
-      "sourceVisualRegion": "rear-granum"
+      "x": 635,
+      "y": 365,
+      "priority": 3.003,
+      "minLevel": 2,
+      "sourceVisualRegion": "granum-top-surface"
     },
     {
       "id": "granum-rim",
       "word": "granum rim",
       "translation": "基粒边缘",
-      "x": 1325,
-      "y": 430,
-      "priority": 4.003,
-      "minLevel": 3,
-      "sourceVisualRegion": "right-foreground-granum"
+      "x": 1415,
+      "y": 475,
+      "priority": 3.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "granum-rims"
     },
     {
-      "id": "dna-loop",
-      "word": "DNA loop",
-      "translation": "DNA 环",
-      "x": 760,
-      "y": 650,
-      "priority": 4.004,
-      "minLevel": 3,
-      "sourceVisualRegion": "chloroplast-nucleoid"
+      "id": "starch-growth-ring",
+      "word": "starch growth ring",
+      "translation": "淀粉生长环",
+      "x": 205,
+      "y": 450,
+      "priority": 3.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "left-starch-grain"
     },
     {
       "id": "ribosome",
       "word": "ribosome",
       "translation": "核糖体",
-      "x": 805,
-      "y": 710,
-      "priority": 5,
-      "minLevel": 4,
-      "sourceVisualRegion": "stromal-particles"
+      "x": 286,
+      "y": 552,
+      "priority": 3.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "left-stroma-particles"
+    },
+    {
+      "id": "lamella-junction",
+      "word": "lamella junction",
+      "translation": "片层连接部",
+      "x": 807,
+      "y": 520,
+      "priority": 4,
+      "minLevel": 3,
+      "sourceVisualRegion": "lamella-granum-junction"
+    },
+    {
+      "id": "appressed-thylakoid",
+      "word": "appressed thylakoid",
+      "translation": "贴合类囊体",
+      "x": 605,
+      "y": 625,
+      "priority": 4.001,
+      "minLevel": 3,
+      "sourceVisualRegion": "central-appressed-discs"
+    },
+    {
+      "id": "thylakoid-membrane",
+      "word": "thylakoid membrane",
+      "translation": "类囊体膜",
+      "x": 948,
+      "y": 635,
+      "priority": 4.002,
+      "minLevel": 3,
+      "sourceVisualRegion": "thylakoid-cutaway"
     },
     {
       "id": "thylakoid-lumen",
       "word": "thylakoid lumen",
       "translation": "类囊体腔",
-      "x": 1160,
-      "y": 525,
-      "priority": 5.001,
+      "x": 1005,
+      "y": 661,
+      "priority": 4.003,
+      "minLevel": 3,
+      "sourceVisualRegion": "thylakoid-lumen"
+    },
+    {
+      "id": "lumen-opening",
+      "word": "lumen opening",
+      "translation": "类囊体腔开口",
+      "x": 808,
+      "y": 620,
+      "priority": 4.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "thylakoid-lumen"
+    },
+    {
+      "id": "plastoglobule-cluster",
+      "word": "plastoglobule cluster",
+      "translation": "质体小球簇",
+      "x": 1090,
+      "y": 545,
+      "priority": 4.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "plastoglobule-cluster"
+    },
+    {
+      "id": "stromal-ribosomes",
+      "word": "stromal ribosomes",
+      "translation": "基质核糖体",
+      "x": 880,
+      "y": 452,
+      "priority": 4.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "stromal-ribosome-field"
+    },
+    {
+      "id": "stromal-thylakoid-surface",
+      "word": "stromal thylakoid surface",
+      "translation": "类囊体基质侧表面",
+      "x": 1045,
+      "y": 560,
+      "priority": 5,
       "minLevel": 4,
-      "sourceVisualRegion": "right-foreground-granum"
+      "sourceVisualRegion": "foreground-lamella-network"
     },
     {
       "id": "atp-synthase",
       "word": "ATP synthase",
       "translation": "ATP 合酶",
-      "x": 1100,
-      "y": 350,
+      "x": 958,
+      "y": 501,
+      "priority": 5.001,
+      "minLevel": 4,
+      "sourceVisualRegion": "atp-synthase-complexes"
+    },
+    {
+      "id": "atp-synthase-head",
+      "word": "ATP synthase head",
+      "translation": "ATP 合酶头部",
+      "x": 1188,
+      "y": 643,
       "priority": 5.002,
       "minLevel": 4,
-      "sourceVisualRegion": "membrane-protein-complexes"
+      "sourceVisualRegion": "atp-synthase-complexes"
+    },
+    {
+      "id": "atp-synthase-stalk",
+      "word": "ATP synthase stalk",
+      "translation": "ATP 合酶柄部",
+      "x": 1248,
+      "y": 703,
+      "priority": 5.003,
+      "minLevel": 4,
+      "sourceVisualRegion": "atp-synthase-complexes"
+    },
+    {
+      "id": "photosystem",
+      "word": "photosystem",
+      "translation": "光系统",
+      "x": 993,
+      "y": 536,
+      "priority": 5.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "photosystem-complexes"
+    },
+    {
+      "id": "light-harvesting-complex",
+      "word": "light-harvesting complex",
+      "translation": "捕光复合体",
+      "x": 1098,
+      "y": 603,
+      "priority": 5.005,
+      "minLevel": 4,
+      "sourceVisualRegion": "photosystem-complexes"
     },
     {
       "id": "membrane-protein-complex",
       "word": "membrane protein complex",
       "translation": "膜蛋白复合体",
-      "x": 1290,
-      "y": 520,
-      "priority": 5.003,
+      "x": 1068,
+      "y": 691,
+      "priority": 5.006,
       "minLevel": 4,
       "sourceVisualRegion": "membrane-protein-complexes"
-    },
-    {
-      "id": "starch-granule-surface",
-      "word": "starch granule surface",
-      "translation": "淀粉粒表面",
-      "x": 280,
-      "y": 555,
-      "priority": 5.004,
-      "minLevel": 4,
-      "sourceVisualRegion": "starch-grain"
     }
   ],
   "portals": [],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/chloroplast-interior-premium-v2.jpg",
-    "reviewedAssetSha256": "00cdd3ec0187bdf608fd5e6d62a983204290275abf54862d78f0dca7bbe81adb",
-    "rationale": "Expanded the reviewed chloroplast cutaway into four authored structural crops and added only visible membrane discs, connecting lamella and stromal particle details.",
-    "previousLabelCount": 48,
-    "retainedLabelCount": 28,
-    "removedLabelCount": 20,
+    "reviewedAsset": "/scenes/chloroplast-interior-premium-v3.jpg",
+    "reviewedAssetSha256": "28a1078d445a763a3a3796543c8b7088d863defa8418089a9a681c640a0c406b",
+    "rationale": "Re-authored every anchor against the final 1600 by 900 raster, retaining only independently pointable envelope, stromal, thylakoid, storage, genetic and membrane-protein structures visible inside one spatially continuous chloroplast.",
+    "previousLabelCount": 42,
+    "retainedLabelCount": 36,
+    "removedLabelCount": 6,
     "removedExamples": [
-      "calvin cycle",
-      "rubisco",
-      "carbon dioxide",
-      "nadph",
-      "photolysis",
-      "electron transport chain"
+      "Calvin cycle",
+      "Rubisco",
+      "carbon fixation",
+      "electron transport chain",
+      "NADPH",
+      "proton gradient"
     ]
   },
   "visualRegions": [
     {
       "id": "whole-chloroplast",
-      "description": "Complete oval chloroplast cutaway enclosed by its curved double membrane",
+      "description": "Complete single oval chloroplast cutaway contained by the visible enclosing boundary",
       "kind": "whole",
-      "x": 25,
-      "y": 0,
-      "width": 1550,
-      "height": 890
+      "x": 30,
+      "y": 35,
+      "width": 1540,
+      "height": 830
     },
     {
       "id": "chloroplast-envelope",
-      "description": "Layered transparent green envelope surrounding the chloroplast interior",
+      "description": "Continuous paired envelope following the complete oval perimeter of the chloroplast",
       "kind": "part",
-      "x": 25,
-      "y": 0,
-      "width": 1550,
-      "height": 890
+      "x": 30,
+      "y": 35,
+      "width": 1540,
+      "height": 800
     },
     {
-      "id": "outer-membrane",
-      "description": "Outermost curved green membrane along the upper chloroplast edge",
+      "id": "outer-envelope-membrane",
+      "description": "Thin outermost green membrane along the upper chloroplast perimeter",
       "kind": "part",
-      "x": 55,
-      "y": 15,
-      "width": 1490,
-      "height": 125
-    },
-    {
-      "id": "inner-membrane",
-      "description": "Inner curved green membrane bordering the stroma at the upper edge",
-      "kind": "part",
-      "x": 90,
-      "y": 55,
-      "width": 1435,
-      "height": 130
+      "x": 250,
+      "y": 35,
+      "width": 1100,
+      "height": 25
     },
     {
       "id": "intermembrane-space",
-      "description": "Narrow transparent band between the two upper envelope membranes",
+      "description": "Pale uninterrupted band separating the two upper envelope membranes",
       "kind": "part",
-      "x": 70,
-      "y": 35,
-      "width": 1465,
-      "height": 125
+      "x": 250,
+      "y": 55,
+      "width": 1100,
+      "height": 35
     },
     {
-      "id": "stroma",
-      "description": "Translucent green fluid matrix around all internal membrane structures",
+      "id": "inner-envelope-membrane",
+      "description": "Thin inner membrane bordering the stromal side of the upper envelope",
+      "kind": "part",
+      "x": 250,
+      "y": 80,
+      "width": 1100,
+      "height": 35
+    },
+    {
+      "id": "stroma-field",
+      "description": "Pale aqueous matrix occupying the open spaces between all internal structures",
       "kind": "object",
-      "x": 115,
-      "y": 95,
+      "x": 80,
+      "y": 130,
+      "width": 1440,
+      "height": 635
+    },
+    {
+      "id": "grana-field",
+      "description": "Field of separated dark green grana connected across the chloroplast interior",
+      "kind": "object",
+      "x": 120,
+      "y": 110,
       "width": 1370,
-      "height": 700
+      "height": 455
     },
     {
-      "id": "grana-group",
-      "description": "Field of multiple dark green cylindrical thylakoid stacks",
+      "id": "central-granum",
+      "description": "Large foreground granum composed of many separately visible thin discs",
       "kind": "object",
-      "x": 150,
-      "y": 95,
-      "width": 1320,
-      "height": 575
+      "x": 480,
+      "y": 315,
+      "width": 340,
+      "height": 400
     },
     {
-      "id": "center-granum",
-      "description": "Tall central-left stack of many flattened thylakoid discs",
+      "id": "right-granum-discs",
+      "description": "Rightmost granum with individually resolved thylakoid discs and rims",
       "kind": "object",
-      "x": 485,
-      "y": 135,
-      "width": 300,
-      "height": 410
+      "x": 1310,
+      "y": 320,
+      "width": 210,
+      "height": 210
     },
     {
-      "id": "rear-granum",
-      "description": "Dark green granum rising behind the foreground stacks",
+      "id": "rear-thylakoid-stack",
+      "description": "Complete rear-right column of closely stacked thylakoid sacs",
       "kind": "object",
-      "x": 900,
-      "y": 90,
-      "width": 270,
-      "height": 310
+      "x": 1110,
+      "y": 160,
+      "width": 260,
+      "height": 240
     },
     {
-      "id": "right-foreground-granum",
-      "description": "Large exposed stack of wide thylakoid discs in the right foreground",
-      "kind": "object",
-      "x": 925,
-      "y": 260,
-      "width": 535,
-      "height": 430
-    },
-    {
-      "id": "stroma-lamella",
-      "description": "Broad green membrane bridge connecting separated thylakoid stacks",
+      "id": "granum-top-surface",
+      "description": "Broad upper stromal-facing surface of the large foreground granum",
       "kind": "part",
-      "x": 245,
-      "y": 300,
-      "width": 835,
+      "x": 430,
+      "y": 270,
+      "width": 410,
+      "height": 230
+    },
+    {
+      "id": "granum-rims",
+      "description": "Resolved thin edges around thylakoid discs on several complete grana",
+      "kind": "part",
+      "x": 300,
+      "y": 230,
+      "width": 1220,
       "height": 300
     },
     {
-      "id": "unstacked-thylakoid",
-      "description": "Single curved thylakoid sheet lying free in the lower stroma",
+      "id": "left-starch-grain",
+      "description": "Cream oval starch grain with clearly visible concentric surface rings",
+      "kind": "object",
+      "x": 105,
+      "y": 400,
+      "width": 205,
+      "height": 145
+    },
+    {
+      "id": "left-stroma-particles",
+      "description": "Open left stromal pocket containing one plastoglobule and fine ribosomal granules",
+      "kind": "object",
+      "x": 245,
+      "y": 500,
+      "width": 175,
+      "height": 130
+    },
+    {
+      "id": "dna-nucleoid",
+      "description": "Loose violet circular DNA loop gathered in the central-right stromal nucleoid",
+      "kind": "object",
+      "x": 900,
+      "y": 350,
+      "width": 300,
+      "height": 145
+    },
+    {
+      "id": "plastoglobule-cluster",
+      "description": "Small group of matte olive plastoglobules beside the foreground lamella",
+      "kind": "object",
+      "x": 1025,
+      "y": 500,
+      "width": 155,
+      "height": 95
+    },
+    {
+      "id": "stromal-ribosome-field",
+      "description": "Fine discrete ribosomal particles scattered through the open central stroma",
+      "kind": "object",
+      "x": 800,
+      "y": 380,
+      "width": 190,
+      "height": 130
+    },
+    {
+      "id": "foreground-lamella-network",
+      "description": "Broad unstacked thylakoid lamella extending continuously from the central granum",
       "kind": "part",
-      "x": 650,
-      "y": 540,
-      "width": 340,
-      "height": 190
+      "x": 760,
+      "y": 425,
+      "width": 520,
+      "height": 330
     },
     {
-      "id": "starch-grain",
-      "description": "Large pale textured starch grain at lower left",
-      "kind": "object",
-      "x": 95,
-      "y": 405,
-      "width": 365,
-      "height": 325
+      "id": "lamella-granum-junction",
+      "description": "Continuous neck where the foreground stroma lamella leaves the granum stack",
+      "kind": "part",
+      "x": 765,
+      "y": 480,
+      "width": 105,
+      "height": 110
     },
     {
-      "id": "plastoglobules",
-      "description": "Small gold spherical plastoglobules scattered through the stroma",
-      "kind": "object",
-      "x": 135,
-      "y": 180,
-      "width": 1220,
-      "height": 590
+      "id": "central-appressed-discs",
+      "description": "Closely appressed thylakoid membranes within the central granum core",
+      "kind": "part",
+      "x": 520,
+      "y": 520,
+      "width": 200,
+      "height": 180
     },
     {
-      "id": "chloroplast-nucleoid",
-      "description": "Blue-violet circular DNA loop in the lower central stroma",
-      "kind": "object",
-      "x": 610,
-      "y": 535,
-      "width": 310,
-      "height": 225
+      "id": "thylakoid-cutaway",
+      "description": "Integrated foreground thylakoid cutaway with its bounding membrane exposed",
+      "kind": "part",
+      "x": 770,
+      "y": 575,
+      "width": 505,
+      "height": 170
     },
     {
-      "id": "sunlight-beam",
-      "description": "Bright diagonal shaft of sunlight entering from the upper left",
-      "kind": "diagram",
-      "x": 55,
-      "y": 0,
-      "width": 470,
-      "height": 225
-    },
-    {
-      "id": "stromal-particles",
-      "description": "Small colored ribosome-like particles clearly rendered in the stroma",
-      "kind": "object",
-      "x": 490,
-      "y": 250,
-      "width": 900,
-      "height": 520
+      "id": "thylakoid-lumen",
+      "description": "Narrow internal cavity enclosed continuously inside the opened thylakoid sac",
+      "kind": "part",
+      "x": 790,
+      "y": 600,
+      "width": 460,
+      "height": 95
     },
     {
       "id": "membrane-protein-complexes",
-      "description": "Knobbed and clustered protein complexes visibly mounted on thylakoid surfaces",
+      "description": "Protein complexes embedded across the visible foreground thylakoid membranes",
       "kind": "part",
-      "x": 930,
-      "y": 240,
-      "width": 485,
-      "height": 390
+      "x": 880,
+      "y": 445,
+      "width": 410,
+      "height": 285
+    },
+    {
+      "id": "atp-synthase-complexes",
+      "description": "Mushroom-shaped ATP synthase heads and stalks projecting toward the stroma",
+      "kind": "part",
+      "x": 900,
+      "y": 450,
+      "width": 390,
+      "height": 275
+    },
+    {
+      "id": "photosystem-complexes",
+      "description": "Muted violet and blue photosystem antenna complexes embedded in the membrane surface",
+      "kind": "part",
+      "x": 950,
+      "y": 490,
+      "width": 235,
+      "height": 145
     }
   ],
   "detailZones": [
@@ -477,29 +620,29 @@
       "id": "envelope-detail",
       "title": "Chloroplast envelope",
       "translation": "叶绿体包膜",
-      "description": "Outer and inner membranes with the narrow intermembrane space between them",
-      "x": 1250,
-      "y": 0,
-      "width": 350,
-      "height": 280,
-      "targetScale": 2.75,
+      "description": "Continuous outer and inner membranes with the uninterrupted space between them",
+      "x": 250,
+      "y": 20,
+      "width": 1100,
+      "height": 200,
+      "targetScale": 2.8,
       "labelIds": [
-        "double-membrane",
+        "chloroplast-envelope",
         "outer-membrane",
         "inner-membrane",
         "intermembrane-space"
       ]
     },
     {
-      "id": "grana-detail",
-      "title": "Grana and thylakoids",
-      "translation": "基粒与类囊体",
-      "description": "Multiple granum stacks, individual discs, rims, junctions and membrane proteins",
-      "x": 450,
-      "y": 100,
-      "width": 1000,
-      "height": 550,
-      "targetScale": 2.5,
+      "id": "rear-grana-detail",
+      "title": "Grana field",
+      "translation": "基粒群",
+      "description": "Complete stacks, separate thylakoid discs, upper surfaces and resolved disc rims",
+      "x": 110,
+      "y": 90,
+      "width": 1410,
+      "height": 530,
+      "targetScale": 2.4,
       "labelIds": [
         "granum",
         "thylakoid",
@@ -508,49 +651,82 @@
         "thylakoid-stack",
         "stacked-thylakoid",
         "granum-top",
-        "granum-rim",
+        "granum-rim"
+      ]
+    },
+    {
+      "id": "left-stroma-detail",
+      "title": "Stroma and starch",
+      "translation": "基质与淀粉",
+      "description": "Open stromal pocket with a layered starch grain, plastoglobule and ribosome",
+      "x": 70,
+      "y": 360,
+      "width": 500,
+      "height": 360,
+      "targetScale": 2.8,
+      "labelIds": [
+        "stroma",
+        "starch-grain",
+        "starch-growth-ring",
+        "plastoglobule",
+        "ribosome"
+      ]
+    },
+    {
+      "id": "foreground-network-detail",
+      "title": "Thylakoid network",
+      "translation": "类囊体网络",
+      "description": "Continuous transition from appressed granum discs into the unstacked stroma lamella",
+      "x": 430,
+      "y": 300,
+      "width": 870,
+      "height": 470,
+      "targetScale": 2.65,
+      "labelIds": [
+        "stroma-lamella",
+        "unstacked-thylakoid",
+        "lamella-junction",
+        "appressed-thylakoid",
+        "stromal-thylakoid-surface"
+      ]
+    },
+    {
+      "id": "cutaway-proteins-detail",
+      "title": "Lumen and surface proteins",
+      "translation": "类囊体腔与表面蛋白",
+      "description": "Opened thylakoid membrane and lumen with visible ATP synthase and photosystem complexes",
+      "x": 760,
+      "y": 430,
+      "width": 540,
+      "height": 350,
+      "targetScale": 3.35,
+      "labelIds": [
         "thylakoid-membrane",
         "thylakoid-lumen",
+        "lumen-opening",
         "atp-synthase",
+        "atp-synthase-head",
+        "atp-synthase-stalk",
+        "photosystem",
+        "light-harvesting-complex",
         "membrane-protein-complex"
       ]
     },
     {
-      "id": "stroma-genetics-detail",
-      "title": "Stroma and genetic material",
-      "translation": "基质与遗传物质",
-      "description": "Stromal space, plastoglobules, DNA loop, ribosomes and connecting membrane lamellae",
-      "x": 500,
-      "y": 350,
-      "width": 600,
-      "height": 450,
-      "targetScale": 2.65,
+      "id": "genome-particles-detail",
+      "title": "Genome and stromal particles",
+      "translation": "基因组与基质颗粒",
+      "description": "Circular DNA nucleoid, stromal ribosomes and a nearby plastoglobule cluster",
+      "x": 770,
+      "y": 300,
+      "width": 430,
+      "height": 330,
+      "targetScale": 3.1,
       "labelIds": [
-        "stroma-lamella",
-        "plastoglobule",
-        "chloroplast-dna",
-        "unstacked-thylakoid",
-        "thylakoid-junction",
         "dna-loop",
-        "ribosome",
-        "stroma"
-      ]
-    },
-    {
-      "id": "light-and-starch-detail",
-      "title": "Light and starch",
-      "translation": "光线与淀粉",
-      "description": "Whole organelle context, incoming light and the large starch body at the left",
-      "x": 0,
-      "y": 0,
-      "width": 900,
-      "height": 750,
-      "targetScale": 2.35,
-      "labelIds": [
-        "chloroplast",
-        "starch-grain",
-        "sunlight-beam",
-        "starch-granule-surface"
+        "nucleoid",
+        "plastoglobule-cluster",
+        "stromal-ribosomes"
       ]
     }
   ]

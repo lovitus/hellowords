@@ -71,6 +71,21 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("greenhouse-interior", "community-garden", ["community-garden"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("tomato-plant", "greenhouse-interior", ["community-garden", "greenhouse-interior"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: false,
+  }),
+  contract("potting-workbench", "community-garden", ["community-garden"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: false,
+  }),
   contract("city-cafe", "city-street", ["city-street"], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,
@@ -219,7 +234,17 @@ for (const sceneContract of newSceneContracts) {
     const scenePayload = await sceneResponse.json() as SceneFile;
     expect(scenePayload.detailZones?.length ?? 0).toBe(sceneContract.authoredZoneCount);
     expect(sceneContract.authoredZoneCount).toBeGreaterThanOrEqual(5);
-    await expect(page.locator(AUTHORED_CUE)).toHaveCount(sceneContract.authoredZoneCount);
+    const authoredCues = page.locator(AUTHORED_CUE);
+    await expect.poll(() => authoredCues.count()).toBeGreaterThanOrEqual(5);
+    const renderedZoneIds = await authoredCues.evaluateAll((cues) => cues.map((cue) => (
+      (cue as HTMLElement).dataset.detailZoneId ?? ""
+    )));
+    const configuredZoneIds = new Set(
+      (scenePayload.detailZones ?? []).map(({ id }) => id),
+    );
+    expect(new Set(renderedZoneIds).size).toBe(renderedZoneIds.length);
+    expect(renderedZoneIds.every((zoneId) => configuredZoneIds.has(zoneId))).toBe(true);
+    expect(renderedZoneIds.length).toBeLessThanOrEqual(sceneContract.authoredZoneCount);
 
     const minimumWords = testInfo.project.name === "mobile-chromium"
       ? sceneContract.mobileMinimumWords

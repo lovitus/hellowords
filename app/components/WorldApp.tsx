@@ -462,6 +462,12 @@ export function WorldApp() {
     activeViewportSnapshotRef.current = snapshot;
   }, []);
 
+  const openLexicalOverview = useCallback((source: "pointer" | "keyboard") => {
+    setLexicalWorldEntry(null);
+    setLexicalWorldInitialFocus(source === "keyboard" ? "search" : "auto");
+    setLexicalWorldOpen(true);
+  }, []);
+
   const selectedLabelRealmId = selectedLabel?.lexemeId
     ? SPATIAL_REALM_BY_LEXEME[selectedLabel.lexemeId]
     : undefined;
@@ -506,11 +512,7 @@ export function WorldApp() {
           <button
             type="button"
             className="atlas-button"
-            onClick={(event) => {
-              setLexicalWorldEntry(null);
-              setLexicalWorldInitialFocus(event.detail === 0 ? "search" : "auto");
-              setLexicalWorldOpen(true);
-            }}
+            onClick={(event) => openLexicalOverview(event.detail === 0 ? "keyboard" : "pointer")}
             aria-label="打开 10 个视觉领域、758 个分层入口和 10,000 个词"
             aria-haspopup="dialog"
             aria-expanded={lexicalWorldOpen}
@@ -630,6 +632,18 @@ export function WorldApp() {
               <span className="scene-minimap__terminal" data-testid="scene-minimap-terminal">
                 <i aria-hidden="true" />已到最深层
               </span>
+            ) : null}
+            {scene ? (
+              <button
+                type="button"
+                className="scene-minimap__lexical"
+                data-testid="scene-minimap-lexical"
+                onClick={(event) => openLexicalOverview(event.detail === 0 ? "keyboard" : "pointer")}
+                disabled={sceneControlsLocked}
+                aria-label="打开由 10 个彩色领域组成的 10,000 词语义大图"
+              >
+                <span aria-hidden="true" />万词大图 <b>10,000</b>
+              </button>
             ) : null}
           </div>
         </aside>

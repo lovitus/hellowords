@@ -68,9 +68,9 @@ interface SemanticNode {
 const projectRoot = resolve(import.meta.dirname, "..");
 const dataRoot = resolve(projectRoot, "public/data/scenes");
 const publicRoot = resolve(projectRoot, "public");
-const MIN_MATURE_SCENES = 34;
+const MIN_MATURE_SCENES = 37;
 const MIN_ROOT_BRANCHES = 4;
-const MIN_MATURE_ROOT_BRANCHES = 3;
+const MIN_MATURE_ROOT_BRANCHES = 4;
 const MIN_SCENES_PER_MATURE_ROOT_BRANCH = 4;
 const MIN_DEEP_PATHS = 6;
 const MIN_DEEP_PATH_SCENES = 5;
@@ -110,6 +110,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   heart: 32,
   "blood-cell": 28,
   "community-garden": 40,
+  "greenhouse-interior": 40,
+  "tomato-plant": 40,
+  "potting-workbench": 40,
   "city-park": 32,
   "oak-tree": 32,
   leaf: 32,
@@ -123,7 +126,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // This terminal specialist image supports 28 distinct structures. Requiring
   // 32 produced synonym pairs at identical pixels, which is worse than an
   // explicit evidence-based exception.
-  "chloroplast-interior": 28,
+  "chloroplast-interior": 32,
 };
 const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   polymer: 28,
@@ -143,6 +146,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   heart: 36,
   "blood-cell": 36,
   "community-garden": 48,
+  "greenhouse-interior": 46,
+  "tomato-plant": 44,
+  "potting-workbench": 49,
+  "chloroplast-interior": 36,
 };
 const MIN_PREMIUM_OVERVIEW_LABELS = 12;
 const MIN_PREMIUM_LABELS_PER_LOD = 3;
@@ -151,9 +158,17 @@ const MIN_DETAIL_ZONE_LABELS = 4;
 const MIN_DETAIL_ZONE_COVERAGE = 0.6;
 const PREMIUM_LOD_MINIMUMS: Readonly<Record<string, number>> = {
   "community-garden": 7,
+  "greenhouse-interior": 9,
+  "tomato-plant": 8,
+  "potting-workbench": 9,
+  "chloroplast-interior": 7,
 };
 const PREMIUM_DETAIL_ZONE_MINIMUMS: Readonly<Record<string, number>> = {
   "community-garden": 6,
+  "greenhouse-interior": 6,
+  "tomato-plant": 5,
+  "potting-workbench": 6,
+  "chloroplast-interior": 5,
 };
 const MIN_SPATIAL_LEXICON_LINKS = 180;
 const MAX_RASTER_BYTES = 1_228_800;
@@ -287,6 +302,35 @@ const FORBIDDEN_UNGROUNDED: Readonly<Record<string, readonly string[]>> = {
     "pollination",
     "composting",
     "organic",
+  ],
+  "greenhouse-interior": [
+    "photosynthesis",
+    "humidity",
+    "ventilation",
+    "germination",
+    "growth",
+    "watering",
+    "temperature",
+  ],
+  "tomato-plant": [
+    "photosynthesis",
+    "pollination",
+    "ripening",
+    "transpiration",
+    "nutrient uptake",
+    "disease resistance",
+    "growth",
+  ],
+  "potting-workbench": [
+    "potting",
+    "repotting",
+    "watering",
+    "tying",
+    "pruning",
+    "soil fertility",
+    "plant growth",
+    "sharp",
+    "durable",
   ],
 };
 

@@ -4,7 +4,7 @@ The spatial world must grow by adding honest, independently illustrated places, 
 
 ## Next net-new branch: Community garden
 
-**Status: completed and pixel-verified.** The final `community-garden-premium-v1.jpg` asset contains 48 grounded anchors in five LOD bands, seven authored zones and no child portal. The world-atlas entrance uses the exact approved rectangle below.
+**Status: completed, pixel-verified, and expanded.** The final `community-garden-premium-v1.jpg` asset contains 48 grounded anchors in five LOD bands and seven authored zones. Its already-visible greenhouse and potting bench now lead to `greenhouse-interior → tomato-plant` and terminal `potting-workbench` scenes. The world-atlas entrance uses the exact approved rectangle below.
 
 The published `world-map-bright-v4.jpg` depicts a distinct garden district in its lower centre. The rectangle below is disjoint from all three existing root portals, so it remains a fourth root branch without an ambiguous zoom target:
 
@@ -36,9 +36,9 @@ Content contract:
 - at least six authored detail zones: greenhouse, raised beds, potting bench, water/irrigation, compost/soil and pollinator border;
 - at least twelve overview labels;
 - every word must name an object, visible part, material or directly observable property;
-- scene starts as a leaf; later children may be added only when the parent image contains a complete, unambiguous portal object.
+- child scenes may be added only when the parent image contains a complete, unambiguous portal object; both current garden portals reuse exact authored detail rectangles.
 
-The topology policy deliberately allows this new branch to mature honestly: the atlas must expose at least four root branches, while at least three established branches must each contain four or more scenes. A new leaf is not padded with fabricated depth merely to satisfy a blanket branch-depth rule.
+The branch has now matured honestly to four scenes without fabricating depth: the atlas exposes four root branches, and all four contain at least four real scenes.
 
 ## Following net-new places
 

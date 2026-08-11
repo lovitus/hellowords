@@ -7,15 +7,15 @@ off by default, and the experience intentionally avoids quiz and streak pressure
 
 ## Included in this version
 
-- 34 reachable scene slices across home, city, nature, transport, health and
-  microscopic science, with 1,335 human-verified contextual anchors representing
-  1,090 distinct English display terms in five cumulative zoom bands;
-- 34 independently reviewed 1600 × 900 raster scene illustrations and zero
+- 37 reachable scene slices across home, city, nature, gardening, transport,
+  health and microscopic science, with 1,482 human-verified contextual anchors
+  representing 1,200 distinct English display terms in five cumulative zoom bands;
+- 37 independently reviewed 1600 × 900 raster scene illustrations and zero
   scene-level SVG assets;
-- 169 authored local detail zones across the scene world, grouping truthful
+- 191 authored local detail zones across the scene world, grouping truthful
   word batches around visible regions of each illustration;
 - mouse, touch, wheel and pinch camera controls;
-- 33 typed scene portals with recursive high-resolution tile handoff,
+- 36 typed scene portals with recursive high-resolution tile handoff,
   continuous zoom entry and reverse zoom-out return, plus a compact translucent
   minimap for the current path and direct child scenes;
 - English labels with a Chinese-meaning toggle that is off by default;
@@ -32,8 +32,8 @@ off by default, and the experience intentionally avoids quiz and streak pressure
   measurement.
 
 All 10,000 entries are hierarchically reachable and searchable. The product
-still distinguishes 1,335 human-verified contextual scene anchors representing
-1,090 distinct display terms from words organized in the lexical world; it does
+still distinguishes 1,482 human-verified contextual scene anchors representing
+1,200 distinct display terms from words organized in the lexical world; it does
 not claim that every entry was individually drawn.
 
 ## Local development

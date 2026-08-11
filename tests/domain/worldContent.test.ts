@@ -102,8 +102,12 @@ test("mature world has four subject branches and six deep, fully reachable paths
   };
   visit(root.id);
   assert.equal(reachable.size, scenes.length);
-  assert.ok(scenes.length >= 34, "the new authored scene batch expands the world");
-  assert.deepEqual(byId.get("community-garden")?.portals, [], "the new root branch starts as a leaf");
+  assert.ok(scenes.length >= 37, "the new authored scene batch expands the world");
+  assert.deepEqual(
+    byId.get("community-garden")?.portals.map(({ childSceneId }) => childSceneId),
+    ["greenhouse-interior", "potting-workbench"],
+    "the garden overview exposes two real illustrated subregions",
+  );
 
   const expectedPaths = [
     ["world-map", "apartment", "kitchen", "coffee-machine", "water-tank", "polymer"],
@@ -112,6 +116,7 @@ test("mature world has four subject branches and six deep, fully reachable paths
     ["world-map", "city-street", "transit-hub", "railway-platform", "train-carriage", "rail-bogie"],
     ["world-map", "city-street", "science-museum", "human-body", "heart", "blood-cell", "hemoglobin", "oxygen-molecule"],
     ["world-map", "city-park", "oak-tree", "leaf", "plant-cell", "chloroplast-interior"],
+    ["world-map", "community-garden", "greenhouse-interior", "tomato-plant"],
   ];
   for (const path of expectedPaths) {
     for (let index = 0; index < path.length - 1; index += 1) {
@@ -390,6 +395,9 @@ test("premium exploration scenes expose dense, truthful local detail slices", as
     "heart",
     "blood-cell",
     "community-garden",
+    "greenhouse-interior",
+    "tomato-plant",
+    "potting-workbench",
     "city-park",
     "pond-edge",
     "frog",
@@ -414,7 +422,7 @@ test("premium exploration scenes expose dense, truthful local detail slices", as
     frog: 28,
     "oxygen-molecule": 26,
     hemoglobin: 22,
-    "chloroplast-interior": 28,
+    "chloroplast-interior": 32,
   };
   for (const [sceneId, minimum] of Object.entries(minimums)) {
     const scene = byId.get(sceneId);
@@ -1278,7 +1286,7 @@ test("premium blood cell connects capillary structure to one visible hemoglobin 
   }
 });
 
-test("community garden adds one disjoint root portal and forty-eight grounded anchors", async () => {
+test("community garden adds one disjoint root portal and two grounded local branches", async () => {
   const { scenes } = await loadWorld();
   const byId = new Map(scenes.map((scene) => [scene.id, scene]));
   const root = byId.get("world-map");
@@ -1295,7 +1303,32 @@ test("community garden adds one disjoint root portal and forty-eight grounded an
     [10, 10, 10, 9, 9],
   );
   assert.ok((garden.detailZones?.length ?? 0) >= 6);
-  assert.deepEqual(garden.portals, [], "community garden remains a truthful terminal place");
+  assert.deepEqual(garden.portals, [
+    {
+      id: "enter-greenhouse-interior",
+      label: "Explore the greenhouse",
+      translation: "探索温室内部",
+      childSceneId: "greenhouse-interior",
+      x: 900,
+      y: 30,
+      width: 700,
+      height: 450,
+      enterScale: 2.7,
+      sourceVisualRegion: "greenhouse-bay",
+    },
+    {
+      id: "enter-potting-workbench",
+      label: "Explore the potting workbench",
+      translation: "探索园艺工作台",
+      childSceneId: "potting-workbench",
+      x: 0,
+      y: 380,
+      width: 530,
+      height: 430,
+      enterScale: 2.7,
+      sourceVisualRegion: "potting-bench-area",
+    },
+  ]);
 
   const gardenPortal = root.portals.find(({ childSceneId }) => childSceneId === "community-garden");
   assert.ok(gardenPortal);
@@ -1352,6 +1385,61 @@ test("community garden adds one disjoint root portal and forty-eight grounded an
     "organic",
   ]) {
     assert.ok(!words.has(inferred), `community garden omits inferred ${inferred}`);
+  }
+});
+
+test("greenhouse, tomato plant and potting workbench form dense truthful garden slices", async () => {
+  const { scenes } = await loadWorld();
+  const byId = new Map(scenes.map((scene) => [scene.id, scene]));
+  const greenhouse = byId.get("greenhouse-interior");
+  const tomato = byId.get("tomato-plant");
+  const workbench = byId.get("potting-workbench");
+  assert.ok(greenhouse);
+  assert.ok(tomato);
+  assert.ok(workbench);
+
+  assert.equal(greenhouse.parentId, "community-garden");
+  assert.equal(greenhouse.asset, "/scenes/greenhouse-interior-premium-v1.jpg");
+  assert.equal(greenhouse.labels.length, 46);
+  assert.deepEqual(
+    greenhouse.labels.reduce<number[]>((counts, label) => {
+      counts[label.minLevel ?? 0] += 1;
+      return counts;
+    }, [0, 0, 0, 0, 0]),
+    [9, 9, 9, 9, 10],
+  );
+  assert.deepEqual(greenhouse.portals, [{
+    id: "enter-tomato-plant",
+    label: "Study the tomato plant",
+    translation: "细看番茄植株",
+    childSceneId: "tomato-plant",
+    x: 1040,
+    y: 35,
+    width: 400,
+    height: 825,
+    enterScale: 3.1,
+    sourceVisualRegion: "portal-tomato-plant",
+  }]);
+
+  assert.equal(tomato.parentId, "greenhouse-interior");
+  assert.equal(tomato.asset, "/scenes/tomato-plant-premium-v1.jpg");
+  assert.equal(tomato.labels.length, 44);
+  assert.equal(tomato.portals.length, 0);
+  assert.ok((tomato.detailZones?.length ?? 0) >= 5);
+
+  assert.equal(workbench.parentId, "community-garden");
+  assert.equal(workbench.asset, "/scenes/potting-workbench-premium-v1.jpg");
+  assert.equal(workbench.labels.length, 49);
+  assert.equal(workbench.portals.length, 0);
+  assert.ok((workbench.detailZones?.length ?? 0) >= 6);
+
+  for (const [scene, required] of [
+    [greenhouse, ["greenhouse interior", "glass pane", "roof vent", "tomato plant"]],
+    [tomato, ["main stem", "compound leaf", "tomato flower", "ripe tomato"]],
+    [workbench, ["watering can", "seedling tray", "pruning shears", "garden hose"]],
+  ] as const) {
+    const words = new Set(scene.labels.map(({ word }) => word));
+    for (const word of required) assert.ok(words.has(word), `${scene.id} visibly grounds ${word}`);
   }
 });
 

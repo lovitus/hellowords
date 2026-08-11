@@ -61,7 +61,32 @@
     { "id": "coneflower", "word": "coneflower", "translation": "松果菊", "x": 1330, "y": 800, "priority": 5.046, "minLevel": 4, "sourceVisualRegion": "pollinator-border" },
     { "id": "butterfly", "word": "butterfly", "translation": "蝴蝶", "lexemeId": "en-fcfd075cbe367c15", "x": 1340, "y": 810, "priority": 5.047, "minLevel": 4, "sourceVisualRegion": "pollinator-border" }
   ],
-  "portals": [],
+  "portals": [
+    {
+      "id": "enter-greenhouse-interior",
+      "label": "Explore the greenhouse",
+      "translation": "探索温室内部",
+      "childSceneId": "greenhouse-interior",
+      "x": 900,
+      "y": 30,
+      "width": 700,
+      "height": 450,
+      "enterScale": 2.7,
+      "sourceVisualRegion": "greenhouse-bay"
+    },
+    {
+      "id": "enter-potting-workbench",
+      "label": "Explore the potting workbench",
+      "translation": "探索园艺工作台",
+      "childSceneId": "potting-workbench",
+      "x": 0,
+      "y": 380,
+      "width": 530,
+      "height": 430,
+      "enterScale": 2.7,
+      "sourceVisualRegion": "potting-bench-area"
+    }
+  ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",

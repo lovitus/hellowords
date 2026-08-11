@@ -1,11 +1,14 @@
 # Premium scene art briefs
 
-These thirty-four 1600 × 900 JPEG scenes were created with the built-in image generation workflow, inspected at final project resolution, and then anchored from the actual published pixels. Together they cover every authored spatial scene, from the world overview through rooms, transport, natural habitats, materials and microscopic studies.
+These thirty-seven 1600 × 900 JPEG scenes were created with the built-in image generation workflow, inspected at final project resolution, and then anchored from the actual published pixels. Together they cover every authored spatial scene, from the world overview through rooms, transport, gardening, natural habitats, materials and microscopic studies.
 
 | Scene | Final asset | SHA-256 |
 |---|---|---|
 | World atlas | `world-map-bright-v4.jpg` | `73536e8b31807e9e98300b8ceba03975210b881aabaf3f3e3718308fdfd82157` |
 | Community garden | `community-garden-premium-v1.jpg` | `391c7d0d1a1b065a0974f2fc7814fbeefec32cf5df727cf0a0c1a5d2feee49df` |
+| Greenhouse interior | `greenhouse-interior-premium-v1.jpg` | `11410d1677366513fc642c948570e08ae66fe20d20f05b2e43bed4245cc78667` |
+| Tomato plant | `tomato-plant-premium-v1.jpg` | `bf640f84a6e83c33bdcbca3857954857e918945507e2b1659fc9d958f5d0ad7c` |
+| Potting workbench | `potting-workbench-premium-v1.jpg` | `89194ade5be41c7a2e0baf98d61e64e1d6b3df85370b64623ec773691791c311` |
 | Apartment | `apartment-bright-v2.jpg` | `90b90990ed24ec4324aa0b9345a0db650baf1a8bd03267ab6f53d5984d8c5ff2` |
 | Kitchen | `kitchen-premium-v3.jpg` | `7623db6c6b87f6f386f6201d5a913de9f31eb016f0894b0a33eec52dc94a7f2e` |
 | Coffee machine | `coffee-machine-premium-v1.jpg` | `02263b2ed81fdab6b4c6c8fad8f93a378482cd14da92a5792885d865c5aca439` |
@@ -37,7 +40,7 @@ These thirty-four 1600 × 900 JPEG scenes were created with the built-in image g
 | Oak tree | `oak-tree-natural-v3.jpg` | `d331191e5c63ff460c3208cc32b4e9d977981749a9f5ddb6a3850d373623fe3b` |
 | Leaf | `leaf-natural-v3.jpg` | `3047a8ee8f00fa78ac31d8b328034b52a62d414a20c7c4bdcc02c82a23ff9e13` |
 | Plant cell | `plant-cell-premium-v2.jpg` | `2c873d870fc8c2344b4686460647c941c01740723a0901936e70a012e118146e` |
-| Chloroplast interior | `chloroplast-interior-premium-v2.jpg` | `00cdd3ec0187bdf608fd5e6d62a983204290275abf54862d78f0dca7bbe81adb` |
+| Chloroplast interior | `chloroplast-interior-premium-v3.jpg` | `28a1078d445a763a3a3796543c8b7088d863defa8418089a9a681c640a0c406b` |
 
 ## Selected final prompt set
 
@@ -71,7 +74,25 @@ The final audit retained 39 grounded terms in five authored regions and rebuilt 
 
 Create a bright, elegant daylight community garden as one coherent wide editorial photograph. Separate a glass greenhouse, two raised beds, a potting bench, a timber compost station, a rain barrel with hose equipment and a flowering pollinator border. Resolve the roof vent, glass and frame, vegetables, trellis, soil, tools, gloves, seedling trays, wheelbarrow, irrigation fittings, paths, fence and gate as independently pointable objects. Exclude people, brands, readable signs, pseudo-writing, gloomy weather, abstract sustainability concepts and unrelated indoor objects.
 
-The final-pixel audit retained 48 terms across seven authored crops, with LOD batches of 10, 10, 10, 9 and 9. The scene is a truthful leaf reached through the exact non-overlapping 470 × 285 entrance already visible in the lower-centre garden district of the world atlas.
+The final-pixel audit retained 48 terms across seven authored crops, with LOD batches of 10, 10, 10, 9 and 9. The scene is reached through the exact non-overlapping entrance visible in the lower-centre garden district of the world atlas. Its complete glasshouse and complete foreground bench now serve as two disjoint child portals.
+
+### Greenhouse interior
+
+Create a bright, photographic interior of the exact aluminum-framed glass greenhouse visible in the community garden. Preserve a central aisle, glass panes, roof ridge and opening vent, left potting bench, propagation trays, soil supplies, rear crop bench, irrigation fittings and one complete unobstructed tomato plant at right as the next portal. Use clear neutral daylight and realistic horticultural materials; exclude people, words, brand markings, climate diagrams and invisible growing processes.
+
+The accepted image carries 46 grounded labels across seven authored zones. The final cleanup removed a generated fan-hub marking while preserving the complete right tomato plant from its grow bag to its top leaves.
+
+### Tomato plant
+
+Create a bright close greenhouse study of one complete supported tomato plant in a black grow bag. Resolve the main and side stems, nodes, compound leaves and leaflets, one flower truss, one mixed-ripeness fruit truss, bamboo cane, ties, clip, soil, perlite and drip irrigation. Include only physically visible pest evidence—a small aphid cluster, whitefly, ladybird, chew hole and leaf-miner trail—and exclude text, arrows, physiology, underground roots and plant-process diagrams.
+
+The final-pixel audit retained 44 external, independently pointable terms across six authored zones and kept the scene terminal.
+
+### Potting workbench
+
+Create a complete pale-timber garden potting workbench in warm but neutral daylight, with all four legs, upper shelf, worktop and lower shelf visible. Arrange distinct pots, seedling tray, soil, watering can, mister, hose, hand tools, pruning shears, gloves, twine, bamboo supports and lower storage without people, printed text, brands or implied actions. Keep every tool separated enough for a precise object or part anchor.
+
+The final-pixel audit retained 49 grounded terms across seven authored zones. A final framing correction preserved the complete bench rather than cropping its legs.
 
 ### Bathroom
 
@@ -95,7 +116,9 @@ Render a scientifically plausible, cinematic 3D cutaway of one living leaf cell 
 
 ### Chloroplast interior
 
-Travel between towering thylakoid stacks inside a richly rendered chloroplast. Show the double envelope, stroma, grana, individual discs and lumens, connecting lamellae, starch granule, plastoglobules, ribosomes, DNA loop and visible surface complexes, with sunlight entering the living green environment.
+Create one complete bright chloroplast in a clean oblique cutaway, with a continuous thin outer membrane, inner membrane and narrow intermembrane space. Inside, show aqueous stroma, several grana made from many separate thin thylakoid sacs, broad connecting stroma lamellae, one foreground opened thylakoid with its lumen, restrained photosystem and ATP-synthase complexes, two starch grains, plastoglobules, fine ribosome granules and one loose circular DNA nucleoid. Keep the materials matte and biologically scaled; exclude caves, glass shells, pancake cylinders, candy-like proteins, text, arrows and fantasy glow.
+
+The final scientific-material pass retained 36 grounded structures across six authored zones and replaced the former 28-word exception without duplicating membrane hierarchy.
 
 ### Kitchen
 

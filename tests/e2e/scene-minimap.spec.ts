@@ -133,13 +133,23 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   await expect(app).toHaveAttribute("data-scene-id", "community-garden");
   await expect(app).toHaveAttribute("data-transition-state", "idle");
   await expect(minimap).toHaveAttribute("data-scene-id", "community-garden");
-  await expect(minimap).toHaveAttribute("data-child-count", "0");
-  await expect(minimap).toHaveAttribute("data-terminal", "true");
-  await expect(page.getByTestId("scene-minimap-terminal")).toHaveText(/已到最深层/);
+  await expect(minimap).toHaveAttribute("data-child-count", "2");
+  await expect(minimap).toHaveAttribute("data-terminal", "false");
+  await expect(minimap.locator(CHILD)).toHaveCount(2);
+  expect((await minimap.locator(CHILD).evaluateAll((buttons) => buttons.map((button) => (
+    (button as HTMLElement).dataset.targetScene
+  )).sort()))).toEqual(["greenhouse-interior", "potting-workbench"]);
   const transition = await finishTransitionProbe(page);
   expect(transition.handoffs).toContainEqual(expectedHandoff);
   expect(transition.settled.at(-1)).toEqual({ from: "world-map", to: "community-garden" });
   expect(transition.hardTransitionAppeared).toBe(false);
+
+  await minimap.locator(`${CHILD}[data-target-scene="potting-workbench"]`).click();
+  await expect(app).toHaveAttribute("data-scene-id", "potting-workbench");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(minimap).toHaveAttribute("data-child-count", "0");
+  await expect(minimap).toHaveAttribute("data-terminal", "true");
+  await expect(page.getByTestId("scene-minimap-terminal")).toHaveText(/已到最深层/);
 
   const rootCrumb = minimap.locator(`${BREADCRUMB}[data-scene-id="world-map"]`);
   await expect(rootCrumb).toHaveAttribute("data-current", "false");
@@ -152,4 +162,27 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
     "data-current",
     "true",
   );
+});
+
+test("the minimap exposes the complete color-coded ten-thousand-word plane", async ({ page }) => {
+  await openWorld(page);
+  const entry = page.getByTestId("scene-minimap-lexical");
+  await expect(entry).toBeVisible();
+  await expect(entry).toHaveAccessibleName(/10 个彩色领域.*10,000 词/);
+  await entry.click();
+
+  const field = page.getByTestId("semantic-zoom-field");
+  await expect(field).toBeVisible();
+  await expect(field).toHaveAttribute("data-level", "realm");
+  await expect(field).toHaveAttribute("data-level-total", "10");
+  const realmNodes = field.locator('[data-semantic-node="true"][data-level="realm"]');
+  await expect(realmNodes).toHaveCount(10);
+  const representedWords = await realmNodes.evaluateAll((nodes) => nodes.reduce(
+    (sum, node) => sum + Number((node as HTMLElement).dataset.count),
+    0,
+  ));
+  expect(representedWords).toBe(10_000);
+  expect(new Set(await realmNodes.evaluateAll((nodes) => nodes.map((node) => (
+    (node as HTMLElement).dataset.paletteIndex
+  )))).size).toBe(10);
 });

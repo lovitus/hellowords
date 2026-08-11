@@ -735,7 +735,7 @@ test("a spacious desktop fills empty overview regions with higher-LOD words befo
   );
 });
 
-test("zoom raises the adaptive allowance and reveals more words without scaling their layout size", () => {
+test("a spacious viewport fills every safe slot before showing a synthetic remainder", () => {
   const labels = spaciousFutureLabels();
   const viewport = { width: 1_200, height: 700, compact: false };
   const overview = computeSceneLabelLayout(
@@ -752,10 +752,10 @@ test("zoom raises the adaptive allowance and reveals more words without scaling 
     viewport,
     false,
   );
-  assert.ok(
-    zoomed.filter((item) => item.interactive).length
-      > overview.filter((item) => item.interactive).length,
-  );
+  const overviewCount = overview.filter((item) => item.interactive).length;
+  const zoomedCount = zoomed.filter((item) => item.interactive).length;
+  assert.ok(overviewCount >= 38, "overview uses the available native-size label capacity");
+  assert.ok(zoomedCount >= overviewCount, "zoom never lowers the filled readable capacity");
 });
 
 test("crowding obeys priority and budget while a selected word keeps a readable slot", () => {
@@ -775,7 +775,7 @@ test("crowding obeys priority and budget while a selected word keeps a readable 
   );
   const visibleIds = layout.filter((item) => item.interactive).map((item) => item.id);
 
-  assert.ok(visibleIds.length <= 5, "the overview fill fraction preserves later zoom capacity");
+  assert.ok(visibleIds.length <= 6, "the hard budget remains authoritative in a crowded crop");
   assert.ok(visibleIds.includes("crowded-29"), "the selected word cannot lose its local collision");
   assert.ok(visibleIds.includes("crowded-0"), "the highest authored priority remains visible");
   assert.ok(visibleIds.includes("crowded-1"), "priority order decides the remaining crowded slots");

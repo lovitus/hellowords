@@ -171,6 +171,21 @@
       "id": "community-garden",
       "title": "Community garden",
       "parentId": "world-map"
+    },
+    {
+      "id": "greenhouse-interior",
+      "title": "Greenhouse interior",
+      "parentId": "community-garden"
+    },
+    {
+      "id": "tomato-plant",
+      "title": "Tomato plant",
+      "parentId": "greenhouse-interior"
+    },
+    {
+      "id": "potting-workbench",
+      "title": "Potting workbench",
+      "parentId": "community-garden"
     }
   ]
 }

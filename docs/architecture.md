@@ -21,7 +21,7 @@ claim that every vocabulary entry has been hand-illustrated.
 ## Rendering decision
 
 Each illustrated slice is an external, independently reviewed 1600 × 900 raster
-image. The current world has 34 raster scenes and no scene-level SVG cutaways.
+image. The current world has 37 raster scenes and no scene-level SVG cutaways.
 Artwork is decorative; labels, portals, focus targets, and navigation are
 separate HTML layers driven by typed scene data. This keeps vocabulary crisp in
 screen space and makes translations and placement editable without rewriting
@@ -63,8 +63,8 @@ turning unrelated vocabulary into floating labels. The data contract requires
 at least four zones and normally 32 grounded anchors per premium scene; an
 evidence-reviewed terminal specialist slice may declare a lower floor when
 meeting 32 would require duplicate names for the same visible structure.
-The current graph contains 1,335 contextual anchors representing 1,090 distinct
-display terms across 169 authored zones, connected by 33 typed portals.
+The current graph contains 1,482 contextual anchors representing 1,200 distinct
+display terms across 191 authored zones, connected by 36 typed portals.
 
 ## Scene and portal contract
 

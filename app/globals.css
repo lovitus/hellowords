@@ -434,6 +434,38 @@ a:focus-visible {
   font-size: 11px;
 }
 
+.scene-minimap__children > .scene-minimap__lexical {
+  border-color: rgba(78, 94, 121, 0.22);
+  color: #344355;
+  background: linear-gradient(105deg, rgba(236, 244, 235, 0.95), rgba(241, 236, 247, 0.95));
+}
+
+.scene-minimap__children > .scene-minimap__lexical > span {
+  width: 0.7rem;
+  height: 0.7rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: conic-gradient(
+    #618a70 0 10%,
+    #8a6d62 10% 20%,
+    #677f9c 20% 30%,
+    #91705f 30% 40%,
+    #7a6f9c 40% 50%,
+    #5e8891 50% 60%,
+    #9a755c 60% 70%,
+    #718d66 70% 80%,
+    #8e6d86 80% 90%,
+    #6f7b92 90% 100%
+  );
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.72);
+}
+
+.scene-minimap__lexical b {
+  color: #5d6675;
+  font-size: 0.62rem;
+  font-variant-numeric: tabular-nums;
+}
+
 .scene-minimap__children > button:hover,
 .scene-minimap__children > button:focus-visible {
   border-color: rgba(181, 113, 45, 0.52);
@@ -703,8 +735,14 @@ a:focus-visible {
   top: 50%;
   left: 50%;
   width: var(--label-leader-length);
-  height: 1.5px;
-  background: linear-gradient(90deg, var(--label-semantic-leader), var(--label-semantic-leader-fade));
+  height: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0 34%, rgba(255, 255, 255, 0.12) 42% 100%),
+    linear-gradient(90deg, var(--label-semantic-leader), var(--label-semantic-leader-fade));
+  box-shadow:
+    0 0 3px rgba(255, 255, 255, 0.88),
+    0 0 7px var(--label-semantic-leader-fade);
   content: "";
   pointer-events: none;
   transform: rotate(var(--label-leader-angle));
@@ -713,12 +751,7 @@ a:focus-visible {
 
 .word-label[data-leader-span="long"]::after {
   height: 2px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--label-semantic-leader) 0 7px,
-    rgba(250, 248, 237, 0.58) 7px 10px
-  );
-  box-shadow: 0 1px 2px rgba(13, 49, 39, 0.18);
+  opacity: 0.92;
 }
 
 .word-anchor-marker {
@@ -731,7 +764,10 @@ a:focus-visible {
   border: 2px solid rgba(255, 252, 241, 0.96);
   border-radius: 50%;
   background: var(--label-semantic-dot);
-  box-shadow: 0 1px 6px rgba(21, 54, 48, 0.3), 0 0 0 2px var(--label-semantic-ring);
+  box-shadow:
+    0 1px 6px rgba(21, 54, 48, 0.36),
+    0 0 0 2px rgba(255, 255, 255, 0.82),
+    0 0 9px 2px var(--label-semantic-leader-fade);
   pointer-events: none;
   transform: translate(calc(var(--label-anchor-x) - 50%), calc(var(--label-anchor-y) - 50%));
 }

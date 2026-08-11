@@ -562,8 +562,13 @@ test("scene anchors project into screen coordinates while labels remain outside 
   );
   assert.match(
     css,
-    /\.word-label\[data-leader-span="long"\]::after\s*\{[\s\S]*?repeating-linear-gradient/,
-    "long bounded fallbacks strengthen the leader instead of looking like a new object anchor",
+    /\.word-label\[data-displaced="true"\]::after\s*\{[\s\S]*?rgba\(255, 255, 255, 0\.94\)[\s\S]*?var\(--label-semantic-leader\)/,
+    "leaders combine a bright specular edge with their semantic color core",
+  );
+  assert.match(
+    css,
+    /\.word-label\[data-leader-span="long"\]::after\s*\{[\s\S]*?opacity:\s*0\.92/,
+    "long bounded fallbacks remain easy to track without dashed visual clutter",
   );
 
   const surfaceRule = css.match(/\.scene-surface\s*\{([\s\S]*?)\}/)?.[1] ?? "";

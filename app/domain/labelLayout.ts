@@ -400,6 +400,12 @@ function overlaps(
   );
 }
 
+/**
+ * Creates a small, stable set of spatial hints for vocabulary that will be
+ * revealed by zooming without entering a child scene. Labels inside a portal
+ * are intentionally excluded: the portal's gold entry marker owns that area,
+ * so a green "more words" marker cannot contradict it.
+ */
 function stableHash(value: string): number {
   let hash = 2166136261;
   for (const character of value) {
@@ -409,12 +415,6 @@ function stableHash(value: string): number {
   return hash >>> 0;
 }
 
-/**
- * Creates a small, stable set of spatial hints for vocabulary that will be
- * revealed by zooming without entering a child scene. Labels inside a portal
- * are intentionally excluded: the portal's gold entry marker owns that area,
- * so a green "more words" marker cannot contradict it.
- */
 export function buildVocabularyZoomCues(
   labels: readonly Label[],
   portals: readonly Portal[],
@@ -657,8 +657,9 @@ function placementOffsets(
   const rotation = stableHash(id) % firstRing.length;
   const rotated = firstRing.slice(rotation).concat(firstRing.slice(0, rotation));
   const candidates: ReadonlyArray<readonly [number, number]> = [
-    // Labels are callouts, not stickers: prefer a short upward stem so the
-    // authored object pixel remains visible and unmistakably anchored.
+    // Keep the short upward stem as the stable default. Alternative directions
+    // remain deterministic, and the placement pass only changes direction
+    // when the default would collide with a pill or another leader.
     [0, -vertical],
     ...rotated.filter(([x, y]) => x !== 0 || y !== -vertical),
     [0, -vertical * 0.58],
@@ -686,12 +687,14 @@ function placementOffsets(
     [-wideHorizontal * 0.68, wideVertical * 0.68],
     [wideHorizontal * 0.68, wideVertical * 0.68],
   ];
-  return candidates.map(([x, y]) => {
+  const unique = new Map<string, readonly [number, number]>();
+  for (const [x, y] of candidates) {
     const distance = Math.hypot(x, y);
-    if (distance <= maximumLeader) return [x, y] as const;
-    const ratio = maximumLeader / distance;
-    return [x * ratio, y * ratio] as const;
-  });
+    const ratio = distance <= maximumLeader ? 1 : maximumLeader / distance;
+    const bounded = [x * ratio, y * ratio] as const;
+    unique.set(`${bounded[0].toFixed(2)}:${bounded[1].toFixed(2)}`, bounded);
+  }
+  return [...unique.values()];
 }
 
 function boundsAt(
@@ -884,24 +887,16 @@ export function computeSceneLabelLayout(
     reservationCount += 1;
   }
   const visible = new Map<string, SceneLabelLayoutItem>();
-  // At overview scale use roughly 70% of the screen's safe capacity; the
-  // allowance rises continuously so zoom still reveals another layer.
-  const adaptiveTarget = sceneLabelDensityTarget(
-    viewport,
-    meaningVisible,
-    camera.scale,
-    maximumVisibleLabels,
-  );
   let interactiveCount = 0;
   for (const [placementOrder, candidate] of candidates.entries()) {
     const selected = candidate.label.id === options.selectedLabelId;
     const retained = retainedOrder.has(candidate.label.id);
     const naturallyInteractive = candidate.naturalOpacity >= 0.52;
+    // A free, readable slot is more useful than an artificial "more words"
+    // counter. Authored LOD still controls opacity and focus order, but it no
+    // longer withholds a grounded word when the current viewport has room.
     const canFillSpareSpace = candidate.futureRevealScale !== null
-      && interactiveCount < adaptiveTarget;
-    // The adaptive target controls first disclosure, not continued existence.
-    // Once a word has been shown, keep it readable up to the hard screen
-    // budget while its anchor still has a collision-free slot.
+      && interactiveCount < maximumVisibleLabels;
     const adaptive = !naturallyInteractive && (
       selected
       || (retained && interactiveCount < maximumVisibleLabels)
