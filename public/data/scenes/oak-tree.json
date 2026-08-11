@@ -16,7 +16,8 @@
       "y": 390,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "main-trunk"
+      "sourceVisualRegion": "main-trunk",
+      "lexemeId": "en-df877645404747cb"
     },
     {
       "id": "trunk",
@@ -26,7 +27,8 @@
       "y": 300,
       "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "main-trunk"
+      "sourceVisualRegion": "main-trunk",
+      "lexemeId": "en-3e341d2d9c67be01"
     },
     {
       "id": "branch",
@@ -56,7 +58,8 @@
       "y": 774,
       "priority": 1.004,
       "minLevel": 0,
-      "sourceVisualRegion": "root-system"
+      "sourceVisualRegion": "root-system",
+      "lexemeId": "en-4813494d137e1631"
     },
     {
       "id": "bark",
@@ -66,7 +69,8 @@
       "y": 240,
       "priority": 1.005,
       "minLevel": 0,
-      "sourceVisualRegion": "bark-texture"
+      "sourceVisualRegion": "bark-texture",
+      "lexemeId": "en-14ea6507645c2ba7"
     },
     {
       "id": "oak-leaf",
@@ -146,7 +150,8 @@
       "y": 632,
       "priority": 2.013,
       "minLevel": 1,
-      "sourceVisualRegion": "moss-covered-base"
+      "sourceVisualRegion": "moss-covered-base",
+      "lexemeId": "en-9e135ab954828446"
     },
     {
       "id": "wildflower",
@@ -166,7 +171,8 @@
       "y": 285,
       "priority": 3.015,
       "minLevel": 2,
-      "sourceVisualRegion": "tree-hollow"
+      "sourceVisualRegion": "tree-hollow",
+      "lexemeId": "en-b21b17b4ecc60cdb"
     },
     {
       "id": "stag-beetle",
@@ -196,7 +202,8 @@
       "y": 525,
       "priority": 3.018,
       "minLevel": 2,
-      "sourceVisualRegion": "ivy-vine"
+      "sourceVisualRegion": "ivy-vine",
+      "lexemeId": "en-254ac4523be56a1a"
     },
     {
       "id": "lichen",
@@ -226,7 +233,8 @@
       "y": 680,
       "priority": 3.021,
       "minLevel": 2,
-      "sourceVisualRegion": "wildflowers"
+      "sourceVisualRegion": "wildflowers",
+      "lexemeId": "en-42029ef215256f8f"
     },
     {
       "id": "leaf-lobe",
@@ -336,7 +344,8 @@
       "y": 427,
       "priority": 5.032,
       "minLevel": 4,
-      "sourceVisualRegion": "spider-web"
+      "sourceVisualRegion": "spider-web",
+      "lexemeId": "en-9bfa0b50a90e6699"
     },
     {
       "id": "rootlet",
@@ -357,6 +366,88 @@
       "priority": 5.034,
       "minLevel": 4,
       "sourceVisualRegion": "ground-details"
+    },
+    {
+      "id": "forest",
+      "word": "forest",
+      "translation": "森林",
+      "x": 1420,
+      "y": 520,
+      "priority": 2.035,
+      "minLevel": 1,
+      "lexemeId": "en-619a2ccf126ce837",
+      "sourceVisualRegion": "verified-forest"
+    },
+    {
+      "id": "soil",
+      "word": "soil",
+      "translation": "土壤",
+      "x": 720,
+      "y": 840,
+      "priority": 3.036,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-soil"
+    },
+    {
+      "id": "grass",
+      "word": "grass",
+      "translation": "草",
+      "x": 1230,
+      "y": 800,
+      "priority": 3.037,
+      "minLevel": 2,
+      "lexemeId": "en-f6cc5b085b61387a",
+      "sourceVisualRegion": "verified-grass"
+    },
+    {
+      "id": "fungus-cap",
+      "word": "fungus cap",
+      "translation": "菌盖",
+      "x": 990,
+      "y": 525,
+      "priority": 4.038,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-fungus-cap"
+    },
+    {
+      "id": "flower-petal",
+      "word": "flower petal",
+      "translation": "花瓣",
+      "x": 1400,
+      "y": 680,
+      "priority": 4.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-flower-petal"
+    },
+    {
+      "id": "twig",
+      "word": "twig",
+      "translation": "细枝",
+      "x": 1390,
+      "y": 230,
+      "priority": 4.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-twig"
+    },
+    {
+      "id": "flower-stem",
+      "word": "flower stem",
+      "translation": "花茎",
+      "x": 1340,
+      "y": 725,
+      "priority": 5.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-flower-stem"
+    },
+    {
+      "id": "ivy-stem",
+      "word": "ivy stem",
+      "translation": "常春藤茎",
+      "x": 510,
+      "y": 500,
+      "priority": 5.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-ivy-stem"
     }
   ],
   "portals": [
@@ -378,10 +469,10 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/oak-tree-premium-v2.jpg",
     "reviewedAssetSha256": "17be818b6515e7fb1adfd9532254612274f9ab84de17808b1e44c807976a9a3e",
-    "rationale": "Verified every anchor against the photographic oak close-up, retaining only distinct tree parts, wildlife, fungi, plants and ground details that are visibly identifiable at the marked pixel.",
+    "rationale": "Expanded the photographic oak close-up into five authored microhabitat crops and added only visible woodland, bark, root, fungus, flower and ground details.",
     "previousLabelCount": 56,
-    "retainedLabelCount": 35,
-    "removedLabelCount": 21,
+    "retainedLabelCount": 43,
+    "removedLabelCount": 13,
     "removedExamples": [
       "crown",
       "seedling",
@@ -588,6 +679,188 @@
       "y": 370,
       "width": 165,
       "height": 205
+    },
+    {
+      "id": "verified-forest",
+      "description": "Sunlit forest visible behind the oak on the right",
+      "kind": "part",
+      "x": 1240,
+      "y": 330,
+      "width": 360,
+      "height": 360
+    },
+    {
+      "id": "verified-soil",
+      "description": "Dark soil exposed between the oak roots",
+      "kind": "part",
+      "x": 580,
+      "y": 780,
+      "width": 280,
+      "height": 120
+    },
+    {
+      "id": "verified-grass",
+      "description": "Tufts of grass beside the right-hand roots",
+      "kind": "part",
+      "x": 1140,
+      "y": 720,
+      "width": 190,
+      "height": 170
+    },
+    {
+      "id": "verified-fungus-cap",
+      "description": "Layered caps of the bracket fungus on the trunk",
+      "kind": "part",
+      "x": 915,
+      "y": 475,
+      "width": 165,
+      "height": 125
+    },
+    {
+      "id": "verified-flower-petal",
+      "description": "White petals on the foreground wildflowers",
+      "kind": "part",
+      "x": 1350,
+      "y": 635,
+      "width": 110,
+      "height": 95
+    },
+    {
+      "id": "verified-twig",
+      "description": "Thin oak twig carrying leaves and acorns",
+      "kind": "part",
+      "x": 1270,
+      "y": 160,
+      "width": 260,
+      "height": 120
+    },
+    {
+      "id": "verified-flower-stem",
+      "description": "Slender green stems beneath the wildflowers",
+      "kind": "part",
+      "x": 1300,
+      "y": 660,
+      "width": 85,
+      "height": 130
+    },
+    {
+      "id": "verified-ivy-stem",
+      "description": "Climbing ivy stem attached to the trunk",
+      "kind": "part",
+      "x": 460,
+      "y": 390,
+      "width": 110,
+      "height": 210
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "left-wildlife",
+      "title": "Woodland wildlife",
+      "translation": "林地动物",
+      "description": "Squirrel, woodpecker, web, ivy and broken wood along the left limbs",
+      "x": 0,
+      "y": 0,
+      "width": 560,
+      "height": 600,
+      "targetScale": 2.45,
+      "labelIds": [
+        "branch",
+        "squirrel",
+        "woodpecker",
+        "spider-web",
+        "spider",
+        "splintered-wood",
+        "ivy",
+        "ivy-leaf",
+        "ivy-stem"
+      ]
+    },
+    {
+      "id": "trunk-microhabitat",
+      "title": "Trunk microhabitat",
+      "translation": "树干微生境",
+      "description": "Bark, nest, hollow, beetle, lichen and structural details of the central trunk",
+      "x": 420,
+      "y": 0,
+      "width": 600,
+      "height": 700,
+      "targetScale": 2.4,
+      "labelIds": [
+        "oak",
+        "trunk",
+        "bark",
+        "bird-nest",
+        "hollow",
+        "stag-beetle",
+        "lichen",
+        "bark-fissure",
+        "tree-fork",
+        "root-flare"
+      ]
+    },
+    {
+      "id": "leaves-and-acorns",
+      "title": "Leaves and acorns",
+      "translation": "叶片与橡子",
+      "description": "Backlit oak leaves, acorn cluster, caterpillar and the supporting upper twig",
+      "x": 950,
+      "y": 0,
+      "width": 650,
+      "height": 470,
+      "targetScale": 2.55,
+      "labelIds": [
+        "bough",
+        "oak-leaf",
+        "acorn",
+        "caterpillar",
+        "leaf-lobe",
+        "leaf-vein",
+        "acorn-cap",
+        "twig"
+      ]
+    },
+    {
+      "id": "roots-and-soil",
+      "title": "Roots and soil",
+      "translation": "树根与土壤",
+      "description": "Root system, moss, fern, soil, stones and fallen material across the forest floor",
+      "x": 0,
+      "y": 550,
+      "width": 1200,
+      "height": 350,
+      "targetScale": 2.35,
+      "labelIds": [
+        "root",
+        "moss",
+        "fern",
+        "rootlet",
+        "leaf-litter",
+        "fallen-leaf",
+        "pebble",
+        "soil"
+      ]
+    },
+    {
+      "id": "fungi-and-flowers",
+      "title": "Fungi and flowers",
+      "translation": "真菌与野花",
+      "description": "Bracket fungi, woodland flowers, forest backdrop and fine plant parts on the right",
+      "x": 850,
+      "y": 450,
+      "width": 750,
+      "height": 450,
+      "targetScale": 2.65,
+      "labelIds": [
+        "bracket-fungus",
+        "wildflower",
+        "daisy",
+        "forest",
+        "grass",
+        "fungus-cap",
+        "flower-petal",
+        "flower-stem"
+      ]
     }
   ]
 }

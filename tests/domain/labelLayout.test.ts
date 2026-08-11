@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   buildPortalCueProtectedRegions,
+  buildVocabularyCueRevealState,
   buildVocabularyRevealSummary,
   buildVocabularyZoomCues,
   consolidateVocabularyCueBatches,
@@ -123,6 +124,145 @@ test("vocabulary zoom cues never compete with a child-scene portal", () => {
     "the cue must sit on a real authored label anchor rather than an averaged empty point",
   );
   assert.equal(cues[0].minLod, 2);
+  assert.ok(cues.every((cue) => cue.source === "fallback-grid"));
+  assert.deepEqual(
+    buildVocabularyZoomCues(labels, [{
+      id: "enter-object",
+      label: "Enter object",
+      childSceneId: "object",
+      x: 100,
+      y: 100,
+      width: 240,
+      height: 220,
+    }], 1_600, 900, 4, []),
+    cues,
+    "an explicitly empty authored-zone list is the same grid fallback",
+  );
+});
+
+test("authored detail zones replace grid inference and preserve semantic camera targets", () => {
+  const labels = [
+    label("overview", 550, 1, 0, 180),
+    label("zone-detail", 620, 2, 2, 210),
+    label("zone-part", 760, 3, 3, 250),
+    label("portal-detail", 200, 4, 2, 180),
+  ];
+  const cues = buildVocabularyZoomCues(
+    labels,
+    [{
+      id: "enter-object",
+      label: "Enter object",
+      childSceneId: "object",
+      x: 100,
+      y: 100,
+      width: 240,
+      height: 220,
+    }],
+    1_600,
+    900,
+    8,
+    [{
+      id: "workbench",
+      title: "Workbench details",
+      translation: "工作台细节",
+      description: "A bounded authored crop around visible workbench parts",
+      x: 500,
+      y: 100,
+      width: 400,
+      height: 300,
+      targetScale: 2.6,
+      labelIds: ["overview", "zone-detail", "zone-part", "portal-detail"],
+    }],
+  );
+
+  assert.equal(cues.length, 1);
+  assert.equal(cues[0].id, "detail-zone-workbench");
+  assert.equal(cues[0].source, "authored-zone");
+  assert.equal(cues[0].detailZoneId, "workbench");
+  assert.equal(cues[0].title, "Workbench details");
+  assert.equal(cues[0].translation, "工作台细节");
+  assert.equal(cues[0].targetScale, 2.6);
+  assert.equal(cues[0].focusX, 700);
+  assert.equal(cues[0].focusY, 250);
+  assert.deepEqual(cues[0].labelIds, ["zone-detail", "zone-part"]);
+  assert.ok(cues[0].labelIds.includes(cues[0].anchorLabelId));
+  assert.ok(
+    labels.some((item) => (
+      item.id === cues[0].anchorLabelId
+      && item.x === cues[0].x
+      && item.y === cues[0].y
+    )),
+    "the semantic region cue still sits on a real label point",
+  );
+  assert.ok(cues.every((cue) => !cue.id.startsWith("vocabulary-")));
+
+  const portalOwned = buildVocabularyZoomCues(
+    [labels[3]],
+    [{
+      id: "enter-object",
+      label: "Enter object",
+      childSceneId: "object",
+      x: 100,
+      y: 100,
+      width: 240,
+      height: 220,
+    }],
+    1_600,
+    900,
+    8,
+    [{
+      id: "portal-owned",
+      title: "Child object",
+      translation: "子场景对象",
+      description: "This authored crop belongs entirely to the child-scene portal",
+      x: 100,
+      y: 100,
+      width: 240,
+      height: 220,
+      targetScale: 2.5,
+      labelIds: ["portal-detail"],
+    }],
+  );
+  assert.deepEqual(portalOwned, [], "a portal-owned zone stays data-only instead of becoming a grid cue");
+});
+
+test("authored cue counts all remaining words but targets only the nearest reveal batch", () => {
+  const labels = [
+    label("near", 620, 1, 2, 210),
+    label("later", 700, 2, 3, 230),
+    label("deep", 760, 3, 4, 250),
+  ];
+  const cue = buildVocabularyZoomCues(
+    labels,
+    [],
+    1_600,
+    900,
+    8,
+    [{
+      id: "parts",
+      title: "Visible parts",
+      translation: "可见部件",
+      description: "A truthful crop containing three progressively revealed parts",
+      x: 500,
+      y: 100,
+      width: 400,
+      height: 300,
+      targetScale: 1.15,
+      labelIds: labels.map((item) => item.id),
+    }],
+  )[0];
+
+  const overview = buildVocabularyCueRevealState(cue, labels, 1, 4);
+  assert.deepEqual(overview.hiddenLabels.map((item) => item.id), ["near", "later", "deep"]);
+  assert.deepEqual(overview.nextLabels.map((item) => item.id), ["near"]);
+  assert.equal(overview.nextLod, 2);
+  assert.ok(overview.targetScale! > cue.targetScale!);
+
+  const afterFirstReveal = buildVocabularyCueRevealState(cue, labels, 1.4, 4);
+  assert.deepEqual(afterFirstReveal.hiddenLabels.map((item) => item.id), ["later", "deep"]);
+  assert.deepEqual(afterFirstReveal.nextLabels.map((item) => item.id), ["later"]);
+  assert.equal(afterFirstReveal.nextLod, 3);
+  assert.ok(afterFirstReveal.targetScale! > overview.targetScale!);
 });
 
 test("vocabulary cue batches merge nearby same-LOD words and never advertise fewer than four", () => {
@@ -140,6 +280,7 @@ test("vocabulary cue batches merge nearby same-LOD words and never advertise few
     anchorLabelId: "one",
     labelIds: ["one", "two"],
     minLod: 2 as const,
+    source: "fallback-grid" as const,
   };
   const secondCue = {
     id: "second",
@@ -148,6 +289,7 @@ test("vocabulary cue batches merge nearby same-LOD words and never advertise few
     anchorLabelId: "three",
     labelIds: ["three", "four"],
     minLod: 2 as const,
+    source: "fallback-grid" as const,
   };
   const laterCue = {
     id: "later",
@@ -156,6 +298,7 @@ test("vocabulary cue batches merge nearby same-LOD words and never advertise few
     anchorLabelId: "later",
     labelIds: ["later"],
     minLod: 3 as const,
+    source: "fallback-grid" as const,
   };
   const batches = consolidateVocabularyCueBatches([
     { cue: firstCue, labels: labels.slice(0, 2), nextLod: 2 },
@@ -187,6 +330,7 @@ test("vocabulary cue counts are exact unique label ids across overlapping source
         anchorLabelId: "one",
         labelIds: ["one", "two", "three"],
         minLod: 2,
+        source: "fallback-grid",
       },
       labels: labels.slice(0, 3),
       nextLod: 2,
@@ -199,6 +343,7 @@ test("vocabulary cue counts are exact unique label ids across overlapping source
         anchorLabelId: "three",
         labelIds: ["three", "four"],
         minLod: 2,
+        source: "fallback-grid",
       },
       labels: labels.slice(2),
       nextLod: 2,
@@ -226,12 +371,12 @@ test("sparse or spatially disconnected cues remain honest compact fallbacks inst
   ];
   const batches = consolidateVocabularyCueBatches([
     {
-      cue: { id: "near", x: 100, y: 100, anchorLabelId: "one", labelIds: ["one", "two"], minLod: 2 },
+      cue: { id: "near", x: 100, y: 100, anchorLabelId: "one", labelIds: ["one", "two"], minLod: 2, source: "fallback-grid" },
       labels: nearby,
       nextLod: 2,
     },
     {
-      cue: { id: "far", x: 1_300, y: 700, anchorLabelId: "three", labelIds: ["three", "four"], minLod: 2 },
+      cue: { id: "far", x: 1_300, y: 700, anchorLabelId: "three", labelIds: ["three", "four"], minLod: 2, source: "fallback-grid" },
       labels: distant,
       nextLod: 2,
     },

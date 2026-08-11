@@ -1,4 +1,4 @@
-import type { Label, Portal } from "./types";
+import type { Label, Portal, SceneDetailZone } from "./types";
 
 export interface SceneLabelCamera {
   readonly x: number;
@@ -54,12 +54,25 @@ export interface VocabularyZoomCue {
   readonly anchorLabelId: string;
   readonly labelIds: readonly string[];
   readonly minLod: 2 | 3 | 4;
+  /** Authored semantic zones always take precedence over inferred grid cells. */
+  readonly source: "authored-zone" | "fallback-grid";
+  readonly detailZoneId?: string;
+  readonly title?: string;
+  readonly translation?: string;
+  readonly targetScale?: number;
+  /** Camera focus can use the authored crop center without pretending it is an object anchor. */
+  readonly focusX?: number;
+  readonly focusY?: number;
 }
 
 export interface VocabularyCueBatchCandidate {
   readonly cue: VocabularyZoomCue;
+  /** Exact remaining labels represented by the cue. */
   readonly labels: readonly Label[];
+  /** Nearest batch reached by this activation; defaults to `labels` for grid cues. */
+  readonly nextLabels?: readonly Label[];
   readonly nextLod: 2 | 3 | 4;
+  readonly targetScale?: number;
 }
 
 export interface VocabularyCueRevealBatch extends VocabularyCueBatchCandidate {
@@ -76,6 +89,13 @@ export interface VocabularyRevealSummary {
   readonly nextLabels: readonly Label[];
   readonly nextLod: LabelLod | null;
   /** First scale at which the leading label in the next LOD really becomes visible. */
+  readonly targetScale: number | null;
+}
+
+export interface VocabularyCueRevealState extends VocabularyRevealSummary {
+  /** Exact remaining count for this cue; distinct from the next batch reached by one zoom. */
+  readonly hiddenLabels: readonly Label[];
+  /** Camera scale that honors the authored crop and can reveal the nearest hidden batch. */
   readonly targetScale: number | null;
 }
 
@@ -230,6 +250,35 @@ export function buildVocabularyRevealSummary(
   };
 }
 
+export function buildVocabularyCueRevealState(
+  cue: VocabularyZoomCue,
+  labels: readonly Label[],
+  currentScale: number,
+  maximumScale: number,
+  visibilityThreshold = 0.52,
+): VocabularyCueRevealState {
+  const cueLabelIds = new Set(cue.labelIds);
+  const unique = new Map<string, Label>();
+  for (const label of labels) {
+    if (cueLabelIds.has(label.id)) unique.set(label.id, label);
+  }
+  const summary = buildVocabularyRevealSummary(
+    [...unique.values()],
+    currentScale,
+    maximumScale,
+    visibilityThreshold,
+  );
+  if (summary.nextLod === null || summary.targetScale === null) return summary;
+  return {
+    ...summary,
+    targetScale: Math.min(maximumScale, Math.max(
+      currentScale + 0.28,
+      summary.targetScale + 0.08,
+      cue.targetScale ?? 0,
+    )),
+  };
+}
+
 /**
  * A conservative upper bound for readable native-size pills. The collision
  * pass remains authoritative; this budget only prevents a large empty scene
@@ -345,18 +394,63 @@ export function buildVocabularyZoomCues(
   sceneWidth: number,
   sceneHeight: number,
   maxCues = 4,
+  detailZones: readonly SceneDetailZone[] = [],
 ): VocabularyZoomCue[] {
-  const columns = 4;
-  const rows = 3;
-  const cellWidth = sceneWidth / columns;
-  const cellHeight = sceneHeight / rows;
-  const groups = new Map<string, Label[]>();
   const isInsidePortal = (label: Label) => portals.some((portal) => (
     label.x >= portal.x
     && label.x <= portal.x + portal.width
     && label.y >= portal.y
     && label.y <= portal.y + portal.height
   ));
+  const cueLimit = Math.max(0, maxCues);
+  const orderedGroup = (group: readonly Label[]) => [...group].sort((first, second) => (
+    sceneLabelLod(first) - sceneLabelLod(second)
+    || first.priority - second.priority
+    || first.id.localeCompare(second.id)
+  ));
+  const closestRealAnchor = (group: readonly Label[], x: number, y: number) => (
+    [...group].sort((first, second) => (
+      Math.hypot(first.x - x, first.y - y) - Math.hypot(second.x - x, second.y - y)
+      || first.priority - second.priority
+      || first.id.localeCompare(second.id)
+    ))[0]
+  );
+
+  if (detailZones.length > 0) {
+    const labelById = new Map(labels.map((label) => [label.id, label]));
+    return detailZones.flatMap((zone) => {
+      const group = zone.labelIds
+        .map((labelId) => labelById.get(labelId))
+        .filter((label): label is Label => Boolean(label))
+        .filter((label) => sceneLabelLod(label) >= 2 && !isInsidePortal(label));
+      if (group.length === 0) return [];
+      const ordered = orderedGroup(group);
+      const focusX = zone.x + zone.width / 2;
+      const focusY = zone.y + zone.height / 2;
+      const anchor = closestRealAnchor(group, focusX, focusY);
+      return [{
+        id: `detail-zone-${zone.id}`,
+        x: anchor.x,
+        y: anchor.y,
+        anchorLabelId: anchor.id,
+        labelIds: ordered.map((label) => label.id),
+        minLod: sceneLabelLod(ordered[0]) as 2 | 3 | 4,
+        source: "authored-zone" as const,
+        detailZoneId: zone.id,
+        title: zone.title,
+        translation: zone.translation,
+        targetScale: zone.targetScale,
+        focusX,
+        focusY,
+      } satisfies VocabularyZoomCue];
+    }).slice(0, cueLimit);
+  }
+
+  const columns = 4;
+  const rows = 3;
+  const cellWidth = sceneWidth / columns;
+  const cellHeight = sceneHeight / rows;
+  const groups = new Map<string, Label[]>();
 
   for (const label of labels) {
     const lod = sceneLabelLod(label);
@@ -371,22 +465,13 @@ export function buildVocabularyZoomCues(
 
   return [...groups.entries()]
     .map(([cell, group]) => {
-      const ordered = [...group].sort((first, second) => (
-        sceneLabelLod(first) - sceneLabelLod(second)
-        || first.priority - second.priority
-        || first.id.localeCompare(second.id)
-      ));
+      const ordered = orderedGroup(group);
       const minLod = sceneLabelLod(ordered[0]) as 2 | 3 | 4;
       const centroid = {
         x: group.reduce((sum, label) => sum + label.x, 0) / group.length,
         y: group.reduce((sum, label) => sum + label.y, 0) / group.length,
       };
-      const anchor = [...group].sort((first, second) => (
-        Math.hypot(first.x - centroid.x, first.y - centroid.y)
-          - Math.hypot(second.x - centroid.x, second.y - centroid.y)
-        || first.priority - second.priority
-        || first.id.localeCompare(second.id)
-      ))[0];
+      const anchor = closestRealAnchor(group, centroid.x, centroid.y);
       return {
         id: `vocabulary-${cell}`,
         x: anchor.x,
@@ -394,6 +479,7 @@ export function buildVocabularyZoomCues(
         anchorLabelId: anchor.id,
         labelIds: ordered.map((label) => label.id),
         minLod,
+        source: "fallback-grid",
       } satisfies VocabularyZoomCue;
     })
     .sort((first, second) => (
@@ -402,7 +488,7 @@ export function buildVocabularyZoomCues(
       || first.y - second.y
       || first.x - second.x
     ))
-    .slice(0, Math.max(0, maxCues));
+    .slice(0, cueLimit);
 }
 
 function uniqueBatchLabels(batches: readonly VocabularyCueBatchCandidate[]): Label[] {

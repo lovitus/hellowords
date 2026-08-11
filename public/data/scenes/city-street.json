@@ -16,7 +16,8 @@
       "y": 610,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "whole-street"
+      "sourceVisualRegion": "whole-street",
+      "lexemeId": "en-6008c26f4452392a"
     },
     {
       "id": "science-museum",
@@ -36,7 +37,8 @@
       "y": 255,
       "priority": 1.002,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-building"
+      "sourceVisualRegion": "verified-building",
+      "lexemeId": "en-5167e9677e1fbc50"
     },
     {
       "id": "road",
@@ -46,7 +48,8 @@
       "y": 700,
       "priority": 1.003,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-road"
+      "sourceVisualRegion": "verified-road",
+      "lexemeId": "en-362a284952d3a725"
     },
     {
       "id": "crosswalk",
@@ -76,7 +79,8 @@
       "y": 535,
       "priority": 1.006,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-bus"
+      "sourceVisualRegion": "verified-bus",
+      "lexemeId": "en-04e027e4990a203f"
     },
     {
       "id": "traffic-light",
@@ -106,7 +110,8 @@
       "y": 690,
       "priority": 2.009,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-bicycle"
+      "sourceVisualRegion": "verified-bicycle",
+      "lexemeId": "en-d29af8a2e160dd86"
     },
     {
       "id": "pedestrian",
@@ -126,7 +131,8 @@
       "y": 625,
       "priority": 2.011,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-taxi"
+      "sourceVisualRegion": "verified-taxi",
+      "lexemeId": "en-12796d3d5f4e1323"
     },
     {
       "id": "van",
@@ -146,7 +152,8 @@
       "y": 760,
       "priority": 2.013,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-lane"
+      "sourceVisualRegion": "verified-lane",
+      "lexemeId": "en-d93244e7b08131ef"
     },
     {
       "id": "curb",
@@ -156,7 +163,8 @@
       "y": 720,
       "priority": 3.014,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-curb"
+      "sourceVisualRegion": "verified-curb",
+      "lexemeId": "en-6c1fd92053dc3bc1"
     },
     {
       "id": "storm-drain",
@@ -186,7 +194,8 @@
       "y": 485,
       "priority": 3.017,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-sign"
+      "sourceVisualRegion": "verified-sign",
+      "lexemeId": "en-0b6f395ca14ac202"
     },
     {
       "id": "window",
@@ -196,7 +205,8 @@
       "y": 225,
       "priority": 3.018,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-window"
+      "sourceVisualRegion": "verified-window",
+      "lexemeId": "en-44ff7b02c80d38b2"
     },
     {
       "id": "balcony",
@@ -206,7 +216,8 @@
       "y": 195,
       "priority": 3.019,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-balcony"
+      "sourceVisualRegion": "verified-balcony",
+      "lexemeId": "en-4095f603052daa79"
     },
     {
       "id": "entrance",
@@ -216,7 +227,8 @@
       "y": 535,
       "priority": 3.02,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-entrance"
+      "sourceVisualRegion": "verified-entrance",
+      "lexemeId": "en-3902eb874fcc6c8a"
     },
     {
       "id": "intersection",
@@ -256,7 +268,8 @@
       "y": 575,
       "priority": 4.024,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-helmet"
+      "sourceVisualRegion": "verified-helmet",
+      "lexemeId": "en-115584860cd5620e"
     },
     {
       "id": "backpack",
@@ -266,7 +279,8 @@
       "y": 610,
       "priority": 4.025,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-backpack"
+      "sourceVisualRegion": "verified-backpack",
+      "lexemeId": "en-5f00368a6ad231c3"
     },
     {
       "id": "curb-ramp",
@@ -357,6 +371,118 @@
       "priority": 5.034,
       "minLevel": 4,
       "sourceVisualRegion": "verified-exhibit-window"
+    },
+    {
+      "id": "flower-pot",
+      "word": "flower pot",
+      "translation": "花盆",
+      "x": 95,
+      "y": 675,
+      "priority": 3.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-flower-pot"
+    },
+    {
+      "id": "storefront",
+      "word": "storefront",
+      "translation": "店面",
+      "x": 675,
+      "y": 450,
+      "priority": 3.036,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-storefront"
+    },
+    {
+      "id": "awning",
+      "word": "awning",
+      "translation": "遮阳篷",
+      "x": 695,
+      "y": 465,
+      "priority": 4.037,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-awning"
+    },
+    {
+      "id": "planter",
+      "word": "planter",
+      "translation": "花槽",
+      "x": 735,
+      "y": 535,
+      "priority": 4.038,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-planter"
+    },
+    {
+      "id": "bollard",
+      "word": "bollard",
+      "translation": "隔离柱",
+      "x": 410,
+      "y": 675,
+      "priority": 4.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bollard"
+    },
+    {
+      "id": "wheel",
+      "word": "wheel",
+      "translation": "车轮",
+      "x": 1105,
+      "y": 720,
+      "priority": 4.04,
+      "minLevel": 3,
+      "lexemeId": "en-ba59926159d2aa25",
+      "sourceVisualRegion": "verified-wheel"
+    },
+    {
+      "id": "tire",
+      "word": "tire",
+      "translation": "轮胎",
+      "x": 1450,
+      "y": 640,
+      "priority": 5.041,
+      "minLevel": 4,
+      "lexemeId": "en-c91e5b2418a7d741",
+      "sourceVisualRegion": "verified-tire"
+    },
+    {
+      "id": "bus-door",
+      "word": "bus door",
+      "translation": "公交车门",
+      "x": 1380,
+      "y": 520,
+      "priority": 5.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bus-door"
+    },
+    {
+      "id": "tactile-paving",
+      "word": "tactile paving",
+      "translation": "盲道砖",
+      "x": 1225,
+      "y": 805,
+      "priority": 5.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-tactile-paving"
+    },
+    {
+      "id": "trash-can",
+      "word": "trash can",
+      "translation": "垃圾桶",
+      "x": 1300,
+      "y": 650,
+      "priority": 5.044,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-trash-can"
+    },
+    {
+      "id": "museum-column",
+      "word": "museum column",
+      "translation": "博物馆立柱",
+      "x": 270,
+      "y": 350,
+      "priority": 5.045,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-museum-column"
     }
   ],
   "portals": [
@@ -383,16 +509,29 @@
       "height": 660,
       "enterScale": 3.6,
       "sourceVisualRegion": "portal-museum"
+    },
+    {
+      "id": "enter-city-cafe",
+      "label": "Enter the city cafe",
+      "translation": "进入城市咖啡馆",
+      "childSceneId": "city-cafe",
+      "x": 610,
+      "y": 405,
+      "width": 250,
+      "height": 200,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-cafe"
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/city-street-museum-v2.jpg",
-    "rationale": "Switched to the museum-enabled street photograph and anchored only visible street furniture, vehicles, people, architecture and the science-museum facade/exhibits.",
+    "reviewedAssetSha256": "20c2d794d2c441ebca54ad5a781fb44fcc25fe88a2d2c5a520631f97ef092c55",
+    "rationale": "Expanded the museum street photograph into four authored local crops and added only visible facade, retail, transit, crossing and bicycle details; the central warm-lit cafe entrance and display windows are separately bounded as the city-cafe portal.",
     "previousLabelCount": 59,
-    "retainedLabelCount": 35,
-    "removedLabelCount": 24,
+    "retainedLabelCount": 46,
+    "removedLabelCount": 13,
     "removedExamples": [
       "fire hydrant",
       "motorcycle",
@@ -429,6 +568,15 @@
       "y": 245,
       "width": 690,
       "height": 435
+    },
+    {
+      "id": "portal-cafe",
+      "description": "Warm-lit central cafe entrance and display windows",
+      "kind": "object",
+      "x": 610,
+      "y": 405,
+      "width": 250,
+      "height": 200
     },
     {
       "id": "verified-science-museum",
@@ -735,6 +883,205 @@
       "y": 425,
       "width": 120,
       "height": 90
+    },
+    {
+      "id": "verified-flower-pot",
+      "description": "Large planted flower pots outside the museum",
+      "kind": "object",
+      "x": 45,
+      "y": 605,
+      "width": 115,
+      "height": 135
+    },
+    {
+      "id": "verified-storefront",
+      "description": "Glazed shopfront beneath the central brick building",
+      "kind": "object",
+      "x": 575,
+      "y": 350,
+      "width": 230,
+      "height": 190
+    },
+    {
+      "id": "verified-awning",
+      "description": "Striped awnings projecting above the central shop windows",
+      "kind": "object",
+      "x": 590,
+      "y": 435,
+      "width": 215,
+      "height": 85
+    },
+    {
+      "id": "verified-planter",
+      "description": "Rectangular street planter filled with flowers",
+      "kind": "object",
+      "x": 680,
+      "y": 495,
+      "width": 135,
+      "height": 80
+    },
+    {
+      "id": "verified-bollard",
+      "description": "Short black traffic bollard beside the curb",
+      "kind": "object",
+      "x": 380,
+      "y": 620,
+      "width": 70,
+      "height": 110
+    },
+    {
+      "id": "verified-wheel",
+      "description": "Visible wheels on the foreground bicycles",
+      "kind": "object",
+      "x": 1000,
+      "y": 625,
+      "width": 220,
+      "height": 150
+    },
+    {
+      "id": "verified-tire",
+      "description": "Black rubber tire on the city bus",
+      "kind": "object",
+      "x": 1370,
+      "y": 600,
+      "width": 165,
+      "height": 90
+    },
+    {
+      "id": "verified-bus-door",
+      "description": "Glazed passenger door on the city bus",
+      "kind": "object",
+      "x": 1310,
+      "y": 430,
+      "width": 150,
+      "height": 170
+    },
+    {
+      "id": "verified-tactile-paving",
+      "description": "Yellow tactile paving at the curb ramp",
+      "kind": "object",
+      "x": 1110,
+      "y": 760,
+      "width": 230,
+      "height": 95
+    },
+    {
+      "id": "verified-trash-can",
+      "description": "Metal street trash can beside the public bench",
+      "kind": "object",
+      "x": 1260,
+      "y": 575,
+      "width": 95,
+      "height": 130
+    },
+    {
+      "id": "verified-museum-column",
+      "description": "Dark stone facade column at the museum corner",
+      "kind": "object",
+      "x": 235,
+      "y": 80,
+      "width": 65,
+      "height": 500
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "museum-facade",
+      "title": "Museum facade",
+      "translation": "博物馆外墙",
+      "description": "Science exhibits, carved facade details and planted entrance edge on the west side",
+      "x": 0,
+      "y": 0,
+      "width": 300,
+      "height": 720,
+      "targetScale": 2.7,
+      "labelIds": [
+        "science-museum",
+        "atom-symbol",
+        "telescope",
+        "skeleton",
+        "exhibit-window",
+        "flower-pot",
+        "museum-column"
+      ]
+    },
+    {
+      "id": "shops-and-buildings",
+      "title": "Shops and buildings",
+      "translation": "商店与建筑",
+      "description": "Brick facades, windows, balconies and street-level retail in the central block",
+      "x": 280,
+      "y": 0,
+      "width": 700,
+      "height": 660,
+      "targetScale": 2.5,
+      "labelIds": [
+        "building",
+        "traffic-light",
+        "van",
+        "taxi",
+        "window",
+        "balcony",
+        "storefront",
+        "awning",
+        "planter"
+      ]
+    },
+    {
+      "id": "station-and-bus",
+      "title": "Station and bus",
+      "translation": "车站与公交",
+      "description": "Glass station entrance, city bus, street furniture and waiting pedestrians",
+      "x": 900,
+      "y": 180,
+      "width": 700,
+      "height": 540,
+      "targetScale": 2.35,
+      "labelIds": [
+        "bus-stop",
+        "bus",
+        "lamp-post",
+        "sign",
+        "entrance",
+        "pedestrian",
+        "public-bench",
+        "street-tree",
+        "tire",
+        "bus-door",
+        "trash-can"
+      ]
+    },
+    {
+      "id": "crossing-and-cycles",
+      "title": "Crossing and cycles",
+      "translation": "路口与自行车",
+      "description": "Road surface, marked crossing, curb details and foreground cycling equipment",
+      "x": 280,
+      "y": 430,
+      "width": 1100,
+      "height": 470,
+      "targetScale": 2.4,
+      "labelIds": [
+        "street",
+        "road",
+        "crosswalk",
+        "sidewalk",
+        "bicycle",
+        "lane",
+        "curb",
+        "storm-drain",
+        "intersection",
+        "road-marking",
+        "manhole",
+        "helmet",
+        "backpack",
+        "curb-ramp",
+        "bicycle-rack",
+        "pedestrian-signal",
+        "bollard",
+        "wheel",
+        "tactile-paving"
+      ]
     }
   ]
 }

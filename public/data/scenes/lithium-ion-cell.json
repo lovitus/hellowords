@@ -2,297 +2,125 @@
   "id": "lithium-ion-cell",
   "title": "Lithium-ion cell",
   "translation": "锂离子电芯",
-  "subtitle": "Ions crossing a layered energy store",
-  "asset": "/scenes/lithium-ion-cell.svg",
+  "subtitle": "A prismatic cell from terminals to wound electrodes",
+  "asset": "/scenes/lithium-ion-cell-premium-v2.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "battery",
   "labels": [
-    {
-      "id": "lithium-ion-cell",
-      "word": "lithium ion cell",
-      "translation": "锂离子电芯",
-      "x": 800,
-      "y": 455,
-      "priority": 1,
-      "minLevel": 0,
-      "sourceVisualRegion": "whole-lithium-cell"
-    },
-    {
-      "id": "electrode",
-      "word": "electrode",
-      "translation": "电极",
-      "x": 760,
-      "y": 400,
-      "priority": 1.001,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-electrode"
-    },
-    {
-      "id": "positive-terminal",
-      "word": "positive terminal",
-      "translation": "正极端",
-      "x": 540,
-      "y": 140,
-      "priority": 1.002,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-positive-terminal"
-    },
-    {
-      "id": "negative-terminal",
-      "word": "negative terminal",
-      "translation": "负极端",
-      "x": 1060,
-      "y": 140,
-      "priority": 1.003,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-negative-terminal"
-    },
-    {
-      "id": "metal-can",
-      "word": "metal can",
-      "translation": "金属外壳",
-      "x": 285,
-      "y": 300,
-      "priority": 2.004,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-metal-can"
-    },
-    {
-      "id": "jelly-roll",
-      "word": "jelly roll",
-      "translation": "卷芯",
-      "x": 750,
-      "y": 470,
-      "priority": 2.005,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-jelly-roll"
-    },
-    {
-      "id": "foil",
-      "word": "foil",
-      "translation": "箔片",
-      "x": 760,
-      "y": 420,
-      "priority": 2.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-foil"
-    },
-    {
-      "id": "separator",
-      "word": "separator",
-      "translation": "隔膜",
-      "x": 760,
-      "y": 445,
-      "priority": 3.007,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-separator"
-    },
-    {
-      "id": "tab",
-      "word": "tab",
-      "translation": "极耳",
-      "x": 540,
-      "y": 235,
-      "priority": 3.008,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-tab"
-    },
-    {
-      "id": "winding",
-      "word": "winding",
-      "translation": "卷绕层",
-      "x": 1125,
-      "y": 465,
-      "priority": 3.009,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-winding"
-    },
-    {
-      "id": "ion-migration",
-      "word": "ion migration",
-      "translation": "离子迁移",
-      "x": 820,
-      "y": 355,
-      "priority": 4.01,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-ion-migration"
-    },
-    {
-      "id": "ion",
-      "word": "ion",
-      "translation": "离子",
-      "x": 735,
-      "y": 470,
-      "priority": 4.011,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-ion"
-    },
-    {
-      "id": "electron-flow",
-      "word": "electron flow",
-      "translation": "电子流",
-      "x": 820,
-      "y": 545,
-      "priority": 5.012,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-electron-flow"
-    },
-    {
-      "id": "electron",
-      "word": "electron",
-      "translation": "电子",
-      "x": 900,
-      "y": 570,
-      "priority": 5.013,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-electron"
-    }
+    { "id": "lithium-ion-cell", "word": "lithium ion cell", "translation": "锂离子电芯", "x": 790, "y": 455, "priority": 1, "minLevel": 0, "sourceVisualRegion": "whole-lithium-cell" },
+    { "id": "cell-casing", "word": "cell casing", "translation": "电芯外壳", "x": 304, "y": 500, "priority": 1.001, "minLevel": 0, "sourceVisualRegion": "verified-cell-casing" },
+    { "id": "top-cover", "word": "top cover", "translation": "顶盖", "x": 760, "y": 123, "priority": 1.002, "minLevel": 0, "sourceVisualRegion": "verified-top-cover" },
+    { "id": "positive-terminal", "word": "positive terminal", "translation": "正极端子", "x": 420, "y": 70, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "verified-positive-terminal" },
+    { "id": "negative-terminal", "word": "negative terminal", "translation": "负极端子", "x": 1000, "y": 62, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "verified-negative-terminal" },
+    { "id": "jelly-roll", "word": "jelly roll", "translation": "卷芯", "x": 700, "y": 455, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "verified-jelly-roll" },
+    { "id": "layer-fan", "word": "layer fan", "translation": "展开层组", "x": 1215, "y": 505, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "verified-layer-fan" },
+
+    { "id": "cutaway-opening", "word": "cutaway opening", "translation": "剖切开口", "x": 890, "y": 185, "priority": 2.007, "minLevel": 1, "sourceVisualRegion": "verified-cutaway-opening" },
+    { "id": "winding-layers", "word": "winding layers", "translation": "卷绕层", "x": 700, "y": 275, "priority": 2.008, "minLevel": 1, "sourceVisualRegion": "verified-winding-layers" },
+    { "id": "positive-tab-bundle", "word": "positive tab bundle", "translation": "正极极耳束", "x": 470, "y": 255, "priority": 2.009, "minLevel": 1, "sourceVisualRegion": "verified-positive-tab-bundle" },
+    { "id": "negative-tab-bundle", "word": "negative tab bundle", "translation": "负极极耳束", "x": 1020, "y": 230, "priority": 2.01, "minLevel": 1, "sourceVisualRegion": "verified-negative-tab-bundle" },
+    { "id": "separator-sheet", "word": "separator sheet", "translation": "隔膜片", "x": 1165, "y": 535, "priority": 2.011, "minLevel": 1, "sourceVisualRegion": "verified-separator-sheet" },
+    { "id": "electrode-sheet", "word": "electrode sheet", "translation": "电极片", "x": 1260, "y": 520, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "verified-electrode-sheet" },
+    { "id": "safety-vent", "word": "safety vent", "translation": "防爆阀", "x": 755, "y": 100, "priority": 2.013, "minLevel": 1, "sourceVisualRegion": "verified-safety-vent" },
+
+    { "id": "electrolyte-fill-port", "word": "electrolyte fill port", "translation": "注液孔", "x": 603, "y": 102, "priority": 3.014, "minLevel": 2, "sourceVisualRegion": "verified-electrolyte-fill-port" },
+    { "id": "insulating-gasket", "word": "insulating gasket", "translation": "绝缘密封圈", "x": 998, "y": 104, "priority": 3.015, "minLevel": 2, "sourceVisualRegion": "verified-insulating-gasket" },
+    { "id": "cover-flange", "word": "cover flange", "translation": "顶盖凸缘", "x": 1110, "y": 145, "priority": 3.016, "minLevel": 2, "sourceVisualRegion": "verified-cover-flange" },
+    { "id": "case-wall", "word": "case wall", "translation": "壳体侧壁", "x": 290, "y": 455, "priority": 3.017, "minLevel": 2, "sourceVisualRegion": "verified-case-wall" },
+    { "id": "case-base", "word": "case base", "translation": "壳体底部", "x": 735, "y": 823, "priority": 3.018, "minLevel": 2, "sourceVisualRegion": "verified-case-base" },
+    { "id": "insulating-wrap", "word": "insulating wrap", "translation": "绝缘包膜", "x": 690, "y": 565, "priority": 3.019, "minLevel": 2, "sourceVisualRegion": "verified-insulating-wrap" },
+
+    { "id": "aluminum-tab", "word": "aluminum tab", "translation": "铝极耳", "x": 490, "y": 268, "priority": 4.02, "minLevel": 3, "sourceVisualRegion": "verified-aluminum-tab" },
+    { "id": "copper-tab", "word": "copper tab", "translation": "铜极耳", "x": 1040, "y": 248, "priority": 4.021, "minLevel": 3, "sourceVisualRegion": "verified-copper-tab" },
+    { "id": "aluminum-foil", "word": "aluminum foil", "translation": "铝箔", "x": 630, "y": 257, "priority": 4.022, "minLevel": 3, "sourceVisualRegion": "verified-aluminum-foil" },
+    { "id": "copper-foil", "word": "copper foil", "translation": "铜箔", "x": 1380, "y": 425, "priority": 4.023, "minLevel": 3, "sourceVisualRegion": "verified-copper-foil" },
+    { "id": "electrode-coating", "word": "electrode coating", "translation": "电极涂层", "x": 1245, "y": 475, "priority": 4.024, "minLevel": 3, "sourceVisualRegion": "verified-electrode-coating" },
+    { "id": "central-opening", "word": "central opening", "translation": "中心孔", "x": 760, "y": 286, "priority": 4.025, "minLevel": 3, "sourceVisualRegion": "verified-central-opening" },
+
+    { "id": "positive-terminal-cap", "word": "positive terminal cap", "translation": "正极端帽", "x": 420, "y": 50, "priority": 5.026, "minLevel": 4, "sourceVisualRegion": "verified-positive-terminal-cap" },
+    { "id": "negative-terminal-cap", "word": "negative terminal cap", "translation": "负极端帽", "x": 1000, "y": 31, "priority": 5.027, "minLevel": 4, "sourceVisualRegion": "verified-negative-terminal-cap" },
+    { "id": "positive-terminal-post", "word": "positive terminal post", "translation": "正极接线柱", "x": 420, "y": 182, "priority": 5.028, "minLevel": 4, "sourceVisualRegion": "verified-positive-terminal-post" },
+    { "id": "negative-terminal-post", "word": "negative terminal post", "translation": "负极接线柱", "x": 1000, "y": 160, "priority": 4.001, "minLevel": 4, "sourceVisualRegion": "verified-negative-terminal-post" },
+    { "id": "support-tray", "word": "support tray", "translation": "支撑托盘", "x": 745, "y": 765, "priority": 5.03, "minLevel": 4, "sourceVisualRegion": "verified-support-tray" }
   ],
   "portals": [],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/lithium-ion-cell.svg",
-    "rationale": "Kept the cell enclosure, terminals, rolled layers, separator, tab and explicitly drawn ion/electron paths; removed unlabeled material identities, performance parameters and failure states.",
+    "reviewedAsset": "/scenes/lithium-ion-cell-premium-v2.jpg",
+    "reviewedAssetSha256": "f7df836880525a8b62c2d61047f7376f38de71b654c7d675e0ea6d38fb65edf2",
+    "rationale": "Re-anchored 31 independently pointable structures on the final bright prismatic-cell cutaway. The silver aluminum collector and tab bundle visibly connect to the left positive terminal, while the copper collector and tab bundle visibly connect to the right negative terminal; the flattened winding, unfolded layers, enclosure and distinct round fill port and rectangular safety vent are separately grounded. Invisible charge motion, unidentifiable liquid, performance and hazard claims remain excluded.",
     "previousLabelCount": 48,
-    "retainedLabelCount": 14,
-    "removedLabelCount": 34,
-    "removedExamples": [
-      "copper foil",
-      "graphite",
-      "cobalt",
-      "cycle life",
-      "overcharge",
-      "flammable"
-    ]
+    "retainedLabelCount": 31,
+    "removedLabelCount": 17,
+    "removedExamples": ["electrolyte droplet", "ion migration", "electron flow", "capacity", "cycle life", "overcharge", "flammable"]
   },
-  "visualRegions": [
+  "detailZones": [
     {
-      "id": "whole-lithium-cell",
-      "description": "Complete lithium-ion cell cutaway",
-      "kind": "whole",
-      "x": 230,
-      "y": 100,
-      "width": 1160,
-      "height": 700
+      "id": "lid-and-terminals",
+      "title": "Lid and terminals",
+      "translation": "顶盖与端子",
+      "description": "Raised metal lid with both polarity-specific terminals, seals, vent and fill hardware",
+      "x": 260, "y": 0, "width": 930, "height": 260, "targetScale": 2.7,
+      "labelIds": ["top-cover", "positive-terminal", "negative-terminal", "safety-vent", "electrolyte-fill-port", "insulating-gasket", "cover-flange", "positive-terminal-cap", "negative-terminal-cap", "positive-terminal-post", "negative-terminal-post"]
     },
     {
-      "id": "verified-electrode",
-      "description": "Human-verified visible anchor for electrode",
-      "kind": "object",
-      "x": 700,
-      "y": 355,
-      "width": 120,
-      "height": 90
+      "id": "cell-enclosure",
+      "title": "Cell enclosure",
+      "translation": "电芯壳体",
+      "description": "Cutaway aluminum enclosure, side wall, base and insulated support around the active assembly",
+      "x": 240, "y": 145, "width": 850, "height": 720, "targetScale": 2.5,
+      "labelIds": ["lithium-ion-cell", "cell-casing", "cutaway-opening", "case-wall", "case-base", "insulating-wrap", "support-tray"]
     },
     {
-      "id": "verified-positive-terminal",
-      "description": "Human-verified visible anchor for positive terminal",
-      "kind": "object",
-      "x": 480,
-      "y": 95,
-      "width": 120,
-      "height": 90
+      "id": "wound-electrode-core",
+      "title": "Wound electrode core",
+      "translation": "卷绕电极芯",
+      "description": "Flattened obround jelly roll with its central opening, layer edges and positive-side connections",
+      "x": 350, "y": 170, "width": 720, "height": 570, "targetScale": 3.1,
+      "labelIds": ["jelly-roll", "winding-layers", "central-opening", "positive-tab-bundle", "negative-tab-bundle", "aluminum-tab", "aluminum-foil"]
     },
     {
-      "id": "verified-negative-terminal",
-      "description": "Human-verified visible anchor for negative terminal",
-      "kind": "object",
-      "x": 1000,
-      "y": 95,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-metal-can",
-      "description": "Human-verified visible anchor for metal can",
-      "kind": "object",
-      "x": 225,
-      "y": 255,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-jelly-roll",
-      "description": "Human-verified visible anchor for jelly roll",
-      "kind": "object",
-      "x": 690,
-      "y": 425,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-foil",
-      "description": "Human-verified visible anchor for foil",
-      "kind": "object",
-      "x": 700,
-      "y": 375,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-separator",
-      "description": "Human-verified visible anchor for separator",
-      "kind": "object",
-      "x": 700,
-      "y": 400,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-tab",
-      "description": "Human-verified visible anchor for tab",
-      "kind": "object",
-      "x": 480,
-      "y": 190,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-winding",
-      "description": "Human-verified visible anchor for winding",
-      "kind": "object",
-      "x": 1065,
-      "y": 420,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-ion-migration",
-      "description": "Human-verified visible anchor for ion migration",
-      "kind": "object",
-      "x": 760,
-      "y": 310,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-ion",
-      "description": "Human-verified visible anchor for ion",
-      "kind": "object",
-      "x": 675,
-      "y": 425,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-electron-flow",
-      "description": "Human-verified visible anchor for electron flow",
-      "kind": "object",
-      "x": 760,
-      "y": 500,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-electron",
-      "description": "Human-verified visible anchor for electron",
-      "kind": "object",
-      "x": 840,
-      "y": 525,
-      "width": 120,
-      "height": 90
+      "id": "unfolded-layer-stack",
+      "title": "Unfolded layer stack",
+      "translation": "展开层叠结构",
+      "description": "Fanned separator and coated electrode sheets exposing the copper collector and tab connection",
+      "x": 930, "y": 180, "width": 560, "height": 650, "targetScale": 3.4,
+      "labelIds": ["layer-fan", "separator-sheet", "electrode-sheet", "copper-tab", "copper-foil", "electrode-coating"]
     }
+  ],
+  "visualRegions": [
+    { "id": "whole-lithium-cell", "description": "Complete opened prismatic lithium-ion cell", "kind": "whole", "x": 240, "y": 0, "width": 1260, "height": 875 },
+    { "id": "verified-cell-casing", "description": "Brushed-metal rectangular cell casing", "kind": "object", "x": 260, "y": 150, "width": 900, "height": 720 },
+    { "id": "verified-top-cover", "description": "Raised brushed-metal top cover", "kind": "part", "x": 270, "y": 20, "width": 910, "height": 155 },
+    { "id": "verified-positive-terminal", "description": "Complete silver positive terminal at upper left", "kind": "part", "x": 335, "y": 20, "width": 175, "height": 150 },
+    { "id": "verified-negative-terminal", "description": "Complete copper negative terminal at upper right", "kind": "part", "x": 915, "y": 0, "width": 175, "height": 150 },
+    { "id": "verified-jelly-roll", "description": "Large flattened wound electrode assembly", "kind": "object", "x": 370, "y": 205, "width": 670, "height": 555 },
+    { "id": "verified-layer-fan", "description": "Unfolded fan of alternating electrode and separator layers", "kind": "object", "x": 980, "y": 225, "width": 485, "height": 610 },
+    { "id": "verified-cutaway-opening", "description": "Open upper-right casing cutaway exposing the cell interior", "kind": "part", "x": 780, "y": 150, "width": 385, "height": 150 },
+    { "id": "verified-winding-layers", "description": "Concentric obround layer edges at the top of the jelly roll", "kind": "part", "x": 370, "y": 205, "width": 670, "height": 160 },
+    { "id": "verified-positive-tab-bundle", "description": "Fanned silver tab bundle joining the winding to the positive post", "kind": "part", "x": 400, "y": 180, "width": 185, "height": 155 },
+    { "id": "verified-negative-tab-bundle", "description": "Fanned copper tab bundle joining the winding to the negative post", "kind": "part", "x": 955, "y": 165, "width": 160, "height": 155 },
+    { "id": "verified-separator-sheet", "description": "Pale porous separator sheet in the unfolded layer fan", "kind": "part", "x": 1050, "y": 320, "width": 320, "height": 485 },
+    { "id": "verified-electrode-sheet", "description": "Dark coated electrode sheet in the unfolded layer fan", "kind": "part", "x": 1110, "y": 300, "width": 300, "height": 475 },
+    { "id": "verified-safety-vent", "description": "Large rounded rectangular safety vent in the lid", "kind": "part", "x": 675, "y": 55, "width": 170, "height": 95 },
+    { "id": "verified-electrolyte-fill-port", "description": "Small white sealed electrolyte fill port", "kind": "part", "x": 560, "y": 65, "width": 90, "height": 80 },
+    { "id": "verified-insulating-gasket", "description": "Black insulating gasket under the copper terminal", "kind": "part", "x": 915, "y": 65, "width": 175, "height": 90 },
+    { "id": "verified-cover-flange", "description": "Rolled perimeter flange around the metal lid", "kind": "part", "x": 270, "y": 25, "width": 910, "height": 150 },
+    { "id": "verified-case-wall", "description": "Thick brushed-metal left casing wall", "kind": "part", "x": 260, "y": 170, "width": 115, "height": 650 },
+    { "id": "verified-case-base", "description": "Brushed-metal lower base of the casing", "kind": "part", "x": 300, "y": 740, "width": 835, "height": 125 },
+    { "id": "verified-insulating-wrap", "description": "Pale insulating sleeve around the outside of the jelly roll", "kind": "part", "x": 365, "y": 320, "width": 670, "height": 445 },
+    { "id": "verified-aluminum-tab", "description": "Individual silver aluminum tab within the positive bundle", "kind": "part", "x": 415, "y": 225, "width": 170, "height": 115 },
+    { "id": "verified-copper-tab", "description": "Individual copper tab within the negative bundle", "kind": "part", "x": 965, "y": 195, "width": 150, "height": 115 },
+    { "id": "verified-aluminum-foil", "description": "Thin silver aluminum collector edge within the wound layers", "kind": "part", "x": 490, "y": 215, "width": 350, "height": 125 },
+    { "id": "verified-copper-foil", "description": "Unfolded copper current-collector foil at the outer right", "kind": "part", "x": 1080, "y": 245, "width": 380, "height": 275 },
+    { "id": "verified-electrode-coating", "description": "Dark active-material coating visibly covering an electrode sheet", "kind": "part", "x": 1100, "y": 300, "width": 310, "height": 470 },
+    { "id": "verified-central-opening", "description": "Elongated central opening of the flattened winding", "kind": "part", "x": 625, "y": 245, "width": 270, "height": 90 },
+    { "id": "verified-positive-terminal-cap", "description": "Small round silver cap on the positive terminal", "kind": "part", "x": 380, "y": 25, "width": 85, "height": 65 },
+    { "id": "verified-negative-terminal-cap", "description": "Small round copper cap on the negative terminal", "kind": "part", "x": 960, "y": 0, "width": 85, "height": 65 },
+    { "id": "verified-positive-terminal-post", "description": "Silver positive post descending below the lid", "kind": "part", "x": 385, "y": 145, "width": 100, "height": 90 },
+    { "id": "verified-negative-terminal-post", "description": "Copper negative post descending below the lid", "kind": "part", "x": 965, "y": 125, "width": 95, "height": 90 },
+    { "id": "verified-support-tray", "description": "Pale rigid support tray beneath the wound assembly", "kind": "part", "x": 365, "y": 705, "width": 680, "height": 100 }
   ]
 }

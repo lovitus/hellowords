@@ -236,7 +236,8 @@
       "y": 729,
       "priority": 3.022,
       "minLevel": 2,
-      "sourceVisualRegion": "headphones"
+      "sourceVisualRegion": "headphones",
+      "lexemeId": "en-86d6e84ef9a21b74"
     },
     {
       "id": "jaw",
@@ -246,7 +247,8 @@
       "y": 221,
       "priority": 4.023,
       "minLevel": 3,
-      "sourceVisualRegion": "dinosaur-skull"
+      "sourceVisualRegion": "dinosaur-skull",
+      "lexemeId": "en-f695e71ab3815726"
     },
     {
       "id": "teeth",
@@ -256,7 +258,8 @@
       "y": 199,
       "priority": 4.024,
       "minLevel": 3,
-      "sourceVisualRegion": "dinosaur-skull"
+      "sourceVisualRegion": "dinosaur-skull",
+      "lexemeId": "en-c9349dabb6a09274"
     },
     {
       "id": "spine",
@@ -266,7 +269,8 @@
       "y": 171,
       "priority": 4.025,
       "minLevel": 3,
-      "sourceVisualRegion": "dinosaur-spine"
+      "sourceVisualRegion": "dinosaur-spine",
+      "lexemeId": "en-f0dd190c13c467ed"
     },
     {
       "id": "orbital-ring",
@@ -286,7 +290,8 @@
       "y": 593,
       "priority": 4.027,
       "minLevel": 3,
-      "sourceVisualRegion": "optics-display"
+      "sourceVisualRegion": "optics-display",
+      "lexemeId": "en-1fd6202c9bb335c6"
     },
     {
       "id": "display-screen",
@@ -357,9 +362,163 @@
       "priority": 5.034,
       "minLevel": 4,
       "sourceVisualRegion": "robotic-joint"
+    },
+    {
+      "id": "dinosaur-claw",
+      "word": "dinosaur claw",
+      "translation": "恐龙爪",
+      "x": 190,
+      "y": 315,
+      "priority": 3.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-dinosaur-claw"
+    },
+    {
+      "id": "femur",
+      "word": "femur",
+      "translation": "股骨",
+      "x": 65,
+      "y": 275,
+      "priority": 4.037,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-femur"
+    },
+    {
+      "id": "horn",
+      "word": "horn",
+      "translation": "角",
+      "x": 425,
+      "y": 350,
+      "priority": 4.038,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-horn"
+    },
+    {
+      "id": "telescope-eyepiece",
+      "word": "telescope eyepiece",
+      "translation": "望远镜目镜",
+      "x": 575,
+      "y": 270,
+      "priority": 4.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-telescope-eyepiece"
+    },
+    {
+      "id": "microscope-eyepiece",
+      "word": "microscope eyepiece",
+      "translation": "显微镜目镜",
+      "x": 955,
+      "y": 340,
+      "priority": 4.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-microscope-eyepiece"
+    },
+    {
+      "id": "microscope-arm",
+      "word": "microscope arm",
+      "translation": "显微镜镜臂",
+      "x": 1030,
+      "y": 390,
+      "priority": 5.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-microscope-arm"
+    },
+    {
+      "id": "robot-base",
+      "word": "robot base",
+      "translation": "机器人底座",
+      "x": 1150,
+      "y": 440,
+      "priority": 5.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-robot-base"
+    },
+    {
+      "id": "button",
+      "word": "button",
+      "translation": "按钮",
+      "x": 1090,
+      "y": 565,
+      "priority": 5.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-button"
+    },
+    {
+      "id": "display-case",
+      "word": "display case",
+      "translation": "展示柜",
+      "x": 270,
+      "y": 365,
+      "priority": 5.044,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-display-case"
+    },
+    {
+      "id": "skylight",
+      "word": "skylight",
+      "translation": "天窗",
+      "x": 800,
+      "y": 45,
+      "priority": 5.045,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-skylight"
+    },
+    {
+      "id": "museum-bench",
+      "word": "museum bench",
+      "translation": "博物馆长凳",
+      "x": 160,
+      "y": 790,
+      "priority": 5.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-museum-bench"
+    },
+    {
+      "id": "planet",
+      "word": "planet",
+      "translation": "行星",
+      "x": 1050,
+      "y": 150,
+      "priority": 5.047,
+      "minLevel": 4,
+      "lexemeId": "en-cb5815fe5c3c9d7b",
+      "sourceVisualRegion": "verified-planet"
+    },
+    {
+      "id": "floor",
+      "word": "floor",
+      "translation": "地面",
+      "x": 1320,
+      "y": 790,
+      "priority": 5.048,
+      "minLevel": 4,
+      "lexemeId": "en-a3e1f4935b0919b3",
+      "sourceVisualRegion": "verified-floor"
+    },
+    {
+      "id": "anatomy-pedestal",
+      "word": "anatomy pedestal",
+      "translation": "解剖模型展台",
+      "x": 1490,
+      "y": 615,
+      "priority": 5.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-anatomy-pedestal"
     }
   ],
   "portals": [
+    {
+      "id": "enter-dinosaur-hall",
+      "label": "Enter the dinosaur hall",
+      "translation": "进入恐龙展厅",
+      "childSceneId": "dinosaur-hall",
+      "x": 0,
+      "y": 65,
+      "width": 570,
+      "height": 445,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-dinosaur-hall"
+    },
     {
       "id": "enter-human-body",
       "label": "Enter the human body",
@@ -378,10 +537,10 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/science-museum-bright-v3.jpg",
     "reviewedAssetSha256": "bce6c971902dac590e494ca87db56a3d68064194db484c5d795f59bdd49482aa",
-    "rationale": "Re-authored all 35 anchors against the exact 1600 by 900 sunlit museum pixels, retaining only separately identifiable exhibits and parts; the human-body portal now tightly encloses the smaller anatomical model in its isolated right-side life-science alcove.",
+    "rationale": "Expanded the exact bright museum pixels into five authored gallery crops and added only separately visible skeletal, optical, robotic, exhibit, ceiling and floor details.",
     "previousLabelCount": 56,
-    "retainedLabelCount": 35,
-    "removedLabelCount": 21,
+    "retainedLabelCount": 49,
+    "removedLabelCount": 7,
     "removedExamples": [
       "curator",
       "planetarium",
@@ -399,6 +558,15 @@
       "y": 0,
       "width": 1600,
       "height": 900
+    },
+    {
+      "id": "portal-dinosaur-hall",
+      "description": "Complete left paleontology exhibit containing the mounted dinosaur and Triceratops skull",
+      "kind": "object",
+      "x": 0,
+      "y": 65,
+      "width": 570,
+      "height": 445
     },
     {
       "id": "dinosaur-skeleton",
@@ -669,6 +837,248 @@
       "y": 650,
       "width": 125,
       "height": 150
+    },
+    {
+      "id": "verified-dinosaur-claw",
+      "description": "Clawed forelimb on the mounted dinosaur skeleton",
+      "kind": "part",
+      "x": 140,
+      "y": 260,
+      "width": 105,
+      "height": 110
+    },
+    {
+      "id": "verified-femur",
+      "description": "Clearly visible shaft of a long dinosaur leg bone",
+      "kind": "part",
+      "x": 25,
+      "y": 240,
+      "width": 120,
+      "height": 110
+    },
+    {
+      "id": "verified-horn",
+      "description": "Long brow horn on the Triceratops skull",
+      "kind": "part",
+      "x": 350,
+      "y": 305,
+      "width": 155,
+      "height": 105
+    },
+    {
+      "id": "verified-telescope-eyepiece",
+      "description": "Small eyepiece at the rear of the telescope",
+      "kind": "part",
+      "x": 535,
+      "y": 230,
+      "width": 90,
+      "height": 85
+    },
+    {
+      "id": "verified-microscope-eyepiece",
+      "description": "Black viewing eyepiece on the microscope",
+      "kind": "part",
+      "x": 915,
+      "y": 305,
+      "width": 90,
+      "height": 75
+    },
+    {
+      "id": "verified-microscope-arm",
+      "description": "Curved support arm of the microscope",
+      "kind": "part",
+      "x": 990,
+      "y": 330,
+      "width": 90,
+      "height": 135
+    },
+    {
+      "id": "verified-robot-base",
+      "description": "Circular pedestal supporting the robotic arm",
+      "kind": "part",
+      "x": 1085,
+      "y": 385,
+      "width": 135,
+      "height": 115
+    },
+    {
+      "id": "verified-button",
+      "description": "Colored control buttons on the interactive display",
+      "kind": "part",
+      "x": 1035,
+      "y": 540,
+      "width": 140,
+      "height": 55
+    },
+    {
+      "id": "verified-display-case",
+      "description": "Transparent museum case behind the mineral exhibits",
+      "kind": "part",
+      "x": 225,
+      "y": 300,
+      "width": 115,
+      "height": 130
+    },
+    {
+      "id": "verified-skylight",
+      "description": "Large glazed skylight spanning the museum ceiling",
+      "kind": "part",
+      "x": 350,
+      "y": 0,
+      "width": 850,
+      "height": 105
+    },
+    {
+      "id": "verified-museum-bench",
+      "description": "Upholstered visitor bench in the foreground",
+      "kind": "part",
+      "x": 0,
+      "y": 700,
+      "width": 350,
+      "height": 150
+    },
+    {
+      "id": "verified-planet",
+      "description": "Small suspended planet in the solar-system model",
+      "kind": "part",
+      "x": 980,
+      "y": 95,
+      "width": 145,
+      "height": 105
+    },
+    {
+      "id": "verified-floor",
+      "description": "Pale polished museum floor in the open right foreground",
+      "kind": "part",
+      "x": 1180,
+      "y": 680,
+      "width": 420,
+      "height": 220
+    },
+    {
+      "id": "verified-anatomy-pedestal",
+      "description": "Square display pedestal beneath the anatomical model",
+      "kind": "object",
+      "x": 1415,
+      "y": 550,
+      "width": 150,
+      "height": 115
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "dinosaur-gallery",
+      "title": "Dinosaur gallery",
+      "translation": "恐龙展区",
+      "description": "Mounted dinosaur skeleton, Triceratops skull and individually visible bones and teeth",
+      "x": 0,
+      "y": 90,
+      "width": 550,
+      "height": 390,
+      "targetScale": 2.5,
+      "labelIds": [
+        "dinosaur-skeleton",
+        "triceratops-skull",
+        "dinosaur-skull",
+        "rib-cage",
+        "jaw",
+        "teeth",
+        "spine",
+        "dinosaur-claw",
+        "femur",
+        "horn",
+        "display-case"
+      ]
+    },
+    {
+      "id": "space-observatory",
+      "title": "Space observatory",
+      "translation": "天文观测区",
+      "description": "Telescope, globe, solar-system installation, planets, solar panel and ceiling light",
+      "x": 520,
+      "y": 0,
+      "width": 620,
+      "height": 470,
+      "targetScale": 2.45,
+      "labelIds": [
+        "telescope",
+        "solar-system-model",
+        "globe",
+        "solar-panel",
+        "jupiter",
+        "saturn",
+        "orbital-ring",
+        "telescope-lens",
+        "tripod",
+        "telescope-eyepiece",
+        "planet",
+        "skylight"
+      ]
+    },
+    {
+      "id": "microscopy-and-robotics",
+      "title": "Microscopy and robotics",
+      "translation": "显微与机器人",
+      "description": "Microscope optics and stage beside the articulated robotic arm and gripper",
+      "x": 900,
+      "y": 250,
+      "width": 350,
+      "height": 300,
+      "targetScale": 2.7,
+      "labelIds": [
+        "microscope",
+        "robotic-arm",
+        "robot-gripper",
+        "microscope-objective",
+        "microscope-stage",
+        "robotic-joint",
+        "microscope-eyepiece",
+        "microscope-arm",
+        "robot-base"
+      ]
+    },
+    {
+      "id": "matter-and-physics",
+      "title": "Matter and physics",
+      "translation": "物质与物理",
+      "description": "Fossils, crystals, meteorite, atom, optics and hands-on physics displays",
+      "x": 0,
+      "y": 300,
+      "width": 1200,
+      "height": 600,
+      "targetScale": 2.55,
+      "labelIds": [
+        "ammonite-fossil",
+        "amethyst-cluster",
+        "meteorite",
+        "atom-model",
+        "interactive-kiosk",
+        "newton-cradle",
+        "prism",
+        "gyroscope",
+        "headphones",
+        "spectrum",
+        "display-screen",
+        "button",
+        "museum-bench"
+      ]
+    },
+    {
+      "id": "life-science-alcove",
+      "title": "Life science alcove",
+      "translation": "生命科学展区",
+      "description": "Isolated DNA display and anatomical model in the bright right-side gallery",
+      "x": 1230,
+      "y": 250,
+      "width": 370,
+      "height": 650,
+      "targetScale": 2.6,
+      "labelIds": [
+        "human-anatomical-model",
+        "dna-model",
+        "floor",
+        "anatomy-pedestal"
+      ]
     }
   ]
 }

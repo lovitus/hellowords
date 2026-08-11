@@ -38,6 +38,11 @@
       "parentId": "apartment"
     },
     {
+      "id": "bathroom",
+      "title": "Bathroom",
+      "parentId": "apartment"
+    },
+    {
       "id": "wardrobe-interior",
       "title": "Wardrobe interior",
       "parentId": "bedroom"
@@ -51,6 +56,11 @@
       "id": "city-street",
       "title": "City street",
       "parentId": "world-map"
+    },
+    {
+      "id": "city-cafe",
+      "title": "City cafe",
+      "parentId": "city-street"
     },
     {
       "id": "transit-hub",
@@ -91,6 +101,11 @@
       "id": "science-museum",
       "title": "Science museum",
       "parentId": "city-street"
+    },
+    {
+      "id": "dinosaur-hall",
+      "title": "Dinosaur hall",
+      "parentId": "science-museum"
     },
     {
       "id": "human-body",
@@ -151,6 +166,11 @@
       "id": "frog",
       "title": "Frog",
       "parentId": "pond-edge"
+    },
+    {
+      "id": "community-garden",
+      "title": "Community garden",
+      "parentId": "world-map"
     }
   ]
 }

@@ -2,471 +2,177 @@
   "id": "coffee-machine",
   "title": "Coffee machine",
   "translation": "咖啡机",
-  "subtitle": "Inside an everyday mechanism",
-  "asset": "/scenes/coffee-machine.svg",
+  "subtitle": "From beans and water to pressure and steam",
+  "asset": "/scenes/coffee-machine-premium-v1.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "kitchen",
   "labels": [
-    {
-      "id": "coffee-machine",
-      "word": "coffee machine",
-      "translation": "咖啡机",
-      "x": 800,
-      "y": 455,
-      "priority": 1,
-      "minLevel": 0,
-      "sourceVisualRegion": "whole-machine"
-    },
-    {
-      "id": "water-tank",
-      "word": "water tank",
-      "translation": "水箱",
-      "x": 465,
-      "y": 415,
-      "priority": 1.001,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-water-tank"
-    },
-    {
-      "id": "boiler",
-      "word": "boiler",
-      "translation": "锅炉",
-      "x": 850,
-      "y": 375,
-      "priority": 1.002,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-boiler"
-    },
-    {
-      "id": "control-panel",
-      "word": "control panel",
-      "translation": "控制面板",
-      "x": 1120,
-      "y": 275,
-      "priority": 1.003,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-control-panel"
-    },
-    {
-      "id": "drip-tray",
-      "word": "drip tray",
-      "translation": "滴水盘",
-      "x": 905,
-      "y": 710,
-      "priority": 1.004,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-drip-tray"
-    },
-    {
-      "id": "lid",
-      "word": "lid",
-      "translation": "盖子",
-      "x": 468,
-      "y": 175,
-      "priority": 2.005,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-lid"
-    },
-    {
-      "id": "pipe",
-      "word": "pipe",
-      "translation": "管道",
-      "x": 700,
-      "y": 420,
-      "priority": 2.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-pipe"
-    },
-    {
-      "id": "pressure-gauge",
-      "word": "pressure gauge",
-      "translation": "压力表",
-      "x": 1100,
-      "y": 245,
-      "priority": 2.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-pressure-gauge"
-    },
-    {
-      "id": "control-button",
-      "word": "control button",
-      "translation": "控制按钮",
-      "x": 1115,
-      "y": 318,
-      "priority": 2.008,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-control-button"
-    },
-    {
-      "id": "steam-wand",
-      "word": "steam wand",
-      "translation": "蒸汽棒",
-      "x": 1210,
-      "y": 570,
-      "priority": 2.009,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-steam-wand"
-    },
-    {
-      "id": "heating-coil",
-      "word": "heating coil",
-      "translation": "加热管",
-      "x": 850,
-      "y": 350,
-      "priority": 2.01,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-heating-coil"
-    },
-    {
-      "id": "cable",
-      "word": "cable",
-      "translation": "电缆",
-      "x": 1400,
-      "y": 660,
-      "priority": 3.011,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-cable"
-    },
-    {
-      "id": "nozzle",
-      "word": "nozzle",
-      "translation": "喷嘴",
-      "x": 1198,
-      "y": 721,
-      "priority": 3.012,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-nozzle"
-    },
-    {
-      "id": "portafilter",
-      "word": "portafilter",
-      "translation": "手柄滤杯",
-      "x": 1015,
-      "y": 590,
-      "priority": 3.013,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-portafilter"
-    },
-    {
-      "id": "housing",
-      "word": "housing",
-      "translation": "外壳",
-      "x": 270,
-      "y": 460,
-      "priority": 3.014,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-housing"
-    },
-    {
-      "id": "circuit-board",
-      "word": "circuit board",
-      "translation": "电路板",
-      "x": 1220,
-      "y": 450,
-      "priority": 3.015,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-circuit-board"
-    },
-    {
-      "id": "connector",
-      "word": "connector",
-      "translation": "连接器",
-      "x": 1285,
-      "y": 528,
-      "priority": 4.016,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-connector"
-    },
-    {
-      "id": "screw",
-      "word": "screw",
-      "translation": "螺钉",
-      "x": 270,
-      "y": 700,
-      "priority": 4.017,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-screw"
-    },
-    {
-      "id": "filter-basket",
-      "word": "filter basket",
-      "translation": "滤粉碗",
-      "x": 850,
-      "y": 590,
-      "priority": 4.018,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-filter-basket"
-    },
-    {
-      "id": "water-inlet",
-      "word": "water inlet",
-      "translation": "进水口",
-      "x": 605,
-      "y": 455,
-      "priority": 4.019,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-water-inlet"
-    },
-    {
-      "id": "water-pump",
-      "word": "water pump",
-      "translation": "水泵",
-      "x": 674,
-      "y": 548,
-      "priority": 5.02,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-water-pump"
-    },
-    {
-      "id": "brew-group",
-      "word": "brew group",
-      "translation": "冲煮头",
-      "x": 850,
-      "y": 560,
-      "priority": 5.021,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-brew-group"
-    }
+    { "id": "coffee-machine", "word": "coffee machine", "translation": "咖啡机", "x": 800, "y": 450, "priority": 1, "minLevel": 0, "sourceVisualRegion": "whole-machine" },
+    { "id": "housing", "word": "housing", "translation": "外壳", "lexemeId": "en-d005d6c459a8a9f4", "x": 650, "y": 345, "priority": 1.001, "minLevel": 0, "sourceVisualRegion": "whole-machine" },
+    { "id": "water-tank", "word": "water tank", "translation": "水箱", "x": 180, "y": 405, "priority": 1.002, "minLevel": 0, "sourceVisualRegion": "verified-water-reservoir" },
+    { "id": "bean-hopper", "word": "bean hopper", "translation": "豆仓", "x": 455, "y": 92, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "verified-beans-and-grinder" },
+    { "id": "control-panel", "word": "control panel", "translation": "控制面板", "x": 510, "y": 300, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "verified-controls" },
+    { "id": "pressure-gauge", "word": "pressure gauge", "translation": "压力表", "x": 540, "y": 285, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "verified-controls" },
+    { "id": "group-head", "word": "group head", "translation": "冲煮头", "x": 540, "y": 410, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "verified-brew-station" },
+    { "id": "portafilter", "word": "portafilter", "translation": "咖啡手柄", "x": 430, "y": 505, "priority": 1.007, "minLevel": 0, "sourceVisualRegion": "verified-brew-station" },
+    { "id": "steam-wand", "word": "steam wand", "translation": "蒸汽棒", "x": 785, "y": 520, "priority": 1.008, "minLevel": 0, "sourceVisualRegion": "verified-steam-and-tray" },
+    { "id": "drip-tray", "word": "drip tray", "translation": "滴水盘", "x": 520, "y": 705, "priority": 1.009, "minLevel": 0, "sourceVisualRegion": "verified-steam-and-tray" },
+    { "id": "boiler", "word": "boiler", "translation": "锅炉", "x": 1135, "y": 410, "priority": 1.01, "minLevel": 0, "sourceVisualRegion": "verified-boiler-circuit" },
+    { "id": "water-pump", "word": "water pump", "translation": "水泵", "x": 1230, "y": 705, "priority": 1.011, "minLevel": 0, "sourceVisualRegion": "verified-boiler-circuit" },
+
+    { "id": "reservoir-lid", "word": "reservoir lid", "translation": "水箱盖", "x": 180, "y": 75, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "verified-water-reservoir" },
+    { "id": "waterline", "word": "waterline", "translation": "水位线", "x": 175, "y": 340, "priority": 2.013, "minLevel": 1, "sourceVisualRegion": "verified-water-reservoir" },
+    { "id": "coffee-beans", "word": "coffee beans", "translation": "咖啡豆", "x": 530, "y": 105, "priority": 2.014, "minLevel": 1, "sourceVisualRegion": "verified-beans-and-grinder" },
+    { "id": "cup-warmer", "word": "cup warmer", "translation": "暖杯台", "x": 720, "y": 135, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "verified-beans-and-grinder" },
+    { "id": "control-button", "word": "control button", "translation": "控制按钮", "x": 370, "y": 260, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "verified-controls" },
+    { "id": "steam-knob", "word": "steam knob", "translation": "蒸汽旋钮", "x": 760, "y": 295, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "verified-controls" },
+    { "id": "filter-basket", "word": "filter basket", "translation": "滤粉碗", "x": 605, "y": 525, "priority": 2.018, "minLevel": 1, "sourceVisualRegion": "verified-brew-station" },
+    { "id": "drip-grid", "word": "drip grid", "translation": "滴水栅格", "x": 525, "y": 680, "priority": 2.019, "minLevel": 1, "sourceVisualRegion": "verified-steam-and-tray" },
+    { "id": "electric-motor", "word": "electric motor", "translation": "电动机", "x": 1050, "y": 685, "priority": 2.02, "minLevel": 1, "sourceVisualRegion": "verified-boiler-circuit" },
+    { "id": "circuit-board", "word": "circuit board", "translation": "电路板", "x": 1405, "y": 290, "priority": 2.021, "minLevel": 1, "sourceVisualRegion": "verified-electronics-and-power" },
+
+    { "id": "hopper-lid", "word": "hopper lid", "translation": "豆仓盖", "x": 520, "y": 35, "priority": 3.022, "minLevel": 2, "sourceVisualRegion": "verified-beans-and-grinder" },
+    { "id": "adjustment-collar", "word": "grinder adjustment collar", "translation": "研磨调节环", "x": 525, "y": 158, "priority": 3.023, "minLevel": 2, "sourceVisualRegion": "verified-beans-and-grinder" },
+    { "id": "cup-rail", "word": "cup rail", "translation": "杯架护栏", "x": 825, "y": 105, "priority": 3.024, "minLevel": 2, "sourceVisualRegion": "verified-beans-and-grinder" },
+    { "id": "twin-spout", "word": "twin spout", "translation": "双出液嘴", "x": 595, "y": 575, "priority": 3.025, "minLevel": 2, "sourceVisualRegion": "verified-brew-station" },
+    { "id": "steam-wand-joint", "word": "steam wand joint", "translation": "蒸汽棒关节", "x": 795, "y": 430, "priority": 3.026, "minLevel": 2, "sourceVisualRegion": "verified-steam-and-tray" },
+    { "id": "burr-grinder", "word": "burr grinder", "translation": "磨盘式研磨器", "x": 1085, "y": 185, "priority": 3.027, "minLevel": 2, "sourceVisualRegion": "verified-beans-and-grinder" },
+    { "id": "boiler-bracket", "word": "boiler bracket", "translation": "锅炉支架", "x": 1015, "y": 405, "priority": 3.028, "minLevel": 2, "sourceVisualRegion": "verified-boiler-circuit" },
+    { "id": "silicone-tube", "word": "silicone tube", "translation": "硅胶软管", "x": 1285, "y": 365, "priority": 3.029, "minLevel": 2, "sourceVisualRegion": "verified-boiler-circuit" },
+
+    { "id": "steam-nozzle", "word": "steam nozzle", "translation": "蒸汽喷嘴", "x": 774, "y": 612, "priority": 4.03, "minLevel": 3, "sourceVisualRegion": "verified-steam-and-tray" },
+    { "id": "rubber-foot", "word": "rubber foot", "translation": "橡胶脚垫", "x": 525, "y": 850, "priority": 4.031, "minLevel": 3, "sourceVisualRegion": "verified-steam-and-tray" },
+    { "id": "copper-pipe", "word": "copper pipe", "translation": "铜管", "x": 970, "y": 455, "priority": 4.032, "minLevel": 3, "sourceVisualRegion": "verified-boiler-circuit" },
+    { "id": "manifold", "word": "manifold", "translation": "歧管", "x": 1125, "y": 500, "priority": 4.033, "minLevel": 3, "sourceVisualRegion": "verified-boiler-circuit" },
+    { "id": "wire-harness", "word": "wire harness", "translation": "线束", "x": 1390, "y": 395, "priority": 4.034, "minLevel": 3, "sourceVisualRegion": "verified-electronics-and-power" },
+    { "id": "power-cord", "word": "power cord", "translation": "电源线", "x": 1505, "y": 720, "priority": 4.035, "minLevel": 3, "sourceVisualRegion": "verified-electronics-and-power" },
+
+    { "id": "outlet-valve", "word": "outlet valve", "translation": "出水阀", "x": 215, "y": 600, "priority": 5.036, "minLevel": 4, "sourceVisualRegion": "verified-water-reservoir" },
+    { "id": "gauge-needle", "word": "gauge needle", "translation": "表针", "x": 542, "y": 282, "priority": 5.037, "minLevel": 4, "sourceVisualRegion": "verified-controls" },
+    { "id": "basket-mesh", "word": "basket mesh", "translation": "滤网", "x": 607, "y": 520, "priority": 5.038, "minLevel": 4, "sourceVisualRegion": "verified-brew-station" },
+    { "id": "connector", "word": "connector", "translation": "连接器", "x": 1370, "y": 330, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "verified-electronics-and-power" }
   ],
   "portals": [
     {
       "id": "enter-water-tank",
-      "label": "Inspect the water tank",
-      "translation": "查看水箱",
+      "label": "Inspect the open water tank",
+      "translation": "查看透明水箱",
       "childSceneId": "water-tank",
-      "x": 305,
-      "y": 135,
-      "width": 330,
-      "height": 545,
-      "enterScale": 3.6,
+      "x": 50,
+      "y": 15,
+      "width": 300,
+      "height": 680,
+      "enterScale": 3.3,
       "sourceVisualRegion": "portal-water-tank"
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "water-reservoir",
+      "title": "Open water reservoir",
+      "translation": "开盖透明水箱",
+      "description": "Large left reservoir with a raised lid, clear waterline and distinct bottom outlet valve",
+      "x": 50,
+      "y": 15,
+      "width": 300,
+      "height": 680,
+      "targetScale": 2.35,
+      "labelIds": ["water-tank", "reservoir-lid", "waterline", "outlet-valve"]
+    },
+    {
+      "id": "beans-and-grinding",
+      "title": "Beans and grinding",
+      "translation": "豆仓与研磨",
+      "description": "Transparent bean hopper, top warming deck and exposed burr-grinder assembly across the crown",
+      "x": 360,
+      "y": 20,
+      "width": 840,
+      "height": 245,
+      "targetScale": 2.3,
+      "labelIds": ["bean-hopper", "hopper-lid", "coffee-beans", "adjustment-collar", "cup-warmer", "cup-rail", "burr-grinder"]
+    },
+    {
+      "id": "controls-and-gauge",
+      "title": "Controls and gauge",
+      "translation": "控制与压力表",
+      "description": "Unlabelled metal control face with round buttons, analog gauge and a large steam knob",
+      "x": 300,
+      "y": 200,
+      "width": 540,
+      "height": 180,
+      "targetScale": 2.8,
+      "labelIds": ["control-panel", "control-button", "pressure-gauge", "gauge-needle", "steam-knob"]
+    },
+    {
+      "id": "brewing-hardware",
+      "title": "Brewing hardware",
+      "translation": "冲煮组件",
+      "description": "Front group head, attached portafilter and separate open basket exposing its fine mesh and spouts",
+      "x": 300,
+      "y": 340,
+      "width": 520,
+      "height": 260,
+      "targetScale": 2.65,
+      "labelIds": ["group-head", "portafilter", "filter-basket", "basket-mesh", "twin-spout"]
+    },
+    {
+      "id": "steam-and-drip",
+      "title": "Steam and drip area",
+      "translation": "蒸汽与滴水区",
+      "description": "Articulated steam wand above the wide removable drip tray, perforated grid and front feet",
+      "x": 200,
+      "y": 360,
+      "width": 650,
+      "height": 500,
+      "targetScale": 2.35,
+      "labelIds": ["steam-wand", "steam-wand-joint", "steam-nozzle", "drip-tray", "drip-grid", "rubber-foot"]
+    },
+    {
+      "id": "boiler-and-water-circuit",
+      "title": "Boiler and water circuit",
+      "translation": "锅炉与水路",
+      "description": "Open right bay with copper boiler, rigid pipe, clear tubing, manifold, motor and brass pump",
+      "x": 850,
+      "y": 220,
+      "width": 520,
+      "height": 560,
+      "targetScale": 2.45,
+      "labelIds": ["boiler", "boiler-bracket", "copper-pipe", "silicone-tube", "manifold", "water-pump", "electric-motor"]
+    },
+    {
+      "id": "electronics-and-power",
+      "title": "Electronics and power",
+      "translation": "电子与供电",
+      "description": "Right wall circuit board with white connectors, bundled colored wires and external power lead",
+      "x": 1180,
+      "y": 120,
+      "width": 380,
+      "height": 650,
+      "targetScale": 2.45,
+      "labelIds": ["circuit-board", "wire-harness", "connector", "power-cord"]
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/coffee-machine.svg",
-    "rationale": "Kept the components explicitly rendered in the cutaway and removed duplicate names, invisible internals, coffee properties and machine cycles.",
+    "reviewedAsset": "/scenes/coffee-machine-premium-v1.jpg",
+    "reviewedAssetSha256": "02263b2ed81fdab6b4c6c8fad8f93a378482cd14da92a5792885d865c5aca439",
+    "rationale": "Reviewed the final 1600 by 900 product cutaway pixel by pixel and anchored only separately visible reservoir, grinding, control, brewing, steam, hydraulic, electronic and power components; the open transparent reservoir remains a real child-scene entrance.",
     "previousLabelCount": 58,
-    "retainedLabelCount": 22,
-    "removedLabelCount": 36,
-    "removedExamples": [
-      "grinder",
-      "thermostat",
-      "solenoid",
-      "espresso",
-      "aroma",
-      "automatic"
-    ]
+    "retainedLabelCount": 40,
+    "removedLabelCount": 18,
+    "removedExamples": ["thermostat", "heating coil", "automatic mode", "espresso aroma"]
   },
   "visualRegions": [
-    {
-      "id": "whole-machine",
-      "description": "Complete coffee-machine cutaway and housing",
-      "kind": "whole",
-      "x": 210,
-      "y": 140,
-      "width": 1230,
-      "height": 650
-    },
-    {
-      "id": "portal-water-tank",
-      "description": "Transparent water tank on the left",
-      "kind": "object",
-      "x": 305,
-      "y": 135,
-      "width": 330,
-      "height": 545
-    },
-    {
-      "id": "verified-water-tank",
-      "description": "Human-verified visible anchor for water tank",
-      "kind": "object",
-      "x": 405,
-      "y": 370,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-boiler",
-      "description": "Human-verified visible anchor for boiler",
-      "kind": "object",
-      "x": 790,
-      "y": 330,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-control-panel",
-      "description": "Human-verified visible anchor for control panel",
-      "kind": "object",
-      "x": 1060,
-      "y": 230,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-drip-tray",
-      "description": "Human-verified visible anchor for drip tray",
-      "kind": "object",
-      "x": 845,
-      "y": 665,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-lid",
-      "description": "Human-verified visible anchor for lid",
-      "kind": "object",
-      "x": 408,
-      "y": 130,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-pipe",
-      "description": "Human-verified visible anchor for pipe",
-      "kind": "object",
-      "x": 640,
-      "y": 375,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-pressure-gauge",
-      "description": "Human-verified visible anchor for pressure gauge",
-      "kind": "object",
-      "x": 1040,
-      "y": 200,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-control-button",
-      "description": "Human-verified visible anchor for control button",
-      "kind": "object",
-      "x": 1055,
-      "y": 273,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-steam-wand",
-      "description": "Human-verified visible anchor for steam wand",
-      "kind": "object",
-      "x": 1150,
-      "y": 525,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-heating-coil",
-      "description": "Human-verified visible anchor for heating coil",
-      "kind": "object",
-      "x": 790,
-      "y": 305,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-cable",
-      "description": "Human-verified visible anchor for cable",
-      "kind": "object",
-      "x": 1340,
-      "y": 615,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-nozzle",
-      "description": "Human-verified visible anchor for nozzle",
-      "kind": "object",
-      "x": 1138,
-      "y": 676,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-portafilter",
-      "description": "Human-verified visible anchor for portafilter",
-      "kind": "object",
-      "x": 955,
-      "y": 545,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-housing",
-      "description": "Human-verified visible anchor for housing",
-      "kind": "object",
-      "x": 210,
-      "y": 415,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-circuit-board",
-      "description": "Human-verified visible anchor for circuit board",
-      "kind": "object",
-      "x": 1160,
-      "y": 405,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-connector",
-      "description": "Human-verified visible anchor for connector",
-      "kind": "object",
-      "x": 1225,
-      "y": 483,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-screw",
-      "description": "Human-verified visible anchor for screw",
-      "kind": "object",
-      "x": 210,
-      "y": 655,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-filter-basket",
-      "description": "Human-verified visible anchor for filter basket",
-      "kind": "object",
-      "x": 790,
-      "y": 545,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-water-inlet",
-      "description": "Human-verified visible anchor for water inlet",
-      "kind": "object",
-      "x": 545,
-      "y": 410,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-water-pump",
-      "description": "Human-verified visible anchor for water pump",
-      "kind": "object",
-      "x": 614,
-      "y": 503,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-brew-group",
-      "description": "Human-verified visible anchor for brew group",
-      "kind": "object",
-      "x": 790,
-      "y": 515,
-      "width": 120,
-      "height": 90
-    }
+    { "id": "whole-machine", "description": "Complete premium espresso machine and brushed-metal outer housing", "kind": "whole", "x": 45, "y": 15, "width": 1510, "height": 855 },
+    { "id": "portal-water-tank", "description": "Large transparent water reservoir with its lid visibly hinged open", "kind": "object", "x": 50, "y": 15, "width": 300, "height": 680 },
+    { "id": "verified-water-reservoir", "description": "Transparent reservoir wall, waterline, raised lid and bottom outlet", "kind": "object", "x": 50, "y": 15, "width": 300, "height": 680 },
+    { "id": "verified-beans-and-grinder", "description": "Bean hopper, cup-warming crown and exposed upper grinder assembly", "kind": "object", "x": 360, "y": 20, "width": 840, "height": 245 },
+    { "id": "verified-controls", "description": "Brushed front control panel with buttons, gauge and steam knob", "kind": "part", "x": 300, "y": 200, "width": 540, "height": 180 },
+    { "id": "verified-brew-station", "description": "Group head, portafilter and open filter basket at the machine front", "kind": "part", "x": 300, "y": 340, "width": 520, "height": 260 },
+    { "id": "verified-steam-and-tray", "description": "Steam wand, drip tray, perforated grid and supporting front foot", "kind": "part", "x": 200, "y": 360, "width": 650, "height": 500 },
+    { "id": "verified-boiler-circuit", "description": "Exposed boiler, water lines, manifold, motor and pump inside the open bay", "kind": "part", "x": 850, "y": 220, "width": 520, "height": 560 },
+    { "id": "verified-electronics-and-power", "description": "Circuit board, wiring, connectors and power cord on the right wall", "kind": "part", "x": 1180, "y": 120, "width": 380, "height": 650 }
   ]
 }

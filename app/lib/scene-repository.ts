@@ -23,12 +23,14 @@ interface SceneCacheEntry {
   promise: Promise<Scene>;
   status: CacheStatus;
   asset?: string;
+  value?: Scene;
 }
 
 interface ImageCacheEntry {
   image: HTMLImageElement;
   promise: Promise<void>;
   status: CacheStatus;
+  evicted: boolean;
 }
 
 export interface SceneCacheSnapshot {
@@ -132,9 +134,12 @@ function pruneCaches(): void {
   for (const [asset, entry] of imageCache) {
     if (retainedAssets.has(asset)) continue;
     imageCache.delete(asset);
-    // The cached Image is never inserted in the DOM; clearing its source and
-    // releasing the entry lets the decoded pixel buffer be reclaimed.
-    entry.image.src = "";
+    // Do not clear the source of a decode that is already in flight: browsers
+    // do not consistently settle image.decode() after that cancellation. Mark
+    // it for release on settlement instead, while removing it from the bounded
+    // resident map immediately.
+    entry.evicted = true;
+    if (entry.status === "resolved") entry.image.src = "";
   }
 }
 
@@ -186,6 +191,7 @@ export function loadScene(sceneId: string, signal?: AbortSignal): Promise<Scene>
         const scene = validateScene(await response.json(), sceneId);
         ownedEntry.status = "resolved";
         ownedEntry.asset = scene.asset;
+        ownedEntry.value = scene;
         pruneCaches();
         return scene;
       })
@@ -209,6 +215,7 @@ export function decodeSceneImage(asset: string, signal?: AbortSignal): Promise<v
     entry = {
       image,
       status: "pending",
+      evicted: false,
       promise: Promise.resolve(),
     };
     const ownedEntry = entry;
@@ -225,6 +232,7 @@ export function decodeSceneImage(asset: string, signal?: AbortSignal): Promise<v
           () => {
             cleanup();
             ownedEntry.status = "resolved";
+            if (ownedEntry.evicted) image.src = "";
             resolve();
           },
           (error: unknown) => {
@@ -254,6 +262,11 @@ export function decodeSceneImage(asset: string, signal?: AbortSignal): Promise<v
 
 export async function prepareScene(sceneId: string, signal?: AbortSignal): Promise<Scene> {
   const scene = await loadScene(sceneId, signal);
+  // A speculative child can be replaced while its JSON is in flight. Do not
+  // start an orphan image decode after that scene has lost its one bounded
+  // neighborhood slot. If it becomes preferred again, the current request for
+  // that ID will warm it normally.
+  if (residentSceneIds.size > 0 && !residentSceneIds.has(sceneId)) return scene;
   await decodeSceneImage(scene.asset, signal);
   return scene;
 }
@@ -263,10 +276,25 @@ export function prefetchScene(sceneId: string): void {
 }
 
 export function isScenePrepared(sceneId: string): boolean {
+  return getPreparedScene(sceneId) !== null;
+}
+
+/**
+ * Returns a scene synchronously only when both its data and decoded artwork
+ * are resident. Navigation can therefore swap to a warm parent/child in the
+ * same input turn instead of paying an artificial promise/transition delay.
+ */
+export function getPreparedScene(sceneId: string): Scene | null {
   const sceneEntry = sceneCache.get(sceneId);
-  return sceneEntry?.status === "resolved"
-    && !!sceneEntry.asset
-    && imageCache.get(sceneEntry.asset)?.status === "resolved";
+  if (
+    sceneEntry?.status !== "resolved"
+    || !sceneEntry.value
+    || !sceneEntry.asset
+    || imageCache.get(sceneEntry.asset)?.status !== "resolved"
+  ) {
+    return null;
+  }
+  return sceneEntry.value;
 }
 
 export function getSceneCacheSnapshot(): SceneCacheSnapshot {

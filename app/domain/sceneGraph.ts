@@ -56,6 +56,7 @@ export function validateSceneGraph(
     requirePositive(issues, scene.height, `${path}.height`);
     validateCamera(issues, scene.initialCamera, `${path}.initialCamera`);
     validateLabels(issues, scene, path, options);
+    validateDetailZones(issues, scene, path, options);
     validatePortals(issues, scene, path, options);
   }
 
@@ -133,6 +134,105 @@ export function validateSceneGraph(
     valid: !issues.some((issue) => issue.severity === "error"),
     issues,
   };
+}
+
+function validateDetailZones(
+  issues: SceneGraphIssue[],
+  scene: Scene,
+  scenePath: string,
+  options: Required<SceneGraphValidationOptions>,
+): void {
+  const ids = new Set<string>();
+  const labelById = new Map(scene.labels.map((label) => [label.id, label]));
+  const claimedLabels = new Set<string>();
+  for (const [index, zone] of (scene.detailZones ?? []).entries()) {
+    const path = `${scenePath}.detailZones[${index}]`;
+    validateUniqueId(issues, zone.id, ids, `${path}.id`, "detail-zone");
+    requireText(issues, zone.title, `${path}.title`, "detail-zone.empty-title");
+    requireText(
+      issues,
+      zone.translation,
+      `${path}.translation`,
+      "detail-zone.empty-translation",
+    );
+    requireText(
+      issues,
+      zone.description,
+      `${path}.description`,
+      "detail-zone.empty-description",
+    );
+    for (const key of ["x", "y"] as const) requireFinite(issues, zone[key], `${path}.${key}`);
+    for (const key of ["width", "height"] as const) requirePositive(issues, zone[key], `${path}.${key}`);
+    requirePositive(issues, zone.targetScale, `${path}.targetScale`);
+    if (zone.targetScale <= 1 || zone.targetScale > 4) {
+      error(
+        issues,
+        "detail-zone.invalid-target-scale",
+        `${path}.targetScale`,
+        "targetScale must be greater than 1 and no greater than 4",
+      );
+    }
+    if (
+      !options.allowOutOfBoundsAnchors &&
+      (zone.x < 0 ||
+        zone.y < 0 ||
+        zone.x + zone.width > scene.width ||
+        zone.y + zone.height > scene.height)
+    ) {
+      error(
+        issues,
+        "detail-zone.out-of-bounds",
+        path,
+        "Detail-zone rectangle is outside the scene bounds",
+      );
+    }
+    if (!Array.isArray(zone.labelIds) || zone.labelIds.length === 0) {
+      error(
+        issues,
+        "detail-zone.empty-labels",
+        `${path}.labelIds`,
+        "Detail zone must reference at least one label",
+      );
+      continue;
+    }
+    const localLabels = new Set<string>();
+    for (const [labelIndex, labelId] of zone.labelIds.entries()) {
+      const labelPath = `${path}.labelIds[${labelIndex}]`;
+      if (!nonEmpty(labelId) || localLabels.has(labelId)) {
+        error(issues, "detail-zone.duplicate-label", labelPath, `Duplicate label id: ${labelId}`);
+        continue;
+      }
+      localLabels.add(labelId);
+      const label = labelById.get(labelId);
+      if (!label) {
+        error(issues, "detail-zone.unknown-label", labelPath, `Unknown label id: ${labelId}`);
+        continue;
+      }
+      if (claimedLabels.has(labelId)) {
+        error(
+          issues,
+          "detail-zone.label-reused",
+          labelPath,
+          `Label ${labelId} belongs to more than one detail zone`,
+        );
+      }
+      claimedLabels.add(labelId);
+      if (
+        !options.allowOutOfBoundsAnchors &&
+        (label.x < zone.x ||
+          label.x > zone.x + zone.width ||
+          label.y < zone.y ||
+          label.y > zone.y + zone.height)
+      ) {
+        error(
+          issues,
+          "detail-zone.label-outside",
+          labelPath,
+          `Label ${labelId} anchor lies outside detail zone ${zone.id}`,
+        );
+      }
+    }
+  }
 }
 
 export function assertValidSceneGraph(
@@ -346,7 +446,7 @@ function validateUniqueId(
   id: string,
   ids: Set<string>,
   path: string,
-  kind: "label" | "portal",
+  kind: "label" | "portal" | "detail-zone",
 ): void {
   if (!nonEmpty(id)) {
     error(issues, `${kind}.empty-id`, path, `${kind} id cannot be empty`);
@@ -359,7 +459,7 @@ function validateUniqueId(
 
 function requireText(
   issues: SceneGraphIssue[],
-  value: string,
+  value: unknown,
   path: string,
   code: string,
 ): void {
@@ -395,8 +495,8 @@ function error(
   issues.push({ severity: "error", code, path, message });
 }
 
-function nonEmpty(value: string): boolean {
-  return value.trim().length > 0;
+function nonEmpty(value: unknown): value is string {
+  return typeof value === "string" && value.trim().length > 0;
 }
 
 function inRange(value: number, min: number, max: number): boolean {

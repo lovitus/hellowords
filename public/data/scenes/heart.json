@@ -2,8 +2,8 @@
   "id": "heart",
   "title": "Heart",
   "translation": "心脏",
-  "subtitle": "The rhythm that moves blood",
-  "asset": "/scenes/heart.svg",
+  "subtitle": "A cutaway from chambers to one blood cell",
+  "asset": "/scenes/heart-premium-v2.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "human-body",
@@ -12,191 +12,361 @@
       "id": "heart",
       "word": "heart",
       "translation": "心脏",
-      "x": 800,
-      "y": 175,
+      "x": 525,
+      "y": 480,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "whole-heart"
+      "sourceVisualRegion": "ventricles"
     },
     {
       "id": "right-atrium",
       "word": "right atrium",
       "translation": "右心房",
-      "x": 650,
-      "y": 390,
+      "x": 335,
+      "y": 340,
       "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "right-atrium"
+      "sourceVisualRegion": "atria-and-valves"
     },
     {
       "id": "left-atrium",
       "word": "left atrium",
       "translation": "左心房",
-      "x": 920,
-      "y": 385,
+      "x": 665,
+      "y": 305,
       "priority": 1.002,
       "minLevel": 0,
-      "sourceVisualRegion": "left-atrium"
+      "sourceVisualRegion": "atria-and-valves"
     },
     {
       "id": "right-ventricle",
       "word": "right ventricle",
       "translation": "右心室",
-      "x": 690,
-      "y": 680,
+      "x": 395,
+      "y": 575,
       "priority": 1.003,
       "minLevel": 0,
-      "sourceVisualRegion": "right-ventricle"
+      "sourceVisualRegion": "ventricles"
     },
     {
       "id": "left-ventricle",
       "word": "left ventricle",
       "translation": "左心室",
-      "x": 920,
-      "y": 690,
+      "x": 685,
+      "y": 565,
       "priority": 1.004,
       "minLevel": 0,
-      "sourceVisualRegion": "left-ventricle"
-    },
-    {
-      "id": "artery",
-      "word": "artery",
-      "translation": "动脉",
-      "x": 1190,
-      "y": 385,
-      "priority": 2.005,
-      "minLevel": 1,
-      "sourceVisualRegion": "red-vessels"
-    },
-    {
-      "id": "vein",
-      "word": "vein",
-      "translation": "静脉",
-      "x": 405,
-      "y": 390,
-      "priority": 2.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "blue-vessels"
+      "sourceVisualRegion": "ventricles"
     },
     {
       "id": "aorta",
       "word": "aorta",
       "translation": "主动脉",
-      "x": 980,
-      "y": 115,
-      "priority": 2.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "red-vessels"
+      "x": 430,
+      "y": 180,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "great-vessels"
     },
     {
-      "id": "pulmonary-artery",
-      "word": "pulmonary artery",
-      "translation": "肺动脉",
-      "x": 365,
-      "y": 410,
+      "id": "artery",
+      "word": "artery",
+      "translation": "动脉",
+      "x": 1260,
+      "y": 350,
+      "priority": 1.006,
+      "minLevel": 0,
+      "sourceVisualRegion": "artery-cutaway"
+    },
+    {
+      "id": "red-blood-cell",
+      "word": "red blood cell",
+      "translation": "红细胞",
+      "x": 1260,
+      "y": 455,
+      "priority": 1.007,
+      "minLevel": 0,
+      "sourceVisualRegion": "portal-red-cell"
+    },
+    {
+      "id": "apex",
+      "word": "apex",
+      "translation": "心尖",
+      "x": 650,
+      "y": 800,
       "priority": 2.008,
       "minLevel": 1,
-      "sourceVisualRegion": "blue-vessels"
+      "sourceVisualRegion": "ventricles"
     },
     {
-      "id": "pulmonary-vein",
-      "word": "pulmonary vein",
-      "translation": "肺静脉",
-      "x": 1195,
-      "y": 425,
+      "id": "base",
+      "word": "base",
+      "translation": "心底",
+      "x": 500,
+      "y": 245,
       "priority": 2.009,
       "minLevel": 1,
-      "sourceVisualRegion": "red-vessels"
+      "sourceVisualRegion": "great-vessels"
     },
     {
-      "id": "chamber",
-      "word": "chamber",
-      "translation": "心腔",
-      "x": 975,
-      "y": 520,
-      "priority": 3.01,
-      "minLevel": 2,
-      "sourceVisualRegion": "left-atrium"
+      "id": "interventricular-septum",
+      "word": "interventricular septum",
+      "translation": "室间隔",
+      "x": 585,
+      "y": 590,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "ventricles"
     },
     {
-      "id": "valve",
-      "word": "valve",
-      "translation": "瓣膜",
-      "x": 810,
-      "y": 505,
-      "priority": 3.011,
-      "minLevel": 2,
-      "sourceVisualRegion": "upper-valve"
+      "id": "pulmonary-trunk",
+      "word": "pulmonary trunk",
+      "translation": "肺动脉干",
+      "x": 575,
+      "y": 185,
+      "priority": 2.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "great-vessels"
     },
     {
-      "id": "valve-leaflet",
-      "word": "valve leaflet",
-      "translation": "瓣叶",
-      "x": 810,
-      "y": 600,
-      "priority": 3.012,
-      "minLevel": 2,
-      "sourceVisualRegion": "lower-valve"
+      "id": "superior-vena-cava",
+      "word": "superior vena cava",
+      "translation": "上腔静脉",
+      "x": 325,
+      "y": 105,
+      "priority": 2.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "great-vessels"
     },
     {
-      "id": "septum",
-      "word": "septum",
-      "translation": "心脏隔膜",
-      "x": 800,
+      "id": "mitral-valve",
+      "word": "mitral valve",
+      "translation": "二尖瓣",
+      "x": 650,
+      "y": 420,
+      "priority": 2.013,
+      "minLevel": 1,
+      "sourceVisualRegion": "atria-and-valves"
+    },
+    {
+      "id": "lumen",
+      "word": "lumen",
+      "translation": "管腔",
+      "x": 1245,
+      "y": 350,
+      "priority": 2.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "artery-cutaway"
+    },
+    {
+      "id": "capillary",
+      "word": "capillary",
+      "translation": "毛细血管",
+      "x": 1460,
       "y": 720,
-      "priority": 3.013,
-      "minLevel": 2,
-      "sourceVisualRegion": "septum"
+      "priority": 2.015,
+      "minLevel": 1,
+      "sourceVisualRegion": "artery-cutaway"
     },
     {
       "id": "myocardium",
       "word": "myocardium",
       "translation": "心肌层",
-      "x": 570,
-      "y": 265,
-      "priority": 4.014,
-      "minLevel": 3,
-      "sourceVisualRegion": "heart-wall"
+      "x": 725,
+      "y": 570,
+      "priority": 3.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "ventricles"
     },
     {
-      "id": "oxygenated-blood",
-      "word": "oxygenated blood",
-      "translation": "含氧血",
-      "x": 920,
-      "y": 465,
-      "priority": 4.015,
-      "minLevel": 3,
-      "sourceVisualRegion": "left-atrium"
+      "id": "tricuspid-valve",
+      "word": "tricuspid valve",
+      "translation": "三尖瓣",
+      "x": 385,
+      "y": 455,
+      "priority": 3.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "atria-and-valves"
     },
     {
-      "id": "deoxygenated-blood",
-      "word": "deoxygenated blood",
-      "translation": "缺氧血",
-      "x": 660,
-      "y": 470,
-      "priority": 4.016,
-      "minLevel": 3,
-      "sourceVisualRegion": "right-atrium"
+      "id": "pulmonary-valve",
+      "word": "pulmonary valve",
+      "translation": "肺动脉瓣",
+      "x": 500,
+      "y": 300,
+      "priority": 3.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "great-vessels"
     },
     {
-      "id": "electrocardiogram",
-      "word": "electrocardiogram",
-      "translation": "心电图",
-      "x": 1320,
+      "id": "pulmonary-vein",
+      "word": "pulmonary vein",
+      "translation": "肺静脉",
+      "x": 750,
+      "y": 270,
+      "priority": 3.019,
+      "minLevel": 2,
+      "sourceVisualRegion": "great-vessels"
+    },
+    {
+      "id": "coronary-artery",
+      "word": "coronary artery",
+      "translation": "冠状动脉",
+      "x": 365,
+      "y": 720,
+      "priority": 3.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "coronary-surface"
+    },
+    {
+      "id": "tunica-media",
+      "word": "tunica media",
+      "translation": "中膜",
+      "x": 1420,
+      "y": 290,
+      "priority": 3.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "artery-cutaway"
+    },
+    {
+      "id": "epicardial-fat",
+      "word": "epicardial fat",
+      "translation": "心外膜脂肪",
+      "x": 345,
+      "y": 690,
+      "priority": 3.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "coronary-surface"
+    },
+    {
+      "id": "right-ventricular-wall",
+      "word": "right ventricular wall",
+      "translation": "右心室壁",
+      "x": 285,
+      "y": 560,
+      "priority": 4.023,
+      "minLevel": 3,
+      "sourceVisualRegion": "ventricles"
+    },
+    {
+      "id": "left-ventricular-wall",
+      "word": "left ventricular wall",
+      "translation": "左心室壁",
+      "x": 760,
+      "y": 580,
+      "priority": 4.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "ventricles"
+    },
+    {
+      "id": "valve-leaflet",
+      "word": "valve leaflet",
+      "translation": "瓣叶",
+      "x": 415,
+      "y": 455,
+      "priority": 4.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "atria-and-valves"
+    },
+    {
+      "id": "chordae-tendineae",
+      "word": "chordae tendineae",
+      "translation": "腱索",
+      "x": 455,
+      "y": 525,
+      "priority": 4.026,
+      "minLevel": 3,
+      "sourceVisualRegion": "ventricles"
+    },
+    {
+      "id": "papillary-muscle",
+      "word": "papillary muscle",
+      "translation": "乳头肌",
+      "x": 470,
       "y": 610,
-      "priority": 5.017,
-      "minLevel": 4,
-      "sourceVisualRegion": "red-ecg"
+      "priority": 4.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "ventricles"
     },
     {
-      "id": "flow",
-      "word": "flow",
-      "translation": "流动",
-      "x": 1110,
-      "y": 520,
-      "priority": 5.018,
+      "id": "aortic-arch",
+      "word": "aortic arch",
+      "translation": "主动脉弓",
+      "x": 520,
+      "y": 110,
+      "priority": 4.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "great-vessels"
+    },
+    {
+      "id": "tunica-intima",
+      "word": "tunica intima",
+      "translation": "内膜",
+      "x": 1390,
+      "y": 335,
+      "priority": 4.029,
+      "minLevel": 3,
+      "sourceVisualRegion": "artery-cutaway"
+    },
+    {
+      "id": "endocardium",
+      "word": "endocardium",
+      "translation": "心内膜",
+      "x": 705,
+      "y": 450,
+      "priority": 5.03,
       "minLevel": 4,
-      "sourceVisualRegion": "flow-arrows"
+      "sourceVisualRegion": "atria-and-valves"
+    },
+    {
+      "id": "epicardium",
+      "word": "epicardium",
+      "translation": "心外膜",
+      "x": 640,
+      "y": 775,
+      "priority": 5.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "coronary-surface"
+    },
+    {
+      "id": "aortic-branch",
+      "word": "aortic branch",
+      "translation": "主动脉分支",
+      "x": 495,
+      "y": 35,
+      "priority": 5.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "great-vessels"
+    },
+    {
+      "id": "inferior-vena-cava",
+      "word": "inferior vena cava",
+      "translation": "下腔静脉",
+      "x": 350,
+      "y": 820,
+      "priority": 5.033,
+      "minLevel": 4,
+      "sourceVisualRegion": "great-vessels"
+    },
+    {
+      "id": "coronary-vein",
+      "word": "coronary vein",
+      "translation": "冠状静脉",
+      "x": 430,
+      "y": 750,
+      "priority": 5.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "coronary-surface"
+    },
+    {
+      "id": "tunica-externa",
+      "word": "tunica externa",
+      "translation": "外膜",
+      "x": 1450,
+      "y": 245,
+      "priority": 5.035,
+      "minLevel": 4,
+      "sourceVisualRegion": "artery-cutaway"
     }
   ],
   "portals": [
@@ -205,157 +375,189 @@
       "label": "Follow a blood cell",
       "translation": "跟随血细胞",
       "childSceneId": "blood-cell",
-      "x": 830,
-      "y": 585,
-      "width": 180,
-      "height": 190,
+      "x": 1138,
+      "y": 378,
+      "width": 245,
+      "height": 180,
       "enterScale": 3.6,
-      "sourceVisualRegion": "left-ventricle"
+      "sourceVisualRegion": "portal-red-cell"
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/heart.svg",
-    "rationale": "Kept the four chambers, major vessels, central valves, wall and ECG traces that are visibly encoded; removed invisible physiology and named conduction nodes.",
+    "reviewedAsset": "/scenes/heart-premium-v2.jpg",
+    "reviewedAssetSha256": "b09403295135e036aa27dfd3124518b711982650cd2ca5f21285245f6a10b0c6",
+    "rationale": "Re-anchored the bright manufactured cutaway to four chambers, visible valves and walls, major connected vessels, surface coronary structures, five artery layers, and one isolated biconcave red-cell portal.",
     "previousLabelCount": 56,
-    "retainedLabelCount": 19,
-    "removedLabelCount": 37,
+    "retainedLabelCount": 36,
+    "removedLabelCount": 20,
     "removedExamples": [
+      "oxygenated blood",
+      "deoxygenated blood",
+      "electrocardiogram",
+      "flow",
       "sinoatrial node",
-      "cardiac output",
-      "murmur",
-      "capillary",
-      "coronary vein",
-      "cardiac cycle"
+      "cardiac output"
     ]
   },
+  "detailZones": [
+    {
+      "id": "great-vessels-zone",
+      "title": "Great vessels",
+      "translation": "大血管",
+      "description": "Upper heart base and the visibly connected inflow and outflow vessels",
+      "x": 130,
+      "y": 0,
+      "width": 700,
+      "height": 850,
+      "targetScale": 2.6,
+      "labelIds": [
+        "base",
+        "aorta",
+        "aortic-arch",
+        "aortic-branch",
+        "superior-vena-cava",
+        "inferior-vena-cava",
+        "pulmonary-trunk",
+        "pulmonary-vein",
+        "pulmonary-valve"
+      ]
+    },
+    {
+      "id": "atria-and-valves-zone",
+      "title": "Atria and inlet valves",
+      "translation": "心房与房室瓣",
+      "description": "Both upper chambers with their separate inlet valves, leaflet and lining",
+      "x": 180,
+      "y": 210,
+      "width": 620,
+      "height": 340,
+      "targetScale": 3,
+      "labelIds": [
+        "right-atrium",
+        "left-atrium",
+        "tricuspid-valve",
+        "mitral-valve",
+        "valve-leaflet",
+        "endocardium"
+      ]
+    },
+    {
+      "id": "ventricles-zone",
+      "title": "Ventricles and walls",
+      "translation": "心室与心壁",
+      "description": "Lower cutaway chambers with septum, muscle layers, cords and papillary muscle",
+      "x": 200,
+      "y": 350,
+      "width": 680,
+      "height": 500,
+      "targetScale": 3,
+      "labelIds": [
+        "heart",
+        "apex",
+        "right-ventricle",
+        "left-ventricle",
+        "interventricular-septum",
+        "myocardium",
+        "right-ventricular-wall",
+        "left-ventricular-wall",
+        "chordae-tendineae",
+        "papillary-muscle"
+      ]
+    },
+    {
+      "id": "coronary-surface-zone",
+      "title": "Outer heart surface",
+      "translation": "心脏外表面",
+      "description": "Outer membrane, fat and separately visible red and blue coronary vessels",
+      "x": 220,
+      "y": 430,
+      "width": 650,
+      "height": 380,
+      "targetScale": 3.1,
+      "labelIds": [
+        "epicardium",
+        "epicardial-fat",
+        "coronary-artery",
+        "coronary-vein"
+      ]
+    },
+    {
+      "id": "artery-cutaway-zone",
+      "title": "Artery and blood cell",
+      "translation": "动脉与血细胞",
+      "description": "Large artery cross-section with three visible wall layers, lumen, cells and capillary",
+      "x": 970,
+      "y": 100,
+      "width": 630,
+      "height": 750,
+      "targetScale": 3,
+      "labelIds": [
+        "artery",
+        "tunica-externa",
+        "tunica-media",
+        "tunica-intima",
+        "lumen",
+        "red-blood-cell",
+        "capillary"
+      ]
+    }
+  ],
   "visualRegions": [
     {
-      "id": "whole-heart",
-      "description": "Complete cutaway heart",
-      "kind": "whole",
-      "x": 490,
-      "y": 150,
-      "width": 600,
-      "height": 710
-    },
-    {
-      "id": "right-atrium",
-      "description": "Upper blue chamber on the viewer's left",
+      "id": "great-vessels",
+      "description": "Heart base with complete visible great-vessel segments",
       "kind": "object",
-      "x": 535,
-      "y": 315,
-      "width": 270,
-      "height": 250
-    },
-    {
-      "id": "left-atrium",
-      "description": "Upper red chamber on the viewer's right",
-      "kind": "object",
-      "x": 790,
-      "y": 300,
-      "width": 270,
-      "height": 285
-    },
-    {
-      "id": "right-ventricle",
-      "description": "Lower blue chamber on the viewer's left",
-      "kind": "object",
-      "x": 590,
-      "y": 545,
-      "width": 220,
-      "height": 255
-    },
-    {
-      "id": "left-ventricle",
-      "description": "Lower red chamber on the viewer's right",
-      "kind": "object",
-      "x": 805,
-      "y": 550,
-      "width": 225,
-      "height": 250
-    },
-    {
-      "id": "blue-vessels",
-      "description": "Major blue vessels entering the heart",
-      "kind": "object",
-      "x": 270,
-      "y": 50,
-      "width": 500,
-      "height": 430
-    },
-    {
-      "id": "red-vessels",
-      "description": "Major red vessels leaving the heart",
-      "kind": "object",
-      "x": 860,
-      "y": 30,
-      "width": 465,
-      "height": 450
-    },
-    {
-      "id": "upper-valve",
-      "description": "Diamond-shaped upper valve between chambers",
-      "kind": "part",
-      "x": 755,
-      "y": 450,
-      "width": 115,
-      "height": 115
-    },
-    {
-      "id": "lower-valve",
-      "description": "Leaflet-shaped lower valve between ventricles",
-      "kind": "part",
-      "x": 745,
-      "y": 535,
-      "width": 130,
-      "height": 125
-    },
-    {
-      "id": "septum",
-      "description": "Central wall separating left and right sides",
-      "kind": "part",
-      "x": 770,
-      "y": 440,
-      "width": 100,
-      "height": 350
-    },
-    {
-      "id": "heart-wall",
-      "description": "Dark muscular outer wall",
-      "kind": "part",
-      "x": 485,
-      "y": 145,
-      "width": 620,
-      "height": 720
-    },
-    {
-      "id": "blue-ecg",
-      "description": "Blue electrocardiogram card at lower left",
-      "kind": "diagram",
       "x": 130,
-      "y": 530,
+      "y": 0,
+      "width": 700,
+      "height": 850
+    },
+    {
+      "id": "atria-and-valves",
+      "description": "Both upper chambers and the visible inlet valve structures",
+      "kind": "part",
+      "x": 180,
+      "y": 210,
+      "width": 620,
+      "height": 340
+    },
+    {
+      "id": "ventricles",
+      "description": "Complete lower cutaway with both ventricles, septum and walls",
+      "kind": "part",
+      "x": 200,
+      "y": 350,
+      "width": 680,
+      "height": 500
+    },
+    {
+      "id": "coronary-surface",
+      "description": "Outer lower heart surface with fat and coronary vessels",
+      "kind": "part",
+      "x": 220,
+      "y": 430,
+      "width": 650,
+      "height": 380
+    },
+    {
+      "id": "artery-cutaway",
+      "description": "Mounted artery cross-section, blood cells and attached capillary",
+      "kind": "object",
+      "x": 970,
+      "y": 100,
+      "width": 630,
+      "height": 750
+    },
+    {
+      "id": "portal-red-cell",
+      "description": "Large unobstructed biconcave foreground red blood cell",
+      "kind": "object",
+      "x": 1125,
+      "y": 365,
       "width": 280,
-      "height": 140
-    },
-    {
-      "id": "red-ecg",
-      "description": "Red electrocardiogram card at lower right",
-      "kind": "diagram",
-      "x": 1170,
-      "y": 520,
-      "width": 300,
-      "height": 190
-    },
-    {
-      "id": "flow-arrows",
-      "description": "Yellow directional arrows around the cutaway",
-      "kind": "diagram",
-      "x": 410,
-      "y": 90,
-      "width": 770,
-      "height": 510
+      "height": 200
     }
   ]
 }

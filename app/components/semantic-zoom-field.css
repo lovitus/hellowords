@@ -1,0 +1,363 @@
+.semantic-zoom-field {
+  position: relative;
+  width: 100%;
+  height: clamp(30rem, 68vh, 47.5rem);
+  min-height: 26rem;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(47, 66, 57, 0.2);
+  border-radius: clamp(1.25rem, 2.5vw, 2rem);
+  background: #e9ede6;
+  box-shadow:
+    0 1.5rem 4rem rgba(25, 39, 32, 0.16),
+    inset 0 1px rgba(255, 255, 255, 0.8);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.semantic-zoom-field--dragging {
+  cursor: grabbing;
+}
+
+.semantic-zoom-field__plane {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 1600px;
+  height: 900px;
+  overflow: hidden;
+  transform-origin: 0 0;
+  background: #dfe8e0;
+  will-change: transform;
+}
+
+.semantic-zoom-field__overview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.semantic-zoom-field__realm-tile {
+  position: absolute;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.78);
+  border-radius: 22px;
+  background: rgba(242, 245, 239, 0.96);
+  box-shadow:
+    0 16px 50px rgba(22, 39, 31, 0.22),
+    0 0 0 7px rgba(255, 255, 255, 0.16);
+  transition: opacity 180ms ease-out;
+}
+
+.semantic-zoom-field__realm-tile::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(34, 52, 43, 0.14);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+
+.semantic-zoom-field__realm-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.semantic-zoom-field__labels {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+}
+
+.semantic-zoom-field__node {
+  --semantic-node-radius: 3rem;
+  --semantic-node-width: 9rem;
+  --semantic-node-height: 3rem;
+  position: absolute;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto minmax(0, auto) auto;
+  align-items: center;
+  gap: 0.36rem;
+  width: var(--semantic-node-width);
+  min-width: 0;
+  max-width: calc(100% - 12px);
+  height: var(--semantic-node-height);
+  min-height: 0;
+  padding: 0.56rem 0.72rem;
+  border: 1px solid var(--semantic-node-border);
+  border-radius: 999px;
+  color: var(--semantic-node-ink);
+  background: color-mix(in srgb, var(--semantic-node-background) 90%, rgba(255, 255, 255, 0.9));
+  box-shadow:
+    0 0.5rem 1.5rem rgba(24, 39, 32, 0.15),
+    inset 0 1px rgba(255, 255, 255, 0.78);
+  font: inherit;
+  line-height: 1.08;
+  text-align: left;
+  transform: translate(-50%, -50%);
+  transition:
+    left 140ms ease-out,
+    top 140ms ease-out,
+    border-color 140ms ease-out,
+    box-shadow 140ms ease-out,
+    background 140ms ease-out;
+  pointer-events: auto;
+  cursor: pointer;
+  backdrop-filter: blur(10px) saturate(0.85);
+  -webkit-backdrop-filter: blur(10px) saturate(0.85);
+}
+
+.semantic-zoom-field__leader {
+  position: absolute;
+  z-index: 0;
+  height: 1px;
+  border-radius: 1px;
+  background: color-mix(in srgb, var(--semantic-node-color) 58%, transparent);
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.52);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+.semantic-zoom-field__node:hover,
+.semantic-zoom-field__node:focus-visible {
+  z-index: 3;
+  border-color: var(--semantic-node-color);
+  outline: none;
+  background: color-mix(in srgb, var(--semantic-node-background) 75%, white);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--semantic-node-color) 23%, transparent),
+    0 0.75rem 1.8rem rgba(24, 39, 32, 0.2);
+}
+
+.semantic-zoom-field__node-dot {
+  width: 0.52rem;
+  height: 0.52rem;
+  border-radius: 50%;
+  background: var(--semantic-node-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--semantic-node-color) 15%, transparent);
+}
+
+.semantic-zoom-field__node strong {
+  overflow: hidden;
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.semantic-zoom-field__node > span:not(.semantic-zoom-field__node-dot) {
+  grid-column: 2 / -1;
+  overflow: hidden;
+  color: var(--semantic-node-muted);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.semantic-zoom-field__node small {
+  min-width: 1.75rem;
+  padding: 0.22rem 0.38rem;
+  border-radius: 999px;
+  color: var(--semantic-node-muted);
+  background: color-mix(in srgb, var(--semantic-node-color) 9%, transparent);
+  font-size: 0.66rem;
+  font-weight: 750;
+  text-align: center;
+}
+
+.semantic-zoom-field__labels--realm .semantic-zoom-field__node {
+  grid-template-columns: auto minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  padding: 0.72rem 0.9rem;
+  border-radius: 1.4rem;
+}
+
+.semantic-zoom-field__labels--realm .semantic-zoom-field__node small {
+  grid-column: 2;
+  justify-self: start;
+}
+
+.semantic-zoom-field__labels--word .semantic-zoom-field__node {
+  min-width: 0;
+  min-height: 0;
+  max-width: min(13.5rem, 29vw);
+  padding: 0.48rem 0.67rem;
+}
+
+.semantic-zoom-field__labels--word .semantic-zoom-field__node strong {
+  font-family: inherit;
+  font-size: 0.88rem;
+}
+
+.semantic-zoom-field__chrome {
+  position: absolute;
+  z-index: 4;
+  top: clamp(0.7rem, 2vw, 1.2rem);
+  right: clamp(0.7rem, 2vw, 1.2rem);
+  left: clamp(0.7rem, 2vw, 1.2rem);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  pointer-events: none;
+}
+
+.semantic-zoom-field__context,
+.semantic-zoom-field__controls {
+  border: 1px solid rgba(69, 85, 76, 0.2);
+  background: rgba(249, 249, 244, 0.88);
+  box-shadow: 0 0.6rem 1.8rem rgba(27, 40, 34, 0.12);
+  backdrop-filter: blur(14px) saturate(0.9);
+  -webkit-backdrop-filter: blur(14px) saturate(0.9);
+}
+
+.semantic-zoom-field__context {
+  display: grid;
+  gap: 0.15rem;
+  max-width: min(31rem, 65vw);
+  padding: 0.65rem 0.85rem;
+  border-radius: 1rem;
+  pointer-events: none;
+}
+
+.semantic-zoom-field__context span {
+  overflow: hidden;
+  color: #5e6a63;
+  font-size: 0.68rem;
+  font-weight: 720;
+  letter-spacing: 0.08em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.semantic-zoom-field__context strong {
+  color: #293a32;
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+}
+
+.semantic-zoom-field__controls {
+  display: flex;
+  padding: 0.25rem;
+  border-radius: 999px;
+  pointer-events: auto;
+}
+
+.semantic-zoom-field__controls button {
+  min-width: 2.45rem;
+  min-height: 2.45rem;
+  border: 0;
+  border-radius: 999px;
+  color: #30483c;
+  background: transparent;
+  font: 720 0.9rem/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.semantic-zoom-field__controls button:first-child {
+  padding-inline: 0.75rem;
+}
+
+.semantic-zoom-field__controls button:hover,
+.semantic-zoom-field__controls button:focus-visible {
+  outline: none;
+  background: rgba(71, 104, 87, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(71, 104, 87, 0.16);
+}
+
+.semantic-zoom-field__status {
+  position: absolute;
+  z-index: 4;
+  right: 50%;
+  bottom: 0.8rem;
+  max-width: calc(100% - 2rem);
+  margin: 0;
+  padding: 0.48rem 0.75rem;
+  border: 1px solid rgba(71, 87, 78, 0.18);
+  border-radius: 999px;
+  color: #43554b;
+  background: rgba(248, 248, 242, 0.86);
+  box-shadow: 0 0.45rem 1.4rem rgba(29, 43, 36, 0.11);
+  font-size: 0.72rem;
+  font-weight: 650;
+  text-align: center;
+  transform: translateX(50%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  pointer-events: none;
+}
+
+.semantic-zoom-field__status--error {
+  border-color: rgba(151, 75, 62, 0.32);
+  color: #793d35;
+  background: rgba(255, 243, 239, 0.92);
+}
+
+.semantic-zoom-field__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 819px) {
+  .semantic-zoom-field {
+    height: min(72svh, 42rem);
+    min-height: 28rem;
+    border-radius: 1.2rem;
+  }
+
+  .semantic-zoom-field__chrome {
+    align-items: flex-start;
+  }
+
+  .semantic-zoom-field__context {
+    max-width: calc(100% - 9.5rem);
+  }
+
+  .semantic-zoom-field__context strong {
+    font-family: inherit;
+    font-size: 0.78rem;
+  }
+
+  .semantic-zoom-field__labels--realm .semantic-zoom-field__node {
+    min-width: 0;
+    max-width: calc(100% - 12px);
+    min-height: 0;
+    padding: 0.62rem 0.72rem;
+  }
+
+  .semantic-zoom-field__node {
+    max-width: 42vw;
+  }
+
+  .semantic-zoom-field__node strong {
+    font-size: 0.84rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .semantic-zoom-field__realm-tile,
+  .semantic-zoom-field__node {
+    transition: none;
+  }
+}

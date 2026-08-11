@@ -16,7 +16,8 @@
       "y": 520,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "leaf-blade"
+      "sourceVisualRegion": "leaf-blade",
+      "lexemeId": "en-9f91161f43433e49"
     },
     {
       "id": "leaf-blade",
@@ -146,7 +147,8 @@
       "y": 635,
       "priority": 2.013,
       "minLevel": 1,
-      "sourceVisualRegion": "spider"
+      "sourceVisualRegion": "spider",
+      "lexemeId": "en-9bfa0b50a90e6699"
     },
     {
       "id": "insect-egg",
@@ -186,7 +188,8 @@
       "y": 392,
       "priority": 3.017,
       "minLevel": 2,
-      "sourceVisualRegion": "twig-bud"
+      "sourceVisualRegion": "twig-bud",
+      "lexemeId": "en-eb354856ade3a627"
     },
     {
       "id": "acorn-cup",
@@ -317,6 +320,106 @@
       "priority": 5.03,
       "minLevel": 4,
       "sourceVisualRegion": "damaged-edge"
+    },
+    {
+      "id": "leaf-tip",
+      "word": "leaf tip",
+      "translation": "叶尖",
+      "x": 1505,
+      "y": 455,
+      "priority": 3.031,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-leaf-tip"
+    },
+    {
+      "id": "leaf-base",
+      "word": "leaf base",
+      "translation": "叶基",
+      "x": 405,
+      "y": 515,
+      "priority": 3.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-leaf-base"
+    },
+    {
+      "id": "leaf-surface",
+      "word": "leaf surface",
+      "translation": "叶面",
+      "x": 900,
+      "y": 420,
+      "priority": 4.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-leaf-surface"
+    },
+    {
+      "id": "egg-row",
+      "word": "egg row",
+      "translation": "虫卵列",
+      "x": 1140,
+      "y": 175,
+      "priority": 4.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-egg-row"
+    },
+    {
+      "id": "caterpillar-segment",
+      "word": "caterpillar segment",
+      "translation": "毛虫体节",
+      "x": 1260,
+      "y": 205,
+      "priority": 5.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-caterpillar-segment"
+    },
+    {
+      "id": "ladybird-elytron",
+      "word": "elytron",
+      "translation": "鞘翅",
+      "x": 490,
+      "y": 525,
+      "priority": 5.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-ladybird-elytron"
+    },
+    {
+      "id": "spider-leg",
+      "word": "spider leg",
+      "translation": "蜘蛛腿",
+      "x": 1247,
+      "y": 635,
+      "priority": 5.038,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-spider-leg"
+    },
+    {
+      "id": "twig-bark",
+      "word": "twig bark",
+      "translation": "细枝树皮",
+      "x": 225,
+      "y": 660,
+      "priority": 5.039,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-twig-bark"
+    },
+    {
+      "id": "bud-scale",
+      "word": "bud scale",
+      "translation": "芽鳞",
+      "x": 140,
+      "y": 392,
+      "priority": 5.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bud-scale"
+    },
+    {
+      "id": "gall-surface",
+      "word": "gall surface",
+      "translation": "虫瘿表面",
+      "x": 585,
+      "y": 226,
+      "priority": 5.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-gall-surface"
     }
   ],
   "portals": [
@@ -338,10 +441,10 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/leaf-premium-v2.jpg",
     "reviewedAssetSha256": "e4e61dc6ab6aacede72b9913d4d824c9b923fd046340220329df69e82b29312f",
-    "rationale": "Verified every anchor against the backlit oak-leaf photograph, retaining only visible anatomy, droplets, surface marks, insects, silk and twig details that can be pointed to precisely.",
+    "rationale": "Expanded the backlit oak leaf into five authored close-up crops and added only visible leaf anatomy, feeding damage, insect, web, bud and gall details.",
     "previousLabelCount": 56,
-    "retainedLabelCount": 31,
-    "removedLabelCount": 25,
+    "retainedLabelCount": 41,
+    "removedLabelCount": 15,
     "removedExamples": [
       "stomata",
       "stomatal pore",
@@ -575,6 +678,204 @@
       "y": 315,
       "width": 190,
       "height": 175
+    },
+    {
+      "id": "verified-leaf-tip",
+      "description": "Pointed outer tip of the oak leaf",
+      "kind": "part",
+      "x": 1440,
+      "y": 390,
+      "width": 150,
+      "height": 140
+    },
+    {
+      "id": "verified-leaf-base",
+      "description": "Leaf base where the blade meets the petiole",
+      "kind": "part",
+      "x": 350,
+      "y": 455,
+      "width": 125,
+      "height": 120
+    },
+    {
+      "id": "verified-leaf-surface",
+      "description": "Broad illuminated surface of the leaf blade",
+      "kind": "part",
+      "x": 760,
+      "y": 300,
+      "width": 290,
+      "height": 250
+    },
+    {
+      "id": "verified-egg-row",
+      "description": "Orderly row of yellow insect eggs on the leaf",
+      "kind": "part",
+      "x": 1050,
+      "y": 135,
+      "width": 190,
+      "height": 80
+    },
+    {
+      "id": "verified-caterpillar-segment",
+      "description": "Repeated body segments of the green caterpillar",
+      "kind": "part",
+      "x": 1195,
+      "y": 165,
+      "width": 145,
+      "height": 80
+    },
+    {
+      "id": "verified-ladybird-elytron",
+      "description": "Red spotted hardened wing case of the ladybird",
+      "kind": "part",
+      "x": 445,
+      "y": 485,
+      "width": 95,
+      "height": 80
+    },
+    {
+      "id": "verified-spider-leg",
+      "description": "One of the long jointed legs of the hanging spider",
+      "kind": "part",
+      "x": 1190,
+      "y": 570,
+      "width": 120,
+      "height": 130
+    },
+    {
+      "id": "verified-twig-bark",
+      "description": "Textured bark covering the supporting twig",
+      "kind": "part",
+      "x": 120,
+      "y": 550,
+      "width": 230,
+      "height": 210
+    },
+    {
+      "id": "verified-bud-scale",
+      "description": "Overlapping protective scales on the brown bud",
+      "kind": "part",
+      "x": 105,
+      "y": 345,
+      "width": 75,
+      "height": 105
+    },
+    {
+      "id": "verified-gall-surface",
+      "description": "Rough patterned surface of the spherical oak gall",
+      "kind": "part",
+      "x": 540,
+      "y": 180,
+      "width": 95,
+      "height": 95
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "twig-and-buds",
+      "title": "Twig and buds",
+      "translation": "枝条与芽",
+      "description": "Supporting twig, petiole, young leaves, buds and the lower acorn structures",
+      "x": 0,
+      "y": 150,
+      "width": 560,
+      "height": 750,
+      "targetScale": 2.4,
+      "labelIds": [
+        "petiole",
+        "twig",
+        "bud",
+        "acorn-cup",
+        "acorn",
+        "young-leaf",
+        "leaf-base",
+        "twig-bark",
+        "bud-scale"
+      ]
+    },
+    {
+      "id": "left-leaf-life",
+      "title": "Leaf life",
+      "translation": "叶片生物",
+      "description": "Ladybird, aphids, gall and leaf marks on the illuminated left half of the blade",
+      "x": 350,
+      "y": 80,
+      "width": 520,
+      "height": 620,
+      "targetScale": 2.55,
+      "labelIds": [
+        "leaf",
+        "leaf-blade",
+        "midrib",
+        "ladybird",
+        "aphid",
+        "oak-gall",
+        "leaf-spot",
+        "ladybird-elytron",
+        "gall-surface"
+      ]
+    },
+    {
+      "id": "eggs-and-caterpillar",
+      "title": "Eggs and caterpillar",
+      "translation": "虫卵与毛虫",
+      "description": "Caterpillar, egg row, veins and droplets along the upper-right leaf lobes",
+      "x": 700,
+      "y": 50,
+      "width": 900,
+      "height": 400,
+      "targetScale": 2.65,
+      "labelIds": [
+        "vein",
+        "vein-network",
+        "caterpillar",
+        "insect-egg",
+        "dew-drop",
+        "water-bead",
+        "egg-row",
+        "caterpillar-segment",
+        "leaf-sinus"
+      ]
+    },
+    {
+      "id": "margin-and-web",
+      "title": "Margin and web",
+      "translation": "叶缘与蛛网",
+      "description": "Leaf outline, feeding damage, curled underside, spider and silk on the right edge",
+      "x": 800,
+      "y": 250,
+      "width": 800,
+      "height": 520,
+      "targetScale": 2.7,
+      "labelIds": [
+        "leaf-margin",
+        "lobe",
+        "spider",
+        "leaf-curl",
+        "leaf-underside",
+        "spider-silk",
+        "chewed-edge",
+        "leaf-tip",
+        "spider-leg"
+      ]
+    },
+    {
+      "id": "vein-microscopy",
+      "title": "Vein network",
+      "translation": "叶脉网络",
+      "description": "Secondary and tertiary veins, fine veinlets and the cellular-looking surface texture",
+      "x": 650,
+      "y": 180,
+      "width": 750,
+      "height": 500,
+      "targetScale": 3.1,
+      "labelIds": [
+        "secondary-vein",
+        "tertiary-vein",
+        "cellular-pattern",
+        "veinlet",
+        "leaf-surface"
+      ]
     }
   ]
 }

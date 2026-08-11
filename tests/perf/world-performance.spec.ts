@@ -336,13 +336,36 @@ test("the lexical world searches 44 shards without duplicate requests or an unbo
   await page.getByRole("button", { name: "打开 10 个视觉领域、758 个分层入口和 10,000 个词" }).click();
   const dialog = page.getByRole("dialog", { name: "一万个词的分层探索世界" });
   await expect(dialog).toBeVisible();
-  const overviewStats = dialog.locator(".lexical-world__overview-stats");
-  await expect(overviewStats).toContainText(/10\s*领域/);
-  await expect(overviewStats).toContainText(/44\s*主题/);
-  await expect(overviewStats).toContainText(/704\s*词群/);
-  await expect(overviewStats).toContainText(/10,000\s*未探索/);
+  const field = dialog.getByTestId("semantic-zoom-field");
+  await expect(field).toHaveAttribute("data-level", "realm");
+  await expect(field).toHaveAttribute("aria-busy", "false");
+  const realmNodes = field.locator('[data-testid="semantic-zoom-node"][data-level="realm"]');
+  await expect(realmNodes).toHaveCount(10);
+  expect(await realmNodes.evaluateAll((nodes) => nodes.reduce(
+    (sum, node) => sum + Number((node as HTMLElement).dataset.count),
+    0,
+  ))).toBe(10_000);
 
-  const search = page.getByPlaceholder("搜索 10,000 个词，直接抵达…");
+  await field.locator(
+    '[data-testid="semantic-zoom-node"][data-level="realm"][data-id="qualities-states"]',
+  ).click();
+  await expect(field).toHaveAttribute("data-level", "topic");
+  await field.locator(
+    '[data-testid="semantic-zoom-node"][data-level="topic"][data-id="qualities"]',
+  ).click();
+  await expect(field).toHaveAttribute("data-level", "subcluster");
+  const largeLeaf = field.locator(
+    '[data-testid="semantic-zoom-node"][data-level="subcluster"][data-id="qualities--general-all"]',
+  );
+  await expect(largeLeaf).toHaveAttribute("data-count", "1013");
+  await largeLeaf.click();
+  await expect(field).toHaveAttribute("data-level", "word");
+  const wordNodes = field.locator('[data-testid="semantic-zoom-node"][data-level="word"]');
+  await expect.poll(() => wordNodes.count()).toBeGreaterThan(0);
+  expect(await wordNodes.count()).toBeLessThanOrEqual(80);
+  await expect(field).toHaveAttribute("data-live-count", /^(?:[1-9]|[1-7]\d|80)$/);
+
+  const search = page.getByPlaceholder("搜索 10,000 个词…");
   await search.fill("just");
   const result = dialog.locator(".lexical-world__results li").first();
   await expect(result.locator("strong")).toHaveText(/^just$/i);
@@ -351,27 +374,21 @@ test("the lexical world searches 44 shards without duplicate requests or an unbo
     { timeout: 15_000 },
   ).toBe(44);
   await result.getByRole("button").click();
-  await expect(dialog.locator(".lexical-world__scene")).toHaveAttribute("data-level", "subcluster");
-
-  const wordScroll = dialog.locator(".lexical-world__word-scroll");
-  await expect(wordScroll).toHaveAttribute("data-label-budget", "80");
-  await wordScroll.evaluate((element) => {
-    element.scrollTop = element.scrollHeight;
-    element.dispatchEvent(new Event("scroll", { bubbles: true }));
-  });
+  await expect(field).toHaveAttribute("data-level", "word");
+  await expect(dialog.getByRole("complementary", { name: /just 词汇详情/i })).toBeVisible();
   await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
 
   const metrics = await sampler.stop();
   const liveDomNodes = await page.evaluate(() => document.querySelectorAll("*").length);
   const lexicalDomNodes = await dialog.locator("*").count();
-  const activeWordCards = await dialog.locator(".lexical-world__word-grid > button").count();
+  const activeWordNodes = await wordNodes.count();
   const longTasks = await page.evaluate(() => window.__WORLD_PERF__.longTasks);
   const lexicalSummary = {
     schemaVersion: 1,
     entryCount: 10_000,
     liveDomNodes,
     lexicalDomNodes,
-    activeWordCards,
+    activeWordNodes,
     requestedFiles: [...new Set(requestedData)].length,
     requestedTopicShards: [...new Set(requestedTopicShards)].length,
     duplicateRequests: requestedData.length - new Set(requestedData).size,
@@ -388,8 +405,8 @@ test("the lexical world searches 44 shards without duplicate requests or an unbo
   );
 
   expect(lexicalSummary.requestedTopicShards).toBe(44);
-  expect(lexicalSummary.activeWordCards).toBeGreaterThan(0);
-  expect(lexicalSummary.activeWordCards).toBeLessThanOrEqual(80);
+  expect(lexicalSummary.activeWordNodes).toBeGreaterThan(0);
+  expect(lexicalSummary.activeWordNodes).toBeLessThanOrEqual(80);
   expect(lexicalSummary.lexicalDomNodes).toBeLessThanOrEqual(450);
   expect(lexicalSummary.liveDomNodes).toBeLessThanOrEqual(900);
   expect(lexicalSummary.duplicateRequests).toBe(0);

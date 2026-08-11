@@ -295,7 +295,7 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/chloroplast-interior-premium-v2.jpg",
     "reviewedAssetSha256": "00cdd3ec0187bdf608fd5e6d62a983204290275abf54862d78f0dca7bbe81adb",
-    "rationale": "Re-anchored every term to a structure visibly resolved in the premium chloroplast cutaway: the double envelope, stroma, membrane stacks, connecting lamellae, starch grain, DNA loop and explicitly illustrated surface particles; unseen reactions and unpictured metabolites remain excluded.",
+    "rationale": "Expanded the reviewed chloroplast cutaway into four authored structural crops and added only visible membrane discs, connecting lamella and stromal particle details.",
     "previousLabelCount": 48,
     "retainedLabelCount": 28,
     "removedLabelCount": 20,
@@ -470,6 +470,88 @@
       "y": 240,
       "width": 485,
       "height": 390
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "envelope-detail",
+      "title": "Chloroplast envelope",
+      "translation": "叶绿体包膜",
+      "description": "Outer and inner membranes with the narrow intermembrane space between them",
+      "x": 1250,
+      "y": 0,
+      "width": 350,
+      "height": 280,
+      "targetScale": 2.75,
+      "labelIds": [
+        "double-membrane",
+        "outer-membrane",
+        "inner-membrane",
+        "intermembrane-space"
+      ]
+    },
+    {
+      "id": "grana-detail",
+      "title": "Grana and thylakoids",
+      "translation": "基粒与类囊体",
+      "description": "Multiple granum stacks, individual discs, rims, junctions and membrane proteins",
+      "x": 450,
+      "y": 100,
+      "width": 1000,
+      "height": 550,
+      "targetScale": 2.5,
+      "labelIds": [
+        "granum",
+        "thylakoid",
+        "grana",
+        "thylakoid-disc",
+        "thylakoid-stack",
+        "stacked-thylakoid",
+        "granum-top",
+        "granum-rim",
+        "thylakoid-membrane",
+        "thylakoid-lumen",
+        "atp-synthase",
+        "membrane-protein-complex"
+      ]
+    },
+    {
+      "id": "stroma-genetics-detail",
+      "title": "Stroma and genetic material",
+      "translation": "基质与遗传物质",
+      "description": "Stromal space, plastoglobules, DNA loop, ribosomes and connecting membrane lamellae",
+      "x": 500,
+      "y": 350,
+      "width": 600,
+      "height": 450,
+      "targetScale": 2.65,
+      "labelIds": [
+        "stroma-lamella",
+        "plastoglobule",
+        "chloroplast-dna",
+        "unstacked-thylakoid",
+        "thylakoid-junction",
+        "dna-loop",
+        "ribosome",
+        "stroma"
+      ]
+    },
+    {
+      "id": "light-and-starch-detail",
+      "title": "Light and starch",
+      "translation": "光线与淀粉",
+      "description": "Whole organelle context, incoming light and the large starch body at the left",
+      "x": 0,
+      "y": 0,
+      "width": 900,
+      "height": 750,
+      "targetScale": 2.35,
+      "labelIds": [
+        "chloroplast",
+        "starch-grain",
+        "sunlight-beam",
+        "starch-granule-surface"
+      ]
     }
   ]
 }

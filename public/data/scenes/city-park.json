@@ -16,7 +16,8 @@
       "y": 450,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "whole-park"
+      "sourceVisualRegion": "whole-park",
+      "lexemeId": "en-4d3971de62245c94"
     },
     {
       "id": "tree",
@@ -26,7 +27,8 @@
       "y": 280,
       "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "oak-tree"
+      "sourceVisualRegion": "oak-tree",
+      "lexemeId": "en-dc9c5edb8b2d479e"
     },
     {
       "id": "pond",
@@ -36,7 +38,8 @@
       "y": 720,
       "priority": 1.002,
       "minLevel": 0,
-      "sourceVisualRegion": "pond"
+      "sourceVisualRegion": "pond",
+      "lexemeId": "en-4e7914b0df8068b7"
     },
     {
       "id": "path",
@@ -56,7 +59,8 @@
       "y": 420,
       "priority": 1.004,
       "minLevel": 0,
-      "sourceVisualRegion": "playground"
+      "sourceVisualRegion": "playground",
+      "lexemeId": "en-f3cc87f78b21d53d"
     },
     {
       "id": "fountain",
@@ -66,7 +70,8 @@
       "y": 410,
       "priority": 1.005,
       "minLevel": 0,
-      "sourceVisualRegion": "fountain"
+      "sourceVisualRegion": "fountain",
+      "lexemeId": "en-f0be1f3062319157"
     },
     {
       "id": "bench",
@@ -76,7 +81,8 @@
       "y": 540,
       "priority": 1.006,
       "minLevel": 0,
-      "sourceVisualRegion": "park-bench"
+      "sourceVisualRegion": "park-bench",
+      "lexemeId": "en-1b32c28cb38c0548"
     },
     {
       "id": "flower",
@@ -86,7 +92,8 @@
       "y": 755,
       "priority": 2.007,
       "minLevel": 1,
-      "sourceVisualRegion": "flowers"
+      "sourceVisualRegion": "flowers",
+      "lexemeId": "en-c06b0cfe0cc5e900"
     },
     {
       "id": "duck",
@@ -96,7 +103,8 @@
       "y": 735,
       "priority": 2.008,
       "minLevel": 1,
-      "sourceVisualRegion": "ducks"
+      "sourceVisualRegion": "ducks",
+      "lexemeId": "en-2d2370db2447ff8c"
     },
     {
       "id": "squirrel",
@@ -126,7 +134,8 @@
       "y": 485,
       "priority": 2.011,
       "minLevel": 1,
-      "sourceVisualRegion": "tree-trunk"
+      "sourceVisualRegion": "tree-trunk",
+      "lexemeId": "en-3e341d2d9c67be01"
     },
     {
       "id": "bark",
@@ -136,7 +145,8 @@
       "y": 430,
       "priority": 2.012,
       "minLevel": 1,
-      "sourceVisualRegion": "tree-bark"
+      "sourceVisualRegion": "tree-bark",
+      "lexemeId": "en-14ea6507645c2ba7"
     },
     {
       "id": "tree-canopy",
@@ -226,7 +236,8 @@
       "y": 780,
       "priority": 4.021,
       "minLevel": 3,
-      "sourceVisualRegion": "rocks"
+      "sourceVisualRegion": "rocks",
+      "lexemeId": "en-350a770c0ec9f353"
     },
     {
       "id": "picnic",
@@ -256,7 +267,8 @@
       "y": 675,
       "priority": 5.024,
       "minLevel": 4,
-      "sourceVisualRegion": "foreground-bird"
+      "sourceVisualRegion": "foreground-bird",
+      "lexemeId": "en-7a5179eecc0fe187"
     },
     {
       "id": "skyline",
@@ -276,7 +288,122 @@
       "y": 650,
       "priority": 5.026,
       "minLevel": 4,
-      "sourceVisualRegion": "tree-roots"
+      "sourceVisualRegion": "tree-roots",
+      "lexemeId": "en-4813494d137e1631"
+    },
+    {
+      "id": "climbing-frame",
+      "word": "climbing frame",
+      "translation": "攀爬架",
+      "x": 310,
+      "y": 350,
+      "priority": 3.028,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-climbing-frame"
+    },
+    {
+      "id": "slide",
+      "word": "slide",
+      "translation": "滑梯",
+      "x": 185,
+      "y": 420,
+      "priority": 3.029,
+      "minLevel": 2,
+      "lexemeId": "en-b8a7e24e95497806",
+      "sourceVisualRegion": "verified-slide"
+    },
+    {
+      "id": "ladder",
+      "word": "ladder",
+      "translation": "攀爬梯",
+      "x": 255,
+      "y": 420,
+      "priority": 4.03,
+      "minLevel": 3,
+      "lexemeId": "en-5605a516a7ebf33b",
+      "sourceVisualRegion": "verified-ladder"
+    },
+    {
+      "id": "picnic-basket",
+      "word": "picnic basket",
+      "translation": "野餐篮",
+      "x": 325,
+      "y": 505,
+      "priority": 4.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-picnic-basket"
+    },
+    {
+      "id": "blanket",
+      "word": "blanket",
+      "translation": "野餐毯",
+      "x": 275,
+      "y": 530,
+      "priority": 4.032,
+      "minLevel": 3,
+      "lexemeId": "en-7cd0fc6ee61e2a57",
+      "sourceVisualRegion": "verified-blanket"
+    },
+    {
+      "id": "fountain-basin",
+      "word": "fountain basin",
+      "translation": "喷泉水池",
+      "x": 610,
+      "y": 445,
+      "priority": 3.033,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-fountain-basin"
+    },
+    {
+      "id": "water-jet",
+      "word": "water jet",
+      "translation": "喷水柱",
+      "x": 610,
+      "y": 350,
+      "priority": 4.034,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-water-jet"
+    },
+    {
+      "id": "bridge-rail",
+      "word": "bridge rail",
+      "translation": "桥栏杆",
+      "x": 445,
+      "y": 585,
+      "priority": 4.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bridge-rail"
+    },
+    {
+      "id": "daisy",
+      "word": "daisy",
+      "translation": "雏菊",
+      "x": 1160,
+      "y": 790,
+      "priority": 5.036,
+      "minLevel": 4,
+      "lexemeId": "en-42029ef215256f8f",
+      "sourceVisualRegion": "verified-daisy"
+    },
+    {
+      "id": "tree-hollow",
+      "word": "tree hollow",
+      "translation": "树洞",
+      "x": 1320,
+      "y": 455,
+      "priority": 5.038,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-tree-hollow"
+    },
+    {
+      "id": "duckling",
+      "word": "duckling",
+      "translation": "小鸭",
+      "x": 110,
+      "y": 790,
+      "priority": 5.039,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-duckling"
     }
   ],
   "portals": [
@@ -309,10 +436,11 @@
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/city-park-premium.jpg",
-    "rationale": "Re-anchored the photo to objects that are actually visible. Removed invented amenities, animals and activities such as sprinkler, barbecue, rabbit and skateboarding.",
+    "reviewedAssetSha256": "ff3f437984f5480d968caddbc2553c8846aabc4e99d23aecaabb93b9a503ce97",
+    "rationale": "Expanded the park photograph into five authored local crops and added only visible playground, picnic, fountain, pond, oak, path and planting details.",
     "previousLabelCount": 60,
-    "retainedLabelCount": 27,
-    "removedLabelCount": 33,
+    "retainedLabelCount": 38,
+    "removedLabelCount": 22,
     "removedExamples": [
       "sprinkler",
       "barbecue",
@@ -565,6 +693,207 @@
       "y": 80,
       "width": 450,
       "height": 170
+    },
+    {
+      "id": "verified-climbing-frame",
+      "description": "Elevated playground climbing frame with rails and platforms",
+      "kind": "object",
+      "x": 220,
+      "y": 260,
+      "width": 190,
+      "height": 190
+    },
+    {
+      "id": "verified-slide",
+      "description": "Curved playground slide at the upper left",
+      "kind": "object",
+      "x": 125,
+      "y": 300,
+      "width": 130,
+      "height": 180
+    },
+    {
+      "id": "verified-ladder",
+      "description": "Vertical playground climbing ladder beside the slide",
+      "kind": "object",
+      "x": 215,
+      "y": 355,
+      "width": 95,
+      "height": 125
+    },
+    {
+      "id": "verified-picnic-basket",
+      "description": "Woven picnic basket on the lawn",
+      "kind": "object",
+      "x": 285,
+      "y": 465,
+      "width": 85,
+      "height": 75
+    },
+    {
+      "id": "verified-blanket",
+      "description": "Picnic blanket spread across the lawn",
+      "kind": "object",
+      "x": 205,
+      "y": 495,
+      "width": 150,
+      "height": 75
+    },
+    {
+      "id": "verified-fountain-basin",
+      "description": "Lower circular basin of the tiered fountain",
+      "kind": "object",
+      "x": 520,
+      "y": 380,
+      "width": 190,
+      "height": 110
+    },
+    {
+      "id": "verified-water-jet",
+      "description": "Vertical jet of water rising from the fountain",
+      "kind": "object",
+      "x": 575,
+      "y": 285,
+      "width": 70,
+      "height": 135
+    },
+    {
+      "id": "verified-bridge-rail",
+      "description": "Curved wooden handrail along the footbridge",
+      "kind": "object",
+      "x": 315,
+      "y": 520,
+      "width": 265,
+      "height": 105
+    },
+    {
+      "id": "verified-daisy",
+      "description": "White daisies in the foreground flower bed",
+      "kind": "object",
+      "x": 1080,
+      "y": 720,
+      "width": 170,
+      "height": 130
+    },
+    {
+      "id": "verified-tree-hollow",
+      "description": "Large hollow opening through the oak trunk",
+      "kind": "object",
+      "x": 1260,
+      "y": 360,
+      "width": 150,
+      "height": 210
+    },
+    {
+      "id": "verified-duckling",
+      "description": "Small young duck swimming near the lily pads",
+      "kind": "object",
+      "x": 60,
+      "y": 745,
+      "width": 100,
+      "height": 90
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "play-and-picnic",
+      "title": "Play and picnic",
+      "translation": "游乐与野餐",
+      "description": "Playground structures, open lawn and the complete picnic setup on the west side",
+      "x": 0,
+      "y": 160,
+      "width": 500,
+      "height": 440,
+      "targetScale": 2.45,
+      "labelIds": [
+        "playground",
+        "picnic",
+        "climbing-frame",
+        "slide",
+        "ladder",
+        "picnic-basket",
+        "blanket"
+      ]
+    },
+    {
+      "id": "pond-and-bridge",
+      "title": "Pond and bridge",
+      "translation": "池塘与木桥",
+      "description": "Duck pond, planted water edge, lily pads, rocks and the small wooden bridge",
+      "x": 0,
+      "y": 500,
+      "width": 620,
+      "height": 400,
+      "targetScale": 2.35,
+      "labelIds": [
+        "pond",
+        "duck",
+        "wooden-bridge",
+        "pond-edge",
+        "lily-pad",
+        "rock",
+        "duckling",
+        "bridge-rail"
+      ]
+    },
+    {
+      "id": "fountain-garden",
+      "title": "Fountain garden",
+      "translation": "喷泉花园",
+      "description": "Tiered fountain, nearby bench, lamp and planted beds in the middle distance",
+      "x": 420,
+      "y": 200,
+      "width": 500,
+      "height": 420,
+      "targetScale": 2.55,
+      "labelIds": [
+        "fountain",
+        "bench",
+        "lamp-post",
+        "flower-bed",
+        "fountain-basin",
+        "water-jet"
+      ]
+    },
+    {
+      "id": "ancient-oak",
+      "title": "Ancient oak",
+      "translation": "古老橡树",
+      "description": "The dominant oak canopy, branches, trunk textures, wildlife, roots and hollow",
+      "x": 850,
+      "y": 0,
+      "width": 700,
+      "height": 720,
+      "targetScale": 2.25,
+      "labelIds": [
+        "tree",
+        "squirrel",
+        "branch",
+        "trunk",
+        "bark",
+        "tree-canopy",
+        "bird",
+        "root",
+        "tree-hollow"
+      ]
+    },
+    {
+      "id": "paths-and-flowers",
+      "title": "Paths and flowers",
+      "translation": "小径与花丛",
+      "description": "Central and woodland paths bordered by dense flowers, ferns and paving details",
+      "x": 450,
+      "y": 430,
+      "width": 1150,
+      "height": 470,
+      "targetScale": 2.6,
+      "labelIds": [
+        "path",
+        "flower",
+        "stone-path",
+        "fern",
+        "daisy"
+      ]
     }
   ]
 }

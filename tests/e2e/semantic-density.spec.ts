@@ -1,8 +1,13 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import {
+  LEXICAL_WORLD_OVERVIEW_IMAGE,
+  lexicalWorldRealmTiles,
+} from "../../app/lib/lexical-world-visuals";
 
 const ENTRY_LABEL = "打开 10 个视觉领域、758 个分层入口和 10,000 个词";
 const DIALOG_LABEL = "一万个词的分层探索世界";
-const SEARCH_PLACEHOLDER = "搜索 10,000 个词，直接抵达…";
+const SEARCH_PLACEHOLDER = "搜索 10,000 个词…";
+const SEMANTIC_NODE = '[data-testid="semantic-zoom-node"]';
 
 async function openLexicalWorld(page: Page): Promise<Locator> {
   await page.goto("/#world", { waitUntil: "domcontentloaded" });
@@ -11,7 +16,10 @@ async function openLexicalWorld(page: Page): Promise<Locator> {
   await page.getByRole("button", { name: ENTRY_LABEL }).click();
   const dialog = page.getByRole("dialog", { name: DIALOG_LABEL });
   await expect(dialog).toBeVisible();
-  await expect(dialog.locator(".lexical-world__overview")).toBeVisible();
+  const field = dialog.getByTestId("semantic-zoom-field");
+  await expect(field).toBeVisible();
+  await expect(field).toHaveAttribute("data-level", "realm");
+  await expect(field).toHaveAttribute("aria-busy", "false");
   await expect(page.locator(".app-header")).toHaveAttribute("aria-hidden", "true");
   await expect(page.locator(".world-stage")).toHaveAttribute("aria-hidden", "true");
   expect(await page.locator(".app-header").evaluate((element) => (element as HTMLElement).inert)).toBe(true);
@@ -19,69 +27,180 @@ async function openLexicalWorld(page: Page): Promise<Locator> {
   return dialog;
 }
 
-function countFromEntryLabel(label: string | null): number {
-  const match = label?.match(/，([\d,]+) 个词，/);
-  if (!match) throw new Error(`Unable to read the leaf count from: ${label ?? "<missing>"}`);
-  return Number(match[1].replaceAll(",", ""));
+async function lexicalReachability(page: Page) {
+  return page.evaluate(async () => {
+    type Link = { id: string; path: string; count: number; childrenCount: number };
+    type Realm = { id: string; count: number; children: Link[] };
+    type Leaf = { id: string; count: number; children: string[] };
+    type Topic = {
+      id: string;
+      count: number;
+      children: Leaf[];
+      semanticShard: { path: string; count: number };
+    };
+    type SemanticShard = { nodes: Array<{ id: string }> };
+    type Manifest = {
+      count: number;
+      children: Link[];
+      stats: {
+        realms: number;
+        topics: number;
+        subclusters: number;
+        nodes: number;
+        emptySubclusters: number;
+      };
+    };
+    const read = async <T,>(path: string): Promise<T> => {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error(`${path} returned ${response.status}`);
+      return response.json() as Promise<T>;
+    };
+
+    const manifest = await read<Manifest>("/data/lexical-world/manifest.json");
+    const realms = await Promise.all(manifest.children.map(({ path }) => read<Realm>(path)));
+    const topicLinks = realms.flatMap(({ children }) => children);
+    const topics = await Promise.all(topicLinks.map(({ path }) => read<Topic>(path)));
+    const leaves = topics.flatMap(({ children }) => children);
+    const shardPaths = [...new Set(topics.map(({ semanticShard }) => semanticShard.path))];
+    const shards = await Promise.all(shardPaths.map((path) => read<SemanticShard>(path)));
+    const reachableIds = leaves.flatMap(({ children }) => children);
+    const semanticIds = shards.flatMap(({ nodes }) => nodes.map(({ id }) => id));
+    const reachableSet = new Set(reachableIds);
+    const semanticSet = new Set(semanticIds);
+
+    return {
+      manifestCount: manifest.count,
+      manifestStats: manifest.stats,
+      realms: realms.length,
+      topics: topics.length,
+      subclusters: leaves.length,
+      shards: shardPaths.length,
+      realmCount: manifest.children.reduce((sum, { count }) => sum + count, 0),
+      topicCount: topicLinks.reduce((sum, { count }) => sum + count, 0),
+      leafCount: leaves.reduce((sum, { count }) => sum + count, 0),
+      reachableReferences: reachableIds.length,
+      uniqueReachableWords: reachableSet.size,
+      semanticWords: semanticIds.length,
+      uniqueSemanticWords: semanticSet.size,
+      setsMatch: reachableIds.every((id) => semanticSet.has(id))
+        && semanticIds.every((id) => reachableSet.has(id)),
+    };
+  });
 }
 
 test("the lexical world accounts for 10,000 words and reaches every word in a leaf", async ({ page }, testInfo) => {
   const dialog = await openLexicalWorld(page);
-  const scene = dialog.locator(".lexical-world__scene");
-  const overviewStats = dialog.locator(".lexical-world__overview-stats");
+  const field = dialog.getByTestId("semantic-zoom-field");
+  const reachability = await lexicalReachability(page);
+  expect(reachability).toEqual({
+    manifestCount: 10_000,
+    manifestStats: {
+      realms: 10,
+      topics: 44,
+      subclusters: 704,
+      nodes: 10_000,
+      emptySubclusters: 0,
+    },
+    realms: 10,
+    topics: 44,
+    subclusters: 704,
+    shards: 44,
+    realmCount: 10_000,
+    topicCount: 10_000,
+    leafCount: 10_000,
+    reachableReferences: 10_000,
+    uniqueReachableWords: 10_000,
+    semanticWords: 10_000,
+    uniqueSemanticWords: 10_000,
+    setsMatch: true,
+  });
 
-  await expect(overviewStats).toContainText(/10\s*领域/);
-  await expect(overviewStats).toContainText(/44\s*主题/);
-  await expect(overviewStats).toContainText(/704\s*词群/);
-  await expect(overviewStats).toContainText(/10,000\s*未探索/);
-  await expect(dialog.locator(".lexical-world__level-card--realm")).toHaveCount(10);
+  const realmNodes = field.locator(`${SEMANTIC_NODE}[data-level="realm"]`);
+  await expect(realmNodes).toHaveCount(10);
+  const realmCounts = await realmNodes.evaluateAll((nodes) => (
+    nodes.map((node) => Number((node as HTMLElement).dataset.count))
+  ));
+  expect(realmCounts.reduce((sum, count) => sum + count, 0)).toBe(10_000);
 
-  await dialog.locator(".lexical-world__level-card--realm").first().click();
-  await expect(scene).toHaveAttribute("data-level", "realm");
-  const topic = dialog.locator(".lexical-world__level-card--topic").first();
-  await expect(topic).toBeVisible();
-  await topic.click();
-
-  await expect(scene).toHaveAttribute("data-level", "topic");
-  const subcluster = dialog.locator(".lexical-world__level-card--subcluster").first();
-  await expect(subcluster).toBeVisible();
-  const leafWordCount = countFromEntryLabel(await subcluster.getAttribute("aria-label"));
+  const realm = realmNodes.first();
+  await realm.focus();
+  await realm.press("Enter");
+  await expect(field).toHaveAttribute("data-level", "topic");
+  const topic = field.locator(`${SEMANTIC_NODE}[data-level="topic"]:focus`);
+  await expect(topic).toHaveCount(1);
+  await topic.press("Enter");
+  await expect(field).toHaveAttribute("data-level", "subcluster");
+  const subcluster = field.locator(`${SEMANTIC_NODE}[data-level="subcluster"]:focus`);
+  await expect(subcluster).toHaveCount(1);
+  const leafWordCount = Number(await subcluster.getAttribute("data-count"));
   expect(leafWordCount).toBeGreaterThan(0);
-  await subcluster.click();
-
-  await expect(scene).toHaveAttribute("data-level", "subcluster");
-  const wordField = dialog.locator(".lexical-world__word-field");
-  const wordScroll = dialog.locator(".lexical-world__word-scroll");
-  await expect(wordField).toBeVisible();
-  await expect(wordField.locator(".lexical-world__word-toolbar strong")).toHaveText(
-    leafWordCount.toLocaleString("en-US"),
-  );
-  await expect(wordScroll).toHaveAttribute(
-    "aria-label",
-    new RegExp(`共 ${leafWordCount.toLocaleString("en-US")} 个`),
-  );
+  await subcluster.press("Enter");
+  await expect(field).toHaveAttribute("data-level", "word");
 
   const expectedBudget = testInfo.project.name === "mobile-chromium" ? 40 : 80;
-  await expect(wordScroll).toHaveAttribute("data-label-budget", String(expectedBudget));
-  const activeWordCards = dialog.locator(".lexical-world__word-grid > button");
-  await expect.poll(() => activeWordCards.count()).toBeGreaterThan(0);
-  expect(await activeWordCards.count()).toBeLessThanOrEqual(expectedBudget);
-  expect(Number(await wordScroll.getAttribute("data-active-labels"))).toBe(
-    await activeWordCards.count(),
-  );
-
-  await wordScroll.evaluate((element) => {
-    element.scrollTop = element.scrollHeight;
-    element.dispatchEvent(new Event("scroll", { bubbles: true }));
-  });
-  await expect(dialog.locator(".lexical-world__word-range span").first()).toContainText(
-    new RegExp(`–${leafWordCount} / ${leafWordCount}`),
-  );
+  const activeWordNodes = field.locator(`${SEMANTIC_NODE}[data-level="word"]`);
+  await expect.poll(() => activeWordNodes.count()).toBeGreaterThan(0);
+  const activeWordCount = await activeWordNodes.count();
+  expect(activeWordCount).toBeLessThanOrEqual(Math.min(leafWordCount, expectedBudget));
+  expect(Number(await field.getAttribute("data-live-count"))).toBe(activeWordCount);
+  await expect(field.locator(`${SEMANTIC_NODE}[data-level="word"]:focus`)).toHaveCount(1);
   await expect(dialog.locator("canvas")).toHaveCount(0);
 });
 
-test("searching coffee jumps to its complete path and reveals Chinese only in details", async ({ page }) => {
+test("the ten realm nodes reveal ten distinct successfully loaded realm tiles", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === "mobile-chromium");
+  // This is an asset-mapping audit, not a camera-motion test. Keep the realm
+  // targets stationary so a reset animation cannot move a button between
+  // pointer down and pointer up while iterating over all ten tiles.
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const realmResponses = new Map<string, number>();
+  page.on("response", (response) => {
+    const pathname = new URL(response.url()).pathname;
+    if (/^\/scenes\/lexical-realm-.+-v2\.jpg$/.test(pathname)) {
+      realmResponses.set(pathname, response.status());
+    }
+  });
+
   const dialog = await openLexicalWorld(page);
+  const field = dialog.getByTestId("semantic-zoom-field");
+  const overview = field.getByTestId("semantic-zoom-overview");
+  await expect(overview).toHaveAttribute("src", LEXICAL_WORLD_OVERVIEW_IMAGE);
+  await expect.poll(() => overview.evaluate((image: HTMLImageElement) => (
+    image.complete && image.naturalWidth === 1600 && image.naturalHeight === 900
+  ))).toBe(true);
+
+  const tiles = lexicalWorldRealmTiles();
+  for (const tile of tiles) {
+    await field.locator(`${SEMANTIC_NODE}[data-level="realm"][data-id="${tile.realmId}"]`).click();
+    await expect(field).toHaveAttribute("data-active-realm", tile.realmId);
+    await expect(field).toHaveAttribute("data-active-asset", tile.asset);
+    const runtimeTile = field.locator(`[data-testid="semantic-realm-tile"][data-realm="${tile.realmId}"]`);
+    await expect(runtimeTile).toHaveCount(1);
+    await expect(runtimeTile).toHaveAttribute("data-asset", tile.asset);
+    const image = runtimeTile.locator("img");
+    await expect(image).toHaveAttribute("src", tile.asset);
+    await expect.poll(() => image.evaluate((element: HTMLImageElement) => (
+      element.complete && element.naturalWidth === 1600 && element.naturalHeight === 900
+    ))).toBe(true);
+    await field.getByTestId("semantic-zoom-reset").click();
+    await expect(field).toHaveAttribute("data-level", "realm");
+    await expect(field).not.toHaveAttribute("data-active-realm", /.+/);
+    await expect(field.getByTestId("semantic-realm-tile")).toHaveCount(0);
+  }
+
+  const assets = tiles.map(({ asset }) => asset);
+  expect(new Set(assets).size).toBe(10);
+  await expect.poll(
+    () => realmResponses.size,
+    { message: "all ten active realm tiles must finish loading" },
+  ).toBe(10);
+  expect([...realmResponses.keys()].sort()).toEqual([...assets].sort());
+  expect([...realmResponses.values()]).toEqual(Array.from({ length: 10 }, () => 200));
+});
+
+test("searching coffee opens its word detail and keeps map meanings off", async ({ page }) => {
+  const dialog = await openLexicalWorld(page);
+  const field = dialog.getByTestId("semantic-zoom-field");
   const search = page.getByPlaceholder(SEARCH_PLACEHOLDER);
   await search.fill("coffee");
 
@@ -89,8 +208,7 @@ test("searching coffee jumps to its complete path and reveals Chinese only in de
   await expect(result).toContainText(/coffee/i);
   await result.getByRole("button").click();
 
-  await expect(dialog.locator(".lexical-world__scene")).toHaveAttribute("data-level", "subcluster");
-  await expect(dialog.locator(".lexical-world__breadcrumbs > span")).toHaveCount(4);
+  await expect(field).toHaveAttribute("data-level", "realm");
   const detail = dialog.getByRole("complementary", { name: /coffee 词汇详情/i });
   await expect(detail).toBeVisible();
   await expect(detail).toContainText(/coffee/i);
@@ -99,7 +217,36 @@ test("searching coffee jumps to its complete path and reveals Chinese only in de
 
   await expect(page.getByTestId("meaning-toggle")).toHaveAttribute("aria-pressed", "false");
   await expect(dialog.getByRole("button", { name: "释义 关" })).toHaveAttribute("aria-pressed", "false");
-  await expect(dialog.locator(".lexical-world__word-grid em")).toHaveCount(0);
+  await expect(field.locator(".semantic-zoom-field__node > span:not(.semantic-zoom-field__node-dot)")).toHaveCount(0);
+});
+
+test("a failed semantic shard search clears its spinner and leaves exploration usable", async ({ page }) => {
+  let rejectedShard = false;
+  await page.route("**/data/semantic/topics/*.json", async (route) => {
+    if (rejectedShard) {
+      await route.continue();
+      return;
+    }
+    rejectedShard = true;
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    await route.fulfill({ status: 500, contentType: "application/json", body: "{}" });
+  });
+
+  const dialog = await openLexicalWorld(page);
+  const field = dialog.getByTestId("semantic-zoom-field");
+  const search = page.getByPlaceholder(SEARCH_PLACEHOLDER);
+  await search.fill("coffee");
+  await expect(dialog.locator(".lexical-world__search-spinner")).toBeVisible();
+  await expect(dialog.locator(".lexical-world__search-spinner")).toHaveCount(0);
+  await expect(search).toHaveAttribute("aria-busy", "false");
+  await expect(dialog.locator(":scope > .lexical-world__sr-only[aria-live='polite']")).toHaveText(
+    "搜索暂时不可用，请稍后重试",
+  );
+
+  const realm = field.locator(`${SEMANTIC_NODE}[data-level="realm"]`).first();
+  await expect(realm).toBeEnabled();
+  await realm.click();
+  await expect(field).toHaveAttribute("data-level", "topic");
 });
 
 test("scene word labels remain native-size siblings of the zoomed artwork", async ({ page }) => {

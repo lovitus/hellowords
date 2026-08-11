@@ -16,7 +16,8 @@
       "y": 325,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-apartment"
+      "sourceVisualRegion": "verified-apartment",
+      "lexemeId": "en-6f347b04efac92cf"
     },
     {
       "id": "building",
@@ -26,7 +27,8 @@
       "y": 265,
       "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-building"
+      "sourceVisualRegion": "verified-building",
+      "lexemeId": "en-5167e9677e1fbc50"
     },
     {
       "id": "oak",
@@ -36,7 +38,8 @@
       "y": 285,
       "priority": 1.002,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-oak"
+      "sourceVisualRegion": "verified-oak",
+      "lexemeId": "en-df877645404747cb"
     },
     {
       "id": "street",
@@ -46,7 +49,8 @@
       "y": 500,
       "priority": 1.003,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-street"
+      "sourceVisualRegion": "verified-street",
+      "lexemeId": "en-6008c26f4452392a"
     },
     {
       "id": "station",
@@ -56,7 +60,8 @@
       "y": 425,
       "priority": 1.004,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-station"
+      "sourceVisualRegion": "verified-station",
+      "lexemeId": "en-9b4ef3e5b7b4d175"
     },
     {
       "id": "pond",
@@ -66,7 +71,8 @@
       "y": 580,
       "priority": 1.005,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-pond"
+      "sourceVisualRegion": "verified-pond",
+      "lexemeId": "en-4e7914b0df8068b7"
     },
     {
       "id": "bus",
@@ -76,7 +82,8 @@
       "y": 460,
       "priority": 1.006,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-bus"
+      "sourceVisualRegion": "verified-bus",
+      "lexemeId": "en-04e027e4990a203f"
     },
     {
       "id": "crosswalk",
@@ -106,7 +113,8 @@
       "y": 275,
       "priority": 2.009,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-balcony"
+      "sourceVisualRegion": "verified-balcony",
+      "lexemeId": "en-4095f603052daa79"
     },
     {
       "id": "bedroom",
@@ -116,7 +124,8 @@
       "y": 370,
       "priority": 2.01,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-bedroom"
+      "sourceVisualRegion": "verified-bedroom",
+      "lexemeId": "en-a05e6feb79c85416"
     },
     {
       "id": "kitchen",
@@ -126,7 +135,8 @@
       "y": 285,
       "priority": 2.011,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-kitchen"
+      "sourceVisualRegion": "verified-kitchen",
+      "lexemeId": "en-3171d89ad00530ff"
     },
     {
       "id": "garden",
@@ -136,7 +146,8 @@
       "y": 565,
       "priority": 2.012,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-garden"
+      "sourceVisualRegion": "verified-garden",
+      "lexemeId": "en-23eeb69c681dfdb8"
     },
     {
       "id": "shop",
@@ -146,7 +157,8 @@
       "y": 345,
       "priority": 2.013,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-shop"
+      "sourceVisualRegion": "verified-shop",
+      "lexemeId": "en-8d9001d32c6a703d"
     },
     {
       "id": "restaurant",
@@ -156,7 +168,8 @@
       "y": 365,
       "priority": 2.014,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-restaurant"
+      "sourceVisualRegion": "verified-restaurant",
+      "lexemeId": "en-ee275d64dafcd283"
     },
     {
       "id": "pedestrian",
@@ -176,7 +189,8 @@
       "y": 660,
       "priority": 2.016,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-greenhouse"
+      "sourceVisualRegion": "verified-greenhouse",
+      "lexemeId": "en-f300f10844ecfc75"
     },
     {
       "id": "bridge",
@@ -186,7 +200,8 @@
       "y": 145,
       "priority": 2.017,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-bridge"
+      "sourceVisualRegion": "verified-bridge",
+      "lexemeId": "en-17f29b073143d8cd"
     },
     {
       "id": "river",
@@ -196,7 +211,8 @@
       "y": 170,
       "priority": 2.018,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-river"
+      "sourceVisualRegion": "verified-river",
+      "lexemeId": "en-5f5a8ed8f139be6d"
     },
     {
       "id": "mountain",
@@ -206,7 +222,8 @@
       "y": 65,
       "priority": 2.019,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-mountain"
+      "sourceVisualRegion": "verified-mountain",
+      "lexemeId": "en-3b80d38f7686a8b5"
     },
     {
       "id": "deer",
@@ -216,7 +233,8 @@
       "y": 755,
       "priority": 3.02,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-deer"
+      "sourceVisualRegion": "verified-deer",
+      "lexemeId": "en-acf5bfd986de639d"
     },
     {
       "id": "bird",
@@ -226,7 +244,8 @@
       "y": 565,
       "priority": 3.021,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-bird"
+      "sourceVisualRegion": "verified-bird",
+      "lexemeId": "en-7a5179eecc0fe187"
     },
     {
       "id": "hill",
@@ -236,7 +255,8 @@
       "y": 105,
       "priority": 3.022,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-hill"
+      "sourceVisualRegion": "verified-hill",
+      "lexemeId": "en-f77fcbb21ddefc82"
     },
     {
       "id": "flower",
@@ -246,7 +266,8 @@
       "y": 690,
       "priority": 3.023,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-flower"
+      "sourceVisualRegion": "verified-flower",
+      "lexemeId": "en-c06b0cfe0cc5e900"
     },
     {
       "id": "roof",
@@ -256,7 +277,8 @@
       "y": 220,
       "priority": 3.024,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-roof"
+      "sourceVisualRegion": "verified-roof",
+      "lexemeId": "en-d1a0d6f4707493e5"
     },
     {
       "id": "forest",
@@ -266,7 +288,8 @@
       "y": 115,
       "priority": 3.025,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-forest"
+      "sourceVisualRegion": "verified-forest",
+      "lexemeId": "en-619a2ccf126ce837"
     },
     {
       "id": "tower",
@@ -276,7 +299,8 @@
       "y": 190,
       "priority": 3.026,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-tower"
+      "sourceVisualRegion": "verified-tower",
+      "lexemeId": "en-ad2015263f339bff"
     },
     {
       "id": "field",
@@ -286,7 +310,8 @@
       "y": 115,
       "priority": 4.027,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-field"
+      "sourceVisualRegion": "verified-field",
+      "lexemeId": "en-c0d2856b74d0df05"
     },
     {
       "id": "cloud",
@@ -296,7 +321,8 @@
       "y": 42,
       "priority": 4.028,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-cloud"
+      "sourceVisualRegion": "verified-cloud",
+      "lexemeId": "en-56681010b753e1ab"
     },
     {
       "id": "skyline",
@@ -316,7 +342,126 @@
       "y": 745,
       "priority": 5.03,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-bicycle"
+      "sourceVisualRegion": "verified-bicycle",
+      "lexemeId": "en-d29af8a2e160dd86"
+    },
+    {
+      "id": "chimney",
+      "word": "chimney",
+      "translation": "烟囱",
+      "x": 190,
+      "y": 205,
+      "priority": 3.031,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-chimney"
+    },
+    {
+      "id": "window",
+      "word": "window",
+      "translation": "窗户",
+      "x": 78,
+      "y": 332,
+      "priority": 3.032,
+      "minLevel": 2,
+      "lexemeId": "en-44ff7b02c80d38b2",
+      "sourceVisualRegion": "verified-window"
+    },
+    {
+      "id": "patio",
+      "word": "patio",
+      "translation": "露台",
+      "x": 495,
+      "y": 750,
+      "priority": 4.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-patio"
+    },
+    {
+      "id": "umbrella",
+      "word": "umbrella",
+      "translation": "遮阳伞",
+      "x": 500,
+      "y": 710,
+      "priority": 4.034,
+      "minLevel": 3,
+      "lexemeId": "en-2974744982f08b20",
+      "sourceVisualRegion": "verified-umbrella"
+    },
+    {
+      "id": "platform",
+      "word": "platform",
+      "translation": "站台",
+      "x": 885,
+      "y": 445,
+      "priority": 4.036,
+      "minLevel": 3,
+      "lexemeId": "en-d294fcce0cc88587",
+      "sourceVisualRegion": "verified-platform"
+    },
+    {
+      "id": "lawn",
+      "word": "lawn",
+      "translation": "草坪",
+      "x": 690,
+      "y": 630,
+      "priority": 4.037,
+      "minLevel": 3,
+      "lexemeId": "en-8b3e27a4d43770aa",
+      "sourceVisualRegion": "verified-lawn"
+    },
+    {
+      "id": "tree",
+      "word": "tree",
+      "translation": "树",
+      "x": 730,
+      "y": 590,
+      "priority": 5.038,
+      "minLevel": 4,
+      "lexemeId": "en-dc9c5edb8b2d479e",
+      "sourceVisualRegion": "verified-tree"
+    },
+    {
+      "id": "shed",
+      "word": "shed",
+      "translation": "园艺小屋",
+      "x": 1160,
+      "y": 735,
+      "priority": 5.039,
+      "minLevel": 4,
+      "lexemeId": "en-2f3c3e5cf3c63b64",
+      "sourceVisualRegion": "verified-shed"
+    },
+    {
+      "id": "fence",
+      "word": "fence",
+      "translation": "栅栏",
+      "x": 540,
+      "y": 565,
+      "priority": 5.04,
+      "minLevel": 4,
+      "lexemeId": "en-87346eb282352fda",
+      "sourceVisualRegion": "verified-fence"
+    },
+    {
+      "id": "table",
+      "word": "table",
+      "translation": "桌子",
+      "x": 514,
+      "y": 738,
+      "priority": 5.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-table"
+    },
+    {
+      "id": "chair",
+      "word": "chair",
+      "translation": "椅子",
+      "x": 535,
+      "y": 760,
+      "priority": 5.042,
+      "minLevel": 4,
+      "lexemeId": "en-3d7eb3d3dab17ee5",
+      "sourceVisualRegion": "verified-chair"
     }
   ],
   "portals": [
@@ -355,16 +500,29 @@
       "height": 710,
       "enterScale": 3.6,
       "sourceVisualRegion": "portal-nature"
+    },
+    {
+      "id": "enter-community-garden",
+      "label": "Enter the community garden",
+      "translation": "进入社区花园",
+      "childSceneId": "community-garden",
+      "x": 510,
+      "y": 600,
+      "width": 470,
+      "height": 285,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-community-garden"
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/world-map-premium.jpg",
-    "rationale": "Rebuilt every anchor from the premium overview image; removed geographic infrastructure and landmarks that are not present in the rendered world.",
+    "reviewedAssetSha256": "c12cf7a72fd5f001cd083a3928edc32f9429dcd624eb59464139643f6f43be1e",
+    "rationale": "Expanded the premium overview with authored local crops and additional anchors only for clearly visible architectural, transit, garden and landscape objects.",
     "previousLabelCount": 73,
-    "retainedLabelCount": 31,
-    "removedLabelCount": 42,
+    "retainedLabelCount": 42,
+    "removedLabelCount": 31,
     "removedExamples": [
       "railway",
       "harbor",
@@ -401,6 +559,15 @@
       "y": 110,
       "width": 550,
       "height": 710
+    },
+    {
+      "id": "portal-community-garden",
+      "description": "Lower-centre garden district with paths, beds and greenhouse",
+      "kind": "object",
+      "x": 510,
+      "y": 600,
+      "width": 470,
+      "height": 285
     },
     {
       "id": "verified-apartment",
@@ -680,6 +847,214 @@
       "y": 700,
       "width": 120,
       "height": 90
+    },
+    {
+      "id": "verified-chimney",
+      "description": "Brick chimney on the western apartment roof",
+      "kind": "object",
+      "x": 120,
+      "y": 175,
+      "width": 100,
+      "height": 85
+    },
+    {
+      "id": "verified-window",
+      "description": "Exterior apartment window on the western facade",
+      "kind": "object",
+      "x": 45,
+      "y": 285,
+      "width": 90,
+      "height": 105
+    },
+    {
+      "id": "verified-patio",
+      "description": "Outdoor paved dining patio beside the conservatory",
+      "kind": "object",
+      "x": 420,
+      "y": 690,
+      "width": 190,
+      "height": 130
+    },
+    {
+      "id": "verified-umbrella",
+      "description": "Round patio umbrella above the outdoor table",
+      "kind": "object",
+      "x": 460,
+      "y": 660,
+      "width": 90,
+      "height": 110
+    },
+    {
+      "id": "verified-platform",
+      "description": "Raised passenger platform beneath the station canopy",
+      "kind": "object",
+      "x": 780,
+      "y": 395,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "verified-lawn",
+      "description": "Open lawn between the path and greenhouse gardens",
+      "kind": "object",
+      "x": 610,
+      "y": 560,
+      "width": 180,
+      "height": 150
+    },
+    {
+      "id": "verified-tree",
+      "description": "Small deciduous tree beside the central garden path",
+      "kind": "object",
+      "x": 680,
+      "y": 500,
+      "width": 120,
+      "height": 180
+    },
+    {
+      "id": "verified-shed",
+      "description": "Small garden shed beside the water tank",
+      "kind": "object",
+      "x": 1100,
+      "y": 680,
+      "width": 125,
+      "height": 130
+    },
+    {
+      "id": "verified-fence",
+      "description": "Low wooden fence around the community garden",
+      "kind": "object",
+      "x": 440,
+      "y": 520,
+      "width": 220,
+      "height": 90
+    },
+    {
+      "id": "verified-table",
+      "description": "Outdoor dining table under the patio umbrella",
+      "kind": "object",
+      "x": 475,
+      "y": 710,
+      "width": 85,
+      "height": 65
+    },
+    {
+      "id": "verified-chair",
+      "description": "Outdoor chairs arranged around the patio table",
+      "kind": "object",
+      "x": 490,
+      "y": 730,
+      "width": 110,
+      "height": 70
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "western-homes",
+      "title": "Homes and patio",
+      "translation": "住宅与露台",
+      "description": "Apartment cutaways, rooftop details and the garden dining patio on the west side",
+      "x": 0,
+      "y": 170,
+      "width": 600,
+      "height": 700,
+      "targetScale": 2.4,
+      "labelIds": [
+        "apartment",
+        "balcony",
+        "bedroom",
+        "kitchen",
+        "roof",
+        "bicycle",
+        "chimney",
+        "window",
+        "patio",
+        "umbrella",
+        "table",
+        "chair"
+      ]
+    },
+    {
+      "id": "central-transit",
+      "title": "Town and transit",
+      "translation": "城镇与交通",
+      "description": "Central shops, station shelters, road traffic and pedestrian crossing infrastructure",
+      "x": 550,
+      "y": 140,
+      "width": 600,
+      "height": 480,
+      "targetScale": 2.5,
+      "labelIds": [
+        "building",
+        "street",
+        "station",
+        "bus",
+        "crosswalk",
+        "shop",
+        "restaurant",
+        "pedestrian",
+        "tower",
+        "skyline",
+        "platform"
+      ]
+    },
+    {
+      "id": "river-valley",
+      "title": "River valley",
+      "translation": "河谷风景",
+      "description": "Distant bridge, river, agricultural field and layered hills beneath the clouds",
+      "x": 0,
+      "y": 0,
+      "width": 1100,
+      "height": 240,
+      "targetScale": 3,
+      "labelIds": [
+        "bridge",
+        "river",
+        "hill",
+        "field",
+        "cloud",
+        "mountain"
+      ]
+    },
+    {
+      "id": "oak-and-pond",
+      "title": "Oak and pond",
+      "translation": "橡树与池塘",
+      "description": "Eastern oak habitat, pond wildlife, forest edge and the small garden shed",
+      "x": 1080,
+      "y": 0,
+      "width": 520,
+      "height": 900,
+      "targetScale": 2.35,
+      "labelIds": [
+        "oak",
+        "pond",
+        "deer",
+        "bird",
+        "forest",
+        "shed"
+      ]
+    },
+    {
+      "id": "community-gardens",
+      "title": "Community gardens",
+      "translation": "社区花园",
+      "description": "Central paths, greenhouse beds, fenced plots, lawn and individual planting details",
+      "x": 350,
+      "y": 430,
+      "width": 850,
+      "height": 470,
+      "targetScale": 2.65,
+      "labelIds": [
+        "path",
+        "garden",
+        "greenhouse",
+        "flower",
+        "lawn",
+        "tree",
+        "fence"
+      ]
     }
   ]
 }

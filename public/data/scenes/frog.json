@@ -2,305 +2,119 @@
   "id": "frog",
   "title": "Frog",
   "translation": "青蛙",
-  "subtitle": "An amphibian shaped for water and land",
-  "asset": "/scenes/frog.svg",
+  "subtitle": "External anatomy from snout to webbed toes",
+  "asset": "/scenes/frog-premium-v1.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "pond-edge",
   "labels": [
-    {
-      "id": "frog",
-      "word": "frog",
-      "translation": "青蛙",
-      "x": 810,
-      "y": 250,
-      "priority": 1,
-      "minLevel": 0,
-      "sourceVisualRegion": "whole-frog"
-    },
-    {
-      "id": "foreleg",
-      "word": "foreleg",
-      "translation": "前腿",
-      "x": 330,
-      "y": 600,
-      "priority": 1.001,
-      "minLevel": 0,
-      "sourceVisualRegion": "forelegs"
-    },
-    {
-      "id": "hind-leg",
-      "word": "hind leg",
-      "translation": "后腿",
-      "x": 420,
-      "y": 760,
-      "priority": 1.002,
-      "minLevel": 0,
-      "sourceVisualRegion": "hind-legs"
-    },
-    {
-      "id": "webbed-foot",
-      "word": "webbed foot",
-      "translation": "蹼足",
-      "x": 175,
-      "y": 620,
-      "priority": 1.003,
-      "minLevel": 0,
-      "sourceVisualRegion": "webbed-feet"
-    },
-    {
-      "id": "eye",
-      "word": "eye",
-      "translation": "眼睛",
-      "x": 615,
-      "y": 270,
-      "priority": 2.004,
-      "minLevel": 1,
-      "sourceVisualRegion": "eyes"
-    },
-    {
-      "id": "pupil",
-      "word": "pupil",
-      "translation": "瞳孔",
-      "x": 1005,
-      "y": 270,
-      "priority": 2.005,
-      "minLevel": 1,
-      "sourceVisualRegion": "pupils"
-    },
-    {
-      "id": "mouth",
-      "word": "mouth",
-      "translation": "嘴",
-      "x": 810,
-      "y": 410,
-      "priority": 2.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "mouth"
-    },
-    {
-      "id": "spots",
-      "word": "spots",
-      "translation": "斑点",
-      "x": 610,
-      "y": 560,
-      "priority": 2.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "skin"
-    },
-    {
-      "id": "tongue",
-      "word": "tongue",
-      "translation": "舌头",
-      "x": 1040,
-      "y": 455,
-      "priority": 3.008,
-      "minLevel": 2,
-      "sourceVisualRegion": "tongue"
-    },
-    {
-      "id": "heart",
-      "word": "heart",
-      "translation": "心脏",
-      "x": 810,
-      "y": 535,
-      "priority": 3.009,
-      "minLevel": 2,
-      "sourceVisualRegion": "heart"
-    },
-    {
-      "id": "polliwog",
-      "word": "polliwog",
-      "translation": "蝌蚪",
-      "x": 210,
-      "y": 165,
-      "priority": 4.01,
-      "minLevel": 3,
-      "sourceVisualRegion": "tadpole"
-    },
-    {
-      "id": "egg-mass",
-      "word": "egg mass",
-      "translation": "卵块",
-      "x": 1375,
-      "y": 135,
-      "priority": 4.011,
-      "minLevel": 3,
-      "sourceVisualRegion": "egg-cluster"
-    },
-    {
-      "id": "blood-vessel",
-      "word": "blood vessel",
-      "translation": "血管",
-      "x": 810,
-      "y": 655,
-      "priority": 5.012,
-      "minLevel": 4,
-      "sourceVisualRegion": "blood-vessel"
-    }
+    { "id": "frog", "word": "frog", "translation": "青蛙", "x": 800, "y": 430, "priority": 1, "minLevel": 0, "sourceVisualRegion": "whole-frog", "lexemeId": "en-74fa5327cc0f4e94" },
+    { "id": "head", "word": "head", "translation": "头部", "lexemeId": "en-9f2e6d33a3717ee8", "x": 1080, "y": 315, "priority": 1.001, "minLevel": 0, "sourceVisualRegion": "head-features" },
+    { "id": "snout", "word": "snout", "translation": "吻部", "x": 1220, "y": 300, "priority": 1.002, "minLevel": 0, "sourceVisualRegion": "head-features" },
+    { "id": "eye", "word": "eye", "translation": "眼睛", "x": 1080, "y": 280, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "head-features", "lexemeId": "en-47c215b5f70eb9c9" },
+    { "id": "tympanum", "word": "tympanum", "translation": "鼓膜", "x": 975, "y": 360, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "head-features" },
+    { "id": "mouth", "word": "mouth", "translation": "嘴", "x": 1130, "y": 390, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "head-features", "lexemeId": "en-4cf35cf87435b1ba" },
+    { "id": "throat", "word": "throat", "translation": "喉部", "lexemeId": "en-48cf13f481ae6828", "x": 1085, "y": 455, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "head-features" },
+    { "id": "foreleg", "word": "foreleg", "translation": "前肢", "x": 850, "y": 580, "priority": 1.007, "minLevel": 0, "sourceVisualRegion": "near-forelimb" },
+    { "id": "hind-leg", "word": "hind leg", "translation": "后肢", "x": 500, "y": 530, "priority": 1.008, "minLevel": 0, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "hind-foot", "word": "hind foot", "translation": "后足", "x": 260, "y": 660, "priority": 1.009, "minLevel": 0, "sourceVisualRegion": "near-hindlimb" },
+
+    { "id": "nostril", "word": "nostril", "translation": "鼻孔", "x": 1205, "y": 265, "priority": 2.01, "minLevel": 1, "sourceVisualRegion": "head-features" },
+    { "id": "iris", "word": "iris", "translation": "虹膜", "x": 1075, "y": 275, "priority": 2.011, "minLevel": 1, "sourceVisualRegion": "head-features" },
+    { "id": "pupil", "word": "pupil", "translation": "瞳孔", "x": 1083, "y": 275, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "head-features" },
+    { "id": "body", "word": "body", "translation": "躯干", "lexemeId": "en-230d8358dc8e8890", "x": 730, "y": 420, "priority": 2.013, "minLevel": 1, "sourceVisualRegion": "body-skin" },
+    { "id": "back", "word": "back", "translation": "背部", "x": 730, "y": 300, "priority": 2.014, "minLevel": 1, "sourceVisualRegion": "body-skin" },
+    { "id": "flank", "word": "flank", "translation": "体侧", "x": 720, "y": 445, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "body-skin" },
+    { "id": "forefoot", "word": "forefoot", "translation": "前足", "x": 1030, "y": 715, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "near-forelimb" },
+    { "id": "thigh", "word": "thigh", "translation": "大腿", "x": 510, "y": 520, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "near-hindlimb" },
+
+    { "id": "dorsolateral-fold", "word": "dorsolateral fold", "translation": "背侧褶", "x": 730, "y": 343, "priority": 3.018, "minLevel": 2, "sourceVisualRegion": "body-skin" },
+    { "id": "skin-bump", "word": "skin bump", "translation": "皮肤突起", "x": 680, "y": 355, "priority": 3.019, "minLevel": 2, "sourceVisualRegion": "body-skin" },
+    { "id": "skin-spot", "word": "skin spot", "translation": "皮肤斑点", "x": 515, "y": 560, "priority": 3.02, "minLevel": 2, "sourceVisualRegion": "body-skin" },
+    { "id": "side-stripe", "word": "side stripe", "translation": "体侧条纹", "x": 780, "y": 392, "priority": 3.021, "minLevel": 2, "sourceVisualRegion": "body-skin" },
+    { "id": "upper-arm", "word": "upper arm", "translation": "上臂", "x": 865, "y": 515, "priority": 3.022, "minLevel": 2, "sourceVisualRegion": "near-forelimb" },
+    { "id": "knee", "word": "knee", "translation": "膝部", "lexemeId": "en-69ef5a88b0273f58", "x": 400, "y": 480, "priority": 3.023, "minLevel": 2, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "shank", "word": "shank", "translation": "小腿", "x": 320, "y": 535, "priority": 3.024, "minLevel": 2, "sourceVisualRegion": "near-hindlimb" },
+
+    { "id": "elbow", "word": "elbow", "translation": "肘部", "lexemeId": "en-6e85ebe7458309e1", "x": 840, "y": 620, "priority": 4.025, "minLevel": 3, "sourceVisualRegion": "near-forelimb" },
+    { "id": "wrist", "word": "wrist", "translation": "腕部", "lexemeId": "en-e3c04dfa6e1192a9", "x": 920, "y": 700, "priority": 4.026, "minLevel": 3, "sourceVisualRegion": "near-forelimb" },
+    { "id": "finger", "word": "finger", "translation": "前趾", "lexemeId": "en-400b181c87849386", "x": 1045, "y": 730, "priority": 4.027, "minLevel": 3, "sourceVisualRegion": "near-forelimb" },
+    { "id": "finger-pad", "word": "finger pad", "translation": "前趾垫", "x": 1007, "y": 778, "priority": 4.028, "minLevel": 3, "sourceVisualRegion": "near-forelimb" },
+    { "id": "ankle", "word": "ankle", "translation": "踝部", "lexemeId": "en-9abfc382e356ede3", "x": 295, "y": 610, "priority": 4.029, "minLevel": 3, "sourceVisualRegion": "near-hindlimb" },
+
+    { "id": "toe", "word": "toe", "translation": "后趾", "lexemeId": "en-6d0ef3950c22cb19", "x": 220, "y": 690, "priority": 5.03, "minLevel": 4, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "toe-pad", "word": "toe pad", "translation": "后趾垫", "x": 232, "y": 782, "priority": 5.031, "minLevel": 4, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "webbing", "word": "webbing", "translation": "趾间蹼", "x": 190, "y": 690, "priority": 5.032, "minLevel": 4, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "wet-stone", "word": "wet stone", "translation": "湿石", "x": 700, "y": 760, "priority": 5.033, "minLevel": 4, "sourceVisualRegion": "wet-stone" }
   ],
   "portals": [],
+  "detailZones": [
+    {
+      "id": "head-and-senses",
+      "title": "Head and senses",
+      "translation": "头部与感官",
+      "description": "The profile clearly separates the snout, nostril, eye structures, tympanum, mouth and pale throat",
+      "x": 900,
+      "y": 150,
+      "width": 400,
+      "height": 340,
+      "targetScale": 2.7,
+      "labelIds": ["head", "snout", "eye", "tympanum", "mouth", "throat", "nostril", "iris", "pupil"]
+    },
+    {
+      "id": "body-and-skin",
+      "title": "Body and skin texture",
+      "translation": "躯干与皮肤纹理",
+      "description": "The moist green body resolves its back, flank, raised fold, individual bumps, dark spots and side stripe",
+      "x": 400,
+      "y": 200,
+      "width": 600,
+      "height": 380,
+      "targetScale": 2.45,
+      "labelIds": ["frog", "body", "back", "flank", "dorsolateral-fold", "skin-bump", "skin-spot", "side-stripe"]
+    },
+    {
+      "id": "front-limb",
+      "title": "Front limb and fingers",
+      "translation": "前肢与前趾",
+      "description": "The unobstructed near forelimb shows its upper segment, elbow, wrist, forefoot, separate finger and round pad",
+      "x": 780,
+      "y": 430,
+      "width": 480,
+      "height": 380,
+      "targetScale": 2.75,
+      "labelIds": ["foreleg", "forefoot", "upper-arm", "elbow", "wrist", "finger", "finger-pad"]
+    },
+    {
+      "id": "rear-limb",
+      "title": "Rear limb and webbed toes",
+      "translation": "后肢与蹼趾",
+      "description": "The folded near hind limb remains readable from thigh and knee through shank, ankle, foot and webbed toes",
+      "x": 100,
+      "y": 380,
+      "width": 500,
+      "height": 420,
+      "targetScale": 2.6,
+      "labelIds": ["hind-leg", "hind-foot", "thigh", "knee", "shank", "ankle", "toe", "toe-pad", "webbing"]
+    }
+  ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/frog.svg",
-    "rationale": "Kept the large frog's visible external parts, translucent internal diagram, protruding tongue, tadpole and egg cluster; removed behavior, ecology and prey not shown.",
+    "reviewedAsset": "/scenes/frog-premium-v1.jpg",
+    "reviewedAssetSha256": "3fc577cfc9ca50ca8009fac00353b741d4116da89b8cd608e56e6a9ef2b07b13",
+    "rationale": "Reviewed the final 1600 by 900 wildlife image pixel by pixel and anchored only the single frog's separately visible external head, skin, forelimb and hind-limb features plus its supporting wet stone; internal anatomy, life stages, prey and behavior remain absent.",
     "previousLabelCount": 48,
-    "retainedLabelCount": 13,
-    "removedLabelCount": 35,
-    "removedExamples": [
-      "jump",
-      "swim",
-      "hibernate",
-      "cricket",
-      "worm",
-      "food chain"
-    ]
+    "retainedLabelCount": 34,
+    "removedLabelCount": 14,
+    "removedExamples": ["tongue", "heart", "blood vessel", "egg mass", "polliwog", "jump", "hibernate"]
   },
   "visualRegions": [
-    {
-      "id": "whole-frog",
-      "description": "Complete large frog study",
-      "kind": "whole",
-      "x": 70,
-      "y": 145,
-      "width": 1460,
-      "height": 720
-    },
-    {
-      "id": "frog-body",
-      "description": "Large spotted green frog body",
-      "kind": "object",
-      "x": 405,
-      "y": 235,
-      "width": 810,
-      "height": 545
-    },
-    {
-      "id": "head",
-      "description": "Upper head formed by the eye lobes and mouth",
-      "kind": "part",
-      "x": 445,
-      "y": 145,
-      "width": 730,
-      "height": 360
-    },
-    {
-      "id": "eyes",
-      "description": "Two large yellow-green eyes",
-      "kind": "part",
-      "x": 450,
-      "y": 160,
-      "width": 720,
-      "height": 260
-    },
-    {
-      "id": "pupils",
-      "description": "Two dark pupils within the eyes",
-      "kind": "part",
-      "x": 550,
-      "y": 220,
-      "width": 515,
-      "height": 110
-    },
-    {
-      "id": "mouth",
-      "description": "Curved dark mouth line",
-      "kind": "part",
-      "x": 540,
-      "y": 345,
-      "width": 540,
-      "height": 115
-    },
-    {
-      "id": "skin",
-      "description": "Spotted green skin across the body",
-      "kind": "part",
-      "x": 410,
-      "y": 365,
-      "width": 800,
-      "height": 400
-    },
-    {
-      "id": "forelegs",
-      "description": "Upper pair of green legs",
-      "kind": "part",
-      "x": 70,
-      "y": 500,
-      "width": 1460,
-      "height": 220
-    },
-    {
-      "id": "hind-legs",
-      "description": "Lower pair of green legs",
-      "kind": "part",
-      "x": 250,
-      "y": 595,
-      "width": 1110,
-      "height": 255
-    },
-    {
-      "id": "webbed-feet",
-      "description": "Four pointed webbed feet",
-      "kind": "part",
-      "x": 70,
-      "y": 560,
-      "width": 1460,
-      "height": 290
-    },
-    {
-      "id": "internal-sac",
-      "description": "Pale translucent paired internal sac",
-      "kind": "diagram",
-      "x": 625,
-      "y": 390,
-      "width": 370,
-      "height": 260
-    },
-    {
-      "id": "heart",
-      "description": "Red heart-like organ in the center",
-      "kind": "object",
-      "x": 700,
-      "y": 440,
-      "width": 220,
-      "height": 230
-    },
-    {
-      "id": "blood-vessel",
-      "description": "Dark vertical vessel beneath the heart",
-      "kind": "part",
-      "x": 790,
-      "y": 560,
-      "width": 45,
-      "height": 150
-    },
-    {
-      "id": "tongue",
-      "description": "Pink tongue and arrow extending to the right",
-      "kind": "part",
-      "x": 790,
-      "y": 365,
-      "width": 350,
-      "height": 150
-    },
-    {
-      "id": "tadpole",
-      "description": "Single tadpole at upper left",
-      "kind": "object",
-      "x": 110,
-      "y": 95,
-      "width": 280,
-      "height": 190
-    },
-    {
-      "id": "egg-cluster",
-      "description": "Four round frog eggs at upper right",
-      "kind": "object",
-      "x": 1240,
-      "y": 70,
-      "width": 300,
-      "height": 180
-    }
+    { "id": "whole-frog", "description": "One complete anatomically plausible frog in a natural resting pose", "kind": "whole", "x": 100, "y": 130, "width": 1220, "height": 680 },
+    { "id": "head-features", "description": "Profile head with eye, iris, pupil, nostril, tympanum, mouth and throat", "kind": "part", "x": 900, "y": 150, "width": 400, "height": 340 },
+    { "id": "body-skin", "description": "Moist dorsal body with back, flank, fold, bumps, spots and side stripe", "kind": "part", "x": 400, "y": 200, "width": 600, "height": 380 },
+    { "id": "near-forelimb", "description": "Near front limb from upper arm and elbow to separate padded fingers", "kind": "part", "x": 780, "y": 430, "width": 480, "height": 380 },
+    { "id": "near-hindlimb", "description": "Near rear limb from thigh and knee to ankle, foot and webbed toes", "kind": "part", "x": 100, "y": 380, "width": 500, "height": 420 },
+    { "id": "wet-stone", "description": "Pale wet stone directly supporting the resting frog", "kind": "object", "x": 0, "y": 40, "width": 1550, "height": 860 }
   ]
 }

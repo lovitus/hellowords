@@ -52,6 +52,27 @@ export interface VisualRegion {
   readonly kind: "whole" | "object" | "part" | "diagram";
 }
 
+/**
+ * An authored crop inside a high-resolution scene. Detail zones let the world
+ * expose several truthful, locally dense word batches without pretending that
+ * one source image is many unrelated scenes. Coordinates stay in the shared
+ * 1600 x 900 scene space; a future viewport can focus this rectangle at
+ * `targetScale` while keeping the labels as crisp screen-space HTML.
+ */
+export interface SceneDetailZone {
+  readonly id: string;
+  readonly title: string;
+  readonly translation: string;
+  readonly description: string;
+  readonly x: number;
+  readonly y: number;
+  readonly width: number;
+  readonly height: number;
+  readonly targetScale: number;
+  /** Stable authored word batch; every referenced anchor lies inside the crop. */
+  readonly labelIds: readonly string[];
+}
+
 export interface Portal {
   readonly id: string;
   readonly label: string;
@@ -94,6 +115,8 @@ export interface Scene {
   readonly initialCamera?: Camera;
   /** Human-audited image regions used to verify word-to-object placement. */
   readonly visualRegions?: readonly VisualRegion[];
+  /** Authored local crops that turn a premium image into several explorations. */
+  readonly detailZones?: readonly SceneDetailZone[];
   readonly anchorAudit?: SceneAnchorAudit;
   readonly labels: readonly Label[];
   readonly portals: readonly Portal[];

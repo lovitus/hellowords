@@ -3,4 +3,6 @@ export * from "./discovery";
 export * from "./navigation";
 export * from "./sceneGraph";
 export * from "./labelLayout";
+export * from "./labelSemanticStyle";
+export * from "./semanticZoom";
 export * from "./types";

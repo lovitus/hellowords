@@ -16,7 +16,8 @@
       "y": 55,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "whole-apartment"
+      "sourceVisualRegion": "whole-apartment",
+      "lexemeId": "en-6f347b04efac92cf"
     },
     {
       "id": "living-room",
@@ -36,7 +37,8 @@
       "y": 255,
       "priority": 1.002,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-kitchen"
+      "sourceVisualRegion": "verified-kitchen",
+      "lexemeId": "en-3171d89ad00530ff"
     },
     {
       "id": "bedroom",
@@ -46,7 +48,8 @@
       "y": 685,
       "priority": 1.003,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-bedroom"
+      "sourceVisualRegion": "verified-bedroom",
+      "lexemeId": "en-a05e6feb79c85416"
     },
     {
       "id": "bathroom",
@@ -56,7 +59,8 @@
       "y": 690,
       "priority": 1.004,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-bathroom"
+      "sourceVisualRegion": "verified-bathroom",
+      "lexemeId": "en-3486577cd905f870"
     },
     {
       "id": "sofa",
@@ -66,7 +70,8 @@
       "y": 350,
       "priority": 1.005,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-sofa"
+      "sourceVisualRegion": "verified-sofa",
+      "lexemeId": "en-d32ce7bf0277fd2c"
     },
     {
       "id": "bed",
@@ -76,7 +81,8 @@
       "y": 720,
       "priority": 1.006,
       "minLevel": 0,
-      "sourceVisualRegion": "verified-bed"
+      "sourceVisualRegion": "verified-bed",
+      "lexemeId": "en-c5052532c2206140"
     },
     {
       "id": "bathtub",
@@ -116,7 +122,8 @@
       "y": 375,
       "priority": 2.01,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-counter"
+      "sourceVisualRegion": "verified-counter",
+      "lexemeId": "en-efe899c74558f20b"
     },
     {
       "id": "stove",
@@ -146,7 +153,8 @@
       "y": 155,
       "priority": 2.013,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-shelf"
+      "sourceVisualRegion": "verified-shelf",
+      "lexemeId": "en-3eefa42d52064c48"
     },
     {
       "id": "pillow",
@@ -156,7 +164,8 @@
       "y": 680,
       "priority": 2.014,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-pillow"
+      "sourceVisualRegion": "verified-pillow",
+      "lexemeId": "en-f6000d4ef895fd96"
     },
     {
       "id": "faucet",
@@ -196,7 +205,8 @@
       "y": 650,
       "priority": 2.018,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-wardrobe"
+      "sourceVisualRegion": "verified-wardrobe",
+      "lexemeId": "en-7d4b47cf84bb52b6"
     },
     {
       "id": "shower",
@@ -206,7 +216,8 @@
       "y": 650,
       "priority": 2.019,
       "minLevel": 1,
-      "sourceVisualRegion": "verified-shower"
+      "sourceVisualRegion": "verified-shower",
+      "lexemeId": "en-528159b45697166b"
     },
     {
       "id": "toilet",
@@ -216,7 +227,8 @@
       "y": 735,
       "priority": 3.02,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-toilet"
+      "sourceVisualRegion": "verified-toilet",
+      "lexemeId": "en-74f7fd1cf08b145c"
     },
     {
       "id": "mirror",
@@ -226,7 +238,8 @@
       "y": 610,
       "priority": 3.021,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-mirror"
+      "sourceVisualRegion": "verified-mirror",
+      "lexemeId": "en-00154761637ca746"
     },
     {
       "id": "houseplant",
@@ -246,7 +259,8 @@
       "y": 360,
       "priority": 3.023,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-chair"
+      "sourceVisualRegion": "verified-chair",
+      "lexemeId": "en-3d7eb3d3dab17ee5"
     },
     {
       "id": "picture-frame",
@@ -276,7 +290,8 @@
       "y": 255,
       "priority": 3.026,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-curtain"
+      "sourceVisualRegion": "verified-curtain",
+      "lexemeId": "en-05e884950dccb9aa"
     },
     {
       "id": "ceiling-light",
@@ -296,7 +311,8 @@
       "y": 760,
       "priority": 4.028,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-towel"
+      "sourceVisualRegion": "verified-towel",
+      "lexemeId": "en-10ca50a8a7148afd"
     },
     {
       "id": "bath-mat",
@@ -316,7 +332,8 @@
       "y": 710,
       "priority": 4.03,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-basin"
+      "sourceVisualRegion": "verified-basin",
+      "lexemeId": "en-163834bf87e4f8bc"
     },
     {
       "id": "oven-hood",
@@ -377,6 +394,110 @@
       "priority": 5.036,
       "minLevel": 4,
       "sourceVisualRegion": "verified-floor-tile"
+    },
+    {
+      "id": "stairs",
+      "word": "stairs",
+      "translation": "楼梯",
+      "x": 805,
+      "y": 665,
+      "priority": 3.037,
+      "minLevel": 2,
+      "lexemeId": "en-0eeea780b063634b",
+      "sourceVisualRegion": "verified-stairs"
+    },
+    {
+      "id": "hallway",
+      "word": "hallway",
+      "translation": "走廊",
+      "x": 815,
+      "y": 300,
+      "priority": 3.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-hallway"
+    },
+    {
+      "id": "refrigerator",
+      "word": "refrigerator",
+      "translation": "冰箱",
+      "x": 1010,
+      "y": 250,
+      "priority": 2.039,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-refrigerator"
+    },
+    {
+      "id": "stool",
+      "word": "stool",
+      "translation": "高脚凳",
+      "x": 1160,
+      "y": 410,
+      "priority": 3.04,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-stool"
+    },
+    {
+      "id": "cabinet",
+      "word": "cabinet",
+      "translation": "橱柜",
+      "x": 1280,
+      "y": 150,
+      "priority": 4.041,
+      "minLevel": 3,
+      "lexemeId": "en-a6e42a44e79e131a",
+      "sourceVisualRegion": "verified-cabinet"
+    },
+    {
+      "id": "sink",
+      "word": "sink",
+      "translation": "水槽",
+      "x": 1445,
+      "y": 325,
+      "priority": 4.042,
+      "minLevel": 3,
+      "lexemeId": "en-1978baf2c153fd3b",
+      "sourceVisualRegion": "verified-sink"
+    },
+    {
+      "id": "pendant-light",
+      "word": "pendant light",
+      "translation": "吊灯",
+      "x": 1120,
+      "y": 150,
+      "priority": 4.043,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-pendant-light"
+    },
+    {
+      "id": "kettle",
+      "word": "kettle",
+      "translation": "水壶",
+      "x": 1170,
+      "y": 275,
+      "priority": 5.044,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kettle"
+    },
+    {
+      "id": "blanket",
+      "word": "blanket",
+      "translation": "毛毯",
+      "x": 360,
+      "y": 745,
+      "priority": 3.045,
+      "minLevel": 2,
+      "lexemeId": "en-7cd0fc6ee61e2a57",
+      "sourceVisualRegion": "verified-blanket"
+    },
+    {
+      "id": "dresser",
+      "word": "dresser",
+      "translation": "斗柜",
+      "x": 490,
+      "y": 625,
+      "priority": 4.046,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-dresser"
     }
   ],
   "portals": [
@@ -403,16 +524,29 @@
       "height": 405,
       "enterScale": 3.6,
       "sourceVisualRegion": "portal-bedroom"
+    },
+    {
+      "id": "enter-bathroom",
+      "label": "Enter the bathroom",
+      "translation": "进入浴室",
+      "childSceneId": "bathroom",
+      "x": 900,
+      "y": 480,
+      "width": 680,
+      "height": 410,
+      "enterScale": 3.6,
+      "sourceVisualRegion": "portal-bathroom"
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/apartment-premium.jpg",
-    "rationale": "Re-anchored the photographed cutaway to visible rooms, furniture, fixtures and surfaces; removed appliances and small accessories that cannot be identified.",
+    "reviewedAssetSha256": "417f00dfa4904f90939d74185d6307c071f958fcffb14512013e801efa893a56",
+    "rationale": "Expanded the photographed cutaway into five authored room crops and added only clearly visible furniture, fixtures, storage and circulation details.",
     "previousLabelCount": 60,
-    "retainedLabelCount": 37,
-    "removedLabelCount": 23,
+    "retainedLabelCount": 47,
+    "removedLabelCount": 13,
     "removedExamples": [
       "washing machine",
       "microwave",
@@ -449,6 +583,15 @@
       "y": 480,
       "width": 690,
       "height": 405
+    },
+    {
+      "id": "portal-bathroom",
+      "description": "Lower-right bathroom with bath, shower and vanity",
+      "kind": "object",
+      "x": 900,
+      "y": 480,
+      "width": 680,
+      "height": 410
     },
     {
       "id": "verified-living-room",
@@ -773,6 +916,210 @@
       "y": 775,
       "width": 120,
       "height": 90
+    },
+    {
+      "id": "verified-stairs",
+      "description": "Central wooden staircase connecting both floors",
+      "kind": "object",
+      "x": 730,
+      "y": 470,
+      "width": 150,
+      "height": 410
+    },
+    {
+      "id": "verified-hallway",
+      "description": "Narrow central hallway with doors and a runner rug",
+      "kind": "object",
+      "x": 735,
+      "y": 55,
+      "width": 145,
+      "height": 390
+    },
+    {
+      "id": "verified-refrigerator",
+      "description": "Tall stainless steel refrigerator in the kitchen",
+      "kind": "object",
+      "x": 940,
+      "y": 130,
+      "width": 135,
+      "height": 270
+    },
+    {
+      "id": "verified-stool",
+      "description": "Three dark counter stools along the kitchen island",
+      "kind": "object",
+      "x": 1030,
+      "y": 350,
+      "width": 370,
+      "height": 130
+    },
+    {
+      "id": "verified-cabinet",
+      "description": "Dark upper kitchen cabinets with glazed sections",
+      "kind": "object",
+      "x": 930,
+      "y": 45,
+      "width": 560,
+      "height": 185
+    },
+    {
+      "id": "verified-sink",
+      "description": "Stainless kitchen sink below the right window",
+      "kind": "object",
+      "x": 1370,
+      "y": 270,
+      "width": 160,
+      "height": 90
+    },
+    {
+      "id": "verified-pendant-light",
+      "description": "Pair of brass pendant lights above the island",
+      "kind": "object",
+      "x": 1060,
+      "y": 40,
+      "width": 285,
+      "height": 190
+    },
+    {
+      "id": "verified-kettle",
+      "description": "Dark kettle resting on the kitchen stove",
+      "kind": "object",
+      "x": 1125,
+      "y": 235,
+      "width": 90,
+      "height": 80
+    },
+    {
+      "id": "verified-blanket",
+      "description": "Folded beige blanket spread across the bed",
+      "kind": "object",
+      "x": 220,
+      "y": 670,
+      "width": 320,
+      "height": 145
+    },
+    {
+      "id": "verified-dresser",
+      "description": "Wooden bedroom dresser beneath the mirror",
+      "kind": "object",
+      "x": 410,
+      "y": 555,
+      "width": 180,
+      "height": 165
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "living-room-detail",
+      "title": "Living room",
+      "translation": "客厅细节",
+      "description": "Sofa seating, media cabinet, shelves, lamps and textiles in the upper-left room",
+      "x": 0,
+      "y": 0,
+      "width": 710,
+      "height": 480,
+      "targetScale": 2.45,
+      "labelIds": [
+        "living-room",
+        "sofa",
+        "television",
+        "rug",
+        "cushion",
+        "shelf",
+        "coffee-table",
+        "floor-lamp",
+        "houseplant",
+        "chair",
+        "picture-frame",
+        "curtain",
+        "window-frame"
+      ]
+    },
+    {
+      "id": "kitchen-detail",
+      "title": "Kitchen",
+      "translation": "厨房细节",
+      "description": "Cooking, washing, storage and island fixtures in the bright upper-right kitchen",
+      "x": 900,
+      "y": 0,
+      "width": 700,
+      "height": 480,
+      "targetScale": 2.35,
+      "labelIds": [
+        "kitchen",
+        "counter",
+        "stove",
+        "faucet",
+        "vase",
+        "ceiling-light",
+        "oven-hood",
+        "refrigerator",
+        "stool",
+        "cabinet",
+        "sink",
+        "pendant-light",
+        "kettle"
+      ]
+    },
+    {
+      "id": "bedroom-detail",
+      "title": "Bedroom",
+      "translation": "卧室细节",
+      "description": "Bed, wardrobe, dresser and layered textiles throughout the lower-left bedroom",
+      "x": 0,
+      "y": 480,
+      "width": 710,
+      "height": 420,
+      "targetScale": 2.35,
+      "labelIds": [
+        "bedroom",
+        "bed",
+        "pillow",
+        "wardrobe",
+        "laundry-basket",
+        "side-table",
+        "blanket",
+        "dresser"
+      ]
+    },
+    {
+      "id": "bathroom-detail",
+      "title": "Bathroom",
+      "translation": "浴室细节",
+      "description": "Bath, shower enclosure, toilet, vanity and towel fixtures in the lower-right room",
+      "x": 900,
+      "y": 480,
+      "width": 700,
+      "height": 420,
+      "targetScale": 2.4,
+      "labelIds": [
+        "bathroom",
+        "bathtub",
+        "shower",
+        "toilet",
+        "mirror",
+        "towel",
+        "bath-mat",
+        "basin",
+        "floor-tile"
+      ]
+    },
+    {
+      "id": "central-hall-detail",
+      "title": "Hall and stairs",
+      "translation": "走廊与楼梯",
+      "description": "The narrow circulation core joining the apartment rooms and both storeys",
+      "x": 700,
+      "y": 0,
+      "width": 220,
+      "height": 900,
+      "targetScale": 2.7,
+      "labelIds": [
+        "apartment",
+        "door-handle",
+        "stairs",
+        "hallway"
+      ]
     }
   ]
 }

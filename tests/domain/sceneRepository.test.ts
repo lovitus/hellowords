@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  getPreparedScene,
   getSceneCacheSnapshot,
   prepareScene,
   resetSceneRepositoryForTests,
@@ -151,6 +152,52 @@ test("returning from a child reuses the parent's decoded Image without network o
       asset === "/scenes/oak-tree.jpg" && status === "resolved" && retainedImage
     )),
   );
+});
+
+test("a decoded neighbor is synchronously available until its neighborhood slot is evicted", async () => {
+  installRepositoryFakes();
+  retainSceneNeighborhood("oak-tree", "city-park", "leaf");
+  assert.equal(getPreparedScene("leaf"), null);
+
+  const leaf = await prepareScene("leaf");
+  assert.equal(getPreparedScene("leaf"), leaf);
+
+  retainSceneNeighborhood("oak-tree", "city-park", "root-system");
+  assert.equal(getPreparedScene("leaf"), null);
+  assert.ok(getSceneCacheSnapshot().scenes.length <= 3);
+  assert.ok(getSceneCacheSnapshot().images.length <= 3);
+});
+
+test("an evicted speculative child cannot start an orphan artwork decode", async () => {
+  installRepositoryFakes();
+  let resolveScene: ((response: Response) => void) | undefined;
+  globalThis.fetch = (async (input: string | URL | Request) => {
+    const url = String(input);
+    if (!url.endsWith("/first-child.json")) {
+      throw new Error(`Unexpected repository request: ${url}`);
+    }
+    return new Promise<Response>((resolve) => {
+      resolveScene = resolve;
+    });
+  }) as typeof fetch;
+
+  retainSceneNeighborhood("current", "parent", "first-child");
+  const stalePrepare = prepareScene("first-child");
+  await Promise.resolve();
+  assert.ok(resolveScene, "the speculative JSON request has started");
+
+  retainSceneNeighborhood("current", "parent", "second-child");
+  resolveScene(new Response(JSON.stringify(scene("first-child")), {
+    status: 200,
+    headers: { "content-type": "application/json" },
+  }));
+  await stalePrepare;
+
+  assert.deepEqual(FakeImage.decodeCalls, []);
+  assert.equal(getPreparedScene("first-child"), null);
+  const snapshot = getSceneCacheSnapshot();
+  assert.ok(snapshot.scenes.length <= snapshot.limits.scenes);
+  assert.ok(snapshot.images.length <= snapshot.limits.images);
 });
 
 test("continuous prepare signals share one fetch and one image decode", async () => {

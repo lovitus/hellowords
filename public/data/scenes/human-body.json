@@ -2,221 +2,430 @@
   "id": "human-body",
   "title": "Human body",
   "translation": "人体",
-  "subtitle": "A living system from head to toe",
-  "asset": "/scenes/human-body.svg",
+  "subtitle": "Three models from body parts to organs",
+  "asset": "/scenes/human-body-premium-v2.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "science-museum",
   "labels": [
     {
-      "id": "body",
-      "word": "body",
-      "translation": "身体",
-      "x": 800,
-      "y": 285,
+      "id": "mannequin",
+      "word": "mannequin",
+      "translation": "教学人台",
+      "x": 340,
+      "y": 440,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "whole-body"
+      "sourceVisualRegion": "mannequin-lower"
     },
     {
       "id": "head",
       "word": "head",
       "translation": "头部",
-      "x": 800,
-      "y": 100,
+      "x": 340,
+      "y": 130,
       "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "head"
+      "sourceVisualRegion": "mannequin-upper",
+      "lexemeId": "en-9f2e6d33a3717ee8"
     },
     {
-      "id": "brain",
-      "word": "brain",
-      "translation": "大脑",
+      "id": "skeleton",
+      "word": "skeleton",
+      "translation": "骨骼",
       "x": 800,
-      "y": 165,
+      "y": 440,
       "priority": 1.002,
       "minLevel": 0,
-      "sourceVisualRegion": "brain"
+      "sourceVisualRegion": "skeleton-upper",
+      "lexemeId": "en-2ac11a92104c4d7d"
     },
     {
-      "id": "chest",
-      "word": "chest",
-      "translation": "胸部",
+      "id": "skull",
+      "word": "skull",
+      "translation": "颅骨",
       "x": 800,
-      "y": 310,
+      "y": 130,
       "priority": 1.003,
       "minLevel": 0,
-      "sourceVisualRegion": "chest"
-    },
-    {
-      "id": "lung",
-      "word": "lung",
-      "translation": "肺",
-      "x": 665,
-      "y": 395,
-      "priority": 1.004,
-      "minLevel": 0,
-      "sourceVisualRegion": "lungs"
-    },
-    {
-      "id": "heart",
-      "word": "heart",
-      "translation": "心脏",
-      "x": 815,
-      "y": 410,
-      "priority": 1.005,
-      "minLevel": 0,
-      "sourceVisualRegion": "heart"
-    },
-    {
-      "id": "arm",
-      "word": "arm",
-      "translation": "手臂",
-      "x": 570,
-      "y": 500,
-      "priority": 2.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "left-arm"
-    },
-    {
-      "id": "shoulder",
-      "word": "shoulder",
-      "translation": "肩膀",
-      "x": 685,
-      "y": 335,
-      "priority": 2.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "left-arm"
-    },
-    {
-      "id": "elbow",
-      "word": "elbow",
-      "translation": "肘部",
-      "x": 580,
-      "y": 535,
-      "priority": 2.008,
-      "minLevel": 1,
-      "sourceVisualRegion": "left-arm"
-    },
-    {
-      "id": "leg",
-      "word": "leg",
-      "translation": "腿",
-      "x": 750,
-      "y": 760,
-      "priority": 2.009,
-      "minLevel": 1,
-      "sourceVisualRegion": "legs"
-    },
-    {
-      "id": "knee",
-      "word": "knee",
-      "translation": "膝盖",
-      "x": 755,
-      "y": 705,
-      "priority": 2.01,
-      "minLevel": 1,
-      "sourceVisualRegion": "legs"
-    },
-    {
-      "id": "face",
-      "word": "face",
-      "translation": "面部",
-      "x": 800,
-      "y": 210,
-      "priority": 2.011,
-      "minLevel": 1,
-      "sourceVisualRegion": "head"
-    },
-    {
-      "id": "neck",
-      "word": "neck",
-      "translation": "颈部",
-      "x": 800,
-      "y": 270,
-      "priority": 2.012,
-      "minLevel": 1,
-      "sourceVisualRegion": "neck"
-    },
-    {
-      "id": "liver",
-      "word": "liver",
-      "translation": "肝脏",
-      "x": 760,
-      "y": 490,
-      "priority": 3.013,
-      "minLevel": 2,
-      "sourceVisualRegion": "liver"
-    },
-    {
-      "id": "stomach",
-      "word": "stomach",
-      "translation": "胃",
-      "x": 885,
-      "y": 485,
-      "priority": 3.014,
-      "minLevel": 2,
-      "sourceVisualRegion": "stomach"
-    },
-    {
-      "id": "kidney",
-      "word": "kidney",
-      "translation": "肾脏",
-      "x": 710,
-      "y": 530,
-      "priority": 3.015,
-      "minLevel": 2,
-      "sourceVisualRegion": "kidneys"
-    },
-    {
-      "id": "intestine",
-      "word": "intestine",
-      "translation": "肠道",
-      "x": 815,
-      "y": 600,
-      "priority": 3.016,
-      "minLevel": 2,
-      "sourceVisualRegion": "intestine"
-    },
-    {
-      "id": "spinal-cord",
-      "word": "spinal cord",
-      "translation": "脊髓",
-      "x": 800,
-      "y": 730,
-      "priority": 3.017,
-      "minLevel": 2,
-      "sourceVisualRegion": "spine"
+      "sourceVisualRegion": "skeleton-upper",
+      "lexemeId": "en-8c1a64a5158bd820"
     },
     {
       "id": "rib-cage",
       "word": "rib cage",
       "translation": "胸廓",
-      "x": 795,
-      "y": 370,
-      "priority": 4.018,
-      "minLevel": 3,
-      "sourceVisualRegion": "rib-cage"
+      "x": 800,
+      "y": 300,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "skeleton-upper"
     },
     {
-      "id": "bone",
-      "word": "bone",
-      "translation": "骨骼",
-      "x": 920,
-      "y": 590,
-      "priority": 4.019,
-      "minLevel": 3,
-      "sourceVisualRegion": "right-arm"
+      "id": "lung",
+      "word": "lung",
+      "translation": "肺",
+      "x": 1225,
+      "y": 280,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "organ-cutaway",
+      "lexemeId": "en-d08c7b739fee1f2f"
     },
     {
-      "id": "skin",
-      "word": "skin",
-      "translation": "皮肤",
-      "x": 1015,
-      "y": 560,
-      "priority": 5.02,
+      "id": "heart",
+      "word": "heart",
+      "translation": "心脏",
+      "x": 1275,
+      "y": 290,
+      "priority": 1.006,
+      "minLevel": 0,
+      "sourceVisualRegion": "portal-heart"
+    },
+    {
+      "id": "large-intestine",
+      "word": "large intestine",
+      "translation": "大肠",
+      "x": 1198,
+      "y": 470,
+      "priority": 1.007,
+      "minLevel": 0,
+      "sourceVisualRegion": "organ-cutaway"
+    },
+    {
+      "id": "arm",
+      "word": "arm",
+      "translation": "手臂",
+      "x": 260,
+      "y": 315,
+      "priority": 2.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "mannequin-upper",
+      "lexemeId": "en-ddf7ff5ebd9d66ce"
+    },
+    {
+      "id": "torso",
+      "word": "torso",
+      "translation": "躯干",
+      "x": 340,
+      "y": 300,
+      "priority": 2.009,
+      "minLevel": 1,
+      "sourceVisualRegion": "mannequin-lower"
+    },
+    {
+      "id": "leg",
+      "word": "leg",
+      "translation": "腿",
+      "x": 340,
+      "y": 680,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "mannequin-lower",
+      "lexemeId": "en-c7c8fc91abb8ed76"
+    },
+    {
+      "id": "spine",
+      "word": "spine",
+      "translation": "脊柱",
+      "x": 800,
+      "y": 390,
+      "priority": 2.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "skeleton-upper",
+      "lexemeId": "en-f0dd190c13c467ed"
+    },
+    {
+      "id": "pelvis",
+      "word": "pelvis",
+      "translation": "骨盆",
+      "x": 800,
+      "y": 480,
+      "priority": 2.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "skeleton-lower"
+    },
+    {
+      "id": "deltoid",
+      "word": "deltoid",
+      "translation": "三角肌",
+      "x": 1175,
+      "y": 255,
+      "priority": 2.013,
+      "minLevel": 1,
+      "sourceVisualRegion": "muscle-limbs"
+    },
+    {
+      "id": "liver",
+      "word": "liver",
+      "translation": "肝脏",
+      "x": 1235,
+      "y": 380,
+      "priority": 2.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "organ-cutaway",
+      "lexemeId": "en-ebaf48a9725795ea"
+    },
+    {
+      "id": "stomach",
+      "word": "stomach",
+      "translation": "胃",
+      "x": 1310,
+      "y": 400,
+      "priority": 2.015,
+      "minLevel": 1,
+      "sourceVisualRegion": "organ-cutaway",
+      "lexemeId": "en-d5a0d90574d530f8"
+    },
+    {
+      "id": "neck",
+      "word": "neck",
+      "translation": "颈部",
+      "x": 340,
+      "y": 205,
+      "priority": 3.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "mannequin-upper",
+      "lexemeId": "en-f14896d8de9dc788"
+    },
+    {
+      "id": "shoulder",
+      "word": "shoulder",
+      "translation": "肩部",
+      "x": 280,
+      "y": 245,
+      "priority": 3.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "mannequin-upper",
+      "lexemeId": "en-89f45d4c8172f37e"
+    },
+    {
+      "id": "elbow",
+      "word": "elbow",
+      "translation": "肘部",
+      "x": 245,
+      "y": 385,
+      "priority": 3.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "mannequin-upper",
+      "lexemeId": "en-6e85ebe7458309e1"
+    },
+    {
+      "id": "collarbone",
+      "word": "collarbone",
+      "translation": "锁骨",
+      "x": 800,
+      "y": 220,
+      "priority": 3.019,
+      "minLevel": 2,
+      "sourceVisualRegion": "skeleton-upper"
+    },
+    {
+      "id": "breastbone",
+      "word": "breastbone",
+      "translation": "胸骨",
+      "x": 800,
+      "y": 265,
+      "priority": 3.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "skeleton-upper"
+    },
+    {
+      "id": "humerus",
+      "word": "humerus",
+      "translation": "肱骨",
+      "x": 710,
+      "y": 315,
+      "priority": 3.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "skeleton-upper"
+    },
+    {
+      "id": "trachea",
+      "word": "trachea",
+      "translation": "气管",
+      "x": 1270,
+      "y": 215,
+      "priority": 3.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "organ-cutaway"
+    },
+    {
+      "id": "quadriceps",
+      "word": "quadriceps",
+      "translation": "股四头肌",
+      "x": 1210,
+      "y": 575,
+      "priority": 3.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "muscle-limbs"
+    },
+    {
+      "id": "forearm",
+      "word": "forearm",
+      "translation": "前臂",
+      "x": 235,
+      "y": 435,
+      "priority": 4.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "mannequin-upper"
+    },
+    {
+      "id": "wrist",
+      "word": "wrist",
+      "translation": "手腕",
+      "x": 225,
+      "y": 475,
+      "priority": 4.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "mannequin-upper",
+      "lexemeId": "en-e3c04dfa6e1192a9"
+    },
+    {
+      "id": "hand",
+      "word": "hand",
+      "translation": "手",
+      "x": 225,
+      "y": 500,
+      "priority": 4.026,
+      "minLevel": 3,
+      "sourceVisualRegion": "mannequin-upper",
+      "lexemeId": "en-1b001706a418bdfc"
+    },
+    {
+      "id": "forearm-bones",
+      "word": "forearm bones",
+      "translation": "前臂骨",
+      "x": 700,
+      "y": 425,
+      "priority": 4.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "skeleton-upper"
+    },
+    {
+      "id": "femur",
+      "word": "femur",
+      "translation": "股骨",
+      "x": 760,
+      "y": 570,
+      "priority": 4.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "skeleton-lower"
+    },
+    {
+      "id": "biceps",
+      "word": "biceps",
+      "translation": "肱二头肌",
+      "x": 1165,
+      "y": 320,
+      "priority": 4.029,
+      "minLevel": 3,
+      "sourceVisualRegion": "muscle-limbs"
+    },
+    {
+      "id": "forearm-muscle",
+      "word": "forearm muscle",
+      "translation": "前臂肌",
+      "x": 1140,
+      "y": 420,
+      "priority": 4.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "muscle-limbs"
+    },
+    {
+      "id": "small-intestine",
+      "word": "small intestine",
+      "translation": "小肠",
+      "x": 1275,
+      "y": 490,
+      "priority": 4.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "organ-cutaway"
+    },
+    {
+      "id": "fingers",
+      "word": "fingers",
+      "translation": "手指",
+      "x": 225,
+      "y": 525,
+      "priority": 5.032,
       "minLevel": 4,
-      "sourceVisualRegion": "right-arm"
+      "sourceVisualRegion": "mannequin-upper",
+      "lexemeId": "en-5d10c166177ef188"
+    },
+    {
+      "id": "hip",
+      "word": "hip",
+      "translation": "髋部",
+      "x": 340,
+      "y": 440,
+      "priority": 5.033,
+      "minLevel": 4,
+      "sourceVisualRegion": "mannequin-lower",
+      "lexemeId": "en-dd805812f2fd7ff1"
+    },
+    {
+      "id": "knee",
+      "word": "knee",
+      "translation": "膝部",
+      "x": 315,
+      "y": 605,
+      "priority": 5.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "mannequin-lower",
+      "lexemeId": "en-69ef5a88b0273f58"
+    },
+    {
+      "id": "ankle",
+      "word": "ankle",
+      "translation": "踝部",
+      "x": 310,
+      "y": 770,
+      "priority": 5.035,
+      "minLevel": 4,
+      "sourceVisualRegion": "mannequin-lower",
+      "lexemeId": "en-9abfc382e356ede3"
+    },
+    {
+      "id": "foot",
+      "word": "foot",
+      "translation": "脚",
+      "x": 320,
+      "y": 810,
+      "priority": 5.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "mannequin-lower",
+      "lexemeId": "en-22e4f6912a6980d6"
+    },
+    {
+      "id": "kneecap",
+      "word": "kneecap",
+      "translation": "髌骨",
+      "x": 760,
+      "y": 610,
+      "priority": 5.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "skeleton-lower"
+    },
+    {
+      "id": "shinbone",
+      "word": "shinbone",
+      "translation": "胫骨",
+      "x": 760,
+      "y": 690,
+      "priority": 5.038,
+      "minLevel": 4,
+      "sourceVisualRegion": "skeleton-lower"
+    },
+    {
+      "id": "lower-leg-muscle",
+      "word": "lower leg muscle",
+      "translation": "小腿肌",
+      "x": 1210,
+      "y": 685,
+      "priority": 5.039,
+      "minLevel": 4,
+      "sourceVisualRegion": "muscle-limbs"
     }
   ],
   "portals": [
@@ -225,184 +434,215 @@
       "label": "Inspect the heart",
       "translation": "观察心脏",
       "childSceneId": "heart",
-      "x": 735,
-      "y": 330,
-      "width": 175,
-      "height": 170,
+      "x": 1238,
+      "y": 238,
+      "width": 92,
+      "height": 105,
       "enterScale": 3.6,
-      "sourceVisualRegion": "heart"
+      "sourceVisualRegion": "portal-heart"
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/human-body.svg",
-    "rationale": "Kept only body regions and organs that are explicitly drawn; removed systems, glands and connective tissues absent from the cutaway.",
+    "reviewedAsset": "/scenes/human-body-premium-v2.jpg",
+    "reviewedAssetSha256": "dccccd11c2f3f3884f6e1386c8443036b4f05a426ad35c74c19477907ea21ec8",
+    "rationale": "Re-anchored the bright medical-museum pixels to three separate manufactured teaching models: an articulated body form, a complete skeleton, and a muscle-and-organ cutaway with an unobstructed heart portal.",
     "previousLabelCount": 56,
-    "retainedLabelCount": 21,
-    "removedLabelCount": 35,
+    "retainedLabelCount": 40,
+    "removedLabelCount": 16,
     "removedExamples": [
-      "endocrine system",
-      "immune system",
-      "thyroid gland",
-      "lymph node",
-      "cartilage",
-      "pancreas"
+      "brain",
+      "kidney",
+      "pancreas",
+      "spinal cord",
+      "skin",
+      "diaphragm"
     ]
   },
+  "detailZones": [
+    {
+      "id": "mannequin-upper-zone",
+      "title": "Body form upper half",
+      "translation": "人台上半身",
+      "description": "Upper articulated teaching form with independently readable arm and hand joints",
+      "x": 170,
+      "y": 60,
+      "width": 320,
+      "height": 500,
+      "targetScale": 2.8,
+      "labelIds": [
+        "head",
+        "neck",
+        "shoulder",
+        "arm",
+        "elbow",
+        "forearm",
+        "wrist",
+        "hand",
+        "fingers"
+      ]
+    },
+    {
+      "id": "mannequin-lower-zone",
+      "title": "Body form and legs",
+      "translation": "人台躯干与腿部",
+      "description": "Complete opaque mannequin from its torso and hip joints down to both feet",
+      "x": 180,
+      "y": 230,
+      "width": 320,
+      "height": 610,
+      "targetScale": 2.7,
+      "labelIds": [
+        "mannequin",
+        "torso",
+        "hip",
+        "leg",
+        "knee",
+        "ankle",
+        "foot"
+      ]
+    },
+    {
+      "id": "skeleton-upper-zone",
+      "title": "Upper skeleton",
+      "translation": "上部骨骼",
+      "description": "Upper ivory skeleton with distinct skull, chest bones, spine and arm bones",
+      "x": 630,
+      "y": 50,
+      "width": 350,
+      "height": 460,
+      "targetScale": 2.8,
+      "labelIds": [
+        "skeleton",
+        "skull",
+        "collarbone",
+        "breastbone",
+        "rib-cage",
+        "spine",
+        "humerus",
+        "forearm-bones"
+      ]
+    },
+    {
+      "id": "skeleton-lower-zone",
+      "title": "Lower skeleton",
+      "translation": "下部骨骼",
+      "description": "Pelvis and independently readable long bones across the skeleton's lower half",
+      "x": 680,
+      "y": 420,
+      "width": 250,
+      "height": 410,
+      "targetScale": 3,
+      "labelIds": [
+        "pelvis",
+        "femur",
+        "kneecap",
+        "shinbone"
+      ]
+    },
+    {
+      "id": "muscle-limbs-zone",
+      "title": "Muscle groups",
+      "translation": "肌肉分区",
+      "description": "Separate upper- and lower-limb muscle groups on the right teaching model",
+      "x": 1090,
+      "y": 180,
+      "width": 350,
+      "height": 630,
+      "targetScale": 2.8,
+      "labelIds": [
+        "deltoid",
+        "biceps",
+        "forearm-muscle",
+        "quadriceps",
+        "lower-leg-muscle"
+      ]
+    },
+    {
+      "id": "organ-cutaway-zone",
+      "title": "Torso organs",
+      "translation": "躯干器官",
+      "description": "Clean torso cutaway with separately visible airway, lungs, heart and digestive organs",
+      "x": 1160,
+      "y": 170,
+      "width": 250,
+      "height": 420,
+      "targetScale": 3.2,
+      "labelIds": [
+        "trachea",
+        "lung",
+        "heart",
+        "liver",
+        "stomach",
+        "small-intestine",
+        "large-intestine"
+      ]
+    }
+  ],
   "visualRegions": [
     {
-      "id": "whole-body",
-      "description": "Complete human figure in the anatomical cutaway",
-      "kind": "whole",
-      "x": 500,
-      "y": 70,
-      "width": 600,
-      "height": 790
-    },
-    {
-      "id": "head",
-      "description": "Head and face of the figure",
+      "id": "mannequin-upper",
+      "description": "Upper half of the opaque articulated teal teaching mannequin",
       "kind": "object",
-      "x": 705,
-      "y": 85,
-      "width": 190,
-      "height": 190
-    },
-    {
-      "id": "brain",
-      "description": "Drawn brain inside the head",
-      "kind": "part",
-      "x": 740,
-      "y": 105,
-      "width": 125,
-      "height": 130
-    },
-    {
-      "id": "neck",
-      "description": "Neck between head and torso",
-      "kind": "part",
-      "x": 730,
-      "y": 230,
-      "width": 150,
-      "height": 105
-    },
-    {
-      "id": "chest",
-      "description": "Upper torso containing the lungs and heart",
-      "kind": "part",
-      "x": 620,
-      "y": 285,
-      "width": 360,
-      "height": 250
-    },
-    {
-      "id": "lungs",
-      "description": "Paired lungs in the upper chest",
-      "kind": "object",
-      "x": 620,
-      "y": 300,
-      "width": 350,
-      "height": 225
-    },
-    {
-      "id": "heart",
-      "description": "Red heart between the lungs",
-      "kind": "object",
-      "x": 735,
-      "y": 330,
-      "width": 175,
-      "height": 170
-    },
-    {
-      "id": "liver",
-      "description": "Ochre liver below the heart",
-      "kind": "object",
-      "x": 700,
-      "y": 430,
-      "width": 150,
-      "height": 110
-    },
-    {
-      "id": "stomach",
-      "description": "Curved stomach at the upper right abdomen",
-      "kind": "object",
-      "x": 815,
-      "y": 425,
-      "width": 140,
-      "height": 115
-    },
-    {
-      "id": "kidneys",
-      "description": "Paired dark kidneys on either side of the abdomen",
-      "kind": "object",
-      "x": 685,
-      "y": 475,
-      "width": 235,
-      "height": 105
-    },
-    {
-      "id": "intestine",
-      "description": "Coiled intestine in the lower abdomen",
-      "kind": "object",
-      "x": 720,
-      "y": 525,
-      "width": 185,
-      "height": 150
-    },
-    {
-      "id": "spine",
-      "description": "Vertical white spinal line",
-      "kind": "part",
-      "x": 775,
-      "y": 245,
-      "width": 55,
-      "height": 605
-    },
-    {
-      "id": "rib-cage",
-      "description": "White rib lines across the upper torso",
-      "kind": "part",
-      "x": 720,
-      "y": 305,
-      "width": 165,
-      "height": 190
-    },
-    {
-      "id": "left-arm",
-      "description": "Left arm and forearm of the figure",
-      "kind": "object",
-      "x": 500,
-      "y": 300,
-      "width": 230,
-      "height": 375
-    },
-    {
-      "id": "right-arm",
-      "description": "Right arm and forearm of the figure",
-      "kind": "object",
-      "x": 875,
-      "y": 345,
-      "width": 230,
-      "height": 330
-    },
-    {
-      "id": "legs",
-      "description": "Paired legs of the figure",
-      "kind": "object",
-      "x": 690,
-      "y": 625,
-      "width": 220,
-      "height": 245
-    },
-    {
-      "id": "anatomy-panel",
-      "description": "Information panel to the right of the body",
-      "kind": "object",
-      "x": 1100,
-      "y": 210,
+      "x": 170,
+      "y": 60,
       "width": 320,
+      "height": 500
+    },
+    {
+      "id": "mannequin-lower",
+      "description": "Complete lower body and torso of the articulated teal mannequin",
+      "kind": "object",
+      "x": 180,
+      "y": 230,
+      "width": 320,
+      "height": 610
+    },
+    {
+      "id": "skeleton-upper",
+      "description": "Upper ivory skeleton including the skull, chest, spine and arms",
+      "kind": "object",
+      "x": 630,
+      "y": 50,
+      "width": 350,
       "height": 460
+    },
+    {
+      "id": "skeleton-lower",
+      "description": "Pelvis and lower limbs of the complete ivory skeleton model",
+      "kind": "object",
+      "x": 680,
+      "y": 420,
+      "width": 250,
+      "height": 410
+    },
+    {
+      "id": "muscle-limbs",
+      "description": "Visible limb muscle groups on the coral anatomy model",
+      "kind": "object",
+      "x": 1090,
+      "y": 180,
+      "width": 350,
+      "height": 630
+    },
+    {
+      "id": "organ-cutaway",
+      "description": "Clean open torso containing separately visible major organs",
+      "kind": "object",
+      "x": 1160,
+      "y": 170,
+      "width": 250,
+      "height": 420
+    },
+    {
+      "id": "portal-heart",
+      "description": "Unobstructed heart centered between the paired lungs",
+      "kind": "object",
+      "x": 1230,
+      "y": 228,
+      "width": 110,
+      "height": 125
     }
   ]
 }

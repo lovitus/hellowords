@@ -229,6 +229,10 @@ a:focus-visible {
   letter-spacing: 0.01em;
 }
 
+.atlas-button-label--mobile {
+  display: none;
+}
+
 .meaning-toggle {
   display: inline-flex;
   height: 40px;
@@ -316,6 +320,22 @@ a:focus-visible {
   font-style: italic;
 }
 
+.scene-heading[data-continuous="true"] h1,
+.scene-heading[data-continuous="true"] p {
+  animation: scene-heading-continuous-in 180ms cubic-bezier(.22, .72, .24, 1) both;
+}
+
+@keyframes scene-heading-continuous-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .viewer-shell,
 .world-viewport {
   position: absolute;
@@ -367,6 +387,26 @@ a:focus-visible {
   -webkit-user-select: none;
 }
 
+.world-viewport::before {
+  position: absolute;
+  z-index: 0;
+  inset: -24px;
+  background-image: var(--scene-backdrop-image);
+  background-position: center;
+  background-size: cover;
+  content: "";
+  filter: saturate(.72) brightness(1.08);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.02);
+}
+
+@media (max-width: 560px) and (orientation: portrait) {
+  .world-viewport::before {
+    opacity: .24;
+  }
+}
+
 .world-viewport:active {
   cursor: grabbing;
 }
@@ -397,12 +437,53 @@ a:focus-visible {
   -webkit-user-drag: none;
 }
 
+.scene-continuous-tile {
+  --tile-progress: 0;
+  position: absolute;
+  z-index: 3;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 0 0 1px rgba(247, 244, 231, .28);
+  contain: strict;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.scene-continuous-tile[data-state="preview"] {
+  opacity: calc(var(--tile-progress) * .92);
+}
+
+.scene-continuous-tile[data-state="active"] {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.scene-continuous-tile[data-state="active"][data-direction="forward"] {
+  opacity: 1;
+}
+
+.scene-continuous-tile[data-state="active"][data-direction="back"] {
+  opacity: var(--tile-progress);
+}
+
+.scene-continuous-tile > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
 .label-layer {
   position: absolute;
   z-index: 4;
   inset: 0;
   contain: layout style;
+  opacity: 1;
   pointer-events: none;
+  transition: opacity 90ms ease-out;
 }
 
 .scene-interaction-layer {
@@ -410,6 +491,14 @@ a:focus-visible {
   z-index: 5;
   inset: 0;
   contain: layout style;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 90ms ease-out;
+}
+
+.label-layer[data-motion-frozen="true"],
+.scene-interaction-layer[data-motion-frozen="true"] {
+  opacity: 0;
   pointer-events: none;
 }
 
@@ -423,18 +512,29 @@ a:focus-visible {
   --label-anchor-y: 0px;
   --label-leader-angle: 0deg;
   --label-leader-length: 0px;
+  --label-semantic-surface: #f6f3ed;
+  --label-semantic-surface-hover: #fdfbf7;
+  --label-semantic-border: #d2c9ba;
+  --label-semantic-ink: #34312a;
+  --label-semantic-muted: #605a4f;
+  --label-semantic-dot: #7d7567;
+  --label-semantic-leader: rgba(99, 91, 77, 0.7);
+  --label-semantic-leader-fade: rgba(99, 91, 77, 0.19);
+  --label-semantic-ring: rgba(125, 117, 103, 0.22);
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 2;
   display: flex;
   min-height: 30px;
   align-items: center;
   gap: 5px;
   padding: 5px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--label-semantic-border);
   border-radius: 999px;
-  background: rgba(251, 248, 239, 0.88);
-  box-shadow: 0 5px 18px rgba(27, 57, 52, 0.16);
-  color: #193733;
+  background: var(--label-semantic-surface);
+  box-shadow: 0 5px 18px rgba(27, 57, 52, 0.13), 0 0 0 1px var(--label-semantic-ring);
+  color: var(--label-semantic-ink);
   cursor: pointer;
   font-size: 12px;
   font-weight: 750;
@@ -442,10 +542,10 @@ a:focus-visible {
   line-height: 1;
   opacity: var(--label-opacity);
   pointer-events: none;
-  /* Labels live in screen space: the transform only centers native-size text. */
-  transform: translate(-50%, -50%);
+  /* Labels live in screen space: translation positions native-size text without layout. */
+  transform: translate3d(0px, 0px, 0) translate(-50%, -50%);
   transform-origin: center;
-  transition: opacity 150ms cubic-bezier(0.22, 0.75, 0.25, 1), box-shadow 150ms ease, background 150ms ease;
+  transition: opacity 150ms cubic-bezier(0.22, 0.75, 0.25, 1), border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
   visibility: hidden;
   white-space: nowrap;
 }
@@ -457,7 +557,7 @@ a:focus-visible {
   left: 50%;
   width: var(--label-leader-length);
   height: 1.5px;
-  background: linear-gradient(90deg, rgba(31, 87, 72, 0.72), rgba(31, 87, 72, 0.2));
+  background: linear-gradient(90deg, var(--label-semantic-leader), var(--label-semantic-leader-fade));
   content: "";
   pointer-events: none;
   transform: rotate(var(--label-leader-angle));
@@ -468,7 +568,7 @@ a:focus-visible {
   height: 2px;
   background: repeating-linear-gradient(
     90deg,
-    rgba(26, 91, 71, 0.82) 0 7px,
+    var(--label-semantic-leader) 0 7px,
     rgba(250, 248, 237, 0.58) 7px 10px
   );
   box-shadow: 0 1px 2px rgba(13, 49, 39, 0.18);
@@ -483,8 +583,8 @@ a:focus-visible {
   height: 8px;
   border: 2px solid rgba(255, 252, 241, 0.96);
   border-radius: 50%;
-  background: #236752;
-  box-shadow: 0 1px 6px rgba(21, 63, 51, 0.38), 0 0 0 2px rgba(35, 103, 82, 0.18);
+  background: var(--label-semantic-dot);
+  box-shadow: 0 1px 6px rgba(21, 54, 48, 0.3), 0 0 0 2px var(--label-semantic-ring);
   pointer-events: none;
   transform: translate(calc(var(--label-anchor-x) - 50%), calc(var(--label-anchor-y) - 50%));
 }
@@ -498,7 +598,6 @@ a:focus-visible {
 }
 
 .word-label[data-lod="4"] {
-  background: rgba(252, 250, 243, 0.84);
   box-shadow: 0 4px 14px rgba(27, 57, 52, 0.13);
 }
 
@@ -517,8 +616,8 @@ a:focus-visible {
 .word-label[data-interactive="true"]:hover,
 .word-label[data-interactive="true"]:focus-visible {
   z-index: 4;
-  background: rgba(255, 253, 246, 0.98);
-  box-shadow: 0 8px 26px rgba(27, 57, 52, 0.24);
+  background: var(--label-semantic-surface-hover);
+  box-shadow: 0 8px 26px rgba(27, 57, 52, 0.2), 0 0 0 2px var(--label-semantic-ring);
 }
 
 .word-label::before {
@@ -527,7 +626,7 @@ a:focus-visible {
   height: 4px;
   flex: 0 0 4px;
   border-radius: 50%;
-  background: var(--copper);
+  background: var(--label-semantic-dot);
 }
 
 .vocabulary-zoom-layer {
@@ -755,14 +854,15 @@ a:focus-visible {
 
 .word-translation {
   padding-left: 6px;
-  border-left: 1px solid rgba(32, 62, 57, 0.15);
-  color: var(--ink-soft);
+  border-left: 1px solid var(--label-semantic-border);
+  color: var(--label-semantic-muted);
   font-size: 10px;
   font-weight: 600;
 }
 
 .scene-hotspot-region {
   --portal-progress: 0;
+  --portal-caption-shift-x: 0px;
   position: absolute;
   z-index: 9;
   display: grid;
@@ -826,7 +926,7 @@ a:focus-visible {
   position: absolute;
   top: calc(100% + 7px);
   left: 50%;
-  max-width: 190px;
+  max-width: min(190px, calc(100vw - 24px));
   padding: 6px 10px;
   border: 1px solid rgba(255, 239, 194, 0.88);
   border-radius: 999px;
@@ -838,16 +938,18 @@ a:focus-visible {
   letter-spacing: 0.02em;
   line-height: 1;
   opacity: 1;
+  overflow: hidden;
   pointer-events: none;
-  transform: translateX(-50%);
-  transition: opacity 160ms ease, transform 160ms ease;
+  text-overflow: ellipsis;
+  transform: translateX(calc(-50% + var(--portal-caption-shift-x)));
+  transition: opacity 160ms ease;
   white-space: nowrap;
 }
 
 .scene-hotspot-region[data-candidate="true"] .scene-hotspot-caption,
 .scene-hotspot:focus-visible .scene-hotspot-caption {
   opacity: 1;
-  transform: translate(-50%, 2px);
+  transform: translate(calc(-50% + var(--portal-caption-shift-x)), 2px);
 }
 
 .viewport-vignette {
@@ -1210,13 +1312,18 @@ a:focus-visible {
   }
 
   .atlas-button {
-    width: 40px;
+    width: auto;
+    min-width: 88px;
     justify-content: center;
-    padding: 0;
+    padding: 0 10px;
   }
 
-  .atlas-button-label {
+  .atlas-button-label--desktop {
     display: none;
+  }
+
+  .atlas-button-label--mobile {
+    display: inline;
   }
 
   .discovery-count {
@@ -1283,8 +1390,27 @@ a:focus-visible {
 }
 
 @media (max-width: 560px) {
+  .app-header {
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    font-size: 19px;
+  }
+
   .brand strong {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .brand small {
@@ -1292,7 +1418,14 @@ a:focus-visible {
   }
 
   .meaning-toggle {
-    padding: 0 10px;
+    gap: 4px;
+    padding: 0 7px;
+    font-size: 0;
+  }
+
+  .meaning-toggle::after {
+    content: "译";
+    font-size: 11px;
   }
 
   .scene-heading {
@@ -1341,7 +1474,7 @@ a:focus-visible {
   }
 
   .scene-hotspot-caption {
-    max-width: 180px;
+    max-width: min(180px, calc(100vw - 24px));
     font-size: 12px;
   }
 

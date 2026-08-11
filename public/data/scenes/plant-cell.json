@@ -317,6 +317,66 @@
       "priority": 5.004,
       "minLevel": 4,
       "sourceVisualRegion": "blue-vesicle"
+    },
+    {
+      "id": "outer-mitochondrial-membrane",
+      "word": "outer mitochondrial membrane",
+      "translation": "线粒体外膜",
+      "x": 1390,
+      "y": 450,
+      "priority": 3.031,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-outer-mitochondrial-membrane"
+    },
+    {
+      "id": "inner-mitochondrial-membrane",
+      "word": "inner mitochondrial membrane",
+      "translation": "线粒体内膜",
+      "x": 1375,
+      "y": 470,
+      "priority": 4.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-inner-mitochondrial-membrane"
+    },
+    {
+      "id": "mitochondrial-intermembrane-space",
+      "word": "mitochondrial intermembrane space",
+      "translation": "线粒体膜间隙",
+      "x": 1388,
+      "y": 458,
+      "priority": 4.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-mitochondrial-intermembrane-space"
+    },
+    {
+      "id": "er-lumen",
+      "word": "ER lumen",
+      "translation": "内质网腔",
+      "x": 605,
+      "y": 275,
+      "priority": 5.035,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-er-lumen"
+    },
+    {
+      "id": "vesicle-membrane",
+      "word": "vesicle membrane",
+      "translation": "囊泡膜",
+      "x": 1305,
+      "y": 570,
+      "priority": 5.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-vesicle-membrane"
+    },
+    {
+      "id": "chloroplast-stroma",
+      "word": "chloroplast stroma",
+      "translation": "叶绿体基质",
+      "x": 1160,
+      "y": 330,
+      "priority": 4.037,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-chloroplast-stroma"
     }
   ],
   "portals": [
@@ -338,10 +398,10 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/plant-cell-premium-v2.jpg",
     "reviewedAssetSha256": "2c873d870fc8c2344b4686460647c941c01740723a0901936e70a012e118146e",
-    "rationale": "Re-anchored every term to a structure visibly resolved in the premium plant-cell cutaway, including the cell boundaries, organelles, membranes, folds, particles and the exposed upper-right chloroplast; biochemical processes and unseen molecules remain excluded.",
+    "rationale": "Expanded the plant-cell cutaway into five authored organelle crops and added only visible membrane boundaries, internal spaces, folds, connections and cell-wall details.",
     "previousLabelCount": 56,
-    "retainedLabelCount": 31,
-    "removedLabelCount": 25,
+    "retainedLabelCount": 37,
+    "removedLabelCount": 19,
     "removedExamples": [
       "enzyme",
       "glucose",
@@ -567,6 +627,163 @@
       "y": 515,
       "width": 135,
       "height": 135
+    },
+    {
+      "id": "verified-outer-mitochondrial-membrane",
+      "description": "Smooth outer boundary of the right mitochondrion",
+      "kind": "part",
+      "x": 1300,
+      "y": 405,
+      "width": 175,
+      "height": 145
+    },
+    {
+      "id": "verified-inner-mitochondrial-membrane",
+      "description": "Folded inner boundary inside the right mitochondrion",
+      "kind": "part",
+      "x": 1310,
+      "y": 425,
+      "width": 145,
+      "height": 115
+    },
+    {
+      "id": "verified-mitochondrial-intermembrane-space",
+      "description": "Narrow space between the outer and inner mitochondrial membranes",
+      "kind": "part",
+      "x": 1320,
+      "y": 420,
+      "width": 145,
+      "height": 105
+    },
+    {
+      "id": "verified-er-lumen",
+      "description": "Narrow interior space between endoplasmic-reticulum sheets",
+      "kind": "part",
+      "x": 500,
+      "y": 205,
+      "width": 240,
+      "height": 165
+    },
+    {
+      "id": "verified-vesicle-membrane",
+      "description": "Thin boundary around the blue transport vesicle",
+      "kind": "part",
+      "x": 1260,
+      "y": 525,
+      "width": 95,
+      "height": 95
+    },
+    {
+      "id": "verified-chloroplast-stroma",
+      "description": "Fluid-filled interior around the chloroplast stacks",
+      "kind": "part",
+      "x": 930,
+      "y": 85,
+      "width": 445,
+      "height": 315
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "nucleus-and-er",
+      "title": "Nucleus and rough ER",
+      "translation": "细胞核与粗面内质网",
+      "description": "Nuclear structures, surrounding rough ER membranes, pores and attached ribosomes",
+      "x": 180,
+      "y": 120,
+      "width": 620,
+      "height": 470,
+      "targetScale": 2.45,
+      "labelIds": [
+        "nucleus",
+        "rough-endoplasmic-reticulum",
+        "nucleolus",
+        "ribosome",
+        "chromatin",
+        "nuclear-envelope",
+        "nuclear-pore",
+        "rough-er-cisterna",
+        "er-lumen"
+      ]
+    },
+    {
+      "id": "golgi-and-smooth-er",
+      "title": "Golgi and smooth ER",
+      "translation": "高尔基体与光面内质网",
+      "description": "Golgi cisternae, budding vesicles and smooth ER tubules in the lower-left cytoplasm",
+      "x": 180,
+      "y": 480,
+      "width": 650,
+      "height": 300,
+      "targetScale": 2.65,
+      "labelIds": [
+        "smooth-endoplasmic-reticulum",
+        "golgi-apparatus",
+        "golgi-cisterna",
+        "transport-vesicle",
+        "smooth-er-tubule"
+      ]
+    },
+    {
+      "id": "vacuole-and-cytoplasm",
+      "title": "Vacuole and cytoplasm",
+      "translation": "液泡与细胞质",
+      "description": "Central vacuole, tonoplast, cytoplasmic matrix and suspended structural elements",
+      "x": 650,
+      "y": 120,
+      "width": 680,
+      "height": 560,
+      "targetScale": 2.35,
+      "labelIds": [
+        "cytoplasm",
+        "central-vacuole",
+        "tonoplast",
+        "cytoskeleton",
+        "vacuolar-sap",
+        "free-ribosome",
+        "vesicle",
+        "vesicle-membrane"
+      ]
+    },
+    {
+      "id": "chloroplast-cutaway",
+      "title": "Chloroplast cutaway",
+      "translation": "叶绿体剖面",
+      "description": "Chloroplast envelope, grana, thylakoid stacks, starch and connecting lamellae",
+      "x": 850,
+      "y": 50,
+      "width": 550,
+      "height": 380,
+      "targetScale": 2.65,
+      "labelIds": [
+        "chloroplast",
+        "chloroplast-envelope",
+        "granum",
+        "thylakoid-stack",
+        "starch-grain",
+        "chloroplast-stroma"
+      ]
+    },
+    {
+      "id": "mitochondria-and-wall",
+      "title": "Mitochondria and wall",
+      "translation": "线粒体与细胞壁",
+      "description": "Mitochondrial membranes and folds beside the layered outer cell boundary",
+      "x": 780,
+      "y": 0,
+      "width": 820,
+      "height": 900,
+      "targetScale": 2.7,
+      "labelIds": [
+        "cell-wall",
+        "plasma-membrane",
+        "mitochondrion",
+        "mitochondrial-crista",
+        "mitochondrial-matrix",
+        "outer-mitochondrial-membrane",
+        "inner-mitochondrial-membrane",
+        "mitochondrial-intermembrane-space"
+      ]
     }
   ]
 }

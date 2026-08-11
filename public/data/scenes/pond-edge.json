@@ -2,319 +2,164 @@
   "id": "pond-edge",
   "title": "Pond edge",
   "translation": "池塘边缘",
-  "subtitle": "Freshwater life gathered along a shallow shore",
-  "asset": "/scenes/pond-edge.svg",
+  "subtitle": "Freshwater life gathered along a sunlit shallow shore",
+  "asset": "/scenes/pond-edge-premium-v1.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "city-park",
   "labels": [
-    {
-      "id": "pond-edge",
-      "word": "pond edge",
-      "translation": "池塘边缘",
-      "x": 800,
-      "y": 340,
-      "priority": 1,
-      "minLevel": 0,
-      "sourceVisualRegion": "whole-pond"
-    },
-    {
-      "id": "shoreline",
-      "word": "shoreline",
-      "translation": "岸线",
-      "x": 500,
-      "y": 385,
-      "priority": 1.001,
-      "minLevel": 0,
-      "sourceVisualRegion": "left-bank"
-    },
-    {
-      "id": "reed",
-      "word": "reed",
-      "translation": "芦苇",
-      "x": 155,
-      "y": 250,
-      "priority": 1.002,
-      "minLevel": 0,
-      "sourceVisualRegion": "reeds-left"
-    },
-    {
-      "id": "lily-pad",
-      "word": "lily pad",
-      "translation": "睡莲叶",
-      "x": 650,
-      "y": 650,
-      "priority": 1.003,
-      "minLevel": 0,
-      "sourceVisualRegion": "lily-pads"
-    },
-    {
-      "id": "water-lily",
-      "word": "water lily",
-      "translation": "睡莲",
-      "x": 395,
-      "y": 495,
-      "priority": 2.004,
-      "minLevel": 1,
-      "sourceVisualRegion": "water-lilies"
-    },
-    {
-      "id": "ripples",
-      "word": "ripples",
-      "translation": "涟漪",
-      "x": 700,
-      "y": 470,
-      "priority": 2.005,
-      "minLevel": 1,
-      "sourceVisualRegion": "ripples"
-    },
-    {
-      "id": "water-surface",
-      "word": "water surface",
-      "translation": "水面",
-      "x": 780,
-      "y": 440,
-      "priority": 2.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "water"
-    },
-    {
-      "id": "mud-bank",
-      "word": "mud bank",
-      "translation": "泥岸",
-      "x": 1280,
-      "y": 350,
-      "priority": 2.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "right-bank"
-    },
-    {
-      "id": "frog",
-      "word": "frog",
-      "translation": "青蛙",
-      "x": 1040,
-      "y": 500,
-      "priority": 2.008,
-      "minLevel": 1,
-      "sourceVisualRegion": "frog"
-    },
-    {
-      "id": "stone",
-      "word": "stone",
-      "translation": "石块",
-      "x": 1410,
-      "y": 610,
-      "priority": 3.009,
-      "minLevel": 2,
-      "sourceVisualRegion": "stones"
-    },
-    {
-      "id": "pond-flower",
-      "word": "pond flower",
-      "translation": "池塘花朵",
-      "x": 765,
-      "y": 235,
-      "priority": 3.01,
-      "minLevel": 2,
-      "sourceVisualRegion": "red-flowers"
-    },
-    {
-      "id": "floating-leaf",
-      "word": "floating leaf",
-      "translation": "漂浮叶片",
-      "x": 865,
-      "y": 520,
-      "priority": 3.011,
-      "minLevel": 2,
-      "sourceVisualRegion": "floating-leaves"
-    },
-    {
-      "id": "reed-leaf",
-      "word": "reed leaf",
-      "translation": "芦苇叶",
-      "x": 1450,
-      "y": 170,
-      "priority": 4.012,
-      "minLevel": 3,
-      "sourceVisualRegion": "reeds-right"
-    },
-    {
-      "id": "frog-eye",
-      "word": "frog eye",
-      "translation": "青蛙眼睛",
-      "x": 1050,
-      "y": 430,
-      "priority": 5.013,
-      "minLevel": 4,
-      "sourceVisualRegion": "frog-eyes"
-    }
+    { "id": "pond-edge", "word": "pond edge", "translation": "池塘边缘", "x": 800, "y": 450, "priority": 1, "minLevel": 0, "sourceVisualRegion": "whole-pond" },
+    { "id": "water-surface", "word": "water surface", "translation": "水面", "x": 700, "y": 470, "priority": 1.001, "minLevel": 0, "sourceVisualRegion": "open-water" },
+    { "id": "shoreline", "word": "shoreline", "translation": "岸线", "x": 1020, "y": 500, "priority": 1.002, "minLevel": 0, "sourceVisualRegion": "bank-textures" },
+    { "id": "mud-bank", "word": "mud bank", "translation": "泥岸", "x": 1100, "y": 350, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "bank-textures" },
+    { "id": "flat-stone", "word": "flat stone", "translation": "扁平石块", "x": 1300, "y": 590, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "bank-textures" },
+    { "id": "cattail", "word": "cattail", "translation": "香蒲", "x": 220, "y": 150, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "emergent-plants" },
+    { "id": "lily-pad", "word": "lily pad", "translation": "睡莲叶", "x": 410, "y": 630, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "floating-garden" },
+    { "id": "water-lily", "word": "water lily", "translation": "睡莲", "x": 350, "y": 455, "priority": 1.007, "minLevel": 0, "sourceVisualRegion": "floating-garden" },
+    { "id": "frog", "word": "frog", "translation": "青蛙", "x": 1330, "y": 480, "priority": 1.008, "minLevel": 0, "sourceVisualRegion": "frog-portrait", "lexemeId": "en-74fa5327cc0f4e94" },
+    { "id": "dragonfly", "word": "dragonfly", "translation": "蜻蜓", "x": 310, "y": 190, "priority": 1.009, "minLevel": 0, "sourceVisualRegion": "emergent-plants" },
+    { "id": "minnow", "word": "minnow", "translation": "小鱼", "x": 625, "y": 765, "priority": 1.01, "minLevel": 0, "sourceVisualRegion": "clear-shallows" },
+    { "id": "tree-root", "word": "tree root", "translation": "树根", "x": 1450, "y": 190, "priority": 1.011, "minLevel": 0, "sourceVisualRegion": "bank-textures" },
+
+    { "id": "gravel", "word": "gravel", "translation": "砾石", "x": 1440, "y": 790, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "bank-textures" },
+    { "id": "pebble", "word": "pebble", "translation": "卵石", "x": 1085, "y": 580, "priority": 2.013, "minLevel": 1, "sourceVisualRegion": "bank-textures" },
+    { "id": "moss", "word": "moss", "translation": "苔藓", "lexemeId": "en-9e135ab954828446", "x": 1035, "y": 300, "priority": 2.014, "minLevel": 1, "sourceVisualRegion": "bank-textures" },
+    { "id": "tree-bark", "word": "tree bark", "translation": "树皮", "x": 1490, "y": 130, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "bank-textures" },
+    { "id": "reed", "word": "reed", "translation": "芦苇", "x": 830, "y": 330, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "emergent-plants", "lexemeId": "en-d8252e5d78f9b929" },
+    { "id": "sedge", "word": "sedge", "translation": "莎草", "x": 1200, "y": 170, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "emergent-plants" },
+    { "id": "lily-bud", "word": "lily bud", "translation": "睡莲花蕾", "x": 485, "y": 550, "priority": 2.018, "minLevel": 1, "sourceVisualRegion": "floating-garden" },
+    { "id": "duckweed", "word": "duckweed", "translation": "浮萍", "x": 75, "y": 675, "priority": 2.019, "minLevel": 1, "sourceVisualRegion": "floating-garden" },
+    { "id": "ripple", "word": "ripple", "translation": "涟漪", "x": 640, "y": 480, "priority": 2.02, "minLevel": 1, "sourceVisualRegion": "open-water" },
+    { "id": "pond-snail", "word": "pond snail", "translation": "池塘蜗牛", "x": 430, "y": 690, "priority": 2.021, "minLevel": 1, "sourceVisualRegion": "floating-garden" },
+
+    { "id": "fallen-twig", "word": "fallen twig", "translation": "落枝", "x": 1030, "y": 415, "priority": 3.022, "minLevel": 2, "sourceVisualRegion": "bank-textures" },
+    { "id": "cattail-seed-head", "word": "cattail seed head", "translation": "香蒲穗", "x": 340, "y": 130, "priority": 3.023, "minLevel": 2, "sourceVisualRegion": "emergent-plants" },
+    { "id": "reed-leaf", "word": "reed leaf", "translation": "芦苇叶", "x": 780, "y": 200, "priority": 3.024, "minLevel": 2, "sourceVisualRegion": "emergent-plants" },
+    { "id": "submerged-plant", "word": "submerged plant", "translation": "沉水植物", "x": 160, "y": 780, "priority": 3.025, "minLevel": 2, "sourceVisualRegion": "clear-shallows" },
+    { "id": "submerged-stem", "word": "submerged stem", "translation": "水下茎", "x": 300, "y": 790, "priority": 3.026, "minLevel": 2, "sourceVisualRegion": "clear-shallows" },
+    { "id": "reflection", "word": "reflection", "translation": "倒影", "x": 540, "y": 370, "priority": 3.027, "minLevel": 2, "sourceVisualRegion": "open-water" },
+    { "id": "air-bubble", "word": "air bubble", "translation": "气泡", "x": 900, "y": 670, "priority": 3.028, "minLevel": 2, "sourceVisualRegion": "clear-shallows" },
+    { "id": "tadpole", "word": "tadpole", "translation": "蝌蚪", "x": 930, "y": 820, "priority": 3.029, "minLevel": 2, "sourceVisualRegion": "clear-shallows" },
+
+    { "id": "reed-stem", "word": "reed stem", "translation": "芦苇茎", "x": 840, "y": 390, "priority": 4.03, "minLevel": 3, "sourceVisualRegion": "emergent-plants" },
+    { "id": "water-strider", "word": "water strider", "translation": "水黾", "x": 765, "y": 625, "priority": 4.031, "minLevel": 3, "sourceVisualRegion": "open-water" },
+    { "id": "damselfly", "word": "damselfly", "translation": "豆娘", "x": 795, "y": 245, "priority": 4.032, "minLevel": 3, "sourceVisualRegion": "emergent-plants" },
+    { "id": "frog-foreleg", "word": "frog foreleg", "translation": "青蛙前肢", "x": 1260, "y": 525, "priority": 4.033, "minLevel": 3, "sourceVisualRegion": "frog-portrait" },
+    { "id": "frog-hind-leg", "word": "frog hind leg", "translation": "青蛙后肢", "x": 1440, "y": 520, "priority": 4.034, "minLevel": 3, "sourceVisualRegion": "frog-portrait" },
+    { "id": "snail-shell", "word": "snail shell", "translation": "蜗牛壳", "x": 430, "y": 690, "priority": 4.035, "minLevel": 3, "sourceVisualRegion": "floating-garden" },
+
+    { "id": "frog-eye", "word": "frog eye", "translation": "青蛙眼睛", "x": 1260, "y": 420, "priority": 5.036, "minLevel": 4, "sourceVisualRegion": "frog-portrait" },
+    { "id": "dragonfly-wing", "word": "dragonfly wing", "translation": "蜻蜓翅膀", "x": 300, "y": 175, "priority": 5.037, "minLevel": 4, "sourceVisualRegion": "emergent-plants" },
+    { "id": "water-lily-petal", "word": "water lily petal", "translation": "睡莲花瓣", "x": 340, "y": 435, "priority": 5.038, "minLevel": 4, "sourceVisualRegion": "floating-garden" },
+    { "id": "tadpole-tail", "word": "tadpole tail", "translation": "蝌蚪尾巴", "x": 980, "y": 840, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "clear-shallows" }
   ],
   "portals": [
     {
       "id": "enter-frog",
-      "label": "Meet the pond frog",
-      "translation": "观察池塘青蛙",
+      "label": "Meet the frog on the shore",
+      "translation": "观察岸边青蛙",
       "childSceneId": "frog",
-      "x": 940,
-      "y": 390,
-      "width": 310,
-      "height": 270,
-      "enterScale": 3.6,
-      "sourceVisualRegion": "frog-region"
+      "x": 1175,
+      "y": 350,
+      "width": 350,
+      "height": 260,
+      "enterScale": 3.3,
+      "sourceVisualRegion": "portal-frog"
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "emergent-plants-insects",
+      "title": "Emergent plants and insects",
+      "translation": "挺水植物与昆虫",
+      "description": "Tall cattails, reeds and sedge with a dragonfly and damselfly resting on their visible stems",
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 450,
+      "targetScale": 2.3,
+      "labelIds": ["cattail", "dragonfly", "reed", "sedge", "cattail-seed-head", "reed-leaf", "reed-stem", "damselfly", "dragonfly-wing"]
+    },
+    {
+      "id": "floating-garden",
+      "title": "Floating pond garden",
+      "translation": "漂浮水生花园",
+      "description": "Large lily pads, one open water lily, a raised bud, duckweed and the snail crossing a pad",
+      "x": 0,
+      "y": 350,
+      "width": 700,
+      "height": 400,
+      "targetScale": 2.35,
+      "labelIds": ["lily-pad", "water-lily", "lily-bud", "duckweed", "pond-snail", "snail-shell", "water-lily-petal"]
+    },
+    {
+      "id": "open-water",
+      "title": "Open reflective water",
+      "translation": "开阔倒影水面",
+      "description": "Calm open water carrying reflections, one widening ripple and a small surface water strider",
+      "x": 400,
+      "y": 250,
+      "width": 650,
+      "height": 400,
+      "targetScale": 2.45,
+      "labelIds": ["water-surface", "ripple", "reflection", "water-strider"]
+    },
+    {
+      "id": "clear-shallows",
+      "title": "Life in the clear shallows",
+      "translation": "清澈浅水生物",
+      "description": "Transparent foreground water reveals submerged plants, minnows, tadpoles and a rising bubble trail",
+      "x": 0,
+      "y": 550,
+      "width": 1050,
+      "height": 350,
+      "targetScale": 2.4,
+      "labelIds": ["minnow", "submerged-plant", "submerged-stem", "air-bubble", "tadpole", "tadpole-tail"]
+    },
+    {
+      "id": "bank-textures",
+      "title": "Shore and bank textures",
+      "translation": "岸边与地表纹理",
+      "description": "The right shoreline layers wet mud, moss, roots, bark, a fallen twig, gravel and distinct stones",
+      "x": 850,
+      "y": 0,
+      "width": 750,
+      "height": 900,
+      "targetScale": 2.35,
+      "labelIds": ["shoreline", "mud-bank", "flat-stone", "gravel", "pebble", "moss", "tree-bark", "tree-root", "fallen-twig"]
+    },
+    {
+      "id": "frog-portrait",
+      "title": "Frog on the flat stone",
+      "translation": "扁石上的青蛙",
+      "description": "The unobstructed green frog shows one bright eye, a planted foreleg and its folded swimming hind leg",
+      "x": 1175,
+      "y": 350,
+      "width": 350,
+      "height": 260,
+      "targetScale": 3.05,
+      "labelIds": ["frog", "frog-eye", "frog-foreleg", "frog-hind-leg"]
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/pond-edge.svg",
-    "rationale": "Kept the visible shoreline, water, reeds, pads, flowers, ripples, stones and frog; removed animals and plants mentioned only in the old vocabulary but absent from the drawing.",
+    "reviewedAsset": "/scenes/pond-edge-premium-v1.jpg",
+    "reviewedAssetSha256": "e1afa77fd93b6d067ed69ab6f128247bd06657e9ee78f50a3d38d52c69bd78a7",
+    "rationale": "Reviewed the final 1600 by 900 spring pond image pixel by pixel and anchored only independently visible shoreline textures, plants, insects, fish, tadpoles, snail, frog parts and water details; the unobstructed frog on the right stone remains the real child-scene entrance.",
     "previousLabelCount": 48,
-    "retainedLabelCount": 14,
-    "removedLabelCount": 34,
-    "removedExamples": [
-      "dragonfly",
-      "tadpole",
-      "snail",
-      "heron",
-      "minnow",
-      "kingfisher"
-    ]
+    "retainedLabelCount": 40,
+    "removedLabelCount": 8,
+    "removedExamples": ["heron", "kingfisher", "turtle", "fish jumping"]
   },
   "visualRegions": [
-    {
-      "id": "whole-pond",
-      "description": "Complete freshwater pond-edge scene",
-      "kind": "whole",
-      "x": 0,
-      "y": 120,
-      "width": 1600,
-      "height": 730
-    },
-    {
-      "id": "water",
-      "description": "Blue-green pond water",
-      "kind": "object",
-      "x": 0,
-      "y": 330,
-      "width": 1600,
-      "height": 570
-    },
-    {
-      "id": "left-bank",
-      "description": "Green muddy bank on the left",
-      "kind": "object",
-      "x": 0,
-      "y": 300,
-      "width": 830,
-      "height": 220
-    },
-    {
-      "id": "right-bank",
-      "description": "Brown muddy bank on the right",
-      "kind": "object",
-      "x": 880,
-      "y": 280,
-      "width": 720,
-      "height": 230
-    },
-    {
-      "id": "reeds-left",
-      "description": "Three emergent reed stems and leaves at left",
-      "kind": "object",
-      "x": 40,
-      "y": 120,
-      "width": 250,
-      "height": 350
-    },
-    {
-      "id": "reeds-right",
-      "description": "Three emergent reed stems and leaves at right",
-      "kind": "object",
-      "x": 1240,
-      "y": 100,
-      "width": 320,
-      "height": 380
-    },
-    {
-      "id": "lily-pads",
-      "description": "Four green oval lily pads",
-      "kind": "object",
-      "x": 270,
-      "y": 455,
-      "width": 1080,
-      "height": 300
-    },
-    {
-      "id": "water-lilies",
-      "description": "Two pale yellow water-lily flowers",
-      "kind": "object",
-      "x": 340,
-      "y": 460,
-      "width": 730,
-      "height": 120
-    },
-    {
-      "id": "red-flowers",
-      "description": "Two red emergent pond flowers",
-      "kind": "object",
-      "x": 690,
-      "y": 190,
-      "width": 690,
-      "height": 140
-    },
-    {
-      "id": "frog",
-      "description": "Green frog at the right side of the pond",
-      "kind": "object",
-      "x": 940,
-      "y": 390,
-      "width": 310,
-      "height": 270
-    },
-    {
-      "id": "frog-eyes",
-      "description": "Paired pale eyes on the frog",
-      "kind": "part",
-      "x": 980,
-      "y": 390,
-      "width": 180,
-      "height": 100
-    },
-    {
-      "id": "ripples",
-      "description": "Three pale oval ripple rings",
-      "kind": "diagram",
-      "x": 190,
-      "y": 430,
-      "width": 1100,
-      "height": 430
-    },
-    {
-      "id": "stones",
-      "description": "Three ochre stones in the lower water",
-      "kind": "object",
-      "x": 140,
-      "y": 580,
-      "width": 1350,
-      "height": 205
-    },
-    {
-      "id": "floating-leaves",
-      "description": "Two small pale floating leaves",
-      "kind": "object",
-      "x": 490,
-      "y": 475,
-      "width": 450,
-      "height": 300
-    },
-    {
-      "id": "frog-region",
-      "description": "Visible frog used to enter the frog study",
-      "kind": "object",
-      "x": 940,
-      "y": 390,
-      "width": 310,
-      "height": 270
-    }
+    { "id": "whole-pond", "description": "Complete bright freshwater pond and shallow bank scene", "kind": "whole", "x": 0, "y": 0, "width": 1600, "height": 900 },
+    { "id": "emergent-plants", "description": "Cattails, reeds, sedge and two distinct blue aerial insects", "kind": "object", "x": 0, "y": 0, "width": 1280, "height": 450 },
+    { "id": "floating-garden", "description": "Lily pads, flower, bud, duckweed and a snail at the left foreground", "kind": "object", "x": 0, "y": 350, "width": 700, "height": 400 },
+    { "id": "open-water", "description": "Open central water with reflection, ripple and a surface insect", "kind": "object", "x": 400, "y": 250, "width": 650, "height": 400 },
+    { "id": "clear-shallows", "description": "Transparent foreground water with plants, fish, bubbles and tadpoles", "kind": "object", "x": 0, "y": 550, "width": 1050, "height": 350 },
+    { "id": "bank-textures", "description": "Right mud bank, stones, moss, gravel, bark, roots and fallen twig", "kind": "object", "x": 850, "y": 0, "width": 750, "height": 900 },
+    { "id": "frog-portrait", "description": "Complete green frog and its independently visible external parts", "kind": "object", "x": 1175, "y": 350, "width": 350, "height": 260 },
+    { "id": "portal-frog", "description": "Unobstructed frog on the large flat right-bank stone", "kind": "object", "x": 1175, "y": 350, "width": 350, "height": 260 }
   ]
 }

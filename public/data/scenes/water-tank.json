@@ -2,395 +2,147 @@
   "id": "water-tank",
   "title": "Water tank",
   "translation": "水箱",
-  "subtitle": "Shape, surface and material",
-  "asset": "/scenes/water-tank.svg",
+  "subtitle": "Clear walls, water and a serviceable outlet",
+  "asset": "/scenes/water-tank-premium-v1.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "coffee-machine",
   "labels": [
-    {
-      "id": "water-tank",
-      "word": "water tank",
-      "translation": "水箱",
-      "x": 750,
-      "y": 450,
-      "priority": 1,
-      "minLevel": 0,
-      "sourceVisualRegion": "whole-water-tank"
-    },
-    {
-      "id": "transparent",
-      "word": "transparent",
-      "translation": "透明的",
-      "x": 500,
-      "y": 470,
-      "priority": 1.001,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-transparent"
-    },
-    {
-      "id": "plastic",
-      "word": "plastic",
-      "translation": "塑料",
-      "x": 1280,
-      "y": 390,
-      "priority": 1.002,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-plastic"
-    },
-    {
-      "id": "rim",
-      "word": "rim",
-      "translation": "边缘",
-      "x": 700,
-      "y": 225,
-      "priority": 1.003,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-rim"
-    },
-    {
-      "id": "groove",
-      "word": "groove",
-      "translation": "凹槽",
-      "x": 770,
-      "y": 746,
-      "priority": 2.004,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-groove"
-    },
-    {
-      "id": "waterline",
-      "word": "waterline",
-      "translation": "水位线",
-      "x": 770,
-      "y": 397,
-      "priority": 2.005,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-waterline"
-    },
-    {
-      "id": "condensation",
-      "word": "condensation",
-      "translation": "冷凝水",
-      "x": 600,
-      "y": 310,
-      "priority": 2.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-condensation"
-    },
-    {
-      "id": "reflection",
-      "word": "reflection",
-      "translation": "反光",
-      "x": 700,
-      "y": 300,
-      "priority": 2.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-reflection"
-    },
-    {
-      "id": "seam",
-      "word": "seam",
-      "translation": "接缝",
-      "x": 465,
-      "y": 500,
-      "priority": 3.008,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-seam"
-    },
-    {
-      "id": "scratch",
-      "word": "scratch",
-      "translation": "划痕",
-      "x": 950,
-      "y": 555,
-      "priority": 3.009,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-scratch"
-    },
-    {
-      "id": "tank-base",
-      "word": "tank base",
-      "translation": "水箱底座",
-      "x": 760,
-      "y": 720,
-      "priority": 3.01,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-tank-base"
-    },
-    {
-      "id": "foot",
-      "word": "foot",
-      "translation": "支脚",
-      "x": 520,
-      "y": 785,
-      "priority": 3.011,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-foot"
-    },
-    {
-      "id": "texture",
-      "word": "texture",
-      "translation": "纹理",
-      "x": 1280,
-      "y": 430,
-      "priority": 4.012,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-texture"
-    },
-    {
-      "id": "granule",
-      "word": "granule",
-      "translation": "颗粒",
-      "x": 1335,
-      "y": 390,
-      "priority": 4.013,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-granule"
-    },
-    {
-      "id": "air-gap",
-      "word": "air gap",
-      "translation": "空气间隙",
-      "x": 780,
-      "y": 300,
-      "priority": 4.014,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-air-gap"
-    },
-    {
-      "id": "water-droplet",
-      "word": "water droplet",
-      "translation": "水滴",
-      "x": 620,
-      "y": 320,
-      "priority": 5.015,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-water-droplet"
-    },
-    {
-      "id": "inner-wall",
-      "word": "inner wall",
-      "translation": "内壁",
-      "x": 445,
-      "y": 520,
-      "priority": 5.016,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-inner-wall"
-    },
-    {
-      "id": "rubber-gasket",
-      "word": "rubber gasket",
-      "translation": "橡胶垫圈",
-      "x": 770,
-      "y": 775,
-      "priority": 5.017,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-rubber-gasket"
-    }
+    { "id": "water-tank", "word": "water tank", "translation": "水箱", "x": 850, "y": 500, "priority": 1, "minLevel": 0, "sourceVisualRegion": "whole-water-tank" },
+    { "id": "lid", "word": "lid", "translation": "盖子", "x": 850, "y": 85, "priority": 1.001, "minLevel": 0, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "tank-body", "word": "tank body", "translation": "水箱主体", "x": 850, "y": 500, "priority": 1.002, "minLevel": 0, "sourceVisualRegion": "wall-construction" },
+    { "id": "clear-plastic-wall", "word": "clear plastic wall", "translation": "透明塑料壁", "x": 1160, "y": 480, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "wall-construction" },
+    { "id": "water", "word": "water", "translation": "水", "x": 850, "y": 580, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "water-fill" },
+    { "id": "waterline", "word": "waterline", "translation": "水位线", "x": 820, "y": 390, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "water-fill" },
+    { "id": "outlet-valve", "word": "outlet valve", "translation": "出水阀", "x": 510, "y": 710, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "filter-screen", "word": "filter screen", "translation": "过滤网", "x": 350, "y": 790, "priority": 1.007, "minLevel": 0, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "tank-base", "word": "tank base", "translation": "水箱底座", "x": 850, "y": 750, "priority": 1.008, "minLevel": 0, "sourceVisualRegion": "base-and-mounts" },
+    { "id": "rubber-foot", "word": "rubber foot", "translation": "橡胶支脚", "x": 1150, "y": 850, "priority": 1.009, "minLevel": 0, "sourceVisualRegion": "base-and-mounts" },
+
+    { "id": "lid-rim", "word": "lid rim", "translation": "盖缘", "x": 870, "y": 35, "priority": 2.01, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "hinge", "word": "hinge", "translation": "铰链", "x": 530, "y": 165, "priority": 2.011, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "hinge-pin", "word": "hinge pin", "translation": "铰链销", "x": 575, "y": 170, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "lid-gasket", "word": "lid gasket", "translation": "盖密封圈", "x": 850, "y": 140, "priority": 2.013, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "tank-rim", "word": "tank rim", "translation": "箱口边缘", "x": 800, "y": 210, "priority": 2.014, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "pouring-lip", "word": "pouring lip", "translation": "倒水口", "x": 320, "y": 240, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "latch", "word": "latch", "translation": "卡扣", "x": 450, "y": 235, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "air-gap", "word": "air gap", "translation": "空气间隙", "x": 850, "y": 300, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "water-fill" },
+
+    { "id": "water-surface", "word": "water surface", "translation": "水面", "x": 850, "y": 380, "priority": 3.018, "minLevel": 2, "sourceVisualRegion": "water-fill" },
+    { "id": "meniscus", "word": "meniscus", "translation": "弯月面", "x": 1190, "y": 400, "priority": 3.019, "minLevel": 2, "sourceVisualRegion": "water-fill" },
+    { "id": "condensation-beads", "word": "condensation beads", "translation": "冷凝水珠", "x": 380, "y": 390, "priority": 3.02, "minLevel": 2, "sourceVisualRegion": "water-fill" },
+    { "id": "water-droplet", "word": "water droplet", "translation": "水滴", "x": 1310, "y": 500, "priority": 3.021, "minLevel": 2, "sourceVisualRegion": "water-fill" },
+    { "id": "air-bubble", "word": "air bubble", "translation": "气泡", "x": 1000, "y": 550, "priority": 3.022, "minLevel": 2, "sourceVisualRegion": "water-fill" },
+    { "id": "reflection-highlight", "word": "reflection highlight", "translation": "反光高光", "x": 565, "y": 330, "priority": 3.023, "minLevel": 2, "sourceVisualRegion": "water-fill" },
+    { "id": "reinforcing-rib", "word": "reinforcing rib", "translation": "加强筋", "x": 390, "y": 500, "priority": 3.024, "minLevel": 2, "sourceVisualRegion": "wall-construction" },
+
+    { "id": "front-wall", "word": "front wall", "translation": "前壁", "x": 800, "y": 520, "priority": 4.025, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
+    { "id": "side-wall", "word": "side wall", "translation": "侧壁", "x": 1320, "y": 520, "priority": 4.026, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
+    { "id": "tank-floor", "word": "tank floor", "translation": "箱底内面", "x": 850, "y": 735, "priority": 4.027, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
+    { "id": "wall-thickness", "word": "wall thickness", "translation": "壁厚", "x": 1260, "y": 210, "priority": 4.028, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
+    { "id": "molded-seam", "word": "molded seam", "translation": "模塑接缝", "x": 1230, "y": 520, "priority": 4.029, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
+    { "id": "rounded-corner", "word": "rounded corner", "translation": "圆角", "x": 1320, "y": 740, "priority": 4.03, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
+
+    { "id": "outlet-port", "word": "outlet port", "translation": "出水口", "x": 470, "y": 750, "priority": 5.031, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "valve-spring", "word": "valve spring", "translation": "阀门弹簧", "x": 535, "y": 660, "priority": 5.032, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "rubber-o-ring", "word": "rubber O-ring", "translation": "橡胶O形圈", "x": 515, "y": 700, "priority": 5.033, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "mounting-slot", "word": "mounting slot", "translation": "安装槽", "x": 1100, "y": 785, "priority": 5.034, "minLevel": 4, "sourceVisualRegion": "base-and-mounts" },
+    { "id": "locating-tab", "word": "locating tab", "translation": "定位卡舌", "x": 930, "y": 800, "priority": 5.035, "minLevel": 4, "sourceVisualRegion": "base-and-mounts" }
   ],
   "portals": [
     {
       "id": "enter-polymer",
-      "label": "Inspect the plastic surface",
-      "translation": "查看塑料表面",
+      "label": "Inspect the clear plastic wall",
+      "translation": "查看透明塑料壁",
       "childSceneId": "polymer",
-      "x": 1110,
-      "y": 140,
-      "width": 350,
-      "height": 550,
-      "enterScale": 3.6,
-      "sourceVisualRegion": "portal-material-window"
+      "x": 1080,
+      "y": 190,
+      "width": 320,
+      "height": 620,
+      "enterScale": 3.25,
+      "sourceVisualRegion": "portal-polymer-wall"
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "lid-and-rim",
+      "title": "Open lid and upper rim",
+      "translation": "开盖与上沿",
+      "description": "The raised clear lid exposes its edge, paired hinge, metal pin, black seal, tank rim, pouring lip and latch",
+      "x": 280,
+      "y": 20,
+      "width": 1100,
+      "height": 290,
+      "targetScale": 2.35,
+      "labelIds": ["lid", "lid-rim", "hinge", "hinge-pin", "lid-gasket", "tank-rim", "pouring-lip", "latch"]
+    },
+    {
+      "id": "water-and-air",
+      "title": "Water, air and droplets",
+      "translation": "水、空气与水珠",
+      "description": "The clear fill reveals a crisp surface and waterline, air gap, meniscus, condensation, isolated droplet, bubble and highlight",
+      "x": 330,
+      "y": 250,
+      "width": 1050,
+      "height": 390,
+      "targetScale": 2.4,
+      "labelIds": ["water", "waterline", "air-gap", "water-surface", "meniscus", "condensation-beads", "water-droplet", "air-bubble", "reflection-highlight"]
+    },
+    {
+      "id": "wall-construction",
+      "title": "Clear molded wall",
+      "translation": "透明模塑箱壁",
+      "description": "The transparent body resolves separate front and side panels, floor, edge thickness, seam, rib and rounded corner",
+      "x": 330,
+      "y": 180,
+      "width": 1050,
+      "height": 610,
+      "targetScale": 2.45,
+      "labelIds": ["tank-body", "clear-plastic-wall", "front-wall", "side-wall", "tank-floor", "wall-thickness", "molded-seam", "reinforcing-rib", "rounded-corner"]
+    },
+    {
+      "id": "outlet-assembly",
+      "title": "Serviceable outlet valve",
+      "translation": "可维护出水阀",
+      "description": "The opened lower recess exposes the attached outlet, clear port, metal spring, rubber O-ring and removable filter screen",
+      "x": 280,
+      "y": 580,
+      "width": 420,
+      "height": 280,
+      "targetScale": 2.75,
+      "labelIds": ["outlet-valve", "filter-screen", "outlet-port", "valve-spring", "rubber-o-ring"]
+    },
+    {
+      "id": "base-and-mounts",
+      "title": "Base and machine guides",
+      "translation": "底座与安装导向",
+      "description": "The lower tank edge clearly separates its base, black supporting foot, rectangular locating tab and long mounting slot",
+      "x": 560,
+      "y": 690,
+      "width": 700,
+      "height": 210,
+      "targetScale": 2.6,
+      "labelIds": ["tank-base", "rubber-foot", "mounting-slot", "locating-tab"]
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/water-tank.svg",
-    "rationale": "Kept only the visible tank geometry, water, droplets and material magnifier; removed invented plumbing, physical properties and maintenance actions.",
+    "reviewedAsset": "/scenes/water-tank-premium-v1.jpg",
+    "reviewedAssetSha256": "f10abe3172ff6702464f85ceb799cc57fd589d287f7147b4c234999b6d0686ad",
+    "rationale": "Reviewed the final 1600 by 900 product image pixel by pixel and anchored only the reservoir's visible lid, molded walls, clean water, droplets, outlet hardware and mounting geometry; the broad unobstructed right plastic wall remains the real Polymer child-scene entrance.",
     "previousLabelCount": 56,
-    "retainedLabelCount": 18,
-    "removedLabelCount": 38,
-    "removedExamples": [
-      "float switch",
-      "overflow",
-      "pressure sensor",
-      "hydrostatic pressure",
-      "refill",
-      "watertight"
-    ]
+    "retainedLabelCount": 36,
+    "removedLabelCount": 20,
+    "removedExamples": ["float switch", "overflow", "pressure sensor", "hydrostatic pressure", "refill", "watertight"]
   },
   "visualRegions": [
-    {
-      "id": "whole-water-tank",
-      "description": "Complete transparent water tank",
-      "kind": "whole",
-      "x": 340,
-      "y": 130,
-      "width": 830,
-      "height": 680
-    },
-    {
-      "id": "portal-material-window",
-      "description": "Right-side magnified material surface window",
-      "kind": "object",
-      "x": 1110,
-      "y": 140,
-      "width": 350,
-      "height": 550
-    },
-    {
-      "id": "verified-transparent",
-      "description": "Human-verified visible anchor for transparent",
-      "kind": "object",
-      "x": 440,
-      "y": 425,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-plastic",
-      "description": "Human-verified visible anchor for plastic",
-      "kind": "object",
-      "x": 1220,
-      "y": 345,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-rim",
-      "description": "Human-verified visible anchor for rim",
-      "kind": "object",
-      "x": 640,
-      "y": 180,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-groove",
-      "description": "Human-verified visible anchor for groove",
-      "kind": "object",
-      "x": 710,
-      "y": 701,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-waterline",
-      "description": "Human-verified visible anchor for waterline",
-      "kind": "object",
-      "x": 710,
-      "y": 352,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-condensation",
-      "description": "Human-verified visible anchor for condensation",
-      "kind": "object",
-      "x": 540,
-      "y": 265,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-reflection",
-      "description": "Human-verified visible anchor for reflection",
-      "kind": "object",
-      "x": 640,
-      "y": 255,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-seam",
-      "description": "Human-verified visible anchor for seam",
-      "kind": "object",
-      "x": 405,
-      "y": 455,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-scratch",
-      "description": "Human-verified visible anchor for scratch",
-      "kind": "object",
-      "x": 890,
-      "y": 510,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-tank-base",
-      "description": "Human-verified visible anchor for tank base",
-      "kind": "object",
-      "x": 700,
-      "y": 675,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-foot",
-      "description": "Human-verified visible anchor for foot",
-      "kind": "object",
-      "x": 460,
-      "y": 740,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-texture",
-      "description": "Human-verified visible anchor for texture",
-      "kind": "object",
-      "x": 1220,
-      "y": 385,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-granule",
-      "description": "Human-verified visible anchor for granule",
-      "kind": "object",
-      "x": 1275,
-      "y": 345,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-air-gap",
-      "description": "Human-verified visible anchor for air gap",
-      "kind": "object",
-      "x": 720,
-      "y": 255,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-water-droplet",
-      "description": "Human-verified visible anchor for water droplet",
-      "kind": "object",
-      "x": 560,
-      "y": 275,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-inner-wall",
-      "description": "Human-verified visible anchor for inner wall",
-      "kind": "object",
-      "x": 385,
-      "y": 475,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-rubber-gasket",
-      "description": "Human-verified visible anchor for rubber gasket",
-      "kind": "object",
-      "x": 710,
-      "y": 730,
-      "width": 120,
-      "height": 90
-    }
+    { "id": "whole-water-tank", "description": "Complete removable clear-plastic coffee-machine water reservoir", "kind": "whole", "x": 280, "y": 20, "width": 1120, "height": 860 },
+    { "id": "lid-and-rim", "description": "Raised lid, gasket, paired hinges, rim, pouring lip and latch", "kind": "object", "x": 280, "y": 20, "width": 1100, "height": 290 },
+    { "id": "water-fill", "description": "Clear water, air gap, surface, droplets, bubble and optical highlight", "kind": "object", "x": 330, "y": 250, "width": 1050, "height": 390 },
+    { "id": "wall-construction", "description": "Transparent molded tank body, panels, floor, seam, rib and rounded corner", "kind": "object", "x": 330, "y": 180, "width": 1050, "height": 610 },
+    { "id": "outlet-assembly", "description": "Lower-left service recess with valve, port, spring, O-ring and filter screen", "kind": "part", "x": 280, "y": 580, "width": 420, "height": 280 },
+    { "id": "base-and-mounts", "description": "Bottom base, rubber feet, mounting slot and clear locating tab", "kind": "part", "x": 560, "y": 690, "width": 700, "height": 210 },
+    { "id": "portal-polymer-wall", "description": "Large uninterrupted right-side clear plastic wall panel", "kind": "object", "x": 1080, "y": 190, "width": 320, "height": 620 }
   ]
 }

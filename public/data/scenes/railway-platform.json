@@ -3,111 +3,47 @@
   "title": "Railway platform",
   "translation": "铁路站台",
   "subtitle": "A precise choreography of tracks and travelers",
-  "asset": "/scenes/railway-platform.svg",
+  "asset": "/scenes/railway-platform-premium-v2.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "transit-hub",
   "labels": [
-    {
-      "id": "railway-platform",
-      "word": "railway platform",
-      "translation": "铁路站台",
-      "x": 800,
-      "y": 610,
-      "priority": 1,
-      "minLevel": 0,
-      "sourceVisualRegion": "whole-platform"
-    },
-    {
-      "id": "track",
-      "word": "track",
-      "translation": "轨道",
-      "x": 800,
-      "y": 760,
-      "priority": 1.001,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-track"
-    },
-    {
-      "id": "rail",
-      "word": "rail",
-      "translation": "钢轨",
-      "x": 800,
-      "y": 740,
-      "priority": 1.002,
-      "minLevel": 0,
-      "sourceVisualRegion": "verified-rail"
-    },
-    {
-      "id": "sleeper",
-      "word": "sleeper",
-      "translation": "轨枕",
-      "x": 780,
-      "y": 720,
-      "priority": 2.003,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-sleeper"
-    },
-    {
-      "id": "platform-edge",
-      "word": "platform edge",
-      "translation": "站台边缘",
-      "x": 800,
-      "y": 675,
-      "priority": 2.004,
-      "minLevel": 1,
-      "sourceVisualRegion": "verified-platform-edge"
-    },
-    {
-      "id": "tactile-paving",
-      "word": "tactile paving",
-      "translation": "盲道",
-      "x": 800,
-      "y": 645,
-      "priority": 3.005,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-tactile-paving"
-    },
-    {
-      "id": "yellow-line",
-      "word": "yellow line",
-      "translation": "黄色安全线",
-      "x": 800,
-      "y": 675,
-      "priority": 3.006,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-yellow-line"
-    },
-    {
-      "id": "station-sign",
-      "word": "station sign",
-      "translation": "站名牌",
-      "x": 200,
-      "y": 290,
-      "priority": 4.007,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-station-sign"
-    },
-    {
-      "id": "canopy-post",
-      "word": "canopy post",
-      "translation": "雨棚立柱",
-      "x": 820,
-      "y": 180,
-      "priority": 4.008,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-canopy-post"
-    },
-    {
-      "id": "commuter",
-      "word": "commuter",
-      "translation": "通勤者",
-      "x": 270,
-      "y": 540,
-      "priority": 5.009,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-commuter"
-    }
+    { "id": "railway-platform", "word": "railway platform", "translation": "铁路站台", "x": 220, "y": 780, "priority": 1, "minLevel": 0, "sourceVisualRegion": "whole-platform" },
+    { "id": "train-carriage", "word": "train carriage", "translation": "列车车厢", "x": 1030, "y": 420, "priority": 1.001, "minLevel": 0, "sourceVisualRegion": "verified-train-carriage" },
+    { "id": "track", "word": "track", "translation": "轨道", "x": 1020, "y": 700, "priority": 1.002, "minLevel": 0, "sourceVisualRegion": "verified-track" },
+    { "id": "commuter", "word": "commuter", "translation": "通勤者", "x": 302, "y": 485, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "verified-commuter" },
+    { "id": "canopy", "word": "canopy", "translation": "站台雨棚", "x": 210, "y": 85, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "verified-canopy" },
+    { "id": "platform-edge", "word": "platform edge", "translation": "站台边缘", "x": 610, "y": 665, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "verified-platform-edge" },
+    { "id": "window", "word": "window", "translation": "车窗", "lexemeId": "en-44ff7b02c80d38b2", "x": 750, "y": 418, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "verified-window" },
+
+    { "id": "rail", "word": "rail", "translation": "钢轨", "lexemeId": "en-fdf0d7533af5b16d", "x": 1115, "y": 755, "priority": 2.007, "minLevel": 1, "sourceVisualRegion": "verified-rail" },
+    { "id": "tactile-paving", "word": "tactile paving", "translation": "触觉铺面", "x": 590, "y": 720, "priority": 2.008, "minLevel": 1, "sourceVisualRegion": "verified-tactile-paving" },
+    { "id": "carriage-door", "word": "carriage door", "translation": "车厢门", "x": 960, "y": 440, "priority": 2.009, "minLevel": 1, "sourceVisualRegion": "verified-carriage-door" },
+    { "id": "suitcase", "word": "suitcase", "translation": "行李箱", "x": 329, "y": 646, "priority": 2.01, "minLevel": 1, "sourceVisualRegion": "verified-suitcase" },
+    { "id": "pantograph", "word": "pantograph", "translation": "受电弓", "x": 1050, "y": 150, "priority": 2.011, "minLevel": 1, "sourceVisualRegion": "verified-pantograph" },
+    { "id": "bench", "word": "bench", "translation": "长椅", "lexemeId": "en-1b32c28cb38c0548", "x": 130, "y": 665, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "verified-bench" },
+
+    { "id": "sleeper", "word": "sleeper", "translation": "轨枕", "x": 790, "y": 720, "priority": 3.013, "minLevel": 2, "sourceVisualRegion": "verified-sleeper" },
+    { "id": "ballast", "word": "ballast", "translation": "道砟", "x": 1015, "y": 700, "priority": 3.014, "minLevel": 2, "sourceVisualRegion": "verified-ballast" },
+    { "id": "warning-line", "word": "warning line", "translation": "安全警戒线", "x": 550, "y": 660, "priority": 3.015, "minLevel": 2, "sourceVisualRegion": "verified-warning-line" },
+    { "id": "analog-clock", "word": "analog clock", "translation": "指针钟", "x": 83, "y": 190, "priority": 3.016, "minLevel": 2, "sourceVisualRegion": "verified-analog-clock" },
+    { "id": "support-mast", "word": "support mast", "translation": "接触网支柱", "x": 663, "y": 233, "priority": 3.017, "minLevel": 2, "sourceVisualRegion": "verified-support-mast" },
+    { "id": "catenary-wire", "word": "catenary wire", "translation": "接触网承力索", "x": 1040, "y": 50, "priority": 3.018, "minLevel": 2, "sourceVisualRegion": "verified-catenary-wire" },
+    { "id": "backpack", "word": "backpack", "translation": "双肩包", "lexemeId": "en-5f00368a6ad231c3", "x": 276, "y": 455, "priority": 3.019, "minLevel": 2, "sourceVisualRegion": "verified-backpack" },
+
+    { "id": "wheel", "word": "wheel", "translation": "车轮", "lexemeId": "en-ba59926159d2aa25", "x": 1044, "y": 580, "priority": 4.02, "minLevel": 3, "sourceVisualRegion": "verified-wheel" },
+    { "id": "bogie", "word": "bogie", "translation": "转向架", "x": 1020, "y": 600, "priority": 4.021, "minLevel": 3, "sourceVisualRegion": "verified-bogie" },
+    { "id": "headlight", "word": "headlight", "translation": "前照灯", "x": 1465, "y": 519, "priority": 4.022, "minLevel": 3, "sourceVisualRegion": "verified-headlight" },
+    { "id": "litter-bin", "word": "litter bin", "translation": "垃圾桶", "x": 183, "y": 530, "priority": 4.023, "minLevel": 3, "sourceVisualRegion": "verified-litter-bin" },
+    { "id": "loudspeaker", "word": "loudspeaker", "translation": "扬声器", "x": 196, "y": 208, "priority": 4.024, "minLevel": 3, "sourceVisualRegion": "verified-loudspeaker" },
+    { "id": "canopy-column", "word": "canopy column", "translation": "雨棚立柱", "x": 55, "y": 420, "priority": 4.025, "minLevel": 3, "sourceVisualRegion": "verified-canopy-column" },
+
+    { "id": "windshield", "word": "windshield", "translation": "前风挡玻璃", "x": 1460, "y": 362, "priority": 5.026, "minLevel": 4, "sourceVisualRegion": "verified-windshield" },
+    { "id": "windshield-wiper", "word": "windshield wiper", "translation": "雨刷器", "x": 1450, "y": 380, "priority": 5.027, "minLevel": 4, "sourceVisualRegion": "verified-windshield-wiper" },
+    { "id": "cctv-camera", "word": "CCTV camera", "translation": "监控摄像头", "x": 238, "y": 120, "priority": 5.028, "minLevel": 4, "sourceVisualRegion": "verified-cctv-camera" },
+    { "id": "dropper-wire", "word": "dropper wire", "translation": "吊弦", "x": 797, "y": 120, "priority": 5.029, "minLevel": 4, "sourceVisualRegion": "verified-dropper-wire" },
+    { "id": "rail-fastener", "word": "rail fastener", "translation": "钢轨扣件", "x": 1310, "y": 740, "priority": 5.03, "minLevel": 4, "sourceVisualRegion": "verified-rail-fastener" },
+    { "id": "umbrella", "word": "umbrella", "translation": "雨伞", "lexemeId": "en-2974744982f08b20", "x": 348, "y": 575, "priority": 5.031, "minLevel": 4, "sourceVisualRegion": "verified-umbrella" }
   ],
   "portals": [
     {
@@ -115,130 +51,92 @@
       "label": "Board the train carriage",
       "translation": "进入列车车厢",
       "childSceneId": "train-carriage",
-      "x": 335,
-      "y": 200,
-      "width": 1215,
-      "height": 440,
+      "x": 430,
+      "y": 190,
+      "width": 1170,
+      "height": 510,
       "enterScale": 3.6,
-      "sourceVisualRegion": "portal-train"
+      "sourceVisualRegion": "portal-train-carriage"
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/railway-platform.svg",
-    "rationale": "Kept the train/platform structure, track parts, safety edge, station sign and visible commuters; removed ticketing concepts, staff roles, actions and service states.",
+    "reviewedAsset": "/scenes/railway-platform-premium-v2.jpg",
+    "reviewedAssetSha256": "85250ba12bfa202f5f9d43b690d44d32118647620f0fe1c39ce3830baa682fb0",
+    "rationale": "Re-anchored all 32 terms against the final bright platform pixels, separating passenger fixtures, train parts, overhead electrification and track hardware; the complete stopped leading carriage remains the train-carriage portal.",
     "previousLabelCount": 48,
-    "retainedLabelCount": 10,
-    "removedLabelCount": 38,
-    "removedExamples": [
-      "ballast",
-      "loudspeaker",
-      "ticket barrier",
-      "delay",
-      "mind the gap",
-      "express"
-    ]
+    "retainedLabelCount": 32,
+    "removedLabelCount": 16,
+    "removedExamples": ["bicycle", "drainage channel", "station sign", "delay", "destination", "ticket validity"]
   },
-  "visualRegions": [
+  "detailZones": [
     {
-      "id": "whole-platform",
-      "description": "Complete railway platform and train",
-      "kind": "whole",
-      "x": 0,
-      "y": 90,
-      "width": 1600,
-      "height": 720
+      "id": "passenger-platform",
+      "title": "Passenger platform",
+      "translation": "旅客站台",
+      "description": "Left platform furnishings, canopy fixtures and one waiting commuter",
+      "x": 0, "y": 0, "width": 430, "height": 900, "targetScale": 2.8,
+      "labelIds": ["railway-platform", "canopy", "canopy-column", "analog-clock", "loudspeaker", "cctv-camera", "bench", "litter-bin", "commuter", "backpack", "suitcase", "umbrella"]
     },
     {
-      "id": "portal-train",
-      "description": "Visible train carriage along the platform",
-      "kind": "object",
-      "x": 335,
-      "y": 200,
-      "width": 1215,
-      "height": 440
+      "id": "train-body",
+      "title": "Train carriage",
+      "translation": "列车车体",
+      "description": "Complete leading carriage with door, glazing and visible running gear",
+      "x": 420, "y": 190, "width": 1180, "height": 510, "targetScale": 2.5,
+      "labelIds": ["train-carriage", "carriage-door", "window", "windshield", "windshield-wiper", "headlight", "wheel", "bogie"]
     },
     {
-      "id": "verified-track",
-      "description": "Human-verified visible anchor for track",
-      "kind": "object",
-      "x": 740,
-      "y": 715,
-      "width": 120,
-      "height": 90
+      "id": "overhead-electrification",
+      "title": "Overhead electrification",
+      "translation": "架空供电系统",
+      "description": "Pantograph and the aligned mast, catenary and vertical dropper wire",
+      "x": 430, "y": 0, "width": 1100, "height": 340, "targetScale": 3,
+      "labelIds": ["pantograph", "catenary-wire", "support-mast", "dropper-wire"]
     },
     {
-      "id": "verified-rail",
-      "description": "Human-verified visible anchor for rail",
-      "kind": "object",
-      "x": 740,
-      "y": 695,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-sleeper",
-      "description": "Human-verified visible anchor for sleeper",
-      "kind": "object",
-      "x": 720,
-      "y": 675,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-platform-edge",
-      "description": "Human-verified visible anchor for platform edge",
-      "kind": "object",
-      "x": 740,
-      "y": 630,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-tactile-paving",
-      "description": "Human-verified visible anchor for tactile paving",
-      "kind": "object",
-      "x": 740,
-      "y": 600,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-yellow-line",
-      "description": "Human-verified visible anchor for yellow line",
-      "kind": "object",
-      "x": 740,
-      "y": 630,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-station-sign",
-      "description": "Human-verified visible anchor for station sign",
-      "kind": "object",
-      "x": 140,
-      "y": 245,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-canopy-post",
-      "description": "Human-verified visible anchor for canopy post",
-      "kind": "object",
-      "x": 760,
-      "y": 135,
-      "width": 120,
-      "height": 90
-    },
-    {
-      "id": "verified-commuter",
-      "description": "Human-verified visible anchor for commuter",
-      "kind": "object",
-      "x": 210,
-      "y": 495,
-      "width": 120,
-      "height": 90
+      "id": "track-structure",
+      "title": "Track structure",
+      "translation": "轨道结构",
+      "description": "Foreground rails, sleepers, ballast and continuous platform safety edge",
+      "x": 300, "y": 500, "width": 1300, "height": 400, "targetScale": 2.6,
+      "labelIds": ["track", "rail", "sleeper", "ballast", "rail-fastener", "platform-edge", "tactile-paving", "warning-line"]
     }
+  ],
+  "visualRegions": [
+    { "id": "whole-platform", "description": "Complete daylight railway platform scene", "kind": "whole", "x": 0, "y": 0, "width": 1600, "height": 900 },
+    { "id": "portal-train-carriage", "description": "Complete stopped leading electric train carriage", "kind": "object", "x": 430, "y": 190, "width": 1170, "height": 510 },
+    { "id": "verified-train-carriage", "description": "Long stopped electric train carriage on the right", "kind": "object", "x": 430, "y": 210, "width": 1170, "height": 470 },
+    { "id": "verified-track", "description": "Complete foreground railway track bed", "kind": "object", "x": 350, "y": 570, "width": 1250, "height": 330 },
+    { "id": "verified-commuter", "description": "Single waiting commuter beside the luggage", "kind": "object", "x": 245, "y": 340, "width": 125, "height": 330 },
+    { "id": "verified-canopy", "description": "Glass and steel platform canopy overhead", "kind": "object", "x": 0, "y": 0, "width": 520, "height": 340 },
+    { "id": "verified-platform-edge", "description": "Raised platform edge beside the running rail", "kind": "part", "x": 300, "y": 555, "width": 920, "height": 210 },
+    { "id": "verified-window", "description": "Row of dark glazed carriage windows", "kind": "part", "x": 510, "y": 340, "width": 410, "height": 150 },
+    { "id": "verified-rail", "description": "Shiny steel foreground running rail", "kind": "part", "x": 600, "y": 650, "width": 1000, "height": 210 },
+    { "id": "verified-tactile-paving", "description": "Studded yellow tactile strip along the platform", "kind": "part", "x": 300, "y": 540, "width": 660, "height": 360 },
+    { "id": "verified-carriage-door", "description": "Open passenger door in the leading carriage", "kind": "part", "x": 880, "y": 315, "width": 165, "height": 300 },
+    { "id": "verified-suitcase", "description": "Dark rolling suitcase beside the commuter", "kind": "object", "x": 285, "y": 545, "width": 105, "height": 185 },
+    { "id": "verified-pantograph", "description": "Raised roof pantograph beneath the contact wire", "kind": "part", "x": 930, "y": 80, "width": 260, "height": 220 },
+    { "id": "verified-bench", "description": "Wooden waiting bench in the left foreground", "kind": "object", "x": 35, "y": 555, "width": 205, "height": 260 },
+    { "id": "verified-sleeper", "description": "Concrete sleepers crossing beneath the rails", "kind": "part", "x": 420, "y": 620, "width": 1160, "height": 280 },
+    { "id": "verified-ballast", "description": "Angular gray ballast stones around the sleepers", "kind": "part", "x": 600, "y": 565, "width": 1000, "height": 335 },
+    { "id": "verified-warning-line", "description": "Continuous yellow safety line beside the platform edge", "kind": "part", "x": 320, "y": 540, "width": 610, "height": 330 },
+    { "id": "verified-analog-clock", "description": "Large round analog platform clock", "kind": "object", "x": 30, "y": 130, "width": 115, "height": 125 },
+    { "id": "verified-support-mast", "description": "Steel lattice catenary support mast", "kind": "object", "x": 615, "y": 125, "width": 105, "height": 260 },
+    { "id": "verified-catenary-wire", "description": "Upper suspended catenary wire above the train", "kind": "part", "x": 430, "y": 0, "width": 1100, "height": 130 },
+    { "id": "verified-backpack", "description": "Dark backpack worn by the commuter", "kind": "object", "x": 235, "y": 375, "width": 100, "height": 165 },
+    { "id": "verified-wheel", "description": "Exposed steel train wheel below the carriage", "kind": "part", "x": 980, "y": 525, "width": 130, "height": 105 },
+    { "id": "verified-bogie", "description": "Visible bogie frame and suspension below the carriage", "kind": "part", "x": 900, "y": 515, "width": 260, "height": 145 },
+    { "id": "verified-headlight", "description": "Round illuminated headlight on the train nose", "kind": "part", "x": 1400, "y": 475, "width": 130, "height": 100 },
+    { "id": "verified-litter-bin", "description": "Dark cylindrical litter bin beside the commuter", "kind": "object", "x": 135, "y": 460, "width": 100, "height": 185 },
+    { "id": "verified-loudspeaker", "description": "Round public-address loudspeaker under the canopy", "kind": "object", "x": 150, "y": 160, "width": 100, "height": 105 },
+    { "id": "verified-canopy-column", "description": "Dark steel canopy column along the left edge", "kind": "part", "x": 20, "y": 90, "width": 95, "height": 810 },
+    { "id": "verified-windshield", "description": "Large dark windshield on the rounded train nose", "kind": "part", "x": 1360, "y": 255, "width": 210, "height": 230 },
+    { "id": "verified-windshield-wiper", "description": "Black wiper arms mounted across the windshield", "kind": "part", "x": 1380, "y": 300, "width": 155, "height": 150 },
+    { "id": "verified-cctv-camera", "description": "White dome CCTV camera under the canopy", "kind": "object", "x": 195, "y": 75, "width": 95, "height": 100 },
+    { "id": "verified-dropper-wire", "description": "Vertical dropper suspending the contact wire", "kind": "part", "x": 760, "y": 70, "width": 75, "height": 140 },
+    { "id": "verified-rail-fastener", "description": "Dark rail clips fixed to a foreground sleeper", "kind": "part", "x": 1240, "y": 690, "width": 170, "height": 120 },
+    { "id": "verified-umbrella", "description": "Closed dark umbrella held beside the suitcase", "kind": "object", "x": 325, "y": 500, "width": 70, "height": 150 }
   ]
 }

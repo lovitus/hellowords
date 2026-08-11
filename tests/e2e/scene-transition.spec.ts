@@ -45,6 +45,22 @@ async function openWorld(page: Page) {
   return app;
 }
 
+async function holdPreferredChildPreparation(page: Page) {
+  let releasePreparation!: () => void;
+  const preparationHeld = new Promise<void>((resolve) => {
+    releasePreparation = resolve;
+  });
+  await page.route("**/data/scenes/*.json", async (route) => {
+    const path = new URL(route.request().url()).pathname;
+    if (path.endsWith("/manifest.json") || path.endsWith("/world-map.json")) {
+      return route.continue();
+    }
+    await preparationHeld;
+    return route.continue();
+  });
+  return releasePreparation;
+}
+
 async function targetScene(hotspot: Locator) {
   const target = await hotspot.getAttribute("data-target-scene");
   expect(target, "a portal must identify the scene it will enter").toBeTruthy();
@@ -91,6 +107,16 @@ async function nextPaint(page: Page) {
   await page.evaluate(() => new Promise<void>((resolve) => {
     requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
   }));
+}
+
+async function portalPreviewState(page: Page) {
+  return page.evaluate((selector) => {
+    const preview = document.querySelector<HTMLElement>(selector);
+    return preview ? {
+      phase: preview.dataset.phase ?? null,
+      progress: preview.dataset.progress ?? null,
+    } : null;
+  }, PREVIEW);
 }
 
 async function beginTransitionTrace(page: Page) {
@@ -181,18 +207,16 @@ async function waitForSettledScene(page: Page, app: Locator, target: string) {
   await expect(page.locator(TRANSITION_LAYER)).toHaveCount(0);
 }
 
-function expectLayeredTransition(
+function expectContinuousTransition(
   snapshots: TransitionSnapshot[],
-  parent: string,
-  target: string,
 ) {
   expect(
     snapshots.some((snapshot) => snapshot.state === "loading"),
-    "entry should commit its target before the replacement scene is ready",
+    "entry locks the current scene while its decoded detail tile finishes preparing",
   ).toBe(true);
   expect(
-    snapshots.some((snapshot) => snapshot.state === "incoming"),
-    "the loaded scene should have an explicit incoming phase",
+    snapshots.every((snapshot) => snapshot.state !== "incoming"),
+    "continuous ownership handoff does not recreate the old incoming page phase",
   ).toBe(true);
 
   const committed = snapshots.find((snapshot) => (
@@ -208,34 +232,27 @@ function expectLayeredTransition(
     "aria-hidden is reserved for duplicate transition layers, not the active loading scene",
   ).toBeNull();
 
-  const paired = snapshots.find((snapshot) => (
-    snapshot.layers.some((layer) => layer.phase === "outgoing" && layer.sceneId === parent)
-    && snapshot.layers.some((layer) => layer.phase === "incoming" && layer.sceneId === target)
-  ));
   expect(
-    paired,
-    "one rendered frame must contain both the outgoing and incoming scene layers",
-  ).toBeTruthy();
-
-  const outgoing = paired!.layers.find((layer) => layer.phase === "outgoing");
-  expect(outgoing?.ariaHidden, "the outgoing visual is not active screen-reader content").toBe("true");
-  expect(outgoing?.inert, "the outgoing visual cannot retain pointer or keyboard interaction").toBe(true);
-  const incoming = paired!.layers.find((layer) => layer.phase === "incoming");
-  expect(incoming?.ariaHidden, "the incoming visual stays silent until it becomes active").toBe("true");
-  expect(incoming?.inert, "the incoming visual cannot expose dead controls during its animation").toBe(true);
+    snapshots.every((snapshot) => snapshot.layers.length === 0),
+    "continuous detail entry never mounts duplicate outgoing/incoming page layers",
+  ).toBe(true);
+  expect(
+    snapshots.every((snapshot) => snapshot.veilAnimationName === null),
+    "the decoded child tile replaces the full-screen transition veil",
+  ).toBe(true);
 }
 
-async function enterByWheel(page: Page, app: Locator, hotspot: Locator, target: string) {
+async function beginColdEntryByWheel(page: Page, app: Locator, hotspot: Locator) {
   const box = await hotspot.boundingBox();
   expect(box, "the portal must have a rendered wheel target").not.toBeNull();
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
 
   await expect.poll(async () => {
-    if ((await app.getAttribute("data-scene-id")) !== target) {
+    if ((await app.getAttribute("data-transition-state")) === "idle") {
       await page.mouse.wheel(0, -180);
     }
-    return app.getAttribute("data-scene-id");
-  }, { intervals: [220], timeout: 8_000 }).toBe(target);
+    return app.getAttribute("data-transition-state");
+  }, { intervals: [220], timeout: 8_000 }).toBe("loading");
 }
 
 test("a focused portal names the exact object before entering", async ({ page }, testInfo) => {
@@ -246,18 +263,36 @@ test("a focused portal names the exact object before entering", async ({ page },
 
 test("portal entry progress stays in 0..1 and reaches armed while zooming in", async ({ page }, testInfo) => {
   desktopOnly(testInfo.project.name);
-  await openWorld(page);
-  const { hotspot, preview } = await focusedPortalPreview(page);
+  const app = await openWorld(page);
+  const { hotspot, target } = await focusedPortalPreview(page);
   const box = await hotspot.boundingBox();
   expect(box).not.toBeNull();
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
 
-  const progress: number[] = [Number(await preview.getAttribute("data-progress"))];
+  const initialPreview = await portalPreviewState(page);
+  expect(initialPreview).not.toBeNull();
+  const progress: number[] = [Number(initialPreview!.progress)];
+  let armedObserved = false;
   for (let index = 0; index < 32; index += 1) {
-    if (await preview.getAttribute("data-phase") === "armed") break;
-    await page.mouse.wheel(0, -42);
+    const currentPreview = await portalPreviewState(page);
+    if (
+      currentPreview?.phase === "armed"
+      || await app.getAttribute("data-scene-id") === target
+    ) {
+      armedObserved = true;
+      break;
+    }
+    // Use a fine wheel impulse so the progress contract is sampled across
+    // several frames before immediate warm navigation removes the preview.
+    await page.mouse.wheel(0, -28);
     await nextPaint(page);
-    progress.push(Number(await preview.getAttribute("data-progress")));
+    const nextPreview = await portalPreviewState(page);
+    if (nextPreview?.progress !== null && nextPreview?.progress !== undefined) {
+      progress.push(Number(nextPreview.progress));
+    } else if (await app.getAttribute("data-transition-state") !== "idle") {
+      armedObserved = true;
+      break;
+    }
   }
 
   expect(progress.every((value) => Number.isFinite(value) && value >= 0 && value <= 1)).toBe(true);
@@ -269,80 +304,60 @@ test("portal entry progress stays in 0..1 and reaches armed while zooming in", a
   }
   expect(progress[0]).toBeLessThanOrEqual(0.01);
   expect(new Set(progress.map((value) => value.toFixed(3))).size).toBeGreaterThanOrEqual(6);
-  await expect(preview).toHaveAttribute("data-phase", "armed");
+  expect(
+    armedObserved,
+    "the preview reaches armed before immediate navigation unmounts the source scene",
+  ).toBe(true);
 });
 
-test("click entry briefly layers outgoing and incoming scenes, then cleans both up", async ({ page }, testInfo) => {
+test("click entry keeps one continuous tiled scene and never mounts page transition layers", async ({ page }, testInfo) => {
   desktopOnly(testInfo.project.name);
+  const releasePreparation = await holdPreferredChildPreparation(page);
   const app = await openWorld(page);
-  const parent = (await app.getAttribute("data-scene-id")) as string;
   const { hotspot, target } = await focusedPortalPreview(page);
 
   await beginTransitionTrace(page);
   await hotspot.click();
+  await expect(app).toHaveAttribute("data-transition-state", "loading");
+  releasePreparation();
   await waitForSettledScene(page, app, target);
   const snapshots = await finishTransitionTrace(page);
-  expectLayeredTransition(snapshots, parent, target);
+  expectContinuousTransition(snapshots);
 });
 
-test("wheel entry uses the same outgoing and incoming scene transition", async ({ page }, testInfo) => {
+test("wheel entry uses the same continuous tile handoff", async ({ page }, testInfo) => {
   desktopOnly(testInfo.project.name);
+  const releasePreparation = await holdPreferredChildPreparation(page);
   const app = await openWorld(page);
-  const parent = (await app.getAttribute("data-scene-id")) as string;
   const { hotspot, target } = await focusedPortalPreview(page);
 
   await beginTransitionTrace(page);
-  await enterByWheel(page, app, hotspot, target);
+  await beginColdEntryByWheel(page, app, hotspot);
+  releasePreparation();
   await waitForSettledScene(page, app, target);
   const snapshots = await finishTransitionTrace(page);
-  expectLayeredTransition(snapshots, parent, target);
+  expectContinuousTransition(snapshots);
 });
 
 test("reduced motion keeps the target cue and state sequence without a long animation", async ({ page }, testInfo) => {
   desktopOnly(testInfo.project.name);
   await page.emulateMedia({ reducedMotion: "reduce" });
+  const releasePreparation = await holdPreferredChildPreparation(page);
   const app = await openWorld(page);
-  const parent = (await app.getAttribute("data-scene-id")) as string;
   const { hotspot, preview, target } = await focusedPortalPreview(page);
   await expect(preview).toBeVisible();
-  const initialSurface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
-  await expect(initialSurface).toHaveAttribute("data-scene-scale", /\d/);
-  const initialCameraScale = Number(await initialSurface.getAttribute("data-scene-scale"));
 
   await beginTransitionTrace(page);
   await hotspot.click();
+  await expect(app).toHaveAttribute("data-transition-state", "loading");
+  releasePreparation();
   await waitForSettledScene(page, app, target);
   const snapshots = await finishTransitionTrace(page);
-  expectLayeredTransition(snapshots, parent, target);
-
-  const animatedLayers = snapshots.flatMap((snapshot) => snapshot.layers);
-  expect(animatedLayers.length, "reduced motion still preserves explicit transition states").toBeGreaterThan(0);
+  expectContinuousTransition(snapshots);
   expect(
-    Math.max(...animatedLayers.map((layer) => layer.maximumMotionDurationMs)),
-    "reduced-motion scene layers must finish in at most 100ms",
-  ).toBeLessThanOrEqual(100);
-  expect(
-    animatedLayers.every((layer) => layer.transform === "none"),
-    "reduced-motion layers must not scale while fading",
-  ).toBe(true);
-  expect(
-    animatedLayers.every((layer) => layer.animationName.includes("reduced")),
-    "reduced-motion layers must use opacity-only keyframes",
-  ).toBe(true);
-
-  const outgoingCameraScales = animatedLayers
-    .filter((layer) => layer.phase === "outgoing" && layer.sceneId === parent)
-    .map((layer) => layer.cameraScale)
-    .filter((scale): scale is number => scale !== null);
-  expect(outgoingCameraScales.length, "the outgoing camera must be observable during the fade").toBeGreaterThan(0);
-  for (const scale of outgoingCameraScales) {
-    expect(scale, "reduced motion must skip the portal camera push").toBeCloseTo(initialCameraScale, 3);
-  }
-
-  const veils = snapshots.filter((snapshot) => snapshot.veilAnimationName !== null);
-  expect(veils.length, "the target veil should retain a short opacity cue").toBeGreaterThan(0);
-  expect(veils.every((snapshot) => snapshot.veilTransform === "none")).toBe(true);
-  expect(veils.every((snapshot) => snapshot.veilAnimationName?.includes("reduced"))).toBe(true);
+    snapshots.flatMap((snapshot) => snapshot.layers),
+    "reduced motion skips both camera motion and duplicate fading layers",
+  ).toHaveLength(0);
 });
 
 test("a keyboard user can discover a portal target and enter it with Enter or Space", async ({ page }, testInfo) => {

@@ -106,3 +106,52 @@ test("detects invalid local data and child-parent mismatches", () => {
   assert.ok(codes.has("scene.missing-parent"));
 });
 
+test("detail zones reference one truthful in-bounds word batch", () => {
+  const zonedChild: Scene = {
+    ...child,
+    labels: [
+      child.labels[0],
+      { ...child.labels[0], id: "tap", word: "tap", x: 450, y: 520 },
+    ],
+    detailZones: [
+      {
+        id: "sink-detail",
+        title: "Sink detail",
+        translation: "水槽细节",
+        description: "Close crop of the sink and its visible tap",
+        x: 350,
+        y: 450,
+        width: 200,
+        height: 150,
+        targetScale: 2.5,
+        labelIds: ["sink", "tap"],
+      },
+    ],
+  };
+  assert.equal(validateSceneGraph([root, zonedChild]).valid, true);
+
+  const broken: Scene = {
+    ...zonedChild,
+    detailZones: [
+      {
+        ...zonedChild.detailZones![0],
+        targetScale: 5,
+        labelIds: ["tap", "missing"],
+        x: 0,
+        y: 0,
+        width: 100,
+        height: 100,
+      },
+      {
+        ...zonedChild.detailZones![0],
+        id: "second-detail",
+        labelIds: ["tap"],
+      },
+    ],
+  };
+  const codes = new Set(validateSceneGraph([root, broken]).issues.map((issue) => issue.code));
+  assert.ok(codes.has("detail-zone.invalid-target-scale"));
+  assert.ok(codes.has("detail-zone.unknown-label"));
+  assert.ok(codes.has("detail-zone.label-outside"));
+  assert.ok(codes.has("detail-zone.label-reused"));
+});

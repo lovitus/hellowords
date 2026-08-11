@@ -2,7 +2,9 @@ import { createHash } from "node:crypto";
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { relative, resolve, sep } from "node:path";
 import { brotliCompressSync, gzipSync } from "node:zlib";
+import { scanOrphanSceneAssets } from "./lib/orphan-scene-assets.mjs";
 
+const projectRoot = process.cwd();
 const root = resolve(process.cwd(), "dist");
 const outputRoot = resolve(process.cwd(), "artifacts/build");
 const budgets = {
@@ -65,6 +67,7 @@ const totalClientJavaScriptGzipBytes = clientJavaScript.reduce(
   (sum, file) => sum + file.gzipBytes,
   0,
 );
+const orphanSceneAssets = await scanOrphanSceneAssets(projectRoot);
 const checks = {
   hasClientJavaScript: clientJavaScript.length > 0,
   totalClientJavaScript:
@@ -97,6 +100,7 @@ const manifest = {
   largestSemanticShard,
   budgets,
   checks,
+  orphanSceneAssets,
   files,
 };
 
@@ -115,6 +119,8 @@ const summary = [
   `- Largest SVG gzip: ${largestSvg ? `${(largestSvg.gzipBytes / 1024).toFixed(1)} KiB (${largestSvg.path})` : "none"}`,
   `- Largest raster: ${largestRaster ? `${(largestRaster.bytes / 1024).toFixed(1)} KiB (${largestRaster.path})` : "none"}`,
   `- Largest semantic shard gzip: ${largestSemanticShard ? `${(largestSemanticShard.gzipBytes / 1024).toFixed(1)} KiB (${largestSemanticShard.path})` : "none"}`,
+  `- Orphan scene assets: ${orphanSceneAssets.length}`,
+  ...orphanSceneAssets.map((path) => `  - ${path}`),
   "",
 ].join("\n");
 await writeFile(resolve(outputRoot, "summary.md"), summary);

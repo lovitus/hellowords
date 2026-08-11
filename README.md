@@ -7,17 +7,23 @@ off by default, and the experience intentionally avoids quiz and streak pressure
 
 ## Included in this version
 
-- 30 reachable scene slices across home, city, nature, transport, health and
-  microscopic science, with 606 human-verified contextual anchors representing
-  543 distinct English display terms in five zoom bands;
-- ten premium 1600 × 900 scene illustrations plus lightweight deep cutaway
-  SVG scenes;
+- 34 reachable scene slices across home, city, nature, transport, health and
+  microscopic science, with 1,315 human-verified contextual anchors representing
+  1,087 distinct English display terms in five zoom bands;
+- 34 independently reviewed 1600 × 900 raster scene illustrations and zero
+  scene-level SVG assets;
+- 168 authored local detail zones across the scene world, grouping truthful
+  word batches around visible regions of each illustration;
 - mouse, touch, wheel and pinch camera controls;
-- automatic zoom entry, zoom-out return, breadcrumbs and explicit controls;
+- 33 typed scene portals with recursive high-resolution tile handoff,
+  continuous zoom entry and reverse zoom-out return, breadcrumbs and explicit
+  controls;
 - English labels with a Chinese-meaning toggle that is off by default;
-- a virtualized HTML lexical world where all 10,000 ranked English words remain
-  reachable across four explicit levels: 10 realms, 44 topics, 704 subclusters
-  and individual words;
+- a single semantic zoom plane where all 10,000 ranked English words remain
+  reachable through four scale-dependent levels: 10 realms, 44 topics, 704
+  subclusters and individual words, with collision-free screen-space bubbles;
+- 249 sense-reviewed spatial-to-lexical links that connect visible scene terms
+  directly to their matching entries in the 10,000-word hierarchy;
 - passive discovery tracking, searchable word focus, encounter cards and local
   pronunciation without compulsory testing;
 - desktop and mobile layouts, keyboard-accessible controls and reduced motion;
@@ -26,8 +32,8 @@ off by default, and the experience intentionally avoids quiz and streak pressure
   measurement.
 
 All 10,000 entries are hierarchically reachable and searchable. The product
-still distinguishes 606 human-verified contextual scene anchors representing
-543 distinct display terms from words organized in the lexical world; it does
+still distinguishes 1,315 human-verified contextual scene anchors representing
+1,087 distinct display terms from words organized in the lexical world; it does
 not claim that every entry was individually drawn.
 
 ## Local development

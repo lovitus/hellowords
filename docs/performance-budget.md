@@ -7,41 +7,41 @@ Status: initial protective ceilings; recalibrate after repeated main-branch runs
 | Metric | Budget |
 | --- | ---: |
 | Mounted scene surfaces | <= 2 |
-| Fully readable desktop labels | <= 64 |
-| Fully readable mobile labels | <= 32 |
+| Live collision-free desktop vocabulary bubbles | <= 80 |
+| Live collision-free mobile vocabulary bubbles | <= 40 |
 | Live DOM nodes | <= 1,500 |
-| Individual SVG, gzip | <= 350 KiB |
 | Individual raster asset | <= 1.2 MiB |
 | Initial JavaScript, gzip | <= 300 KiB |
 | Largest semantic shard, gzip | <= 300 KiB |
 | Cold initial encoded bytes | <= 1 MiB |
 | Cold initial requests | <= 20 |
 
-Artwork should avoid expensive blur/filter chains. Only `transform` and
-`opacity` are animated during camera and scene transitions. Temporary
-`will-change` hints are removed after transitions.
+Artwork should avoid expensive blur/filter chains. Camera surfaces move with
+`transform`; recursive tiles reveal with `opacity` and a lightweight radius
+cue. Temporary `will-change` hints are scoped to transition elements.
 
 The scene viewer keeps a larger authored set in the current slice, but five
 continuous LOD bands, viewport culling and a screen-space collision index keep
 the fully readable set within the budgets above. Hidden labels are removed from
 pointer, keyboard and accessibility navigation.
 
-The lexical world uses unscaled HTML at four explicit levels: overview, realm,
-topic and semantic subcluster. Normal browsing hydrates only the selected
-branch and topic shard. Search may query all 44 topic shards, but requests are
-deduplicated and the active virtual word window is capped at 80 cards on
-desktop and 40 on mobile. The lexical dialog stays below 450 live DOM nodes and
-the complete page below 900 while browsing a large subcluster, so DOM size is
-independent of the 10,000-word count.
+The lexical world keeps realms, topics, semantic subclusters, and words on one
+continuous semantic plane. Normal exploration hydrates only the active branch
+and selected topic shard. The projected label layer is collision-resolved and
+capped at 80 live screen-space bubbles on desktop or 40 on mobile, so DOM size
+is independent of the 10,000-word count. Global search is the deliberate
+exception that may query all 44 topic shards; those requests are deduplicated
+and results remain bounded. The lexical dialog stays below 450 live DOM nodes
+and the complete page below 900 during deep semantic exploration.
 
 ## Interaction limits
 
 | Metric | Budget |
 | --- | ---: |
 | Cold LCP | <= 2,500 ms |
-| Cold first scene switch p95 | <= 1,000 ms |
-| Warm visual scene switch p50 | <= 350 ms |
-| Warm visual scene switch p95 | <= 650 ms |
+| Cold first portal handoff p95 | <= 1,000 ms |
+| Warm visual portal handoff p50 | <= 350 ms |
+| Warm visual portal handoff p95 | <= 650 ms |
 | Long tasks over 50 ms in 40 warm transitions | <= 2 |
 | Longest warm long task | <= 120 ms |
 | Renderer task duration | <= 75 ms / transition |
@@ -70,10 +70,12 @@ Three scenarios report separately:
 2. a warmed deterministic sequence of 40 enter/return transitions;
 3. 100 enter/return transitions followed by a retained-memory check.
 
-A separate lexical-world scenario searches across all 10,000 entries, resolves
-an exact result into its hierarchy, opens a large subcluster and scrolls its
-virtual list to the end while gating DOM size, duplicate shard requests, JS
-heap, long tasks and browser CPU.
+A separate lexical-world scenario first zooms on the same plane through
+`Qualities & states → Qualities → qualities--general-all` to the word LOD. It
+then searches `just` across all 44 topic shards and opens that result's word
+detail without retargeting the semantic camera. The scenario gates
+collision-free bubble budgets, DOM size, duplicate shard requests, JS heap,
+long tasks, and browser CPU.
 
 CPU sampling uses CDP `SystemInfo.getProcessInfo().cpuTime`. Linux PSS is sampled
 from `smaps_rollup`; RSS from `/proc/<pid>/status` is recorded as a higher-rate,

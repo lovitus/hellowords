@@ -1,13 +1,13 @@
 # HelloWords architecture decision
 
-Status: accepted before product implementation
+Status: accepted and maintained with the production implementation
 
 ## Product contract
 
 HelloWords is a calm, zoomable vocabulary world. It is not a quiz in its first
 version. English labels are visible in the scene, Chinese meanings are off by
-default, and zooming into or out of a portal changes scene slices without
-exposing loading mechanics.
+default, and zooming into or out of a portal recursively redraws the adjacent
+scene as a high-resolution tile without exposing loading mechanics.
 
 The product provides both:
 
@@ -16,21 +16,28 @@ The product provides both:
   words with Chinese meanings, organized into explicit semantic levels.
 
 The UI must distinguish natural scene anchors from atlas entries. It must not
-  claim that every vocabulary entry has been hand-illustrated.
+claim that every vocabulary entry has been hand-illustrated.
 
 ## Rendering decision
 
-Each illustrated slice is an external image: premium JPEGs establish the four
-broad places and lightweight SVG cutaways handle deeper levels. Artwork is
-decorative; labels, portals, focus targets, and navigation are separate HTML
-layers driven by typed scene data. This keeps the browser DOM independent of
-SVG drawing complexity and makes translations and placement editable without
-rewriting artwork.
+Each illustrated slice is an external, independently reviewed 1600 × 900 raster
+image. The current world has 34 raster scenes and no scene-level SVG cutaways.
+Artwork is decorative; labels, portals, focus targets, and navigation are
+separate HTML layers driven by typed scene data. This keeps vocabulary crisp in
+screen space and makes translations and placement editable without rewriting
+artwork.
 
-Only the current scene is normally mounted. During a transition the current and
-next surfaces may coexist briefly. The lexical world uses explicit realm,
-topic and subcluster navigation plus a virtualized HTML word list; ten thousand
-vocabulary entries never become ten thousand DOM nodes.
+Only the current scene is normally mounted. While a portal is approached, the
+decoded child image is clipped to that portal and recursively redrawn as a
+high-resolution tile. It scales continuously with the parent camera, takes over
+at the same visual center, and reverses through the same geometry on return.
+Warm handoffs do not add a veil, loader, or duplicate transition surface.
+
+The lexical world is one continuous semantic plane. Camera scale changes the
+active hierarchy LOD from realm to topic, subcluster, and word without routing
+to separate hierarchy screens. The 10,000-entry data model remains fully
+reachable, while screen-space projection, viewport culling, and collision
+resolution cap the live vocabulary bubbles at 80 on desktop and 40 on mobile.
 
 The client is divided into four layers:
 
@@ -43,28 +50,45 @@ High-frequency pointer input is accumulated in mutable camera state and applied
 once per animation frame. React state is reserved for low-frequency changes
 such as scene identity, preference changes, transition state, and selected
 words. Scene labels use five continuous scale bands plus a spatially indexed
-screen-space collision layout, so vocabulary fades in progressively instead of
-appearing as whole DOM tiers. Dense local collisions receive stable nearby
-callouts; only readable labels are interactive or keyboard-focusable.
+screen-space collision layout, so vocabulary is revealed progressively instead
+of appearing as whole DOM tiers. Dense local collisions receive stable nearby
+callouts; only readable labels are interactive or keyboard-focusable. Text is
+never raster-scaled with the artwork.
+
+Premium scene JSON also carries authored `detailZones`. Each zone is a bounded
+crop in source-image coordinates, a target camera scale, and a stable batch of
+word-label IDs whose anchors all lie inside that crop. This makes one rich image
+behave like several honest local explorations without duplicating assets or
+turning unrelated vocabulary into floating labels. The data contract requires
+at least four zones and normally 32 grounded anchors per premium scene; an
+evidence-reviewed terminal specialist slice may declare a lower floor when
+meeting 32 would require duplicate names for the same visible structure.
+The current graph contains 1,315 contextual anchors representing 1,087 distinct
+display terms across 168 authored zones, connected by 33 typed portals.
 
 ## Scene and portal contract
 
 Scene coordinates use a stable logical view box. Labels and portal geometry use
 that coordinate space, not viewport pixels. A portal stores a child scene ID,
-its focus rectangle, an entry camera, and a return camera mapping.
+its focus rectangle, and an optional entry camera. Runtime navigation derives
+the invertible parent/child camera mapping and retains the parent bookmark.
 
-Default transition rules:
+Default navigation rules:
 
-- enter after scale reaches `3.6`, the portal is near the viewport focus, and
-  camera input has settled for at least 140 ms;
+- prepare and reveal the decoded child tile as the zoom focus approaches a
+  portal, then enter when the portal is focused and its authored threshold
+  (default `3.6`) is crossed;
 - return after scale falls below `0.82`;
-- use a 250 ms transition cooldown and require fresh reverse input;
-- decode the next SVG before the cross-fade;
-- restore the exact saved parent camera when returning;
-- honor reduced-motion preferences.
+- enforce a short transition cooldown and require fresh reverse input;
+- keep the recursive tile and camera center continuous across scene ownership;
+- restore the exact saved parent camera through the inverse portal mapping;
+- on reduced motion, commit directly to a stable fitted camera without an
+  intermediate magnified handoff frame.
 
-The cache holds the current scene, its parent, and at most one likely child.
-Mounted scene surfaces are capped at two. A superseded load is aborted.
+The bounded cache pins the current scene, its parent, and at most one likely
+child, including their decoded images. A caller can abandon an obsolete wait
+without poisoning a shared adjacent-scene fetch or decode. Superseded
+speculative children are evicted from the three-scene neighborhood.
 
 ## Vocabulary contract
 
@@ -86,23 +110,30 @@ The ranked vocabulary is sharded by rank band. A second deterministic semantic
 build maps every entry into 10 realms, 44 topics and 704 subclusters using
 WordNet synsets/lexnames plus explicit fallbacks for inflections, names,
 abbreviations, contractions and function words. The lexical world makes those
-relationships visible as four explicit levels: overview, realms, topics, and
-semantic subclusters containing individual words. Normal browsing loads only
-the selected realm/topic branch and its word shard. Full search intentionally
-queries all topic shards, deduplicates requests, and resolves each result back
-to its complete navigation path.
+relationships visible as four scale-dependent LODs on the same plane: realms,
+topics, semantic subclusters, and individual words. Normal exploration loads
+only the active hierarchy branch and the selected topic shard. Global search
+is the deliberate exception: it may query all 44 topic shards, deduplicates
+requests, and bounds its result set. Selecting a search match opens its word
+detail without retargeting the semantic camera.
 
 Scene encounters are recorded passively in local storage. Selecting a label
 opens an optional word card and pronunciation action, but no exam is required.
+When a scene term has an exact entry in the ranked vocabulary, its `lexemeId`
+links directly into the 10,000-word hierarchy. The current graph has 249 such
+sense-reviewed links. Validation resolves these IDs against every semantic
+shard and rejects missing or word-mismatched links; specialist visual phrases
+are allowed to remain unlinked.
 The global translation preference controls ambient labels only: an intentionally
 selected word always reveals its meaning without changing that preference.
 
 ## Accessibility and input
 
-The decorative SVG has empty alternative text. Portals and visible labels use
-native buttons with accessible names. The viewer provides keyboard pan, zoom,
-fit, enter, and back controls, a scene breadcrumb, a polite scene-change live
-region, and a non-spatial searchable list. Browser page zoom is never disabled.
+The decorative scene image has empty alternative text. Portals and visible
+labels use native buttons with accessible names. The viewer provides keyboard
+pan, zoom, fit, enter, and back controls, a scene breadcrumb, a polite
+scene-change live region, and non-spatial search results. Browser page zoom is
+never disabled.
 
 Pointer Events support mouse, pen, one-finger pan and two-finger pinch. The
 implementation must handle pointer capture, cancellation, a third pointer, and

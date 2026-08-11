@@ -2,216 +2,119 @@
   "id": "hemoglobin",
   "title": "Hemoglobin",
   "translation": "血红蛋白",
-  "subtitle": "A protein carrier binding life-giving oxygen",
-  "asset": "/scenes/hemoglobin.svg",
+  "subtitle": "Four folded subunits carrying oxygen",
+  "asset": "/scenes/hemoglobin-premium-v2.jpg",
   "width": 1600,
   "height": 900,
   "parentId": "blood-cell",
   "labels": [
-    {
-      "id": "hemoglobin",
-      "word": "hemoglobin",
-      "translation": "血红蛋白",
-      "x": 800,
-      "y": 105,
-      "priority": 1,
-      "minLevel": 0,
-      "sourceVisualRegion": "whole-molecule"
-    },
-    {
-      "id": "tetramer",
-      "word": "tetramer",
-      "translation": "四聚体",
-      "x": 800,
-      "y": 450,
-      "priority": 1.001,
-      "minLevel": 0,
-      "sourceVisualRegion": "whole-molecule"
-    },
-    {
-      "id": "globin",
-      "word": "globin",
-      "translation": "珠蛋白",
-      "x": 480,
-      "y": 300,
-      "priority": 2.002,
-      "minLevel": 1,
-      "sourceVisualRegion": "alpha-subunits"
-    },
-    {
-      "id": "alpha-chain",
-      "word": "alpha chain",
-      "translation": "阿尔法链",
-      "x": 620,
-      "y": 180,
-      "priority": 2.003,
-      "minLevel": 1,
-      "sourceVisualRegion": "alpha-subunits"
-    },
-    {
-      "id": "beta-chain",
-      "word": "beta chain",
-      "translation": "贝塔链",
-      "x": 1010,
-      "y": 210,
-      "priority": 2.004,
-      "minLevel": 1,
-      "sourceVisualRegion": "beta-subunits"
-    },
-    {
-      "id": "protein-subunit",
-      "word": "protein subunit",
-      "translation": "蛋白质亚基",
-      "x": 690,
-      "y": 710,
-      "priority": 4.005,
-      "minLevel": 3,
-      "sourceVisualRegion": "beta-subunits"
-    },
-    {
-      "id": "heme",
-      "word": "heme",
-      "translation": "血红素",
-      "x": 600,
-      "y": 330,
-      "priority": 3.006,
-      "minLevel": 2,
-      "sourceVisualRegion": "heme-sites"
-    },
-    {
-      "id": "iron-ion",
-      "word": "iron ion",
-      "translation": "铁离子",
-      "x": 990,
-      "y": 350,
-      "priority": 3.007,
-      "minLevel": 2,
-      "sourceVisualRegion": "iron-centers"
-    },
-    {
-      "id": "oxygen-binding-site",
-      "word": "oxygen binding site",
-      "translation": "氧结合位点",
-      "x": 590,
-      "y": 645,
-      "priority": 5.008,
-      "minLevel": 4,
-      "sourceVisualRegion": "heme-sites"
-    },
-    {
-      "id": "oxygen-molecule",
-      "word": "oxygen molecule",
-      "translation": "氧分子",
-      "x": 580,
-      "y": 230,
-      "priority": 3.009,
-      "minLevel": 2,
-      "sourceVisualRegion": "oxygen-pair-top-left"
-    }
+    { "id": "red-blood-cell", "word": "red blood cell", "translation": "红细胞", "x": 1450, "y": 100, "priority": 1, "minLevel": 0, "sourceVisualRegion": "whole-red-blood-cell" },
+    { "id": "hemoglobin", "word": "hemoglobin", "translation": "血红蛋白", "x": 810, "y": 460, "priority": 1.001, "minLevel": 0, "sourceVisualRegion": "whole-hemoglobin" },
+    { "id": "tetramer", "word": "tetramer", "translation": "四聚体", "x": 800, "y": 440, "priority": 1.002, "minLevel": 0, "sourceVisualRegion": "whole-hemoglobin" },
+    { "id": "alpha-subunit", "word": "alpha subunit", "translation": "阿尔法亚基", "x": 650, "y": 300, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "verified-alpha-subunits" },
+    { "id": "beta-subunit", "word": "beta subunit", "translation": "贝塔亚基", "x": 1020, "y": 280, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "verified-beta-subunits" },
+    { "id": "oxygen-molecule", "word": "oxygen molecule", "translation": "氧分子", "x": 210, "y": 90, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "portal-bound-oxygen" },
+
+    { "id": "cell-membrane", "word": "cell membrane", "translation": "细胞膜", "x": 800, "y": 25, "priority": 2.006, "minLevel": 1, "sourceVisualRegion": "verified-cell-membrane" },
+    { "id": "cytoplasm", "word": "cytoplasm", "translation": "细胞质", "x": 1380, "y": 430, "priority": 2.007, "minLevel": 1, "sourceVisualRegion": "verified-cytoplasm" },
+    { "id": "heme-group", "word": "heme group", "translation": "血红素基团", "x": 205, "y": 205, "priority": 2.008, "minLevel": 1, "sourceVisualRegion": "verified-heme-group" },
+    { "id": "iron-ion", "word": "iron ion", "translation": "二价铁离子", "x": 212, "y": 200, "priority": 2.009, "minLevel": 1, "sourceVisualRegion": "verified-iron-ion" },
+    { "id": "alpha-helix", "word": "alpha helix", "translation": "阿尔法螺旋", "x": 1120, "y": 200, "priority": 2.01, "minLevel": 1, "sourceVisualRegion": "verified-alpha-helix" },
+    { "id": "central-cavity", "word": "central cavity", "translation": "中央空腔", "x": 805, "y": 435, "priority": 2.011, "minLevel": 1, "sourceVisualRegion": "verified-central-cavity" },
+
+    { "id": "globin-fold", "word": "globin fold", "translation": "珠蛋白折叠", "x": 1050, "y": 180, "priority": 3.012, "minLevel": 2, "sourceVisualRegion": "verified-globin-fold" },
+    { "id": "loop", "word": "loop", "translation": "环区", "x": 1190, "y": 130, "priority": 3.013, "minLevel": 2, "sourceVisualRegion": "verified-loop" },
+    { "id": "porphyrin-ring", "word": "porphyrin ring", "translation": "卟啉环", "x": 130, "y": 210, "priority": 3.014, "minLevel": 2, "sourceVisualRegion": "verified-porphyrin-ring" },
+    { "id": "heme-pocket", "word": "heme pocket", "translation": "血红素口袋", "x": 310, "y": 240, "priority": 3.015, "minLevel": 2, "sourceVisualRegion": "verified-heme-pocket" },
+
+    { "id": "polypeptide-chain", "word": "polypeptide chain", "translation": "多肽链", "x": 550, "y": 650, "priority": 4.016, "minLevel": 3, "sourceVisualRegion": "verified-polypeptide-chain" },
+    { "id": "subunit-interface", "word": "subunit interface", "translation": "亚基界面", "x": 790, "y": 470, "priority": 4.017, "minLevel": 3, "sourceVisualRegion": "verified-subunit-interface" },
+    { "id": "oxygen-atom", "word": "oxygen atom", "translation": "氧原子", "x": 180, "y": 90, "priority": 4.018, "minLevel": 3, "sourceVisualRegion": "verified-oxygen-atom" },
+
+    { "id": "proximal-histidine", "word": "proximal histidine", "translation": "近端组氨酸", "x": 220, "y": 323, "priority": 5.019, "minLevel": 4, "sourceVisualRegion": "verified-proximal-histidine" },
+    { "id": "distal-histidine", "word": "distal histidine", "translation": "远端组氨酸", "x": 330, "y": 139, "priority": 5.02, "minLevel": 4, "sourceVisualRegion": "verified-distal-histidine" },
+    { "id": "axial-coordination-bond", "word": "axial coordination bond", "translation": "轴向配位键", "x": 212, "y": 145, "priority": 5.021, "minLevel": 4, "sourceVisualRegion": "verified-axial-coordination-bond" }
   ],
   "portals": [
     {
       "id": "enter-oxygen-molecule",
-      "label": "Follow an oxygen molecule",
-      "translation": "追踪氧分子",
+      "label": "Follow the bound oxygen molecule",
+      "translation": "追踪已结合的氧分子",
       "childSceneId": "oxygen-molecule",
-      "x": 525,
-      "y": 195,
-      "width": 115,
-      "height": 75,
+      "x": 140,
+      "y": 45,
+      "width": 135,
+      "height": 105,
       "enterScale": 3.6,
-      "sourceVisualRegion": "oxygen-pair-top-left"
+      "sourceVisualRegion": "portal-bound-oxygen"
     }
   ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/hemoglobin.svg",
-    "rationale": "Kept the visible tetramer, four colored protein subunits, heme rings, iron centers, oxygen pairs and dotted molecular trace; removed diseases and invisible binding behavior.",
+    "reviewedAsset": "/scenes/hemoglobin-premium-v2.jpg",
+    "reviewedAssetSha256": "205269cf39a7b57650cb8285bc42a68509349904eeb3b5419ca4b5487d5be266",
+    "rationale": "Re-anchored the evidence-based 22-word ceiling against the final molecular render: exactly two coral alpha and two teal beta subunits, four embedded hemes and bound oxygen pairs, plus one physically connected enlarged coordination pocket for the oxygen portal.",
     "previousLabelCount": 48,
-    "retainedLabelCount": 10,
-    "removedLabelCount": 38,
-    "removedExamples": [
-      "anemia",
-      "mutation",
-      "transfusion",
-      "affinity",
-      "cooperativity",
-      "bind oxygen"
-    ]
+    "retainedLabelCount": 22,
+    "removedLabelCount": 26,
+    "removedExamples": ["affinity", "cooperativity", "saturation", "allostery", "anemia", "mutation"]
   },
-  "visualRegions": [
+  "detailZones": [
     {
-      "id": "whole-molecule",
-      "description": "Complete hemoglobin molecule inside the red-cell field",
-      "kind": "whole",
-      "x": 130,
-      "y": 80,
-      "width": 1340,
-      "height": 740
+      "id": "red-cell-context",
+      "title": "Red-cell context",
+      "translation": "红细胞环境",
+      "description": "Translucent red-cell membrane and cytoplasm surrounding the full protein",
+      "x": 0, "y": 0, "width": 1600, "height": 900, "targetScale": 2.1,
+      "labelIds": ["red-blood-cell", "cell-membrane", "cytoplasm", "hemoglobin"]
     },
     {
-      "id": "alpha-subunits",
-      "description": "Two orange folded globin subunits",
-      "kind": "object",
-      "x": 390,
-      "y": 90,
-      "width": 860,
-      "height": 750
+      "id": "alpha-folds",
+      "title": "Alpha-subunit folds",
+      "translation": "阿尔法亚基折叠",
+      "description": "Coral alpha subunits and separately visible ribbon hierarchy",
+      "x": 400, "y": 80, "width": 880, "height": 740, "targetScale": 2.7,
+      "labelIds": ["alpha-subunit", "globin-fold", "alpha-helix", "loop", "polypeptide-chain"]
     },
     {
-      "id": "beta-subunits",
-      "description": "Two green folded globin subunits",
-      "kind": "object",
-      "x": 360,
-      "y": 120,
-      "width": 860,
-      "height": 750
+      "id": "tetramer-core",
+      "title": "Tetramer core",
+      "translation": "四聚体核心",
+      "description": "Four-subunit assembly, teal beta subunits and central protein interface",
+      "x": 350, "y": 80, "width": 900, "height": 730, "targetScale": 2.5,
+      "labelIds": ["tetramer", "beta-subunit", "subunit-interface", "central-cavity"]
     },
     {
-      "id": "heme-sites",
-      "description": "Four dark red heme rings with yellow borders",
-      "kind": "part",
-      "x": 525,
-      "y": 270,
-      "width": 555,
-      "height": 445
-    },
-    {
-      "id": "iron-centers",
-      "description": "Yellow iron dots at the centers of the four heme rings",
-      "kind": "part",
-      "x": 560,
-      "y": 290,
-      "width": 500,
-      "height": 390
-    },
-    {
-      "id": "oxygen-pair-top-left",
-      "description": "Blue paired oxygen atoms above the upper-left heme",
-      "kind": "object",
-      "x": 525,
-      "y": 195,
-      "width": 115,
-      "height": 75
-    },
-    {
-      "id": "oxygen-pairs",
-      "description": "Four blue oxygen pairs around the subunits",
-      "kind": "object",
-      "x": 480,
-      "y": 180,
-      "width": 650,
-      "height": 620
-    },
-    {
-      "id": "molecular-trace",
-      "description": "Pale dotted path crossing the protein",
-      "kind": "diagram",
-      "x": 330,
-      "y": 170,
-      "width": 940,
-      "height": 570
+      "id": "oxygen-binding-pocket",
+      "title": "Oxygen-binding pocket",
+      "translation": "氧结合口袋",
+      "description": "Enlarged connected heme pocket with oxygen, iron and histidine coordination",
+      "x": 0, "y": 0, "width": 430, "height": 430, "targetScale": 3.2,
+      "labelIds": ["heme-group", "porphyrin-ring", "iron-ion", "heme-pocket", "proximal-histidine", "distal-histidine", "oxygen-molecule", "oxygen-atom", "axial-coordination-bond"]
     }
+  ],
+  "visualRegions": [
+    { "id": "whole-red-blood-cell", "description": "Complete soft translucent biconcave red blood cell", "kind": "whole", "x": 0, "y": 0, "width": 1600, "height": 900 },
+    { "id": "whole-hemoglobin", "description": "Complete central four-subunit hemoglobin molecule", "kind": "whole", "x": 360, "y": 70, "width": 900, "height": 750 },
+    { "id": "portal-bound-oxygen", "description": "Large bound pair of equal red oxygen spheres in upper-left inset", "kind": "object", "x": 140, "y": 45, "width": 135, "height": 105 },
+    { "id": "verified-alpha-subunits", "description": "Two warm coral folded protein subunits", "kind": "object", "x": 450, "y": 100, "width": 790, "height": 720 },
+    { "id": "verified-beta-subunits", "description": "Two cool teal folded protein subunits", "kind": "object", "x": 365, "y": 90, "width": 850, "height": 715 },
+    { "id": "verified-cell-membrane", "description": "Bright translucent outer membrane rim of the red cell", "kind": "part", "x": 0, "y": 0, "width": 1600, "height": 150 },
+    { "id": "verified-cytoplasm", "description": "Translucent red cytoplasm around the protein molecule", "kind": "part", "x": 0, "y": 0, "width": 1600, "height": 900 },
+    { "id": "verified-heme-group", "description": "Complete dark-red heme group in the enlarged pocket", "kind": "object", "x": 35, "y": 105, "width": 340, "height": 230 },
+    { "id": "verified-iron-ion", "description": "Central metallic iron ion in the enlarged heme", "kind": "part", "x": 175, "y": 165, "width": 80, "height": 85 },
+    { "id": "verified-alpha-helix", "description": "Broad coiled teal alpha-helical ribbon", "kind": "part", "x": 930, "y": 105, "width": 300, "height": 230 },
+    { "id": "verified-central-cavity", "description": "Dark central cavity between the four protein subunits", "kind": "part", "x": 745, "y": 390, "width": 135, "height": 115 },
+    { "id": "verified-globin-fold", "description": "Compact globin ribbon fold of the upper-right beta subunit", "kind": "part", "x": 830, "y": 75, "width": 405, "height": 375 },
+    { "id": "verified-loop", "description": "Thin teal loop joining alpha-helical ribbon segments", "kind": "part", "x": 1080, "y": 70, "width": 180, "height": 130 },
+    { "id": "verified-porphyrin-ring", "description": "Planar dark-red porphyrin ring in the enlarged pocket", "kind": "part", "x": 25, "y": 115, "width": 330, "height": 210 },
+    { "id": "verified-heme-pocket", "description": "Coral ribbon pocket surrounding the enlarged heme", "kind": "part", "x": 0, "y": 0, "width": 430, "height": 430 },
+    { "id": "verified-polypeptide-chain", "description": "Continuous teal polypeptide ribbon in the lower-left subunit", "kind": "part", "x": 385, "y": 430, "width": 440, "height": 370 },
+    { "id": "verified-subunit-interface", "description": "Contact boundary where coral and teal subunits meet", "kind": "part", "x": 700, "y": 350, "width": 230, "height": 250 },
+    { "id": "verified-oxygen-atom", "description": "One red sphere of the enlarged bound oxygen pair", "kind": "part", "x": 145, "y": 45, "width": 80, "height": 100 },
+    { "id": "verified-proximal-histidine", "description": "Lower histidine ring coordinated beneath the iron", "kind": "part", "x": 170, "y": 260, "width": 115, "height": 125 },
+    { "id": "verified-distal-histidine", "description": "Upper-right histidine ring beside the oxygen ligand", "kind": "part", "x": 275, "y": 95, "width": 125, "height": 105 },
+    { "id": "verified-axial-coordination-bond", "description": "Short vertical coordination bond between iron and bound oxygen", "kind": "part", "x": 185, "y": 105, "width": 60, "height": 100 }
   ]
 }

@@ -3,10 +3,12 @@
 /* SVG scene slices intentionally remain external images so their drawing nodes do not enter the app DOM. */
 /* eslint-disable @next/next/no-img-element */
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import {
   advanceLabelDwell,
+  buildLabelSemanticStyleMap,
   buildPortalCueProtectedRegions,
+  buildVocabularyCueRevealState,
   buildVocabularyRevealSummary,
   buildVocabularyZoomCues,
   consolidateVocabularyCueBatches,
@@ -18,6 +20,7 @@ import {
   type Label,
   type Portal as ScenePortal,
   type Scene,
+  type SceneLabelProtectedRegion,
 } from "../domain";
 
 interface SceneViewportProps {
@@ -29,7 +32,8 @@ interface SceneViewportProps {
   onCommitScene: (
     sceneId: string,
     source: "zoom" | "pointer" | "keyboard",
-  ) => boolean;
+    portal?: ScenePortal,
+  ) => false | "warm" | "cold";
   onEnterScene: (
     sceneId: string,
     source: "zoom" | "pointer" | "keyboard",
@@ -38,7 +42,11 @@ interface SceneViewportProps {
   onLabelsEncountered: (labels: readonly Label[]) => void;
   onLabelEncountered: (label: Label) => void;
   onSelectWord: (label: Label) => void;
-  onPrefetchScene: (sceneId: string) => void;
+  onPrefetchScene: (
+    sceneId: string,
+  ) => void | Scene | null | Promise<Scene | null>;
+  initialView?: SceneContinuityView;
+  onCameraFrame?: (snapshot: SceneViewportSnapshot) => void;
 }
 
 export interface SceneViewportCamera {
@@ -46,6 +54,41 @@ export interface SceneViewportCamera {
   y: number;
   scale: number;
   fit: number;
+}
+
+export interface SceneViewportSnapshot {
+  readonly sceneId: string;
+  readonly camera: SceneViewportCamera;
+  readonly viewportWidth: number;
+  readonly viewportHeight: number;
+}
+
+/**
+ * One navigation handoff expressed in the same camera coordinate system as
+ * the viewport. A forward handoff starts the child at the exact pixels drawn
+ * by its parent tile. A back handoff starts the parent around the portal that
+ * still contains the departing child tile.
+ */
+export interface SceneContinuityView {
+  readonly direction: "forward" | "back";
+  readonly camera: SceneViewportCamera;
+  /** Stable fully-fitted frame used as the first frame for reduced motion. */
+  readonly settledCamera?: SceneViewportCamera;
+  readonly tileScene?: Scene;
+  readonly tilePortal?: ScenePortal;
+}
+
+export function continuityViewForMotion(
+  view: SceneContinuityView | undefined,
+  reducedMotion: boolean,
+): SceneContinuityView | undefined {
+  if (!view || !reducedMotion || !view.settledCamera) return view;
+  return {
+    ...view,
+    camera: view.settledCamera,
+    tileScene: undefined,
+    tilePortal: undefined,
+  };
 }
 
 type Camera = SceneViewportCamera;
@@ -78,6 +121,133 @@ export function projectSceneRectToScreen(rect: SceneRect, camera: SceneViewportC
   };
 }
 
+function fitScale(
+  sceneWidth: number,
+  sceneHeight: number,
+  viewportWidth: number,
+  viewportHeight: number,
+): number {
+  return Math.min(viewportWidth / sceneWidth, viewportHeight / sceneHeight);
+}
+
+export function fittedSceneCamera(
+  sceneSize: { readonly width: number; readonly height: number },
+  viewportSize: { readonly width: number; readonly height: number },
+): SceneViewportCamera {
+  const fit = fitScale(
+    sceneSize.width,
+    sceneSize.height,
+    viewportSize.width,
+    viewportSize.height,
+  );
+  const scale = viewportSize.height > viewportSize.width * 1.25 ? 1.3 : 1;
+  return {
+    fit,
+    scale,
+    x: (viewportSize.width - sceneSize.width * fit * scale) / 2,
+    y: (viewportSize.height - sceneSize.height * fit * scale) / 2,
+  };
+}
+
+/** Maps an object-fit:cover child tile in a parent portal to a child camera. */
+export function childCameraFromPortalTile(
+  portal: SceneRect,
+  parentCamera: SceneViewportCamera,
+  childSize: { readonly width: number; readonly height: number },
+  viewportSize: { readonly width: number; readonly height: number },
+): SceneViewportCamera {
+  const cover = Math.max(portal.width / childSize.width, portal.height / childSize.height);
+  const childFit = fitScale(
+    childSize.width,
+    childSize.height,
+    viewportSize.width,
+    viewportSize.height,
+  );
+  const parentEffectiveScale = parentCamera.fit * parentCamera.scale;
+  const coveredX = portal.x + (portal.width - childSize.width * cover) / 2;
+  const coveredY = portal.y + (portal.height - childSize.height * cover) / 2;
+  return {
+    fit: childFit,
+    scale: parentEffectiveScale * cover / childFit,
+    x: parentCamera.x + coveredX * parentEffectiveScale,
+    y: parentCamera.y + coveredY * parentEffectiveScale,
+  };
+}
+
+/** Recovers the parent camera represented by the tile pixels actually painted. */
+export function cameraFromRenderedPortalRect(
+  portal: SceneRect,
+  renderedPortal: SceneRect,
+  viewportOrigin: Point,
+  fit: number,
+): SceneViewportCamera {
+  const renderedEffectiveScale = renderedPortal.width / portal.width;
+  return {
+    fit,
+    scale: renderedEffectiveScale / fit,
+    x: renderedPortal.x - viewportOrigin.x - portal.x * renderedEffectiveScale,
+    y: renderedPortal.y - viewportOrigin.y - portal.y * renderedEffectiveScale,
+  };
+}
+
+export function isExactForwardPortalTile(
+  tile: {
+    readonly portalId?: string;
+    readonly childScene?: string;
+    readonly direction?: string;
+  } | null | undefined,
+  portal: Pick<ScenePortal, "id" | "childSceneId">,
+): boolean {
+  return tile?.portalId === portal.id
+    && tile.childScene === portal.childSceneId
+    && tile.direction === "forward";
+}
+
+/** Inverse of childCameraFromPortalTile, used for a continuous zoom-out. */
+export function parentCameraFromChildTile(
+  portal: SceneRect,
+  childCamera: SceneViewportCamera,
+  parentSize: { readonly width: number; readonly height: number },
+  childSize: { readonly width: number; readonly height: number },
+  viewportSize: { readonly width: number; readonly height: number },
+): SceneViewportCamera {
+  const cover = Math.max(portal.width / childSize.width, portal.height / childSize.height);
+  const childEffectiveScale = childCamera.fit * childCamera.scale;
+  const parentEffectiveScale = childEffectiveScale / cover;
+  const parentFit = fitScale(
+    parentSize.width,
+    parentSize.height,
+    viewportSize.width,
+    viewportSize.height,
+  );
+  const coveredX = portal.x + (portal.width - childSize.width * cover) / 2;
+  const coveredY = portal.y + (portal.height - childSize.height * cover) / 2;
+  return {
+    fit: parentFit,
+    scale: parentEffectiveScale / parentFit,
+    x: childCamera.x - coveredX * parentEffectiveScale,
+    y: childCamera.y - coveredY * parentEffectiveScale,
+  };
+}
+
+export function clampCenteredOverlayShift(
+  centerX: number,
+  overlayWidth: number,
+  viewportWidth: number,
+  padding = 12,
+): number {
+  const safeViewportWidth = Math.max(0, viewportWidth);
+  const safePadding = Math.max(0, Math.min(padding, safeViewportWidth / 2));
+  const safeOverlayWidth = Math.max(
+    0,
+    Math.min(overlayWidth, safeViewportWidth - safePadding * 2),
+  );
+  const halfWidth = safeOverlayWidth / 2;
+  const minimumCenter = safePadding + halfWidth;
+  const maximumCenter = Math.max(minimumCenter, safeViewportWidth - safePadding - halfWidth);
+  return Math.min(maximumCenter, Math.max(minimumCenter, centerX)) - centerX;
+}
+
 export function setStylePropertyIfChanged(
   style: Pick<CSSStyleDeclaration, "getPropertyValue" | "setProperty">,
   property: string,
@@ -96,7 +266,16 @@ function setAttributeIfChanged(element: HTMLElement, name: string, value: string
   if (element.getAttribute(name) !== value) element.setAttribute(name, value);
 }
 
-const ENTER_SETTLE_MS = 150;
+function syncMotionFrozenLayer(element: HTMLElement, frozen: boolean): void {
+  setDatasetValueIfChanged(element, "motionFrozen", String(frozen));
+  if (element.inert !== frozen) element.inert = frozen;
+  if (frozen) {
+    setAttributeIfChanged(element, "aria-hidden", "true");
+  } else if (element.getAttribute("aria-hidden") === "true") {
+    element.removeAttribute("aria-hidden");
+  }
+}
+
 const WHEEL_RESPONSE_MS = 52;
 const WHEEL_POSITION_EPSILON = 0.08;
 const WHEEL_SCALE_EPSILON = 0.00045;
@@ -104,11 +283,96 @@ const EXIT_SCALE = 0.82;
 const MAX_SCALE = 4.15;
 const PORTAL_PREVIEW_LEAD = 1;
 const PORTAL_ARMED_PROGRESS = 0.82;
+
+export function portalRevealProgress(cameraScale: number, enterScale = 3.6): number {
+  const cueScale = Math.max(1, enterScale - PORTAL_PREVIEW_LEAD);
+  return Math.min(
+    1,
+    Math.max(0, (cameraScale - cueScale) / Math.max(0.01, enterScale - cueScale)),
+  );
+}
+
+export function shouldWriteContinuousTileProgress(
+  state: "preview" | "active",
+  direction: "forward" | "back",
+): boolean {
+  return state === "preview" || direction === "back";
+}
 const VOCABULARY_REVEAL_SCALE: Readonly<Record<2 | 3 | 4, number>> = {
   2: 1.42,
   3: 2.2,
   4: 3.12,
 };
+
+export function buildViewerChromeProtectedRegions(
+  width: number,
+  height: number,
+): SceneLabelProtectedRegion[] {
+  const compact = width <= 900;
+  const phone = width <= 560;
+  const regions: SceneLabelProtectedRegion[] = [{
+    left: 0,
+    right: Math.min(width, compact ? Math.max(308, width * 0.8) : 480),
+    top: 0,
+    bottom: compact ? 146 : 166,
+  }];
+
+  if (!phone) {
+    regions.push({
+      left: Math.max(0, width / 2 - 205),
+      right: Math.min(width, width / 2 + 205),
+      top: 0,
+      bottom: 82,
+    });
+  }
+  regions.push({
+    left: Math.max(0, width - (phone ? 116 : 260)),
+    right: width,
+    top: 0,
+    bottom: phone ? 82 : 86,
+  });
+
+  // The lower controls and mobile vocabulary summary must remain readable.
+  regions.push({
+    left: Math.max(0, width - 184),
+    right: width,
+    top: Math.max(0, height - 88),
+    bottom: height,
+  });
+  regions.push({
+    left: 0,
+    right: phone ? 150 : 190,
+    top: Math.max(0, height - 88),
+    bottom: height,
+  });
+  if (phone) {
+    regions.push({
+      left: 12,
+      right: Math.max(12, width - 12),
+      top: Math.max(0, height - 144),
+      bottom: Math.max(0, height - 64),
+    });
+  }
+  return regions;
+}
+
+export function wheelZoomFactor(
+  deltaY: number,
+  deltaMode: number,
+  viewportHeight: number,
+): number {
+  // WheelEvent deltas may be pixels, lines or pages depending on the device
+  // and browser. Converting them to a bounded pixel-like impulse prevents a
+  // mouse wheel from feeling inert and a page-mode device from jumping across
+  // several LOD bands in one event.
+  const pixelDelta = deltaMode === 1
+    ? deltaY * 16
+    : deltaMode === 2
+      ? deltaY * Math.max(1, viewportHeight)
+      : deltaY;
+  const boundedDelta = Math.min(240, Math.max(-240, pixelDelta));
+  return Math.exp(-boundedDelta * 0.0017);
+}
 
 function distance(a: Point, b: Point): number {
   return Math.hypot(a.x - b.x, a.y - b.y);
@@ -149,9 +413,19 @@ export function SceneViewport({
   onLabelEncountered,
   onSelectWord,
   onPrefetchScene,
+  initialView,
+  onCameraFrame,
 }: SceneViewportProps) {
+  const reducedContinuityAtMount = Boolean(
+    initialView
+    && typeof window !== "undefined"
+    && typeof window.matchMedia === "function"
+    && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+  const effectiveInitialView = continuityViewForMotion(initialView, reducedContinuityAtMount);
   const viewportRef = useRef<HTMLDivElement>(null);
   const surfaceRef = useRef<HTMLDivElement>(null);
+  const continuousTileRef = useRef<HTMLDivElement>(null);
   const labelLayerRef = useRef<HTMLDivElement>(null);
   const interactionLayerRef = useRef<HTMLDivElement>(null);
   const cameraRef = useRef<Camera>({ x: 0, y: 0, scale: 1, fit: 1 });
@@ -162,10 +436,15 @@ export function SceneViewport({
   const wheelAnimationRef = useRef<number | null>(null);
   const wheelTargetRef = useRef<Camera | null>(null);
   const wheelFrameTimeRef = useRef<number | null>(null);
-  const settleRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navigationFrameRef = useRef<number | null>(null);
   const encounterDwellRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const visibleSinceRef = useRef<ReadonlyMap<string, number>>(new Map());
   const encounteredLabelIdsRef = useRef(new Set<string>());
+  // Once a label has occupied a readable slot in this scene, camera panning,
+  // collision resolution, or LOD retirement must not make the scene-wide
+  // "remaining words" total increase again. SceneViewport is keyed by
+  // scene.id, so this set naturally has the same lifetime as the scene view.
+  const revealedLabelIdsRef = useRef(new Set<string>());
   const selectedLabelIdRef = useRef<string | null>(null);
   const lastNavigationRef = useRef(0);
   const zoomFocusRef = useRef<Point | null>(null);
@@ -178,30 +457,145 @@ export function SceneViewport({
   const previewPhaseRef = useRef<"preview" | "armed">("preview");
   const committingRef = useRef(false);
   const parentZoomPrefetchRef = useRef(false);
+  const initialViewRef = useRef(effectiveInitialView);
+  const initializedSceneRef = useRef<string | null>(null);
+  const fittedViewportSizeRef = useRef<{ readonly width: number; readonly height: number } | null>(null);
+  const continuitySettlingRef = useRef(false);
+  const continuityProgressRef = useRef(
+    effectiveInitialView?.direction === "back" && effectiveInitialView.tileScene ? 1 : 0,
+  );
+  const forwardTileProgressRef = useRef<{
+    readonly portalId: string;
+    readonly childSceneId: string;
+    readonly value: number;
+  } | null>(null);
+  const continuousTileRequestRef = useRef(0);
   const [previewPortal, setPreviewPortal] = useState<ScenePortal | null>(null);
   const [previewPhase, setPreviewPhase] = useState<"preview" | "armed">("preview");
+  const [motionFrozen, setMotionFrozen] = useState(
+    Boolean(effectiveInitialView && !reducedContinuityAtMount),
+  );
+  const [continuousTile, setContinuousTile] = useState<{
+    readonly scene: Scene;
+    readonly portal: ScenePortal;
+  } | null>(() => (
+    effectiveInitialView?.tileScene && effectiveInitialView.tilePortal
+      ? { scene: effectiveInitialView.tileScene, portal: effectiveInitialView.tilePortal }
+      : null
+  ));
+  const [continuousTileState, setContinuousTileState] = useState<"preview" | "active">(
+    effectiveInitialView?.tileScene ? "active" : "preview",
+  );
+  const [continuousTileDirection, setContinuousTileDirection] = useState<"forward" | "back">(
+    effectiveInitialView?.direction === "back" && effectiveInitialView.tileScene ? "back" : "forward",
+  );
+  // Camera frames own this purely presentational readiness flag. Keeping it in
+  // the applyCamera dependency list would rebuild resetCamera after the first
+  // frame and cancel a freshly mounted reverse-continuity animation. The ref
+  // guards the one low-frequency React update without making the frame callback
+  // depend on that state.
   const [interactionPositioned, setInteractionPositioned] = useState(false);
+  const interactionPositionedRef = useRef(false);
   const [encounterTick, setEncounterTick] = useState(0);
   const labelsById = useMemo(
     () => new Map(scene.labels.map((label) => [label.id, label])),
     [scene.labels],
   );
-  const vocabularyZoomCues = useMemo(
-    () => buildVocabularyZoomCues(scene.labels, scene.portals, scene.width, scene.height, 8),
-    [scene.height, scene.labels, scene.portals, scene.width],
+  const labelSemanticStyles = useMemo(
+    () => buildLabelSemanticStyleMap(scene.labels, scene.visualRegions ?? []),
+    [scene.labels, scene.visualRegions],
   );
+  const vocabularyZoomCues = useMemo(
+    () => buildVocabularyZoomCues(
+      scene.labels,
+      scene.portals,
+      scene.width,
+      scene.height,
+      8,
+      scene.detailZones,
+    ),
+    [scene.detailZones, scene.height, scene.labels, scene.portals, scene.width],
+  );
+
+  const setContinuousTileNode = useCallback((node: HTMLDivElement | null) => {
+    continuousTileRef.current = node;
+    if (!node || node.dataset.progress !== undefined) return;
+    const state = node.dataset.state === "active" ? "active" : "preview";
+    const direction = node.dataset.direction === "back" ? "back" : "forward";
+    if (!shouldWriteContinuousTileProgress(state, direction)) {
+      setDatasetValueIfChanged(node, "progress", "1.000");
+      return;
+    }
+    const portal = scene.portals.find((candidate) => candidate.id === node.dataset.portalId);
+    const activePortal = portalCandidateRef.current ?? previewPortalRef.current;
+    const tileMatchesPortal = Boolean(
+      portal
+      && activePortal?.id === portal.id
+      && activePortal.childSceneId === node.dataset.childScene,
+    );
+    let progress = 0;
+    if (node.dataset.direction === "back") {
+      progress = continuityProgressRef.current;
+    } else if (tileMatchesPortal && portal) {
+      const computed = portalRevealProgress(cameraRef.current.scale, portal.enterScale ?? 3.6);
+      const previous = forwardTileProgressRef.current;
+      const sameTile = previous?.portalId === portal.id
+        && previous.childSceneId === portal.childSceneId;
+      const mayDecrease = zoomDirectionRef.current === "out" && !committingRef.current;
+      progress = mayDecrease ? computed : Math.max(sameTile ? previous.value : 0, computed);
+      forwardTileProgressRef.current = {
+        portalId: portal.id,
+        childSceneId: portal.childSceneId,
+        value: progress,
+      };
+    }
+    const progressValue = Math.min(1, Math.max(0, progress)).toFixed(3);
+    setDatasetValueIfChanged(node, "progress", progressValue);
+    setStylePropertyIfChanged(node.style, "--tile-progress", progressValue);
+  }, [scene.portals]);
 
   const viewerInteractive = transitionPhase === "active" && !interactionLocked;
   const viewerInteractiveRef = useRef(viewerInteractive);
   const meaningVisibleRef = useRef(meaningVisible);
 
   const showPortalPreview = useCallback((portal: ScenePortal | null) => {
+    if (
+      committingRef.current
+      && portalCandidateRef.current?.id !== portal?.id
+    ) return;
     if (previewPortalRef.current?.id === portal?.id) return;
     previewPortalRef.current = portal;
     previewPhaseRef.current = "preview";
     setPreviewPhase("preview");
     setPreviewPortal(portal);
   }, []);
+
+  const requestContinuousTile = useCallback((portal: ScenePortal) => {
+    if (
+      committingRef.current
+      && portalCandidateRef.current?.id !== portal.id
+    ) return;
+    const requestId = continuousTileRequestRef.current + 1;
+    continuousTileRequestRef.current = requestId;
+    const prepared = onPrefetchScene(portal.childSceneId);
+    const accept = (child: Scene | null | void) => {
+      if (
+        !child
+        || child.id !== portal.childSceneId
+        || continuousTileRequestRef.current !== requestId
+        || continuitySettlingRef.current
+        || (committingRef.current && portalCandidateRef.current?.id !== portal.id)
+      ) return;
+      setContinuousTileDirection("forward");
+      setContinuousTileState(committingRef.current ? "active" : "preview");
+      setContinuousTile({ scene: child, portal });
+    };
+    if (prepared && typeof (prepared as Promise<Scene | null>).then === "function") {
+      void (prepared as Promise<Scene | null>).then(accept, () => undefined);
+      return;
+    }
+    accept(prepared as Scene | null | void);
+  }, [onPrefetchScene]);
 
   const clampCamera = useCallback(
     (camera: Camera): Camera => {
@@ -230,6 +624,11 @@ export function SceneViewport({
     const interactionLayer = interactionLayerRef.current;
     const viewport = viewportRef.current;
     if (!surface || !labelLayer || !interactionLayer || !viewport) return;
+    // Read layout once before this frame starts mutating styles. Re-reading
+    // viewport geometry after the surface/overlays have been written forces a
+    // synchronous layout in every camera frame.
+    const viewportWidth = viewport.clientWidth;
+    const viewportHeight = viewport.clientHeight;
     const camera = (cameraRef.current = clampCamera(cameraRef.current));
     const effectiveScale = camera.fit * camera.scale;
     const zoomLevel = sceneLodLevel(camera.scale);
@@ -246,10 +645,61 @@ export function SceneViewport({
 
     const activePortal = portalCandidateRef.current ?? previewPortalRef.current;
     const enterScale = activePortal?.enterScale ?? 3.6;
-    const cueScale = Math.max(1, enterScale - PORTAL_PREVIEW_LEAD);
     const portalProgress = activePortal
-      ? Math.min(1, Math.max(0, (camera.scale - cueScale) / Math.max(0.01, enterScale - cueScale)))
+      ? portalRevealProgress(camera.scale, enterScale)
       : 0;
+    if (continuousTileRef.current) {
+      if (shouldWriteContinuousTileProgress(continuousTileState, continuousTileDirection)) {
+        const tilePortalId = continuousTileRef.current.dataset.portalId;
+        const tileChildSceneId = continuousTileRef.current.dataset.childScene;
+        const tileMatchesPortal = activePortal?.id === tilePortalId
+          && activePortal?.childSceneId === tileChildSceneId;
+        let tileProgress = 0;
+        if (continuousTileDirection === "back" && continuousTileState === "active") {
+          tileProgress = continuityProgressRef.current;
+        } else if (tileMatchesPortal && activePortal && tilePortalId && tileChildSceneId) {
+          const previous = forwardTileProgressRef.current;
+          const sameTile = previous?.portalId === tilePortalId
+            && previous.childSceneId === tileChildSceneId;
+          const mayDecrease = zoomDirectionRef.current === "out" && !committingRef.current;
+          tileProgress = mayDecrease
+            ? portalProgress
+            : Math.max(sameTile ? previous.value : 0, portalProgress);
+          forwardTileProgressRef.current = {
+            portalId: tilePortalId,
+            childSceneId: tileChildSceneId,
+            value: tileProgress,
+          };
+        }
+        const tileProgressValue = Math.min(1, Math.max(0, tileProgress)).toFixed(3);
+        setDatasetValueIfChanged(continuousTileRef.current, "progress", tileProgressValue);
+        setStylePropertyIfChanged(
+          continuousTileRef.current.style,
+          "--tile-progress",
+          tileProgressValue,
+        );
+      }
+    }
+    const imminentParentExit = Boolean(
+      scene.parentId
+      && zoomDirectionRef.current === "out"
+      && (wheelTargetRef.current?.scale ?? Number.POSITIVE_INFINITY) < EXIT_SCALE
+    );
+    const frameMotionFrozen = committingRef.current
+      || continuitySettlingRef.current
+      || imminentParentExit;
+    syncMotionFrozenLayer(labelLayer, frameMotionFrozen);
+    syncMotionFrozenLayer(interactionLayer, frameMotionFrozen);
+    if (frameMotionFrozen) {
+      onCameraFrame?.({
+        sceneId: scene.id,
+        camera: { ...camera },
+        viewportWidth,
+        viewportHeight,
+      });
+      return;
+    }
+
     const nextPreviewPhase = portalProgress >= PORTAL_ARMED_PROGRESS ? "armed" : "preview";
     if (activePortal && previewPortalRef.current?.id !== activePortal.id) {
       showPortalPreview(activePortal);
@@ -276,10 +726,27 @@ export function SceneViewport({
         const top = snapToDevicePixel(bounds.y);
         const right = snapToDevicePixel(bounds.x + bounds.width);
         const bottom = snapToDevicePixel(bounds.y + bounds.height);
+        const portalCenterX = bounds.x + bounds.width / 2;
+        const captionWidth = Math.min(
+          viewportWidth <= 700 ? 180 : 190,
+          Math.max(0, viewportWidth - 24),
+        );
+        const captionShift = portalCenterX >= 0 && portalCenterX <= viewportWidth
+          ? snapToDevicePixel(clampCenteredOverlayShift(
+              portalCenterX,
+              captionWidth,
+              viewportWidth,
+            ))
+          : 0;
         setStylePropertyIfChanged(region.style, "left", `${left.toFixed(2)}px`);
         setStylePropertyIfChanged(region.style, "top", `${top.toFixed(2)}px`);
         setStylePropertyIfChanged(region.style, "width", `${Math.max(0, right - left).toFixed(2)}px`);
         setStylePropertyIfChanged(region.style, "height", `${Math.max(0, bottom - top).toFixed(2)}px`);
+        setStylePropertyIfChanged(
+          region.style,
+          "--portal-caption-shift-x",
+          `${captionShift.toFixed(2)}px`,
+        );
       }
       const selected = region.dataset.portalId === activePortal?.id;
       setDatasetValueIfChanged(region, "candidate", String(selected));
@@ -290,6 +757,7 @@ export function SceneViewport({
       );
       const hotspot = region.querySelector<HTMLElement>(".scene-hotspot");
       if (hotspot) {
+        setDatasetValueIfChanged(hotspot, "candidate", String(selected));
         setDatasetValueIfChanged(hotspot, "cueState", selected
           ? (nextPreviewPhase === "armed" ? "armed" : "candidate")
           : "idle");
@@ -302,9 +770,9 @@ export function SceneViewport({
     }
 
     const labelViewport = {
-      width: viewport.clientWidth,
-      height: viewport.clientHeight,
-      compact: viewport.clientWidth <= 900,
+      width: viewportWidth,
+      height: viewportHeight,
+      compact: viewportWidth <= 900,
     };
     const activeElement = document.activeElement;
     const focusedLabelId = activeElement instanceof HTMLButtonElement
@@ -318,11 +786,10 @@ export function SceneViewport({
       meaningVisibleRef.current,
       {
         selectedLabelId: focusedLabelId ?? selectedLabelIdRef.current,
-        protectedRegions: buildPortalCueProtectedRegions(
-          scene.portals,
-          camera,
-          labelViewport,
-        ),
+        protectedRegions: [
+          ...buildViewerChromeProtectedRegions(labelViewport.width, labelViewport.height),
+          ...buildPortalCueProtectedRegions(scene.portals, camera, labelViewport),
+        ],
       },
     );
     const byId = new Map(layout.map((item) => [item.id, item]));
@@ -346,13 +813,15 @@ export function SceneViewport({
       setStylePropertyIfChanged(element.style, "--label-opacity", opacityStyle);
       if (item && Number.isFinite(item.screenX) && Number.isFinite(item.screenY)) {
         // The artwork keeps its single composited camera transform, while text
-        // is projected into this unscaled sibling overlay. Pixel-snapped
-        // left/top values let the browser rasterize glyphs at their native
-        // size instead of repeatedly scaling an already-rasterized label.
-        const leftStyle = `${snapToDevicePixel(item.screenX).toFixed(2)}px`;
-        const topStyle = `${snapToDevicePixel(item.screenY).toFixed(2)}px`;
-        setStylePropertyIfChanged(element.style, "left", leftStyle);
-        setStylePropertyIfChanged(element.style, "top", topStyle);
+        // is projected into this unscaled sibling overlay. A pixel-snapped
+        // translation keeps glyphs native-sized without invalidating layout.
+        const screenX = snapToDevicePixel(item.screenX).toFixed(2);
+        const screenY = snapToDevicePixel(item.screenY).toFixed(2);
+        setStylePropertyIfChanged(
+          element.style,
+          "transform",
+          `translate3d(${screenX}px, ${screenY}px, 0) translate(-50%, -50%)`,
+        );
       }
       setStylePropertyIfChanged(element.style, "--label-anchor-x", `${anchorX.toFixed(2)}px`);
       setStylePropertyIfChanged(element.style, "--label-anchor-y", `${anchorY.toFixed(2)}px`);
@@ -413,12 +882,13 @@ export function SceneViewport({
     const actuallyVisibleLabelIds = new Set(
       layout.filter((item) => item.interactive).map((item) => item.id),
     );
+    for (const id of actuallyVisibleLabelIds) revealedLabelIdsRef.current.add(id);
     const revealSummary = buildVocabularyRevealSummary(
       scene.labels,
       camera.scale,
       MAX_SCALE,
       LABEL_ENCOUNTER_OPACITY,
-      actuallyVisibleLabelIds,
+      revealedLabelIdsRef.current,
     );
     const globallyHiddenIds = new Set(revealSummary.hiddenLabels.map((label) => label.id));
     const cueCandidates = vocabularyZoomCues.flatMap((cue) => {
@@ -426,18 +896,41 @@ export function SceneViewport({
         .map((id) => labelsById.get(id))
         .filter((label): label is Label => Boolean(label))
         .filter((label) => globallyHiddenIds.has(label.id));
+      if (cue.source === "authored-zone") {
+        const state = buildVocabularyCueRevealState(
+          cue,
+          hidden,
+          camera.scale,
+          MAX_SCALE,
+          LABEL_ENCOUNTER_OPACITY,
+        );
+        if (
+          state.nextLod === null
+          || state.nextLod < 2
+          || state.targetScale === null
+          || state.hiddenLabels.length === 0
+        ) return [];
+        return [{
+          cue,
+          labels: state.hiddenLabels,
+          nextLabels: state.nextLabels,
+          nextLod: state.nextLod as 2 | 3 | 4,
+          targetScale: state.targetScale,
+        }];
+      }
       const nextLod = hidden.reduce<number>(
         (lowest, label) => Math.min(lowest, sceneLabelLod(label)),
         Number.POSITIVE_INFINITY,
       );
       if (nextLod < 2 || nextLod > 4) return [];
-      const targetScale = Math.min(MAX_SCALE, Math.max(
+      const fallbackTargetScale = Math.min(MAX_SCALE, Math.max(
         camera.scale + 0.28,
         VOCABULARY_REVEAL_SCALE[nextLod as 2 | 3 | 4],
         ...hidden
           .filter((label) => sceneLabelLod(label) === nextLod)
           .map((label) => (label.minScale ?? 0) + 0.34),
       ));
+      const targetScale = fallbackTargetScale;
       const revealable = hidden.filter((label) => (
         sceneLabelLod(label) === nextLod
         && sceneLabelRevealOpacity(label, targetScale) >= LABEL_ENCOUNTER_OPACITY
@@ -446,7 +939,9 @@ export function SceneViewport({
       return [{
         cue,
         labels: revealable,
+        nextLabels: revealable,
         nextLod: nextLod as 2 | 3 | 4,
+        targetScale,
       }];
     });
     const nextSceneLod = cueCandidates.reduce<number>(
@@ -456,51 +951,76 @@ export function SceneViewport({
     const nextSceneScale = Number.isFinite(nextSceneLod)
       ? Math.min(MAX_SCALE, Math.max(camera.scale + 0.28, VOCABULARY_REVEAL_SCALE[nextSceneLod as 2 | 3 | 4]))
       : MAX_SCALE;
-    const visibleSceneWidth = viewport.clientWidth / Math.max(0.001, camera.fit * nextSceneScale);
-    const visibleSceneHeight = viewport.clientHeight / Math.max(0.001, camera.fit * nextSceneScale);
-    const cueBatches = consolidateVocabularyCueBatches(
-      cueCandidates,
-      4,
-      visibleSceneWidth * 0.4,
-      visibleSceneHeight * 0.4,
-    );
-    const cueLimit = viewport.clientWidth <= 700 ? 4 : 6;
+    const visibleSceneWidth = viewportWidth / Math.max(0.001, camera.fit * nextSceneScale);
+    const visibleSceneHeight = viewportHeight / Math.max(0.001, camera.fit * nextSceneScale);
+    const cueBatches = vocabularyZoomCues.some((cue) => cue.source === "authored-zone")
+      ? cueCandidates.map((candidate) => ({
+        ...candidate,
+        sourceCueIds: [candidate.cue.id],
+        mode: candidate.labels.length >= 4 ? "region" as const : "compact" as const,
+      }))
+      : consolidateVocabularyCueBatches(
+        cueCandidates,
+        4,
+        visibleSceneWidth * 0.4,
+        visibleSceneHeight * 0.4,
+      );
+    const cueLimit = viewportWidth <= 700 ? 4 : 6;
     let activeCueCount = 0;
     for (const element of interactionLayer.querySelectorAll<HTMLButtonElement>(".vocabulary-zoom-cue")) {
       const batch = cueBatches.find((candidate) => candidate.cue.id === element.dataset.cueId);
       const active = Boolean(
         batch
-        && batch.nextLod === nextSceneLod
+        && (batch.cue.source === "authored-zone" || batch.nextLod === nextSceneLod)
         && activeCueCount < cueLimit
-        && viewerInteractiveRef.current,
+        && viewerInteractiveRef.current
+        && !activePortal,
       );
       if (active && batch) {
         activeCueCount += 1;
+        const nextBatchLabels = batch.nextLabels?.length ? batch.nextLabels : batch.labels;
         const centroid = {
-          x: batch.labels.reduce((sum, label) => sum + label.x, 0) / batch.labels.length,
-          y: batch.labels.reduce((sum, label) => sum + label.y, 0) / batch.labels.length,
+          x: nextBatchLabels.reduce((sum, label) => sum + label.x, 0) / nextBatchLabels.length,
+          y: nextBatchLabels.reduce((sum, label) => sum + label.y, 0) / nextBatchLabels.length,
         };
-        const nextLabel = [...batch.labels].sort((first, second) => (
+        const nextLabel = [...nextBatchLabels].sort((first, second) => (
           Math.hypot(first.x - centroid.x, first.y - centroid.y)
             - Math.hypot(second.x - centroid.x, second.y - centroid.y)
           || first.priority - second.priority
           || first.id.localeCompare(second.id)
         ))[0];
-        const targetScale = Math.min(MAX_SCALE, Math.max(
+        const fallbackTargetScale = Math.min(MAX_SCALE, Math.max(
           camera.scale + 0.28,
           VOCABULARY_REVEAL_SCALE[batch.nextLod],
           ...batch.labels.map((label) => (label.minScale ?? 0) + 0.34),
         ));
+        const targetScale = batch.cue.source === "authored-zone"
+          ? batch.targetScale ?? Math.min(MAX_SCALE, Math.max(
+            camera.scale + 0.28,
+            batch.cue.targetScale ?? fallbackTargetScale,
+          ))
+          : fallbackTargetScale;
+        const cueAnchor = labelsById.get(batch.cue.anchorLabelId) ?? nextLabel;
         setDatasetValueIfChanged(element, "nextLod", String(batch.nextLod));
         setDatasetValueIfChanged(element, "hiddenWordCount", String(batch.labels.length));
+        setDatasetValueIfChanged(element, "nextBatchCount", String(nextBatchLabels.length));
         setDatasetValueIfChanged(element, "nextLabelId", nextLabel.id);
         setDatasetValueIfChanged(element, "targetScale", targetScale.toFixed(3));
+        setDatasetValueIfChanged(element, "cueSource", batch.cue.source);
+        if (batch.cue.title) setDatasetValueIfChanged(element, "zoneTitle", batch.cue.title);
+        if (batch.cue.translation) {
+          setDatasetValueIfChanged(element, "zoneTranslation", batch.cue.translation);
+        }
+        if (batch.cue.focusX !== undefined && batch.cue.focusY !== undefined) {
+          setDatasetValueIfChanged(element, "focusX", String(batch.cue.focusX));
+          setDatasetValueIfChanged(element, "focusY", String(batch.cue.focusY));
+        }
         setDatasetValueIfChanged(element, "sourceCueIds", batch.sourceCueIds.join(" "));
         setDatasetValueIfChanged(element, "cueMode", batch.mode);
-        setDatasetValueIfChanged(element, "visualRegion", nextLabel.sourceVisualRegion ?? batch.cue.id);
-        setDatasetValueIfChanged(element, "anchorX", String(nextLabel.x));
-        setDatasetValueIfChanged(element, "anchorY", String(nextLabel.y));
-        const cuePosition = projectScenePointToScreen(nextLabel, camera);
+        setDatasetValueIfChanged(element, "visualRegion", cueAnchor.sourceVisualRegion ?? batch.cue.id);
+        setDatasetValueIfChanged(element, "anchorX", String(cueAnchor.x));
+        setDatasetValueIfChanged(element, "anchorY", String(cueAnchor.y));
+        const cuePosition = projectScenePointToScreen(cueAnchor, camera);
         setStylePropertyIfChanged(
           element.style,
           "left",
@@ -513,12 +1033,28 @@ export function SceneViewport({
         );
         const count = element.querySelector<HTMLElement>(".vocabulary-zoom-cue-count");
         if (count) {
-          const countValue = batch.mode === "compact"
-            ? `+${batch.labels.length}`
-            : `${batch.labels.length} 个词`;
+          const semanticTitle = batch.cue.title
+            ? meaningVisibleRef.current && batch.cue.translation
+              ? `${batch.cue.title} · ${batch.cue.translation}`
+              : batch.cue.title
+            : null;
+          const countValue = semanticTitle
+            ? `${semanticTitle} · 还剩 ${batch.labels.length} 个词`
+            : batch.mode === "compact"
+              ? `+${batch.labels.length}`
+              : `${batch.labels.length} 个词`;
           if (count.textContent !== countValue) count.textContent = countValue;
         }
-        setAttributeIfChanged(element, "aria-label", `此处还有 ${batch.labels.length} 个词，放大查看`);
+        const accessibleTitle = batch.cue.title
+          ? meaningVisibleRef.current && batch.cue.translation
+            ? `${batch.cue.title}，${batch.cue.translation}`
+            : batch.cue.title
+          : "此处";
+        setAttributeIfChanged(
+          element,
+          "aria-label",
+          `${accessibleTitle}还有 ${batch.labels.length} 个词，放大查看`,
+        );
       }
       setDatasetValueIfChanged(element, "active", String(active));
       const cueTabIndex = active ? 0 : -1;
@@ -532,7 +1068,11 @@ export function SceneViewport({
     );
     setDatasetValueIfChanged(surface, "visibleVocabularyCueCount", String(activeCueCount));
     setDatasetValueIfChanged(interactionLayer, "sceneScale", sceneScaleValue);
-    if (!interactionPositioned) setInteractionPositioned(true);
+    if (!interactionPositionedRef.current) {
+      interactionPositionedRef.current = true;
+      setDatasetValueIfChanged(interactionLayer, "positioned", "true");
+      setInteractionPositioned(true);
+    }
 
     const summaryElement = vocabularySummaryRef.current;
     if (summaryElement) {
@@ -569,7 +1109,13 @@ export function SceneViewport({
       if (count && count.textContent !== String(hiddenCount)) count.textContent = String(hiddenCount);
       setAttributeIfChanged(summaryElement, "aria-label", `本场景还有 ${hiddenCount} 个词，继续放大`);
     }
-  }, [clampCamera, interactionPositioned, labelsById, onLabelsEncountered, scene.labels, scene.portals, showPortalPreview, vocabularyZoomCues]);
+    onCameraFrame?.({
+      sceneId: scene.id,
+      camera: { ...camera },
+      viewportWidth,
+      viewportHeight,
+    });
+  }, [clampCamera, continuousTileDirection, continuousTileState, labelsById, onCameraFrame, onLabelsEncountered, scene.id, scene.labels, scene.parentId, scene.portals, showPortalPreview, vocabularyZoomCues]);
 
   const requestCameraFrame = useCallback(() => {
     if (frameRef.current === null) frameRef.current = requestAnimationFrame(applyCamera);
@@ -584,34 +1130,55 @@ export function SceneViewport({
     wheelFrameTimeRef.current = null;
   }, []);
 
+  const cancelCameraAnimation = useCallback(() => {
+    if (cameraAnimationRef.current !== null) {
+      cancelAnimationFrame(cameraAnimationRef.current);
+      cameraAnimationRef.current = null;
+    }
+    if (!continuitySettlingRef.current) return;
+    continuitySettlingRef.current = false;
+    continuityProgressRef.current = 0;
+    setContinuousTile(null);
+    setContinuousTileState("preview");
+    setContinuousTileDirection("forward");
+    setMotionFrozen(false);
+    requestCameraFrame();
+  }, [requestCameraFrame]);
+
   useEffect(() => {
     if (encounterTick > 0) requestCameraFrame();
   }, [encounterTick, requestCameraFrame]);
 
   const resetCamera = useCallback(() => {
     const viewport = viewportRef.current;
-    if (!viewport) return;
+    if (!viewport || committingRef.current) return;
     stopWheelAnimation();
-    const fit = Math.min(viewport.clientWidth / scene.width, viewport.clientHeight / scene.height);
-    const initialScale = viewport.clientHeight > viewport.clientWidth * 1.25 ? 1.3 : 1;
-    cameraRef.current = {
-      fit,
-      scale: initialScale,
-      x: (viewport.clientWidth - scene.width * fit * initialScale) / 2,
-      y: (viewport.clientHeight - scene.height * fit * initialScale) / 2,
+    cancelCameraAnimation();
+    const fittedCamera = fittedSceneCamera(
+      scene,
+      { width: viewport.clientWidth, height: viewport.clientHeight },
+    );
+    fittedViewportSizeRef.current = {
+      width: viewport.clientWidth,
+      height: viewport.clientHeight,
     };
+    const continuityView = initialViewRef.current;
+    initialViewRef.current = undefined;
+    cameraRef.current = continuityView ? { ...continuityView.camera } : fittedCamera;
+    continuitySettlingRef.current = Boolean(continuityView && !reducedContinuityAtMount);
+    setMotionFrozen(continuitySettlingRef.current);
+    continuityProgressRef.current = continuityView?.direction === "back" && continuityView.tileScene ? 1 : 0;
     zoomFocusRef.current = { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
     zoomDirectionRef.current = null;
     portalCandidateRef.current = null;
-    committingRef.current = false;
     // ResizeObserver can fire just after keyboard focus enters a portal. Keep
     // that focus-driven target cue instead of erasing it during the initial
     // fit pass; the Fit button and ordinary resizes still clear stale cues.
     const portalHasFocus = document.activeElement instanceof HTMLElement
       && document.activeElement.matches(".scene-hotspot");
-    if (!portalHasFocus) showPortalPreview(null);
+    if (!portalHasFocus && !continuityView) showPortalPreview(null);
     requestCameraFrame();
-  }, [requestCameraFrame, scene.height, scene.width, showPortalPreview, stopWheelAnimation]);
+  }, [cancelCameraAnimation, reducedContinuityAtMount, requestCameraFrame, scene, showPortalPreview, stopWheelAnimation]);
 
   const beginPortalTransition = useCallback((
     portal: ScenePortal,
@@ -619,41 +1186,56 @@ export function SceneViewport({
   ) => {
     const viewport = viewportRef.current;
     if (!viewport || committingRef.current || interactionLocked) return;
-    if (!onCommitScene(portal.childSceneId, source)) return;
     stopWheelAnimation();
+    cancelCameraAnimation();
+    requestContinuousTile(portal);
+    const readiness = onCommitScene(portal.childSceneId, source, portal);
+    if (!readiness) return;
     committingRef.current = true;
+    setMotionFrozen(true);
     portalCandidateRef.current = portal;
     showPortalPreview(portal);
     previewPhaseRef.current = "armed";
     setPreviewPhase("armed");
-    onPrefetchScene(portal.childSceneId);
-    if (settleRef.current) clearTimeout(settleRef.current);
+    setContinuousTileDirection("forward");
+    setContinuousTileState("active");
+    if (continuousTileRef.current) {
+      delete continuousTileRef.current.dataset.handoffReady;
+    }
 
     const start = { ...cameraRef.current };
     const startFocus = zoomFocusRef.current ? { ...zoomFocusRef.current } : null;
     const startDirection = zoomDirectionRef.current;
-    const finishCommit = () => {
-      void onEnterScene(portal.childSceneId, source).then((entered) => {
-        if (entered) return;
-        committingRef.current = false;
-        cameraRef.current = { ...start };
-        zoomFocusRef.current = startFocus ? { ...startFocus } : null;
-        zoomDirectionRef.current = startDirection;
-        portalCandidateRef.current = null;
-        showPortalPreview(null);
-        requestCameraFrame();
-      });
-    };
+    const enterPreparedScene = () => void onEnterScene(portal.childSceneId, source).then((entered) => {
+      if (entered) return;
+      committingRef.current = false;
+      setMotionFrozen(false);
+      setContinuousTileState("preview");
+      cameraRef.current = { ...start };
+      zoomFocusRef.current = startFocus ? { ...startFocus } : null;
+      zoomDirectionRef.current = startDirection;
+      portalCandidateRef.current = null;
+      showPortalPreview(null);
+      requestCameraFrame();
+    });
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reducedMotion) {
       cameraAnimationRef.current = null;
-      finishCommit();
+      enterPreparedScene();
       return;
     }
 
-    const targetScale = Math.min(
-      MAX_SCALE,
-      Math.max(start.scale + 0.28, (portal.enterScale ?? 3.6) + 0.38),
+    // Let the portal cover the viewport before ownership moves to the child.
+    // The sharp decoded child tile is recursively redrawn inside that crop, so
+    // the parent raster never has to carry the final high-magnification frame.
+    const portalCoverScale = Math.max(
+      viewport.clientWidth / portal.width,
+      viewport.clientHeight / portal.height,
+    ) / start.fit;
+    const targetScale = Math.max(
+      start.scale + 0.28,
+      (portal.enterScale ?? 3.6) + 0.38,
+      portalCoverScale * 1.025,
     );
     const effective = start.fit * targetScale;
     const target = {
@@ -662,7 +1244,7 @@ export function SceneViewport({
       x: viewport.clientWidth / 2 - (portal.x + portal.width / 2) * effective,
       y: viewport.clientHeight / 2 - (portal.y + portal.height / 2) * effective,
     };
-    const duration = source === "zoom" ? 170 : 220;
+    const duration = source === "zoom" ? 140 : readiness === "warm" ? 160 : 220;
     const startedAt = performance.now();
     const animate = (now: number) => {
       const linear = Math.min(1, (now - startedAt) / duration);
@@ -678,11 +1260,53 @@ export function SceneViewport({
         cameraAnimationRef.current = requestAnimationFrame(animate);
         return;
       }
-      cameraAnimationRef.current = null;
-      finishCommit();
+      cameraRef.current = clampCamera(cameraRef.current);
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+        frameRef.current = null;
+      }
+      // Paint the exact portal-cover camera once before React hands ownership
+      // to the child. Committing in this same rAF would unmount the parent
+      // before the browser can present its final tile frame.
+      applyCamera();
+      const handoffCamera = { ...cameraRef.current };
+      cameraAnimationRef.current = requestAnimationFrame(() => {
+        const tile = continuousTileRef.current;
+        const exactTile = isExactForwardPortalTile(tile?.dataset, portal) ? tile : null;
+        const viewportBounds = viewport.getBoundingClientRect();
+        const tileBounds = exactTile?.getBoundingClientRect();
+        if (tileBounds && portal.width > 0 && portal.height > 0) {
+          // A busy compositor can expose the final inline transform before its
+          // descendant tile has reached that visual position. Transfer the
+          // geometry the user actually sees, not the theoretical target: the
+          // child-camera mapping will then reproduce this exact painted crop
+          // on its first frame and settle smoothly from there.
+          const renderedCamera = cameraFromRenderedPortalRect(
+            portal,
+            tileBounds,
+            viewportBounds,
+            handoffCamera.fit,
+          );
+          // Keep the measured frame authoritative across the final yield. Any
+          // incidental applyCamera call now republishes the rendered geometry
+          // instead of restoring the older theoretical target.
+          cameraRef.current = renderedCamera;
+          onCameraFrame?.({
+            sceneId: scene.id,
+            camera: renderedCamera,
+            viewportWidth: viewport.clientWidth,
+            viewportHeight: viewport.clientHeight,
+          });
+        }
+        if (exactTile) setDatasetValueIfChanged(exactTile, "handoffReady", "true");
+        cameraAnimationRef.current = requestAnimationFrame(() => {
+          cameraAnimationRef.current = null;
+          enterPreparedScene();
+        });
+      });
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
-  }, [interactionLocked, onCommitScene, onEnterScene, onPrefetchScene, requestCameraFrame, showPortalPreview, stopWheelAnimation]);
+  }, [applyCamera, cancelCameraAnimation, clampCamera, interactionLocked, onCameraFrame, onCommitScene, onEnterScene, requestCameraFrame, requestContinuousTile, scene.id, showPortalPreview, stopWheelAnimation]);
 
   const evaluateNavigation = useCallback(() => {
     const now = performance.now();
@@ -707,14 +1331,18 @@ export function SceneViewport({
   }, [beginPortalTransition, onExitScene, scene.parentId, scene.portals]);
 
   const scheduleNavigationCheck = useCallback(() => {
-    if (settleRef.current) clearTimeout(settleRef.current);
-    settleRef.current = setTimeout(evaluateNavigation, ENTER_SETTLE_MS);
+    if (navigationFrameRef.current !== null) return;
+    navigationFrameRef.current = requestAnimationFrame(() => {
+      navigationFrameRef.current = null;
+      evaluateNavigation();
+    });
   }, [evaluateNavigation]);
 
   const zoomAt = useCallback(
     (point: Point, factor: number, previousPoint: Point = point) => {
       if (!viewerInteractive || committingRef.current) return;
       stopWheelAnimation();
+      cancelCameraAnimation();
       const camera = cameraRef.current;
       const previousFocus = zoomFocusRef.current;
       const minimum = scene.parentId ? 0.68 : 0.9;
@@ -756,7 +1384,7 @@ export function SceneViewport({
       }
       if (factor > 1 && nextScale >= 2.65) {
         const portal = portalCandidateRef.current;
-        if (portal) onPrefetchScene(portal.childSceneId);
+        if (portal) requestContinuousTile(portal);
       }
       if (
         factor < 1
@@ -770,16 +1398,16 @@ export function SceneViewport({
       requestCameraFrame();
       scheduleNavigationCheck();
     },
-    [viewerInteractive, onPrefetchScene, requestCameraFrame, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation],
+    [cancelCameraAnimation, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation],
   );
 
   const queueWheelZoom = useCallback((point: Point, factor: number) => {
     if (!viewerInteractive || committingRef.current) return;
-    if (settleRef.current) clearTimeout(settleRef.current);
-    if (cameraAnimationRef.current !== null) {
-      cancelAnimationFrame(cameraAnimationRef.current);
-      cameraAnimationRef.current = null;
+    if (navigationFrameRef.current !== null) {
+      cancelAnimationFrame(navigationFrameRef.current);
+      navigationFrameRef.current = null;
     }
+    cancelCameraAnimation();
 
     const base = wheelTargetRef.current ?? cameraRef.current;
     const previousFocus = zoomFocusRef.current;
@@ -803,7 +1431,7 @@ export function SceneViewport({
       if (portal) {
         portalCandidateRef.current = portal;
         showPortalPreview(portal);
-        if (target.scale >= 2.65) onPrefetchScene(portal.childSceneId);
+        if (target.scale >= 2.65) requestContinuousTile(portal);
       } else if (!previousFocus || distance(previousFocus, point) > 16) {
         portalCandidateRef.current = null;
         showPortalPreview(null);
@@ -821,9 +1449,9 @@ export function SceneViewport({
       }
     }
 
-    // Continuous wheel input keeps resetting this timer. Once the user pauses,
-    // navigation can commit after the existing intent dwell without waiting
-    // for the final sub-pixel tail of the camera interpolation.
+    // Coalesce threshold checks to the next paint. There is no post-input
+    // dwell: once the camera crosses a portal/exit threshold the navigation
+    // can commit on that frame.
     scheduleNavigationCheck();
 
     if (wheelAnimationRef.current !== null) return;
@@ -856,6 +1484,7 @@ export function SceneViewport({
         frameRef.current = null;
       }
       applyCamera();
+      scheduleNavigationCheck();
       if (!settled) {
         wheelAnimationRef.current = requestAnimationFrame(animate);
         return;
@@ -863,10 +1492,9 @@ export function SceneViewport({
       wheelAnimationRef.current = null;
       wheelTargetRef.current = null;
       wheelFrameTimeRef.current = null;
-      scheduleNavigationCheck();
     };
     wheelAnimationRef.current = requestAnimationFrame(animate);
-  }, [applyCamera, clampCamera, onPrefetchScene, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, viewerInteractive]);
+  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, viewerInteractive]);
 
   const focusVocabularyTarget = useCallback((
     fallbackLabelId: string,
@@ -882,8 +1510,11 @@ export function SceneViewport({
     if (!nextLabel || !Number.isInteger(nextLod) || nextLod < 0 || nextLod > 4 || revealedCount < 1) return;
 
     stopWheelAnimation();
-    if (cameraAnimationRef.current !== null) cancelAnimationFrame(cameraAnimationRef.current);
-    if (settleRef.current) clearTimeout(settleRef.current);
+    cancelCameraAnimation();
+    if (navigationFrameRef.current !== null) {
+      cancelAnimationFrame(navigationFrameRef.current);
+      navigationFrameRef.current = null;
+    }
     portalCandidateRef.current = null;
     showPortalPreview(null);
     zoomDirectionRef.current = null;
@@ -894,22 +1525,30 @@ export function SceneViewport({
     const defaultRevealScale = nextLod >= 2
       ? VOCABULARY_REVEAL_SCALE[nextLod as 2 | 3 | 4]
       : start.scale + 0.28;
-    const targetScale = Math.min(
-      MAX_SCALE,
-      Math.max(start.scale + 0.28, defaultRevealScale, authoredTarget),
-    );
+    const targetScale = element.dataset.cueSource === "authored-zone"
+      ? Math.min(MAX_SCALE, Math.max(start.scale + 0.28, authoredTarget))
+      : Math.min(
+        MAX_SCALE,
+        Math.max(start.scale + 0.28, defaultRevealScale, authoredTarget),
+      );
+    const authoredFocusX = Number(element.dataset.focusX);
+    const authoredFocusY = Number(element.dataset.focusY);
+    const focusX = Number.isFinite(authoredFocusX) ? authoredFocusX : nextLabel.x;
+    const focusY = Number.isFinite(authoredFocusY) ? authoredFocusY : nextLabel.y;
     const effectiveScale = start.fit * targetScale;
     const target = {
       fit: start.fit,
       scale: targetScale,
-      x: viewport.clientWidth / 2 - nextLabel.x * effectiveScale,
-      y: viewport.clientHeight / 2 - nextLabel.y * effectiveScale,
+      x: viewport.clientWidth / 2 - focusX * effectiveScale,
+      y: viewport.clientHeight / 2 - focusY * effectiveScale,
     };
     const focusRevealedWord = () => {
       zoomFocusRef.current = { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
       requestCameraFrame();
       if (vocabularyAnnouncementRef.current) {
-        vocabularyAnnouncementRef.current.textContent = "已放大到下一批词汇";
+        vocabularyAnnouncementRef.current.textContent = element.dataset.zoneTitle
+          ? `已放大到${element.dataset.zoneTitle}`
+          : "已放大到下一批词汇";
       }
       if (!keyboardTriggered) return;
       requestAnimationFrame(() => {
@@ -951,7 +1590,7 @@ export function SceneViewport({
       focusRevealedWord();
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
-  }, [labelsById, requestCameraFrame, showPortalPreview, stopWheelAnimation, viewerInteractive]);
+  }, [cancelCameraAnimation, labelsById, requestCameraFrame, showPortalPreview, stopWheelAnimation, viewerInteractive]);
 
   useEffect(() => {
     selectedLabelIdRef.current = null;
@@ -961,13 +1600,90 @@ export function SceneViewport({
   }, [onPrefetchScene, scene.id, scene.parentId]);
 
   useEffect(() => {
-    resetCamera();
+    if (continuousTile) requestCameraFrame();
+  }, [continuousTile, requestCameraFrame]);
+
+  useEffect(() => {
     const viewport = viewportRef.current;
     if (!viewport) return;
-    const observer = new ResizeObserver(resetCamera);
+    if (initializedSceneRef.current !== scene.id) {
+      initializedSceneRef.current = scene.id;
+      resetCamera();
+      const continuityView = initialView;
+      if (continuityView) {
+        const target = continuityView.settledCamera ?? fittedSceneCamera(
+          scene,
+          { width: viewport.clientWidth, height: viewport.clientHeight },
+        );
+        const start = { ...cameraRef.current };
+        if (reducedContinuityAtMount) {
+          cameraRef.current = target;
+          continuityProgressRef.current = 0;
+          continuitySettlingRef.current = false;
+          requestCameraFrame();
+        } else {
+          const startedAt = performance.now();
+          const duration = continuityView.direction === "back" ? 140 : 110;
+          const animate = (now: number) => {
+            const linear = Math.min(1, (now - startedAt) / duration);
+            const eased = 1 - (1 - linear) ** 3;
+            cameraRef.current = {
+              fit: start.fit + (target.fit - start.fit) * eased,
+              scale: start.scale + (target.scale - start.scale) * eased,
+              x: start.x + (target.x - start.x) * eased,
+              y: start.y + (target.y - start.y) * eased,
+            };
+            if (continuityView.direction === "back") {
+              continuityProgressRef.current = 1 - eased;
+            }
+            requestCameraFrame();
+            if (linear < 1) {
+              cameraAnimationRef.current = requestAnimationFrame(animate);
+              return;
+            }
+            cameraAnimationRef.current = null;
+            continuitySettlingRef.current = false;
+            continuityProgressRef.current = 0;
+            setMotionFrozen(false);
+            if (continuityView.direction === "back") {
+              setContinuousTile(null);
+              setContinuousTileState("preview");
+              setContinuousTileDirection("forward");
+            }
+            requestCameraFrame();
+          };
+          cameraAnimationRef.current = requestAnimationFrame(animate);
+        }
+      }
+    }
+    let resizeFrame: number | null = null;
+    const reconcileViewportSize = () => {
+      resizeFrame = null;
+      const previousSize = fittedViewportSizeRef.current;
+      if (
+        previousSize?.width === viewport.clientWidth
+        && previousSize.height === viewport.clientHeight
+      ) return;
+      const cameraBusy = continuitySettlingRef.current
+        || committingRef.current
+        || wheelAnimationRef.current !== null
+        || cameraAnimationRef.current !== null
+        || pointersRef.current.size > 0;
+      if (cameraBusy) {
+        resizeFrame = requestAnimationFrame(reconcileViewportSize);
+        return;
+      }
+      resetCamera();
+    };
+    const observer = new ResizeObserver(() => {
+      if (resizeFrame === null) resizeFrame = requestAnimationFrame(reconcileViewportSize);
+    });
     observer.observe(viewport);
-    return () => observer.disconnect();
-  }, [resetCamera, scene.id]);
+    return () => {
+      observer.disconnect();
+      if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
+    };
+  }, [initialView, reducedContinuityAtMount, requestCameraFrame, resetCamera, scene]);
 
   useEffect(() => {
     viewerInteractiveRef.current = viewerInteractive;
@@ -982,7 +1698,7 @@ export function SceneViewport({
       event.preventDefault();
       const bounds = viewport.getBoundingClientRect();
       const point = { x: event.clientX - bounds.left, y: event.clientY - bounds.top };
-      const factor = Math.exp(-event.deltaY * 0.0017);
+      const factor = wheelZoomFactor(event.deltaY, event.deltaMode, viewport.clientHeight);
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         zoomAt(point, factor);
       } else {
@@ -998,7 +1714,7 @@ export function SceneViewport({
       if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
       if (cameraAnimationRef.current !== null) cancelAnimationFrame(cameraAnimationRef.current);
       if (wheelAnimationRef.current !== null) cancelAnimationFrame(wheelAnimationRef.current);
-      if (settleRef.current) clearTimeout(settleRef.current);
+      if (navigationFrameRef.current !== null) cancelAnimationFrame(navigationFrameRef.current);
       if (encounterDwellRef.current) clearTimeout(encounterDwellRef.current);
     },
     [],
@@ -1017,6 +1733,7 @@ export function SceneViewport({
     if (!viewerInteractive || committingRef.current) return;
     if ((event.target as Element).closest("button")) return;
     stopWheelAnimation();
+    cancelCameraAnimation();
     event.currentTarget.setPointerCapture(event.pointerId);
     const point = { x: event.clientX, y: event.clientY };
     pointersRef.current.set(event.pointerId, point);
@@ -1099,6 +1816,7 @@ export function SceneViewport({
       <div
         ref={viewportRef}
         className="world-viewport"
+        style={{ "--scene-backdrop-image": `url(${scene.asset})` } as CSSProperties}
         data-testid="world-viewport"
         aria-busy={interactionLocked}
         onPointerDown={handlePointerDown}
@@ -1110,20 +1828,63 @@ export function SceneViewport({
         <div
           ref={surfaceRef}
           className="scene-surface"
-          data-zoom-level="0"
-          style={{ width: scene.width, height: scene.height }}
+          data-zoom-level={effectiveInitialView ? sceneLodLevel(effectiveInitialView.camera.scale) : 0}
+          data-lod-level={effectiveInitialView ? sceneLodLevel(effectiveInitialView.camera.scale) : 0}
+          data-scene-scale={effectiveInitialView?.camera.scale.toFixed(3)}
+          style={{
+            width: scene.width,
+            height: scene.height,
+            ...(effectiveInitialView ? {
+              transform: `translate3d(${effectiveInitialView.camera.x}px, ${effectiveInitialView.camera.y}px, 0) scale(${effectiveInitialView.camera.fit * effectiveInitialView.camera.scale})`,
+              "--scene-zoom": effectiveInitialView.camera.scale.toFixed(3),
+            } : {}),
+          } as CSSProperties}
         >
           <img className="scene-art" src={scene.asset} alt="" draggable={false} />
+          {continuousTile ? (
+            <div
+              key={`${continuousTile.portal.id}:${continuousTile.scene.id}`}
+              ref={setContinuousTileNode}
+              className="scene-continuous-tile"
+              data-testid="scene-continuous-tile"
+              data-child-scene={continuousTile.scene.id}
+              data-portal-id={continuousTile.portal.id}
+              data-state={continuousTileState}
+              data-direction={continuousTileDirection}
+              data-progress={continuousTileDirection === "back" ? "1.000" : undefined}
+              aria-hidden="true"
+              style={{
+                left: continuousTile.portal.x,
+                top: continuousTile.portal.y,
+                width: continuousTile.portal.width,
+                height: continuousTile.portal.height,
+                "--tile-progress": continuousTileDirection === "back" ? "1.000" : undefined,
+              } as CSSProperties}
+            >
+              <img
+                className="scene-continuous-tile-art"
+                data-testid="scene-continuous-tile-art"
+                src={continuousTile.scene.asset}
+                alt=""
+                draggable={false}
+              />
+            </div>
+          ) : null}
         </div>
         <div
           ref={labelLayerRef}
           className="label-layer"
           data-testid="scene-label-layer"
           data-coordinate-space="screen"
+          data-motion-frozen={String(motionFrozen)}
+          inert={motionFrozen ? true : undefined}
+          aria-hidden={motionFrozen ? true : undefined}
           aria-label="Words in this scene"
         >
-          {scene.labels.map((label) => (
-            <button
+          {scene.labels.map((label) => {
+            const semanticStyle = labelSemanticStyles.get(label.id);
+            return (
+              <button
               key={label.id}
               type="button"
               className="word-label"
@@ -1137,12 +1898,15 @@ export function SceneViewport({
               data-anchor-y={label.y}
               data-anchor-mode="stem"
               data-leader-span="short"
+              data-semantic-group={semanticStyle?.semanticGroup}
+              data-palette-index={semanticStyle?.paletteIndex}
               data-visible="false"
               data-interactive="false"
               data-adaptive="false"
               tabIndex={-1}
               aria-hidden="true"
               aria-label={meaningVisible ? `${label.word}，${label.translation}` : label.word}
+              style={semanticStyle?.cssVariables as CSSProperties | undefined}
               onClick={(event) => {
                 event.stopPropagation();
                 selectedLabelIdRef.current = label.id;
@@ -1158,8 +1922,9 @@ export function SceneViewport({
                   {label.translation}
                 </span>
               ) : null}
-            </button>
-          ))}
+              </button>
+            );
+          })}
         </div>
         <div
           ref={interactionLayerRef}
@@ -1167,6 +1932,9 @@ export function SceneViewport({
           data-testid="scene-interaction-layer"
           data-coordinate-space="screen"
           data-positioned={String(interactionPositioned)}
+          data-motion-frozen={String(motionFrozen)}
+          inert={motionFrozen ? true : undefined}
+          aria-hidden={motionFrozen ? true : undefined}
         >
           <div className="vocabulary-zoom-layer" aria-label="可放大显示更多词的区域">
             {vocabularyZoomCues.map((cue) => {
@@ -1179,17 +1947,25 @@ export function SceneViewport({
                   data-testid="scene-vocabulary-cue"
                   data-cue-id={cue.id}
                   data-cue-kind="vocabulary"
+                  data-cue-source={cue.source}
+                  data-detail-zone-id={cue.detailZoneId}
                   data-zoom-action="reveal-words"
                   data-active="false"
                   data-next-label-id={cue.anchorLabelId}
                   data-next-lod={cue.minLod}
                   data-hidden-word-count="0"
+                  data-zone-title={cue.title}
+                  data-zone-translation={cue.translation}
+                  data-target-scale={cue.targetScale}
+                  data-authored-target-scale={cue.targetScale}
+                  data-focus-x={cue.focusX}
+                  data-focus-y={cue.focusY}
                   data-visual-region={anchor?.sourceVisualRegion ?? cue.id}
                   data-anchor-x={cue.x}
                   data-anchor-y={cue.y}
                   tabIndex={-1}
                   aria-hidden="true"
-                  aria-label="放大此区域，显示更多词"
+                  aria-label={cue.title ? `放大${cue.title}，显示更多词` : "放大此区域，显示更多词"}
                   onClick={(event) => {
                     event.stopPropagation();
                     focusVocabularyTarget(
@@ -1202,7 +1978,13 @@ export function SceneViewport({
                   <span className="vocabulary-zoom-cue-icon" aria-hidden="true">Aa</span>
                   <span className="vocabulary-zoom-cue-copy">
                     <span>放大 ·</span>
-                    <strong className="vocabulary-zoom-cue-count">更多词</strong>
+                    <strong className="vocabulary-zoom-cue-count">
+                      {cue.title
+                        ? meaningVisible && cue.translation
+                          ? `${cue.title} · ${cue.translation}`
+                          : cue.title
+                        : "更多词"}
+                    </strong>
                   </span>
                 </button>
               );
@@ -1223,7 +2005,9 @@ export function SceneViewport({
                 data-cue-kind="portal"
                 data-zoom-action="enter-scene"
                 data-cue-state="idle"
+                data-candidate="false"
                 data-progress="0.000"
+                data-portal-id={portal.id}
                 data-target-scene={portal.childSceneId}
                 aria-describedby={previewPortal?.id === portal.id ? `portal-preview-${scene.id}` : undefined}
                 onClick={(event) => {
@@ -1233,7 +2017,7 @@ export function SceneViewport({
                 onFocus={() => {
                   showPortalPreview(portal);
                   requestCameraFrame();
-                  onPrefetchScene(portal.childSceneId);
+                  requestContinuousTile(portal);
                 }}
                 onBlur={() => {
                   if (portalCandidateRef.current?.id !== portal.id) {
@@ -1244,7 +2028,7 @@ export function SceneViewport({
                 onPointerEnter={() => {
                   showPortalPreview(portal);
                   requestCameraFrame();
-                  onPrefetchScene(portal.childSceneId);
+                  requestContinuousTile(portal);
                 }}
                 onPointerLeave={() => {
                   if (portalCandidateRef.current?.id !== portal.id) {
@@ -1256,7 +2040,7 @@ export function SceneViewport({
               >
                 <span className="scene-hotspot-icon" aria-hidden="true">↘</span>
                 <span className="scene-hotspot-caption" aria-hidden="true">
-                  进入 · {portalTargetTitles[portal.childSceneId] ?? portal.label}
+                  继续放大 · {portalTargetTitles[portal.childSceneId] ?? portal.label}
                 </span>
               </button>
             </div>
@@ -1292,7 +2076,7 @@ export function SceneViewport({
             本场景还有 <strong>0</strong> 个词 · 继续放大
           </button>
           <aside className="scene-cue-legend" data-testid="scene-cue-legend" aria-label="缩放提示图例">
-            <span><i data-kind="portal" aria-hidden="true" />进入下一场景</span>
+            <span><i data-kind="portal" aria-hidden="true" />继续放大进入细节</span>
             <span><i data-kind="vocabulary" aria-hidden="true" />放大显示更多词</span>
           </aside>
           <p ref={vocabularyAnnouncementRef} className="sr-only" aria-live="polite" />
@@ -1315,7 +2099,7 @@ export function SceneViewport({
             >
               <span className="portal-progress-ring" aria-hidden="true"><span>＋</span></span>
               <span className="portal-preview-copy">
-                <small>{previewPhase === "armed" ? "即将进入" : "继续放大进入"}</small>
+                <small>{previewPhase === "armed" ? "正在展开细节" : "继续放大"}</small>
                 <strong>{portalTargetTitles[previewPortal.childSceneId] ?? previewPortal.label}</strong>
                 {meaningVisible && previewPortal.translation ? <em>{previewPortal.translation}</em> : null}
               </span>

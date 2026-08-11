@@ -57,8 +57,10 @@ function overlaps(first: Bounds, second: Bounds): boolean {
 
 function median(values: readonly number[]): number {
   const sorted = [...values].sort((first, second) => first - second);
-  const middle = sorted.length / 2;
-  return (sorted[middle - 1] + sorted[middle]) / 2;
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 1
+    ? sorted[middle]
+    : (sorted[middle - 1] + sorted[middle]) / 2;
 }
 
 async function loadScenes(): Promise<Scene[]> {
@@ -71,9 +73,9 @@ async function loadScenes(): Promise<Scene[]> {
   )));
 }
 
-test("all 30 scenes fill spare first-screen space without collisions or detached anchors", async () => {
+test("all authored scenes fill spare first-screen space without collisions or detached anchors", async () => {
   const scenes = await loadScenes();
-  assert.equal(scenes.length, 30);
+  assert.ok(scenes.length >= 32, "new authored branches remain covered by density checks");
   const aggregate = new Map<DensityConfiguration["name"], number[]>();
 
   for (const configuration of configurations) {

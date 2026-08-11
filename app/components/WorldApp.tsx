@@ -2,9 +2,16 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { LexicalWorld } from "./LexicalWorld";
-import { SceneViewport } from "./SceneViewport";
 import {
-  isScenePrepared,
+  childCameraFromPortalTile,
+  fittedSceneCamera,
+  parentCameraFromChildTile,
+  SceneViewport,
+  type SceneContinuityView,
+  type SceneViewportSnapshot,
+} from "./SceneViewport";
+import {
+  getPreparedScene,
   loadSceneManifest,
   prefetchScene,
   prepareScene,
@@ -16,6 +23,7 @@ import {
   recordDiscoveredLabels,
   serializeDiscoveredEntries,
   type Label,
+  type Portal,
 } from "../domain";
 
 const MEANING_KEY = "hellowords:meaning-visible";
@@ -23,6 +31,23 @@ const MEANING_KEY = "hellowords:meaning-visible";
 // never saw. Keep that data untouched, but start the truthful dwell-based model
 // in a new namespace so existing inflated totals do not leak into the UI.
 const DISCOVERED_KEY = "hellowords:encountered-labels:v2";
+
+export type SceneTransitionCacheReadiness = "warm" | "cold";
+
+export interface WorldSceneSettledDetail {
+  readonly from: string;
+  readonly to: string;
+  readonly durationMs: number;
+  /** Time until React received the scene swap; warm paths stay in the input turn. */
+  readonly commitMs: number;
+  readonly cache: SceneTransitionCacheReadiness;
+}
+
+declare global {
+  interface WindowEventMap {
+    "world:scene-settled": CustomEvent<WorldSceneSettledDetail>;
+  }
+}
 
 export function WorldApp() {
   const [scene, setScene] = useState<Scene | null>(null);
@@ -36,9 +61,11 @@ export function WorldApp() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [transitionState, setTransitionState] = useState<"loading" | "incoming" | "idle">("loading");
   const [transitionTarget, setTransitionTarget] = useState<string | null>(null);
-  const [transitionWarm, setTransitionWarm] = useState(false);
+  const [transitionCache, setTransitionCache] = useState<"idle" | SceneTransitionCacheReadiness>("idle");
   const [announcedSceneTitle, setAnnouncedSceneTitle] = useState<string | null>(null);
   const [selectedLabel, setSelectedLabel] = useState<Label | null>(null);
+  const [sceneContinuityView, setSceneContinuityView] = useState<SceneContinuityView | undefined>();
+  const [continuousTransitionActive, setContinuousTransitionActive] = useState(false);
   const [discoveredCount, setDiscoveredCount] = useState(0);
   const navigationRef = useRef<AbortController | null>(null);
   const sceneHeadingRef = useRef<HTMLHeadingElement>(null);
@@ -47,7 +74,11 @@ export function WorldApp() {
   const transitionTargetIdRef = useRef<string | null>(null);
   const transitionStartedAtRef = useRef(0);
   const transitionWasWarmRef = useRef(false);
+  const transitionSequenceRef = useRef(0);
   const preferredChildRef = useRef<string | null>(null);
+  const activeViewportSnapshotRef = useRef<SceneViewportSnapshot | null>(null);
+  const pendingPortalRef = useRef<Portal | null>(null);
+  const transitionUsesContinuityRef = useRef(false);
   const discoveredEntriesRef = useRef<ReadonlySet<string>>(new Set());
 
   useEffect(() => {
@@ -72,6 +103,7 @@ export function WorldApp() {
           initialScene.parentId ?? null,
           initialScene.portals[0]?.childSceneId,
         );
+        if (preferredChildRef.current) prefetchScene(preferredChildRef.current);
         setScene(initialScene);
         setHistory([initialScene]);
         setAnnouncedSceneTitle(initialScene.title);
@@ -109,17 +141,14 @@ export function WorldApp() {
     preferredChildRef.current = target ?? null;
     retainSceneNeighborhood(scene.id, scene.parentId ?? null, target);
     if (!target) return;
-    const prefetch = () => prefetchScene(target);
-    if (typeof window.requestIdleCallback === "function") {
-      const handle = window.requestIdleCallback(prefetch, { timeout: 400 });
-      return () => window.cancelIdleCallback(handle);
-    }
-    const handle = window.setTimeout(prefetch, 120);
-    return () => window.clearTimeout(handle);
+    // The neighborhood is deliberately tiny, so warming its single child is
+    // cheap and should begin immediately. Deferring this to idle time made a
+    // quick first zoom pay the complete network/decode cost.
+    prefetchScene(target);
   }, [scene]);
 
   const prefetchPreferredScene = useCallback((targetId: string) => {
-    if (!scene) return;
+    if (!scene) return null;
     const rememberedChild = scene.portals.some((portal) => portal.childSceneId === preferredChildRef.current)
       ? preferredChildRef.current
       : scene.portals[0]?.childSceneId ?? null;
@@ -127,28 +156,41 @@ export function WorldApp() {
       // SceneViewport also warms the exit path. The parent already occupies
       // its own cache slot and must not replace the preferred child slot.
       retainSceneNeighborhood(scene.id, scene.parentId ?? null, rememberedChild);
-      prefetchScene(targetId);
-      return;
+      return getPreparedScene(targetId) ?? prepareScene(targetId).catch(() => null);
     }
-    if (!scene.portals.some((portal) => portal.childSceneId === targetId)) return;
+    if (!scene.portals.some((portal) => portal.childSceneId === targetId)) return null;
     // Focus/hover is a stronger intent signal than portal order. Replacing the
     // speculative child here keeps multi-portal scenes fast without retaining
     // every branch in memory.
     preferredChildRef.current = targetId;
     retainSceneNeighborhood(scene.id, scene.parentId ?? null, targetId);
-    prefetchScene(targetId);
+    return getPreparedScene(targetId) ?? prepareScene(targetId).catch(() => null);
   }, [scene]);
 
-  const settleScene = useCallback((from: string, nextScene: Scene, startedAt: number) => {
+  const settleScene = useCallback((
+    from: string,
+    nextScene: Scene,
+    startedAt: number,
+    committedAt: number,
+    cache: SceneTransitionCacheReadiness,
+    transitionSequence: number,
+  ) => {
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         const finishedAt = performance.now();
         performance.measure("scene-transition", { start: startedAt, end: finishedAt });
         window.dispatchEvent(
-          new CustomEvent("world:scene-settled", {
-            detail: { from, to: nextScene.id, durationMs: finishedAt - startedAt },
+          new CustomEvent<WorldSceneSettledDetail>("world:scene-settled", {
+            detail: {
+              from,
+              to: nextScene.id,
+              durationMs: finishedAt - startedAt,
+              commitMs: committedAt - startedAt,
+              cache,
+            },
           }),
         );
+        if (transitionSequenceRef.current === transitionSequence) setTransitionCache("idle");
       });
     });
   }, []);
@@ -156,20 +198,28 @@ export function WorldApp() {
   const beginSceneCommit = useCallback((
     targetId: string,
     source: "zoom" | "pointer" | "keyboard",
-  ): boolean => {
+    portal?: Portal,
+  ): false | "warm" | "cold" => {
     if (navigationPhaseRef.current !== "idle") return false;
     navigationPhaseRef.current = "committing";
+    transitionSequenceRef.current += 1;
     transitionTargetIdRef.current = targetId;
     transitionStartedAtRef.current = performance.now();
-    transitionWasWarmRef.current = isScenePrepared(targetId);
-    setTransitionWarm(transitionWasWarmRef.current);
+    transitionWasWarmRef.current = getPreparedScene(targetId) !== null;
+    pendingPortalRef.current = portal ?? null;
+    transitionUsesContinuityRef.current = Boolean(portal);
+    setContinuousTransitionActive(Boolean(portal));
+    const cacheReadiness = transitionWasWarmRef.current ? "warm" : "cold";
+    setTransitionCache(cacheReadiness);
     performance.mark("scene-transition-start");
     focusHeadingAfterNavigationRef.current = source === "keyboard";
-    setTransitionTarget(sceneTitles[targetId] ?? targetId);
-    setTransitionState("loading");
-    setLoading(true);
     setLoadError(null);
-    return true;
+    if (!transitionWasWarmRef.current) {
+      setTransitionTarget(sceneTitles[targetId] ?? targetId);
+      setTransitionState("loading");
+      setLoading(true);
+    }
+    return transitionWasWarmRef.current ? "warm" : "cold";
   }, [sceneTitles]);
 
   const navigate = useCallback(
@@ -190,6 +240,9 @@ export function WorldApp() {
       navigationRef.current = controller;
       const startedAt = transitionStartedAtRef.current || performance.now();
       const wasWarm = transitionWasWarmRef.current;
+      const cacheReadiness: SceneTransitionCacheReadiness = wasWarm ? "warm" : "cold";
+      let usesContinuity = transitionUsesContinuityRef.current;
+      const transitionSequence = transitionSequenceRef.current;
       const historyTarget = history.find((item) => item.id === targetId);
       const targetParentId = direction === "forward" ? scene.id : historyTarget?.parentId ?? null;
       const backPreferredChild = direction === "back"
@@ -197,39 +250,104 @@ export function WorldApp() {
         : null;
       retainSceneNeighborhood(targetId, targetParentId, backPreferredChild);
       try {
-        // Keep the committed target visible for at least one paint, even when
-        // the decoded child scene is already in memory.
-        await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
-        const nextScene = await prepareScene(targetId, controller.signal);
+        // A decoded neighbor is available synchronously. Avoid even a promise
+        // microtask here so clicking a warm child or returning to its parent
+        // replaces the scene in the same input turn.
+        const preparedScene = getPreparedScene(targetId);
+        const nextScene = preparedScene ?? await prepareScene(targetId, controller.signal);
         if (controller.signal.aborted) return false;
+        if (!wasWarm && transitionUsesContinuityRef.current) {
+          // Let the newly decoded child tile paint inside the still-mounted
+          // parent portal once before transferring scene ownership.
+          await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+          if (controller.signal.aborted) return false;
+        }
         const nextPreferredChild = direction === "back"
           ? backPreferredChild
           : nextScene.portals[0]?.childSceneId;
         preferredChildRef.current = nextPreferredChild ?? null;
         retainSceneNeighborhood(nextScene.id, nextScene.parentId ?? null, nextPreferredChild);
-        setOutgoingScene(scene);
+        if (nextPreferredChild) prefetchScene(nextPreferredChild);
+        const snapshot = activeViewportSnapshotRef.current;
+        let nextContinuityView: SceneContinuityView | undefined;
+        if (snapshot?.sceneId === scene.id) {
+          const viewportSize = {
+            width: snapshot.viewportWidth,
+            height: snapshot.viewportHeight,
+          };
+          if (direction === "forward") {
+            const portal = pendingPortalRef.current;
+            if (portal?.childSceneId === nextScene.id) {
+              nextContinuityView = {
+                direction: "forward",
+                camera: childCameraFromPortalTile(portal, snapshot.camera, nextScene, viewportSize),
+                settledCamera: fittedSceneCamera(nextScene, viewportSize),
+              };
+            }
+          } else {
+            const returnPortal = nextScene.portals.find((portal) => portal.childSceneId === scene.id);
+            if (returnPortal) {
+              nextContinuityView = {
+                direction: "back",
+                camera: parentCameraFromChildTile(
+                  returnPortal,
+                  snapshot.camera,
+                  nextScene,
+                  scene,
+                  viewportSize,
+                ),
+                settledCamera: fittedSceneCamera(nextScene, viewportSize),
+                tileScene: scene,
+                tilePortal: returnPortal,
+              };
+            }
+          }
+        }
+        usesContinuity = Boolean(nextContinuityView);
+        transitionUsesContinuityRef.current = usesContinuity;
+        setContinuousTransitionActive(usesContinuity);
+        const committedAt = performance.now();
+        setSceneContinuityView(nextContinuityView);
+        setOutgoingScene(wasWarm || usesContinuity ? null : scene);
         setScene(nextScene);
         setHistory((current) =>
           direction === "forward"
             ? [...current, nextScene]
             : current.slice(0, historyIndex === undefined ? -1 : historyIndex + 1),
         );
-        setTransitionState("incoming");
-        await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
-        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        await new Promise<void>((resolve) => window.setTimeout(resolve, reducedMotion ? 80 : wasWarm ? 140 : 220));
-        if (controller.signal.aborted) return false;
-        setOutgoingScene(null);
-        setTransitionState("idle");
-        setTransitionTarget(null);
-        setLoading(false);
+        if (!wasWarm && !usesContinuity) {
+          setTransitionState("incoming");
+          await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+          const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          await new Promise<void>((resolve) => window.setTimeout(resolve, reducedMotion ? 80 : 220));
+          if (controller.signal.aborted) return false;
+          setOutgoingScene(null);
+          setTransitionState("idle");
+          setTransitionTarget(null);
+          setLoading(false);
+        }
         setAnnouncedSceneTitle(nextScene.title);
         navigationPhaseRef.current = "idle";
         transitionTargetIdRef.current = null;
         transitionStartedAtRef.current = 0;
         transitionWasWarmRef.current = false;
-        setTransitionWarm(false);
-        settleScene(scene.id, nextScene, startedAt);
+        pendingPortalRef.current = null;
+        if (wasWarm || usesContinuity) {
+          // These are normally already idle/false for a warm swap; keeping the
+          // assignments here also heals state after a superseded cold attempt.
+          setTransitionState("idle");
+          setTransitionTarget(null);
+          setLoading(false);
+        }
+        setContinuousTransitionActive(false);
+        settleScene(
+          scene.id,
+          nextScene,
+          startedAt,
+          committedAt,
+          cacheReadiness,
+          transitionSequence,
+        );
         if (focusHeadingAfterNavigationRef.current) {
           requestAnimationFrame(() => sceneHeadingRef.current?.focus({ preventScroll: true }));
         }
@@ -246,7 +364,10 @@ export function WorldApp() {
           transitionTargetIdRef.current = null;
           transitionStartedAtRef.current = 0;
           transitionWasWarmRef.current = false;
-          setTransitionWarm(false);
+          pendingPortalRef.current = null;
+          transitionUsesContinuityRef.current = false;
+          setContinuousTransitionActive(false);
+          setTransitionCache("idle");
         }
         return false;
       } finally {
@@ -297,6 +418,10 @@ export function WorldApp() {
     recordEncounteredLabels([label]);
   }, [recordEncounteredLabels]);
 
+  const recordViewportSnapshot = useCallback((snapshot: SceneViewportSnapshot) => {
+    activeViewportSnapshotRef.current = snapshot;
+  }, []);
+
   return (
     <main
       className="world-app"
@@ -304,7 +429,7 @@ export function WorldApp() {
       data-scene-id={scene?.id ?? "loading"}
       data-scene-loading={String(loading)}
       data-transition-state={transitionState}
-      data-transition-cache={transitionWarm ? "warm" : "cold"}
+      data-transition-cache={transitionCache}
       aria-busy={loading}
     >
       <header
@@ -346,8 +471,9 @@ export function WorldApp() {
             aria-expanded={lexicalWorldOpen}
             disabled={loading}
           >
-            <span aria-hidden="true">⌕</span>
-            <span className="atlas-button-label">10 领域 · 10,000 词</span>
+            <span aria-hidden="true">万</span>
+            <span className="atlas-button-label atlas-button-label--desktop">10 领域 · 10,000 词</span>
+            <span className="atlas-button-label atlas-button-label--mobile">10,000 词</span>
           </button>
           <button
             type="button"
@@ -369,10 +495,13 @@ export function WorldApp() {
         inert={lexicalWorldOpen ? true : undefined}
         aria-hidden={lexicalWorldOpen ? true : undefined}
       >
-        <div className="scene-heading">
+        <div
+          className="scene-heading"
+          data-continuous={sceneContinuityView ? "true" : undefined}
+        >
           <span className="eyebrow">EXPLORE / {String(history.length).padStart(2, "0")}</span>
-          <h1 ref={sceneHeadingRef} tabIndex={-1}>{sceneTitle}</h1>
-          <p>{scene?.subtitle ?? "Loading a quiet place…"}</p>
+          <h1 key={`title-${scene?.id ?? "loading"}`} ref={sceneHeadingRef} tabIndex={-1}>{sceneTitle}</h1>
+          <p key={`subtitle-${scene?.id ?? "loading"}`}>{scene?.subtitle ?? "Loading a quiet place…"}</p>
         </div>
         {scene ? (
           <>
@@ -407,17 +536,19 @@ export function WorldApp() {
               onLabelEncountered={recordEncounteredLabel}
               onSelectWord={setSelectedLabel}
               onPrefetchScene={prefetchPreferredScene}
+              initialView={sceneContinuityView}
+              onCameraFrame={recordViewportSnapshot}
             />
           </>
         ) : (
           <div className="opening-state"><span /><p>正在展开词汇世界…</p></div>
         )}
-        {loading && scene && transitionState === "loading" && !transitionWarm ? (
+        {loading && scene && transitionState === "loading" && transitionCache === "cold" ? (
           <div className="loading-pill" role="status">
-            {transitionTarget ? `正在进入 ${transitionTarget}…` : "正在展开下一层…"}
+            {transitionTarget ? `正在展开 ${transitionTarget} 的细节…` : "正在展开细节…"}
           </div>
         ) : null}
-        {transitionState !== "idle" && transitionTarget ? (
+        {transitionState !== "idle" && transitionTarget && !continuousTransitionActive ? (
           <div className="scene-transition-veil" data-state={transitionState} aria-hidden="true">
             <span />
             <strong>{transitionTarget}</strong>
