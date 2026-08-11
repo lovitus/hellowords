@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import {
   SEMANTIC_ZOOM_MAX_SCALE,
@@ -23,6 +24,7 @@ import {
   semanticZoomLevelForScale,
   semanticZoomLayoutBounds,
   semanticZoomNodeBudget,
+  semanticZoomNodeBox,
   semanticZoomScaleForLevel,
   smoothSemanticZoomView,
   zoomSemanticViewAboutPoint,
@@ -30,6 +32,7 @@ import {
 import { lexicalWorldRealmTiles } from "../../app/lib/lexical-world-visuals";
 
 const DESKTOP = { width: 1200, height: 675 } as const;
+const ROOT = new URL("../../", import.meta.url);
 
 test("semantic zoom thresholds replace hierarchy levels at stable scales", () => {
   assert.equal(semanticZoomLevelForScale(1), "realm");
@@ -300,6 +303,29 @@ test("screen projection enforces the 40/80 live-node budgets", () => {
   assert.ok(projectSemanticZoomNodes(nodes, camera, { width: 390, height: 700 }).length <= 40);
 });
 
+test("diagram shelves select the nearest live batch without spatial viewport culling", () => {
+  const viewport = { width: 1200, height: 675 };
+  const layout = layoutSemanticZoomNodes(
+    Array.from({ length: 120 }, (_, index) => ({ id: `diagram-${index}`, count: 1 })),
+    "word",
+    { x: 0, y: 0, width: SEMANTIC_ZOOM_WORLD_WIDTH, height: SEMANTIC_ZOOM_WORLD_HEIGHT },
+  );
+  const leftCamera = semanticZoomCamera({ centerX: 250, centerY: 450, scale: 4 }, viewport);
+  const rightCamera = semanticZoomCamera({ centerX: 1_350, centerY: 450, scale: 4 }, viewport);
+  const spatial = projectSemanticZoomNodes(layout, leftCamera, viewport, 80);
+  const leftShelf = projectSemanticZoomNodes(layout, leftCamera, viewport, 80, "shelf");
+  const rightShelf = projectSemanticZoomNodes(layout, rightCamera, viewport, 80, "shelf");
+
+  assert.ok(spatial.length < 80, "the legacy photo projection remains spatially culled");
+  assert.equal(leftShelf.length, 80);
+  assert.equal(rightShelf.length, 80);
+  assert.notDeepEqual(
+    leftShelf.map(({ node }) => node.id),
+    rightShelf.map(({ node }) => node.id),
+    "panning a diagram must exchange the nearest shelf batch",
+  );
+});
+
 test("exploration progress reports the real leaf total and the gesture that reveals more", () => {
   assert.deepEqual(semanticZoomExplorationProgress("word", 1_013, 40), {
     visibleCount: 40,
@@ -445,6 +471,224 @@ test("a short mobile field drops overflow instead of forcing forty word pills to
     assert.ok(placed.length > 0 && placed.length <= 40);
     assertPlacedNodesDoNotOverlap(placed, viewport, protectedRegions);
   }
+});
+
+test("word card footprints preserve complete English and translated copy at native font sizes", () => {
+  const six = { id: "six", count: 1, labelEn: "six", labelZh: "num. 六, 六个" };
+  const millions = {
+    id: "millions",
+    count: 1,
+    labelEn: "millions",
+    labelZh: "n. 数百万",
+  };
+  const longCopy = {
+    id: "gross",
+    count: 1,
+    labelEn: "characteristically",
+    labelZh: "n. 总数, 总量\na. 总共的, 未打折扣的, 恶劣的, 粗野的\nvt. 总共收入",
+  };
+
+  const desktopSix = semanticZoomNodeBox(six, "word", DESKTOP.width, true);
+  const desktopMillions = semanticZoomNodeBox(millions, "word", DESKTOP.width, true);
+  const desktopLong = semanticZoomNodeBox(longCopy, "word", DESKTOP.width, true);
+  const collapsed = semanticZoomNodeBox(longCopy, "word", DESKTOP.width, false);
+  const mobileLong = semanticZoomNodeBox(longCopy, "word", 390, true);
+
+  assert.ok(desktopSix.width >= 148 && desktopSix.height >= 54);
+  assert.ok(desktopMillions.width >= 148 && desktopMillions.height >= 54);
+  assert.ok(desktopLong.width <= 220 && desktopLong.height > desktopSix.height);
+  assert.ok(collapsed.height < desktopLong.height);
+  assert.ok(mobileLong.width >= 142 && mobileLong.width <= 176);
+  assert.ok(mobileLong.height >= desktopLong.height);
+});
+
+test("truthful word footprints trade density for non-overlapping readable cards", () => {
+  const samples = [
+    { labelEn: "six", labelZh: "num. 六, 六个" },
+    { labelEn: "millions", labelZh: "n. 数百万" },
+    {
+      labelEn: "characteristically",
+      labelZh: "n. 总数, 总量\na. 总共的, 未打折扣的, 恶劣的, 粗野的\nvt. 总共收入",
+    },
+  ];
+  for (const viewport of [DESKTOP, { width: 390, height: 562 }] as const) {
+    const protectedRegions = [
+      { x: 0, y: 0, width: viewport.width, height: viewport.width < 820 ? 94 : 88 },
+      { x: 0, y: viewport.height - 58, width: viewport.width, height: 58 },
+    ];
+    const projected = Array.from({ length: semanticZoomNodeBudget(viewport.width) }, (_, index) => ({
+      node: {
+        id: `readable-${index}`,
+        count: 1,
+        ...samples[index % samples.length],
+      },
+      x: 0,
+      y: 0,
+      radius: 12,
+      screenX: (index * 137) % viewport.width,
+      screenY: (index * 83) % viewport.height,
+    }));
+    const placed = placeSemanticZoomNodes(projected, viewport, "word", {
+      expanded: true,
+      protectedRegions,
+    });
+    assert.ok(placed.length > 0);
+    assert.ok(placed.length < projected.length, "readability may lower the 40/80 upper budget");
+    assertPlacedNodesDoNotOverlap(placed, viewport, protectedRegions);
+    for (const card of placed) {
+      assert.deepEqual(
+        { width: card.boxWidth, height: card.boxHeight },
+        semanticZoomNodeBox(card.node, "word", viewport.width, true),
+      );
+    }
+  }
+});
+
+test("all semantic card CSS overrides ellipsis without shrinking screen-space typography", () => {
+  const css = readFileSync(new URL("app/components/lexical-world.css", ROOT), "utf8");
+  const start = css.indexOf("/* Every semantic card stays at native screen size");
+  const end = css.indexOf(".lexical-world__word-detail", start);
+  assert.ok(start >= 0 && end > start);
+  const wordRules = css.slice(start, end);
+  assert.doesNotMatch(wordRules, /ellipsis/u);
+  assert.match(wordRules, /font-size: \.9rem;[\s\S]*?line-height: 17px;/u);
+  assert.match(wordRules, /text-overflow: clip;[\s\S]*?white-space: normal;[\s\S]*?overflow-wrap: anywhere;/u);
+  assert.match(wordRules, /font-size: \.75rem;[\s\S]*?line-height: 15px;/u);
+  assert.match(wordRules, /white-space: pre-wrap;[\s\S]*?overflow-wrap: anywhere;/u);
+});
+
+test("the real ten realms remain two-column readable on a 390×562 field", () => {
+  const manifest = JSON.parse(readFileSync(
+    new URL("public/data/lexical-world/manifest.json", ROOT),
+    "utf8",
+  )) as {
+    children: Array<{ id: string; count: number; labelEn: string; labelZh: string }>;
+  };
+  const viewport = { width: 390, height: 562 };
+  const protectedRegions = [
+    { x: 0, y: 0, width: viewport.width, height: 94 },
+    { x: 0, y: viewport.height - 58, width: viewport.width, height: 58 },
+  ];
+  const projected = manifest.children.map((node, index) => ({
+    node,
+    x: 0,
+    y: 0,
+    radius: 12,
+    screenX: 30 + (index % 2) * 330,
+    screenY: 110 + Math.floor(index / 2) * 78,
+  }));
+  const placed = placeSemanticZoomNodes(projected, viewport, "realm", {
+    expanded: true,
+    protectedRegions,
+  });
+  assert.equal(manifest.children.length, 10);
+  assert.equal(placed.length, 10);
+  assert.ok(placed.every(({ boxWidth, boxHeight }) => boxWidth <= 176 && boxHeight >= 44));
+  assertPlacedNodesDoNotOverlap(placed, viewport, protectedRegions);
+});
+
+test("the real 43-word Integer leaf is not padded to its single largest translation", () => {
+  const shard = JSON.parse(readFileSync(
+    new URL("public/data/semantic/topics/number-measure.json", ROOT),
+    "utf8",
+  )) as {
+    nodes: Array<{ id: string; word: string; meaning: string; subclusterId: string }>;
+  };
+  const integerWords = shard.nodes.filter(({ subclusterId }) => subclusterId === "number-measure--integer");
+  const viewport = { width: 390, height: 562 };
+  const protectedRegions = [
+    { x: 0, y: 0, width: viewport.width, height: 94 },
+    { x: 0, y: viewport.height - 58, width: viewport.width, height: 58 },
+  ];
+  const projected = integerWords.slice(0, semanticZoomNodeBudget(viewport.width)).map((word, index) => ({
+    node: { id: word.id, count: 1, labelEn: word.word, labelZh: word.meaning },
+    x: 0,
+    y: 0,
+    radius: 10,
+    screenX: 20 + (index % 2) * 350,
+    screenY: 105 + (index % 6) * 68,
+  }));
+  const placed = placeSemanticZoomNodes(projected, viewport, "word", {
+    expanded: true,
+    protectedRegions,
+  });
+  assert.equal(integerWords.length, 43);
+  assert.ok(placed.length >= 10 && placed.length <= 40);
+  assert.ok(new Set(placed.map(({ boxHeight }) => boxHeight)).size > 1);
+  assert.ok(placed.filter(({ boxHeight }) => boxHeight <= 54).length >= 8);
+  assertPlacedNodesDoNotOverlap(placed, viewport, protectedRegions);
+});
+
+test("the real Integer diagram fills every safe desktop shelf slot", () => {
+  const shard = JSON.parse(readFileSync(
+    new URL("public/data/semantic/topics/number-measure.json", ROOT),
+    "utf8",
+  )) as {
+    nodes: Array<{ id: string; word: string; meaning: string; subclusterId: string }>;
+  };
+  const integerWords = shard.nodes
+    .filter(({ subclusterId }) => subclusterId === "number-measure--integer")
+    .map((word) => ({ id: word.id, count: 1, labelEn: word.word, labelZh: word.meaning }));
+  const viewport = DESKTOP;
+  const protectedRegions = [
+    { x: 0, y: 0, width: viewport.width, height: 88 },
+    { x: 0, y: viewport.height - 58, width: viewport.width, height: 58 },
+  ];
+  const layout = layoutSemanticZoomNodes(
+    integerWords,
+    "word",
+    { x: 920, y: 280, width: 640, height: 350 },
+  );
+  const camera = semanticZoomCamera(
+    { centerX: 1_500, centerY: 455, scale: semanticZoomScaleForLevel("word") },
+    viewport,
+  );
+  const projected = projectSemanticZoomNodes(layout, camera, viewport, 80, "shelf");
+  const placed = placeSemanticZoomNodes(projected, viewport, "word", {
+    expanded: true,
+    protectedRegions,
+  });
+
+  assert.equal(integerWords.length, 43);
+  assert.equal(projected.length, 43);
+  assert.ok(placed.length >= 40, `expected at least 40 readable Integer cards, got ${placed.length}`);
+  assertPlacedNodesDoNotOverlap(placed, viewport, protectedRegions);
+});
+
+test("a single safe vertical band centers its complete shelf stack", () => {
+  const viewport = DESKTOP;
+  const protectedRegions = [
+    { x: 0, y: 0, width: viewport.width, height: 88 },
+    { x: 0, y: viewport.height - 58, width: viewport.width, height: 58 },
+  ];
+  const nodes = Array.from({ length: 4 }, (_, index) => ({
+    node: { id: `centered-${index}`, count: 1, labelEn: `Topic ${index}`, labelZh: `主题 ${index}` },
+    x: 0,
+    y: 0,
+    radius: 12,
+    screenX: 150 + index * 280,
+    screenY: 120,
+  }));
+  const placed = placeSemanticZoomNodes(nodes, viewport, "topic", {
+    expanded: true,
+    protectedRegions,
+  });
+  const usableStart = 88 + 7;
+  const usableEnd = viewport.height - 58 - 7;
+  const occupiedTop = Math.min(...placed.map(({ screenY, boxHeight }) => screenY - boxHeight / 2));
+  const occupiedBottom = Math.max(...placed.map(({ screenY, boxHeight }) => screenY + boxHeight / 2));
+
+  assert.equal(placed.length, 4);
+  assert.ok(Math.abs((occupiedTop - usableStart) - (usableEnd - occupiedBottom)) < 0.001);
+});
+
+test("mobile diagrams hide decorative backdrop copy outside the card contract", () => {
+  const css = readFileSync(new URL("app/components/semantic-zoom-field.css", ROOT), "utf8");
+  const mobileRules = css.slice(css.indexOf("@media (max-width: 819px)"));
+  assert.match(
+    mobileRules,
+    /\.semantic-zoom-field__backdrop-copy\s*\{\s*display:\s*none;\s*\}/u,
+  );
 });
 
 test("nearest node resolves activation intent without changing layout order", () => {

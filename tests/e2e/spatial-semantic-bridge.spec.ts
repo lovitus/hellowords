@@ -74,6 +74,8 @@ test("a reviewed spatial word enters its exact semantic realm without search fan
   const dialog = page.getByRole("dialog", { name: DIALOG_NAME });
   const field = dialog.locator(FIELD);
   await expect(dialog).toBeVisible();
+  await expect(dialog).toHaveAttribute("data-entry-mode", "spatial-bridge");
+  await expect(dialog).toHaveAttribute("data-zoom-out-boundary", "disabled");
   await expect(field).toHaveAttribute("data-active-realm", "objects-technology");
   await expect(field).toHaveAttribute("data-spatial-entry-word", "apartment");
   await expect(field).toHaveAttribute("data-level", "topic");
@@ -86,10 +88,14 @@ test("a reviewed spatial word enters its exact semantic realm without search fan
 
   await dialog.getByRole("button", { name: "关闭万词世界" }).click();
   await expect(dialog).toHaveCount(0);
+  await expect(page.locator(APP)).toHaveAttribute("data-semantic-entry-mode", "closed");
+  await expect(page.locator(APP)).toHaveAttribute("data-semantic-transition-state", "idle");
   await page.getByRole("button", { name: GLOBAL_ENTRY_NAME }).click();
 
   const reopenedDialog = page.getByRole("dialog", { name: DIALOG_NAME });
   const reopenedField = reopenedDialog.locator(FIELD);
+  await expect(reopenedDialog).toHaveAttribute("data-entry-mode", "global");
+  await expect(reopenedDialog).toHaveAttribute("data-zoom-out-boundary", "disabled");
   await expect(reopenedField).toHaveAttribute("data-level", "realm");
   await expect(reopenedField).toHaveAttribute("aria-busy", "false");
   await expect(reopenedField).not.toHaveAttribute("data-active-realm", /.+/);
@@ -100,10 +106,15 @@ test("a reviewed spatial word enters its exact semantic realm without search fan
 });
 
 test("the global header entry remains a provenance-free realm overview", async ({ page }) => {
-  await openWorld(page);
+  const app = await openWorld(page);
   await page.getByRole("button", { name: GLOBAL_ENTRY_NAME }).click();
   const dialog = page.getByRole("dialog", { name: DIALOG_NAME });
   const field = dialog.locator(FIELD);
+  await expect(app).toHaveAttribute("data-semantic-entry-mode", "global");
+  await expect(app).toHaveAttribute("data-semantic-transition-state", "open");
+  await expect(dialog).toHaveAttribute("data-entry-mode", "global");
+  await expect(dialog).toHaveAttribute("data-zoom-out-boundary", "disabled");
+  await expect(field).toHaveAttribute("data-zoom-out-boundary", "disabled");
   await expect(field).toHaveAttribute("data-level", "realm");
   await expect(field).toHaveAttribute("aria-busy", "false");
   await expect(field).not.toHaveAttribute("data-active-realm", /.+/);
@@ -111,6 +122,13 @@ test("the global header entry remains a provenance-free realm overview", async (
   const provenance = field.locator(".semantic-zoom-field__context span");
   await expect(provenance).toHaveText("10 个词汇领域");
   await expect(provenance).not.toContainText("实景词");
+
+  const bounds = await field.boundingBox();
+  expect(bounds).not.toBeNull();
+  await page.mouse.move(bounds!.x + bounds!.width / 2, bounds!.y + bounds!.height / 2);
+  await page.mouse.wheel(0, 720);
+  await expect(dialog, "global entry must never shrink into an unrelated spatial scene").toBeVisible();
+  await expect(app).toHaveAttribute("data-semantic-transition-state", "open");
 });
 
 test("scene progress conserves its total and switches to pan guidance at maximum zoom", async ({ page }) => {
@@ -180,6 +198,56 @@ test("continued zoom beyond a spatial image opens the ten-thousand-word plane", 
     message: "continued max-scale zoom should cross the semantic intent threshold",
   }).toBe(1);
   await expect(dialog).toBeVisible();
+  await expect(app).toHaveAttribute("data-semantic-entry-mode", "spatial-overscroll");
+  await expect(app).toHaveAttribute("data-semantic-transition-state", "open");
+  await expect(app).toHaveAttribute("data-semantic-return-scene", "potting-workbench");
+  await expect(dialog).toHaveAttribute("data-entry-mode", "spatial-overscroll");
+  await expect(dialog).toHaveAttribute("data-zoom-out-boundary", "enabled");
+  await expect(field).toHaveAttribute("data-zoom-out-boundary", "enabled");
   await expect(field).toHaveAttribute("aria-busy", "false");
   expect(["realm", "topic"]).toContain(await field.getAttribute("data-level"));
+
+  const spatialSurface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
+  const entryCamera = await spatialSurface.evaluate((element) => ({
+    scale: (element as HTMLElement).dataset.sceneScale,
+    transform: (element as HTMLElement).style.transform,
+  }));
+  await field.getByTestId("semantic-zoom-reset").click();
+  await expect(field).toHaveAttribute("data-view-scale", "1.000");
+
+  const fieldBounds = await field.boundingBox();
+  expect(fieldBounds).not.toBeNull();
+  await page.mouse.move(
+    fieldBounds!.x + fieldBounds!.width / 2,
+    fieldBounds!.y + fieldBounds!.height / 2,
+  );
+  await expect.poll(async () => {
+    if (await app.getAttribute("data-semantic-transition-state") === "open") {
+      await field.dispatchEvent("wheel", {
+        deltaY: 120,
+        deltaMode: 0,
+        bubbles: true,
+        cancelable: true,
+      });
+    }
+    return app.getAttribute("data-semantic-transition-state");
+  }, {
+    intervals: [50],
+    message: "two continuous field-owned wheel impulses should cross the reverse intent threshold",
+  }).toBe("returning");
+  await expect(dialog).toHaveAttribute("data-semantic-transition-state", "returning");
+  await expect(dialog).toHaveAttribute("data-zoom-out-boundary", "disabled");
+  await expect(
+    dialog,
+    "continued semantic overview zoom-out should return to the captured spatial camera",
+  ).toHaveCount(0);
+
+  await expect(app).toHaveAttribute("data-scene-id", "potting-workbench");
+  await expect(app).toHaveAttribute("data-semantic-entry-mode", "closed");
+  await expect(app).toHaveAttribute("data-semantic-transition-state", "idle");
+  await expect(app).not.toHaveAttribute("data-semantic-return-scene", /.+/);
+  await expect(spatialSurface).toHaveAttribute("data-scene-scale", entryCamera.scale!);
+  await expect.poll(() => spatialSurface.evaluate((element) => (
+    (element as HTMLElement).style.transform
+  ))).toBe(entryCamera.transform);
 });

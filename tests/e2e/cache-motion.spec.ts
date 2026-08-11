@@ -46,8 +46,12 @@ async function wheelAtViewportCenter(page: Page, deltaY: number) {
   const viewport = page.locator(`.viewer-shell:not([data-phase]) ${VIEWPORT}`);
   await expect(viewport).toBeVisible();
   const bounds = await viewport.boundingBox();
-  expect(bounds).not.toBeNull();
-  await page.mouse.move(bounds!.x + bounds!.width / 2, bounds!.y + bounds!.height / 2);
+  // A previous wheel impulse may finish the scene return between the
+  // visibility assertion and this geometry read. In that case the active
+  // viewport has legitimately unmounted; the surrounding poll will observe
+  // the returned parent on its next iteration.
+  if (!bounds) return;
+  await page.mouse.move(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
   await page.mouse.wheel(0, deltaY);
 }
 
@@ -143,12 +147,19 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
   const app = await openWorld(page);
   const parent = await currentScene(app);
   const parentAsset = new URL(await page.locator(".scene-art").getAttribute("src") as string, page.url()).pathname;
-  await activateFirstPortal(page, app);
+  const child = await activateFirstPortal(page, app);
   await expect(app).toHaveAttribute("data-transition-state", "idle");
-  const activeChildSurface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
-  await expect(activeChildSurface).toHaveAttribute("data-scene-scale", /^\d+(?:\.\d+)?$/);
-  const childScaleBeforeExit = Number(await activeChildSurface.getAttribute("data-scene-scale"));
-  expect(childScaleBeforeExit, "the parent must already be hot before the child reaches its exit scale").toBeGreaterThan(0.82);
+  await expect(page.locator(".viewer-shell[data-phase]")).toHaveCount(0);
+  await expect.poll(async () => page.evaluate(({ appSelector, childScene }) => {
+    const world = document.querySelector<HTMLElement>(appSelector);
+    const surface = document.querySelector<HTMLElement>(
+      ".viewer-shell:not([data-phase]) .scene-surface",
+    );
+    const scale = Number(surface?.dataset.sceneScale);
+    return world?.dataset.sceneId === childScene && Number.isFinite(scale) ? scale : 0;
+  }, { appSelector: APP, childScene: child }), {
+    message: "the final active child must already be hot before it reaches its exit scale",
+  }).toBeGreaterThan(0.82);
   const requestsBeforeReturn = sceneRequests.length;
   const parentDecodesBeforeReturn = await page.evaluate((assetPath) => (
     (Reflect.get(window, "__hellowordsDecodeCalls") as string[])

@@ -5,4 +5,5 @@ export * from "./sceneGraph";
 export * from "./labelLayout";
 export * from "./labelSemanticStyle";
 export * from "./semanticZoom";
+export * from "./semanticBackdrop";
 export * from "./types";

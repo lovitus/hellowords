@@ -42,23 +42,13 @@ export interface SceneLabelProtectedRegion {
 export interface SceneLabelLayoutOptions {
   /** A selected or keyboard-focused word always wins its local collision. */
   readonly selectedLabelId?: string | null;
-  /**
-   * Labels that have already occupied a readable slot in this scene. They win
-   * collisions over newly revealed vocabulary while their authored anchor is
-   * still on screen, preventing zoom from making familiar words flicker out.
-   */
-  readonly retainedLabelIds?: ReadonlySet<string>;
-  /**
-   * Previously chosen screen-space callout offsets. Reusing the offset keeps a
-   * pill attached to the same side of its object while the camera moves.
-   */
-  readonly preferredOffsets?: ReadonlyMap<string, readonly [number, number]>;
-  /** Labels that were interactive in the immediately preceding camera frame. */
-  readonly activeRetainedLabelIds?: ReadonlySet<string>;
   /** Screen-space controls, such as portal cues, that word pills must avoid. */
   readonly protectedRegions?: readonly SceneLabelProtectedRegion[];
-  /** Primarily useful for deterministic authoring tools and tests. */
-  readonly maximumVisibleLabels?: number;
+  /** Previous interactive slots retained during one continuous camera direction. */
+  readonly preferredOffsets?: ReadonlyMap<string, {
+    readonly offsetX: number;
+    readonly offsetY: number;
+  }>;
 }
 
 export interface VocabularyZoomCue {
@@ -307,9 +297,10 @@ export function vocabularyCueFocusPoint(
 }
 
 /**
- * A conservative upper bound for readable native-size pills. The collision
- * pass remains authoritative; this budget only prevents a large empty scene
- * from filling every future LOD at once and preserves a reward for zooming.
+ * A conservative first-screen density target for readable native-size pills.
+ * The collision pass remains authoritative: this value is useful for content
+ * QA and disclosure summaries, but it must never hide a label that has a safe
+ * screen-space slot.
  */
 export function sceneLabelVisibilityBudget(
   viewport: SceneLabelViewport,
@@ -329,11 +320,16 @@ export function sceneLabelDensityTarget(
   viewport: SceneLabelViewport,
   meaningVisible: boolean,
   scale: number,
-  maximumVisibleLabels = sceneLabelVisibilityBudget(viewport, meaningVisible),
+  firstScreenTarget = sceneLabelVisibilityBudget(viewport, meaningVisible),
 ): number {
-  const maximum = Math.max(1, Math.floor(maximumVisibleLabels));
+  const maximum = Math.max(1, Math.floor(firstScreenTarget));
   const fill = 0.7 + 0.3 * smoothstep(0.9, 2.8, scale);
   return Math.max(1, Math.ceil(maximum * fill));
+}
+
+/** Keeps spatial navigation cues useful without covering the vocabulary plane. */
+export function sceneVocabularyCueLimit(viewportWidth: number): number {
+  return viewportWidth <= 700 ? 2 : 3;
 }
 
 /**
@@ -765,11 +761,7 @@ function createCollisionIndex(cellSize: number) {
   };
 }
 
-/**
- * Keeps the labels readable in the latest frame ahead of older disclosure
- * history. Hidden history remains in the set for cumulative vocabulary counts,
- * but it cannot re-enter on a later micro-frame by stealing a current slot.
- */
+/** Keeps current labels first in the cumulative scene encounter history. */
 export function prioritizeCurrentLabelOrder(
   retainedLabelIds: ReadonlySet<string>,
   layout: readonly Pick<SceneLabelLayoutItem, "id" | "interactive" | "placementOrder">[],
@@ -796,9 +788,6 @@ export function computeSceneLabelLayout(
   options: SceneLabelLayoutOptions = {},
 ): SceneLabelLayoutItem[] {
   const effectiveScale = camera.fit * camera.scale;
-  const retainedOrder = new Map(
-    [...(options.retainedLabelIds ?? [])].map((id, index) => [id, index]),
-  );
   const candidates = labels
     .map((label) => {
       const lod = sceneLabelLod(label);
@@ -835,18 +824,11 @@ export function computeSceneLabelLayout(
       const selected = Number(second.label.id === options.selectedLabelId)
         - Number(first.label.id === options.selectedLabelId);
       if (selected !== 0) return selected;
-      const firstRetained = retainedOrder.get(first.label.id);
-      const secondRetained = retainedOrder.get(second.label.id);
-      const retained = Number(secondRetained !== undefined) - Number(firstRetained !== undefined);
-      if (retained !== 0) return retained;
-      if (firstRetained !== undefined && secondRetained !== undefined) {
-        return firstRetained - secondRetained;
-      }
-      return Number(second.naturalOpacity >= 0.52) - Number(first.naturalOpacity >= 0.52)
-        || Number(second.naturalOpacity > 0.025) - Number(first.naturalOpacity > 0.025)
-        || first.label.priority - second.label.priority
+      // Camera history must not decide collision ownership. A stable authored
+      // order makes an exact zoom round trip reproduce both the same labels
+      // and the same callout directions.
+      return first.label.priority - second.label.priority
         || first.lod - second.lod
-        || (first.futureRevealScale ?? camera.scale) - (second.futureRevealScale ?? camera.scale)
         || first.label.id.localeCompare(second.label.id);
     });
 
@@ -854,100 +836,79 @@ export function computeSceneLabelLayout(
   for (const region of options.protectedRegions ?? []) collisionIndex.add(region);
   const padding = viewport.compact ? 1 : 2;
   const edgeMargin = viewport.compact ? 3 : 6;
-  const maximumVisibleLabels = Math.max(1, Math.floor(
-    options.maximumVisibleLabels ?? sceneLabelVisibilityBudget(viewport, meaningVisible),
-  ));
-  // Reserve the still-valid preferred slots from the immediately preceding
-  // frame before any greedy fallback placement runs. Without this first pass,
-  // an earlier label whose own slot becomes blocked can steal a later label's
-  // stable slot and trigger a chain of visible callout swaps on a tiny zoom.
-  const preferredReservationIndex = createCollisionIndex(viewport.compact ? 40 : 48);
-  for (const region of options.protectedRegions ?? []) preferredReservationIndex.add(region);
-  const preferredReservations = new Map<string, LabelBounds>();
-  let reservationCount = 0;
+  const reservedPreferredOffsets = new Map<string, readonly [number, number]>();
+  // Reserve every still-legal interactive slot before ordinary first-fit.
+  // Otherwise an earlier label can briefly borrow a later label's old slot,
+  // choose another final slot itself, and make the later callout visibly flip
+  // even though its previous position ends the frame empty.
   for (const candidate of candidates) {
-    if (reservationCount >= maximumVisibleLabels) break;
-    if (!options.activeRetainedLabelIds?.has(candidate.label.id)) continue;
     const preferred = options.preferredOffsets?.get(candidate.label.id);
-    if (!preferred || !Number.isFinite(preferred[0]) || !Number.isFinite(preferred[1])) continue;
+    const remainsInteractive = candidate.label.id === options.selectedLabelId
+      || candidate.naturalOpacity >= 0.52
+      || candidate.futureRevealScale !== null;
+    if (
+      !preferred
+      || !remainsInteractive
+      || !Number.isFinite(preferred.offsetX)
+      || !Number.isFinite(preferred.offsetY)
+    ) continue;
     const bounds = boundsAt(
-      candidate.screenX + preferred[0],
-      candidate.screenY + preferred[1],
+      candidate.screenX + preferred.offsetX,
+      candidate.screenY + preferred.offsetY,
       candidate.width,
       candidate.height,
     );
-    if (
-      !insideViewport(bounds, viewport, edgeMargin)
-      // Existing native-size pills may retain a sub-padding gap during a
-      // micro zoom; only a real rectangle overlap invalidates the reservation.
-      || preferredReservationIndex.overlaps(bounds, 0)
-    ) continue;
-    preferredReservations.set(candidate.label.id, bounds);
-    preferredReservationIndex.add(bounds);
-    reservationCount += 1;
+    if (!insideViewport(bounds, viewport, edgeMargin) || collisionIndex.overlaps(bounds, 0)) continue;
+    collisionIndex.add(bounds);
+    reservedPreferredOffsets.set(candidate.label.id, [preferred.offsetX, preferred.offsetY]);
   }
   const visible = new Map<string, SceneLabelLayoutItem>();
-  let interactiveCount = 0;
   for (const [placementOrder, candidate] of candidates.entries()) {
     const selected = candidate.label.id === options.selectedLabelId;
-    const retained = retainedOrder.has(candidate.label.id);
     const naturallyInteractive = candidate.naturalOpacity >= 0.52;
     // A free, readable slot is more useful than an artificial "more words"
-    // counter. Authored LOD still controls opacity and focus order, but it no
-    // longer withholds a grounded word when the current viewport has room.
-    const canFillSpareSpace = candidate.futureRevealScale !== null
-      && interactiveCount < maximumVisibleLabels;
-    const adaptive = !naturallyInteractive && (
-      selected
-      || (retained && interactiveCount < maximumVisibleLabels)
-      || canFillSpareSpace
-    );
+    // counter. Authored LOD still describes disclosure depth, but the density
+    // target is never a hard gate while a deterministic safe slot exists.
+    const adaptive = !naturallyInteractive
+      && (selected || candidate.futureRevealScale !== null);
     const candidateOpacity = selected
       ? Math.max(1, candidate.naturalOpacity)
-      : naturallyInteractive && interactiveCount >= maximumVisibleLabels
-        ? 0
-        : adaptive
-          ? Math.max(0.82, candidate.naturalOpacity)
-          : candidate.naturalOpacity;
+      : adaptive
+        ? Math.max(0.82, candidate.naturalOpacity)
+        : candidate.naturalOpacity;
     if (candidateOpacity <= 0.025) continue;
-    const authoredOffsets = placementOffsets(
+    const canonicalOffsets = placementOffsets(
       candidate.label.id,
       candidate.width,
       candidate.height,
       viewport.compact,
     );
-    const preferred = options.preferredOffsets?.get(candidate.label.id);
-    const offsets = preferred && Number.isFinite(preferred[0]) && Number.isFinite(preferred[1])
+    const preferredOffset = options.preferredOffsets?.get(candidate.label.id);
+    const authoredOffsets = preferredOffset
+      && Number.isFinite(preferredOffset.offsetX)
+      && Number.isFinite(preferredOffset.offsetY)
       ? [
-        preferred,
-        ...authoredOffsets.filter(([offsetX, offsetY]) => (
-          Math.abs(offsetX - preferred[0]) > 0.01 || Math.abs(offsetY - preferred[1]) > 0.01
-        )),
-      ]
-      : authoredOffsets;
-    const placement = offsets.find(([offsetX, offsetY]) => {
+          [preferredOffset.offsetX, preferredOffset.offsetY] as const,
+          ...canonicalOffsets.filter(([offsetX, offsetY]) => (
+            offsetX !== preferredOffset.offsetX || offsetY !== preferredOffset.offsetY
+          )),
+        ]
+      : canonicalOffsets;
+    const reservedPlacement = reservedPreferredOffsets.get(candidate.label.id);
+    const placement = reservedPlacement ?? authoredOffsets.find(([offsetX, offsetY]) => {
       const bounds = boundsAt(
         candidate.screenX + offsetX,
         candidate.screenY + offsetY,
         candidate.width,
         candidate.height,
       );
-      const ownsReservation = preferredReservations.has(candidate.label.id)
-        && preferred !== undefined
-        && Math.abs(offsetX - preferred[0]) <= 0.01
-        && Math.abs(offsetY - preferred[1]) <= 0.01;
       return insideViewport(bounds, viewport, edgeMargin)
-        && !collisionIndex.overlaps(bounds, ownsReservation ? 0 : padding)
-        && (
-          selected
-          || ownsReservation
-          || !preferredReservationIndex.overlaps(bounds, padding)
-        );
+        && !collisionIndex.overlaps(bounds, padding);
     });
     const offsetX = placement?.[0] ?? 0;
     const offsetY = placement?.[1] ?? 0;
     const blocked = placement === undefined;
-    if (!blocked) {
+    if (!blocked && !reservedPlacement) {
       collisionIndex.add(boundsAt(
         candidate.screenX + offsetX,
         candidate.screenY + offsetY,
@@ -957,7 +918,6 @@ export function computeSceneLabelLayout(
     }
     const opacity = blocked ? 0 : candidateOpacity;
     const interactive = !blocked && opacity >= 0.52;
-    if (interactive) interactiveCount += 1;
     visible.set(candidate.label.id, {
       id: candidate.label.id,
       lod: candidate.lod,

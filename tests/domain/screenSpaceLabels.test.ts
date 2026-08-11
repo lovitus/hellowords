@@ -18,6 +18,7 @@ import {
   projectSceneRectToScreen,
   SceneViewport,
   setStylePropertyIfChanged,
+  shouldResetLabelPlacementMemory,
   shouldWriteContinuousTileProgress,
   wheelZoomFactor,
 } from "../../app/components/SceneViewport";
@@ -28,7 +29,44 @@ import {
   type Scene,
 } from "../../app/domain";
 
+test("label placement memory persists only within one continuous zoom direction", () => {
+  assert.equal(shouldResetLabelPlacementMemory(null, "in"), false);
+  assert.equal(shouldResetLabelPlacementMemory("in", "in"), false);
+  assert.equal(shouldResetLabelPlacementMemory("out", "out"), false);
+  assert.equal(shouldResetLabelPlacementMemory("in", "out"), true);
+  assert.equal(shouldResetLabelPlacementMemory("out", "in"), true);
+  assert.equal(shouldResetLabelPlacementMemory("in", null), false);
+});
+
 const ROOT = new URL("../../", import.meta.url);
+
+test("selected label collision priority follows the controlled same-scene word card lifetime", () => {
+  const viewport = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  const app = readFileSync(new URL("app/components/WorldApp.tsx", ROOT), "utf8");
+
+  assert.match(
+    app,
+    /scene=\{scene\}[\s\S]{0,220}selectedLabelId=\{selectedLabel\?\.id \?\? null\}/,
+    "the active scene receives the current word card selection as controlled state",
+  );
+  assert.match(
+    app,
+    /scene=\{outgoingScene\}[\s\S]{0,220}selectedLabelId=\{null\}/,
+    "an outgoing scene cannot retain selection priority",
+  );
+  assert.match(
+    app,
+    /className="word-dock-close"[\s\S]{0,160}onClick=\{\(\) => setSelectedLabel\(null\)\}/,
+    "closing the word card clears the controlled selection without changing scenes",
+  );
+
+  const syncStart = viewport.indexOf("selectedLabelIdRef.current = selectedLabelId");
+  const nextEffect = viewport.indexOf("useEffect(() => {", syncStart + 1);
+  assert.ok(syncStart > 0 && nextEffect > syncStart);
+  const selectionSync = viewport.slice(syncStart, nextEffect);
+  assert.match(selectionSync, /: null;[\s\S]*requestCameraFrame\(\)/);
+  assert.match(selectionSync, /\[labelsById, requestCameraFrame, selectedLabelId\]/);
+});
 
 function matchingDivClose(markup: string, openIndex: number): number {
   const tags = /<div\b[^>]*>|<\/div>/g;
@@ -118,6 +156,16 @@ test("semantic overscroll gives painted portal pixels ownership and resets with 
   );
   const targetPortal = wheelPath.indexOf("portalAtScreenPoint(scene.portals, base, point)");
   assert.ok(paintedPortal >= 0 && targetPortal > paintedPortal);
+
+  const semanticStart = source.indexOf("const trySemanticOverscroll");
+  const semanticEnd = source.indexOf("const zoomAt", semanticStart);
+  const semanticPath = source.slice(semanticStart, semanticEnd);
+  assert.match(
+    semanticPath,
+    /updateZoomDirection\("in"\);[\s\S]*onExploreSemanticPlane\(nearest, "zoom"\)/,
+    "semantic entry retains its inward direction so the first spatial zoom-out resets placement memory",
+  );
+  assert.match(semanticPath, /\[[^\]]*updateZoomDirection[^\]]*\]\);/);
 
   const resetStart = source.indexOf("const resetSemanticOverscroll");
   const cameraResetStart = source.indexOf("const resetCamera", resetStart);
@@ -576,15 +624,15 @@ test("scene anchors project into screen coordinates while labels remain outside 
   );
   assert.match(surfaceMarkup, /class="scene-continuous-tile-art"[^>]*src="\/detail\.jpg"/);
   assert.ok(
-    layerStart >= surfaceClose,
-    "the label layer is a sibling after the scaled scene surface, never its descendant",
+    interactionStart >= surfaceClose,
+    "the interaction layer is a sibling after the scaled scene surface, never its descendant",
   );
-  assert.equal(markup.slice(surfaceClose, layerStart).trim(), "");
-  const labelClose = matchingDivClose(markup, layerStart);
-  assert.equal(markup.slice(labelClose, interactionStart).trim(), "");
+  assert.equal(markup.slice(surfaceClose, interactionStart).trim(), "");
+  const interactionClose = matchingDivClose(markup, interactionStart);
+  assert.equal(markup.slice(interactionClose, layerStart).trim(), "");
   assert.ok(
-    interactionStart >= labelClose,
-    "portal and vocabulary cues are a sibling overlay after the word labels",
+    layerStart >= interactionClose,
+    "portal and vocabulary controls precede every word in natural keyboard order",
   );
   assert.match(markup, /class="label-layer"[^>]*data-coordinate-space="screen"/);
   assert.match(markup, /class="scene-interaction-layer"[^>]*data-coordinate-space="screen"/);

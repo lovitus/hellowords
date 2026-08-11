@@ -22,6 +22,8 @@ import {
   placeSemanticZoomNodes,
   projectSemanticZoomNodes,
   resolveSemanticZoomRealmEntry,
+  semanticBackdropMarks,
+  semanticBackdropModel,
   semanticNodeVisual,
   semanticWheelScale,
   semanticZoomBoundsForLevel,
@@ -41,6 +43,10 @@ import {
   type SemanticZoomView,
   type SemanticZoomViewport,
 } from "../domain";
+import {
+  advanceSemanticZoomOutBoundary,
+  semanticZoomWheelFactor,
+} from "../domain/semanticZoomBoundary";
 import {
   createLexicalWorldRepository,
   type LexicalLevelDescriptor,
@@ -68,6 +74,8 @@ export interface SemanticZoomFieldProps {
   readonly initialRealmId?: string;
   /** Visible provenance copy distinguishing the drawn object from semantic descendants. */
   readonly spatialEntryWord?: string;
+  /** Returns an overscroll-opened field to its still-mounted spatial camera. */
+  readonly onZoomOutBoundary?: () => void;
 }
 
 interface DescriptorResource {
@@ -168,6 +176,7 @@ export function SemanticZoomField({
   repository: providedRepository,
   initialRealmId,
   spatialEntryWord,
+  onZoomOutBoundary,
 }: SemanticZoomFieldProps) {
   const ownedRepository = useMemo(() => createLexicalWorldRepository(manifestUrl), [manifestUrl]);
   const repository = providedRepository ?? ownedRepository;
@@ -182,6 +191,9 @@ export function SemanticZoomField({
   const keyboardActivationRef = useRef(false);
   const pendingKeyboardFocusRef = useRef<PendingKeyboardFocus | null>(null);
   const initialRealmAppliedRef = useRef<string | null>(null);
+  const zoomOutBoundaryRef = useRef(0);
+  const zoomOutBoundaryTimestampRef = useRef<number | null>(null);
+  const zoomOutBoundaryTriggeredRef = useRef(false);
 
   const [viewport, setViewport] = useState<SemanticZoomViewport>(() => initialViewport(viewportWidth));
   const [view, setView] = useState<SemanticZoomView>(INITIAL_VIEW);
@@ -194,6 +206,34 @@ export function SemanticZoomField({
   const [selectedSubcluster, setSelectedSubcluster] = useState<LexicalLevelDescriptor>();
   const [dragging, setDragging] = useState(false);
   const [navigationAnnouncement, setNavigationAnnouncement] = useState("");
+
+  const resetZoomOutBoundary = useCallback(() => {
+    zoomOutBoundaryRef.current = 0;
+    zoomOutBoundaryTimestampRef.current = null;
+    zoomOutBoundaryTriggeredRef.current = false;
+  }, []);
+
+  const tryZoomOutBoundary = useCallback((scaleFactor: number): boolean => {
+    if (zoomOutBoundaryTriggeredRef.current) return true;
+    const now = performance.now();
+    const result = advanceSemanticZoomOutBoundary(
+      zoomOutBoundaryRef.current,
+      scaleFactor,
+      targetViewRef.current.scale <= INITIAL_VIEW.scale + 0.001
+        && viewRef.current.scale <= INITIAL_VIEW.scale + 0.01,
+      Boolean(onZoomOutBoundary),
+      zoomOutBoundaryTimestampRef.current === null
+        ? Number.POSITIVE_INFINITY
+        : now - zoomOutBoundaryTimestampRef.current,
+    );
+    zoomOutBoundaryRef.current = result.accumulated;
+    zoomOutBoundaryTimestampRef.current = result.accumulated > 0 ? now : null;
+    if (!result.trigger || !onZoomOutBoundary) return false;
+    zoomOutBoundaryTriggeredRef.current = true;
+    setNavigationAnnouncement("正在返回原空间场景");
+    onZoomOutBoundary();
+    return true;
+  }, [onZoomOutBoundary]);
 
   const manifest = manifestResource.value;
   const realms = useMemo(() => manifest?.children ?? [], [manifest]);
@@ -381,6 +421,7 @@ export function SemanticZoomField({
       camera,
       viewport,
       semanticZoomNodeBudget(viewport.width),
+      displayLevel === "subcluster" || displayLevel === "word" ? "shelf" : "spatial",
     ),
     viewport,
     displayLevel,
@@ -416,6 +457,7 @@ export function SemanticZoomField({
     bounds: SemanticZoomBounds = activeLayoutBounds,
   ) => {
     const bounded = clampSemanticZoomView(next, viewport, bounds);
+    if (bounded.scale > INITIAL_VIEW.scale + 0.001) resetZoomOutBoundary();
     targetViewRef.current = bounded;
     if (reducedMotionRef.current || typeof requestAnimationFrame === "undefined") {
       if (animationFrameRef.current !== null) cancelAnimationFrame(animationFrameRef.current);
@@ -426,7 +468,7 @@ export function SemanticZoomField({
       return;
     }
     startViewAnimation();
-  }, [activeLayoutBounds, startViewAnimation, viewport]);
+  }, [activeLayoutBounds, resetZoomOutBoundary, startViewAnimation, viewport]);
 
   useEffect(() => {
     if (!open) return;
@@ -463,6 +505,7 @@ export function SemanticZoomField({
       pinchRef.current = null;
       pendingKeyboardFocusRef.current = null;
       initialRealmAppliedRef.current = null;
+      resetZoomOutBoundary();
       return;
     }
     return () => {
@@ -471,8 +514,9 @@ export function SemanticZoomField({
       animationTimeRef.current = null;
       pointers.clear();
       pinchRef.current = null;
+      resetZoomOutBoundary();
     };
-  }, [open]);
+  }, [open, resetZoomOutBoundary]);
 
   useEffect(() => {
     if (!open || !initialRealmId || initialRealmAppliedRef.current === initialRealmId) return;
@@ -625,6 +669,7 @@ export function SemanticZoomField({
   }, [activeLayoutBounds, applyView, displayLevel, selectNearestForCrossedLevel, viewport]);
 
   const reset = useCallback(() => {
+    resetZoomOutBoundary();
     setSelectedRealm(undefined);
     setSelectedTopic(undefined);
     setSelectedSubcluster(undefined);
@@ -632,11 +677,12 @@ export function SemanticZoomField({
     setSubclusterResource(EMPTY_DESCRIPTOR_RESOURCE);
     setWordResource(EMPTY_WORD_RESOURCE);
     applyView(INITIAL_VIEW, SEMANTIC_ZOOM_WORLD_BOUNDS);
-  }, [applyView]);
+  }, [applyView, resetZoomOutBoundary]);
 
   const stepZoom = useCallback((factor: number) => {
+    if (tryZoomOutBoundary(factor)) return;
     zoomAt(targetViewRef.current.scale * factor, { x: viewport.width / 2, y: viewport.height / 2 });
-  }, [viewport, zoomAt]);
+  }, [tryZoomOutBoundary, viewport, zoomAt]);
 
   useEffect(() => {
     if (!open) return;
@@ -646,6 +692,8 @@ export function SemanticZoomField({
     const onWheel = (event: WheelEvent) => {
       event.preventDefault();
       const point = pointerPosition(event, root);
+      const factor = semanticZoomWheelFactor(event.deltaY, event.deltaMode, viewport.height);
+      if (tryZoomOutBoundary(factor)) return;
       zoomAt(
         semanticWheelScale(targetViewRef.current.scale, event.deltaY, event.deltaMode, viewport.height),
         point,
@@ -653,6 +701,7 @@ export function SemanticZoomField({
     };
     const onPointerDown = (event: PointerEvent) => {
       if (event.target instanceof Element && event.target.closest("button")) return;
+      resetZoomOutBoundary();
       root.setPointerCapture(event.pointerId);
       pointersRef.current.set(event.pointerId, pointerPosition(event, root));
       pinchRef.current = pinchSnapshot([...pointersRef.current.values()]);
@@ -682,6 +731,8 @@ export function SemanticZoomField({
         pinchRef.current = nextPinch;
         return;
       }
+      const pinchFactor = nextPinch.distance / previousPinch.distance;
+      if (tryZoomOutBoundary(pinchFactor)) return;
       const panned = panSemanticZoomView(
         targetViewRef.current,
         {
@@ -710,6 +761,7 @@ export function SemanticZoomField({
     const endPointer = (event: PointerEvent) => {
       pointersRef.current.delete(event.pointerId);
       pinchRef.current = pinchSnapshot([...pointersRef.current.values()]);
+      resetZoomOutBoundary();
       if (!pointersRef.current.size) setDragging(false);
     };
 
@@ -725,7 +777,16 @@ export function SemanticZoomField({
       root.removeEventListener("pointerup", endPointer);
       root.removeEventListener("pointercancel", endPointer);
     };
-  }, [activeLayoutBounds, applyView, open, selectNearestForCrossedLevel, viewport, zoomAt]);
+  }, [
+    activeLayoutBounds,
+    applyView,
+    open,
+    resetZoomOutBoundary,
+    selectNearestForCrossedLevel,
+    tryZoomOutBoundary,
+    viewport,
+    zoomAt,
+  ]);
 
   const onNodeKeyDown = useCallback((event: ReactKeyboardEvent<HTMLButtonElement>) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -770,6 +831,19 @@ export function SemanticZoomField({
 
   if (!open) return null;
 
+  const backdrop = selectedTopic && (displayLevel === "subcluster" || displayLevel === "word")
+    ? semanticBackdropModel({
+        topicId: selectedTopic.id,
+        topicLabelEn: selectedTopic.labelEn,
+        topicLabelZh: selectedTopic.labelZh,
+        subclusterId: displayLevel === "word" ? selectedSubcluster?.id : undefined,
+        subclusterLabelEn: displayLevel === "word" ? selectedSubcluster?.labelEn : undefined,
+        subclusterLabelZh: displayLevel === "word" ? selectedSubcluster?.labelZh : undefined,
+        subclusterIds: subclusters.map(({ id }) => id),
+      })
+    : undefined;
+  const visualMode = backdrop ? "diagram" : "photo";
+  const backdropMarks = backdrop ? semanticBackdropMarks(backdrop.motif) : [];
   const activeAsset = activeTile?.asset ?? LEXICAL_WORLD_OVERVIEW_IMAGE;
   const tileOpacity = activeTile ? Math.max(0, Math.min(1, (view.scale - 1.12) / 0.48)) : 0;
   const planeStyle = {
@@ -782,6 +856,18 @@ export function SemanticZoomField({
     height: `${activeTile.detailRect.height}px`,
     opacity: tileOpacity,
   } as CSSProperties : undefined;
+  const backdropPalette = semanticNodeVisual(
+    displayLevel,
+    selectedRealm?.id,
+    semanticZoomDepth(displayLevel),
+  );
+  const backdropStyle = {
+    "--semantic-backdrop-accent": selectedTopic?.color ?? backdropPalette.color,
+    "--semantic-backdrop-secondary": backdropPalette.color,
+    "--semantic-backdrop-surface": backdropPalette.background,
+    "--semantic-backdrop-ink": backdropPalette.textColor,
+    "--semantic-backdrop-muted": backdropPalette.mutedTextColor,
+  } as CSSProperties;
   const explorationProgress = semanticZoomExplorationProgress(
     displayLevel,
     currentLayout.length,
@@ -822,8 +908,13 @@ export function SemanticZoomField({
       data-testid="semantic-zoom-field"
       data-level={displayLevel}
       data-target-level={targetLevel}
+      data-view-scale={view.scale.toFixed(3)}
+      data-zoom-out-boundary={onZoomOutBoundary ? "enabled" : "disabled"}
+      data-visual-mode={visualMode}
+      data-motif={backdrop?.motif ?? "photo"}
+      data-topic={selectedTopic?.id ?? ""}
       data-active-realm={selectedRealm?.id}
-      data-active-asset={activeAsset}
+      data-active-asset={visualMode === "photo" ? activeAsset : undefined}
       data-live-count={projectedNodes.length}
       data-level-total={explorationProgress.totalCount}
       data-remaining-count={explorationProgress.remainingCount}
@@ -831,7 +922,9 @@ export function SemanticZoomField({
       data-continuation-action={explorationProgress.action}
       data-spatial-entry-word={spatialEntryWord}
       role="region"
-      aria-label="万词语义世界"
+      aria-label={onZoomOutBoundary
+        ? "万词语义世界，缩到总览后继续缩小可返回原场景"
+        : "万词语义世界"}
       aria-describedby="semantic-zoom-progress"
       aria-busy={loading}
     >
@@ -855,6 +948,47 @@ export function SemanticZoomField({
           </span>
         ) : null}
       </div>
+
+      {backdrop ? (
+        <div
+          className="semantic-zoom-field__semantic-backdrop"
+          data-testid="semantic-backdrop"
+          data-visual-mode="diagram"
+          data-motif={backdrop.motif}
+          data-topic={backdrop.topicId}
+          data-topic-ordinal={backdrop.topicOrdinal}
+          data-topic-total={backdrop.topicTotal}
+          data-subcluster-ordinal={backdrop.subclusterOrdinal}
+          data-subcluster-total={backdrop.subclusterTotal}
+          style={backdropStyle}
+          aria-hidden="true"
+        >
+          <div className="semantic-zoom-field__backdrop-art">
+            {backdropMarks.map((mark, index) => (
+              <i
+                className="semantic-zoom-field__backdrop-mark"
+                key={`${backdrop.motif}:${index}`}
+                style={{
+                  "--semantic-mark-x": `${mark.x}%`,
+                  "--semantic-mark-y": `${mark.y}%`,
+                  "--semantic-mark-rotation": `${mark.rotation}deg`,
+                  "--semantic-mark-index": index,
+                } as CSSProperties}
+              >
+                {mark.label ? <span>{mark.label}</span> : null}
+              </i>
+            ))}
+          </div>
+          <div className="semantic-zoom-field__backdrop-copy">
+            <span>{backdrop.ordinalLabel}</span>
+            {selectedSubcluster && displayLevel === "word" ? (
+              <small>{`${backdrop.topicLabelEn} · ${backdrop.topicLabelZh}`}</small>
+            ) : null}
+            <strong>{backdrop.titleEn}</strong>
+            <em>{backdrop.titleZh}</em>
+          </div>
+        </div>
+      ) : null}
 
       <div
         className={`semantic-zoom-field__labels semantic-zoom-field__labels--${displayLevel}`}
@@ -890,7 +1024,9 @@ export function SemanticZoomField({
           } as CSSProperties;
           return (
             <span className="semantic-zoom-field__node-wrap" key={`${displayLevel}:${projected.node.id}`}>
-              {leaderLength > 8 ? <i className="semantic-zoom-field__leader" style={leaderStyle} aria-hidden="true" /> : null}
+              {visualMode === "photo" && leaderLength > 8
+                ? <i className="semantic-zoom-field__leader" style={leaderStyle} aria-hidden="true" />
+                : null}
               <button
                 type="button"
                 className="semantic-zoom-field__node"
@@ -903,14 +1039,16 @@ export function SemanticZoomField({
                 data-palette-index={visual.paletteIndex}
                 data-anchor-x={projected.anchorScreenX.toFixed(2)}
                 data-anchor-y={projected.anchorScreenY.toFixed(2)}
+                data-box-width={projected.boxWidth}
+                data-box-height={projected.boxHeight}
                 data-lexical-word-id={projected.node.word?.id}
                 style={style}
                 onClick={() => activateNode(projected)}
                 onPointerDown={() => { keyboardActivationRef.current = false; }}
                 onKeyDown={onNodeKeyDown}
                 aria-label={displayLevel === "word"
-                  ? `${projected.node.labelEn}${showMeanings && projected.node.labelZh ? `，${projected.node.labelZh}` : ""}`
-                  : `进入 ${projected.node.labelEn}，${formatCount(projected.node.count)} 个词`}
+                  ? `${projected.node.labelEn}，${projected.node.labelZh}`
+                  : `进入 ${projected.node.labelEn}，${projected.node.labelZh}，${formatCount(projected.node.count)} 个词`}
               >
                 <span className="semantic-zoom-field__node-dot" aria-hidden="true" />
                 <strong>{projected.node.labelEn}</strong>

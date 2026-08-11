@@ -88,6 +88,81 @@ async function lexicalReachability(page: Page) {
   });
 }
 
+async function assertSemanticCardsReadableAndPacked(
+  field: Locator,
+  minimumLiveCount = 1,
+): Promise<void> {
+  const audit = await field.evaluate((element) => {
+    const fieldRect = element.getBoundingClientRect();
+    const cards = [...element.querySelectorAll<HTMLElement>(
+      '[data-testid="semantic-zoom-node"]',
+    )].map((card) => {
+      const strong = card.querySelector<HTMLElement>("strong");
+      const translation = card.querySelector<HTMLElement>(
+        ":scope > span:not(.semantic-zoom-field__node-dot)",
+      );
+      const rect = card.getBoundingClientRect();
+      return {
+        id: card.dataset.id ?? "",
+        ariaLabel: card.getAttribute("aria-label") ?? "",
+        strongText: strong?.textContent?.trim() ?? "",
+        strongTextOverflow: strong ? getComputedStyle(strong).textOverflow : "missing",
+        strongScrollWidth: strong?.scrollWidth ?? -1,
+        strongClientWidth: strong?.clientWidth ?? -1,
+        translationText: translation?.textContent?.trim() ?? "",
+        translationScrollHeight: translation?.scrollHeight ?? -1,
+        translationClientHeight: translation?.clientHeight ?? -1,
+        rect: {
+          left: rect.left,
+          top: rect.top,
+          right: rect.right,
+          bottom: rect.bottom,
+        },
+      };
+    });
+    return {
+      fieldRect: {
+        left: fieldRect.left,
+        top: fieldRect.top,
+        right: fieldRect.right,
+        bottom: fieldRect.bottom,
+      },
+      cards,
+    };
+  });
+
+  expect(audit.cards.length).toBeGreaterThanOrEqual(minimumLiveCount);
+  expect(Number(await field.getAttribute("data-live-count"))).toBe(audit.cards.length);
+  for (const card of audit.cards) {
+    expect(card.strongText, `${card.id} must render its complete English label`).not.toBe("");
+    expect(card.strongTextOverflow, `${card.id} must not use ellipsis`).not.toBe("ellipsis");
+    expect(card.strongScrollWidth, `${card.id} English must fit or wrap`).toBeLessThanOrEqual(
+      card.strongClientWidth + 1,
+    );
+    expect(card.translationText, `${card.id} must render its translated copy`).not.toBe("");
+    expect(card.translationScrollHeight, `${card.id} translation must fit its reserved height`)
+      .toBeLessThanOrEqual(card.translationClientHeight + 1);
+    expect(card.ariaLabel).toContain(card.strongText);
+    expect(card.ariaLabel).toContain(card.translationText);
+    expect(card.rect.left).toBeGreaterThanOrEqual(audit.fieldRect.left - 1);
+    expect(card.rect.top).toBeGreaterThanOrEqual(audit.fieldRect.top - 1);
+    expect(card.rect.right).toBeLessThanOrEqual(audit.fieldRect.right + 1);
+    expect(card.rect.bottom).toBeLessThanOrEqual(audit.fieldRect.bottom + 1);
+  }
+  for (const [index, card] of audit.cards.entries()) {
+    for (const other of audit.cards.slice(index + 1)) {
+      const overlapWidth = Math.min(card.rect.right, other.rect.right)
+        - Math.max(card.rect.left, other.rect.left);
+      const overlapHeight = Math.min(card.rect.bottom, other.rect.bottom)
+        - Math.max(card.rect.top, other.rect.top);
+      expect(
+        overlapWidth <= 1 || overlapHeight <= 1,
+        `${card.id} and ${other.id} must not overlap`,
+      ).toBe(true);
+    }
+  }
+}
+
 test("the lexical world accounts for 10,000 words and reaches every word in a leaf", async ({ page }, testInfo) => {
   const dialog = await openLexicalWorld(page);
   const field = dialog.getByTestId("semantic-zoom-field");
@@ -145,6 +220,68 @@ test("the lexical world accounts for 10,000 words and reaches every word in a le
   expect(Number(await field.getAttribute("data-live-count"))).toBe(activeWordCount);
   await expect(field.locator(`${SEMANTIC_NODE}[data-level="word"]:focus`)).toHaveCount(1);
   await expect(dialog.locator("canvas")).toHaveCount(0);
+});
+
+test("Number & measure → Integer keeps complete cards on its native number-line backdrop", async ({ page }, testInfo) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const dialog = await openLexicalWorld(page);
+  const field = dialog.getByTestId("semantic-zoom-field");
+  const meanings = dialog.getByRole("button", { name: /释义 [开关]/u });
+  await meanings.click();
+  await expect(meanings).toHaveAttribute("aria-pressed", "true");
+
+  await expect(field).toHaveAttribute("data-visual-mode", "photo");
+  await assertSemanticCardsReadableAndPacked(field, 10);
+
+  const realmId = "space-time-measure";
+  const realmTile = lexicalWorldRealmTiles().find((tile) => tile.realmId === realmId);
+  expect(realmTile).toBeDefined();
+  await field.locator(`${SEMANTIC_NODE}[data-id="${realmId}"]`).click();
+  await expect(field).toHaveAttribute("data-level", "topic");
+  await expect(field).toHaveAttribute("data-visual-mode", "photo");
+  await expect(field).toHaveAttribute("data-motif", "photo");
+  await expect(field).toHaveAttribute("data-active-asset", realmTile!.asset);
+  await expect(field.getByTestId("semantic-zoom-plane")).toHaveCSS("opacity", "1");
+  await expect(field.locator(`[data-testid="semantic-realm-tile"][data-realm="${realmId}"]`))
+    .toBeVisible();
+  await assertSemanticCardsReadableAndPacked(field, 4);
+
+  await field.locator(`${SEMANTIC_NODE}[data-id="number-measure"]`).click();
+  await expect(field).toHaveAttribute("data-level", "subcluster");
+  await expect(field).toHaveAttribute("data-visual-mode", "diagram");
+  await expect(field).toHaveAttribute("data-motif", "number-line");
+  await expect(field).toHaveAttribute("data-topic", "number-measure");
+  await expect(field).not.toHaveAttribute("data-active-asset", /.+/u);
+  await expect(field.getByTestId("semantic-zoom-plane")).toHaveCSS("opacity", "0");
+  await expect(field.locator(".semantic-zoom-field__leader")).toHaveCount(0);
+  const topicBackdrop = field.getByTestId("semantic-backdrop");
+  await expect(topicBackdrop).toHaveAttribute("data-motif", "number-line");
+  await expect(topicBackdrop.locator(".semantic-zoom-field__backdrop-copy strong"))
+    .toHaveText("Number & measure");
+  await expect(topicBackdrop.locator(".semantic-zoom-field__backdrop-copy em"))
+    .toHaveText("数字与度量");
+  await assertSemanticCardsReadableAndPacked(field, 8);
+
+  await field.locator(`${SEMANTIC_NODE}[data-id="number-measure--integer"]`).click();
+  await expect(field).toHaveAttribute("data-level", "word");
+  await expect(field).toHaveAttribute("data-visual-mode", "diagram");
+  await expect(field).toHaveAttribute("data-motif", "number-line");
+  await expect(field).toHaveAttribute("data-topic", "number-measure");
+  await expect(field).not.toHaveAttribute("data-active-asset", /.+/u);
+  await expect(field.getByTestId("semantic-zoom-plane")).toHaveCSS("opacity", "0");
+  await expect(field.locator(".semantic-zoom-field__leader")).toHaveCount(0);
+  const wordBackdrop = field.getByTestId("semantic-backdrop");
+  await expect(wordBackdrop).toHaveAttribute("data-subcluster-ordinal", "5");
+  await expect(wordBackdrop).toHaveAttribute("data-subcluster-total", "10");
+  await expect(wordBackdrop.locator(".semantic-zoom-field__backdrop-copy small"))
+    .toHaveText("Number & measure · 数字与度量");
+  await expect(wordBackdrop.locator(".semantic-zoom-field__backdrop-copy strong"))
+    .toHaveText("Integer");
+  await expect(wordBackdrop.locator(".semantic-zoom-field__backdrop-copy em"))
+    .toHaveText("整数");
+
+  const minimumWordCount = testInfo.project.name === "mobile-chromium" ? 8 : 20;
+  await assertSemanticCardsReadableAndPacked(field, minimumWordCount);
 });
 
 test("the ten realm nodes reveal ten distinct successfully loaded realm tiles", async ({ page }, testInfo) => {

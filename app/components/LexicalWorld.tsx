@@ -21,6 +21,10 @@ import "./lexical-world.css";
 export interface LexicalWorldProps {
   open: boolean;
   onClose: () => void;
+  /** Only spatial max-scale entries may shrink back into their source scene. */
+  onZoomOutBoundary?: () => void;
+  entryMode?: "global" | "spatial-bridge" | "spatial-overscroll";
+  transitionState?: "open" | "returning";
   /** Controlled translation state shared with the scene viewer. */
   showMeanings: boolean;
   onShowMeaningsChange?: (visible: boolean) => void;
@@ -81,6 +85,9 @@ function focusableElements(container: HTMLElement): HTMLElement[] {
 export function LexicalWorld({
   open,
   onClose,
+  onZoomOutBoundary,
+  entryMode = "global",
+  transitionState = "open",
   showMeanings,
   onShowMeaningsChange,
   manifestUrl,
@@ -121,13 +128,15 @@ export function LexicalWorld({
       setSelected(null);
       setSearching(false);
       setAnnouncement(spatialEntryWord
-        ? `已从实景词 ${spatialEntryWord} 进入相关词域；其余词按语义关系组织`
-        : "万词语义世界已打开，可滚动、拖动或使用键盘逐层探索");
+        ? `已从实景词 ${spatialEntryWord} 进入相关词域；其余词按语义关系组织${entryMode === "spatial-overscroll" ? "；缩到总览后继续缩小可返回原场景" : ""}`
+        : entryMode === "spatial-overscroll"
+          ? "已从空间场景进入万词语义世界；缩到总览后继续缩小可返回原场景"
+          : "万词语义世界已打开，可滚动、拖动或使用键盘逐层探索");
     });
     return () => {
       active = false;
     };
-  }, [initialQuery, open, spatialEntryWord]);
+  }, [entryMode, initialQuery, open, spatialEntryWord]);
 
   useEffect(() => {
     if (!open) return;
@@ -258,6 +267,9 @@ export function LexicalWorld({
       aria-modal="true"
       aria-label="一万个词的分层探索世界"
       aria-busy={searching}
+      data-entry-mode={entryMode}
+      data-zoom-out-boundary={onZoomOutBoundary ? "enabled" : "disabled"}
+      data-semantic-transition-state={transitionState}
       tabIndex={-1}
     >
       <header className="lexical-world__header">
@@ -324,6 +336,7 @@ export function LexicalWorld({
           repository={repository}
           initialRealmId={initialRealmId}
           spatialEntryWord={spatialEntryWord}
+          onZoomOutBoundary={onZoomOutBoundary}
         />
 
         {selected ? (

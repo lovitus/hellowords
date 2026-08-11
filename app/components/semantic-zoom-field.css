@@ -31,7 +31,300 @@
   overflow: hidden;
   transform-origin: 0 0;
   background: #dfe8e0;
+  opacity: 1;
+  transition: opacity 240ms ease-out;
   will-change: transform;
+}
+
+.semantic-zoom-field[data-visual-mode="diagram"] .semantic-zoom-field__plane {
+  opacity: 0;
+}
+
+.semantic-zoom-field__semantic-backdrop {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  color: var(--semantic-backdrop-ink);
+  background:
+    radial-gradient(circle at 76% 28%, color-mix(in srgb, var(--semantic-backdrop-accent) 18%, transparent), transparent 38%),
+    radial-gradient(circle at 22% 82%, color-mix(in srgb, var(--semantic-backdrop-secondary) 12%, transparent), transparent 42%),
+    linear-gradient(145deg, color-mix(in srgb, var(--semantic-backdrop-surface) 94%, white), color-mix(in srgb, var(--semantic-backdrop-accent) 9%, #f7f7f1));
+  animation: semantic-backdrop-enter 260ms ease-out both;
+  pointer-events: none;
+}
+
+.semantic-zoom-field__semantic-backdrop::after {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(color-mix(in srgb, var(--semantic-backdrop-accent) 24%, transparent) 0.75px, transparent 0.75px);
+  background-size: 18px 18px;
+  content: "";
+  opacity: 0.28;
+}
+
+.semantic-zoom-field__backdrop-art {
+  position: absolute;
+  z-index: 1;
+  inset: clamp(5.5rem, 15vh, 8rem) clamp(1rem, 3vw, 2.5rem) clamp(6.5rem, 17vh, 9rem);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--semantic-backdrop-accent) 13%, transparent);
+  border-radius: clamp(1.5rem, 4vw, 3.5rem);
+  background: color-mix(in srgb, var(--semantic-backdrop-surface) 36%, transparent);
+  box-shadow: inset 0 0 5rem color-mix(in srgb, var(--semantic-backdrop-accent) 8%, transparent);
+}
+
+.semantic-zoom-field__backdrop-art::before,
+.semantic-zoom-field__backdrop-art::after {
+  position: absolute;
+  content: "";
+}
+
+.semantic-zoom-field__backdrop-mark {
+  position: absolute;
+  z-index: 2;
+  left: var(--semantic-mark-x);
+  top: var(--semantic-mark-y);
+  display: grid;
+  place-items: center;
+  width: 0.72rem;
+  height: 0.72rem;
+  border: 1px solid color-mix(in srgb, var(--semantic-backdrop-accent) 68%, white);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--semantic-backdrop-accent) 72%, white);
+  box-shadow:
+    0 0 0 5px color-mix(in srgb, var(--semantic-backdrop-accent) 10%, transparent),
+    0 0.35rem 1rem color-mix(in srgb, var(--semantic-backdrop-ink) 14%, transparent);
+  transform: translate(-50%, -50%) rotate(var(--semantic-mark-rotation));
+}
+
+.semantic-zoom-field__backdrop-mark span {
+  color: var(--semantic-backdrop-muted);
+  font: 700 0.66rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: nowrap;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="number-line"] .semantic-zoom-field__backdrop-art::before {
+  right: 7%;
+  left: 7%;
+  top: 52%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--semantic-backdrop-accent) 6% 94%, transparent);
+  box-shadow: 0 0 1.2rem color-mix(in srgb, var(--semantic-backdrop-accent) 32%, transparent);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="number-line"] .semantic-zoom-field__backdrop-art::after {
+  inset: 18% 7%;
+  background: repeating-linear-gradient(90deg, transparent 0 calc(5.25% - 1px), color-mix(in srgb, var(--semantic-backdrop-accent) 30%, transparent) calc(5.25% - 1px) 5.25%);
+  mask-image: linear-gradient(transparent 43%, black 43% 57%, transparent 57%);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="number-line"] .semantic-zoom-field__backdrop-mark {
+  width: 2px;
+  height: 1.9rem;
+  border: 0;
+  border-radius: 1px;
+  background: var(--semantic-backdrop-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--semantic-backdrop-surface) 70%, transparent);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="number-line"] .semantic-zoom-field__backdrop-mark span {
+  position: absolute;
+  top: 2.35rem;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="grid"] .semantic-zoom-field__backdrop-art,
+.semantic-zoom-field__semantic-backdrop[data-motif="object"] .semantic-zoom-field__backdrop-art {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--semantic-backdrop-accent) 13%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--semantic-backdrop-accent) 13%, transparent) 1px, transparent 1px);
+  background-size: 9% 12%;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="grid"] .semantic-zoom-field__backdrop-mark {
+  width: clamp(1.4rem, 3vw, 2.6rem);
+  height: clamp(1.4rem, 3vw, 2.6rem);
+  border-radius: 0.4rem;
+  background: color-mix(in srgb, var(--semantic-backdrop-accent) 18%, var(--semantic-backdrop-surface));
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="timeline"] .semantic-zoom-field__backdrop-art::before {
+  right: 6%;
+  left: 6%;
+  top: 50%;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--semantic-backdrop-accent), color-mix(in srgb, var(--semantic-backdrop-accent) 30%, transparent));
+  transform: rotate(-2deg);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="timeline"] .semantic-zoom-field__backdrop-mark {
+  width: 1rem;
+  height: 1rem;
+  background: var(--semantic-backdrop-surface);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="tree"] .semantic-zoom-field__backdrop-art::before {
+  inset: 8% 8% 6%;
+  background:
+    linear-gradient(90deg, transparent 49.8%, color-mix(in srgb, var(--semantic-backdrop-accent) 30%, transparent) 49.8% 50.2%, transparent 50.2%),
+    linear-gradient(28deg, transparent 49.7%, color-mix(in srgb, var(--semantic-backdrop-accent) 24%, transparent) 49.7% 50.3%, transparent 50.3%),
+    linear-gradient(-28deg, transparent 49.7%, color-mix(in srgb, var(--semantic-backdrop-accent) 24%, transparent) 49.7% 50.3%, transparent 50.3%);
+  mask-image: linear-gradient(black, transparent 84%);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="tree"] .semantic-zoom-field__backdrop-mark {
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 45% 55% 48% 52%;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="network"] .semantic-zoom-field__backdrop-art {
+  background-image:
+    linear-gradient(32deg, transparent 49.7%, color-mix(in srgb, var(--semantic-backdrop-accent) 16%, transparent) 49.7% 50.3%, transparent 50.3%),
+    linear-gradient(-26deg, transparent 49.7%, color-mix(in srgb, var(--semantic-backdrop-secondary) 15%, transparent) 49.7% 50.3%, transparent 50.3%);
+  background-size: 31% 37%, 29% 41%;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="network"] .semantic-zoom-field__backdrop-mark:nth-child(3n) {
+  width: 1.45rem;
+  height: 1.45rem;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="body"] .semantic-zoom-field__backdrop-art::before {
+  left: 50%;
+  top: 20%;
+  width: min(22%, 10rem);
+  height: 62%;
+  border: 2px solid color-mix(in srgb, var(--semantic-backdrop-accent) 30%, transparent);
+  border-radius: 48% 48% 38% 38%;
+  transform: translateX(-50%);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="body"] .semantic-zoom-field__backdrop-art::after {
+  left: 50%;
+  top: 8%;
+  width: min(9%, 4rem);
+  aspect-ratio: 1;
+  border: 2px solid color-mix(in srgb, var(--semantic-backdrop-accent) 34%, transparent);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="nature"] .semantic-zoom-field__backdrop-art::before,
+.semantic-zoom-field__semantic-backdrop[data-motif="orbit"] .semantic-zoom-field__backdrop-art::before {
+  inset: 9% 18%;
+  border: 2px solid color-mix(in srgb, var(--semantic-backdrop-accent) 17%, transparent);
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 12%, color-mix(in srgb, var(--semantic-backdrop-accent) 10%, transparent) 12.2% 12.8%);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="nature"] .semantic-zoom-field__backdrop-mark {
+  width: 0.9rem;
+  height: 1.7rem;
+  border-radius: 100% 0 100% 0;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="orbit"] .semantic-zoom-field__backdrop-mark:nth-child(3n) {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="action"] .semantic-zoom-field__backdrop-art::before {
+  left: 7%;
+  bottom: 15%;
+  width: 88%;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, var(--semantic-backdrop-accent));
+  transform: rotate(-28deg);
+  transform-origin: 0 50%;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="action"] .semantic-zoom-field__backdrop-mark {
+  width: 1.5rem;
+  height: 0.55rem;
+  border-radius: 999px;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="language"] .semantic-zoom-field__backdrop-art {
+  background-image: linear-gradient(color-mix(in srgb, var(--semantic-backdrop-accent) 11%, transparent) 1px, transparent 1px);
+  background-size: 100% 18%;
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="language"] .semantic-zoom-field__backdrop-mark {
+  width: clamp(2rem, 5vw, 4rem);
+  height: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, var(--semantic-backdrop-surface) 80%, var(--semantic-backdrop-accent));
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="language"] .semantic-zoom-field__backdrop-mark span {
+  color: var(--semantic-backdrop-ink);
+  font-size: clamp(0.72rem, 1.4vw, 1.05rem);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="spectrum"] .semantic-zoom-field__backdrop-art::before {
+  inset: 28% 5%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--semantic-backdrop-accent) 55%, #7294bb), color-mix(in srgb, var(--semantic-backdrop-accent) 32%, #d5a45c), color-mix(in srgb, var(--semantic-backdrop-accent) 58%, #b36c85));
+  opacity: 0.28;
+  filter: blur(10px);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="spectrum"] .semantic-zoom-field__backdrop-mark {
+  width: clamp(0.7rem, 1.6vw, 1.3rem);
+  height: calc(2rem + var(--semantic-mark-index) * 0.14rem);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--semantic-backdrop-accent) calc(35% + var(--semantic-mark-index) * 3%), white);
+}
+
+.semantic-zoom-field__semantic-backdrop[data-motif="object"] .semantic-zoom-field__backdrop-mark {
+  width: clamp(1.3rem, 3vw, 2.5rem);
+  height: clamp(1.3rem, 3vw, 2.5rem);
+  border-radius: 0.3rem;
+  background: transparent;
+}
+
+.semantic-zoom-field__backdrop-copy {
+  position: absolute;
+  z-index: 3;
+  left: clamp(1.25rem, 4vw, 3.5rem);
+  bottom: 4.25rem;
+  display: grid;
+  gap: 0.2rem;
+  width: min(31rem, 48%);
+  padding: 0.8rem 1rem;
+  border-left: 3px solid color-mix(in srgb, var(--semantic-backdrop-accent) 62%, white);
+  border-radius: 0 1rem 1rem 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--semantic-backdrop-surface) 92%, transparent), color-mix(in srgb, var(--semantic-backdrop-surface) 42%, transparent));
+  text-shadow: 0 1px color-mix(in srgb, var(--semantic-backdrop-surface) 86%, transparent);
+}
+
+.semantic-zoom-field__backdrop-copy > span {
+  color: var(--semantic-backdrop-accent);
+  font: 800 0.64rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.11em;
+}
+
+.semantic-zoom-field__backdrop-copy small {
+  margin-top: 0.2rem;
+  color: var(--semantic-backdrop-muted);
+  font: 720 0.74rem/1.35 system-ui, sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.semantic-zoom-field__backdrop-copy strong {
+  color: var(--semantic-backdrop-ink);
+  font: 650 clamp(1.35rem, 3vw, 2.85rem)/1.04 ui-serif, Georgia, "Times New Roman", serif;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+.semantic-zoom-field__backdrop-copy em {
+  color: var(--semantic-backdrop-muted);
+  font: 720 clamp(0.8rem, 1.35vw, 1.05rem)/1.35 system-ui, sans-serif;
+  overflow-wrap: anywhere;
 }
 
 .semantic-zoom-field__overview {
@@ -332,6 +625,11 @@
   border: 0;
 }
 
+@keyframes semantic-backdrop-enter {
+  from { opacity: 0; transform: scale(0.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 @media (max-width: 819px) {
   .semantic-zoom-field {
     height: min(72svh, 42rem);
@@ -367,6 +665,19 @@
     font-size: 0.84rem;
   }
 
+  .semantic-zoom-field__backdrop-art {
+    inset: 6.2rem 0.6rem 7.8rem;
+    border-radius: 1.5rem;
+  }
+
+  .semantic-zoom-field__backdrop-copy {
+    display: none;
+  }
+
+  .semantic-zoom-field__semantic-backdrop[data-motif="number-line"] .semantic-zoom-field__backdrop-mark:nth-child(even) span {
+    display: none;
+  }
+
   .semantic-zoom-field__status {
     bottom: 0.65rem;
     max-width: calc(100% - 1rem);
@@ -376,8 +687,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .semantic-zoom-field__plane,
   .semantic-zoom-field__realm-tile,
   .semantic-zoom-field__node {
     transition: none;
+  }
+
+  .semantic-zoom-field__semantic-backdrop {
+    animation: none;
   }
 }

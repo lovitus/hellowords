@@ -25,6 +25,9 @@ export interface SemanticZoomBounds {
 export interface SemanticZoomNodeInput {
   readonly id: string;
   readonly count: number;
+  /** Visible copy used to reserve a truthful screen-space card footprint. */
+  readonly labelEn?: string;
+  readonly labelZh?: string;
   /** Optional reviewed position supplied by the visual manifest. */
   readonly authoredPoint?: Point;
 }
@@ -57,6 +60,8 @@ export interface SemanticZoomPlacementOptions {
   /** Screen-space UI that vocabulary pills must not cover. */
   readonly protectedRegions?: readonly SemanticZoomBounds[];
 }
+
+export type SemanticZoomProjectionMode = "spatial" | "shelf";
 
 export interface SemanticZoomDataReadiness {
   readonly realmSelected: boolean;
@@ -460,6 +465,7 @@ export function projectSemanticZoomNodes<T extends SemanticZoomNodeInput>(
   camera: Camera,
   viewport: SemanticZoomViewport,
   budget = semanticZoomNodeBudget(viewport.width),
+  placementMode: SemanticZoomProjectionMode = "spatial",
 ): SemanticZoomProjectedNode<T>[] {
   const margin = 150;
   return nodes
@@ -468,7 +474,7 @@ export function projectSemanticZoomNodes<T extends SemanticZoomNodeInput>(
       screenX: node.x * camera.scale + camera.x,
       screenY: node.y * camera.scale + camera.y,
     }))
-    .filter((node) => (
+    .filter((node) => placementMode === "shelf" || (
       node.screenX >= -margin
       && node.screenX <= viewport.width + margin
       && node.screenY >= -margin
@@ -485,24 +491,186 @@ export function projectSemanticZoomNodes<T extends SemanticZoomNodeInput>(
       );
       const leftDistance = Math.hypot(left.screenX - viewport.width / 2, left.screenY - viewport.height / 2);
       const rightDistance = Math.hypot(right.screenX - viewport.width / 2, right.screenY - viewport.height / 2);
-      return rightInside - leftInside || leftDistance - rightDistance || left.node.id.localeCompare(right.node.id);
+      return (placementMode === "spatial" ? rightInside - leftInside : 0)
+        || leftDistance - rightDistance
+        || left.node.id.localeCompare(right.node.id);
     })
     .slice(0, Math.max(1, Math.floor(budget)));
 }
 
-function collisionBoxForLevel(
+function approximateTextWidth(text: string, fontSize: number): number {
+  return [...text].reduce((width, character) => {
+    if (/\s/u.test(character)) return width + fontSize * 0.32;
+    if (/[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/u.test(character)) {
+      return width + fontSize;
+    }
+    if (/[MWmw@#%&]/u.test(character)) return width + fontSize * 0.86;
+    if (/[ilI1.,'`|!:;]/u.test(character)) return width + fontSize * 0.32;
+    if (/[A-Z]/u.test(character)) return width + fontSize * 0.72;
+    if (/[0-9]/u.test(character)) return width + fontSize * 0.58;
+    return width + fontSize * 0.64;
+  }, 0);
+}
+
+function wrappedTextLineCount(text: string, fontSize: number, availableWidth: number): number {
+  return text.split(/\r?\n/u).reduce((lines, line) => (
+    lines + Math.max(1, Math.ceil(approximateTextWidth(line, fontSize) / availableWidth))
+  ), 0);
+}
+
+/**
+ * Reserves the same native-pixel footprint rendered by the word-card CSS.
+ * English and translated copy are never made smaller to satisfy density; a
+ * larger card simply consumes more collision slots and lowers the live count.
+ */
+export function semanticZoomNodeBox(
+  node: SemanticZoomNodeInput,
   level: SemanticZoomLevel,
   viewportWidth: number,
   expanded: boolean,
 ): { width: number; height: number } {
   const mobile = viewportWidth < 820;
+  if (node.labelEn) {
+    if (level !== "word") {
+      const metrics = mobile
+        ? {
+            minWidth: level === "realm" ? 160 : level === "topic" ? 148 : 142,
+            maxWidth: Math.max(48, Math.min(176, viewportWidth - 12)),
+            leftChromeWidth: 38,
+            verticalPadding: 18,
+            rowGap: 4,
+            englishFontSize: 13.44,
+            englishLineHeight: 16,
+            translationFontSize: 11.52,
+            translationLineHeight: 14,
+            minimumHeight: level === "realm" ? 58 : level === "topic" ? 50 : 44,
+          }
+        : {
+            minWidth: level === "realm" ? 210 : level === "topic" ? 190 : 176,
+            maxWidth: level === "realm" ? 300 : level === "topic" ? 340 : 320,
+            leftChromeWidth: 42,
+            verticalPadding: 18,
+            rowGap: 4,
+            englishFontSize: 15.36,
+            englishLineHeight: 18,
+            translationFontSize: 11.52,
+            translationLineHeight: 15,
+            minimumHeight: level === "realm" ? 62 : level === "topic" ? 54 : 50,
+          };
+      const boundedMaxWidth = Math.max(48, Math.min(metrics.maxWidth, viewportWidth - 12));
+      const badgeLabel = node.count.toLocaleString("en-US");
+      const badgeWidth = Math.max(28, Math.ceil(approximateTextWidth(badgeLabel, 10.56) + 12));
+      const badgeChromeWidth = badgeWidth + 8;
+      const englishWidth = approximateTextWidth(node.labelEn, metrics.englishFontSize);
+      const translationWidth = expanded && node.labelZh
+        ? Math.max(...node.labelZh.split(/\r?\n/u).map((line) => (
+            approximateTextWidth(line, metrics.translationFontSize)
+          )))
+        : 0;
+      const preferredWidth = Math.max(
+        englishWidth + metrics.leftChromeWidth + badgeChromeWidth,
+        translationWidth + metrics.leftChromeWidth,
+      );
+      const width = Math.ceil(clamp(
+        preferredWidth,
+        Math.min(metrics.minWidth, boundedMaxWidth),
+        boundedMaxWidth,
+      ));
+      const englishTextWidth = Math.max(
+        1,
+        width - metrics.leftChromeWidth - badgeChromeWidth,
+      );
+      const translationTextWidth = Math.max(1, width - metrics.leftChromeWidth);
+      const englishLines = wrappedTextLineCount(
+        node.labelEn,
+        metrics.englishFontSize,
+        englishTextWidth,
+      );
+      const translationLines = expanded && node.labelZh
+        ? wrappedTextLineCount(
+            node.labelZh,
+            metrics.translationFontSize,
+            translationTextWidth,
+          )
+        : 0;
+      return {
+        width,
+        height: Math.max(metrics.minimumHeight, Math.ceil(
+          metrics.verticalPadding
+          + englishLines * metrics.englishLineHeight
+          + (translationLines
+            ? metrics.rowGap + translationLines * metrics.translationLineHeight
+            : 0),
+        )),
+      };
+    }
+    const metrics = mobile
+      ? {
+          minWidth: 142,
+          maxWidth: Math.max(48, Math.min(176, viewportWidth - 12)),
+          chromeWidth: 40,
+          verticalPadding: 18,
+          rowGap: 4,
+          englishFontSize: 13.44,
+          englishLineHeight: 16,
+          translationFontSize: 11.52,
+          translationLineHeight: 14,
+        }
+      : {
+          minWidth: 148,
+          maxWidth: Math.max(48, Math.min(220, viewportWidth - 12)),
+          chromeWidth: 40,
+          verticalPadding: 18,
+          rowGap: 4,
+          englishFontSize: 14.4,
+          englishLineHeight: 17,
+          translationFontSize: 12,
+          translationLineHeight: 15,
+        };
+    const preferredTextWidth = Math.max(
+      approximateTextWidth(node.labelEn, metrics.englishFontSize),
+      expanded && node.labelZh
+        ? Math.max(...node.labelZh.split(/\r?\n/u).map((line) => (
+            approximateTextWidth(line, metrics.translationFontSize)
+          )))
+        : 0,
+    );
+    const width = Math.ceil(clamp(
+      preferredTextWidth + metrics.chromeWidth,
+      Math.min(metrics.minWidth, metrics.maxWidth),
+      metrics.maxWidth,
+    ));
+    const availableTextWidth = Math.max(1, width - metrics.chromeWidth);
+    const englishLines = wrappedTextLineCount(
+      node.labelEn,
+      metrics.englishFontSize,
+      availableTextWidth,
+    );
+    const translationLines = expanded && node.labelZh
+      ? wrappedTextLineCount(
+          node.labelZh,
+          metrics.translationFontSize,
+          availableTextWidth,
+        )
+      : 0;
+    return {
+      width,
+      height: Math.max(mobile ? 44 : 36, Math.ceil(
+        metrics.verticalPadding
+        + englishLines * metrics.englishLineHeight
+        + (translationLines
+          ? metrics.rowGap + translationLines * metrics.translationLineHeight
+          : 0),
+      )),
+    };
+  }
   const base = level === "realm"
     ? { width: mobile ? 112 : 160, height: mobile ? 58 : 62 }
     : level === "topic"
       ? { width: mobile ? 112 : 144, height: mobile ? 46 : 50 }
       : level === "subcluster"
         ? { width: mobile ? 108 : 132, height: mobile ? 42 : 46 }
-        : { width: mobile ? 86 : 104, height: mobile ? 34 : 36 };
+        : { width: mobile ? 86 : 104, height: mobile ? 44 : 36 };
   return {
     width: Math.min(Math.max(48, viewportWidth - 12), base.width),
     height: base.height + (expanded ? 16 : 0),
@@ -530,59 +698,127 @@ export function placeSemanticZoomNodes<T extends SemanticZoomNodeInput>(
   options: SemanticZoomPlacementOptions = {},
 ): SemanticZoomPlacedNode<T>[] {
   if (!nodes.length) return [];
-  const box = collisionBoxForLevel(level, viewport.width, options.expanded ?? false);
+  const boxes = nodes.map((node) => semanticZoomNodeBox(
+    node.node,
+    level,
+    viewport.width,
+    options.expanded ?? false,
+  ));
   const gap = level === "word" ? 4 : 7;
   const gutter = 6;
-  const placed: SemanticZoomPlacedNode<T>[] = [];
-  const missesChrome = (point: Point) => {
-    const candidateBox = { x: point.x, y: point.y, width: box.width, height: box.height };
-    return (options.protectedRegions ?? []).every((region) => !boxesOverlap(
-      candidateBox,
-      {
-        x: region.x + region.width / 2,
-        y: region.y + region.height / 2,
-        width: region.width,
-        height: region.height,
-      },
-      2,
-    ));
-  };
-  const strideX = box.width + gap;
-  const strideY = box.height + gap;
-  const columns = Math.max(1, Math.floor((viewport.width - gutter * 2 + gap) / strideX));
-  const rows = Math.max(1, Math.floor((viewport.height - gutter * 2 + gap) / strideY));
-  const availableGrid = Array.from({ length: columns * rows }, (_, index) => ({
-    x: gutter + box.width / 2 + (index % columns) * strideX,
-    y: gutter + box.height / 2 + Math.floor(index / columns) * strideY,
-  })).filter(missesChrome);
+  const rowWidth = Math.max(0, viewport.width - gutter * 2);
+  const shelves: Array<{
+    items: Array<{ node: SemanticZoomProjectedNode<T>; box: { width: number; height: number }; index: number }>;
+    width: number;
+    height: number;
+  }> = [];
 
-  for (const node of nodes) {
-    const anchor = { x: node.screenX, y: node.screenY };
-    let bestIndex = -1;
-    let bestDistance = Number.POSITIVE_INFINITY;
-    for (const [index, candidate] of availableGrid.entries()) {
-      const distance = Math.hypot(candidate.x - anchor.x, candidate.y - anchor.y);
-      if (distance < bestDistance) {
-        bestIndex = index;
-        bestDistance = distance;
-      }
+  // First-fit shelves keep each real card's footprint. One unusually long
+  // translation only increases its own row instead of forcing every card into
+  // the batch's largest rectangle.
+  nodes.forEach((node, index) => {
+    const box = boxes[index];
+    const shelf = shelves.find((candidate) => (
+      candidate.width + (candidate.items.length ? gap : 0) + box.width <= rowWidth
+    ));
+    const item = { node, box, index };
+    if (shelf) {
+      shelf.items.push(item);
+      shelf.width += gap + box.width;
+      shelf.height = Math.max(shelf.height, box.height);
+    } else if (box.width <= rowWidth) {
+      shelves.push({ items: [item], width: box.width, height: box.height });
     }
-    // Density budgets are upper bounds. Tiny or chrome-heavy viewports may
-    // have fewer collision-free slots, so omit the farthest remainder instead
-    // of forcing overlapping pills into the field.
-    if (bestIndex < 0) continue;
-    const point = availableGrid.splice(bestIndex, 1)[0];
-    placed.push({
-      ...node,
-      screenX: point.x,
-      screenY: point.y,
-      anchorScreenX: anchor.x,
-      anchorScreenY: anchor.y,
-      boxWidth: box.width,
-      boxHeight: box.height,
-    });
+  });
+
+  const fullWidthBlockers = (options.protectedRegions ?? [])
+    .filter((region) => region.x <= gutter && region.x + region.width >= viewport.width - gutter)
+    .map((region) => ({
+      start: Math.max(gutter, region.y - gap),
+      end: Math.min(viewport.height - gutter, region.y + region.height + gap),
+    }))
+    .sort((left, right) => left.start - right.start);
+  const mergedBlockers: Array<{ start: number; end: number }> = [];
+  for (const blocker of fullWidthBlockers) {
+    const previous = mergedBlockers.at(-1);
+    if (previous && blocker.start <= previous.end) previous.end = Math.max(previous.end, blocker.end);
+    else mergedBlockers.push({ ...blocker });
   }
-  return placed;
+  const verticalBands: Array<{ start: number; end: number }> = [];
+  let bandStart = gutter;
+  for (const blocker of mergedBlockers) {
+    if (blocker.start > bandStart) verticalBands.push({ start: bandStart, end: blocker.start });
+    bandStart = Math.max(bandStart, blocker.end);
+  }
+  if (bandStart < viewport.height - gutter) {
+    verticalBands.push({ start: bandStart, end: viewport.height - gutter });
+  }
+
+  const placed = new Map<number, SemanticZoomPlacedNode<T>>();
+  let bandIndex = 0;
+  const shelfStackHeight = shelves.reduce((height, shelf, index) => (
+    height + shelf.height + (index ? gap : 0)
+  ), 0);
+  const firstBand = verticalBands[0];
+  let verticalCursor = firstBand
+    ? firstBand.start + (verticalBands.length === 1
+      ? Math.max(0, (firstBand.end - firstBand.start - shelfStackHeight) / 2)
+      : 0)
+    : viewport.height;
+  for (const shelf of shelves) {
+    while (
+      bandIndex < verticalBands.length
+      && verticalCursor + shelf.height > verticalBands[bandIndex].end
+    ) {
+      bandIndex += 1;
+      verticalCursor = verticalBands[bandIndex]?.start ?? viewport.height;
+    }
+    if (bandIndex >= verticalBands.length) continue;
+
+    const orderedItems = [...shelf.items].sort((left, right) => (
+      left.node.screenX - right.node.screenX || left.index - right.index
+    ));
+    const averageAnchorX = orderedItems.reduce((sum, item) => sum + item.node.screenX, 0)
+      / orderedItems.length;
+    let horizontalCursor = clamp(
+      averageAnchorX - shelf.width / 2,
+      gutter,
+      viewport.width - gutter - shelf.width,
+    );
+    const rowY = verticalCursor + shelf.height / 2;
+    for (const item of orderedItems) {
+      const point = { x: horizontalCursor + item.box.width / 2, y: rowY };
+      horizontalCursor += item.box.width + gap;
+      const candidateBox = { ...point, ...item.box };
+      const missesChrome = (options.protectedRegions ?? []).every((region) => !boxesOverlap(
+        candidateBox,
+        {
+          x: region.x + region.width / 2,
+          y: region.y + region.height / 2,
+          width: region.width,
+          height: region.height,
+        },
+        2,
+      ));
+      if (!missesChrome) continue;
+      placed.set(item.index, {
+        ...item.node,
+        screenX: point.x,
+        screenY: point.y,
+        anchorScreenX: item.node.screenX,
+        anchorScreenY: item.node.screenY,
+        boxWidth: item.box.width,
+        boxHeight: item.box.height,
+      });
+    }
+    verticalCursor += shelf.height + gap;
+  }
+  const ordered: SemanticZoomPlacedNode<T>[] = [];
+  for (let index = 0; index < nodes.length; index += 1) {
+    const node = placed.get(index);
+    if (node) ordered.push(node);
+  }
+  return ordered;
 }
 
 export function nearestSemanticZoomNode<T extends SemanticZoomNodeInput>(

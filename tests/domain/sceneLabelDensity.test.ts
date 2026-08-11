@@ -6,10 +6,8 @@ import {
   buildPortalCueProtectedRegions,
   buildVocabularyRevealSummary,
   computeSceneLabelLayout,
-  prioritizeCurrentLabelOrder,
   sceneLabelDensityTarget,
   sceneLabelRevealOpacity,
-  sceneLabelVisibilityBudget,
   type Scene,
   type SceneLabelCamera,
   type SceneLabelLayoutItem,
@@ -69,38 +67,6 @@ function overlaps(first: Bounds, second: Bounds): boolean {
   );
 }
 
-function overlapsWithPadding(first: Bounds, second: Bounds, padding: number): boolean {
-  return !(
-    first.right + padding <= second.left
-    || first.left >= second.right + padding
-    || first.bottom + padding <= second.top
-    || first.top >= second.bottom + padding
-  );
-}
-
-function preferredBoundsAt(
-  scene: Scene,
-  labelId: string,
-  item: SceneLabelLayoutItem,
-  camera: SceneLabelCamera,
-): { bounds: Bounds; anchorX: number; anchorY: number } {
-  const label = scene.labels.find((candidate) => candidate.id === labelId);
-  assert.ok(label, `${scene.id}/${labelId} has an authored anchor`);
-  const effectiveScale = camera.fit * camera.scale;
-  const anchorX = camera.x + label.x * effectiveScale;
-  const anchorY = camera.y + label.y * effectiveScale;
-  return {
-    anchorX,
-    anchorY,
-    bounds: {
-      left: anchorX + item.offsetX - item.width / 2,
-      right: anchorX + item.offsetX + item.width / 2,
-      top: anchorY + item.offsetY - item.height / 2,
-      bottom: anchorY + item.offsetY + item.height / 2,
-    },
-  };
-}
-
 function median(values: readonly number[]): number {
   const sorted = [...values].sort((first, second) => first - second);
   const middle = Math.floor(sorted.length / 2);
@@ -150,10 +116,8 @@ test("all authored scenes fill spare first-screen space without collisions or de
       const visible = layout.filter((item) => item.interactive);
       const visibleIds = new Set(visible.map((item) => item.id));
       const labelsById = new Map(scene.labels.map((label) => [label.id, label]));
-      const budget = sceneLabelVisibilityBudget(viewport, configuration.meaningVisible);
       counts.push(visible.length);
 
-      assert.ok(visible.length <= budget, `${configuration.name}/${scene.id} respects its ${budget}-word budget`);
       const generalFloor = configuration.name === "mobile-meaning" ? 5 : 7;
       assert.ok(
         visible.length >= Math.min(generalFloor, scene.labels.length),
@@ -261,7 +225,7 @@ test("all authored scenes preserve default LOD disclosure at maximum zoom", asyn
   }
 });
 
-test("all authored scenes keep an owned sticky slot across fixed and centered micro zoom", async () => {
+test("all authored scenes reproduce every micro camera exactly after a zoom round trip", async () => {
   const scenes = await loadScenes();
 
   for (const viewport of microZoomViewports) {
@@ -271,10 +235,7 @@ test("all authored scenes keep an owned sticky slot across fixed and centered mi
       const fixedY = (viewport.height - scene.height * fit) / 2;
 
       for (const projection of ["fixed", "centered"] as const) {
-        let retainedLabelIds = new Set<string>();
-        const preferredOffsets = new Map<string, readonly [number, number]>();
-        let previousLayout = new Map<string, SceneLabelLayoutItem>();
-        let previousScale = microZoomScales[0];
+        const signatures = new Map<number, ReadonlyArray<readonly [string, boolean, number, number]>>();
 
         for (const scale of microZoomScales) {
           const camera: SceneLabelCamera = projection === "fixed"
@@ -291,65 +252,35 @@ test("all authored scenes keep an owned sticky slot across fixed and centered mi
             camera,
             viewport,
             false,
-            { retainedLabelIds, preferredOffsets, protectedRegions },
+            { protectedRegions },
           );
-          const layoutById = new Map(layout.map((item) => [item.id, item]));
-          const padding = viewport.compact ? 1 : 2;
-          const edgeMargin = viewport.compact ? 3 : 6;
+          signatures.set(scale, layout.map((item) => (
+            [item.id, item.interactive, item.offsetX, item.offsetY] as const
+          )));
+        }
 
-          for (const [labelId, before] of previousLayout) {
-            if (!before.interactive) continue;
-            const after = layoutById.get(labelId);
-            assert.ok(after, `${scene.id}/${labelId} remains in the layout result`);
-            const { bounds, anchorX, anchorY } = preferredBoundsAt(
-              scene,
-              labelId,
-              before,
-              camera,
-            );
-            const anchorRemainsProjected = anchorX >= -18
-              && anchorX <= viewport.width + 18
-              && anchorY >= -18
-              && anchorY <= viewport.height + 18;
-            const preferredSlotFits = bounds.left >= edgeMargin
-              && bounds.right <= viewport.width - edgeMargin
-              && bounds.top >= edgeMargin
-              && bounds.bottom <= viewport.height - edgeMargin
-              && !protectedRegions.some((region) => (
-                overlapsWithPadding(bounds, region, padding)
-              ));
-            const earlierVisibleItems = layout.filter((item) => (
-              item.id !== labelId
-              && item.interactive
-              && item.placementOrder < after.placementOrder
-            ));
-            const preferredSlotStillOwned = preferredSlotFits
-              && !earlierVisibleItems.some((item) => (
-                overlapsWithPadding(bounds, itemBounds(item), padding)
-              ));
-
-            if (!anchorRemainsProjected || !preferredSlotStillOwned) continue;
-            assert.equal(
-              after.interactive,
-              true,
-              `${viewport.name}/${projection}/${scene.id}/${labelId} does not retire at ${previousScale}→${scale}`,
-            );
-            assert.ok(
-              Math.abs(after.offsetX - before.offsetX) < 0.001
-                && Math.abs(after.offsetY - before.offsetY) < 0.001,
-              `${viewport.name}/${projection}/${scene.id}/${labelId} keeps its slot at ${previousScale}→${scale}`,
-            );
-          }
-
-          const visibleItems = layout
-            .filter((item) => item.interactive)
-            .sort((first, second) => first.placementOrder - second.placementOrder);
-          retainedLabelIds = prioritizeCurrentLabelOrder(retainedLabelIds, visibleItems);
-          for (const item of visibleItems) {
-            preferredOffsets.set(item.id, [item.offsetX, item.offsetY]);
-          }
-          previousLayout = layoutById;
-          previousScale = scale;
+        for (const scale of [...microZoomScales].reverse()) {
+          const camera: SceneLabelCamera = projection === "fixed"
+            ? { x: fixedX, y: fixedY, fit: fit / scale, scale }
+            : {
+              x: (viewport.width - scene.width * fit * scale) / 2,
+              y: (viewport.height - scene.height * fit * scale) / 2,
+              fit,
+              scale,
+            };
+          const protectedRegions = buildPortalCueProtectedRegions(scene.portals, camera, viewport);
+          const replay = computeSceneLabelLayout(
+            scene.labels,
+            camera,
+            viewport,
+            false,
+            { protectedRegions },
+          ).map((item) => [item.id, item.interactive, item.offsetX, item.offsetY] as const);
+          assert.deepEqual(
+            replay,
+            signatures.get(scale),
+            `${viewport.name}/${projection}/${scene.id}@${scale} has one interactive set and offset map`,
+          );
         }
       }
     }

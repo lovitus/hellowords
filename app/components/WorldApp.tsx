@@ -46,6 +46,18 @@ export interface WorldSceneSettledDetail {
   readonly cache: SceneTransitionCacheReadiness;
 }
 
+type LexicalWorldEntryMode = "global" | "spatial-bridge" | "spatial-overscroll";
+
+interface LexicalWorldEntryState {
+  readonly mode: LexicalWorldEntryMode;
+  readonly realmId?: string;
+  readonly word?: string;
+  /** Exact spatial camera left mounted beneath the semantic plane. */
+  readonly returnSnapshot?: SceneViewportSnapshot;
+}
+
+type SemanticTransitionState = "idle" | "open" | "returning";
+
 declare global {
   interface WindowEventMap {
     "world:scene-settled": CustomEvent<WorldSceneSettledDetail>;
@@ -60,10 +72,8 @@ export function WorldApp() {
   const [meaningVisible, setMeaningVisible] = useState(false);
   const [lexicalWorldOpen, setLexicalWorldOpen] = useState(false);
   const [lexicalWorldInitialFocus, setLexicalWorldInitialFocus] = useState<"auto" | "search" | "dialog">("auto");
-  const [lexicalWorldEntry, setLexicalWorldEntry] = useState<{
-    readonly realmId: string;
-    readonly word: string;
-  } | null>(null);
+  const [lexicalWorldEntry, setLexicalWorldEntry] = useState<LexicalWorldEntryState | null>(null);
+  const [semanticTransitionState, setSemanticTransitionState] = useState<SemanticTransitionState>("idle");
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [transitionState, setTransitionState] = useState<"loading" | "incoming" | "idle">("loading");
@@ -85,6 +95,7 @@ export function WorldApp() {
   const transitionSequenceRef = useRef(0);
   const preferredChildRef = useRef<string | null>(null);
   const activeViewportSnapshotRef = useRef<SceneViewportSnapshot | null>(null);
+  const semanticReturnTimerRef = useRef<number | null>(null);
   const pendingPortalRef = useRef<Portal | null>(null);
   const activePortalNavigatorRef = useRef<ScenePortalNavigator | null>(null);
   const pendingContinuitySettleRef = useRef<(() => void) | null>(null);
@@ -131,7 +142,12 @@ export function WorldApp() {
     return () => controller.abort();
   }, []);
 
-  useEffect(() => () => navigationRef.current?.abort(), []);
+  useEffect(() => () => {
+    navigationRef.current?.abort();
+    if (semanticReturnTimerRef.current !== null) {
+      window.clearTimeout(semanticReturnTimerRef.current);
+    }
+  }, []);
 
   useEffect(() => {
     if (!scene) return;
@@ -463,7 +479,12 @@ export function WorldApp() {
   }, []);
 
   const openLexicalOverview = useCallback((source: "pointer" | "keyboard") => {
-    setLexicalWorldEntry(null);
+    if (semanticReturnTimerRef.current !== null) {
+      window.clearTimeout(semanticReturnTimerRef.current);
+      semanticReturnTimerRef.current = null;
+    }
+    setLexicalWorldEntry({ mode: "global" });
+    setSemanticTransitionState("open");
     setLexicalWorldInitialFocus(source === "keyboard" ? "search" : "auto");
     setLexicalWorldOpen(true);
   }, []);
@@ -475,10 +496,59 @@ export function WorldApp() {
     const realmId = label?.lexemeId
       ? SPATIAL_REALM_BY_LEXEME[label.lexemeId]
       : undefined;
-    setLexicalWorldEntry(realmId && label ? { realmId, word: label.word } : null);
+    if (semanticReturnTimerRef.current !== null) {
+      window.clearTimeout(semanticReturnTimerRef.current);
+      semanticReturnTimerRef.current = null;
+    }
+    const snapshot = source === "zoom" && activeViewportSnapshotRef.current
+      ? {
+          ...activeViewportSnapshotRef.current,
+          camera: { ...activeViewportSnapshotRef.current.camera },
+        }
+      : undefined;
+    setLexicalWorldEntry({
+      mode: source === "zoom" ? "spatial-overscroll" : "spatial-bridge",
+      ...(realmId ? { realmId } : {}),
+      ...(label ? { word: label.word } : {}),
+      ...(snapshot ? { returnSnapshot: snapshot } : {}),
+    });
+    setSemanticTransitionState("open");
     setLexicalWorldInitialFocus(source === "keyboard" ? "dialog" : "auto");
     setLexicalWorldOpen(true);
   }, []);
+
+  const closeLexicalWorld = useCallback(() => {
+    if (semanticReturnTimerRef.current !== null) {
+      window.clearTimeout(semanticReturnTimerRef.current);
+      semanticReturnTimerRef.current = null;
+    }
+    setLexicalWorldOpen(false);
+    setLexicalWorldEntry(null);
+    setSemanticTransitionState("idle");
+  }, []);
+
+  const returnToSpatialScene = useCallback(() => {
+    const returnSnapshot = lexicalWorldEntry?.returnSnapshot;
+    if (
+      !lexicalWorldOpen
+      || semanticTransitionState !== "open"
+      || lexicalWorldEntry?.mode !== "spatial-overscroll"
+      || !returnSnapshot
+      || returnSnapshot.sceneId !== scene?.id
+    ) return;
+
+    // SceneViewport remains mounted and inert below the dialog, so its exact
+    // max-scale camera and decoded scene cache survive the semantic excursion.
+    // Closing therefore reveals the captured frame without a remount or jump.
+    setSemanticTransitionState("returning");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    semanticReturnTimerRef.current = window.setTimeout(() => {
+      semanticReturnTimerRef.current = null;
+      setLexicalWorldOpen(false);
+      setLexicalWorldEntry(null);
+      setSemanticTransitionState("idle");
+    }, reducedMotion ? 0 : 180);
+  }, [lexicalWorldEntry, lexicalWorldOpen, scene?.id, semanticTransitionState]);
 
   const selectedLabelRealmId = selectedLabel?.lexemeId
     ? SPATIAL_REALM_BY_LEXEME[selectedLabel.lexemeId]
@@ -492,6 +562,9 @@ export function WorldApp() {
       data-scene-loading={String(loading)}
       data-transition-state={transitionState}
       data-transition-cache={transitionCache}
+      data-semantic-entry-mode={lexicalWorldOpen ? lexicalWorldEntry?.mode ?? "global" : "closed"}
+      data-semantic-transition-state={semanticTransitionState}
+      data-semantic-return-scene={lexicalWorldEntry?.returnSnapshot?.sceneId}
       aria-busy={loading}
     >
       <header
@@ -666,6 +739,7 @@ export function WorldApp() {
                 key={outgoingScene.id}
                 scene={outgoingScene}
                 meaningVisible={meaningVisible}
+                selectedLabelId={null}
                 portalTargetTitles={sceneTitles}
                 transitionPhase="outgoing"
                 interactionLocked
@@ -683,6 +757,7 @@ export function WorldApp() {
               key={scene.id}
               scene={scene}
               meaningVisible={meaningVisible}
+              selectedLabelId={selectedLabel?.id ?? null}
               portalTargetTitles={sceneTitles}
               transitionPhase={outgoingScene ? "incoming" : "active"}
               interactionLocked={sceneControlsLocked}
@@ -777,7 +852,14 @@ export function WorldApp() {
       </div>
       <LexicalWorld
         open={lexicalWorldOpen}
-        onClose={() => setLexicalWorldOpen(false)}
+        onClose={closeLexicalWorld}
+        onZoomOutBoundary={lexicalWorldEntry?.mode === "spatial-overscroll"
+          && Boolean(lexicalWorldEntry.returnSnapshot)
+          && semanticTransitionState === "open"
+          ? returnToSpatialScene
+          : undefined}
+        entryMode={lexicalWorldEntry?.mode ?? "global"}
+        transitionState={semanticTransitionState === "returning" ? "returning" : "open"}
         showMeanings={meaningVisible}
         onShowMeaningsChange={setMeaningPreference}
         initialFocus={lexicalWorldInitialFocus}

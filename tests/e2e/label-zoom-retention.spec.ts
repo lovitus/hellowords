@@ -52,6 +52,26 @@ interface SceneContract {
   }>;
 }
 
+interface FitLabelSnapshot {
+  readonly id: string;
+  readonly offsetX: number;
+  readonly offsetY: number;
+  readonly leaderSide: "anchor" | "up" | "down" | "left" | "right";
+  readonly anchorMode: string | undefined;
+  readonly leaderSpan: string | undefined;
+}
+
+interface FitSceneSnapshot {
+  readonly cameraTransform: string;
+  readonly scale: number;
+  readonly labels: readonly FitLabelSnapshot[];
+  readonly progress: {
+    readonly current: number;
+    readonly total: number;
+    readonly remaining: number;
+  };
+}
+
 async function openLeafScene(page: Page): Promise<Locator> {
   await page.goto("/#world", { waitUntil: "domcontentloaded" });
   const app = page.locator(APP);
@@ -75,6 +95,99 @@ async function openLeafScene(page: Page): Promise<Locator> {
   const fittedScale = viewport && viewport.height > viewport.width * 1.25 ? "1.300" : "1.000";
   await expect(page.locator(SURFACE)).toHaveAttribute("data-scene-scale", fittedScale);
   return app;
+}
+
+async function openOakTreeScene(page: Page): Promise<Locator> {
+  await page.goto("/#world", { waitUntil: "domcontentloaded" });
+  const app = page.locator(APP);
+  const minimap = page.getByTestId("scene-minimap");
+  await expect(app).toBeVisible();
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+  await expect(page.locator(INTERACTION_LAYER)).toHaveAttribute("data-positioned", "true");
+
+  for (const sceneId of ["city-park", "oak-tree"] as const) {
+    const child = minimap.locator(
+      `[data-testid="scene-minimap-child"][data-target-scene="${sceneId}"]`,
+    );
+    await expect(child).toBeVisible();
+    await child.click();
+    await expect(app).toHaveAttribute("data-scene-id", sceneId);
+    await expect(app).toHaveAttribute("data-scene-loading", "false");
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+    await expect(page.locator(INTERACTION_LAYER)).toHaveAttribute("data-positioned", "true");
+    await expect(page.locator(LABEL_LAYER)).toHaveAttribute("data-motion-frozen", "false");
+  }
+
+  await page.getByRole("button", { name: "Fit scene" }).click();
+  const viewport = page.viewportSize();
+  const fittedScale = viewport && viewport.height > viewport.width * 1.25 ? "1.300" : "1.000";
+  await expect(page.locator(SURFACE)).toHaveAttribute("data-scene-scale", fittedScale);
+  return app;
+}
+
+async function captureFitSceneSnapshot(page: Page): Promise<FitSceneSnapshot> {
+  return page.evaluate(({ labelLayerSelector, surfaceSelector }) => {
+    const labelLayer = document.querySelector<HTMLElement>(labelLayerSelector);
+    const surface = document.querySelector<HTMLElement>(surfaceSelector);
+    const progress = document.querySelector<HTMLElement>('[data-testid="scene-word-progress"]');
+    if (!labelLayer || !surface || !progress) {
+      throw new Error("fit-scene snapshot requires labels, camera and progress summary");
+    }
+    const labels = [...labelLayer.querySelectorAll<HTMLElement>('[data-testid="word-label"]')]
+      .filter((label) => label.dataset.interactive === "true")
+      .map((label): FitLabelSnapshot => {
+        const offsetX = -Number.parseFloat(label.style.getPropertyValue("--label-anchor-x"));
+        const offsetY = -Number.parseFloat(label.style.getPropertyValue("--label-anchor-y"));
+        if (!Number.isFinite(offsetX) || !Number.isFinite(offsetY)) {
+          throw new Error(`interactive label ${label.dataset.labelId} has no painted offset`);
+        }
+        const displacement = Math.hypot(offsetX, offsetY);
+        const leaderSide = displacement < 4
+          ? "anchor"
+          : Math.abs(offsetX) > Math.abs(offsetY)
+            ? offsetX < 0 ? "left" : "right"
+            : offsetY < 0 ? "up" : "down";
+        return {
+          id: label.dataset.labelId ?? "",
+          offsetX,
+          offsetY,
+          leaderSide,
+          anchorMode: label.dataset.anchorMode,
+          leaderSpan: label.dataset.leaderSpan,
+        };
+      })
+      .sort((first, second) => first.id.localeCompare(second.id));
+    return {
+      cameraTransform: surface.style.transform,
+      scale: Number(surface.dataset.sceneScale),
+      labels,
+      progress: {
+        current: Number(progress.dataset.current),
+        total: Number(progress.dataset.total),
+        remaining: Number(progress.dataset.remaining),
+      },
+    };
+  }, { labelLayerSelector: LABEL_LAYER, surfaceSelector: SURFACE });
+}
+
+async function zoomSceneAboveFit(page: Page, targetScale: number): Promise<void> {
+  const viewport = page.locator(VIEWPORT);
+  const surface = page.locator(SURFACE);
+  const box = await viewport.boundingBox();
+  expect(box, "world viewport must have a rendered hit area").not.toBeNull();
+  await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
+  await expect.poll(async () => {
+    const scale = Number(await surface.getAttribute("data-scene-scale"));
+    if (Number.isFinite(scale) && scale < targetScale * 0.998) {
+      const factor = Math.min(1.12, targetScale / Math.max(0.01, scale));
+      await page.mouse.wheel(0, -Math.log(factor) / 0.0017);
+    }
+    return Number(await surface.getAttribute("data-scene-scale"));
+  }, {
+    intervals: [34],
+    timeout: 5_000,
+    message: `scene zoom must leave fit and reach ${targetScale.toFixed(2)}`,
+  }).toBeGreaterThanOrEqual(targetScale * 0.995);
 }
 
 async function startLabelZoomTrace(page: Page): Promise<void> {
@@ -404,6 +517,57 @@ function previousSlotHasNoActiveContention(
     && overlaps(slot, otherCurrent.bounds, 2)
   ));
 }
+
+test("oak-tree fit fills safe slots and round-trips the exact label layout", async ({ page }, testInfo) => {
+  const mobile = testInfo.project.name === "mobile-chromium";
+  const app = await openOakTreeScene(page);
+  await waitForCameraSettled(page);
+  const initial = await captureFitSceneSnapshot(page);
+
+  await expect(app).toHaveAttribute("data-scene-id", "oak-tree");
+  expect(initial.cameraTransform).toContain("translate3d(");
+  expect(initial.progress.total).toBe(43);
+  expect(initial.progress.current).toBe(initial.labels.length);
+  expect(initial.progress.remaining).toBe(initial.progress.total - initial.labels.length);
+  expect(
+    initial.labels.length,
+    mobile
+      ? "mobile fit must use its smaller physical label capacity"
+      : "desktop fit must not stop at the former 35-word quota",
+  ).toBeGreaterThanOrEqual(mobile ? 12 : 41);
+
+  await zoomSceneAboveFit(page, mobile ? 1.8 : 1.65);
+  await waitForCameraSettled(page);
+  const zoomedTransform = await page.locator(SURFACE).evaluate((element) => (
+    (element as HTMLElement).style.transform
+  ));
+  expect(zoomedTransform, "the wheel gesture must exercise a different camera").not.toBe(
+    initial.cameraTransform,
+  );
+
+  await page.getByRole("button", { name: "Fit scene" }).click();
+  await expect(page.locator(SURFACE)).toHaveAttribute(
+    "data-scene-scale",
+    initial.scale.toFixed(3),
+  );
+  await waitForCameraSettled(page);
+  const returned = await captureFitSceneSnapshot(page);
+
+  expect(returned.cameraTransform, "Fit must restore the precise painted camera").toBe(
+    initial.cameraTransform,
+  );
+  expect(
+    returned.labels.map((label) => label.id),
+    "the same camera must restore the same interactive IDs",
+  ).toEqual(initial.labels.map((label) => label.id));
+  expect(
+    returned.labels,
+    "every interactive label must restore its exact offset, leader side and span",
+  ).toEqual(initial.labels);
+  expect(returned.progress.current).toBe(returned.labels.length);
+  expect(returned.progress.total).toBe(43);
+  expect(returned.progress.remaining).toBe(returned.progress.total - returned.labels.length);
+});
 
 test("continuous zoom retains grounded labels and their object-relative slots", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");

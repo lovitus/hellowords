@@ -18,6 +18,7 @@ import {
   prioritizeCurrentLabelOrder,
   sceneLabelLod,
   sceneLabelRevealOpacity,
+  sceneVocabularyCueLimit,
   smoothCameraTowards,
   vocabularyCueFocusPoint,
   type Label,
@@ -30,6 +31,7 @@ import { SPATIAL_LEXEME_REALMS } from "../domain/spatialLexemeRealms.generated";
 interface SceneViewportProps {
   scene: Scene;
   meaningVisible: boolean;
+  selectedLabelId?: string | null;
   portalTargetTitles: Readonly<Record<string, string>>;
   transitionPhase?: "active" | "outgoing" | "incoming";
   interactionLocked?: boolean;
@@ -396,6 +398,13 @@ export function wheelZoomFactor(
   return Math.exp(-boundedDelta * 0.0017);
 }
 
+export function shouldResetLabelPlacementMemory(
+  previous: "in" | "out" | null,
+  next: "in" | "out" | null,
+): boolean {
+  return previous !== null && next !== null && previous !== next;
+}
+
 export interface SemanticOverscrollResult {
   readonly accumulated: number;
   readonly trigger: boolean;
@@ -456,6 +465,7 @@ function portalAtScreenPoint(portals: readonly ScenePortal[], camera: Camera, po
 export function SceneViewport({
   scene,
   meaningVisible,
+  selectedLabelId = null,
   portalTargetTitles,
   transitionPhase = "active",
   interactionLocked = false,
@@ -501,9 +511,11 @@ export function SceneViewport({
   // "remaining words" total increase again. SceneViewport is keyed by
   // scene.id, so this set naturally has the same lifetime as the scene view.
   const revealedLabelIdsRef = useRef(new Set<string>());
-  const labelPlacementRef = useRef(new Map<string, readonly [number, number]>());
-  const activeLabelIdsRef = useRef(new Set<string>());
   const selectedLabelIdRef = useRef<string | null>(null);
+  const labelPlacementOffsetsRef = useRef(new Map<string, {
+    readonly offsetX: number;
+    readonly offsetY: number;
+  }>());
   const lastNavigationRef = useRef(0);
   const zoomFocusRef = useRef<Point | null>(null);
   const zoomDirectionRef = useRef<"in" | "out" | null>(null);
@@ -855,15 +867,19 @@ export function SceneViewport({
       meaningVisibleRef.current,
       {
         selectedLabelId: focusedLabelId ?? selectedLabelIdRef.current,
-        retainedLabelIds: revealedLabelIdsRef.current,
-        preferredOffsets: labelPlacementRef.current,
-        activeRetainedLabelIds: activeLabelIdsRef.current,
+        preferredOffsets: labelPlacementOffsetsRef.current,
         protectedRegions: [
           ...buildViewerChromeProtectedRegions(labelViewport.width, labelViewport.height),
           ...buildPortalCueProtectedRegions(scene.portals, camera, labelViewport),
         ],
       },
     );
+    labelPlacementOffsetsRef.current = new Map(layout
+      .filter((item) => item.interactive)
+      .map((item) => [item.id, {
+        offsetX: item.offsetX,
+        offsetY: item.offsetY,
+      }]));
     const byId = new Map(layout.map((item) => [item.id, item]));
     let visibleCount = 0;
     let emergingCount = 0;
@@ -986,10 +1002,6 @@ export function SceneViewport({
       revealedLabelIdsRef.current,
       visibleItemsInPlacementOrder,
     );
-    activeLabelIdsRef.current = new Set(visibleItemsInPlacementOrder.map((item) => item.id));
-    for (const item of visibleItemsInPlacementOrder) {
-      labelPlacementRef.current.set(item.id, [item.offsetX, item.offsetY]);
-    }
     const revealSummary = buildVocabularyRevealSummary(
       scene.labels,
       camera.scale,
@@ -1072,13 +1084,13 @@ export function SceneViewport({
         visibleSceneWidth * 0.4,
         visibleSceneHeight * 0.4,
       );
-    const cueLimit = viewportWidth <= 700 ? 4 : 6;
+    const cueLimit = sceneVocabularyCueLimit(viewportWidth);
     let activeCueCount = 0;
     for (const element of interactionLayer.querySelectorAll<HTMLButtonElement>(".vocabulary-zoom-cue")) {
       const batch = cueBatches.find((candidate) => candidate.cue.id === element.dataset.cueId);
       const active = Boolean(
         batch
-        && (batch.cue.source === "authored-zone" || batch.nextLod === nextSceneLod)
+        && batch.nextLod === nextSceneLod
         && activeCueCount < cueLimit
         && viewerInteractiveRef.current
         && !activePortal,
@@ -1256,6 +1268,14 @@ export function SceneViewport({
     semanticOverscrollTimestampRef.current = null;
   }, []);
 
+  const updateZoomDirection = useCallback((next: "in" | "out" | null) => {
+    const previous = zoomDirectionRef.current;
+    if (shouldResetLabelPlacementMemory(previous, next)) {
+      labelPlacementOffsetsRef.current.clear();
+    }
+    zoomDirectionRef.current = next;
+  }, []);
+
   useEffect(() => {
     resetSemanticOverscroll();
   }, [resetSemanticOverscroll, scene.id]);
@@ -1268,6 +1288,7 @@ export function SceneViewport({
     const viewport = viewportRef.current;
     if (!viewport || committingRef.current) return;
     resetSemanticOverscroll();
+    labelPlacementOffsetsRef.current.clear();
     stopWheelAnimation();
     cancelCameraAnimation();
     const fittedCamera = fittedSceneCamera(
@@ -1285,7 +1306,7 @@ export function SceneViewport({
     setMotionFrozen(continuitySettlingRef.current);
     continuityProgressRef.current = continuityView?.direction === "back" && continuityView.tileScene ? 1 : 0;
     zoomFocusRef.current = { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
-    zoomDirectionRef.current = null;
+    updateZoomDirection(null);
     portalCandidateRef.current = null;
     // ResizeObserver can fire just after keyboard focus enters a portal. Keep
     // that focus-driven target cue instead of erasing it during the initial
@@ -1294,7 +1315,7 @@ export function SceneViewport({
       && document.activeElement.matches(".scene-hotspot");
     if (!portalHasFocus && !continuityView) showPortalPreview(null);
     requestCameraFrame();
-  }, [cancelCameraAnimation, reducedContinuityAtMount, requestCameraFrame, resetSemanticOverscroll, scene, showPortalPreview, stopWheelAnimation]);
+  }, [cancelCameraAnimation, reducedContinuityAtMount, requestCameraFrame, resetSemanticOverscroll, scene, showPortalPreview, stopWheelAnimation, updateZoomDirection]);
 
   const beginPortalTransition = useCallback((
     portal: ScenePortal,
@@ -1507,10 +1528,13 @@ export function SceneViewport({
 
     stopWheelAnimation();
     cancelCameraAnimation();
-    zoomDirectionRef.current = null;
+    // Semantic overscroll is the tail of an inward spatial gesture. Preserve
+    // that direction while the overlay is open so the first outward gesture
+    // after returning clears the inward-only callout placement memory.
+    updateZoomDirection("in");
     onExploreSemanticPlane(nearest, "zoom");
     return true;
-  }, [cancelCameraAnimation, onExploreSemanticPlane, scene.labels, stopWheelAnimation]);
+  }, [cancelCameraAnimation, onExploreSemanticPlane, scene.labels, stopWheelAnimation, updateZoomDirection]);
 
   const zoomAt = useCallback(
     (point: Point, factor: number, previousPoint: Point = point) => {
@@ -1540,9 +1564,9 @@ export function SceneViewport({
       };
       cameraRef.current = nextCamera;
       zoomFocusRef.current = point;
-      if (factor > 1) zoomDirectionRef.current = "in";
-      else if (factor < 1) zoomDirectionRef.current = "out";
-      else zoomDirectionRef.current = null;
+      if (factor > 1) updateZoomDirection("in");
+      else if (factor < 1) updateZoomDirection("out");
+      else updateZoomDirection(null);
       if (factor > 1) {
         const portal = portalAtScreenPoint(scene.portals, camera, previousPoint)
           ?? portalAtScreenPoint(scene.portals, nextCamera, point);
@@ -1577,7 +1601,7 @@ export function SceneViewport({
       requestCameraFrame();
       scheduleNavigationCheck();
     },
-    [cancelCameraAnimation, resetSemanticOverscroll, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, trySemanticOverscroll],
+    [cancelCameraAnimation, resetSemanticOverscroll, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, trySemanticOverscroll, updateZoomDirection],
   );
 
   const queueWheelZoom = useCallback((point: Point, factor: number) => {
@@ -1608,8 +1632,8 @@ export function SceneViewport({
     if (trySemanticOverscroll(point, factor, semanticPortal)) return;
     wheelTargetRef.current = target;
     zoomFocusRef.current = point;
-    if (factor > 1) zoomDirectionRef.current = "in";
-    else if (factor < 1) zoomDirectionRef.current = "out";
+    if (factor > 1) updateZoomDirection("in");
+    else if (factor < 1) updateZoomDirection("out");
 
     if (factor > 1) {
       const portal = portalAtScreenPoint(scene.portals, base, point)
@@ -1680,7 +1704,7 @@ export function SceneViewport({
       wheelFrameTimeRef.current = null;
     };
     wheelAnimationRef.current = requestAnimationFrame(animate);
-  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, resetSemanticOverscroll, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, trySemanticOverscroll, viewerInteractive]);
+  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, resetSemanticOverscroll, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, trySemanticOverscroll, updateZoomDirection, viewerInteractive]);
 
   const focusVocabularyTarget = useCallback((
     fallbackLabelId: string,
@@ -1703,7 +1727,7 @@ export function SceneViewport({
     }
     portalCandidateRef.current = null;
     showPortalPreview(null);
-    zoomDirectionRef.current = null;
+    updateZoomDirection("in");
 
     const start = { ...cameraRef.current };
     const authoredTarget = Number(element.dataset.targetScale)
@@ -1776,7 +1800,14 @@ export function SceneViewport({
       focusRevealedWord();
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
-  }, [cancelCameraAnimation, labelsById, requestCameraFrame, showPortalPreview, stopWheelAnimation, viewerInteractive]);
+  }, [cancelCameraAnimation, labelsById, requestCameraFrame, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
+
+  useEffect(() => {
+    selectedLabelIdRef.current = selectedLabelId && labelsById.has(selectedLabelId)
+      ? selectedLabelId
+      : null;
+    requestCameraFrame();
+  }, [labelsById, requestCameraFrame, selectedLabelId]);
 
   useEffect(() => {
     selectedLabelIdRef.current = null;
@@ -2061,61 +2092,6 @@ export function SceneViewport({
           ) : null}
         </div>
         <div
-          ref={labelLayerRef}
-          className="label-layer"
-          data-testid="scene-label-layer"
-          data-coordinate-space="screen"
-          data-motion-frozen={String(motionFrozen)}
-          inert={motionFrozen ? true : undefined}
-          aria-hidden={motionFrozen ? true : undefined}
-          aria-label="Words in this scene"
-        >
-          {scene.labels.map((label) => {
-            const semanticStyle = labelSemanticStyles.get(label.id);
-            return (
-              <button
-              key={label.id}
-              type="button"
-              className="word-label"
-              data-testid="word-label"
-              data-label-id={label.id}
-              data-min-level={label.minLevel ?? 0}
-              data-lod={label.minLevel ?? 0}
-              data-priority={label.priority}
-              data-visual-region={label.sourceVisualRegion}
-              data-anchor-x={label.x}
-              data-anchor-y={label.y}
-              data-anchor-mode="stem"
-              data-leader-span="short"
-              data-semantic-group={semanticStyle?.semanticGroup}
-              data-palette-index={semanticStyle?.paletteIndex}
-              data-visible="false"
-              data-interactive="false"
-              data-adaptive="false"
-              tabIndex={-1}
-              aria-hidden="true"
-              aria-label={meaningVisible ? `${label.word}，${label.translation}` : label.word}
-              style={semanticStyle?.cssVariables as CSSProperties | undefined}
-              onClick={(event) => {
-                event.stopPropagation();
-                selectedLabelIdRef.current = label.id;
-                requestCameraFrame();
-                reportClickedLabel(label);
-                onSelectWord(label);
-              }}
-            >
-              <span className="word-anchor-marker" aria-hidden="true" />
-              <span>{label.word}</span>
-              {meaningVisible ? (
-                <span className="word-translation" data-testid="word-translation">
-                  {label.translation}
-                </span>
-              ) : null}
-              </button>
-            );
-          })}
-        </div>
-        <div
           ref={interactionLayerRef}
           className="scene-interaction-layer"
           data-testid="scene-interaction-layer"
@@ -2234,6 +2210,61 @@ export function SceneViewport({
               </button>
             </div>
           ))}
+        </div>
+        <div
+          ref={labelLayerRef}
+          className="label-layer"
+          data-testid="scene-label-layer"
+          data-coordinate-space="screen"
+          data-motion-frozen={String(motionFrozen)}
+          inert={motionFrozen ? true : undefined}
+          aria-hidden={motionFrozen ? true : undefined}
+          aria-label="Words in this scene"
+        >
+          {scene.labels.map((label) => {
+            const semanticStyle = labelSemanticStyles.get(label.id);
+            return (
+              <button
+                key={label.id}
+                type="button"
+                className="word-label"
+                data-testid="word-label"
+                data-label-id={label.id}
+                data-min-level={label.minLevel ?? 0}
+                data-lod={label.minLevel ?? 0}
+                data-priority={label.priority}
+                data-visual-region={label.sourceVisualRegion}
+                data-anchor-x={label.x}
+                data-anchor-y={label.y}
+                data-anchor-mode="stem"
+                data-leader-span="short"
+                data-semantic-group={semanticStyle?.semanticGroup}
+                data-palette-index={semanticStyle?.paletteIndex}
+                data-visible="false"
+                data-interactive="false"
+                data-adaptive="false"
+                tabIndex={-1}
+                aria-hidden="true"
+                aria-label={meaningVisible ? `${label.word}，${label.translation}` : label.word}
+                style={semanticStyle?.cssVariables as CSSProperties | undefined}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  selectedLabelIdRef.current = label.id;
+                  requestCameraFrame();
+                  reportClickedLabel(label);
+                  onSelectWord(label);
+                }}
+              >
+                <span className="word-anchor-marker" aria-hidden="true" />
+                <span>{label.word}</span>
+                {meaningVisible ? (
+                  <span className="word-translation" data-testid="word-translation">
+                    {label.translation}
+                  </span>
+                ) : null}
+              </button>
+            );
+          })}
         </div>
         <div className="viewport-vignette" aria-hidden="true" />
       </div>
