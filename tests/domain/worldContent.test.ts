@@ -131,8 +131,14 @@ test("mature world has four subject branches and six deep, fully reachable paths
 test("every spatial label and portal is traceable to a human-verified visual region", async () => {
   const { scenes } = await loadWorld();
   for (const scene of scenes) {
-    assert.equal(scene.width, 1600, `${scene.id} width`);
-    assert.equal(scene.height, 900, `${scene.id} height`);
+    const expectedCanvas = scene.id === "world-map"
+      ? { width: 2604, height: 989 }
+      : { width: 1600, height: 900 };
+    assert.deepEqual(
+      { width: scene.width, height: scene.height },
+      expectedCanvas,
+      `${scene.id} logical canvas`,
+    );
     assert.equal(scene.anchorAudit.status, "human-verified", `${scene.id} audit status`);
     assert.equal(
       scene.anchorAudit.policy,
@@ -1337,12 +1343,12 @@ test("community garden adds one disjoint root portal and two grounded local bran
     label: "Enter the community garden",
     translation: "进入社区花园",
     childSceneId: "community-garden",
-    x: 80,
-    y: 470,
-    width: 545,
-    height: 325,
-    enterScale: 3.6,
-    sourceVisualRegion: "portal-community-garden",
+    x: 240,
+    y: 530,
+    width: 480,
+    height: 260,
+    enterScale: 3.75,
+    sourceVisualRegion: "portal-enter-community-garden",
   });
   const overlaps = (
     a: { x: number; y: number; width: number; height: number },
@@ -1581,10 +1587,17 @@ test("every scene uses a real, accessible external visual asset", async () => {
       const source = bytes.toString("utf8");
       assert.match(source, /<title[ >]/, `${scene.id} accessible title`);
       assert.match(source, /<desc[ >]/, `${scene.id} accessible description`);
-      assert.ok(source.includes('viewBox="0 0 1600 900"'), `${scene.id} coordinate system`);
+      assert.ok(
+        source.includes(`viewBox="0 0 ${scene.width} ${scene.height}"`),
+        `${scene.id} coordinate system`,
+      );
     } else {
       assert.deepEqual([...bytes.subarray(0, 3)], [0xff, 0xd8, 0xff], `${scene.id} JPEG signature`);
-      assert.deepEqual(readJpegDimensions(bytes), { width: 1600, height: 900 }, `${scene.id} raster dimensions`);
+      assert.deepEqual(
+        readJpegDimensions(bytes),
+        { width: scene.width, height: scene.height },
+        `${scene.id} base raster dimensions`,
+      );
     }
   }
 });

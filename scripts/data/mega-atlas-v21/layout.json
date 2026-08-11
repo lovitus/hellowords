@@ -1,0 +1,48 @@
+{
+  "columns": 3,
+  "rows": 2,
+  "panelWidth": 1672,
+  "panelHeight": 941,
+  "gutters": {
+    "horizontal": 96,
+    "vertical": 96
+  },
+  "panels": [
+    {
+      "id": "school-classroom",
+      "file": "school.json",
+      "row": 0,
+      "col": 0
+    },
+    {
+      "id": "science-maker",
+      "file": "science.json",
+      "row": 0,
+      "col": 1
+    },
+    {
+      "id": "transport",
+      "file": "transport.json",
+      "row": 0,
+      "col": 2
+    },
+    {
+      "id": "farm-food-production",
+      "file": "farm.json",
+      "row": 1,
+      "col": 0
+    },
+    {
+      "id": "market-kitchen-bakery",
+      "file": "market.json",
+      "row": 1,
+      "col": 1
+    },
+    {
+      "id": "wetland",
+      "file": "wetland.json",
+      "row": 1,
+      "col": 2
+    }
+  ]
+}

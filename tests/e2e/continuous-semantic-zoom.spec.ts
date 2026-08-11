@@ -37,6 +37,80 @@ async function nextPaint(page: Page): Promise<void> {
   }));
 }
 
+async function armChildWheelTail(
+  page: Page,
+  childSceneId: string,
+  deltaY: number,
+  count: number,
+): Promise<void> {
+  await page.evaluate(({ sceneId, wheelDeltaY, wheelCount, traceKey }) => {
+    const prototype = EventTarget.prototype;
+    const originalAddEventListener = prototype.addEventListener;
+    const trace = { fired: 0, restored: false };
+    const interceptedAddEventListener = function addEventListener(
+      this: EventTarget,
+      type: string,
+      listener: EventListenerOrEventListenerObject | null,
+      options?: boolean | AddEventListenerOptions,
+    ) {
+      originalAddEventListener.call(this, type, listener, options);
+      if (
+        type !== "wheel"
+        || !(this instanceof HTMLElement)
+        || !this.matches('.viewer-shell:not([data-phase]) [data-testid="world-viewport"]')
+        || document.querySelector<HTMLElement>('[data-testid="world-app"]')?.dataset.sceneId !== sceneId
+      ) return;
+
+      prototype.addEventListener = originalAddEventListener;
+      trace.restored = true;
+      const bounds = this.getBoundingClientRect();
+      for (let index = 0; index < wheelCount; index += 1) {
+        this.dispatchEvent(new WheelEvent("wheel", {
+          bubbles: true,
+          cancelable: true,
+          clientX: bounds.left + bounds.width / 2,
+          clientY: bounds.top + bounds.height / 2,
+          deltaY: wheelDeltaY,
+          deltaMode: WheelEvent.DOM_DELTA_PIXEL,
+        }));
+        trace.fired += 1;
+      }
+    };
+    prototype.addEventListener = interceptedAddEventListener;
+    Reflect.set(window, traceKey, trace);
+  }, {
+    sceneId: childSceneId,
+    wheelDeltaY: deltaY,
+    wheelCount: count,
+    traceKey: "__hellowordsApartmentWheelTail",
+  });
+}
+
+async function dispatchWheelBurstAtViewportCenter(
+  page: Page,
+  deltaY: number,
+  count: number,
+): Promise<void> {
+  const fired = await page.locator(`.viewer-shell:not([data-phase]) ${VIEWPORT}`).evaluate(
+    (viewport, { wheelDeltaY, wheelCount }) => {
+      const bounds = viewport.getBoundingClientRect();
+      for (let index = 0; index < wheelCount; index += 1) {
+        viewport.dispatchEvent(new WheelEvent("wheel", {
+          bubbles: true,
+          cancelable: true,
+          clientX: bounds.left + bounds.width / 2,
+          clientY: bounds.top + bounds.height / 2,
+          deltaY: wheelDeltaY,
+          deltaMode: WheelEvent.DOM_DELTA_PIXEL,
+        }));
+      }
+      return wheelCount;
+    },
+    { wheelDeltaY: deltaY, wheelCount: count },
+  );
+  expect(fired).toBe(count);
+}
+
 async function openWorld(page: Page): Promise<Locator> {
   await page.goto("/#world", { waitUntil: "domcontentloaded" });
   const app = page.locator(APP);
@@ -323,19 +397,34 @@ async function semanticDirectionalBackgroundDrag(
       positiveTravel: number,
       negativeTravel: number,
     ): -1 | 0 | 1 => {
-      if (requested === 0 || Math.abs(positiveTravel - negativeTravel) <= 1) return requested;
+      if (requested === 0) return 0;
+      if (Math.max(positiveTravel, negativeTravel) <= 1) return 0;
+      if (Math.abs(positiveTravel - negativeTravel) <= 1) return requested;
       return positiveTravel > negativeTravel ? 1 : -1;
     };
-    const resolvedX = directionWithMostTravel(
+    const positiveTravelX = Math.max(0, centerX - minimumCenterX) * scale;
+    const negativeTravelX = Math.max(0, maximumCenterX - centerX) * scale;
+    const positiveTravelY = Math.max(0, centerY - minimumCenterY) * scale;
+    const negativeTravelY = Math.max(0, maximumCenterY - centerY) * scale;
+    let resolvedX = directionWithMostTravel(
       directionX,
-      Math.max(0, centerX - minimumCenterX) * scale,
-      Math.max(0, maximumCenterX - centerX) * scale,
+      positiveTravelX,
+      negativeTravelX,
     );
-    const resolvedY = directionWithMostTravel(
+    let resolvedY = directionWithMostTravel(
       directionY,
-      Math.max(0, centerY - minimumCenterY) * scale,
-      Math.max(0, maximumCenterY - centerY) * scale,
+      positiveTravelY,
+      negativeTravelY,
     );
+    if (resolvedX === 0 && resolvedY === 0) {
+      const horizontalTravel = Math.max(positiveTravelX, negativeTravelX);
+      const verticalTravel = Math.max(positiveTravelY, negativeTravelY);
+      if (horizontalTravel > 1 && horizontalTravel >= verticalTravel) {
+        resolvedX = positiveTravelX >= negativeTravelX ? 1 : -1;
+      } else if (verticalTravel > 1) {
+        resolvedY = positiveTravelY >= negativeTravelY ? 1 : -1;
+      }
+    }
     const xFractions = resolvedX > 0
       ? [0.08, 0.16, 0.24, 0.32]
       : resolvedX < 0
@@ -383,6 +472,26 @@ async function performSemanticDrag(
   await page.mouse.up();
 }
 
+async function waitForSemanticCameraSettled(field: Locator): Promise<void> {
+  const settled = await field.evaluate(async (element) => {
+    const plane = element.querySelector<HTMLElement>("[data-testid='semantic-zoom-plane']");
+    if (!plane) return false;
+
+    let previousTransform = getComputedStyle(plane).transform;
+    let stableFrames = 0;
+    const deadline = performance.now() + 5_000;
+    while (performance.now() < deadline) {
+      await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+      const currentTransform = getComputedStyle(plane).transform;
+      stableFrames = currentTransform === previousTransform ? stableFrames + 1 : 0;
+      if (stableFrames >= 3) return true;
+      previousTransform = currentTransform;
+    }
+    return false;
+  });
+  expect(settled, "semantic camera must settle for three frames before the next gesture").toBe(true);
+}
+
 async function assertSemanticProgressIsTruthful(field: Locator): Promise<void> {
   const snapshot = await field.evaluate((element) => {
     const root = element as HTMLElement;
@@ -407,22 +516,27 @@ test("Apartment handoff settles to the complete child before a fresh outward ges
 
   const apartmentPortal = page.locator(`${HOTSPOT}[data-target-scene="apartment"]`);
   await expect(apartmentPortal).toBeAttached();
+  // Hook the child's native wheel listener so the synthetic tail is delivered
+  // immediately after that listener is installed. Waiting for Playwright rAF
+  // round-trips can exceed the runtime's 180ms gesture gap under parallel load
+  // and would incorrectly turn one physical stream into fresh gestures.
+  await armChildWheelTail(page, "apartment", -80, 7);
   await apartmentPortal.evaluate((element: HTMLElement) => element.click());
   await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await expect.poll(() => page.evaluate(() => (
+    Reflect.get(window, "__hellowordsApartmentWheelTail") as {
+      fired: number;
+      restored: boolean;
+    }
+  ))).toEqual({ fired: 7, restored: true });
 
   const viewport = page.locator(`.viewer-shell:not([data-phase]) ${VIEWPORT}`);
   const bounds = await viewport.boundingBox();
   expect(bounds).not.toBeNull();
   await page.mouse.move(bounds!.x + bounds!.width / 2, bounds!.y + bounds!.height / 2);
 
-  // Model the tail of the same physical zoom-in stream beyond the old 110ms
-  // settle animation. It must not recrop the newly owned Apartment canvas.
-  for (let index = 0; index < 7; index += 1) {
-    await page.mouse.wheel(0, -80);
-    await nextPaint(page);
-  }
+  // The captured tail must not recrop the newly owned Apartment canvas.
   await expect(app).toHaveAttribute("data-transition-state", "idle");
-  await page.waitForTimeout(220);
 
   const childSurface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
   await expect(childSurface).toHaveAttribute("data-scene-scale", "1.000");
@@ -437,12 +551,14 @@ test("Apartment handoff settles to the complete child before a fresh outward ges
   });
   expect(contained, "the full four-room Apartment image is inside the viewport").toBe(true);
 
+  // Start the outward stream only after the fitted child has completed its
+  // settle and then observed a real quiet gap. Scene-id/idle are intentionally
+  // earlier than the continuity-camera completion.
+  await page.waitForTimeout(220);
+
   // Multiple samples from one wheel stream may reveal the child overview, but
   // cannot cascade immediately back to the parent scene.
-  for (let index = 0; index < 4; index += 1) {
-    await page.mouse.wheel(0, 240);
-    await nextPaint(page);
-  }
+  await dispatchWheelBurstAtViewportCenter(page, 240, 4);
   await expect.poll(async () => Number(await childSurface.getAttribute("data-scene-scale"))).toBeLessThanOrEqual(0.7);
   await expect(app).toHaveAttribute("data-scene-id", "apartment");
 
@@ -814,6 +930,7 @@ test("the largest 1,013-word leaf exposes truthful progress while panning reveal
     "data-active-bounds",
     /^\d+(?:\.\d+)?,-?\d+(?:\.\d+)?,\d+(?:\.\d+)?,\d+(?:\.\d+)?$/,
   );
+  await waitForSemanticCameraSettled(field);
   await assertSemanticBudget(field, expectedBudget);
   await assertSemanticProgressIsTruthful(field);
 
@@ -834,12 +951,10 @@ test("the largest 1,013-word leaf exposes truthful progress while panning reveal
   expect(first.size).toBeGreaterThan(0);
   const drag = await semanticBackgroundDrag(field);
   await performSemanticDrag(page, drag);
+  await waitForSemanticCameraSettled(field);
 
-  let panned = new Set<string>();
-  await expect.poll(async () => {
-    panned = await semanticWordIds(field);
-    return new Set([...first, ...panned]).size;
-  }).toBeGreaterThan(first.size);
+  const panned = await semanticWordIds(field);
+  expect(new Set([...first, ...panned]).size).toBeGreaterThan(first.size);
   await assertSemanticBudget(field, expectedBudget);
   await assertSemanticProgressIsTruthful(field);
 
@@ -855,14 +970,13 @@ test("the largest 1,013-word leaf exposes truthful progress while panning reveal
     const before = await semanticWordIds(field);
     const drag = await semanticDirectionalBackgroundDrag(field, direction);
     await performSemanticDrag(page, drag);
-    let current = new Set<string>();
-    await expect.poll(async () => {
-      current = await semanticWordIds(field);
-      return new Set([...before].filter((id) => !current.has(id))).size
-        + new Set([...current].filter((id) => !before.has(id))).size;
-    }, {
-      message: `requested ${direction.x}:${direction.y}, resolved ${drag.direction.x}:${drag.direction.y} must exchange words`,
-    }).toBeGreaterThan(0);
+    await waitForSemanticCameraSettled(field);
+    const current = await semanticWordIds(field);
+    expect(
+      new Set([...before].filter((id) => !current.has(id))).size
+        + new Set([...current].filter((id) => !before.has(id))).size,
+      `requested ${direction.x}:${direction.y}, resolved ${drag.direction.x}:${drag.direction.y} must exchange words`,
+    ).toBeGreaterThan(0);
     expect(current.size, `${drag.direction.x}:${drag.direction.y} must not pan into a zero-word background`)
       .toBeGreaterThan(0);
     current.forEach((id) => explored.add(id));

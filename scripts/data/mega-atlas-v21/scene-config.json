@@ -1,0 +1,82 @@
+{
+  "logicalScale": 0.5,
+  "scene": {
+    "id": "world-map",
+    "title": "World atlas",
+    "translation": "万物词境",
+    "subtitle": "Explore six detailed districts on one atlas",
+    "panelSemanticRealms": {
+      "school-classroom": "people-society",
+      "science-maker": "mind-values",
+      "transport": "objects-technology",
+      "farm-food-production": "nature-life",
+      "market-kitchen-bakery": "body-daily-life",
+      "wetland": "nature-life"
+    },
+    "asset": "/scenes/world-mega-atlas-2604-v21.jpg",
+    "assets": {
+      "base": {
+        "src": "/scenes/world-mega-atlas-2604-v21.jpg",
+        "width": 2604,
+        "height": 989,
+        "sha256": "1f604a7727b9d18cf4d4447eaf88b5883eb3720f6d4540bdd1af6c86654bd54d"
+      },
+      "high": {
+        "src": "/scenes/world-mega-atlas-5208-v21.jpg",
+        "width": 5208,
+        "height": 1978,
+        "sha256": "8761e582e58bfb2aa46443c0eb9000a1a87b6582d23718a1be71c609258dc9a4"
+      }
+    },
+    "portals": [
+      {
+        "id": "enter-home",
+        "label": "Explore interior spaces",
+        "translation": "探索室内空间",
+        "childSceneId": "apartment",
+        "x": 3000,
+        "y": 1240,
+        "width": 400,
+        "height": 300,
+        "enterScale": 3.75,
+        "description": "Complete visible commercial-kitchen workspace that opens the broader living-space branch"
+      },
+      {
+        "id": "enter-city",
+        "label": "Explore the city",
+        "translation": "探索城市",
+        "childSceneId": "city-street",
+        "x": 3616,
+        "y": 40,
+        "width": 400,
+        "height": 300,
+        "enterScale": 3.75,
+        "description": "Complete visible road intersection and roundabout in the transport district"
+      },
+      {
+        "id": "enter-nature",
+        "label": "Explore nature",
+        "translation": "探索自然",
+        "childSceneId": "city-park",
+        "x": 3480,
+        "y": 1020,
+        "width": 960,
+        "height": 720,
+        "enterScale": 3.75,
+        "description": "Complete visible pond, reed margin and wetland vegetation habitat"
+      },
+      {
+        "id": "enter-community-garden",
+        "label": "Enter the community garden",
+        "translation": "进入社区花园",
+        "childSceneId": "community-garden",
+        "x": 480,
+        "y": 1060,
+        "width": 960,
+        "height": 520,
+        "enterScale": 3.75,
+        "description": "Complete visible greenhouse, growing benches and cultivated farm beds"
+      }
+    ]
+  }
+}

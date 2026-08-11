@@ -1,3 +1,5 @@
+import type { LabelSemanticRealm } from "./labelSemanticStyle";
+
 /** A point in either scene or viewport coordinates. */
 export interface Point {
   readonly x: number;
@@ -34,6 +36,13 @@ export interface Label {
   readonly lexemeId?: string;
   /** Optional stable reference when one lexeme has multiple senses. */
   readonly senseId?: string;
+  /**
+   * Optional reviewed broad group for spatial words that do not yet have a
+   * stable 10k lexeme id. A real lexeme realm still wins when present; this
+   * keeps large authored districts gently color-grouped without guessing from
+   * the English display string at runtime.
+   */
+  readonly semanticRealmId?: LabelSemanticRealm;
   /**
    * Audited visual region that contains the exact object or part named by this
    * label. The coordinate remains the real anchor point; runtime layout may

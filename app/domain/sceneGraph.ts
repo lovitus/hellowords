@@ -1,4 +1,5 @@
 import { assertCamera } from "./camera";
+import { LABEL_SEMANTIC_REALMS } from "./labelSemanticStyle";
 import { validateSceneAssetContract } from "./sceneAssets";
 import type { Label, Portal, Scene } from "./types";
 
@@ -27,6 +28,8 @@ const defaults: Required<SceneGraphValidationOptions> = {
   requirePortalForEveryChild: true,
   allowOutOfBoundsAnchors: false,
 };
+
+const labelSemanticRealms = new Set<string>(LABEL_SEMANTIC_REALMS);
 
 /** Validates graph topology and all values consumed by the viewer. */
 export function validateSceneGraph(
@@ -299,6 +302,17 @@ function validateLabels(
           "maxScale cannot be lower than minScale",
         );
       }
+    }
+    if (
+      label.semanticRealmId !== undefined
+      && !labelSemanticRealms.has(label.semanticRealmId)
+    ) {
+      error(
+        issues,
+        "label.invalid-semantic-realm",
+        `${path}.semanticRealmId`,
+        `Unknown semantic realm: ${label.semanticRealmId}`,
+      );
     }
     if (
       !options.allowOutOfBoundsAnchors &&

@@ -647,6 +647,11 @@ export function WorldApp() {
               {sceneTitle}
             </h1>
           </div>
+          {scene?.subtitle ? (
+            <p className="scene-minimap__subtitle" data-testid="scene-minimap-subtitle">
+              {scene.subtitle}
+            </p>
+          ) : null}
           <nav
             className="scene-minimap__path"
             data-testid="scene-minimap-path"
@@ -710,7 +715,8 @@ export function WorldApp() {
                   disabled={sceneControlsLocked}
                   aria-label={`进入 ${targetTitle}`}
                 >
-                  <span aria-hidden="true">↘</span>{targetTitle}
+                  <span aria-hidden="true">↘</span>
+                  <b>{targetTitle}</b>
                 </button>
               );
             }) : scene ? (

@@ -76,13 +76,13 @@ test("a reviewed spatial word enters its exact semantic realm without search fan
   });
   await openWorld(page);
 
-  const apartment = page.locator('[data-testid="word-label"][data-label-id="home-apartment"]');
-  await expect(apartment).toHaveAttribute("data-interactive", "true");
-  await apartment.click();
-  const card = page.getByRole("complementary", { name: "apartment word details" });
+  const pond = page.locator('[data-testid="word-label"][data-label-id="wetland-pond"]');
+  await expect(pond).toHaveAttribute("data-interactive", "true");
+  await pond.click();
+  const card = page.getByRole("complementary", { name: "pond word details" });
   await expect(card).toBeVisible();
   const bridge = card.getByRole("button", {
-    name: "从实景词 apartment 进入万词世界的相关语义领域",
+    name: "从实景词 pond 进入万词世界的相关语义领域",
   });
   await expect(bridge).toContainText("从这个实景词进入相关词域");
   await bridge.click();
@@ -92,13 +92,13 @@ test("a reviewed spatial word enters its exact semantic realm without search fan
   await expect(dialog).toBeVisible();
   await expect(dialog).toHaveAttribute("data-entry-mode", "spatial-bridge");
   await expect(dialog).toHaveAttribute("data-zoom-out-boundary", "disabled");
-  await expect(field).toHaveAttribute("data-active-realm", "objects-technology");
-  await expect(field).toHaveAttribute("data-spatial-entry-word", "apartment");
+  await expect(field).toHaveAttribute("data-active-realm", "nature-life");
+  await expect(field).toHaveAttribute("data-spatial-entry-word", "pond");
   await expect(field).toHaveAttribute("data-level", "topic");
   await expect(field).toHaveAttribute("aria-busy", "false");
   await expect(field.locator('[data-testid="semantic-zoom-node"][data-level="topic"]').first()).toBeVisible();
   await expect(field.locator(".semantic-zoom-field__context span")).toContainText(
-    "apartment · 实景词 → 相关词域（其余词按语义组织）",
+    "pond · 实景词 → 相关词域（其余词按语义组织）",
   );
   expect(topicShardRequests, "a reviewed realm bridge must not invoke the 44-shard global search").toEqual([]);
 

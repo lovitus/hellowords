@@ -1,0 +1,2505 @@
+{
+  "schemaVersion": 1,
+  "panelId": "science-maker",
+  "source": {
+    "path": "scripts/assets/mega-atlas-v21/02-science-maker-v1.png",
+    "width": 1672,
+    "height": 941,
+    "sha256": "f2f0a67e23ced774e050573af837f84b8644113c170a3a01b5a260bc80a6cb50",
+    "review": "original-resolution pixel audit with independently reviewed district crops"
+  },
+  "zones": [
+    {
+      "id": "science-chemistry-lab",
+      "title": "Chemistry laboratory",
+      "x": 20,
+      "y": 45,
+      "width": 460,
+      "height": 292,
+      "labelIds": [
+        "science-chemistry-workbench",
+        "science-rear-laboratory-counter",
+        "science-reagent-shelf",
+        "science-glassware-cupboard",
+        "science-side-laboratory-counter",
+        "science-lab-stool",
+        "science-glass-flask",
+        "science-blue-solution-flask",
+        "science-amber-solution-flask",
+        "science-round-glass-vessel",
+        "science-glass-cylinder",
+        "science-tube-rack",
+        "science-support-stand",
+        "science-metal-clamp",
+        "science-reagent-bottle",
+        "science-central-test-rack",
+        "science-sample-tube",
+        "science-tall-glass-tube",
+        "science-small-beaker",
+        "science-sample-bottle",
+        "science-conical-glass-vessel",
+        "science-lower-bench-flask",
+        "science-measuring-cup",
+        "science-narrow-measuring-tube",
+        "science-side-flask-rack",
+        "science-bottle-tray",
+        "science-drawer-bank",
+        "science-wood-cabinet",
+        "science-round-laboratory-seat",
+        "science-paired-wash-bottles"
+      ],
+      "translation": "化学实验室",
+      "description": "Pixel-audited visible objects and parts across the chemistry laboratory district."
+    },
+    {
+      "id": "science-microscopy-lab",
+      "title": "Microscopy laboratory",
+      "x": 482,
+      "y": 45,
+      "width": 278,
+      "height": 292,
+      "labelIds": [
+        "science-microscope",
+        "science-microscope-eyepiece",
+        "science-objective-turret",
+        "science-specimen-stage",
+        "science-microscope-base",
+        "science-slide-tray",
+        "science-glass-slide",
+        "science-petri-dish",
+        "science-culture-plate",
+        "science-sample-dish",
+        "science-test-tube-holder",
+        "science-blue-sample-tubes",
+        "science-lab-sink",
+        "science-sink-faucet",
+        "science-soap-bottle",
+        "science-wall-cabinet",
+        "science-microscopy-bench",
+        "science-bench-drawer",
+        "science-benchtop-scale",
+        "science-potted-laboratory-plant",
+        "science-plastic-wash-bottle",
+        "science-counter-seat"
+      ],
+      "translation": "显微观察室",
+      "description": "Pixel-audited visible objects and parts across the microscopy laboratory district."
+    },
+    {
+      "id": "science-physics-optics",
+      "title": "Physics and optics",
+      "x": 850,
+      "y": 45,
+      "width": 535,
+      "height": 292,
+      "labelIds": [
+        "science-physics-bench",
+        "science-demonstration-table",
+        "science-optical-rail",
+        "science-lens-mount",
+        "science-round-mirror",
+        "science-upright-lens",
+        "science-pendulum-frame",
+        "science-wheel-apparatus",
+        "science-white-circular-apparatus",
+        "science-rotating-disk",
+        "science-small-bench-device",
+        "science-tripod-support",
+        "science-meter-rod",
+        "science-inclined-track",
+        "science-wall-display-frame",
+        "science-hanging-counterweight",
+        "science-blue-test-ball",
+        "science-lower-support-rod",
+        "science-incandescent-bulb",
+        "science-bulb-socket",
+        "science-twin-lamp",
+        "science-lever-arm",
+        "science-hanging-spring",
+        "science-hanging-apparatus-rack",
+        "science-brass-weight",
+        "science-electric-meter",
+        "science-control-switch",
+        "science-wire-coil",
+        "science-physics-parts-shelf",
+        "science-physics-chair"
+      ],
+      "translation": "物理与光学",
+      "description": "Pixel-audited visible objects and parts across the physics and optics district."
+    },
+    {
+      "id": "science-field-energy",
+      "title": "Field energy instruments",
+      "x": 1432,
+      "y": 0,
+      "width": 240,
+      "height": 390,
+      "labelIds": [
+        "science-wind-turbine",
+        "science-turbine-blade",
+        "science-turbine-tower",
+        "science-solar-panel",
+        "science-solar-panel-frame",
+        "science-instrument-tripod",
+        "science-survey-tripod",
+        "science-sensor-mast",
+        "science-weather-instrument",
+        "science-metal-test-frame",
+        "science-vertical-field-instrument",
+        "science-gravel-path",
+        "science-lawn-patch",
+        "science-archery-target",
+        "science-target-stand",
+        "science-blue-field-cylinder",
+        "science-garden-lamp"
+      ],
+      "translation": "户外能源仪器",
+      "description": "Pixel-audited visible objects and parts across the field energy instruments district."
+    },
+    {
+      "id": "science-wash-safety",
+      "title": "Wash and safety station",
+      "x": 0,
+      "y": 338,
+      "width": 480,
+      "height": 153,
+      "labelIds": [
+        "science-wash-station",
+        "science-wash-basin",
+        "science-faucet-row",
+        "science-hanging-cleaning-tool",
+        "science-emergency-cabinet",
+        "science-tall-utility-locker",
+        "science-gray-storage-locker",
+        "science-yellow-hose-nozzles",
+        "science-coiled-water-hose",
+        "science-floor-cleaner",
+        "science-wall-broom",
+        "science-dustpan",
+        "science-metal-tray-rack",
+        "science-utility-shelf"
+      ],
+      "translation": "清洗与安全区",
+      "description": "Pixel-audited visible objects and parts across the wash and safety station district."
+    },
+    {
+      "id": "science-material-stock",
+      "title": "Material stockroom",
+      "x": 0,
+      "y": 492,
+      "width": 380,
+      "height": 293,
+      "labelIds": [
+        "science-metal-pipe-rack",
+        "science-large-steel-pipe",
+        "science-narrow-metal-tube",
+        "science-pipe-offcut",
+        "science-lumber-stack",
+        "science-timber-board",
+        "science-plywood-sheet",
+        "science-parts-shelving",
+        "science-blue-storage-bin",
+        "science-wooden-parts-tray",
+        "science-stock-drawer-cabinet",
+        "science-boxed-workshop-stock",
+        "science-vertical-workshop-machine",
+        "science-machine-handwheel",
+        "science-wooden-crate",
+        "science-cardboard-box",
+        "science-metal-bar-bundle",
+        "science-stockroom-door"
+      ],
+      "translation": "材料库",
+      "description": "Pixel-audited visible objects and parts across the material stockroom district."
+    },
+    {
+      "id": "science-machining",
+      "title": "Machining workshop",
+      "x": 381,
+      "y": 492,
+      "width": 375,
+      "height": 293,
+      "labelIds": [
+        "science-engine-lathe",
+        "science-lathe-headstock",
+        "science-lathe-chuck",
+        "science-tool-post",
+        "science-lathe-carriage",
+        "science-lead-screw",
+        "science-lathe-control-box",
+        "science-machine-tool-wall",
+        "science-metal-tool-rack",
+        "science-upright-milling-machine",
+        "science-machine-spindle",
+        "science-machine-table",
+        "science-green-gas-cylinder",
+        "science-cylinder-regulator",
+        "science-small-bench-machine",
+        "science-bench-machine-wheel",
+        "science-blue-metal-worktable",
+        "science-rubber-floor-mat"
+      ],
+      "translation": "机械加工区",
+      "description": "Pixel-audited visible objects and parts across the machining workshop district."
+    },
+    {
+      "id": "science-electronics",
+      "title": "Electronics workbench",
+      "x": 757,
+      "y": 338,
+      "width": 336,
+      "height": 166,
+      "labelIds": [
+        "science-electronics-workbench",
+        "science-large-circuit-board",
+        "science-green-prototype-board",
+        "science-cooling-fan",
+        "science-analog-meter",
+        "science-dual-gauge",
+        "science-cable-loop",
+        "science-magnifying-lens",
+        "science-wire-spool",
+        "science-small-toggle",
+        "science-component-tray",
+        "science-screwdriver-rack",
+        "science-bench-power-unit",
+        "science-black-control-module",
+        "science-terminal-block",
+        "science-wire-bundle",
+        "science-electronics-stool",
+        "science-electronics-drawer"
+      ],
+      "translation": "电子工作台",
+      "description": "Pixel-audited visible objects and parts across the electronics workbench district."
+    },
+    {
+      "id": "science-robotics",
+      "title": "Robotics and prototyping",
+      "x": 1094,
+      "y": 338,
+      "width": 337,
+      "height": 166,
+      "labelIds": [
+        "science-enclosed-printer",
+        "science-purple-print-spool",
+        "science-robot-arm",
+        "science-robot-base",
+        "science-robotics-parts-cabinet",
+        "science-colored-bin-tower",
+        "science-prototyping-table",
+        "science-small-circuit-board",
+        "science-multicolor-parts-tray",
+        "science-loose-gear",
+        "science-small-rubber-wheel",
+        "science-small-gray-component",
+        "science-robotics-storage-cart"
+      ],
+      "translation": "机器人与原型区",
+      "description": "Pixel-audited visible objects and parts across the robotics and prototyping district."
+    },
+    {
+      "id": "science-woodworking",
+      "title": "Woodworking bench",
+      "x": 757,
+      "y": 505,
+      "width": 337,
+      "height": 280,
+      "labelIds": [
+        "science-woodworking-bench",
+        "science-woodworking-tool-wall",
+        "science-chisel-rack",
+        "science-hanging-spanner-row",
+        "science-vertical-lumber-rack",
+        "science-stacked-timber-planks",
+        "science-wooden-frame",
+        "science-bench-clamp",
+        "science-hand-saw",
+        "science-metal-file",
+        "science-wooden-mallet",
+        "science-claw-hammer",
+        "science-straight-ruler",
+        "science-slender-tool-row",
+        "science-small-drill-stand",
+        "science-wooden-workpiece"
+      ],
+      "translation": "木工区",
+      "description": "Pixel-audited visible objects and parts across the woodworking bench district."
+    },
+    {
+      "id": "science-fabrication",
+      "title": "Fabrication workshop",
+      "x": 1095,
+      "y": 505,
+      "width": 477,
+      "height": 280,
+      "labelIds": [
+        "science-fabrication-lathe",
+        "science-fabrication-chuck",
+        "science-fabrication-carriage",
+        "science-lathe-tailstock",
+        "science-tailstock-wheel",
+        "science-standing-fabrication-machine",
+        "science-fabrication-workbench",
+        "science-workbench-vise",
+        "science-rolling-fabrication-cart",
+        "science-cart-wheel",
+        "science-colored-parts-bins",
+        "science-green-parts-bin",
+        "science-metal-sorting-trays",
+        "science-right-standing-machine",
+        "science-machine-safety-guard",
+        "science-vented-machine-panel",
+        "science-green-floor-cabinet",
+        "science-blue-round-stool",
+        "science-small-assembly-table",
+        "science-black-tool-stand"
+      ],
+      "translation": "制造加工区",
+      "description": "Pixel-audited visible objects and parts across the fabrication workshop district."
+    },
+    {
+      "id": "science-utilities",
+      "title": "Building utilities",
+      "x": 0,
+      "y": 786,
+      "width": 1672,
+      "height": 155,
+      "labelIds": [
+        "science-ventilation-duct",
+        "science-duct-elbow",
+        "science-blue-utility-pump",
+        "science-landscape-shrub-bed",
+        "science-exterior-water-pipe",
+        "science-blue-pipe-valve",
+        "science-air-conditioning-unit",
+        "science-cylindrical-storage-tank",
+        "science-tank-cap",
+        "science-cooling-unit-pair",
+        "science-fan-grille",
+        "science-blue-utility-conduit"
+      ],
+      "translation": "建筑公用设施",
+      "description": "Pixel-audited visible objects and parts across the building utilities district."
+    }
+  ],
+  "anchors": [
+    {
+      "id": "science-chemistry-workbench",
+      "word": "chemistry workbench",
+      "translation": "化学实验台",
+      "x": 280,
+      "y": 225,
+      "lod": 0,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-rear-laboratory-counter",
+      "word": "rear laboratory counter",
+      "translation": "后排实验台",
+      "x": 300,
+      "y": 137,
+      "lod": 0,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-reagent-shelf",
+      "word": "reagent shelf",
+      "translation": "试剂架",
+      "x": 164,
+      "y": 81,
+      "lod": 1,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-glassware-cupboard",
+      "word": "glassware cupboard",
+      "translation": "玻璃器皿柜",
+      "x": 424,
+      "y": 80,
+      "lod": 1,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-side-laboratory-counter",
+      "word": "side laboratory counter",
+      "translation": "侧实验台",
+      "x": 91,
+      "y": 233,
+      "lod": 1,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-lab-stool",
+      "word": "lab stool",
+      "translation": "实验凳",
+      "x": 368,
+      "y": 174,
+      "lod": 1,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-glass-flask",
+      "word": "glass flask",
+      "translation": "玻璃烧瓶",
+      "x": 222,
+      "y": 110,
+      "lod": 2,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-blue-solution-flask",
+      "word": "blue solution flask",
+      "translation": "蓝色溶液瓶",
+      "x": 242,
+      "y": 110,
+      "lod": 2,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-amber-solution-flask",
+      "word": "amber solution flask",
+      "translation": "琥珀色溶液瓶",
+      "x": 273,
+      "y": 111,
+      "lod": 2,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-round-glass-vessel",
+      "word": "round glass vessel",
+      "translation": "圆形玻璃容器",
+      "x": 291,
+      "y": 110,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-glass-cylinder",
+      "word": "glass cylinder",
+      "translation": "玻璃量筒",
+      "x": 343,
+      "y": 90,
+      "lod": 2,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-tube-rack",
+      "word": "tube rack",
+      "translation": "试管架",
+      "x": 309,
+      "y": 112,
+      "lod": 2,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-support-stand",
+      "word": "support stand",
+      "translation": "支撑架",
+      "x": 372,
+      "y": 106,
+      "lod": 2,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-metal-clamp",
+      "word": "metal clamp",
+      "translation": "金属夹",
+      "x": 385,
+      "y": 108,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-reagent-bottle",
+      "word": "reagent bottle",
+      "translation": "试剂瓶",
+      "x": 395,
+      "y": 107,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-central-test-rack",
+      "word": "central test rack",
+      "translation": "中央试管架",
+      "x": 279,
+      "y": 198,
+      "lod": 2,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-sample-tube",
+      "word": "sample tube",
+      "translation": "样品管",
+      "x": 275,
+      "y": 190,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-tall-glass-tube",
+      "word": "tall glass tube",
+      "translation": "高玻璃管",
+      "x": 314,
+      "y": 187,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-small-beaker",
+      "word": "small beaker",
+      "translation": "小烧杯",
+      "x": 256,
+      "y": 231,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-sample-bottle",
+      "word": "sample bottle",
+      "translation": "样品瓶",
+      "x": 280,
+      "y": 234,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-conical-glass-vessel",
+      "word": "conical glass vessel",
+      "translation": "锥形玻璃容器",
+      "x": 311,
+      "y": 222,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-lower-bench-flask",
+      "word": "lower bench flask",
+      "translation": "下层台面烧瓶",
+      "x": 315,
+      "y": 276,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-measuring-cup",
+      "word": "measuring cup",
+      "translation": "量杯",
+      "x": 273,
+      "y": 282,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-narrow-measuring-tube",
+      "word": "narrow measuring tube",
+      "translation": "细量管",
+      "x": 301,
+      "y": 283,
+      "lod": 4,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-side-flask-rack",
+      "word": "side flask rack",
+      "translation": "侧边烧瓶架",
+      "x": 418,
+      "y": 199,
+      "lod": 2,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-bottle-tray",
+      "word": "bottle tray",
+      "translation": "瓶托盘",
+      "x": 421,
+      "y": 243,
+      "lod": 2,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-drawer-bank",
+      "word": "drawer bank",
+      "translation": "抽屉柜",
+      "x": 303,
+      "y": 311,
+      "lod": 1,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-wood-cabinet",
+      "word": "wood cabinet",
+      "translation": "木柜",
+      "x": 232,
+      "y": 143,
+      "lod": 1,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-round-laboratory-seat",
+      "word": "round laboratory seat",
+      "translation": "圆形实验座凳",
+      "x": 367,
+      "y": 286,
+      "lod": 1,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-paired-wash-bottles",
+      "word": "paired wash bottles",
+      "translation": "成对洗瓶",
+      "x": 445,
+      "y": 280,
+      "lod": 3,
+      "zoneId": "science-chemistry-lab"
+    },
+    {
+      "id": "science-microscope",
+      "word": "microscope",
+      "translation": "显微镜",
+      "x": 534,
+      "y": 151,
+      "lod": 0,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-microscope-eyepiece",
+      "word": "microscope eyepiece",
+      "translation": "显微镜目镜",
+      "x": 582,
+      "y": 135,
+      "lod": 3,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-objective-turret",
+      "word": "objective turret",
+      "translation": "物镜转换器",
+      "x": 649,
+      "y": 159,
+      "lod": 3,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-specimen-stage",
+      "word": "specimen stage",
+      "translation": "载物台",
+      "x": 708,
+      "y": 166,
+      "lod": 3,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-microscope-base",
+      "word": "microscope base",
+      "translation": "显微镜底座",
+      "x": 536,
+      "y": 176,
+      "lod": 2,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-slide-tray",
+      "word": "slide tray",
+      "translation": "载玻片托盘",
+      "x": 529,
+      "y": 202,
+      "lod": 2,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-glass-slide",
+      "word": "glass slide",
+      "translation": "载玻片",
+      "x": 581,
+      "y": 200,
+      "lod": 4,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-petri-dish",
+      "word": "petri dish",
+      "translation": "培养皿",
+      "x": 617,
+      "y": 202,
+      "lod": 2,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-culture-plate",
+      "word": "culture plate",
+      "translation": "培养板",
+      "x": 650,
+      "y": 204,
+      "lod": 2,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-sample-dish",
+      "word": "sample dish",
+      "translation": "样品皿",
+      "x": 682,
+      "y": 202,
+      "lod": 3,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-test-tube-holder",
+      "word": "test tube holder",
+      "translation": "试管托架",
+      "x": 674,
+      "y": 181,
+      "lod": 2,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-blue-sample-tubes",
+      "word": "blue sample tubes",
+      "translation": "蓝色样品管",
+      "x": 681,
+      "y": 190,
+      "lod": 3,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-lab-sink",
+      "word": "lab sink",
+      "translation": "实验室水槽",
+      "x": 588,
+      "y": 107,
+      "lod": 1,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-sink-faucet",
+      "word": "sink faucet",
+      "translation": "水槽龙头",
+      "x": 608,
+      "y": 92,
+      "lod": 2,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-soap-bottle",
+      "word": "soap bottle",
+      "translation": "清洁剂瓶",
+      "x": 660,
+      "y": 104,
+      "lod": 3,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-wall-cabinet",
+      "word": "wall cabinet",
+      "translation": "壁柜",
+      "x": 527,
+      "y": 84,
+      "lod": 1,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-microscopy-bench",
+      "word": "microscopy bench",
+      "translation": "显微观察台",
+      "x": 628,
+      "y": 226,
+      "lod": 0,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-bench-drawer",
+      "word": "bench drawer",
+      "translation": "工作台抽屉",
+      "x": 628,
+      "y": 260,
+      "lod": 2,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-benchtop-scale",
+      "word": "benchtop scale",
+      "translation": "台式秤",
+      "x": 716,
+      "y": 229,
+      "lod": 2,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-potted-laboratory-plant",
+      "word": "potted laboratory plant",
+      "translation": "实验室盆栽",
+      "x": 739,
+      "y": 221,
+      "lod": 1,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-plastic-wash-bottle",
+      "word": "plastic wash bottle",
+      "translation": "塑料洗瓶",
+      "x": 516,
+      "y": 238,
+      "lod": 3,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-counter-seat",
+      "word": "counter seat",
+      "translation": "台下座凳",
+      "x": 580,
+      "y": 239,
+      "lod": 1,
+      "zoneId": "science-microscopy-lab"
+    },
+    {
+      "id": "science-physics-bench",
+      "word": "physics bench",
+      "translation": "物理实验台",
+      "x": 1120,
+      "y": 160,
+      "lod": 0,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-demonstration-table",
+      "word": "demonstration table",
+      "translation": "演示台",
+      "x": 1167,
+      "y": 284,
+      "lod": 0,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-optical-rail",
+      "word": "optical rail",
+      "translation": "光学导轨",
+      "x": 1030,
+      "y": 163,
+      "lod": 1,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-lens-mount",
+      "word": "lens mount",
+      "translation": "透镜座",
+      "x": 1037,
+      "y": 108,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-round-mirror",
+      "word": "round mirror",
+      "translation": "圆镜",
+      "x": 1080,
+      "y": 112,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-upright-lens",
+      "word": "upright lens",
+      "translation": "竖直透镜",
+      "x": 1122,
+      "y": 143,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-pendulum-frame",
+      "word": "pendulum frame",
+      "translation": "摆架",
+      "x": 1167,
+      "y": 146,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-wheel-apparatus",
+      "word": "wheel apparatus",
+      "translation": "轮式实验装置",
+      "x": 1199,
+      "y": 109,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-white-circular-apparatus",
+      "word": "white circular apparatus",
+      "translation": "白色圆盘装置",
+      "x": 1247,
+      "y": 111,
+      "lod": 1,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-rotating-disk",
+      "word": "rotating disk",
+      "translation": "旋转圆盘",
+      "x": 1293,
+      "y": 111,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-small-bench-device",
+      "word": "small bench device",
+      "translation": "小型台面装置",
+      "x": 1341,
+      "y": 145,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-tripod-support",
+      "word": "tripod support",
+      "translation": "三脚支架",
+      "x": 915,
+      "y": 145,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-meter-rod",
+      "word": "meter rod",
+      "translation": "测量杆",
+      "x": 959,
+      "y": 162,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-inclined-track",
+      "word": "inclined track",
+      "translation": "倾斜轨道",
+      "x": 914,
+      "y": 86,
+      "lod": 1,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-wall-display-frame",
+      "word": "wall display frame",
+      "translation": "墙面展示框",
+      "x": 998,
+      "y": 69,
+      "lod": 1,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-hanging-counterweight",
+      "word": "hanging counterweight",
+      "translation": "悬挂配重",
+      "x": 1170,
+      "y": 125,
+      "lod": 3,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-blue-test-ball",
+      "word": "blue test ball",
+      "translation": "蓝色实验球",
+      "x": 1037,
+      "y": 150,
+      "lod": 3,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-lower-support-rod",
+      "word": "lower support rod",
+      "translation": "下排支撑杆",
+      "x": 1000,
+      "y": 237,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-incandescent-bulb",
+      "word": "incandescent bulb",
+      "translation": "白炽灯泡",
+      "x": 1068,
+      "y": 225,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-bulb-socket",
+      "word": "bulb socket",
+      "translation": "灯座",
+      "x": 1068,
+      "y": 237,
+      "lod": 3,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-twin-lamp",
+      "word": "twin lamp",
+      "translation": "双灯装置",
+      "x": 1095,
+      "y": 226,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-lever-arm",
+      "word": "lever arm",
+      "translation": "杠杆臂",
+      "x": 1137,
+      "y": 238,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-hanging-spring",
+      "word": "hanging spring",
+      "translation": "悬挂弹簧",
+      "x": 1183,
+      "y": 232,
+      "lod": 3,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-hanging-apparatus-rack",
+      "word": "hanging apparatus rack",
+      "translation": "悬挂实验架",
+      "x": 1235,
+      "y": 224,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-brass-weight",
+      "word": "brass weight",
+      "translation": "黄铜砝码",
+      "x": 1295,
+      "y": 270,
+      "lod": 3,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-electric-meter",
+      "word": "electric meter",
+      "translation": "电表",
+      "x": 1290,
+      "y": 249,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-control-switch",
+      "word": "control switch",
+      "translation": "控制开关",
+      "x": 1189,
+      "y": 264,
+      "lod": 3,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-wire-coil",
+      "word": "wire coil",
+      "translation": "线圈",
+      "x": 1339,
+      "y": 283,
+      "lod": 2,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-physics-parts-shelf",
+      "word": "physics parts shelf",
+      "translation": "物理器材架",
+      "x": 1353,
+      "y": 236,
+      "lod": 1,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-physics-chair",
+      "word": "physics chair",
+      "translation": "物理实验椅",
+      "x": 1065,
+      "y": 306,
+      "lod": 1,
+      "zoneId": "science-physics-optics"
+    },
+    {
+      "id": "science-wind-turbine",
+      "word": "wind turbine",
+      "translation": "风力涡轮机",
+      "x": 1548,
+      "y": 126,
+      "lod": 0,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-turbine-blade",
+      "word": "turbine blade",
+      "translation": "涡轮叶片",
+      "x": 1558,
+      "y": 88,
+      "lod": 2,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-turbine-tower",
+      "word": "turbine tower",
+      "translation": "风机塔架",
+      "x": 1527,
+      "y": 176,
+      "lod": 1,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-solar-panel",
+      "word": "solar panel",
+      "translation": "太阳能板",
+      "x": 1624,
+      "y": 126,
+      "lod": 0,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-solar-panel-frame",
+      "word": "solar panel frame",
+      "translation": "太阳能板支架",
+      "x": 1607,
+      "y": 165,
+      "lod": 2,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-instrument-tripod",
+      "word": "instrument tripod",
+      "translation": "仪器三脚架",
+      "x": 1560,
+      "y": 252,
+      "lod": 1,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-survey-tripod",
+      "word": "survey tripod",
+      "translation": "测量三脚架",
+      "x": 1540,
+      "y": 273,
+      "lod": 1,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-sensor-mast",
+      "word": "sensor mast",
+      "translation": "传感器桅杆",
+      "x": 1468,
+      "y": 111,
+      "lod": 1,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-weather-instrument",
+      "word": "weather instrument",
+      "translation": "气象仪器",
+      "x": 1451,
+      "y": 147,
+      "lod": 2,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-metal-test-frame",
+      "word": "metal test frame",
+      "translation": "金属测试架",
+      "x": 1434,
+      "y": 133,
+      "lod": 1,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-vertical-field-instrument",
+      "word": "vertical field instrument",
+      "translation": "立式野外仪器",
+      "x": 1488,
+      "y": 142,
+      "lod": 2,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-gravel-path",
+      "word": "gravel path",
+      "translation": "碎石小径",
+      "x": 1480,
+      "y": 254,
+      "lod": 0,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-lawn-patch",
+      "word": "lawn patch",
+      "translation": "草坪",
+      "x": 1580,
+      "y": 290,
+      "lod": 1,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-archery-target",
+      "word": "archery target",
+      "translation": "射箭靶",
+      "x": 1644,
+      "y": 278,
+      "lod": 0,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-target-stand",
+      "word": "target stand",
+      "translation": "靶架",
+      "x": 1611,
+      "y": 320,
+      "lod": 1,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-blue-field-cylinder",
+      "word": "blue field cylinder",
+      "translation": "蓝色户外圆筒",
+      "x": 1472,
+      "y": 321,
+      "lod": 1,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-garden-lamp",
+      "word": "garden lamp",
+      "translation": "花园灯",
+      "x": 1641,
+      "y": 372,
+      "lod": 2,
+      "zoneId": "science-field-energy"
+    },
+    {
+      "id": "science-wash-station",
+      "word": "wash station",
+      "translation": "清洗台",
+      "x": 287,
+      "y": 390,
+      "lod": 0,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-wash-basin",
+      "word": "wash basin",
+      "translation": "清洗池",
+      "x": 216,
+      "y": 393,
+      "lod": 1,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-faucet-row",
+      "word": "faucet row",
+      "translation": "成排龙头",
+      "x": 287,
+      "y": 369,
+      "lod": 2,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-hanging-cleaning-tool",
+      "word": "hanging cleaning tool",
+      "translation": "悬挂清洁工具",
+      "x": 423,
+      "y": 391,
+      "lod": 2,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-emergency-cabinet",
+      "word": "emergency cabinet",
+      "translation": "应急柜",
+      "x": 72,
+      "y": 378,
+      "lod": 1,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-tall-utility-locker",
+      "word": "tall utility locker",
+      "translation": "高公用储物柜",
+      "x": 121,
+      "y": 389,
+      "lod": 1,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-gray-storage-locker",
+      "word": "gray storage locker",
+      "translation": "灰色储物柜",
+      "x": 155,
+      "y": 388,
+      "lod": 1,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-yellow-hose-nozzles",
+      "word": "yellow hose nozzles",
+      "translation": "黄色软管喷嘴",
+      "x": 384,
+      "y": 377,
+      "lod": 2,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-coiled-water-hose",
+      "word": "coiled water hose",
+      "translation": "盘绕水管",
+      "x": 373,
+      "y": 428,
+      "lod": 1,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-floor-cleaner",
+      "word": "floor cleaner",
+      "translation": "地面清洁器",
+      "x": 416,
+      "y": 416,
+      "lod": 2,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-wall-broom",
+      "word": "wall broom",
+      "translation": "墙边扫帚",
+      "x": 436,
+      "y": 410,
+      "lod": 2,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-dustpan",
+      "word": "dustpan",
+      "translation": "簸箕",
+      "x": 449,
+      "y": 423,
+      "lod": 3,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-metal-tray-rack",
+      "word": "metal tray rack",
+      "translation": "金属托盘架",
+      "x": 34,
+      "y": 420,
+      "lod": 1,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-utility-shelf",
+      "word": "utility shelf",
+      "translation": "公用置物架",
+      "x": 35,
+      "y": 407,
+      "lod": 1,
+      "zoneId": "science-wash-safety"
+    },
+    {
+      "id": "science-metal-pipe-rack",
+      "word": "metal pipe rack",
+      "translation": "金属管架",
+      "x": 36,
+      "y": 558,
+      "lod": 0,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-large-steel-pipe",
+      "word": "large steel pipe",
+      "translation": "大钢管",
+      "x": 30,
+      "y": 575,
+      "lod": 1,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-narrow-metal-tube",
+      "word": "narrow metal tube",
+      "translation": "细金属管",
+      "x": 72,
+      "y": 530,
+      "lod": 2,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-pipe-offcut",
+      "word": "pipe offcut",
+      "translation": "管材余料",
+      "x": 82,
+      "y": 660,
+      "lod": 2,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-lumber-stack",
+      "word": "lumber stack",
+      "translation": "木料堆",
+      "x": 154,
+      "y": 600,
+      "lod": 0,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-timber-board",
+      "word": "timber board",
+      "translation": "木板",
+      "x": 165,
+      "y": 640,
+      "lod": 1,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-plywood-sheet",
+      "word": "plywood sheet",
+      "translation": "胶合板",
+      "x": 168,
+      "y": 509,
+      "lod": 1,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-parts-shelving",
+      "word": "parts shelving",
+      "translation": "零件货架",
+      "x": 199,
+      "y": 520,
+      "lod": 0,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-blue-storage-bin",
+      "word": "blue storage bin",
+      "translation": "蓝色收纳箱",
+      "x": 210,
+      "y": 550,
+      "lod": 2,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-wooden-parts-tray",
+      "word": "wooden parts tray",
+      "translation": "木制零件盘",
+      "x": 274,
+      "y": 529,
+      "lod": 2,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-stock-drawer-cabinet",
+      "word": "stock drawer cabinet",
+      "translation": "材料抽屉柜",
+      "x": 325,
+      "y": 522,
+      "lod": 1,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-boxed-workshop-stock",
+      "word": "boxed workshop stock",
+      "translation": "盒装工坊材料",
+      "x": 244,
+      "y": 503,
+      "lod": 2,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-vertical-workshop-machine",
+      "word": "vertical workshop machine",
+      "translation": "立式工坊机器",
+      "x": 273,
+      "y": 629,
+      "lod": 0,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-machine-handwheel",
+      "word": "machine handwheel",
+      "translation": "机器手轮",
+      "x": 299,
+      "y": 614,
+      "lod": 2,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-wooden-crate",
+      "word": "wooden crate",
+      "translation": "木箱",
+      "x": 125,
+      "y": 685,
+      "lod": 1,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-cardboard-box",
+      "word": "cardboard box",
+      "translation": "纸箱",
+      "x": 268,
+      "y": 746,
+      "lod": 1,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-metal-bar-bundle",
+      "word": "metal bar bundle",
+      "translation": "金属棒束",
+      "x": 326,
+      "y": 752,
+      "lod": 1,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-stockroom-door",
+      "word": "stockroom door",
+      "translation": "材料库门",
+      "x": 75,
+      "y": 739,
+      "lod": 0,
+      "zoneId": "science-material-stock"
+    },
+    {
+      "id": "science-engine-lathe",
+      "word": "engine lathe",
+      "translation": "普通车床",
+      "x": 520,
+      "y": 613,
+      "lod": 0,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-lathe-headstock",
+      "word": "lathe headstock",
+      "translation": "车床主轴箱",
+      "x": 460,
+      "y": 590,
+      "lod": 1,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-lathe-chuck",
+      "word": "lathe chuck",
+      "translation": "车床卡盘",
+      "x": 493,
+      "y": 594,
+      "lod": 2,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-tool-post",
+      "word": "tool post",
+      "translation": "刀架",
+      "x": 527,
+      "y": 601,
+      "lod": 2,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-lathe-carriage",
+      "word": "lathe carriage",
+      "translation": "车床溜板",
+      "x": 546,
+      "y": 620,
+      "lod": 2,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-lead-screw",
+      "word": "lead screw",
+      "translation": "丝杠",
+      "x": 526,
+      "y": 646,
+      "lod": 3,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-lathe-control-box",
+      "word": "lathe control box",
+      "translation": "车床控制箱",
+      "x": 461,
+      "y": 560,
+      "lod": 1,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-machine-tool-wall",
+      "word": "machine tool wall",
+      "translation": "机加工工具墙",
+      "x": 536,
+      "y": 544,
+      "lod": 1,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-metal-tool-rack",
+      "word": "metal tool rack",
+      "translation": "金属工具架",
+      "x": 575,
+      "y": 543,
+      "lod": 2,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-upright-milling-machine",
+      "word": "upright milling machine",
+      "translation": "立式铣削机",
+      "x": 660,
+      "y": 616,
+      "lod": 0,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-machine-spindle",
+      "word": "machine spindle",
+      "translation": "机器主轴",
+      "x": 656,
+      "y": 634,
+      "lod": 2,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-machine-table",
+      "word": "machine table",
+      "translation": "机器工作台",
+      "x": 659,
+      "y": 664,
+      "lod": 1,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-green-gas-cylinder",
+      "word": "green gas cylinder",
+      "translation": "绿色气瓶",
+      "x": 722,
+      "y": 609,
+      "lod": 1,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-cylinder-regulator",
+      "word": "cylinder regulator",
+      "translation": "气瓶调节器",
+      "x": 718,
+      "y": 579,
+      "lod": 3,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-small-bench-machine",
+      "word": "small bench machine",
+      "translation": "小型台式机器",
+      "x": 603,
+      "y": 724,
+      "lod": 0,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-bench-machine-wheel",
+      "word": "bench machine wheel",
+      "translation": "台式机器手轮",
+      "x": 621,
+      "y": 718,
+      "lod": 3,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-blue-metal-worktable",
+      "word": "blue metal worktable",
+      "translation": "蓝色金属工作台",
+      "x": 425,
+      "y": 734,
+      "lod": 1,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-rubber-floor-mat",
+      "word": "rubber floor mat",
+      "translation": "橡胶地垫",
+      "x": 521,
+      "y": 716,
+      "lod": 1,
+      "zoneId": "science-machining"
+    },
+    {
+      "id": "science-electronics-workbench",
+      "word": "electronics workbench",
+      "translation": "电子工作台",
+      "x": 930,
+      "y": 430,
+      "lod": 0,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-large-circuit-board",
+      "word": "large circuit board",
+      "translation": "大型电路板",
+      "x": 839,
+      "y": 380,
+      "lod": 1,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-green-prototype-board",
+      "word": "green prototype board",
+      "translation": "绿色原型板",
+      "x": 947,
+      "y": 424,
+      "lod": 2,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-cooling-fan",
+      "word": "cooling fan",
+      "translation": "散热风扇",
+      "x": 954,
+      "y": 374,
+      "lod": 1,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-analog-meter",
+      "word": "analog meter",
+      "translation": "模拟仪表",
+      "x": 1014,
+      "y": 371,
+      "lod": 2,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-dual-gauge",
+      "word": "dual gauge",
+      "translation": "双联表头",
+      "x": 1042,
+      "y": 371,
+      "lod": 2,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-cable-loop",
+      "word": "cable loop",
+      "translation": "环形电缆",
+      "x": 811,
+      "y": 420,
+      "lod": 2,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-magnifying-lens",
+      "word": "magnifying lens",
+      "translation": "放大镜",
+      "x": 817,
+      "y": 423,
+      "lod": 3,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-wire-spool",
+      "word": "wire spool",
+      "translation": "线轴",
+      "x": 840,
+      "y": 423,
+      "lod": 3,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-small-toggle",
+      "word": "small toggle",
+      "translation": "小拨动开关",
+      "x": 867,
+      "y": 425,
+      "lod": 4,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-component-tray",
+      "word": "component tray",
+      "translation": "元件托盘",
+      "x": 884,
+      "y": 421,
+      "lod": 2,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-screwdriver-rack",
+      "word": "screwdriver rack",
+      "translation": "螺丝刀架",
+      "x": 790,
+      "y": 371,
+      "lod": 2,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-bench-power-unit",
+      "word": "bench power unit",
+      "translation": "台式电源装置",
+      "x": 1004,
+      "y": 410,
+      "lod": 1,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-black-control-module",
+      "word": "black control module",
+      "translation": "黑色控制模块",
+      "x": 906,
+      "y": 387,
+      "lod": 2,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-terminal-block",
+      "word": "terminal block",
+      "translation": "接线端子排",
+      "x": 1030,
+      "y": 426,
+      "lod": 3,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-wire-bundle",
+      "word": "wire bundle",
+      "translation": "线束",
+      "x": 1065,
+      "y": 428,
+      "lod": 3,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-electronics-stool",
+      "word": "electronics stool",
+      "translation": "电子工位圆凳",
+      "x": 867,
+      "y": 466,
+      "lod": 1,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-electronics-drawer",
+      "word": "electronics drawer",
+      "translation": "电子台抽屉",
+      "x": 917,
+      "y": 464,
+      "lod": 1,
+      "zoneId": "science-electronics"
+    },
+    {
+      "id": "science-enclosed-printer",
+      "word": "enclosed printer",
+      "translation": "封闭式打印机",
+      "x": 1164,
+      "y": 417,
+      "lod": 0,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-purple-print-spool",
+      "word": "purple print spool",
+      "translation": "紫色打印线轴",
+      "x": 1165,
+      "y": 436,
+      "lod": 2,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-robot-arm",
+      "word": "robot arm",
+      "translation": "机械臂",
+      "x": 1260,
+      "y": 401,
+      "lod": 0,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-robot-base",
+      "word": "robot base",
+      "translation": "机械臂底座",
+      "x": 1240,
+      "y": 438,
+      "lod": 1,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-robotics-parts-cabinet",
+      "word": "robotics parts cabinet",
+      "translation": "机器人零件柜",
+      "x": 1345,
+      "y": 392,
+      "lod": 1,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-colored-bin-tower",
+      "word": "colored bin tower",
+      "translation": "彩色料盒塔",
+      "x": 1394,
+      "y": 414,
+      "lod": 1,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-prototyping-table",
+      "word": "prototyping table",
+      "translation": "原型制作台",
+      "x": 1305,
+      "y": 470,
+      "lod": 0,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-small-circuit-board",
+      "word": "small circuit board",
+      "translation": "小型电路板",
+      "x": 1223,
+      "y": 480,
+      "lod": 2,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-multicolor-parts-tray",
+      "word": "multicolor parts tray",
+      "translation": "多彩零件托盘",
+      "x": 1219,
+      "y": 476,
+      "lod": 2,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-loose-gear",
+      "word": "loose gear",
+      "translation": "散置齿轮",
+      "x": 1285,
+      "y": 483,
+      "lod": 3,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-small-rubber-wheel",
+      "word": "small rubber wheel",
+      "translation": "小橡胶轮",
+      "x": 1310,
+      "y": 484,
+      "lod": 3,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-small-gray-component",
+      "word": "small gray component",
+      "translation": "灰色小组件",
+      "x": 1379,
+      "y": 483,
+      "lod": 3,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-robotics-storage-cart",
+      "word": "robotics storage cart",
+      "translation": "机器人区储物车",
+      "x": 1332,
+      "y": 424,
+      "lod": 1,
+      "zoneId": "science-robotics"
+    },
+    {
+      "id": "science-woodworking-bench",
+      "word": "woodworking bench",
+      "translation": "木工台",
+      "x": 939,
+      "y": 635,
+      "lod": 0,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-woodworking-tool-wall",
+      "word": "woodworking tool wall",
+      "translation": "木工工具墙",
+      "x": 950,
+      "y": 541,
+      "lod": 0,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-chisel-rack",
+      "word": "chisel rack",
+      "translation": "凿子架",
+      "x": 972,
+      "y": 542,
+      "lod": 2,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-hanging-spanner-row",
+      "word": "hanging spanner row",
+      "translation": "悬挂扳手排",
+      "x": 1047,
+      "y": 544,
+      "lod": 2,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-vertical-lumber-rack",
+      "word": "vertical lumber rack",
+      "translation": "立式木料架",
+      "x": 818,
+      "y": 562,
+      "lod": 1,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-stacked-timber-planks",
+      "word": "stacked timber planks",
+      "translation": "堆叠木板",
+      "x": 832,
+      "y": 588,
+      "lod": 1,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-wooden-frame",
+      "word": "wooden frame",
+      "translation": "木框",
+      "x": 790,
+      "y": 620,
+      "lod": 1,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-bench-clamp",
+      "word": "bench clamp",
+      "translation": "台钳夹具",
+      "x": 895,
+      "y": 603,
+      "lod": 2,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-hand-saw",
+      "word": "hand saw",
+      "translation": "手锯",
+      "x": 964,
+      "y": 589,
+      "lod": 2,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-metal-file",
+      "word": "metal file",
+      "translation": "金属锉",
+      "x": 1001,
+      "y": 612,
+      "lod": 3,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-wooden-mallet",
+      "word": "wooden mallet",
+      "translation": "木槌",
+      "x": 876,
+      "y": 655,
+      "lod": 2,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-claw-hammer",
+      "word": "claw hammer",
+      "translation": "羊角锤",
+      "x": 917,
+      "y": 657,
+      "lod": 2,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-straight-ruler",
+      "word": "straight ruler",
+      "translation": "直尺",
+      "x": 944,
+      "y": 672,
+      "lod": 3,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-slender-tool-row",
+      "word": "slender tool row",
+      "translation": "细长工具排",
+      "x": 1035,
+      "y": 665,
+      "lod": 2,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-small-drill-stand",
+      "word": "small drill stand",
+      "translation": "小型钻台",
+      "x": 974,
+      "y": 742,
+      "lod": 1,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-wooden-workpiece",
+      "word": "wooden workpiece",
+      "translation": "木制工件",
+      "x": 1002,
+      "y": 742,
+      "lod": 2,
+      "zoneId": "science-woodworking"
+    },
+    {
+      "id": "science-fabrication-lathe",
+      "word": "fabrication lathe",
+      "translation": "制造区车床",
+      "x": 1230,
+      "y": 602,
+      "lod": 0,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-fabrication-chuck",
+      "word": "fabrication chuck",
+      "translation": "制造车床卡盘",
+      "x": 1154,
+      "y": 596,
+      "lod": 2,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-fabrication-carriage",
+      "word": "fabrication carriage",
+      "translation": "制造车床溜板",
+      "x": 1231,
+      "y": 607,
+      "lod": 2,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-lathe-tailstock",
+      "word": "lathe tailstock",
+      "translation": "车床尾座",
+      "x": 1305,
+      "y": 611,
+      "lod": 2,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-tailstock-wheel",
+      "word": "tailstock wheel",
+      "translation": "尾座手轮",
+      "x": 1315,
+      "y": 621,
+      "lod": 3,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-standing-fabrication-machine",
+      "word": "standing fabrication machine",
+      "translation": "立式制造机器",
+      "x": 1192,
+      "y": 692,
+      "lod": 0,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-fabrication-workbench",
+      "word": "fabrication workbench",
+      "translation": "制造工作台",
+      "x": 1285,
+      "y": 706,
+      "lod": 0,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-workbench-vise",
+      "word": "workbench vise",
+      "translation": "工作台虎钳",
+      "x": 1266,
+      "y": 688,
+      "lod": 2,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-rolling-fabrication-cart",
+      "word": "rolling fabrication cart",
+      "translation": "制造区手推车",
+      "x": 1477,
+      "y": 621,
+      "lod": 0,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-cart-wheel",
+      "word": "cart wheel",
+      "translation": "推车轮",
+      "x": 1454,
+      "y": 675,
+      "lod": 2,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-colored-parts-bins",
+      "word": "colored parts bins",
+      "translation": "彩色零件盒",
+      "x": 1510,
+      "y": 591,
+      "lod": 1,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-green-parts-bin",
+      "word": "green parts bin",
+      "translation": "绿色零件盒",
+      "x": 1498,
+      "y": 617,
+      "lod": 2,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-metal-sorting-trays",
+      "word": "metal sorting trays",
+      "translation": "金属分类盘",
+      "x": 1508,
+      "y": 650,
+      "lod": 2,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-right-standing-machine",
+      "word": "right standing machine",
+      "translation": "右侧立式机器",
+      "x": 1550,
+      "y": 697,
+      "lod": 0,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-machine-safety-guard",
+      "word": "machine safety guard",
+      "translation": "机器防护罩",
+      "x": 1532,
+      "y": 652,
+      "lod": 1,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-vented-machine-panel",
+      "word": "vented machine panel",
+      "translation": "机器通风面板",
+      "x": 1553,
+      "y": 652,
+      "lod": 2,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-green-floor-cabinet",
+      "word": "green floor cabinet",
+      "translation": "绿色落地柜",
+      "x": 1544,
+      "y": 740,
+      "lod": 1,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-blue-round-stool",
+      "word": "blue round stool",
+      "translation": "蓝色圆凳",
+      "x": 1394,
+      "y": 727,
+      "lod": 1,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-small-assembly-table",
+      "word": "small assembly table",
+      "translation": "小型装配台",
+      "x": 1284,
+      "y": 699,
+      "lod": 1,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-black-tool-stand",
+      "word": "black tool stand",
+      "translation": "黑色工具架",
+      "x": 1152,
+      "y": 712,
+      "lod": 1,
+      "zoneId": "science-fabrication"
+    },
+    {
+      "id": "science-ventilation-duct",
+      "word": "ventilation duct",
+      "translation": "通风管道",
+      "x": 832,
+      "y": 818,
+      "lod": 0,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-duct-elbow",
+      "word": "duct elbow",
+      "translation": "管道弯头",
+      "x": 833,
+      "y": 812,
+      "lod": 2,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-blue-utility-pump",
+      "word": "blue utility pump",
+      "translation": "蓝色公用泵",
+      "x": 815,
+      "y": 839,
+      "lod": 1,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-landscape-shrub-bed",
+      "word": "landscape shrub bed",
+      "translation": "灌木花坛",
+      "x": 945,
+      "y": 856,
+      "lod": 0,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-exterior-water-pipe",
+      "word": "exterior water pipe",
+      "translation": "室外水管",
+      "x": 1247,
+      "y": 840,
+      "lod": 1,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-blue-pipe-valve",
+      "word": "blue pipe valve",
+      "translation": "蓝色管道阀门",
+      "x": 1236,
+      "y": 858,
+      "lod": 2,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-air-conditioning-unit",
+      "word": "air conditioning unit",
+      "translation": "空调外机",
+      "x": 1354,
+      "y": 839,
+      "lod": 0,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-cylindrical-storage-tank",
+      "word": "cylindrical storage tank",
+      "translation": "圆柱储罐",
+      "x": 1465,
+      "y": 834,
+      "lod": 0,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-tank-cap",
+      "word": "tank cap",
+      "translation": "储罐顶盖",
+      "x": 1470,
+      "y": 791,
+      "lod": 2,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-cooling-unit-pair",
+      "word": "cooling unit pair",
+      "translation": "成对冷却机组",
+      "x": 1610,
+      "y": 842,
+      "lod": 0,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-fan-grille",
+      "word": "fan grille",
+      "translation": "风扇格栅",
+      "x": 1584,
+      "y": 843,
+      "lod": 2,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-blue-utility-conduit",
+      "word": "blue utility conduit",
+      "translation": "蓝色公用管线",
+      "x": 1252,
+      "y": 878,
+      "lod": 1,
+      "zoneId": "science-utilities"
+    }
+  ],
+  "removedAmbiguous": [
+    {
+      "candidate": "specific analytical instrument at the chemistry side counter",
+      "reason": "the generated pixels support only a generic benchtop device, not a defensible professional instrument name"
+    },
+    {
+      "candidate": "named electrostatics machine on the physics bench",
+      "reason": "the mixed sphere-and-stand geometry is visually clear but does not prove one exact apparatus type"
+    },
+    {
+      "candidate": "exact weather sensor model outdoors",
+      "reason": "the mast-mounted parts are recognizable only as field sensing equipment"
+    },
+    {
+      "candidate": "specific enclosed additive-manufacturing printer",
+      "reason": "the enclosure and spool are visible, but the generated mechanism does not justify a precise printer class or model"
+    },
+    {
+      "candidate": "named robot arm model",
+      "reason": "the articulated arm is clear while its generated joints and tool head do not establish a real product or exact configuration"
+    },
+    {
+      "candidate": "exact colored headgear on the fabrication cart",
+      "reason": "the colored vessels read reliably as storage bins, not as a defensible helmet or face-shield type"
+    },
+    {
+      "candidate": "specific CNC machine in the lower workshops",
+      "reason": "several machines combine plausible controls and housings without enough evidence for CNC capability or an exact machine category"
+    },
+    {
+      "candidate": "exact electronics component names below board level",
+      "reason": "individual tiny generated parts are visible but their pinout and package geometry are not reliable enough for precise component identification"
+    },
+    {
+      "candidate": "glass sphere",
+      "reason": "the opaque circular apparatus does not establish transparent glass or spherical geometry"
+    },
+    {
+      "candidate": "controller board",
+      "reason": "a circuit board is visible, but its controller role is not visually established"
+    },
+    {
+      "candidate": "sensor module",
+      "reason": "the small gray component lacks diagnostic sensor geometry or readable markings"
+    },
+    {
+      "candidate": "vertical field gauge",
+      "reason": "the outdoor vertical instrument is visible, but a gauge function is not established"
+    },
+    {
+      "candidate": "miniature robot",
+      "reason": "the pointed loose-parts cluster has no independently traceable robot silhouette at native pixels"
+    },
+    {
+      "candidate": "small robotic gripper",
+      "reason": "the pointed prototype-parts cluster lacks distinct jaws and linkage"
+    },
+    {
+      "candidate": "middle wash basin",
+      "reason": "a repeated basin instance was removed in favor of one generic wash basin vocabulary target"
+    },
+    {
+      "candidate": "right wash basin",
+      "reason": "a repeated basin instance was removed in favor of one generic wash basin vocabulary target"
+    }
+  ]
+}

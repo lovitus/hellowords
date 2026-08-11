@@ -1,0 +1,2230 @@
+{
+  "schemaVersion": 1,
+  "panelId": "market-kitchen-bakery",
+  "source": {
+    "path": "scripts/assets/mega-atlas-v21/03-market-kitchen-bakery-v1.png",
+    "width": 1672,
+    "height": 941,
+    "sha256": "0d895b631174ef09ed2107dedcd89c1a87bcca03578694273706e5bca70c40f3",
+    "review": "original-resolution pixel audit with independently reviewed district crops"
+  },
+  "counts": {
+    "zones": 10,
+    "anchors": 196,
+    "removedAmbiguous": 32
+  },
+  "zones": [
+    {
+      "id": "market-produce-north",
+      "title": "North produce stalls",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 470,
+      "labelIds": [
+        "market-striped-market-canopy",
+        "market-canopy-support-pole",
+        "market-potted-palm",
+        "market-upper-produce-stall",
+        "market-orange-fruit-pile",
+        "market-green-fruit-pile",
+        "market-white-vegetable-bulbs",
+        "market-yellow-fruit-box",
+        "market-green-vegetable-box",
+        "market-market-flower-pot",
+        "market-cream-market-awning",
+        "market-blue-handcart",
+        "market-purple-produce-tray",
+        "market-mushroom-crate",
+        "market-tomato-crate",
+        "market-pepper-crate",
+        "market-asparagus-bundle"
+      ],
+      "translation": "北侧果蔬摊",
+      "description": "Pixel-audited visible objects and parts across the north produce stalls district."
+    },
+    {
+      "id": "market-produce-south",
+      "title": "South produce stalls",
+      "x": 0,
+      "y": 471,
+      "width": 320,
+      "height": 470,
+      "labelIds": [
+        "market-lower-produce-stand",
+        "market-green-apple-crate",
+        "market-purple-vegetable-crate",
+        "market-south-striped-awning",
+        "market-awning-corner-pole",
+        "market-citrus-crate",
+        "market-potato-crate",
+        "market-cauliflower-crate",
+        "market-woven-produce-basket",
+        "market-potted-market-herb",
+        "market-market-sidewalk",
+        "market-street-drainage-grate",
+        "market-purple-produce-box",
+        "market-dark-root-produce-box",
+        "market-wooden-stall-base",
+        "market-square-pavement-tile",
+        "market-market-curb"
+      ],
+      "translation": "南侧果蔬摊",
+      "description": "Pixel-audited visible objects and parts across the south produce stalls district."
+    },
+    {
+      "id": "market-dry-goods",
+      "title": "Dry goods and dairy",
+      "x": 321,
+      "y": 20,
+      "width": 400,
+      "height": 275,
+      "labelIds": [
+        "market-dry-goods-shelving",
+        "market-glass-storage-jar",
+        "market-jar-lid",
+        "market-ceramic-canister",
+        "market-tall-pantry-bottle",
+        "market-grain-bin",
+        "market-bean-bin",
+        "market-rice-bin",
+        "market-lentil-bin",
+        "market-pasta-bin",
+        "market-flour-sack",
+        "market-dry-goods-scoop",
+        "market-wicker-storage-basket",
+        "market-bread-basket",
+        "market-counter-weighing-scale",
+        "market-scale-dial",
+        "market-orange-drink-bottle",
+        "market-small-dairy-cup",
+        "market-amber-pantry-jar",
+        "market-wooden-dry-counter",
+        "market-green-herb-crate",
+        "market-narrow-metal-rack"
+      ],
+      "translation": "干货与乳品",
+      "description": "Pixel-audited visible objects and parts across the dry goods and dairy district."
+    },
+    {
+      "id": "market-fresh-counter",
+      "title": "Fresh food counter",
+      "x": 321,
+      "y": 296,
+      "width": 400,
+      "height": 235,
+      "labelIds": [
+        "market-fresh-food-counter",
+        "market-whole-fish",
+        "market-small-fish-group",
+        "market-shellfish-display",
+        "market-seafood-piece",
+        "market-crushed-ice-bed",
+        "market-chilled-dairy-display",
+        "market-dairy-wedge",
+        "market-metal-trolley-frame",
+        "market-white-drink-bottles",
+        "market-wrapped-market-item",
+        "market-deli-bowl",
+        "market-counter-glass-panel",
+        "market-refrigerated-case",
+        "market-metal-counter-ledge",
+        "market-small-dairy-tub",
+        "market-display-bowl",
+        "market-counter-divider",
+        "market-paper-food-wrap"
+      ],
+      "translation": "生鲜柜台",
+      "description": "Pixel-audited visible objects and parts across the fresh food counter district."
+    },
+    {
+      "id": "market-retail-southwest",
+      "title": "Southwest market counter",
+      "x": 321,
+      "y": 532,
+      "width": 400,
+      "height": 239,
+      "labelIds": [
+        "market-chilled-meat-case",
+        "market-meat-cut",
+        "market-red-meat-tray",
+        "market-case-glass-cover",
+        "market-tomato-basket",
+        "market-pale-green-pepper-crate",
+        "market-leafy-greens-crate",
+        "market-white-root-bundle",
+        "market-egg-basket",
+        "market-brown-ingredient-sack",
+        "market-red-potato-box",
+        "market-strawberry-tray",
+        "market-white-dairy-can",
+        "market-white-dairy-cup-row",
+        "market-grain-basket",
+        "market-green-vegetable-bundle",
+        "market-potted-retail-plant",
+        "market-produce-display-crate"
+      ],
+      "translation": "西南市场柜台",
+      "description": "Pixel-audited visible objects and parts across the southwest market counter district."
+    },
+    {
+      "id": "market-bakery",
+      "title": "Bakery production",
+      "x": 721,
+      "y": 20,
+      "width": 505,
+      "height": 430,
+      "labelIds": [
+        "market-brick-bread-oven",
+        "market-oven-arch",
+        "market-oven-firebox",
+        "market-bakery-loaf-rack",
+        "market-bread-loaves",
+        "market-proofing-rack",
+        "market-sheet-pan",
+        "market-spiral-mixer",
+        "market-mixer-bowl",
+        "market-bakery-worktable",
+        "market-dough-balls",
+        "market-dough-scraper",
+        "market-baguette-row",
+        "market-bread-roll-row",
+        "market-flour-mixing-bowl",
+        "market-metal-ingredient-bucket",
+        "market-pastry-display-table",
+        "market-round-baked-item",
+        "market-croissant-tray",
+        "market-small-tart",
+        "market-pastry-box",
+        "market-cooling-shelf",
+        "market-oven-side-canister"
+      ],
+      "translation": "烘焙生产区",
+      "description": "Pixel-audited visible objects and parts across the bakery production district."
+    },
+    {
+      "id": "market-hot-kitchen",
+      "title": "Hot kitchen",
+      "x": 1227,
+      "y": 20,
+      "width": 445,
+      "height": 430,
+      "labelIds": [
+        "market-exhaust-hood",
+        "market-cooking-range",
+        "market-gas-burner",
+        "market-stockpot",
+        "market-saucepan",
+        "market-hanging-pan-rack",
+        "market-tall-refrigerator",
+        "market-upright-freezer",
+        "market-plate-shelf",
+        "market-ceramic-bowl-stack",
+        "market-bottle-shelf",
+        "market-kitchen-sink",
+        "market-kitchen-faucet",
+        "market-cutting-board",
+        "market-chef-knife",
+        "market-orange-vegetable",
+        "market-large-mixing-bowl",
+        "market-food-container",
+        "market-cooking-oil-bottle",
+        "market-oven-tray",
+        "market-wooden-tray-rack",
+        "market-hot-kitchen-counter"
+      ],
+      "translation": "热厨区",
+      "description": "Pixel-audited visible objects and parts across the hot kitchen district."
+    },
+    {
+      "id": "market-cold-storage",
+      "title": "Cold storage and service",
+      "x": 721,
+      "y": 451,
+      "width": 505,
+      "height": 320,
+      "labelIds": [
+        "market-cold-storage-cabinet",
+        "market-service-shelf-rack",
+        "market-chilled-produce-bin",
+        "market-white-service-bottles",
+        "market-freezer-drawer",
+        "market-gray-waste-bin",
+        "market-blue-wheeled-bin",
+        "market-chilled-food-shelf",
+        "market-wall-service-shelf",
+        "market-apron-hook-rail",
+        "market-colored-aprons",
+        "market-cleaning-bucket",
+        "market-service-broom",
+        "market-metal-service-machine",
+        "market-bottle-crate",
+        "market-stacked-food-tubs",
+        "market-metal-storage-door",
+        "market-floor-cleaning-cart",
+        "market-cold-room-threshold"
+      ],
+      "translation": "冷藏与后勤区",
+      "description": "Pixel-audited visible objects and parts across the cold storage and service district."
+    },
+    {
+      "id": "market-wash-prep",
+      "title": "Wash and preparation",
+      "x": 1227,
+      "y": 451,
+      "width": 445,
+      "height": 320,
+      "labelIds": [
+        "market-dishwashing-machine",
+        "market-dish-rack",
+        "market-plate-stack",
+        "market-utensil-wall-rack",
+        "market-knife-row",
+        "market-double-wash-sink",
+        "market-drying-rack",
+        "market-bowl-pile",
+        "market-preparation-table",
+        "market-prepared-produce",
+        "market-balloon-whisk",
+        "market-metal-colander",
+        "market-green-refuse-bin",
+        "market-refuse-bin-lid",
+        "market-ribbed-drainboard",
+        "market-sanitizer-bottle",
+        "market-wash-area-floor-tile",
+        "market-metal-prep-bowl",
+        "market-stacked-saucepans",
+        "market-utensil-drawer"
+      ],
+      "translation": "清洗备餐区",
+      "description": "Pixel-audited visible objects and parts across the wash and preparation district."
+    },
+    {
+      "id": "market-courtyard-logistics",
+      "title": "Courtyard and logistics",
+      "x": 721,
+      "y": 772,
+      "width": 951,
+      "height": 169,
+      "labelIds": [
+        "market-courtyard-dining-table",
+        "market-wooden-cafe-chair",
+        "market-round-cafe-table",
+        "market-potted-courtyard-flowers",
+        "market-long-planter-box",
+        "market-delivery-tricycle",
+        "market-tricycle-cargo-box",
+        "market-parked-bicycle",
+        "market-bicycle-front-wheel",
+        "market-wooden-delivery-pallet",
+        "market-delivery-scooter",
+        "market-courtyard-paving",
+        "market-courtyard-drain-grate",
+        "market-small-table-herb-pot",
+        "market-outdoor-dining-chair",
+        "market-large-wooden-planter",
+        "market-flowering-courtyard-plant",
+        "market-courtyard-shrubs",
+        "market-delivery-crate-stack"
+      ],
+      "translation": "庭院与配送区",
+      "description": "Pixel-audited visible objects and parts across the courtyard and logistics district."
+    }
+  ],
+  "anchors": [
+    {
+      "id": "market-striped-market-canopy",
+      "word": "striped market canopy",
+      "translation": "条纹市场遮篷",
+      "x": 140,
+      "y": 104,
+      "lod": 0,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-canopy-support-pole",
+      "word": "canopy support pole",
+      "translation": "遮篷支柱",
+      "x": 233,
+      "y": 160,
+      "lod": 1,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-potted-palm",
+      "word": "potted palm",
+      "translation": "盆栽棕榈",
+      "x": 20,
+      "y": 171,
+      "lod": 1,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-upper-produce-stall",
+      "word": "upper produce stall",
+      "translation": "上层果蔬摊",
+      "x": 150,
+      "y": 210,
+      "lod": 0,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-orange-fruit-pile",
+      "word": "orange fruit pile",
+      "translation": "橙色水果堆",
+      "x": 149,
+      "y": 172,
+      "lod": 2,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-green-fruit-pile",
+      "word": "green fruit pile",
+      "translation": "绿色水果堆",
+      "x": 190,
+      "y": 185,
+      "lod": 2,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-white-vegetable-bulbs",
+      "word": "white vegetable bulbs",
+      "translation": "白色球根蔬菜",
+      "x": 125,
+      "y": 215,
+      "lod": 2,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-yellow-fruit-box",
+      "word": "yellow fruit box",
+      "translation": "黄色水果箱",
+      "x": 150,
+      "y": 270,
+      "lod": 2,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-green-vegetable-box",
+      "word": "green vegetable box",
+      "translation": "绿色蔬菜箱",
+      "x": 190,
+      "y": 230,
+      "lod": 2,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-market-flower-pot",
+      "word": "market flower pot",
+      "translation": "市场花盆",
+      "x": 307,
+      "y": 87,
+      "lod": 1,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-cream-market-awning",
+      "word": "cream market awning",
+      "translation": "米色市场遮篷",
+      "x": 45,
+      "y": 342,
+      "lod": 0,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-blue-handcart",
+      "word": "blue handcart",
+      "translation": "蓝色手推车",
+      "x": 237,
+      "y": 375,
+      "lod": 1,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-purple-produce-tray",
+      "word": "purple produce tray",
+      "translation": "紫色农产品盘",
+      "x": 129,
+      "y": 374,
+      "lod": 2,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-mushroom-crate",
+      "word": "mushroom crate",
+      "translation": "蘑菇箱",
+      "x": 161,
+      "y": 378,
+      "lod": 2,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-tomato-crate",
+      "word": "tomato crate",
+      "translation": "番茄箱",
+      "x": 50,
+      "y": 444,
+      "lod": 2,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-pepper-crate",
+      "word": "pepper crate",
+      "translation": "椒类箱",
+      "x": 90,
+      "y": 438,
+      "lod": 2,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-asparagus-bundle",
+      "word": "asparagus bundle",
+      "translation": "芦笋束",
+      "x": 185,
+      "y": 430,
+      "lod": 2,
+      "zoneId": "market-produce-north"
+    },
+    {
+      "id": "market-lower-produce-stand",
+      "word": "lower produce stand",
+      "translation": "下层果蔬摊",
+      "x": 129,
+      "y": 525,
+      "lod": 0,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-green-apple-crate",
+      "word": "green apple crate",
+      "translation": "青苹果箱",
+      "x": 63,
+      "y": 547,
+      "lod": 2,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-purple-vegetable-crate",
+      "word": "purple vegetable crate",
+      "translation": "紫色蔬菜箱",
+      "x": 151,
+      "y": 550,
+      "lod": 2,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-south-striped-awning",
+      "word": "south striped awning",
+      "translation": "南侧条纹遮篷",
+      "x": 99,
+      "y": 636,
+      "lod": 0,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-awning-corner-pole",
+      "word": "awning corner pole",
+      "translation": "遮篷角柱",
+      "x": 200,
+      "y": 672,
+      "lod": 1,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-citrus-crate",
+      "word": "citrus crate",
+      "translation": "柑橘箱",
+      "x": 75,
+      "y": 730,
+      "lod": 2,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-potato-crate",
+      "word": "potato crate",
+      "translation": "土豆箱",
+      "x": 170,
+      "y": 735,
+      "lod": 2,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-cauliflower-crate",
+      "word": "cauliflower crate",
+      "translation": "花椰菜箱",
+      "x": 129,
+      "y": 806,
+      "lod": 2,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-woven-produce-basket",
+      "word": "woven produce basket",
+      "translation": "编织果蔬篮",
+      "x": 134,
+      "y": 851,
+      "lod": 1,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-potted-market-herb",
+      "word": "potted market herb",
+      "translation": "盆栽香草",
+      "x": 186,
+      "y": 837,
+      "lod": 1,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-market-sidewalk",
+      "word": "market sidewalk",
+      "translation": "市场人行道",
+      "x": 210,
+      "y": 880,
+      "lod": 0,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-street-drainage-grate",
+      "word": "street drainage grate",
+      "translation": "街边排水篦",
+      "x": 229,
+      "y": 910,
+      "lod": 1,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-purple-produce-box",
+      "word": "purple produce box",
+      "translation": "紫色农产品箱",
+      "x": 40,
+      "y": 788,
+      "lod": 2,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-dark-root-produce-box",
+      "word": "dark root produce box",
+      "translation": "深色根茎农产品箱",
+      "x": 55,
+      "y": 780,
+      "lod": 2,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-wooden-stall-base",
+      "word": "wooden stall base",
+      "translation": "木制摊位底座",
+      "x": 115,
+      "y": 821,
+      "lod": 1,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-square-pavement-tile",
+      "word": "square pavement tile",
+      "translation": "方形铺路砖",
+      "x": 190,
+      "y": 875,
+      "lod": 1,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-market-curb",
+      "word": "market curb",
+      "translation": "市场路缘",
+      "x": 160,
+      "y": 900,
+      "lod": 1,
+      "zoneId": "market-produce-south"
+    },
+    {
+      "id": "market-dry-goods-shelving",
+      "word": "dry goods shelving",
+      "translation": "干货货架",
+      "x": 490,
+      "y": 110,
+      "lod": 0,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-glass-storage-jar",
+      "word": "glass storage jar",
+      "translation": "玻璃储物罐",
+      "x": 435,
+      "y": 50,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-jar-lid",
+      "word": "jar lid",
+      "translation": "罐盖",
+      "x": 435,
+      "y": 45,
+      "lod": 3,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-ceramic-canister",
+      "word": "ceramic canister",
+      "translation": "陶瓷罐",
+      "x": 475,
+      "y": 53,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-tall-pantry-bottle",
+      "word": "tall pantry bottle",
+      "translation": "高储藏瓶",
+      "x": 530,
+      "y": 58,
+      "lod": 2,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-grain-bin",
+      "word": "grain bin",
+      "translation": "谷物箱",
+      "x": 390,
+      "y": 145,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-bean-bin",
+      "word": "bean bin",
+      "translation": "豆类箱",
+      "x": 432,
+      "y": 151,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-rice-bin",
+      "word": "rice bin",
+      "translation": "大米箱",
+      "x": 475,
+      "y": 154,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-lentil-bin",
+      "word": "lentil bin",
+      "translation": "扁豆箱",
+      "x": 520,
+      "y": 152,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-pasta-bin",
+      "word": "pasta bin",
+      "translation": "面食箱",
+      "x": 565,
+      "y": 155,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-flour-sack",
+      "word": "flour sack",
+      "translation": "面粉袋",
+      "x": 525,
+      "y": 215,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-dry-goods-scoop",
+      "word": "dry goods scoop",
+      "translation": "干货勺",
+      "x": 548,
+      "y": 215,
+      "lod": 3,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-wicker-storage-basket",
+      "word": "wicker storage basket",
+      "translation": "柳编储物篮",
+      "x": 635,
+      "y": 210,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-bread-basket",
+      "word": "bread basket",
+      "translation": "面包篮",
+      "x": 365,
+      "y": 170,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-counter-weighing-scale",
+      "word": "counter weighing scale",
+      "translation": "柜台秤",
+      "x": 513,
+      "y": 270,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-scale-dial",
+      "word": "scale dial",
+      "translation": "秤盘刻度面",
+      "x": 513,
+      "y": 263,
+      "lod": 4,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-orange-drink-bottle",
+      "word": "orange drink bottle",
+      "translation": "橙色饮料瓶",
+      "x": 610,
+      "y": 260,
+      "lod": 2,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-small-dairy-cup",
+      "word": "small dairy cup",
+      "translation": "小乳品杯",
+      "x": 552,
+      "y": 278,
+      "lod": 2,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-amber-pantry-jar",
+      "word": "amber pantry jar",
+      "translation": "琥珀色储藏罐",
+      "x": 470,
+      "y": 250,
+      "lod": 2,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-wooden-dry-counter",
+      "word": "wooden dry counter",
+      "translation": "木制干货柜台",
+      "x": 510,
+      "y": 291,
+      "lod": 0,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-green-herb-crate",
+      "word": "green herb crate",
+      "translation": "绿色香草箱",
+      "x": 645,
+      "y": 242,
+      "lod": 2,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-narrow-metal-rack",
+      "word": "narrow metal rack",
+      "translation": "窄金属架",
+      "x": 670,
+      "y": 200,
+      "lod": 1,
+      "zoneId": "market-dry-goods"
+    },
+    {
+      "id": "market-fresh-food-counter",
+      "word": "fresh food counter",
+      "translation": "生鲜柜台",
+      "x": 460,
+      "y": 387,
+      "lod": 0,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-whole-fish",
+      "word": "whole fish",
+      "translation": "整鱼",
+      "x": 399,
+      "y": 379,
+      "lod": 1,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-small-fish-group",
+      "word": "small fish group",
+      "translation": "小鱼组",
+      "x": 519,
+      "y": 378,
+      "lod": 2,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-shellfish-display",
+      "word": "shellfish display",
+      "translation": "贝类陈列",
+      "x": 462,
+      "y": 392,
+      "lod": 2,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-seafood-piece",
+      "word": "seafood piece",
+      "translation": "海鲜食材",
+      "x": 340,
+      "y": 386,
+      "lod": 2,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-crushed-ice-bed",
+      "word": "crushed ice bed",
+      "translation": "碎冰台",
+      "x": 470,
+      "y": 400,
+      "lod": 1,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-chilled-dairy-display",
+      "word": "chilled dairy display",
+      "translation": "冷藏乳品陈列",
+      "x": 616,
+      "y": 385,
+      "lod": 0,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-dairy-wedge",
+      "word": "dairy wedge",
+      "translation": "乳品楔块",
+      "x": 601,
+      "y": 382,
+      "lod": 2,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-metal-trolley-frame",
+      "word": "metal trolley frame",
+      "translation": "金属推车框",
+      "x": 680,
+      "y": 367,
+      "lod": 1,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-white-drink-bottles",
+      "word": "white drink bottles",
+      "translation": "白色饮品瓶",
+      "x": 570,
+      "y": 442,
+      "lod": 2,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-wrapped-market-item",
+      "word": "wrapped market item",
+      "translation": "包裹商品",
+      "x": 325,
+      "y": 438,
+      "lod": 2,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-deli-bowl",
+      "word": "deli bowl",
+      "translation": "熟食碗",
+      "x": 354,
+      "y": 442,
+      "lod": 2,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-counter-glass-panel",
+      "word": "counter glass panel",
+      "translation": "柜台玻璃板",
+      "x": 450,
+      "y": 415,
+      "lod": 1,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-refrigerated-case",
+      "word": "refrigerated case",
+      "translation": "冷藏柜",
+      "x": 620,
+      "y": 475,
+      "lod": 0,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-metal-counter-ledge",
+      "word": "metal counter ledge",
+      "translation": "金属柜台边沿",
+      "x": 490,
+      "y": 485,
+      "lod": 1,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-small-dairy-tub",
+      "word": "small dairy tub",
+      "translation": "小乳品盒",
+      "x": 598,
+      "y": 432,
+      "lod": 2,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-display-bowl",
+      "word": "display bowl",
+      "translation": "陈列碗",
+      "x": 530,
+      "y": 445,
+      "lod": 2,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-counter-divider",
+      "word": "counter divider",
+      "translation": "柜台隔板",
+      "x": 550,
+      "y": 402,
+      "lod": 2,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-paper-food-wrap",
+      "word": "paper food wrap",
+      "translation": "食品包装纸",
+      "x": 336,
+      "y": 452,
+      "lod": 3,
+      "zoneId": "market-fresh-counter"
+    },
+    {
+      "id": "market-chilled-meat-case",
+      "word": "chilled meat case",
+      "translation": "冷藏肉柜",
+      "x": 460,
+      "y": 550,
+      "lod": 0,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-meat-cut",
+      "word": "meat cut",
+      "translation": "肉块",
+      "x": 378,
+      "y": 542,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-red-meat-tray",
+      "word": "red meat tray",
+      "translation": "红色肉品托盘",
+      "x": 431,
+      "y": 551,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-case-glass-cover",
+      "word": "case glass cover",
+      "translation": "柜台玻璃罩",
+      "x": 480,
+      "y": 572,
+      "lod": 1,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-tomato-basket",
+      "word": "tomato basket",
+      "translation": "番茄篮",
+      "x": 335,
+      "y": 615,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-pale-green-pepper-crate",
+      "word": "pale green pepper crate",
+      "translation": "浅绿色辣椒箱",
+      "x": 337,
+      "y": 646,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-leafy-greens-crate",
+      "word": "leafy greens crate",
+      "translation": "叶菜箱",
+      "x": 388,
+      "y": 642,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-white-root-bundle",
+      "word": "white root bundle",
+      "translation": "白色根菜束",
+      "x": 454,
+      "y": 647,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-egg-basket",
+      "word": "egg basket",
+      "translation": "鸡蛋篮",
+      "x": 607,
+      "y": 613,
+      "lod": 1,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-brown-ingredient-sack",
+      "word": "brown ingredient sack",
+      "translation": "棕色原料袋",
+      "x": 500,
+      "y": 650,
+      "lod": 1,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-red-potato-box",
+      "word": "red potato box",
+      "translation": "红皮马铃薯箱",
+      "x": 617,
+      "y": 707,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-strawberry-tray",
+      "word": "strawberry tray",
+      "translation": "草莓托盘",
+      "x": 621,
+      "y": 737,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-white-dairy-can",
+      "word": "white dairy can",
+      "translation": "白色乳品罐",
+      "x": 560,
+      "y": 615,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-white-dairy-cup-row",
+      "word": "white dairy cup row",
+      "translation": "白色乳品杯排",
+      "x": 580,
+      "y": 645,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-grain-basket",
+      "word": "grain basket",
+      "translation": "谷物篮",
+      "x": 498,
+      "y": 665,
+      "lod": 1,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-green-vegetable-bundle",
+      "word": "green vegetable bundle",
+      "translation": "绿色蔬菜束",
+      "x": 386,
+      "y": 664,
+      "lod": 2,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-potted-retail-plant",
+      "word": "potted retail plant",
+      "translation": "零售区盆栽",
+      "x": 684,
+      "y": 684,
+      "lod": 1,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-produce-display-crate",
+      "word": "produce display crate",
+      "translation": "果蔬陈列箱",
+      "x": 380,
+      "y": 618,
+      "lod": 1,
+      "zoneId": "market-retail-southwest"
+    },
+    {
+      "id": "market-brick-bread-oven",
+      "word": "brick bread oven",
+      "translation": "砖砌面包炉",
+      "x": 862,
+      "y": 114,
+      "lod": 0,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-oven-arch",
+      "word": "oven arch",
+      "translation": "炉门拱",
+      "x": 859,
+      "y": 104,
+      "lod": 1,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-oven-firebox",
+      "word": "oven firebox",
+      "translation": "炉膛",
+      "x": 862,
+      "y": 119,
+      "lod": 1,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-bakery-loaf-rack",
+      "word": "bakery loaf rack",
+      "translation": "面包架",
+      "x": 780,
+      "y": 113,
+      "lod": 0,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-bread-loaves",
+      "word": "bread loaves",
+      "translation": "面包条",
+      "x": 780,
+      "y": 118,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-proofing-rack",
+      "word": "proofing rack",
+      "translation": "醒发架",
+      "x": 1040,
+      "y": 110,
+      "lod": 0,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-sheet-pan",
+      "word": "sheet pan",
+      "translation": "烤盘",
+      "x": 1029,
+      "y": 111,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-spiral-mixer",
+      "word": "spiral mixer",
+      "translation": "螺旋搅拌机",
+      "x": 1027,
+      "y": 179,
+      "lod": 0,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-mixer-bowl",
+      "word": "mixer bowl",
+      "translation": "搅拌机料盆",
+      "x": 1028,
+      "y": 201,
+      "lod": 1,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-bakery-worktable",
+      "word": "bakery worktable",
+      "translation": "烘焙工作台",
+      "x": 905,
+      "y": 230,
+      "lod": 0,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-dough-balls",
+      "word": "dough balls",
+      "translation": "面团球",
+      "x": 900,
+      "y": 228,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-dough-scraper",
+      "word": "dough scraper",
+      "translation": "刮面刀",
+      "x": 969,
+      "y": 240,
+      "lod": 3,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-baguette-row",
+      "word": "baguette row",
+      "translation": "法棍排",
+      "x": 850,
+      "y": 302,
+      "lod": 1,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-bread-roll-row",
+      "word": "bread roll row",
+      "translation": "面包卷排",
+      "x": 897,
+      "y": 300,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-flour-mixing-bowl",
+      "word": "flour mixing bowl",
+      "translation": "面粉搅拌碗",
+      "x": 1024,
+      "y": 278,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-metal-ingredient-bucket",
+      "word": "metal ingredient bucket",
+      "translation": "金属原料桶",
+      "x": 1115,
+      "y": 278,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-pastry-display-table",
+      "word": "pastry display table",
+      "translation": "糕点陈列台",
+      "x": 1000,
+      "y": 390,
+      "lod": 0,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-round-baked-item",
+      "word": "round baked item",
+      "translation": "圆形烘焙食品",
+      "x": 845,
+      "y": 370,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-croissant-tray",
+      "word": "croissant tray",
+      "translation": "羊角面包盘",
+      "x": 883,
+      "y": 369,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-small-tart",
+      "word": "small tart",
+      "translation": "小挞",
+      "x": 1092,
+      "y": 374,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-pastry-box",
+      "word": "pastry box",
+      "translation": "糕点盒",
+      "x": 1041,
+      "y": 376,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-cooling-shelf",
+      "word": "cooling shelf",
+      "translation": "冷却架",
+      "x": 1115,
+      "y": 112,
+      "lod": 1,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-oven-side-canister",
+      "word": "oven-side canister",
+      "translation": "烤炉旁容器",
+      "x": 929,
+      "y": 92,
+      "lod": 2,
+      "zoneId": "market-bakery"
+    },
+    {
+      "id": "market-exhaust-hood",
+      "word": "exhaust hood",
+      "translation": "排烟罩",
+      "x": 1460,
+      "y": 148,
+      "lod": 0,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-cooking-range",
+      "word": "cooking range",
+      "translation": "炉灶",
+      "x": 1410,
+      "y": 310,
+      "lod": 0,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-gas-burner",
+      "word": "gas burner",
+      "translation": "燃气灶头",
+      "x": 1393,
+      "y": 316,
+      "lod": 2,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-stockpot",
+      "word": "stockpot",
+      "translation": "汤锅",
+      "x": 1365,
+      "y": 214,
+      "lod": 1,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-saucepan",
+      "word": "saucepan",
+      "translation": "长柄锅",
+      "x": 1400,
+      "y": 214,
+      "lod": 1,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-hanging-pan-rack",
+      "word": "hanging pan rack",
+      "translation": "悬挂锅架",
+      "x": 1360,
+      "y": 183,
+      "lod": 1,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-tall-refrigerator",
+      "word": "tall refrigerator",
+      "translation": "高冰箱",
+      "x": 1510,
+      "y": 181,
+      "lod": 0,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-upright-freezer",
+      "word": "upright freezer",
+      "translation": "立式冷柜",
+      "x": 1570,
+      "y": 183,
+      "lod": 0,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-plate-shelf",
+      "word": "plate shelf",
+      "translation": "餐盘架",
+      "x": 1420,
+      "y": 65,
+      "lod": 1,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-ceramic-bowl-stack",
+      "word": "ceramic bowl stack",
+      "translation": "陶瓷碗堆",
+      "x": 1390,
+      "y": 75,
+      "lod": 2,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-bottle-shelf",
+      "word": "bottle shelf",
+      "translation": "瓶架",
+      "x": 1550,
+      "y": 75,
+      "lod": 1,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-kitchen-sink",
+      "word": "kitchen sink",
+      "translation": "厨房水槽",
+      "x": 1358,
+      "y": 380,
+      "lod": 0,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-kitchen-faucet",
+      "word": "kitchen faucet",
+      "translation": "厨房龙头",
+      "x": 1380,
+      "y": 365,
+      "lod": 2,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-cutting-board",
+      "word": "cutting board",
+      "translation": "砧板",
+      "x": 1560,
+      "y": 382,
+      "lod": 1,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-chef-knife",
+      "word": "chef knife",
+      "translation": "厨师刀",
+      "x": 1567,
+      "y": 379,
+      "lod": 2,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-orange-vegetable",
+      "word": "orange vegetable",
+      "translation": "橙色蔬菜",
+      "x": 1537,
+      "y": 379,
+      "lod": 2,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-large-mixing-bowl",
+      "word": "large mixing bowl",
+      "translation": "大搅拌碗",
+      "x": 1440,
+      "y": 371,
+      "lod": 1,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-food-container",
+      "word": "food container",
+      "translation": "食品容器",
+      "x": 1450,
+      "y": 398,
+      "lod": 2,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-cooking-oil-bottle",
+      "word": "cooking oil bottle",
+      "translation": "食用油瓶",
+      "x": 1555,
+      "y": 75,
+      "lod": 2,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-oven-tray",
+      "word": "oven tray",
+      "translation": "烤箱托盘",
+      "x": 1450,
+      "y": 315,
+      "lod": 2,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-wooden-tray-rack",
+      "word": "wooden tray rack",
+      "translation": "木制托盘架",
+      "x": 1618,
+      "y": 280,
+      "lod": 1,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-hot-kitchen-counter",
+      "word": "hot kitchen counter",
+      "translation": "热厨工作台",
+      "x": 1550,
+      "y": 398,
+      "lod": 0,
+      "zoneId": "market-hot-kitchen"
+    },
+    {
+      "id": "market-cold-storage-cabinet",
+      "word": "cold storage cabinet",
+      "translation": "冷藏储物柜",
+      "x": 950,
+      "y": 546,
+      "lod": 0,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-service-shelf-rack",
+      "word": "service shelf rack",
+      "translation": "后勤货架",
+      "x": 920,
+      "y": 530,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-chilled-produce-bin",
+      "word": "chilled produce bin",
+      "translation": "冷藏果蔬箱",
+      "x": 916,
+      "y": 577,
+      "lod": 2,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-white-service-bottles",
+      "word": "white service bottles",
+      "translation": "白色后勤瓶",
+      "x": 995,
+      "y": 618,
+      "lod": 2,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-freezer-drawer",
+      "word": "freezer drawer",
+      "translation": "冷柜抽屉",
+      "x": 1030,
+      "y": 610,
+      "lod": 2,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-gray-waste-bin",
+      "word": "gray waste bin",
+      "translation": "灰色废物桶",
+      "x": 835,
+      "y": 636,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-blue-wheeled-bin",
+      "word": "blue wheeled bin",
+      "translation": "蓝色带轮桶",
+      "x": 835,
+      "y": 585,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-chilled-food-shelf",
+      "word": "chilled food shelf",
+      "translation": "冷藏食品架",
+      "x": 1055,
+      "y": 520,
+      "lod": 0,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-wall-service-shelf",
+      "word": "wall service shelf",
+      "translation": "墙面后勤架",
+      "x": 1080,
+      "y": 480,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-apron-hook-rail",
+      "word": "apron hook rail",
+      "translation": "围裙挂轨",
+      "x": 981,
+      "y": 699,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-colored-aprons",
+      "word": "colored aprons",
+      "translation": "彩色围裙",
+      "x": 989,
+      "y": 700,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-cleaning-bucket",
+      "word": "cleaning bucket",
+      "translation": "清洁桶",
+      "x": 930,
+      "y": 731,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-service-broom",
+      "word": "service broom",
+      "translation": "后勤扫帚",
+      "x": 913,
+      "y": 706,
+      "lod": 2,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-metal-service-machine",
+      "word": "metal service machine",
+      "translation": "金属后勤机器",
+      "x": 1110,
+      "y": 509,
+      "lod": 0,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-bottle-crate",
+      "word": "bottle crate",
+      "translation": "瓶箱",
+      "x": 990,
+      "y": 578,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-stacked-food-tubs",
+      "word": "stacked food tubs",
+      "translation": "堆叠食品盒",
+      "x": 1075,
+      "y": 550,
+      "lod": 2,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-metal-storage-door",
+      "word": "metal storage door",
+      "translation": "金属储物门",
+      "x": 1138,
+      "y": 565,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-floor-cleaning-cart",
+      "word": "floor cleaning cart",
+      "translation": "地面清洁车",
+      "x": 807,
+      "y": 731,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-cold-room-threshold",
+      "word": "cold room threshold",
+      "translation": "冷藏区门槛",
+      "x": 1100,
+      "y": 766,
+      "lod": 1,
+      "zoneId": "market-cold-storage"
+    },
+    {
+      "id": "market-dishwashing-machine",
+      "word": "dishwashing machine",
+      "translation": "洗碗机",
+      "x": 1490,
+      "y": 500,
+      "lod": 0,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-dish-rack",
+      "word": "dish rack",
+      "translation": "碗碟架",
+      "x": 1510,
+      "y": 520,
+      "lod": 1,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-plate-stack",
+      "word": "plate stack",
+      "translation": "盘子堆",
+      "x": 1580,
+      "y": 500,
+      "lod": 1,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-utensil-wall-rack",
+      "word": "utensil wall rack",
+      "translation": "厨具墙架",
+      "x": 1389,
+      "y": 500,
+      "lod": 1,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-knife-row",
+      "word": "knife row",
+      "translation": "刀具排",
+      "x": 1395,
+      "y": 505,
+      "lod": 2,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-double-wash-sink",
+      "word": "double wash sink",
+      "translation": "双槽清洗池",
+      "x": 1330,
+      "y": 570,
+      "lod": 0,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-drying-rack",
+      "word": "drying rack",
+      "translation": "沥水架",
+      "x": 1460,
+      "y": 530,
+      "lod": 1,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-bowl-pile",
+      "word": "bowl pile",
+      "translation": "碗堆",
+      "x": 1330,
+      "y": 650,
+      "lod": 1,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-preparation-table",
+      "word": "preparation table",
+      "translation": "备餐台",
+      "x": 1295,
+      "y": 620,
+      "lod": 0,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-prepared-produce",
+      "word": "prepared produce",
+      "translation": "备好的农产品",
+      "x": 1260,
+      "y": 598,
+      "lod": 2,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-balloon-whisk",
+      "word": "balloon whisk",
+      "translation": "球形打蛋器",
+      "x": 1350,
+      "y": 610,
+      "lod": 2,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-metal-colander",
+      "word": "metal colander",
+      "translation": "金属滤盆",
+      "x": 1280,
+      "y": 590,
+      "lod": 1,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-green-refuse-bin",
+      "word": "green refuse bin",
+      "translation": "绿色垃圾桶",
+      "x": 1485,
+      "y": 630,
+      "lod": 0,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-refuse-bin-lid",
+      "word": "refuse bin lid",
+      "translation": "垃圾桶盖",
+      "x": 1485,
+      "y": 605,
+      "lod": 2,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-ribbed-drainboard",
+      "word": "ribbed drainboard",
+      "translation": "条纹沥水板",
+      "x": 1460,
+      "y": 548,
+      "lod": 1,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-sanitizer-bottle",
+      "word": "sanitizer bottle",
+      "translation": "消毒剂瓶",
+      "x": 1600,
+      "y": 480,
+      "lod": 2,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-wash-area-floor-tile",
+      "word": "wash area floor tile",
+      "translation": "清洗区地砖",
+      "x": 1560,
+      "y": 680,
+      "lod": 2,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-metal-prep-bowl",
+      "word": "metal prep bowl",
+      "translation": "金属备餐碗",
+      "x": 1360,
+      "y": 595,
+      "lod": 1,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-stacked-saucepans",
+      "word": "stacked saucepans",
+      "translation": "堆叠长柄锅",
+      "x": 1410,
+      "y": 540,
+      "lod": 1,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-utensil-drawer",
+      "word": "utensil drawer",
+      "translation": "厨具抽屉",
+      "x": 1390,
+      "y": 650,
+      "lod": 1,
+      "zoneId": "market-wash-prep"
+    },
+    {
+      "id": "market-courtyard-dining-table",
+      "word": "courtyard dining table",
+      "translation": "庭院餐桌",
+      "x": 1270,
+      "y": 805,
+      "lod": 0,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-wooden-cafe-chair",
+      "word": "wooden cafe chair",
+      "translation": "木制咖啡椅",
+      "x": 1225,
+      "y": 823,
+      "lod": 1,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-round-cafe-table",
+      "word": "round cafe table",
+      "translation": "圆形咖啡桌",
+      "x": 1540,
+      "y": 804,
+      "lod": 0,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-potted-courtyard-flowers",
+      "word": "potted courtyard flowers",
+      "translation": "庭院盆花",
+      "x": 1180,
+      "y": 848,
+      "lod": 1,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-long-planter-box",
+      "word": "long planter box",
+      "translation": "长花箱",
+      "x": 1150,
+      "y": 863,
+      "lod": 0,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-delivery-tricycle",
+      "word": "delivery tricycle",
+      "translation": "配送三轮车",
+      "x": 1020,
+      "y": 875,
+      "lod": 0,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-tricycle-cargo-box",
+      "word": "tricycle cargo box",
+      "translation": "三轮车货箱",
+      "x": 1016,
+      "y": 840,
+      "lod": 1,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-parked-bicycle",
+      "word": "parked bicycle",
+      "translation": "停放自行车",
+      "x": 775,
+      "y": 875,
+      "lod": 0,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-bicycle-front-wheel",
+      "word": "bicycle front wheel",
+      "translation": "自行车前轮",
+      "x": 756,
+      "y": 875,
+      "lod": 2,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-wooden-delivery-pallet",
+      "word": "wooden delivery pallet",
+      "translation": "木制配送托盘",
+      "x": 945,
+      "y": 869,
+      "lod": 1,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-delivery-scooter",
+      "word": "delivery scooter",
+      "translation": "配送踏板车",
+      "x": 1460,
+      "y": 850,
+      "lod": 0,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-courtyard-paving",
+      "word": "courtyard paving",
+      "translation": "庭院铺地",
+      "x": 1220,
+      "y": 910,
+      "lod": 0,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-courtyard-drain-grate",
+      "word": "courtyard drain grate",
+      "translation": "庭院排水篦",
+      "x": 1250,
+      "y": 915,
+      "lod": 1,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-small-table-herb-pot",
+      "word": "small table herb pot",
+      "translation": "桌面小香草盆",
+      "x": 1260,
+      "y": 805,
+      "lod": 2,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-outdoor-dining-chair",
+      "word": "outdoor dining chair",
+      "translation": "户外餐椅",
+      "x": 1315,
+      "y": 805,
+      "lod": 1,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-large-wooden-planter",
+      "word": "large wooden planter",
+      "translation": "大型木花箱",
+      "x": 1547,
+      "y": 880,
+      "lod": 0,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-flowering-courtyard-plant",
+      "word": "flowering courtyard plant",
+      "translation": "庭院开花植物",
+      "x": 1590,
+      "y": 837,
+      "lod": 1,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-courtyard-shrubs",
+      "word": "courtyard shrubs",
+      "translation": "庭院灌木",
+      "x": 1640,
+      "y": 850,
+      "lod": 1,
+      "zoneId": "market-courtyard-logistics"
+    },
+    {
+      "id": "market-delivery-crate-stack",
+      "word": "delivery crate stack",
+      "translation": "配送箱堆",
+      "x": 950,
+      "y": 862,
+      "lod": 1,
+      "zoneId": "market-courtyard-logistics"
+    }
+  ],
+  "removedAmbiguous": [
+    {
+      "candidate": "specific fish species",
+      "reason": "the counter clearly contains fish, but generated markings and body details do not support species-level identification"
+    },
+    {
+      "candidate": "specific shellfish species",
+      "reason": "shell-like seafood is visible while species and preparation state remain ambiguous"
+    },
+    {
+      "candidate": "named meat cuts",
+      "reason": "the chilled case supports generic meat items only; exact cut, animal and processing state cannot be defended from the pixels"
+    },
+    {
+      "candidate": "specific cheese varieties",
+      "reason": "rounds and wedges are visible, but rind and texture do not establish a named variety"
+    },
+    {
+      "candidate": "exact grain and pulse varieties in every bin",
+      "reason": "only a representative set is retained because many generated bins have visually similar small contents"
+    },
+    {
+      "candidate": "specific pastries in repeated trays",
+      "reason": "representative baked items are anchored; exact pastry names are omitted where shapes are synthetic or repeated"
+    },
+    {
+      "candidate": "specific commercial kitchen appliance models",
+      "reason": "the pixels support broad appliance classes, not exact models or specialized functions"
+    },
+    {
+      "candidate": "contents of unlabeled bottles and jars",
+      "reason": "container form and color are visible but their contents are not provable without labels"
+    },
+    {
+      "candidate": "wooden fruit crate",
+      "reason": "the point is on flower-pot foliage and does not select a distinct crate"
+    },
+    {
+      "candidate": "red fruit basket",
+      "reason": "the point is on a shelf rail and green produce; no red-fruit basket is resolved"
+    },
+    {
+      "candidate": "root vegetable bin",
+      "reason": "the point is on green produce rather than root vegetables"
+    },
+    {
+      "candidate": "eggplant crate",
+      "reason": "the point is on green and orange produce; no eggplant is present"
+    },
+    {
+      "candidate": "market pavement drain",
+      "reason": "the point is bare paving and the visible drain lies outside this zone"
+    },
+    {
+      "candidate": "onion crate",
+      "reason": "the point is on green and pale fruit; no onion crate can be isolated"
+    },
+    {
+      "candidate": "cabbage crate",
+      "reason": "the point is mixed pale produce rather than cabbage"
+    },
+    {
+      "candidate": "leafy vegetable box",
+      "reason": "the point is bare pavement"
+    },
+    {
+      "candidate": "milk bottle",
+      "reason": "the point is a pantry jar and shelf rail; no milk bottle is resolved"
+    },
+    {
+      "candidate": "metal serving tray",
+      "reason": "the point is the refrigerated-case face rather than a tray"
+    },
+    {
+      "candidate": "milk churn",
+      "reason": "the point is a white bottle group and no churn is present"
+    },
+    {
+      "candidate": "berry crate",
+      "reason": "the point is pavement and duplicates neighboring red-produce labels"
+    },
+    {
+      "candidate": "wooden produce rack",
+      "reason": "the point is inside a grain sack rather than on the wooden rack"
+    },
+    {
+      "candidate": "red fruit punnet",
+      "reason": "the point is pavement and duplicates the same red-produce cluster"
+    },
+    {
+      "candidate": "rolling pin",
+      "reason": "the point is a metal bowl and utensil group; no rolling pin is visible"
+    },
+    {
+      "candidate": "ladle rack",
+      "reason": "the point is a gas hob and the actual hanging rack is already represented"
+    },
+    {
+      "candidate": "service stockpot",
+      "reason": "the point is a chilled-food shelf and no stockpot is present"
+    },
+    {
+      "candidate": "clean plate pile",
+      "reason": "the point is a refuse-cart and box edge rather than clean plates"
+    },
+    {
+      "candidate": "scooter mirror",
+      "reason": "the point is the cargo box and no independent mirror is resolved"
+    },
+    {
+      "candidate": "green bean crate",
+      "reason": "post-fix 81px center check still lands on a round herb basket rather than a bean crate"
+    },
+    {
+      "candidate": "small round basket",
+      "reason": "post-fix center check lands on foliage and pavement with no independent basket"
+    },
+    {
+      "candidate": "flat griddle",
+      "reason": "post-fix center check lands on a food tray and duplicates the cooking range"
+    },
+    {
+      "candidate": "large ladle",
+      "reason": "post-fix center check lands on the knife row and duplicates the utensil rack"
+    },
+    {
+      "candidate": "street curb line",
+      "reason": "post-fix center check remains on undifferentiated paving rather than a pointable curb"
+    }
+  ]
+}

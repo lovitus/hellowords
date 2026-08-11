@@ -20,14 +20,16 @@ const PNG_OPTIONS = Object.freeze({
   palette: false,
 });
 const JPEG_HIGH_OPTIONS = Object.freeze({
-  quality: 90,
+  quality: 85,
+  chromaSubsampling: "4:4:4",
+  progressive: true,
+  mozjpeg: true,
+});
+const JPEG_BASE_OPTIONS = Object.freeze({
+  quality: 88,
   chromaSubsampling: "4:4:4",
   progressive: true,
   mozjpeg: false,
-});
-const JPEG_BASE_OPTIONS = Object.freeze({
-  ...JPEG_HIGH_OPTIONS,
-  quality: 88,
 });
 
 function requirePositiveInteger(value, name) {
@@ -455,7 +457,7 @@ function usage() {
   return `Usage:
   node scripts/assemble-mega-atlas-raster.mjs <top-left> <top-centre> <top-right> <bottom-left> <bottom-centre> <bottom-right> --high <5208x1978.png|jpg> --base <2604x989.png|jpg> [--force]
 
-Inputs must be six distinct, still 1672 x 941 8-bit RGB/RGBA PNG, JPEG, WebP, AVIF or TIFF rasters. Tiles are copied without resizing or cropping around deterministic 96 px stone-path gutters. PNG is lossless; JPEG uses progressive 4:4:4 quality 90 for high and 88 for base. The base is an exact 1/2 Lanczos3 downsample of the original assembled pixels, never of the encoded high output.`;
+Inputs must be six distinct, still 1672 x 941 8-bit RGB/RGBA PNG, JPEG, WebP, AVIF or TIFF rasters. Tiles are copied without resizing or cropping around deterministic 96 px stone-path gutters. PNG is lossless; JPEG uses progressive 4:4:4 MozJPEG quality 85 for high and standard quality 88 for base. The base is an exact 1/2 Lanczos3 downsample of the original assembled pixels, never of the encoded high output.`;
 }
 
 export function parseMegaAtlasRasterArguments(argv) {

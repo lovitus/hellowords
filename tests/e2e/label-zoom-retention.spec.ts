@@ -489,15 +489,16 @@ function overlaps(first: TraceRect, second: TraceRect, padding = 0): boolean {
   );
 }
 
-function projectedPreferredSlot(
-  previous: TraceLabel,
-  current: TraceLabel,
+function projectedEstimatedSlot(
+  label: TraceLabel,
+  offsetX: number,
+  offsetY: number,
   frame: LabelZoomFrame,
-): TraceRect | null {
-  const detailed = current.lod >= 3;
+): TraceRect {
+  const detailed = label.lod >= 3;
   const wordWidth = Math.max(
     24,
-    Array.from(current.word).length * (detailed ? 6.55 : 7.15),
+    Array.from(label.word).length * (detailed ? 6.55 : 7.15),
   );
   // Keep this reservation footprint identical to estimatedLabelSize with
   // meanings hidden. DOM text width can be several pixels narrower while the
@@ -505,12 +506,25 @@ function projectedPreferredSlot(
   const width = Math.min(250, (detailed ? 27 : 31) + wordWidth);
   const viewportWidth = frame.viewport.right - frame.viewport.left;
   const height = viewportWidth <= 900 ? 28 : detailed ? 18 : 20;
-  const slot = {
-    left: current.anchorX + previous.offsetX - width / 2,
-    right: current.anchorX + previous.offsetX + width / 2,
-    top: current.anchorY + previous.offsetY - height / 2,
-    bottom: current.anchorY + previous.offsetY + height / 2,
+  return {
+    left: label.anchorX + offsetX - width / 2,
+    right: label.anchorX + offsetX + width / 2,
+    top: label.anchorY + offsetY - height / 2,
+    bottom: label.anchorY + offsetY + height / 2,
   };
+}
+
+function projectedPreferredSlot(
+  previous: TraceLabel,
+  current: TraceLabel,
+  frame: LabelZoomFrame,
+): TraceRect | null {
+  const slot = projectedEstimatedSlot(
+    current,
+    previous.offsetX,
+    previous.offsetY,
+    frame,
+  );
   const margin = 6;
   return slot.left >= frame.viewport.left + margin
     && slot.right <= frame.viewport.right - margin
@@ -542,11 +556,16 @@ function previousSlotHasNoActiveContention(
   // Reproduce the normal placement pass after reservation: an earlier label
   // may legitimately occupy this old slot even when it was not active in the
   // preceding frame. Desktop collision padding is 2px in labelLayout.
-  return !currentFrame.labels.some((otherCurrent) => (
-    otherCurrent.id !== previous.id
-    && otherCurrent.interactive
-    && overlaps(slot, otherCurrent.bounds, 2)
-  ));
+  return !currentFrame.labels.some((otherCurrent) => {
+    if (otherCurrent.id === previous.id || !otherCurrent.interactive) return false;
+    const otherSlot = projectedEstimatedSlot(
+      otherCurrent,
+      otherCurrent.offsetX,
+      otherCurrent.offsetY,
+      currentFrame,
+    );
+    return overlaps(slot, otherSlot, 2);
+  });
 }
 
 test("oak-tree fit fills safe slots and round-trips the exact label layout", async ({ page }, testInfo) => {

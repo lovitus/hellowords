@@ -345,6 +345,19 @@ a:focus-visible {
   box-shadow: 0 0 0 2px rgba(71, 111, 97, 0.28);
 }
 
+.scene-minimap__subtitle {
+  min-width: 0;
+  margin: -1px 0 0 16px;
+  overflow: hidden;
+  color: #52655b;
+  font-size: 9px;
+  font-weight: 680;
+  letter-spacing: 0.015em;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .scene-minimap__path {
   display: flex;
   min-width: 0;
@@ -434,6 +447,13 @@ a:focus-visible {
   font-size: 11px;
 }
 
+.scene-minimap__children > button b {
+  overflow: hidden;
+  font: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .scene-minimap__children > .scene-minimap__lexical {
   border-color: rgba(78, 94, 121, 0.22);
   color: #344355;
@@ -499,6 +519,7 @@ a:focus-visible {
 }
 
 .scene-minimap[data-continuous="true"] h1,
+.scene-minimap[data-continuous="true"] .scene-minimap__subtitle,
 .scene-minimap[data-continuous="true"] .scene-minimap__path,
 .scene-minimap[data-continuous="true"] .scene-minimap__children {
   animation: scene-minimap-continuous-in 180ms cubic-bezier(.22, .72, .24, 1) both;
@@ -757,7 +778,7 @@ a:focus-visible {
   white-space: nowrap;
 }
 
-/* The 568-anchor home atlas needs to reveal more artwork than smaller scenes.
+/* The high-density home atlas needs to reveal more artwork than smaller scenes.
  * Keeping this fill blur-free also avoids creating a compositor layer for
  * every mounted pill in the densest view. */
 .world-app[data-scene-id="world-map"] .word-label {
@@ -1800,6 +1821,28 @@ a:focus-visible {
     min-height: 23px;
     padding: 3px 7px;
     font-size: 9px;
+  }
+
+  .scene-minimap__children {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 3px;
+    overflow: hidden;
+  }
+
+  .scene-minimap__children > button {
+    min-width: 0;
+    justify-content: center;
+    padding-inline: 4px;
+    overflow: hidden;
+  }
+
+  .scene-minimap__children > button > span {
+    display: none;
+  }
+
+  .scene-minimap__children > .scene-minimap__lexical b {
+    display: none;
   }
 
   .gesture-hint {

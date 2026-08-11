@@ -1,0 +1,2369 @@
+{
+  "schemaVersion": 1,
+  "panelId": "wetland",
+  "source": {
+    "path": "scripts/assets/mega-atlas-v21/06-wetland-coast-v2.png",
+    "width": 1672,
+    "height": 941,
+    "sha256": "bb19380921a473143f80c1676d904a163a93199e8b8b1f65abd30f3fd2f28745",
+    "review": "original-resolution pixel audit with independently reviewed district crops"
+  },
+  "counts": {
+    "zones": 12,
+    "anchors": 205,
+    "removedAmbiguous": 36
+  },
+  "review": {
+    "method": "native-pixel original view plus 12 disjoint 2x sectional crops and anchor-overlay review",
+    "reviewedAt": "2026-08-12",
+    "coordinateSpace": "panel-local native pixels",
+    "p0Mispoints": 0,
+    "notes": "Crabs, shells and dense reed stems are represented once at the useful concept level; no species, tide, flow, salinity or invisible process is inferred."
+  },
+  "zones": [
+    {
+      "id": "wetland-northwest-pond",
+      "title": "Northwest pond margin",
+      "x": 0,
+      "y": 0,
+      "width": 420,
+      "height": 310,
+      "labelIds": [
+        "wetland-pond",
+        "wetland-pond-water",
+        "wetland-reed-bed",
+        "wetland-emergent-plant",
+        "wetland-reed-stem",
+        "wetland-seed-head",
+        "wetland-floating-leaves",
+        "wetland-floating-vegetation",
+        "wetland-water-surface",
+        "wetland-reflection",
+        "wetland-fallen-branch",
+        "wetland-bank",
+        "wetland-pond-margin",
+        "wetland-concrete-edging",
+        "wetland-paving-stone",
+        "wetland-border-planting",
+        "wetland-groundcover",
+        "wetland-shrub",
+        "wetland-grass-clump"
+      ],
+      "translation": "西北池塘边缘",
+      "description": "Pixel-audited visible objects and parts across the northwest pond margin district."
+    },
+    {
+      "id": "wetland-north-marsh",
+      "title": "North marsh channels",
+      "x": 420,
+      "y": 0,
+      "width": 420,
+      "height": 310,
+      "labelIds": [
+        "wetland-marsh-channel",
+        "wetland-channel-bend",
+        "wetland-muddy-island",
+        "wetland-marsh-pool",
+        "wetland-puddle",
+        "wetland-mud-bank",
+        "wetland-silt-patch",
+        "wetland-marsh-tussock",
+        "wetland-marsh-grass",
+        "wetland-flowering-clump",
+        "wetland-bare-stem",
+        "wetland-drift-twig",
+        "wetland-waterlogged-soil",
+        "wetland-hummock",
+        "wetland-mud-surface",
+        "wetland-narrow-runnel"
+      ],
+      "translation": "北部湿地水道",
+      "description": "Pixel-audited visible objects and parts across the north marsh channels district."
+    },
+    {
+      "id": "wetland-north-dunes",
+      "title": "Dunes, boardwalk and beach gear",
+      "x": 840,
+      "y": 0,
+      "width": 420,
+      "height": 310,
+      "labelIds": [
+        "wetland-sand-dune",
+        "wetland-dune-grass",
+        "wetland-grass-blade",
+        "wetland-grass-seed-head",
+        "wetland-sand-patch",
+        "wetland-coastal-shrub",
+        "wetland-low-bush",
+        "wetland-boardwalk",
+        "wetland-wooden-plank",
+        "wetland-handrail",
+        "wetland-fence-post",
+        "wetland-wire-fence",
+        "wetland-scattered-pebble",
+        "wetland-driftwood",
+        "wetland-rope-coil",
+        "wetland-woven-basket",
+        "wetland-orange-float",
+        "wetland-metal-basin",
+        "wetland-rowboat",
+        "wetland-boat-bench"
+      ],
+      "translation": "沙丘、栈道与海滩用具",
+      "description": "Pixel-audited visible objects and parts across the dunes, boardwalk and beach gear district."
+    },
+    {
+      "id": "wetland-northeast-shore",
+      "title": "Northeast sandy and rocky shore",
+      "x": 1260,
+      "y": 0,
+      "width": 412,
+      "height": 310,
+      "labelIds": [
+        "wetland-rocky-shore",
+        "wetland-boulder",
+        "wetland-cobble",
+        "wetland-pebble",
+        "wetland-beach-sand",
+        "wetland-seaweed",
+        "wetland-wrack",
+        "wetland-sea-foam",
+        "wetland-wavelet",
+        "wetland-shallow-seawater",
+        "wetland-wet-rock",
+        "wetland-dry-rock",
+        "wetland-rock-crevice",
+        "wetland-shoreline",
+        "wetland-garden-border",
+        "wetland-retaining-curb",
+        "wetland-perimeter-pavement",
+        "wetland-border-shrub",
+        "wetland-dune-plant"
+      ],
+      "translation": "东北沙石岸",
+      "description": "Pixel-audited visible objects and parts across the northeast sandy and rocky shore district."
+    },
+    {
+      "id": "wetland-pond-research",
+      "title": "Pond monitoring station",
+      "x": 0,
+      "y": 310,
+      "width": 420,
+      "height": 300,
+      "labelIds": [
+        "wetland-weather-mast",
+        "wetland-sensor-arm",
+        "wetland-wind-sensor",
+        "wetland-instrument-housing",
+        "wetland-solar-panel",
+        "wetland-photovoltaic-cell",
+        "wetland-research-hut",
+        "wetland-timber-siding",
+        "wetland-hut-roof",
+        "wetland-observation-opening",
+        "wetland-wooden-bench",
+        "wetland-sampling-pail",
+        "wetland-metal-bucket",
+        "wetland-pond-reeds",
+        "wetland-lily-pad",
+        "wetland-purple-flower",
+        "wetland-flower-spike",
+        "wetland-lifebuoy",
+        "wetland-rain-gauge",
+        "wetland-sample-box"
+      ],
+      "translation": "池塘监测站",
+      "description": "Pixel-audited visible objects and parts across the pond monitoring station district."
+    },
+    {
+      "id": "wetland-central-mudflat",
+      "title": "Central mudflat study area",
+      "x": 420,
+      "y": 310,
+      "width": 420,
+      "height": 300,
+      "labelIds": [
+        "wetland-mudflat",
+        "wetland-shallow-pool",
+        "wetland-creek-branch",
+        "wetland-channel-junction",
+        "wetland-mud-island",
+        "wetland-mud-margin",
+        "wetland-crab",
+        "wetland-shell-fragments",
+        "wetland-rounded-stone",
+        "wetland-plant-tussock",
+        "wetland-fleshy-groundcover",
+        "wetland-flowering-stem",
+        "wetland-marsh-bloom",
+        "wetland-damp-sediment",
+        "wetland-soil-mound"
+      ],
+      "translation": "中央泥滩研究区",
+      "description": "Pixel-audited visible objects and parts across the central mudflat study area district."
+    },
+    {
+      "id": "wetland-sand-rock-transition",
+      "title": "Sand-to-rock transition",
+      "x": 840,
+      "y": 310,
+      "width": 420,
+      "height": 300,
+      "labelIds": [
+        "wetland-sandy-bank",
+        "wetland-sandbar",
+        "wetland-drift-fragment",
+        "wetland-wet-sand",
+        "wetland-dry-sand",
+        "wetland-rock-puddle",
+        "wetland-rock-cluster",
+        "wetland-algal-mat",
+        "wetland-green-growth",
+        "wetland-rock-basin",
+        "wetland-exposed-substrate",
+        "wetland-sand-mud-boundary",
+        "wetland-marsh-edge",
+        "wetland-creek-mouth",
+        "wetland-stone-scatter",
+        "wetland-rubble-strip",
+        "wetland-plant-tuft"
+      ],
+      "translation": "沙地至岩岸过渡区",
+      "description": "Pixel-audited visible objects and parts across the sand-to-rock transition district."
+    },
+    {
+      "id": "wetland-middle-coast",
+      "title": "Middle rocky coast and clear water",
+      "x": 1260,
+      "y": 310,
+      "width": 412,
+      "height": 300,
+      "labelIds": [
+        "wetland-coastal-water",
+        "wetland-water-ripple",
+        "wetland-surface-foam",
+        "wetland-foam-line",
+        "wetland-submerged-rock",
+        "wetland-exposed-rock",
+        "wetland-rock-ledge",
+        "wetland-kelp-strand",
+        "wetland-brown-algae",
+        "wetland-underwater-shadow",
+        "wetland-shallow-shelf",
+        "wetland-shoreline-curb",
+        "wetland-planted-border",
+        "wetland-aquatic-debris",
+        "wetland-water-channel"
+      ],
+      "translation": "中段岩岸与清水",
+      "description": "Pixel-audited visible objects and parts across the middle rocky coast and clear water district."
+    },
+    {
+      "id": "wetland-field-equipment",
+      "title": "Field equipment and vegetation plot",
+      "x": 0,
+      "y": 610,
+      "width": 420,
+      "height": 331,
+      "labelIds": [
+        "wetland-field-equipment",
+        "wetland-carrying-crate",
+        "wetland-sample-bottle",
+        "wetland-rubber-boots",
+        "wetland-survey-tripod",
+        "wetland-quadrat-frame",
+        "wetland-sampling-rope",
+        "wetland-rope-loop",
+        "wetland-survey-instrument-housing",
+        "wetland-grass-plot",
+        "wetland-flowering-groundcover",
+        "wetland-equipment-tub",
+        "wetland-border-curb",
+        "wetland-paved-path"
+      ],
+      "translation": "野外设备与植被样区",
+      "description": "Pixel-audited visible objects and parts across the field equipment and vegetation plot district."
+    },
+    {
+      "id": "wetland-south-channel",
+      "title": "South marsh channel and border",
+      "x": 420,
+      "y": 610,
+      "width": 420,
+      "height": 331,
+      "labelIds": [
+        "wetland-meandering-channel",
+        "wetland-channel-bank",
+        "wetland-mud-pool",
+        "wetland-small-rivulet",
+        "wetland-sediment-patch",
+        "wetland-polished-pebble",
+        "wetland-plant-mound",
+        "wetland-flowering-tussock",
+        "wetland-seed-stalk",
+        "wetland-succulent-patch",
+        "wetland-wetland-border",
+        "wetland-lower-curb",
+        "wetland-walkway-paver",
+        "wetland-tiny-puddle",
+        "wetland-water-reflection",
+        "wetland-root-mat"
+      ],
+      "translation": "南部湿地水道与边界",
+      "description": "Pixel-audited visible objects and parts across the south marsh channel and border district."
+    },
+    {
+      "id": "wetland-south-rocks-jetty",
+      "title": "South rock pools and jetty edge",
+      "x": 840,
+      "y": 610,
+      "width": 420,
+      "height": 331,
+      "labelIds": [
+        "wetland-rock-pool",
+        "wetland-rock-outcrop",
+        "wetland-mottled-boulder",
+        "wetland-rock-crack",
+        "wetland-water-pocket",
+        "wetland-green-algae-mat",
+        "wetland-brown-algae-patch",
+        "wetland-wooden-jetty",
+        "wetland-jetty-plank",
+        "wetland-jetty-post",
+        "wetland-mooring-rope",
+        "wetland-coastal-border",
+        "wetland-shore-plant",
+        "wetland-stone-field",
+        "wetland-wet-stone"
+      ],
+      "translation": "南部岩池与栈桥边缘",
+      "description": "Pixel-audited visible objects and parts across the south rock pools and jetty edge district."
+    },
+    {
+      "id": "wetland-dinghy-berth",
+      "title": "Dinghy berth and clear shallows",
+      "x": 1260,
+      "y": 610,
+      "width": 412,
+      "height": 331,
+      "labelIds": [
+        "wetland-dinghy",
+        "wetland-dinghy-hull",
+        "wetland-boat-bow",
+        "wetland-boat-stern",
+        "wetland-gunwale",
+        "wetland-transom",
+        "wetland-thwart",
+        "wetland-floorboard",
+        "wetland-dock",
+        "wetland-dock-planks",
+        "wetland-dock-pile",
+        "wetland-underwater-boulder",
+        "wetland-water-shadow",
+        "wetland-floating-seaweed",
+        "wetland-submerged-weed",
+        "wetland-sunlight-pattern",
+        "wetland-rippled-water",
+        "wetland-edge-curb",
+        "wetland-shore-planting"
+      ],
+      "translation": "小艇泊位与清澈浅水",
+      "description": "Pixel-audited visible objects and parts across the dinghy berth and clear shallows district."
+    }
+  ],
+  "anchors": [
+    {
+      "id": "wetland-pond",
+      "word": "pond",
+      "translation": "池塘",
+      "x": 330,
+      "y": 220,
+      "lod": 0,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-pond-water",
+      "word": "pond water",
+      "translation": "池水",
+      "x": 350,
+      "y": 205,
+      "lod": 1,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-reed-bed",
+      "word": "reed bed",
+      "translation": "挺水植物带",
+      "x": 180,
+      "y": 210,
+      "lod": 0,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-emergent-plant",
+      "word": "emergent plant",
+      "translation": "挺水植物",
+      "x": 410,
+      "y": 260,
+      "lod": 1,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-reed-stem",
+      "word": "reed stem",
+      "translation": "芦状茎",
+      "x": 205,
+      "y": 190,
+      "lod": 2,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-seed-head",
+      "word": "seed head",
+      "translation": "穗状种子头",
+      "x": 185,
+      "y": 170,
+      "lod": 3,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-floating-leaves",
+      "word": "floating leaves",
+      "translation": "浮叶",
+      "x": 350,
+      "y": 260,
+      "lod": 1,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-floating-vegetation",
+      "word": "floating vegetation",
+      "translation": "漂浮植被",
+      "x": 320,
+      "y": 150,
+      "lod": 1,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-water-surface",
+      "word": "water surface",
+      "translation": "水面",
+      "x": 330,
+      "y": 180,
+      "lod": 2,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-reflection",
+      "word": "reflection",
+      "translation": "水中倒影",
+      "lexemeId": "en-f30409c51a78ed69",
+      "x": 360,
+      "y": 130,
+      "lod": 3,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-fallen-branch",
+      "word": "fallen branch",
+      "translation": "倒落树枝",
+      "x": 250,
+      "y": 255,
+      "lod": 2,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-bank",
+      "word": "bank",
+      "translation": "岸坡",
+      "x": 215,
+      "y": 100,
+      "lod": 1,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-pond-margin",
+      "word": "pond margin",
+      "translation": "池塘边界",
+      "x": 250,
+      "y": 95,
+      "lod": 1,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-concrete-edging",
+      "word": "concrete edging",
+      "translation": "混凝土边条",
+      "x": 100,
+      "y": 175,
+      "lod": 2,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-paving-stone",
+      "word": "paving stone",
+      "translation": "铺路石",
+      "x": 55,
+      "y": 85,
+      "lod": 2,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-border-planting",
+      "word": "border planting",
+      "translation": "边界种植带",
+      "x": 115,
+      "y": 60,
+      "lod": 1,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-groundcover",
+      "word": "groundcover",
+      "translation": "地被植物",
+      "x": 130,
+      "y": 100,
+      "lod": 2,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-shrub",
+      "word": "shrub",
+      "translation": "灌木",
+      "x": 100,
+      "y": 70,
+      "lod": 1,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-grass-clump",
+      "word": "grass clump",
+      "translation": "草丛",
+      "x": 180,
+      "y": 75,
+      "lod": 2,
+      "zoneId": "wetland-northwest-pond"
+    },
+    {
+      "id": "wetland-marsh-channel",
+      "word": "marsh channel",
+      "translation": "湿地水道",
+      "x": 560,
+      "y": 180,
+      "lod": 0,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-channel-bend",
+      "word": "channel bend",
+      "translation": "水道弯曲处",
+      "x": 570,
+      "y": 275,
+      "lod": 1,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-muddy-island",
+      "word": "muddy island",
+      "translation": "泥质小岛",
+      "x": 680,
+      "y": 170,
+      "lod": 0,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-marsh-pool",
+      "word": "marsh pool",
+      "translation": "湿地浅池",
+      "x": 720,
+      "y": 260,
+      "lod": 1,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-puddle",
+      "word": "puddle",
+      "translation": "水洼",
+      "x": 770,
+      "y": 150,
+      "lod": 2,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-mud-bank",
+      "word": "mud bank",
+      "translation": "泥岸",
+      "x": 630,
+      "y": 245,
+      "lod": 1,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-silt-patch",
+      "word": "silt patch",
+      "translation": "粉砂斑块",
+      "x": 600,
+      "y": 205,
+      "lod": 2,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-marsh-tussock",
+      "word": "marsh tussock",
+      "translation": "湿地草墩",
+      "x": 550,
+      "y": 115,
+      "lod": 1,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-marsh-grass",
+      "word": "marsh grass",
+      "translation": "湿地草本",
+      "x": 610,
+      "y": 145,
+      "lod": 1,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-flowering-clump",
+      "word": "flowering clump",
+      "translation": "开花植丛",
+      "x": 620,
+      "y": 230,
+      "lod": 2,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-bare-stem",
+      "word": "bare stem",
+      "translation": "裸露茎杆",
+      "x": 780,
+      "y": 200,
+      "lod": 3,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-drift-twig",
+      "word": "drift twig",
+      "translation": "漂落细枝",
+      "x": 690,
+      "y": 225,
+      "lod": 3,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-waterlogged-soil",
+      "word": "waterlogged soil",
+      "translation": "浸水土壤",
+      "x": 740,
+      "y": 230,
+      "lod": 2,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-hummock",
+      "word": "hummock",
+      "translation": "草丘",
+      "x": 700,
+      "y": 145,
+      "lod": 2,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-mud-surface",
+      "word": "mud surface",
+      "translation": "泥面",
+      "x": 810,
+      "y": 280,
+      "lod": 2,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-narrow-runnel",
+      "word": "narrow runnel",
+      "translation": "狭窄小水沟",
+      "x": 810,
+      "y": 210,
+      "lod": 1,
+      "zoneId": "wetland-north-marsh"
+    },
+    {
+      "id": "wetland-sand-dune",
+      "word": "sand dune",
+      "translation": "沙丘",
+      "x": 1050,
+      "y": 125,
+      "lod": 0,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-dune-grass",
+      "word": "dune grass",
+      "translation": "沙丘草",
+      "x": 1050,
+      "y": 100,
+      "lod": 1,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-grass-blade",
+      "word": "grass blade",
+      "translation": "草叶片",
+      "x": 1100,
+      "y": 120,
+      "lod": 3,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-grass-seed-head",
+      "word": "grass seed head",
+      "translation": "草穗",
+      "x": 1000,
+      "y": 90,
+      "lod": 3,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-sand-patch",
+      "word": "sand patch",
+      "translation": "沙地斑块",
+      "x": 1140,
+      "y": 175,
+      "lod": 1,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-coastal-shrub",
+      "word": "coastal shrub",
+      "translation": "海岸灌木",
+      "x": 1160,
+      "y": 125,
+      "lod": 1,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-low-bush",
+      "word": "low bush",
+      "translation": "低矮灌丛",
+      "x": 1210,
+      "y": 100,
+      "lod": 2,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-boardwalk",
+      "word": "boardwalk",
+      "translation": "木栈道",
+      "x": 1010,
+      "y": 210,
+      "lod": 0,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-wooden-plank",
+      "word": "wooden plank",
+      "translation": "木板",
+      "x": 1018,
+      "y": 210,
+      "lod": 2,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-handrail",
+      "word": "handrail",
+      "translation": "扶手",
+      "x": 1020,
+      "y": 190,
+      "lod": 2,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-fence-post",
+      "word": "fence post",
+      "translation": "围栏柱",
+      "x": 1150,
+      "y": 160,
+      "lod": 2,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-wire-fence",
+      "word": "wire fence",
+      "translation": "金属丝围栏",
+      "x": 1170,
+      "y": 160,
+      "lod": 1,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-scattered-pebble",
+      "word": "scattered pebble",
+      "translation": "散落砾石",
+      "x": 1140,
+      "y": 270,
+      "lod": 2,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-driftwood",
+      "word": "driftwood",
+      "translation": "漂流木",
+      "x": 930,
+      "y": 295,
+      "lod": 1,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-rope-coil",
+      "word": "rope coil",
+      "translation": "盘绕绳索",
+      "x": 1135,
+      "y": 288,
+      "lod": 1,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-woven-basket",
+      "word": "woven basket",
+      "translation": "编织篮",
+      "x": 1120,
+      "y": 225,
+      "lod": 1,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-orange-float",
+      "word": "orange float",
+      "translation": "橙色浮球",
+      "x": 1150,
+      "y": 275,
+      "lod": 1,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-metal-basin",
+      "word": "metal basin",
+      "translation": "金属盆",
+      "x": 1185,
+      "y": 280,
+      "lod": 1,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-rowboat",
+      "word": "rowboat",
+      "translation": "划艇",
+      "x": 1220,
+      "y": 260,
+      "lod": 0,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-boat-bench",
+      "word": "boat bench",
+      "translation": "艇内横座",
+      "x": 1240,
+      "y": 260,
+      "lod": 2,
+      "zoneId": "wetland-north-dunes"
+    },
+    {
+      "id": "wetland-rocky-shore",
+      "word": "rocky shore",
+      "translation": "岩石岸",
+      "x": 1450,
+      "y": 250,
+      "lod": 0,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-boulder",
+      "word": "boulder",
+      "translation": "巨石",
+      "x": 1470,
+      "y": 230,
+      "lod": 1,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-cobble",
+      "word": "cobble",
+      "translation": "卵石",
+      "x": 1400,
+      "y": 220,
+      "lod": 2,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-pebble",
+      "word": "pebble",
+      "translation": "小砾石",
+      "x": 1360,
+      "y": 185,
+      "lod": 3,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-beach-sand",
+      "word": "beach sand",
+      "translation": "海滩沙",
+      "x": 1370,
+      "y": 150,
+      "lod": 1,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-seaweed",
+      "word": "seaweed",
+      "translation": "海藻",
+      "x": 1490,
+      "y": 260,
+      "lod": 1,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-wrack",
+      "word": "wrack",
+      "translation": "岸边漂积物",
+      "x": 1320,
+      "y": 260,
+      "lod": 2,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-sea-foam",
+      "word": "sea foam",
+      "translation": "海水泡沫",
+      "x": 1540,
+      "y": 260,
+      "lod": 1,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-wavelet",
+      "word": "wavelet",
+      "translation": "小浪",
+      "x": 1570,
+      "y": 285,
+      "lod": 2,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-shallow-seawater",
+      "word": "shallow seawater",
+      "translation": "浅海水",
+      "x": 1585,
+      "y": 250,
+      "lod": 1,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-wet-rock",
+      "word": "wet rock",
+      "translation": "湿岩石",
+      "x": 1490,
+      "y": 240,
+      "lod": 2,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-dry-rock",
+      "word": "dry rock",
+      "translation": "干岩石",
+      "x": 1490,
+      "y": 205,
+      "lod": 2,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-rock-crevice",
+      "word": "rock crevice",
+      "translation": "岩缝",
+      "x": 1460,
+      "y": 230,
+      "lod": 3,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-shoreline",
+      "word": "shoreline",
+      "translation": "岸线",
+      "x": 1550,
+      "y": 260,
+      "lod": 1,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-garden-border",
+      "word": "garden border",
+      "translation": "种植带边界",
+      "x": 1580,
+      "y": 100,
+      "lod": 1,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-retaining-curb",
+      "word": "retaining curb",
+      "translation": "挡土路缘",
+      "x": 1570,
+      "y": 140,
+      "lod": 2,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-perimeter-pavement",
+      "word": "perimeter pavement",
+      "translation": "外围铺装路面",
+      "x": 1650,
+      "y": 65,
+      "lod": 1,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-border-shrub",
+      "word": "border shrub",
+      "translation": "边缘灌木",
+      "x": 1600,
+      "y": 105,
+      "lod": 2,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-dune-plant",
+      "word": "dune plant",
+      "translation": "沙丘植物",
+      "x": 1300,
+      "y": 80,
+      "lod": 2,
+      "zoneId": "wetland-northeast-shore"
+    },
+    {
+      "id": "wetland-weather-mast",
+      "word": "weather mast",
+      "translation": "气象监测杆",
+      "x": 75,
+      "y": 420,
+      "lod": 0,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-sensor-arm",
+      "word": "sensor arm",
+      "translation": "传感器横臂",
+      "x": 82,
+      "y": 420,
+      "lod": 2,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-wind-sensor",
+      "word": "wind sensor",
+      "translation": "风速传感器",
+      "x": 72,
+      "y": 410,
+      "lod": 1,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-instrument-housing",
+      "word": "instrument housing",
+      "translation": "仪器外壳",
+      "x": 195,
+      "y": 470,
+      "lod": 2,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-solar-panel",
+      "word": "solar panel",
+      "translation": "太阳能板",
+      "x": 155,
+      "y": 505,
+      "lod": 0,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-photovoltaic-cell",
+      "word": "photovoltaic cell",
+      "translation": "光伏电池片",
+      "x": 155,
+      "y": 505,
+      "lod": 3,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-research-hut",
+      "word": "research hut",
+      "translation": "研究小屋",
+      "x": 150,
+      "y": 545,
+      "lod": 0,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-timber-siding",
+      "word": "timber siding",
+      "translation": "木墙板",
+      "x": 150,
+      "y": 555,
+      "lod": 2,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-hut-roof",
+      "word": "hut roof",
+      "translation": "小屋屋顶",
+      "x": 150,
+      "y": 490,
+      "lod": 1,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-observation-opening",
+      "word": "observation opening",
+      "translation": "观察口",
+      "x": 150,
+      "y": 560,
+      "lod": 1,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-wooden-bench",
+      "word": "wooden bench",
+      "translation": "木长椅",
+      "x": 300,
+      "y": 535,
+      "lod": 0,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-sampling-pail",
+      "word": "sampling pail",
+      "translation": "采样桶",
+      "x": 340,
+      "y": 580,
+      "lod": 1,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-metal-bucket",
+      "word": "metal bucket",
+      "translation": "金属桶",
+      "x": 385,
+      "y": 570,
+      "lod": 1,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-pond-reeds",
+      "word": "pond reeds",
+      "translation": "池边芦状植物",
+      "x": 300,
+      "y": 370,
+      "lod": 1,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-lily-pad",
+      "word": "lily pad",
+      "translation": "睡莲状浮叶",
+      "x": 300,
+      "y": 320,
+      "lod": 1,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-purple-flower",
+      "word": "purple flower",
+      "translation": "紫色花",
+      "x": 380,
+      "y": 490,
+      "lod": 2,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-flower-spike",
+      "word": "flower spike",
+      "translation": "花穗",
+      "x": 360,
+      "y": 450,
+      "lod": 3,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-lifebuoy",
+      "word": "lifebuoy",
+      "translation": "救生圈",
+      "x": 88,
+      "y": 590,
+      "lod": 1,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-rain-gauge",
+      "word": "rain gauge",
+      "translation": "雨量筒",
+      "x": 50,
+      "y": 580,
+      "lod": 1,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-sample-box",
+      "word": "sample box",
+      "translation": "样品箱",
+      "x": 220,
+      "y": 600,
+      "lod": 1,
+      "zoneId": "wetland-pond-research"
+    },
+    {
+      "id": "wetland-mudflat",
+      "word": "mudflat",
+      "translation": "泥滩",
+      "x": 620,
+      "y": 470,
+      "lod": 0,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-shallow-pool",
+      "word": "shallow pool",
+      "translation": "浅水池",
+      "x": 730,
+      "y": 410,
+      "lod": 1,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-creek-branch",
+      "word": "creek branch",
+      "translation": "溪沟支流",
+      "x": 790,
+      "y": 330,
+      "lod": 1,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-channel-junction",
+      "word": "channel junction",
+      "translation": "水道交汇处",
+      "x": 770,
+      "y": 350,
+      "lod": 1,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-mud-island",
+      "word": "mud island",
+      "translation": "泥质小块",
+      "x": 650,
+      "y": 400,
+      "lod": 1,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-mud-margin",
+      "word": "mud margin",
+      "translation": "泥地边缘",
+      "x": 540,
+      "y": 400,
+      "lod": 2,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-crab",
+      "word": "crab",
+      "translation": "螃蟹",
+      "x": 745,
+      "y": 500,
+      "lod": 0,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-shell-fragments",
+      "word": "shell fragments",
+      "translation": "贝壳碎片",
+      "x": 520,
+      "y": 500,
+      "lod": 1,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-rounded-stone",
+      "word": "rounded stone",
+      "translation": "圆润石块",
+      "x": 620,
+      "y": 590,
+      "lod": 2,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-plant-tussock",
+      "word": "plant tussock",
+      "translation": "植物草墩",
+      "x": 700,
+      "y": 520,
+      "lod": 1,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-fleshy-groundcover",
+      "word": "fleshy groundcover",
+      "translation": "肉质地被",
+      "x": 600,
+      "y": 450,
+      "lod": 2,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-flowering-stem",
+      "word": "flowering stem",
+      "translation": "开花茎",
+      "x": 480,
+      "y": 390,
+      "lod": 3,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-marsh-bloom",
+      "word": "marsh bloom",
+      "translation": "湿地花朵",
+      "x": 550,
+      "y": 330,
+      "lod": 3,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-damp-sediment",
+      "word": "damp sediment",
+      "translation": "湿润沉积物",
+      "x": 720,
+      "y": 500,
+      "lod": 2,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-soil-mound",
+      "word": "soil mound",
+      "translation": "土丘",
+      "x": 750,
+      "y": 570,
+      "lod": 2,
+      "zoneId": "wetland-central-mudflat"
+    },
+    {
+      "id": "wetland-sandy-bank",
+      "word": "sandy bank",
+      "translation": "沙质岸坡",
+      "x": 980,
+      "y": 400,
+      "lod": 0,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-sandbar",
+      "word": "sandbar",
+      "translation": "沙洲",
+      "x": 1070,
+      "y": 360,
+      "lod": 1,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-drift-fragment",
+      "word": "drift fragment",
+      "translation": "漂积碎片",
+      "x": 1040,
+      "y": 350,
+      "lod": 2,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-wet-sand",
+      "word": "wet sand",
+      "translation": "湿沙",
+      "x": 980,
+      "y": 520,
+      "lod": 1,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-dry-sand",
+      "word": "dry sand",
+      "translation": "干沙",
+      "x": 1100,
+      "y": 330,
+      "lod": 1,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-rock-puddle",
+      "word": "rock puddle",
+      "translation": "岩间水洼",
+      "x": 1180,
+      "y": 560,
+      "lod": 1,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-rock-cluster",
+      "word": "rock cluster",
+      "translation": "岩石簇",
+      "x": 1150,
+      "y": 430,
+      "lod": 1,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-algal-mat",
+      "word": "algal mat",
+      "translation": "藻类覆盖层",
+      "x": 1170,
+      "y": 500,
+      "lod": 1,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-green-growth",
+      "word": "green growth",
+      "translation": "绿色附着物",
+      "x": 1150,
+      "y": 390,
+      "lod": 2,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-rock-basin",
+      "word": "rock basin",
+      "translation": "岩石凹盆",
+      "x": 1200,
+      "y": 450,
+      "lod": 2,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-exposed-substrate",
+      "word": "exposed substrate",
+      "translation": "裸露基质",
+      "x": 1000,
+      "y": 450,
+      "lod": 2,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-sand-mud-boundary",
+      "word": "sand-mud boundary",
+      "translation": "沙泥分界",
+      "x": 930,
+      "y": 500,
+      "lod": 1,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-marsh-edge",
+      "word": "marsh edge",
+      "translation": "湿地边缘",
+      "x": 880,
+      "y": 380,
+      "lod": 1,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-creek-mouth",
+      "word": "creek mouth",
+      "translation": "小水道出口",
+      "x": 850,
+      "y": 360,
+      "lod": 1,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-stone-scatter",
+      "word": "stone scatter",
+      "translation": "散石带",
+      "x": 1050,
+      "y": 470,
+      "lod": 2,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-rubble-strip",
+      "word": "rubble strip",
+      "translation": "碎石条带",
+      "x": 1100,
+      "y": 410,
+      "lod": 2,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-plant-tuft",
+      "word": "plant tuft",
+      "translation": "植物小丛",
+      "x": 880,
+      "y": 360,
+      "lod": 2,
+      "zoneId": "wetland-sand-rock-transition"
+    },
+    {
+      "id": "wetland-coastal-water",
+      "word": "coastal water",
+      "translation": "海岸水域",
+      "x": 1500,
+      "y": 450,
+      "lod": 0,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-water-ripple",
+      "word": "water ripple",
+      "translation": "水面波纹",
+      "x": 1540,
+      "y": 430,
+      "lod": 2,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-surface-foam",
+      "word": "surface foam",
+      "translation": "水面泡沫",
+      "x": 1350,
+      "y": 360,
+      "lod": 1,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-foam-line",
+      "word": "foam line",
+      "translation": "泡沫线",
+      "x": 1420,
+      "y": 400,
+      "lod": 2,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-submerged-rock",
+      "word": "submerged rock",
+      "translation": "水下岩石",
+      "x": 1510,
+      "y": 500,
+      "lod": 1,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-exposed-rock",
+      "word": "exposed rock",
+      "translation": "露出水面的岩石",
+      "x": 1320,
+      "y": 360,
+      "lod": 1,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-rock-ledge",
+      "word": "rock ledge",
+      "translation": "岩石台面",
+      "x": 1300,
+      "y": 420,
+      "lod": 2,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-kelp-strand",
+      "word": "kelp strand",
+      "translation": "海带状藻体",
+      "x": 1500,
+      "y": 480,
+      "lod": 2,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-brown-algae",
+      "word": "brown algae",
+      "translation": "褐色藻类",
+      "x": 1370,
+      "y": 350,
+      "lod": 2,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-underwater-shadow",
+      "word": "underwater shadow",
+      "translation": "水下阴影",
+      "x": 1550,
+      "y": 550,
+      "lod": 3,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-shallow-shelf",
+      "word": "shallow shelf",
+      "translation": "浅水岩台",
+      "x": 1600,
+      "y": 520,
+      "lod": 1,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-shoreline-curb",
+      "word": "shoreline curb",
+      "translation": "岸边路缘",
+      "x": 1650,
+      "y": 420,
+      "lod": 2,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-planted-border",
+      "word": "planted border",
+      "translation": "岸边种植带",
+      "x": 1660,
+      "y": 370,
+      "lod": 1,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-aquatic-debris",
+      "word": "aquatic debris",
+      "translation": "水中漂浮物",
+      "x": 1600,
+      "y": 350,
+      "lod": 3,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-water-channel",
+      "word": "water channel",
+      "translation": "沿岸水槽",
+      "x": 1630,
+      "y": 500,
+      "lod": 1,
+      "zoneId": "wetland-middle-coast"
+    },
+    {
+      "id": "wetland-field-equipment",
+      "word": "field equipment",
+      "translation": "野外设备",
+      "x": 180,
+      "y": 650,
+      "lod": 0,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-carrying-crate",
+      "word": "carrying crate",
+      "translation": "搬运箱",
+      "x": 100,
+      "y": 680,
+      "lod": 1,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-sample-bottle",
+      "word": "sample bottle",
+      "translation": "采样瓶",
+      "x": 250,
+      "y": 700,
+      "lod": 1,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-rubber-boots",
+      "word": "rubber boots",
+      "translation": "橡胶靴",
+      "x": 200,
+      "y": 705,
+      "lod": 0,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-survey-tripod",
+      "word": "survey tripod",
+      "translation": "测量三脚架",
+      "x": 350,
+      "y": 625,
+      "lod": 1,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-quadrat-frame",
+      "word": "quadrat frame",
+      "translation": "样方框",
+      "x": 390,
+      "y": 680,
+      "lod": 0,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-sampling-rope",
+      "word": "sampling rope",
+      "translation": "采样绳",
+      "x": 330,
+      "y": 760,
+      "lod": 1,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-rope-loop",
+      "word": "rope loop",
+      "translation": "绳圈",
+      "x": 335,
+      "y": 760,
+      "lod": 2,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-survey-instrument-housing",
+      "word": "survey instrument housing",
+      "translation": "调查仪器外壳",
+      "x": 285,
+      "y": 620,
+      "lod": 1,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-grass-plot",
+      "word": "grass plot",
+      "translation": "草本样地",
+      "x": 220,
+      "y": 760,
+      "lod": 1,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-flowering-groundcover",
+      "word": "flowering groundcover",
+      "translation": "开花地被",
+      "x": 180,
+      "y": 820,
+      "lod": 1,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-equipment-tub",
+      "word": "equipment tub",
+      "translation": "设备周转箱",
+      "x": 100,
+      "y": 665,
+      "lod": 1,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-border-curb",
+      "word": "border curb",
+      "translation": "样地边缘路缘",
+      "x": 250,
+      "y": 900,
+      "lod": 2,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-paved-path",
+      "word": "paved path",
+      "translation": "铺装小径",
+      "x": 250,
+      "y": 930,
+      "lod": 1,
+      "zoneId": "wetland-field-equipment"
+    },
+    {
+      "id": "wetland-meandering-channel",
+      "word": "meandering channel",
+      "translation": "蜿蜒水道",
+      "x": 800,
+      "y": 700,
+      "lod": 0,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-channel-bank",
+      "word": "channel bank",
+      "translation": "水道岸边",
+      "x": 770,
+      "y": 690,
+      "lod": 1,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-mud-pool",
+      "word": "mud pool",
+      "translation": "泥地水池",
+      "x": 700,
+      "y": 700,
+      "lod": 1,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-small-rivulet",
+      "word": "small rivulet",
+      "translation": "细小水沟",
+      "x": 740,
+      "y": 650,
+      "lod": 1,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-sediment-patch",
+      "word": "sediment patch",
+      "translation": "沉积物斑块",
+      "x": 620,
+      "y": 700,
+      "lod": 2,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-polished-pebble",
+      "word": "polished pebble",
+      "translation": "光滑小石",
+      "x": 600,
+      "y": 750,
+      "lod": 3,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-plant-mound",
+      "word": "plant mound",
+      "translation": "植物土墩",
+      "x": 570,
+      "y": 800,
+      "lod": 1,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-flowering-tussock",
+      "word": "flowering tussock",
+      "translation": "开花草墩",
+      "x": 650,
+      "y": 660,
+      "lod": 2,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-seed-stalk",
+      "word": "seed stalk",
+      "translation": "种子茎",
+      "x": 500,
+      "y": 630,
+      "lod": 3,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-succulent-patch",
+      "word": "succulent patch",
+      "translation": "肉质植物斑块",
+      "x": 520,
+      "y": 830,
+      "lod": 2,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-wetland-border",
+      "word": "wetland border",
+      "translation": "湿地外缘",
+      "x": 650,
+      "y": 890,
+      "lod": 1,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-lower-curb",
+      "word": "lower curb",
+      "translation": "下侧路缘",
+      "x": 650,
+      "y": 900,
+      "lod": 2,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-walkway-paver",
+      "word": "walkway paver",
+      "translation": "步道铺砖",
+      "x": 650,
+      "y": 930,
+      "lod": 2,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-tiny-puddle",
+      "word": "tiny puddle",
+      "translation": "小水洼",
+      "x": 690,
+      "y": 670,
+      "lod": 2,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-water-reflection",
+      "word": "water reflection",
+      "translation": "水面反光",
+      "x": 780,
+      "y": 690,
+      "lod": 3,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-root-mat",
+      "word": "root mat",
+      "translation": "根系垫层",
+      "x": 600,
+      "y": 850,
+      "lod": 2,
+      "zoneId": "wetland-south-channel"
+    },
+    {
+      "id": "wetland-rock-pool",
+      "word": "rock pool",
+      "translation": "岩间水池",
+      "x": 1100,
+      "y": 650,
+      "lod": 0,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-rock-outcrop",
+      "word": "rock outcrop",
+      "translation": "岩石露头",
+      "x": 1080,
+      "y": 720,
+      "lod": 1,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-mottled-boulder",
+      "word": "mottled boulder",
+      "translation": "斑驳巨石",
+      "x": 1050,
+      "y": 730,
+      "lod": 1,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-rock-crack",
+      "word": "rock crack",
+      "translation": "岩石裂缝",
+      "x": 1120,
+      "y": 700,
+      "lod": 3,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-water-pocket",
+      "word": "water pocket",
+      "translation": "岩间积水",
+      "x": 1170,
+      "y": 680,
+      "lod": 1,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-green-algae-mat",
+      "word": "green algae mat",
+      "translation": "绿色藻层",
+      "x": 1130,
+      "y": 700,
+      "lod": 1,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-brown-algae-patch",
+      "word": "brown algae patch",
+      "translation": "褐藻斑块",
+      "x": 1200,
+      "y": 710,
+      "lod": 2,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-wooden-jetty",
+      "word": "wooden jetty",
+      "translation": "木栈桥",
+      "x": 1250,
+      "y": 720,
+      "lod": 0,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-jetty-plank",
+      "word": "jetty plank",
+      "translation": "栈桥木板",
+      "x": 1240,
+      "y": 720,
+      "lod": 2,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-jetty-post",
+      "word": "jetty post",
+      "translation": "栈桥桩",
+      "x": 1255,
+      "y": 700,
+      "lod": 1,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-mooring-rope",
+      "word": "mooring rope",
+      "translation": "系泊绳",
+      "x": 1245,
+      "y": 750,
+      "lod": 1,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-coastal-border",
+      "word": "coastal border",
+      "translation": "海岸外缘",
+      "x": 1050,
+      "y": 900,
+      "lod": 1,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-shore-plant",
+      "word": "shore plant",
+      "translation": "岸边植物",
+      "x": 1100,
+      "y": 910,
+      "lod": 2,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-stone-field",
+      "word": "stone field",
+      "translation": "岩石带",
+      "x": 1150,
+      "y": 800,
+      "lod": 1,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-wet-stone",
+      "word": "wet stone",
+      "translation": "潮湿石面",
+      "x": 1180,
+      "y": 760,
+      "lod": 2,
+      "zoneId": "wetland-south-rocks-jetty"
+    },
+    {
+      "id": "wetland-dinghy",
+      "word": "dinghy",
+      "translation": "小艇",
+      "x": 1370,
+      "y": 780,
+      "lod": 0,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-dinghy-hull",
+      "word": "dinghy hull",
+      "translation": "小艇船体",
+      "x": 1370,
+      "y": 800,
+      "lod": 1,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-boat-bow",
+      "word": "boat bow",
+      "translation": "艇艏",
+      "x": 1445,
+      "y": 780,
+      "lod": 2,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-boat-stern",
+      "word": "boat stern",
+      "translation": "艇艉",
+      "x": 1285,
+      "y": 790,
+      "lod": 2,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-gunwale",
+      "word": "gunwale",
+      "translation": "船舷上缘",
+      "x": 1370,
+      "y": 760,
+      "lod": 2,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-transom",
+      "word": "transom",
+      "translation": "艇艉板",
+      "x": 1300,
+      "y": 780,
+      "lod": 2,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-thwart",
+      "word": "thwart",
+      "translation": "艇内横座",
+      "x": 1400,
+      "y": 760,
+      "lod": 2,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-floorboard",
+      "word": "floorboard",
+      "translation": "艇内底板",
+      "x": 1380,
+      "y": 780,
+      "lod": 3,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-dock",
+      "word": "dock",
+      "translation": "码头",
+      "lexemeId": "en-a864ed013d128c9c",
+      "x": 1270,
+      "y": 720,
+      "lod": 0,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-dock-planks",
+      "word": "dock planks",
+      "translation": "码头木板",
+      "x": 1280,
+      "y": 720,
+      "lod": 2,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-dock-pile",
+      "word": "dock pile",
+      "translation": "码头桩",
+      "x": 1270,
+      "y": 700,
+      "lod": 1,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-underwater-boulder",
+      "word": "underwater boulder",
+      "translation": "水下巨石",
+      "x": 1450,
+      "y": 700,
+      "lod": 1,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-water-shadow",
+      "word": "water shadow",
+      "translation": "水中阴影",
+      "x": 1400,
+      "y": 850,
+      "lod": 3,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-floating-seaweed",
+      "word": "floating seaweed",
+      "translation": "漂浮海藻",
+      "x": 1500,
+      "y": 680,
+      "lod": 2,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-submerged-weed",
+      "word": "submerged weed",
+      "translation": "水下藻草",
+      "x": 1520,
+      "y": 720,
+      "lod": 2,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-sunlight-pattern",
+      "word": "sunlight pattern",
+      "translation": "水下阳光纹理",
+      "x": 1540,
+      "y": 750,
+      "lod": 3,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-rippled-water",
+      "word": "rippled water",
+      "translation": "波纹水面",
+      "x": 1600,
+      "y": 820,
+      "lod": 1,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-edge-curb",
+      "word": "edge curb",
+      "translation": "外缘路缘",
+      "x": 1500,
+      "y": 900,
+      "lod": 2,
+      "zoneId": "wetland-dinghy-berth"
+    },
+    {
+      "id": "wetland-shore-planting",
+      "word": "shore planting",
+      "translation": "岸边种植",
+      "x": 1530,
+      "y": 900,
+      "lod": 1,
+      "zoneId": "wetland-dinghy-berth"
+    }
+  ],
+  "removedAmbiguous": [
+    {
+      "candidate": "crab species",
+      "reason": "Crabs are visible, but diagnostic species markings are not resolved; only one generic crab anchor is retained."
+    },
+    {
+      "candidate": "individual crab count",
+      "reason": "Many crabs are visible; repeated individuals are intentionally not used to inflate vocabulary."
+    },
+    {
+      "candidate": "shell species",
+      "reason": "Shell fragments are too small for taxonomic identification and are represented once as a generic fragment field."
+    },
+    {
+      "candidate": "individual reed count",
+      "reason": "Dense emergent stems are represented by structural plant terms rather than repeated individual anchors."
+    },
+    {
+      "candidate": "tide level",
+      "reason": "A single static image cannot establish tidal stage."
+    },
+    {
+      "candidate": "water flow direction",
+      "reason": "Visible channels do not establish the direction of flow."
+    },
+    {
+      "candidate": "salinity",
+      "reason": "Salinity is not visually observable."
+    },
+    {
+      "candidate": "water depth",
+      "reason": "Relative shallows are visible, but numerical or categorical depth cannot be determined reliably."
+    },
+    {
+      "candidate": "bird nest",
+      "reason": "No nest structure can be isolated confidently among plant tussocks."
+    },
+    {
+      "candidate": "fish",
+      "reason": "Dark underwater forms are rocks and shadows; no fish body is resolved."
+    },
+    {
+      "candidate": "outboard motor",
+      "reason": "The gray jetty unit could be a small motor or monitoring device; its identity is ambiguous."
+    },
+    {
+      "candidate": "sampling process",
+      "reason": "Equipment is present, but no active sampling action is depicted."
+    },
+    {
+      "candidate": "specific dune grass",
+      "reason": "Leaf and seed-head detail is insufficient for a species-level label."
+    },
+    {
+      "candidate": "specific seaweed",
+      "reason": "Algal forms are visible but not diagnostic to species."
+    },
+    {
+      "candidate": "animal burrow",
+      "reason": "Small holes and depressions may be natural surface texture rather than burrows."
+    },
+    {
+      "candidate": "sediment ridge",
+      "reason": "the point is open water and no depositional ridge is visually bounded"
+    },
+    {
+      "candidate": "small stone",
+      "reason": "no independently resolved stone exists at the point"
+    },
+    {
+      "candidate": "purple bloom",
+      "reason": "the point does not land on a distinct bloom and duplicates the flowering clump"
+    },
+    {
+      "candidate": "white inflorescence",
+      "reason": "the point is mud and water; no white flower head is present"
+    },
+    {
+      "candidate": "wooden ramp",
+      "reason": "the point is sand and no ramp distinct from the boardwalk is resolved"
+    },
+    {
+      "candidate": "white blossom",
+      "reason": "the point is sand and shadow rather than a flower"
+    },
+    {
+      "candidate": "exposed root",
+      "reason": "the point is shell-strewn mud with no independent exposed root"
+    },
+    {
+      "candidate": "mud depression",
+      "reason": "the point is a grass tuft and no bounded depression is visible"
+    },
+    {
+      "candidate": "refraction pattern",
+      "reason": "the point is a foamy rock edge; an optical-process target is not independently pointable"
+    },
+    {
+      "candidate": "sensor head",
+      "reason": "the point is a tripod leg and ground while the likely head lies outside the zone"
+    },
+    {
+      "candidate": "marker stake",
+      "reason": "the point is vegetation and rope with no reliable stake silhouette"
+    },
+    {
+      "candidate": "soil clod",
+      "reason": "the point is a purple plant rather than a soil clod"
+    },
+    {
+      "candidate": "drift branch",
+      "reason": "no branch is resolved at the point"
+    },
+    {
+      "candidate": "drift pile",
+      "reason": "the point lands on another crab-like animal rather than drift material"
+    },
+    {
+      "candidate": "twig cluster",
+      "reason": "bare mud and animal fragments do not resolve as a twig cluster"
+    },
+    {
+      "candidate": "mud-rock boundary",
+      "reason": "the point lands directly on a crab; only the representative crab anchor is retained"
+    },
+    {
+      "candidate": "mooring cleat",
+      "reason": "the point is algae and water with no independently visible cleat"
+    },
+    {
+      "candidate": "reed leaf",
+      "reason": "post-fix center check lands on the fallen branch and water rather than an independent reed leaf"
+    },
+    {
+      "candidate": "drift stick",
+      "reason": "post-fix center check has no independently resolved stick"
+    },
+    {
+      "candidate": "white flower",
+      "reason": "post-fix center check lands on green leaves with no white flower"
+    },
+    {
+      "candidate": "field cable",
+      "reason": "post-fix center check has no independently traceable cable"
+    }
+  ]
+}

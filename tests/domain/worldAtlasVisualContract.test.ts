@@ -1,42 +1,59 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import test from "node:test";
 import sharpModule from "sharp";
-import {
-  compareAnchorPatchBaseline,
-  createAnchorPatchBaseline,
-  measureCentralSeams,
-  measureFoliageHueProxy,
-  measureQuadrantLuminance,
-  selectAnchorPatchSample,
-  type AtlasAnchorPoint,
-  type RgbFrame,
-} from "../../scripts/lib/world-atlas-visual-contract";
 
 const projectRoot = resolve(import.meta.dirname, "../..");
-const worldMapPath = resolve(projectRoot, "public/data/scenes/world-map.json");
-const acceptedAtlasAsset = "/scenes/world-atlas-master-1600-v1.jpg";
-const atlasWidth = 1_600;
-const atlasHeight = 900;
-const auditedAnchorCount = 568;
-const anchorPatchSampleSize = 48;
+const panelWidth = 1_672;
+const panelHeight = 941;
+const roadWidth = 96;
+const highWidth = 5_208;
+const highHeight = 1_978;
+const baseWidth = 2_604;
+const baseHeight = 989;
+// The production high tier is progressive 4:4:4 MozJPEG q85. Keep this
+// fidelity floor intentionally narrow: it accommodates encoder quantisation
+// without relaxing the independent MAE, gradient-retention, entropy, or
+// brightness/colour checks below.
+const highPanelMaeCeiling = 4.75;
+const highPanelPsnrFloorDb = 32.5;
+const stoneRoadGradientFloor = 1.25;
+const stoneRoadCrossingGradientFloor = 1.1;
 
-interface WorldMapDocument {
-  readonly asset: string;
+interface ImageContract {
+  readonly path: string;
+  readonly sha256: string;
   readonly width: number;
   readonly height: number;
-  readonly labels: readonly AtlasAnchorPoint[];
+  readonly format: "jpeg" | "png";
+}
+
+interface PanelContract extends ImageContract {
+  readonly id: string;
+  readonly row: number;
+  readonly col: number;
+  readonly x: number;
+  readonly y: number;
+}
+
+interface RgbFrame {
+  readonly data: Uint8Array;
+  readonly width: number;
+  readonly height: number;
+  readonly channels: 3;
 }
 
 interface ImagePipeline {
-  removeAlpha(): ImagePipeline;
-  raw(): ImagePipeline;
   metadata(): Promise<{
     readonly format?: string;
     readonly width?: number;
     readonly height?: number;
   }>;
+  removeAlpha(): ImagePipeline;
+  raw(): ImagePipeline;
+  resize(width: number, height: number, options: { readonly kernel: "lanczos3" }): ImagePipeline;
   toBuffer(options: { readonly resolveWithObject: true }): Promise<{
     readonly data: Buffer;
     readonly info: {
@@ -45,212 +62,370 @@ interface ImagePipeline {
       readonly channels: number;
     };
   }>;
+  toColourspace(colourspace: "srgb"): ImagePipeline;
+}
+
+interface TextureMetrics {
+  readonly meanGradient: number;
+  readonly entropy: number;
+  readonly luminanceSpan: number;
+  readonly meanRgb: readonly [number, number, number];
+  readonly meanChroma: number;
 }
 
 const decodeImage = sharpModule as unknown as (input: string | Buffer) => ImagePipeline;
 
-function rgb(red: number, green: number, blue: number): readonly [number, number, number] {
-  return [red, green, blue];
+const panels: readonly PanelContract[] = [
+  {
+    id: "school-classroom",
+    path: "scripts/assets/mega-atlas-v21/01-school-classroom-v1.png",
+    sha256: "d0a04bebd7b4c43b5d1f426dc91d584cd89275365f760b0507337b50f23af9d1",
+    width: panelWidth,
+    height: panelHeight,
+    format: "png",
+    row: 0,
+    col: 0,
+    x: 0,
+    y: 0,
+  },
+  {
+    id: "science-maker",
+    path: "scripts/assets/mega-atlas-v21/02-science-maker-v1.png",
+    sha256: "f2f0a67e23ced774e050573af837f84b8644113c170a3a01b5a260bc80a6cb50",
+    width: panelWidth,
+    height: panelHeight,
+    format: "png",
+    row: 0,
+    col: 1,
+    x: 1_768,
+    y: 0,
+  },
+  {
+    id: "transport-mobility",
+    path: "scripts/assets/mega-atlas-v21/04-transport-mobility-v2.png",
+    sha256: "2c270045c73aa2102a8438cf9bdb39f20ab310999c54f2f33cc798a6c24453bd",
+    width: panelWidth,
+    height: panelHeight,
+    format: "png",
+    row: 0,
+    col: 2,
+    x: 3_536,
+    y: 0,
+  },
+  {
+    id: "farm-food-production",
+    path: "scripts/assets/mega-atlas-v21/05-farm-food-production-v1.png",
+    sha256: "9da4fa76b2c841aec11abfc95d4175126cce2764d7b458f52e968c04f36fc5f3",
+    width: panelWidth,
+    height: panelHeight,
+    format: "png",
+    row: 1,
+    col: 0,
+    x: 0,
+    y: 1_037,
+  },
+  {
+    id: "market-kitchen-bakery",
+    path: "scripts/assets/mega-atlas-v21/03-market-kitchen-bakery-v1.png",
+    sha256: "0d895b631174ef09ed2107dedcd89c1a87bcca03578694273706e5bca70c40f3",
+    width: panelWidth,
+    height: panelHeight,
+    format: "png",
+    row: 1,
+    col: 1,
+    x: 1_768,
+    y: 1_037,
+  },
+  {
+    id: "wetland-coast",
+    path: "scripts/assets/mega-atlas-v21/06-wetland-coast-v2.png",
+    sha256: "bb19380921a473143f80c1676d904a163a93199e8b8b1f65abd30f3fd2f28745",
+    width: panelWidth,
+    height: panelHeight,
+    format: "png",
+    row: 1,
+    col: 2,
+    x: 3_536,
+    y: 1_037,
+  },
+];
+
+const compiledAssets: readonly ImageContract[] = [
+  {
+    path: "public/scenes/world-mega-atlas-2604-v21.jpg",
+    sha256: "1f604a7727b9d18cf4d4447eaf88b5883eb3720f6d4540bdd1af6c86654bd54d",
+    width: baseWidth,
+    height: baseHeight,
+    format: "jpeg",
+  },
+  {
+    path: "public/scenes/world-mega-atlas-5208-v21.jpg",
+    sha256: "8761e582e58bfb2aa46443c0eb9000a1a87b6582d23718a1be71c609258dc9a4",
+    width: highWidth,
+    height: highHeight,
+    format: "jpeg",
+  },
+];
+
+function absolutePath(relativePath: string): string {
+  return resolve(projectRoot, relativePath);
 }
 
-function hsv(hue: number, saturation: number, value: number): readonly [number, number, number] {
-  const chroma = value * saturation;
-  const secondary = chroma * (1 - Math.abs((hue / 60) % 2 - 1));
-  const match = value - chroma;
-  const [r, g, b] = hue < 60 ? [chroma, secondary, 0]
-    : hue < 120 ? [secondary, chroma, 0]
-      : hue < 180 ? [0, chroma, secondary]
-        : hue < 240 ? [0, secondary, chroma]
-          : hue < 300 ? [secondary, 0, chroma]
-            : [chroma, 0, secondary];
-  return rgb(Math.round((r + match) * 255), Math.round((g + match) * 255), Math.round((b + match) * 255));
+async function sha256File(filePath: string): Promise<string> {
+  return createHash("sha256").update(await readFile(filePath)).digest("hex");
 }
 
-function frame(
-  width: number,
-  height: number,
-  pixel: (x: number, y: number) => readonly [number, number, number],
-): RgbFrame {
-  const data = new Uint8Array(width * height * 3);
-  for (let y = 0; y < height; y += 1) {
-    for (let x = 0; x < width; x += 1) {
-      const offset = (y * width + x) * 3;
-      const [red, green, blue] = pixel(x, y);
-      data[offset] = red;
-      data[offset + 1] = green;
-      data[offset + 2] = blue;
-    }
-  }
-  return { width, height, channels: 3, data };
-}
-
-function median(values: readonly number[]): number {
-  assert.ok(values.length > 0, "median requires samples");
-  const ordered = [...values].sort((left, right) => left - right);
-  return ordered[Math.round((ordered.length - 1) * 0.5)];
-}
-
-test("central seam metric isolates an introduced x/y stitch from ordinary painted gradients", () => {
-  const continuous = frame(96, 72, (x, y) => {
-    const tone = 10 + x + y;
-    return rgb(tone, tone, tone);
-  });
-  const stitched = frame(96, 72, (x, y) => {
-    const tone = 10 + x + y + (x >= 48 ? 42 : 0) + (y >= 36 ? 35 : 0);
-    return rgb(tone, tone, tone);
-  });
-  const continuousMetrics = measureCentralSeams(continuous);
-  const stitchedMetrics = measureCentralSeams(stitched);
-  assert.ok(continuousMetrics.worstGradientRatio <= 1.01);
-  assert.ok(stitchedMetrics.vertical.gradientRatio >= 12);
-  assert.ok(stitchedMetrics.horizontal.gradientRatio >= 10);
-});
-
-test("half-line seams and joins shifted two pixels from centre cannot be diluted by smooth pixels", () => {
-  const shiftedHalfStitch = frame(96, 72, (x, y) => {
-    // The join begins only in the left half and one pixel below the literal
-    // middle. The old whole-centre median would not inspect this boundary.
-    const tone = 10 + x + y + (x < 48 && y >= 37 ? 48 : 0);
-    return rgb(tone, tone, tone);
-  });
-  const metrics = measureCentralSeams(shiftedHalfStitch);
-  const literalLeft = metrics.horizontal.segments.find(
-    (segment) => segment.segment === "left" && segment.centerOffset === 0,
-  );
-  const shiftedLeft = metrics.horizontal.segments.find(
-    (segment) => segment.segment === "left" && segment.centerOffset === 1,
-  );
-  assert.ok(literalLeft, "the literal centre boundary is measured");
-  assert.ok(shiftedLeft, "the +1 centre-adjacent boundary is measured");
-  assert.ok(literalLeft.gradientRatio <= 1.01, "the literal centre itself remains smooth");
-  assert.ok(shiftedLeft.gradientRatio >= 15, "the shifted half-line seam is exposed");
-  assert.ok(metrics.horizontal.worstGradientRatio >= 15);
-  assert.ok(metrics.worstGradientRatio >= 15);
-});
-
-test("quadrant luminance reports the exposure spread without hard-coding an atlas threshold", () => {
-  const exposureSplit = frame(40, 32, (x, y) => {
-    const tone = (y >= 16 ? 60 : 100) + (x >= 20 ? 20 : 0);
-    return rgb(tone, tone, tone);
-  });
-  const metrics = measureQuadrantLuminance(exposureSplit);
-  assert.deepEqual(
-    [metrics.topLeft, metrics.topRight, metrics.bottomLeft, metrics.bottomRight].map((value) => Math.round(value)),
-    [100, 120, 60, 80],
-  );
-  assert.equal(Math.round(metrics.range), 60);
-});
-
-test("green-dominant foliage proxy distinguishes one olive hue from a varied green palette", () => {
-  const monotone = frame(90, 30, () => hsv(82, 0.62, 0.62));
-  const varied = frame(90, 30, (x) => hsv(x < 30 ? 65 : x < 60 ? 100 : 130, 0.62, 0.62));
-  const monotoneMetrics = measureFoliageHueProxy(monotone);
-  const variedMetrics = measureFoliageHueProxy(varied);
-  assert.ok(monotoneMetrics.hueSpread !== null && monotoneMetrics.hueSpread <= 1);
-  assert.ok(monotoneMetrics.circularConcentration !== null && monotoneMetrics.circularConcentration >= 0.99);
-  assert.ok(variedMetrics.hueSpread !== null && variedMetrics.hueSpread >= 60);
-  assert.ok(variedMetrics.circularConcentration !== null && variedMetrics.circularConcentration < 0.9);
-  assert.equal(variedMetrics.naturalGreenFraction, 1);
-});
-
-test("anchor patch baseline is stable by id and only reports local detail retention", () => {
-  const anchors: readonly AtlasAnchorPoint[] = [
-    { id: "oak-canopy", x: 14, y: 14 },
-    { id: "river-ripple", x: 33, y: 21 },
-    { id: "market-awning", x: 52, y: 38 },
-    { id: "garden-path", x: 71, y: 56 },
-  ];
-  const painted = frame(88, 70, (x, y) => {
-    const light = (x * 7 + y * 11) % 2 === 0 ? 208 : 48;
-    return rgb(light, Math.min(255, light + 20), Math.max(0, light - 15));
-  });
-  const flattened = frame(88, 70, () => rgb(128, 128, 128));
-  assert.deepEqual(
-    selectAnchorPatchSample([...anchors].reverse(), 3).map(({ id }) => id),
-    selectAnchorPatchSample(anchors, 3).map(({ id }) => id),
-  );
-  const baseline = createAnchorPatchBaseline(painted, anchors, { sampleSize: 4, radius: 8 });
-  const candidate = createAnchorPatchBaseline(flattened, anchors, { sampleSize: 4, radius: 8 });
-  const retained = compareAnchorPatchBaseline(baseline, candidate);
-  assert.equal(retained.matchedCount, 4);
-  assert.deepEqual(retained.missingIds, []);
-  assert.ok(retained.luminanceRangeMedianRatio !== null && retained.luminanceRangeMedianRatio < 0.01);
-  assert.ok(retained.gradientMedianRatio !== null && retained.gradientMedianRatio < 0.01);
-});
-
-test("reviewed textured atlas rollback keeps every grounded object legible", async () => {
-  const scene = JSON.parse(await readFile(worldMapPath, "utf8")) as WorldMapDocument;
-  assert.equal(scene.asset, acceptedAtlasAsset, "the contract follows the asset published by world-map JSON");
-  assert.equal(scene.width, atlasWidth);
-  assert.equal(scene.height, atlasHeight);
-  assert.equal(scene.labels.length, auditedAnchorCount, "all audited world-map anchors remain available");
-
-  const assetFile = resolve(projectRoot, "public", scene.asset.replace(/^\//u, ""));
-  const [metadata, decoded] = await Promise.all([
-    decodeImage(assetFile).metadata(),
-    decodeImage(assetFile).removeAlpha().raw().toBuffer({ resolveWithObject: true }),
-  ]);
-  assert.equal(metadata.format, "jpeg");
-  assert.equal(metadata.width, atlasWidth);
-  assert.equal(metadata.height, atlasHeight);
-  assert.equal(decoded.info.width, atlasWidth);
-  assert.equal(decoded.info.height, atlasHeight);
-  assert.equal(decoded.info.channels, 3, "the accepted atlas decodes to RGB pixels");
-  const atlasFrame: RgbFrame = {
+async function decodeRgb(filePath: string): Promise<RgbFrame> {
+  const decoded = await decodeImage(filePath)
+    .removeAlpha()
+    .toColourspace("srgb")
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  assert.equal(decoded.info.channels, 3, `${filePath} must decode to RGB`);
+  return {
+    data: decoded.data,
     width: decoded.info.width,
     height: decoded.info.height,
     channels: 3,
-    data: decoded.data,
   };
+}
 
-  const luminance = measureQuadrantLuminance(atlasFrame);
-  // This is an explicit rollback ceiling, not the final art target. The
-  // generated v2 balanced exposure but erased botanical/object texture; the
-  // reviewed v1 restores legibility while the new multi-district atlas is
-  // produced and audited independently.
-  assert.ok(
-    luminance.range <= 28,
-    `atlas quadrant luminance range is ${luminance.range.toFixed(3)}, expected at most 28`,
-  );
+function cropFrame(
+  frame: RgbFrame,
+  left: number,
+  top: number,
+  width: number,
+  height: number,
+): RgbFrame {
+  assert.ok(left >= 0 && top >= 0 && width > 0 && height > 0);
+  assert.ok(left + width <= frame.width && top + height <= frame.height);
+  const data = new Uint8Array(width * height * 3);
+  for (let row = 0; row < height; row += 1) {
+    const sourceOffset = ((top + row) * frame.width + left) * 3;
+    const targetOffset = row * width * 3;
+    data.set(frame.data.subarray(sourceOffset, sourceOffset + width * 3), targetOffset);
+  }
+  return { data, width, height, channels: 3 };
+}
 
-  const seams = measureCentralSeams(atlasFrame);
-  assert.ok(
-    seams.vertical.worstGradientRatio <= 4.6,
-    `vertical centre seam ratio is ${seams.vertical.worstGradientRatio.toFixed(3)}, expected at most 4.6`,
-  );
-  assert.ok(
-    seams.horizontal.worstGradientRatio <= 3.1,
-    `horizontal centre seam ratio is ${seams.horizontal.worstGradientRatio.toFixed(3)}, expected at most 3.1`,
-  );
+function compareFrames(
+  reference: RgbFrame,
+  candidate: RgbFrame,
+): { readonly mae: number; readonly psnr: number } {
+  assert.equal(candidate.width, reference.width);
+  assert.equal(candidate.height, reference.height);
+  assert.equal(candidate.data.length, reference.data.length);
+  let absoluteError = 0;
+  let squaredError = 0;
+  for (let index = 0; index < reference.data.length; index += 1) {
+    const delta = (candidate.data[index] ?? 0) - (reference.data[index] ?? 0);
+    absoluteError += Math.abs(delta);
+    squaredError += delta * delta;
+  }
+  const mae = absoluteError / reference.data.length;
+  const mse = squaredError / reference.data.length;
+  return {
+    mae,
+    psnr: mse === 0 ? Number.POSITIVE_INFINITY : 10 * Math.log10((255 * 255) / mse),
+  };
+}
 
-  const foliage = measureFoliageHueProxy(atlasFrame);
-  assert.ok(foliage.sampleCount >= atlasWidth * atlasHeight * 0.1, "foliage proxy has a representative pixel sample");
-  assert.ok(foliage.hueSpread !== null && foliage.hueSpread >= 22, `foliage hue spread is ${foliage.hueSpread}`);
-  assert.ok(
-    foliage.circularConcentration !== null && foliage.circularConcentration <= 0.95,
-    `foliage hue concentration is ${foliage.circularConcentration}`,
-  );
-  assert.ok(
-    foliage.naturalGreenFraction !== null && foliage.naturalGreenFraction >= 0.94,
-    `natural-green foliage fraction is ${foliage.naturalGreenFraction}`,
-  );
+function histogramPercentile(histogram: Uint32Array, sampleCount: number, percentile: number): number {
+  const target = Math.max(1, Math.ceil(sampleCount * percentile));
+  let cumulative = 0;
+  for (let value = 0; value < histogram.length; value += 1) {
+    cumulative += histogram[value] ?? 0;
+    if (cumulative >= target) return value;
+  }
+  return histogram.length - 1;
+}
 
-  const patches = createAnchorPatchBaseline(atlasFrame, scene.labels, {
-    sampleSize: anchorPatchSampleSize,
-    radius: 16,
-  });
-  assert.ok(patches.sampleSize >= 40, "the stable anchor sample covers at least forty audited points");
-  const luminanceRangeMedian = median(patches.patches.map((patch) => patch.luminanceRange));
-  const gradientMedian = median(patches.patches.map((patch) => patch.meanGradient));
-  // The restored raster measures 102.837 and 20.341 respectively. These
-  // conservative floors catch another texture-flattening repaint without
-  // pretending that pixel statistics replace the semantic anchor audit.
+function measureTexture(frame: RgbFrame): TextureMetrics {
+  const histogram = new Uint32Array(256);
+  const luminance = new Float64Array(frame.width * frame.height);
+  const channelTotals = [0, 0, 0];
+  let gradientTotal = 0;
+  let gradientCount = 0;
+
+  for (let y = 0; y < frame.height; y += 1) {
+    for (let x = 0; x < frame.width; x += 1) {
+      const pixel = y * frame.width + x;
+      const offset = pixel * 3;
+      const red = frame.data[offset] ?? 0;
+      const green = frame.data[offset + 1] ?? 0;
+      const blue = frame.data[offset + 2] ?? 0;
+      channelTotals[0] += red;
+      channelTotals[1] += green;
+      channelTotals[2] += blue;
+      const light = red * 0.2126 + green * 0.7152 + blue * 0.0722;
+      luminance[pixel] = light;
+      const bin = Math.min(255, Math.max(0, Math.round(light)));
+      histogram[bin] = (histogram[bin] ?? 0) + 1;
+      if (x > 0) {
+        gradientTotal += Math.abs(light - (luminance[pixel - 1] ?? light));
+        gradientCount += 1;
+      }
+      if (y > 0) {
+        gradientTotal += Math.abs(light - (luminance[pixel - frame.width] ?? light));
+        gradientCount += 1;
+      }
+    }
+  }
+
+  const sampleCount = frame.width * frame.height;
+  let entropy = 0;
+  for (const count of histogram) {
+    if (count === 0) continue;
+    const probability = count / sampleCount;
+    entropy -= probability * Math.log2(probability);
+  }
+  const meanRgb = channelTotals.map((total) => total / sampleCount) as [number, number, number];
+  return {
+    meanGradient: gradientTotal / gradientCount,
+    entropy,
+    luminanceSpan:
+      histogramPercentile(histogram, sampleCount, 0.95)
+      - histogramPercentile(histogram, sampleCount, 0.05),
+    meanRgb,
+    meanChroma: Math.max(...meanRgb) - Math.min(...meanRgb),
+  };
+}
+
+test("v21 source panels and compiled variants keep immutable paths, hashes, and dimensions", async () => {
+  for (const asset of [...panels, ...compiledAssets]) {
+    const filePath = absolutePath(asset.path);
+    const [digest, metadata] = await Promise.all([
+      sha256File(filePath),
+      decodeImage(filePath).metadata(),
+    ]);
+    assert.equal(digest, asset.sha256, `${asset.path} SHA-256 changed`);
+    assert.equal(metadata.format, asset.format, `${asset.path} format changed`);
+    assert.equal(metadata.width, asset.width, `${asset.path} width changed`);
+    assert.equal(metadata.height, asset.height, `${asset.path} height changed`);
+  }
+});
+
+test("high atlas keeps all six panels at their reviewed 3 by 2 composition origins", async () => {
+  const highAtlas = await decodeRgb(absolutePath(compiledAssets[1].path));
+  assert.equal(highAtlas.width, highWidth);
+  assert.equal(highAtlas.height, highHeight);
+
+  for (const panel of panels) {
+    assert.equal(panel.x, panel.col * (panelWidth + roadWidth), `${panel.id} column origin changed`);
+    assert.equal(panel.y, panel.row * (panelHeight + roadWidth), `${panel.id} row origin changed`);
+    const [source, sourceMetrics] = await (async () => {
+      const decoded = await decodeRgb(absolutePath(panel.path));
+      return [decoded, measureTexture(decoded)] as const;
+    })();
+    const atlasCrop = cropFrame(highAtlas, panel.x, panel.y, panelWidth, panelHeight);
+    const atlasMetrics = measureTexture(atlasCrop);
+    const fidelity = compareFrames(source, atlasCrop);
+    const gradientRetention = atlasMetrics.meanGradient / sourceMetrics.meanGradient;
+
+    assert.ok(
+      fidelity.mae <= highPanelMaeCeiling,
+      `${panel.id} mean absolute JPEG error is ${fidelity.mae.toFixed(3)}, expected at most ${highPanelMaeCeiling}`,
+    );
+    assert.ok(
+      fidelity.psnr >= highPanelPsnrFloorDb,
+      `${panel.id} PSNR is ${fidelity.psnr.toFixed(3)} dB, expected at least ${highPanelPsnrFloorDb} dB`,
+    );
+    assert.ok(
+      gradientRetention >= 0.94 && gradientRetention <= 1.08,
+      `${panel.id} local-gradient retention is ${gradientRetention.toFixed(3)}`,
+    );
+    assert.ok(
+      atlasMetrics.meanGradient >= 10,
+      `${panel.id} mean local gradient is ${atlasMetrics.meanGradient.toFixed(3)}, indicating overall blur`,
+    );
+    assert.ok(
+      atlasMetrics.entropy >= 7.35,
+      `${panel.id} luminance entropy is ${atlasMetrics.entropy.toFixed(3)}, indicating flattened texture`,
+    );
+  }
+
+  assert.equal(highWidth, panelWidth * 3 + roadWidth * 2);
+  assert.equal(highHeight, panelHeight * 2 + roadWidth);
+});
+
+test("base atlas remains a faithful half-scale rendition of the reviewed high atlas", async () => {
+  const baseAtlas = await decodeRgb(absolutePath(compiledAssets[0].path));
+  const downsampled = await decodeImage(absolutePath(compiledAssets[1].path))
+    .resize(baseWidth, baseHeight, { kernel: "lanczos3" })
+    .removeAlpha()
+    .toColourspace("srgb")
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  assert.equal(downsampled.info.channels, 3);
+  const downsampledFrame: RgbFrame = {
+    data: downsampled.data,
+    width: downsampled.info.width,
+    height: downsampled.info.height,
+    channels: 3,
+  };
+  const fidelity = compareFrames(downsampledFrame, baseAtlas);
+  const texture = measureTexture(baseAtlas);
+
+  assert.ok(fidelity.mae <= 4.5, `base/high-half MAE is ${fidelity.mae.toFixed(3)}`);
+  assert.ok(fidelity.psnr >= 33, `base/high-half PSNR is ${fidelity.psnr.toFixed(3)} dB`);
+  assert.ok(texture.meanGradient >= 15, `base mean gradient is ${texture.meanGradient.toFixed(3)}`);
+  assert.ok(texture.entropy >= 7.4, `base luminance entropy is ${texture.entropy.toFixed(3)}`);
+});
+
+test("96px neutral stone roads stay visible, coherent, and locally textured", async () => {
+  const highAtlas = await decodeRgb(absolutePath(compiledAssets[1].path));
+  const roadSamples = [
+    { id: "left vertical road", left: panelWidth + 8, top: 100, width: roadWidth - 16, height: 760 },
+    {
+      id: "right vertical road",
+      left: panelWidth * 2 + roadWidth + 8,
+      top: 100,
+      width: roadWidth - 16,
+      height: 760,
+    },
+    {
+      id: "horizontal road",
+      left: 100,
+      top: panelHeight + 8,
+      width: highWidth - 200,
+      height: roadWidth - 16,
+    },
+    {
+      id: "road crossing",
+      left: panelWidth + 8,
+      top: panelHeight + 8,
+      width: roadWidth - 16,
+      height: roadWidth - 16,
+    },
+  ] as const;
+
+  const metrics = roadSamples.map((sample) => ({
+    id: sample.id,
+    metrics: measureTexture(cropFrame(highAtlas, sample.left, sample.top, sample.width, sample.height)),
+  }));
+  for (const sample of metrics) {
+    const { meanGradient, entropy, luminanceSpan, meanRgb, meanChroma } = sample.metrics;
+    const gradientFloor = sample.id === "road crossing"
+      ? stoneRoadCrossingGradientFloor
+      : stoneRoadGradientFloor;
+    assert.ok(
+      meanGradient >= gradientFloor && meanGradient <= 3.5,
+      `${sample.id} mean gradient ${meanGradient.toFixed(3)} is not stone-like`,
+    );
+    assert.ok(entropy >= 3.35, `${sample.id} entropy ${entropy.toFixed(3)} is too flat`);
+    assert.ok(luminanceSpan >= 9, `${sample.id} p05-p95 span ${luminanceSpan} is too flat`);
+    assert.ok(meanRgb[0] >= 147 && meanRgb[0] <= 154, `${sample.id} red mean changed`);
+    assert.ok(meanRgb[1] >= 143 && meanRgb[1] <= 151, `${sample.id} green mean changed`);
+    assert.ok(meanRgb[2] >= 133 && meanRgb[2] <= 142, `${sample.id} blue mean changed`);
+    assert.ok(
+      meanChroma >= 10 && meanChroma <= 17,
+      `${sample.id} mean chroma ${meanChroma.toFixed(3)} is no longer neutral stone`,
+    );
+  }
+
+  const roadRedMeans = metrics.map(({ metrics: sample }) => sample.meanRgb[0]);
   assert.ok(
-    luminanceRangeMedian >= 90,
-    `anchor-patch luminance-range median is ${luminanceRangeMedian.toFixed(3)}, expected at least 90`,
-  );
-  assert.ok(
-    gradientMedian >= 17,
-    `anchor-patch gradient median is ${gradientMedian.toFixed(3)}, expected at least 17`,
+    Math.max(...roadRedMeans) - Math.min(...roadRedMeans) <= 1.5,
+    "stone road colour is inconsistent across routes",
   );
 });

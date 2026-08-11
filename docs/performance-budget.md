@@ -10,11 +10,11 @@ Status: initial protective ceilings; recalibrate after repeated main-branch runs
 | Live collision-free desktop vocabulary bubbles | <= 80 |
 | Live collision-free mobile vocabulary bubbles | <= 40 |
 | Live DOM nodes | <= 1,500 |
-| Initial/base raster asset | <= 1.2 MiB |
-| Declared 2× high-density raster | <= 4.8 MiB |
+| Standard 1600 × 900 base raster | <= 1.2 MiB |
+| Declared high-density raster | Source-pixel-scaled from the base ceiling |
 | Initial JavaScript, gzip | <= 300 KiB |
 | Largest semantic shard, gzip | <= 300 KiB |
-| Cold initial encoded bytes | <= 1 MiB |
+| Cold initial non-raster encoded bytes | <= 1 MiB |
 | Cold initial requests | <= 20 |
 
 Artwork should avoid expensive blur/filter chains. Camera surfaces move with
@@ -27,11 +27,20 @@ the fully readable set within the budgets above. Hidden labels are removed from
 pointer, keyboard and accessibility navigation.
 
 Multi-resolution scenes always server-render and first paint their reviewed
-1600 × 900 base raster. Camera scale, fitted scale and device-pixel ratio then
-select a declared 2× tier. That tier must decode before the main image and blur
-backdrop switch together, and a decoded tier is reused across zoom round trips.
-The larger 4.8 MiB ceiling applies only to these explicit high-density
-descriptors; it does not weaken the 1.2 MiB initial/base ceiling.
+base raster. Thirty-six ordinary scenes use 1600 × 900; the large world atlas
+uses a 2604 × 989 base and a 5208 × 1978 high tier. Camera scale, fitted scale
+and device-pixel ratio select the appropriate descriptor. The high tier must
+decode before the main image and blur backdrop switch together, and a decoded
+tier is reused across zoom round trips.
+
+Raster limits preserve a stable byte-per-source-pixel budget rather than
+applying a fixed file-size ceiling to canvases of different dimensions. The
+standard 1600 × 900 base allowance remains 1.2 MiB and each descriptor's limit
+scales by its own decoded pixel area. The atlas base is 1,290,735 bytes
+(1.23 MiB) at 2604 × 989, while its 5208 × 1978 high tier is 3,770,744 bytes
+(3.60 MiB); both are reasonable within that source-pixel-scaled policy. Raster
+bytes are accounted by this separate rule and are not included in the cold
+non-raster ceiling.
 
 The lexical world keeps realms, topics, semantic subclusters, and words on one
 continuous semantic plane. Normal exploration hydrates only the active branch

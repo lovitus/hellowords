@@ -208,7 +208,7 @@ test("every scene-manifest image is deployed, decodable, unique, and root-reacha
   }
 });
 
-test("world-map swaps its decoded 3200x1800 tier in place and reuses it", async ({
+test("world-map swaps its decoded high-density tier in place and reuses it", async ({
   page,
 }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium", "the exact desktop pixel-demand boundary runs once");
@@ -219,7 +219,7 @@ test("world-map swaps its decoded 3200x1800 tier in place and reuses it", async 
   }));
   expect(expected.status).toBe(200);
   expect(expected.scene.assets?.base).toBeDefined();
-  expect(expected.scene.assets?.high).toMatchObject({ width: 3_200, height: 1_800 });
+  expect(expected.scene.assets?.high).toMatchObject({ width: 5_208, height: 1_978 });
   const base = expected.scene.assets!.base;
   const high = expected.scene.assets!.high!;
   page.on("request", (request) => {
@@ -250,7 +250,7 @@ test("world-map swaps its decoded 3200x1800 tier in place and reuses it", async 
   await expect(art).toHaveAttribute("src", high.src);
   await expect.poll(() => art.evaluate((image: HTMLImageElement) => (
     image.complete ? [image.naturalWidth, image.naturalHeight] : [0, 0]
-  ))).toEqual([3_200, 1_800]);
+  ))).toEqual([high.width, high.height]);
 
   for (let step = 0; step < 3 && await viewport.getAttribute("data-desired-asset-tier") !== "base"; step += 1) {
     await zoomOut.click();

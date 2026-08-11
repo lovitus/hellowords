@@ -8,12 +8,12 @@ off by default, and the experience intentionally avoids quiz and streak pressure
 ## Included in this version
 
 - 37 reachable scene slices across home, city, nature, gardening, transport,
-  health and microscopic science, with 1,977 human-verified contextual anchors
-  representing 1,624 distinct English display terms in five cumulative zoom bands;
-- 37 independently reviewed 1600 × 900 base raster scene illustrations and zero
-  scene-level SVG assets, with a decoded 3200 × 1800 high-density tier for the
-  568-anchor world atlas;
-- 199 authored local detail zones across the scene world, grouping truthful
+  health and microscopic science, with 2,684 human-verified contextual anchors
+  representing 2,392 distinct English display terms in five cumulative zoom bands;
+- 36 independently reviewed 1600 × 900 raster scenes plus the large-canvas world
+  atlas, whose 2604 × 989 base and 5208 × 1978 high tier preserve six audited
+  source panels; no spatial scene uses an SVG cutaway;
+- 253 authored local detail zones across the scene world, grouping truthful
   word batches around visible regions of each illustration;
 - mouse, touch, wheel and pinch camera controls;
 - 36 typed scene portals with recursive high-resolution tile handoff,
@@ -23,7 +23,7 @@ off by default, and the experience intentionally avoids quiz and streak pressure
 - a single semantic zoom plane where all 10,000 ranked English words remain
   reachable through four scale-dependent levels: 10 realms, 44 topics, 704
   subclusters and individual words, with collision-free screen-space bubbles;
-- 232 sense-reviewed spatial-to-lexical links that connect visible scene terms
+- 214 sense-reviewed spatial-to-lexical links that connect visible scene terms
   directly to their matching entries in the 10,000-word hierarchy;
 - passive discovery tracking, searchable word focus, encounter cards and local
   pronunciation without compulsory testing;
@@ -33,8 +33,8 @@ off by default, and the experience intentionally avoids quiz and streak pressure
   measurement.
 
 All 10,000 entries are hierarchically reachable and searchable. The product
-still distinguishes 1,977 human-verified contextual scene anchors representing
-1,624 distinct display terms from words organized in the lexical world; it does
+still distinguishes 2,684 human-verified contextual scene anchors representing
+2,392 distinct display terms from words organized in the lexical world; it does
 not claim that every entry was individually drawn.
 
 ## Local development

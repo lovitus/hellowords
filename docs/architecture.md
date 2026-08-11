@@ -20,16 +20,25 @@ claim that every vocabulary entry has been hand-illustrated.
 
 ## Rendering decision
 
-Each illustrated slice has an external, independently reviewed 1600 × 900 base
-raster. The current world has 37 raster scenes and no scene-level SVG cutaways.
-The world atlas additionally declares a 3200 × 1800 high-density raster. It
-server-renders and first-paints the base image, then selects the 2× tier from
+Thirty-six illustrated slices have external, independently reviewed 1600 × 900
+base rasters. The large-canvas world atlas is the deliberate exception: its
+first-paint raster is 2604 × 989 and its high tier is 5208 × 1978. The current
+world therefore has 37 raster scenes and no scene-level SVG cutaways. The atlas
+server-renders and first-paints its base image, then selects the high tier from
 camera scale, fitted scale and device-pixel ratio; the main image and backdrop
 switch together only after the larger file has decoded, and that decoded tier
 is reused across zoom round trips. Artwork is decorative; labels, portals,
 focus targets, and navigation are separate HTML layers driven by typed scene
 data. This keeps vocabulary crisp in screen space and makes translations and
 placement editable without rewriting artwork.
+
+The atlas production path is deterministic and separated by responsibility.
+The raster assembler places six independently reviewed 1672 × 941 source panels
+in a 3 × 2 canvas around 96-pixel neutral stone-road gutters without recolouring
+their realistic materials. The panel compiler then merges the six reviewed
+local anchor batches into a temporary global batch, and the scene assembler
+combines that batch with the versioned scene configuration. Published data is
+therefore reproducible without mixing pixel assembly with semantic compilation.
 
 Only the current scene is normally mounted. While a portal is approached, the
 decoded child image is clipped to that portal and recursively redrawn as a
@@ -67,8 +76,8 @@ turning unrelated vocabulary into floating labels. The data contract requires
 at least four zones and normally 32 grounded anchors per premium scene; an
 evidence-reviewed terminal specialist slice may declare a lower floor when
 meeting 32 would require duplicate names for the same visible structure.
-The current graph contains 1,977 contextual anchors representing 1,624 distinct
-display terms across 199 authored zones, connected by 36 typed portals.
+The current graph contains 2,684 contextual anchors representing 2,392 distinct
+display terms across 253 authored zones, connected by 36 typed portals.
 
 ## Scene and portal contract
 
@@ -125,7 +134,7 @@ detail without retargeting the semantic camera.
 Scene encounters are recorded passively in local storage. Selecting a label
 opens an optional word card and pronunciation action, but no exam is required.
 When a scene term has an exact entry in the ranked vocabulary, its `lexemeId`
-links directly into the 10,000-word hierarchy. The current graph has 232 such
+links directly into the 10,000-word hierarchy. The current graph has 214 such
 sense-reviewed links. Validation resolves these IDs against every semantic
 shard and rejects missing or word-mismatched links; specialist visual phrases
 are allowed to remain unlinked.

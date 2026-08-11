@@ -17,7 +17,7 @@ export const LABEL_SEMANTIC_REALMS = [
 export type LabelSemanticRealm = (typeof LABEL_SEMANTIC_REALMS)[number];
 export type LabelVisualFallbackGroup = `visual-${VisualRegion["kind"]}`;
 export type LabelSemanticGroup = LabelSemanticRealm | LabelVisualFallbackGroup;
-export type LabelSemanticSource = "realm" | "visual-region" | "stable-default";
+export type LabelSemanticSource = "realm" | "authored-realm" | "visual-region" | "stable-default";
 
 export interface LabelSemanticCssVariables {
   readonly "--label-semantic-surface": string;
@@ -341,7 +341,7 @@ export function semanticNodeVisual(
  * network request or a second semantic guess from the display word.
  */
 export function resolveLabelSemanticStyle(
-  label: Pick<Label, "id" | "lexemeId" | "sourceVisualRegion">,
+  label: Pick<Label, "id" | "lexemeId" | "semanticRealmId" | "sourceVisualRegion">,
   regions: readonly VisualRegion[] = [],
   realmLookup?: LexemeRealmLookup,
 ): LabelSemanticStyle {
@@ -354,6 +354,17 @@ export function resolveLabelSemanticStyle(
       source: "realm",
       realmId,
       cssVariables: CSS_VARIABLES_BY_GROUP.get(realmId)!,
+    };
+  }
+
+  if (label.semanticRealmId && REALM_SET.has(label.semanticRealmId)) {
+    const palette = PALETTE_BY_GROUP.get(label.semanticRealmId)!;
+    return {
+      semanticGroup: label.semanticRealmId,
+      paletteIndex: palette.paletteIndex,
+      source: "authored-realm",
+      realmId: label.semanticRealmId,
+      cssVariables: CSS_VARIABLES_BY_GROUP.get(label.semanticRealmId)!,
     };
   }
 
@@ -371,7 +382,7 @@ export function resolveLabelSemanticStyle(
 
 /** Creates one stable lookup for renderers without adding fields to scene JSON. */
 export function buildLabelSemanticStyleMap(
-  labels: readonly Pick<Label, "id" | "lexemeId" | "sourceVisualRegion">[],
+  labels: readonly Pick<Label, "id" | "lexemeId" | "semanticRealmId" | "sourceVisualRegion">[],
   regions: readonly VisualRegion[] = [],
   realmLookup?: LexemeRealmLookup,
 ): ReadonlyMap<string, LabelSemanticStyle> {

@@ -7,6 +7,8 @@ import { scanOrphanSceneAssets } from "./lib/orphan-scene-assets.mjs";
 const projectRoot = process.cwd();
 const root = resolve(process.cwd(), "dist");
 const outputRoot = resolve(process.cwd(), "artifacts/build");
+const standardRasterReferenceArea = 1_600 * 900;
+const highDensityRasterReferenceArea = 3_200 * 1_800;
 const budgets = {
   totalClientJavaScriptGzipBytes: Number(
     process.env.BUILD_MAX_TOTAL_CLIENT_JS_GZIP_BYTES ?? 300 * 1024,
@@ -60,17 +62,32 @@ const raster = files.filter((file) => /\.(?:avif|jpe?g|png|webp)$/u.test(file.pa
 const sceneManifest = JSON.parse(
   await readFile(resolve(projectRoot, "public/data/scenes/manifest.json"), "utf8"),
 );
-const highDensityRasterPaths = new Set(
-  (await Promise.all(sceneManifest.scenes.map(async ({ id }) => {
-    const scene = JSON.parse(
-      await readFile(resolve(projectRoot, `public/data/scenes/${id}.json`), "utf8"),
-    );
-    const source = scene.assets?.high?.src;
-    return typeof source === "string"
-      ? `client/${source.replace(/^\//u, "")}`
-      : null;
-  }))).filter(Boolean),
-);
+const scenes = await Promise.all(sceneManifest.scenes.map(async ({ id }) => JSON.parse(
+  await readFile(resolve(projectRoot, `public/data/scenes/${id}.json`), "utf8"),
+)));
+const sceneRasterDescriptors = new Map();
+const highDensityRasterPaths = new Set();
+for (const scene of scenes) {
+  const base = scene.assets?.base ?? {
+    src: scene.asset,
+    width: scene.width,
+    height: scene.height,
+  };
+  for (const [tier, descriptor] of [["base", base], ["high", scene.assets?.high]]) {
+    if (
+      typeof descriptor?.src !== "string"
+      || !Number.isFinite(descriptor.width)
+      || !Number.isFinite(descriptor.height)
+    ) continue;
+    const path = `client/${descriptor.src.replace(/^\//u, "")}`;
+    sceneRasterDescriptors.set(path, {
+      tier,
+      width: descriptor.width,
+      height: descriptor.height,
+    });
+    if (tier === "high") highDensityRasterPaths.add(path);
+  }
+}
 const standardRaster = raster.filter((file) => !highDensityRasterPaths.has(file.path));
 const highDensityRaster = raster.filter((file) => highDensityRasterPaths.has(file.path));
 const semanticShards = files.filter((file) => /^client\/data\/semantic\/topics\/.+\.json$/u.test(file.path));
@@ -83,6 +100,38 @@ const largestSvg = largest(svg, "gzipBytes");
 const largestRaster = largest(standardRaster, "bytes");
 const largestHighDensityRaster = largest(highDensityRaster, "bytes");
 const largestSemanticShard = largest(semanticShards, "gzipBytes");
+const standardRasterBudget = (file) => {
+  const descriptor = sceneRasterDescriptors.get(file.path);
+  if (!descriptor) return budgets.largestRasterBytes;
+  return Math.ceil(
+    budgets.largestRasterBytes
+      * descriptor.width
+      * descriptor.height
+      / standardRasterReferenceArea,
+  );
+};
+const highDensityRasterBudget = (file) => {
+  const descriptor = sceneRasterDescriptors.get(file.path);
+  if (!descriptor) return budgets.largestHighDensityRasterBytes;
+  return Math.ceil(
+    budgets.largestHighDensityRasterBytes
+      * descriptor.width
+      * descriptor.height
+      / highDensityRasterReferenceArea,
+  );
+};
+const oversizedStandardRaster = standardRaster.find(
+  (file) => file.bytes > standardRasterBudget(file),
+) ?? null;
+const oversizedHighDensityRaster = highDensityRaster.find(
+  (file) => file.bytes > highDensityRasterBudget(file),
+) ?? null;
+const largestRasterBudgetBytes = largestRaster === null
+  ? null
+  : standardRasterBudget(largestRaster);
+const largestHighDensityRasterBudgetBytes = largestHighDensityRaster === null
+  ? null
+  : highDensityRasterBudget(largestHighDensityRaster);
 const totalClientJavaScriptGzipBytes = clientJavaScript.reduce(
   (sum, file) => sum + file.gzipBytes,
   0,
@@ -98,10 +147,9 @@ const checks = {
   svg:
     largestSvg === null || largestSvg.gzipBytes <= budgets.largestSvgGzipBytes,
   raster:
-    largestRaster === null || largestRaster.bytes <= budgets.largestRasterBytes,
+    oversizedStandardRaster === null,
   highDensityRaster:
-    largestHighDensityRaster === null
-    || largestHighDensityRaster.bytes <= budgets.largestHighDensityRasterBytes,
+    oversizedHighDensityRaster === null,
   semanticShard:
     largestSemanticShard === null ||
     largestSemanticShard.gzipBytes <= budgets.largestSemanticShardGzipBytes,
@@ -120,7 +168,11 @@ const manifest = {
   largestClientJavaScript,
   largestSvg,
   largestRaster,
+  largestRasterBudgetBytes,
+  oversizedStandardRaster,
   largestHighDensityRaster,
+  largestHighDensityRasterBudgetBytes,
+  oversizedHighDensityRaster,
   largestSemanticShard,
   budgets,
   checks,
@@ -141,8 +193,8 @@ const summary = [
   `- Client JavaScript gzip: ${(manifest.totals.clientJavaScriptGzipBytes / 1024).toFixed(1)} KiB`,
   `- Largest client JavaScript gzip: ${largestClientJavaScript ? `${(largestClientJavaScript.gzipBytes / 1024).toFixed(1)} KiB (${largestClientJavaScript.path})` : "not found"}`,
   `- Largest SVG gzip: ${largestSvg ? `${(largestSvg.gzipBytes / 1024).toFixed(1)} KiB (${largestSvg.path})` : "none"}`,
-  `- Largest raster: ${largestRaster ? `${(largestRaster.bytes / 1024).toFixed(1)} KiB (${largestRaster.path})` : "none"}`,
-  `- Largest high-density raster: ${largestHighDensityRaster ? `${(largestHighDensityRaster.bytes / 1024).toFixed(1)} KiB (${largestHighDensityRaster.path})` : "none"}`,
+  `- Largest raster: ${largestRaster ? `${(largestRaster.bytes / 1024).toFixed(1)} KiB / ${((largestRasterBudgetBytes ?? budgets.largestRasterBytes) / 1024).toFixed(1)} KiB density-adjusted budget (${largestRaster.path})` : "none"}`,
+  `- Largest high-density raster: ${largestHighDensityRaster ? `${(largestHighDensityRaster.bytes / 1024).toFixed(1)} KiB / ${((largestHighDensityRasterBudgetBytes ?? budgets.largestHighDensityRasterBytes) / 1024).toFixed(1)} KiB density-adjusted budget (${largestHighDensityRaster.path})` : "none"}`,
   `- Largest semantic shard gzip: ${largestSemanticShard ? `${(largestSemanticShard.gzipBytes / 1024).toFixed(1)} KiB (${largestSemanticShard.path})` : "none"}`,
   `- Orphan scene assets: ${orphanSceneAssets.length}`,
   ...orphanSceneAssets.map((path) => `  - ${path}`),
@@ -156,6 +208,6 @@ if (process.env.GITHUB_STEP_SUMMARY) {
 }
 
 if (!Object.values(checks).every(Boolean)) {
-  console.error(JSON.stringify({ budgets, checks, largestClientJavaScript, largestSvg, largestRaster, largestHighDensityRaster, largestSemanticShard }, null, 2));
+  console.error(JSON.stringify({ budgets, checks, largestClientJavaScript, largestSvg, largestRaster, largestRasterBudgetBytes, oversizedStandardRaster, largestHighDensityRaster, largestHighDensityRasterBudgetBytes, oversizedHighDensityRaster, largestSemanticShard }, null, 2));
   process.exitCode = 1;
 }

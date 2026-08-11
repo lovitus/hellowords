@@ -1,54 +1,77 @@
 # Spatial breadth expansion
 
-The spatial world must grow by adding honest, independently illustrated places, not by counting lexical-list pages as scenes. Scene replacements improve depth; the batches below add breadth.
+The spatial world must grow by adding honest, independently illustrated places,
+not by counting lexical-list pages as scenes. Scene replacements improve depth;
+new branches must add reachable breadth and keep every portal tied to a complete,
+visible object.
 
-## Next net-new branch: Community garden
+## Published v21 foundation
 
-**Status: completed, pixel-verified, and expanded.** The final `community-garden-premium-v1.jpg` asset contains 48 grounded anchors in five LOD bands and seven authored zones. Its already-visible greenhouse and potting bench now lead to `greenhouse-interior → tomato-plant` and terminal `potting-workbench` scenes. The world-atlas entrance uses the exact approved rectangle below.
+**Status: completed and pixel-verified.** The graph contains 37 reachable scenes,
+36 portals, 2,684 contextual anchors, 2,392 distinct scene terms and 253 authored
+zones. The root atlas contributes 1,275 unique labels compiled from 1,296 audited
+source-panel anchors across 66 zones.
 
-The published `world-atlas-master-1600-v1.jpg` depicts a distinct garden district in its lower-left quarter. The 1600 × 900 rectangle below is disjoint from all three existing root portals, so it remains a fourth root branch without an ambiguous zoom target; the matching 3200 × 1800 tier preserves the same logical coordinates:
+The v21 root is a purpose-built 3 × 2 large canvas rather than another 1600 × 900
+scene. Six independent 1672 × 941 panels cover school and classroom, science and
+making, transport, farm and food production, market with kitchen and bakery, and
+wetland with coast. The raster assembler separates them with deterministic
+96-pixel neutral stone roads. It preserves the panels' realistic material and
+colour differences without a global recolour or glossy, jelly-like vegetation.
+The published base is `world-mega-atlas-2604-v21.jpg`; the full reviewed tier is
+`world-mega-atlas-5208-v21.jpg`.
 
-```json
-{
-  "id": "enter-community-garden",
-  "childSceneId": "community-garden",
-  "x": 80,
-  "y": 470,
-  "width": 545,
-  "height": 325
-}
-```
+The four current portal rectangles are authored in the 5208 × 1978 reviewed
+source coordinate system:
 
-Portal separation in the 1600 × 900 authored coordinate system:
+| Branch | Source rectangle `(x, y, width, height)` | Runtime logical rectangle |
+|---|---|---|
+| Home | `(3000, 1240, 400, 300)` | `(1500, 620, 200, 150)` |
+| City | `(3616, 40, 400, 300)` | `(1808, 20, 200, 150)` |
+| Community garden | `(480, 1060, 960, 520)` | `(240, 530, 480, 260)` |
+| Nature | `(3480, 1020, 960, 720)` | `(1740, 510, 480, 360)` |
 
-- Apartment occupies the upper-left district and ends at `y=320`, before the garden starts at `y=470`.
-- City street occupies the upper-right district and ends at `y=420`, before the garden starts at `y=470`.
-- City park starts at `x=1080`, to the right of the garden portal's `x=625` edge.
+The scene assembler applies `logicalScale=0.5`; source and runtime coordinates
+must not be mixed. All four source rectangles are in bounds and pairwise
+disjoint. The community crop contains the full greenhouse and cultivated beds,
+and the Nature crop contains the main pond, reed margin and surrounding wetland.
 
-### Production visual brief
+## Community garden branch
 
-Create a bright, elegant, high-detail daylight community garden. Use a coherent wide 16:9 editorial-realism composition with a glass greenhouse, raised beds, potting bench, compost station, rain barrel, irrigation hose, trellises, seedling trays, hand tools, wheelbarrow, watering can, soil sacks, plant labels with no readable text, paths, fencing, flowering borders, vegetables, herbs and a small pollinator area. No people, brands, logos, pseudo-writing, gloomy weather, fantasy machinery or unrelated indoor objects. Keep each object visually distinct enough for a precise pixel anchor.
+The independently illustrated `community-garden-premium-v1.jpg` scene contains
+48 grounded anchors in five LOD bands and seven authored zones. Its visible
+greenhouse and potting bench lead to `greenhouse-interior → tomato-plant` and the
+terminal `potting-workbench` scene. The branch therefore has real depth without
+duplicating an image or inventing an entrance.
 
-Content contract:
+Content remains governed by the following contract:
 
-- 40–48 independently pointable labels;
-- five authored LOD bands with at least seven labels in each;
-- at least six authored detail zones: greenhouse, raised beds, potting bench, water/irrigation, compost/soil and pollinator border;
-- at least twelve overview labels;
-- every word must name an object, visible part, material or directly observable property;
-- child scenes may be added only when the parent image contains a complete, unambiguous portal object; both current garden portals reuse exact authored detail rectangles.
+- five authored LOD bands and at least twelve overview labels;
+- at least six truthful detail zones covering cultivation, tools, water, soil
+  and habitat evidence visible in the accepted pixels;
+- every word names an independently pointable object, part, material or directly
+  observable property;
+- a child scene is added only when its parent contains a complete, unambiguous
+  portal object;
+- no two portal rectangles overlap, and no image is reused to masquerade as a
+  different spatial depth.
 
-The branch has now matured honestly to four scenes without fabricating depth: the atlas exposes four root branches, and all four contain at least four real scenes.
+## Next reachable branches
 
-## Following net-new places
-
-These add missing everyday domains after the first community-garden branch is verified:
+The v21 root already provides visual footholds for school, market, maker,
+transport, farm and wetland/coast vocabulary. Those atlas districts are dense
+overview zones, not new scene-graph branches by themselves. Future breadth work
+should promote only a visibly complete root object into an independently
+illustrated child, then continue with truthful parent-to-child evidence. Useful
+candidates include:
 
 1. School campus → classroom → library.
 2. Market hall → produce aisle → bakery counter.
-3. Clinic → examination room → medical instruments.
-4. Maker workshop → woodworking bench → hand tool close-up.
-5. Sports complex → court → equipment room.
-6. Harbor → pier → small boat.
+3. Maker workshop → woodworking bench → hand-tool close-up.
+4. Farmyard → greenhouse or orchard → crop detail.
+5. Harbor → pier → small boat.
+6. Wetland reserve → reed bed → aquatic habitat detail.
 
-Each parent entrance must be visible in an existing approved image or introduced in a new overview scene before its child is generated. No two portal rectangles may overlap, and no image may be duplicated to masquerade as a different depth.
+Before generation, each proposed entrance must be confirmed in the published
+parent pixels at original resolution. A visually seeded domain does not count as
+a reachable scene until its child asset, audit, zones and portal are all shipped.

@@ -52,6 +52,8 @@ interface QualityLimits {
 interface ReplacementContract {
   readonly asset: string;
   readonly sha256: string;
+  readonly width?: number;
+  readonly height?: number;
   readonly quality: QualityLimits;
 }
 
@@ -135,14 +137,16 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
     },
   },
   "world-map": {
-    asset: "/scenes/world-atlas-master-1600-v1.jpg",
-    sha256: "d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb",
+    asset: "/scenes/world-mega-atlas-2604-v21.jpg",
+    sha256: "1f604a7727b9d18cf4d4447eaf88b5883eb3720f6d4540bdd1af6c86654bd54d",
+    width: 2604,
+    height: 989,
     quality: {
-      minMeanLuminance: 100,
+      minMeanLuminance: 90,
       maxMeanLuminance: 180,
-      maxDarkFraction: 0.24,
-      maxDeepDarkFraction: 0.08,
-      minMeanChroma: 0.1,
+      maxDarkFraction: 0.28,
+      maxDeepDarkFraction: 0.075,
+      minMeanChroma: 0.08,
       maxMeanChroma: 0.3,
       maxChannelMeanSpread: 45,
     },
@@ -165,8 +169,8 @@ const portalQualityLimits: Readonly<Record<string, Pick<
   },
   "world-map": {
     minMeanLuminance: 88,
-    maxDarkFraction: 0.3,
-    maxDeepDarkFraction: 0.045,
+    maxDarkFraction: 0.34,
+    maxDeepDarkFraction: 0.075,
   },
 };
 
@@ -261,13 +265,15 @@ function assertWholeImageQuality(
   );
 }
 
-test("the six replacement scenes keep their reviewed bright 1600 by 900 JPEGs", async () => {
+test("the replacement scenes keep their reviewed versioned JPEGs and authored dimensions", async () => {
   for (const [sceneId, contract] of Object.entries(replacementContracts)) {
     const scene = await readScene(sceneId);
+    const width = contract.width ?? expectedWidth;
+    const height = contract.height ?? expectedHeight;
     assert.equal(scene.id, sceneId);
     assert.equal(scene.asset, contract.asset, `${sceneId} keeps its versioned final asset`);
-    assert.equal(scene.width, expectedWidth, `${sceneId} authored width`);
-    assert.equal(scene.height, expectedHeight, `${sceneId} authored height`);
+    assert.equal(scene.width, width, `${sceneId} authored width`);
+    assert.equal(scene.height, height, `${sceneId} authored height`);
     assert.equal(scene.anchorAudit.reviewedAsset, scene.asset, `${sceneId} audit asset`);
     assert.equal(scene.anchorAudit.reviewedAssetSha256, contract.sha256, `${sceneId} audit digest`);
 
@@ -277,8 +283,8 @@ test("the six replacement scenes keep their reviewed bright 1600 by 900 JPEGs", 
     assert.equal(digest, contract.sha256, `${sceneId} file digest`);
     const metadata = await decodeImage(bytes).metadata();
     assert.equal(metadata.format, "jpeg", `${sceneId} encoded format`);
-    assert.equal(metadata.width, expectedWidth, `${sceneId} decoded width`);
-    assert.equal(metadata.height, expectedHeight, `${sceneId} decoded height`);
+    assert.equal(metadata.width, width, `${sceneId} decoded width`);
+    assert.equal(metadata.height, height, `${sceneId} decoded height`);
 
     assertWholeImageQuality(sceneId, await measurePixels(file), contract.quality);
   }
@@ -291,8 +297,8 @@ test("apartment, city street and world map portal crops remain readable daylight
     const file = assetFile(scene.asset);
     for (const portal of scene.portals) {
       assert.ok(portal.width > 0 && portal.height > 0, `${sceneId}/${portal.id} has a crop area`);
-      assert.ok(portal.x >= 0 && portal.x + portal.width <= expectedWidth, `${sceneId}/${portal.id} x bounds`);
-      assert.ok(portal.y >= 0 && portal.y + portal.height <= expectedHeight, `${sceneId}/${portal.id} y bounds`);
+      assert.ok(portal.x >= 0 && portal.x + portal.width <= scene.width, `${sceneId}/${portal.id} x bounds`);
+      assert.ok(portal.y >= 0 && portal.y + portal.height <= scene.height, `${sceneId}/${portal.id} y bounds`);
       const metrics = await measurePixels(file, portal);
       assert.ok(
         metrics.meanLuminance >= limits.minMeanLuminance,

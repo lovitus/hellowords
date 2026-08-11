@@ -1,11 +1,17 @@
 # Premium scene art briefs
 
-These thirty-seven scenes use reviewed 1600 × 900 JPEG base rasters created with the built-in image generation workflow, inspected at final project resolution, and then anchored from the actual published pixels. The world atlas also has a reviewed 3200 × 1800 high-density tier that replaces the base in place after decoding when camera scale and device-pixel ratio require it. Together they cover every authored spatial scene, from the world overview through rooms, transport, gardening, natural habitats, materials and microscopic studies.
+Thirty-six destination scenes use reviewed 1600 × 900 JPEG base rasters created
+with the built-in image generation workflow, inspected at final project
+resolution, and then anchored from the actual published pixels. The world atlas
+is the large-canvas exception: its reviewed 2604 × 989 base and 5208 × 1978 high
+tier are assembled from six independently reviewed source panels. Together they
+cover every authored spatial scene, from the world overview through rooms,
+transport, gardening, natural habitats, materials and microscopic studies.
 
 | Scene | Final asset | SHA-256 |
 |---|---|---|
-| World atlas · base (830,333 B) | `world-atlas-master-1600-v1.jpg` | `d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb` |
-| World atlas · 2× high (3,562,736 B) | `world-atlas-master-3200-v1.jpg` | `e30a3750ef9f609056d288268c6692e7dc6fa8b18ff0d93bf37cf3265f405966` |
+| World atlas · base, 2604 × 989 (1,290,735 B) | `world-mega-atlas-2604-v21.jpg` | `1f604a7727b9d18cf4d4447eaf88b5883eb3720f6d4540bdd1af6c86654bd54d` |
+| World atlas · high, 5208 × 1978 (3,770,744 B) | `world-mega-atlas-5208-v21.jpg` | `8761e582e58bfb2aa46443c0eb9000a1a87b6582d23718a1be71c609258dc9a4` |
 | Community garden | `community-garden-premium-v1.jpg` | `391c7d0d1a1b065a0974f2fc7814fbeefec32cf5df727cf0a0c1a5d2feee49df` |
 | Greenhouse interior | `greenhouse-interior-premium-v1.jpg` | `11410d1677366513fc642c948570e08ae66fe20d20f05b2e43bed4245cc78667` |
 | Tomato plant | `tomato-plant-premium-v1.jpg` | `bf640f84a6e83c33bdcbca3857954857e918945507e2b1659fc9d958f5d0ad7c` |
@@ -49,11 +55,62 @@ All prompts requested true 16:9 landscape artwork with no labels, text, UI, call
 
 ### World atlas
 
-Generate four complementary bright, high-detail panels with the built-in ImageGen workflow: a complete apartment-and-neighborhood Home district; a civic City district with transit, museum and cafe landmarks; a greenhouse-and-raised-bed Community garden; and a monumental oak, pond and park Nature district. Use neutral daylight, coherent high-oblique editorial realism, no people, labels, pseudo-signage, logos or unrelated fantasy landmarks. Assemble the four accepted panels into one unified 16:9 master so all districts remain complete, non-overlapping and recognizable while supporting much deeper continuous zoom than a single overview prompt.
+Generate six complementary 1672 × 941 panels with the built-in ImageGen
+workflow: school and classroom, science and maker spaces, transport and
+engineering, farm and food production, market with kitchen and bakery, and
+wetland with coast. Use the same high-oblique camera, neutral daylight and
+realistic scale across all panels. Keep leaves, bark, water, stone, metal, glass
+and food visibly material-specific; do not globally recolour the accepted panels
+or turn vegetation into glossy, jelly-like forms. Exclude people, labels,
+pseudo-signage, logos and unrelated fantasy machinery. Assemble the accepted
+panels in a 3 × 2 canvas with deterministic 96-pixel neutral stone-road gutters.
 
-The current atlas supports 568 grounded anchors in 12 authored zones and four disjoint portal rectangles. The two original reviewed source batches retain 301 anchors; the independently audited expansion adds 267 more against the same exact pixels. Its reviewed base is `world-atlas-master-1600-v1.jpg` (830,333 bytes; SHA-256 `d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb`), and its reviewed 2× tier is `world-atlas-master-3200-v1.jpg` (3,562,736 bytes; SHA-256 `e30a3750ef9f609056d288268c6692e7dc6fa8b18ff0d93bf37cf3265f405966`). The v1 pixels were deliberately restored after the v2 recolour flattened leaves and small objects into glossy shapes. This rollback favors grounded-object legibility while six independently reviewed high-detail districts are prepared as the replacement continuous canvas. Runtime first-paints the base, selects the high tier from camera scale, fitted scale and device-pixel ratio, switches both image surfaces only after decode, and reuses the decoded result on later zooms.
+The published atlas has 1,275 unique labels compiled from 1,296 independently
+audited source-panel anchors across 66 authored zones, plus four disjoint portal
+rectangles. The reviewed base is `world-mega-atlas-2604-v21.jpg` (1,290,735
+bytes; SHA-256
+`1f604a7727b9d18cf4d4447eaf88b5883eb3720f6d4540bdd1af6c86654bd54d`),
+and the reviewed high tier is `world-mega-atlas-5208-v21.jpg` (3,770,744
+bytes; SHA-256
+`8761e582e58bfb2aa46443c0eb9000a1a87b6582d23718a1be71c609258dc9a4`).
+Runtime first-paints the base, selects the high tier from camera scale, fitted
+scale and device-pixel ratio, switches both image surfaces only after decode,
+and reuses the decoded result on later zooms.
 
-The reviewed coordinates remain reproducible from `scripts/data/world-atlas/home-city.json`, `scripts/data/world-atlas/community-nature.json`, and `scripts/data/world-atlas/expansion-c.json` with `node scripts/assemble-world-atlas.mjs scripts/data/world-atlas/community-nature.json scripts/data/world-atlas/expansion-c.json scripts/data/world-atlas/home-city.json --output public/data/scenes/world-map.json --force`. Additional pixel-audited batches can be appended as positional inputs without rewriting the existing batch files. A semantic regression test regenerates the file in a temporary directory and requires byte-for-byte equality with the published scene JSON.
+The production path keeps raster assembly, reviewed-anchor compilation and scene
+assembly separate. It stages generated artifacts in `/tmp` so their dimensions,
+hashes and byte-for-byte scene output can be checked before publication:
+
+```bash
+node scripts/assemble-mega-atlas-raster.mjs \
+  scripts/assets/mega-atlas-v21/01-school-classroom-v1.png \
+  scripts/assets/mega-atlas-v21/02-science-maker-v1.png \
+  scripts/assets/mega-atlas-v21/04-transport-mobility-v2.png \
+  scripts/assets/mega-atlas-v21/05-farm-food-production-v1.png \
+  scripts/assets/mega-atlas-v21/03-market-kitchen-bakery-v1.png \
+  scripts/assets/mega-atlas-v21/06-wetland-coast-v2.png \
+  --high /tmp/world-mega-atlas-5208-v21.jpg \
+  --base /tmp/world-mega-atlas-2604-v21.jpg \
+  --force
+
+node scripts/compile-mega-atlas-panels.mjs \
+  scripts/data/mega-atlas-v21/layout.json \
+  --output /tmp/mega-atlas-v21-compiled.json \
+  --force
+
+node scripts/assemble-mega-atlas-scene.mjs \
+  /tmp/mega-atlas-v21-compiled.json \
+  --config scripts/data/mega-atlas-v21/scene-config.json \
+  --output /tmp/world-map-v21.json \
+  --force
+```
+
+The raster assembler preserves source-panel order and dimensions around the
+gutters and creates the base as an exact half-density downsample of the assembled
+canvas. The panel compiler consumes the six versioned audit batches referenced
+by the layout. The scene assembler then applies the versioned assets, portals
+and logical scale. A semantic regression test regenerates the temporary scene
+JSON and requires byte-for-byte equality with the published data.
 
 ### Apartment
 
@@ -249,7 +306,8 @@ Create a luminous molecular view of adult hemoglobin A inside one translucent re
 
 ## Production invariants
 
-- Logical and raster coordinates remain exactly 1600 × 900.
+- The 36 destination scenes retain 1600 × 900 coordinates. The atlas alone uses
+  a 2604 × 989 logical canvas backed by the 5208 × 1978 reviewed source tier.
 - Each versioned asset is tied to its anchor audit with a SHA-256 digest.
 - Cropping or replacing an image requires a complete anchor and portal review.
 - A planned word is omitted when the final image does not visibly support it.

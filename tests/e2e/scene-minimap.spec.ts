@@ -97,6 +97,9 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   await expect(minimap).toHaveAttribute("data-child-count", "4");
   await expect(minimap).toHaveAttribute("data-terminal", "false");
   await expect(page.getByTestId("scene-minimap-title")).toHaveText("World atlas");
+  await expect(page.getByTestId("scene-minimap-subtitle")).toHaveText(
+    "Explore six detailed districts on one atlas",
+  );
   await expect(page.locator(".scene-heading")).toHaveCount(0);
   await expect(minimap.locator(CHILD)).toHaveCount(4);
   expect((await minimap.locator(CHILD).evaluateAll((buttons) => buttons.map((button) => (
@@ -105,18 +108,37 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   expect(await minimap.locator(CHILD).evaluateAll((buttons) => buttons.every((button) => (
     (button as HTMLElement).dataset.navigation === "portal-continuity"
   )))).toBe(true);
+  if ((page.viewportSize()?.width ?? 1_000) <= 560) {
+    expect(await minimap.evaluate((element) => {
+      const bounds = element.getBoundingClientRect();
+      return [...element.querySelectorAll<HTMLElement>('[data-testid="scene-minimap-child"]')]
+        .every((button) => {
+          const childBounds = button.getBoundingClientRect();
+          return childBounds.left >= bounds.left && childBounds.right <= bounds.right;
+        });
+    })).toBe(true);
+  }
 
   const visualContract = await minimap.evaluate((element) => {
     const bounds = element.getBoundingClientRect();
+    const stage = document.querySelector<HTMLElement>(".world-stage")?.getBoundingClientRect();
     const style = getComputedStyle(element);
+    const phone = window.innerWidth <= 560;
+    const compact = window.innerWidth <= 900;
     return {
       width: bounds.width,
       height: bounds.height,
       background: style.backgroundColor,
+      protectedRight: phone ? 312 : compact ? 348 : 412,
+      protectedBottom: phone ? 112 : compact ? 116 : 126,
+      rightInStage: bounds.right - (stage?.left ?? 0),
+      bottomInStage: bounds.bottom - (stage?.top ?? 0),
     };
   });
   expect(visualContract.width).toBeLessThanOrEqual(370);
   expect(visualContract.height).toBeLessThan(130);
+  expect(visualContract.rightInStage).toBeLessThanOrEqual(visualContract.protectedRight);
+  expect(visualContract.bottomInStage).toBeLessThanOrEqual(visualContract.protectedBottom);
   expect(visualContract.background).toMatch(/^rgba\(.+, 0\.78\)$/);
 
   await startTransitionProbe(page);

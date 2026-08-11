@@ -1,0 +1,2231 @@
+{
+  "panelId": "school-classroom",
+  "source": {
+    "path": "scripts/assets/mega-atlas-v21/01-school-classroom-v1.png",
+    "width": 1672,
+    "height": 941,
+    "sha256": "d0a04bebd7b4c43b5d1f426dc91d584cd89275365f760b0507337b50f23af9d1",
+    "review": "original-resolution pixel audit with room and grounds crops"
+  },
+  "counts": {
+    "zones": 10,
+    "anchors": 197,
+    "removedAmbiguous": 27
+  },
+  "zones": [
+    {
+      "id": "school-entry-classroom",
+      "title": "Campus entry and classroom",
+      "translation": "校园入口与普通教室",
+      "description": "Inspect the landscaped school entrance and the complete furnished general classroom.",
+      "x": 0,
+      "y": 0,
+      "width": 895,
+      "height": 320,
+      "targetScale": 3.4,
+      "labelIds": [
+        "school-campus-shade-tree",
+        "school-campus-tree-trunk",
+        "school-campus-flower-bed",
+        "school-campus-orange-flower-cluster",
+        "school-campus-purple-blossoms",
+        "school-campus-garden-hedge",
+        "school-campus-wooden-bench",
+        "school-campus-litter-bin",
+        "school-campus-brick-gatepost",
+        "school-campus-iron-gate",
+        "school-campus-entrance-steps",
+        "school-campus-paved-walkway",
+        "school-classroom-rubber-plant",
+        "school-classroom-window",
+        "school-classroom-whiteboard",
+        "school-classroom-wall-clock",
+        "school-classroom-globe",
+        "school-classroom-globe-shelf",
+        "school-classroom-teacher-chair",
+        "school-classroom-teacher-desk",
+        "school-classroom-wooden-floor",
+        "school-classroom-student-desk",
+        "school-classroom-student-chair",
+        "school-classroom-filing-cabinet",
+        "school-classroom-door",
+        "school-classroom-bookcase",
+        "school-classroom-rug"
+      ]
+    },
+    {
+      "id": "school-library-office",
+      "title": "Library and computer office",
+      "translation": "图书馆与电脑办公室",
+      "description": "Explore the reading library, computer workstations, stair landing, and visible furnishings.",
+      "x": 895,
+      "y": 0,
+      "width": 777,
+      "height": 320,
+      "targetScale": 3.5,
+      "labelIds": [
+        "school-library-globe",
+        "school-library-window",
+        "school-library-desktop-computer",
+        "school-library-bookcase",
+        "school-library-book-row",
+        "school-library-round-table",
+        "school-library-reading-chair",
+        "school-library-reading-rug",
+        "school-library-blue-armchair",
+        "school-library-reading-sofa",
+        "school-library-coffee-table",
+        "school-library-potted-fern",
+        "school-library-wall-clock",
+        "school-library-tall-bookshelf",
+        "school-library-printer",
+        "school-office-desktop-monitor",
+        "school-office-computer-keyboard",
+        "school-office-desk",
+        "school-office-swivel-chair",
+        "school-office-wooden-drawer-unit",
+        "school-office-red-filing-cabinet",
+        "school-office-door"
+      ]
+    },
+    {
+      "id": "school-west-arts-yard",
+      "title": "Art studio and cycle court",
+      "translation": "美术教室与自行车庭院",
+      "description": "Study the art studio materials and the clearly visible bicycle court beside it.",
+      "x": 0,
+      "y": 320,
+      "width": 625,
+      "height": 250,
+      "targetScale": 3.6,
+      "labelIds": [
+        "school-campus-raised-planter",
+        "school-campus-bicycle",
+        "school-campus-garden-lamp",
+        "school-art-supply-shelf",
+        "school-art-paint-jars",
+        "school-art-brush-cup",
+        "school-art-landscape-painting",
+        "school-art-canvas-rack",
+        "school-art-storage-cabinet",
+        "school-art-rolling-supply-cart",
+        "school-art-artist-easel",
+        "school-art-blank-canvas",
+        "school-art-palette",
+        "school-art-worktable",
+        "school-art-studio-stool",
+        "school-art-paintbrush",
+        "school-art-paper-rack",
+        "school-art-paint-bucket"
+      ]
+    },
+    {
+      "id": "school-music-room",
+      "title": "Music rehearsal room",
+      "translation": "音乐排练教室",
+      "description": "Inspect the pianos, percussion, guitar, stands, chairs, and rehearsal furniture.",
+      "x": 625,
+      "y": 320,
+      "width": 345,
+      "height": 250,
+      "targetScale": 3.7,
+      "labelIds": [
+        "school-music-grand-piano",
+        "school-music-piano-keyboard",
+        "school-music-piano-bench",
+        "school-music-upright-piano",
+        "school-music-acoustic-guitar",
+        "school-music-guitar-neck",
+        "school-music-whiteboard",
+        "school-music-sheet-stand",
+        "school-music-drum-kit",
+        "school-music-bass-drum",
+        "school-music-snare-drum",
+        "school-music-cymbal",
+        "school-music-conga-drum",
+        "school-music-hand-drum",
+        "school-music-bookshelf",
+        "school-music-rehearsal-chair",
+        "school-music-sheet-music",
+        "school-music-keyboard-percussion"
+      ]
+    },
+    {
+      "id": "school-gym-washrooms",
+      "title": "Gymnasium and washrooms",
+      "translation": "体育馆与洗手间",
+      "description": "Explore the indoor sports equipment and the adjacent sinks and toilet cubicles.",
+      "x": 970,
+      "y": 320,
+      "width": 602,
+      "height": 250,
+      "targetScale": 3.7,
+      "labelIds": [
+        "school-gym-wall-bars",
+        "school-gym-climbing-rope",
+        "school-gym-crash-mat",
+        "school-gym-basketball-hoop",
+        "school-gym-backboard",
+        "school-gym-basketball",
+        "school-gym-soccer-ball",
+        "school-gym-volleyball",
+        "school-gym-red-training-cone",
+        "school-gym-yellow-marker-cone",
+        "school-gym-ball-cart",
+        "school-gym-vaulting-box",
+        "school-gym-indoor-goal",
+        "school-restroom-washbasin",
+        "school-restroom-faucet",
+        "school-restroom-mirror",
+        "school-restroom-countertop",
+        "school-restroom-cubicle-door",
+        "school-restroom-cubicle-partition",
+        "school-restroom-toilet",
+        "school-restroom-paper-holder",
+        "school-restroom-entrance-door",
+        "school-restroom-floor-tile"
+      ]
+    },
+    {
+      "id": "school-infirmary",
+      "title": "School infirmary",
+      "translation": "学校医务室",
+      "description": "Inspect the examination couch, privacy screen, storage, stool, and treatment furniture.",
+      "x": 0,
+      "y": 570,
+      "width": 400,
+      "height": 230,
+      "targetScale": 3.6,
+      "labelIds": [
+        "school-infirmary-room",
+        "school-infirmary-door",
+        "school-infirmary-door-window",
+        "school-infirmary-door-handle",
+        "school-infirmary-treatment-counter",
+        "school-infirmary-glass-cabinet",
+        "school-infirmary-cabinet-shelf",
+        "school-infirmary-waste-bin",
+        "school-infirmary-privacy-screen",
+        "school-infirmary-curtain",
+        "school-infirmary-screen-frame",
+        "school-infirmary-exam-couch",
+        "school-infirmary-couch-mattress",
+        "school-infirmary-headrest",
+        "school-infirmary-clinical-stool",
+        "school-infirmary-side-table",
+        "school-infirmary-supply-cabinet",
+        "school-infirmary-potted-plant"
+      ]
+    },
+    {
+      "id": "school-corridor-lockers",
+      "title": "Corridor and lockers",
+      "translation": "走廊与储物柜",
+      "description": "Follow the tiled corridor past hooks, bench seating, doors, and the locker bank.",
+      "x": 400,
+      "y": 570,
+      "width": 490,
+      "height": 230,
+      "targetScale": 3.5,
+      "labelIds": [
+        "school-corridor-space",
+        "school-corridor-floor",
+        "school-corridor-door",
+        "school-corridor-door-window",
+        "school-corridor-door-handle",
+        "school-corridor-wall-bars",
+        "school-corridor-coat-rail",
+        "school-corridor-drawstring-bag",
+        "school-corridor-bench",
+        "school-corridor-bench-seat",
+        "school-corridor-bench-leg",
+        "school-corridor-noticeboard",
+        "school-corridor-potted-plant",
+        "school-corridor-plant-pot",
+        "school-locker-bank",
+        "school-locker-door",
+        "school-locker-handle",
+        "school-locker-label-holder",
+        "school-locker-area-door",
+        "school-locker-area-door-window"
+      ]
+    },
+    {
+      "id": "school-equipment-store",
+      "title": "Equipment storeroom",
+      "translation": "器材储藏室",
+      "description": "Inspect the shelves, racks, containers, bags, ropes, hoops, and stored sports gear.",
+      "x": 890,
+      "y": 570,
+      "width": 220,
+      "height": 230,
+      "targetScale": 3.8,
+      "labelIds": [
+        "school-equipment-storeroom",
+        "school-equipment-metal-shelf",
+        "school-equipment-shelf-upright",
+        "school-equipment-shelf-compartment",
+        "school-equipment-gear-bag",
+        "school-equipment-lower-shelf",
+        "school-equipment-plastic-bin",
+        "school-equipment-coiled-rope",
+        "school-equipment-plastic-hoop",
+        "school-equipment-floor-bucket"
+      ]
+    },
+    {
+      "id": "school-prep-room",
+      "title": "Preparation and utility room",
+      "translation": "准备与清洗室",
+      "description": "Explore the sinks, work surfaces, storage, office equipment, and waste station.",
+      "x": 1110,
+      "y": 570,
+      "width": 562,
+      "height": 230,
+      "targetScale": 3.7,
+      "labelIds": [
+        "school-prep-room-space",
+        "school-prep-door",
+        "school-prep-door-window",
+        "school-prep-lidded-utility-bin",
+        "school-prep-double-sink",
+        "school-prep-left-basin",
+        "school-prep-right-basin",
+        "school-prep-faucet",
+        "school-prep-drainboard",
+        "school-prep-sink-cabinet",
+        "school-prep-recycling-bin",
+        "school-prep-supply-desk",
+        "school-prep-office-printer",
+        "school-prep-wooden-stool",
+        "school-prep-storage-workbench",
+        "school-prep-open-cubby-shelf",
+        "school-prep-blue-tray",
+        "school-prep-equipment-cart",
+        "school-prep-floor-tile"
+      ]
+    },
+    {
+      "id": "school-south-grounds",
+      "title": "Southern school grounds",
+      "translation": "校园南侧绿地",
+      "description": "Explore the promenade, planted borders, mature trees, path lights, and raised planters.",
+      "x": 0,
+      "y": 800,
+      "width": 1672,
+      "height": 141,
+      "targetScale": 3.5,
+      "labelIds": [
+        "school-grounds-south-space",
+        "school-grounds-promenade",
+        "school-grounds-paving-slab",
+        "school-grounds-flower-border",
+        "school-grounds-ornamental-grass",
+        "school-grounds-white-flowers",
+        "school-grounds-red-flowers",
+        "school-grounds-blue-flowers",
+        "school-grounds-boundary-hedge",
+        "school-grounds-square-planter",
+        "school-grounds-planter-wall",
+        "school-grounds-broadleaf-tree",
+        "school-grounds-path-light",
+        "school-grounds-lamp-head",
+        "school-grounds-raised-shrub-bed",
+        "school-grounds-pink-shrub",
+        "school-grounds-campus-lawn",
+        "school-grounds-rectangular-planter",
+        "school-grounds-central-tree",
+        "school-grounds-central-trunk",
+        "school-grounds-outer-sidewalk",
+        "school-grounds-garden-curb"
+      ]
+    }
+  ],
+  "anchors": [
+    {
+      "id": "school-campus-shade-tree",
+      "word": "shade tree",
+      "translation": "遮荫树",
+      "x": 83,
+      "y": 103,
+      "lod": 0,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-tree-trunk",
+      "word": "tree trunk",
+      "translation": "树干",
+      "x": 86,
+      "y": 122,
+      "lod": 2,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-flower-bed",
+      "word": "flower bed",
+      "translation": "花坛",
+      "x": 201,
+      "y": 111,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-orange-flower-cluster",
+      "word": "orange flower cluster",
+      "translation": "橙色花丛",
+      "x": 202,
+      "y": 104,
+      "lod": 3,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-purple-blossoms",
+      "word": "purple blossoms",
+      "translation": "紫色花丛",
+      "x": 51,
+      "y": 207,
+      "lod": 3,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-garden-hedge",
+      "word": "garden hedge",
+      "translation": "花园绿篱",
+      "x": 430,
+      "y": 210,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-wooden-bench",
+      "word": "wooden bench",
+      "translation": "木长椅",
+      "x": 171,
+      "y": 211,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-litter-bin",
+      "word": "litter bin",
+      "translation": "户外垃圾桶",
+      "x": 216,
+      "y": 236,
+      "lod": 2,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-brick-gatepost",
+      "word": "brick gatepost",
+      "translation": "砖门柱",
+      "x": 250,
+      "y": 158,
+      "lod": 2,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-iron-gate",
+      "word": "iron gate",
+      "translation": "铁门",
+      "x": 339,
+      "y": 164,
+      "lod": 0,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-entrance-steps",
+      "word": "entrance steps",
+      "translation": "入口台阶",
+      "x": 348,
+      "y": 216,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-campus-paved-walkway",
+      "word": "paved walkway",
+      "translation": "铺砖步道",
+      "x": 342,
+      "y": 258,
+      "lod": 0,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-rubber-plant",
+      "word": "potted rubber plant",
+      "translation": "盆栽橡皮树",
+      "x": 516,
+      "y": 58,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-window",
+      "word": "classroom window",
+      "translation": "教室窗户",
+      "x": 584,
+      "y": 52,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-whiteboard",
+      "word": "classroom whiteboard",
+      "translation": "教室白板",
+      "x": 678,
+      "y": 68,
+      "lod": 0,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-wall-clock",
+      "word": "classroom wall clock",
+      "translation": "教室挂钟",
+      "x": 814,
+      "y": 43,
+      "lod": 2,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-globe",
+      "word": "classroom globe",
+      "translation": "教室地球仪",
+      "x": 519,
+      "y": 111,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-globe-shelf",
+      "word": "globe shelf",
+      "translation": "地球仪置物架",
+      "x": 519,
+      "y": 135,
+      "lod": 2,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-teacher-chair",
+      "word": "teacher chair",
+      "translation": "教师椅",
+      "x": 595,
+      "y": 99,
+      "lod": 2,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-teacher-desk",
+      "word": "teacher desk",
+      "translation": "讲台桌",
+      "x": 595,
+      "y": 137,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-wooden-floor",
+      "word": "wooden classroom floor",
+      "translation": "教室木地板",
+      "x": 730,
+      "y": 246,
+      "lod": 0,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-student-desk",
+      "word": "student desk",
+      "translation": "学生课桌",
+      "x": 531,
+      "y": 173,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-student-chair",
+      "word": "student chair",
+      "translation": "学生椅",
+      "x": 532,
+      "y": 190,
+      "lod": 2,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-filing-cabinet",
+      "word": "classroom filing cabinet",
+      "translation": "教室文件柜",
+      "x": 817,
+      "y": 109,
+      "lod": 2,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-door",
+      "word": "classroom door",
+      "translation": "教室门",
+      "x": 841,
+      "y": 80,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-bookcase",
+      "word": "classroom bookcase",
+      "translation": "教室书柜",
+      "x": 862,
+      "y": 79,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-classroom-rug",
+      "word": "classroom rug",
+      "translation": "教室地毯",
+      "x": 791,
+      "y": 142,
+      "lod": 1,
+      "zoneId": "school-entry-classroom"
+    },
+    {
+      "id": "school-library-globe",
+      "word": "library globe",
+      "translation": "图书馆地球仪",
+      "x": 911,
+      "y": 54,
+      "lod": 2,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-window",
+      "word": "library window",
+      "translation": "图书馆窗户",
+      "x": 963,
+      "y": 54,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-desktop-computer",
+      "word": "library desktop computer",
+      "translation": "图书馆台式电脑",
+      "x": 1007,
+      "y": 68,
+      "lod": 2,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-bookcase",
+      "word": "library bookcase",
+      "translation": "图书馆书柜",
+      "x": 954,
+      "y": 101,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-book-row",
+      "word": "library book row",
+      "translation": "成排图书",
+      "x": 965,
+      "y": 89,
+      "lod": 3,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-round-table",
+      "word": "round reading table",
+      "translation": "圆形阅读桌",
+      "x": 1025,
+      "y": 145,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-reading-chair",
+      "word": "reading chair",
+      "translation": "阅读椅",
+      "x": 1017,
+      "y": 169,
+      "lod": 2,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-reading-rug",
+      "word": "reading rug",
+      "translation": "阅读区地毯",
+      "x": 1074,
+      "y": 174,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-blue-armchair",
+      "word": "blue armchair",
+      "translation": "蓝色扶手椅",
+      "x": 1150,
+      "y": 150,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-reading-sofa",
+      "word": "reading sofa",
+      "translation": "阅读沙发",
+      "x": 1220,
+      "y": 145,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-coffee-table",
+      "word": "coffee table",
+      "translation": "茶几",
+      "x": 1165,
+      "y": 190,
+      "lod": 2,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-potted-fern",
+      "word": "potted fern",
+      "translation": "盆栽蕨类",
+      "x": 1130,
+      "y": 46,
+      "lod": 2,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-wall-clock",
+      "word": "library wall clock",
+      "translation": "图书馆挂钟",
+      "x": 1247,
+      "y": 54,
+      "lod": 3,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-tall-bookshelf",
+      "word": "tall bookshelf",
+      "translation": "高书架",
+      "x": 1295,
+      "y": 87,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-library-printer",
+      "word": "library printer",
+      "translation": "图书馆打印机",
+      "x": 1294,
+      "y": 195,
+      "lod": 2,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-office-desktop-monitor",
+      "word": "desktop monitor",
+      "translation": "台式显示器",
+      "x": 1117,
+      "y": 238,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-office-computer-keyboard",
+      "word": "computer keyboard",
+      "translation": "电脑键盘",
+      "x": 1117,
+      "y": 256,
+      "lod": 3,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-office-desk",
+      "word": "office desk",
+      "translation": "办公桌",
+      "x": 1135,
+      "y": 268,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-office-swivel-chair",
+      "word": "swivel chair",
+      "translation": "转椅",
+      "x": 1112,
+      "y": 287,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-office-wooden-drawer-unit",
+      "word": "wooden drawer unit",
+      "translation": "木制抽屉柜",
+      "x": 1083,
+      "y": 274,
+      "lod": 2,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-office-red-filing-cabinet",
+      "word": "red filing cabinet",
+      "translation": "红色文件柜",
+      "x": 1168,
+      "y": 272,
+      "lod": 2,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-office-door",
+      "word": "office door",
+      "translation": "办公室门",
+      "x": 1328,
+      "y": 274,
+      "lod": 1,
+      "zoneId": "school-library-office"
+    },
+    {
+      "id": "school-campus-raised-planter",
+      "word": "raised planter",
+      "translation": "高架花盆",
+      "x": 131,
+      "y": 404,
+      "lod": 1,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-campus-bicycle",
+      "word": "bicycle",
+      "translation": "自行车",
+      "x": 85,
+      "y": 481,
+      "lod": 1,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-campus-garden-lamp",
+      "word": "garden lamp",
+      "translation": "园林灯",
+      "x": 43,
+      "y": 492,
+      "lod": 2,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-supply-shelf",
+      "word": "art supply shelf",
+      "translation": "美术用品架",
+      "x": 311,
+      "y": 374,
+      "lod": 1,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-paint-jars",
+      "word": "paint jars",
+      "translation": "颜料罐",
+      "x": 286,
+      "y": 348,
+      "lod": 3,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-brush-cup",
+      "word": "brush cup",
+      "translation": "画笔筒",
+      "x": 322,
+      "y": 350,
+      "lod": 3,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-landscape-painting",
+      "word": "landscape painting",
+      "translation": "风景画",
+      "x": 432,
+      "y": 365,
+      "lod": 1,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-canvas-rack",
+      "word": "canvas rack",
+      "translation": "画布架",
+      "x": 490,
+      "y": 383,
+      "lod": 2,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-storage-cabinet",
+      "word": "studio storage cabinet",
+      "translation": "画室储物柜",
+      "x": 548,
+      "y": 365,
+      "lod": 2,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-rolling-supply-cart",
+      "word": "rolling supply cart",
+      "translation": "移动用品车",
+      "x": 590,
+      "y": 381,
+      "lod": 2,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-artist-easel",
+      "word": "artist easel",
+      "translation": "画架",
+      "x": 278,
+      "y": 460,
+      "lod": 1,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-blank-canvas",
+      "word": "blank canvas",
+      "translation": "空白画布",
+      "x": 288,
+      "y": 432,
+      "lod": 1,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-palette",
+      "word": "art palette",
+      "translation": "调色板",
+      "x": 495,
+      "y": 413,
+      "lod": 3,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-worktable",
+      "word": "art worktable",
+      "translation": "美术工作台",
+      "x": 515,
+      "y": 418,
+      "lod": 1,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-studio-stool",
+      "word": "studio stool",
+      "translation": "画室圆凳",
+      "x": 543,
+      "y": 454,
+      "lod": 2,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-paintbrush",
+      "word": "paintbrush",
+      "translation": "画笔",
+      "x": 494,
+      "y": 496,
+      "lod": 3,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-paper-rack",
+      "word": "paper rack",
+      "translation": "画纸架",
+      "x": 242,
+      "y": 478,
+      "lod": 2,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-art-paint-bucket",
+      "word": "paint bucket",
+      "translation": "颜料桶",
+      "x": 247,
+      "y": 524,
+      "lod": 3,
+      "zoneId": "school-west-arts-yard"
+    },
+    {
+      "id": "school-music-grand-piano",
+      "word": "grand piano",
+      "translation": "三角钢琴",
+      "x": 698,
+      "y": 396,
+      "lod": 0,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-piano-keyboard",
+      "word": "piano keyboard",
+      "translation": "钢琴键盘",
+      "x": 707,
+      "y": 420,
+      "lod": 2,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-piano-bench",
+      "word": "piano bench",
+      "translation": "钢琴凳",
+      "x": 655,
+      "y": 455,
+      "lod": 2,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-upright-piano",
+      "word": "upright piano",
+      "translation": "立式钢琴",
+      "x": 649,
+      "y": 480,
+      "lod": 1,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-acoustic-guitar",
+      "word": "acoustic guitar",
+      "translation": "木吉他",
+      "x": 825,
+      "y": 374,
+      "lod": 1,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-guitar-neck",
+      "word": "guitar neck",
+      "translation": "吉他琴颈",
+      "x": 823,
+      "y": 354,
+      "lod": 3,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-whiteboard",
+      "word": "music whiteboard",
+      "translation": "音乐教室白板",
+      "x": 783,
+      "y": 360,
+      "lod": 1,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-sheet-stand",
+      "word": "sheet music stand",
+      "translation": "乐谱架",
+      "x": 779,
+      "y": 417,
+      "lod": 2,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-drum-kit",
+      "word": "drum kit",
+      "translation": "架子鼓",
+      "x": 846,
+      "y": 449,
+      "lod": 0,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-bass-drum",
+      "word": "bass drum",
+      "translation": "底鼓",
+      "x": 844,
+      "y": 463,
+      "lod": 1,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-snare-drum",
+      "word": "snare drum",
+      "translation": "军鼓",
+      "x": 817,
+      "y": 432,
+      "lod": 2,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-cymbal",
+      "word": "cymbal",
+      "translation": "镲片",
+      "x": 875,
+      "y": 413,
+      "lod": 2,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-conga-drum",
+      "word": "conga drum",
+      "translation": "康加鼓",
+      "x": 919,
+      "y": 447,
+      "lod": 2,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-hand-drum",
+      "word": "hand drum",
+      "translation": "手鼓",
+      "x": 900,
+      "y": 385,
+      "lod": 2,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-bookshelf",
+      "word": "music bookshelf",
+      "translation": "音乐书架",
+      "x": 884,
+      "y": 377,
+      "lod": 2,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-rehearsal-chair",
+      "word": "rehearsal chair",
+      "translation": "排练椅",
+      "x": 746,
+      "y": 510,
+      "lod": 2,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-sheet-music",
+      "word": "sheet music",
+      "translation": "乐谱",
+      "x": 708,
+      "y": 480,
+      "lod": 3,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-music-keyboard-percussion",
+      "word": "keyboard percussion",
+      "translation": "键盘打击乐器",
+      "x": 665,
+      "y": 544,
+      "lod": 1,
+      "zoneId": "school-music-room"
+    },
+    {
+      "id": "school-gym-wall-bars",
+      "word": "wall bars",
+      "translation": "肋木架",
+      "x": 1092,
+      "y": 372,
+      "lod": 0,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-climbing-rope",
+      "word": "climbing rope",
+      "translation": "攀爬绳",
+      "x": 1163,
+      "y": 371,
+      "lod": 2,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-crash-mat",
+      "word": "crash mat",
+      "translation": "防护垫",
+      "x": 1047,
+      "y": 434,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-basketball-hoop",
+      "word": "basketball hoop",
+      "translation": "篮筐",
+      "x": 1224,
+      "y": 383,
+      "lod": 0,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-backboard",
+      "word": "backboard",
+      "translation": "篮板",
+      "x": 1224,
+      "y": 354,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-basketball",
+      "word": "basketball",
+      "translation": "篮球",
+      "lexemeId": "en-f02c963574819724",
+      "x": 1187,
+      "y": 432,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-soccer-ball",
+      "word": "soccer ball",
+      "translation": "足球",
+      "x": 1137,
+      "y": 452,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-volleyball",
+      "word": "volleyball",
+      "translation": "排球",
+      "lexemeId": "en-3580c9267518807d",
+      "x": 1134,
+      "y": 436,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-red-training-cone",
+      "word": "red training cone",
+      "translation": "红色训练锥",
+      "x": 1155,
+      "y": 500,
+      "lod": 2,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-yellow-marker-cone",
+      "word": "yellow marker cone",
+      "translation": "黄色标志锥",
+      "x": 1228,
+      "y": 464,
+      "lod": 2,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-ball-cart",
+      "word": "ball cart",
+      "translation": "球车",
+      "x": 1315,
+      "y": 468,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-vaulting-box",
+      "word": "vaulting box",
+      "translation": "跳箱",
+      "x": 1197,
+      "y": 530,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-gym-indoor-goal",
+      "word": "indoor goal",
+      "translation": "室内球门",
+      "x": 1274,
+      "y": 548,
+      "lod": 0,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-restroom-washbasin",
+      "word": "washbasin",
+      "translation": "洗手盆",
+      "x": 1447,
+      "y": 379,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-restroom-faucet",
+      "word": "faucet",
+      "translation": "水龙头",
+      "x": 1446,
+      "y": 367,
+      "lod": 3,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-restroom-mirror",
+      "word": "washroom mirror",
+      "translation": "洗手间镜子",
+      "x": 1447,
+      "y": 347,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-restroom-countertop",
+      "word": "sink countertop",
+      "translation": "洗手台面",
+      "x": 1494,
+      "y": 381,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-restroom-cubicle-door",
+      "word": "toilet cubicle door",
+      "translation": "厕所隔间门",
+      "x": 1505,
+      "y": 445,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-restroom-cubicle-partition",
+      "word": "cubicle partition",
+      "translation": "隔间挡板",
+      "x": 1445,
+      "y": 430,
+      "lod": 2,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-restroom-toilet",
+      "word": "toilet",
+      "translation": "坐便器",
+      "x": 1394,
+      "y": 464,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-restroom-paper-holder",
+      "word": "toilet paper holder",
+      "translation": "卫生纸架",
+      "x": 1345,
+      "y": 440,
+      "lod": 3,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-restroom-entrance-door",
+      "word": "restroom entrance door",
+      "translation": "洗手间入口门",
+      "x": 1378,
+      "y": 331,
+      "lod": 1,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-restroom-floor-tile",
+      "word": "ceramic floor tile",
+      "translation": "陶瓷地砖",
+      "x": 1516,
+      "y": 507,
+      "lod": 3,
+      "zoneId": "school-gym-washrooms"
+    },
+    {
+      "id": "school-infirmary-room",
+      "word": "school infirmary",
+      "translation": "校医室",
+      "x": 180,
+      "y": 676,
+      "lod": 0,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-door",
+      "word": "infirmary door",
+      "translation": "校医室门",
+      "x": 150,
+      "y": 620,
+      "lod": 1,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-door-window",
+      "word": "infirmary door window",
+      "translation": "校医室门窗",
+      "x": 152,
+      "y": 603,
+      "lod": 3,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-door-handle",
+      "word": "infirmary door handle",
+      "translation": "校医室门把手",
+      "x": 141,
+      "y": 626,
+      "lod": 4,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-treatment-counter",
+      "word": "treatment counter",
+      "translation": "诊疗台",
+      "x": 97,
+      "y": 650,
+      "lod": 1,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-glass-cabinet",
+      "word": "glass-front cabinet",
+      "translation": "玻璃门柜",
+      "x": 267,
+      "y": 620,
+      "lod": 1,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-cabinet-shelf",
+      "word": "cabinet shelf",
+      "translation": "柜内搁板",
+      "x": 267,
+      "y": 632,
+      "lod": 3,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-waste-bin",
+      "word": "pedal bin",
+      "translation": "脚踏垃圾桶",
+      "x": 316,
+      "y": 635,
+      "lod": 2,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-privacy-screen",
+      "word": "privacy screen",
+      "translation": "隔离屏风",
+      "x": 183,
+      "y": 665,
+      "lod": 1,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-curtain",
+      "word": "privacy curtain",
+      "translation": "隔帘",
+      "x": 183,
+      "y": 663,
+      "lod": 2,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-screen-frame",
+      "word": "screen frame",
+      "translation": "屏风框架",
+      "x": 179,
+      "y": 645,
+      "lod": 3,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-exam-couch",
+      "word": "examination couch",
+      "translation": "检查床",
+      "x": 273,
+      "y": 687,
+      "lod": 0,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-couch-mattress",
+      "word": "examination mattress",
+      "translation": "检查床垫",
+      "x": 273,
+      "y": 682,
+      "lod": 2,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-headrest",
+      "word": "couch headrest",
+      "translation": "检查床头枕",
+      "x": 357,
+      "y": 683,
+      "lod": 2,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-clinical-stool",
+      "word": "clinical stool",
+      "translation": "诊疗圆凳",
+      "x": 165,
+      "y": 704,
+      "lod": 2,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-side-table",
+      "word": "bedside table",
+      "translation": "床边桌",
+      "x": 197,
+      "y": 698,
+      "lod": 2,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-supply-cabinet",
+      "word": "infirmary supply cabinet",
+      "translation": "医务室用品柜",
+      "x": 86,
+      "y": 720,
+      "lod": 1,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-infirmary-potted-plant",
+      "word": "infirmary potted plant",
+      "translation": "医务室盆栽",
+      "x": 355,
+      "y": 710,
+      "lod": 2,
+      "zoneId": "school-infirmary"
+    },
+    {
+      "id": "school-corridor-space",
+      "word": "school corridor",
+      "translation": "学校走廊",
+      "x": 680,
+      "y": 670,
+      "lod": 0,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-floor",
+      "word": "corridor floor tiles",
+      "translation": "走廊地砖",
+      "x": 700,
+      "y": 670,
+      "lod": 1,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-door",
+      "word": "corridor door",
+      "translation": "走廊门",
+      "x": 516,
+      "y": 604,
+      "lod": 1,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-door-window",
+      "word": "corridor door window",
+      "translation": "走廊门窗",
+      "x": 523,
+      "y": 587,
+      "lod": 3,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-door-handle",
+      "word": "corridor door handle",
+      "translation": "走廊门把手",
+      "x": 533,
+      "y": 609,
+      "lod": 4,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-wall-bars",
+      "word": "corridor wall ladder",
+      "translation": "走廊墙梯",
+      "x": 489,
+      "y": 607,
+      "lod": 1,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-coat-rail",
+      "word": "coat hook rail",
+      "translation": "挂衣钩条",
+      "x": 620,
+      "y": 588,
+      "lod": 2,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-drawstring-bag",
+      "word": "drawstring bag",
+      "translation": "抽绳袋",
+      "x": 596,
+      "y": 608,
+      "lod": 2,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-bench",
+      "word": "corridor bench",
+      "translation": "走廊长凳",
+      "x": 625,
+      "y": 625,
+      "lod": 1,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-bench-seat",
+      "word": "bench seat",
+      "translation": "长凳座面",
+      "x": 625,
+      "y": 620,
+      "lod": 3,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-bench-leg",
+      "word": "bench leg",
+      "translation": "长凳腿",
+      "x": 620,
+      "y": 643,
+      "lod": 4,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-noticeboard",
+      "word": "corridor noticeboard",
+      "translation": "走廊公告板",
+      "x": 694,
+      "y": 589,
+      "lod": 2,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-potted-plant",
+      "word": "corridor potted plant",
+      "translation": "走廊盆栽",
+      "x": 429,
+      "y": 614,
+      "lod": 2,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-corridor-plant-pot",
+      "word": "corridor plant pot",
+      "translation": "走廊花盆",
+      "x": 429,
+      "y": 642,
+      "lod": 3,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-locker-bank",
+      "word": "locker bank",
+      "translation": "成排储物柜",
+      "x": 640,
+      "y": 718,
+      "lod": 0,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-locker-door",
+      "word": "locker door",
+      "translation": "储物柜门",
+      "x": 600,
+      "y": 735,
+      "lod": 2,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-locker-handle",
+      "word": "locker handle",
+      "translation": "储物柜把手",
+      "x": 616,
+      "y": 716,
+      "lod": 4,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-locker-label-holder",
+      "word": "locker label holder",
+      "translation": "储物柜标签框",
+      "x": 616,
+      "y": 720,
+      "lod": 4,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-locker-area-door",
+      "word": "locker-area door",
+      "translation": "储物柜区门",
+      "x": 820,
+      "y": 740,
+      "lod": 1,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-locker-area-door-window",
+      "word": "locker-area door window",
+      "translation": "储物柜区门窗",
+      "x": 805,
+      "y": 720,
+      "lod": 3,
+      "zoneId": "school-corridor-lockers"
+    },
+    {
+      "id": "school-equipment-storeroom",
+      "word": "equipment storeroom",
+      "translation": "器材储藏室",
+      "x": 980,
+      "y": 635,
+      "lod": 0,
+      "zoneId": "school-equipment-store"
+    },
+    {
+      "id": "school-equipment-metal-shelf",
+      "word": "metal shelving unit",
+      "translation": "金属置物架",
+      "x": 935,
+      "y": 620,
+      "lod": 1,
+      "zoneId": "school-equipment-store"
+    },
+    {
+      "id": "school-equipment-shelf-upright",
+      "word": "shelf upright",
+      "translation": "货架立柱",
+      "x": 942,
+      "y": 626,
+      "lod": 3,
+      "zoneId": "school-equipment-store"
+    },
+    {
+      "id": "school-equipment-shelf-compartment",
+      "word": "shelf compartment",
+      "translation": "货架隔层",
+      "x": 968,
+      "y": 623,
+      "lod": 3,
+      "zoneId": "school-equipment-store"
+    },
+    {
+      "id": "school-equipment-gear-bag",
+      "word": "sports gear bag",
+      "translation": "运动器材包",
+      "x": 958,
+      "y": 669,
+      "lod": 2,
+      "zoneId": "school-equipment-store"
+    },
+    {
+      "id": "school-equipment-lower-shelf",
+      "word": "sports storage shelf",
+      "translation": "体育用品架",
+      "x": 945,
+      "y": 728,
+      "lod": 1,
+      "zoneId": "school-equipment-store"
+    },
+    {
+      "id": "school-equipment-plastic-bin",
+      "word": "plastic storage bin",
+      "translation": "塑料收纳箱",
+      "x": 951,
+      "y": 741,
+      "lod": 2,
+      "zoneId": "school-equipment-store"
+    },
+    {
+      "id": "school-equipment-coiled-rope",
+      "word": "coiled sports rope",
+      "translation": "盘绕运动绳",
+      "x": 994,
+      "y": 719,
+      "lod": 2,
+      "zoneId": "school-equipment-store"
+    },
+    {
+      "id": "school-equipment-plastic-hoop",
+      "word": "plastic hoop",
+      "translation": "塑料圈",
+      "x": 1035,
+      "y": 760,
+      "lod": 2,
+      "zoneId": "school-equipment-store"
+    },
+    {
+      "id": "school-equipment-floor-bucket",
+      "word": "equipment bucket",
+      "translation": "器材桶",
+      "x": 1065,
+      "y": 770,
+      "lod": 2,
+      "zoneId": "school-equipment-store"
+    },
+    {
+      "id": "school-prep-room-space",
+      "word": "preparation room",
+      "translation": "准备室",
+      "x": 1400,
+      "y": 680,
+      "lod": 0,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-door",
+      "word": "prep-room door",
+      "translation": "准备室门",
+      "x": 1225,
+      "y": 620,
+      "lod": 1,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-door-window",
+      "word": "prep-room door window",
+      "translation": "准备室门窗",
+      "x": 1234,
+      "y": 608,
+      "lod": 3,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-lidded-utility-bin",
+      "word": "lidded utility bin",
+      "translation": "带盖公用桶",
+      "x": 1278,
+      "y": 625,
+      "lod": 1,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-double-sink",
+      "word": "double sink",
+      "translation": "双槽水池",
+      "x": 1374,
+      "y": 626,
+      "lod": 0,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-left-basin",
+      "word": "left sink basin",
+      "translation": "左侧水槽",
+      "x": 1351,
+      "y": 627,
+      "lod": 2,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-right-basin",
+      "word": "right sink basin",
+      "translation": "右侧水槽",
+      "x": 1385,
+      "y": 628,
+      "lod": 2,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-faucet",
+      "word": "prep-room faucet",
+      "translation": "准备室水龙头",
+      "x": 1368,
+      "y": 603,
+      "lod": 2,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-drainboard",
+      "word": "sink drainboard",
+      "translation": "水池沥水板",
+      "x": 1402,
+      "y": 628,
+      "lod": 2,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-sink-cabinet",
+      "word": "sink cabinet",
+      "translation": "水池柜",
+      "x": 1330,
+      "y": 644,
+      "lod": 2,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-recycling-bin",
+      "word": "blue recycling bin",
+      "translation": "蓝色回收桶",
+      "x": 1540,
+      "y": 661,
+      "lod": 1,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-supply-desk",
+      "word": "supply desk",
+      "translation": "用品工作桌",
+      "x": 1175,
+      "y": 710,
+      "lod": 1,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-office-printer",
+      "word": "office printer",
+      "translation": "办公打印机",
+      "x": 1138,
+      "y": 684,
+      "lod": 2,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-wooden-stool",
+      "word": "wooden utility stool",
+      "translation": "木制工作凳",
+      "x": 1195,
+      "y": 730,
+      "lod": 2,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-storage-workbench",
+      "word": "storage workbench",
+      "translation": "储物工作台",
+      "x": 1285,
+      "y": 725,
+      "lod": 1,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-open-cubby-shelf",
+      "word": "open cubby shelf",
+      "translation": "开放格架",
+      "x": 1278,
+      "y": 734,
+      "lod": 2,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-blue-tray",
+      "word": "blue storage box",
+      "translation": "蓝色收纳盒",
+      "x": 1440,
+      "y": 675,
+      "lod": 3,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-equipment-cart",
+      "word": "rolling equipment cart",
+      "translation": "移动设备车",
+      "x": 1455,
+      "y": 713,
+      "lod": 1,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-prep-floor-tile",
+      "word": "prep-room floor tile",
+      "translation": "准备室地砖",
+      "x": 1560,
+      "y": 740,
+      "lod": 3,
+      "zoneId": "school-prep-room"
+    },
+    {
+      "id": "school-grounds-south-space",
+      "word": "south school grounds",
+      "translation": "校园南侧绿地",
+      "x": 820,
+      "y": 860,
+      "lod": 0,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-promenade",
+      "word": "school promenade",
+      "translation": "校园步行道",
+      "x": 780,
+      "y": 815,
+      "lod": 0,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-paving-slab",
+      "word": "promenade paving slab",
+      "translation": "步道铺石板",
+      "x": 770,
+      "y": 820,
+      "lod": 3,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-flower-border",
+      "word": "perimeter flower border",
+      "translation": "周边花境",
+      "x": 175,
+      "y": 812,
+      "lod": 1,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-ornamental-grass",
+      "word": "ornamental grass",
+      "translation": "观赏草",
+      "x": 18,
+      "y": 817,
+      "lod": 2,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-white-flowers",
+      "word": "white flower cluster",
+      "translation": "白色花簇",
+      "x": 110,
+      "y": 808,
+      "lod": 3,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-red-flowers",
+      "word": "rose-pink flower cluster",
+      "translation": "玫红花簇",
+      "x": 190,
+      "y": 813,
+      "lod": 3,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-blue-flowers",
+      "word": "blue flower cluster",
+      "translation": "蓝色花簇",
+      "x": 290,
+      "y": 813,
+      "lod": 3,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-boundary-hedge",
+      "word": "low boundary hedge",
+      "translation": "低矮边界绿篱",
+      "x": 310,
+      "y": 807,
+      "lod": 2,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-square-planter",
+      "word": "square tree planter",
+      "translation": "方形树池",
+      "x": 500,
+      "y": 885,
+      "lod": 1,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-planter-wall",
+      "word": "planter retaining wall",
+      "translation": "树池挡墙",
+      "x": 500,
+      "y": 900,
+      "lod": 2,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-broadleaf-tree",
+      "word": "grounds broadleaf tree",
+      "translation": "校园阔叶树",
+      "x": 446,
+      "y": 842,
+      "lod": 0,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-path-light",
+      "word": "path light",
+      "translation": "步道灯",
+      "x": 35,
+      "y": 885,
+      "lod": 1,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-lamp-head",
+      "word": "path-light head",
+      "translation": "步道灯头",
+      "x": 35,
+      "y": 865,
+      "lod": 3,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-raised-shrub-bed",
+      "word": "raised shrub bed",
+      "translation": "高架灌木花池",
+      "x": 630,
+      "y": 870,
+      "lod": 1,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-pink-shrub",
+      "word": "pink flowering shrub",
+      "translation": "粉色花灌木",
+      "x": 632,
+      "y": 835,
+      "lod": 2,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-campus-lawn",
+      "word": "campus lawn",
+      "translation": "校园草坪",
+      "x": 1500,
+      "y": 890,
+      "lod": 1,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-rectangular-planter",
+      "word": "rectangular tree planter",
+      "translation": "长方形树池",
+      "x": 1450,
+      "y": 910,
+      "lod": 1,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-central-tree",
+      "word": "central shade tree",
+      "translation": "中央遮荫树",
+      "x": 1450,
+      "y": 838,
+      "lod": 0,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-central-trunk",
+      "word": "grounds tree trunk",
+      "translation": "校园树干",
+      "x": 1450,
+      "y": 884,
+      "lod": 2,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-outer-sidewalk",
+      "word": "outer campus sidewalk",
+      "translation": "校园外侧人行道",
+      "x": 1650,
+      "y": 920,
+      "lod": 1,
+      "zoneId": "school-south-grounds"
+    },
+    {
+      "id": "school-grounds-garden-curb",
+      "word": "garden curb",
+      "translation": "花园路缘",
+      "x": 1320,
+      "y": 875,
+      "lod": 2,
+      "zoneId": "school-south-grounds"
+    }
+  ],
+  "removedAmbiguous": [
+    {
+      "candidate": "device above classroom whiteboard",
+      "reason": "the black housing could be a projector, camera, or loudspeaker and cannot be named from the pixels"
+    },
+    {
+      "candidate": "white items on teacher desk",
+      "reason": "the small shapes could be paper, a workbook, or a keyboard and do not separate reliably"
+    },
+    {
+      "candidate": "library table micro-items",
+      "reason": "cups, a lamp, and book-like shapes visually merge at the source resolution"
+    },
+    {
+      "candidate": "blue-gray office appliance",
+      "reason": "the tall unit may be a shredder, water dispenser, or equipment cabinet"
+    },
+    {
+      "candidate": "office mouse and pen cup",
+      "reason": "the workstation accessories are below reliable independent identification size"
+    },
+    {
+      "candidate": "art scissors ruler and paint tubes",
+      "reason": "the small art-table tools contain generative blending and cannot be pointed to independently"
+    },
+    {
+      "candidate": "second guitar subtype",
+      "reason": "a second stringed instrument is visible but its exact guitar category is not decisive"
+    },
+    {
+      "candidate": "keyboard percussion subtype",
+      "reason": "the barred instrument is clear but xylophone versus marimba construction is not reliable"
+    },
+    {
+      "candidate": "gym dumbbells",
+      "reason": "the dark floor objects could be dumbbells, shoes, or soft training weights"
+    },
+    {
+      "candidate": "gym bench at west edge",
+      "reason": "the proposed point intersects the room boundary and no full bench silhouette is resolved"
+    },
+    {
+      "candidate": "additional orange sports balls",
+      "reason": "several balls are visible but exact basketball or medicine-ball identity is repetitive and uncertain"
+    },
+    {
+      "candidate": "ball-cart wheel",
+      "reason": "the wheel is partly hidden by the cart mesh and adjacent balls"
+    },
+    {
+      "candidate": "washroom wall appliance",
+      "reason": "the white fixture could be a hand dryer or paper dispenser"
+    },
+    {
+      "candidate": "toilet cubicle lock",
+      "reason": "the lock hardware is too small to remain an independently visible part"
+    },
+    {
+      "candidate": "infirmary counter device",
+      "reason": "the gray countertop object has no stable diagnostic silhouette"
+    },
+    {
+      "candidate": "infirmary orange countertop item",
+      "reason": "the orange shape may be a tray, container, or integrated surface accent"
+    },
+    {
+      "candidate": "infirmary cabinet contents",
+      "reason": "the cabinet is clear but individual contents cannot be identified without medical inference"
+    },
+    {
+      "candidate": "colored upright equipment pieces",
+      "reason": "the tall colored items could be batons, juggling clubs, pumps, or rack handles"
+    },
+    {
+      "candidate": "equipment rack racket subtype",
+      "reason": "coiled ropes and racket-like loops overlap, so no exact sport-specific racket is retained"
+    },
+    {
+      "candidate": "prep-room black wall device",
+      "reason": "the dark rectangle lacks enough detail to distinguish a dispenser from a control panel"
+    },
+    {
+      "candidate": "prep-room right white appliance",
+      "reason": "the benchtop unit could be a printer, mixer, microscope, or document camera"
+    },
+    {
+      "candidate": "prep-room paper trimmer",
+      "reason": "the flat green-gray object does not show a decisive cutting arm"
+    },
+    {
+      "candidate": "specific southern garden species",
+      "reason": "flowers and shrubs are visible but species-level names are not diagnostic"
+    },
+    {
+      "candidate": "bookshelf spine lettering",
+      "reason": "no book-spine marks form reliable readable text, so pseudo-writing is excluded"
+    },
+    {
+      "candidate": "wall plaques and labels",
+      "reason": "all tiny plaque-like marks are unreadable and excluded rather than transcribed"
+    },
+    {
+      "candidate": "undercounter dishwasher",
+      "reason": "the audited point at (1278, 625) is a top-lidded utility bin, not a pixel-defensible dishwasher"
+    },
+    {
+      "candidate": "protective helmet",
+      "reason": "the shelf item at (921, 664) lacks a reliably visible helmet shell, opening, brim, or strap"
+    }
+  ]
+}

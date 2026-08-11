@@ -58,6 +58,21 @@ test("a consistent rooted scene graph is valid", () => {
   assert.doesNotThrow(() => assertValidSceneGraph([root, child]));
 });
 
+test("rejects an unknown authored semantic realm while accepting the reviewed realm vocabulary", () => {
+  const reviewed: Scene = {
+    ...child,
+    labels: [{ ...child.labels[0], semanticRealmId: "objects-technology" }],
+  };
+  assert.equal(validateSceneGraph([root, reviewed]).valid, true);
+
+  const invalid = {
+    ...child,
+    labels: [{ ...child.labels[0], semanticRealmId: "invented-realm" }],
+  } as unknown as Scene;
+  const result = validateSceneGraph([root, invalid]);
+  assert.ok(result.issues.some((issue) => issue.code === "label.invalid-semantic-realm"));
+});
+
 test("detects dangling child references", () => {
   const brokenRoot: Scene = {
     ...root,

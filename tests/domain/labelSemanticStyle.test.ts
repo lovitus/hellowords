@@ -82,6 +82,25 @@ test("unlinked labels use their audited visual-region kind instead of guessing f
   }
 });
 
+test("an authored district realm gently groups unlinked labels while a real lexeme realm wins", () => {
+  const authored = resolveLabelSemanticStyle({
+    ...label,
+    lexemeId: undefined,
+    semanticRealmId: "nature-life",
+  }, regions);
+  assert.equal(authored.semanticGroup, "nature-life");
+  assert.equal(authored.source, "authored-realm");
+  assert.equal(authored.realmId, "nature-life");
+  assert.equal(authored.visualRegionKind, undefined);
+
+  const lexemeWins = resolveLabelSemanticStyle({
+    ...label,
+    semanticRealmId: "nature-life",
+  }, regions, new Map([[label.lexemeId!, "objects-technology"]]));
+  assert.equal(lexemeWins.semanticGroup, "objects-technology");
+  assert.equal(lexemeWins.source, "realm");
+});
+
 test("semantic overview nodes consume the same realm palette through a pure contract", () => {
   const node = semanticNodeVisual("topic", "objects-technology", 2);
   const palette = LABEL_SEMANTIC_PALETTES[2];

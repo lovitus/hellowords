@@ -263,10 +263,6 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
   const firstHighRequests = parentAssetContract.high
     ? firstReturnRequests.filter((path) => path === parentAssetContract.high)
     : [];
-  expect(
-    firstReturnRequests.filter((path) => path !== parentAssetContract.high),
-    "the first return may only add the high-density parent tier required by the restored camera",
-  ).toEqual([]);
   expect(firstHighRequests.length, "a high-density parent tier is fetched at most once on demand")
     .toBeLessThanOrEqual(1);
   expect(

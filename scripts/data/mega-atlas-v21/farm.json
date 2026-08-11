@@ -1,0 +1,2663 @@
+{
+  "panelId": "farm-food-production",
+  "source": {
+    "path": "scripts/assets/mega-atlas-v21/05-farm-food-production-v1.png",
+    "width": 1672,
+    "height": 941,
+    "sha256": "9da4fa76b2c841aec11abfc95d4175126cce2764d7b458f52e968c04f36fc5f3",
+    "review": "original-resolution pixel audit with ten non-overlapping farm production crops"
+  },
+  "counts": {
+    "zones": 10,
+    "anchors": 240,
+    "removedAmbiguous": 28
+  },
+  "zones": [
+    {
+      "id": "farm-north-fields",
+      "title": "Northern fields and orchard",
+      "translation": "北部农田与果园",
+      "description": "Inspect the corn, grain, pumpkins, market beds, orchard trees, paths, and field boundaries.",
+      "x": 0,
+      "y": 0,
+      "width": 800,
+      "height": 300,
+      "targetScale": 3.4,
+      "labelIds": [
+        "farm-fields-cornfield",
+        "farm-fields-corn-stalk",
+        "farm-fields-corn-tassel",
+        "farm-fields-corn-leaf",
+        "farm-fields-grain-field",
+        "farm-fields-grain-head",
+        "farm-fields-farm-lane",
+        "farm-fields-hedgerow",
+        "farm-fields-wooden-field-gate",
+        "farm-fields-rail-fence",
+        "farm-fields-pumpkin-patch",
+        "farm-fields-orange-pumpkin",
+        "farm-fields-pale-pumpkin",
+        "farm-fields-pumpkin-leaf",
+        "farm-fields-pumpkin-vine",
+        "farm-fields-cabbage-row",
+        "farm-fields-cabbage-head",
+        "farm-fields-red-leaf-row",
+        "farm-fields-root-crop-row",
+        "farm-fields-white-bulb-row",
+        "farm-fields-salad-crop-row",
+        "farm-fields-orange-root-row",
+        "farm-fields-soil-furrow",
+        "farm-fields-apple-tree",
+        "farm-fields-red-apple",
+        "farm-fields-citrus-tree",
+        "farm-fields-yellow-citrus-fruit",
+        "farm-fields-orchard-canopy",
+        "farm-fields-market-garden-bed"
+      ]
+    },
+    {
+      "id": "farm-dairy-greenhouse-north",
+      "title": "Dairy barn and northern greenhouse",
+      "translation": "奶牛棚与北部温室",
+      "description": "Inspect the open dairy barn, cattle stalls, hay storage, milk equipment, silo, and greenhouse roof.",
+      "x": 800,
+      "y": 0,
+      "width": 872,
+      "height": 300,
+      "targetScale": 3.5,
+      "labelIds": [
+        "farm-dairy-greenhouse-roof",
+        "farm-dairy-glass-roof-pane",
+        "farm-dairy-greenhouse-frame",
+        "farm-dairy-greenhouse-ridge-beam",
+        "farm-dairy-greenhouse-shade-cloth",
+        "farm-dairy-roof-gutter",
+        "farm-dairy-greenhouse-growing-bench",
+        "farm-dairy-barn",
+        "farm-dairy-tiled-barn-roof",
+        "farm-dairy-timber-truss",
+        "farm-dairy-barn-rafter",
+        "farm-dairy-barn-post",
+        "farm-dairy-cattle-stall",
+        "farm-dairy-metal-stall-gate",
+        "farm-dairy-black-and-white-cow",
+        "farm-dairy-brown-and-white-cow",
+        "farm-dairy-straw-bedding",
+        "farm-dairy-hay-bale",
+        "farm-dairy-hay-stack",
+        "farm-dairy-resting-sheep",
+        "farm-dairy-livestock-water-tub",
+        "farm-dairy-milking-machine",
+        "farm-dairy-blue-dairy-hose",
+        "farm-dairy-milk-cooling-tank",
+        "farm-dairy-milk-storage-vessel",
+        "farm-dairy-pipeline",
+        "farm-dairy-grain-silo",
+        "farm-dairy-silo-roof",
+        "farm-dairy-corrugated-silo-wall",
+        "farm-dairy-grain-auger",
+        "farm-dairy-terracotta-roof-tile"
+      ]
+    },
+    {
+      "id": "farm-west-beds-machinery",
+      "title": "Western beds, machinery, and apiary",
+      "translation": "西侧种植床、农机与蜂场",
+      "description": "Inspect the trellised beds, crop rows, seed drill, cultivators, beehives, flower strip, and produce shed.",
+      "x": 0,
+      "y": 300,
+      "width": 650,
+      "height": 320,
+      "targetScale": 3.6,
+      "labelIds": [
+        "farm-west-orchard-fruit-tree",
+        "farm-west-orange-fruit",
+        "farm-west-trellised-vegetable-bed",
+        "farm-west-wooden-trellis-post",
+        "farm-west-plant-support-string",
+        "farm-west-climbing-vine",
+        "farm-west-red-tomato",
+        "farm-west-green-tomato",
+        "farm-west-leafy-crop-row",
+        "farm-west-planting-ridge",
+        "farm-west-red-flower-border",
+        "farm-west-garden-blossom",
+        "farm-west-blue-seed-drill",
+        "farm-west-seed-hopper",
+        "farm-west-drill-wheel",
+        "farm-west-drill-tine",
+        "farm-west-red-cultivator",
+        "farm-west-cultivator-frame",
+        "farm-west-curved-plow-shank",
+        "farm-west-rotary-farm-implement",
+        "farm-west-implement-tire",
+        "farm-west-white-beehive",
+        "farm-west-yellow-beehive",
+        "farm-west-hive-roof",
+        "farm-west-hive-entrance",
+        "farm-west-pollinator-flower-strip",
+        "farm-west-produce-shed",
+        "farm-west-green-shed-roof",
+        "farm-west-shed-storage-shelf",
+        "farm-west-wooden-harvest-crate"
+      ]
+    },
+    {
+      "id": "farm-central-yard",
+      "title": "Central tractor and working yard",
+      "translation": "中央拖拉机与作业场",
+      "description": "Inspect the tractor, trailers, wheelbarrow, hand tools, irrigation equipment, pallets, and nursery workbench.",
+      "x": 650,
+      "y": 300,
+      "width": 550,
+      "height": 320,
+      "targetScale": 3.8,
+      "labelIds": [
+        "farm-yard-grain-trailer",
+        "farm-yard-trailer-grain-load",
+        "farm-yard-trailer-wheel",
+        "farm-yard-farm-tractor",
+        "farm-yard-tractor-cab",
+        "farm-yard-tractor-hood",
+        "farm-yard-tractor-front-tire",
+        "farm-yard-tractor-rear-tire",
+        "farm-yard-tractor-exhaust-stack",
+        "farm-yard-utility-trailer",
+        "farm-yard-utility-trailer-bed",
+        "farm-yard-trailer-tailgate",
+        "farm-yard-trailer-drawbar",
+        "farm-yard-wheelbarrow",
+        "farm-yard-wheelbarrow-tray",
+        "farm-yard-wheelbarrow-wheel",
+        "farm-yard-pointed-spade",
+        "farm-yard-square-shovel",
+        "farm-yard-garden-fork",
+        "farm-yard-garden-rake",
+        "farm-yard-garden-hoe",
+        "farm-yard-hose-reel",
+        "farm-yard-coiled-garden-hose",
+        "farm-yard-farm-water-tank",
+        "farm-yard-water-tank-lid",
+        "farm-yard-tank-outlet-pipe",
+        "farm-yard-blue-pressure-vessel",
+        "farm-yard-irrigation-manifold",
+        "farm-yard-wooden-pallet",
+        "farm-yard-cardboard-cartons",
+        "farm-yard-nursery-workbench",
+        "farm-yard-seedling-tray",
+        "farm-yard-black-plant-pot",
+        "farm-yard-metal-bucket"
+      ]
+    },
+    {
+      "id": "farm-east-animal-pens",
+      "title": "Eastern livestock and poultry pens",
+      "translation": "东侧牲畜与家禽围栏",
+      "description": "Inspect the greenhouse edge, livestock paddock, sheep, goats, poultry run, coop, feeders, and fences.",
+      "x": 1200,
+      "y": 300,
+      "width": 472,
+      "height": 320,
+      "targetScale": 3.8,
+      "labelIds": [
+        "farm-pens-greenhouse-sidewall",
+        "farm-pens-greenhouse-doorway",
+        "farm-pens-planter-box",
+        "farm-pens-yellow-greenhouse-flowers",
+        "farm-pens-livestock-paddock",
+        "farm-pens-wooden-paddock-fence",
+        "farm-pens-paddock-gate",
+        "farm-pens-fence-post",
+        "farm-pens-grazing-sheep",
+        "farm-pens-woolly-fleece",
+        "farm-pens-white-goat",
+        "farm-pens-brown-goat",
+        "farm-pens-animal-shelter",
+        "farm-pens-shelter-hay",
+        "farm-pens-livestock-pail",
+        "farm-pens-poultry-run",
+        "farm-pens-wire-mesh-fence",
+        "farm-pens-chicken-coop",
+        "farm-pens-coop-roof",
+        "farm-pens-coop-doorway",
+        "farm-pens-nesting-compartment",
+        "farm-pens-brown-chicken",
+        "farm-pens-farmyard-rooster",
+        "farm-pens-white-poultry-bird",
+        "farm-pens-poultry-feeder"
+      ]
+    },
+    {
+      "id": "farm-pond-pollinator",
+      "title": "Farm pond and pollinator garden",
+      "translation": "农场池塘与授粉花园",
+      "description": "Inspect the pond, stone edge, aquatic plants, duck, jetty, footbridge, flowers, and fruiting tree.",
+      "x": 0,
+      "y": 620,
+      "width": 500,
+      "height": 321,
+      "targetScale": 3.7,
+      "labelIds": [
+        "farm-pond-pollinator-garden",
+        "farm-pond-purple-wildflowers",
+        "farm-pond-white-flowers",
+        "farm-pond-red-flowers",
+        "farm-pond-flowering-shrub",
+        "farm-pond-stone-border",
+        "farm-pond-farm-pond",
+        "farm-pond-lily-pad",
+        "farm-pond-cattail-plant",
+        "farm-pond-cattail-seed-head",
+        "farm-pond-reed-bed",
+        "farm-pond-swimming-duck",
+        "farm-pond-wooden-jetty",
+        "farm-pond-jetty-plank",
+        "farm-pond-jetty-support",
+        "farm-pond-arched-footbridge",
+        "farm-pond-bridge-handrail",
+        "farm-pond-pond-stone",
+        "farm-pond-yellow-flower-cluster",
+        "farm-pond-orange-tree",
+        "farm-pond-ripe-orange"
+      ]
+    },
+    {
+      "id": "farm-nursery-propagation",
+      "title": "Nursery and propagation benches",
+      "translation": "育苗区与繁殖工作台",
+      "description": "Inspect the propagation benches, seedling trays, pots, soil bags, small greenhouse, pails, hose, and path.",
+      "x": 500,
+      "y": 620,
+      "width": 450,
+      "height": 180,
+      "targetScale": 4,
+      "labelIds": [
+        "farm-nursery-propagation-bench",
+        "farm-nursery-wooden-bench-leg",
+        "farm-nursery-seedling-flat",
+        "farm-nursery-divided-seed-tray",
+        "farm-nursery-leafy-seedlings",
+        "farm-nursery-potted-seedling",
+        "farm-nursery-small-plant-pot",
+        "farm-nursery-potting-soil-bag",
+        "farm-nursery-stacked-soil-bags",
+        "farm-nursery-mini-greenhouse",
+        "farm-nursery-mini-greenhouse-roof",
+        "farm-nursery-mini-greenhouse-frame",
+        "farm-nursery-mini-greenhouse-door",
+        "farm-nursery-green-garden-bucket",
+        "farm-nursery-coiled-irrigation-hose",
+        "farm-nursery-metal-pail",
+        "farm-nursery-potting-mix-surface",
+        "farm-nursery-walkway",
+        "farm-nursery-flower-border"
+      ]
+    },
+    {
+      "id": "farm-compost-soil",
+      "title": "Compost and soil handling yard",
+      "translation": "堆肥与土壤处理区",
+      "description": "Inspect the compost bins, organic piles, wooden box, cart, pitchfork, tumbler, wheel, and stone wall.",
+      "x": 500,
+      "y": 800,
+      "width": 700,
+      "height": 141,
+      "targetScale": 4,
+      "labelIds": [
+        "farm-compost-composting-yard",
+        "farm-compost-wooden-compost-bin",
+        "farm-compost-rich-compost-pile",
+        "farm-compost-garden-clipping-pile",
+        "farm-compost-dry-leaf-pile",
+        "farm-compost-twig-pile",
+        "farm-compost-timber-bin-wall",
+        "farm-compost-wooden-bin-divider",
+        "farm-compost-wire-compost-enclosure",
+        "farm-compost-empty-wooden-box",
+        "farm-compost-compost-cart",
+        "farm-compost-compost-pitchfork",
+        "farm-compost-fork-tines",
+        "farm-compost-compost-tumbler",
+        "farm-compost-tumbler-wheel",
+        "farm-compost-stone-retaining-wall"
+      ]
+    },
+    {
+      "id": "farm-wash-pack",
+      "title": "Produce washing and packing equipment",
+      "translation": "农产品清洗与包装设备",
+      "description": "Inspect the stainless wash equipment, hoses, vessels, support frames, controls, stairs, cartons, and bin.",
+      "x": 950,
+      "y": 620,
+      "width": 400,
+      "height": 180,
+      "targetScale": 4,
+      "labelIds": [
+        "farm-wash-produce-wash-room",
+        "farm-wash-stainless-wash-basin",
+        "farm-wash-drainboard",
+        "farm-wash-metal-worktable",
+        "farm-wash-blue-water-hose",
+        "farm-wash-green-rinse-hose",
+        "farm-wash-upright-water-cylinder",
+        "farm-wash-cylinder-pipe",
+        "farm-wash-horizontal-rinse-vessel",
+        "farm-wash-vessel-housing",
+        "farm-wash-stainless-rinse-tank",
+        "farm-wash-rinse-tank-lid",
+        "farm-wash-tank-support-frame",
+        "farm-wash-outlet-pipe",
+        "farm-wash-equipment-control-box",
+        "farm-wash-concrete-steps",
+        "farm-wash-stacked-packing-cartons",
+        "farm-wash-square-collection-bin"
+      ]
+    },
+    {
+      "id": "farm-produce-storage",
+      "title": "Produce storage and sorting bay",
+      "translation": "农产品储存与分拣区",
+      "description": "Inspect the storage racks, vegetable crates, barrels, sorting table, sink, masonry bay, and garden edge.",
+      "x": 1200,
+      "y": 800,
+      "width": 472,
+      "height": 141,
+      "targetScale": 4,
+      "labelIds": [
+        "farm-produce-packing-area",
+        "farm-produce-storage-rack",
+        "farm-produce-carrot-crate",
+        "farm-produce-loose-carrots",
+        "farm-produce-green-vegetable-crate",
+        "farm-produce-tomato-crate",
+        "farm-produce-packed-tomatoes",
+        "farm-produce-sorting-table",
+        "farm-produce-steel-tabletop",
+        "farm-produce-packing-sink",
+        "farm-produce-blue-plastic-barrel",
+        "farm-produce-brown-storage-barrel",
+        "farm-produce-bucket-with-handle",
+        "farm-produce-cabbage-crate",
+        "farm-produce-green-cabbage",
+        "farm-produce-masonry-bay-wall",
+        "farm-produce-garden-border"
+      ]
+    }
+  ],
+  "anchors": [
+    {
+      "id": "farm-fields-cornfield",
+      "word": "cornfield",
+      "translation": "玉米田",
+      "x": 200,
+      "y": 100,
+      "lod": 0,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-corn-stalk",
+      "word": "corn stalk",
+      "translation": "玉米秆",
+      "x": 265,
+      "y": 120,
+      "lod": 2,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-corn-tassel",
+      "word": "corn tassel",
+      "translation": "玉米雄穗",
+      "x": 270,
+      "y": 78,
+      "lod": 3,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-corn-leaf",
+      "word": "corn leaf",
+      "translation": "玉米叶",
+      "x": 245,
+      "y": 145,
+      "lod": 3,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-grain-field",
+      "word": "grain field",
+      "translation": "谷物田",
+      "x": 430,
+      "y": 70,
+      "lod": 0,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-grain-head",
+      "word": "grain head",
+      "translation": "谷穗",
+      "x": 500,
+      "y": 45,
+      "lod": 3,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-farm-lane",
+      "word": "farm lane",
+      "translation": "农场小路",
+      "x": 600,
+      "y": 65,
+      "lod": 0,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-hedgerow",
+      "word": "hedgerow",
+      "translation": "田间绿篱",
+      "x": 700,
+      "y": 75,
+      "lod": 1,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-wooden-field-gate",
+      "word": "wooden field gate",
+      "translation": "木制田门",
+      "x": 745,
+      "y": 40,
+      "lod": 1,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-rail-fence",
+      "word": "rail fence",
+      "translation": "横木围栏",
+      "x": 760,
+      "y": 35,
+      "lod": 1,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-pumpkin-patch",
+      "word": "pumpkin patch",
+      "translation": "南瓜地",
+      "x": 650,
+      "y": 135,
+      "lod": 0,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-orange-pumpkin",
+      "word": "orange pumpkin",
+      "translation": "橙色南瓜",
+      "x": 650,
+      "y": 146,
+      "lod": 2,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-pale-pumpkin",
+      "word": "pale pumpkin",
+      "translation": "浅色南瓜",
+      "x": 578,
+      "y": 142,
+      "lod": 2,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-pumpkin-leaf",
+      "word": "pumpkin leaf",
+      "translation": "南瓜叶",
+      "x": 683,
+      "y": 118,
+      "lod": 3,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-pumpkin-vine",
+      "word": "pumpkin vine",
+      "translation": "南瓜藤",
+      "x": 622,
+      "y": 114,
+      "lod": 3,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-cabbage-row",
+      "word": "cabbage row",
+      "translation": "卷心菜垄",
+      "x": 408,
+      "y": 225,
+      "lod": 1,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-cabbage-head",
+      "word": "cabbage head",
+      "translation": "卷心菜球",
+      "x": 420,
+      "y": 212,
+      "lod": 2,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-red-leaf-row",
+      "word": "red leaf row",
+      "translation": "红叶菜垄",
+      "x": 458,
+      "y": 236,
+      "lod": 1,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-root-crop-row",
+      "word": "root crop row",
+      "translation": "根茎作物垄",
+      "x": 500,
+      "y": 218,
+      "lod": 1,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-white-bulb-row",
+      "word": "white bulb row",
+      "translation": "白色球茎作物垄",
+      "x": 566,
+      "y": 228,
+      "lod": 2,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-salad-crop-row",
+      "word": "salad crop row",
+      "translation": "沙拉菜垄",
+      "x": 548,
+      "y": 270,
+      "lod": 1,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-orange-root-row",
+      "word": "orange root row",
+      "translation": "橙色根菜垄",
+      "x": 605,
+      "y": 256,
+      "lod": 1,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-soil-furrow",
+      "word": "soil furrow",
+      "translation": "土壤沟垄",
+      "x": 435,
+      "y": 282,
+      "lod": 2,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-apple-tree",
+      "word": "apple tree",
+      "translation": "苹果树",
+      "x": 75,
+      "y": 170,
+      "lod": 0,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-red-apple",
+      "word": "red apple",
+      "translation": "红苹果",
+      "x": 78,
+      "y": 165,
+      "lod": 3,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-citrus-tree",
+      "word": "citrus tree",
+      "translation": "柑橘树",
+      "x": 200,
+      "y": 230,
+      "lod": 0,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-yellow-citrus-fruit",
+      "word": "yellow citrus fruit",
+      "translation": "黄色柑橘果",
+      "x": 218,
+      "y": 228,
+      "lod": 3,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-orchard-canopy",
+      "word": "orchard canopy",
+      "translation": "果园树冠",
+      "x": 150,
+      "y": 195,
+      "lod": 1,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-fields-market-garden-bed",
+      "word": "market garden bed",
+      "translation": "商品菜园种植床",
+      "x": 560,
+      "y": 260,
+      "lod": 0,
+      "zoneId": "farm-north-fields"
+    },
+    {
+      "id": "farm-dairy-greenhouse-roof",
+      "word": "greenhouse roof",
+      "translation": "温室屋顶",
+      "x": 900,
+      "y": 185,
+      "lod": 0,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-glass-roof-pane",
+      "word": "glass roof pane",
+      "translation": "玻璃屋面板",
+      "x": 875,
+      "y": 170,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-greenhouse-frame",
+      "word": "greenhouse frame",
+      "translation": "温室框架",
+      "x": 1065,
+      "y": 230,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-greenhouse-ridge-beam",
+      "word": "greenhouse ridge beam",
+      "translation": "温室屋脊梁",
+      "x": 930,
+      "y": 150,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-greenhouse-shade-cloth",
+      "word": "greenhouse shade cloth",
+      "translation": "温室遮阳布",
+      "x": 1010,
+      "y": 210,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-roof-gutter",
+      "word": "greenhouse roof gutter",
+      "translation": "温室屋檐水槽",
+      "x": 850,
+      "y": 260,
+      "lod": 3,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-greenhouse-growing-bench",
+      "word": "greenhouse growing bench",
+      "translation": "温室种植台",
+      "x": 1040,
+      "y": 285,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-barn",
+      "word": "dairy barn",
+      "translation": "奶牛棚",
+      "x": 1310,
+      "y": 95,
+      "lod": 0,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-tiled-barn-roof",
+      "word": "tiled barn roof",
+      "translation": "瓦片牛棚屋顶",
+      "x": 1310,
+      "y": 30,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-timber-truss",
+      "word": "timber truss",
+      "translation": "木屋架",
+      "x": 1160,
+      "y": 50,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-barn-rafter",
+      "word": "barn rafter",
+      "translation": "牛棚椽条",
+      "x": 1450,
+      "y": 65,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-barn-post",
+      "word": "barn post",
+      "translation": "牛棚立柱",
+      "x": 1120,
+      "y": 125,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-cattle-stall",
+      "word": "cattle stall",
+      "translation": "牛栏位",
+      "x": 1200,
+      "y": 115,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-metal-stall-gate",
+      "word": "metal stall gate",
+      "translation": "金属牛栏门",
+      "x": 1160,
+      "y": 130,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-black-and-white-cow",
+      "word": "black-and-white cow",
+      "translation": "黑白花奶牛",
+      "x": 1230,
+      "y": 100,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-brown-and-white-cow",
+      "word": "brown-and-white cow",
+      "translation": "棕白花奶牛",
+      "x": 1325,
+      "y": 135,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-straw-bedding",
+      "word": "straw bedding",
+      "translation": "稻草垫料",
+      "x": 1260,
+      "y": 150,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-hay-bale",
+      "word": "hay bale",
+      "translation": "干草捆",
+      "x": 1100,
+      "y": 55,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-hay-stack",
+      "word": "hay stack",
+      "translation": "干草堆",
+      "x": 1435,
+      "y": 132,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-resting-sheep",
+      "word": "resting sheep",
+      "translation": "卧着的绵羊",
+      "x": 1040,
+      "y": 165,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-livestock-water-tub",
+      "word": "livestock water tub",
+      "translation": "牲畜饮水盆",
+      "x": 990,
+      "y": 130,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-milking-machine",
+      "word": "milking machine",
+      "translation": "挤奶机",
+      "x": 1160,
+      "y": 195,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-blue-dairy-hose",
+      "word": "blue dairy hose",
+      "translation": "蓝色乳品软管",
+      "x": 1200,
+      "y": 265,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-milk-cooling-tank",
+      "word": "milk cooling tank",
+      "translation": "牛奶冷却罐",
+      "x": 1290,
+      "y": 245,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-milk-storage-vessel",
+      "word": "milk storage vessel",
+      "translation": "牛奶储存容器",
+      "x": 1350,
+      "y": 230,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-pipeline",
+      "word": "dairy pipeline",
+      "translation": "乳品输送管",
+      "x": 1390,
+      "y": 225,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-grain-silo",
+      "word": "grain silo",
+      "translation": "谷物筒仓",
+      "x": 1640,
+      "y": 80,
+      "lod": 0,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-silo-roof",
+      "word": "silo roof",
+      "translation": "筒仓顶盖",
+      "x": 1640,
+      "y": 28,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-corrugated-silo-wall",
+      "word": "corrugated silo wall",
+      "translation": "波纹筒仓壁",
+      "x": 1640,
+      "y": 110,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-grain-auger",
+      "word": "grain auger",
+      "translation": "谷物螺旋输送器",
+      "x": 1550,
+      "y": 245,
+      "lod": 1,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-dairy-terracotta-roof-tile",
+      "word": "terracotta roof tile",
+      "translation": "赤陶屋面瓦",
+      "x": 1390,
+      "y": 70,
+      "lod": 2,
+      "zoneId": "farm-dairy-greenhouse-north"
+    },
+    {
+      "id": "farm-west-orchard-fruit-tree",
+      "word": "orchard fruit tree",
+      "translation": "果园果树",
+      "x": 80,
+      "y": 360,
+      "lod": 0,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-orange-fruit",
+      "word": "orange fruit",
+      "translation": "橙色果实",
+      "x": 82,
+      "y": 380,
+      "lod": 3,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-trellised-vegetable-bed",
+      "word": "trellised vegetable bed",
+      "translation": "搭架蔬菜床",
+      "x": 235,
+      "y": 405,
+      "lod": 0,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-wooden-trellis-post",
+      "word": "wooden trellis post",
+      "translation": "木制棚架柱",
+      "x": 190,
+      "y": 410,
+      "lod": 2,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-plant-support-string",
+      "word": "plant support string",
+      "translation": "植株支撑绳",
+      "x": 228,
+      "y": 385,
+      "lod": 3,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-climbing-vine",
+      "word": "climbing vine",
+      "translation": "攀缘藤蔓",
+      "x": 250,
+      "y": 425,
+      "lod": 2,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-red-tomato",
+      "word": "red tomato",
+      "translation": "红番茄",
+      "x": 244,
+      "y": 388,
+      "lod": 3,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-green-tomato",
+      "word": "green tomato",
+      "translation": "青番茄",
+      "x": 220,
+      "y": 410,
+      "lod": 3,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-leafy-crop-row",
+      "word": "leafy crop row",
+      "translation": "叶菜作物垄",
+      "x": 350,
+      "y": 420,
+      "lod": 1,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-planting-ridge",
+      "word": "planting ridge",
+      "translation": "种植土垄",
+      "x": 405,
+      "y": 430,
+      "lod": 2,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-red-flower-border",
+      "word": "red flower border",
+      "translation": "红花边带",
+      "x": 438,
+      "y": 453,
+      "lod": 1,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-garden-blossom",
+      "word": "garden blossom",
+      "translation": "园中花朵",
+      "x": 430,
+      "y": 468,
+      "lod": 3,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-blue-seed-drill",
+      "word": "blue seed drill",
+      "translation": "蓝色播种机",
+      "x": 535,
+      "y": 460,
+      "lod": 0,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-seed-hopper",
+      "word": "seed hopper",
+      "translation": "种子料斗",
+      "x": 535,
+      "y": 442,
+      "lod": 2,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-drill-wheel",
+      "word": "drill wheel",
+      "translation": "播种机轮",
+      "x": 575,
+      "y": 485,
+      "lod": 2,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-drill-tine",
+      "word": "drill tine",
+      "translation": "播种机齿",
+      "x": 500,
+      "y": 490,
+      "lod": 3,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-red-cultivator",
+      "word": "red cultivator",
+      "translation": "红色中耕机",
+      "x": 610,
+      "y": 390,
+      "lod": 0,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-cultivator-frame",
+      "word": "cultivator frame",
+      "translation": "中耕机机架",
+      "x": 610,
+      "y": 380,
+      "lod": 2,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-curved-plow-shank",
+      "word": "curved plow shank",
+      "translation": "弯曲犁柱",
+      "x": 620,
+      "y": 420,
+      "lod": 3,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-rotary-farm-implement",
+      "word": "rotary farm implement",
+      "translation": "旋转式农具",
+      "x": 610,
+      "y": 530,
+      "lod": 0,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-implement-tire",
+      "word": "implement tire",
+      "translation": "农具轮胎",
+      "x": 610,
+      "y": 550,
+      "lod": 2,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-white-beehive",
+      "word": "white beehive",
+      "translation": "白色蜂箱",
+      "x": 75,
+      "y": 550,
+      "lod": 1,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-yellow-beehive",
+      "word": "yellow beehive",
+      "translation": "黄色蜂箱",
+      "x": 175,
+      "y": 590,
+      "lod": 1,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-hive-roof",
+      "word": "hive roof",
+      "translation": "蜂箱顶盖",
+      "x": 70,
+      "y": 535,
+      "lod": 2,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-hive-entrance",
+      "word": "hive entrance",
+      "translation": "蜂箱入口",
+      "x": 105,
+      "y": 580,
+      "lod": 3,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-pollinator-flower-strip",
+      "word": "pollinator flower strip",
+      "translation": "授粉花带",
+      "x": 35,
+      "y": 590,
+      "lod": 0,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-produce-shed",
+      "word": "produce shed",
+      "translation": "农产品棚屋",
+      "x": 420,
+      "y": 560,
+      "lod": 0,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-green-shed-roof",
+      "word": "green shed roof",
+      "translation": "绿色棚屋屋顶",
+      "x": 420,
+      "y": 525,
+      "lod": 1,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-shed-storage-shelf",
+      "word": "shed storage shelf",
+      "translation": "棚屋储物架",
+      "x": 410,
+      "y": 585,
+      "lod": 2,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-west-wooden-harvest-crate",
+      "word": "wooden harvest crate",
+      "translation": "木制收获箱",
+      "x": 470,
+      "y": 580,
+      "lod": 2,
+      "zoneId": "farm-west-beds-machinery"
+    },
+    {
+      "id": "farm-yard-grain-trailer",
+      "word": "grain trailer",
+      "translation": "谷物拖车",
+      "x": 850,
+      "y": 330,
+      "lod": 0,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-trailer-grain-load",
+      "word": "trailer grain load",
+      "translation": "拖车谷物载荷",
+      "x": 850,
+      "y": 315,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-trailer-wheel",
+      "word": "trailer wheel",
+      "translation": "拖车轮",
+      "x": 860,
+      "y": 368,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-farm-tractor",
+      "word": "farm tractor",
+      "translation": "农用拖拉机",
+      "x": 750,
+      "y": 410,
+      "lod": 0,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-tractor-cab",
+      "word": "tractor cab",
+      "translation": "拖拉机驾驶室",
+      "x": 750,
+      "y": 365,
+      "lod": 1,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-tractor-hood",
+      "word": "tractor hood",
+      "translation": "拖拉机机罩",
+      "x": 710,
+      "y": 415,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-tractor-front-tire",
+      "word": "tractor front tire",
+      "translation": "拖拉机前轮胎",
+      "x": 705,
+      "y": 445,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-tractor-rear-tire",
+      "word": "tractor rear tire",
+      "translation": "拖拉机后轮胎",
+      "x": 800,
+      "y": 420,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-tractor-exhaust-stack",
+      "word": "tractor exhaust stack",
+      "translation": "拖拉机排气管",
+      "x": 690,
+      "y": 385,
+      "lod": 3,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-utility-trailer",
+      "word": "utility trailer",
+      "translation": "通用拖车",
+      "x": 920,
+      "y": 440,
+      "lod": 0,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-utility-trailer-bed",
+      "word": "utility trailer bed",
+      "translation": "通用拖车车斗",
+      "x": 920,
+      "y": 420,
+      "lod": 1,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-trailer-tailgate",
+      "word": "trailer tailgate",
+      "translation": "拖车尾门",
+      "x": 940,
+      "y": 455,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-trailer-drawbar",
+      "word": "trailer drawbar",
+      "translation": "拖车牵引杆",
+      "x": 965,
+      "y": 495,
+      "lod": 3,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-wheelbarrow",
+      "word": "wheelbarrow",
+      "translation": "独轮手推车",
+      "x": 825,
+      "y": 485,
+      "lod": 0,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-wheelbarrow-tray",
+      "word": "wheelbarrow tray",
+      "translation": "独轮车车斗",
+      "x": 820,
+      "y": 477,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-wheelbarrow-wheel",
+      "word": "wheelbarrow wheel",
+      "translation": "独轮车车轮",
+      "x": 865,
+      "y": 507,
+      "lod": 3,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-pointed-spade",
+      "word": "pointed spade",
+      "translation": "尖头铲",
+      "x": 750,
+      "y": 525,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-square-shovel",
+      "word": "square shovel",
+      "translation": "方头铲",
+      "x": 740,
+      "y": 530,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-garden-fork",
+      "word": "garden fork",
+      "translation": "园艺叉",
+      "x": 780,
+      "y": 548,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-garden-rake",
+      "word": "garden rake",
+      "translation": "园艺耙",
+      "x": 880,
+      "y": 530,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-garden-hoe",
+      "word": "garden hoe",
+      "translation": "园艺锄",
+      "x": 910,
+      "y": 520,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-hose-reel",
+      "word": "hose reel",
+      "translation": "软管卷盘",
+      "x": 1025,
+      "y": 470,
+      "lod": 1,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-coiled-garden-hose",
+      "word": "coiled garden hose",
+      "translation": "盘绕园艺软管",
+      "x": 1018,
+      "y": 470,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-farm-water-tank",
+      "word": "farm water tank",
+      "translation": "农场水罐",
+      "x": 1070,
+      "y": 380,
+      "lod": 0,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-water-tank-lid",
+      "word": "water tank lid",
+      "translation": "水罐盖",
+      "x": 1080,
+      "y": 350,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-tank-outlet-pipe",
+      "word": "tank outlet pipe",
+      "translation": "水罐出水管",
+      "x": 1040,
+      "y": 425,
+      "lod": 3,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-blue-pressure-vessel",
+      "word": "blue pressure vessel",
+      "translation": "蓝色压力容器",
+      "x": 1145,
+      "y": 410,
+      "lod": 1,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-irrigation-manifold",
+      "word": "irrigation manifold",
+      "translation": "灌溉分水器",
+      "x": 1120,
+      "y": 450,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-wooden-pallet",
+      "word": "wooden pallet",
+      "translation": "木托盘",
+      "x": 1080,
+      "y": 550,
+      "lod": 1,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-cardboard-cartons",
+      "word": "cardboard cartons",
+      "translation": "纸板箱",
+      "x": 1090,
+      "y": 515,
+      "lod": 1,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-nursery-workbench",
+      "word": "nursery workbench",
+      "translation": "育苗工作台",
+      "x": 800,
+      "y": 580,
+      "lod": 0,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-seedling-tray",
+      "word": "seedling tray",
+      "translation": "育苗盘",
+      "x": 770,
+      "y": 580,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-black-plant-pot",
+      "word": "black plant pot",
+      "translation": "黑色花盆",
+      "x": 680,
+      "y": 545,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-yard-metal-bucket",
+      "word": "metal bucket",
+      "translation": "金属桶",
+      "x": 970,
+      "y": 560,
+      "lod": 2,
+      "zoneId": "farm-central-yard"
+    },
+    {
+      "id": "farm-pens-greenhouse-sidewall",
+      "word": "greenhouse sidewall",
+      "translation": "温室侧墙",
+      "x": 1235,
+      "y": 370,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-greenhouse-doorway",
+      "word": "greenhouse doorway",
+      "translation": "温室门口",
+      "x": 1260,
+      "y": 420,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-planter-box",
+      "word": "planter box",
+      "translation": "种植箱",
+      "x": 1270,
+      "y": 425,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-yellow-greenhouse-flowers",
+      "word": "yellow greenhouse flowers",
+      "translation": "温室旁黄色花朵",
+      "x": 1265,
+      "y": 410,
+      "lod": 3,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-livestock-paddock",
+      "word": "livestock paddock",
+      "translation": "牲畜围场",
+      "x": 1510,
+      "y": 385,
+      "lod": 0,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-wooden-paddock-fence",
+      "word": "wooden paddock fence",
+      "translation": "木制围场栏杆",
+      "x": 1430,
+      "y": 330,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-paddock-gate",
+      "word": "paddock gate",
+      "translation": "围场门",
+      "x": 1440,
+      "y": 440,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-fence-post",
+      "word": "paddock fence post",
+      "translation": "围场栏柱",
+      "x": 1360,
+      "y": 430,
+      "lod": 2,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-grazing-sheep",
+      "word": "grazing sheep",
+      "translation": "吃草的绵羊",
+      "x": 1440,
+      "y": 365,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-woolly-fleece",
+      "word": "woolly fleece",
+      "translation": "羊毛被毛",
+      "x": 1440,
+      "y": 355,
+      "lod": 3,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-white-goat",
+      "word": "white goat",
+      "translation": "白山羊",
+      "x": 1560,
+      "y": 410,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-brown-goat",
+      "word": "brown goat",
+      "translation": "棕色山羊",
+      "x": 1515,
+      "y": 430,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-animal-shelter",
+      "word": "animal shelter",
+      "translation": "牲畜棚",
+      "x": 1600,
+      "y": 320,
+      "lod": 0,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-shelter-hay",
+      "word": "shelter hay",
+      "translation": "棚内干草",
+      "x": 1600,
+      "y": 318,
+      "lod": 2,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-livestock-pail",
+      "word": "livestock pail",
+      "translation": "牲畜用提桶",
+      "x": 1545,
+      "y": 325,
+      "lod": 2,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-poultry-run",
+      "word": "poultry run",
+      "translation": "家禽活动场",
+      "x": 1320,
+      "y": 535,
+      "lod": 0,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-wire-mesh-fence",
+      "word": "wire mesh fence",
+      "translation": "铁丝网围栏",
+      "x": 1240,
+      "y": 510,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-chicken-coop",
+      "word": "chicken coop",
+      "translation": "鸡舍",
+      "x": 1480,
+      "y": 530,
+      "lod": 0,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-coop-roof",
+      "word": "coop roof",
+      "translation": "鸡舍屋顶",
+      "x": 1480,
+      "y": 485,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-coop-doorway",
+      "word": "coop doorway",
+      "translation": "鸡舍门口",
+      "x": 1450,
+      "y": 540,
+      "lod": 2,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-nesting-compartment",
+      "word": "nesting compartment",
+      "translation": "产蛋格",
+      "x": 1550,
+      "y": 545,
+      "lod": 2,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-brown-chicken",
+      "word": "brown chicken",
+      "translation": "棕色鸡",
+      "x": 1325,
+      "y": 505,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-farmyard-rooster",
+      "word": "farmyard rooster",
+      "translation": "农场公鸡",
+      "x": 1310,
+      "y": 590,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-white-poultry-bird",
+      "word": "white poultry bird",
+      "translation": "白色家禽",
+      "x": 1430,
+      "y": 590,
+      "lod": 1,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pens-poultry-feeder",
+      "word": "poultry feeder",
+      "translation": "家禽喂食器",
+      "x": 1370,
+      "y": 575,
+      "lod": 2,
+      "zoneId": "farm-east-animal-pens"
+    },
+    {
+      "id": "farm-pond-pollinator-garden",
+      "word": "pollinator garden",
+      "translation": "授粉花园",
+      "x": 90,
+      "y": 650,
+      "lod": 0,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-purple-wildflowers",
+      "word": "purple wildflowers",
+      "translation": "紫色野花",
+      "x": 120,
+      "y": 650,
+      "lod": 2,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-white-flowers",
+      "word": "white pondside flowers",
+      "translation": "池畔白花",
+      "x": 70,
+      "y": 690,
+      "lod": 2,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-red-flowers",
+      "word": "red pondside flowers",
+      "translation": "池畔红花",
+      "x": 180,
+      "y": 640,
+      "lod": 2,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-flowering-shrub",
+      "word": "flowering shrub",
+      "translation": "开花灌木",
+      "x": 35,
+      "y": 690,
+      "lod": 1,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-stone-border",
+      "word": "stone pond border",
+      "translation": "池塘石岸",
+      "x": 210,
+      "y": 690,
+      "lod": 1,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-farm-pond",
+      "word": "farm pond",
+      "translation": "农场池塘",
+      "x": 320,
+      "y": 780,
+      "lod": 0,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-lily-pad",
+      "word": "lily pad",
+      "translation": "睡莲叶",
+      "x": 270,
+      "y": 780,
+      "lod": 2,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-cattail-plant",
+      "word": "cattail plant",
+      "translation": "香蒲植株",
+      "x": 175,
+      "y": 780,
+      "lod": 1,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-cattail-seed-head",
+      "word": "cattail seed head",
+      "translation": "香蒲穗",
+      "x": 170,
+      "y": 750,
+      "lod": 3,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-reed-bed",
+      "word": "reed bed",
+      "translation": "芦苇丛",
+      "x": 390,
+      "y": 800,
+      "lod": 1,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-swimming-duck",
+      "word": "swimming duck",
+      "translation": "游水的鸭子",
+      "x": 335,
+      "y": 820,
+      "lod": 1,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-wooden-jetty",
+      "word": "wooden jetty",
+      "translation": "木码头",
+      "x": 405,
+      "y": 710,
+      "lod": 0,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-jetty-plank",
+      "word": "jetty plank",
+      "translation": "码头木板",
+      "x": 420,
+      "y": 695,
+      "lod": 2,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-jetty-support",
+      "word": "jetty support",
+      "translation": "码头支柱",
+      "x": 420,
+      "y": 730,
+      "lod": 3,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-arched-footbridge",
+      "word": "arched footbridge",
+      "translation": "拱形人行桥",
+      "x": 480,
+      "y": 860,
+      "lod": 0,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-bridge-handrail",
+      "word": "bridge handrail",
+      "translation": "桥扶手",
+      "x": 490,
+      "y": 845,
+      "lod": 2,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-pond-stone",
+      "word": "pond stone",
+      "translation": "池边石块",
+      "x": 430,
+      "y": 880,
+      "lod": 2,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-yellow-flower-cluster",
+      "word": "yellow flower cluster",
+      "translation": "黄色花丛",
+      "x": 40,
+      "y": 880,
+      "lod": 2,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-orange-tree",
+      "word": "orange tree",
+      "translation": "橙树",
+      "x": 65,
+      "y": 900,
+      "lod": 0,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-pond-ripe-orange",
+      "word": "ripe orange",
+      "translation": "成熟橙子",
+      "x": 90,
+      "y": 875,
+      "lod": 3,
+      "zoneId": "farm-pond-pollinator"
+    },
+    {
+      "id": "farm-nursery-propagation-bench",
+      "word": "propagation bench",
+      "translation": "繁殖育苗台",
+      "x": 620,
+      "y": 665,
+      "lod": 0,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-wooden-bench-leg",
+      "word": "wooden bench leg",
+      "translation": "木台腿",
+      "x": 620,
+      "y": 700,
+      "lod": 3,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-seedling-flat",
+      "word": "seedling flat",
+      "translation": "平盘育苗盘",
+      "x": 620,
+      "y": 645,
+      "lod": 1,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-divided-seed-tray",
+      "word": "divided seed tray",
+      "translation": "分格育苗盘",
+      "x": 670,
+      "y": 675,
+      "lod": 2,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-leafy-seedlings",
+      "word": "leafy seedlings",
+      "translation": "叶菜幼苗",
+      "x": 560,
+      "y": 660,
+      "lod": 2,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-potted-seedling",
+      "word": "potted seedling",
+      "translation": "盆栽幼苗",
+      "x": 520,
+      "y": 670,
+      "lod": 2,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-small-plant-pot",
+      "word": "small plant pot",
+      "translation": "小花盆",
+      "x": 550,
+      "y": 705,
+      "lod": 3,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-potting-soil-bag",
+      "word": "potting soil bag",
+      "translation": "营养土袋",
+      "x": 820,
+      "y": 700,
+      "lod": 1,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-stacked-soil-bags",
+      "word": "stacked soil bags",
+      "translation": "堆叠营养土袋",
+      "x": 830,
+      "y": 680,
+      "lod": 0,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-mini-greenhouse",
+      "word": "mini greenhouse",
+      "translation": "迷你温室",
+      "x": 760,
+      "y": 735,
+      "lod": 0,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-mini-greenhouse-roof",
+      "word": "mini greenhouse roof",
+      "translation": "迷你温室屋顶",
+      "x": 760,
+      "y": 700,
+      "lod": 1,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-mini-greenhouse-frame",
+      "word": "mini greenhouse frame",
+      "translation": "迷你温室框架",
+      "x": 740,
+      "y": 720,
+      "lod": 2,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-mini-greenhouse-door",
+      "word": "mini greenhouse door",
+      "translation": "迷你温室门",
+      "x": 790,
+      "y": 745,
+      "lod": 2,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-green-garden-bucket",
+      "word": "green garden bucket",
+      "translation": "绿色园艺桶",
+      "x": 885,
+      "y": 650,
+      "lod": 1,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-coiled-irrigation-hose",
+      "word": "coiled irrigation hose",
+      "translation": "盘绕灌溉软管",
+      "x": 900,
+      "y": 650,
+      "lod": 2,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-metal-pail",
+      "word": "nursery metal pail",
+      "translation": "育苗区金属提桶",
+      "x": 850,
+      "y": 640,
+      "lod": 2,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-potting-mix-surface",
+      "word": "potting mix surface",
+      "translation": "育苗土表面",
+      "x": 700,
+      "y": 675,
+      "lod": 3,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-walkway",
+      "word": "nursery walkway",
+      "translation": "育苗区步道",
+      "x": 900,
+      "y": 760,
+      "lod": 0,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-nursery-flower-border",
+      "word": "nursery flower border",
+      "translation": "育苗区花带",
+      "x": 900,
+      "y": 780,
+      "lod": 1,
+      "zoneId": "farm-nursery-propagation"
+    },
+    {
+      "id": "farm-compost-composting-yard",
+      "word": "composting yard",
+      "translation": "堆肥场",
+      "x": 850,
+      "y": 875,
+      "lod": 0,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-wooden-compost-bin",
+      "word": "wooden compost bin",
+      "translation": "木制堆肥箱",
+      "x": 930,
+      "y": 840,
+      "lod": 0,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-rich-compost-pile",
+      "word": "rich compost pile",
+      "translation": "熟化堆肥堆",
+      "x": 930,
+      "y": 830,
+      "lod": 1,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-garden-clipping-pile",
+      "word": "garden clipping pile",
+      "translation": "园艺修剪物堆",
+      "x": 820,
+      "y": 890,
+      "lod": 1,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-dry-leaf-pile",
+      "word": "dry leaf pile",
+      "translation": "干树叶堆",
+      "x": 870,
+      "y": 880,
+      "lod": 1,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-twig-pile",
+      "word": "twig pile",
+      "translation": "细枝堆",
+      "x": 900,
+      "y": 905,
+      "lod": 2,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-timber-bin-wall",
+      "word": "timber bin wall",
+      "translation": "木制箱壁",
+      "x": 860,
+      "y": 840,
+      "lod": 2,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-wooden-bin-divider",
+      "word": "wooden bin divider",
+      "translation": "木箱隔板",
+      "x": 980,
+      "y": 835,
+      "lod": 2,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-wire-compost-enclosure",
+      "word": "wire compost enclosure",
+      "translation": "金属网堆肥围栏",
+      "x": 1000,
+      "y": 850,
+      "lod": 1,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-empty-wooden-box",
+      "word": "empty wooden box",
+      "translation": "空木箱",
+      "x": 750,
+      "y": 850,
+      "lod": 1,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-compost-cart",
+      "word": "compost cart",
+      "translation": "堆肥手推斗车",
+      "x": 950,
+      "y": 920,
+      "lod": 1,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-compost-pitchfork",
+      "word": "compost pitchfork",
+      "translation": "堆肥叉",
+      "x": 1060,
+      "y": 880,
+      "lod": 1,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-fork-tines",
+      "word": "pitchfork tines",
+      "translation": "堆肥叉齿",
+      "x": 1055,
+      "y": 890,
+      "lod": 3,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-compost-tumbler",
+      "word": "compost tumbler",
+      "translation": "滚筒堆肥器",
+      "x": 1130,
+      "y": 870,
+      "lod": 0,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-tumbler-wheel",
+      "word": "tumbler wheel",
+      "translation": "堆肥器车轮",
+      "x": 1110,
+      "y": 900,
+      "lod": 2,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-compost-stone-retaining-wall",
+      "word": "stone retaining wall",
+      "translation": "石砌挡墙",
+      "x": 620,
+      "y": 825,
+      "lod": 1,
+      "zoneId": "farm-compost-soil"
+    },
+    {
+      "id": "farm-wash-produce-wash-room",
+      "word": "produce wash room",
+      "translation": "农产品清洗区",
+      "x": 1120,
+      "y": 680,
+      "lod": 0,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-stainless-wash-basin",
+      "word": "stainless wash basin",
+      "translation": "不锈钢清洗槽",
+      "x": 1080,
+      "y": 675,
+      "lod": 1,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-drainboard",
+      "word": "drainboard",
+      "translation": "沥水板",
+      "x": 1080,
+      "y": 660,
+      "lod": 2,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-metal-worktable",
+      "word": "metal wash table",
+      "translation": "金属清洗台",
+      "x": 1120,
+      "y": 665,
+      "lod": 1,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-blue-water-hose",
+      "word": "blue water hose",
+      "translation": "蓝色水管",
+      "x": 1160,
+      "y": 690,
+      "lod": 2,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-green-rinse-hose",
+      "word": "green rinse hose",
+      "translation": "绿色冲洗软管",
+      "x": 1045,
+      "y": 700,
+      "lod": 2,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-upright-water-cylinder",
+      "word": "upright water cylinder",
+      "translation": "立式水筒",
+      "x": 990,
+      "y": 670,
+      "lod": 1,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-cylinder-pipe",
+      "word": "cylinder pipe",
+      "translation": "水筒管道",
+      "x": 990,
+      "y": 650,
+      "lod": 3,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-horizontal-rinse-vessel",
+      "word": "horizontal rinse vessel",
+      "translation": "卧式冲洗容器",
+      "x": 1175,
+      "y": 650,
+      "lod": 1,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-vessel-housing",
+      "word": "rinse vessel housing",
+      "translation": "冲洗容器外壳",
+      "x": 1160,
+      "y": 660,
+      "lod": 2,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-stainless-rinse-tank",
+      "word": "stainless rinse tank",
+      "translation": "不锈钢冲洗罐",
+      "x": 1240,
+      "y": 675,
+      "lod": 0,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-rinse-tank-lid",
+      "word": "rinse tank lid",
+      "translation": "冲洗罐盖",
+      "x": 1230,
+      "y": 650,
+      "lod": 2,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-tank-support-frame",
+      "word": "tank support frame",
+      "translation": "罐体支架",
+      "x": 1240,
+      "y": 700,
+      "lod": 2,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-outlet-pipe",
+      "word": "wash outlet pipe",
+      "translation": "清洗设备出水管",
+      "x": 1260,
+      "y": 690,
+      "lod": 3,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-equipment-control-box",
+      "word": "equipment control box",
+      "translation": "设备控制箱",
+      "x": 1310,
+      "y": 680,
+      "lod": 1,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-concrete-steps",
+      "word": "concrete steps",
+      "translation": "混凝土台阶",
+      "x": 1050,
+      "y": 735,
+      "lod": 1,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-stacked-packing-cartons",
+      "word": "stacked packing cartons",
+      "translation": "堆叠包装纸箱",
+      "x": 1160,
+      "y": 760,
+      "lod": 1,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-wash-square-collection-bin",
+      "word": "square collection bin",
+      "translation": "方形收集箱",
+      "x": 1240,
+      "y": 755,
+      "lod": 1,
+      "zoneId": "farm-wash-pack"
+    },
+    {
+      "id": "farm-produce-packing-area",
+      "word": "produce packing area",
+      "translation": "农产品包装区",
+      "x": 1460,
+      "y": 900,
+      "lod": 0,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-storage-rack",
+      "word": "produce storage rack",
+      "translation": "农产品储存架",
+      "x": 1280,
+      "y": 805,
+      "lod": 0,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-carrot-crate",
+      "word": "carrot crate",
+      "translation": "胡萝卜箱",
+      "x": 1308,
+      "y": 822,
+      "lod": 1,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-loose-carrots",
+      "word": "loose carrots",
+      "translation": "散放胡萝卜",
+      "x": 1325,
+      "y": 815,
+      "lod": 2,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-green-vegetable-crate",
+      "word": "green vegetable crate",
+      "translation": "绿色蔬菜箱",
+      "x": 1390,
+      "y": 815,
+      "lod": 1,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-tomato-crate",
+      "word": "tomato crate",
+      "translation": "番茄箱",
+      "x": 1390,
+      "y": 870,
+      "lod": 1,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-packed-tomatoes",
+      "word": "packed tomatoes",
+      "translation": "装箱番茄",
+      "x": 1400,
+      "y": 850,
+      "lod": 2,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-sorting-table",
+      "word": "sorting table",
+      "translation": "分拣台",
+      "x": 1430,
+      "y": 870,
+      "lod": 0,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-steel-tabletop",
+      "word": "steel tabletop",
+      "translation": "钢制台面",
+      "x": 1430,
+      "y": 850,
+      "lod": 2,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-packing-sink",
+      "word": "packing sink",
+      "translation": "包装区水槽",
+      "x": 1490,
+      "y": 865,
+      "lod": 1,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-blue-plastic-barrel",
+      "word": "blue plastic barrel",
+      "translation": "蓝色塑料桶",
+      "x": 1300,
+      "y": 855,
+      "lod": 1,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-brown-storage-barrel",
+      "word": "brown storage barrel",
+      "translation": "棕色储存桶",
+      "x": 1345,
+      "y": 850,
+      "lod": 1,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-bucket-with-handle",
+      "word": "bucket with handle",
+      "translation": "带提手的桶",
+      "x": 1490,
+      "y": 810,
+      "lod": 2,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-cabbage-crate",
+      "word": "cabbage crate",
+      "translation": "卷心菜箱",
+      "x": 1545,
+      "y": 828,
+      "lod": 1,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-green-cabbage",
+      "word": "green cabbage",
+      "translation": "绿色卷心菜",
+      "x": 1560,
+      "y": 812,
+      "lod": 2,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-masonry-bay-wall",
+      "word": "masonry bay wall",
+      "translation": "砌块分区墙",
+      "x": 1560,
+      "y": 850,
+      "lod": 1,
+      "zoneId": "farm-produce-storage"
+    },
+    {
+      "id": "farm-produce-garden-border",
+      "word": "produce garden border",
+      "translation": "农产品区花园边带",
+      "x": 1630,
+      "y": 900,
+      "lod": 1,
+      "zoneId": "farm-produce-storage"
+    }
+  ],
+  "removedAmbiguous": [
+    {
+      "candidate": "exact wheat or barley cultivar",
+      "reason": "the grain heads are visible but cultivar and related cereal species cannot be established from the pixels"
+    },
+    {
+      "candidate": "white bulb crop species",
+      "reason": "the row is identifiable as pale bulb produce but onion, garlic, and another root crop are not reliably separable"
+    },
+    {
+      "candidate": "red vegetable row species",
+      "reason": "the red crop is clear as produce but beet, chard, and lettuce identity is not decisive"
+    },
+    {
+      "candidate": "orchard cultivar names",
+      "reason": "fruit colors and tree forms are visible but exact apple and citrus cultivars are not encoded reliably"
+    },
+    {
+      "candidate": "greenhouse crop varieties",
+      "reason": "plants seen through glass are too occluded to assign species without guessing"
+    },
+    {
+      "candidate": "cow breed names",
+      "reason": "coat colors are clear while breed-level identification is unsupported by the rendered anatomy"
+    },
+    {
+      "candidate": "sheep breed and sex",
+      "reason": "individual animals are clear but breed and sex traits are not resolved consistently"
+    },
+    {
+      "candidate": "small dairy attachments",
+      "reason": "multiple valves, clusters, and canisters overlap and cannot all be traced as independent equipment"
+    },
+    {
+      "candidate": "exact red cultivator function",
+      "reason": "the red frame and shanks are visible but plow, subsoiler, and cultivator function overlap"
+    },
+    {
+      "candidate": "exact rotary implement subtype",
+      "reason": "the red machine is clear as an implement but mower, tiller, and seeder details conflict"
+    },
+    {
+      "candidate": "tiny shed contents",
+      "reason": "small produce and container shapes on shelves merge at source resolution"
+    },
+    {
+      "candidate": "loose pruning tools",
+      "reason": "several small metal shapes among the hand tools do not preserve distinct handles and jaws"
+    },
+    {
+      "candidate": "pressure vessel contents",
+      "reason": "the blue cylinders are visible but their hydraulic, filtration, or storage role cannot be proven"
+    },
+    {
+      "candidate": "goat breed and sex",
+      "reason": "coat colors and goat silhouettes are clear but breed and sex classification would be speculative"
+    },
+    {
+      "candidate": "additional poultry sex labels",
+      "reason": "several birds are present but only the most visually distinct rooster is safe to sex"
+    },
+    {
+      "candidate": "small bird species in the pond pen",
+      "reason": "tiny white and brown waterfowl silhouettes overlap fence lines and cannot all be classified"
+    },
+    {
+      "candidate": "pond fish or frog",
+      "reason": "small marks in the water could be animals, reflections, or generated texture"
+    },
+    {
+      "candidate": "water lily flowers",
+      "reason": "pale marks among the lily pads do not resolve as independent blossoms"
+    },
+    {
+      "candidate": "nursery seedling species",
+      "reason": "the propagation trays show healthy seedlings but leaf detail is insufficient for species labels"
+    },
+    {
+      "candidate": "nursery hand labels",
+      "reason": "thin marks inside trays could be plant labels or support artifacts and are below reliable pointing size"
+    },
+    {
+      "candidate": "compost maturity stages",
+      "reason": "organic piles have different colors and textures but process stage cannot be inferred from appearance alone"
+    },
+    {
+      "candidate": "wash equipment process sequence",
+      "reason": "the vessels and hoses are visible but their exact industrial sequence and product flow are not shown"
+    },
+    {
+      "candidate": "green packed vegetable species",
+      "reason": "the green produce is clear but pepper, cucumber, and another vegetable shape are visually blended"
+    },
+    {
+      "candidate": "small packing-room containers",
+      "reason": "partially occluded cans and boxes at panel edges do not retain complete independent silhouettes"
+    },
+    {
+      "candidate": "wheat field",
+      "reason": "the rendered cereal stand does not distinguish wheat from barley, so the retained label is grain field"
+    },
+    {
+      "candidate": "wheat head",
+      "reason": "the rendered cereal head does not distinguish wheat from barley, so the retained label is grain head"
+    },
+    {
+      "candidate": "white goose",
+      "reason": "the compact poultry silhouette lacks a clearly resolved goose neck and body profile"
+    },
+    {
+      "candidate": "green produce",
+      "reason": "the vague label duplicated green vegetable crate at the exact same target point"
+    }
+  ]
+}

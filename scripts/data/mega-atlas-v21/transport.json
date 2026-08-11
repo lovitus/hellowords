@@ -1,0 +1,2575 @@
+{
+  "schemaVersion": 1,
+  "panelId": "transport",
+  "source": {
+    "path": "scripts/assets/mega-atlas-v21/04-transport-mobility-v2.png",
+    "width": 1672,
+    "height": 941,
+    "sha256": "2c270045c73aa2102a8438cf9bdb39f20ab310999c54f2f33cc798a6c24453bd",
+    "review": "original-resolution pixel audit with independently reviewed district crops"
+  },
+  "review": {
+    "method": "native-pixel original view plus 12 disjoint 2x sectional crops",
+    "reviewedAt": "2026-08-12",
+    "coordinateSpace": "panel-local native pixels",
+    "p0Mispoints": 0,
+    "notes": "Repeated wheels, rails, sleepers, windows and near-synonym vehicle labels were intentionally limited; ambiguous candidates are listed separately."
+  },
+  "counts": {
+    "zones": 12,
+    "anchors": 230,
+    "removedAmbiguous": 25
+  },
+  "zones": [
+    {
+      "id": "transport-road-intersection",
+      "title": "Road intersection and roundabout",
+      "x": 0,
+      "y": 0,
+      "width": 520,
+      "height": 350,
+      "labelIds": [
+        "transport-intersection",
+        "transport-traffic-light",
+        "transport-crosswalk",
+        "transport-lane-marking",
+        "transport-curb",
+        "transport-sidewalk",
+        "transport-roundabout",
+        "transport-central-island",
+        "transport-streetlamp",
+        "transport-roadside-railing",
+        "transport-hatchback",
+        "transport-sedan",
+        "transport-compact-car",
+        "transport-city-bus",
+        "transport-bus-door",
+        "transport-bus-window",
+        "transport-bus-wheel",
+        "transport-pickup-truck",
+        "transport-truck-bed",
+        "transport-speed-bump",
+        "transport-flower-bed"
+      ],
+      "translation": "道路交叉口与环岛",
+      "description": "Pixel-audited visible objects and parts across the road intersection and roundabout district."
+    },
+    {
+      "id": "transport-station-platform",
+      "title": "Station platform and commuter train",
+      "x": 520,
+      "y": 0,
+      "width": 350,
+      "height": 350,
+      "labelIds": [
+        "transport-commuter-train",
+        "transport-driver-cab",
+        "transport-train-windscreen",
+        "transport-headlamp",
+        "transport-passenger-carriage",
+        "transport-passenger-door",
+        "transport-train-window",
+        "transport-roof-ventilator",
+        "transport-train-undercarriage",
+        "transport-station-platform",
+        "transport-platform-edge",
+        "transport-platform-safety-strip",
+        "transport-station-canopy",
+        "transport-canopy-column",
+        "transport-glass-roof-panel",
+        "transport-station-clock",
+        "transport-platform-bench",
+        "transport-catenary-mast",
+        "transport-overhead-contact-wire",
+        "transport-railway-sleeper",
+        "transport-railway-signal"
+      ],
+      "translation": "站台与通勤列车",
+      "description": "Pixel-audited visible objects and parts across the station platform and commuter train district."
+    },
+    {
+      "id": "transport-mainline-locomotives",
+      "title": "Mainline locomotives and wheel service",
+      "x": 870,
+      "y": 0,
+      "width": 390,
+      "height": 350,
+      "labelIds": [
+        "transport-electric-locomotive",
+        "transport-trailing-locomotive",
+        "transport-locomotive-nose",
+        "transport-pantograph",
+        "transport-electrical-insulator",
+        "transport-roof-equipment",
+        "transport-locomotive-headlight",
+        "transport-front-buffer",
+        "transport-automatic-coupler",
+        "transport-traction-bogie",
+        "transport-traction-wheel",
+        "transport-side-window",
+        "transport-cab-window",
+        "transport-locomotive-handrail",
+        "transport-track-switch",
+        "transport-rail-fastener",
+        "transport-signal-aspect",
+        "transport-wheelset",
+        "transport-axle",
+        "transport-compressor-unit",
+        "transport-air-hose"
+      ],
+      "translation": "干线机车与轮对检修",
+      "description": "Pixel-audited visible objects and parts across the mainline locomotives and wheel service district."
+    },
+    {
+      "id": "transport-rail-depot",
+      "title": "Rail maintenance depot",
+      "x": 1260,
+      "y": 0,
+      "width": 412,
+      "height": 350,
+      "labelIds": [
+        "transport-maintenance-depot",
+        "transport-arched-roof",
+        "transport-roof-cladding",
+        "transport-steel-truss",
+        "transport-service-bay",
+        "transport-roller-shutter",
+        "transport-shunter",
+        "transport-shunter-underframe",
+        "transport-maintenance-platform",
+        "transport-inspection-pit",
+        "transport-access-ladder",
+        "transport-protective-post",
+        "transport-lifting-jack",
+        "transport-work-light",
+        "transport-drainpipe",
+        "transport-wall-cladding",
+        "transport-wall-placard",
+        "transport-equipment-crate"
+      ],
+      "translation": "铁路检修库",
+      "description": "Pixel-audited visible objects and parts across the rail maintenance depot district."
+    },
+    {
+      "id": "transport-west-street-cycles",
+      "title": "Street vehicles and cycle shelter",
+      "x": 0,
+      "y": 350,
+      "width": 520,
+      "height": 260,
+      "labelIds": [
+        "transport-delivery-van",
+        "transport-rear-door",
+        "transport-cargo-body",
+        "transport-wing-mirror",
+        "transport-motor-scooter",
+        "transport-motorcycle",
+        "transport-bicycle-shelter",
+        "transport-curved-canopy",
+        "transport-canopy-support",
+        "transport-bicycle-rack",
+        "transport-commuter-bicycle",
+        "transport-bicycle-saddle",
+        "transport-bicycle-handlebar",
+        "transport-bicycle-frame",
+        "transport-trash-bin",
+        "transport-parking-bay-line",
+        "transport-raised-planter",
+        "transport-grass-verge"
+      ],
+      "translation": "道路车辆与自行车棚",
+      "description": "Pixel-audited visible objects and parts across the street vehicles and cycle shelter district."
+    },
+    {
+      "id": "transport-freight-wagons",
+      "title": "Freight wagons and track ends",
+      "x": 520,
+      "y": 350,
+      "width": 420,
+      "height": 260,
+      "labelIds": [
+        "transport-gondola-wagon",
+        "transport-open-wagon-body",
+        "transport-wagon-end-gate",
+        "transport-side-panel",
+        "transport-freight-undercarriage",
+        "transport-flatbed-wagon",
+        "transport-timber-deck",
+        "transport-tank-wagon",
+        "transport-cylindrical-tank",
+        "transport-tank-saddle",
+        "transport-buffer-stop",
+        "transport-track-terminus",
+        "transport-concrete-divider",
+        "transport-yard-safety-line"
+      ],
+      "translation": "货运车厢与轨道终端",
+      "description": "Pixel-audited visible objects and parts across the freight wagons and track ends district."
+    },
+    {
+      "id": "transport-cargo-apron",
+      "title": "Cargo handling apron",
+      "x": 940,
+      "y": 350,
+      "width": 330,
+      "height": 260,
+      "labelIds": [
+        "transport-forklift",
+        "transport-forklift-mast",
+        "transport-forklift-forks",
+        "transport-overhead-guard",
+        "transport-operator-seat",
+        "transport-shipping-container",
+        "transport-container-corrugation",
+        "transport-container-roof",
+        "transport-wooden-crate",
+        "transport-crate-lid",
+        "transport-cargo-rack",
+        "transport-cargo-shed",
+        "transport-corrugated-metal-roof",
+        "transport-shed-door",
+        "transport-lifebuoy",
+        "transport-curved-lamp-post",
+        "transport-wooden-pallet",
+        "transport-wrapped-pallet",
+        "transport-loading-apron"
+      ],
+      "translation": "货物装卸场",
+      "description": "Pixel-audited visible objects and parts across the cargo handling apron district."
+    },
+    {
+      "id": "transport-gantry-tug",
+      "title": "Gantry crane and tugboat",
+      "x": 1270,
+      "y": 350,
+      "width": 402,
+      "height": 260,
+      "labelIds": [
+        "transport-gantry-crane",
+        "transport-bridge-girder",
+        "transport-crane-leg",
+        "transport-crane-trolley",
+        "transport-hoist-block",
+        "transport-lifting-hook",
+        "transport-wire-rope",
+        "transport-crane-wheel",
+        "transport-gantry-ladder",
+        "transport-tugboat",
+        "transport-wheelhouse",
+        "transport-bridge-window",
+        "transport-navigation-light",
+        "transport-exhaust-stack",
+        "transport-deck-railing",
+        "transport-foredeck",
+        "transport-cabin-roof",
+        "transport-hull-fender",
+        "transport-mooring-line",
+        "transport-dock-edge",
+        "transport-utility-pedestal"
+      ],
+      "translation": "门式起重机与拖船",
+      "description": "Pixel-audited visible objects and parts across the gantry crane and tugboat district."
+    },
+    {
+      "id": "transport-cycle-workshop",
+      "title": "Cycle workshop and service yard",
+      "x": 0,
+      "y": 610,
+      "width": 520,
+      "height": 331,
+      "labelIds": [
+        "transport-cycle-workshop",
+        "transport-barrel-roof",
+        "transport-roof-seam",
+        "transport-eaves",
+        "transport-garage-door",
+        "transport-service-door",
+        "transport-wall-vent",
+        "transport-utility-cabinet",
+        "transport-oil-drum",
+        "transport-drum-pump",
+        "transport-gas-cylinder",
+        "transport-cardboard-box",
+        "transport-utility-barrel",
+        "transport-bicycle-parking-area",
+        "transport-cargo-bicycle",
+        "transport-bicycle-trailer",
+        "transport-bicycle-chain",
+        "transport-bicycle-pedal",
+        "transport-chain-link-fence",
+        "transport-utility-box"
+      ],
+      "translation": "自行车工坊与服务院",
+      "description": "Pixel-audited visible objects and parts across the cycle workshop and service yard district."
+    },
+    {
+      "id": "transport-lower-cargo-apron",
+      "title": "Lower cargo apron and quay wall",
+      "x": 520,
+      "y": 610,
+      "width": 430,
+      "height": 331,
+      "labelIds": [
+        "transport-ibc-container",
+        "transport-metal-cage",
+        "transport-plastic-reservoir",
+        "transport-pallet-base",
+        "transport-shrink-wrapped-load",
+        "transport-cargo-strapping",
+        "transport-palletized-equipment-load",
+        "transport-hand-pallet-truck",
+        "transport-pallet-jack-handle",
+        "transport-empty-pallet",
+        "transport-carton-consignment",
+        "transport-pipe-assembly",
+        "transport-dock-pedestal",
+        "transport-mooring-capstan",
+        "transport-quay-wall",
+        "transport-safety-railing",
+        "transport-shade-tree",
+        "transport-grass-patch"
+      ],
+      "translation": "下部货场与码头墙",
+      "description": "Pixel-audited visible objects and parts across the lower cargo apron and quay wall district."
+    },
+    {
+      "id": "transport-sailboat-berth",
+      "title": "Sailboat and motorboat berth",
+      "x": 950,
+      "y": 610,
+      "width": 360,
+      "height": 331,
+      "labelIds": [
+        "transport-sailboat",
+        "transport-mainsail",
+        "transport-sailboat-mast",
+        "transport-boom",
+        "transport-standing-rigging",
+        "transport-forestay",
+        "transport-sailboat-hull",
+        "transport-bow",
+        "transport-stern",
+        "transport-cockpit",
+        "transport-cabin-top",
+        "transport-deck-hatch",
+        "transport-lifeline",
+        "transport-motorboat",
+        "transport-boat-windshield",
+        "transport-bow-rail",
+        "transport-mooring-rope",
+        "transport-floating-boom",
+        "transport-marker-buoy",
+        "transport-mooring-buoy",
+        "transport-quay-ladder"
+      ],
+      "translation": "帆船与汽艇泊位",
+      "description": "Pixel-audited visible objects and parts across the sailboat and motorboat berth district."
+    },
+    {
+      "id": "transport-fishing-berth",
+      "title": "Fishing boat and dinghy berth",
+      "x": 1310,
+      "y": 610,
+      "width": 362,
+      "height": 331,
+      "labelIds": [
+        "transport-fishing-boat",
+        "transport-trawler-wheelhouse",
+        "transport-fishing-gantry",
+        "transport-rigging-boom",
+        "transport-deck-winch",
+        "transport-deck-crane",
+        "transport-radio-antenna",
+        "transport-deck-cable-drum",
+        "transport-tripod-mast",
+        "transport-gunwale",
+        "transport-rub-rail",
+        "transport-fishing-deck",
+        "transport-cabin-door",
+        "transport-mooring-warp",
+        "transport-dinghy",
+        "transport-dinghy-thwart",
+        "transport-rowlock",
+        "transport-dinghy-transom"
+      ],
+      "translation": "渔船与小艇泊位",
+      "description": "Pixel-audited visible objects and parts across the fishing boat and dinghy berth district."
+    }
+  ],
+  "anchors": [
+    {
+      "id": "transport-intersection",
+      "word": "intersection",
+      "translation": "交叉路口",
+      "lexemeId": "en-6fda7451bc6b4a59",
+      "x": 275,
+      "y": 150,
+      "lod": 0,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-traffic-light",
+      "word": "traffic light",
+      "translation": "交通信号灯",
+      "x": 313,
+      "y": 58,
+      "lod": 1,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-crosswalk",
+      "word": "crosswalk",
+      "translation": "人行横道",
+      "x": 286,
+      "y": 94,
+      "lod": 1,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-lane-marking",
+      "word": "lane marking",
+      "translation": "车道标线",
+      "x": 451,
+      "y": 29,
+      "lod": 2,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-curb",
+      "word": "curb",
+      "translation": "路缘石",
+      "x": 385,
+      "y": 78,
+      "lod": 2,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-sidewalk",
+      "word": "sidewalk",
+      "translation": "人行道",
+      "x": 424,
+      "y": 112,
+      "lod": 1,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-roundabout",
+      "word": "roundabout",
+      "translation": "环岛",
+      "x": 255,
+      "y": 224,
+      "lod": 0,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-central-island",
+      "word": "central island",
+      "translation": "中央岛",
+      "x": 256,
+      "y": 211,
+      "lod": 1,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-streetlamp",
+      "word": "streetlamp",
+      "translation": "路灯",
+      "x": 389,
+      "y": 276,
+      "lod": 2,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-roadside-railing",
+      "word": "roadside railing",
+      "translation": "路侧护栏",
+      "x": 285,
+      "y": 30,
+      "lod": 2,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-hatchback",
+      "word": "hatchback",
+      "translation": "掀背车",
+      "x": 244,
+      "y": 124,
+      "lod": 0,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-sedan",
+      "word": "sedan",
+      "translation": "轿车",
+      "x": 142,
+      "y": 115,
+      "lod": 0,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-compact-car",
+      "word": "compact car",
+      "translation": "小型汽车",
+      "x": 467,
+      "y": 28,
+      "lod": 0,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-city-bus",
+      "word": "city bus",
+      "translation": "城市公交车",
+      "x": 82,
+      "y": 210,
+      "lod": 0,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-bus-door",
+      "word": "bus door",
+      "translation": "公交车门",
+      "x": 139,
+      "y": 210,
+      "lod": 2,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-bus-window",
+      "word": "bus window",
+      "translation": "公交车窗",
+      "x": 105,
+      "y": 197,
+      "lod": 2,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-bus-wheel",
+      "word": "bus wheel",
+      "translation": "公交车轮",
+      "x": 112,
+      "y": 239,
+      "lod": 3,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-pickup-truck",
+      "word": "pickup truck",
+      "translation": "皮卡车",
+      "x": 290,
+      "y": 295,
+      "lod": 0,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-truck-bed",
+      "word": "truck bed",
+      "translation": "货斗",
+      "x": 249,
+      "y": 304,
+      "lod": 2,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-speed-bump",
+      "word": "speed bump",
+      "translation": "减速带",
+      "x": 85,
+      "y": 269,
+      "lod": 1,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-flower-bed",
+      "word": "flower bed",
+      "translation": "花坛",
+      "x": 482,
+      "y": 259,
+      "lod": 2,
+      "zoneId": "transport-road-intersection"
+    },
+    {
+      "id": "transport-commuter-train",
+      "word": "commuter train",
+      "translation": "通勤列车",
+      "x": 620,
+      "y": 205,
+      "lod": 0,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-driver-cab",
+      "word": "driver cab",
+      "translation": "驾驶室",
+      "x": 579,
+      "y": 199,
+      "lod": 1,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-train-windscreen",
+      "word": "train windscreen",
+      "translation": "列车挡风玻璃",
+      "x": 574,
+      "y": 198,
+      "lod": 2,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-headlamp",
+      "word": "headlamp",
+      "translation": "前照灯",
+      "x": 577,
+      "y": 221,
+      "lod": 3,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-passenger-carriage",
+      "word": "passenger carriage",
+      "translation": "客运车厢",
+      "x": 681,
+      "y": 208,
+      "lod": 0,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-passenger-door",
+      "word": "passenger door",
+      "translation": "乘客车门",
+      "x": 659,
+      "y": 218,
+      "lod": 2,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-train-window",
+      "word": "train window",
+      "translation": "列车车窗",
+      "x": 705,
+      "y": 195,
+      "lod": 2,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-roof-ventilator",
+      "word": "roof ventilator",
+      "translation": "车顶通风器",
+      "x": 632,
+      "y": 157,
+      "lod": 3,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-train-undercarriage",
+      "word": "train undercarriage",
+      "translation": "列车底盘",
+      "x": 607,
+      "y": 250,
+      "lod": 3,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-station-platform",
+      "word": "station platform",
+      "translation": "车站站台",
+      "x": 705,
+      "y": 254,
+      "lod": 0,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-platform-edge",
+      "word": "platform edge",
+      "translation": "站台边缘",
+      "x": 735,
+      "y": 305,
+      "lod": 2,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-platform-safety-strip",
+      "word": "platform safety strip",
+      "translation": "站台安全带",
+      "x": 736,
+      "y": 298,
+      "lod": 2,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-station-canopy",
+      "word": "station canopy",
+      "translation": "站台雨棚",
+      "x": 701,
+      "y": 95,
+      "lod": 0,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-canopy-column",
+      "word": "canopy column",
+      "translation": "雨棚立柱",
+      "x": 736,
+      "y": 178,
+      "lod": 2,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-glass-roof-panel",
+      "word": "glass roof panel",
+      "translation": "玻璃顶板",
+      "x": 720,
+      "y": 57,
+      "lod": 3,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-station-clock",
+      "word": "station clock",
+      "translation": "车站时钟",
+      "x": 783,
+      "y": 132,
+      "lod": 1,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-platform-bench",
+      "word": "platform bench",
+      "translation": "站台长椅",
+      "x": 746,
+      "y": 180,
+      "lod": 1,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-catenary-mast",
+      "word": "catenary mast",
+      "translation": "接触网立柱",
+      "x": 809,
+      "y": 166,
+      "lod": 2,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-overhead-contact-wire",
+      "word": "overhead contact wire",
+      "translation": "接触网导线",
+      "x": 820,
+      "y": 60,
+      "lod": 3,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-railway-sleeper",
+      "word": "railway sleeper",
+      "translation": "铁路枕木",
+      "x": 762,
+      "y": 330,
+      "lod": 3,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-railway-signal",
+      "word": "railway signal",
+      "translation": "铁路信号机",
+      "x": 838,
+      "y": 238,
+      "lod": 1,
+      "zoneId": "transport-station-platform"
+    },
+    {
+      "id": "transport-electric-locomotive",
+      "word": "electric locomotive",
+      "translation": "电力机车",
+      "x": 1052,
+      "y": 248,
+      "lod": 0,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-trailing-locomotive",
+      "word": "trailing locomotive",
+      "translation": "后挂机车",
+      "x": 1188,
+      "y": 220,
+      "lod": 0,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-locomotive-nose",
+      "word": "locomotive nose",
+      "translation": "机车车头",
+      "x": 906,
+      "y": 284,
+      "lod": 1,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-pantograph",
+      "word": "pantograph",
+      "translation": "受电弓",
+      "x": 1032,
+      "y": 172,
+      "lod": 1,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-electrical-insulator",
+      "word": "electrical insulator",
+      "translation": "电气绝缘子",
+      "x": 991,
+      "y": 198,
+      "lod": 3,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-roof-equipment",
+      "word": "roof equipment",
+      "translation": "车顶设备",
+      "x": 1080,
+      "y": 177,
+      "lod": 3,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-locomotive-headlight",
+      "word": "locomotive headlight",
+      "translation": "机车前灯",
+      "x": 908,
+      "y": 273,
+      "lod": 3,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-front-buffer",
+      "word": "front buffer",
+      "translation": "前缓冲器",
+      "x": 903,
+      "y": 318,
+      "lod": 3,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-automatic-coupler",
+      "word": "automatic coupler",
+      "translation": "自动车钩",
+      "x": 925,
+      "y": 320,
+      "lod": 2,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-traction-bogie",
+      "word": "traction bogie",
+      "translation": "牵引转向架",
+      "x": 1068,
+      "y": 309,
+      "lod": 2,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-traction-wheel",
+      "word": "traction wheel",
+      "translation": "动轮",
+      "x": 1088,
+      "y": 313,
+      "lod": 3,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-side-window",
+      "word": "side window",
+      "translation": "侧窗",
+      "x": 1095,
+      "y": 225,
+      "lod": 3,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-cab-window",
+      "word": "cab window",
+      "translation": "驾驶室窗",
+      "x": 919,
+      "y": 252,
+      "lod": 2,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-locomotive-handrail",
+      "word": "locomotive handrail",
+      "translation": "机车扶手",
+      "x": 1105,
+      "y": 272,
+      "lod": 3,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-track-switch",
+      "word": "track switch",
+      "translation": "道岔",
+      "x": 941,
+      "y": 157,
+      "lod": 1,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-rail-fastener",
+      "word": "rail fastener",
+      "translation": "钢轨扣件",
+      "x": 1000,
+      "y": 137,
+      "lod": 4,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-signal-aspect",
+      "word": "signal aspect",
+      "translation": "信号灯位",
+      "x": 1002,
+      "y": 315,
+      "lod": 3,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-wheelset",
+      "word": "wheelset",
+      "translation": "轮对",
+      "x": 1160,
+      "y": 306,
+      "lod": 1,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-axle",
+      "word": "axle",
+      "translation": "车轴",
+      "x": 1195,
+      "y": 278,
+      "lod": 3,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-compressor-unit",
+      "word": "compressor unit",
+      "translation": "压缩机组",
+      "x": 1220,
+      "y": 320,
+      "lod": 2,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-air-hose",
+      "word": "air hose",
+      "translation": "空气软管",
+      "x": 1243,
+      "y": 328,
+      "lod": 4,
+      "zoneId": "transport-mainline-locomotives"
+    },
+    {
+      "id": "transport-maintenance-depot",
+      "word": "maintenance depot",
+      "translation": "检修库",
+      "x": 1450,
+      "y": 150,
+      "lod": 0,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-arched-roof",
+      "word": "arched roof",
+      "translation": "拱形屋顶",
+      "x": 1480,
+      "y": 30,
+      "lod": 1,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-roof-cladding",
+      "word": "roof cladding",
+      "translation": "屋面覆板",
+      "x": 1535,
+      "y": 40,
+      "lod": 2,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-steel-truss",
+      "word": "steel truss",
+      "translation": "钢桁架",
+      "x": 1455,
+      "y": 79,
+      "lod": 2,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-service-bay",
+      "word": "service bay",
+      "translation": "检修工位",
+      "x": 1400,
+      "y": 180,
+      "lod": 0,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-roller-shutter",
+      "word": "roller shutter",
+      "translation": "卷帘门",
+      "x": 1305,
+      "y": 100,
+      "lod": 1,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-shunter",
+      "word": "shunter",
+      "translation": "调车机车",
+      "x": 1445,
+      "y": 250,
+      "lod": 0,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-shunter-underframe",
+      "word": "shunter underframe",
+      "translation": "调车机底架",
+      "x": 1440,
+      "y": 307,
+      "lod": 3,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-maintenance-platform",
+      "word": "maintenance platform",
+      "translation": "检修平台",
+      "x": 1438,
+      "y": 308,
+      "lod": 2,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-inspection-pit",
+      "word": "inspection pit",
+      "translation": "检修地沟",
+      "x": 1450,
+      "y": 330,
+      "lod": 2,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-access-ladder",
+      "word": "access ladder",
+      "translation": "登高梯",
+      "x": 1308,
+      "y": 235,
+      "lod": 2,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-protective-post",
+      "word": "protective post",
+      "translation": "防护立柱",
+      "x": 1480,
+      "y": 280,
+      "lod": 3,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-lifting-jack",
+      "word": "lifting jack",
+      "translation": "举升千斤顶",
+      "x": 1500,
+      "y": 280,
+      "lod": 2,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-work-light",
+      "word": "work light",
+      "translation": "工作灯",
+      "x": 1304,
+      "y": 88,
+      "lod": 3,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-drainpipe",
+      "word": "drainpipe",
+      "translation": "落水管",
+      "x": 1665,
+      "y": 200,
+      "lod": 3,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-wall-cladding",
+      "word": "wall cladding",
+      "translation": "墙面覆板",
+      "x": 1615,
+      "y": 160,
+      "lod": 2,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-wall-placard",
+      "word": "wall placard",
+      "translation": "墙面标牌",
+      "x": 1635,
+      "y": 278,
+      "lod": 3,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-equipment-crate",
+      "word": "equipment crate",
+      "translation": "设备箱",
+      "x": 1585,
+      "y": 330,
+      "lod": 2,
+      "zoneId": "transport-rail-depot"
+    },
+    {
+      "id": "transport-delivery-van",
+      "word": "delivery van",
+      "translation": "厢式货车",
+      "x": 339,
+      "y": 400,
+      "lod": 0,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-rear-door",
+      "word": "rear door",
+      "translation": "后车门",
+      "x": 295,
+      "y": 403,
+      "lod": 2,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-cargo-body",
+      "word": "cargo body",
+      "translation": "货厢",
+      "x": 337,
+      "y": 395,
+      "lod": 1,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-wing-mirror",
+      "word": "wing mirror",
+      "translation": "侧后视镜",
+      "x": 385,
+      "y": 390,
+      "lod": 3,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-motor-scooter",
+      "word": "motor scooter",
+      "translation": "踏板摩托车",
+      "x": 455,
+      "y": 397,
+      "lod": 0,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-motorcycle",
+      "word": "motorcycle",
+      "translation": "摩托车",
+      "lexemeId": "en-48a39a331171798c",
+      "x": 466,
+      "y": 354,
+      "lod": 0,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-bicycle-shelter",
+      "word": "bicycle shelter",
+      "translation": "自行车棚",
+      "x": 200,
+      "y": 480,
+      "lod": 0,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-curved-canopy",
+      "word": "curved canopy",
+      "translation": "弧形顶棚",
+      "x": 205,
+      "y": 420,
+      "lod": 1,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-canopy-support",
+      "word": "canopy support",
+      "translation": "顶棚支架",
+      "x": 226,
+      "y": 500,
+      "lod": 2,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-bicycle-rack",
+      "word": "bicycle rack",
+      "translation": "自行车架",
+      "x": 178,
+      "y": 530,
+      "lod": 1,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-commuter-bicycle",
+      "word": "commuter bicycle",
+      "translation": "通勤自行车",
+      "x": 180,
+      "y": 526,
+      "lod": 0,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-bicycle-saddle",
+      "word": "bicycle saddle",
+      "translation": "自行车座垫",
+      "x": 178,
+      "y": 500,
+      "lod": 3,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-bicycle-handlebar",
+      "word": "bicycle handlebar",
+      "translation": "自行车车把",
+      "x": 195,
+      "y": 501,
+      "lod": 3,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-bicycle-frame",
+      "word": "bicycle frame",
+      "translation": "自行车车架",
+      "x": 175,
+      "y": 530,
+      "lod": 2,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-trash-bin",
+      "word": "trash bin",
+      "translation": "垃圾桶",
+      "x": 461,
+      "y": 461,
+      "lod": 1,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-parking-bay-line",
+      "word": "parking bay line",
+      "translation": "停车位线",
+      "x": 386,
+      "y": 480,
+      "lod": 3,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-raised-planter",
+      "word": "raised planter",
+      "translation": "高架花池",
+      "x": 460,
+      "y": 548,
+      "lod": 1,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-grass-verge",
+      "word": "grass verge",
+      "translation": "路旁草带",
+      "x": 343,
+      "y": 446,
+      "lod": 2,
+      "zoneId": "transport-west-street-cycles"
+    },
+    {
+      "id": "transport-gondola-wagon",
+      "word": "gondola wagon",
+      "translation": "敞车",
+      "x": 700,
+      "y": 410,
+      "lod": 0,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-open-wagon-body",
+      "word": "open wagon body",
+      "translation": "敞车车体",
+      "x": 700,
+      "y": 390,
+      "lod": 1,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-wagon-end-gate",
+      "word": "wagon end gate",
+      "translation": "车厢端门",
+      "x": 586,
+      "y": 430,
+      "lod": 2,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-side-panel",
+      "word": "side panel",
+      "translation": "侧面板",
+      "x": 738,
+      "y": 420,
+      "lod": 3,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-freight-undercarriage",
+      "word": "freight undercarriage",
+      "translation": "货车底架",
+      "x": 650,
+      "y": 486,
+      "lod": 2,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-flatbed-wagon",
+      "word": "flatbed wagon",
+      "translation": "平板车",
+      "x": 780,
+      "y": 505,
+      "lod": 0,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-timber-deck",
+      "word": "timber deck",
+      "translation": "木质载货台",
+      "x": 800,
+      "y": 465,
+      "lod": 2,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-tank-wagon",
+      "word": "tank wagon",
+      "translation": "罐车",
+      "x": 910,
+      "y": 396,
+      "lod": 0,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-cylindrical-tank",
+      "word": "cylindrical tank",
+      "translation": "圆柱罐体",
+      "x": 915,
+      "y": 380,
+      "lod": 1,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-tank-saddle",
+      "word": "tank saddle",
+      "translation": "罐体支座",
+      "x": 907,
+      "y": 430,
+      "lod": 3,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-buffer-stop",
+      "word": "buffer stop",
+      "translation": "止冲挡",
+      "x": 600,
+      "y": 525,
+      "lod": 1,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-track-terminus",
+      "word": "track terminus",
+      "translation": "轨道终端",
+      "x": 620,
+      "y": 545,
+      "lod": 2,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-concrete-divider",
+      "word": "concrete divider",
+      "translation": "混凝土隔墙",
+      "x": 733,
+      "y": 515,
+      "lod": 2,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-yard-safety-line",
+      "word": "yard safety line",
+      "translation": "场区安全线",
+      "x": 917,
+      "y": 575,
+      "lod": 3,
+      "zoneId": "transport-freight-wagons"
+    },
+    {
+      "id": "transport-forklift",
+      "word": "forklift",
+      "translation": "叉车",
+      "x": 1022,
+      "y": 515,
+      "lod": 0,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-forklift-mast",
+      "word": "forklift mast",
+      "translation": "叉车门架",
+      "x": 984,
+      "y": 492,
+      "lod": 1,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-forklift-forks",
+      "word": "forklift forks",
+      "translation": "叉车货叉",
+      "x": 980,
+      "y": 552,
+      "lod": 2,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-overhead-guard",
+      "word": "overhead guard",
+      "translation": "叉车护顶架",
+      "x": 1037,
+      "y": 473,
+      "lod": 2,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-operator-seat",
+      "word": "operator seat",
+      "translation": "驾驶座",
+      "x": 1034,
+      "y": 500,
+      "lod": 3,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-shipping-container",
+      "word": "shipping container",
+      "translation": "集装箱",
+      "x": 1180,
+      "y": 404,
+      "lod": 0,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-container-corrugation",
+      "word": "container corrugation",
+      "translation": "集装箱波纹板",
+      "x": 1191,
+      "y": 431,
+      "lod": 3,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-container-roof",
+      "word": "container roof",
+      "translation": "集装箱顶板",
+      "x": 1165,
+      "y": 366,
+      "lod": 2,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-wooden-crate",
+      "word": "wooden crate",
+      "translation": "木箱",
+      "x": 1104,
+      "y": 438,
+      "lod": 0,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-crate-lid",
+      "word": "crate lid",
+      "translation": "木箱盖",
+      "x": 1105,
+      "y": 412,
+      "lod": 2,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-cargo-rack",
+      "word": "cargo rack",
+      "translation": "货物框架",
+      "x": 1117,
+      "y": 484,
+      "lod": 1,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-cargo-shed",
+      "word": "cargo shed",
+      "translation": "货场小屋",
+      "x": 1160,
+      "y": 531,
+      "lod": 0,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-corrugated-metal-roof",
+      "word": "corrugated metal roof",
+      "translation": "波纹金属屋顶",
+      "x": 1170,
+      "y": 494,
+      "lod": 2,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-shed-door",
+      "word": "shed door",
+      "translation": "小屋门",
+      "x": 1117,
+      "y": 578,
+      "lod": 2,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-lifebuoy",
+      "word": "lifebuoy",
+      "translation": "救生圈",
+      "x": 1167,
+      "y": 570,
+      "lod": 1,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-curved-lamp-post",
+      "word": "curved lamp post",
+      "translation": "弯臂灯杆",
+      "x": 1087,
+      "y": 453,
+      "lod": 2,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-wooden-pallet",
+      "word": "wooden pallet",
+      "translation": "木托盘",
+      "x": 1035,
+      "y": 580,
+      "lod": 1,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-wrapped-pallet",
+      "word": "wrapped pallet",
+      "translation": "包膜托盘货物",
+      "x": 975,
+      "y": 576,
+      "lod": 1,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-loading-apron",
+      "word": "loading apron",
+      "translation": "装卸作业面",
+      "x": 1220,
+      "y": 520,
+      "lod": 1,
+      "zoneId": "transport-cargo-apron"
+    },
+    {
+      "id": "transport-gantry-crane",
+      "word": "gantry crane",
+      "translation": "门式起重机",
+      "x": 1460,
+      "y": 410,
+      "lod": 0,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-bridge-girder",
+      "word": "bridge girder",
+      "translation": "起重机主梁",
+      "x": 1460,
+      "y": 365,
+      "lod": 1,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-crane-leg",
+      "word": "crane leg",
+      "translation": "起重机支腿",
+      "x": 1600,
+      "y": 478,
+      "lod": 1,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-crane-trolley",
+      "word": "crane trolley",
+      "translation": "起重小车",
+      "x": 1420,
+      "y": 390,
+      "lod": 1,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-hoist-block",
+      "word": "hoist block",
+      "translation": "起升滑轮组",
+      "x": 1420,
+      "y": 420,
+      "lod": 2,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-lifting-hook",
+      "word": "lifting hook",
+      "translation": "吊钩",
+      "x": 1420,
+      "y": 453,
+      "lod": 1,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-wire-rope",
+      "word": "wire rope",
+      "translation": "钢丝绳",
+      "x": 1418,
+      "y": 405,
+      "lod": 3,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-crane-wheel",
+      "word": "crane wheel",
+      "translation": "起重机行走轮",
+      "x": 1315,
+      "y": 540,
+      "lod": 3,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-gantry-ladder",
+      "word": "gantry ladder",
+      "translation": "门机爬梯",
+      "x": 1278,
+      "y": 388,
+      "lod": 3,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-tugboat",
+      "word": "tugboat",
+      "translation": "拖船",
+      "x": 1448,
+      "y": 574,
+      "lod": 0,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-wheelhouse",
+      "word": "wheelhouse",
+      "translation": "驾驶舱",
+      "x": 1445,
+      "y": 525,
+      "lod": 1,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-bridge-window",
+      "word": "bridge window",
+      "translation": "驾驶台窗",
+      "x": 1442,
+      "y": 534,
+      "lod": 2,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-navigation-light",
+      "word": "navigation light",
+      "translation": "航行灯",
+      "x": 1470,
+      "y": 497,
+      "lod": 3,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-exhaust-stack",
+      "word": "exhaust stack",
+      "translation": "排气筒",
+      "x": 1438,
+      "y": 489,
+      "lod": 2,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-deck-railing",
+      "word": "deck railing",
+      "translation": "甲板栏杆",
+      "x": 1392,
+      "y": 560,
+      "lod": 2,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-foredeck",
+      "word": "foredeck",
+      "translation": "前甲板",
+      "x": 1345,
+      "y": 590,
+      "lod": 1,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-cabin-roof",
+      "word": "cabin roof",
+      "translation": "舱室顶",
+      "x": 1435,
+      "y": 508,
+      "lod": 2,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-hull-fender",
+      "word": "hull fender",
+      "translation": "船体护舷",
+      "x": 1560,
+      "y": 590,
+      "lod": 2,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-mooring-line",
+      "word": "mooring line",
+      "translation": "系泊缆绳",
+      "x": 1610,
+      "y": 594,
+      "lod": 2,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-dock-edge",
+      "word": "dock edge",
+      "translation": "码头边缘",
+      "x": 1600,
+      "y": 545,
+      "lod": 2,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-utility-pedestal",
+      "word": "utility pedestal",
+      "translation": "码头水电桩",
+      "x": 1660,
+      "y": 525,
+      "lod": 3,
+      "zoneId": "transport-gantry-tug"
+    },
+    {
+      "id": "transport-cycle-workshop",
+      "word": "cycle workshop",
+      "translation": "自行车工坊",
+      "x": 270,
+      "y": 730,
+      "lod": 0,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-barrel-roof",
+      "word": "barrel roof",
+      "translation": "筒形屋顶",
+      "x": 300,
+      "y": 660,
+      "lod": 1,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-roof-seam",
+      "word": "roof seam",
+      "translation": "屋顶接缝",
+      "x": 300,
+      "y": 655,
+      "lod": 3,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-eaves",
+      "word": "eaves",
+      "translation": "屋檐",
+      "x": 315,
+      "y": 702,
+      "lod": 2,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-garage-door",
+      "word": "garage door",
+      "translation": "车库门",
+      "x": 180,
+      "y": 730,
+      "lod": 1,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-service-door",
+      "word": "service door",
+      "translation": "服务门",
+      "x": 470,
+      "y": 740,
+      "lod": 1,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-wall-vent",
+      "word": "wall vent",
+      "translation": "墙面通风口",
+      "x": 500,
+      "y": 704,
+      "lod": 3,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-utility-cabinet",
+      "word": "utility cabinet",
+      "translation": "公用设施柜",
+      "x": 85,
+      "y": 798,
+      "lod": 1,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-oil-drum",
+      "word": "oil drum",
+      "translation": "油桶",
+      "x": 190,
+      "y": 840,
+      "lod": 1,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-drum-pump",
+      "word": "drum pump",
+      "translation": "桶装泵",
+      "x": 220,
+      "y": 825,
+      "lod": 2,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-gas-cylinder",
+      "word": "gas cylinder",
+      "translation": "气瓶",
+      "x": 390,
+      "y": 768,
+      "lod": 1,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-cardboard-box",
+      "word": "cardboard box",
+      "translation": "纸箱",
+      "x": 470,
+      "y": 715,
+      "lod": 2,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-utility-barrel",
+      "word": "utility barrel",
+      "translation": "储物桶",
+      "x": 458,
+      "y": 735,
+      "lod": 2,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-bicycle-parking-area",
+      "word": "bicycle parking area",
+      "translation": "自行车停放区",
+      "x": 350,
+      "y": 840,
+      "lod": 0,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-cargo-bicycle",
+      "word": "cargo bicycle",
+      "translation": "载货自行车",
+      "x": 425,
+      "y": 900,
+      "lod": 0,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-bicycle-trailer",
+      "word": "bicycle trailer",
+      "translation": "自行车拖车",
+      "x": 478,
+      "y": 895,
+      "lod": 1,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-bicycle-chain",
+      "word": "bicycle chain",
+      "translation": "自行车链条",
+      "x": 372,
+      "y": 890,
+      "lod": 3,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-bicycle-pedal",
+      "word": "bicycle pedal",
+      "translation": "自行车脚踏",
+      "x": 370,
+      "y": 884,
+      "lod": 3,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-chain-link-fence",
+      "word": "chain-link fence",
+      "translation": "铁丝网围栏",
+      "x": 470,
+      "y": 820,
+      "lod": 1,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-utility-box",
+      "word": "utility box",
+      "translation": "公用设施箱",
+      "x": 120,
+      "y": 850,
+      "lod": 2,
+      "zoneId": "transport-cycle-workshop"
+    },
+    {
+      "id": "transport-ibc-container",
+      "word": "IBC container",
+      "translation": "中型散装容器",
+      "x": 720,
+      "y": 670,
+      "lod": 0,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-metal-cage",
+      "word": "metal cage",
+      "translation": "金属笼架",
+      "x": 720,
+      "y": 650,
+      "lod": 2,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-plastic-reservoir",
+      "word": "plastic reservoir",
+      "translation": "塑料储液罐",
+      "x": 715,
+      "y": 675,
+      "lod": 1,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-pallet-base",
+      "word": "pallet base",
+      "translation": "托盘底座",
+      "x": 720,
+      "y": 702,
+      "lod": 2,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-shrink-wrapped-load",
+      "word": "shrink-wrapped load",
+      "translation": "收缩膜货物",
+      "x": 635,
+      "y": 725,
+      "lod": 1,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-cargo-strapping",
+      "word": "cargo strapping",
+      "translation": "货物捆扎带",
+      "x": 650,
+      "y": 690,
+      "lod": 3,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-palletized-equipment-load",
+      "word": "palletized equipment load",
+      "translation": "托盘式设备货物",
+      "x": 770,
+      "y": 760,
+      "lod": 1,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-hand-pallet-truck",
+      "word": "hand pallet truck",
+      "translation": "手动托盘搬运车",
+      "x": 748,
+      "y": 835,
+      "lod": 0,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-pallet-jack-handle",
+      "word": "pallet-jack handle",
+      "translation": "托盘车手柄",
+      "x": 770,
+      "y": 788,
+      "lod": 2,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-empty-pallet",
+      "word": "empty pallet",
+      "translation": "空托盘",
+      "x": 815,
+      "y": 820,
+      "lod": 1,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-carton-consignment",
+      "word": "carton consignment",
+      "translation": "成组纸箱货物",
+      "x": 820,
+      "y": 750,
+      "lod": 1,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-pipe-assembly",
+      "word": "pipe assembly",
+      "translation": "管路组件",
+      "x": 919,
+      "y": 735,
+      "lod": 2,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-dock-pedestal",
+      "word": "dock pedestal",
+      "translation": "码头设备座",
+      "x": 920,
+      "y": 835,
+      "lod": 2,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-mooring-capstan",
+      "word": "mooring capstan",
+      "translation": "系泊绞盘",
+      "x": 880,
+      "y": 855,
+      "lod": 1,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-quay-wall",
+      "word": "quay wall",
+      "translation": "码头墙",
+      "x": 895,
+      "y": 890,
+      "lod": 0,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-safety-railing",
+      "word": "safety railing",
+      "translation": "安全栏杆",
+      "x": 800,
+      "y": 905,
+      "lod": 2,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-shade-tree",
+      "word": "shade tree",
+      "translation": "遮荫树",
+      "x": 610,
+      "y": 790,
+      "lod": 1,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-grass-patch",
+      "word": "grass patch",
+      "translation": "草地",
+      "x": 700,
+      "y": 900,
+      "lod": 2,
+      "zoneId": "transport-lower-cargo-apron"
+    },
+    {
+      "id": "transport-sailboat",
+      "word": "sailboat",
+      "translation": "帆船",
+      "x": 1180,
+      "y": 810,
+      "lod": 0,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-mainsail",
+      "word": "mainsail",
+      "translation": "主帆",
+      "x": 1188,
+      "y": 725,
+      "lod": 1,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-sailboat-mast",
+      "word": "sailboat mast",
+      "translation": "帆船桅杆",
+      "x": 1165,
+      "y": 700,
+      "lod": 1,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-boom",
+      "word": "boom",
+      "translation": "帆桁",
+      "x": 1162,
+      "y": 780,
+      "lod": 2,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-standing-rigging",
+      "word": "standing rigging",
+      "translation": "固定索具",
+      "x": 1172,
+      "y": 725,
+      "lod": 2,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-forestay",
+      "word": "forestay",
+      "translation": "前支索",
+      "x": 1243,
+      "y": 782,
+      "lod": 3,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-sailboat-hull",
+      "word": "sailboat hull",
+      "translation": "帆船船体",
+      "x": 1190,
+      "y": 850,
+      "lod": 1,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-bow",
+      "word": "bow",
+      "translation": "船艏",
+      "x": 1250,
+      "y": 842,
+      "lod": 2,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-stern",
+      "word": "stern",
+      "translation": "船艉",
+      "x": 1105,
+      "y": 835,
+      "lod": 2,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-cockpit",
+      "word": "cockpit",
+      "translation": "驾驶座舱",
+      "x": 1175,
+      "y": 824,
+      "lod": 1,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-cabin-top",
+      "word": "cabin top",
+      "translation": "舱顶",
+      "x": 1135,
+      "y": 808,
+      "lod": 2,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-deck-hatch",
+      "word": "deck hatch",
+      "translation": "甲板舱口",
+      "x": 1145,
+      "y": 810,
+      "lod": 3,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-lifeline",
+      "word": "lifeline",
+      "translation": "舷侧安全索",
+      "x": 1205,
+      "y": 795,
+      "lod": 3,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-motorboat",
+      "word": "motorboat",
+      "translation": "汽艇",
+      "x": 1065,
+      "y": 812,
+      "lod": 0,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-boat-windshield",
+      "word": "boat windshield",
+      "translation": "艇用挡风玻璃",
+      "x": 1064,
+      "y": 788,
+      "lod": 2,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-bow-rail",
+      "word": "bow rail",
+      "translation": "船艏栏杆",
+      "x": 1100,
+      "y": 780,
+      "lod": 2,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-mooring-rope",
+      "word": "mooring rope",
+      "translation": "系船绳",
+      "x": 1030,
+      "y": 840,
+      "lod": 2,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-floating-boom",
+      "word": "floating boom",
+      "translation": "水上围栏",
+      "x": 970,
+      "y": 900,
+      "lod": 1,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-marker-buoy",
+      "word": "marker buoy",
+      "translation": "标志浮标",
+      "x": 1050,
+      "y": 910,
+      "lod": 1,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-mooring-buoy",
+      "word": "mooring buoy",
+      "translation": "系泊浮球",
+      "x": 990,
+      "y": 910,
+      "lod": 1,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-quay-ladder",
+      "word": "quay ladder",
+      "translation": "码头梯",
+      "x": 970,
+      "y": 730,
+      "lod": 1,
+      "zoneId": "transport-sailboat-berth"
+    },
+    {
+      "id": "transport-fishing-boat",
+      "word": "fishing boat",
+      "translation": "渔船",
+      "x": 1450,
+      "y": 800,
+      "lod": 0,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-trawler-wheelhouse",
+      "word": "trawler wheelhouse",
+      "translation": "渔船驾驶室",
+      "x": 1430,
+      "y": 790,
+      "lod": 1,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-fishing-gantry",
+      "word": "fishing gantry",
+      "translation": "渔船作业架",
+      "x": 1490,
+      "y": 740,
+      "lod": 1,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-rigging-boom",
+      "word": "rigging boom",
+      "translation": "索具支臂",
+      "x": 1510,
+      "y": 730,
+      "lod": 2,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-deck-winch",
+      "word": "deck winch",
+      "translation": "甲板绞车",
+      "x": 1525,
+      "y": 780,
+      "lod": 1,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-deck-crane",
+      "word": "deck crane",
+      "translation": "甲板吊机",
+      "x": 1510,
+      "y": 750,
+      "lod": 1,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-radio-antenna",
+      "word": "radio antenna",
+      "translation": "无线电天线",
+      "x": 1460,
+      "y": 690,
+      "lod": 2,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-deck-cable-drum",
+      "word": "deck cable drum",
+      "translation": "甲板缆绳卷筒",
+      "x": 1535,
+      "y": 760,
+      "lod": 2,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-tripod-mast",
+      "word": "tripod mast",
+      "translation": "三脚桅架",
+      "x": 1468,
+      "y": 715,
+      "lod": 2,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-gunwale",
+      "word": "gunwale",
+      "translation": "船舷上缘",
+      "x": 1410,
+      "y": 830,
+      "lod": 2,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-rub-rail",
+      "word": "rub rail",
+      "translation": "船舷防擦条",
+      "x": 1410,
+      "y": 842,
+      "lod": 3,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-fishing-deck",
+      "word": "fishing deck",
+      "translation": "渔船作业甲板",
+      "x": 1530,
+      "y": 780,
+      "lod": 1,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-cabin-door",
+      "word": "cabin door",
+      "translation": "舱门",
+      "x": 1458,
+      "y": 800,
+      "lod": 2,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-mooring-warp",
+      "word": "mooring warp",
+      "translation": "粗系泊缆",
+      "x": 1380,
+      "y": 770,
+      "lod": 2,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-dinghy",
+      "word": "dinghy",
+      "translation": "小艇",
+      "x": 1560,
+      "y": 850,
+      "lod": 0,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-dinghy-thwart",
+      "word": "dinghy thwart",
+      "translation": "小艇横座",
+      "x": 1565,
+      "y": 850,
+      "lod": 2,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-rowlock",
+      "word": "rowlock",
+      "translation": "桨架",
+      "x": 1583,
+      "y": 838,
+      "lod": 3,
+      "zoneId": "transport-fishing-berth"
+    },
+    {
+      "id": "transport-dinghy-transom",
+      "word": "dinghy transom",
+      "translation": "小艇艉板",
+      "x": 1535,
+      "y": 875,
+      "lod": 2,
+      "zoneId": "transport-fishing-berth"
+    }
+  ],
+  "removedAmbiguous": [
+    {
+      "candidate": "platform kiosk",
+      "reason": "The orange station object could be a service cart or machine; its function is not visually certain."
+    },
+    {
+      "candidate": "pedestrian crossing button",
+      "reason": "Tiny roadside posts are visible, but button faces are not resolved at native pixels."
+    },
+    {
+      "candidate": "license plate",
+      "reason": "Plate rectangles exist, but characters and jurisdiction are illegible."
+    },
+    {
+      "candidate": "brand logo",
+      "reason": "Vehicle emblems are too small to identify reliably."
+    },
+    {
+      "candidate": "rail brake disc",
+      "reason": "Wheel-service hardware overlaps; a brake disc cannot be isolated with confidence."
+    },
+    {
+      "candidate": "rail grinder",
+      "reason": "Blue depot machinery is real but its exact maintenance function is ambiguous."
+    },
+    {
+      "candidate": "fire extinguisher",
+      "reason": "Red cylinders may be extinguishers or workshop gas bottles; no readable markings."
+    },
+    {
+      "candidate": "oil pump",
+      "reason": "Several hoses and service units are visible, but the pump body is not unambiguous."
+    },
+    {
+      "candidate": "forklift steering wheel",
+      "reason": "The operator area is visible, but the steering wheel is occluded."
+    },
+    {
+      "candidate": "pallet scale",
+      "reason": "The low platform beside cargo could be a scale or simple pallet base."
+    },
+    {
+      "candidate": "boat anchor",
+      "reason": "No anchor shape is sufficiently resolved on any vessel."
+    },
+    {
+      "candidate": "outboard motor",
+      "reason": "The motorboat stern is partly occluded and propulsion hardware is not clearly visible."
+    },
+    {
+      "candidate": "radar scanner",
+      "reason": "Small white mast fittings may be lights or antennas rather than radar hardware."
+    },
+    {
+      "candidate": "fishing net",
+      "reason": "Fishing gear supports are visible, but no actual net mesh can be resolved."
+    },
+    {
+      "candidate": "person",
+      "reason": "Human-like depot shapes are too small or equipment-like to label safely."
+    },
+    {
+      "candidate": "tactile strip",
+      "reason": "the platform band at (736, 298) has no resolvable tactile bumps or ribs and was retained only as a platform safety strip"
+    },
+    {
+      "candidate": "wheel flange",
+      "reason": "the point at (1183, 298) resolves only a wheel rim; the flange profile is not pixel-defensible and the separate wheel anchor already covers it"
+    },
+    {
+      "candidate": "warning placard",
+      "reason": "the small wall placard at (1635, 278) has no legible warning symbol or warning content"
+    },
+    {
+      "candidate": "hazardous-material cabinet",
+      "reason": "the cabinet at (85, 798) has no visible hazard label or containment evidence"
+    },
+    {
+      "candidate": "palletized cabinet",
+      "reason": "the wrapped load at (770, 760) does not prove that its contents are a cabinet"
+    },
+    {
+      "candidate": "pipe manifold",
+      "reason": "the assembly at (919, 735) contains pipes but does not resolve a defensible manifold topology"
+    },
+    {
+      "candidate": "fishing trawler",
+      "reason": "the vessel at (1450, 800) is a fishing boat, but no deployed trawl gear proves the trawler subtype"
+    },
+    {
+      "candidate": "outrigger",
+      "reason": "the angled member at (1510, 730) is visible as a rigging boom, while outrigger function is not provable"
+    },
+    {
+      "candidate": "net winch",
+      "reason": "the winch at (1525, 780) has no visible connected net and was retained as a generic deck winch"
+    },
+    {
+      "candidate": "net drum",
+      "reason": "the drum at (1535, 760) has no visible net and was retained as a generic deck cable drum"
+    }
+  ]
+}
