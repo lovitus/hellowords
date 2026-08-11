@@ -67,6 +67,16 @@ export interface SemanticZoomDataReadiness {
   readonly wordsReady: boolean;
 }
 
+export type SemanticZoomContinuationAction = "zoom" | "pan-zoom" | "pan" | "complete";
+
+/** Screen-space progress for the current LOD, independent of its rendering copy. */
+export interface SemanticZoomExplorationProgress {
+  readonly visibleCount: number;
+  readonly totalCount: number;
+  readonly remainingCount: number;
+  readonly action: SemanticZoomContinuationAction;
+}
+
 export const SEMANTIC_ZOOM_WORLD_WIDTH = 1600;
 export const SEMANTIC_ZOOM_WORLD_HEIGHT = 900;
 export const SEMANTIC_ZOOM_MIN_SCALE = 1;
@@ -144,6 +154,32 @@ export function semanticZoomDisplayLevel(
 
 export function semanticZoomNodeBudget(viewportWidth: number): 40 | 80 {
   return viewportWidth < 820 ? 40 : 80;
+}
+
+/**
+ * Describes what the user can see now and the gesture that reveals more.
+ * Counts are normalized because transient loading states may briefly report
+ * an empty or stale projection while keeping the previous LOD mounted.
+ */
+export function semanticZoomExplorationProgress(
+  level: SemanticZoomLevel,
+  totalCount: number,
+  visibleCount: number,
+): SemanticZoomExplorationProgress {
+  const total = Number.isFinite(totalCount) ? Math.max(0, Math.floor(totalCount)) : 0;
+  const visible = Number.isFinite(visibleCount)
+    ? Math.min(total, Math.max(0, Math.floor(visibleCount)))
+    : 0;
+  const remaining = total - visible;
+  const action: SemanticZoomContinuationAction = level === "word"
+    ? remaining > 0 ? "pan" : "complete"
+    : remaining > 0 ? "pan-zoom" : "zoom";
+  return {
+    visibleCount: visible,
+    totalCount: total,
+    remainingCount: remaining,
+    action,
+  };
 }
 
 export function clampSemanticZoomView(

@@ -12,6 +12,7 @@ const CONTINUOUS_TILE_ART = '[data-testid="scene-continuous-tile-art"]';
 const SEMANTIC_FIELD = '[data-testid="semantic-zoom-field"]';
 const SEMANTIC_PLANE = '[data-testid="semantic-zoom-plane"]';
 const SEMANTIC_NODE = '[data-testid="semantic-zoom-node"]';
+const SEMANTIC_PROGRESS = '[data-testid="semantic-zoom-progress"]';
 const CONTINUITY_TRACE_KEY = "__hellowordsContinuousZoomContract";
 
 interface RectSnapshot {
@@ -228,6 +229,42 @@ async function wheelUntilLevel(
     await nextPaint(page);
   }
   await expect(field).toHaveAttribute("data-level", targetLevel);
+}
+
+async function enterLargestSemanticLeaf(field: Locator): Promise<void> {
+  await field.locator(`${SEMANTIC_NODE}[data-id="qualities-states"]`).click();
+  await expect(field).toHaveAttribute("data-level", "topic");
+  await field.locator(`${SEMANTIC_NODE}[data-id="qualities"]`).click();
+  await expect(field).toHaveAttribute("data-level", "subcluster");
+  const largestLeaf = field.locator(`${SEMANTIC_NODE}[data-id="qualities--general-all"]`);
+  await expect(largestLeaf).toBeVisible();
+  await expect(largestLeaf).toHaveAttribute("data-count", "1013");
+  await largestLeaf.click();
+  await expect(field).toHaveAttribute("data-level", "word");
+  await expect(field).toHaveAttribute("data-level-total", "1013");
+}
+
+async function semanticWordIds(field: Locator): Promise<Set<string>> {
+  return new Set(await field.locator(`${SEMANTIC_NODE}[data-level="word"]`).evaluateAll((nodes) => (
+    nodes.map((node) => (node as HTMLElement).dataset.id ?? "").filter(Boolean)
+  )));
+}
+
+async function assertSemanticProgressIsTruthful(field: Locator): Promise<void> {
+  const snapshot = await field.evaluate((element) => {
+    const root = element as HTMLElement;
+    return {
+      live: Number(root.dataset.liveCount),
+      total: Number(root.dataset.levelTotal),
+      remaining: Number(root.dataset.remainingCount),
+      text: root.querySelector('[data-testid="semantic-zoom-progress"]')?.textContent ?? "",
+    };
+  });
+  expect(snapshot.total).toBe(1_013);
+  expect(snapshot.live).toBeGreaterThan(0);
+  expect(snapshot.remaining).toBe(snapshot.total - snapshot.live);
+  expect(snapshot.text).toContain(`${snapshot.live.toLocaleString("en-US")} / 1,013`);
+  expect(snapshot.text).toContain(`拖动探索其余 ${snapshot.remaining.toLocaleString("en-US")} 词`);
 }
 
 test("a warmed portal remains one continuous visual tile through forward and reverse zoom", async ({ page }, testInfo) => {
@@ -568,6 +605,53 @@ test("the semantic field reveals approved realm tiles and native-size words on o
     skewX: 0,
     scaleY: 1,
   });
+});
+
+test("the largest 1,013-word leaf exposes truthful progress while panning reveals new words", async ({ page }, testInfo) => {
+  const { field } = await openSemanticWorld(page);
+  const expectedBudget = testInfo.project.name === "mobile-chromium" ? 40 : 80;
+  await enterLargestSemanticLeaf(field);
+  await assertSemanticBudget(field, expectedBudget);
+  await assertSemanticProgressIsTruthful(field);
+
+  const progress = field.locator(SEMANTIC_PROGRESS);
+  await expect(field).toHaveAttribute("aria-describedby", "semantic-zoom-progress");
+  await expect(progress).not.toHaveAttribute("aria-live", /.+/);
+  await expect(field.locator("[aria-live='polite']")).toHaveCount(1);
+  await field.evaluate((element) => {
+    const liveRegion = element.querySelector("[aria-live='polite']");
+    if (!liveRegion) throw new Error("The discrete semantic navigation live region is required");
+    const probe = { mutations: 0 };
+    const observer = new MutationObserver((records) => { probe.mutations += records.length; });
+    observer.observe(liveRegion, { childList: true, characterData: true, subtree: true });
+    Reflect.set(window, "__semanticProgressLiveProbe", { observer, probe });
+  });
+
+  const first = await semanticWordIds(field);
+  expect(first.size).toBeGreaterThan(0);
+  const bounds = await field.boundingBox();
+  expect(bounds).not.toBeNull();
+  await page.mouse.move(bounds!.x + 12, bounds!.y + bounds!.height * 0.54);
+  await page.mouse.down();
+  await page.mouse.move(bounds!.x + bounds!.width * 0.74, bounds!.y + bounds!.height * 0.54, { steps: 8 });
+  await page.mouse.up();
+
+  let panned = new Set<string>();
+  await expect.poll(async () => {
+    panned = await semanticWordIds(field);
+    return new Set([...first, ...panned]).size;
+  }).toBeGreaterThan(first.size);
+  await assertSemanticBudget(field, expectedBudget);
+  await assertSemanticProgressIsTruthful(field);
+  const liveMutations = await field.evaluate(() => {
+    const value = Reflect.get(window, "__semanticProgressLiveProbe") as {
+      observer: MutationObserver;
+      probe: { mutations: number };
+    };
+    value.observer.disconnect();
+    return value.probe.mutations;
+  });
+  expect(liveMutations, "continuous camera frames must not flood the polite live region").toBe(0);
 });
 
 test("keyboard semantic zoom remains complete when motion is reduced", async ({ page }, testInfo) => {

@@ -22,6 +22,7 @@ import {
   type Scene,
   type SceneLabelProtectedRegion,
 } from "../domain";
+import { SPATIAL_LEXEME_REALMS } from "../domain/spatialLexemeRealms.generated";
 
 interface SceneViewportProps {
   scene: Scene;
@@ -502,7 +503,11 @@ export function SceneViewport({
     [scene.labels],
   );
   const labelSemanticStyles = useMemo(
-    () => buildLabelSemanticStyleMap(scene.labels, scene.visualRegions ?? []),
+    () => buildLabelSemanticStyleMap(
+      scene.labels,
+      scene.visualRegions ?? [],
+      SPATIAL_LEXEME_REALMS,
+    ),
     [scene.labels, scene.visualRegions],
   );
   const vocabularyZoomCues = useMemo(

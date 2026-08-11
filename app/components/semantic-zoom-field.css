@@ -295,11 +295,24 @@
   box-shadow: 0 0.45rem 1.4rem rgba(29, 43, 36, 0.11);
   font-size: 0.72rem;
   font-weight: 650;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
   text-align: center;
+  white-space: nowrap;
   transform: translateX(50%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   pointer-events: none;
+}
+
+.semantic-zoom-field__status strong {
+  color: #263d32;
+  font-weight: 800;
+}
+
+.semantic-zoom-field__status > span[aria-hidden="true"] {
+  color: #8a968f;
 }
 
 .semantic-zoom-field__status--error {
@@ -352,6 +365,13 @@
 
   .semantic-zoom-field__node strong {
     font-size: 0.84rem;
+  }
+
+  .semantic-zoom-field__status {
+    bottom: 0.65rem;
+    max-width: calc(100% - 1rem);
+    padding-inline: 0.6rem;
+    font-size: 0.68rem;
   }
 }
 

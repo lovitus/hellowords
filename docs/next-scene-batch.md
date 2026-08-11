@@ -395,6 +395,14 @@ Every named small part must remain large enough for a short leader line at final
 
 Reject the image if any portal room is cropped, dark, visually merged with the hall, or smaller than the non-portal living room; if bathroom fixtures appear in the kitchen or food appears in the bathroom; if any human/anatomical display is present; or if any picture, appliance, book or wall decoration contains pseudo-text.
 
+### Apartment release acceptance checklist
+
+- Preserve the current navigation semantics, not its old pixels: a complete upper-right kitchen, lower-left bedroom and lower-right bathroom must remain three visually disjoint portal objects. Each room must occupy at least 18% of the 1600 × 900 frame, remain recognizable at a 400 × 225 thumbnail, and contain the complete fixture group listed above. A doorway glimpse or one hero appliance does not qualify as a room portal.
+- Retain 40–44 anchors only after a final-pixel audit. The minimum useful evidence is the five whole-space nouns plus independently pointable circulation elements, furniture, fixtures and room parts from the must-visible plan; no missing small object may be recovered with a synonym, activity, material property or approximate room-area anchor.
+- Measure the accepted JPEG after resizing to 400 × 225 without color adjustment. Using sRGB Rec. 709 luma `Y = 0.2126R + 0.7152G + 0.0722B`, require full-frame mean `Y ≥ 115`, no more than 25% of pixels below `Y = 64`, and no more than 5% below `Y = 32`. Review each portal crop separately: none may have mean `Y < 95` or lose a named fixture in blocked shadow.
+- Reject any black roof/frame band, orange evening grade, murky lower floor, clipped window, anatomy or medical display, mannequin, human figure, food in the bathroom, bathroom fixture in the kitchen, or letter/number-like mark at 100% and 200% inspection.
+- Before wiring the asset, author three fresh portal rectangles and fresh label coordinates from the accepted pixels, verify zero portal overlap, and update the reviewed asset hash. The current rectangle coordinates are reference evidence only.
+
 ## City street bright v3
 
 ### Current visual, label and navigation audit
@@ -443,6 +451,14 @@ Do not retain `skeleton` or `atom symbol`. A generic `sign` is valid only when i
 **Honest target:** 40–42 grounded words. **Hard ceiling:** 44, the current 46 minus the anatomy skeleton and decorative atom symbol. Do not recover the count with `shop`, `store`, `storefront` synonyms, multiple pedestrians, or unreadable signage.
 
 Reject the image if any lettering or number-like pseudo-text appears at 1600 × 900; if the cafe is not a complete frontage; if the transit target reads only as a bus; if the museum requires a sign to be identifiable; if anatomy appears in any window; or if the three portal regions overlap after a pixel-based crop proposal.
+
+### City-street release acceptance checklist
+
+- Preserve the left/center/right portal reading at thumbnail size: a complete science-museum facade and entrance at left, a complete cafe frontage at center, and a complete glazed transit-hub entrance at right. All three must be recognizable without words or logos, remain unobstructed, and receive disjoint hit rectangles; a telescope-only window, cafe awning alone, or bus alone is not a valid portal.
+- Retain 40–42 grounded anchors after final-pixel review. The scene must support all three navigation buildings, continuous street/crossing geometry, the core curb and transit infrastructure, and a restrained set of separately visible vehicles or people. Delete unsupported candidates rather than restoring `skeleton`, `atom symbol`, pseudo-signage or near-synonyms.
+- Measure the accepted JPEG at 400 × 225 with the same Rec. 709 luma method. Require full-frame mean `Y ≥ 115`, no more than 25% of pixels below `Y = 64`, and no more than 5% below `Y = 32`; the foreground road may remain darker, but crosswalk, curb ramp, drain and tactile paving must remain independently readable.
+- Reject any skeleton, anatomical or medical figure, atom-logo facade, readable or pseudo shop/station/route text, license characters, timetable glyphs, advertisement, brand, wet-night grade, smoky haze, crushed foreground shadow, crowd wall or vehicle that blocks a portal entrance.
+- Before wiring the asset, inspect the full 1600 × 900 image at 100% and 200%, derive every portal/label coordinate anew, verify the three portal rectangles do not overlap, remove the two forbidden current labels, and update the reviewed asset hash. Do not reuse current normalized positions merely because the destination order matches.
 
 ## Leaf natural v3
 

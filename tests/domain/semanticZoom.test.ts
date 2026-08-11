@@ -18,6 +18,7 @@ import {
   semanticZoomBoundsForLevel,
   semanticZoomCamera,
   semanticZoomDisplayLevel,
+  semanticZoomExplorationProgress,
   semanticZoomLevelForScale,
   semanticZoomNodeBudget,
   semanticZoomScaleForLevel,
@@ -187,6 +188,56 @@ test("screen projection enforces the 40/80 live-node budgets", () => {
   const camera = semanticZoomCamera({ centerX: 800, centerY: 450, scale: 1 }, DESKTOP);
   assert.ok(projectSemanticZoomNodes(nodes, camera, DESKTOP).length <= 80);
   assert.ok(projectSemanticZoomNodes(nodes, camera, { width: 390, height: 700 }).length <= 40);
+});
+
+test("exploration progress reports the real leaf total and the gesture that reveals more", () => {
+  assert.deepEqual(semanticZoomExplorationProgress("word", 1_013, 40), {
+    visibleCount: 40,
+    totalCount: 1_013,
+    remainingCount: 973,
+    action: "pan",
+  });
+  assert.deepEqual(semanticZoomExplorationProgress("word", 40, 40), {
+    visibleCount: 40,
+    totalCount: 40,
+    remainingCount: 0,
+    action: "complete",
+  });
+  assert.equal(semanticZoomExplorationProgress("topic", 120, 80).action, "pan-zoom");
+  assert.equal(semanticZoomExplorationProgress("subcluster", 12, 12).action, "zoom");
+  assert.deepEqual(semanticZoomExplorationProgress("word", -1, Number.NaN), {
+    visibleCount: 0,
+    totalCount: 0,
+    remainingCount: 0,
+    action: "complete",
+  });
+});
+
+test("a 1,013-word leaf spatially samples different words as the same plane is panned", () => {
+  const bounds = lexicalWorldRealmTiles().find(({ realmId }) => realmId === "qualities-states")?.detailRect;
+  assert.ok(bounds);
+  const layout = layoutSemanticZoomNodes(
+    Array.from({ length: 1_013 }, (_, index) => ({ id: `quality-${index}`, count: 1 })),
+    "word",
+    semanticZoomBoundsForLevel("word", bounds),
+  );
+  for (const viewport of [DESKTOP, { width: 390, height: 562 }] as const) {
+    const budget = semanticZoomNodeBudget(viewport.width);
+    const y = bounds.y + bounds.height / 2;
+    const samples = [0.25, 0.5, 0.75].map((fraction) => new Set(projectSemanticZoomNodes(
+      layout,
+      semanticZoomCamera({
+        centerX: bounds.x + bounds.width * fraction,
+        centerY: y,
+        scale: SEMANTIC_ZOOM_MAX_SCALE,
+      }, viewport),
+      viewport,
+      budget,
+    ).map(({ node }) => node.id)));
+    assert.ok(samples.every((sample) => sample.size === budget));
+    const union = new Set(samples.flatMap((sample) => [...sample]));
+    assert.ok(union.size > budget * 2, `${viewport.width}px viewport should reveal new words while panning`);
+  }
 });
 
 function assertPlacedNodesDoNotOverlap(

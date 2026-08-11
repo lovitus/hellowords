@@ -25,6 +25,7 @@ import {
   semanticZoomCamera,
   semanticZoomDepth,
   semanticZoomDisplayLevel,
+  semanticZoomExplorationProgress,
   semanticZoomLevelForScale,
   semanticZoomNodeBudget,
   semanticZoomScaleForLevel,
@@ -375,7 +376,6 @@ export function SemanticZoomField({
       ],
     },
   );
-
   const startViewAnimation = useCallback(() => {
     if (animationFrameRef.current !== null || typeof requestAnimationFrame === "undefined") return;
     const tick = (timestamp: number) => {
@@ -697,6 +697,11 @@ export function SemanticZoomField({
     height: `${activeTile.detailRect.height}px`,
     opacity: tileOpacity,
   } as CSSProperties : undefined;
+  const explorationProgress = semanticZoomExplorationProgress(
+    displayLevel,
+    currentLayout.length,
+    projectedNodes.length,
+  );
   const currentError = manifestResource.error
     ?? (selectedRealm && topicResource.ownerId === selectedRealm.id ? topicResource.error : undefined)
     ?? (selectedTopic && subclusterResource.ownerId === selectedTopic.id ? subclusterResource.error : undefined)
@@ -709,6 +714,21 @@ export function SemanticZoomField({
   const breadcrumb = [selectedRealm?.labelEn, selectedTopic?.labelEn, selectedSubcluster?.labelEn]
     .filter(Boolean)
     .join(" · ");
+  const levelLabel = displayLevel === "realm"
+    ? "领域"
+    : displayLevel === "topic"
+      ? "主题"
+      : displayLevel === "subcluster"
+        ? "词群"
+        : "词汇";
+  const progressLabel = `${formatCount(explorationProgress.visibleCount)} / ${formatCount(explorationProgress.totalCount)}`;
+  const continuationLabel = displayLevel === "word"
+    ? explorationProgress.remainingCount > 0
+      ? `拖动探索其余 ${formatCount(explorationProgress.remainingCount)} 词`
+      : "本词群已全部显示"
+    : explorationProgress.remainingCount > 0
+      ? `拖动看其余 ${formatCount(explorationProgress.remainingCount)} 个入口 · 继续放大进入`
+      : "滚轮或双指继续放大";
 
   return (
     <div
@@ -720,8 +740,12 @@ export function SemanticZoomField({
       data-active-realm={selectedRealm?.id}
       data-active-asset={activeAsset}
       data-live-count={projectedNodes.length}
+      data-level-total={explorationProgress.totalCount}
+      data-remaining-count={explorationProgress.remainingCount}
+      data-continuation-action={explorationProgress.action}
       role="region"
       aria-label="万词语义世界"
+      aria-describedby="semantic-zoom-progress"
       aria-busy={loading}
     >
       <div className="semantic-zoom-field__plane" data-testid="semantic-zoom-plane" style={planeStyle} aria-hidden="true">
@@ -814,7 +838,7 @@ export function SemanticZoomField({
       <div className="semantic-zoom-field__chrome">
         <div className="semantic-zoom-field__context">
           <span>{displayLevel === "realm" ? "10 个词汇领域" : breadcrumb}</span>
-          <strong>{displayLevel === "realm" ? "拖动或滚动，进入一个词汇岛" : `${displayLevel} · ${formatCount(projectedNodes.length)} visible`}</strong>
+          <strong>{`${levelLabel} · 当前 ${progressLabel}`}</strong>
         </div>
         <div className="semantic-zoom-field__controls" aria-label="缩放控制">
           <button type="button" data-testid="semantic-zoom-reset" onClick={reset}>总览</button>
@@ -823,8 +847,19 @@ export function SemanticZoomField({
         </div>
       </div>
 
-      <p className={`semantic-zoom-field__status${currentError ? " semantic-zoom-field__status--error" : ""}`} aria-live="polite">
-        {currentError ?? (loading ? "正在载入这一层…" : `${formatCount(projectedNodes.length)} 个清晰标签 · 本层最多 ${semanticZoomNodeBudget(viewport.width)}`)}
+      <p
+        id="semantic-zoom-progress"
+        className={`semantic-zoom-field__status${currentError ? " semantic-zoom-field__status--error" : ""}`}
+        data-testid="semantic-zoom-progress"
+        data-action={explorationProgress.action}
+      >
+        {currentError ?? (loading ? "正在载入这一层…" : (
+          <>
+            <strong>{progressLabel} {displayLevel === "word" ? "词" : "个入口"}</strong>
+            <span aria-hidden="true">·</span>
+            <span>{continuationLabel}</span>
+          </>
+        ))}
       </p>
       <span className="semantic-zoom-field__sr-only" aria-live="polite">{navigationAnnouncement}</span>
     </div>
