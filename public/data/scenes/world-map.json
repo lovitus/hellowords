@@ -3,19 +3,19 @@
   "title": "World atlas",
   "translation": "词境世界",
   "subtitle": "Explore one continuous, high-detail world",
-  "asset": "/scenes/world-atlas-master-1600-v2.jpg",
+  "asset": "/scenes/world-atlas-master-1600-v1.jpg",
   "assets": {
     "base": {
-      "src": "/scenes/world-atlas-master-1600-v2.jpg",
+      "src": "/scenes/world-atlas-master-1600-v1.jpg",
       "width": 1600,
       "height": 900,
-      "sha256": "d7e918e18d31b62fc31386776ffc242c9fefae6c359ae64bf1e9965b491cb008"
+      "sha256": "d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb"
     },
     "high": {
-      "src": "/scenes/world-atlas-master-3200-v2.jpg",
+      "src": "/scenes/world-atlas-master-3200-v1.jpg",
       "width": 3200,
       "height": 1800,
-      "sha256": "c5fa38cd83c57d2864ee2a1c668e1518a28c8cee77639f5c4b2db875c53c5ded"
+      "sha256": "e30a3750ef9f609056d288268c6692e7dc6fa8b18ff0d93bf37cf3265f405966"
     }
   },
   "width": 1600,
@@ -1618,12 +1618,53 @@
       "sourceVisualRegion": "anchor-home-shelter-bench"
     },
     {
+      "id": "c-home-balcony",
+      "word": "balcony",
+      "translation": "阳台",
+      "x": 106,
+      "y": 44,
+      "priority": 3.00061,
+      "minLevel": 2,
+      "sourceVisualRegion": "anchor-c-home-balcony",
+      "lexemeId": "en-4095f603052daa79"
+    },
+    {
+      "id": "c-home-sandbox",
+      "word": "sandbox",
+      "translation": "沙坑",
+      "x": 75,
+      "y": 315,
+      "priority": 3.00062,
+      "minLevel": 2,
+      "sourceVisualRegion": "anchor-c-home-sandbox"
+    },
+    {
+      "id": "c-home-spring-rider",
+      "word": "spring rider",
+      "translation": "弹簧摇骑",
+      "x": 19,
+      "y": 353,
+      "priority": 3.00063,
+      "minLevel": 2,
+      "sourceVisualRegion": "anchor-c-home-spring-rider"
+    },
+    {
+      "id": "c-home-water-tank",
+      "word": "water tank",
+      "translation": "储水罐",
+      "x": 197,
+      "y": 147,
+      "priority": 3.00064,
+      "minLevel": 2,
+      "sourceVisualRegion": "anchor-c-home-water-tank"
+    },
+    {
       "id": "home-bicycle",
       "word": "bicycle",
       "translation": "自行车",
       "x": 110,
       "y": 210,
-      "priority": 3.00061,
+      "priority": 3.00065,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-home-bicycle",
       "lexemeId": "en-d29af8a2e160dd86"
@@ -1634,7 +1675,7 @@
       "translation": "晾衣绳",
       "x": 160,
       "y": 62,
-      "priority": 3.00062,
+      "priority": 3.00066,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-home-clothesline"
     },
@@ -1644,7 +1685,7 @@
       "translation": "前门",
       "x": 102,
       "y": 91,
-      "priority": 3.00063,
+      "priority": 3.00067,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-home-front-door"
     },
@@ -1654,7 +1695,7 @@
       "translation": "游乐场长椅",
       "x": 132,
       "y": 294,
-      "priority": 3.00064,
+      "priority": 3.00068,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-home-park-bench"
     },
@@ -1664,7 +1705,7 @@
       "translation": "雨水桶",
       "x": 196,
       "y": 154,
-      "priority": 3.00065,
+      "priority": 3.00069,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-home-rain-barrel"
     },
@@ -1674,7 +1715,7 @@
       "translation": "跷跷板",
       "x": 93,
       "y": 352,
-      "priority": 3.00066,
+      "priority": 3.0007,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-home-seesaw"
     },
@@ -1684,7 +1725,7 @@
       "translation": "瓦屋顶",
       "x": 130,
       "y": 130,
-      "priority": 3.00067,
+      "priority": 3.00071,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-home-tiled-roof"
     },
@@ -1694,7 +1735,7 @@
       "translation": "公园喷泉水池",
       "x": 1085,
       "y": 633,
-      "priority": 3.00068,
+      "priority": 3.00072,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-fountain-basin"
     },
@@ -1704,7 +1745,7 @@
       "translation": "凉亭长椅",
       "x": 1018,
       "y": 568,
-      "priority": 3.00069,
+      "priority": 3.00073,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-gazebo-bench"
     },
@@ -1714,7 +1755,7 @@
       "translation": "公园路灯柱",
       "x": 950,
       "y": 468,
-      "priority": 3.0007,
+      "priority": 3.00074,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-lamppost"
     },
@@ -1724,7 +1765,7 @@
       "translation": "溪岸",
       "x": 852,
       "y": 567,
-      "priority": 3.00071,
+      "priority": 3.00075,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-stream-bank"
     },
@@ -1734,7 +1775,7 @@
       "translation": "垃圾桶",
       "x": 879,
       "y": 472,
-      "priority": 3.00072,
+      "priority": 3.00076,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-waste-bin"
     },
@@ -1744,7 +1785,7 @@
       "translation": "平衡木",
       "x": 1445,
       "y": 690,
-      "priority": 3.00073,
+      "priority": 3.00077,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-balance-beam"
     },
@@ -1754,7 +1795,7 @@
       "translation": "鸟巢",
       "x": 1358,
       "y": 617,
-      "priority": 3.00074,
+      "priority": 3.00078,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-bird-nest"
     },
@@ -1764,7 +1805,7 @@
       "translation": "粗树枝",
       "x": 1358,
       "y": 634,
-      "priority": 3.00075,
+      "priority": 3.00079,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-bough"
     },
@@ -1774,7 +1815,7 @@
       "translation": "巨石",
       "x": 1370,
       "y": 830,
-      "priority": 3.00076,
+      "priority": 3.0008,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-boulder"
     },
@@ -1784,7 +1825,7 @@
       "translation": "树枝",
       "x": 1400,
       "y": 585,
-      "priority": 3.00077,
+      "priority": 3.00081,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-branch"
     },
@@ -1794,7 +1835,7 @@
       "translation": "攀爬网",
       "x": 1515,
       "y": 650,
-      "priority": 3.00078,
+      "priority": 3.00082,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-climbing-net"
     },
@@ -1804,7 +1845,7 @@
       "translation": "蕨类植物",
       "x": 1350,
       "y": 825,
-      "priority": 3.00079,
+      "priority": 3.00083,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-fern"
     },
@@ -1814,7 +1855,7 @@
       "translation": "巢箱",
       "x": 1560,
       "y": 775,
-      "priority": 3.0008,
+      "priority": 3.00084,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-nest-box"
     },
@@ -1824,7 +1865,7 @@
       "translation": "栖息的鸟",
       "x": 1395,
       "y": 570,
-      "priority": 3.00081,
+      "priority": 3.00085,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-perched-bird"
     },
@@ -1834,7 +1875,7 @@
       "translation": "指示牌",
       "x": 1175,
       "y": 507,
-      "priority": 3.00082,
+      "priority": 3.00086,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-signpost"
     },
@@ -1844,7 +1885,7 @@
       "translation": "松鼠",
       "x": 1402,
       "y": 766,
-      "priority": 3.00083,
+      "priority": 3.00087,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-squirrel"
     },
@@ -1854,7 +1895,7 @@
       "translation": "树根",
       "x": 1280,
       "y": 730,
-      "priority": 3.00084,
+      "priority": 3.00088,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-tree-root"
     },
@@ -1864,7 +1905,7 @@
       "translation": "鸭子",
       "x": 1054,
       "y": 760,
-      "priority": 3.00085,
+      "priority": 3.00089,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-duck",
       "lexemeId": "en-2d2370db2447ff8c"
@@ -1875,7 +1916,7 @@
       "translation": "湿地睡莲叶",
       "x": 1025,
       "y": 813,
-      "priority": 3.00086,
+      "priority": 3.0009,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-lily-pad"
     },
@@ -1885,7 +1926,7 @@
       "translation": "湿地草丛",
       "x": 1020,
       "y": 720,
-      "priority": 3.00087,
+      "priority": 3.00091,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-marsh-grass"
     },
@@ -1895,7 +1936,7 @@
       "translation": "池边巨石",
       "x": 970,
       "y": 805,
-      "priority": 3.00088,
+      "priority": 3.00092,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-pond-boulder"
     },
@@ -1905,7 +1946,7 @@
       "translation": "池水",
       "x": 1020,
       "y": 800,
-      "priority": 3.00089,
+      "priority": 3.00093,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-pond-water"
     },
@@ -1915,7 +1956,7 @@
       "translation": "湿地芦苇",
       "x": 1110,
       "y": 735,
-      "priority": 3.0009,
+      "priority": 3.00094,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-reeds"
     },
@@ -1925,9 +1966,39 @@
       "translation": "池岸线",
       "x": 1000,
       "y": 840,
-      "priority": 3.00091,
+      "priority": 3.00095,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-np-shoreline"
+    },
+    {
+      "id": "c-city-dome-drum",
+      "word": "dome drum",
+      "translation": "穹顶鼓座",
+      "x": 1358,
+      "y": 142,
+      "priority": 4,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-city-dome-drum"
+    },
+    {
+      "id": "c-city-exhibit-gate",
+      "word": "exhibit gate",
+      "translation": "展区门",
+      "x": 1380,
+      "y": 293,
+      "priority": 4.00001,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-city-exhibit-gate"
+    },
+    {
+      "id": "c-city-tram-roof",
+      "word": "tram roof",
+      "translation": "电车车顶",
+      "x": 1400,
+      "y": 12,
+      "priority": 4.00002,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-city-tram-roof"
     },
     {
       "id": "city-catenary-pole",
@@ -1935,7 +2006,7 @@
       "translation": "接触网电杆",
       "x": 1405,
       "y": 50,
-      "priority": 4,
+      "priority": 4.00003,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-catenary-pole"
     },
@@ -1945,7 +2016,7 @@
       "translation": "穹顶肋条",
       "x": 1355,
       "y": 84,
-      "priority": 4.00001,
+      "priority": 4.00004,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-dome-rib"
     },
@@ -1955,7 +2026,7 @@
       "translation": "双扇门",
       "x": 1215,
       "y": 217,
-      "priority": 4.00002,
+      "priority": 4.00005,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-double-door"
     },
@@ -1965,7 +2036,7 @@
       "translation": "穹顶鼓座窗",
       "x": 1375,
       "y": 132,
-      "priority": 4.00003,
+      "priority": 4.00006,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-drum-window"
     },
@@ -1975,7 +2046,7 @@
       "translation": "展品基座",
       "x": 1425,
       "y": 280,
-      "priority": 4.00004,
+      "priority": 4.00007,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-exhibit-pedestal"
     },
@@ -1985,7 +2056,7 @@
       "translation": "展览岩块",
       "x": 1400,
       "y": 298,
-      "priority": 4.00005,
+      "priority": 4.00008,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-fossil-rock"
     },
@@ -1995,7 +2066,7 @@
       "translation": "胸廓",
       "x": 1315,
       "y": 262,
-      "priority": 4.00006,
+      "priority": 4.00009,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-rib-cage"
     },
@@ -2005,7 +2076,7 @@
       "translation": "脊柱",
       "x": 1350,
       "y": 250,
-      "priority": 4.00007,
+      "priority": 4.0001,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-spine",
       "lexemeId": "en-f0dd190c13c467ed"
@@ -2016,7 +2087,7 @@
       "translation": "露台椅",
       "x": 1510,
       "y": 150,
-      "priority": 4.00008,
+      "priority": 4.00011,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-terrace-chair"
     },
@@ -2026,7 +2097,7 @@
       "translation": "电车车门",
       "x": 1360,
       "y": 34,
-      "priority": 4.00009,
+      "priority": 4.00012,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-tram-door"
     },
@@ -2036,7 +2107,7 @@
       "translation": "电车窗户",
       "x": 1325,
       "y": 27,
-      "priority": 4.0001,
+      "priority": 4.00013,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-tram-window"
     },
@@ -2046,7 +2117,7 @@
       "translation": "路缘",
       "x": 1400,
       "y": 379,
-      "priority": 4.00011,
+      "priority": 4.00014,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-curb",
       "lexemeId": "en-6c1fd92053dc3bc1"
@@ -2057,9 +2128,79 @@
       "translation": "广场喷水柱",
       "x": 1150,
       "y": 344,
-      "priority": 4.00012,
+      "priority": 4.00015,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-water-jet"
+    },
+    {
+      "id": "c-city-cafe-door",
+      "word": "cafe door",
+      "translation": "咖啡馆门",
+      "x": 1032,
+      "y": 383,
+      "priority": 4.00016,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-city-cafe-door"
+    },
+    {
+      "id": "c-city-canal-bench",
+      "word": "canal-side bench",
+      "translation": "运河边长椅",
+      "x": 840,
+      "y": 342,
+      "priority": 4.00017,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-city-canal-bench"
+    },
+    {
+      "id": "c-city-canopy-truss",
+      "word": "canopy truss",
+      "translation": "雨棚桁架",
+      "x": 1020,
+      "y": 36,
+      "priority": 4.00018,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-city-canopy-truss"
+    },
+    {
+      "id": "c-city-luggage-trolley",
+      "word": "luggage trolley",
+      "translation": "行李手推车",
+      "x": 994,
+      "y": 151,
+      "priority": 4.00019,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-city-luggage-trolley"
+    },
+    {
+      "id": "c-city-platform-edge",
+      "word": "platform edge",
+      "translation": "站台边缘",
+      "x": 1005,
+      "y": 143,
+      "priority": 4.0002,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-city-platform-edge"
+    },
+    {
+      "id": "c-city-platform-safety-line",
+      "word": "platform safety line",
+      "translation": "站台安全线",
+      "x": 1030,
+      "y": 148,
+      "priority": 4.00021,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-city-platform-safety-line"
+    },
+    {
+      "id": "c-city-roof-parapet",
+      "word": "roof parapet",
+      "translation": "屋顶女儿墙",
+      "x": 1075,
+      "y": 175,
+      "priority": 4.00022,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-city-roof-parapet"
     },
     {
       "id": "city-bollard",
@@ -2067,7 +2208,7 @@
       "translation": "隔离柱",
       "x": 918,
       "y": 180,
-      "priority": 4.00013,
+      "priority": 4.00023,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-bollard"
     },
@@ -2077,7 +2218,7 @@
       "translation": "桥侧护墙",
       "x": 807,
       "y": 252,
-      "priority": 4.00014,
+      "priority": 4.00024,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-bridge-parapet"
     },
@@ -2087,7 +2228,7 @@
       "translation": "公交车门",
       "x": 1005,
       "y": 119,
-      "priority": 4.00015,
+      "priority": 4.00025,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-bus-door"
     },
@@ -2097,7 +2238,7 @@
       "translation": "雨棚玻璃板",
       "x": 1040,
       "y": 70,
-      "priority": 4.00016,
+      "priority": 4.00026,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-canopy-pane"
     },
@@ -2107,7 +2248,7 @@
       "translation": "烟囱",
       "x": 1087,
       "y": 184,
-      "priority": 4.00017,
+      "priority": 4.00027,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-chimney"
     },
@@ -2117,7 +2258,7 @@
       "translation": "街边种植盆",
       "x": 880,
       "y": 242,
-      "priority": 4.00018,
+      "priority": 4.00028,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-planter"
     },
@@ -2127,7 +2268,7 @@
       "translation": "服务柜台",
       "x": 970,
       "y": 382,
-      "priority": 4.00019,
+      "priority": 4.00029,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-service-counter"
     },
@@ -2137,7 +2278,7 @@
       "translation": "车站时钟",
       "x": 993,
       "y": 75,
-      "priority": 4.0002,
+      "priority": 4.0003,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-station-clock"
     },
@@ -2147,7 +2288,7 @@
       "translation": "支撑柱",
       "x": 1082,
       "y": 135,
-      "priority": 4.00021,
+      "priority": 4.00031,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-support-column"
     },
@@ -2157,7 +2298,7 @@
       "translation": "挡风玻璃",
       "x": 955,
       "y": 120,
-      "priority": 4.00022,
+      "priority": 4.00032,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-city-windshield"
     },
@@ -2167,7 +2308,7 @@
       "translation": "菜床边框",
       "x": 400,
       "y": 658,
-      "priority": 4.00023,
+      "priority": 4.00033,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-bed-frame"
     },
@@ -2177,7 +2318,7 @@
       "translation": "水桶",
       "x": 370,
       "y": 562,
-      "priority": 4.00024,
+      "priority": 4.00034,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-bucket"
     },
@@ -2187,7 +2328,7 @@
       "translation": "卷心菜",
       "x": 462,
       "y": 645,
-      "priority": 4.00025,
+      "priority": 4.00035,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-cabbage"
     },
@@ -2197,7 +2338,7 @@
       "translation": "园艺盆",
       "x": 461,
       "y": 558,
-      "priority": 4.00026,
+      "priority": 4.00036,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-garden-pot"
     },
@@ -2207,7 +2348,7 @@
       "translation": "花架横梁",
       "x": 342,
       "y": 466,
-      "priority": 4.00027,
+      "priority": 4.00037,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-pergola-crossbeam"
     },
@@ -2217,7 +2358,7 @@
       "translation": "屋顶花床",
       "x": 425,
       "y": 500,
-      "priority": 4.00028,
+      "priority": 4.00038,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-planted-roof"
     },
@@ -2227,7 +2368,7 @@
       "translation": "盆栽香草",
       "x": 325,
       "y": 674,
-      "priority": 4.00029,
+      "priority": 4.00039,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-potted-herb"
     },
@@ -2237,7 +2378,7 @@
       "translation": "耙子",
       "x": 398,
       "y": 545,
-      "priority": 4.0003,
+      "priority": 4.0004,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-rake"
     },
@@ -2247,7 +2388,7 @@
       "translation": "育苗盘",
       "x": 425,
       "y": 559,
-      "priority": 4.00031,
+      "priority": 4.00041,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-seed-tray"
     },
@@ -2257,7 +2398,7 @@
       "translation": "储物架",
       "x": 400,
       "y": 530,
-      "priority": 4.00032,
+      "priority": 4.00042,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-shed-shelf"
     },
@@ -2267,7 +2408,7 @@
       "translation": "铁锹",
       "x": 433,
       "y": 545,
-      "priority": 4.00033,
+      "priority": 4.00043,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-spade"
     },
@@ -2277,7 +2418,7 @@
       "translation": "收纳箱",
       "x": 448,
       "y": 579,
-      "priority": 4.00034,
+      "priority": 4.00044,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-storage-bin"
     },
@@ -2287,7 +2428,7 @@
       "translation": "支柱",
       "x": 366,
       "y": 552,
-      "priority": 4.00035,
+      "priority": 4.00045,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-support-post"
     },
@@ -2297,9 +2438,19 @@
       "translation": "花园池睡莲",
       "x": 317,
       "y": 813,
-      "priority": 4.00036,
+      "priority": 4.00046,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-water-lily"
+    },
+    {
+      "id": "c-cg-hive-box",
+      "word": "hive box",
+      "translation": "蜂箱箱体",
+      "x": 680,
+      "y": 645,
+      "priority": 4.00047,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-cg-hive-box"
     },
     {
       "id": "cg-cold-frame-lid",
@@ -2307,7 +2458,7 @@
       "translation": "冷床玻璃盖",
       "x": 579,
       "y": 466,
-      "priority": 4.00037,
+      "priority": 4.00048,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-cold-frame-lid"
     },
@@ -2317,7 +2468,7 @@
       "translation": "冷床花盆架",
       "x": 585,
       "y": 493,
-      "priority": 4.00038,
+      "priority": 4.00049,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-cold-frame-shelf"
     },
@@ -2327,7 +2478,7 @@
       "translation": "堆肥",
       "x": 574,
       "y": 770,
-      "priority": 4.00039,
+      "priority": 4.0005,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-compost"
     },
@@ -2337,7 +2488,7 @@
       "translation": "蜂箱顶盖",
       "x": 680,
       "y": 636,
-      "priority": 4.0004,
+      "priority": 4.00051,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-hive-roof"
     },
@@ -2347,9 +2498,49 @@
       "translation": "番茄",
       "x": 622,
       "y": 680,
-      "priority": 4.00041,
+      "priority": 4.00052,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-tomato"
+    },
+    {
+      "id": "c-cg-gazebo-floor",
+      "word": "gazebo floor",
+      "translation": "凉亭地板",
+      "x": 75,
+      "y": 760,
+      "priority": 4.00053,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-cg-gazebo-floor"
+    },
+    {
+      "id": "c-cg-greenhouse-staging",
+      "word": "greenhouse staging",
+      "translation": "温室栽培台",
+      "x": 260,
+      "y": 587,
+      "priority": 4.00054,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-cg-greenhouse-staging"
+    },
+    {
+      "id": "c-cg-plant-shelf",
+      "word": "plant shelf",
+      "translation": "植物搁架",
+      "x": 262,
+      "y": 580,
+      "priority": 4.00055,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-cg-plant-shelf"
+    },
+    {
+      "id": "c-cg-watering-can",
+      "word": "watering can",
+      "translation": "洒水壶",
+      "x": 232,
+      "y": 830,
+      "priority": 4.00056,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-cg-watering-can"
     },
     {
       "id": "cg-gazebo-post",
@@ -2357,7 +2548,7 @@
       "translation": "花园凉亭立柱",
       "x": 40,
       "y": 726,
-      "priority": 4.00042,
+      "priority": 4.00057,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-gazebo-post"
     },
@@ -2367,7 +2558,7 @@
       "translation": "花园凉亭栏杆",
       "x": 70,
       "y": 750,
-      "priority": 4.00043,
+      "priority": 4.00058,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-gazebo-railing"
     },
@@ -2377,7 +2568,7 @@
       "translation": "玻璃窗格",
       "x": 166,
       "y": 540,
-      "priority": 4.00044,
+      "priority": 4.00059,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-glass-pane"
     },
@@ -2387,7 +2578,7 @@
       "translation": "温室基座",
       "x": 210,
       "y": 637,
-      "priority": 4.00045,
+      "priority": 4.0006,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-greenhouse-foundation"
     },
@@ -2397,7 +2588,7 @@
       "translation": "池边石",
       "x": 270,
       "y": 760,
-      "priority": 4.00046,
+      "priority": 4.00061,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-pond-rock"
     },
@@ -2407,7 +2598,7 @@
       "translation": "屋脊",
       "x": 220,
       "y": 495,
-      "priority": 4.00047,
+      "priority": 4.00062,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-roof-ridge"
     },
@@ -2417,7 +2608,7 @@
       "translation": "温室屋顶通风窗",
       "x": 270,
       "y": 507,
-      "priority": 4.00048,
+      "priority": 4.00063,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-roof-vent"
     },
@@ -2427,7 +2618,7 @@
       "translation": "花盆",
       "x": 184,
       "y": 783,
-      "priority": 4.00049,
+      "priority": 4.00064,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-table-flowerpot"
     },
@@ -2437,9 +2628,110 @@
       "translation": "盆栽桌面",
       "x": 184,
       "y": 786,
-      "priority": 4.0005,
+      "priority": 4.00065,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-cg-tabletop"
+    },
+    {
+      "id": "c-home-garden-door",
+      "word": "garden door",
+      "translation": "花园门",
+      "x": 346,
+      "y": 296,
+      "priority": 4.00066,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-garden-door"
+    },
+    {
+      "id": "c-home-internal-door",
+      "word": "internal door",
+      "translation": "室内门",
+      "x": 302,
+      "y": 191,
+      "priority": 4.00067,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-internal-door"
+    },
+    {
+      "id": "c-home-iron-fence",
+      "word": "iron fence",
+      "translation": "铁栅栏",
+      "x": 410,
+      "y": 306,
+      "priority": 4.00068,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-iron-fence"
+    },
+    {
+      "id": "c-home-mattress",
+      "word": "mattress",
+      "translation": "床垫",
+      "x": 321,
+      "y": 136,
+      "priority": 4.00069,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-mattress"
+    },
+    {
+      "id": "c-home-oven",
+      "word": "oven",
+      "translation": "烤箱",
+      "x": 386,
+      "y": 196,
+      "priority": 4.0007,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-oven",
+      "lexemeId": "en-4908abbcc9666d67"
+    },
+    {
+      "id": "c-home-privacy-screen",
+      "word": "privacy screen",
+      "translation": "隐私挡板",
+      "x": 342,
+      "y": 18,
+      "priority": 4.00071,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-privacy-screen"
+    },
+    {
+      "id": "c-home-range-hood",
+      "word": "range hood",
+      "translation": "抽油烟机",
+      "x": 375,
+      "y": 179,
+      "priority": 4.00072,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-range-hood"
+    },
+    {
+      "id": "c-home-stair-landing",
+      "word": "stair landing",
+      "translation": "楼梯平台",
+      "x": 421,
+      "y": 174,
+      "priority": 4.00073,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-stair-landing"
+    },
+    {
+      "id": "c-home-stone-wall",
+      "word": "stone wall",
+      "translation": "石墙",
+      "x": 377,
+      "y": 307,
+      "priority": 4.00074,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-stone-wall"
+    },
+    {
+      "id": "c-home-table-lamp",
+      "word": "table lamp",
+      "translation": "台灯",
+      "x": 249,
+      "y": 96,
+      "priority": 4.00075,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-table-lamp"
     },
     {
       "id": "home-bar-stool",
@@ -2447,7 +2739,7 @@
       "translation": "吧凳",
       "x": 342,
       "y": 219,
-      "priority": 4.00051,
+      "priority": 4.00076,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-bar-stool"
     },
@@ -2457,7 +2749,7 @@
       "translation": "卧室长凳",
       "x": 260,
       "y": 132,
-      "priority": 4.00052,
+      "priority": 4.00077,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-bedroom-bench"
     },
@@ -2467,7 +2759,7 @@
       "translation": "卧室椅",
       "x": 280,
       "y": 139,
-      "priority": 4.00053,
+      "priority": 4.00078,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-bedroom-chair"
     },
@@ -2477,7 +2769,7 @@
       "translation": "灶台",
       "x": 390,
       "y": 188,
-      "priority": 4.00054,
+      "priority": 4.00079,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-cooktop"
     },
@@ -2487,7 +2779,7 @@
       "translation": "靠垫",
       "x": 234,
       "y": 211,
-      "priority": 4.00055,
+      "priority": 4.0008,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-cushion"
     },
@@ -2497,7 +2789,7 @@
       "translation": "装框画",
       "x": 238,
       "y": 91,
-      "priority": 4.00056,
+      "priority": 4.00081,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-framed-picture"
     },
@@ -2507,7 +2799,7 @@
       "translation": "扶手",
       "x": 436,
       "y": 203,
-      "priority": 4.00057,
+      "priority": 4.00082,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-handrail"
     },
@@ -2517,7 +2809,7 @@
       "translation": "床头板",
       "x": 358,
       "y": 111,
-      "priority": 4.00058,
+      "priority": 4.00083,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-headboard"
     },
@@ -2527,7 +2819,7 @@
       "translation": "镜子",
       "x": 359,
       "y": 105,
-      "priority": 4.00059,
+      "priority": 4.00084,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-mirror",
       "lexemeId": "en-00154761637ca746"
@@ -2538,7 +2830,7 @@
       "translation": "露台椅",
       "x": 408,
       "y": 47,
-      "priority": 4.0006,
+      "priority": 4.00085,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-patio-chair"
     },
@@ -2548,7 +2840,7 @@
       "translation": "吊灯",
       "x": 347,
       "y": 167,
-      "priority": 4.00061,
+      "priority": 4.00086,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-pendant-light"
     },
@@ -2558,7 +2850,7 @@
       "translation": "枕头",
       "x": 350,
       "y": 113,
-      "priority": 4.00062,
+      "priority": 4.00087,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-pillow",
       "lexemeId": "en-f6000d4ef895fd96"
@@ -2569,7 +2861,7 @@
       "translation": "种植箱",
       "x": 422,
       "y": 68,
-      "priority": 4.00063,
+      "priority": 4.00088,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-planter-box"
     },
@@ -2579,7 +2871,7 @@
       "translation": "淋浴隔断",
       "x": 384,
       "y": 120,
-      "priority": 4.00064,
+      "priority": 4.00089,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-shower-screen"
     },
@@ -2589,9 +2881,59 @@
       "translation": "露台矮墙",
       "x": 396,
       "y": 64,
-      "priority": 4.00065,
+      "priority": 4.0009,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-terrace-railing"
+    },
+    {
+      "id": "c-home-bridge-pier",
+      "word": "bridge pier",
+      "translation": "桥墩",
+      "x": 785,
+      "y": 270,
+      "priority": 4.00091,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-bridge-pier"
+    },
+    {
+      "id": "c-home-canal-wall",
+      "word": "canal retaining wall",
+      "translation": "运河挡墙",
+      "x": 768,
+      "y": 325,
+      "priority": 4.00092,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-canal-wall"
+    },
+    {
+      "id": "c-home-cobblestone",
+      "word": "cobblestone",
+      "translation": "鹅卵石路面",
+      "x": 535,
+      "y": 125,
+      "priority": 4.00093,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-cobblestone"
+    },
+    {
+      "id": "c-home-planter-urn",
+      "word": "planter urn",
+      "translation": "种植瓮",
+      "x": 618,
+      "y": 107,
+      "priority": 4.00094,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-planter-urn"
+    },
+    {
+      "id": "c-home-wrought-iron-balcony",
+      "word": "wrought-iron balcony",
+      "translation": "锻铁阳台",
+      "x": 582,
+      "y": 27,
+      "priority": 4.00095,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-wrought-iron-balcony"
     },
     {
       "id": "home-bicycle-rack",
@@ -2599,7 +2941,7 @@
       "translation": "住宅区自行车架",
       "x": 512,
       "y": 278,
-      "priority": 4.00066,
+      "priority": 4.00096,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-bicycle-rack"
     },
@@ -2609,7 +2951,7 @@
       "translation": "运河睡莲叶",
       "x": 717,
       "y": 291,
-      "priority": 4.00067,
+      "priority": 4.00097,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-lily-pad"
     },
@@ -2619,9 +2961,89 @@
       "translation": "运河边种植盆",
       "x": 607,
       "y": 289,
-      "priority": 4.00068,
+      "priority": 4.00098,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-planter"
+    },
+    {
+      "id": "c-home-cycle-shelter-roof",
+      "word": "cycle-shelter roof",
+      "translation": "自行车棚顶",
+      "x": 75,
+      "y": 185,
+      "priority": 4.00099,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-cycle-shelter-roof"
+    },
+    {
+      "id": "c-home-downpipe",
+      "word": "downpipe",
+      "translation": "落水管",
+      "x": 11,
+      "y": 61,
+      "priority": 4.001,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-downpipe"
+    },
+    {
+      "id": "c-home-eaves",
+      "word": "eaves",
+      "translation": "屋檐",
+      "x": 150,
+      "y": 146,
+      "priority": 4.00101,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-eaves"
+    },
+    {
+      "id": "c-home-play-platform",
+      "word": "play platform",
+      "translation": "游乐平台",
+      "x": 34,
+      "y": 276,
+      "priority": 4.00102,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-play-platform"
+    },
+    {
+      "id": "c-home-rain-gutter",
+      "word": "rain gutter",
+      "translation": "雨水槽",
+      "x": 32,
+      "y": 25,
+      "priority": 4.00103,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-rain-gutter"
+    },
+    {
+      "id": "c-home-shed-window",
+      "word": "shed window",
+      "translation": "工具房窗户",
+      "x": 159,
+      "y": 158,
+      "priority": 4.00104,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-shed-window"
+    },
+    {
+      "id": "c-home-slide-chute",
+      "word": "slide chute",
+      "translation": "滑梯槽",
+      "x": 54,
+      "y": 299,
+      "priority": 4.00105,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-slide-chute"
+    },
+    {
+      "id": "c-home-stone-doorstep",
+      "word": "stone doorstep",
+      "translation": "石门阶",
+      "x": 112,
+      "y": 106,
+      "priority": 4.00106,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-home-stone-doorstep"
     },
     {
       "id": "home-bedsheet",
@@ -2629,7 +3051,7 @@
       "translation": "床单",
       "x": 170,
       "y": 62,
-      "priority": 4.00069,
+      "priority": 4.00107,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-bedsheet"
     },
@@ -2639,7 +3061,7 @@
       "translation": "玻璃屋顶",
       "x": 183,
       "y": 179,
-      "priority": 4.0007,
+      "priority": 4.00108,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-glass-roof"
     },
@@ -2649,7 +3071,7 @@
       "translation": "梯子",
       "x": 33,
       "y": 302,
-      "priority": 4.00071,
+      "priority": 4.00109,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-ladder",
       "lexemeId": "en-5605a516a7ebf33b"
@@ -2660,7 +3082,7 @@
       "translation": "工具房门",
       "x": 143,
       "y": 174,
-      "priority": 4.00072,
+      "priority": 4.0011,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-shed-door"
     },
@@ -2670,9 +3092,29 @@
       "translation": "窗台花箱",
       "x": 72,
       "y": 66,
-      "priority": 4.00073,
+      "priority": 4.00111,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-home-window-box"
+    },
+    {
+      "id": "c-np-gazebo-floor",
+      "word": "park-gazebo floor",
+      "translation": "公园凉亭地板",
+      "x": 1004,
+      "y": 583,
+      "priority": 4.00112,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-np-gazebo-floor"
+    },
+    {
+      "id": "c-np-streambed",
+      "word": "streambed",
+      "translation": "溪床",
+      "x": 885,
+      "y": 590,
+      "priority": 4.00113,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-np-streambed"
     },
     {
       "id": "np-gazebo-post",
@@ -2680,7 +3122,7 @@
       "translation": "公园凉亭立柱",
       "x": 979,
       "y": 559,
-      "priority": 4.00074,
+      "priority": 4.00114,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-gazebo-post"
     },
@@ -2690,7 +3132,7 @@
       "translation": "公园凉亭栏杆",
       "x": 1001,
       "y": 581,
-      "priority": 4.00075,
+      "priority": 4.00115,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-gazebo-railing"
     },
@@ -2700,7 +3142,7 @@
       "translation": "铺路石",
       "x": 947,
       "y": 562,
-      "priority": 4.00076,
+      "priority": 4.00116,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-paving-stone"
     },
@@ -2710,7 +3152,7 @@
       "translation": "溪石",
       "x": 902,
       "y": 550,
-      "priority": 4.00077,
+      "priority": 4.00117,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-river-rock"
     },
@@ -2720,9 +3162,19 @@
       "translation": "公园喷泉水柱",
       "x": 1085,
       "y": 603,
-      "priority": 4.00078,
+      "priority": 4.00118,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-water-jet"
+    },
+    {
+      "id": "c-np-root-flare",
+      "word": "root flare",
+      "translation": "树根扩展部",
+      "x": 1330,
+      "y": 720,
+      "priority": 4.00119,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-np-root-flare"
     },
     {
       "id": "np-bark",
@@ -2730,7 +3182,7 @@
       "translation": "树皮",
       "x": 1300,
       "y": 690,
-      "priority": 4.00079,
+      "priority": 4.0012,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-bark",
       "lexemeId": "en-14ea6507645c2ba7"
@@ -2741,7 +3193,7 @@
       "translation": "长椅座面",
       "x": 1360,
       "y": 770,
-      "priority": 4.0008,
+      "priority": 4.00121,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-bench-seat"
     },
@@ -2751,7 +3203,7 @@
       "translation": "树舌菌",
       "x": 1378,
       "y": 681,
-      "priority": 4.00081,
+      "priority": 4.00122,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-bracket-fungus"
     },
@@ -2761,7 +3213,7 @@
       "translation": "裸露树根",
       "x": 1390,
       "y": 750,
-      "priority": 4.00082,
+      "priority": 4.00123,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-exposed-root"
     },
@@ -2771,7 +3223,7 @@
       "translation": "苔藓",
       "x": 1240,
       "y": 765,
-      "priority": 4.00083,
+      "priority": 4.00124,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-moss",
       "lexemeId": "en-9e135ab954828446"
@@ -2782,7 +3234,7 @@
       "translation": "蘑菇",
       "x": 1267,
       "y": 790,
-      "priority": 4.00084,
+      "priority": 4.00125,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-mushroom"
     },
@@ -2792,7 +3244,7 @@
       "translation": "绳索扶手",
       "x": 1460,
       "y": 665,
-      "priority": 4.00085,
+      "priority": 4.00126,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-rope-handrail"
     },
@@ -2802,7 +3254,7 @@
       "translation": "木桩踏步",
       "x": 1480,
       "y": 705,
-      "priority": 4.00086,
+      "priority": 4.00127,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-stepping-log"
     },
@@ -2812,7 +3264,7 @@
       "translation": "野餐桌面",
       "x": 1345,
       "y": 754,
-      "priority": 4.00087,
+      "priority": 4.00128,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-tabletop"
     },
@@ -2822,9 +3274,29 @@
       "translation": "树杈",
       "x": 1320,
       "y": 620,
-      "priority": 4.00088,
+      "priority": 4.00129,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-tree-fork"
+    },
+    {
+      "id": "c-np-cattail",
+      "word": "cattail",
+      "translation": "香蒲",
+      "x": 1025,
+      "y": 720,
+      "priority": 4.0013,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-np-cattail"
+    },
+    {
+      "id": "c-np-wetland-signboard",
+      "word": "wetland signboard",
+      "translation": "湿地标牌",
+      "x": 966,
+      "y": 705,
+      "priority": 4.00131,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-c-np-wetland-signboard"
     },
     {
       "id": "np-bridge-deck",
@@ -2832,7 +3304,7 @@
       "translation": "桥面",
       "x": 887,
       "y": 808,
-      "priority": 4.00089,
+      "priority": 4.00132,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-bridge-deck"
     },
@@ -2842,7 +3314,7 @@
       "translation": "人行桥栏杆",
       "x": 884,
       "y": 795,
-      "priority": 4.0009,
+      "priority": 4.00133,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-bridge-railing"
     },
@@ -2852,9 +3324,439 @@
       "translation": "野花",
       "x": 925,
       "y": 855,
-      "priority": 4.00091,
+      "priority": 4.00134,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-np-wildflower"
+    },
+    {
+      "id": "c-city-arched-lintel",
+      "word": "arched lintel",
+      "translation": "拱形过梁",
+      "x": 1355,
+      "y": 137,
+      "priority": 5,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-arched-lintel"
+    },
+    {
+      "id": "c-city-column-capital",
+      "word": "column capital",
+      "translation": "柱头",
+      "x": 1215,
+      "y": 191,
+      "priority": 5.00001,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-column-capital"
+    },
+    {
+      "id": "c-city-dinosaur-forelimb",
+      "word": "dinosaur forelimb",
+      "translation": "恐龙前肢",
+      "x": 1230,
+      "y": 163,
+      "priority": 5.00002,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-dinosaur-forelimb"
+    },
+    {
+      "id": "c-city-dinosaur-jaw",
+      "word": "dinosaur jaw",
+      "translation": "恐龙颌骨",
+      "x": 1227,
+      "y": 151,
+      "priority": 5.00003,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-dinosaur-jaw"
+    },
+    {
+      "id": "c-city-dinosaur-pelvis",
+      "word": "dinosaur pelvis",
+      "translation": "恐龙骨盆",
+      "x": 1288,
+      "y": 187,
+      "priority": 5.00004,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-dinosaur-pelvis"
+    },
+    {
+      "id": "c-city-dinosaur-skull",
+      "word": "dinosaur skull",
+      "translation": "恐龙头骨",
+      "x": 1225,
+      "y": 145,
+      "priority": 5.00005,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-dinosaur-skull"
+    },
+    {
+      "id": "c-city-dome-cap",
+      "word": "dome cap",
+      "translation": "穹顶顶帽",
+      "x": 1355,
+      "y": 56,
+      "priority": 5.00006,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-dome-cap"
+    },
+    {
+      "id": "c-city-dome-cornice-ring",
+      "word": "dome cornice ring",
+      "translation": "穹顶檐口环",
+      "x": 1358,
+      "y": 110,
+      "priority": 5.00007,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-dome-cornice-ring"
+    },
+    {
+      "id": "c-city-dome-finial",
+      "word": "dome finial",
+      "translation": "穹顶尖饰",
+      "x": 1355,
+      "y": 50,
+      "priority": 5.00008,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-dome-finial"
+    },
+    {
+      "id": "c-city-dome-pilaster",
+      "word": "dome pilaster",
+      "translation": "穹顶壁柱",
+      "x": 1373,
+      "y": 150,
+      "priority": 5.00009,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-dome-pilaster"
+    },
+    {
+      "id": "c-city-door-transom",
+      "word": "door transom",
+      "translation": "门上横窗",
+      "x": 1225,
+      "y": 212,
+      "priority": 5.0001,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-door-transom"
+    },
+    {
+      "id": "c-city-emergency-beacon",
+      "word": "emergency beacon",
+      "translation": "应急警示灯",
+      "x": 1427,
+      "y": 210,
+      "priority": 5.00011,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-emergency-beacon"
+    },
+    {
+      "id": "c-city-entablature",
+      "word": "entablature",
+      "translation": "柱上楣构",
+      "x": 1225,
+      "y": 178,
+      "priority": 5.00012,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-entablature"
+    },
+    {
+      "id": "c-city-entrance-handrail",
+      "word": "entrance handrail",
+      "translation": "入口扶手",
+      "x": 1207,
+      "y": 231,
+      "priority": 5.00013,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-entrance-handrail"
+    },
+    {
+      "id": "c-city-exhibit-fence-post",
+      "word": "exhibit fence post",
+      "translation": "展区围栏柱",
+      "x": 1423,
+      "y": 294,
+      "priority": 5.00014,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-exhibit-fence-post"
+    },
+    {
+      "id": "c-city-facade-cornice",
+      "word": "facade cornice",
+      "translation": "立面檐口",
+      "x": 1242,
+      "y": 175,
+      "priority": 5.00015,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-facade-cornice"
+    },
+    {
+      "id": "c-city-fire-engine-grille",
+      "word": "fire-engine grille",
+      "translation": "消防车格栅",
+      "x": 1419,
+      "y": 236,
+      "priority": 5.00016,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-fire-engine-grille"
+    },
+    {
+      "id": "c-city-fire-engine-headlight",
+      "word": "fire-engine headlight",
+      "translation": "消防车前灯",
+      "x": 1424,
+      "y": 237,
+      "priority": 5.00017,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-fire-engine-headlight"
+    },
+    {
+      "id": "c-city-fire-engine-wheel",
+      "word": "fire-engine wheel",
+      "translation": "消防车车轮",
+      "x": 1432,
+      "y": 244,
+      "priority": 5.00018,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-fire-engine-wheel"
+    },
+    {
+      "id": "c-city-firehouse-cornice",
+      "word": "firehouse cornice",
+      "translation": "消防站檐口",
+      "x": 1505,
+      "y": 165,
+      "priority": 5.00019,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-firehouse-cornice"
+    },
+    {
+      "id": "c-city-firehouse-downspout",
+      "word": "firehouse downspout",
+      "translation": "消防站落水管",
+      "x": 1517,
+      "y": 190,
+      "priority": 5.0002,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-firehouse-downspout"
+    },
+    {
+      "id": "c-city-fossil-femur",
+      "word": "fossil femur",
+      "translation": "化石股骨",
+      "x": 1267,
+      "y": 194,
+      "priority": 5.00021,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-fossil-femur"
+    },
+    {
+      "id": "c-city-fossil-rib",
+      "word": "fossil rib",
+      "translation": "化石肋骨",
+      "x": 1310,
+      "y": 250,
+      "priority": 5.00022,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-fossil-rib"
+    },
+    {
+      "id": "c-city-fossil-tail",
+      "word": "fossil tail",
+      "translation": "化石尾骨",
+      "x": 1310,
+      "y": 195,
+      "priority": 5.00023,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-fossil-tail"
+    },
+    {
+      "id": "c-city-fossil-vertebra",
+      "word": "fossil vertebra",
+      "translation": "化石椎骨",
+      "x": 1292,
+      "y": 181,
+      "priority": 5.00024,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-fossil-vertebra"
+    },
+    {
+      "id": "c-city-garage-lintel",
+      "word": "garage lintel",
+      "translation": "车库门楣",
+      "x": 1440,
+      "y": 211,
+      "priority": 5.00025,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-garage-lintel"
+    },
+    {
+      "id": "c-city-garage-windowpane",
+      "word": "garage windowpane",
+      "translation": "车库门窗格",
+      "x": 1465,
+      "y": 219,
+      "priority": 5.00026,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-garage-windowpane"
+    },
+    {
+      "id": "c-city-masonry-joint",
+      "word": "masonry joint",
+      "translation": "砌体接缝",
+      "x": 1373,
+      "y": 165,
+      "priority": 5.00027,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-masonry-joint"
+    },
+    {
+      "id": "c-city-parapet-block",
+      "word": "parapet block",
+      "translation": "女儿墙砌块",
+      "x": 1160,
+      "y": 90,
+      "priority": 5.00028,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-parapet-block"
+    },
+    {
+      "id": "c-city-rail-sleeper",
+      "word": "rail sleeper",
+      "translation": "铁路枕木",
+      "x": 1390,
+      "y": 65,
+      "priority": 5.00029,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-rail-sleeper"
+    },
+    {
+      "id": "c-city-roof-coping",
+      "word": "roof coping",
+      "translation": "屋顶压顶石",
+      "x": 1195,
+      "y": 85,
+      "priority": 5.0003,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-roof-coping"
+    },
+    {
+      "id": "c-city-sauropod-femur",
+      "word": "sauropod femur",
+      "translation": "蜥脚类股骨",
+      "x": 1320,
+      "y": 265,
+      "priority": 5.00031,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-sauropod-femur"
+    },
+    {
+      "id": "c-city-sauropod-neck",
+      "word": "sauropod neck",
+      "translation": "蜥脚类颈部",
+      "x": 1272,
+      "y": 230,
+      "priority": 5.00032,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-sauropod-neck"
+    },
+    {
+      "id": "c-city-sauropod-pelvis",
+      "word": "sauropod pelvis",
+      "translation": "蜥脚类骨盆",
+      "x": 1345,
+      "y": 244,
+      "priority": 5.00033,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-sauropod-pelvis"
+    },
+    {
+      "id": "c-city-sauropod-skull",
+      "word": "sauropod skull",
+      "translation": "蜥脚类头骨",
+      "x": 1264,
+      "y": 252,
+      "priority": 5.00034,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-sauropod-skull"
+    },
+    {
+      "id": "c-city-sauropod-tail",
+      "word": "sauropod tail",
+      "translation": "蜥脚类尾部",
+      "x": 1395,
+      "y": 253,
+      "priority": 5.00035,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-sauropod-tail"
+    },
+    {
+      "id": "c-city-skylight-frame",
+      "word": "skylight frame",
+      "translation": "天窗框架",
+      "x": 1245,
+      "y": 70,
+      "priority": 5.00036,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-skylight-frame"
+    },
+    {
+      "id": "c-city-skylight-pane",
+      "word": "skylight pane",
+      "translation": "天窗玻璃板",
+      "x": 1262,
+      "y": 75,
+      "priority": 5.00037,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-skylight-pane"
+    },
+    {
+      "id": "c-city-solar-cell",
+      "word": "solar cell",
+      "translation": "太阳能电池片",
+      "x": 1295,
+      "y": 105,
+      "priority": 5.00038,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-solar-cell"
+    },
+    {
+      "id": "c-city-stair-baluster",
+      "word": "entrance baluster",
+      "translation": "入口栏杆柱",
+      "x": 1208,
+      "y": 228,
+      "priority": 5.00039,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-stair-baluster"
+    },
+    {
+      "id": "c-city-tram-front-panel",
+      "word": "tram front panel",
+      "translation": "电车前面板",
+      "x": 1463,
+      "y": 35,
+      "priority": 5.0004,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-tram-front-panel"
+    },
+    {
+      "id": "c-city-tram-headlight",
+      "word": "tram headlight",
+      "translation": "电车前灯",
+      "x": 1474,
+      "y": 40,
+      "priority": 5.00041,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-tram-headlight"
+    },
+    {
+      "id": "c-city-tympanum",
+      "word": "tympanum",
+      "translation": "三角楣心",
+      "x": 1275,
+      "y": 145,
+      "priority": 5.00042,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-tympanum"
     },
     {
       "id": "city-overhead-wire",
@@ -2862,7 +3764,7 @@
       "translation": "架空电线",
       "x": 1285,
       "y": 11,
-      "priority": 5,
+      "priority": 5.00043,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-city-overhead-wire"
     },
@@ -2872,9 +3774,189 @@
       "translation": "壁灯",
       "x": 1200,
       "y": 202,
-      "priority": 5.00001,
+      "priority": 5.00044,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-city-wall-lantern"
+    },
+    {
+      "id": "c-city-cart-axle",
+      "word": "cart axle",
+      "translation": "手推车车轴",
+      "x": 1305,
+      "y": 365,
+      "priority": 5.00045,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-cart-axle"
+    },
+    {
+      "id": "c-city-cart-crate",
+      "word": "cart crate",
+      "translation": "手推车货箱",
+      "x": 1287,
+      "y": 350,
+      "priority": 5.00046,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-cart-crate"
+    },
+    {
+      "id": "c-city-cart-handle",
+      "word": "delivery-cart handle",
+      "translation": "送货车把手",
+      "x": 1332,
+      "y": 351,
+      "priority": 5.00047,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-cart-handle"
+    },
+    {
+      "id": "c-city-cart-wheel",
+      "word": "delivery-cart wheel",
+      "translation": "送货车车轮",
+      "x": 1292,
+      "y": 365,
+      "priority": 5.00048,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-cart-wheel"
+    },
+    {
+      "id": "c-city-crosswalk-stripe",
+      "word": "crosswalk stripe",
+      "translation": "人行横道条纹",
+      "x": 1265,
+      "y": 390,
+      "priority": 5.00049,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-crosswalk-stripe"
+    },
+    {
+      "id": "c-city-fountain-coping",
+      "word": "fountain coping",
+      "translation": "喷泉池压顶",
+      "x": 1139,
+      "y": 355,
+      "priority": 5.0005,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-fountain-coping"
+    },
+    {
+      "id": "c-city-fountain-nozzle",
+      "word": "fountain nozzle",
+      "translation": "喷泉喷嘴",
+      "x": 1122,
+      "y": 340,
+      "priority": 5.00051,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-fountain-nozzle"
+    },
+    {
+      "id": "c-city-fountain-pedestal",
+      "word": "fountain pedestal",
+      "translation": "喷泉基座",
+      "x": 1124,
+      "y": 347,
+      "priority": 5.00052,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-fountain-pedestal"
+    },
+    {
+      "id": "c-city-hydrant-cap",
+      "word": "hydrant cap",
+      "translation": "消防栓顶盖",
+      "x": 1115,
+      "y": 374,
+      "priority": 5.00053,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-hydrant-cap"
+    },
+    {
+      "id": "c-city-hydrant-nozzle",
+      "word": "hydrant nozzle",
+      "translation": "消防栓接口",
+      "x": 1112,
+      "y": 382,
+      "priority": 5.00054,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-hydrant-nozzle"
+    },
+    {
+      "id": "c-city-rail-groove",
+      "word": "rail groove",
+      "translation": "轨槽",
+      "x": 1350,
+      "y": 340,
+      "priority": 5.00055,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-rail-groove"
+    },
+    {
+      "id": "c-city-road-arrow",
+      "word": "road arrow",
+      "translation": "路面箭头",
+      "x": 1195,
+      "y": 410,
+      "priority": 5.00056,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-road-arrow"
+    },
+    {
+      "id": "c-city-taxi-door",
+      "word": "taxi door",
+      "translation": "出租车车门",
+      "x": 1204,
+      "y": 397,
+      "priority": 5.00057,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-taxi-door"
+    },
+    {
+      "id": "c-city-taxi-headlight",
+      "word": "taxi headlight",
+      "translation": "出租车前灯",
+      "x": 1159,
+      "y": 417,
+      "priority": 5.00058,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-taxi-headlight"
+    },
+    {
+      "id": "c-city-taxi-hood",
+      "word": "taxi hood",
+      "translation": "出租车引擎盖",
+      "x": 1182,
+      "y": 402,
+      "priority": 5.00059,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-taxi-hood"
+    },
+    {
+      "id": "c-city-taxi-side-mirror",
+      "word": "taxi side mirror",
+      "translation": "出租车侧镜",
+      "x": 1200,
+      "y": 392,
+      "priority": 5.0006,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-taxi-side-mirror"
+    },
+    {
+      "id": "c-city-taxi-wheel",
+      "word": "taxi wheel",
+      "translation": "出租车车轮",
+      "x": 1217,
+      "y": 407,
+      "priority": 5.00061,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-taxi-wheel"
+    },
+    {
+      "id": "c-city-track-joint",
+      "word": "track joint",
+      "translation": "轨道接头",
+      "x": 1375,
+      "y": 344,
+      "priority": 5.00062,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-track-joint"
     },
     {
       "id": "city-roof-sign",
@@ -2882,9 +3964,179 @@
       "translation": "车顶标志灯",
       "x": 1182,
       "y": 391,
-      "priority": 5.00002,
+      "priority": 5.00063,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-city-roof-sign"
+    },
+    {
+      "id": "c-city-arch-rib",
+      "word": "canopy arch rib",
+      "translation": "雨棚拱肋",
+      "x": 970,
+      "y": 40,
+      "priority": 5.00064,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-arch-rib"
+    },
+    {
+      "id": "c-city-building-cornice",
+      "word": "building cornice",
+      "translation": "建筑檐口",
+      "x": 1035,
+      "y": 197,
+      "priority": 5.00065,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-building-cornice"
+    },
+    {
+      "id": "c-city-bus-bumper",
+      "word": "bus bumper",
+      "translation": "公交车保险杠",
+      "x": 963,
+      "y": 135,
+      "priority": 5.00066,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-bus-bumper"
+    },
+    {
+      "id": "c-city-bus-headlight",
+      "word": "bus headlight",
+      "translation": "公交车前灯",
+      "x": 952,
+      "y": 136,
+      "priority": 5.00067,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-bus-headlight"
+    },
+    {
+      "id": "c-city-bus-roof-vent",
+      "word": "bus roof vent",
+      "translation": "公交车顶通风口",
+      "x": 975,
+      "y": 91,
+      "priority": 5.00068,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-bus-roof-vent"
+    },
+    {
+      "id": "c-city-bus-side-mirror",
+      "word": "bus side mirror",
+      "translation": "公交车侧镜",
+      "x": 947,
+      "y": 119,
+      "priority": 5.00069,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-bus-side-mirror"
+    },
+    {
+      "id": "c-city-destination-display",
+      "word": "destination display",
+      "translation": "目的地显示牌",
+      "x": 948,
+      "y": 111,
+      "priority": 5.0007,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-destination-display"
+    },
+    {
+      "id": "c-city-lamppost-base",
+      "word": "lamppost base",
+      "translation": "路灯柱底座",
+      "x": 878,
+      "y": 200,
+      "priority": 5.00071,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-lamppost-base"
+    },
+    {
+      "id": "c-city-parapet-coping",
+      "word": "parapet coping",
+      "translation": "护墙压顶",
+      "x": 812,
+      "y": 238,
+      "priority": 5.00072,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-parapet-coping"
+    },
+    {
+      "id": "c-city-paving-block",
+      "word": "paving block",
+      "translation": "铺路砖",
+      "x": 910,
+      "y": 190,
+      "priority": 5.00073,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-paving-block"
+    },
+    {
+      "id": "c-city-planter-rim",
+      "word": "planter rim",
+      "translation": "花盆边沿",
+      "x": 895,
+      "y": 120,
+      "priority": 5.00074,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-planter-rim"
+    },
+    {
+      "id": "c-city-railing-post",
+      "word": "bridge railing post",
+      "translation": "桥栏杆柱",
+      "x": 812,
+      "y": 196,
+      "priority": 5.00075,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-railing-post"
+    },
+    {
+      "id": "c-city-rainwater-pipe",
+      "word": "rainwater pipe",
+      "translation": "雨水管",
+      "x": 1090,
+      "y": 233,
+      "priority": 5.00076,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-rainwater-pipe"
+    },
+    {
+      "id": "c-city-station-lamp-globe",
+      "word": "station lamp globe",
+      "translation": "车站灯罩球",
+      "x": 875,
+      "y": 141,
+      "priority": 5.00077,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-station-lamp-globe"
+    },
+    {
+      "id": "c-city-wheel-arch",
+      "word": "wheel arch",
+      "translation": "轮拱",
+      "x": 983,
+      "y": 130,
+      "priority": 5.00078,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-wheel-arch"
+    },
+    {
+      "id": "c-city-window-mullion",
+      "word": "window mullion",
+      "translation": "窗中梃",
+      "x": 1047,
+      "y": 207,
+      "priority": 5.00079,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-window-mullion"
+    },
+    {
+      "id": "c-city-window-sill",
+      "word": "window sill",
+      "translation": "窗台",
+      "x": 1048,
+      "y": 247,
+      "priority": 5.0008,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-city-window-sill"
     },
     {
       "id": "city-bus-wheel",
@@ -2892,7 +4144,7 @@
       "translation": "公交车轮",
       "x": 976,
       "y": 136,
-      "priority": 5.00003,
+      "priority": 5.00081,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-city-bus-wheel"
     },
@@ -2902,9 +4154,219 @@
       "translation": "咖啡馆屋顶通风口",
       "x": 1018,
       "y": 260,
-      "priority": 5.00004,
+      "priority": 5.00082,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-city-roof-vent"
+    },
+    {
+      "id": "c-cg-cabbage-leaf",
+      "word": "cabbage leaf",
+      "translation": "卷心菜叶",
+      "x": 437,
+      "y": 655,
+      "priority": 5.00083,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-cabbage-leaf"
+    },
+    {
+      "id": "c-cg-compost-divider",
+      "word": "compost divider",
+      "translation": "堆肥箱隔板",
+      "x": 540,
+      "y": 785,
+      "priority": 5.00084,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-compost-divider"
+    },
+    {
+      "id": "c-cg-compost-slat",
+      "word": "compost-bin slat",
+      "translation": "堆肥箱木条",
+      "x": 520,
+      "y": 788,
+      "priority": 5.00085,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-compost-slat"
+    },
+    {
+      "id": "c-cg-flowerpot-rim",
+      "word": "flowerpot rim",
+      "translation": "花盆口沿",
+      "x": 310,
+      "y": 678,
+      "priority": 5.00086,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-flowerpot-rim"
+    },
+    {
+      "id": "c-cg-garden-fork",
+      "word": "garden fork",
+      "translation": "园艺叉",
+      "x": 460,
+      "y": 550,
+      "priority": 5.00087,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-garden-fork"
+    },
+    {
+      "id": "c-cg-garden-hoe",
+      "word": "garden hoe",
+      "translation": "园艺锄",
+      "x": 447,
+      "y": 550,
+      "priority": 5.00088,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-garden-hoe"
+    },
+    {
+      "id": "c-cg-garden-stake",
+      "word": "garden stake",
+      "translation": "园艺支杆",
+      "x": 405,
+      "y": 710,
+      "priority": 5.00089,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-garden-stake"
+    },
+    {
+      "id": "c-cg-hand-trowel",
+      "word": "hand trowel",
+      "translation": "手铲",
+      "x": 437,
+      "y": 550,
+      "priority": 5.0009,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-hand-trowel"
+    },
+    {
+      "id": "c-cg-lettuce-leaf",
+      "word": "lettuce leaf",
+      "translation": "生菜叶",
+      "x": 500,
+      "y": 632,
+      "priority": 5.00091,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-lettuce-leaf"
+    },
+    {
+      "id": "c-cg-raised-bed-corner",
+      "word": "raised-bed corner",
+      "translation": "高架菜床角部",
+      "x": 410,
+      "y": 670,
+      "priority": 5.00092,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-raised-bed-corner"
+    },
+    {
+      "id": "c-cg-shed-fascia",
+      "word": "shed fascia",
+      "translation": "工棚檐口板",
+      "x": 415,
+      "y": 510,
+      "priority": 5.00093,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-shed-fascia"
+    },
+    {
+      "id": "c-cg-shed-gutter",
+      "word": "shed gutter",
+      "translation": "工棚檐槽",
+      "x": 435,
+      "y": 509,
+      "priority": 5.00094,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-shed-gutter"
+    },
+    {
+      "id": "c-cg-shed-plank",
+      "word": "shed wall plank",
+      "translation": "工棚墙板",
+      "x": 475,
+      "y": 545,
+      "priority": 5.00095,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-shed-plank"
+    },
+    {
+      "id": "c-cg-shelf-bracket",
+      "word": "shelf bracket",
+      "translation": "搁板托架",
+      "x": 385,
+      "y": 555,
+      "priority": 5.00096,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-shelf-bracket"
+    },
+    {
+      "id": "c-cg-tool-peg",
+      "word": "tool peg",
+      "translation": "工具挂钉",
+      "x": 450,
+      "y": 540,
+      "priority": 5.00097,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-tool-peg"
+    },
+    {
+      "id": "c-cg-trellis-netting",
+      "word": "trellis netting",
+      "translation": "棚架网",
+      "x": 367,
+      "y": 710,
+      "priority": 5.00098,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-trellis-netting"
+    },
+    {
+      "id": "c-cg-watering-can-handle",
+      "word": "watering-can handle",
+      "translation": "洒水壶提手",
+      "x": 487,
+      "y": 771,
+      "priority": 5.00099,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-watering-can-handle"
+    },
+    {
+      "id": "c-cg-watering-can-spout",
+      "word": "watering-can spout",
+      "translation": "洒水壶壶嘴",
+      "x": 469,
+      "y": 772,
+      "priority": 5.001,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-watering-can-spout"
+    },
+    {
+      "id": "c-cg-wheelbarrow-handle",
+      "word": "wheelbarrow handle",
+      "translation": "独轮车把手",
+      "x": 420,
+      "y": 690,
+      "priority": 5.00101,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-wheelbarrow-handle"
+    },
+    {
+      "id": "c-cg-wheelbarrow-leg",
+      "word": "wheelbarrow support leg",
+      "translation": "独轮车支腿",
+      "x": 430,
+      "y": 712,
+      "priority": 5.00102,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-wheelbarrow-leg"
+    },
+    {
+      "id": "c-cg-wheelbarrow-tray",
+      "word": "wheelbarrow tray",
+      "translation": "独轮车斗",
+      "x": 435,
+      "y": 690,
+      "priority": 5.00103,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-wheelbarrow-tray"
     },
     {
       "id": "cg-door-frame",
@@ -2912,7 +4374,7 @@
       "translation": "门框",
       "x": 288,
       "y": 572,
-      "priority": 5.00005,
+      "priority": 5.00104,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-cg-door-frame"
     },
@@ -2922,9 +4384,209 @@
       "translation": "独轮车轮",
       "x": 438,
       "y": 708,
-      "priority": 5.00006,
+      "priority": 5.00105,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-cg-wheelbarrow-wheel"
+    },
+    {
+      "id": "c-cg-bicycle-chain",
+      "word": "bicycle chain",
+      "translation": "自行车链条",
+      "x": 661,
+      "y": 720,
+      "priority": 5.00106,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-bicycle-chain"
+    },
+    {
+      "id": "c-cg-bicycle-handlebar",
+      "word": "bicycle handlebar",
+      "translation": "自行车车把",
+      "x": 674,
+      "y": 700,
+      "priority": 5.00107,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-bicycle-handlebar"
+    },
+    {
+      "id": "c-cg-bicycle-pedal",
+      "word": "bicycle pedal",
+      "translation": "自行车脚踏",
+      "x": 655,
+      "y": 720,
+      "priority": 5.00108,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-bicycle-pedal"
+    },
+    {
+      "id": "c-cg-bicycle-tire",
+      "word": "bicycle tire",
+      "translation": "自行车轮胎",
+      "x": 625,
+      "y": 710,
+      "priority": 5.00109,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-bicycle-tire"
+    },
+    {
+      "id": "c-cg-birdhouse-perch",
+      "word": "birdhouse perch",
+      "translation": "鸟屋栖木",
+      "x": 645,
+      "y": 601,
+      "priority": 5.0011,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-birdhouse-perch"
+    },
+    {
+      "id": "c-cg-birdhouse-pole",
+      "word": "birdhouse mounting pole",
+      "translation": "鸟屋安装柱",
+      "x": 645,
+      "y": 620,
+      "priority": 5.00111,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-birdhouse-pole"
+    },
+    {
+      "id": "c-cg-birdhouse-roof",
+      "word": "birdhouse roof",
+      "translation": "鸟屋屋顶",
+      "x": 644,
+      "y": 592,
+      "priority": 5.00112,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-birdhouse-roof"
+    },
+    {
+      "id": "c-cg-cold-frame-hinge",
+      "word": "cold-frame hinge",
+      "translation": "冷床铰链",
+      "x": 575,
+      "y": 465,
+      "priority": 5.00113,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-cold-frame-hinge"
+    },
+    {
+      "id": "c-cg-compost-bay-divider",
+      "word": "compost-bay divider",
+      "translation": "堆肥区隔板",
+      "x": 587,
+      "y": 810,
+      "priority": 5.00114,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-compost-bay-divider"
+    },
+    {
+      "id": "c-cg-hive-entrance",
+      "word": "hive entrance",
+      "translation": "蜂箱入口",
+      "x": 681,
+      "y": 655,
+      "priority": 5.00115,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-hive-entrance"
+    },
+    {
+      "id": "c-cg-hive-landing-board",
+      "word": "hive landing board",
+      "translation": "蜂箱着陆板",
+      "x": 681,
+      "y": 661,
+      "priority": 5.00116,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-hive-landing-board"
+    },
+    {
+      "id": "c-cg-hive-stand",
+      "word": "hive stand",
+      "translation": "蜂箱支架",
+      "x": 681,
+      "y": 670,
+      "priority": 5.00117,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-hive-stand"
+    },
+    {
+      "id": "c-cg-mudguard",
+      "word": "bicycle mudguard",
+      "translation": "自行车挡泥板",
+      "x": 619,
+      "y": 713,
+      "priority": 5.00118,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-mudguard"
+    },
+    {
+      "id": "c-cg-path-border",
+      "word": "garden-path border",
+      "translation": "花园小径边界",
+      "x": 724,
+      "y": 775,
+      "priority": 5.00119,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-path-border"
+    },
+    {
+      "id": "c-cg-rear-rack",
+      "word": "bicycle rear rack",
+      "translation": "自行车后货架",
+      "x": 626,
+      "y": 702,
+      "priority": 5.0012,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-rear-rack"
+    },
+    {
+      "id": "c-cg-stream-bank-stone",
+      "word": "stream-bank stone",
+      "translation": "溪岸石",
+      "x": 755,
+      "y": 790,
+      "priority": 5.00121,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-stream-bank-stone"
+    },
+    {
+      "id": "c-cg-tomato-leaf",
+      "word": "tomato leaf",
+      "translation": "番茄叶",
+      "x": 582,
+      "y": 665,
+      "priority": 5.00122,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-tomato-leaf"
+    },
+    {
+      "id": "c-cg-tomato-stem",
+      "word": "tomato stem",
+      "translation": "番茄茎",
+      "x": 580,
+      "y": 670,
+      "priority": 5.00123,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-tomato-stem"
+    },
+    {
+      "id": "c-cg-trellis-crossbar",
+      "word": "trellis crossbar",
+      "translation": "棚架横杆",
+      "x": 565,
+      "y": 640,
+      "priority": 5.00124,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-trellis-crossbar"
+    },
+    {
+      "id": "c-cg-wheel-spokes",
+      "word": "wheel spokes",
+      "translation": "车轮辐条",
+      "x": 633,
+      "y": 710,
+      "priority": 5.00125,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-wheel-spokes"
     },
     {
       "id": "cg-bicycle-wheel",
@@ -2932,7 +4594,7 @@
       "translation": "自行车轮",
       "x": 706,
       "y": 699,
-      "priority": 5.00007,
+      "priority": 5.00126,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-cg-bicycle-wheel"
     },
@@ -2942,9 +4604,169 @@
       "translation": "鸟屋入口",
       "x": 652,
       "y": 580,
-      "priority": 5.00008,
+      "priority": 5.00127,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-cg-birdhouse-hole"
+    },
+    {
+      "id": "c-cg-cart-handle",
+      "word": "garden-cart handle",
+      "translation": "园艺车把手",
+      "x": 225,
+      "y": 815,
+      "priority": 5.00128,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-cart-handle"
+    },
+    {
+      "id": "c-cg-cart-tray",
+      "word": "garden-cart tray",
+      "translation": "园艺车托盘",
+      "x": 220,
+      "y": 838,
+      "priority": 5.00129,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-cart-tray"
+    },
+    {
+      "id": "c-cg-flower-stalk",
+      "word": "flower stalk",
+      "translation": "花茎",
+      "x": 190,
+      "y": 675,
+      "priority": 5.0013,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-flower-stalk"
+    },
+    {
+      "id": "c-cg-gazebo-balustrade",
+      "word": "gazebo balustrade",
+      "translation": "凉亭栏杆",
+      "x": 70,
+      "y": 744,
+      "priority": 5.00131,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-gazebo-balustrade"
+    },
+    {
+      "id": "c-cg-gazebo-bench-back",
+      "word": "gazebo bench back",
+      "translation": "凉亭长椅靠背",
+      "x": 95,
+      "y": 755,
+      "priority": 5.00132,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-gazebo-bench-back"
+    },
+    {
+      "id": "c-cg-gazebo-eave",
+      "word": "gazebo eave",
+      "translation": "凉亭屋檐",
+      "x": 62,
+      "y": 720,
+      "priority": 5.00133,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-gazebo-eave"
+    },
+    {
+      "id": "c-cg-gazebo-roof-beam",
+      "word": "gazebo roof beam",
+      "translation": "凉亭屋梁",
+      "x": 70,
+      "y": 730,
+      "priority": 5.00134,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-gazebo-roof-beam"
+    },
+    {
+      "id": "c-cg-gazebo-step",
+      "word": "gazebo step",
+      "translation": "凉亭台阶",
+      "x": 100,
+      "y": 768,
+      "priority": 5.00135,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-gazebo-step"
+    },
+    {
+      "id": "c-cg-greenhouse-eave",
+      "word": "greenhouse eave",
+      "translation": "温室屋檐",
+      "x": 200,
+      "y": 550,
+      "priority": 5.00136,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-greenhouse-eave"
+    },
+    {
+      "id": "c-cg-greenhouse-gutter",
+      "word": "glasshouse gutter",
+      "translation": "玻璃温室檐槽",
+      "x": 225,
+      "y": 550,
+      "priority": 5.00137,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-greenhouse-gutter"
+    },
+    {
+      "id": "c-cg-greenhouse-threshold",
+      "word": "greenhouse threshold",
+      "translation": "温室门槛",
+      "x": 261,
+      "y": 637,
+      "priority": 5.00138,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-greenhouse-threshold"
+    },
+    {
+      "id": "c-cg-paving-joint",
+      "word": "paving joint",
+      "translation": "铺装接缝",
+      "x": 125,
+      "y": 790,
+      "priority": 5.00139,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-paving-joint"
+    },
+    {
+      "id": "c-cg-picnic-chair-leg",
+      "word": "picnic-chair leg",
+      "translation": "野餐椅腿",
+      "x": 145,
+      "y": 815,
+      "priority": 5.0014,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-picnic-chair-leg"
+    },
+    {
+      "id": "c-cg-roof-rafter",
+      "word": "greenhouse roof rafter",
+      "translation": "温室屋顶椽条",
+      "x": 210,
+      "y": 520,
+      "priority": 5.00141,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-roof-rafter"
+    },
+    {
+      "id": "c-cg-table-centrepiece",
+      "word": "table centrepiece",
+      "translation": "桌上中央盆栽",
+      "x": 162,
+      "y": 787,
+      "priority": 5.00142,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-table-centrepiece"
+    },
+    {
+      "id": "c-cg-wood-shingle",
+      "word": "wood shingle",
+      "translation": "木瓦片",
+      "x": 60,
+      "y": 685,
+      "priority": 5.00143,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-cg-wood-shingle"
     },
     {
       "id": "cg-barrel-lid",
@@ -2952,7 +4774,7 @@
       "translation": "桶盖",
       "x": 104,
       "y": 575,
-      "priority": 5.00009,
+      "priority": 5.00144,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-cg-barrel-lid"
     },
@@ -2962,7 +4784,7 @@
       "translation": "手推车轮",
       "x": 211,
       "y": 858,
-      "priority": 5.0001,
+      "priority": 5.00145,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-cg-cart-wheel"
     },
@@ -2972,9 +4794,219 @@
       "translation": "花园凉亭尖饰",
       "x": 70,
       "y": 660,
-      "priority": 5.00011,
+      "priority": 5.00146,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-cg-roof-finial"
+    },
+    {
+      "id": "c-home-backsplash",
+      "word": "backsplash",
+      "translation": "防溅板",
+      "x": 378,
+      "y": 185,
+      "priority": 5.00147,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-backsplash"
+    },
+    {
+      "id": "c-home-baluster",
+      "word": "baluster",
+      "translation": "栏杆立柱",
+      "x": 421,
+      "y": 195,
+      "priority": 5.00148,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-baluster"
+    },
+    {
+      "id": "c-home-bathroom-tile",
+      "word": "bathroom tile",
+      "translation": "浴室瓷砖",
+      "x": 393,
+      "y": 116,
+      "priority": 5.00149,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-bathroom-tile"
+    },
+    {
+      "id": "c-home-bedside-lamp",
+      "word": "bedside lamp",
+      "translation": "床头灯",
+      "x": 373,
+      "y": 113,
+      "priority": 5.0015,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-bedside-lamp"
+    },
+    {
+      "id": "c-home-cabinet-handle",
+      "word": "cabinet handle",
+      "translation": "橱柜拉手",
+      "x": 397,
+      "y": 204,
+      "priority": 5.00151,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-cabinet-handle"
+    },
+    {
+      "id": "c-home-chair-back",
+      "word": "chair back",
+      "translation": "椅背",
+      "x": 372,
+      "y": 254,
+      "priority": 5.00152,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-chair-back"
+    },
+    {
+      "id": "c-home-chimney-pot",
+      "word": "chimney pot",
+      "translation": "烟囱帽",
+      "x": 350,
+      "y": 4,
+      "priority": 5.00153,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-chimney-pot"
+    },
+    {
+      "id": "c-home-cutting-board",
+      "word": "cutting board",
+      "translation": "砧板",
+      "x": 384,
+      "y": 210,
+      "priority": 5.00154,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-cutting-board"
+    },
+    {
+      "id": "c-home-deck-board",
+      "word": "deck board",
+      "translation": "露台木板",
+      "x": 375,
+      "y": 37,
+      "priority": 5.00155,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-deck-board"
+    },
+    {
+      "id": "c-home-drawer-handle",
+      "word": "drawer handle",
+      "translation": "抽屉拉手",
+      "x": 253,
+      "y": 116,
+      "priority": 5.00156,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-drawer-handle"
+    },
+    {
+      "id": "c-home-floorboard",
+      "word": "floorboard",
+      "translation": "地板条",
+      "x": 326,
+      "y": 143,
+      "priority": 5.00157,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-floorboard"
+    },
+    {
+      "id": "c-home-island-drawer",
+      "word": "island drawer",
+      "translation": "岛台抽屉",
+      "x": 391,
+      "y": 226,
+      "priority": 5.00158,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-island-drawer"
+    },
+    {
+      "id": "c-home-newel-post",
+      "word": "newel post",
+      "translation": "楼梯主柱",
+      "x": 424,
+      "y": 181,
+      "priority": 5.00159,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-newel-post"
+    },
+    {
+      "id": "c-home-paving-slab",
+      "word": "paving slab",
+      "translation": "铺路板",
+      "x": 470,
+      "y": 336,
+      "priority": 5.0016,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-paving-slab"
+    },
+    {
+      "id": "c-home-sofa-arm",
+      "word": "sofa arm",
+      "translation": "沙发扶手",
+      "x": 239,
+      "y": 213,
+      "priority": 5.00161,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-sofa-arm"
+    },
+    {
+      "id": "c-home-stair-riser",
+      "word": "stair riser",
+      "translation": "楼梯立板",
+      "x": 451,
+      "y": 226,
+      "priority": 5.00162,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-stair-riser"
+    },
+    {
+      "id": "c-home-stair-tread",
+      "word": "stair tread",
+      "translation": "楼梯踏板",
+      "x": 451,
+      "y": 218,
+      "priority": 5.00163,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-stair-tread"
+    },
+    {
+      "id": "c-home-table-leg",
+      "word": "table leg",
+      "translation": "桌腿",
+      "x": 350,
+      "y": 264,
+      "priority": 5.00164,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-table-leg"
+    },
+    {
+      "id": "c-home-wall-sconce",
+      "word": "wall sconce",
+      "translation": "壁灯",
+      "x": 432,
+      "y": 174,
+      "priority": 5.00165,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-wall-sconce"
+    },
+    {
+      "id": "c-home-wardrobe-door",
+      "word": "wardrobe door",
+      "translation": "衣柜门",
+      "x": 292,
+      "y": 84,
+      "priority": 5.00166,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-wardrobe-door"
+    },
+    {
+      "id": "c-home-wardrobe-handle",
+      "word": "wardrobe handle",
+      "translation": "衣柜拉手",
+      "x": 300,
+      "y": 87,
+      "priority": 5.00167,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-wardrobe-handle"
     },
     {
       "id": "home-bowl",
@@ -2982,7 +5014,7 @@
       "translation": "碗",
       "x": 272,
       "y": 228,
-      "priority": 5.00012,
+      "priority": 5.00168,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-home-bowl",
       "lexemeId": "en-d9f2babb167353d0"
@@ -2993,7 +5025,7 @@
       "translation": "水龙头",
       "x": 372,
       "y": 202,
-      "priority": 5.00013,
+      "priority": 5.00169,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-home-faucet"
     },
@@ -3003,9 +5035,239 @@
       "translation": "水果碗",
       "x": 350,
       "y": 248,
-      "priority": 5.00014,
+      "priority": 5.0017,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-home-fruit-bowl"
+    },
+    {
+      "id": "c-home-arch-stone",
+      "word": "arch stone",
+      "translation": "拱券石",
+      "x": 675,
+      "y": 233,
+      "priority": 5.00171,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-arch-stone"
+    },
+    {
+      "id": "c-home-bench-armrest",
+      "word": "bench armrest",
+      "translation": "长椅扶手",
+      "x": 570,
+      "y": 212,
+      "priority": 5.00172,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-bench-armrest"
+    },
+    {
+      "id": "c-home-bench-slat",
+      "word": "bench slat",
+      "translation": "长椅木条",
+      "x": 562,
+      "y": 210,
+      "priority": 5.00173,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-bench-slat"
+    },
+    {
+      "id": "c-home-bin-lid",
+      "word": "bin lid",
+      "translation": "垃圾桶盖",
+      "x": 638,
+      "y": 286,
+      "priority": 5.00174,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-bin-lid"
+    },
+    {
+      "id": "c-home-bridge-keystone",
+      "word": "bridge keystone",
+      "translation": "桥拱顶石",
+      "x": 700,
+      "y": 225,
+      "priority": 5.00175,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-bridge-keystone"
+    },
+    {
+      "id": "c-home-canal-railing-post",
+      "word": "canal railing post",
+      "translation": "运河栏杆柱",
+      "x": 770,
+      "y": 188,
+      "priority": 5.00176,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-canal-railing-post"
+    },
+    {
+      "id": "c-home-glass-shelter-panel",
+      "word": "shelter glass panel",
+      "translation": "候车亭玻璃板",
+      "x": 575,
+      "y": 173,
+      "priority": 5.00177,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-glass-shelter-panel"
+    },
+    {
+      "id": "c-home-greenhouse-gutter",
+      "word": "greenhouse gutter",
+      "translation": "温室檐槽",
+      "x": 575,
+      "y": 360,
+      "priority": 5.00178,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-greenhouse-gutter"
+    },
+    {
+      "id": "c-home-greenhouse-shelf",
+      "word": "greenhouse shelf",
+      "translation": "温室搁板",
+      "x": 562,
+      "y": 390,
+      "priority": 5.00179,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-greenhouse-shelf"
+    },
+    {
+      "id": "c-home-lamp-base",
+      "word": "lamp base",
+      "translation": "灯柱底座",
+      "x": 635,
+      "y": 270,
+      "priority": 5.0018,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-lamp-base"
+    },
+    {
+      "id": "c-home-lamp-finial",
+      "word": "lamp finial",
+      "translation": "灯柱尖饰",
+      "x": 635,
+      "y": 180,
+      "priority": 5.00181,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-lamp-finial"
+    },
+    {
+      "id": "c-home-lantern-glass-pane",
+      "word": "lantern glass pane",
+      "translation": "灯笼玻璃片",
+      "x": 635,
+      "y": 194,
+      "priority": 5.00182,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-lantern-glass-pane"
+    },
+    {
+      "id": "c-home-parapet-cap",
+      "word": "parapet cap",
+      "translation": "女儿墙压顶",
+      "x": 713,
+      "y": 223,
+      "priority": 5.00183,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-parapet-cap"
+    },
+    {
+      "id": "c-home-shelter-frame",
+      "word": "shelter frame",
+      "translation": "候车亭框架",
+      "x": 580,
+      "y": 190,
+      "priority": 5.00184,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-shelter-frame"
+    },
+    {
+      "id": "c-home-utility-door",
+      "word": "utility-box door",
+      "translation": "公用箱门",
+      "x": 565,
+      "y": 274,
+      "priority": 5.00185,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-utility-door"
+    },
+    {
+      "id": "c-home-balcony-balustrade",
+      "word": "balcony balustrade",
+      "translation": "阳台栏杆",
+      "x": 109,
+      "y": 43,
+      "priority": 5.00186,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-balcony-balustrade"
+    },
+    {
+      "id": "c-home-bench-backrest",
+      "word": "bench backrest",
+      "translation": "长椅靠背",
+      "x": 132,
+      "y": 294,
+      "priority": 5.00187,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-bench-backrest"
+    },
+    {
+      "id": "c-home-bicycle-frame",
+      "word": "bicycle frame",
+      "translation": "自行车车架",
+      "x": 95,
+      "y": 207,
+      "priority": 5.00188,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-bicycle-frame"
+    },
+    {
+      "id": "c-home-bicycle-saddle",
+      "word": "bicycle saddle",
+      "translation": "自行车座",
+      "x": 106,
+      "y": 193,
+      "priority": 5.00189,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-bicycle-saddle"
+    },
+    {
+      "id": "c-home-conservatory-pane",
+      "word": "conservatory pane",
+      "translation": "暖房玻璃窗格",
+      "x": 176,
+      "y": 210,
+      "priority": 5.0019,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-conservatory-pane"
+    },
+    {
+      "id": "c-home-ladder-rung",
+      "word": "ladder rung",
+      "translation": "梯子横档",
+      "x": 34,
+      "y": 305,
+      "priority": 5.00191,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-ladder-rung"
+    },
+    {
+      "id": "c-home-seesaw-handle",
+      "word": "seesaw handle",
+      "translation": "跷跷板把手",
+      "x": 91,
+      "y": 339,
+      "priority": 5.00192,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-seesaw-handle"
+    },
+    {
+      "id": "c-home-seesaw-seat",
+      "word": "seesaw seat",
+      "translation": "跷跷板座位",
+      "x": 91,
+      "y": 356,
+      "priority": 5.00193,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-home-seesaw-seat"
     },
     {
       "id": "home-shirt",
@@ -3013,10 +5275,120 @@
       "translation": "衬衫",
       "x": 143,
       "y": 66,
-      "priority": 5.00015,
+      "priority": 5.00194,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-home-shirt",
       "lexemeId": "en-a52514252adf8606"
+    },
+    {
+      "id": "c-np-fountain-pedestal",
+      "word": "park-fountain pedestal",
+      "translation": "公园喷泉基座",
+      "x": 1085,
+      "y": 636,
+      "priority": 5.00195,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-fountain-pedestal"
+    },
+    {
+      "id": "c-np-fountain-rim",
+      "word": "park-fountain rim",
+      "translation": "公园喷泉池沿",
+      "x": 1068,
+      "y": 631,
+      "priority": 5.00196,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-fountain-rim"
+    },
+    {
+      "id": "c-np-fountain-spout",
+      "word": "park-fountain spout",
+      "translation": "公园喷泉喷口",
+      "x": 1085,
+      "y": 612,
+      "priority": 5.00197,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-fountain-spout"
+    },
+    {
+      "id": "c-np-gazebo-baluster",
+      "word": "park-gazebo baluster",
+      "translation": "公园凉亭栏杆柱",
+      "x": 1004,
+      "y": 576,
+      "priority": 5.00198,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-gazebo-baluster"
+    },
+    {
+      "id": "c-np-gazebo-bench-back",
+      "word": "park-gazebo bench back",
+      "translation": "公园凉亭长椅靠背",
+      "x": 1014,
+      "y": 580,
+      "priority": 5.00199,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-gazebo-bench-back"
+    },
+    {
+      "id": "c-np-gazebo-eave",
+      "word": "park-gazebo eave",
+      "translation": "公园凉亭屋檐",
+      "x": 1004,
+      "y": 557,
+      "priority": 5.002,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-gazebo-eave"
+    },
+    {
+      "id": "c-np-gazebo-roof-beam",
+      "word": "park-gazebo roof beam",
+      "translation": "公园凉亭屋梁",
+      "x": 1004,
+      "y": 566,
+      "priority": 5.00201,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-gazebo-roof-beam"
+    },
+    {
+      "id": "c-np-gazebo-roof-ridge",
+      "word": "park-gazebo roof ridge",
+      "translation": "公园凉亭屋脊",
+      "x": 1004,
+      "y": 536,
+      "priority": 5.00202,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-gazebo-roof-ridge"
+    },
+    {
+      "id": "c-np-gazebo-step",
+      "word": "park-gazebo step",
+      "translation": "公园凉亭台阶",
+      "x": 1004,
+      "y": 593,
+      "priority": 5.00203,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-gazebo-step"
+    },
+    {
+      "id": "c-np-path-edging",
+      "word": "park-path edging",
+      "translation": "公园小径镶边",
+      "x": 925,
+      "y": 585,
+      "priority": 5.00204,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-path-edging"
+    },
+    {
+      "id": "c-np-shingle-course",
+      "word": "roof shingle course",
+      "translation": "屋面瓦行",
+      "x": 1004,
+      "y": 548,
+      "priority": 5.00205,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-shingle-course"
     },
     {
       "id": "np-roof-finial",
@@ -3024,9 +5396,179 @@
       "translation": "公园凉亭尖饰",
       "x": 1010,
       "y": 526,
-      "priority": 5.00016,
+      "priority": 5.00206,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-np-roof-finial"
+    },
+    {
+      "id": "c-np-bark-fissure",
+      "word": "bark fissure",
+      "translation": "树皮裂隙",
+      "x": 1325,
+      "y": 680,
+      "priority": 5.00207,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-bark-fissure"
+    },
+    {
+      "id": "c-np-bird-beak",
+      "word": "bird beak",
+      "translation": "鸟喙",
+      "x": 1390,
+      "y": 573,
+      "priority": 5.00208,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-bird-beak"
+    },
+    {
+      "id": "c-np-bird-wing",
+      "word": "bird wing",
+      "translation": "鸟翼",
+      "x": 1402,
+      "y": 577,
+      "priority": 5.00209,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-bird-wing"
+    },
+    {
+      "id": "c-np-branch-collar",
+      "word": "branch collar",
+      "translation": "枝领",
+      "x": 1335,
+      "y": 622,
+      "priority": 5.0021,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-branch-collar"
+    },
+    {
+      "id": "c-np-climbing-pole",
+      "word": "climbing pole",
+      "translation": "攀爬柱",
+      "x": 1475,
+      "y": 665,
+      "priority": 5.00211,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-climbing-pole"
+    },
+    {
+      "id": "c-np-fern-frond",
+      "word": "fern frond",
+      "translation": "蕨叶",
+      "x": 1415,
+      "y": 740,
+      "priority": 5.00212,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-fern-frond"
+    },
+    {
+      "id": "c-np-flower-petal",
+      "word": "flower petal",
+      "translation": "花瓣",
+      "x": 1479,
+      "y": 790,
+      "priority": 5.00213,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-flower-petal"
+    },
+    {
+      "id": "c-np-heron-beak",
+      "word": "heron beak",
+      "translation": "苍鹭喙",
+      "x": 1168,
+      "y": 837,
+      "priority": 5.00214,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-heron-beak"
+    },
+    {
+      "id": "c-np-insect-hotel-roof",
+      "word": "insect-hotel roof",
+      "translation": "昆虫旅馆屋顶",
+      "x": 1537,
+      "y": 492,
+      "priority": 5.00215,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-insect-hotel-roof"
+    },
+    {
+      "id": "c-np-mushroom-cap",
+      "word": "mushroom cap",
+      "translation": "菌盖",
+      "x": 1362,
+      "y": 718,
+      "priority": 5.00216,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-mushroom-cap"
+    },
+    {
+      "id": "c-np-mushroom-stem",
+      "word": "mushroom stem",
+      "translation": "菌柄",
+      "x": 1362,
+      "y": 724,
+      "priority": 5.00217,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-mushroom-stem"
+    },
+    {
+      "id": "c-np-nest-twig",
+      "word": "nest twig",
+      "translation": "鸟巢枝条",
+      "x": 1375,
+      "y": 635,
+      "priority": 5.00218,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-nest-twig"
+    },
+    {
+      "id": "c-np-picnic-table-leg",
+      "word": "picnic-table leg",
+      "translation": "野餐桌腿",
+      "x": 1330,
+      "y": 780,
+      "priority": 5.00219,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-picnic-table-leg"
+    },
+    {
+      "id": "c-np-rock-crevice",
+      "word": "rock crevice",
+      "translation": "岩石缝隙",
+      "x": 1385,
+      "y": 835,
+      "priority": 5.0022,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-rock-crevice"
+    },
+    {
+      "id": "c-np-squirrel-ear",
+      "word": "squirrel ear",
+      "translation": "松鼠耳朵",
+      "x": 1410,
+      "y": 775,
+      "priority": 5.00221,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-squirrel-ear"
+    },
+    {
+      "id": "c-np-squirrel-tail",
+      "word": "squirrel tail",
+      "translation": "松鼠尾巴",
+      "x": 1404,
+      "y": 770,
+      "priority": 5.00222,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-squirrel-tail"
+    },
+    {
+      "id": "c-np-stump-step",
+      "word": "stump step",
+      "translation": "树桩踏步",
+      "x": 1510,
+      "y": 700,
+      "priority": 5.00223,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-stump-step"
     },
     {
       "id": "np-knothole",
@@ -3034,7 +5576,7 @@
       "translation": "树节孔",
       "x": 1335,
       "y": 663,
-      "priority": 5.00017,
+      "priority": 5.00224,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-np-knothole"
     },
@@ -3044,7 +5586,7 @@
       "translation": "倒木树皮",
       "x": 1240,
       "y": 755,
-      "priority": 5.00018,
+      "priority": 5.00225,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-np-log-bark"
     },
@@ -3054,9 +5596,139 @@
       "translation": "绳索",
       "x": 1530,
       "y": 670,
-      "priority": 5.00019,
+      "priority": 5.00226,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-np-rope"
+    },
+    {
+      "id": "c-np-bridge-crossbeam",
+      "word": "footbridge crossbeam",
+      "translation": "人行桥横梁",
+      "x": 897,
+      "y": 818,
+      "priority": 5.00227,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-bridge-crossbeam"
+    },
+    {
+      "id": "c-np-cattail-head",
+      "word": "cattail head",
+      "translation": "香蒲穗",
+      "x": 1042,
+      "y": 717,
+      "priority": 5.00228,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-cattail-head"
+    },
+    {
+      "id": "c-np-duck-beak",
+      "word": "duck beak",
+      "translation": "鸭喙",
+      "x": 1053,
+      "y": 755,
+      "priority": 5.00229,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-duck-beak"
+    },
+    {
+      "id": "c-np-duck-tail",
+      "word": "duck tail",
+      "translation": "鸭尾",
+      "x": 1070,
+      "y": 760,
+      "priority": 5.0023,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-duck-tail"
+    },
+    {
+      "id": "c-np-duck-wing",
+      "word": "duck wing",
+      "translation": "鸭翼",
+      "x": 1060,
+      "y": 760,
+      "priority": 5.00231,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-duck-wing"
+    },
+    {
+      "id": "c-np-footbridge-pier",
+      "word": "footbridge pier",
+      "translation": "人行桥桥墩",
+      "x": 882,
+      "y": 815,
+      "priority": 5.00232,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-footbridge-pier"
+    },
+    {
+      "id": "c-np-footbridge-plank",
+      "word": "footbridge plank",
+      "translation": "人行桥木板",
+      "x": 895,
+      "y": 805,
+      "priority": 5.00233,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-footbridge-plank"
+    },
+    {
+      "id": "c-np-handrail-post",
+      "word": "footbridge handrail post",
+      "translation": "人行桥扶手柱",
+      "x": 895,
+      "y": 798,
+      "priority": 5.00234,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-handrail-post"
+    },
+    {
+      "id": "c-np-pondweed",
+      "word": "pondweed",
+      "translation": "池塘水草",
+      "x": 1035,
+      "y": 807,
+      "priority": 5.00235,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-pondweed"
+    },
+    {
+      "id": "c-np-reed-stem",
+      "word": "reed stem",
+      "translation": "芦苇茎",
+      "x": 1018,
+      "y": 750,
+      "priority": 5.00236,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-reed-stem"
+    },
+    {
+      "id": "c-np-shoreline-stone",
+      "word": "shoreline stone",
+      "translation": "岸边石",
+      "x": 968,
+      "y": 799,
+      "priority": 5.00237,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-shoreline-stone"
+    },
+    {
+      "id": "c-np-sign-stake",
+      "word": "sign stake",
+      "translation": "标牌支杆",
+      "x": 966,
+      "y": 715,
+      "priority": 5.00238,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-sign-stake"
+    },
+    {
+      "id": "c-np-wetland-flower",
+      "word": "wetland flower",
+      "translation": "湿地花朵",
+      "x": 960,
+      "y": 845,
+      "priority": 5.00239,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-c-np-wetland-flower"
     }
   ],
   "portals": [
@@ -3112,11 +5784,11 @@
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
-    "reviewedAsset": "/scenes/world-atlas-master-1600-v2.jpg",
-    "reviewedAssetSha256": "d7e918e18d31b62fc31386776ffc242c9fefae6c359ae64bf1e9965b491cb008",
-    "rationale": "Merged two pixel-audited atlas batches into 301 independently pointable visible objects or parts across 12 contained exploration zones.",
-    "previousLabelCount": 304,
-    "retainedLabelCount": 301,
+    "reviewedAsset": "/scenes/world-atlas-master-1600-v1.jpg",
+    "reviewedAssetSha256": "d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb",
+    "rationale": "Merged 3 pixel-audited atlas batches into 568 independently pointable visible objects or parts across 12 contained exploration zones.",
+    "previousLabelCount": 571,
+    "retainedLabelCount": 568,
     "removedLabelCount": 3,
     "removedExamples": [
       "unverified activity",
@@ -4584,6 +7256,42 @@
       "height": 32
     },
     {
+      "id": "anchor-c-home-balcony",
+      "description": "Audited object pixels containing the visible “balcony” anchor",
+      "kind": "object",
+      "x": 90,
+      "y": 28,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-sandbox",
+      "description": "Audited object pixels containing the visible “sandbox” anchor",
+      "kind": "object",
+      "x": 59,
+      "y": 299,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-spring-rider",
+      "description": "Audited object pixels containing the visible “spring rider” anchor",
+      "kind": "object",
+      "x": 3,
+      "y": 337,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-water-tank",
+      "description": "Audited object pixels containing the visible “water tank” anchor",
+      "kind": "object",
+      "x": 181,
+      "y": 131,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-home-bicycle",
       "description": "Audited object pixels containing the visible “bicycle” anchor",
       "kind": "object",
@@ -4863,6 +7571,33 @@
       "height": 32
     },
     {
+      "id": "anchor-c-city-dome-drum",
+      "description": "Audited part pixels containing the visible “dome drum” anchor",
+      "kind": "part",
+      "x": 1342,
+      "y": 126,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-exhibit-gate",
+      "description": "Audited part pixels containing the visible “exhibit gate” anchor",
+      "kind": "part",
+      "x": 1364,
+      "y": 277,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-tram-roof",
+      "description": "Audited part pixels containing the visible “tram roof” anchor",
+      "kind": "part",
+      "x": 1384,
+      "y": 0,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-city-catenary-pole",
       "description": "Audited part pixels containing the visible “catenary pole” anchor",
       "kind": "part",
@@ -4976,6 +7711,69 @@
       "kind": "part",
       "x": 1134,
       "y": 328,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-cafe-door",
+      "description": "Audited part pixels containing the visible “cafe door” anchor",
+      "kind": "part",
+      "x": 1016,
+      "y": 367,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-canal-bench",
+      "description": "Audited part pixels containing the visible “canal-side bench” anchor",
+      "kind": "part",
+      "x": 824,
+      "y": 326,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-canopy-truss",
+      "description": "Audited part pixels containing the visible “canopy truss” anchor",
+      "kind": "part",
+      "x": 1004,
+      "y": 20,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-luggage-trolley",
+      "description": "Audited part pixels containing the visible “luggage trolley” anchor",
+      "kind": "part",
+      "x": 978,
+      "y": 135,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-platform-edge",
+      "description": "Audited part pixels containing the visible “platform edge” anchor",
+      "kind": "part",
+      "x": 989,
+      "y": 127,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-platform-safety-line",
+      "description": "Audited part pixels containing the visible “platform safety line” anchor",
+      "kind": "part",
+      "x": 1014,
+      "y": 132,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-roof-parapet",
+      "description": "Audited part pixels containing the visible “roof parapet” anchor",
+      "kind": "part",
+      "x": 1059,
+      "y": 159,
       "width": 32,
       "height": 32
     },
@@ -5196,6 +7994,15 @@
       "height": 32
     },
     {
+      "id": "anchor-c-cg-hive-box",
+      "description": "Audited part pixels containing the visible “hive box” anchor",
+      "kind": "part",
+      "x": 664,
+      "y": 629,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-cg-cold-frame-lid",
       "description": "Audited part pixels containing the visible “cold-frame lid” anchor",
       "kind": "part",
@@ -5237,6 +8044,42 @@
       "kind": "part",
       "x": 606,
       "y": 664,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-gazebo-floor",
+      "description": "Audited part pixels containing the visible “gazebo floor” anchor",
+      "kind": "part",
+      "x": 59,
+      "y": 744,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-greenhouse-staging",
+      "description": "Audited part pixels containing the visible “greenhouse staging” anchor",
+      "kind": "part",
+      "x": 244,
+      "y": 571,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-plant-shelf",
+      "description": "Audited part pixels containing the visible “plant shelf” anchor",
+      "kind": "part",
+      "x": 246,
+      "y": 564,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-watering-can",
+      "description": "Audited part pixels containing the visible “watering can” anchor",
+      "kind": "part",
+      "x": 216,
+      "y": 814,
       "width": 32,
       "height": 32
     },
@@ -5318,6 +8161,96 @@
       "kind": "part",
       "x": 168,
       "y": 770,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-garden-door",
+      "description": "Audited part pixels containing the visible “garden door” anchor",
+      "kind": "part",
+      "x": 330,
+      "y": 280,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-internal-door",
+      "description": "Audited part pixels containing the visible “internal door” anchor",
+      "kind": "part",
+      "x": 286,
+      "y": 175,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-iron-fence",
+      "description": "Audited part pixels containing the visible “iron fence” anchor",
+      "kind": "part",
+      "x": 394,
+      "y": 290,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-mattress",
+      "description": "Audited part pixels containing the visible “mattress” anchor",
+      "kind": "part",
+      "x": 305,
+      "y": 120,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-oven",
+      "description": "Audited part pixels containing the visible “oven” anchor",
+      "kind": "part",
+      "x": 370,
+      "y": 180,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-privacy-screen",
+      "description": "Audited part pixels containing the visible “privacy screen” anchor",
+      "kind": "part",
+      "x": 326,
+      "y": 2,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-range-hood",
+      "description": "Audited part pixels containing the visible “range hood” anchor",
+      "kind": "part",
+      "x": 359,
+      "y": 163,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-stair-landing",
+      "description": "Audited part pixels containing the visible “stair landing” anchor",
+      "kind": "part",
+      "x": 405,
+      "y": 158,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-stone-wall",
+      "description": "Audited part pixels containing the visible “stone wall” anchor",
+      "kind": "part",
+      "x": 361,
+      "y": 291,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-table-lamp",
+      "description": "Audited part pixels containing the visible “table lamp” anchor",
+      "kind": "part",
+      "x": 233,
+      "y": 80,
       "width": 32,
       "height": 32
     },
@@ -5457,6 +8390,51 @@
       "height": 32
     },
     {
+      "id": "anchor-c-home-bridge-pier",
+      "description": "Audited part pixels containing the visible “bridge pier” anchor",
+      "kind": "part",
+      "x": 769,
+      "y": 254,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-canal-wall",
+      "description": "Audited part pixels containing the visible “canal retaining wall” anchor",
+      "kind": "part",
+      "x": 752,
+      "y": 309,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-cobblestone",
+      "description": "Audited part pixels containing the visible “cobblestone” anchor",
+      "kind": "part",
+      "x": 519,
+      "y": 109,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-planter-urn",
+      "description": "Audited part pixels containing the visible “planter urn” anchor",
+      "kind": "part",
+      "x": 602,
+      "y": 91,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-wrought-iron-balcony",
+      "description": "Audited part pixels containing the visible “wrought-iron balcony” anchor",
+      "kind": "part",
+      "x": 566,
+      "y": 11,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-home-bicycle-rack",
       "description": "Audited part pixels containing the visible “residential bicycle rack” anchor",
       "kind": "part",
@@ -5480,6 +8458,78 @@
       "kind": "part",
       "x": 591,
       "y": 273,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-cycle-shelter-roof",
+      "description": "Audited part pixels containing the visible “cycle-shelter roof” anchor",
+      "kind": "part",
+      "x": 59,
+      "y": 169,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-downpipe",
+      "description": "Audited part pixels containing the visible “downpipe” anchor",
+      "kind": "part",
+      "x": 0,
+      "y": 45,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-eaves",
+      "description": "Audited part pixels containing the visible “eaves” anchor",
+      "kind": "part",
+      "x": 134,
+      "y": 130,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-play-platform",
+      "description": "Audited part pixels containing the visible “play platform” anchor",
+      "kind": "part",
+      "x": 18,
+      "y": 260,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-rain-gutter",
+      "description": "Audited part pixels containing the visible “rain gutter” anchor",
+      "kind": "part",
+      "x": 16,
+      "y": 9,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-shed-window",
+      "description": "Audited part pixels containing the visible “shed window” anchor",
+      "kind": "part",
+      "x": 143,
+      "y": 142,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-slide-chute",
+      "description": "Audited part pixels containing the visible “slide chute” anchor",
+      "kind": "part",
+      "x": 38,
+      "y": 283,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-stone-doorstep",
+      "description": "Audited part pixels containing the visible “stone doorstep” anchor",
+      "kind": "part",
+      "x": 96,
+      "y": 90,
       "width": 32,
       "height": 32
     },
@@ -5529,6 +8579,24 @@
       "height": 32
     },
     {
+      "id": "anchor-c-np-gazebo-floor",
+      "description": "Audited part pixels containing the visible “park-gazebo floor” anchor",
+      "kind": "part",
+      "x": 988,
+      "y": 567,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-streambed",
+      "description": "Audited part pixels containing the visible “streambed” anchor",
+      "kind": "part",
+      "x": 869,
+      "y": 574,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-np-gazebo-post",
       "description": "Audited part pixels containing the visible “park gazebo post” anchor",
       "kind": "part",
@@ -5570,6 +8638,15 @@
       "kind": "part",
       "x": 1069,
       "y": 587,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-root-flare",
+      "description": "Audited part pixels containing the visible “root flare” anchor",
+      "kind": "part",
+      "x": 1314,
+      "y": 704,
       "width": 32,
       "height": 32
     },
@@ -5664,6 +8741,24 @@
       "height": 32
     },
     {
+      "id": "anchor-c-np-cattail",
+      "description": "Audited part pixels containing the visible “cattail” anchor",
+      "kind": "part",
+      "x": 1009,
+      "y": 704,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-wetland-signboard",
+      "description": "Audited part pixels containing the visible “wetland signboard” anchor",
+      "kind": "part",
+      "x": 950,
+      "y": 689,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-np-bridge-deck",
       "description": "Audited part pixels containing the visible “bridge deck” anchor",
       "kind": "part",
@@ -5691,6 +8786,393 @@
       "height": 32
     },
     {
+      "id": "anchor-c-city-arched-lintel",
+      "description": "Audited part pixels containing the visible “arched lintel” anchor",
+      "kind": "part",
+      "x": 1339,
+      "y": 121,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-column-capital",
+      "description": "Audited part pixels containing the visible “column capital” anchor",
+      "kind": "part",
+      "x": 1199,
+      "y": 175,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-dinosaur-forelimb",
+      "description": "Audited part pixels containing the visible “dinosaur forelimb” anchor",
+      "kind": "part",
+      "x": 1214,
+      "y": 147,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-dinosaur-jaw",
+      "description": "Audited part pixels containing the visible “dinosaur jaw” anchor",
+      "kind": "part",
+      "x": 1211,
+      "y": 135,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-dinosaur-pelvis",
+      "description": "Audited part pixels containing the visible “dinosaur pelvis” anchor",
+      "kind": "part",
+      "x": 1272,
+      "y": 171,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-dinosaur-skull",
+      "description": "Audited part pixels containing the visible “dinosaur skull” anchor",
+      "kind": "part",
+      "x": 1209,
+      "y": 129,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-dome-cap",
+      "description": "Audited part pixels containing the visible “dome cap” anchor",
+      "kind": "part",
+      "x": 1339,
+      "y": 40,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-dome-cornice-ring",
+      "description": "Audited part pixels containing the visible “dome cornice ring” anchor",
+      "kind": "part",
+      "x": 1342,
+      "y": 94,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-dome-finial",
+      "description": "Audited part pixels containing the visible “dome finial” anchor",
+      "kind": "part",
+      "x": 1339,
+      "y": 34,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-dome-pilaster",
+      "description": "Audited part pixels containing the visible “dome pilaster” anchor",
+      "kind": "part",
+      "x": 1357,
+      "y": 134,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-door-transom",
+      "description": "Audited part pixels containing the visible “door transom” anchor",
+      "kind": "part",
+      "x": 1209,
+      "y": 196,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-emergency-beacon",
+      "description": "Audited part pixels containing the visible “emergency beacon” anchor",
+      "kind": "part",
+      "x": 1411,
+      "y": 194,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-entablature",
+      "description": "Audited part pixels containing the visible “entablature” anchor",
+      "kind": "part",
+      "x": 1209,
+      "y": 162,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-entrance-handrail",
+      "description": "Audited part pixels containing the visible “entrance handrail” anchor",
+      "kind": "part",
+      "x": 1191,
+      "y": 215,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-exhibit-fence-post",
+      "description": "Audited part pixels containing the visible “exhibit fence post” anchor",
+      "kind": "part",
+      "x": 1407,
+      "y": 278,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-facade-cornice",
+      "description": "Audited part pixels containing the visible “facade cornice” anchor",
+      "kind": "part",
+      "x": 1226,
+      "y": 159,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-fire-engine-grille",
+      "description": "Audited part pixels containing the visible “fire-engine grille” anchor",
+      "kind": "part",
+      "x": 1403,
+      "y": 220,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-fire-engine-headlight",
+      "description": "Audited part pixels containing the visible “fire-engine headlight” anchor",
+      "kind": "part",
+      "x": 1408,
+      "y": 221,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-fire-engine-wheel",
+      "description": "Audited part pixels containing the visible “fire-engine wheel” anchor",
+      "kind": "part",
+      "x": 1416,
+      "y": 228,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-firehouse-cornice",
+      "description": "Audited part pixels containing the visible “firehouse cornice” anchor",
+      "kind": "part",
+      "x": 1489,
+      "y": 149,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-firehouse-downspout",
+      "description": "Audited part pixels containing the visible “firehouse downspout” anchor",
+      "kind": "part",
+      "x": 1501,
+      "y": 174,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-fossil-femur",
+      "description": "Audited part pixels containing the visible “fossil femur” anchor",
+      "kind": "part",
+      "x": 1251,
+      "y": 178,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-fossil-rib",
+      "description": "Audited part pixels containing the visible “fossil rib” anchor",
+      "kind": "part",
+      "x": 1294,
+      "y": 234,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-fossil-tail",
+      "description": "Audited part pixels containing the visible “fossil tail” anchor",
+      "kind": "part",
+      "x": 1294,
+      "y": 179,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-fossil-vertebra",
+      "description": "Audited part pixels containing the visible “fossil vertebra” anchor",
+      "kind": "part",
+      "x": 1276,
+      "y": 165,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-garage-lintel",
+      "description": "Audited part pixels containing the visible “garage lintel” anchor",
+      "kind": "part",
+      "x": 1424,
+      "y": 195,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-garage-windowpane",
+      "description": "Audited part pixels containing the visible “garage windowpane” anchor",
+      "kind": "part",
+      "x": 1449,
+      "y": 203,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-masonry-joint",
+      "description": "Audited part pixels containing the visible “masonry joint” anchor",
+      "kind": "part",
+      "x": 1357,
+      "y": 149,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-parapet-block",
+      "description": "Audited part pixels containing the visible “parapet block” anchor",
+      "kind": "part",
+      "x": 1144,
+      "y": 74,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-rail-sleeper",
+      "description": "Audited part pixels containing the visible “rail sleeper” anchor",
+      "kind": "part",
+      "x": 1374,
+      "y": 49,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-roof-coping",
+      "description": "Audited part pixels containing the visible “roof coping” anchor",
+      "kind": "part",
+      "x": 1179,
+      "y": 69,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-sauropod-femur",
+      "description": "Audited part pixels containing the visible “sauropod femur” anchor",
+      "kind": "part",
+      "x": 1304,
+      "y": 249,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-sauropod-neck",
+      "description": "Audited part pixels containing the visible “sauropod neck” anchor",
+      "kind": "part",
+      "x": 1256,
+      "y": 214,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-sauropod-pelvis",
+      "description": "Audited part pixels containing the visible “sauropod pelvis” anchor",
+      "kind": "part",
+      "x": 1329,
+      "y": 228,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-sauropod-skull",
+      "description": "Audited part pixels containing the visible “sauropod skull” anchor",
+      "kind": "part",
+      "x": 1248,
+      "y": 236,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-sauropod-tail",
+      "description": "Audited part pixels containing the visible “sauropod tail” anchor",
+      "kind": "part",
+      "x": 1379,
+      "y": 237,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-skylight-frame",
+      "description": "Audited part pixels containing the visible “skylight frame” anchor",
+      "kind": "part",
+      "x": 1229,
+      "y": 54,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-skylight-pane",
+      "description": "Audited part pixels containing the visible “skylight pane” anchor",
+      "kind": "part",
+      "x": 1246,
+      "y": 59,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-solar-cell",
+      "description": "Audited part pixels containing the visible “solar cell” anchor",
+      "kind": "part",
+      "x": 1279,
+      "y": 89,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-stair-baluster",
+      "description": "Audited part pixels containing the visible “entrance baluster” anchor",
+      "kind": "part",
+      "x": 1192,
+      "y": 212,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-tram-front-panel",
+      "description": "Audited part pixels containing the visible “tram front panel” anchor",
+      "kind": "part",
+      "x": 1447,
+      "y": 19,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-tram-headlight",
+      "description": "Audited part pixels containing the visible “tram headlight” anchor",
+      "kind": "part",
+      "x": 1458,
+      "y": 24,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-tympanum",
+      "description": "Audited part pixels containing the visible “tympanum” anchor",
+      "kind": "part",
+      "x": 1259,
+      "y": 129,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-city-overhead-wire",
       "description": "Audited part pixels containing the visible “overhead wire” anchor",
       "kind": "part",
@@ -5709,11 +9191,326 @@
       "height": 32
     },
     {
+      "id": "anchor-c-city-cart-axle",
+      "description": "Audited part pixels containing the visible “cart axle” anchor",
+      "kind": "part",
+      "x": 1289,
+      "y": 349,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-cart-crate",
+      "description": "Audited part pixels containing the visible “cart crate” anchor",
+      "kind": "part",
+      "x": 1271,
+      "y": 334,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-cart-handle",
+      "description": "Audited part pixels containing the visible “delivery-cart handle” anchor",
+      "kind": "part",
+      "x": 1316,
+      "y": 335,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-cart-wheel",
+      "description": "Audited part pixels containing the visible “delivery-cart wheel” anchor",
+      "kind": "part",
+      "x": 1276,
+      "y": 349,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-crosswalk-stripe",
+      "description": "Audited part pixels containing the visible “crosswalk stripe” anchor",
+      "kind": "part",
+      "x": 1249,
+      "y": 374,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-fountain-coping",
+      "description": "Audited part pixels containing the visible “fountain coping” anchor",
+      "kind": "part",
+      "x": 1123,
+      "y": 339,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-fountain-nozzle",
+      "description": "Audited part pixels containing the visible “fountain nozzle” anchor",
+      "kind": "part",
+      "x": 1106,
+      "y": 324,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-fountain-pedestal",
+      "description": "Audited part pixels containing the visible “fountain pedestal” anchor",
+      "kind": "part",
+      "x": 1108,
+      "y": 331,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-hydrant-cap",
+      "description": "Audited part pixels containing the visible “hydrant cap” anchor",
+      "kind": "part",
+      "x": 1099,
+      "y": 358,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-hydrant-nozzle",
+      "description": "Audited part pixels containing the visible “hydrant nozzle” anchor",
+      "kind": "part",
+      "x": 1096,
+      "y": 366,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-rail-groove",
+      "description": "Audited part pixels containing the visible “rail groove” anchor",
+      "kind": "part",
+      "x": 1334,
+      "y": 324,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-road-arrow",
+      "description": "Audited part pixels containing the visible “road arrow” anchor",
+      "kind": "part",
+      "x": 1179,
+      "y": 394,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-taxi-door",
+      "description": "Audited part pixels containing the visible “taxi door” anchor",
+      "kind": "part",
+      "x": 1188,
+      "y": 381,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-taxi-headlight",
+      "description": "Audited part pixels containing the visible “taxi headlight” anchor",
+      "kind": "part",
+      "x": 1143,
+      "y": 401,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-taxi-hood",
+      "description": "Audited part pixels containing the visible “taxi hood” anchor",
+      "kind": "part",
+      "x": 1166,
+      "y": 386,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-taxi-side-mirror",
+      "description": "Audited part pixels containing the visible “taxi side mirror” anchor",
+      "kind": "part",
+      "x": 1184,
+      "y": 376,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-taxi-wheel",
+      "description": "Audited part pixels containing the visible “taxi wheel” anchor",
+      "kind": "part",
+      "x": 1201,
+      "y": 391,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-track-joint",
+      "description": "Audited part pixels containing the visible “track joint” anchor",
+      "kind": "part",
+      "x": 1359,
+      "y": 328,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-city-roof-sign",
       "description": "Audited part pixels containing the visible “roof sign” anchor",
       "kind": "part",
       "x": 1166,
       "y": 375,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-arch-rib",
+      "description": "Audited part pixels containing the visible “canopy arch rib” anchor",
+      "kind": "part",
+      "x": 954,
+      "y": 24,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-building-cornice",
+      "description": "Audited part pixels containing the visible “building cornice” anchor",
+      "kind": "part",
+      "x": 1019,
+      "y": 181,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-bus-bumper",
+      "description": "Audited part pixels containing the visible “bus bumper” anchor",
+      "kind": "part",
+      "x": 947,
+      "y": 119,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-bus-headlight",
+      "description": "Audited part pixels containing the visible “bus headlight” anchor",
+      "kind": "part",
+      "x": 936,
+      "y": 120,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-bus-roof-vent",
+      "description": "Audited part pixels containing the visible “bus roof vent” anchor",
+      "kind": "part",
+      "x": 959,
+      "y": 75,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-bus-side-mirror",
+      "description": "Audited part pixels containing the visible “bus side mirror” anchor",
+      "kind": "part",
+      "x": 931,
+      "y": 103,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-destination-display",
+      "description": "Audited part pixels containing the visible “destination display” anchor",
+      "kind": "part",
+      "x": 932,
+      "y": 95,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-lamppost-base",
+      "description": "Audited part pixels containing the visible “lamppost base” anchor",
+      "kind": "part",
+      "x": 862,
+      "y": 184,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-parapet-coping",
+      "description": "Audited part pixels containing the visible “parapet coping” anchor",
+      "kind": "part",
+      "x": 796,
+      "y": 222,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-paving-block",
+      "description": "Audited part pixels containing the visible “paving block” anchor",
+      "kind": "part",
+      "x": 894,
+      "y": 174,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-planter-rim",
+      "description": "Audited part pixels containing the visible “planter rim” anchor",
+      "kind": "part",
+      "x": 879,
+      "y": 104,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-railing-post",
+      "description": "Audited part pixels containing the visible “bridge railing post” anchor",
+      "kind": "part",
+      "x": 796,
+      "y": 180,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-rainwater-pipe",
+      "description": "Audited part pixels containing the visible “rainwater pipe” anchor",
+      "kind": "part",
+      "x": 1074,
+      "y": 217,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-station-lamp-globe",
+      "description": "Audited part pixels containing the visible “station lamp globe” anchor",
+      "kind": "part",
+      "x": 859,
+      "y": 125,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-wheel-arch",
+      "description": "Audited part pixels containing the visible “wheel arch” anchor",
+      "kind": "part",
+      "x": 967,
+      "y": 114,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-window-mullion",
+      "description": "Audited part pixels containing the visible “window mullion” anchor",
+      "kind": "part",
+      "x": 1031,
+      "y": 191,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-city-window-sill",
+      "description": "Audited part pixels containing the visible “window sill” anchor",
+      "kind": "part",
+      "x": 1032,
+      "y": 231,
       "width": 32,
       "height": 32
     },
@@ -5736,6 +9533,195 @@
       "height": 32
     },
     {
+      "id": "anchor-c-cg-cabbage-leaf",
+      "description": "Audited part pixels containing the visible “cabbage leaf” anchor",
+      "kind": "part",
+      "x": 421,
+      "y": 639,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-compost-divider",
+      "description": "Audited part pixels containing the visible “compost divider” anchor",
+      "kind": "part",
+      "x": 524,
+      "y": 769,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-compost-slat",
+      "description": "Audited part pixels containing the visible “compost-bin slat” anchor",
+      "kind": "part",
+      "x": 504,
+      "y": 772,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-flowerpot-rim",
+      "description": "Audited part pixels containing the visible “flowerpot rim” anchor",
+      "kind": "part",
+      "x": 294,
+      "y": 662,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-garden-fork",
+      "description": "Audited part pixels containing the visible “garden fork” anchor",
+      "kind": "part",
+      "x": 444,
+      "y": 534,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-garden-hoe",
+      "description": "Audited part pixels containing the visible “garden hoe” anchor",
+      "kind": "part",
+      "x": 431,
+      "y": 534,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-garden-stake",
+      "description": "Audited part pixels containing the visible “garden stake” anchor",
+      "kind": "part",
+      "x": 389,
+      "y": 694,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-hand-trowel",
+      "description": "Audited part pixels containing the visible “hand trowel” anchor",
+      "kind": "part",
+      "x": 421,
+      "y": 534,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-lettuce-leaf",
+      "description": "Audited part pixels containing the visible “lettuce leaf” anchor",
+      "kind": "part",
+      "x": 484,
+      "y": 616,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-raised-bed-corner",
+      "description": "Audited part pixels containing the visible “raised-bed corner” anchor",
+      "kind": "part",
+      "x": 394,
+      "y": 654,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-shed-fascia",
+      "description": "Audited part pixels containing the visible “shed fascia” anchor",
+      "kind": "part",
+      "x": 399,
+      "y": 494,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-shed-gutter",
+      "description": "Audited part pixels containing the visible “shed gutter” anchor",
+      "kind": "part",
+      "x": 419,
+      "y": 493,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-shed-plank",
+      "description": "Audited part pixels containing the visible “shed wall plank” anchor",
+      "kind": "part",
+      "x": 459,
+      "y": 529,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-shelf-bracket",
+      "description": "Audited part pixels containing the visible “shelf bracket” anchor",
+      "kind": "part",
+      "x": 369,
+      "y": 539,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-tool-peg",
+      "description": "Audited part pixels containing the visible “tool peg” anchor",
+      "kind": "part",
+      "x": 434,
+      "y": 524,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-trellis-netting",
+      "description": "Audited part pixels containing the visible “trellis netting” anchor",
+      "kind": "part",
+      "x": 351,
+      "y": 694,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-watering-can-handle",
+      "description": "Audited part pixels containing the visible “watering-can handle” anchor",
+      "kind": "part",
+      "x": 471,
+      "y": 755,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-watering-can-spout",
+      "description": "Audited part pixels containing the visible “watering-can spout” anchor",
+      "kind": "part",
+      "x": 453,
+      "y": 756,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-wheelbarrow-handle",
+      "description": "Audited part pixels containing the visible “wheelbarrow handle” anchor",
+      "kind": "part",
+      "x": 404,
+      "y": 674,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-wheelbarrow-leg",
+      "description": "Audited part pixels containing the visible “wheelbarrow support leg” anchor",
+      "kind": "part",
+      "x": 414,
+      "y": 696,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-wheelbarrow-tray",
+      "description": "Audited part pixels containing the visible “wheelbarrow tray” anchor",
+      "kind": "part",
+      "x": 419,
+      "y": 674,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-cg-door-frame",
       "description": "Audited part pixels containing the visible “door frame” anchor",
       "kind": "part",
@@ -5754,6 +9740,186 @@
       "height": 32
     },
     {
+      "id": "anchor-c-cg-bicycle-chain",
+      "description": "Audited part pixels containing the visible “bicycle chain” anchor",
+      "kind": "part",
+      "x": 645,
+      "y": 704,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-bicycle-handlebar",
+      "description": "Audited part pixels containing the visible “bicycle handlebar” anchor",
+      "kind": "part",
+      "x": 658,
+      "y": 684,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-bicycle-pedal",
+      "description": "Audited part pixels containing the visible “bicycle pedal” anchor",
+      "kind": "part",
+      "x": 639,
+      "y": 704,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-bicycle-tire",
+      "description": "Audited part pixels containing the visible “bicycle tire” anchor",
+      "kind": "part",
+      "x": 609,
+      "y": 694,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-birdhouse-perch",
+      "description": "Audited part pixels containing the visible “birdhouse perch” anchor",
+      "kind": "part",
+      "x": 629,
+      "y": 585,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-birdhouse-pole",
+      "description": "Audited part pixels containing the visible “birdhouse mounting pole” anchor",
+      "kind": "part",
+      "x": 629,
+      "y": 604,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-birdhouse-roof",
+      "description": "Audited part pixels containing the visible “birdhouse roof” anchor",
+      "kind": "part",
+      "x": 628,
+      "y": 576,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-cold-frame-hinge",
+      "description": "Audited part pixels containing the visible “cold-frame hinge” anchor",
+      "kind": "part",
+      "x": 559,
+      "y": 449,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-compost-bay-divider",
+      "description": "Audited part pixels containing the visible “compost-bay divider” anchor",
+      "kind": "part",
+      "x": 571,
+      "y": 794,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-hive-entrance",
+      "description": "Audited part pixels containing the visible “hive entrance” anchor",
+      "kind": "part",
+      "x": 665,
+      "y": 639,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-hive-landing-board",
+      "description": "Audited part pixels containing the visible “hive landing board” anchor",
+      "kind": "part",
+      "x": 665,
+      "y": 645,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-hive-stand",
+      "description": "Audited part pixels containing the visible “hive stand” anchor",
+      "kind": "part",
+      "x": 665,
+      "y": 654,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-mudguard",
+      "description": "Audited part pixels containing the visible “bicycle mudguard” anchor",
+      "kind": "part",
+      "x": 603,
+      "y": 697,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-path-border",
+      "description": "Audited part pixels containing the visible “garden-path border” anchor",
+      "kind": "part",
+      "x": 708,
+      "y": 759,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-rear-rack",
+      "description": "Audited part pixels containing the visible “bicycle rear rack” anchor",
+      "kind": "part",
+      "x": 610,
+      "y": 686,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-stream-bank-stone",
+      "description": "Audited part pixels containing the visible “stream-bank stone” anchor",
+      "kind": "part",
+      "x": 739,
+      "y": 774,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-tomato-leaf",
+      "description": "Audited part pixels containing the visible “tomato leaf” anchor",
+      "kind": "part",
+      "x": 566,
+      "y": 649,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-tomato-stem",
+      "description": "Audited part pixels containing the visible “tomato stem” anchor",
+      "kind": "part",
+      "x": 564,
+      "y": 654,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-trellis-crossbar",
+      "description": "Audited part pixels containing the visible “trellis crossbar” anchor",
+      "kind": "part",
+      "x": 549,
+      "y": 624,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-wheel-spokes",
+      "description": "Audited part pixels containing the visible “wheel spokes” anchor",
+      "kind": "part",
+      "x": 617,
+      "y": 694,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-cg-bicycle-wheel",
       "description": "Audited part pixels containing the visible “bicycle wheel” anchor",
       "kind": "part",
@@ -5768,6 +9934,150 @@
       "kind": "part",
       "x": 636,
       "y": 564,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-cart-handle",
+      "description": "Audited part pixels containing the visible “garden-cart handle” anchor",
+      "kind": "part",
+      "x": 209,
+      "y": 799,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-cart-tray",
+      "description": "Audited part pixels containing the visible “garden-cart tray” anchor",
+      "kind": "part",
+      "x": 204,
+      "y": 822,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-flower-stalk",
+      "description": "Audited part pixels containing the visible “flower stalk” anchor",
+      "kind": "part",
+      "x": 174,
+      "y": 659,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-gazebo-balustrade",
+      "description": "Audited part pixels containing the visible “gazebo balustrade” anchor",
+      "kind": "part",
+      "x": 54,
+      "y": 728,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-gazebo-bench-back",
+      "description": "Audited part pixels containing the visible “gazebo bench back” anchor",
+      "kind": "part",
+      "x": 79,
+      "y": 739,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-gazebo-eave",
+      "description": "Audited part pixels containing the visible “gazebo eave” anchor",
+      "kind": "part",
+      "x": 46,
+      "y": 704,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-gazebo-roof-beam",
+      "description": "Audited part pixels containing the visible “gazebo roof beam” anchor",
+      "kind": "part",
+      "x": 54,
+      "y": 714,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-gazebo-step",
+      "description": "Audited part pixels containing the visible “gazebo step” anchor",
+      "kind": "part",
+      "x": 84,
+      "y": 752,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-greenhouse-eave",
+      "description": "Audited part pixels containing the visible “greenhouse eave” anchor",
+      "kind": "part",
+      "x": 184,
+      "y": 534,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-greenhouse-gutter",
+      "description": "Audited part pixels containing the visible “glasshouse gutter” anchor",
+      "kind": "part",
+      "x": 209,
+      "y": 534,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-greenhouse-threshold",
+      "description": "Audited part pixels containing the visible “greenhouse threshold” anchor",
+      "kind": "part",
+      "x": 245,
+      "y": 621,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-paving-joint",
+      "description": "Audited part pixels containing the visible “paving joint” anchor",
+      "kind": "part",
+      "x": 109,
+      "y": 774,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-picnic-chair-leg",
+      "description": "Audited part pixels containing the visible “picnic-chair leg” anchor",
+      "kind": "part",
+      "x": 129,
+      "y": 799,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-roof-rafter",
+      "description": "Audited part pixels containing the visible “greenhouse roof rafter” anchor",
+      "kind": "part",
+      "x": 194,
+      "y": 504,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-table-centrepiece",
+      "description": "Audited part pixels containing the visible “table centrepiece” anchor",
+      "kind": "part",
+      "x": 146,
+      "y": 771,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-cg-wood-shingle",
+      "description": "Audited part pixels containing the visible “wood shingle” anchor",
+      "kind": "part",
+      "x": 44,
+      "y": 669,
       "width": 32,
       "height": 32
     },
@@ -5799,6 +10109,195 @@
       "height": 32
     },
     {
+      "id": "anchor-c-home-backsplash",
+      "description": "Audited part pixels containing the visible “backsplash” anchor",
+      "kind": "part",
+      "x": 362,
+      "y": 169,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-baluster",
+      "description": "Audited part pixels containing the visible “baluster” anchor",
+      "kind": "part",
+      "x": 405,
+      "y": 179,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-bathroom-tile",
+      "description": "Audited part pixels containing the visible “bathroom tile” anchor",
+      "kind": "part",
+      "x": 377,
+      "y": 100,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-bedside-lamp",
+      "description": "Audited part pixels containing the visible “bedside lamp” anchor",
+      "kind": "part",
+      "x": 357,
+      "y": 97,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-cabinet-handle",
+      "description": "Audited part pixels containing the visible “cabinet handle” anchor",
+      "kind": "part",
+      "x": 381,
+      "y": 188,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-chair-back",
+      "description": "Audited part pixels containing the visible “chair back” anchor",
+      "kind": "part",
+      "x": 356,
+      "y": 238,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-chimney-pot",
+      "description": "Audited part pixels containing the visible “chimney pot” anchor",
+      "kind": "part",
+      "x": 334,
+      "y": 0,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-cutting-board",
+      "description": "Audited part pixels containing the visible “cutting board” anchor",
+      "kind": "part",
+      "x": 368,
+      "y": 194,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-deck-board",
+      "description": "Audited part pixels containing the visible “deck board” anchor",
+      "kind": "part",
+      "x": 359,
+      "y": 21,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-drawer-handle",
+      "description": "Audited part pixels containing the visible “drawer handle” anchor",
+      "kind": "part",
+      "x": 237,
+      "y": 100,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-floorboard",
+      "description": "Audited part pixels containing the visible “floorboard” anchor",
+      "kind": "part",
+      "x": 310,
+      "y": 127,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-island-drawer",
+      "description": "Audited part pixels containing the visible “island drawer” anchor",
+      "kind": "part",
+      "x": 375,
+      "y": 210,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-newel-post",
+      "description": "Audited part pixels containing the visible “newel post” anchor",
+      "kind": "part",
+      "x": 408,
+      "y": 165,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-paving-slab",
+      "description": "Audited part pixels containing the visible “paving slab” anchor",
+      "kind": "part",
+      "x": 454,
+      "y": 320,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-sofa-arm",
+      "description": "Audited part pixels containing the visible “sofa arm” anchor",
+      "kind": "part",
+      "x": 223,
+      "y": 197,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-stair-riser",
+      "description": "Audited part pixels containing the visible “stair riser” anchor",
+      "kind": "part",
+      "x": 435,
+      "y": 210,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-stair-tread",
+      "description": "Audited part pixels containing the visible “stair tread” anchor",
+      "kind": "part",
+      "x": 435,
+      "y": 202,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-table-leg",
+      "description": "Audited part pixels containing the visible “table leg” anchor",
+      "kind": "part",
+      "x": 334,
+      "y": 248,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-wall-sconce",
+      "description": "Audited part pixels containing the visible “wall sconce” anchor",
+      "kind": "part",
+      "x": 416,
+      "y": 158,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-wardrobe-door",
+      "description": "Audited part pixels containing the visible “wardrobe door” anchor",
+      "kind": "part",
+      "x": 276,
+      "y": 68,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-wardrobe-handle",
+      "description": "Audited part pixels containing the visible “wardrobe handle” anchor",
+      "kind": "part",
+      "x": 284,
+      "y": 71,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-home-bowl",
       "description": "Audited part pixels containing the visible “bowl” anchor",
       "kind": "part",
@@ -5826,6 +10325,213 @@
       "height": 32
     },
     {
+      "id": "anchor-c-home-arch-stone",
+      "description": "Audited part pixels containing the visible “arch stone” anchor",
+      "kind": "part",
+      "x": 659,
+      "y": 217,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-bench-armrest",
+      "description": "Audited part pixels containing the visible “bench armrest” anchor",
+      "kind": "part",
+      "x": 554,
+      "y": 196,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-bench-slat",
+      "description": "Audited part pixels containing the visible “bench slat” anchor",
+      "kind": "part",
+      "x": 546,
+      "y": 194,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-bin-lid",
+      "description": "Audited part pixels containing the visible “bin lid” anchor",
+      "kind": "part",
+      "x": 622,
+      "y": 270,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-bridge-keystone",
+      "description": "Audited part pixels containing the visible “bridge keystone” anchor",
+      "kind": "part",
+      "x": 684,
+      "y": 209,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-canal-railing-post",
+      "description": "Audited part pixels containing the visible “canal railing post” anchor",
+      "kind": "part",
+      "x": 754,
+      "y": 172,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-glass-shelter-panel",
+      "description": "Audited part pixels containing the visible “shelter glass panel” anchor",
+      "kind": "part",
+      "x": 559,
+      "y": 157,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-greenhouse-gutter",
+      "description": "Audited part pixels containing the visible “greenhouse gutter” anchor",
+      "kind": "part",
+      "x": 559,
+      "y": 344,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-greenhouse-shelf",
+      "description": "Audited part pixels containing the visible “greenhouse shelf” anchor",
+      "kind": "part",
+      "x": 546,
+      "y": 374,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-lamp-base",
+      "description": "Audited part pixels containing the visible “lamp base” anchor",
+      "kind": "part",
+      "x": 619,
+      "y": 254,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-lamp-finial",
+      "description": "Audited part pixels containing the visible “lamp finial” anchor",
+      "kind": "part",
+      "x": 619,
+      "y": 164,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-lantern-glass-pane",
+      "description": "Audited part pixels containing the visible “lantern glass pane” anchor",
+      "kind": "part",
+      "x": 619,
+      "y": 178,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-parapet-cap",
+      "description": "Audited part pixels containing the visible “parapet cap” anchor",
+      "kind": "part",
+      "x": 697,
+      "y": 207,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-shelter-frame",
+      "description": "Audited part pixels containing the visible “shelter frame” anchor",
+      "kind": "part",
+      "x": 564,
+      "y": 174,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-utility-door",
+      "description": "Audited part pixels containing the visible “utility-box door” anchor",
+      "kind": "part",
+      "x": 549,
+      "y": 258,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-balcony-balustrade",
+      "description": "Audited part pixels containing the visible “balcony balustrade” anchor",
+      "kind": "part",
+      "x": 93,
+      "y": 27,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-bench-backrest",
+      "description": "Audited part pixels containing the visible “bench backrest” anchor",
+      "kind": "part",
+      "x": 116,
+      "y": 278,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-bicycle-frame",
+      "description": "Audited part pixels containing the visible “bicycle frame” anchor",
+      "kind": "part",
+      "x": 79,
+      "y": 191,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-bicycle-saddle",
+      "description": "Audited part pixels containing the visible “bicycle saddle” anchor",
+      "kind": "part",
+      "x": 90,
+      "y": 177,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-conservatory-pane",
+      "description": "Audited part pixels containing the visible “conservatory pane” anchor",
+      "kind": "part",
+      "x": 160,
+      "y": 194,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-ladder-rung",
+      "description": "Audited part pixels containing the visible “ladder rung” anchor",
+      "kind": "part",
+      "x": 18,
+      "y": 289,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-seesaw-handle",
+      "description": "Audited part pixels containing the visible “seesaw handle” anchor",
+      "kind": "part",
+      "x": 75,
+      "y": 323,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-home-seesaw-seat",
+      "description": "Audited part pixels containing the visible “seesaw seat” anchor",
+      "kind": "part",
+      "x": 75,
+      "y": 340,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-home-shirt",
       "description": "Audited part pixels containing the visible “shirt” anchor",
       "kind": "part",
@@ -5835,11 +10541,263 @@
       "height": 32
     },
     {
+      "id": "anchor-c-np-fountain-pedestal",
+      "description": "Audited part pixels containing the visible “park-fountain pedestal” anchor",
+      "kind": "part",
+      "x": 1069,
+      "y": 620,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-fountain-rim",
+      "description": "Audited part pixels containing the visible “park-fountain rim” anchor",
+      "kind": "part",
+      "x": 1052,
+      "y": 615,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-fountain-spout",
+      "description": "Audited part pixels containing the visible “park-fountain spout” anchor",
+      "kind": "part",
+      "x": 1069,
+      "y": 596,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-gazebo-baluster",
+      "description": "Audited part pixels containing the visible “park-gazebo baluster” anchor",
+      "kind": "part",
+      "x": 988,
+      "y": 560,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-gazebo-bench-back",
+      "description": "Audited part pixels containing the visible “park-gazebo bench back” anchor",
+      "kind": "part",
+      "x": 998,
+      "y": 564,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-gazebo-eave",
+      "description": "Audited part pixels containing the visible “park-gazebo eave” anchor",
+      "kind": "part",
+      "x": 988,
+      "y": 541,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-gazebo-roof-beam",
+      "description": "Audited part pixels containing the visible “park-gazebo roof beam” anchor",
+      "kind": "part",
+      "x": 988,
+      "y": 550,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-gazebo-roof-ridge",
+      "description": "Audited part pixels containing the visible “park-gazebo roof ridge” anchor",
+      "kind": "part",
+      "x": 988,
+      "y": 520,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-gazebo-step",
+      "description": "Audited part pixels containing the visible “park-gazebo step” anchor",
+      "kind": "part",
+      "x": 988,
+      "y": 577,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-path-edging",
+      "description": "Audited part pixels containing the visible “park-path edging” anchor",
+      "kind": "part",
+      "x": 909,
+      "y": 569,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-shingle-course",
+      "description": "Audited part pixels containing the visible “roof shingle course” anchor",
+      "kind": "part",
+      "x": 988,
+      "y": 532,
+      "width": 32,
+      "height": 32
+    },
+    {
       "id": "anchor-np-roof-finial",
       "description": "Audited part pixels containing the visible “park gazebo finial” anchor",
       "kind": "part",
       "x": 994,
       "y": 510,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-bark-fissure",
+      "description": "Audited part pixels containing the visible “bark fissure” anchor",
+      "kind": "part",
+      "x": 1309,
+      "y": 664,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-bird-beak",
+      "description": "Audited part pixels containing the visible “bird beak” anchor",
+      "kind": "part",
+      "x": 1374,
+      "y": 557,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-bird-wing",
+      "description": "Audited part pixels containing the visible “bird wing” anchor",
+      "kind": "part",
+      "x": 1386,
+      "y": 561,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-branch-collar",
+      "description": "Audited part pixels containing the visible “branch collar” anchor",
+      "kind": "part",
+      "x": 1319,
+      "y": 606,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-climbing-pole",
+      "description": "Audited part pixels containing the visible “climbing pole” anchor",
+      "kind": "part",
+      "x": 1459,
+      "y": 649,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-fern-frond",
+      "description": "Audited part pixels containing the visible “fern frond” anchor",
+      "kind": "part",
+      "x": 1399,
+      "y": 724,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-flower-petal",
+      "description": "Audited part pixels containing the visible “flower petal” anchor",
+      "kind": "part",
+      "x": 1463,
+      "y": 774,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-heron-beak",
+      "description": "Audited part pixels containing the visible “heron beak” anchor",
+      "kind": "part",
+      "x": 1152,
+      "y": 821,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-insect-hotel-roof",
+      "description": "Audited part pixels containing the visible “insect-hotel roof” anchor",
+      "kind": "part",
+      "x": 1521,
+      "y": 476,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-mushroom-cap",
+      "description": "Audited part pixels containing the visible “mushroom cap” anchor",
+      "kind": "part",
+      "x": 1346,
+      "y": 702,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-mushroom-stem",
+      "description": "Audited part pixels containing the visible “mushroom stem” anchor",
+      "kind": "part",
+      "x": 1346,
+      "y": 708,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-nest-twig",
+      "description": "Audited part pixels containing the visible “nest twig” anchor",
+      "kind": "part",
+      "x": 1359,
+      "y": 619,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-picnic-table-leg",
+      "description": "Audited part pixels containing the visible “picnic-table leg” anchor",
+      "kind": "part",
+      "x": 1314,
+      "y": 764,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-rock-crevice",
+      "description": "Audited part pixels containing the visible “rock crevice” anchor",
+      "kind": "part",
+      "x": 1369,
+      "y": 819,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-squirrel-ear",
+      "description": "Audited part pixels containing the visible “squirrel ear” anchor",
+      "kind": "part",
+      "x": 1394,
+      "y": 759,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-squirrel-tail",
+      "description": "Audited part pixels containing the visible “squirrel tail” anchor",
+      "kind": "part",
+      "x": 1388,
+      "y": 754,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-stump-step",
+      "description": "Audited part pixels containing the visible “stump step” anchor",
+      "kind": "part",
+      "x": 1494,
+      "y": 684,
       "width": 32,
       "height": 32
     },
@@ -5867,6 +10825,123 @@
       "kind": "part",
       "x": 1514,
       "y": 654,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-bridge-crossbeam",
+      "description": "Audited part pixels containing the visible “footbridge crossbeam” anchor",
+      "kind": "part",
+      "x": 881,
+      "y": 802,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-cattail-head",
+      "description": "Audited part pixels containing the visible “cattail head” anchor",
+      "kind": "part",
+      "x": 1026,
+      "y": 701,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-duck-beak",
+      "description": "Audited part pixels containing the visible “duck beak” anchor",
+      "kind": "part",
+      "x": 1037,
+      "y": 739,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-duck-tail",
+      "description": "Audited part pixels containing the visible “duck tail” anchor",
+      "kind": "part",
+      "x": 1054,
+      "y": 744,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-duck-wing",
+      "description": "Audited part pixels containing the visible “duck wing” anchor",
+      "kind": "part",
+      "x": 1044,
+      "y": 744,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-footbridge-pier",
+      "description": "Audited part pixels containing the visible “footbridge pier” anchor",
+      "kind": "part",
+      "x": 866,
+      "y": 799,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-footbridge-plank",
+      "description": "Audited part pixels containing the visible “footbridge plank” anchor",
+      "kind": "part",
+      "x": 879,
+      "y": 789,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-handrail-post",
+      "description": "Audited part pixels containing the visible “footbridge handrail post” anchor",
+      "kind": "part",
+      "x": 879,
+      "y": 782,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-pondweed",
+      "description": "Audited part pixels containing the visible “pondweed” anchor",
+      "kind": "part",
+      "x": 1019,
+      "y": 791,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-reed-stem",
+      "description": "Audited part pixels containing the visible “reed stem” anchor",
+      "kind": "part",
+      "x": 1002,
+      "y": 734,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-shoreline-stone",
+      "description": "Audited part pixels containing the visible “shoreline stone” anchor",
+      "kind": "part",
+      "x": 952,
+      "y": 783,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-sign-stake",
+      "description": "Audited part pixels containing the visible “sign stake” anchor",
+      "kind": "part",
+      "x": 950,
+      "y": 699,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "id": "anchor-c-np-wetland-flower",
+      "description": "Audited part pixels containing the visible “wetland flower” anchor",
+      "kind": "part",
+      "x": 944,
+      "y": 829,
       "width": 32,
       "height": 32
     }
@@ -5903,6 +10978,9 @@
         "city-pediment",
         "city-solar-panel",
         "city-terrace-table",
+        "c-city-dome-drum",
+        "c-city-exhibit-gate",
+        "c-city-tram-roof",
         "city-catenary-pole",
         "city-dome-rib",
         "city-double-door",
@@ -5914,6 +10992,49 @@
         "city-terrace-chair",
         "city-tram-door",
         "city-tram-window",
+        "c-city-arched-lintel",
+        "c-city-column-capital",
+        "c-city-dinosaur-forelimb",
+        "c-city-dinosaur-jaw",
+        "c-city-dinosaur-pelvis",
+        "c-city-dinosaur-skull",
+        "c-city-dome-cap",
+        "c-city-dome-cornice-ring",
+        "c-city-dome-finial",
+        "c-city-dome-pilaster",
+        "c-city-door-transom",
+        "c-city-emergency-beacon",
+        "c-city-entablature",
+        "c-city-entrance-handrail",
+        "c-city-exhibit-fence-post",
+        "c-city-facade-cornice",
+        "c-city-fire-engine-grille",
+        "c-city-fire-engine-headlight",
+        "c-city-fire-engine-wheel",
+        "c-city-firehouse-cornice",
+        "c-city-firehouse-downspout",
+        "c-city-fossil-femur",
+        "c-city-fossil-rib",
+        "c-city-fossil-tail",
+        "c-city-fossil-vertebra",
+        "c-city-garage-lintel",
+        "c-city-garage-windowpane",
+        "c-city-masonry-joint",
+        "c-city-parapet-block",
+        "c-city-rail-sleeper",
+        "c-city-roof-coping",
+        "c-city-sauropod-femur",
+        "c-city-sauropod-neck",
+        "c-city-sauropod-pelvis",
+        "c-city-sauropod-skull",
+        "c-city-sauropod-tail",
+        "c-city-skylight-frame",
+        "c-city-skylight-pane",
+        "c-city-solar-cell",
+        "c-city-stair-baluster",
+        "c-city-tram-front-panel",
+        "c-city-tram-headlight",
+        "c-city-tympanum",
         "city-overhead-wire",
         "city-wall-lantern"
       ]
@@ -5943,6 +11064,24 @@
         "city-tree-planter",
         "city-curb",
         "city-water-jet",
+        "c-city-cart-axle",
+        "c-city-cart-crate",
+        "c-city-cart-handle",
+        "c-city-cart-wheel",
+        "c-city-crosswalk-stripe",
+        "c-city-fountain-coping",
+        "c-city-fountain-nozzle",
+        "c-city-fountain-pedestal",
+        "c-city-hydrant-cap",
+        "c-city-hydrant-nozzle",
+        "c-city-rail-groove",
+        "c-city-road-arrow",
+        "c-city-taxi-door",
+        "c-city-taxi-headlight",
+        "c-city-taxi-hood",
+        "c-city-taxi-side-mirror",
+        "c-city-taxi-wheel",
+        "c-city-track-joint",
         "city-roof-sign"
       ]
     },
@@ -5977,6 +11116,13 @@
         "city-rooftop-table",
         "city-station-bench",
         "city-steel-arch",
+        "c-city-cafe-door",
+        "c-city-canal-bench",
+        "c-city-canopy-truss",
+        "c-city-luggage-trolley",
+        "c-city-platform-edge",
+        "c-city-platform-safety-line",
+        "c-city-roof-parapet",
         "city-bollard",
         "city-bridge-parapet",
         "city-bus-door",
@@ -5987,6 +11133,23 @@
         "city-station-clock",
         "city-support-column",
         "city-windshield",
+        "c-city-arch-rib",
+        "c-city-building-cornice",
+        "c-city-bus-bumper",
+        "c-city-bus-headlight",
+        "c-city-bus-roof-vent",
+        "c-city-bus-side-mirror",
+        "c-city-destination-display",
+        "c-city-lamppost-base",
+        "c-city-parapet-coping",
+        "c-city-paving-block",
+        "c-city-planter-rim",
+        "c-city-railing-post",
+        "c-city-rainwater-pipe",
+        "c-city-station-lamp-globe",
+        "c-city-wheel-arch",
+        "c-city-window-mullion",
+        "c-city-window-sill",
         "city-bus-wheel",
         "city-roof-vent"
       ]
@@ -6032,6 +11195,27 @@
         "cg-storage-bin",
         "cg-support-post",
         "cg-water-lily",
+        "c-cg-cabbage-leaf",
+        "c-cg-compost-divider",
+        "c-cg-compost-slat",
+        "c-cg-flowerpot-rim",
+        "c-cg-garden-fork",
+        "c-cg-garden-hoe",
+        "c-cg-garden-stake",
+        "c-cg-hand-trowel",
+        "c-cg-lettuce-leaf",
+        "c-cg-raised-bed-corner",
+        "c-cg-shed-fascia",
+        "c-cg-shed-gutter",
+        "c-cg-shed-plank",
+        "c-cg-shelf-bracket",
+        "c-cg-tool-peg",
+        "c-cg-trellis-netting",
+        "c-cg-watering-can-handle",
+        "c-cg-watering-can-spout",
+        "c-cg-wheelbarrow-handle",
+        "c-cg-wheelbarrow-leg",
+        "c-cg-wheelbarrow-tray",
         "cg-door-frame",
         "cg-wheelbarrow-wheel"
       ]
@@ -6056,11 +11240,32 @@
         "cg-tomato-trellis",
         "cg-garden-fence",
         "cg-garden-gate",
+        "c-cg-hive-box",
         "cg-cold-frame-lid",
         "cg-cold-frame-shelf",
         "cg-compost",
         "cg-hive-roof",
         "cg-tomato",
+        "c-cg-bicycle-chain",
+        "c-cg-bicycle-handlebar",
+        "c-cg-bicycle-pedal",
+        "c-cg-bicycle-tire",
+        "c-cg-birdhouse-perch",
+        "c-cg-birdhouse-pole",
+        "c-cg-birdhouse-roof",
+        "c-cg-cold-frame-hinge",
+        "c-cg-compost-bay-divider",
+        "c-cg-hive-entrance",
+        "c-cg-hive-landing-board",
+        "c-cg-hive-stand",
+        "c-cg-mudguard",
+        "c-cg-path-border",
+        "c-cg-rear-rack",
+        "c-cg-stream-bank-stone",
+        "c-cg-tomato-leaf",
+        "c-cg-tomato-stem",
+        "c-cg-trellis-crossbar",
+        "c-cg-wheel-spokes",
         "cg-bicycle-wheel",
         "cg-birdhouse-hole"
       ]
@@ -6088,6 +11293,10 @@
         "cg-greenhouse-bench",
         "cg-greenhouse-frame",
         "cg-potted-plant",
+        "c-cg-gazebo-floor",
+        "c-cg-greenhouse-staging",
+        "c-cg-plant-shelf",
+        "c-cg-watering-can",
         "cg-gazebo-post",
         "cg-gazebo-railing",
         "cg-glass-pane",
@@ -6097,6 +11306,22 @@
         "cg-roof-vent",
         "cg-table-flowerpot",
         "cg-tabletop",
+        "c-cg-cart-handle",
+        "c-cg-cart-tray",
+        "c-cg-flower-stalk",
+        "c-cg-gazebo-balustrade",
+        "c-cg-gazebo-bench-back",
+        "c-cg-gazebo-eave",
+        "c-cg-gazebo-roof-beam",
+        "c-cg-gazebo-step",
+        "c-cg-greenhouse-eave",
+        "c-cg-greenhouse-gutter",
+        "c-cg-greenhouse-threshold",
+        "c-cg-paving-joint",
+        "c-cg-picnic-chair-leg",
+        "c-cg-roof-rafter",
+        "c-cg-table-centrepiece",
+        "c-cg-wood-shingle",
         "cg-barrel-lid",
         "cg-cart-wheel",
         "cg-roof-finial"
@@ -6143,6 +11368,16 @@
         "home-sink",
         "home-sun-lounger",
         "home-washbasin",
+        "c-home-garden-door",
+        "c-home-internal-door",
+        "c-home-iron-fence",
+        "c-home-mattress",
+        "c-home-oven",
+        "c-home-privacy-screen",
+        "c-home-range-hood",
+        "c-home-stair-landing",
+        "c-home-stone-wall",
+        "c-home-table-lamp",
         "home-bar-stool",
         "home-bedroom-bench",
         "home-bedroom-chair",
@@ -6158,6 +11393,27 @@
         "home-planter-box",
         "home-shower-screen",
         "home-terrace-railing",
+        "c-home-backsplash",
+        "c-home-baluster",
+        "c-home-bathroom-tile",
+        "c-home-bedside-lamp",
+        "c-home-cabinet-handle",
+        "c-home-chair-back",
+        "c-home-chimney-pot",
+        "c-home-cutting-board",
+        "c-home-deck-board",
+        "c-home-drawer-handle",
+        "c-home-floorboard",
+        "c-home-island-drawer",
+        "c-home-newel-post",
+        "c-home-paving-slab",
+        "c-home-sofa-arm",
+        "c-home-stair-riser",
+        "c-home-stair-tread",
+        "c-home-table-leg",
+        "c-home-wall-sconce",
+        "c-home-wardrobe-door",
+        "c-home-wardrobe-handle",
         "home-bowl",
         "home-faucet",
         "home-fruit-bowl"
@@ -6183,9 +11439,29 @@
         "home-litter-bin",
         "home-notice-board",
         "home-shelter-bench",
+        "c-home-bridge-pier",
+        "c-home-canal-wall",
+        "c-home-cobblestone",
+        "c-home-planter-urn",
+        "c-home-wrought-iron-balcony",
         "home-bicycle-rack",
         "home-lily-pad",
-        "home-planter"
+        "home-planter",
+        "c-home-arch-stone",
+        "c-home-bench-armrest",
+        "c-home-bench-slat",
+        "c-home-bin-lid",
+        "c-home-bridge-keystone",
+        "c-home-canal-railing-post",
+        "c-home-glass-shelter-panel",
+        "c-home-greenhouse-gutter",
+        "c-home-greenhouse-shelf",
+        "c-home-lamp-base",
+        "c-home-lamp-finial",
+        "c-home-lantern-glass-pane",
+        "c-home-parapet-cap",
+        "c-home-shelter-frame",
+        "c-home-utility-door"
       ]
     },
     {
@@ -6206,6 +11482,10 @@
         "home-garden-shed",
         "home-slide",
         "home-window",
+        "c-home-balcony",
+        "c-home-sandbox",
+        "c-home-spring-rider",
+        "c-home-water-tank",
         "home-bicycle",
         "home-clothesline",
         "home-front-door",
@@ -6213,11 +11493,27 @@
         "home-rain-barrel",
         "home-seesaw",
         "home-tiled-roof",
+        "c-home-cycle-shelter-roof",
+        "c-home-downpipe",
+        "c-home-eaves",
+        "c-home-play-platform",
+        "c-home-rain-gutter",
+        "c-home-shed-window",
+        "c-home-slide-chute",
+        "c-home-stone-doorstep",
         "home-bedsheet",
         "home-glass-roof",
         "home-ladder",
         "home-shed-door",
         "home-window-box",
+        "c-home-balcony-balustrade",
+        "c-home-bench-backrest",
+        "c-home-bicycle-frame",
+        "c-home-bicycle-saddle",
+        "c-home-conservatory-pane",
+        "c-home-ladder-rung",
+        "c-home-seesaw-handle",
+        "c-home-seesaw-seat",
         "home-shirt"
       ]
     },
@@ -6245,11 +11541,24 @@
         "np-lamppost",
         "np-stream-bank",
         "np-waste-bin",
+        "c-np-gazebo-floor",
+        "c-np-streambed",
         "np-gazebo-post",
         "np-gazebo-railing",
         "np-paving-stone",
         "np-river-rock",
         "np-water-jet",
+        "c-np-fountain-pedestal",
+        "c-np-fountain-rim",
+        "c-np-fountain-spout",
+        "c-np-gazebo-baluster",
+        "c-np-gazebo-bench-back",
+        "c-np-gazebo-eave",
+        "c-np-gazebo-roof-beam",
+        "c-np-gazebo-roof-ridge",
+        "c-np-gazebo-step",
+        "c-np-path-edging",
+        "c-np-shingle-course",
         "np-roof-finial"
       ]
     },
@@ -6289,6 +11598,7 @@
         "np-signpost",
         "np-squirrel",
         "np-tree-root",
+        "c-np-root-flare",
         "np-bark",
         "np-bench-seat",
         "np-bracket-fungus",
@@ -6299,6 +11609,23 @@
         "np-stepping-log",
         "np-tabletop",
         "np-tree-fork",
+        "c-np-bark-fissure",
+        "c-np-bird-beak",
+        "c-np-bird-wing",
+        "c-np-branch-collar",
+        "c-np-climbing-pole",
+        "c-np-fern-frond",
+        "c-np-flower-petal",
+        "c-np-heron-beak",
+        "c-np-insect-hotel-roof",
+        "c-np-mushroom-cap",
+        "c-np-mushroom-stem",
+        "c-np-nest-twig",
+        "c-np-picnic-table-leg",
+        "c-np-rock-crevice",
+        "c-np-squirrel-ear",
+        "c-np-squirrel-tail",
+        "c-np-stump-step",
         "np-knothole",
         "np-log-bark",
         "np-rope"
@@ -6324,9 +11651,24 @@
         "np-pond-water",
         "np-reeds",
         "np-shoreline",
+        "c-np-cattail",
+        "c-np-wetland-signboard",
         "np-bridge-deck",
         "np-bridge-railing",
-        "np-wildflower"
+        "np-wildflower",
+        "c-np-bridge-crossbeam",
+        "c-np-cattail-head",
+        "c-np-duck-beak",
+        "c-np-duck-tail",
+        "c-np-duck-wing",
+        "c-np-footbridge-pier",
+        "c-np-footbridge-plank",
+        "c-np-handrail-post",
+        "c-np-pondweed",
+        "c-np-reed-stem",
+        "c-np-shoreline-stone",
+        "c-np-sign-stake",
+        "c-np-wetland-flower"
       ]
     }
   ]

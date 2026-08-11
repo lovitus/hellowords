@@ -71,9 +71,9 @@ test("atlas assembler deterministically generates complete spatial scene metadat
   });
 
   assert.equal(scene.id, "world-map");
-  assert.equal(scene.asset, "/scenes/world-atlas-master-1600-v2.jpg");
-  assert.equal(scene.assets.base.sha256, "d7e918e18d31b62fc31386776ffc242c9fefae6c359ae64bf1e9965b491cb008");
-  assert.equal(scene.assets.high.sha256, "c5fa38cd83c57d2864ee2a1c668e1518a28c8cee77639f5c4b2db875c53c5ded");
+  assert.equal(scene.asset, "/scenes/world-atlas-master-1600-v1.jpg");
+  assert.equal(scene.assets.base.sha256, "d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb");
+  assert.equal(scene.assets.high.sha256, "e30a3750ef9f609056d288268c6692e7dc6fa8b18ff0d93bf37cf3265f405966");
   assert.deepEqual(scene.labels.map(({ id }) => id), ["bed", "oak", "sofa", "pond"]);
   assert.equal(scene.labels[0].lexemeId, BED_LEXEME);
   assert.deepEqual(scene.labels.map(({ priority }) => priority), [1, 2, 3, 5]);
@@ -131,7 +131,7 @@ test("atlas assembler accepts incremental reviewed batches without a fixed batch
   assert.throws(() => mergeAtlasBatches([]), /Expected at least one atlas batch/);
 });
 
-test("the published 301-anchor atlas is reproducible from its reviewed source batches", async () => {
+test("the published 568-anchor atlas is reproducible from its three reviewed source batches", async () => {
   const temporaryRoot = await mkdtemp(join(tmpdir(), "hellowords-world-atlas-"));
   const output = join(temporaryRoot, "world-map.json");
   try {

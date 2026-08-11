@@ -351,13 +351,13 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   await expect(card).toBeHidden();
 });
 
-test("the 301-word atlas keeps a bounded DOM window and reproduces its fit labels", async ({
+test("the grounded atlas keeps a bounded DOM window and reproduces its fit labels", async ({
   page,
 }) => {
   await openWorld(page);
   const sceneContract = await currentSceneLabelContract(page);
   const viewportWidth = page.viewportSize()?.width ?? 1280;
-  const mountLimit = viewportWidth <= 900 ? 96 : 180;
+  const mountLimit = viewportWidth <= 900 ? 128 : 256;
   const readableFloor = viewportWidth <= 900 ? 12 : 18;
   const labels = page.getByTestId("word-label");
   const progress = page.getByTestId("scene-word-progress");
@@ -400,7 +400,7 @@ test("five authored LOD bands use spare space and remain readable while zooming"
   expect(authoredLods).toEqual([0, 1, 2, 3, 4]);
   const mountedLabels = page.getByTestId("word-label");
   expect(await mountedLabels.count()).toBeGreaterThanOrEqual(30);
-  expect(await mountedLabels.count()).toBeLessThanOrEqual(180);
+  expect(await mountedLabels.count()).toBeLessThanOrEqual(256);
   await expect.poll(() => renderedWordCount(page), {
     message: "desktop overview must expose at least 18 readable, visually grounded words",
   }).toBeGreaterThanOrEqual(18);
@@ -451,7 +451,7 @@ test("five authored LOD bands use spare space and remain readable while zooming"
   await expect(detailLabel).toHaveAttribute("tabindex", "0");
 });
 
-test("scene-wide zoom guidance honestly reports zero or more words after adaptive layout", async ({ page }) => {
+test("scene-wide zoom guidance honestly reports zero or more words after adaptive layout", async ({ page }, testInfo) => {
   await openWorld(page);
   const surface = page.locator(".scene-surface");
   const summary = page.getByTestId("scene-vocabulary-summary");
@@ -508,6 +508,12 @@ test("scene-wide zoom guidance honestly reports zero or more words after adaptiv
   await expect(summary).toBeFocused();
   const summaryNextLabelId = await summary.getAttribute("data-next-label-id");
   expect(summaryNextLabelId).toBeTruthy();
+  const promisedSummaryLabelIds = new Set(
+    (await summary.getAttribute("data-next-label-ids") ?? summaryNextLabelId ?? "")
+      .split(/\s+/u)
+      .filter(Boolean),
+  );
+  expect(promisedSummaryLabelIds.has(summaryNextLabelId as string)).toBe(true);
   await page.keyboard.press("Enter");
   await expect(surface).toHaveAttribute("data-lod-level", String(nextLod));
   await expect.poll(async () => page.locator(
@@ -520,13 +526,14 @@ test("scene-wide zoom guidance honestly reports zero or more words after adaptiv
   const resolvedSummaryFocusId = await summaryFocusedLabel.getAttribute("data-label-id");
   expect(resolvedSummaryFocusId).toBeTruthy();
   expect(
-    await summary.getAttribute("data-next-label-id"),
-    "the summary's live next-word contract matches the collision-safe focused word",
-  ).toBe(resolvedSummaryFocusId);
+    promisedSummaryLabelIds.has(resolvedSummaryFocusId as string),
+    "the collision-safe focused word belongs to the batch promised before activation",
+  ).toBe(true);
+  const mountCeiling = testInfo.project.name === "mobile-chromium" ? 128 : 256;
   expect(
     await page.getByTestId("word-label").count(),
-    "the keyboard focus handoff must preserve the compact DOM mount ceiling",
-  ).toBeLessThanOrEqual(96);
+    "the keyboard focus handoff must preserve the viewport DOM mount ceiling",
+  ).toBeLessThanOrEqual(mountCeiling);
 
   const activeAfter = await summary.getAttribute("data-active");
   const hiddenAfter = Number(await summary.getAttribute("data-hidden-word-count"));

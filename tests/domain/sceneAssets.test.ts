@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   createSceneAssetLoadState,
+  maximumSceneCameraScale,
   reconcileSceneAssetLoad,
   resolveSceneAssets,
   retrySceneAssetPreload,
@@ -42,6 +43,28 @@ const enhancedScene: Scene = {
       src: "/scenes/enhanced-high.jpg",
       width: 3_200,
       height: 1_800,
+      sha256: HIGH_SHA256,
+    },
+  },
+};
+
+const megaScene: Scene = {
+  ...legacyScene,
+  id: "mega-atlas",
+  asset: "/scenes/mega-atlas-overview.jpg",
+  width: 5_016,
+  height: 1_882,
+  assets: {
+    base: {
+      src: "/scenes/mega-atlas-overview.jpg",
+      width: 2_508,
+      height: 941,
+      sha256: BASE_SHA256,
+    },
+    high: {
+      src: "/scenes/mega-atlas-full.jpg",
+      width: 5_016,
+      height: 1_882,
       sha256: HIGH_SHA256,
     },
   },
@@ -91,6 +114,37 @@ test("base/high metadata locks source, dimensions, density, aspect and hashes", 
   assert.ok(codes.has("asset.duplicate-src"));
 });
 
+test("a large logical canvas may use a half-density overview and swap to its full raster", () => {
+  assert.deepEqual(validateSceneAssetContract(megaScene), []);
+  assert.deepEqual(
+    resolveSceneAssets(megaScene).map(({ tier, pixelRatio }) => [tier, pixelRatio]),
+    [["base", 0.5], ["high", 1]],
+  );
+  assert.equal(selectSceneAsset(megaScene, { fit: 0.24, scale: 1 }, 2).tier, "base");
+  assert.equal(selectSceneAsset(megaScene, { fit: 0.26, scale: 1 }, 2).tier, "high");
+
+  const wrongAspect: Scene = {
+    ...megaScene,
+    assets: {
+      ...megaScene.assets!,
+      base: { ...megaScene.assets!.base, height: 940 },
+    },
+  };
+  const underresolved: Scene = {
+    ...megaScene,
+    assets: {
+      ...megaScene.assets!,
+      base: { ...megaScene.assets!.base, width: 1_254, height: 470 },
+    },
+  };
+  assert.ok(
+    validateSceneAssetContract(wrongAspect).some(({ code }) => code === "asset.base-aspect-ratio-mismatch"),
+  );
+  assert.ok(
+    validateSceneAssetContract(underresolved).some(({ code }) => code === "asset.base-density-too-low"),
+  );
+});
+
 test("decoded dimensions and bytes must match each base/high descriptor", () => {
   const [base, high] = resolveSceneAssets(enhancedScene);
   assert.deepEqual(validateSceneAssetIntegrity(base, {
@@ -128,6 +182,20 @@ test("camera fit, logical scale and DPR select the smallest sufficient raster", 
     selectSceneAsset(enhancedScene, { fit: 1, scale: 4.15 }, 3).tier,
     "high",
     "demand above every candidate clamps to the highest available tier",
+  );
+  const mobileAtlasFit = 390 / 1_600;
+  const responsiveMaximum = maximumSceneCameraScale(mobileAtlasFit);
+  assert.ok(Math.abs(sceneAssetPixelDemand({
+    fit: mobileAtlasFit,
+    scale: responsiveMaximum,
+  }, 1) - 2) < 1e-12);
+  assert.equal(
+    selectSceneAsset(enhancedScene, {
+      fit: mobileAtlasFit,
+      scale: responsiveMaximum,
+    }, 1).tier,
+    "high",
+    "narrow viewports reach the high raster's native effective detail before semantic overscroll",
   );
   assert.throws(() => sceneAssetPixelDemand({ fit: 0, scale: 1 }, 1), /camera\.fit/);
   assert.throws(() => sceneAssetPixelDemand({ fit: 1, scale: 1 }, Number.NaN), /devicePixelRatio/);

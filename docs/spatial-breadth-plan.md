@@ -6,7 +6,7 @@ The spatial world must grow by adding honest, independently illustrated places, 
 
 **Status: completed, pixel-verified, and expanded.** The final `community-garden-premium-v1.jpg` asset contains 48 grounded anchors in five LOD bands and seven authored zones. Its already-visible greenhouse and potting bench now lead to `greenhouse-interior → tomato-plant` and terminal `potting-workbench` scenes. The world-atlas entrance uses the exact approved rectangle below.
 
-The published `world-atlas-master-1600-v2.jpg` depicts a distinct garden district in its lower-left quarter. The 1600 × 900 rectangle below is disjoint from all three existing root portals, so it remains a fourth root branch without an ambiguous zoom target; the matching 3200 × 1800 derived tier preserves the same logical coordinates:
+The published `world-atlas-master-1600-v1.jpg` depicts a distinct garden district in its lower-left quarter. The 1600 × 900 rectangle below is disjoint from all three existing root portals, so it remains a fourth root branch without an ambiguous zoom target; the matching 3200 × 1800 tier preserves the same logical coordinates:
 
 ```json
 {

@@ -16,10 +16,10 @@ import {
 
 const projectRoot = resolve(import.meta.dirname, "../..");
 const worldMapPath = resolve(projectRoot, "public/data/scenes/world-map.json");
-const acceptedAtlasAsset = "/scenes/world-atlas-master-1600-v2.jpg";
+const acceptedAtlasAsset = "/scenes/world-atlas-master-1600-v1.jpg";
 const atlasWidth = 1_600;
 const atlasHeight = 900;
-const auditedAnchorCount = 301;
+const auditedAnchorCount = 568;
 const anchorPatchSampleSize = 48;
 
 interface WorldMapDocument {
@@ -178,7 +178,7 @@ test("anchor patch baseline is stable by id and only reports local detail retent
   assert.ok(retained.gradientMedianRatio !== null && retained.gradientMedianRatio < 0.01);
 });
 
-test("accepted world atlas v2 locks its improved join, balanced exposure, varied foliage and local detail", async () => {
+test("reviewed textured atlas rollback keeps every grounded object legible", async () => {
   const scene = JSON.parse(await readFile(worldMapPath, "utf8")) as WorldMapDocument;
   assert.equal(scene.asset, acceptedAtlasAsset, "the contract follows the asset published by world-map JSON");
   assert.equal(scene.width, atlasWidth);
@@ -204,33 +204,34 @@ test("accepted world atlas v2 locks its improved join, balanced exposure, varied
   };
 
   const luminance = measureQuadrantLuminance(atlasFrame);
+  // This is an explicit rollback ceiling, not the final art target. The
+  // generated v2 balanced exposure but erased botanical/object texture; the
+  // reviewed v1 restores legibility while the new multi-district atlas is
+  // produced and audited independently.
   assert.ok(
-    luminance.range <= 8,
-    `atlas quadrant luminance range is ${luminance.range.toFixed(3)}, expected at most 8`,
+    luminance.range <= 28,
+    `atlas quadrant luminance range is ${luminance.range.toFixed(3)}, expected at most 28`,
   );
 
   const seams = measureCentralSeams(atlasFrame);
   assert.ok(
-    seams.vertical.worstGradientRatio <= 1.3,
-    `vertical centre seam ratio is ${seams.vertical.worstGradientRatio.toFixed(3)}, expected at most 1.3`,
+    seams.vertical.worstGradientRatio <= 4.6,
+    `vertical centre seam ratio is ${seams.vertical.worstGradientRatio.toFixed(3)}, expected at most 4.6`,
   );
-  // The accepted painting retains a small horizontal transition around its
-  // central river. 1.65 is its explicit residual ceiling, not a claim that it
-  // met the stricter 1.25 ideal used while selecting candidates.
   assert.ok(
-    seams.horizontal.worstGradientRatio <= 1.65,
-    `horizontal centre seam ratio is ${seams.horizontal.worstGradientRatio.toFixed(3)}, expected at most 1.65`,
+    seams.horizontal.worstGradientRatio <= 3.1,
+    `horizontal centre seam ratio is ${seams.horizontal.worstGradientRatio.toFixed(3)}, expected at most 3.1`,
   );
 
   const foliage = measureFoliageHueProxy(atlasFrame);
   assert.ok(foliage.sampleCount >= atlasWidth * atlasHeight * 0.1, "foliage proxy has a representative pixel sample");
-  assert.ok(foliage.hueSpread !== null && foliage.hueSpread >= 55, `foliage hue spread is ${foliage.hueSpread}`);
+  assert.ok(foliage.hueSpread !== null && foliage.hueSpread >= 22, `foliage hue spread is ${foliage.hueSpread}`);
   assert.ok(
-    foliage.circularConcentration !== null && foliage.circularConcentration <= 0.92,
+    foliage.circularConcentration !== null && foliage.circularConcentration <= 0.95,
     `foliage hue concentration is ${foliage.circularConcentration}`,
   );
   assert.ok(
-    foliage.naturalGreenFraction !== null && foliage.naturalGreenFraction >= 0.88,
+    foliage.naturalGreenFraction !== null && foliage.naturalGreenFraction >= 0.94,
     `natural-green foliage fraction is ${foliage.naturalGreenFraction}`,
   );
 
@@ -241,14 +242,15 @@ test("accepted world atlas v2 locks its improved join, balanced exposure, varied
   assert.ok(patches.sampleSize >= 40, "the stable anchor sample covers at least forty audited points");
   const luminanceRangeMedian = median(patches.patches.map((patch) => patch.luminanceRange));
   const gradientMedian = median(patches.patches.map((patch) => patch.meanGradient));
-  // Accepted v2 measures 129.863 and 19.449 respectively. These 20%-margin
-  // floors catch whole-image softening without pretending to recognize objects.
+  // The restored raster measures 102.837 and 20.341 respectively. These
+  // conservative floors catch another texture-flattening repaint without
+  // pretending that pixel statistics replace the semantic anchor audit.
   assert.ok(
-    luminanceRangeMedian >= 104,
-    `anchor-patch luminance-range median is ${luminanceRangeMedian.toFixed(3)}, expected at least 104`,
+    luminanceRangeMedian >= 90,
+    `anchor-patch luminance-range median is ${luminanceRangeMedian.toFixed(3)}, expected at least 90`,
   );
   assert.ok(
-    gradientMedian >= 15.5,
-    `anchor-patch gradient median is ${gradientMedian.toFixed(3)}, expected at least 15.5`,
+    gradientMedian >= 17,
+    `anchor-patch gradient median is ${gradientMedian.toFixed(3)}, expected at least 17`,
   );
 });

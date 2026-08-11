@@ -313,7 +313,11 @@ test("dense SSR starts from a compact bounded seed and wires low-frequency camer
 
   const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
   assert.match(source, /buildSceneLabelMountWindow\([\s\S]*previousIds: mountedLabelIdsRef\.current/);
-  assert.match(source, /scene\.labels\.filter\(\(label\) => mountedLabelIds\.has\(label\.id\)\)/);
+  assert.match(
+    source,
+    /scene\.labels\.filter\(\(label\) => \([\s\S]*?transitionPhase !== "outgoing" && mountedLabelIds\.has\(label\.id\)[\s\S]*?\)\)\.map/,
+    "an inert outgoing layer retains no duplicate word-button DOM",
+  );
   assert.match(
     source,
     /focusedLabelId: focusedLabelId \?\? pendingKeyboardFocusLabelId/,
@@ -451,6 +455,11 @@ test("semantic overscroll gives painted portal pixels ownership and resets with 
   const semanticStart = source.indexOf("const trySemanticOverscroll");
   const semanticEnd = source.indexOf("const zoomAt", semanticStart);
   const semanticPath = source.slice(semanticStart, semanticEnd);
+  assert.match(
+    semanticPath,
+    /cameraRef\.current\.scale >= maximumSceneCameraScale\(cameraRef\.current\.fit\) - 0\.02/,
+    "semantic overscroll waits for the viewport-responsive spatial ceiling",
+  );
   assert.match(
     semanticPath,
     /updateZoomDirection\("in"\);[\s\S]*onExploreSemanticPlane\(nearest, "zoom"\)/,
@@ -698,6 +707,11 @@ test("active forward continuity uses a fixed compositor tile and freezes outgoin
   assert.match(css, /\.scene-continuous-tile\[data-state="active"\]\[data-direction="back"\][\s\S]*?opacity: var\(--tile-progress\);/);
   assert.doesNotMatch(css, /will-change:\s*[^;]*border-radius/);
   assert.match(css, /\[data-motion-frozen="true"\][\s\S]*?opacity: 0;/);
+  assert.match(
+    css,
+    /\[data-motion-frozen="true"\][\s\S]*?content-visibility: hidden;/,
+    "inert continuity overlays defer descendant style work until their settled frame",
+  );
 
   const continuityStart = source.indexOf("if (continuityView)");
   const continuityEnd = source.indexOf("let resizeFrame", continuityStart);

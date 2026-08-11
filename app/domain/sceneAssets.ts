@@ -6,6 +6,7 @@ import type {
 
 export const SCENE_BASE_ASSET_MIN_WIDTH = 1_600;
 export const SCENE_HIGH_ASSET_MIN_WIDTH = 3_200;
+export const SCENE_BASE_ASSET_MIN_PIXEL_RATIO = 0.5;
 
 const SHA256 = /^[a-f0-9]{64}$/u;
 
@@ -93,6 +94,23 @@ function descriptorIssues(
   return true;
 }
 
+function hasPositiveDimensions(value: { readonly width: unknown; readonly height: unknown }): value is {
+  readonly width: number;
+  readonly height: number;
+} {
+  return Number.isInteger(value.width)
+    && Number(value.width) > 0
+    && Number.isInteger(value.height)
+    && Number(value.height) > 0;
+}
+
+function hasMatchingAspectRatio(
+  left: { readonly width: number; readonly height: number },
+  right: { readonly width: number; readonly height: number },
+): boolean {
+  return left.width * right.height === left.height * right.width;
+}
+
 /** Validates metadata without fetching bytes; the build validator verifies the actual hash and dimensions. */
 export function validateSceneAssetContract(
   scene: Pick<Scene, "asset" | "width" | "height" | "assets" | "anchorAudit">,
@@ -113,12 +131,31 @@ export function validateSceneAssetContract(
     if (base.src !== scene.asset) {
       issue(issues, "asset.base-src-mismatch", "assets.base.src", "Base source must equal legacy scene.asset");
     }
-    if (base.width !== scene.width || base.height !== scene.height) {
+    if (
+      hasPositiveDimensions(base)
+      && hasPositiveDimensions(scene)
+      && !hasMatchingAspectRatio(base, scene)
+    ) {
       issue(
         issues,
-        "asset.base-dimensions-mismatch",
+        "asset.base-aspect-ratio-mismatch",
         "assets.base",
-        "Base dimensions must equal the logical scene dimensions",
+        "Base raster must have the same aspect ratio as the logical scene",
+      );
+    }
+    if (
+      hasPositiveDimensions(base)
+      && hasPositiveDimensions(scene)
+      && (
+        base.width / scene.width < SCENE_BASE_ASSET_MIN_PIXEL_RATIO
+        || base.height / scene.height < SCENE_BASE_ASSET_MIN_PIXEL_RATIO
+      )
+    ) {
+      issue(
+        issues,
+        "asset.base-density-too-low",
+        "assets.base",
+        `Base raster must provide at least ${SCENE_BASE_ASSET_MIN_PIXEL_RATIO} source pixels per logical scene pixel`,
       );
     }
     if (base.width < SCENE_BASE_ASSET_MIN_WIDTH) {
@@ -162,7 +199,11 @@ export function validateSceneAssetContract(
         "High raster must provide at least twice the base density on both axes",
       );
     }
-    if (high.width * base.height !== high.height * base.width) {
+    if (
+      hasPositiveDimensions(base)
+      && hasPositiveDimensions(high)
+      && !hasMatchingAspectRatio(high, base)
+    ) {
       issue(
         issues,
         "asset.aspect-ratio-mismatch",

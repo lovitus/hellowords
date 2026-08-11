@@ -1,5 +1,16 @@
 import type { Camera, Point } from "./types";
 
+/** Existing authored LOD/portal scale ceiling on viewports with ample pixels. */
+export const BASE_SCENE_CAMERA_MAX_SCALE = 4.15;
+
+/**
+ * The high atlas provides two source pixels per logical scene pixel. Keeping
+ * that native CSS-pixel detail reachable prevents a narrow viewport from
+ * stopping at a much coarser crop than desktop merely because its contain-fit
+ * factor is smaller.
+ */
+export const NATIVE_SCENE_EFFECTIVE_MAX_SCALE = 2;
+
 export interface CameraClampBounds {
   readonly viewportWidth: number;
   readonly viewportHeight: number;
@@ -23,6 +34,15 @@ const positive = (value: number, name: string): number => {
   if (value <= 0) throw new RangeError(`${name} must be greater than zero`);
   return value;
 };
+
+/** A responsive spatial ceiling that preserves both legacy LOD depth and native atlas detail. */
+export function maximumSceneCameraScale(fit: number): number {
+  positive(fit, "fit");
+  return Math.max(
+    BASE_SCENE_CAMERA_MAX_SCALE,
+    NATIVE_SCENE_EFFECTIVE_MAX_SCALE / fit,
+  );
+}
 
 export function clamp(value: number, minimum: number, maximum: number): number {
   finite(value, "value");

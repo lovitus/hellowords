@@ -197,8 +197,12 @@ test("dense spatial labels reveal artwork without losing semantic tint or focus 
     baseRule,
     /background:\s*color-mix\([\s\S]*?var\(--label-semantic-surface\) var\(--label-surface-opacity\)[\s\S]*?transparent[\s\S]*?\);/,
   );
-  assert.match(baseRule, /text-shadow:\s*0 1px 1px rgba\(255, 255, 255, 0\.84\);/);
+  assert.match(baseRule, /min-height:\s*20px;/);
+  assert.match(baseRule, /-webkit-text-stroke:\s*0\.3px rgba\(255, 255, 255, 0\.82\);/);
+  assert.match(baseRule, /paint-order:\s*stroke fill;/);
+  assert.match(baseRule, /text-shadow:\s*0 1px 1px rgba\(255, 255, 255, 0\.75\);/);
   assert.doesNotMatch(baseRule, /backdrop-filter/, "dense pills do not create one filter layer each");
+  assert.doesNotMatch(baseRule, /filter:/, "dense pills avoid per-node filter work");
 
   const homeRule = css.match(
     /\.world-app\[data-scene-id="world-map"\] \.word-label\s*\{([\s\S]*?)\n\}/,

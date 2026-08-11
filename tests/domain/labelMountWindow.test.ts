@@ -9,7 +9,7 @@ import {
   type SceneLabelLayoutItem,
 } from "../../app/domain";
 
-const labels: readonly Label[] = Array.from({ length: 240 }, (_, index) => ({
+const labels: readonly Label[] = Array.from({ length: 300 }, (_, index) => ({
   id: `label-${index.toString().padStart(3, "0")}`,
   word: `word ${index}`,
   translation: `词 ${index}`,
@@ -75,7 +75,8 @@ test("camera batches exchange only for newly visible anchors and remain determin
   const next = buildSceneLabelMountWindow(labels, nextLayout, { compact: true }, {
     previousIds: first,
   });
-  assert.equal(next.size, COMPACT_SCENE_LABEL_MOUNT_LIMIT);
+  assert.equal(next.size, nextVisible.size + 40, "only forty still-nearby previous ids add overscan");
+  assert.ok(next.size < COMPACT_SCENE_LABEL_MOUNT_LIMIT);
   for (const id of nextVisible) assert.ok(next.has(id), `${id} enters before overscan`);
   assert.ok(
     [...first].some((id) => next.has(id) && !nextVisible.has(id)),
@@ -128,7 +129,7 @@ test("only a previous mounted window can contribute hidden overscan", () => {
 });
 
 test("malformed over-budget layout data can never lift the hard DOM ceilings", () => {
-  const tooManyVisible = new Set(labels.slice(0, 220).map(({ id }) => id));
+  const tooManyVisible = new Set(labels.slice(0, 280).map(({ id }) => id));
   assert.equal(
     buildSceneLabelMountWindow(labels, layoutWindow(tooManyVisible), { compact: false }).size,
     DESKTOP_SCENE_LABEL_MOUNT_LIMIT,
@@ -137,4 +138,6 @@ test("malformed over-budget layout data can never lift the hard DOM ceilings", (
     buildSceneLabelMountWindow(labels, layoutWindow(tooManyVisible), { compact: true }).size,
     COMPACT_SCENE_LABEL_MOUNT_LIMIT,
   );
+  assert.equal(DESKTOP_SCENE_LABEL_MOUNT_LIMIT, 256);
+  assert.equal(COMPACT_SCENE_LABEL_MOUNT_LIMIT, 128);
 });

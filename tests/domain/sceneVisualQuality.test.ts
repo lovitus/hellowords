@@ -76,7 +76,7 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       minMeanLuminance: 110,
       maxMeanLuminance: 195,
       maxDarkFraction: 0.22,
-      maxDeepDarkFraction: 0.08,
+      maxDeepDarkFraction: 0.04,
       minMeanChroma: 0.08,
       maxMeanChroma: 0.3,
       maxChannelMeanSpread: 50,
@@ -135,8 +135,8 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
     },
   },
   "world-map": {
-    asset: "/scenes/world-atlas-master-1600-v2.jpg",
-    sha256: "d7e918e18d31b62fc31386776ffc242c9fefae6c359ae64bf1e9965b491cb008",
+    asset: "/scenes/world-atlas-master-1600-v1.jpg",
+    sha256: "d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb",
     quality: {
       minMeanLuminance: 100,
       maxMeanLuminance: 180,
@@ -166,7 +166,7 @@ const portalQualityLimits: Readonly<Record<string, Pick<
   "world-map": {
     minMeanLuminance: 88,
     maxDarkFraction: 0.3,
-    maxDeepDarkFraction: 0.1,
+    maxDeepDarkFraction: 0.045,
   },
 };
 

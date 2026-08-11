@@ -7,12 +7,14 @@ import sharpModule from "sharp";
 import {
   buildPortalCueProtectedRegions,
   computeSceneLabelLayout,
+  maximumSceneCameraScale,
   type Scene,
   type SceneLabelCamera,
   type SceneLabelLayoutItem,
   type SceneLabelProtectedRegion,
   type SceneLabelViewport,
 } from "../../app/domain";
+import { buildViewerChromeProtectedRegions } from "../../app/components/SceneViewport";
 
 const projectRoot = resolve(import.meta.dirname, "../..");
 const scenePath = resolve(projectRoot, "public/data/scenes/world-map.json");
@@ -21,16 +23,16 @@ const minimumExplorationCoverage = 0.9;
 
 const expectedAssets = {
   base: {
-    src: "/scenes/world-atlas-master-1600-v2.jpg",
+    src: "/scenes/world-atlas-master-1600-v1.jpg",
     width: 1_600,
     height: 900,
-    sha256: "d7e918e18d31b62fc31386776ffc242c9fefae6c359ae64bf1e9965b491cb008",
+    sha256: "d3d481b6c767f375ff9b3b79a7dfd7cfc29564205c2e9bca76c3acea36ec28cb",
   },
   high: {
-    src: "/scenes/world-atlas-master-3200-v2.jpg",
+    src: "/scenes/world-atlas-master-3200-v1.jpg",
     width: 3_200,
     height: 1_800,
-    sha256: "c5fa38cd83c57d2864ee2a1c668e1518a28c8cee77639f5c4b2db875c53c5ded",
+    sha256: "e30a3750ef9f609056d288268c6692e7dc6fa8b18ff0d93bf37cf3265f405966",
   },
 } as const;
 
@@ -123,59 +125,64 @@ function normalizedWord(word: string): string {
   return word.normalize("NFKC").trim().toLocaleLowerCase("en");
 }
 
-function sampleAxis(sceneLength: number, visibleLength: number): readonly number[] {
-  if (visibleLength >= sceneLength) return [sceneLength / 2];
-  const travel = sceneLength - visibleLength;
-  const intervalCount = Math.max(1, Math.ceil(travel / (visibleLength * 0.25)));
+function sampleCameraAxis(
+  viewportLength: number,
+  scaledSceneLength: number,
+  margin: number,
+): readonly number[] {
+  const minimum = Math.min(margin, viewportLength - scaledSceneLength - margin);
+  const maximum = Math.max(viewportLength - scaledSceneLength - margin, margin);
+  const travel = maximum - minimum;
+  const intervalCount = Math.max(1, Math.ceil(travel / (viewportLength * 0.18)));
   return Array.from(
     { length: intervalCount + 1 },
-    (_, index) => visibleLength / 2 + travel * index / intervalCount,
+    (_, index) => minimum + travel * index / intervalCount,
   );
 }
 
-function centeredCamera(
-  centerX: number,
-  centerY: number,
-  scale: number,
-  fit: number,
-  viewport: SceneLabelViewport,
-): SceneLabelCamera {
-  return {
-    x: viewport.width / 2 - centerX * fit * scale,
-    y: viewport.height / 2 - centerY * fit * scale,
-    fit,
-    scale,
-  };
+function explorationScales(maximumScale: number): readonly number[] {
+  const authored = [1, 1.55, 2.1, 2.7, 3.35, 4.15].filter((scale) => scale < maximumScale);
+  const responsiveSteps = Array.from(
+    { length: Math.max(0, Math.ceil(maximumScale - 4.15)) },
+    (_, index) => Math.min(maximumScale, 4.15 + index + 1),
+  );
+  return [...new Set([...authored, ...responsiveSteps, maximumScale])].sort((a, b) => a - b);
 }
 
-/** Covers the whole raster with dense overlapping pans across the authored spatial zoom range. */
+/** Covers every production pan extreme with overlapping crops through the responsive spatial ceiling. */
 function explorationCameras(scene: Scene, viewport: SceneLabelViewport): readonly SceneLabelCamera[] {
   const fit = Math.min(viewport.width / scene.width, viewport.height / scene.height);
-  const sweep = [1, 1.55, 2.1, 2.7, 3.35, 4.15].flatMap((scale) => {
+  const margin = Math.min(viewport.width, viewport.height) * 0.18;
+  return explorationScales(maximumSceneCameraScale(fit)).flatMap((scale) => {
     const effectiveScale = fit * scale;
-    const horizontalCenters = sampleAxis(scene.width, viewport.width / effectiveScale);
-    const verticalCenters = sampleAxis(scene.height, viewport.height / effectiveScale);
-    return horizontalCenters.flatMap((centerX) => verticalCenters.map((centerY) => (
-      centeredCamera(centerX, centerY, scale, fit, viewport)
-    )));
+    const horizontalTranslations = sampleCameraAxis(
+      viewport.width,
+      scene.width * effectiveScale,
+      margin,
+    );
+    const verticalTranslations = sampleCameraAxis(
+      viewport.height,
+      scene.height * effectiveScale,
+      margin,
+    );
+    return horizontalTranslations.flatMap((x) => verticalTranslations.map((y) => ({
+      x,
+      y,
+      fit,
+      scale,
+    })));
   });
-  const focusScale = 4.15;
-  const visibleWidth = viewport.width / (fit * focusScale);
-  const visibleHeight = viewport.height / (fit * focusScale);
-  const focusedAnchors = scene.labels.map((label) => centeredCamera(
-    Math.min(
-      scene.width - Math.min(scene.width, visibleWidth) / 2,
-      Math.max(Math.min(scene.width, visibleWidth) / 2, label.x),
-    ),
-    Math.min(
-      scene.height - Math.min(scene.height, visibleHeight) / 2,
-      Math.max(Math.min(scene.height, visibleHeight) / 2, label.y),
-    ),
-    focusScale,
-    fit,
-    viewport,
-  ));
-  return [...sweep, ...focusedAnchors];
+}
+
+function protectedRegionsFor(
+  scene: Scene,
+  camera: SceneLabelCamera,
+  viewport: SceneLabelViewport,
+): readonly SceneLabelProtectedRegion[] {
+  return [
+    ...buildViewerChromeProtectedRegions(viewport.width, viewport.height),
+    ...buildPortalCueProtectedRegions(scene.portals, camera, viewport),
+  ];
 }
 
 type LayoutSignature = ReadonlyArray<readonly [
@@ -370,7 +377,7 @@ test("production label layout reveals at least 90% of the atlas without collisio
     const encountered = new Set<string>();
 
     for (const [frameIndex, camera] of cameras.entries()) {
-      const protectedRegions = buildPortalCueProtectedRegions(scene.portals, camera, viewport);
+      const protectedRegions = protectedRegionsFor(scene, camera, viewport);
       const layout = computeSceneLabelLayout(
         scene.labels,
         camera,
@@ -398,7 +405,7 @@ test("production label layout reveals at least 90% of the atlas without collisio
 
     for (let frameIndex = cameras.length - 1; frameIndex >= 0; frameIndex -= 1) {
       const camera = cameras[frameIndex];
-      const protectedRegions = buildPortalCueProtectedRegions(scene.portals, camera, viewport);
+      const protectedRegions = protectedRegionsFor(scene, camera, viewport);
       const replay = computeSceneLabelLayout(
         scene.labels,
         camera,

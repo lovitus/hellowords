@@ -6,7 +6,7 @@ const SURFACE = ".scene-surface";
 const LABEL_LAYER = '[data-testid="scene-label-layer"]';
 const INTERACTION_LAYER = '[data-testid="scene-interaction-layer"]';
 const TARGET_SCENE = "community-garden";
-const MAX_SCALE = 4.15;
+const AUTHORED_MAX_SCALE = 4.15;
 const LABEL_MOUNT_OVERSCAN_PX = 18;
 
 interface TraceRect {
@@ -409,7 +409,15 @@ async function zoomThroughScales(page: Page, targets: readonly number[]): Promis
   expect(box, "world viewport must have a rendered hit area").not.toBeNull();
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
 
-  for (const target of targets) {
+  await expect(surface).toHaveAttribute("data-maximum-scale", /\d/u);
+  const maximumScale = Number(await surface.getAttribute("data-maximum-scale"));
+  expect(maximumScale).toBeGreaterThanOrEqual(AUTHORED_MAX_SCALE);
+  const responsiveTargets = [...new Set([
+    ...targets.filter((target) => target < maximumScale - 0.005),
+    maximumScale,
+  ])];
+
+  for (const target of responsiveTargets) {
     await expect.poll(async () => {
       const scale = Number(await surface.getAttribute("data-scene-scale"));
       if (Number.isFinite(scale) && scale < target * 0.998) {
@@ -425,8 +433,8 @@ async function zoomThroughScales(page: Page, targets: readonly number[]): Promis
   }
   await expect.poll(
     async () => Number(await surface.getAttribute("data-scene-scale")),
-    { message: "scene zoom reaches the authored maximum-mode threshold" },
-  ).toBeGreaterThanOrEqual(MAX_SCALE - 0.02);
+    { message: "scene zoom reaches its responsive maximum-mode threshold" },
+  ).toBeGreaterThanOrEqual(maximumScale - 0.02);
 }
 
 async function waitForCameraSettled(page: Page): Promise<void> {
@@ -495,7 +503,8 @@ function projectedPreferredSlot(
   // meanings hidden. DOM text width can be several pixels narrower while the
   // production collision pass deliberately reserves the conservative size.
   const width = Math.min(250, (detailed ? 27 : 31) + wordWidth);
-  const height = detailed ? 28 : 30;
+  const viewportWidth = frame.viewport.right - frame.viewport.left;
+  const height = viewportWidth <= 900 ? 28 : detailed ? 18 : 20;
   const slot = {
     left: current.anchorX + previous.offsetX - width / 2,
     right: current.anchorX + previous.offsetX + width / 2,
@@ -601,7 +610,7 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
   }, TARGET_SCENE);
 
   await startLabelZoomTrace(page);
-  await zoomThroughScales(page, [1.2, 1.65, 2.3, 3.12, MAX_SCALE]);
+  await zoomThroughScales(page, [1.2, 1.65, 2.3, 3.12, AUTHORED_MAX_SCALE]);
   await waitForCameraSettled(page);
   const frames = (await stopLabelZoomTrace(page)).filter((frame) => (
     frame.sceneId === TARGET_SCENE && !frame.motionFrozen
@@ -609,7 +618,7 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
 
   await expect(app).toHaveAttribute("data-scene-id", TARGET_SCENE);
   expect(frames.length, "rAF trace must cover multiple continuous camera frames").toBeGreaterThan(12);
-  expect(frames.at(-1)?.scale).toBeCloseTo(MAX_SCALE, 3);
+  expect(frames.at(-1)?.scale).toBeCloseTo(AUTHORED_MAX_SCALE, 3);
   expect(frames.some((frame) => frame.lodLevel === 4), "trace must reach the deepest LOD").toBe(true);
 
   const legalViewportDepartures = new Set<string>();
@@ -722,7 +731,7 @@ test("viewport progress distinguishes the current crop from the full scene", asy
   await expect(progress).toHaveAttribute("data-total", String(sceneContract.labels.length));
   await expect.poll(async () => Number(await progress.getAttribute("data-current"))).toBeGreaterThan(0);
 
-  await zoomThroughScales(page, [1.65, 2.3, 3.12, MAX_SCALE]);
+  await zoomThroughScales(page, [1.65, 2.3, 3.12, AUTHORED_MAX_SCALE]);
   await waitForCameraSettled(page);
   const snapshot = await progress.evaluate((element) => ({
     current: Number((element as HTMLElement).dataset.current),

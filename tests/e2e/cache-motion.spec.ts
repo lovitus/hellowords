@@ -615,7 +615,10 @@ test("mobile keeps its warmed child and parent transitions free of a loader flas
     observedCache: "warm",
     observedLoading: "false",
   });
-  expect(childTrace.settled[0].commitMs).toBeGreaterThanOrEqual(150);
+  // Production owns at least the 120ms warm portal-cover animation; one paint
+  // normally brings the trace near 140–160ms, but a fast frame may settle just
+  // below the former arbitrary 150ms sampling boundary.
+  expect(childTrace.settled[0].commitMs).toBeGreaterThanOrEqual(120);
   expect(childTrace.settled[0].commitMs).toBeLessThan(550);
   await expect(app).toHaveAttribute("data-transition-cache", "idle");
 

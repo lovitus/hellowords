@@ -58,8 +58,11 @@ export interface SceneLabelMountWindowOptions {
   readonly previousIds?: ReadonlySet<string>;
 }
 
-export const DESKTOP_SCENE_LABEL_MOUNT_LIMIT = 180;
-export const COMPACT_SCENE_LABEL_MOUNT_LIMIT = 96;
+// The dense home atlas reaches 249 painted/interactive labels during legal
+// desktop pan/zoom sweeps. The ceiling bounds hidden overscan, never real
+// readable vocabulary; compact sweeps peak at 124 before chrome reservations.
+export const DESKTOP_SCENE_LABEL_MOUNT_LIMIT = 256;
+export const COMPACT_SCENE_LABEL_MOUNT_LIMIT = 128;
 
 export interface VocabularyZoomCue {
   readonly id: string;
@@ -129,8 +132,10 @@ type LabelLod = SceneLabelLayoutItem["lod"];
 
 const revealScaleCache = new WeakMap<Label, Map<string, number | null>>();
 const estimatedSizeCache = new WeakMap<Label, Readonly<{
-  hiddenMeaning: { readonly width: number; readonly height: number };
-  visibleMeaning: { readonly width: number; readonly height: number };
+  desktopHiddenMeaning: { readonly width: number; readonly height: number };
+  desktopVisibleMeaning: { readonly width: number; readonly height: number };
+  compactHiddenMeaning: { readonly width: number; readonly height: number };
+  compactVisibleMeaning: { readonly width: number; readonly height: number };
 }>>();
 const placementOffsetCache = new Map<string, ReadonlyArray<readonly [number, number]>>();
 
@@ -383,26 +388,47 @@ function estimatedLabelSize(
   label: Label,
   meaningVisible: boolean,
   lod: LabelLod,
+  compact: boolean,
 ): { width: number; height: number } {
   const cached = estimatedSizeCache.get(label);
-  if (cached) return cached[meaningVisible ? "visibleMeaning" : "hiddenMeaning"];
+  const cacheKey = compact
+    ? meaningVisible ? "compactVisibleMeaning" : "compactHiddenMeaning"
+    : meaningVisible ? "desktopVisibleMeaning" : "desktopHiddenMeaning";
+  if (cached) return cached[cacheKey];
   const detailed = lod >= 3;
   // Font-weight 750 makes Latin glyphs slightly wider than a regular canvas
   // estimate. Keep a conservative buffer so the collision model agrees with
   // actual DOM geometry on high-DPR mobile Chromium.
   const wordWidth = Math.max(24, Array.from(label.word).length * (detailed ? 6.55 : 7.15));
   const translationWidth = Array.from(label.translation).length * (detailed ? 9.8 : 10.65) + 15;
-  const hiddenMeaning = {
-    width: Math.min(250, (detailed ? 27 : 31) + wordWidth),
-    height: detailed ? 28 : 30,
+  const desktopHeight = detailed ? 18 : 20;
+  const compactHeight = 28;
+  const hiddenWidth = Math.min(250, (detailed ? 27 : 31) + wordWidth);
+  const visibleWidth = Math.min(250, (detailed ? 27 : 31) + wordWidth + translationWidth);
+  const desktopHiddenMeaning = {
+    width: hiddenWidth,
+    height: desktopHeight,
   };
-  const visibleMeaning = {
-    width: Math.min(250, (detailed ? 27 : 31) + wordWidth + translationWidth),
-    height: detailed ? 28 : 30,
+  const desktopVisibleMeaning = {
+    width: visibleWidth,
+    height: desktopHeight,
   };
-  const sizes = { hiddenMeaning, visibleMeaning };
+  const compactHiddenMeaning = {
+    width: hiddenWidth,
+    height: compactHeight,
+  };
+  const compactVisibleMeaning = {
+    width: visibleWidth,
+    height: compactHeight,
+  };
+  const sizes = {
+    desktopHiddenMeaning,
+    desktopVisibleMeaning,
+    compactHiddenMeaning,
+    compactVisibleMeaning,
+  };
   estimatedSizeCache.set(label, sizes);
-  return sizes[meaningVisible ? "visibleMeaning" : "hiddenMeaning"];
+  return sizes[cacheKey];
 }
 
 function overlaps(
@@ -907,7 +933,7 @@ export function computeSceneLabelLayout(
       );
       const screenX = camera.x + label.x * effectiveScale;
       const screenY = camera.y + label.y * effectiveScale;
-      const size = estimatedLabelSize(label, meaningVisible, lod);
+      const size = estimatedLabelSize(label, meaningVisible, lod, viewport.compact);
       return {
         label,
         lod,

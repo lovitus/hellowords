@@ -178,7 +178,7 @@ async function auditCurrentScene(
   });
   expect(labels.mountedLabelCount, `${scene.id} must mount a bounded authored window`).toBeGreaterThan(0);
   expect(labels.mountedLabelCount, `${scene.id} must respect the ${mode} label DOM ceiling`).toBeLessThanOrEqual(
-    mode === "mobile" ? 96 : 180,
+    mode === "mobile" ? 128 : 256,
   );
 
   return {

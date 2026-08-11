@@ -1,12 +1,22 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  BASE_SCENE_CAMERA_MAX_SCALE,
   clampCamera,
+  maximumSceneCameraScale,
+  NATIVE_SCENE_EFFECTIVE_MAX_SCALE,
   sceneToViewport,
   smoothCameraTowards,
   viewportToScene,
   zoomCameraAboutPoint,
 } from "../../app/domain/camera";
+
+test("responsive scene ceiling preserves native high-tier detail on narrow viewports", () => {
+  assert.equal(maximumSceneCameraScale(0.8), BASE_SCENE_CAMERA_MAX_SCALE);
+  assert.equal(maximumSceneCameraScale(0.24375), NATIVE_SCENE_EFFECTIVE_MAX_SCALE / 0.24375);
+  assert.equal(maximumSceneCameraScale(0.24375) * 0.24375, 2);
+  assert.throws(() => maximumSceneCameraScale(0), RangeError);
+});
 
 test("zoom about a point preserves the scene coordinate under the pointer", () => {
   const camera = { x: -300, y: -120, scale: 2 };

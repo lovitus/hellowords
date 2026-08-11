@@ -67,7 +67,7 @@ turning unrelated vocabulary into floating labels. The data contract requires
 at least four zones and normally 32 grounded anchors per premium scene; an
 evidence-reviewed terminal specialist slice may declare a lower floor when
 meeting 32 would require duplicate names for the same visible structure.
-The current graph contains 1,710 contextual anchors representing 1,383 distinct
+The current graph contains 1,977 contextual anchors representing 1,624 distinct
 display terms across 199 authored zones, connected by 36 typed portals.
 
 ## Scene and portal contract
@@ -125,7 +125,7 @@ detail without retargeting the semantic camera.
 Scene encounters are recorded passively in local storage. Selecting a label
 opens an optional word card and pronunciation action, but no exam is required.
 When a scene term has an exact entry in the ranked vocabulary, its `lexemeId`
-links directly into the 10,000-word hierarchy. The current graph has 230 such
+links directly into the 10,000-word hierarchy. The current graph has 232 such
 sense-reviewed links. Validation resolves these IDs against every semantic
 shard and rejects missing or word-mismatched links; specialist visual phrases
 are allowed to remain unlinked.

@@ -79,6 +79,28 @@ test("default LOD words stay revealed at maximum zoom unless an author explicitl
   }
 });
 
+test("dense desktop pills are one-third shorter while compact touch boxes stay 28px", () => {
+  const labels = [
+    label("overview", 120, 1, 0, 120),
+    label("detail", 420, 2, 4, 120),
+  ];
+  const camera = { x: 0, y: 0, fit: 0.25, scale: 4 };
+  const desktop = computeSceneLabelLayout(
+    labels,
+    camera,
+    { width: 600, height: 260, compact: false },
+    false,
+  );
+  const compact = computeSceneLabelLayout(
+    labels,
+    camera,
+    { width: 600, height: 260, compact: true },
+    false,
+  );
+  assert.deepEqual(desktop.map(({ height }) => height), [20, 18]);
+  assert.deepEqual(compact.map(({ height }) => height), [28, 28]);
+});
+
 test("a fixed projection has one canonical callout layout across LOD disclosure", () => {
   const labels = Array.from({ length: 18 }, (_, index) => label(
     `stable-${index}`,
@@ -180,7 +202,11 @@ test("oak-tree fills safe slots and reproduces the exact layout after a zoom rou
     );
   };
   const before = layoutAt(1);
-  assert.equal(before.filter((item) => item.interactive).length, 42);
+  assert.equal(
+    before.filter((item) => item.interactive).length,
+    43,
+    "the shorter desktop pills make every grounded oak label readable at fit",
+  );
   for (const scale of [1.05, 1.2, 1.65, 2.3, 3.1, 2.3, 1.65, 1.2, 1.05]) layoutAt(scale);
   const after = layoutAt(1);
   assert.deepEqual(

@@ -56,8 +56,9 @@ export interface VisualRegion {
  * An authored crop inside a high-resolution scene. Detail zones let the world
  * expose several truthful, locally dense word batches without pretending that
  * one source image is many unrelated scenes. Coordinates stay in the shared
- * 1600 x 900 scene space; a future viewport can focus this rectangle at
- * `targetScale` while keeping the labels as crisp screen-space HTML.
+ * logical scene coordinate space; a viewport can focus this rectangle at
+ * `targetScale` while keeping labels as crisp screen-space HTML. The logical
+ * canvas may be larger than its base preview raster when a high tier exists.
  */
 export interface SceneDetailZone {
   readonly id: string;
@@ -115,7 +116,9 @@ export interface SceneAssetDescriptor {
 
 /**
  * Optional multi-resolution enhancement. `asset` remains the canonical legacy
- * base URL, so existing scene JSON and callers continue to work unchanged.
+ * base URL, so existing scene JSON and callers continue to work unchanged. A
+ * base raster may be a same-aspect overview of a larger logical scene; every
+ * descriptor is mapped into the shared logical coordinate space.
  */
 export interface SceneAssetSet {
   readonly base: SceneAssetDescriptor;

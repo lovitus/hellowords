@@ -174,6 +174,7 @@ const PREMIUM_DETAIL_ZONE_MINIMUMS: Readonly<Record<string, number>> = {
 };
 const MIN_SPATIAL_LEXICON_LINKS = 180;
 const MAX_RASTER_BYTES = 1_228_800;
+const RASTER_BUDGET_REFERENCE_AREA = 1_600 * 900;
 const VISUAL_REGION_KINDS = new Set<VisualRegionKind>([
   "whole",
   "object",
@@ -593,8 +594,11 @@ async function validateSceneAssetFile(
       throw new Error(`Asset ${descriptor.src} is not a valid JPEG`);
     }
     decodedDimensions = readJpegDimensions(asset);
-    const densityArea = descriptor.width * descriptor.height / (scene.width * scene.height);
-    const maximumBytes = Math.ceil(MAX_RASTER_BYTES * densityArea);
+    // Keep a stable byte-per-source-pixel budget. Logical canvases can be much
+    // larger than a base preview raster, so dividing by scene dimensions would
+    // incorrectly punish large continuous atlases at every resolution tier.
+    const sourceAreaRatio = descriptor.width * descriptor.height / RASTER_BUDGET_REFERENCE_AREA;
+    const maximumBytes = Math.ceil(MAX_RASTER_BYTES * sourceAreaRatio);
     if (assetStat.size > maximumBytes) {
       throw new Error(`Asset ${descriptor.src} exceeds the ${maximumBytes}-byte density-adjusted raster budget`);
     }

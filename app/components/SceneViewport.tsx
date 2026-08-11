@@ -27,6 +27,7 @@ import {
   createParentExitHysteresisState,
   DEFAULT_PORTAL_HYSTERESIS_POLICY,
   LABEL_ENCOUNTER_OPACITY,
+  maximumSceneCameraScale,
   prioritizeCurrentLabelOrder,
   reconcileSceneAssetLoad,
   resolveSceneAssets,
@@ -402,7 +403,6 @@ const WHEEL_POSITION_EPSILON = 0.08;
 const WHEEL_SCALE_EPSILON = 0.00045;
 const EXIT_SCALE = DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale;
 const HANDOFF_WHEEL_QUIET_MS = 180;
-const MAX_SCALE = 4.15;
 const SEMANTIC_OVERSCROLL_THRESHOLD = 0.32;
 const SEMANTIC_OVERSCROLL_WINDOW_MS = 850;
 const PORTAL_PREVIEW_LEAD = 1;
@@ -569,18 +569,71 @@ function portalAtScreenPoint(portals: readonly ScenePortal[], camera: Camera, po
 
 // One compact deterministic seed is identical during SSR and hydration. The
 // first real camera frame reconciles it to genuinely painted labels under the
-// 180/96 viewport ceiling before newly mounted labels become visible.
+// bounded desktop/compact ceiling before newly mounted labels become visible.
 const INITIAL_LABEL_MOUNT_VIEWPORT = {
   width: 390,
   height: 780,
   compact: true,
 } as const;
 
+// Scene JSON objects are retained by the bounded repository while users move
+// between a parent and child. Reuse the last truthful DOM window when that
+// exact scene is revisited: this avoids rebuilding a compact seed and then
+// expanding it in a second React commit, while the first live camera frame
+// still recomputes every placement and corrects the window if needed.
+const revisitedSceneLabelMountWindows = new WeakMap<
+  readonly Label[],
+  Map<string, ReadonlySet<string>>
+>();
+
+function sceneLabelMountWindowCacheKey(meaningVisible: boolean, compact: boolean): string {
+  return `${meaningVisible ? "meaning" : "word"}:${compact ? "compact" : "desktop"}`;
+}
+
+function rememberSceneLabelMountWindow(
+  labels: readonly Label[],
+  meaningVisible: boolean,
+  compact: boolean,
+  mountedLabelIds: ReadonlySet<string>,
+): void {
+  const cache = revisitedSceneLabelMountWindows.get(labels) ?? new Map<string, ReadonlySet<string>>();
+  cache.set(
+    sceneLabelMountWindowCacheKey(meaningVisible, compact),
+    new Set(mountedLabelIds),
+  );
+  revisitedSceneLabelMountWindows.set(labels, cache);
+}
+
+function recalledSceneLabelMountWindow(
+  scene: Scene,
+  meaningVisible: boolean,
+  selectedLabelId: string | null,
+): Set<string> | null {
+  if (typeof window === "undefined") return null;
+  const compact = window.innerWidth <= 900;
+  const cached = revisitedSceneLabelMountWindows
+    .get(scene.labels)
+    ?.get(sceneLabelMountWindowCacheKey(meaningVisible, compact));
+  if (!cached || cached.size > sceneLabelMountLimit({ compact })) return null;
+  const validLabelIds = new Set(scene.labels.map(({ id }) => id));
+  if ([...cached].some((id) => !validLabelIds.has(id))) return null;
+  const recalled = new Set(cached);
+  if (
+    selectedLabelId
+    && validLabelIds.has(selectedLabelId)
+    && !recalled.has(selectedLabelId)
+    && recalled.size < sceneLabelMountLimit({ compact })
+  ) recalled.add(selectedLabelId);
+  return recalled;
+}
+
 function initialSceneLabelMountWindow(
   scene: Scene,
   meaningVisible: boolean,
   selectedLabelId: string | null,
 ): Set<string> {
+  const recalled = recalledSceneLabelMountWindow(scene, meaningVisible, selectedLabelId);
+  if (recalled) return recalled;
   const camera = fullyFittedSceneCamera(scene, INITIAL_LABEL_MOUNT_VIEWPORT);
   const layout = computeSceneLabelLayout(
     scene.labels,
@@ -974,6 +1027,7 @@ export function SceneViewport({
     const viewportWidth = viewport.clientWidth;
     const viewportHeight = viewport.clientHeight;
     const camera = (cameraRef.current = clampCamera(cameraRef.current));
+    const maximumScale = maximumSceneCameraScale(camera.fit);
     const effectiveScale = camera.fit * camera.scale;
     const zoomLevel = sceneLodLevel(camera.scale);
     const sceneScaleValue = camera.scale.toFixed(3);
@@ -986,6 +1040,7 @@ export function SceneViewport({
     setDatasetValueIfChanged(surface, "zoomLevel", String(zoomLevel));
     setDatasetValueIfChanged(surface, "lodLevel", String(zoomLevel));
     setDatasetValueIfChanged(surface, "sceneScale", sceneScaleValue);
+    setDatasetValueIfChanged(surface, "maximumScale", maximumScale.toFixed(3));
     const devicePixelRatio = Math.max(1, window.devicePixelRatio || 1);
     reconcileSceneAssetForCamera(camera, devicePixelRatio);
 
@@ -1179,6 +1234,12 @@ export function SceneViewport({
     );
     if (!sameSceneLabelMountWindow(mountedLabelIdsRef.current, nextMountedLabelIds)) {
       mountedLabelIdsRef.current = nextMountedLabelIds;
+      rememberSceneLabelMountWindow(
+        scene.labels,
+        meaningVisibleRef.current,
+        labelViewport.compact,
+        nextMountedLabelIds,
+      );
       pendingLabelWindowPaintRef.current = true;
       setMountedLabelIds(nextMountedLabelIds);
     }
@@ -1308,7 +1369,7 @@ export function SceneViewport({
     if (sceneWordProgress) {
       const total = scene.labels.length;
       const remaining = Math.max(0, total - visibleCount);
-      const maximumZoom = camera.scale >= MAX_SCALE - 0.02;
+      const maximumZoom = camera.scale >= maximumScale - 0.02;
       const action = remaining === 0
         ? maximumZoom
           ? "本景词汇已全部在当前视野，继续放大进入万词大图"
@@ -1370,7 +1431,7 @@ export function SceneViewport({
     const revealSummary = buildVocabularyRevealSummary(
       scene.labels,
       camera.scale,
-      MAX_SCALE,
+      maximumScale,
       LABEL_ENCOUNTER_OPACITY,
       revealedLabelIdsRef.current,
     );
@@ -1385,7 +1446,7 @@ export function SceneViewport({
           cue,
           hidden,
           camera.scale,
-          MAX_SCALE,
+          maximumScale,
           LABEL_ENCOUNTER_OPACITY,
         );
         if (
@@ -1407,7 +1468,7 @@ export function SceneViewport({
         Number.POSITIVE_INFINITY,
       );
       if (nextLod < 2 || nextLod > 4) return [];
-      const fallbackTargetScale = Math.min(MAX_SCALE, Math.max(
+      const fallbackTargetScale = Math.min(maximumScale, Math.max(
         camera.scale + 0.28,
         VOCABULARY_REVEAL_SCALE[nextLod as 2 | 3 | 4],
         ...hidden
@@ -1433,8 +1494,8 @@ export function SceneViewport({
       Number.POSITIVE_INFINITY,
     );
     const nextSceneScale = Number.isFinite(nextSceneLod)
-      ? Math.min(MAX_SCALE, Math.max(camera.scale + 0.28, VOCABULARY_REVEAL_SCALE[nextSceneLod as 2 | 3 | 4]))
-      : MAX_SCALE;
+      ? Math.min(maximumScale, Math.max(camera.scale + 0.28, VOCABULARY_REVEAL_SCALE[nextSceneLod as 2 | 3 | 4]))
+      : maximumScale;
     const visibleSceneWidth = viewportWidth / Math.max(0.001, camera.fit * nextSceneScale);
     const visibleSceneHeight = viewportHeight / Math.max(0.001, camera.fit * nextSceneScale);
     const cueBatches = vocabularyZoomCues.some((cue) => cue.source === "authored-zone")
@@ -1474,13 +1535,13 @@ export function SceneViewport({
           || first.id.localeCompare(second.id)
         ));
         const nextLabel = orderedNextBatchLabels[0];
-        const fallbackTargetScale = Math.min(MAX_SCALE, Math.max(
+        const fallbackTargetScale = Math.min(maximumScale, Math.max(
           camera.scale + 0.28,
           VOCABULARY_REVEAL_SCALE[batch.nextLod],
           ...batch.labels.map((label) => (label.minScale ?? 0) + 0.34),
         ));
         const targetScale = batch.cue.source === "authored-zone"
-          ? batch.targetScale ?? Math.min(MAX_SCALE, Math.max(
+          ? batch.targetScale ?? Math.min(maximumScale, Math.max(
             camera.scale + 0.28,
             batch.cue.targetScale ?? fallbackTargetScale,
           ))
@@ -1594,7 +1655,7 @@ export function SceneViewport({
           revealSummary.nextLabels.map((label) => label.id).join(" "),
         );
         setDatasetValueIfChanged(summaryElement, "targetScale", Math.min(
-          MAX_SCALE,
+          maximumScale,
           Math.max(camera.scale + 0.28, revealSummary.targetScale + 0.08),
         ).toFixed(3));
       } else {
@@ -1933,7 +1994,7 @@ export function SceneViewport({
     const result = advanceSemanticOverscroll(
       semanticOverscrollRef.current,
       factor,
-      cameraRef.current.scale >= MAX_SCALE - 0.02,
+      cameraRef.current.scale >= maximumSceneCameraScale(cameraRef.current.fit) - 0.02,
       Boolean(portal),
       semanticOverscrollTimestampRef.current === null
         ? Number.POSITIVE_INFINITY
@@ -1976,7 +2037,10 @@ export function SceneViewport({
       const camera = cameraRef.current;
       const previousFocus = zoomFocusRef.current;
       const minimum = scene.parentId ? 0.68 : 0.9;
-      const nextScale = Math.min(MAX_SCALE, Math.max(minimum, camera.scale * factor));
+      const nextScale = Math.min(
+        maximumSceneCameraScale(camera.fit),
+        Math.max(minimum, camera.scale * factor),
+      );
       sampleParentExitHysteresis(factor, nextScale);
       const semanticPortal = factor > 1
         ? portalAtScreenPoint(scene.portals, camera, previousPoint)
@@ -2048,7 +2112,10 @@ export function SceneViewport({
     const base = wheelTargetRef.current ?? cameraRef.current;
     const previousFocus = zoomFocusRef.current;
     const minimum = scene.parentId ? 0.68 : 0.9;
-    const nextScale = Math.min(MAX_SCALE, Math.max(minimum, base.scale * factor));
+    const nextScale = Math.min(
+      maximumSceneCameraScale(base.fit),
+      Math.max(minimum, base.scale * factor),
+    );
     sampleParentExitHysteresis(factor, nextScale);
     const ratio = nextScale / base.scale;
     const target = clampCamera({
@@ -2179,10 +2246,11 @@ export function SceneViewport({
     const defaultRevealScale = nextLod >= 2
       ? VOCABULARY_REVEAL_SCALE[nextLod as 2 | 3 | 4]
       : start.scale + 0.28;
+    const maximumScale = maximumSceneCameraScale(start.fit);
     const targetScale = element.dataset.cueSource === "authored-zone"
-      ? Math.min(MAX_SCALE, Math.max(start.scale + 0.28, authoredTarget))
+      ? Math.min(maximumScale, Math.max(start.scale + 0.28, authoredTarget))
       : Math.min(
-        MAX_SCALE,
+        maximumScale,
         Math.max(start.scale + 0.28, defaultRevealScale, authoredTarget),
     );
     const authoredFocusX = Number(element.dataset.focusX);
@@ -2707,7 +2775,9 @@ export function SceneViewport({
           aria-hidden={motionFrozen ? true : undefined}
           aria-label="Words in this scene"
         >
-          {scene.labels.filter((label) => mountedLabelIds.has(label.id)).map((label) => {
+          {scene.labels.filter((label) => (
+            transitionPhase !== "outgoing" && mountedLabelIds.has(label.id)
+          )).map((label) => {
             const semanticStyle = labelSemanticStyles.get(label.id);
             return (
               <button
