@@ -19,6 +19,7 @@ import {
   panSemanticZoomView,
   placeSemanticZoomNodes,
   projectSemanticZoomNodes,
+  resolveSemanticZoomRealmEntry,
   semanticNodeVisual,
   semanticWheelScale,
   semanticZoomBoundsForLevel,
@@ -59,6 +60,10 @@ export interface SemanticZoomFieldProps {
   readonly manifestUrl?: string;
   /** Share the modal repository so manifest and selected shards use one cache. */
   readonly repository?: LexicalWorldRepository;
+  /** Reviewed realm reached from a real spatial label; unknown IDs are ignored. */
+  readonly initialRealmId?: string;
+  /** Visible provenance copy distinguishing the drawn object from semantic descendants. */
+  readonly spatialEntryWord?: string;
 }
 
 interface DescriptorResource {
@@ -157,6 +162,8 @@ export function SemanticZoomField({
   onSelectWord,
   manifestUrl,
   repository: providedRepository,
+  initialRealmId,
+  spatialEntryWord,
 }: SemanticZoomFieldProps) {
   const ownedRepository = useMemo(() => createLexicalWorldRepository(manifestUrl), [manifestUrl]);
   const repository = providedRepository ?? ownedRepository;
@@ -170,6 +177,7 @@ export function SemanticZoomField({
   const pinchRef = useRef<PinchSnapshot | null>(null);
   const keyboardActivationRef = useRef(false);
   const pendingKeyboardFocusRef = useRef<PendingKeyboardFocus | null>(null);
+  const initialRealmAppliedRef = useRef<string | null>(null);
 
   const [viewport, setViewport] = useState<SemanticZoomViewport>(() => initialViewport(viewportWidth));
   const [view, setView] = useState<SemanticZoomView>(INITIAL_VIEW);
@@ -434,6 +442,7 @@ export function SemanticZoomField({
       pointers.clear();
       pinchRef.current = null;
       pendingKeyboardFocusRef.current = null;
+      initialRealmAppliedRef.current = null;
       return;
     }
     return () => {
@@ -444,6 +453,33 @@ export function SemanticZoomField({
       pinchRef.current = null;
     };
   }, [open]);
+
+  useEffect(() => {
+    if (!open || !initialRealmId || initialRealmAppliedRef.current === initialRealmId) return;
+    const entry = resolveSemanticZoomRealmEntry(realmLayout, initialRealmId, viewport);
+    const descriptor = entry?.node.node.descriptor;
+    if (!entry || !descriptor) return;
+    let active = true;
+    queueMicrotask(() => {
+      if (!active || initialRealmAppliedRef.current === initialRealmId) return;
+      initialRealmAppliedRef.current = initialRealmId;
+      setSelectedRealm(descriptor);
+      setSelectedTopic(undefined);
+      setSelectedSubcluster(undefined);
+      setTopicResource(EMPTY_DESCRIPTOR_RESOURCE);
+      setSubclusterResource(EMPTY_DESCRIPTOR_RESOURCE);
+      setWordResource(EMPTY_WORD_RESOURCE);
+      setNavigationAnnouncement(
+        spatialEntryWord
+          ? `已从实景词 ${spatialEntryWord} 进入 ${descriptor.labelEn} 词汇领域；其余词按语义关系组织`
+          : `已进入 ${descriptor.labelEn} 词汇领域`,
+      );
+      applyView(entry.view);
+    });
+    return () => {
+      active = false;
+    };
+  }, [applyView, initialRealmId, open, realmLayout, spatialEntryWord, viewport]);
 
   const activateRealm = useCallback((node: SemanticZoomLayoutNode<SemanticFieldNode>) => {
     const descriptor = node.node.descriptor;
@@ -743,6 +779,7 @@ export function SemanticZoomField({
       data-level-total={explorationProgress.totalCount}
       data-remaining-count={explorationProgress.remainingCount}
       data-continuation-action={explorationProgress.action}
+      data-spatial-entry-word={spatialEntryWord}
       role="region"
       aria-label="万词语义世界"
       aria-describedby="semantic-zoom-progress"
@@ -837,7 +874,9 @@ export function SemanticZoomField({
 
       <div className="semantic-zoom-field__chrome">
         <div className="semantic-zoom-field__context">
-          <span>{displayLevel === "realm" ? "10 个词汇领域" : breadcrumb}</span>
+          <span>{spatialEntryWord
+            ? `${spatialEntryWord} · 实景词 → 相关词域（其余词按语义组织）`
+            : displayLevel === "realm" ? "10 个词汇领域" : breadcrumb}</span>
           <strong>{`${levelLabel} · 当前 ${progressLabel}`}</strong>
         </div>
         <div className="semantic-zoom-field__controls" aria-label="缩放控制">

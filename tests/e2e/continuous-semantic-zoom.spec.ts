@@ -458,15 +458,23 @@ test("a warm commit ignores competing portal intent until its handoff finishes",
       tilePortal: activeTile?.dataset.portalId ?? null,
       tileChild: activeTile?.dataset.childScene ?? null,
       tileState: activeTile?.dataset.state ?? null,
+      competingCandidate: competing.dataset.candidate ?? null,
+      competingCueState: competing.dataset.cueState ?? null,
     };
   }, { currentId: committedPortalId!, competingId: competingPortalId! });
 
   expect(firstHandoffFrame).toEqual({
-    previewPortal: committedPortalId,
+    // The transient copy may already be removed once the active tile owns the
+    // handoff; the tile is the authoritative continuity state from this frame.
+    previewPortal: null,
     tilePortal: committedPortalId,
     tileChild: committedChild,
     tileState: "active",
+    competingCandidate: "false",
+    competingCueState: "idle",
   });
+  expect(firstHandoffFrame.previewPortal).not.toBe(competingPortalId);
+  expect(firstHandoffFrame.tilePortal).not.toBe(competingPortalId);
   await expect(app).toHaveAttribute("data-scene-id", committedChild!);
   await expect(app).toHaveAttribute("data-scene-loading", "false");
 });

@@ -67,6 +67,11 @@ export interface SemanticZoomDataReadiness {
   readonly wordsReady: boolean;
 }
 
+export interface SemanticZoomRealmEntry<T extends SemanticZoomNodeInput = SemanticZoomNodeInput> {
+  readonly node: SemanticZoomLayoutNode<T>;
+  readonly view: SemanticZoomView;
+}
+
 export type SemanticZoomContinuationAction = "zoom" | "pan-zoom" | "pan" | "complete";
 
 /** Screen-space progress for the current LOD, independent of its rendering copy. */
@@ -257,6 +262,25 @@ export function focusSemanticZoomView(
     centerY: point.y,
     scale: semanticZoomScaleForLevel(level),
   }, viewport);
+}
+
+/**
+ * Resolves an explicit, reviewed bridge from a spatial word into one of the
+ * ten semantic realms. Unknown IDs return null instead of being guessed from
+ * display text, so lexical descendants are never presented as drawn objects.
+ */
+export function resolveSemanticZoomRealmEntry<T extends SemanticZoomNodeInput>(
+  nodes: readonly SemanticZoomLayoutNode<T>[],
+  realmId: string | undefined,
+  viewport: SemanticZoomViewport,
+): SemanticZoomRealmEntry<T> | null {
+  if (!realmId) return null;
+  const node = nodes.find((candidate) => candidate.node.id === realmId);
+  if (!node) return null;
+  return {
+    node,
+    view: focusSemanticZoomView(node, "topic", viewport),
+  };
 }
 
 /**

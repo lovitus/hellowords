@@ -14,6 +14,7 @@ import {
   panSemanticZoomView,
   placeSemanticZoomNodes,
   projectSemanticZoomNodes,
+  resolveSemanticZoomRealmEntry,
   semanticWheelScale,
   semanticZoomBoundsForLevel,
   semanticZoomCamera,
@@ -145,6 +146,25 @@ test("focus, pan and wheel gestures remain bounded", () => {
   assert.equal(semanticWheelScale(1, 100_000, 0, DESKTOP.height), SEMANTIC_ZOOM_MIN_SCALE);
   assert.ok(semanticWheelScale(1, -120, 0, DESKTOP.height) > 1);
   assert.equal(semanticWheelScale(SEMANTIC_ZOOM_MAX_SCALE, -100_000, 0, DESKTOP.height), SEMANTIC_ZOOM_MAX_SCALE);
+});
+
+test("a reviewed spatial lexeme enters its exact semantic realm without guessing", () => {
+  const realms = layoutSemanticZoomNodes([
+    { id: "nature-life", count: 2_300, authoredPoint: { x: 240, y: 180 } },
+    { id: "objects-technology", count: 2_100, authoredPoint: { x: 1_000, y: 430 } },
+  ], "realm");
+
+  const entry = resolveSemanticZoomRealmEntry(realms, "objects-technology", DESKTOP);
+  assert.ok(entry);
+  assert.equal(entry.node.node.id, "objects-technology");
+  assert.equal(entry.view.scale, semanticZoomScaleForLevel("topic"));
+  assert.deepEqual(
+    { centerX: entry.view.centerX, centerY: entry.view.centerY },
+    { centerX: 1_000, centerY: 430 },
+    "the authored point is focused, subject only to world-edge clamping",
+  );
+  assert.equal(resolveSemanticZoomRealmEntry(realms, "unreviewed-realm", DESKTOP), null);
+  assert.equal(resolveSemanticZoomRealmEntry(realms, undefined, DESKTOP), null);
 });
 
 test("rapid wheel input accumulates against the pending target scale", () => {

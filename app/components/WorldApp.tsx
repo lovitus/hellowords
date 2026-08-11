@@ -7,6 +7,7 @@ import {
   fittedSceneCamera,
   parentCameraFromChildTile,
   SceneViewport,
+  type ScenePortalNavigator,
   type SceneContinuityView,
   type SceneViewportSnapshot,
 } from "./SceneViewport";
@@ -25,12 +26,14 @@ import {
   type Label,
   type Portal,
 } from "../domain";
+import { SPATIAL_LEXEME_REALMS } from "../domain/spatialLexemeRealms.generated";
 
 const MEANING_KEY = "hellowords:meaning-visible";
 // v1 counted every label as soon as its scene loaded, including words the user
 // never saw. Keep that data untouched, but start the truthful dwell-based model
 // in a new namespace so existing inflated totals do not leak into the UI.
 const DISCOVERED_KEY = "hellowords:encountered-labels:v2";
+const SPATIAL_REALM_BY_LEXEME: Readonly<Record<string, string | undefined>> = SPATIAL_LEXEME_REALMS;
 
 export type SceneTransitionCacheReadiness = "warm" | "cold";
 
@@ -56,7 +59,11 @@ export function WorldApp() {
   const [sceneTitles, setSceneTitles] = useState<Record<string, string>>({});
   const [meaningVisible, setMeaningVisible] = useState(false);
   const [lexicalWorldOpen, setLexicalWorldOpen] = useState(false);
-  const [lexicalWorldInitialFocus, setLexicalWorldInitialFocus] = useState<"auto" | "search">("auto");
+  const [lexicalWorldInitialFocus, setLexicalWorldInitialFocus] = useState<"auto" | "search" | "dialog">("auto");
+  const [lexicalWorldEntry, setLexicalWorldEntry] = useState<{
+    readonly realmId: string;
+    readonly word: string;
+  } | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [transitionState, setTransitionState] = useState<"loading" | "incoming" | "idle">("loading");
@@ -66,11 +73,12 @@ export function WorldApp() {
   const [selectedLabel, setSelectedLabel] = useState<Label | null>(null);
   const [sceneContinuityView, setSceneContinuityView] = useState<SceneContinuityView | undefined>();
   const [continuousTransitionActive, setContinuousTransitionActive] = useState(false);
+  const [viewportMotionFrozen, setViewportMotionFrozen] = useState(false);
   const [discoveredCount, setDiscoveredCount] = useState(0);
   const navigationRef = useRef<AbortController | null>(null);
   const sceneHeadingRef = useRef<HTMLHeadingElement>(null);
   const focusHeadingAfterNavigationRef = useRef(false);
-  const navigationPhaseRef = useRef<"idle" | "committing" | "navigating">("idle");
+  const navigationPhaseRef = useRef<"idle" | "committing" | "navigating" | "settling">("idle");
   const transitionTargetIdRef = useRef<string | null>(null);
   const transitionStartedAtRef = useRef(0);
   const transitionWasWarmRef = useRef(false);
@@ -78,8 +86,11 @@ export function WorldApp() {
   const preferredChildRef = useRef<string | null>(null);
   const activeViewportSnapshotRef = useRef<SceneViewportSnapshot | null>(null);
   const pendingPortalRef = useRef<Portal | null>(null);
+  const activePortalNavigatorRef = useRef<ScenePortalNavigator | null>(null);
+  const pendingContinuitySettleRef = useRef<(() => void) | null>(null);
   const transitionUsesContinuityRef = useRef(false);
   const discoveredEntriesRef = useRef<ReadonlySet<string>>(new Set());
+  const sceneControlsLocked = loading || continuousTransitionActive || viewportMotionFrozen;
 
   useEffect(() => {
     const storedMeaningVisible = window.localStorage.getItem(MEANING_KEY) === "true";
@@ -327,7 +338,7 @@ export function WorldApp() {
           setLoading(false);
         }
         setAnnouncedSceneTitle(nextScene.title);
-        navigationPhaseRef.current = "idle";
+        navigationPhaseRef.current = usesContinuity ? "settling" : "idle";
         transitionTargetIdRef.current = null;
         transitionStartedAtRef.current = 0;
         transitionWasWarmRef.current = false;
@@ -339,8 +350,8 @@ export function WorldApp() {
           setTransitionTarget(null);
           setLoading(false);
         }
-        setContinuousTransitionActive(false);
-        settleScene(
+        if (!usesContinuity) setContinuousTransitionActive(false);
+        const dispatchSettled = () => settleScene(
           scene.id,
           nextScene,
           startedAt,
@@ -348,6 +359,11 @@ export function WorldApp() {
           cacheReadiness,
           transitionSequence,
         );
+        if (usesContinuity) {
+          pendingContinuitySettleRef.current = dispatchSettled;
+        } else {
+          dispatchSettled();
+        }
         if (focusHeadingAfterNavigationRef.current) {
           requestAnimationFrame(() => sceneHeadingRef.current?.focus({ preventScroll: true }));
         }
@@ -366,6 +382,7 @@ export function WorldApp() {
           transitionWasWarmRef.current = false;
           pendingPortalRef.current = null;
           transitionUsesContinuityRef.current = false;
+          pendingContinuitySettleRef.current = null;
           setContinuousTransitionActive(false);
           setTransitionCache("idle");
         }
@@ -378,18 +395,41 @@ export function WorldApp() {
   );
 
   const goBack = useCallback((source: "zoom" | "pointer" | "keyboard" = "pointer") => {
-    if (history.length < 2) return;
+    if (history.length < 2 || sceneControlsLocked) return;
     void navigate(history[history.length - 2].id, "back", source);
-  }, [history, navigate]);
+  }, [history, navigate, sceneControlsLocked]);
 
   const goToBreadcrumb = useCallback(
     (index: number, source: "pointer" | "keyboard") => {
-      if (index === history.length - 1 || !scene || loading) return;
+      if (index === history.length - 1 || !scene || sceneControlsLocked) return;
       const target = history[index];
       void navigate(target.id, "back", source, index);
     },
-    [history, loading, navigate, scene],
+    [history, navigate, scene, sceneControlsLocked],
   );
+
+  const enterPortalFromMinimap = useCallback((
+    portal: Portal,
+    source: "pointer" | "keyboard",
+  ) => {
+    if (sceneControlsLocked) return;
+    activePortalNavigatorRef.current?.(portal.id, source);
+  }, [sceneControlsLocked]);
+
+  const registerPortalNavigator = useCallback((navigator: ScenePortalNavigator | null) => {
+    activePortalNavigatorRef.current = navigator;
+  }, []);
+
+  const handleViewportMotionFrozen = useCallback((frozen: boolean) => {
+    setViewportMotionFrozen(frozen);
+    if (frozen || navigationPhaseRef.current !== "settling") return;
+    navigationPhaseRef.current = "idle";
+    setContinuousTransitionActive(false);
+    setSceneContinuityView(undefined);
+    const dispatchSettled = pendingContinuitySettleRef.current;
+    pendingContinuitySettleRef.current = null;
+    dispatchSettled?.();
+  }, []);
 
   const sceneTitle = useMemo(() => {
     if (!scene) return "Opening the world";
@@ -422,6 +462,10 @@ export function WorldApp() {
     activeViewportSnapshotRef.current = snapshot;
   }, []);
 
+  const selectedLabelRealmId = selectedLabel?.lexemeId
+    ? SPATIAL_REALM_BY_LEXEME[selectedLabel.lexemeId]
+    : undefined;
+
   return (
     <main
       className="world-app"
@@ -448,7 +492,7 @@ export function WorldApp() {
               <button
                 type="button"
                 onClick={(event) => goToBreadcrumb(index, event.detail === 0 ? "keyboard" : "pointer")}
-                disabled={loading || index === history.length - 1}
+                disabled={sceneControlsLocked || index === history.length - 1}
               >
                 {item.title}
               </button>
@@ -463,13 +507,14 @@ export function WorldApp() {
             type="button"
             className="atlas-button"
             onClick={(event) => {
+              setLexicalWorldEntry(null);
               setLexicalWorldInitialFocus(event.detail === 0 ? "search" : "auto");
               setLexicalWorldOpen(true);
             }}
             aria-label="打开 10 个视觉领域、758 个分层入口和 10,000 个词"
             aria-haspopup="dialog"
             aria-expanded={lexicalWorldOpen}
-            disabled={loading}
+            disabled={sceneControlsLocked}
           >
             <span aria-hidden="true">万</span>
             <span className="atlas-button-label atlas-button-label--desktop">10 领域 · 10,000 词</span>
@@ -480,7 +525,7 @@ export function WorldApp() {
             className="meaning-toggle"
             data-testid="meaning-toggle"
             aria-pressed={meaningVisible}
-            disabled={loading}
+            disabled={sceneControlsLocked}
             onClick={() => setMeaningPreference(!meaningVisible)}
           >
             <span className="toggle-track"><span /></span>
@@ -495,14 +540,99 @@ export function WorldApp() {
         inert={lexicalWorldOpen ? true : undefined}
         aria-hidden={lexicalWorldOpen ? true : undefined}
       >
-        <div
-          className="scene-heading"
+        <aside
+          className="scene-minimap"
+          data-testid="scene-minimap"
+          data-scene-id={scene?.id ?? "loading"}
+          data-child-count={scene?.portals.length ?? 0}
+          data-terminal={String(Boolean(scene && scene.portals.length === 0))}
           data-continuous={sceneContinuityView ? "true" : undefined}
+          aria-label="场景小地图"
         >
-          <span className="eyebrow">EXPLORE / {String(history.length).padStart(2, "0")}</span>
-          <h1 key={`title-${scene?.id ?? "loading"}`} ref={sceneHeadingRef} tabIndex={-1}>{sceneTitle}</h1>
-          <p key={`subtitle-${scene?.id ?? "loading"}`}>{scene?.subtitle ?? "Loading a quiet place…"}</p>
-        </div>
+          <div className="scene-minimap__heading">
+            <span aria-hidden="true">{String(history.length).padStart(2, "0")}</span>
+            <h1
+              key={`title-${scene?.id ?? "loading"}`}
+              ref={sceneHeadingRef}
+              data-testid="scene-minimap-title"
+              tabIndex={-1}
+            >
+              {sceneTitle}
+            </h1>
+          </div>
+          <nav
+            className="scene-minimap__path"
+            data-testid="scene-minimap-path"
+            aria-label="Current scene path"
+          >
+            {history.map((item, index) => {
+              const current = index === history.length - 1;
+              return (
+                <span key={`map-${item.id}-${index}`}>
+                  {index > 0 ? <i aria-hidden="true">›</i> : null}
+                  {current ? (
+                    <em
+                      data-testid="scene-minimap-breadcrumb"
+                      data-scene-id={item.id}
+                      data-current="true"
+                      aria-current="page"
+                    >
+                      {item.title}
+                    </em>
+                  ) : (
+                    <button
+                      type="button"
+                      data-testid="scene-minimap-breadcrumb"
+                      data-scene-id={item.id}
+                      data-current="false"
+                      onClick={(event) => goToBreadcrumb(
+                        index,
+                        event.detail === 0 ? "keyboard" : "pointer",
+                      )}
+                      disabled={sceneControlsLocked}
+                    >
+                      {item.title}
+                    </button>
+                  )}
+                </span>
+              );
+            })}
+          </nav>
+          <div
+            className="scene-minimap__children"
+            data-testid="scene-minimap-children"
+            data-child-count={scene?.portals.length ?? 0}
+            aria-label="Direct child scenes"
+          >
+            {scene?.portals.length ? scene.portals.map((portal) => {
+              const targetTitle = sceneTitles[portal.childSceneId] ?? portal.label;
+              return (
+                <button
+                  key={portal.id}
+                  type="button"
+                  data-testid="scene-minimap-child"
+                  data-portal-id={portal.id}
+                  data-target-scene={portal.childSceneId}
+                  data-navigation="portal-continuity"
+                  onPointerEnter={() => { void prefetchPreferredScene(portal.childSceneId); }}
+                  onFocus={() => { void prefetchPreferredScene(portal.childSceneId); }}
+                  onClick={(event) => enterPortalFromMinimap(
+                    portal,
+                    event.detail === 0 ? "keyboard" : "pointer",
+                  )}
+                  disabled={sceneControlsLocked}
+                  aria-label={`进入 ${targetTitle}`}
+                >
+                  <span aria-hidden="true">↘</span>{targetTitle}
+                </button>
+              );
+            }) : scene ? (
+              <span className="scene-minimap__terminal" data-testid="scene-minimap-terminal">
+                <i aria-hidden="true" />已到最深层
+              </span>
+            ) : null}
+          </div>
+        </aside>
         {scene ? (
           <>
             {outgoingScene ? (
@@ -528,7 +658,7 @@ export function WorldApp() {
               meaningVisible={meaningVisible}
               portalTargetTitles={sceneTitles}
               transitionPhase={outgoingScene ? "incoming" : "active"}
-              interactionLocked={loading}
+              interactionLocked={sceneControlsLocked}
               onCommitScene={beginSceneCommit}
               onEnterScene={(sceneId, source) => navigate(sceneId, "forward", source)}
               onExitScene={() => goBack("zoom")}
@@ -538,6 +668,8 @@ export function WorldApp() {
               onPrefetchScene={prefetchPreferredScene}
               initialView={sceneContinuityView}
               onCameraFrame={recordViewportSnapshot}
+              onMotionFrozenChange={handleViewportMotionFrozen}
+              onPortalNavigatorReady={registerPortalNavigator}
             />
           </>
         ) : (
@@ -560,7 +692,7 @@ export function WorldApp() {
             type="button"
             className="back-button"
             onClick={(event) => goBack(event.detail === 0 ? "keyboard" : "pointer")}
-            disabled={loading}
+            disabled={sceneControlsLocked}
           >
             ← 返回上一层
           </button>
@@ -591,6 +723,21 @@ export function WorldApp() {
             >
               <span aria-hidden="true">◖))</span> 听发音
             </button>
+            {selectedLabelRealmId ? (
+              <button
+                type="button"
+                className="lexical-bridge-button"
+                onClick={() => {
+                  setLexicalWorldEntry({ realmId: selectedLabelRealmId, word: selectedLabel.word });
+                  setLexicalWorldInitialFocus("dialog");
+                  setLexicalWorldOpen(true);
+                }}
+                aria-label={`从实景词 ${selectedLabel.word} 进入万词世界的相关语义领域`}
+              >
+                <span aria-hidden="true">↗</span>
+                从这个实景词进入相关词域
+              </button>
+            ) : null}
           </aside>
         ) : null}
       </section>
@@ -608,6 +755,8 @@ export function WorldApp() {
         showMeanings={meaningVisible}
         onShowMeaningsChange={setMeaningPreference}
         initialFocus={lexicalWorldInitialFocus}
+        initialRealmId={lexicalWorldEntry?.realmId}
+        spatialEntryWord={lexicalWorldEntry?.word}
       />
     </main>
   );

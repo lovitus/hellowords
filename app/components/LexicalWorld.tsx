@@ -29,6 +29,10 @@ export interface LexicalWorldProps {
   /** Auto focuses search on desktop, but the dialog itself on touch-sized screens. */
   initialFocus?: LexicalInitialFocus;
   onSelectWord?: (word: LexicalWord) => void;
+  /** Exact reviewed realm supplied by a spatial scene label. */
+  initialRealmId?: string;
+  /** Drawn source word shown as provenance for the semantic transition. */
+  spatialEntryWord?: string;
 }
 
 interface SeenProgress {
@@ -83,6 +87,8 @@ export function LexicalWorld({
   initialQuery = "",
   initialFocus = "auto",
   onSelectWord,
+  initialRealmId,
+  spatialEntryWord,
 }: LexicalWorldProps) {
   const dialogRef = useRef<HTMLElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -114,12 +120,14 @@ export function LexicalWorld({
       setResults([]);
       setSelected(null);
       setSearching(false);
-      setAnnouncement("万词语义世界已打开，可滚动、拖动或使用键盘逐层探索");
+      setAnnouncement(spatialEntryWord
+        ? `已从实景词 ${spatialEntryWord} 进入相关词域；其余词按语义关系组织`
+        : "万词语义世界已打开，可滚动、拖动或使用键盘逐层探索");
     });
     return () => {
       active = false;
     };
-  }, [initialQuery, open]);
+  }, [initialQuery, open, spatialEntryWord]);
 
   useEffect(() => {
     if (!open) return;
@@ -314,6 +322,8 @@ export function LexicalWorld({
           showMeanings={showMeanings}
           onSelectWord={selectWord}
           repository={repository}
+          initialRealmId={initialRealmId}
+          spatialEntryWord={spatialEntryWord}
         />
 
         {selected ? (

@@ -20,7 +20,12 @@ import {
   shouldWriteContinuousTileProgress,
   wheelZoomFactor,
 } from "../../app/components/SceneViewport";
-import { computeSceneLabelLayout, type Label, type Scene } from "../../app/domain";
+import {
+  computeSceneLabelLayout,
+  DEFAULT_PORTAL_HYSTERESIS_POLICY,
+  type Label,
+  type Scene,
+} from "../../app/domain";
 
 const ROOT = new URL("../../", import.meta.url);
 
@@ -118,6 +123,13 @@ test("wheel impulses are normalized across pixel, line and page delta modes", ()
   assert.equal(wheelZoomFactor(10_000, 2, 800), wheelZoomFactor(240, 0, 800));
   assert.equal(wheelZoomFactor(-10_000, 2, 800), wheelZoomFactor(-240, 0, 800));
   assert.ok(lineImpulse > 0 && lineImpulse < 1);
+});
+
+test("one ordinary wheel notch stays in a fitted child and the second requests its parent", () => {
+  const oneNotch = wheelZoomFactor(120, 0, 826);
+  assert.ok(oneNotch > DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale);
+  assert.ok(oneNotch * oneNotch < DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale);
+  assert.equal(DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale, 0.7);
 });
 
 test("continuous zoom checks navigation on animation frames without a post-input dwell", () => {
@@ -351,7 +363,7 @@ test("reduced motion starts from one stable fitted frame without a reverse tile"
   assert.equal(view?.tilePortal, undefined);
 });
 
-test("every user camera path cancels and finishes an interrupted continuity settle", () => {
+test("continuity owns the camera until the fitted child frame has settled", () => {
   const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
   const cancellationStart = source.indexOf("const cancelCameraAnimation");
   const resetStart = source.indexOf("const resetCamera", cancellationStart);
@@ -368,20 +380,23 @@ test("every user camera path cancels and finishes an interrupted continuity sett
   for (const [name, start, end] of [
     ["reset", resetStart, transitionStart],
     ["new portal", transitionStart, zoomStart],
-    ["pinch/direct zoom", zoomStart, wheelStart],
-    ["wheel", wheelStart, vocabularyStart],
     ["vocabulary focus", vocabularyStart, pointerStart],
   ] as const) {
     assert.match(source.slice(start, end), /cancelCameraAnimation\(\)/, `${name} closes continuity`);
   }
-  assert.match(source.slice(pointerStart), /stopWheelAnimation\(\);\s*cancelCameraAnimation\(\);/);
+  assert.match(source, /const viewerInteractive = transitionPhase === "active" && !interactionLocked && !motionFrozen/);
+  assert.match(source.slice(zoomStart, wheelStart), /continuitySettlingRef\.current\) return;/);
+  assert.match(source.slice(wheelStart, vocabularyStart), /continuitySettlingRef\.current\) return;/);
+  assert.match(source.slice(pointerStart), /continuitySettlingRef\.current\) return;/);
 });
 
-test("screen-space labels reserve the title and persistent viewer controls", () => {
+test("screen-space labels reserve the compact minimap and persistent viewer controls", () => {
   const desktop = buildViewerChromeProtectedRegions(1280, 632);
   assert.ok(desktop.some((region) => (
-    region.left === 0 && region.top === 0 && region.right >= 460 && region.bottom >= 150
-  )), "the scene heading owns a protected top-left rectangle");
+    region.left === 0 && region.top === 0
+    && region.right >= 400 && region.right < 430
+    && region.bottom >= 118 && region.bottom < 135
+  )), "the compact scene minimap owns only its measured top-left rectangle");
   assert.ok(desktop.some((region) => (
     region.left < 640 && region.right > 640 && region.top === 0
   )), "the desktop vocabulary summary owns the top-center area");

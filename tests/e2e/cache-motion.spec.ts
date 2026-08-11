@@ -188,6 +188,125 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
   ).toBe(parentDecodesBeforeReturn);
 });
 
+test("world-map wheel continuity settles apartment before a deliberate second-step exit", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === "mobile-chromium", "desktop fit geometry has a distinct mobile scale");
+  const app = await openWorld(page);
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+
+  const apartmentPortal = page.locator(`${HOTSPOT}[data-target-scene="apartment"]`);
+  await expect(apartmentPortal).toBeVisible();
+  const portalBounds = await apartmentPortal.boundingBox();
+  expect(portalBounds).not.toBeNull();
+
+  // A real trackpad keeps emitting impulses after the keyed child mounts.
+  // Send those on consecutive child frames: scene idle is too early to prove
+  // that the 110ms continuity camera has reached its fitted overview.
+  await page.evaluate(() => {
+    const appElement = document.querySelector<HTMLElement>('[data-testid="world-app"]');
+    if (!appElement) throw new Error("world app is required");
+    const trace = { fired: 0 };
+    const observer = new MutationObserver(() => {
+      if (appElement.dataset.sceneId !== "apartment" || trace.fired > 0) return;
+      observer.disconnect();
+      const emitImpulse = () => {
+        const viewport = document.querySelector<HTMLElement>(
+          '.viewer-shell:not([data-phase]) [data-testid="world-viewport"]',
+        );
+        if (!viewport) {
+          requestAnimationFrame(emitImpulse);
+          return;
+        }
+        const bounds = viewport.getBoundingClientRect();
+        viewport.dispatchEvent(new WheelEvent("wheel", {
+          bubbles: true,
+          cancelable: true,
+          clientX: bounds.left + bounds.width / 2,
+          clientY: bounds.top + bounds.height / 2,
+          deltaY: -96,
+          deltaMode: WheelEvent.DOM_DELTA_PIXEL,
+        }));
+        trace.fired += 1;
+        if (trace.fired < 5) requestAnimationFrame(emitImpulse);
+      };
+      requestAnimationFrame(emitImpulse);
+    });
+    observer.observe(appElement, { attributes: true, attributeFilter: ["data-scene-id"] });
+    Reflect.set(window, "__hellowordsApartmentInertia", { trace, observer });
+  });
+
+  await page.mouse.move(
+    portalBounds!.x + portalBounds!.width / 2,
+    portalBounds!.y + portalBounds!.height / 2,
+  );
+  for (let impulse = 0; impulse < 16; impulse += 1) {
+    if (await app.getAttribute("data-scene-id") !== "world-map") break;
+    await page.mouse.wheel(0, -120);
+    await page.waitForTimeout(12);
+  }
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await expect.poll(() => page.evaluate(() => (
+    (Reflect.get(window, "__hellowordsApartmentInertia") as { trace: { fired: number } }).trace.fired
+  ))).toBe(5);
+
+  const activeViewer = page.locator(".viewer-shell:not([data-phase])");
+  const labelLayer = activeViewer.getByTestId("scene-label-layer");
+  const interactionLayer = activeViewer.getByTestId("scene-interaction-layer");
+  await expect(labelLayer).toHaveAttribute("data-motion-frozen", "false");
+  await expect(interactionLayer).toHaveAttribute("data-motion-frozen", "false");
+
+  const surface = activeViewer.locator(".scene-surface");
+  await expect.poll(async () => Number(await surface.getAttribute("data-scene-scale")), {
+    message: "the child must finish at its fitted overview after inertial input is rejected",
+  }).toBeCloseTo(1, 2);
+  const fitted = await activeViewer.evaluate((viewer) => {
+    const viewport = viewer.querySelector<HTMLElement>('[data-testid="world-viewport"]');
+    const art = viewer.querySelector<HTMLElement>(".scene-art");
+    if (!viewport || !art) throw new Error("active apartment geometry is required");
+    const viewportBounds = viewport.getBoundingClientRect();
+    const artBounds = art.getBoundingClientRect();
+    return {
+      viewport: {
+        left: viewportBounds.left,
+        right: viewportBounds.right,
+        top: viewportBounds.top,
+        bottom: viewportBounds.bottom,
+        width: viewportBounds.width,
+        height: viewportBounds.height,
+      },
+      art: {
+        left: artBounds.left,
+        right: artBounds.right,
+        top: artBounds.top,
+        bottom: artBounds.bottom,
+        width: artBounds.width,
+        height: artBounds.height,
+      },
+    };
+  });
+  expect(fitted.art.left).toBeGreaterThanOrEqual(fitted.viewport.left - 2);
+  expect(fitted.art.right).toBeLessThanOrEqual(fitted.viewport.right + 2);
+  expect(fitted.art.top).toBeGreaterThanOrEqual(fitted.viewport.top - 2);
+  expect(fitted.art.bottom).toBeLessThanOrEqual(fitted.viewport.bottom + 2);
+  expect(
+    Math.abs(fitted.art.width - fitted.viewport.width) <= 2
+      || Math.abs(fitted.art.height - fitted.viewport.height) <= 2,
+    "the complete apartment fits inside the viewport with one contain axis filled",
+  ).toBe(true);
+
+  await wheelAtViewportCenter(page, 120);
+  await expect.poll(async () => {
+    if (await app.getAttribute("data-scene-id") !== "apartment") return false;
+    const scale = Number(await surface.getAttribute("data-scene-scale"));
+    return scale >= 0.805 && scale <= 0.825;
+  }, { message: "one ordinary wheel notch keeps the fitted apartment open" }).toBe(true);
+
+  await startLoaderTrace(page);
+  await wheelAtViewportCenter(page, 120);
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+  expect(await finishLoaderTrace(page), "the retained world map returns warm without a loader").toBe(false);
+});
+
 test("continuous wheel input advances in monotonic animation frames without a scale jump", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
   await openWorld(page);
@@ -383,7 +502,14 @@ test("reduced motion and keyboard navigation preserve the warm parent path", asy
   await expect(portal).toBeFocused();
   await portal.press("Enter");
   await expect(app).toHaveAttribute("data-scene-id", child as string);
-  await page.getByRole("button", { name: parent === "world-map" ? "World atlas" : parent }).click();
+  const parentBreadcrumb = page.locator(
+    `[data-testid="scene-minimap-breadcrumb"][data-scene-id="${parent}"][data-current="false"]`,
+  );
+  await expect(parentBreadcrumb).toHaveRole("button");
+  await expect(parentBreadcrumb).toHaveAccessibleName(
+    parent === "world-map" ? "World atlas" : parent,
+  );
+  await parentBreadcrumb.click();
   await expect(app).toHaveAttribute("data-scene-id", parent);
   await expect(app).toHaveAttribute("data-scene-loading", "false");
   await expect(page.locator(".loading-pill")).toBeHidden();

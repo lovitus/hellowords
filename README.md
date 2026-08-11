@@ -16,8 +16,8 @@ off by default, and the experience intentionally avoids quiz and streak pressure
   word batches around visible regions of each illustration;
 - mouse, touch, wheel and pinch camera controls;
 - 33 typed scene portals with recursive high-resolution tile handoff,
-  continuous zoom entry and reverse zoom-out return, breadcrumbs and explicit
-  controls;
+  continuous zoom entry and reverse zoom-out return, plus a compact translucent
+  minimap for the current path and direct child scenes;
 - English labels with a Chinese-meaning toggle that is off by default;
 - a single semantic zoom plane where all 10,000 ranked English words remain
   reachable through four scale-dependent levels: 10 realms, 44 topics, 704

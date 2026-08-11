@@ -78,7 +78,8 @@ Default navigation rules:
 - prepare and reveal the decoded child tile as the zoom focus approaches a
   portal, then enter when the portal is focused and its authored threshold
   (default `3.6`) is crossed;
-- return after scale falls below `0.82`;
+- keep the first ordinary zoom-out step inside a fitted child and return only
+  after a second deliberate step crosses `0.70`;
 - enforce a short transition cooldown and require fresh reverse input;
 - keep the recursive tile and camera center continuous across scene ownership;
 - restore the exact saved parent camera through the inverse portal mapping;
@@ -131,9 +132,9 @@ selected word always reveals its meaning without changing that preference.
 
 The decorative scene image has empty alternative text. Portals and visible
 labels use native buttons with accessible names. The viewer provides keyboard
-pan, zoom, fit, enter, and back controls, a scene breadcrumb, a polite
-scene-change live region, and non-spatial search results. Browser page zoom is
-never disabled.
+pan, zoom, fit, enter, and back controls, a compact translucent scene minimap
+with clickable ancestors and direct children, a polite scene-change live region,
+and non-spatial search results. Browser page zoom is never disabled.
 
 Pointer Events support mouse, pen, one-finger pan and two-finger pinch. The
 implementation must handle pointer capture, cancellation, a third pointer, and

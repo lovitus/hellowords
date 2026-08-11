@@ -13,6 +13,7 @@ import {
   buildVocabularyZoomCues,
   consolidateVocabularyCueBatches,
   computeSceneLabelLayout,
+  DEFAULT_PORTAL_HYSTERESIS_POLICY,
   LABEL_ENCOUNTER_OPACITY,
   prioritizeCurrentLabelOrder,
   sceneLabelLod,
@@ -50,7 +51,14 @@ interface SceneViewportProps {
   ) => void | Scene | null | Promise<Scene | null>;
   initialView?: SceneContinuityView;
   onCameraFrame?: (snapshot: SceneViewportSnapshot) => void;
+  onMotionFrozenChange?: (frozen: boolean) => void;
+  onPortalNavigatorReady?: (navigator: ScenePortalNavigator | null) => void;
 }
+
+export type ScenePortalNavigator = (
+  portalId: string,
+  source: "pointer" | "keyboard",
+) => boolean;
 
 export interface SceneViewportCamera {
   x: number;
@@ -282,7 +290,7 @@ function syncMotionFrozenLayer(element: HTMLElement, frozen: boolean): void {
 const WHEEL_RESPONSE_MS = 52;
 const WHEEL_POSITION_EPSILON = 0.08;
 const WHEEL_SCALE_EPSILON = 0.00045;
-const EXIT_SCALE = 0.82;
+const EXIT_SCALE = DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale;
 const MAX_SCALE = 4.15;
 const PORTAL_PREVIEW_LEAD = 1;
 const PORTAL_ARMED_PROGRESS = 0.82;
@@ -313,11 +321,16 @@ export function buildViewerChromeProtectedRegions(
 ): SceneLabelProtectedRegion[] {
   const compact = width <= 900;
   const phone = width <= 560;
+  // Match the compact translucent scene minimap instead of reserving the old
+  // multi-line title block. This gives grounded labels the rest of the
+  // top-left image back without allowing pills to sit under navigation.
+  const minimapRight = Math.min(width, phone ? 312 : compact ? 348 : 412);
+  const minimapBottom = phone ? 112 : compact ? 116 : 126;
   const regions: SceneLabelProtectedRegion[] = [{
     left: 0,
-    right: Math.min(width, compact ? Math.max(308, width * 0.8) : 480),
+    right: minimapRight,
     top: 0,
-    bottom: compact ? 146 : 166,
+    bottom: minimapBottom,
   }];
 
   if (!phone) {
@@ -418,6 +431,8 @@ export function SceneViewport({
   onPrefetchScene,
   initialView,
   onCameraFrame,
+  onMotionFrozenChange,
+  onPortalNavigatorReady,
 }: SceneViewportProps) {
   const reducedContinuityAtMount = Boolean(
     initialView
@@ -459,6 +474,7 @@ export function SceneViewport({
   const previewRef = useRef<HTMLDivElement>(null);
   const vocabularyAnnouncementRef = useRef<HTMLParagraphElement>(null);
   const vocabularySummaryRef = useRef<HTMLButtonElement>(null);
+  const sceneWordProgressRef = useRef<HTMLParagraphElement>(null);
   const previewPhaseRef = useRef<"preview" | "armed">("preview");
   const committingRef = useRef(false);
   const parentZoomPrefetchRef = useRef(false);
@@ -563,9 +579,13 @@ export function SceneViewport({
     setStylePropertyIfChanged(node.style, "--tile-progress", progressValue);
   }, [scene.portals]);
 
-  const viewerInteractive = transitionPhase === "active" && !interactionLocked;
+  const viewerInteractive = transitionPhase === "active" && !interactionLocked && !motionFrozen;
   const viewerInteractiveRef = useRef(viewerInteractive);
   const meaningVisibleRef = useRef(meaningVisible);
+
+  useEffect(() => {
+    onMotionFrozenChange?.(motionFrozen);
+  }, [motionFrozen, onMotionFrozenChange]);
 
   const showPortalPreview = useCallback((portal: ScenePortal | null) => {
     if (
@@ -863,6 +883,31 @@ export function SceneViewport({
     setDatasetValueIfChanged(labelLayer, "visibleLabelCount", String(visibleCount));
     setDatasetValueIfChanged(labelLayer, "emergingLabelCount", String(emergingCount));
     setDatasetValueIfChanged(labelLayer, "sceneScale", sceneScaleValue);
+    const sceneWordProgress = sceneWordProgressRef.current;
+    if (sceneWordProgress) {
+      const total = scene.labels.length;
+      const remaining = Math.max(0, total - visibleCount);
+      const maximumZoom = camera.scale >= MAX_SCALE - 0.02;
+      const action = remaining === 0
+        ? "本景词汇已全部在当前视野"
+        : maximumZoom
+          ? `拖动探索其余 ${remaining} 个词`
+          : `放大或拖动探索其余 ${remaining} 个词`;
+      const compact = viewportWidth <= 560;
+      const text = compact
+        ? `视野 ${visibleCount}/${total} · ${remaining === 0 ? "已全部展开" : maximumZoom ? `拖动看其余 ${remaining}` : `放大/拖动看其余 ${remaining}`}`
+        : `当前视野 ${visibleCount} / 本景 ${total} 个词 · ${action}`;
+      if (sceneWordProgress.textContent !== text) sceneWordProgress.textContent = text;
+      setAttributeIfChanged(
+        sceneWordProgress,
+        "aria-label",
+        `当前视野 ${visibleCount} 个词，本场景共 ${total} 个词。${action}`,
+      );
+      setDatasetValueIfChanged(sceneWordProgress, "current", String(visibleCount));
+      setDatasetValueIfChanged(sceneWordProgress, "total", String(total));
+      setDatasetValueIfChanged(sceneWordProgress, "remaining", String(remaining));
+      setDatasetValueIfChanged(sceneWordProgress, "cameraMode", maximumZoom ? "pan" : "zoom-or-pan");
+    }
 
     if (encounterDwellRef.current) {
       clearTimeout(encounterDwellRef.current);
@@ -1328,6 +1373,24 @@ export function SceneViewport({
     cameraAnimationRef.current = requestAnimationFrame(animate);
   }, [applyCamera, cancelCameraAnimation, clampCamera, interactionLocked, onCameraFrame, onCommitScene, onEnterScene, requestCameraFrame, requestContinuousTile, scene.id, showPortalPreview, stopWheelAnimation]);
 
+  useEffect(() => {
+    if (!onPortalNavigatorReady) return;
+    const navigateFromSceneMap: ScenePortalNavigator = (portalId, source) => {
+      const portal = scene.portals.find((candidate) => candidate.id === portalId);
+      if (
+        !portal
+        || committingRef.current
+        || continuitySettlingRef.current
+        || interactionLocked
+        || !viewerInteractiveRef.current
+      ) return false;
+      beginPortalTransition(portal, source);
+      return true;
+    };
+    onPortalNavigatorReady(navigateFromSceneMap);
+    return () => onPortalNavigatorReady(null);
+  }, [beginPortalTransition, interactionLocked, onPortalNavigatorReady, scene.portals]);
+
   const evaluateNavigation = useCallback(() => {
     const now = performance.now();
     if (now - lastNavigationRef.current < 350) return;
@@ -1360,7 +1423,7 @@ export function SceneViewport({
 
   const zoomAt = useCallback(
     (point: Point, factor: number, previousPoint: Point = point) => {
-      if (!viewerInteractive || committingRef.current) return;
+      if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
       stopWheelAnimation();
       cancelCameraAnimation();
       const camera = cameraRef.current;
@@ -1422,7 +1485,7 @@ export function SceneViewport({
   );
 
   const queueWheelZoom = useCallback((point: Point, factor: number) => {
-    if (!viewerInteractive || committingRef.current) return;
+    if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
     if (navigationFrameRef.current !== null) {
       cancelAnimationFrame(navigationFrameRef.current);
       navigationFrameRef.current = null;
@@ -1750,7 +1813,7 @@ export function SceneViewport({
   }, [onLabelEncountered]);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!viewerInteractive || committingRef.current) return;
+    if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
     if ((event.target as Element).closest("button")) return;
     stopWheelAnimation();
     cancelCameraAnimation();
@@ -1761,7 +1824,7 @@ export function SceneViewport({
   };
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!viewerInteractive || committingRef.current) return;
+    if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
     if (!pointersRef.current.has(event.pointerId)) return;
     const current = { x: event.clientX, y: event.clientY };
     const previous = previousPointersRef.current.get(event.pointerId) ?? current;
@@ -2125,7 +2188,17 @@ export function SceneViewport({
               </span>
             </div>
           ) : (
-            <p className="gesture-hint">拖动探索 · 滚轮或双指缩放 · 选择彩色提示</p>
+            <p
+              ref={sceneWordProgressRef}
+              className="gesture-hint"
+              data-testid="scene-word-progress"
+              data-current="0"
+              data-total={scene.labels.length}
+              data-remaining={scene.labels.length}
+              data-camera-mode="zoom-or-pan"
+            >
+              当前视野 0 / 本景 {scene.labels.length} 个词 · 放大或拖动探索
+            </p>
           )}
         </>
       ) : null}

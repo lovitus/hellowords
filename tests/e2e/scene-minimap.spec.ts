@@ -1,0 +1,155 @@
+import { expect, test, type Locator, type Page } from "@playwright/test";
+
+const APP = '[data-testid="world-app"]';
+const MINIMAP = '[data-testid="scene-minimap"]';
+const CHILD = '[data-testid="scene-minimap-child"]';
+const BREADCRUMB = '[data-testid="scene-minimap-breadcrumb"]';
+
+interface MinimapTransitionProbe {
+  hardTransitionAppeared: boolean;
+  settled: Array<{ from: string; to: string }>;
+  handoffs: Array<{
+    sceneId: string | null;
+    tileChild: string | null;
+    tileState: string | null;
+    mapDisabled: boolean;
+    atlasDisabled: boolean;
+  }>;
+}
+
+async function openWorld(page: Page): Promise<Locator> {
+  await page.goto("/#world", { waitUntil: "domcontentloaded" });
+  const app = page.locator(APP);
+  await expect(app).toBeVisible();
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-positioned", "true");
+  return app;
+}
+
+async function startTransitionProbe(page: Page): Promise<void> {
+  await page.evaluate(() => {
+    const probe: MinimapTransitionProbe = { hardTransitionAppeared: false, settled: [], handoffs: [] };
+    const captureHandoff = () => {
+      const appElement = document.querySelector<HTMLElement>('[data-testid="world-app"]');
+      const tile = document.querySelector<HTMLElement>('[data-testid="scene-continuous-tile"]');
+      if (!tile || tile.dataset.state !== "active") return;
+      const mapButton = document.querySelector<HTMLButtonElement>(
+        `[data-testid="scene-minimap-child"][data-target-scene="${CSS.escape(tile.dataset.childScene ?? "")}"]`,
+      );
+      const atlas = document.querySelector<HTMLButtonElement>(".atlas-button");
+      const sample = {
+        sceneId: appElement?.dataset.sceneId ?? null,
+        tileChild: tile.dataset.childScene ?? null,
+        tileState: tile.dataset.state ?? null,
+        mapDisabled: mapButton?.disabled ?? false,
+        atlasDisabled: atlas?.disabled ?? false,
+      };
+      if (probe.handoffs.at(-1)?.mapDisabled !== sample.mapDisabled) probe.handoffs.push(sample);
+    };
+    const inspect = (node: Node) => {
+      if (!(node instanceof Element)) return;
+      if (
+        node.matches(".scene-transition-veil, [data-testid='scene-transition-layer']")
+        || node.querySelector(".scene-transition-veil, [data-testid='scene-transition-layer']")
+      ) probe.hardTransitionAppeared = true;
+    };
+    const observer = new MutationObserver((records) => {
+      for (const node of records.flatMap((record) => [...record.addedNodes])) inspect(node);
+      captureHandoff();
+    });
+    const onSettled = (event: Event) => {
+      const detail = (event as CustomEvent<{ from: string; to: string }>).detail;
+      probe.settled.push({ from: detail.from, to: detail.to });
+    };
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["data-state", "data-scene-id", "disabled"],
+    });
+    window.addEventListener("world:scene-settled", onSettled);
+    Reflect.set(window, "__sceneMinimapTransitionProbe", { probe, observer, onSettled });
+  });
+}
+
+async function finishTransitionProbe(page: Page): Promise<MinimapTransitionProbe> {
+  await expect.poll(() => page.evaluate(() => (
+    (Reflect.get(window, "__sceneMinimapTransitionProbe") as {
+      probe: MinimapTransitionProbe;
+    }).probe.settled.length
+  ))).toBeGreaterThan(0);
+  return page.evaluate(() => {
+    const state = Reflect.get(window, "__sceneMinimapTransitionProbe") as {
+      probe: MinimapTransitionProbe;
+      observer: MutationObserver;
+      onSettled: (event: Event) => void;
+    };
+    state.observer.disconnect();
+    window.removeEventListener("world:scene-settled", state.onSettled);
+    return state.probe;
+  });
+}
+
+test("the compact minimap exposes direct children, terminal state, and ancestor return", async ({ page }) => {
+  const app = await openWorld(page);
+  const minimap = page.locator(MINIMAP);
+  await expect(minimap).toHaveAttribute("data-scene-id", "world-map");
+  await expect(minimap).toHaveAttribute("data-child-count", "4");
+  await expect(minimap).toHaveAttribute("data-terminal", "false");
+  await expect(page.getByTestId("scene-minimap-title")).toHaveText("World atlas");
+  await expect(page.locator(".scene-heading")).toHaveCount(0);
+  await expect(minimap.locator(CHILD)).toHaveCount(4);
+  expect((await minimap.locator(CHILD).evaluateAll((buttons) => buttons.map((button) => (
+    (button as HTMLElement).dataset.targetScene
+  )).sort()))).toEqual(["apartment", "city-park", "city-street", "community-garden"]);
+  expect(await minimap.locator(CHILD).evaluateAll((buttons) => buttons.every((button) => (
+    (button as HTMLElement).dataset.navigation === "portal-continuity"
+  )))).toBe(true);
+
+  const visualContract = await minimap.evaluate((element) => {
+    const bounds = element.getBoundingClientRect();
+    const style = getComputedStyle(element);
+    return {
+      width: bounds.width,
+      height: bounds.height,
+      background: style.backgroundColor,
+    };
+  });
+  expect(visualContract.width).toBeLessThanOrEqual(370);
+  expect(visualContract.height).toBeLessThan(130);
+  expect(visualContract.background).toMatch(/^rgba\(.+, 0\.78\)$/);
+
+  await startTransitionProbe(page);
+  const gardenButton = minimap.locator(`${CHILD}[data-target-scene="community-garden"]`);
+  await gardenButton.hover();
+  await gardenButton.click();
+  const expectedHandoff = {
+    sceneId: "world-map",
+    tileChild: "community-garden",
+    tileState: "active",
+    mapDisabled: true,
+    atlasDisabled: true,
+  };
+  await expect(app).toHaveAttribute("data-scene-id", "community-garden");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(minimap).toHaveAttribute("data-scene-id", "community-garden");
+  await expect(minimap).toHaveAttribute("data-child-count", "0");
+  await expect(minimap).toHaveAttribute("data-terminal", "true");
+  await expect(page.getByTestId("scene-minimap-terminal")).toHaveText(/已到最深层/);
+  const transition = await finishTransitionProbe(page);
+  expect(transition.handoffs).toContainEqual(expectedHandoff);
+  expect(transition.settled.at(-1)).toEqual({ from: "world-map", to: "community-garden" });
+  expect(transition.hardTransitionAppeared).toBe(false);
+
+  const rootCrumb = minimap.locator(`${BREADCRUMB}[data-scene-id="world-map"]`);
+  await expect(rootCrumb).toHaveAttribute("data-current", "false");
+  await expect(rootCrumb).toBeEnabled();
+  await rootCrumb.click();
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(minimap).toHaveAttribute("data-child-count", "4");
+  await expect(minimap.locator(`${BREADCRUMB}[data-scene-id="world-map"]`)).toHaveAttribute(
+    "data-current",
+    "true",
+  );
+});

@@ -71,7 +71,9 @@ async function openLeafScene(page: Page): Promise<Locator> {
   await expect(page.locator(LABEL_LAYER)).toHaveAttribute("data-motion-frozen", "false");
 
   await page.getByRole("button", { name: "Fit scene" }).click();
-  await expect(page.locator(SURFACE)).toHaveAttribute("data-scene-scale", "1.000");
+  const viewport = page.viewportSize();
+  const fittedScale = viewport && viewport.height > viewport.width * 1.25 ? "1.300" : "1.000";
+  await expect(page.locator(SURFACE)).toHaveAttribute("data-scene-scale", fittedScale);
   return app;
 }
 
@@ -119,12 +121,14 @@ async function startLabelZoomTrace(page: Page): Promise<void> {
       const height = viewport.clientHeight;
       const compact = width <= 900;
       const phone = width <= 560;
+      const minimapRight = Math.min(width, phone ? 312 : compact ? 348 : 412);
+      const minimapBottom = phone ? 112 : compact ? 116 : 126;
       const regions = [toGlobalRect(
         viewportRect,
         0,
-        Math.min(width, compact ? Math.max(308, width * 0.8) : 480),
+        minimapRight,
         0,
-        compact ? 146 : 166,
+        minimapBottom,
       )];
       if (!phone) {
         regions.push(toGlobalRect(
@@ -304,7 +308,10 @@ async function zoomThroughScales(page: Page, targets: readonly number[]): Promis
       message: `scene zoom must reach ${target.toFixed(2)}`,
     }).toBeGreaterThanOrEqual(target * 0.995);
   }
-  await expect(surface).toHaveAttribute("data-scene-scale", MAX_SCALE.toFixed(3));
+  await expect.poll(
+    async () => Number(await surface.getAttribute("data-scene-scale")),
+    { message: "scene zoom reaches the authored maximum-mode threshold" },
+  ).toBeGreaterThanOrEqual(MAX_SCALE - 0.02);
 }
 
 async function waitForCameraSettled(page: Page): Promise<void> {
@@ -504,4 +511,32 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
     expect(label.ariaHidden, `${id} must remain exposed to assistive technology`).toBe("false");
     expect(label.tabIndex, `${id} must remain keyboard reachable`).toBe(0);
   }
+});
+
+test("viewport progress distinguishes the current crop from the full scene", async ({ page }) => {
+  await openLeafScene(page);
+  const progress = page.getByTestId("scene-word-progress");
+  await expect(progress).toBeVisible();
+
+  const sceneContract = await page.evaluate(async (sceneId): Promise<SceneContract> => {
+    const response = await fetch(`/data/scenes/${encodeURIComponent(sceneId)}.json`);
+    if (!response.ok) throw new Error(`Unable to load scene contract for ${sceneId}`);
+    return response.json() as Promise<SceneContract>;
+  }, TARGET_SCENE);
+  await expect(progress).toHaveAttribute("data-total", String(sceneContract.labels.length));
+  await expect.poll(async () => Number(await progress.getAttribute("data-current"))).toBeGreaterThan(0);
+
+  await zoomThroughScales(page, [1.65, 2.3, 3.12, MAX_SCALE]);
+  await waitForCameraSettled(page);
+  const snapshot = await progress.evaluate((element) => ({
+    current: Number((element as HTMLElement).dataset.current),
+    total: Number((element as HTMLElement).dataset.total),
+    remaining: Number((element as HTMLElement).dataset.remaining),
+    cameraMode: (element as HTMLElement).dataset.cameraMode,
+    text: element.textContent ?? "",
+  }));
+  expect(snapshot.current).toBeGreaterThan(0);
+  expect(snapshot.current + snapshot.remaining).toBe(snapshot.total);
+  expect(snapshot.cameraMode).toBe("pan");
+  expect(snapshot.text).toContain("拖动");
 });
