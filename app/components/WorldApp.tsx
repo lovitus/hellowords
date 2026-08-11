@@ -468,6 +468,18 @@ export function WorldApp() {
     setLexicalWorldOpen(true);
   }, []);
 
+  const openLexicalFromScene = useCallback((
+    label: Label | null,
+    source: "zoom" | "pointer" | "keyboard",
+  ) => {
+    const realmId = label?.lexemeId
+      ? SPATIAL_REALM_BY_LEXEME[label.lexemeId]
+      : undefined;
+    setLexicalWorldEntry(realmId && label ? { realmId, word: label.word } : null);
+    setLexicalWorldInitialFocus(source === "keyboard" ? "dialog" : "auto");
+    setLexicalWorldOpen(true);
+  }, []);
+
   const selectedLabelRealmId = selectedLabel?.lexemeId
     ? SPATIAL_REALM_BY_LEXEME[selectedLabel.lexemeId]
     : undefined;
@@ -663,6 +675,7 @@ export function WorldApp() {
                 onLabelsEncountered={() => undefined}
                 onLabelEncountered={() => undefined}
                 onSelectWord={() => undefined}
+                onExploreSemanticPlane={() => undefined}
                 onPrefetchScene={() => undefined}
               />
             ) : null}
@@ -679,6 +692,7 @@ export function WorldApp() {
               onLabelsEncountered={recordEncounteredLabels}
               onLabelEncountered={recordEncounteredLabel}
               onSelectWord={setSelectedLabel}
+              onExploreSemanticPlane={openLexicalFromScene}
               onPrefetchScene={prefetchPreferredScene}
               initialView={sceneContinuityView}
               onCameraFrame={recordViewportSnapshot}
@@ -742,9 +756,7 @@ export function WorldApp() {
                 type="button"
                 className="lexical-bridge-button"
                 onClick={() => {
-                  setLexicalWorldEntry({ realmId: selectedLabelRealmId, word: selectedLabel.word });
-                  setLexicalWorldInitialFocus("dialog");
-                  setLexicalWorldOpen(true);
+                  openLexicalFromScene(selectedLabel, "keyboard");
                 }}
                 aria-label={`从实景词 ${selectedLabel.word} 进入万词世界的相关语义领域`}
               >

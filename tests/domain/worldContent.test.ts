@@ -228,7 +228,7 @@ test("known floating-label regressions stay removed and critical portals match v
 
   const cityStreet = byId.get("city-street");
   assert.ok(cityStreet);
-  assert.equal(cityStreet.asset, "/scenes/city-street-bright-v3.jpg");
+  assert.equal(cityStreet.asset, "/scenes/city-street-bright-v4.jpg");
   const streetWords = new Set(cityStreet.labels.map((label) => label.word));
   for (const visibleMuseumTerm of ["science museum", "museum entrance", "exhibit window", "telescope"]) {
     assert.ok(streetWords.has(visibleMuseumTerm), `city street shows ${visibleMuseumTerm}`);
@@ -244,8 +244,8 @@ test("known floating-label regressions stay removed and critical portals match v
       translation: "进入科学馆",
       childSceneId: "science-museum",
       x: 0,
-      y: 60,
-      width: 560,
+      y: 70,
+      width: 605,
       height: 560,
       enterScale: 3.6,
       sourceVisualRegion: "portal-museum",
@@ -1463,10 +1463,10 @@ test("city cafe is a new terminal storefront branch with a non-overlapping paren
     label: "Enter the city cafe",
     translation: "进入城市咖啡馆",
     childSceneId: "city-cafe",
-    x: 610,
-    y: 160,
-    width: 370,
-    height: 450,
+    x: 620,
+    y: 155,
+    width: 365,
+    height: 470,
     enterScale: 3.6,
     sourceVisualRegion: "portal-cafe",
   });

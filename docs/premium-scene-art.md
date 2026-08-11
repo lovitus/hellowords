@@ -18,7 +18,7 @@ These thirty-seven 1600 × 900 JPEG scenes were created with the built-in image 
 | Bathroom | `bathroom-premium-v1.jpg` | `8b5e929be4f6fec90630342e9c31d1d40e4dfd4f7b207a1fb1c6108f5eb82f22` |
 | Wardrobe interior | `wardrobe-interior-premium-v2.jpg` | `ec0cc25087f206253e5fc04c4a59c5a1011300fde1591c2431680ef963e24925` |
 | Cotton shirt | `cotton-shirt-premium-v2.jpg` | `2cca1b5da611c7bf163adf6ef4e9fd5b66517288050437f5b3a8467c7958965e` |
-| City street | `city-street-bright-v3.jpg` | `f615acf6a5751f9d6033e3ebcb96d1d7f768566db3acaa9170d363d53fb1fd08` |
+| City street | `city-street-bright-v4.jpg` | `e280b0047e7bf0dbcf7f1ff392c38d5b88f06e11bb6304f3d998f47f37438fdf` |
 | City cafe | `city-cafe-premium-v2.jpg` | `376704b19736218c3af769cd1f2faae8726aa25b7b1e784ffab593876434b88f` |
 | Transit hub | `transit-hub-premium-v2.jpg` | `0404f4a4fcfef1cba37b54231530085b708e498b1e21dd94e5585477f68652f9` |
 | Electric bus | `electric-bus-premium-v2.jpg` | `71fd16eaad65c46a9aa9ea0c85cb87b788337e44c57b76f0365449dda38a9a63` |
@@ -62,7 +62,7 @@ The final-pixel audit retained 44 independently visible terms and rebuilt all th
 
 Create a bright elegant civic street in clean daylight with three complete, independently framed destinations: a columned science museum with a telescope exhibit at left, a blank-fronted cafe at centre, and a glazed transit hall at right. Keep ordinary street furniture and vehicles visibly distinct while excluding anatomy displays, pseudo-lettering, logos, readable signs and dark foreground silhouettes.
 
-The final audit retained 42 grounded terms and rebuilt the three disjoint destination portals from the accepted pixels. The image has a 135.1 mean luma and no generated signage.
+The final audit retained 42 grounded terms and rebuilt the three disjoint destination portals from the accepted pixels. At 400 × 225 the accepted image has a 131.5 mean luma, 12.7% of pixels below 64 and 4.9% below 32; the final pixels contain no generated signage.
 
 ### City park
 

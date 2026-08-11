@@ -775,6 +775,346 @@
       "minLevel": 4,
       "sourceVisualRegion": "garden-tree",
       "lexemeId": "en-dc9c5edb8b2d479e"
+    },
+    {
+      "id": "mountain-ridge",
+      "word": "mountain ridge",
+      "translation": "山脊",
+      "x": 900,
+      "y": 70,
+      "priority": 3.073,
+      "minLevel": 2,
+      "sourceVisualRegion": "landscape-mountain-ridge"
+    },
+    {
+      "id": "bridge-arch",
+      "word": "bridge arch",
+      "translation": "桥拱",
+      "x": 185,
+      "y": 160,
+      "priority": 4.074,
+      "minLevel": 3,
+      "sourceVisualRegion": "landscape-bridge-arch"
+    },
+    {
+      "id": "riverbank",
+      "word": "riverbank",
+      "translation": "河岸",
+      "x": 485,
+      "y": 205,
+      "priority": 4.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "landscape-riverbank"
+    },
+    {
+      "id": "skylight",
+      "word": "skylight",
+      "translation": "天窗",
+      "x": 285,
+      "y": 198,
+      "priority": 5.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "home-skylight"
+    },
+    {
+      "id": "terrace-railing",
+      "word": "terrace railing",
+      "translation": "露台栏杆",
+      "x": 150,
+      "y": 250,
+      "priority": 4.077,
+      "minLevel": 3,
+      "sourceVisualRegion": "home-terrace-railing"
+    },
+    {
+      "id": "coffee-table",
+      "word": "coffee table",
+      "translation": "茶几",
+      "x": 235,
+      "y": 335,
+      "priority": 5.078,
+      "minLevel": 4,
+      "sourceVisualRegion": "home-coffee-table"
+    },
+    {
+      "id": "ceiling-light",
+      "word": "ceiling light",
+      "translation": "吊灯",
+      "x": 292,
+      "y": 405,
+      "priority": 5.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "home-ceiling-light"
+    },
+    {
+      "id": "townhouse",
+      "word": "townhouse",
+      "translation": "联排住宅",
+      "x": 435,
+      "y": 650,
+      "priority": 2.08,
+      "minLevel": 1,
+      "sourceVisualRegion": "home-townhouse"
+    },
+    {
+      "id": "dormer-window",
+      "word": "dormer window",
+      "translation": "老虎窗",
+      "x": 435,
+      "y": 585,
+      "priority": 5.081,
+      "minLevel": 4,
+      "sourceVisualRegion": "home-dormer-window"
+    },
+    {
+      "id": "front-door",
+      "word": "front door",
+      "translation": "前门",
+      "x": 340,
+      "y": 690,
+      "priority": 5.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "home-front-door"
+    },
+    {
+      "id": "garden-fence",
+      "word": "garden fence",
+      "translation": "花园围栏",
+      "x": 400,
+      "y": 445,
+      "priority": 4.083,
+      "minLevel": 3,
+      "sourceVisualRegion": "home-garden-fence"
+    },
+    {
+      "id": "flowering-tree",
+      "word": "flowering tree",
+      "translation": "开花乔木",
+      "x": 480,
+      "y": 450,
+      "priority": 3.084,
+      "minLevel": 2,
+      "sourceVisualRegion": "home-flowering-tree"
+    },
+    {
+      "id": "outdoor-table",
+      "word": "outdoor table",
+      "translation": "户外餐桌",
+      "x": 485,
+      "y": 815,
+      "priority": 4.085,
+      "minLevel": 3,
+      "sourceVisualRegion": "home-outdoor-table"
+    },
+    {
+      "id": "office-building",
+      "word": "office building",
+      "translation": "办公楼",
+      "x": 800,
+      "y": 290,
+      "priority": 2.086,
+      "minLevel": 1,
+      "sourceVisualRegion": "city-office-building"
+    },
+    {
+      "id": "brick-building",
+      "word": "brick building",
+      "translation": "砖楼",
+      "x": 1005,
+      "y": 275,
+      "priority": 3.087,
+      "minLevel": 2,
+      "sourceVisualRegion": "city-brick-building"
+    },
+    {
+      "id": "office-window",
+      "word": "office window",
+      "translation": "办公楼窗户",
+      "x": 970,
+      "y": 245,
+      "priority": 5.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "city-office-window"
+    },
+    {
+      "id": "cafe-umbrella",
+      "word": "cafe umbrella",
+      "translation": "咖啡座遮阳伞",
+      "x": 890,
+      "y": 345,
+      "priority": 4.089,
+      "minLevel": 3,
+      "sourceVisualRegion": "city-cafe-umbrella"
+    },
+    {
+      "id": "bus-wheel",
+      "word": "bus wheel",
+      "translation": "公交车轮",
+      "x": 915,
+      "y": 492,
+      "priority": 5.09,
+      "minLevel": 4,
+      "sourceVisualRegion": "city-bus-wheel"
+    },
+    {
+      "id": "bus-windshield",
+      "word": "bus windshield",
+      "translation": "公交车挡风玻璃",
+      "x": 892,
+      "y": 466,
+      "priority": 5.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "city-bus-windshield"
+    },
+    {
+      "id": "station-column",
+      "word": "station column",
+      "translation": "站棚立柱",
+      "x": 800,
+      "y": 510,
+      "priority": 5.092,
+      "minLevel": 4,
+      "sourceVisualRegion": "transit-column"
+    },
+    {
+      "id": "tree-canopy",
+      "word": "tree canopy",
+      "translation": "树冠",
+      "x": 1330,
+      "y": 190,
+      "priority": 2.093,
+      "minLevel": 1,
+      "sourceVisualRegion": "park-tree-canopy"
+    },
+    {
+      "id": "root",
+      "word": "root",
+      "translation": "树根",
+      "x": 1325,
+      "y": 350,
+      "priority": 4.094,
+      "minLevel": 3,
+      "sourceVisualRegion": "park-root"
+    },
+    {
+      "id": "deck-railing",
+      "word": "deck railing",
+      "translation": "平台栏杆",
+      "x": 1335,
+      "y": 375,
+      "priority": 4.095,
+      "minLevel": 3,
+      "sourceVisualRegion": "park-deck-railing"
+    },
+    {
+      "id": "deck-stairs",
+      "word": "deck stairs",
+      "translation": "平台台阶",
+      "x": 1415,
+      "y": 390,
+      "priority": 5.096,
+      "minLevel": 4,
+      "sourceVisualRegion": "park-deck-stairs"
+    },
+    {
+      "id": "park-bench",
+      "word": "park bench",
+      "translation": "公园长椅",
+      "x": 1135,
+      "y": 480,
+      "priority": 4.097,
+      "minLevel": 3,
+      "sourceVisualRegion": "park-bench"
+    },
+    {
+      "id": "evergreen-tree",
+      "word": "evergreen tree",
+      "translation": "常绿树",
+      "x": 1540,
+      "y": 410,
+      "priority": 3.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "park-evergreen"
+    },
+    {
+      "id": "greenhouse-frame",
+      "word": "greenhouse frame",
+      "translation": "温室骨架",
+      "x": 1050,
+      "y": 650,
+      "priority": 4.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "garden-greenhouse-frame"
+    },
+    {
+      "id": "glass-pane",
+      "word": "glass pane",
+      "translation": "玻璃窗格",
+      "x": 1020,
+      "y": 610,
+      "priority": 5.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "garden-glass-pane"
+    },
+    {
+      "id": "greenhouse-door",
+      "word": "greenhouse door",
+      "translation": "温室门",
+      "x": 1100,
+      "y": 685,
+      "priority": 5.101,
+      "minLevel": 4,
+      "sourceVisualRegion": "garden-greenhouse-door"
+    },
+    {
+      "id": "planter-box",
+      "word": "planter box",
+      "translation": "种植箱",
+      "x": 1090,
+      "y": 710,
+      "priority": 4.102,
+      "minLevel": 3,
+      "sourceVisualRegion": "garden-planter-box"
+    },
+    {
+      "id": "seedling",
+      "word": "seedling",
+      "translation": "幼苗",
+      "x": 930,
+      "y": 750,
+      "priority": 5.103,
+      "minLevel": 4,
+      "sourceVisualRegion": "garden-seedling"
+    },
+    {
+      "id": "garden-lamp",
+      "word": "garden lamp",
+      "translation": "花园灯",
+      "x": 770,
+      "y": 790,
+      "priority": 4.104,
+      "minLevel": 3,
+      "sourceVisualRegion": "garden-lamp"
+    },
+    {
+      "id": "shed-roof",
+      "word": "shed roof",
+      "translation": "园艺小屋屋顶",
+      "x": 1165,
+      "y": 765,
+      "priority": 5.105,
+      "minLevel": 4,
+      "sourceVisualRegion": "garden-shed-roof"
+    },
+    {
+      "id": "shed-window",
+      "word": "shed window",
+      "translation": "园艺小屋窗户",
+      "x": 1165,
+      "y": 815,
+      "priority": 5.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "garden-shed-window"
     }
   ],
   "portals": [
@@ -832,9 +1172,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/world-map-bright-v4.jpg",
     "reviewedAssetSha256": "73536e8b31807e9e98300b8ceba03975210b881aabaf3f3e3718308fdfd82157",
-    "rationale": "Re-authored the atlas from the final bright-v4 pixels, preserving four disjoint destination districts and retaining 73 independently visible landscape, home, transit, park and garden objects or parts.",
-    "previousLabelCount": 80,
-    "retainedLabelCount": 73,
+    "rationale": "Re-audited the final bright-v4 pixels zone by zone, preserving four disjoint destination districts and retaining 107 independently pointable landscape, building, furniture, transit, park and garden objects or parts.",
+    "previousLabelCount": 114,
+    "retainedLabelCount": 107,
     "removedLabelCount": 7,
     "removedExamples": [
       "railway",
@@ -1503,6 +1843,312 @@
       "y": 520,
       "width": 160,
       "height": 220
+    },
+    {
+      "id": "landscape-mountain-ridge",
+      "description": "Long crest line along the blue mountain range",
+      "kind": "part",
+      "x": 500,
+      "y": 35,
+      "width": 650,
+      "height": 70
+    },
+    {
+      "id": "landscape-bridge-arch",
+      "description": "Clearly open stone arch beneath the distant bridge deck",
+      "kind": "part",
+      "x": 120,
+      "y": 135,
+      "width": 150,
+      "height": 45
+    },
+    {
+      "id": "landscape-riverbank",
+      "description": "Green near bank forming the visible edge of the river",
+      "kind": "part",
+      "x": 320,
+      "y": 135,
+      "width": 300,
+      "height": 85
+    },
+    {
+      "id": "home-skylight",
+      "description": "Dark glazed skylight set into the upper apartment roof",
+      "kind": "part",
+      "x": 250,
+      "y": 180,
+      "width": 90,
+      "height": 35
+    },
+    {
+      "id": "home-terrace-railing",
+      "description": "Wooden and metal railing around the planted roof terrace",
+      "kind": "part",
+      "x": 45,
+      "y": 225,
+      "width": 220,
+      "height": 55
+    },
+    {
+      "id": "home-coffee-table",
+      "description": "Low pale rectangular coffee table in front of the teal sofa",
+      "kind": "object",
+      "x": 200,
+      "y": 305,
+      "width": 85,
+      "height": 65
+    },
+    {
+      "id": "home-ceiling-light",
+      "description": "Hanging ceiling light above the lower apartment dining area",
+      "kind": "object",
+      "x": 260,
+      "y": 370,
+      "width": 70,
+      "height": 80
+    },
+    {
+      "id": "home-townhouse",
+      "description": "Complete narrow brick townhouse beside the cutaway apartments",
+      "kind": "object",
+      "x": 360,
+      "y": 520,
+      "width": 160,
+      "height": 240
+    },
+    {
+      "id": "home-dormer-window",
+      "description": "Projecting dormer window on the narrow townhouse roof",
+      "kind": "part",
+      "x": 380,
+      "y": 535,
+      "width": 120,
+      "height": 105
+    },
+    {
+      "id": "home-front-door",
+      "description": "Teal double front door at the base of the lower apartment",
+      "kind": "part",
+      "x": 300,
+      "y": 625,
+      "width": 100,
+      "height": 120
+    },
+    {
+      "id": "home-garden-fence",
+      "description": "Low timber fence enclosing the rear home planting bed",
+      "kind": "object",
+      "x": 340,
+      "y": 390,
+      "width": 150,
+      "height": 110
+    },
+    {
+      "id": "home-flowering-tree",
+      "description": "White flowering tree beside the western home garden path",
+      "kind": "object",
+      "x": 430,
+      "y": 365,
+      "width": 90,
+      "height": 190
+    },
+    {
+      "id": "home-outdoor-table",
+      "description": "Rectangular wooden outdoor table beside the conservatory",
+      "kind": "object",
+      "x": 430,
+      "y": 760,
+      "width": 90,
+      "height": 100
+    },
+    {
+      "id": "city-office-building",
+      "description": "Complete rounded glass-fronted office building downtown",
+      "kind": "object",
+      "x": 700,
+      "y": 200,
+      "width": 230,
+      "height": 190
+    },
+    {
+      "id": "city-brick-building",
+      "description": "Complete red-brick mid-rise on the east side of downtown",
+      "kind": "object",
+      "x": 930,
+      "y": 165,
+      "width": 160,
+      "height": 230
+    },
+    {
+      "id": "city-office-window",
+      "description": "Blue framed upper window on the red-brick office facade",
+      "kind": "part",
+      "x": 940,
+      "y": 200,
+      "width": 100,
+      "height": 100
+    },
+    {
+      "id": "city-cafe-umbrella",
+      "description": "Round tan cafe umbrella beside the central storefront",
+      "kind": "object",
+      "x": 840,
+      "y": 300,
+      "width": 100,
+      "height": 90
+    },
+    {
+      "id": "city-bus-wheel",
+      "description": "Dark front wheel on the clearly visible teal city bus",
+      "kind": "part",
+      "x": 895,
+      "y": 430,
+      "width": 160,
+      "height": 100
+    },
+    {
+      "id": "city-bus-windshield",
+      "description": "Large dark front windshield on the teal city bus",
+      "kind": "part",
+      "x": 860,
+      "y": 420,
+      "width": 75,
+      "height": 80
+    },
+    {
+      "id": "transit-column",
+      "description": "Slender teal support column beneath the station canopy",
+      "kind": "part",
+      "x": 770,
+      "y": 390,
+      "width": 70,
+      "height": 170
+    },
+    {
+      "id": "park-tree-canopy",
+      "description": "Broad green leaf canopy of the central mature oak",
+      "kind": "part",
+      "x": 1100,
+      "y": 95,
+      "width": 480,
+      "height": 260
+    },
+    {
+      "id": "park-root",
+      "description": "Thick exposed root at the base of the mature oak trunk",
+      "kind": "part",
+      "x": 1230,
+      "y": 260,
+      "width": 190,
+      "height": 110
+    },
+    {
+      "id": "park-deck-railing",
+      "description": "Circular guard railing around the oak viewing deck",
+      "kind": "part",
+      "x": 1180,
+      "y": 330,
+      "width": 320,
+      "height": 90
+    },
+    {
+      "id": "park-deck-stairs",
+      "description": "Short flight of stairs descending from the oak deck",
+      "kind": "part",
+      "x": 1390,
+      "y": 360,
+      "width": 120,
+      "height": 100
+    },
+    {
+      "id": "park-bench",
+      "description": "Wooden bench beside the lower-left park path",
+      "kind": "object",
+      "x": 1080,
+      "y": 400,
+      "width": 160,
+      "height": 120
+    },
+    {
+      "id": "park-evergreen",
+      "description": "Tall conical evergreen beside the eastern winding path",
+      "kind": "object",
+      "x": 1480,
+      "y": 280,
+      "width": 120,
+      "height": 230
+    },
+    {
+      "id": "garden-greenhouse-frame",
+      "description": "Dark green structural frame around the glass greenhouse",
+      "kind": "part",
+      "x": 930,
+      "y": 550,
+      "width": 230,
+      "height": 210
+    },
+    {
+      "id": "garden-glass-pane",
+      "description": "Individual transparent pane in the greenhouse roof",
+      "kind": "part",
+      "x": 940,
+      "y": 560,
+      "width": 180,
+      "height": 120
+    },
+    {
+      "id": "garden-greenhouse-door",
+      "description": "Tall framed door on the greenhouse front face",
+      "kind": "part",
+      "x": 1070,
+      "y": 620,
+      "width": 90,
+      "height": 130
+    },
+    {
+      "id": "garden-planter-box",
+      "description": "White rectangular planter box outside the greenhouse",
+      "kind": "object",
+      "x": 930,
+      "y": 650,
+      "width": 220,
+      "height": 100
+    },
+    {
+      "id": "garden-seedling",
+      "description": "Small individual seedling growing in a timber bed",
+      "kind": "object",
+      "x": 860,
+      "y": 680,
+      "width": 200,
+      "height": 130
+    },
+    {
+      "id": "garden-lamp",
+      "description": "Black garden lamp beside the lower winding path",
+      "kind": "object",
+      "x": 690,
+      "y": 680,
+      "width": 110,
+      "height": 150
+    },
+    {
+      "id": "garden-shed-roof",
+      "description": "Pitched gray shingle roof on the small garden shed",
+      "kind": "part",
+      "x": 1125,
+      "y": 700,
+      "width": 110,
+      "height": 70
+    },
+    {
+      "id": "garden-shed-window",
+      "description": "White framed window in the garden shed wall",
+      "kind": "part",
+      "x": 1130,
+      "y": 745,
+      "width": 100,
+      "height": 80
     }
   ],
   "detailZones": [
@@ -1510,7 +2156,7 @@
       "id": "distant-landscape",
       "title": "River valley",
       "translation": "河谷远景",
-      "description": "Open sky, layered mountains, fields, forest, river and bridge across the horizon",
+      "description": "Open sky, layered mountain ridge, fields, forest, riverbank and arched bridge across the horizon",
       "x": 0,
       "y": 0,
       "width": 1600,
@@ -1524,14 +2170,17 @@
         "forest",
         "river",
         "bridge",
-        "field"
+        "field",
+        "mountain-ridge",
+        "bridge-arch",
+        "riverbank"
       ]
     },
     {
       "id": "apartment-interiors",
       "title": "Apartment interiors",
       "translation": "公寓内部",
-      "description": "Cutaway rooms, structural parts and independently visible furniture in the western homes",
+      "description": "Cutaway rooms, roof parts, lighting and independently visible furniture in the western homes",
       "x": 0,
       "y": 170,
       "width": 440,
@@ -1553,32 +2202,42 @@
         "armchair",
         "rug",
         "cabinet",
-        "potted-plant"
+        "potted-plant",
+        "skylight",
+        "terrace-railing",
+        "coffee-table",
+        "ceiling-light",
+        "townhouse",
+        "dormer-window",
+        "front-door"
       ]
     },
     {
       "id": "home-patio-zone",
-      "title": "Home patio",
-      "translation": "住宅庭院",
-      "description": "Lower balcony, glass conservatory, paved patio, umbrella and parked bicycle",
+      "title": "Home garden and patio",
+      "translation": "住宅花园与庭院",
+      "description": "Fenced rear garden, flowering tree, lower balcony, conservatory, patio furniture and parked bicycle",
       "x": 0,
-      "y": 600,
+      "y": 350,
       "width": 520,
-      "height": 300,
+      "height": 550,
       "targetScale": 2.75,
       "labelIds": [
         "balcony",
         "conservatory",
         "patio",
         "umbrella",
-        "bicycle"
+        "bicycle",
+        "garden-fence",
+        "flowering-tree",
+        "outdoor-table"
       ]
     },
     {
       "id": "central-city",
       "title": "City and transit",
       "translation": "城市与交通",
-      "description": "Office blocks, street frontage, intersection, station structures and road users",
+      "description": "Office and brick buildings, street frontage, intersection, station structures and road users",
       "x": 550,
       "y": 105,
       "width": 570,
@@ -1601,14 +2260,21 @@
         "bus",
         "lamp-post",
         "pedestrian",
-        "street-tree"
+        "street-tree",
+        "office-building",
+        "brick-building",
+        "office-window",
+        "cafe-umbrella",
+        "bus-wheel",
+        "bus-windshield",
+        "station-column"
       ]
     },
     {
       "id": "oak-and-pond",
       "title": "Oak and pond park",
       "translation": "橡树与池塘公园",
-      "description": "Mature oak, viewing deck, winding paths, pond plants, boardwalk and visible wildlife",
+      "description": "Mature oak parts, viewing-deck structure, winding paths, pond plants, boardwalk and visible wildlife",
       "x": 1080,
       "y": 70,
       "width": 520,
@@ -1629,14 +2295,20 @@
         "duck",
         "bird",
         "deer",
-        "flower-bed"
+        "flower-bed",
+        "tree-canopy",
+        "root",
+        "deck-railing",
+        "deck-stairs",
+        "park-bench",
+        "evergreen-tree"
       ]
     },
     {
       "id": "community-gardens",
       "title": "Community garden",
       "translation": "社区花园",
-      "description": "Greenhouse, timber planting beds, garden equipment, flowers, lawn and winding path",
+      "description": "Greenhouse structure, timber planting beds, seedlings, garden equipment, flowers, lawn and winding path",
       "x": 650,
       "y": 520,
       "width": 710,
@@ -1654,7 +2326,15 @@
         "garden-path",
         "flower",
         "lawn",
-        "tree"
+        "tree",
+        "greenhouse-frame",
+        "glass-pane",
+        "greenhouse-door",
+        "planter-box",
+        "seedling",
+        "garden-lamp",
+        "shed-roof",
+        "shed-window"
       ]
     }
   ]

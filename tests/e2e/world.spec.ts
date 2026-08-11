@@ -382,7 +382,7 @@ test("scene-wide zoom guidance honestly reports zero or more words after adaptiv
     await expect(summary).toHaveAttribute("data-active", "false");
     await expect(summary).toHaveAttribute("data-next-lod", "none");
     await expect(summary).toHaveAttribute("data-next-batch-count", "0");
-    await expect(summary).toHaveAttribute("aria-label", "本场景还有 0 个词，继续放大");
+    await expect(summary).toHaveAttribute("aria-label", "继续放大，显示下一批词");
     await expect(summary).toBeHidden();
     return;
   }
@@ -390,10 +390,7 @@ test("scene-wide zoom guidance honestly reports zero or more words after adaptiv
   await expect(summary).toHaveAttribute("data-active", "true");
   const nextLod = Number(await summary.getAttribute("data-next-lod"));
   expect(nextLod, "the scene-wide cue reports a reachable next LOD").toBeGreaterThanOrEqual(2);
-  await expect(summary).toHaveAttribute(
-    "aria-label",
-    `本场景还有 ${hiddenBefore} 个词，继续放大`,
-  );
+  await expect(summary).toHaveAttribute("aria-label", "继续放大，显示下一批词");
 
   const activeRegionCues = page.locator(
     '[data-testid="scene-vocabulary-cue"][data-active="true"]',
@@ -442,10 +439,7 @@ test("scene-wide zoom guidance honestly reports zero or more words after adaptiv
   const hiddenAfter = Number(await summary.getAttribute("data-hidden-word-count"));
   if (activeAfter === "true") {
     expect(hiddenAfter, "the remaining count decreases after revealing the next batch").toBeLessThan(hiddenBefore);
-    await expect(summary).toHaveAttribute(
-      "aria-label",
-      `本场景还有 ${hiddenAfter} 个词，继续放大`,
-    );
+    await expect(summary).toHaveAttribute("aria-label", "继续放大，显示下一批词");
   } else {
     expect(hiddenAfter, "the summary becomes inactive only when no revealable words remain").toBe(0);
   }

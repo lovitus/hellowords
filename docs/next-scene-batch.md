@@ -403,7 +403,7 @@ Reject the image if any portal room is cropped, dark, visually merged with the h
 - Reject any black roof/frame band, orange evening grade, murky lower floor, clipped window, anatomy or medical display, mannequin, human figure, food in the bathroom, bathroom fixture in the kitchen, or letter/number-like mark at 100% and 200% inspection.
 - Before wiring the asset, author three fresh portal rectangles and fresh label coordinates from the accepted pixels, verify zero portal overlap, and update the reviewed asset hash. The current rectangle coordinates are reference evidence only.
 
-## City street bright v3
+## City street bright v4
 
 ### Current visual, label and navigation audit
 
@@ -438,11 +438,11 @@ Reject the image if any portal room is cropped, dark, visually merged with the h
 
 ### Must-visible evidence plan
 
-- Navigation buildings: science museum, museum entrance, exhibit window, museum column, telescope, central storefront, cafe awning, planter, transit-hub entrance, bus stop, bus and bus door.
-- Street geometry: street, road, lane, intersection, crosswalk, road marking, sidewalk, curb, curb ramp and tactile paving.
+- Navigation buildings: science museum, museum entrance, exhibit window, museum column, telescope, central storefront, cafe awning, planter, transit-hub entrance, bus stop and bus.
+- Street geometry: street, lane, intersection, crosswalk, road marking, sidewalk, curb, curb ramp and tactile paving.
 - Infrastructure: traffic light, pedestrian signal, storm drain, manhole, lamp post, a non-text bus-stop sign/marker, bollard, bicycle rack, public bench and trash can.
 - General city evidence: building, window, balcony, street tree and flower pot.
-- Vehicles and people: taxi, van, bicycle, wheel, tire, a few pedestrians, one clearly visible helmet and one backpack.
+- Vehicles and people: an unmarked passenger car, bicycle, wheel, tire, a few pedestrians, one clearly visible helmet and one backpack.
 
 Do not retain `skeleton` or `atom symbol`. A generic `sign` is valid only when its physical signboard is visible and contains no letters, numbers or invented glyphs.
 
@@ -451,6 +451,8 @@ Do not retain `skeleton` or `atom symbol`. A generic `sign` is valid only when i
 **Honest target:** 40–42 grounded words. **Hard ceiling:** 44, the current 46 minus the anatomy skeleton and decorative atom symbol. Do not recover the count with `shop`, `store`, `storefront` synonyms, multiple pedestrians, or unreadable signage.
 
 Reject the image if any lettering or number-like pseudo-text appears at 1600 × 900; if the cafe is not a complete frontage; if the transit target reads only as a bus; if the museum requires a sign to be identifiable; if anatomy appears in any window; or if the three portal regions overlap after a pixel-based crop proposal.
+
+**Published audit:** `city-street-bright-v4.jpg`, SHA-256 `e280b0047e7bf0dbcf7f1ff392c38d5b88f06e11bb6304f3d998f47f37438fdf`, retains 42 final-pixel anchors in six detail zones. The independent review deleted the edge-cropped `bus door` and the duplicate `road`, labelled the unmarked yellow vehicle conservatively as `car`, corrected every confirmed coordinate error, and preserved the three complete disjoint destinations.
 
 ### City-street release acceptance checklist
 
@@ -515,4 +517,4 @@ Reject the image if the palette is fluorescent or golden-yellow, the leaf reads 
 - Then assess full-resolution evidence. Every retained anchor needs a distinct visible object or part and a fresh coordinate; old coordinates are not transferable.
 - Run a zero-text inspection at 100% and 200% zoom. Any logo, letter, number, timetable-like mark, book-cover gibberish or pseudo-writing rejects apartment or city street rather than being hidden under labels.
 - Compare luminance and color against the current premium world: bright natural midtones, readable shadows and elegant restrained color are required. Brightness must not be simulated by clipping highlights or neon saturation.
-- Save accepted assets only under new versioned filenames: `apartment-bright-v2`, `city-street-bright-v3` and `leaf-natural-v3`; never overwrite the current production files during generation or review.
+- Save accepted assets only under new versioned filenames: `apartment-bright-v2`, `city-street-bright-v4` and `leaf-natural-v3`; never overwrite the current production files during generation or review.

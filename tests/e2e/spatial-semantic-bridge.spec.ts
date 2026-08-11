@@ -20,6 +20,7 @@ async function sceneProgress(progress: Locator): Promise<{
   total: number;
   remaining: number;
   cameraMode: string | undefined;
+  nextPlane: string | undefined;
   text: string;
 }> {
   return progress.evaluate((element) => ({
@@ -27,6 +28,7 @@ async function sceneProgress(progress: Locator): Promise<{
     total: Number((element as HTMLElement).dataset.total),
     remaining: Number((element as HTMLElement).dataset.remaining),
     cameraMode: (element as HTMLElement).dataset.cameraMode,
+    nextPlane: (element as HTMLElement).dataset.nextPlane,
     text: element.textContent ?? "",
   }));
 }
@@ -140,6 +142,44 @@ test("scene progress conserves its total and switches to pan guidance at maximum
   expect(maximum.current).toBeGreaterThan(0);
   expect(maximum.current + maximum.remaining).toBe(maximum.total);
   expect(maximum.cameraMode).toBe("pan");
+  expect(maximum.nextPlane).toBe("semantic");
   expect(maximum.text).toContain("拖动");
+  expect(maximum.text).toContain("继续放大");
   await expect(progress).toHaveAttribute("aria-label", /拖动探索/);
+});
+
+test("continued zoom beyond a spatial image opens the ten-thousand-word plane", async ({ page }) => {
+  const app = await openWorld(page);
+  for (const sceneId of ["community-garden", "potting-workbench"]) {
+    await page.locator(
+      `[data-testid="scene-minimap-child"][data-target-scene="${sceneId}"]`,
+    ).click();
+    await expect(app).toHaveAttribute("data-scene-id", sceneId);
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+  }
+  await expect(page.getByTestId("scene-minimap")).toHaveAttribute("data-terminal", "true");
+  const point = await safeZoomPoint(page);
+  await page.mouse.move(point.x, point.y);
+  const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
+  await expect.poll(async () => {
+    const scale = Number(await surface.getAttribute("data-scene-scale"));
+    if (Number.isFinite(scale) && scale < 4.13) await page.mouse.wheel(0, -480);
+    return Number(await surface.getAttribute("data-scene-scale"));
+  }, { intervals: [45], timeout: 8_000 }).toBeGreaterThanOrEqual(4.13);
+
+  const progress = page.getByTestId("scene-word-progress");
+  await expect(progress).toHaveAttribute("data-next-plane", "semantic");
+  const dialog = page.getByRole("dialog", { name: DIALOG_NAME });
+  const field = dialog.locator(FIELD);
+  await expect.poll(async () => {
+    if (await dialog.count() === 0) await page.mouse.wheel(0, -240);
+    return dialog.count();
+  }, {
+    intervals: [75],
+    timeout: 3_000,
+    message: "continued max-scale zoom should cross the semantic intent threshold",
+  }).toBe(1);
+  await expect(dialog).toBeVisible();
+  await expect(field).toHaveAttribute("aria-busy", "false");
+  expect(["realm", "topic"]).toContain(await field.getAttribute("data-level"));
 });

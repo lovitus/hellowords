@@ -86,6 +86,12 @@ export const SEMANTIC_ZOOM_WORLD_WIDTH = 1600;
 export const SEMANTIC_ZOOM_WORLD_HEIGHT = 900;
 export const SEMANTIC_ZOOM_MIN_SCALE = 1;
 export const SEMANTIC_ZOOM_MAX_SCALE = 5.2;
+export const SEMANTIC_ZOOM_WORLD_BOUNDS: SemanticZoomBounds = {
+  x: 0,
+  y: 0,
+  width: SEMANTIC_ZOOM_WORLD_WIDTH,
+  height: SEMANTIC_ZOOM_WORLD_HEIGHT,
+};
 
 export const SEMANTIC_ZOOM_THRESHOLDS = {
   realm: 1,
@@ -122,6 +128,45 @@ function fitFor(viewport: SemanticZoomViewport): number {
     finitePositive(viewport.width, "viewport.width") / SEMANTIC_ZOOM_WORLD_WIDTH,
     finitePositive(viewport.height, "viewport.height") / SEMANTIC_ZOOM_WORLD_HEIGHT,
   );
+}
+
+function normalizedSemanticZoomBounds(bounds: SemanticZoomBounds): SemanticZoomBounds {
+  if (![bounds.x, bounds.y, bounds.width, bounds.height].every(Number.isFinite)) {
+    throw new RangeError("semantic zoom bounds must be finite");
+  }
+  if (bounds.width <= 0 || bounds.height <= 0) {
+    throw new RangeError("semantic zoom bounds must have positive dimensions");
+  }
+  const left = clamp(bounds.x, 0, SEMANTIC_ZOOM_WORLD_WIDTH);
+  const top = clamp(bounds.y, 0, SEMANTIC_ZOOM_WORLD_HEIGHT);
+  const right = clamp(bounds.x + bounds.width, 0, SEMANTIC_ZOOM_WORLD_WIDTH);
+  const bottom = clamp(bounds.y + bounds.height, 0, SEMANTIC_ZOOM_WORLD_HEIGHT);
+  if (right <= left || bottom <= top) {
+    throw new RangeError("semantic zoom bounds must intersect the shared plane");
+  }
+  return { x: left, y: top, width: right - left, height: bottom - top };
+}
+
+/**
+ * Exact logical extent occupied by the active LOD. Camera clamping must use
+ * this instead of the whole 1600×900 plane once a realm/topic/leaf is active;
+ * otherwise a valid drag can leave every active node and its realm tile.
+ */
+export function semanticZoomLayoutBounds<T extends SemanticZoomNodeInput>(
+  nodes: readonly SemanticZoomLayoutNode<T>[],
+  fallback: SemanticZoomBounds = SEMANTIC_ZOOM_WORLD_BOUNDS,
+): SemanticZoomBounds {
+  if (!nodes.length) return normalizedSemanticZoomBounds(fallback);
+  const left = Math.min(...nodes.map((node) => node.x - node.radius));
+  const top = Math.min(...nodes.map((node) => node.y - node.radius));
+  const right = Math.max(...nodes.map((node) => node.x + node.radius));
+  const bottom = Math.max(...nodes.map((node) => node.y + node.radius));
+  return normalizedSemanticZoomBounds({
+    x: left,
+    y: top,
+    width: right - left,
+    height: bottom - top,
+  });
 }
 
 export function semanticZoomLevelForScale(scale: number): SemanticZoomLevel {
@@ -190,25 +235,28 @@ export function semanticZoomExplorationProgress(
 export function clampSemanticZoomView(
   view: SemanticZoomView,
   viewport: SemanticZoomViewport,
+  activeBounds: SemanticZoomBounds = SEMANTIC_ZOOM_WORLD_BOUNDS,
 ): SemanticZoomView {
   const fit = fitFor(viewport);
+  const bounds = normalizedSemanticZoomBounds(activeBounds);
   const scale = clamp(view.scale, SEMANTIC_ZOOM_MIN_SCALE, SEMANTIC_ZOOM_MAX_SCALE);
   const visibleWidth = viewport.width / (fit * scale);
   const visibleHeight = viewport.height / (fit * scale);
-  const centerX = visibleWidth >= SEMANTIC_ZOOM_WORLD_WIDTH
-    ? SEMANTIC_ZOOM_WORLD_WIDTH / 2
-    : clamp(view.centerX, visibleWidth / 2, SEMANTIC_ZOOM_WORLD_WIDTH - visibleWidth / 2);
-  const centerY = visibleHeight >= SEMANTIC_ZOOM_WORLD_HEIGHT
-    ? SEMANTIC_ZOOM_WORLD_HEIGHT / 2
-    : clamp(view.centerY, visibleHeight / 2, SEMANTIC_ZOOM_WORLD_HEIGHT - visibleHeight / 2);
+  const centerX = visibleWidth >= bounds.width
+    ? bounds.x + bounds.width / 2
+    : clamp(view.centerX, bounds.x + visibleWidth / 2, bounds.x + bounds.width - visibleWidth / 2);
+  const centerY = visibleHeight >= bounds.height
+    ? bounds.y + bounds.height / 2
+    : clamp(view.centerY, bounds.y + visibleHeight / 2, bounds.y + bounds.height - visibleHeight / 2);
   return { centerX, centerY, scale };
 }
 
 export function semanticZoomCamera(
   view: SemanticZoomView,
   viewport: SemanticZoomViewport,
+  activeBounds: SemanticZoomBounds = SEMANTIC_ZOOM_WORLD_BOUNDS,
 ): Camera {
-  const clamped = clampSemanticZoomView(view, viewport);
+  const clamped = clampSemanticZoomView(view, viewport, activeBounds);
   const scale = fitFor(viewport) * clamped.scale;
   return {
     x: viewport.width / 2 - clamped.centerX * scale,
@@ -222,9 +270,10 @@ export function zoomSemanticViewAboutPoint(
   nextScale: number,
   point: Point,
   viewport: SemanticZoomViewport,
+  activeBounds: SemanticZoomBounds = SEMANTIC_ZOOM_WORLD_BOUNDS,
 ): SemanticZoomView {
-  const current = clampSemanticZoomView(view, viewport);
-  const currentCamera = semanticZoomCamera(current, viewport);
+  const current = clampSemanticZoomView(view, viewport, activeBounds);
+  const currentCamera = semanticZoomCamera(current, viewport, activeBounds);
   const scenePoint = {
     x: (point.x - currentCamera.x) / currentCamera.scale,
     y: (point.y - currentCamera.y) / currentCamera.scale,
@@ -235,33 +284,35 @@ export function zoomSemanticViewAboutPoint(
     centerX: scenePoint.x - (point.x - viewport.width / 2) / nextFitScale,
     centerY: scenePoint.y - (point.y - viewport.height / 2) / nextFitScale,
     scale: clampedScale,
-  }, viewport);
+  }, viewport, activeBounds);
 }
 
 export function panSemanticZoomView(
   view: SemanticZoomView,
   delta: Point,
   viewport: SemanticZoomViewport,
+  activeBounds: SemanticZoomBounds = SEMANTIC_ZOOM_WORLD_BOUNDS,
 ): SemanticZoomView {
-  const current = clampSemanticZoomView(view, viewport);
+  const current = clampSemanticZoomView(view, viewport, activeBounds);
   const effectiveScale = fitFor(viewport) * current.scale;
   return clampSemanticZoomView({
     ...current,
     centerX: current.centerX - delta.x / effectiveScale,
     centerY: current.centerY - delta.y / effectiveScale,
-  }, viewport);
+  }, viewport, activeBounds);
 }
 
 export function focusSemanticZoomView(
   point: Point,
   level: SemanticZoomLevel,
   viewport: SemanticZoomViewport,
+  activeBounds: SemanticZoomBounds = SEMANTIC_ZOOM_WORLD_BOUNDS,
 ): SemanticZoomView {
   return clampSemanticZoomView({
     centerX: point.x,
     centerY: point.y,
     scale: semanticZoomScaleForLevel(level),
-  }, viewport);
+  }, viewport, activeBounds);
 }
 
 /**
@@ -371,7 +422,7 @@ function radiusFor(level: SemanticZoomLevel, count: number): number {
 export function layoutSemanticZoomNodes<T extends SemanticZoomNodeInput>(
   nodes: readonly T[],
   level: SemanticZoomLevel,
-  bounds: SemanticZoomBounds = { x: 0, y: 0, width: SEMANTIC_ZOOM_WORLD_WIDTH, height: SEMANTIC_ZOOM_WORLD_HEIGHT },
+  bounds: SemanticZoomBounds = SEMANTIC_ZOOM_WORLD_BOUNDS,
 ): SemanticZoomLayoutNode<T>[] {
   if (level === "realm") {
     return nodes.map((node, index) => {

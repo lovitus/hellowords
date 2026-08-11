@@ -982,17 +982,17 @@ a:focus-visible {
   top: 22px;
   left: 50%;
   display: inline-flex;
-  min-height: 46px;
+  min-height: 36px;
   align-items: center;
   gap: 9px;
-  padding: 6px 14px 6px 7px;
+  padding: 4px 11px 4px 5px;
   border: 1px solid rgba(215, 250, 231, 0.86);
   border-radius: 999px;
   background: rgba(20, 78, 61, 0.9);
   box-shadow: 0 10px 30px rgba(12, 48, 39, 0.24), 0 0 0 3px rgba(221, 249, 233, 0.12);
   color: #f5fff8;
   cursor: zoom-in;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 760;
   line-height: 1.15;
   pointer-events: auto;
@@ -1018,9 +1018,9 @@ a:focus-visible {
 
 .scene-vocabulary-summary::before {
   display: grid;
-  width: 32px;
-  height: 32px;
-  flex: 0 0 32px;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
   place-items: center;
   border: 1px dashed rgba(226, 255, 239, 0.9);
   border-radius: 50%;
@@ -1229,6 +1229,16 @@ a:focus-visible {
   transform: translateX(-50%);
   white-space: nowrap;
   backdrop-filter: blur(10px);
+}
+
+.gesture-hint[data-next-plane="semantic"] {
+  border-color: rgba(255, 255, 255, 0.72);
+  background:
+    linear-gradient(90deg, rgba(52, 100, 83, 0.92), rgba(83, 84, 126, 0.92), rgba(126, 83, 86, 0.92));
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.16),
+    0 8px 24px rgba(43, 47, 73, 0.26);
+  color: #fff;
 }
 
 .scene-portal-preview {
@@ -1677,7 +1687,7 @@ a:focus-visible {
     top: auto;
     bottom: 76px;
     max-width: calc(100vw - 32px);
-    min-height: 48px;
+    min-height: 38px;
     padding-right: 12px;
     overflow: hidden;
     font-size: 11px;

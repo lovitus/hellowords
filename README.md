@@ -8,11 +8,11 @@ off by default, and the experience intentionally avoids quiz and streak pressure
 ## Included in this version
 
 - 37 reachable scene slices across home, city, nature, gardening, transport,
-  health and microscopic science, with 1,482 human-verified contextual anchors
-  representing 1,200 distinct English display terms in five cumulative zoom bands;
+  health and microscopic science, with 1,516 human-verified contextual anchors
+  representing 1,224 distinct English display terms in five cumulative zoom bands;
 - 37 independently reviewed 1600 × 900 raster scene illustrations and zero
   scene-level SVG assets;
-- 191 authored local detail zones across the scene world, grouping truthful
+- 193 authored local detail zones across the scene world, grouping truthful
   word batches around visible regions of each illustration;
 - mouse, touch, wheel and pinch camera controls;
 - 36 typed scene portals with recursive high-resolution tile handoff,
@@ -22,7 +22,7 @@ off by default, and the experience intentionally avoids quiz and streak pressure
 - a single semantic zoom plane where all 10,000 ranked English words remain
   reachable through four scale-dependent levels: 10 realms, 44 topics, 704
   subclusters and individual words, with collision-free screen-space bubbles;
-- 243 sense-reviewed spatial-to-lexical links that connect visible scene terms
+- 242 sense-reviewed spatial-to-lexical links that connect visible scene terms
   directly to their matching entries in the 10,000-word hierarchy;
 - passive discovery tracking, searchable word focus, encounter cards and local
   pronunciation without compulsory testing;
@@ -32,8 +32,8 @@ off by default, and the experience intentionally avoids quiz and streak pressure
   measurement.
 
 All 10,000 entries are hierarchically reachable and searchable. The product
-still distinguishes 1,482 human-verified contextual scene anchors representing
-1,200 distinct display terms from words organized in the lexical world; it does
+still distinguishes 1,516 human-verified contextual scene anchors representing
+1,224 distinct display terms from words organized in the lexical world; it does
 not claim that every entry was individually drawn.
 
 ## Local development

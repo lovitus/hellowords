@@ -2,7 +2,7 @@
 import type { LabelSemanticRealm } from "./labelSemanticStyle";
 
 /** Number of authored spatial label references covered by this compact index. */
-export const SPATIAL_LEXEME_LINK_COUNT = 243;
+export const SPATIAL_LEXEME_LINK_COUNT = 242;
 
 /** Bundled realm lookup for spatial labels; it never causes a runtime shard request. */
 export const SPATIAL_LEXEME_REALMS = Object.freeze({
@@ -38,7 +38,6 @@ export const SPATIAL_LEXEME_REALMS = Object.freeze({
   "en-3171d89ad00530ff": "objects-technology",
   "en-3486577cd905f870": "objects-technology",
   "en-350a770c0ec9f353": "nature-life",
-  "en-362a284952d3a725": "objects-technology",
   "en-3b80d38f7686a8b5": "nature-life",
   "en-3d4d101cd7ea9e5e": "objects-technology",
   "en-3d7eb3d3dab17ee5": "objects-technology",

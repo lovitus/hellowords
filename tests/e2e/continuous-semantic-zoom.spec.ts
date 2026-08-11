@@ -278,6 +278,66 @@ async function semanticBackgroundDrag(field: Locator): Promise<{
   });
 }
 
+type SemanticPanDirection = Readonly<{
+  x: -1 | 0 | 1;
+  y: -1 | 0 | 1;
+}>;
+
+async function semanticDirectionalBackgroundDrag(
+  field: Locator,
+  direction: SemanticPanDirection,
+): Promise<{
+  start: { x: number; y: number };
+  end: { x: number; y: number };
+}> {
+  return field.evaluate((element, { x: directionX, y: directionY }) => {
+    const bounds = element.getBoundingClientRect();
+    const xFractions = directionX > 0
+      ? [0.08, 0.16, 0.24, 0.32]
+      : directionX < 0
+        ? [0.92, 0.84, 0.76, 0.68]
+        : [0.08, 0.16, 0.24, 0.4, 0.6, 0.76, 0.84, 0.92];
+    const yFractions = directionY > 0
+      ? [0.2, 0.28, 0.36, 0.44]
+      : directionY < 0
+        ? [0.8, 0.72, 0.64, 0.56]
+        : [0.3, 0.4, 0.5, 0.6, 0.7];
+    const inset = 8;
+    for (const yFraction of yFractions) {
+      for (const xFraction of xFractions) {
+        const x = bounds.left + bounds.width * xFraction;
+        const y = bounds.top + bounds.height * yFraction;
+        const target = document.elementFromPoint(x, y);
+        if (!target || !element.contains(target) || target.closest("button")) continue;
+        return {
+          start: { x, y },
+          end: {
+            x: Math.max(
+              bounds.left + inset,
+              Math.min(bounds.right - inset, x + directionX * bounds.width * 0.58),
+            ),
+            y: Math.max(
+              bounds.top + inset,
+              Math.min(bounds.bottom - inset, y + directionY * bounds.height * 0.58),
+            ),
+          },
+        };
+      }
+    }
+    throw new Error("semantic field needs an unobstructed background point for directional panning");
+  }, direction);
+}
+
+async function performSemanticDrag(
+  page: Page,
+  drag: { start: { x: number; y: number }; end: { x: number; y: number } },
+): Promise<void> {
+  await page.mouse.move(drag.start.x, drag.start.y);
+  await page.mouse.down();
+  await page.mouse.move(drag.end.x, drag.end.y, { steps: 8 });
+  await page.mouse.up();
+}
+
 async function assertSemanticProgressIsTruthful(field: Locator): Promise<void> {
   const snapshot = await field.evaluate((element) => {
     const root = element as HTMLElement;
@@ -647,6 +707,10 @@ test("the largest 1,013-word leaf exposes truthful progress while panning reveal
   const { field } = await openSemanticWorld(page);
   const expectedBudget = testInfo.project.name === "mobile-chromium" ? 40 : 80;
   await enterLargestSemanticLeaf(field);
+  await expect(field).toHaveAttribute(
+    "data-active-bounds",
+    /^\d+(?:\.\d+)?,-?\d+(?:\.\d+)?,\d+(?:\.\d+)?,\d+(?:\.\d+)?$/,
+  );
   await assertSemanticBudget(field, expectedBudget);
   await assertSemanticProgressIsTruthful(field);
 
@@ -666,10 +730,7 @@ test("the largest 1,013-word leaf exposes truthful progress while panning reveal
   const first = await semanticWordIds(field);
   expect(first.size).toBeGreaterThan(0);
   const drag = await semanticBackgroundDrag(field);
-  await page.mouse.move(drag.start.x, drag.start.y);
-  await page.mouse.down();
-  await page.mouse.move(drag.end.x, drag.end.y, { steps: 8 });
-  await page.mouse.up();
+  await performSemanticDrag(page, drag);
 
   let panned = new Set<string>();
   await expect.poll(async () => {
@@ -677,6 +738,34 @@ test("the largest 1,013-word leaf exposes truthful progress while panning reveal
     return new Set([...first, ...panned]).size;
   }).toBeGreaterThan(first.size);
   await assertSemanticBudget(field, expectedBudget);
+  await assertSemanticProgressIsTruthful(field);
+
+  const explored = new Set([...first, ...panned]);
+  for (const direction of [
+    { x: 1, y: 0 },
+    { x: -1, y: 0 },
+    { x: 0, y: 1 },
+    { x: 0, y: -1 },
+    { x: 1, y: 1 },
+    { x: -1, y: -1 },
+  ] as const satisfies readonly SemanticPanDirection[]) {
+    const before = await semanticWordIds(field);
+    await performSemanticDrag(page, await semanticDirectionalBackgroundDrag(field, direction));
+    let current = new Set<string>();
+    await expect.poll(async () => {
+      current = await semanticWordIds(field);
+      return new Set([...before].filter((id) => !current.has(id))).size
+        + new Set([...current].filter((id) => !before.has(id))).size;
+    }).toBeGreaterThan(0);
+    expect(current.size, `${direction.x}:${direction.y} must not pan into a zero-word background`)
+      .toBeGreaterThan(0);
+    current.forEach((id) => explored.add(id));
+    await assertSemanticBudget(field, expectedBudget);
+  }
+  expect(
+    explored.size,
+    "six full-field drags should exchange at least half of the mounted word batch",
+  ).toBeGreaterThanOrEqual(Math.min(1_013, Math.ceil(first.size * 1.5)));
   await assertSemanticProgressIsTruthful(field);
   const liveMutations = await field.evaluate(() => {
     const value = Reflect.get(window, "__semanticProgressLiveProbe") as {

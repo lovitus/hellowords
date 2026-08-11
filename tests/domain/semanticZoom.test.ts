@@ -21,6 +21,7 @@ import {
   semanticZoomDisplayLevel,
   semanticZoomExplorationProgress,
   semanticZoomLevelForScale,
+  semanticZoomLayoutBounds,
   semanticZoomNodeBudget,
   semanticZoomScaleForLevel,
   smoothSemanticZoomView,
@@ -146,6 +147,95 @@ test("focus, pan and wheel gestures remain bounded", () => {
   assert.equal(semanticWheelScale(1, 100_000, 0, DESKTOP.height), SEMANTIC_ZOOM_MIN_SCALE);
   assert.ok(semanticWheelScale(1, -120, 0, DESKTOP.height) > 1);
   assert.equal(semanticWheelScale(SEMANTIC_ZOOM_MAX_SCALE, -100_000, 0, DESKTOP.height), SEMANTIC_ZOOM_MAX_SCALE);
+});
+
+test("the active layout owns camera bounds instead of the empty shared plane", () => {
+  const authoredBounds = { x: 920, y: 280, width: 640, height: 350 } as const;
+  const layout = layoutSemanticZoomNodes(
+    Array.from({ length: 206 }, (_, index) => ({ id: `artifact-${index}`, count: 1 })),
+    "word",
+    authoredBounds,
+  );
+  const activeBounds = semanticZoomLayoutBounds(layout, authoredBounds);
+  for (const node of layout) {
+    assert.ok(node.x - node.radius >= activeBounds.x - 0.0001);
+    assert.ok(node.x + node.radius <= activeBounds.x + activeBounds.width + 0.0001);
+    assert.ok(node.y - node.radius >= activeBounds.y - 0.0001);
+    assert.ok(node.y + node.radius <= activeBounds.y + activeBounds.height + 0.0001);
+  }
+
+  const extreme = panSemanticZoomView(
+    { centerX: 0, centerY: 0, scale: semanticZoomScaleForLevel("word") },
+    { x: -1_000_000, y: 1_000_000 },
+    DESKTOP,
+    activeBounds,
+  );
+  assert.deepEqual(extreme, clampSemanticZoomView(extreme, DESKTOP, activeBounds));
+  assert.equal(
+    projectSemanticZoomNodes(
+      layout,
+      semanticZoomCamera(extreme, DESKTOP, activeBounds),
+      DESKTOP,
+      semanticZoomNodeBudget(DESKTOP.width),
+    ).length,
+    semanticZoomNodeBudget(DESKTOP.width),
+    "an extreme pan must retain a full live batch instead of producing 0 / 206",
+  );
+});
+
+test("206/1,013-word leaves stay populated and exchange words across six extreme pan directions", () => {
+  const directions = [
+    { x: -1_000_000, y: 0 },
+    { x: 1_000_000, y: 0 },
+    { x: 0, y: -1_000_000 },
+    { x: 0, y: 1_000_000 },
+    { x: -1_000_000, y: -1_000_000 },
+    { x: 1_000_000, y: 1_000_000 },
+  ] as const;
+  const cases = [
+    { count: 206, realmId: "objects-technology" },
+    { count: 1_013, realmId: "qualities-states" },
+  ] as const;
+
+  for (const { count, realmId } of cases) {
+    const tile = lexicalWorldRealmTiles().find((candidate) => candidate.realmId === realmId);
+    assert.ok(tile);
+    const layout = layoutSemanticZoomNodes(
+      Array.from({ length: count }, (_, index) => ({ id: `${realmId}-${index}`, count: 1 })),
+      "word",
+      semanticZoomBoundsForLevel("word", tile.detailRect),
+    );
+    const activeBounds = semanticZoomLayoutBounds(layout, tile.detailRect);
+
+    for (const viewport of [DESKTOP, { width: 390, height: 562 }] as const) {
+      const budget = semanticZoomNodeBudget(viewport.width);
+      const start = focusSemanticZoomView({
+        x: activeBounds.x + activeBounds.width / 2,
+        y: activeBounds.y + activeBounds.height / 2,
+      }, "word", viewport, activeBounds);
+      const samples = directions.map((delta) => {
+        const panned = panSemanticZoomView(start, delta, viewport, activeBounds);
+        assert.deepEqual(panned, clampSemanticZoomView(panned, viewport, activeBounds));
+        const visible = projectSemanticZoomNodes(
+          layout,
+          semanticZoomCamera(panned, viewport, activeBounds),
+          viewport,
+          budget,
+        );
+        assert.equal(
+          visible.length,
+          budget,
+          `${count} words / ${viewport.width}px / ${delta.x}:${delta.y} must never reach an empty batch`,
+        );
+        return new Set(visible.map(({ node }) => node.id));
+      });
+      const horizontalUnion = new Set([...samples[0], ...samples[1]]);
+      assert.ok(
+        horizontalUnion.size >= Math.min(count, Math.ceil(budget * 1.5)),
+        `${count} words / ${viewport.width}px should exchange at least half a live batch between horizontal extremes`,
+      );
+    }
+  }
 });
 
 test("a reviewed spatial lexeme enters its exact semantic realm without guessing", () => {

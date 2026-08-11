@@ -12,6 +12,8 @@ import {
   useState,
 } from "react";
 import {
+  SEMANTIC_ZOOM_WORLD_BOUNDS,
+  clampSemanticZoomView,
   focusSemanticZoomView,
   layoutSemanticZoomNodes,
   nearestSemanticZoomNode,
@@ -28,11 +30,13 @@ import {
   semanticZoomDisplayLevel,
   semanticZoomExplorationProgress,
   semanticZoomLevelForScale,
+  semanticZoomLayoutBounds,
   semanticZoomNodeBudget,
   semanticZoomScaleForLevel,
   smoothSemanticZoomView,
   zoomSemanticViewAboutPoint,
   type SemanticZoomLayoutNode,
+  type SemanticZoomBounds,
   type SemanticZoomLevel,
   type SemanticZoomView,
   type SemanticZoomViewport,
@@ -364,9 +368,13 @@ export function SemanticZoomField({
     : displayLevel === "topic"
       ? topicLayout
       : displayLevel === "subcluster"
-        ? subclusterLayout
-        : wordLayout;
-  const camera = semanticZoomCamera(view, viewport);
+      ? subclusterLayout
+      : wordLayout;
+  const activeLayoutBounds = useMemo(
+    () => semanticZoomLayoutBounds(currentLayout),
+    [currentLayout],
+  );
+  const camera = semanticZoomCamera(view, viewport, activeLayoutBounds);
   const projectedNodes = placeSemanticZoomNodes(
     projectSemanticZoomNodes(
       currentLayout,
@@ -403,18 +411,30 @@ export function SemanticZoomField({
     animationFrameRef.current = requestAnimationFrame(tick);
   }, []);
 
-  const applyView = useCallback((next: SemanticZoomView) => {
-    targetViewRef.current = next;
+  const applyView = useCallback((
+    next: SemanticZoomView,
+    bounds: SemanticZoomBounds = activeLayoutBounds,
+  ) => {
+    const bounded = clampSemanticZoomView(next, viewport, bounds);
+    targetViewRef.current = bounded;
     if (reducedMotionRef.current || typeof requestAnimationFrame === "undefined") {
       if (animationFrameRef.current !== null) cancelAnimationFrame(animationFrameRef.current);
       animationFrameRef.current = null;
       animationTimeRef.current = null;
-      viewRef.current = next;
-      setView(next);
+      viewRef.current = bounded;
+      setView(bounded);
       return;
     }
     startViewAnimation();
-  }, [startViewAnimation]);
+  }, [activeLayoutBounds, startViewAnimation, viewport]);
+
+  useEffect(() => {
+    if (!open) return;
+    // Data readiness can replace the visible realm/topic layout between two
+    // frames. Re-clamp the pending target immediately so an old whole-world
+    // center can never strand the newly active leaf outside the viewport.
+    applyView(targetViewRef.current);
+  }, [activeLayoutBounds, applyView, open]);
 
   useEffect(() => {
     if (!open) return;
@@ -490,8 +510,13 @@ export function SemanticZoomField({
     setTopicResource(EMPTY_DESCRIPTOR_RESOURCE);
     setSubclusterResource(EMPTY_DESCRIPTOR_RESOURCE);
     setWordResource(EMPTY_WORD_RESOURCE);
-    applyView(focusSemanticZoomView({ x: node.x, y: node.y }, "topic", viewport));
-  }, [applyView, viewport]);
+    applyView(focusSemanticZoomView(
+      { x: node.x, y: node.y },
+      "topic",
+      viewport,
+      activeLayoutBounds,
+    ));
+  }, [activeLayoutBounds, applyView, viewport]);
 
   const activateTopic = useCallback((node: SemanticZoomLayoutNode<SemanticFieldNode>) => {
     const descriptor = node.node.descriptor;
@@ -500,16 +525,26 @@ export function SemanticZoomField({
     setSelectedSubcluster(undefined);
     setSubclusterResource(EMPTY_DESCRIPTOR_RESOURCE);
     setWordResource(EMPTY_WORD_RESOURCE);
-    applyView(focusSemanticZoomView({ x: node.x, y: node.y }, "subcluster", viewport));
-  }, [applyView, viewport]);
+    applyView(focusSemanticZoomView(
+      { x: node.x, y: node.y },
+      "subcluster",
+      viewport,
+      activeLayoutBounds,
+    ));
+  }, [activeLayoutBounds, applyView, viewport]);
 
   const activateSubcluster = useCallback((node: SemanticZoomLayoutNode<SemanticFieldNode>) => {
     const descriptor = node.node.descriptor;
     if (!descriptor) return;
     setSelectedSubcluster(descriptor);
     setWordResource(EMPTY_WORD_RESOURCE);
-    applyView(focusSemanticZoomView({ x: node.x, y: node.y }, "word", viewport));
-  }, [applyView, viewport]);
+    applyView(focusSemanticZoomView(
+      { x: node.x, y: node.y },
+      "word",
+      viewport,
+      activeLayoutBounds,
+    ));
+  }, [activeLayoutBounds, applyView, viewport]);
 
   const activateNode = useCallback((node: SemanticZoomLayoutNode<SemanticFieldNode>) => {
     if (keyboardActivationRef.current && displayLevel !== "word") {
@@ -574,14 +609,20 @@ export function SemanticZoomField({
     const boundedNextScale = displayLevel !== "word" && nextScale > previousTarget.scale
       ? Math.min(nextScale, semanticZoomScaleForLevel(nextLoadedLevel))
       : nextScale;
-    const currentCamera = semanticZoomCamera(visible, viewport);
+    const currentCamera = semanticZoomCamera(visible, viewport, activeLayoutBounds);
     const scenePoint = {
       x: (point.x - currentCamera.x) / currentCamera.scale,
       y: (point.y - currentCamera.y) / currentCamera.scale,
     };
     selectNearestForCrossedLevel(previousTarget.scale, boundedNextScale, scenePoint);
-    applyView(zoomSemanticViewAboutPoint(visible, boundedNextScale, point, viewport));
-  }, [applyView, displayLevel, selectNearestForCrossedLevel, viewport]);
+    applyView(zoomSemanticViewAboutPoint(
+      visible,
+      boundedNextScale,
+      point,
+      viewport,
+      activeLayoutBounds,
+    ));
+  }, [activeLayoutBounds, applyView, displayLevel, selectNearestForCrossedLevel, viewport]);
 
   const reset = useCallback(() => {
     setSelectedRealm(undefined);
@@ -590,7 +631,7 @@ export function SemanticZoomField({
     setTopicResource(EMPTY_DESCRIPTOR_RESOURCE);
     setSubclusterResource(EMPTY_DESCRIPTOR_RESOURCE);
     setWordResource(EMPTY_WORD_RESOURCE);
-    applyView(INITIAL_VIEW);
+    applyView(INITIAL_VIEW, SEMANTIC_ZOOM_WORLD_BOUNDS);
   }, [applyView]);
 
   const stepZoom = useCallback((factor: number) => {
@@ -629,6 +670,7 @@ export function SemanticZoomField({
           targetViewRef.current,
           { x: nextPoint.x - previousPoint.x, y: nextPoint.y - previousPoint.y },
           viewport,
+          activeLayoutBounds,
         ));
         pinchRef.current = null;
         return;
@@ -647,15 +689,22 @@ export function SemanticZoomField({
           y: nextPinch.midpoint.y - previousPinch.midpoint.y,
         },
         viewport,
+        activeLayoutBounds,
       );
       const nextScale = panned.scale * nextPinch.distance / previousPinch.distance;
-      const pannedCamera = semanticZoomCamera(panned, viewport);
+      const pannedCamera = semanticZoomCamera(panned, viewport, activeLayoutBounds);
       const scenePoint = {
         x: (nextPinch.midpoint.x - pannedCamera.x) / pannedCamera.scale,
         y: (nextPinch.midpoint.y - pannedCamera.y) / pannedCamera.scale,
       };
       selectNearestForCrossedLevel(targetViewRef.current.scale, nextScale, scenePoint);
-      applyView(zoomSemanticViewAboutPoint(panned, nextScale, nextPinch.midpoint, viewport));
+      applyView(zoomSemanticViewAboutPoint(
+        panned,
+        nextScale,
+        nextPinch.midpoint,
+        viewport,
+        activeLayoutBounds,
+      ));
       pinchRef.current = nextPinch;
     };
     const endPointer = (event: PointerEvent) => {
@@ -676,7 +725,7 @@ export function SemanticZoomField({
       root.removeEventListener("pointerup", endPointer);
       root.removeEventListener("pointercancel", endPointer);
     };
-  }, [applyView, open, selectNearestForCrossedLevel, viewport, zoomAt]);
+  }, [activeLayoutBounds, applyView, open, selectNearestForCrossedLevel, viewport, zoomAt]);
 
   const onNodeKeyDown = useCallback((event: ReactKeyboardEvent<HTMLButtonElement>) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -778,6 +827,7 @@ export function SemanticZoomField({
       data-live-count={projectedNodes.length}
       data-level-total={explorationProgress.totalCount}
       data-remaining-count={explorationProgress.remainingCount}
+      data-active-bounds={`${activeLayoutBounds.x.toFixed(2)},${activeLayoutBounds.y.toFixed(2)},${activeLayoutBounds.width.toFixed(2)},${activeLayoutBounds.height.toFixed(2)}`}
       data-continuation-action={explorationProgress.action}
       data-spatial-entry-word={spatialEntryWord}
       role="region"

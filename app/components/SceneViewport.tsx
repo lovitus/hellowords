@@ -46,6 +46,10 @@ interface SceneViewportProps {
   onLabelsEncountered: (labels: readonly Label[]) => void;
   onLabelEncountered: (label: Label) => void;
   onSelectWord: (label: Label) => void;
+  onExploreSemanticPlane?: (
+    label: Label | null,
+    source: "zoom" | "pointer" | "keyboard",
+  ) => void;
   onPrefetchScene: (
     sceneId: string,
   ) => void | Scene | null | Promise<Scene | null>;
@@ -292,6 +296,8 @@ const WHEEL_POSITION_EPSILON = 0.08;
 const WHEEL_SCALE_EPSILON = 0.00045;
 const EXIT_SCALE = DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale;
 const MAX_SCALE = 4.15;
+const SEMANTIC_OVERSCROLL_THRESHOLD = 0.32;
+const SEMANTIC_OVERSCROLL_WINDOW_MS = 850;
 const PORTAL_PREVIEW_LEAD = 1;
 const PORTAL_ARMED_PROGRESS = 0.82;
 
@@ -390,6 +396,37 @@ export function wheelZoomFactor(
   return Math.exp(-boundedDelta * 0.0017);
 }
 
+export interface SemanticOverscrollResult {
+  readonly accumulated: number;
+  readonly trigger: boolean;
+}
+
+/**
+ * A deliberate extra zoom beyond the spatial image opens the semantic plane.
+ * Portal pixels always keep ownership of the gesture, and zooming out resets
+ * the accumulator so an ordinary fit/zoom cycle cannot open the atlas.
+ */
+export function advanceSemanticOverscroll(
+  accumulated: number,
+  factor: number,
+  atMaximumScale: boolean,
+  portalOwnsGesture: boolean,
+  elapsedSincePreviousMs = 0,
+): SemanticOverscrollResult {
+  if (!atMaximumScale || portalOwnsGesture || factor <= 1) {
+    return { accumulated: 0, trigger: false };
+  }
+  const continuedGesture = Number.isFinite(elapsedSincePreviousMs)
+    && elapsedSincePreviousMs >= 0
+    && elapsedSincePreviousMs <= SEMANTIC_OVERSCROLL_WINDOW_MS;
+  const next = (continuedGesture ? Math.max(0, accumulated) : 0)
+    + Math.max(0, Math.log(factor));
+  if (next < SEMANTIC_OVERSCROLL_THRESHOLD) {
+    return { accumulated: next, trigger: false };
+  }
+  return { accumulated: 0, trigger: true };
+}
+
 function distance(a: Point, b: Point): number {
   return Math.hypot(a.x - b.x, a.y - b.y);
 }
@@ -428,6 +465,7 @@ export function SceneViewport({
   onLabelsEncountered,
   onLabelEncountered,
   onSelectWord,
+  onExploreSemanticPlane,
   onPrefetchScene,
   initialView,
   onCameraFrame,
@@ -475,6 +513,8 @@ export function SceneViewport({
   const vocabularyAnnouncementRef = useRef<HTMLParagraphElement>(null);
   const vocabularySummaryRef = useRef<HTMLButtonElement>(null);
   const sceneWordProgressRef = useRef<HTMLParagraphElement>(null);
+  const semanticOverscrollRef = useRef(0);
+  const semanticOverscrollTimestampRef = useRef<number | null>(null);
   const previewPhaseRef = useRef<"preview" | "armed">("preview");
   const committingRef = useRef(false);
   const parentZoomPrefetchRef = useRef(false);
@@ -889,13 +929,15 @@ export function SceneViewport({
       const remaining = Math.max(0, total - visibleCount);
       const maximumZoom = camera.scale >= MAX_SCALE - 0.02;
       const action = remaining === 0
-        ? "本景词汇已全部在当前视野"
+        ? maximumZoom
+          ? "本景词汇已全部在当前视野，继续放大进入万词大图"
+          : "本景词汇已全部在当前视野"
         : maximumZoom
-          ? `拖动探索其余 ${remaining} 个词`
+          ? `拖动探索其余 ${remaining} 个词，继续放大进入万词大图`
           : `放大或拖动探索其余 ${remaining} 个词`;
       const compact = viewportWidth <= 560;
       const text = compact
-        ? `视野 ${visibleCount}/${total} · ${remaining === 0 ? "已全部展开" : maximumZoom ? `拖动看其余 ${remaining}` : `放大/拖动看其余 ${remaining}`}`
+        ? `视野 ${visibleCount}/${total} · ${maximumZoom ? "拖动看词 / 继续放大进万词大图" : remaining === 0 ? "已全部展开" : `放大/拖动看其余 ${remaining}`}`
         : `当前视野 ${visibleCount} / 本景 ${total} 个词 · ${action}`;
       if (sceneWordProgress.textContent !== text) sceneWordProgress.textContent = text;
       setAttributeIfChanged(
@@ -907,6 +949,7 @@ export function SceneViewport({
       setDatasetValueIfChanged(sceneWordProgress, "total", String(total));
       setDatasetValueIfChanged(sceneWordProgress, "remaining", String(remaining));
       setDatasetValueIfChanged(sceneWordProgress, "cameraMode", maximumZoom ? "pan" : "zoom-or-pan");
+      setDatasetValueIfChanged(sceneWordProgress, "nextPlane", maximumZoom ? "semantic" : "spatial");
     }
 
     if (encounterDwellRef.current) {
@@ -1170,9 +1213,7 @@ export function SceneViewport({
         if (summaryElement.dataset.nextLabelId !== undefined) delete summaryElement.dataset.nextLabelId;
         if (summaryElement.dataset.targetScale !== undefined) delete summaryElement.dataset.targetScale;
       }
-      const count = summaryElement.querySelector<HTMLElement>("strong");
-      if (count && count.textContent !== String(hiddenCount)) count.textContent = String(hiddenCount);
-      setAttributeIfChanged(summaryElement, "aria-label", `本场景还有 ${hiddenCount} 个词，继续放大`);
+      setAttributeIfChanged(summaryElement, "aria-label", "继续放大，显示下一批词");
     }
     onCameraFrame?.({
       sceneId: scene.id,
@@ -1210,6 +1251,15 @@ export function SceneViewport({
     requestCameraFrame();
   }, [requestCameraFrame]);
 
+  const resetSemanticOverscroll = useCallback(() => {
+    semanticOverscrollRef.current = 0;
+    semanticOverscrollTimestampRef.current = null;
+  }, []);
+
+  useEffect(() => {
+    resetSemanticOverscroll();
+  }, [resetSemanticOverscroll, scene.id]);
+
   useEffect(() => {
     if (encounterTick > 0) requestCameraFrame();
   }, [encounterTick, requestCameraFrame]);
@@ -1217,6 +1267,7 @@ export function SceneViewport({
   const resetCamera = useCallback(() => {
     const viewport = viewportRef.current;
     if (!viewport || committingRef.current) return;
+    resetSemanticOverscroll();
     stopWheelAnimation();
     cancelCameraAnimation();
     const fittedCamera = fittedSceneCamera(
@@ -1243,7 +1294,7 @@ export function SceneViewport({
       && document.activeElement.matches(".scene-hotspot");
     if (!portalHasFocus && !continuityView) showPortalPreview(null);
     requestCameraFrame();
-  }, [cancelCameraAnimation, reducedContinuityAtMount, requestCameraFrame, scene, showPortalPreview, stopWheelAnimation]);
+  }, [cancelCameraAnimation, reducedContinuityAtMount, requestCameraFrame, resetSemanticOverscroll, scene, showPortalPreview, stopWheelAnimation]);
 
   const beginPortalTransition = useCallback((
     portal: ScenePortal,
@@ -1421,15 +1472,60 @@ export function SceneViewport({
     });
   }, [evaluateNavigation]);
 
+  const trySemanticOverscroll = useCallback((
+    point: Point,
+    factor: number,
+    portal: ScenePortal | undefined,
+  ): boolean => {
+    const now = performance.now();
+    const result = advanceSemanticOverscroll(
+      semanticOverscrollRef.current,
+      factor,
+      cameraRef.current.scale >= MAX_SCALE - 0.02,
+      Boolean(portal),
+      semanticOverscrollTimestampRef.current === null
+        ? Number.POSITIVE_INFINITY
+        : now - semanticOverscrollTimestampRef.current,
+    );
+    semanticOverscrollRef.current = result.accumulated;
+    semanticOverscrollTimestampRef.current = result.accumulated > 0 ? now : null;
+    if (!result.trigger || !onExploreSemanticPlane) return false;
+
+    const activeIds = new Set(
+      [...(labelLayerRef.current?.querySelectorAll<HTMLElement>(
+        '.word-label[data-interactive="true"]',
+      ) ?? [])].map((element) => element.dataset.labelId),
+    );
+    const nearest = scene.labels
+      .filter((label) => label.lexemeId && activeIds.has(label.id))
+      .map((label) => ({
+        label,
+        distance: distance(projectScenePointToScreen(label, cameraRef.current), point),
+      }))
+      .filter(({ distance: labelDistance }) => labelDistance <= 190)
+      .sort((a, b) => a.distance - b.distance)[0]?.label ?? null;
+
+    stopWheelAnimation();
+    cancelCameraAnimation();
+    zoomDirectionRef.current = null;
+    onExploreSemanticPlane(nearest, "zoom");
+    return true;
+  }, [cancelCameraAnimation, onExploreSemanticPlane, scene.labels, stopWheelAnimation]);
+
   const zoomAt = useCallback(
     (point: Point, factor: number, previousPoint: Point = point) => {
       if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
+      if (factor <= 1) resetSemanticOverscroll();
       stopWheelAnimation();
       cancelCameraAnimation();
       const camera = cameraRef.current;
       const previousFocus = zoomFocusRef.current;
       const minimum = scene.parentId ? 0.68 : 0.9;
       const nextScale = Math.min(MAX_SCALE, Math.max(minimum, camera.scale * factor));
+      const semanticPortal = factor > 1
+        ? portalAtScreenPoint(scene.portals, camera, previousPoint)
+        : undefined;
+      if (trySemanticOverscroll(point, factor, semanticPortal)) return;
       if (
         nextScale === camera.scale
         && point.x === previousPoint.x
@@ -1481,11 +1577,12 @@ export function SceneViewport({
       requestCameraFrame();
       scheduleNavigationCheck();
     },
-    [cancelCameraAnimation, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation],
+    [cancelCameraAnimation, resetSemanticOverscroll, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, trySemanticOverscroll],
   );
 
   const queueWheelZoom = useCallback((point: Point, factor: number) => {
     if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
+    if (factor <= 1) resetSemanticOverscroll();
     if (navigationFrameRef.current !== null) {
       cancelAnimationFrame(navigationFrameRef.current);
       navigationFrameRef.current = null;
@@ -1503,6 +1600,12 @@ export function SceneViewport({
       x: point.x - (point.x - base.x) * ratio,
       y: point.y - (point.y - base.y) * ratio,
     });
+    const semanticPortal = factor > 1
+      ? portalAtScreenPoint(scene.portals, cameraRef.current, point)
+        ?? portalAtScreenPoint(scene.portals, base, point)
+        ?? portalAtScreenPoint(scene.portals, target, point)
+      : undefined;
+    if (trySemanticOverscroll(point, factor, semanticPortal)) return;
     wheelTargetRef.current = target;
     zoomFocusRef.current = point;
     if (factor > 1) zoomDirectionRef.current = "in";
@@ -1577,7 +1680,7 @@ export function SceneViewport({
       wheelFrameTimeRef.current = null;
     };
     wheelAnimationRef.current = requestAnimationFrame(animate);
-  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, viewerInteractive]);
+  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, resetSemanticOverscroll, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, trySemanticOverscroll, viewerInteractive]);
 
   const focusVocabularyTarget = useCallback((
     fallbackLabelId: string,
@@ -1815,6 +1918,7 @@ export function SceneViewport({
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
     if ((event.target as Element).closest("button")) return;
+    resetSemanticOverscroll();
     stopWheelAnimation();
     cancelCameraAnimation();
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -1832,6 +1936,7 @@ export function SceneViewport({
 
     const points = [...pointersRef.current.entries()];
     if (points.length === 1) {
+      resetSemanticOverscroll();
       const camera = cameraRef.current;
       cameraRef.current = {
         ...camera,
@@ -1864,6 +1969,7 @@ export function SceneViewport({
   };
 
   const releasePointer = (event: React.PointerEvent<HTMLDivElement>) => {
+    resetSemanticOverscroll();
     pointersRef.current.delete(event.pointerId);
     previousPointersRef.current.delete(event.pointerId);
     if (viewerInteractive && !committingRef.current) scheduleNavigationCheck();
@@ -2144,7 +2250,7 @@ export function SceneViewport({
             data-next-batch-count="0"
             data-next-lod="none"
             hidden
-            aria-label="本场景没有待显示的词"
+            aria-label="继续放大，显示下一批词"
             onClick={(event) => {
               event.stopPropagation();
               const nextLabelId = event.currentTarget.dataset.nextLabelId;
@@ -2156,7 +2262,7 @@ export function SceneViewport({
               );
             }}
           >
-            本场景还有 <strong>0</strong> 个词 · 继续放大
+            继续放大 · <strong>显示下一批词</strong>
           </button>
           <aside className="scene-cue-legend" data-testid="scene-cue-legend" aria-label="缩放提示图例">
             <span><i data-kind="portal" aria-hidden="true" />继续放大进入细节</span>
@@ -2196,6 +2302,7 @@ export function SceneViewport({
               data-total={scene.labels.length}
               data-remaining={scene.labels.length}
               data-camera-mode="zoom-or-pan"
+              data-next-plane="spatial"
             >
               当前视野 0 / 本景 {scene.labels.length} 个词 · 放大或拖动探索
             </p>

@@ -96,8 +96,8 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
     },
   },
   "city-street": {
-    asset: "/scenes/city-street-bright-v3.jpg",
-    sha256: "f615acf6a5751f9d6033e3ebcb96d1d7f768566db3acaa9170d363d53fb1fd08",
+    asset: "/scenes/city-street-bright-v4.jpg",
+    sha256: "e280b0047e7bf0dbcf7f1ff392c38d5b88f06e11bb6304f3d998f47f37438fdf",
     quality: {
       minMeanLuminance: 105,
       maxMeanLuminance: 195,

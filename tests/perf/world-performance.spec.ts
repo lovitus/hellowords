@@ -330,6 +330,7 @@ test("the lexical world searches 44 shards without duplicate requests or an unbo
   await preparePage(page);
   await page.goto("/", { waitUntil: "domcontentloaded" });
   await waitForWorld(page);
+  const backgroundDomNodes = await page.evaluate(() => document.querySelectorAll("*").length);
 
   const sampler = new BrowserMetricsSampler(browser, page);
   await sampler.start();
@@ -387,6 +388,8 @@ test("the lexical world searches 44 shards without duplicate requests or an unbo
     schemaVersion: 1,
     entryCount: 10_000,
     liveDomNodes,
+    backgroundDomNodes,
+    semanticDomDelta: Math.max(0, liveDomNodes - backgroundDomNodes),
     lexicalDomNodes,
     activeWordNodes,
     requestedFiles: [...new Set(requestedData)].length,
@@ -408,7 +411,8 @@ test("the lexical world searches 44 shards without duplicate requests or an unbo
   expect(lexicalSummary.activeWordNodes).toBeGreaterThan(0);
   expect(lexicalSummary.activeWordNodes).toBeLessThanOrEqual(80);
   expect(lexicalSummary.lexicalDomNodes).toBeLessThanOrEqual(450);
-  expect(lexicalSummary.liveDomNodes).toBeLessThanOrEqual(900);
+  expect(lexicalSummary.semanticDomDelta).toBeLessThanOrEqual(450);
+  expect(lexicalSummary.liveDomNodes).toBeLessThanOrEqual(backgroundDomNodes + 450);
   expect(lexicalSummary.duplicateRequests).toBe(0);
   expect(lexicalSummary.peakJsHeapMiB).toBeLessThanOrEqual(budgets.peakJsHeapMiB);
   expect(lexicalSummary.browserCpuMs).toBeLessThanOrEqual(5_000);

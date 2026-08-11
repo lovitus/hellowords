@@ -31,8 +31,10 @@ and selected topic shard. The projected label layer is collision-resolved and
 capped at 80 live screen-space bubbles on desktop or 40 on mobile, so DOM size
 is independent of the 10,000-word count. Global search is the deliberate
 exception that may query all 44 topic shards; those requests are deduplicated
-and results remain bounded. The lexical dialog stays below 450 live DOM nodes
-and the complete page below 900 during deep semantic exploration.
+and results remain bounded. The lexical dialog and its incremental page DOM
+cost each stay below 450 live nodes during deep semantic exploration, independent
+of how many audited labels the underlying spatial scene contains. The complete
+page remains subject to the general 1,500-node ceiling.
 
 ## Interaction limits
 

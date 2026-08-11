@@ -4,6 +4,7 @@ import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import {
+  advanceSemanticOverscroll,
   buildViewerChromeProtectedRegions,
   cameraFromRenderedPortalRect,
   childCameraFromPortalTile,
@@ -66,6 +67,73 @@ test("portal captions stay inside narrow viewports without moving centered cues"
   assert.equal(clampCenteredOverlayShift(370, 180, 390), -82);
   assert.equal(clampCenteredOverlayShift(-40, 180, 390), 142);
   assert.equal(clampCenteredOverlayShift(24, 500, 100), 26);
+});
+
+test("continued zoom past the spatial maximum deliberately enters the semantic plane", () => {
+  const first = advanceSemanticOverscroll(0, Math.exp(0.18), true, false);
+  assert.equal(first.trigger, false);
+  assert.ok(first.accumulated > 0.17);
+
+  const second = advanceSemanticOverscroll(first.accumulated, Math.exp(0.15), true, false);
+  assert.equal(second.trigger, true);
+  assert.equal(second.accumulated, 0);
+
+  const expired = advanceSemanticOverscroll(
+    first.accumulated,
+    Math.exp(0.15),
+    true,
+    false,
+    10_000,
+  );
+  assert.equal(expired.trigger, false);
+  assert.ok(
+    Math.abs(expired.accumulated - 0.15) < 1e-12,
+    "separate gestures cannot combine into a delayed semantic transition",
+  );
+
+  assert.deepEqual(
+    advanceSemanticOverscroll(first.accumulated, Math.exp(0.3), true, true),
+    { accumulated: 0, trigger: false },
+    "a real child portal keeps ownership of the same zoom gesture",
+  );
+  assert.deepEqual(
+    advanceSemanticOverscroll(first.accumulated, 0.8, true, false),
+    { accumulated: 0, trigger: false },
+    "zooming out resets semantic overscroll intent",
+  );
+  assert.deepEqual(
+    advanceSemanticOverscroll(first.accumulated, Math.exp(0.3), false, false),
+    { accumulated: 0, trigger: false },
+    "ordinary spatial zoom cannot open the semantic plane early",
+  );
+});
+
+test("semantic overscroll gives painted portal pixels ownership and resets with camera gestures", () => {
+  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  const wheelStart = source.indexOf("const queueWheelZoom");
+  const wheelEnd = source.indexOf("const focusVocabularyTarget", wheelStart);
+  const wheelPath = source.slice(wheelStart, wheelEnd);
+  const paintedPortal = wheelPath.indexOf(
+    "portalAtScreenPoint(scene.portals, cameraRef.current, point)",
+  );
+  const targetPortal = wheelPath.indexOf("portalAtScreenPoint(scene.portals, base, point)");
+  assert.ok(paintedPortal >= 0 && targetPortal > paintedPortal);
+
+  const resetStart = source.indexOf("const resetSemanticOverscroll");
+  const cameraResetStart = source.indexOf("const resetCamera", resetStart);
+  const cameraResetEnd = source.indexOf("const beginPortalTransition", cameraResetStart);
+  const pointerStart = source.indexOf("const handlePointerDown", cameraResetEnd);
+  const pointerEnd = source.indexOf("const viewportCenter", pointerStart);
+  assert.match(source.slice(cameraResetStart, cameraResetEnd), /resetSemanticOverscroll\(\)/);
+  assert.ok(
+    (source.slice(pointerStart, pointerEnd).match(/resetSemanticOverscroll\(\)/g) ?? []).length >= 3,
+    "pointer start, one-finger pan and pointer end each clear stale overscroll intent",
+  );
+  assert.match(
+    source.slice(resetStart, cameraResetStart),
+    /\[resetSemanticOverscroll, scene\.id\]/,
+    "scene ownership changes clear stale overscroll intent",
+  );
 });
 
 test("painted portal geometry round-trips to the camera used for child handoff", () => {
