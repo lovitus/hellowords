@@ -160,10 +160,23 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   );
   await scienceDistrict.click();
   await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await expect(minimap.locator('[data-testid="scene-minimap-district"]')).toHaveCount(0);
+  const scienceZones = minimap.locator('[data-testid="scene-minimap-zone"]');
+  await expect(scienceZones).toHaveCount(12);
+  expect(await scienceZones.evaluateAll((buttons) => buttons.every((button) => (
+    (button as HTMLElement).dataset.navigation === "detail-zone-focus"
+      && Number((button as HTMLElement).dataset.labelCount) > 0
+  )))).toBe(true);
+  await expect(minimap.getByTestId("scene-minimap-district-back")).toBeVisible();
+  const chemistryZone = minimap.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="science-chemistry-lab"]',
+  );
+  await chemistryZone.click();
   await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale"))).toBeGreaterThan(2.3);
+  await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale"))).toBeGreaterThan(3.0);
   await expect.poll(async () => page.evaluate(() => {
     const surface = document.querySelector<HTMLElement>(".scene-surface");
-    const button = document.querySelector<HTMLElement>('[data-testid="scene-minimap-district"][data-district-id="science"]');
+    const button = document.querySelector<HTMLElement>('[data-testid="scene-minimap-zone"][data-zone-id="science-chemistry-lab"]');
     if (!surface || !button) return Number.POSITIVE_INFINITY;
     const x = Number(button.dataset.focusX);
     const y = Number(button.dataset.focusY);
@@ -171,7 +184,10 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
     const viewport = document.querySelector<HTMLElement>(".world-viewport")?.getBoundingClientRect();
     if (!viewport || !Number.isFinite(x) || !Number.isFinite(y)) return Number.POSITIVE_INFINITY;
     return Math.hypot(matrix.a * x + matrix.e - viewport.width / 2, matrix.d * y + matrix.f - viewport.height / 2);
-  })).toBeLessThan(140);
+  })).toBeLessThan(180);
+  await minimap.getByTestId("scene-minimap-district-back").click();
+  await expect(minimap.locator('[data-testid="scene-minimap-district"]')).toHaveCount(6);
+  await expect(minimap.locator('[data-testid="scene-minimap-zone"]')).toHaveCount(0);
 
   await startTransitionProbe(page);
   const gardenButton = minimap.locator(`${CHILD}[data-target-scene="community-garden"]`);

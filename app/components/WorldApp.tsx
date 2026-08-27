@@ -78,6 +78,16 @@ interface RootAtlasDistrict {
   readonly focusX: number;
   readonly focusY: number;
   readonly targetScale: number;
+  readonly zones: readonly RootAtlasZone[];
+}
+
+interface RootAtlasZone {
+  readonly id: string;
+  readonly title: string;
+  readonly labelCount: number;
+  readonly focusX: number;
+  readonly focusY: number;
+  readonly targetScale: number;
 }
 
 declare global {
@@ -107,6 +117,7 @@ export function WorldApp() {
   const [continuousTransitionActive, setContinuousTransitionActive] = useState(false);
   const [viewportMotionFrozen, setViewportMotionFrozen] = useState(false);
   const [discoveredCount, setDiscoveredCount] = useState(0);
+  const [selectedAtlasDistrictId, setSelectedAtlasDistrictId] = useState<string | null>(null);
   const navigationRef = useRef<AbortController | null>(null);
   const sceneHeadingRef = useRef<HTMLHeadingElement>(null);
   const focusHeadingAfterNavigationRef = useRef(false);
@@ -144,9 +155,21 @@ export function WorldApp() {
         focusX: (left + right) / 2,
         focusY: (top + bottom) / 2,
         targetScale: Math.min(2.8, Math.max(2.35, Math.min(...zones.map((zone) => zone.targetScale)))),
+        zones: zones.map((zone) => ({
+          id: zone.id,
+          title: zone.title,
+          labelCount: zone.labelIds.length,
+          focusX: zone.x + zone.width / 2,
+          focusY: zone.y + zone.height / 2,
+          targetScale: zone.targetScale,
+        })),
       }];
     });
   }, [scene]);
+
+  const selectedAtlasDistrict = rootAtlasDistricts.find(
+    (district) => district.id === selectedAtlasDistrictId,
+  ) ?? null;
 
   useEffect(() => {
     const storedMeaningVisible = window.localStorage.getItem(MEANING_KEY) === "true";
@@ -487,11 +510,23 @@ export function WorldApp() {
 
   const focusAtlasDistrict = useCallback((district: RootAtlasDistrict, source: "pointer" | "keyboard") => {
     if (sceneControlsLocked || scene?.id !== "world-map") return false;
+    setSelectedAtlasDistrictId(district.id);
     const target: SceneFocusTarget = {
       id: `atlas-district-${district.id}`,
       x: district.focusX,
       y: district.focusY,
       targetScale: district.targetScale,
+    };
+    return activeFocusTargetNavigatorRef.current?.(target, source) ?? false;
+  }, [scene?.id, sceneControlsLocked]);
+
+  const focusAtlasZone = useCallback((zone: RootAtlasZone, source: "pointer" | "keyboard") => {
+    if (sceneControlsLocked || scene?.id !== "world-map") return false;
+    const target: SceneFocusTarget = {
+      id: zone.id,
+      x: zone.focusX,
+      y: zone.focusY,
+      targetScale: zone.targetScale,
     };
     return activeFocusTargetNavigatorRef.current?.(target, source) ?? false;
   }, [scene?.id, sceneControlsLocked]);
@@ -716,9 +751,47 @@ export function WorldApp() {
             <nav
               className="scene-minimap__districts"
               data-testid="scene-minimap-districts"
-              aria-label="Atlas districts"
+              data-mode={selectedAtlasDistrict ? "zones" : "districts"}
+              aria-label={selectedAtlasDistrict ? `${selectedAtlasDistrict.label} detail zones` : "Atlas districts"}
             >
-              {rootAtlasDistricts.map((district, index) => (
+              {selectedAtlasDistrict ? (
+                <>
+                  <button
+                    type="button"
+                    className="scene-minimap__district-back"
+                    data-testid="scene-minimap-district-back"
+                    data-navigation="district-list"
+                    onClick={() => setSelectedAtlasDistrictId(null)}
+                    disabled={sceneControlsLocked}
+                    aria-label="返回六个大区"
+                  >
+                    <span aria-hidden="true">‹</span>
+                    <b>{selectedAtlasDistrict.label}</b>
+                  </button>
+                  {selectedAtlasDistrict.zones.map((zone) => (
+                    <button
+                      key={zone.id}
+                      type="button"
+                      data-testid="scene-minimap-zone"
+                      data-zone-id={zone.id}
+                      data-navigation="detail-zone-focus"
+                      data-focus-x={zone.focusX}
+                      data-focus-y={zone.focusY}
+                      data-target-scale={zone.targetScale}
+                      data-label-count={zone.labelCount}
+                      onClick={(event) => {
+                        focusAtlasZone(zone, event.detail === 0 ? "keyboard" : "pointer");
+                      }}
+                      disabled={sceneControlsLocked}
+                      aria-label={`聚焦 ${zone.title}，${zone.labelCount} 个词`}
+                    >
+                      <span aria-hidden="true" />
+                      <b>{zone.title}</b>
+                      <small>{zone.labelCount}</small>
+                    </button>
+                  ))}
+                </>
+              ) : rootAtlasDistricts.map((district, index) => (
                 <button
                   key={district.id}
                   type="button"

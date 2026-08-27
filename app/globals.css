@@ -388,6 +388,32 @@ a:focus-visible {
   cursor: pointer;
 }
 
+.scene-minimap__districts[data-mode="zones"] > button {
+  flex: 0 0 auto;
+  max-width: 136px;
+}
+
+.scene-minimap__districts[data-mode="zones"] > button > b {
+  max-width: 108px;
+}
+
+.scene-minimap__districts[data-mode="zones"] > .scene-minimap__district-back {
+  border-color: rgba(181, 113, 45, 0.32);
+  color: #805226;
+  background: rgba(255, 249, 231, 0.72);
+}
+
+.scene-minimap__districts[data-mode="zones"] > .scene-minimap__district-back > span {
+  width: auto;
+  height: auto;
+  flex-basis: auto;
+  color: #b56e2d;
+  background: transparent;
+  box-shadow: none;
+  font-size: 13px;
+  line-height: 0.7;
+}
+
 .scene-minimap__districts > button > span {
   width: 5px;
   height: 5px;
@@ -1919,6 +1945,14 @@ a:focus-visible {
     min-height: 18px;
     padding-inline: 3px;
     font-size: 7px;
+  }
+
+  .scene-minimap__districts[data-mode="zones"] > button {
+    max-width: 96px;
+  }
+
+  .scene-minimap__districts[data-mode="zones"] > button > b {
+    max-width: 72px;
   }
 
   .scene-minimap__districts > button > span {

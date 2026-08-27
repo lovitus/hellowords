@@ -2366,7 +2366,7 @@ export function SceneViewport({
     const start = { ...cameraRef.current };
     const targetScale = Math.min(
       maximumSceneCameraScale(start.fit),
-      Math.max(start.scale + 0.28, focusTarget.targetScale),
+      Math.max(start.scale, focusTarget.targetScale),
     );
     const effectiveScale = start.fit * targetScale;
     const target = clampCamera({
