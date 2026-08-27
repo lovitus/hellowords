@@ -438,6 +438,476 @@
       "priority": 5.043,
       "minLevel": 4,
       "sourceVisualRegion": "fire-hydrant"
+    },
+    {
+      "id": "museum-door",
+      "word": "museum door",
+      "translation": "博物馆门",
+      "x": 430,
+      "y": 440,
+      "priority": 6.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "museum-entrance"
+    },
+    {
+      "id": "museum-steps",
+      "word": "museum steps",
+      "translation": "博物馆台阶",
+      "x": 430,
+      "y": 550,
+      "priority": 6.002,
+      "minLevel": 3,
+      "sourceVisualRegion": "museum-entrance"
+    },
+    {
+      "id": "column-capital",
+      "word": "column capital",
+      "translation": "柱头",
+      "x": 305,
+      "y": 252,
+      "priority": 6.003,
+      "minLevel": 4,
+      "sourceVisualRegion": "museum-columns"
+    },
+    {
+      "id": "column-shaft",
+      "word": "column shaft",
+      "translation": "柱身",
+      "x": 360,
+      "y": 400,
+      "priority": 6.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "museum-columns"
+    },
+    {
+      "id": "display-glass",
+      "word": "display glass",
+      "translation": "展柜玻璃",
+      "x": 175,
+      "y": 300,
+      "priority": 6.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "museum-exhibit"
+    },
+    {
+      "id": "telescope-tripod",
+      "word": "telescope tripod",
+      "translation": "望远镜三脚架",
+      "x": 170,
+      "y": 500,
+      "priority": 6.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "museum-telescope"
+    },
+    {
+      "id": "crystal",
+      "word": "crystal",
+      "translation": "水晶",
+      "x": 150,
+      "y": 470,
+      "priority": 6.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "museum-exhibit"
+    },
+    {
+      "id": "globe",
+      "word": "globe",
+      "translation": "地球仪",
+      "x": 250,
+      "y": 365,
+      "priority": 6.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "museum-exhibit"
+    },
+    {
+      "id": "cafe-door",
+      "word": "cafe door",
+      "translation": "咖啡馆门",
+      "x": 800,
+      "y": 520,
+      "priority": 6.009,
+      "minLevel": 2,
+      "sourceVisualRegion": "cafe-storefront"
+    },
+    {
+      "id": "cafe-table",
+      "word": "cafe table",
+      "translation": "咖啡馆桌",
+      "x": 720,
+      "y": 540,
+      "priority": 6.010,
+      "minLevel": 3,
+      "sourceVisualRegion": "cafe-storefront"
+    },
+    {
+      "id": "cafe-chair",
+      "word": "cafe chair",
+      "translation": "咖啡馆椅子",
+      "x": 760,
+      "y": 545,
+      "priority": 6.011,
+      "minLevel": 4,
+      "sourceVisualRegion": "cafe-storefront"
+    },
+    {
+      "id": "brick-wall",
+      "word": "brick wall",
+      "translation": "砖墙",
+      "x": 780,
+      "y": 250,
+      "priority": 6.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "portal-cafe"
+    },
+    {
+      "id": "awning-frame",
+      "word": "awning frame",
+      "translation": "遮阳篷框",
+      "x": 800,
+      "y": 360,
+      "priority": 6.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "cafe-awning"
+    },
+    {
+      "id": "window-frame",
+      "word": "window frame",
+      "translation": "窗框",
+      "x": 760,
+      "y": 300,
+      "priority": 6.014,
+      "minLevel": 4,
+      "sourceVisualRegion": "cafe-window"
+    },
+    {
+      "id": "balcony-rail",
+      "word": "balcony rail",
+      "translation": "阳台栏杆",
+      "x": 800,
+      "y": 330,
+      "priority": 6.015,
+      "minLevel": 4,
+      "sourceVisualRegion": "cafe-balcony"
+    },
+    {
+      "id": "window-sill",
+      "word": "window sill",
+      "translation": "窗台",
+      "x": 760,
+      "y": 350,
+      "priority": 6.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "cafe-window"
+    },
+    {
+      "id": "planter-rim",
+      "word": "planter rim",
+      "translation": "花盆边缘",
+      "x": 632,
+      "y": 560,
+      "priority": 6.017,
+      "minLevel": 4,
+      "sourceVisualRegion": "cafe-planter"
+    },
+    {
+      "id": "glass-door",
+      "word": "glass door",
+      "translation": "玻璃门",
+      "x": 1110,
+      "y": 520,
+      "priority": 6.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "transit-entrance"
+    },
+    {
+      "id": "roof-arch",
+      "word": "roof arch",
+      "translation": "拱形屋顶",
+      "x": 1240,
+      "y": 140,
+      "priority": 6.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "transit-roof"
+    },
+    {
+      "id": "roof-panel",
+      "word": "roof panel",
+      "translation": "屋顶面板",
+      "x": 1310,
+      "y": 250,
+      "priority": 6.020,
+      "minLevel": 4,
+      "sourceVisualRegion": "transit-roof"
+    },
+    {
+      "id": "bus-window",
+      "word": "bus window",
+      "translation": "公交车窗",
+      "x": 1490,
+      "y": 475,
+      "priority": 6.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "city-bus"
+    },
+    {
+      "id": "bus-wheel",
+      "word": "bus wheel",
+      "translation": "公交车轮",
+      "x": 1570,
+      "y": 590,
+      "priority": 6.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "bus-tire"
+    },
+    {
+      "id": "stop-marker",
+      "word": "stop marker",
+      "translation": "站点标志",
+      "x": 1320,
+      "y": 470,
+      "priority": 6.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "bus-stop"
+    },
+    {
+      "id": "bench-seat",
+      "word": "bench seat",
+      "translation": "长椅座面",
+      "x": 1218,
+      "y": 575,
+      "priority": 6.024,
+      "minLevel": 4,
+      "sourceVisualRegion": "public-bench"
+    },
+    {
+      "id": "tree-trunk",
+      "word": "tree trunk",
+      "translation": "树干",
+      "x": 1010,
+      "y": 500,
+      "priority": 6.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "street-tree"
+    },
+    {
+      "id": "tree-leaf",
+      "word": "tree leaf",
+      "translation": "树叶",
+      "x": 960,
+      "y": 250,
+      "priority": 6.026,
+      "minLevel": 4,
+      "sourceVisualRegion": "street-tree"
+    },
+    {
+      "id": "zebra-stripe",
+      "word": "zebra stripe",
+      "translation": "斑马线条",
+      "x": 350,
+      "y": 750,
+      "priority": 6.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "street-crosswalk"
+    },
+    {
+      "id": "crosswalk-edge",
+      "word": "crosswalk edge",
+      "translation": "斑马线边缘",
+      "x": 570,
+      "y": 790,
+      "priority": 6.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "street-crosswalk"
+    },
+    {
+      "id": "lane-line",
+      "word": "lane line",
+      "translation": "车道线",
+      "x": 1000,
+      "y": 705,
+      "priority": 6.029,
+      "minLevel": 3,
+      "sourceVisualRegion": "road-marking"
+    },
+    {
+      "id": "curb-stone",
+      "word": "curb stone",
+      "translation": "路缘石",
+      "x": 730,
+      "y": 645,
+      "priority": 6.030,
+      "minLevel": 4,
+      "sourceVisualRegion": "street-curb"
+    },
+    {
+      "id": "ramp-slope",
+      "word": "ramp slope",
+      "translation": "坡道斜面",
+      "x": 1000,
+      "y": 800,
+      "priority": 6.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "curb-ramp"
+    },
+    {
+      "id": "tactile-dot",
+      "word": "tactile dot",
+      "translation": "触觉凸点",
+      "x": 1090,
+      "y": 820,
+      "priority": 6.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "tactile-paving"
+    },
+    {
+      "id": "drain-grate",
+      "word": "drain grate",
+      "translation": "排水格栅",
+      "x": 840,
+      "y": 820,
+      "priority": 6.033,
+      "minLevel": 4,
+      "sourceVisualRegion": "storm-drain"
+    },
+    {
+      "id": "manhole-cover",
+      "word": "manhole cover",
+      "translation": "井盖",
+      "x": 680,
+      "y": 725,
+      "priority": 6.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "manhole"
+    },
+    {
+      "id": "lamp-head",
+      "word": "lamp head",
+      "translation": "路灯头",
+      "x": 620,
+      "y": 215,
+      "priority": 6.035,
+      "minLevel": 4,
+      "sourceVisualRegion": "lamp-post"
+    },
+    {
+      "id": "red-light",
+      "word": "red light",
+      "translation": "红灯",
+      "x": 590,
+      "y": 370,
+      "priority": 6.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "traffic-light"
+    },
+    {
+      "id": "yellow-light",
+      "word": "yellow light",
+      "translation": "黄灯",
+      "x": 590,
+      "y": 400,
+      "priority": 6.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "traffic-light"
+    },
+    {
+      "id": "green-light",
+      "word": "green light",
+      "translation": "绿灯",
+      "x": 590,
+      "y": 430,
+      "priority": 6.038,
+      "minLevel": 4,
+      "sourceVisualRegion": "traffic-light"
+    },
+    {
+      "id": "signal-screen",
+      "word": "signal screen",
+      "translation": "信号灯屏",
+      "x": 590,
+      "y": 462,
+      "priority": 6.039,
+      "minLevel": 4,
+      "sourceVisualRegion": "pedestrian-signal"
+    },
+    {
+      "id": "rack-loop",
+      "word": "rack loop",
+      "translation": "车架环",
+      "x": 260,
+      "y": 575,
+      "priority": 6.040,
+      "minLevel": 4,
+      "sourceVisualRegion": "bicycle-rack"
+    },
+    {
+      "id": "bicycle-frame",
+      "word": "bicycle frame",
+      "translation": "自行车架",
+      "x": 1370,
+      "y": 570,
+      "priority": 6.041,
+      "minLevel": 3,
+      "sourceVisualRegion": "street-bicycle"
+    },
+    {
+      "id": "handlebar",
+      "word": "handlebar",
+      "translation": "车把",
+      "x": 1360,
+      "y": 525,
+      "priority": 6.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "street-bicycle"
+    },
+    {
+      "id": "wheel-spoke",
+      "word": "wheel spoke",
+      "translation": "车轮辐条",
+      "x": 1380,
+      "y": 595,
+      "priority": 6.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "bicycle-wheel"
+    },
+    {
+      "id": "car-window",
+      "word": "car window",
+      "translation": "车窗",
+      "x": 100,
+      "y": 575,
+      "priority": 6.044,
+      "minLevel": 3,
+      "sourceVisualRegion": "yellow-car"
+    },
+    {
+      "id": "car-wheel",
+      "word": "car wheel",
+      "translation": "车轮",
+      "x": 170,
+      "y": 630,
+      "priority": 6.045,
+      "minLevel": 4,
+      "sourceVisualRegion": "yellow-car"
+    },
+    {
+      "id": "hydrant-cap",
+      "word": "hydrant cap",
+      "translation": "消防栓帽",
+      "x": 1210,
+      "y": 685,
+      "priority": 6.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "fire-hydrant"
+    },
+    {
+      "id": "hydrant-nozzle",
+      "word": "hydrant nozzle",
+      "translation": "消防栓接口",
+      "x": 1190,
+      "y": 725,
+      "priority": 6.047,
+      "minLevel": 4,
+      "sourceVisualRegion": "fire-hydrant"
     }
   ],
   "portals": [
@@ -483,9 +953,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/city-street-bright-v4.jpg",
     "reviewedAssetSha256": "e280b0047e7bf0dbcf7f1ff392c38d5b88f06e11bb6304f3d998f47f37438fdf",
-    "rationale": "Re-audited all final bright-v4 pixels at thumbnail, 100% and 200% scales; every retained anchor targets a distinct visible object or part. The ambiguous edge-cropped bus door and the road duplicate of street were deleted, and the unmarked yellow vehicle was conservatively labelled car, while the three destination buildings remain disjoint and free of pseudo-writing or anatomical exhibits.",
-    "previousLabelCount": 47,
-    "retainedLabelCount": 42,
+    "rationale": "Re-audited all final bright-v4 pixels at thumbnail, 100% and 200% scales; every retained anchor targets a distinct visible object or part. The expanded set names readable architectural, transit, crossing and vehicle parts inside the same disjoint destination crops. The ambiguous edge-cropped bus door and the road duplicate of street remain removed, and the unmarked yellow vehicle stays conservatively labelled car.",
+    "previousLabelCount": 94,
+    "retainedLabelCount": 89,
     "removedLabelCount": 5,
     "removedExamples": [
       "skeleton",
@@ -902,7 +1372,16 @@
         "museum-column",
         "telescope",
         "bicycle-rack",
-        "trash-can"
+        "trash-can",
+        "museum-door",
+        "museum-steps",
+        "column-capital",
+        "column-shaft",
+        "display-glass",
+        "telescope-tripod",
+        "crystal",
+        "globe",
+        "rack-loop"
       ]
     },
     {
@@ -923,7 +1402,22 @@
         "balcony",
         "traffic-light",
         "pedestrian-signal",
-        "lamp-post"
+        "lamp-post",
+        "cafe-door",
+        "cafe-table",
+        "cafe-chair",
+        "brick-wall",
+        "awning-frame",
+        "window-frame",
+        "balcony-rail",
+        "window-sill",
+        "planter-rim",
+        "lamp-head",
+        "red-light",
+        "yellow-light",
+        "green-light",
+        "signal-screen",
+        "tree-leaf"
       ]
     },
     {
@@ -946,7 +1440,15 @@
         "pedestrian",
         "backpack",
         "public-bench",
-        "street-tree"
+        "street-tree",
+        "glass-door",
+        "roof-arch",
+        "roof-panel",
+        "bus-window",
+        "bus-wheel",
+        "stop-marker",
+        "bench-seat",
+        "tree-trunk"
       ]
     },
     {
@@ -965,7 +1467,13 @@
         "intersection",
         "crosswalk",
         "road-marking",
-        "manhole"
+        "manhole",
+        "zebra-stripe",
+        "crosswalk-edge",
+        "lane-line",
+        "curb-stone",
+        "drain-grate",
+        "manhole-cover"
       ]
     },
     {
@@ -985,7 +1493,11 @@
         "tactile-paving",
         "storm-drain",
         "bollard",
-        "fire-hydrant"
+        "fire-hydrant",
+        "ramp-slope",
+        "tactile-dot",
+        "hydrant-cap",
+        "hydrant-nozzle"
       ]
     },
     {
@@ -1002,7 +1514,12 @@
         "street-car",
         "bicycle",
         "wheel",
-        "helmet"
+        "helmet",
+        "bicycle-frame",
+        "handlebar",
+        "wheel-spoke",
+        "car-window",
+        "car-wheel"
       ]
     }
   ]
