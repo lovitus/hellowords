@@ -1012,22 +1012,15 @@ export function SemanticZoomField({
             projected.screenX - projected.anchorScreenX,
             projected.screenY - projected.anchorScreenY,
           );
-          const leaderStyle = {
-            left: `${projected.anchorScreenX}px`,
-            top: `${projected.anchorScreenY}px`,
-            width: `${leaderLength}px`,
-            transform: `rotate(${Math.atan2(
-              projected.screenY - projected.anchorScreenY,
-              projected.screenX - projected.anchorScreenX,
-            )}rad)`,
-            "--semantic-node-color": visual.color,
-          } as CSSProperties;
+          const leaderAngle = Math.atan2(
+            projected.screenY - projected.anchorScreenY,
+            projected.screenX - projected.anchorScreenX,
+          ) * 180 / Math.PI;
+          const leaderX = projected.anchorScreenX - projected.screenX + projected.boxWidth / 2;
+          const leaderY = projected.anchorScreenY - projected.screenY + projected.boxHeight / 2;
           return (
-            <span className="semantic-zoom-field__node-wrap" key={`${displayLevel}:${projected.node.id}`}>
-              {visualMode === "photo" && leaderLength > 8
-                ? <i className="semantic-zoom-field__leader" style={leaderStyle} aria-hidden="true" />
-                : null}
               <button
+                key={`${displayLevel}:${projected.node.id}`}
                 type="button"
                 className="semantic-zoom-field__node"
                 data-testid="semantic-zoom-node"
@@ -1042,7 +1035,14 @@ export function SemanticZoomField({
                 data-box-width={projected.boxWidth}
                 data-box-height={projected.boxHeight}
                 data-lexical-word-id={projected.node.word?.id}
-                style={style}
+                data-leader={visualMode === "photo" && leaderLength > 8 ? "true" : "false"}
+                style={{
+                  ...style,
+                  "--semantic-leader-x": `${leaderX}px`,
+                  "--semantic-leader-y": `${leaderY}px`,
+                  "--semantic-leader-length": `${leaderLength}px`,
+                  "--semantic-leader-angle": `${leaderAngle}deg`,
+                } as CSSProperties}
                 onClick={() => activateNode(projected)}
                 onPointerDown={() => { keyboardActivationRef.current = false; }}
                 onKeyDown={onNodeKeyDown}
@@ -1055,7 +1055,6 @@ export function SemanticZoomField({
                 {showMeanings && projected.node.labelZh ? <span>{projected.node.labelZh}</span> : null}
                 {displayLevel !== "word" ? <small>{formatCount(projected.node.count)}</small> : null}
               </button>
-            </span>
           );
         })}
       </div>

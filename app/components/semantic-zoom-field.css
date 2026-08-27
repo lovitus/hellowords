@@ -408,14 +408,19 @@
   -webkit-backdrop-filter: blur(10px) saturate(0.85);
 }
 
-.semantic-zoom-field__leader {
+.semantic-zoom-field__node[data-leader="true"]::before {
   position: absolute;
   z-index: 0;
+  top: var(--semantic-leader-y);
+  left: var(--semantic-leader-x);
+  width: var(--semantic-leader-length);
   height: 1px;
   border-radius: 1px;
   background: color-mix(in srgb, var(--semantic-node-color) 58%, transparent);
   box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.52);
+  content: "";
   transform-origin: 0 50%;
+  transform: rotate(var(--semantic-leader-angle));
   pointer-events: none;
 }
 

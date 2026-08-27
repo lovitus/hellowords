@@ -2506,7 +2506,18 @@ export function SceneViewport({
     if (continuousTile) requestCameraFrame();
   }, [continuousTile, requestCameraFrame]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (wordIndexOpen) {
+      // Hide the old frame synchronously with the panel render. The queued
+      // camera pass will restore the labels after the index closes, but no
+      // stale pill can flash beneath the panel during that first paint.
+      for (const element of labelElementsRef.current.values()) {
+        setDatasetValueIfChanged(element, "visible", "false");
+        setDatasetValueIfChanged(element, "interactive", "false");
+        setAttributeIfChanged(element, "aria-hidden", "true");
+        if (element.tabIndex !== -1) element.tabIndex = -1;
+      }
+    }
     requestCameraFrame();
   }, [focusedDetailZoneId, requestCameraFrame, wordIndexOpen]);
 
