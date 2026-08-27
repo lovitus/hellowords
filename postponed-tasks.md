@@ -6,7 +6,7 @@
 
 - 公开版本：`v29-eef9f62`
 - 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=29-eef9f62>
-- 源码：`eef9f627c784b35634c7cbbab441e41e8cd399d6`
+- 源码：`f6967a1`（运行时）
 - 当前工作批次：公寓密度与子场景小地图（待发布）。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
