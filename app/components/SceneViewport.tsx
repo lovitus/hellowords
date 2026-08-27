@@ -1343,9 +1343,14 @@ export function SceneViewport({
       const item = byId.get(labelId);
       const ownsFocus = activeElement === element;
       const opacity = ownsFocus ? Math.max(1, item?.opacity ?? 0) : item?.opacity ?? 0;
-      const interactive = viewerInteractiveRef.current && (ownsFocus || Boolean(item?.interactive));
+      // The word index is a deliberate reading surface. Hide the spatial
+      // pills for its entire lifetime so the panel can never flash over a
+      // stale label layout while the next protected camera frame is queued.
+      const interactive = !wordIndexOpen
+        && viewerInteractiveRef.current
+        && (ownsFocus || Boolean(item?.interactive));
       const opacityStyle = opacity.toFixed(3);
-      const visibleValue = String(opacity > 0.025);
+      const visibleValue = String(!wordIndexOpen && opacity > 0.025);
       const interactiveValue = String(interactive);
       const adaptiveValue = String(Boolean(item?.adaptive));
       const hiddenValue = String(!interactive);
