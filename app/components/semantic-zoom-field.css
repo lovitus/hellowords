@@ -399,8 +399,6 @@
   text-align: left;
   transform: translate(-50%, -50%);
   transition:
-    left 140ms ease-out,
-    top 140ms ease-out,
     border-color 140ms ease-out,
     box-shadow 140ms ease-out,
     background 140ms ease-out;

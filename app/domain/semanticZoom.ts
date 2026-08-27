@@ -491,7 +491,19 @@ export function projectSemanticZoomNodes<T extends SemanticZoomNodeInput>(
       );
       const leftDistance = Math.hypot(left.screenX - viewport.width / 2, left.screenY - viewport.height / 2);
       const rightDistance = Math.hypot(right.screenX - viewport.width / 2, right.screenY - viewport.height / 2);
-      return (placementMode === "spatial" ? rightInside - leftInside : 0)
+      const leftInWindow = Number(
+        left.screenX >= -margin && left.screenX <= viewport.width + margin
+        && left.screenY >= -margin && left.screenY <= viewport.height + margin,
+      );
+      const rightInWindow = Number(
+        right.screenX >= -margin && right.screenX <= viewport.width + margin
+        && right.screenY >= -margin && right.screenY <= viewport.height + margin,
+      );
+      // Shelf mode keeps a full budget for diagram leaves, but it still gives
+      // the current camera window first claim. As the user pans, anchors that
+      // enter the window replace the far side of the shelf instead of the
+      // same 80 cards remaining selected by a distance tie.
+      return (placementMode === "spatial" ? rightInside - leftInside : rightInWindow - leftInWindow)
         || leftDistance - rightDistance
         || left.node.id.localeCompare(right.node.id);
     })
