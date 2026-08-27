@@ -43,7 +43,46 @@
     { "id": "cctv-camera", "word": "CCTV camera", "translation": "监控摄像头", "x": 238, "y": 120, "priority": 5.028, "minLevel": 4, "sourceVisualRegion": "verified-cctv-camera" },
     { "id": "dropper-wire", "word": "dropper wire", "translation": "吊弦", "x": 797, "y": 120, "priority": 5.029, "minLevel": 4, "sourceVisualRegion": "verified-dropper-wire" },
     { "id": "rail-fastener", "word": "rail fastener", "translation": "钢轨扣件", "x": 1310, "y": 740, "priority": 5.03, "minLevel": 4, "sourceVisualRegion": "verified-rail-fastener" },
-    { "id": "umbrella", "word": "umbrella", "translation": "雨伞", "lexemeId": "en-2974744982f08b20", "x": 348, "y": 575, "priority": 5.031, "minLevel": 4, "sourceVisualRegion": "verified-umbrella" }
+    { "id": "umbrella", "word": "umbrella", "translation": "雨伞", "lexemeId": "en-2974744982f08b20", "x": 348, "y": 575, "priority": 5.031, "minLevel": 4, "sourceVisualRegion": "verified-umbrella" },
+    { "id": "clock-face", "word": "clock face", "translation": "钟面", "x": 83, "y": 190, "priority": 6.001, "minLevel": 3, "sourceVisualRegion": "verified-analog-clock" },
+    { "id": "clock-hand", "word": "clock hand", "translation": "时针", "x": 83, "y": 190, "priority": 6.002, "minLevel": 4, "sourceVisualRegion": "verified-analog-clock" },
+    { "id": "loudspeaker-grille", "word": "loudspeaker grille", "translation": "扬声器格栅", "x": 196, "y": 208, "priority": 6.003, "minLevel": 4, "sourceVisualRegion": "verified-loudspeaker" },
+    { "id": "camera-lens", "word": "camera lens", "translation": "摄像头镜头", "x": 238, "y": 120, "priority": 6.004, "minLevel": 4, "sourceVisualRegion": "verified-cctv-camera" },
+    { "id": "canopy-glass", "word": "canopy glass", "translation": "雨棚玻璃", "x": 210, "y": 40, "priority": 6.005, "minLevel": 3, "sourceVisualRegion": "verified-canopy" },
+    { "id": "canopy-beam", "word": "canopy beam", "translation": "雨棚横梁", "x": 300, "y": 50, "priority": 6.006, "minLevel": 4, "sourceVisualRegion": "verified-canopy" },
+    { "id": "bench-slat", "word": "bench slat", "translation": "长凳木条", "x": 130, "y": 630, "priority": 6.007, "minLevel": 3, "sourceVisualRegion": "verified-bench" },
+    { "id": "bench-leg", "word": "bench leg", "translation": "长凳支腿", "x": 130, "y": 760, "priority": 6.008, "minLevel": 4, "sourceVisualRegion": "verified-bench" },
+    { "id": "bin-lid", "word": "bin lid", "translation": "垃圾桶盖", "x": 183, "y": 470, "priority": 6.009, "minLevel": 4, "sourceVisualRegion": "verified-litter-bin" },
+    { "id": "suitcase-handle", "word": "suitcase handle", "translation": "行李箱把手", "x": 329, "y": 575, "priority": 6.010, "minLevel": 3, "sourceVisualRegion": "verified-suitcase" },
+    { "id": "umbrella-handle", "word": "umbrella handle", "translation": "雨伞把手", "x": 348, "y": 575, "priority": 6.011, "minLevel": 4, "sourceVisualRegion": "verified-umbrella" },
+    { "id": "backpack-strap", "word": "backpack strap", "translation": "背包肩带", "x": 276, "y": 455, "priority": 6.012, "minLevel": 4, "sourceVisualRegion": "verified-backpack" },
+    { "id": "carriage-window", "word": "carriage window", "translation": "车厢窗", "x": 750, "y": 418, "priority": 6.013, "minLevel": 2, "sourceVisualRegion": "verified-window" },
+    { "id": "carriage-roof", "word": "carriage roof", "translation": "车厢顶部", "x": 1100, "y": 250, "priority": 6.014, "minLevel": 3, "sourceVisualRegion": "verified-train-carriage" },
+    { "id": "carriage-side", "word": "carriage side", "translation": "车厢侧面", "x": 1200, "y": 450, "priority": 6.015, "minLevel": 3, "sourceVisualRegion": "verified-train-carriage" },
+    { "id": "door-window", "word": "door window", "translation": "车门窗", "x": 960, "y": 390, "priority": 6.016, "minLevel": 3, "sourceVisualRegion": "verified-carriage-door" },
+    { "id": "door-handle", "word": "door handle", "translation": "车门把手", "x": 960, "y": 460, "priority": 6.017, "minLevel": 4, "sourceVisualRegion": "verified-carriage-door" },
+    { "id": "headlight-lens", "word": "headlight lens", "translation": "前照灯镜片", "x": 1465, "y": 519, "priority": 6.018, "minLevel": 4, "sourceVisualRegion": "verified-headlight" },
+    { "id": "windshield-frame", "word": "windshield frame", "translation": "前挡框", "x": 1460, "y": 340, "priority": 6.019, "minLevel": 3, "sourceVisualRegion": "verified-windshield" },
+    { "id": "windshield-glass", "word": "windshield glass", "translation": "前挡玻璃", "x": 1460, "y": 350, "priority": 6.020, "minLevel": 3, "sourceVisualRegion": "verified-windshield" },
+    { "id": "wiper-arm", "word": "wiper arm", "translation": "雨刷臂", "x": 1450, "y": 380, "priority": 6.021, "minLevel": 4, "sourceVisualRegion": "verified-windshield-wiper" },
+    { "id": "wheel-rim", "word": "wheel rim", "translation": "车轮轮辋", "x": 1044, "y": 580, "priority": 6.022, "minLevel": 4, "sourceVisualRegion": "verified-wheel" },
+    { "id": "bogie-frame", "word": "bogie frame", "translation": "转向架框架", "x": 1020, "y": 600, "priority": 6.023, "minLevel": 4, "sourceVisualRegion": "verified-bogie" },
+    { "id": "coupling", "word": "coupling", "translation": "车钩", "x": 1550, "y": 550, "priority": 6.024, "minLevel": 3, "sourceVisualRegion": "verified-train-carriage" },
+    { "id": "rail-joint", "word": "rail joint", "translation": "钢轨接头", "x": 1115, "y": 755, "priority": 6.025, "minLevel": 3, "sourceVisualRegion": "verified-rail" },
+    { "id": "rail-head", "word": "rail head", "translation": "钢轨轨头", "x": 1115, "y": 730, "priority": 6.026, "minLevel": 4, "sourceVisualRegion": "verified-rail" },
+    { "id": "sleeper-edge", "word": "sleeper edge", "translation": "轨枕边缘", "x": 790, "y": 720, "priority": 6.027, "minLevel": 4, "sourceVisualRegion": "verified-sleeper" },
+    { "id": "ballast-stone", "word": "ballast stone", "translation": "道砟石", "x": 1015, "y": 700, "priority": 6.028, "minLevel": 4, "sourceVisualRegion": "verified-ballast" },
+    { "id": "fastener-clip", "word": "fastener clip", "translation": "扣件夹", "x": 1310, "y": 740, "priority": 6.029, "minLevel": 4, "sourceVisualRegion": "verified-rail-fastener" },
+    { "id": "platform-slab", "word": "platform slab", "translation": "站台板", "x": 600, "y": 820, "priority": 6.030, "minLevel": 3, "sourceVisualRegion": "verified-tactile-paving" },
+    { "id": "tactile-strip", "word": "tactile strip", "translation": "触觉条带", "x": 590, "y": 720, "priority": 6.031, "minLevel": 3, "sourceVisualRegion": "verified-tactile-paving" },
+    { "id": "warning-strip", "word": "warning strip", "translation": "警戒条带", "x": 550, "y": 660, "priority": 6.032, "minLevel": 4, "sourceVisualRegion": "verified-warning-line" },
+    { "id": "pantograph-arm", "word": "pantograph arm", "translation": "受电弓臂", "x": 1050, "y": 130, "priority": 6.033, "minLevel": 3, "sourceVisualRegion": "verified-pantograph" },
+    { "id": "pantograph-contact", "word": "pantograph contact", "translation": "受电弓触条", "x": 1050, "y": 150, "priority": 6.034, "minLevel": 4, "sourceVisualRegion": "verified-pantograph" },
+    { "id": "mast-insulator", "word": "mast insulator", "translation": "支柱绝缘子", "x": 663, "y": 233, "priority": 6.035, "minLevel": 4, "sourceVisualRegion": "verified-support-mast" },
+    { "id": "catenary-support", "word": "catenary support", "translation": "接触网支撑", "x": 1040, "y": 50, "priority": 6.036, "minLevel": 3, "sourceVisualRegion": "verified-catenary-wire" },
+    { "id": "dropper-hook", "word": "dropper hook", "translation": "吊弦挂钩", "x": 797, "y": 120, "priority": 6.037, "minLevel": 4, "sourceVisualRegion": "verified-dropper-wire" },
+    { "id": "canopy-column-base", "word": "canopy column base", "translation": "雨棚柱基座", "x": 55, "y": 800, "priority": 6.038, "minLevel": 4, "sourceVisualRegion": "verified-canopy-column" },
+    { "id": "train-door-seal", "word": "train door seal", "translation": "车门密封条", "x": 1030, "y": 550, "priority": 6.039, "minLevel": 4, "sourceVisualRegion": "verified-carriage-door" }
   ],
   "portals": [
     {
@@ -64,9 +103,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/railway-platform-premium-v2.jpg",
     "reviewedAssetSha256": "85250ba12bfa202f5f9d43b690d44d32118647620f0fe1c39ce3830baa682fb0",
-    "rationale": "Re-anchored all 32 terms against the final bright platform pixels, separating passenger fixtures, train parts, overhead electrification and track hardware; the complete stopped leading carriage remains the train-carriage portal.",
-    "previousLabelCount": 48,
-    "retainedLabelCount": 32,
+    "rationale": "Re-anchored all retained terms against the final bright platform pixels, separating passenger fixtures, train parts, overhead electrification and track hardware. The expanded set names readable structural subparts without restoring bicycles, signage or invisible service claims; the complete stopped leading carriage remains the train-carriage portal.",
+    "previousLabelCount": 87,
+    "retainedLabelCount": 71,
     "removedLabelCount": 16,
     "removedExamples": ["bicycle", "drainage channel", "station sign", "delay", "destination", "ticket validity"]
   },
@@ -77,7 +116,7 @@
       "translation": "旅客站台",
       "description": "Left platform furnishings, canopy fixtures and one waiting commuter",
       "x": 0, "y": 0, "width": 430, "height": 900, "targetScale": 2.8,
-      "labelIds": ["railway-platform", "canopy", "canopy-column", "analog-clock", "loudspeaker", "cctv-camera", "bench", "litter-bin", "commuter", "backpack", "suitcase", "umbrella"]
+      "labelIds": ["railway-platform", "canopy", "canopy-column", "analog-clock", "loudspeaker", "cctv-camera", "bench", "litter-bin", "commuter", "backpack", "suitcase", "umbrella", "clock-face", "clock-hand", "loudspeaker-grille", "camera-lens", "canopy-glass", "canopy-beam", "bench-slat", "bench-leg", "bin-lid", "suitcase-handle", "umbrella-handle", "backpack-strap", "canopy-column-base"]
     },
     {
       "id": "train-body",
@@ -85,7 +124,7 @@
       "translation": "列车车体",
       "description": "Complete leading carriage with door, glazing and visible running gear",
       "x": 420, "y": 190, "width": 1180, "height": 510, "targetScale": 2.5,
-      "labelIds": ["train-carriage", "carriage-door", "window", "windshield", "windshield-wiper", "headlight", "wheel", "bogie"]
+      "labelIds": ["train-carriage", "carriage-door", "window", "windshield", "windshield-wiper", "headlight", "wheel", "bogie", "carriage-window", "carriage-roof", "carriage-side", "door-window", "door-handle", "headlight-lens", "windshield-frame", "windshield-glass", "wiper-arm", "wheel-rim", "bogie-frame", "coupling", "train-door-seal"]
     },
     {
       "id": "overhead-electrification",
@@ -93,7 +132,7 @@
       "translation": "架空供电系统",
       "description": "Pantograph and the aligned mast, catenary and vertical dropper wire",
       "x": 430, "y": 0, "width": 1100, "height": 340, "targetScale": 3,
-      "labelIds": ["pantograph", "catenary-wire", "support-mast", "dropper-wire"]
+      "labelIds": ["pantograph", "catenary-wire", "support-mast", "dropper-wire", "pantograph-arm", "pantograph-contact", "mast-insulator", "catenary-support", "dropper-hook"]
     },
     {
       "id": "track-structure",
@@ -101,7 +140,7 @@
       "translation": "轨道结构",
       "description": "Foreground rails, sleepers, ballast and continuous platform safety edge",
       "x": 300, "y": 500, "width": 1300, "height": 400, "targetScale": 2.6,
-      "labelIds": ["track", "rail", "sleeper", "ballast", "rail-fastener", "platform-edge", "tactile-paving", "warning-line"]
+      "labelIds": ["track", "rail", "sleeper", "ballast", "rail-fastener", "platform-edge", "tactile-paving", "warning-line", "rail-joint", "rail-head", "sleeper-edge", "ballast-stone", "fastener-clip", "platform-slab", "tactile-strip", "warning-strip"]
     }
   ],
   "visualRegions": [
