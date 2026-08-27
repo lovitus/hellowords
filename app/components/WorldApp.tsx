@@ -118,6 +118,7 @@ export function WorldApp() {
   const [viewportMotionFrozen, setViewportMotionFrozen] = useState(false);
   const [discoveredCount, setDiscoveredCount] = useState(0);
   const [selectedAtlasDistrictId, setSelectedAtlasDistrictId] = useState<string | null>(null);
+  const [focusedAtlasZoneId, setFocusedAtlasZoneId] = useState<string | null>(null);
   const navigationRef = useRef<AbortController | null>(null);
   const sceneHeadingRef = useRef<HTMLHeadingElement>(null);
   const focusHeadingAfterNavigationRef = useRef(false);
@@ -511,6 +512,7 @@ export function WorldApp() {
   const focusAtlasDistrict = useCallback((district: RootAtlasDistrict, source: "pointer" | "keyboard") => {
     if (sceneControlsLocked || scene?.id !== "world-map") return false;
     setSelectedAtlasDistrictId(district.id);
+    setFocusedAtlasZoneId(null);
     const target: SceneFocusTarget = {
       id: `atlas-district-${district.id}`,
       x: district.focusX,
@@ -522,6 +524,7 @@ export function WorldApp() {
 
   const focusAtlasZone = useCallback((zone: RootAtlasZone, source: "pointer" | "keyboard") => {
     if (sceneControlsLocked || scene?.id !== "world-map") return false;
+    setFocusedAtlasZoneId(zone.id);
     const target: SceneFocusTarget = {
       id: zone.id,
       x: zone.focusX,
@@ -761,7 +764,10 @@ export function WorldApp() {
                     className="scene-minimap__district-back"
                     data-testid="scene-minimap-district-back"
                     data-navigation="district-list"
-                    onClick={() => setSelectedAtlasDistrictId(null)}
+                    onClick={() => {
+                      setSelectedAtlasDistrictId(null);
+                      setFocusedAtlasZoneId(null);
+                    }}
                     disabled={sceneControlsLocked}
                     aria-label="返回六个大区"
                   >
@@ -945,6 +951,7 @@ export function WorldApp() {
               onMotionFrozenChange={handleViewportMotionFrozen}
               onPortalNavigatorReady={registerPortalNavigator}
               onFocusTargetNavigatorReady={registerFocusTargetNavigator}
+              focusedDetailZoneId={scene?.id === "world-map" ? focusedAtlasZoneId : null}
             />
           </>
         ) : (

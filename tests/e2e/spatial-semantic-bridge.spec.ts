@@ -166,9 +166,13 @@ test("scene progress conserves its total and switches to pan guidance at maximum
   const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
   await expect(surface).toHaveAttribute("data-maximum-scale", /\d/u);
   const maximumScale = Number(await surface.getAttribute("data-maximum-scale"));
+  // The runtime publishes camera values rounded to three decimals. Keep one
+  // extra 0.001 tolerance so binary floating-point representation cannot turn
+  // an exact boundary into a false failure.
+  const requiredScale = maximumScale - 0.021;
   await expect.poll(async () => {
     const scale = Number(await surface.getAttribute("data-scene-scale"));
-    if (Number.isFinite(scale) && scale < maximumScale - 0.02) {
+    if (Number.isFinite(scale) && scale < requiredScale) {
       await wheelSceneAt(page, point, -480);
     }
     return Number(await surface.getAttribute("data-scene-scale"));
@@ -176,7 +180,7 @@ test("scene progress conserves its total and switches to pan guidance at maximum
     intervals: [45],
     timeout: 8_000,
     message: "scene camera must reach its responsive maximum scale",
-  }).toBeGreaterThanOrEqual(maximumScale - 0.02);
+  }).toBeGreaterThanOrEqual(requiredScale);
   await expect(progress).toHaveAttribute("data-camera-mode", "pan");
 
   const maximum = await sceneProgress(progress);
@@ -206,13 +210,14 @@ test("continued zoom beyond a spatial image opens the ten-thousand-word plane", 
   const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
   await expect(surface).toHaveAttribute("data-maximum-scale", /\d/u);
   const maximumScale = Number(await surface.getAttribute("data-maximum-scale"));
+  const requiredScale = maximumScale - 0.021;
   await expect.poll(async () => {
     const scale = Number(await surface.getAttribute("data-scene-scale"));
-    if (Number.isFinite(scale) && scale < maximumScale - 0.02) {
+    if (Number.isFinite(scale) && scale < requiredScale) {
       await wheelSceneAt(page, point, -480);
     }
     return Number(await surface.getAttribute("data-scene-scale"));
-  }, { intervals: [45], timeout: 8_000 }).toBeGreaterThanOrEqual(maximumScale - 0.02);
+  }, { intervals: [45], timeout: 8_000 }).toBeGreaterThanOrEqual(requiredScale);
 
   const progress = page.getByTestId("scene-word-progress");
   await expect(progress).toHaveAttribute("data-next-plane", "semantic");

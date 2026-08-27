@@ -1307,6 +1307,48 @@ a:focus-visible {
   font-weight: 600;
 }
 
+/* One calm focus frame guides the user to the selected atlas zone without
+ * adding another label/leader or taking part in collision placement. */
+.scene-zone-focus-region {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 246, 203, 0.72);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 244, 187, 0.1), transparent 42%),
+    rgba(255, 221, 118, 0.04);
+  box-shadow:
+    inset 0 0 0 1px rgba(55, 84, 65, 0.18),
+    0 0 0 3px rgba(255, 235, 161, 0.12),
+    0 10px 28px rgba(62, 78, 46, 0.08);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateZ(0);
+  transition: opacity 180ms ease, box-shadow 180ms ease;
+}
+
+.scene-zone-focus-region[data-active="true"] {
+  opacity: 1;
+  animation: scene-zone-focus-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes scene-zone-focus-pulse {
+  0%, 100% {
+    box-shadow:
+      inset 0 0 0 1px rgba(55, 84, 65, 0.18),
+      0 0 0 3px rgba(255, 235, 161, 0.1),
+      0 10px 28px rgba(62, 78, 46, 0.08);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgba(55, 84, 65, 0.22),
+      0 0 0 5px rgba(255, 235, 161, 0.16),
+      0 12px 32px rgba(62, 78, 46, 0.12);
+  }
+}
+
 .scene-hotspot-region {
   --portal-progress: 0;
   --portal-caption-shift-x: 0px;

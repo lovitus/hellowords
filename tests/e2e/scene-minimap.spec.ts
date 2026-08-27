@@ -174,6 +174,11 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   await chemistryZone.click();
   await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale"))).toBeGreaterThan(2.3);
   await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale"))).toBeGreaterThan(3.0);
+  await expect(page.getByTestId("scene-zone-focus-region")).toHaveAttribute("data-active", "true");
+  await expect(page.getByTestId("scene-zone-focus-region")).toHaveAttribute(
+    "data-zone-id",
+    "science-chemistry-lab",
+  );
   await expect.poll(async () => page.evaluate(() => {
     const surface = document.querySelector<HTMLElement>(".scene-surface");
     const button = document.querySelector<HTMLElement>('[data-testid="scene-minimap-zone"][data-zone-id="science-chemistry-lab"]');
@@ -188,6 +193,7 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   await minimap.getByTestId("scene-minimap-district-back").click();
   await expect(minimap.locator('[data-testid="scene-minimap-district"]')).toHaveCount(6);
   await expect(minimap.locator('[data-testid="scene-minimap-zone"]')).toHaveCount(0);
+  await expect(page.getByTestId("scene-zone-focus-region")).toHaveAttribute("data-active", "false");
 
   await startTransitionProbe(page);
   const gardenButton = minimap.locator(`${CHILD}[data-target-scene="community-garden"]`);

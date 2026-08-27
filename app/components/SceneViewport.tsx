@@ -81,6 +81,7 @@ interface SceneViewportProps {
   onMotionFrozenChange?: (frozen: boolean) => void;
   onPortalNavigatorReady?: (navigator: ScenePortalNavigator | null) => void;
   onFocusTargetNavigatorReady?: (navigator: SceneFocusNavigator | null) => void;
+  focusedDetailZoneId?: string | null;
 }
 
 export type ScenePortalNavigator = (
@@ -698,6 +699,7 @@ export function SceneViewport({
   onMotionFrozenChange,
   onPortalNavigatorReady,
   onFocusTargetNavigatorReady,
+  focusedDetailZoneId = null,
 }: SceneViewportProps) {
   const reducedContinuityAtMount = Boolean(
     initialView
@@ -718,6 +720,7 @@ export function SceneViewport({
   const viewportRef = useRef<HTMLDivElement>(null);
   const surfaceRef = useRef<HTMLDivElement>(null);
   const continuousTileRef = useRef<HTMLDivElement>(null);
+  const focusedDetailZoneRef = useRef<HTMLDivElement>(null);
   const labelLayerRef = useRef<HTMLDivElement>(null);
   // Camera frames address labels through their stable authored ids. Keeping
   // the mounted nodes in a ref avoids rebuilding a NodeList and re-reading a
@@ -822,6 +825,12 @@ export function SceneViewport({
   const labelsById = useMemo(
     () => new Map(scene.labels.map((label) => [label.id, label])),
     [scene.labels],
+  );
+  const focusedDetailZone = useMemo(
+    () => focusedDetailZoneId
+      ? scene.detailZones?.find((zone) => zone.id === focusedDetailZoneId) ?? null
+      : null,
+    [focusedDetailZoneId, scene.detailZones],
   );
   const labelSemanticStyles = useMemo(
     () => buildLabelSemanticStyleMap(
@@ -1135,6 +1144,25 @@ export function SceneViewport({
     const snapToDevicePixel = (value: number) => (
       Math.round(value * devicePixelRatio) / devicePixelRatio
     );
+    const focusRegion = focusedDetailZoneRef.current;
+    if (focusRegion) {
+      if (focusedDetailZone) {
+        const bounds = projectSceneRectToScreen(focusedDetailZone, camera);
+        const left = snapToDevicePixel(bounds.x);
+        const top = snapToDevicePixel(bounds.y);
+        const right = snapToDevicePixel(bounds.x + bounds.width);
+        const bottom = snapToDevicePixel(bounds.y + bounds.height);
+        setStylePropertyIfChanged(focusRegion.style, "left", `${left.toFixed(2)}px`);
+        setStylePropertyIfChanged(focusRegion.style, "top", `${top.toFixed(2)}px`);
+        setStylePropertyIfChanged(focusRegion.style, "width", `${Math.max(0, right - left).toFixed(2)}px`);
+        setStylePropertyIfChanged(focusRegion.style, "height", `${Math.max(0, bottom - top).toFixed(2)}px`);
+        setDatasetValueIfChanged(focusRegion, "active", "true");
+        setDatasetValueIfChanged(focusRegion, "zoneId", focusedDetailZone.id);
+      } else {
+        setDatasetValueIfChanged(focusRegion, "active", "false");
+        if (focusRegion.dataset.zoneId !== undefined) delete focusRegion.dataset.zoneId;
+      }
+    }
     for (const region of interactionLayer.querySelectorAll<HTMLElement>(".scene-hotspot-region")) {
       const portal = scene.portals.find((candidate) => candidate.id === region.dataset.portalId);
       if (portal) {
@@ -1687,7 +1715,7 @@ export function SceneViewport({
       viewportWidth,
       viewportHeight,
     });
-  }, [clampCamera, continuousTileDirection, continuousTileState, labelsById, onCameraFrame, onLabelsEncountered, reconcileSceneAssetForCamera, scene.id, scene.labels, scene.parentId, scene.portals, showPortalPreview, vocabularyZoomCues]);
+  }, [clampCamera, continuousTileDirection, continuousTileState, focusedDetailZone, labelsById, onCameraFrame, onLabelsEncountered, reconcileSceneAssetForCamera, scene.id, scene.labels, scene.parentId, scene.portals, showPortalPreview, vocabularyZoomCues]);
 
   useLayoutEffect(() => {
     if (pendingLabelWindowPaintRef.current) {
@@ -2436,6 +2464,10 @@ export function SceneViewport({
   }, [continuousTile, requestCameraFrame]);
 
   useEffect(() => {
+    requestCameraFrame();
+  }, [focusedDetailZoneId, requestCameraFrame]);
+
+  useEffect(() => {
     const viewport = viewportRef.current;
     if (!viewport) return;
     if (initializedSceneRef.current !== scene.id) {
@@ -2747,6 +2779,13 @@ export function SceneViewport({
           inert={motionFrozen ? true : undefined}
           aria-hidden={motionFrozen ? true : undefined}
         >
+          <div
+            ref={focusedDetailZoneRef}
+            className="scene-zone-focus-region"
+            data-testid="scene-zone-focus-region"
+            data-active="false"
+            aria-hidden="true"
+          />
           <div className="vocabulary-zoom-layer" aria-label="可放大显示更多词的区域">
             {vocabularyZoomCues.map((cue) => {
               const anchor = labelsById.get(cue.anchorLabelId);
