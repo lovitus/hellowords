@@ -1750,7 +1750,7 @@ export function SceneViewport({
       viewportWidth,
       viewportHeight,
     });
-  }, [clampCamera, continuousTileDirection, continuousTileState, focusedDetailZone, labelsById, onCameraFrame, onLabelsEncountered, reconcileSceneAssetForCamera, scene, scene.id, scene.labels, scene.parentId, scene.portals, showPortalPreview, vocabularyZoomCues, wordIndexOpen]);
+  }, [clampCamera, continuousTileDirection, continuousTileState, focusedDetailZone, labelsById, onCameraFrame, onLabelsEncountered, reconcileSceneAssetForCamera, scene, showPortalPreview, vocabularyZoomCues, wordIndexOpen]);
 
   useLayoutEffect(() => {
     if (pendingLabelWindowPaintRef.current) {
