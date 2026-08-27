@@ -397,10 +397,11 @@ async function semanticDirectionalBackgroundDrag(
       positiveTravel: number,
       negativeTravel: number,
     ): -1 | 0 | 1 => {
+      const minimumUsefulTravel = 8;
       if (requested === 0) return 0;
-      if (Math.max(positiveTravel, negativeTravel) <= 1) return 0;
-      if (requested > 0 && positiveTravel <= 1 && negativeTravel > 1) return -1;
-      if (requested < 0 && negativeTravel <= 1 && positiveTravel > 1) return 1;
+      if (Math.max(positiveTravel, negativeTravel) <= minimumUsefulTravel) return 0;
+      if (requested > 0 && positiveTravel <= minimumUsefulTravel && negativeTravel > minimumUsefulTravel) return -1;
+      if (requested < 0 && negativeTravel <= minimumUsefulTravel && positiveTravel > minimumUsefulTravel) return 1;
       if (Math.abs(positiveTravel - negativeTravel) <= 1) return requested;
       return positiveTravel > negativeTravel ? 1 : -1;
     };
@@ -421,9 +422,9 @@ async function semanticDirectionalBackgroundDrag(
     if (resolvedX === 0 && resolvedY === 0) {
       const horizontalTravel = Math.max(positiveTravelX, negativeTravelX);
       const verticalTravel = Math.max(positiveTravelY, negativeTravelY);
-      if (horizontalTravel > 1 && horizontalTravel >= verticalTravel) {
+      if (horizontalTravel > 8 && horizontalTravel >= verticalTravel) {
         resolvedX = positiveTravelX >= negativeTravelX ? 1 : -1;
-      } else if (verticalTravel > 1) {
+      } else if (verticalTravel > 8) {
         resolvedY = positiveTravelY >= negativeTravelY ? 1 : -1;
       }
     }
