@@ -51,7 +51,50 @@
     { "id": "shirt", "word": "shirt", "translation": "衬衫", "lexemeId": "en-a52514252adf8606", "x": 1350, "y": 345, "priority": 5.036, "minLevel": 4, "sourceVisualRegion": "verified-shirt" },
     { "id": "shelf", "word": "shelf", "translation": "搁板", "lexemeId": "en-3eefa42d52064c48", "x": 1345, "y": 180, "priority": 5.037, "minLevel": 4, "sourceVisualRegion": "verified-shelf" },
     { "id": "folded-clothes", "word": "folded clothes", "translation": "叠好的衣物", "x": 1370, "y": 185, "priority": 5.038, "minLevel": 4, "sourceVisualRegion": "verified-folded-clothes" },
-    { "id": "shoes", "word": "shoes", "translation": "鞋子", "x": 1370, "y": 505, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "verified-shoes" }
+    { "id": "shoes", "word": "shoes", "translation": "鞋子", "x": 1370, "y": 505, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "verified-shoes" },
+    { "id": "window-pane", "word": "window pane", "translation": "窗格", "x": 170, "y": 200, "priority": 6.001, "minLevel": 2, "sourceVisualRegion": "verified-window" },
+    { "id": "window-sill", "word": "window sill", "translation": "窗台", "x": 175, "y": 450, "priority": 6.002, "minLevel": 3, "sourceVisualRegion": "verified-window" },
+    { "id": "window-blind", "word": "window blind", "translation": "百叶帘", "x": 170, "y": 90, "priority": 6.003, "minLevel": 3, "sourceVisualRegion": "verified-window" },
+    { "id": "curtain-fold", "word": "curtain fold", "translation": "窗帘褶", "x": 280, "y": 250, "priority": 6.004, "minLevel": 4, "sourceVisualRegion": "verified-curtains" },
+    { "id": "curtain-ring", "word": "curtain ring", "translation": "窗帘环", "x": 185, "y": 60, "priority": 6.005, "minLevel": 4, "sourceVisualRegion": "verified-curtain-rod" },
+    { "id": "desk-drawer", "word": "desk drawer", "translation": "书桌抽屉", "x": 150, "y": 665, "priority": 6.006, "minLevel": 3, "sourceVisualRegion": "verified-desk" },
+    { "id": "laptop-screen", "word": "laptop screen", "translation": "笔记本屏幕", "x": 135, "y": 575, "priority": 6.007, "minLevel": 3, "sourceVisualRegion": "verified-laptop" },
+    { "id": "desk-book", "word": "desk book", "translation": "书桌上的书", "x": 100, "y": 680, "priority": 6.008, "minLevel": 4, "sourceVisualRegion": "verified-desk" },
+    { "id": "chair-back", "word": "chair back", "translation": "椅背", "x": 230, "y": 650, "priority": 6.009, "minLevel": 3, "sourceVisualRegion": "verified-chair" },
+    { "id": "chair-seat", "word": "chair seat", "translation": "椅座", "x": 215, "y": 730, "priority": 6.010, "minLevel": 3, "sourceVisualRegion": "verified-chair" },
+    { "id": "chair-leg", "word": "chair leg", "translation": "椅腿", "x": 180, "y": 840, "priority": 6.011, "minLevel": 4, "sourceVisualRegion": "verified-chair" },
+    { "id": "pencil", "word": "pencil", "translation": "铅笔", "x": 50, "y": 505, "priority": 6.012, "minLevel": 4, "sourceVisualRegion": "verified-pencil-cup" },
+    { "id": "mattress", "word": "mattress", "translation": "床垫", "x": 650, "y": 620, "priority": 6.013, "minLevel": 2, "sourceVisualRegion": "verified-bed" },
+    { "id": "pillowcase", "word": "pillowcase", "translation": "枕套", "x": 525, "y": 475, "priority": 6.014, "minLevel": 4, "sourceVisualRegion": "verified-pillow" },
+    { "id": "bed-sheet", "word": "bed sheet", "translation": "床单", "x": 650, "y": 680, "priority": 6.015, "minLevel": 3, "sourceVisualRegion": "verified-duvet" },
+    { "id": "blanket-edge", "word": "blanket edge", "translation": "毛毯边缘", "x": 650, "y": 690, "priority": 6.016, "minLevel": 4, "sourceVisualRegion": "verified-throw-blanket" },
+    { "id": "headboard-panel", "word": "headboard panel", "translation": "床头板面", "x": 580, "y": 390, "priority": 6.017, "minLevel": 3, "sourceVisualRegion": "verified-headboard" },
+    { "id": "bedside-drawer", "word": "bedside drawer", "translation": "床头柜抽屉", "x": 340, "y": 625, "priority": 6.018, "minLevel": 4, "sourceVisualRegion": "verified-nightstand" },
+    { "id": "lampshade", "word": "lampshade", "translation": "灯罩", "x": 350, "y": 410, "priority": 6.019, "minLevel": 3, "sourceVisualRegion": "verified-bedside-lamp" },
+    { "id": "lamp-base", "word": "lamp base", "translation": "灯座", "x": 350, "y": 500, "priority": 6.020, "minLevel": 4, "sourceVisualRegion": "verified-bedside-lamp" },
+    { "id": "bedroom-rug", "word": "bedroom rug", "translation": "卧室地毯", "x": 1000, "y": 780, "priority": 6.021, "minLevel": 2, "sourceVisualRegion": "verified-rug" },
+    { "id": "rug-fringe", "word": "rug fringe", "translation": "地毯流苏", "x": 1100, "y": 885, "priority": 6.022, "minLevel": 4, "sourceVisualRegion": "verified-rug" },
+    { "id": "dresser-drawer", "word": "dresser drawer", "translation": "斗柜抽屉", "x": 1020, "y": 510, "priority": 6.023, "minLevel": 3, "sourceVisualRegion": "verified-drawer" },
+    { "id": "dresser-handle", "word": "dresser handle", "translation": "斗柜把手", "x": 1010, "y": 510, "priority": 6.024, "minLevel": 4, "sourceVisualRegion": "verified-drawer" },
+    { "id": "dresser-top", "word": "dresser top", "translation": "斗柜台面", "x": 1020, "y": 435, "priority": 6.025, "minLevel": 3, "sourceVisualRegion": "verified-dresser" },
+    { "id": "mirror-frame", "word": "mirror frame", "translation": "镜框", "x": 1015, "y": 250, "priority": 6.026, "minLevel": 3, "sourceVisualRegion": "verified-mirror" },
+    { "id": "vase-branch", "word": "vase branch", "translation": "花瓶枝条", "x": 930, "y": 350, "priority": 6.027, "minLevel": 4, "sourceVisualRegion": "verified-vase" },
+    { "id": "tissue", "word": "tissue", "translation": "纸巾", "x": 850, "y": 470, "priority": 6.028, "minLevel": 4, "sourceVisualRegion": "verified-tissue-box" },
+    { "id": "plant-leaf", "word": "plant leaf", "translation": "植物叶片", "x": 280, "y": 450, "priority": 6.029, "minLevel": 3, "sourceVisualRegion": "verified-potted-plant" },
+    { "id": "plant-pot", "word": "plant pot", "translation": "花盆", "x": 280, "y": 505, "priority": 6.030, "minLevel": 4, "sourceVisualRegion": "verified-potted-plant" },
+    { "id": "wardrobe-door", "word": "wardrobe door", "translation": "衣柜门", "x": 1140, "y": 400, "priority": 6.031, "minLevel": 3, "sourceVisualRegion": "verified-wardrobe" },
+    { "id": "wardrobe-handle", "word": "wardrobe handle", "translation": "衣柜把手", "x": 1150, "y": 350, "priority": 6.032, "minLevel": 4, "sourceVisualRegion": "verified-wardrobe" },
+    { "id": "closet-shelf", "word": "closet shelf", "translation": "衣柜搁板", "x": 1345, "y": 180, "priority": 6.033, "minLevel": 3, "sourceVisualRegion": "verified-shelf" },
+    { "id": "rail-bracket", "word": "rail bracket", "translation": "衣杆支架", "x": 1250, "y": 250, "priority": 6.034, "minLevel": 4, "sourceVisualRegion": "verified-hanging-rail" },
+    { "id": "coat", "word": "coat", "translation": "外套", "x": 1450, "y": 340, "priority": 6.035, "minLevel": 3, "sourceVisualRegion": "verified-wardrobe" },
+    { "id": "sweater", "word": "sweater", "translation": "毛衣", "x": 1300, "y": 180, "priority": 6.036, "minLevel": 4, "sourceVisualRegion": "verified-folded-clothes" },
+    { "id": "shoe-sole", "word": "shoe sole", "translation": "鞋底", "x": 1340, "y": 500, "priority": 6.037, "minLevel": 4, "sourceVisualRegion": "verified-shoes" },
+    { "id": "basket-handle", "word": "basket handle", "translation": "篮子把手", "x": 1440, "y": 700, "priority": 6.038, "minLevel": 4, "sourceVisualRegion": "verified-laundry-basket" },
+    { "id": "door-hinge", "word": "door hinge", "translation": "门铰链", "x": 1550, "y": 400, "priority": 6.039, "minLevel": 4, "sourceVisualRegion": "whole-bedroom" },
+    { "id": "wall-trim", "word": "wall trim", "translation": "墙饰线", "x": 1500, "y": 60, "priority": 6.040, "minLevel": 4, "sourceVisualRegion": "whole-bedroom" },
+    { "id": "ceiling", "word": "ceiling", "translation": "天花板", "x": 800, "y": 30, "priority": 6.041, "minLevel": 4, "sourceVisualRegion": "whole-bedroom" },
+    { "id": "floorboard", "word": "floorboard", "translation": "地板条", "x": 1100, "y": 700, "priority": 6.042, "minLevel": 3, "sourceVisualRegion": "verified-hardwood-floor" },
+    { "id": "plant-branch", "word": "plant branch", "translation": "植物枝条", "x": 300, "y": 430, "priority": 6.043, "minLevel": 4, "sourceVisualRegion": "verified-potted-plant" }
   ],
   "portals": [
     {
@@ -72,9 +115,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/bedroom-premium-v2.jpg",
     "reviewedAssetSha256": "d0f4321616d608d4fe3d6686c4e530da8bae8c166074b224c9774cd49ae9901a",
-    "rationale": "Re-anchored every retained term to a distinct object or part in the bright bedroom photograph; the portal is bounded to the complete open wardrobe entrance on the right.",
-    "previousLabelCount": 51,
-    "retainedLabelCount": 40,
+    "rationale": "Re-anchored every retained term to a distinct object or part in the bright bedroom photograph; the expanded set names readable bedding, desk, storage, textile and room-structure details without restoring activity words, and the portal remains bounded to the complete open wardrobe entrance on the right.",
+    "previousLabelCount": 94,
+    "retainedLabelCount": 83,
     "removedLabelCount": 11,
     "removedExamples": ["sleep", "dream", "cozy", "alarm clock", "slippers"]
   },
@@ -89,7 +132,7 @@
       "width": 850,
       "height": 555,
       "targetScale": 2.4,
-      "labelIds": ["bed", "rug", "headboard", "duvet", "nightstand", "bedside-lamp", "pillow", "cushion", "throw-blanket", "drinking-glass", "bed-frame", "bed-leg"]
+      "labelIds": ["bed", "rug", "headboard", "duvet", "nightstand", "bedside-lamp", "pillow", "cushion", "throw-blanket", "drinking-glass", "bed-frame", "bed-leg", "mattress", "pillowcase", "bed-sheet", "blanket-edge", "headboard-panel", "bedside-drawer", "lampshade", "lamp-base", "bedroom-rug", "rug-fringe"]
     },
     {
       "id": "study-area",
@@ -101,7 +144,7 @@
       "width": 340,
       "height": 460,
       "targetScale": 2.7,
-      "labelIds": ["desk", "chair", "laptop", "pencil-cup", "potted-plant"]
+      "labelIds": ["desk", "chair", "laptop", "pencil-cup", "potted-plant", "desk-drawer", "laptop-screen", "desk-book", "chair-back", "chair-seat", "chair-leg", "pencil", "plant-leaf", "plant-pot", "window-sill"]
     },
     {
       "id": "window-wall",
@@ -113,7 +156,7 @@
       "width": 730,
       "height": 440,
       "targetScale": 2.2,
-      "labelIds": ["window", "curtains", "curtain-rod", "artwork", "ceiling-light"]
+      "labelIds": ["window", "curtains", "curtain-rod", "artwork", "ceiling-light", "window-pane", "window-blind", "curtain-fold", "curtain-ring", "plant-branch"]
     },
     {
       "id": "storage-area",
@@ -125,7 +168,19 @@
       "width": 740,
       "height": 700,
       "targetScale": 3,
-      "labelIds": ["wardrobe", "dresser", "mirror", "laundry-basket", "drawer", "hardwood-floor", "drawer-pull", "vase", "books", "tissue-box", "coat-hook", "hanging-rail", "hanger", "shirt", "shelf", "folded-clothes", "shoes"]
+      "labelIds": ["wardrobe", "dresser", "mirror", "laundry-basket", "drawer", "hardwood-floor", "drawer-pull", "vase", "books", "tissue-box", "coat-hook", "hanging-rail", "hanger", "shirt", "shelf", "folded-clothes", "shoes", "dresser-drawer", "dresser-handle", "dresser-top", "mirror-frame", "vase-branch", "tissue", "wardrobe-door", "wardrobe-handle", "closet-shelf", "rail-bracket", "coat", "sweater", "shoe-sole", "basket-handle"]
+    },
+    {
+      "id": "room-structure",
+      "title": "Room structure",
+      "translation": "房间结构",
+      "description": "Visible door hardware, ceiling trim and the floorboard surface around the room",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 900,
+      "targetScale": 2.15,
+      "labelIds": ["door-hinge", "wall-trim", "ceiling", "floorboard"]
     }
   ],
   "visualRegions": [
