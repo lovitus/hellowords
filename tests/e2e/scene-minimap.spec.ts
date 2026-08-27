@@ -108,6 +108,20 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   expect(await minimap.locator(CHILD).evaluateAll((buttons) => buttons.every((button) => (
     (button as HTMLElement).dataset.navigation === "portal-continuity"
   )))).toBe(true);
+  const districts = minimap.locator('[data-testid="scene-minimap-district"]');
+  await expect(districts).toHaveCount(6);
+  expect(await districts.evaluateAll((buttons) => buttons.map((button) => (
+    (button as HTMLElement).dataset.districtId
+  )))).toEqual(["school", "science", "transport", "farm", "market", "wetland"]);
+  expect(await districts.evaluateAll((buttons) => buttons.every((button) => (
+    (button as HTMLElement).dataset.navigation === "detail-zone-focus"
+      && Number.isFinite(Number((button as HTMLElement).dataset.focusX))
+      && Number.isFinite(Number((button as HTMLElement).dataset.focusY))
+      && Number((button as HTMLElement).dataset.labelCount) > 0
+  )))).toBe(true);
+  expect(await districts.evaluateAll((buttons) => buttons.reduce((sum, button) => (
+    sum + Number((button as HTMLElement).dataset.labelCount)
+  ), 0))).toBe(1275);
   if ((page.viewportSize()?.width ?? 1_000) <= 560) {
     expect(await minimap.evaluate((element) => {
       const bounds = element.getBoundingClientRect();
@@ -140,6 +154,24 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   expect(visualContract.rightInStage).toBeLessThanOrEqual(visualContract.protectedRight);
   expect(visualContract.bottomInStage).toBeLessThanOrEqual(visualContract.protectedBottom);
   expect(visualContract.background).toMatch(/^rgba\(.+, 0\.78\)$/);
+
+  const scienceDistrict = minimap.locator(
+    '[data-testid="scene-minimap-district"][data-district-id="science"]',
+  );
+  await scienceDistrict.click();
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale"))).toBeGreaterThan(2.3);
+  await expect.poll(async () => page.evaluate(() => {
+    const surface = document.querySelector<HTMLElement>(".scene-surface");
+    const button = document.querySelector<HTMLElement>('[data-testid="scene-minimap-district"][data-district-id="science"]');
+    if (!surface || !button) return Number.POSITIVE_INFINITY;
+    const x = Number(button.dataset.focusX);
+    const y = Number(button.dataset.focusY);
+    const matrix = new DOMMatrixReadOnly(getComputedStyle(surface).transform);
+    const viewport = document.querySelector<HTMLElement>(".world-viewport")?.getBoundingClientRect();
+    if (!viewport || !Number.isFinite(x) || !Number.isFinite(y)) return Number.POSITIVE_INFINITY;
+    return Math.hypot(matrix.a * x + matrix.e - viewport.width / 2, matrix.d * y + matrix.f - viewport.height / 2);
+  })).toBeLessThan(140);
 
   await startTransitionProbe(page);
   const gardenButton = minimap.locator(`${CHILD}[data-target-scene="community-garden"]`);

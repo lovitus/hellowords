@@ -7,6 +7,8 @@ import {
   fullyFittedSceneCamera,
   parentCameraFromChildTile,
   SceneViewport,
+  type SceneFocusNavigator,
+  type SceneFocusTarget,
   type ScenePortalNavigator,
   type SceneContinuityView,
   type SceneViewportSnapshot,
@@ -58,6 +60,26 @@ interface LexicalWorldEntryState {
 
 type SemanticTransitionState = "idle" | "open" | "returning";
 
+const ROOT_ATLAS_DISTRICT_META = [
+  { id: "school", label: "Campus", translation: "校园", prefix: "school-" },
+  { id: "science", label: "Science", translation: "科研", prefix: "science-" },
+  { id: "transport", label: "Transit", translation: "交通", prefix: "transport-" },
+  { id: "farm", label: "Farm", translation: "农场", prefix: "farm-" },
+  { id: "market", label: "Market", translation: "市场", prefix: "market-" },
+  { id: "wetland", label: "Wetland", translation: "湿地", prefix: "wetland-" },
+] as const;
+
+interface RootAtlasDistrict {
+  readonly id: string;
+  readonly label: string;
+  readonly translation: string;
+  readonly labelCount: number;
+  readonly zoneCount: number;
+  readonly focusX: number;
+  readonly focusY: number;
+  readonly targetScale: number;
+}
+
 declare global {
   interface WindowEventMap {
     "world:scene-settled": CustomEvent<WorldSceneSettledDetail>;
@@ -98,10 +120,33 @@ export function WorldApp() {
   const semanticReturnTimerRef = useRef<number | null>(null);
   const pendingPortalRef = useRef<Portal | null>(null);
   const activePortalNavigatorRef = useRef<ScenePortalNavigator | null>(null);
+  const activeFocusTargetNavigatorRef = useRef<SceneFocusNavigator | null>(null);
   const pendingContinuitySettleRef = useRef<(() => void) | null>(null);
   const transitionUsesContinuityRef = useRef(false);
   const discoveredEntriesRef = useRef<ReadonlySet<string>>(new Set());
   const sceneControlsLocked = loading || continuousTransitionActive || viewportMotionFrozen;
+
+  const rootAtlasDistricts = useMemo<readonly RootAtlasDistrict[]>(() => {
+    if (scene?.id !== "world-map" || !scene.detailZones?.length) return [];
+    return ROOT_ATLAS_DISTRICT_META.flatMap((meta) => {
+      const zones = scene.detailZones!.filter((zone) => zone.id.startsWith(meta.prefix));
+      if (zones.length === 0) return [];
+      const left = Math.min(...zones.map((zone) => zone.x));
+      const top = Math.min(...zones.map((zone) => zone.y));
+      const right = Math.max(...zones.map((zone) => zone.x + zone.width));
+      const bottom = Math.max(...zones.map((zone) => zone.y + zone.height));
+      return [{
+        id: meta.id,
+        label: meta.label,
+        translation: meta.translation,
+        labelCount: zones.reduce((sum, zone) => sum + zone.labelIds.length, 0),
+        zoneCount: zones.length,
+        focusX: (left + right) / 2,
+        focusY: (top + bottom) / 2,
+        targetScale: Math.min(2.8, Math.max(2.35, Math.min(...zones.map((zone) => zone.targetScale)))),
+      }];
+    });
+  }, [scene]);
 
   useEffect(() => {
     const storedMeaningVisible = window.localStorage.getItem(MEANING_KEY) === "true";
@@ -436,6 +481,21 @@ export function WorldApp() {
     activePortalNavigatorRef.current = navigator;
   }, []);
 
+  const registerFocusTargetNavigator = useCallback((navigator: SceneFocusNavigator | null) => {
+    activeFocusTargetNavigatorRef.current = navigator;
+  }, []);
+
+  const focusAtlasDistrict = useCallback((district: RootAtlasDistrict, source: "pointer" | "keyboard") => {
+    if (sceneControlsLocked || scene?.id !== "world-map") return false;
+    const target: SceneFocusTarget = {
+      id: `atlas-district-${district.id}`,
+      x: district.focusX,
+      y: district.focusY,
+      targetScale: district.targetScale,
+    };
+    return activeFocusTargetNavigatorRef.current?.(target, source) ?? false;
+  }, [scene?.id, sceneControlsLocked]);
+
   const handleViewportMotionFrozen = useCallback((frozen: boolean) => {
     setViewportMotionFrozen(frozen);
     if (frozen || navigationPhaseRef.current !== "settling") return;
@@ -652,6 +712,38 @@ export function WorldApp() {
               {scene.subtitle}
             </p>
           ) : null}
+          {rootAtlasDistricts.length > 0 ? (
+            <nav
+              className="scene-minimap__districts"
+              data-testid="scene-minimap-districts"
+              aria-label="Atlas districts"
+            >
+              {rootAtlasDistricts.map((district, index) => (
+                <button
+                  key={district.id}
+                  type="button"
+                  data-testid="scene-minimap-district"
+                  data-district-id={district.id}
+                  data-district-index={index}
+                  data-navigation="detail-zone-focus"
+                  data-focus-x={district.focusX}
+                  data-focus-y={district.focusY}
+                  data-target-scale={district.targetScale}
+                  data-label-count={district.labelCount}
+                  data-zone-count={district.zoneCount}
+                  onClick={(event) => {
+                    focusAtlasDistrict(district, event.detail === 0 ? "keyboard" : "pointer");
+                  }}
+                  disabled={sceneControlsLocked}
+                  aria-label={`聚焦 ${district.label}（${district.translation}），${district.labelCount} 个词，${district.zoneCount} 个区域`}
+                >
+                  <span aria-hidden="true" />
+                  <b>{district.label}</b>
+                  <small>{district.labelCount}</small>
+                </button>
+              ))}
+            </nav>
+          ) : null}
           <nav
             className="scene-minimap__path"
             data-testid="scene-minimap-path"
@@ -779,6 +871,7 @@ export function WorldApp() {
               onCameraFrame={recordViewportSnapshot}
               onMotionFrozenChange={handleViewportMotionFrozen}
               onPortalNavigatorReady={registerPortalNavigator}
+              onFocusTargetNavigatorReady={registerFocusTargetNavigator}
             />
           </>
         ) : (

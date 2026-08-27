@@ -288,8 +288,8 @@ a:focus-visible {
   box-sizing: border-box;
   display: grid;
   width: min(370px, calc(100vw - 40px));
-  gap: 6px;
-  padding: 9px 10px 10px;
+  gap: 2px;
+  padding: 6px 8px 6px;
   overflow: hidden;
   border: 1px solid rgba(49, 75, 65, 0.2);
   border-radius: 16px;
@@ -356,6 +356,91 @@ a:focus-visible {
   line-height: 1.15;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.scene-minimap__districts {
+  display: flex;
+  min-width: 0;
+  gap: 3px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+
+.scene-minimap__districts::-webkit-scrollbar {
+  display: none;
+}
+
+.scene-minimap__districts > button {
+  display: inline-flex;
+  min-width: 0;
+  min-height: 20px;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 2px 4px;
+  border: 1px solid rgba(80, 104, 91, 0.16);
+  border-radius: 999px;
+  color: #394d43;
+  background: rgba(255, 255, 251, 0.42);
+  font: 720 8px/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.scene-minimap__districts > button > span {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  border-radius: 50%;
+  background: #618a70;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.58);
+}
+
+.scene-minimap__districts > button:nth-child(2) > span {
+  background: #677f9c;
+}
+
+.scene-minimap__districts > button:nth-child(3) > span {
+  background: #8e6d86;
+}
+
+.scene-minimap__districts > button:nth-child(4) > span {
+  background: #718d66;
+}
+
+.scene-minimap__districts > button:nth-child(5) > span {
+  background: #9a755c;
+}
+
+.scene-minimap__districts > button:nth-child(6) > span {
+  background: #5e8891;
+}
+
+.scene-minimap__districts > button b {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scene-minimap__districts > button small {
+  color: #718077;
+  font-size: 7px;
+  font-variant-numeric: tabular-nums;
+}
+
+.scene-minimap__districts > button:hover,
+.scene-minimap__districts > button:focus-visible {
+  border-color: rgba(181, 113, 45, 0.48);
+  outline: none;
+  background: rgba(255, 250, 233, 0.8);
+  box-shadow: 0 0 0 2px rgba(197, 132, 61, 0.1);
+}
+
+.scene-minimap__districts > button:disabled {
+  cursor: wait;
+  opacity: 0.55;
 }
 
 .scene-minimap__path {
@@ -1724,7 +1809,8 @@ a:focus-visible {
     top: 12px;
     left: 12px;
     width: min(320px, calc(100vw - 24px));
-    padding: 8px 9px 9px;
+    gap: 2px;
+    padding: 5px 8px 6px;
   }
 
   .gesture-hint {
@@ -1806,6 +1892,8 @@ a:focus-visible {
   .scene-minimap {
     width: min(286px, calc(100vw - 20px));
     border-radius: 14px;
+    gap: 1px;
+    padding: 4px 7px 5px;
   }
 
   .scene-minimap h1 {
@@ -1821,6 +1909,26 @@ a:focus-visible {
     min-height: 23px;
     padding: 3px 7px;
     font-size: 9px;
+  }
+
+  .scene-minimap__districts {
+    gap: 2px;
+  }
+
+  .scene-minimap__districts > button {
+    min-height: 18px;
+    padding-inline: 3px;
+    font-size: 7px;
+  }
+
+  .scene-minimap__districts > button > span {
+    width: 4px;
+    height: 4px;
+    flex-basis: 4px;
+  }
+
+  .scene-minimap__districts > button small {
+    display: none;
   }
 
   .scene-minimap__children {

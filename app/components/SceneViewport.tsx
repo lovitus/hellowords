@@ -80,10 +80,25 @@ interface SceneViewportProps {
   onCameraFrame?: (snapshot: SceneViewportSnapshot) => void;
   onMotionFrozenChange?: (frozen: boolean) => void;
   onPortalNavigatorReady?: (navigator: ScenePortalNavigator | null) => void;
+  onFocusTargetNavigatorReady?: (navigator: SceneFocusNavigator | null) => void;
 }
 
 export type ScenePortalNavigator = (
   portalId: string,
+  source: "pointer" | "keyboard",
+) => boolean;
+
+export interface SceneFocusTarget {
+  readonly id: string;
+  /** Scene-space point that should land at the viewport centre. */
+  readonly x: number;
+  readonly y: number;
+  /** Authored logical scale; the camera still clamps it to its real ceiling. */
+  readonly targetScale: number;
+}
+
+export type SceneFocusNavigator = (
+  target: SceneFocusTarget,
   source: "pointer" | "keyboard",
 ) => boolean;
 
@@ -682,6 +697,7 @@ export function SceneViewport({
   onCameraFrame,
   onMotionFrozenChange,
   onPortalNavigatorReady,
+  onFocusTargetNavigatorReady,
 }: SceneViewportProps) {
   const reducedContinuityAtMount = Boolean(
     initialView
@@ -2320,6 +2336,82 @@ export function SceneViewport({
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
   }, [cancelCameraAnimation, labelsById, requestCameraFrame, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
+
+  const focusSceneTarget = useCallback((
+    focusTarget: SceneFocusTarget,
+    source: "pointer" | "keyboard",
+  ): boolean => {
+    const viewport = viewportRef.current;
+    if (
+      !viewport
+      || !viewerInteractive
+      || committingRef.current
+      || continuitySettlingRef.current
+      || !Number.isFinite(focusTarget.x)
+      || !Number.isFinite(focusTarget.y)
+      || !Number.isFinite(focusTarget.targetScale)
+    ) return false;
+
+    stopWheelAnimation();
+    cancelCameraAnimation();
+    resetSemanticOverscroll();
+    resetParentExitHysteresis();
+    portalCandidateRef.current = null;
+    showPortalPreview(null);
+    updateZoomDirection("in");
+    labelPlacementOffsetsRef.current.clear();
+    zoomFocusRef.current = { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
+    lastNavigationRef.current = performance.now();
+
+    const start = { ...cameraRef.current };
+    const targetScale = Math.min(
+      maximumSceneCameraScale(start.fit),
+      Math.max(start.scale + 0.28, focusTarget.targetScale),
+    );
+    const effectiveScale = start.fit * targetScale;
+    const target = clampCamera({
+      ...start,
+      scale: targetScale,
+      x: viewport.clientWidth / 2 - focusTarget.x * effectiveScale,
+      y: viewport.clientHeight / 2 - focusTarget.y * effectiveScale,
+    });
+    const applyTarget = () => {
+      cameraRef.current = target;
+      requestCameraFrame();
+    };
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      applyTarget();
+      return true;
+    }
+
+    const startedAt = performance.now();
+    const duration = source === "keyboard" ? 220 : 260;
+    const animate = (now: number) => {
+      const progress = Math.min(1, (now - startedAt) / duration);
+      const eased = 1 - (1 - progress) ** 3;
+      cameraRef.current = clampCamera({
+        fit: start.fit,
+        scale: start.scale + (target.scale - start.scale) * eased,
+        x: start.x + (target.x - start.x) * eased,
+        y: start.y + (target.y - start.y) * eased,
+      });
+      requestCameraFrame();
+      if (progress < 1) {
+        cameraAnimationRef.current = requestAnimationFrame(animate);
+      } else {
+        cameraAnimationRef.current = null;
+        applyTarget();
+      }
+    };
+    cameraAnimationRef.current = requestAnimationFrame(animate);
+    return true;
+  }, [cancelCameraAnimation, clampCamera, requestCameraFrame, resetParentExitHysteresis, resetSemanticOverscroll, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
+
+  useEffect(() => {
+    if (!onFocusTargetNavigatorReady) return;
+    onFocusTargetNavigatorReady(focusSceneTarget);
+    return () => onFocusTargetNavigatorReady(null);
+  }, [focusSceneTarget, onFocusTargetNavigatorReady]);
 
   useEffect(() => {
     selectedLabelIdRef.current = selectedLabelId && labelsById.has(selectedLabelId)
