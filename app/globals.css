@@ -464,6 +464,15 @@ a:focus-visible {
   box-shadow: 0 0 0 2px rgba(197, 132, 61, 0.1);
 }
 
+.scene-minimap__districts > button[data-active="true"] {
+  border-color: rgba(181, 113, 45, 0.68);
+  background: rgba(255, 247, 221, 0.84);
+  box-shadow:
+    0 0 0 2px rgba(197, 132, 61, 0.14),
+    inset 0 1px rgba(255, 255, 255, 0.72);
+  color: #744a27;
+}
+
 .scene-minimap__districts > button:disabled {
   cursor: wait;
   opacity: 0.55;

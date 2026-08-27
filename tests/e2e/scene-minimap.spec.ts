@@ -174,6 +174,8 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   await chemistryZone.click();
   await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale"))).toBeGreaterThan(2.3);
   await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale"))).toBeGreaterThan(3.0);
+  await expect(chemistryZone).toHaveAttribute("data-active", "true");
+  await expect(chemistryZone).toHaveAttribute("aria-current", "location");
   await expect(page.getByTestId("scene-zone-focus-region")).toHaveAttribute("data-active", "true");
   await expect(page.getByTestId("scene-zone-focus-region")).toHaveAttribute(
     "data-zone-id",

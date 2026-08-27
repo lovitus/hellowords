@@ -785,6 +785,8 @@ export function WorldApp() {
                       data-focus-y={zone.focusY}
                       data-target-scale={zone.targetScale}
                       data-label-count={zone.labelCount}
+                      data-active={focusedAtlasZoneId === zone.id ? "true" : "false"}
+                      aria-current={focusedAtlasZoneId === zone.id ? "location" : undefined}
                       onClick={(event) => {
                         focusAtlasZone(zone, event.detail === 0 ? "keyboard" : "pointer");
                       }}
