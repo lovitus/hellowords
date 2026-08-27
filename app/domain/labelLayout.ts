@@ -42,6 +42,13 @@ export interface SceneLabelProtectedRegion {
 export interface SceneLabelLayoutOptions {
   /** A selected or keyboard-focused word always wins its local collision. */
   readonly selectedLabelId?: string | null;
+  /**
+   * Optional first scale at which future higher-LOD labels may use spare
+   * overview space. Dense scene transitions can keep their deepest pills out
+   * of the first frame while preserving the complete authored label set for
+   * zoom and pan.
+   */
+  readonly adaptiveRevealScale?: number;
   /** Screen-space controls, such as portal cues, that word pills must avoid. */
   readonly protectedRegions?: readonly SceneLabelProtectedRegion[];
   /** Previous interactive slots retained during one continuous camera direction. */
@@ -1002,7 +1009,11 @@ export function computeSceneLabelLayout(
     // A free, readable slot is more useful than an artificial "more words"
     // counter. Authored LOD still describes disclosure depth, but the density
     // target is never a hard gate while a deterministic safe slot exists.
+    const adaptiveScale = options.adaptiveRevealScale === undefined
+      ? 0
+      : options.adaptiveRevealScale + Math.max(0, (candidate.lod - 2) * 0.48);
     const adaptive = !naturallyInteractive
+      && camera.scale >= adaptiveScale
       && (selected || candidate.futureRevealScale !== null);
     const candidateOpacity = selected
       ? Math.max(1, candidate.naturalOpacity)

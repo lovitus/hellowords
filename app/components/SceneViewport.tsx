@@ -622,6 +622,14 @@ const revisitedSceneLabelMountWindows = new WeakMap<
   Map<string, ReadonlySet<string>>
 >();
 
+function adaptiveRevealScaleForScene(scene: Scene): number | undefined {
+  // Keep the root atlas rich at its fitted overview. Larger child scenes use
+  // their authored room/exhibit zones as the invitation to go deeper, so
+  // their finest labels can enter over a few camera steps instead of adding a
+  // large style/layout burst during a warm scene handoff.
+  return scene.id !== "world-map" && scene.labels.length >= 96 ? 1 : undefined;
+}
+
 function sceneLabelMountWindowCacheKey(meaningVisible: boolean, compact: boolean): string {
   return `${meaningVisible ? "meaning" : "word"}:${compact ? "compact" : "desktop"}`;
 }
@@ -678,6 +686,7 @@ function initialSceneLabelMountWindow(
     meaningVisible,
     {
       selectedLabelId,
+      adaptiveRevealScale: adaptiveRevealScaleForScene(scene),
       protectedRegions: [
         ...buildViewerChromeProtectedRegions(
           INITIAL_LABEL_MOUNT_VIEWPORT.width,
@@ -1255,6 +1264,7 @@ export function SceneViewport({
         selectedLabelId: focusedLabelId
           ?? pendingKeyboardFocusLabelId
           ?? selectedLabelIdRef.current,
+        adaptiveRevealScale: adaptiveRevealScaleForScene(scene),
         preferredOffsets: labelPlacementOffsetsRef.current,
         protectedRegions: [
           ...buildViewerChromeProtectedRegions(
