@@ -504,6 +504,476 @@
       "priority": 5.049,
       "minLevel": 4,
       "sourceVisualRegion": "verified-anatomy-pedestal"
+    },
+    {
+      "id": "skeleton-skull",
+      "word": "skeleton skull",
+      "translation": "骨架头骨",
+      "x": 330,
+      "y": 170,
+      "priority": 6.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "dinosaur-skull"
+    },
+    {
+      "id": "jaw-hinge",
+      "word": "jaw hinge",
+      "translation": "下颌关节",
+      "x": 376,
+      "y": 221,
+      "priority": 6.002,
+      "minLevel": 3,
+      "sourceVisualRegion": "dinosaur-skull"
+    },
+    {
+      "id": "rib-bone",
+      "word": "rib bone",
+      "translation": "肋骨",
+      "x": 125,
+      "y": 249,
+      "priority": 6.003,
+      "minLevel": 3,
+      "sourceVisualRegion": "dinosaur-rib-cage"
+    },
+    {
+      "id": "spine-joint",
+      "word": "spine joint",
+      "translation": "脊椎关节",
+      "x": 190,
+      "y": 200,
+      "priority": 6.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "dinosaur-spine"
+    },
+    {
+      "id": "tail-bone",
+      "word": "tail bone",
+      "translation": "尾骨",
+      "x": 55,
+      "y": 300,
+      "priority": 6.005,
+      "minLevel": 4,
+      "sourceVisualRegion": "dinosaur-skeleton"
+    },
+    {
+      "id": "claw-tip",
+      "word": "claw tip",
+      "translation": "爪尖",
+      "x": 190,
+      "y": 315,
+      "priority": 6.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-dinosaur-claw"
+    },
+    {
+      "id": "horn-base",
+      "word": "horn base",
+      "translation": "角根",
+      "x": 425,
+      "y": 350,
+      "priority": 6.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-horn"
+    },
+    {
+      "id": "fossil-rim",
+      "word": "fossil rim",
+      "translation": "化石边缘",
+      "x": 100,
+      "y": 500,
+      "priority": 6.008,
+      "minLevel": 4,
+      "sourceVisualRegion": "ammonite-fossil"
+    },
+    {
+      "id": "crystal-point",
+      "word": "crystal point",
+      "translation": "水晶尖端",
+      "x": 280,
+      "y": 480,
+      "priority": 6.009,
+      "minLevel": 4,
+      "sourceVisualRegion": "amethyst-cluster"
+    },
+    {
+      "id": "meteorite-surface",
+      "word": "meteorite surface",
+      "translation": "陨石表面",
+      "x": 480,
+      "y": 590,
+      "priority": 6.010,
+      "minLevel": 3,
+      "sourceVisualRegion": "meteorite"
+    },
+    {
+      "id": "meteorite-rim",
+      "word": "meteorite rim",
+      "translation": "陨石边缘",
+      "x": 480,
+      "y": 650,
+      "priority": 6.011,
+      "minLevel": 4,
+      "sourceVisualRegion": "meteorite"
+    },
+    {
+      "id": "telescope-body",
+      "word": "telescope body",
+      "translation": "望远镜筒",
+      "x": 650,
+      "y": 290,
+      "priority": 6.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "telescope"
+    },
+    {
+      "id": "telescope-mount",
+      "word": "telescope mount",
+      "translation": "望远镜支座",
+      "x": 640,
+      "y": 375,
+      "priority": 6.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "telescope-tripod"
+    },
+    {
+      "id": "tripod-leg",
+      "word": "tripod leg",
+      "translation": "三脚架腿",
+      "x": 600,
+      "y": 430,
+      "priority": 6.014,
+      "minLevel": 4,
+      "sourceVisualRegion": "telescope-tripod"
+    },
+    {
+      "id": "eyepiece-cap",
+      "word": "eyepiece cap",
+      "translation": "目镜盖",
+      "x": 575,
+      "y": 250,
+      "priority": 6.015,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-telescope-eyepiece"
+    },
+    {
+      "id": "globe-stand",
+      "word": "globe stand",
+      "translation": "地球仪支架",
+      "x": 810,
+      "y": 405,
+      "priority": 6.016,
+      "minLevel": 3,
+      "sourceVisualRegion": "globe"
+    },
+    {
+      "id": "solar-cell",
+      "word": "solar cell",
+      "translation": "太阳能电池片",
+      "x": 810,
+      "y": 430,
+      "priority": 6.017,
+      "minLevel": 4,
+      "sourceVisualRegion": "solar-panel"
+    },
+    {
+      "id": "orbit-arm",
+      "word": "orbit arm",
+      "translation": "轨道支臂",
+      "x": 875,
+      "y": 150,
+      "priority": 6.018,
+      "minLevel": 4,
+      "sourceVisualRegion": "solar-system-model"
+    },
+    {
+      "id": "moon",
+      "word": "moon",
+      "translation": "月亮",
+      "x": 740,
+      "y": 140,
+      "priority": 6.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "solar-system-model"
+    },
+    {
+      "id": "skylight-frame",
+      "word": "skylight frame",
+      "translation": "天窗框",
+      "x": 600,
+      "y": 45,
+      "priority": 6.020,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-skylight"
+    },
+    {
+      "id": "microscope-body",
+      "word": "microscope body",
+      "translation": "显微镜主体",
+      "x": 990,
+      "y": 355,
+      "priority": 6.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "microscope"
+    },
+    {
+      "id": "microscope-knob",
+      "word": "microscope knob",
+      "translation": "显微镜旋钮",
+      "x": 1025,
+      "y": 360,
+      "priority": 6.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "microscope"
+    },
+    {
+      "id": "objective-lens",
+      "word": "objective lens",
+      "translation": "物镜镜头",
+      "x": 965,
+      "y": 392,
+      "priority": 6.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "microscope-objective"
+    },
+    {
+      "id": "stage-clip",
+      "word": "stage clip",
+      "translation": "载物台夹",
+      "x": 990,
+      "y": 431,
+      "priority": 6.024,
+      "minLevel": 4,
+      "sourceVisualRegion": "microscope-stage"
+    },
+    {
+      "id": "robot-elbow",
+      "word": "robot elbow",
+      "translation": "机器人肘部",
+      "x": 1120,
+      "y": 330,
+      "priority": 6.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "robotic-joint"
+    },
+    {
+      "id": "robot-wrist",
+      "word": "robot wrist",
+      "translation": "机器人腕部",
+      "x": 1086,
+      "y": 394,
+      "priority": 6.026,
+      "minLevel": 4,
+      "sourceVisualRegion": "robotic-arm"
+    },
+    {
+      "id": "gripper-finger",
+      "word": "gripper finger",
+      "translation": "夹爪指",
+      "x": 1080,
+      "y": 375,
+      "priority": 6.027,
+      "minLevel": 4,
+      "sourceVisualRegion": "robot-gripper"
+    },
+    {
+      "id": "robot-cable",
+      "word": "robot cable",
+      "translation": "机器人线缆",
+      "x": 1150,
+      "y": 450,
+      "priority": 6.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-robot-base"
+    },
+    {
+      "id": "base-plate",
+      "word": "base plate",
+      "translation": "底座板",
+      "x": 1150,
+      "y": 480,
+      "priority": 6.029,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-robot-base"
+    },
+    {
+      "id": "ammonite-shell",
+      "word": "ammonite shell",
+      "translation": "菊石壳",
+      "x": 100,
+      "y": 550,
+      "priority": 6.030,
+      "minLevel": 3,
+      "sourceVisualRegion": "ammonite-fossil"
+    },
+    {
+      "id": "amethyst-crystal",
+      "word": "amethyst crystal",
+      "translation": "紫水晶",
+      "x": 278,
+      "y": 480,
+      "priority": 6.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "amethyst-cluster"
+    },
+    {
+      "id": "atom-orbit",
+      "word": "atom orbit",
+      "translation": "原子轨道",
+      "x": 938,
+      "y": 530,
+      "priority": 6.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "atom-model"
+    },
+    {
+      "id": "newton-ball",
+      "word": "Newton ball",
+      "translation": "牛顿摆球",
+      "x": 720,
+      "y": 530,
+      "priority": 6.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "newton-cradle"
+    },
+    {
+      "id": "newton-frame",
+      "word": "Newton frame",
+      "translation": "牛顿摆框架",
+      "x": 720,
+      "y": 620,
+      "priority": 6.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "newton-cradle"
+    },
+    {
+      "id": "prism-base",
+      "word": "prism base",
+      "translation": "棱镜底座",
+      "x": 818,
+      "y": 620,
+      "priority": 6.035,
+      "minLevel": 4,
+      "sourceVisualRegion": "optics-display"
+    },
+    {
+      "id": "spectrum-band",
+      "word": "spectrum band",
+      "translation": "光谱带",
+      "x": 864,
+      "y": 593,
+      "priority": 6.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "optics-display"
+    },
+    {
+      "id": "gyroscope-ring",
+      "word": "gyroscope ring",
+      "translation": "陀螺环",
+      "x": 727,
+      "y": 690,
+      "priority": 6.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "gyroscope"
+    },
+    {
+      "id": "kiosk-screen",
+      "word": "kiosk screen",
+      "translation": "互动屏幕",
+      "x": 1105,
+      "y": 500,
+      "priority": 6.038,
+      "minLevel": 3,
+      "sourceVisualRegion": "display-screen"
+    },
+    {
+      "id": "console-button",
+      "word": "console button",
+      "translation": "控制台按钮",
+      "x": 1090,
+      "y": 700,
+      "priority": 6.039,
+      "minLevel": 4,
+      "sourceVisualRegion": "control-console"
+    },
+    {
+      "id": "earcup",
+      "word": "earcup",
+      "translation": "耳机罩",
+      "x": 1092,
+      "y": 680,
+      "priority": 6.040,
+      "minLevel": 4,
+      "sourceVisualRegion": "headphones"
+    },
+    {
+      "id": "bench-seat",
+      "word": "bench seat",
+      "translation": "长凳座面",
+      "x": 160,
+      "y": 760,
+      "priority": 6.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-museum-bench"
+    },
+    {
+      "id": "dna-rung",
+      "word": "DNA rung",
+      "translation": "DNA横档",
+      "x": 1292,
+      "y": 401,
+      "priority": 6.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "dna-model"
+    },
+    {
+      "id": "dna-base",
+      "word": "DNA base",
+      "translation": "DNA底座",
+      "x": 1292,
+      "y": 450,
+      "priority": 6.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "dna-model"
+    },
+    {
+      "id": "anatomy-head",
+      "word": "anatomy head",
+      "translation": "解剖模型头部",
+      "x": 1490,
+      "y": 360,
+      "priority": 6.044,
+      "minLevel": 3,
+      "sourceVisualRegion": "human-body-model"
+    },
+    {
+      "id": "anatomy-hand",
+      "word": "anatomy hand",
+      "translation": "解剖模型手部",
+      "x": 1490,
+      "y": 470,
+      "priority": 6.045,
+      "minLevel": 4,
+      "sourceVisualRegion": "human-body-model"
+    },
+    {
+      "id": "pedestal-top",
+      "word": "pedestal top",
+      "translation": "展台顶部",
+      "x": 1490,
+      "y": 590,
+      "priority": 6.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-anatomy-pedestal"
+    },
+    {
+      "id": "floor-tile",
+      "word": "floor tile",
+      "translation": "地砖",
+      "x": 1320,
+      "y": 790,
+      "priority": 6.047,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-floor"
     }
   ],
   "portals": [
@@ -537,9 +1007,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/science-museum-bright-v3.jpg",
     "reviewedAssetSha256": "bce6c971902dac590e494ca87db56a3d68064194db484c5d795f59bdd49482aa",
-    "rationale": "Expanded the exact bright museum pixels into five authored gallery crops and added only separately visible skeletal, optical, robotic, exhibit, ceiling and floor details.",
-    "previousLabelCount": 56,
-    "retainedLabelCount": 49,
+    "rationale": "Expanded the exact bright museum pixels into five authored gallery crops and added only separately visible skeletal, optical, robotic, exhibit, ceiling and floor details. The new subparts stay tied to the same disjoint object regions and do not restore removed role, venue or signage claims.",
+    "previousLabelCount": 103,
+    "retainedLabelCount": 96,
     "removedLabelCount": 7,
     "removedExamples": [
       "curator",
@@ -987,7 +1457,14 @@
         "dinosaur-claw",
         "femur",
         "horn",
-        "display-case"
+        "display-case",
+        "skeleton-skull",
+        "jaw-hinge",
+        "rib-bone",
+        "spine-joint",
+        "tail-bone",
+        "claw-tip",
+        "horn-base"
       ]
     },
     {
@@ -1012,7 +1489,16 @@
         "tripod",
         "telescope-eyepiece",
         "planet",
-        "skylight"
+        "skylight",
+        "telescope-body",
+        "telescope-mount",
+        "tripod-leg",
+        "eyepiece-cap",
+        "globe-stand",
+        "solar-cell",
+        "orbit-arm",
+        "moon",
+        "skylight-frame"
       ]
     },
     {
@@ -1034,7 +1520,16 @@
         "robotic-joint",
         "microscope-eyepiece",
         "microscope-arm",
-        "robot-base"
+        "robot-base",
+        "microscope-body",
+        "microscope-knob",
+        "objective-lens",
+        "stage-clip",
+        "robot-elbow",
+        "robot-wrist",
+        "gripper-finger",
+        "robot-cable",
+        "base-plate"
       ]
     },
     {
@@ -1060,7 +1555,23 @@
         "spectrum",
         "display-screen",
         "button",
-        "museum-bench"
+        "museum-bench",
+        "fossil-rim",
+        "crystal-point",
+        "meteorite-surface",
+        "meteorite-rim",
+        "ammonite-shell",
+        "amethyst-crystal",
+        "atom-orbit",
+        "newton-ball",
+        "newton-frame",
+        "prism-base",
+        "spectrum-band",
+        "gyroscope-ring",
+        "kiosk-screen",
+        "console-button",
+        "earcup",
+        "bench-seat"
       ]
     },
     {
@@ -1077,7 +1588,13 @@
         "human-anatomical-model",
         "dna-model",
         "floor",
-        "anatomy-pedestal"
+        "anatomy-pedestal",
+        "dna-rung",
+        "dna-base",
+        "anatomy-head",
+        "anatomy-hand",
+        "pedestal-top",
+        "floor-tile"
       ]
     }
   ]
