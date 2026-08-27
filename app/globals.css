@@ -1749,7 +1749,7 @@ a:focus-visible {
   right: 22px;
   display: grid;
   width: min(342px, calc(100vw - 44px));
-  max-height: min(620px, calc(100dvh - 118px));
+  max-height: min(520px, calc(100dvh - 118px));
   gap: 9px;
   padding: 14px;
   overflow: hidden;
@@ -2121,7 +2121,7 @@ a:focus-visible {
     top: 12px;
     right: 12px;
     width: min(342px, calc(100vw - 24px));
-    max-height: calc(100dvh - 132px);
+    max-height: min(520px, calc(100dvh - 132px));
   }
 }
 

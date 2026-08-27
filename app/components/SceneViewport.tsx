@@ -509,8 +509,8 @@ export function buildViewerChromeProtectedRegions(
     const panelWidth = Math.min(width - 24, phone ? 340 : 360);
     const panelTop = phone ? 10 : 14;
     const panelHeightLimit = phone
-      ? Math.min(620, Math.max(0, height - 132))
-      : Math.min(620, Math.max(0, height - 118));
+      ? Math.min(520, Math.max(0, height - 132))
+      : Math.min(520, Math.max(0, height - 118));
     regions.push({
       left: Math.max(12, width - panelWidth - 12),
       right: Math.max(12, width - 12),
