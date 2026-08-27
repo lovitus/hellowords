@@ -132,7 +132,10 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
 };
 const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   polymer: 28,
-  bathroom: 45,
+  // The bright bathroom exposes a full suite of independently pointable
+  // fixtures plus readable hardware/textile subparts; the ceiling blocks
+  // invisible conditions while allowing the reviewed 81-anchor scene.
+  bathroom: 81,
   "city-cafe": 45,
   "coffee-machine": 40,
   "cotton-shirt": 40,

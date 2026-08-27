@@ -968,7 +968,7 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
   assert.ok(bathroom);
   assert.equal(bathroom.parentId, "apartment");
   assert.equal(bathroom.asset, "/scenes/bathroom-premium-v1.jpg");
-  assert.ok(bathroom.labels.length >= 36 && bathroom.labels.length <= 45);
+  assert.ok(bathroom.labels.length >= 36 && bathroom.labels.length <= 81);
   assert.ok((bathroom.detailZones?.length ?? 0) >= 5);
   assert.deepEqual(bathroom.portals, [], "bathroom remains a terminal room");
 
