@@ -861,6 +861,15 @@ test("screen-space labels reserve the compact minimap and persistent viewer cont
   assert.ok(phone.some((region) => (
     region.left <= 12 && region.right >= 378 && region.top <= 636 && region.bottom >= 716
   )), "the mobile vocabulary summary owns its bottom HUD area");
+
+  const withWordIndex = buildViewerChromeProtectedRegions(1280, 632, true);
+  assert.equal(withWordIndex.length, desktop.length + 1);
+  assert.ok(withWordIndex.some((region) => (
+    region.right === 1268
+      && region.left >= 900
+      && region.top === 14
+      && region.bottom <= 608
+  )), "the open scene word index owns its measured right-side panel");
 });
 
 test("scene anchors project into screen coordinates while labels remain outside the scaled surface", () => {

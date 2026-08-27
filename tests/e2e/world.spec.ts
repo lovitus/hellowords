@@ -653,6 +653,46 @@ test("root atlas wheel zoom stays on one scene until an entry is explicitly clic
   await expect(app).not.toHaveAttribute("data-scene-loading", "true");
 });
 
+test("the current-scene word index finds and focuses a real label without a scene jump", async ({ page }) => {
+  const app = await openWorld(page);
+  const toggle = page.getByTestId("scene-word-index-toggle");
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await toggle.click();
+
+  const index = page.getByTestId("scene-word-index");
+  await expect(index).toBeVisible();
+  await expect(index.getByTestId("scene-word-index-summary")).toContainText("1275");
+  await expect(index.getByTestId("scene-word-index-result")).toHaveCount(32);
+  await expect(index.getByRole("searchbox")).toBeVisible();
+  expect(await page.evaluate(() => {
+    const panel = document.querySelector("[data-testid='scene-word-index']")?.getBoundingClientRect();
+    if (!panel) return -1;
+    const overlap = (a: DOMRect, b: DOMRect) => (
+      a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top
+    );
+    return [...document.querySelectorAll(".word-label[data-visible='true'][data-interactive='true']")]
+      .map((element) => element.getBoundingClientRect())
+      .filter((bounds) => overlap(bounds, panel)).length;
+  })).toBe(0);
+
+  const input = index.getByRole("searchbox");
+  await input.fill("tractor");
+  await expect.poll(() => index.getByTestId("scene-word-index-result").count()).toBeGreaterThan(0);
+  const result = index.getByTestId("scene-word-index-result").filter({ hasText: "farm tractor" });
+  await expect(result).toHaveCount(1);
+  await result.click();
+
+  await expect(index).toBeHidden();
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await expect(page.locator(".word-dock")).toContainText("farm tractor");
+  await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale")))
+    .toBeGreaterThanOrEqual(1.19);
+  expect(await page.evaluate(() => {
+    const panel = document.querySelector("[data-testid='scene-word-index']");
+    return panel === null;
+  })).toBe(true);
+});
+
 test("hysteresis prevents scene thrashing near a zoom boundary", async ({ page }) => {
   const app = await openWorld(page);
   const parent = await sceneId(app);

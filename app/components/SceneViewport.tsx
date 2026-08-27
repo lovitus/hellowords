@@ -82,6 +82,7 @@ interface SceneViewportProps {
   onPortalNavigatorReady?: (navigator: ScenePortalNavigator | null) => void;
   onFocusTargetNavigatorReady?: (navigator: SceneFocusNavigator | null) => void;
   focusedDetailZoneId?: string | null;
+  wordIndexOpen?: boolean;
 }
 
 export type ScenePortalNavigator = (
@@ -452,6 +453,7 @@ const VOCABULARY_REVEAL_SCALE: Readonly<Record<2 | 3 | 4, number>> = {
 export function buildViewerChromeProtectedRegions(
   width: number,
   height: number,
+  wordIndexOpen = false,
 ): SceneLabelProtectedRegion[] {
   const compact = width <= 900;
   const phone = width <= 560;
@@ -501,6 +503,19 @@ export function buildViewerChromeProtectedRegions(
       right: Math.max(12, width - 12),
       top: Math.max(0, height - 144),
       bottom: Math.max(0, height - 64),
+    });
+  }
+  if (wordIndexOpen) {
+    const panelWidth = Math.min(width - 24, phone ? 340 : 360);
+    const panelTop = phone ? 10 : 14;
+    const panelHeightLimit = phone
+      ? Math.min(620, Math.max(0, height - 132))
+      : Math.min(620, Math.max(0, height - 118));
+    regions.push({
+      left: Math.max(12, width - panelWidth - 12),
+      right: Math.max(12, width - 12),
+      top: panelTop,
+      bottom: Math.min(height - (phone ? 86 : 24), panelTop + panelHeightLimit),
     });
   }
   return regions;
@@ -705,6 +720,7 @@ export function SceneViewport({
   onPortalNavigatorReady,
   onFocusTargetNavigatorReady,
   focusedDetailZoneId = null,
+  wordIndexOpen = false,
 }: SceneViewportProps) {
   const reducedContinuityAtMount = Boolean(
     initialView
@@ -1241,7 +1257,11 @@ export function SceneViewport({
           ?? selectedLabelIdRef.current,
         preferredOffsets: labelPlacementOffsetsRef.current,
         protectedRegions: [
-          ...buildViewerChromeProtectedRegions(labelViewport.width, labelViewport.height),
+          ...buildViewerChromeProtectedRegions(
+            labelViewport.width,
+            labelViewport.height,
+            wordIndexOpen,
+          ),
           ...buildPortalCueProtectedRegions(scene.portals, camera, labelViewport),
         ],
       },
@@ -1720,7 +1740,7 @@ export function SceneViewport({
       viewportWidth,
       viewportHeight,
     });
-  }, [clampCamera, continuousTileDirection, continuousTileState, focusedDetailZone, labelsById, onCameraFrame, onLabelsEncountered, reconcileSceneAssetForCamera, scene.id, scene.labels, scene.parentId, scene.portals, showPortalPreview, vocabularyZoomCues]);
+  }, [clampCamera, continuousTileDirection, continuousTileState, focusedDetailZone, labelsById, onCameraFrame, onLabelsEncountered, reconcileSceneAssetForCamera, scene.id, scene.labels, scene.parentId, scene.portals, showPortalPreview, vocabularyZoomCues, wordIndexOpen]);
 
   useLayoutEffect(() => {
     if (pendingLabelWindowPaintRef.current) {
@@ -2473,7 +2493,7 @@ export function SceneViewport({
 
   useEffect(() => {
     requestCameraFrame();
-  }, [focusedDetailZoneId, requestCameraFrame]);
+  }, [focusedDetailZoneId, requestCameraFrame, wordIndexOpen]);
 
   useEffect(() => {
     const viewport = viewportRef.current;

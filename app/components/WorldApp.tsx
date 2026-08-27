@@ -119,8 +119,11 @@ export function WorldApp() {
   const [discoveredCount, setDiscoveredCount] = useState(0);
   const [selectedAtlasDistrictId, setSelectedAtlasDistrictId] = useState<string | null>(null);
   const [focusedAtlasZoneId, setFocusedAtlasZoneId] = useState<string | null>(null);
+  const [sceneWordIndexOpen, setSceneWordIndexOpen] = useState(false);
+  const [sceneWordIndexQuery, setSceneWordIndexQuery] = useState("");
   const navigationRef = useRef<AbortController | null>(null);
   const sceneHeadingRef = useRef<HTMLHeadingElement>(null);
+  const sceneWordIndexInputRef = useRef<HTMLInputElement>(null);
   const focusHeadingAfterNavigationRef = useRef(false);
   const navigationPhaseRef = useRef<"idle" | "committing" | "navigating" | "settling">("idle");
   const transitionTargetIdRef = useRef<string | null>(null);
@@ -171,6 +174,28 @@ export function WorldApp() {
   const selectedAtlasDistrict = rootAtlasDistricts.find(
     (district) => district.id === selectedAtlasDistrictId,
   ) ?? null;
+
+  const sceneWordIndexMatches = useMemo(() => {
+    if (!scene) return { total: 0, labels: [] as readonly Label[] };
+    const query = sceneWordIndexQuery.trim().toLocaleLowerCase("en-US");
+    const matches = query
+      ? scene.labels.filter((label) => (
+        label.word.toLocaleLowerCase("en-US").includes(query)
+        || label.translation.toLocaleLowerCase("zh-CN").includes(query)
+      ))
+      : scene.labels;
+    return {
+      total: matches.length,
+      labels: [...matches]
+        .sort((first, second) => first.priority - second.priority || first.id.localeCompare(second.id))
+        .slice(0, 32),
+    };
+  }, [scene, sceneWordIndexQuery]);
+
+  useEffect(() => {
+    if (!sceneWordIndexOpen || window.innerWidth <= 900) return;
+    sceneWordIndexInputRef.current?.focus();
+  }, [sceneWordIndexOpen]);
 
   useEffect(() => {
     const storedMeaningVisible = window.localStorage.getItem(MEANING_KEY) === "true";
@@ -297,6 +322,8 @@ export function WorldApp() {
     portal?: Portal,
   ): false | "warm" | "cold" => {
     if (navigationPhaseRef.current !== "idle") return false;
+    setSceneWordIndexOpen(false);
+    setSceneWordIndexQuery("");
     navigationPhaseRef.current = "committing";
     transitionSequenceRef.current += 1;
     transitionTargetIdRef.current = targetId;
@@ -534,6 +561,26 @@ export function WorldApp() {
     return activeFocusTargetNavigatorRef.current?.(target, source) ?? false;
   }, [scene?.id, sceneControlsLocked]);
 
+  const focusSceneLabelFromIndex = useCallback((label: Label, source: "pointer" | "keyboard") => {
+    if (sceneControlsLocked || !scene) return false;
+    const target: SceneFocusTarget = {
+      id: label.id,
+      x: label.x,
+      y: label.y,
+      targetScale: Math.min(
+        3.8,
+        Math.max(1.2, (label.minScale ?? 0) + 0.4, 1.15 + (label.minLevel ?? 0) * 0.55),
+      ),
+    };
+    const focused = activeFocusTargetNavigatorRef.current?.(target, source) ?? false;
+    if (focused) {
+      setSelectedLabel(label);
+      setSceneWordIndexOpen(false);
+      setSceneWordIndexQuery("");
+    }
+    return focused;
+  }, [scene, sceneControlsLocked]);
+
   const handleViewportMotionFrozen = useCallback((frozen: boolean) => {
     setViewportMotionFrozen(frozen);
     if (frozen || navigationPhaseRef.current !== "settling") return;
@@ -581,6 +628,8 @@ export function WorldApp() {
       window.clearTimeout(semanticReturnTimerRef.current);
       semanticReturnTimerRef.current = null;
     }
+    setSceneWordIndexOpen(false);
+    setSceneWordIndexQuery("");
     setLexicalWorldEntry({ mode: "global" });
     setSemanticTransitionState("open");
     setLexicalWorldInitialFocus(source === "keyboard" ? "search" : "auto");
@@ -692,6 +741,19 @@ export function WorldApp() {
           <span className="discovery-count" aria-label={`已遇见 ${discoveredCount} 个词`}>
             <i aria-hidden="true" /><span>已遇见</span><b>{discoveredCount}</b>
           </span>
+          <button
+            type="button"
+            className="scene-word-index-toggle"
+            data-testid="scene-word-index-toggle"
+            aria-expanded={sceneWordIndexOpen}
+            aria-controls="scene-word-index"
+            aria-label={`搜索当前场景的 ${scene?.labels.length ?? 0} 个词`}
+            disabled={sceneControlsLocked || !scene}
+            onClick={() => setSceneWordIndexOpen((open) => !open)}
+          >
+            <span aria-hidden="true">⌕</span>
+            <span>本景词</span>
+          </button>
           <button
             type="button"
             className="atlas-button"
@@ -911,6 +973,77 @@ export function WorldApp() {
             ) : null}
           </div>
         </aside>
+        {scene && sceneWordIndexOpen ? (
+          <aside
+            id="scene-word-index"
+            className="scene-word-index"
+            data-testid="scene-word-index"
+            role="dialog"
+            aria-label={`搜索 ${scene.title} 的场景词`}
+          >
+            <div className="scene-word-index__heading">
+              <div>
+                <span className="scene-word-index__eyebrow">SCENE WORD FINDER</span>
+                <h2>{scene.title}</h2>
+              </div>
+              <button
+                type="button"
+                className="scene-word-index__close"
+                data-testid="scene-word-index-close"
+                onClick={() => {
+                  setSceneWordIndexOpen(false);
+                  setSceneWordIndexQuery("");
+                }}
+                aria-label="关闭场景词索引"
+              >
+                ×
+              </button>
+            </div>
+            <label className="scene-word-index__search">
+              <span aria-hidden="true">⌕</span>
+              <input
+                ref={sceneWordIndexInputRef}
+                type="search"
+                value={sceneWordIndexQuery}
+                onChange={(event) => setSceneWordIndexQuery(event.currentTarget.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Escape") {
+                    setSceneWordIndexOpen(false);
+                    setSceneWordIndexQuery("");
+                  }
+                }}
+                placeholder="搜索英文单词或中文释义"
+                aria-label="搜索当前场景的英文单词或中文释义"
+              />
+            </label>
+            <p className="scene-word-index__summary" data-testid="scene-word-index-summary">
+              {sceneWordIndexQuery.trim()
+                ? `${sceneWordIndexMatches.total} 个匹配 · 显示前 ${sceneWordIndexMatches.labels.length}`
+                : `本场景 ${scene.labels.length} 个词 · 输入查找并定位`}
+            </p>
+            <div className="scene-word-index__results" data-testid="scene-word-index-results">
+              {sceneWordIndexMatches.labels.length > 0 ? sceneWordIndexMatches.labels.map((label) => (
+                <button
+                  key={label.id}
+                  type="button"
+                  className="scene-word-index__result"
+                  data-testid="scene-word-index-result"
+                  data-label-id={label.id}
+                  data-word={label.word}
+                  onClick={(event) => {
+                    focusSceneLabelFromIndex(label, event.detail === 0 ? "keyboard" : "pointer");
+                  }}
+                  aria-label={`${label.word}，${label.translation}`}
+                >
+                  <strong>{label.word}</strong>
+                  <span>{label.translation}</span>
+                </button>
+              )) : (
+                <p className="scene-word-index__empty">没有匹配的场景词</p>
+              )}
+            </div>
+          </aside>
+        ) : null}
         {scene ? (
           <>
             {outgoingScene ? (
@@ -954,6 +1087,7 @@ export function WorldApp() {
               onPortalNavigatorReady={registerPortalNavigator}
               onFocusTargetNavigatorReady={registerFocusTargetNavigator}
               focusedDetailZoneId={scene?.id === "world-map" ? focusedAtlasZoneId : null}
+              wordIndexOpen={sceneWordIndexOpen}
             />
           </>
         ) : (
