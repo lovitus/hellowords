@@ -8,7 +8,7 @@ visible object.
 ## Published v21 foundation
 
 **Status: completed and pixel-verified.** The graph contains 37 reachable scenes,
-36 portals, 2,684 contextual anchors, 2,392 distinct scene terms and 253 authored
+36 portals, 2,747 contextual anchors, 2,432 distinct scene terms and 253 authored
 zones. The root atlas contributes 1,275 unique labels compiled from 1,296 audited
 source-panel anchors across 66 zones.
 

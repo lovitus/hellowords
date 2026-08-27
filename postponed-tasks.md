@@ -7,13 +7,13 @@
 - 公开版本：`v29-eef9f62`
 - 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=29-eef9f62>
 - 源码：`eef9f627c784b35634c7cbbab441e41e8cd399d6`
-- 工作区：`main`，当前无未提交改动。
+- 当前工作批次：公寓密度与子场景小地图（待发布）。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ## 未完成任务（按优先级）
 
-1. **高密度场景批次**：除 `world-map` 外，多数 36 个场景仍只有约 22–49 个经过审核的锚点。按 `docs/next-scene-batch.md` 逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
-   - 第一批候选：`apartment-bright-v2`、`city-street-bright-v4`、`leaf-natural-v3`。
+1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 已在本批次扩展到 107 个（来自同一张最终 JPEG 的可见家具、结构和部件），接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
+   - 下一批候选：`city-street-bright-v4`、`leaf-natural-v3`。
    - 第二批候选：`polymer`、`railway-platform`、`battery-pack`、`oxygen-molecule`、`hemoglobin`。
    - 每个场景先做 portal 真值和 100%/200% 像素复核，再接入数据和导航。
 2. **连续探索扩展**：保留根图集的滚轮/触控连续缩放和显式点击进入语义；只有在父子场景确实能共享同一张连续栅格时才增加反向 portal，不能恢复“滚轮误触即跳场景”。
@@ -44,4 +44,3 @@ git status --short --branch
 git diff --check
 npx tsx --test tests/domain/worldAtlasVisualContract.test.ts
 ```
-

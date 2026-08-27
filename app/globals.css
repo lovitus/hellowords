@@ -396,6 +396,26 @@ a:focus-visible {
   display: none;
 }
 
+/* Child scenes expose their authored rooms/exhibits as a compact two-row
+ * navigator. Keeping these buttons in the minimap makes a deep zoom useful
+ * even when the camera is currently parked on a narrow central object. */
+.scene-minimap__scene-zones {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3px;
+  overflow: visible;
+}
+
+.scene-minimap__scene-zones > button {
+  min-width: 0;
+  min-height: 20px;
+  flex: none;
+}
+
+.scene-minimap__scene-zones > button > b {
+  max-width: 100%;
+}
+
 .scene-minimap__districts > button {
   display: inline-flex;
   min-width: 0;

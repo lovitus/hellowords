@@ -242,6 +242,46 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   );
 });
 
+test("child-scene minimaps focus the authored room zones without changing scene ownership", async ({ page }) => {
+  const app = await openWorld(page);
+  const minimap = page.locator(MINIMAP);
+  await minimap.locator(`${CHILD}[data-target-scene="apartment"]`).click();
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  const zones = minimap.locator('[data-testid="scene-minimap-scene-zones"]');
+  await expect(zones).toBeVisible();
+  expect(await zones.locator('[data-testid="scene-minimap-zone"]').evaluateAll((buttons) => (
+    buttons.map((button) => (button as HTMLElement).dataset.zoneId)
+  ))).toEqual([
+    "living-room-detail",
+    "kitchen-detail",
+    "bedroom-detail",
+    "bathroom-detail",
+    "central-stair-detail",
+  ]);
+  expect(await zones.locator('[data-testid="scene-minimap-zone"]').evaluateAll((buttons) => (
+    buttons.every((button) => (
+      Number((button as HTMLElement).dataset.labelCount) >= 4
+      && Number.isFinite(Number((button as HTMLElement).dataset.focusX))
+      && Number.isFinite(Number((button as HTMLElement).dataset.focusY))
+    ))
+  ))).toBe(true);
+
+  const kitchen = zones.locator('[data-testid="scene-minimap-zone"][data-zone-id="kitchen-detail"]');
+  await expect(kitchen).toBeEnabled();
+  await kitchen.click();
+  await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale")))
+    .toBeGreaterThan(2.3);
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await expect(kitchen).toHaveAttribute("data-active", "true");
+  await expect(kitchen).toHaveAttribute("aria-current", "location");
+  await expect(page.getByTestId("scene-zone-focus-region")).toHaveAttribute("data-active", "true");
+  await expect(page.getByTestId("scene-zone-focus-region")).toHaveAttribute(
+    "data-zone-id",
+    "kitchen-detail",
+  );
+});
+
 test("the minimap exposes the complete color-coded ten-thousand-word plane", async ({ page }) => {
   await openWorld(page);
   const entry = page.getByTestId("scene-minimap-lexical");

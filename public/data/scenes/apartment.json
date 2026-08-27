@@ -467,6 +467,636 @@
       "priority": 5.043,
       "minLevel": 4,
       "sourceVisualRegion": "verified-kettle"
+    },
+    {
+      "id": "tv-stand",
+      "word": "tv stand",
+      "translation": "电视柜",
+      "x": 47,
+      "y": 389,
+      "priority": 6.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "media-cabinet",
+      "word": "media cabinet",
+      "translation": "影音柜",
+      "x": 49,
+      "y": 373,
+      "priority": 6.002,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "curtain-rod",
+      "word": "curtain rod",
+      "translation": "窗帘杆",
+      "x": 57,
+      "y": 63,
+      "priority": 6.003,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-curtain"
+    },
+    {
+      "id": "window-glass",
+      "word": "window glass",
+      "translation": "窗玻璃",
+      "x": 129,
+      "y": 204,
+      "priority": 6.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-window-frame"
+    },
+    {
+      "id": "window-sill",
+      "word": "window sill",
+      "translation": "窗台",
+      "x": 119,
+      "y": 407,
+      "priority": 6.005,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "planter",
+      "word": "planter",
+      "translation": "花盆",
+      "x": 231,
+      "y": 388,
+      "priority": 6.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-houseplant"
+    },
+    {
+      "id": "plant-leaf",
+      "word": "plant leaf",
+      "translation": "植物叶片",
+      "x": 236,
+      "y": 215,
+      "priority": 6.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-houseplant"
+    },
+    {
+      "id": "lamp-shade",
+      "word": "lamp shade",
+      "translation": "灯罩",
+      "x": 307,
+      "y": 253,
+      "priority": 6.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-floor-lamp"
+    },
+    {
+      "id": "lamp-base",
+      "word": "lamp base",
+      "translation": "灯座",
+      "x": 307,
+      "y": 363,
+      "priority": 6.009,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-floor-lamp"
+    },
+    {
+      "id": "sofa-seat",
+      "word": "sofa seat",
+      "translation": "沙发座面",
+      "x": 430,
+      "y": 365,
+      "priority": 6.010,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-sofa"
+    },
+    {
+      "id": "sofa-back",
+      "word": "sofa back",
+      "translation": "沙发靠背",
+      "x": 430,
+      "y": 321,
+      "priority": 6.011,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-sofa"
+    },
+    {
+      "id": "throw-pillow",
+      "word": "throw pillow",
+      "translation": "抱枕",
+      "x": 500,
+      "y": 334,
+      "priority": 6.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-sofa"
+    },
+    {
+      "id": "tabletop",
+      "word": "tabletop",
+      "translation": "桌面",
+      "x": 400,
+      "y": 382,
+      "priority": 6.013,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-coffee-table"
+    },
+    {
+      "id": "table-leg",
+      "word": "table leg",
+      "translation": "桌腿",
+      "x": 350,
+      "y": 425,
+      "priority": 6.014,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-coffee-table"
+    },
+    {
+      "id": "shelf-board",
+      "word": "shelf board",
+      "translation": "搁板",
+      "x": 640,
+      "y": 234,
+      "priority": 6.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-shelf"
+    },
+    {
+      "id": "book",
+      "word": "book",
+      "translation": "书",
+      "x": 633,
+      "y": 256,
+      "priority": 6.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-shelf"
+    },
+    {
+      "id": "chair-arm",
+      "word": "chair arm",
+      "translation": "椅子扶手",
+      "x": 615,
+      "y": 323,
+      "priority": 6.017,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-chair"
+    },
+    {
+      "id": "island",
+      "word": "island",
+      "translation": "中岛",
+      "x": 1240,
+      "y": 365,
+      "priority": 6.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-counter"
+    },
+    {
+      "id": "island-drawer",
+      "word": "island drawer",
+      "translation": "中岛抽屉",
+      "x": 1210,
+      "y": 414,
+      "priority": 6.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-counter"
+    },
+    {
+      "id": "refrigerator-door",
+      "word": "refrigerator door",
+      "translation": "冰箱门",
+      "x": 995,
+      "y": 305,
+      "priority": 6.020,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-refrigerator"
+    },
+    {
+      "id": "refrigerator-handle",
+      "word": "refrigerator handle",
+      "translation": "冰箱把手",
+      "x": 1024,
+      "y": 275,
+      "priority": 6.021,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-refrigerator"
+    },
+    {
+      "id": "cabinet-door",
+      "word": "cabinet door",
+      "translation": "橱柜门",
+      "x": 1336,
+      "y": 163,
+      "priority": 6.022,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-cabinet"
+    },
+    {
+      "id": "cabinet-handle",
+      "word": "cabinet handle",
+      "translation": "橱柜把手",
+      "x": 1338,
+      "y": 193,
+      "priority": 6.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-cabinet"
+    },
+    {
+      "id": "backsplash",
+      "word": "backsplash",
+      "translation": "防溅板",
+      "x": 1270,
+      "y": 277,
+      "priority": 6.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen"
+    },
+    {
+      "id": "oven",
+      "word": "oven",
+      "translation": "烤箱",
+      "x": 1177,
+      "y": 365,
+      "priority": 6.025,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-counter"
+    },
+    {
+      "id": "burner",
+      "word": "burner",
+      "translation": "炉圈",
+      "x": 1140,
+      "y": 313,
+      "priority": 6.026,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-stove"
+    },
+    {
+      "id": "cutting-board",
+      "word": "cutting board",
+      "translation": "砧板",
+      "x": 1344,
+      "y": 279,
+      "priority": 6.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen"
+    },
+    {
+      "id": "bowl",
+      "word": "bowl",
+      "translation": "碗",
+      "x": 1410,
+      "y": 294,
+      "priority": 6.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen"
+    },
+    {
+      "id": "herb-pot",
+      "word": "herb pot",
+      "translation": "香草盆",
+      "x": 1074,
+      "y": 284,
+      "priority": 6.029,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen"
+    },
+    {
+      "id": "drawer-handle",
+      "word": "drawer handle",
+      "translation": "抽屉把手",
+      "x": 1417,
+      "y": 400,
+      "priority": 6.030,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen"
+    },
+    {
+      "id": "stool-seat",
+      "word": "stool seat",
+      "translation": "凳面",
+      "x": 1315,
+      "y": 401,
+      "priority": 6.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-stool"
+    },
+    {
+      "id": "stool-leg",
+      "word": "stool leg",
+      "translation": "凳腿",
+      "x": 1320,
+      "y": 443,
+      "priority": 6.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-stool"
+    },
+    {
+      "id": "vanity",
+      "word": "vanity",
+      "translation": "浴室柜",
+      "x": 1060,
+      "y": 730,
+      "priority": 6.033,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bathroom"
+    },
+    {
+      "id": "soap-bottle",
+      "word": "soap bottle",
+      "translation": "肥皂瓶",
+      "x": 1135,
+      "y": 678,
+      "priority": 6.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bathroom"
+    },
+    {
+      "id": "mirror-frame",
+      "word": "mirror frame",
+      "translation": "镜框",
+      "x": 1058,
+      "y": 540,
+      "priority": 6.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-mirror"
+    },
+    {
+      "id": "shower-head",
+      "word": "shower head",
+      "translation": "淋浴头",
+      "x": 1320,
+      "y": 586,
+      "priority": 6.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-shower"
+    },
+    {
+      "id": "shower-door",
+      "word": "shower door",
+      "translation": "淋浴门",
+      "x": 1245,
+      "y": 660,
+      "priority": 6.037,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-shower"
+    },
+    {
+      "id": "shower-handle",
+      "word": "shower handle",
+      "translation": "淋浴门把手",
+      "x": 1320,
+      "y": 678,
+      "priority": 6.038,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-shower"
+    },
+    {
+      "id": "shower-tray",
+      "word": "shower tray",
+      "translation": "淋浴底盘",
+      "x": 1320,
+      "y": 798,
+      "priority": 6.039,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-shower"
+    },
+    {
+      "id": "towel-rail",
+      "word": "towel rail",
+      "translation": "毛巾杆",
+      "x": 951,
+      "y": 590,
+      "priority": 6.040,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-towel"
+    },
+    {
+      "id": "toilet-tank",
+      "word": "toilet tank",
+      "translation": "马桶水箱",
+      "x": 1193,
+      "y": 714,
+      "priority": 6.041,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-toilet"
+    },
+    {
+      "id": "toilet-seat",
+      "word": "toilet seat",
+      "translation": "马桶座圈",
+      "x": 1203,
+      "y": 762,
+      "priority": 6.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-toilet"
+    },
+    {
+      "id": "bathtub-rim",
+      "word": "bathtub rim",
+      "translation": "浴缸边缘",
+      "x": 1460,
+      "y": 733,
+      "priority": 6.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bathtub"
+    },
+    {
+      "id": "bathroom-window",
+      "word": "bathroom window",
+      "translation": "浴室窗",
+      "x": 1499,
+      "y": 610,
+      "priority": 6.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bathroom"
+    },
+    {
+      "id": "window-curtain",
+      "word": "window curtain",
+      "translation": "卧室窗帘",
+      "x": 110,
+      "y": 560,
+      "priority": 6.045,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bedroom"
+    },
+    {
+      "id": "bed-frame",
+      "word": "bed frame",
+      "translation": "床架",
+      "x": 200,
+      "y": 813,
+      "priority": 6.046,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bed"
+    },
+    {
+      "id": "mattress",
+      "word": "mattress",
+      "translation": "床垫",
+      "x": 350,
+      "y": 730,
+      "priority": 6.047,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bed"
+    },
+    {
+      "id": "duvet",
+      "word": "duvet",
+      "translation": "被子",
+      "x": 350,
+      "y": 748,
+      "priority": 6.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bed"
+    },
+    {
+      "id": "headboard",
+      "word": "headboard",
+      "translation": "床头板",
+      "x": 350,
+      "y": 655,
+      "priority": 6.049,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bed"
+    },
+    {
+      "id": "bedside-lamp",
+      "word": "bedside lamp",
+      "translation": "床头灯",
+      "x": 260,
+      "y": 665,
+      "priority": 6.050,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bedroom"
+    },
+    {
+      "id": "nightstand-drawer",
+      "word": "nightstand drawer",
+      "translation": "床头柜抽屉",
+      "x": 250,
+      "y": 724,
+      "priority": 6.051,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-side-table"
+    },
+    {
+      "id": "wardrobe-door",
+      "word": "wardrobe door",
+      "translation": "衣柜门",
+      "x": 585,
+      "y": 650,
+      "priority": 6.052,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "wardrobe-handle",
+      "word": "wardrobe handle",
+      "translation": "衣柜把手",
+      "x": 615,
+      "y": 665,
+      "priority": 6.053,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "bedroom-rug",
+      "word": "bedroom rug",
+      "translation": "卧室地毯",
+      "x": 350,
+      "y": 860,
+      "priority": 6.054,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bedroom"
+    },
+    {
+      "id": "bed-leg",
+      "word": "bed leg",
+      "translation": "床腿",
+      "x": 200,
+      "y": 815,
+      "priority": 6.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bed"
+    },
+    {
+      "id": "stair-step",
+      "word": "stair step",
+      "translation": "台阶",
+      "x": 810,
+      "y": 510,
+      "priority": 6.056,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-stairs"
+    },
+    {
+      "id": "handrail",
+      "word": "handrail",
+      "translation": "扶手",
+      "x": 770,
+      "y": 460,
+      "priority": 6.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-stairs"
+    },
+    {
+      "id": "stair-landing",
+      "word": "stair landing",
+      "translation": "楼梯平台",
+      "x": 810,
+      "y": 340,
+      "priority": 6.058,
+      "minLevel": 2,
+      "sourceVisualRegion": "whole-apartment"
+    },
+    {
+      "id": "door",
+      "word": "door",
+      "translation": "门",
+      "x": 810,
+      "y": 145,
+      "priority": 6.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "whole-apartment"
+    },
+    {
+      "id": "door-frame",
+      "word": "door frame",
+      "translation": "门框",
+      "x": 760,
+      "y": 160,
+      "priority": 6.060,
+      "minLevel": 3,
+      "sourceVisualRegion": "whole-apartment"
+    },
+    {
+      "id": "floor",
+      "word": "floor",
+      "translation": "地板",
+      "x": 730,
+      "y": 470,
+      "priority": 6.061,
+      "minLevel": 3,
+      "sourceVisualRegion": "whole-apartment"
+    },
+    {
+      "id": "wall",
+      "word": "wall",
+      "translation": "墙面",
+      "x": 710,
+      "y": 100,
+      "priority": 6.062,
+      "minLevel": 4,
+      "sourceVisualRegion": "whole-apartment"
+    },
+    {
+      "id": "ceiling",
+      "word": "ceiling",
+      "translation": "天花板",
+      "x": 800,
+      "y": 20,
+      "priority": 6.063,
+      "minLevel": 4,
+      "sourceVisualRegion": "whole-apartment"
     }
   ],
   "portals": [
@@ -512,9 +1142,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/apartment-bright-v2.jpg",
     "reviewedAssetSha256": "90b90990ed24ec4324aa0b9345a0db650baf1a8bd03267ab6f53d5984d8c5ff2",
-    "rationale": "Re-authored every anchor and navigation crop from the final bright 1600 by 900 JPEG. The four rooms and central stair core are spatially disjoint, and every retained object or part has an independently pointable pixel region.",
-    "previousLabelCount": 47,
-    "retainedLabelCount": 44,
+    "rationale": "Re-authored every anchor and navigation crop from the final bright 1600 by 900 JPEG. The four rooms and central stair core are spatially disjoint; the expanded set keeps room-level nouns at overview and exposes independently pointable furniture, fixtures and visible parts as the camera moves deeper.",
+    "previousLabelCount": 110,
+    "retainedLabelCount": 107,
     "removedLabelCount": 3,
     "removedExamples": [
       "hallway",
@@ -972,7 +1602,24 @@
         "picture-frame",
         "vase",
         "curtain",
-        "window-frame"
+        "window-frame",
+        "tv-stand",
+        "media-cabinet",
+        "curtain-rod",
+        "window-glass",
+        "window-sill",
+        "planter",
+        "plant-leaf",
+        "lamp-shade",
+        "lamp-base",
+        "sofa-seat",
+        "sofa-back",
+        "throw-pillow",
+        "tabletop",
+        "table-leg",
+        "shelf-board",
+        "book",
+        "chair-arm"
       ]
     },
     {
@@ -995,7 +1642,22 @@
         "stool",
         "cabinet",
         "pendant-light",
-        "kettle"
+        "kettle",
+        "island",
+        "island-drawer",
+        "refrigerator-door",
+        "refrigerator-handle",
+        "cabinet-door",
+        "cabinet-handle",
+        "backsplash",
+        "oven",
+        "burner",
+        "cutting-board",
+        "bowl",
+        "herb-pot",
+        "drawer-handle",
+        "stool-seat",
+        "stool-leg"
       ]
     },
     {
@@ -1015,7 +1677,18 @@
         "wardrobe",
         "laundry-basket",
         "side-table",
-        "blanket"
+        "blanket",
+        "window-curtain",
+        "bed-frame",
+        "mattress",
+        "duvet",
+        "headboard",
+        "bedside-lamp",
+        "nightstand-drawer",
+        "wardrobe-door",
+        "wardrobe-handle",
+        "bedroom-rug",
+        "bed-leg"
       ]
     },
     {
@@ -1037,7 +1710,19 @@
         "towel",
         "bath-mat",
         "basin",
-        "floor-tile"
+        "floor-tile",
+        "vanity",
+        "soap-bottle",
+        "mirror-frame",
+        "shower-head",
+        "shower-door",
+        "shower-handle",
+        "shower-tray",
+        "towel-rail",
+        "toilet-tank",
+        "toilet-seat",
+        "bathtub-rim",
+        "bathroom-window"
       ]
     },
     {
@@ -1054,7 +1739,15 @@
         "apartment",
         "stairs",
         "ceiling-light",
-        "door-handle"
+        "door-handle",
+        "stair-step",
+        "handrail",
+        "stair-landing",
+        "door",
+        "door-frame",
+        "floor",
+        "wall",
+        "ceiling"
       ]
     }
   ]

@@ -119,6 +119,7 @@ export function WorldApp() {
   const [discoveredCount, setDiscoveredCount] = useState(0);
   const [selectedAtlasDistrictId, setSelectedAtlasDistrictId] = useState<string | null>(null);
   const [focusedAtlasZoneId, setFocusedAtlasZoneId] = useState<string | null>(null);
+  const [focusedSceneDetailZoneId, setFocusedSceneDetailZoneId] = useState<string | null>(null);
   const [sceneWordIndexOpen, setSceneWordIndexOpen] = useState(false);
   const [sceneWordIndexQuery, setSceneWordIndexQuery] = useState("");
   const navigationRef = useRef<AbortController | null>(null);
@@ -174,6 +175,19 @@ export function WorldApp() {
   const selectedAtlasDistrict = rootAtlasDistricts.find(
     (district) => district.id === selectedAtlasDistrictId,
   ) ?? null;
+
+  const sceneDetailZones = useMemo(() => {
+    if (!scene || scene.id === "world-map") return [];
+    return (scene.detailZones ?? []).map((zone) => ({
+      id: zone.id,
+      title: zone.title,
+      translation: zone.translation,
+      labelCount: zone.labelIds.length,
+      focusX: zone.x + zone.width / 2,
+      focusY: zone.y + zone.height / 2,
+      targetScale: zone.targetScale,
+    }));
+  }, [scene]);
 
   const sceneWordIndexMatches = useMemo(() => {
     if (!scene) return { total: 0, labels: [] as readonly Label[] };
@@ -322,6 +336,7 @@ export function WorldApp() {
     portal?: Portal,
   ): false | "warm" | "cold" => {
     if (navigationPhaseRef.current !== "idle") return false;
+    setFocusedSceneDetailZoneId(null);
     setSceneWordIndexOpen(false);
     setSceneWordIndexQuery("");
     navigationPhaseRef.current = "committing";
@@ -560,6 +575,18 @@ export function WorldApp() {
     };
     return activeFocusTargetNavigatorRef.current?.(target, source) ?? false;
   }, [scene?.id, sceneControlsLocked]);
+
+  const focusSceneDetailZone = useCallback((zone: RootAtlasZone, source: "pointer" | "keyboard") => {
+    if (sceneControlsLocked || !scene || scene.id === "world-map") return false;
+    setFocusedSceneDetailZoneId(zone.id);
+    const target: SceneFocusTarget = {
+      id: zone.id,
+      x: zone.focusX,
+      y: zone.focusY,
+      targetScale: zone.targetScale,
+    };
+    return activeFocusTargetNavigatorRef.current?.(target, source) ?? false;
+  }, [scene, sceneControlsLocked]);
 
   const focusSceneLabelFromIndex = useCallback((label: Label, source: "pointer" | "keyboard") => {
     if (sceneControlsLocked || !scene) return false;
@@ -886,6 +913,38 @@ export function WorldApp() {
                 </button>
               ))}
             </nav>
+          ) : sceneDetailZones.length > 0 ? (
+            <nav
+              className="scene-minimap__districts scene-minimap__scene-zones"
+              data-testid="scene-minimap-scene-zones"
+              data-mode="zones"
+              aria-label={`${scene?.title ?? "当前场景"} detail zones`}
+            >
+              {sceneDetailZones.map((zone) => (
+                <button
+                  key={zone.id}
+                  type="button"
+                  data-testid="scene-minimap-zone"
+                  data-zone-id={zone.id}
+                  data-navigation="detail-zone-focus"
+                  data-focus-x={zone.focusX}
+                  data-focus-y={zone.focusY}
+                  data-target-scale={zone.targetScale}
+                  data-label-count={zone.labelCount}
+                  data-active={focusedSceneDetailZoneId === zone.id ? "true" : "false"}
+                  aria-current={focusedSceneDetailZoneId === zone.id ? "location" : undefined}
+                  onClick={(event) => {
+                    focusSceneDetailZone(zone, event.detail === 0 ? "keyboard" : "pointer");
+                  }}
+                  disabled={sceneControlsLocked}
+                  aria-label={`聚焦 ${zone.title}，${zone.labelCount} 个词`}
+                >
+                  <span aria-hidden="true" />
+                  <b>{zone.title}</b>
+                  <small>{zone.labelCount}</small>
+                </button>
+              ))}
+            </nav>
           ) : null}
           <nav
             className="scene-minimap__path"
@@ -1086,7 +1145,7 @@ export function WorldApp() {
               onMotionFrozenChange={handleViewportMotionFrozen}
               onPortalNavigatorReady={registerPortalNavigator}
               onFocusTargetNavigatorReady={registerFocusTargetNavigator}
-              focusedDetailZoneId={scene?.id === "world-map" ? focusedAtlasZoneId : null}
+              focusedDetailZoneId={scene?.id === "world-map" ? focusedAtlasZoneId : focusedSceneDetailZoneId}
               wordIndexOpen={sceneWordIndexOpen}
             />
           </>
