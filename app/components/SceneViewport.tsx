@@ -438,6 +438,11 @@ export function shouldWriteContinuousTileProgress(
 ): boolean {
   return state === "preview" || direction === "back";
 }
+
+/** The dense root atlas stays on one canvas until a portal is explicitly clicked. */
+export function sceneUsesWheelPortalEntry(sceneId: string): boolean {
+  return sceneId !== "world-map";
+}
 const VOCABULARY_REVEAL_SCALE: Readonly<Record<2 | 3 | 4, number>> = {
   2: 1.42,
   3: 2.2,
@@ -2001,7 +2006,10 @@ export function SceneViewport({
     if (!viewport) return;
     const focus = zoomFocusRef.current ?? { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
     const candidate = portalCandidateRef.current ?? portalAtScreenPoint(scene.portals, camera, focus);
-    const portal = zoomDirectionRef.current === "in" && candidate && camera.scale >= (candidate.enterScale ?? 3.6)
+    const portal = sceneUsesWheelPortalEntry(scene.id)
+      && zoomDirectionRef.current === "in"
+      && candidate
+      && camera.scale >= (candidate.enterScale ?? 3.6)
       ? candidate
       : undefined;
     if (portal) {
@@ -2019,7 +2027,7 @@ export function SceneViewport({
       resetParentExitHysteresis();
       onExitScene();
     }
-  }, [beginPortalTransition, onExitScene, resetParentExitHysteresis, scene.parentId, scene.portals]);
+  }, [beginPortalTransition, onExitScene, resetParentExitHysteresis, scene.id, scene.parentId, scene.portals]);
 
   const scheduleNavigationCheck = useCallback(() => {
     if (navigationFrameRef.current !== null) return;
@@ -2086,7 +2094,7 @@ export function SceneViewport({
         Math.max(minimum, camera.scale * factor),
       );
       sampleParentExitHysteresis(factor, nextScale);
-      const semanticPortal = factor > 1
+      const semanticPortal = factor > 1 && sceneUsesWheelPortalEntry(scene.id)
         ? portalAtScreenPoint(scene.portals, camera, previousPoint)
         : undefined;
       if (trySemanticOverscroll(point, factor, semanticPortal)) return;
@@ -2141,7 +2149,7 @@ export function SceneViewport({
       requestCameraFrame();
       scheduleNavigationCheck();
     },
-    [cancelCameraAnimation, resetSemanticOverscroll, sampleParentExitHysteresis, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, trySemanticOverscroll, updateZoomDirection],
+    [cancelCameraAnimation, resetSemanticOverscroll, sampleParentExitHysteresis, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.id, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, trySemanticOverscroll, updateZoomDirection],
   );
 
   const queueWheelZoom = useCallback((point: Point, factor: number) => {
@@ -2168,7 +2176,7 @@ export function SceneViewport({
       x: point.x - (point.x - base.x) * ratio,
       y: point.y - (point.y - base.y) * ratio,
     });
-    const semanticPortal = factor > 1
+    const semanticPortal = factor > 1 && sceneUsesWheelPortalEntry(scene.id)
       ? portalAtScreenPoint(scene.portals, cameraRef.current, point)
         ?? portalAtScreenPoint(scene.portals, base, point)
         ?? portalAtScreenPoint(scene.portals, target, point)
@@ -2248,7 +2256,7 @@ export function SceneViewport({
       wheelFrameTimeRef.current = null;
     };
     wheelAnimationRef.current = requestAnimationFrame(animate);
-  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, resetSemanticOverscroll, sampleParentExitHysteresis, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, trySemanticOverscroll, updateZoomDirection, viewerInteractive]);
+  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, resetSemanticOverscroll, sampleParentExitHysteresis, scene.id, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, trySemanticOverscroll, updateZoomDirection, viewerInteractive]);
 
   const focusVocabularyTarget = useCallback((
     fallbackLabelId: string,
@@ -2845,6 +2853,7 @@ export function SceneViewport({
               key={portal.id}
               className="scene-hotspot-region"
               data-portal-id={portal.id}
+              data-portal-entry-mode={sceneUsesWheelPortalEntry(scene.id) ? "zoom-or-click" : "click"}
               data-visual-region={portal.sourceVisualRegion}
               data-candidate="false"
             >
@@ -2890,7 +2899,8 @@ export function SceneViewport({
               >
                 <span className="scene-hotspot-icon" aria-hidden="true">↘</span>
                 <span className="scene-hotspot-caption" aria-hidden="true">
-                  继续放大 · {portalTargetTitles[portal.childSceneId] ?? portal.label}
+                  {sceneUsesWheelPortalEntry(scene.id) ? "继续放大" : "点击进入"}
+                  {" · "}{portalTargetTitles[portal.childSceneId] ?? portal.label}
                 </span>
               </button>
             </div>
@@ -2984,7 +2994,9 @@ export function SceneViewport({
             继续放大 · <strong>显示下一批词</strong>
           </button>
           <aside className="scene-cue-legend" data-testid="scene-cue-legend" aria-label="缩放提示图例">
-            <span><i data-kind="portal" aria-hidden="true" />继续放大进入细节</span>
+            <span><i data-kind="portal" aria-hidden="true" />
+              {sceneUsesWheelPortalEntry(scene.id) ? "继续放大进入细节" : "点击入口进入细节"}
+            </span>
             <span><i data-kind="vocabulary" aria-hidden="true" />放大显示更多词</span>
           </aside>
           <p ref={vocabularyAnnouncementRef} className="sr-only" aria-live="polite" />
@@ -3007,7 +3019,9 @@ export function SceneViewport({
             >
               <span className="portal-progress-ring" aria-hidden="true"><span>＋</span></span>
               <span className="portal-preview-copy">
-                <small>{previewPhase === "armed" ? "正在展开细节" : "继续放大"}</small>
+                <small>{sceneUsesWheelPortalEntry(scene.id)
+                  ? previewPhase === "armed" ? "正在展开细节" : "继续放大"
+                  : "点击进入细节"}</small>
                 <strong>{portalTargetTitles[previewPortal.childSceneId] ?? previewPortal.label}</strong>
                 {meaningVisible && previewPortal.translation ? <em>{previewPortal.translation}</em> : null}
               </span>

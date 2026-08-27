@@ -22,6 +22,7 @@ import {
   SceneViewport,
   setStylePropertyIfChanged,
   shouldResetLabelPlacementMemory,
+  sceneUsesWheelPortalEntry,
   shouldWriteContinuousTileProgress,
   vocabularyActivationFocusPoint,
   wheelZoomFactor,
@@ -34,6 +35,12 @@ import {
   type Label,
   type Scene,
 } from "../../app/domain";
+
+test("the root atlas requires an explicit portal click while child scenes keep wheel entry", () => {
+  assert.equal(sceneUsesWheelPortalEntry("world-map"), false);
+  assert.equal(sceneUsesWheelPortalEntry("city-street"), true);
+  assert.equal(sceneUsesWheelPortalEntry("community-garden"), true);
+});
 
 const ROOT = new URL("../../", import.meta.url);
 

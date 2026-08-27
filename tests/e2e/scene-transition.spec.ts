@@ -45,14 +45,22 @@ async function openWorld(page: Page) {
   return app;
 }
 
-async function holdPreferredChildPreparation(page: Page) {
+async function holdPreferredChildPreparation(
+  page: Page,
+  allowedSceneIds: readonly string[] = [],
+) {
   let releasePreparation!: () => void;
   const preparationHeld = new Promise<void>((resolve) => {
     releasePreparation = resolve;
   });
+  const allowedPaths = new Set(allowedSceneIds.map((sceneId) => `/data/scenes/${sceneId}.json`));
   await page.route("**/data/scenes/*.json", async (route) => {
     const path = new URL(route.request().url()).pathname;
-    if (path.endsWith("/manifest.json") || path.endsWith("/world-map.json")) {
+    if (
+      path.endsWith("/manifest.json")
+      || path.endsWith("/world-map.json")
+      || [...allowedPaths].some((allowedPath) => path.endsWith(allowedPath))
+    ) {
       return route.continue();
     }
     await preparationHeld;
@@ -306,8 +314,9 @@ test("portal entry progress stays in 0..1 and reaches armed while zooming in", a
   expect(new Set(progress.map((value) => value.toFixed(3))).size).toBeGreaterThanOrEqual(6);
   expect(
     armedObserved,
-    "the preview reaches armed before immediate navigation unmounts the source scene",
+    "the preview reaches armed before the user explicitly activates the portal",
   ).toBe(true);
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
 });
 
 test("click entry keeps one continuous tiled scene and never mounts page transition layers", async ({ page }, testInfo) => {
@@ -327,8 +336,13 @@ test("click entry keeps one continuous tiled scene and never mounts page transit
 
 test("wheel entry uses the same continuous tile handoff", async ({ page }, testInfo) => {
   desktopOnly(testInfo.project.name);
-  const releasePreparation = await holdPreferredChildPreparation(page);
+  const releasePreparation = await holdPreferredChildPreparation(page, ["city-street"]);
   const app = await openWorld(page);
+  await page.locator(
+    '[data-testid="scene-minimap-child"][data-target-scene="city-street"]',
+  ).click();
+  await expect(app).toHaveAttribute("data-scene-id", "city-street");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
   const { hotspot, target } = await focusedPortalPreview(page);
 
   await beginTransitionTrace(page);

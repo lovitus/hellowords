@@ -621,9 +621,10 @@ test("enters a scene slice on zoom and returns to its parent", async ({ page }) 
   ).toEqual(requestedBeforeRevisit);
 });
 
-test("wheel zoom over an object automatically loads its child scene", async ({ page }) => {
+test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {
   const app = await openWorld(page);
   const parent = await sceneId(app);
+  expect(parent).toBe("world-map");
   const hotspot = page.getByTestId("scene-hotspot").first();
   const target = await hotspot.getAttribute("data-target-scene");
   const box = await hotspot.boundingBox();
@@ -631,10 +632,24 @@ test("wheel zoom over an object automatically loads its child scene", async ({ p
   expect(box).not.toBeNull();
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
 
-  await expect.poll(async () => {
-    if ((await sceneId(app)) === parent) await page.mouse.wheel(0, -180);
-    return sceneId(app);
-  }, { intervals: [220], timeout: 8_000 }).toBe(target);
+  // Stop below the semantic overscroll boundary so the explicit portal
+  // control remains available for the second half of this contract.
+  await zoomSceneToScale(page, 3.35, {
+    x: box!.x + box!.width / 2,
+    y: box!.y + box!.height / 2,
+  });
+  await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale")))
+    .toBeGreaterThan(2.5);
+  expect(await sceneId(app)).toBe(parent);
+  await expect(page.locator(
+    `.scene-hotspot-region[data-portal-entry-mode="click"]`,
+  )).toHaveCount(4);
+  const mapEntry = page.locator(
+    `[data-testid="scene-minimap-child"][data-target-scene="${target}"]`,
+  );
+  await expect(mapEntry).toBeEnabled();
+  await mapEntry.click();
+  await expect(app).toHaveAttribute("data-scene-id", target as string);
   await expect(app).not.toHaveAttribute("data-scene-loading", "true");
 });
 

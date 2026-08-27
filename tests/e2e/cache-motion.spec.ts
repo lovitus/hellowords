@@ -328,15 +328,10 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
   }
 });
 
-test("world-map wheel continuity settles apartment before a deliberate second-step exit", async ({ page }, testInfo) => {
+test("root portal click settles apartment before a deliberate second-step exit", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium", "desktop fit geometry has a distinct mobile scale");
   const app = await openWorld(page);
   await expect(app).toHaveAttribute("data-scene-id", "world-map");
-
-  const apartmentPortal = page.locator(`${HOTSPOT}[data-target-scene="apartment"]`);
-  await expect(apartmentPortal).toBeVisible();
-  const portalBounds = await apartmentPortal.boundingBox();
-  expect(portalBounds).not.toBeNull();
 
   // A real trackpad keeps emitting impulses after the keyed child mounts.
   // Send those on consecutive child frames: scene idle is too early to prove
@@ -374,15 +369,8 @@ test("world-map wheel continuity settles apartment before a deliberate second-st
     Reflect.set(window, "__hellowordsApartmentInertia", { trace, observer });
   });
 
-  await page.mouse.move(
-    portalBounds!.x + portalBounds!.width / 2,
-    portalBounds!.y + portalBounds!.height / 2,
-  );
-  for (let impulse = 0; impulse < 16; impulse += 1) {
-    if (await app.getAttribute("data-scene-id") !== "world-map") break;
-    await page.mouse.wheel(0, -120);
-    await page.waitForTimeout(12);
-  }
+  const child = await activateFirstPortal(page, app);
+  expect(child).toBe("apartment");
   await expect(app).toHaveAttribute("data-scene-id", "apartment");
   await expect.poll(() => page.evaluate(() => (
     (Reflect.get(window, "__hellowordsApartmentInertia") as { trace: { fired: number } }).trace.fired

@@ -399,6 +399,8 @@ async function semanticDirectionalBackgroundDrag(
     ): -1 | 0 | 1 => {
       if (requested === 0) return 0;
       if (Math.max(positiveTravel, negativeTravel) <= 1) return 0;
+      if (requested > 0 && positiveTravel <= 1 && negativeTravel > 1) return -1;
+      if (requested < 0 && negativeTravel <= 1 && positiveTravel > 1) return 1;
       if (Math.abs(positiveTravel - negativeTravel) <= 1) return requested;
       return positiveTravel > negativeTravel ? 1 : -1;
     };
