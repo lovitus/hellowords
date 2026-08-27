@@ -6,13 +6,13 @@
 
 - 公开版本：`v29-eef9f62`
 - 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=29-eef9f62>
-- 源码：`bdf45f1`（v31 公开运行时）
-- 当前工作批次：公寓与城市街景密度、子场景小地图（已发布）。
+- 源码：`1a4a98a`（v32 公开运行时）
+- 当前工作批次：公寓、城市街景与厨房密度、子场景小地图（已发布）。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ## 未完成任务（按优先级）
 
-1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 已在 v30 扩展到 107 个，`city-street` 已在 v31 扩展到 89 个；接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
+1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 已在 v30 扩展到 107 个，`city-street` 已在 v31 扩展到 89 个，`kitchen` 已在 v32 扩展到 93 个；接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
    - 下一批候选：`leaf-natural-v3`、`polymer`、`railway-platform`。
    - 第二批候选：`polymer`、`railway-platform`、`battery-pack`、`oxygen-molecule`、`hemoglobin`。
    - 每个场景先做 portal 真值和 100%/200% 像素复核，再接入数据和导航。
@@ -27,7 +27,7 @@
 - `PERF_RUN=1 npm run test:perf`
 - 真实公开地址的桌面/移动冒烟：根图集、一个显式 portal、场景词索引、缩放回退、无 console error。
 - 记录准确的提交 SHA、Sites 版本/部署状态和 cachebuster URL；完成后更新本文件与本地 handoff README。
-- v30/v31 真实公开冒烟：公寓进入后 39 个词首屏、107 个总词、5 个可点击区域；厨房区域聚焦到 scale 2.400、25 个词；城市街景进入后 89 个总词、6 个区域，交通枢纽聚焦到 scale 2.500、16 个词；两次均无浏览器日志。
+- v30/v31/v32 真实公开冒烟：公寓进入后 39 个词首屏、107 个总词、5 个可点击区域；厨房区域聚焦到 scale 2.400、25 个词；城市街景进入后 89 个总词、6 个区域，交通枢纽聚焦到 scale 2.500、16 个词；厨房进入后 78 个词首屏、93 个总词、4 个区域，清洗区聚焦到 scale 2.300、31 个词；公开页面均无浏览器日志。
 
 ## 会话与临时文件边界
 
