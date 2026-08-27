@@ -59,7 +59,52 @@
     { "id": "bean-hopper", "word": "bean hopper", "translation": "豆仓", "x": 1515, "y": 285, "priority": 5.044, "minLevel": 4, "sourceVisualRegion": "verified-bean-hopper" },
     { "id": "coffee-spout", "word": "coffee spout", "translation": "咖啡出口", "x": 1515, "y": 405, "priority": 5.045, "minLevel": 4, "sourceVisualRegion": "verified-coffee-spout" },
     { "id": "drip-tray", "word": "drip tray", "translation": "滴水盘", "x": 1515, "y": 495, "priority": 5.046, "minLevel": 4, "sourceVisualRegion": "verified-drip-tray" },
-    { "id": "coffee-cup", "word": "coffee cup", "translation": "咖啡杯", "x": 1520, "y": 450, "priority": 5.047, "minLevel": 4, "sourceVisualRegion": "verified-coffee-cup" }
+    { "id": "coffee-cup", "word": "coffee cup", "translation": "咖啡杯", "x": 1520, "y": 450, "priority": 5.047, "minLevel": 4, "sourceVisualRegion": "verified-coffee-cup" },
+    { "id": "window-frame", "word": "window frame", "translation": "窗框", "x": 160, "y": 180, "priority": 6.001, "minLevel": 2, "sourceVisualRegion": "verified-window" },
+    { "id": "window-blind", "word": "window blind", "translation": "百叶帘", "x": 160, "y": 70, "priority": 6.002, "minLevel": 3, "sourceVisualRegion": "verified-window" },
+    { "id": "window-sill", "word": "window sill", "translation": "窗台", "x": 165, "y": 345, "priority": 6.003, "minLevel": 4, "sourceVisualRegion": "verified-window" },
+    { "id": "sink-basin", "word": "sink basin", "translation": "水槽盆", "x": 165, "y": 470, "priority": 6.004, "minLevel": 2, "sourceVisualRegion": "verified-sink" },
+    { "id": "sink-drain", "word": "sink drain", "translation": "水槽排水口", "x": 165, "y": 495, "priority": 6.005, "minLevel": 4, "sourceVisualRegion": "verified-sink" },
+    { "id": "faucet-spout", "word": "faucet spout", "translation": "水龙头出水口", "x": 175, "y": 340, "priority": 6.006, "minLevel": 3, "sourceVisualRegion": "verified-faucet" },
+    { "id": "shelf", "word": "shelf", "translation": "搁架", "x": 390, "y": 125, "priority": 6.007, "minLevel": 2, "sourceVisualRegion": "verified-shelf" },
+    { "id": "storage-jar", "word": "storage jar", "translation": "储物罐", "x": 485, "y": 125, "priority": 6.008, "minLevel": 4, "sourceVisualRegion": "verified-shelf" },
+    { "id": "cabinet-door", "word": "cabinet door", "translation": "橱柜门", "x": 640, "y": 180, "priority": 6.009, "minLevel": 3, "sourceVisualRegion": "verified-cabinet" },
+    { "id": "bulb", "word": "bulb", "translation": "灯泡", "x": 640, "y": 60, "priority": 6.010, "minLevel": 4, "sourceVisualRegion": "verified-pendant-light" },
+    { "id": "glass-shade", "word": "glass shade", "translation": "玻璃灯罩", "x": 640, "y": 100, "priority": 6.011, "minLevel": 3, "sourceVisualRegion": "verified-pendant-light" },
+    { "id": "hood-filter", "word": "hood filter", "translation": "油烟机滤网", "x": 850, "y": 165, "priority": 6.012, "minLevel": 4, "sourceVisualRegion": "verified-range-hood" },
+    { "id": "drawer-front", "word": "drawer front", "translation": "抽屉面板", "x": 550, "y": 515, "priority": 6.013, "minLevel": 3, "sourceVisualRegion": "verified-drawer" },
+    { "id": "mixer-bowl", "word": "mixer bowl", "translation": "搅拌碗", "x": 635, "y": 420, "priority": 6.014, "minLevel": 3, "sourceVisualRegion": "verified-stand-mixer" },
+    { "id": "mixer-head", "word": "mixer head", "translation": "搅拌机头", "x": 635, "y": 330, "priority": 6.015, "minLevel": 4, "sourceVisualRegion": "verified-stand-mixer" },
+    { "id": "kettle-handle", "word": "kettle handle", "translation": "水壶把手", "x": 390, "y": 350, "priority": 6.016, "minLevel": 4, "sourceVisualRegion": "verified-kettle" },
+    { "id": "kettle-spout", "word": "kettle spout", "translation": "水壶壶嘴", "x": 370, "y": 385, "priority": 6.017, "minLevel": 4, "sourceVisualRegion": "verified-kettle" },
+    { "id": "toaster-slot", "word": "toaster slot", "translation": "烤面包机槽口", "x": 470, "y": 355, "priority": 6.018, "minLevel": 4, "sourceVisualRegion": "verified-toaster" },
+    { "id": "toaster-lever", "word": "toaster lever", "translation": "烤面包机拨杆", "x": 475, "y": 390, "priority": 6.019, "minLevel": 4, "sourceVisualRegion": "verified-toaster" },
+    { "id": "blender-jar", "word": "blender jar", "translation": "搅拌杯", "x": 545, "y": 315, "priority": 6.020, "minLevel": 3, "sourceVisualRegion": "verified-blender" },
+    { "id": "blender-base", "word": "blender base", "translation": "搅拌机底座", "x": 545, "y": 390, "priority": 6.021, "minLevel": 4, "sourceVisualRegion": "verified-blender" },
+    { "id": "pot-handle", "word": "pot handle", "translation": "锅柄", "x": 875, "y": 405, "priority": 6.022, "minLevel": 4, "sourceVisualRegion": "verified-stockpot" },
+    { "id": "pan-handle", "word": "pan handle", "translation": "平底锅柄", "x": 1000, "y": 410, "priority": 6.023, "minLevel": 4, "sourceVisualRegion": "verified-frying-pan" },
+    { "id": "bread-slice", "word": "bread slice", "translation": "面包片", "x": 770, "y": 575, "priority": 6.024, "minLevel": 3, "sourceVisualRegion": "verified-bread" },
+    { "id": "apple", "word": "apple", "translation": "苹果", "x": 480, "y": 560, "priority": 6.025, "minLevel": 4, "sourceVisualRegion": "verified-fruit-bowl" },
+    { "id": "orange", "word": "orange", "translation": "橙子", "x": 550, "y": 580, "priority": 6.026, "minLevel": 4, "sourceVisualRegion": "verified-fruit-bowl" },
+    { "id": "grape", "word": "grape", "translation": "葡萄", "x": 500, "y": 545, "priority": 6.027, "minLevel": 4, "sourceVisualRegion": "verified-fruit-bowl" },
+    { "id": "herb-leaf", "word": "herb leaf", "translation": "香草叶", "x": 1130, "y": 350, "priority": 6.028, "minLevel": 4, "sourceVisualRegion": "verified-potted-herb" },
+    { "id": "measuring-handle", "word": "measuring handle", "translation": "量杯把手", "x": 1140, "y": 590, "priority": 6.029, "minLevel": 4, "sourceVisualRegion": "verified-measuring-cup" },
+    { "id": "bowl-rim", "word": "bowl rim", "translation": "碗沿", "x": 970, "y": 550, "priority": 6.030, "minLevel": 4, "sourceVisualRegion": "verified-bowl" },
+    { "id": "mug-handle", "word": "mug handle", "translation": "马克杯把手", "x": 1170, "y": 645, "priority": 6.031, "minLevel": 4, "sourceVisualRegion": "verified-mug" },
+    { "id": "towel-fringe", "word": "towel fringe", "translation": "毛巾流苏", "x": 850, "y": 760, "priority": 6.032, "minLevel": 4, "sourceVisualRegion": "verified-dish-towel" },
+    { "id": "vase-stem", "word": "vase stem", "translation": "花瓶茎秆", "x": 1250, "y": 520, "priority": 6.033, "minLevel": 4, "sourceVisualRegion": "verified-vase" },
+    { "id": "spice-cap", "word": "spice cap", "translation": "香料罐盖", "x": 1165, "y": 360, "priority": 6.034, "minLevel": 4, "sourceVisualRegion": "verified-spice-jar" },
+    { "id": "spoon-head", "word": "spoon head", "translation": "勺头", "x": 700, "y": 320, "priority": 6.035, "minLevel": 4, "sourceVisualRegion": "verified-wooden-spoon" },
+    { "id": "whisk-wire", "word": "whisk wire", "translation": "打蛋器钢丝", "x": 730, "y": 660, "priority": 6.036, "minLevel": 4, "sourceVisualRegion": "verified-whisk" },
+    { "id": "rolling-pin-handle", "word": "rolling pin handle", "translation": "擀面杖把手", "x": 1060, "y": 650, "priority": 6.037, "minLevel": 4, "sourceVisualRegion": "verified-rolling-pin" },
+    { "id": "knife-blade", "word": "knife blade", "translation": "刀刃", "x": 850, "y": 600, "priority": 6.038, "minLevel": 4, "sourceVisualRegion": "verified-knife" },
+    { "id": "mill-top", "word": "mill top", "translation": "研磨罐顶", "x": 1060, "y": 330, "priority": 6.039, "minLevel": 4, "sourceVisualRegion": "verified-pepper-mill" },
+    { "id": "fridge-handle", "word": "fridge handle", "translation": "冰箱把手", "x": 1360, "y": 260, "priority": 6.040, "minLevel": 3, "sourceVisualRegion": "verified-refrigerator" },
+    { "id": "fridge-door", "word": "fridge door", "translation": "冰箱门", "x": 1320, "y": 300, "priority": 6.041, "minLevel": 3, "sourceVisualRegion": "verified-refrigerator" },
+    { "id": "countertop-edge", "word": "countertop edge", "translation": "台面边缘", "x": 600, "y": 535, "priority": 6.042, "minLevel": 3, "sourceVisualRegion": "verified-countertop" },
+    { "id": "island-leg", "word": "island leg", "translation": "岛台支腿", "x": 300, "y": 760, "priority": 6.043, "minLevel": 4, "sourceVisualRegion": "verified-kitchen-island" },
+    { "id": "stool-seat", "word": "stool seat", "translation": "凳面", "x": 465, "y": 800, "priority": 6.044, "minLevel": 3, "sourceVisualRegion": "verified-stool" },
+    { "id": "stool-leg", "word": "stool leg", "translation": "凳腿", "x": 465, "y": 860, "priority": 6.045, "minLevel": 4, "sourceVisualRegion": "verified-stool" }
   ],
   "portals": [
     {
@@ -80,9 +125,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/kitchen-premium-v3.jpg",
     "reviewedAssetSha256": "7623db6c6b87f6f386f6201d5a913de9f31eb016f0894b0a33eec52dc94a7f2e",
-    "rationale": "Re-anchored every retained term to an identifiable object or part in the new bright residential kitchen; the portal tightly bounds the complete coffee machine in its right-hand nook.",
-    "previousLabelCount": 57,
-    "retainedLabelCount": 48,
+    "rationale": "Re-anchored every retained term to an identifiable object or part in the new bright residential kitchen; the expanded set adds readable appliance, cookware, food and island subparts without restoring process words, while the portal tightly bounds the complete coffee machine in its right-hand nook.",
+    "previousLabelCount": 102,
+    "retainedLabelCount": 93,
     "removedLabelCount": 9,
     "removedExamples": ["boiling", "frying", "recipe", "ingredient", "microwave", "dishwasher"]
   },
@@ -94,7 +139,7 @@
       "description": "Window-side sink, faucet and dish-cleaning tools",
       "x": 0, "y": 60, "width": 450, "height": 495,
       "targetScale": 2.3,
-      "labelIds": ["window", "sink", "faucet", "dish-rack", "soap-dispenser", "sponge", "plates"]
+      "labelIds": ["window", "sink", "faucet", "dish-rack", "soap-dispenser", "sponge", "plates", "window-frame", "window-blind", "window-sill", "sink-basin", "sink-drain", "faucet-spout"]
     },
     {
       "id": "cooking-wall",
@@ -103,7 +148,7 @@
       "description": "Cabinet wall with appliances, cookware and utensils",
       "x": 300, "y": 0, "width": 950, "height": 650,
       "targetScale": 2.6,
-      "labelIds": ["cabinet", "oven", "cooktop", "range-hood", "pendant-light", "drawer", "countertop", "backsplash", "stand-mixer", "kettle", "toaster", "blender", "stockpot", "frying-pan", "potted-herb", "spice-jar", "drawer-pull", "cabinet-handle", "pot-lid", "wooden-spoon", "pepper-mill"]
+      "labelIds": ["cabinet", "oven", "cooktop", "range-hood", "pendant-light", "drawer", "countertop", "backsplash", "stand-mixer", "kettle", "toaster", "blender", "stockpot", "frying-pan", "potted-herb", "spice-jar", "drawer-pull", "cabinet-handle", "pot-lid", "wooden-spoon", "pepper-mill", "shelf", "storage-jar", "cabinet-door", "bulb", "glass-shade", "hood-filter", "drawer-front", "mixer-bowl", "mixer-head", "kettle-handle", "kettle-spout", "toaster-slot", "toaster-lever", "blender-jar", "blender-base", "pot-handle", "pan-handle", "herb-leaf", "spice-cap", "spoon-head", "mill-top", "countertop-edge"]
     },
     {
       "id": "preparation-island",
@@ -112,7 +157,7 @@
       "description": "Foreground island with food, serving ware and hand tools",
       "x": 200, "y": 520, "width": 1230, "height": 380,
       "targetScale": 2.8,
-      "labelIds": ["kitchen-island", "stool", "cutting-board", "fruit-bowl", "bread", "measuring-cup", "bowl", "mug", "dish-towel", "vase", "whisk", "rolling-pin", "knife"]
+      "labelIds": ["kitchen-island", "stool", "cutting-board", "fruit-bowl", "bread", "measuring-cup", "bowl", "mug", "dish-towel", "vase", "whisk", "rolling-pin", "knife", "bread-slice", "apple", "orange", "grape", "measuring-handle", "bowl-rim", "mug-handle", "towel-fringe", "vase-stem", "whisk-wire", "rolling-pin-handle", "knife-blade", "island-leg", "stool-seat", "stool-leg"]
     },
     {
       "id": "coffee-nook",
@@ -121,7 +166,7 @@
       "description": "Right appliance nook with refrigerator and coffee details",
       "x": 1200, "y": 80, "width": 400, "height": 490,
       "targetScale": 3.2,
-      "labelIds": ["refrigerator", "coffee-machine", "bean-hopper", "coffee-spout", "drip-tray", "coffee-cup"]
+      "labelIds": ["refrigerator", "coffee-machine", "bean-hopper", "coffee-spout", "drip-tray", "coffee-cup", "fridge-handle", "fridge-door"]
     }
   ],
   "visualRegions": [
@@ -131,6 +176,7 @@
     { "id": "verified-sink", "description": "Double-basin stainless-steel sink", "kind": "object", "x": 45, "y": 410, "width": 280, "height": 135 },
     { "id": "verified-refrigerator", "description": "Tall stainless-steel refrigerator on the right", "kind": "object", "x": 1210, "y": 90, "width": 220, "height": 490 },
     { "id": "verified-cabinet", "description": "Pair of oak upper cabinet doors", "kind": "object", "x": 525, "y": 0, "width": 260, "height": 270 },
+    { "id": "verified-shelf", "description": "Open oak shelf with bowls, a jar and books", "kind": "object", "x": 320, "y": 35, "width": 200, "height": 210 },
     { "id": "verified-kitchen-island", "description": "Large stone-topped island in the foreground", "kind": "object", "x": 210, "y": 530, "width": 1210, "height": 370 },
     { "id": "verified-coffee-machine", "description": "Complete automatic coffee machine at far right", "kind": "object", "x": 1420, "y": 255, "width": 180, "height": 300 },
     { "id": "verified-oven", "description": "Built-in black oven below the cooktop", "kind": "object", "x": 690, "y": 460, "width": 250, "height": 175 },
