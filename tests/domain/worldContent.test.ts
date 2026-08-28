@@ -224,10 +224,70 @@ test("known floating-label regressions stay removed and critical portals match v
 
   const cityPark = byId.get("city-park");
   assert.ok(cityPark);
-  assert.equal(cityPark.labels.length, 63, "city park keeps its expanded final-pixel vocabulary");
+  assert.equal(cityPark.labels.length, 88, "city park keeps its expanded final-pixel vocabulary");
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => cityPark.labels.filter((label) => label.minLevel === level).length),
+    [9, 16, 31, 21, 11],
+  );
+  assert.deepEqual(
+    cityPark.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["pond-habitat-detail", 22],
+      ["oak-tree-detail", 16],
+      ["playground-picnic-detail", 14],
+      ["fountain-garden-detail", 16],
+      ["park-foreground-detail", 20],
+    ],
+  );
   const cityParkWords = new Set(cityPark.labels.map((label) => label.word));
-  for (const term of ["pond water", "bridge deck", "oak leaf", "fountain spray", "gazebo railing", "daisy center"]) {
+  for (const term of [
+    "pond water",
+    "bridge deck",
+    "bridge plank",
+    "oak leaf",
+    "oak leaf vein",
+    "fountain spray",
+    "fountain rim",
+    "gazebo railing",
+    "gazebo post",
+    "gazebo roof",
+    "shoreline rock",
+    "lily center",
+    "lily petal",
+    "reed blade",
+    "tree branch fork",
+    "swing seat",
+    "swing hook",
+    "slide rail",
+    "climbing rung",
+    "bench seat",
+    "bench slat",
+    "path stone",
+    "path edge",
+    "daisy stalk",
+    "fern leaflet",
+    "picnic basket weave",
+    "flower stalk",
+    "grass blade",
+    "acorn cap",
+    "root bark",
+  ]) {
     assert.ok(cityParkWords.has(term), `city park shows ${term}`);
+  }
+  for (const [id, point] of [
+    ["bridge-plank", [170, 635]],
+    ["oak-leaf-vein", [1470, 170]],
+    ["picnic-basket-weave", [978, 535]],
+  ] as const) {
+    const anchor: Scene["labels"][number] | undefined = cityPark.labels.find(
+      (candidate) => candidate.id === id,
+    );
+    assert.ok(anchor, `city park keeps ${id} label`);
+    assert.deepEqual(
+      [anchor.x, anchor.y],
+      point,
+      `city park anchors ${id}`,
+    );
   }
   assert.deepEqual(
     cityPark.portals.map(({ id, x, y, width, height }) => [id, x, y, width, height]),

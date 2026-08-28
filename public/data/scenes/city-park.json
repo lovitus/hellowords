@@ -70,7 +70,32 @@
     { "id": "bridge-rail", "word": "bridge rail", "translation": "桥栏杆", "x": 165, "y": 585, "priority": 5.037, "minLevel": 4, "sourceVisualRegion": "verified-bridge-rail" },
     { "id": "water-jet", "word": "water jet", "translation": "水柱", "x": 590, "y": 445, "priority": 5.038, "minLevel": 4, "sourceVisualRegion": "verified-water-jet" },
     { "id": "bench-armrest", "word": "bench armrest", "translation": "长椅扶手", "x": 1560, "y": 610, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "verified-bench" },
-    { "id": "daisy-center", "word": "daisy center", "translation": "雏菊花心", "x": 1450, "y": 790, "priority": 5.040, "minLevel": 4, "sourceVisualRegion": "verified-daisy" }
+    { "id": "daisy-center", "word": "daisy center", "translation": "雏菊花心", "x": 1450, "y": 790, "priority": 5.040, "minLevel": 4, "sourceVisualRegion": "verified-daisy" },
+    { "id": "bridge-plank", "word": "bridge plank", "translation": "桥面木板", "x": 170, "y": 635, "priority": 7.001, "minLevel": 1, "sourceVisualRegion": "verified-wooden-bridge" },
+    { "id": "gazebo-post", "word": "gazebo post", "translation": "凉亭立柱", "x": 878, "y": 430, "priority": 7.002, "minLevel": 1, "sourceVisualRegion": "verified-gazebo" },
+    { "id": "gazebo-roof", "word": "gazebo roof", "translation": "凉亭屋顶", "x": 878, "y": 380, "priority": 7.003, "minLevel": 1, "sourceVisualRegion": "verified-gazebo" },
+    { "id": "shoreline-rock", "word": "shoreline rock", "translation": "岸边岩石", "x": 520, "y": 690, "priority": 7.004, "minLevel": 2, "sourceVisualRegion": "pond-edge" },
+    { "id": "lily-center", "word": "lily center", "translation": "睡莲花心", "x": 195, "y": 840, "priority": 7.005, "minLevel": 2, "sourceVisualRegion": "verified-water-lily" },
+    { "id": "lily-petal", "word": "lily petal", "translation": "睡莲花瓣", "x": 195, "y": 820, "priority": 7.006, "minLevel": 2, "sourceVisualRegion": "verified-water-lily" },
+    { "id": "reed-blade", "word": "reed blade", "translation": "芦苇叶片", "x": 500, "y": 700, "priority": 7.007, "minLevel": 2, "sourceVisualRegion": "verified-reed" },
+    { "id": "fountain-rim", "word": "fountain rim", "translation": "喷泉池沿", "x": 590, "y": 545, "priority": 7.008, "minLevel": 2, "sourceVisualRegion": "verified-fountain-basin" },
+    { "id": "tree-branch-fork", "word": "tree branch fork", "translation": "树枝分叉", "x": 1050, "y": 180, "priority": 7.009, "minLevel": 2, "sourceVisualRegion": "verified-branch" },
+    { "id": "swing-seat", "word": "swing seat", "translation": "秋千座椅", "x": 285, "y": 470, "priority": 7.010, "minLevel": 2, "sourceVisualRegion": "verified-swing" },
+    { "id": "slide-rail", "word": "slide rail", "translation": "滑梯护栏", "x": 220, "y": 480, "priority": 7.011, "minLevel": 2, "sourceVisualRegion": "verified-slide" },
+    { "id": "climbing-rung", "word": "climbing rung", "translation": "攀爬横档", "x": 120, "y": 430, "priority": 7.012, "minLevel": 2, "sourceVisualRegion": "verified-climbing-frame" },
+    { "id": "bench-seat", "word": "bench seat", "translation": "长椅座面", "x": 1490, "y": 610, "priority": 7.013, "minLevel": 2, "sourceVisualRegion": "verified-bench" },
+    { "id": "bench-slat", "word": "bench slat", "translation": "长椅木条", "x": 1490, "y": 560, "priority": 7.014, "minLevel": 3, "sourceVisualRegion": "verified-bench" },
+    { "id": "path-stone", "word": "path stone", "translation": "小径石板", "x": 800, "y": 720, "priority": 7.015, "minLevel": 2, "sourceVisualRegion": "verified-path" },
+    { "id": "path-edge", "word": "path edge", "translation": "小径边缘", "x": 680, "y": 720, "priority": 7.016, "minLevel": 3, "sourceVisualRegion": "verified-path" },
+    { "id": "daisy-stalk", "word": "daisy stalk", "translation": "雏菊花梗", "x": 1450, "y": 780, "priority": 7.017, "minLevel": 3, "sourceVisualRegion": "verified-daisy" },
+    { "id": "fern-leaflet", "word": "fern leaflet", "translation": "蕨叶小叶", "x": 940, "y": 645, "priority": 7.018, "minLevel": 3, "sourceVisualRegion": "verified-fern" },
+    { "id": "picnic-basket-weave", "word": "picnic basket weave", "translation": "野餐篮编织纹", "x": 978, "y": 535, "priority": 7.019, "minLevel": 4, "sourceVisualRegion": "verified-picnic-basket" },
+    { "id": "flower-stalk", "word": "flower stalk", "translation": "花茎", "x": 410, "y": 535, "priority": 7.020, "minLevel": 2, "sourceVisualRegion": "verified-flower" },
+    { "id": "grass-blade", "word": "grass blade", "translation": "草叶", "x": 1040, "y": 600, "priority": 7.021, "minLevel": 2, "sourceVisualRegion": "verified-lawn" },
+    { "id": "oak-leaf-vein", "word": "oak leaf vein", "translation": "橡树叶脉", "x": 1470, "y": 170, "priority": 7.022, "minLevel": 4, "sourceVisualRegion": "verified-tree-canopy" },
+    { "id": "acorn-cap", "word": "acorn cap", "translation": "橡果帽", "x": 1510, "y": 340, "priority": 7.023, "minLevel": 4, "sourceVisualRegion": "verified-acorn" },
+    { "id": "root-bark", "word": "root bark", "translation": "根部树皮", "x": 1100, "y": 620, "priority": 7.024, "minLevel": 4, "sourceVisualRegion": "verified-root" },
+    { "id": "swing-hook", "word": "swing hook", "translation": "秋千挂钩", "x": 250, "y": 410, "priority": 7.025, "minLevel": 4, "sourceVisualRegion": "verified-swing" }
   ],
   "portals": [
     { "id": "enter-oak-tree", "label": "Explore the oak tree", "translation": "探索橡树", "childSceneId": "oak-tree", "x": 800, "y": 0, "width": 800, "height": 760, "enterScale": 3.6, "sourceVisualRegion": "oak-tree" },
@@ -82,8 +107,8 @@
     "reviewedAsset": "/scenes/city-park-bright-v2.jpg",
     "reviewedAssetSha256": "1c55bb1f7b24f1854d1de7507d903d6e730cfc6b9742078f327a3492b8e94782",
     "rationale": "Re-audited every label and both navigation crops against the final bright 1600 by 900 park JPEG, adding only distinct pond, bridge, playground, fountain, gazebo, oak, bench, daisy and picnic parts that remain independently pointable.",
-    "previousLabelCount": 84,
-    "retainedLabelCount": 63,
+    "previousLabelCount": 109,
+    "retainedLabelCount": 88,
     "removedLabelCount": 21,
     "removedExamples": ["sprinkler", "barbecue", "rabbit", "drinking fountain", "bird feeder", "kite"]
   },
@@ -129,10 +154,10 @@
     { "id": "verified-water-jet", "description": "Tall central column of fountain water", "kind": "part", "x": 530, "y": 370, "width": 155, "height": 165 }
   ],
   "detailZones": [
-    { "id": "pond-habitat-detail", "title": "Pond edge", "translation": "池塘边缘细节", "description": "Pond water, continuous shoreline, bridge, plants and waterfowl in the lower-left habitat", "x": 0, "y": 550, "width": 700, "height": 350, "targetScale": 2.35, "labelIds": ["pond", "pond-edge", "wooden-bridge", "bridge-rail", "lily-pad", "water-lily", "duck", "duckling", "reed", "rock", "pond-water", "water-ripple", "lily-pad-cluster", "bridge-deck", "bridge-post", "reed-cluster", "pond-rock"] },
-    { "id": "oak-tree-detail", "title": "Oak tree", "translation": "橡树细节", "description": "The monumental oak crown, major branch, trunk, bark, exposed roots and small wildlife evidence", "x": 800, "y": 0, "width": 800, "height": 760, "targetScale": 2.3, "labelIds": ["oak-tree", "tree-canopy", "branch", "trunk", "bark", "root", "tree-hollow", "acorn", "squirrel", "oak-leaf", "acorn-cup", "root-flare"] },
-    { "id": "playground-picnic-detail", "title": "Play and picnic", "translation": "游乐与野餐", "description": "Complete playground equipment and the separate picnic setting across the bright lawn", "x": 0, "y": 320, "width": 1100, "height": 300, "targetScale": 2.45, "labelIds": ["playground", "climbing-frame", "slide", "ladder", "swing", "picnic-blanket", "picnic-basket", "playground-tower", "swing-chain"] },
-    { "id": "fountain-garden-detail", "title": "Fountain garden", "translation": "喷泉花园", "description": "Fountain structure, water, flower borders, gazebo and path furniture in the central garden", "x": 340, "y": 330, "width": 870, "height": 300, "targetScale": 2.35, "labelIds": ["park", "fountain", "fountain-basin", "water-jet", "flower", "lamp-post", "gazebo", "fountain-pool", "fountain-spray", "flower-border", "gazebo-steps", "gazebo-railing"] },
-    { "id": "park-foreground-detail", "title": "Park foreground", "translation": "公园前景", "description": "Central path, lawn, bench and clearly separated planting evidence across the foreground", "x": 550, "y": 500, "width": 1050, "height": 400, "targetScale": 2.2, "labelIds": ["path", "bench", "lawn", "flower-bed", "daisy", "fern", "bench-backrest", "bench-armrest", "daisy-petal", "daisy-center", "fern-frond", "picnic-cloth", "basket-handle"] }
+    { "id": "pond-habitat-detail", "title": "Pond edge", "translation": "池塘边缘细节", "description": "Pond water, continuous shoreline, bridge, plants and waterfowl in the lower-left habitat", "x": 0, "y": 550, "width": 700, "height": 350, "targetScale": 2.35, "labelIds": ["pond", "pond-edge", "wooden-bridge", "bridge-rail", "lily-pad", "water-lily", "duck", "duckling", "reed", "rock", "pond-water", "water-ripple", "lily-pad-cluster", "bridge-deck", "bridge-post", "reed-cluster", "pond-rock", "bridge-plank", "shoreline-rock", "lily-center", "lily-petal", "reed-blade"] },
+    { "id": "oak-tree-detail", "title": "Oak tree", "translation": "橡树细节", "description": "The monumental oak crown, major branch, trunk, bark, exposed roots and small wildlife evidence", "x": 800, "y": 0, "width": 800, "height": 760, "targetScale": 2.3, "labelIds": ["oak-tree", "tree-canopy", "branch", "trunk", "bark", "root", "tree-hollow", "acorn", "squirrel", "oak-leaf", "acorn-cup", "root-flare", "tree-branch-fork", "oak-leaf-vein", "acorn-cap", "root-bark"] },
+    { "id": "playground-picnic-detail", "title": "Play and picnic", "translation": "游乐与野餐", "description": "Complete playground equipment and the separate picnic setting across the bright lawn", "x": 0, "y": 320, "width": 1100, "height": 300, "targetScale": 2.45, "labelIds": ["playground", "climbing-frame", "slide", "ladder", "swing", "picnic-blanket", "picnic-basket", "playground-tower", "swing-chain", "swing-seat", "swing-hook", "slide-rail", "climbing-rung", "picnic-basket-weave"] },
+    { "id": "fountain-garden-detail", "title": "Fountain garden", "translation": "喷泉花园", "description": "Fountain structure, water, flower borders, gazebo and path furniture in the central garden", "x": 340, "y": 330, "width": 870, "height": 300, "targetScale": 2.35, "labelIds": ["park", "fountain", "fountain-basin", "water-jet", "flower", "lamp-post", "gazebo", "fountain-pool", "fountain-spray", "flower-border", "gazebo-steps", "gazebo-railing", "fountain-rim", "flower-stalk", "gazebo-post", "gazebo-roof"] },
+    { "id": "park-foreground-detail", "title": "Park foreground", "translation": "公园前景", "description": "Central path, lawn, bench and clearly separated planting evidence across the foreground", "x": 550, "y": 500, "width": 1050, "height": 400, "targetScale": 2.2, "labelIds": ["path", "bench", "lawn", "flower-bed", "daisy", "fern", "bench-backrest", "bench-armrest", "daisy-petal", "daisy-center", "fern-frond", "picnic-cloth", "basket-handle", "bench-seat", "bench-slat", "path-stone", "path-edge", "daisy-stalk", "fern-leaflet", "grass-blade"] }
   ]
 }

@@ -135,7 +135,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The final bright park raster resolves separate bridge, pond, playground,
   // fountain, gazebo, oak, bench, daisy and picnic parts without activity or
   // wildlife inference; the ceiling blocks ornamental padding.
-  "city-park": 63,
+  "city-park": 88,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   "science-museum": 121,

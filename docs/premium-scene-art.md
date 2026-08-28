@@ -128,7 +128,7 @@ The final audit retained 42 grounded terms and rebuilt the three disjoint destin
 
 Create a bright naturalistic city park in soft midday light. Place a monumental, fully readable oak at right and a complete pond edge with bridge at lower left, separated by a central pale path; add a fountain, gazebo, playground, benches and independently visible park details without staging people or inferred activities. Keep shade natural but lifted enough to preserve bark, roots, shoreline and water texture.
 
-The final audit retained 39 grounded terms in five authored regions and rebuilt two non-overlapping habitat portals. Dark-pixel coverage was reduced substantially while preserving believable tree shade.
+The final audit retains 88 grounded terms across five authored regions and keeps the two non-overlapping habitat portals. It adds independently pointable bridge planks, shoreline rock, lily and reed parts, gazebo structure, playground hardware, fountain and flower parts, bench and path pieces, and fine oak, acorn, root, fern, daisy and picnic details. Dark-pixel coverage was reduced substantially while preserving believable tree shade; no activities or inferred ecological processes were added.
 
 ### Community garden
 
