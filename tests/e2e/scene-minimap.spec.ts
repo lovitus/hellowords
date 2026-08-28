@@ -257,7 +257,8 @@ test("child-scene minimaps focus the authored room zones without changing scene 
     "kitchen-detail",
     "bedroom-detail",
     "bathroom-detail",
-    "central-stair-detail",
+    "central-stair-upper-detail",
+    "central-stair-lower-detail",
   ]);
   expect(await zones.locator('[data-testid="scene-minimap-zone"]').evaluateAll((buttons) => (
     buttons.every((button) => (

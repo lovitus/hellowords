@@ -1726,28 +1726,41 @@
       ]
     },
     {
-      "id": "central-stair-detail",
-      "title": "Stairs",
-      "translation": "楼梯细节",
-      "description": "The narrow central stair core, upper door and landing light",
+      "id": "central-stair-upper-detail",
+      "title": "Stair entrance",
+      "translation": "楼梯入口",
+      "description": "Upper stair landing with the apartment door, frame, ceiling, light and handle",
       "x": 704,
       "y": 0,
       "width": 210,
-      "height": 900,
-      "targetScale": 2.7,
+      "height": 450,
+      "targetScale": 2.35,
       "labelIds": [
         "apartment",
-        "stairs",
         "ceiling-light",
         "door-handle",
-        "stair-step",
-        "handrail",
         "stair-landing",
         "door",
         "door-frame",
-        "floor",
         "wall",
         "ceiling"
+      ]
+    },
+    {
+      "id": "central-stair-lower-detail",
+      "title": "Stair steps",
+      "translation": "楼梯踏步",
+      "description": "Lower stair flight with the steps, handrail and landing floor",
+      "x": 704,
+      "y": 400,
+      "width": 210,
+      "height": 500,
+      "targetScale": 2.35,
+      "labelIds": [
+        "stairs",
+        "stair-step",
+        "handrail",
+        "floor"
       ]
     }
   ]
