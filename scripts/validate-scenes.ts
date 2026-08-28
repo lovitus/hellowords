@@ -152,6 +152,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright bedroom resolves separate bedding, study, window, storage and
   // room-finish parts; the ceiling blocks moods, actions and hidden routines.
   bedroom: 104,
+  // The terminal photograph resolves separate rail, bus, access, ticketing and
+  // mobility fixtures; the ceiling blocks blank display readings and services.
+  "transit-hub": 73,
   "city-cafe": 45,
   "coffee-machine": 40,
   "cotton-shirt": 40,

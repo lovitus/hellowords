@@ -250,6 +250,12 @@ The final-pixel audit retained 40 independently pointable terms across five auth
 
 Create an optimistic glass-roofed multimodal terminal with a complete electric train and railway platform clearly separated on the left, a complete electric city bus and charging bay on the right, and a spacious fixture-rich concourse between them. Use only blank colored blocks and unlabeled line geometry for displays and maps so the scene contains no station names, logos, pseudo-writing or garbled signs.
 
+The final-pixel audit retained 73 independently pointable terms across four
+detail zones. It adds clock, roof, escalator, stair, ticketing, planter,
+bicycle, trolley, bollard, train, bus and charging subparts while preserving
+both complete transport portals and rejecting blank display readings and
+inferred travel services.
+
 ### Railway platform
 
 Create a bright regional railway platform in three-quarter perspective with one complete stopped electric carriage as the dominant portal. Resolve its open door, windows, running gear and roof pantograph; separately resolve the rails, sleepers, ballast and fasteners, the continuous platform safety edge, overhead contact system, canopy fixtures and one commuter with luggage. Exclude station names, advertisements, readable displays and pseudo-writing.

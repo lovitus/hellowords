@@ -622,6 +622,68 @@ test("railway platform preserves its expanded passenger, train and track vocabul
   );
 });
 
+test("transit hub preserves its expanded rail, concourse and mobility vocabulary", async () => {
+  const { scenes } = await loadWorld();
+  const hub = scenes.find((scene) => scene.id === "transit-hub");
+  assert.ok(hub);
+  assert.equal(hub.labels.length, 73);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      hub.labels.filter((label) => label.minLevel === level).length
+    )),
+    [9, 9, 12, 20, 23],
+  );
+  const words = new Set(hub.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const required of [
+    "clock face",
+    "clock rim",
+    "roof pane",
+    "escalator step",
+    "escalator side panel",
+    "stair tread",
+    "stair railing",
+    "fare gate reader",
+    "ticket slot",
+    "route line",
+    "planter rim",
+    "plant leaf",
+    "bicycle wheel",
+    "trolley wheel",
+    "trolley handle",
+    "bollard cap",
+    "train nose",
+    "train window frame",
+    "train door handle",
+    "train headlight lens",
+    "pantograph arm",
+    "bus headlight",
+    "bus front grille",
+    "charging connector",
+    "floor tile",
+  ]) {
+    assert.ok(words.has(required), `transit hub visibly grounds ${required}`);
+  }
+  assert.deepEqual(
+    hub.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["railway-zone", 18],
+      ["central-concourse", 36],
+      ["electric-bus-zone", 11],
+      ["foreground-mobility", 8],
+    ],
+  );
+  const labels = new Map(hub.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["roof-pane", "train-nose", "charging-connector"].map((id) => {
+      const label = labels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[1000, 140], [100, 450], [1220, 570]],
+    "new transit hub parts stay anchored on their reviewed pixels",
+  );
+});
+
 test("premium coffee machine grounds its cutaway and keeps one real water-tank portal", async () => {
   const { scenes } = await loadWorld();
   const coffeeMachine = scenes.find((scene) => scene.id === "coffee-machine");

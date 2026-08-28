@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,237 human-verified anchors representing 2,822
+Spatial scenes now contain 3,262 human-verified anchors representing 2,842
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -115,7 +115,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Cotton shirt | 48 → 40 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools; machinery, factory actions and performance properties remain removed |
 | City street | 46 → 42 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects |
 | City cafe | 52 → 45 | New daylight cafe grounds counter, espresso, pastry, seating and tableware zones; people, branding and text stay excluded |
-| Transit hub | 60 → 48 | Bright multimodal hall grounds separate rail, concourse and electric-bus details; people and service abstractions remain removed |
+| Transit hub | 85 → 73 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
 | Electric bus | 56 → 40 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; people, branding and operating concepts remain removed |
 | Battery | 56 → 32 | Premium engineering cutaway grounds pack, module, cell, electrical and cooling hardware; internal chemistry and measurements remain removed |
 | Lithium-ion cell | 48 → 31 | Premium prismatic-cell cutaway grounds enclosure, polarity-specific terminals, flattened winding and unfolded layers; ambiguous liquid, invisible charge motion, performance metrics and hazard states remain removed |
