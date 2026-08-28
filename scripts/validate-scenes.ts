@@ -149,6 +149,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // fixtures plus readable hardware/textile subparts; the ceiling blocks
   // invisible conditions while allowing the reviewed 103-anchor scene.
   bathroom: 103,
+  // The bright bedroom resolves separate bedding, study, window, storage and
+  // room-finish parts; the ceiling blocks moods, actions and hidden routines.
+  bedroom: 104,
   "city-cafe": 45,
   "coffee-machine": 40,
   "cotton-shirt": 40,

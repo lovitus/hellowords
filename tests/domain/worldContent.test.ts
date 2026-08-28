@@ -507,6 +507,59 @@ test("kitchen preserves its expanded appliance and island vocabulary", async () 
   }
 });
 
+test("bedroom preserves its expanded bedding, study and storage vocabulary", async () => {
+  const { scenes } = await loadWorld();
+  const bedroom = scenes.find((scene) => scene.id === "bedroom");
+  assert.ok(bedroom);
+  assert.equal(bedroom.labels.length, 104);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      bedroom.labels.filter((label) => label.minLevel === level).length
+    )),
+    [8, 8, 13, 32, 43],
+  );
+  const words = new Set(bedroom.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const required of [
+    "pillow seam",
+    "duvet fold",
+    "headboard tuft",
+    "desk edge",
+    "chair cushion",
+    "laptop hinge",
+    "artwork frame",
+    "ceiling shade",
+    "window mullion",
+    "dresser knob",
+    "garment sleeve",
+    "shelf basket",
+    "wardrobe hinge",
+    "basket weave",
+    "floor plank",
+  ]) {
+    assert.ok(words.has(required), `bedroom visibly grounds ${required}`);
+  }
+  assert.deepEqual(
+    bedroom.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["sleeping-area", 28],
+      ["study-area", 19],
+      ["window-wall", 14],
+      ["storage-area", 37],
+      ["room-structure", 5],
+    ],
+  );
+  const labels = new Map(bedroom.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["pillow-seam", "desk-edge", "wardrobe-hinge"].map((id) => {
+      const label = labels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[560, 485], [120, 690], [1140, 400]],
+    "new bedroom parts stay anchored on their reviewed pixels",
+  );
+});
+
 test("premium coffee machine grounds its cutaway and keeps one real water-tank portal", async () => {
   const { scenes } = await loadWorld();
   const coffeeMachine = scenes.find((scene) => scene.id === "coffee-machine");

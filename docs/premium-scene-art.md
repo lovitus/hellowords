@@ -228,6 +228,12 @@ The final-pixel audit retained 37 pointable terms. It added only the clearly vis
 
 Create a bright elegant bedroom with a complete central bed, layered bedding, window, curtains, writing desk, chair, dresser, mirror, lamps, plants, room finishes and small personal objects. Make the fully open, warmly lit wardrobe entrance on the far right unmistakable and unobstructed, with visible hanging and folded storage. Exclude people, mannequins, anatomy and medical imagery.
 
+The final-pixel audit retained 104 independently pointable terms across five
+detail zones. It adds readable bedding seams and folds, desk and chair parts,
+window and lamp hardware, wardrobe storage details, laundry-basket weave and
+floor finish while keeping the open wardrobe portal unobstructed and rejecting
+the removed activity, mood and routine claims.
+
 ### Wardrobe interior
 
 Create a bright editorial photograph of a complete open pale-oak wardrobe beside a sunlit bedroom window. Resolve its shelf, rail, hangers, drawers, boxes, shoes, accessories and several distinct garments. Make the complete white button-front shirt the unobstructed center-right portal, large enough to point to its collar, sleeve, cuff, placket, buttons, chest pocket and hem. Exclude people, mannequins, anatomy, branding and legible text.

@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,082 human-verified anchors representing 2,694
+Spatial scenes now contain 3,212 human-verified anchors representing 2,804
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -109,7 +109,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Coffee machine | 58 → 40 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit and electronics; invisible functions and brewing processes remain removed |
 | Water tank | 56 → 36 | Premium clear-reservoir portrait grounds lid, water, molded walls, outlet hardware, mounts and the real Polymer portal; sensors, hidden plumbing, properties and maintenance actions remain removed |
 | Polymer | 68 → 37 | Premium multiscale material scene grounds specimens, morphology, defects and molecular structure; undefined molecular identities, properties and processes remain removed |
-| Bedroom | 51 → 40 | Premium bedroom adds grounded furniture, storage, textile and room-part details; actions and moods remain removed |
+| Bedroom | 115 → 104 | Premium bedroom adds grounded bedding, study, storage, textile and room-finish details; actions and moods remain removed |
 | Bathroom | 106 → 103 | Daylight bathroom grounds bath, vanity, toilet, shower, plumbing, glass hardware, tile and linen details; invisible conditions remain removed |
 | Wardrobe interior | 68 → 56 | Premium wardrobe grounds cabinet frame, hanger and garment parts, accessory details and nearby daylight-corner objects; materials, stitching claims and actions remain removed |
 | Cotton shirt | 48 → 40 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools; machinery, factory actions and performance properties remain removed |
