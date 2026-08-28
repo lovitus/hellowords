@@ -134,7 +134,11 @@ The final audit retained 39 grounded terms in five authored regions and rebuilt 
 
 Create a bright, elegant daylight community garden as one coherent wide editorial photograph. Separate a glass greenhouse, two raised beds, a potting bench, a timber compost station, a rain barrel with hose equipment and a flowering pollinator border. Resolve the roof vent, glass and frame, vegetables, trellis, soil, tools, gloves, seedling trays, wheelbarrow, irrigation fittings, paths, fence and gate as independently pointable objects. Exclude people, brands, readable signs, pseudo-writing, gloomy weather, abstract sustainability concepts and unrelated indoor objects.
 
-The final-pixel audit retained 48 terms across seven authored crops, with LOD batches of 10, 10, 10, 9 and 9. The scene is reached through the exact non-overlapping entrance visible in the lower-centre garden district of the world atlas. Its complete glasshouse and complete foreground bench now serve as two disjoint child portals.
+The final-pixel audit retained 73 independently pointable terms across seven
+authored crops. It adds greenhouse roof and door parts, raised-bed timber and
+crop details, workbench and tool parts, compost and wheelbarrow hardware, rain
+barrel fittings and flowering-border details while keeping both child portals
+disjoint and rejecting activities and inferred ecological processes.
 
 ### Greenhouse interior
 
