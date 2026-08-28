@@ -264,7 +264,7 @@
       "translation": "类囊体膜",
       "x": 1100,
       "y": 180,
-      "priority": 3.008,
+      "priority": 3.0005,
       "minLevel": 2,
       "sourceVisualRegion": "verified-thylakoid-membrane"
     },
