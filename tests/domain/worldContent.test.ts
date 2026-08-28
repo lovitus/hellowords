@@ -1744,6 +1744,11 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
 
   const apartment = byId.get("apartment");
   assert.ok(apartment);
+  assert.deepEqual(
+    apartment.detailZones?.slice(-2).map((zone) => [zone.id, zone.labelIds.length, zone.targetScale]),
+    [["central-stair-upper-detail", 8, 2.35], ["central-stair-lower-detail", 4, 2.35]],
+    "the tall stair core is split into two focusable crops",
+  );
   const bathroomPortal = apartment.portals.find(({ childSceneId }) => childSceneId === "bathroom");
   assert.deepEqual(bathroomPortal, {
     id: "enter-bathroom",
