@@ -169,7 +169,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // floating-garden parts, water ripples, shallow-water life, bank textures and
   // external frog details; the ceiling blocks absent wildlife and behaviors.
   "pond-edge": 65,
-  frog: 36,
+  // The bright frog portrait resolves separate head, skin, limb, toe and
+  // supporting-stone details; the ceiling blocks internal anatomy, life stages
+  // and behavior that are not visible in the single resting frame.
+  frog: 59,
   // The sunlit gallery exposes separate skull, jaw, vertebra, limb, horn,
   // fossil and preparation-tool parts; the ceiling blocks behavior, era,
   // species claims and museum activities that are not visible in one frame.

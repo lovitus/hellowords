@@ -1190,14 +1190,23 @@ test("premium frog is a grounded terminal external-anatomy study", async () => {
   assert.equal(frog.asset, "/scenes/frog-premium-v1.jpg");
   assert.equal(frog.parentId, "pond-edge");
   assert.deepEqual(frog.portals, [], "frog remains a terminal scene");
-  assert.equal(frog.labels.length, 34);
+  assert.equal(frog.labels.length, 59);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       frog.labels.filter((label) => label.minLevel === level).length
     )),
-    [10, 8, 7, 5, 4],
+    [10, 13, 15, 13, 8],
   );
   assert.equal(frog.detailZones?.length, 4);
+  assert.deepEqual(
+    frog.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["head-and-senses", 15],
+      ["body-and-skin", 14],
+      ["front-limb", 13],
+      ["rear-limb", 15],
+    ],
+  );
 
   const words = new Set(frog.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -1220,8 +1229,46 @@ test("premium frog is a grounded terminal external-anatomy study", async () => {
     "ankle",
     "toe pad",
     "webbing",
+    "eye rim",
+    "eyelid",
+    "nostril rim",
+    "mouth corner",
+    "throat fold",
+    "jawline",
+    "back spot",
+    "flank spot",
+    "belly skin",
+    "side stripe edge",
+    "skin crease",
+    "shoulder spot",
+    "forearm",
+    "forearm stripe",
+    "wrist crease",
+    "finger joint",
+    "finger tip",
+    "forefoot palm",
+    "thigh stripe",
+    "knee fold",
+    "ankle tendon",
+    "toe segment",
+    "webbing edge",
+    "hind foot sole",
+    "stone moss",
   ]) {
     assert.ok(words.has(required), `frog visibly grounds ${required}`);
+  }
+  for (const [id, point] of [
+    ["eye-rim", [1060, 275]],
+    ["back-spot", [700, 300]],
+    ["forearm", [885, 580]],
+    ["toe-segment", [220, 690]],
+    ["stone-moss", [480, 730]],
+  ] as const) {
+    const anchor: Scene["labels"][number] | undefined = frog.labels.find(
+      (candidate) => candidate.id === id,
+    );
+    assert.ok(anchor, `frog keeps ${id} label`);
+    assert.deepEqual([anchor.x, anchor.y], point, `frog anchors ${id}`);
   }
   for (const unsupported of [
     "tongue",

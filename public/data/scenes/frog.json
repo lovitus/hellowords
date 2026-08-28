@@ -45,7 +45,32 @@
     { "id": "toe", "word": "toe", "translation": "后趾", "lexemeId": "en-6d0ef3950c22cb19", "x": 220, "y": 690, "priority": 5.03, "minLevel": 4, "sourceVisualRegion": "near-hindlimb" },
     { "id": "toe-pad", "word": "toe pad", "translation": "后趾垫", "x": 232, "y": 782, "priority": 5.031, "minLevel": 4, "sourceVisualRegion": "near-hindlimb" },
     { "id": "webbing", "word": "webbing", "translation": "趾间蹼", "x": 190, "y": 690, "priority": 5.032, "minLevel": 4, "sourceVisualRegion": "near-hindlimb" },
-    { "id": "wet-stone", "word": "wet stone", "translation": "湿石", "x": 700, "y": 760, "priority": 5.033, "minLevel": 4, "sourceVisualRegion": "wet-stone" }
+    { "id": "wet-stone", "word": "wet stone", "translation": "湿石", "x": 700, "y": 760, "priority": 5.033, "minLevel": 4, "sourceVisualRegion": "wet-stone" },
+    { "id": "eye-rim", "word": "eye rim", "translation": "眼缘", "x": 1060, "y": 275, "priority": 6.001, "minLevel": 1, "sourceVisualRegion": "head-features" },
+    { "id": "eyelid", "word": "eyelid", "translation": "眼睑", "x": 1070, "y": 260, "priority": 6.002, "minLevel": 2, "sourceVisualRegion": "head-features" },
+    { "id": "nostril-rim", "word": "nostril rim", "translation": "鼻孔边缘", "x": 1205, "y": 265, "priority": 6.003, "minLevel": 2, "sourceVisualRegion": "head-features" },
+    { "id": "mouth-corner", "word": "mouth corner", "translation": "嘴角", "x": 1215, "y": 350, "priority": 6.004, "minLevel": 3, "sourceVisualRegion": "head-features" },
+    { "id": "throat-fold", "word": "throat fold", "translation": "喉部褶皱", "x": 1085, "y": 440, "priority": 6.005, "minLevel": 3, "sourceVisualRegion": "head-features" },
+    { "id": "jawline", "word": "jawline", "translation": "下颌线", "x": 1150, "y": 370, "priority": 6.006, "minLevel": 4, "sourceVisualRegion": "head-features" },
+    { "id": "back-spot", "word": "back spot", "translation": "背部斑点", "x": 700, "y": 300, "priority": 6.007, "minLevel": 1, "sourceVisualRegion": "body-skin" },
+    { "id": "flank-spot", "word": "flank spot", "translation": "体侧斑点", "x": 690, "y": 445, "priority": 6.008, "minLevel": 2, "sourceVisualRegion": "body-skin" },
+    { "id": "belly-skin", "word": "belly skin", "translation": "腹部皮肤", "x": 800, "y": 465, "priority": 6.009, "minLevel": 2, "sourceVisualRegion": "body-skin" },
+    { "id": "side-stripe-edge", "word": "side stripe edge", "translation": "侧条纹边缘", "x": 780, "y": 392, "priority": 6.010, "minLevel": 3, "sourceVisualRegion": "body-skin" },
+    { "id": "skin-crease", "word": "skin crease", "translation": "皮肤褶线", "x": 750, "y": 360, "priority": 6.011, "minLevel": 3, "sourceVisualRegion": "body-skin" },
+    { "id": "shoulder-spot", "word": "shoulder spot", "translation": "肩部斑点", "x": 700, "y": 380, "priority": 6.012, "minLevel": 4, "sourceVisualRegion": "body-skin" },
+    { "id": "forearm", "word": "forearm", "translation": "前臂", "x": 885, "y": 580, "priority": 6.013, "minLevel": 1, "sourceVisualRegion": "near-forelimb" },
+    { "id": "forearm-stripe", "word": "forearm stripe", "translation": "前臂条纹", "x": 865, "y": 550, "priority": 6.014, "minLevel": 2, "sourceVisualRegion": "near-forelimb" },
+    { "id": "wrist-crease", "word": "wrist crease", "translation": "腕部褶线", "x": 920, "y": 700, "priority": 6.015, "minLevel": 2, "sourceVisualRegion": "near-forelimb" },
+    { "id": "finger-joint", "word": "finger joint", "translation": "指关节", "x": 1045, "y": 730, "priority": 6.016, "minLevel": 3, "sourceVisualRegion": "near-forelimb" },
+    { "id": "finger-tip", "word": "finger tip", "translation": "指尖", "x": 1060, "y": 745, "priority": 6.017, "minLevel": 3, "sourceVisualRegion": "near-forelimb" },
+    { "id": "forefoot-palm", "word": "forefoot palm", "translation": "前足掌面", "x": 1030, "y": 715, "priority": 6.018, "minLevel": 4, "sourceVisualRegion": "near-forelimb" },
+    { "id": "thigh-stripe", "word": "thigh stripe", "translation": "大腿条纹", "x": 500, "y": 520, "priority": 6.019, "minLevel": 1, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "knee-fold", "word": "knee fold", "translation": "膝部褶皱", "x": 400, "y": 480, "priority": 6.020, "minLevel": 2, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "ankle-tendon", "word": "ankle tendon", "translation": "踝部肌腱", "x": 295, "y": 610, "priority": 6.021, "minLevel": 2, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "toe-segment", "word": "toe segment", "translation": "趾节", "x": 220, "y": 690, "priority": 6.022, "minLevel": 3, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "webbing-edge", "word": "webbing edge", "translation": "蹼缘", "x": 190, "y": 690, "priority": 6.023, "minLevel": 3, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "hind-foot-sole", "word": "hind foot sole", "translation": "后足底面", "x": 260, "y": 660, "priority": 6.024, "minLevel": 4, "sourceVisualRegion": "near-hindlimb" },
+    { "id": "stone-moss", "word": "stone moss", "translation": "石上苔藓", "x": 480, "y": 730, "priority": 6.025, "minLevel": 1, "sourceVisualRegion": "wet-stone" }
   ],
   "portals": [],
   "detailZones": [
@@ -59,7 +84,7 @@
       "width": 400,
       "height": 340,
       "targetScale": 2.7,
-      "labelIds": ["head", "snout", "eye", "tympanum", "mouth", "throat", "nostril", "iris", "pupil"]
+      "labelIds": ["head", "snout", "eye", "tympanum", "mouth", "throat", "nostril", "iris", "pupil", "eye-rim", "eyelid", "nostril-rim", "mouth-corner", "throat-fold", "jawline"]
     },
     {
       "id": "body-and-skin",
@@ -71,7 +96,7 @@
       "width": 600,
       "height": 380,
       "targetScale": 2.45,
-      "labelIds": ["frog", "body", "back", "flank", "dorsolateral-fold", "skin-bump", "skin-spot", "side-stripe"]
+      "labelIds": ["frog", "body", "back", "flank", "dorsolateral-fold", "skin-bump", "skin-spot", "side-stripe", "back-spot", "flank-spot", "belly-skin", "side-stripe-edge", "skin-crease", "shoulder-spot"]
     },
     {
       "id": "front-limb",
@@ -83,7 +108,7 @@
       "width": 480,
       "height": 380,
       "targetScale": 2.75,
-      "labelIds": ["foreleg", "forefoot", "upper-arm", "elbow", "wrist", "finger", "finger-pad"]
+      "labelIds": ["foreleg", "forefoot", "upper-arm", "elbow", "wrist", "finger", "finger-pad", "forearm", "forearm-stripe", "wrist-crease", "finger-joint", "finger-tip", "forefoot-palm"]
     },
     {
       "id": "rear-limb",
@@ -95,7 +120,7 @@
       "width": 500,
       "height": 420,
       "targetScale": 2.6,
-      "labelIds": ["hind-leg", "hind-foot", "thigh", "knee", "shank", "ankle", "toe", "toe-pad", "webbing"]
+      "labelIds": ["hind-leg", "hind-foot", "thigh", "knee", "shank", "ankle", "toe", "toe-pad", "webbing", "thigh-stripe", "knee-fold", "ankle-tendon", "toe-segment", "webbing-edge", "hind-foot-sole"]
     }
   ],
   "anchorAudit": {
@@ -103,9 +128,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/frog-premium-v1.jpg",
     "reviewedAssetSha256": "3fc577cfc9ca50ca8009fac00353b741d4116da89b8cd608e56e6a9ef2b07b13",
-    "rationale": "Reviewed the final 1600 by 900 wildlife image pixel by pixel and anchored only the single frog's separately visible external head, skin, forelimb and hind-limb features plus its supporting wet stone; internal anatomy, life stages, prey and behavior remain absent.",
-    "previousLabelCount": 48,
-    "retainedLabelCount": 34,
+    "rationale": "Reviewed the final 1600 by 900 wildlife image pixel by pixel and anchored only the single frog's separately visible external head, skin, forelimb and hind-limb features plus its supporting wet stone; the added eye, jaw, skin, limb, toe and stone-surface parts remain visible, while internal anatomy, life stages, prey and behavior remain absent.",
+    "previousLabelCount": 73,
+    "retainedLabelCount": 59,
     "removedLabelCount": 14,
     "removedExamples": ["tongue", "heart", "blood vessel", "egg mass", "polliwog", "jump", "hibernate"]
   },
