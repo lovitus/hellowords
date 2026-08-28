@@ -24,6 +24,8 @@
     { "id": "steering-wheel", "word": "steering wheel", "translation": "方向盘", "x": 1390, "y": 470, "priority": 2.005, "minLevel": 1, "sourceVisualRegion": "verified-steering-wheel" },
     { "id": "floor", "word": "floor", "translation": "乘客地板", "x": 780, "y": 590, "priority": 2.006, "minLevel": 1, "sourceVisualRegion": "verified-floor", "lexemeId": "en-a3e1f4935b0919b3" },
     { "id": "handrail", "word": "handrail", "translation": "立式扶手", "x": 620, "y": 430, "priority": 2.007, "minLevel": 1, "sourceVisualRegion": "verified-handrail" },
+    { "id": "seat-cushion", "word": "seat cushion", "translation": "座椅坐垫", "x": 450, "y": 510, "priority": 2.008, "minLevel": 1, "sourceVisualRegion": "verified-seat-cushion" },
+    { "id": "seat-leg", "word": "seat leg", "translation": "座椅支腿", "x": 470, "y": 565, "priority": 2.009, "minLevel": 1, "sourceVisualRegion": "verified-seat-leg" },
 
     { "id": "mirror", "word": "mirror", "translation": "后视镜", "x": 1410, "y": 210, "priority": 3, "minLevel": 2, "sourceVisualRegion": "verified-side-mirror", "lexemeId": "en-00154761637ca746" },
     { "id": "headlight", "word": "headlight", "translation": "前照灯", "x": 1435, "y": 690, "priority": 3.001, "minLevel": 2, "sourceVisualRegion": "verified-headlight" },
@@ -33,6 +35,9 @@
     { "id": "handle", "word": "handle", "translation": "吊环拉手", "x": 700, "y": 320, "priority": 3.005, "minLevel": 2, "sourceVisualRegion": "verified-grab-handle", "lexemeId": "en-c2a116aa910d147b" },
     { "id": "rear-wheel", "word": "rear wheel", "translation": "后轮", "x": 260, "y": 610, "priority": 3.006, "minLevel": 2, "sourceVisualRegion": "verified-rear-wheel" },
     { "id": "motor", "word": "motor", "translation": "牵引电机", "x": 355, "y": 570, "priority": 3.007, "minLevel": 2, "sourceVisualRegion": "verified-traction-motor", "lexemeId": "en-02983856320b180c" },
+    { "id": "front-bumper", "word": "front bumper", "translation": "前保险杠", "x": 1370, "y": 760, "priority": 3.008, "minLevel": 2, "sourceVisualRegion": "verified-front-bumper" },
+    { "id": "rear-bumper", "word": "rear bumper", "translation": "后保险杠", "x": 75, "y": 700, "priority": 3.009, "minLevel": 2, "sourceVisualRegion": "verified-rear-bumper" },
+    { "id": "door-handle", "word": "door handle", "translation": "车门把手", "x": 1125, "y": 505, "priority": 3.01, "minLevel": 2, "sourceVisualRegion": "verified-door-handle" },
 
     { "id": "dashboard", "word": "dashboard", "translation": "仪表台", "x": 1380, "y": 550, "priority": 4, "minLevel": 3, "sourceVisualRegion": "verified-dashboard" },
     { "id": "windshield-wiper", "word": "windshield wiper", "translation": "雨刷", "x": 1400, "y": 555, "priority": 4.001, "minLevel": 3, "sourceVisualRegion": "verified-windshield-wiper" },
@@ -42,6 +47,11 @@
     { "id": "wheel-arch", "word": "wheel arch", "translation": "轮拱", "x": 925, "y": 550, "priority": 4.005, "minLevel": 3, "sourceVisualRegion": "verified-wheel-arch" },
     { "id": "coil-spring", "word": "coil spring", "translation": "螺旋弹簧", "x": 935, "y": 545, "priority": 4.006, "minLevel": 3, "sourceVisualRegion": "verified-coil-spring" },
     { "id": "cable", "word": "cable", "translation": "高压电缆", "x": 760, "y": 690, "priority": 4.007, "minLevel": 3, "sourceVisualRegion": "verified-high-voltage-cable", "lexemeId": "en-7d6e18d0ff4bed3b" },
+    { "id": "wheel-rim", "word": "wheel rim", "translation": "轮圈", "x": 920, "y": 700, "priority": 4.008, "minLevel": 3, "sourceVisualRegion": "verified-wheel-rim" },
+    { "id": "suspension-arm", "word": "suspension arm", "translation": "悬挂臂", "x": 970, "y": 580, "priority": 4.009, "minLevel": 3, "sourceVisualRegion": "verified-suspension-arm" },
+    { "id": "battery-tray", "word": "battery tray", "translation": "电池托盘", "x": 620, "y": 735, "priority": 4.01, "minLevel": 3, "sourceVisualRegion": "verified-battery-tray" },
+    { "id": "cable-clamp", "word": "cable clamp", "translation": "电缆夹", "x": 745, "y": 700, "priority": 4.011, "minLevel": 3, "sourceVisualRegion": "verified-cable-clamp" },
+    { "id": "step", "word": "step", "translation": "踏步", "x": 1110, "y": 770, "priority": 4.012, "minLevel": 3, "sourceVisualRegion": "verified-step" },
 
     { "id": "hub", "word": "hub", "translation": "轮毂", "x": 920, "y": 700, "priority": 5, "minLevel": 4, "sourceVisualRegion": "verified-wheel-hub", "lexemeId": "en-08d33503ee27d4c1" },
     { "id": "shock-absorber", "word": "shock absorber", "translation": "减震器", "x": 1000, "y": 620, "priority": 5.001, "minLevel": 4, "sourceVisualRegion": "verified-shock-absorber" },
@@ -51,7 +61,8 @@
     { "id": "battery-cover", "word": "battery cover", "translation": "电池上盖", "x": 620, "y": 625, "priority": 5.005, "minLevel": 4, "sourceVisualRegion": "verified-battery-cover" },
     { "id": "charging-port", "word": "charging port", "translation": "充电接口", "x": 1205, "y": 680, "priority": 5.006, "minLevel": 4, "sourceVisualRegion": "verified-charging-port" },
     { "id": "inverter", "word": "inverter", "translation": "逆变器", "x": 1080, "y": 160, "priority": 5.007, "minLevel": 4, "sourceVisualRegion": "verified-inverter" },
-    { "id": "pipe", "word": "pipe", "translation": "冷却管", "x": 900, "y": 230, "priority": 5.008, "minLevel": 4, "sourceVisualRegion": "verified-cooling-pipe", "lexemeId": "en-4008294739162e8f" }
+    { "id": "pipe", "word": "pipe", "translation": "冷却管", "x": 900, "y": 230, "priority": 5.008, "minLevel": 4, "sourceVisualRegion": "verified-cooling-pipe", "lexemeId": "en-4008294739162e8f" },
+    { "id": "brake-disc", "word": "brake disc", "translation": "制动盘", "x": 910, "y": 675, "priority": 5.009, "minLevel": 4, "sourceVisualRegion": "verified-brake-disc" }
   ],
   "detailZones": [
     {
@@ -64,7 +75,7 @@
       "width": 1500,
       "height": 780,
       "targetScale": 1.7,
-      "labelIds": ["electric-bus", "body-panel", "roof", "window", "rear-door"]
+      "labelIds": ["electric-bus", "body-panel", "roof", "window", "rear-door", "rear-bumper"]
     },
     {
       "id": "passenger-cabin",
@@ -76,7 +87,7 @@
       "width": 720,
       "height": 390,
       "targetScale": 2.2,
-      "labelIds": ["seat", "seat-back", "aisle", "floor", "wheelchair-bay", "handrail", "overhead-rail", "handle"]
+      "labelIds": ["seat", "seat-back", "aisle", "floor", "wheelchair-bay", "handrail", "overhead-rail", "handle", "seat-cushion", "seat-leg"]
     },
     {
       "id": "front-entry-cab",
@@ -88,7 +99,7 @@
       "width": 560,
       "height": 690,
       "targetScale": 2.55,
-      "labelIds": ["windshield", "door", "driving-cab", "driver-seat", "steering-wheel", "dashboard", "windshield-wiper", "mirror", "headlight", "door-threshold", "charging-port"]
+      "labelIds": ["windshield", "door", "driving-cab", "driver-seat", "steering-wheel", "dashboard", "windshield-wiper", "mirror", "headlight", "door-threshold", "charging-port", "front-bumper", "door-handle", "step"]
     },
     {
       "id": "underfloor-energy",
@@ -100,7 +111,7 @@
       "width": 500,
       "height": 170,
       "targetScale": 3.05,
-      "labelIds": ["battery-pack", "battery-module", "battery-cover", "cable"]
+      "labelIds": ["battery-pack", "battery-module", "battery-cover", "cable", "battery-tray", "cable-clamp"]
     },
     {
       "id": "rear-drivetrain",
@@ -124,7 +135,7 @@
       "width": 240,
       "height": 300,
       "targetScale": 3.1,
-      "labelIds": ["wheel", "tire", "hub", "wheel-arch", "coil-spring", "shock-absorber"]
+      "labelIds": ["wheel", "tire", "hub", "wheel-arch", "coil-spring", "shock-absorber", "wheel-rim", "suspension-arm", "brake-disc"]
     }
   ],
   "portals": [
@@ -146,9 +157,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/electric-bus-premium-v2.jpg",
     "reviewedAssetSha256": "71fd16eaad65c46a9aa9ea0c85cb87b788337e44c57b76f0365449dda38a9a63",
-    "rationale": "Re-anchored all 40 terms against the final bright cutaway pixels, separating the passenger cabin, empty driving cab, front and rear running gear, roof electronics and a large unobstructed underfloor battery-pack portal.",
-    "previousLabelCount": 56,
-    "retainedLabelCount": 40,
+    "rationale": "Re-audited 51 terms against the final bright cutaway pixels, adding only clearly resolved bumper, seat, wheel, suspension, underfloor tray, cable-clamp, door-handle and entry-step parts while preserving the passenger cabin, empty driving cab, roof electronics and large unobstructed underfloor battery-pack portal.",
+    "previousLabelCount": 67,
+    "retainedLabelCount": 51,
     "removedLabelCount": 16,
     "removedExamples": ["driver", "passenger", "route number", "destination sign", "regenerative braking", "climate control"]
   },
@@ -192,6 +203,17 @@
     { "id": "verified-high-voltage-cable", "description": "Orange high-voltage cable routed along the battery pack", "kind": "part", "x": 600, "y": 630, "width": 250, "height": 110 },
     { "id": "verified-charging-port", "description": "Round charging socket behind a plain open flap", "kind": "object", "x": 1160, "y": 610, "width": 110, "height": 140 },
     { "id": "verified-inverter", "description": "Sealed silver power-electronics enclosure on the roof", "kind": "object", "x": 990, "y": 100, "width": 270, "height": 160 },
-    { "id": "verified-cooling-pipe", "description": "Long silver cooling pipe beneath the roof equipment", "kind": "part", "x": 700, "y": 160, "width": 470, "height": 130 }
+    { "id": "verified-cooling-pipe", "description": "Long silver cooling pipe beneath the roof equipment", "kind": "part", "x": 700, "y": 160, "width": 470, "height": 130 },
+    { "id": "verified-seat-cushion", "description": "Blue upholstered cushion on a passenger seat", "kind": "part", "x": 380, "y": 450, "width": 150, "height": 110 },
+    { "id": "verified-seat-leg", "description": "Metal support leg beneath a passenger seat", "kind": "part", "x": 420, "y": 500, "width": 120, "height": 130 },
+    { "id": "verified-front-bumper", "description": "Rounded mint-green bumper at the front nose", "kind": "part", "x": 1300, "y": 700, "width": 230, "height": 130 },
+    { "id": "verified-rear-bumper", "description": "Lower bumper edge at the rear bus body", "kind": "part", "x": 45, "y": 650, "width": 150, "height": 150 },
+    { "id": "verified-door-handle", "description": "Yellow vertical handle beside the front door", "kind": "part", "x": 1080, "y": 430, "width": 130, "height": 160 },
+    { "id": "verified-wheel-rim", "description": "Silver circular rim inside the front tire", "kind": "part", "x": 850, "y": 630, "width": 160, "height": 150 },
+    { "id": "verified-suspension-arm", "description": "Lower metal arm in the exposed front suspension", "kind": "part", "x": 910, "y": 520, "width": 170, "height": 160 },
+    { "id": "verified-battery-tray", "description": "Long underfloor tray supporting the battery modules", "kind": "part", "x": 390, "y": 620, "width": 470, "height": 130 },
+    { "id": "verified-cable-clamp", "description": "Small clamp securing the orange underfloor cable", "kind": "part", "x": 680, "y": 650, "width": 180, "height": 110 },
+    { "id": "verified-step", "description": "Low metal step at the open front entrance", "kind": "part", "x": 1040, "y": 720, "width": 220, "height": 110 },
+    { "id": "verified-brake-disc", "description": "Circular brake disc visible inside the front wheel", "kind": "part", "x": 850, "y": 620, "width": 160, "height": 150 }
   ]
 }

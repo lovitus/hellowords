@@ -1068,6 +1068,77 @@ test("premium battery pack expands only into clearly resolved electrical and the
   );
 });
 
+test("premium electric bus expands its visible cabin and running gear without adding rider claims", async () => {
+  const { scenes } = await loadWorld();
+  const bus = scenes.find((scene) => scene.id === "electric-bus");
+  assert.ok(bus);
+  assert.equal(bus.parentId, "transit-hub");
+  assert.equal(bus.asset, "/scenes/electric-bus-premium-v2.jpg");
+  assert.equal(bus.labels.length, 51);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      bus.labels.filter((label) => label.minLevel === level).length
+    )),
+    [7, 10, 11, 13, 10],
+  );
+  assert.deepEqual(
+    bus.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["bus-shell", 6],
+      ["passenger-cabin", 10],
+      ["front-entry-cab", 14],
+      ["underfloor-energy", 6],
+      ["rear-drivetrain", 4],
+      ["front-running-gear", 9],
+    ],
+  );
+  assert.deepEqual(
+    bus.portals.map(({ id, childSceneId, sourceVisualRegion }) => (
+      [id, childSceneId, sourceVisualRegion]
+    )),
+    [["enter-battery", "battery", "portal-battery"]],
+  );
+
+  const words = new Set(bus.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const visible of [
+    "front bumper",
+    "rear bumper",
+    "seat cushion",
+    "seat leg",
+    "wheel rim",
+    "suspension arm",
+    "battery tray",
+    "cable clamp",
+    "door handle",
+    "step",
+    "brake disc",
+  ]) {
+    assert.ok(words.has(visible), `electric bus visibly grounds ${visible}`);
+  }
+  for (const unsupported of [
+    "driver",
+    "passenger",
+    "route number",
+    "destination sign",
+    "regenerative braking",
+    "climate control",
+    "boarding",
+  ]) {
+    assert.ok(!words.has(unsupported), `electric bus omits unsupported ${unsupported}`);
+  }
+
+  const labels = new Map(bus.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["front-bumper", "seat-cushion", "battery-tray", "brake-disc"].map((id) => {
+      const label = labels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[1370, 760], [450, 510], [620, 735], [910, 675]],
+    "new bus parts stay anchored on the reviewed cutaway pixels",
+  );
+});
+
 test("premium pond edge grounds its freshwater life and keeps one real frog portal", async () => {
   const { scenes } = await loadWorld();
   const pondEdge = scenes.find((scene) => scene.id === "pond-edge");

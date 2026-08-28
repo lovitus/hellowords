@@ -177,7 +177,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // fossil and preparation-tool parts; the ceiling blocks behavior, era,
   // species claims and museum activities that are not visible in one frame.
   "dinosaur-hall": 69,
-  "electric-bus": 40,
+  // The bright electric-bus cutaway resolves the cabin, entry, running gear
+  // and underfloor battery parts; the ceiling blocks passenger roles and
+  // operating states that are not visible in a static frame.
+  "electric-bus": 51,
   "human-body": 40,
   // The reviewed carriage raster exposes the complete cabin plus distinct
   // door, seat, suspension and foreground track hardware; the ceiling blocks
