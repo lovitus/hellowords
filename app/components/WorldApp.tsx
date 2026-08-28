@@ -75,6 +75,11 @@ interface RootAtlasDistrict {
   readonly translation: string;
   readonly labelCount: number;
   readonly zoneCount: number;
+  readonly labelIds: readonly string[];
+  readonly x: number;
+  readonly y: number;
+  readonly width: number;
+  readonly height: number;
   readonly focusX: number;
   readonly focusY: number;
   readonly targetScale: number;
@@ -151,12 +156,18 @@ export function WorldApp() {
       const top = Math.min(...zones.map((zone) => zone.y));
       const right = Math.max(...zones.map((zone) => zone.x + zone.width));
       const bottom = Math.max(...zones.map((zone) => zone.y + zone.height));
+      const labelIds = [...new Set(zones.flatMap((zone) => zone.labelIds))];
       return [{
         id: meta.id,
         label: meta.label,
         translation: meta.translation,
-        labelCount: zones.reduce((sum, zone) => sum + zone.labelIds.length, 0),
+        labelCount: labelIds.length,
         zoneCount: zones.length,
+        labelIds,
+        x: left,
+        y: top,
+        width: right - left,
+        height: bottom - top,
         focusX: (left + right) / 2,
         focusY: (top + bottom) / 2,
         targetScale: Math.min(2.8, Math.max(2.35, Math.min(...zones.map((zone) => zone.targetScale)))),
@@ -1122,6 +1133,7 @@ export function WorldApp() {
                 onSelectWord={() => undefined}
                 onExploreSemanticPlane={() => undefined}
                 onPrefetchScene={() => undefined}
+                atlasDistricts={outgoingScene.id === "world-map" ? rootAtlasDistricts : undefined}
               />
             ) : null}
             <SceneViewport
@@ -1145,6 +1157,7 @@ export function WorldApp() {
               onMotionFrozenChange={handleViewportMotionFrozen}
               onPortalNavigatorReady={registerPortalNavigator}
               onFocusTargetNavigatorReady={registerFocusTargetNavigator}
+              atlasDistricts={scene.id === "world-map" ? rootAtlasDistricts : undefined}
               focusedDetailZoneId={scene?.id === "world-map" ? focusedAtlasZoneId : focusedSceneDetailZoneId}
               wordIndexOpen={sceneWordIndexOpen}
             />

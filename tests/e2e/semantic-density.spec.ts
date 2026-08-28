@@ -388,11 +388,18 @@ test("a failed semantic shard search clears its spinner and leaves exploration u
 
 test("scene word labels remain native-size siblings of the zoomed artwork", async ({ page }) => {
   await page.goto("/#world", { waitUntil: "domcontentloaded" });
+  const app = page.getByTestId("world-app");
+  await page.locator(
+    '[data-testid="scene-minimap-child"][data-target-scene="city-street"]',
+  ).click();
+  await expect(app).toHaveAttribute("data-scene-id", "city-street");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
   const viewport = page.getByTestId("world-viewport");
   const surface = viewport.locator(":scope > .scene-surface");
   const labelLayer = viewport.locator(":scope > [data-testid='scene-label-layer']");
   await expect(surface).toBeVisible();
   await expect(labelLayer).toHaveAttribute("data-coordinate-space", "screen");
+  await expect(labelLayer.locator(":scope > .word-label").first()).toBeVisible();
 
   const relationship = await viewport.evaluate((element) => {
     const artwork = element.querySelector<HTMLElement>(":scope > .scene-surface");

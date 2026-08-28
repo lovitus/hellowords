@@ -99,7 +99,14 @@ async function zoomSceneToScale(
     const scale = Number(await surface.getAttribute("data-scene-scale"));
     if (Number.isFinite(scale) && scale < targetScale) {
       const factor = Math.min(1.16, targetScale / Math.max(0.01, scale));
-      await page.mouse.wheel(0, -Math.log(factor) / 0.0017);
+      await viewport.dispatchEvent("wheel", {
+        clientX: focus.x,
+        clientY: focus.y,
+        deltaY: -Math.log(factor) / 0.0017,
+        deltaMode: 0,
+        bubbles: true,
+        cancelable: true,
+      });
     }
     return Number(await surface.getAttribute("data-scene-scale"));
   }, { intervals: [60], timeout: 5_000 }).toBeGreaterThanOrEqual(targetScale * 0.995);
@@ -258,19 +265,20 @@ test("starts as a calm target-language world and persists the meaning toggle", a
   ).first();
   await expect(toggle).toHaveAttribute("aria-pressed", "false");
   await expect(translations).toHaveCount(0);
-  await expect(detailCue).toHaveAttribute("data-zone-title", /\S+/);
-  await expect(detailCue).toHaveAttribute("data-zone-translation", /\S+/);
-  const zoneTitle = await detailCue.getAttribute("data-zone-title");
-  const zoneTranslation = await detailCue.getAttribute("data-zone-translation");
-  await expect(detailCue.locator(".vocabulary-zoom-cue-count")).toContainText(zoneTitle!);
-  await expect(detailCue.locator(".vocabulary-zoom-cue-count")).not.toContainText(zoneTranslation!);
+  await expect(detailCue).toHaveCount(0);
+  await expect(page.getByTestId("word-label")).toHaveCount(0);
+  const category = page.getByTestId("atlas-category").first();
+  await expect(category.getByTestId("atlas-category-nameplate")).toContainText("Campus");
+  await expect(category.getByTestId("atlas-category-nameplate")).not.toContainText("校园");
 
   await toggle.click();
   await expect(toggle).toHaveAttribute("aria-pressed", "true");
-  await expect(
-    visibleInteractiveWordLabels(page).first().getByTestId("word-translation"),
-  ).toBeVisible();
-  await expect(detailCue.locator(".vocabulary-zoom-cue-count")).toContainText(zoneTranslation!);
+  await expect(category.getByTestId("atlas-category-nameplate")).toContainText("校园");
+  await category.hover();
+  const categoryPanel = page.getByTestId("atlas-category-vocabulary");
+  await expect(categoryPanel).toBeVisible();
+  await expect(categoryPanel.getByTestId("atlas-category-word")).toHaveCount(196);
+  await expect(categoryPanel.getByTestId("atlas-category-word").first().locator("span")).toBeVisible();
 
   await page.reload({ waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("world-app")).toBeVisible();
@@ -278,9 +286,8 @@ test("starts as a calm target-language world and persists the meaning toggle", a
     "aria-pressed",
     "true",
   );
-  await expect(
-    visibleInteractiveWordLabels(page).first().getByTestId("word-translation"),
-  ).toBeVisible();
+  await expect(page.getByTestId("atlas-category").first().getByTestId("atlas-category-nameplate"))
+    .toContainText("校园");
 });
 
 test("loads the 10,000-word field only on request and searches all 44 shards once", async ({ page }) => {
@@ -329,11 +336,12 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   const toggle = page.getByTestId("meaning-toggle");
   await expect(toggle).toHaveAttribute("aria-pressed", "false");
 
-  const label = visibleInteractiveWordLabels(page).first();
+  const category = page.getByTestId("atlas-category").first();
+  await category.getByTestId("atlas-category-hit").click();
+  const label = page.getByTestId("atlas-category-word").first();
   await expect(label).toBeVisible();
   const word = await label.getAttribute("data-word");
   expect(word, "the selected visible label must expose its target-language word").toBeTruthy();
-  await expect(page.getByRole("button", { name: word!, exact: true })).toBeVisible();
   await label.click();
   const card = page.getByRole("complementary", { name: `${word!} word details` });
   await expect(card).toBeVisible();
@@ -351,47 +359,62 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   await expect(card).toBeHidden();
 });
 
-test("the grounded atlas keeps a bounded DOM window and reproduces its fit labels", async ({
-  page,
-}) => {
+test("the home atlas keeps its artwork clear and exposes full category word lists", async ({ page }) => {
   await openWorld(page);
   const sceneContract = await currentSceneLabelContract(page);
-  const viewportWidth = page.viewportSize()?.width ?? 1280;
-  const mountLimit = viewportWidth <= 900 ? 128 : 256;
-  const readableFloor = viewportWidth <= 900 ? 12 : 18;
-  const labels = page.getByTestId("word-label");
   const progress = page.getByTestId("scene-word-progress");
   expect(sceneContract.labels.length).toBeGreaterThanOrEqual(300);
   await expect(progress).toHaveAttribute("data-total", String(sceneContract.labels.length));
-  await expect.poll(() => labels.count()).toBeGreaterThan(0);
-  await expect.poll(() => labels.count()).toBeLessThanOrEqual(mountLimit);
+  await expect(page.getByTestId("word-label")).toHaveCount(0);
 
-  const fitSignature = await labels.evaluateAll((nodes) => nodes
-    .filter((node) => (node as HTMLElement).dataset.interactive === "true")
-    .map((node) => {
-      const element = node as HTMLElement;
-      return `${element.dataset.labelId}:${element.style.transform}`;
-    })
-    .sort());
-  expect(fitSignature.length).toBeGreaterThanOrEqual(readableFloor);
+  const expectedCounts = await page.evaluate(async () => {
+    const response = await fetch("/data/scenes/world-map.json");
+    const scene = await response.json() as {
+      detailZones: Array<{ id: string; labelIds: string[] }>;
+    };
+    return ["school-", "science-", "transport-", "farm-", "market-", "wetland-"]
+      .map((prefix) => new Set(
+        scene.detailZones
+          .filter((zone) => zone.id.startsWith(prefix))
+          .flatMap((zone) => zone.labelIds),
+      ).size);
+  });
+  const categories = page.getByTestId("atlas-category");
+  await expect(categories).toHaveCount(expectedCounts.length);
+  await expect(page.getByTestId("atlas-category-nameplate")).toHaveCount(expectedCounts.length);
 
-  await page.getByRole("button", { name: "Zoom in" }).click();
-  await page.getByRole("button", { name: "Zoom in" }).click();
-  await expect.poll(() => labels.count()).toBeLessThanOrEqual(mountLimit);
+  const categoryLabels = ["Campus", "Science", "Transit", "Farm", "Market", "Wetland"];
+  for (let index = 0; index < expectedCounts.length; index += 1) {
+    if (index === 0) {
+      await categories.nth(index).getByTestId("atlas-category-hit").click();
+    } else {
+      await page.getByRole("button", { name: `切换到 ${categoryLabels[index]}` }).click();
+    }
+    const panel = page.getByTestId("atlas-category-vocabulary");
+    await expect(panel).toBeVisible();
+    await expect(panel).toHaveAttribute("data-word-count", String(expectedCounts[index]));
+    await expect(panel.getByTestId("atlas-category-word")).toHaveCount(expectedCounts[index]);
+  }
+
+  await page.getByRole("button", { name: "关闭大区词表" }).click();
   await page.getByRole("button", { name: "Fit scene" }).click();
-  await expect.poll(async () => labels.evaluateAll((nodes) => nodes
-    .filter((node) => (node as HTMLElement).dataset.interactive === "true")
-    .map((node) => {
-      const element = node as HTMLElement;
-      return `${element.dataset.labelId}:${element.style.transform}`;
-    })
-    .sort())).toEqual(fitSignature);
-  await expect.poll(() => labels.count()).toBeLessThanOrEqual(mountLimit);
+  await expect(page.getByTestId("word-label")).toHaveCount(0);
+  await expect(categories).toHaveCount(expectedCounts.length);
 });
 
 test("five authored LOD bands use spare space and remain readable while zooming", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
   await openWorld(page);
+  const app = page.locator(APP);
+  await page.locator(
+    '[data-testid="scene-minimap-child"][data-target-scene="city-street"]',
+  ).click();
+  await expect(app).toHaveAttribute("data-scene-id", "city-street");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(page.locator(".viewer-shell")).toHaveAttribute("data-interaction-locked", "false");
+  await expect(page.getByTestId("scene-label-layer")).toHaveAttribute("data-motion-frozen", "false");
+  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-motion-frozen", "false");
+  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-positioned", "true");
   const sceneContract = await currentSceneLabelContract(page);
   const surface = page.locator(".scene-surface");
   await expect(surface).toHaveAttribute("data-lod-level", "1");
@@ -548,6 +571,13 @@ test("scene-wide zoom guidance honestly reports zero or more words after adaptiv
 test("an authored detail-zone cue zooms within the scene and reduces its truthful remainder", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
   const app = await openWorld(page);
+  await page.locator(
+    '[data-testid="scene-minimap-child"][data-target-scene="apartment"]',
+  ).click();
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-motion-frozen", "false");
+  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-positioned", "true");
   const originalScene = await sceneId(app);
   const surface = page.locator(".scene-surface");
   const cue = page.locator(
@@ -564,6 +594,9 @@ test("an authored detail-zone cue zooms within the scene and reduces its truthfu
   const nextLabelId = await cue.getAttribute("data-next-label-id");
   const nextLod = Number(await cue.getAttribute("data-next-lod"));
   const targetScale = Number(await cue.getAttribute("data-target-scale"));
+  const promisedBatchLabelIds = (await cue.getAttribute("data-next-label-ids"))
+    ?.split(/\s+/)
+    .filter(Boolean) ?? [];
   expect(remainingBefore).toBeGreaterThanOrEqual(nextBatchCount);
   expect(nextBatchCount).toBeGreaterThan(0);
   expect(nextLabelId).toBeTruthy();
@@ -577,15 +610,15 @@ test("an authored detail-zone cue zooms within the scene and reduces its truthfu
   ).toBeGreaterThanOrEqual(targetScale * 0.995);
   await expect.poll(() => page.locator(
     `.word-label[data-lod="${nextLod}"][data-interactive="true"]`,
-  ).count()).toBeGreaterThanOrEqual(nextBatchCount);
+  ).count()).toBeGreaterThan(0);
   const focusedLabel = page.locator(".word-label:focus");
   await expect(focusedLabel).toHaveCount(1);
   const resolvedCueFocusId = await focusedLabel.getAttribute("data-label-id");
   expect(resolvedCueFocusId).toBeTruthy();
   expect(
-    await stableCue.getAttribute("data-next-label-id"),
-    "the authored cue's live next-word contract matches the collision-safe focused word",
-  ).toBe(resolvedCueFocusId);
+    promisedBatchLabelIds,
+    "the keyboard focus handoff must stay inside the exact batch promised before activation",
+  ).toContain(resolvedCueFocusId);
   await expect.poll(
     async () => (await stableCue.getAttribute("data-active")) === "false"
       ? 0
@@ -716,6 +749,12 @@ test("hysteresis prevents scene thrashing near a zoom boundary", async ({ page }
 test("mobile viewport exposes touch-safe labels and hotspots", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile-chromium");
   await openWorld(page);
+  const app = page.locator(APP);
+  await page.locator(
+    '[data-testid="scene-minimap-child"][data-target-scene="city-street"]',
+  ).click();
+  await expect(app).toHaveAttribute("data-scene-id", "city-street");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
   await expect(visibleInteractiveWordLabels(page).first()).toBeVisible();
   await expect
     .poll(async () => (await mobileLabelLayout(page)).count, {

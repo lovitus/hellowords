@@ -76,7 +76,14 @@ test("a reviewed spatial word enters its exact semantic realm without search fan
   });
   await openWorld(page);
 
-  const pond = page.locator('[data-testid="word-label"][data-label-id="wetland-pond"]');
+  const wetlandCategory = page.locator(
+    '[data-testid="atlas-category"][data-category-id="wetland"]',
+  );
+  await wetlandCategory.getByTestId("atlas-category-hit").click();
+  const pond = page.locator(
+    '[data-testid="atlas-category-word"][data-label-id="wetland-pond"]',
+  );
+  await expect(page.getByTestId("atlas-category-vocabulary")).toBeVisible();
   await expect(pond).toHaveAttribute("data-interactive", "true");
   await pond.click();
   const card = page.getByRole("complementary", { name: "pond word details" });

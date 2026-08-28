@@ -725,6 +725,12 @@ a:focus-visible {
   animation: scene-layer-in 220ms cubic-bezier(0.22, 0.72, 0.24, 1) both;
 }
 
+/* The open map panel is an intentional reading surface and must sit above the
+ * persistent minimap while its word buttons are being used. */
+.viewer-shell:has(.atlas-category-vocabulary[data-positioned="true"]) {
+  z-index: 20;
+}
+
 .world-app[data-transition-cache="warm"] .viewer-shell[data-phase="outgoing"],
 .world-app[data-transition-cache="warm"] .viewer-shell[data-phase="incoming"] {
   animation-duration: 140ms;
@@ -865,6 +871,18 @@ a:focus-visible {
   transition: opacity 90ms ease-out;
 }
 
+/* Incoming/outgoing shells keep their artwork handoff clean: no label or
+ * interaction overlay can be read against the previous scene's pixels. */
+.viewer-shell[data-phase="incoming"] .label-layer,
+.viewer-shell[data-phase="incoming"] .scene-interaction-layer,
+.viewer-shell[data-phase="outgoing"] .label-layer,
+.viewer-shell[data-phase="outgoing"] .scene-interaction-layer {
+  content-visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
 .label-layer[data-motion-frozen="true"],
 .scene-interaction-layer[data-motion-frozen="true"] {
   /* Continuity mounts the incoming scene while these overlays are inert. Do
@@ -877,6 +895,278 @@ a:focus-visible {
 
 .scene-interaction-layer[data-positioned="false"] {
   visibility: hidden;
+}
+
+/* The category word panel is intentionally allowed to sit above the compact
+ * minimap while it is open; otherwise the persistent map chrome intercepts
+ * clicks on the first column of the panel. */
+.scene-interaction-layer:has(.atlas-category-vocabulary[data-positioned="true"]) {
+  z-index: 20;
+}
+
+.atlas-category-layer {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+}
+
+.atlas-category-region {
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  pointer-events: auto;
+}
+
+.atlas-category-region[data-positioned="true"] {
+  visibility: visible;
+}
+
+.atlas-category-hit {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: 12px;
+  border: 0;
+  border-radius: 18px;
+  background: transparent;
+  cursor: default;
+}
+
+.atlas-category-nameplate {
+  display: grid;
+  min-width: 92px;
+  gap: 3px;
+  padding: 9px 15px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+  background: rgba(247, 244, 232, 0.72);
+  box-shadow: 0 9px 24px rgba(28, 53, 46, 0.14), inset 0 1px rgba(255, 255, 255, 0.72);
+  color: #24453c;
+  text-align: center;
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  backdrop-filter: blur(9px) saturate(0.92);
+}
+
+.atlas-category-nameplate strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(15px, 1.55vw, 21px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.atlas-category-nameplate small {
+  color: #60756c;
+  font-size: 10px;
+  font-weight: 720;
+  line-height: 1;
+}
+
+.atlas-category-region:hover .atlas-category-nameplate,
+.atlas-category-region:focus-within .atlas-category-nameplate,
+.atlas-category-region[data-active="true"] .atlas-category-nameplate {
+  border-color: rgba(255, 247, 212, 0.98);
+  background: rgba(255, 250, 231, 0.9);
+  box-shadow: 0 12px 30px rgba(45, 62, 42, 0.19), 0 0 0 4px rgba(239, 196, 102, 0.14);
+  transform: translateY(-2px);
+}
+
+.atlas-category-hit:focus-visible {
+  outline: 3px solid rgba(184, 103, 79, 0.78);
+  outline-offset: -3px;
+}
+
+.atlas-category-vocabulary {
+  position: absolute;
+  z-index: 24;
+  display: grid;
+  width: min(390px, calc(100vw - 24px));
+  max-height: min(520px, calc(100dvh - 36px));
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 8px;
+  padding: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 20px 20px 20px 7px;
+  background: rgba(248, 246, 237, 0.95);
+  box-shadow: 0 20px 54px rgba(24, 51, 46, 0.24), inset 0 1px rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateY(5px) scale(0.985);
+  transform-origin: top left;
+  transition: opacity 130ms ease, transform 130ms ease, visibility 0s linear 130ms;
+  backdrop-filter: blur(18px) saturate(1.05);
+}
+
+.atlas-category-vocabulary[data-positioned="true"] {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition: opacity 130ms ease, transform 130ms ease;
+}
+
+.atlas-category-vocabulary__header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.atlas-category-vocabulary__header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.atlas-category-vocabulary__eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--copper);
+  font-size: 9px;
+  font-weight: 820;
+  letter-spacing: 0.2em;
+}
+
+.atlas-category-vocabulary h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.atlas-category-vocabulary__count {
+  flex: 0 0 auto;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(226, 237, 226, 0.8);
+  color: var(--sage-dark);
+  font-size: 10px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.atlas-category-vocabulary__close {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(84, 116, 103, 0.1);
+  color: var(--sage-dark);
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.atlas-category-vocabulary__close:hover,
+.atlas-category-vocabulary__close:focus-visible {
+  outline: none;
+  background: rgba(181, 113, 45, 0.14);
+}
+
+.atlas-category-vocabulary__switcher {
+  display: flex;
+  gap: 4px;
+  min-width: 0;
+  overflow-x: auto;
+  padding-bottom: 1px;
+  scrollbar-width: thin;
+}
+
+.atlas-category-vocabulary__switcher button {
+  flex: 0 0 auto;
+  padding: 4px 7px;
+  border: 1px solid rgba(86, 112, 97, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 251, 0.58);
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.atlas-category-vocabulary__switcher button:hover,
+.atlas-category-vocabulary__switcher button:focus-visible,
+.atlas-category-vocabulary__switcher button[data-active="true"] {
+  border-color: rgba(181, 113, 45, 0.44);
+  outline: none;
+  background: #fffaf0;
+  color: var(--sage-dark);
+}
+
+.atlas-category-vocabulary__hint {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.atlas-category-vocabulary__words {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 4px;
+  margin: 0;
+  padding: 2px 4px 2px 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(84, 116, 103, 0.42) transparent;
+}
+
+.atlas-category-vocabulary__words li {
+  min-width: 0;
+  list-style: none;
+}
+
+.atlas-category-vocabulary__words button {
+  display: grid;
+  width: 100%;
+  min-height: 31px;
+  align-content: center;
+  gap: 2px;
+  padding: 5px 7px;
+  border: 1px solid rgba(86, 112, 97, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 251, 0.54);
+  color: #2b463d;
+  cursor: pointer;
+  text-align: left;
+}
+
+.atlas-category-vocabulary__words button:hover,
+.atlas-category-vocabulary__words button:focus-visible {
+  border-color: rgba(181, 113, 45, 0.42);
+  outline: none;
+  background: #fffaf0;
+  box-shadow: 0 0 0 2px rgba(197, 132, 61, 0.1);
+}
+
+.atlas-category-vocabulary__words strong {
+  overflow: hidden;
+  font-size: 10px;
+  font-weight: 760;
+  line-height: 1.12;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atlas-category-vocabulary__words span {
+  overflow: hidden;
+  color: var(--ink-soft);
+  font-size: 9px;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .word-label {
