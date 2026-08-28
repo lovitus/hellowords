@@ -95,12 +95,12 @@ test("chloroplast upgrade preserves the terminal scientific scene schema", async
   assert.equal(scene.width, 1600);
   assert.equal(scene.height, 900);
   assert.deepEqual(scene.portals, []);
-  assert.equal(scene.labels.length, 36);
-  assert.equal(scene.visualRegions.length, 25);
+  assert.equal(scene.labels.length, 51);
+  assert.equal(scene.visualRegions.length, 26);
   assert.equal(scene.detailZones.length, 6);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
-    [8, 7, 7, 7, 7],
+    [9, 11, 13, 10, 8],
   );
 
   assert.equal(new Set(scene.labels.map((label) => label.id)).size, scene.labels.length);
@@ -124,6 +124,11 @@ test("chloroplast upgrade preserves the terminal scientific scene schema", async
     "DNA loop",
     "photosystem",
     "ATP synthase",
+    "upper-left granum",
+    "intergranal lamella",
+    "right starch grain",
+    "DNA strand",
+    "photosystem antenna",
   ]) {
     assert.ok(words.has(term), `missing required visible structure: ${term}`);
   }
@@ -185,7 +190,7 @@ test("chloroplast anchors, audited regions, and six detail zones stay on their f
     scene.labels.filter((label) => !assignedLabels.has(label.id)).map((label) => label.id),
     ["chloroplast"],
   );
-  assert.equal(assignedLabels.size, 35);
+  assert.equal(assignedLabels.size, 50);
 });
 
 test("chloroplast audit hash locks a compact 1600 by 900 RGB JPEG", async () => {

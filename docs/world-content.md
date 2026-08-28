@@ -80,7 +80,7 @@ Each scene covers five progressive density bands:
 - level 3 — smaller visible parts or explicitly drawn diagram elements;
 - level 4 — the finest still-identifiable detail.
 
-All five bands remain available. Every 32-target premium scene must contain at least 32 grounded labels, while evidence-limited terminal studies keep explicit reviewed ranges; all high-resolution scenes still provide at least twelve overview labels, at least three labels in every LOD, and at least four authored detail zones. Each zone carries at least four words and the zones cover at least 60% of that scene's anchors. The rebuilt chloroplast now supports 36 independently pointable structures across six zones without duplicate membrane names. The upgraded polymer exhibit contains 37 independently pointable terms and is locked to a 24–37 evidence range; its final pixel audit adds only visible film, fiber, molded-cavity, morphology, defect and attached-molecular structures while keeping unsupported properties and molecular identities out.
+All five bands remain available. Every 32-target premium scene must contain at least 32 grounded labels, while evidence-limited terminal studies keep explicit reviewed ranges; all high-resolution scenes still provide at least twelve overview labels, at least three labels in every LOD, and at least four authored detail zones. Each zone carries at least four words and the zones cover at least 60% of that scene's anchors. The rebuilt chloroplast now supports 51 independently pointable structures across six zones without duplicate membrane names or inferred processes. The upgraded polymer exhibit contains 37 independently pointable terms and is locked to a 24–37 evidence range; its final pixel audit adds only visible film, fiber, molded-cavity, morphology, defect and attached-molecular structures while keeping unsupported properties and molecular identities out.
 
 ## Exploration cues and anchors
 
@@ -133,7 +133,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Oak tree | 56 → 43 | Bright neutral-daylight woodland close-up grounds wildlife, fungi and texture; invisible processes and growth rings stay removed |
 | Leaf | 54 → 49 | Natural-colour macro retains independently visible twig, bud, acorn-cup, bark, insect and spider parts while rejecting duplicate vein terms and unsupported underside/curl details |
 | Plant cell | 65 → 46 | Premium 3D cutaway resolves organelles, membrane layers, chloroplast discs, cytoplasmic strands and vesicle interiors; unseen molecules and processes stay removed |
-| Chloroplast interior | 48 → 36 | Bright coherent organelle resolves its envelope, grana, thylakoids, lamellae, stroma, storage bodies and surface complexes; reactions and metabolites stay removed |
+| Chloroplast interior | 57 → 51 | Bright coherent organelle resolves its envelope, grana, intergranal lamellae, DNA strands, storage bodies, stromal particles and surface complexes; reactions and metabolites stay removed |
 | Pond edge | 48 → 40 | Premium spring shallows ground shoreline textures, aquatic plants, insects, fish, tadpoles, snail and the real Frog portal; absent birds, turtles and activities remain removed |
 | Frog | 48 → 34 | Premium single-animal portrait grounds external head, skin, forelimb and webbed hind-limb anatomy; internal organs, life stages, prey and behavior remain removed |
 

@@ -167,7 +167,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The rendered cell has separable cytoplasm, nuclear, chloroplast and
   // membrane substructures; the ceiling rejects invisible molecular steps.
   "plant-cell": 46,
-  "chloroplast-interior": 36,
+  // The final chloroplast raster resolves separate grana, lamella, DNA,
+  // stromal-particle and membrane-complex details without process padding.
+  "chloroplast-interior": 51,
 };
 const MIN_PREMIUM_OVERVIEW_LABELS = 12;
 const MIN_PREMIUM_LABELS_PER_LOD = 3;

@@ -89,6 +89,16 @@
       "sourceVisualRegion": "dna-nucleoid"
     },
     {
+      "id": "right-starch-grain",
+      "word": "right starch grain",
+      "translation": "右侧淀粉粒",
+      "x": 1260,
+      "y": 495,
+      "priority": 1.008,
+      "minLevel": 0,
+      "sourceVisualRegion": "right-starch-grain"
+    },
+    {
       "id": "outer-membrane",
       "word": "outer membrane",
       "translation": "外膜",
@@ -155,6 +165,46 @@
       "x": 1060,
       "y": 430,
       "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "dna-nucleoid"
+    },
+    {
+      "id": "upper-left-granum",
+      "word": "upper-left granum",
+      "translation": "左上基粒",
+      "x": 300,
+      "y": 205,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "grana-field"
+    },
+    {
+      "id": "rear-granum",
+      "word": "rear granum",
+      "translation": "后方基粒",
+      "x": 590,
+      "y": 170,
+      "priority": 2.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "grana-field"
+    },
+    {
+      "id": "right-granum",
+      "word": "right granum",
+      "translation": "右侧基粒",
+      "x": 1210,
+      "y": 220,
+      "priority": 2.009,
+      "minLevel": 1,
+      "sourceVisualRegion": "rear-thylakoid-stack"
+    },
+    {
+      "id": "dna-strand",
+      "word": "DNA strand",
+      "translation": "DNA 链",
+      "x": 988,
+      "y": 400,
+      "priority": 2.010,
       "minLevel": 1,
       "sourceVisualRegion": "dna-nucleoid"
     },
@@ -229,6 +279,66 @@
       "sourceVisualRegion": "left-stroma-particles"
     },
     {
+      "id": "granum-margin",
+      "word": "granum margin",
+      "translation": "基粒边界",
+      "x": 1340,
+      "y": 365,
+      "priority": 3.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "right-granum-discs"
+    },
+    {
+      "id": "intergranal-lamella",
+      "word": "intergranal lamella",
+      "translation": "基粒间片层",
+      "x": 735,
+      "y": 260,
+      "priority": 3.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "grana-field"
+    },
+    {
+      "id": "thylakoid-edge",
+      "word": "thylakoid edge",
+      "translation": "类囊体边缘",
+      "x": 1370,
+      "y": 440,
+      "priority": 3.009,
+      "minLevel": 2,
+      "sourceVisualRegion": "right-granum-discs"
+    },
+    {
+      "id": "dna-crossover",
+      "word": "DNA crossover",
+      "translation": "DNA 交叉处",
+      "x": 1100,
+      "y": 450,
+      "priority": 3.010,
+      "minLevel": 2,
+      "sourceVisualRegion": "dna-nucleoid"
+    },
+    {
+      "id": "plastoglobule-pair",
+      "word": "plastoglobule pair",
+      "translation": "质体小球对",
+      "x": 1120,
+      "y": 535,
+      "priority": 3.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "plastoglobule-cluster"
+    },
+    {
+      "id": "stroma-thylakoid",
+      "word": "stroma thylakoid",
+      "translation": "基质类囊体",
+      "x": 880,
+      "y": 545,
+      "priority": 3.012,
+      "minLevel": 2,
+      "sourceVisualRegion": "foreground-lamella-network"
+    },
+    {
       "id": "lamella-junction",
       "word": "lamella junction",
       "translation": "片层连接部",
@@ -295,6 +405,36 @@
       "x": 880,
       "y": 452,
       "priority": 4.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "stromal-ribosome-field"
+    },
+    {
+      "id": "thylakoid-fold",
+      "word": "thylakoid fold",
+      "translation": "类囊体折边",
+      "x": 1200,
+      "y": 700,
+      "priority": 4.007,
+      "minLevel": 3,
+      "sourceVisualRegion": "thylakoid-cutaway"
+    },
+    {
+      "id": "lumen-wall",
+      "word": "lumen wall",
+      "translation": "腔壁",
+      "x": 1135,
+      "y": 640,
+      "priority": 4.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "thylakoid-lumen"
+    },
+    {
+      "id": "ribosome-cluster",
+      "word": "ribosome cluster",
+      "translation": "核糖体簇",
+      "x": 930,
+      "y": 410,
+      "priority": 4.009,
       "minLevel": 3,
       "sourceVisualRegion": "stromal-ribosome-field"
     },
@@ -367,6 +507,16 @@
       "priority": 5.006,
       "minLevel": 4,
       "sourceVisualRegion": "membrane-protein-complexes"
+    },
+    {
+      "id": "photosystem-antenna",
+      "word": "photosystem antenna",
+      "translation": "光系统天线",
+      "x": 1030,
+      "y": 570,
+      "priority": 5.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "photosystem-complexes"
     }
   ],
   "portals": [],
@@ -376,8 +526,8 @@
     "reviewedAsset": "/scenes/chloroplast-interior-premium-v3.jpg",
     "reviewedAssetSha256": "28a1078d445a763a3a3796543c8b7088d863defa8418089a9a681c640a0c406b",
     "rationale": "Re-authored every anchor against the final 1600 by 900 raster, retaining only independently pointable envelope, stromal, thylakoid, storage, genetic and membrane-protein structures visible inside one spatially continuous chloroplast.",
-    "previousLabelCount": 42,
-    "retainedLabelCount": 36,
+    "previousLabelCount": 57,
+    "retainedLabelCount": 51,
     "removedLabelCount": 6,
     "removedExamples": [
       "Calvin cycle",
@@ -505,6 +655,15 @@
       "y": 400,
       "width": 205,
       "height": 145
+    },
+    {
+      "id": "right-starch-grain",
+      "description": "Second cream oval starch grain with visible concentric rings in the right stromal field",
+      "kind": "object",
+      "x": 1180,
+      "y": 430,
+      "width": 230,
+      "height": 170
     },
     {
       "id": "left-stroma-particles",
@@ -651,7 +810,14 @@
         "thylakoid-stack",
         "stacked-thylakoid",
         "granum-top",
-        "granum-rim"
+        "granum-rim",
+        "upper-left-granum",
+        "rear-granum",
+        "right-granum",
+        "granum-margin",
+        "intergranal-lamella",
+        "thylakoid-edge",
+        "right-starch-grain"
       ]
     },
     {
@@ -687,7 +853,8 @@
         "unstacked-thylakoid",
         "lamella-junction",
         "appressed-thylakoid",
-        "stromal-thylakoid-surface"
+        "stromal-thylakoid-surface",
+        "stroma-thylakoid"
       ]
     },
     {
@@ -709,7 +876,10 @@
         "atp-synthase-stalk",
         "photosystem",
         "light-harvesting-complex",
-        "membrane-protein-complex"
+        "membrane-protein-complex",
+        "thylakoid-fold",
+        "lumen-wall",
+        "photosystem-antenna"
       ]
     },
     {
@@ -726,7 +896,11 @@
         "dna-loop",
         "nucleoid",
         "plastoglobule-cluster",
-        "stromal-ribosomes"
+        "stromal-ribosomes",
+        "dna-strand",
+        "dna-crossover",
+        "plastoglobule-pair",
+        "ribosome-cluster"
       ]
     }
   ]
