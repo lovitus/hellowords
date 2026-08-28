@@ -688,7 +688,7 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
     await expect(app).toHaveAttribute("data-transition-state", "idle");
   }
 
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "42");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
   await expect.poll(() => page.locator(
     '[data-testid="word-label"][data-visible="true"][data-interactive="true"]',
   ).count()).toBeGreaterThan(8);
@@ -698,8 +698,8 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
   const index = page.getByTestId("scene-word-index");
   await expect(index).toBeVisible();
   const search = index.getByRole("searchbox");
-  await search.fill("coolant manifold");
-  await expect(index.getByTestId("scene-word-index-result").first()).toContainText("coolant manifold");
+  await search.fill("coolant tee");
+  await expect(index.getByTestId("scene-word-index-result").first()).toContainText("coolant tee");
   await index.getByRole("button", { name: "关闭场景词索引" }).click();
 });
 

@@ -1089,20 +1089,20 @@ test("premium battery pack expands only into clearly resolved electrical and the
   assert.ok(battery);
   assert.equal(battery.parentId, "electric-bus");
   assert.equal(battery.asset, "/scenes/battery-premium-v2.jpg");
-  assert.equal(battery.labels.length, 42);
+  assert.equal(battery.labels.length, 60);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       battery.labels.filter((label) => label.minLevel === level).length
     )),
-    [7, 8, 10, 10, 7],
+    [7, 13, 17, 13, 10],
   );
   assert.deepEqual(
     battery.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["pack-shell", 10],
-      ["cell-module", 12],
-      ["power-electronics", 12],
-      ["thermal-management", 8],
+      ["pack-shell", 14],
+      ["cell-module", 17],
+      ["power-electronics", 16],
+      ["thermal-management", 13],
     ],
   );
   assert.deepEqual(
@@ -1124,6 +1124,24 @@ test("premium battery pack expands only into clearly resolved electrical and the
     "vent grille",
     "enclosure rib",
     "mounting hole",
+    "cell can",
+    "module end plate",
+    "cable gland",
+    "terminal lug",
+    "coolant tube",
+    "lid port",
+    "lid recess",
+    "cell terminal stud",
+    "cell holder rib",
+    "module side wall",
+    "wire loom",
+    "tube retainer",
+    "coolant tee",
+    "front wall bolt",
+    "flange bolt",
+    "mounting tab",
+    "vent mesh",
+    "connector lock",
   ]) {
     assert.ok(words.has(visible), `battery visibly grounds ${visible}`);
   }
@@ -1141,12 +1159,12 @@ test("premium battery pack expands only into clearly resolved electrical and the
 
   const labels = new Map(battery.labels.map((label) => [label.id, label] as const));
   assert.deepEqual(
-    ["insulation-sheet", "cable-clamp", "coolant-manifold", "mounting-hole"].map((id) => {
+    ["insulation-sheet", "cable-clamp", "coolant-manifold", "mounting-hole", "cell-can", "lid-port", "coolant-tee", "connector-lock"].map((id) => {
       const label = labels.get(id);
       assert.ok(label);
       return [label.x, label.y];
     }),
-    [[460, 535], [790, 425], [820, 610], [1380, 790]],
+    [[460, 535], [790, 425], [820, 610], [1380, 790], [490, 465], [1278, 89], [815, 600], [1400, 345]],
     "new battery parts stay anchored on the reviewed cutaway pixels",
   );
 });

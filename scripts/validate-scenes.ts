@@ -199,7 +199,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The battery cutaway resolves pack, module, cell, electrical, cooling and
   // enclosure hardware; the ceiling blocks invisible electrochemistry and
   // sensors that cannot be identified as separate objects in this frame.
-  battery: 42,
+  battery: 60,
   "lithium-ion-cell": 46,
   // The bright cutaway resolves chamber walls, individual cusps, connected
   // vessel openings, coronary surface branches and a readable red-cell rim;

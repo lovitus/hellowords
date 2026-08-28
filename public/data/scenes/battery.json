@@ -24,6 +24,11 @@
     { "id": "coolant-inlet", "word": "coolant inlet", "translation": "冷却液入口", "x": 930, "y": 710, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "verified-coolant-inlet" },
     { "id": "insulation-sheet", "word": "insulation sheet", "translation": "绝缘片", "x": 460, "y": 535, "priority": 2.013, "minLevel": 1, "sourceVisualRegion": "verified-insulation-sheet" },
     { "id": "module-clamp", "word": "module clamp", "translation": "模块夹具", "x": 925, "y": 405, "priority": 2.014, "minLevel": 1, "sourceVisualRegion": "verified-module-clamp" },
+    { "id": "cell-can", "word": "cell can", "translation": "电芯壳体", "x": 490, "y": 465, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "verified-cell-can" },
+    { "id": "module-end-plate", "word": "module end plate", "translation": "模块端板", "x": 165, "y": 470, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "verified-module-end-plate" },
+    { "id": "cable-gland", "word": "cable gland", "translation": "电缆密封接头", "x": 1015, "y": 448, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "verified-cable-gland" },
+    { "id": "terminal-lug", "word": "terminal lug", "translation": "端子接线片", "x": 1450, "y": 390, "priority": 2.018, "minLevel": 1, "sourceVisualRegion": "verified-terminal-lug" },
+    { "id": "coolant-tube", "word": "coolant tube", "translation": "冷却液管", "x": 700, "y": 620, "priority": 2.019, "minLevel": 1, "sourceVisualRegion": "verified-coolant-tube" },
 
     { "id": "cell-holder", "word": "cell holder", "translation": "电芯支架", "x": 320, "y": 420, "priority": 3.013, "minLevel": 2, "sourceVisualRegion": "verified-cell-holder" },
     { "id": "cell-cap", "word": "cell cap", "translation": "电芯顶盖", "x": 360, "y": 325, "priority": 3.014, "minLevel": 2, "sourceVisualRegion": "verified-cell-cap" },
@@ -35,6 +40,13 @@
     { "id": "cell-spacer", "word": "cell spacer", "translation": "电芯间隔件", "x": 570, "y": 465, "priority": 3.02, "minLevel": 2, "sourceVisualRegion": "verified-cell-spacer" },
     { "id": "cable-clamp", "word": "cable clamp", "translation": "电缆夹", "x": 790, "y": 425, "priority": 3.021, "minLevel": 2, "sourceVisualRegion": "verified-cable-clamp" },
     { "id": "voltage-sense-wire", "word": "voltage sense wire", "translation": "电压采样线", "x": 1220, "y": 390, "priority": 3.022, "minLevel": 2, "sourceVisualRegion": "verified-voltage-sense-wire" },
+    { "id": "lid-port", "word": "lid port", "translation": "上盖接口", "x": 1278, "y": 89, "priority": 3.023, "minLevel": 2, "sourceVisualRegion": "verified-lid-port" },
+    { "id": "lid-recess", "word": "lid recess", "translation": "上盖凹槽", "x": 1120, "y": 120, "priority": 3.024, "minLevel": 2, "sourceVisualRegion": "verified-lid-recess" },
+    { "id": "cell-terminal-stud", "word": "cell terminal stud", "translation": "电芯端子柱", "x": 430, "y": 337, "priority": 3.025, "minLevel": 2, "sourceVisualRegion": "verified-cell-terminal-stud" },
+    { "id": "cell-holder-rib", "word": "cell holder rib", "translation": "电芯支架筋", "x": 555, "y": 525, "priority": 3.026, "minLevel": 2, "sourceVisualRegion": "verified-cell-holder-rib" },
+    { "id": "module-side-wall", "word": "module side wall", "translation": "模块侧壁", "x": 230, "y": 500, "priority": 3.027, "minLevel": 2, "sourceVisualRegion": "verified-module-side-wall" },
+    { "id": "wire-loom", "word": "wire loom", "translation": "线束护套", "x": 1040, "y": 425, "priority": 3.028, "minLevel": 2, "sourceVisualRegion": "verified-wire-loom" },
+    { "id": "tube-retainer", "word": "tube retainer", "translation": "管路固定夹", "x": 690, "y": 575, "priority": 3.029, "minLevel": 2, "sourceVisualRegion": "verified-tube-retainer" },
 
     { "id": "enclosure-flange", "word": "enclosure flange", "translation": "外壳凸缘", "x": 780, "y": 760, "priority": 4.02, "minLevel": 3, "sourceVisualRegion": "verified-enclosure-flange" },
     { "id": "module-frame", "word": "module frame", "translation": "模块框架", "x": 460, "y": 520, "priority": 4.021, "minLevel": 3, "sourceVisualRegion": "verified-module-frame" },
@@ -46,6 +58,9 @@
     { "id": "support-rail", "word": "support rail", "translation": "支撑导轨", "x": 650, "y": 550, "priority": 4.027, "minLevel": 3, "sourceVisualRegion": "verified-support-rail" },
     { "id": "vent-grille", "word": "vent grille", "translation": "通风格栅", "x": 1160, "y": 600, "priority": 4.028, "minLevel": 3, "sourceVisualRegion": "verified-vent-grille" },
     { "id": "enclosure-rib", "word": "enclosure rib", "translation": "外壳加强筋", "x": 790, "y": 700, "priority": 4.029, "minLevel": 3, "sourceVisualRegion": "verified-enclosure-rib" },
+    { "id": "coolant-tee", "word": "coolant tee", "translation": "冷却液三通", "x": 815, "y": 600, "priority": 4.030, "minLevel": 3, "sourceVisualRegion": "verified-coolant-tee" },
+    { "id": "front-wall-bolt", "word": "front wall bolt", "translation": "前壁螺栓", "x": 775, "y": 755, "priority": 4.031, "minLevel": 3, "sourceVisualRegion": "verified-front-wall-bolt" },
+    { "id": "flange-bolt", "word": "flange bolt", "translation": "凸缘螺栓", "x": 250, "y": 250, "priority": 4.032, "minLevel": 3, "sourceVisualRegion": "verified-flange-bolt" },
 
     { "id": "lid-bolt", "word": "lid bolt", "translation": "上盖螺栓", "x": 1040, "y": 173, "priority": 5.026, "minLevel": 4, "sourceVisualRegion": "verified-lid-bolt" },
     { "id": "protective-cover", "word": "protective cover", "translation": "端子保护罩", "x": 1375, "y": 355, "priority": 5.027, "minLevel": 4, "sourceVisualRegion": "verified-protective-cover" },
@@ -53,7 +68,10 @@
     { "id": "service-disconnect", "word": "service disconnect", "translation": "维修断电器", "x": 1090, "y": 508, "priority": 5.029, "minLevel": 4, "sourceVisualRegion": "verified-service-disconnect" },
     { "id": "thermal-pad", "word": "thermal pad", "translation": "导热垫", "x": 420, "y": 560, "priority": 5.03, "minLevel": 4, "sourceVisualRegion": "verified-thermal-pad" },
     { "id": "ground-strap", "word": "ground strap", "translation": "接地编织带", "x": 1440, "y": 565, "priority": 5.031, "minLevel": 4, "sourceVisualRegion": "verified-ground-strap" },
-    { "id": "mounting-hole", "word": "mounting hole", "translation": "安装孔", "x": 1380, "y": 790, "priority": 5.032, "minLevel": 4, "sourceVisualRegion": "verified-mounting-hole" }
+    { "id": "mounting-hole", "word": "mounting hole", "translation": "安装孔", "x": 1380, "y": 790, "priority": 5.032, "minLevel": 4, "sourceVisualRegion": "verified-mounting-hole" },
+    { "id": "mounting-tab", "word": "mounting tab", "translation": "安装耳", "x": 1375, "y": 785, "priority": 5.033, "minLevel": 4, "sourceVisualRegion": "verified-mounting-tab" },
+    { "id": "vent-mesh", "word": "vent mesh", "translation": "通风网", "x": 280, "y": 760, "priority": 5.034, "minLevel": 4, "sourceVisualRegion": "verified-vent-mesh" },
+    { "id": "connector-lock", "word": "connector lock", "translation": "连接器锁扣", "x": 1400, "y": 345, "priority": 5.035, "minLevel": 4, "sourceVisualRegion": "verified-connector-lock" }
   ],
   "portals": [
     {
@@ -74,10 +92,10 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/battery-premium-v2.jpg",
     "reviewedAssetSha256": "497ca59f0582e79f6a3cc1c143e23bd3d3c925dc306e0ed631edf3f23cf7e2b1",
-    "rationale": "Re-audited 42 terms against the final engineering cutaway, preserving pack, module and cylindrical-cell nesting while adding only clearly resolved insulation, clamps, sensing wire, cooling-manifold, support, grille, rib and mounting-hole parts; the complete left-front cell module remains the lithium-ion-cell portal.",
+    "rationale": "Re-audited 60 terms against the final engineering cutaway, preserving pack, module and cylindrical-cell nesting while adding only clearly resolved cell can, terminal stud, module plate, cable fitting, connector, lid, cooling-tube and enclosure-hardware parts; the complete left-front cell module remains the lithium-ion-cell portal.",
     "previousLabelCount": 66,
-    "retainedLabelCount": 42,
-    "removedLabelCount": 24,
+    "retainedLabelCount": 60,
+    "removedLabelCount": 6,
     "removedExamples": ["negative terminal", "temperature sensor", "current sensor", "pressure-relief valve", "anode", "electrolyte"]
   },
   "detailZones": [
@@ -87,7 +105,7 @@
       "translation": "电池包壳体",
       "description": "Complete aluminum pack shell, raised lid, seal and mounting hardware",
       "x": 0, "y": 0, "width": 1600, "height": 900, "targetScale": 2.1,
-      "labelIds": ["battery-pack", "enclosure", "enclosure-flange", "lid", "gasket", "lid-bolt", "mounting-bracket", "ground-strap", "enclosure-rib", "mounting-hole"]
+      "labelIds": ["battery-pack", "enclosure", "enclosure-flange", "lid", "gasket", "lid-bolt", "mounting-bracket", "ground-strap", "enclosure-rib", "mounting-hole", "lid-port", "lid-recess", "flange-bolt", "mounting-tab"]
     },
     {
       "id": "cell-module",
@@ -95,7 +113,7 @@
       "translation": "电芯模块",
       "description": "Large left-front module with individually resolved cylindrical cells and busbars",
       "x": 50, "y": 230, "width": 730, "height": 430, "targetScale": 2.8,
-      "labelIds": ["battery-module", "module-casing", "module-frame", "lithium-ion-cell", "cell-holder", "cell-cap", "busbar", "busbar-bolt", "positive-terminal", "thermal-pad", "insulation-sheet", "cell-spacer"]
+      "labelIds": ["battery-module", "module-casing", "module-frame", "lithium-ion-cell", "cell-holder", "cell-cap", "busbar", "busbar-bolt", "positive-terminal", "thermal-pad", "insulation-sheet", "cell-spacer", "cell-can", "module-end-plate", "cell-terminal-stud", "cell-holder-rib", "module-side-wall"]
     },
     {
       "id": "power-electronics",
@@ -103,7 +121,7 @@
       "translation": "功率电子区",
       "description": "Right-side high and low voltage distribution hardware and controller housings",
       "x": 680, "y": 210, "width": 820, "height": 520, "targetScale": 3,
-      "labelIds": ["high-voltage-cable", "low-voltage-harness", "cable-connector", "electrical-socket", "protective-cover", "bms-controller", "fuse", "contactor", "service-disconnect", "module-clamp", "cable-clamp", "voltage-sense-wire"]
+      "labelIds": ["high-voltage-cable", "low-voltage-harness", "cable-connector", "electrical-socket", "protective-cover", "bms-controller", "fuse", "contactor", "service-disconnect", "module-clamp", "cable-clamp", "voltage-sense-wire", "cable-gland", "terminal-lug", "wire-loom", "connector-lock"]
     },
     {
       "id": "thermal-management",
@@ -111,7 +129,7 @@
       "translation": "热管理系统",
       "description": "Foreground cooling plate, serpentine channel, ports and visible ventilation grille",
       "x": 190, "y": 520, "width": 1000, "height": 300, "targetScale": 2.7,
-      "labelIds": ["cooling-plate", "cooling-channel", "coolant-inlet", "coolant-outlet", "vent", "coolant-manifold", "support-rail", "vent-grille"]
+      "labelIds": ["cooling-plate", "cooling-channel", "coolant-inlet", "coolant-outlet", "vent", "coolant-manifold", "support-rail", "vent-grille", "coolant-tube", "tube-retainer", "coolant-tee", "front-wall-bolt", "vent-mesh"]
     }
   ],
   "visualRegions": [
@@ -149,6 +167,24 @@
     { "id": "verified-thermal-pad", "description": "Green thermal interface pad under the cell module", "kind": "part", "x": 160, "y": 520, "width": 540, "height": 130 },
     { "id": "verified-ground-strap", "description": "Braided silver ground strap on right enclosure wall", "kind": "object", "x": 1340, "y": 495, "width": 180, "height": 150 },
     { "id": "verified-insulation-sheet", "description": "Green insulating sheet beneath the cylindrical cell module", "kind": "part", "x": 330, "y": 500, "width": 300, "height": 105 },
+    { "id": "verified-cell-can", "description": "Blue cylindrical outer can of an individual cell", "kind": "part", "x": 400, "y": 375, "width": 170, "height": 220 },
+    { "id": "verified-module-end-plate", "description": "Black end plate closing the cylindrical-cell module", "kind": "part", "x": 70, "y": 370, "width": 180, "height": 240 },
+    { "id": "verified-cable-gland", "description": "Dark cable-entry gland around the orange power cable", "kind": "part", "x": 930, "y": 400, "width": 160, "height": 120 },
+    { "id": "verified-terminal-lug", "description": "Circular metal lug inside the red power terminal", "kind": "part", "x": 1370, "y": 300, "width": 160, "height": 150 },
+    { "id": "verified-coolant-tube", "description": "Raised teal coolant tube across the foreground plate", "kind": "part", "x": 330, "y": 570, "width": 650, "height": 230 },
+    { "id": "verified-lid-port", "description": "Black service port rising from the raised lid", "kind": "part", "x": 1240, "y": 40, "width": 120, "height": 100 },
+    { "id": "verified-lid-recess", "description": "Stamped recessed channel on the aluminum lid", "kind": "part", "x": 940, "y": 55, "width": 320, "height": 100 },
+    { "id": "verified-cell-terminal-stud", "description": "Silver terminal stud on a cylindrical cell cap", "kind": "part", "x": 385, "y": 285, "width": 100, "height": 95 },
+    { "id": "verified-cell-holder-rib", "description": "Raised black rib in the molded cell holder", "kind": "part", "x": 490, "y": 500, "width": 180, "height": 120 },
+    { "id": "verified-module-side-wall", "description": "Black side wall along the cylindrical-cell module", "kind": "part", "x": 200, "y": 440, "width": 170, "height": 200 },
+    { "id": "verified-wire-loom", "description": "Corrugated protective loom around a power lead", "kind": "part", "x": 1040, "y": 370, "width": 170, "height": 120 },
+    { "id": "verified-tube-retainer", "description": "Silver retainer clip holding the raised coolant tube", "kind": "part", "x": 620, "y": 535, "width": 180, "height": 120 },
+    { "id": "verified-coolant-tee", "description": "Teal three-way junction in the cooling circuit", "kind": "part", "x": 700, "y": 570, "width": 220, "height": 170 },
+    { "id": "verified-front-wall-bolt", "description": "Silver fastener on the front enclosure wall", "kind": "part", "x": 700, "y": 700, "width": 150, "height": 130 },
+    { "id": "verified-flange-bolt", "description": "Silver fastener through the upper enclosure flange", "kind": "part", "x": 210, "y": 210, "width": 100, "height": 100 },
+    { "id": "verified-mounting-tab", "description": "External aluminum mounting ear at the enclosure edge", "kind": "part", "x": 1280, "y": 700, "width": 260, "height": 180 },
+    { "id": "verified-vent-mesh", "description": "Black mesh surface in the lower-left ventilation opening", "kind": "part", "x": 120, "y": 650, "width": 220, "height": 180 },
+    { "id": "verified-connector-lock", "description": "Dark locking collar on the red power connector", "kind": "part", "x": 1320, "y": 280, "width": 190, "height": 160 },
     { "id": "verified-module-clamp", "description": "Black clamp fastening a center module beside its casing", "kind": "part", "x": 865, "y": 330, "width": 130, "height": 150 },
     { "id": "verified-cell-spacer", "description": "Dark spacer ribs separating adjacent cylindrical cells", "kind": "part", "x": 505, "y": 390, "width": 150, "height": 150 },
     { "id": "verified-cable-clamp", "description": "Metal clamp holding the orange high-voltage cable", "kind": "part", "x": 730, "y": 370, "width": 150, "height": 120 },
