@@ -97,7 +97,7 @@ test("dense desktop pills are one-third shorter while compact touch boxes stay 2
     { width: 600, height: 260, compact: true },
     false,
   );
-  assert.deepEqual(desktop.map(({ height }) => height), [20, 18]);
+  assert.deepEqual(desktop.map(({ height }) => height), [15, 13]);
   assert.deepEqual(compact.map(({ height }) => height), [28, 28]);
 });
 

@@ -210,16 +210,16 @@ test("all fourteen spatial rules mirror only the three category differentiators"
 test("dense spatial labels reveal artwork without losing semantic tint or focus contrast", async () => {
   const css = await readFile(resolve(import.meta.dirname, "../../app/globals.css"), "utf8");
   const baseRule = css.match(/\.word-label\s*\{([\s\S]*?)\n\}/)?.[1] ?? "";
-  assert.match(baseRule, /--label-surface-opacity:\s*72%;/);
-  assert.match(baseRule, /--label-border-opacity:\s*70%;/);
+  assert.match(baseRule, /--label-surface-opacity:\s*64%;/);
+  assert.match(baseRule, /--label-border-opacity:\s*64%;/);
   assert.match(
     baseRule,
     /background:\s*color-mix\([\s\S]*?var\(--label-semantic-surface\) var\(--label-surface-opacity\)[\s\S]*?transparent[\s\S]*?\);/,
   );
-  assert.match(baseRule, /min-height:\s*20px;/);
-  assert.match(baseRule, /-webkit-text-stroke:\s*0\.3px rgba\(255, 255, 255, 0\.82\);/);
+  assert.match(baseRule, /min-height:\s*15px;/);
+  assert.match(baseRule, /-webkit-text-stroke:\s*0\.45px #fff;/);
   assert.match(baseRule, /paint-order:\s*stroke fill;/);
-  assert.match(baseRule, /text-shadow:\s*0 1px 1px rgba\(255, 255, 255, 0\.75\);/);
+  assert.match(baseRule, /text-shadow:\s*0 1px 2px rgba\(20, 40, 36, 0\.34\);/);
   assert.doesNotMatch(baseRule, /backdrop-filter/, "dense pills do not create one filter layer each");
   assert.doesNotMatch(baseRule, /filter:/, "dense pills avoid per-node filter work");
 

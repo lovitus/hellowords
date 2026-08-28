@@ -1015,8 +1015,8 @@ a:focus-visible {
   --label-anchor-y: 0px;
   --label-leader-angle: 0deg;
   --label-leader-length: 0px;
-  --label-surface-opacity: 72%;
-  --label-border-opacity: 70%;
+  --label-surface-opacity: 64%;
+  --label-border-opacity: 64%;
   --label-semantic-surface: #f6f3ed;
   --label-semantic-surface-hover: #fdfbf7;
   --label-semantic-border: #d2c9ba;
@@ -1034,10 +1034,10 @@ a:focus-visible {
    * not contain paint (leaders and anchor markers may extend outside the
    * pill), but it bounds layout/style recalculation for dense atlas mounts. */
   contain: layout style;
-  min-height: 20px;
+  min-height: 15px;
   align-items: center;
   gap: 3px;
-  padding: 2px 6px;
+  padding: 0 6px;
   border: 1px solid rgba(210, 201, 186, 0.7);
   border-color: color-mix(
     in srgb,
@@ -1066,9 +1066,9 @@ a:focus-visible {
   transform: translate3d(0px, 0px, 0) translate(-50%, -50%);
   transform-origin: center;
   transition: opacity 90ms cubic-bezier(0.22, 0.75, 0.25, 1);
-  -webkit-text-stroke: 0.3px rgba(255, 255, 255, 0.82);
+  -webkit-text-stroke: 0.45px #fff;
   paint-order: stroke fill;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 2px rgba(20, 40, 36, 0.34);
   visibility: hidden;
   white-space: nowrap;
 }
@@ -1240,8 +1240,8 @@ a:focus-visible {
 
 .word-label[data-lod="3"],
 .word-label[data-lod="4"] {
-  min-height: 18px;
-  padding: 1px 6px;
+  min-height: 13px;
+  padding: 0 6px;
   font-size: 10px;
   letter-spacing: 0.005em;
 }

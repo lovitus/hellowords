@@ -408,7 +408,10 @@ function estimatedLabelSize(
   // actual DOM geometry on high-DPR mobile Chromium.
   const wordWidth = Math.max(24, Array.from(label.word).length * (detailed ? 6.55 : 7.15));
   const translationWidth = Array.from(label.translation).length * (detailed ? 9.8 : 10.65) + 15;
-  const desktopHeight = detailed ? 18 : 20;
+  // Spatial pills stay compact enough to preserve the artwork while the
+  // mobile stylesheet keeps its separate 28px touch target. The estimates
+  // mirror the desktop CSS box (font line plus border and minimal padding).
+  const desktopHeight = detailed ? 13 : 15;
   const compactHeight = 28;
   const hiddenWidth = Math.min(250, (detailed ? 27 : 31) + wordWidth);
   const visibleWidth = Math.min(250, (detailed ? 27 : 31) + wordWidth + translationWidth);
