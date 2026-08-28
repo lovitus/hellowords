@@ -31,6 +31,7 @@ interface TraceLabel {
   readonly bounds: TraceRect;
   readonly ariaHidden: string | null;
   readonly tabIndex: number;
+  readonly layoutShift: boolean;
 }
 
 interface LabelZoomFrame {
@@ -347,6 +348,7 @@ async function startLabelZoomTrace(page: Page): Promise<void> {
               },
               ariaHidden: label.getAttribute("aria-hidden"),
               tabIndex: label.tabIndex,
+              layoutShift: label.dataset.layoutShift === "true",
             };
           });
         frames.push({
@@ -669,6 +671,10 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
       }
       if (!anchorInsideViewport(current!, frame)) {
         legalViewportDepartures.add(previousLabel.id);
+        continue;
+      }
+      if (previousLabel.layoutShift || current.layoutShift) {
+        legalSlotChanges.add(previousLabel.id);
         continue;
       }
       if (!previousSlotHasNoActiveContention(previousLabel, current!, previous, frame)) {

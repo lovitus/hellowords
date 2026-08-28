@@ -111,15 +111,23 @@
       "translation": "织纹观察",
       "description": "Separate cotton sample under a real magnifying lens with clear edges, yarn directions and fibers",
       "x": 1070, "y": 40, "width": 500, "height": 560, "targetScale": 3.5,
-      "labelIds": ["fabric-sample", "magnifying-glass", "plain-weave", "lens", "selvage", "fringe", "warp-yarn", "weft-yarn", "twisted-yarn", "cotton-fiber"]
+      "labelIds": ["fabric-sample", "magnifying-glass", "plain-weave", "lens", "selvage", "fringe", "warp-yarn", "weft-yarn"]
     },
     {
-      "id": "cotton-and-sewing-tools",
-      "title": "Cotton and sewing tools",
-      "translation": "棉花与缝纫工具",
-      "description": "Natural cotton bolls and separated hand-sewing tools arranged along the lower table edge",
-      "x": 0, "y": 500, "width": 1600, "height": 400, "targetScale": 2.9,
-      "labelIds": ["cotton-boll", "thread-spool", "sewing-thread", "needle", "thimble", "pin-cushion", "straight-pin", "tailors-shears", "scissor-blade", "cotton-stem", "needle-eye", "needle-point", "thread-loop", "spool-core", "thimble-rim", "pin-head", "shear-pivot", "shear-handle"]
+      "id": "cotton-materials",
+      "title": "Cotton materials",
+      "translation": "棉花与纤维",
+      "description": "Open cotton bolls, a branching stem, loose fibers and a twisted yarn sample along the lower table",
+      "x": 0, "y": 470, "width": 1600, "height": 430, "targetScale": 1.25,
+      "labelIds": ["cotton-boll", "cotton-stem", "cotton-fiber", "twisted-yarn"]
+    },
+    {
+      "id": "sewing-tools",
+      "title": "Sewing tools",
+      "translation": "缝纫工具",
+      "description": "A focused lower-right tool tray with spool, loose thread, needle, thimble, pins and tailor's shears",
+      "x": 1030, "y": 555, "width": 570, "height": 345, "targetScale": 2.4,
+      "labelIds": ["thread-spool", "sewing-thread", "needle", "thimble", "pin-cushion", "straight-pin", "tailors-shears", "scissor-blade", "needle-eye", "needle-point", "thread-loop", "spool-core", "thimble-rim", "pin-head", "shear-pivot", "shear-handle"]
     }
   ],
   "visualRegions": [

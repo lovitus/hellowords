@@ -1611,7 +1611,11 @@ test("premium cotton shirt connects garment construction to visible woven materi
     )),
     [11, 11, 11, 11, 11],
   );
-  assert.equal(shirt.detailZones?.length, 5);
+  assert.equal(shirt.detailZones?.length, 6);
+  assert.deepEqual(
+    shirt.detailZones?.slice(-2).map((zone) => [zone.id, zone.labelIds.length, zone.targetScale]),
+    [["cotton-materials", 4, 1.25], ["sewing-tools", 16, 2.4]],
+  );
   assert.deepEqual(shirt.portals, [], "cotton shirt remains a terminal textile study");
 
   const words = new Set(shirt.labels.map(({ word }) => word.toLocaleLowerCase()));
