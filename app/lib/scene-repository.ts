@@ -56,6 +56,24 @@ const imageCache = new Map<string, ImageCacheEntry>();
 let residentSceneIds = new Set<string>();
 let manifestCache: Promise<SceneManifest> | null = null;
 
+/**
+ * Sites keeps public JSON at stable paths, so a CDN can legitimately retain a
+ * previous response after a new version is deployed. The published page
+ * already carries a short cachebuster (`?v=...`); reuse it for scene data so a
+ * fresh public artifact cannot hydrate an older scene definition. Local SSR
+ * and unit-test callers have no browser location and intentionally keep the
+ * canonical path unchanged.
+ */
+export function sceneDataCacheSuffix(search?: string): string {
+  const currentSearch = search ?? (typeof window === "undefined" ? "" : window.location.search);
+  const version = new URLSearchParams(currentSearch).get("v");
+  return version ? `?v=${encodeURIComponent(version)}` : "";
+}
+
+export function sceneDataUrl(path: string, search?: string): string {
+  return `${path}${sceneDataCacheSuffix(search)}`;
+}
+
 function assertFinitePositive(value: number, field: string): void {
   if (!Number.isFinite(value) || value <= 0) {
     throw new Error(`Invalid scene field: ${field}`);
@@ -164,7 +182,7 @@ export function retainSceneNeighborhood(
 
 export function loadSceneManifest(signal?: AbortSignal): Promise<SceneManifest> {
   if (!manifestCache) {
-    const request = fetch("/data/scenes/manifest.json")
+    const request = fetch(sceneDataUrl("/data/scenes/manifest.json"))
       .then(async (response) => {
         if (!response.ok) throw new Error("Unable to load the world map");
         return validateManifest(await response.json());
@@ -186,7 +204,9 @@ export function loadScene(sceneId: string, signal?: AbortSignal): Promise<Scene>
       promise: Promise.resolve(null as unknown as Scene),
     };
     const ownedEntry = entry;
-    ownedEntry.promise = fetch(`/data/scenes/${encodeURIComponent(sceneId)}.json`)
+    ownedEntry.promise = fetch(
+      sceneDataUrl(`/data/scenes/${encodeURIComponent(sceneId)}.json`),
+    )
       .then(async (response) => {
         if (!response.ok) throw new Error(`Unable to load scene ${sceneId}`);
         const scene = validateScene(await response.json(), sceneId);

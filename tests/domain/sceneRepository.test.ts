@@ -7,6 +7,7 @@ import {
   prepareScene,
   resetSceneRepositoryForTests,
   retainSceneNeighborhood,
+  sceneDataUrl,
 } from "../../app/lib/scene-repository";
 import type { Scene } from "../../app/domain";
 
@@ -86,6 +87,17 @@ function installRepositoryFakes() {
 
 test.beforeEach(() => {
   resetSceneRepositoryForTests();
+});
+
+test("published scene data reuses the page cachebuster while local paths stay canonical", () => {
+  assert.equal(
+    sceneDataUrl("/data/scenes/greenhouse-interior.json", "?v=56-eea2e73"),
+    "/data/scenes/greenhouse-interior.json?v=56-eea2e73",
+  );
+  assert.equal(
+    sceneDataUrl("/data/scenes/greenhouse-interior.json", "?tab=scene"),
+    "/data/scenes/greenhouse-interior.json",
+  );
 });
 
 test.after(() => {
