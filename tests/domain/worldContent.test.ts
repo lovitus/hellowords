@@ -887,12 +887,12 @@ test("premium coffee machine grounds its cutaway and keeps one real water-tank p
   assert.ok(coffeeMachine);
   assert.equal(coffeeMachine.asset, "/scenes/coffee-machine-premium-v1.jpg");
   assert.equal(coffeeMachine.parentId, "kitchen");
-  assert.equal(coffeeMachine.labels.length, 40);
+  assert.equal(coffeeMachine.labels.length, 60);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       coffeeMachine.labels.filter((label) => label.minLevel === level).length
     )),
-    [12, 10, 8, 6, 4],
+    [16, 14, 12, 10, 8],
   );
   assert.equal(coffeeMachine.detailZones?.length, 7);
   assert.deepEqual(coffeeMachine.portals, [
@@ -930,6 +930,26 @@ test("premium coffee machine grounds its cutaway and keeps one real water-tank p
     "circuit board",
     "wire harness",
     "power cord",
+    "top panel",
+    "grind chamber",
+    "pump housing",
+    "side wall",
+    "bean chute",
+    "gauge bezel",
+    "shower screen",
+    "steam valve",
+    "group gasket",
+    "portafilter handle",
+    "drain opening",
+    "boiler fitting",
+    "pressure valve",
+    "hose clamp",
+    "pump inlet",
+    "pump outlet",
+    "flow meter",
+    "terminal block",
+    "boiler outlet",
+    "water inlet",
   ]) {
     assert.ok(words.has(required), `coffee machine visibly grounds ${required}`);
   }

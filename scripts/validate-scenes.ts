@@ -162,7 +162,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // root, moss, fern, flower and grass parts; the ceiling blocks invisible
   // biology and synonym padding while retaining the complete Leaf portal.
   "oak-tree": 68,
-  "coffee-machine": 40,
+  "coffee-machine": 60,
   "cotton-shirt": 40,
   "water-tank": 36,
   // The bright pond raster resolves distinct emergent leaves and seed heads,

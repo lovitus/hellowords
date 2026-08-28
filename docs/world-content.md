@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,628 human-verified anchors representing 3,152
+Spatial scenes now contain 3,648 human-verified anchors representing 3,172
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -106,7 +106,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Potting workbench | 83 → 74 | Complete daylight bench grounds tool edges, containers, seedlings, soil and watering fittings; actions, properties and printed-label readings remain removed |
 | Apartment | 47 → 44 | Bright replacement preserves three room portals while removing an obscured sink and unsupported hallway/dresser claims |
 | Kitchen | 125 → 116 | Bright kitchen grounds appliances, sink, cookware, coffee-nook and island parts; absent processes and hidden appliance claims remain removed |
-| Coffee machine | 58 → 40 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit and electronics; invisible functions and brewing processes remain removed |
+| Coffee machine | 78 → 60 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit, pump fittings and electronics; invisible functions and brewing processes remain removed |
 | Water tank | 56 → 36 | Premium clear-reservoir portrait grounds lid, water, molded walls, outlet hardware, mounts and the real Polymer portal; sensors, hidden plumbing, properties and maintenance actions remain removed |
 | Polymer | 68 → 37 | Premium multiscale material scene grounds specimens, morphology, defects and molecular structure; undefined molecular identities, properties and processes remain removed |
 | Bedroom | 115 → 104 | Premium bedroom adds grounded bedding, study, storage, textile and room-finish details; actions and moods remain removed |
