@@ -752,7 +752,7 @@ test("water tank exposes its new lid, water-surface, filter, and base parts", as
     await expect(app).toHaveAttribute("data-transition-state", "idle");
   }
 
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "61");
   const lidZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="lid-and-rim"]',
   );
@@ -762,7 +762,7 @@ test("water tank exposes its new lid, water-surface, filter, and base parts", as
   ).count()).toBeGreaterThan(0);
 
   const waterZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="water-and-air"]',
+    '[data-testid="scene-minimap-zone"][data-zone-id="surface-ripple-detail"]',
   );
   await waterZone.click();
   await expect.poll(() => page.locator(
@@ -770,7 +770,7 @@ test("water tank exposes its new lid, water-surface, filter, and base parts", as
   ).count()).toBeGreaterThan(0);
 
   const outletZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="outlet-assembly"]',
+    '[data-testid="scene-minimap-zone"][data-zone-id="filter-cup-detail"]',
   );
   await outletZone.click();
   await expect.poll(() => page.locator(

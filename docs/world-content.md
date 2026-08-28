@@ -49,7 +49,7 @@ Every scene JSON contains:
 - `detailZones`, grouping truthful local crops into independently focusable word batches with a target scale;
 - `sourceVisualRegion` on every label and portal.
 
-The 37 raster scenes contribute 264 authored detail zones across
+The 37 raster scenes contribute 266 authored detail zones across
 the complete spatial world. The world atlas alone contains 1,275 unique labels
 compiled from 1,296 independently audited source-panel anchors across 66 zones.
 The compiler reconciles cross-panel word duplication deterministically while
@@ -107,7 +107,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Apartment | 116 → 113 | Bright replacement preserves three room portals, then adds six independently reviewed seating, cabinetry and bathroom fitting parts while retaining the excluded sink, hallway and dresser claims |
 | Kitchen | 125 → 116 | Bright kitchen grounds appliances, sink, cookware, coffee-nook and island parts; absent processes and hidden appliance claims remain removed |
 | Coffee machine | 78 → 60 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit, pump fittings and electronics; invisible functions and brewing processes remain removed |
-| Water tank | 70 → 60 | Premium clear-reservoir portrait grounds lid, water, molded walls, hinge/latch hardware, outlet valve internals, filter surfaces, mounts and the real Polymer portal; the final audit adds lid, water-surface, filter, corner-post and base-rail parts while sensors, hidden plumbing, properties and maintenance actions remain removed |
+| Water tank | 70 → 60 | Premium clear-reservoir portrait grounds lid, water, molded walls, hinge/latch hardware, outlet valve internals, filter surfaces, mounts and the real Polymer portal; the final audit adds lid, water-surface, filter, corner-post and base-rail parts, with the water-surface and detached filter-cup details now in their own focus zones while sensors, hidden plumbing, properties and maintenance actions remain removed |
 | Polymer | 70 → 39 | Premium multiscale material scene grounds specimens, morphology, defects and molecular structure; the crystallite/lamellar-stack distinction remains visible while undefined molecular identities, properties and processes stay removed |
 | Bedroom | 115 → 104 | Premium bedroom adds grounded bedding, study, storage, textile and room-finish details; actions and moods remain removed |
 | Bathroom | 106 → 103 | Daylight bathroom grounds bath, vanity, toilet, shower, plumbing, glass hardware, tile and linen details; invisible conditions remain removed |
