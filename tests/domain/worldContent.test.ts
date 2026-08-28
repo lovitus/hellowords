@@ -224,6 +224,11 @@ test("known floating-label regressions stay removed and critical portals match v
 
   const cityPark = byId.get("city-park");
   assert.ok(cityPark);
+  assert.equal(cityPark.labels.length, 63, "city park keeps its expanded final-pixel vocabulary");
+  const cityParkWords = new Set(cityPark.labels.map((label) => label.word));
+  for (const term of ["pond water", "bridge deck", "oak leaf", "fountain spray", "gazebo railing", "daisy center"]) {
+    assert.ok(cityParkWords.has(term), `city park shows ${term}`);
+  }
   assert.deepEqual(
     cityPark.portals.map(({ id, x, y, width, height }) => [id, x, y, width, height]),
     [

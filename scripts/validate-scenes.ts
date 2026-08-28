@@ -132,6 +132,10 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "chloroplast-interior": 32,
 };
 const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
+  // The final bright park raster resolves separate bridge, pond, playground,
+  // fountain, gazebo, oak, bench, daisy and picnic parts without activity or
+  // wildlife inference; the ceiling blocks ornamental padding.
+  "city-park": 63,
   // The final raster has clear macro forms, microstructure and one coherent
   // molecular model; the 37-anchor ceiling excludes unsupported chemistry.
   polymer: 37,

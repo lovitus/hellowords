@@ -129,7 +129,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Blood cell | 56 → 36 | Bright capillary cutaway grounds vessel layers, red-cell membrane and skeleton, one neutrophil, platelets and the real Hemoglobin portal; unsupported immune processes remain removed |
 | Hemoglobin | 48 → 22 | Premium molecular view grounds subunits, hemes and the oxygen-binding pocket; diseases and invisible binding behavior remain removed |
 | Oxygen molecule | 48 → 26 | Premium gas-exchange cutaway grounds the airway, alveolus, barrier, blood cells and molecule trail; quantum decoration and invisible physiology remain removed |
-| City park | 60 → 39 | Bright replacement grounds two complete habitat portals, park fixtures and visible wildlife while rejecting inferred activities |
+| City park | 84 → 63 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities |
 | Oak tree | 56 → 43 | Bright neutral-daylight woodland close-up grounds wildlife, fungi and texture; invisible processes and growth rings stay removed |
 | Leaf | 54 → 49 | Natural-colour macro retains independently visible twig, bud, acorn-cup, bark, insect and spider parts while rejecting duplicate vein terms and unsupported underside/curl details |
 | Plant cell | 65 → 46 | Premium 3D cutaway resolves organelles, membrane layers, chloroplast discs, cytoplasmic strands and vesicle interiors; unseen molecules and processes stay removed |
