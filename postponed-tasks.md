@@ -50,6 +50,7 @@
 - `/private/tmp` 当前约 11MB，未发现 HelloWords/atlas 命名残留；以后清理只针对有证据的项目路径，不能清空整个 tmp。
 - 外置审计临时根中 17 份旧 HelloWords 发布压缩包及 v21 构建日志已移入系统废纸篓；源码、Sites 保存版本、审计 JSON 与词库源缓存仍保留。
 - 本轮复核未发现新的 HelloWords/atlas 临时路径：`/private/tmp`、`/Volumes/micron512g/tmp-project` 和项目外置审计根中的同名路径均为空；v44 归档已由 Sites 保存，发布压缩包已移出临时根；共享临时根内其它项目任务继续保留。
+- 叶绿体像素复核产生的 `inspect-cell/` 临时裁剪目录及重复词库缓存已移入系统废纸篓；`/var/folders` 下的 Codex runtime 目录继续保留。
 - 发现的孤立词库缓存 `/var/folders/.../T/hellowords-wordnet-cbda5ea6eef7.zip` 未被任何进程打开，已移入系统废纸篓；浏览器/Codex runtime 目录未触碰。
 - 已停止一个无测试进程使用的本地 HelloWords `vinext` 4173 服务；公开站点和当前源代码不受影响。
 
