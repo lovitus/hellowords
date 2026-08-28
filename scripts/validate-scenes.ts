@@ -183,7 +183,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // door, seat, suspension and foreground track hardware; the ceiling blocks
   // unsupported service claims while allowing the expanded 64-anchor audit.
   "train-carriage": 64,
-  "rail-bogie": 40,
+  // The bright bogie raster resolves frame welds/ribs, wheel and motor
+  // subparts, suspension seats, linkage pins and track fasteners; the ceiling
+  // blocks maintenance actions, failure states and hidden load concepts.
+  "rail-bogie": 65,
   // The final platform raster resolves passenger fixtures, train hardware,
   // overhead electrification and track subparts; the ceiling blocks signage
   // and inferred service states while allowing the reviewed 96-anchor scene.

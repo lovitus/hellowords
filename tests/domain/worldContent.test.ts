@@ -1147,8 +1147,24 @@ test("premium rail bogie grounds powered running gear without maintenance claims
   assert.ok(bogie);
   assert.equal(bogie.parentId, "train-carriage");
   assert.equal(bogie.asset, "/scenes/rail-bogie-premium-v2.jpg");
-  assert.equal(bogie.labels.length, 40);
+  assert.equal(bogie.labels.length, 65);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      bogie.labels.filter((label) => label.minLevel === level).length
+    )),
+    [8, 13, 16, 15, 13],
+  );
   assert.equal(bogie.detailZones?.length, 5);
+  assert.deepEqual(
+    bogie.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["frame-and-secondary-suspension", 21],
+      ["powered-wheelset", 17],
+      ["axlebox-and-primary-suspension", 7],
+      ["right-running-gear", 11],
+      ["track-interface", 9],
+    ],
+  );
   assert.deepEqual(bogie.portals, [], "rail bogie remains a terminal engineering study");
 
   const words = new Set(bogie.labels.map(({ word }) => word.toLocaleLowerCase()));
@@ -1166,8 +1182,46 @@ test("premium rail bogie grounds powered running gear without maintenance claims
     "brake caliper",
     "vertical damper",
     "rail clip",
+    "frame weld",
+    "side frame rib",
+    "cross member plate",
+    "air spring rib",
+    "pivot cap",
+    "conduit clip",
+    "bracket bolt",
+    "wheel hub",
+    "wheel rim",
+    "disc hole",
+    "motor shaft",
+    "gear tooth",
+    "coupling ring",
+    "motor endcap",
+    "bearing seal",
+    "spring seat",
+    "damper mount",
+    "wheel hub cap",
+    "traction link pin",
+    "anti-roll joint",
+    "brake hose fitting",
+    "rail foot",
+    "sleeper edge",
+    "ballast stone",
+    "sleeper fastener",
   ]) {
     assert.ok(words.has(visible), `rail bogie visibly grounds ${visible}`);
+  }
+  for (const [id, point] of [
+    ["frame-weld", [650, 300]],
+    ["wheel-hub", [280, 470]],
+    ["bearing-seal", [525, 690]],
+    ["wheel-hub-cap", [1335, 560]],
+    ["rail-foot", [825, 810]],
+  ] as const) {
+    const anchor: Scene["labels"][number] | undefined = bogie.labels.find(
+      (candidate) => candidate.id === id,
+    );
+    assert.ok(anchor, `rail bogie keeps ${id} label`);
+    assert.deepEqual([anchor.x, anchor.y], point, `rail bogie anchors ${id}`);
   }
   for (const inferred of [
     "lubricant",

@@ -51,7 +51,32 @@
     { "id": "rail-head", "word": "rail head", "translation": "轨头", "x": 1020, "y": 740, "priority": 5.036, "minLevel": 4, "sourceVisualRegion": "verified-rail-head" },
     { "id": "sleeper", "word": "sleeper", "translation": "轨枕", "x": 1045, "y": 825, "priority": 5.037, "minLevel": 4, "sourceVisualRegion": "verified-sleeper" },
     { "id": "rail-clip", "word": "rail clip", "translation": "钢轨扣件", "x": 1100, "y": 760, "priority": 5.038, "minLevel": 4, "sourceVisualRegion": "verified-rail-clip" },
-    { "id": "ballast", "word": "ballast", "translation": "道砟", "x": 1220, "y": 840, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "verified-ballast" }
+    { "id": "ballast", "word": "ballast", "translation": "道砟", "x": 1220, "y": 840, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "verified-ballast" },
+    { "id": "frame-weld", "word": "frame weld", "translation": "构架焊缝", "x": 650, "y": 300, "priority": 6.001, "minLevel": 1, "sourceVisualRegion": "verified-bogie-frame" },
+    { "id": "side-frame-rib", "word": "side frame rib", "translation": "侧构架加强筋", "x": 1160, "y": 415, "priority": 6.002, "minLevel": 2, "sourceVisualRegion": "verified-side-frame" },
+    { "id": "cross-member-plate", "word": "cross member plate", "translation": "横梁板", "x": 780, "y": 325, "priority": 6.003, "minLevel": 2, "sourceVisualRegion": "verified-cross-member" },
+    { "id": "air-spring-rib", "word": "air spring rib", "translation": "空气弹簧褶筋", "x": 430, "y": 225, "priority": 6.004, "minLevel": 3, "sourceVisualRegion": "verified-air-spring" },
+    { "id": "pivot-cap", "word": "pivot cap", "translation": "中心销盖", "x": 790, "y": 245, "priority": 6.005, "minLevel": 2, "sourceVisualRegion": "verified-center-pivot" },
+    { "id": "conduit-clip", "word": "conduit clip", "translation": "导管卡箍", "x": 875, "y": 190, "priority": 6.006, "minLevel": 3, "sourceVisualRegion": "verified-cable-conduit" },
+    { "id": "bracket-bolt", "word": "bracket bolt", "translation": "支架螺栓", "x": 800, "y": 340, "priority": 6.007, "minLevel": 4, "sourceVisualRegion": "verified-mounting-bracket" },
+    { "id": "wheel-hub", "word": "wheel hub", "translation": "轮毂", "x": 280, "y": 470, "priority": 6.008, "minLevel": 1, "sourceVisualRegion": "verified-wheelset" },
+    { "id": "wheel-rim", "word": "wheel rim", "translation": "轮辋", "x": 250, "y": 420, "priority": 6.009, "minLevel": 2, "sourceVisualRegion": "verified-brake-disc" },
+    { "id": "disc-hole", "word": "disc hole", "translation": "制动盘孔", "x": 280, "y": 425, "priority": 6.010, "minLevel": 3, "sourceVisualRegion": "verified-brake-disc" },
+    { "id": "motor-shaft", "word": "motor shaft", "translation": "电机轴", "x": 540, "y": 395, "priority": 6.011, "minLevel": 2, "sourceVisualRegion": "verified-motor-housing" },
+    { "id": "gear-tooth", "word": "gear tooth", "translation": "齿轮齿", "x": 448, "y": 420, "priority": 6.012, "minLevel": 4, "sourceVisualRegion": "verified-gearbox" },
+    { "id": "coupling-ring", "word": "coupling ring", "translation": "联轴器环", "x": 448, "y": 425, "priority": 6.013, "minLevel": 3, "sourceVisualRegion": "verified-flexible-coupling" },
+    { "id": "motor-endcap", "word": "motor endcap", "translation": "电机端盖", "x": 575, "y": 395, "priority": 6.014, "minLevel": 1, "sourceVisualRegion": "verified-motor-housing" },
+    { "id": "bearing-seal", "word": "bearing seal", "translation": "轴承密封", "x": 525, "y": 690, "priority": 6.015, "minLevel": 2, "sourceVisualRegion": "verified-bearing-cover" },
+    { "id": "spring-seat", "word": "spring seat", "translation": "弹簧座", "x": 625, "y": 610, "priority": 6.016, "minLevel": 3, "sourceVisualRegion": "verified-primary-suspension-spring" },
+    { "id": "damper-mount", "word": "damper mount", "translation": "减振器座", "x": 925, "y": 520, "priority": 6.017, "minLevel": 4, "sourceVisualRegion": "verified-vertical-damper" },
+    { "id": "wheel-hub-cap", "word": "wheel hub cap", "translation": "轮毂盖", "x": 1335, "y": 560, "priority": 6.018, "minLevel": 1, "sourceVisualRegion": "verified-wheel" },
+    { "id": "traction-link-pin", "word": "traction link pin", "translation": "牵引拉杆销", "x": 1020, "y": 620, "priority": 6.019, "minLevel": 3, "sourceVisualRegion": "verified-traction-link" },
+    { "id": "anti-roll-joint", "word": "anti-roll joint", "translation": "抗侧滚关节", "x": 1080, "y": 650, "priority": 6.020, "minLevel": 4, "sourceVisualRegion": "verified-anti-roll-bar" },
+    { "id": "brake-hose-fitting", "word": "brake hose fitting", "translation": "制动软管接头", "x": 1245, "y": 315, "priority": 6.021, "minLevel": 2, "sourceVisualRegion": "verified-brake-hose" },
+    { "id": "rail-foot", "word": "rail foot", "translation": "轨底", "x": 825, "y": 810, "priority": 6.022, "minLevel": 1, "sourceVisualRegion": "verified-rail" },
+    { "id": "sleeper-edge", "word": "sleeper edge", "translation": "轨枕边缘", "x": 1045, "y": 825, "priority": 6.023, "minLevel": 2, "sourceVisualRegion": "verified-sleeper" },
+    { "id": "ballast-stone", "word": "ballast stone", "translation": "道砟石", "x": 1220, "y": 840, "priority": 6.024, "minLevel": 3, "sourceVisualRegion": "verified-ballast" },
+    { "id": "sleeper-fastener", "word": "sleeper fastener", "translation": "轨枕扣件", "x": 1100, "y": 760, "priority": 6.025, "minLevel": 4, "sourceVisualRegion": "verified-rail-clip" }
   ],
   "portals": [],
   "anchorAudit": {
@@ -59,9 +84,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/rail-bogie-premium-v2.jpg",
     "reviewedAssetSha256": "fadd480d16703de1cf273b433f46ab72f8786754ca146effaeaf4f739219b33b",
-    "rationale": "Re-anchored 40 independently pointable parts on the final bright powered-bogie photograph, separating its structural frame, wheelset and axlebox hardware, primary and secondary suspension, motor drive, disc brakes, linkages and the actual supporting track bed. Maintenance actions, failure states and hidden load or alignment concepts remain excluded.",
-    "previousLabelCount": 48,
-    "retainedLabelCount": 40,
+    "rationale": "Re-anchored independently pointable parts on the final bright powered-bogie photograph, separating its structural frame, wheelset and axlebox hardware, primary and secondary suspension, motor drive, disc brakes, linkages and the actual supporting track bed. The added welds, ribs, caps, shafts, hub and rim details, suspension seats, linkage pins and track fasteners remain visible; maintenance actions, failure states and hidden load or alignment concepts remain excluded.",
+    "previousLabelCount": 73,
+    "retainedLabelCount": 65,
     "removedLabelCount": 8,
     "removedExamples": ["lubricant", "alignment", "vibration", "accelerate", "inspect", "misaligned", "load bearing", "derailment"]
   },
@@ -72,7 +97,7 @@
       "translation": "构架与二系悬挂",
       "description": "Complete structural frame, central pivot, paired air springs, upper damping and routed cabling",
       "x": 40, "y": 70, "width": 1520, "height": 430, "targetScale": 2.5,
-      "labelIds": ["rail-bogie", "bogie-frame", "side-frame", "cross-member", "air-spring", "center-pivot", "secondary-suspension", "yaw-damper", "air-spring-bellows", "air-spring-top-plate", "cable-conduit", "mounting-bracket", "frame-bolt", "frame-cutout"]
+      "labelIds": ["rail-bogie", "bogie-frame", "side-frame", "cross-member", "air-spring", "center-pivot", "secondary-suspension", "yaw-damper", "air-spring-bellows", "air-spring-top-plate", "cable-conduit", "mounting-bracket", "frame-bolt", "frame-cutout", "frame-weld", "side-frame-rib", "cross-member-plate", "air-spring-rib", "pivot-cap", "conduit-clip", "bracket-bolt"]
     },
     {
       "id": "powered-wheelset",
@@ -80,7 +105,7 @@
       "translation": "动力轮对",
       "description": "Left visible wheelset with axle, motor drive, gearbox, coupling and ventilated disc brake",
       "x": 80, "y": 300, "width": 760, "height": 480, "targetScale": 3.1,
-      "labelIds": ["wheelset", "traction-motor", "axle", "brake-disc", "brake-caliper", "gearbox", "motor-housing", "cooling-fin", "brake-pad", "flexible-coupling"]
+      "labelIds": ["wheelset", "traction-motor", "axle", "brake-disc", "brake-caliper", "gearbox", "motor-housing", "cooling-fin", "brake-pad", "flexible-coupling", "wheel-hub", "wheel-rim", "disc-hole", "motor-shaft", "gear-tooth", "coupling-ring", "motor-endcap"]
     },
     {
       "id": "axlebox-and-primary-suspension",
@@ -88,7 +113,7 @@
       "translation": "轴箱与一系悬挂",
       "description": "Foreground bearing housing, coil spring and vertical damping hardware beside the wheel",
       "x": 430, "y": 430, "width": 580, "height": 350, "targetScale": 3.3,
-      "labelIds": ["axlebox", "primary-suspension-spring", "bearing-cover", "vertical-damper"]
+      "labelIds": ["axlebox", "primary-suspension-spring", "bearing-cover", "vertical-damper", "bearing-seal", "spring-seat", "damper-mount"]
     },
     {
       "id": "right-running-gear",
@@ -96,7 +121,7 @@
       "translation": "走行与连杆机构",
       "description": "Right wheel profile, lower traction and anti-roll links, hoses and braided grounding strap",
       "x": 820, "y": 300, "width": 660, "height": 420, "targetScale": 3.2,
-      "labelIds": ["wheel", "wheel-tread", "wheel-flange", "traction-link", "anti-roll-bar", "brake-hose", "grounding-strap"]
+      "labelIds": ["wheel", "wheel-tread", "wheel-flange", "traction-link", "anti-roll-bar", "brake-hose", "grounding-strap", "wheel-hub-cap", "traction-link-pin", "anti-roll-joint", "brake-hose-fitting"]
     },
     {
       "id": "track-interface",
@@ -104,7 +129,7 @@
       "translation": "轨道接触区",
       "description": "Steel running rail with its polished head, concrete sleepers, clips and angular ballast",
       "x": 0, "y": 650, "width": 1600, "height": 250, "targetScale": 2.8,
-      "labelIds": ["rail", "rail-head", "sleeper", "rail-clip", "ballast"]
+      "labelIds": ["rail", "rail-head", "sleeper", "rail-clip", "ballast", "rail-foot", "sleeper-edge", "ballast-stone", "sleeper-fastener"]
     }
   ],
   "visualRegions": [

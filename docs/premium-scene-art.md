@@ -302,7 +302,7 @@ The final-pixel audit retained 64 pointable terms across six authored crops. It 
 
 Create a bright photorealistic engineering study of one complete modern powered railway bogie in a clean daylight maintenance hall. Resolve the welded frame, two wheelsets, axleboxes, primary coil and secondary air suspension, dampers, motor drive, disc brakes, lower linkages, wiring and grounding hardware. Set it on a short real rail-and-sleeper section without obscuring the running gear. Exclude the carriage body, people, tools, text, brands, damage, rust, motion and invisible operating or maintenance concepts.
 
-The final-pixel audit retained 40 independently pointable terms across five authored crops, including the physical track interface. It excluded alignment, vibration, lubrication, inspection, load and failure claims that cannot be read from a still image.
+The final-pixel audit retains 65 grounded terms across five authored crops, including the physical track interface. It adds visible frame welds and ribs, suspension caps and seats, motor shafts and gear details, wheel hubs and rims, linkage pins, hose fittings and rail/sleeper fasteners. It continues to exclude alignment, vibration, lubrication, inspection, load and failure claims that cannot be read from a still image.
 
 ### Battery pack
 
