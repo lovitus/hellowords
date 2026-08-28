@@ -189,15 +189,29 @@ export function WorldApp() {
 
   const sceneDetailZones = useMemo(() => {
     if (!scene || scene.id === "world-map") return [];
-    return (scene.detailZones ?? []).map((zone) => ({
-      id: zone.id,
-      title: zone.title,
-      translation: zone.translation,
-      labelCount: zone.labelIds.length,
-      focusX: zone.x + zone.width / 2,
-      focusY: zone.y + zone.height / 2,
-      targetScale: zone.targetScale,
-    }));
+    const labelById = new Map(scene.labels.map((label) => [label.id, label]));
+    return (scene.detailZones ?? []).map((zone) => {
+      const points = zone.labelIds
+        .map((labelId) => labelById.get(labelId))
+        .filter((label): label is Label => Boolean(label));
+      const focusX = points.length === 0
+        ? zone.x + zone.width / 2
+        : (Math.min(...points.map((label) => label.x))
+          + Math.max(...points.map((label) => label.x))) / 2;
+      const focusY = points.length === 0
+        ? zone.y + zone.height / 2
+        : (Math.min(...points.map((label) => label.y))
+          + Math.max(...points.map((label) => label.y))) / 2;
+      return {
+        id: zone.id,
+        title: zone.title,
+        translation: zone.translation,
+        labelCount: zone.labelIds.length,
+        focusX,
+        focusY,
+        targetScale: zone.targetScale,
+      };
+    });
   }, [scene]);
 
   const sceneWordIndexMatches = useMemo(() => {

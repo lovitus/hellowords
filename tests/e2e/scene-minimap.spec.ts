@@ -242,6 +242,37 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   );
 });
 
+test("the home atlas keeps words hover-scoped to one district", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === "mobile-chromium", "the home contract is pointer-hover specific");
+  await openWorld(page);
+
+  const names = page.locator('[data-testid="atlas-category-nameplate"]');
+  const words = page.locator('[data-testid="atlas-category-word"]');
+  await expect(names).toHaveCount(6);
+  await expect(words).toHaveCount(0);
+
+  const campus = page.locator('[data-testid="atlas-category"][data-category-id="school"]');
+  await campus.hover();
+  await expect(page.getByTestId("atlas-category-layer")).toHaveAttribute(
+    "data-active-category",
+    "school",
+  );
+  await expect.poll(() => words.count()).toBeGreaterThan(0);
+  expect(await words.evaluateAll((elements) => elements.every((element) => (
+    (element as HTMLElement).dataset.categoryId === "school"
+      && (element as HTMLElement).dataset.visible === "true"
+  )))).toBe(true);
+  await expect(names).toHaveCount(6);
+
+  await page.mouse.move(8, 8);
+  await expect(page.getByTestId("atlas-category-layer")).toHaveAttribute(
+    "data-active-category",
+    "none",
+  );
+  await expect(words).toHaveCount(0);
+  await expect(names).toHaveCount(6);
+});
+
 test("child-scene minimaps focus the authored room zones without changing scene ownership", async ({ page }) => {
   const app = await openWorld(page);
   const minimap = page.locator(MINIMAP);
@@ -267,6 +298,25 @@ test("child-scene minimaps focus the authored room zones without changing scene 
       && Number.isFinite(Number((button as HTMLElement).dataset.focusY))
     ))
   ))).toBe(true);
+
+  const apartmentData = await page.request.get("/data/scenes/apartment.json").then((response) => response.json()) as {
+    labels: Array<{ id: string; x: number; y: number }>;
+    detailZones: Array<{ id: string; labelIds: string[]; x: number; y: number; width: number; height: number }>;
+  };
+  for (const zoneId of ["central-stair-upper-detail", "central-stair-lower-detail"]) {
+    const zone = apartmentData.detailZones.find((candidate) => candidate.id === zoneId);
+    expect(zone).toBeDefined();
+    const points = apartmentData.labels.filter((label) => zone!.labelIds.includes(label.id));
+    const expectedFocusX = points.length === 0
+      ? zone!.x + zone!.width / 2
+      : (Math.min(...points.map((label) => label.x)) + Math.max(...points.map((label) => label.x))) / 2;
+    const expectedFocusY = points.length === 0
+      ? zone!.y + zone!.height / 2
+      : (Math.min(...points.map((label) => label.y)) + Math.max(...points.map((label) => label.y))) / 2;
+    const button = zones.locator(`[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`);
+    await expect(button).toHaveAttribute("data-focus-x", String(expectedFocusX));
+    await expect(button).toHaveAttribute("data-focus-y", String(expectedFocusY));
+  }
 
   const kitchen = zones.locator('[data-testid="scene-minimap-zone"][data-zone-id="kitchen-detail"]');
   await expect(kitchen).toBeEnabled();
