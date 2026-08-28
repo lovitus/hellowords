@@ -80,7 +80,7 @@ Each scene covers five progressive density bands:
 - level 3 — smaller visible parts or explicitly drawn diagram elements;
 - level 4 — the finest still-identifiable detail.
 
-All five bands remain available. Every 32-target premium scene must contain at least 32 grounded labels, while evidence-limited terminal studies keep explicit reviewed ranges; all high-resolution scenes still provide at least twelve overview labels, at least three labels in every LOD, and at least four authored detail zones. Each zone carries at least four words and the zones cover at least 60% of that scene's anchors. The rebuilt chloroplast now supports 36 independently pointable structures across six zones without duplicate membrane names. The upgraded polymer exhibit contains 25 independently pointable terms and is locked to a 24–28 evidence range; its final pixel audit explicitly removed an unattached pseudo-side-group and an undefined repeat segment rather than inflating the count.
+All five bands remain available. Every 32-target premium scene must contain at least 32 grounded labels, while evidence-limited terminal studies keep explicit reviewed ranges; all high-resolution scenes still provide at least twelve overview labels, at least three labels in every LOD, and at least four authored detail zones. Each zone carries at least four words and the zones cover at least 60% of that scene's anchors. The rebuilt chloroplast now supports 36 independently pointable structures across six zones without duplicate membrane names. The upgraded polymer exhibit contains 37 independently pointable terms and is locked to a 24–37 evidence range; its final pixel audit adds only visible film, fiber, molded-cavity, morphology, defect and attached-molecular structures while keeping unsupported properties and molecular identities out.
 
 ## Exploration cues and anchors
 
@@ -108,7 +108,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Kitchen | 57 → 48 | Refreshed kitchen grounds appliances, food, hand tools and coffee-machine parts; absent processes remain removed |
 | Coffee machine | 58 → 40 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit and electronics; invisible functions and brewing processes remain removed |
 | Water tank | 56 → 36 | Premium clear-reservoir portrait grounds lid, water, molded walls, outlet hardware, mounts and the real Polymer portal; sensors, hidden plumbing, properties and maintenance actions remain removed |
-| Polymer | 56 → 25 | Premium multiscale material scene grounds specimens, morphology and molecular structure; undefined molecular identities, properties and processes remain removed |
+| Polymer | 68 → 37 | Premium multiscale material scene grounds specimens, morphology, defects and molecular structure; undefined molecular identities, properties and processes remain removed |
 | Bedroom | 51 → 40 | Premium bedroom adds grounded furniture, storage, textile and room-part details; actions and moods remain removed |
 | Bathroom | 48 → 45 | New daylight bathroom grounds bath, vanity, toilet, shower, plumbing, tile and linen details; invisible conditions remain removed |
 | Wardrobe interior | 48 → 36 | Premium wardrobe grounds cabinet fittings, distinct garments, shirt parts and nearby bedroom objects; materials and actions remain removed |

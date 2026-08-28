@@ -216,7 +216,7 @@ Create a bright, elegant neighborhood cafe in natural daylight with no people. S
 
 Create a bright pearl-white material-science exhibit that moves from independently pointable macro polymer film, pellets, a molded specimen with a fracture face and a fiber bundle, through separately readable semicrystalline lamellae, a spherulite, amorphous chains, additives, pore and crack, into one coherent generic hydrocarbon polymer model. Make carbon and hydrogen visibly distinct; resolve the backbone, repeating geometry, side group, branch, chain end, entanglement and a separate cross-link without depicting a free monomer. Exclude text, labels, invisible material properties, manufacturing processes and decorative atom clouds.
 
-The final-pixel audit retained 25 pointable terms. It rejected the generated detached pseudo-side-group and the visually undefined repeat segment, and described the macro hierarchy as a fiber bundle plus a separately visible fiber rather than inventing a finer fibril level.
+The final-pixel audit retained 37 pointable terms. It added only the clearly visible film edge, fiber tie and tip, mold cavity, fracture ridge, pigment cluster, amorphous chain, spherulite center, pore wall, crack tip, attached side chain and carbon–carbon bond; it still rejects the detached pseudo-side-group, undefined repeat segment, invisible properties and finer fibril hierarchy.
 
 ### Bedroom
 

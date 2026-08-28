@@ -21,22 +21,34 @@
     { "id": "spherulite", "word": "spherulite", "translation": "球晶", "x": 930, "y": 170, "priority": 2.003, "minLevel": 1, "sourceVisualRegion": "radial-spherulite" },
     { "id": "filler-particle", "word": "filler particle", "translation": "填料颗粒", "x": 985, "y": 555, "priority": 2.004, "minLevel": 1, "sourceVisualRegion": "filler-particles" },
     { "id": "backbone", "word": "backbone", "translation": "主链", "x": 1330, "y": 505, "priority": 2.005, "minLevel": 1, "sourceVisualRegion": "molecular-backbone" },
+    { "id": "film-edge", "word": "film edge", "translation": "薄膜边缘", "x": 250, "y": 290, "priority": 6, "minLevel": 1, "sourceVisualRegion": "verified-film-edge" },
 
     { "id": "molded-surface", "word": "molded surface", "translation": "模塑表面", "x": 455, "y": 245, "priority": 3, "minLevel": 2, "sourceVisualRegion": "molded-top-surface" },
     { "id": "fracture-surface", "word": "fracture surface", "translation": "断裂面", "x": 385, "y": 385, "priority": 3.001, "minLevel": 2, "sourceVisualRegion": "fracture-face" },
     { "id": "folded-chain", "word": "folded chain", "translation": "折叠链", "x": 705, "y": 390, "priority": 3.002, "minLevel": 2, "sourceVisualRegion": "folded-chain-stack" },
     { "id": "carbon-atom", "word": "carbon atom", "translation": "碳原子", "x": 1360, "y": 360, "priority": 3.003, "minLevel": 2, "sourceVisualRegion": "carbon-sphere" },
     { "id": "hydrogen-atom", "word": "hydrogen atom", "translation": "氢原子", "x": 1420, "y": 330, "priority": 3.004, "minLevel": 2, "sourceVisualRegion": "hydrogen-sphere" },
+    { "id": "fiber-tie", "word": "fiber tie", "translation": "纤维束扎带", "x": 330, "y": 650, "priority": 6.001, "minLevel": 2, "sourceVisualRegion": "verified-fiber-tie" },
+    { "id": "fiber-tip", "word": "fiber tip", "translation": "纤维端头", "x": 500, "y": 700, "priority": 6.002, "minLevel": 2, "sourceVisualRegion": "verified-fiber-tip" },
+    { "id": "mold-cavity", "word": "mold cavity", "translation": "模具腔孔", "x": 455, "y": 185, "priority": 6.003, "minLevel": 2, "sourceVisualRegion": "verified-mold-cavity" },
+    { "id": "fracture-ridge", "word": "fracture ridge", "translation": "断裂面脊", "x": 400, "y": 360, "priority": 6.004, "minLevel": 2, "sourceVisualRegion": "verified-fracture-ridge" },
+    { "id": "pigment-cluster", "word": "pigment cluster", "translation": "颜料颗粒簇", "x": 1020, "y": 335, "priority": 6.005, "minLevel": 2, "sourceVisualRegion": "verified-pigment-cluster" },
+    { "id": "amorphous-chain", "word": "amorphous chain", "translation": "非晶链", "x": 820, "y": 380, "priority": 6.006, "minLevel": 2, "sourceVisualRegion": "verified-amorphous-chain" },
 
     { "id": "fiber", "word": "fiber", "translation": "纤维", "x": 420, "y": 660, "priority": 4, "minLevel": 3, "sourceVisualRegion": "individual-fiber", "lexemeId": "en-77c3e615d715acdb" },
     { "id": "chain-entanglement", "word": "chain entanglement", "translation": "链缠结", "x": 860, "y": 500, "priority": 4.001, "minLevel": 3, "sourceVisualRegion": "entangled-coils" },
     { "id": "pore", "word": "pore", "translation": "孔隙", "x": 860, "y": 742, "priority": 4.002, "minLevel": 3, "sourceVisualRegion": "material-pore" },
     { "id": "bond", "word": "bond", "translation": "共价键", "x": 1325, "y": 420, "priority": 4.003, "minLevel": 3, "sourceVisualRegion": "covalent-bond", "lexemeId": "en-f21dea74d898cfea" },
+    { "id": "spherulite-center", "word": "spherulite center", "translation": "球晶中心", "x": 930, "y": 170, "priority": 6.007, "minLevel": 3, "sourceVisualRegion": "verified-spherulite-center" },
+    { "id": "pore-wall", "word": "pore wall", "translation": "孔隙壁", "x": 860, "y": 742, "priority": 6.008, "minLevel": 3, "sourceVisualRegion": "verified-pore-wall" },
+    { "id": "side-chain", "word": "side chain", "translation": "侧链", "x": 1490, "y": 210, "priority": 6.009, "minLevel": 3, "sourceVisualRegion": "verified-side-chain" },
 
     { "id": "crack", "word": "crack", "translation": "裂纹", "x": 950, "y": 675, "priority": 5, "minLevel": 4, "sourceVisualRegion": "material-crack", "lexemeId": "en-94f94c9c97bfa92b" },
     { "id": "branch", "word": "branch", "translation": "支链", "x": 1410, "y": 555, "priority": 5.001, "minLevel": 4, "sourceVisualRegion": "branch-segment" },
     { "id": "chain-end", "word": "chain end", "translation": "链端", "x": 1135, "y": 420, "priority": 5.003, "minLevel": 4, "sourceVisualRegion": "molecular-chain-end" },
-    { "id": "cross-link", "word": "cross-link", "translation": "交联键", "x": 1290, "y": 685, "priority": 5.004, "minLevel": 4, "sourceVisualRegion": "highlighted-cross-link" }
+    { "id": "cross-link", "word": "cross-link", "translation": "交联键", "x": 1290, "y": 685, "priority": 5.004, "minLevel": 4, "sourceVisualRegion": "highlighted-cross-link" },
+    { "id": "crack-tip", "word": "crack tip", "translation": "裂纹尖端", "x": 930, "y": 675, "priority": 6.010, "minLevel": 4, "sourceVisualRegion": "verified-crack-tip" },
+    { "id": "carbon-carbon-bond", "word": "carbon-carbon bond", "translation": "碳碳键", "x": 1325, "y": 420, "priority": 6.011, "minLevel": 4, "sourceVisualRegion": "verified-carbon-carbon-bond" }
   ],
   "portals": [],
   "anchorAudit": {
@@ -44,9 +56,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/polymer-premium-v2.jpg",
     "reviewedAssetSha256": "a32aef0b59c39f62e83b7a67dac5ce65e2f5a5895167844a360ca2c5de071bf1",
-    "rationale": "Re-anchored the upgraded polymer exhibit to separately visible macro specimens, semicrystalline morphology, defects, additives and a coherent ball-and-stick chain; omitted inferred properties, processes, synonym padding and molecular identities not proven by the final pixels.",
-    "previousLabelCount": 56,
-    "retainedLabelCount": 25,
+    "rationale": "Expanded the final-pixel audit with separately visible film, fiber, molded-cavity and fracture details, pigment cluster, amorphous chain, pore wall, crack tip, spherulite center and attached molecular bond/side-chain structures; inferred properties, processes, synonym padding and unproven molecular identities remain rejected.",
+    "previousLabelCount": 68,
+    "retainedLabelCount": 37,
     "removedLabelCount": 31,
     "removedExamples": ["thermoplastic", "polymerization", "density", "elasticity", "recycling", "molecular weight", "monomer", "repeating unit", "side group"]
   },
@@ -61,7 +73,7 @@
       "width": 570,
       "height": 750,
       "targetScale": 1.8,
-      "labelIds": ["polymer-specimen", "polymer-film", "fiber-bundle", "plastic-pellet", "molded-surface", "fracture-surface", "fiber"]
+      "labelIds": ["polymer-specimen", "polymer-film", "fiber-bundle", "plastic-pellet", "molded-surface", "fracture-surface", "fiber", "film-edge", "fiber-tie", "fiber-tip", "mold-cavity", "fracture-ridge"]
     },
     {
       "id": "semicrystalline-morphology",
@@ -73,7 +85,7 @@
       "width": 650,
       "height": 650,
       "targetScale": 2.2,
-      "labelIds": ["crystalline-region", "amorphous-region", "lamella", "spherulite", "folded-chain", "chain-entanglement"]
+      "labelIds": ["crystalline-region", "amorphous-region", "lamella", "spherulite", "folded-chain", "chain-entanglement", "spherulite-center", "amorphous-chain"]
     },
     {
       "id": "defects-and-additives",
@@ -85,7 +97,7 @@
       "width": 650,
       "height": 650,
       "targetScale": 2.6,
-      "labelIds": ["pigment-particle", "filler-particle", "pore", "crack"]
+      "labelIds": ["pigment-particle", "filler-particle", "pore", "crack", "pigment-cluster", "pore-wall", "crack-tip"]
     },
     {
       "id": "molecular-architecture",
@@ -97,7 +109,7 @@
       "width": 570,
       "height": 900,
       "targetScale": 3,
-      "labelIds": ["polymer-chain", "backbone", "carbon-atom", "hydrogen-atom", "bond", "branch", "chain-end", "cross-link"]
+      "labelIds": ["polymer-chain", "backbone", "carbon-atom", "hydrogen-atom", "bond", "branch", "chain-end", "cross-link", "side-chain", "carbon-carbon-bond"]
     }
   ],
   "visualRegions": [
@@ -125,6 +137,18 @@
     { "id": "material-crack", "description": "Sharp dark crack extending through the lower cutaway surface", "kind": "part", "x": 880, "y": 560, "width": 150, "height": 250 },
     { "id": "branch-segment", "description": "Dark molecular branch extending from the central backbone junction", "kind": "diagram", "x": 1300, "y": 430, "width": 220, "height": 200 },
     { "id": "molecular-chain-end", "description": "Terminal saturated carbon at the visible left edge of a chain", "kind": "part", "x": 1080, "y": 360, "width": 140, "height": 130 },
-    { "id": "highlighted-cross-link", "description": "Aqua molecular bridge visibly joining two separate dark chain paths", "kind": "diagram", "x": 1160, "y": 600, "width": 280, "height": 180 }
+    { "id": "highlighted-cross-link", "description": "Aqua molecular bridge visibly joining two separate dark chain paths", "kind": "diagram", "x": 1160, "y": 600, "width": 280, "height": 180 },
+    { "id": "verified-film-edge", "description": "Bright cut edge of the rolled translucent polymer film", "kind": "part", "x": 0, "y": 150, "width": 330, "height": 280 },
+    { "id": "verified-fiber-tie", "description": "Pale binding band holding the lower-left fiber bundle together", "kind": "part", "x": 250, "y": 560, "width": 180, "height": 180 },
+    { "id": "verified-fiber-tip", "description": "Separated translucent ends extending from the fiber bundle", "kind": "part", "x": 300, "y": 570, "width": 250, "height": 180 },
+    { "id": "verified-mold-cavity", "description": "Round openings formed through the top of the molded specimen", "kind": "part", "x": 330, "y": 145, "width": 220, "height": 210 },
+    { "id": "verified-fracture-ridge", "description": "Raised rough ridge along the specimen's cut fracture face", "kind": "part", "x": 280, "y": 250, "width": 210, "height": 250 },
+    { "id": "verified-pigment-cluster", "description": "Compact group of many gold pigment beads inside the cutaway", "kind": "object", "x": 950, "y": 260, "width": 150, "height": 150 },
+    { "id": "verified-amorphous-chain", "description": "One transparent looping chain in the tangled amorphous field", "kind": "diagram", "x": 650, "y": 250, "width": 420, "height": 400 },
+    { "id": "verified-spherulite-center", "description": "Bright radial nucleus at the center of the visible spherulite", "kind": "part", "x": 780, "y": 30, "width": 330, "height": 310 },
+    { "id": "verified-pore-wall", "description": "Porous inner wall surrounding the large round material pore", "kind": "part", "x": 775, "y": 650, "width": 185, "height": 180 },
+    { "id": "verified-side-chain", "description": "Attached side chain branching from the upper-right molecular path", "kind": "diagram", "x": 1370, "y": 80, "width": 180, "height": 250 },
+    { "id": "verified-crack-tip", "description": "Sharp terminating point of the dark crack in the cutaway", "kind": "part", "x": 880, "y": 560, "width": 150, "height": 250 },
+    { "id": "verified-carbon-carbon-bond", "description": "Dark rod visibly connecting two carbon spheres", "kind": "part", "x": 1270, "y": 380, "width": 120, "height": 100 }
   ]
 }

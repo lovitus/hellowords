@@ -87,9 +87,10 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // One terminal external-anatomy portrait visibly supports 34 features.
   // The lower floor allows evidence-led revisions without adding internal anatomy.
   frog: 28,
-  // The upgraded terminal polymer exhibit resolves 27 distinct macro,
-  // morphological and molecular structures. Its evidence ceiling stays at 28
-  // so invisible properties and near-synonyms cannot inflate the scene.
+  // The upgraded terminal polymer exhibit resolves 37 distinct macro,
+  // morphological and molecular structures. Its evidence floor stays at 24
+  // while the explicit ceiling below blocks invisible properties and
+  // near-synonyms from inflating the scene.
   polymer: 24,
   bedroom: 32,
   bathroom: 36,
@@ -131,7 +132,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "chloroplast-interior": 32,
 };
 const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
-  polymer: 28,
+  // The final raster has clear macro forms, microstructure and one coherent
+  // molecular model; the 37-anchor ceiling excludes unsupported chemistry.
+  polymer: 37,
   // The bright bathroom exposes a full suite of independently pointable
   // fixtures plus readable hardware/textile subparts; the ceiling blocks
   // invisible conditions while allowing the reviewed 81-anchor scene.

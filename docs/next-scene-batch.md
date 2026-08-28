@@ -118,7 +118,7 @@ The SVG is an attractive abstract chain landscape, but most circles and lines ar
 - A repeating unit is not a free monomer; a branch is not automatically a cross-link; a crystallite is not a separate pellet.
 - Elasticity, density, molecular weight, glass transition, polymerization, biodegradability and recyclability are not directly visible here.
 
-**Honest ceiling:** 28. Reaching 32 would require near-synonyms, invisible properties, or several chemically different specimens that stop reading as one coherent scene.
+**Pre-generation ceiling (historical):** 28. The published `polymer-premium-v2.jpg` audit supersedes that estimate with 68 reviewed candidates and 37 retained anchors across four zones: macro film/fiber/mold details, semicrystalline morphology, defects/additives and one molecular field. The expanded set still excludes invisible properties, unsupported chemistry, detached side groups and near-synonyms.
 
 **Published audit:** 25 grounded terms. The final pixels support a fiber bundle and a separately visible fiber, but not an internal fibril hierarchy. The apparent side-group candidate is detached from the main chain, and the generic chain segment has no chemically defined repeat boundary, so both `side group` and `repeating unit` remain deliberately unlabelled.
 
