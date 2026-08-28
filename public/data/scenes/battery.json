@@ -105,7 +105,15 @@
       "translation": "电池包壳体",
       "description": "Complete aluminum pack shell, raised lid, seal and mounting hardware",
       "x": 0, "y": 0, "width": 1600, "height": 900, "targetScale": 2.1,
-      "labelIds": ["battery-pack", "enclosure", "enclosure-flange", "lid", "gasket", "lid-bolt", "mounting-bracket", "ground-strap", "enclosure-rib", "mounting-hole", "lid-port", "lid-recess", "flange-bolt", "mounting-tab"]
+      "labelIds": ["battery-pack", "enclosure", "enclosure-flange", "mounting-bracket", "ground-strap", "enclosure-rib", "mounting-hole", "mounting-tab"]
+    },
+    {
+      "id": "lid-and-seal",
+      "title": "Lid and seal",
+      "translation": "上盖与密封",
+      "description": "Raised aluminum lid, perimeter seal and its visible fasteners",
+      "x": 0, "y": 0, "width": 1600, "height": 300, "targetScale": 2.4,
+      "labelIds": ["lid", "gasket", "lid-bolt", "lid-port", "lid-recess", "flange-bolt"]
     },
     {
       "id": "cell-module",
@@ -121,7 +129,15 @@
       "translation": "功率电子区",
       "description": "Right-side high and low voltage distribution hardware and controller housings",
       "x": 680, "y": 210, "width": 820, "height": 520, "targetScale": 3,
-      "labelIds": ["high-voltage-cable", "low-voltage-harness", "cable-connector", "electrical-socket", "protective-cover", "bms-controller", "fuse", "contactor", "service-disconnect", "module-clamp", "cable-clamp", "voltage-sense-wire", "cable-gland", "terminal-lug", "wire-loom", "connector-lock"]
+      "labelIds": ["high-voltage-cable", "low-voltage-harness", "electrical-socket", "bms-controller", "fuse", "contactor", "service-disconnect", "module-clamp", "cable-clamp", "voltage-sense-wire", "cable-gland", "wire-loom"]
+    },
+    {
+      "id": "power-terminal",
+      "title": "Power terminal",
+      "translation": "电源端子",
+      "description": "Red connector housing, terminal lug and its dark locking hardware",
+      "x": 1240, "y": 250, "width": 320, "height": 240, "targetScale": 2.8,
+      "labelIds": ["cable-connector", "protective-cover", "terminal-lug", "connector-lock"]
     },
     {
       "id": "thermal-management",

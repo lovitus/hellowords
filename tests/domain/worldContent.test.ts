@@ -1099,9 +1099,11 @@ test("premium battery pack expands only into clearly resolved electrical and the
   assert.deepEqual(
     battery.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["pack-shell", 14],
+      ["pack-shell", 8],
+      ["lid-and-seal", 6],
       ["cell-module", 17],
-      ["power-electronics", 16],
+      ["power-electronics", 12],
+      ["power-terminal", 4],
       ["thermal-management", 13],
     ],
   );

@@ -701,6 +701,24 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
   await search.fill("coolant tee");
   await expect(index.getByTestId("scene-word-index-result").first()).toContainText("coolant tee");
   await index.getByRole("button", { name: "关闭场景词索引" }).click();
+
+  const lidZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="lid-and-seal"]',
+  );
+  await lidZone.click();
+  await expect(lidZone).toHaveAttribute("data-active", "true");
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="lid port"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+
+  const terminalZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="power-terminal"]',
+  );
+  await terminalZone.click();
+  await expect(terminalZone).toHaveAttribute("data-active", "true");
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="terminal lug"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
 });
 
 test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {
