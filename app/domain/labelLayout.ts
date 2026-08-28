@@ -1028,16 +1028,50 @@ export function computeSceneLabelLayout(
       viewport.compact,
     );
     const preferredOffset = options.preferredOffsets?.get(candidate.label.id);
-    const authoredOffsets = preferredOffset
+    const hasPreferredOffset = Boolean(
+      preferredOffset
       && Number.isFinite(preferredOffset.offsetX)
-      && Number.isFinite(preferredOffset.offsetY)
-      ? [
-          [preferredOffset.offsetX, preferredOffset.offsetY] as const,
-          ...canonicalOffsets.filter(([offsetX, offsetY]) => (
-            offsetX !== preferredOffset.offsetX || offsetY !== preferredOffset.offsetY
-          )),
-        ]
+      && Number.isFinite(preferredOffset.offsetY),
+    );
+    const preferredAlternatives = hasPreferredOffset
+      ? canonicalOffsets
+        .filter(([offsetX, offsetY]) => (
+          offsetX !== preferredOffset!.offsetX || offsetY !== preferredOffset!.offsetY
+        ))
+        .sort((first, second) => (
+          Math.hypot(
+            first[0] - preferredOffset!.offsetX,
+            first[1] - preferredOffset!.offsetY,
+          )
+          - Math.hypot(
+            second[0] - preferredOffset!.offsetX,
+            second[1] - preferredOffset!.offsetY,
+          )
+          || first[1] - second[1]
+          || first[0] - second[0]
+        ))
       : canonicalOffsets;
+    // A collision can make the remembered slot unavailable even though the
+    // anchor is still on screen. Try a few bounded points on the path toward
+    // the nearest canonical slots before taking the full ring jump; this keeps
+    // the leader moving locally while the collision pass remains authoritative.
+    const transitionalOffsets = hasPreferredOffset
+      ? preferredAlternatives
+        .slice(0, 4)
+        .flatMap(([offsetX, offsetY]) => [0.35, 0.65, 0.85].map((progress) => (
+          [
+            preferredOffset!.offsetX + (offsetX - preferredOffset!.offsetX) * progress,
+            preferredOffset!.offsetY + (offsetY - preferredOffset!.offsetY) * progress,
+          ] as const
+        )))
+      : [];
+    const authoredOffsets = hasPreferredOffset
+      ? [
+          [preferredOffset!.offsetX, preferredOffset!.offsetY] as const,
+          ...transitionalOffsets,
+          ...preferredAlternatives,
+        ]
+      : preferredAlternatives;
     const reservedPlacement = reservedPreferredOffsets.get(candidate.label.id);
     const placement = reservedPlacement ?? authoredOffsets.find(([offsetX, offsetY]) => {
       const bounds = boundsAt(
