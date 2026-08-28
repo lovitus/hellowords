@@ -164,7 +164,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "oak-tree": 68,
   "coffee-machine": 60,
   "cotton-shirt": 40,
-  "water-tank": 36,
+  "water-tank": 50,
   // The bright pond raster resolves distinct emergent leaves and seed heads,
   // floating-garden parts, water ripples, shallow-water life, bank textures and
   // external frog details; the ceiling blocks absent wildlife and behaviors.

@@ -966,12 +966,12 @@ test("premium water tank grounds its service details and keeps one real polymer 
   assert.ok(waterTank);
   assert.equal(waterTank.asset, "/scenes/water-tank-premium-v1.jpg");
   assert.equal(waterTank.parentId, "coffee-machine");
-  assert.equal(waterTank.labels.length, 36);
+  assert.equal(waterTank.labels.length, 50);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       waterTank.labels.filter((label) => label.minLevel === level).length
     )),
-    [10, 8, 7, 6, 5],
+    [12, 11, 10, 9, 8],
   );
   assert.equal(waterTank.detailZones?.length, 5);
   assert.deepEqual(waterTank.portals, [
@@ -1007,6 +1007,20 @@ test("premium water tank grounds its service details and keeps one real polymer 
     "rubber o-ring",
     "mounting slot",
     "locating tab",
+    "fill opening",
+    "lid underside",
+    "hinge barrel",
+    "hinge arm",
+    "latch insert",
+    "outlet tube",
+    "valve plunger",
+    "valve seat",
+    "filter housing",
+    "outlet bracket",
+    "base lip",
+    "filter rim",
+    "filter mesh",
+    "outlet collar",
   ]) {
     assert.ok(words.has(required), `water tank visibly grounds ${required}`);
   }

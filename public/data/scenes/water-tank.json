@@ -18,6 +18,8 @@
     { "id": "filter-screen", "word": "filter screen", "translation": "过滤网", "x": 350, "y": 790, "priority": 1.007, "minLevel": 0, "sourceVisualRegion": "outlet-assembly" },
     { "id": "tank-base", "word": "tank base", "translation": "水箱底座", "x": 850, "y": 750, "priority": 1.008, "minLevel": 0, "sourceVisualRegion": "base-and-mounts" },
     { "id": "rubber-foot", "word": "rubber foot", "translation": "橡胶支脚", "x": 1150, "y": 850, "priority": 1.009, "minLevel": 0, "sourceVisualRegion": "base-and-mounts" },
+    { "id": "fill-opening", "word": "fill opening", "translation": "注水口", "x": 850, "y": 210, "priority": 1.01, "minLevel": 0, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "lid-underside", "word": "lid underside", "translation": "盖子内侧", "x": 850, "y": 155, "priority": 1.011, "minLevel": 0, "sourceVisualRegion": "lid-and-rim" },
 
     { "id": "lid-rim", "word": "lid rim", "translation": "盖缘", "x": 870, "y": 35, "priority": 2.01, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
     { "id": "hinge", "word": "hinge", "translation": "铰链", "x": 530, "y": 165, "priority": 2.011, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
@@ -27,6 +29,9 @@
     { "id": "pouring-lip", "word": "pouring lip", "translation": "倒水口", "x": 320, "y": 240, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
     { "id": "latch", "word": "latch", "translation": "卡扣", "x": 450, "y": 235, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
     { "id": "air-gap", "word": "air gap", "translation": "空气间隙", "x": 850, "y": 300, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "water-fill" },
+    { "id": "hinge-barrel", "word": "hinge barrel", "translation": "铰链筒", "x": 530, "y": 165, "priority": 2.018, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "hinge-arm", "word": "hinge arm", "translation": "铰链臂", "x": 480, "y": 145, "priority": 2.019, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "latch-insert", "word": "latch insert", "translation": "卡扣嵌件", "x": 445, "y": 235, "priority": 2.02, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
 
     { "id": "water-surface", "word": "water surface", "translation": "水面", "x": 850, "y": 380, "priority": 3.018, "minLevel": 2, "sourceVisualRegion": "water-fill" },
     { "id": "meniscus", "word": "meniscus", "translation": "弯月面", "x": 1190, "y": 400, "priority": 3.019, "minLevel": 2, "sourceVisualRegion": "water-fill" },
@@ -35,6 +40,9 @@
     { "id": "air-bubble", "word": "air bubble", "translation": "气泡", "x": 1000, "y": 550, "priority": 3.022, "minLevel": 2, "sourceVisualRegion": "water-fill" },
     { "id": "reflection-highlight", "word": "reflection highlight", "translation": "反光高光", "x": 565, "y": 330, "priority": 3.023, "minLevel": 2, "sourceVisualRegion": "water-fill" },
     { "id": "reinforcing-rib", "word": "reinforcing rib", "translation": "加强筋", "x": 390, "y": 500, "priority": 3.024, "minLevel": 2, "sourceVisualRegion": "wall-construction" },
+    { "id": "outlet-tube", "word": "outlet tube", "translation": "出水管", "x": 470, "y": 735, "priority": 3.025, "minLevel": 2, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "valve-plunger", "word": "valve plunger", "translation": "阀芯", "x": 535, "y": 630, "priority": 3.026, "minLevel": 2, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "valve-seat", "word": "valve seat", "translation": "阀座", "x": 535, "y": 675, "priority": 3.027, "minLevel": 2, "sourceVisualRegion": "outlet-assembly" },
 
     { "id": "front-wall", "word": "front wall", "translation": "前壁", "x": 800, "y": 520, "priority": 4.025, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
     { "id": "side-wall", "word": "side wall", "translation": "侧壁", "x": 1320, "y": 520, "priority": 4.026, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
@@ -42,12 +50,18 @@
     { "id": "wall-thickness", "word": "wall thickness", "translation": "壁厚", "x": 1260, "y": 210, "priority": 4.028, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
     { "id": "molded-seam", "word": "molded seam", "translation": "模塑接缝", "x": 1230, "y": 520, "priority": 4.029, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
     { "id": "rounded-corner", "word": "rounded corner", "translation": "圆角", "x": 1320, "y": 740, "priority": 4.03, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
+    { "id": "filter-housing", "word": "filter housing", "translation": "过滤器壳", "x": 470, "y": 650, "priority": 4.031, "minLevel": 3, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "outlet-bracket", "word": "outlet bracket", "translation": "出水口支架", "x": 450, "y": 620, "priority": 4.032, "minLevel": 3, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "base-lip", "word": "base lip", "translation": "底座边缘", "x": 850, "y": 760, "priority": 4.033, "minLevel": 3, "sourceVisualRegion": "base-and-mounts" },
 
     { "id": "outlet-port", "word": "outlet port", "translation": "出水口", "x": 470, "y": 750, "priority": 5.031, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
     { "id": "valve-spring", "word": "valve spring", "translation": "阀门弹簧", "x": 535, "y": 660, "priority": 5.032, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
     { "id": "rubber-o-ring", "word": "rubber O-ring", "translation": "橡胶O形圈", "x": 515, "y": 700, "priority": 5.033, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
     { "id": "mounting-slot", "word": "mounting slot", "translation": "安装槽", "x": 1100, "y": 785, "priority": 5.034, "minLevel": 4, "sourceVisualRegion": "base-and-mounts" },
-    { "id": "locating-tab", "word": "locating tab", "translation": "定位卡舌", "x": 930, "y": 800, "priority": 5.035, "minLevel": 4, "sourceVisualRegion": "base-and-mounts" }
+    { "id": "locating-tab", "word": "locating tab", "translation": "定位卡舌", "x": 930, "y": 800, "priority": 5.035, "minLevel": 4, "sourceVisualRegion": "base-and-mounts" },
+    { "id": "filter-rim", "word": "filter rim", "translation": "过滤网边框", "x": 350, "y": 770, "priority": 5.036, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "filter-mesh", "word": "filter mesh", "translation": "滤网网孔", "x": 350, "y": 790, "priority": 5.037, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "outlet-collar", "word": "outlet collar", "translation": "出水口套环", "x": 470, "y": 700, "priority": 5.038, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" }
   ],
   "portals": [
     {
@@ -74,7 +88,7 @@
       "width": 1100,
       "height": 290,
       "targetScale": 2.35,
-      "labelIds": ["lid", "lid-rim", "hinge", "hinge-pin", "lid-gasket", "tank-rim", "pouring-lip", "latch"]
+      "labelIds": ["lid", "lid-rim", "hinge", "hinge-pin", "lid-gasket", "tank-rim", "pouring-lip", "latch", "fill-opening", "lid-underside", "hinge-barrel", "hinge-arm", "latch-insert"]
     },
     {
       "id": "water-and-air",
@@ -110,7 +124,7 @@
       "width": 420,
       "height": 280,
       "targetScale": 2.75,
-      "labelIds": ["outlet-valve", "filter-screen", "outlet-port", "valve-spring", "rubber-o-ring"]
+      "labelIds": ["outlet-valve", "filter-screen", "outlet-port", "valve-spring", "rubber-o-ring", "outlet-tube", "valve-plunger", "valve-seat", "filter-housing", "outlet-bracket", "filter-rim", "filter-mesh", "outlet-collar"]
     },
     {
       "id": "base-and-mounts",
@@ -122,7 +136,7 @@
       "width": 700,
       "height": 210,
       "targetScale": 2.6,
-      "labelIds": ["tank-base", "rubber-foot", "mounting-slot", "locating-tab"]
+      "labelIds": ["tank-base", "rubber-foot", "mounting-slot", "locating-tab", "base-lip"]
     }
   ],
   "anchorAudit": {
@@ -130,9 +144,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/water-tank-premium-v1.jpg",
     "reviewedAssetSha256": "f10abe3172ff6702464f85ceb799cc57fd589d287f7147b4c234999b6d0686ad",
-    "rationale": "Reviewed the final 1600 by 900 product image pixel by pixel and anchored only the reservoir's visible lid, molded walls, clean water, droplets, outlet hardware and mounting geometry; the broad unobstructed right plastic wall remains the real Polymer child-scene entrance.",
-    "previousLabelCount": 56,
-    "retainedLabelCount": 36,
+    "rationale": "Re-audited the final 1600 by 900 product image pixel by pixel and retained 50 separately pointable reservoir, lid, hinge, latch, water, molded-wall, outlet-valve and base details. The added fill opening, hinge barrel/arm, latch insert, outlet tube, plunger, seat, filter housing/rim/mesh, outlet collar, bracket and base lip are kept only where the clear photograph resolves a separate surface or joint; the broad unobstructed right plastic wall remains the real Polymer child-scene entrance.",
+    "previousLabelCount": 70,
+    "retainedLabelCount": 50,
     "removedLabelCount": 20,
     "removedExamples": ["float switch", "overflow", "pressure sensor", "hydrostatic pressure", "refill", "watertight"]
   },
