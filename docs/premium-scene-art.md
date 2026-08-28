@@ -174,6 +174,8 @@ The final-pixel audit retained 49 distinct terms across five authored regions. I
 
 Render a scientifically plausible, cinematic 3D cutaway of one living leaf cell rather than a flat diagram. Resolve the wall and membrane, cytoplasm, vacuole and tonoplast, nucleus and nucleolus, ER, ribosomes, Golgi and vesicles, mitochondria and cristae, cytoskeleton, and multiple chloroplasts. Cut open the large upper-right chloroplast so its grana are visible and it naturally becomes the next portal.
 
+The final-pixel audit retains 46 structures across five authored crops. It adds only visible nucleoplasm, ER membrane, cytoplasmic strands, a layered cell wall, chloroplast connecting lamellae, thylakoid discs, plastoglobules, cytoskeleton filaments and a vesicle lumen; invisible molecular processes and unsupported plasmodesmata remain excluded.
+
 ### Chloroplast interior
 
 Create one complete bright chloroplast in a clean oblique cutaway, with a continuous thin outer membrane, inner membrane and narrow intermembrane space. Inside, show aqueous stroma, several grana made from many separate thin thylakoid sacs, broad connecting stroma lamellae, one foreground opened thylakoid with its lumen, restrained photosystem and ATP-synthase complexes, two starch grains, plastoglobules, fine ribosome granules and one loose circular DNA nucleoid. Keep the materials matte and biologically scaled; exclude caves, glass shells, pancake cylinders, candy-like proteins, text, arrows and fantasy glow.

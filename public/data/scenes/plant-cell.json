@@ -377,6 +377,96 @@
       "priority": 4.037,
       "minLevel": 3,
       "sourceVisualRegion": "verified-chloroplast-stroma"
+    },
+    {
+      "id": "nucleoplasm",
+      "word": "nucleoplasm",
+      "translation": "核质",
+      "x": 500,
+      "y": 300,
+      "priority": 6,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-nucleoplasm"
+    },
+    {
+      "id": "er-membrane",
+      "word": "ER membrane",
+      "translation": "内质网膜",
+      "x": 600,
+      "y": 180,
+      "priority": 6.001,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-er-membrane"
+    },
+    {
+      "id": "cytoplasmic-strand",
+      "word": "cytoplasmic strand",
+      "translation": "细胞质丝",
+      "x": 785,
+      "y": 155,
+      "priority": 6.002,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-cytoplasmic-strand"
+    },
+    {
+      "id": "cell-wall-layer",
+      "word": "cell wall layer",
+      "translation": "细胞壁层",
+      "x": 805,
+      "y": 792,
+      "priority": 6.003,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-cell-wall-layer"
+    },
+    {
+      "id": "stroma-lamella",
+      "word": "stroma lamella",
+      "translation": "基质片层",
+      "x": 1200,
+      "y": 220,
+      "priority": 6.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-stroma-lamella"
+    },
+    {
+      "id": "thylakoid-disc",
+      "word": "thylakoid disc",
+      "translation": "类囊体盘",
+      "x": 1025,
+      "y": 205,
+      "priority": 6.005,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-thylakoid-disc"
+    },
+    {
+      "id": "plastoglobule",
+      "word": "plastoglobule",
+      "translation": "质体小球",
+      "x": 1300,
+      "y": 300,
+      "priority": 6.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-plastoglobule"
+    },
+    {
+      "id": "cytoskeleton-filament",
+      "word": "cytoskeleton filament",
+      "translation": "细胞骨架丝",
+      "x": 1320,
+      "y": 610,
+      "priority": 6.007,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-cytoskeleton-filament"
+    },
+    {
+      "id": "vesicle-lumen",
+      "word": "vesicle lumen",
+      "translation": "囊泡腔",
+      "x": 1305,
+      "y": 570,
+      "priority": 6.008,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-vesicle-lumen"
     }
   ],
   "portals": [
@@ -398,9 +488,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/plant-cell-premium-v2.jpg",
     "reviewedAssetSha256": "2c873d870fc8c2344b4686460647c941c01740723a0901936e70a012e118146e",
-    "rationale": "Expanded the plant-cell cutaway into five authored organelle crops and added only visible membrane boundaries, internal spaces, folds, connections and cell-wall details.",
-    "previousLabelCount": 56,
-    "retainedLabelCount": 37,
+    "rationale": "Expanded the plant-cell cutaway with only visible nucleoplasm, ER membrane, cytoplasmic strands, a layered cell wall, chloroplast connecting lamellae, thylakoid discs, plastoglobules, cytoskeleton filaments and a vesicle lumen; the existing chloroplast portal and all unsupported molecular processes remain unchanged.",
+    "previousLabelCount": 65,
+    "retainedLabelCount": 46,
     "removedLabelCount": 19,
     "removedExamples": [
       "enzyme",
@@ -681,6 +771,87 @@
       "y": 85,
       "width": 445,
       "height": 315
+    },
+    {
+      "id": "verified-nucleoplasm",
+      "description": "Purple nucleoplasm surrounding the chromatin and nucleolus",
+      "kind": "part",
+      "x": 355,
+      "y": 235,
+      "width": 270,
+      "height": 245
+    },
+    {
+      "id": "verified-er-membrane",
+      "description": "Visible membrane surfaces forming the rough ER sheets",
+      "kind": "part",
+      "x": 235,
+      "y": 145,
+      "width": 620,
+      "height": 485
+    },
+    {
+      "id": "verified-cytoplasmic-strand",
+      "description": "Thin cytoplasmic strand crossing the central vacuole region",
+      "kind": "part",
+      "x": 545,
+      "y": 85,
+      "width": 920,
+      "height": 675
+    },
+    {
+      "id": "verified-cell-wall-layer",
+      "description": "One visibly separated layer within the thick outer cell wall",
+      "kind": "part",
+      "x": 115,
+      "y": 725,
+      "width": 1405,
+      "height": 120
+    },
+    {
+      "id": "verified-stroma-lamella",
+      "description": "Connecting membrane ribbon between adjacent chloroplast grana",
+      "kind": "part",
+      "x": 965,
+      "y": 125,
+      "width": 370,
+      "height": 220
+    },
+    {
+      "id": "verified-thylakoid-disc",
+      "description": "Single flattened disc resolved inside a green granum stack",
+      "kind": "part",
+      "x": 965,
+      "y": 125,
+      "width": 370,
+      "height": 220
+    },
+    {
+      "id": "verified-plastoglobule",
+      "description": "Small pale globule suspended within the chloroplast interior",
+      "kind": "part",
+      "x": 965,
+      "y": 125,
+      "width": 370,
+      "height": 220
+    },
+    {
+      "id": "verified-cytoskeleton-filament",
+      "description": "One fine filament crossing the visible cytoskeleton network",
+      "kind": "part",
+      "x": 545,
+      "y": 85,
+      "width": 920,
+      "height": 675
+    },
+    {
+      "id": "verified-vesicle-lumen",
+      "description": "Blue interior space enclosed by the visible transport-vesicle membrane",
+      "kind": "part",
+      "x": 1240,
+      "y": 515,
+      "width": 135,
+      "height": 135
     }
   ],
   "detailZones": [
@@ -703,7 +874,9 @@
         "nuclear-envelope",
         "nuclear-pore",
         "rough-er-cisterna",
-        "er-lumen"
+        "er-lumen",
+        "nucleoplasm",
+        "er-membrane"
       ]
     },
     {
@@ -742,7 +915,10 @@
         "vacuolar-sap",
         "free-ribosome",
         "vesicle",
-        "vesicle-membrane"
+        "vesicle-membrane",
+        "cytoplasmic-strand",
+        "cytoskeleton-filament",
+        "vesicle-lumen"
       ]
     },
     {
@@ -761,7 +937,10 @@
         "granum",
         "thylakoid-stack",
         "starch-grain",
-        "chloroplast-stroma"
+        "chloroplast-stroma",
+        "stroma-lamella",
+        "thylakoid-disc",
+        "plastoglobule"
       ]
     },
     {
@@ -782,7 +961,8 @@
         "mitochondrial-matrix",
         "outer-mitochondrial-membrane",
         "inner-mitochondrial-membrane",
-        "mitochondrial-intermembrane-space"
+        "mitochondrial-intermembrane-space",
+        "cell-wall-layer"
       ]
     }
   ]

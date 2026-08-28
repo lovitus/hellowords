@@ -164,6 +164,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // shirt construction and accessory shelf; the ceiling blocks fabric and
   // stitching claims while allowing the reviewed 56-anchor set.
   "wardrobe-interior": 56,
+  // The rendered cell has separable cytoplasm, nuclear, chloroplast and
+  // membrane substructures; the ceiling rejects invisible molecular steps.
+  "plant-cell": 46,
   "chloroplast-interior": 36,
 };
 const MIN_PREMIUM_OVERVIEW_LABELS = 12;
