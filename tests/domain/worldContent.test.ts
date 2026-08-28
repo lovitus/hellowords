@@ -910,6 +910,11 @@ test("train carriage adds grounded coupler, cabin and track parts", async () => 
       ["foreground-track", 4],
     ],
   );
+  assert.equal(
+    carriage.detailZones?.find((zone) => zone.id === "coupler-and-brake-gear")?.targetScale,
+    2.8,
+    "the coupler crop reaches the L4 brake hose in one focus gesture",
+  );
   const anchors = new Map(carriage.labels.map((label) => [label.id, [label.x, label.y]] as const));
   for (const [id, point] of [
     ["buffer", [72, 660]],

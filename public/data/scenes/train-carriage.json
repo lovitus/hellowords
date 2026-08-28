@@ -167,7 +167,7 @@
       "y": 100,
       "width": 260,
       "height": 730,
-      "targetScale": 2.6,
+      "targetScale": 2.8,
       "labelIds": ["gangway-bellows", "coupler", "buffer", "brake-hose"]
     },
     {
