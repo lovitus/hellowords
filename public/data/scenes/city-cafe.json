@@ -56,7 +56,32 @@
     { "id": "tiled-floor", "word": "tiled floor", "translation": "瓷砖地面", "x": 600, "y": 750, "priority": 5.041, "minLevel": 4, "sourceVisualRegion": "verified-tiled-floor" },
     { "id": "brick-wall", "word": "brick wall", "translation": "砖墙", "x": 1050, "y": 150, "priority": 5.042, "minLevel": 4, "sourceVisualRegion": "verified-brick-wall" },
     { "id": "ceiling-beam", "word": "ceiling beam", "translation": "顶梁", "x": 600, "y": 35, "priority": 5.043, "minLevel": 4, "sourceVisualRegion": "verified-ceiling-beam" },
-    { "id": "menu-board", "word": "menu board", "translation": "菜单板", "x": 1320, "y": 150, "priority": 5.044, "minLevel": 4, "sourceVisualRegion": "verified-menu-board" }
+    { "id": "menu-board", "word": "menu board", "translation": "菜单板", "x": 1320, "y": 150, "priority": 5.044, "minLevel": 4, "sourceVisualRegion": "verified-menu-board" },
+    { "id": "door-panel", "word": "door panel", "translation": "门板", "x": 150, "y": 560, "priority": 7.001, "minLevel": 2, "sourceVisualRegion": "verified-front-door" },
+    { "id": "window-mullion", "word": "window mullion", "translation": "窗中梃", "x": 340, "y": 230, "priority": 7.002, "minLevel": 2, "sourceVisualRegion": "verified-window" },
+    { "id": "cafe-tabletop", "word": "cafe tabletop", "translation": "咖啡桌面", "x": 450, "y": 510, "priority": 7.003, "minLevel": 2, "sourceVisualRegion": "verified-cafe-table" },
+    { "id": "counter-edge", "word": "counter edge", "translation": "柜台边缘", "x": 1100, "y": 665, "priority": 7.004, "minLevel": 2, "sourceVisualRegion": "verified-countertop" },
+    { "id": "display-glass", "word": "display glass", "translation": "展示柜玻璃", "x": 900, "y": 450, "priority": 7.005, "minLevel": 2, "sourceVisualRegion": "verified-display-case" },
+    { "id": "table-base", "word": "table base", "translation": "桌子底座", "x": 450, "y": 650, "priority": 7.006, "minLevel": 3, "sourceVisualRegion": "verified-cafe-table" },
+    { "id": "chair-back", "word": "chair back", "translation": "椅背", "x": 410, "y": 540, "priority": 7.007, "minLevel": 3, "sourceVisualRegion": "verified-chair" },
+    { "id": "chair-seat", "word": "chair seat", "translation": "椅座", "x": 410, "y": 630, "priority": 7.008, "minLevel": 3, "sourceVisualRegion": "verified-chair" },
+    { "id": "banquette-back", "word": "banquette back", "translation": "卡座靠背", "x": 500, "y": 450, "priority": 7.009, "minLevel": 3, "sourceVisualRegion": "verified-banquette" },
+    { "id": "banquette-seat", "word": "banquette seat", "translation": "卡座座面", "x": 500, "y": 560, "priority": 7.010, "minLevel": 3, "sourceVisualRegion": "verified-banquette" },
+    { "id": "pendant-shade", "word": "pendant shade", "translation": "吊灯灯罩", "x": 435, "y": 130, "priority": 7.011, "minLevel": 3, "sourceVisualRegion": "verified-pendant-lamp" },
+    { "id": "shelf-bracket", "word": "shelf bracket", "translation": "搁板支架", "x": 745, "y": 230, "priority": 7.012, "minLevel": 3, "sourceVisualRegion": "verified-wall-shelf" },
+    { "id": "plant-leaf", "word": "plant leaf", "translation": "植物叶片", "x": 660, "y": 185, "priority": 7.013, "minLevel": 3, "sourceVisualRegion": "verified-potted-plant" },
+    { "id": "cup-handle", "word": "cup handle", "translation": "杯柄", "x": 430, "y": 790, "priority": 7.014, "minLevel": 3, "sourceVisualRegion": "verified-coffee-cup" },
+    { "id": "carafe-neck", "word": "carafe neck", "translation": "水壶颈", "x": 220, "y": 675, "priority": 7.015, "minLevel": 3, "sourceVisualRegion": "verified-glass-carafe" },
+    { "id": "glass-rim", "word": "glass rim", "translation": "玻璃杯口", "x": 310, "y": 720, "priority": 7.016, "minLevel": 4, "sourceVisualRegion": "verified-water-glass" },
+    { "id": "sugar-bowl-lid", "word": "sugar bowl lid", "translation": "糖罐盖", "x": 130, "y": 745, "priority": 7.017, "minLevel": 4, "sourceVisualRegion": "verified-sugar-bowl" },
+    { "id": "napkin-fold", "word": "napkin fold", "translation": "餐巾折痕", "x": 450, "y": 850, "priority": 7.018, "minLevel": 4, "sourceVisualRegion": "verified-folded-napkin" },
+    { "id": "portafilter-handle", "word": "portafilter handle", "translation": "咖啡手柄握柄", "x": 1300, "y": 450, "priority": 7.019, "minLevel": 4, "sourceVisualRegion": "verified-portafilter" },
+    { "id": "steam-wand-tip", "word": "steam wand tip", "translation": "蒸汽棒尖端", "x": 1375, "y": 500, "priority": 7.020, "minLevel": 4, "sourceVisualRegion": "verified-steam-wand" },
+    { "id": "grinder-chute", "word": "grinder chute", "translation": "磨豆机出粉口", "x": 1455, "y": 450, "priority": 7.021, "minLevel": 4, "sourceVisualRegion": "verified-coffee-grinder" },
+    { "id": "cup-stack-rim", "word": "cup stack rim", "translation": "杯摞边缘", "x": 1230, "y": 320, "priority": 7.022, "minLevel": 4, "sourceVisualRegion": "verified-cup-stack" },
+    { "id": "payment-screen", "word": "payment screen", "translation": "支付屏幕", "x": 1200, "y": 500, "priority": 7.023, "minLevel": 4, "sourceVisualRegion": "verified-payment-terminal" },
+    { "id": "receipt-slot", "word": "receipt slot", "translation": "小票出口", "x": 1310, "y": 560, "priority": 7.024, "minLevel": 4, "sourceVisualRegion": "verified-receipt-printer" },
+    { "id": "menu-frame", "word": "menu frame", "translation": "菜单板边框", "x": 1320, "y": 80, "priority": 7.025, "minLevel": 4, "sourceVisualRegion": "verified-menu-board" }
   ],
   "portals": [],
   "anchorAudit": {
@@ -65,8 +90,8 @@
     "reviewedAsset": "/scenes/city-cafe-premium-v2.jpg",
     "reviewedAssetSha256": "376704b19736218c3af769cd1f2faae8726aa25b7b1e784ffab593876434b88f",
     "rationale": "Anchored 45 independently visible cafe objects and parts against the final daylight photograph, keeping equipment physically attached, pastries individually readable, seating empty and all boards, terminals and exterior signs free of text.",
-    "previousLabelCount": 52,
-    "retainedLabelCount": 45,
+    "previousLabelCount": 77,
+    "retainedLabelCount": 70,
     "removedLabelCount": 7,
     "removedExamples": ["barista", "brand", "menu text", "aroma", "music", "queue"]
   },
@@ -77,7 +102,7 @@
       "translation": "咖啡馆空间",
       "description": "Bright room shell with floor, brick wall, ceiling beam and blank menu board",
       "x": 0, "y": 0, "width": 1600, "height": 900, "targetScale": 2,
-      "labelIds": ["city-cafe", "tiled-floor", "brick-wall", "ceiling-beam", "menu-board"]
+      "labelIds": ["city-cafe", "tiled-floor", "brick-wall", "ceiling-beam", "menu-board", "menu-frame"]
     },
     {
       "id": "window-seating",
@@ -85,7 +110,7 @@
       "translation": "窗边座席",
       "description": "Sunlit entrance, empty tables, banquette and calm wall furnishings",
       "x": 0, "y": 0, "width": 800, "height": 760, "targetScale": 2.5,
-      "labelIds": ["front-door", "door-handle", "window", "cafe-table", "chair", "banquette", "pendant-lamp", "wall-sconce", "potted-plant", "wall-shelf", "framed-artwork"]
+      "labelIds": ["front-door", "door-handle", "window", "cafe-table", "chair", "banquette", "pendant-lamp", "wall-sconce", "potted-plant", "wall-shelf", "framed-artwork", "door-panel", "window-mullion", "cafe-tabletop", "table-base", "chair-back", "chair-seat", "banquette-back", "banquette-seat", "pendant-shade", "shelf-bracket", "plant-leaf"]
     },
     {
       "id": "counter-pastries",
@@ -93,7 +118,7 @@
       "translation": "柜台与糕点",
       "description": "Service counter, glass display and individually separated baked goods",
       "x": 620, "y": 330, "width": 980, "height": 570, "targetScale": 2.7,
-      "labelIds": ["service-counter", "countertop", "counter-front", "display-case", "croissant", "muffin", "fruit-tart", "cake-slice", "bread-roll", "pastry-tray", "cake-stand", "payment-terminal", "receipt-printer"]
+      "labelIds": ["service-counter", "countertop", "counter-front", "display-case", "croissant", "muffin", "fruit-tart", "cake-slice", "bread-roll", "pastry-tray", "cake-stand", "payment-terminal", "receipt-printer", "counter-edge", "display-glass"]
     },
     {
       "id": "espresso-station",
@@ -101,7 +126,7 @@
       "translation": "意式咖啡区",
       "description": "Professional espresso machine, attached controls and grinder equipment",
       "x": 1050, "y": 270, "width": 550, "height": 320, "targetScale": 3,
-      "labelIds": ["espresso-machine", "group-head", "portafilter", "steam-wand", "pressure-gauge", "coffee-grinder", "bean-hopper", "milk-pitcher", "cup-stack"]
+      "labelIds": ["espresso-machine", "group-head", "portafilter", "steam-wand", "pressure-gauge", "coffee-grinder", "bean-hopper", "milk-pitcher", "cup-stack", "portafilter-handle", "steam-wand-tip", "grinder-chute", "cup-stack-rim", "payment-screen", "receipt-slot"]
     },
     {
       "id": "foreground-tableware",
@@ -109,7 +134,7 @@
       "translation": "桌面餐具",
       "description": "Large foreground table with distinct ceramic, glass and textile pieces",
       "x": 0, "y": 620, "width": 650, "height": 280, "targetScale": 2.8,
-      "labelIds": ["coffee-cup", "saucer", "folded-napkin", "sugar-bowl", "water-glass", "glass-carafe", "vase"]
+      "labelIds": ["coffee-cup", "saucer", "folded-napkin", "sugar-bowl", "water-glass", "glass-carafe", "vase", "cup-handle", "carafe-neck", "glass-rim", "sugar-bowl-lid", "napkin-fold"]
     }
   ],
   "visualRegions": [

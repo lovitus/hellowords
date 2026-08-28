@@ -155,7 +155,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The terminal photograph resolves separate rail, bus, access, ticketing and
   // mobility fixtures; the ceiling blocks blank display readings and services.
   "transit-hub": 73,
-  "city-cafe": 45,
+  // The bright cafe resolves seating, tableware, pastry-display and espresso
+  // equipment parts; the ceiling blocks people, branding and inferred service.
+  "city-cafe": 70,
   "coffee-machine": 40,
   "cotton-shirt": 40,
   "water-tank": 36,

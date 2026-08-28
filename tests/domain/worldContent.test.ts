@@ -684,6 +684,69 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
   );
 });
 
+test("city cafe preserves its expanded seating, pastry and espresso vocabulary", async () => {
+  const { scenes } = await loadWorld();
+  const cafe = scenes.find((scene) => scene.id === "city-cafe");
+  assert.ok(cafe);
+  assert.equal(cafe.labels.length, 70);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      cafe.labels.filter((label) => label.minLevel === level).length
+    )),
+    [9, 9, 14, 19, 19],
+  );
+  const words = new Set(cafe.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const required of [
+    "door panel",
+    "window mullion",
+    "cafe tabletop",
+    "counter edge",
+    "display glass",
+    "table base",
+    "chair back",
+    "chair seat",
+    "banquette back",
+    "banquette seat",
+    "pendant shade",
+    "shelf bracket",
+    "plant leaf",
+    "cup handle",
+    "carafe neck",
+    "glass rim",
+    "sugar bowl lid",
+    "napkin fold",
+    "portafilter handle",
+    "steam wand tip",
+    "grinder chute",
+    "cup stack rim",
+    "payment screen",
+    "receipt slot",
+    "menu frame",
+  ]) {
+    assert.ok(words.has(required), `city cafe visibly grounds ${required}`);
+  }
+  assert.deepEqual(
+    cafe.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["cafe-shell", 6],
+      ["window-seating", 22],
+      ["counter-pastries", 15],
+      ["espresso-station", 15],
+      ["foreground-tableware", 12],
+    ],
+  );
+  const labels = new Map(cafe.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["door-panel", "display-glass", "steam-wand-tip"].map((id) => {
+      const label = labels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[150, 560], [900, 450], [1375, 500]],
+    "new city cafe parts stay anchored on their reviewed pixels",
+  );
+});
+
 test("premium coffee machine grounds its cutaway and keeps one real water-tank portal", async () => {
   const { scenes } = await loadWorld();
   const coffeeMachine = scenes.find((scene) => scene.id === "coffee-machine");
@@ -1659,7 +1722,7 @@ test("city cafe is a new terminal storefront branch with a non-overlapping paren
   assert.ok(cafe);
   assert.equal(cafe.parentId, "city-street");
   assert.equal(cafe.asset, "/scenes/city-cafe-premium-v2.jpg");
-  assert.ok(cafe.labels.length >= 36 && cafe.labels.length <= 45);
+  assert.equal(cafe.labels.length, 70);
   assert.ok((cafe.detailZones?.length ?? 0) >= 5);
   assert.deepEqual(cafe.portals, [], "city cafe remains its own terminal exploration");
 
