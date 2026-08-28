@@ -476,7 +476,10 @@ export function buildViewerChromeProtectedRegions(
   // multi-line title block. This gives grounded labels the rest of the
   // top-left image back without allowing pills to sit under navigation.
   const minimapRight = Math.min(width, phone ? 312 : compact ? 348 : 412);
-  const minimapBottom = phone ? 112 : compact ? 116 : 126;
+  // The desktop minimap's rendered panel ends around 120px in the viewport.
+  // Reserving the old 126px rectangle made nearby words jump to a distant
+  // leader slot even when only a few pixels touched the translucent panel.
+  const minimapBottom = phone ? 112 : compact ? 116 : 120;
   const regions: SceneLabelProtectedRegion[] = [{
     left: 0,
     right: minimapRight,

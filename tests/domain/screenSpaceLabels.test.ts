@@ -848,7 +848,7 @@ test("screen-space labels reserve the compact minimap and persistent viewer cont
   assert.ok(desktop.some((region) => (
     region.left === 0 && region.top === 0
     && region.right >= 400 && region.right < 430
-    && region.bottom >= 118 && region.bottom < 135
+    && region.bottom === 120
   )), "the compact scene minimap owns only its measured top-left rectangle");
   assert.ok(desktop.some((region) => (
     region.left < 640 && region.right > 640 && region.top === 0
