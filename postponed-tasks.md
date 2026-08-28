@@ -4,9 +4,9 @@
 
 ## 当前交付游标
 
-- 公开版本：`v49-5bc7a27`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=49-5bc7a27>
-- 源码：`5bc7a27`（v49 公开运行时；bedroom 词汇扩展）
+- 公开版本：`v50-bf4ceda`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=50-bf4ceda>
+- 源码：`bf4ceda`（v50 公开运行时；railway-platform 词汇扩展）
 - 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、科学馆、厨房与浴室密度；语义换词/索引闪现优化和首页大类词表（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
@@ -27,11 +27,13 @@
 - v48 验收证据：`npm run verify`、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开浴室六个细节区可达，浴缸区、马桶区、淋浴区和毛巾收纳均显示新增词。
 - v49 已基于 `bedroom-premium-v2.jpg` 的最终像素审计扩展 21 个可指认部件，卧室从 83 增至 104 个词；床品褶皱、书桌/椅子、窗与灯具、衣柜收纳、洗衣篮编织纹和地板细节均保留，衣柜入口未被遮挡。
 - v49 验收证据：`npm run verify`、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径从首页进入 Apartment → Bedroom，五个细分区显示 28/19/14/37/5 词，场景词索引可定位 pillow seam、artwork frame、garment sleeve、wardrobe hinge、floor plank 等新增词，返回首页后六大类入口仍可用，公开页无 error/warn 日志。
+- v50 已基于 `railway-platform-premium-v2.jpg` 的最终像素审计扩展 25 个可指认部件，铁路站台从 71 增至 96 个词；站台铺面/缘石、钟与长椅、行李、车门/车顶、车头运行部件、受电弓和轨道床细节均保留，完整列车入口未被遮挡。
+- v50 验收证据：`npm run verify`、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径从首页进入 City street → Transit hub → Railway platform，四个细分区显示 34/30/11/21 词，场景词索引可定位 platform tile、roof vent、mast crossarm、rail baseplate 等新增词，返回首页后 1,275 词首页入口仍可用，公开页无 error/warn 日志。
 - 下一步继续：先复核下一张最终像素成品再制作真实物体词汇；不要回滚首页 1,275 个锚点或用同义词填数。
 
 ## 未完成任务（按优先级）
 
-1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 107、`city-street` 89、`kitchen` 116、`bedroom` 104、`bathroom` 103、科学馆 121、铁路站台 71、列车车厢 64、城市公园 63、叶片 49、聚合物 37、衣柜 56、植物细胞 46、叶绿体内部 51 已完成。接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
+1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 107、`city-street` 89、`kitchen` 116、`bedroom` 104、`bathroom` 103、科学馆 121、铁路站台 96、列车车厢 64、城市公园 63、叶片 49、聚合物 37、衣柜 56、植物细胞 46、叶绿体内部 51 已完成。接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
    - 下一批候选：从 `docs/next-scene-batch.md` 选择仍有足够真实像素证据的稀疏场景；先复核最终像素再决定是否扩展。
    - 每个场景先做 portal 真值和 100%/200% 像素复核，再接入数据和导航。
 2. **连续探索扩展**：保留根图集的滚轮/触控连续缩放和显式点击进入语义；只有在父子场景确实能共享同一张连续栅格时才增加反向 portal，不能恢复“滚轮误触即跳场景”。
