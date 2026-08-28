@@ -275,10 +275,16 @@ test("starts as a calm target-language world and persists the meaning toggle", a
   await expect(toggle).toHaveAttribute("aria-pressed", "true");
   await expect(category.getByTestId("atlas-category-nameplate")).toContainText("校园");
   await category.hover();
-  const categoryPanel = page.getByTestId("atlas-category-vocabulary");
-  await expect(categoryPanel).toBeVisible();
-  await expect(categoryPanel.getByTestId("atlas-category-word")).toHaveCount(196);
-  await expect(categoryPanel.getByTestId("atlas-category-word").first().locator("span")).toBeVisible();
+  await expect(page.getByTestId("atlas-category-layer")).toHaveAttribute(
+    "data-active-category",
+    "school",
+  );
+  const categoryWords = page.getByTestId("atlas-category-word");
+  await expect.poll(() => categoryWords.count()).toBeGreaterThan(0);
+  await expect(categoryWords.first()).toHaveAttribute("data-category-id", "school");
+  await expect(page.locator('[data-testid="atlas-category-word"][data-category-id="science"]'))
+    .toHaveCount(0);
+  await expect(page.getByTestId("atlas-category-vocabulary")).toHaveCount(0);
 
   await page.reload({ waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("world-app")).toBeVisible();
@@ -359,7 +365,7 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   await expect(card).toBeHidden();
 });
 
-test("the home atlas keeps its artwork clear and exposes full category word lists", async ({ page }) => {
+test("the home atlas keeps its artwork clear and reveals only the hovered district words", async ({ page }) => {
   await openWorld(page);
   const sceneContract = await currentSceneLabelContract(page);
   const progress = page.getByTestId("scene-word-progress");
@@ -382,23 +388,37 @@ test("the home atlas keeps its artwork clear and exposes full category word list
   const categories = page.getByTestId("atlas-category");
   await expect(categories).toHaveCount(expectedCounts.length);
   await expect(page.getByTestId("atlas-category-nameplate")).toHaveCount(expectedCounts.length);
+  await expect(page.getByTestId("atlas-category-word")).toHaveCount(0);
+  await expect(page.getByTestId("atlas-category-vocabulary")).toHaveCount(0);
 
-  const categoryLabels = ["Campus", "Science", "Transit", "Farm", "Market", "Wetland"];
+  const categoryIds = ["school", "science", "transport", "farm", "market", "wetland"];
   for (let index = 0; index < expectedCounts.length; index += 1) {
-    if (index === 0) {
-      await categories.nth(index).getByTestId("atlas-category-hit").click();
-    } else {
-      await page.getByRole("button", { name: `切换到 ${categoryLabels[index]}` }).click();
-    }
-    const panel = page.getByTestId("atlas-category-vocabulary");
-    await expect(panel).toBeVisible();
-    await expect(panel).toHaveAttribute("data-word-count", String(expectedCounts[index]));
-    await expect(panel.getByTestId("atlas-category-word")).toHaveCount(expectedCounts[index]);
+    await categories.nth(index).hover();
+    await expect(page.getByTestId("atlas-category-layer")).toHaveAttribute(
+      "data-active-category",
+      categoryIds[index],
+    );
+    const words = page.getByTestId("atlas-category-word");
+    await expect.poll(() => words.count()).toBeGreaterThan(0);
+    expect(await words.count()).toBeLessThanOrEqual(expectedCounts[index]);
+    expect(new Set(await words.evaluateAll((nodes) => nodes.map((node) => node.getAttribute("data-category-id")))))
+      .toEqual(new Set([categoryIds[index]]));
+    await expect(page.getByTestId("atlas-category-vocabulary")).toHaveCount(0);
   }
 
-  await page.getByRole("button", { name: "关闭大区词表" }).click();
-  await page.getByRole("button", { name: "Fit scene" }).click();
+  const viewport = page.locator(VIEWPORT);
+  const viewportBox = await viewport.boundingBox();
+  expect(viewportBox).not.toBeNull();
+  await page.mouse.move(
+    viewportBox!.x + viewportBox!.width / 2,
+    viewportBox!.y + viewportBox!.height - 3,
+  );
+  await expect(page.getByTestId("atlas-category-layer")).toHaveAttribute(
+    "data-active-category",
+    "none",
+  );
   await expect(page.getByTestId("word-label")).toHaveCount(0);
+  await expect(page.getByTestId("atlas-category-word")).toHaveCount(0);
   await expect(categories).toHaveCount(expectedCounts.length);
 });
 

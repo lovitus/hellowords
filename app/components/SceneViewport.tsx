@@ -818,7 +818,6 @@ export function SceneViewport({
   const semanticOverscrollRef = useRef(0);
   const semanticOverscrollTimestampRef = useRef<number | null>(null);
   const atlasCategoryElementsRef = useRef(new Map<string, HTMLDivElement>());
-  const atlasCategoryPanelRef = useRef<HTMLDivElement>(null);
   const atlasCategoryCloseTimerRef = useRef<number | null>(null);
   const previewPhaseRef = useRef<"preview" | "armed">("preview");
   const committingRef = useRef(false);
@@ -919,6 +918,10 @@ export function SceneViewport({
       .filter((label) => labelIds.has(label.id))
       .sort((first, second) => first.priority - second.priority || first.id.localeCompare(second.id));
   }, [activeAtlasDistrict, scene.labels]);
+  const activeAtlasLabelIds = useMemo(
+    () => new Set(activeAtlasLabels.map((label) => label.id)),
+    [activeAtlasLabels],
+  );
 
   const cancelAtlasCategoryClose = useCallback(() => {
     if (atlasCategoryCloseTimerRef.current === null) return;
@@ -944,7 +947,7 @@ export function SceneViewport({
     else atlasCategoryElementsRef.current.delete(districtId);
   }, []);
 
-  const positionAtlasCategories = useCallback((camera: Camera, viewportWidth: number, viewportHeight: number) => {
+  const positionAtlasCategories = useCallback((camera: Camera) => {
     if (!atlasOverviewMode || !atlasDistricts) return;
     for (const district of atlasDistricts) {
       const element = atlasCategoryElementsRef.current.get(district.id);
@@ -956,25 +959,7 @@ export function SceneViewport({
       setStylePropertyIfChanged(element.style, "height", `${Math.max(0, bounds.height).toFixed(2)}px`);
       setDatasetValueIfChanged(element, "positioned", "true");
     }
-
-    const panel = atlasCategoryPanelRef.current;
-    if (!panel || !activeAtlasDistrict) return;
-    const districtBounds = projectSceneRectToScreen(activeAtlasDistrict, camera);
-    const panelWidth = panel.offsetWidth || Math.min(390, Math.max(0, viewportWidth - 24));
-    const panelHeight = panel.offsetHeight || Math.min(520, Math.max(0, viewportHeight - 36));
-    const left = Math.min(
-      Math.max(12, viewportWidth - panelWidth - 12),
-      Math.max(12, districtBounds.x + districtBounds.width / 2 - panelWidth / 2),
-    );
-    const top = Math.min(
-      Math.max(12, viewportHeight - panelHeight - 12),
-      Math.max(12, districtBounds.y + districtBounds.height / 2 - panelHeight / 2),
-    );
-    setStylePropertyIfChanged(panel.style, "left", `${left.toFixed(2)}px`);
-    setStylePropertyIfChanged(panel.style, "top", `${top.toFixed(2)}px`);
-    setDatasetValueIfChanged(panel, "side", "center");
-    setDatasetValueIfChanged(panel, "positioned", "true");
-  }, [activeAtlasDistrict, atlasDistricts, atlasOverviewMode]);
+  }, [atlasDistricts, atlasOverviewMode]);
 
   useEffect(() => () => {
     cancelAtlasCategoryClose();
@@ -1243,7 +1228,7 @@ export function SceneViewport({
     const frameMotionFrozen = committingRef.current
       || continuitySettlingRef.current
       || imminentParentExit;
-    positionAtlasCategories(camera, viewportWidth, viewportHeight);
+    positionAtlasCategories(camera);
     syncMotionFrozenLayer(labelLayer, frameMotionFrozen);
     syncMotionFrozenLayer(interactionLayer, frameMotionFrozen);
     if (frameMotionFrozen) {
@@ -1344,7 +1329,9 @@ export function SceneViewport({
       }
     }
 
-    const labelsForCameraLayout: readonly Label[] = atlasOverviewMode ? [] : scene.labels;
+    const labelsForCameraLayout: readonly Label[] = atlasOverviewMode
+      ? selectedLabelId ? [] : activeAtlasLabels
+      : scene.labels;
     const labelViewport = {
       width: viewportWidth,
       height: viewportHeight,
@@ -1556,7 +1543,7 @@ export function SceneViewport({
       const remaining = atlasOverviewMode ? total : Math.max(0, total - visibleCount);
       const maximumZoom = camera.scale >= maximumScale - 0.02;
       const action = atlasOverviewMode
-        ? `悬停六个大类查看各区完整词汇 · 共 ${total} 个词`
+        ? "悬停大区显示该区锚点词，放大可见更多"
         : remaining === 0
           ? maximumZoom
             ? "本景词汇已全部在当前视野，继续放大进入万词大图"
@@ -1567,7 +1554,7 @@ export function SceneViewport({
       const compact = viewportWidth <= 560;
       const text = atlasOverviewMode
         ? compact
-          ? `六个大类 · 悬停查看 ${total.toLocaleString("en-US")} 个词`
+          ? "悬停大区查看锚点词"
           : action
         : compact
           ? `视野 ${visibleCount}/${total} · ${maximumZoom ? "拖动看词 / 继续放大进万词大图" : remaining === 0 ? "已全部展开" : `放大/拖动看其余 ${remaining}`}`
@@ -1577,7 +1564,7 @@ export function SceneViewport({
         sceneWordProgress,
         "aria-label",
         atlasOverviewMode
-          ? `首页有六个大类，共 ${total} 个词。悬停或聚焦大类查看该区完整词汇。`
+          ? `首页有六个大类。悬停或聚焦大类查看该区锚点词，放大可见更多。`
           : `当前视野 ${visibleCount} 个词，本场景共 ${total} 个词。${action}`,
       );
       setDatasetValueIfChanged(sceneWordProgress, "current", String(visibleCount));
@@ -1872,7 +1859,7 @@ export function SceneViewport({
       viewportWidth,
       viewportHeight,
     });
-  }, [atlasOverviewMode, clampCamera, continuousTileDirection, continuousTileState, labelsById, onCameraFrame, onLabelsEncountered, positionAtlasCategories, reconcileSceneAssetForCamera, scene, showPortalPreview, vocabularyZoomCues, wordIndexOpen]);
+  }, [activeAtlasLabels, atlasOverviewMode, clampCamera, continuousTileDirection, continuousTileState, labelsById, onCameraFrame, onLabelsEncountered, positionAtlasCategories, reconcileSceneAssetForCamera, scene, selectedLabelId, showPortalPreview, vocabularyZoomCues, wordIndexOpen]);
 
   useLayoutEffect(() => {
     if (pendingLabelWindowPaintRef.current) {
@@ -2813,9 +2800,40 @@ export function SceneViewport({
     previousPointersRef.current.set(event.pointerId, point);
   };
 
+  const updateAtlasCategoryHover = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!atlasOverviewMode || !atlasDistricts || !viewerInteractiveRef.current) return;
+    if (pointersRef.current.has(event.pointerId)) return;
+    const target = event.target instanceof Element ? event.target : null;
+    const hoveredWord = target?.closest<HTMLElement>("[data-atlas-category-word=\"true\"]");
+    if (hoveredWord?.dataset.categoryId === atlasCategoryId) {
+      cancelAtlasCategoryClose();
+      return;
+    }
+    const viewportBounds = event.currentTarget.getBoundingClientRect();
+    const point = {
+      x: event.clientX - viewportBounds.left,
+      y: event.clientY - viewportBounds.top,
+    };
+    const hoveredDistrict = atlasDistricts.find((district) => {
+      const bounds = projectSceneRectToScreen(district, cameraRef.current);
+      return point.x >= bounds.x
+        && point.x <= bounds.x + bounds.width
+        && point.y >= bounds.y
+        && point.y <= bounds.y + bounds.height;
+    });
+    if (hoveredDistrict) {
+      activateAtlasCategory(hoveredDistrict.id);
+    } else if (atlasCategoryId) {
+      scheduleAtlasCategoryClose();
+    }
+  };
+
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!pointersRef.current.has(event.pointerId)) {
+      updateAtlasCategoryHover(event);
+      return;
+    }
     if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
-    if (!pointersRef.current.has(event.pointerId)) return;
     const current = { x: event.clientX, y: event.clientY };
     const previous = previousPointersRef.current.get(event.pointerId) ?? current;
     pointersRef.current.set(event.pointerId, current);
@@ -2899,6 +2917,7 @@ export function SceneViewport({
         aria-busy={interactionLocked}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
+        onPointerLeave={scheduleAtlasCategoryClose}
         onPointerUp={releasePointer}
         onPointerCancel={releasePointer}
         onLostPointerCapture={releasePointer}
@@ -2974,7 +2993,6 @@ export function SceneViewport({
             >
               {atlasDistricts.map((district) => {
                 const active = atlasCategoryId === district.id;
-                const panelId = `atlas-category-vocabulary-${scene.id}-${district.id}`;
                 return (
                   <div
                     key={district.id}
@@ -2984,23 +3002,16 @@ export function SceneViewport({
                     data-category-id={district.id}
                     data-active={String(active)}
                     data-positioned="false"
-                    onPointerEnter={() => {
-                      // Keep the open panel stable while its switcher moves
-                      // across another region; clicking a nameplate still
-                      // explicitly selects that district.
-                      if (!atlasCategoryId) activateAtlasCategory(district.id);
-                    }}
-                    onPointerLeave={scheduleAtlasCategoryClose}
                   >
                     <button
                       type="button"
                       className="atlas-category-hit"
                       data-testid="atlas-category-hit"
                       data-category-id={district.id}
-                      aria-controls={panelId}
                       aria-expanded={active}
-                      aria-label={`${district.label}，${district.translation}，${district.labelCount} 个词。悬停查看完整词汇`}
+                      aria-label={`${district.label}，${district.translation}，${district.labelCount} 个词。悬停显示该区锚点词`}
                       disabled={!viewerInteractive}
+                      onFocus={() => activateAtlasCategory(district.id)}
                       onBlur={scheduleAtlasCategoryClose}
                       onClick={() => activateAtlasCategory(district.id)}
                     >
@@ -3012,91 +3023,6 @@ export function SceneViewport({
                   </div>
                 );
               })}
-              {activeAtlasDistrict ? (
-                <section
-                  ref={atlasCategoryPanelRef}
-                  id={`atlas-category-vocabulary-${scene.id}-${activeAtlasDistrict.id}`}
-                  className="atlas-category-vocabulary"
-                  data-testid="atlas-category-vocabulary"
-                  data-category-id={activeAtlasDistrict.id}
-                  data-word-count={activeAtlasLabels.length}
-                  data-positioned="false"
-                  aria-labelledby={`atlas-category-title-${scene.id}-${activeAtlasDistrict.id}`}
-                  onPointerEnter={cancelAtlasCategoryClose}
-                  onPointerLeave={scheduleAtlasCategoryClose}
-                  onFocus={cancelAtlasCategoryClose}
-                  onBlur={scheduleAtlasCategoryClose}
-                >
-                  <header className="atlas-category-vocabulary__header">
-                    <div>
-                      <span className="atlas-category-vocabulary__eyebrow">ATLAS CATEGORY</span>
-                      <h2 id={`atlas-category-title-${scene.id}-${activeAtlasDistrict.id}`}>
-                        {activeAtlasDistrict.label}
-                      </h2>
-                    </div>
-                    <div className="atlas-category-vocabulary__header-actions">
-                      <span className="atlas-category-vocabulary__count">
-                        {activeAtlasLabels.length} 个词
-                      </span>
-                      <button
-                        type="button"
-                        className="atlas-category-vocabulary__close"
-                        aria-label="关闭大区词表"
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          setAtlasCategoryId(null);
-                        }}
-                      >
-                        ×
-                      </button>
-                    </div>
-                  </header>
-                  <nav className="atlas-category-vocabulary__switcher" aria-label="切换首页大区">
-                    {atlasDistricts.map((district) => (
-                      <button
-                        key={district.id}
-                        type="button"
-                        data-active={String(district.id === activeAtlasDistrict.id)}
-                        aria-current={district.id === activeAtlasDistrict.id ? "page" : undefined}
-                        aria-label={`切换到 ${district.label}`}
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          activateAtlasCategory(district.id);
-                        }}
-                      >
-                        {district.label}
-                      </button>
-                    ))}
-                  </nav>
-                  <p className="atlas-category-vocabulary__hint">
-                    {meaningVisible ? activeAtlasDistrict.translation : "悬停保持面板，滚动查看完整词汇"}
-                  </p>
-                  <ol className="atlas-category-vocabulary__words" aria-label={`${activeAtlasDistrict.label} 完整词汇`}>
-                    {activeAtlasLabels.map((label) => (
-                      <li key={label.id}>
-                        <button
-                          type="button"
-                          data-testid="atlas-category-word"
-                          data-label-id={label.id}
-                          data-word={label.word}
-                          data-interactive="true"
-                          data-visible="true"
-                          onPointerDown={(event) => event.stopPropagation()}
-                          onClick={(event) => {
-                            event.stopPropagation();
-                            setAtlasCategoryId(null);
-                            onSelectWord(label);
-                          }}
-                          aria-label={`${label.word}，${label.translation}`}
-                        >
-                          <strong>{label.word}</strong>
-                          {meaningVisible ? <span>{label.translation}</span> : null}
-                        </button>
-                      </li>
-                    ))}
-                  </ol>
-                </section>
-              ) : null}
             </div>
           ) : null}
           <div
@@ -3231,7 +3157,8 @@ export function SceneViewport({
           aria-label="Words in this scene"
         >
           {scene.labels.filter((label) => (
-            !atlasOverviewMode && transitionPhase !== "outgoing" && mountedLabelIds.has(label.id)
+            (!atlasOverviewMode || (!selectedLabelId && activeAtlasLabelIds.has(label.id)))
+            && transitionPhase !== "outgoing" && mountedLabelIds.has(label.id)
           )).map((label) => {
             const semanticStyle = labelSemanticStyles.get(label.id);
             return (
@@ -3247,7 +3174,9 @@ export function SceneViewport({
                 }}
                 type="button"
                 className="word-label"
-                data-testid="word-label"
+                data-testid={atlasOverviewMode ? "atlas-category-word" : "word-label"}
+                data-atlas-category-word={atlasOverviewMode ? "true" : undefined}
+                data-category-id={atlasOverviewMode ? atlasCategoryId ?? undefined : undefined}
                 data-label-id={label.id}
                 data-word={label.word}
                 data-lod={label.minLevel ?? 0}
@@ -3262,11 +3191,15 @@ export function SceneViewport({
                 aria-hidden="true"
                 onClick={(event) => {
                   event.stopPropagation();
+                  if (atlasOverviewMode) setAtlasCategoryId(null);
                   selectedLabelIdRef.current = label.id;
                   requestCameraFrame();
                   reportClickedLabel(label);
                   onSelectWord(label);
                 }}
+                onPointerEnter={atlasOverviewMode ? cancelAtlasCategoryClose : undefined}
+                onPointerLeave={atlasOverviewMode ? scheduleAtlasCategoryClose : undefined}
+                onFocus={atlasOverviewMode ? cancelAtlasCategoryClose : undefined}
               >
                 {label.word}
                 {meaningVisible ? (
@@ -3312,7 +3245,7 @@ export function SceneViewport({
               {sceneUsesWheelPortalEntry(scene.id) ? "继续放大进入细节" : "点击入口进入细节"}
             </span>
             <span><i data-kind="vocabulary" aria-hidden="true" />
-              {atlasOverviewMode ? "悬停大类查看完整词汇" : "放大显示更多词"}
+              {atlasOverviewMode ? "悬停大区查看锚点词" : "放大显示更多词"}
             </span>
           </aside>
           <p ref={vocabularyAnnouncementRef} className="sr-only" aria-live="polite" />
