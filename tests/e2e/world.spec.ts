@@ -415,6 +415,9 @@ test("five authored LOD bands use spare space and remain readable while zooming"
   await expect(page.getByTestId("scene-label-layer")).toHaveAttribute("data-motion-frozen", "false");
   await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-motion-frozen", "false");
   await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-positioned", "true");
+  // The handoff guard intentionally owns the first 180ms of wheel input;
+  // start this independent zoom gesture after that quiet window.
+  await page.waitForTimeout(220);
   const sceneContract = await currentSceneLabelContract(page);
   const surface = page.locator(".scene-surface");
   await expect(surface).toHaveAttribute("data-lod-level", "1");
