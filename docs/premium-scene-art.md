@@ -227,7 +227,7 @@ The final-pixel audit retains 65 grounded terms across six authored crops. It ad
 
 Create a bright, elegant natural-history macro portrait of exactly one complete adult green pond frog resting on a pale wet stone beside clear shallow water. Keep the entire frog sharply focused and unobstructed, with the profile head, iris, pupil, nostril, tympanum, mouth and throat clearly readable; resolve moist skin bumps, spots, stripe and dorsolateral fold; and separate the near forelimb and hind limb through their joints, fingers, toe pads and biologically plausible rear-foot webbing. Exclude diagrams, internal organs, tongue display, life stages, prey, behavior, people, text, pseudo-writing and dark swamp atmosphere.
 
-The final-pixel audit retained 34 grounded terms across four authored anatomy crops. It rejected the old diagram's internal organs, tongue, egg mass and tadpole, preserved only one visible external-anatomy sense for each anchor, and kept the scene terminal.
+The final-pixel audit retains 59 grounded terms across four authored anatomy crops. It adds visible eye rims, eyelid and mouth details, skin spots and folds, forearm and finger parts, hind-limb folds and toe/webbing parts, plus a small moss mark on the supporting stone. It still rejects the old diagram's internal organs, tongue, egg mass and tadpole, preserves only visible external-anatomy senses, and keeps the scene terminal.
 
 ### City cafe
 

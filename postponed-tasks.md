@@ -4,9 +4,9 @@
 
 ## 当前交付游标
 
-- 公开版本：`v62-6e78468`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=62-6e78468>
-- 源码：`6e78468`（v62 公开运行时；pond-edge 词汇扩展，沿用场景 JSON cache-bust）
+- 公开版本：`v63-632212f`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=63-632212f>
+- 源码：`632212f`（v63 公开运行时；frog 词汇扩展，沿用场景 JSON cache-bust）
 - 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、科学馆、厨房与浴室密度；语义换词/索引闪现优化和首页大类词表（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
@@ -14,7 +14,7 @@
 
 - 活跃根任务：`019fe5fe-faec-7070-9788-dbe33e98e645`（当前对话，保留）。没有运行中的协作 agent。
 - 已归档的完成子任务：`01a04618-091d-7a63-bf16-a78fd56aab74`，主题为“修复场景切换与首页展示”；它的代码曾被明确撤销，当前只保留本批工作树中的新改动。
-- 2026-08-28 清理后续：city-park 88 词、oak-tree 68 词、heart 61 词、dinosaur-hall 69 词与 pond-edge 65 词批次均已完成 validator、unit/docs、构建、公开部署和真实冒烟；当前工作树恢复干净。下一批继续先复核最终像素，再接入数据和导航。
+- 2026-08-28 清理后续：city-park 88 词、oak-tree 68 词、heart 61 词、dinosaur-hall 69 词、pond-edge 65 词与 frog 59 词批次均已完成 validator、unit/docs、构建、公开部署和真实冒烟；当前工作树恢复干净。下一批继续先复核最终像素，再接入数据和导航。
 - 活跃任务复核：HelloWords 根任务仍为 `active`；另一个独立的 MDD 根任务 `01a00e7d-e878-7dd2-978b-3ab09d25c932` 也在运行，工作目录为 `/Volumes/micron512g/tmp-project/mdd-gateway`，本次未触碰；当前没有协作子 agent。
 - v43 已提交并公开发布：`app/components/SceneViewport.tsx`、`app/components/WorldApp.tsx`、`app/globals.css` 与相关 E2E 契约已冻结。`world-map` 默认隐藏密集词云，六大类透明点击区可打开完整词表；分类词进入词卡时地图层自动收起；场景过渡期间旧标签/交互层隐藏；根图像和既有锚点坐标未改动。
 - v44 已基于 `chloroplast-interior-premium-v3.jpg` 的最终像素审计扩展 15 个可指认结构，叶绿体从 36 增至 51 个词、6 个细节区；不加入 Calvin cycle、Rubisco 等不可直接指认的过程。
@@ -54,6 +54,8 @@
 - v61 验收证据：`npm run verify`（221 个域测试）、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径进入 City street → Science museum → Dinosaur hall 后显示 69 个总词和六个细节区，场景词索引可定位 skull ridge、jaw hinge、shoulder blade、trilobite segment、brush bristles、hammer head，返回首页，公开页无 error/warn 日志。
 - v62 已基于 `pond-edge-premium-v1.jpg` 的最终像素审计扩展 25 个可指认部件，池塘边缘从 40 增至 65 个词；挺水植物/昆虫、漂浮水生花园、开阔倒影水面、清浅水域、岸边纹理、扁石青蛙六个细节区分别为 14/12/8/10/13/7 词，Frog 入口保持不变。
 - v62 验收证据：`npm run verify`（221 个域测试）、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径进入 City park → Pond edge 后显示 65 个总词和六个细节区，场景词索引可定位 cattail stem、lily pad vein、water lily center、ripple ring、minnow fin、frog tympanum，进入 Frog 后返回首页，公开页无 error/warn 日志。
+- v63 已基于 `frog-premium-v1.jpg` 的最终像素审计扩展 25 个可指认部件，青蛙从 34 增至 59 个词；头部与感官、躯干与皮肤、前肢与前趾、后肢与蹼趾四个细节区分别为 15/14/13/15 词，场景保持终点无入口。
+- v63 验收证据：`npm run verify`（221 个域测试）、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径进入 City park → Pond edge → Frog 后显示 59 个总词和四个细节区，场景词索引可定位 eye rim、back spot、forearm、toe segment、stone moss、jawline，返回首页，公开页无 error/warn 日志。
 - 下一步继续：先复核下一张最终像素成品再制作真实物体词汇；不要回滚首页 1,275 个锚点或用同义词填数。
 
 ## 未完成任务（按优先级）
