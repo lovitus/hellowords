@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,708 human-verified anchors representing 3,219
+Spatial scenes now contain 3,710 human-verified anchors representing 3,221
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -80,7 +80,7 @@ Each scene covers five progressive density bands:
 - level 3 — smaller visible parts or explicitly drawn diagram elements;
 - level 4 — the finest still-identifiable detail.
 
-All five bands remain available. Every 32-target premium scene must contain at least 32 grounded labels, while evidence-limited terminal studies keep explicit reviewed ranges; all high-resolution scenes still provide at least twelve overview labels, at least three labels in every LOD, and at least four authored detail zones. Each zone carries at least four words and the zones cover at least 60% of that scene's anchors. The rebuilt chloroplast now supports 51 independently pointable structures across six zones without duplicate membrane names or inferred processes. The upgraded polymer exhibit contains 37 independently pointable terms and is locked to a 24–37 evidence range; its final pixel audit adds only visible film, fiber, molded-cavity, morphology, defect and attached-molecular structures while keeping unsupported properties and molecular identities out.
+All five bands remain available. Every 32-target premium scene must contain at least 32 grounded labels, while evidence-limited terminal studies keep explicit reviewed ranges; all high-resolution scenes still provide at least twelve overview labels, at least three labels in every LOD, and at least four authored detail zones. Each zone carries at least four words and the zones cover at least 60% of that scene's anchors. The rebuilt chloroplast now supports 51 independently pointable structures across six zones without duplicate membrane names or inferred processes. The upgraded polymer exhibit contains 39 independently pointable terms and is locked to a 24–39 evidence range; its final pixel audit adds only visible film, fiber, molded-cavity, morphology, defect and attached-molecular structures while keeping unsupported properties and molecular identities out.
 
 ## Exploration cues and anchors
 
@@ -108,7 +108,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Kitchen | 125 → 116 | Bright kitchen grounds appliances, sink, cookware, coffee-nook and island parts; absent processes and hidden appliance claims remain removed |
 | Coffee machine | 78 → 60 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit, pump fittings and electronics; invisible functions and brewing processes remain removed |
 | Water tank | 70 → 50 | Premium clear-reservoir portrait grounds lid, water, molded walls, hinge/latch hardware, outlet valve internals, filter surfaces, mounts and the real Polymer portal; sensors, hidden plumbing, properties and maintenance actions remain removed |
-| Polymer | 68 → 37 | Premium multiscale material scene grounds specimens, morphology, defects and molecular structure; undefined molecular identities, properties and processes remain removed |
+| Polymer | 70 → 39 | Premium multiscale material scene grounds specimens, morphology, defects and molecular structure; the crystallite/lamellar-stack distinction remains visible while undefined molecular identities, properties and processes stay removed |
 | Bedroom | 115 → 104 | Premium bedroom adds grounded bedding, study, storage, textile and room-finish details; actions and moods remain removed |
 | Bathroom | 106 → 103 | Daylight bathroom grounds bath, vanity, toilet, shower, plumbing, glass hardware, tile and linen details; invisible conditions remain removed |
 | Wardrobe interior | 68 → 56 | Premium wardrobe grounds cabinet frame, hanger and garment parts, accessory details and nearby daylight-corner objects; materials, stitching claims and actions remain removed |
