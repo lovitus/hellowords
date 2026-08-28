@@ -158,6 +158,8 @@ The final-pixel audit retained 49 grounded terms across seven authored zones. A 
 
 Create a bright, elegant contemporary bathroom in soft natural daylight, composed as one coherent photographed room. Place a freestanding bathtub and window at left, an open vanity with sink, framed mirror and visible P-trap at center, a separate toilet, a glass walk-in shower with rainfall head, hand shower, niche and linear drain at right, and an open linen cabinet at the far edge. Make the bath tray, soap, washcloth, toiletry vessels, paper roll, brush, towels, tile and mat individually readable. Keep the room hygienic and serene, with no people, brands, writing, impossible plumbing or dark clinical atmosphere.
 
+The final-pixel audit retains 103 independently pointable structures across six authored zones. It adds only visible glass hardware, shower fittings, fixture edges, towel/storage parts and bath accessories; humidity, cleanliness, hot water and other inferred conditions remain excluded.
+
 ### Oak tree
 
 Create a bright, neutral-daylight natural-history view of a mature English oak at a woodland edge. Resolve the complete trunk, limbs, roots, bark fissures, tree hollow, knot, broken wood, moss, lichen, bracket fungus and ivy, plus one believable squirrel, woodpecker, nest, spiderweb, insects, leaf litter, stones and flowers. Keep the complete upper-right leaf-and-acorn cluster unobstructed as the next portal; avoid dramatic backlight, excessive yellow-green saturation and crushed shadows.

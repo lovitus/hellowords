@@ -110,7 +110,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Water tank | 56 → 36 | Premium clear-reservoir portrait grounds lid, water, molded walls, outlet hardware, mounts and the real Polymer portal; sensors, hidden plumbing, properties and maintenance actions remain removed |
 | Polymer | 68 → 37 | Premium multiscale material scene grounds specimens, morphology, defects and molecular structure; undefined molecular identities, properties and processes remain removed |
 | Bedroom | 51 → 40 | Premium bedroom adds grounded furniture, storage, textile and room-part details; actions and moods remain removed |
-| Bathroom | 48 → 45 | New daylight bathroom grounds bath, vanity, toilet, shower, plumbing, tile and linen details; invisible conditions remain removed |
+| Bathroom | 106 → 103 | Daylight bathroom grounds bath, vanity, toilet, shower, plumbing, glass hardware, tile and linen details; invisible conditions remain removed |
 | Wardrobe interior | 68 → 56 | Premium wardrobe grounds cabinet frame, hanger and garment parts, accessory details and nearby daylight-corner objects; materials, stitching claims and actions remain removed |
 | Cotton shirt | 48 → 40 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools; machinery, factory actions and performance properties remain removed |
 | City street | 46 → 42 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects |

@@ -983,7 +983,7 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
   assert.ok(bathroom);
   assert.equal(bathroom.parentId, "apartment");
   assert.equal(bathroom.asset, "/scenes/bathroom-premium-v1.jpg");
-  assert.ok(bathroom.labels.length >= 36 && bathroom.labels.length <= 81);
+  assert.ok(bathroom.labels.length >= 36 && bathroom.labels.length <= 103);
   assert.ok((bathroom.detailZones?.length ?? 0) >= 5);
   assert.deepEqual(bathroom.portals, [], "bathroom remains a terminal room");
 
@@ -1030,6 +1030,12 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
     "P-trap",
     "linear drain",
     "folded towels",
+    "window pane",
+    "toilet bowl rim",
+    "showerhead nozzle",
+    "glass door hinge",
+    "niche shelf",
+    "towel hem",
   ]) {
     assert.ok(words.has(required.toLocaleLowerCase()), `bathroom visibly grounds ${required}`);
   }
