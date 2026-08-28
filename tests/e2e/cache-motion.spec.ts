@@ -328,7 +328,7 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
   }
 });
 
-test("root portal click settles apartment before a deliberate second-step exit", async ({ page }, testInfo) => {
+test("root portal click settles apartment before a deliberate third-step exit", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium", "desktop fit geometry has a distinct mobile scale");
   const app = await openWorld(page);
   await expect(app).toHaveAttribute("data-scene-id", "world-map");
@@ -429,10 +429,13 @@ test("root portal click settles apartment before a deliberate second-step exit",
   await expect.poll(async () => {
     if (await app.getAttribute("data-scene-id") !== "apartment") return false;
     const scale = Number(await surface.getAttribute("data-scene-scale"));
-    return scale >= 0.805 && scale <= 0.825;
+    return scale >= 0.83 && scale <= 0.855;
   }, { message: "one ordinary wheel notch keeps the fitted apartment open" }).toBe(true);
 
   await startLoaderTrace(page);
+  await wheelAtViewportCenter(page, 120);
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await page.waitForTimeout(220);
   await wheelAtViewportCenter(page, 120);
   await expect(app).toHaveAttribute("data-scene-id", "world-map");
   await expect(app).toHaveAttribute("data-scene-loading", "false");

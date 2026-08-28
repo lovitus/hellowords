@@ -536,6 +536,8 @@ export function buildViewerChromeProtectedRegions(
   return regions;
 }
 
+export const WHEEL_ZOOM_SENSITIVITY = 0.00145;
+
 export function wheelZoomFactor(
   deltaY: number,
   deltaMode: number,
@@ -551,7 +553,11 @@ export function wheelZoomFactor(
       ? deltaY * Math.max(1, viewportHeight)
       : deltaY;
   const boundedDelta = Math.min(240, Math.max(-240, pixelDelta));
-  return Math.exp(-boundedDelta * 0.0017);
+  // A standard mouse notch should feel like a deliberate step, not a jump
+  // across a whole detail band. The bounded impulse still makes trackpads and
+  // line/page-mode wheels equivalent while leaving room for a fresh gesture
+  // to cross a portal boundary intentionally.
+  return Math.exp(-boundedDelta * WHEEL_ZOOM_SENSITIVITY);
 }
 
 export function shouldResetLabelPlacementMemory(

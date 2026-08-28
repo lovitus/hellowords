@@ -12,8 +12,8 @@ export interface PortalHysteresisPolicy {
 
 export const DEFAULT_PORTAL_HYSTERESIS_POLICY: PortalHysteresisPolicy = {
   enterScale: 3.6,
-  // One ordinary wheel notch from a fitted desktop scene lands near 0.816.
-  // Keep that first zoom-out gesture inside the child; a second deliberate
+  // One ordinary wheel notch from a fitted desktop scene lands near 0.84.
+  // Keep the first zoom-out gesture inside the child; a later deliberate
   // gesture crosses this threshold and returns to the parent.
   exitScale: 0.7,
   cooldownMs: 250,

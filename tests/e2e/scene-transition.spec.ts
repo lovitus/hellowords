@@ -281,7 +281,10 @@ test("portal entry progress stays in 0..1 and reaches armed while zooming in", a
   expect(initialPreview).not.toBeNull();
   const progress: number[] = [Number(initialPreview!.progress)];
   let armedObserved = false;
-  for (let index = 0; index < 32; index += 1) {
+  // The spatial wheel impulse is intentionally gentler so a normal notch does
+  // not jump across a detail band. Keep sampling the fine gesture long enough
+  // to reach the same portal preview threshold.
+  for (let index = 0; index < 40; index += 1) {
     const currentPreview = await portalPreviewState(page);
     if (
       currentPreview?.phase === "armed"

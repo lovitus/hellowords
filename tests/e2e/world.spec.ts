@@ -102,7 +102,7 @@ async function zoomSceneToScale(
       await viewport.dispatchEvent("wheel", {
         clientX: focus.x,
         clientY: focus.y,
-        deltaY: -Math.log(factor) / 0.0017,
+        deltaY: -Math.log(factor) / 0.00145,
         deltaMode: 0,
         bubbles: true,
         cancelable: true,

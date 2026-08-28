@@ -183,7 +183,7 @@ async function zoomSceneAboveFit(page: Page, targetScale: number): Promise<void>
     const scale = Number(await surface.getAttribute("data-scene-scale"));
     if (Number.isFinite(scale) && scale < targetScale * 0.998) {
       const factor = Math.min(1.12, targetScale / Math.max(0.01, scale));
-      await page.mouse.wheel(0, -Math.log(factor) / 0.0017);
+      await page.mouse.wheel(0, -Math.log(factor) / 0.00145);
     }
     return Number(await surface.getAttribute("data-scene-scale"));
   }, {
@@ -422,7 +422,7 @@ async function zoomThroughScales(page: Page, targets: readonly number[]): Promis
       const scale = Number(await surface.getAttribute("data-scene-scale"));
       if (Number.isFinite(scale) && scale < target * 0.998) {
         const factor = Math.min(1.12, target / Math.max(0.01, scale));
-        await page.mouse.wheel(0, -Math.log(factor) / 0.0017);
+        await page.mouse.wheel(0, -Math.log(factor) / 0.00145);
       }
       return Number(await surface.getAttribute("data-scene-scale"));
     }, {

@@ -25,6 +25,7 @@ import {
   sceneUsesWheelPortalEntry,
   shouldWriteContinuousTileProgress,
   vocabularyActivationFocusPoint,
+  WHEEL_ZOOM_SENSITIVITY,
   wheelZoomFactor,
 } from "../../app/components/SceneViewport";
 import {
@@ -548,10 +549,12 @@ test("wheel impulses are normalized across pixel, line and page delta modes", ()
   assert.ok(lineImpulse > 0 && lineImpulse < 1);
 });
 
-test("two ordinary wheel events can cross the raw scale boundary and therefore need a gesture latch", () => {
+test("three ordinary wheel events can cross the raw scale boundary and therefore need a gesture latch", () => {
   const oneNotch = wheelZoomFactor(120, 0, 826);
   assert.ok(oneNotch > DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale);
-  assert.ok(oneNotch * oneNotch < DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale);
+  assert.ok(oneNotch * oneNotch > DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale);
+  assert.ok(oneNotch * oneNotch * oneNotch < DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale);
+  assert.equal(WHEEL_ZOOM_SENSITIVITY, 0.00145);
   assert.equal(DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale, 0.7);
 });
 
