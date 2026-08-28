@@ -1025,10 +1025,25 @@ test("scene anchors project into screen coordinates while labels remain outside 
     wordRule,
     /transition:\s*opacity 90ms cubic-bezier\(0\.22, 0\.75, 0\.25, 1\);/,
   );
+  assert.match(
+    css,
+    /\.word-label\[data-layout-shift="true"\]\s*\{[\s\S]*?transform 140ms cubic-bezier\(0\.22, 0\.75, 0\.25, 1\)/,
+    "large collision corrections use a bounded transform transition",
+  );
   assert.doesNotMatch(wordRule, /(?:border-color|box-shadow|background)\s+120ms/);
   const cameraFrameStart = source.indexOf("const applyCamera");
   const cameraFrameEnd = source.indexOf("const requestCameraFrame", cameraFrameStart);
   const cameraFrame = source.slice(cameraFrameStart, cameraFrameEnd);
+  assert.match(
+    source,
+    /const labelShiftTimersRef = useRef\(new Map<string, number>\(\)\)/,
+    "collision transitions use one bounded timer map instead of per-frame animation loops",
+  );
+  assert.match(
+    cameraFrame,
+    /const offsetShift = previousOffset[\s\S]*?if \(offsetShift >= 12\)/,
+    "only material slot changes opt into the collision transition",
+  );
   const firstCameraWrite = cameraFrame.indexOf("setStylePropertyIfChanged(");
   assert.ok(cameraFrame.indexOf("const viewportWidth = viewport.clientWidth") < firstCameraWrite);
   assert.ok(cameraFrame.indexOf("const viewportHeight = viewport.clientHeight") < firstCameraWrite);

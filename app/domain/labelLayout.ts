@@ -686,8 +686,9 @@ function placementOffsets(
   width: number,
   height: number,
   compact: boolean,
+  includeSmoothRings = false,
 ): ReadonlyArray<readonly [number, number]> {
-  const cacheKey = `${id}:${width.toFixed(2)}:${height.toFixed(2)}:${compact ? 1 : 0}`;
+  const cacheKey = `${id}:${width.toFixed(2)}:${height.toFixed(2)}:${compact ? 1 : 0}:${includeSmoothRings ? 1 : 0}`;
   const cached = placementOffsetCache.get(cacheKey);
   if (cached) return cached;
   const horizontal = Math.min(compact ? 58 : 72, Math.max(30, width * 0.54));
@@ -708,6 +709,21 @@ function placementOffsets(
     [-horizontal, vertical],
     [horizontal, vertical],
   ];
+  // The eight compass slots above are deliberately stable, but they leave a
+  // large angular gap when a remembered diagonal is blocked by a neighbour.
+  // Add a few finer rings as deterministic alternatives. This is the same
+  // variable-placement idea used by map label engines, kept bounded here so
+  // the collision pass remains cheap and repeatable rather than simulated.
+  const ringRadius = Math.max(horizontal, vertical * 1.5);
+  const smoothRings = [0.72, 1, 1.28, 1.5].flatMap((radiusScale) => (
+    Array.from({ length: 16 }, (_, index) => {
+      const angle = -Math.PI / 2 + index * Math.PI / 8;
+      return [
+        ringRadius * radiusScale * Math.cos(angle),
+        ringRadius * radiusScale * Math.sin(angle),
+      ] as const;
+    })
+  ));
   const rotation = stableHash(id) % firstRing.length;
   const rotated = firstRing.slice(rotation).concat(firstRing.slice(0, rotation));
   const candidates: ReadonlyArray<readonly [number, number]> = [
@@ -728,6 +744,7 @@ function placementOffsets(
     [horizontal * 1.45, -vertical * 1.55],
     [-horizontal * 1.45, vertical * 1.55],
     [horizontal * 1.45, vertical * 1.55],
+    ...(includeSmoothRings ? smoothRings : []),
     // A final bounded ring can use genuinely empty screen space. It is only a
     // fallback after every near-anchor slot fails, and the DOM draws a leader
     // all the way back to the audited object point so the semantic attachment
@@ -1021,17 +1038,18 @@ export function computeSceneLabelLayout(
         ? Math.max(0.82, candidate.naturalOpacity)
         : candidate.naturalOpacity;
     if (candidateOpacity <= 0.025) continue;
-    const canonicalOffsets = placementOffsets(
-      candidate.label.id,
-      candidate.width,
-      candidate.height,
-      viewport.compact,
-    );
     const preferredOffset = options.preferredOffsets?.get(candidate.label.id);
     const hasPreferredOffset = Boolean(
       preferredOffset
       && Number.isFinite(preferredOffset.offsetX)
       && Number.isFinite(preferredOffset.offsetY),
+    );
+    const canonicalOffsets = placementOffsets(
+      candidate.label.id,
+      candidate.width,
+      candidate.height,
+      viewport.compact,
+      hasPreferredOffset,
     );
     const preferredAlternatives = hasPreferredOffset
       ? canonicalOffsets

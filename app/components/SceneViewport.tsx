@@ -815,6 +815,7 @@ export function SceneViewport({
     readonly offsetX: number;
     readonly offsetY: number;
   }>());
+  const labelShiftTimersRef = useRef(new Map<string, number>());
   const lastNavigationRef = useRef(0);
   const zoomFocusRef = useRef<Point | null>(null);
   const zoomDirectionRef = useRef<"in" | "out" | null>(null);
@@ -1010,6 +1011,11 @@ export function SceneViewport({
     setDatasetValueIfChanged(node, "progress", progressValue);
     setStylePropertyIfChanged(node.style, "--tile-progress", progressValue);
   }, [scene.portals]);
+
+  useEffect(() => () => {
+    for (const timer of labelShiftTimersRef.current.values()) window.clearTimeout(timer);
+    labelShiftTimersRef.current.clear();
+  }, []);
 
   const viewerInteractive = transitionPhase === "active" && !interactionLocked && !motionFrozen;
   const viewerInteractiveRef = useRef(viewerInteractive);
@@ -1392,6 +1398,7 @@ export function SceneViewport({
         queuedKeyboardFocusLabelIdRef.current = null;
       }
     }
+    const previousLabelPlacementOffsets = labelPlacementOffsetsRef.current;
     labelPlacementOffsetsRef.current = new Map(layout
       .filter((item) => item.interactive)
       .map((item) => [item.id, {
@@ -1463,6 +1470,24 @@ export function SceneViewport({
         && Number.isFinite(item.screenX)
         && Number.isFinite(item.screenY)
       ) {
+        const previousOffset = previousLabelPlacementOffsets.get(labelId);
+        const offsetShift = previousOffset
+          ? Math.hypot(
+            item.offsetX - previousOffset.offsetX,
+            item.offsetY - previousOffset.offsetY,
+          )
+          : 0;
+        if (offsetShift >= 12) {
+          setDatasetValueIfChanged(element, "layoutShift", "true");
+          const previousTimer = labelShiftTimersRef.current.get(labelId);
+          if (previousTimer !== undefined) window.clearTimeout(previousTimer);
+          const timer = window.setTimeout(() => {
+            if (labelShiftTimersRef.current.get(labelId) !== timer) return;
+            labelShiftTimersRef.current.delete(labelId);
+            if (element.isConnected) delete element.dataset.layoutShift;
+          }, 150);
+          labelShiftTimersRef.current.set(labelId, timer);
+        }
         const anchorX = -item.offsetX;
         const anchorY = -item.offsetY;
         const displacement = Math.hypot(anchorX, anchorY);

@@ -985,6 +985,30 @@ a:focus-visible {
   outline-offset: -3px;
 }
 
+@property --label-anchor-x {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --label-anchor-y {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --label-leader-length {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --label-leader-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
 .word-label {
   --label-opacity: 0;
   --label-anchor-x: 0px;
@@ -1047,6 +1071,19 @@ a:focus-visible {
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   visibility: hidden;
   white-space: nowrap;
+}
+
+/* A collision can force a callout to take another legal side of its anchor.
+ * Animate only that exceptional correction; ordinary camera motion remains a
+ * direct native transform so labels do not trail behind the artwork. */
+.word-label[data-layout-shift="true"] {
+  transition:
+    transform 140ms cubic-bezier(0.22, 0.75, 0.25, 1),
+    --label-anchor-x 140ms cubic-bezier(0.22, 0.75, 0.25, 1),
+    --label-anchor-y 140ms cubic-bezier(0.22, 0.75, 0.25, 1),
+    --label-leader-length 140ms cubic-bezier(0.22, 0.75, 0.25, 1),
+    --label-leader-angle 140ms cubic-bezier(0.22, 0.75, 0.25, 1),
+    opacity 90ms cubic-bezier(0.22, 0.75, 0.25, 1);
 }
 
 /* The high-density home atlas needs to reveal more artwork than smaller scenes.
