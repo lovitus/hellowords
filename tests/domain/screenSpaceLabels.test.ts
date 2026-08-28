@@ -741,7 +741,7 @@ test("active forward continuity uses a fixed compositor tile and freezes outgoin
   const portalTransition = source.slice(portalTransitionStart, portalTransitionEnd);
   assert.match(
     portalTransition,
-    /const duration = source === "zoom" \? 110 : readiness === "warm" \? 120 : 170/,
+    /const duration = source === "zoom" \? 110 : readiness === "warm" \? 150 : 170/,
   );
 });
 

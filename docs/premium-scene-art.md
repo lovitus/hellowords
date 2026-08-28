@@ -186,6 +186,8 @@ The final scientific-material pass retained 51 grounded structures across six au
 
 Create a bright editorial residential kitchen with warm daylight, natural oak, sage cabinetry and stone worktops. Clearly separate the washing, cooking and island objects, including appliances, cookware, utensils, dishes, food and small tools. Keep a complete automatic coffee machine prominent in its own far-right nook as the next portal; exclude people, bedrooms, clinics and legible branding.
 
+The final-pixel audit retains 116 independently pointable structures across four authored zones. It adds only visible sink, cabinet, cooktop, oven, small-appliance, coffee-machine and island parts; cooking processes and hidden appliance functions remain excluded.
+
 ### Coffee machine
 
 Create a bright, high-end professional espresso-machine product cutaway on an ivory studio background. Keep the complete brushed-metal machine and front brewing hardware intact, open the right side cleanly to expose the burr grinder, copper boiler, motor, pump, coherent tubing, pipe manifold, circuit board and wiring, and show a large transparent left water tank with its lid raised, waterline and outlet clearly visible as the next portal. Exclude people, cups, drinks, brands, readable labels and pseudo-writing.

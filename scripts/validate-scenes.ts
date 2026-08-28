@@ -139,6 +139,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   "science-museum": 121,
+  // The final kitchen raster resolves appliance, sink, coffee-nook and island
+  // parts; the ceiling blocks cooking processes and hidden appliance claims.
+  kitchen: 116,
   // The final raster has clear macro forms, microstructure and one coherent
   // molecular model; the 37-anchor ceiling excludes unsupported chemistry.
   polymer: 37,

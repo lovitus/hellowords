@@ -105,7 +105,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Tomato plant | 51 → 44 | Complete supported plant grounds external stem, leaf, flower, fruit, irrigation and visible pest evidence; physiology and underground processes remain removed |
 | Potting workbench | 58 → 49 | Complete daylight bench grounds tools, containers, seedlings, soil and watering hardware; actions, properties and printed-label readings remain removed |
 | Apartment | 47 → 44 | Bright replacement preserves three room portals while removing an obscured sink and unsupported hallway/dresser claims |
-| Kitchen | 57 → 48 | Refreshed kitchen grounds appliances, food, hand tools and coffee-machine parts; absent processes remain removed |
+| Kitchen | 125 → 116 | Bright kitchen grounds appliances, sink, cookware, coffee-nook and island parts; absent processes and hidden appliance claims remain removed |
 | Coffee machine | 58 → 40 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit and electronics; invisible functions and brewing processes remain removed |
 | Water tank | 56 → 36 | Premium clear-reservoir portrait grounds lid, water, molded walls, outlet hardware, mounts and the real Polymer portal; sensors, hidden plumbing, properties and maintenance actions remain removed |
 | Polymer | 68 → 37 | Premium multiscale material scene grounds specimens, morphology, defects and molecular structure; undefined molecular identities, properties and processes remain removed |

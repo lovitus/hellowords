@@ -496,6 +496,17 @@ test("premium exploration scenes expose dense, truthful local detail slices", as
   }
 });
 
+test("kitchen preserves its expanded appliance and island vocabulary", async () => {
+  const { scenes } = await loadWorld();
+  const kitchen = scenes.find((scene) => scene.id === "kitchen");
+  assert.ok(kitchen);
+  assert.equal(kitchen.labels.length, 116);
+  const words = new Set(kitchen.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const required of ["sink divider", "cabinet hinge", "burner", "oven door", "coffee screen", "steam wand", "island edge"]) {
+    assert.ok(words.has(required), `kitchen visibly grounds ${required}`);
+  }
+});
+
 test("premium coffee machine grounds its cutaway and keeps one real water-tank portal", async () => {
   const { scenes } = await loadWorld();
   const coffeeMachine = scenes.find((scene) => scene.id === "coffee-machine");
