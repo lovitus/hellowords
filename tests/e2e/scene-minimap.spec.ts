@@ -167,6 +167,24 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
     (button as HTMLElement).dataset.navigation === "detail-zone-focus"
       && Number((button as HTMLElement).dataset.labelCount) > 0
   )))).toBe(true);
+
+  const worldMapData = await page.request.get("/data/scenes/world-map.json").then((response) => response.json()) as {
+    labels: Array<{ id: string; x: number; y: number }>;
+    detailZones: Array<{ id: string; labelIds: string[]; x: number; y: number; width: number; height: number }>;
+  };
+  const utilityZone = worldMapData.detailZones.find((zone) => zone.id === "science-utilities");
+  expect(utilityZone).toBeDefined();
+  const utilityPoints = worldMapData.labels.filter((label) => utilityZone!.labelIds.includes(label.id));
+  const utilityFocusX = utilityPoints.length === 0
+    ? utilityZone!.x + utilityZone!.width / 2
+    : (Math.min(...utilityPoints.map((label) => label.x)) + Math.max(...utilityPoints.map((label) => label.x))) / 2;
+  const utilityFocusY = utilityPoints.length === 0
+    ? utilityZone!.y + utilityZone!.height / 2
+    : (Math.min(...utilityPoints.map((label) => label.y)) + Math.max(...utilityPoints.map((label) => label.y))) / 2;
+  const utilityButton = minimap.locator('[data-testid="scene-minimap-zone"][data-zone-id="science-utilities"]');
+  await expect(utilityButton).toHaveAttribute("data-focus-x", String(utilityFocusX));
+  await expect(utilityButton).toHaveAttribute("data-focus-y", String(utilityFocusY));
+
   await expect(minimap.getByTestId("scene-minimap-district-back")).toBeVisible();
   const chemistryZone = minimap.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="science-chemistry-lab"]',

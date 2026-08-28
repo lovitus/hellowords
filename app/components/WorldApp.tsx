@@ -95,6 +95,21 @@ interface RootAtlasZone {
   readonly targetScale: number;
 }
 
+function focusPointForLabelIds(
+  labelIds: readonly string[],
+  labelsById: ReadonlyMap<string, Label>,
+  fallback: { readonly x: number; readonly y: number },
+): { readonly x: number; readonly y: number } {
+  const points = labelIds
+    .map((labelId) => labelsById.get(labelId))
+    .filter((label): label is Label => Boolean(label));
+  if (points.length === 0) return fallback;
+  return {
+    x: (Math.min(...points.map((label) => label.x)) + Math.max(...points.map((label) => label.x))) / 2,
+    y: (Math.min(...points.map((label) => label.y)) + Math.max(...points.map((label) => label.y))) / 2,
+  };
+}
+
 declare global {
   interface WindowEventMap {
     "world:scene-settled": CustomEvent<WorldSceneSettledDetail>;
@@ -149,6 +164,7 @@ export function WorldApp() {
 
   const rootAtlasDistricts = useMemo<readonly RootAtlasDistrict[]>(() => {
     if (scene?.id !== "world-map" || !scene.detailZones?.length) return [];
+    const labelsById = new Map(scene.labels.map((label) => [label.id, label]));
     return ROOT_ATLAS_DISTRICT_META.flatMap((meta) => {
       const zones = scene.detailZones!.filter((zone) => zone.id.startsWith(meta.prefix));
       if (zones.length === 0) return [];
@@ -157,6 +173,11 @@ export function WorldApp() {
       const right = Math.max(...zones.map((zone) => zone.x + zone.width));
       const bottom = Math.max(...zones.map((zone) => zone.y + zone.height));
       const labelIds = [...new Set(zones.flatMap((zone) => zone.labelIds))];
+      const districtFocus = focusPointForLabelIds(
+        labelIds,
+        labelsById,
+        { x: (left + right) / 2, y: (top + bottom) / 2 },
+      );
       return [{
         id: meta.id,
         label: meta.label,
@@ -168,17 +189,24 @@ export function WorldApp() {
         y: top,
         width: right - left,
         height: bottom - top,
-        focusX: (left + right) / 2,
-        focusY: (top + bottom) / 2,
+        focusX: districtFocus.x,
+        focusY: districtFocus.y,
         targetScale: Math.min(2.8, Math.max(2.35, Math.min(...zones.map((zone) => zone.targetScale)))),
-        zones: zones.map((zone) => ({
-          id: zone.id,
-          title: zone.title,
-          labelCount: zone.labelIds.length,
-          focusX: zone.x + zone.width / 2,
-          focusY: zone.y + zone.height / 2,
-          targetScale: zone.targetScale,
-        })),
+        zones: zones.map((zone) => {
+          const zoneFocus = focusPointForLabelIds(
+            zone.labelIds,
+            labelsById,
+            { x: zone.x + zone.width / 2, y: zone.y + zone.height / 2 },
+          );
+          return {
+            id: zone.id,
+            title: zone.title,
+            labelCount: zone.labelIds.length,
+            focusX: zoneFocus.x,
+            focusY: zoneFocus.y,
+            targetScale: zone.targetScale,
+          };
+        }),
       }];
     });
   }, [scene]);
@@ -189,26 +217,20 @@ export function WorldApp() {
 
   const sceneDetailZones = useMemo(() => {
     if (!scene || scene.id === "world-map") return [];
-    const labelById = new Map(scene.labels.map((label) => [label.id, label]));
+    const labelsById = new Map(scene.labels.map((label) => [label.id, label]));
     return (scene.detailZones ?? []).map((zone) => {
-      const points = zone.labelIds
-        .map((labelId) => labelById.get(labelId))
-        .filter((label): label is Label => Boolean(label));
-      const focusX = points.length === 0
-        ? zone.x + zone.width / 2
-        : (Math.min(...points.map((label) => label.x))
-          + Math.max(...points.map((label) => label.x))) / 2;
-      const focusY = points.length === 0
-        ? zone.y + zone.height / 2
-        : (Math.min(...points.map((label) => label.y))
-          + Math.max(...points.map((label) => label.y))) / 2;
+      const focus = focusPointForLabelIds(
+        zone.labelIds,
+        labelsById,
+        { x: zone.x + zone.width / 2, y: zone.y + zone.height / 2 },
+      );
       return {
         id: zone.id,
         title: zone.title,
         translation: zone.translation,
         labelCount: zone.labelIds.length,
-        focusX,
-        focusY,
+        focusX: focus.x,
+        focusY: focus.y,
         targetScale: zone.targetScale,
       };
     });
