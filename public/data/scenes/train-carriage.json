@@ -76,7 +76,7 @@
     { "id": "motor", "word": "motor", "translation": "牵引电机", "x": 1060, "y": 680, "priority": 5.008, "minLevel": 4, "sourceVisualRegion": "verified-traction-motor", "lexemeId": "en-02983856320b180c" },
     { "id": "brake-cylinder", "word": "brake cylinder", "translation": "制动缸", "x": 1120, "y": 650, "priority": 6.020, "minLevel": 4, "sourceVisualRegion": "verified-brake-cylinder" },
     { "id": "gearbox", "word": "gearbox", "translation": "齿轮箱", "x": 1050, "y": 700, "priority": 6.021, "minLevel": 4, "sourceVisualRegion": "verified-gearbox" },
-    { "id": "sleeper", "word": "sleeper", "translation": "轨枕", "x": 950, "y": 875, "priority": 6.022, "minLevel": 4, "sourceVisualRegion": "verified-sleeper" },
+    { "id": "rail-baseplate", "word": "rail baseplate", "translation": "钢轨底座板", "x": 950, "y": 875, "priority": 6.022, "minLevel": 4, "sourceVisualRegion": "verified-rail-baseplate" },
     { "id": "rail-fastener", "word": "rail fastener", "translation": "钢轨扣件", "x": 900, "y": 845, "priority": 6.023, "minLevel": 4, "sourceVisualRegion": "verified-rail-fastener" }
   ],
   "detailZones": [
@@ -150,7 +150,7 @@
       "width": 1600,
       "height": 330,
       "targetScale": 2.7,
-      "labelIds": ["rail", "sleeper", "rail-fastener", "equipment-box", "air-reservoir"]
+      "labelIds": ["rail", "rail-baseplate", "rail-fastener", "equipment-box", "air-reservoir"]
     }
   ],
   "portals": [
@@ -241,7 +241,7 @@
     { "id": "verified-brake-cylinder", "description": "Cylindrical brake actuator mounted on the bogie frame", "kind": "part", "x": 1050, "y": 580, "width": 180, "height": 160 },
     { "id": "verified-gearbox", "description": "Compact ribbed gearbox beside the traction motor", "kind": "object", "x": 980, "y": 620, "width": 180, "height": 150 },
     { "id": "verified-rail", "description": "Steel running rail visible beneath the carriage", "kind": "part", "x": 520, "y": 800, "width": 800, "height": 100 },
-    { "id": "verified-sleeper", "description": "Concrete sleeper crossing beneath the running rail", "kind": "part", "x": 520, "y": 840, "width": 800, "height": 60 },
+    { "id": "verified-rail-baseplate", "description": "Flat metal baseplate supporting the running rail on the workshop floor", "kind": "part", "x": 520, "y": 840, "width": 800, "height": 60 },
     { "id": "verified-rail-fastener", "description": "Dark clip fastening the rail to the sleeper", "kind": "part", "x": 520, "y": 810, "width": 800, "height": 70 }
   ]
 }
