@@ -37,6 +37,7 @@
 - 旧的“评估当前项目”线程已归档，仍可恢复；其他项目的 sessions 未触碰。
 - 精确首行 `cwd` 扫描显示 HelloWords 只剩当前根 JSONL。其他日志即使正文提到 HelloWords，只要归属 Gust、EasyTier 或其他项目，就必须保留。
 - `/private/tmp` 当前约 11MB，未发现 HelloWords/atlas 命名残留；以后清理只针对有证据的项目路径，不能清空整个 tmp。
+- 外置审计临时根中 17 份旧 HelloWords 发布压缩包及 v21 构建日志已移入系统废纸篓；源码、Sites 保存版本、审计 JSON 与词库源缓存仍保留。
 
 ## 续开发起点
 
