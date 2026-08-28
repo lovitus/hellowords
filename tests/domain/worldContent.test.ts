@@ -1753,9 +1753,25 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
 
   assert.equal(tomato.parentId, "greenhouse-interior");
   assert.equal(tomato.asset, "/scenes/tomato-plant-premium-v1.jpg");
-  assert.equal(tomato.labels.length, 44);
+  assert.equal(tomato.labels.length, 69);
   assert.equal(tomato.portals.length, 0);
-  assert.ok((tomato.detailZones?.length ?? 0) >= 5);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      tomato.labels.filter((label) => label.minLevel === level).length
+    )),
+    [9, 11, 21, 19, 9],
+  );
+  assert.deepEqual(
+    tomato.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["plant-architecture", 8],
+      ["leaf-anatomy", 15],
+      ["flower-anatomy", 10],
+      ["fruit-anatomy", 14],
+      ["support-and-base", 18],
+      ["pest-evidence", 4],
+    ],
+  );
 
   assert.equal(workbench.parentId, "community-garden");
   assert.equal(workbench.asset, "/scenes/potting-workbench-premium-v1.jpg");
@@ -1812,7 +1828,37 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
       "paving edge",
       "gravel stone",
     ]],
-    [tomato, ["main stem", "compound leaf", "tomato flower", "ripe tomato"]],
+    [tomato, [
+      "main stem",
+      "compound leaf",
+      "tomato flower",
+      "ripe tomato",
+      "leaflet tip",
+      "leaflet base",
+      "leaf midrib",
+      "leaf lobe",
+      "leaf axil",
+      "leaf trichome",
+      "flower sepal",
+      "flower center",
+      "flower branch",
+      "flower anther tip",
+      "fruit shoulder",
+      "fruit skin",
+      "fruit branch",
+      "fruit calyx lobe",
+      "fruit pedicel",
+      "bamboo tip",
+      "bamboo node",
+      "tie knot",
+      "clip jaw",
+      "grow bag rim",
+      "bag fold",
+      "bag seam",
+      "soil surface",
+      "drip barb",
+      "irrigation joint",
+    ]],
     [workbench, [
       "watering can",
       "seedling tray",
@@ -1853,6 +1899,16 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
     }),
     [[1564, 430], [338, 512], [1249, 553]],
     "new greenhouse parts stay anchored on their reviewed pixels",
+  );
+  const tomatoLabels = new Map(tomato.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["leaflet-tip", "fruit-shoulder", "grow-bag-rim"].map((id) => {
+      const label = tomatoLabels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[312, 650], [976, 631], [1210, 845]],
+    "new tomato plant parts stay anchored on their reviewed pixels",
   );
 });
 

@@ -186,7 +186,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // soil, aisle equipment and the complete tomato portal; the ceiling blocks
   // invisible growing processes and climate claims.
   "greenhouse-interior": 71,
-  "tomato-plant": 44,
+  // The close tomato raster resolves external stem, leaf, flower, fruit,
+  // support, substrate and pest evidence; the ceiling blocks invisible plant
+  // physiology and unsupported underground structures.
+  "tomato-plant": 69,
   // The final workbench raster resolves timber joints, containers, seedlings,
   // tool edges and watering fittings; the ceiling blocks actions and claims
   // about plant health or material quality.

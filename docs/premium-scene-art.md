@@ -154,7 +154,10 @@ tomato plant portal and excluding invisible growing processes.
 
 Create a bright close greenhouse study of one complete supported tomato plant in a black grow bag. Resolve the main and side stems, nodes, compound leaves and leaflets, one flower truss, one mixed-ripeness fruit truss, bamboo cane, ties, clip, soil, perlite and drip irrigation. Include only physically visible pest evidence—a small aphid cluster, whitefly, ladybird, chew hole and leaf-miner trail—and exclude text, arrows, physiology, underground roots and plant-process diagrams.
 
-The final-pixel audit retained 44 external, independently pointable terms across six authored zones and kept the scene terminal.
+The final-pixel audit retained 69 independently pointable terms across six
+authored zones. It adds compound-leaf tips and midribs, flower parts, fruit
+attachments, bamboo and tie hardware, grow-bag seams, soil and drip fittings
+while keeping the scene terminal and excluding invisible plant physiology.
 
 ### Potting workbench
 
