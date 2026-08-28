@@ -16,6 +16,9 @@
     { "id": "front-placket", "word": "front placket", "translation": "前门襟", "x": 595, "y": 500, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "verified-front-placket" },
     { "id": "chest-pocket", "word": "chest pocket", "translation": "胸袋", "x": 745, "y": 395, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "verified-chest-pocket" },
     { "id": "fabric-sample", "word": "fabric sample", "translation": "布样", "x": 1240, "y": 250, "priority": 1.007, "minLevel": 0, "sourceVisualRegion": "verified-fabric-sample" },
+    { "id": "yoke", "word": "yoke", "translation": "过肩", "x": 500, "y": 105, "priority": 1.008, "minLevel": 0, "sourceVisualRegion": "verified-shoulder-seam" },
+    { "id": "collar-button", "word": "collar button", "translation": "领尖纽扣", "x": 545, "y": 185, "priority": 1.009, "minLevel": 0, "sourceVisualRegion": "verified-collar-point" },
+    { "id": "side-seam", "word": "side seam", "translation": "侧缝", "x": 960, "y": 400, "priority": 1.01, "minLevel": 0, "sourceVisualRegion": "whole-shirt" },
 
     { "id": "collar-stand", "word": "collar stand", "translation": "领座", "x": 615, "y": 65, "priority": 2.008, "minLevel": 1, "sourceVisualRegion": "verified-collar-stand" },
     { "id": "collar-point", "word": "collar point", "translation": "领尖", "x": 545, "y": 170, "priority": 2.009, "minLevel": 1, "sourceVisualRegion": "verified-collar-point" },
@@ -25,6 +28,9 @@
     { "id": "sleeve-placket", "word": "sleeve placket", "translation": "袖衩", "x": 990, "y": 565, "priority": 2.013, "minLevel": 1, "sourceVisualRegion": "verified-sleeve-placket" },
     { "id": "cuff-button", "word": "cuff button", "translation": "袖口纽扣", "x": 945, "y": 682, "priority": 2.014, "minLevel": 1, "sourceVisualRegion": "verified-cuff-button" },
     { "id": "shirttail-hem", "word": "shirttail hem", "translation": "衬衫下摆", "x": 600, "y": 855, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "verified-shirttail-hem" },
+    { "id": "buttonhole", "word": "buttonhole", "translation": "纽扣孔", "x": 610, "y": 435, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "verified-front-placket" },
+    { "id": "cuff-opening", "word": "cuff opening", "translation": "袖口开口", "x": 340, "y": 620, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "verified-cuff" },
+    { "id": "pocket-corner", "word": "pocket corner", "translation": "口袋角", "x": 745, "y": 485, "priority": 2.018, "minLevel": 1, "sourceVisualRegion": "verified-chest-pocket" },
 
     { "id": "shirt-button", "word": "shirt button", "translation": "衬衫纽扣", "x": 595, "y": 435, "priority": 3.016, "minLevel": 2, "sourceVisualRegion": "verified-shirt-button" },
     { "id": "pocket-opening", "word": "pocket opening", "translation": "袋口", "x": 745, "y": 320, "priority": 3.017, "minLevel": 2, "sourceVisualRegion": "verified-pocket-opening" },
@@ -34,6 +40,9 @@
     { "id": "magnifying-glass", "word": "magnifying glass", "translation": "放大镜", "x": 1380, "y": 250, "priority": 3.021, "minLevel": 2, "sourceVisualRegion": "verified-magnifying-glass" },
     { "id": "plain-weave", "word": "plain weave", "translation": "平纹组织", "x": 1350, "y": 250, "priority": 3.022, "minLevel": 2, "sourceVisualRegion": "verified-plain-weave" },
     { "id": "cotton-boll", "word": "cotton boll", "translation": "棉铃", "x": 150, "y": 745, "priority": 3.023, "minLevel": 2, "sourceVisualRegion": "verified-cotton-boll" },
+    { "id": "sleeve-buttonhole", "word": "sleeve buttonhole", "translation": "袖口纽扣孔", "x": 990, "y": 640, "priority": 3.024, "minLevel": 2, "sourceVisualRegion": "verified-sleeve-placket" },
+    { "id": "needle-eye", "word": "needle eye", "translation": "针眼", "x": 1245, "y": 760, "priority": 3.025, "minLevel": 2, "sourceVisualRegion": "verified-needle" },
+    { "id": "thread-loop", "word": "thread loop", "translation": "线圈", "x": 1170, "y": 825, "priority": 3.026, "minLevel": 2, "sourceVisualRegion": "verified-sewing-thread" },
 
     { "id": "lens", "word": "lens", "translation": "镜片", "x": 1360, "y": 235, "priority": 4.024, "minLevel": 3, "sourceVisualRegion": "verified-lens" },
     { "id": "selvage", "word": "selvage", "translation": "布边", "x": 1125, "y": 250, "priority": 4.025, "minLevel": 3, "sourceVisualRegion": "verified-selvage" },
@@ -43,6 +52,9 @@
     { "id": "twisted-yarn", "word": "twisted yarn", "translation": "捻纱", "x": 1250, "y": 530, "priority": 4.029, "minLevel": 3, "sourceVisualRegion": "verified-twisted-yarn" },
     { "id": "cotton-fiber", "word": "cotton fiber", "translation": "棉纤维", "x": 1425, "y": 525, "priority": 4.03, "minLevel": 3, "sourceVisualRegion": "verified-cotton-fiber" },
     { "id": "thread-spool", "word": "thread spool", "translation": "线轴", "x": 1120, "y": 690, "priority": 4.031, "minLevel": 3, "sourceVisualRegion": "verified-thread-spool" },
+    { "id": "spool-core", "word": "spool core", "translation": "线轴芯", "x": 1120, "y": 780, "priority": 4.032, "minLevel": 3, "sourceVisualRegion": "verified-thread-spool" },
+    { "id": "thimble-rim", "word": "thimble rim", "translation": "顶针边缘", "x": 1260, "y": 670, "priority": 4.033, "minLevel": 3, "sourceVisualRegion": "verified-thimble" },
+    { "id": "shear-pivot", "word": "shear pivot", "translation": "剪刀转轴", "x": 1465, "y": 700, "priority": 4.034, "minLevel": 3, "sourceVisualRegion": "verified-tailors-shears" },
 
     { "id": "sewing-thread", "word": "sewing thread", "translation": "缝纫线", "x": 1200, "y": 790, "priority": 5.032, "minLevel": 4, "sourceVisualRegion": "verified-sewing-thread" },
     { "id": "needle", "word": "needle", "translation": "缝衣针", "x": 1260, "y": 805, "priority": 5.033, "minLevel": 4, "sourceVisualRegion": "verified-needle" },
@@ -51,7 +63,10 @@
     { "id": "straight-pin", "word": "straight pin", "translation": "直针", "x": 1400, "y": 600, "priority": 5.036, "minLevel": 4, "sourceVisualRegion": "verified-straight-pin" },
     { "id": "tailors-shears", "word": "dressmaking shears", "translation": "裁缝剪", "x": 1510, "y": 750, "priority": 5.037, "minLevel": 4, "sourceVisualRegion": "verified-tailors-shears" },
     { "id": "scissor-blade", "word": "scissor blade", "translation": "剪刀刃", "x": 1445, "y": 825, "priority": 5.038, "minLevel": 4, "sourceVisualRegion": "verified-scissor-blade" },
-    { "id": "cotton-stem", "word": "cotton stem", "translation": "棉枝", "x": 55, "y": 805, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "verified-cotton-stem" }
+    { "id": "cotton-stem", "word": "cotton stem", "translation": "棉枝", "x": 55, "y": 805, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "verified-cotton-stem" },
+    { "id": "needle-point", "word": "needle point", "translation": "针尖", "x": 1290, "y": 840, "priority": 5.04, "minLevel": 4, "sourceVisualRegion": "verified-needle" },
+    { "id": "pin-head", "word": "pin head", "translation": "针头", "x": 1400, "y": 575, "priority": 5.041, "minLevel": 4, "sourceVisualRegion": "verified-straight-pin" },
+    { "id": "shear-handle", "word": "shear handle", "translation": "剪刀握柄", "x": 1510, "y": 600, "priority": 5.042, "minLevel": 4, "sourceVisualRegion": "verified-tailors-shears" }
   ],
   "portals": [],
   "anchorAudit": {
@@ -59,9 +74,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/cotton-shirt-premium-v2.jpg",
     "reviewedAssetSha256": "2cca1b5da611c7bf163adf6ef4e9fd5b66517288050437f5b3a8467c7958965e",
-    "rationale": "Re-anchored 40 independently pointable terms on the final daylight textile flat lay, separating construction details on the complete white shirt, an optically enlarged woven sample, cotton source material and discrete hand-sewing tools. Industrial processes, invisible performance properties and absent factory equipment remain excluded.",
-    "previousLabelCount": 48,
-    "retainedLabelCount": 40,
+    "rationale": "Re-audited 55 independently pointable terms on the final daylight textile flat lay, separating construction details on the complete white shirt, an optically enlarged woven sample, cotton source material and discrete hand-sewing tools. The added yoke, buttonholes, cuff opening, pocket corner, side seam, needle eye/point, thread loop, spool core, thimble rim, pin head and shear parts are retained only where the final pixels resolve a distinct seam, opening or tool part; industrial processes, invisible performance properties and absent factory equipment remain excluded.",
+    "previousLabelCount": 63,
+    "retainedLabelCount": 55,
     "removedLabelCount": 8,
     "removedExamples": ["loom", "sewing machine", "dye", "harvest", "iron", "breathable", "shrinkage", "absorbency"]
   },
@@ -72,7 +87,7 @@
       "translation": "衣领与肩部",
       "description": "Two-part button-down collar, neckline and stitched shoulder construction at the shirt top",
       "x": 260, "y": 0, "width": 750, "height": 320, "targetScale": 3,
-      "labelIds": ["collar", "collar-stand", "collar-point", "neckline", "shoulder-seam", "armhole-seam", "topstitching"]
+      "labelIds": ["collar", "collar-stand", "collar-point", "neckline", "shoulder-seam", "armhole-seam", "topstitching", "yoke", "collar-button"]
     },
     {
       "id": "shirt-front",
@@ -80,7 +95,7 @@
       "translation": "衬衫前身",
       "description": "Complete cotton body with front placket, buttons, chest pocket, folds and curved hem",
       "x": 210, "y": 190, "width": 760, "height": 700, "targetScale": 2.6,
-      "labelIds": ["cotton-shirt", "fabric", "front-placket", "chest-pocket", "shirttail-hem", "shirt-button", "pocket-opening", "pocket-stitching", "fabric-fold"]
+      "labelIds": ["cotton-shirt", "fabric", "front-placket", "chest-pocket", "shirttail-hem", "shirt-button", "pocket-opening", "pocket-stitching", "fabric-fold", "buttonhole", "side-seam", "pocket-corner"]
     },
     {
       "id": "sleeves-and-cuffs",
@@ -88,7 +103,7 @@
       "translation": "衣袖与袖口",
       "description": "Bent long sleeve with open cuff plus the opposite sleeve placket and fastened cuff button",
       "x": 70, "y": 240, "width": 1000, "height": 520, "targetScale": 3.1,
-      "labelIds": ["sleeve", "cuff", "sleeve-placket", "cuff-button"]
+      "labelIds": ["sleeve", "cuff", "sleeve-placket", "cuff-button", "cuff-opening", "sleeve-buttonhole"]
     },
     {
       "id": "weave-inspection",
@@ -104,7 +119,7 @@
       "translation": "棉花与缝纫工具",
       "description": "Natural cotton bolls and separated hand-sewing tools arranged along the lower table edge",
       "x": 0, "y": 500, "width": 1600, "height": 400, "targetScale": 2.9,
-      "labelIds": ["cotton-boll", "thread-spool", "sewing-thread", "needle", "thimble", "pin-cushion", "straight-pin", "tailors-shears", "scissor-blade", "cotton-stem"]
+      "labelIds": ["cotton-boll", "thread-spool", "sewing-thread", "needle", "thimble", "pin-cushion", "straight-pin", "tailors-shears", "scissor-blade", "cotton-stem", "needle-eye", "needle-point", "thread-loop", "spool-core", "thimble-rim", "pin-head", "shear-pivot", "shear-handle"]
     }
   ],
   "visualRegions": [

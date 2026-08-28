@@ -1604,7 +1604,13 @@ test("premium cotton shirt connects garment construction to visible woven materi
   assert.ok(shirt);
   assert.equal(shirt.parentId, "wardrobe-interior");
   assert.equal(shirt.asset, "/scenes/cotton-shirt-premium-v2.jpg");
-  assert.equal(shirt.labels.length, 40);
+  assert.equal(shirt.labels.length, 55);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      shirt.labels.filter((label) => label.minLevel === level).length
+    )),
+    [11, 11, 11, 11, 11],
+  );
   assert.equal(shirt.detailZones?.length, 5);
   assert.deepEqual(shirt.portals, [], "cotton shirt remains a terminal textile study");
 
@@ -1630,6 +1636,21 @@ test("premium cotton shirt connects garment construction to visible woven materi
     "thimble",
     "pin cushion",
     "dressmaking shears",
+    "yoke",
+    "collar button",
+    "side seam",
+    "buttonhole",
+    "cuff opening",
+    "pocket corner",
+    "sleeve buttonhole",
+    "needle eye",
+    "thread loop",
+    "spool core",
+    "thimble rim",
+    "shear pivot",
+    "needle point",
+    "pin head",
+    "shear handle",
   ]) {
     assert.ok(words.has(visible), `cotton shirt visibly grounds ${visible}`);
   }

@@ -163,7 +163,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // biology and synonym padding while retaining the complete Leaf portal.
   "oak-tree": 68,
   "coffee-machine": 60,
-  "cotton-shirt": 40,
+  "cotton-shirt": 55,
   "water-tank": 50,
   // The bright pond raster resolves distinct emergent leaves and seed heads,
   // floating-garden parts, water ripples, shallow-water life, bank textures and
