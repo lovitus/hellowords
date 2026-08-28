@@ -179,8 +179,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "dinosaur-hall": 69,
   // The bright electric-bus cutaway resolves the cabin, entry, running gear
   // and underfloor battery parts; the ceiling blocks passenger roles and
-  // operating states that are not visible in a static frame.
-  "electric-bus": 51,
+  // operating states that are not visible in a static frame while allowing
+  // the reviewed front-entry hardware additions.
+  "electric-bus": 55,
   "human-body": 60,
   // The reviewed carriage raster exposes the complete cabin plus distinct
   // door, seat, suspension and foreground track hardware; the ceiling blocks

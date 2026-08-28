@@ -1157,22 +1157,22 @@ test("premium electric bus expands its visible cabin and running gear without ad
   assert.ok(bus);
   assert.equal(bus.parentId, "transit-hub");
   assert.equal(bus.asset, "/scenes/electric-bus-premium-v2.jpg");
-  assert.equal(bus.labels.length, 51);
+  assert.equal(bus.labels.length, 55);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       bus.labels.filter((label) => label.minLevel === level).length
     )),
-    [7, 10, 11, 13, 10],
+    [7, 10, 11, 15, 12],
   );
   assert.deepEqual(
     bus.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
       ["bus-shell", 6],
       ["passenger-cabin", 10],
-      ["front-entry-cab", 14],
+      ["front-entry-cab", 17],
       ["underfloor-energy", 6],
       ["rear-drivetrain", 4],
-      ["front-running-gear", 9],
+      ["front-running-gear", 10],
     ],
   );
   assert.deepEqual(
@@ -1195,6 +1195,10 @@ test("premium electric bus expands its visible cabin and running gear without ad
     "door handle",
     "step",
     "brake disc",
+    "door frame",
+    "door window",
+    "door hinge",
+    "wheel lug",
   ]) {
     assert.ok(words.has(visible), `electric bus visibly grounds ${visible}`);
   }
@@ -1212,12 +1216,12 @@ test("premium electric bus expands its visible cabin and running gear without ad
 
   const labels = new Map(bus.labels.map((label) => [label.id, label] as const));
   assert.deepEqual(
-    ["front-bumper", "seat-cushion", "battery-tray", "brake-disc"].map((id) => {
+    ["front-bumper", "seat-cushion", "battery-tray", "brake-disc", "door-frame", "door-window", "door-hinge", "wheel-lug"].map((id) => {
       const label = labels.get(id);
       assert.ok(label);
       return [label.x, label.y];
     }),
-    [[1370, 760], [450, 510], [620, 735], [910, 675]],
+    [[1370, 760], [450, 510], [620, 735], [910, 675], [1045, 360], [1080, 355], [1150, 430], [930, 675]],
     "new bus parts stay anchored on the reviewed cutaway pixels",
   );
 });

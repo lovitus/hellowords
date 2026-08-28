@@ -62,7 +62,11 @@
     { "id": "charging-port", "word": "charging port", "translation": "充电接口", "x": 1205, "y": 680, "priority": 5.006, "minLevel": 4, "sourceVisualRegion": "verified-charging-port" },
     { "id": "inverter", "word": "inverter", "translation": "逆变器", "x": 1080, "y": 160, "priority": 5.007, "minLevel": 4, "sourceVisualRegion": "verified-inverter" },
     { "id": "pipe", "word": "pipe", "translation": "冷却管", "x": 900, "y": 230, "priority": 5.008, "minLevel": 4, "sourceVisualRegion": "verified-cooling-pipe", "lexemeId": "en-4008294739162e8f" },
-    { "id": "brake-disc", "word": "brake disc", "translation": "制动盘", "x": 910, "y": 675, "priority": 5.009, "minLevel": 4, "sourceVisualRegion": "verified-brake-disc" }
+    { "id": "brake-disc", "word": "brake disc", "translation": "制动盘", "x": 910, "y": 675, "priority": 5.009, "minLevel": 4, "sourceVisualRegion": "verified-brake-disc" },
+    { "id": "door-frame", "word": "door frame", "translation": "车门框", "x": 1045, "y": 360, "priority": 5.010, "minLevel": 3, "sourceVisualRegion": "verified-door-frame" },
+    { "id": "door-window", "word": "door window", "translation": "车门玻璃", "x": 1080, "y": 355, "priority": 5.011, "minLevel": 3, "sourceVisualRegion": "verified-door-window" },
+    { "id": "door-hinge", "word": "door hinge", "translation": "车门铰链", "x": 1150, "y": 430, "priority": 5.012, "minLevel": 4, "sourceVisualRegion": "verified-door-hinge" },
+    { "id": "wheel-lug", "word": "wheel lug", "translation": "车轮螺母", "x": 930, "y": 675, "priority": 5.013, "minLevel": 4, "sourceVisualRegion": "verified-wheel-lug" }
   ],
   "detailZones": [
     {
@@ -99,7 +103,7 @@
       "width": 560,
       "height": 690,
       "targetScale": 2.55,
-      "labelIds": ["windshield", "door", "driving-cab", "driver-seat", "steering-wheel", "dashboard", "windshield-wiper", "mirror", "headlight", "door-threshold", "charging-port", "front-bumper", "door-handle", "step"]
+      "labelIds": ["windshield", "door", "driving-cab", "driver-seat", "steering-wheel", "dashboard", "windshield-wiper", "mirror", "headlight", "door-threshold", "charging-port", "front-bumper", "door-handle", "step", "door-frame", "door-window", "door-hinge"]
     },
     {
       "id": "underfloor-energy",
@@ -135,7 +139,7 @@
       "width": 240,
       "height": 300,
       "targetScale": 3.1,
-      "labelIds": ["wheel", "tire", "hub", "wheel-arch", "coil-spring", "shock-absorber", "wheel-rim", "suspension-arm", "brake-disc"]
+      "labelIds": ["wheel", "tire", "hub", "wheel-arch", "coil-spring", "shock-absorber", "wheel-rim", "suspension-arm", "brake-disc", "wheel-lug"]
     }
   ],
   "portals": [
@@ -157,9 +161,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/electric-bus-premium-v2.jpg",
     "reviewedAssetSha256": "71fd16eaad65c46a9aa9ea0c85cb87b788337e44c57b76f0365449dda38a9a63",
-    "rationale": "Re-audited 51 terms against the final bright cutaway pixels, adding only clearly resolved bumper, seat, wheel, suspension, underfloor tray, cable-clamp, door-handle and entry-step parts while preserving the passenger cabin, empty driving cab, roof electronics and large unobstructed underfloor battery-pack portal.",
-    "previousLabelCount": 67,
-    "retainedLabelCount": 51,
+    "rationale": "Re-audited 55 terms against the final bright cutaway pixels, adding only clearly resolved bumper, seat, wheel, suspension, underfloor tray, cable-clamp, door-handle, entry-step and front-entry hardware parts while preserving the passenger cabin, empty driving cab, roof electronics and large unobstructed underfloor battery-pack portal. The added door frame, door window, hinge and wheel lug remain concrete parts rather than rider, route or operating-state claims.",
+    "previousLabelCount": 71,
+    "retainedLabelCount": 55,
     "removedLabelCount": 16,
     "removedExamples": ["driver", "passenger", "route number", "destination sign", "regenerative braking", "climate control"]
   },
@@ -214,6 +218,10 @@
     { "id": "verified-battery-tray", "description": "Long underfloor tray supporting the battery modules", "kind": "part", "x": 390, "y": 620, "width": 470, "height": 130 },
     { "id": "verified-cable-clamp", "description": "Small clamp securing the orange underfloor cable", "kind": "part", "x": 680, "y": 650, "width": 180, "height": 110 },
     { "id": "verified-step", "description": "Low metal step at the open front entrance", "kind": "part", "x": 1040, "y": 720, "width": 220, "height": 110 },
-    { "id": "verified-brake-disc", "description": "Circular brake disc visible inside the front wheel", "kind": "part", "x": 850, "y": 620, "width": 160, "height": 150 }
+    { "id": "verified-brake-disc", "description": "Circular brake disc visible inside the front wheel", "kind": "part", "x": 850, "y": 620, "width": 160, "height": 150 },
+    { "id": "verified-door-frame", "description": "Black structural frame surrounding the front entry door", "kind": "part", "x": 1000, "y": 245, "width": 170, "height": 550 },
+    { "id": "verified-door-window", "description": "Clear glass panel within the front entry door", "kind": "part", "x": 1020, "y": 285, "width": 120, "height": 250 },
+    { "id": "verified-door-hinge", "description": "Visible hinge hardware along the front door edge", "kind": "part", "x": 1125, "y": 360, "width": 45, "height": 170 },
+    { "id": "verified-wheel-lug", "description": "One of the circular lug nuts around the front wheel hub", "kind": "part", "x": 865, "y": 635, "width": 120, "height": 110 }
   ]
 }
