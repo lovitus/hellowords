@@ -1078,8 +1078,8 @@ export function computeSceneLabelLayout(
     // the leader moving locally while the collision pass remains authoritative.
     const transitionalOffsets = hasPreferredOffset
       ? preferredAlternatives
-        .slice(0, 4)
-        .flatMap(([offsetX, offsetY]) => [0.35, 0.65, 0.85].map((progress) => (
+        .slice(0, 8)
+        .flatMap(([offsetX, offsetY]) => [0.5, 0.78].map((progress) => (
           [
             preferredOffset!.offsetX + (offsetX - preferredOffset!.offsetX) * progress,
             preferredOffset!.offsetY + (offsetY - preferredOffset!.offsetY) * progress,

@@ -645,6 +645,7 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
   const legalViewportDepartures = new Set<string>();
   const legalSlotChanges = new Set<string>();
   const authoredLabelsById = new Map(sceneContract.labels.map((label) => [label.id, label]));
+  let largestObservedOffsetJump = 0;
   let retainedFrameChecks = 0;
   let stableSlotChecks = 0;
   for (let frameIndex = 0; frameIndex < frames.length; frameIndex += 1) {
@@ -672,6 +673,15 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
       if (!anchorInsideViewport(current!, frame)) {
         legalViewportDepartures.add(previousLabel.id);
         continue;
+      }
+      if (!previousLabel.layoutShift && !current.layoutShift) {
+        largestObservedOffsetJump = Math.max(
+          largestObservedOffsetJump,
+          Math.hypot(
+            current!.offsetX - previousLabel.offsetX,
+            current!.offsetY - previousLabel.offsetY,
+          ),
+        );
       }
       if (previousLabel.layoutShift || current.layoutShift) {
         legalSlotChanges.add(previousLabel.id);
@@ -709,6 +719,10 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
     legalSlotChanges.size,
     "the trace must distinguish slots blocked by chrome, portal cues, edges, or another active preferred slot",
   ).toBeGreaterThan(0);
+  expect(
+    largestObservedOffsetJump,
+    "bounded intermediate placement candidates should keep continuous zoom callouts from making a large slot jump",
+  ).toBeLessThanOrEqual(120);
 
   const finalFrame = frames.at(-1)!;
   const finalById = new Map(finalFrame.labels.map((label) => [label.id, label]));
