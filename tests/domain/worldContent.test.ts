@@ -1020,11 +1020,12 @@ test("premium water tank grounds its service details and keeps one real polymer 
     )),
     [12, 14, 14, 11, 10],
   );
-  assert.equal(waterTank.detailZones?.length, 8);
+  assert.equal(waterTank.detailZones?.length, 9);
   assert.deepEqual(
     waterTank.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["lid-and-rim", 17],
+      ["lid-and-rim", 12],
+      ["lid-corner-detail", 5],
       ["water-and-air", 7],
       ["surface-ripple-detail", 4],
       ["wall-construction", 10],

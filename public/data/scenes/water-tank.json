@@ -34,7 +34,7 @@
     { "id": "latch-insert", "word": "latch insert", "translation": "卡扣嵌件", "x": 445, "y": 235, "priority": 2.02, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
     { "id": "lid-corner", "word": "lid corner", "translation": "盖子角部", "x": 1280, "y": 60, "priority": 2.021, "minLevel": 1, "sourceVisualRegion": "verified-lid-corner" },
     { "id": "hinge-leaf", "word": "hinge leaf", "translation": "铰链页板", "x": 520, "y": 145, "priority": 2.022, "minLevel": 1, "sourceVisualRegion": "verified-hinge-leaf" },
-    { "id": "filter-cup", "word": "filter cup", "translation": "滤网杯", "x": 350, "y": 790, "priority": 1.01, "minLevel": 1, "sourceVisualRegion": "verified-filter-cup" },
+    { "id": "filter-cup", "word": "filter cup", "translation": "滤网杯", "x": 350, "y": 790, "priority": 1.005, "minLevel": 1, "sourceVisualRegion": "verified-filter-cup" },
     { "id": "left-rubber-foot", "word": "left rubber foot", "translation": "左侧橡胶支脚", "x": 650, "y": 800, "priority": 2.024, "minLevel": 2, "sourceVisualRegion": "verified-left-rubber-foot" },
 
     { "id": "water-surface", "word": "water surface", "translation": "水面", "x": 850, "y": 380, "priority": 3.018, "minLevel": 2, "sourceVisualRegion": "water-fill" },
@@ -99,7 +99,15 @@
       "width": 1100,
       "height": 290,
       "targetScale": 2.35,
-      "labelIds": ["lid", "lid-rim", "hinge", "hinge-pin", "lid-gasket", "tank-rim", "pouring-lip", "latch", "fill-opening", "lid-underside", "hinge-barrel", "hinge-arm", "latch-insert", "lid-corner", "hinge-leaf", "latch-housing", "lid-channel"]
+      "labelIds": ["hinge", "hinge-pin", "tank-rim", "pouring-lip", "latch", "fill-opening", "lid-underside", "hinge-barrel", "hinge-arm", "latch-insert", "hinge-leaf", "latch-housing"]
+    },
+    {
+      "id": "lid-corner-detail",
+      "title": "Lid corner detail",
+      "translation": "盖角细节",
+      "description": "Raised lid corner with its rim, gasket channel and clear upper edge",
+      "x": 800, "y": 20, "width": 600, "height": 180, "targetScale": 2.35,
+      "labelIds": ["lid", "lid-rim", "lid-gasket", "lid-channel", "lid-corner"]
     },
     {
       "id": "water-and-air",

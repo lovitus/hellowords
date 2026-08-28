@@ -754,7 +754,7 @@ test("water tank exposes its new lid, water-surface, filter, and base parts", as
 
   await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "61");
   const lidZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="lid-and-rim"]',
+    '[data-testid="scene-minimap-zone"][data-zone-id="lid-corner-detail"]',
   );
   await lidZone.click();
   await expect.poll(() => page.locator(
@@ -778,7 +778,7 @@ test("water tank exposes its new lid, water-surface, filter, and base parts", as
   ).count()).toBeGreaterThan(0);
 
   const baseZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="base-and-mounts"]',
+    '[data-testid="scene-minimap-zone"][data-zone-id="base-bracket-detail"]',
   );
   await baseZone.click();
   await expect.poll(() => page.locator(
