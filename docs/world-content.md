@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,028 human-verified anchors representing 2,649
+Spatial scenes now contain 3,028 human-verified anchors representing 2,650
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only

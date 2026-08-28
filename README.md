@@ -9,7 +9,7 @@ off by default, and the experience intentionally avoids quiz and streak pressure
 
 - 37 reachable scene slices across home, city, nature, gardening, transport,
   health and microscopic science, with 3,028 human-verified contextual anchors
-  representing 2,649 distinct English display terms in five cumulative zoom bands;
+  representing 2,650 distinct English display terms in five cumulative zoom bands;
 - 36 independently reviewed 1600 × 900 raster scenes plus the large-canvas world
   atlas, whose 2604 × 989 base and 5208 × 1978 high tier preserve six audited
   source panels; no spatial scene uses an SVG cutaway;
@@ -34,7 +34,7 @@ off by default, and the experience intentionally avoids quiz and streak pressure
 
 All 10,000 entries are hierarchically reachable and searchable. The product
 still distinguishes 3,028 human-verified contextual scene anchors representing
-2,649 distinct display terms from words organized in the lexical world; it does
+2,650 distinct display terms from words organized in the lexical world; it does
 not claim that every entry was individually drawn.
 
 ## Local development
