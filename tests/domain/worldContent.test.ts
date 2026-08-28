@@ -1127,7 +1127,8 @@ test("premium plant cell expands only into visible organelle subparts", async ()
       ["nucleus-and-er", 15],
       ["golgi-and-smooth-er", 8],
       ["vacuole-and-cytoplasm", 13],
-      ["chloroplast-cutaway", 12],
+      ["chloroplast-cutaway", 7],
+      ["thylakoid-stack-detail", 5],
       ["mitochondria-and-wall", 11],
     ],
   );

@@ -807,7 +807,7 @@ test("plant cell exposes its organelle subparts through the real leaf path", asy
   ).count()).toBeGreaterThan(0);
 
   const chloroplastZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="chloroplast-cutaway"]',
+    '[data-testid="scene-minimap-zone"][data-zone-id="thylakoid-stack-detail"]',
   );
   await chloroplastZone.click();
   await expect.poll(() => page.locator(

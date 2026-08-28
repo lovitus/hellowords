@@ -1209,16 +1209,29 @@
       "labelIds": [
         "chloroplast",
         "chloroplast-envelope",
-        "granum",
-        "thylakoid-stack",
         "starch-grain",
         "chloroplast-stroma",
         "stroma-lamella",
-        "thylakoid-disc",
         "plastoglobule",
-        "thylakoid-membrane",
-        "granum-edge",
         "chloroplast-inner-membrane"
+      ]
+    },
+    {
+      "id": "thylakoid-stack-detail",
+      "title": "Thylakoid stack detail",
+      "translation": "类囊体堆细节",
+      "description": "Granum edge, stacked discs and their continuous thylakoid membrane",
+      "x": 960,
+      "y": 120,
+      "width": 400,
+      "height": 240,
+      "targetScale": 2.4,
+      "labelIds": [
+        "granum",
+        "thylakoid-stack",
+        "thylakoid-disc",
+        "thylakoid-membrane",
+        "granum-edge"
       ]
     },
     {
