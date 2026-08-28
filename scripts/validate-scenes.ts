@@ -165,7 +165,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "coffee-machine": 40,
   "cotton-shirt": 40,
   "water-tank": 36,
-  "pond-edge": 40,
+  // The bright pond raster resolves distinct emergent leaves and seed heads,
+  // floating-garden parts, water ripples, shallow-water life, bank textures and
+  // external frog details; the ceiling blocks absent wildlife and behaviors.
+  "pond-edge": 65,
   frog: 36,
   // The sunlit gallery exposes separate skull, jaw, vertebra, limb, horn,
   // fossil and preparation-tool parts; the ceiling blocks behavior, era,

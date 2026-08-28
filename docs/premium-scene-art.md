@@ -221,7 +221,7 @@ The final-pixel audit retained 36 grounded terms across five authored crops. It 
 
 Create a bright, elegant spring pond at water level with transparent shallows and a coherent natural shoreline. Resolve cattails, reeds, sedge, a water lily and bud, lily pads, duckweed, a snail, minnows, tadpoles, submerged plants, reflected water, ripples and bubbles, plus one dragonfly, one damselfly and a surface water strider. Keep one anatomically plausible green frog unobstructed on a large flat stone at the right as the next portal, with no people, text, brands, pseudo-writing or dark atmosphere.
 
-The final-pixel audit retained 40 pointable terms across six authored crops. It anchored only organisms and textures visible in the final photograph, rejected absent birds, turtles and activity claims, and bounded the Frog portal to the single unobstructed animal on the right stone.
+The final-pixel audit retains 65 grounded terms across six authored crops. It adds visible stems, leaf parts, insect bodies and wings, ripple and bubble details, fish and tadpole parts, bank textures and external frog parts while rejecting absent birds, turtles and activity claims. The Frog portal remains bounded to the single unobstructed animal on the right stone.
 
 ### Frog
 

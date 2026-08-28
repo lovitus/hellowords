@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,487 human-verified anchors representing 3,029
+Spatial scenes now contain 3,512 human-verified anchors representing 3,054
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -134,7 +134,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Leaf | 54 → 49 | Natural-colour macro retains independently visible twig, bud, acorn-cup, bark, insect and spider parts while rejecting duplicate vein terms and unsupported underside/curl details |
 | Plant cell | 65 → 46 | Premium 3D cutaway resolves organelles, membrane layers, chloroplast discs, cytoplasmic strands and vesicle interiors; unseen molecules and processes stay removed |
 | Chloroplast interior | 57 → 51 | Bright coherent organelle resolves its envelope, grana, intergranal lamellae, DNA strands, storage bodies, stromal particles and surface complexes; reactions and metabolites stay removed |
-| Pond edge | 48 → 40 | Premium spring shallows ground shoreline textures, aquatic plants, insects, fish, tadpoles, snail and the real Frog portal; absent birds, turtles and activities remain removed |
+| Pond edge | 73 → 65 | Premium spring shallows ground shoreline textures, aquatic plants, insects, fish, tadpoles, snail and the real Frog portal; the final audit adds visible stems, leaf parts, insect bodies, ripple/bubble details, fish parts, bank textures and frog surface parts while absent birds, turtles and activities remain removed |
 | Frog | 48 → 34 | Premium single-animal portrait grounds external head, skin, forelimb and webbed hind-limb anatomy; internal organs, life stages, prey and behavior remain removed |
 
 ## Visual strategy

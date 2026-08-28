@@ -1006,14 +1006,25 @@ test("premium pond edge grounds its freshwater life and keeps one real frog port
   assert.ok(pondEdge);
   assert.equal(pondEdge.asset, "/scenes/pond-edge-premium-v1.jpg");
   assert.equal(pondEdge.parentId, "city-park");
-  assert.equal(pondEdge.labels.length, 40);
+  assert.equal(pondEdge.labels.length, 65);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       pondEdge.labels.filter((label) => label.minLevel === level).length
     )),
-    [12, 10, 8, 6, 4],
+    [12, 15, 17, 12, 9],
   );
   assert.equal(pondEdge.detailZones?.length, 6);
+  assert.deepEqual(
+    pondEdge.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["emergent-plants-insects", 14],
+      ["floating-garden", 12],
+      ["open-water", 8],
+      ["clear-shallows", 10],
+      ["bank-textures", 13],
+      ["frog-portrait", 7],
+    ],
+  );
   assert.deepEqual(pondEdge.portals, [
     {
       id: "enter-frog",
@@ -1045,8 +1056,46 @@ test("premium pond edge grounds its freshwater life and keeps one real frog port
     "tree root",
     "mud bank",
     "air bubble",
+    "cattail stem",
+    "cattail bract",
+    "reed blade tip",
+    "dragonfly body",
+    "damselfly wing",
+    "lily pad vein",
+    "lily pad notch",
+    "water lily center",
+    "lily bud sepal",
+    "snail foot",
+    "ripple ring",
+    "water reflection line",
+    "water strider leg",
+    "surface bubble",
+    "minnow fin",
+    "tadpole eye",
+    "submerged leaf",
+    "air bubble cluster",
+    "shoreline pebble",
+    "root bark ridge",
+    "mud bank stone",
+    "fallen twig tip",
+    "frog tympanum",
+    "frog toe pad",
+    "frog dorsal stripe",
   ]) {
     assert.ok(words.has(required), `pond edge visibly grounds ${required}`);
+  }
+  for (const [id, point] of [
+    ["cattail-stem", [260, 230]],
+    ["water-lily-center", [350, 455]],
+    ["minnow-fin", [625, 765]],
+    ["shoreline-pebble", [1210, 650]],
+    ["frog-tympanum", [1280, 470]],
+  ] as const) {
+    const anchor: Scene["labels"][number] | undefined = pondEdge.labels.find(
+      (candidate) => candidate.id === id,
+    );
+    assert.ok(anchor, `pond edge keeps ${id} label`);
+    assert.deepEqual([anchor.x, anchor.y], point, `pond edge anchors ${id}`);
   }
   for (const unsupported of ["heron", "kingfisher", "turtle", "fish jumping", "swimming", "hunting"]) {
     assert.ok(!words.has(unsupported), `pond edge omits inferred ${unsupported}`);
