@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,053 human-verified anchors representing 2,673
+Spatial scenes now contain 3,073 human-verified anchors representing 2,688
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -111,7 +111,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Polymer | 68 → 37 | Premium multiscale material scene grounds specimens, morphology, defects and molecular structure; undefined molecular identities, properties and processes remain removed |
 | Bedroom | 51 → 40 | Premium bedroom adds grounded furniture, storage, textile and room-part details; actions and moods remain removed |
 | Bathroom | 48 → 45 | New daylight bathroom grounds bath, vanity, toilet, shower, plumbing, tile and linen details; invisible conditions remain removed |
-| Wardrobe interior | 48 → 36 | Premium wardrobe grounds cabinet fittings, distinct garments, shirt parts and nearby bedroom objects; materials and actions remain removed |
+| Wardrobe interior | 68 → 56 | Premium wardrobe grounds cabinet frame, hanger and garment parts, accessory details and nearby daylight-corner objects; materials, stitching claims and actions remain removed |
 | Cotton shirt | 48 → 40 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools; machinery, factory actions and performance properties remain removed |
 | City street | 46 → 42 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects |
 | City cafe | 52 → 45 | New daylight cafe grounds counter, espresso, pastry, seating and tableware zones; people, branding and text stay excluded |

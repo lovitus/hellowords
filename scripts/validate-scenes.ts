@@ -160,6 +160,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "greenhouse-interior": 46,
   "tomato-plant": 44,
   "potting-workbench": 49,
+  // The photographed wardrobe resolves a complete cabinet, garment rack,
+  // shirt construction and accessory shelf; the ceiling blocks fabric and
+  // stitching claims while allowing the reviewed 56-anchor set.
+  "wardrobe-interior": 56,
   "chloroplast-interior": 36,
 };
 const MIN_PREMIUM_OVERVIEW_LABELS = 12;

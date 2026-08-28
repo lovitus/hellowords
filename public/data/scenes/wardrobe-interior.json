@@ -47,7 +47,27 @@
     { "id": "cubby", "word": "cubby", "translation": "分格储物格", "x": 1215, "y": 855, "priority": 5.032, "minLevel": 4, "sourceVisualRegion": "verified-cubby" },
     { "id": "folded-blanket", "word": "folded blanket", "translation": "叠好的毯子", "x": 960, "y": 48, "priority": 5.033, "minLevel": 4, "sourceVisualRegion": "verified-folded-blanket" },
     { "id": "roman-blind", "word": "Roman blind", "translation": "罗马帘", "x": 96, "y": 112, "priority": 5.034, "minLevel": 4, "sourceVisualRegion": "verified-roman-blind" },
-    { "id": "vase", "word": "vase", "translation": "花瓶", "x": 108, "y": 590, "priority": 5.035, "minLevel": 4, "sourceVisualRegion": "verified-vase" }
+    { "id": "vase", "word": "vase", "translation": "花瓶", "x": 108, "y": 590, "priority": 5.035, "minLevel": 4, "sourceVisualRegion": "verified-vase" },
+    { "id": "cabinet-frame", "word": "cabinet frame", "translation": "柜体框架", "x": 500, "y": 450, "priority": 6, "minLevel": 1, "sourceVisualRegion": "verified-cabinet-frame" },
+    { "id": "shelf-edge", "word": "shelf edge", "translation": "搁板边缘", "x": 1050, "y": 125, "priority": 6.001, "minLevel": 1, "sourceVisualRegion": "verified-shelf-edge" },
+    { "id": "hanger-hook", "word": "hanger hook", "translation": "衣架挂钩", "x": 830, "y": 170, "priority": 6.002, "minLevel": 2, "sourceVisualRegion": "verified-hanger-hook" },
+    { "id": "jacket-sleeve", "word": "jacket sleeve", "translation": "夹克袖子", "x": 650, "y": 470, "priority": 6.003, "minLevel": 2, "sourceVisualRegion": "verified-jacket-sleeve" },
+    { "id": "sweater-knit", "word": "sweater knit", "translation": "毛衣针织纹", "x": 797, "y": 390, "priority": 6.004, "minLevel": 2, "sourceVisualRegion": "verified-sweater-knit" },
+    { "id": "trouser-waistband", "word": "trouser waistband", "translation": "裤腰", "x": 990, "y": 200, "priority": 6.005, "minLevel": 2, "sourceVisualRegion": "verified-trouser-waistband" },
+    { "id": "window-frame", "word": "window frame", "translation": "窗框", "x": 110, "y": 285, "priority": 6.006, "minLevel": 2, "sourceVisualRegion": "verified-window-frame" },
+    { "id": "picture-frame", "word": "picture frame", "translation": "画框", "x": 355, "y": 365, "priority": 6.007, "minLevel": 2, "sourceVisualRegion": "verified-picture-frame" },
+    { "id": "plant-leaf", "word": "plant leaf", "translation": "植物叶片", "x": 95, "y": 405, "priority": 6.008, "minLevel": 2, "sourceVisualRegion": "verified-plant-leaf" },
+    { "id": "shirt-cuff-button", "word": "cuff button", "translation": "袖口纽扣", "x": 1068, "y": 558, "priority": 6.009, "minLevel": 3, "sourceVisualRegion": "verified-cuff-button" },
+    { "id": "shirt-shoulder", "word": "shirt shoulder", "translation": "衬衫肩部", "x": 1215, "y": 210, "priority": 6.010, "minLevel": 3, "sourceVisualRegion": "verified-shirt-shoulder" },
+    { "id": "basket-rim", "word": "basket rim", "translation": "篮筐边缘", "x": 1170, "y": 665, "priority": 6.011, "minLevel": 3, "sourceVisualRegion": "verified-basket-rim" },
+    { "id": "basket-weave", "word": "basket weave", "translation": "篮筐编织纹", "x": 1170, "y": 715, "priority": 6.012, "minLevel": 3, "sourceVisualRegion": "verified-basket-weave" },
+    { "id": "belt-strap", "word": "belt strap", "translation": "腰带带身", "x": 1160, "y": 660, "priority": 6.013, "minLevel": 3, "sourceVisualRegion": "verified-belt-strap" },
+    { "id": "tie-blade", "word": "tie blade", "translation": "领带身", "x": 1240, "y": 710, "priority": 6.014, "minLevel": 3, "sourceVisualRegion": "verified-tie-blade" },
+    { "id": "shoelace", "word": "shoelace", "translation": "鞋带", "x": 690, "y": 670, "priority": 6.015, "minLevel": 3, "sourceVisualRegion": "verified-shoelace" },
+    { "id": "shoebox-lid", "word": "shoebox lid", "translation": "鞋盒盖", "x": 790, "y": 660, "priority": 6.016, "minLevel": 3, "sourceVisualRegion": "verified-shoebox-lid" },
+    { "id": "vase-neck", "word": "vase neck", "translation": "花瓶颈部", "x": 108, "y": 540, "priority": 6.017, "minLevel": 3, "sourceVisualRegion": "verified-vase-neck" },
+    { "id": "blanket-edge", "word": "blanket edge", "translation": "毯子边缘", "x": 960, "y": 65, "priority": 6.018, "minLevel": 4, "sourceVisualRegion": "verified-blanket-edge" },
+    { "id": "storage-box-lid", "word": "storage box lid", "translation": "储物盒盖", "x": 1215, "y": 785, "priority": 6.019, "minLevel": 4, "sourceVisualRegion": "verified-storage-box-lid" }
   ],
   "portals": [
     {
@@ -68,9 +88,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/wardrobe-interior-premium-v2.jpg",
     "reviewedAssetSha256": "ec0cc25087f206253e5fc04c4a59c5a1011300fde1591c2431680ef963e24925",
-    "rationale": "Re-anchored the bright photographed wardrobe to distinct cabinet hardware, garments, shirt parts and nearby daylight-corner objects; the portal is bounded to the complete unobstructed white shirt.",
-    "previousLabelCount": 48,
-    "retainedLabelCount": 36,
+    "rationale": "Expanded the bright photographed wardrobe with only clearly separable cabinet, hanger, garment, accessory and daylight-corner parts; the portal remains the complete unobstructed white shirt, while unsupported fabric composition, stitching claims and duplicate garment names stay rejected.",
+    "previousLabelCount": 68,
+    "retainedLabelCount": 56,
     "removedLabelCount": 12,
     "removedExamples": ["garment", "closet", "buttonhole", "seam", "cotton", "hang up", "denim"]
   },
@@ -85,7 +105,7 @@
       "width": 425,
       "height": 900,
       "targetScale": 2.4,
-      "labelIds": ["window", "plant", "framed-print", "cushion", "roman-blind", "vase"]
+      "labelIds": ["window", "plant", "framed-print", "cushion", "roman-blind", "vase", "window-frame", "picture-frame", "plant-leaf", "vase-neck"]
     },
     {
       "id": "doors-and-hardware",
@@ -97,7 +117,7 @@
       "width": 1180,
       "height": 900,
       "targetScale": 2.2,
-      "labelIds": ["wardrobe", "wardrobe-door", "hinge", "door-handle"]
+      "labelIds": ["wardrobe", "wardrobe-door", "hinge", "door-handle", "cabinet-frame"]
     },
     {
       "id": "upper-fittings",
@@ -109,7 +129,7 @@
       "width": 1180,
       "height": 270,
       "targetScale": 2.8,
-      "labelIds": ["shelf", "clothes-rail", "clothes-hanger", "folded-blanket"]
+      "labelIds": ["shelf", "clothes-rail", "clothes-hanger", "folded-blanket", "shelf-edge", "hanger-hook", "blanket-edge"]
     },
     {
       "id": "hanging-garments",
@@ -121,7 +141,7 @@
       "width": 850,
       "height": 540,
       "targetScale": 3,
-      "labelIds": ["shirt", "dress", "jacket", "trousers", "sweater", "collar", "sleeve", "cuff", "placket", "chest-pocket", "button", "hem"]
+      "labelIds": ["shirt", "dress", "jacket", "trousers", "sweater", "collar", "sleeve", "cuff", "placket", "chest-pocket", "button", "hem", "jacket-sleeve", "sweater-knit", "trouser-waistband", "shirt-cuff-button", "shirt-shoulder"]
     },
     {
       "id": "lower-storage",
@@ -133,7 +153,7 @@
       "width": 850,
       "height": 270,
       "targetScale": 3,
-      "labelIds": ["drawer", "storage-box", "shoe", "woven-basket", "belt", "necktie", "buckle", "shoebox", "drawer-pull", "cubby"]
+      "labelIds": ["drawer", "storage-box", "shoe", "woven-basket", "belt", "necktie", "buckle", "shoebox", "drawer-pull", "cubby", "basket-rim", "basket-weave", "belt-strap", "tie-blade", "shoelace", "shoebox-lid", "storage-box-lid"]
     }
   ],
   "visualRegions": [
@@ -172,6 +192,26 @@
     { "id": "verified-cubby", "description": "Open square lower-right wardrobe compartment", "kind": "part", "x": 1080, "y": 760, "width": 260, "height": 140 },
     { "id": "verified-folded-blanket", "description": "Stack of folded ivory blankets on the top shelf", "kind": "object", "x": 800, "y": 0, "width": 280, "height": 100 },
     { "id": "verified-roman-blind", "description": "Folded cream Roman blind across the left window", "kind": "object", "x": 0, "y": 15, "width": 220, "height": 210 },
-    { "id": "verified-vase", "description": "Tall matte white floor vase beside the window", "kind": "object", "x": 50, "y": 500, "width": 120, "height": 190 }
+    { "id": "verified-vase", "description": "Tall matte white floor vase beside the window", "kind": "object", "x": 50, "y": 500, "width": 120, "height": 190 },
+    { "id": "verified-cabinet-frame", "description": "Vertical and horizontal oak members framing the wardrobe opening", "kind": "part", "x": 420, "y": 0, "width": 1180, "height": 900 },
+    { "id": "verified-shelf-edge", "description": "Front edge of the long upper oak shelf", "kind": "part", "x": 600, "y": 60, "width": 870, "height": 70 },
+    { "id": "verified-hanger-hook", "description": "Metal hook rising from the wooden clothes hanger", "kind": "part", "x": 680, "y": 145, "width": 380, "height": 130 },
+    { "id": "verified-jacket-sleeve", "description": "Long sleeve and button cuff on the hanging sage jacket", "kind": "part", "x": 620, "y": 205, "width": 135, "height": 405 },
+    { "id": "verified-sweater-knit", "description": "Raised knit pattern across the cream sweater", "kind": "part", "x": 750, "y": 210, "width": 105, "height": 360 },
+    { "id": "verified-trouser-waistband", "description": "Structured waistband at the top of the hanging trousers", "kind": "part", "x": 900, "y": 185, "width": 175, "height": 90 },
+    { "id": "verified-window-frame", "description": "Pale frame surrounding the tall daylight window", "kind": "part", "x": 0, "y": 0, "width": 230, "height": 605 },
+    { "id": "verified-picture-frame", "description": "Wooden border around the pale botanical print", "kind": "part", "x": 290, "y": 190, "width": 125, "height": 330 },
+    { "id": "verified-plant-leaf", "description": "Individual green leaves in the branch arrangement by the window", "kind": "part", "x": 0, "y": 245, "width": 190, "height": 305 },
+    { "id": "verified-cuff-button", "description": "Small button visible on the white shirt cuff", "kind": "part", "x": 1030, "y": 515, "width": 95, "height": 100 },
+    { "id": "verified-shirt-shoulder", "description": "Shoulder panel where the white shirt sleeves meet the body", "kind": "part", "x": 1100, "y": 140, "width": 250, "height": 150 },
+    { "id": "verified-basket-rim", "description": "Raised woven rim around the accessory basket", "kind": "part", "x": 1060, "y": 660, "width": 320, "height": 120 },
+    { "id": "verified-basket-weave", "description": "Crossed reed weave pattern across the basket side", "kind": "part", "x": 1060, "y": 660, "width": 320, "height": 120 },
+    { "id": "verified-belt-strap", "description": "Brown leather strap coiled beside the belt buckle", "kind": "part", "x": 1080, "y": 640, "width": 175, "height": 100 },
+    { "id": "verified-tie-blade", "description": "Long dotted blade of the sage necktie over the basket", "kind": "part", "x": 1200, "y": 670, "width": 170, "height": 120 },
+    { "id": "verified-shoelace", "description": "Dark laces crossing the brown leather shoe uppers", "kind": "part", "x": 610, "y": 640, "width": 185, "height": 100 },
+    { "id": "verified-shoebox-lid", "description": "Separate cream lid resting on the lower shoebox", "kind": "part", "x": 720, "y": 650, "width": 175, "height": 95 },
+    { "id": "verified-vase-neck", "description": "Narrow neck and opening of the matte floor vase", "kind": "part", "x": 50, "y": 500, "width": 120, "height": 190 },
+    { "id": "verified-blanket-edge", "description": "Folded edge and rolled texture on the top-shelf blankets", "kind": "part", "x": 800, "y": 0, "width": 280, "height": 100 },
+    { "id": "verified-storage-box-lid", "description": "Separate fitted lid on the sage lower storage box", "kind": "part", "x": 1110, "y": 785, "width": 205, "height": 115 }
   ]
 }

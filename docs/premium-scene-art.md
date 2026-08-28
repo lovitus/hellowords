@@ -226,6 +226,8 @@ Create a bright elegant bedroom with a complete central bed, layered bedding, wi
 
 Create a bright editorial photograph of a complete open pale-oak wardrobe beside a sunlit bedroom window. Resolve its shelf, rail, hangers, drawers, boxes, shoes, accessories and several distinct garments. Make the complete white button-front shirt the unobstructed center-right portal, large enough to point to its collar, sleeve, cuff, placket, buttons, chest pocket and hem. Exclude people, mannequins, anatomy, branding and legible text.
 
+The final-pixel audit retained 56 structures across five authored crops. It adds the cabinet frame, shelf edge, hanger hook, garment sleeves and waistband, shirt shoulder/cuff button, accessory basket and tie details, shoe laces and nearby daylight-corner parts without adding the rejected fabric-composition or stitching claims.
+
 ### Cotton shirt
 
 Create a bright photorealistic textile-study flat lay centered on one complete white Oxford-cotton button-down shirt. Keep its two-part collar, shoulder and armhole seams, sleeves, sleeve plackets, cuffs, front placket, buttons, chest pocket and curved hem independently readable. Beside it, place a real cotton sample under a magnifying glass so the over-under weave and both yarn directions are crisp, plus a twisted yarn, loose fibers, cotton bolls, thread spool, threaded needle, thimble, pin cushion and dressmaking shears. Exclude people, mannequins, brands, text, machinery, factory processes and invisible performance claims.
