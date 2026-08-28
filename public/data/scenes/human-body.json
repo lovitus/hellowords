@@ -93,6 +93,46 @@
       "sourceVisualRegion": "organ-cutaway"
     },
     {
+      "id": "chest",
+      "word": "chest",
+      "translation": "胸部",
+      "x": 340,
+      "y": 260,
+      "priority": 1.008,
+      "minLevel": 0,
+      "sourceVisualRegion": "mannequin-upper"
+    },
+    {
+      "id": "abdomen",
+      "word": "abdomen",
+      "translation": "腹部",
+      "x": 340,
+      "y": 350,
+      "priority": 1.009,
+      "minLevel": 0,
+      "sourceVisualRegion": "mannequin-lower"
+    },
+    {
+      "id": "mandible",
+      "word": "mandible",
+      "translation": "下颌骨",
+      "x": 800,
+      "y": 160,
+      "priority": 1.01,
+      "minLevel": 0,
+      "sourceVisualRegion": "skeleton-upper"
+    },
+    {
+      "id": "pectoralis",
+      "word": "pectoralis",
+      "translation": "胸肌",
+      "x": 1190,
+      "y": 285,
+      "priority": 1.011,
+      "minLevel": 0,
+      "sourceVisualRegion": "muscle-limbs"
+    },
+    {
       "id": "arm",
       "word": "arm",
       "translation": "手臂",
@@ -176,6 +216,46 @@
       "minLevel": 1,
       "sourceVisualRegion": "organ-cutaway",
       "lexemeId": "en-d5a0d90574d530f8"
+    },
+    {
+      "id": "thigh",
+      "word": "thigh",
+      "translation": "大腿",
+      "x": 340,
+      "y": 535,
+      "priority": 2.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "mannequin-lower"
+    },
+    {
+      "id": "rib",
+      "word": "rib",
+      "translation": "肋骨",
+      "x": 770,
+      "y": 300,
+      "priority": 2.017,
+      "minLevel": 1,
+      "sourceVisualRegion": "skeleton-upper"
+    },
+    {
+      "id": "vertebra",
+      "word": "vertebra",
+      "translation": "椎骨",
+      "x": 800,
+      "y": 375,
+      "priority": 2.018,
+      "minLevel": 1,
+      "sourceVisualRegion": "skeleton-upper"
+    },
+    {
+      "id": "triceps",
+      "word": "triceps",
+      "translation": "肱三头肌",
+      "x": 1360,
+      "y": 330,
+      "priority": 2.019,
+      "minLevel": 1,
+      "sourceVisualRegion": "muscle-limbs"
     },
     {
       "id": "neck",
@@ -343,6 +423,46 @@
       "sourceVisualRegion": "organ-cutaway"
     },
     {
+      "id": "shin",
+      "word": "shin",
+      "translation": "小腿",
+      "x": 320,
+      "y": 700,
+      "priority": 3.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "mannequin-lower"
+    },
+    {
+      "id": "radius",
+      "word": "radius",
+      "translation": "桡骨",
+      "x": 690,
+      "y": 415,
+      "priority": 3.025,
+      "minLevel": 2,
+      "sourceVisualRegion": "skeleton-upper"
+    },
+    {
+      "id": "ulna",
+      "word": "ulna",
+      "translation": "尺骨",
+      "x": 720,
+      "y": 415,
+      "priority": 3.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "skeleton-upper"
+    },
+    {
+      "id": "sacrum",
+      "word": "sacrum",
+      "translation": "骶骨",
+      "x": 800,
+      "y": 505,
+      "priority": 3.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "skeleton-lower"
+    },
+    {
       "id": "fingers",
       "word": "fingers",
       "translation": "手指",
@@ -426,6 +546,86 @@
       "priority": 5.039,
       "minLevel": 4,
       "sourceVisualRegion": "muscle-limbs"
+    },
+    {
+      "id": "abdominal-muscle",
+      "word": "abdominal muscle",
+      "translation": "腹肌",
+      "x": 1240,
+      "y": 440,
+      "priority": 4.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "muscle-limbs"
+    },
+    {
+      "id": "thumb",
+      "word": "thumb",
+      "translation": "拇指",
+      "x": 220,
+      "y": 505,
+      "priority": 4.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "mannequin-upper"
+    },
+    {
+      "id": "fibula",
+      "word": "fibula",
+      "translation": "腓骨",
+      "x": 790,
+      "y": 700,
+      "priority": 4.034,
+      "minLevel": 3,
+      "sourceVisualRegion": "skeleton-lower"
+    },
+    {
+      "id": "calf-muscle",
+      "word": "calf muscle",
+      "translation": "小腿肌肉",
+      "x": 1210,
+      "y": 700,
+      "priority": 4.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "muscle-limbs"
+    },
+    {
+      "id": "toe",
+      "word": "toe",
+      "translation": "脚趾",
+      "x": 320,
+      "y": 825,
+      "priority": 5.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "mannequin-lower"
+    },
+    {
+      "id": "carpals",
+      "word": "carpals",
+      "translation": "腕骨",
+      "x": 690,
+      "y": 460,
+      "priority": 5.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "skeleton-upper"
+    },
+    {
+      "id": "tarsals",
+      "word": "tarsals",
+      "translation": "跗骨",
+      "x": 755,
+      "y": 790,
+      "priority": 5.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "skeleton-lower"
+    },
+    {
+      "id": "metatarsals",
+      "word": "metatarsals",
+      "translation": "跖骨",
+      "x": 780,
+      "y": 805,
+      "priority": 5.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "skeleton-lower"
     }
   ],
   "portals": [
@@ -447,10 +647,10 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/human-body-premium-v2.jpg",
     "reviewedAssetSha256": "dccccd11c2f3f3884f6e1386c8443036b4f05a426ad35c74c19477907ea21ec8",
-    "rationale": "Re-anchored the bright medical-museum pixels to three separate manufactured teaching models: an articulated body form, a complete skeleton, and a muscle-and-organ cutaway with an unobstructed heart portal.",
-    "previousLabelCount": 56,
-    "retainedLabelCount": 40,
-    "removedLabelCount": 16,
+    "rationale": "Re-audited the bright medical-museum pixels against three separate manufactured teaching models: the expanded set keeps the articulated mannequin's chest, abdomen and distal parts, the skeleton's individually readable jaw, long bones and hand/foot groups, and the muscle model's chest, arm, abdominal and calf groups while preserving the unobstructed heart portal.",
+    "previousLabelCount": 66,
+    "retainedLabelCount": 60,
+    "removedLabelCount": 6,
     "removedExamples": [
       "brain",
       "kidney",
@@ -473,6 +673,7 @@
       "targetScale": 2.8,
       "labelIds": [
         "head",
+        "chest",
         "neck",
         "shoulder",
         "arm",
@@ -480,7 +681,8 @@
         "forearm",
         "wrist",
         "hand",
-        "fingers"
+        "fingers",
+        "thumb"
       ]
     },
     {
@@ -496,11 +698,15 @@
       "labelIds": [
         "mannequin",
         "torso",
+        "abdomen",
         "hip",
         "leg",
+        "thigh",
         "knee",
+        "shin",
         "ankle",
-        "foot"
+        "foot",
+        "toe"
       ]
     },
     {
@@ -516,12 +722,18 @@
       "labelIds": [
         "skeleton",
         "skull",
+        "mandible",
         "collarbone",
         "breastbone",
         "rib-cage",
+        "rib",
         "spine",
+        "vertebra",
         "humerus",
-        "forearm-bones"
+        "forearm-bones",
+        "radius",
+        "ulna",
+        "carpals"
       ]
     },
     {
@@ -536,9 +748,13 @@
       "targetScale": 3,
       "labelIds": [
         "pelvis",
+        "sacrum",
         "femur",
         "kneecap",
-        "shinbone"
+        "shinbone",
+        "fibula",
+        "tarsals",
+        "metatarsals"
       ]
     },
     {
@@ -552,11 +768,15 @@
       "height": 630,
       "targetScale": 2.8,
       "labelIds": [
+        "pectoralis",
         "deltoid",
+        "triceps",
         "biceps",
         "forearm-muscle",
+        "abdominal-muscle",
         "quadriceps",
-        "lower-leg-muscle"
+        "lower-leg-muscle",
+        "calf-muscle"
       ]
     },
     {

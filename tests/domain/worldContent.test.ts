@@ -1852,12 +1852,12 @@ test("premium human body keeps a truthful heart portal and six grounded anatomy 
   assert.ok(humanBody);
   assert.equal(humanBody.parentId, "science-museum");
   assert.equal(humanBody.asset, "/scenes/human-body-premium-v2.jpg");
-  assert.equal(humanBody.labels.length, 40);
+  assert.equal(humanBody.labels.length, 60);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       humanBody.labels.filter((label) => label.minLevel === level).length
     )),
-    [8, 8, 8, 8, 8],
+    [12, 12, 12, 12, 12],
     "every zoom band reveals an equal batch of grounded anatomy words",
   );
   assert.equal(humanBody.detailZones?.length, 6);
@@ -1877,16 +1877,29 @@ test("premium human body keeps a truthful heart portal and six grounded anatomy 
   const words = new Set(humanBody.labels.map(({ word }) => word));
   for (const visible of [
     "mannequin",
+    "chest",
+    "abdomen",
     "head",
+    "mandible",
     "elbow",
     "fingers",
+    "thumb",
     "skeleton",
     "skull",
     "rib cage",
+    "rib",
     "spine",
+    "vertebra",
     "pelvis",
     "femur",
+    "radius",
+    "ulna",
+    "fibula",
     "deltoid",
+    "pectoralis",
+    "triceps",
+    "abdominal muscle",
+    "calf muscle",
     "quadriceps",
     "trachea",
     "lung",

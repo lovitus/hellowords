@@ -181,7 +181,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // and underfloor battery parts; the ceiling blocks passenger roles and
   // operating states that are not visible in a static frame.
   "electric-bus": 51,
-  "human-body": 40,
+  "human-body": 60,
   // The reviewed carriage raster exposes the complete cabin plus distinct
   // door, seat, suspension and foreground track hardware; the ceiling blocks
   // unsupported service claims while allowing the expanded 64-anchor audit.
