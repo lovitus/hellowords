@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,692 human-verified anchors representing 3,212
+Spatial scenes now contain 3,698 human-verified anchors representing 3,216
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -104,7 +104,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Greenhouse interior | 78 → 71 | Sunlit glasshouse grounds shell hardware, benches, seedlings, crops, floor equipment and a complete tomato portal; climate and growth processes remain removed |
 | Tomato plant | 76 → 69 | Complete supported plant grounds stem, compound-leaf, flower, fruit, support, substrate and visible pest details; physiology and underground processes remain removed |
 | Potting workbench | 83 → 74 | Complete daylight bench grounds tool edges, containers, seedlings, soil and watering fittings; actions, properties and printed-label readings remain removed |
-| Apartment | 47 → 44 | Bright replacement preserves three room portals while removing an obscured sink and unsupported hallway/dresser claims |
+| Apartment | 116 → 113 | Bright replacement preserves three room portals, then adds six independently reviewed seating, cabinetry and bathroom fitting parts while retaining the excluded sink, hallway and dresser claims |
 | Kitchen | 125 → 116 | Bright kitchen grounds appliances, sink, cookware, coffee-nook and island parts; absent processes and hidden appliance claims remain removed |
 | Coffee machine | 78 → 60 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit, pump fittings and electronics; invisible functions and brewing processes remain removed |
 | Water tank | 70 → 50 | Premium clear-reservoir portrait grounds lid, water, molded walls, hinge/latch hardware, outlet valve internals, filter surfaces, mounts and the real Polymer portal; sensors, hidden plumbing, properties and maintenance actions remain removed |
