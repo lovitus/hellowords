@@ -4,13 +4,13 @@
 
 ## 当前交付游标
 
-- 公开版本：`v84-b8f2477`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=84-b8f2477>
-- 源码：`b8f2477`（v84 公开运行时；首页维持仅悬浮分区显示锚点词，根图集与子场景小地图均按真实锚点包围盒聚焦，Apartment 增密）
-- 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、人体展柜、咖啡机、锂离子电芯、水箱、棉衬衫、Apartment 楼梯分区、Apartment 客厅/厨房/浴室细节增密、标签避让平滑度、紧凑词泡与描边、科学馆、厨房与浴室密度；语义换词/索引闪现优化、首页大区悬浮词面、电池包、电动公交部件扩展、空间滚轮和高密度标签避让流畅度修复（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
+- 公开版本：`v88-a121736`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=88-a121736>
+- 源码：`a121736`（v88 公开运行时；首页维持仅悬浮分区显示锚点词，根图集与子场景小地图均按真实锚点包围盒聚焦，Apartment 与列车车厢增密）
+- 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、人体展柜、咖啡机、锂离子电芯、水箱、棉衬衫、Apartment 楼梯分区、Apartment 客厅/厨房/浴室细节增密、列车车厢车钩/底架/轨道细节分区、标签避让平滑度、紧凑词泡与描边、科学馆、厨房与浴室密度；语义换词/索引闪现优化、首页大区悬浮词面、电池包、电动公交部件扩展、空间滚轮和高密度标签避让流畅度修复（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
-## 当前续开发游标（2026-08-28）
+## 当前续开发游标（2026-08-29）
 
 - 活跃根任务：`019fe5fe-faec-7070-9788-dbe33e98e645`（当前对话，保留）。没有运行中的协作 agent。
 - 已归档的完成子任务：`01a04618-091d-7a63-bf16-a78fd56aab74`，主题为“修复场景切换与首页展示”；它的代码曾被明确撤销，当前只保留本批工作树中的新改动。
@@ -19,6 +19,10 @@
 - v82 已修复场景小地图聚焦偏移：非根场景的每个 detail zone 现在以其真实 `labelIds` 锚点包围盒中心作为 focus 坐标，无锚点时才回退到区域几何中心；首页回归测试锁定“默认 0 词、悬停仅当前大区、移出 0 词”的交互契约。`npm run verify` 通过（223 个域测试），全量 E2E 91 通过 / 35 个设计性跳过；性能门首次并行测量为 76.65ms（预算 75ms）的临界抖动，聚焦重跑通过（1/1）。公开 v82 冒烟确认首页 6 个分区名、Campus 悬停 21 词并移出归零；Apartment 楼梯入口/踏步分别以 scale 2.35 聚焦，公开页无 error/warn 日志。
 - v83 将相同的真实锚点包围盒聚焦规则覆盖到根图集的六大区和 66 个根图集细节块；`science-utilities` 这类横向大块不再落到空白几何中心。新增端到端断言核对其 focus 坐标，`npm run verify`、全量 E2E（91 通过 / 35 个设计性跳过）和性能 2/2 均通过。公开 v83 冒烟确认 `Science → Building utilities` 在 scale 3.2 将词群中心误差压到 0.01px，首页悬停仍为 21/0，公开页无 error/warn 日志。
 - v84 基于同一张 Apartment bright v2 原图补回 6 个二次复核后仍清晰可指认的部件：sofa arm、chair seat、drawer、bathtub faucet、shower drain、wall niche；Apartment 从 107 增至 113 个锚点，分别加入客厅/厨房/浴室细节区，未恢复此前排除的 sink、hallway、dresser。`npm run verify` 通过（224 个域测试），全量 E2E 91 通过 / 35 个设计性跳过，性能 2/2 通过。公开 v84 冒烟确认客厅 33 词、厨房 26 词、浴室 24 词和新增词均可见，首页仍为 6 名称/0 词泡，公开页无 error/warn 日志。
+- v85 将同一张列车车厢 bright v2 原图的可指认部件从 64 增至 70：buffer、brake hose、sleeper、door seal、window pane、wall panel；原有转向架入口和既有锚点保持不变。`npm run verify` 通过（225 个域测试），全量 E2E 92 通过 / 36 个设计性跳过，性能聚焦复跑通过；公开 v85 初步冒烟确认 70 个词和新词可达。
+- v86 将列车车厢原横跨全宽的底架/轨道词群拆为车厢壳体、底架设备、车钩制动和前景轨道四个独立焦点区，并新增 train-carriage E2E 合同；公开 v86 复查发现车钩区仍需避开上方 gangway，保留为后续 v88 修正证据。
+- v87 将车钩区目标缩放从 2.6 调到 2.8，但公开复查仍显示 brake hose 被上方 gangway 的包围盒挤出，未把 v87 作为最终可读交付。
+- v88 将车钩区重新裁为下方 coupler/buffer/brake hose/boarding step 四锚点，并把 gangway 回归车厢壳体区；公开 v88 在 scale 2.8 同时读到 buffer、brake hose、boarding step，前景轨道区同时读到 sleeper、rail baseplate、rail fastener。`npm run verify` 通过（225 个域测试），全量 E2E 92 通过 / 36 个设计性跳过，性能 2/2 通过；公开首页仍为 6 名称/0 词泡，页面无 error/warn 日志。
 - v43 已提交并公开发布：`app/components/SceneViewport.tsx`、`app/components/WorldApp.tsx`、`app/globals.css` 与相关 E2E 契约已冻结。`world-map` 默认隐藏密集词云，六大类透明点击区可打开完整词表；分类词进入词卡时地图层自动收起；场景过渡期间旧标签/交互层隐藏；根图像和既有锚点坐标未改动。
 - v44 已基于 `chloroplast-interior-premium-v3.jpg` 的最终像素审计扩展 15 个可指认结构，叶绿体从 36 增至 51 个词、6 个细节区；不加入 Calvin cycle、Rubisco 等不可直接指认的过程。
 - v44 验收证据：`npm run verify`、单 worker 全量 E2E（88 通过 / 34 设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径进入叶绿体后可见 51 个总锚点、6 个细节区，Grana 区显示 15 词，腔与蛋白区显示 19 词。
@@ -89,7 +93,7 @@
 
 ## 未完成任务（按优先级）
 
-1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 107、`city-street` 89、`transit-hub` 73、`city-cafe` 70、`community-garden` 73、`potting-workbench` 74、`greenhouse-interior` 71、`tomato-plant` 69、`kitchen` 116、`bedroom` 104、`bathroom` 103、科学馆 121、铁路站台 96、列车车厢 64、城市公园 88、叶片 49、聚合物 37、衣柜 56、植物细胞 46、叶绿体内部 51 已完成。接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
+1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 113、`city-street` 89、`transit-hub` 73、`city-cafe` 70、`community-garden` 73、`potting-workbench` 74、`greenhouse-interior` 71、`tomato-plant` 69、`kitchen` 116、`bedroom` 104、`bathroom` 103、科学馆 121、铁路站台 96、列车车厢 70、城市公园 88、叶片 49、聚合物 37、衣柜 56、植物细胞 46、叶绿体内部 51 已完成。接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
    - 下一批候选：从 `docs/next-scene-batch.md` 选择仍有足够真实像素证据的稀疏场景；先复核最终像素再决定是否扩展。
    - 每个场景先做 portal 真值和 100%/200% 像素复核，再接入数据和导航。
 2. **连续探索扩展**：保留根图集的滚轮/触控连续缩放和显式点击进入语义；只有在父子场景确实能共享同一张连续栅格时才增加反向 portal，不能恢复“滚轮误触即跳场景”。

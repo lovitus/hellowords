@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,698 human-verified anchors representing 3,216
+Spatial scenes now contain 3,704 human-verified anchors representing 3,218
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -49,7 +49,7 @@ Every scene JSON contains:
 - `detailZones`, grouping truthful local crops into independently focusable word batches with a target scale;
 - `sourceVisualRegion` on every label and portal.
 
-The 37 raster scenes contribute 257 authored detail zones across
+The 37 raster scenes contribute 259 authored detail zones across
 the complete spatial world. The world atlas alone contains 1,275 unique labels
 compiled from 1,296 independently audited source-panel anchors across 66 zones.
 The compiler reconciles cross-panel word duplication deterministically while
@@ -120,7 +120,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Battery | 56 → 42 | Premium engineering cutaway grounds pack, module, cell, electrical, cooling and enclosure hardware; internal chemistry and unsupported sensor claims remain removed |
 | Lithium-ion cell | 63 → 46 | Premium prismatic-cell cutaway grounds enclosure, polarity-specific terminals, flattened winding and unfolded layers, plus visible rims, folds, welds and support surfaces; ambiguous liquid, invisible charge motion, performance metrics and hazard states remain removed |
 | Railway platform | 112 → 96 | Premium station view grounds passenger fixtures, train hardware, overhead electrification and track subparts; signage and service states remain removed |
-| Train carriage | 72 → 64 | Premium carriage cutaway grounds the cabin, doors, accessibility fixtures, roof, suspension and foreground track hardware plus the real bogie portal; passengers and unsupported amenities remain removed |
+| Train carriage | 78 → 70 | Premium carriage cutaway grounds the cabin, doors, accessibility fixtures, roof, suspension and foreground track hardware plus the real bogie portal; six added coupler, brake, glazing and interior-panel parts remain grounded while passengers and unsupported amenities stay removed |
 | Rail bogie | 73 → 65 | Premium powered-bogie study grounds frame, wheelsets, suspension, motor drive, disc brakes, linkages and track hardware; the final audit adds welds, ribs, caps, shafts, hub/rim details, suspension seats, linkage pins and track fasteners while maintenance actions, failure states and invisible load concepts remain removed |
 | Science museum | 128 → 121 | Premium gallery resolves specific fossil, instrument, robotic, physics and life-science parts while rejecting roles, venues and signage |
 | Dinosaur hall | 77 → 69 | Sunlit paleontology gallery grounds mounted bones, distinct fossils, preparation tools and rock structure; the final audit adds skull, jaw, vertebra, limb, horn, fossil and tool parts while behavior, era, weak rock features and museum activities remain removed |
