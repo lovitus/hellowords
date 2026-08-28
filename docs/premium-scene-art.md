@@ -276,6 +276,8 @@ The final-pixel audit retained 31 independently pointable structures across four
 
 Create a dramatic contemporary exhibition hall with three readable zones: fossils and minerals, space and physics, and life science. Include a fossil skeleton and skull, ammonite, crystals, meteorite, telescope, globe and planetary model, microscope, robot arm, solar panel, atom and DNA models, prism, gyroscope, pendulum, controls and museum fixtures. Place a full-height anatomical human model in a lit glass cylinder on the right as the human-body portal.
 
+The final-pixel audit retains 121 independently pointable structures across five authored zones. It adds only visible skeleton, telescope, microscope, robot, fossil, mineral, optics, console and DNA/anatomy parts; removed curator, venue, shop, ticketing, laboratory and signage claims remain excluded.
+
 ### Dinosaur hall
 
 Create a bright, elegant modern paleontology gallery in pale stone and light oak under natural skylight. Keep one anatomically plausible, horizontally mounted Tyrannosaurus skeleton complete and unobstructed from its skull, jaws and teeth through the ribs, pelvis, limbs and articulated tail. Separately show a complete Triceratops skull, a glass cabinet with six distinct fossils, a fossil-bearing preparation slab with individual tools, and a natural sedimentary rock cut containing an embedded ammonite. Exclude people, living dinosaurs, text, brands, pseudo-writing, theatrical darkness, horror and unsupported behavioral or geological claims.

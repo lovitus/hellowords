@@ -974,6 +974,256 @@
       "priority": 6.047,
       "minLevel": 4,
       "sourceVisualRegion": "verified-floor"
+    },
+    {
+      "id": "dinosaur-tail",
+      "word": "dinosaur tail",
+      "translation": "恐龙尾部",
+      "x": 55,
+      "y": 330,
+      "priority": 7.001,
+      "minLevel": 1,
+      "sourceVisualRegion": "dinosaur-skeleton"
+    },
+    {
+      "id": "skull-orbit",
+      "word": "skull orbit",
+      "translation": "头骨眼窝",
+      "x": 370,
+      "y": 150,
+      "priority": 7.002,
+      "minLevel": 3,
+      "sourceVisualRegion": "dinosaur-skull"
+    },
+    {
+      "id": "horn-tip",
+      "word": "horn tip",
+      "translation": "角尖",
+      "x": 470,
+      "y": 335,
+      "priority": 7.003,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-horn"
+    },
+    {
+      "id": "telescope-finder",
+      "word": "telescope finder",
+      "translation": "望远镜寻星镜",
+      "x": 610,
+      "y": 230,
+      "priority": 7.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "telescope"
+    },
+    {
+      "id": "telescope-barrel",
+      "word": "telescope barrel",
+      "translation": "望远镜筒身",
+      "x": 650,
+      "y": 265,
+      "priority": 7.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "telescope"
+    },
+    {
+      "id": "tripod-spreader",
+      "word": "tripod spreader",
+      "translation": "三脚架撑杆",
+      "x": 640,
+      "y": 390,
+      "priority": 7.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "telescope-tripod"
+    },
+    {
+      "id": "solar-panel-frame",
+      "word": "solar panel frame",
+      "translation": "太阳能板框架",
+      "x": 700,
+      "y": 390,
+      "priority": 7.007,
+      "minLevel": 3,
+      "sourceVisualRegion": "solar-panel"
+    },
+    {
+      "id": "globe-axis",
+      "word": "globe axis",
+      "translation": "地球仪轴",
+      "x": 810,
+      "y": 315,
+      "priority": 7.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "globe"
+    },
+    {
+      "id": "microscope-turret",
+      "word": "microscope turret",
+      "translation": "显微镜转换器",
+      "x": 970,
+      "y": 360,
+      "priority": 7.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "microscope-objective"
+    },
+    {
+      "id": "microscope-base",
+      "word": "microscope base",
+      "translation": "显微镜底座",
+      "x": 1000,
+      "y": 470,
+      "priority": 7.010,
+      "minLevel": 3,
+      "sourceVisualRegion": "microscope"
+    },
+    {
+      "id": "robot-shoulder",
+      "word": "robot shoulder",
+      "translation": "机器人肩部",
+      "x": 1140,
+      "y": 300,
+      "priority": 7.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "robotic-joint"
+    },
+    {
+      "id": "robot-forearm",
+      "word": "robot forearm",
+      "translation": "机器人前臂",
+      "x": 1120,
+      "y": 360,
+      "priority": 7.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "robotic-arm"
+    },
+    {
+      "id": "gripper-jaw",
+      "word": "gripper jaw",
+      "translation": "夹爪钳口",
+      "x": 1088,
+      "y": 380,
+      "priority": 7.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "robot-gripper"
+    },
+    {
+      "id": "fossil-spiral",
+      "word": "fossil spiral",
+      "translation": "化石螺旋",
+      "x": 100,
+      "y": 500,
+      "priority": 7.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "ammonite-fossil"
+    },
+    {
+      "id": "crystal-face",
+      "word": "crystal face",
+      "translation": "晶面",
+      "x": 260,
+      "y": 520,
+      "priority": 7.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "amethyst-cluster"
+    },
+    {
+      "id": "meteorite-pit",
+      "word": "meteorite pit",
+      "translation": "陨石凹坑",
+      "x": 460,
+      "y": 560,
+      "priority": 7.016,
+      "minLevel": 3,
+      "sourceVisualRegion": "meteorite"
+    },
+    {
+      "id": "newton-rail",
+      "word": "Newton rail",
+      "translation": "牛顿摆横梁",
+      "x": 720,
+      "y": 560,
+      "priority": 7.017,
+      "minLevel": 3,
+      "sourceVisualRegion": "newton-cradle"
+    },
+    {
+      "id": "prism-facet",
+      "word": "prism facet",
+      "translation": "棱镜面",
+      "x": 825,
+      "y": 590,
+      "priority": 7.018,
+      "minLevel": 4,
+      "sourceVisualRegion": "optics-display"
+    },
+    {
+      "id": "kiosk-bezel",
+      "word": "kiosk bezel",
+      "translation": "信息台边框",
+      "x": 1100,
+      "y": 500,
+      "priority": 7.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "display-screen"
+    },
+    {
+      "id": "console-knob",
+      "word": "console knob",
+      "translation": "控制台旋钮",
+      "x": 1060,
+      "y": 700,
+      "priority": 7.020,
+      "minLevel": 4,
+      "sourceVisualRegion": "control-console"
+    },
+    {
+      "id": "headphone-band",
+      "word": "headphone band",
+      "translation": "耳机头梁",
+      "x": 1090,
+      "y": 655,
+      "priority": 7.021,
+      "minLevel": 4,
+      "sourceVisualRegion": "headphones"
+    },
+    {
+      "id": "dna-helix",
+      "word": "DNA helix",
+      "translation": "DNA 螺旋",
+      "x": 1292,
+      "y": 340,
+      "priority": 7.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "dna-model"
+    },
+    {
+      "id": "dna-backbone",
+      "word": "DNA backbone",
+      "translation": "DNA 骨架",
+      "x": 1265,
+      "y": 410,
+      "priority": 7.023,
+      "minLevel": 3,
+      "sourceVisualRegion": "dna-model"
+    },
+    {
+      "id": "anatomy-torso",
+      "word": "anatomy torso",
+      "translation": "解剖模型躯干",
+      "x": 1490,
+      "y": 430,
+      "priority": 7.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "human-body-model"
+    },
+    {
+      "id": "pedestal-plinth",
+      "word": "pedestal plinth",
+      "translation": "展台基座",
+      "x": 1490,
+      "y": 635,
+      "priority": 7.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-anatomy-pedestal"
     }
   ],
   "portals": [
@@ -1007,9 +1257,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/science-museum-bright-v3.jpg",
     "reviewedAssetSha256": "bce6c971902dac590e494ca87db56a3d68064194db484c5d795f59bdd49482aa",
-    "rationale": "Expanded the exact bright museum pixels into five authored gallery crops and added only separately visible skeletal, optical, robotic, exhibit, ceiling and floor details. The new subparts stay tied to the same disjoint object regions and do not restore removed role, venue or signage claims.",
-    "previousLabelCount": 103,
-    "retainedLabelCount": 96,
+    "rationale": "Re-audited the exact bright museum pixels across five authored gallery crops and added only separately visible skeletal, optical, robotic, exhibit and life-science parts. The new subparts stay tied to disjoint object regions and do not restore removed role, venue or signage claims.",
+    "previousLabelCount": 128,
+    "retainedLabelCount": 121,
     "removedLabelCount": 7,
     "removedExamples": [
       "curator",
@@ -1464,7 +1714,10 @@
         "spine-joint",
         "tail-bone",
         "claw-tip",
-        "horn-base"
+        "horn-base",
+        "dinosaur-tail",
+        "skull-orbit",
+        "horn-tip"
       ]
     },
     {
@@ -1498,7 +1751,12 @@
         "solar-cell",
         "orbit-arm",
         "moon",
-        "skylight-frame"
+        "skylight-frame",
+        "telescope-finder",
+        "telescope-barrel",
+        "tripod-spreader",
+        "solar-panel-frame",
+        "globe-axis"
       ]
     },
     {
@@ -1529,7 +1787,12 @@
         "robot-wrist",
         "gripper-finger",
         "robot-cable",
-        "base-plate"
+        "base-plate",
+        "microscope-turret",
+        "microscope-base",
+        "robot-shoulder",
+        "robot-forearm",
+        "gripper-jaw"
       ]
     },
     {
@@ -1571,7 +1834,15 @@
         "kiosk-screen",
         "console-button",
         "earcup",
-        "bench-seat"
+        "bench-seat",
+        "fossil-spiral",
+        "crystal-face",
+        "meteorite-pit",
+        "newton-rail",
+        "prism-facet",
+        "kiosk-bezel",
+        "console-knob",
+        "headphone-band"
       ]
     },
     {
@@ -1594,7 +1865,11 @@
         "anatomy-head",
         "anatomy-hand",
         "pedestal-top",
-        "floor-tile"
+        "floor-tile",
+        "dna-helix",
+        "dna-backbone",
+        "anatomy-torso",
+        "pedestal-plinth"
       ]
     }
   ]

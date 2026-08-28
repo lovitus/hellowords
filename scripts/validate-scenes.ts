@@ -136,6 +136,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // fountain, gazebo, oak, bench, daisy and picnic parts without activity or
   // wildlife inference; the ceiling blocks ornamental padding.
   "city-park": 63,
+  // The bright gallery resolves separate fossil, optical, robotic, physics and
+  // life-science parts; the ceiling blocks roles, venues and signage claims.
+  "science-museum": 121,
   // The final raster has clear macro forms, microstructure and one coherent
   // molecular model; the 37-anchor ceiling excludes unsupported chemistry.
   polymer: 37,
