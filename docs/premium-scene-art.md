@@ -218,6 +218,11 @@ The final-pixel audit retained 34 grounded terms across four authored anatomy cr
 
 Create a bright, elegant neighborhood cafe in natural daylight with no people. Separate the window seating, service counter, glass pastry display, professional espresso station and large foreground tableware setting so every retained object remains independently pointable. Keep the espresso machine parts physically attached, pastries individually readable and all menu boards, payment devices, exterior signs and equipment completely free of text, brands and pseudo-writing.
 
+The final-pixel audit retained 70 independently pointable terms across five
+detail zones. It adds door and window parts, seating construction, counter and
+display glass, espresso handles and tips, and foreground tableware details
+while rejecting people, branding and inferred service behavior.
+
 ### Polymer
 
 Create a bright pearl-white material-science exhibit that moves from independently pointable macro polymer film, pellets, a molded specimen with a fracture face and a fiber bundle, through separately readable semicrystalline lamellae, a spherulite, amorphous chains, additives, pore and crack, into one coherent generic hydrocarbon polymer model. Make carbon and hydrogen visibly distinct; resolve the backbone, repeating geometry, side group, branch, chain end, entanglement and a separate cross-link without depicting a free monomer. Exclude text, labels, invisible material properties, manufacturing processes and decorative atom clouds.
