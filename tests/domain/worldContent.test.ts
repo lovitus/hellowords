@@ -1567,14 +1567,25 @@ test("community garden adds one disjoint root portal and two grounded local bran
   assert.ok(garden);
   assert.equal(garden.parentId, "world-map");
   assert.equal(garden.asset, "/scenes/community-garden-premium-v1.jpg");
-  assert.equal(garden.labels.length, 48);
+  assert.equal(garden.labels.length, 73);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       garden.labels.filter((label) => label.minLevel === level).length
     )),
-    [10, 10, 10, 9, 9],
+    [10, 10, 15, 24, 14],
   );
-  assert.ok((garden.detailZones?.length ?? 0) >= 6);
+  assert.deepEqual(
+    garden.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["garden-overview", 6],
+      ["greenhouse-zone", 13],
+      ["raised-bed-zone", 12],
+      ["potting-zone", 13],
+      ["water-zone", 11],
+      ["compost-zone", 10],
+      ["pollinator-zone", 8],
+    ],
+  );
   assert.deepEqual(garden.portals, [
     {
       id: "enter-greenhouse-interior",
@@ -1645,6 +1656,31 @@ test("community garden adds one disjoint root portal and two grounded local bran
     "drip line",
     "sunflower",
     "butterfly",
+    "greenhouse roof ridge",
+    "greenhouse vent frame",
+    "greenhouse door handle",
+    "staging shelf",
+    "tomato cluster",
+    "bed corner post",
+    "bed timber slat",
+    "carrot top",
+    "kale leaf",
+    "bench surface",
+    "bench shelf edge",
+    "tray cell",
+    "watering handle",
+    "trowel blade",
+    "compost slat",
+    "wheelbarrow handle",
+    "wheelbarrow wheel",
+    "barrel lid",
+    "tap handle",
+    "hose coupler",
+    "hose reel crank",
+    "sunflower center",
+    "sunflower petal",
+    "butterfly wing",
+    "fence post",
   ]) {
     assert.ok(words.has(visible), `community garden visibly grounds ${visible}`);
   }
@@ -1658,6 +1694,16 @@ test("community garden adds one disjoint root portal and two grounded local bran
   ]) {
     assert.ok(!words.has(inferred), `community garden omits inferred ${inferred}`);
   }
+  const labels = new Map(garden.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["greenhouse-roof-ridge", "bench-surface", "sunflower-center"].map((id) => {
+      const label = labels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[1235, 60], [260, 610], [1475, 765]],
+    "new community garden parts stay anchored on their reviewed pixels",
+  );
 });
 
 test("greenhouse, tomato plant and potting workbench form dense truthful garden slices", async () => {

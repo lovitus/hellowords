@@ -178,7 +178,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "lithium-ion-cell": 31,
   heart: 36,
   "blood-cell": 36,
-  "community-garden": 48,
+  // The bright garden resolves greenhouse fittings, raised-bed crops, tools,
+  // compost, rain collection and a flowering border; the ceiling blocks
+  // gardening activities and inferred ecological processes.
+  "community-garden": 73,
   "greenhouse-interior": 46,
   "tomato-plant": 44,
   "potting-workbench": 49,
