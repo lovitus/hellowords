@@ -198,7 +198,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // enclosure hardware; the ceiling blocks invisible electrochemistry and
   // sensors that cannot be identified as separate objects in this frame.
   battery: 42,
-  "lithium-ion-cell": 31,
+  "lithium-ion-cell": 46,
   // The bright cutaway resolves chamber walls, individual cusps, connected
   // vessel openings, coronary surface branches and a readable red-cell rim;
   // the ceiling still excludes invisible physiology and conduction claims.

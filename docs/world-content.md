@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,648 human-verified anchors representing 3,169
+Spatial scenes now contain 3,663 human-verified anchors representing 3,184
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -118,7 +118,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Transit hub | 85 → 73 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
 | Electric bus | 56 → 51 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; the added bumper, seat, wheel, suspension, tray, cable-clamp, door-handle and step parts remain grounded while people, branding and operating concepts stay removed |
 | Battery | 56 → 42 | Premium engineering cutaway grounds pack, module, cell, electrical, cooling and enclosure hardware; internal chemistry and unsupported sensor claims remain removed |
-| Lithium-ion cell | 48 → 31 | Premium prismatic-cell cutaway grounds enclosure, polarity-specific terminals, flattened winding and unfolded layers; ambiguous liquid, invisible charge motion, performance metrics and hazard states remain removed |
+| Lithium-ion cell | 63 → 46 | Premium prismatic-cell cutaway grounds enclosure, polarity-specific terminals, flattened winding and unfolded layers, plus visible rims, folds, welds and support surfaces; ambiguous liquid, invisible charge motion, performance metrics and hazard states remain removed |
 | Railway platform | 112 → 96 | Premium station view grounds passenger fixtures, train hardware, overhead electrification and track subparts; signage and service states remain removed |
 | Train carriage | 72 → 64 | Premium carriage cutaway grounds the cabin, doors, accessibility fixtures, roof, suspension and foreground track hardware plus the real bogie portal; passengers and unsupported amenities remain removed |
 | Rail bogie | 73 → 65 | Premium powered-bogie study grounds frame, wheelsets, suspension, motor drive, disc brakes, linkages and track hardware; the final audit adds welds, ribs, caps, shafts, hub/rim details, suspension seats, linkage pins and track fasteners while maintenance actions, failure states and invisible load concepts remain removed |

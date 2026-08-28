@@ -1269,7 +1269,13 @@ test("premium lithium-ion cell stays within its pixel-evidence ceiling", async (
   assert.ok(cell);
   assert.equal(cell.parentId, "battery");
   assert.equal(cell.asset, "/scenes/lithium-ion-cell-premium-v2.jpg");
-  assert.ok(cell.labels.length >= 28 && cell.labels.length <= 31);
+  assert.equal(cell.labels.length, 46);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      cell.labels.filter((label) => label.minLevel === level).length
+    )),
+    [10, 10, 9, 9, 8],
+  );
   assert.equal(cell.detailZones?.length, 4);
   assert.deepEqual(cell.portals, [], "lithium-ion cell remains a terminal study");
 
@@ -1286,8 +1292,33 @@ test("premium lithium-ion cell stays within its pixel-evidence ceiling", async (
     "copper foil",
     "safety vent",
     "electrolyte fill port",
+    "terminal washer",
+    "fill-port cap",
+    "winding face",
+    "vent rim",
+    "separator edge",
+    "case corner",
+    "winding edge",
+    "electrode edge",
+    "tab weld",
+    "foil fold",
+    "bottom insulator",
+    "base rail",
+    "fan tip",
+    "layer fold",
   ]) {
     assert.ok(words.has(visible), `lithium-ion cell visibly grounds ${visible}`);
+  }
+  const anchors = new Map(cell.labels.map((label) => [label.id, [label.x, label.y]]));
+  for (const [id, point] of [
+    ["terminal-washer", [420, 125]],
+    ["fill-port-cap", [603, 80]],
+    ["vent-rim", [755, 140]],
+    ["case-corner", [300, 750]],
+    ["tab-weld", [490, 300]],
+    ["fan-tip", [1430, 730]],
+  ] as const) {
+    assert.deepEqual(anchors.get(id), point, `lithium-ion cell anchors ${id}`);
   }
   for (const inferred of [
     "ion migration",
