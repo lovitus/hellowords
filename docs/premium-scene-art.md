@@ -250,7 +250,7 @@ The final-pixel audit retained 40 pointable terms across six authored crops. It 
 
 Create a bright, realistic cutaway of one modern electric train carriage in a clean daylight rail workshop. Resolve the shell, glazing, doors, seating, luggage storage, handrails, accessibility fixtures, roof equipment and underfloor hardware, while keeping one complete powered bogie large and unobstructed as the next portal. Exclude passengers, branding, readable displays, pseudo-writing and invisible service concepts.
 
-The final-pixel audit retained 40 pointable terms across five authored crops. It rejected absent passenger amenities and kept the Rail bogie portal on the single complete undercarriage assembly.
+The final-pixel audit retained 64 pointable terms across six authored crops. It added only clearly resolved carriage, cabin, suspension and foreground track parts, rejected absent passenger amenities, and kept the Rail bogie portal on the single complete undercarriage assembly.
 
 ### Rail bogie
 

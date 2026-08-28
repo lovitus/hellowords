@@ -145,7 +145,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "dinosaur-hall": 45,
   "electric-bus": 40,
   "human-body": 40,
-  "train-carriage": 40,
+  // The reviewed carriage raster exposes the complete cabin plus distinct
+  // door, seat, suspension and foreground track hardware; the ceiling blocks
+  // unsupported service claims while allowing the expanded 64-anchor audit.
+  "train-carriage": 64,
   "rail-bogie": 40,
   "lithium-ion-cell": 31,
   heart: 36,
