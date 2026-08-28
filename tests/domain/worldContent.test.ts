@@ -900,9 +900,9 @@ test("train carriage adds grounded coupler, cabin and track parts", async () => 
   assert.deepEqual(
     carriage.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["carriage-shell", 8],
+      ["carriage-shell", 9],
       ["passenger-seating", 14],
-      ["entry-vestibule", 15],
+      ["entry-vestibule", 14],
       ["overhead-storage", 8],
       ["bogie-assembly", 13],
       ["underbody-equipment", 4],

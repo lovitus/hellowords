@@ -96,7 +96,7 @@
       "width": 1540,
       "height": 780,
       "targetScale": 1.7,
-      "labelIds": ["train-carriage", "body-panel", "roof", "window", "carriage-end", "window-frame", "window-sill", "window-pane"]
+      "labelIds": ["train-carriage", "body-panel", "roof", "window", "gangway-bellows", "carriage-end", "window-frame", "window-sill", "window-pane"]
     },
     {
       "id": "passenger-seating",
@@ -120,7 +120,7 @@
       "width": 480,
       "height": 530,
       "targetScale": 2.5,
-      "labelIds": ["sliding-door", "door-leaf", "door-track", "door-threshold", "vestibule", "handrail", "ceiling-light", "ventilation-grille", "waste-bin", "door-window", "door-handle", "door-frame", "boarding-step", "light-diffuser", "door-seal"]
+      "labelIds": ["sliding-door", "door-leaf", "door-track", "door-threshold", "vestibule", "handrail", "ceiling-light", "ventilation-grille", "waste-bin", "door-window", "door-handle", "door-frame", "light-diffuser", "door-seal"]
     },
     {
       "id": "overhead-storage",
@@ -162,13 +162,13 @@
       "id": "coupler-and-brake-gear",
       "title": "Coupler and brake gear",
       "translation": "车钩与制动部件",
-      "description": "Left-end gangway, coupler, shock buffer and flexible brake hose",
+      "description": "Lower left coupler, shock buffer, flexible brake hose and boarding step",
       "x": 0,
-      "y": 100,
-      "width": 260,
-      "height": 730,
+      "y": 500,
+      "width": 500,
+      "height": 330,
       "targetScale": 2.8,
-      "labelIds": ["gangway-bellows", "coupler", "buffer", "brake-hose"]
+      "labelIds": ["coupler", "buffer", "brake-hose", "boarding-step"]
     },
     {
       "id": "foreground-track",
