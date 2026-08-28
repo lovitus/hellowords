@@ -91,7 +91,7 @@
       "title": "Lid and terminals",
       "translation": "顶盖与端子",
       "description": "Raised metal lid with both polarity-specific terminals, seals, vent and fill hardware",
-      "x": 260, "y": 0, "width": 930, "height": 260, "targetScale": 2.7,
+      "x": 260, "y": 0, "width": 930, "height": 260, "targetScale": 2.2,
       "labelIds": ["top-cover", "positive-terminal", "negative-terminal", "safety-vent", "electrolyte-fill-port", "insulating-gasket", "cover-flange", "positive-terminal-cap", "negative-terminal-cap", "positive-terminal-post", "negative-terminal-post", "terminal-washer", "fill-port-cap", "vent-rim", "lid-seam", "positive-terminal-seal", "negative-terminal-seal", "fill-port-collar", "cover-lip", "vent-screen"]
     },
     {
