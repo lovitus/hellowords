@@ -1108,6 +1108,64 @@ test("premium water tank grounds its service details and keeps one real polymer 
   }
 });
 
+test("premium plant cell expands only into visible organelle subparts", async () => {
+  const { scenes } = await loadWorld();
+  const cell = scenes.find((scene) => scene.id === "plant-cell");
+  assert.ok(cell);
+  assert.equal(cell.parentId, "leaf");
+  assert.equal(cell.asset, "/scenes/plant-cell-premium-v2.jpg");
+  assert.equal(cell.labels.length, 60);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      cell.labels.filter((label) => label.minLevel === level).length
+    )),
+    [7, 10, 13, 17, 13],
+  );
+  assert.deepEqual(
+    cell.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["nucleus-and-er", 15],
+      ["golgi-and-smooth-er", 8],
+      ["vacuole-and-cytoplasm", 13],
+      ["chloroplast-cutaway", 12],
+      ["mitochondria-and-wall", 11],
+    ],
+  );
+  assert.deepEqual(cell.portals.map(({ childSceneId, sourceVisualRegion }) => (
+    [childSceneId, sourceVisualRegion]
+  )), [["chloroplast-interior", "chloroplast-cutaway"]]);
+
+  const words = new Set(cell.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const visible of [
+    "rough ER sheet",
+    "Golgi stack",
+    "cytoskeleton bundle",
+    "ribosome cluster",
+    "vacuole edge",
+    "thylakoid membrane",
+    "smooth ER branch",
+    "nucleolar core",
+    "Golgi cisterna edge",
+    "granum edge",
+    "crista tip",
+    "nuclear envelope fold",
+    "chloroplast inner membrane",
+    "cell wall junction",
+  ]) {
+    assert.ok(words.has(visible.toLocaleLowerCase()), `plant cell visibly grounds ${visible}`);
+  }
+  for (const unsupported of [
+    "enzyme",
+    "glucose",
+    "osmosis",
+    "mitosis",
+    "gene expression",
+    "plasmodesma",
+  ]) {
+    assert.ok(!words.has(unsupported), `plant cell omits inferred ${unsupported}`);
+  }
+});
+
 test("premium battery pack expands only into clearly resolved electrical and thermal parts", async () => {
   const { scenes } = await loadWorld();
   const battery = scenes.find((scene) => scene.id === "battery");

@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,757 human-verified anchors representing 3,266
+Spatial scenes now contain 3,771 human-verified anchors representing 3,278
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -132,7 +132,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | City park | 109 → 88 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities; the final audit adds bridge planks, shoreline rock, lily/reed parts, gazebo structure, playground hardware, bench/path pieces and fine oak/flower details |
 | Oak tree | 81 → 68 | Bright neutral-daylight woodland close-up grounds wildlife, fungi and texture; the final audit adds bark, web, nest, leaf, acorn, root, moss, fern, flower and grass parts while invisible processes and growth rings stay removed |
 | Leaf | 54 → 49 | Natural-colour macro retains independently visible twig, bud, acorn-cup, bark, insect and spider parts while rejecting duplicate vein terms and unsupported underside/curl details |
-| Plant cell | 65 → 46 | Premium 3D cutaway resolves organelles, membrane layers, chloroplast discs, cytoplasmic strands and vesicle interiors; unseen molecules and processes stay removed |
+| Plant cell | 75 → 60 | Premium 3D cutaway resolves organelles, membrane layers, chloroplast discs, cytoplasmic strands and vesicle interiors; the final audit adds rough-ER sheets, Golgi stacks, vacuole edges, thylakoid membranes, granum edges, mitochondrial folds and wall junctions while unseen molecules and processes stay removed |
 | Chloroplast interior | 57 → 51 | Bright coherent organelle resolves its envelope, grana, intergranal lamellae, DNA strands, storage bodies, stromal particles and surface complexes; reactions and metabolites stay removed |
 | Pond edge | 73 → 65 | Premium spring shallows ground shoreline textures, aquatic plants, insects, fish, tadpoles, snail and the real Frog portal; the final audit adds visible stems, leaf parts, insect bodies, ripple/bubble details, fish parts, bank textures and frog surface parts while absent birds, turtles and activities remain removed |
 | Frog | 73 → 59 | Premium single-animal portrait grounds external head, skin, forelimb and webbed hind-limb anatomy; the final audit adds eye, jaw, skin, limb, toe and stone-surface parts while internal organs, life stages, prey and behavior remain removed |

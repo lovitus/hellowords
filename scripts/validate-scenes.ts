@@ -236,7 +236,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "wardrobe-interior": 60,
   // The rendered cell has separable cytoplasm, nuclear, chloroplast and
   // membrane substructures; the ceiling rejects invisible molecular steps.
-  "plant-cell": 46,
+  // The bright plant-cell cutaway resolves additional ER, Golgi, vacuole,
+  // chloroplast, mitochondrion and wall subparts without process padding.
+  "plant-cell": 60,
   // The final chloroplast raster resolves separate grana, lamella, DNA,
   // stromal-particle and membrane-complex details without process padding.
   "chloroplast-interior": 51,

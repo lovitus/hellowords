@@ -786,6 +786,43 @@ test("water tank exposes its new lid, water-surface, filter, and base parts", as
   ).count()).toBeGreaterThan(0);
 });
 
+test("plant cell exposes its organelle subparts through the real leaf path", async ({ page }) => {
+  const app = await openWorld(page);
+  for (const target of ["city-park", "oak-tree", "leaf", "plant-cell"]) {
+    await page.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${target}"]`,
+    ).first().click();
+    await expect(app).toHaveAttribute("data-scene-id", target);
+    await expect(app).toHaveAttribute("data-scene-loading", "false");
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+  }
+
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  const nucleusZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="nucleus-and-er"]',
+  );
+  await nucleusZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="rough ER sheet"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+
+  const chloroplastZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="chloroplast-cutaway"]',
+  );
+  await chloroplastZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="thylakoid membrane"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+
+  const mitochondriaZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="mitochondria-and-wall"]',
+  );
+  await mitochondriaZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="crista tip"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+});
+
 test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {
   const app = await openWorld(page);
   const parent = await sceneId(app);
