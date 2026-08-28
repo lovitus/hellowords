@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,462 human-verified anchors representing 3,009
+Spatial scenes now contain 3,487 human-verified anchors representing 3,029
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -123,7 +123,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Train carriage | 72 → 64 | Premium carriage cutaway grounds the cabin, doors, accessibility fixtures, roof, suspension and foreground track hardware plus the real bogie portal; passengers and unsupported amenities remain removed |
 | Rail bogie | 48 → 40 | Premium powered-bogie study grounds frame, wheelsets, suspension, motor drive, disc brakes, linkages and track hardware; maintenance actions, failure states and invisible load concepts remain removed |
 | Science museum | 128 → 121 | Premium gallery resolves specific fossil, instrument, robotic, physics and life-science parts while rejecting roles, venues and signage |
-| Dinosaur hall | 52 → 44 | Sunlit paleontology gallery grounds mounted bones, distinct fossils, preparation tools and rock structure; behavior, era, weak rock features and museum activities remain removed |
+| Dinosaur hall | 77 → 69 | Sunlit paleontology gallery grounds mounted bones, distinct fossils, preparation tools and rock structure; the final audit adds skull, jaw, vertebra, limb, horn, fossil and tool parts while behavior, era, weak rock features and museum activities remain removed |
 | Human body | 56 → 40 | Bright three-model anatomy exhibit grounds body joints, major bones, limb muscles and visible organs; unseen systems and structures remain removed |
 | Heart | 81 → 61 | Bright cutaway grounds chambers, valves, walls, great and coronary vessels plus an artery cross-section; the final audit adds visible cusps, chamber walls, vessel rims, ventricular ridges, coronary branches and red-cell surface parts while invisible physiology and conduction remain removed |
 | Blood cell | 56 → 36 | Bright capillary cutaway grounds vessel layers, red-cell membrane and skeleton, one neutrophil, platelets and the real Hemoglobin portal; unsupported immune processes remain removed |

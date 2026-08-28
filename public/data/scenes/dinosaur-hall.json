@@ -56,7 +56,32 @@
     { "id": "beak", "word": "beak", "translation": "喙", "x": 325, "y": 625, "priority": 5.004, "minLevel": 4, "sourceVisualRegion": "triceratops-beak" },
     { "id": "petrified-wood", "word": "petrified wood", "translation": "硅化木", "x": 890, "y": 820, "priority": 5.005, "minLevel": 4, "sourceVisualRegion": "cabinet-petrified-wood" },
     { "id": "calipers", "word": "calipers", "translation": "卡尺", "x": 1430, "y": 780, "priority": 5.006, "minLevel": 4, "sourceVisualRegion": "calipers" },
-    { "id": "specimen-tray", "word": "specimen tray", "translation": "标本托盘", "x": 1515, "y": 745, "priority": 5.007, "minLevel": 4, "sourceVisualRegion": "specimen-tray" }
+    { "id": "specimen-tray", "word": "specimen tray", "translation": "标本托盘", "x": 1515, "y": 745, "priority": 5.007, "minLevel": 4, "sourceVisualRegion": "specimen-tray" },
+    { "id": "skull-ridge", "word": "skull ridge", "translation": "头骨嵴", "x": 270, "y": 130, "priority": 6.001, "minLevel": 1, "sourceVisualRegion": "tyrannosaurus-skull" },
+    { "id": "snout", "word": "snout", "translation": "吻部", "x": 245, "y": 195, "priority": 6.002, "minLevel": 2, "sourceVisualRegion": "tyrannosaurus-skull" },
+    { "id": "jaw-hinge", "word": "jaw hinge", "translation": "颌关节", "x": 420, "y": 278, "priority": 6.003, "minLevel": 2, "sourceVisualRegion": "tyrannosaurus-jaw" },
+    { "id": "skull-roof", "word": "skull roof", "translation": "头骨顶部", "x": 305, "y": 145, "priority": 6.004, "minLevel": 3, "sourceVisualRegion": "tyrannosaurus-skull" },
+    { "id": "lower-jaw-rim", "word": "lower jaw rim", "translation": "下颌边缘", "x": 340, "y": 310, "priority": 6.005, "minLevel": 4, "sourceVisualRegion": "tyrannosaurus-jaw" },
+    { "id": "shoulder-blade", "word": "shoulder blade", "translation": "肩胛骨", "x": 760, "y": 225, "priority": 6.006, "minLevel": 1, "sourceVisualRegion": "whole-tyrannosaurus" },
+    { "id": "sacrum", "word": "sacrum", "translation": "骶骨", "x": 825, "y": 225, "priority": 6.007, "minLevel": 2, "sourceVisualRegion": "pelvis" },
+    { "id": "neck-vertebra", "word": "neck vertebra", "translation": "颈部椎骨", "x": 555, "y": 145, "priority": 6.008, "minLevel": 2, "sourceVisualRegion": "cervical-vertebrae" },
+    { "id": "rib-curve", "word": "rib curve", "translation": "肋骨弧面", "x": 700, "y": 320, "priority": 6.009, "minLevel": 3, "sourceVisualRegion": "individual-rib" },
+    { "id": "tail-joint", "word": "tail joint", "translation": "尾部关节", "x": 1135, "y": 235, "priority": 6.010, "minLevel": 3, "sourceVisualRegion": "tail-vertebra" },
+    { "id": "vertebral-process", "word": "vertebral process", "translation": "椎骨突起", "x": 755, "y": 160, "priority": 6.011, "minLevel": 4, "sourceVisualRegion": "individual-vertebra" },
+    { "id": "humerus", "word": "humerus", "translation": "肱骨", "x": 548, "y": 300, "priority": 6.012, "minLevel": 1, "sourceVisualRegion": "forelimb" },
+    { "id": "radius", "word": "radius", "translation": "桡骨", "x": 565, "y": 350, "priority": 6.013, "minLevel": 2, "sourceVisualRegion": "forelimb" },
+    { "id": "ulna", "word": "ulna", "translation": "尺骨", "x": 598, "y": 350, "priority": 6.014, "minLevel": 2, "sourceVisualRegion": "forelimb" },
+    { "id": "metatarsal", "word": "metatarsal", "translation": "跖骨", "x": 875, "y": 480, "priority": 6.015, "minLevel": 3, "sourceVisualRegion": "foot" },
+    { "id": "toe-joint", "word": "toe joint", "translation": "趾关节", "x": 942, "y": 495, "priority": 6.016, "minLevel": 4, "sourceVisualRegion": "toe-claw" },
+    { "id": "eye-socket", "word": "eye socket", "translation": "眼窝", "x": 180, "y": 510, "priority": 6.017, "minLevel": 1, "sourceVisualRegion": "triceratops-skull" },
+    { "id": "frill-edge", "word": "frill edge", "translation": "颈盾边缘", "x": 50, "y": 430, "priority": 6.018, "minLevel": 2, "sourceVisualRegion": "triceratops-frill" },
+    { "id": "horn-base", "word": "horn base", "translation": "角基部", "x": 245, "y": 430, "priority": 6.019, "minLevel": 3, "sourceVisualRegion": "brow-horn" },
+    { "id": "beak-ridge", "word": "beak ridge", "translation": "喙脊", "x": 330, "y": 620, "priority": 6.020, "minLevel": 4, "sourceVisualRegion": "triceratops-beak" },
+    { "id": "ammonite-rib", "word": "ammonite rib", "translation": "菊石壳肋", "x": 550, "y": 680, "priority": 6.021, "minLevel": 2, "sourceVisualRegion": "cabinet-ammonite" },
+    { "id": "trilobite-segment", "word": "trilobite segment", "translation": "三叶虫体节", "x": 680, "y": 700, "priority": 6.022, "minLevel": 3, "sourceVisualRegion": "cabinet-trilobite" },
+    { "id": "petrified-wood-layer", "word": "petrified wood layer", "translation": "硅化木层", "x": 875, "y": 815, "priority": 6.023, "minLevel": 4, "sourceVisualRegion": "cabinet-petrified-wood" },
+    { "id": "brush-bristles", "word": "brush bristles", "translation": "刷毛", "x": 1145, "y": 755, "priority": 6.024, "minLevel": 2, "sourceVisualRegion": "fossil-brush" },
+    { "id": "hammer-head", "word": "hammer head", "translation": "锤头", "x": 1265, "y": 735, "priority": 6.025, "minLevel": 3, "sourceVisualRegion": "hammer" }
   ],
   "portals": [],
   "anchorAudit": {
@@ -64,9 +89,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/dinosaur-hall-premium-v1.jpg",
     "reviewedAssetSha256": "5296c49e652d44fcbf02ea6fdc30867827602c1c985d2e635d5f3c33eab14eb8",
-    "rationale": "Anchored only separately pointable bones, mounted fossils, cabinet specimens, preparation tools and real rock features visible in the final daylight gallery; omitted behavior, era, species claims and museum activities that the pixels cannot prove.",
-    "previousLabelCount": 52,
-    "retainedLabelCount": 44,
+    "rationale": "Anchored only separately pointable bones, mounted fossils, cabinet specimens, preparation tools and real rock features visible in the final daylight gallery; the added skull, jaw, vertebra, limb, horn, fossil, tool and rock parts remain independently visible, while behavior, era, species claims and museum activities that the pixels cannot prove stay omitted.",
+    "previousLabelCount": 77,
+    "retainedLabelCount": 69,
     "removedLabelCount": 8,
     "removedExamples": ["living dinosaur", "roaring", "predator", "Cretaceous period", "extinction", "paleontologist", "excavation", "rock fracture"]
   },
@@ -81,7 +106,7 @@
       "width": 340,
       "height": 310,
       "targetScale": 2.4,
-      "labelIds": ["tyrannosaurus-skull", "jaw", "teeth", "orbit", "antorbital-fenestra"]
+      "labelIds": ["tyrannosaurus-skull", "jaw", "teeth", "orbit", "antorbital-fenestra", "skull-ridge", "snout", "jaw-hinge", "skull-roof", "lower-jaw-rim"]
     },
     {
       "id": "axial-skeleton",
@@ -93,7 +118,7 @@
       "width": 1020,
       "height": 390,
       "targetScale": 2.25,
-      "labelIds": ["tyrannosaurus-skeleton", "rib-cage", "pelvis", "tail", "spine", "cervical-vertebra", "vertebra", "rib", "tail-vertebra"]
+      "labelIds": ["tyrannosaurus-skeleton", "rib-cage", "pelvis", "tail", "spine", "cervical-vertebra", "vertebra", "rib", "tail-vertebra", "shoulder-blade", "sacrum", "neck-vertebra", "rib-curve", "tail-joint", "vertebral-process"]
     },
     {
       "id": "limbs-and-feet",
@@ -105,7 +130,7 @@
       "width": 510,
       "height": 300,
       "targetScale": 2.7,
-      "labelIds": ["forelimb", "two-fingered-hand", "femur", "knee-joint", "tibia", "ankle", "foot", "toe-claw"]
+      "labelIds": ["forelimb", "two-fingered-hand", "femur", "knee-joint", "tibia", "ankle", "foot", "toe-claw", "humerus", "radius", "ulna", "metatarsal", "toe-joint"]
     },
     {
       "id": "triceratops-display",
@@ -117,7 +142,7 @@
       "width": 390,
       "height": 390,
       "targetScale": 2.55,
-      "labelIds": ["triceratops-skull", "frill", "brow-horn", "nasal-horn", "beak"]
+      "labelIds": ["triceratops-skull", "frill", "brow-horn", "nasal-horn", "beak", "eye-socket", "frill-edge", "horn-base", "beak-ridge"]
     },
     {
       "id": "fossil-cabinet",
@@ -129,7 +154,7 @@
       "width": 600,
       "height": 300,
       "targetScale": 2.45,
-      "labelIds": ["display-case", "ammonite-fossil", "trilobite-fossil", "fossil-egg", "fossil-fern", "fossil-tooth", "petrified-wood"]
+      "labelIds": ["display-case", "ammonite-fossil", "trilobite-fossil", "fossil-egg", "fossil-fern", "fossil-tooth", "petrified-wood", "ammonite-rib", "trilobite-segment", "petrified-wood-layer"]
     },
     {
       "id": "fossil-preparation",
@@ -141,7 +166,7 @@
       "width": 630,
       "height": 900,
       "targetScale": 2.6,
-      "labelIds": ["preparation-bench", "fossil-matrix", "fossil-brush", "hammer", "calipers", "specimen-tray", "rock-strata", "sediment-layer", "embedded-ammonite"]
+      "labelIds": ["preparation-bench", "fossil-matrix", "fossil-brush", "hammer", "calipers", "specimen-tray", "rock-strata", "sediment-layer", "embedded-ammonite", "brush-bristles", "hammer-head"]
     }
   ],
   "visualRegions": [

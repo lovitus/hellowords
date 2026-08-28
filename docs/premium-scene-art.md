@@ -324,7 +324,7 @@ The final-pixel audit retains 121 independently pointable structures across five
 
 Create a bright, elegant modern paleontology gallery in pale stone and light oak under natural skylight. Keep one anatomically plausible, horizontally mounted Tyrannosaurus skeleton complete and unobstructed from its skull, jaws and teeth through the ribs, pelvis, limbs and articulated tail. Separately show a complete Triceratops skull, a glass cabinet with six distinct fossils, a fossil-bearing preparation slab with individual tools, and a natural sedimentary rock cut containing an embedded ammonite. Exclude people, living dinosaurs, text, brands, pseudo-writing, theatrical darkness, horror and unsupported behavioral or geological claims.
 
-The final-pixel audit retained 44 terms. It moved the knee anchor to the actual femur–lower-leg articulation, called the cabinet specimen a conservative `fossil egg`, described the generated claw hammer generically, and rejected a weak proposed rock-fracture label.
+The final-pixel audit retains 69 grounded terms across six authored crops. It adds separately pointable skull and jaw parts, vertebral and limb bones, Triceratops horn/frill parts, ammonite and trilobite details, petrified-wood layers and preparation-tool parts. It moved the knee anchor to the actual femur–lower-leg articulation, called the cabinet specimen a conservative `fossil egg`, described the generated claw hammer generically, and continues to reject behavior, era, species and weak rock-fracture claims.
 
 ### Human body
 

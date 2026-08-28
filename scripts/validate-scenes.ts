@@ -167,7 +167,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "water-tank": 36,
   "pond-edge": 40,
   frog: 36,
-  "dinosaur-hall": 45,
+  // The sunlit gallery exposes separate skull, jaw, vertebra, limb, horn,
+  // fossil and preparation-tool parts; the ceiling blocks behavior, era,
+  // species claims and museum activities that are not visible in one frame.
+  "dinosaur-hall": 69,
   "electric-bus": 40,
   "human-body": 40,
   // The reviewed carriage raster exposes the complete cabin plus distinct

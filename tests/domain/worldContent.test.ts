@@ -1435,7 +1435,24 @@ test("dinosaur hall is a grounded terminal branch with a separate museum portal"
   assert.ok(dinosaurHall);
   assert.equal(dinosaurHall.parentId, "science-museum");
   assert.equal(dinosaurHall.asset, "/scenes/dinosaur-hall-premium-v1.jpg");
-  assert.ok(dinosaurHall.labels.length >= 36 && dinosaurHall.labels.length <= 45);
+  assert.equal(dinosaurHall.labels.length, 69);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      dinosaurHall.labels.filter((label) => label.minLevel === level).length
+    )),
+    [7, 11, 20, 18, 13],
+  );
+  assert.deepEqual(
+    dinosaurHall.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["tyrannosaur-head", 10],
+      ["axial-skeleton", 15],
+      ["limbs-and-feet", 13],
+      ["triceratops-display", 9],
+      ["fossil-cabinet", 10],
+      ["fossil-preparation", 11],
+    ],
+  );
   assert.ok((dinosaurHall.detailZones?.length ?? 0) >= 5);
   assert.deepEqual(dinosaurHall.portals, [], "dinosaur hall remains a terminal exhibit");
 
@@ -1485,8 +1502,46 @@ test("dinosaur hall is a grounded terminal branch with a separate museum portal"
     "fossil matrix",
     "hammer",
     "rock strata",
+    "skull ridge",
+    "snout",
+    "jaw hinge",
+    "skull roof",
+    "lower jaw rim",
+    "shoulder blade",
+    "sacrum",
+    "neck vertebra",
+    "rib curve",
+    "tail joint",
+    "vertebral process",
+    "humerus",
+    "radius",
+    "ulna",
+    "metatarsal",
+    "toe joint",
+    "eye socket",
+    "frill edge",
+    "horn base",
+    "beak ridge",
+    "ammonite rib",
+    "trilobite segment",
+    "petrified wood layer",
+    "brush bristles",
+    "hammer head",
   ]) {
     assert.ok(words.has(required.toLocaleLowerCase()), `dinosaur hall visibly grounds ${required}`);
+  }
+  for (const [id, point] of [
+    ["skull-ridge", [270, 130]],
+    ["shoulder-blade", [760, 225]],
+    ["metatarsal", [875, 480]],
+    ["trilobite-segment", [680, 700]],
+    ["hammer-head", [1265, 735]],
+  ] as const) {
+    const anchor: Scene["labels"][number] | undefined = dinosaurHall.labels.find(
+      (candidate) => candidate.id === id,
+    );
+    assert.ok(anchor, `dinosaur hall keeps ${id} label`);
+    assert.deepEqual([anchor.x, anchor.y], point, `dinosaur hall anchors ${id}`);
   }
   for (const unsupported of [
     "living dinosaur",
