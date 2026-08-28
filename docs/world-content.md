@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,412 human-verified anchors representing 2,964
+Spatial scenes now contain 3,437 human-verified anchors representing 2,986
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -130,7 +130,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Hemoglobin | 48 → 22 | Premium molecular view grounds subunits, hemes and the oxygen-binding pocket; diseases and invisible binding behavior remain removed |
 | Oxygen molecule | 48 → 26 | Premium gas-exchange cutaway grounds the airway, alveolus, barrier, blood cells and molecule trail; quantum decoration and invisible physiology remain removed |
 | City park | 109 → 88 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities; the final audit adds bridge planks, shoreline rock, lily/reed parts, gazebo structure, playground hardware, bench/path pieces and fine oak/flower details |
-| Oak tree | 56 → 43 | Bright neutral-daylight woodland close-up grounds wildlife, fungi and texture; invisible processes and growth rings stay removed |
+| Oak tree | 81 → 68 | Bright neutral-daylight woodland close-up grounds wildlife, fungi and texture; the final audit adds bark, web, nest, leaf, acorn, root, moss, fern, flower and grass parts while invisible processes and growth rings stay removed |
 | Leaf | 54 → 49 | Natural-colour macro retains independently visible twig, bud, acorn-cup, bark, insect and spider parts while rejecting duplicate vein terms and unsupported underside/curl details |
 | Plant cell | 65 → 46 | Premium 3D cutaway resolves organelles, membrane layers, chloroplast discs, cytoplasmic strands and vesicle interiors; unseen molecules and processes stay removed |
 | Chloroplast interior | 57 → 51 | Bright coherent organelle resolves its envelope, grana, intergranal lamellae, DNA strands, storage bodies, stromal particles and surface complexes; reactions and metabolites stay removed |

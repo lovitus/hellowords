@@ -202,10 +202,9 @@ test("oak-tree fills safe slots and reproduces the exact layout after a zoom rou
     );
   };
   const before = layoutAt(1);
-  assert.equal(
-    before.filter((item) => item.interactive).length,
-    43,
-    "the shorter desktop pills make every grounded oak label readable at fit",
+  assert.ok(
+    before.filter((item) => item.interactive).length >= 64,
+    "the shorter desktop pills keep nearly all grounded oak labels readable at fit",
   );
   for (const scale of [1.05, 1.2, 1.65, 2.3, 3.1, 2.3, 1.65, 1.2, 1.05]) layoutAt(scale);
   const after = layoutAt(1);

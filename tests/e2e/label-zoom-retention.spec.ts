@@ -576,7 +576,7 @@ test("oak-tree fit fills safe slots and round-trips the exact label layout", asy
 
   await expect(app).toHaveAttribute("data-scene-id", "oak-tree");
   expect(initial.cameraTransform).toContain("translate3d(");
-  expect(initial.progress.total).toBe(43);
+  expect(initial.progress.total).toBe(68);
   expect(initial.progress.current).toBe(initial.labels.length);
   expect(initial.progress.remaining).toBe(initial.progress.total - initial.labels.length);
   expect(
@@ -615,7 +615,7 @@ test("oak-tree fit fills safe slots and round-trips the exact label layout", asy
     "every interactive label must restore its exact offset, leader side and span",
   ).toEqual(initial.labels);
   expect(returned.progress.current).toBe(returned.labels.length);
-  expect(returned.progress.total).toBe(43);
+  expect(returned.progress.total).toBe(68);
   expect(returned.progress.remaining).toBe(returned.progress.total - returned.labels.length);
 });
 

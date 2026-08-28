@@ -179,7 +179,7 @@ The final-pixel audit retains 103 independently pointable structures across six 
 
 Create a bright, neutral-daylight natural-history view of a mature English oak at a woodland edge. Resolve the complete trunk, limbs, roots, bark fissures, tree hollow, knot, broken wood, moss, lichen, bracket fungus and ivy, plus one believable squirrel, woodpecker, nest, spiderweb, insects, leaf litter, stones and flowers. Keep the complete upper-right leaf-and-acorn cluster unobstructed as the next portal; avoid dramatic backlight, excessive yellow-green saturation and crushed shadows.
 
-The final-pixel audit retained 43 terms in five complete authored regions and rebuilt the Leaf portal around the accepted upper-right cluster.
+The final-pixel audit retains 68 grounded terms across five complete authored regions and keeps the Leaf portal around the accepted upper-right cluster. It adds separately pointable bark plates, web threads, nest twigs, leaf margins and petioles, acorn parts, root ridges, bracket-fungus surfaces, moss cushions, fern parts, flower centers and grass blades without introducing invisible biology or synonym padding.
 
 ### Leaf
 

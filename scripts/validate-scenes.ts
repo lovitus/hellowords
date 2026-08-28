@@ -158,6 +158,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright cafe resolves seating, tableware, pastry-display and espresso
   // equipment parts; the ceiling blocks people, branding and inferred service.
   "city-cafe": 70,
+  // The bright oak raster resolves separate bark, web, nest, leaf, acorn,
+  // root, moss, fern, flower and grass parts; the ceiling blocks invisible
+  // biology and synonym padding while retaining the complete Leaf portal.
+  "oak-tree": 68,
   "coffee-machine": 40,
   "cotton-shirt": 40,
   "water-tank": 36,

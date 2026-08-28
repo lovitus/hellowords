@@ -447,6 +447,256 @@
       "priority": 5.042,
       "minLevel": 4,
       "sourceVisualRegion": "bark-texture"
+    },
+    {
+      "id": "squirrel-tail",
+      "word": "squirrel tail",
+      "translation": "松鼠尾巴",
+      "x": 153,
+      "y": 137,
+      "priority": 6.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "squirrel"
+    },
+    {
+      "id": "branch-bark",
+      "word": "branch bark",
+      "translation": "枝条树皮",
+      "x": 55,
+      "y": 209,
+      "priority": 6.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "major-limbs"
+    },
+    {
+      "id": "web-thread",
+      "word": "web thread",
+      "translation": "蛛网丝",
+      "x": 118,
+      "y": 360,
+      "priority": 6.003,
+      "minLevel": 2,
+      "sourceVisualRegion": "spider-web"
+    },
+    {
+      "id": "web-hub",
+      "word": "web hub",
+      "translation": "蛛网中心",
+      "x": 184,
+      "y": 386,
+      "priority": 6.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "spider-web"
+    },
+    {
+      "id": "nest-twig",
+      "word": "nest twig",
+      "translation": "鸟巢枝条",
+      "x": 600,
+      "y": 46,
+      "priority": 6.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "bird-nest"
+    },
+    {
+      "id": "hollow-rim",
+      "word": "hollow rim",
+      "translation": "树洞边缘",
+      "x": 533,
+      "y": 166,
+      "priority": 6.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "tree-hollow"
+    },
+    {
+      "id": "woodpecker-wing",
+      "word": "woodpecker wing",
+      "translation": "啄木鸟翅膀",
+      "x": 807,
+      "y": 278,
+      "priority": 6.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "woodpecker"
+    },
+    {
+      "id": "bark-plate",
+      "word": "bark plate",
+      "translation": "树皮鳞片",
+      "x": 500,
+      "y": 400,
+      "priority": 6.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "bark-texture"
+    },
+    {
+      "id": "lichen-patch",
+      "word": "lichen patch",
+      "translation": "地衣斑块",
+      "x": 395,
+      "y": 349,
+      "priority": 6.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "lichen-patches"
+    },
+    {
+      "id": "oak-leaf-margin",
+      "word": "oak leaf margin",
+      "translation": "橡树叶缘",
+      "x": 1535,
+      "y": 247,
+      "priority": 6.010,
+      "minLevel": 1,
+      "sourceVisualRegion": "upper-right-leaf-cluster"
+    },
+    {
+      "id": "oak-leaf-petiole",
+      "word": "oak leaf petiole",
+      "translation": "橡树叶柄",
+      "x": 1320,
+      "y": 112,
+      "priority": 6.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "upper-right-leaf-cluster"
+    },
+    {
+      "id": "oak-leaf-lobe-tip",
+      "word": "oak leaf lobe tip",
+      "translation": "橡树叶裂片尖端",
+      "x": 1400,
+      "y": 305,
+      "priority": 6.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "upper-right-leaf-cluster"
+    },
+    {
+      "id": "acorn-stalk",
+      "word": "acorn stalk",
+      "translation": "橡果果梗",
+      "x": 1305,
+      "y": 155,
+      "priority": 6.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "acorn-cluster"
+    },
+    {
+      "id": "acorn-skin",
+      "word": "acorn skin",
+      "translation": "橡果外皮",
+      "x": 1392,
+      "y": 230,
+      "priority": 6.014,
+      "minLevel": 4,
+      "sourceVisualRegion": "acorn-cluster"
+    },
+    {
+      "id": "caterpillar-segment",
+      "word": "caterpillar segment",
+      "translation": "毛毛虫体节",
+      "x": 1455,
+      "y": 328,
+      "priority": 6.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "caterpillar"
+    },
+    {
+      "id": "root-ridge",
+      "word": "root ridge",
+      "translation": "树根脊",
+      "x": 700,
+      "y": 735,
+      "priority": 6.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "root-system"
+    },
+    {
+      "id": "root-tip",
+      "word": "root tip",
+      "translation": "树根尖端",
+      "x": 1015,
+      "y": 745,
+      "priority": 6.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "root-system"
+    },
+    {
+      "id": "bracket-shelf",
+      "word": "bracket shelf",
+      "translation": "层状真菌菌架",
+      "x": 282,
+      "y": 677,
+      "priority": 6.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "bracket-fungi"
+    },
+    {
+      "id": "bracket-pore",
+      "word": "bracket pore",
+      "translation": "多孔真菌面",
+      "x": 250,
+      "y": 622,
+      "priority": 6.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-fungus-cap"
+    },
+    {
+      "id": "leaf-litter-edge",
+      "word": "leaf litter edge",
+      "translation": "落叶层边缘",
+      "x": 820,
+      "y": 850,
+      "priority": 6.020,
+      "minLevel": 3,
+      "sourceVisualRegion": "ground-details"
+    },
+    {
+      "id": "moss-cushion",
+      "word": "moss cushion",
+      "translation": "苔藓垫",
+      "x": 560,
+      "y": 655,
+      "priority": 6.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "moss-covered-base"
+    },
+    {
+      "id": "fern-pinna",
+      "word": "fern pinna",
+      "translation": "蕨羽片",
+      "x": 1165,
+      "y": 584,
+      "priority": 6.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "fern-patch"
+    },
+    {
+      "id": "fern-stipe",
+      "word": "fern stipe",
+      "translation": "蕨叶柄",
+      "x": 1115,
+      "y": 680,
+      "priority": 6.023,
+      "minLevel": 3,
+      "sourceVisualRegion": "fern-patch"
+    },
+    {
+      "id": "wildflower-center",
+      "word": "wildflower center",
+      "translation": "野花花心",
+      "x": 958,
+      "y": 748,
+      "priority": 6.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "wildflowers"
+    },
+    {
+      "id": "grass-blade",
+      "word": "grass blade",
+      "translation": "草叶",
+      "x": 1335,
+      "y": 728,
+      "priority": 6.025,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-grass"
     }
   ],
   "portals": [
@@ -468,9 +718,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/oak-tree-natural-v3.jpg",
     "reviewedAssetSha256": "d331191e5c63ff460c3208cc32b4e9d977981749a9f5ddb6a3850d373623fe3b",
-    "rationale": "Re-authored every anchor against the bright neutral-daylight 1600 by 900 woodland photograph. The isolated upper-right leaf cluster preserves a complete leaf portal, while the trunk, roots, fungi, plants and correctly scaled animals each remain independently pointable; invisible biology and synonym padding were excluded.",
-    "previousLabelCount": 56,
-    "retainedLabelCount": 43,
+    "rationale": "Re-authored every anchor against the bright neutral-daylight 1600 by 900 woodland photograph. The isolated upper-right leaf cluster preserves a complete leaf portal, while the trunk, roots, fungi, plants and correctly scaled animals each remain independently pointable; the added bark, web, nest, leaf, acorn, root, moss, fern, flower and grass parts are separately visible, and invisible biology and synonym padding remain excluded.",
+    "previousLabelCount": 81,
+    "retainedLabelCount": 68,
     "removedLabelCount": 13,
     "removedExamples": [
       "crown",
@@ -771,7 +1021,11 @@
         "splintered-wood",
         "ivy",
         "ivy-leaf",
-        "ivy-stem"
+        "ivy-stem",
+        "squirrel-tail",
+        "branch-bark",
+        "web-thread",
+        "web-hub"
       ]
     },
     {
@@ -793,7 +1047,12 @@
         "hollow",
         "stag-beetle",
         "lichen",
-        "bark-fissure"
+        "bark-fissure",
+        "hollow-rim",
+        "woodpecker-wing",
+        "bark-plate",
+        "lichen-patch",
+        "nest-twig"
       ]
     },
     {
@@ -815,7 +1074,13 @@
         "twig",
         "acorn",
         "acorn-cap",
-        "caterpillar"
+        "caterpillar",
+        "oak-leaf-margin",
+        "oak-leaf-petiole",
+        "oak-leaf-lobe-tip",
+        "acorn-stalk",
+        "acorn-skin",
+        "caterpillar-segment"
       ]
     },
     {
@@ -838,7 +1103,13 @@
         "soil",
         "leaf-litter",
         "fallen-leaf",
-        "pebble"
+        "pebble",
+        "root-ridge",
+        "root-tip",
+        "bracket-shelf",
+        "bracket-pore",
+        "leaf-litter-edge",
+        "moss-cushion"
       ]
     },
     {
@@ -858,7 +1129,11 @@
         "fern-frond",
         "wildflower",
         "flower-petal",
-        "flower-stem"
+        "flower-stem",
+        "fern-pinna",
+        "fern-stipe",
+        "wildflower-center",
+        "grass-blade"
       ]
     }
   ]

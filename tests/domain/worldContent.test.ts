@@ -297,6 +297,80 @@ test("known floating-label regressions stay removed and critical portals match v
     ],
   );
 
+  const oakTree = byId.get("oak-tree");
+  assert.ok(oakTree);
+  assert.equal(oakTree.labels.length, 68, "oak tree keeps its expanded final-pixel vocabulary");
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => oakTree.labels.filter((label) => label.minLevel === level).length),
+    [8, 14, 19, 16, 11],
+  );
+  assert.deepEqual(
+    oakTree.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["left-bough-wildlife", 12],
+      ["trunk-microhabitat", 14],
+      ["leaves-and-acorns", 15],
+      ["roots-fungi-and-ground", 16],
+      ["woodland-edge-flora", 11],
+    ],
+  );
+  const oakTreeWords = new Set(oakTree.labels.map((label) => label.word));
+  for (const term of [
+    "squirrel tail",
+    "branch bark",
+    "web thread",
+    "web hub",
+    "nest twig",
+    "hollow rim",
+    "woodpecker wing",
+    "bark plate",
+    "lichen patch",
+    "oak leaf margin",
+    "oak leaf petiole",
+    "oak leaf lobe tip",
+    "acorn stalk",
+    "acorn skin",
+    "caterpillar segment",
+    "root ridge",
+    "root tip",
+    "bracket shelf",
+    "bracket pore",
+    "leaf litter edge",
+    "moss cushion",
+    "fern pinna",
+    "fern stipe",
+    "wildflower center",
+    "grass blade",
+  ]) {
+    assert.ok(oakTreeWords.has(term), `oak tree shows ${term}`);
+  }
+  for (const [id, point] of [
+    ["squirrel-tail", [153, 137]],
+    ["oak-leaf-margin", [1535, 247]],
+    ["root-ridge", [700, 735]],
+    ["grass-blade", [1335, 728]],
+  ] as const) {
+    const anchor: Scene["labels"][number] | undefined = oakTree.labels.find(
+      (candidate) => candidate.id === id,
+    );
+    assert.ok(anchor, `oak tree keeps ${id} label`);
+    assert.deepEqual([anchor.x, anchor.y], point, `oak tree anchors ${id}`);
+  }
+  assert.deepEqual(oakTree.portals, [
+    {
+      id: "enter-leaf",
+      label: "Enter the oak leaf",
+      translation: "进入橡树叶",
+      childSceneId: "leaf",
+      x: 895,
+      y: 5,
+      width: 700,
+      height: 445,
+      enterScale: 3.6,
+      sourceVisualRegion: "upper-right-leaf-cluster",
+    },
+  ]);
+
   const cityStreet = byId.get("city-street");
   assert.ok(cityStreet);
   assert.equal(cityStreet.asset, "/scenes/city-street-bright-v4.jpg");
