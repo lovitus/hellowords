@@ -1361,7 +1361,7 @@ test("premium lithium-ion cell stays within its pixel-evidence ceiling", async (
     )),
     [10, 13, 12, 13, 12],
   );
-  assert.equal(cell.detailZones?.length, 4);
+  assert.equal(cell.detailZones?.length, 5);
   assert.deepEqual(
     cell.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
