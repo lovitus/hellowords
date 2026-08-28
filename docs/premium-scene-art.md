@@ -254,6 +254,12 @@ Create an optimistic glass-roofed multimodal terminal with a complete electric t
 
 Create a bright regional railway platform in three-quarter perspective with one complete stopped electric carriage as the dominant portal. Resolve its open door, windows, running gear and roof pantograph; separately resolve the rails, sleepers, ballast and fasteners, the continuous platform safety edge, overhead contact system, canopy fixtures and one commuter with luggage. Exclude station names, advertisements, readable displays and pseudo-writing.
 
+The final-pixel audit retained 96 independently pointable terms across four
+detail zones. It adds platform paving and coping, clock and bench parts,
+luggage hardware, carriage access and roof details, front running gear,
+pantograph joints and rail-bed subparts while keeping the complete stopped
+carriage portal unobstructed and rejecting blank signage and service claims.
+
 ### Electric bus
 
 Create a bright, realistic engineering cutaway of a modern low-floor electric city bus in a clean daylight depot. Keep the complete vehicle readable while exposing its doors, glazing, seating, driver controls, wheels, tires, axles, suspension, traction motor, charge port and a large underfloor battery pack. Make that battery pack the unmistakable next-scene portal. Exclude people, brands, route text, pseudo-writing, invisible operating concepts and dark workshop atmosphere.

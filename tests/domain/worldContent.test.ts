@@ -560,6 +560,68 @@ test("bedroom preserves its expanded bedding, study and storage vocabulary", asy
   );
 });
 
+test("railway platform preserves its expanded passenger, train and track vocabulary", async () => {
+  const { scenes } = await loadWorld();
+  const platform = scenes.find((scene) => scene.id === "railway-platform");
+  assert.ok(platform);
+  assert.equal(platform.labels.length, 96);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      platform.labels.filter((label) => label.minLevel === level).length
+    )),
+    [7, 6, 9, 29, 45],
+  );
+  const words = new Set(platform.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const required of [
+    "platform tile",
+    "platform coping",
+    "tactile stud",
+    "clock housing",
+    "clock mount",
+    "bench backrest",
+    "bench seat",
+    "suitcase wheel",
+    "umbrella tip",
+    "jacket sleeve",
+    "speaker bracket",
+    "roof vent",
+    "window frame",
+    "door threshold",
+    "door step",
+    "headlight bezel",
+    "coupler head",
+    "buffer",
+    "wheel hub",
+    "bogie suspension",
+    "rail baseplate",
+    "sleeper shoulder",
+    "ballast shoulder",
+    "mast crossarm",
+    "pantograph hinge",
+  ]) {
+    assert.ok(words.has(required), `railway platform visibly grounds ${required}`);
+  }
+  assert.deepEqual(
+    platform.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["passenger-platform", 34],
+      ["train-body", 30],
+      ["overhead-electrification", 11],
+      ["track-structure", 21],
+    ],
+  );
+  const labels = new Map(platform.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["platform-tile", "roof-vent", "rail-baseplate"].map((id) => {
+      const label = labels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[470, 820], [1110, 250], [1310, 760]],
+    "new railway platform parts stay anchored on their reviewed pixels",
+  );
+});
+
 test("premium coffee machine grounds its cutaway and keeps one real water-tank portal", async () => {
   const { scenes } = await loadWorld();
   const coffeeMachine = scenes.find((scene) => scene.id === "coffee-machine");

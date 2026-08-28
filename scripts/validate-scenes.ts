@@ -166,6 +166,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // unsupported service claims while allowing the expanded 64-anchor audit.
   "train-carriage": 64,
   "rail-bogie": 40,
+  // The final platform raster resolves passenger fixtures, train hardware,
+  // overhead electrification and track subparts; the ceiling blocks signage
+  // and inferred service states while allowing the reviewed 96-anchor scene.
+  "railway-platform": 96,
   "lithium-ion-cell": 31,
   heart: 36,
   "blood-cell": 36,
