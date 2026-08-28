@@ -1097,6 +1097,66 @@
       "priority": 6.063,
       "minLevel": 4,
       "sourceVisualRegion": "whole-apartment"
+    },
+    {
+      "id": "sofa-arm",
+      "word": "sofa arm",
+      "translation": "沙发扶手",
+      "x": 315,
+      "y": 366,
+      "priority": 6.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-sofa-arm"
+    },
+    {
+      "id": "chair-seat",
+      "word": "chair seat",
+      "translation": "椅面",
+      "x": 638,
+      "y": 380,
+      "priority": 6.065,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-chair-seat"
+    },
+    {
+      "id": "drawer",
+      "word": "drawer",
+      "translation": "抽屉",
+      "x": 1420,
+      "y": 420,
+      "priority": 6.066,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-drawer"
+    },
+    {
+      "id": "bathtub-faucet",
+      "word": "bathtub faucet",
+      "translation": "浴缸水龙头",
+      "x": 1490,
+      "y": 621,
+      "priority": 6.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bathtub-faucet"
+    },
+    {
+      "id": "shower-drain",
+      "word": "shower drain",
+      "translation": "淋浴排水口",
+      "x": 1382,
+      "y": 785,
+      "priority": 6.068,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-shower-drain"
+    },
+    {
+      "id": "wall-niche",
+      "word": "wall niche",
+      "translation": "墙壁壁龛",
+      "x": 1470,
+      "y": 620,
+      "priority": 6.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wall-niche"
     }
   ],
   "portals": [
@@ -1142,9 +1202,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/apartment-bright-v2.jpg",
     "reviewedAssetSha256": "90b90990ed24ec4324aa0b9345a0db650baf1a8bd03267ab6f53d5984d8c5ff2",
-    "rationale": "Re-authored every anchor and navigation crop from the final bright 1600 by 900 JPEG. The four rooms and central stair core are spatially disjoint; the expanded set keeps room-level nouns at overview and exposes independently pointable furniture, fixtures and visible parts as the camera moves deeper.",
-    "previousLabelCount": 110,
-    "retainedLabelCount": 107,
+    "rationale": "Re-authored every anchor and navigation crop from the final bright 1600 by 900 JPEG. The four rooms and central stair core are spatially disjoint; the expanded set keeps room-level nouns at overview and exposes independently pointable furniture, fixtures and visible parts as the camera moves deeper. A second pixel review adds only the clearly separated sofa arm, chair seat, kitchen drawer and bathroom fitting parts while retaining the original exclusions for an obscured sink, hallway and dresser.",
+    "previousLabelCount": 116,
+    "retainedLabelCount": 113,
     "removedLabelCount": 3,
     "removedExamples": [
       "hallway",
@@ -1575,6 +1635,60 @@
       "y": 268,
       "width": 53,
       "height": 40
+    },
+    {
+      "id": "verified-sofa-arm",
+      "description": "Distinct padded arm at the left edge of the living-room sofa",
+      "kind": "part",
+      "x": 294,
+      "y": 320,
+      "width": 70,
+      "height": 105
+    },
+    {
+      "id": "verified-chair-seat",
+      "description": "Sage upholstered seat cushion on the living-room armchair",
+      "kind": "part",
+      "x": 600,
+      "y": 350,
+      "width": 86,
+      "height": 60
+    },
+    {
+      "id": "verified-kitchen-drawer",
+      "description": "Separate lower drawer front in the right-side kitchen cabinetry",
+      "kind": "part",
+      "x": 1360,
+      "y": 350,
+      "width": 190,
+      "height": 110
+    },
+    {
+      "id": "verified-bathtub-faucet",
+      "description": "Brushed-metal faucet mounted behind the freestanding bathtub",
+      "kind": "part",
+      "x": 1437,
+      "y": 570,
+      "width": 105,
+      "height": 110
+    },
+    {
+      "id": "verified-shower-drain",
+      "description": "Small dark drain opening on the shower floor",
+      "kind": "part",
+      "x": 1290,
+      "y": 720,
+      "width": 155,
+      "height": 130
+    },
+    {
+      "id": "verified-wall-niche",
+      "description": "Recessed wall niche with a small plant beside the shower",
+      "kind": "part",
+      "x": 1438,
+      "y": 565,
+      "width": 72,
+      "height": 105
     }
   ],
   "detailZones": [
@@ -1619,7 +1733,9 @@
         "table-leg",
         "shelf-board",
         "book",
-        "chair-arm"
+        "chair-arm",
+        "sofa-arm",
+        "chair-seat"
       ]
     },
     {
@@ -1657,7 +1773,8 @@
         "herb-pot",
         "drawer-handle",
         "stool-seat",
-        "stool-leg"
+        "stool-leg",
+        "drawer"
       ]
     },
     {
@@ -1722,7 +1839,10 @@
         "toilet-tank",
         "toilet-seat",
         "bathtub-rim",
-        "bathroom-window"
+        "bathroom-window",
+        "bathtub-faucet",
+        "shower-drain",
+        "wall-niche"
       ]
     },
     {

@@ -1731,6 +1731,35 @@ test("premium hemoglobin preserves one grounded oxygen portal at its 22-word cei
   }
 });
 
+test("apartment keeps its room portals and newly reviewed fixture parts", async () => {
+  const { scenes } = await loadWorld();
+  const apartment = scenes.find((scene) => scene.id === "apartment");
+  assert.ok(apartment);
+  assert.equal(apartment.labels.length, 113);
+  const words = new Set(apartment.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const required of [
+    "sofa arm",
+    "chair seat",
+    "drawer",
+    "bathtub faucet",
+    "shower drain",
+    "wall niche",
+  ]) {
+    assert.ok(words.has(required), `apartment visibly grounds ${required}`);
+  }
+  assert.deepEqual(
+    apartment.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["living-room-detail", 33],
+      ["kitchen-detail", 26],
+      ["bedroom-detail", 18],
+      ["bathroom-detail", 24],
+      ["central-stair-upper-detail", 8],
+      ["central-stair-lower-detail", 4],
+    ],
+  );
+});
+
 test("bathroom adds a dense terminal apartment room without overlapping sibling portals", async () => {
   const { scenes } = await loadWorld();
   const byId = new Map(scenes.map((scene) => [scene.id, scene]));
