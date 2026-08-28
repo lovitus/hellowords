@@ -184,8 +184,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "human-body": 60,
   // The reviewed carriage raster exposes the complete cabin plus distinct
   // door, seat, suspension and foreground track hardware; the ceiling blocks
-  // unsupported service claims while allowing the expanded 64-anchor audit.
-  "train-carriage": 64,
+  // unsupported service claims while allowing the expanded 70-anchor audit.
+  "train-carriage": 70,
   // The bright bogie raster resolves frame welds/ribs, wheel and motor
   // subparts, suspension seats, linkage pins and track fasteners; the ceiling
   // blocks maintenance actions, failure states and hidden load concepts.

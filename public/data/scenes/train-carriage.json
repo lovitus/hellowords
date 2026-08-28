@@ -77,7 +77,13 @@
     { "id": "brake-cylinder", "word": "brake cylinder", "translation": "制动缸", "x": 1120, "y": 650, "priority": 6.020, "minLevel": 4, "sourceVisualRegion": "verified-brake-cylinder" },
     { "id": "gearbox", "word": "gearbox", "translation": "齿轮箱", "x": 1050, "y": 700, "priority": 6.021, "minLevel": 4, "sourceVisualRegion": "verified-gearbox" },
     { "id": "rail-baseplate", "word": "rail baseplate", "translation": "钢轨底座板", "x": 950, "y": 875, "priority": 6.022, "minLevel": 4, "sourceVisualRegion": "verified-rail-baseplate" },
-    { "id": "rail-fastener", "word": "rail fastener", "translation": "钢轨扣件", "x": 900, "y": 845, "priority": 6.023, "minLevel": 4, "sourceVisualRegion": "verified-rail-fastener" }
+    { "id": "rail-fastener", "word": "rail fastener", "translation": "钢轨扣件", "x": 900, "y": 845, "priority": 6.023, "minLevel": 4, "sourceVisualRegion": "verified-rail-fastener" },
+    { "id": "buffer", "word": "buffer", "translation": "缓冲器", "x": 72, "y": 660, "priority": 6.024, "minLevel": 3, "sourceVisualRegion": "verified-buffer" },
+    { "id": "brake-hose", "word": "brake hose", "translation": "制动软管", "x": 120, "y": 720, "priority": 6.025, "minLevel": 4, "sourceVisualRegion": "verified-brake-hose" },
+    { "id": "sleeper", "word": "sleeper", "translation": "轨枕", "x": 980, "y": 855, "priority": 6.026, "minLevel": 4, "sourceVisualRegion": "verified-sleeper" },
+    { "id": "door-seal", "word": "door seal", "translation": "车门密封条", "x": 620, "y": 350, "priority": 6.027, "minLevel": 4, "sourceVisualRegion": "verified-door-seal" },
+    { "id": "window-pane", "word": "window pane", "translation": "车窗玻璃", "x": 1000, "y": 380, "priority": 6.028, "minLevel": 4, "sourceVisualRegion": "verified-window-pane" },
+    { "id": "wall-panel", "word": "wall panel", "translation": "内墙面板", "x": 1080, "y": 235, "priority": 6.029, "minLevel": 3, "sourceVisualRegion": "verified-wall-panel" }
   ],
   "detailZones": [
     {
@@ -90,7 +96,7 @@
       "width": 1540,
       "height": 780,
       "targetScale": 1.7,
-      "labelIds": ["train-carriage", "body-panel", "roof", "window", "gangway-bellows", "coupler", "carriage-end", "window-frame", "window-sill", "side-skirt", "underframe"]
+      "labelIds": ["train-carriage", "body-panel", "roof", "window", "gangway-bellows", "coupler", "carriage-end", "window-frame", "window-sill", "side-skirt", "underframe", "buffer", "window-pane"]
     },
     {
       "id": "passenger-seating",
@@ -114,7 +120,7 @@
       "width": 480,
       "height": 530,
       "targetScale": 2.5,
-      "labelIds": ["sliding-door", "door-leaf", "door-track", "door-threshold", "vestibule", "handrail", "ceiling-light", "ventilation-grille", "waste-bin", "door-window", "door-handle", "door-frame", "boarding-step", "light-diffuser"]
+      "labelIds": ["sliding-door", "door-leaf", "door-track", "door-threshold", "vestibule", "handrail", "ceiling-light", "ventilation-grille", "waste-bin", "door-window", "door-handle", "door-frame", "boarding-step", "light-diffuser", "door-seal"]
     },
     {
       "id": "overhead-storage",
@@ -126,7 +132,7 @@
       "width": 650,
       "height": 240,
       "targetScale": 2.45,
-      "labelIds": ["luggage-rack", "suitcase", "overhead-rail", "handle", "ceiling-panel", "rack-bar", "suitcase-handle"]
+      "labelIds": ["luggage-rack", "suitcase", "overhead-rail", "handle", "ceiling-panel", "rack-bar", "suitcase-handle", "wall-panel"]
     },
     {
       "id": "bogie-assembly",
@@ -150,7 +156,7 @@
       "width": 1600,
       "height": 330,
       "targetScale": 2.7,
-      "labelIds": ["rail", "rail-baseplate", "rail-fastener", "equipment-box", "air-reservoir"]
+      "labelIds": ["rail", "rail-baseplate", "rail-fastener", "equipment-box", "air-reservoir", "brake-hose", "sleeper"]
     }
   ],
   "portals": [
@@ -172,9 +178,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/train-carriage-premium-v2.jpg",
     "reviewedAssetSha256": "d1498a2fdee076830e331bd915c841763f122332116f2bc52fa173a28afd6148",
-    "rationale": "Expanded the audited set from the 40-word release to 64 terms using only clearly resolved carriage, cabin, suspension and track parts in the final bright cutaway pixels; the complete unobstructed powered bogie portal and every earlier anchor remain unchanged.",
-    "previousLabelCount": 72,
-    "retainedLabelCount": 64,
+    "rationale": "Expanded the audited set from the 40-word release to 70 terms using only clearly resolved carriage, cabin, suspension and track parts in the final bright cutaway pixels; the complete unobstructed powered bogie portal and every earlier anchor remain unchanged. A second pixel review adds the visible coupler buffer, brake hose, sleeper, door seal, window pane and interior wall panel without restoring inferred passenger or service claims.",
+    "previousLabelCount": 78,
+    "retainedLabelCount": 70,
     "removedLabelCount": 8,
     "removedExamples": ["route display", "passenger", "intercom", "power socket", "fire extinguisher", "crowded"]
   },
@@ -242,6 +248,12 @@
     { "id": "verified-gearbox", "description": "Compact ribbed gearbox beside the traction motor", "kind": "object", "x": 980, "y": 620, "width": 180, "height": 150 },
     { "id": "verified-rail", "description": "Steel running rail visible beneath the carriage", "kind": "part", "x": 520, "y": 800, "width": 800, "height": 100 },
     { "id": "verified-rail-baseplate", "description": "Flat metal baseplate supporting the running rail on the workshop floor", "kind": "part", "x": 520, "y": 840, "width": 800, "height": 60 },
-    { "id": "verified-rail-fastener", "description": "Dark clip fastening the rail to the sleeper", "kind": "part", "x": 520, "y": 810, "width": 800, "height": 70 }
+    { "id": "verified-rail-fastener", "description": "Dark clip fastening the rail to the sleeper", "kind": "part", "x": 520, "y": 810, "width": 800, "height": 70 },
+    { "id": "verified-buffer", "description": "Round shock-absorbing buffer beside the left coupler head", "kind": "part", "x": 35, "y": 610, "width": 125, "height": 125 },
+    { "id": "verified-brake-hose", "description": "Flexible black brake hose looping below the coupler", "kind": "part", "x": 70, "y": 680, "width": 160, "height": 150 },
+    { "id": "verified-sleeper", "description": "Transverse support block beneath the foreground running rail", "kind": "part", "x": 850, "y": 815, "width": 400, "height": 75 },
+    { "id": "verified-door-seal", "description": "Dark rubber seal lining the sliding passenger door", "kind": "part", "x": 580, "y": 250, "width": 175, "height": 320 },
+    { "id": "verified-window-pane", "description": "Clear glass pane inside the large passenger window", "kind": "part", "x": 780, "y": 310, "width": 450, "height": 175 },
+    { "id": "verified-wall-panel", "description": "Warm wood interior wall panel below the luggage rack", "kind": "part", "x": 760, "y": 190, "width": 560, "height": 95 }
   ]
 }

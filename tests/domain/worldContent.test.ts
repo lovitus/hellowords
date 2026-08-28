@@ -881,6 +881,46 @@ test("city cafe preserves its expanded seating, pastry and espresso vocabulary",
   );
 });
 
+test("train carriage adds grounded coupler, cabin and track parts", async () => {
+  const { scenes } = await loadWorld();
+  const carriage = scenes.find((scene) => scene.id === "train-carriage");
+  assert.ok(carriage);
+  assert.equal(carriage.labels.length, 70);
+  const words = new Set(carriage.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const required of [
+    "buffer",
+    "brake hose",
+    "sleeper",
+    "door seal",
+    "window pane",
+    "wall panel",
+  ]) {
+    assert.ok(words.has(required), `train carriage visibly grounds ${required}`);
+  }
+  assert.deepEqual(
+    carriage.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["carriage-shell", 13],
+      ["passenger-seating", 14],
+      ["entry-vestibule", 15],
+      ["overhead-storage", 8],
+      ["bogie-assembly", 13],
+      ["underbody-and-track", 7],
+    ],
+  );
+  const anchors = new Map(carriage.labels.map((label) => [label.id, [label.x, label.y]] as const));
+  for (const [id, point] of [
+    ["buffer", [72, 660]],
+    ["brake-hose", [120, 720]],
+    ["sleeper", [980, 855]],
+    ["door-seal", [620, 350]],
+    ["window-pane", [1000, 380]],
+    ["wall-panel", [1080, 235]],
+  ] as const) {
+    assert.deepEqual(anchors.get(id), point, `train carriage anchor ${id}`);
+  }
+});
+
 test("premium coffee machine grounds its cutaway and keeps one real water-tank portal", async () => {
   const { scenes } = await loadWorld();
   const coffeeMachine = scenes.find((scene) => scene.id === "coffee-machine");
