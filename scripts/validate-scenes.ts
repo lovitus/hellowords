@@ -180,7 +180,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // and inferred service states while allowing the reviewed 96-anchor scene.
   "railway-platform": 96,
   "lithium-ion-cell": 31,
-  heart: 36,
+  // The bright cutaway resolves chamber walls, individual cusps, connected
+  // vessel openings, coronary surface branches and a readable red-cell rim;
+  // the ceiling still excludes invisible physiology and conduction claims.
+  heart: 61,
   "blood-cell": 36,
   // The bright garden resolves greenhouse fittings, raised-bed crops, tools,
   // compost, rain collection and a flowering border; the ceiling blocks

@@ -336,7 +336,7 @@ The final-pixel audit retained 40 terms across six authored crops. It rejected p
 
 Create a bright medical-museum heart exhibit with one complete oblique cutaway large enough to separate all four chambers, their valve leaflets, chordae, papillary muscles, septum, wall layers, great vessels and outer coronary vessels. Physically connect it to one large artery cross-section with three independently readable wall layers, lumen and several biconcave red cells; make one isolated foreground cell the blood-cell portal. Exclude physiology arrows, ECG traces, invisible conduction structures, disease, real tissue, text and pseudo-writing.
 
-The final-pixel audit retained 36 structures across five authored crops. It rejected oxygenation states, flow, ECG and conduction labels that would require inference, and tied the child portal to the single unobstructed foreground red cell inside the artery lumen.
+The final-pixel audit retains 61 grounded structures across five authored crops. It adds visible valve cusps, chamber walls, vessel openings and rims, ventricular ridges, coronary branches, artery lining and red-cell surface parts while still rejecting oxygenation states, flow, ECG and conduction labels that would require inference. The child portal remains tied to the single unobstructed foreground red cell inside the artery lumen.
 
 ### Blood cell
 

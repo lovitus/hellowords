@@ -1573,14 +1573,24 @@ test("premium heart exposes four chambers and one isolated blood-cell portal", a
   assert.ok(heart);
   assert.equal(heart.parentId, "human-body");
   assert.equal(heart.asset, "/scenes/heart-premium-v2.jpg");
-  assert.equal(heart.labels.length, 36);
+  assert.equal(heart.labels.length, 61);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       heart.labels.filter((label) => label.minLevel === level).length
     )),
-    [8, 8, 7, 7, 6],
+    [8, 12, 17, 15, 9],
   );
   assert.equal(heart.detailZones?.length, 5);
+  assert.deepEqual(
+    heart.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["great-vessels-zone", 14],
+      ["atria-and-valves-zone", 11],
+      ["ventricles-zone", 16],
+      ["coronary-surface-zone", 8],
+      ["artery-cutaway-zone", 12],
+    ],
+  );
   assert.deepEqual(heart.portals, [{
     id: "enter-blood-cell",
     label: "Follow a blood cell",
@@ -1615,8 +1625,45 @@ test("premium heart exposes four chambers and one isolated blood-cell portal", a
     "lumen",
     "red blood cell",
     "capillary",
+    "aortic valve cusp",
+    "pulmonary artery lumen",
+    "pulmonary vein opening",
+    "vena cava wall",
+    "vessel rim",
+    "right atrial wall",
+    "left atrial wall",
+    "tricuspid cusp",
+    "mitral cusp",
+    "atrial septum",
+    "apical wall",
+    "trabecular ridge",
+    "septal muscle",
+    "chordal attachment",
+    "papillary tip",
+    "ventricular wall layer",
+    "coronary branch",
+    "coronary groove",
+    "fat lobule",
+    "surface vessel",
+    "artery ring",
+    "endothelial lining",
+    "red cell membrane",
+    "red cell dimple",
+    "capillary branch",
   ]) {
     assert.ok(words.has(visible), `heart visibly grounds ${visible}`);
+  }
+  for (const [id, point] of [
+    ["aortic-valve-cusp", [500, 250]],
+    ["atrial-septum", [520, 345]],
+    ["red-cell-dimple", [1260, 430]],
+    ["capillary-branch", [1490, 680]],
+  ] as const) {
+    const anchor: Scene["labels"][number] | undefined = heart.labels.find(
+      (candidate) => candidate.id === id,
+    );
+    assert.ok(anchor, `heart keeps ${id} label`);
+    assert.deepEqual([anchor.x, anchor.y], point, `heart anchors ${id}`);
   }
   for (const inferred of [
     "oxygenated blood",

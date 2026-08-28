@@ -367,6 +367,256 @@
       "priority": 5.035,
       "minLevel": 4,
       "sourceVisualRegion": "artery-cutaway"
+    },
+    {
+      "id": "aortic-valve-cusp",
+      "word": "aortic valve cusp",
+      "translation": "主动脉瓣叶",
+      "x": 500,
+      "y": 250,
+      "priority": 6.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "great-vessels"
+    },
+    {
+      "id": "pulmonary-artery-lumen",
+      "word": "pulmonary artery lumen",
+      "translation": "肺动脉管腔",
+      "x": 590,
+      "y": 175,
+      "priority": 6.002,
+      "minLevel": 2,
+      "sourceVisualRegion": "great-vessels"
+    },
+    {
+      "id": "pulmonary-vein-opening",
+      "word": "pulmonary vein opening",
+      "translation": "肺静脉开口",
+      "x": 752,
+      "y": 265,
+      "priority": 6.003,
+      "minLevel": 3,
+      "sourceVisualRegion": "great-vessels"
+    },
+    {
+      "id": "vena-cava-wall",
+      "word": "vena cava wall",
+      "translation": "腔静脉管壁",
+      "x": 330,
+      "y": 125,
+      "priority": 6.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "great-vessels"
+    },
+    {
+      "id": "vessel-rim",
+      "word": "vessel rim",
+      "translation": "血管边缘",
+      "x": 535,
+      "y": 240,
+      "priority": 6.005,
+      "minLevel": 4,
+      "sourceVisualRegion": "great-vessels"
+    },
+    {
+      "id": "right-atrial-wall",
+      "word": "right atrial wall",
+      "translation": "右心房壁",
+      "x": 300,
+      "y": 320,
+      "priority": 6.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "atria-and-valves"
+    },
+    {
+      "id": "left-atrial-wall",
+      "word": "left atrial wall",
+      "translation": "左心房壁",
+      "x": 700,
+      "y": 300,
+      "priority": 6.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "atria-and-valves"
+    },
+    {
+      "id": "tricuspid-cusp",
+      "word": "tricuspid cusp",
+      "translation": "三尖瓣瓣叶",
+      "x": 405,
+      "y": 435,
+      "priority": 6.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "atria-and-valves"
+    },
+    {
+      "id": "mitral-cusp",
+      "word": "mitral cusp",
+      "translation": "二尖瓣瓣叶",
+      "x": 665,
+      "y": 417,
+      "priority": 6.009,
+      "minLevel": 2,
+      "sourceVisualRegion": "atria-and-valves"
+    },
+    {
+      "id": "atrial-septum",
+      "word": "atrial septum",
+      "translation": "房间隔",
+      "x": 520,
+      "y": 345,
+      "priority": 6.010,
+      "minLevel": 3,
+      "sourceVisualRegion": "atria-and-valves"
+    },
+    {
+      "id": "apical-wall",
+      "word": "apical wall",
+      "translation": "心尖壁",
+      "x": 650,
+      "y": 760,
+      "priority": 6.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "ventricles"
+    },
+    {
+      "id": "trabecular-ridge",
+      "word": "trabecular ridge",
+      "translation": "小梁嵴",
+      "x": 430,
+      "y": 650,
+      "priority": 6.012,
+      "minLevel": 2,
+      "sourceVisualRegion": "ventricles"
+    },
+    {
+      "id": "septal-muscle",
+      "word": "septal muscle",
+      "translation": "间隔肌层",
+      "x": 590,
+      "y": 625,
+      "priority": 6.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "ventricles"
+    },
+    {
+      "id": "chordal-attachment",
+      "word": "chordal attachment",
+      "translation": "腱索附着点",
+      "x": 465,
+      "y": 540,
+      "priority": 6.014,
+      "minLevel": 3,
+      "sourceVisualRegion": "ventricles"
+    },
+    {
+      "id": "papillary-tip",
+      "word": "papillary tip",
+      "translation": "乳头肌尖端",
+      "x": 470,
+      "y": 620,
+      "priority": 6.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "ventricles"
+    },
+    {
+      "id": "ventricular-wall-layer",
+      "word": "ventricular wall layer",
+      "translation": "心室壁层",
+      "x": 760,
+      "y": 540,
+      "priority": 6.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "ventricles"
+    },
+    {
+      "id": "coronary-branch",
+      "word": "coronary branch",
+      "translation": "冠状动脉分支",
+      "x": 410,
+      "y": 700,
+      "priority": 6.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "coronary-surface"
+    },
+    {
+      "id": "coronary-groove",
+      "word": "coronary groove",
+      "translation": "冠状沟",
+      "x": 500,
+      "y": 735,
+      "priority": 6.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "coronary-surface"
+    },
+    {
+      "id": "fat-lobule",
+      "word": "fat lobule",
+      "translation": "脂肪小叶",
+      "x": 320,
+      "y": 690,
+      "priority": 6.019,
+      "minLevel": 2,
+      "sourceVisualRegion": "coronary-surface"
+    },
+    {
+      "id": "surface-vessel",
+      "word": "surface vessel",
+      "translation": "表面血管",
+      "x": 460,
+      "y": 765,
+      "priority": 6.020,
+      "minLevel": 4,
+      "sourceVisualRegion": "coronary-surface"
+    },
+    {
+      "id": "artery-ring",
+      "word": "artery ring",
+      "translation": "动脉环层",
+      "x": 1260,
+      "y": 200,
+      "priority": 6.021,
+      "minLevel": 1,
+      "sourceVisualRegion": "artery-cutaway"
+    },
+    {
+      "id": "endothelial-lining",
+      "word": "endothelial lining",
+      "translation": "内皮衬层",
+      "x": 1390,
+      "y": 335,
+      "priority": 6.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "artery-cutaway"
+    },
+    {
+      "id": "red-cell-membrane",
+      "word": "red cell membrane",
+      "translation": "红细胞膜",
+      "x": 1210,
+      "y": 455,
+      "priority": 6.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "portal-red-cell"
+    },
+    {
+      "id": "red-cell-dimple",
+      "word": "red cell dimple",
+      "translation": "红细胞凹面",
+      "x": 1260,
+      "y": 430,
+      "priority": 6.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "portal-red-cell"
+    },
+    {
+      "id": "capillary-branch",
+      "word": "capillary branch",
+      "translation": "毛细血管分支",
+      "x": 1490,
+      "y": 680,
+      "priority": 6.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "artery-cutaway"
     }
   ],
   "portals": [
@@ -388,9 +638,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/heart-premium-v2.jpg",
     "reviewedAssetSha256": "b09403295135e036aa27dfd3124518b711982650cd2ca5f21285245f6a10b0c6",
-    "rationale": "Re-anchored the bright manufactured cutaway to four chambers, visible valves and walls, major connected vessels, surface coronary structures, five artery layers, and one isolated biconcave red-cell portal.",
-    "previousLabelCount": 56,
-    "retainedLabelCount": 36,
+    "rationale": "Re-anchored the bright manufactured cutaway to four chambers, visible valves and walls, major connected vessels, surface coronary structures, five artery layers, and one isolated biconcave red-cell portal. The added cusps, chamber walls, vessel rims, ventricular ridges, coronary branches and red-cell surface parts remain independently visible; invisible physiology and synonym padding stay excluded.",
+    "previousLabelCount": 81,
+    "retainedLabelCount": 61,
     "removedLabelCount": 20,
     "removedExamples": [
       "oxygenated blood",
@@ -421,7 +671,12 @@
         "inferior-vena-cava",
         "pulmonary-trunk",
         "pulmonary-vein",
-        "pulmonary-valve"
+        "pulmonary-valve",
+        "aortic-valve-cusp",
+        "pulmonary-artery-lumen",
+        "pulmonary-vein-opening",
+        "vena-cava-wall",
+        "vessel-rim"
       ]
     },
     {
@@ -440,7 +695,12 @@
         "tricuspid-valve",
         "mitral-valve",
         "valve-leaflet",
-        "endocardium"
+        "endocardium",
+        "right-atrial-wall",
+        "left-atrial-wall",
+        "tricuspid-cusp",
+        "mitral-cusp",
+        "atrial-septum"
       ]
     },
     {
@@ -463,7 +723,13 @@
         "right-ventricular-wall",
         "left-ventricular-wall",
         "chordae-tendineae",
-        "papillary-muscle"
+        "papillary-muscle",
+        "apical-wall",
+        "trabecular-ridge",
+        "septal-muscle",
+        "chordal-attachment",
+        "papillary-tip",
+        "ventricular-wall-layer"
       ]
     },
     {
@@ -480,7 +746,11 @@
         "epicardium",
         "epicardial-fat",
         "coronary-artery",
-        "coronary-vein"
+        "coronary-vein",
+        "coronary-branch",
+        "coronary-groove",
+        "fat-lobule",
+        "surface-vessel"
       ]
     },
     {
@@ -500,7 +770,12 @@
         "tunica-intima",
         "lumen",
         "red-blood-cell",
-        "capillary"
+        "capillary",
+        "artery-ring",
+        "endothelial-lining",
+        "red-cell-membrane",
+        "red-cell-dimple",
+        "capillary-branch"
       ]
     }
   ],

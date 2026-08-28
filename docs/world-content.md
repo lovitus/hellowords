@@ -125,7 +125,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Science museum | 128 → 121 | Premium gallery resolves specific fossil, instrument, robotic, physics and life-science parts while rejecting roles, venues and signage |
 | Dinosaur hall | 52 → 44 | Sunlit paleontology gallery grounds mounted bones, distinct fossils, preparation tools and rock structure; behavior, era, weak rock features and museum activities remain removed |
 | Human body | 56 → 40 | Bright three-model anatomy exhibit grounds body joints, major bones, limb muscles and visible organs; unseen systems and structures remain removed |
-| Heart | 56 → 36 | Bright cutaway grounds chambers, valves, walls, great and coronary vessels plus an artery cross-section; invisible physiology and conduction remain removed |
+| Heart | 81 → 61 | Bright cutaway grounds chambers, valves, walls, great and coronary vessels plus an artery cross-section; the final audit adds visible cusps, chamber walls, vessel rims, ventricular ridges, coronary branches and red-cell surface parts while invisible physiology and conduction remain removed |
 | Blood cell | 56 → 36 | Bright capillary cutaway grounds vessel layers, red-cell membrane and skeleton, one neutrophil, platelets and the real Hemoglobin portal; unsupported immune processes remain removed |
 | Hemoglobin | 48 → 22 | Premium molecular view grounds subunits, hemes and the oxygen-binding pocket; diseases and invisible binding behavior remain removed |
 | Oxygen molecule | 48 → 26 | Premium gas-exchange cutaway grounds the airway, alveolus, barrier, blood cells and molecule trail; quantum decoration and invisible physiology remain removed |
