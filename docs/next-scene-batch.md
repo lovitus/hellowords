@@ -236,7 +236,7 @@ The SVG supports enclosure, four modules, cylindrical cells, busbars, cables, co
 - Positive and negative terminals must be genuinely separate and consistently color-coded; the cooling circuit must not connect to electrical terminals.
 
 **Published audit:** The existing `battery-premium-v2.jpg` re-audit now retains 60
-independently pointable parts across six zones (8/6/17/12/4/13). The added anchors
+independently pointable parts across six zones (9/5/17/12/4/13). The added anchors
 are the visible cell can, module end plate, cable gland, terminal lug, coolant
 tube, lid port, lid recess, terminal stud, holder rib, module side wall, wire
 loom, tube retainer, coolant tee, front-wall bolt, flange bolt, mounting tab,
