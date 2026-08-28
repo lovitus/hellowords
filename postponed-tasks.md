@@ -14,6 +14,8 @@
 
 - 活跃根任务：`019fe5fe-faec-7070-9788-dbe33e98e645`（当前对话，保留）。没有运行中的协作 agent。
 - 已归档的完成子任务：`01a04618-091d-7a63-bf16-a78fd56aab74`，主题为“修复场景切换与首页展示”；它的代码曾被明确撤销，当前只保留本批工作树中的新改动。
+- 2026-08-28 清理暂停点：当前工作树只有 `M public/data/scenes/city-park.json`，是已完成像素复核但尚未跑门禁/提交的 88 词草稿（在 63 词公开 v57 之上增加 25 个真实部件词）；不要 reset、checkout 或丢弃这份改动。继续时先补 validator、unit/docs，再按整批构建、公开发布和真实冒烟。
+- 活跃任务复核：HelloWords 根任务仍为 `active`；另一个独立的 MDD 根任务 `01a00e7d-e878-7dd2-978b-3ab09d25c932` 也在运行，工作目录为 `/Volumes/micron512g/tmp-project/mdd-gateway`，本次未触碰；当前没有协作子 agent。
 - v43 已提交并公开发布：`app/components/SceneViewport.tsx`、`app/components/WorldApp.tsx`、`app/globals.css` 与相关 E2E 契约已冻结。`world-map` 默认隐藏密集词云，六大类透明点击区可打开完整词表；分类词进入词卡时地图层自动收起；场景过渡期间旧标签/交互层隐藏；根图像和既有锚点坐标未改动。
 - v44 已基于 `chloroplast-interior-premium-v3.jpg` 的最终像素审计扩展 15 个可指认结构，叶绿体从 36 增至 51 个词、6 个细节区；不加入 Calvin cycle、Rubisco 等不可直接指认的过程。
 - v44 验收证据：`npm run verify`、单 worker 全量 E2E（88 通过 / 34 设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径进入叶绿体后可见 51 个总锚点、6 个细节区，Grana 区显示 15 词，腔与蛋白区显示 19 词。
@@ -46,7 +48,7 @@
 
 ## 未完成任务（按优先级）
 
-1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 107、`city-street` 89、`transit-hub` 73、`city-cafe` 70、`community-garden` 73、`potting-workbench` 74、`greenhouse-interior` 71、`tomato-plant` 69、`kitchen` 116、`bedroom` 104、`bathroom` 103、科学馆 121、铁路站台 96、列车车厢 64、城市公园 63、叶片 49、聚合物 37、衣柜 56、植物细胞 46、叶绿体内部 51 已完成。接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
+1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 107、`city-street` 89、`transit-hub` 73、`city-cafe` 70、`community-garden` 73、`potting-workbench` 74、`greenhouse-interior` 71、`tomato-plant` 69、`kitchen` 116、`bedroom` 104、`bathroom` 103、科学馆 121、铁路站台 96、列车车厢 64、城市公园公开版 63（本地未提交草稿 88）、叶片 49、聚合物 37、衣柜 56、植物细胞 46、叶绿体内部 51 已完成。接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
    - 下一批候选：从 `docs/next-scene-batch.md` 选择仍有足够真实像素证据的稀疏场景；先复核最终像素再决定是否扩展。
    - 每个场景先做 portal 真值和 100%/200% 像素复核，再接入数据和导航。
 2. **连续探索扩展**：保留根图集的滚轮/触控连续缩放和显式点击进入语义；只有在父子场景确实能共享同一张连续栅格时才增加反向 portal，不能恢复“滚轮误触即跳场景”。
@@ -79,6 +81,11 @@
 - v57 回归证据：`npm run verify` 通过（221 个域测试），全量 E2E 88 通过 / 34 个设计性跳过，性能 2/2 通过；公开冒烟覆盖番茄植株六个细分区、六个新增代表词和返回首页。
 
 ## 会话与临时文件边界
+
+- 2026-08-28 可恢复清理：`/Users/fanli/.codex/sessions` 仍有 413 个 JSONL、约 14 GiB；HelloWords 仅剩当前打开的根会话（约 1.136 GB，写锁仍在），因此没有移动它，其他项目的未归档会话也未动。已将 `archived_sessions` 中 2026-08-01 前的 108 个已归档文件（约 300 MB）移至 `/Users/fanli/.Trash/codex-session-cleanup-20260828/archived-sessions-before-20260801/`；需要恢复时可整体移回。
+- 2026-08-28 Codex 临时目录：4 个带活动锁的 app-server 目录保留；5 个未锁定、仅含 Codex 工具链接的旧 `arg0` 目录移至 `/Users/fanli/.Trash/codex-session-cleanup-20260828/codex-tmp-unlocked/`。
+- 2026-08-28 HelloWords 临时产物：`/private/tmp` 下 5 个 `hellowords-*` 验收 JSON/headers，以及 `/var/folders/.../T/hellowords-wordnet-*.zip` 移至回收站同名子目录；没有打开句柄。`/private/tmp/llf` 仍被 Typora/gost/zsh 使用，未动；Codex/浏览器 runtime 目录未动。
+- 共享外置根 `/Volumes/micron512g/tmp-project/codex-audit-tmp` 含其他项目（主要是 MDD/runner）的测试与恢复资料，未做整根删除；仅移走其中一个空的重复目录，HelloWords 专用的 4 个 `inspect-*` 图像裁剪仍作为可复核证据保留。`/Volumes/micron512g/tmp-project` 中的 MDD 活动目录同样保留。
 
 - 已清理 126 个无活动写锁的 HelloWords 子 agent/guardian JSONL（约 18.353 GiB），并保留当前根会话。
 - 已清理 311 个明确属于 HelloWords/atlas 的 `/private/tmp` 路径（约 1.08 GiB）；约 196 MiB 的词汇源缓存已移入本地 handoff 的 `source-cache/`，可复现但不进入 Git。
