@@ -22,7 +22,7 @@
     { "id": "water-pump", "word": "water pump", "translation": "水泵", "x": 1230, "y": 705, "priority": 1.011, "minLevel": 0, "sourceVisualRegion": "verified-boiler-circuit" },
     { "id": "top-panel", "word": "top panel", "translation": "顶部面板", "x": 800, "y": 115, "priority": 1.012, "minLevel": 0, "sourceVisualRegion": "verified-beans-and-grinder" },
     { "id": "grind-chamber", "word": "grind chamber", "translation": "研磨腔", "x": 1085, "y": 220, "priority": 1.013, "minLevel": 0, "sourceVisualRegion": "verified-beans-and-grinder" },
-    { "id": "pump-housing", "word": "pump housing", "translation": "泵壳", "x": 1230, "y": 705, "priority": 1.014, "minLevel": 0, "sourceVisualRegion": "verified-boiler-circuit" },
+    { "id": "pump-housing", "word": "pump housing", "translation": "泵壳", "x": 1190, "y": 580, "priority": 1.014, "minLevel": 0, "sourceVisualRegion": "verified-boiler-circuit" },
     { "id": "side-wall", "word": "side wall", "translation": "侧壁", "x": 1490, "y": 500, "priority": 1.015, "minLevel": 0, "sourceVisualRegion": "verified-electronics-and-power" },
 
     { "id": "reservoir-lid", "word": "reservoir lid", "translation": "水箱盖", "x": 180, "y": 75, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "verified-water-reservoir" },

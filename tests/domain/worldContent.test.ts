@@ -953,6 +953,8 @@ test("premium coffee machine grounds its cutaway and keeps one real water-tank p
   ]) {
     assert.ok(words.has(required), `coffee machine visibly grounds ${required}`);
   }
+  const addedAnchors = new Map(coffeeMachine.labels.map((label) => [label.id, [label.x, label.y]]));
+  assert.deepEqual(addedAnchors.get("pump-housing"), [1190, 580], "pump housing stays on its distinct black pump casing");
   for (const unsupported of ["thermostat", "heating coil", "automatic mode", "espresso aroma"]) {
     assert.ok(!words.has(unsupported), `coffee machine omits inferred ${unsupported}`);
   }
