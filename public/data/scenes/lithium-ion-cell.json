@@ -29,7 +29,7 @@
     { "id": "vent-rim", "word": "vent rim", "translation": "防爆阀边框", "x": 755, "y": 140, "priority": 2.014, "minLevel": 1, "sourceVisualRegion": "verified-safety-vent" },
     { "id": "lid-seam", "word": "lid seam", "translation": "顶盖接缝", "x": 600, "y": 160, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "verified-cover-flange" },
     { "id": "separator-edge", "word": "separator edge", "translation": "隔膜边缘", "x": 1165, "y": 535, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "verified-separator-sheet" },
-    { "id": "positive-terminal-seal", "word": "positive terminal seal", "translation": "正极端子密封圈", "x": 420, "y": 105, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "verified-positive-terminal-seal" },
+    { "id": "positive-terminal-seal", "word": "positive terminal seal", "translation": "正极端子密封圈", "x": 420, "y": 105, "priority": 1.01, "minLevel": 1, "sourceVisualRegion": "verified-positive-terminal-seal" },
     { "id": "negative-terminal-seal", "word": "negative terminal seal", "translation": "负极端子密封圈", "x": 1000, "y": 105, "priority": 2.018, "minLevel": 1, "sourceVisualRegion": "verified-negative-terminal-seal" },
     { "id": "fill-port-collar", "word": "fill-port collar", "translation": "注液孔环", "x": 603, "y": 104, "priority": 2.019, "minLevel": 1, "sourceVisualRegion": "verified-fill-port-collar" },
 
