@@ -733,7 +733,7 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
     '[data-testid="word-label"][data-word="positive terminal seal"][data-visible="true"]',
   ).count()).toBeGreaterThan(0);
   const layerZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="unfolded-layer-stack"]',
+    '[data-testid="scene-minimap-zone"][data-zone-id="unfolded-layer-edges"]',
   );
   await layerZone.click();
   await expect.poll(() => page.locator(

@@ -116,7 +116,15 @@
       "translation": "展开层叠结构",
       "description": "Fanned separator and coated electrode sheets exposing the copper collector and tab connection",
       "x": 930, "y": 180, "width": 560, "height": 650, "targetScale": 3.4,
-      "labelIds": ["layer-fan", "separator-sheet", "electrode-sheet", "copper-tab", "copper-foil", "electrode-coating", "separator-edge", "electrode-edge", "foil-fold", "fan-tip", "layer-fold", "separator-fold", "electrode-fold", "collector-edge"]
+      "labelIds": ["layer-fan", "separator-sheet", "electrode-sheet", "copper-tab", "copper-foil", "electrode-coating", "separator-edge", "electrode-edge", "foil-fold", "layer-fold"]
+    },
+    {
+      "id": "unfolded-layer-edges",
+      "title": "Unfolded layer edges",
+      "translation": "展开层边缘",
+      "description": "Lower fan tips and folded separator, electrode and collector edges",
+      "x": 1080, "y": 380, "width": 400, "height": 430, "targetScale": 3,
+      "labelIds": ["fan-tip", "separator-fold", "electrode-fold", "collector-edge"]
     }
   ],
   "visualRegions": [

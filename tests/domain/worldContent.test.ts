@@ -1368,7 +1368,8 @@ test("premium lithium-ion cell stays within its pixel-evidence ceiling", async (
       ["lid-and-terminals", 20],
       ["cell-enclosure", 12],
       ["wound-electrode-core", 14],
-      ["unfolded-layer-stack", 14],
+      ["unfolded-layer-stack", 10],
+      ["unfolded-layer-edges", 4],
     ],
   );
   assert.deepEqual(cell.portals, [], "lithium-ion cell remains a terminal study");
