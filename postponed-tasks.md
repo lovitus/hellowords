@@ -4,17 +4,17 @@
 
 ## 当前交付游标
 
-- 公开版本：`v95-053be48`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=95-053be48>
-- 源码：`053be48`（v95 公开运行时；首页维持仅悬浮分区显示锚点词，根图集与子场景小地图均按真实锚点包围盒聚焦，Apartment 与列车车厢/电动公交增密，连续放大避让平滑，Polymer 形貌增密，衣柜柜体/衣物部件增密，电池包硬件增密并拆分上盖/端子焦点区）
-- 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、人体展柜、咖啡机、锂离子电芯、水箱、棉衬衫、Apartment 楼梯分区、Apartment 客厅/厨房/浴室细节增密、列车车厢车钩/底架/轨道细节分区、电动公交前门/车轮细节增密、Polymer 半结晶形貌增密、衣柜窗台/柜门/袖口/裤腿部件增密、电池包电芯/线束/冷却/壳体部件增密、标签避让平滑度、紧凑词泡与描边、科学馆、厨房与浴室密度；语义换词/索引闪现优化、首页大区悬浮词面、电池包、电动公交部件扩展、空间滚轮和高密度标签避让流畅度修复（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
+- 公开版本：`v99-5654f52`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=99-5654f52>
+- 源码：`5654f52`（v99 公开运行时；首页维持仅悬浮分区显示锚点词，根图集与子场景小地图均按真实锚点包围盒聚焦，Apartment 与列车车厢/电动公交增密，连续放大避让平滑，Polymer 形貌增密，衣柜柜体/衣物部件增密，电池包硬件增密并拆分上盖/端子焦点区，锂离子电芯增密并拆分端子/展开层焦点区）
+- 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、人体展柜、咖啡机、锂离子电芯、水箱、棉衬衫、Apartment 楼梯分区、Apartment 客厅/厨房/浴室细节增密、列车车厢车钩/底架/轨道细节分区、电动公交前门/车轮细节增密、Polymer 半结晶形貌增密、衣柜窗台/柜门/袖口/裤腿部件增密、电池包电芯/线束/冷却/壳体部件增密、锂离子电芯端子密封/卷芯/展开层部件增密、标签避让平滑度、紧凑词泡与描边、科学馆、厨房与浴室密度；语义换词/索引闪现优化、首页大区悬浮词面、电池包、电动公交部件扩展、空间滚轮和高密度标签避让流畅度修复（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ## 当前续开发游标（2026-08-29）
 
 - 活跃根任务：`019fe5fe-faec-7070-9788-dbe33e98e645`（当前对话，保留）。没有运行中的协作 agent。
 - 已归档的完成子任务：`01a04618-091d-7a63-bf16-a78fd56aab74`，主题为“修复场景切换与首页展示”；它的代码曾被明确撤销，当前只保留本批工作树中的新改动。
-- 2026-08-28 清理后续：city-park 88 词、oak-tree 68 词、heart 61 词、dinosaur-hall 69 词、pond-edge 65 词、frog 59 词、blood-cell 61 词与 rail-bogie 65 词批次均已完成 validator、unit/docs、构建、公开部署和真实冒烟；v66 已恢复首页“仅悬浮大区显示锚点词、其余只显示名称”的交互；v67 将 battery 从 32 扩至 42 个可指认部件；v68 将 electric-bus 从 40 扩至 51 个可指认部件；v69 缓和空间滚轮步长和回退边界；v70 收紧小地图保护区；v71 让碰撞后的避让方向优先走邻近中间槽位；v72 将 human-body 从 40 扩至 60 个可指认部件；v73 将 coffee-machine 从 40 扩至 60 个可指认部件；v74 修正泵壳与水泵的同点覆盖；v75 将 lithium-ion-cell 从 31 扩至 46 个可指认部件；v76 让碰撞换槽位仅在大跳位时做 140ms 过渡；v77 收紧桌面词泡、增强描边；v78 将 water-tank 从 36 扩至 50 个可指认部件；v79 将 cotton-shirt 从 40 扩至 55 个可指认部件；v80 拆分棉衬衫底部小地图区域；v81 拆分 Apartment 楼梯上下区域并完成公开冒烟；v92 将 wardrobe-interior 从 56 扩至 60 个可指认部件；v93–v95 将 battery 从 42 扩至 60 个可指认部件并拆分上盖与电源端子焦点区，完成公开部署。下一批继续先复核最终像素，再接入数据和导航。
+- 2026-08-28 清理后续：city-park 88 词、oak-tree 68 词、heart 61 词、dinosaur-hall 69 词、pond-edge 65 词、frog 59 词、blood-cell 61 词与 rail-bogie 65 词批次均已完成 validator、unit/docs、构建、公开部署和真实冒烟；v66 已恢复首页“仅悬浮大区显示锚点词、其余只显示名称”的交互；v67 将 battery 从 32 扩至 42 个可指认部件；v68 将 electric-bus 从 40 扩至 51 个可指认部件；v69 缓和空间滚轮步长和回退边界；v70 收紧小地图保护区；v71 让碰撞后的避让方向优先走邻近中间槽位；v72 将 human-body 从 40 扩至 60 个可指认部件；v73 将 coffee-machine 从 40 扩至 60 个可指认部件；v74 修正泵壳与水泵的同点覆盖；v75 将 lithium-ion-cell 从 31 扩至 46 个可指认部件；v76 让碰撞换槽位仅在大跳位时做 140ms 过渡；v77 收紧桌面词泡、增强描边；v78 将 water-tank 从 36 扩至 50 个可指认部件；v79 将 cotton-shirt 从 40 扩至 55 个可指认部件；v80 拆分棉衬衫底部小地图区域；v81 拆分 Apartment 楼梯上下区域并完成公开冒烟；v92 将 wardrobe-interior 从 56 扩至 60 个可指认部件；v93–v95 将 battery 从 42 扩至 60 个可指认部件并拆分上盖与电源端子焦点区；v96–v99 将 lithium-ion-cell 从 46 扩至 60 个可指认部件并拆分端子与展开层焦点区，完成公开部署。下一批继续先复核最终像素，再接入数据和导航。
 - 活跃任务复核：HelloWords 根任务仍为 `active`；另一个独立的 MDD 根任务 `01a00e7d-e878-7dd2-978b-3ab09d25c932` 也在运行，工作目录为 `/Volumes/micron512g/tmp-project/mdd-gateway`，本次未触碰；当前没有协作子 agent。
 - v82 已修复场景小地图聚焦偏移：非根场景的每个 detail zone 现在以其真实 `labelIds` 锚点包围盒中心作为 focus 坐标，无锚点时才回退到区域几何中心；首页回归测试锁定“默认 0 词、悬停仅当前大区、移出 0 词”的交互契约。`npm run verify` 通过（223 个域测试），全量 E2E 91 通过 / 35 个设计性跳过；性能门首次并行测量为 76.65ms（预算 75ms）的临界抖动，聚焦重跑通过（1/1）。公开 v82 冒烟确认首页 6 个分区名、Campus 悬停 21 词并移出归零；Apartment 楼梯入口/踏步分别以 scale 2.35 聚焦，公开页无 error/warn 日志。
 - v83 将相同的真实锚点包围盒聚焦规则覆盖到根图集的六大区和 66 个根图集细节块；`science-utilities` 这类横向大块不再落到空白几何中心。新增端到端断言核对其 focus 坐标，`npm run verify`、全量 E2E（91 通过 / 35 个设计性跳过）和性能 2/2 均通过。公开 v83 冒烟确认 `Science → Building utilities` 在 scale 3.2 将词群中心误差压到 0.01px，首页悬停仍为 21/0，公开页无 error/warn 日志。
@@ -28,6 +28,7 @@
 - v91 基于同一张 polymer bright v2 原图补充 2 个半结晶形貌词：crystallite 与 lamellar stack；Polymer 从 37 增至 39 个锚点，均回挂到半结晶细节区，未恢复 repeating unit、side group、molecular weight 等审计排除。`npm run verify` 通过（225 个域测试），全量 E2E 92 通过 / 36 个设计性跳过，性能 2/2 通过。公开 v91 冒烟确认半结晶区 scale 2.2 同时显示 lamella、crystallite、lamellar stack、spherulite，首页仍为 6 名称/0 词泡，页面无 error/warn 日志。
 - v92 基于同一张 wardrobe-interior premium v2 原图补充 4 个清晰部件：window sill、door panel、jacket cuff、trouser leg；衣柜从 56 增至 60 个锚点，分别回挂到日光角落、柜体结构和悬挂衣物细节区，既有白衬衫入口与原有锚点保持不变。`npm run verify` 通过（225 个域测试），全量 E2E 92 通过 / 36 个设计性跳过，性能 2/2 通过。公开 v92 冒烟确认首页 6 个分区名、默认 0 词，悬停 Campus 仅显示该区 21 词并移出归零；Apartment → Bedroom → Wardrobe interior 可达 60 个词及新增部件；页面无 error/warn 日志。
 - v93–v95 基于同一张 battery-premium-v2 原图补充 18 个清晰部件：cell can、module end plate、cable gland、terminal lug、coolant tube、lid port、lid recess、cell terminal stud、cell holder rib、module side wall、wire loom、tube retainer、coolant tee、front wall bolt、flange bolt、mounting tab、vent mesh、connector lock；电池包从 42 增至 60 个锚点，最终六个细节区分别为 9/5/17/12/4/13，并将上盖与电源端子拆成独立焦点，原有锂离子电芯入口与锚点保持不变。`npm run verify`、全量 E2E 92 通过 / 36 个设计性跳过、性能 2/2 均通过；公开 v95 冒烟确认新增上盖、端子和电芯词可达，首页悬浮契约无回归，页面无 error/warn 日志。
+- v96–v99 基于同一张 lithium-ion-cell-premium-v2 原图补充 14 个清晰部件：positive terminal seal、negative terminal seal、fill-port collar、cover lip、winding outer turn、core wall、case side rail、positive tab root、negative tab root、separator fold、electrode fold、vent screen、collector edge、case lip；电芯从 46 增至 60 个锚点，最终七个细节区分别为 11/5/4/12/14/10/4，并将正负端子与展开层边缘拆成独立焦点，原有终点场景和锚点保持不变。`npm run verify`、全量 E2E 92 通过 / 36 个设计性跳过、性能 2/2 均通过；公开 v99 冒烟确认正负端子、折叠边缘和首页悬浮契约均可达，页面无 error/warn 日志。
 - v43 已提交并公开发布：`app/components/SceneViewport.tsx`、`app/components/WorldApp.tsx`、`app/globals.css` 与相关 E2E 契约已冻结。`world-map` 默认隐藏密集词云，六大类透明点击区可打开完整词表；分类词进入词卡时地图层自动收起；场景过渡期间旧标签/交互层隐藏；根图像和既有锚点坐标未改动。
 - v44 已基于 `chloroplast-interior-premium-v3.jpg` 的最终像素审计扩展 15 个可指认结构，叶绿体从 36 增至 51 个词、6 个细节区；不加入 Calvin cycle、Rubisco 等不可直接指认的过程。
 - v44 验收证据：`npm run verify`、单 worker 全量 E2E（88 通过 / 34 设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径进入叶绿体后可见 51 个总锚点、6 个细节区，Grana 区显示 15 词，腔与蛋白区显示 19 词。
