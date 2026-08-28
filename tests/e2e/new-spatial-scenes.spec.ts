@@ -101,6 +101,11 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: false,
   }),
+  contract("train-carriage", "railway-platform", ["city-street", "transit-hub", "railway-platform"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: false,
+  }),
 ];
 
 for (const { target } of newSceneContracts) {

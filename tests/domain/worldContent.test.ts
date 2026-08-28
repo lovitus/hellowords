@@ -900,12 +900,14 @@ test("train carriage adds grounded coupler, cabin and track parts", async () => 
   assert.deepEqual(
     carriage.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["carriage-shell", 13],
+      ["carriage-shell", 8],
       ["passenger-seating", 14],
       ["entry-vestibule", 15],
       ["overhead-storage", 8],
       ["bogie-assembly", 13],
-      ["underbody-and-track", 7],
+      ["underbody-equipment", 4],
+      ["coupler-and-brake-gear", 4],
+      ["foreground-track", 4],
     ],
   );
   const anchors = new Map(carriage.labels.map((label) => [label.id, [label.x, label.y]] as const));

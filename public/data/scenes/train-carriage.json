@@ -96,7 +96,7 @@
       "width": 1540,
       "height": 780,
       "targetScale": 1.7,
-      "labelIds": ["train-carriage", "body-panel", "roof", "window", "gangway-bellows", "coupler", "carriage-end", "window-frame", "window-sill", "side-skirt", "underframe", "buffer", "window-pane"]
+      "labelIds": ["train-carriage", "body-panel", "roof", "window", "carriage-end", "window-frame", "window-sill", "window-pane"]
     },
     {
       "id": "passenger-seating",
@@ -147,16 +147,40 @@
       "labelIds": ["bogie", "bogie-frame", "wheel", "axle", "axle-box", "brake-disc", "coil-spring", "air-spring", "motor", "wheel-rim", "suspension-damper", "brake-cylinder", "gearbox"]
     },
     {
-      "id": "underbody-and-track",
-      "title": "Underbody and track",
-      "translation": "底架与轨道",
-      "description": "Exposed underbody equipment with the foreground rail, sleeper and fastening hardware",
+      "id": "underbody-equipment",
+      "title": "Underbody equipment",
+      "translation": "底架设备",
+      "description": "Exposed side skirt, underframe, equipment box and air reservoir below the carriage",
       "x": 0,
       "y": 570,
       "width": 1600,
       "height": 330,
       "targetScale": 2.7,
-      "labelIds": ["rail", "rail-baseplate", "rail-fastener", "equipment-box", "air-reservoir", "brake-hose", "sleeper"]
+      "labelIds": ["equipment-box", "air-reservoir", "side-skirt", "underframe"]
+    },
+    {
+      "id": "coupler-and-brake-gear",
+      "title": "Coupler and brake gear",
+      "translation": "车钩与制动部件",
+      "description": "Left-end gangway, coupler, shock buffer and flexible brake hose",
+      "x": 0,
+      "y": 100,
+      "width": 260,
+      "height": 730,
+      "targetScale": 2.6,
+      "labelIds": ["gangway-bellows", "coupler", "buffer", "brake-hose"]
+    },
+    {
+      "id": "foreground-track",
+      "title": "Foreground track",
+      "translation": "前景轨道",
+      "description": "Running rail, sleeper, baseplate and fastening clip beneath the carriage",
+      "x": 520,
+      "y": 780,
+      "width": 1080,
+      "height": 120,
+      "targetScale": 2.7,
+      "labelIds": ["rail", "rail-baseplate", "rail-fastener", "sleeper"]
     }
   ],
   "portals": [
@@ -178,7 +202,7 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/train-carriage-premium-v2.jpg",
     "reviewedAssetSha256": "d1498a2fdee076830e331bd915c841763f122332116f2bc52fa173a28afd6148",
-    "rationale": "Expanded the audited set from the 40-word release to 70 terms using only clearly resolved carriage, cabin, suspension and track parts in the final bright cutaway pixels; the complete unobstructed powered bogie portal and every earlier anchor remain unchanged. A second pixel review adds the visible coupler buffer, brake hose, sleeper, door seal, window pane and interior wall panel without restoring inferred passenger or service claims.",
+    "rationale": "Expanded the audited set from the 40-word release to 70 terms using only clearly resolved carriage, cabin, suspension and track parts in the final bright cutaway pixels; the complete unobstructed powered bogie portal and every earlier anchor remain unchanged. A second pixel review adds the visible coupler buffer, brake hose, sleeper, door seal, window pane and interior wall panel without restoring inferred passenger or service claims, and separates the left coupler, underbody equipment and foreground track into independently focusable crops.",
     "previousLabelCount": 78,
     "retainedLabelCount": 70,
     "removedLabelCount": 8,
