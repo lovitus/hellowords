@@ -139,7 +139,7 @@
       "title": "Unfolded layer edges",
       "translation": "展开层边缘",
       "description": "Lower fan tips and folded separator, electrode and collector edges",
-      "x": 1080, "y": 380, "width": 400, "height": 430, "targetScale": 3,
+      "x": 1080, "y": 380, "width": 400, "height": 430, "targetScale": 2.8,
       "labelIds": ["fan-tip", "separator-fold", "electrode-fold", "collector-edge"]
     }
   ],
