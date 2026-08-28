@@ -90,9 +90,25 @@
       "id": "lid-and-terminals",
       "title": "Lid and terminals",
       "translation": "顶盖与端子",
-      "description": "Raised metal lid with both polarity-specific terminals, seals, vent and fill hardware",
+      "description": "Raised metal lid with seals, vent and fill hardware between two terminal detail views",
       "x": 260, "y": 0, "width": 930, "height": 260, "targetScale": 2.2,
-      "labelIds": ["top-cover", "positive-terminal", "negative-terminal", "safety-vent", "electrolyte-fill-port", "insulating-gasket", "cover-flange", "positive-terminal-cap", "negative-terminal-cap", "positive-terminal-post", "negative-terminal-post", "terminal-washer", "fill-port-cap", "vent-rim", "lid-seam", "positive-terminal-seal", "negative-terminal-seal", "fill-port-collar", "cover-lip", "vent-screen"]
+      "labelIds": ["top-cover", "safety-vent", "electrolyte-fill-port", "insulating-gasket", "cover-flange", "fill-port-cap", "vent-rim", "lid-seam", "fill-port-collar", "cover-lip", "vent-screen"]
+    },
+    {
+      "id": "positive-terminal-detail",
+      "title": "Positive terminal detail",
+      "translation": "正极端子细节",
+      "description": "Silver terminal, seal, washer, cap and post at the left side of the lid",
+      "x": 330, "y": 0, "width": 220, "height": 240, "targetScale": 2.4,
+      "labelIds": ["positive-terminal", "terminal-washer", "positive-terminal-cap", "positive-terminal-post", "positive-terminal-seal"]
+    },
+    {
+      "id": "negative-terminal-detail",
+      "title": "Negative terminal detail",
+      "translation": "负极端子细节",
+      "description": "Copper terminal, seal, cap and post at the right side of the lid",
+      "x": 900, "y": 0, "width": 220, "height": 240, "targetScale": 2.4,
+      "labelIds": ["negative-terminal", "negative-terminal-cap", "negative-terminal-post", "negative-terminal-seal"]
     },
     {
       "id": "cell-enclosure",

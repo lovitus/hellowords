@@ -726,7 +726,7 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
   await expect(app).toHaveAttribute("data-scene-id", "lithium-ion-cell");
   await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
   const cellLidZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="lid-and-terminals"]',
+    '[data-testid="scene-minimap-zone"][data-zone-id="positive-terminal-detail"]',
   );
   await cellLidZone.click();
   await expect.poll(() => page.locator(

@@ -1361,11 +1361,13 @@ test("premium lithium-ion cell stays within its pixel-evidence ceiling", async (
     )),
     [10, 13, 12, 13, 12],
   );
-  assert.equal(cell.detailZones?.length, 5);
+  assert.equal(cell.detailZones?.length, 7);
   assert.deepEqual(
     cell.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["lid-and-terminals", 20],
+      ["lid-and-terminals", 11],
+      ["positive-terminal-detail", 5],
+      ["negative-terminal-detail", 4],
       ["cell-enclosure", 12],
       ["wound-electrode-core", 14],
       ["unfolded-layer-stack", 10],
