@@ -165,7 +165,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "oak-tree": 68,
   "coffee-machine": 60,
   "cotton-shirt": 55,
-  "water-tank": 50,
+  // The clear reservoir resolves additional lid, wall, water-surface, filter
+  // and base parts without reintroducing hidden sensors or actions.
+  "water-tank": 60,
   // The bright pond raster resolves distinct emergent leaves and seed heads,
   // floating-garden parts, water ripples, shallow-water life, bank textures and
   // external frog details; the ceiling blocks absent wildlife and behaviors.

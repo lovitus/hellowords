@@ -1013,14 +1013,24 @@ test("premium water tank grounds its service details and keeps one real polymer 
   assert.ok(waterTank);
   assert.equal(waterTank.asset, "/scenes/water-tank-premium-v1.jpg");
   assert.equal(waterTank.parentId, "coffee-machine");
-  assert.equal(waterTank.labels.length, 50);
+  assert.equal(waterTank.labels.length, 60);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       waterTank.labels.filter((label) => label.minLevel === level).length
     )),
-    [12, 11, 10, 9, 8],
+    [12, 14, 13, 11, 10],
   );
   assert.equal(waterTank.detailZones?.length, 5);
+  assert.deepEqual(
+    waterTank.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["lid-and-rim", 17],
+      ["water-and-air", 11],
+      ["wall-construction", 10],
+      ["outlet-assembly", 14],
+      ["base-and-mounts", 7],
+    ],
+  );
   assert.deepEqual(waterTank.portals, [
     {
       id: "enter-polymer",
@@ -1059,6 +1069,16 @@ test("premium water tank grounds its service details and keeps one real polymer 
     "hinge barrel",
     "hinge arm",
     "latch insert",
+    "lid corner",
+    "hinge leaf",
+    "filter cup",
+    "latch housing",
+    "surface ripple",
+    "bottom rail",
+    "front corner post",
+    "condensation streak",
+    "lid channel",
+    "base bracket",
     "outlet tube",
     "valve plunger",
     "valve seat",

@@ -32,6 +32,9 @@
     { "id": "hinge-barrel", "word": "hinge barrel", "translation": "铰链筒", "x": 530, "y": 165, "priority": 2.018, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
     { "id": "hinge-arm", "word": "hinge arm", "translation": "铰链臂", "x": 480, "y": 145, "priority": 2.019, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
     { "id": "latch-insert", "word": "latch insert", "translation": "卡扣嵌件", "x": 445, "y": 235, "priority": 2.02, "minLevel": 1, "sourceVisualRegion": "lid-and-rim" },
+    { "id": "lid-corner", "word": "lid corner", "translation": "盖子角部", "x": 1280, "y": 60, "priority": 2.021, "minLevel": 1, "sourceVisualRegion": "verified-lid-corner" },
+    { "id": "hinge-leaf", "word": "hinge leaf", "translation": "铰链页板", "x": 520, "y": 145, "priority": 2.022, "minLevel": 1, "sourceVisualRegion": "verified-hinge-leaf" },
+    { "id": "filter-cup", "word": "filter cup", "translation": "滤网杯", "x": 350, "y": 790, "priority": 1.01, "minLevel": 1, "sourceVisualRegion": "verified-filter-cup" },
 
     { "id": "water-surface", "word": "water surface", "translation": "水面", "x": 850, "y": 380, "priority": 3.018, "minLevel": 2, "sourceVisualRegion": "water-fill" },
     { "id": "meniscus", "word": "meniscus", "translation": "弯月面", "x": 1190, "y": 400, "priority": 3.019, "minLevel": 2, "sourceVisualRegion": "water-fill" },
@@ -43,6 +46,9 @@
     { "id": "outlet-tube", "word": "outlet tube", "translation": "出水管", "x": 470, "y": 735, "priority": 3.025, "minLevel": 2, "sourceVisualRegion": "outlet-assembly" },
     { "id": "valve-plunger", "word": "valve plunger", "translation": "阀芯", "x": 535, "y": 630, "priority": 3.026, "minLevel": 2, "sourceVisualRegion": "outlet-assembly" },
     { "id": "valve-seat", "word": "valve seat", "translation": "阀座", "x": 535, "y": 675, "priority": 3.027, "minLevel": 2, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "latch-housing", "word": "latch housing", "translation": "卡扣壳体", "x": 450, "y": 220, "priority": 3.028, "minLevel": 2, "sourceVisualRegion": "verified-latch-housing" },
+    { "id": "surface-ripple", "word": "surface ripple", "translation": "水面波纹", "x": 930, "y": 385, "priority": 2.01, "minLevel": 2, "sourceVisualRegion": "verified-surface-ripple" },
+    { "id": "bottom-rail", "word": "bottom rail", "translation": "底部横梁", "x": 880, "y": 760, "priority": 3.030, "minLevel": 2, "sourceVisualRegion": "verified-bottom-rail" },
 
     { "id": "front-wall", "word": "front wall", "translation": "前壁", "x": 800, "y": 520, "priority": 4.025, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
     { "id": "side-wall", "word": "side wall", "translation": "侧壁", "x": 1320, "y": 520, "priority": 4.026, "minLevel": 3, "sourceVisualRegion": "wall-construction" },
@@ -53,6 +59,8 @@
     { "id": "filter-housing", "word": "filter housing", "translation": "过滤器壳", "x": 470, "y": 650, "priority": 4.031, "minLevel": 3, "sourceVisualRegion": "outlet-assembly" },
     { "id": "outlet-bracket", "word": "outlet bracket", "translation": "出水口支架", "x": 450, "y": 620, "priority": 4.032, "minLevel": 3, "sourceVisualRegion": "outlet-assembly" },
     { "id": "base-lip", "word": "base lip", "translation": "底座边缘", "x": 850, "y": 760, "priority": 4.033, "minLevel": 3, "sourceVisualRegion": "base-and-mounts" },
+    { "id": "front-corner-post", "word": "front corner post", "translation": "前角立柱", "x": 1310, "y": 500, "priority": 4.034, "minLevel": 3, "sourceVisualRegion": "verified-front-corner-post" },
+    { "id": "condensation-streak", "word": "condensation streak", "translation": "冷凝水痕", "x": 360, "y": 330, "priority": 4.035, "minLevel": 3, "sourceVisualRegion": "verified-condensation-streak" },
 
     { "id": "outlet-port", "word": "outlet port", "translation": "出水口", "x": 470, "y": 750, "priority": 5.031, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
     { "id": "valve-spring", "word": "valve spring", "translation": "阀门弹簧", "x": 535, "y": 660, "priority": 5.032, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
@@ -61,7 +69,9 @@
     { "id": "locating-tab", "word": "locating tab", "translation": "定位卡舌", "x": 930, "y": 800, "priority": 5.035, "minLevel": 4, "sourceVisualRegion": "base-and-mounts" },
     { "id": "filter-rim", "word": "filter rim", "translation": "过滤网边框", "x": 350, "y": 770, "priority": 5.036, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
     { "id": "filter-mesh", "word": "filter mesh", "translation": "滤网网孔", "x": 350, "y": 790, "priority": 5.037, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
-    { "id": "outlet-collar", "word": "outlet collar", "translation": "出水口套环", "x": 470, "y": 700, "priority": 5.038, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" }
+    { "id": "outlet-collar", "word": "outlet collar", "translation": "出水口套环", "x": 470, "y": 700, "priority": 5.038, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
+    { "id": "lid-channel", "word": "lid channel", "translation": "盖子密封槽", "x": 850, "y": 120, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "verified-lid-channel" },
+    { "id": "base-bracket", "word": "base bracket", "translation": "底座支架", "x": 900, "y": 795, "priority": 5.040, "minLevel": 4, "sourceVisualRegion": "verified-base-bracket" }
   ],
   "portals": [
     {
@@ -88,7 +98,7 @@
       "width": 1100,
       "height": 290,
       "targetScale": 2.35,
-      "labelIds": ["lid", "lid-rim", "hinge", "hinge-pin", "lid-gasket", "tank-rim", "pouring-lip", "latch", "fill-opening", "lid-underside", "hinge-barrel", "hinge-arm", "latch-insert"]
+      "labelIds": ["lid", "lid-rim", "hinge", "hinge-pin", "lid-gasket", "tank-rim", "pouring-lip", "latch", "fill-opening", "lid-underside", "hinge-barrel", "hinge-arm", "latch-insert", "lid-corner", "hinge-leaf", "latch-housing", "lid-channel"]
     },
     {
       "id": "water-and-air",
@@ -100,7 +110,7 @@
       "width": 1050,
       "height": 390,
       "targetScale": 2.4,
-      "labelIds": ["water", "waterline", "air-gap", "water-surface", "meniscus", "condensation-beads", "water-droplet", "air-bubble", "reflection-highlight"]
+      "labelIds": ["water", "waterline", "air-gap", "water-surface", "meniscus", "condensation-beads", "water-droplet", "air-bubble", "reflection-highlight", "surface-ripple", "condensation-streak"]
     },
     {
       "id": "wall-construction",
@@ -112,7 +122,7 @@
       "width": 1050,
       "height": 610,
       "targetScale": 2.45,
-      "labelIds": ["tank-body", "clear-plastic-wall", "front-wall", "side-wall", "tank-floor", "wall-thickness", "molded-seam", "reinforcing-rib", "rounded-corner"]
+      "labelIds": ["tank-body", "clear-plastic-wall", "front-wall", "side-wall", "tank-floor", "wall-thickness", "molded-seam", "reinforcing-rib", "rounded-corner", "front-corner-post"]
     },
     {
       "id": "outlet-assembly",
@@ -124,7 +134,7 @@
       "width": 420,
       "height": 280,
       "targetScale": 2.75,
-      "labelIds": ["outlet-valve", "filter-screen", "outlet-port", "valve-spring", "rubber-o-ring", "outlet-tube", "valve-plunger", "valve-seat", "filter-housing", "outlet-bracket", "filter-rim", "filter-mesh", "outlet-collar"]
+      "labelIds": ["outlet-valve", "filter-screen", "outlet-port", "valve-spring", "rubber-o-ring", "outlet-tube", "valve-plunger", "valve-seat", "filter-housing", "outlet-bracket", "filter-rim", "filter-mesh", "outlet-collar", "filter-cup"]
     },
     {
       "id": "base-and-mounts",
@@ -136,7 +146,7 @@
       "width": 700,
       "height": 210,
       "targetScale": 2.6,
-      "labelIds": ["tank-base", "rubber-foot", "mounting-slot", "locating-tab", "base-lip"]
+      "labelIds": ["tank-base", "rubber-foot", "mounting-slot", "locating-tab", "base-lip", "bottom-rail", "base-bracket"]
     }
   ],
   "anchorAudit": {
@@ -144,10 +154,10 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/water-tank-premium-v1.jpg",
     "reviewedAssetSha256": "f10abe3172ff6702464f85ceb799cc57fd589d287f7147b4c234999b6d0686ad",
-    "rationale": "Re-audited the final 1600 by 900 product image pixel by pixel and retained 50 separately pointable reservoir, lid, hinge, latch, water, molded-wall, outlet-valve and base details. The added fill opening, hinge barrel/arm, latch insert, outlet tube, plunger, seat, filter housing/rim/mesh, outlet collar, bracket and base lip are kept only where the clear photograph resolves a separate surface or joint; the broad unobstructed right plastic wall remains the real Polymer child-scene entrance.",
+    "rationale": "Re-audited the final 1600 by 900 product image pixel by pixel and retained 60 separately pointable reservoir, lid, hinge, latch, water, molded-wall, outlet-valve and base details. The added lid corner, hinge leaf, latch housing, filter cup, surface ripple, condensation streak, front corner post, lid channel, bottom rail and base bracket are kept only where the clear photograph resolves a separate surface or joint; the broad unobstructed right plastic wall remains the real Polymer child-scene entrance.",
     "previousLabelCount": 70,
-    "retainedLabelCount": 50,
-    "removedLabelCount": 20,
+    "retainedLabelCount": 60,
+    "removedLabelCount": 10,
     "removedExamples": ["float switch", "overflow", "pressure sensor", "hydrostatic pressure", "refill", "watertight"]
   },
   "visualRegions": [
@@ -157,6 +167,16 @@
     { "id": "wall-construction", "description": "Transparent molded tank body, panels, floor, seam, rib and rounded corner", "kind": "object", "x": 330, "y": 180, "width": 1050, "height": 610 },
     { "id": "outlet-assembly", "description": "Lower-left service recess with valve, port, spring, O-ring and filter screen", "kind": "part", "x": 280, "y": 580, "width": 420, "height": 280 },
     { "id": "base-and-mounts", "description": "Bottom base, rubber feet, mounting slot and clear locating tab", "kind": "part", "x": 560, "y": 690, "width": 700, "height": 210 },
-    { "id": "portal-polymer-wall", "description": "Large uninterrupted right-side clear plastic wall panel", "kind": "object", "x": 1080, "y": 190, "width": 320, "height": 620 }
+    { "id": "portal-polymer-wall", "description": "Large uninterrupted right-side clear plastic wall panel", "kind": "object", "x": 1080, "y": 190, "width": 320, "height": 620 },
+    { "id": "verified-lid-corner", "description": "Rounded transparent corner of the raised lid", "kind": "part", "x": 1150, "y": 20, "width": 250, "height": 110 },
+    { "id": "verified-hinge-leaf", "description": "Clear hinge leaf plate joining the lid to the tank", "kind": "part", "x": 460, "y": 110, "width": 120, "height": 100 },
+    { "id": "verified-filter-cup", "description": "Detached cylindrical cup around the filter mesh", "kind": "part", "x": 300, "y": 700, "width": 120, "height": 170 },
+    { "id": "verified-latch-housing", "description": "Transparent housing around the black lid latch", "kind": "part", "x": 400, "y": 180, "width": 130, "height": 100 },
+    { "id": "verified-surface-ripple", "description": "Small wave ridge crossing the clear water surface", "kind": "part", "x": 780, "y": 345, "width": 320, "height": 100 },
+    { "id": "verified-bottom-rail", "description": "Clear horizontal rail along the lower tank base", "kind": "part", "x": 650, "y": 710, "width": 500, "height": 130 },
+    { "id": "verified-front-corner-post", "description": "Thick transparent post at the front-right tank corner", "kind": "part", "x": 1250, "y": 300, "width": 130, "height": 350 },
+    { "id": "verified-condensation-streak", "description": "Vertical condensation streak on the left tank wall", "kind": "part", "x": 330, "y": 280, "width": 100, "height": 190 },
+    { "id": "verified-lid-channel", "description": "Dark channel receiving the lid gasket", "kind": "part", "x": 600, "y": 95, "width": 520, "height": 100 },
+    { "id": "verified-base-bracket", "description": "Clear rectangular bracket at the lower base edge", "kind": "part", "x": 820, "y": 740, "width": 180, "height": 130 }
   ]
 }

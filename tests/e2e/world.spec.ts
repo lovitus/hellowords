@@ -741,6 +741,51 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
   ).count()).toBeGreaterThan(0);
 });
 
+test("water tank exposes its new lid, water-surface, filter, and base parts", async ({ page }) => {
+  const app = await openWorld(page);
+  for (const target of ["apartment", "kitchen", "coffee-machine", "water-tank"]) {
+    await page.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${target}"]`,
+    ).first().click();
+    await expect(app).toHaveAttribute("data-scene-id", target);
+    await expect(app).toHaveAttribute("data-scene-loading", "false");
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+  }
+
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  const lidZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="lid-and-rim"]',
+  );
+  await lidZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="lid corner"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+
+  const waterZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="water-and-air"]',
+  );
+  await waterZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="surface ripple"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+
+  const outletZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="outlet-assembly"]',
+  );
+  await outletZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="filter cup"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+
+  const baseZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="base-and-mounts"]',
+  );
+  await baseZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="base bracket"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+});
+
 test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {
   const app = await openWorld(page);
   const parent = await sceneId(app);
