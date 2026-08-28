@@ -1718,13 +1718,25 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
 
   assert.equal(greenhouse.parentId, "community-garden");
   assert.equal(greenhouse.asset, "/scenes/greenhouse-interior-premium-v1.jpg");
-  assert.equal(greenhouse.labels.length, 46);
+  assert.equal(greenhouse.labels.length, 71);
   assert.deepEqual(
     greenhouse.labels.reduce<number[]>((counts, label) => {
       counts[label.minLevel ?? 0] += 1;
       return counts;
     }, [0, 0, 0, 0, 0]),
-    [9, 9, 9, 9, 10],
+    [9, 11, 21, 17, 13],
+  );
+  assert.deepEqual(
+    greenhouse.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["greenhouse-structure", 12],
+      ["potting-workbench", 17],
+      ["propagation-area", 6],
+      ["soil-station", 6],
+      ["back-growing-bench", 8],
+      ["central-aisle", 12],
+      ["tomato-portal-zone", 10],
+    ],
   );
   assert.deepEqual(greenhouse.portals, [{
     id: "enter-tomato-plant",
@@ -1769,7 +1781,37 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
   );
 
   for (const [scene, required] of [
-    [greenhouse, ["greenhouse interior", "glass pane", "roof vent", "tomato plant"]],
+    [greenhouse, [
+      "greenhouse interior",
+      "glass pane",
+      "roof vent",
+      "tomato plant",
+      "glass door handle",
+      "door threshold",
+      "roof glazing bar",
+      "vent latch",
+      "staging shelf",
+      "watering can rim",
+      "watering can handle",
+      "seed tray cell",
+      "basil leaf",
+      "pot rim",
+      "saucer rim",
+      "twine strand",
+      "trowel handle",
+      "shear handle",
+      "soil bag fold",
+      "scoop handle",
+      "fan stand",
+      "drip emitter",
+      "tomato stem",
+      "tomato leaflet",
+      "tomato cluster",
+      "marigold center",
+      "pepper stem",
+      "paving edge",
+      "gravel stone",
+    ]],
     [tomato, ["main stem", "compound leaf", "tomato flower", "ripe tomato"]],
     [workbench, [
       "watering can",
@@ -1801,6 +1843,16 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
     }),
     [[362, 240], [800, 483], [1435, 624]],
     "new potting workbench parts stay anchored on their reviewed pixels",
+  );
+  const greenhouseLabels = new Map(greenhouse.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["glass-door-handle", "seed-tray-cell", "tomato-cluster"].map((id) => {
+      const label = greenhouseLabels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[1564, 430], [338, 512], [1249, 553]],
+    "new greenhouse parts stay anchored on their reviewed pixels",
   );
 });
 

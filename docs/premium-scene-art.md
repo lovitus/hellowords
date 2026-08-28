@@ -144,7 +144,11 @@ disjoint and rejecting activities and inferred ecological processes.
 
 Create a bright, photographic interior of the exact aluminum-framed glass greenhouse visible in the community garden. Preserve a central aisle, glass panes, roof ridge and opening vent, left potting bench, propagation trays, soil supplies, rear crop bench, irrigation fittings and one complete unobstructed tomato plant at right as the next portal. Use clear neutral daylight and realistic horticultural materials; exclude people, words, brand markings, climate diagrams and invisible growing processes.
 
-The accepted image carries 46 grounded labels across seven authored zones. The final cleanup removed a generated fan-hub marking while preserving the complete right tomato plant from its grow bag to its top leaves.
+The final-pixel audit retained 71 independently pointable terms across seven
+authored zones. It adds door and roof hardware, watering-can and bench parts,
+propagation cells and leaves, soil/tool edges, fan and irrigation fittings,
+tomato stem/leaf details and aisle textures while preserving the complete right
+tomato plant portal and excluding invisible growing processes.
 
 ### Tomato plant
 

@@ -57,7 +57,32 @@
     { "id": "green-tomato", "word": "green tomato", "translation": "青番茄", "x": 1212, "y": 405, "priority": 5.042, "minLevel": 4, "sourceVisualRegion": "portal-tomato-plant" },
     { "id": "tomato-flower", "word": "tomato flower", "translation": "番茄花", "x": 1131, "y": 287, "priority": 5.043, "minLevel": 4, "sourceVisualRegion": "portal-tomato-plant" },
     { "id": "green-pepper", "word": "green pepper", "translation": "青椒", "x": 1025, "y": 580, "priority": 5.044, "minLevel": 4, "sourceVisualRegion": "pepper-crop" },
-    { "id": "seedling-flat", "word": "seedling flat", "translation": "育苗穴盘", "x": 570, "y": 810, "priority": 5.045, "minLevel": 4, "sourceVisualRegion": "soil-station" }
+    { "id": "seedling-flat", "word": "seedling flat", "translation": "育苗穴盘", "x": 570, "y": 810, "priority": 5.045, "minLevel": 4, "sourceVisualRegion": "soil-station" },
+    { "id": "glass-door-handle", "word": "glass door handle", "translation": "玻璃门把手", "x": 1564, "y": 430, "priority": 7.001, "minLevel": 1, "sourceVisualRegion": "greenhouse-shell" },
+    { "id": "door-threshold", "word": "door threshold", "translation": "门槛", "x": 1564, "y": 450, "priority": 7.002, "minLevel": 2, "sourceVisualRegion": "greenhouse-shell" },
+    { "id": "roof-glazing-bar", "word": "roof glazing bar", "translation": "屋顶玻璃压条", "x": 1160, "y": 73, "priority": 7.003, "minLevel": 2, "sourceVisualRegion": "greenhouse-shell" },
+    { "id": "vent-latch", "word": "vent latch", "translation": "通风窗插销", "x": 814, "y": 93, "priority": 7.004, "minLevel": 4, "sourceVisualRegion": "greenhouse-shell" },
+    { "id": "staging-shelf", "word": "staging shelf", "translation": "置物台层板", "x": 815, "y": 520, "priority": 7.005, "minLevel": 1, "sourceVisualRegion": "back-bench" },
+    { "id": "watering-can-rim", "word": "watering can rim", "translation": "洒水壶口沿", "x": 163, "y": 420, "priority": 7.006, "minLevel": 2, "sourceVisualRegion": "left-workbench" },
+    { "id": "watering-can-handle", "word": "watering can handle", "translation": "洒水壶提手", "x": 163, "y": 390, "priority": 7.007, "minLevel": 2, "sourceVisualRegion": "left-workbench" },
+    { "id": "seed-tray-cell", "word": "seed tray cell", "translation": "育苗盘格", "x": 338, "y": 512, "priority": 7.008, "minLevel": 2, "sourceVisualRegion": "propagation-trays" },
+    { "id": "basil-leaf", "word": "basil leaf", "translation": "罗勒叶", "x": 490, "y": 375, "priority": 7.009, "minLevel": 2, "sourceVisualRegion": "propagation-trays" },
+    { "id": "pot-rim", "word": "pot rim", "translation": "花盆口沿", "x": 151, "y": 572, "priority": 7.010, "minLevel": 2, "sourceVisualRegion": "left-workbench" },
+    { "id": "saucer-rim", "word": "saucer rim", "translation": "托盘口沿", "x": 586, "y": 490, "priority": 7.011, "minLevel": 2, "sourceVisualRegion": "left-workbench" },
+    { "id": "twine-strand", "word": "twine strand", "translation": "绳线", "x": 511, "y": 508, "priority": 7.012, "minLevel": 2, "sourceVisualRegion": "left-workbench" },
+    { "id": "trowel-handle", "word": "trowel handle", "translation": "小铲手柄", "x": 281, "y": 590, "priority": 7.013, "minLevel": 2, "sourceVisualRegion": "left-workbench" },
+    { "id": "shear-handle", "word": "shear handle", "translation": "修枝剪手柄", "x": 432, "y": 558, "priority": 7.014, "minLevel": 2, "sourceVisualRegion": "left-workbench" },
+    { "id": "soil-bag-fold", "word": "soil bag fold", "translation": "土袋折边", "x": 207, "y": 810, "priority": 7.015, "minLevel": 3, "sourceVisualRegion": "soil-station" },
+    { "id": "scoop-handle", "word": "scoop handle", "translation": "土勺手柄", "x": 242, "y": 851, "priority": 7.016, "minLevel": 3, "sourceVisualRegion": "soil-station" },
+    { "id": "fan-stand", "word": "fan stand", "translation": "风扇支架", "x": 630, "y": 690, "priority": 7.017, "minLevel": 2, "sourceVisualRegion": "floor-equipment" },
+    { "id": "drip-emitter", "word": "drip emitter", "translation": "滴灌滴头", "x": 1185, "y": 837, "priority": 7.018, "minLevel": 3, "sourceVisualRegion": "floor-equipment" },
+    { "id": "tomato-stem", "word": "tomato stem", "translation": "番茄茎", "x": 1264, "y": 225, "priority": 7.019, "minLevel": 3, "sourceVisualRegion": "portal-tomato-plant" },
+    { "id": "tomato-leaflet", "word": "tomato leaflet", "translation": "番茄小叶", "x": 1245, "y": 415, "priority": 7.020, "minLevel": 3, "sourceVisualRegion": "portal-tomato-plant" },
+    { "id": "tomato-cluster", "word": "tomato cluster", "translation": "番茄串", "x": 1249, "y": 553, "priority": 7.021, "minLevel": 4, "sourceVisualRegion": "portal-tomato-plant" },
+    { "id": "marigold-center", "word": "marigold center", "translation": "万寿菊花心", "x": 718, "y": 410, "priority": 7.022, "minLevel": 3, "sourceVisualRegion": "back-bench" },
+    { "id": "pepper-stem", "word": "pepper stem", "translation": "辣椒茎", "x": 1027, "y": 520, "priority": 7.023, "minLevel": 3, "sourceVisualRegion": "pepper-crop" },
+    { "id": "paving-edge", "word": "paving edge", "translation": "铺路板边缘", "x": 800, "y": 797, "priority": 7.024, "minLevel": 3, "sourceVisualRegion": "floor-equipment" },
+    { "id": "gravel-stone", "word": "gravel stone", "translation": "砾石", "x": 690, "y": 746, "priority": 7.025, "minLevel": 4, "sourceVisualRegion": "floor-equipment" }
   ],
   "portals": [
     {
@@ -74,13 +99,13 @@
     }
   ],
   "detailZones": [
-    { "id": "greenhouse-structure", "title": "Glasshouse structure", "translation": "温室结构", "description": "The complete aluminum and glass shell with ridge, rafter, opening roof vent, support arm, droplets and doorway frame", "x": 0, "y": 0, "width": 1600, "height": 460, "targetScale": 2.35, "labelIds": ["glass-pane", "aluminum-frame", "roof-ridge", "roof-vent", "rafter", "condensation-droplet", "vent-arm", "door-frame"] },
-    { "id": "potting-workbench", "title": "Potting workbench", "translation": "园艺工作台", "description": "The left timber bench exposes its construction, watering can, stacked pots, twine, trowel and the distinct shears and blade", "x": 70, "y": 350, "width": 560, "height": 550, "targetScale": 2.7, "labelIds": ["potting-bench", "bench-top", "bench-leg", "stacked-pots", "watering-can", "terracotta-pot", "twine-spool", "hand-trowel", "pruning-shears", "shear-blade"] },
-    { "id": "propagation-area", "title": "Young plants", "translation": "幼苗与香草", "description": "Black nursery pots, one densely planted seedling tray, a plant saucer and a mature potted basil plant occupy the left bench", "x": 220, "y": 300, "width": 430, "height": 300, "targetScale": 2.65, "labelIds": ["seedling-tray", "basil-plant", "nursery-pot", "plant-saucer"] },
-    { "id": "soil-station", "title": "Soil and seedlings", "translation": "园土与育苗", "description": "An open soil bag with dark potting mix and metal scoop sits beside a separate lower seedling flat", "x": 90, "y": 680, "width": 530, "height": 220, "targetScale": 2.8, "labelIds": ["soil-bag", "potting-soil", "soil-scoop", "seedling-flat"] },
-    { "id": "back-growing-bench", "title": "Growing bench", "translation": "后排栽培台", "description": "The rear staging bench carries orange marigolds while its lower shelf holds a coiled hose and neighboring pepper crop", "x": 600, "y": 300, "width": 550, "height": 400, "targetScale": 2.55, "labelIds": ["staging-bench", "marigold", "hose-coil", "pepper-plant", "green-pepper"] },
-    { "id": "central-aisle", "title": "Aisle equipment", "translation": "过道设备", "description": "The clear central aisle shows gravel, individual paving slabs, an unmarked floor fan and the connected irrigation tubing", "x": 480, "y": 430, "width": 950, "height": 470, "targetScale": 2.45, "labelIds": ["greenhouse-interior", "aisle", "floor-fan", "fan-grille", "paving-slab", "gravel", "drip-tube", "hose-connector"] },
-    { "id": "tomato-portal-zone", "title": "Supported tomato plant", "translation": "支撑栽培的番茄", "description": "One complete unobstructed tomato plant runs from black grow bag to growing tip with cane, ties, flowers and red and green fruit", "x": 1040, "y": 35, "width": 400, "height": 825, "targetScale": 3.05, "labelIds": ["tomato-plant", "bamboo-cane", "plant-tie", "grow-bag", "ripe-tomato", "green-tomato", "tomato-flower"] }
+    { "id": "greenhouse-structure", "title": "Glasshouse structure", "translation": "温室结构", "description": "The complete aluminum and glass shell with ridge, rafter, opening roof vent, support arm, droplets and doorway frame", "x": 0, "y": 0, "width": 1600, "height": 460, "targetScale": 2.35, "labelIds": ["glass-pane", "aluminum-frame", "roof-ridge", "roof-vent", "rafter", "condensation-droplet", "vent-arm", "door-frame", "glass-door-handle", "door-threshold", "roof-glazing-bar", "vent-latch"] },
+    { "id": "potting-workbench", "title": "Potting workbench", "translation": "园艺工作台", "description": "The left timber bench exposes its construction, watering can, stacked pots, twine, trowel and the distinct shears and blade", "x": 70, "y": 350, "width": 560, "height": 550, "targetScale": 2.7, "labelIds": ["potting-bench", "bench-top", "bench-leg", "stacked-pots", "watering-can", "terracotta-pot", "twine-spool", "hand-trowel", "pruning-shears", "shear-blade", "watering-can-rim", "watering-can-handle", "pot-rim", "saucer-rim", "twine-strand", "trowel-handle", "shear-handle"] },
+    { "id": "propagation-area", "title": "Young plants", "translation": "幼苗与香草", "description": "Black nursery pots, one densely planted seedling tray, a plant saucer and a mature potted basil plant occupy the left bench", "x": 220, "y": 300, "width": 430, "height": 300, "targetScale": 2.65, "labelIds": ["seedling-tray", "basil-plant", "nursery-pot", "plant-saucer", "seed-tray-cell", "basil-leaf"] },
+    { "id": "soil-station", "title": "Soil and seedlings", "translation": "园土与育苗", "description": "An open soil bag with dark potting mix and metal scoop sits beside a separate lower seedling flat", "x": 90, "y": 680, "width": 530, "height": 220, "targetScale": 2.8, "labelIds": ["soil-bag", "potting-soil", "soil-scoop", "seedling-flat", "soil-bag-fold", "scoop-handle"] },
+    { "id": "back-growing-bench", "title": "Growing bench", "translation": "后排栽培台", "description": "The rear staging bench carries orange marigolds while its lower shelf holds a coiled hose and neighboring pepper crop", "x": 600, "y": 300, "width": 550, "height": 400, "targetScale": 2.55, "labelIds": ["staging-bench", "marigold", "hose-coil", "pepper-plant", "green-pepper", "staging-shelf", "marigold-center", "pepper-stem"] },
+    { "id": "central-aisle", "title": "Aisle equipment", "translation": "过道设备", "description": "The clear central aisle shows gravel, individual paving slabs, an unmarked floor fan and the connected irrigation tubing", "x": 480, "y": 430, "width": 950, "height": 470, "targetScale": 2.45, "labelIds": ["greenhouse-interior", "aisle", "floor-fan", "fan-grille", "paving-slab", "gravel", "drip-tube", "hose-connector", "fan-stand", "drip-emitter", "paving-edge", "gravel-stone"] },
+    { "id": "tomato-portal-zone", "title": "Supported tomato plant", "translation": "支撑栽培的番茄", "description": "One complete unobstructed tomato plant runs from black grow bag to growing tip with cane, ties, flowers and red and green fruit", "x": 1040, "y": 35, "width": 400, "height": 825, "targetScale": 3.05, "labelIds": ["tomato-plant", "bamboo-cane", "plant-tie", "grow-bag", "ripe-tomato", "green-tomato", "tomato-flower", "tomato-stem", "tomato-leaflet", "tomato-cluster"] }
   ],
   "anchorAudit": {
     "status": "human-verified",
@@ -88,8 +113,8 @@
     "reviewedAsset": "/scenes/greenhouse-interior-premium-v1.jpg",
     "reviewedAssetSha256": "11410d1677366513fc642c948570e08ae66fe20d20f05b2e43bed4245cc78667",
     "rationale": "Reviewed the final 1600 by 900 greenhouse interior at original resolution and retained only independently visible frame parts, glass details, benches, tools, containers, plants, floor materials and irrigation fittings; the complete right tomato plant remains an unobstructed real child entrance.",
-    "previousLabelCount": 53,
-    "retainedLabelCount": 46,
+    "previousLabelCount": 78,
+    "retainedLabelCount": 71,
     "removedLabelCount": 7,
     "removedExamples": ["photosynthesis", "humidity", "ventilation", "germination", "growth", "watering", "temperature"]
   },

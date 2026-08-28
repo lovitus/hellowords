@@ -182,7 +182,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // compost, rain collection and a flowering border; the ceiling blocks
   // gardening activities and inferred ecological processes.
   "community-garden": 73,
-  "greenhouse-interior": 46,
+  // The greenhouse raster resolves shell hardware, benches, propagation trays,
+  // soil, aisle equipment and the complete tomato portal; the ceiling blocks
+  // invisible growing processes and climate claims.
+  "greenhouse-interior": 71,
   "tomato-plant": 44,
   // The final workbench raster resolves timber joints, containers, seedlings,
   // tool edges and watering fittings; the ceiling blocks actions and claims

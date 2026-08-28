@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,337 human-verified anchors representing 2,906
+Spatial scenes now contain 3,362 human-verified anchors representing 2,921
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -101,7 +101,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 |---|---:|---|
 | World atlas | 1,296 audited source anchors → 1,275 unique labels | Six independently pixel-reviewed panels compile across 66 zones; cross-panel duplicate words are reconciled while four disjoint entrances remain intact |
 | Community garden | 81 → 73 | Bright greenhouse, beds, tools, irrigation, compost and flowers retain visible structural parts; inferred activities and sustainability claims remain removed |
-| Greenhouse interior | 53 → 46 | Sunlit glasshouse grounds its frame, benches, seedlings, crops, tools and a complete tomato portal; climate and growth processes remain removed |
+| Greenhouse interior | 78 → 71 | Sunlit glasshouse grounds shell hardware, benches, seedlings, crops, floor equipment and a complete tomato portal; climate and growth processes remain removed |
 | Tomato plant | 51 → 44 | Complete supported plant grounds external stem, leaf, flower, fruit, irrigation and visible pest evidence; physiology and underground processes remain removed |
 | Potting workbench | 83 → 74 | Complete daylight bench grounds tool edges, containers, seedlings, soil and watering fittings; actions, properties and printed-label readings remain removed |
 | Apartment | 47 → 44 | Bright replacement preserves three room portals while removing an obscured sink and unsupported hallway/dresser claims |
