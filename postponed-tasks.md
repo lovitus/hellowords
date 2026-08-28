@@ -4,17 +4,17 @@
 
 ## 当前交付游标
 
-- 公开版本：`v80-eef9736`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=80-eef9736>
-- 源码：`eef9736`（v80 公开运行时；棉衬衫小地图拆分为天然纤维/缝纫工具两个可聚焦区域，沿用场景 JSON cache-bust）
-- 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、人体展柜、咖啡机、锂离子电芯、水箱、棉衬衫、标签避让平滑度、紧凑词泡与描边、科学馆、厨房与浴室密度；语义换词/索引闪现优化、首页大区悬浮词面、电池包、电动公交部件扩展、空间滚轮和高密度标签避让流畅度修复（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
+- 公开版本：`v81-6ecd519`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=81-6ecd519>
+- 源码：`6ecd519`（v81 公开运行时；Apartment 楼梯核心拆成上下两个可聚焦区域，沿用场景 JSON cache-bust）
+- 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、人体展柜、咖啡机、锂离子电芯、水箱、棉衬衫、Apartment 楼梯分区、标签避让平滑度、紧凑词泡与描边、科学馆、厨房与浴室密度；语义换词/索引闪现优化、首页大区悬浮词面、电池包、电动公交部件扩展、空间滚轮和高密度标签避让流畅度修复（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ## 当前续开发游标（2026-08-28）
 
 - 活跃根任务：`019fe5fe-faec-7070-9788-dbe33e98e645`（当前对话，保留）。没有运行中的协作 agent。
 - 已归档的完成子任务：`01a04618-091d-7a63-bf16-a78fd56aab74`，主题为“修复场景切换与首页展示”；它的代码曾被明确撤销，当前只保留本批工作树中的新改动。
-- 2026-08-28 清理后续：city-park 88 词、oak-tree 68 词、heart 61 词、dinosaur-hall 69 词、pond-edge 65 词、frog 59 词、blood-cell 61 词与 rail-bogie 65 词批次均已完成 validator、unit/docs、构建、公开部署和真实冒烟；v66 已恢复首页“仅悬浮大区显示锚点词、其余只显示名称”的交互；v67 将 battery 从 32 扩至 42 个可指认部件；v68 将 electric-bus 从 40 扩至 51 个可指认部件；v69 缓和空间滚轮步长和回退边界；v70 收紧小地图保护区；v71 让碰撞后的避让方向优先走邻近中间槽位；v72 将 human-body 从 40 扩至 60 个可指认部件；v73 将 coffee-machine 从 40 扩至 60 个可指认部件；v74 修正泵壳与水泵的同点覆盖；v75 将 lithium-ion-cell 从 31 扩至 46 个可指认部件；v76 让碰撞换槽位仅在大跳位时做 140ms 过渡；v77 收紧桌面词泡、增强描边；v78 将 water-tank 从 36 扩至 50 个可指认部件；v79 将 cotton-shirt 从 40 扩至 55 个可指认部件；v80 拆分棉衬衫底部小地图区域并完成公开冒烟。下一批继续先复核最终像素，再接入数据和导航。
+- 2026-08-28 清理后续：city-park 88 词、oak-tree 68 词、heart 61 词、dinosaur-hall 69 词、pond-edge 65 词、frog 59 词、blood-cell 61 词与 rail-bogie 65 词批次均已完成 validator、unit/docs、构建、公开部署和真实冒烟；v66 已恢复首页“仅悬浮大区显示锚点词、其余只显示名称”的交互；v67 将 battery 从 32 扩至 42 个可指认部件；v68 将 electric-bus 从 40 扩至 51 个可指认部件；v69 缓和空间滚轮步长和回退边界；v70 收紧小地图保护区；v71 让碰撞后的避让方向优先走邻近中间槽位；v72 将 human-body 从 40 扩至 60 个可指认部件；v73 将 coffee-machine 从 40 扩至 60 个可指认部件；v74 修正泵壳与水泵的同点覆盖；v75 将 lithium-ion-cell 从 31 扩至 46 个可指认部件；v76 让碰撞换槽位仅在大跳位时做 140ms 过渡；v77 收紧桌面词泡、增强描边；v78 将 water-tank 从 36 扩至 50 个可指认部件；v79 将 cotton-shirt 从 40 扩至 55 个可指认部件；v80 拆分棉衬衫底部小地图区域；v81 拆分 Apartment 楼梯上下区域并完成公开冒烟。下一批继续先复核最终像素，再接入数据和导航。
 - 活跃任务复核：HelloWords 根任务仍为 `active`；另一个独立的 MDD 根任务 `01a00e7d-e878-7dd2-978b-3ab09d25c932` 也在运行，工作目录为 `/Volumes/micron512g/tmp-project/mdd-gateway`，本次未触碰；当前没有协作子 agent。
 - v43 已提交并公开发布：`app/components/SceneViewport.tsx`、`app/components/WorldApp.tsx`、`app/globals.css` 与相关 E2E 契约已冻结。`world-map` 默认隐藏密集词云，六大类透明点击区可打开完整词表；分类词进入词卡时地图层自动收起；场景过渡期间旧标签/交互层隐藏；根图像和既有锚点坐标未改动。
 - v44 已基于 `chloroplast-interior-premium-v3.jpg` 的最终像素审计扩展 15 个可指认结构，叶绿体从 36 增至 51 个词、6 个细节区；不加入 Calvin cycle、Rubisco 等不可直接指认的过程。
@@ -81,6 +81,7 @@
 - v78 已基于 `water-tank-premium-v1.jpg` 的最终像素复核扩展 14 个可指认部件，水箱从 36 增至 50 个词；新增注水口、盖子内侧、铰链筒/臂、卡扣嵌件、出水管、阀芯/阀座、过滤器壳/边框/网孔、出水口支架/套环和底座边缘，Polymer 入口保持不变。公开路径从 Apartment → Kitchen → Coffee machine → Water tank 验证搜索总数 50、出水阀细节区的新增词和 Polymer 入口，首页悬浮模式仍正常；公开页无 error/warn。`npm run verify`、全量 E2E（90 通过 / 34 个设计性跳过）和 `PERF_RUN=1 npm run test:perf`（2/2）均通过。
 - v79 已基于 `cotton-shirt-premium-v2.jpg` 的最终像素复核扩展 15 个可指认结构，棉衬衫从 40 增至 55 个词；新增过肩、领尖纽扣、侧缝、纽扣孔、袖口开口、口袋角、袖口纽扣孔、针眼/针尖、线圈、线轴芯、顶针边缘、针头和剪刀转轴/握柄，保持终点场景无入口。公开路径从 Apartment → Bedroom → Wardrobe interior → Cotton shirt 验证搜索总数 55、衣领/袖口/工具词可达；公开页无 error/warn。`npm run verify`、全量 E2E（90 通过 / 34 个设计性跳过）和 `PERF_RUN=1 npm run test:perf`（2/2）均通过。
 - v80 将棉衬衫原本横跨整张底部的区域拆成 `Cotton materials`（全景原料区，4 个词）与 `Sewing tools`（右下工具区，16 个词），小地图点击后可分别聚焦；其余四个区域、55 个锚点和终点语义不变。公开冒烟确认工具区可见针、线轴、顶针、针垫和剪刀等新增词，首页悬浮仍为 21/0，公开页无 error/warn。`npm run verify`、全量 E2E（90 通过 / 34 个设计性跳过）和 `PERF_RUN=1 npm run test:perf`（2/2）均通过。
+- v81 将 Apartment 原本横跨全高的 `central-stair-detail` 拆成 `Stair entrance`（8 词）与 `Stair steps`（4 词），两区目标缩放均为 2.35，保持 107 个场景锚点、四个房间入口和回退边界不变。公开冒烟确认上下楼梯区分别能聚焦对应词批次，首页悬浮仍为 21/0，公开页无 error/warn；`npm run verify`、全量 E2E（90 通过 / 34 个设计性跳过；连续瓦片项 5 次定向复跑通过）和 `PERF_RUN=1 npm run test:perf`（2/2）均通过。
 - 下一步继续：先复核下一张最终像素成品再制作真实物体词汇；不要回滚首页 1,275 个锚点或用同义词填数。
 
 ## 未完成任务（按优先级）
