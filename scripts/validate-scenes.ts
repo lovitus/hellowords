@@ -193,7 +193,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // vessel openings, coronary surface branches and a readable red-cell rim;
   // the ceiling still excludes invisible physiology and conduction claims.
   heart: 61,
-  "blood-cell": 36,
+  // The bright capillary cutaway resolves endothelial boundaries, distinct
+  // red-cell surfaces, a membrane/cytoskeleton mesh, neutrophil granules and
+  // platelet projections; the ceiling blocks unsupported immune processes.
+  "blood-cell": 61,
   // The bright garden resolves greenhouse fittings, raised-bed crops, tools,
   // compost, rain collection and a flowering border; the ceiling blocks
   // gardening activities and inferred ecological processes.

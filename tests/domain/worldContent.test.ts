@@ -1834,14 +1834,24 @@ test("premium blood cell connects capillary structure to one visible hemoglobin 
   assert.ok(bloodCell);
   assert.equal(bloodCell.parentId, "heart");
   assert.equal(bloodCell.asset, "/scenes/blood-cell-premium-v2.jpg");
-  assert.equal(bloodCell.labels.length, 36);
+  assert.equal(bloodCell.labels.length, 61);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       bloodCell.labels.filter((label) => label.minLevel === level).length
     )),
-    [8, 7, 7, 7, 7],
+    [8, 13, 15, 14, 11],
   );
   assert.equal(bloodCell.detailZones?.length, 5);
+  assert.deepEqual(
+    bloodCell.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["capillary-wall-zone", 13],
+      ["blood-field-zone", 10],
+      ["red-cell-cutaway-zone", 21],
+      ["neutrophil-zone", 10],
+      ["platelet-zone", 7],
+    ],
+  );
   assert.deepEqual(bloodCell.portals, [{
     id: "enter-hemoglobin",
     label: "Inspect hemoglobin",
@@ -1874,8 +1884,46 @@ test("premium blood cell connects capillary structure to one visible hemoglobin 
     "hemoglobin",
     "protein subunit",
     "heme group",
+    "endothelial border",
+    "endothelial junction",
+    "basement membrane ridge",
+    "pericyte process",
+    "capillary wall fold",
+    "free red cell",
+    "red cell rim",
+    "red cell pair",
+    "membrane cortex",
+    "spectrin network",
+    "actin junction",
+    "membrane protein cluster",
+    "lipid head",
+    "cytoskeletal strand",
+    "hemoglobin cluster",
+    "tetramer interface",
+    "cytoplasm pocket",
+    "cutaway rim",
+    "neutrophil lobe",
+    "granule cluster",
+    "neutrophil rim",
+    "granule particle",
+    "platelet lobe",
+    "platelet granule cluster",
+    "pseudopod tip",
   ]) {
     assert.ok(words.has(visible), `blood cell visibly grounds ${visible}`);
+  }
+  for (const [id, point] of [
+    ["endothelial-border", [650, 118]],
+    ["free-red-cell", [1390, 390]],
+    ["membrane-cortex", [700, 390]],
+    ["granule-cluster", [215, 300]],
+    ["pseudopod-tip", [1180, 580]],
+  ] as const) {
+    const anchor: Scene["labels"][number] | undefined = bloodCell.labels.find(
+      (candidate) => candidate.id === id,
+    );
+    assert.ok(anchor, `blood cell keeps ${id} label`);
+    assert.deepEqual([anchor.x, anchor.y], point, `blood cell anchors ${id}`);
   }
   for (const unsupported of [
     "antibody",

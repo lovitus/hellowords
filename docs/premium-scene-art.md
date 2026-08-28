@@ -342,7 +342,7 @@ The final-pixel audit retains 61 grounded structures across five authored crops.
 
 Create a bright, high-key scientific cutaway of one transparent capillary with a dominant biconcave red blood cell opened cleanly in the foreground. Resolve the endothelial wall and basement membrane, an external pericyte, plasma, red cells in different orientations, one neutrophil and several platelets. Inside the opened cell, make the lipid bilayer, membrane proteins, spectrin-like cytoskeletal mesh and many hemoglobin molecules separately readable, with one complete four-subunit hemoglobin model magnified in place as the next portal. Exclude blood drips, wounds, disease, bacteria, antibodies, oxygen symbols, arrows, text and pseudo-writing.
 
-The final-pixel audit retained 36 structures across five authored crops, with LOD batches of 8, 7, 7, 7 and 7. It rejected unsupported immune processes and diagram symbols, and bounded the Hemoglobin portal to the complete four-subunit model physically connected to the red-cell cutaway.
+The final-pixel audit retains 61 grounded structures across five authored crops, with expanded endothelial boundaries, red-cell surface and membrane/cytoskeletal details, neutrophil granules and platelet projections. It rejects unsupported immune processes and diagram symbols, and keeps the Hemoglobin portal bounded to the complete four-subunit model physically connected to the red-cell cutaway.
 
 ### Oxygen molecule
 

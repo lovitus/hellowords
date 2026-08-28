@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,537 human-verified anchors representing 3,078
+Spatial scenes now contain 3,562 human-verified anchors representing 3,103
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -126,7 +126,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Dinosaur hall | 77 → 69 | Sunlit paleontology gallery grounds mounted bones, distinct fossils, preparation tools and rock structure; the final audit adds skull, jaw, vertebra, limb, horn, fossil and tool parts while behavior, era, weak rock features and museum activities remain removed |
 | Human body | 56 → 40 | Bright three-model anatomy exhibit grounds body joints, major bones, limb muscles and visible organs; unseen systems and structures remain removed |
 | Heart | 81 → 61 | Bright cutaway grounds chambers, valves, walls, great and coronary vessels plus an artery cross-section; the final audit adds visible cusps, chamber walls, vessel rims, ventricular ridges, coronary branches and red-cell surface parts while invisible physiology and conduction remain removed |
-| Blood cell | 56 → 36 | Bright capillary cutaway grounds vessel layers, red-cell membrane and skeleton, one neutrophil, platelets and the real Hemoglobin portal; unsupported immune processes remain removed |
+| Blood cell | 81 → 61 | Bright capillary cutaway grounds vessel layers, red-cell membrane and skeleton, one neutrophil, platelets and the real Hemoglobin portal; the final audit adds endothelial boundaries, red-cell surface, membrane/cytoskeletal, neutrophil-granule and platelet-projection parts while unsupported immune processes remain removed |
 | Hemoglobin | 48 → 22 | Premium molecular view grounds subunits, hemes and the oxygen-binding pocket; diseases and invisible binding behavior remain removed |
 | Oxygen molecule | 48 → 26 | Premium gas-exchange cutaway grounds the airway, alveolus, barrier, blood cells and molecule trail; quantum decoration and invisible physiology remain removed |
 | City park | 109 → 88 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities; the final audit adds bridge planks, shoreline rock, lily/reed parts, gazebo structure, playground hardware, bench/path pieces and fine oak/flower details |
