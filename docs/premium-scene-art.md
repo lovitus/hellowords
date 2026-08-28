@@ -168,7 +168,7 @@ The final-pixel audit retained 43 terms in five complete authored regions and re
 
 Create a bright, low-saturation natural-history macro of a real oak leaf and connected twig. Resolve the lobes, margin, petiole, midrib, secondary and minor veins, bud scales, young leaf, attached acorn cup, gall and visible damage, plus a correctly scaled ladybird, aphids, caterpillar, eggs and spider with connected silk. Use one flattened, optically plausible dew lens over continuous epidermal texture as the plant-cell portal. Exclude plastic translucency, giant organisms, a glass-marble droplet and unsupported underside or curl claims.
 
-The final-pixel audit retained 36 distinct terms across five authored regions and removed duplicate vein names and unpictured leaf surfaces rather than padding the count.
+The final-pixel audit retained 49 distinct terms across five authored regions. It added only visibly separable twig, bud, acorn-cup, bark, insect and spider parts, while keeping duplicate vein names, unsupported underside/curl claims and unpictured processes out of the scene.
 
 ### Plant cell
 

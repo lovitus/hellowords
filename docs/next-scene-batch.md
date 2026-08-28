@@ -502,7 +502,12 @@ Reject the image if any lettering or number-like pseudo-text appears at 1600 × 
 
 ### Honest density and scientific exclusions
 
-**Honest target:** 36–38 independently pointable words. **Hard ceiling:** 39. The current 41 labels include abstraction overlap: `leaf` and `leaf blade` share almost the same extent, while `insect egg` and `egg row` share one group. Retain both only if the final pixels provide genuinely separate anchor points rather than two names on one object.
+**Pre-generation target (historical):** 36–38 independently pointable words. The
+published `leaf-natural-v3` audit supersedes that estimate with 54 reviewed
+candidates and 49 retained anchors across five zones. It adds only pixels that
+resolve a lichen patch, bark fissure, bud tip, acorn stalk/cup scale, epidermis,
+and separate ladybird, aphid, caterpillar and spider parts; the original
+duplicate/synthetic exclusions remain in force.
 
 - A vein network may contain independently visible secondary veins, tertiary veins and veinlets, but `vein` and `vein network` are not extra anchors on the same line.
 - `Leaf surface`, `leaf blade` and `leaf` must not become three labels at one coordinate.

@@ -182,6 +182,16 @@
       "sourceVisualRegion": "portal-dew-lens"
     },
     {
+      "id": "lichen",
+      "word": "lichen",
+      "translation": "地衣",
+      "x": 120,
+      "y": 240,
+      "priority": 2.017,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-lichen"
+    },
+    {
       "id": "leaf-tip",
       "word": "leaf tip",
       "translation": "叶尖",
@@ -272,6 +282,36 @@
       "sourceVisualRegion": "matte-leaf-surface"
     },
     {
+      "id": "twig-node",
+      "word": "twig node",
+      "translation": "枝节",
+      "x": 300,
+      "y": 430,
+      "priority": 3.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-twig-node"
+    },
+    {
+      "id": "bud-tip",
+      "word": "bud tip",
+      "translation": "芽尖",
+      "x": 285,
+      "y": 255,
+      "priority": 3.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bud-tip"
+    },
+    {
+      "id": "acorn-stalk",
+      "word": "acorn stalk",
+      "translation": "橡子柄",
+      "x": 300,
+      "y": 720,
+      "priority": 3.028,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-acorn-stalk"
+    },
+    {
       "id": "tertiary-vein",
       "word": "tertiary vein",
       "translation": "三级叶脉",
@@ -342,6 +382,86 @@
       "sourceVisualRegion": "spider-legs"
     },
     {
+      "id": "bark-fissure",
+      "word": "bark fissure",
+      "translation": "树皮裂隙",
+      "x": 165,
+      "y": 300,
+      "priority": 4.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bark-fissure"
+    },
+    {
+      "id": "acorn-cup-scale",
+      "word": "acorn cup scale",
+      "translation": "橡子壳斗鳞片",
+      "x": 150,
+      "y": 650,
+      "priority": 4.034,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-acorn-cup-scale"
+    },
+    {
+      "id": "epidermis",
+      "word": "epidermis",
+      "translation": "表皮",
+      "x": 1220,
+      "y": 330,
+      "priority": 4.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-epidermis"
+    },
+    {
+      "id": "ladybird-head",
+      "word": "ladybird head",
+      "translation": "瓢虫头部",
+      "x": 700,
+      "y": 250,
+      "priority": 4.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-ladybird-head"
+    },
+    {
+      "id": "aphid-nymph",
+      "word": "aphid nymph",
+      "translation": "蚜虫若虫",
+      "x": 865,
+      "y": 160,
+      "priority": 4.037,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-aphid-nymph"
+    },
+    {
+      "id": "caterpillar-head",
+      "word": "caterpillar head",
+      "translation": "毛虫头部",
+      "x": 1050,
+      "y": 520,
+      "priority": 4.038,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-caterpillar-head"
+    },
+    {
+      "id": "spider-abdomen",
+      "word": "spider abdomen",
+      "translation": "蜘蛛腹部",
+      "x": 670,
+      "y": 550,
+      "priority": 4.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-spider-abdomen"
+    },
+    {
+      "id": "spider-cephalothorax",
+      "word": "spider cephalothorax",
+      "translation": "蜘蛛头胸部",
+      "x": 650,
+      "y": 515,
+      "priority": 4.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-spider-cephalothorax"
+    },
+    {
       "id": "veinlet",
       "word": "veinlet",
       "translation": "细叶脉",
@@ -370,6 +490,16 @@
       "priority": 5.035,
       "minLevel": 4,
       "sourceVisualRegion": "magnified-epidermis"
+    },
+    {
+      "id": "ladybird-spot",
+      "word": "ladybird spot",
+      "translation": "瓢虫斑点",
+      "x": 690,
+      "y": 280,
+      "priority": 5.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-ladybird-spot"
     }
   ],
   "portals": [
@@ -391,9 +521,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/leaf-natural-v3.jpg",
     "reviewedAssetSha256": "3047a8ee8f00fa78ac31d8b328034b52a62d414a20c7c4bdcc02c82a23ff9e13",
-    "rationale": "Reviewed at 1600 by 900: the naturally lit oak branch has distinct morphology and plausible small organisms; the flattened dew lens magnifies continuous epidermal texture while plant-cell and chloroplast anatomy remain downstream.",
-    "previousLabelCount": 41,
-    "retainedLabelCount": 36,
+    "rationale": "Expanded the final-pixel audit with only clearly separable twig, bud, acorn-cup, bark, insect and spider parts; the naturally lit oak branch, flattened dew lens and downstream plant-cell portal remain unchanged, while unsupported leaf underside and process claims stay rejected.",
+    "previousLabelCount": 54,
+    "retainedLabelCount": 49,
     "removedLabelCount": 5,
     "removedExamples": [
       "leaf blade",
@@ -727,6 +857,123 @@
       "y": 220,
       "width": 250,
       "height": 190
+    },
+    {
+      "id": "verified-lichen",
+      "description": "Pale crusty lichen patches fixed to the supporting oak twig",
+      "kind": "part",
+      "x": 20,
+      "y": 130,
+      "width": 260,
+      "height": 260
+    },
+    {
+      "id": "verified-bark-fissure",
+      "description": "Narrow natural fissure running through the rough twig bark",
+      "kind": "part",
+      "x": 0,
+      "y": 125,
+      "width": 300,
+      "height": 400
+    },
+    {
+      "id": "verified-twig-node",
+      "description": "Swollen twig node where the petiole and side growth meet",
+      "kind": "part",
+      "x": 240,
+      "y": 380,
+      "width": 150,
+      "height": 120
+    },
+    {
+      "id": "verified-bud-tip",
+      "description": "Pointed terminal tip of the overlapping brown oak bud scales",
+      "kind": "part",
+      "x": 205,
+      "y": 245,
+      "width": 170,
+      "height": 225
+    },
+    {
+      "id": "verified-acorn-stalk",
+      "description": "Short stalk attaching the green acorn to the twig",
+      "kind": "part",
+      "x": 45,
+      "y": 600,
+      "width": 295,
+      "height": 300
+    },
+    {
+      "id": "verified-acorn-cup-scale",
+      "description": "One raised woody scale on the textured acorn cup",
+      "kind": "part",
+      "x": 45,
+      "y": 590,
+      "width": 295,
+      "height": 220
+    },
+    {
+      "id": "verified-epidermis",
+      "description": "Continuous leaf epidermis resolved beneath the clear dew lens",
+      "kind": "part",
+      "x": 1130,
+      "y": 220,
+      "width": 250,
+      "height": 190
+    },
+    {
+      "id": "verified-ladybird-head",
+      "description": "Black head and pale face marks at the front of the ladybird",
+      "kind": "part",
+      "x": 625,
+      "y": 220,
+      "width": 120,
+      "height": 115
+    },
+    {
+      "id": "verified-aphid-nymph",
+      "description": "Smaller immature aphid among the green aphid colony",
+      "kind": "object",
+      "x": 840,
+      "y": 105,
+      "width": 165,
+      "height": 165
+    },
+    {
+      "id": "verified-caterpillar-head",
+      "description": "Darker rounded head at the leading end of the green caterpillar",
+      "kind": "part",
+      "x": 1015,
+      "y": 445,
+      "width": 100,
+      "height": 100
+    },
+    {
+      "id": "verified-spider-abdomen",
+      "description": "Rounded rear abdomen of the small patterned spider",
+      "kind": "part",
+      "x": 585,
+      "y": 445,
+      "width": 175,
+      "height": 165
+    },
+    {
+      "id": "verified-spider-cephalothorax",
+      "description": "Central front body joining the small spider legs",
+      "kind": "part",
+      "x": 585,
+      "y": 445,
+      "width": 175,
+      "height": 165
+    },
+    {
+      "id": "verified-ladybird-spot",
+      "description": "One sharply visible black spot on the orange ladybird wing case",
+      "kind": "part",
+      "x": 640,
+      "y": 240,
+      "width": 80,
+      "height": 80
     }
   ],
   "detailZones": [
@@ -750,7 +997,13 @@
         "acorn-cup",
         "twig-bark",
         "bud-scale",
-        "gall-surface"
+        "gall-surface",
+        "lichen",
+        "twig-node",
+        "bud-tip",
+        "acorn-stalk",
+        "bark-fissure",
+        "acorn-cup-scale"
       ]
     },
     {
@@ -789,7 +1042,13 @@
         "insect-egg",
         "ladybird-elytron",
         "caterpillar-segment",
-        "spider-leg"
+        "spider-leg",
+        "ladybird-head",
+        "aphid-nymph",
+        "caterpillar-head",
+        "spider-abdomen",
+        "spider-cephalothorax",
+        "ladybird-spot"
       ]
     },
     {
@@ -810,7 +1069,8 @@
         "water-bead",
         "tertiary-vein",
         "veinlet",
-        "cellular-pattern"
+        "cellular-pattern",
+        "epidermis"
       ]
     },
     {

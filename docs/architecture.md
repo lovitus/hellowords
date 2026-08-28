@@ -76,7 +76,7 @@ turning unrelated vocabulary into floating labels. The data contract requires
 at least four zones and normally 32 grounded anchors per premium scene; an
 evidence-reviewed terminal specialist slice may declare a lower floor when
 meeting 32 would require duplicate names for the same visible structure.
-The current graph contains 3,028 contextual anchors representing 2,650 distinct
+The current graph contains 3,041 contextual anchors representing 2,661 distinct
 display terms across 255 authored zones, connected by 36 typed portals.
 
 ## Scene and portal contract
