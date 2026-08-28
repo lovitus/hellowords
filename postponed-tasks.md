@@ -4,9 +4,9 @@
 
 ## 当前交付游标
 
-- 公开版本：`v58-ca5c9cf`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=58-ca5c9cf>
-- 源码：`ca5c9cf`（v58 公开运行时；city-park 词汇扩展，沿用场景 JSON cache-bust）
+- 公开版本：`v59-e98ae5b`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=59-e98ae5b>
+- 源码：`e98ae5b`（v59 公开运行时；oak-tree 词汇扩展，沿用场景 JSON cache-bust）
 - 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、科学馆、厨房与浴室密度；语义换词/索引闪现优化和首页大类词表（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
@@ -14,7 +14,7 @@
 
 - 活跃根任务：`019fe5fe-faec-7070-9788-dbe33e98e645`（当前对话，保留）。没有运行中的协作 agent。
 - 已归档的完成子任务：`01a04618-091d-7a63-bf16-a78fd56aab74`，主题为“修复场景切换与首页展示”；它的代码曾被明确撤销，当前只保留本批工作树中的新改动。
-- 2026-08-28 清理后续：city-park 88 词草稿已完成 validator、unit/docs、构建、公开部署和真实冒烟；当前工作树恢复干净。下一批继续先复核最终像素，再接入数据和导航。
+- 2026-08-28 清理后续：city-park 88 词与 oak-tree 68 词批次均已完成 validator、unit/docs、构建、公开部署和真实冒烟；当前工作树恢复干净。下一批继续先复核最终像素，再接入数据和导航。
 - 活跃任务复核：HelloWords 根任务仍为 `active`；另一个独立的 MDD 根任务 `01a00e7d-e878-7dd2-978b-3ab09d25c932` 也在运行，工作目录为 `/Volumes/micron512g/tmp-project/mdd-gateway`，本次未触碰；当前没有协作子 agent。
 - v43 已提交并公开发布：`app/components/SceneViewport.tsx`、`app/components/WorldApp.tsx`、`app/globals.css` 与相关 E2E 契约已冻结。`world-map` 默认隐藏密集词云，六大类透明点击区可打开完整词表；分类词进入词卡时地图层自动收起；场景过渡期间旧标签/交互层隐藏；根图像和既有锚点坐标未改动。
 - v44 已基于 `chloroplast-interior-premium-v3.jpg` 的最终像素审计扩展 15 个可指认结构，叶绿体从 36 增至 51 个词、6 个细节区；不加入 Calvin cycle、Rubisco 等不可直接指认的过程。
@@ -46,6 +46,8 @@
 - v57 验收证据：`npm run verify`（221 个域测试）、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径从首页进入 Community garden → Greenhouse interior → Tomato plant，番茄首屏显示 54/69 词、6 个细分区显示 8/15/10/14/18/4 词，场景词索引可定位 leaflet tip、flower sepal、fruit shoulder、bamboo node、grow bag rim、drip barb 等新增词，返回首页后 1,275 词首页入口仍可用，公开页无 error/warn 日志。
 - v58 已基于 `city-park-bright-v2.jpg` 的最终像素审计扩展 25 个可指认部件，城市公园从 63 增至 88 个词；池塘/桥、橡树、游乐/野餐、喷泉/凉亭、公园前景五个细节区分别为 22/16/14/16/20 词，两个真实子入口保持不变。
 - v58 验收证据：`npm run verify`（221 个域测试）、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径进入 City park 后显示 88 个总词和五个细节区，场景词索引可定位 bridge plank、oak leaf vein、picnic basket weave、path stone、flower stalk、gazebo roof，沿 Oak tree 返回首页后仍为 1,275 个根图集词，公开页无 error/warn 日志。
+- v59 已基于 `oak-tree-natural-v3.jpg` 的最终像素审计扩展 25 个可指认部件，橡树从 43 增至 68 个词；左侧树枝、树干微生境、叶片/橡果、树根/真菌/地面、林缘植物五个细节区分别为 12/14/15/16/11 词，Leaf 入口保持不变。
+- v59 验收证据：`npm run verify`（221 个域测试）、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径进入 City park → Oak tree 后显示 68 个总词和五个细节区，场景词索引可定位 squirrel tail、oak leaf margin、acorn skin、root ridge、fern pinna、grass blade，进入 Leaf 后返回首页，公开页无 error/warn 日志。
 - 下一步继续：先复核下一张最终像素成品再制作真实物体词汇；不要回滚首页 1,275 个锚点或用同义词填数。
 
 ## 未完成任务（按优先级）
