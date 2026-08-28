@@ -4,9 +4,9 @@
 
 ## 当前交付游标
 
-- 公开版本：`v38-51fb7bc`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=38-51fb7bc>
-- 源码：`51fb7bc`（v38 公开运行时；列车锚点修订来自 `47b12af`）
+- 公开版本：`v38-b64d882`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=38-b64d882>
+- 源码：`b64d882`（v38 公开运行时；列车锚点修订来自 `47b12af`）
 - 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台与列车车厢密度；语义换词/索引闪现优化（已发布）。首页六块图集未重排，既有图像与锚点坐标保持不变。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
