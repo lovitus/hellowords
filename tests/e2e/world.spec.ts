@@ -815,11 +815,19 @@ test("plant cell exposes its organelle subparts through the real leaf path", asy
   ).count()).toBeGreaterThan(0);
 
   const mitochondriaZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="mitochondria-and-wall"]',
+    '[data-testid="scene-minimap-zone"][data-zone-id="mitochondrion-detail"]',
   );
   await mitochondriaZone.click();
   await expect.poll(() => page.locator(
     '[data-testid="word-label"][data-word="crista tip"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+
+  const wallZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="upper-wall-junction"]',
+  );
+  await wallZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="cell wall junction"][data-visible="true"]',
   ).count()).toBeGreaterThan(0);
 });
 

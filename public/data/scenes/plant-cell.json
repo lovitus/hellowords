@@ -1143,7 +1143,6 @@
         "er-lumen",
         "nucleoplasm",
         "er-membrane",
-        "rough-er-sheet",
         "ribosome-cluster",
         "nucleolar-core",
         "nuclear-envelope-fold"
@@ -1181,7 +1180,6 @@
       "height": 560,
       "targetScale": 2.35,
       "labelIds": [
-        "cytoplasm",
         "central-vacuole",
         "tonoplast",
         "cytoskeleton",
@@ -1247,15 +1245,44 @@
       "labelIds": [
         "cell-wall",
         "plasma-membrane",
+        "mitochondrial-matrix",
+        "cell-wall-layer"
+      ]
+    },
+    {
+      "id": "upper-wall-junction",
+      "title": "Upper wall junction",
+      "translation": "上方细胞壁连接处",
+      "description": "Cell wall junction with cytoplasm and a rough ER sheet nearby",
+      "x": 500,
+      "y": 20,
+      "width": 500,
+      "height": 280,
+      "targetScale": 2.2,
+      "labelIds": [
+        "plant-cell",
+        "cytoplasm",
+        "cell-wall-junction",
+        "rough-er-sheet"
+      ]
+    },
+    {
+      "id": "mitochondrion-detail",
+      "title": "Mitochondrion detail",
+      "translation": "线粒体细节",
+      "description": "Mitochondrial membranes, cristae and the visible crista tip",
+      "x": 1260,
+      "y": 390,
+      "width": 220,
+      "height": 200,
+      "targetScale": 2.6,
+      "labelIds": [
         "mitochondrion",
         "mitochondrial-crista",
-        "mitochondrial-matrix",
         "outer-mitochondrial-membrane",
         "inner-mitochondrial-membrane",
         "mitochondrial-intermembrane-space",
-        "cell-wall-layer",
-        "crista-tip",
-        "cell-wall-junction"
+        "crista-tip"
       ]
     }
   ]
