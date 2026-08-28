@@ -1354,14 +1354,23 @@ test("premium lithium-ion cell stays within its pixel-evidence ceiling", async (
   assert.ok(cell);
   assert.equal(cell.parentId, "battery");
   assert.equal(cell.asset, "/scenes/lithium-ion-cell-premium-v2.jpg");
-  assert.equal(cell.labels.length, 46);
+  assert.equal(cell.labels.length, 60);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       cell.labels.filter((label) => label.minLevel === level).length
     )),
-    [10, 10, 9, 9, 8],
+    [10, 13, 12, 13, 12],
   );
   assert.equal(cell.detailZones?.length, 4);
+  assert.deepEqual(
+    cell.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["lid-and-terminals", 20],
+      ["cell-enclosure", 12],
+      ["wound-electrode-core", 14],
+      ["unfolded-layer-stack", 14],
+    ],
+  );
   assert.deepEqual(cell.portals, [], "lithium-ion cell remains a terminal study");
 
   const words = new Set(cell.labels.map(({ word }) => word.toLocaleLowerCase()));
@@ -1391,6 +1400,20 @@ test("premium lithium-ion cell stays within its pixel-evidence ceiling", async (
     "base rail",
     "fan tip",
     "layer fold",
+    "positive terminal seal",
+    "negative terminal seal",
+    "fill-port collar",
+    "cover lip",
+    "winding outer turn",
+    "core wall",
+    "case side rail",
+    "positive tab root",
+    "negative tab root",
+    "separator fold",
+    "electrode fold",
+    "vent screen",
+    "collector edge",
+    "case lip",
   ]) {
     assert.ok(words.has(visible), `lithium-ion cell visibly grounds ${visible}`);
   }
@@ -1402,6 +1425,10 @@ test("premium lithium-ion cell stays within its pixel-evidence ceiling", async (
     ["case-corner", [300, 750]],
     ["tab-weld", [490, 300]],
     ["fan-tip", [1430, 730]],
+    ["positive-terminal-seal", [420, 105]],
+    ["cover-lip", [760, 170]],
+    ["positive-tab-root", [470, 285]],
+    ["electrode-fold", [1260, 650]],
   ] as const) {
     assert.deepEqual(anchors.get(id), point, `lithium-ion cell anchors ${id}`);
   }

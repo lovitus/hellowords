@@ -719,6 +719,26 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
   await expect.poll(() => page.locator(
     '[data-testid="word-label"][data-word="terminal lug"][data-visible="true"]',
   ).count()).toBeGreaterThan(0);
+
+  await page.getByTestId("scene-minimap-children").getByRole("button", {
+    name: "进入 Lithium-ion cell",
+  }).click();
+  await expect(app).toHaveAttribute("data-scene-id", "lithium-ion-cell");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  const cellLidZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="lid-and-terminals"]',
+  );
+  await cellLidZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="positive terminal seal"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+  const layerZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="unfolded-layer-stack"]',
+  );
+  await layerZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="electrode fold"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
 });
 
 test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {
