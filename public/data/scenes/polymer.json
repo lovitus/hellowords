@@ -48,7 +48,9 @@
     { "id": "chain-end", "word": "chain end", "translation": "链端", "x": 1135, "y": 420, "priority": 5.003, "minLevel": 4, "sourceVisualRegion": "molecular-chain-end" },
     { "id": "cross-link", "word": "cross-link", "translation": "交联键", "x": 1290, "y": 685, "priority": 5.004, "minLevel": 4, "sourceVisualRegion": "highlighted-cross-link" },
     { "id": "crack-tip", "word": "crack tip", "translation": "裂纹尖端", "x": 930, "y": 675, "priority": 6.010, "minLevel": 4, "sourceVisualRegion": "verified-crack-tip" },
-    { "id": "carbon-carbon-bond", "word": "carbon-carbon bond", "translation": "碳碳键", "x": 1325, "y": 420, "priority": 6.011, "minLevel": 4, "sourceVisualRegion": "verified-carbon-carbon-bond" }
+    { "id": "carbon-carbon-bond", "word": "carbon-carbon bond", "translation": "碳碳键", "x": 1325, "y": 420, "priority": 6.011, "minLevel": 4, "sourceVisualRegion": "verified-carbon-carbon-bond" },
+    { "id": "crystallite", "word": "crystallite", "translation": "晶粒", "x": 690, "y": 175, "priority": 6.012, "minLevel": 2, "sourceVisualRegion": "verified-crystallite" },
+    { "id": "lamellar-stack", "word": "lamellar stack", "translation": "片层堆叠", "x": 620, "y": 185, "priority": 6.013, "minLevel": 2, "sourceVisualRegion": "lamellar-stack" }
   ],
   "portals": [],
   "anchorAudit": {
@@ -56,9 +58,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/polymer-premium-v2.jpg",
     "reviewedAssetSha256": "a32aef0b59c39f62e83b7a67dac5ce65e2f5a5895167844a360ca2c5de071bf1",
-    "rationale": "Expanded the final-pixel audit with separately visible film, fiber, molded-cavity and fracture details, pigment cluster, amorphous chain, pore wall, crack tip, spherulite center and attached molecular bond/side-chain structures; inferred properties, processes, synonym padding and unproven molecular identities remain rejected.",
-    "previousLabelCount": 68,
-    "retainedLabelCount": 37,
+    "rationale": "Expanded the final-pixel audit with separately visible film, fiber, molded-cavity and fracture details, pigment cluster, amorphous chain, pore wall, crack tip, spherulite center and attached molecular bond/side-chain structures; a second morphology review also distinguishes one crystallite block from its lamellar stack. Inferred properties, processes, synonym padding and unproven molecular identities remain rejected.",
+    "previousLabelCount": 70,
+    "retainedLabelCount": 39,
     "removedLabelCount": 31,
     "removedExamples": ["thermoplastic", "polymerization", "density", "elasticity", "recycling", "molecular weight", "monomer", "repeating unit", "side group"]
   },
@@ -85,7 +87,7 @@
       "width": 650,
       "height": 650,
       "targetScale": 2.2,
-      "labelIds": ["crystalline-region", "amorphous-region", "lamella", "spherulite", "folded-chain", "chain-entanglement", "spherulite-center", "amorphous-chain"]
+      "labelIds": ["crystalline-region", "amorphous-region", "lamella", "lamellar-stack", "crystallite", "spherulite", "folded-chain", "chain-entanglement", "spherulite-center", "amorphous-chain"]
     },
     {
       "id": "defects-and-additives",
@@ -149,6 +151,7 @@
     { "id": "verified-pore-wall", "description": "Porous inner wall surrounding the large round material pore", "kind": "part", "x": 775, "y": 650, "width": 185, "height": 180 },
     { "id": "verified-side-chain", "description": "Attached side chain branching from the upper-right molecular path", "kind": "diagram", "x": 1370, "y": 80, "width": 180, "height": 250 },
     { "id": "verified-crack-tip", "description": "Sharp terminating point of the dark crack in the cutaway", "kind": "part", "x": 880, "y": 560, "width": 150, "height": 250 },
-    { "id": "verified-carbon-carbon-bond", "description": "Dark rod visibly connecting two carbon spheres", "kind": "part", "x": 1270, "y": 380, "width": 120, "height": 100 }
+    { "id": "verified-carbon-carbon-bond", "description": "Dark rod visibly connecting two carbon spheres", "kind": "part", "x": 1270, "y": 380, "width": 120, "height": 100 },
+    { "id": "verified-crystallite", "description": "Ordered block of parallel polymer lamellae in the upper microstructure", "kind": "part", "x": 540, "y": 70, "width": 260, "height": 380 }
   ]
 }

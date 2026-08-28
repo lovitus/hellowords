@@ -1602,7 +1602,7 @@ test("premium polymer stays within its evidence ceiling and remains a terminal m
   assert.equal(polymer.asset, "/scenes/polymer-premium-v2.jpg");
   assert.equal(polymer.parentId, "water-tank");
   assert.deepEqual(polymer.portals, [], "polymer remains a terminal scene");
-  assert.equal(polymer.labels.length, 37, "polymer keeps its reviewed 37-anchor evidence ceiling");
+  assert.equal(polymer.labels.length, 39, "polymer keeps its reviewed 39-anchor evidence ceiling");
 
   const words = new Set(polymer.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -1614,6 +1614,8 @@ test("premium polymer stays within its evidence ceiling and remains a terminal m
     "fiber bundle",
     "fiber",
     "lamella",
+    "crystallite",
+    "lamellar stack",
     "pore",
     "crack",
   ]) {
