@@ -227,8 +227,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "potting-workbench": 74,
   // The photographed wardrobe resolves a complete cabinet, garment rack,
   // shirt construction and accessory shelf; the ceiling blocks fabric and
-  // stitching claims while allowing the reviewed 56-anchor set.
-  "wardrobe-interior": 56,
+  // stitching claims while allowing the reviewed 60-anchor set.
+  "wardrobe-interior": 60,
   // The rendered cell has separable cytoplasm, nuclear, chloroplast and
   // membrane substructures; the ceiling rejects invisible molecular steps.
   "plant-cell": 46,

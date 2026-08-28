@@ -1640,12 +1640,16 @@ test("premium wardrobe keeps one grounded shirt portal without padded material c
   const wardrobe = scenes.find((scene) => scene.id === "wardrobe-interior");
   assert.ok(wardrobe);
   assert.equal(wardrobe.asset, "/scenes/wardrobe-interior-premium-v2.jpg");
+  assert.equal(wardrobe.labels.length, 60);
   assert.deepEqual(
     wardrobe.portals.map(({ childSceneId }) => childSceneId),
     ["cotton-shirt"],
   );
   assert.equal(wardrobe.portals[0]?.sourceVisualRegion, "portal-shirt");
   const displayWords = new Set(wardrobe.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const required of ["window sill", "door panel", "jacket cuff", "trouser leg"]) {
+    assert.ok(displayWords.has(required), `wardrobe visibly grounds ${required}`);
+  }
   for (const unsupported of ["garment", "closet", "buttonhole", "seam", "cotton", "denim"]) {
     assert.ok(!displayWords.has(unsupported), `wardrobe omits unsupported ${unsupported}`);
   }

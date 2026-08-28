@@ -67,7 +67,11 @@
     { "id": "shoebox-lid", "word": "shoebox lid", "translation": "鞋盒盖", "x": 790, "y": 660, "priority": 6.016, "minLevel": 3, "sourceVisualRegion": "verified-shoebox-lid" },
     { "id": "vase-neck", "word": "vase neck", "translation": "花瓶颈部", "x": 108, "y": 540, "priority": 6.017, "minLevel": 3, "sourceVisualRegion": "verified-vase-neck" },
     { "id": "blanket-edge", "word": "blanket edge", "translation": "毯子边缘", "x": 960, "y": 65, "priority": 6.018, "minLevel": 4, "sourceVisualRegion": "verified-blanket-edge" },
-    { "id": "storage-box-lid", "word": "storage box lid", "translation": "储物盒盖", "x": 1215, "y": 785, "priority": 6.019, "minLevel": 4, "sourceVisualRegion": "verified-storage-box-lid" }
+    { "id": "storage-box-lid", "word": "storage box lid", "translation": "储物盒盖", "x": 1215, "y": 785, "priority": 6.019, "minLevel": 4, "sourceVisualRegion": "verified-storage-box-lid" },
+    { "id": "window-sill", "word": "window sill", "translation": "窗台", "x": 110, "y": 575, "priority": 6.020, "minLevel": 3, "sourceVisualRegion": "verified-window-sill" },
+    { "id": "door-panel", "word": "door panel", "translation": "柜门面板", "x": 500, "y": 420, "priority": 6.021, "minLevel": 2, "sourceVisualRegion": "verified-door-panel" },
+    { "id": "jacket-cuff", "word": "jacket cuff", "translation": "夹克袖口", "x": 690, "y": 455, "priority": 6.022, "minLevel": 4, "sourceVisualRegion": "verified-jacket-cuff" },
+    { "id": "trouser-leg", "word": "trouser leg", "translation": "裤腿", "x": 1000, "y": 460, "priority": 6.023, "minLevel": 3, "sourceVisualRegion": "verified-trouser-leg" }
   ],
   "portals": [
     {
@@ -88,9 +92,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/wardrobe-interior-premium-v2.jpg",
     "reviewedAssetSha256": "ec0cc25087f206253e5fc04c4a59c5a1011300fde1591c2431680ef963e24925",
-    "rationale": "Expanded the bright photographed wardrobe with only clearly separable cabinet, hanger, garment, accessory and daylight-corner parts; the portal remains the complete unobstructed white shirt, while unsupported fabric composition, stitching claims and duplicate garment names stay rejected.",
-    "previousLabelCount": 68,
-    "retainedLabelCount": 56,
+    "rationale": "Expanded the bright photographed wardrobe with only clearly separable cabinet, hanger, garment, accessory and daylight-corner parts; the portal remains the complete unobstructed white shirt, while unsupported fabric composition, stitching claims and duplicate garment names stay rejected. A second pixel review adds the window sill, open door panel, jacket cuff and separate trouser leg without adding material or care claims.",
+    "previousLabelCount": 72,
+    "retainedLabelCount": 60,
     "removedLabelCount": 12,
     "removedExamples": ["garment", "closet", "buttonhole", "seam", "cotton", "hang up", "denim"]
   },
@@ -105,7 +109,7 @@
       "width": 425,
       "height": 900,
       "targetScale": 2.4,
-      "labelIds": ["window", "plant", "framed-print", "cushion", "roman-blind", "vase", "window-frame", "picture-frame", "plant-leaf", "vase-neck"]
+      "labelIds": ["window", "plant", "framed-print", "cushion", "roman-blind", "vase", "window-frame", "picture-frame", "plant-leaf", "vase-neck", "window-sill"]
     },
     {
       "id": "doors-and-hardware",
@@ -117,7 +121,7 @@
       "width": 1180,
       "height": 900,
       "targetScale": 2.2,
-      "labelIds": ["wardrobe", "wardrobe-door", "hinge", "door-handle", "cabinet-frame"]
+      "labelIds": ["wardrobe", "wardrobe-door", "hinge", "door-handle", "cabinet-frame", "door-panel"]
     },
     {
       "id": "upper-fittings",
@@ -141,7 +145,7 @@
       "width": 850,
       "height": 540,
       "targetScale": 3,
-      "labelIds": ["shirt", "dress", "jacket", "trousers", "sweater", "collar", "sleeve", "cuff", "placket", "chest-pocket", "button", "hem", "jacket-sleeve", "sweater-knit", "trouser-waistband", "shirt-cuff-button", "shirt-shoulder"]
+      "labelIds": ["shirt", "dress", "jacket", "trousers", "sweater", "collar", "sleeve", "cuff", "placket", "chest-pocket", "button", "hem", "jacket-sleeve", "sweater-knit", "trouser-waistband", "shirt-cuff-button", "shirt-shoulder", "jacket-cuff", "trouser-leg"]
     },
     {
       "id": "lower-storage",
@@ -212,6 +216,10 @@
     { "id": "verified-shoebox-lid", "description": "Separate cream lid resting on the lower shoebox", "kind": "part", "x": 720, "y": 650, "width": 175, "height": 95 },
     { "id": "verified-vase-neck", "description": "Narrow neck and opening of the matte floor vase", "kind": "part", "x": 50, "y": 500, "width": 120, "height": 190 },
     { "id": "verified-blanket-edge", "description": "Folded edge and rolled texture on the top-shelf blankets", "kind": "part", "x": 800, "y": 0, "width": 280, "height": 100 },
-    { "id": "verified-storage-box-lid", "description": "Separate fitted lid on the sage lower storage box", "kind": "part", "x": 1110, "y": 785, "width": 205, "height": 115 }
+    { "id": "verified-storage-box-lid", "description": "Separate fitted lid on the sage lower storage box", "kind": "part", "x": 1110, "y": 785, "width": 205, "height": 115 },
+    { "id": "verified-window-sill", "description": "White sill beneath the bright daylight window", "kind": "part", "x": 0, "y": 500, "width": 250, "height": 100 },
+    { "id": "verified-door-panel", "description": "Broad oak panel of the open wardrobe door", "kind": "part", "x": 420, "y": 0, "width": 190, "height": 900 },
+    { "id": "verified-jacket-cuff", "description": "Buttoned cuff at the end of the hanging jacket sleeve", "kind": "part", "x": 620, "y": 380, "width": 180, "height": 140 },
+    { "id": "verified-trouser-leg", "description": "Separate hanging trouser leg below its waistband", "kind": "part", "x": 880, "y": 300, "width": 220, "height": 300 }
   ]
 }
