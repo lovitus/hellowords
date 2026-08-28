@@ -4,9 +4,9 @@
 
 ## 当前交付游标
 
-- 公开版本：`v56-df6a1a2`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=56-df6a1a2>
-- 源码：`df6a1a2`（v56 公开运行时；greenhouse-interior 词汇扩展与场景 JSON cache-bust 修复）
+- 公开版本：`v57-9a3f1a7`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=57-9a3f1a7>
+- 源码：`9a3f1a7`（v57 公开运行时；tomato-plant 词汇扩展，沿用场景 JSON cache-bust）
 - 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、科学馆、厨房与浴室密度；语义换词/索引闪现优化和首页大类词表（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
@@ -40,11 +40,13 @@
 - v55 的温室扩展源码已完成并通过本地门禁，但首次公开归档误用了旧 `dist`，公开页仍返回 46 词；该版本不作为有效交付，保留作失败证据。
 - v56 已重新构建并修复场景 JSON cache-bust：温室从 46 增至 71 个词，页面 query `?v=...` 会随请求传给 manifest/scene JSON，避免 CDN 复用旧定义。
 - v56 验收证据：`npm run verify`（221 个域测试）、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径从首页进入 Community garden → Greenhouse interior → Tomato plant，温室首屏显示 59/71 词、7 个细分区显示 12/17/6/6/8/12/10 词，scene-word index 可定位 glass door handle、watering can rim、seed tray cell、tomato cluster、gravel stone，返回首页后 1,275 词入口仍可用，公开页无 error/warn 日志。
+- v57 已基于 `tomato-plant-premium-v1.jpg` 的最终像素审计扩展 25 个可指认部件，番茄植株从 44 增至 69 个词；复叶、花萼/花药、果实附着、竹竿与绑带、种植袋、土壤和滴灌部件均保留，场景保持终点无入口。
+- v57 验收证据：`npm run verify`（221 个域测试）、全量 E2E（88 通过 / 34 个设计性跳过）、`PERF_RUN=1 npm run test:perf` 均通过；公开路径从首页进入 Community garden → Greenhouse interior → Tomato plant，番茄首屏显示 54/69 词、6 个细分区显示 8/15/10/14/18/4 词，场景词索引可定位 leaflet tip、flower sepal、fruit shoulder、bamboo node、grow bag rim、drip barb 等新增词，返回首页后 1,275 词首页入口仍可用，公开页无 error/warn 日志。
 - 下一步继续：先复核下一张最终像素成品再制作真实物体词汇；不要回滚首页 1,275 个锚点或用同义词填数。
 
 ## 未完成任务（按优先级）
 
-1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 107、`city-street` 89、`transit-hub` 73、`city-cafe` 70、`community-garden` 73、`potting-workbench` 74、`greenhouse-interior` 71、`kitchen` 116、`bedroom` 104、`bathroom` 103、科学馆 121、铁路站台 96、列车车厢 64、城市公园 63、叶片 49、聚合物 37、衣柜 56、植物细胞 46、叶绿体内部 51 已完成。接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
+1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 107、`city-street` 89、`transit-hub` 73、`city-cafe` 70、`community-garden` 73、`potting-workbench` 74、`greenhouse-interior` 71、`tomato-plant` 69、`kitchen` 116、`bedroom` 104、`bathroom` 103、科学馆 121、铁路站台 96、列车车厢 64、城市公园 63、叶片 49、聚合物 37、衣柜 56、植物细胞 46、叶绿体内部 51 已完成。接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
    - 下一批候选：从 `docs/next-scene-batch.md` 选择仍有足够真实像素证据的稀疏场景；先复核最终像素再决定是否扩展。
    - 每个场景先做 portal 真值和 100%/200% 像素复核，再接入数据和导航。
 2. **连续探索扩展**：保留根图集的滚轮/触控连续缩放和显式点击进入语义；只有在父子场景确实能共享同一张连续栅格时才增加反向 portal，不能恢复“滚轮误触即跳场景”。
@@ -74,6 +76,7 @@
 - v53 回归证据：`npm run verify` 通过（220 个域测试），全量 E2E 88 通过 / 34 个设计性跳过，性能 2/2 通过；公开冒烟覆盖社区花园七个细分区、五个新增代表词和返回首页。
 - v54 回归证据：`npm run verify` 通过（220 个域测试），全量 E2E 88 通过 / 34 个设计性跳过，性能 2/2 通过；公开冒烟覆盖园艺工作台七个细分区、五个新增代表词和返回首页。
 - v56 回归证据：`npm run verify` 通过（221 个域测试），全量 E2E 88 通过 / 34 个设计性跳过，性能 2/2 通过；公开冒烟覆盖温室内部七个细分区、五个新增代表词、Tomato plant 入口和返回首页。
+- v57 回归证据：`npm run verify` 通过（221 个域测试），全量 E2E 88 通过 / 34 个设计性跳过，性能 2/2 通过；公开冒烟覆盖番茄植株六个细分区、六个新增代表词和返回首页。
 
 ## 会话与临时文件边界
 
@@ -83,7 +86,7 @@
 - 精确首行 `cwd` 扫描显示 HelloWords 只剩当前根 JSONL。其他日志即使正文提到 HelloWords，只要归属 Gust、EasyTier 或其他项目，就必须保留。
 - `/private/tmp` 当前约 11MB，未发现 HelloWords/atlas 命名残留；以后清理只针对有证据的项目路径，不能清空整个 tmp。
 - 外置审计临时根中 17 份旧 HelloWords 发布压缩包及 v21 构建日志已移入系统废纸篓；源码、Sites 保存版本、审计 JSON 与词库源缓存仍保留。
-- 本轮复核未发现新的 HelloWords/atlas 临时路径：`/private/tmp`、`/Volumes/micron512g/tmp-project` 和项目外置审计根中的同名路径均为空；v48–v54 归档已由 Sites 保存，v55 旧归档和 v56 修正版归档均保留在系统废纸篓作可恢复证据；共享临时根内其它项目任务继续保留。
+- 本轮复核未发现新的 HelloWords/atlas 临时路径：`/private/tmp`、`/Volumes/micron512g/tmp-project` 和项目外置审计根中的同名路径均为空；v48–v54 归档已由 Sites 保存，v55 旧归档和 v56 修正版归档均保留在系统废纸篓作可恢复证据，v57 归档在验证后移入系统废纸篓；共享临时根内其它项目任务继续保留。
 - 叶绿体像素复核产生的 `inspect-cell/` 临时裁剪目录及重复词库缓存已移入系统废纸篓；`/var/folders` 下的 Codex runtime 目录继续保留。
 - 发现的孤立词库缓存 `/var/folders/.../T/hellowords-wordnet-cbda5ea6eef7.zip` 未被任何进程打开，已移入系统废纸篓；浏览器/Codex runtime 目录未触碰。
 - 已停止一个无测试进程使用的本地 HelloWords `vinext` 4173 服务；公开站点和当前源代码不受影响。
