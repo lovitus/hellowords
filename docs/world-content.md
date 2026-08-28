@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,587 human-verified anchors representing 3,124
+Spatial scenes now contain 3,597 human-verified anchors representing 3,134
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -117,7 +117,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | City cafe | 77 → 70 | New daylight cafe grounds door, seating, counter, pastry-display and espresso subparts; people, branding and inferred service stay excluded |
 | Transit hub | 85 → 73 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
 | Electric bus | 56 → 40 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; people, branding and operating concepts remain removed |
-| Battery | 56 → 32 | Premium engineering cutaway grounds pack, module, cell, electrical and cooling hardware; internal chemistry and measurements remain removed |
+| Battery | 56 → 42 | Premium engineering cutaway grounds pack, module, cell, electrical, cooling and enclosure hardware; internal chemistry and unsupported sensor claims remain removed |
 | Lithium-ion cell | 48 → 31 | Premium prismatic-cell cutaway grounds enclosure, polarity-specific terminals, flattened winding and unfolded layers; ambiguous liquid, invisible charge motion, performance metrics and hazard states remain removed |
 | Railway platform | 112 → 96 | Premium station view grounds passenger fixtures, train hardware, overhead electrification and track subparts; signage and service states remain removed |
 | Train carriage | 72 → 64 | Premium carriage cutaway grounds the cabin, doors, accessibility fixtures, roof, suspension and foreground track hardware plus the real bogie portal; passengers and unsupported amenities remain removed |

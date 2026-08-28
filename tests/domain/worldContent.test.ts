@@ -1000,6 +1000,74 @@ test("premium water tank grounds its service details and keeps one real polymer 
   }
 });
 
+test("premium battery pack expands only into clearly resolved electrical and thermal parts", async () => {
+  const { scenes } = await loadWorld();
+  const battery = scenes.find((scene) => scene.id === "battery");
+  assert.ok(battery);
+  assert.equal(battery.parentId, "electric-bus");
+  assert.equal(battery.asset, "/scenes/battery-premium-v2.jpg");
+  assert.equal(battery.labels.length, 42);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      battery.labels.filter((label) => label.minLevel === level).length
+    )),
+    [7, 8, 10, 10, 7],
+  );
+  assert.deepEqual(
+    battery.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["pack-shell", 10],
+      ["cell-module", 12],
+      ["power-electronics", 12],
+      ["thermal-management", 8],
+    ],
+  );
+  assert.deepEqual(
+    battery.portals.map(({ id, childSceneId, sourceVisualRegion }) => (
+      [id, childSceneId, sourceVisualRegion]
+    )),
+    [["enter-lithium-cell", "lithium-ion-cell", "portal-cell-module"]],
+  );
+
+  const words = new Set(battery.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const visible of [
+    "insulation sheet",
+    "module clamp",
+    "cell spacer",
+    "cable clamp",
+    "voltage sense wire",
+    "coolant manifold",
+    "support rail",
+    "vent grille",
+    "enclosure rib",
+    "mounting hole",
+  ]) {
+    assert.ok(words.has(visible), `battery visibly grounds ${visible}`);
+  }
+  for (const unsupported of [
+    "negative terminal",
+    "temperature sensor",
+    "current sensor",
+    "pressure-relief valve",
+    "thermal runaway",
+    "voltage",
+    "energy",
+  ]) {
+    assert.ok(!words.has(unsupported), `battery omits unsupported ${unsupported}`);
+  }
+
+  const labels = new Map(battery.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["insulation-sheet", "cable-clamp", "coolant-manifold", "mounting-hole"].map((id) => {
+      const label = labels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[460, 535], [790, 425], [820, 610], [1380, 790]],
+    "new battery parts stay anchored on the reviewed cutaway pixels",
+  );
+});
+
 test("premium pond edge grounds its freshwater life and keeps one real frog portal", async () => {
   const { scenes } = await loadWorld();
   const pondEdge = scenes.find((scene) => scene.id === "pond-edge");

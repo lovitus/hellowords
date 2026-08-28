@@ -235,7 +235,14 @@ The SVG supports enclosure, four modules, cylindrical cells, busbars, cables, co
 - Voltage, current, charge, energy, heat, fast charging and thermal runaway are measurements or processes, not visible components.
 - Positive and negative terminals must be genuinely separate and consistently color-coded; the cooling circuit must not connect to electrical terminals.
 
-**Honest target:** 32; likely ceiling 36 if small sensors and connectors survive final-resolution inspection.
+**Published audit:** The existing `battery-premium-v2.jpg` re-audit now retains 42
+independently pointable parts across four zones (10/12/12/8). The added anchors
+are the visible insulation sheet, module clamp, cell spacer, cable clamp, voltage
+sense wire, coolant manifold, support rail, front vent grille, enclosure rib and
+mounting hole. Negative terminals, temperature/current sensors and a
+pressure-relief valve remain excluded because the final pixels do not identify
+those claims as separate, unambiguous objects. The lithium-ion-cell portal and
+all existing coordinates remain unchanged.
 
 ## Oxygen molecule
 
@@ -341,7 +348,7 @@ The SVG correctly suggests a four-subunit protein with four heme centers and pai
 
 ## Acceptance rule for the batch
 
-The wardrobe, railway platform and battery briefs are designed for a 32-anchor premium floor. Polymer, oxygen molecule and hemoglobin must retain their stated evidence-based ceilings unless the generated pixels introduce genuinely separate, scientifically correct structures. After generation, portal crops and every retained coordinate need a fresh human review; no existing SVG coordinate may be carried forward by proportion alone.
+The wardrobe and railway-platform briefs are designed for a 32-anchor premium floor; the battery re-audit now has a reviewed 42-anchor ceiling. Polymer, oxygen molecule and hemoglobin must retain their stated evidence-based ceilings unless the generated pixels introduce genuinely separate, scientifically correct structures. After generation, portal crops and every retained coordinate need a fresh human review; no existing SVG coordinate may be carried forward by proportion alone.
 
 ## Next high-priority bright replacement round
 

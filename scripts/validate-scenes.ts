@@ -191,6 +191,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // overhead electrification and track subparts; the ceiling blocks signage
   // and inferred service states while allowing the reviewed 96-anchor scene.
   "railway-platform": 96,
+  // The battery cutaway resolves pack, module, cell, electrical, cooling and
+  // enclosure hardware; the ceiling blocks invisible electrochemistry and
+  // sensors that cannot be identified as separate objects in this frame.
+  battery: 42,
   "lithium-ion-cell": 31,
   // The bright cutaway resolves chamber walls, individual cusps, connected
   // vessel openings, coronary surface branches and a readable red-cell rim;
