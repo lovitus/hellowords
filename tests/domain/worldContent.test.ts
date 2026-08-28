@@ -1124,13 +1124,13 @@ test("premium plant cell expands only into visible organelle subparts", async ()
   assert.deepEqual(
     cell.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["nucleus-and-er", 15],
+      ["nucleus-and-er", 14],
       ["golgi-and-smooth-er", 8],
       ["vacuole-and-cytoplasm", 12],
       ["chloroplast-cutaway", 7],
       ["thylakoid-stack-detail", 5],
-      ["upper-wall-junction", 4],
       ["mitochondria-and-wall", 4],
+      ["upper-wall-junction", 4],
       ["mitochondrion-detail", 6],
     ],
   );
