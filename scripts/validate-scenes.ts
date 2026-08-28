@@ -184,7 +184,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "community-garden": 73,
   "greenhouse-interior": 46,
   "tomato-plant": 44,
-  "potting-workbench": 49,
+  // The final workbench raster resolves timber joints, containers, seedlings,
+  // tool edges and watering fittings; the ceiling blocks actions and claims
+  // about plant health or material quality.
+  "potting-workbench": 74,
   // The photographed wardrobe resolves a complete cabinet, garment rack,
   // shirt construction and accessory shelf; the ceiling blocks fabric and
   // stitching claims while allowing the reviewed 56-anchor set.

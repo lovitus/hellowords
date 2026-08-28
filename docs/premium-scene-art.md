@@ -156,7 +156,11 @@ The final-pixel audit retained 44 external, independently pointable terms across
 
 Create a complete pale-timber garden potting workbench in warm but neutral daylight, with all four legs, upper shelf, worktop and lower shelf visible. Arrange distinct pots, seedling tray, soil, watering can, mister, hose, hand tools, pruning shears, gloves, twine, bamboo supports and lower storage without people, printed text, brands or implied actions. Keep every tool separated enough for a precise object or part anchor.
 
-The final-pixel audit retained 49 grounded terms across seven authored zones. A final framing correction preserved the complete bench rather than cropping its legs.
+The final-pixel audit retained 74 independently pointable terms across seven
+authored zones. It adds workbench edges, watering-can and tray parts, seedling
+stems and leaves, pot rims, tool edges, tomato supports, lower-shelf storage and
+sieve details while keeping the complete bench intact and rejecting actions,
+printed text and inferred plant qualities.
 
 ### Bathroom
 

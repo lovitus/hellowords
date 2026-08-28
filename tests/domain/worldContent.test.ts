@@ -1747,18 +1747,61 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
 
   assert.equal(workbench.parentId, "community-garden");
   assert.equal(workbench.asset, "/scenes/potting-workbench-premium-v1.jpg");
-  assert.equal(workbench.labels.length, 49);
+  assert.equal(workbench.labels.length, 74);
   assert.equal(workbench.portals.length, 0);
-  assert.ok((workbench.detailZones?.length ?? 0) >= 6);
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => (
+      workbench.labels.filter((label) => label.minLevel === level).length
+    )),
+    [10, 10, 15, 20, 19],
+  );
+  assert.deepEqual(
+    workbench.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
+    [
+      ["bench-structure-zone", 11],
+      ["watering-zone", 9],
+      ["seedling-potting-zone", 16],
+      ["hand-tool-zone", 14],
+      ["tying-supplies-zone", 9],
+      ["lower-storage-zone", 8],
+      ["side-tool-zone", 5],
+    ],
+  );
 
   for (const [scene, required] of [
     [greenhouse, ["greenhouse interior", "glass pane", "roof vent", "tomato plant"]],
     [tomato, ["main stem", "compound leaf", "tomato flower", "ripe tomato"]],
-    [workbench, ["watering can", "seedling tray", "pruning shears", "garden hose"]],
+    [workbench, [
+      "watering can",
+      "seedling tray",
+      "pruning shears",
+      "garden hose",
+      "watering can rim",
+      "tray rim",
+      "seedling stem",
+      "pot rim",
+      "worktop edge",
+      "scoop bowl",
+      "mister trigger",
+      "tomato leaf",
+      "bamboo tip",
+      "sieve mesh",
+      "soil sack fold",
+    ]],
   ] as const) {
     const words = new Set(scene.labels.map(({ word }) => word));
     for (const word of required) assert.ok(words.has(word), `${scene.id} visibly grounds ${word}`);
   }
+  const workbenchLabels = new Map(workbench.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["watering-can-rim", "worktop-edge", "sieve-mesh"].map((id) => {
+      const label = workbenchLabels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[362, 240], [800, 483], [1435, 624]],
+    "new potting workbench parts stay anchored on their reviewed pixels",
+  );
 });
 
 test("city cafe is a new terminal storefront branch with a non-overlapping parent portal", async () => {
