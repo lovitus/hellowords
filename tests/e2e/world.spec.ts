@@ -686,6 +686,30 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
     await expect(app).toHaveAttribute("data-scene-id", target);
     await expect(app).toHaveAttribute("data-scene-loading", "false");
     await expect(app).toHaveAttribute("data-transition-state", "idle");
+    if (target === "hemoglobin") {
+      await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "51");
+      await expect.poll(() => page.locator(
+        '[data-testid="word-label"][data-visible="true"][data-interactive="true"]',
+      ).count()).toBeGreaterThan(8);
+      for (const [zoneId, word] of [
+        ["alpha-folds", "helix bundle"],
+        ["tetramer-core", "alpha beta dimer"],
+        ["heme-architecture", "heme plane"],
+        ["oxygen-coordination", "oxygen ligand"],
+        ["histidine-pocket", "histidine ring"],
+      ] as const) {
+        const zone = page.locator(
+          `[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`,
+        );
+        await zone.click();
+        await expect(zone).toHaveAttribute("data-active", "true");
+        await expect.poll(() => page.locator(
+          `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
+        ).count()).toBeGreaterThan(0);
+      }
+      await page.getByRole("button", { name: "Fit scene" }).click();
+      await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "51");
+    }
   }
 
   await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");

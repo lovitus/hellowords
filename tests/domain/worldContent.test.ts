@@ -566,7 +566,7 @@ test("premium exploration scenes expose dense, truthful local detail slices", as
     "lithium-ion-cell": 28,
     frog: 28,
     "oxygen-molecule": 50,
-    hemoglobin: 22,
+    hemoglobin: 44,
     "chloroplast-interior": 32,
   };
   for (const [sceneId, minimum] of Object.entries(minimums)) {
@@ -1901,12 +1901,12 @@ test("premium oxygen scene expands the visible exchange path without process pad
   }
 });
 
-test("premium hemoglobin preserves one grounded oxygen portal at its 22-word ceiling", async () => {
+test("premium hemoglobin expands its grounded structure vocabulary and preserves the oxygen portal", async () => {
   const { scenes } = await loadWorld();
   const hemoglobin = scenes.find((scene) => scene.id === "hemoglobin");
   assert.ok(hemoglobin);
   assert.equal(hemoglobin.asset, "/scenes/hemoglobin-premium-v2.jpg");
-  assert.equal(hemoglobin.labels.length, 22);
+  assert.equal(hemoglobin.labels.length, 51);
   assert.deepEqual(
     hemoglobin.portals.map(({ childSceneId, sourceVisualRegion }) => (
       [childSceneId, sourceVisualRegion]
@@ -1922,6 +1922,13 @@ test("premium hemoglobin preserves one grounded oxygen portal at its 22-word cei
     "porphyrin ring",
     "iron ion",
     "oxygen molecule",
+    "alpha beta dimer",
+    "heme array",
+    "helix bundle",
+    "heme plane",
+    "distal pocket",
+    "oxygen ligand",
+    "porphyrin nitrogen",
     "proximal histidine",
     "distal histidine",
     "axial coordination bond",

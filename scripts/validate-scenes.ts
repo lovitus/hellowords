@@ -124,9 +124,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // the lower floor leaves room for future evidence-led revisions without
   // allowing the image to regress to a token handful.
   "oxygen-molecule": 50,
-  // One alpha2-beta2 tetramer supports 22 independently pointable structures.
-  // A 32-word floor would duplicate ribbon hierarchy or invisible properties.
-  hemoglobin: 22,
+  // The reviewed alpha2-beta2 render now exposes distinct heme, ribbon and
+  // coordination structures; the lower floor keeps future revisions evidence-led.
+  hemoglobin: 44,
   // This terminal specialist image supports 28 distinct structures. Requiring
   // 32 produced synonym pairs at identical pixels, which is worse than an
   // explicit evidence-based exception.
@@ -244,6 +244,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // capillary, erythrocyte and molecular parts; the ceiling blocks invisible
   // gas metrics and process claims.
   "oxygen-molecule": 60,
+  // The alpha2-beta2 render resolves four hemes, colored globin ribbons,
+  // central interfaces and one enlarged coordination pocket; the ceiling
+  // blocks invisible affinity, disease and binding-behavior claims.
+  hemoglobin: 51,
   // The final chloroplast raster resolves separate grana, lamella, DNA,
   // stromal-particle and membrane-complex details without process padding.
   "chloroplast-interior": 51,

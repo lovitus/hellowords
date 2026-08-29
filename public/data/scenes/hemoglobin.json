@@ -14,6 +14,9 @@
     { "id": "alpha-subunit", "word": "alpha subunit", "translation": "阿尔法亚基", "x": 650, "y": 300, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "verified-alpha-subunits" },
     { "id": "beta-subunit", "word": "beta subunit", "translation": "贝塔亚基", "x": 1020, "y": 280, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "verified-beta-subunits" },
     { "id": "oxygen-molecule", "word": "oxygen molecule", "translation": "氧分子", "x": 210, "y": 90, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "portal-bound-oxygen" },
+    { "id": "alpha-beta-dimer", "word": "alpha beta dimer", "translation": "阿尔法贝塔二聚体", "x": 700, "y": 380, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "verified-subunit-interface" },
+    { "id": "heme-array", "word": "heme array", "translation": "血红素阵列", "x": 800, "y": 420, "priority": 1.007, "minLevel": 0, "sourceVisualRegion": "whole-hemoglobin" },
+    { "id": "globin-assembly", "word": "globin assembly", "translation": "珠蛋白组装体", "x": 810, "y": 460, "priority": 1.008, "minLevel": 0, "sourceVisualRegion": "whole-hemoglobin" },
 
     { "id": "cell-membrane", "word": "cell membrane", "translation": "细胞膜", "x": 800, "y": 25, "priority": 2.006, "minLevel": 1, "sourceVisualRegion": "verified-cell-membrane" },
     { "id": "cytoplasm", "word": "cytoplasm", "translation": "细胞质", "x": 1380, "y": 430, "priority": 2.007, "minLevel": 1, "sourceVisualRegion": "verified-cytoplasm" },
@@ -21,19 +24,45 @@
     { "id": "iron-ion", "word": "iron ion", "translation": "二价铁离子", "x": 212, "y": 200, "priority": 2.009, "minLevel": 1, "sourceVisualRegion": "verified-iron-ion" },
     { "id": "alpha-helix", "word": "alpha helix", "translation": "阿尔法螺旋", "x": 1120, "y": 200, "priority": 2.01, "minLevel": 1, "sourceVisualRegion": "verified-alpha-helix" },
     { "id": "central-cavity", "word": "central cavity", "translation": "中央空腔", "x": 805, "y": 435, "priority": 2.011, "minLevel": 1, "sourceVisualRegion": "verified-central-cavity" },
+    { "id": "heme-center", "word": "heme center", "translation": "血红素中心", "x": 205, "y": 205, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "verified-heme-group" },
+    { "id": "helix-bundle", "word": "helix bundle", "translation": "螺旋束", "x": 1100, "y": 260, "priority": 2.013, "minLevel": 1, "sourceVisualRegion": "verified-alpha-helix" },
+    { "id": "globin-core", "word": "globin core", "translation": "珠蛋白核心", "x": 980, "y": 260, "priority": 2.014, "minLevel": 1, "sourceVisualRegion": "verified-globin-fold" },
+    { "id": "ribbon-surface", "word": "ribbon surface", "translation": "带状表面", "x": 1180, "y": 400, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "verified-beta-subunits" },
+    { "id": "subunit-cleft", "word": "subunit cleft", "translation": "亚基裂隙", "x": 810, "y": 430, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "verified-central-cavity" },
+    { "id": "alpha-beta-interface", "word": "alpha beta interface", "translation": "阿尔法贝塔界面", "x": 730, "y": 380, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "verified-subunit-interface" },
+    { "id": "red-cell-rim", "word": "red cell rim", "translation": "红细胞边缘", "x": 1400, "y": 820, "priority": 2.018, "minLevel": 1, "sourceVisualRegion": "whole-red-blood-cell" },
 
     { "id": "globin-fold", "word": "globin fold", "translation": "珠蛋白折叠", "x": 1050, "y": 180, "priority": 3.012, "minLevel": 2, "sourceVisualRegion": "verified-globin-fold" },
     { "id": "loop", "word": "loop", "translation": "环区", "x": 1190, "y": 130, "priority": 3.013, "minLevel": 2, "sourceVisualRegion": "verified-loop" },
     { "id": "porphyrin-ring", "word": "porphyrin ring", "translation": "卟啉环", "x": 130, "y": 210, "priority": 3.014, "minLevel": 2, "sourceVisualRegion": "verified-porphyrin-ring" },
     { "id": "heme-pocket", "word": "heme pocket", "translation": "血红素口袋", "x": 310, "y": 240, "priority": 3.015, "minLevel": 2, "sourceVisualRegion": "verified-heme-pocket" },
+    { "id": "heme-plane", "word": "heme plane", "translation": "血红素平面", "x": 220, "y": 215, "priority": 3.016, "minLevel": 2, "sourceVisualRegion": "verified-heme-group" },
+    { "id": "porphyrin-edge", "word": "porphyrin edge", "translation": "卟啉环边缘", "x": 300, "y": 220, "priority": 3.017, "minLevel": 2, "sourceVisualRegion": "verified-porphyrin-ring" },
+    { "id": "ring-nitrogen", "word": "ring nitrogen", "translation": "环氮", "x": 170, "y": 180, "priority": 3.018, "minLevel": 2, "sourceVisualRegion": "verified-porphyrin-ring" },
+    { "id": "histidine-ring", "word": "histidine ring", "translation": "组氨酸环", "x": 240, "y": 320, "priority": 3.019, "minLevel": 2, "sourceVisualRegion": "verified-proximal-histidine" },
+    { "id": "imidazole-ring", "word": "imidazole ring", "translation": "咪唑环", "x": 330, "y": 150, "priority": 3.02, "minLevel": 2, "sourceVisualRegion": "verified-distal-histidine" },
+    { "id": "distal-pocket", "word": "distal pocket", "translation": "远端口袋", "x": 320, "y": 175, "priority": 3.021, "minLevel": 2, "sourceVisualRegion": "verified-heme-pocket" },
+    { "id": "proximal-pocket", "word": "proximal pocket", "translation": "近端口袋", "x": 220, "y": 310, "priority": 3.022, "minLevel": 2, "sourceVisualRegion": "verified-heme-pocket" },
+    { "id": "surface-loop", "word": "surface loop", "translation": "表面环", "x": 1160, "y": 115, "priority": 3.023, "minLevel": 2, "sourceVisualRegion": "verified-loop" },
 
     { "id": "polypeptide-chain", "word": "polypeptide chain", "translation": "多肽链", "x": 550, "y": 650, "priority": 4.016, "minLevel": 3, "sourceVisualRegion": "verified-polypeptide-chain" },
     { "id": "subunit-interface", "word": "subunit interface", "translation": "亚基界面", "x": 790, "y": 470, "priority": 4.017, "minLevel": 3, "sourceVisualRegion": "verified-subunit-interface" },
     { "id": "oxygen-atom", "word": "oxygen atom", "translation": "氧原子", "x": 180, "y": 90, "priority": 4.018, "minLevel": 3, "sourceVisualRegion": "verified-oxygen-atom" },
+    { "id": "heme-edge", "word": "heme edge", "translation": "血红素边缘", "x": 280, "y": 230, "priority": 4.019, "minLevel": 3, "sourceVisualRegion": "verified-heme-group" },
+    { "id": "oxygen-ligand", "word": "oxygen ligand", "translation": "氧配体", "x": 210, "y": 90, "priority": 4.02, "minLevel": 3, "sourceVisualRegion": "portal-bound-oxygen" },
+    { "id": "coordination-site", "word": "coordination site", "translation": "配位位点", "x": 212, "y": 145, "priority": 4.021, "minLevel": 3, "sourceVisualRegion": "verified-axial-coordination-bond" },
+    { "id": "ribbon-strand", "word": "ribbon strand", "translation": "带状链段", "x": 570, "y": 620, "priority": 4.022, "minLevel": 3, "sourceVisualRegion": "verified-polypeptide-chain" },
+    { "id": "chain-bend", "word": "chain bend", "translation": "链弯曲处", "x": 500, "y": 520, "priority": 4.023, "minLevel": 3, "sourceVisualRegion": "verified-polypeptide-chain" },
+    { "id": "subunit-contact", "word": "subunit contact", "translation": "亚基接触面", "x": 820, "y": 520, "priority": 4.024, "minLevel": 3, "sourceVisualRegion": "verified-subunit-interface" },
+    { "id": "globin-loop", "word": "globin loop", "translation": "珠蛋白环", "x": 1130, "y": 130, "priority": 4.025, "minLevel": 3, "sourceVisualRegion": "verified-loop" },
+    { "id": "protein-cleft", "word": "protein cleft", "translation": "蛋白裂隙", "x": 760, "y": 460, "priority": 4.026, "minLevel": 3, "sourceVisualRegion": "verified-central-cavity" },
 
     { "id": "proximal-histidine", "word": "proximal histidine", "translation": "近端组氨酸", "x": 220, "y": 323, "priority": 5.019, "minLevel": 4, "sourceVisualRegion": "verified-proximal-histidine" },
     { "id": "distal-histidine", "word": "distal histidine", "translation": "远端组氨酸", "x": 330, "y": 139, "priority": 5.02, "minLevel": 4, "sourceVisualRegion": "verified-distal-histidine" },
-    { "id": "axial-coordination-bond", "word": "axial coordination bond", "translation": "轴向配位键", "x": 212, "y": 145, "priority": 5.021, "minLevel": 4, "sourceVisualRegion": "verified-axial-coordination-bond" }
+    { "id": "axial-coordination-bond", "word": "axial coordination bond", "translation": "轴向配位键", "x": 212, "y": 145, "priority": 5.021, "minLevel": 4, "sourceVisualRegion": "verified-axial-coordination-bond" },
+    { "id": "porphyrin-nitrogen", "word": "porphyrin nitrogen", "translation": "卟啉氮", "x": 185, "y": 190, "priority": 5.022, "minLevel": 4, "sourceVisualRegion": "verified-porphyrin-ring" },
+    { "id": "oxygen-sphere", "word": "oxygen sphere", "translation": "氧球", "x": 200, "y": 75, "priority": 5.023, "minLevel": 4, "sourceVisualRegion": "verified-oxygen-atom" },
+    { "id": "histidine-side-chain", "word": "histidine side chain", "translation": "组氨酸侧链", "x": 230, "y": 320, "priority": 5.024, "minLevel": 4, "sourceVisualRegion": "verified-proximal-histidine" }
   ],
   "portals": [
     {
@@ -54,9 +83,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/hemoglobin-premium-v2.jpg",
     "reviewedAssetSha256": "205269cf39a7b57650cb8285bc42a68509349904eeb3b5419ca4b5487d5be266",
-    "rationale": "Re-anchored the evidence-based 22-word ceiling against the final molecular render: exactly two coral alpha and two teal beta subunits, four embedded hemes and bound oxygen pairs, plus one physically connected enlarged coordination pocket for the oxygen portal.",
-    "previousLabelCount": 48,
-    "retainedLabelCount": 22,
+    "rationale": "Re-audited the final molecular render across the four colored globin subunits, heme array, ribbon folds, central interfaces and enlarged coordination pocket; added only distinct visible structural parts while keeping affinity, disease, binding behavior and other invisible properties excluded.",
+    "previousLabelCount": 77,
+    "retainedLabelCount": 51,
     "removedLabelCount": 26,
     "removedExamples": ["affinity", "cooperativity", "saturation", "allostery", "anemia", "mutation"]
   },
@@ -67,7 +96,7 @@
       "translation": "红细胞环境",
       "description": "Translucent red-cell membrane and cytoplasm surrounding the full protein",
       "x": 0, "y": 0, "width": 1600, "height": 900, "targetScale": 2.1,
-      "labelIds": ["red-blood-cell", "cell-membrane", "cytoplasm", "hemoglobin"]
+      "labelIds": ["red-blood-cell", "cell-membrane", "cytoplasm", "hemoglobin", "red-cell-rim"]
     },
     {
       "id": "alpha-folds",
@@ -75,7 +104,20 @@
       "translation": "阿尔法亚基折叠",
       "description": "Coral alpha subunits and separately visible ribbon hierarchy",
       "x": 400, "y": 80, "width": 880, "height": 740, "targetScale": 2.7,
-      "labelIds": ["alpha-subunit", "globin-fold", "alpha-helix", "loop", "polypeptide-chain"]
+      "labelIds": [
+        "alpha-subunit",
+        "globin-fold",
+        "alpha-helix",
+        "loop",
+        "polypeptide-chain",
+        "helix-bundle",
+        "globin-core",
+        "ribbon-surface",
+        "surface-loop",
+        "ribbon-strand",
+        "chain-bend",
+        "globin-loop"
+      ]
     },
     {
       "id": "tetramer-core",
@@ -83,15 +125,69 @@
       "translation": "四聚体核心",
       "description": "Four-subunit assembly, teal beta subunits and central protein interface",
       "x": 350, "y": 80, "width": 900, "height": 730, "targetScale": 2.5,
-      "labelIds": ["tetramer", "beta-subunit", "subunit-interface", "central-cavity"]
+      "labelIds": [
+        "tetramer",
+        "beta-subunit",
+        "subunit-interface",
+        "central-cavity",
+        "alpha-beta-dimer",
+        "heme-array",
+        "globin-assembly",
+        "subunit-cleft",
+        "alpha-beta-interface",
+        "subunit-contact",
+        "protein-cleft"
+      ]
     },
     {
-      "id": "oxygen-binding-pocket",
-      "title": "Oxygen-binding pocket",
-      "translation": "氧结合口袋",
-      "description": "Enlarged connected heme pocket with oxygen, iron and histidine coordination",
-      "x": 0, "y": 0, "width": 430, "height": 430, "targetScale": 3.2,
-      "labelIds": ["heme-group", "porphyrin-ring", "iron-ion", "heme-pocket", "proximal-histidine", "distal-histidine", "oxygen-molecule", "oxygen-atom", "axial-coordination-bond"]
+      "id": "heme-architecture",
+      "title": "Heme architecture",
+      "translation": "血红素结构",
+      "description": "Enlarged dark-red heme plane, ring edge and central iron inside the oxygen pocket",
+      "x": 0, "y": 100, "width": 430, "height": 300, "targetScale": 3,
+      "labelIds": [
+        "heme-group",
+        "porphyrin-ring",
+        "iron-ion",
+        "heme-pocket",
+        "heme-center",
+        "heme-plane",
+        "heme-edge",
+        "porphyrin-edge",
+        "ring-nitrogen",
+        "porphyrin-nitrogen"
+      ]
+    },
+    {
+      "id": "oxygen-coordination",
+      "title": "Oxygen coordination",
+      "translation": "氧配位结构",
+      "description": "Bound oxygen spheres and the short axial coordination line above the heme iron",
+      "x": 100, "y": 20, "width": 280, "height": 200, "targetScale": 3,
+      "labelIds": [
+        "oxygen-molecule",
+        "oxygen-atom",
+        "axial-coordination-bond",
+        "oxygen-ligand",
+        "coordination-site",
+        "oxygen-sphere"
+      ]
+    },
+    {
+      "id": "histidine-pocket",
+      "title": "Histidine pocket",
+      "translation": "组氨酸口袋",
+      "description": "Visible proximal and distal histidine rings around the enlarged heme pocket",
+      "x": 130, "y": 80, "width": 270, "height": 350, "targetScale": 3.2,
+      "labelIds": [
+        "proximal-histidine",
+        "distal-histidine",
+        "distal-pocket",
+        "proximal-pocket",
+        "histidine-ring",
+        "imidazole-ring",
+        "histidine-side-chain"
+      ]
     }
   ],
   "visualRegions": [
