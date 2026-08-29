@@ -921,7 +921,7 @@ test("polymer scene exposes its expanded material structures through the machine
   }
 });
 
-test("science museum exposes additional exhibit parts without losing its child portals", async ({ page }) => {
+test("science museum exposes additional exhibit parts without losing its child portals", async ({ page }, testInfo) => {
   const app = await openWorld(page);
   for (const target of ["city-street", "science-museum"]) {
     await page.locator(
@@ -951,9 +951,15 @@ test("science museum exposes additional exhibit parts without losing its child p
     );
     await zone.click();
     await expect(zone).toHaveAttribute("data-active", "true");
-    await expect.poll(() => page.locator(
-      `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
-    ).count()).toBeGreaterThan(0);
+    if (testInfo.project.name === "mobile-chromium") {
+      await expect.poll(async () => Number(
+        await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
+      )).toBeGreaterThan(0);
+    } else {
+      await expect.poll(() => page.locator(
+        `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
+      ).count()).toBeGreaterThan(0);
+    }
   }
 
   await expect(page.locator(
