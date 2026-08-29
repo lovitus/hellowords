@@ -157,6 +157,12 @@ compounding bench. The follow-up pass adds 150 pathology anchors and 120
 pharmacy anchors, bringing them to 330 and 270 respectively. Generic medicine
 names remain educational labels only.
 
+The next breadth pass adds 180 more anchors without changing artwork or portal
+geometry: City street 149, Transit hub 103, Science museum 176, City park 144
+and Community garden 103. The additions stay inside the existing facade,
+mobility, rail, fossil, pond and greenhouse crops, so the larger word sets are
+available through the same minimap zones and five LOD bands.
+
 ### City park
 
 Create a bright naturalistic city park in soft midday light. Place a monumental, fully readable oak at right and a complete pond edge with bridge at lower left, separated by a central pale path; add a fountain, gazebo, playground, benches and independently visible park details without staging people or inferred activities. Keep shade natural but lifted enough to preserve bark, roots, shoreline and water texture.

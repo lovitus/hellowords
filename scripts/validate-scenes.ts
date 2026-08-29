@@ -157,7 +157,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // wildlife inference; the ceiling blocks ornamental padding.
   // The final park raster also resolves bridge arches, pond waterlines, plant
   // veins, bark grooves, root forks and small fixture parts for 114 anchors.
-  "city-park": 114,
+  "city-park": 144,
+  "city-street": 149,
   "urban-services": 120,
   hospital: 320,
   "pathology-lab": 330,
@@ -168,7 +169,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   // The final pixel pass also retains separately visible fossil, telescope,
   // microscope, robot, optics and anatomy subparts for a 146-anchor set.
-  "science-museum": 146,
+  "science-museum": 176,
   // The final kitchen raster resolves appliance, sink, coffee-nook and island
   // parts; the ceiling blocks cooking processes and hidden appliance claims.
   kitchen: 116,
@@ -185,7 +186,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   bedroom: 104,
   // The terminal photograph resolves separate rail, bus, access, ticketing and
   // mobility fixtures; the ceiling blocks blank display readings and services.
-  "transit-hub": 73,
+  "transit-hub": 103,
   // The bright cafe resolves seating, tableware, pastry-display and espresso
   // equipment parts; the ceiling blocks people, branding and inferred service.
   "city-cafe": 70,
@@ -247,7 +248,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright garden resolves greenhouse fittings, raised-bed crops, tools,
   // compost, rain collection and a flowering border; the ceiling blocks
   // gardening activities and inferred ecological processes.
-  "community-garden": 73,
+  "community-garden": 103,
   // The greenhouse raster resolves shell hardware, benches, propagation trays,
   // soil, aisle equipment and the complete tomato portal; the ceiling blocks
   // invisible growing processes and climate claims.

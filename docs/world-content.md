@@ -41,7 +41,7 @@ The graph contains 43 reachable scenes and 42 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 5,486 human-verified anchors representing 4,683
+Spatial scenes now contain 5,666 human-verified anchors representing 4,830
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -106,7 +106,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Scene | Before → retained | Main removal reason |
 |---|---:|---|
 | World atlas | 1,296 audited source anchors → 1,275 unique labels | Six independently pixel-reviewed panels compile across 66 zones; cross-panel duplicate words are reconciled while four disjoint entrances remain intact |
-| Community garden | 81 → 73 | Bright greenhouse, beds, tools, irrigation, compost and flowers retain visible structural parts; inferred activities and sustainability claims remain removed |
+| Community garden | 111 → 103 | Bright greenhouse, beds, tools, irrigation, compost and flowers retain visible structural parts; the added glazing, crop and hardware terms stay inside the reviewed crops |
 | Greenhouse interior | 78 → 71 | Sunlit glasshouse grounds shell hardware, benches, seedlings, crops, floor equipment and a complete tomato portal; climate and growth processes remain removed |
 | Tomato plant | 76 → 69 | Complete supported plant grounds stem, compound-leaf, flower, fruit, support, substrate and visible pest details; physiology and underground processes remain removed |
 | Potting workbench | 83 → 74 | Complete daylight bench grounds tool edges, containers, seedlings, soil and watering fittings; actions, properties and printed-label readings remain removed |
@@ -119,7 +119,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Bathroom | 106 → 103 | Daylight bathroom grounds bath, vanity, toilet, shower, plumbing, glass hardware, tile and linen details; invisible conditions remain removed |
 | Wardrobe interior | 72 → 60 | Premium wardrobe grounds cabinet frame, hanger and garment parts, accessory details and nearby daylight-corner objects; the final audit adds a window sill, door panel, jacket cuff and trouser leg while materials, stitching claims and actions remain removed |
 | Cotton shirt | 63 → 55 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools, plus visible yoke, buttonhole, seam and tool parts; machinery, factory actions and performance properties remain removed |
-| City street | 94 → 89 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects |
+| City street | 154 → 149 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects; added facade, roadway and mobility parts stay in existing regions |
 | Urban services | 128 → 120 | Aerial masterplan visibly separates hospital, airport and office campuses plus shared roads, water and planting connectors |
 | Hospital | 330 → 320 | Bright atrium grounds departments, emergency, pathology, radiology, pharmacy, operating-theatre fixtures and a generic disease reference band; added clinical terms remain non-prescriptive |
 | Pathology lab | 340 → 330 | Close laboratory raster grounds microscopes, specimen handling, paraffin embedding, microtomy, staining, cold storage and a larger histology/diagnostic display vocabulary |
@@ -134,14 +134,14 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Railway platform | 112 → 96 | Premium station view grounds passenger fixtures, train hardware, overhead electrification and track subparts; signage and service states remain removed |
 | Train carriage | 78 → 70 | Premium carriage cutaway grounds the cabin, doors, accessibility fixtures, roof, suspension and foreground track hardware plus the real bogie portal; six added coupler, brake, glazing and interior-panel parts remain grounded while passengers and unsupported amenities stay removed |
 | Rail bogie | 73 → 65 | Premium powered-bogie study grounds frame, wheelsets, suspension, motor drive, disc brakes, linkages and track hardware; the final audit adds welds, ribs, caps, shafts, hub/rim details, suspension seats, linkage pins and track fasteners while maintenance actions, failure states and invisible load concepts remain removed |
-| Science museum | 153 → 146 | Premium gallery resolves specific fossil, instrument, robotic, physics and life-science parts plus newly audited bone, telescope, microscope, robot, optics and anatomy subparts while rejecting roles, venues and signage |
+| Science museum | 183 → 176 | Premium gallery resolves specific fossil, instrument, robotic, physics and life-science parts plus newly audited bone, fossil and mount subparts while rejecting roles, venues and signage |
 | Dinosaur hall | 77 → 69 | Sunlit paleontology gallery grounds mounted bones, distinct fossils, preparation tools and rock structure; the final audit adds skull, jaw, vertebra, limb, horn, fossil and tool parts while behavior, era, weak rock features and museum activities remain removed |
 | Human body | 66 → 60 | Bright three-model anatomy exhibit grounds the mannequin's body regions and distal parts, the skeleton's jaw, long bones and hand/foot groups, and distinct chest, arm, abdominal and calf muscles; unseen systems and structures remain removed |
 | Heart | 81 → 61 | Bright cutaway grounds chambers, valves, walls, great and coronary vessels plus an artery cross-section; the final audit adds visible cusps, chamber walls, vessel rims, ventricular ridges, coronary branches and red-cell surface parts while invisible physiology and conduction remain removed |
 | Blood cell | 81 → 61 | Bright capillary cutaway grounds vessel layers, red-cell membrane and skeleton, one neutrophil, platelets and the real Hemoglobin portal; the final audit adds endothelial boundaries, red-cell surface, membrane/cytoskeletal, neutrophil-granule and platelet-projection parts while unsupported immune processes remain removed |
 | Hemoglobin | 77 → 51 | Premium molecular view grounds the alpha/beta globin assembly, four-heme array, ribbon folds, central interfaces and the enlarged oxygen-coordination pocket; diseases, affinity and invisible binding behavior remain removed |
 | Oxygen molecule | 82 → 60 | Premium gas-exchange cutaway grounds the airway, alveolar pores and lining, air-blood barrier, capillary wall, red-cell surface and paired gas models; quantum decoration, cell-subtype guesses and invisible physiology remain removed |
-| City park | 135 → 114 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities; the final audit adds bridge arches, shoreline waterlines, lily/reed parts, gazebo structure, playground hardware, bench/path pieces and fine oak/flower details |
+| City park | 165 → 144 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities; the final audit adds bridge arches, shoreline waterlines, lily/reed parts and fine pond surface details |
 | Oak tree | 81 → 68 | Bright neutral-daylight woodland close-up grounds wildlife, fungi and texture; the final audit adds bark, web, nest, leaf, acorn, root, moss, fern, flower and grass parts while invisible processes and growth rings stay removed |
 | Leaf | 54 → 49 | Natural-colour macro retains independently visible twig, bud, acorn-cup, bark, insect and spider parts while rejecting duplicate vein terms and unsupported underside/curl details |
 | Plant cell | 75 → 60 | Premium 3D cutaway resolves organelles, membrane layers, chloroplast discs, cytoplasmic strands and vesicle interiors; the final audit adds rough-ER sheets, Golgi stacks, vacuole edges, thylakoid membranes, granum edges, mitochondrial folds and wall junctions, with a dedicated thylakoid-stack focus zone while unseen molecules and processes stay removed |

@@ -226,15 +226,15 @@ test("known floating-label regressions stay removed and critical portals match v
 
   const cityPark = byId.get("city-park");
   assert.ok(cityPark);
-  assert.equal(cityPark.labels.length, 114, "city park keeps its expanded final-pixel vocabulary");
+  assert.equal(cityPark.labels.length, 144, "city park keeps its expanded final-pixel vocabulary");
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => cityPark.labels.filter((label) => label.minLevel === level).length),
-    [13, 22, 39, 26, 14],
+    [19, 28, 45, 32, 20],
   );
   assert.deepEqual(
     cityPark.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["pond-habitat-detail", 29],
+      ["pond-habitat-detail", 59],
       ["oak-tree-detail", 24],
       ["playground-detail", 13],
       ["picnic-detail", 5],
@@ -785,12 +785,12 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
   const { scenes } = await loadWorld();
   const hub = scenes.find((scene) => scene.id === "transit-hub");
   assert.ok(hub);
-  assert.equal(hub.labels.length, 73);
+  assert.equal(hub.labels.length, 103);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       hub.labels.filter((label) => label.minLevel === level).length
     )),
-    [9, 9, 12, 20, 23],
+    [15, 15, 18, 26, 29],
   );
   const words = new Set(hub.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -825,7 +825,7 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
   assert.deepEqual(
     hub.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["railway-zone", 18],
+      ["railway-zone", 48],
       ["central-concourse", 36],
       ["electric-bus-zone", 11],
       ["foreground-mobility", 8],
@@ -2133,7 +2133,7 @@ test("dinosaur hall is a grounded terminal branch with a separate museum portal"
 
   const museum = byId.get("science-museum");
   assert.ok(museum);
-  assert.equal(museum.labels.length, 146, "science museum keeps its expanded final-pixel vocabulary");
+  assert.equal(museum.labels.length, 176, "science museum keeps its expanded final-pixel vocabulary");
   const museumWords = new Set(museum.labels.map((label) => label.word));
   for (const term of [
     "dinosaur tail",
@@ -2555,18 +2555,18 @@ test("community garden adds one disjoint root portal and two grounded local bran
   assert.ok(garden);
   assert.equal(garden.parentId, "world-map");
   assert.equal(garden.asset, "/scenes/community-garden-premium-v1.jpg");
-  assert.equal(garden.labels.length, 73);
+  assert.equal(garden.labels.length, 103);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       garden.labels.filter((label) => label.minLevel === level).length
     )),
-    [10, 10, 15, 24, 14],
+    [16, 16, 21, 30, 20],
   );
   assert.deepEqual(
     garden.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
       ["garden-overview", 6],
-      ["greenhouse-zone", 13],
+      ["greenhouse-zone", 43],
       ["raised-bed-zone", 12],
       ["potting-zone", 13],
       ["water-zone", 11],

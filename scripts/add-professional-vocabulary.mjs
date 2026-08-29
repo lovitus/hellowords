@@ -740,6 +740,199 @@ const groups = [
     duct elbow=风管弯头
     pipe flange=管道法兰
   `),
+
+  group("city-street", "museum-columns", "museum-facade", `
+    portico=门廊
+    entablature=柱顶盘
+    frieze=檐壁
+    cornice=檐口
+    pilaster=壁柱
+    door transom=门上亮窗
+    stone lintel=石门楣
+    stair tread=楼梯踏步
+    entry handrail=入口扶手
+    door jamb=门框侧柱
+    threshold strip=门槛条
+    column base=柱基
+    capital volute=柱头涡卷
+    column fluting=柱身凹槽
+    facade block=立面石块
+    window mullion=窗竖梃
+    museum sill=博物馆窗台
+    display pedestal=展品基座
+    exhibit plinth=展台底座
+    mineral facet=矿物切面
+    rock specimen=岩石标本
+    entry mat=入口地垫
+    brass rail=黄铜栏杆
+    facade joint=立面接缝
+    stone step=石台阶
+    door hinge=门铰链
+    door glazing=门玻璃
+    case frame=展柜框
+    exhibit mount=展品支架
+    ceiling beam=天花梁
+  `),
+  group("city-street", "street-intersection", "street-mobility", `
+    lane divider=车道分隔线
+    asphalt seam=沥青接缝
+    curb edge=路缘边
+    tactile tile=盲道砖
+    sidewalk grate=人行道格栅
+    hydrant chain=消防栓链
+    bollard ring=护柱环
+    bike pedal=自行车脚踏
+    bike saddle=自行车座
+    bike basket=自行车篮
+    car mirror=汽车后视镜
+    car hood=汽车引擎盖
+    signal housing=信号灯壳
+    signal pole=信号灯杆
+    lamp bracket=路灯支架
+    lamp base=路灯底座
+    sidewalk slab=人行道板
+    curb joint=路缘接缝
+    ramp edge=坡道边
+    road stud=道路道钉
+    planter bowl=花盆
+    bench armrest=长椅扶手
+    tree grate=树池格栅
+    crosswalk end=斑马线端
+    street drain=街道排水口
+    curb stone face=缘石立面
+    sidewalk joint=人行道接缝
+    bicycle chain=自行车链条
+    wheel rim=车轮轮缘
+    road seam=道路接缝
+  `),
+  group("transit-hub", "verified-platform", "railway-zone", `
+    rail head=钢轨顶面
+    rail web=钢轨腹板
+    rail foot=钢轨底座
+    sleeper pad=轨枕垫
+    ballast stone=道砟
+    platform tile=站台砖
+    tactile strip=盲道带
+    rail joint=钢轨接头
+    fishplate=鱼尾板
+    track bolt=轨道螺栓
+    rail clip=钢轨夹
+    fastener plate=扣件底板
+    sleeper end=轨枕端面
+    ballast pocket=道砟凹槽
+    platform drain=站台排水口
+    edge coping=边缘压顶
+    platform cap=站台压条
+    platform fascia=站台立面
+    tactile edge=盲道边
+    platform bracket=站台支架
+    platform post=站台立柱
+    bench bolt=长椅螺栓
+    bin lid=垃圾桶盖
+    floor expansion joint=地面伸缩缝
+    tile grout=地砖填缝
+    drain channel=排水槽
+    platform marker=站台标记
+    rail shadow=钢轨阴影
+    sleeper corner=轨枕角
+    ballast edge=道砟边
+  `),
+  group("science-museum", "dinosaur-skeleton", "dinosaur-gallery", `
+    osteoderm=骨甲
+    vertebra facet=椎骨关节面
+    rib shaft=肋骨骨干
+    tail joint=尾椎关节
+    claw sheath=爪鞘
+    horn ridge=角脊
+    jaw socket=颌骨关节窝
+    tooth root=牙根
+    bone fragment=骨片
+    fossil matrix=化石基质
+    specimen mount=标本支架
+    fossil stand=化石底座
+    museum rail=展区栏杆
+    case hinge=展柜铰链
+    case latch=展柜卡扣
+    bone bracket=骨骼托架
+    skeleton foot=骨架足部
+    pelvis joint=骨盆关节
+    ankle bone=踝骨
+    toe claw=趾爪
+    fossil texture=化石纹理
+    mineral vein=矿物纹理
+    display riser=展台升台
+    plinth edge=底座边缘
+    support rod=支撑杆
+    rib joint=肋骨连接
+    skull opening=头骨孔
+    jaw ridge=颌骨脊
+    tooth enamel=牙釉质
+    bone shadow=骨骼阴影
+  `),
+  group("city-park", "verified-pond", "pond-habitat-detail", `
+    shoreline pebble=岸边卵石
+    waterline ripple=水线波纹
+    reed node=芦苇节
+    reed sheath=芦苇鞘
+    lily pad notch=睡莲叶缺口
+    lily pad stem=睡莲叶柄
+    water lily stamen=睡莲雄蕊
+    pond pebble=池塘卵石
+    duck beak=鸭嘴
+    duck eye=鸭眼
+    duck feather=鸭羽
+    water shadow=水面倒影
+    ripple crest=波纹脊
+    bank pebble=岸坡石
+    shore mud=岸泥
+    water edge=水边
+    bridge rail joint=桥栏接缝
+    bridge post cap=桥柱帽
+    bridge deck grain=桥面木纹
+    stone arch=石拱
+    path paver=小路铺石
+    lily leaf vein=睡莲叶脉
+    reed blade tip=芦苇叶尖
+    duck tail=鸭尾
+    duck neck=鸭颈
+    water reflection=水面反光
+    pond surface=池塘水面
+    shoreline curve=岸线弧面
+    rock lichen=石面地衣
+    aquatic leaf=水生叶片
+  `),
+  group("community-garden", "greenhouse-bay", "greenhouse-zone", `
+    glazing bar=玻璃压条
+    roof ridge=屋脊
+    roof pane=屋顶玻璃片
+    door latch=门闩
+    door hinge=门铰链
+    downpipe elbow=落水管弯头
+    gutter bracket=檐沟支架
+    bench tray=工作台托盘
+    seed plug=育苗块
+    seedling cell=育苗格
+    tomato truss=番茄果穗
+    tomato calyx=番茄萼片
+    tomato leaf vein=番茄叶脉
+    bean tendril=豆蔓卷须
+    kale rib=羽衣甘蓝叶脉
+    carrot crown=胡萝卜冠部
+    soil crumb=土壤颗粒
+    bed corner=种植床角
+    timber joint=木材接缝
+    trellis knot=棚架结点
+    pot saucer=花盆托盘
+    bench leg=工作台桌腿
+    glazing seal=玻璃密封条
+    frame corner=框架角
+    vent handle=通风窗把手
+    roof bolt=屋顶螺栓
+    shelf lip=货架边
+    tray rim=托盘边缘
+    plant stake=植物支杆
+    vine tie=藤蔓绑带
+  `),
 ];
 
 const realmByScene = {
@@ -748,6 +941,11 @@ const realmByScene = {
   "hospital-pharmacy": "body-daily-life",
   airport: "objects-technology",
   "office-building": "people-society",
+  "city-street": "objects-technology",
+  "transit-hub": "objects-technology",
+  "science-museum": "objects-technology",
+  "city-park": "nature-life",
+  "community-garden": "nature-life",
 };
 
 function slugify(word) {
