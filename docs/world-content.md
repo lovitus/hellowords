@@ -1,6 +1,6 @@
 # HelloWords world content
 
-The world is a deterministic, zoomable tree. Forty destination scenes use
+The world is a deterministic, zoomable tree. Forty-two destination scenes use
 the standard 1600 × 900 coordinate system. The world atlas is the large-canvas
 exception, with a 2604 × 989 logical base and a 5208 × 1978 high tier. Scene-local
 coordinates keep portals, camera movement and vocabulary anchors predictable
@@ -21,6 +21,8 @@ World atlas
 │   │   ├── Railway platform → Train carriage → Rail bogie
 │   │   └── Urban services
 │   │       ├── Hospital
+│   │       │   ├── Pathology lab
+│   │       │   └── Hospital pharmacy
 │   │       ├── Airport
 │   │       └── Office building
 │   └── Science museum
@@ -35,11 +37,11 @@ World atlas
     └── Potting workbench
 ```
 
-The graph contains 41 reachable scenes and 40 parent-to-child portals. Four disjoint atlas entrances establish Home, City, Nature and Community garden, and every branch now contains at least four scenes. Nine root-to-leaf paths contain at least five scenes; the longest contains eight. The City transit branch now opens an Urban services overview before splitting into Hospital, Airport and Office building, so the requested department, airside and workplace vocabulary has a real illustrated home.
+The graph contains 43 reachable scenes and 42 parent-to-child portals. Four disjoint atlas entrances establish Home, City, Nature and Community garden, and every branch now contains at least four scenes. Ten root-to-leaf paths contain at least five scenes; the longest contains eight. The City transit branch now opens an Urban services overview before splitting into Hospital, Airport and Office building; Hospital then opens focused Pathology lab and Hospital pharmacy scenes.
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 4,496 human-verified anchors representing 3,859
+Spatial scenes now contain 4,826 human-verified anchors representing 4,119
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -53,7 +55,7 @@ Every scene JSON contains:
 - `detailZones`, grouping truthful local crops into independently focusable word batches with a target scale;
 - `sourceVisualRegion` on every label and portal.
 
-The 40 destination raster scenes contribute 296 authored detail zones across
+The 42 destination raster scenes contribute 307 authored detail zones across
 the complete spatial world. The world atlas alone contains 1,275 unique labels
 compiled from 1,296 independently audited source-panel anchors across 66 zones.
 The compiler reconciles cross-panel word duplication deterministically while
@@ -120,6 +122,8 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | City street | 94 → 89 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects |
 | Urban services | 128 → 120 | Aerial masterplan visibly separates hospital, airport and office campuses plus shared roads, water and planting connectors |
 | Hospital | 180 → 170 | Bright atrium grounds emergency, pathology, radiology, pharmacy and operating-theatre fixtures; clinical reference terms are kept generic and non-prescriptive |
+| Pathology lab | 190 → 180 | Close laboratory raster grounds microscopes, specimen handling, paraffin embedding, microtomy, staining and cold storage; diagnostic displays stay generic |
+| Hospital pharmacy | 160 → 150 | Close dispensary raster grounds medicine shelves, generic INN names, dispensing tools, automated cabinet, rolling cart and compounding bench without dosage advice |
 | Airport | 160 → 150 | Terminal photograph grounds check-in, security, gate, baggage claim and airside aircraft, apron, taxiway, runway and tower structures |
 | Office building | 160 → 150 | Warm atrium grounds reception, open-plan workstations, conference room, pantry and service-core hardware including elevator, stairs, servers, HVAC and fire panel |
 | City cafe | 77 → 70 | New daylight cafe grounds door, seating, counter, pastry-display and espresso subparts; people, branding and inferred service stay excluded |
@@ -167,11 +171,13 @@ disjoint and legible without words, logos, anatomy displays or pseudo-signage.
 The transit hub now opens an `Urban services` masterplan. Its reviewed overview
 separates a hospital campus, airport terminal/runway and office tower, with
 hospital, airport and office rasters used for the dense follow-up scenes. The
-hospital batch includes departments, pathology and generic disease/medicine
-terms; medication names use WHO International Nonproprietary Names (INN), and
-the disease set is a learning vocabulary rather than medical advice.
+hospital branch then opens dedicated Pathology lab and Hospital pharmacy
+rasters. The hospital batch includes departments, pathology and generic
+disease/medicine terms; medication names use WHO International Nonproprietary
+Names (INN), and the disease set is a learning vocabulary rather than medical
+advice.
 
-The world now contains 40 premium destination scenes with independently reviewed
+The world now contains 42 premium destination scenes with independently reviewed
 1600 × 900 base rasters plus the large-canvas atlas, including the independently
 illustrated Community garden, Greenhouse, Tomato plant and Potting workbench
 branch and upgraded Home, transit, material, natural-history and life-science
@@ -183,7 +189,7 @@ path into one continuous high-detail journey. The exact production briefs and
 asset digests are recorded in `docs/premium-scene-art.md`.
 
 Every authored spatial scene slice uses its own external visual asset. No runtime
-spatial scene depends on an SVG cutaway: 40 destinations use individually audited
+spatial scene depends on an SVG cutaway: 42 destinations use individually audited
 1600 × 900 raster artwork, while the root uses its six-panel large canvas. No
 image is reused to pretend that two spatial depths are different scenes. The
 separate 10,000-word semantic field reuses each selected realm's reviewed image

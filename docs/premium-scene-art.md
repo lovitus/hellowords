@@ -1,6 +1,6 @@
 # Premium scene art briefs
 
-Forty destination scenes use reviewed 1600 × 900 JPEG base rasters created
+Forty-two destination scenes use reviewed 1600 × 900 JPEG base rasters created
 with the built-in image generation workflow, inspected at final project
 resolution, and then anchored from the actual published pixels. The world atlas
 is the large-canvas exception: its reviewed 2604 × 989 base and 5208 × 1978 high
@@ -30,6 +30,8 @@ transport, gardening, natural habitats, materials and microscopic studies.
 | Transit hub | `transit-hub-premium-v2.jpg` | `0404f4a4fcfef1cba37b54231530085b708e498b1e21dd94e5585477f68652f9` |
 | Urban services | `urban-services-overview-premium-v1.jpg` | `0cc4d2fc02d402b2f5b215711e72d7d93635e889064891bf42477d42e063a19d` |
 | Hospital | `hospital-atrium-premium-v1.jpg` | `027bfd9596fe551b513c8cd68ebe487553c1d75f21609c7519b88296460116a8` |
+| Pathology lab | `pathology-lab-premium-v1.jpg` | `1b841750b386bf6d6072971c04a44f15bfcd863413fe0fca8066995bd26a6d7b` |
+| Hospital pharmacy | `hospital-pharmacy-premium-v1.jpg` | `6bb0f995f40e5c980e1a191168eff6d25647b24f58289c5845ead2277eb651b3` |
 | Airport | `airport-terminal-premium-v1.jpg` | `428e5f9dbcca0f19e8fcedc540a9715362bc55b9b2e51e31d39a4659133f31e1` |
 | Office building | `office-atrium-premium-v1.jpg` | `9403fc42abf40af87d59f9a12401e5dcff76256fc13870a7780e79ae8e3a7cdf` |
 | Electric bus | `electric-bus-premium-v2.jpg` | `71fd16eaad65c46a9aa9ea0c85cb87b788337e44c57b76f0365449dda38a9a63` |
@@ -140,10 +142,16 @@ the Office raster is a warm atrium with reception, open-plan workstations,
 conference room, pantry and a service core with elevator, stairs, servers, HVAC
 and fire panel. All four assets contain no readable text, logos or watermarks.
 
-The v108 content pass adds 616 anchors: Urban services 120, Hospital 170,
+The v110 content pass adds 616 anchors: Urban services 120, Hospital 170,
 Airport 150 and Office building 150. Hospital disease terms stay generic and
 educational; medicine labels use WHO International Nonproprietary Names rather
 than brands or dosage instructions.
+
+The next hospital-depth pass adds two independently illustrated scenes and 330
+more anchors: Pathology lab 180 across microscopes, specimen handling, paraffin
+embedding, microtomy, staining and cold storage; Hospital pharmacy 150 across
+medicine shelves, dispensing, automated storage, a rolling cart and a
+compounding bench. Generic medicine names remain educational labels only.
 
 ### City park
 

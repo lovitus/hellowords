@@ -1879,7 +1879,32 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": [],
+  "portals": [
+    {
+      "id": "enter-pathology-lab",
+      "label": "Enter the pathology lab",
+      "translation": "进入病理实验室",
+      "childSceneId": "pathology-lab",
+      "x": 385,
+      "y": 300,
+      "width": 290,
+      "height": 250,
+      "enterScale": 3.4,
+      "sourceVisualRegion": "pathology-laboratory"
+    },
+    {
+      "id": "enter-hospital-pharmacy",
+      "label": "Enter the hospital pharmacy",
+      "translation": "进入医院药房",
+      "childSceneId": "hospital-pharmacy",
+      "x": 1060,
+      "y": 275,
+      "width": 300,
+      "height": 300,
+      "enterScale": 3.4,
+      "sourceVisualRegion": "pharmacy-dispensary"
+    }
+  ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",

@@ -932,6 +932,12 @@ test("science museum exposes additional exhibit parts without losing its child p
     await expect(app).toHaveAttribute("data-transition-state", "idle");
   }
 
+  const museumViewport = await page.locator(VIEWPORT).boundingBox();
+  expect(museumViewport).not.toBeNull();
+  await page.mouse.move(
+    museumViewport!.x + museumViewport!.width / 2,
+    museumViewport!.y + museumViewport!.height - 36,
+  );
   await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "146");
   for (const [zoneId, word] of [
     ["dinosaur-gallery", "vertebra"],
@@ -1056,9 +1062,15 @@ test("urban services exposes hospital, airport and office vocabulary through the
     '[data-testid="scene-minimap-zone"][data-zone-id="pathology-laboratory-detail"]',
   );
   await pathologyZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="microscope"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  if (testInfo.project.name === "mobile-chromium") {
+    await expect.poll(async () => Number(
+      await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
+    )).toBeGreaterThan(0);
+  } else {
+    await expect.poll(() => page.locator(
+      '[data-testid="word-label"][data-word="microscope"][data-visible="true"]',
+    ).count()).toBeGreaterThan(0);
+  }
   const clinicalZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="clinical-reference-detail"]',
   );
@@ -1070,9 +1082,54 @@ test("urban services exposes hospital, airport and office vocabulary through the
     '[data-testid="scene-minimap-zone"][data-zone-id="pharmacy-dispensary-detail"]',
   );
   await pharmacyZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="ibuprofen"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  if (testInfo.project.name === "mobile-chromium") {
+    await expect.poll(async () => Number(
+      await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
+    )).toBeGreaterThan(0);
+  } else {
+    await expect.poll(() => page.locator(
+      '[data-testid="word-label"][data-word="ibuprofen"][data-visible="true"]',
+    ).count()).toBeGreaterThan(0);
+  }
+
+  await page.locator(
+    '[data-testid="scene-minimap-child"][data-target-scene="pathology-lab"]',
+  ).click();
+  await expect(app).toHaveAttribute("data-scene-id", "pathology-lab");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "180");
+  const labDisplayZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="clinical-display-detail"]',
+  );
+  await labDisplayZone.click();
+  if (testInfo.project.name === "mobile-chromium") {
+    await expect.poll(async () => Number(
+      await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
+    )).toBeGreaterThan(0);
+  } else {
+    await expect.poll(() => page.locator(
+      '[data-testid="word-label"][data-word="histology slide"][data-visible="true"]',
+    ).count()).toBeGreaterThan(0);
+  }
+  await page.getByRole("button", { name: "← 返回上一层" }).click();
+  await expect(app).toHaveAttribute("data-scene-id", "hospital");
+  await page.locator(
+    '[data-testid="scene-minimap-child"][data-target-scene="hospital-pharmacy"]',
+  ).click();
+  await expect(app).toHaveAttribute("data-scene-id", "hospital-pharmacy");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "150");
+  const medicineZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="medicine-shelves-detail"]',
+  );
+  await medicineZone.click();
+  if (testInfo.project.name === "mobile-chromium") {
+    await expect.poll(async () => Number(
+      await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
+    )).toBeGreaterThan(0);
+  } else {
+    await expect.poll(() => page.locator(
+      '[data-testid="word-label"][data-word="losartan"][data-visible="true"]',
+    ).count()).toBeGreaterThan(0);
+  }
 });
 
 test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {

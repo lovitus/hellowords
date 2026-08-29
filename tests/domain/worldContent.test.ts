@@ -83,7 +83,7 @@ async function loadWorld(): Promise<{ manifest: Manifest; scenes: AuditedScene[]
   return { manifest, scenes };
 }
 
-test("mature world has four subject branches and six deep, fully reachable paths", async () => {
+test("mature world has four subject branches and ten deep, fully reachable paths", async () => {
   const { manifest, scenes } = await loadWorld();
   const byId = new Map(scenes.map((scene) => [scene.id, scene]));
   const root = byId.get(manifest.rootSceneId);
@@ -117,6 +117,8 @@ test("mature world has four subject branches and six deep, fully reachable paths
     ["world-map", "city-street", "science-museum", "human-body", "heart", "blood-cell", "hemoglobin", "oxygen-molecule"],
     ["world-map", "city-park", "oak-tree", "leaf", "plant-cell", "chloroplast-interior"],
     ["world-map", "community-garden", "greenhouse-interior", "tomato-plant"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "pathology-lab"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy"],
   ];
   for (const path of expectedPaths) {
     for (let index = 0; index < path.length - 1; index += 1) {
@@ -2986,19 +2988,25 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     urban.portals.map(({ childSceneId }) => childSceneId),
     ["hospital", "airport", "office-building"],
   );
-  for (const [sceneId, count, zones, required] of [
-    ["hospital", 170, 6, ["emergency department", "pathology laboratory", "mri scanner", "pharmacy", "cancer", "paracetamol"]],
-    ["airport", 150, 5, ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower"]],
-    ["office-building", 150, 5, ["reception", "open plan office", "conference room", "server room", "hvac duct", "fire panel"]],
+  for (const [sceneId, count, zones, parent, required] of [
+    ["hospital", 170, 6, "urban-services", ["emergency department", "pathology laboratory", "mri scanner", "pharmacy", "cancer", "paracetamol"]],
+    ["pathology-lab", 180, 6, "hospital", ["histopathology", "microscope", "tissue cassette", "microtome", "staining tray", "cold cabinet"]],
+    ["hospital-pharmacy", 150, 5, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "doxycycline"]],
+    ["airport", 150, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower"]],
+    ["office-building", 150, 5, "urban-services", ["reception", "open plan office", "conference room", "server room", "hvac duct", "fire panel"]],
   ] as const) {
     const scene = byId.get(sceneId);
     assert.ok(scene);
-    assert.equal(scene.parentId, "urban-services");
+    assert.equal(scene.parentId, parent);
     assert.equal(scene.labels.length, count);
     assert.equal(scene.detailZones?.length, zones);
     const words = new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase()));
     for (const term of required) assert.ok(words.has(term), `${sceneId} visibly grounds ${term}`);
   }
+  assert.deepEqual(
+    byId.get("hospital")?.portals.map(({ childSceneId }) => childSceneId),
+    ["pathology-lab", "hospital-pharmacy"],
+  );
   const transit = byId.get("transit-hub");
   assert.ok(transit?.portals.some(({ childSceneId }) => childSceneId === "urban-services"));
 });

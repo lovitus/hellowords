@@ -68,6 +68,16 @@
       "parentId": "urban-services"
     },
     {
+      "id": "pathology-lab",
+      "title": "Pathology lab",
+      "parentId": "hospital"
+    },
+    {
+      "id": "hospital-pharmacy",
+      "title": "Hospital pharmacy",
+      "parentId": "hospital"
+    },
+    {
       "id": "airport",
       "title": "Airport",
       "parentId": "urban-services"

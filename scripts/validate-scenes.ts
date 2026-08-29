@@ -104,6 +104,12 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // pharmacy and operating-theatre areas; its floor keeps disease and INN terms
   // in the clinical-reference band without turning them into treatment advice.
   hospital: 100,
+  // The dedicated pathology lab keeps microscope, specimen, embedding, staining
+  // and cold-storage terms in one focused educational bench.
+  "pathology-lab": 100,
+  // The pharmacy close-up keeps storage, dispensing, compounding and generic
+  // medicine terms on visible shelves, counters and equipment.
+  "hospital-pharmacy": 100,
   // The terminal raster resolves passenger processing, security, gate, baggage
   // claim and airside structures with a bounded, independently pointable set.
   airport: 100,
@@ -154,6 +160,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "city-park": 114,
   "urban-services": 120,
   hospital: 170,
+  "pathology-lab": 180,
+  "hospital-pharmacy": 150,
   airport: 150,
   "office-building": 150,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
