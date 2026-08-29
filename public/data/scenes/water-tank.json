@@ -72,7 +72,7 @@
     { "id": "filter-mesh", "word": "filter mesh", "translation": "滤网网孔", "x": 350, "y": 790, "priority": 5.037, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
     { "id": "outlet-collar", "word": "outlet collar", "translation": "出水口套环", "x": 470, "y": 700, "priority": 5.038, "minLevel": 4, "sourceVisualRegion": "outlet-assembly" },
     { "id": "lid-channel", "word": "lid channel", "translation": "盖子密封槽", "x": 850, "y": 120, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "verified-lid-channel" },
-    { "id": "base-bracket", "word": "base bracket", "translation": "底座支架", "x": 900, "y": 795, "priority": 5.030, "minLevel": 4, "sourceVisualRegion": "verified-base-bracket" }
+    { "id": "base-bracket", "word": "base bracket", "translation": "底座支架", "x": 900, "y": 795, "priority": 1.01, "minLevel": 4, "sourceVisualRegion": "verified-base-bracket" }
   ],
   "portals": [
     {
