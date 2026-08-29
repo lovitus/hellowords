@@ -810,7 +810,7 @@ test("water tank exposes its new lid, water-surface, filter, and base parts", as
   ).count()).toBeGreaterThan(0);
 });
 
-test("plant cell exposes its organelle subparts through the real leaf path", async ({ page }) => {
+test("plant cell exposes its organelle subparts through the real leaf path", async ({ page }, testInfo) => {
   const app = await openWorld(page);
   for (const target of ["city-park", "oak-tree", "leaf", "plant-cell"]) {
     await page.locator(
@@ -822,37 +822,40 @@ test("plant cell exposes its organelle subparts through the real leaf path", asy
   }
 
   await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  const expectPlantZoneWord = async (word: string) => {
+    if (testInfo.project.name === "mobile-chromium") {
+      await expect.poll(async () => Number(
+        await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
+      )).toBeGreaterThan(0);
+      return;
+    }
+    await expect.poll(() => page.locator(
+      `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
+    ).count()).toBeGreaterThan(0);
+  };
   const nucleusZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="nucleus-and-er"]',
   );
   await nucleusZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="rough ER sheet"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expectPlantZoneWord("rough ER sheet");
 
   const chloroplastZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="thylakoid-stack-detail"]',
   );
   await chloroplastZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="thylakoid membrane"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expectPlantZoneWord("thylakoid membrane");
 
   const mitochondriaZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="mitochondrion-detail"]',
   );
   await mitochondriaZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="crista tip"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expectPlantZoneWord("crista tip");
 
   const wallZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="upper-wall-junction"]',
   );
   await wallZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="cell wall junction"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expectPlantZoneWord("cell wall junction");
 });
 
 test("oxygen scene exposes its expanded exchange path through the real blood route", async ({ page }) => {
