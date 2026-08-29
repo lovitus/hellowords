@@ -120,9 +120,10 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "oak-tree": 32,
   leaf: 32,
   "plant-cell": 32,
-  // The terminal oxygen scene exposes a truthful anatomical exchange path at
-  // 26 anchors; forcing 32 would require invisible physiology or synonyms.
-  "oxygen-molecule": 26,
+  // The terminal oxygen scene now exposes a richer anatomical exchange path;
+  // the lower floor leaves room for future evidence-led revisions without
+  // allowing the image to regress to a token handful.
+  "oxygen-molecule": 50,
   // One alpha2-beta2 tetramer supports 22 independently pointable structures.
   // A 32-word floor would duplicate ribbon hierarchy or invisible properties.
   hemoglobin: 22,
@@ -239,6 +240,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright plant-cell cutaway resolves additional ER, Golgi, vacuole,
   // chloroplast, mitochondrion and wall subparts without process padding.
   "plant-cell": 60,
+  // The final gas-exchange cutaway resolves airway, alveolar, barrier,
+  // capillary, erythrocyte and molecular parts; the ceiling blocks invisible
+  // gas metrics and process claims.
+  "oxygen-molecule": 60,
   // The final chloroplast raster resolves separate grana, lamella, DNA,
   // stromal-particle and membrane-complex details without process padding.
   "chloroplast-interior": 51,

@@ -539,6 +539,28 @@ export function buildViewerChromeProtectedRegions(
   return regions;
 }
 
+/**
+ * A portal marker can sit beneath the compact minimap at a fitted frame (for
+ * example the oxygen inset on the hemoglobin scene). Keep the map controls
+ * readable, but raise the interaction layer only while a real portal overlaps
+ * that translucent chrome so the marker remains directly clickable.
+ */
+export function portalIntersectsMinimap(
+  portal: ScenePortal,
+  camera: SceneViewportCamera,
+  viewport: { readonly width: number; readonly height: number },
+): boolean {
+  const bounds = projectSceneRectToScreen(portal, camera);
+  const phone = viewport.width <= 560;
+  const compact = viewport.width <= 900;
+  const minimapRight = Math.min(viewport.width, phone ? 312 : compact ? 348 : 412);
+  const minimapBottom = phone ? 112 : compact ? 116 : 120;
+  return bounds.x < minimapRight
+    && bounds.x + bounds.width > 0
+    && bounds.y < minimapBottom
+    && bounds.y + bounds.height > 0;
+}
+
 export const WHEEL_ZOOM_SENSITIVITY = 0.00145;
 
 export function wheelZoomFactor(
@@ -1293,10 +1315,16 @@ export function SceneViewport({
         if (focusRegion.dataset.zoneId !== undefined) delete focusRegion.dataset.zoneId;
       }
     }
+    let portalOverlapsMinimap = false;
     for (const region of interactionLayer.querySelectorAll<HTMLElement>(".scene-hotspot-region")) {
       const portal = scene.portals.find((candidate) => candidate.id === region.dataset.portalId);
       if (portal) {
         const bounds = projectSceneRectToScreen(portal, camera);
+        portalOverlapsMinimap = portalOverlapsMinimap
+          || portalIntersectsMinimap(portal, camera, {
+            width: viewportWidth,
+            height: viewportHeight,
+          });
         const left = snapToDevicePixel(bounds.x);
         const top = snapToDevicePixel(bounds.y);
         const right = snapToDevicePixel(bounds.x + bounds.width);
@@ -1343,6 +1371,29 @@ export function SceneViewport({
         );
       }
     }
+    setDatasetValueIfChanged(
+      interactionLayer,
+      "portalOverlapsMinimap",
+      String(portalOverlapsMinimap),
+    );
+    const viewerShell = interactionLayer.parentElement?.parentElement;
+    if (viewerShell) {
+      setStylePropertyIfChanged(
+        viewerShell.style,
+        "contain",
+        portalOverlapsMinimap ? "none" : "",
+      );
+      setDatasetValueIfChanged(
+        viewerShell,
+        "portalOverlapsMinimap",
+        String(portalOverlapsMinimap),
+      );
+    }
+    setStylePropertyIfChanged(
+      interactionLayer.style,
+      "z-index",
+      portalOverlapsMinimap ? "17" : "",
+    );
 
     const labelsForCameraLayout: readonly Label[] = atlasOverviewMode
       ? selectedLabelId ? [] : activeAtlasLabels

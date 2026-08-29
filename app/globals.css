@@ -711,6 +711,13 @@ a:focus-visible {
   contain: layout paint style;
 }
 
+/* Let an upper-left portal marker escape the viewer's paint containment only
+ * for the frame in which it crosses the translucent minimap. The artwork
+ * remains in the same viewport and is not re-layered above the map. */
+.viewer-shell[data-portal-overlaps-minimap="true"] {
+  contain: layout style;
+}
+
 .viewer-shell[data-interaction-locked="true"] {
   pointer-events: none;
 }
@@ -874,6 +881,14 @@ a:focus-visible {
   opacity: 1;
   pointer-events: none;
   transition: opacity 90ms ease-out;
+}
+
+/* A few deep portals are painted in the upper-left inset. When their real
+ * hit rectangle crosses the translucent minimap, lift only this pointer-pass
+ * through layer so the portal stays directly clickable without disabling the
+ * minimap controls underneath it. */
+.scene-interaction-layer[data-portal-overlaps-minimap="true"] {
+  z-index: 17;
 }
 
 /* Incoming/outgoing shells keep their artwork handoff clean: no label or

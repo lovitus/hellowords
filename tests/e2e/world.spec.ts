@@ -831,6 +831,43 @@ test("plant cell exposes its organelle subparts through the real leaf path", asy
   ).count()).toBeGreaterThan(0);
 });
 
+test("oxygen scene exposes its expanded exchange path through the real blood route", async ({ page }) => {
+  const app = await openWorld(page);
+  for (const target of [
+    "city-street",
+    "science-museum",
+    "human-body",
+    "heart",
+    "blood-cell",
+    "hemoglobin",
+    "oxygen-molecule",
+  ]) {
+    await page.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${target}"]`,
+    ).first().click();
+    await expect(app).toHaveAttribute("data-scene-id", target);
+    await expect(app).toHaveAttribute("data-scene-loading", "false");
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+  }
+
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  for (const [zoneId, word] of [
+    ["airway-cluster", "alveolar network"],
+    ["alveolar-chamber", "alveolar opening"],
+    ["air-blood-barrier", "respiratory membrane"],
+    ["erythrocyte-detail", "red cell dimple"],
+  ] as const) {
+    const zone = page.locator(
+      `[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`,
+    );
+    await zone.click();
+    await expect(zone).toHaveAttribute("data-active", "true");
+    await expect.poll(() => page.locator(
+      `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
+    ).count()).toBeGreaterThan(0);
+  }
+});
+
 test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {
   const app = await openWorld(page);
   const parent = await sceneId(app);

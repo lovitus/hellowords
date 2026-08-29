@@ -565,7 +565,7 @@ test("premium exploration scenes expose dense, truthful local detail slices", as
     "community-garden": 40,
     "lithium-ion-cell": 28,
     frog: 28,
-    "oxygen-molecule": 26,
+    "oxygen-molecule": 50,
     hemoglobin: 22,
     "chloroplast-interior": 32,
   };
@@ -1865,14 +1865,30 @@ test("premium cotton shirt connects garment construction to visible woven materi
   }
 });
 
-test("premium oxygen scene is terminal and excludes invisible quantum or process labels", async () => {
+test("premium oxygen scene expands the visible exchange path without process padding", async () => {
   const { scenes } = await loadWorld();
   const oxygen = scenes.find((scene) => scene.id === "oxygen-molecule");
   assert.ok(oxygen);
   assert.equal(oxygen.asset, "/scenes/oxygen-molecule-premium-v2.jpg");
   assert.deepEqual(oxygen.portals, []);
-  assert.equal(oxygen.labels.length, 26);
+  assert.equal(oxygen.labels.length, 60);
   const displayWords = new Set(oxygen.labels.map(({ word }) => word.toLocaleLowerCase()));
+  for (const required of [
+    "alveolar network",
+    "alveolar opening",
+    "respiratory membrane",
+    "bronchiole lumen",
+    "alveolar pore",
+    "capillary wall",
+    "red blood cell cluster",
+    "endothelial nucleus",
+    "oxygen pair",
+    "red cell dimple",
+    "hemoglobin cluster",
+    "carbon atom",
+  ]) {
+    assert.ok(displayWords.has(required), `oxygen visibly grounds ${required}`);
+  }
   for (const unsupported of [
     "electron pair",
     "molecular orbital",

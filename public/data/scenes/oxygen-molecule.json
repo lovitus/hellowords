@@ -14,6 +14,12 @@
     { "id": "red-blood-cell", "word": "red blood cell", "translation": "红细胞", "x": 1350, "y": 670, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "verified-red-blood-cell" },
     { "id": "alveolar-sac", "word": "alveolar sac", "translation": "肺泡囊", "x": 120, "y": 390, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "verified-alveolar-sac" },
     { "id": "bronchiole", "word": "bronchiole", "translation": "细支气管", "x": 180, "y": 85, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "verified-bronchiole" },
+    { "id": "alveolar-network", "word": "alveolar network", "translation": "肺泡网络", "x": 105, "y": 325, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "verified-alveolar-sac" },
+    { "id": "airway-branch", "word": "airway branch", "translation": "气道分支", "x": 260, "y": 120, "priority": 1.007, "minLevel": 0, "sourceVisualRegion": "verified-bronchiole" },
+    { "id": "alveolar-opening", "word": "alveolar opening", "translation": "肺泡开口", "x": 360, "y": 320, "priority": 1.008, "minLevel": 0, "sourceVisualRegion": "verified-alveolus" },
+    { "id": "capillary-network", "word": "capillary network", "translation": "毛细血管网络", "x": 1320, "y": 210, "priority": 1.009, "minLevel": 0, "sourceVisualRegion": "verified-pulmonary-capillary" },
+    { "id": "respiratory-membrane", "word": "respiratory membrane", "translation": "呼吸膜", "x": 920, "y": 360, "priority": 1.01, "minLevel": 0, "sourceVisualRegion": "verified-alveolar-wall" },
+    { "id": "capillary-loop", "word": "capillary loop", "translation": "毛细血管袢", "x": 1210, "y": 300, "priority": 1.011, "minLevel": 0, "sourceVisualRegion": "verified-pulmonary-capillary" },
 
     { "id": "oxygen-atom", "word": "oxygen atom", "translation": "氧原子", "x": 750, "y": 105, "priority": 2.006, "minLevel": 1, "sourceVisualRegion": "verified-oxygen-atom" },
     { "id": "air-space", "word": "air space", "translation": "气腔", "x": 600, "y": 400, "priority": 2.007, "minLevel": 1, "sourceVisualRegion": "verified-air-space" },
@@ -23,21 +29,49 @@
     { "id": "blood-plasma", "word": "blood plasma", "translation": "血浆", "x": 1180, "y": 360, "priority": 2.011, "minLevel": 1, "sourceVisualRegion": "verified-blood-plasma" },
     { "id": "pulmonary-macrophage", "word": "pulmonary macrophage", "translation": "肺巨噬细胞", "x": 660, "y": 270, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "verified-pulmonary-macrophage" },
     { "id": "surfactant-layer", "word": "surfactant layer", "translation": "表面活性物质层", "x": 990, "y": 330, "priority": 2.013, "minLevel": 1, "sourceVisualRegion": "verified-surfactant-layer" },
+    { "id": "bronchiole-lumen", "word": "bronchiole lumen", "translation": "细支气管腔", "x": 145, "y": 95, "priority": 2.014, "minLevel": 1, "sourceVisualRegion": "verified-bronchiole" },
+    { "id": "bronchiolar-wall", "word": "bronchiolar wall", "translation": "细支气管壁", "x": 70, "y": 75, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "verified-bronchiole" },
+    { "id": "airway-ring", "word": "airway ring", "translation": "气道环", "x": 220, "y": 50, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "verified-bronchiole" },
+    { "id": "alveolar-sac-lumen", "word": "alveolar sac lumen", "translation": "肺泡囊腔", "x": 95, "y": 500, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "verified-alveolar-sac" },
+    { "id": "alveolar-pore", "word": "alveolar pore", "translation": "肺泡孔", "x": 180, "y": 340, "priority": 2.018, "minLevel": 1, "sourceVisualRegion": "verified-alveolar-septum" },
+    { "id": "alveolar-lining", "word": "alveolar lining", "translation": "肺泡衬层", "x": 420, "y": 650, "priority": 2.019, "minLevel": 1, "sourceVisualRegion": "verified-alveolar-wall" },
+    { "id": "capillary-wall", "word": "capillary wall", "translation": "毛细血管壁", "x": 1045, "y": 250, "priority": 2.02, "minLevel": 1, "sourceVisualRegion": "verified-pulmonary-capillary" },
+    { "id": "capillary-branch", "word": "capillary branch", "translation": "毛细血管分支", "x": 1180, "y": 85, "priority": 2.021, "minLevel": 1, "sourceVisualRegion": "verified-pulmonary-capillary" },
+    { "id": "plasma-space", "word": "plasma space", "translation": "血浆空间", "x": 1250, "y": 460, "priority": 2.022, "minLevel": 1, "sourceVisualRegion": "verified-blood-plasma" },
+    { "id": "red-blood-cell-cluster", "word": "red blood cell cluster", "translation": "红细胞簇", "x": 1490, "y": 220, "priority": 2.023, "minLevel": 1, "sourceVisualRegion": "verified-pulmonary-capillary" },
 
     { "id": "double-bond", "word": "double bond", "translation": "双键", "x": 830, "y": 105, "priority": 3.014, "minLevel": 2, "sourceVisualRegion": "verified-double-bond" },
     { "id": "alveolar-septum", "word": "alveolar septum", "translation": "肺泡隔", "x": 95, "y": 430, "priority": 3.015, "minLevel": 2, "sourceVisualRegion": "verified-alveolar-septum" },
     { "id": "alveolar-cell", "word": "alveolar cell", "translation": "肺泡细胞", "x": 318, "y": 390, "priority": 3.016, "minLevel": 2, "sourceVisualRegion": "verified-alveolar-cell" },
     { "id": "endothelial-cell", "word": "endothelial cell", "translation": "内皮细胞", "x": 1080, "y": 390, "priority": 3.017, "minLevel": 2, "sourceVisualRegion": "verified-endothelial-cell" },
+    { "id": "septal-ridge", "word": "septal ridge", "translation": "肺泡隔脊", "x": 230, "y": 470, "priority": 3.018, "minLevel": 2, "sourceVisualRegion": "verified-alveolar-septum" },
+    { "id": "alveolar-surface", "word": "alveolar surface", "translation": "肺泡表面", "x": 500, "y": 600, "priority": 3.019, "minLevel": 2, "sourceVisualRegion": "verified-alveolar-wall" },
+    { "id": "macrophage-cytoplasm", "word": "macrophage cytoplasm", "translation": "巨噬细胞质", "x": 710, "y": 260, "priority": 3.02, "minLevel": 2, "sourceVisualRegion": "verified-pulmonary-macrophage" },
+    { "id": "endothelial-nucleus", "word": "endothelial nucleus", "translation": "内皮细胞核", "x": 1090, "y": 170, "priority": 3.021, "minLevel": 2, "sourceVisualRegion": "verified-endothelial-cell" },
+    { "id": "endothelial-junction", "word": "endothelial junction", "translation": "内皮连接", "x": 1015, "y": 270, "priority": 3.022, "minLevel": 2, "sourceVisualRegion": "verified-endothelial-cell" },
+    { "id": "oxygen-pair", "word": "oxygen pair", "translation": "氧分子对", "x": 910, "y": 330, "priority": 3.023, "minLevel": 2, "sourceVisualRegion": "verified-diffusion-trail" },
+    { "id": "red-cell-dimple", "word": "red cell dimple", "translation": "红细胞凹面", "x": 1370, "y": 680, "priority": 3.024, "minLevel": 2, "sourceVisualRegion": "verified-red-blood-cell" },
+    { "id": "capillary-endothelium", "word": "capillary endothelium", "translation": "毛细血管内皮", "x": 1030, "y": 360, "priority": 3.025, "minLevel": 2, "sourceVisualRegion": "verified-endothelial-cell" },
 
     { "id": "basement-membrane", "word": "basement membrane", "translation": "基底膜", "x": 995, "y": 450, "priority": 4.018, "minLevel": 3, "sourceVisualRegion": "verified-basement-membrane" },
     { "id": "interstitial-space", "word": "interstitial space", "translation": "间质间隙", "x": 1015, "y": 560, "priority": 4.019, "minLevel": 3, "sourceVisualRegion": "verified-interstitial-space" },
     { "id": "erythrocyte-membrane", "word": "erythrocyte membrane", "translation": "红细胞膜", "x": 1260, "y": 620, "priority": 4.02, "minLevel": 3, "sourceVisualRegion": "verified-erythrocyte-membrane" },
     { "id": "cell-nucleus", "word": "cell nucleus", "translation": "细胞核", "x": 660, "y": 270, "priority": 4.021, "minLevel": 3, "sourceVisualRegion": "verified-cell-nucleus" },
+    { "id": "alveolar-wall-seam", "word": "alveolar wall seam", "translation": "肺泡壁接缝", "x": 820, "y": 640, "priority": 4.022, "minLevel": 3, "sourceVisualRegion": "verified-alveolar-wall" },
+    { "id": "capillary-lumen-edge", "word": "capillary lumen edge", "translation": "毛细血管腔边缘", "x": 1170, "y": 420, "priority": 4.023, "minLevel": 3, "sourceVisualRegion": "verified-capillary-lumen" },
+    { "id": "plasma-pocket", "word": "plasma pocket", "translation": "血浆小腔", "x": 1470, "y": 390, "priority": 4.024, "minLevel": 3, "sourceVisualRegion": "verified-blood-plasma" },
+    { "id": "red-cell-rim", "word": "red cell rim", "translation": "红细胞边缘", "x": 1490, "y": 760, "priority": 4.025, "minLevel": 3, "sourceVisualRegion": "verified-erythrocyte-membrane" },
+    { "id": "hemoglobin-cluster", "word": "hemoglobin cluster", "translation": "血红蛋白簇", "x": 1340, "y": 690, "priority": 4.026, "minLevel": 3, "sourceVisualRegion": "verified-hemoglobin" },
+    { "id": "carbon-atom", "word": "carbon atom", "translation": "碳原子", "x": 1450, "y": 525, "priority": 4.027, "minLevel": 3, "sourceVisualRegion": "verified-carbon-dioxide-molecule" },
+    { "id": "alveolar-cell-nucleus", "word": "alveolar cell nucleus", "translation": "肺泡细胞核", "x": 300, "y": 650, "priority": 4.028, "minLevel": 3, "sourceVisualRegion": "verified-alveolar-cell" },
 
     { "id": "diffusion-trail", "word": "diffusion trail", "translation": "扩散轨迹", "x": 960, "y": 500, "priority": 5.022, "minLevel": 4, "sourceVisualRegion": "verified-diffusion-trail" },
     { "id": "carbon-dioxide-molecule", "word": "carbon dioxide molecule", "translation": "二氧化碳分子", "x": 1450, "y": 525, "priority": 5.023, "minLevel": 4, "sourceVisualRegion": "verified-carbon-dioxide-molecule" },
     { "id": "hemoglobin", "word": "hemoglobin", "translation": "血红蛋白", "x": 1330, "y": 665, "priority": 5.024, "minLevel": 4, "sourceVisualRegion": "verified-hemoglobin" },
-    { "id": "cell-membrane", "word": "cell membrane", "translation": "细胞膜", "x": 610, "y": 270, "priority": 5.025, "minLevel": 4, "sourceVisualRegion": "verified-cell-membrane" }
+    { "id": "cell-membrane", "word": "cell membrane", "translation": "细胞膜", "x": 610, "y": 270, "priority": 5.025, "minLevel": 4, "sourceVisualRegion": "verified-cell-membrane" },
+    { "id": "macrophage-granule", "word": "macrophage granule", "translation": "巨噬细胞颗粒", "x": 625, "y": 230, "priority": 5.026, "minLevel": 4, "sourceVisualRegion": "verified-pulmonary-macrophage" },
+    { "id": "alveolar-pore-edge", "word": "alveolar pore edge", "translation": "肺泡孔边缘", "x": 210, "y": 380, "priority": 5.027, "minLevel": 4, "sourceVisualRegion": "verified-alveolar-septum" },
+    { "id": "oxygen-bond-axis", "word": "oxygen bond axis", "translation": "氧键轴", "x": 835, "y": 112, "priority": 5.028, "minLevel": 4, "sourceVisualRegion": "verified-double-bond" }
   ],
   "portals": [],
   "anchorAudit": {
@@ -45,9 +79,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/oxygen-molecule-premium-v2.jpg",
     "reviewedAssetSha256": "478765ef5a720f26ce84529409fb217954911e64a2eb64ea5c2f1f8d2c771241",
-    "rationale": "Re-anchored the terminal oxygen scene to the photographed-style alveolus, air-blood barrier, capillary cells, blood contents and consistently rendered molecular pairs; invisible gas measurements and decorative electron models remain excluded.",
-    "previousLabelCount": 48,
-    "retainedLabelCount": 26,
+    "rationale": "Re-audited the terminal oxygen scene across the airway, alveolar sac, air-blood barrier, capillary wall, red-cell surface and repeated molecular models; added only distinct visible anatomical parts and kept invisible gas measurements, cell subtypes and decorative electron models excluded.",
+    "previousLabelCount": 82,
+    "retainedLabelCount": 60,
     "removedLabelCount": 22,
     "removedExamples": ["electron pair", "molecular orbital", "type II pneumocyte", "smooth muscle", "oxidation", "inhale"]
   },
@@ -62,7 +96,21 @@
       "width": 470,
       "height": 900,
       "targetScale": 2.6,
-      "labelIds": ["bronchiole", "alveolar-duct", "alveolar-sac", "alveolar-septum"]
+      "labelIds": [
+        "bronchiole",
+        "alveolar-duct",
+        "alveolar-sac",
+        "alveolar-septum",
+        "alveolar-network",
+        "airway-branch",
+        "bronchiole-lumen",
+        "bronchiolar-wall",
+        "airway-ring",
+        "alveolar-sac-lumen",
+        "alveolar-pore",
+        "septal-ridge",
+        "alveolar-pore-edge"
+      ]
     },
     {
       "id": "alveolar-chamber",
@@ -74,7 +122,19 @@
       "width": 760,
       "height": 670,
       "targetScale": 2.5,
-      "labelIds": ["alveolus", "air-space", "pulmonary-macrophage", "cell-nucleus", "cell-membrane"]
+      "labelIds": [
+        "alveolus",
+        "air-space",
+        "pulmonary-macrophage",
+        "cell-nucleus",
+        "cell-membrane",
+        "alveolar-opening",
+        "alveolar-lining",
+        "alveolar-surface",
+        "macrophage-cytoplasm",
+        "alveolar-cell-nucleus",
+        "macrophage-granule"
+      ]
     },
     {
       "id": "molecule-path",
@@ -86,7 +146,14 @@
       "width": 780,
       "height": 610,
       "targetScale": 2.8,
-      "labelIds": ["oxygen-molecule", "oxygen-atom", "double-bond", "diffusion-trail"]
+      "labelIds": [
+        "oxygen-molecule",
+        "oxygen-atom",
+        "double-bond",
+        "diffusion-trail",
+        "oxygen-pair",
+        "oxygen-bond-axis"
+      ]
     },
     {
       "id": "air-blood-barrier",
@@ -98,7 +165,16 @@
       "width": 900,
       "height": 800,
       "targetScale": 3.2,
-      "labelIds": ["alveolar-wall", "alveolar-cell", "endothelial-cell", "surfactant-layer", "basement-membrane", "interstitial-space"]
+      "labelIds": [
+        "alveolar-wall",
+        "alveolar-cell",
+        "endothelial-cell",
+        "surfactant-layer",
+        "basement-membrane",
+        "interstitial-space",
+        "respiratory-membrane",
+        "alveolar-wall-seam"
+      ]
     },
     {
       "id": "capillary-blood",
@@ -110,7 +186,56 @@
       "width": 560,
       "height": 900,
       "targetScale": 2.8,
-      "labelIds": ["pulmonary-capillary", "capillary-lumen", "blood-plasma", "red-blood-cell", "erythrocyte-membrane", "hemoglobin", "carbon-dioxide-molecule"]
+      "labelIds": [
+        "pulmonary-capillary",
+        "capillary-lumen",
+        "blood-plasma",
+        "carbon-dioxide-molecule",
+        "capillary-network",
+        "capillary-loop",
+        "plasma-space",
+        "red-blood-cell-cluster",
+        "capillary-lumen-edge",
+        "plasma-pocket",
+        "carbon-atom"
+      ]
+    },
+    {
+      "id": "capillary-wall-detail",
+      "title": "Capillary wall detail",
+      "translation": "毛细血管壁细节",
+      "description": "Elongated endothelial cells, nuclei and branch wall along the blood-facing edge",
+      "x": 960,
+      "y": 0,
+      "width": 320,
+      "height": 520,
+      "targetScale": 3,
+      "labelIds": [
+        "capillary-wall",
+        "capillary-branch",
+        "endothelial-nucleus",
+        "endothelial-junction",
+        "capillary-endothelium"
+      ]
+    },
+    {
+      "id": "erythrocyte-detail",
+      "title": "Red-cell detail",
+      "translation": "红细胞细节",
+      "description": "Large biconcave red cell with its rim, dimple and visible hemoglobin model",
+      "x": 1160,
+      "y": 500,
+      "width": 380,
+      "height": 360,
+      "targetScale": 3,
+      "labelIds": [
+        "red-blood-cell",
+        "erythrocyte-membrane",
+        "hemoglobin",
+        "red-cell-dimple",
+        "red-cell-rim",
+        "hemoglobin-cluster"
+      ]
     }
   ],
   "visualRegions": [

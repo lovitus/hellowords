@@ -15,6 +15,7 @@ import {
   includeSceneLabelMountTarget,
   isExactForwardPortalTile,
   parentCameraFromChildTile,
+  portalIntersectsMinimap,
   portalRevealProgress,
   projectScenePointToScreen,
   projectSceneRectToScreen,
@@ -41,6 +42,31 @@ test("the root atlas requires an explicit portal click while child scenes keep w
   assert.equal(sceneUsesWheelPortalEntry("world-map"), false);
   assert.equal(sceneUsesWheelPortalEntry("city-street"), true);
   assert.equal(sceneUsesWheelPortalEntry("community-garden"), true);
+});
+
+test("an upper-left portal can escape the translucent minimap hit layer", () => {
+  const fitted = fittedSceneCamera(
+    { width: 1600, height: 900 },
+    { width: 1280, height: 632 },
+  );
+  const insetPortal = {
+    id: "oxygen",
+    label: "Follow oxygen",
+    childSceneId: "oxygen-molecule",
+    x: 140,
+    y: 45,
+    width: 135,
+    height: 105,
+  };
+  assert.equal(portalIntersectsMinimap(insetPortal, fitted, { width: 1280, height: 632 }), true);
+  assert.equal(
+    portalIntersectsMinimap(
+      { ...insetPortal, x: 980, y: 520 },
+      fitted,
+      { width: 1280, height: 632 },
+    ),
+    false,
+  );
 });
 
 const ROOT = new URL("../../", import.meta.url);
