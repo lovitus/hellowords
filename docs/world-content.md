@@ -49,7 +49,7 @@ Every scene JSON contains:
 - `detailZones`, grouping truthful local crops into independently focusable word batches with a target scale;
 - `sourceVisualRegion` on every label and portal.
 
-The 37 raster scenes contribute 269 authored detail zones across
+The 37 raster scenes contribute 271 authored detail zones across
 the complete spatial world. The world atlas alone contains 1,275 unique labels
 compiled from 1,296 independently audited source-panel anchors across 66 zones.
 The compiler reconciles cross-panel word duplication deterministically while
