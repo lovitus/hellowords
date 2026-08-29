@@ -147,7 +147,7 @@ Airport 150 and Office building 150. Hospital disease terms stay generic and
 educational; medicine labels use WHO International Nonproprietary Names rather
 than brands or dosage instructions.
 
-The next hospital-depth pass adds two independently illustrated scenes and 330
+The v111 hospital-depth pass adds two independently illustrated scenes and 330
 more anchors: Pathology lab 180 across microscopes, specimen handling, paraffin
 embedding, microtomy, staining and cold storage; Hospital pharmacy 150 across
 medicine shelves, dispensing, automated storage, a rolling cart and a
