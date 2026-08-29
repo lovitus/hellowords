@@ -1224,6 +1224,256 @@
       "priority": 7.025,
       "minLevel": 3,
       "sourceVisualRegion": "verified-anatomy-pedestal"
+    },
+    {
+      "id": "vertebra",
+      "word": "vertebra",
+      "translation": "椎骨",
+      "x": 240,
+      "y": 195,
+      "priority": 2.015,
+      "minLevel": 1,
+      "sourceVisualRegion": "dinosaur-spine"
+    },
+    {
+      "id": "pelvic-bone",
+      "word": "pelvic bone",
+      "translation": "骨盆",
+      "x": 250,
+      "y": 320,
+      "priority": 2.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "dinosaur-skeleton"
+    },
+    {
+      "id": "shoulder-blade",
+      "word": "shoulder blade",
+      "translation": "肩胛骨",
+      "x": 170,
+      "y": 220,
+      "priority": 2.017,
+      "minLevel": 1,
+      "sourceVisualRegion": "dinosaur-rib-cage"
+    },
+    {
+      "id": "limb-bone",
+      "word": "limb bone",
+      "translation": "肢骨",
+      "x": 270,
+      "y": 340,
+      "priority": 2.018,
+      "minLevel": 1,
+      "sourceVisualRegion": "dinosaur-skeleton"
+    },
+    {
+      "id": "tooth-row",
+      "word": "tooth row",
+      "translation": "牙齿列",
+      "x": 395,
+      "y": 190,
+      "priority": 2.019,
+      "minLevel": 1,
+      "sourceVisualRegion": "dinosaur-skull"
+    },
+    {
+      "id": "telescope-tube-ring",
+      "word": "telescope tube ring",
+      "translation": "望远镜筒环",
+      "x": 680,
+      "y": 285,
+      "priority": 2.02,
+      "minLevel": 1,
+      "sourceVisualRegion": "telescope"
+    },
+    {
+      "id": "mounting-knob",
+      "word": "mounting knob",
+      "translation": "支座旋钮",
+      "x": 665,
+      "y": 375,
+      "priority": 2.021,
+      "minLevel": 1,
+      "sourceVisualRegion": "telescope-tripod"
+    },
+    {
+      "id": "planetary-ring",
+      "word": "planetary ring",
+      "translation": "行星环",
+      "x": 960,
+      "y": 180,
+      "priority": 2.022,
+      "minLevel": 1,
+      "sourceVisualRegion": "solar-system-model"
+    },
+    {
+      "id": "panel-grid",
+      "word": "panel grid",
+      "translation": "面板栅格",
+      "x": 780,
+      "y": 420,
+      "priority": 2.023,
+      "minLevel": 1,
+      "sourceVisualRegion": "solar-panel"
+    },
+    {
+      "id": "globe-meridian",
+      "word": "globe meridian",
+      "translation": "地球仪经线",
+      "x": 830,
+      "y": 333,
+      "priority": 2.024,
+      "minLevel": 1,
+      "sourceVisualRegion": "globe"
+    },
+    {
+      "id": "focus-knob",
+      "word": "focus knob",
+      "translation": "调焦旋钮",
+      "x": 1030,
+      "y": 365,
+      "priority": 3.048,
+      "minLevel": 2,
+      "sourceVisualRegion": "microscope"
+    },
+    {
+      "id": "condenser",
+      "word": "condenser",
+      "translation": "聚光器",
+      "x": 995,
+      "y": 450,
+      "priority": 3.049,
+      "minLevel": 2,
+      "sourceVisualRegion": "microscope-stage"
+    },
+    {
+      "id": "stage-plate",
+      "word": "stage plate",
+      "translation": "载物台板",
+      "x": 980,
+      "y": 420,
+      "priority": 3.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "microscope-stage"
+    },
+    {
+      "id": "robot-link",
+      "word": "robot link",
+      "translation": "机器人连杆",
+      "x": 1160,
+      "y": 370,
+      "priority": 3.051,
+      "minLevel": 2,
+      "sourceVisualRegion": "robotic-arm"
+    },
+    {
+      "id": "tool-flange",
+      "word": "tool flange",
+      "translation": "工具法兰",
+      "x": 1100,
+      "y": 400,
+      "priority": 3.052,
+      "minLevel": 2,
+      "sourceVisualRegion": "robot-gripper"
+    },
+    {
+      "id": "base-column",
+      "word": "base column",
+      "translation": "底座立柱",
+      "x": 1170,
+      "y": 460,
+      "priority": 3.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-robot-base"
+    },
+    {
+      "id": "ammonite-chamber",
+      "word": "ammonite chamber",
+      "translation": "菊石腔室",
+      "x": 95,
+      "y": 530,
+      "priority": 3.054,
+      "minLevel": 2,
+      "sourceVisualRegion": "ammonite-fossil"
+    },
+    {
+      "id": "crystal-facet",
+      "word": "crystal facet",
+      "translation": "晶面",
+      "x": 300,
+      "y": 520,
+      "priority": 3.055,
+      "minLevel": 2,
+      "sourceVisualRegion": "amethyst-cluster"
+    },
+    {
+      "id": "gyroscope-axle",
+      "word": "gyroscope axle",
+      "translation": "陀螺仪轴",
+      "x": 727,
+      "y": 740,
+      "priority": 3.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "gyroscope"
+    },
+    {
+      "id": "prism-edge",
+      "word": "prism edge",
+      "translation": "棱镜边缘",
+      "x": 830,
+      "y": 590,
+      "priority": 3.057,
+      "minLevel": 2,
+      "sourceVisualRegion": "optics-display"
+    },
+    {
+      "id": "pendulum-string",
+      "word": "pendulum string",
+      "translation": "摆锤细线",
+      "x": 720,
+      "y": 520,
+      "priority": 3.058,
+      "minLevel": 2,
+      "sourceVisualRegion": "newton-cradle"
+    },
+    {
+      "id": "rainbow-band",
+      "word": "rainbow band",
+      "translation": "彩虹光带",
+      "x": 864,
+      "y": 593,
+      "priority": 3.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "optics-display"
+    },
+    {
+      "id": "anatomy-leg",
+      "word": "anatomy leg",
+      "translation": "解剖模型腿部",
+      "x": 1490,
+      "y": 540,
+      "priority": 4.05,
+      "minLevel": 3,
+      "sourceVisualRegion": "human-body-model"
+    },
+    {
+      "id": "anatomy-foot",
+      "word": "anatomy foot",
+      "translation": "解剖模型足部",
+      "x": 1490,
+      "y": 630,
+      "priority": 4.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "human-body-model"
+    },
+    {
+      "id": "pedestal-step",
+      "word": "pedestal step",
+      "translation": "展台台阶",
+      "x": 1490,
+      "y": 650,
+      "priority": 4.052,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-anatomy-pedestal"
     }
   ],
   "portals": [
@@ -1257,9 +1507,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/science-museum-bright-v3.jpg",
     "reviewedAssetSha256": "bce6c971902dac590e494ca87db56a3d68064194db484c5d795f59bdd49482aa",
-    "rationale": "Re-audited the exact bright museum pixels across five authored gallery crops and added only separately visible skeletal, optical, robotic, exhibit and life-science parts. The new subparts stay tied to disjoint object regions and do not restore removed role, venue or signage claims.",
-    "previousLabelCount": 128,
-    "retainedLabelCount": 121,
+      "rationale": "Re-audited the exact bright museum pixels across five authored gallery crops and added only separately visible skeletal, optical, robotic, exhibit and life-science parts. The new subparts stay tied to disjoint object regions and do not restore removed role, venue or signage claims.",
+      "previousLabelCount": 153,
+      "retainedLabelCount": 146,
     "removedLabelCount": 7,
     "removedExamples": [
       "curator",
@@ -1717,7 +1967,12 @@
         "horn-base",
         "dinosaur-tail",
         "skull-orbit",
-        "horn-tip"
+        "horn-tip",
+        "vertebra",
+        "pelvic-bone",
+        "shoulder-blade",
+        "limb-bone",
+        "tooth-row"
       ]
     },
     {
@@ -1756,7 +2011,12 @@
         "telescope-barrel",
         "tripod-spreader",
         "solar-panel-frame",
-        "globe-axis"
+        "globe-axis",
+        "telescope-tube-ring",
+        "mounting-knob",
+        "planetary-ring",
+        "panel-grid",
+        "globe-meridian"
       ]
     },
     {
@@ -1792,7 +2052,13 @@
         "microscope-base",
         "robot-shoulder",
         "robot-forearm",
-        "gripper-jaw"
+        "gripper-jaw",
+        "focus-knob",
+        "condenser",
+        "stage-plate",
+        "robot-link",
+        "tool-flange",
+        "base-column"
       ]
     },
     {
@@ -1842,7 +2108,13 @@
         "prism-facet",
         "kiosk-bezel",
         "console-knob",
-        "headphone-band"
+        "headphone-band",
+        "ammonite-chamber",
+        "crystal-facet",
+        "gyroscope-axle",
+        "prism-edge",
+        "pendulum-string",
+        "rainbow-band"
       ]
     },
     {
@@ -1869,7 +2141,10 @@
         "dna-helix",
         "dna-backbone",
         "anatomy-torso",
-        "pedestal-plinth"
+        "pedestal-plinth",
+        "anatomy-leg",
+        "anatomy-foot",
+        "pedestal-step"
       ]
     }
   ]

@@ -2108,9 +2108,25 @@ test("dinosaur hall is a grounded terminal branch with a separate museum portal"
 
   const museum = byId.get("science-museum");
   assert.ok(museum);
-  assert.equal(museum.labels.length, 121, "science museum keeps its expanded final-pixel vocabulary");
+  assert.equal(museum.labels.length, 146, "science museum keeps its expanded final-pixel vocabulary");
   const museumWords = new Set(museum.labels.map((label) => label.word));
-  for (const term of ["dinosaur tail", "telescope finder", "microscope turret", "fossil spiral", "DNA helix", "pedestal plinth"]) {
+  for (const term of [
+    "dinosaur tail",
+    "telescope finder",
+    "microscope turret",
+    "fossil spiral",
+    "DNA helix",
+    "pedestal plinth",
+    "vertebra",
+    "shoulder blade",
+    "telescope tube ring",
+    "planetary ring",
+    "focus knob",
+    "robot link",
+    "ammonite chamber",
+    "prism edge",
+    "anatomy leg",
+  ]) {
     assert.ok(museumWords.has(term), `science museum shows ${term}`);
   }
   const dinosaurPortal = museum.portals.find(({ childSceneId }) => childSceneId === "dinosaur-hall");

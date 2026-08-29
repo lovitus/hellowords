@@ -139,7 +139,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "city-park": 88,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
-  "science-museum": 121,
+  // The final pixel pass also retains separately visible fossil, telescope,
+  // microscope, robot, optics and anatomy subparts for a 146-anchor set.
+  "science-museum": 146,
   // The final kitchen raster resolves appliance, sink, coffee-nook and island
   // parts; the ceiling blocks cooking processes and hidden appliance claims.
   kitchen: 116,

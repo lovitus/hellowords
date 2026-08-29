@@ -906,7 +906,7 @@ test("polymer scene exposes its expanded material structures through the machine
   await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
   for (const [zoneId, word] of [
     ["macro-material-forms", "material cross section"],
-    ["semicrystalline-morphology", "interlamellar region"],
+    ["semicrystalline-morphology", "spherulite ray"],
     ["defects-and-additives", "pore rim"],
     ["molecular-architecture", "chain junction"],
   ] as const) {
@@ -919,6 +919,43 @@ test("polymer scene exposes its expanded material structures through the machine
       `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
     ).count()).toBeGreaterThan(0);
   }
+});
+
+test("science museum exposes additional exhibit parts without losing its child portals", async ({ page }) => {
+  const app = await openWorld(page);
+  for (const target of ["city-street", "science-museum"]) {
+    await page.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${target}"]`,
+    ).first().click();
+    await expect(app).toHaveAttribute("data-scene-id", target);
+    await expect(app).toHaveAttribute("data-scene-loading", "false");
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+  }
+
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "146");
+  for (const [zoneId, word] of [
+    ["dinosaur-gallery", "vertebra"],
+    ["space-observatory", "mounting knob"],
+    ["microscopy-and-robotics", "robot link"],
+    ["matter-and-physics", "prism edge"],
+    ["life-science-alcove", "anatomy leg"],
+  ] as const) {
+    const zone = page.locator(
+      `[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`,
+    );
+    await zone.click();
+    await expect(zone).toHaveAttribute("data-active", "true");
+    await expect.poll(() => page.locator(
+      `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
+    ).count()).toBeGreaterThan(0);
+  }
+
+  await expect(page.locator(
+    '[data-testid="scene-hotspot"][data-target-scene="dinosaur-hall"]',
+  )).toBeVisible();
+  await expect(page.locator(
+    '[data-testid="scene-hotspot"][data-target-scene="human-body"]',
+  )).toBeVisible();
 });
 
 test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {
