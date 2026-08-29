@@ -49,6 +49,9 @@ export interface SceneLabelLayoutOptions {
    * zoom and pan.
    */
   readonly adaptiveRevealScale?: number;
+  /** Explicitly focused detail labels may become readable once their crop is reached. */
+  readonly revealLabelIds?: ReadonlySet<string>;
+  readonly revealAtScale?: number;
   /** Screen-space controls, such as portal cues, that word pills must avoid. */
   readonly protectedRegions?: readonly SceneLabelProtectedRegion[];
   /** Previous interactive slots retained during one continuous camera direction. */
@@ -976,6 +979,10 @@ export function computeSceneLabelLayout(
         || screenY > viewport.height + 18
       ) return [];
       const naturalOpacity = sceneLabelRevealOpacity(label, camera.scale);
+      const focusedReveal = Boolean(
+        options.revealLabelIds?.has(label.id)
+        && camera.scale >= (options.revealAtScale ?? Number.POSITIVE_INFINITY),
+      );
       const futureRevealScale = nextVocabularyRevealScale(
         label,
         camera.scale,
@@ -987,15 +994,17 @@ export function computeSceneLabelLayout(
         label,
         lod,
         naturalOpacity,
+        focusedReveal,
         futureRevealScale,
         screenX,
         screenY,
         ...size,
       }];
     })
-    .filter(({ label, naturalOpacity, futureRevealScale }) => (
+    .filter(({ label, naturalOpacity, focusedReveal, futureRevealScale }) => (
       (naturalOpacity > 0.025
         || futureRevealScale !== null
+        || focusedReveal
         || label.id === options.selectedLabelId)
     ))
     .sort((first, second) => {
@@ -1053,10 +1062,16 @@ export function computeSceneLabelLayout(
     const adaptive = !naturallyInteractive
       && camera.scale >= adaptiveScale
       && (selected || candidate.futureRevealScale !== null);
+    const focusedReveal = Boolean(
+      options.revealLabelIds?.has(candidate.label.id)
+      && camera.scale >= (options.revealAtScale ?? Number.POSITIVE_INFINITY),
+    );
     const candidateOpacity = selected
       ? Math.max(1, candidate.naturalOpacity)
       : adaptive
         ? Math.max(0.82, candidate.naturalOpacity)
+        : focusedReveal
+          ? Math.max(0.82, candidate.naturalOpacity)
         : candidate.naturalOpacity;
     if (candidateOpacity <= 0.025) continue;
     const preferredOffset = options.preferredOffsets?.get(candidate.label.id);

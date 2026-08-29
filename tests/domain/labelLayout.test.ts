@@ -79,6 +79,29 @@ test("default LOD words stay revealed at maximum zoom unless an author explicitl
   }
 });
 
+test("focused detail batches promote their own LOD4 words only at the crop scale", () => {
+  const detail = label("focused-detail", 100, 1, 4, 100);
+  const viewport = { width: 600, height: 300, compact: false };
+  const hidden = computeSceneLabelLayout(
+    [detail],
+    { x: 0, y: 0, fit: 1, scale: 2.2 },
+    viewport,
+    false,
+    { adaptiveRevealScale: 4, revealLabelIds: new Set([detail.id]), revealAtScale: 2.3 },
+  )[0];
+  assert.equal(hidden.interactive, false);
+
+  const focused = computeSceneLabelLayout(
+    [detail],
+    { x: 0, y: 0, fit: 1, scale: 2.4 },
+    viewport,
+    false,
+    { adaptiveRevealScale: 4, revealLabelIds: new Set([detail.id]), revealAtScale: 2.3 },
+  )[0];
+  assert.equal(focused.interactive, true);
+  assert.ok(focused.opacity >= 0.82);
+});
+
 test("dense desktop pills are one-third shorter while compact touch boxes stay 28px", () => {
   const labels = [
     label("overview", 120, 1, 0, 120),

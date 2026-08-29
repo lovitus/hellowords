@@ -1443,6 +1443,12 @@ export function SceneViewport({
           ?? pendingKeyboardFocusLabelId
           ?? selectedLabelIdRef.current,
         adaptiveRevealScale: adaptiveRevealScaleForScene(scene),
+        revealLabelIds: activeFocusedDetailZone
+          ? new Set(activeFocusedDetailZone.labelIds)
+          : undefined,
+        revealAtScale: activeFocusedDetailZone
+          ? Math.max(1, activeFocusedDetailZone.targetScale - 0.35)
+          : undefined,
         preferredOffsets: labelPlacementOffsetsRef.current,
         protectedRegions: [
           ...buildViewerChromeProtectedRegions(
