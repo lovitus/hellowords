@@ -4,13 +4,13 @@
 
 ## 当前交付游标
 
-- 公开版本：`v118-0d3357b`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=118-0d3357b#world>
-- 源码：`0d3357bf0e85dbfa6447754a376d63df7cb7eab4`（v118 公开运行时；医院 350、病理实验室 360、医院药房 300、机场 300、写字楼 300；城市街景 149、交通枢纽 103、科学馆 176、城市公园 144、社区花园 103）。累计空间锚点 5,816，继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：继续按“先堆词、再精修”扩展医院、机场、写字楼及其他专业场景；当前 v118 保持公开可验证，下一批继续增加词量。
+- 公开版本：`v121-b7ac851`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=121-b7ac851#world>
+- 源码：`b7ac85149da426d198812fea4f634610e74d3773`（v121 公开运行时；医院 350、病理实验室 360、医院药房 300、机场 300、写字楼 300；城市街景 149、交通枢纽 103、科学馆 176、城市公园 144、社区花园 103；Apartment 143、Kitchen 146、Bedroom 134、Bathroom 133、City cafe 100）。累计空间锚点 5,966，继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：继续按“先堆词、再精修”扩展专业场景；当前 v121 保持公开可验证，下一批继续增加词量。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
-### v118 交付记录（2026-08-29）
+### v121 交付记录（2026-08-29）
 
 - 本地数据验证已通过：43 个场景、5,816 个空间锚点、4,965 个去重词、307 个细节区、42 个门户；`npm run verify`（229 个域测试 + 28 个语义/词境测试）已通过，完整 E2E 106 通过 / 36 设计性跳过，`PERF_RUN=1 npm run test:perf` 2/2 通过。
 - 新增词批次：Hospital +150（科室/设施/疾病/药品）、Pathology lab +150（显微镜/标本/包埋/染色/病理显示）、Hospital pharmacy +120（INN/调配/自动柜/配制台）、Airport +120（值机/安检/登机厅/机坪）、Office building +120（前厅/办公位/会议室/设备核心）。每组均写入既有五级 LOD 与细节区，脚本 `scripts/add-professional-vocabulary.mjs` 可幂等复用。
@@ -24,7 +24,9 @@
 - 清理记录：v117 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v117/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
 - v118 再增加 150 个专业设施词：医院手术室、病理冷藏、药房推车、机场行李提取、写字楼设备核心各 30 个；公开页已核对医院 350 词、病理 360 词及新细节区。
 - 清理记录：v118 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v118/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
-- 待发布的下一批在现有图片上增加 150 个 Home 词：Apartment 143、Kitchen 146、Bedroom 134、Bathroom 133、City cafe 100；新增批次统一落在 LOD 2–4，避免首屏挂载过多词泡，完整词量仍可通过细节区和拖动探索。
+- v119 在现有图片上增加 150 个 Home 词：Apartment 143、Kitchen 146、Bedroom 134、Bathroom 133、City cafe 100；新增批次统一落在 LOD 2–4，避免首屏挂载过多词泡，完整词量仍可通过细节区和拖动探索。
+- v120/v121 增加焦点区词优先挂载，并在宽焦点区按词群包围盒自动降低初始目标缩放；点击 Kitchen 准备台时公开实测缩放降至 1.54，新增 `colander` 已挂载且可见，继续放大仍可进入更深 LOD。`npm run verify` 通过（230 个域测试 + 28 个语义/词境测试），完整 E2E 106 通过 / 36 设计性跳过，性能 2/2 通过。
+- 清理记录：v119/v120/v121 归档已分别移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v119/`、`hellowords-v120/`、`hellowords-v121/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
 
 ## 当前续开发游标（2026-08-29）
 
