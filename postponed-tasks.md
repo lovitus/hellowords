@@ -12,7 +12,7 @@
 
 ### v117 交付记录（2026-08-29）
 
-- 本地数据验证已通过：43 个场景、5,486 个空间锚点、4,683 个去重词、307 个细节区、42 个门户；`npm run verify`（229 个域测试 + 28 个语义/词境测试）已通过，完整 E2E 106 通过 / 36 设计性跳过，`PERF_RUN=1 npm run test:perf` 2/2 通过。
+- 本地数据验证已通过：43 个场景、5,666 个空间锚点、4,830 个去重词、307 个细节区、42 个门户；`npm run verify`（229 个域测试 + 28 个语义/词境测试）已通过，完整 E2E 106 通过 / 36 设计性跳过，`PERF_RUN=1 npm run test:perf` 2/2 通过。
 - 新增词批次：Hospital +150（科室/设施/疾病/药品）、Pathology lab +150（显微镜/标本/包埋/染色/病理显示）、Hospital pharmacy +120（INN/调配/自动柜/配制台）、Airport +120（值机/安检/登机厅/机坪）、Office building +120（前厅/办公位/会议室/设备核心）。每组均写入既有五级 LOD 与细节区，脚本 `scripts/add-professional-vocabulary.mjs` 可幂等复用。
 - 相机交接修复：连续入口现在按 `object-fit: cover` 的真实子图像绘制边界计算，比例不一致的 Apartment 入口保持连续；公开页实际验证首页 6 名称/hover Campus 21 词/移出 0 词，医院 320、机场 270、写字楼 270 词以及细节区新词可达。
 - 新增素材：`urban-services-overview-premium-v1.jpg`、`hospital-atrium-premium-v1.jpg`、`airport-terminal-premium-v1.jpg`、`office-atrium-premium-v1.jpg`、`pathology-lab-premium-v1.jpg`、`hospital-pharmacy-premium-v1.jpg`，均为 1600×900、已固定 SHA；素材由 ImageGen 生成后人工复核，未包含品牌/可读标牌。
@@ -118,7 +118,7 @@
 
 ## 未完成任务（按优先级）
 
-1. **高密度场景批次**：除 `world-map` 外，多数场景仍只有约 22–49 个经过审核的锚点。`apartment` 113、`city-street` 89、`transit-hub` 73、`city-cafe` 70、`community-garden` 73、`potting-workbench` 74、`greenhouse-interior` 71、`tomato-plant` 69、`kitchen` 116、`bedroom` 104、`bathroom` 103、科学馆 121、铁路站台 96、列车车厢 70、城市公园 88、叶片 49、聚合物 37、衣柜 56、植物细胞 46、叶绿体内部 51 已完成。接下来按 `docs/next-scene-batch.md` 继续逐场景制作明亮、可辨识的成品图，再从最终像素重新标注；不要用同义词、推断属性或重复部件填数。
+1. **高密度场景批次**：当前已把医院 320、病理实验室 330、医院药房 270、机场 270、写字楼 270、城市街景 149、交通枢纽 103、科学馆 176、城市公园 144、社区花园 103 做成高密度词场；其余终点场景仍按 `docs/next-scene-batch.md` 逐场景扩展。继续先复核最终像素，再从真实物体重新标注；不要用同义词、推断属性或重复部件填数。
    - 下一批候选：从 `docs/next-scene-batch.md` 选择仍有足够真实像素证据的稀疏场景；先复核最终像素再决定是否扩展。
    - 每个场景先做 portal 真值和 100%/200% 像素复核，再接入数据和导航。
 2. **连续探索扩展**：保留根图集的滚轮/触控连续缩放和显式点击进入语义；只有在父子场景确实能共享同一张连续栅格时才增加反向 portal，不能恢复“滚轮误触即跳场景”。
