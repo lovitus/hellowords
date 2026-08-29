@@ -933,6 +933,167 @@ const groups = [
     plant stake=植物支杆
     vine tie=藤蔓绑带
   `),
+
+  group("hospital", "operating-theatre", "operating-theatre-detail", `
+    suction unit=吸引器
+    suction canister=吸引罐
+    diathermy unit=电刀机
+    cautery pencil=电凝笔
+    electrosurgical pad=电极垫
+    anesthesia screen=麻醉屏
+    breathing circuit=呼吸回路
+    oxygen mask=氧气面罩
+    airway tube=气道管
+    table strap=手术台固定带
+    shoulder support=肩托
+    arm board=臂板
+    leg support=腿托
+    heel pad=脚跟垫
+    mayo stand=梅奥台
+    back table=器械后桌
+    prep table=术前准备台
+    sterile bowl=无菌碗
+    kidney dish=肾形盘
+    sponge bowl=海绵碗
+    scrub brush=刷手刷
+    shoe cover=鞋套
+    sterile glove=无菌手套
+    gown tie=手术衣系带
+    drape clip=铺单夹
+    instrument handle=器械柄
+    retractor=牵开器
+    needle holder=持针器
+    sharps bin=锐器盒
+    waste bag=废物袋
+  `),
+  group("pathology-lab", "cold-storage", "cold-storage-detail", `
+    cryostat=冰冻切片机
+    cryostat chamber=冰冻腔
+    cryostat blade=冰冻刀片
+    frozen block=冰冻蜡块
+    cold chain=冷链
+    ice pack=冰袋
+    cooling rack=冷却架
+    chilled tray=冷藏托盘
+    cryovial=冻存管
+    cryo box=冻存盒
+    freezer rack=冷冻架
+    sample drawer=样本抽屉
+    cold drawer=冷藏抽屉
+    frost line=霜线
+    temperature dial=温度旋钮
+    temperature probe=温度探头
+    door latch=门闩
+    door handle=门把手
+    shelf bracket=层板支架
+    shelf divider=层板隔板
+    storage bin=储存箱
+    vial cradle=试管托架
+    tube sleeve=试管套
+    insulated lid=保温盖
+    coolant pipe=冷却管
+    vent grille=通风格栅
+    ice crystal=冰晶
+    frost patch=霜斑
+    cabinet key=柜门钥匙
+    cold room threshold=冷室门槛
+  `),
+  group("hospital-pharmacy", "mobile-cart", "mobile-cart-detail", `
+    drawer cart=抽屉车
+    locking drawer=锁定抽屉
+    cart brake=推车制动器
+    wheel guard=车轮护罩
+    push bar=推杆
+    side panel=侧板
+    end panel=端板
+    supply drawer=物资抽屉
+    dose cup rack=量杯架
+    syringe tray=注射器托盘
+    glove box=手套盒
+    gauze pack=纱布包
+    dressing pack=敷料包
+    label sleeve=标签套
+    barcode tag=条码标签
+    stock bin=库存箱
+    reorder card=补货卡
+    seal strip=封条
+    package flap=包装翻盖
+    foil pouch=铝箔袋
+    cart divider=推车隔板
+    basket handle=篮子把手
+    bottle holder=瓶托
+    vial holder=药瓶托
+    tray liner=托盘衬垫
+    safety rail=安全栏杆
+    corner bumper=护角
+    caster brake=脚轮制动
+    cart shelf mat=推车层垫
+    supply label=物资标签
+  `),
+  group("airport", "baggage-claim", "baggage-claim-detail", `
+    claim chute=行李滑槽
+    chute door=滑槽门
+    oversize belt=超规行李带
+    claim monitor=提取显示器
+    carousel island=转盘岛台
+    luggage trolley bay=行李车位
+    lost baggage desk=失物行李台
+    arrival door=到达门
+    customs barrier=海关隔栏
+    claim inspection table=提取检查台
+    trolley queue=行李车队列
+    carousel motor=转盘电机
+    roller housing=滚筒护罩
+    carousel guide=转盘导轨
+    carousel hub=转盘中心
+    carousel cover=转盘护罩
+    slat hinge=板条铰链
+    rubber skirt=橡胶裙边
+    baggage tub=行李槽
+    bag wheel=行李轮
+    bag corner=行李角
+    tag pocket=行李牌袋
+    claim ticket=提取票
+    counter tray=柜台托盘
+    arrival gate=到达闸门
+    floor bollard=地面护柱
+    claim barrier=提取隔栏
+    cart rail=行李车栏
+    trolley deck=行李车底板
+    carousel edge=转盘边缘
+  `),
+  group("office-building", "service-core", "service-core-detail", `
+    fan coil=风机盘管
+    air filter=空气滤网
+    filter frame=滤网框
+    volume damper=风量调节阀
+    duct grille=风管格栅
+    duct collar=风管套环
+    pipe valve=管道阀
+    valve handle=阀门把手
+    pressure gauge=压力表
+    flow meter=流量计
+    meter cabinet=仪表柜
+    conduit box=线管盒
+    conduit strap=线管卡箍
+    cable trunk=电缆槽
+    cable gland=电缆密封套
+    switch handle=开关把手
+    busbar cover=母线护盖
+    breaker lever=断路器扳手
+    power meter=电力表
+    emergency light=应急灯
+    exit light=出口灯
+    sprinkler head=喷淋头
+    fire hose=消防水带
+    smoke alarm=烟雾报警器
+    fire door=防火门
+    access panel=检修面板
+    service ladder=检修梯
+    floor drain=地漏
+    pipe elbow=管道弯头
+    ceiling hatch=天花检修口
+  `),
 ];
 
 const realmByScene = {
@@ -979,7 +1140,11 @@ function addGroup(scene, definition, groupIndex) {
   )).length;
   if (presentCount === definition.terms.length) return 0;
   if (presentCount > 0) {
-    throw new Error(`${scene.id}/${definition.regionId} is only partially applied`);
+    const presentTerms = definition.terms
+      .filter(({ word }) => existingWords.has(word.toLocaleLowerCase()))
+      .map(({ word }) => word)
+      .join(", ");
+    throw new Error(`${scene.id}/${definition.regionId} is only partially applied: ${presentTerms}`);
   }
   const maxPriority = scene.labels.reduce((max, label) => Math.max(max, label.priority ?? 0), 0);
   const added = definition.terms.map((term, index) => {

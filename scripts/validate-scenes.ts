@@ -160,11 +160,11 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "city-park": 144,
   "city-street": 149,
   "urban-services": 120,
-  hospital: 320,
-  "pathology-lab": 330,
-  "hospital-pharmacy": 270,
-  airport: 270,
-  "office-building": 270,
+  hospital: 350,
+  "pathology-lab": 360,
+  "hospital-pharmacy": 300,
+  airport: 300,
+  "office-building": 300,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   // The final pixel pass also retains separately visible fossil, telescope,

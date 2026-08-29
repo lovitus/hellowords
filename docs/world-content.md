@@ -41,7 +41,7 @@ The graph contains 43 reachable scenes and 42 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 5,666 human-verified anchors representing 4,830
+Spatial scenes now contain 5,816 human-verified anchors representing 4,965
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -121,11 +121,11 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Cotton shirt | 63 → 55 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools, plus visible yoke, buttonhole, seam and tool parts; machinery, factory actions and performance properties remain removed |
 | City street | 154 → 149 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects; added facade, roadway and mobility parts stay in existing regions |
 | Urban services | 128 → 120 | Aerial masterplan visibly separates hospital, airport and office campuses plus shared roads, water and planting connectors |
-| Hospital | 330 → 320 | Bright atrium grounds departments, emergency, pathology, radiology, pharmacy, operating-theatre fixtures and a generic disease reference band; added clinical terms remain non-prescriptive |
-| Pathology lab | 340 → 330 | Close laboratory raster grounds microscopes, specimen handling, paraffin embedding, microtomy, staining, cold storage and a larger histology/diagnostic display vocabulary |
-| Hospital pharmacy | 280 → 270 | Close dispensary raster grounds medicine shelves, generic INN names, dispensing tools, automated cabinet, rolling cart and compounding bench without dosage advice |
-| Airport | 280 → 270 | Terminal photograph grounds check-in, security, gate, baggage claim, airside aircraft, flight hardware and ramp-service structures |
-| Office building | 280 → 270 | Warm atrium grounds reception, open-plan workstations, conference room, pantry and a deeper service-core vocabulary for power, data, HVAC and fire hardware |
+| Hospital | 360 → 350 | Bright atrium grounds departments, emergency, pathology, radiology, pharmacy, operating-theatre fixtures and a generic disease reference band; added clinical terms remain non-prescriptive |
+| Pathology lab | 370 → 360 | Close laboratory raster grounds microscopes, specimen handling, paraffin embedding, microtomy, staining, cold storage and a larger histology/diagnostic display vocabulary |
+| Hospital pharmacy | 310 → 300 | Close dispensary raster grounds medicine shelves, generic INN names, dispensing tools, automated cabinet, rolling cart and compounding bench without dosage advice |
+| Airport | 310 → 300 | Terminal photograph grounds check-in, security, gate, baggage claim, airside aircraft, flight hardware and ramp-service structures |
+| Office building | 310 → 300 | Warm atrium grounds reception, open-plan workstations, conference room, pantry and a deeper service-core vocabulary for power, data, HVAC and fire hardware |
 | City cafe | 77 → 70 | New daylight cafe grounds door, seating, counter, pastry-display and espresso subparts; people, branding and inferred service stay excluded |
 | Transit hub | 85 → 73 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
 | Electric bus | 71 → 55 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; four added front-door and wheel-hardware parts remain grounded while people, branding and operating concepts stay removed |

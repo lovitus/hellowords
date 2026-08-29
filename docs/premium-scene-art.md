@@ -154,8 +154,11 @@ anchors: Pathology lab 180 across microscopes, specimen handling, paraffin
 embedding, microtomy, staining and cold storage; Hospital pharmacy 150 across
 medicine shelves, dispensing, automated storage, a rolling cart and a
 compounding bench. The follow-up pass adds 150 pathology anchors and 120
-pharmacy anchors, bringing them to 330 and 270 respectively. Generic medicine
-names remain educational labels only.
+pharmacy anchors, bringing them to 330 and 270 respectively. A further
+facility-depth pass adds 30 operating-theatre, 30 cold-storage, 30 cart, 30
+baggage-claim and 30 service-core terms, bringing the five professional scenes
+to Hospital 350, Pathology lab 360, Hospital pharmacy 300, Airport 300 and
+Office building 300. Generic medicine names remain educational labels only.
 
 The next breadth pass adds 180 more anchors without changing artwork or portal
 geometry: City street 149, Transit hub 103, Science museum 176, City park 144
