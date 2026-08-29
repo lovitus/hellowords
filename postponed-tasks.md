@@ -4,15 +4,15 @@
 
 ## 当前交付游标
 
-- 公开版本：`v121-b7ac851`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=121-b7ac851#world>
-- 源码：`b7ac85149da426d198812fea4f634610e74d3773`（v121 公开运行时；医院 350、病理实验室 360、医院药房 300、机场 300、写字楼 300；城市街景 149、交通枢纽 103、科学馆 176、城市公园 144、社区花园 103；Apartment 143、Kitchen 146、Bedroom 134、Bathroom 133、City cafe 100）。累计空间锚点 5,966，继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：继续按“先堆词、再精修”扩展专业场景；当前 v121 保持公开可验证，下一批继续增加词量。
+- 公开版本：`v122-dca2967`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=122-dca2967#world>
+- 源码：`dca2967baff8b3a20f967d22ea20d853e05e48cc`（v122 公开运行时；医院 350、病理实验室 360、医院药房 300、机场 300、写字楼 300；城市街景 149、交通枢纽 103、科学馆 176、城市公园 144、社区花园 103；Apartment 143、Kitchen 146、Bedroom 134、Bathroom 133、City cafe 100；电动公交 85、电池包 90、铁路站台 126、列车车厢 100、转向架 95）。累计空间锚点 6,116，继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：继续按“先堆词、再精修”扩展专业场景；当前 v122 保持公开可验证，下一批继续增加词量。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
-### v121 交付记录（2026-08-29）
+### v122 交付记录（2026-08-29）
 
-- 本地数据验证已通过：43 个场景、5,816 个空间锚点、4,965 个去重词、307 个细节区、42 个门户；`npm run verify`（229 个域测试 + 28 个语义/词境测试）已通过，完整 E2E 106 通过 / 36 设计性跳过，`PERF_RUN=1 npm run test:perf` 2/2 通过。
+- 本地数据验证已通过：43 个场景、6,116 个空间锚点、5,202 个去重词、307 个细节区、42 个门户；`npm run verify`（231 个域测试 + 28 个语义/词境测试）已通过，完整 E2E 106 通过 / 36 设计性跳过，`PERF_RUN=1 npm run test:perf` 2/2 通过。
 - 新增词批次：Hospital +150（科室/设施/疾病/药品）、Pathology lab +150（显微镜/标本/包埋/染色/病理显示）、Hospital pharmacy +120（INN/调配/自动柜/配制台）、Airport +120（值机/安检/登机厅/机坪）、Office building +120（前厅/办公位/会议室/设备核心）。每组均写入既有五级 LOD 与细节区，脚本 `scripts/add-professional-vocabulary.mjs` 可幂等复用。
 - 相机交接修复：连续入口现在按 `object-fit: cover` 的真实子图像绘制边界计算，比例不一致的 Apartment 入口保持连续；公开页实际验证首页 6 名称/hover Campus 21 词/移出 0 词，医院 320、机场 270、写字楼 270 词以及细节区新词可达。
 - 新增素材：`urban-services-overview-premium-v1.jpg`、`hospital-atrium-premium-v1.jpg`、`airport-terminal-premium-v1.jpg`、`office-atrium-premium-v1.jpg`、`pathology-lab-premium-v1.jpg`、`hospital-pharmacy-premium-v1.jpg`，均为 1600×900、已固定 SHA；素材由 ImageGen 生成后人工复核，未包含品牌/可读标牌。
@@ -27,6 +27,8 @@
 - v119 在现有图片上增加 150 个 Home 词：Apartment 143、Kitchen 146、Bedroom 134、Bathroom 133、City cafe 100；新增批次统一落在 LOD 2–4，避免首屏挂载过多词泡，完整词量仍可通过细节区和拖动探索。
 - v120/v121 增加焦点区词优先挂载，并在宽焦点区按词群包围盒自动降低初始目标缩放；点击 Kitchen 准备台时公开实测缩放降至 1.54，新增 `colander` 已挂载且可见，继续放大仍可进入更深 LOD。`npm run verify` 通过（230 个域测试 + 28 个语义/词境测试），完整 E2E 106 通过 / 36 设计性跳过，性能 2/2 通过。
 - 清理记录：v119/v120/v121 归档已分别移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v119/`、`hellowords-v120/`、`hellowords-v121/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
+- v122 为交通链再增加 150 个细节词，并让当前焦点区的 LOD4 词在目标缩放后直接提升为可读状态；公开实测 Kitchen 准备台 scale 1.54，`colander` 已挂载且可见，Battery pack 的 `cooling plate fin` 已可见。
+- 清理记录：v122 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v122/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
 
 ## 当前续开发游标（2026-08-29）
 
