@@ -712,7 +712,7 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
     }
   }
 
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "90");
   await expect.poll(() => page.locator(
     '[data-testid="word-label"][data-visible="true"][data-interactive="true"]',
   ).count()).toBeGreaterThan(8);

@@ -723,12 +723,12 @@ test("railway platform preserves its expanded passenger, train and track vocabul
   const { scenes } = await loadWorld();
   const platform = scenes.find((scene) => scene.id === "railway-platform");
   assert.ok(platform);
-  assert.equal(platform.labels.length, 96);
+  assert.equal(platform.labels.length, 126);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       platform.labels.filter((label) => label.minLevel === level).length
     )),
-    [7, 6, 9, 29, 45],
+    [7, 6, 19, 39, 55],
   );
   const words = new Set(platform.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -766,7 +766,7 @@ test("railway platform preserves its expanded passenger, train and track vocabul
       ["passenger-platform", 34],
       ["train-body", 30],
       ["overhead-electrification", 11],
-      ["track-structure", 21],
+      ["track-structure", 51],
     ],
   );
   const labels = new Map(platform.labels.map((label) => [label.id, label] as const));
@@ -910,7 +910,7 @@ test("train carriage adds grounded coupler, cabin and track parts", async () => 
   const { scenes } = await loadWorld();
   const carriage = scenes.find((scene) => scene.id === "train-carriage");
   assert.ok(carriage);
-  assert.equal(carriage.labels.length, 70);
+  assert.equal(carriage.labels.length, 100);
   const words = new Set(carriage.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
     "buffer",
@@ -929,7 +929,7 @@ test("train carriage adds grounded coupler, cabin and track parts", async () => 
       ["passenger-seating", 14],
       ["entry-vestibule", 14],
       ["overhead-storage", 8],
-      ["bogie-assembly", 13],
+      ["bogie-assembly", 43],
       ["underbody-equipment", 4],
       ["coupler-and-brake-gear", 4],
       ["foreground-track", 4],
@@ -1200,17 +1200,17 @@ test("premium battery pack expands only into clearly resolved electrical and the
   assert.ok(battery);
   assert.equal(battery.parentId, "electric-bus");
   assert.equal(battery.asset, "/scenes/battery-premium-v2.jpg");
-  assert.equal(battery.labels.length, 60);
+  assert.equal(battery.labels.length, 90);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       battery.labels.filter((label) => label.minLevel === level).length
     )),
-    [7, 13, 17, 13, 10],
+    [7, 13, 27, 23, 20],
   );
   assert.deepEqual(
     battery.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["pack-shell", 9],
+      ["pack-shell", 39],
       ["lid-and-seal", 5],
       ["cell-module", 17],
       ["power-electronics", 12],
@@ -1288,18 +1288,18 @@ test("premium electric bus expands its visible cabin and running gear without ad
   assert.ok(bus);
   assert.equal(bus.parentId, "transit-hub");
   assert.equal(bus.asset, "/scenes/electric-bus-premium-v2.jpg");
-  assert.equal(bus.labels.length, 55);
+  assert.equal(bus.labels.length, 85);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       bus.labels.filter((label) => label.minLevel === level).length
     )),
-    [7, 10, 11, 15, 12],
+    [7, 10, 21, 25, 22],
   );
   assert.deepEqual(
     bus.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
       ["bus-shell", 6],
-      ["passenger-cabin", 10],
+      ["passenger-cabin", 40],
       ["front-entry-cab", 17],
       ["underfloor-energy", 6],
       ["rear-drivetrain", 4],
@@ -1565,18 +1565,18 @@ test("premium rail bogie grounds powered running gear without maintenance claims
   assert.ok(bogie);
   assert.equal(bogie.parentId, "train-carriage");
   assert.equal(bogie.asset, "/scenes/rail-bogie-premium-v2.jpg");
-  assert.equal(bogie.labels.length, 65);
+  assert.equal(bogie.labels.length, 95);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       bogie.labels.filter((label) => label.minLevel === level).length
     )),
-    [8, 13, 16, 15, 13],
+    [8, 13, 26, 25, 23],
   );
   assert.equal(bogie.detailZones?.length, 5);
   assert.deepEqual(
     bogie.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["frame-and-secondary-suspension", 21],
+      ["frame-and-secondary-suspension", 51],
       ["powered-wheelset", 17],
       ["axlebox-and-primary-suspension", 7],
       ["right-running-gear", 11],

@@ -8,82 +8,1044 @@
   "height": 900,
   "parentId": "railway-platform",
   "labels": [
-    { "id": "train-carriage", "word": "train carriage", "translation": "列车车厢", "x": 800, "y": 400, "priority": 1, "minLevel": 0, "sourceVisualRegion": "whole-carriage" },
-    { "id": "window", "word": "window", "translation": "车窗", "x": 1000, "y": 380, "priority": 1.001, "minLevel": 0, "sourceVisualRegion": "verified-window", "lexemeId": "en-44ff7b02c80d38b2" },
-    { "id": "sliding-door", "word": "sliding door", "translation": "滑动门", "x": 665, "y": 400, "priority": 1.002, "minLevel": 0, "sourceVisualRegion": "verified-sliding-door" },
-    { "id": "seat", "word": "seat", "translation": "乘客座椅", "x": 800, "y": 470, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "verified-seat", "lexemeId": "en-5d2c13d6f9fa4211" },
-    { "id": "floor", "word": "floor", "translation": "车厢地板", "x": 900, "y": 575, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "verified-floor", "lexemeId": "en-a3e1f4935b0919b3" },
-    { "id": "bogie", "word": "bogie", "translation": "转向架", "x": 900, "y": 700, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "portal-bogie" },
-    { "id": "wheel", "word": "wheel", "translation": "车轮", "x": 710, "y": 750, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "verified-bogie-wheel", "lexemeId": "en-ba59926159d2aa25" },
-
-    { "id": "body-panel", "word": "body panel", "translation": "车身面板", "x": 1480, "y": 550, "priority": 2, "minLevel": 1, "sourceVisualRegion": "verified-body-panel" },
-    { "id": "roof", "word": "roof", "translation": "车顶", "x": 800, "y": 75, "priority": 2.001, "minLevel": 1, "sourceVisualRegion": "verified-roof", "lexemeId": "en-d1a0d6f4707493e5" },
-    { "id": "vestibule", "word": "vestibule", "translation": "门厅", "x": 420, "y": 500, "priority": 2.002, "minLevel": 1, "sourceVisualRegion": "verified-vestibule" },
-    { "id": "aisle", "word": "aisle", "translation": "中央通道", "x": 1040, "y": 550, "priority": 2.003, "minLevel": 1, "sourceVisualRegion": "verified-aisle" },
-    { "id": "luggage-rack", "word": "luggage rack", "translation": "行李架", "x": 1050, "y": 310, "priority": 2.004, "minLevel": 1, "sourceVisualRegion": "verified-luggage-rack" },
-    { "id": "handrail", "word": "handrail", "translation": "立式扶手", "x": 755, "y": 400, "priority": 2.005, "minLevel": 1, "sourceVisualRegion": "verified-handrail" },
-    { "id": "gangway-bellows", "word": "gangway bellows", "translation": "贯通道折棚", "x": 110, "y": 350, "priority": 2.006, "minLevel": 1, "sourceVisualRegion": "verified-gangway-bellows" },
-    { "id": "coupler", "word": "coupler", "translation": "车钩", "x": 100, "y": 660, "priority": 2.007, "minLevel": 1, "sourceVisualRegion": "verified-coupler" },
-
-    { "id": "door-leaf", "word": "door leaf", "translation": "门扇", "x": 630, "y": 390, "priority": 3, "minLevel": 2, "sourceVisualRegion": "verified-door-leaf" },
-    { "id": "door-threshold", "word": "door threshold", "translation": "车门门槛", "x": 670, "y": 575, "priority": 3.001, "minLevel": 2, "sourceVisualRegion": "verified-door-threshold" },
-    { "id": "seat-back", "word": "seat back", "translation": "座椅靠背", "x": 800, "y": 410, "priority": 3.002, "minLevel": 2, "sourceVisualRegion": "verified-seat-back" },
-    { "id": "table", "word": "table", "translation": "小桌板", "x": 930, "y": 475, "priority": 3.003, "minLevel": 2, "sourceVisualRegion": "verified-table", "lexemeId": "en-0d4fc4a78d3706ed" },
-    { "id": "suitcase", "word": "suitcase", "translation": "行李箱", "x": 900, "y": 265, "priority": 3.004, "minLevel": 2, "sourceVisualRegion": "verified-suitcase" },
-    { "id": "overhead-rail", "word": "overhead rail", "translation": "顶部扶手杆", "x": 1050, "y": 190, "priority": 3.005, "minLevel": 2, "sourceVisualRegion": "verified-overhead-rail" },
-    { "id": "wheelchair-bay", "word": "wheelchair bay", "translation": "轮椅停放区", "x": 1340, "y": 455, "priority": 3.006, "minLevel": 2, "sourceVisualRegion": "verified-wheelchair-bay" },
-    { "id": "bogie-frame", "word": "bogie frame", "translation": "转向架构架", "x": 900, "y": 680, "priority": 3.007, "minLevel": 2, "sourceVisualRegion": "verified-bogie-frame" },
-
-    { "id": "carriage-end", "word": "carriage end", "translation": "车厢端部", "x": 1500, "y": 430, "priority": 6, "minLevel": 2, "sourceVisualRegion": "verified-carriage-end" },
-    { "id": "window-frame", "word": "window frame", "translation": "车窗框", "x": 1000, "y": 335, "priority": 6.001, "minLevel": 2, "sourceVisualRegion": "verified-window-frame" },
-    { "id": "side-skirt", "word": "side skirt", "translation": "侧裙板", "x": 1390, "y": 620, "priority": 6.002, "minLevel": 2, "sourceVisualRegion": "verified-side-skirt" },
-    { "id": "underframe", "word": "underframe", "translation": "底架", "x": 1310, "y": 690, "priority": 6.003, "minLevel": 2, "sourceVisualRegion": "verified-underframe" },
-    { "id": "door-window", "word": "door window", "translation": "车门窗", "x": 650, "y": 325, "priority": 6.004, "minLevel": 2, "sourceVisualRegion": "verified-door-window" },
-    { "id": "door-frame", "word": "door frame", "translation": "车门框", "x": 590, "y": 300, "priority": 6.005, "minLevel": 2, "sourceVisualRegion": "verified-door-frame" },
-    { "id": "boarding-step", "word": "boarding step", "translation": "登车踏板", "x": 410, "y": 555, "priority": 6.006, "minLevel": 2, "sourceVisualRegion": "verified-boarding-step" },
-    { "id": "seat-headrest", "word": "seat headrest", "translation": "座椅头枕", "x": 800, "y": 365, "priority": 6.007, "minLevel": 2, "sourceVisualRegion": "verified-seat-headrest" },
-    { "id": "rack-bar", "word": "rack bar", "translation": "行李架横杆", "x": 1020, "y": 295, "priority": 6.008, "minLevel": 2, "sourceVisualRegion": "verified-rack-bar" },
-
-    { "id": "door-track", "word": "door track", "translation": "门轨", "x": 670, "y": 250, "priority": 4, "minLevel": 3, "sourceVisualRegion": "verified-door-track" },
-    { "id": "seat-cushion", "word": "seat cushion", "translation": "座垫", "x": 820, "y": 500, "priority": 4.001, "minLevel": 3, "sourceVisualRegion": "verified-seat-cushion" },
-    { "id": "armrest", "word": "armrest", "translation": "座椅扶手", "x": 880, "y": 450, "priority": 4.002, "minLevel": 3, "sourceVisualRegion": "verified-armrest" },
-    { "id": "handle", "word": "handle", "translation": "吊环拉手", "x": 1000, "y": 230, "priority": 4.003, "minLevel": 3, "sourceVisualRegion": "verified-grab-handle", "lexemeId": "en-c2a116aa910d147b" },
-    { "id": "fold-up-seat", "word": "fold-up seat", "translation": "折叠座椅", "x": 1385, "y": 455, "priority": 4.004, "minLevel": 3, "sourceVisualRegion": "verified-fold-up-seat" },
-    { "id": "ceiling-panel", "word": "ceiling panel", "translation": "顶板", "x": 1000, "y": 160, "priority": 4.005, "minLevel": 3, "sourceVisualRegion": "verified-ceiling-panel" },
-    { "id": "equipment-box", "word": "equipment box", "translation": "设备箱", "x": 1300, "y": 635, "priority": 4.006, "minLevel": 3, "sourceVisualRegion": "verified-equipment-box" },
-    { "id": "air-reservoir", "word": "air reservoir", "translation": "储气筒", "x": 1475, "y": 605, "priority": 4.007, "minLevel": 3, "sourceVisualRegion": "verified-air-reservoir" },
-
-    { "id": "window-sill", "word": "window sill", "translation": "窗台", "x": 1000, "y": 485, "priority": 6.009, "minLevel": 3, "sourceVisualRegion": "verified-window-sill" },
-    { "id": "door-handle", "word": "door handle", "translation": "车门把手", "x": 625, "y": 430, "priority": 6.010, "minLevel": 3, "sourceVisualRegion": "verified-door-handle" },
-    { "id": "seat-leg", "word": "seat leg", "translation": "座椅支腿", "x": 820, "y": 545, "priority": 6.011, "minLevel": 3, "sourceVisualRegion": "verified-seat-leg" },
-    { "id": "table-leg", "word": "table leg", "translation": "桌腿", "x": 930, "y": 545, "priority": 6.012, "minLevel": 3, "sourceVisualRegion": "verified-table-leg" },
-    { "id": "seat-frame", "word": "seat frame", "translation": "座椅框架", "x": 820, "y": 525, "priority": 6.013, "minLevel": 3, "sourceVisualRegion": "verified-seat-frame" },
-    { "id": "accessible-rail", "word": "accessible rail", "translation": "无障碍扶杆", "x": 1360, "y": 520, "priority": 6.014, "minLevel": 3, "sourceVisualRegion": "verified-wheelchair-rail" },
-    { "id": "suitcase-handle", "word": "suitcase handle", "translation": "行李箱把手", "x": 900, "y": 240, "priority": 6.015, "minLevel": 3, "sourceVisualRegion": "verified-suitcase-handle" },
-    { "id": "light-diffuser", "word": "light diffuser", "translation": "灯罩", "x": 480, "y": 180, "priority": 6.016, "minLevel": 3, "sourceVisualRegion": "verified-light-diffuser" },
-    { "id": "wheel-rim", "word": "wheel rim", "translation": "车轮轮辋", "x": 710, "y": 750, "priority": 6.017, "minLevel": 3, "sourceVisualRegion": "verified-wheel-rim" },
-    { "id": "suspension-damper", "word": "suspension damper", "translation": "悬挂减振器", "x": 850, "y": 660, "priority": 6.018, "minLevel": 3, "sourceVisualRegion": "verified-suspension-damper" },
-    { "id": "rail", "word": "rail", "translation": "钢轨", "x": 900, "y": 850, "priority": 6.019, "minLevel": 3, "sourceVisualRegion": "verified-rail" },
-
-    { "id": "ceiling-light", "word": "ceiling light", "translation": "顶灯", "x": 450, "y": 180, "priority": 5, "minLevel": 4, "sourceVisualRegion": "verified-ceiling-light" },
-    { "id": "ventilation-grille", "word": "ventilation grille", "translation": "通风格栅", "x": 550, "y": 75, "priority": 5.001, "minLevel": 4, "sourceVisualRegion": "verified-ventilation-grille" },
-    { "id": "waste-bin", "word": "waste bin", "translation": "垃圾桶", "x": 430, "y": 490, "priority": 5.002, "minLevel": 4, "sourceVisualRegion": "verified-waste-bin" },
-    { "id": "axle", "word": "axle", "translation": "车轴", "x": 880, "y": 735, "priority": 5.003, "minLevel": 4, "sourceVisualRegion": "verified-axle" },
-    { "id": "axle-box", "word": "axle box", "translation": "轴箱", "x": 740, "y": 700, "priority": 5.004, "minLevel": 4, "sourceVisualRegion": "verified-axle-box" },
-    { "id": "brake-disc", "word": "brake disc", "translation": "制动盘", "x": 690, "y": 745, "priority": 5.005, "minLevel": 4, "sourceVisualRegion": "verified-brake-disc" },
-    { "id": "coil-spring", "word": "coil spring", "translation": "螺旋弹簧", "x": 805, "y": 700, "priority": 5.006, "minLevel": 4, "sourceVisualRegion": "verified-coil-spring" },
-    { "id": "air-spring", "word": "air spring", "translation": "空气弹簧", "x": 960, "y": 620, "priority": 5.007, "minLevel": 4, "sourceVisualRegion": "verified-air-spring" },
-    { "id": "motor", "word": "motor", "translation": "牵引电机", "x": 1060, "y": 680, "priority": 5.008, "minLevel": 4, "sourceVisualRegion": "verified-traction-motor", "lexemeId": "en-02983856320b180c" },
-    { "id": "brake-cylinder", "word": "brake cylinder", "translation": "制动缸", "x": 1120, "y": 650, "priority": 6.020, "minLevel": 4, "sourceVisualRegion": "verified-brake-cylinder" },
-    { "id": "gearbox", "word": "gearbox", "translation": "齿轮箱", "x": 1050, "y": 700, "priority": 6.021, "minLevel": 4, "sourceVisualRegion": "verified-gearbox" },
-    { "id": "rail-baseplate", "word": "rail baseplate", "translation": "钢轨底座板", "x": 950, "y": 875, "priority": 6.022, "minLevel": 4, "sourceVisualRegion": "verified-rail-baseplate" },
-    { "id": "rail-fastener", "word": "rail fastener", "translation": "钢轨扣件", "x": 900, "y": 845, "priority": 6.023, "minLevel": 4, "sourceVisualRegion": "verified-rail-fastener" },
-    { "id": "buffer", "word": "buffer", "translation": "缓冲器", "x": 72, "y": 660, "priority": 6.024, "minLevel": 3, "sourceVisualRegion": "verified-buffer" },
-    { "id": "brake-hose", "word": "brake hose", "translation": "制动软管", "x": 120, "y": 720, "priority": 6.025, "minLevel": 4, "sourceVisualRegion": "verified-brake-hose" },
-    { "id": "sleeper", "word": "sleeper", "translation": "轨枕", "x": 980, "y": 855, "priority": 6.026, "minLevel": 4, "sourceVisualRegion": "verified-sleeper" },
-    { "id": "door-seal", "word": "door seal", "translation": "车门密封条", "x": 620, "y": 350, "priority": 6.027, "minLevel": 4, "sourceVisualRegion": "verified-door-seal" },
-    { "id": "window-pane", "word": "window pane", "translation": "车窗玻璃", "x": 1000, "y": 380, "priority": 6.028, "minLevel": 4, "sourceVisualRegion": "verified-window-pane" },
-    { "id": "wall-panel", "word": "wall panel", "translation": "内墙面板", "x": 1080, "y": 235, "priority": 6.029, "minLevel": 3, "sourceVisualRegion": "verified-wall-panel" }
+    {
+      "id": "train-carriage",
+      "word": "train carriage",
+      "translation": "列车车厢",
+      "x": 800,
+      "y": 400,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-carriage"
+    },
+    {
+      "id": "window",
+      "word": "window",
+      "translation": "车窗",
+      "x": 1000,
+      "y": 380,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-window",
+      "lexemeId": "en-44ff7b02c80d38b2"
+    },
+    {
+      "id": "sliding-door",
+      "word": "sliding door",
+      "translation": "滑动门",
+      "x": 665,
+      "y": 400,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-sliding-door"
+    },
+    {
+      "id": "seat",
+      "word": "seat",
+      "translation": "乘客座椅",
+      "x": 800,
+      "y": 470,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-seat",
+      "lexemeId": "en-5d2c13d6f9fa4211"
+    },
+    {
+      "id": "floor",
+      "word": "floor",
+      "translation": "车厢地板",
+      "x": 900,
+      "y": 575,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-floor",
+      "lexemeId": "en-a3e1f4935b0919b3"
+    },
+    {
+      "id": "bogie",
+      "word": "bogie",
+      "translation": "转向架",
+      "x": 900,
+      "y": 700,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "portal-bogie"
+    },
+    {
+      "id": "wheel",
+      "word": "wheel",
+      "translation": "车轮",
+      "x": 710,
+      "y": 750,
+      "priority": 1.006,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-bogie-wheel",
+      "lexemeId": "en-ba59926159d2aa25"
+    },
+    {
+      "id": "body-panel",
+      "word": "body panel",
+      "translation": "车身面板",
+      "x": 1480,
+      "y": 550,
+      "priority": 2,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-body-panel"
+    },
+    {
+      "id": "roof",
+      "word": "roof",
+      "translation": "车顶",
+      "x": 800,
+      "y": 75,
+      "priority": 2.001,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-roof",
+      "lexemeId": "en-d1a0d6f4707493e5"
+    },
+    {
+      "id": "vestibule",
+      "word": "vestibule",
+      "translation": "门厅",
+      "x": 420,
+      "y": 500,
+      "priority": 2.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-vestibule"
+    },
+    {
+      "id": "aisle",
+      "word": "aisle",
+      "translation": "中央通道",
+      "x": 1040,
+      "y": 550,
+      "priority": 2.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-aisle"
+    },
+    {
+      "id": "luggage-rack",
+      "word": "luggage rack",
+      "translation": "行李架",
+      "x": 1050,
+      "y": 310,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-luggage-rack"
+    },
+    {
+      "id": "handrail",
+      "word": "handrail",
+      "translation": "立式扶手",
+      "x": 755,
+      "y": 400,
+      "priority": 2.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-handrail"
+    },
+    {
+      "id": "gangway-bellows",
+      "word": "gangway bellows",
+      "translation": "贯通道折棚",
+      "x": 110,
+      "y": 350,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-gangway-bellows"
+    },
+    {
+      "id": "coupler",
+      "word": "coupler",
+      "translation": "车钩",
+      "x": 100,
+      "y": 660,
+      "priority": 2.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "verified-coupler"
+    },
+    {
+      "id": "door-leaf",
+      "word": "door leaf",
+      "translation": "门扇",
+      "x": 630,
+      "y": 390,
+      "priority": 3,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-door-leaf"
+    },
+    {
+      "id": "door-threshold",
+      "word": "door threshold",
+      "translation": "车门门槛",
+      "x": 670,
+      "y": 575,
+      "priority": 3.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-door-threshold"
+    },
+    {
+      "id": "seat-back",
+      "word": "seat back",
+      "translation": "座椅靠背",
+      "x": 800,
+      "y": 410,
+      "priority": 3.002,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-seat-back"
+    },
+    {
+      "id": "table",
+      "word": "table",
+      "translation": "小桌板",
+      "x": 930,
+      "y": 475,
+      "priority": 3.003,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-table",
+      "lexemeId": "en-0d4fc4a78d3706ed"
+    },
+    {
+      "id": "suitcase",
+      "word": "suitcase",
+      "translation": "行李箱",
+      "x": 900,
+      "y": 265,
+      "priority": 3.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-suitcase"
+    },
+    {
+      "id": "overhead-rail",
+      "word": "overhead rail",
+      "translation": "顶部扶手杆",
+      "x": 1050,
+      "y": 190,
+      "priority": 3.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-overhead-rail"
+    },
+    {
+      "id": "wheelchair-bay",
+      "word": "wheelchair bay",
+      "translation": "轮椅停放区",
+      "x": 1340,
+      "y": 455,
+      "priority": 3.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wheelchair-bay"
+    },
+    {
+      "id": "bogie-frame",
+      "word": "bogie frame",
+      "translation": "转向架构架",
+      "x": 900,
+      "y": 680,
+      "priority": 3.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame"
+    },
+    {
+      "id": "carriage-end",
+      "word": "carriage end",
+      "translation": "车厢端部",
+      "x": 1500,
+      "y": 430,
+      "priority": 6,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-carriage-end"
+    },
+    {
+      "id": "window-frame",
+      "word": "window frame",
+      "translation": "车窗框",
+      "x": 1000,
+      "y": 335,
+      "priority": 6.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-window-frame"
+    },
+    {
+      "id": "side-skirt",
+      "word": "side skirt",
+      "translation": "侧裙板",
+      "x": 1390,
+      "y": 620,
+      "priority": 6.002,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-side-skirt"
+    },
+    {
+      "id": "underframe",
+      "word": "underframe",
+      "translation": "底架",
+      "x": 1310,
+      "y": 690,
+      "priority": 6.003,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-underframe"
+    },
+    {
+      "id": "door-window",
+      "word": "door window",
+      "translation": "车门窗",
+      "x": 650,
+      "y": 325,
+      "priority": 6.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-door-window"
+    },
+    {
+      "id": "door-frame",
+      "word": "door frame",
+      "translation": "车门框",
+      "x": 590,
+      "y": 300,
+      "priority": 6.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-door-frame"
+    },
+    {
+      "id": "boarding-step",
+      "word": "boarding step",
+      "translation": "登车踏板",
+      "x": 410,
+      "y": 555,
+      "priority": 6.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-boarding-step"
+    },
+    {
+      "id": "seat-headrest",
+      "word": "seat headrest",
+      "translation": "座椅头枕",
+      "x": 800,
+      "y": 365,
+      "priority": 6.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-seat-headrest"
+    },
+    {
+      "id": "rack-bar",
+      "word": "rack bar",
+      "translation": "行李架横杆",
+      "x": 1020,
+      "y": 295,
+      "priority": 6.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-rack-bar"
+    },
+    {
+      "id": "door-track",
+      "word": "door track",
+      "translation": "门轨",
+      "x": 670,
+      "y": 250,
+      "priority": 4,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-door-track"
+    },
+    {
+      "id": "seat-cushion",
+      "word": "seat cushion",
+      "translation": "座垫",
+      "x": 820,
+      "y": 500,
+      "priority": 4.001,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-seat-cushion"
+    },
+    {
+      "id": "armrest",
+      "word": "armrest",
+      "translation": "座椅扶手",
+      "x": 880,
+      "y": 450,
+      "priority": 4.002,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-armrest"
+    },
+    {
+      "id": "handle",
+      "word": "handle",
+      "translation": "吊环拉手",
+      "x": 1000,
+      "y": 230,
+      "priority": 4.003,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-grab-handle",
+      "lexemeId": "en-c2a116aa910d147b"
+    },
+    {
+      "id": "fold-up-seat",
+      "word": "fold-up seat",
+      "translation": "折叠座椅",
+      "x": 1385,
+      "y": 455,
+      "priority": 4.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-fold-up-seat"
+    },
+    {
+      "id": "ceiling-panel",
+      "word": "ceiling panel",
+      "translation": "顶板",
+      "x": 1000,
+      "y": 160,
+      "priority": 4.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-ceiling-panel"
+    },
+    {
+      "id": "equipment-box",
+      "word": "equipment box",
+      "translation": "设备箱",
+      "x": 1300,
+      "y": 635,
+      "priority": 4.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-equipment-box"
+    },
+    {
+      "id": "air-reservoir",
+      "word": "air reservoir",
+      "translation": "储气筒",
+      "x": 1475,
+      "y": 605,
+      "priority": 4.007,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-air-reservoir"
+    },
+    {
+      "id": "window-sill",
+      "word": "window sill",
+      "translation": "窗台",
+      "x": 1000,
+      "y": 485,
+      "priority": 6.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-window-sill"
+    },
+    {
+      "id": "door-handle",
+      "word": "door handle",
+      "translation": "车门把手",
+      "x": 625,
+      "y": 430,
+      "priority": 6.01,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-door-handle"
+    },
+    {
+      "id": "seat-leg",
+      "word": "seat leg",
+      "translation": "座椅支腿",
+      "x": 820,
+      "y": 545,
+      "priority": 6.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-seat-leg"
+    },
+    {
+      "id": "table-leg",
+      "word": "table leg",
+      "translation": "桌腿",
+      "x": 930,
+      "y": 545,
+      "priority": 6.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-table-leg"
+    },
+    {
+      "id": "seat-frame",
+      "word": "seat frame",
+      "translation": "座椅框架",
+      "x": 820,
+      "y": 525,
+      "priority": 6.013,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-seat-frame"
+    },
+    {
+      "id": "accessible-rail",
+      "word": "accessible rail",
+      "translation": "无障碍扶杆",
+      "x": 1360,
+      "y": 520,
+      "priority": 6.014,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wheelchair-rail"
+    },
+    {
+      "id": "suitcase-handle",
+      "word": "suitcase handle",
+      "translation": "行李箱把手",
+      "x": 900,
+      "y": 240,
+      "priority": 6.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-suitcase-handle"
+    },
+    {
+      "id": "light-diffuser",
+      "word": "light diffuser",
+      "translation": "灯罩",
+      "x": 480,
+      "y": 180,
+      "priority": 6.016,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-light-diffuser"
+    },
+    {
+      "id": "wheel-rim",
+      "word": "wheel rim",
+      "translation": "车轮轮辋",
+      "x": 710,
+      "y": 750,
+      "priority": 6.017,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wheel-rim"
+    },
+    {
+      "id": "suspension-damper",
+      "word": "suspension damper",
+      "translation": "悬挂减振器",
+      "x": 850,
+      "y": 660,
+      "priority": 6.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-suspension-damper"
+    },
+    {
+      "id": "rail",
+      "word": "rail",
+      "translation": "钢轨",
+      "x": 900,
+      "y": 850,
+      "priority": 6.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-rail"
+    },
+    {
+      "id": "ceiling-light",
+      "word": "ceiling light",
+      "translation": "顶灯",
+      "x": 450,
+      "y": 180,
+      "priority": 5,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-ceiling-light"
+    },
+    {
+      "id": "ventilation-grille",
+      "word": "ventilation grille",
+      "translation": "通风格栅",
+      "x": 550,
+      "y": 75,
+      "priority": 5.001,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-ventilation-grille"
+    },
+    {
+      "id": "waste-bin",
+      "word": "waste bin",
+      "translation": "垃圾桶",
+      "x": 430,
+      "y": 490,
+      "priority": 5.002,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-waste-bin"
+    },
+    {
+      "id": "axle",
+      "word": "axle",
+      "translation": "车轴",
+      "x": 880,
+      "y": 735,
+      "priority": 5.003,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-axle"
+    },
+    {
+      "id": "axle-box",
+      "word": "axle box",
+      "translation": "轴箱",
+      "x": 740,
+      "y": 700,
+      "priority": 5.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-axle-box"
+    },
+    {
+      "id": "brake-disc",
+      "word": "brake disc",
+      "translation": "制动盘",
+      "x": 690,
+      "y": 745,
+      "priority": 5.005,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-brake-disc"
+    },
+    {
+      "id": "coil-spring",
+      "word": "coil spring",
+      "translation": "螺旋弹簧",
+      "x": 805,
+      "y": 700,
+      "priority": 5.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-coil-spring"
+    },
+    {
+      "id": "air-spring",
+      "word": "air spring",
+      "translation": "空气弹簧",
+      "x": 960,
+      "y": 620,
+      "priority": 5.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-air-spring"
+    },
+    {
+      "id": "motor",
+      "word": "motor",
+      "translation": "牵引电机",
+      "x": 1060,
+      "y": 680,
+      "priority": 5.008,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-traction-motor",
+      "lexemeId": "en-02983856320b180c"
+    },
+    {
+      "id": "brake-cylinder",
+      "word": "brake cylinder",
+      "translation": "制动缸",
+      "x": 1120,
+      "y": 650,
+      "priority": 6.02,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-brake-cylinder"
+    },
+    {
+      "id": "gearbox",
+      "word": "gearbox",
+      "translation": "齿轮箱",
+      "x": 1050,
+      "y": 700,
+      "priority": 6.021,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-gearbox"
+    },
+    {
+      "id": "rail-baseplate",
+      "word": "rail baseplate",
+      "translation": "钢轨底座板",
+      "x": 950,
+      "y": 875,
+      "priority": 6.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-rail-baseplate"
+    },
+    {
+      "id": "rail-fastener",
+      "word": "rail fastener",
+      "translation": "钢轨扣件",
+      "x": 900,
+      "y": 845,
+      "priority": 6.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-rail-fastener"
+    },
+    {
+      "id": "buffer",
+      "word": "buffer",
+      "translation": "缓冲器",
+      "x": 72,
+      "y": 660,
+      "priority": 6.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-buffer"
+    },
+    {
+      "id": "brake-hose",
+      "word": "brake hose",
+      "translation": "制动软管",
+      "x": 120,
+      "y": 720,
+      "priority": 6.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-brake-hose"
+    },
+    {
+      "id": "sleeper",
+      "word": "sleeper",
+      "translation": "轨枕",
+      "x": 980,
+      "y": 855,
+      "priority": 6.026,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-sleeper"
+    },
+    {
+      "id": "door-seal",
+      "word": "door seal",
+      "translation": "车门密封条",
+      "x": 620,
+      "y": 350,
+      "priority": 6.027,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-door-seal"
+    },
+    {
+      "id": "window-pane",
+      "word": "window pane",
+      "translation": "车窗玻璃",
+      "x": 1000,
+      "y": 380,
+      "priority": 6.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-window-pane"
+    },
+    {
+      "id": "wall-panel",
+      "word": "wall panel",
+      "translation": "内墙面板",
+      "x": 1080,
+      "y": 235,
+      "priority": 6.029,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wall-panel"
+    },
+    {
+      "id": "bogie-bolster-pro-1",
+      "word": "bogie bolster",
+      "translation": "转向架摇枕",
+      "x": 600,
+      "y": 613,
+      "priority": 6.03,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "axle-bearing-pro-1",
+      "word": "axle bearing",
+      "translation": "轴承",
+      "x": 720,
+      "y": 613,
+      "priority": 6.031,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "spring-seat-pro-1",
+      "word": "spring seat",
+      "translation": "弹簧座",
+      "x": 840,
+      "y": 613,
+      "priority": 6.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "brake-shoe-pro-1",
+      "word": "brake shoe",
+      "translation": "闸瓦",
+      "x": 960,
+      "y": 613,
+      "priority": 6.033,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "brake-hose-coupling-pro-1",
+      "word": "brake hose coupling",
+      "translation": "制动软管接头",
+      "x": 1080,
+      "y": 613,
+      "priority": 6.034,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "brake-pipe-pro-1",
+      "word": "brake pipe",
+      "translation": "制动管",
+      "x": 1200,
+      "y": 613,
+      "priority": 6.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "air-valve-pro-1",
+      "word": "air valve",
+      "translation": "空气阀",
+      "x": 600,
+      "y": 659,
+      "priority": 6.036,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "traction-cable-pro-1",
+      "word": "traction cable",
+      "translation": "牵引电缆",
+      "x": 720,
+      "y": 659,
+      "priority": 6.037,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "motor-mount-pro-1",
+      "word": "motor mount",
+      "translation": "电机支座",
+      "x": 840,
+      "y": 659,
+      "priority": 6.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "gearbox-cover-pro-1",
+      "word": "gearbox cover",
+      "translation": "齿轮箱护盖",
+      "x": 960,
+      "y": 659,
+      "priority": 6.039,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wheel-flange-pro-1",
+      "word": "wheel flange",
+      "translation": "车轮轮缘",
+      "x": 1080,
+      "y": 659,
+      "priority": 6.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wheel-hub-cap-pro-1",
+      "word": "wheel hub cap",
+      "translation": "轮毂盖",
+      "x": 1200,
+      "y": 659,
+      "priority": 6.041,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "axle-collar-pro-1",
+      "word": "axle collar",
+      "translation": "车轴套环",
+      "x": 600,
+      "y": 705,
+      "priority": 6.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "axle-end-pro-1",
+      "word": "axle end",
+      "translation": "车轴端",
+      "x": 720,
+      "y": 705,
+      "priority": 6.043,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "suspension-bracket-pro-1",
+      "word": "suspension bracket",
+      "translation": "悬挂支架",
+      "x": 840,
+      "y": 705,
+      "priority": 6.044,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "damper-pin-pro-1",
+      "word": "damper pin",
+      "translation": "减振器销",
+      "x": 960,
+      "y": 705,
+      "priority": 6.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bogie-cross-beam-pro-1",
+      "word": "bogie cross beam",
+      "translation": "转向架横梁",
+      "x": 1080,
+      "y": 705,
+      "priority": 6.046,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "frame-rib-pro-1",
+      "word": "frame rib",
+      "translation": "构架加强筋",
+      "x": 1200,
+      "y": 705,
+      "priority": 6.047,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "frame-weld-pro-1",
+      "word": "frame weld",
+      "translation": "构架焊缝",
+      "x": 600,
+      "y": 751,
+      "priority": 6.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "side-skirt-panel-pro-1",
+      "word": "side skirt panel",
+      "translation": "侧裙板",
+      "x": 720,
+      "y": 751,
+      "priority": 6.049,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "underframe-bracket-pro-1",
+      "word": "underframe bracket",
+      "translation": "底架支架",
+      "x": 840,
+      "y": 751,
+      "priority": 6.05,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "equipment-hatch-pro-1",
+      "word": "equipment hatch",
+      "translation": "设备舱盖",
+      "x": 960,
+      "y": 751,
+      "priority": 6.051,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "grounding-strap-pro-1",
+      "word": "grounding strap",
+      "translation": "接地带",
+      "x": 1080,
+      "y": 751,
+      "priority": 6.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "coupler-lock-pro-1",
+      "word": "coupler lock",
+      "translation": "车钩锁",
+      "x": 1200,
+      "y": 751,
+      "priority": 6.053,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "coupler-shank-pro-1",
+      "word": "coupler shank",
+      "translation": "车钩杆",
+      "x": 600,
+      "y": 797,
+      "priority": 6.054,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "buffer-plate-pro-1",
+      "word": "buffer plate",
+      "translation": "缓冲器端板",
+      "x": 720,
+      "y": 797,
+      "priority": 6.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "buffer-spring-pro-1",
+      "word": "buffer spring",
+      "translation": "缓冲弹簧",
+      "x": 840,
+      "y": 797,
+      "priority": 6.056,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "floor-beam-pro-1",
+      "word": "floor beam",
+      "translation": "底架横梁",
+      "x": 960,
+      "y": 797,
+      "priority": 6.057,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "track-bracket-pro-1",
+      "word": "track bracket",
+      "translation": "轨道支架",
+      "x": 1080,
+      "y": 797,
+      "priority": 6.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wheel-bearing-pro-1",
+      "word": "wheel bearing",
+      "translation": "车轮轴承",
+      "x": 1200,
+      "y": 797,
+      "priority": 6.059,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bogie-frame",
+      "semanticRealmId": "objects-technology"
+    }
   ],
   "detailZones": [
     {
@@ -96,7 +1058,17 @@
       "width": 1540,
       "height": 780,
       "targetScale": 1.7,
-      "labelIds": ["train-carriage", "body-panel", "roof", "window", "gangway-bellows", "carriage-end", "window-frame", "window-sill", "window-pane"]
+      "labelIds": [
+        "train-carriage",
+        "body-panel",
+        "roof",
+        "window",
+        "gangway-bellows",
+        "carriage-end",
+        "window-frame",
+        "window-sill",
+        "window-pane"
+      ]
     },
     {
       "id": "passenger-seating",
@@ -108,7 +1080,22 @@
       "width": 750,
       "height": 300,
       "targetScale": 2.2,
-      "labelIds": ["seat", "seat-back", "seat-cushion", "armrest", "table", "aisle", "floor", "wheelchair-bay", "fold-up-seat", "seat-headrest", "seat-leg", "table-leg", "seat-frame", "accessible-rail"]
+      "labelIds": [
+        "seat",
+        "seat-back",
+        "seat-cushion",
+        "armrest",
+        "table",
+        "aisle",
+        "floor",
+        "wheelchair-bay",
+        "fold-up-seat",
+        "seat-headrest",
+        "seat-leg",
+        "table-leg",
+        "seat-frame",
+        "accessible-rail"
+      ]
     },
     {
       "id": "entry-vestibule",
@@ -120,7 +1107,22 @@
       "width": 480,
       "height": 530,
       "targetScale": 2.5,
-      "labelIds": ["sliding-door", "door-leaf", "door-track", "door-threshold", "vestibule", "handrail", "ceiling-light", "ventilation-grille", "waste-bin", "door-window", "door-handle", "door-frame", "light-diffuser", "door-seal"]
+      "labelIds": [
+        "sliding-door",
+        "door-leaf",
+        "door-track",
+        "door-threshold",
+        "vestibule",
+        "handrail",
+        "ceiling-light",
+        "ventilation-grille",
+        "waste-bin",
+        "door-window",
+        "door-handle",
+        "door-frame",
+        "light-diffuser",
+        "door-seal"
+      ]
     },
     {
       "id": "overhead-storage",
@@ -132,7 +1134,16 @@
       "width": 650,
       "height": 240,
       "targetScale": 2.45,
-      "labelIds": ["luggage-rack", "suitcase", "overhead-rail", "handle", "ceiling-panel", "rack-bar", "suitcase-handle", "wall-panel"]
+      "labelIds": [
+        "luggage-rack",
+        "suitcase",
+        "overhead-rail",
+        "handle",
+        "ceiling-panel",
+        "rack-bar",
+        "suitcase-handle",
+        "wall-panel"
+      ]
     },
     {
       "id": "bogie-assembly",
@@ -144,7 +1155,51 @@
       "width": 760,
       "height": 290,
       "targetScale": 3.05,
-      "labelIds": ["bogie", "bogie-frame", "wheel", "axle", "axle-box", "brake-disc", "coil-spring", "air-spring", "motor", "wheel-rim", "suspension-damper", "brake-cylinder", "gearbox"]
+      "labelIds": [
+        "bogie",
+        "bogie-frame",
+        "wheel",
+        "axle",
+        "axle-box",
+        "brake-disc",
+        "coil-spring",
+        "air-spring",
+        "motor",
+        "wheel-rim",
+        "suspension-damper",
+        "brake-cylinder",
+        "gearbox",
+        "bogie-bolster-pro-1",
+        "axle-bearing-pro-1",
+        "spring-seat-pro-1",
+        "brake-shoe-pro-1",
+        "brake-hose-coupling-pro-1",
+        "brake-pipe-pro-1",
+        "air-valve-pro-1",
+        "traction-cable-pro-1",
+        "motor-mount-pro-1",
+        "gearbox-cover-pro-1",
+        "wheel-flange-pro-1",
+        "wheel-hub-cap-pro-1",
+        "axle-collar-pro-1",
+        "axle-end-pro-1",
+        "suspension-bracket-pro-1",
+        "damper-pin-pro-1",
+        "bogie-cross-beam-pro-1",
+        "frame-rib-pro-1",
+        "frame-weld-pro-1",
+        "side-skirt-panel-pro-1",
+        "underframe-bracket-pro-1",
+        "equipment-hatch-pro-1",
+        "grounding-strap-pro-1",
+        "coupler-lock-pro-1",
+        "coupler-shank-pro-1",
+        "buffer-plate-pro-1",
+        "buffer-spring-pro-1",
+        "floor-beam-pro-1",
+        "track-bracket-pro-1",
+        "wheel-bearing-pro-1"
+      ]
     },
     {
       "id": "underbody-equipment",
@@ -156,7 +1211,12 @@
       "width": 1600,
       "height": 330,
       "targetScale": 2.7,
-      "labelIds": ["equipment-box", "air-reservoir", "side-skirt", "underframe"]
+      "labelIds": [
+        "equipment-box",
+        "air-reservoir",
+        "side-skirt",
+        "underframe"
+      ]
     },
     {
       "id": "coupler-and-brake-gear",
@@ -168,7 +1228,12 @@
       "width": 500,
       "height": 330,
       "targetScale": 2.8,
-      "labelIds": ["coupler", "buffer", "brake-hose", "boarding-step"]
+      "labelIds": [
+        "coupler",
+        "buffer",
+        "brake-hose",
+        "boarding-step"
+      ]
     },
     {
       "id": "foreground-track",
@@ -180,7 +1245,12 @@
       "width": 1080,
       "height": 120,
       "targetScale": 2.7,
-      "labelIds": ["rail", "rail-baseplate", "rail-fastener", "sleeper"]
+      "labelIds": [
+        "rail",
+        "rail-baseplate",
+        "rail-fastener",
+        "sleeper"
+      ]
     }
   ],
   "portals": [
@@ -202,82 +1272,649 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/train-carriage-premium-v2.jpg",
     "reviewedAssetSha256": "d1498a2fdee076830e331bd915c841763f122332116f2bc52fa173a28afd6148",
-    "rationale": "Expanded the audited set from the 40-word release to 70 terms using only clearly resolved carriage, cabin, suspension and track parts in the final bright cutaway pixels; the complete unobstructed powered bogie portal and every earlier anchor remain unchanged. A second pixel review adds the visible coupler buffer, brake hose, sleeper, door seal, window pane and interior wall panel without restoring inferred passenger or service claims, and separates the left coupler, underbody equipment and foreground track into independently focusable crops.",
-    "previousLabelCount": 78,
-    "retainedLabelCount": 70,
+    "rationale": "Expanded the audited set from the 40-word release to 70 terms using only clearly resolved carriage, cabin, suspension and track parts in the final bright cutaway pixels; the complete unobstructed powered bogie portal and every earlier anchor remain unchanged. A second pixel review adds the visible coupler buffer, brake hose, sleeper, door seal, window pane and interior wall panel without restoring inferred passenger or service claims, and separates the left coupler, underbody equipment and foreground track into independently focusable crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
+    "previousLabelCount": 108,
+    "retainedLabelCount": 100,
     "removedLabelCount": 8,
-    "removedExamples": ["route display", "passenger", "intercom", "power socket", "fire extinguisher", "crowded"]
+    "removedExamples": [
+      "route display",
+      "passenger",
+      "intercom",
+      "power socket",
+      "fire extinguisher",
+      "crowded"
+    ]
   },
   "visualRegions": [
-    { "id": "whole-carriage", "description": "Complete cream regional passenger-carriage cutaway", "kind": "whole", "x": 35, "y": 40, "width": 1540, "height": 820 },
-    { "id": "portal-bogie", "description": "Complete exposed powered bogie below the passenger cabin", "kind": "object", "x": 520, "y": 570, "width": 760, "height": 290 },
-    { "id": "verified-body-panel", "description": "Warm ivory exterior side panel around the cutaway", "kind": "part", "x": 180, "y": 70, "width": 1380, "height": 540 },
-    { "id": "verified-roof", "description": "Continuous dark-gray roof cap over the carriage", "kind": "part", "x": 160, "y": 40, "width": 1380, "height": 180 },
-    { "id": "verified-window", "description": "Large passenger window behind the paired seats", "kind": "part", "x": 760, "y": 300, "width": 480, "height": 180 },
-    { "id": "verified-sliding-door", "description": "Complete double-leaf sliding passenger entrance", "kind": "object", "x": 590, "y": 245, "width": 170, "height": 330 },
-    { "id": "verified-door-leaf", "description": "Left glazed leaf of the sliding entrance door", "kind": "part", "x": 600, "y": 260, "width": 75, "height": 290 },
-    { "id": "verified-door-track", "description": "Dark horizontal sliding-door guide above the leaves", "kind": "part", "x": 590, "y": 230, "width": 180, "height": 60 },
-    { "id": "verified-door-threshold", "description": "Low yellow-edged threshold below the sliding door", "kind": "part", "x": 580, "y": 540, "width": 200, "height": 60 },
-    { "id": "verified-vestibule", "description": "Open boarding vestibule beside the sliding door", "kind": "object", "x": 280, "y": 200, "width": 480, "height": 390 },
-    { "id": "verified-seat", "description": "Deep teal passenger seat nearest the entrance", "kind": "object", "x": 760, "y": 350, "width": 170, "height": 220 },
-    { "id": "verified-seat-back", "description": "Upright upholstered back of the nearest seat", "kind": "part", "x": 760, "y": 350, "width": 110, "height": 150 },
-    { "id": "verified-seat-cushion", "description": "Horizontal upholstered cushion on the nearest seat", "kind": "part", "x": 780, "y": 460, "width": 130, "height": 80 },
-    { "id": "verified-armrest", "description": "Pale curved armrest beside the nearest seat", "kind": "part", "x": 840, "y": 410, "width": 100, "height": 100 },
-    { "id": "verified-table", "description": "Small pale table fixed between facing seats", "kind": "object", "x": 870, "y": 400, "width": 150, "height": 150 },
-    { "id": "verified-aisle", "description": "Clear central passenger aisle through the seating area", "kind": "object", "x": 850, "y": 500, "width": 500, "height": 100 },
-    { "id": "verified-floor", "description": "Continuous dark low floor beneath the passenger cabin", "kind": "part", "x": 300, "y": 530, "width": 1150, "height": 80 },
-    { "id": "verified-luggage-rack", "description": "Long slatted metal luggage rack above the seats", "kind": "object", "x": 740, "y": 250, "width": 620, "height": 100 },
-    { "id": "verified-suitcase", "description": "Single closed dark suitcase resting on the rack", "kind": "object", "x": 850, "y": 230, "width": 120, "height": 80 },
-    { "id": "verified-handrail", "description": "Tall silver handrail beside the boarding entrance", "kind": "part", "x": 730, "y": 170, "width": 70, "height": 400 },
-    { "id": "verified-overhead-rail", "description": "Long passenger-support rail above the seating area", "kind": "part", "x": 760, "y": 155, "width": 580, "height": 70 },
-    { "id": "verified-grab-handle", "description": "Black hanging grab loop suspended from the roof rail", "kind": "part", "x": 950, "y": 170, "width": 100, "height": 110 },
-    { "id": "verified-wheelchair-bay", "description": "Open accessible bay beside the fold-up seat", "kind": "object", "x": 1300, "y": 350, "width": 130, "height": 180 },
-    { "id": "verified-fold-up-seat", "description": "Compact wall-mounted seat folded against the side", "kind": "object", "x": 1330, "y": 365, "width": 100, "height": 150 },
-    { "id": "verified-ceiling-panel", "description": "Smooth cream interior ceiling above the cabin", "kind": "part", "x": 300, "y": 120, "width": 1100, "height": 120 },
-    { "id": "verified-ceiling-light", "description": "Long bright rectangular cabin light strip", "kind": "part", "x": 350, "y": 145, "width": 300, "height": 80 },
-    { "id": "verified-ventilation-grille", "description": "Dark narrow ventilation grille on the roof equipment cover", "kind": "part", "x": 450, "y": 40, "width": 400, "height": 80 },
-    { "id": "verified-waste-bin", "description": "Small cylindrical metal bin fixed beside the entrance", "kind": "object", "x": 390, "y": 430, "width": 80, "height": 120 },
-    { "id": "verified-gangway-bellows", "description": "Black pleated inter-car gangway bellows at the left end", "kind": "object", "x": 35, "y": 100, "width": 170, "height": 520 },
-    { "id": "verified-coupler", "description": "Complete black automatic coupler below the gangway", "kind": "object", "x": 35, "y": 580, "width": 170, "height": 200 },
-    { "id": "verified-equipment-box", "description": "Rectangular underfloor electrical-equipment cabinet", "kind": "object", "x": 1190, "y": 560, "width": 230, "height": 140 },
-    { "id": "verified-air-reservoir", "description": "Horizontal cylindrical air reservoir under the body", "kind": "object", "x": 1390, "y": 530, "width": 190, "height": 150 },
-    { "id": "verified-bogie-frame", "description": "Large dark structural frame joining both wheelsets", "kind": "part", "x": 540, "y": 590, "width": 720, "height": 230 },
-    { "id": "verified-bogie-wheel", "description": "Complete near-side steel wheel on the highlighted bogie", "kind": "object", "x": 600, "y": 620, "width": 200, "height": 220 },
-    { "id": "verified-axle", "description": "Horizontal steel axle running through the bogie center", "kind": "part", "x": 820, "y": 690, "width": 150, "height": 100 },
-    { "id": "verified-axle-box", "description": "Large circular axle-box housing outside the wheel", "kind": "part", "x": 680, "y": 630, "width": 130, "height": 150 },
-    { "id": "verified-brake-disc", "description": "Polished circular brake disc visible inside the wheel", "kind": "part", "x": 620, "y": 650, "width": 150, "height": 150 },
-    { "id": "verified-coil-spring", "description": "Exposed black coil spring above the left wheelset", "kind": "part", "x": 760, "y": 630, "width": 100, "height": 140 },
-    { "id": "verified-air-spring", "description": "Large black secondary air spring atop the bogie frame", "kind": "part", "x": 900, "y": 560, "width": 140, "height": 160 },
-    { "id": "verified-traction-motor", "description": "Ribbed silver traction motor fixed beside the driven axle", "kind": "object", "x": 1000, "y": 610, "width": 160, "height": 160 },
-    { "id": "verified-carriage-end", "description": "Flat right-hand end wall and small end window of the carriage", "kind": "part", "x": 1420, "y": 260, "width": 160, "height": 340 },
-    { "id": "verified-window-frame", "description": "Dark rounded frame surrounding the large passenger window", "kind": "part", "x": 760, "y": 300, "width": 480, "height": 180 },
-    { "id": "verified-window-sill", "description": "Lower ledge beneath the large passenger window", "kind": "part", "x": 760, "y": 450, "width": 480, "height": 80 },
-    { "id": "verified-side-skirt", "description": "Long dark lower side skirt covering the underbody equipment", "kind": "part", "x": 1180, "y": 560, "width": 380, "height": 180 },
-    { "id": "verified-underframe", "description": "Visible structural underframe beneath the carriage side panel", "kind": "part", "x": 1160, "y": 570, "width": 390, "height": 180 },
-    { "id": "verified-door-window", "description": "Glazed panel in the sliding entrance door", "kind": "part", "x": 600, "y": 260, "width": 150, "height": 180 },
-    { "id": "verified-door-handle", "description": "Vertical silver handle mounted beside the entrance door", "kind": "part", "x": 600, "y": 350, "width": 180, "height": 180 },
-    { "id": "verified-door-frame", "description": "Rounded metal frame around the sliding entrance", "kind": "part", "x": 580, "y": 240, "width": 200, "height": 340 },
-    { "id": "verified-boarding-step", "description": "Yellow-edged step at the open boarding vestibule floor", "kind": "part", "x": 280, "y": 500, "width": 280, "height": 100 },
-    { "id": "verified-seat-headrest", "description": "Padded upper headrest on the nearest teal seat", "kind": "part", "x": 760, "y": 330, "width": 170, "height": 100 },
-    { "id": "verified-seat-leg", "description": "Pale metal support leg below the nearest passenger seat", "kind": "part", "x": 760, "y": 500, "width": 170, "height": 100 },
-    { "id": "verified-table-leg", "description": "Central support leg below the small passenger table", "kind": "part", "x": 870, "y": 470, "width": 150, "height": 130 },
-    { "id": "verified-seat-frame", "description": "Pale structural frame carrying the nearest seat cushion", "kind": "part", "x": 760, "y": 450, "width": 220, "height": 150 },
-    { "id": "verified-wheelchair-rail", "description": "Low silver rail bordering the open accessible bay", "kind": "part", "x": 1290, "y": 350, "width": 160, "height": 200 },
-    { "id": "verified-rack-bar", "description": "Front horizontal bar on the long luggage rack", "kind": "part", "x": 740, "y": 250, "width": 620, "height": 100 },
-    { "id": "verified-suitcase-handle", "description": "Short handle on the dark suitcase resting above the seats", "kind": "part", "x": 850, "y": 220, "width": 120, "height": 90 },
-    { "id": "verified-light-diffuser", "description": "White diffuser surface on the long cabin light strip", "kind": "part", "x": 350, "y": 145, "width": 300, "height": 80 },
-    { "id": "verified-wheel-rim", "description": "Bright circular steel rim inside the near-side bogie wheel", "kind": "part", "x": 600, "y": 620, "width": 200, "height": 220 },
-    { "id": "verified-suspension-damper", "description": "Vertical damper beside the exposed bogie wheelset", "kind": "part", "x": 760, "y": 600, "width": 180, "height": 180 },
-    { "id": "verified-brake-cylinder", "description": "Cylindrical brake actuator mounted on the bogie frame", "kind": "part", "x": 1050, "y": 580, "width": 180, "height": 160 },
-    { "id": "verified-gearbox", "description": "Compact ribbed gearbox beside the traction motor", "kind": "object", "x": 980, "y": 620, "width": 180, "height": 150 },
-    { "id": "verified-rail", "description": "Steel running rail visible beneath the carriage", "kind": "part", "x": 520, "y": 800, "width": 800, "height": 100 },
-    { "id": "verified-rail-baseplate", "description": "Flat metal baseplate supporting the running rail on the workshop floor", "kind": "part", "x": 520, "y": 840, "width": 800, "height": 60 },
-    { "id": "verified-rail-fastener", "description": "Dark clip fastening the rail to the sleeper", "kind": "part", "x": 520, "y": 810, "width": 800, "height": 70 },
-    { "id": "verified-buffer", "description": "Round shock-absorbing buffer beside the left coupler head", "kind": "part", "x": 35, "y": 610, "width": 125, "height": 125 },
-    { "id": "verified-brake-hose", "description": "Flexible black brake hose looping below the coupler", "kind": "part", "x": 70, "y": 680, "width": 160, "height": 150 },
-    { "id": "verified-sleeper", "description": "Transverse support block beneath the foreground running rail", "kind": "part", "x": 850, "y": 815, "width": 400, "height": 75 },
-    { "id": "verified-door-seal", "description": "Dark rubber seal lining the sliding passenger door", "kind": "part", "x": 580, "y": 250, "width": 175, "height": 320 },
-    { "id": "verified-window-pane", "description": "Clear glass pane inside the large passenger window", "kind": "part", "x": 780, "y": 310, "width": 450, "height": 175 },
-    { "id": "verified-wall-panel", "description": "Warm wood interior wall panel below the luggage rack", "kind": "part", "x": 760, "y": 190, "width": 560, "height": 95 }
+    {
+      "id": "whole-carriage",
+      "description": "Complete cream regional passenger-carriage cutaway",
+      "kind": "whole",
+      "x": 35,
+      "y": 40,
+      "width": 1540,
+      "height": 820
+    },
+    {
+      "id": "portal-bogie",
+      "description": "Complete exposed powered bogie below the passenger cabin",
+      "kind": "object",
+      "x": 520,
+      "y": 570,
+      "width": 760,
+      "height": 290
+    },
+    {
+      "id": "verified-body-panel",
+      "description": "Warm ivory exterior side panel around the cutaway",
+      "kind": "part",
+      "x": 180,
+      "y": 70,
+      "width": 1380,
+      "height": 540
+    },
+    {
+      "id": "verified-roof",
+      "description": "Continuous dark-gray roof cap over the carriage",
+      "kind": "part",
+      "x": 160,
+      "y": 40,
+      "width": 1380,
+      "height": 180
+    },
+    {
+      "id": "verified-window",
+      "description": "Large passenger window behind the paired seats",
+      "kind": "part",
+      "x": 760,
+      "y": 300,
+      "width": 480,
+      "height": 180
+    },
+    {
+      "id": "verified-sliding-door",
+      "description": "Complete double-leaf sliding passenger entrance",
+      "kind": "object",
+      "x": 590,
+      "y": 245,
+      "width": 170,
+      "height": 330
+    },
+    {
+      "id": "verified-door-leaf",
+      "description": "Left glazed leaf of the sliding entrance door",
+      "kind": "part",
+      "x": 600,
+      "y": 260,
+      "width": 75,
+      "height": 290
+    },
+    {
+      "id": "verified-door-track",
+      "description": "Dark horizontal sliding-door guide above the leaves",
+      "kind": "part",
+      "x": 590,
+      "y": 230,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "verified-door-threshold",
+      "description": "Low yellow-edged threshold below the sliding door",
+      "kind": "part",
+      "x": 580,
+      "y": 540,
+      "width": 200,
+      "height": 60
+    },
+    {
+      "id": "verified-vestibule",
+      "description": "Open boarding vestibule beside the sliding door",
+      "kind": "object",
+      "x": 280,
+      "y": 200,
+      "width": 480,
+      "height": 390
+    },
+    {
+      "id": "verified-seat",
+      "description": "Deep teal passenger seat nearest the entrance",
+      "kind": "object",
+      "x": 760,
+      "y": 350,
+      "width": 170,
+      "height": 220
+    },
+    {
+      "id": "verified-seat-back",
+      "description": "Upright upholstered back of the nearest seat",
+      "kind": "part",
+      "x": 760,
+      "y": 350,
+      "width": 110,
+      "height": 150
+    },
+    {
+      "id": "verified-seat-cushion",
+      "description": "Horizontal upholstered cushion on the nearest seat",
+      "kind": "part",
+      "x": 780,
+      "y": 460,
+      "width": 130,
+      "height": 80
+    },
+    {
+      "id": "verified-armrest",
+      "description": "Pale curved armrest beside the nearest seat",
+      "kind": "part",
+      "x": 840,
+      "y": 410,
+      "width": 100,
+      "height": 100
+    },
+    {
+      "id": "verified-table",
+      "description": "Small pale table fixed between facing seats",
+      "kind": "object",
+      "x": 870,
+      "y": 400,
+      "width": 150,
+      "height": 150
+    },
+    {
+      "id": "verified-aisle",
+      "description": "Clear central passenger aisle through the seating area",
+      "kind": "object",
+      "x": 850,
+      "y": 500,
+      "width": 500,
+      "height": 100
+    },
+    {
+      "id": "verified-floor",
+      "description": "Continuous dark low floor beneath the passenger cabin",
+      "kind": "part",
+      "x": 300,
+      "y": 530,
+      "width": 1150,
+      "height": 80
+    },
+    {
+      "id": "verified-luggage-rack",
+      "description": "Long slatted metal luggage rack above the seats",
+      "kind": "object",
+      "x": 740,
+      "y": 250,
+      "width": 620,
+      "height": 100
+    },
+    {
+      "id": "verified-suitcase",
+      "description": "Single closed dark suitcase resting on the rack",
+      "kind": "object",
+      "x": 850,
+      "y": 230,
+      "width": 120,
+      "height": 80
+    },
+    {
+      "id": "verified-handrail",
+      "description": "Tall silver handrail beside the boarding entrance",
+      "kind": "part",
+      "x": 730,
+      "y": 170,
+      "width": 70,
+      "height": 400
+    },
+    {
+      "id": "verified-overhead-rail",
+      "description": "Long passenger-support rail above the seating area",
+      "kind": "part",
+      "x": 760,
+      "y": 155,
+      "width": 580,
+      "height": 70
+    },
+    {
+      "id": "verified-grab-handle",
+      "description": "Black hanging grab loop suspended from the roof rail",
+      "kind": "part",
+      "x": 950,
+      "y": 170,
+      "width": 100,
+      "height": 110
+    },
+    {
+      "id": "verified-wheelchair-bay",
+      "description": "Open accessible bay beside the fold-up seat",
+      "kind": "object",
+      "x": 1300,
+      "y": 350,
+      "width": 130,
+      "height": 180
+    },
+    {
+      "id": "verified-fold-up-seat",
+      "description": "Compact wall-mounted seat folded against the side",
+      "kind": "object",
+      "x": 1330,
+      "y": 365,
+      "width": 100,
+      "height": 150
+    },
+    {
+      "id": "verified-ceiling-panel",
+      "description": "Smooth cream interior ceiling above the cabin",
+      "kind": "part",
+      "x": 300,
+      "y": 120,
+      "width": 1100,
+      "height": 120
+    },
+    {
+      "id": "verified-ceiling-light",
+      "description": "Long bright rectangular cabin light strip",
+      "kind": "part",
+      "x": 350,
+      "y": 145,
+      "width": 300,
+      "height": 80
+    },
+    {
+      "id": "verified-ventilation-grille",
+      "description": "Dark narrow ventilation grille on the roof equipment cover",
+      "kind": "part",
+      "x": 450,
+      "y": 40,
+      "width": 400,
+      "height": 80
+    },
+    {
+      "id": "verified-waste-bin",
+      "description": "Small cylindrical metal bin fixed beside the entrance",
+      "kind": "object",
+      "x": 390,
+      "y": 430,
+      "width": 80,
+      "height": 120
+    },
+    {
+      "id": "verified-gangway-bellows",
+      "description": "Black pleated inter-car gangway bellows at the left end",
+      "kind": "object",
+      "x": 35,
+      "y": 100,
+      "width": 170,
+      "height": 520
+    },
+    {
+      "id": "verified-coupler",
+      "description": "Complete black automatic coupler below the gangway",
+      "kind": "object",
+      "x": 35,
+      "y": 580,
+      "width": 170,
+      "height": 200
+    },
+    {
+      "id": "verified-equipment-box",
+      "description": "Rectangular underfloor electrical-equipment cabinet",
+      "kind": "object",
+      "x": 1190,
+      "y": 560,
+      "width": 230,
+      "height": 140
+    },
+    {
+      "id": "verified-air-reservoir",
+      "description": "Horizontal cylindrical air reservoir under the body",
+      "kind": "object",
+      "x": 1390,
+      "y": 530,
+      "width": 190,
+      "height": 150
+    },
+    {
+      "id": "verified-bogie-frame",
+      "description": "Large dark structural frame joining both wheelsets",
+      "kind": "part",
+      "x": 540,
+      "y": 590,
+      "width": 720,
+      "height": 230
+    },
+    {
+      "id": "verified-bogie-wheel",
+      "description": "Complete near-side steel wheel on the highlighted bogie",
+      "kind": "object",
+      "x": 600,
+      "y": 620,
+      "width": 200,
+      "height": 220
+    },
+    {
+      "id": "verified-axle",
+      "description": "Horizontal steel axle running through the bogie center",
+      "kind": "part",
+      "x": 820,
+      "y": 690,
+      "width": 150,
+      "height": 100
+    },
+    {
+      "id": "verified-axle-box",
+      "description": "Large circular axle-box housing outside the wheel",
+      "kind": "part",
+      "x": 680,
+      "y": 630,
+      "width": 130,
+      "height": 150
+    },
+    {
+      "id": "verified-brake-disc",
+      "description": "Polished circular brake disc visible inside the wheel",
+      "kind": "part",
+      "x": 620,
+      "y": 650,
+      "width": 150,
+      "height": 150
+    },
+    {
+      "id": "verified-coil-spring",
+      "description": "Exposed black coil spring above the left wheelset",
+      "kind": "part",
+      "x": 760,
+      "y": 630,
+      "width": 100,
+      "height": 140
+    },
+    {
+      "id": "verified-air-spring",
+      "description": "Large black secondary air spring atop the bogie frame",
+      "kind": "part",
+      "x": 900,
+      "y": 560,
+      "width": 140,
+      "height": 160
+    },
+    {
+      "id": "verified-traction-motor",
+      "description": "Ribbed silver traction motor fixed beside the driven axle",
+      "kind": "object",
+      "x": 1000,
+      "y": 610,
+      "width": 160,
+      "height": 160
+    },
+    {
+      "id": "verified-carriage-end",
+      "description": "Flat right-hand end wall and small end window of the carriage",
+      "kind": "part",
+      "x": 1420,
+      "y": 260,
+      "width": 160,
+      "height": 340
+    },
+    {
+      "id": "verified-window-frame",
+      "description": "Dark rounded frame surrounding the large passenger window",
+      "kind": "part",
+      "x": 760,
+      "y": 300,
+      "width": 480,
+      "height": 180
+    },
+    {
+      "id": "verified-window-sill",
+      "description": "Lower ledge beneath the large passenger window",
+      "kind": "part",
+      "x": 760,
+      "y": 450,
+      "width": 480,
+      "height": 80
+    },
+    {
+      "id": "verified-side-skirt",
+      "description": "Long dark lower side skirt covering the underbody equipment",
+      "kind": "part",
+      "x": 1180,
+      "y": 560,
+      "width": 380,
+      "height": 180
+    },
+    {
+      "id": "verified-underframe",
+      "description": "Visible structural underframe beneath the carriage side panel",
+      "kind": "part",
+      "x": 1160,
+      "y": 570,
+      "width": 390,
+      "height": 180
+    },
+    {
+      "id": "verified-door-window",
+      "description": "Glazed panel in the sliding entrance door",
+      "kind": "part",
+      "x": 600,
+      "y": 260,
+      "width": 150,
+      "height": 180
+    },
+    {
+      "id": "verified-door-handle",
+      "description": "Vertical silver handle mounted beside the entrance door",
+      "kind": "part",
+      "x": 600,
+      "y": 350,
+      "width": 180,
+      "height": 180
+    },
+    {
+      "id": "verified-door-frame",
+      "description": "Rounded metal frame around the sliding entrance",
+      "kind": "part",
+      "x": 580,
+      "y": 240,
+      "width": 200,
+      "height": 340
+    },
+    {
+      "id": "verified-boarding-step",
+      "description": "Yellow-edged step at the open boarding vestibule floor",
+      "kind": "part",
+      "x": 280,
+      "y": 500,
+      "width": 280,
+      "height": 100
+    },
+    {
+      "id": "verified-seat-headrest",
+      "description": "Padded upper headrest on the nearest teal seat",
+      "kind": "part",
+      "x": 760,
+      "y": 330,
+      "width": 170,
+      "height": 100
+    },
+    {
+      "id": "verified-seat-leg",
+      "description": "Pale metal support leg below the nearest passenger seat",
+      "kind": "part",
+      "x": 760,
+      "y": 500,
+      "width": 170,
+      "height": 100
+    },
+    {
+      "id": "verified-table-leg",
+      "description": "Central support leg below the small passenger table",
+      "kind": "part",
+      "x": 870,
+      "y": 470,
+      "width": 150,
+      "height": 130
+    },
+    {
+      "id": "verified-seat-frame",
+      "description": "Pale structural frame carrying the nearest seat cushion",
+      "kind": "part",
+      "x": 760,
+      "y": 450,
+      "width": 220,
+      "height": 150
+    },
+    {
+      "id": "verified-wheelchair-rail",
+      "description": "Low silver rail bordering the open accessible bay",
+      "kind": "part",
+      "x": 1290,
+      "y": 350,
+      "width": 160,
+      "height": 200
+    },
+    {
+      "id": "verified-rack-bar",
+      "description": "Front horizontal bar on the long luggage rack",
+      "kind": "part",
+      "x": 740,
+      "y": 250,
+      "width": 620,
+      "height": 100
+    },
+    {
+      "id": "verified-suitcase-handle",
+      "description": "Short handle on the dark suitcase resting above the seats",
+      "kind": "part",
+      "x": 850,
+      "y": 220,
+      "width": 120,
+      "height": 90
+    },
+    {
+      "id": "verified-light-diffuser",
+      "description": "White diffuser surface on the long cabin light strip",
+      "kind": "part",
+      "x": 350,
+      "y": 145,
+      "width": 300,
+      "height": 80
+    },
+    {
+      "id": "verified-wheel-rim",
+      "description": "Bright circular steel rim inside the near-side bogie wheel",
+      "kind": "part",
+      "x": 600,
+      "y": 620,
+      "width": 200,
+      "height": 220
+    },
+    {
+      "id": "verified-suspension-damper",
+      "description": "Vertical damper beside the exposed bogie wheelset",
+      "kind": "part",
+      "x": 760,
+      "y": 600,
+      "width": 180,
+      "height": 180
+    },
+    {
+      "id": "verified-brake-cylinder",
+      "description": "Cylindrical brake actuator mounted on the bogie frame",
+      "kind": "part",
+      "x": 1050,
+      "y": 580,
+      "width": 180,
+      "height": 160
+    },
+    {
+      "id": "verified-gearbox",
+      "description": "Compact ribbed gearbox beside the traction motor",
+      "kind": "object",
+      "x": 980,
+      "y": 620,
+      "width": 180,
+      "height": 150
+    },
+    {
+      "id": "verified-rail",
+      "description": "Steel running rail visible beneath the carriage",
+      "kind": "part",
+      "x": 520,
+      "y": 800,
+      "width": 800,
+      "height": 100
+    },
+    {
+      "id": "verified-rail-baseplate",
+      "description": "Flat metal baseplate supporting the running rail on the workshop floor",
+      "kind": "part",
+      "x": 520,
+      "y": 840,
+      "width": 800,
+      "height": 60
+    },
+    {
+      "id": "verified-rail-fastener",
+      "description": "Dark clip fastening the rail to the sleeper",
+      "kind": "part",
+      "x": 520,
+      "y": 810,
+      "width": 800,
+      "height": 70
+    },
+    {
+      "id": "verified-buffer",
+      "description": "Round shock-absorbing buffer beside the left coupler head",
+      "kind": "part",
+      "x": 35,
+      "y": 610,
+      "width": 125,
+      "height": 125
+    },
+    {
+      "id": "verified-brake-hose",
+      "description": "Flexible black brake hose looping below the coupler",
+      "kind": "part",
+      "x": 70,
+      "y": 680,
+      "width": 160,
+      "height": 150
+    },
+    {
+      "id": "verified-sleeper",
+      "description": "Transverse support block beneath the foreground running rail",
+      "kind": "part",
+      "x": 850,
+      "y": 815,
+      "width": 400,
+      "height": 75
+    },
+    {
+      "id": "verified-door-seal",
+      "description": "Dark rubber seal lining the sliding passenger door",
+      "kind": "part",
+      "x": 580,
+      "y": 250,
+      "width": 175,
+      "height": 320
+    },
+    {
+      "id": "verified-window-pane",
+      "description": "Clear glass pane inside the large passenger window",
+      "kind": "part",
+      "x": 780,
+      "y": 310,
+      "width": 450,
+      "height": 175
+    },
+    {
+      "id": "verified-wall-panel",
+      "description": "Warm wood interior wall panel below the luggage rack",
+      "kind": "part",
+      "x": 760,
+      "y": 190,
+      "width": 560,
+      "height": 95
+    }
   ]
 }

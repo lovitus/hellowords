@@ -41,7 +41,7 @@ The graph contains 43 reachable scenes and 42 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 5,966 human-verified anchors representing 5,081
+Spatial scenes now contain 6,116 human-verified anchors representing 5,202
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -128,12 +128,12 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Office building | 310 → 300 | Warm atrium grounds reception, open-plan workstations, conference room, pantry and a deeper service-core vocabulary for power, data, HVAC and fire hardware |
 | City cafe | 107 → 100 | New daylight cafe grounds door, seating, counter, pastry-display and espresso subparts; added pastry/tableware parts remain inside the display crop |
 | Transit hub | 115 → 103 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
-| Electric bus | 71 → 55 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; four added front-door and wheel-hardware parts remain grounded while people, branding and operating concepts stay removed |
-| Battery | 66 → 60 | Premium engineering cutaway grounds pack, module, cell, electrical, cooling and enclosure hardware; the final audit adds cell-can, terminal, cable-fitting, lid, tube and enclosure-fastener parts while internal chemistry and unsupported sensor claims remain removed |
+| Electric bus | 101 → 85 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; added cabin glazing and seating parts remain grounded while people, branding and operating concepts stay removed |
+| Battery | 96 → 90 | Premium engineering cutaway grounds pack, module, cell, electrical, cooling and enclosure hardware; added shell, cooling and connector parts remain grounded while internal chemistry and unsupported sensor claims stay removed |
 | Lithium-ion cell | 70 → 60 | Premium prismatic-cell cutaway grounds enclosure, polarity-specific terminals, flattened winding and unfolded layers; the final audit adds terminal seals, a fill-port collar, cover lip, winding/core surfaces, tab roots, sheet folds and collector edge while ambiguous liquid, invisible charge motion, performance metrics and hazard states remain removed |
-| Railway platform | 112 → 96 | Premium station view grounds passenger fixtures, train hardware, overhead electrification and track subparts; signage and service states remain removed |
-| Train carriage | 78 → 70 | Premium carriage cutaway grounds the cabin, doors, accessibility fixtures, roof, suspension and foreground track hardware plus the real bogie portal; six added coupler, brake, glazing and interior-panel parts remain grounded while passengers and unsupported amenities stay removed |
-| Rail bogie | 73 → 65 | Premium powered-bogie study grounds frame, wheelsets, suspension, motor drive, disc brakes, linkages and track hardware; the final audit adds welds, ribs, caps, shafts, hub/rim details, suspension seats, linkage pins and track fasteners while maintenance actions, failure states and invisible load concepts remain removed |
+| Railway platform | 142 → 126 | Premium station view grounds passenger fixtures, train hardware, overhead electrification and track subparts; added rail joints, fasteners and platform edges remain grounded while signage and service states stay removed |
+| Train carriage | 108 → 100 | Premium carriage cutaway grounds the cabin, doors, accessibility fixtures, roof, suspension and foreground track hardware plus the real bogie portal; added underbody brake, axle and coupler parts remain grounded while passengers and unsupported amenities stay removed |
+| Rail bogie | 103 → 95 | Premium powered-bogie study grounds frame, wheelsets, suspension, motor drive, disc brakes, linkages and track hardware; added frame, pivot, spring and brake fittings remain grounded while maintenance actions, failure states and invisible load concepts stay removed |
 | Science museum | 183 → 176 | Premium gallery resolves specific fossil, instrument, robotic, physics and life-science parts plus newly audited bone, fossil and mount subparts while rejecting roles, venues and signage |
 | Dinosaur hall | 77 → 69 | Sunlit paleontology gallery grounds mounted bones, distinct fossils, preparation tools and rock structure; the final audit adds skull, jaw, vertebra, limb, horn, fossil and tool parts while behavior, era, weak rock features and museum activities remain removed |
 | Human body | 66 → 60 | Bright three-model anatomy exhibit grounds the mannequin's body regions and distal parts, the skeleton's jaw, long bones and hand/foot groups, and distinct chest, arm, abdominal and calf muscles; unseen systems and structures remain removed |

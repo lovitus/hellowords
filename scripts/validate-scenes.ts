@@ -216,24 +216,24 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // and underfloor battery parts; the ceiling blocks passenger roles and
   // operating states that are not visible in a static frame while allowing
   // the reviewed front-entry hardware additions.
-  "electric-bus": 55,
+  "electric-bus": 85,
   "human-body": 60,
   // The reviewed carriage raster exposes the complete cabin plus distinct
   // door, seat, suspension and foreground track hardware; the ceiling blocks
   // unsupported service claims while allowing the expanded 70-anchor audit.
-  "train-carriage": 70,
+  "train-carriage": 100,
   // The bright bogie raster resolves frame welds/ribs, wheel and motor
   // subparts, suspension seats, linkage pins and track fasteners; the ceiling
   // blocks maintenance actions, failure states and hidden load concepts.
-  "rail-bogie": 65,
+  "rail-bogie": 95,
   // The final platform raster resolves passenger fixtures, train hardware,
   // overhead electrification and track subparts; the ceiling blocks signage
   // and inferred service states while allowing the reviewed 96-anchor scene.
-  "railway-platform": 96,
+  "railway-platform": 126,
   // The battery cutaway resolves pack, module, cell, electrical, cooling and
   // enclosure hardware; the ceiling blocks invisible electrochemistry and
   // sensors that cannot be identified as separate objects in this frame.
-  battery: 60,
+  battery: 90,
   // The prismatic-cell cutaway resolves terminal seals, tab roots, winding
   // surfaces, sheet folds and collector edges while still excluding invisible
   // electrochemistry and performance claims.

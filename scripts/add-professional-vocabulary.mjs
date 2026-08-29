@@ -1255,6 +1255,167 @@ const groups = [
     counter shelf=柜台搁板
     floor grout=地面填缝
   `),
+
+  group("electric-bus", "verified-window", "passenger-cabin", `
+    window frame=车窗框
+    window seal=车窗密封条
+    window latch=车窗锁扣
+    window mullion=车窗竖梃
+    glazing bead=玻璃压条
+    seat upholstery=座椅面料
+    seat edge=座椅边缘
+    seat bracket=座椅支架
+    seat mount=座椅底座
+    seat hinge=座椅铰链
+    seatback pocket=椅背袋
+    seat armrest=座椅扶手
+    seat frame=座椅框架
+    aisle rail=过道栏杆
+    grab pole=抓杆
+    grab strap=抓带
+    overhead light=顶灯
+    ceiling panel=顶板
+    floor channel=地板线槽
+    aisle floor=过道地板
+    wheelchair strap=轮椅固定带
+    wheelchair ramp=轮椅坡板
+    interior panel=内饰板
+    handrail bracket=扶手支架
+    handrail cap=扶手端盖
+    emergency hammer=安全锤
+    air vent=出风口
+    speaker grille=扬声器格栅
+    door sill=车门门槛
+    door seal=车门密封条
+  `),
+  group("battery", "verified-enclosure", "pack-shell", `
+    cooling plate fin=冷却板翅片
+    cooling manifold=冷却歧管
+    hose clamp=软管卡箍
+    coolant elbow=冷却液弯头
+    thermal interface=导热界面
+    heat spreader=散热片
+    module separator=模块隔板
+    pack rail=电池包导轨
+    shell corner=外壳角
+    lid hinge=上盖铰链
+    lid seal=上盖密封条
+    enclosure wall=外壳壁
+    corner bracket=角支架
+    base flange=底座法兰
+    fastener head=紧固件头
+    vent cover=通风盖
+    pressure plate=压板
+    terminal cover=端子护盖
+    busbar strap=母排带
+    fuse holder=保险丝座
+    contactor bracket=接触器支架
+    service loop=维修余线
+    cable sleeve=线缆套
+    cable bend=线缆弯
+    connector body=连接器壳体
+    electrical lug=电气接线耳
+    module end bolt=模块端螺栓
+    cell can edge=电芯壳边
+    holder slot=电芯座槽
+    insulation tab=绝缘片耳
+  `),
+  group("railway-platform", "verified-track", "track-structure", `
+    rail web=钢轨腹板
+    rail foot=钢轨底座
+    fishplate=鱼尾板
+    fishplate bolt=鱼尾板螺栓
+    sleeper pad=轨枕垫
+    sleeper end=轨枕端面
+    ballast pocket=道砟凹槽
+    rail clip=钢轨夹
+    clip bolt=扣件螺栓
+    baseplate=轨道底板
+    baseplate bolt=底板螺栓
+    tie plate=垫板
+    rail splice=钢轨接缝
+    rail weld=钢轨焊缝
+    rail anchor=钢轨锚固件
+    track fastener=轨道扣件
+    track bolt=轨道螺栓
+    sleeper corner=轨枕角
+    ballast pebble=道砟小石
+    ballast edge=道砟边
+    platform joint=站台接缝
+    edge stone=边缘石
+    tactile tile=盲道砖
+    warning dot=警示点
+    platform seam=站台缝
+    rail shadow=钢轨阴影
+    sleeper grain=轨枕木纹
+    ballast gap=道砟间隙
+    rail side=钢轨侧面
+    fastener washer=扣件垫圈
+  `),
+  group("train-carriage", "verified-bogie-frame", "bogie-assembly", `
+    bogie bolster=转向架摇枕
+    axle bearing=轴承
+    spring seat=弹簧座
+    brake shoe=闸瓦
+    brake hose coupling=制动软管接头
+    brake pipe=制动管
+    air valve=空气阀
+    traction cable=牵引电缆
+    motor mount=电机支座
+    gearbox cover=齿轮箱护盖
+    wheel flange=车轮轮缘
+    wheel hub cap=轮毂盖
+    axle collar=车轴套环
+    axle end=车轴端
+    suspension bracket=悬挂支架
+    damper pin=减振器销
+    bogie cross beam=转向架横梁
+    frame rib=构架加强筋
+    frame weld=构架焊缝
+    side skirt panel=侧裙板
+    underframe bracket=底架支架
+    equipment hatch=设备舱盖
+    grounding strap=接地带
+    coupler lock=车钩锁
+    coupler shank=车钩杆
+    buffer plate=缓冲器端板
+    buffer spring=缓冲弹簧
+    floor beam=底架横梁
+    track bracket=轨道支架
+    wheel bearing=车轮轴承
+  `),
+  group("rail-bogie", "verified-bogie-frame", "frame-and-secondary-suspension", `
+    frame gusset=构架角撑
+    frame rib plate=构架肋板
+    weld bead=焊缝凸起
+    side frame pocket=侧架凹槽
+    cross beam bolt=横梁螺栓
+    pivot bushing=中心销衬套
+    pivot washer=中心销垫圈
+    spring coil=弹簧线圈
+    spring guide=弹簧导向件
+    damper eye=减振器环眼
+    damper rod=减振器杆
+    air spring plate=空气弹簧板
+    air spring bolt=空气弹簧螺栓
+    axle guide=车轴导向件
+    bearing cap=轴承盖
+    bearing retainer=轴承保持架
+    brake hose clamp=制动软管卡箍
+    cable lug=电缆接线耳
+    conduit saddle=导管鞍座
+    grounding lug=接地接线耳
+    frame corner=构架角
+    frame rail=构架纵梁
+    cross brace=交叉撑杆
+    bolster plate=摇枕板
+    suspension seat=悬挂座
+    suspension pin=悬挂销
+    wheelset guard=轮对护罩
+    gearbox flange=齿轮箱法兰
+    motor bracket=电机支架
+    brake bracket=制动支架
+  `),
 ];
 
 const realmByScene = {
@@ -1268,6 +1429,11 @@ const realmByScene = {
   "science-museum": "objects-technology",
   "city-park": "nature-life",
   "community-garden": "nature-life",
+  "electric-bus": "objects-technology",
+  battery: "objects-technology",
+  "railway-platform": "objects-technology",
+  "train-carriage": "objects-technology",
+  "rail-bogie": "objects-technology",
 };
 
 function slugify(word) {
