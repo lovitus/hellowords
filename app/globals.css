@@ -318,7 +318,17 @@ a:focus-visible {
   overflow: hidden;
   border: 1px solid rgba(49, 75, 65, 0.2);
   border-radius: 16px;
-  background: rgba(249, 248, 240, 0.78);
+  /* Reuse the scene's reviewed raster as a quiet thumbnail. A soft paper
+   * wash keeps the labels readable while letting the navigator feel like a
+   * real mini-map instead of a detached title card. It reuses the viewport's
+   * asset URL, letting the browser share its cached payload. */
+  background-color: rgba(249, 248, 240, 0.78);
+  background-image:
+    linear-gradient(120deg, rgba(249, 248, 240, 0.86), rgba(238, 245, 238, 0.72)),
+    var(--scene-minimap-image, none);
+  background-position: center, center;
+  background-size: cover, cover;
+  background-blend-mode: normal, luminosity;
   box-shadow: 0 9px 28px rgba(29, 45, 38, 0.14), inset 0 1px rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(14px) saturate(0.88);
   -webkit-backdrop-filter: blur(14px) saturate(0.88);

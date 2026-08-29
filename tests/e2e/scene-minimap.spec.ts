@@ -143,6 +143,8 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
       width: bounds.width,
       height: bounds.height,
       background: style.backgroundColor,
+      backgroundImage: style.backgroundImage,
+      imageVariable: element.getAttribute("style") ?? "",
       protectedRight: phone ? 312 : compact ? 348 : 412,
       protectedBottom: phone ? 112 : compact ? 116 : 126,
       rightInStage: bounds.right - (stage?.left ?? 0),
@@ -154,6 +156,9 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   expect(visualContract.rightInStage).toBeLessThanOrEqual(visualContract.protectedRight);
   expect(visualContract.bottomInStage).toBeLessThanOrEqual(visualContract.protectedBottom);
   expect(visualContract.background).toMatch(/^rgba\(.+, 0\.78\)$/);
+  expect(visualContract.backgroundImage).toContain("linear-gradient");
+  expect(visualContract.backgroundImage).toContain("world-mega-atlas-2604-v21.jpg");
+  expect(visualContract.imageVariable).toContain("--scene-minimap-image");
 
   const scienceDistrict = minimap.locator(
     '[data-testid="scene-minimap-district"][data-district-id="science"]',

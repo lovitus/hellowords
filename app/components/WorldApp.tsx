@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { LexicalWorld } from "./LexicalWorld";
 import {
   childCameraFromPortalTile,
@@ -864,6 +864,9 @@ export function WorldApp() {
         <aside
           className="scene-minimap"
           data-testid="scene-minimap"
+          style={scene?.asset
+            ? { "--scene-minimap-image": `url(${scene.asset})` } as CSSProperties
+            : undefined}
           data-scene-id={scene?.id ?? "loading"}
           data-child-count={scene?.portals.length ?? 0}
           data-terminal={String(Boolean(scene && scene.portals.length === 0))}
