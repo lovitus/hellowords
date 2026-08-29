@@ -1748,7 +1748,7 @@
       "y": 320,
       "width": 410,
       "height": 560,
-      "targetScale": 2.35,
+      "targetScale": 1.8,
       "labelIds": [
         "office-building",
         "lobby",
@@ -1791,7 +1791,7 @@
       "y": 350,
       "width": 730,
       "height": 520,
-      "targetScale": 2.3,
+      "targetScale": 1.8,
       "labelIds": [
         "open-plan-office",
         "workstation",
@@ -1834,7 +1834,7 @@
       "y": 100,
       "width": 550,
       "height": 540,
-      "targetScale": 2.35,
+      "targetScale": 1.8,
       "labelIds": [
         "conference-room",
         "meeting-table",
@@ -1877,7 +1877,7 @@
       "y": 350,
       "width": 470,
       "height": 500,
-      "targetScale": 2.35,
+      "targetScale": 1.8,
       "labelIds": [
         "break-room",
         "kitchenette",
@@ -1920,7 +1920,7 @@
       "y": 50,
       "width": 310,
       "height": 820,
-      "targetScale": 2.4,
+      "targetScale": 1.8,
       "labelIds": [
         "elevator",
         "stairwell",

@@ -1977,7 +1977,7 @@
       "y": 230,
       "width": 370,
       "height": 460,
-      "targetScale": 2.5,
+      "targetScale": 1.8,
       "labelIds": [
         "emergency-department",
         "reception-desk",
@@ -2020,7 +2020,7 @@
       "y": 220,
       "width": 370,
       "height": 450,
-      "targetScale": 2.45,
+      "targetScale": 1.8,
       "labelIds": [
         "pathology-laboratory",
         "microscope",
@@ -2063,7 +2063,7 @@
       "y": 70,
       "width": 1190,
       "height": 190,
-      "targetScale": 2.35,
+      "targetScale": 1.7,
       "labelIds": [
         "clinical-care",
         "diagnosis",
@@ -2096,7 +2096,7 @@
       "y": 210,
       "width": 410,
       "height": 470,
-      "targetScale": 2.45,
+      "targetScale": 1.8,
       "labelIds": [
         "radiology",
         "mri-scanner",
@@ -2139,7 +2139,7 @@
       "y": 200,
       "width": 410,
       "height": 490,
-      "targetScale": 2.4,
+      "targetScale": 1.8,
       "labelIds": [
         "pharmacy",
         "dispensary",
@@ -2182,7 +2182,7 @@
       "y": 190,
       "width": 250,
       "height": 500,
-      "targetScale": 2.5,
+      "targetScale": 1.8,
       "labelIds": [
         "operating-theatre",
         "surgical-light",

@@ -1748,7 +1748,7 @@
       "y": 230,
       "width": 540,
       "height": 470,
-      "targetScale": 2.4,
+      "targetScale": 1.8,
       "labelIds": [
         "airport",
         "terminal",
@@ -1791,7 +1791,7 @@
       "y": 230,
       "width": 560,
       "height": 470,
-      "targetScale": 2.45,
+      "targetScale": 1.8,
       "labelIds": [
         "security-screening",
         "security-lane",
@@ -1834,7 +1834,7 @@
       "y": 260,
       "width": 660,
       "height": 470,
-      "targetScale": 2.4,
+      "targetScale": 1.8,
       "labelIds": [
         "departure-concourse",
         "gate",
@@ -1877,7 +1877,7 @@
       "y": 440,
       "width": 660,
       "height": 460,
-      "targetScale": 2.35,
+      "targetScale": 1.8,
       "labelIds": [
         "baggage-claim",
         "baggage-carousel",
@@ -1920,7 +1920,7 @@
       "y": 50,
       "width": 730,
       "height": 480,
-      "targetScale": 2.3,
+      "targetScale": 1.8,
       "labelIds": [
         "aircraft",
         "apron",
