@@ -35,7 +35,7 @@ The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,855 human-verified anchors representing 3,353
+Spatial scenes now contain 3,880 human-verified anchors representing 3,376
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -122,7 +122,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Railway platform | 112 → 96 | Premium station view grounds passenger fixtures, train hardware, overhead electrification and track subparts; signage and service states remain removed |
 | Train carriage | 78 → 70 | Premium carriage cutaway grounds the cabin, doors, accessibility fixtures, roof, suspension and foreground track hardware plus the real bogie portal; six added coupler, brake, glazing and interior-panel parts remain grounded while passengers and unsupported amenities stay removed |
 | Rail bogie | 73 → 65 | Premium powered-bogie study grounds frame, wheelsets, suspension, motor drive, disc brakes, linkages and track hardware; the final audit adds welds, ribs, caps, shafts, hub/rim details, suspension seats, linkage pins and track fasteners while maintenance actions, failure states and invisible load concepts remain removed |
-| Science museum | 128 → 121 | Premium gallery resolves specific fossil, instrument, robotic, physics and life-science parts while rejecting roles, venues and signage |
+| Science museum | 153 → 146 | Premium gallery resolves specific fossil, instrument, robotic, physics and life-science parts plus newly audited bone, telescope, microscope, robot, optics and anatomy subparts while rejecting roles, venues and signage |
 | Dinosaur hall | 77 → 69 | Sunlit paleontology gallery grounds mounted bones, distinct fossils, preparation tools and rock structure; the final audit adds skull, jaw, vertebra, limb, horn, fossil and tool parts while behavior, era, weak rock features and museum activities remain removed |
 | Human body | 66 → 60 | Bright three-model anatomy exhibit grounds the mannequin's body regions and distal parts, the skeleton's jaw, long bones and hand/foot groups, and distinct chest, arm, abdominal and calf muscles; unseen systems and structures remain removed |
 | Heart | 81 → 61 | Bright cutaway grounds chambers, valves, walls, great and coronary vessels plus an artery cross-section; the final audit adds visible cusps, chamber walls, vessel rims, ventricular ridges, coronary branches and red-cell surface parts while invisible physiology and conduction remain removed |
