@@ -4,19 +4,21 @@
 
 ## 当前交付游标
 
-- 公开版本：`v112-af0fd1f`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=112-af0fd1f>
-- 源码：`af0fd1f`（v112 公开运行时；City park 114 词；Urban services 120、Hospital 170、Airport 150、Office building 150；Pathology lab 180、Hospital pharmacy 150）。医院含科室、病理、通用疾病词和 WHO INN 通用药名，非医疗建议。
-- 当前工作批次：继续按“先堆词、再精修”扩展医院专科/疾病/药品与机场/写字楼细分词；先保持 v112 运行稳定，再处理下一张已审核素材。
+- 公开版本：`v114-28677a6`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=114-28677a6>
+- 源码：`28677a6ee5c904f1afd6bf5ec0ab7ec442517341`（v114 公开运行时；医院 320、病理实验室 330、医院药房 270、机场 270、写字楼 270）。本批新增 660 个区域锚点，包含科室、病理、通用疾病词、WHO INN 通用药名、机场运行部件与楼宇系统词，非医疗建议。
+- 当前工作批次：继续按“先堆词、再精修”扩展医院、机场、写字楼及后续专业场景；当前 v114 保持公开可验证，下一批继续增加词量。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
-### v112 交付记录（2026-08-29）
+### v114 交付记录（2026-08-29）
 
-- 本地数据验证已通过：43 个场景、4,826 个空间锚点、4,119 个去重词、307 个细节区、42 个门户；`npm run verify`（228 个域测试 + 28 个语义/词境测试）已通过，city-park、urban-services、病理实验室和医院药房定向 E2E 桌面/移动通过。
+- 本地数据验证已通过：43 个场景、5,486 个空间锚点、4,683 个去重词、307 个细节区、42 个门户；`npm run verify`（229 个域测试 + 28 个语义/词境测试）已通过，完整 E2E 106 通过 / 36 设计性跳过，`PERF_RUN=1 npm run test:perf` 2/2 通过。
+- 新增词批次：Hospital +150（科室/设施/疾病/药品）、Pathology lab +150（显微镜/标本/包埋/染色/病理显示）、Hospital pharmacy +120（INN/调配/自动柜/配制台）、Airport +120（值机/安检/登机厅/机坪）、Office building +120（前厅/办公位/会议室/设备核心）。每组均写入既有五级 LOD 与细节区，脚本 `scripts/add-professional-vocabulary.mjs` 可幂等复用。
+- 相机交接修复：连续入口现在按 `object-fit: cover` 的真实子图像绘制边界计算，比例不一致的 Apartment 入口保持连续；公开页实际验证首页 6 名称/hover Campus 21 词/移出 0 词，医院 320、机场 270、写字楼 270 词以及细节区新词可达。
 - 新增素材：`urban-services-overview-premium-v1.jpg`、`hospital-atrium-premium-v1.jpg`、`airport-terminal-premium-v1.jpg`、`office-atrium-premium-v1.jpg`、`pathology-lab-premium-v1.jpg`、`hospital-pharmacy-premium-v1.jpg`，均为 1600×900、已固定 SHA；素材由 ImageGen 生成后人工复核，未包含品牌/可读标牌。
 - 医院命名依据 WHO ICD‑11（疾病/临床分类）与 WHO INN（通用药名）；机场术语依据 FAA/加拿大交通部门机场词汇；写字楼设施依据美国 HHS/GSA 与英国 Government Property Agency 的空间分类。参考：<https://www.who.int/standards/classifications/classification-of-diseases>、<https://www.who.int/teams/health-product-and-policy-standards/inn>、<https://tc.canada.ca/en/aviation/operating-airports-aerodromes/airport-signage-lexicon>、<https://www.hhs.gov/about/hhs-manuals/hhs-facilities-manual/glossary/index.html>、<https://portal.gpa.gov.uk/workplace-design-guide-support-zones/>。
-- 已完成：整批一次提交（`bdb22a8` + 游标 `af0fd1f`），Sites v111 公开部署并同步保存/部署 v112 游标，真实公开页按 City street → Transit hub → Urban services → Hospital 验证病理实验室与医院药房入口、药品词和首页 6 名称/0 词泡。全量 E2E 106 通过 / 36 设计性跳过，性能 2/2；公开冒烟记录放在当前对话。
-- 仍待处理：把本批 v111/v112 压缩包、中间转换图和生成 PNG 移入可恢复废纸篓；不要删除当前根会话或共享临时根中的其他项目资料。
+- 已完成：整批一次提交（`28677a6`，包含 `7175b09` 相机交接修复），Sites v114 已公开部署并同步保存/部署游标，真实公开页按 City street → Transit hub → Urban services → Hospital/Airport/Office building 验证新词与细节区。
+- 清理记录：v114 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v114/`；v111/v112/v113 归档已在同一可恢复废纸篓批次中，未删除当前根会话或共享临时根中的其他资料。
 
 ## 当前续开发游标（2026-08-29）
 
