@@ -334,13 +334,32 @@ export function cameraFromRenderedPortalRect(
   renderedPortal: SceneRect,
   viewportOrigin: Point,
   fit: number,
+  childSize?: { readonly width: number; readonly height: number },
 ): SceneViewportCamera {
-  const renderedEffectiveScale = renderedPortal.width / portal.width;
+  const hasChildSize = Boolean(
+    childSize
+    && Number.isFinite(childSize.width)
+    && Number.isFinite(childSize.height)
+    && childSize.width > 0
+    && childSize.height > 0,
+  );
+  const childWidth = hasChildSize ? childSize!.width : portal.width;
+  const childHeight = hasChildSize ? childSize!.height : portal.height;
+  const cover = hasChildSize
+    ? Math.max(portal.width / childWidth, portal.height / childHeight)
+    : 1;
+  const coveredX = portal.x + (portal.width - childWidth * cover) / 2;
+  const coveredY = portal.y + (portal.height - childHeight * cover) / 2;
+  // A tile image uses object-fit: cover, so its painted bounds can extend
+  // beyond the portal rectangle. Divide by the painted child dimensions and
+  // subtract that crop before recovering the parent camera; otherwise the
+  // child scene starts with a visible offset on aspect-ratio-mismatched tiles.
+  const renderedEffectiveScale = renderedPortal.width / (childWidth * cover);
   return {
     fit,
     scale: renderedEffectiveScale / fit,
-    x: renderedPortal.x - viewportOrigin.x - portal.x * renderedEffectiveScale,
-    y: renderedPortal.y - viewportOrigin.y - portal.y * renderedEffectiveScale,
+    x: renderedPortal.x - viewportOrigin.x - coveredX * renderedEffectiveScale,
+    y: renderedPortal.y - viewportOrigin.y - coveredY * renderedEffectiveScale,
   };
 }
 
@@ -2211,6 +2230,10 @@ export function SceneViewport({
         const exactTile = isExactForwardPortalTile(tile?.dataset, portal) ? tile : null;
         const viewportBounds = viewport.getBoundingClientRect();
         const tileBounds = exactTile?.getBoundingClientRect();
+        const tileArt = exactTile?.querySelector<HTMLImageElement>(
+          '[data-testid="scene-continuous-tile-art"]',
+        );
+        const tileArtBounds = tileArt?.getBoundingClientRect();
         if (tileBounds && portal.width > 0 && portal.height > 0) {
           // A busy compositor can expose the final inline transform before its
           // descendant tile has reached that visual position. Transfer the
@@ -2219,9 +2242,12 @@ export function SceneViewport({
           // on its first frame and settle smoothly from there.
           const renderedCamera = cameraFromRenderedPortalRect(
             portal,
-            tileBounds,
+            tileArtBounds ?? tileBounds,
             viewportBounds,
             handoffCamera.fit,
+            tileArt && tileArt.naturalWidth > 0 && tileArt.naturalHeight > 0
+              ? { width: tileArt.naturalWidth, height: tileArt.naturalHeight }
+              : undefined,
           );
           // Keep the measured frame authoritative across the final yield. Any
           // incidental applyCamera call now republishes the rendered geometry

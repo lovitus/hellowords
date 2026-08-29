@@ -541,6 +541,33 @@ test("painted portal geometry round-trips to the camera used for child handoff",
   assert.ok(Math.abs(recovered.scale - camera.scale) < 1e-10);
 });
 
+test("painted child art bounds round-trip through an aspect-ratio-mismatched portal", () => {
+  const portal = { x: 1_500, y: 620, width: 200, height: 150 };
+  const camera = { x: -2_410.5, y: -1_115.25, fit: 0.9, scale: 4.2 };
+  const childSize = { width: 1_600, height: 900 };
+  const viewportOrigin = { x: 0, y: 74 };
+  const effectiveScale = camera.fit * camera.scale;
+  const cover = Math.max(portal.width / childSize.width, portal.height / childSize.height);
+  const coveredX = portal.x + (portal.width - childSize.width * cover) / 2;
+  const coveredY = portal.y + (portal.height - childSize.height * cover) / 2;
+  const recovered = cameraFromRenderedPortalRect(
+    portal,
+    {
+      x: viewportOrigin.x + camera.x + coveredX * effectiveScale,
+      y: viewportOrigin.y + camera.y + coveredY * effectiveScale,
+      width: childSize.width * cover * effectiveScale,
+      height: childSize.height * cover * effectiveScale,
+    },
+    viewportOrigin,
+    camera.fit,
+    childSize,
+  );
+
+  for (const key of ["x", "y", "fit", "scale"] as const) {
+    assert.ok(Math.abs(recovered[key] - camera[key]) < 1e-10, `${key} survives child-art recovery`);
+  }
+});
+
 test("painted handoff accepts only the exact forward tile for the committed portal", () => {
   const portal = { id: "enter-home", childSceneId: "apartment" };
   assert.equal(isExactForwardPortalTile({
