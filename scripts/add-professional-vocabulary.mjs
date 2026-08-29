@@ -1094,6 +1094,167 @@ const groups = [
     pipe elbow=管道弯头
     ceiling hatch=天花检修口
   `),
+
+  group("apartment", "verified-living-room", "living-room-detail", `
+    ottoman=脚凳
+    sofa cushion=沙发垫
+    sofa seam=沙发缝
+    armchair=扶手椅
+    chair cushion=椅垫
+    coffee table shelf=茶几搁板
+    table edge=桌边
+    table foot=桌脚
+    floor runner=地毯
+    rug corner=地毯角
+    lamp stem=灯杆
+    lamp cord=灯线
+    lamp switch=灯开关
+    media shelf=媒体架
+    speaker=音箱
+    remote control=遥控器
+    picture glass=相框玻璃
+    frame mat=画框卡纸
+    vase rim=花瓶口
+    vase neck=花瓶颈
+    plant stem=植物茎
+    leaf vein=叶脉
+    curtain hem=窗帘边
+    curtain fold=窗帘褶
+    floorboard joint=地板接缝
+    skirting trim=踢脚线
+    wall socket=墙面插座
+    ceiling beam=天花梁
+    door hinge=门铰链
+    door latch=门闩
+  `),
+  group("kitchen", "verified-kitchen-island", "preparation-island", `
+    colander=漏篮
+    saucepan=奶锅
+    saucepan lid=奶锅盖
+    casserole dish=焗烤盘
+    baking tray=烤盘
+    loaf pan=吐司模
+    oven mitt=隔热手套
+    apron=围裙
+    utensil crock=厨具筒
+    ladle=汤勺
+    spatula=锅铲
+    tongs=夹子
+    peeler=削皮器
+    grater=刨丝器
+    measuring spoon=量匙
+    timer=计时器
+    salt cellar=盐罐
+    pepper shaker=胡椒罐
+    oil bottle=油瓶
+    vinegar bottle=醋瓶
+    cutting mat=切菜垫
+    board handle=砧板把手
+    dish stack=餐盘叠
+    glass jar=玻璃罐
+    storage tin=储物罐
+    pantry basket=储藏篮
+    island drawer front=岛台抽屉面
+    cabinet shelf=柜内搁板
+    countertop seam=台面接缝
+    island support=岛台支撑
+  `),
+  group("bedroom", "verified-bed", "sleeping-area", `
+    mattress seam=床垫缝
+    fitted sheet=床笠
+    sheet corner=床单角
+    duvet cover=被套
+    duvet seam=被套缝
+    blanket fringe=毯子流苏
+    pillow insert=枕芯
+    pillow edge=枕边
+    pillow piping=枕头滚边
+    bed runner=床尾巾
+    bedspread=床罩
+    bolster=长枕
+    headboard rail=床头板横梁
+    headboard button=床头扣
+    bed slat=床板条
+    bedside shelf=床头搁板
+    bedside drawer pull=床头抽屉拉手
+    reading lamp=阅读灯
+    lamp cord=灯线
+    curtain tie=窗帘绑带
+    curtain lining=窗帘衬
+    rug pile=地毯绒面
+    rug corner=地毯角
+    floor knot=地板纹理
+    wall molding=墙面线脚
+    window latch=窗锁
+    window frame=窗框
+    coat hook plate=衣帽钩底板
+    laundry rim=洗衣篮边
+    plant pot rim=花盆边
+  `),
+  group("bathroom", "verified-shower", "shower-area", `
+    overflow cover=溢水口盖
+    faucet aerator=水龙头起泡器
+    bath plug=浴缸塞
+    drain stopper=排水塞
+    tub side panel=浴缸侧板
+    tray divider=托盘隔板
+    washcloth corner=毛巾角
+    tap base=水龙头底座
+    vanity backsplash=盥洗台挡水板
+    basin overflow=洗手盆溢水口
+    drawer organizer=抽屉分隔盒
+    cabinet shelf=柜内搁板
+    mirror light=镜前灯
+    mirror clip=镜夹
+    sconce shade=壁灯灯罩
+    toothbrush handle=牙刷柄
+    toothpaste tube=牙膏管
+    floss box=牙线盒
+    toilet hinge=马桶铰链
+    toilet lid hinge=马桶盖铰链
+    flush plate=冲水面板
+    paper roll core=纸卷芯
+    shower riser=淋浴立管
+    mixer lever=混水阀杆
+    hose connector=软管接头
+    niche back=壁龛背板
+    bench drain=淋浴凳排水
+    tile edge=瓷砖边
+    grout line=填缝线
+    towel seam=毛巾缝
+  `),
+  group("city-cafe", "verified-display-case", "counter-pastries", `
+    pastry box=糕点盒
+    tart shell=挞皮
+    pastry glaze=糕点糖衣
+    muffin top=马芬顶部
+    croissant tip=牛角包尖
+    bread crumb=面包屑
+    bun crust=面包卷外皮
+    display shelf=展示架
+    display riser=展示台阶
+    glass shelf=玻璃层板
+    tray liner=托盘衬垫
+    serving tong=食品夹
+    cake knife=蛋糕刀
+    dessert fork=甜点叉
+    sugar sachet=方糖包
+    stir stick=搅拌棒
+    teaspoon=茶匙
+    saucer rim=碟边
+    coffee spoon=咖啡匙
+    milk jug=牛奶壶
+    cream pitcher=奶油壶
+    carafe stopper=水壶塞
+    grinder hopper lid=研磨机料斗盖
+    grinder burr=研磨刀盘
+    portafilter basket=粉碗
+    group head gasket=冲煮头密封圈
+    steam knob=蒸汽旋钮
+    pressure dial=压力表盘
+    counter shelf=柜台搁板
+    floor grout=地面填缝
+  `),
 ];
 
 const realmByScene = {
@@ -1166,7 +1327,11 @@ function addGroup(scene, definition, groupIndex) {
       x: Number(x.toFixed(2)),
       y: Number(y.toFixed(2)),
       priority: Number((maxPriority + (index + 1) / 1000).toFixed(6)),
-      minLevel: Math.floor(index / 6),
+      // Professional/detail additions are intentionally revealed after the
+      // existing overview vocabulary. The words stay fully authored and
+      // reachable at deeper zoom, while a scene does not mount hundreds of
+      // new pills on its first frame.
+      minLevel: 2 + Math.floor(index / 10),
       sourceVisualRegion: definition.regionId,
       semanticRealmId: realmByScene[scene.id],
     };
@@ -1177,6 +1342,34 @@ function addGroup(scene, definition, groupIndex) {
   });
   scene.labels.push(...added);
   return added.length;
+}
+
+/** Rebalance older generated batches to the same detail-first LOD contract. */
+function rebalanceProfessionalLod(scene) {
+  const grouped = new Map();
+  for (const label of scene.labels) {
+    const match = /-pro-(\d+)$/u.exec(label.id);
+    if (!match) continue;
+    const groupIndex = Number(match[1]);
+    const group = grouped.get(groupIndex) ?? [];
+    group.push(label);
+    grouped.set(groupIndex, group);
+  }
+  let changed = 0;
+  for (const labels of grouped.values()) {
+    labels.sort((first, second) => (
+      (first.priority ?? 0) - (second.priority ?? 0)
+      || first.id.localeCompare(second.id)
+    ));
+    labels.forEach((label, index) => {
+      const minLevel = 2 + Math.floor(index / 10);
+      if (label.minLevel !== minLevel) {
+        label.minLevel = minLevel;
+        changed += 1;
+      }
+    });
+  }
+  return changed;
 }
 
 async function main() {
@@ -1204,17 +1397,20 @@ async function main() {
 
   for (const [sceneId, scene] of byScene) {
     const added = additions.get(sceneId) ?? 0;
-    if (added === 0) continue;
+    const rebalanced = rebalanceProfessionalLod(scene);
+    if (added === 0 && rebalanced === 0) continue;
     const audit = scene.anchorAudit;
-    audit.previousLabelCount += added;
-    audit.retainedLabelCount = scene.labels.length;
-    audit.rationale = `${audit.rationale.trim()} The professional vocabulary pass adds ${added} additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.`;
+    if (added > 0) {
+      audit.previousLabelCount += added;
+      audit.retainedLabelCount = scene.labels.length;
+      audit.rationale = `${audit.rationale.trim()} The professional vocabulary pass adds ${added} additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.`;
+    }
     await writeFile(
       resolve(dataRoot, `${sceneId}.json`),
       `${JSON.stringify(scene, null, 2)}\n`,
       "utf8",
     );
-    console.log(`${sceneId}: +${added} labels (${scene.labels.length} total)`);
+    console.log(`${sceneId}: +${added} labels, rebalanced ${rebalanced} LODs (${scene.labels.length} total)`);
   }
 }
 

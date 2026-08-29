@@ -41,7 +41,7 @@ The graph contains 43 reachable scenes and 42 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 5,816 human-verified anchors representing 4,965
+Spatial scenes now contain 5,966 human-verified anchors representing 5,081
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -110,13 +110,13 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Greenhouse interior | 78 → 71 | Sunlit glasshouse grounds shell hardware, benches, seedlings, crops, floor equipment and a complete tomato portal; climate and growth processes remain removed |
 | Tomato plant | 76 → 69 | Complete supported plant grounds stem, compound-leaf, flower, fruit, support, substrate and visible pest details; physiology and underground processes remain removed |
 | Potting workbench | 83 → 74 | Complete daylight bench grounds tool edges, containers, seedlings, soil and watering fittings; actions, properties and printed-label readings remain removed |
-| Apartment | 116 → 113 | Bright replacement preserves three room portals, then adds six independently reviewed seating, cabinetry and bathroom fitting parts while retaining the excluded sink, hallway and dresser claims |
-| Kitchen | 125 → 116 | Bright kitchen grounds appliances, sink, cookware, coffee-nook and island parts; absent processes and hidden appliance claims remain removed |
+| Apartment | 146 → 143 | Bright replacement preserves three room portals, then adds living-room furniture and finish parts while retaining the excluded sink, hallway and dresser claims |
+| Kitchen | 155 → 146 | Bright kitchen grounds appliances, sink, cookware, coffee-nook and island parts; added preparation tools stay on the reviewed island crop |
 | Coffee machine | 78 → 60 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit, pump fittings and electronics; invisible functions and brewing processes remain removed |
 | Water tank | 71 → 61 | Premium clear-reservoir portrait grounds lid, water, molded walls, hinge/latch hardware, outlet valve internals, filter surfaces, mounts and the real Polymer portal; the final audit adds lid, water-surface, filter, corner-post and base-rail parts, with the water-surface, detached filter-cup, lid-corner and base-bracket details now in their own focus zones while sensors, hidden plumbing, properties and maintenance actions remain removed |
 | Polymer | 91 → 60 | Premium multiscale material scene grounds specimens, film and fiber forms, ordered lamellae, amorphous pockets, defects, pores and molecular-chain junctions; undefined molecular identities, properties and processes stay removed |
-| Bedroom | 115 → 104 | Premium bedroom adds grounded bedding, study, storage, textile and room-finish details; actions and moods remain removed |
-| Bathroom | 106 → 103 | Daylight bathroom grounds bath, vanity, toilet, shower, plumbing, glass hardware, tile and linen details; invisible conditions remain removed |
+| Bedroom | 145 → 134 | Premium bedroom adds grounded bedding, study, storage, textile and room-finish details; actions and moods remain removed |
+| Bathroom | 136 → 133 | Daylight bathroom grounds bath, vanity, toilet, shower, plumbing, glass hardware, tile and linen details; invisible conditions remain removed |
 | Wardrobe interior | 72 → 60 | Premium wardrobe grounds cabinet frame, hanger and garment parts, accessory details and nearby daylight-corner objects; the final audit adds a window sill, door panel, jacket cuff and trouser leg while materials, stitching claims and actions remain removed |
 | Cotton shirt | 63 → 55 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools, plus visible yoke, buttonhole, seam and tool parts; machinery, factory actions and performance properties remain removed |
 | City street | 154 → 149 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects; added facade, roadway and mobility parts stay in existing regions |
@@ -126,7 +126,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Hospital pharmacy | 310 → 300 | Close dispensary raster grounds medicine shelves, generic INN names, dispensing tools, automated cabinet, rolling cart and compounding bench without dosage advice |
 | Airport | 310 → 300 | Terminal photograph grounds check-in, security, gate, baggage claim, airside aircraft, flight hardware and ramp-service structures |
 | Office building | 310 → 300 | Warm atrium grounds reception, open-plan workstations, conference room, pantry and a deeper service-core vocabulary for power, data, HVAC and fire hardware |
-| City cafe | 77 → 70 | New daylight cafe grounds door, seating, counter, pastry-display and espresso subparts; people, branding and inferred service stay excluded |
+| City cafe | 107 → 100 | New daylight cafe grounds door, seating, counter, pastry-display and espresso subparts; added pastry/tableware parts remain inside the display crop |
 | Transit hub | 115 → 103 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
 | Electric bus | 71 → 55 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; four added front-door and wheel-hardware parts remain grounded while people, branding and operating concepts stay removed |
 | Battery | 66 → 60 | Premium engineering cutaway grounds pack, module, cell, electrical, cooling and enclosure hardware; the final audit adds cell-can, terminal, cable-fitting, lid, tube and enclosure-fastener parts while internal chemistry and unsupported sensor claims remain removed |

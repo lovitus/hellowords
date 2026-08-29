@@ -136,7 +136,7 @@ test("city street v4 keeps 149 freshly grounded anchors and three destination co
   assert.equal(scene.labels.length, 149);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
-    [20, 20, 23, 32, 54],
+    [8, 8, 31, 40, 62],
   );
   assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 149);
   assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 149);

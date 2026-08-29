@@ -747,7 +747,7 @@
       "x": 958.33,
       "y": 75,
       "priority": 7.026,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -758,7 +758,7 @@
       "x": 1075,
       "y": 75,
       "priority": 7.027,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -769,7 +769,7 @@
       "x": 1191.67,
       "y": 75,
       "priority": 7.028,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -780,7 +780,7 @@
       "x": 1308.33,
       "y": 75,
       "priority": 7.029,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -791,7 +791,7 @@
       "x": 1425,
       "y": 75,
       "priority": 7.03,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -802,7 +802,7 @@
       "x": 1541.67,
       "y": 75,
       "priority": 7.031,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -813,7 +813,7 @@
       "x": 958.33,
       "y": 165,
       "priority": 7.032,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -824,7 +824,7 @@
       "x": 1075,
       "y": 165,
       "priority": 7.033,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -835,7 +835,7 @@
       "x": 1191.67,
       "y": 165,
       "priority": 7.034,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -846,7 +846,7 @@
       "x": 1308.33,
       "y": 165,
       "priority": 7.035,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -857,7 +857,7 @@
       "x": 1425,
       "y": 165,
       "priority": 7.036,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -868,7 +868,7 @@
       "x": 1541.67,
       "y": 165,
       "priority": 7.037,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -879,7 +879,7 @@
       "x": 958.33,
       "y": 255,
       "priority": 7.038,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -890,7 +890,7 @@
       "x": 1075,
       "y": 255,
       "priority": 7.039,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -901,7 +901,7 @@
       "x": 1191.67,
       "y": 255,
       "priority": 7.04,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -912,7 +912,7 @@
       "x": 1308.33,
       "y": 255,
       "priority": 7.041,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -923,7 +923,7 @@
       "x": 1425,
       "y": 255,
       "priority": 7.042,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -934,7 +934,7 @@
       "x": 1541.67,
       "y": 255,
       "priority": 7.043,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -967,7 +967,7 @@
       "x": 1191.67,
       "y": 345,
       "priority": 7.046,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -978,7 +978,7 @@
       "x": 1308.33,
       "y": 345,
       "priority": 7.047,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -989,7 +989,7 @@
       "x": 1425,
       "y": 345,
       "priority": 7.048,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },
@@ -1000,7 +1000,7 @@
       "x": 1541.67,
       "y": 345,
       "priority": 7.049,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "greenhouse-bay",
       "semanticRealmId": "nature-life"
     },

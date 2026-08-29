@@ -122,7 +122,7 @@ JSON and requires byte-for-byte equality with the published data.
 
 Create a bright editorial two-level apartment cutaway in neutral daylight: living room upper-left, a complete kitchen upper-right, a narrow central stair, a complete bedroom lower-left and a complete bathroom lower-right. Keep the three destination rooms visually separate and large enough to act as non-overlapping portals. Exclude people, anatomy, medical objects, brands, readable text and objects leaking between rooms.
 
-The final-pixel audit retained 44 independently visible terms and rebuilt all three room portals. The completed image has a 140.1 mean luma; every destination crop remains substantially brighter than the former amber cutaway.
+The final-pixel audit retained 44 independently visible terms and rebuilt all three room portals. The completed image has a 140.1 mean luma; every destination crop remains substantially brighter than the former amber cutaway. The later room-depth pass adds 30 living-room terms while keeping the three portal rectangles unchanged.
 
 ### City street
 
@@ -294,7 +294,8 @@ The final-pixel audit retained 104 independently pointable terms across five
 detail zones. It adds readable bedding seams and folds, desk and chair parts,
 window and lamp hardware, wardrobe storage details, laundry-basket weave and
 floor finish while keeping the open wardrobe portal unobstructed and rejecting
-the removed activity, mood and routine claims.
+the removed activity, mood and routine claims. The later bedroom-depth pass
+adds 30 bedding and finish terms on the existing sleeping-area crop.
 
 ### Wardrobe interior
 

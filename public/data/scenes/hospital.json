@@ -1885,7 +1885,7 @@
       "x": 30,
       "y": 293,
       "priority": 1.17,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -1896,7 +1896,7 @@
       "x": 90,
       "y": 293,
       "priority": 1.171,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -1907,7 +1907,7 @@
       "x": 150,
       "y": 293,
       "priority": 1.172,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -1918,7 +1918,7 @@
       "x": 210,
       "y": 293,
       "priority": 1.173,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -1929,7 +1929,7 @@
       "x": 270,
       "y": 293,
       "priority": 1.174,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -1940,7 +1940,7 @@
       "x": 330,
       "y": 293,
       "priority": 1.175,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -1951,7 +1951,7 @@
       "x": 30,
       "y": 379,
       "priority": 1.176,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -1962,7 +1962,7 @@
       "x": 90,
       "y": 379,
       "priority": 1.177,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -1973,7 +1973,7 @@
       "x": 150,
       "y": 379,
       "priority": 1.178,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -1984,7 +1984,7 @@
       "x": 210,
       "y": 379,
       "priority": 1.179,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -1995,7 +1995,7 @@
       "x": 270,
       "y": 379,
       "priority": 1.18,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2006,7 +2006,7 @@
       "x": 330,
       "y": 379,
       "priority": 1.181,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2017,7 +2017,7 @@
       "x": 30,
       "y": 465,
       "priority": 1.182,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2028,7 +2028,7 @@
       "x": 90,
       "y": 465,
       "priority": 1.183,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2039,7 +2039,7 @@
       "x": 150,
       "y": 465,
       "priority": 1.184,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2050,7 +2050,7 @@
       "x": 210,
       "y": 465,
       "priority": 1.185,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2061,7 +2061,7 @@
       "x": 270,
       "y": 465,
       "priority": 1.186,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2072,7 +2072,7 @@
       "x": 330,
       "y": 465,
       "priority": 1.187,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2105,7 +2105,7 @@
       "x": 150,
       "y": 551,
       "priority": 1.19,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2116,7 +2116,7 @@
       "x": 210,
       "y": 551,
       "priority": 1.191,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2127,7 +2127,7 @@
       "x": 270,
       "y": 551,
       "priority": 1.192,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2138,7 +2138,7 @@
       "x": 330,
       "y": 551,
       "priority": 1.193,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "emergency-department",
       "semanticRealmId": "body-daily-life"
     },
@@ -2215,7 +2215,7 @@
       "x": 396.67,
       "y": 289,
       "priority": 1.2,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2226,7 +2226,7 @@
       "x": 450,
       "y": 289,
       "priority": 1.201,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2237,7 +2237,7 @@
       "x": 503.33,
       "y": 289,
       "priority": 1.202,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2248,7 +2248,7 @@
       "x": 556.67,
       "y": 289,
       "priority": 1.203,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2259,7 +2259,7 @@
       "x": 610,
       "y": 289,
       "priority": 1.204,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2270,7 +2270,7 @@
       "x": 663.33,
       "y": 289,
       "priority": 1.205,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2281,7 +2281,7 @@
       "x": 396.67,
       "y": 367,
       "priority": 1.206,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2292,7 +2292,7 @@
       "x": 450,
       "y": 367,
       "priority": 1.207,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2303,7 +2303,7 @@
       "x": 503.33,
       "y": 367,
       "priority": 1.208,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2314,7 +2314,7 @@
       "x": 556.67,
       "y": 367,
       "priority": 1.209,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2325,7 +2325,7 @@
       "x": 610,
       "y": 367,
       "priority": 1.21,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2336,7 +2336,7 @@
       "x": 663.33,
       "y": 367,
       "priority": 1.211,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2347,7 +2347,7 @@
       "x": 396.67,
       "y": 445,
       "priority": 1.212,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2358,7 +2358,7 @@
       "x": 450,
       "y": 445,
       "priority": 1.213,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2369,7 +2369,7 @@
       "x": 503.33,
       "y": 445,
       "priority": 1.214,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2380,7 +2380,7 @@
       "x": 556.67,
       "y": 445,
       "priority": 1.215,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2391,7 +2391,7 @@
       "x": 610,
       "y": 445,
       "priority": 1.216,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2402,7 +2402,7 @@
       "x": 663.33,
       "y": 445,
       "priority": 1.217,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2435,7 +2435,7 @@
       "x": 503.33,
       "y": 523,
       "priority": 1.22,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2446,7 +2446,7 @@
       "x": 556.67,
       "y": 523,
       "priority": 1.221,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2457,7 +2457,7 @@
       "x": 610,
       "y": 523,
       "priority": 1.222,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2468,7 +2468,7 @@
       "x": 663.33,
       "y": 523,
       "priority": 1.223,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "pathology-laboratory",
       "semanticRealmId": "body-daily-life"
     },
@@ -2545,7 +2545,7 @@
       "x": 710.83,
       "y": 273,
       "priority": 1.23,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2556,7 +2556,7 @@
       "x": 772.5,
       "y": 273,
       "priority": 1.231,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2567,7 +2567,7 @@
       "x": 834.17,
       "y": 273,
       "priority": 1.232,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2578,7 +2578,7 @@
       "x": 895.83,
       "y": 273,
       "priority": 1.233,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2589,7 +2589,7 @@
       "x": 957.5,
       "y": 273,
       "priority": 1.234,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2600,7 +2600,7 @@
       "x": 1019.17,
       "y": 273,
       "priority": 1.235,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2611,7 +2611,7 @@
       "x": 710.83,
       "y": 359,
       "priority": 1.236,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2622,7 +2622,7 @@
       "x": 772.5,
       "y": 359,
       "priority": 1.237,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2633,7 +2633,7 @@
       "x": 834.17,
       "y": 359,
       "priority": 1.238,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2644,7 +2644,7 @@
       "x": 895.83,
       "y": 359,
       "priority": 1.239,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2655,7 +2655,7 @@
       "x": 957.5,
       "y": 359,
       "priority": 1.24,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2666,7 +2666,7 @@
       "x": 1019.17,
       "y": 359,
       "priority": 1.241,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2677,7 +2677,7 @@
       "x": 710.83,
       "y": 445,
       "priority": 1.242,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2688,7 +2688,7 @@
       "x": 772.5,
       "y": 445,
       "priority": 1.243,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2699,7 +2699,7 @@
       "x": 834.17,
       "y": 445,
       "priority": 1.244,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2710,7 +2710,7 @@
       "x": 895.83,
       "y": 445,
       "priority": 1.245,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2721,7 +2721,7 @@
       "x": 957.5,
       "y": 445,
       "priority": 1.246,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2732,7 +2732,7 @@
       "x": 1019.17,
       "y": 445,
       "priority": 1.247,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2765,7 +2765,7 @@
       "x": 834.17,
       "y": 531,
       "priority": 1.25,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2776,7 +2776,7 @@
       "x": 895.83,
       "y": 531,
       "priority": 1.251,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2787,7 +2787,7 @@
       "x": 957.5,
       "y": 531,
       "priority": 1.252,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2798,7 +2798,7 @@
       "x": 1019.17,
       "y": 531,
       "priority": 1.253,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "radiology-suite",
       "semanticRealmId": "body-daily-life"
     },
@@ -2875,7 +2875,7 @@
       "x": 1060,
       "y": 265,
       "priority": 1.26,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2886,7 +2886,7 @@
       "x": 1120,
       "y": 265,
       "priority": 1.261,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2897,7 +2897,7 @@
       "x": 1180,
       "y": 265,
       "priority": 1.262,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2908,7 +2908,7 @@
       "x": 1240,
       "y": 265,
       "priority": 1.263,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2919,7 +2919,7 @@
       "x": 1300,
       "y": 265,
       "priority": 1.264,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2930,7 +2930,7 @@
       "x": 1360,
       "y": 265,
       "priority": 1.265,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2941,7 +2941,7 @@
       "x": 1060,
       "y": 355,
       "priority": 1.266,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2952,7 +2952,7 @@
       "x": 1120,
       "y": 355,
       "priority": 1.267,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2963,7 +2963,7 @@
       "x": 1180,
       "y": 355,
       "priority": 1.268,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2974,7 +2974,7 @@
       "x": 1240,
       "y": 355,
       "priority": 1.269,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2985,7 +2985,7 @@
       "x": 1300,
       "y": 355,
       "priority": 1.27,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -2996,7 +2996,7 @@
       "x": 1360,
       "y": 355,
       "priority": 1.271,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3007,7 +3007,7 @@
       "x": 1060,
       "y": 445,
       "priority": 1.272,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3018,7 +3018,7 @@
       "x": 1120,
       "y": 445,
       "priority": 1.273,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3029,7 +3029,7 @@
       "x": 1180,
       "y": 445,
       "priority": 1.274,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3040,7 +3040,7 @@
       "x": 1240,
       "y": 445,
       "priority": 1.275,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3051,7 +3051,7 @@
       "x": 1300,
       "y": 445,
       "priority": 1.276,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3062,7 +3062,7 @@
       "x": 1360,
       "y": 445,
       "priority": 1.277,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3095,7 +3095,7 @@
       "x": 1180,
       "y": 535,
       "priority": 1.28,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3106,7 +3106,7 @@
       "x": 1240,
       "y": 535,
       "priority": 1.281,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3117,7 +3117,7 @@
       "x": 1300,
       "y": 535,
       "priority": 1.282,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3128,7 +3128,7 @@
       "x": 1360,
       "y": 535,
       "priority": 1.283,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "pharmacy-dispensary",
       "semanticRealmId": "body-daily-life"
     },
@@ -3205,7 +3205,7 @@
       "x": 488.33,
       "y": 109,
       "priority": 1.29,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3216,7 +3216,7 @@
       "x": 685,
       "y": 109,
       "priority": 1.291,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3227,7 +3227,7 @@
       "x": 881.67,
       "y": 109,
       "priority": 1.292,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3238,7 +3238,7 @@
       "x": 1078.33,
       "y": 109,
       "priority": 1.293,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3249,7 +3249,7 @@
       "x": 1275,
       "y": 109,
       "priority": 1.294,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3260,7 +3260,7 @@
       "x": 1471.67,
       "y": 109,
       "priority": 1.295,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3271,7 +3271,7 @@
       "x": 488.33,
       "y": 147,
       "priority": 1.296,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3282,7 +3282,7 @@
       "x": 685,
       "y": 147,
       "priority": 1.297,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3293,7 +3293,7 @@
       "x": 881.67,
       "y": 147,
       "priority": 1.298,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3304,7 +3304,7 @@
       "x": 1078.33,
       "y": 147,
       "priority": 1.299,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3315,7 +3315,7 @@
       "x": 1275,
       "y": 147,
       "priority": 1.3,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3326,7 +3326,7 @@
       "x": 1471.67,
       "y": 147,
       "priority": 1.301,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3337,7 +3337,7 @@
       "x": 488.33,
       "y": 185,
       "priority": 1.302,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3348,7 +3348,7 @@
       "x": 685,
       "y": 185,
       "priority": 1.303,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3359,7 +3359,7 @@
       "x": 881.67,
       "y": 185,
       "priority": 1.304,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3370,7 +3370,7 @@
       "x": 1078.33,
       "y": 185,
       "priority": 1.305,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3381,7 +3381,7 @@
       "x": 1275,
       "y": 185,
       "priority": 1.306,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3392,7 +3392,7 @@
       "x": 1471.67,
       "y": 185,
       "priority": 1.307,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3425,7 +3425,7 @@
       "x": 881.67,
       "y": 223,
       "priority": 1.31,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3436,7 +3436,7 @@
       "x": 1078.33,
       "y": 223,
       "priority": 1.311,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3447,7 +3447,7 @@
       "x": 1275,
       "y": 223,
       "priority": 1.312,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3458,7 +3458,7 @@
       "x": 1471.67,
       "y": 223,
       "priority": 1.313,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "clinical-reference",
       "semanticRealmId": "body-daily-life"
     },
@@ -3535,7 +3535,7 @@
       "x": 1389.17,
       "y": 257,
       "priority": 1.32,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3546,7 +3546,7 @@
       "x": 1427.5,
       "y": 257,
       "priority": 1.321,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3557,7 +3557,7 @@
       "x": 1465.83,
       "y": 257,
       "priority": 1.322,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3568,7 +3568,7 @@
       "x": 1504.17,
       "y": 257,
       "priority": 1.323,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3579,7 +3579,7 @@
       "x": 1542.5,
       "y": 257,
       "priority": 1.324,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3590,7 +3590,7 @@
       "x": 1580.83,
       "y": 257,
       "priority": 1.325,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3601,7 +3601,7 @@
       "x": 1389.17,
       "y": 351,
       "priority": 1.326,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3612,7 +3612,7 @@
       "x": 1427.5,
       "y": 351,
       "priority": 1.327,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3623,7 +3623,7 @@
       "x": 1465.83,
       "y": 351,
       "priority": 1.328,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3634,7 +3634,7 @@
       "x": 1504.17,
       "y": 351,
       "priority": 1.329,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3645,7 +3645,7 @@
       "x": 1542.5,
       "y": 351,
       "priority": 1.33,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3656,7 +3656,7 @@
       "x": 1580.83,
       "y": 351,
       "priority": 1.331,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3667,7 +3667,7 @@
       "x": 1389.17,
       "y": 445,
       "priority": 1.332,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3678,7 +3678,7 @@
       "x": 1427.5,
       "y": 445,
       "priority": 1.333,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3689,7 +3689,7 @@
       "x": 1465.83,
       "y": 445,
       "priority": 1.334,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3700,7 +3700,7 @@
       "x": 1504.17,
       "y": 445,
       "priority": 1.335,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3711,7 +3711,7 @@
       "x": 1542.5,
       "y": 445,
       "priority": 1.336,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3722,7 +3722,7 @@
       "x": 1580.83,
       "y": 445,
       "priority": 1.337,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3755,7 +3755,7 @@
       "x": 1465.83,
       "y": 539,
       "priority": 1.34,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3766,7 +3766,7 @@
       "x": 1504.17,
       "y": 539,
       "priority": 1.341,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3777,7 +3777,7 @@
       "x": 1542.5,
       "y": 539,
       "priority": 1.342,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },
@@ -3788,7 +3788,7 @@
       "x": 1580.83,
       "y": 539,
       "priority": 1.343,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "operating-theatre",
       "semanticRealmId": "body-daily-life"
     },

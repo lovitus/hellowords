@@ -229,7 +229,7 @@ test("known floating-label regressions stay removed and critical portals match v
   assert.equal(cityPark.labels.length, 144, "city park keeps its expanded final-pixel vocabulary");
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => cityPark.labels.filter((label) => label.minLevel === level).length),
-    [19, 28, 45, 32, 20],
+    [13, 22, 49, 36, 24],
   );
   assert.deepEqual(
     cityPark.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
@@ -659,7 +659,7 @@ test("kitchen preserves its expanded appliance and island vocabulary", async () 
   const { scenes } = await loadWorld();
   const kitchen = scenes.find((scene) => scene.id === "kitchen");
   assert.ok(kitchen);
-  assert.equal(kitchen.labels.length, 116);
+  assert.equal(kitchen.labels.length, 146);
   const words = new Set(kitchen.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of ["sink divider", "cabinet hinge", "burner", "oven door", "coffee screen", "steam wand", "island edge"]) {
     assert.ok(words.has(required), `kitchen visibly grounds ${required}`);
@@ -670,12 +670,12 @@ test("bedroom preserves its expanded bedding, study and storage vocabulary", asy
   const { scenes } = await loadWorld();
   const bedroom = scenes.find((scene) => scene.id === "bedroom");
   assert.ok(bedroom);
-  assert.equal(bedroom.labels.length, 104);
+  assert.equal(bedroom.labels.length, 134);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       bedroom.labels.filter((label) => label.minLevel === level).length
     )),
-    [8, 8, 13, 32, 43],
+    [8, 8, 23, 42, 53],
   );
   const words = new Set(bedroom.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -700,7 +700,7 @@ test("bedroom preserves its expanded bedding, study and storage vocabulary", asy
   assert.deepEqual(
     bedroom.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["sleeping-area", 28],
+      ["sleeping-area", 58],
       ["study-area", 19],
       ["window-wall", 14],
       ["storage-area", 37],
@@ -790,7 +790,7 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
     [0, 1, 2, 3, 4].map((level) => (
       hub.labels.filter((label) => label.minLevel === level).length
     )),
-    [15, 15, 18, 26, 29],
+    [9, 9, 22, 30, 33],
   );
   const words = new Set(hub.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -847,12 +847,12 @@ test("city cafe preserves its expanded seating, pastry and espresso vocabulary",
   const { scenes } = await loadWorld();
   const cafe = scenes.find((scene) => scene.id === "city-cafe");
   assert.ok(cafe);
-  assert.equal(cafe.labels.length, 70);
+  assert.equal(cafe.labels.length, 100);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       cafe.labels.filter((label) => label.minLevel === level).length
     )),
-    [9, 9, 14, 19, 19],
+    [9, 9, 24, 29, 29],
   );
   const words = new Set(cafe.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -889,7 +889,7 @@ test("city cafe preserves its expanded seating, pastry and espresso vocabulary",
     [
       ["cafe-shell", 6],
       ["window-seating", 22],
-      ["counter-pastries", 15],
+      ["counter-pastries", 45],
       ["espresso-station", 15],
       ["foreground-tableware", 12],
     ],
@@ -1995,7 +1995,7 @@ test("apartment keeps its room portals and newly reviewed fixture parts", async 
   const { scenes } = await loadWorld();
   const apartment = scenes.find((scene) => scene.id === "apartment");
   assert.ok(apartment);
-  assert.equal(apartment.labels.length, 113);
+  assert.equal(apartment.labels.length, 143);
   const words = new Set(apartment.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
     "sofa arm",
@@ -2010,7 +2010,7 @@ test("apartment keeps its room portals and newly reviewed fixture parts", async 
   assert.deepEqual(
     apartment.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["living-room-detail", 33],
+      ["living-room-detail", 63],
       ["kitchen-detail", 26],
       ["bedroom-detail", 18],
       ["bathroom-detail", 24],
@@ -2027,7 +2027,7 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
   assert.ok(bathroom);
   assert.equal(bathroom.parentId, "apartment");
   assert.equal(bathroom.asset, "/scenes/bathroom-premium-v1.jpg");
-  assert.ok(bathroom.labels.length >= 36 && bathroom.labels.length <= 103);
+  assert.ok(bathroom.labels.length >= 36 && bathroom.labels.length <= 133);
   assert.ok((bathroom.detailZones?.length ?? 0) >= 5);
   assert.deepEqual(bathroom.portals, [], "bathroom remains a terminal room");
 
@@ -2560,7 +2560,7 @@ test("community garden adds one disjoint root portal and two grounded local bran
     [0, 1, 2, 3, 4].map((level) => (
       garden.labels.filter((label) => label.minLevel === level).length
     )),
-    [16, 16, 21, 30, 20],
+    [10, 10, 25, 34, 24],
   );
   assert.deepEqual(
     garden.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
@@ -2907,7 +2907,7 @@ test("city cafe is a new terminal storefront branch with a non-overlapping paren
   assert.ok(cafe);
   assert.equal(cafe.parentId, "city-street");
   assert.equal(cafe.asset, "/scenes/city-cafe-premium-v2.jpg");
-  assert.equal(cafe.labels.length, 70);
+  assert.equal(cafe.labels.length, 100);
   assert.ok((cafe.detailZones?.length ?? 0) >= 5);
   assert.deepEqual(cafe.portals, [], "city cafe remains its own terminal exploration");
 

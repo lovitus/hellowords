@@ -24,6 +24,7 @@
 - 清理记录：v117 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v117/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
 - v118 再增加 150 个专业设施词：医院手术室、病理冷藏、药房推车、机场行李提取、写字楼设备核心各 30 个；公开页已核对医院 350 词、病理 360 词及新细节区。
 - 清理记录：v118 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v118/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
+- 待发布的下一批在现有图片上增加 150 个 Home 词：Apartment 143、Kitchen 146、Bedroom 134、Bathroom 133、City cafe 100；新增批次统一落在 LOD 2–4，避免首屏挂载过多词泡，完整词量仍可通过细节区和拖动探索。
 
 ## 当前续开发游标（2026-08-29）
 

@@ -916,7 +916,7 @@
       "x": 282.08,
       "y": 277,
       "priority": 6.048,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -927,7 +927,7 @@
       "x": 336.25,
       "y": 277,
       "priority": 6.049,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -938,7 +938,7 @@
       "x": 390.42,
       "y": 277,
       "priority": 6.05,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -949,7 +949,7 @@
       "x": 444.58,
       "y": 277,
       "priority": 6.051,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -960,7 +960,7 @@
       "x": 498.75,
       "y": 277,
       "priority": 6.052,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -971,7 +971,7 @@
       "x": 552.92,
       "y": 277,
       "priority": 6.053,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -982,7 +982,7 @@
       "x": 282.08,
       "y": 351,
       "priority": 6.054,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -993,7 +993,7 @@
       "x": 336.25,
       "y": 351,
       "priority": 6.055,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1004,7 +1004,7 @@
       "x": 390.42,
       "y": 351,
       "priority": 6.056,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1015,7 +1015,7 @@
       "x": 444.58,
       "y": 351,
       "priority": 6.057,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1026,7 +1026,7 @@
       "x": 498.75,
       "y": 351,
       "priority": 6.058,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1037,7 +1037,7 @@
       "x": 552.92,
       "y": 351,
       "priority": 6.059,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1048,7 +1048,7 @@
       "x": 282.08,
       "y": 425,
       "priority": 6.06,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1059,7 +1059,7 @@
       "x": 336.25,
       "y": 425,
       "priority": 6.061,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1070,7 +1070,7 @@
       "x": 390.42,
       "y": 425,
       "priority": 6.062,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1081,7 +1081,7 @@
       "x": 444.58,
       "y": 425,
       "priority": 6.063,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1092,7 +1092,7 @@
       "x": 498.75,
       "y": 425,
       "priority": 6.064,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1103,7 +1103,7 @@
       "x": 552.92,
       "y": 425,
       "priority": 6.065,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1136,7 +1136,7 @@
       "x": 390.42,
       "y": 499,
       "priority": 6.068,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1147,7 +1147,7 @@
       "x": 444.58,
       "y": 499,
       "priority": 6.069,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1158,7 +1158,7 @@
       "x": 498.75,
       "y": 499,
       "priority": 6.07,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1169,7 +1169,7 @@
       "x": 552.92,
       "y": 499,
       "priority": 6.071,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "museum-columns",
       "semanticRealmId": "objects-technology"
     },
@@ -1246,7 +1246,7 @@
       "x": 526.25,
       "y": 626,
       "priority": 6.078,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1257,7 +1257,7 @@
       "x": 638.75,
       "y": 626,
       "priority": 6.079,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1268,7 +1268,7 @@
       "x": 751.25,
       "y": 626,
       "priority": 6.08,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1279,7 +1279,7 @@
       "x": 863.75,
       "y": 626,
       "priority": 6.081,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1290,7 +1290,7 @@
       "x": 976.25,
       "y": 626,
       "priority": 6.082,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1301,7 +1301,7 @@
       "x": 1088.75,
       "y": 626,
       "priority": 6.083,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1312,7 +1312,7 @@
       "x": 526.25,
       "y": 638,
       "priority": 6.084,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1323,7 +1323,7 @@
       "x": 638.75,
       "y": 638,
       "priority": 6.085,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1334,7 +1334,7 @@
       "x": 751.25,
       "y": 638,
       "priority": 6.086,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1345,7 +1345,7 @@
       "x": 863.75,
       "y": 638,
       "priority": 6.087,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1356,7 +1356,7 @@
       "x": 976.25,
       "y": 638,
       "priority": 6.088,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1367,7 +1367,7 @@
       "x": 1088.75,
       "y": 638,
       "priority": 6.089,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1378,7 +1378,7 @@
       "x": 526.25,
       "y": 650,
       "priority": 6.09,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1389,7 +1389,7 @@
       "x": 638.75,
       "y": 650,
       "priority": 6.091,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1400,7 +1400,7 @@
       "x": 751.25,
       "y": 650,
       "priority": 6.092,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1411,7 +1411,7 @@
       "x": 863.75,
       "y": 650,
       "priority": 6.093,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1422,7 +1422,7 @@
       "x": 976.25,
       "y": 650,
       "priority": 6.094,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1433,7 +1433,7 @@
       "x": 1088.75,
       "y": 650,
       "priority": 6.095,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1466,7 +1466,7 @@
       "x": 751.25,
       "y": 662,
       "priority": 6.098,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1477,7 +1477,7 @@
       "x": 863.75,
       "y": 662,
       "priority": 6.099,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1488,7 +1488,7 @@
       "x": 976.25,
       "y": 662,
       "priority": 6.1,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },
@@ -1499,7 +1499,7 @@
       "x": 1088.75,
       "y": 662,
       "priority": 6.101,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "street-intersection",
       "semanticRealmId": "objects-technology"
     },

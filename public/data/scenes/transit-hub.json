@@ -755,7 +755,7 @@
       "x": 54.17,
       "y": 564,
       "priority": 7.026,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -766,7 +766,7 @@
       "x": 162.5,
       "y": 564,
       "priority": 7.027,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -777,7 +777,7 @@
       "x": 270.83,
       "y": 564,
       "priority": 7.028,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -788,7 +788,7 @@
       "x": 379.17,
       "y": 564,
       "priority": 7.029,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -799,7 +799,7 @@
       "x": 487.5,
       "y": 564,
       "priority": 7.03,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -810,7 +810,7 @@
       "x": 595.83,
       "y": 564,
       "priority": 7.031,
-      "minLevel": 0,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -821,7 +821,7 @@
       "x": 54.17,
       "y": 612,
       "priority": 7.032,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -832,7 +832,7 @@
       "x": 162.5,
       "y": 612,
       "priority": 7.033,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -843,7 +843,7 @@
       "x": 270.83,
       "y": 612,
       "priority": 7.034,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -854,7 +854,7 @@
       "x": 379.17,
       "y": 612,
       "priority": 7.035,
-      "minLevel": 1,
+      "minLevel": 2,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -865,7 +865,7 @@
       "x": 487.5,
       "y": 612,
       "priority": 7.036,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -876,7 +876,7 @@
       "x": 595.83,
       "y": 612,
       "priority": 7.037,
-      "minLevel": 1,
+      "minLevel": 3,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -887,7 +887,7 @@
       "x": 54.17,
       "y": 660,
       "priority": 7.038,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -898,7 +898,7 @@
       "x": 162.5,
       "y": 660,
       "priority": 7.039,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -909,7 +909,7 @@
       "x": 270.83,
       "y": 660,
       "priority": 7.04,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -920,7 +920,7 @@
       "x": 379.17,
       "y": 660,
       "priority": 7.041,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -931,7 +931,7 @@
       "x": 487.5,
       "y": 660,
       "priority": 7.042,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -942,7 +942,7 @@
       "x": 595.83,
       "y": 660,
       "priority": 7.043,
-      "minLevel": 2,
+      "minLevel": 3,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -975,7 +975,7 @@
       "x": 270.83,
       "y": 708,
       "priority": 7.046,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -986,7 +986,7 @@
       "x": 379.17,
       "y": 708,
       "priority": 7.047,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -997,7 +997,7 @@
       "x": 487.5,
       "y": 708,
       "priority": 7.048,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
@@ -1008,7 +1008,7 @@
       "x": 595.83,
       "y": 708,
       "priority": 7.049,
-      "minLevel": 3,
+      "minLevel": 4,
       "sourceVisualRegion": "verified-platform",
       "semanticRealmId": "objects-technology"
     },
