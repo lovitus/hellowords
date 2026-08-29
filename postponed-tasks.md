@@ -4,15 +4,15 @@
 
 ## 当前交付游标
 
-- 公开版本：`v117-11accf4`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=117-11accf4#world>
-- 源码：`11accf4ee783318694d388980bd51094f1151ec7`（v117 公开运行时；医院 320、病理实验室 330、医院药房 270、机场 270、写字楼 270；城市街景 149、交通枢纽 103、科学馆 176、城市公园 144、社区花园 103）。累计空间锚点 5,666，继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：继续按“先堆词、再精修”扩展医院、机场、写字楼及其他专业场景；当前 v117 保持公开可验证，下一批继续增加词量。
+- 公开版本：`v118-0d3357b`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=118-0d3357b#world>
+- 源码：`0d3357bf0e85dbfa6447754a376d63df7cb7eab4`（v118 公开运行时；医院 350、病理实验室 360、医院药房 300、机场 300、写字楼 300；城市街景 149、交通枢纽 103、科学馆 176、城市公园 144、社区花园 103）。累计空间锚点 5,816，继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：继续按“先堆词、再精修”扩展医院、机场、写字楼及其他专业场景；当前 v118 保持公开可验证，下一批继续增加词量。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
-### v117 交付记录（2026-08-29）
+### v118 交付记录（2026-08-29）
 
-- 本地数据验证已通过：43 个场景、5,666 个空间锚点、4,830 个去重词、307 个细节区、42 个门户；`npm run verify`（229 个域测试 + 28 个语义/词境测试）已通过，完整 E2E 106 通过 / 36 设计性跳过，`PERF_RUN=1 npm run test:perf` 2/2 通过。
+- 本地数据验证已通过：43 个场景、5,816 个空间锚点、4,965 个去重词、307 个细节区、42 个门户；`npm run verify`（229 个域测试 + 28 个语义/词境测试）已通过，完整 E2E 106 通过 / 36 设计性跳过，`PERF_RUN=1 npm run test:perf` 2/2 通过。
 - 新增词批次：Hospital +150（科室/设施/疾病/药品）、Pathology lab +150（显微镜/标本/包埋/染色/病理显示）、Hospital pharmacy +120（INN/调配/自动柜/配制台）、Airport +120（值机/安检/登机厅/机坪）、Office building +120（前厅/办公位/会议室/设备核心）。每组均写入既有五级 LOD 与细节区，脚本 `scripts/add-professional-vocabulary.mjs` 可幂等复用。
 - 相机交接修复：连续入口现在按 `object-fit: cover` 的真实子图像绘制边界计算，比例不一致的 Apartment 入口保持连续；公开页实际验证首页 6 名称/hover Campus 21 词/移出 0 词，医院 320、机场 270、写字楼 270 词以及细节区新词可达。
 - 新增素材：`urban-services-overview-premium-v1.jpg`、`hospital-atrium-premium-v1.jpg`、`airport-terminal-premium-v1.jpg`、`office-atrium-premium-v1.jpg`、`pathology-lab-premium-v1.jpg`、`hospital-pharmacy-premium-v1.jpg`，均为 1600×900、已固定 SHA；素材由 ImageGen 生成后人工复核，未包含品牌/可读标牌。
@@ -22,6 +22,8 @@
 - v116 追加的布局优化先做屏幕外裁剪再做未来 LOD 探测，不改变五级 LOD、锚点坐标、碰撞与挂载上限；`npm run verify`、全量 E2E（106 通过 / 36 设计性跳过）和性能 2/2 均通过。公开页 v116 保持首页 6 名称、Campus hover 21/移出 0 词及医院 320 词。
 - v117 追加 180 个城市/交通/科学馆/公园/社区花园词：city-street 149、transit-hub 103、science-museum 176、city-park 144、community-garden 103。对应细节区仍可点击，真实公开页已逐一核对词量。
 - 清理记录：v117 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v117/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
+- v118 再增加 150 个专业设施词：医院手术室、病理冷藏、药房推车、机场行李提取、写字楼设备核心各 30 个；公开页已核对医院 350 词、病理 360 词及新细节区。
+- 清理记录：v118 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v118/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
 
 ## 当前续开发游标（2026-08-29）
 
