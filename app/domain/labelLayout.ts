@@ -61,6 +61,8 @@ export interface SceneLabelLayoutOptions {
 export interface SceneLabelMountWindowOptions {
   readonly selectedLabelId?: string | null;
   readonly focusedLabelId?: string | null;
+  /** Labels belonging to the actively focused detail crop take the next slots. */
+  readonly preferredIds?: ReadonlySet<string>;
   /** The previous window is retained as overscan while its anchors remain nearby. */
   readonly previousIds?: ReadonlySet<string>;
 }
@@ -908,6 +910,19 @@ export function buildSceneLabelMountWindow(
 
   add(options.focusedLabelId);
   add(options.selectedLabelId);
+
+  // A detail-zone click is an explicit request to inspect that crop. Keep its
+  // authored labels in the bounded window before global priority order, so a
+  // dense scene cannot mount unrelated overview words and then hide the
+  // freshly focused batch behind the DOM ceiling.
+  for (const id of options.preferredIds ?? []) {
+    const item = layoutById.get(id);
+    if (
+      item
+      && Number.isFinite(item.screenX)
+      && Number.isFinite(item.screenY)
+    ) add(id);
+  }
 
   const stableOrder = (first: SceneLabelLayoutItem, second: SceneLabelLayoutItem) => (
     first.placementOrder - second.placementOrder

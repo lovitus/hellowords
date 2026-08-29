@@ -57,6 +57,19 @@ test("a first frame mounts every painted label without filling the desktop ceili
   assert.deepEqual([...repeated], [...first], "an unchanged fit frame keeps one stable window order");
 });
 
+test("an explicitly focused detail crop keeps its authored batch mounted first", () => {
+  const visible = new Set(labels.map(({ id }) => id));
+  const preferred = new Set(labels.slice(240, 280).map(({ id }) => id));
+  const mounted = buildSceneLabelMountWindow(
+    labels,
+    layoutWindow(visible),
+    { compact: true },
+    { preferredIds: preferred },
+  );
+  for (const id of preferred) assert.ok(mounted.has(id), `${id} stays mounted for the focused crop`);
+  assert.equal(mounted.size, COMPACT_SCENE_LABEL_MOUNT_LIMIT);
+});
+
 test("camera batches exchange only for newly visible anchors and remain deterministic", () => {
   const firstVisible = new Set(labels.slice(0, 70).map(({ id }) => id));
   const first = buildSceneLabelMountWindow(

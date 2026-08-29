@@ -1508,6 +1508,9 @@ export function SceneViewport({
       {
         focusedLabelId: focusedLabelId ?? pendingKeyboardFocusLabelId,
         selectedLabelId: selectedLabelIdRef.current,
+        preferredIds: activeFocusedDetailZone
+          ? new Set(activeFocusedDetailZone.labelIds)
+          : undefined,
         previousIds: mountedLabelIdsRef.current,
       },
     );
