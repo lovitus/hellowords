@@ -433,6 +433,11 @@ function syncMotionFrozenLayer(element: HTMLElement, frozen: boolean): void {
 const WHEEL_RESPONSE_MS = 52;
 const WHEEL_POSITION_EPSILON = 0.08;
 const WHEEL_SCALE_EPSILON = 0.00045;
+// Keep a just-offscreen label's last legal callout slot warm while its mounted
+// overscan is still nearby. This prevents a one-frame collision fallback from
+// resetting the slot when a coalesced pointer/wheel sample brings the anchor
+// back into view.
+const LABEL_PLACEMENT_MEMORY_OVERSCAN = 120;
 const EXIT_SCALE = DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale;
 const HANDOFF_WHEEL_QUIET_MS = 180;
 const SEMANTIC_OVERSCROLL_THRESHOLD = 0.32;
@@ -1450,12 +1455,33 @@ export function SceneViewport({
       }
     }
     const previousLabelPlacementOffsets = labelPlacementOffsetsRef.current;
-    labelPlacementOffsetsRef.current = new Map(layout
+    const nextLabelPlacementOffsets = new Map(layout
       .filter((item) => item.interactive)
       .map((item) => [item.id, {
         offsetX: item.offsetX,
         offsetY: item.offsetY,
       }]));
+    // Retain a bounded warm slot for mounted labels whose authored anchor is
+    // just outside the viewport or was collision-blocked in this frame. The
+    // next layout can try the same object-relative slot before falling back to
+    // another direction, so coalesced input does not create a visible flip.
+    const memoryMargin = LABEL_PLACEMENT_MEMORY_OVERSCAN;
+    for (const [labelId, offset] of previousLabelPlacementOffsets) {
+      if (nextLabelPlacementOffsets.has(labelId) || !mountedLabelIdsRef.current.has(labelId)) continue;
+      const label = labelsById.get(labelId);
+      if (!label) continue;
+      const anchorX = camera.x + label.x * effectiveScale;
+      const anchorY = camera.y + label.y * effectiveScale;
+      if (
+        anchorX >= -memoryMargin
+        && anchorX <= viewportWidth + memoryMargin
+        && anchorY >= -memoryMargin
+        && anchorY <= viewportHeight + memoryMargin
+      ) {
+        nextLabelPlacementOffsets.set(labelId, offset);
+      }
+    }
+    labelPlacementOffsetsRef.current = nextLabelPlacementOffsets;
     const nextMountedLabelIds = buildSceneLabelMountWindow(
       labelsForCameraLayout,
       layout,
