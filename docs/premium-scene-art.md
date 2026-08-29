@@ -142,16 +142,20 @@ the Office raster is a warm atrium with reception, open-plan workstations,
 conference room, pantry and a service core with elevator, stairs, servers, HVAC
 and fire panel. All four assets contain no readable text, logos or watermarks.
 
-The v110 content pass adds 616 anchors: Urban services 120, Hospital 170,
-Airport 150 and Office building 150. Hospital disease terms stay generic and
+The v110 content pass added 616 anchors: Urban services 120, Hospital 170,
+Airport 150 and Office building 150. The follow-up professional vocabulary
+pass adds 660 more region-grounded anchors, bringing Hospital to 320, Airport
+and Office building to 270 each. Hospital disease terms stay generic and
 educational; medicine labels use WHO International Nonproprietary Names rather
 than brands or dosage instructions.
 
-The v111 hospital-depth pass adds two independently illustrated scenes and 330
-more anchors: Pathology lab 180 across microscopes, specimen handling, paraffin
+The v111 hospital-depth pass added two independently illustrated scenes and 330
+anchors: Pathology lab 180 across microscopes, specimen handling, paraffin
 embedding, microtomy, staining and cold storage; Hospital pharmacy 150 across
 medicine shelves, dispensing, automated storage, a rolling cart and a
-compounding bench. Generic medicine names remain educational labels only.
+compounding bench. The follow-up pass adds 150 pathology anchors and 120
+pharmacy anchors, bringing them to 330 and 270 respectively. Generic medicine
+names remain educational labels only.
 
 ### City park
 

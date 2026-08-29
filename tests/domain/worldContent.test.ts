@@ -2989,11 +2989,11 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     ["hospital", "airport", "office-building"],
   );
   for (const [sceneId, count, zones, parent, required] of [
-    ["hospital", 170, 6, "urban-services", ["emergency department", "pathology laboratory", "mri scanner", "pharmacy", "cancer", "paracetamol"]],
-    ["pathology-lab", 180, 6, "hospital", ["histopathology", "microscope", "tissue cassette", "microtome", "staining tray", "cold cabinet"]],
-    ["hospital-pharmacy", 150, 5, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "doxycycline"]],
-    ["airport", 150, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower"]],
-    ["office-building", 150, 5, "urban-services", ["reception", "open plan office", "conference room", "server room", "hvac duct", "fire panel"]],
+    ["hospital", 320, 6, "urban-services", ["emergency department", "pathology laboratory", "mri scanner", "pharmacy", "cancer", "paracetamol", "cardiology", "hypertension"]],
+    ["pathology-lab", 330, 6, "hospital", ["histopathology", "microscope", "tissue cassette", "microtome", "staining tray", "cold cabinet", "immunohistochemistry", "slide digitizer"]],
+    ["hospital-pharmacy", 270, 5, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "doxycycline", "cetirizine", "lamotrigine"]],
+    ["airport", 270, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower", "aircraft fuselage", "body scanner"]],
+    ["office-building", 270, 5, "urban-services", ["reception", "open plan office", "conference room", "server room", "hvac duct", "fire panel", "data center", "docking station"]],
   ] as const) {
     const scene = byId.get(sceneId);
     assert.ok(scene);

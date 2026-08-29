@@ -1066,7 +1066,7 @@ test("urban services exposes hospital, airport and office vocabulary through the
     '[data-testid="scene-minimap-child"][data-target-scene="hospital"]',
   ).click();
   await expect(app).toHaveAttribute("data-scene-id", "hospital");
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "170");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "320");
   const pathologyZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="pathology-laboratory-detail"]',
   );
@@ -1105,7 +1105,7 @@ test("urban services exposes hospital, airport and office vocabulary through the
     '[data-testid="scene-minimap-child"][data-target-scene="pathology-lab"]',
   ).click();
   await expect(app).toHaveAttribute("data-scene-id", "pathology-lab");
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "180");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "330");
   const labDisplayZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="clinical-display-detail"]',
   );
@@ -1125,7 +1125,7 @@ test("urban services exposes hospital, airport and office vocabulary through the
     '[data-testid="scene-minimap-child"][data-target-scene="hospital-pharmacy"]',
   ).click();
   await expect(app).toHaveAttribute("data-scene-id", "hospital-pharmacy");
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "150");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "270");
   const medicineZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="medicine-shelves-detail"]',
   );

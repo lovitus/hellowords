@@ -2234,6 +2234,31 @@ export function SceneViewport({
           '[data-testid="scene-continuous-tile-art"]',
         );
         const tileArtBounds = tileArt?.getBoundingClientRect();
+        const tileArtNaturalWidth = tileArt?.naturalWidth ?? 0;
+        const tileArtNaturalHeight = tileArt?.naturalHeight ?? 0;
+        // getBoundingClientRect() returns the image element's box, while
+        // object-fit: cover paints the child raster beyond that box whenever
+        // the portal and child aspect ratios differ. Recover the painted
+        // bounds so the child camera starts on exactly the pixels that were
+        // visible in the outgoing tile, not on the portal container edge.
+        const paintedTileArtBounds = tileArtBounds
+          && tileArtNaturalWidth > 0
+          && tileArtNaturalHeight > 0
+          ? (() => {
+              const coverScale = Math.max(
+                tileArtBounds.width / tileArtNaturalWidth,
+                tileArtBounds.height / tileArtNaturalHeight,
+              );
+              const paintedWidth = tileArtNaturalWidth * coverScale;
+              const paintedHeight = tileArtNaturalHeight * coverScale;
+              return {
+                x: tileArtBounds.x + (tileArtBounds.width - paintedWidth) / 2,
+                y: tileArtBounds.y + (tileArtBounds.height - paintedHeight) / 2,
+                width: paintedWidth,
+                height: paintedHeight,
+              };
+            })()
+          : tileArtBounds;
         if (tileBounds && portal.width > 0 && portal.height > 0) {
           // A busy compositor can expose the final inline transform before its
           // descendant tile has reached that visual position. Transfer the
@@ -2242,11 +2267,11 @@ export function SceneViewport({
           // on its first frame and settle smoothly from there.
           const renderedCamera = cameraFromRenderedPortalRect(
             portal,
-            tileArtBounds ?? tileBounds,
+            paintedTileArtBounds ?? tileBounds,
             viewportBounds,
             handoffCamera.fit,
-            tileArt && tileArt.naturalWidth > 0 && tileArt.naturalHeight > 0
-              ? { width: tileArt.naturalWidth, height: tileArt.naturalHeight }
+            tileArtNaturalWidth > 0 && tileArtNaturalHeight > 0
+              ? { width: tileArtNaturalWidth, height: tileArtNaturalHeight }
               : undefined,
           );
           // Keep the measured frame authoritative across the final yield. Any

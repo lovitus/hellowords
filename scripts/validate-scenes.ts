@@ -159,11 +159,11 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // veins, bark grooves, root forks and small fixture parts for 114 anchors.
   "city-park": 114,
   "urban-services": 120,
-  hospital: 170,
-  "pathology-lab": 180,
-  "hospital-pharmacy": 150,
-  airport: 150,
-  "office-building": 150,
+  hospital: 320,
+  "pathology-lab": 330,
+  "hospital-pharmacy": 270,
+  airport: 270,
+  "office-building": 270,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   // The final pixel pass also retains separately visible fossil, telescope,
