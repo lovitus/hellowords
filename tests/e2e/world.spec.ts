@@ -906,7 +906,7 @@ test("polymer scene exposes its expanded material structures through the machine
   await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
   for (const [zoneId, word] of [
     ["macro-material-forms", "material cross section"],
-    ["semicrystalline-morphology", "lamella edge"],
+    ["semicrystalline-morphology", "interlamellar region"],
     ["defects-and-additives", "pore rim"],
     ["molecular-architecture", "chain junction"],
   ] as const) {
