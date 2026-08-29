@@ -217,7 +217,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // operating states that are not visible in a static frame while allowing
   // the reviewed front-entry hardware additions.
   "electric-bus": 85,
-  "human-body": 60,
+  "human-body": 90,
   // The reviewed carriage raster exposes the complete cabin plus distinct
   // door, seat, suspension and foreground track hardware; the ceiling blocks
   // unsupported service claims while allowing the expanded 70-anchor audit.
@@ -241,11 +241,11 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright cutaway resolves chamber walls, individual cusps, connected
   // vessel openings, coronary surface branches and a readable red-cell rim;
   // the ceiling still excludes invisible physiology and conduction claims.
-  heart: 61,
+  heart: 91,
   // The bright capillary cutaway resolves endothelial boundaries, distinct
   // red-cell surfaces, a membrane/cytoskeleton mesh, neutrophil granules and
   // platelet projections; the ceiling blocks unsupported immune processes.
-  "blood-cell": 61,
+  "blood-cell": 91,
   // The bright garden resolves greenhouse fittings, raised-bed crops, tools,
   // compost, rain collection and a flowering border; the ceiling blocks
   // gardening activities and inferred ecological processes.
@@ -274,11 +274,11 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The final gas-exchange cutaway resolves airway, alveolar, barrier,
   // capillary, erythrocyte and molecular parts; the ceiling blocks invisible
   // gas metrics and process claims.
-  "oxygen-molecule": 60,
+  "oxygen-molecule": 90,
   // The alpha2-beta2 render resolves four hemes, colored globin ribbons,
   // central interfaces and one enlarged coordination pocket; the ceiling
   // blocks invisible affinity, disease and binding-behavior claims.
-  hemoglobin: 51,
+  hemoglobin: 81,
   // The final chloroplast raster resolves separate grana, lamella, DNA,
   // stromal-particle and membrane-complex details without process padding.
   "chloroplast-interior": 51,

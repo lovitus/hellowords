@@ -1915,7 +1915,7 @@ test("premium oxygen scene expands the visible exchange path without process pad
   assert.ok(oxygen);
   assert.equal(oxygen.asset, "/scenes/oxygen-molecule-premium-v2.jpg");
   assert.deepEqual(oxygen.portals, []);
-  assert.equal(oxygen.labels.length, 60);
+  assert.equal(oxygen.labels.length, 90);
   const displayWords = new Set(oxygen.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
     "alveolar network",
@@ -1950,7 +1950,7 @@ test("premium hemoglobin expands its grounded structure vocabulary and preserves
   const hemoglobin = scenes.find((scene) => scene.id === "hemoglobin");
   assert.ok(hemoglobin);
   assert.equal(hemoglobin.asset, "/scenes/hemoglobin-premium-v2.jpg");
-  assert.equal(hemoglobin.labels.length, 51);
+  assert.equal(hemoglobin.labels.length, 81);
   assert.deepEqual(
     hemoglobin.portals.map(({ childSceneId, sourceVisualRegion }) => (
       [childSceneId, sourceVisualRegion]
@@ -2254,12 +2254,12 @@ test("premium human body keeps a truthful heart portal and six grounded anatomy 
   assert.ok(humanBody);
   assert.equal(humanBody.parentId, "science-museum");
   assert.equal(humanBody.asset, "/scenes/human-body-premium-v2.jpg");
-  assert.equal(humanBody.labels.length, 60);
+  assert.equal(humanBody.labels.length, 90);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       humanBody.labels.filter((label) => label.minLevel === level).length
     )),
-    [12, 12, 12, 12, 12],
+    [12, 12, 22, 22, 22],
     "every zoom band reveals an equal batch of grounded anatomy words",
   );
   assert.equal(humanBody.detailZones?.length, 6);
@@ -2332,12 +2332,12 @@ test("premium heart exposes four chambers and one isolated blood-cell portal", a
   assert.ok(heart);
   assert.equal(heart.parentId, "human-body");
   assert.equal(heart.asset, "/scenes/heart-premium-v2.jpg");
-  assert.equal(heart.labels.length, 61);
+  assert.equal(heart.labels.length, 91);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       heart.labels.filter((label) => label.minLevel === level).length
     )),
-    [8, 12, 17, 15, 9],
+    [8, 12, 27, 25, 19],
   );
   assert.equal(heart.detailZones?.length, 5);
   assert.deepEqual(
@@ -2347,7 +2347,7 @@ test("premium heart exposes four chambers and one isolated blood-cell portal", a
       ["atria-and-valves-zone", 11],
       ["ventricles-zone", 16],
       ["coronary-surface-zone", 8],
-      ["artery-cutaway-zone", 12],
+      ["artery-cutaway-zone", 42],
     ],
   );
   assert.deepEqual(heart.portals, [{
@@ -2442,12 +2442,12 @@ test("premium blood cell connects capillary structure to one visible hemoglobin 
   assert.ok(bloodCell);
   assert.equal(bloodCell.parentId, "heart");
   assert.equal(bloodCell.asset, "/scenes/blood-cell-premium-v2.jpg");
-  assert.equal(bloodCell.labels.length, 61);
+  assert.equal(bloodCell.labels.length, 91);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       bloodCell.labels.filter((label) => label.minLevel === level).length
     )),
-    [8, 13, 15, 14, 11],
+    [8, 13, 25, 24, 21],
   );
   assert.equal(bloodCell.detailZones?.length, 5);
   assert.deepEqual(
@@ -2455,7 +2455,7 @@ test("premium blood cell connects capillary structure to one visible hemoglobin 
     [
       ["capillary-wall-zone", 13],
       ["blood-field-zone", 10],
-      ["red-cell-cutaway-zone", 21],
+      ["red-cell-cutaway-zone", 51],
       ["neutrophil-zone", 10],
       ["platelet-zone", 7],
     ],

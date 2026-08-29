@@ -1416,6 +1416,167 @@ const groups = [
     motor bracket=电机支架
     brake bracket=制动支架
   `),
+
+  group("blood-cell", "red-cell-cutaway", "red-cell-cutaway-zone", `
+    membrane pore=膜孔
+    lipid tail=脂质尾
+    membrane channel=膜通道
+    spectrin node=血影蛋白节点
+    actin filament=肌动蛋白丝
+    ankyrin link=锚蛋白连接
+    cytoskeleton mesh=细胞骨架网
+    cytoplasm vesicle=细胞质囊泡
+    cell edge=细胞边缘
+    cell contour=细胞轮廓
+    rim highlight=边缘高光
+    central dimple=中央凹陷
+    membrane fold=膜褶皱
+    bilayer edge=双层膜边缘
+    protein channel=蛋白通道
+    hemoglobin pocket=血红蛋白凹袋
+    protein cluster=蛋白簇
+    cytosol pocket=细胞质基质凹袋
+    red cell disc=红细胞圆盘
+    red cell edge=红细胞边缘
+    neutrophil granule=中性粒细胞颗粒
+    neutrophil nucleus=中性粒细胞细胞核
+    nuclear bridge=细胞核连接
+    granule membrane=颗粒膜
+    platelet vesicle=血小板囊泡
+    platelet process=血小板突起
+    plasma stream=血浆流带
+    cell overlap=细胞重叠
+    surface highlight=表面高光
+    cell interior=细胞内部
+  `),
+  group("heart", "artery-cutaway", "artery-cutaway-zone", `
+    lumen edge=腔缘
+    intima layer=内膜层
+    media layer=中膜层
+    adventitia layer=外膜层
+    elastic lamella=弹性板层
+    smooth muscle band=平滑肌带
+    endothelium cell=内皮细胞
+    vessel branch=血管分支
+    branch opening=分支开口
+    arterial ring=动脉环
+    blood cell rim=血细胞边缘
+    cell cluster=细胞簇
+    vessel outer wall=血管外壁
+    vessel inner wall=血管内壁
+    wall fold=血管壁褶皱
+    vessel split=血管分叉
+    vessel lumen=血管腔
+    artery cut edge=动脉切面边缘
+    tissue rim=组织边缘
+    vessel shadow=血管阴影
+    coronary opening=冠状动脉开口
+    vein wall=静脉壁
+    vessel junction=血管连接处
+    capillary opening=毛细血管开口
+    vessel surface=血管表面
+    branch ridge=分支脊
+    artery base=动脉基部
+    cutaway frame=剖面框
+    tissue pad=组织垫
+    red cell pocket=红细胞凹袋
+  `),
+  group("human-body", "skeleton-upper", "skeleton-upper-zone", `
+    brow=眉弓
+    cheekbone=颧骨
+    eye socket=眼眶
+    nasal bone=鼻骨
+    jawline=下颌线
+    neck muscle=颈部肌肉
+    shoulder blade=肩胛骨
+    rib arch=肋弓
+    sternum ridge=胸骨脊
+    spine curve=脊柱曲线
+    pelvic rim=骨盆缘
+    hip socket=髋臼
+    knee joint=膝关节
+    ankle joint=踝关节
+    toe joint=趾关节
+    finger joint=指关节
+    thumb joint=拇指关节
+    elbow joint=肘关节
+    wrist joint=腕关节
+    shin crest=胫骨嵴
+    calf contour=小腿轮廓
+    biceps belly=肱二头肌腹
+    triceps belly=肱三头肌腹
+    deltoid edge=三角肌边缘
+    quadriceps tendon=股四头肌腱
+    abdominal ridge=腹肌脊
+    muscle fascia=肌肉筋膜
+    organ outline=器官轮廓
+    lung lobe=肺叶
+    liver edge=肝脏边缘
+  `),
+  group("hemoglobin", "verified-globin-fold", "alpha-folds", `
+    alpha chain=α链
+    beta chain=β链
+    globin helix=珠蛋白螺旋
+    helix turn=螺旋转折
+    helix loop=螺旋环
+    ribbon edge=带状边缘
+    subunit seam=亚基接缝
+    tetramer center=四聚体中心
+    heme pocket wall=血红素凹袋壁
+    heme iron=血红素铁
+    porphyrin plane=卟啉平面
+    oxygen contact=氧接触点
+    iron coordination=铁配位
+    heme propionate=血红素丙酸基
+    heme methyl=血红素甲基
+    globin surface=珠蛋白表面
+    chain interface=链界面
+    subunit groove=亚基沟槽
+    protein ridge=蛋白脊
+    ribbon bend=带状弯曲
+    ribbon tip=带状尖端
+    helix cap=螺旋帽
+    loop bridge=环桥
+    tetramer face=四聚体表面
+    cavity edge=空腔边缘
+    alpha fold=α折叠
+    beta fold=β折叠
+    side chain=侧链
+    pocket wall=凹袋壁
+    fold junction=折叠连接
+  `),
+  group("oxygen-molecule", "verified-diffusion-trail", "molecule-path", `
+    gas molecule=气体分子
+    carbon dioxide pair=二氧化碳分子对
+    diffusion front=扩散前沿
+    molecule trail=分子轨迹
+    airway opening=气道开口
+    airway wall=气道壁
+    capillary wall edge=毛细血管壁缘
+    plasma gap=血浆间隙
+    membrane pore=膜孔
+    surfactant film=表面活性物质薄膜
+    alveolar cell edge=肺泡细胞边缘
+    endothelial edge=内皮边缘
+    red cell surface=红细胞表面
+    hemoglobin site=血红蛋白位点
+    oxygen bond=氧键
+    molecular pair=分子对
+    atom center=原子中心
+    bond line=键线
+    carbon sphere=碳球
+    gas cluster=气体簇
+    molecule path=分子路径
+    trail segment=轨迹段
+    air interface=空气界面
+    alveolar seam=肺泡接缝
+    barrier edge=屏障边缘
+    capillary seam=毛细血管接缝
+    diffusion band=扩散带
+    molecule spacing=分子间距
+    blood pocket=血液凹袋
+    pore rim=孔缘
+  `),
 ];
 
 const realmByScene = {
@@ -1434,6 +1595,11 @@ const realmByScene = {
   "railway-platform": "objects-technology",
   "train-carriage": "objects-technology",
   "rail-bogie": "objects-technology",
+  "blood-cell": "body-daily-life",
+  heart: "body-daily-life",
+  "human-body": "body-daily-life",
+  hemoglobin: "body-daily-life",
+  "oxygen-molecule": "body-daily-life",
 };
 
 function slugify(word) {

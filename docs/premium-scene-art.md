@@ -171,6 +171,12 @@ vehicle and station images: Electric bus 85, Battery pack 90, Railway platform
 126, Train carriage 100 and Rail bogie 95. The new cabin, shell, rail, axle,
 brake and suspension terms are detail-first LOD entries on the existing crops.
 
+The medical-depth pass adds 150 structural anchors without changing the five
+medical images: Blood cell 91, Heart 91, Human body 90, Hemoglobin 81 and
+Oxygen molecule 90. The added membrane, vessel, joint, protein-fold and
+gas-interface terms remain in the existing reviewed crops and do not introduce
+diagnostic or treatment advice.
+
 ### City park
 
 Create a bright naturalistic city park in soft midday light. Place a monumental, fully readable oak at right and a complete pond edge with bridge at lower left, separated by a central pale path; add a fountain, gazebo, playground, benches and independently visible park details without staging people or inferred activities. Keep shade natural but lifted enough to preserve bark, roots, shoreline and water texture.

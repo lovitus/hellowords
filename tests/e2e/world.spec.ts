@@ -877,7 +877,7 @@ test("oxygen scene exposes its expanded exchange path through the real blood rou
     await expect(app).toHaveAttribute("data-transition-state", "idle");
   }
 
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "90");
   for (const [zoneId, word] of [
     ["airway-cluster", "alveolar network"],
     ["alveolar-chamber", "alveolar opening"],
