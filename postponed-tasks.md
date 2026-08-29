@@ -4,19 +4,19 @@
 
 ## 当前交付游标
 
-- 公开版本：`v111-bdb22a8`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=111-bdb22a8>
-- 源码：`bdb22a8`（v111 公开运行时；City park 114 词；Urban services 120、Hospital 170、Airport 150、Office building 150；本批再增加 Pathology lab 180 与 Hospital pharmacy 150，共 330 个锚点词）。医院含科室、病理、通用疾病词和 WHO INN 通用药名，非医疗建议。
-- 当前工作批次：继续按“先堆词、再精修”扩展医院专科/疾病/药品与机场/写字楼细分词；先保持 v111 运行稳定，再处理下一张已审核素材。
+- 公开版本：`v112-af0fd1f`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=112-af0fd1f>
+- 源码：`af0fd1f`（v112 公开运行时；City park 114 词；Urban services 120、Hospital 170、Airport 150、Office building 150；Pathology lab 180、Hospital pharmacy 150）。医院含科室、病理、通用疾病词和 WHO INN 通用药名，非医疗建议。
+- 当前工作批次：继续按“先堆词、再精修”扩展医院专科/疾病/药品与机场/写字楼细分词；先保持 v112 运行稳定，再处理下一张已审核素材。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
-### v111 交付记录（2026-08-29）
+### v112 交付记录（2026-08-29）
 
-- 本地数据验证已通过：43 个场景、4,826 个空间锚点、4,119 个去重词、307 个细节区、42 个门户；`npm run verify`（228 个域测试 + 28 个语义/词境测试）已通过，city-park 与 urban-services 及医院深度定向 E2E 桌面/移动通过。
+- 本地数据验证已通过：43 个场景、4,826 个空间锚点、4,119 个去重词、307 个细节区、42 个门户；`npm run verify`（228 个域测试 + 28 个语义/词境测试）已通过，city-park、urban-services、病理实验室和医院药房定向 E2E 桌面/移动通过。
 - 新增素材：`urban-services-overview-premium-v1.jpg`、`hospital-atrium-premium-v1.jpg`、`airport-terminal-premium-v1.jpg`、`office-atrium-premium-v1.jpg`、`pathology-lab-premium-v1.jpg`、`hospital-pharmacy-premium-v1.jpg`，均为 1600×900、已固定 SHA；素材由 ImageGen 生成后人工复核，未包含品牌/可读标牌。
 - 医院命名依据 WHO ICD‑11（疾病/临床分类）与 WHO INN（通用药名）；机场术语依据 FAA/加拿大交通部门机场词汇；写字楼设施依据美国 HHS/GSA 与英国 Government Property Agency 的空间分类。参考：<https://www.who.int/standards/classifications/classification-of-diseases>、<https://www.who.int/teams/health-product-and-policy-standards/inn>、<https://tc.canada.ca/en/aviation/operating-airports-aerodromes/airport-signage-lexicon>、<https://www.hhs.gov/about/hhs-manuals/hhs-facilities-manual/glossary/index.html>、<https://portal.gpa.gov.uk/workplace-design-guide-support-zones/>。
-- 已完成：整批一次提交（`bdb22a8`），Sites v111 公开部署，真实公开页按 City street → Transit hub → Urban services → Hospital 验证病理实验室与医院药房入口、药品词和首页 6 名称/0 词泡。全量 E2E 106 通过 / 36 设计性跳过，性能 2/2；公开冒烟记录放在当前对话。
-- 仍待处理：把本批 v111 压缩包、中间转换图和生成 PNG 移入可恢复废纸篓；不要删除当前根会话或共享临时根中的其他项目资料。
+- 已完成：整批一次提交（`bdb22a8` + 游标 `af0fd1f`），Sites v111 公开部署并同步保存/部署 v112 游标，真实公开页按 City street → Transit hub → Urban services → Hospital 验证病理实验室与医院药房入口、药品词和首页 6 名称/0 词泡。全量 E2E 106 通过 / 36 设计性跳过，性能 2/2；公开冒烟记录放在当前对话。
+- 仍待处理：把本批 v111/v112 压缩包、中间转换图和生成 PNG 移入可恢复废纸篓；不要删除当前根会话或共享临时根中的其他项目资料。
 
 ## 当前续开发游标（2026-08-29）
 
