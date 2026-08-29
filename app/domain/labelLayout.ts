@@ -949,8 +949,20 @@ export function computeSceneLabelLayout(
 ): SceneLabelLayoutItem[] {
   const effectiveScale = camera.fit * camera.scale;
   const candidates = labels
-    .map((label) => {
+    .flatMap((label) => {
       const lod = sceneLabelLod(label);
+      const screenX = camera.x + label.x * effectiveScale;
+      const screenY = camera.y + label.y * effectiveScale;
+      // Future-reveal probing is a small binary search over the authored
+      // scale bands. Screen-space culling must happen first so a large scene
+      // does not spend that work on labels that cannot enter this frame or
+      // the bounded DOM window.
+      if (
+        screenX < -18
+        || screenX > viewport.width + 18
+        || screenY < -18
+        || screenY > viewport.height + 18
+      ) return [];
       const naturalOpacity = sceneLabelRevealOpacity(label, camera.scale);
       const futureRevealScale = nextVocabularyRevealScale(
         label,
@@ -958,10 +970,8 @@ export function computeSceneLabelLayout(
         4.15,
         0.52,
       );
-      const screenX = camera.x + label.x * effectiveScale;
-      const screenY = camera.y + label.y * effectiveScale;
       const size = estimatedLabelSize(label, meaningVisible, lod, viewport.compact);
-      return {
+      return [{
         label,
         lod,
         naturalOpacity,
@@ -969,16 +979,12 @@ export function computeSceneLabelLayout(
         screenX,
         screenY,
         ...size,
-      };
+      }];
     })
-    .filter(({ label, naturalOpacity, futureRevealScale, screenX, screenY }) => (
+    .filter(({ label, naturalOpacity, futureRevealScale }) => (
       (naturalOpacity > 0.025
         || futureRevealScale !== null
         || label.id === options.selectedLabelId)
-      && screenX >= -18
-      && screenX <= viewport.width + 18
-      && screenY >= -18
-      && screenY <= viewport.height + 18
     ))
     .sort((first, second) => {
       const selected = Number(second.label.id === options.selectedLabelId)
