@@ -1,6 +1,6 @@
 # Premium scene art briefs
 
-Thirty-six destination scenes use reviewed 1600 × 900 JPEG base rasters created
+Forty destination scenes use reviewed 1600 × 900 JPEG base rasters created
 with the built-in image generation workflow, inspected at final project
 resolution, and then anchored from the actual published pixels. The world atlas
 is the large-canvas exception: its reviewed 2604 × 989 base and 5208 × 1978 high
@@ -28,6 +28,10 @@ transport, gardening, natural habitats, materials and microscopic studies.
 | City street | `city-street-bright-v4.jpg` | `e280b0047e7bf0dbcf7f1ff392c38d5b88f06e11bb6304f3d998f47f37438fdf` |
 | City cafe | `city-cafe-premium-v2.jpg` | `376704b19736218c3af769cd1f2faae8726aa25b7b1e784ffab593876434b88f` |
 | Transit hub | `transit-hub-premium-v2.jpg` | `0404f4a4fcfef1cba37b54231530085b708e498b1e21dd94e5585477f68652f9` |
+| Urban services | `urban-services-overview-premium-v1.jpg` | `0cc4d2fc02d402b2f5b215711e72d7d93635e889064891bf42477d42e063a19d` |
+| Hospital | `hospital-atrium-premium-v1.jpg` | `027bfd9596fe551b513c8cd68ebe487553c1d75f21609c7519b88296460116a8` |
+| Airport | `airport-terminal-premium-v1.jpg` | `428e5f9dbcca0f19e8fcedc540a9715362bc55b9b2e51e31d39a4659133f31e1` |
+| Office building | `office-atrium-premium-v1.jpg` | `9403fc42abf40af87d59f9a12401e5dcff76256fc13870a7780e79ae8e3a7cdf` |
 | Electric bus | `electric-bus-premium-v2.jpg` | `71fd16eaad65c46a9aa9ea0c85cb87b788337e44c57b76f0365449dda38a9a63` |
 | Railway platform | `railway-platform-premium-v2.jpg` | `85250ba12bfa202f5f9d43b690d44d32118647620f0fe1c39ce3830baa682fb0` |
 | Train carriage | `train-carriage-premium-v2.jpg` | `d1498a2fdee076830e331bd915c841763f122332116f2bc52fa173a28afd6148` |
@@ -123,6 +127,23 @@ The final-pixel audit retained 44 independently visible terms and rebuilt all th
 Create a bright elegant civic street in clean daylight with three complete, independently framed destinations: a columned science museum with a telescope exhibit at left, a blank-fronted cafe at centre, and a glazed transit hall at right. Keep ordinary street furniture and vehicles visibly distinct while excluding anatomy displays, pseudo-lettering, logos, readable signs and dark foreground silhouettes.
 
 The final audit retained 42 grounded terms and rebuilt the three disjoint destination portals from the accepted pixels. At 400 × 225 the accepted image has a 131.5 mean luma, 12.7% of pixels below 64 and 4.9% below 32; the final pixels contain no generated signage.
+
+### Urban services, Hospital, Airport and Office building
+
+Create a bright isometric urban-services masterplan with three separated campus
+blocks—hospital, airport and office tower—joined by roads, water and planting.
+Use that overview only for the three large portal regions and shared connectors.
+The Hospital raster is a single atrium with emergency, pathology, MRI/radiology,
+pharmacy and operating-theatre bays; the Airport raster is a terminal with
+check-in, security, gate/jet bridge, baggage claim and visible apron/runway;
+the Office raster is a warm atrium with reception, open-plan workstations,
+conference room, pantry and a service core with elevator, stairs, servers, HVAC
+and fire panel. All four assets contain no readable text, logos or watermarks.
+
+The v108 content pass adds 616 anchors: Urban services 120, Hospital 170,
+Airport 150 and Office building 150. Hospital disease terms stay generic and
+educational; medicine labels use WHO International Nonproprietary Names rather
+than brands or dosage instructions.
 
 ### City park
 

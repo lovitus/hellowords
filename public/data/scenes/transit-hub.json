@@ -110,6 +110,18 @@
       "height": 430,
       "enterScale": 3.6,
       "sourceVisualRegion": "portal-railway"
+    },
+    {
+      "id": "enter-urban-services",
+      "label": "Explore urban services",
+      "translation": "探索城市服务区",
+      "childSceneId": "urban-services",
+      "x": 650,
+      "y": 300,
+      "width": 450,
+      "height": 220,
+      "enterScale": 3.4,
+      "sourceVisualRegion": "verified-concourse"
     }
   ],
   "anchorAudit": {

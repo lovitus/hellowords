@@ -4,11 +4,18 @@
 
 ## 当前交付游标
 
-- 公开版本：`v107-ee8888b`
+- 公开版本：待发布（当前本地批次基于 `ee8888b`，目标 v108）
 - 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=107-ee8888b>
-- 源码：`ee8888b`（v107 公开运行时；首页恢复为六个大区名称牌，默认不挂词泡，悬浮/聚焦时只挂当前分区的锚点词，移出后收起；根图集与子场景小地图均按真实锚点包围盒聚焦；植物细胞从 46 扩至 60 个可指认部件并拆分细胞核/内质网、类囊体、线粒体和细胞壁焦点区；氧分子场景从 26 扩至 60 个可指认气道/肺泡/气血屏障/毛细血管/红细胞部件，并修复深层入口被左上角小地图遮挡的问题；Hemoglobin 从 22 扩至 51 个可指认亚基/血红素/折叠/配位部件并拆分五个焦点区；Polymer 从 39 扩至 60 个可指认薄膜/纤维/片层/球晶/孔隙/断裂/分子链部件；科学馆从 121 扩至 146 个可指认骨骼、天文、显微、机器人、物理和人体展品部件；此前 Apartment、列车车厢、电动公交、衣柜、电池包、锂离子电芯、水箱等增密与连续放大修复保持不变）
-- 当前工作批次：公寓、城市街景、厨房、卧室、浴室、科学馆、铁路站台、列车车厢、城市公园、叶片、聚合物、衣柜、植物细胞、叶绿体内部、人体展柜、咖啡机、锂离子电芯、水箱、棉衬衫、Apartment 楼梯分区、Apartment 客厅/厨房/浴室细节增密、列车车厢车钩/底架/轨道细节分区、电动公交前门/车轮细节增密、Polymer 半结晶形貌增密、衣柜窗台/柜门/袖口/裤腿部件增密、电池包电芯/线束/冷却/壳体部件增密、锂离子电芯端子密封/卷芯/展开层部件增密、水箱盖角/水面/滤网杯/底座部件增密、标签避让平滑度、紧凑词泡与描边、科学馆、厨房与浴室密度；语义换词/索引闪现优化、首页大区悬浮词面、电池包、电动公交部件扩展、空间滚轮和高密度标签避让流畅度修复（已发布）。首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
+- 源码：`ee8888b`（上一个公开运行时）；当前未发布批次新增 Urban services 总览、Hospital、Airport、Office building 四个场景，并收尾 City park 114 词。城市服务批次一次增加 616 个锚点词：总览 120、医院 170、机场 150、写字楼 150；医院含科室、病理、通用疾病词和 WHO INN 通用药名，非医疗建议。
+- 当前工作批次：City park 从 88 扩至 114；Transit hub → Urban services → Hospital / Airport / Office building 新增 616 个词和四张独立 1600×900 图；首页图集、既有锚点坐标与 1,275 个根图集词保持不变。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
+
+### v108 交付前游标（2026-08-29）
+
+- 本地数据验证已通过：41 个场景、4,496 个空间锚点、3,859 个去重词、296 个细节区、40 个门户；`npm run verify`（228 个域测试 + 28 个语义/词境测试）已通过，city-park 与 urban-services 定向 E2E 桌面/移动共 4/4 通过。
+- 新增素材：`urban-services-overview-premium-v1.jpg`、`hospital-atrium-premium-v1.jpg`、`airport-terminal-premium-v1.jpg`、`office-atrium-premium-v1.jpg`，均为 1600×900、已固定 SHA；素材由 ImageGen 生成后人工复核，未包含品牌/可读标牌。
+- 医院命名依据 WHO ICD‑11（疾病/临床分类）与 WHO INN（通用药名）；机场术语依据 FAA/加拿大交通部门机场词汇；写字楼设施依据美国 HHS/GSA 与英国 Government Property Agency 的空间分类。参考：<https://www.who.int/standards/classifications/classification-of-diseases>、<https://www.who.int/teams/health-product-and-policy-standards/inn>、<https://tc.canada.ca/en/aviation/operating-airports-aerodromes/airport-signage-lexicon>、<https://www.hhs.gov/about/hhs-manuals/hhs-facilities-manual/glossary/index.html>、<https://portal.gpa.gov.uk/workplace-design-guide-support-zones/>。
+- 未完成：整批提交一次、全量 E2E 与性能门一次、Sites v108 公开部署、真实公开页按 City street → Transit hub → Urban services 验证医院/机场/写字楼及首页 6 名称/0 词泡，然后再清理本批可回收的图像/日志临时物。不要在发布前拆成多个半成品版本。
 
 ## 当前续开发游标（2026-08-29）
 

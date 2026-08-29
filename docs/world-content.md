@@ -1,6 +1,6 @@
 # HelloWords world content
 
-The world is a deterministic, zoomable tree. Thirty-six destination scenes use
+The world is a deterministic, zoomable tree. Forty destination scenes use
 the standard 1600 × 900 coordinate system. The world atlas is the large-canvas
 exception, with a 2604 × 989 logical base and a 5208 × 1978 high tier. Scene-local
 coordinates keep portals, camera movement and vocabulary anchors predictable
@@ -18,7 +18,11 @@ World atlas
 │   ├── City cafe
 │   ├── Transit hub
 │   │   ├── Electric bus → Battery pack → Lithium-ion cell
-│   │   └── Railway platform → Train carriage → Rail bogie
+│   │   ├── Railway platform → Train carriage → Rail bogie
+│   │   └── Urban services
+│   │       ├── Hospital
+│   │       ├── Airport
+│   │       └── Office building
 │   └── Science museum
 │       ├── Dinosaur hall
 │       └── Human body → Heart → Blood cell
@@ -31,11 +35,11 @@ World atlas
     └── Potting workbench
 ```
 
-The graph contains 37 reachable scenes and 36 parent-to-child portals. Four disjoint atlas entrances establish Home, City, Nature and Community garden, and every branch now contains at least four scenes. Six root-to-leaf paths contain at least five scenes; the longest contains eight. The branches connect an observable parent to a truthful closer view: clothing narrows from a room to a wardrobe and woven cotton, a vehicle narrows to an electrochemical cell, blood narrows to a carrier protein and oxygen, a leaf narrows to chloroplast machinery, and the garden narrows to a greenhouse tomato or a complete potting bench.
+The graph contains 41 reachable scenes and 40 parent-to-child portals. Four disjoint atlas entrances establish Home, City, Nature and Community garden, and every branch now contains at least four scenes. Nine root-to-leaf paths contain at least five scenes; the longest contains eight. The City transit branch now opens an Urban services overview before splitting into Hospital, Airport and Office building, so the requested department, airside and workplace vocabulary has a real illustrated home.
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 3,880 human-verified anchors representing 3,376
+Spatial scenes now contain 4,496 human-verified anchors representing 3,859
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -49,7 +53,7 @@ Every scene JSON contains:
 - `detailZones`, grouping truthful local crops into independently focusable word batches with a target scale;
 - `sourceVisualRegion` on every label and portal.
 
-The 37 raster scenes contribute 273 authored detail zones across
+The 40 destination raster scenes contribute 296 authored detail zones across
 the complete spatial world. The world atlas alone contains 1,275 unique labels
 compiled from 1,296 independently audited source-panel anchors across 66 zones.
 The compiler reconciles cross-panel word duplication deterministically while
@@ -113,7 +117,11 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Bathroom | 106 → 103 | Daylight bathroom grounds bath, vanity, toilet, shower, plumbing, glass hardware, tile and linen details; invisible conditions remain removed |
 | Wardrobe interior | 72 → 60 | Premium wardrobe grounds cabinet frame, hanger and garment parts, accessory details and nearby daylight-corner objects; the final audit adds a window sill, door panel, jacket cuff and trouser leg while materials, stitching claims and actions remain removed |
 | Cotton shirt | 63 → 55 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools, plus visible yoke, buttonhole, seam and tool parts; machinery, factory actions and performance properties remain removed |
-| City street | 46 → 42 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects |
+| City street | 94 → 89 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects |
+| Urban services | 128 → 120 | Aerial masterplan visibly separates hospital, airport and office campuses plus shared roads, water and planting connectors |
+| Hospital | 180 → 170 | Bright atrium grounds emergency, pathology, radiology, pharmacy and operating-theatre fixtures; clinical reference terms are kept generic and non-prescriptive |
+| Airport | 160 → 150 | Terminal photograph grounds check-in, security, gate, baggage claim and airside aircraft, apron, taxiway, runway and tower structures |
+| Office building | 160 → 150 | Warm atrium grounds reception, open-plan workstations, conference room, pantry and service-core hardware including elevator, stairs, servers, HVAC and fire panel |
 | City cafe | 77 → 70 | New daylight cafe grounds door, seating, counter, pastry-display and espresso subparts; people, branding and inferred service stay excluded |
 | Transit hub | 85 → 73 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
 | Electric bus | 71 → 55 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; four added front-door and wheel-hardware parts remain grounded while people, branding and operating concepts stay removed |
@@ -129,7 +137,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Blood cell | 81 → 61 | Bright capillary cutaway grounds vessel layers, red-cell membrane and skeleton, one neutrophil, platelets and the real Hemoglobin portal; the final audit adds endothelial boundaries, red-cell surface, membrane/cytoskeletal, neutrophil-granule and platelet-projection parts while unsupported immune processes remain removed |
 | Hemoglobin | 77 → 51 | Premium molecular view grounds the alpha/beta globin assembly, four-heme array, ribbon folds, central interfaces and the enlarged oxygen-coordination pocket; diseases, affinity and invisible binding behavior remain removed |
 | Oxygen molecule | 82 → 60 | Premium gas-exchange cutaway grounds the airway, alveolar pores and lining, air-blood barrier, capillary wall, red-cell surface and paired gas models; quantum decoration, cell-subtype guesses and invisible physiology remain removed |
-| City park | 109 → 88 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities; the final audit adds bridge planks, shoreline rock, lily/reed parts, gazebo structure, playground hardware, bench/path pieces and fine oak/flower details |
+| City park | 135 → 114 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities; the final audit adds bridge arches, shoreline waterlines, lily/reed parts, gazebo structure, playground hardware, bench/path pieces and fine oak/flower details |
 | Oak tree | 81 → 68 | Bright neutral-daylight woodland close-up grounds wildlife, fungi and texture; the final audit adds bark, web, nest, leaf, acorn, root, moss, fern, flower and grass parts while invisible processes and growth rings stay removed |
 | Leaf | 54 → 49 | Natural-colour macro retains independently visible twig, bud, acorn-cup, bark, insect and spider parts while rejecting duplicate vein terms and unsupported underside/curl details |
 | Plant cell | 75 → 60 | Premium 3D cutaway resolves organelles, membrane layers, chloroplast discs, cytoplasmic strands and vesicle interiors; the final audit adds rough-ER sheets, Golgi stacks, vacuole edges, thylakoid membranes, granum edges, mitochondrial folds and wall junctions, with a dedicated thylakoid-stack focus zone while unseen molecules and processes stay removed |
@@ -153,10 +161,17 @@ zooming. `city-street` uses `city-street-bright-v4.jpg`: a complete columned
 science museum with a telescope-and-mineral window stands at left, a complete
 blank-fronted brick cafe occupies the centre, and a complete arched-glass transit
 hall anchors the right above the crossing and accessible curb. Its final-pixel
-audit retains 42 distinct terms, and the three portal silhouettes remain
+audit retains 89 distinct terms, and the three portal silhouettes remain
 disjoint and legible without words, logos, anatomy displays or pseudo-signage.
 
-The world now contains 36 premium destination scenes with independently reviewed
+The transit hub now opens an `Urban services` masterplan. Its reviewed overview
+separates a hospital campus, airport terminal/runway and office tower, with
+hospital, airport and office rasters used for the dense follow-up scenes. The
+hospital batch includes departments, pathology and generic disease/medicine
+terms; medication names use WHO International Nonproprietary Names (INN), and
+the disease set is a learning vocabulary rather than medical advice.
+
+The world now contains 40 premium destination scenes with independently reviewed
 1600 × 900 base rasters plus the large-canvas atlas, including the independently
 illustrated Community garden, Greenhouse, Tomato plant and Potting workbench
 branch and upgraded Home, transit, material, natural-history and life-science
@@ -168,7 +183,7 @@ path into one continuous high-detail journey. The exact production briefs and
 asset digests are recorded in `docs/premium-scene-art.md`.
 
 Every authored spatial scene slice uses its own external visual asset. No runtime
-spatial scene depends on an SVG cutaway: 36 destinations use individually audited
+spatial scene depends on an SVG cutaway: 40 destinations use individually audited
 1600 × 900 raster artwork, while the root uses its six-panel large canvas. No
 image is reused to pretend that two spatial depths are different scenes. The
 separate 10,000-word semantic field reuses each selected realm's reviewed image

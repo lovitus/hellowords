@@ -224,18 +224,19 @@ test("known floating-label regressions stay removed and critical portals match v
 
   const cityPark = byId.get("city-park");
   assert.ok(cityPark);
-  assert.equal(cityPark.labels.length, 88, "city park keeps its expanded final-pixel vocabulary");
+  assert.equal(cityPark.labels.length, 114, "city park keeps its expanded final-pixel vocabulary");
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => cityPark.labels.filter((label) => label.minLevel === level).length),
-    [9, 16, 31, 21, 11],
+    [13, 22, 39, 26, 14],
   );
   assert.deepEqual(
     cityPark.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["pond-habitat-detail", 22],
-      ["oak-tree-detail", 16],
-      ["playground-picnic-detail", 14],
-      ["fountain-garden-detail", 16],
+      ["pond-habitat-detail", 29],
+      ["oak-tree-detail", 24],
+      ["playground-detail", 13],
+      ["picnic-detail", 5],
+      ["fountain-garden-detail", 23],
       ["park-foreground-detail", 20],
     ],
   );
@@ -271,6 +272,28 @@ test("known floating-label regressions stay removed and critical portals match v
     "grass blade",
     "acorn cap",
     "root bark",
+    "pond basin",
+    "park bridge",
+    "bridge arch",
+    "pond waterline",
+    "lily pad vein",
+    "reed stem",
+    "duck wing",
+    "oak canopy",
+    "squirrel tail",
+    "bark groove",
+    "root fork",
+    "fountain nozzle",
+    "gazebo roofline",
+    "flower cluster",
+    "fountain stone",
+    "gazebo arch",
+    "bench leg",
+    "lamp globe",
+    "slide handrail",
+    "acorn tip",
+    "leaf margin",
+    "root ridge",
   ]) {
     assert.ok(cityParkWords.has(term), `city park shows ${term}`);
   }
@@ -2949,6 +2972,35 @@ test("city cafe is a new terminal storefront branch with a non-overlapping paren
       .map(() => scene.id)
   ));
   assert.deepEqual(coffeeMachineParents, ["kitchen"], "existing coffee-machine branch stays single-parented");
+});
+
+test("urban services adds hospital, airport and office vocabulary without breaking the transit branch", async () => {
+  const { scenes } = await loadWorld();
+  const byId = new Map(scenes.map((scene) => [scene.id, scene]));
+  const urban = byId.get("urban-services");
+  assert.ok(urban);
+  assert.equal(urban.parentId, "transit-hub");
+  assert.equal(urban.labels.length, 120);
+  assert.equal(urban.detailZones?.length, 4);
+  assert.deepEqual(
+    urban.portals.map(({ childSceneId }) => childSceneId),
+    ["hospital", "airport", "office-building"],
+  );
+  for (const [sceneId, count, zones, required] of [
+    ["hospital", 170, 6, ["emergency department", "pathology laboratory", "mri scanner", "pharmacy", "cancer", "paracetamol"]],
+    ["airport", 150, 5, ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower"]],
+    ["office-building", 150, 5, ["reception", "open plan office", "conference room", "server room", "hvac duct", "fire panel"]],
+  ] as const) {
+    const scene = byId.get(sceneId);
+    assert.ok(scene);
+    assert.equal(scene.parentId, "urban-services");
+    assert.equal(scene.labels.length, count);
+    assert.equal(scene.detailZones?.length, zones);
+    const words = new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase()));
+    for (const term of required) assert.ok(words.has(term), `${sceneId} visibly grounds ${term}`);
+  }
+  const transit = byId.get("transit-hub");
+  assert.ok(transit?.portals.some(({ childSceneId }) => childSceneId === "urban-services"));
 });
 
 test("spatial anchors cross-link to real, word-identical entries in the 10k lexicon", async () => {

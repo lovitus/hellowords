@@ -58,6 +58,26 @@
       "parentId": "world-map"
     },
     {
+      "id": "urban-services",
+      "title": "Urban services",
+      "parentId": "transit-hub"
+    },
+    {
+      "id": "hospital",
+      "title": "Hospital",
+      "parentId": "urban-services"
+    },
+    {
+      "id": "airport",
+      "title": "Airport",
+      "parentId": "urban-services"
+    },
+    {
+      "id": "office-building",
+      "title": "Office building",
+      "parentId": "urban-services"
+    },
+    {
       "id": "city-cafe",
       "title": "City cafe",
       "parentId": "city-street"

@@ -97,6 +97,19 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "wardrobe-interior": 32,
   "cotton-shirt": 32,
   "city-street": 32,
+  // The urban-services overview anchors three clearly separated campus blocks
+  // and their shared connectors before handing off to the specialist scenes.
+  "urban-services": 80,
+  // The hospital raster visibly separates emergency, pathology, radiology,
+  // pharmacy and operating-theatre areas; its floor keeps disease and INN terms
+  // in the clinical-reference band without turning them into treatment advice.
+  hospital: 100,
+  // The terminal raster resolves passenger processing, security, gate, baggage
+  // claim and airside structures with a bounded, independently pointable set.
+  airport: 100,
+  // The office atrium resolves reception, open work floor, meeting, pantry and
+  // building-service hardware without inferring people, companies or policies.
+  "office-building": 100,
   "city-cafe": 36,
   "electric-bus": 32,
   "railway-platform": 32,
@@ -136,7 +149,13 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The final bright park raster resolves separate bridge, pond, playground,
   // fountain, gazebo, oak, bench, daisy and picnic parts without activity or
   // wildlife inference; the ceiling blocks ornamental padding.
-  "city-park": 88,
+  // The final park raster also resolves bridge arches, pond waterlines, plant
+  // veins, bark grooves, root forks and small fixture parts for 114 anchors.
+  "city-park": 114,
+  "urban-services": 120,
+  hospital: 170,
+  airport: 150,
+  "office-building": 150,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   // The final pixel pass also retains separately visible fossil, telescope,

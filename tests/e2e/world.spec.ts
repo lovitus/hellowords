@@ -958,6 +958,123 @@ test("science museum exposes additional exhibit parts without losing its child p
   )).toBeVisible();
 });
 
+test("city park exposes its expanded nature and fixture vocabulary without losing both child portals", async ({ page }, testInfo) => {
+  const app = await openWorld(page);
+  await page.locator(
+    '[data-testid="scene-hotspot"][data-target-scene="city-park"]',
+  ).first().click();
+  await expect(app).toHaveAttribute("data-scene-id", "city-park");
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "114");
+  for (const [zoneId, word] of [
+    ["pond-habitat-detail", "pond basin"],
+    ["oak-tree-detail", "acorn stem"],
+    ["playground-detail", "playground rail"],
+    ["fountain-garden-detail", "fountain nozzle"],
+    ["park-foreground-detail", "root ridge"],
+  ] as const) {
+    const zone = page.locator(
+      `[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`,
+    );
+    await zone.click();
+    await expect(zone).toHaveAttribute("data-active", "true");
+    if (testInfo.project.name === "mobile-chromium") {
+      await expect.poll(async () => Number(
+        await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
+      )).toBeGreaterThan(0);
+    } else {
+      await expect.poll(() => page.locator(
+        `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
+      ).count()).toBeGreaterThan(0);
+    }
+  }
+
+  await expect(page.locator(
+    '[data-testid="scene-hotspot"][data-target-scene="oak-tree"]',
+  )).toBeVisible();
+  await expect(page.locator(
+    '[data-testid="scene-hotspot"][data-target-scene="pond-edge"]',
+  )).toBeVisible();
+});
+
+test("urban services exposes hospital, airport and office vocabulary through the transit path", async ({ page }, testInfo) => {
+  const app = await openWorld(page);
+  for (const target of ["city-street", "transit-hub", "urban-services"] as const) {
+    await page.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${target}"]`,
+    ).first().click();
+    await expect(app).toHaveAttribute("data-scene-id", target);
+    await expect(app).toHaveAttribute("data-scene-loading", "false");
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+  }
+
+  const urbanViewport = await page.locator(VIEWPORT).boundingBox();
+  expect(urbanViewport).not.toBeNull();
+  await page.mouse.move(
+    urbanViewport!.x + urbanViewport!.width / 2,
+    urbanViewport!.y + urbanViewport!.height - 36,
+  );
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "120");
+  for (const [zoneId, word] of [
+    ["hospital-campus-detail", "medical center"],
+    ["airport-campus-detail", "terminal"],
+    ["office-campus-detail", "office lobby"],
+    ["district-connectors-detail", "planting bed"],
+  ] as const) {
+    const zone = page.locator(
+      `[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`,
+    );
+    await zone.click();
+    await expect(zone).toHaveAttribute("data-active", "true");
+    await expect.poll(async () => Number(
+      await page.locator(".scene-surface").getAttribute("data-scene-scale"),
+    )).toBeGreaterThanOrEqual(1.34);
+    if (testInfo.project.name === "mobile-chromium") {
+      await expect.poll(async () => Number(
+        await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
+      )).toBeGreaterThan(0);
+    } else {
+      await expect.poll(() => page.locator(
+        `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
+      ).count()).toBeGreaterThan(0);
+    }
+  }
+  for (const target of ["hospital", "airport", "office-building"] as const) {
+    await expect(page.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${target}"]`,
+    )).toBeVisible();
+  }
+
+  await page.locator(
+    '[data-testid="scene-minimap-child"][data-target-scene="hospital"]',
+  ).click();
+  await expect(app).toHaveAttribute("data-scene-id", "hospital");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "170");
+  const pathologyZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="pathology-laboratory-detail"]',
+  );
+  await pathologyZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="microscope"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+  const clinicalZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="clinical-reference-detail"]',
+  );
+  await clinicalZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="diagnosis"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+  const pharmacyZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="pharmacy-dispensary-detail"]',
+  );
+  await pharmacyZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="ibuprofen"][data-visible="true"]',
+  ).count()).toBeGreaterThan(0);
+});
+
 test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {
   const app = await openWorld(page);
   const parent = await sceneId(app);
