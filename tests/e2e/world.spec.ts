@@ -892,6 +892,35 @@ test("oxygen scene exposes its expanded exchange path through the real blood rou
   }
 });
 
+test("polymer scene exposes its expanded material structures through the machine route", async ({ page }) => {
+  const app = await openWorld(page);
+  for (const target of ["apartment", "kitchen", "coffee-machine", "water-tank", "polymer"]) {
+    await page.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${target}"]`,
+    ).first().click();
+    await expect(app).toHaveAttribute("data-scene-id", target);
+    await expect(app).toHaveAttribute("data-scene-loading", "false");
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+  }
+
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  for (const [zoneId, word] of [
+    ["macro-material-forms", "material cross section"],
+    ["semicrystalline-morphology", "lamella edge"],
+    ["defects-and-additives", "pore rim"],
+    ["molecular-architecture", "chain junction"],
+  ] as const) {
+    const zone = page.locator(
+      `[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`,
+    );
+    await zone.click();
+    await expect(zone).toHaveAttribute("data-active", "true");
+    await expect.poll(() => page.locator(
+      `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
+    ).count()).toBeGreaterThan(0);
+  }
+});
+
 test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {
   const app = await openWorld(page);
   const parent = await sceneId(app);

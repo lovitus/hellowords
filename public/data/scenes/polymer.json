@@ -14,6 +14,9 @@
     { "id": "amorphous-region", "word": "amorphous region", "translation": "非晶区", "x": 875, "y": 430, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "amorphous-field" },
     { "id": "pigment-particle", "word": "pigment particle", "translation": "颜料颗粒", "x": 1020, "y": 335, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "pigment-cluster" },
     { "id": "polymer-chain", "word": "polymer chain", "translation": "聚合物链", "x": 1510, "y": 185, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "molecular-polymer-chain" },
+    { "id": "polymer-assembly", "word": "polymer assembly", "translation": "聚合物组装体", "x": 450, "y": 215, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "macro-polymer-specimen" },
+    { "id": "material-cross-section", "word": "material cross section", "translation": "材料剖面", "x": 470, "y": 400, "priority": 1.007, "minLevel": 0, "sourceVisualRegion": "fracture-face" },
+    { "id": "fiber-mat", "word": "fiber mat", "translation": "纤维毡", "x": 180, "y": 760, "priority": 1.008, "minLevel": 0, "sourceVisualRegion": "fiber-bundle" },
 
     { "id": "fiber-bundle", "word": "fiber bundle", "translation": "纤维束", "x": 150, "y": 690, "priority": 2, "minLevel": 1, "sourceVisualRegion": "fiber-bundle" },
     { "id": "plastic-pellet", "word": "plastic pellet", "translation": "塑料颗粒", "x": 140, "y": 465, "priority": 2.001, "minLevel": 1, "sourceVisualRegion": "plastic-pellets" },
@@ -22,6 +25,11 @@
     { "id": "filler-particle", "word": "filler particle", "translation": "填料颗粒", "x": 985, "y": 555, "priority": 2.004, "minLevel": 1, "sourceVisualRegion": "filler-particles" },
     { "id": "backbone", "word": "backbone", "translation": "主链", "x": 1330, "y": 505, "priority": 2.005, "minLevel": 1, "sourceVisualRegion": "molecular-backbone" },
     { "id": "film-edge", "word": "film edge", "translation": "薄膜边缘", "x": 250, "y": 290, "priority": 6, "minLevel": 1, "sourceVisualRegion": "verified-film-edge" },
+    { "id": "film-roll", "word": "film roll", "translation": "薄膜卷", "x": 90, "y": 210, "priority": 2.006, "minLevel": 1, "sourceVisualRegion": "polymer-film-roll" },
+    { "id": "pellet-cluster", "word": "pellet cluster", "translation": "颗粒簇", "x": 190, "y": 470, "priority": 2.007, "minLevel": 1, "sourceVisualRegion": "plastic-pellets" },
+    { "id": "molded-corner", "word": "molded corner", "translation": "模塑角", "x": 530, "y": 270, "priority": 2.008, "minLevel": 1, "sourceVisualRegion": "molded-top-surface" },
+    { "id": "crystalline-lamella", "word": "crystalline lamella", "translation": "晶体片层", "x": 570, "y": 300, "priority": 2.009, "minLevel": 1, "sourceVisualRegion": "crystalline-field" },
+    { "id": "spherulite-ray", "word": "spherulite ray", "translation": "球晶射线", "x": 900, "y": 120, "priority": 2.01, "minLevel": 1, "sourceVisualRegion": "radial-spherulite" },
 
     { "id": "molded-surface", "word": "molded surface", "translation": "模塑表面", "x": 455, "y": 245, "priority": 3, "minLevel": 2, "sourceVisualRegion": "molded-top-surface" },
     { "id": "fracture-surface", "word": "fracture surface", "translation": "断裂面", "x": 385, "y": 385, "priority": 3.001, "minLevel": 2, "sourceVisualRegion": "fracture-face" },
@@ -34,6 +42,11 @@
     { "id": "fracture-ridge", "word": "fracture ridge", "translation": "断裂面脊", "x": 400, "y": 360, "priority": 6.004, "minLevel": 2, "sourceVisualRegion": "verified-fracture-ridge" },
     { "id": "pigment-cluster", "word": "pigment cluster", "translation": "颜料颗粒簇", "x": 1020, "y": 335, "priority": 6.005, "minLevel": 2, "sourceVisualRegion": "verified-pigment-cluster" },
     { "id": "amorphous-chain", "word": "amorphous chain", "translation": "非晶链", "x": 820, "y": 380, "priority": 6.006, "minLevel": 2, "sourceVisualRegion": "verified-amorphous-chain" },
+    { "id": "lamella-edge", "word": "lamella edge", "translation": "片层边缘", "x": 700, "y": 330, "priority": 3.007, "minLevel": 2, "sourceVisualRegion": "lamellar-stack" },
+    { "id": "interlamellar-region", "word": "interlamellar region", "translation": "片层间区域", "x": 760, "y": 250, "priority": 3.008, "minLevel": 2, "sourceVisualRegion": "crystalline-field" },
+    { "id": "amorphous-pocket", "word": "amorphous pocket", "translation": "非晶小区", "x": 880, "y": 420, "priority": 3.009, "minLevel": 2, "sourceVisualRegion": "amorphous-field" },
+    { "id": "filler-surface", "word": "filler surface", "translation": "填料表面", "x": 930, "y": 500, "priority": 3.01, "minLevel": 2, "sourceVisualRegion": "filler-particles" },
+    { "id": "pore-rim", "word": "pore rim", "translation": "孔隙边缘", "x": 900, "y": 720, "priority": 3.011, "minLevel": 2, "sourceVisualRegion": "material-pore" },
 
     { "id": "fiber", "word": "fiber", "translation": "纤维", "x": 420, "y": 660, "priority": 4, "minLevel": 3, "sourceVisualRegion": "individual-fiber", "lexemeId": "en-77c3e615d715acdb" },
     { "id": "chain-entanglement", "word": "chain entanglement", "translation": "链缠结", "x": 860, "y": 500, "priority": 4.001, "minLevel": 3, "sourceVisualRegion": "entangled-coils" },
@@ -42,6 +55,11 @@
     { "id": "spherulite-center", "word": "spherulite center", "translation": "球晶中心", "x": 930, "y": 170, "priority": 6.007, "minLevel": 3, "sourceVisualRegion": "verified-spherulite-center" },
     { "id": "pore-wall", "word": "pore wall", "translation": "孔隙壁", "x": 860, "y": 742, "priority": 6.008, "minLevel": 3, "sourceVisualRegion": "verified-pore-wall" },
     { "id": "side-chain", "word": "side chain", "translation": "侧链", "x": 1490, "y": 210, "priority": 6.009, "minLevel": 3, "sourceVisualRegion": "verified-side-chain" },
+    { "id": "tie-molecule", "word": "tie molecule", "translation": "系链分子", "x": 770, "y": 370, "priority": 4.01, "minLevel": 3, "sourceVisualRegion": "folded-chain-stack" },
+    { "id": "chain-junction", "word": "chain junction", "translation": "链连接点", "x": 1330, "y": 450, "priority": 4.011, "minLevel": 3, "sourceVisualRegion": "covalent-bond" },
+    { "id": "backbone-bend", "word": "backbone bend", "translation": "主链弯曲处", "x": 1270, "y": 520, "priority": 4.012, "minLevel": 3, "sourceVisualRegion": "molecular-backbone" },
+    { "id": "fracture-branch", "word": "fracture branch", "translation": "断裂分支", "x": 920, "y": 630, "priority": 4.013, "minLevel": 3, "sourceVisualRegion": "material-crack" },
+    { "id": "cross-link-node", "word": "cross-link node", "translation": "交联节点", "x": 1290, "y": 685, "priority": 4.014, "minLevel": 3, "sourceVisualRegion": "highlighted-cross-link" },
 
     { "id": "crack", "word": "crack", "translation": "裂纹", "x": 950, "y": 675, "priority": 5, "minLevel": 4, "sourceVisualRegion": "material-crack", "lexemeId": "en-94f94c9c97bfa92b" },
     { "id": "branch", "word": "branch", "translation": "支链", "x": 1410, "y": 555, "priority": 5.001, "minLevel": 4, "sourceVisualRegion": "branch-segment" },
@@ -50,7 +68,10 @@
     { "id": "crack-tip", "word": "crack tip", "translation": "裂纹尖端", "x": 930, "y": 675, "priority": 6.010, "minLevel": 4, "sourceVisualRegion": "verified-crack-tip" },
     { "id": "carbon-carbon-bond", "word": "carbon-carbon bond", "translation": "碳碳键", "x": 1325, "y": 420, "priority": 6.011, "minLevel": 4, "sourceVisualRegion": "verified-carbon-carbon-bond" },
     { "id": "crystallite", "word": "crystallite", "translation": "晶粒", "x": 690, "y": 175, "priority": 6.012, "minLevel": 2, "sourceVisualRegion": "verified-crystallite" },
-    { "id": "lamellar-stack", "word": "lamellar stack", "translation": "片层堆叠", "x": 620, "y": 185, "priority": 6.013, "minLevel": 2, "sourceVisualRegion": "lamellar-stack" }
+    { "id": "lamellar-stack", "word": "lamellar stack", "translation": "片层堆叠", "x": 620, "y": 185, "priority": 6.013, "minLevel": 2, "sourceVisualRegion": "lamellar-stack" },
+    { "id": "chain-segment", "word": "chain segment", "translation": "链段", "x": 1450, "y": 280, "priority": 5.005, "minLevel": 4, "sourceVisualRegion": "molecular-polymer-chain" },
+    { "id": "crack-branch", "word": "crack branch", "translation": "裂纹分支", "x": 960, "y": 620, "priority": 5.006, "minLevel": 4, "sourceVisualRegion": "material-crack" },
+    { "id": "molecular-loop", "word": "molecular loop", "translation": "分子环", "x": 1190, "y": 580, "priority": 5.007, "minLevel": 4, "sourceVisualRegion": "molecular-polymer-chain" }
   ],
   "portals": [],
   "anchorAudit": {
@@ -58,9 +79,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/polymer-premium-v2.jpg",
     "reviewedAssetSha256": "a32aef0b59c39f62e83b7a67dac5ce65e2f5a5895167844a360ca2c5de071bf1",
-    "rationale": "Expanded the final-pixel audit with separately visible film, fiber, molded-cavity and fracture details, pigment cluster, amorphous chain, pore wall, crack tip, spherulite center and attached molecular bond/side-chain structures; a second morphology review also distinguishes one crystallite block from its lamellar stack. Inferred properties, processes, synonym padding and unproven molecular identities remain rejected.",
-    "previousLabelCount": 70,
-    "retainedLabelCount": 39,
+    "rationale": "Re-audited the final polymer cutaway across macro forms, fibers, ordered lamellae, amorphous pockets, fracture surfaces, pores, fillers and the right-side ball-and-stick chains; added only distinct visible edges, junctions and material parts while inferred properties, processes, synonym padding and unproven molecular identities remain rejected.",
+    "previousLabelCount": 91,
+    "retainedLabelCount": 60,
     "removedLabelCount": 31,
     "removedExamples": ["thermoplastic", "polymerization", "density", "elasticity", "recycling", "molecular weight", "monomer", "repeating unit", "side group"]
   },
@@ -75,7 +96,26 @@
       "width": 570,
       "height": 750,
       "targetScale": 1.8,
-      "labelIds": ["polymer-specimen", "polymer-film", "fiber-bundle", "plastic-pellet", "molded-surface", "fracture-surface", "fiber", "film-edge", "fiber-tie", "fiber-tip", "mold-cavity", "fracture-ridge"]
+      "labelIds": [
+        "polymer-specimen",
+        "polymer-film",
+        "fiber-bundle",
+        "plastic-pellet",
+        "molded-surface",
+        "fracture-surface",
+        "fiber",
+        "film-edge",
+        "fiber-tie",
+        "fiber-tip",
+        "mold-cavity",
+        "fracture-ridge",
+        "polymer-assembly",
+        "material-cross-section",
+        "fiber-mat",
+        "film-roll",
+        "pellet-cluster",
+        "molded-corner"
+      ]
     },
     {
       "id": "semicrystalline-morphology",
@@ -87,7 +127,24 @@
       "width": 650,
       "height": 650,
       "targetScale": 2.2,
-      "labelIds": ["crystalline-region", "amorphous-region", "lamella", "lamellar-stack", "crystallite", "spherulite", "folded-chain", "chain-entanglement", "spherulite-center", "amorphous-chain"]
+      "labelIds": [
+        "crystalline-region",
+        "amorphous-region",
+        "lamella",
+        "lamellar-stack",
+        "crystallite",
+        "spherulite",
+        "folded-chain",
+        "chain-entanglement",
+        "spherulite-center",
+        "amorphous-chain",
+        "crystalline-lamella",
+        "spherulite-ray",
+        "lamella-edge",
+        "interlamellar-region",
+        "amorphous-pocket",
+        "tie-molecule"
+      ]
     },
     {
       "id": "defects-and-additives",
@@ -99,7 +156,19 @@
       "width": 650,
       "height": 650,
       "targetScale": 2.6,
-      "labelIds": ["pigment-particle", "filler-particle", "pore", "crack", "pigment-cluster", "pore-wall", "crack-tip"]
+      "labelIds": [
+        "pigment-particle",
+        "filler-particle",
+        "pore",
+        "crack",
+        "pigment-cluster",
+        "pore-wall",
+        "crack-tip",
+        "filler-surface",
+        "pore-rim",
+        "fracture-branch",
+        "crack-branch"
+      ]
     },
     {
       "id": "molecular-architecture",
@@ -111,7 +180,23 @@
       "width": 570,
       "height": 900,
       "targetScale": 3,
-      "labelIds": ["polymer-chain", "backbone", "carbon-atom", "hydrogen-atom", "bond", "branch", "chain-end", "cross-link", "side-chain", "carbon-carbon-bond"]
+      "labelIds": [
+        "polymer-chain",
+        "backbone",
+        "carbon-atom",
+        "hydrogen-atom",
+        "bond",
+        "branch",
+        "chain-end",
+        "cross-link",
+        "side-chain",
+        "carbon-carbon-bond",
+        "chain-junction",
+        "backbone-bend",
+        "cross-link-node",
+        "chain-segment",
+        "molecular-loop"
+      ]
     }
   ],
   "visualRegions": [

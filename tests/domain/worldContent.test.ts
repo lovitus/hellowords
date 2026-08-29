@@ -555,7 +555,7 @@ test("premium exploration scenes expose dense, truthful local detail slices", as
   ] as const;
   const minimums: Readonly<Record<string, number>> = {
     ...Object.fromEntries(premiumSceneIds.map((sceneId) => [sceneId, 32])),
-    polymer: 24,
+    polymer: 50,
     bathroom: 36,
     "city-cafe": 36,
     "dinosaur-hall": 36,
@@ -1731,14 +1731,14 @@ test("premium frog is a grounded terminal external-anatomy study", async () => {
   }
 });
 
-test("premium polymer stays within its evidence ceiling and remains a terminal material study", async () => {
+test("premium polymer expands visible material structure and remains a terminal study", async () => {
   const { scenes } = await loadWorld();
   const polymer = scenes.find((scene) => scene.id === "polymer");
   assert.ok(polymer);
   assert.equal(polymer.asset, "/scenes/polymer-premium-v2.jpg");
   assert.equal(polymer.parentId, "water-tank");
   assert.deepEqual(polymer.portals, [], "polymer remains a terminal scene");
-  assert.equal(polymer.labels.length, 39, "polymer keeps its reviewed 39-anchor evidence ceiling");
+  assert.equal(polymer.labels.length, 60, "polymer keeps its reviewed 60-anchor evidence ceiling");
 
   const words = new Set(polymer.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -1752,6 +1752,25 @@ test("premium polymer stays within its evidence ceiling and remains a terminal m
     "lamella",
     "crystallite",
     "lamellar stack",
+    "polymer assembly",
+    "material cross section",
+    "film roll",
+    "pellet cluster",
+    "crystalline lamella",
+    "spherulite ray",
+    "lamella edge",
+    "interlamellar region",
+    "amorphous pocket",
+    "filler surface",
+    "pore rim",
+    "tie molecule",
+    "chain junction",
+    "backbone bend",
+    "fracture branch",
+    "cross-link node",
+    "chain segment",
+    "crack branch",
+    "molecular loop",
     "pore",
     "crack",
   ]) {
