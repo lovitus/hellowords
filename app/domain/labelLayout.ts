@@ -914,14 +914,11 @@ export function buildSceneLabelMountWindow(
   // A detail-zone click is an explicit request to inspect that crop. Keep its
   // authored labels in the bounded window before global priority order, so a
   // dense scene cannot mount unrelated overview words and then hide the
-  // freshly focused batch behind the DOM ceiling.
+  // freshly focused batch behind the DOM ceiling. Offscreen members are also
+  // retained: they become immediately available when the user pans across the
+  // same crop instead of causing a second mount burst mid-gesture.
   for (const id of options.preferredIds ?? []) {
-    const item = layoutById.get(id);
-    if (
-      item
-      && Number.isFinite(item.screenX)
-      && Number.isFinite(item.screenY)
-    ) add(id);
+    add(id);
   }
 
   const stableOrder = (first: SceneLabelLayoutItem, second: SceneLabelLayoutItem) => (

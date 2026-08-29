@@ -2719,10 +2719,34 @@ export function SceneViewport({
     lastNavigationRef.current = performance.now();
 
     const start = { ...cameraRef.current };
-    const targetScale = Math.min(
+    let targetScale = Math.min(
       maximumSceneCameraScale(start.fit),
       Math.max(start.scale, focusTarget.targetScale),
     );
+    const focusedZone = scene.detailZones?.find(({ id }) => id === focusTarget.id);
+    if (focusedZone && focusedZone.labelIds.length > 1) {
+      const points = focusedZone.labelIds
+        .map((labelId) => labelsById.get(labelId))
+        .filter((label): label is Label => Boolean(label));
+      if (points.length > 1) {
+        const xs = points.map(({ x }) => x);
+        const ys = points.map(({ y }) => y);
+        const spanX = Math.max(1, Math.max(...xs) - Math.min(...xs));
+        const spanY = Math.max(1, Math.max(...ys) - Math.min(...ys));
+        // A broad authored crop should open as a readable overview of its
+        // whole word batch. Cap the requested target by the scale that keeps
+        // the batch inside this viewport, then let ordinary wheel zoom take
+        // the user deeper into the same crop.
+        const batchFitScale = Math.min(
+          viewport.clientWidth / (spanX * start.fit),
+          viewport.clientHeight / (spanY * start.fit),
+        ) * 0.88;
+        targetScale = Math.min(
+          targetScale,
+          Math.max(start.scale + 0.28, batchFitScale),
+        );
+      }
+    }
     const effectiveScale = start.fit * targetScale;
     const target = clampCamera({
       ...start,
@@ -2760,7 +2784,7 @@ export function SceneViewport({
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
     return true;
-  }, [cancelCameraAnimation, clampCamera, requestCameraFrame, resetParentExitHysteresis, resetSemanticOverscroll, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
+  }, [cancelCameraAnimation, clampCamera, labelsById, requestCameraFrame, resetParentExitHysteresis, resetSemanticOverscroll, scene.detailZones, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
 
   useEffect(() => {
     if (!onFocusTargetNavigatorReady) return;
