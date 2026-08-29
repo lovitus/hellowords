@@ -4,13 +4,13 @@
 
 ## 当前交付游标
 
-- 公开版本：`v114-28677a6`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=114-28677a6>
-- 源码：`28677a6ee5c904f1afd6bf5ec0ab7ec442517341`（v114 公开运行时；医院 320、病理实验室 330、医院药房 270、机场 270、写字楼 270）。本批新增 660 个区域锚点，包含科室、病理、通用疾病词、WHO INN 通用药名、机场运行部件与楼宇系统词，非医疗建议。
-- 当前工作批次：继续按“先堆词、再精修”扩展医院、机场、写字楼及后续专业场景；当前 v114 保持公开可验证，下一批继续增加词量。
+- 公开版本：`v116-fc50556`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=116-fc50556#world>
+- 源码：`fc505561bad558ad98490c2b03f5ab9486484606`（v116 公开运行时；医院 320、病理实验室 330、医院药房 270、机场 270、写字楼 270）。本批新增 660 个区域锚点，包含科室、病理、通用疾病词、WHO INN 通用药名、机场运行部件与楼宇系统词，非医疗建议；同时先裁剪屏幕外词的每帧探测。
+- 当前工作批次：继续按“先堆词、再精修”扩展医院、机场、写字楼及后续专业场景；当前 v116 保持公开可验证，下一批继续增加词量。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
-### v114 交付记录（2026-08-29）
+### v116 交付记录（2026-08-29）
 
 - 本地数据验证已通过：43 个场景、5,486 个空间锚点、4,683 个去重词、307 个细节区、42 个门户；`npm run verify`（229 个域测试 + 28 个语义/词境测试）已通过，完整 E2E 106 通过 / 36 设计性跳过，`PERF_RUN=1 npm run test:perf` 2/2 通过。
 - 新增词批次：Hospital +150（科室/设施/疾病/药品）、Pathology lab +150（显微镜/标本/包埋/染色/病理显示）、Hospital pharmacy +120（INN/调配/自动柜/配制台）、Airport +120（值机/安检/登机厅/机坪）、Office building +120（前厅/办公位/会议室/设备核心）。每组均写入既有五级 LOD 与细节区，脚本 `scripts/add-professional-vocabulary.mjs` 可幂等复用。
@@ -19,6 +19,7 @@
 - 医院命名依据 WHO ICD‑11（疾病/临床分类）与 WHO INN（通用药名）；机场术语依据 FAA/加拿大交通部门机场词汇；写字楼设施依据美国 HHS/GSA 与英国 Government Property Agency 的空间分类。参考：<https://www.who.int/standards/classifications/classification-of-diseases>、<https://www.who.int/teams/health-product-and-policy-standards/inn>、<https://tc.canada.ca/en/aviation/operating-airports-aerodromes/airport-signage-lexicon>、<https://www.hhs.gov/about/hhs-manuals/hhs-facilities-manual/glossary/index.html>、<https://portal.gpa.gov.uk/workplace-design-guide-support-zones/>。
 - 已完成：整批一次提交（`28677a6`，包含 `7175b09` 相机交接修复），Sites v114 已公开部署并同步保存/部署游标，真实公开页按 City street → Transit hub → Urban services → Hospital/Airport/Office building 验证新词与细节区。
 - 清理记录：v114 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v114/`；v111/v112/v113 归档已在同一可恢复废纸篓批次中，未删除当前根会话或共享临时根中的其他资料。
+- v116 追加的布局优化先做屏幕外裁剪再做未来 LOD 探测，不改变五级 LOD、锚点坐标、碰撞与挂载上限；`npm run verify`、全量 E2E（106 通过 / 36 设计性跳过）和性能 2/2 均通过。公开页 v116 保持首页 6 名称、Campus hover 21/移出 0 词及医院 320 词。
 
 ## 当前续开发游标（2026-08-29）
 
