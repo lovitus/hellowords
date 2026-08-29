@@ -4,18 +4,18 @@
 
 ## 当前交付游标
 
-- 公开版本：`v109-0e23f85`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=109-0e23f85>
-- 源码：`0e23f85`（v109 公开运行时；City park 114 词；Transit hub → Urban services → Hospital / Airport / Office building 四个新场景一次增加 616 个锚点词；首页图集、既有锚点坐标与 1,275 个根图集词保持不变）。医院含科室、病理、通用疾病词和 WHO INN 通用药名，非医疗建议。
-- 当前工作批次：继续按“先堆词、再精修”扩展医院专科/疾病/药品与机场/写字楼细分词；先保持 v109 运行稳定，再处理下一张已审核素材。
+- 公开版本：`v110-6d120cb`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=110-6d120cb>
+- 源码：`6d120cb`（v110 公开运行时；City park 114 词；Transit hub → Urban services → Hospital / Airport / Office building 四个新场景一次增加 616 个锚点词；首页图集、既有锚点坐标与 1,275 个根图集词保持不变）。医院含科室、病理、通用疾病词和 WHO INN 通用药名，非医疗建议。
+- 当前工作批次：继续按“先堆词、再精修”扩展医院专科/疾病/药品与机场/写字楼细分词；先保持 v110 运行稳定，再处理下一张已审核素材。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
-### v109 交付记录（2026-08-29）
+### v110 交付记录（2026-08-29）
 
 - 本地数据验证已通过：41 个场景、4,496 个空间锚点、3,859 个去重词、296 个细节区、40 个门户；`npm run verify`（228 个域测试 + 28 个语义/词境测试）已通过，city-park 与 urban-services 定向 E2E 桌面/移动共 4/4 通过。
 - 新增素材：`urban-services-overview-premium-v1.jpg`、`hospital-atrium-premium-v1.jpg`、`airport-terminal-premium-v1.jpg`、`office-atrium-premium-v1.jpg`，均为 1600×900、已固定 SHA；素材由 ImageGen 生成后人工复核，未包含品牌/可读标牌。
 - 医院命名依据 WHO ICD‑11（疾病/临床分类）与 WHO INN（通用药名）；机场术语依据 FAA/加拿大交通部门机场词汇；写字楼设施依据美国 HHS/GSA 与英国 Government Property Agency 的空间分类。参考：<https://www.who.int/standards/classifications/classification-of-diseases>、<https://www.who.int/teams/health-product-and-policy-standards/inn>、<https://tc.canada.ca/en/aviation/operating-airports-aerodromes/airport-signage-lexicon>、<https://www.hhs.gov/about/hhs-manuals/hhs-facilities-manual/glossary/index.html>、<https://portal.gpa.gov.uk/workplace-design-guide-support-zones/>。
-- 已完成：整批一次提交（`b7386d9` + 可读性修正 `0e23f85`）、Sites v109 公开部署、真实公开页按 City street → Transit hub → Urban services 验证医院/机场/写字楼及首页 6 名称/0 词泡。全量 E2E 106 通过 / 36 设计性跳过，性能 2/2；公开冒烟记录放在当前对话。
+- 已完成：整批一次提交（`b7386d9` + 可读性修正 `0e23f85`），Sites v109 公开部署后同步保存/部署 v110 游标，真实公开页按 City street → Transit hub → Urban services 验证医院/机场/写字楼及首页 6 名称/0 词泡。全量 E2E 106 通过 / 36 设计性跳过，性能 2/2；公开冒烟记录放在当前对话。
 - 仍待处理：把本批公开压缩包和四张生成图的本地临时副本移入可恢复废纸篓；不要删除当前根会话或共享临时根中的其他项目资料。
 
 ## 当前续开发游标（2026-08-29）
