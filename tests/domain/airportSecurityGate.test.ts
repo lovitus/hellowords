@@ -174,7 +174,7 @@ test("boarding gate keeps 120 reviewed lounge, bridge, cabin and airside terms",
     sourceWidth: 1_672,
     sourceHeight: 941,
   });
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["aircraft-cabin"]);
 });
 
 test("airport branch exposes a truthful security-to-boarding path", async () => {

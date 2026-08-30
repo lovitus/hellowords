@@ -29,7 +29,7 @@ interface Scene {
   readonly labels: readonly Label[];
   readonly visualRegions: readonly { id: string; x: number; y: number; width: number; height: number }[];
   readonly detailZones: readonly { id: string; labelIds: readonly string[] }[];
-  readonly portals: readonly unknown[];
+  readonly portals: readonly { readonly childSceneId: string }[];
   readonly anchorAudit: {
     readonly status: string;
     readonly policy: string;
@@ -53,7 +53,7 @@ test("supermarket backroom grounds 143 distinct receiving and cold-storage terms
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 143);
   assert.equal(new Set(scene.labels.map(({ word }) => word)).size, 143);
-  assert.equal(scene.visualRegions.length, 143);
+  assert.equal(scene.visualRegions.length, 144);
   assert.deepEqual(scene.detailZones.map((zone) => [zone.id, zone.labelIds.length]), [
     ["supermarket-backroom-zone-receiving-bay", 20],
     ["supermarket-backroom-zone-material-handling", 22],
@@ -63,7 +63,7 @@ test("supermarket backroom grounds 143 distinct receiving and cold-storage terms
     ["supermarket-backroom-zone-sanitation-utilities", 22],
   ]);
   assert.deepEqual([0, 1, 2, 3, 4].map((level) => scene.labels.filter(({ minLevel }) => minLevel === level).length), [21, 32, 42, 34, 14]);
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["supermarket-walk-in-cooler"]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);
