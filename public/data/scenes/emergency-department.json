@@ -988,6 +988,15 @@
       "y": 28.69288,
       "width": 410.526316,
       "height": 272.582359
+    },
+    {
+      "id": "portal-intensive-care-unit-critical-care-bay",
+      "description": "Complete visible monitored critical-care bay in the emergency-department photograph",
+      "kind": "object",
+      "x": 400,
+      "y": 280,
+      "width": 450,
+      "height": 430
     }
   ],
   "detailZones": [
@@ -2385,6 +2394,18 @@
       "width": 410.526316,
       "height": 272.582359,
       "enterScale": 3.4
+    },
+    {
+      "id": "enter-intensive-care-unit",
+      "label": "Enter the intensive care unit",
+      "translation": "进入重症监护室",
+      "childSceneId": "intensive-care-unit",
+      "sourceVisualRegion": "portal-intensive-care-unit-critical-care-bay",
+      "x": 400,
+      "y": 280,
+      "width": 450,
+      "height": 430,
+      "enterScale": 3.2
     }
   ]
 }

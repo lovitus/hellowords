@@ -22,7 +22,15 @@ type Scene = {
   labels: readonly { id: string; word: string; x: number; y: number; sourceVisualRegion: string }[];
   visualRegions: readonly { id: string; x: number; y: number; width: number; height: number }[];
   detailZones: readonly { id: string; labelIds: readonly string[] }[];
-  portals: readonly unknown[];
+  portals: readonly {
+    id: string;
+    childSceneId: string;
+    sourceVisualRegion: string;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  }[];
   anchorAudit: {
     status: string;
     policy: string;
@@ -86,4 +94,20 @@ test("the ICU source raster is readable and the authoring output is reproducible
   const spread = Math.max(...stats.channels.map((channel) => channel.mean)) - Math.min(...stats.channels.map((channel) => channel.mean));
   assert.ok(mean > 100 && mean < 230, `ICU source mean luminance is ${mean}`);
   assert.ok(spread > 2, `ICU source retains useful color separation (${spread})`);
+});
+
+test("the emergency department exposes one bounded visible ICU entrance", async () => {
+  const parent = await readJson<Scene>("emergency-department.json");
+  const portal = parent.portals.find(({ childSceneId }) => childSceneId === "intensive-care-unit");
+  assert.ok(portal);
+  assert.deepEqual(
+    [portal.x, portal.y, portal.width, portal.height],
+    [400, 280, 450, 430],
+  );
+  const region = parent.visualRegions.find(({ id }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual(
+    [region.x, region.y, region.width, region.height],
+    [portal.x, portal.y, portal.width, portal.height],
+  );
 });

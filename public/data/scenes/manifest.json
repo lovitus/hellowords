@@ -93,6 +93,11 @@
       "parentId": "hospital"
     },
     {
+      "id": "intensive-care-unit",
+      "title": "Intensive care unit",
+      "parentId": "emergency-department"
+    },
+    {
       "id": "operating-theatre",
       "title": "Operating theatre",
       "parentId": "emergency-department"

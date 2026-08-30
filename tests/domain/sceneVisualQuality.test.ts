@@ -385,6 +385,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 25,
     },
   },
+  "intensive-care-unit": {
+    asset: "/scenes/intensive-care-unit-premium-v1.jpg",
+    sha256: "f4d6d18c09196271ed0a08ca433ddad3dcf8790a21aab662ae32883f49ef2e7d",
+    quality: {
+      minMeanLuminance: 130,
+      maxMeanLuminance: 180,
+      maxDarkFraction: 0.11,
+      maxDeepDarkFraction: 0.05,
+      minMeanChroma: 0.05,
+      maxMeanChroma: 0.16,
+      maxChannelMeanSpread: 20,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

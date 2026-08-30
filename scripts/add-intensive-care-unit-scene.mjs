@@ -70,7 +70,7 @@ const sourceZones = [
     title: "Rear critical-care bays",
     translation: "后排重症监护床位",
     description: "Follow the three glazed rear bed bays, their monitors, bed parts, privacy curtain and service boom.",
-    x: 400,
+    x: 390,
     y: 160,
     width: 520,
     height: 430,

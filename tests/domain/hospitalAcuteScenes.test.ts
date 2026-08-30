@@ -14,7 +14,7 @@ const expected = {
     zones: 5,
     lod: [21, 23, 27, 22, 15],
     parentId: "hospital",
-    child: "operating-theatre",
+    children: ["operating-theatre", "intensive-care-unit"],
     asset: "/scenes/emergency-department-premium-v1.jpg",
     assetSha256: "0d5878b4fa27bb1cff5c82d21e8e28aa4e22c8d1885160bd9f2dc3191d94ec47",
     source: "scripts/assets/emergency-department-v1.png",
@@ -25,7 +25,7 @@ const expected = {
     zones: 5,
     lod: [24, 21, 26, 21, 17],
     parentId: "emergency-department",
-    child: "post-anesthesia-care-unit",
+    children: ["post-anesthesia-care-unit"],
     asset: "/scenes/operating-theatre-premium-v1.jpg",
     assetSha256: "97083eb3798a19d4faf518ba03e8863530c3e60038d782a75ae2dd40516df07e",
     source: "scripts/assets/operating-theatre-v1.png",
@@ -122,7 +122,7 @@ test("the two hospital acute scenes provide 217 distinct pixel-audited anchors",
     assert.equal(entry.parentId, contract.parentId);
     assert.equal(entry.asset, contract.asset);
     assert.equal(entry.labels.length, contract.labels);
-    assert.equal(entry.visualRegions.length, entry.labels.length + (entry.portals.length ? 1 : 0));
+    assert.equal(entry.visualRegions.length, entry.labels.length + entry.portals.length);
     assert.equal(entry.detailZones.length, contract.zones);
     assert.deepEqual(
       [0, 1, 2, 3, 4].map((level) => entry.labels.filter((label) => label.minLevel === level).length),
@@ -166,16 +166,12 @@ test("the two hospital acute scenes provide 217 distinct pixel-audited anchors",
     assert.equal(zoneLabelIds.size, entry.labels.length);
     for (const label of entry.labels) assert.ok(zoneLabelIds.has(label.id), `${entry.id}/${label.id} has a zone`);
 
-    if (contract.child) {
-      assert.equal(entry.portals.length, 1);
-      const portal = entry.portals[0];
-      assert.equal(portal.childSceneId, contract.child);
+    assert.deepEqual(entry.portals.map(({ childSceneId }) => childSceneId), [...contract.children]);
+    for (const portal of entry.portals) {
       const portalRegion = regionById.get(portal.sourceVisualRegion);
       assert.ok(portalRegion, `${entry.id} child portal keeps a source region`);
       assert.ok(rectangleContains(portalRegion, portal.x, portal.y));
       assert.ok(rectangleContains(portalRegion, portal.x + portal.width, portal.y + portal.height));
-    } else {
-      assert.deepEqual(entry.portals, []);
     }
   }
   assert.equal(words.size, 217);
@@ -184,7 +180,10 @@ test("the two hospital acute scenes provide 217 distinct pixel-audited anchors",
 test("the acute scene chain continues from emergency department through theatre to PACU", async () => {
   const emergency = await readJson<Scene>("emergency-department.json");
   const theatre = await readJson<Scene>("operating-theatre.json");
-  assert.deepEqual(emergency.portals.map(({ childSceneId }) => childSceneId), ["operating-theatre"]);
+  assert.deepEqual(
+    emergency.portals.map(({ childSceneId }) => childSceneId),
+    ["operating-theatre", "intensive-care-unit"],
+  );
   assert.equal(theatre.parentId, emergency.id);
   assert.deepEqual(theatre.portals.map(({ childSceneId }) => childSceneId), ["post-anesthesia-care-unit"]);
 });
