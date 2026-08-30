@@ -1,0 +1,3073 @@
+{
+  "id": "primary-classroom",
+  "title": "Primary classroom",
+  "translation": "小学教室",
+  "subtitle": "Teacher area, pupil desks, whiteboard, storage, sink, cloakroom, windows and floor",
+  "asset": "/scenes/primary-classroom-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "school-campus",
+  "visualRegions": [
+    {
+      "id": "primary-classroom-region-classroom-teacher-desk",
+      "description": "Pixel-audited “classroom teacher desk” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-desk-worktop",
+      "description": "Pixel-audited “desk worktop” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-workstation-drawer",
+      "description": "Pixel-audited “teacher workstation drawer” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-drawer-pull",
+      "description": "Pixel-audited “teacher drawer pull” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-desk-modesty-panel",
+      "description": "Pixel-audited “desk modesty panel” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 550,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-desk-leg",
+      "description": "Pixel-audited “desk leg” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 590,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-desk-foot",
+      "description": "Pixel-audited “desk foot” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-work-chair",
+      "description": "Pixel-audited “teacher work chair” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-chair-backrest",
+      "description": "Pixel-audited “teacher chair backrest” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-chair-seat",
+      "description": "Pixel-audited “teacher chair seat” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-chair-armrest",
+      "description": "Pixel-audited “teacher chair armrest” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-chair-caster",
+      "description": "Pixel-audited “teacher chair caster” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-desk-monitor",
+      "description": "Pixel-audited “teacher desk monitor” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-monitor-bezel",
+      "description": "Pixel-audited “teacher monitor bezel” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-monitor-stand",
+      "description": "Pixel-audited “teacher monitor stand” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-keyboard",
+      "description": "Pixel-audited “teacher keyboard” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 340,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-mouse",
+      "description": "Pixel-audited “teacher mouse” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 420,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-document-tray",
+      "description": "Pixel-audited “teacher document tray” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-pen-cup",
+      "description": "Pixel-audited “teacher pen cup” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 460,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-pencil",
+      "description": "Pixel-audited “teacher pencil” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 460,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-desk-organizer",
+      "description": "Pixel-audited “desk organizer” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-storage-cabinet",
+      "description": "Pixel-audited “teacher storage cabinet” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 560,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-cabinet-handle",
+      "description": "Pixel-audited “teacher cabinet handle” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 570,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-desk-cable",
+      "description": "Pixel-audited “teacher desk cable” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-teacher-desk-lamp",
+      "description": "Pixel-audited “teacher desk lamp” inside the Teacher area crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-pupil-desk",
+      "description": "Pixel-audited “front pupil desk” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-desk-top",
+      "description": "Pixel-audited “front desk top” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-desk-edge",
+      "description": "Pixel-audited “front desk edge” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 570,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-desk-leg",
+      "description": "Pixel-audited “front desk leg” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-desk-foot",
+      "description": "Pixel-audited “front desk foot” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-pupil-chair",
+      "description": "Pixel-audited “front pupil chair” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-chair-back",
+      "description": "Pixel-audited “front chair back” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-chair-seat",
+      "description": "Pixel-audited “front chair seat” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-chair-leg",
+      "description": "Pixel-audited “front chair leg” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-chair-foot",
+      "description": "Pixel-audited “front chair foot” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 840,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-middle-pupil-desk",
+      "description": "Pixel-audited “middle pupil desk” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-middle-desk-top",
+      "description": "Pixel-audited “middle desk top” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-middle-desk-edge",
+      "description": "Pixel-audited “middle desk edge” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-middle-desk-leg",
+      "description": "Pixel-audited “middle desk leg” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-middle-pupil-chair",
+      "description": "Pixel-audited “middle pupil chair” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 670,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-middle-chair-back",
+      "description": "Pixel-audited “middle chair back” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 620,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-middle-chair-seat",
+      "description": "Pixel-audited “middle chair seat” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 690,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-middle-chair-leg",
+      "description": "Pixel-audited “middle chair leg” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-rear-pupil-desk",
+      "description": "Pixel-audited “rear pupil desk” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-rear-desk-top",
+      "description": "Pixel-audited “rear desk top” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-rear-desk-edge",
+      "description": "Pixel-audited “rear desk edge” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-rear-desk-leg",
+      "description": "Pixel-audited “rear desk leg” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 950,
+      "y": 650,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-rear-pupil-chair",
+      "description": "Pixel-audited “rear pupil chair” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-rear-chair-back",
+      "description": "Pixel-audited “rear chair back” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 590,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-rear-chair-seat",
+      "description": "Pixel-audited “rear chair seat” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 650,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-rear-chair-leg",
+      "description": "Pixel-audited “rear chair leg” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 950,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-desk-floor-glide",
+      "description": "Pixel-audited “desk floor glide” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 840,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-chair-floor-glide",
+      "description": "Pixel-audited “chair floor glide” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-desk-support-bar",
+      "description": "Pixel-audited “desk support bar” inside the Pupil desks and chairs crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-classroom-whiteboard",
+      "description": "Pixel-audited “front classroom whiteboard” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-board-frame",
+      "description": "Pixel-audited “classroom board frame” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-board-tray",
+      "description": "Pixel-audited “classroom board tray” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-board-marker",
+      "description": "Pixel-audited “classroom board marker” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-marker-cup",
+      "description": "Pixel-audited “classroom marker cup” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 770,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-board-eraser",
+      "description": "Pixel-audited “board eraser” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-display-board",
+      "description": "Pixel-audited “display board” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 350,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-display-board-frame",
+      "description": "Pixel-audited “display board frame” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 350,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-pinboard",
+      "description": "Pixel-audited “classroom pinboard” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 210,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-pinboard-trim",
+      "description": "Pixel-audited “pinboard trim” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 140,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-display-rail",
+      "description": "Pixel-audited “display rail” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 375,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-display-ledge",
+      "description": "Pixel-audited “display ledge” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-wall-display-panel",
+      "description": "Pixel-audited “wall display panel” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 190,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-wall-display-hook",
+      "description": "Pixel-audited “wall display hook” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-front-wall-panel",
+      "description": "Pixel-audited “classroom front wall panel” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-front-wall-seam",
+      "description": "Pixel-audited “classroom front wall seam” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-webcam",
+      "description": "Pixel-audited “classroom webcam” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-webcam-mount",
+      "description": "Pixel-audited “webcam mount” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 95,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-webcam-cable",
+      "description": "Pixel-audited “webcam cable” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 650,
+      "y": 110,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-board-corner",
+      "description": "Pixel-audited “board corner” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 920,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-board-fastener",
+      "description": "Pixel-audited “board fastener” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 920,
+      "y": 140,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-display-wall-rail",
+      "description": "Pixel-audited “display wall rail” inside the Whiteboard and display wall crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-cupboard",
+      "description": "Pixel-audited “classroom cupboard” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1060,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-cupboard-door",
+      "description": "Pixel-audited “classroom cupboard door” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1060,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-cupboard-handle",
+      "description": "Pixel-audited “cupboard handle” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1100,
+      "y": 290,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-cupboard-hinge",
+      "description": "Pixel-audited “cupboard hinge” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-cupboard-shelf",
+      "description": "Pixel-audited “cupboard shelf” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-cupboard-divider",
+      "description": "Pixel-audited “cupboard divider” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-bookcase",
+      "description": "Pixel-audited “bookcase” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-bookcase-shelf",
+      "description": "Pixel-audited “classroom bookcase shelf” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-bookcase-side-panel",
+      "description": "Pixel-audited “bookcase side panel” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-shelf-lip",
+      "description": "Pixel-audited “classroom shelf lip” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-shelf-bracket",
+      "description": "Pixel-audited “classroom shelf bracket” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-book-spine",
+      "description": "Pixel-audited “classroom book spine” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-plain-notebook",
+      "description": "Pixel-audited “plain notebook” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 180,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-binder",
+      "description": "Pixel-audited “binder” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-storage-bin",
+      "description": "Pixel-audited “classroom storage bin” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1060,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-blue-storage-bin",
+      "description": "Pixel-audited “classroom blue storage bin” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-green-storage-bin",
+      "description": "Pixel-audited “green storage bin” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-paper-tray",
+      "description": "Pixel-audited “classroom paper tray” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-supply-box",
+      "description": "Pixel-audited “classroom supply box” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 240,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-ruler",
+      "description": "Pixel-audited “ruler” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-pencil-pot",
+      "description": "Pixel-audited “pencil pot” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1150,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-coat-bag-cubby",
+      "description": "Pixel-audited “coat bag cubby” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 180,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-cubby-shelf",
+      "description": "Pixel-audited “classroom cubby shelf” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-cubby-divider",
+      "description": "Pixel-audited “classroom cubby divider” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 220,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-cabinet-plinth",
+      "description": "Pixel-audited “classroom cabinet plinth” inside the Storage and bookcase crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-sink",
+      "description": "Pixel-audited “classroom sink” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-sink-basin",
+      "description": "Pixel-audited “classroom sink basin” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 570,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-sink-drain",
+      "description": "Pixel-audited “classroom sink drain” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-faucet",
+      "description": "Pixel-audited “classroom faucet” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-faucet-spout",
+      "description": "Pixel-audited “classroom faucet spout” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-faucet-handle",
+      "description": "Pixel-audited “classroom faucet handle” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1400,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-sink-counter",
+      "description": "Pixel-audited “classroom sink counter” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-counter-edge",
+      "description": "Pixel-audited “classroom counter edge” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-sink-cabinet",
+      "description": "Pixel-audited “classroom sink cabinet” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-sink-cabinet-door",
+      "description": "Pixel-audited “sink cabinet door” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-sink-cabinet-pull",
+      "description": "Pixel-audited “sink cabinet pull” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-coat-hook",
+      "description": "Pixel-audited “classroom coat hook” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-hook-rail",
+      "description": "Pixel-audited “hook rail” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-school-backpack",
+      "description": "Pixel-audited “school backpack” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-green-backpack",
+      "description": "Pixel-audited “green backpack” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-blue-backpack",
+      "description": "Pixel-audited “blue backpack” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-bag-strap",
+      "description": "Pixel-audited “classroom bag strap” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-side-classroom-door",
+      "description": "Pixel-audited “side classroom door” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-door-window",
+      "description": "Pixel-audited “classroom door window” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-door-handle",
+      "description": "Pixel-audited “classroom door handle” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-door-hinge",
+      "description": "Pixel-audited “classroom door hinge” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1200,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-doorway-threshold",
+      "description": "Pixel-audited “classroom doorway threshold” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-towel-rail",
+      "description": "Pixel-audited “classroom towel rail” inside the Sink and cloakroom crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-front-classroom-window",
+      "description": "Pixel-audited “front classroom window” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 60,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-window-frame",
+      "description": "Pixel-audited “classroom window frame” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-window-sill",
+      "description": "Pixel-audited “classroom window sill” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 160,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-window-blind",
+      "description": "Pixel-audited “classroom window blind” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-blind-slat",
+      "description": "Pixel-audited “classroom blind slat” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 110,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-blind-rail",
+      "description": "Pixel-audited “classroom blind rail” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-radiator",
+      "description": "Pixel-audited “classroom radiator” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-radiator-grille",
+      "description": "Pixel-audited “radiator grille” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 550,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-radiator-valve",
+      "description": "Pixel-audited “radiator valve” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 240,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-ceiling-panel",
+      "description": "Pixel-audited “classroom ceiling panel” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 30,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-ceiling-light",
+      "description": "Pixel-audited “classroom ceiling light” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 50,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-light-diffuser",
+      "description": "Pixel-audited “classroom light diffuser” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-air-grille",
+      "description": "Pixel-audited “classroom air grille” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-wall-base-trim",
+      "description": "Pixel-audited “classroom wall base trim” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-floorboard",
+      "description": "Pixel-audited “classroom floorboard” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-floorboard-seam",
+      "description": "Pixel-audited “floorboard seam” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-floor-skirting",
+      "description": "Pixel-audited “floor skirting” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-doorway-trim",
+      "description": "Pixel-audited “doorway trim” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-plant-pot",
+      "description": "Pixel-audited “classroom plant pot” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 420,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-plant-leaf",
+      "description": "Pixel-audited “classroom plant leaf” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 420,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-globe-stand",
+      "description": "Pixel-audited “classroom globe stand” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 60,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-classroom-globe-meridian",
+      "description": "Pixel-audited “classroom globe meridian” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 60,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-floor-threshold-trim",
+      "description": "Pixel-audited “floor threshold trim” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "primary-classroom-region-wall-color-band",
+      "description": "Pixel-audited “wall color band” inside the Windows, lighting and floor crop of the primary classroom photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "primary-classroom-zone-teacher-area",
+      "title": "Teacher area",
+      "translation": "教师区",
+      "description": "Inspect the visible teacher desk, chair, monitor, keyboard, trays, organizer and cable details.",
+      "x": 180,
+      "y": 280,
+      "width": 500,
+      "height": 390,
+      "targetScale": 3.15,
+      "labelIds": [
+        "primary-classroom-classroom-teacher-desk",
+        "primary-classroom-desk-worktop",
+        "primary-classroom-teacher-workstation-drawer",
+        "primary-classroom-teacher-drawer-pull",
+        "primary-classroom-desk-modesty-panel",
+        "primary-classroom-desk-leg",
+        "primary-classroom-desk-foot",
+        "primary-classroom-teacher-work-chair",
+        "primary-classroom-teacher-chair-backrest",
+        "primary-classroom-teacher-chair-seat",
+        "primary-classroom-teacher-chair-armrest",
+        "primary-classroom-teacher-chair-caster",
+        "primary-classroom-teacher-desk-monitor",
+        "primary-classroom-teacher-monitor-bezel",
+        "primary-classroom-teacher-monitor-stand",
+        "primary-classroom-teacher-keyboard",
+        "primary-classroom-teacher-mouse",
+        "primary-classroom-teacher-document-tray",
+        "primary-classroom-teacher-pen-cup",
+        "primary-classroom-teacher-pencil",
+        "primary-classroom-desk-organizer",
+        "primary-classroom-teacher-storage-cabinet",
+        "primary-classroom-teacher-cabinet-handle",
+        "primary-classroom-teacher-desk-cable",
+        "primary-classroom-teacher-desk-lamp"
+      ]
+    },
+    {
+      "id": "primary-classroom-zone-pupil-desks",
+      "title": "Pupil desks and chairs",
+      "translation": "学生桌椅",
+      "description": "Compare the visible front, middle and rear pupil desks, chair parts, supports and floor glides.",
+      "x": 350,
+      "y": 450,
+      "width": 850,
+      "height": 450,
+      "targetScale": 3.15,
+      "labelIds": [
+        "primary-classroom-front-pupil-desk",
+        "primary-classroom-front-desk-top",
+        "primary-classroom-front-desk-edge",
+        "primary-classroom-front-desk-leg",
+        "primary-classroom-front-desk-foot",
+        "primary-classroom-front-pupil-chair",
+        "primary-classroom-front-chair-back",
+        "primary-classroom-front-chair-seat",
+        "primary-classroom-front-chair-leg",
+        "primary-classroom-front-chair-foot",
+        "primary-classroom-middle-pupil-desk",
+        "primary-classroom-middle-desk-top",
+        "primary-classroom-middle-desk-edge",
+        "primary-classroom-middle-desk-leg",
+        "primary-classroom-middle-pupil-chair",
+        "primary-classroom-middle-chair-back",
+        "primary-classroom-middle-chair-seat",
+        "primary-classroom-middle-chair-leg",
+        "primary-classroom-rear-pupil-desk",
+        "primary-classroom-rear-desk-top",
+        "primary-classroom-rear-desk-edge",
+        "primary-classroom-rear-desk-leg",
+        "primary-classroom-rear-pupil-chair",
+        "primary-classroom-rear-chair-back",
+        "primary-classroom-rear-chair-seat",
+        "primary-classroom-rear-chair-leg",
+        "primary-classroom-desk-floor-glide",
+        "primary-classroom-chair-floor-glide",
+        "primary-classroom-desk-support-bar"
+      ]
+    },
+    {
+      "id": "primary-classroom-zone-board-display",
+      "title": "Whiteboard and display wall",
+      "translation": "白板与展示墙",
+      "description": "Inspect the blank whiteboard, display boards, marker tray, rail, hooks and wall-panel details.",
+      "x": 250,
+      "y": 100,
+      "width": 750,
+      "height": 340,
+      "targetScale": 3.15,
+      "labelIds": [
+        "primary-classroom-front-classroom-whiteboard",
+        "primary-classroom-classroom-board-frame",
+        "primary-classroom-classroom-board-tray",
+        "primary-classroom-classroom-board-marker",
+        "primary-classroom-classroom-marker-cup",
+        "primary-classroom-board-eraser",
+        "primary-classroom-display-board",
+        "primary-classroom-display-board-frame",
+        "primary-classroom-classroom-pinboard",
+        "primary-classroom-pinboard-trim",
+        "primary-classroom-display-rail",
+        "primary-classroom-display-ledge",
+        "primary-classroom-wall-display-panel",
+        "primary-classroom-wall-display-hook",
+        "primary-classroom-classroom-front-wall-panel",
+        "primary-classroom-classroom-front-wall-seam",
+        "primary-classroom-classroom-webcam",
+        "primary-classroom-webcam-mount",
+        "primary-classroom-webcam-cable",
+        "primary-classroom-board-corner",
+        "primary-classroom-board-fastener",
+        "primary-classroom-display-wall-rail"
+      ]
+    },
+    {
+      "id": "primary-classroom-zone-storage-library",
+      "title": "Storage and bookcase",
+      "translation": "储物与书架",
+      "description": "Trace the visible cupboard, bookcase shelves, plain book spines, bins, trays and storage hardware.",
+      "x": 0,
+      "y": 80,
+      "width": 1300,
+      "height": 520,
+      "targetScale": 3.15,
+      "labelIds": [
+        "primary-classroom-classroom-cupboard",
+        "primary-classroom-classroom-cupboard-door",
+        "primary-classroom-cupboard-handle",
+        "primary-classroom-cupboard-hinge",
+        "primary-classroom-cupboard-shelf",
+        "primary-classroom-cupboard-divider",
+        "primary-classroom-bookcase",
+        "primary-classroom-classroom-bookcase-shelf",
+        "primary-classroom-bookcase-side-panel",
+        "primary-classroom-classroom-shelf-lip",
+        "primary-classroom-classroom-shelf-bracket",
+        "primary-classroom-classroom-book-spine",
+        "primary-classroom-plain-notebook",
+        "primary-classroom-binder",
+        "primary-classroom-classroom-storage-bin",
+        "primary-classroom-classroom-blue-storage-bin",
+        "primary-classroom-green-storage-bin",
+        "primary-classroom-classroom-paper-tray",
+        "primary-classroom-classroom-supply-box",
+        "primary-classroom-ruler",
+        "primary-classroom-pencil-pot",
+        "primary-classroom-coat-bag-cubby",
+        "primary-classroom-classroom-cubby-shelf",
+        "primary-classroom-classroom-cubby-divider",
+        "primary-classroom-classroom-cabinet-plinth"
+      ]
+    },
+    {
+      "id": "primary-classroom-zone-sink-cloakroom",
+      "title": "Sink and cloakroom",
+      "translation": "洗手池与衣帽区",
+      "description": "Inspect the visible sink, faucet, counter, coat hooks, backpacks, classroom door and threshold.",
+      "x": 1100,
+      "y": 250,
+      "width": 400,
+      "height": 650,
+      "targetScale": 3.15,
+      "labelIds": [
+        "primary-classroom-classroom-sink",
+        "primary-classroom-classroom-sink-basin",
+        "primary-classroom-classroom-sink-drain",
+        "primary-classroom-classroom-faucet",
+        "primary-classroom-classroom-faucet-spout",
+        "primary-classroom-classroom-faucet-handle",
+        "primary-classroom-classroom-sink-counter",
+        "primary-classroom-classroom-counter-edge",
+        "primary-classroom-classroom-sink-cabinet",
+        "primary-classroom-sink-cabinet-door",
+        "primary-classroom-sink-cabinet-pull",
+        "primary-classroom-classroom-coat-hook",
+        "primary-classroom-hook-rail",
+        "primary-classroom-school-backpack",
+        "primary-classroom-green-backpack",
+        "primary-classroom-blue-backpack",
+        "primary-classroom-classroom-bag-strap",
+        "primary-classroom-side-classroom-door",
+        "primary-classroom-classroom-door-window",
+        "primary-classroom-classroom-door-handle",
+        "primary-classroom-classroom-door-hinge",
+        "primary-classroom-classroom-doorway-threshold",
+        "primary-classroom-classroom-towel-rail"
+      ]
+    },
+    {
+      "id": "primary-classroom-zone-windows-lighting-floor",
+      "title": "Windows, lighting and floor",
+      "translation": "窗户、照明与地面",
+      "description": "Trace the visible windows, blinds, radiator, ceiling lights, air grille, skirting and floor finish.",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "primary-classroom-front-classroom-window",
+        "primary-classroom-classroom-window-frame",
+        "primary-classroom-classroom-window-sill",
+        "primary-classroom-classroom-window-blind",
+        "primary-classroom-classroom-blind-slat",
+        "primary-classroom-classroom-blind-rail",
+        "primary-classroom-classroom-radiator",
+        "primary-classroom-radiator-grille",
+        "primary-classroom-radiator-valve",
+        "primary-classroom-classroom-ceiling-panel",
+        "primary-classroom-classroom-ceiling-light",
+        "primary-classroom-classroom-light-diffuser",
+        "primary-classroom-classroom-air-grille",
+        "primary-classroom-classroom-wall-base-trim",
+        "primary-classroom-classroom-floorboard",
+        "primary-classroom-floorboard-seam",
+        "primary-classroom-floor-skirting",
+        "primary-classroom-doorway-trim",
+        "primary-classroom-classroom-plant-pot",
+        "primary-classroom-classroom-plant-leaf",
+        "primary-classroom-classroom-globe-stand",
+        "primary-classroom-classroom-globe-meridian",
+        "primary-classroom-floor-threshold-trim",
+        "primary-classroom-wall-color-band"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/primary-classroom-premium-v1.jpg",
+    "reviewedAssetSha256": "20498cf9be8faf487b5945e9bc732c28afad79bacc4bad6b7dd3164d5af62071",
+    "rationale": "The final 1600 by 900 primary-classroom photograph was inspected at source and output resolution. It retains 148 independently pointable teacher, pupil-desk, board, storage, sink, cloakroom, window, lighting and floor parts. People, identities, lesson content, readable writing, school branding and hidden building systems were excluded.",
+    "previousLabelCount": 156,
+    "retainedLabelCount": 148,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "people",
+      "teacher identity",
+      "pupil identity",
+      "lesson content",
+      "school branding",
+      "hidden building system"
+    ]
+  },
+  "labels": [
+    {
+      "id": "primary-classroom-classroom-teacher-desk",
+      "word": "classroom teacher desk",
+      "translation": "教师桌",
+      "x": 350,
+      "y": 530,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-classroom-teacher-desk"
+    },
+    {
+      "id": "primary-classroom-desk-worktop",
+      "word": "desk worktop",
+      "translation": "桌面",
+      "x": 350,
+      "y": 400,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-desk-worktop"
+    },
+    {
+      "id": "primary-classroom-teacher-workstation-drawer",
+      "word": "teacher workstation drawer",
+      "translation": "教师工作桌抽屉",
+      "x": 520,
+      "y": 540,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-teacher-workstation-drawer"
+    },
+    {
+      "id": "primary-classroom-teacher-drawer-pull",
+      "word": "teacher drawer pull",
+      "translation": "教师桌抽屉拉手",
+      "x": 520,
+      "y": 550,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-teacher-drawer-pull"
+    },
+    {
+      "id": "primary-classroom-desk-modesty-panel",
+      "word": "desk modesty panel",
+      "translation": "桌下挡板",
+      "x": 350,
+      "y": 570,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-desk-modesty-panel"
+    },
+    {
+      "id": "primary-classroom-desk-leg",
+      "word": "desk leg",
+      "translation": "桌腿",
+      "x": 300,
+      "y": 610,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-desk-leg"
+    },
+    {
+      "id": "primary-classroom-desk-foot",
+      "word": "desk foot",
+      "translation": "桌脚",
+      "x": 300,
+      "y": 650,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-desk-foot"
+    },
+    {
+      "id": "primary-classroom-teacher-work-chair",
+      "word": "teacher work chair",
+      "translation": "教师椅",
+      "x": 500,
+      "y": 430,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-teacher-work-chair"
+    },
+    {
+      "id": "primary-classroom-teacher-chair-backrest",
+      "word": "teacher chair backrest",
+      "translation": "教师椅背",
+      "x": 500,
+      "y": 400,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-teacher-chair-backrest"
+    },
+    {
+      "id": "primary-classroom-teacher-chair-seat",
+      "word": "teacher chair seat",
+      "translation": "教师椅座",
+      "x": 500,
+      "y": 470,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-teacher-chair-seat"
+    },
+    {
+      "id": "primary-classroom-teacher-chair-armrest",
+      "word": "teacher chair armrest",
+      "translation": "教师椅扶手",
+      "x": 550,
+      "y": 470,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-teacher-chair-armrest"
+    },
+    {
+      "id": "primary-classroom-teacher-chair-caster",
+      "word": "teacher chair caster",
+      "translation": "教师椅脚轮",
+      "x": 500,
+      "y": 600,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-teacher-chair-caster"
+    },
+    {
+      "id": "primary-classroom-teacher-desk-monitor",
+      "word": "teacher desk monitor",
+      "translation": "教师桌显示器",
+      "x": 300,
+      "y": 340,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-teacher-desk-monitor"
+    },
+    {
+      "id": "primary-classroom-teacher-monitor-bezel",
+      "word": "teacher monitor bezel",
+      "translation": "教师显示器边框",
+      "x": 300,
+      "y": 340,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-teacher-monitor-bezel"
+    },
+    {
+      "id": "primary-classroom-teacher-monitor-stand",
+      "word": "teacher monitor stand",
+      "translation": "教师显示器支架",
+      "x": 300,
+      "y": 410,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-teacher-monitor-stand"
+    },
+    {
+      "id": "primary-classroom-teacher-keyboard",
+      "word": "teacher keyboard",
+      "translation": "教师键盘",
+      "x": 360,
+      "y": 450,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-teacher-keyboard"
+    },
+    {
+      "id": "primary-classroom-teacher-mouse",
+      "word": "teacher mouse",
+      "translation": "教师鼠标",
+      "x": 440,
+      "y": 450,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-teacher-mouse"
+    },
+    {
+      "id": "primary-classroom-teacher-document-tray",
+      "word": "teacher document tray",
+      "translation": "教师文件托盘",
+      "x": 470,
+      "y": 390,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-teacher-document-tray"
+    },
+    {
+      "id": "primary-classroom-teacher-pen-cup",
+      "word": "teacher pen cup",
+      "translation": "教师笔筒",
+      "x": 480,
+      "y": 430,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-teacher-pen-cup"
+    },
+    {
+      "id": "primary-classroom-teacher-pencil",
+      "word": "teacher pencil",
+      "translation": "教师铅笔",
+      "x": 480,
+      "y": 420,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-teacher-pencil"
+    },
+    {
+      "id": "primary-classroom-desk-organizer",
+      "word": "desk organizer",
+      "translation": "桌面收纳架",
+      "x": 420,
+      "y": 390,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-desk-organizer"
+    },
+    {
+      "id": "primary-classroom-teacher-storage-cabinet",
+      "word": "teacher storage cabinet",
+      "translation": "教师储物柜",
+      "x": 580,
+      "y": 520,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-teacher-storage-cabinet"
+    },
+    {
+      "id": "primary-classroom-teacher-cabinet-handle",
+      "word": "teacher cabinet handle",
+      "translation": "教师柜门把手",
+      "x": 590,
+      "y": 530,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-teacher-cabinet-handle"
+    },
+    {
+      "id": "primary-classroom-teacher-desk-cable",
+      "word": "teacher desk cable",
+      "translation": "教师桌面电缆",
+      "x": 450,
+      "y": 500,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-teacher-desk-cable"
+    },
+    {
+      "id": "primary-classroom-teacher-desk-lamp",
+      "word": "teacher desk lamp",
+      "translation": "教师桌面灯",
+      "x": 220,
+      "y": 390,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-teacher-desk-lamp"
+    },
+    {
+      "id": "primary-classroom-front-pupil-desk",
+      "word": "front pupil desk",
+      "translation": "前排学生桌",
+      "x": 500,
+      "y": 560,
+      "priority": 1.025,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-front-pupil-desk"
+    },
+    {
+      "id": "primary-classroom-front-desk-top",
+      "word": "front desk top",
+      "translation": "前排桌面",
+      "x": 500,
+      "y": 540,
+      "priority": 1.026,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-front-desk-top"
+    },
+    {
+      "id": "primary-classroom-front-desk-edge",
+      "word": "front desk edge",
+      "translation": "前排桌边",
+      "x": 500,
+      "y": 590,
+      "priority": 1.027,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-front-desk-edge"
+    },
+    {
+      "id": "primary-classroom-front-desk-leg",
+      "word": "front desk leg",
+      "translation": "前排桌腿",
+      "x": 470,
+      "y": 700,
+      "priority": 1.028,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-front-desk-leg"
+    },
+    {
+      "id": "primary-classroom-front-desk-foot",
+      "word": "front desk foot",
+      "translation": "前排桌脚",
+      "x": 470,
+      "y": 800,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-front-desk-foot"
+    },
+    {
+      "id": "primary-classroom-front-pupil-chair",
+      "word": "front pupil chair",
+      "translation": "前排学生椅",
+      "x": 500,
+      "y": 700,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-front-pupil-chair"
+    },
+    {
+      "id": "primary-classroom-front-chair-back",
+      "word": "front chair back",
+      "translation": "前排椅背",
+      "x": 500,
+      "y": 650,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-front-chair-back"
+    },
+    {
+      "id": "primary-classroom-front-chair-seat",
+      "word": "front chair seat",
+      "translation": "前排椅座",
+      "x": 500,
+      "y": 720,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-front-chair-seat"
+    },
+    {
+      "id": "primary-classroom-front-chair-leg",
+      "word": "front chair leg",
+      "translation": "前排椅腿",
+      "x": 470,
+      "y": 820,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-front-chair-leg"
+    },
+    {
+      "id": "primary-classroom-front-chair-foot",
+      "word": "front chair foot",
+      "translation": "前排椅脚",
+      "x": 470,
+      "y": 860,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-front-chair-foot"
+    },
+    {
+      "id": "primary-classroom-middle-pupil-desk",
+      "word": "middle pupil desk",
+      "translation": "中排学生桌",
+      "x": 750,
+      "y": 550,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-middle-pupil-desk"
+    },
+    {
+      "id": "primary-classroom-middle-desk-top",
+      "word": "middle desk top",
+      "translation": "中排桌面",
+      "x": 750,
+      "y": 530,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-middle-desk-top"
+    },
+    {
+      "id": "primary-classroom-middle-desk-edge",
+      "word": "middle desk edge",
+      "translation": "中排桌边",
+      "x": 750,
+      "y": 580,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-middle-desk-edge"
+    },
+    {
+      "id": "primary-classroom-middle-desk-leg",
+      "word": "middle desk leg",
+      "translation": "中排桌腿",
+      "x": 720,
+      "y": 700,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-middle-desk-leg"
+    },
+    {
+      "id": "primary-classroom-middle-pupil-chair",
+      "word": "middle pupil chair",
+      "translation": "中排学生椅",
+      "x": 750,
+      "y": 690,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-middle-pupil-chair"
+    },
+    {
+      "id": "primary-classroom-middle-chair-back",
+      "word": "middle chair back",
+      "translation": "中排椅背",
+      "x": 750,
+      "y": 640,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-middle-chair-back"
+    },
+    {
+      "id": "primary-classroom-middle-chair-seat",
+      "word": "middle chair seat",
+      "translation": "中排椅座",
+      "x": 750,
+      "y": 710,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-middle-chair-seat"
+    },
+    {
+      "id": "primary-classroom-middle-chair-leg",
+      "word": "middle chair leg",
+      "translation": "中排椅腿",
+      "x": 720,
+      "y": 820,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-middle-chair-leg"
+    },
+    {
+      "id": "primary-classroom-rear-pupil-desk",
+      "word": "rear pupil desk",
+      "translation": "后排学生桌",
+      "x": 1000,
+      "y": 520,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-rear-pupil-desk"
+    },
+    {
+      "id": "primary-classroom-rear-desk-top",
+      "word": "rear desk top",
+      "translation": "后排桌面",
+      "x": 1000,
+      "y": 500,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-rear-desk-top"
+    },
+    {
+      "id": "primary-classroom-rear-desk-edge",
+      "word": "rear desk edge",
+      "translation": "后排桌边",
+      "x": 1000,
+      "y": 550,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-rear-desk-edge"
+    },
+    {
+      "id": "primary-classroom-rear-desk-leg",
+      "word": "rear desk leg",
+      "translation": "后排桌腿",
+      "x": 970,
+      "y": 670,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-rear-desk-leg"
+    },
+    {
+      "id": "primary-classroom-rear-pupil-chair",
+      "word": "rear pupil chair",
+      "translation": "后排学生椅",
+      "x": 1000,
+      "y": 650,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-rear-pupil-chair"
+    },
+    {
+      "id": "primary-classroom-rear-chair-back",
+      "word": "rear chair back",
+      "translation": "后排椅背",
+      "x": 1000,
+      "y": 610,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-rear-chair-back"
+    },
+    {
+      "id": "primary-classroom-rear-chair-seat",
+      "word": "rear chair seat",
+      "translation": "后排椅座",
+      "x": 1000,
+      "y": 670,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-rear-chair-seat"
+    },
+    {
+      "id": "primary-classroom-rear-chair-leg",
+      "word": "rear chair leg",
+      "translation": "后排椅腿",
+      "x": 970,
+      "y": 760,
+      "priority": 1.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-rear-chair-leg"
+    },
+    {
+      "id": "primary-classroom-desk-floor-glide",
+      "word": "desk floor glide",
+      "translation": "桌脚地垫",
+      "x": 600,
+      "y": 860,
+      "priority": 1.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-desk-floor-glide"
+    },
+    {
+      "id": "primary-classroom-chair-floor-glide",
+      "word": "chair floor glide",
+      "translation": "椅脚地垫",
+      "x": 1100,
+      "y": 850,
+      "priority": 1.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-chair-floor-glide"
+    },
+    {
+      "id": "primary-classroom-desk-support-bar",
+      "word": "desk support bar",
+      "translation": "桌面支撑杆",
+      "x": 850,
+      "y": 700,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-desk-support-bar"
+    },
+    {
+      "id": "primary-classroom-front-classroom-whiteboard",
+      "word": "front classroom whiteboard",
+      "translation": "教室白板",
+      "x": 650,
+      "y": 250,
+      "priority": 1.054,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-front-classroom-whiteboard"
+    },
+    {
+      "id": "primary-classroom-classroom-board-frame",
+      "word": "classroom board frame",
+      "translation": "教室白板框",
+      "x": 650,
+      "y": 150,
+      "priority": 1.055,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-classroom-board-frame"
+    },
+    {
+      "id": "primary-classroom-classroom-board-tray",
+      "word": "classroom board tray",
+      "translation": "教室白板托盘",
+      "x": 650,
+      "y": 390,
+      "priority": 1.056,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-classroom-board-tray"
+    },
+    {
+      "id": "primary-classroom-classroom-board-marker",
+      "word": "classroom board marker",
+      "translation": "教室白板笔",
+      "x": 780,
+      "y": 380,
+      "priority": 1.057,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-classroom-board-marker"
+    },
+    {
+      "id": "primary-classroom-classroom-marker-cup",
+      "word": "classroom marker cup",
+      "translation": "教室白板笔筒",
+      "x": 790,
+      "y": 380,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-marker-cup"
+    },
+    {
+      "id": "primary-classroom-board-eraser",
+      "word": "board eraser",
+      "translation": "白板擦",
+      "x": 730,
+      "y": 390,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-board-eraser"
+    },
+    {
+      "id": "primary-classroom-display-board",
+      "word": "display board",
+      "translation": "展示板",
+      "x": 370,
+      "y": 250,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-display-board"
+    },
+    {
+      "id": "primary-classroom-display-board-frame",
+      "word": "display board frame",
+      "translation": "展示板框",
+      "x": 370,
+      "y": 150,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-display-board-frame"
+    },
+    {
+      "id": "primary-classroom-classroom-pinboard",
+      "word": "classroom pinboard",
+      "translation": "软木展示板",
+      "x": 900,
+      "y": 230,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-pinboard"
+    },
+    {
+      "id": "primary-classroom-pinboard-trim",
+      "word": "pinboard trim",
+      "translation": "展示板饰条",
+      "x": 900,
+      "y": 160,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-pinboard-trim"
+    },
+    {
+      "id": "primary-classroom-display-rail",
+      "word": "display rail",
+      "translation": "展示导轨",
+      "x": 450,
+      "y": 395,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-display-rail"
+    },
+    {
+      "id": "primary-classroom-display-ledge",
+      "word": "display ledge",
+      "translation": "展示搁沿",
+      "x": 450,
+      "y": 410,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-display-ledge"
+    },
+    {
+      "id": "primary-classroom-wall-display-panel",
+      "word": "wall display panel",
+      "translation": "墙面展示板",
+      "x": 500,
+      "y": 210,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-wall-display-panel"
+    },
+    {
+      "id": "primary-classroom-wall-display-hook",
+      "word": "wall display hook",
+      "translation": "墙面展示挂钩",
+      "x": 470,
+      "y": 390,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-wall-display-hook"
+    },
+    {
+      "id": "primary-classroom-classroom-front-wall-panel",
+      "word": "classroom front wall panel",
+      "translation": "前墙面板",
+      "x": 300,
+      "y": 220,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-front-wall-panel"
+    },
+    {
+      "id": "primary-classroom-classroom-front-wall-seam",
+      "word": "classroom front wall seam",
+      "translation": "前墙面接缝",
+      "x": 850,
+      "y": 120,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-front-wall-seam"
+    },
+    {
+      "id": "primary-classroom-classroom-webcam",
+      "word": "classroom webcam",
+      "translation": "教室摄像头",
+      "x": 650,
+      "y": 100,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-webcam"
+    },
+    {
+      "id": "primary-classroom-webcam-mount",
+      "word": "webcam mount",
+      "translation": "摄像头支架",
+      "x": 650,
+      "y": 115,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-webcam-mount"
+    },
+    {
+      "id": "primary-classroom-webcam-cable",
+      "word": "webcam cable",
+      "translation": "摄像头电缆",
+      "x": 670,
+      "y": 130,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-webcam-cable"
+    },
+    {
+      "id": "primary-classroom-board-corner",
+      "word": "board corner",
+      "translation": "白板转角",
+      "x": 940,
+      "y": 150,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-board-corner"
+    },
+    {
+      "id": "primary-classroom-board-fastener",
+      "word": "board fastener",
+      "translation": "白板紧固件",
+      "x": 940,
+      "y": 160,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-board-fastener"
+    },
+    {
+      "id": "primary-classroom-display-wall-rail",
+      "word": "display wall rail",
+      "translation": "展示墙导轨",
+      "x": 850,
+      "y": 400,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-display-wall-rail"
+    },
+    {
+      "id": "primary-classroom-classroom-cupboard",
+      "word": "classroom cupboard",
+      "translation": "教室储物柜",
+      "x": 1080,
+      "y": 300,
+      "priority": 1.076,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-classroom-cupboard"
+    },
+    {
+      "id": "primary-classroom-classroom-cupboard-door",
+      "word": "classroom cupboard door",
+      "translation": "储物柜门",
+      "x": 1080,
+      "y": 280,
+      "priority": 1.077,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-classroom-cupboard-door"
+    },
+    {
+      "id": "primary-classroom-cupboard-handle",
+      "word": "cupboard handle",
+      "translation": "储物柜把手",
+      "x": 1120,
+      "y": 310,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-cupboard-handle"
+    },
+    {
+      "id": "primary-classroom-cupboard-hinge",
+      "word": "cupboard hinge",
+      "translation": "储物柜铰链",
+      "x": 1180,
+      "y": 300,
+      "priority": 1.079,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-cupboard-hinge"
+    },
+    {
+      "id": "primary-classroom-cupboard-shelf",
+      "word": "cupboard shelf",
+      "translation": "储物柜搁板",
+      "x": 1100,
+      "y": 400,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-cupboard-shelf"
+    },
+    {
+      "id": "primary-classroom-cupboard-divider",
+      "word": "cupboard divider",
+      "translation": "储物柜分隔板",
+      "x": 1150,
+      "y": 400,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-cupboard-divider"
+    },
+    {
+      "id": "primary-classroom-bookcase",
+      "word": "bookcase",
+      "translation": "书架",
+      "x": 100,
+      "y": 550,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-bookcase"
+    },
+    {
+      "id": "primary-classroom-classroom-bookcase-shelf",
+      "word": "classroom bookcase shelf",
+      "translation": "书架搁板",
+      "x": 100,
+      "y": 450,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-bookcase-shelf"
+    },
+    {
+      "id": "primary-classroom-bookcase-side-panel",
+      "word": "bookcase side panel",
+      "translation": "书架侧板",
+      "x": 160,
+      "y": 500,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-bookcase-side-panel"
+    },
+    {
+      "id": "primary-classroom-classroom-shelf-lip",
+      "word": "classroom shelf lip",
+      "translation": "搁板边缘",
+      "x": 120,
+      "y": 450,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-shelf-lip"
+    },
+    {
+      "id": "primary-classroom-classroom-shelf-bracket",
+      "word": "classroom shelf bracket",
+      "translation": "搁板支架",
+      "x": 150,
+      "y": 450,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-shelf-bracket"
+    },
+    {
+      "id": "primary-classroom-classroom-book-spine",
+      "word": "classroom book spine",
+      "translation": "书脊",
+      "x": 100,
+      "y": 500,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-book-spine"
+    },
+    {
+      "id": "primary-classroom-plain-notebook",
+      "word": "plain notebook",
+      "translation": "空白笔记本",
+      "x": 200,
+      "y": 500,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-plain-notebook"
+    },
+    {
+      "id": "primary-classroom-binder",
+      "word": "binder",
+      "translation": "文件夹",
+      "x": 1000,
+      "y": 350,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-binder"
+    },
+    {
+      "id": "primary-classroom-classroom-storage-bin",
+      "word": "classroom storage bin",
+      "translation": "储物箱",
+      "x": 1080,
+      "y": 500,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-storage-bin"
+    },
+    {
+      "id": "primary-classroom-classroom-blue-storage-bin",
+      "word": "classroom blue storage bin",
+      "translation": "蓝色储物箱",
+      "x": 1100,
+      "y": 520,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-blue-storage-bin"
+    },
+    {
+      "id": "primary-classroom-green-storage-bin",
+      "word": "green storage bin",
+      "translation": "绿色储物箱",
+      "x": 1150,
+      "y": 520,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-green-storage-bin"
+    },
+    {
+      "id": "primary-classroom-classroom-paper-tray",
+      "word": "classroom paper tray",
+      "translation": "纸张托盘",
+      "x": 250,
+      "y": 530,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-paper-tray"
+    },
+    {
+      "id": "primary-classroom-classroom-supply-box",
+      "word": "classroom supply box",
+      "translation": "用品盒",
+      "x": 260,
+      "y": 550,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-supply-box"
+    },
+    {
+      "id": "primary-classroom-ruler",
+      "word": "ruler",
+      "translation": "尺子",
+      "x": 300,
+      "y": 520,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-ruler"
+    },
+    {
+      "id": "primary-classroom-pencil-pot",
+      "word": "pencil pot",
+      "translation": "铅笔筒",
+      "x": 1170,
+      "y": 520,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-pencil-pot"
+    },
+    {
+      "id": "primary-classroom-coat-bag-cubby",
+      "word": "coat bag cubby",
+      "translation": "衣物书包格",
+      "x": 200,
+      "y": 300,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-coat-bag-cubby"
+    },
+    {
+      "id": "primary-classroom-classroom-cubby-shelf",
+      "word": "classroom cubby shelf",
+      "translation": "储物格搁板",
+      "x": 220,
+      "y": 350,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-cubby-shelf"
+    },
+    {
+      "id": "primary-classroom-classroom-cubby-divider",
+      "word": "classroom cubby divider",
+      "translation": "储物格分隔片",
+      "x": 240,
+      "y": 350,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-cubby-divider"
+    },
+    {
+      "id": "primary-classroom-classroom-cabinet-plinth",
+      "word": "classroom cabinet plinth",
+      "translation": "柜体基座",
+      "x": 1100,
+      "y": 560,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-cabinet-plinth"
+    },
+    {
+      "id": "primary-classroom-classroom-sink",
+      "word": "classroom sink",
+      "translation": "教室洗手池",
+      "x": 1450,
+      "y": 550,
+      "priority": 1.101,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-classroom-sink"
+    },
+    {
+      "id": "primary-classroom-classroom-sink-basin",
+      "word": "classroom sink basin",
+      "translation": "洗手盆",
+      "x": 1450,
+      "y": 590,
+      "priority": 1.102,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-classroom-sink-basin"
+    },
+    {
+      "id": "primary-classroom-classroom-sink-drain",
+      "word": "classroom sink drain",
+      "translation": "洗手池排水口",
+      "x": 1450,
+      "y": 600,
+      "priority": 1.103,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-classroom-sink-drain"
+    },
+    {
+      "id": "primary-classroom-classroom-faucet",
+      "word": "classroom faucet",
+      "translation": "教室水龙头",
+      "x": 1450,
+      "y": 500,
+      "priority": 1.104,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-classroom-faucet"
+    },
+    {
+      "id": "primary-classroom-classroom-faucet-spout",
+      "word": "classroom faucet spout",
+      "translation": "水龙头出水口",
+      "x": 1450,
+      "y": 520,
+      "priority": 1.105,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-faucet-spout"
+    },
+    {
+      "id": "primary-classroom-classroom-faucet-handle",
+      "word": "classroom faucet handle",
+      "translation": "水龙头把手",
+      "x": 1420,
+      "y": 520,
+      "priority": 1.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-faucet-handle"
+    },
+    {
+      "id": "primary-classroom-classroom-sink-counter",
+      "word": "classroom sink counter",
+      "translation": "洗手池台面",
+      "x": 1400,
+      "y": 560,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-sink-counter"
+    },
+    {
+      "id": "primary-classroom-classroom-counter-edge",
+      "word": "classroom counter edge",
+      "translation": "台面边缘",
+      "x": 1400,
+      "y": 620,
+      "priority": 1.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-counter-edge"
+    },
+    {
+      "id": "primary-classroom-classroom-sink-cabinet",
+      "word": "classroom sink cabinet",
+      "translation": "洗手池柜体",
+      "x": 1450,
+      "y": 700,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-sink-cabinet"
+    },
+    {
+      "id": "primary-classroom-sink-cabinet-door",
+      "word": "sink cabinet door",
+      "translation": "洗手池柜门",
+      "x": 1450,
+      "y": 720,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-sink-cabinet-door"
+    },
+    {
+      "id": "primary-classroom-sink-cabinet-pull",
+      "word": "sink cabinet pull",
+      "translation": "洗手池柜门拉手",
+      "x": 1450,
+      "y": 730,
+      "priority": 1.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-sink-cabinet-pull"
+    },
+    {
+      "id": "primary-classroom-classroom-coat-hook",
+      "word": "classroom coat hook",
+      "translation": "衣帽钩",
+      "x": 1450,
+      "y": 300,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-coat-hook"
+    },
+    {
+      "id": "primary-classroom-hook-rail",
+      "word": "hook rail",
+      "translation": "挂钩导轨",
+      "x": 1450,
+      "y": 280,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-hook-rail"
+    },
+    {
+      "id": "primary-classroom-school-backpack",
+      "word": "school backpack",
+      "translation": "书包",
+      "x": 1350,
+      "y": 400,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-school-backpack"
+    },
+    {
+      "id": "primary-classroom-green-backpack",
+      "word": "green backpack",
+      "translation": "绿色书包",
+      "x": 1300,
+      "y": 420,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-green-backpack"
+    },
+    {
+      "id": "primary-classroom-blue-backpack",
+      "word": "blue backpack",
+      "translation": "蓝色书包",
+      "x": 1400,
+      "y": 420,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-blue-backpack"
+    },
+    {
+      "id": "primary-classroom-classroom-bag-strap",
+      "word": "classroom bag strap",
+      "translation": "书包带",
+      "x": 1350,
+      "y": 450,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-bag-strap"
+    },
+    {
+      "id": "primary-classroom-side-classroom-door",
+      "word": "side classroom door",
+      "translation": "教室门",
+      "x": 1180,
+      "y": 350,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-side-classroom-door"
+    },
+    {
+      "id": "primary-classroom-classroom-door-window",
+      "word": "classroom door window",
+      "translation": "门窗",
+      "x": 1200,
+      "y": 350,
+      "priority": 1.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-door-window"
+    },
+    {
+      "id": "primary-classroom-classroom-door-handle",
+      "word": "classroom door handle",
+      "translation": "门把手",
+      "x": 1180,
+      "y": 500,
+      "priority": 1.12,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-door-handle"
+    },
+    {
+      "id": "primary-classroom-classroom-door-hinge",
+      "word": "classroom door hinge",
+      "translation": "门铰链",
+      "x": 1220,
+      "y": 500,
+      "priority": 1.121,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-door-hinge"
+    },
+    {
+      "id": "primary-classroom-classroom-doorway-threshold",
+      "word": "classroom doorway threshold",
+      "translation": "门口门槛",
+      "x": 1200,
+      "y": 780,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-doorway-threshold"
+    },
+    {
+      "id": "primary-classroom-classroom-towel-rail",
+      "word": "classroom towel rail",
+      "translation": "毛巾杆",
+      "x": 1500,
+      "y": 650,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-towel-rail"
+    },
+    {
+      "id": "primary-classroom-front-classroom-window",
+      "word": "front classroom window",
+      "translation": "教室窗",
+      "x": 80,
+      "y": 200,
+      "priority": 1.124,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-front-classroom-window"
+    },
+    {
+      "id": "primary-classroom-classroom-window-frame",
+      "word": "classroom window frame",
+      "translation": "窗框",
+      "x": 120,
+      "y": 200,
+      "priority": 1.125,
+      "minLevel": 0,
+      "sourceVisualRegion": "primary-classroom-region-classroom-window-frame"
+    },
+    {
+      "id": "primary-classroom-classroom-window-sill",
+      "word": "classroom window sill",
+      "translation": "窗台",
+      "x": 180,
+      "y": 280,
+      "priority": 1.126,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-classroom-window-sill"
+    },
+    {
+      "id": "primary-classroom-classroom-window-blind",
+      "word": "classroom window blind",
+      "translation": "窗百叶",
+      "x": 150,
+      "y": 120,
+      "priority": 1.127,
+      "minLevel": 1,
+      "sourceVisualRegion": "primary-classroom-region-classroom-window-blind"
+    },
+    {
+      "id": "primary-classroom-classroom-blind-slat",
+      "word": "classroom blind slat",
+      "translation": "百叶片",
+      "x": 160,
+      "y": 130,
+      "priority": 1.128,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-blind-slat"
+    },
+    {
+      "id": "primary-classroom-classroom-blind-rail",
+      "word": "classroom blind rail",
+      "translation": "百叶导轨",
+      "x": 160,
+      "y": 80,
+      "priority": 1.129,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-blind-rail"
+    },
+    {
+      "id": "primary-classroom-classroom-radiator",
+      "word": "classroom radiator",
+      "translation": "教室暖气片",
+      "x": 250,
+      "y": 550,
+      "priority": 1.13,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-radiator"
+    },
+    {
+      "id": "primary-classroom-radiator-grille",
+      "word": "radiator grille",
+      "translation": "暖气片格栅",
+      "x": 250,
+      "y": 570,
+      "priority": 1.131,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-radiator-grille"
+    },
+    {
+      "id": "primary-classroom-radiator-valve",
+      "word": "radiator valve",
+      "translation": "暖气片阀门",
+      "x": 260,
+      "y": 600,
+      "priority": 1.132,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-radiator-valve"
+    },
+    {
+      "id": "primary-classroom-classroom-ceiling-panel",
+      "word": "classroom ceiling panel",
+      "translation": "教室顶板",
+      "x": 1100,
+      "y": 50,
+      "priority": 1.133,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-ceiling-panel"
+    },
+    {
+      "id": "primary-classroom-classroom-ceiling-light",
+      "word": "classroom ceiling light",
+      "translation": "教室顶灯",
+      "x": 1000,
+      "y": 70,
+      "priority": 1.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-ceiling-light"
+    },
+    {
+      "id": "primary-classroom-classroom-light-diffuser",
+      "word": "classroom light diffuser",
+      "translation": "灯具扩散罩",
+      "x": 1000,
+      "y": 80,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-light-diffuser"
+    },
+    {
+      "id": "primary-classroom-classroom-air-grille",
+      "word": "classroom air grille",
+      "translation": "教室通风格栅",
+      "x": 1350,
+      "y": 60,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-air-grille"
+    },
+    {
+      "id": "primary-classroom-classroom-wall-base-trim",
+      "word": "classroom wall base trim",
+      "translation": "墙根饰条",
+      "x": 1300,
+      "y": 820,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-wall-base-trim"
+    },
+    {
+      "id": "primary-classroom-classroom-floorboard",
+      "word": "classroom floorboard",
+      "translation": "教室地板",
+      "x": 800,
+      "y": 850,
+      "priority": 1.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-floorboard"
+    },
+    {
+      "id": "primary-classroom-floorboard-seam",
+      "word": "floorboard seam",
+      "translation": "地板接缝",
+      "x": 850,
+      "y": 850,
+      "priority": 1.139,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-floorboard-seam"
+    },
+    {
+      "id": "primary-classroom-floor-skirting",
+      "word": "floor skirting",
+      "translation": "地脚线",
+      "x": 1200,
+      "y": 800,
+      "priority": 1.14,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-floor-skirting"
+    },
+    {
+      "id": "primary-classroom-doorway-trim",
+      "word": "doorway trim",
+      "translation": "门口饰条",
+      "x": 1200,
+      "y": 260,
+      "priority": 1.141,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-doorway-trim"
+    },
+    {
+      "id": "primary-classroom-classroom-plant-pot",
+      "word": "classroom plant pot",
+      "translation": "教室植物盆",
+      "x": 440,
+      "y": 300,
+      "priority": 1.142,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-plant-pot"
+    },
+    {
+      "id": "primary-classroom-classroom-plant-leaf",
+      "word": "classroom plant leaf",
+      "translation": "教室植物叶片",
+      "x": 440,
+      "y": 280,
+      "priority": 1.143,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-classroom-plant-leaf"
+    },
+    {
+      "id": "primary-classroom-classroom-globe-stand",
+      "word": "classroom globe stand",
+      "translation": "地球仪底座",
+      "x": 80,
+      "y": 360,
+      "priority": 1.144,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-classroom-globe-stand"
+    },
+    {
+      "id": "primary-classroom-classroom-globe-meridian",
+      "word": "classroom globe meridian",
+      "translation": "地球仪经线架",
+      "x": 80,
+      "y": 330,
+      "priority": 1.145,
+      "minLevel": 4,
+      "sourceVisualRegion": "primary-classroom-region-classroom-globe-meridian"
+    },
+    {
+      "id": "primary-classroom-floor-threshold-trim",
+      "word": "floor threshold trim",
+      "translation": "地面门槛饰条",
+      "x": 1100,
+      "y": 880,
+      "priority": 1.146,
+      "minLevel": 2,
+      "sourceVisualRegion": "primary-classroom-region-floor-threshold-trim"
+    },
+    {
+      "id": "primary-classroom-wall-color-band",
+      "word": "wall color band",
+      "translation": "墙面色带",
+      "x": 900,
+      "y": 430,
+      "priority": 1.147,
+      "minLevel": 3,
+      "sourceVisualRegion": "primary-classroom-region-wall-color-band"
+    }
+  ],
+  "portals": []
+}
