@@ -9,8 +9,8 @@
   "parentId": "service-core",
   "visualRegions": [
     {
-      "id": "warehouse-region-forklift",
-      "description": "Pixel-audited “forklift” inside the Counterbalance forklift crop of the warehouse photograph",
+      "id": "warehouse-region-warehouse-forklift",
+      "description": "Pixel-audited “warehouse forklift” inside the Counterbalance forklift crop of the warehouse photograph",
       "kind": "part",
       "x": 392.344498,
       "y": 516.471838,
@@ -18,8 +18,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-overhead-guard",
-      "description": "Pixel-audited “overhead guard” inside the Counterbalance forklift crop of the warehouse photograph",
+      "id": "warehouse-region-forklift-overhead-guard",
+      "description": "Pixel-audited “forklift overhead guard” inside the Counterbalance forklift crop of the warehouse photograph",
       "kind": "part",
       "x": 416.267943,
       "y": 363.443146,
@@ -27,8 +27,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-forklift-mast",
-      "description": "Pixel-audited “forklift mast” inside the Counterbalance forklift crop of the warehouse photograph",
+      "id": "warehouse-region-warehouse-forklift-mast",
+      "description": "Pixel-audited “warehouse forklift mast” inside the Counterbalance forklift crop of the warehouse photograph",
       "kind": "part",
       "x": 224.880383,
       "y": 416.046759,
@@ -81,8 +81,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-fork-tine",
-      "description": "Pixel-audited “fork tine” inside the Counterbalance forklift crop of the warehouse photograph",
+      "id": "warehouse-region-forklift-fork-tine",
+      "description": "Pixel-audited “forklift fork tine” inside the Counterbalance forklift crop of the warehouse photograph",
       "kind": "part",
       "x": 124.401914,
       "y": 731.668438,
@@ -126,8 +126,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-warning-beacon",
-      "description": "Pixel-audited “warning beacon” inside the Counterbalance forklift crop of the warehouse photograph",
+      "id": "warehouse-region-forklift-warning-beacon",
+      "description": "Pixel-audited “forklift warning beacon” inside the Counterbalance forklift crop of the warehouse photograph",
       "kind": "part",
       "x": 459.330144,
       "y": 301.275239,
@@ -153,8 +153,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-operator-seat",
-      "description": "Pixel-audited “operator seat” inside the Counterbalance forklift crop of the warehouse photograph",
+      "id": "warehouse-region-forklift-operator-seat",
+      "description": "Pixel-audited “forklift operator seat” inside the Counterbalance forklift crop of the warehouse photograph",
       "kind": "part",
       "x": 444.976077,
       "y": 430.393199,
@@ -162,8 +162,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-seat-back",
-      "description": "Pixel-audited “seat back” inside the Counterbalance forklift crop of the warehouse photograph",
+      "id": "warehouse-region-forklift-seat-back",
+      "description": "Pixel-audited “forklift seat back” inside the Counterbalance forklift crop of the warehouse photograph",
       "kind": "part",
       "x": 449.760766,
       "y": 392.136026,
@@ -171,8 +171,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-steering-wheel",
-      "description": "Pixel-audited “steering wheel” inside the Counterbalance forklift crop of the warehouse photograph",
+      "id": "warehouse-region-forklift-steering-wheel",
+      "description": "Pixel-audited “forklift steering wheel” inside the Counterbalance forklift crop of the warehouse photograph",
       "kind": "part",
       "x": 363.636364,
       "y": 401.700319,
@@ -216,8 +216,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-tire-tread",
-      "description": "Pixel-audited “tire tread” inside the Counterbalance forklift crop of the warehouse photograph",
+      "id": "warehouse-region-forklift-tire-tread",
+      "description": "Pixel-audited “forklift tire tread” inside the Counterbalance forklift crop of the warehouse photograph",
       "kind": "part",
       "x": 440.191388,
       "y": 621.679065,
@@ -405,8 +405,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-wooden-crate",
-      "description": "Pixel-audited “wooden crate” inside the Pallet rack storage crop of the warehouse photograph",
+      "id": "warehouse-region-warehouse-wooden-crate",
+      "description": "Pixel-audited “warehouse wooden crate” inside the Pallet rack storage crop of the warehouse photograph",
       "kind": "part",
       "x": 708.133971,
       "y": 306.057386,
@@ -459,8 +459,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-wrapped-pallet",
-      "description": "Pixel-audited “wrapped pallet” inside the Pallet rack storage crop of the warehouse photograph",
+      "id": "warehouse-region-stretch-wrapped-pallet",
+      "description": "Pixel-audited “stretch-wrapped pallet” inside the Pallet rack storage crop of the warehouse photograph",
       "kind": "part",
       "x": 765.550239,
       "y": 219.978746,
@@ -540,8 +540,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-battery-cover",
-      "description": "Pixel-audited “battery cover” inside the Material-handling equipment crop of the warehouse photograph",
+      "id": "warehouse-region-pallet-truck-battery-cover",
+      "description": "Pixel-audited “pallet-truck battery cover” inside the Material-handling equipment crop of the warehouse photograph",
       "kind": "part",
       "x": 875.598086,
       "y": 430.393199,
@@ -648,8 +648,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-roller-conveyor",
-      "description": "Pixel-audited “roller conveyor” inside the Packing and dispatch station crop of the warehouse photograph",
+      "id": "warehouse-region-packing-roller-conveyor",
+      "description": "Pixel-audited “packing roller conveyor” inside the Packing and dispatch station crop of the warehouse photograph",
       "kind": "part",
       "x": 1358.851675,
       "y": 583.421892,
@@ -675,8 +675,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-bench-scale",
-      "description": "Pixel-audited “bench scale” inside the Packing and dispatch station crop of the warehouse photograph",
+      "id": "warehouse-region-packing-bench-scale",
+      "description": "Pixel-audited “packing bench scale” inside the Packing and dispatch station crop of the warehouse photograph",
       "kind": "part",
       "x": 995.215311,
       "y": 592.986185,
@@ -684,8 +684,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-scale-platform",
-      "description": "Pixel-audited “scale platform” inside the Packing and dispatch station crop of the warehouse photograph",
+      "id": "warehouse-region-packing-scale-platform",
+      "description": "Pixel-audited “packing scale platform” inside the Packing and dispatch station crop of the warehouse photograph",
       "kind": "part",
       "x": 985.645933,
       "y": 569.075452,
@@ -693,8 +693,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-barcode-scanner",
-      "description": "Pixel-audited “barcode scanner” inside the Packing and dispatch station crop of the warehouse photograph",
+      "id": "warehouse-region-handheld-barcode-scanner",
+      "description": "Pixel-audited “handheld barcode scanner” inside the Packing and dispatch station crop of the warehouse photograph",
       "kind": "part",
       "x": 1282.296651,
       "y": 602.550478,
@@ -711,8 +711,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-label-printer",
-      "description": "Pixel-audited “label printer” inside the Packing and dispatch station crop of the warehouse photograph",
+      "id": "warehouse-region-shipping-label-printer",
+      "description": "Pixel-audited “shipping label printer” inside the Packing and dispatch station crop of the warehouse photograph",
       "kind": "part",
       "x": 1325.358852,
       "y": 650.371945,
@@ -882,8 +882,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-door-hinge",
-      "description": "Pixel-audited “door hinge” inside the Truck loading dock crop of the warehouse photograph",
+      "id": "warehouse-region-sectional-door-hinge",
+      "description": "Pixel-audited “sectional door hinge” inside the Truck loading dock crop of the warehouse photograph",
       "kind": "part",
       "x": 1291.866029,
       "y": 153.028693,
@@ -900,8 +900,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-dock-shelter",
-      "description": "Pixel-audited “dock shelter” inside the Truck loading dock crop of the warehouse photograph",
+      "id": "warehouse-region-loading-dock-shelter",
+      "description": "Pixel-audited “loading-dock shelter” inside the Truck loading dock crop of the warehouse photograph",
       "kind": "part",
       "x": 1253.588517,
       "y": 248.671626,
@@ -954,8 +954,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-dock-bumper",
-      "description": "Pixel-audited “dock bumper” inside the Truck loading dock crop of the warehouse photograph",
+      "id": "warehouse-region-loading-dock-bumper",
+      "description": "Pixel-audited “loading-dock bumper” inside the Truck loading dock crop of the warehouse photograph",
       "kind": "part",
       "x": 1234.449761,
       "y": 430.393199,
@@ -990,8 +990,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-bollard-cap",
-      "description": "Pixel-audited “bollard cap” inside the Truck loading dock crop of the warehouse photograph",
+      "id": "warehouse-region-safety-bollard-cap",
+      "description": "Pixel-audited “safety bollard cap” inside the Truck loading dock crop of the warehouse photograph",
       "kind": "part",
       "x": 1481.339713,
       "y": 358.660999,
@@ -1008,8 +1008,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-stair-tread",
-      "description": "Pixel-audited “stair tread” inside the Truck loading dock crop of the warehouse photograph",
+      "id": "warehouse-region-dock-stair-tread",
+      "description": "Pixel-audited “dock stair tread” inside the Truck loading dock crop of the warehouse photograph",
       "kind": "part",
       "x": 1473.684211,
       "y": 459.086079,
@@ -1017,8 +1017,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-stair-handrail",
-      "description": "Pixel-audited “stair handrail” inside the Truck loading dock crop of the warehouse photograph",
+      "id": "warehouse-region-dock-stair-handrail",
+      "description": "Pixel-audited “dock stair handrail” inside the Truck loading dock crop of the warehouse photograph",
       "kind": "part",
       "x": 1454.545455,
       "y": 363.443146,
@@ -1053,8 +1053,8 @@
       "height": 38.257173
     },
     {
-      "id": "warehouse-region-fire-extinguisher",
-      "description": "Pixel-audited “fire extinguisher” inside the Truck loading dock crop of the warehouse photograph",
+      "id": "warehouse-region-dock-fire-extinguisher",
+      "description": "Pixel-audited “dock fire extinguisher” inside the Truck loading dock crop of the warehouse photograph",
       "kind": "part",
       "x": 1129.186603,
       "y": 296.493092,
@@ -1110,30 +1110,30 @@
       "height": 535.600425,
       "targetScale": 3.15,
       "labelIds": [
-        "warehouse-forklift",
-        "warehouse-overhead-guard",
-        "warehouse-forklift-mast",
+        "warehouse-warehouse-forklift",
+        "warehouse-forklift-overhead-guard",
+        "warehouse-warehouse-forklift-mast",
         "warehouse-outer-mast-rail",
         "warehouse-inner-mast-rail",
         "warehouse-lift-chain",
         "warehouse-fork-carriage",
         "warehouse-load-backrest",
-        "warehouse-fork-tine",
+        "warehouse-forklift-fork-tine",
         "warehouse-fork-heel",
         "warehouse-hydraulic-hose",
         "warehouse-tilt-cylinder",
         "warehouse-forklift-headlamp",
-        "warehouse-warning-beacon",
+        "warehouse-forklift-warning-beacon",
         "warehouse-propane-cylinder",
         "warehouse-cylinder-clamp",
-        "warehouse-operator-seat",
-        "warehouse-seat-back",
-        "warehouse-steering-wheel",
+        "warehouse-forklift-operator-seat",
+        "warehouse-forklift-seat-back",
+        "warehouse-forklift-steering-wheel",
         "warehouse-instrument-panel",
         "warehouse-counterweight",
         "warehouse-drive-wheel",
         "warehouse-steer-wheel",
-        "warehouse-tire-tread",
+        "warehouse-forklift-tire-tread",
         "warehouse-engine-hood",
         "warehouse-operator-step"
       ]
@@ -1167,13 +1167,13 @@
         "warehouse-carton-stack",
         "warehouse-blue-storage-tote",
         "warehouse-grey-storage-tote",
-        "warehouse-wooden-crate",
+        "warehouse-warehouse-wooden-crate",
         "warehouse-stretch-wrap",
         "warehouse-corner-board",
         "warehouse-plastic-strapping",
         "warehouse-beam-lock",
         "warehouse-location-plate",
-        "warehouse-wrapped-pallet"
+        "warehouse-stretch-wrapped-pallet"
       ]
     },
     {
@@ -1195,7 +1195,7 @@
         "warehouse-jack-steer-caster",
         "warehouse-electric-pallet-truck",
         "warehouse-powered-control-handle",
-        "warehouse-battery-cover",
+        "warehouse-pallet-truck-battery-cover",
         "warehouse-powered-fork",
         "warehouse-drive-unit",
         "warehouse-rolling-warehouse-ladder",
@@ -1220,14 +1220,14 @@
       "labelIds": [
         "warehouse-packing-bench",
         "warehouse-packing-worktop",
-        "warehouse-roller-conveyor",
+        "warehouse-packing-roller-conveyor",
         "warehouse-conveyor-roller",
         "warehouse-conveyor-frame",
-        "warehouse-bench-scale",
-        "warehouse-scale-platform",
-        "warehouse-barcode-scanner",
+        "warehouse-packing-bench-scale",
+        "warehouse-packing-scale-platform",
+        "warehouse-handheld-barcode-scanner",
         "warehouse-scanner-trigger",
-        "warehouse-label-printer",
+        "warehouse-shipping-label-printer",
         "warehouse-label-liner",
         "warehouse-tape-dispenser",
         "warehouse-packing-tape-roll",
@@ -1259,26 +1259,26 @@
       "labelIds": [
         "warehouse-overhead-dock-door",
         "warehouse-sectional-door-panel",
-        "warehouse-door-hinge",
+        "warehouse-sectional-door-hinge",
         "warehouse-vertical-door-track",
-        "warehouse-dock-shelter",
+        "warehouse-loading-dock-shelter",
         "warehouse-truck-trailer",
         "warehouse-trailer-opening",
         "warehouse-trailer-floor",
         "warehouse-dock-leveler",
         "warehouse-dock-lip",
-        "warehouse-dock-bumper",
+        "warehouse-loading-dock-bumper",
         "warehouse-dock-threshold",
         "warehouse-dock-light",
         "warehouse-safety-bollard",
-        "warehouse-bollard-cap",
+        "warehouse-safety-bollard-cap",
         "warehouse-dock-stair",
-        "warehouse-stair-tread",
-        "warehouse-stair-handrail",
+        "warehouse-dock-stair-tread",
+        "warehouse-dock-stair-handrail",
         "warehouse-dock-curb",
         "warehouse-pedestrian-lane",
         "warehouse-convex-safety-mirror",
-        "warehouse-fire-extinguisher",
+        "warehouse-dock-fire-extinguisher",
         "warehouse-first-aid-cabinet",
         "warehouse-eyewash-station",
         "warehouse-eyewash-bowl",
@@ -1307,34 +1307,34 @@
   },
   "labels": [
     {
-      "id": "warehouse-forklift",
-      "word": "forklift",
-      "translation": "叉车",
+      "id": "warehouse-warehouse-forklift",
+      "word": "warehouse forklift",
+      "translation": "仓库叉车",
       "x": 411.483254,
       "y": 535.600425,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-forklift"
+      "sourceVisualRegion": "warehouse-region-warehouse-forklift"
     },
     {
-      "id": "warehouse-overhead-guard",
-      "word": "overhead guard",
-      "translation": "护顶架",
+      "id": "warehouse-forklift-overhead-guard",
+      "word": "forklift overhead guard",
+      "translation": "叉车护顶架",
       "x": 435.406699,
       "y": 382.571732,
       "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-overhead-guard"
+      "sourceVisualRegion": "warehouse-region-forklift-overhead-guard"
     },
     {
-      "id": "warehouse-forklift-mast",
-      "word": "forklift mast",
-      "translation": "叉车门架",
+      "id": "warehouse-warehouse-forklift-mast",
+      "word": "warehouse forklift mast",
+      "translation": "仓库叉车门架",
       "x": 244.019139,
       "y": 435.175345,
       "priority": 1.002,
       "minLevel": 1,
-      "sourceVisualRegion": "warehouse-region-forklift-mast"
+      "sourceVisualRegion": "warehouse-region-warehouse-forklift-mast"
     },
     {
       "id": "warehouse-outer-mast-rail",
@@ -1387,14 +1387,14 @@
       "sourceVisualRegion": "warehouse-region-load-backrest"
     },
     {
-      "id": "warehouse-fork-tine",
-      "word": "fork tine",
-      "translation": "货叉臂",
+      "id": "warehouse-forklift-fork-tine",
+      "word": "forklift fork tine",
+      "translation": "叉车货叉臂",
       "x": 143.54067,
       "y": 750.797024,
       "priority": 1.008,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-fork-tine"
+      "sourceVisualRegion": "warehouse-region-forklift-fork-tine"
     },
     {
       "id": "warehouse-fork-heel",
@@ -1437,14 +1437,14 @@
       "sourceVisualRegion": "warehouse-region-forklift-headlamp"
     },
     {
-      "id": "warehouse-warning-beacon",
-      "word": "warning beacon",
-      "translation": "警示灯",
+      "id": "warehouse-forklift-warning-beacon",
+      "word": "forklift warning beacon",
+      "translation": "叉车警示灯",
       "x": 478.4689,
       "y": 320.403826,
       "priority": 1.013,
       "minLevel": 1,
-      "sourceVisualRegion": "warehouse-region-warning-beacon"
+      "sourceVisualRegion": "warehouse-region-forklift-warning-beacon"
     },
     {
       "id": "warehouse-propane-cylinder",
@@ -1467,34 +1467,34 @@
       "sourceVisualRegion": "warehouse-region-cylinder-clamp"
     },
     {
-      "id": "warehouse-operator-seat",
-      "word": "operator seat",
-      "translation": "驾驶座椅",
+      "id": "warehouse-forklift-operator-seat",
+      "word": "forklift operator seat",
+      "translation": "叉车驾驶座椅",
       "x": 464.114833,
       "y": 449.521785,
       "priority": 1.016,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-operator-seat"
+      "sourceVisualRegion": "warehouse-region-forklift-operator-seat"
     },
     {
-      "id": "warehouse-seat-back",
-      "word": "seat back",
-      "translation": "座椅靠背",
+      "id": "warehouse-forklift-seat-back",
+      "word": "forklift seat back",
+      "translation": "叉车座椅靠背",
       "x": 468.899522,
       "y": 411.264612,
       "priority": 1.017,
       "minLevel": 2,
-      "sourceVisualRegion": "warehouse-region-seat-back"
+      "sourceVisualRegion": "warehouse-region-forklift-seat-back"
     },
     {
-      "id": "warehouse-steering-wheel",
-      "word": "steering wheel",
-      "translation": "方向盘",
+      "id": "warehouse-forklift-steering-wheel",
+      "word": "forklift steering wheel",
+      "translation": "叉车方向盘",
       "x": 382.77512,
       "y": 420.828905,
       "priority": 1.018,
       "minLevel": 1,
-      "sourceVisualRegion": "warehouse-region-steering-wheel"
+      "sourceVisualRegion": "warehouse-region-forklift-steering-wheel"
     },
     {
       "id": "warehouse-instrument-panel",
@@ -1537,14 +1537,14 @@
       "sourceVisualRegion": "warehouse-region-steer-wheel"
     },
     {
-      "id": "warehouse-tire-tread",
-      "word": "tire tread",
-      "translation": "轮胎花纹",
+      "id": "warehouse-forklift-tire-tread",
+      "word": "forklift tire tread",
+      "translation": "叉车轮胎花纹",
       "x": 459.330144,
       "y": 640.807651,
       "priority": 1.023,
       "minLevel": 4,
-      "sourceVisualRegion": "warehouse-region-tire-tread"
+      "sourceVisualRegion": "warehouse-region-forklift-tire-tread"
     },
     {
       "id": "warehouse-engine-hood",
@@ -1747,14 +1747,14 @@
       "sourceVisualRegion": "warehouse-region-grey-storage-tote"
     },
     {
-      "id": "warehouse-wooden-crate",
-      "word": "wooden crate",
-      "translation": "木制板条箱",
+      "id": "warehouse-warehouse-wooden-crate",
+      "word": "warehouse wooden crate",
+      "translation": "仓库木制板条箱",
       "x": 727.272727,
       "y": 325.185972,
       "priority": 1.044,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-wooden-crate"
+      "sourceVisualRegion": "warehouse-region-warehouse-wooden-crate"
     },
     {
       "id": "warehouse-stretch-wrap",
@@ -1807,14 +1807,14 @@
       "sourceVisualRegion": "warehouse-region-location-plate"
     },
     {
-      "id": "warehouse-wrapped-pallet",
-      "word": "wrapped pallet",
-      "translation": "覆膜托盘货载",
+      "id": "warehouse-stretch-wrapped-pallet",
+      "word": "stretch-wrapped pallet",
+      "translation": "缠绕膜托盘货载",
       "x": 784.688995,
       "y": 239.107333,
       "priority": 1.05,
       "minLevel": 1,
-      "sourceVisualRegion": "warehouse-region-wrapped-pallet"
+      "sourceVisualRegion": "warehouse-region-stretch-wrapped-pallet"
     },
     {
       "id": "warehouse-manual-pallet-jack",
@@ -1897,14 +1897,14 @@
       "sourceVisualRegion": "warehouse-region-powered-control-handle"
     },
     {
-      "id": "warehouse-battery-cover",
-      "word": "battery cover",
-      "translation": "电池盖",
+      "id": "warehouse-pallet-truck-battery-cover",
+      "word": "pallet-truck battery cover",
+      "translation": "托盘车电池盖",
       "x": 894.736842,
       "y": 449.521785,
       "priority": 1.059,
       "minLevel": 2,
-      "sourceVisualRegion": "warehouse-region-battery-cover"
+      "sourceVisualRegion": "warehouse-region-pallet-truck-battery-cover"
     },
     {
       "id": "warehouse-powered-fork",
@@ -2017,14 +2017,14 @@
       "sourceVisualRegion": "warehouse-region-packing-worktop"
     },
     {
-      "id": "warehouse-roller-conveyor",
-      "word": "roller conveyor",
-      "translation": "滚筒输送机",
+      "id": "warehouse-packing-roller-conveyor",
+      "word": "packing roller conveyor",
+      "translation": "包装滚筒输送机",
       "x": 1377.990431,
       "y": 602.550478,
       "priority": 1.071,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-roller-conveyor"
+      "sourceVisualRegion": "warehouse-region-packing-roller-conveyor"
     },
     {
       "id": "warehouse-conveyor-roller",
@@ -2047,34 +2047,34 @@
       "sourceVisualRegion": "warehouse-region-conveyor-frame"
     },
     {
-      "id": "warehouse-bench-scale",
-      "word": "bench scale",
-      "translation": "台秤",
+      "id": "warehouse-packing-bench-scale",
+      "word": "packing bench scale",
+      "translation": "包装台秤",
       "x": 1014.354067,
       "y": 612.114772,
       "priority": 1.074,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-bench-scale"
+      "sourceVisualRegion": "warehouse-region-packing-bench-scale"
     },
     {
-      "id": "warehouse-scale-platform",
-      "word": "scale platform",
-      "translation": "秤台",
+      "id": "warehouse-packing-scale-platform",
+      "word": "packing scale platform",
+      "translation": "包装秤台",
       "x": 1004.784689,
       "y": 588.204038,
       "priority": 1.075,
       "minLevel": 2,
-      "sourceVisualRegion": "warehouse-region-scale-platform"
+      "sourceVisualRegion": "warehouse-region-packing-scale-platform"
     },
     {
-      "id": "warehouse-barcode-scanner",
-      "word": "barcode scanner",
-      "translation": "条码扫描器",
+      "id": "warehouse-handheld-barcode-scanner",
+      "word": "handheld barcode scanner",
+      "translation": "手持条码扫描器",
       "x": 1301.435407,
       "y": 621.679065,
       "priority": 1.076,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-barcode-scanner"
+      "sourceVisualRegion": "warehouse-region-handheld-barcode-scanner"
     },
     {
       "id": "warehouse-scanner-trigger",
@@ -2087,14 +2087,14 @@
       "sourceVisualRegion": "warehouse-region-scanner-trigger"
     },
     {
-      "id": "warehouse-label-printer",
-      "word": "label printer",
-      "translation": "标签打印机",
+      "id": "warehouse-shipping-label-printer",
+      "word": "shipping label printer",
+      "translation": "运输标签打印机",
       "x": 1344.497608,
       "y": 669.500531,
       "priority": 1.078,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-label-printer"
+      "sourceVisualRegion": "warehouse-region-shipping-label-printer"
     },
     {
       "id": "warehouse-label-liner",
@@ -2277,14 +2277,14 @@
       "sourceVisualRegion": "warehouse-region-sectional-door-panel"
     },
     {
-      "id": "warehouse-door-hinge",
-      "word": "door hinge",
-      "translation": "门板铰链",
+      "id": "warehouse-sectional-door-hinge",
+      "word": "sectional door hinge",
+      "translation": "分节门板铰链",
       "x": 1311.004785,
       "y": 172.157279,
       "priority": 1.097,
       "minLevel": 3,
-      "sourceVisualRegion": "warehouse-region-door-hinge"
+      "sourceVisualRegion": "warehouse-region-sectional-door-hinge"
     },
     {
       "id": "warehouse-vertical-door-track",
@@ -2297,14 +2297,14 @@
       "sourceVisualRegion": "warehouse-region-vertical-door-track"
     },
     {
-      "id": "warehouse-dock-shelter",
-      "word": "dock shelter",
-      "translation": "月台门封",
+      "id": "warehouse-loading-dock-shelter",
+      "word": "loading-dock shelter",
+      "translation": "装卸月台门封",
       "x": 1272.727273,
       "y": 267.800213,
       "priority": 1.099,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-dock-shelter"
+      "sourceVisualRegion": "warehouse-region-loading-dock-shelter"
     },
     {
       "id": "warehouse-truck-trailer",
@@ -2357,14 +2357,14 @@
       "sourceVisualRegion": "warehouse-region-dock-lip"
     },
     {
-      "id": "warehouse-dock-bumper",
-      "word": "dock bumper",
-      "translation": "月台防撞垫",
+      "id": "warehouse-loading-dock-bumper",
+      "word": "loading-dock bumper",
+      "translation": "装卸月台防撞垫",
       "x": 1253.588517,
       "y": 449.521785,
       "priority": 1.105,
       "minLevel": 2,
-      "sourceVisualRegion": "warehouse-region-dock-bumper"
+      "sourceVisualRegion": "warehouse-region-loading-dock-bumper"
     },
     {
       "id": "warehouse-dock-threshold",
@@ -2397,14 +2397,14 @@
       "sourceVisualRegion": "warehouse-region-safety-bollard"
     },
     {
-      "id": "warehouse-bollard-cap",
-      "word": "bollard cap",
-      "translation": "防撞柱帽",
+      "id": "warehouse-safety-bollard-cap",
+      "word": "safety bollard cap",
+      "translation": "安全防撞柱帽",
       "x": 1500.478469,
       "y": 377.789586,
       "priority": 1.109,
       "minLevel": 4,
-      "sourceVisualRegion": "warehouse-region-bollard-cap"
+      "sourceVisualRegion": "warehouse-region-safety-bollard-cap"
     },
     {
       "id": "warehouse-dock-stair",
@@ -2417,24 +2417,24 @@
       "sourceVisualRegion": "warehouse-region-dock-stair"
     },
     {
-      "id": "warehouse-stair-tread",
-      "word": "stair tread",
-      "translation": "楼梯踏板",
+      "id": "warehouse-dock-stair-tread",
+      "word": "dock stair tread",
+      "translation": "月台楼梯踏板",
       "x": 1492.822967,
       "y": 478.214665,
       "priority": 1.111,
       "minLevel": 2,
-      "sourceVisualRegion": "warehouse-region-stair-tread"
+      "sourceVisualRegion": "warehouse-region-dock-stair-tread"
     },
     {
-      "id": "warehouse-stair-handrail",
-      "word": "stair handrail",
-      "translation": "楼梯扶手",
+      "id": "warehouse-dock-stair-handrail",
+      "word": "dock stair handrail",
+      "translation": "月台楼梯扶手",
       "x": 1473.684211,
       "y": 382.571732,
       "priority": 1.112,
       "minLevel": 1,
-      "sourceVisualRegion": "warehouse-region-stair-handrail"
+      "sourceVisualRegion": "warehouse-region-dock-stair-handrail"
     },
     {
       "id": "warehouse-dock-curb",
@@ -2467,14 +2467,14 @@
       "sourceVisualRegion": "warehouse-region-convex-safety-mirror"
     },
     {
-      "id": "warehouse-fire-extinguisher",
-      "word": "fire extinguisher",
-      "translation": "灭火器",
+      "id": "warehouse-dock-fire-extinguisher",
+      "word": "dock fire extinguisher",
+      "translation": "月台灭火器",
       "x": 1148.325359,
       "y": 315.621679,
       "priority": 1.116,
       "minLevel": 0,
-      "sourceVisualRegion": "warehouse-region-fire-extinguisher"
+      "sourceVisualRegion": "warehouse-region-dock-fire-extinguisher"
     },
     {
       "id": "warehouse-first-aid-cabinet",

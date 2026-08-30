@@ -21,7 +21,7 @@ async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8")) as T;
 }
 
-test("service-core is a reviewed terminal facilities scene with 90 grounded parts", async () => {
+test("service-core is a reviewed facilities branch with 90 grounded parts", async () => {
   const scene = await readJson<{
     id: string;
     parentId: string;
@@ -45,7 +45,7 @@ test("service-core is a reviewed terminal facilities scene with 90 grounded part
   assert.equal(scene.parentId, "office-building");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 90);
-  assert.equal(scene.visualRegions.length, 90);
+  assert.equal(scene.visualRegions.length, 91);
   assert.deepEqual(scene.detailZones.map((zone) => [zone.id, zone.labelIds.length]), [
     ["service-core-zone-electrical-distribution", 20],
     ["service-core-zone-hvac-mechanical", 22],
@@ -57,7 +57,10 @@ test("service-core is a reviewed terminal facilities scene with 90 grounded part
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
     [10, 10, 23, 22, 25],
   );
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(
+    scene.portals.map((portal) => (portal as { childSceneId: string }).childSceneId),
+    ["warehouse-loading-dock"],
+  );
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 6);

@@ -58,12 +58,12 @@ test("warehouse-loading-dock grounds 121 visible warehouse and dock terms", asyn
   const words = new Set(scene.labels.map((label) => label.word.toLocaleLowerCase()));
   assert.equal(words.size, scene.labels.length);
   for (const term of [
-    "forklift mast",
+    "warehouse forklift mast",
     "rack upright",
     "manual pallet jack",
     "electric pallet truck",
     "packing bench",
-    "roller conveyor",
+    "packing roller conveyor",
     "dock leveler",
     "convex safety mirror",
     "eyewash station",
