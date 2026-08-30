@@ -82,9 +82,9 @@
         "label": "Explore the school campus",
         "translation": "探索校园",
         "childSceneId": "school-campus",
-        "x": 1000,
-        "y": 660,
-        "width": 440,
+        "x": 1200,
+        "y": 600,
+        "width": 400,
         "height": 200,
         "enterScale": 3.75,
         "description": "Complete visible school interior and corridor area on the school atlas panel"

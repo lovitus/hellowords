@@ -231,9 +231,9 @@ const rootSchoolPortal = {
   translation: "探索校园",
   childSceneId: "school-campus",
   sourceVisualRegion: "portal-enter-school-campus",
-  x: 500,
-  y: 330,
-  width: 220,
+  x: 600,
+  y: 300,
+  width: 200,
   height: 100,
   enterScale: 3.75,
 };
