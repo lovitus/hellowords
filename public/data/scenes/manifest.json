@@ -13,6 +13,11 @@
       "parentId": "world-map"
     },
     {
+      "id": "supermarket-produce-department",
+      "title": "Supermarket produce department",
+      "parentId": "supermarket-grocery"
+    },
+    {
       "id": "refrigerated-display-case",
       "title": "Refrigerated display case",
       "parentId": "supermarket-grocery"

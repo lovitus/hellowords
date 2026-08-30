@@ -1069,6 +1069,15 @@
       "y": 110,
       "width": 520,
       "height": 390
+    },
+    {
+      "id": "portal-supermarket-produce-department-left-display",
+      "description": "Complete visible left-hand fruit and vegetable display in the supermarket photograph",
+      "kind": "object",
+      "x": 0,
+      "y": 270,
+      "width": 300,
+      "height": 430
     }
   ],
   "detailZones": [
@@ -2574,6 +2583,18 @@
       "width": 520,
       "height": 390,
       "enterScale": 3.4
+    },
+    {
+      "id": "enter-supermarket-produce-department",
+      "label": "Enter the produce department",
+      "translation": "进入超市果蔬区",
+      "childSceneId": "supermarket-produce-department",
+      "sourceVisualRegion": "portal-supermarket-produce-department-left-display",
+      "x": 0,
+      "y": 270,
+      "width": 300,
+      "height": 430,
+      "enterScale": 3.35
     }
   ]
 }
