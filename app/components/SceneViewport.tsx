@@ -2400,10 +2400,12 @@ export function SceneViewport({
     factor: number,
     portal: ScenePortal | undefined,
   ): boolean => {
-    // Terminal spatial studies are deliberately closed worlds. Continuing to
-    // zoom an object there must stop at its authored maximum; the ten-thousand
-    // word plane is reachable only through an explicit map/header action.
-    if (scene.portals.length === 0) {
+    // A spatial zoom must never turn into a semantic-world jump merely because
+    // the scene has some other portal. Only an explicit semantic bridge may
+    // call the semantic plane; the current product has no such spatial bridge.
+    // A portal under the focal point is left to evaluateNavigation, which owns
+    // the scene entry and keeps the object under the user's cursor.
+    if (!portal || scene.portals.length === 0) {
       resetSemanticOverscroll();
       return false;
     }

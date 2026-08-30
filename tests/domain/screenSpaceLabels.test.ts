@@ -523,6 +523,22 @@ test("semantic overscroll gives painted portal pixels ownership and resets with 
   );
 });
 
+test("spatial zoom cannot open the semantic plane when the focal object has no portal", () => {
+  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  const semanticStart = source.indexOf("const trySemanticOverscroll");
+  const semanticEnd = source.indexOf("const zoomAt", semanticStart);
+  const semanticPath = source.slice(semanticStart, semanticEnd);
+  const guard = semanticPath.indexOf("if (!portal || scene.portals.length === 0)");
+  const reducer = semanticPath.indexOf("const result = advanceSemanticOverscroll");
+  assert.ok(guard >= 0, "semantic overscroll must guard the focal portal before accumulating intent");
+  assert.ok(guard < reducer, "a missing focal portal must return before semantic accumulation");
+  assert.match(
+    semanticPath,
+    /if \(!portal \|\| scene\.portals\.length === 0\) \{[\s\S]*?resetSemanticOverscroll\(\);[\s\S]*?return false;/,
+    "zooming an ordinary object resets overscroll instead of opening the ten-thousand-word plane",
+  );
+});
+
 test("painted portal geometry round-trips to the camera used for child handoff", () => {
   const portal = { x: 20, y: 170, width: 480, height: 650 };
   const camera = { x: -211.32, y: -1360.09, fit: 0.9, scale: 3.98 };
