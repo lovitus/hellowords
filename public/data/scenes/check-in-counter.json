@@ -1,0 +1,3186 @@
+{
+  "id": "check-in-counter",
+  "title": "Check-in counter",
+  "translation": "值机柜台",
+  "subtitle": "Counter hardware, baggage scale, printers, kiosks and queue fixtures",
+  "asset": "/scenes/check-in-counter-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "airport",
+  "visualRegions": [
+    {
+      "id": "check-in-counter-region-check-in-counter",
+      "description": "Pixel-audited “check-in counter” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-worktop",
+      "description": "Pixel-audited “counter worktop” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-fascia",
+      "description": "Pixel-audited “counter fascia” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-side-panel",
+      "description": "Pixel-audited “counter side panel” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-counter-drawer",
+      "description": "Pixel-audited “check-in counter drawer” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-drawer-pull",
+      "description": "Pixel-audited “counter drawer pull” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-pedestal-base",
+      "description": "Pixel-audited “counter pedestal base” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-base-plinth",
+      "description": "Pixel-audited “counter base plinth” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-privacy-divider",
+      "description": "Pixel-audited “counter privacy divider” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-privacy-panel",
+      "description": "Pixel-audited “counter privacy panel” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-staffed-counter-cable-cover",
+      "description": "Pixel-audited “staffed counter cable cover” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-service-ledge",
+      "description": "Pixel-audited “counter service ledge” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-document-shelf",
+      "description": "Pixel-audited “document shelf” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-receipt-shelf",
+      "description": "Pixel-audited “receipt shelf” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-monitor-arm",
+      "description": "Pixel-audited “check-in monitor arm” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 290,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-monitor-stand",
+      "description": "Pixel-audited “check-in monitor stand” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-monitor-bezel",
+      "description": "Pixel-audited “check-in monitor bezel” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-blank-counter-monitor",
+      "description": "Pixel-audited “blank counter monitor” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-counter-partition",
+      "description": "Pixel-audited “check-in counter partition” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-foot-rail",
+      "description": "Pixel-audited “counter foot rail” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-accessible-counter-section",
+      "description": "Pixel-audited “accessible counter section” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-end-cap",
+      "description": "Pixel-audited “counter end cap” inside the Check-in counter row shell crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-agent-workstation",
+      "description": "Pixel-audited “agent workstation” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-document-scanner",
+      "description": "Pixel-audited “document scanner” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 240,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-passport-reader",
+      "description": "Pixel-audited “check-in passport reader” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 355,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-boarding-pass-printer",
+      "description": "Pixel-audited “check-in boarding pass printer” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-baggage-tag-printer",
+      "description": "Pixel-audited “baggage tag printer” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 190,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-receipt-printer",
+      "description": "Pixel-audited “check-in receipt printer” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 240,
+      "y": 405,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-printer-output-tray",
+      "description": "Pixel-audited “check-in printer output tray” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 215,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-tag-roll",
+      "description": "Pixel-audited “tag roll” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 150,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-blank-baggage-tag",
+      "description": "Pixel-audited “blank baggage tag” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-keyboard-tray",
+      "description": "Pixel-audited “check-in keyboard tray” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-keyboard",
+      "description": "Pixel-audited “check-in keyboard” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 370,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-card-reader",
+      "description": "Pixel-audited “card reader” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 410,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-card-reader-cradle",
+      "description": "Pixel-audited “card reader cradle” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 420,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-desk-monitor",
+      "description": "Pixel-audited “desk monitor” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-monitor-power-cable",
+      "description": "Pixel-audited “monitor power cable” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 335,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-scanner-glass",
+      "description": "Pixel-audited “check-in scanner glass” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-scanner-lid",
+      "description": "Pixel-audited “scanner lid” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-document-tray",
+      "description": "Pixel-audited “check-in document tray” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 320,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-paper-stack",
+      "description": "Pixel-audited “paper stack” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-paper-tray",
+      "description": "Pixel-audited “paper tray” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 510,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-label-dispenser",
+      "description": "Pixel-audited “label dispenser” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 150,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-baggage-tag-slot",
+      "description": "Pixel-audited “baggage tag slot” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 190,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-desk-equipment-shelf",
+      "description": "Pixel-audited “desk equipment shelf” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-device-cable",
+      "description": "Pixel-audited “counter device cable” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-baggage-tag-holder",
+      "description": "Pixel-audited “baggage tag holder” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 110,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-tag-stack",
+      "description": "Pixel-audited “tag stack” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-paper-roll",
+      "description": "Pixel-audited “paper roll” inside the Staffed desk equipment crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 160,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-baggage-scale",
+      "description": "Pixel-audited “check-in baggage scale” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-baggage-scale-platform",
+      "description": "Pixel-audited “baggage scale platform” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-baggage-scale-display",
+      "description": "Pixel-audited “baggage scale display” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-scale-deck",
+      "description": "Pixel-audited “scale deck” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-scale-support",
+      "description": "Pixel-audited “scale support” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 550,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-belt-conveyor",
+      "description": "Pixel-audited “check-in belt conveyor” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-conveyor-belt-surface",
+      "description": "Pixel-audited “conveyor belt surface” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 660,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-conveyor-roller",
+      "description": "Pixel-audited “check-in conveyor roller” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-roller-axle",
+      "description": "Pixel-audited “roller axle” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 470,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-belt-side-rail",
+      "description": "Pixel-audited “belt side rail” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-bag-drop-belt",
+      "description": "Pixel-audited “bag-drop belt” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-baggage-chute",
+      "description": "Pixel-audited “check-in baggage chute” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-luggage-weighing-tray",
+      "description": "Pixel-audited “luggage weighing tray” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 520,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-bag-shelf",
+      "description": "Pixel-audited “counter bag shelf” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-baggage-side-guide",
+      "description": "Pixel-audited “baggage side guide” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-conveyor-stop-rail",
+      "description": "Pixel-audited “conveyor stop rail” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-conveyor-end-plate",
+      "description": "Pixel-audited “conveyor end plate” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-conveyor-housing",
+      "description": "Pixel-audited “conveyor housing” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-baggage-bin",
+      "description": "Pixel-audited “baggage bin” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 860,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-cart-dock",
+      "description": "Pixel-audited “check-in cart dock” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-belt-access-panel",
+      "description": "Pixel-audited “belt access panel” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-scale-floor-plate",
+      "description": "Pixel-audited “scale floor plate” inside the Baggage scale and conveyor crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 570,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-self-service-kiosk",
+      "description": "Pixel-audited “check-in self-service kiosk” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-kiosk-screen",
+      "description": "Pixel-audited “check-in kiosk screen” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-kiosk-bezel",
+      "description": "Pixel-audited “check-in kiosk bezel” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-frame",
+      "description": "Pixel-audited “kiosk frame” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-passport-reader",
+      "description": "Pixel-audited “kiosk passport reader” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 670,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-document-slot",
+      "description": "Pixel-audited “kiosk document slot” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-boarding-pass-slot",
+      "description": "Pixel-audited “kiosk boarding-pass slot” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 715,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-tag-printer",
+      "description": "Pixel-audited “kiosk tag printer” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-kiosk-receipt-slot",
+      "description": "Pixel-audited “check-in kiosk receipt slot” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-kiosk-card-reader",
+      "description": "Pixel-audited “check-in kiosk card reader” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-card-reader-cradle",
+      "description": "Pixel-audited “kiosk card-reader cradle” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 695,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-lower-panel",
+      "description": "Pixel-audited “kiosk lower panel” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-base-plate",
+      "description": "Pixel-audited “kiosk base plate” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 840,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-foot",
+      "description": "Pixel-audited “kiosk foot” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-side-panel",
+      "description": "Pixel-audited “kiosk side panel” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-cable-cover",
+      "description": "Pixel-audited “kiosk cable cover” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 790,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-bag-tag-roll",
+      "description": "Pixel-audited “kiosk bag-tag roll” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 750,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-blank-tag",
+      "description": "Pixel-audited “kiosk blank tag” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 860,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-paper-tray",
+      "description": "Pixel-audited “kiosk paper tray” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 770,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-power-inlet",
+      "description": "Pixel-audited “kiosk power inlet” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-screen-hood",
+      "description": "Pixel-audited “kiosk screen hood” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-printer-door",
+      "description": "Pixel-audited “kiosk printer door” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 790,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-printer-latch",
+      "description": "Pixel-audited “kiosk printer latch” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-speaker-grille",
+      "description": "Pixel-audited “kiosk speaker grille” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 870,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-floor-mat",
+      "description": "Pixel-audited “kiosk floor mat” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 855,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-foreground-check-in-kiosk",
+      "description": "Pixel-audited “foreground check-in kiosk” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-middle-check-in-kiosk",
+      "description": "Pixel-audited “middle check-in kiosk” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-rear-check-in-kiosk",
+      "description": "Pixel-audited “rear check-in kiosk” inside the Self-service kiosk bank crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-overhead-display-panel",
+      "description": "Pixel-audited “overhead display panel” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-blank-information-screen",
+      "description": "Pixel-audited “blank information screen” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 90,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-display-screen-frame",
+      "description": "Pixel-audited “display screen frame” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 110,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-display-mounting-arm",
+      "description": "Pixel-audited “display mounting arm” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 250,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-display-cable-cover",
+      "description": "Pixel-audited “display cable cover” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 170,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-wall-cladding",
+      "description": "Pixel-audited “check-in wall cladding” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-wall-panel-seam",
+      "description": "Pixel-audited “wall panel seam” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-ceiling-bulkhead",
+      "description": "Pixel-audited “ceiling bulkhead” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 30,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-ceiling-vent",
+      "description": "Pixel-audited “ceiling vent” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 20,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-ceiling-light-strip",
+      "description": "Pixel-audited “ceiling light strip” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 20,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-ceiling-light-housing",
+      "description": "Pixel-audited “ceiling light housing” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-terminal-glass-mullion",
+      "description": "Pixel-audited “terminal glass mullion” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-window-frame",
+      "description": "Pixel-audited “check-in window frame” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-terminal-glazing",
+      "description": "Pixel-audited “terminal glazing” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-signage-support-rail",
+      "description": "Pixel-audited “signage support rail” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-blank-signage-panel",
+      "description": "Pixel-audited “blank signage panel” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-header-light",
+      "description": "Pixel-audited “counter header light” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 210,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-upper-service-panel",
+      "description": "Pixel-audited “check-in upper service panel” inside the Overhead display wall crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-queue-stanchion",
+      "description": "Pixel-audited “check-in queue stanchion” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-stanchion-post",
+      "description": "Pixel-audited “stanchion post” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-queue-stanchion-base",
+      "description": "Pixel-audited “queue stanchion base” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-queue-belt",
+      "description": "Pixel-audited “check-in queue belt” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-belt-receiver",
+      "description": "Pixel-audited “belt receiver” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-queue-corner",
+      "description": "Pixel-audited “check-in queue corner” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-accessible-check-in-lane",
+      "description": "Pixel-audited “accessible check-in lane” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-accessible-check-in-counter",
+      "description": "Pixel-audited “accessible check-in counter” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-accessible-counter-knee-space",
+      "description": "Pixel-audited “accessible counter knee space” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-queue-rail",
+      "description": "Pixel-audited “check-in queue rail” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-queue-rail-foot",
+      "description": "Pixel-audited “queue rail foot” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-floor-guide-stripe",
+      "description": "Pixel-audited “check-in floor guide stripe” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-queue-floor-tile",
+      "description": "Pixel-audited “queue floor tile” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-queue-barrier",
+      "description": "Pixel-audited “check-in queue barrier” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-barrier-connector",
+      "description": "Pixel-audited “barrier connector” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-queue-lane-divider",
+      "description": "Pixel-audited “queue lane divider” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-waiting-lane",
+      "description": "Pixel-audited “waiting lane” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-aisle-boundary",
+      "description": "Pixel-audited “aisle boundary” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-queue-end-post",
+      "description": "Pixel-audited “queue end post” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1530,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-floor-expansion-joint",
+      "description": "Pixel-audited “check-in floor expansion joint” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-terminal-column",
+      "description": "Pixel-audited “terminal column” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-glass-wall-panel",
+      "description": "Pixel-audited “glass wall panel” inside the Queue and accessible lane crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-polished-terminal-floor",
+      "description": "Pixel-audited “polished terminal floor” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-floor-tile",
+      "description": "Pixel-audited “check-in floor tile” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-floor-grout-line",
+      "description": "Pixel-audited “check-in floor grout line” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-terminal-bin-liner",
+      "description": "Pixel-audited “terminal bin liner” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-terminal-waste-bin",
+      "description": "Pixel-audited “terminal waste bin” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-terminal-recycling-bin",
+      "description": "Pixel-audited “terminal recycling bin” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-counter-footrest",
+      "description": "Pixel-audited “counter footrest” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-desk-lower-panel",
+      "description": "Pixel-audited “desk lower panel” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-check-in-equipment-plinth",
+      "description": "Pixel-audited “check-in equipment plinth” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-cable-floor-cover",
+      "description": "Pixel-audited “cable floor cover” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-floor-access-plate",
+      "description": "Pixel-audited “floor access plate” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-stanchion-floor-socket",
+      "description": "Pixel-audited “stanchion floor socket” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-floor-plate",
+      "description": "Pixel-audited “kiosk floor plate” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "check-in-counter-region-kiosk-base-corner",
+      "description": "Pixel-audited “kiosk base corner” inside the Floor and baggage ancillaries crop of the airport check-in photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "check-in-counter-zone-counter-row-shell",
+      "title": "Check-in counter row shell",
+      "translation": "值机柜台排与柜体",
+      "description": "Trace the visible counter worktops, privacy panels, drawers, bases, ledges and cable covers.",
+      "x": 80,
+      "y": 180,
+      "width": 1050,
+      "height": 500,
+      "targetScale": 3.15,
+      "labelIds": [
+        "check-in-counter-check-in-counter",
+        "check-in-counter-counter-worktop",
+        "check-in-counter-counter-fascia",
+        "check-in-counter-counter-side-panel",
+        "check-in-counter-check-in-counter-drawer",
+        "check-in-counter-counter-drawer-pull",
+        "check-in-counter-counter-pedestal-base",
+        "check-in-counter-counter-base-plinth",
+        "check-in-counter-counter-privacy-divider",
+        "check-in-counter-counter-privacy-panel",
+        "check-in-counter-staffed-counter-cable-cover",
+        "check-in-counter-counter-service-ledge",
+        "check-in-counter-document-shelf",
+        "check-in-counter-receipt-shelf",
+        "check-in-counter-check-in-monitor-arm",
+        "check-in-counter-check-in-monitor-stand",
+        "check-in-counter-check-in-monitor-bezel",
+        "check-in-counter-blank-counter-monitor",
+        "check-in-counter-check-in-counter-partition",
+        "check-in-counter-counter-foot-rail",
+        "check-in-counter-accessible-counter-section",
+        "check-in-counter-counter-end-cap"
+      ]
+    },
+    {
+      "id": "check-in-counter-zone-staffed-desk-equipment",
+      "title": "Staffed desk equipment",
+      "translation": "人工值机设备",
+      "description": "Inspect the visible document, boarding-pass, baggage-tag and receipt equipment on the desks.",
+      "x": 80,
+      "y": 250,
+      "width": 900,
+      "height": 360,
+      "targetScale": 3.15,
+      "labelIds": [
+        "check-in-counter-agent-workstation",
+        "check-in-counter-document-scanner",
+        "check-in-counter-check-in-passport-reader",
+        "check-in-counter-check-in-boarding-pass-printer",
+        "check-in-counter-baggage-tag-printer",
+        "check-in-counter-check-in-receipt-printer",
+        "check-in-counter-check-in-printer-output-tray",
+        "check-in-counter-tag-roll",
+        "check-in-counter-blank-baggage-tag",
+        "check-in-counter-check-in-keyboard-tray",
+        "check-in-counter-check-in-keyboard",
+        "check-in-counter-card-reader",
+        "check-in-counter-card-reader-cradle",
+        "check-in-counter-desk-monitor",
+        "check-in-counter-monitor-power-cable",
+        "check-in-counter-check-in-scanner-glass",
+        "check-in-counter-scanner-lid",
+        "check-in-counter-check-in-document-tray",
+        "check-in-counter-paper-stack",
+        "check-in-counter-paper-tray",
+        "check-in-counter-label-dispenser",
+        "check-in-counter-baggage-tag-slot",
+        "check-in-counter-desk-equipment-shelf",
+        "check-in-counter-counter-device-cable",
+        "check-in-counter-baggage-tag-holder",
+        "check-in-counter-tag-stack",
+        "check-in-counter-paper-roll"
+      ]
+    },
+    {
+      "id": "check-in-counter-zone-baggage-conveyor-scale",
+      "title": "Baggage scale and conveyor",
+      "translation": "行李秤与传送带",
+      "description": "Follow the visible luggage scale, belt, rollers, side guides, chute and bag-drop hardware.",
+      "x": 470,
+      "y": 350,
+      "width": 600,
+      "height": 330,
+      "targetScale": 3.15,
+      "labelIds": [
+        "check-in-counter-check-in-baggage-scale",
+        "check-in-counter-baggage-scale-platform",
+        "check-in-counter-baggage-scale-display",
+        "check-in-counter-scale-deck",
+        "check-in-counter-scale-support",
+        "check-in-counter-check-in-belt-conveyor",
+        "check-in-counter-conveyor-belt-surface",
+        "check-in-counter-check-in-conveyor-roller",
+        "check-in-counter-roller-axle",
+        "check-in-counter-belt-side-rail",
+        "check-in-counter-bag-drop-belt",
+        "check-in-counter-check-in-baggage-chute",
+        "check-in-counter-luggage-weighing-tray",
+        "check-in-counter-counter-bag-shelf",
+        "check-in-counter-baggage-side-guide",
+        "check-in-counter-conveyor-stop-rail",
+        "check-in-counter-conveyor-end-plate",
+        "check-in-counter-conveyor-housing",
+        "check-in-counter-baggage-bin",
+        "check-in-counter-check-in-cart-dock",
+        "check-in-counter-belt-access-panel",
+        "check-in-counter-scale-floor-plate"
+      ]
+    },
+    {
+      "id": "check-in-counter-zone-kiosk-bank",
+      "title": "Self-service kiosk bank",
+      "translation": "自助值机机组",
+      "description": "Inspect the visible kiosk screens, readers, printers, panels, bases, plates and cable covers.",
+      "x": 650,
+      "y": 430,
+      "width": 850,
+      "height": 470,
+      "targetScale": 3.15,
+      "labelIds": [
+        "check-in-counter-check-in-self-service-kiosk",
+        "check-in-counter-check-in-kiosk-screen",
+        "check-in-counter-check-in-kiosk-bezel",
+        "check-in-counter-kiosk-frame",
+        "check-in-counter-kiosk-passport-reader",
+        "check-in-counter-kiosk-document-slot",
+        "check-in-counter-kiosk-boarding-pass-slot",
+        "check-in-counter-kiosk-tag-printer",
+        "check-in-counter-check-in-kiosk-receipt-slot",
+        "check-in-counter-check-in-kiosk-card-reader",
+        "check-in-counter-kiosk-card-reader-cradle",
+        "check-in-counter-kiosk-lower-panel",
+        "check-in-counter-kiosk-base-plate",
+        "check-in-counter-kiosk-foot",
+        "check-in-counter-kiosk-side-panel",
+        "check-in-counter-kiosk-cable-cover",
+        "check-in-counter-kiosk-bag-tag-roll",
+        "check-in-counter-kiosk-blank-tag",
+        "check-in-counter-kiosk-paper-tray",
+        "check-in-counter-kiosk-power-inlet",
+        "check-in-counter-kiosk-screen-hood",
+        "check-in-counter-kiosk-printer-door",
+        "check-in-counter-kiosk-printer-latch",
+        "check-in-counter-kiosk-speaker-grille",
+        "check-in-counter-kiosk-floor-mat",
+        "check-in-counter-foreground-check-in-kiosk",
+        "check-in-counter-middle-check-in-kiosk",
+        "check-in-counter-rear-check-in-kiosk"
+      ]
+    },
+    {
+      "id": "check-in-counter-zone-overhead-info-wall",
+      "title": "Overhead display wall",
+      "translation": "顶部显示墙",
+      "description": "Study the blank display panels, mounting arms, wall cladding, glazing and ceiling fittings.",
+      "x": 0,
+      "y": 0,
+      "width": 1200,
+      "height": 260,
+      "targetScale": 3.15,
+      "labelIds": [
+        "check-in-counter-overhead-display-panel",
+        "check-in-counter-blank-information-screen",
+        "check-in-counter-display-screen-frame",
+        "check-in-counter-display-mounting-arm",
+        "check-in-counter-display-cable-cover",
+        "check-in-counter-check-in-wall-cladding",
+        "check-in-counter-wall-panel-seam",
+        "check-in-counter-ceiling-bulkhead",
+        "check-in-counter-ceiling-vent",
+        "check-in-counter-ceiling-light-strip",
+        "check-in-counter-ceiling-light-housing",
+        "check-in-counter-terminal-glass-mullion",
+        "check-in-counter-check-in-window-frame",
+        "check-in-counter-terminal-glazing",
+        "check-in-counter-signage-support-rail",
+        "check-in-counter-blank-signage-panel",
+        "check-in-counter-counter-header-light",
+        "check-in-counter-check-in-upper-service-panel"
+      ]
+    },
+    {
+      "id": "check-in-counter-zone-queue-accessibility",
+      "title": "Queue and accessible lane",
+      "translation": "排队与无障碍通道",
+      "description": "Trace the visible stanchions, belts, lane dividers, accessible opening and floor guidance.",
+      "x": 950,
+      "y": 250,
+      "width": 650,
+      "height": 550,
+      "targetScale": 3.15,
+      "labelIds": [
+        "check-in-counter-check-in-queue-stanchion",
+        "check-in-counter-stanchion-post",
+        "check-in-counter-queue-stanchion-base",
+        "check-in-counter-check-in-queue-belt",
+        "check-in-counter-belt-receiver",
+        "check-in-counter-check-in-queue-corner",
+        "check-in-counter-accessible-check-in-lane",
+        "check-in-counter-accessible-check-in-counter",
+        "check-in-counter-accessible-counter-knee-space",
+        "check-in-counter-check-in-queue-rail",
+        "check-in-counter-queue-rail-foot",
+        "check-in-counter-check-in-floor-guide-stripe",
+        "check-in-counter-queue-floor-tile",
+        "check-in-counter-check-in-queue-barrier",
+        "check-in-counter-barrier-connector",
+        "check-in-counter-queue-lane-divider",
+        "check-in-counter-waiting-lane",
+        "check-in-counter-aisle-boundary",
+        "check-in-counter-queue-end-post",
+        "check-in-counter-check-in-floor-expansion-joint",
+        "check-in-counter-terminal-column",
+        "check-in-counter-glass-wall-panel"
+      ]
+    },
+    {
+      "id": "check-in-counter-zone-floor-baggage-ancillaries",
+      "title": "Floor and baggage ancillaries",
+      "translation": "地面与行李辅助物",
+      "description": "Inspect the visible floor finish, paper and tag supplies, bins, lower panels and access plates.",
+      "x": 0,
+      "y": 600,
+      "width": 1600,
+      "height": 300,
+      "targetScale": 3.15,
+      "labelIds": [
+        "check-in-counter-polished-terminal-floor",
+        "check-in-counter-check-in-floor-tile",
+        "check-in-counter-check-in-floor-grout-line",
+        "check-in-counter-terminal-bin-liner",
+        "check-in-counter-terminal-waste-bin",
+        "check-in-counter-terminal-recycling-bin",
+        "check-in-counter-counter-footrest",
+        "check-in-counter-desk-lower-panel",
+        "check-in-counter-check-in-equipment-plinth",
+        "check-in-counter-cable-floor-cover",
+        "check-in-counter-floor-access-plate",
+        "check-in-counter-stanchion-floor-socket",
+        "check-in-counter-kiosk-floor-plate",
+        "check-in-counter-kiosk-base-corner"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/check-in-counter-premium-v1.jpg",
+    "reviewedAssetSha256": "f3089bcc3e56bdb5805cfe3a7208e06a56a683d05297ecbb54efea73d5be2414",
+    "rationale": "The final 1600 by 900 check-in-counter photograph was inspected at source and output resolution. It retains 153 independently pointable counter, document, baggage, kiosk, display, queue and floor parts. Passenger identity, airline branding, readable screens, prices, baggage status, check-in outcomes and hidden airport systems were excluded.",
+    "previousLabelCount": 161,
+    "retainedLabelCount": 153,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "passenger identity",
+      "airline branding",
+      "readable screen",
+      "price",
+      "baggage status",
+      "check-in outcome"
+    ]
+  },
+  "labels": [
+    {
+      "id": "check-in-counter-check-in-counter",
+      "word": "check-in counter",
+      "translation": "值机柜台",
+      "x": 550,
+      "y": 500,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-check-in-counter"
+    },
+    {
+      "id": "check-in-counter-counter-worktop",
+      "word": "counter worktop",
+      "translation": "柜台台面",
+      "x": 550,
+      "y": 400,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-counter-worktop"
+    },
+    {
+      "id": "check-in-counter-counter-fascia",
+      "word": "counter fascia",
+      "translation": "柜台饰面",
+      "x": 550,
+      "y": 540,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-counter-fascia"
+    },
+    {
+      "id": "check-in-counter-counter-side-panel",
+      "word": "counter side panel",
+      "translation": "柜台侧板",
+      "x": 470,
+      "y": 550,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-counter-side-panel"
+    },
+    {
+      "id": "check-in-counter-check-in-counter-drawer",
+      "word": "check-in counter drawer",
+      "translation": "值机柜台抽屉",
+      "x": 600,
+      "y": 550,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-check-in-counter-drawer"
+    },
+    {
+      "id": "check-in-counter-counter-drawer-pull",
+      "word": "counter drawer pull",
+      "translation": "柜台抽屉拉手",
+      "x": 600,
+      "y": 560,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-counter-drawer-pull"
+    },
+    {
+      "id": "check-in-counter-counter-pedestal-base",
+      "word": "counter pedestal base",
+      "translation": "柜台基座",
+      "x": 550,
+      "y": 650,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-counter-pedestal-base"
+    },
+    {
+      "id": "check-in-counter-counter-base-plinth",
+      "word": "counter base plinth",
+      "translation": "柜台底座踢脚",
+      "x": 550,
+      "y": 680,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-counter-base-plinth"
+    },
+    {
+      "id": "check-in-counter-counter-privacy-divider",
+      "word": "counter privacy divider",
+      "translation": "柜台隐私隔板",
+      "x": 450,
+      "y": 320,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-counter-privacy-divider"
+    },
+    {
+      "id": "check-in-counter-counter-privacy-panel",
+      "word": "counter privacy panel",
+      "translation": "柜台隐私面板",
+      "x": 700,
+      "y": 330,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-counter-privacy-panel"
+    },
+    {
+      "id": "check-in-counter-staffed-counter-cable-cover",
+      "word": "staffed counter cable cover",
+      "translation": "人工柜台电缆盖",
+      "x": 500,
+      "y": 420,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-staffed-counter-cable-cover"
+    },
+    {
+      "id": "check-in-counter-counter-service-ledge",
+      "word": "counter service ledge",
+      "translation": "柜台服务台沿",
+      "x": 760,
+      "y": 420,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-counter-service-ledge"
+    },
+    {
+      "id": "check-in-counter-document-shelf",
+      "word": "document shelf",
+      "translation": "证件搁板",
+      "x": 450,
+      "y": 460,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-document-shelf"
+    },
+    {
+      "id": "check-in-counter-receipt-shelf",
+      "word": "receipt shelf",
+      "translation": "收据搁板",
+      "x": 650,
+      "y": 460,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-receipt-shelf"
+    },
+    {
+      "id": "check-in-counter-check-in-monitor-arm",
+      "word": "check-in monitor arm",
+      "translation": "值机显示器支臂",
+      "x": 560,
+      "y": 310,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-check-in-monitor-arm"
+    },
+    {
+      "id": "check-in-counter-check-in-monitor-stand",
+      "word": "check-in monitor stand",
+      "translation": "值机显示器支架",
+      "x": 560,
+      "y": 350,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-check-in-monitor-stand"
+    },
+    {
+      "id": "check-in-counter-check-in-monitor-bezel",
+      "word": "check-in monitor bezel",
+      "translation": "值机显示器边框",
+      "x": 560,
+      "y": 280,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-check-in-monitor-bezel"
+    },
+    {
+      "id": "check-in-counter-blank-counter-monitor",
+      "word": "blank counter monitor",
+      "translation": "柜台空白显示器",
+      "x": 560,
+      "y": 260,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-blank-counter-monitor"
+    },
+    {
+      "id": "check-in-counter-check-in-counter-partition",
+      "word": "check-in counter partition",
+      "translation": "值机柜台分隔板",
+      "x": 780,
+      "y": 300,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-check-in-counter-partition"
+    },
+    {
+      "id": "check-in-counter-counter-foot-rail",
+      "word": "counter foot rail",
+      "translation": "柜台脚踏杆",
+      "x": 500,
+      "y": 620,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-counter-foot-rail"
+    },
+    {
+      "id": "check-in-counter-accessible-counter-section",
+      "word": "accessible counter section",
+      "translation": "无障碍柜台段",
+      "x": 930,
+      "y": 420,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-accessible-counter-section"
+    },
+    {
+      "id": "check-in-counter-counter-end-cap",
+      "word": "counter end cap",
+      "translation": "柜台端盖",
+      "x": 1000,
+      "y": 500,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-counter-end-cap"
+    },
+    {
+      "id": "check-in-counter-agent-workstation",
+      "word": "agent workstation",
+      "translation": "值机工作位",
+      "x": 350,
+      "y": 390,
+      "priority": 1.022,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-agent-workstation"
+    },
+    {
+      "id": "check-in-counter-document-scanner",
+      "word": "document scanner",
+      "translation": "证件扫描器",
+      "x": 260,
+      "y": 370,
+      "priority": 1.023,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-document-scanner"
+    },
+    {
+      "id": "check-in-counter-check-in-passport-reader",
+      "word": "check-in passport reader",
+      "translation": "值机护照读取器",
+      "x": 300,
+      "y": 375,
+      "priority": 1.024,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-check-in-passport-reader"
+    },
+    {
+      "id": "check-in-counter-check-in-boarding-pass-printer",
+      "word": "check-in boarding pass printer",
+      "translation": "值机登机牌打印机",
+      "x": 150,
+      "y": 420,
+      "priority": 1.025,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-check-in-boarding-pass-printer"
+    },
+    {
+      "id": "check-in-counter-baggage-tag-printer",
+      "word": "baggage tag printer",
+      "translation": "行李标签打印机",
+      "x": 210,
+      "y": 420,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-baggage-tag-printer"
+    },
+    {
+      "id": "check-in-counter-check-in-receipt-printer",
+      "word": "check-in receipt printer",
+      "translation": "值机收据打印机",
+      "x": 260,
+      "y": 425,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-check-in-receipt-printer"
+    },
+    {
+      "id": "check-in-counter-check-in-printer-output-tray",
+      "word": "check-in printer output tray",
+      "translation": "值机打印机出纸托盘",
+      "x": 235,
+      "y": 450,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-check-in-printer-output-tray"
+    },
+    {
+      "id": "check-in-counter-tag-roll",
+      "word": "tag roll",
+      "translation": "标签卷",
+      "x": 170,
+      "y": 410,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-tag-roll"
+    },
+    {
+      "id": "check-in-counter-blank-baggage-tag",
+      "word": "blank baggage tag",
+      "translation": "空白行李标签",
+      "x": 120,
+      "y": 450,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-blank-baggage-tag"
+    },
+    {
+      "id": "check-in-counter-check-in-keyboard-tray",
+      "word": "check-in keyboard tray",
+      "translation": "值机键盘托盘",
+      "x": 380,
+      "y": 450,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-check-in-keyboard-tray"
+    },
+    {
+      "id": "check-in-counter-check-in-keyboard",
+      "word": "check-in keyboard",
+      "translation": "值机键盘",
+      "x": 390,
+      "y": 430,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-check-in-keyboard"
+    },
+    {
+      "id": "check-in-counter-card-reader",
+      "word": "card reader",
+      "translation": "读卡器",
+      "x": 430,
+      "y": 390,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-card-reader"
+    },
+    {
+      "id": "check-in-counter-card-reader-cradle",
+      "word": "card reader cradle",
+      "translation": "读卡器托架",
+      "x": 440,
+      "y": 420,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-card-reader-cradle"
+    },
+    {
+      "id": "check-in-counter-desk-monitor",
+      "word": "desk monitor",
+      "translation": "工作位显示器",
+      "x": 450,
+      "y": 300,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-desk-monitor"
+    },
+    {
+      "id": "check-in-counter-monitor-power-cable",
+      "word": "monitor power cable",
+      "translation": "显示器电源线",
+      "x": 470,
+      "y": 355,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-monitor-power-cable"
+    },
+    {
+      "id": "check-in-counter-check-in-scanner-glass",
+      "word": "check-in scanner glass",
+      "translation": "值机扫描玻璃",
+      "x": 300,
+      "y": 400,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-check-in-scanner-glass"
+    },
+    {
+      "id": "check-in-counter-scanner-lid",
+      "word": "scanner lid",
+      "translation": "扫描器盖",
+      "x": 300,
+      "y": 370,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-scanner-lid"
+    },
+    {
+      "id": "check-in-counter-check-in-document-tray",
+      "word": "check-in document tray",
+      "translation": "值机证件托盘",
+      "x": 340,
+      "y": 410,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-check-in-document-tray"
+    },
+    {
+      "id": "check-in-counter-paper-stack",
+      "word": "paper stack",
+      "translation": "纸张堆",
+      "x": 520,
+      "y": 430,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-paper-stack"
+    },
+    {
+      "id": "check-in-counter-paper-tray",
+      "word": "paper tray",
+      "translation": "纸张托盘",
+      "x": 530,
+      "y": 450,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-paper-tray"
+    },
+    {
+      "id": "check-in-counter-label-dispenser",
+      "word": "label dispenser",
+      "translation": "标签分配器",
+      "x": 170,
+      "y": 450,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-label-dispenser"
+    },
+    {
+      "id": "check-in-counter-baggage-tag-slot",
+      "word": "baggage tag slot",
+      "translation": "行李标签插槽",
+      "x": 210,
+      "y": 450,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-baggage-tag-slot"
+    },
+    {
+      "id": "check-in-counter-desk-equipment-shelf",
+      "word": "desk equipment shelf",
+      "translation": "工作位设备搁板",
+      "x": 400,
+      "y": 480,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-desk-equipment-shelf"
+    },
+    {
+      "id": "check-in-counter-counter-device-cable",
+      "word": "counter device cable",
+      "translation": "柜台设备电缆",
+      "x": 450,
+      "y": 470,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-counter-device-cable"
+    },
+    {
+      "id": "check-in-counter-baggage-tag-holder",
+      "word": "baggage tag holder",
+      "translation": "行李标签夹",
+      "x": 130,
+      "y": 460,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-baggage-tag-holder"
+    },
+    {
+      "id": "check-in-counter-tag-stack",
+      "word": "tag stack",
+      "translation": "标签堆",
+      "x": 150,
+      "y": 470,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-tag-stack"
+    },
+    {
+      "id": "check-in-counter-paper-roll",
+      "word": "paper roll",
+      "translation": "纸卷",
+      "x": 180,
+      "y": 460,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-paper-roll"
+    },
+    {
+      "id": "check-in-counter-check-in-baggage-scale",
+      "word": "check-in baggage scale",
+      "translation": "值机行李秤",
+      "x": 520,
+      "y": 500,
+      "priority": 1.049,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-check-in-baggage-scale"
+    },
+    {
+      "id": "check-in-counter-baggage-scale-platform",
+      "word": "baggage scale platform",
+      "translation": "行李秤台",
+      "x": 520,
+      "y": 520,
+      "priority": 1.05,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-baggage-scale-platform"
+    },
+    {
+      "id": "check-in-counter-baggage-scale-display",
+      "word": "baggage scale display",
+      "translation": "行李秤显示屏",
+      "x": 520,
+      "y": 470,
+      "priority": 1.051,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-baggage-scale-display"
+    },
+    {
+      "id": "check-in-counter-scale-deck",
+      "word": "scale deck",
+      "translation": "秤面板",
+      "x": 550,
+      "y": 530,
+      "priority": 1.052,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-scale-deck"
+    },
+    {
+      "id": "check-in-counter-scale-support",
+      "word": "scale support",
+      "translation": "秤台支撑",
+      "x": 570,
+      "y": 560,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-scale-support"
+    },
+    {
+      "id": "check-in-counter-check-in-belt-conveyor",
+      "word": "check-in belt conveyor",
+      "translation": "值机传送带",
+      "x": 650,
+      "y": 500,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-check-in-belt-conveyor"
+    },
+    {
+      "id": "check-in-counter-conveyor-belt-surface",
+      "word": "conveyor belt surface",
+      "translation": "传送带表面",
+      "x": 680,
+      "y": 520,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-conveyor-belt-surface"
+    },
+    {
+      "id": "check-in-counter-check-in-conveyor-roller",
+      "word": "check-in conveyor roller",
+      "translation": "值机传送带滚筒",
+      "x": 720,
+      "y": 480,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-check-in-conveyor-roller"
+    },
+    {
+      "id": "check-in-counter-roller-axle",
+      "word": "roller axle",
+      "translation": "滚筒轴",
+      "x": 730,
+      "y": 490,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-roller-axle"
+    },
+    {
+      "id": "check-in-counter-belt-side-rail",
+      "word": "belt side rail",
+      "translation": "传送带侧导轨",
+      "x": 650,
+      "y": 470,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-belt-side-rail"
+    },
+    {
+      "id": "check-in-counter-bag-drop-belt",
+      "word": "bag-drop belt",
+      "translation": "行李托运带",
+      "x": 800,
+      "y": 500,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-bag-drop-belt"
+    },
+    {
+      "id": "check-in-counter-check-in-baggage-chute",
+      "word": "check-in baggage chute",
+      "translation": "值机行李滑槽",
+      "x": 850,
+      "y": 540,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-check-in-baggage-chute"
+    },
+    {
+      "id": "check-in-counter-luggage-weighing-tray",
+      "word": "luggage weighing tray",
+      "translation": "行李称重托盘",
+      "x": 540,
+      "y": 550,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-luggage-weighing-tray"
+    },
+    {
+      "id": "check-in-counter-counter-bag-shelf",
+      "word": "counter bag shelf",
+      "translation": "柜台行李搁板",
+      "x": 860,
+      "y": 580,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-counter-bag-shelf"
+    },
+    {
+      "id": "check-in-counter-baggage-side-guide",
+      "word": "baggage side guide",
+      "translation": "行李侧导向板",
+      "x": 900,
+      "y": 500,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-baggage-side-guide"
+    },
+    {
+      "id": "check-in-counter-conveyor-stop-rail",
+      "word": "conveyor stop rail",
+      "translation": "传送带止挡杆",
+      "x": 920,
+      "y": 520,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-conveyor-stop-rail"
+    },
+    {
+      "id": "check-in-counter-conveyor-end-plate",
+      "word": "conveyor end plate",
+      "translation": "传送带端板",
+      "x": 980,
+      "y": 530,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-conveyor-end-plate"
+    },
+    {
+      "id": "check-in-counter-conveyor-housing",
+      "word": "conveyor housing",
+      "translation": "传送带外壳",
+      "x": 760,
+      "y": 600,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-conveyor-housing"
+    },
+    {
+      "id": "check-in-counter-baggage-bin",
+      "word": "baggage bin",
+      "translation": "行李箱",
+      "x": 880,
+      "y": 600,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-baggage-bin"
+    },
+    {
+      "id": "check-in-counter-check-in-cart-dock",
+      "word": "check-in cart dock",
+      "translation": "值机推车停靠位",
+      "x": 950,
+      "y": 620,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-check-in-cart-dock"
+    },
+    {
+      "id": "check-in-counter-belt-access-panel",
+      "word": "belt access panel",
+      "translation": "传送带检修面板",
+      "x": 760,
+      "y": 620,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-belt-access-panel"
+    },
+    {
+      "id": "check-in-counter-scale-floor-plate",
+      "word": "scale floor plate",
+      "translation": "秤台地板板",
+      "x": 550,
+      "y": 590,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-scale-floor-plate"
+    },
+    {
+      "id": "check-in-counter-check-in-self-service-kiosk",
+      "word": "check-in self-service kiosk",
+      "translation": "值机自助机",
+      "x": 850,
+      "y": 700,
+      "priority": 1.071,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-check-in-self-service-kiosk"
+    },
+    {
+      "id": "check-in-counter-check-in-kiosk-screen",
+      "word": "check-in kiosk screen",
+      "translation": "值机自助机屏幕",
+      "x": 850,
+      "y": 560,
+      "priority": 1.072,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-check-in-kiosk-screen"
+    },
+    {
+      "id": "check-in-counter-check-in-kiosk-bezel",
+      "word": "check-in kiosk bezel",
+      "translation": "值机自助机边框",
+      "x": 850,
+      "y": 550,
+      "priority": 1.073,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-check-in-kiosk-bezel"
+    },
+    {
+      "id": "check-in-counter-kiosk-frame",
+      "word": "kiosk frame",
+      "translation": "自助机框架",
+      "x": 850,
+      "y": 650,
+      "priority": 1.074,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-frame"
+    },
+    {
+      "id": "check-in-counter-kiosk-passport-reader",
+      "word": "kiosk passport reader",
+      "translation": "自助机护照读取器",
+      "x": 850,
+      "y": 690,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-passport-reader"
+    },
+    {
+      "id": "check-in-counter-kiosk-document-slot",
+      "word": "kiosk document slot",
+      "translation": "自助机证件插槽",
+      "x": 850,
+      "y": 720,
+      "priority": 1.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-document-slot"
+    },
+    {
+      "id": "check-in-counter-kiosk-boarding-pass-slot",
+      "word": "kiosk boarding-pass slot",
+      "translation": "自助机登机牌插槽",
+      "x": 850,
+      "y": 735,
+      "priority": 1.077,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-boarding-pass-slot"
+    },
+    {
+      "id": "check-in-counter-kiosk-tag-printer",
+      "word": "kiosk tag printer",
+      "translation": "自助机标签打印机",
+      "x": 850,
+      "y": 760,
+      "priority": 1.078,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-tag-printer"
+    },
+    {
+      "id": "check-in-counter-check-in-kiosk-receipt-slot",
+      "word": "check-in kiosk receipt slot",
+      "translation": "值机自助机收据插槽",
+      "x": 850,
+      "y": 780,
+      "priority": 1.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-check-in-kiosk-receipt-slot"
+    },
+    {
+      "id": "check-in-counter-check-in-kiosk-card-reader",
+      "word": "check-in kiosk card reader",
+      "translation": "值机自助机读卡器",
+      "x": 850,
+      "y": 700,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-check-in-kiosk-card-reader"
+    },
+    {
+      "id": "check-in-counter-kiosk-card-reader-cradle",
+      "word": "kiosk card-reader cradle",
+      "translation": "自助机读卡器托架",
+      "x": 850,
+      "y": 715,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-card-reader-cradle"
+    },
+    {
+      "id": "check-in-counter-kiosk-lower-panel",
+      "word": "kiosk lower panel",
+      "translation": "自助机下部面板",
+      "x": 850,
+      "y": 820,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-lower-panel"
+    },
+    {
+      "id": "check-in-counter-kiosk-base-plate",
+      "word": "kiosk base plate",
+      "translation": "自助机底板",
+      "x": 850,
+      "y": 860,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-base-plate"
+    },
+    {
+      "id": "check-in-counter-kiosk-foot",
+      "word": "kiosk foot",
+      "translation": "自助机脚座",
+      "x": 850,
+      "y": 850,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-foot"
+    },
+    {
+      "id": "check-in-counter-kiosk-side-panel",
+      "word": "kiosk side panel",
+      "translation": "自助机侧板",
+      "x": 820,
+      "y": 750,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-side-panel"
+    },
+    {
+      "id": "check-in-counter-kiosk-cable-cover",
+      "word": "kiosk cable cover",
+      "translation": "自助机电缆盖",
+      "x": 820,
+      "y": 810,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-cable-cover"
+    },
+    {
+      "id": "check-in-counter-kiosk-bag-tag-roll",
+      "word": "kiosk bag-tag roll",
+      "translation": "自助机行李标签卷",
+      "x": 860,
+      "y": 770,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-bag-tag-roll"
+    },
+    {
+      "id": "check-in-counter-kiosk-blank-tag",
+      "word": "kiosk blank tag",
+      "translation": "自助机空白标签",
+      "x": 880,
+      "y": 780,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-blank-tag"
+    },
+    {
+      "id": "check-in-counter-kiosk-paper-tray",
+      "word": "kiosk paper tray",
+      "translation": "自助机纸张托盘",
+      "x": 900,
+      "y": 790,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-paper-tray"
+    },
+    {
+      "id": "check-in-counter-kiosk-power-inlet",
+      "word": "kiosk power inlet",
+      "translation": "自助机电源接口",
+      "x": 820,
+      "y": 840,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-power-inlet"
+    },
+    {
+      "id": "check-in-counter-kiosk-screen-hood",
+      "word": "kiosk screen hood",
+      "translation": "自助机屏幕遮罩",
+      "x": 850,
+      "y": 540,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-screen-hood"
+    },
+    {
+      "id": "check-in-counter-kiosk-printer-door",
+      "word": "kiosk printer door",
+      "translation": "自助机打印机门",
+      "x": 900,
+      "y": 810,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-printer-door"
+    },
+    {
+      "id": "check-in-counter-kiosk-printer-latch",
+      "word": "kiosk printer latch",
+      "translation": "自助机打印机锁扣",
+      "x": 900,
+      "y": 820,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-printer-latch"
+    },
+    {
+      "id": "check-in-counter-kiosk-speaker-grille",
+      "word": "kiosk speaker grille",
+      "translation": "自助机扬声器格栅",
+      "x": 890,
+      "y": 650,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-speaker-grille"
+    },
+    {
+      "id": "check-in-counter-kiosk-floor-mat",
+      "word": "kiosk floor mat",
+      "translation": "自助机地垫",
+      "x": 850,
+      "y": 875,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-floor-mat"
+    },
+    {
+      "id": "check-in-counter-foreground-check-in-kiosk",
+      "word": "foreground check-in kiosk",
+      "translation": "前景值机自助机",
+      "x": 1050,
+      "y": 700,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-foreground-check-in-kiosk"
+    },
+    {
+      "id": "check-in-counter-middle-check-in-kiosk",
+      "word": "middle check-in kiosk",
+      "translation": "中景值机自助机",
+      "x": 1200,
+      "y": 650,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-middle-check-in-kiosk"
+    },
+    {
+      "id": "check-in-counter-rear-check-in-kiosk",
+      "word": "rear check-in kiosk",
+      "translation": "后景值机自助机",
+      "x": 1350,
+      "y": 600,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-rear-check-in-kiosk"
+    },
+    {
+      "id": "check-in-counter-overhead-display-panel",
+      "word": "overhead display panel",
+      "translation": "顶部显示面板",
+      "x": 250,
+      "y": 120,
+      "priority": 1.099,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-overhead-display-panel"
+    },
+    {
+      "id": "check-in-counter-blank-information-screen",
+      "word": "blank information screen",
+      "translation": "空白信息屏",
+      "x": 250,
+      "y": 110,
+      "priority": 1.1,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-blank-information-screen"
+    },
+    {
+      "id": "check-in-counter-display-screen-frame",
+      "word": "display screen frame",
+      "translation": "显示屏框",
+      "x": 250,
+      "y": 130,
+      "priority": 1.101,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-display-screen-frame"
+    },
+    {
+      "id": "check-in-counter-display-mounting-arm",
+      "word": "display mounting arm",
+      "translation": "显示屏支臂",
+      "x": 270,
+      "y": 180,
+      "priority": 1.102,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-display-mounting-arm"
+    },
+    {
+      "id": "check-in-counter-display-cable-cover",
+      "word": "display cable cover",
+      "translation": "显示屏电缆盖",
+      "x": 300,
+      "y": 190,
+      "priority": 1.103,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-display-cable-cover"
+    },
+    {
+      "id": "check-in-counter-check-in-wall-cladding",
+      "word": "check-in wall cladding",
+      "translation": "值机区墙面饰板",
+      "x": 500,
+      "y": 180,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-check-in-wall-cladding"
+    },
+    {
+      "id": "check-in-counter-wall-panel-seam",
+      "word": "wall panel seam",
+      "translation": "墙板接缝",
+      "x": 600,
+      "y": 200,
+      "priority": 1.105,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-wall-panel-seam"
+    },
+    {
+      "id": "check-in-counter-ceiling-bulkhead",
+      "word": "ceiling bulkhead",
+      "translation": "顶面横梁",
+      "x": 750,
+      "y": 50,
+      "priority": 1.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-ceiling-bulkhead"
+    },
+    {
+      "id": "check-in-counter-ceiling-vent",
+      "word": "ceiling vent",
+      "translation": "顶面通风口",
+      "x": 800,
+      "y": 40,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-ceiling-vent"
+    },
+    {
+      "id": "check-in-counter-ceiling-light-strip",
+      "word": "ceiling light strip",
+      "translation": "顶面灯带",
+      "x": 400,
+      "y": 40,
+      "priority": 1.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-ceiling-light-strip"
+    },
+    {
+      "id": "check-in-counter-ceiling-light-housing",
+      "word": "ceiling light housing",
+      "translation": "顶灯外壳",
+      "x": 400,
+      "y": 60,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-ceiling-light-housing"
+    },
+    {
+      "id": "check-in-counter-terminal-glass-mullion",
+      "word": "terminal glass mullion",
+      "translation": "航站楼玻璃竖框",
+      "x": 1000,
+      "y": 150,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-terminal-glass-mullion"
+    },
+    {
+      "id": "check-in-counter-check-in-window-frame",
+      "word": "check-in window frame",
+      "translation": "值机区窗框",
+      "x": 1050,
+      "y": 180,
+      "priority": 1.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-check-in-window-frame"
+    },
+    {
+      "id": "check-in-counter-terminal-glazing",
+      "word": "terminal glazing",
+      "translation": "航站楼玻璃",
+      "x": 1100,
+      "y": 150,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-terminal-glazing"
+    },
+    {
+      "id": "check-in-counter-signage-support-rail",
+      "word": "signage support rail",
+      "translation": "标牌支撑轨",
+      "x": 400,
+      "y": 170,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-signage-support-rail"
+    },
+    {
+      "id": "check-in-counter-blank-signage-panel",
+      "word": "blank signage panel",
+      "translation": "空白标牌面板",
+      "x": 450,
+      "y": 170,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-blank-signage-panel"
+    },
+    {
+      "id": "check-in-counter-counter-header-light",
+      "word": "counter header light",
+      "translation": "柜台上梁灯",
+      "x": 650,
+      "y": 230,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-counter-header-light"
+    },
+    {
+      "id": "check-in-counter-check-in-upper-service-panel",
+      "word": "check-in upper service panel",
+      "translation": "值机区上部服务面板",
+      "x": 900,
+      "y": 220,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-check-in-upper-service-panel"
+    },
+    {
+      "id": "check-in-counter-check-in-queue-stanchion",
+      "word": "check-in queue stanchion",
+      "translation": "值机排队隔离柱",
+      "x": 1200,
+      "y": 400,
+      "priority": 1.117,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-check-in-queue-stanchion"
+    },
+    {
+      "id": "check-in-counter-stanchion-post",
+      "word": "stanchion post",
+      "translation": "隔离柱杆",
+      "x": 1300,
+      "y": 420,
+      "priority": 1.118,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-stanchion-post"
+    },
+    {
+      "id": "check-in-counter-queue-stanchion-base",
+      "word": "queue stanchion base",
+      "translation": "排队隔离柱底座",
+      "x": 1300,
+      "y": 500,
+      "priority": 1.119,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-queue-stanchion-base"
+    },
+    {
+      "id": "check-in-counter-check-in-queue-belt",
+      "word": "check-in queue belt",
+      "translation": "值机排队隔离带",
+      "x": 1250,
+      "y": 450,
+      "priority": 1.12,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-check-in-queue-belt"
+    },
+    {
+      "id": "check-in-counter-belt-receiver",
+      "word": "belt receiver",
+      "translation": "隔离带接收扣",
+      "x": 1350,
+      "y": 450,
+      "priority": 1.121,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-belt-receiver"
+    },
+    {
+      "id": "check-in-counter-check-in-queue-corner",
+      "word": "check-in queue corner",
+      "translation": "值机排队转角",
+      "x": 1400,
+      "y": 500,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-check-in-queue-corner"
+    },
+    {
+      "id": "check-in-counter-accessible-check-in-lane",
+      "word": "accessible check-in lane",
+      "translation": "无障碍值机通道",
+      "x": 1100,
+      "y": 550,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-accessible-check-in-lane"
+    },
+    {
+      "id": "check-in-counter-accessible-check-in-counter",
+      "word": "accessible check-in counter",
+      "translation": "无障碍值机柜台",
+      "x": 1050,
+      "y": 430,
+      "priority": 1.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-accessible-check-in-counter"
+    },
+    {
+      "id": "check-in-counter-accessible-counter-knee-space",
+      "word": "accessible counter knee space",
+      "translation": "无障碍柜台膝部空间",
+      "x": 1050,
+      "y": 520,
+      "priority": 1.125,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-accessible-counter-knee-space"
+    },
+    {
+      "id": "check-in-counter-check-in-queue-rail",
+      "word": "check-in queue rail",
+      "translation": "值机排队栏杆",
+      "x": 1450,
+      "y": 600,
+      "priority": 1.126,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-check-in-queue-rail"
+    },
+    {
+      "id": "check-in-counter-queue-rail-foot",
+      "word": "queue rail foot",
+      "translation": "排队栏杆脚座",
+      "x": 1450,
+      "y": 650,
+      "priority": 1.127,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-queue-rail-foot"
+    },
+    {
+      "id": "check-in-counter-check-in-floor-guide-stripe",
+      "word": "check-in floor guide stripe",
+      "translation": "值机地面导向条",
+      "x": 1300,
+      "y": 700,
+      "priority": 1.128,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-check-in-floor-guide-stripe"
+    },
+    {
+      "id": "check-in-counter-queue-floor-tile",
+      "word": "queue floor tile",
+      "translation": "排队区地砖",
+      "x": 1400,
+      "y": 730,
+      "priority": 1.129,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-queue-floor-tile"
+    },
+    {
+      "id": "check-in-counter-check-in-queue-barrier",
+      "word": "check-in queue barrier",
+      "translation": "值机排队隔离栏",
+      "x": 1500,
+      "y": 450,
+      "priority": 1.13,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-check-in-queue-barrier"
+    },
+    {
+      "id": "check-in-counter-barrier-connector",
+      "word": "barrier connector",
+      "translation": "隔离栏连接件",
+      "x": 1500,
+      "y": 470,
+      "priority": 1.131,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-barrier-connector"
+    },
+    {
+      "id": "check-in-counter-queue-lane-divider",
+      "word": "queue lane divider",
+      "translation": "排队通道分隔栏",
+      "x": 1250,
+      "y": 600,
+      "priority": 1.132,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-queue-lane-divider"
+    },
+    {
+      "id": "check-in-counter-waiting-lane",
+      "word": "waiting lane",
+      "translation": "等候通道",
+      "x": 1350,
+      "y": 650,
+      "priority": 1.133,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-waiting-lane"
+    },
+    {
+      "id": "check-in-counter-aisle-boundary",
+      "word": "aisle boundary",
+      "translation": "过道边界",
+      "x": 1450,
+      "y": 700,
+      "priority": 1.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-aisle-boundary"
+    },
+    {
+      "id": "check-in-counter-queue-end-post",
+      "word": "queue end post",
+      "translation": "排队末端柱",
+      "x": 1550,
+      "y": 620,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-queue-end-post"
+    },
+    {
+      "id": "check-in-counter-check-in-floor-expansion-joint",
+      "word": "check-in floor expansion joint",
+      "translation": "值机区地面伸缩缝",
+      "x": 1400,
+      "y": 780,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-check-in-floor-expansion-joint"
+    },
+    {
+      "id": "check-in-counter-terminal-column",
+      "word": "terminal column",
+      "translation": "航站楼立柱",
+      "x": 1450,
+      "y": 300,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-terminal-column"
+    },
+    {
+      "id": "check-in-counter-glass-wall-panel",
+      "word": "glass wall panel",
+      "translation": "玻璃墙面板",
+      "x": 1500,
+      "y": 250,
+      "priority": 1.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-glass-wall-panel"
+    },
+    {
+      "id": "check-in-counter-polished-terminal-floor",
+      "word": "polished terminal floor",
+      "translation": "航站楼抛光地面",
+      "x": 600,
+      "y": 800,
+      "priority": 1.139,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-polished-terminal-floor"
+    },
+    {
+      "id": "check-in-counter-check-in-floor-tile",
+      "word": "check-in floor tile",
+      "translation": "值机区地砖",
+      "x": 400,
+      "y": 820,
+      "priority": 1.14,
+      "minLevel": 0,
+      "sourceVisualRegion": "check-in-counter-region-check-in-floor-tile"
+    },
+    {
+      "id": "check-in-counter-check-in-floor-grout-line",
+      "word": "check-in floor grout line",
+      "translation": "值机区地砖缝",
+      "x": 450,
+      "y": 850,
+      "priority": 1.141,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-check-in-floor-grout-line"
+    },
+    {
+      "id": "check-in-counter-terminal-bin-liner",
+      "word": "terminal bin liner",
+      "translation": "航站楼箱内衬",
+      "x": 100,
+      "y": 750,
+      "priority": 1.142,
+      "minLevel": 1,
+      "sourceVisualRegion": "check-in-counter-region-terminal-bin-liner"
+    },
+    {
+      "id": "check-in-counter-terminal-waste-bin",
+      "word": "terminal waste bin",
+      "translation": "航站楼垃圾桶",
+      "x": 100,
+      "y": 700,
+      "priority": 1.143,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-terminal-waste-bin"
+    },
+    {
+      "id": "check-in-counter-terminal-recycling-bin",
+      "word": "terminal recycling bin",
+      "translation": "航站楼回收桶",
+      "x": 100,
+      "y": 760,
+      "priority": 1.144,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-terminal-recycling-bin"
+    },
+    {
+      "id": "check-in-counter-counter-footrest",
+      "word": "counter footrest",
+      "translation": "柜台脚踏",
+      "x": 500,
+      "y": 650,
+      "priority": 1.145,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-counter-footrest"
+    },
+    {
+      "id": "check-in-counter-desk-lower-panel",
+      "word": "desk lower panel",
+      "translation": "工作位下部面板",
+      "x": 700,
+      "y": 650,
+      "priority": 1.146,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-desk-lower-panel"
+    },
+    {
+      "id": "check-in-counter-check-in-equipment-plinth",
+      "word": "check-in equipment plinth",
+      "translation": "值机设备基座",
+      "x": 750,
+      "y": 700,
+      "priority": 1.147,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-check-in-equipment-plinth"
+    },
+    {
+      "id": "check-in-counter-cable-floor-cover",
+      "word": "cable floor cover",
+      "translation": "地面电缆盖",
+      "x": 750,
+      "y": 760,
+      "priority": 1.148,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-cable-floor-cover"
+    },
+    {
+      "id": "check-in-counter-floor-access-plate",
+      "word": "floor access plate",
+      "translation": "地面检修板",
+      "x": 900,
+      "y": 800,
+      "priority": 1.149,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-floor-access-plate"
+    },
+    {
+      "id": "check-in-counter-stanchion-floor-socket",
+      "word": "stanchion floor socket",
+      "translation": "隔离柱地面插座",
+      "x": 1200,
+      "y": 780,
+      "priority": 1.15,
+      "minLevel": 3,
+      "sourceVisualRegion": "check-in-counter-region-stanchion-floor-socket"
+    },
+    {
+      "id": "check-in-counter-kiosk-floor-plate",
+      "word": "kiosk floor plate",
+      "translation": "自助机地板板",
+      "x": 1100,
+      "y": 850,
+      "priority": 1.151,
+      "minLevel": 4,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-floor-plate"
+    },
+    {
+      "id": "check-in-counter-kiosk-base-corner",
+      "word": "kiosk base corner",
+      "translation": "自助机底座转角",
+      "x": 1000,
+      "y": 820,
+      "priority": 1.152,
+      "minLevel": 2,
+      "sourceVisualRegion": "check-in-counter-region-kiosk-base-corner"
+    }
+  ],
+  "portals": []
+}
