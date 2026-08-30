@@ -701,11 +701,11 @@ test("bedroom preserves its expanded bedding, study and storage vocabulary", asy
     "wardrobe hinge",
     "basket weave",
     "floor plank",
-    "headboard seam",
-    "mattress piping",
-    "bedpost",
-    "window handle",
-    "basket rim",
+    "wardrobe door panel",
+    "hanger hook",
+    "shirt collar",
+    "jacket lapel",
+    "wardrobe floor",
   ]) {
     assert.ok(words.has(required), `bedroom visibly grounds ${required}`);
   }

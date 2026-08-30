@@ -687,6 +687,11 @@ const INITIAL_LABEL_MOUNT_VIEWPORT = {
 // desktop and compact screens; other scenes retain the established desktop
 // collision order while compact focus still receives the same treatment.
 const FOCUSED_PRIORITY_SCENES = new Set([
+  "apartment",
+  "kitchen",
+  "bedroom",
+  "bathroom",
+  "city-cafe",
   "hospital",
   "pathology-lab",
   "hospital-pharmacy",

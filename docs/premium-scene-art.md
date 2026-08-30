@@ -332,8 +332,8 @@ detail zones. It adds readable bedding seams and folds, desk and chair parts,
 window and lamp hardware, wardrobe storage details, laundry-basket weave and
 floor finish while keeping the open wardrobe portal unobstructed and rejecting
 the removed activity, mood and routine claims. The later bedroom-depth pass
-adds 30 more bedding and finish terms on the existing sleeping-area crop, for
-164 authored anchors.
+adds 30 wardrobe-door, shelf, hanger, garment and storage terms on the existing
+storage-area crop, for 164 authored anchors.
 
 ### Wardrobe interior
 

@@ -1363,9 +1363,9 @@
       "sourceVisualRegion": "verified-bed"
     },
     {
-      "id": "headboard-seam-pro-2",
-      "word": "headboard seam",
-      "translation": "床头板接缝",
+      "id": "wardrobe-door-panel-pro-2",
+      "word": "wardrobe door panel",
+      "translation": "衣柜门板",
       "x": 1157.08,
       "y": 157,
       "priority": 7.052,
@@ -1373,9 +1373,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "headboard-edge-pro-2",
-      "word": "headboard edge",
-      "translation": "床头板边缘",
+      "id": "wardrobe-door-edge-pro-2",
+      "word": "wardrobe door edge",
+      "translation": "衣柜门边",
       "x": 1221.25,
       "y": 157,
       "priority": 7.053,
@@ -1383,9 +1383,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "mattress-side-pro-2",
-      "word": "mattress side",
-      "translation": "床垫侧面",
+      "id": "door-handle-plate-pro-2",
+      "word": "door handle plate",
+      "translation": "门把手底板",
       "x": 1285.42,
       "y": 157,
       "priority": 7.054,
@@ -1393,9 +1393,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "mattress-piping-pro-2",
-      "word": "mattress piping",
-      "translation": "床垫包边",
+      "id": "hinge-leaf-pro-2",
+      "word": "hinge leaf",
+      "translation": "铰链页片",
       "x": 1349.58,
       "y": 157,
       "priority": 7.055,
@@ -1403,9 +1403,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "pillowcase-fold-pro-2",
-      "word": "pillowcase fold",
-      "translation": "枕套褶皱",
+      "id": "hinge-pin-pro-2",
+      "word": "hinge pin",
+      "translation": "铰链销",
       "x": 1413.75,
       "y": 157,
       "priority": 7.056,
@@ -1413,9 +1413,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "duvet-corner-pro-2",
-      "word": "duvet corner",
-      "translation": "被角",
+      "id": "shelf-support-pro-2",
+      "word": "shelf support",
+      "translation": "搁板支撑",
       "x": 1477.92,
       "y": 157,
       "priority": 7.057,
@@ -1423,9 +1423,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "duvet-piping-pro-2",
-      "word": "duvet piping",
-      "translation": "被子包边",
+      "id": "shelf-divider-pro-2",
+      "word": "shelf divider",
+      "translation": "搁板隔板",
       "x": 1157.08,
       "y": 271,
       "priority": 7.058,
@@ -1433,9 +1433,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "throw-fold-pro-2",
-      "word": "throw fold",
-      "translation": "盖毯褶皱",
+      "id": "shelf-edge-pro-2",
+      "word": "shelf edge",
+      "translation": "搁板边缘",
       "x": 1221.25,
       "y": 271,
       "priority": 7.059,
@@ -1443,9 +1443,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "bed-rail-pro-2",
-      "word": "bed rail",
-      "translation": "床侧梁",
+      "id": "clothes-rail-end-pro-2",
+      "word": "clothes rail end",
+      "translation": "衣杆端头",
       "x": 1285.42,
       "y": 271,
       "priority": 7.06,
@@ -1453,9 +1453,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "bed-foot-rail-pro-2",
-      "word": "bed foot rail",
-      "translation": "床尾梁",
+      "id": "hanger-hook-pro-2",
+      "word": "hanger hook",
+      "translation": "衣架挂钩",
       "x": 1349.58,
       "y": 271,
       "priority": 7.061,
@@ -1463,9 +1463,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "bedpost-pro-2",
-      "word": "bedpost",
-      "translation": "床柱",
+      "id": "hanger-shoulder-pro-2",
+      "word": "hanger shoulder",
+      "translation": "衣架肩",
       "x": 1413.75,
       "y": 271,
       "priority": 7.062,
@@ -1473,9 +1473,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "runner-edge-pro-2",
-      "word": "runner edge",
-      "translation": "床旗边缘",
+      "id": "shirt-collar-pro-2",
+      "word": "shirt collar",
+      "translation": "衬衫领",
       "x": 1477.92,
       "y": 271,
       "priority": 7.063,
@@ -1483,9 +1483,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "rug-motif-pro-2",
-      "word": "rug motif",
-      "translation": "地毯纹样",
+      "id": "shirt-cuff-pro-2",
+      "word": "shirt cuff",
+      "translation": "衬衫袖口",
       "x": 1157.08,
       "y": 385,
       "priority": 7.064,
@@ -1493,9 +1493,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "rug-edge-pro-2",
-      "word": "rug edge",
-      "translation": "地毯边缘",
+      "id": "garment-hem-pro-2",
+      "word": "garment hem",
+      "translation": "衣物下摆",
       "x": 1221.25,
       "y": 385,
       "priority": 7.065,
@@ -1503,9 +1503,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "curtain-finial-pro-2",
-      "word": "curtain finial",
-      "translation": "窗帘杆端头",
+      "id": "jacket-lapel-pro-2",
+      "word": "jacket lapel",
+      "translation": "夹克翻领",
       "x": 1285.42,
       "y": 385,
       "priority": 7.066,
@@ -1513,9 +1513,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "curtain-track-pro-2",
-      "word": "curtain track",
-      "translation": "窗帘轨道",
+      "id": "jacket-sleeve-pro-2",
+      "word": "jacket sleeve",
+      "translation": "夹克袖",
       "x": 1349.58,
       "y": 385,
       "priority": 7.067,
@@ -1523,9 +1523,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "window-handle-pro-2",
-      "word": "window handle",
-      "translation": "窗户把手",
+      "id": "trouser-waistband-pro-2",
+      "word": "trouser waistband",
+      "translation": "裤腰",
       "x": 1413.75,
       "y": 385,
       "priority": 7.068,
@@ -1533,9 +1533,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "window-glass-pro-2",
-      "word": "window glass",
-      "translation": "窗玻璃",
+      "id": "trouser-hem-pro-2",
+      "word": "trouser hem",
+      "translation": "裤脚",
       "x": 1477.92,
       "y": 385,
       "priority": 7.069,
@@ -1543,9 +1543,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "desk-drawer-face-pro-2",
-      "word": "desk drawer face",
-      "translation": "书桌抽屉面",
+      "id": "skirt-fold-pro-2",
+      "word": "skirt fold",
+      "translation": "裙褶",
       "x": 1157.08,
       "y": 499,
       "priority": 7.07,
@@ -1553,9 +1553,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "desk-leg-pro-2",
-      "word": "desk leg",
-      "translation": "书桌腿",
+      "id": "sweater-cuff-pro-2",
+      "word": "sweater cuff",
+      "translation": "毛衣袖口",
       "x": 1221.25,
       "y": 499,
       "priority": 7.071,
@@ -1563,9 +1563,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "chair-backrest-pro-2",
-      "word": "chair backrest",
-      "translation": "椅背",
+      "id": "belt-loop-pro-2",
+      "word": "belt loop",
+      "translation": "皮带环",
       "x": 1285.42,
       "y": 499,
       "priority": 7.072,
@@ -1573,9 +1573,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "chair-armrest-pro-2",
-      "word": "chair armrest",
-      "translation": "椅扶手",
+      "id": "belt-buckle-pro-2",
+      "word": "belt buckle",
+      "translation": "皮带扣",
       "x": 1349.58,
       "y": 499,
       "priority": 7.073,
@@ -1583,9 +1583,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "lamp-switch-pro-2",
-      "word": "lamp switch",
-      "translation": "台灯开关",
+      "id": "shoe-lace-pro-2",
+      "word": "shoe lace",
+      "translation": "鞋带",
       "x": 1413.75,
       "y": 499,
       "priority": 7.074,
@@ -1593,9 +1593,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "lamp-shade-rim-pro-2",
-      "word": "lamp shade rim",
-      "translation": "灯罩边",
+      "id": "shoe-sole-edge-pro-2",
+      "word": "shoe sole edge",
+      "translation": "鞋底边",
       "x": 1477.92,
       "y": 499,
       "priority": 7.075,
@@ -1603,9 +1603,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "mirror-edge-pro-2",
-      "word": "mirror edge",
-      "translation": "镜面边缘",
+      "id": "shoebox-lid-pro-2",
+      "word": "shoebox lid",
+      "translation": "鞋盒盖",
       "x": 1157.08,
       "y": 613,
       "priority": 7.076,
@@ -1613,9 +1613,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "dresser-side-pro-2",
-      "word": "dresser side",
-      "translation": "梳妆柜侧板",
+      "id": "storage-basket-pro-2",
+      "word": "storage basket",
+      "translation": "收纳篮",
       "x": 1221.25,
       "y": 613,
       "priority": 7.077,
@@ -1623,9 +1623,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "dresser-top-edge-pro-2",
-      "word": "dresser top edge",
-      "translation": "梳妆柜台边",
+      "id": "drawer-front-pro-2",
+      "word": "drawer front",
+      "translation": "抽屉面",
       "x": 1285.42,
       "y": 613,
       "priority": 7.078,
@@ -1633,9 +1633,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "wardrobe-shelf-lip-pro-2",
-      "word": "wardrobe shelf lip",
-      "translation": "衣柜搁板前沿",
+      "id": "drawer-handle-pro-2",
+      "word": "drawer handle",
+      "translation": "抽屉把手",
       "x": 1349.58,
       "y": 613,
       "priority": 7.079,
@@ -1643,9 +1643,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "basket-rim-pro-2",
-      "word": "basket rim",
-      "translation": "篮筐边缘",
+      "id": "wardrobe-side-panel-pro-2",
+      "word": "wardrobe side panel",
+      "translation": "衣柜侧板",
       "x": 1413.75,
       "y": 613,
       "priority": 7.08,
@@ -1653,9 +1653,9 @@
       "sourceVisualRegion": "verified-wardrobe"
     },
     {
-      "id": "floorboard-grain-pro-2",
-      "word": "floorboard grain",
-      "translation": "地板木纹",
+      "id": "wardrobe-floor-pro-2",
+      "word": "wardrobe floor",
+      "translation": "衣柜底板",
       "x": 1477.92,
       "y": 613,
       "priority": 7.081,
@@ -1873,36 +1873,36 @@
         "shelf-basket",
         "wardrobe-hinge",
         "basket-weave",
-        "headboard-seam-pro-2",
-        "headboard-edge-pro-2",
-        "mattress-side-pro-2",
-        "mattress-piping-pro-2",
-        "pillowcase-fold-pro-2",
-        "duvet-corner-pro-2",
-        "duvet-piping-pro-2",
-        "throw-fold-pro-2",
-        "bed-rail-pro-2",
-        "bed-foot-rail-pro-2",
-        "bedpost-pro-2",
-        "runner-edge-pro-2",
-        "rug-motif-pro-2",
-        "rug-edge-pro-2",
-        "curtain-finial-pro-2",
-        "curtain-track-pro-2",
-        "window-handle-pro-2",
-        "window-glass-pro-2",
-        "desk-drawer-face-pro-2",
-        "desk-leg-pro-2",
-        "chair-backrest-pro-2",
-        "chair-armrest-pro-2",
-        "lamp-switch-pro-2",
-        "lamp-shade-rim-pro-2",
-        "mirror-edge-pro-2",
-        "dresser-side-pro-2",
-        "dresser-top-edge-pro-2",
-        "wardrobe-shelf-lip-pro-2",
-        "basket-rim-pro-2",
-        "floorboard-grain-pro-2"
+        "wardrobe-door-panel-pro-2",
+        "wardrobe-door-edge-pro-2",
+        "door-handle-plate-pro-2",
+        "hinge-leaf-pro-2",
+        "hinge-pin-pro-2",
+        "shelf-support-pro-2",
+        "shelf-divider-pro-2",
+        "shelf-edge-pro-2",
+        "clothes-rail-end-pro-2",
+        "hanger-hook-pro-2",
+        "hanger-shoulder-pro-2",
+        "shirt-collar-pro-2",
+        "shirt-cuff-pro-2",
+        "garment-hem-pro-2",
+        "jacket-lapel-pro-2",
+        "jacket-sleeve-pro-2",
+        "trouser-waistband-pro-2",
+        "trouser-hem-pro-2",
+        "skirt-fold-pro-2",
+        "sweater-cuff-pro-2",
+        "belt-loop-pro-2",
+        "belt-buckle-pro-2",
+        "shoe-lace-pro-2",
+        "shoe-sole-edge-pro-2",
+        "shoebox-lid-pro-2",
+        "storage-basket-pro-2",
+        "drawer-front-pro-2",
+        "drawer-handle-pro-2",
+        "wardrobe-side-panel-pro-2",
+        "wardrobe-floor-pro-2"
       ]
     },
     {
