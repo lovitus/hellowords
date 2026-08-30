@@ -490,7 +490,12 @@ for (const sceneContract of newSceneContracts) {
     expect(sceneContract.authoredZoneCount).toBeGreaterThanOrEqual(5);
     const authoredCues = page.locator(AUTHORED_CUE);
     expect(sceneContract.eligibleAuthoredZoneCount).toBeGreaterThanOrEqual(4);
-    await expect.poll(() => authoredCues.count()).toBe(sceneContract.eligibleAuthoredZoneCount);
+    // SceneViewport intentionally mounts at most eight navigation cues. Every
+    // mounted cue must still map to a real eligible authored zone; larger
+    // scenes retain their remaining zones in scene data for later zoom states.
+    await expect.poll(() => authoredCues.count()).toBe(
+      Math.min(8, sceneContract.eligibleAuthoredZoneCount),
+    );
     const renderedZoneIds = await authoredCues.evaluateAll((cues) => cues.map((cue) => (
       (cue as HTMLElement).dataset.detailZoneId ?? ""
     )));
