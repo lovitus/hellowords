@@ -4,10 +4,10 @@
 
 ## 当前交付游标
 
-- 公开版本：`v125-85482bb`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=125-85482bb#world>
-- 源码：`85482bb65b5129782797a7874b3f8d55c25551d2`（v124 设施扩词与 v125 桌面焦点区优先；医院 380、病理实验室 390、医院药房 330、机场 330、写字楼 330；Blood cell 91、Heart 91、Human body 90、Hemoglobin 81、Oxygen molecule 90）。累计空间锚点 6,416、5,479 个去重词；继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：下一批城市交通/科学馆/公园/社区花园扩词已写入工作树，待验证后发布 v126；继续按“先堆词、再精修”扩展可审计场景。
+- 公开版本：`v126-c8fb281`
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=126-c8fb281#world>
+- 源码：`c8fb281465f606088a4c1c6462d3a8c531481ec3`（v126 城市交通/科学馆/公园/社区花园扩词；City street 179、Transit hub 133、Science museum 206、City park 174、Community garden 133；医院 380、病理实验室 390、医院药房 330、机场 330、写字楼 330；Blood cell 91、Heart 91、Human body 90、Hemoglobin 81、Oxygen molecule 90）。累计空间锚点 6,566、5,608 个去重词；继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：v126 已公开发布并完成真实冒烟；之后继续按“先堆词、再精修”扩展可审计场景。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### v122 交付记录（2026-08-29）
@@ -35,7 +35,9 @@
 - v124 已完成公开发布：五个设施场景各增加 30 个词，完整校验通过（232 个域测试），整套 E2E 106 通过 / 36 设计性跳过，性能门 2/2 通过。
 - v125 让医院、病理、药房、机场、写字楼的焦点区在桌面与移动端都优先占用可读槽位，并为医院 `defibrillator` 增加公开路径断言；公开冒烟确认首页 6 大区/0 词、Campus 21/移出 0，医院 380、病理 390、药房 330、机场 330、写字楼 330，新词焦点可见且无 error/warn 日志。
 - 清理记录：v124/v125 归档已分别移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v124/` 与 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v125/`；当前 `.codex/sessions` 与共享临时根未删除。
-- v126 候选批次在 City street、Transit hub、Science museum、City park、Community garden 各增加 30 个可见结构词（共 150）；替换了池塘图中无法确认的鱼类/昆虫词，保留桥梁、睡莲、鸭与岸线部件，更新证据上限后再发布。
+- v126 批次在 City street、Transit hub、Science museum、City park、Community garden 各增加 30 个可见结构词（共 150）；替换了池塘图中无法确认的鱼类/昆虫词，保留桥梁、睡莲、鸭与岸线部件，并同步更新证据上限与词量契约。
+- v126 已完成公开发布：完整校验通过（232 个域测试 + 28 个语义测试），整套 E2E 106 通过 / 36 设计性跳过，性能门 2/2；公开冒烟确认首页 6 大区/0 词、Campus 21/移出 0，以及城市街景、交通枢纽、科学馆、公园、社区花园各自新增词可读且无 error/warn 日志。
+- 清理记录：v126 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v126/`；当前 `.codex/sessions` 与共享临时根未删除。
 
 ## 当前续开发游标（2026-08-29）
 
