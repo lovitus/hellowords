@@ -331,11 +331,21 @@ const baggagePortal = {
   translation: "进入行李提取区",
   childSceneId: "baggage-claim",
   sourceVisualRegion: "baggage-claim",
-  x: 1_010,
-  y: 470,
-  width: 430,
-  height: 360,
+  x: 950,
+  y: 360,
+  width: 600,
+  height: 450,
   enterScale: 3.4,
+};
+
+const baggageParentVisualRegion = {
+  id: "baggage-claim",
+  description: "Arrival seating and the complete baggage carousel with suitcases at the right foreground",
+  kind: "object",
+  x: 950,
+  y: 360,
+  width: 600,
+  height: 450,
 };
 
 async function updateAirport() {
@@ -343,6 +353,9 @@ async function updateAirport() {
   const existingIndex = airport.portals.findIndex(({ id }) => id === baggagePortal.id);
   if (existingIndex >= 0) airport.portals[existingIndex] = baggagePortal;
   else airport.portals.push(baggagePortal);
+  const regionIndex = airport.visualRegions.findIndex(({ id }) => id === baggageParentVisualRegion.id);
+  if (regionIndex >= 0) airport.visualRegions[regionIndex] = baggageParentVisualRegion;
+  else airport.visualRegions.push(baggageParentVisualRegion);
   return writeIfChanged(airportPath, airport);
 }
 

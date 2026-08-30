@@ -12,7 +12,9 @@ interface SceneFile {
   id: string;
   title: string;
   asset: string;
-  detailZones?: Array<{ id: string }>;
+  labels: Array<{ id: string; x: number; y: number; minLevel?: number }>;
+  portals: Array<{ x: number; y: number; width: number; height: number }>;
+  detailZones?: Array<{ id: string; labelIds: string[] }>;
 }
 
 interface ManifestFile {
@@ -26,6 +28,7 @@ interface NewSceneContract {
   asset: string;
   title: string;
   authoredZoneCount: number;
+  eligibleAuthoredZoneCount: number;
   desktopMinimumWords: number;
   mobileMinimumWords: number;
   runOnMobile: boolean;
@@ -49,6 +52,19 @@ function contract(
   options: Pick<NewSceneContract, "desktopMinimumWords" | "mobileMinimumWords" | "runOnMobile">,
 ): NewSceneContract {
   const scene = readScene(target);
+  const labelById = new Map(scene.labels.map((label) => [label.id, label]));
+  const insidePortal = (label: SceneFile["labels"][number]) => scene.portals.some((portal) => (
+    label.x >= portal.x
+    && label.x <= portal.x + portal.width
+    && label.y >= portal.y
+    && label.y <= portal.y + portal.height
+  ));
+  const eligibleAuthoredZoneCount = (scene.detailZones ?? []).filter((zone) => (
+    zone.labelIds.some((labelId) => {
+      const label = labelById.get(labelId);
+      return Boolean(label && (label.minLevel ?? 0) >= 2 && !insidePortal(label));
+    })
+  )).length;
   return {
     target,
     parent,
@@ -56,6 +72,7 @@ function contract(
     asset: scene.asset,
     title: scene.title,
     authoredZoneCount: scene.detailZones?.length ?? 0,
+    eligibleAuthoredZoneCount,
     ...options,
   };
 }
@@ -462,7 +479,8 @@ for (const sceneContract of newSceneContracts) {
     expect(scenePayload.detailZones?.length ?? 0).toBe(sceneContract.authoredZoneCount);
     expect(sceneContract.authoredZoneCount).toBeGreaterThanOrEqual(5);
     const authoredCues = page.locator(AUTHORED_CUE);
-    await expect.poll(() => authoredCues.count()).toBeGreaterThanOrEqual(5);
+    expect(sceneContract.eligibleAuthoredZoneCount).toBeGreaterThanOrEqual(4);
+    await expect.poll(() => authoredCues.count()).toBe(sceneContract.eligibleAuthoredZoneCount);
     const renderedZoneIds = await authoredCues.evaluateAll((cues) => cues.map((cue) => (
       (cue as HTMLElement).dataset.detailZoneId ?? ""
     )));

@@ -4306,10 +4306,10 @@
       "translation": "进入行李提取区",
       "childSceneId": "baggage-claim",
       "sourceVisualRegion": "baggage-claim",
-      "x": 1010,
-      "y": 470,
-      "width": 430,
-      "height": 360,
+      "x": 950,
+      "y": 360,
+      "width": 600,
+      "height": 450,
       "enterScale": 3.4
     },
     {
@@ -4398,12 +4398,12 @@
     },
     {
       "id": "baggage-claim",
-      "description": "Arrival hall with baggage claim carousel, suitcases, carts and customs lane at the right foreground",
+      "description": "Arrival seating and the complete baggage carousel with suitcases at the right foreground",
       "kind": "object",
-      "x": 970,
-      "y": 470,
-      "width": 630,
-      "height": 400
+      "x": 950,
+      "y": 360,
+      "width": 600,
+      "height": 450
     },
     {
       "id": "airside-apron",

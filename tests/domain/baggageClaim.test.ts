@@ -91,10 +91,10 @@ test("airport exposes baggage claim through one reviewed arrival-side portal", a
     translation: "进入行李提取区",
     childSceneId: "baggage-claim",
     sourceVisualRegion: "baggage-claim",
-    x: 1_010,
-    y: 470,
-    width: 430,
-    height: 360,
+    x: 950,
+    y: 360,
+    width: 600,
+    height: 450,
     enterScale: 3.4,
   });
 });
