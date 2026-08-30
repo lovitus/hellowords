@@ -666,9 +666,9 @@ test("kitchen preserves its expanded appliance and island vocabulary", async () 
   const { scenes } = await loadWorld();
   const kitchen = scenes.find((scene) => scene.id === "kitchen");
   assert.ok(kitchen);
-  assert.equal(kitchen.labels.length, 146);
+  assert.equal(kitchen.labels.length, 176);
   const words = new Set(kitchen.labels.map(({ word }) => word.toLocaleLowerCase()));
-  for (const required of ["sink divider", "cabinet hinge", "burner", "oven door", "coffee screen", "steam wand", "island edge"]) {
+  for (const required of ["sink divider", "cabinet hinge", "burner", "oven door", "coffee screen", "steam wand", "island edge", "island countertop", "cutting board grain", "hood vent slot", "cabinet knob"]) {
     assert.ok(words.has(required), `kitchen visibly grounds ${required}`);
   }
 });
@@ -677,12 +677,12 @@ test("bedroom preserves its expanded bedding, study and storage vocabulary", asy
   const { scenes } = await loadWorld();
   const bedroom = scenes.find((scene) => scene.id === "bedroom");
   assert.ok(bedroom);
-  assert.equal(bedroom.labels.length, 134);
+  assert.equal(bedroom.labels.length, 164);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       bedroom.labels.filter((label) => label.minLevel === level).length
     )),
-    [8, 8, 23, 42, 53],
+    [8, 8, 33, 52, 63],
   );
   const words = new Set(bedroom.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -701,6 +701,11 @@ test("bedroom preserves its expanded bedding, study and storage vocabulary", asy
     "wardrobe hinge",
     "basket weave",
     "floor plank",
+    "headboard seam",
+    "mattress piping",
+    "bedpost",
+    "window handle",
+    "basket rim",
   ]) {
     assert.ok(words.has(required), `bedroom visibly grounds ${required}`);
   }
@@ -710,7 +715,7 @@ test("bedroom preserves its expanded bedding, study and storage vocabulary", asy
       ["sleeping-area", 58],
       ["study-area", 19],
       ["window-wall", 14],
-      ["storage-area", 37],
+      ["storage-area", 67],
       ["room-structure", 5],
     ],
   );
@@ -860,12 +865,12 @@ test("city cafe preserves its expanded seating, pastry and espresso vocabulary",
   const { scenes } = await loadWorld();
   const cafe = scenes.find((scene) => scene.id === "city-cafe");
   assert.ok(cafe);
-  assert.equal(cafe.labels.length, 100);
+  assert.equal(cafe.labels.length, 130);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       cafe.labels.filter((label) => label.minLevel === level).length
     )),
-    [9, 9, 24, 29, 29],
+    [9, 9, 34, 39, 39],
   );
   const words = new Set(cafe.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -894,6 +899,12 @@ test("city cafe preserves its expanded seating, pastry and espresso vocabulary",
     "payment screen",
     "receipt slot",
     "menu frame",
+    "croissant layer",
+    "muffin liner",
+    "tart filling",
+    "display case corner",
+    "glass shelf bracket",
+    "steam valve handle",
   ]) {
     assert.ok(words.has(required), `city cafe visibly grounds ${required}`);
   }
@@ -902,7 +913,7 @@ test("city cafe preserves its expanded seating, pastry and espresso vocabulary",
     [
       ["cafe-shell", 6],
       ["window-seating", 22],
-      ["counter-pastries", 45],
+      ["counter-pastries", 75],
       ["espresso-station", 15],
       ["foreground-tableware", 12],
     ],
@@ -2008,7 +2019,7 @@ test("apartment keeps its room portals and newly reviewed fixture parts", async 
   const { scenes } = await loadWorld();
   const apartment = scenes.find((scene) => scene.id === "apartment");
   assert.ok(apartment);
-  assert.equal(apartment.labels.length, 143);
+  assert.equal(apartment.labels.length, 173);
   const words = new Set(apartment.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
     "sofa arm",
@@ -2017,13 +2028,17 @@ test("apartment keeps its room portals and newly reviewed fixture parts", async 
     "bathtub faucet",
     "shower drain",
     "wall niche",
+    "sofa leg",
+    "coffee table top",
+    "media drawer",
+    "floorboard grain",
   ]) {
     assert.ok(words.has(required), `apartment visibly grounds ${required}`);
   }
   assert.deepEqual(
     apartment.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["living-room-detail", 63],
+      ["living-room-detail", 93],
       ["kitchen-detail", 26],
       ["bedroom-detail", 18],
       ["bathroom-detail", 24],
@@ -2040,7 +2055,7 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
   assert.ok(bathroom);
   assert.equal(bathroom.parentId, "apartment");
   assert.equal(bathroom.asset, "/scenes/bathroom-premium-v1.jpg");
-  assert.ok(bathroom.labels.length >= 36 && bathroom.labels.length <= 133);
+  assert.equal(bathroom.labels.length, 163);
   assert.ok((bathroom.detailZones?.length ?? 0) >= 5);
   assert.deepEqual(bathroom.portals, [], "bathroom remains a terminal room");
 
@@ -2098,6 +2113,10 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
     "glass door hinge",
     "niche shelf",
     "towel hem",
+    "shower arm",
+    "glass clamp",
+    "mixer trim",
+    "towel stripe",
   ]) {
     assert.ok(words.has(required.toLocaleLowerCase()), `bathroom visibly grounds ${required}`);
   }
@@ -2935,7 +2954,7 @@ test("city cafe is a new terminal storefront branch with a non-overlapping paren
   assert.ok(cafe);
   assert.equal(cafe.parentId, "city-street");
   assert.equal(cafe.asset, "/scenes/city-cafe-premium-v2.jpg");
-  assert.equal(cafe.labels.length, 100);
+  assert.equal(cafe.labels.length, 130);
   assert.ok((cafe.detailZones?.length ?? 0) >= 5);
   assert.deepEqual(cafe.portals, [], "city cafe remains its own terminal exploration");
 

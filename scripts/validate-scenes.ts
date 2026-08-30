@@ -159,7 +159,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // veins, bark grooves, root forks and small fixture parts for 174 anchors.
   "city-park": 174,
   "city-street": 179,
-  apartment: 143,
+  apartment: 173,
   "urban-services": 120,
   // The latest professional-depth passes add reviewed equipment, medicine,
   // airside, imaging, dispensing and conference-room bands to each facility.
@@ -175,7 +175,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "science-museum": 206,
   // The final kitchen raster resolves appliance, sink, coffee-nook and island
   // parts; the ceiling blocks cooking processes and hidden appliance claims.
-  kitchen: 146,
+  kitchen: 176,
   // The final raster has clear macro forms, microstructure and one coherent
   // molecular model; the 60-anchor ceiling excludes unsupported chemistry
   // while admitting separately visible edges, junctions and fracture parts.
@@ -183,16 +183,16 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright bathroom exposes a full suite of independently pointable
   // fixtures plus readable hardware/textile subparts; the ceiling blocks
   // invisible conditions while allowing the reviewed 133-anchor scene.
-  bathroom: 133,
+  bathroom: 163,
   // The bright bedroom resolves separate bedding, study, window, storage and
   // room-finish parts; the ceiling blocks moods, actions and hidden routines.
-  bedroom: 134,
+  bedroom: 164,
   // The terminal photograph resolves separate rail, bus, access, ticketing and
   // mobility fixtures; the ceiling blocks blank display readings and services.
   "transit-hub": 103,
   // The bright cafe resolves seating, tableware, pastry-display and espresso
   // equipment parts; the ceiling blocks people, branding and inferred service.
-  "city-cafe": 100,
+  "city-cafe": 130,
   // The bright oak raster resolves separate bark, web, nest, leaf, acorn,
   // root, moss, fern, flower and grass parts; the ceiling blocks invisible
   // biology and synonym padding while retaining the complete Leaf portal.

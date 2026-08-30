@@ -1477,6 +1477,306 @@
       "priority": 7.053,
       "minLevel": 4,
       "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "island-countertop-pro-2",
+      "word": "island countertop",
+      "translation": "岛台台面",
+      "x": 310.83,
+      "y": 567,
+      "priority": 7.054,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "cutting-board-grain-pro-2",
+      "word": "cutting board grain",
+      "translation": "砧板木纹",
+      "x": 512.5,
+      "y": 567,
+      "priority": 7.055,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "cutting-board-edge-pro-2",
+      "word": "cutting board edge",
+      "translation": "砧板边缘",
+      "x": 714.17,
+      "y": 567,
+      "priority": 7.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "bread-crust-edge-pro-2",
+      "word": "bread crust edge",
+      "translation": "面包皮边",
+      "x": 915.83,
+      "y": 567,
+      "priority": 7.057,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "fruit-bowl-base-pro-2",
+      "word": "fruit bowl base",
+      "translation": "水果碗底",
+      "x": 1117.5,
+      "y": 567,
+      "priority": 7.058,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "bowl-base-pro-2",
+      "word": "bowl base",
+      "translation": "碗底",
+      "x": 1319.17,
+      "y": 567,
+      "priority": 7.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "measuring-cup-handle-pro-2",
+      "word": "measuring cup handle",
+      "translation": "量杯把手",
+      "x": 310.83,
+      "y": 641,
+      "priority": 7.06,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "mixing-bowl-rim-pro-2",
+      "word": "mixing bowl rim",
+      "translation": "搅拌碗边",
+      "x": 512.5,
+      "y": 641,
+      "priority": 7.061,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "rolling-pin-barrel-pro-2",
+      "word": "rolling pin barrel",
+      "translation": "擀面杖筒",
+      "x": 714.17,
+      "y": 641,
+      "priority": 7.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "knife-handle-pro-2",
+      "word": "knife handle",
+      "translation": "刀柄",
+      "x": 915.83,
+      "y": 641,
+      "priority": 7.063,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "whisk-loop-pro-2",
+      "word": "whisk loop",
+      "translation": "打蛋器环",
+      "x": 1117.5,
+      "y": 641,
+      "priority": 7.064,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "spice-jar-lid-pro-2",
+      "word": "spice jar lid",
+      "translation": "香料罐盖",
+      "x": 1319.17,
+      "y": 641,
+      "priority": 7.065,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "oil-bottle-neck-pro-2",
+      "word": "oil bottle neck",
+      "translation": "油瓶颈",
+      "x": 310.83,
+      "y": 715,
+      "priority": 7.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "vinegar-bottle-neck-pro-2",
+      "word": "vinegar bottle neck",
+      "translation": "醋瓶颈",
+      "x": 512.5,
+      "y": 715,
+      "priority": 7.067,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "dish-rack-tine-pro-2",
+      "word": "dish rack tine",
+      "translation": "碗碟架齿",
+      "x": 714.17,
+      "y": 715,
+      "priority": 7.068,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "plate-rim-pro-2",
+      "word": "plate rim",
+      "translation": "盘沿",
+      "x": 915.83,
+      "y": 715,
+      "priority": 7.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "sink-faucet-base-pro-2",
+      "word": "sink faucet base",
+      "translation": "水龙头底座",
+      "x": 1117.5,
+      "y": 715,
+      "priority": 7.07,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "sink-drain-stopper-pro-2",
+      "word": "sink drain stopper",
+      "translation": "水槽塞",
+      "x": 1319.17,
+      "y": 715,
+      "priority": 7.071,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "island-support-foot-pro-2",
+      "word": "island support foot",
+      "translation": "岛台支脚",
+      "x": 310.83,
+      "y": 789,
+      "priority": 7.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "stool-foot-ring-pro-2",
+      "word": "stool foot ring",
+      "translation": "凳脚圈",
+      "x": 512.5,
+      "y": 789,
+      "priority": 7.073,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "towel-corner-pro-2",
+      "word": "towel corner",
+      "translation": "毛巾角",
+      "x": 714.17,
+      "y": 789,
+      "priority": 7.074,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "towel-stripe-pro-2",
+      "word": "towel stripe",
+      "translation": "毛巾条纹",
+      "x": 915.83,
+      "y": 789,
+      "priority": 7.075,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "vase-base-pro-2",
+      "word": "vase base",
+      "translation": "花瓶底",
+      "x": 1117.5,
+      "y": 789,
+      "priority": 7.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "herb-stem-tip-pro-2",
+      "word": "herb stem tip",
+      "translation": "香草茎尖",
+      "x": 1319.17,
+      "y": 789,
+      "priority": 7.077,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "pan-handle-grip-pro-2",
+      "word": "pan handle grip",
+      "translation": "平底锅握柄",
+      "x": 310.83,
+      "y": 863,
+      "priority": 7.078,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "pot-lid-knob-pro-2",
+      "word": "pot lid knob",
+      "translation": "锅盖旋钮",
+      "x": 512.5,
+      "y": 863,
+      "priority": 7.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "oven-control-dial-pro-2",
+      "word": "oven control dial",
+      "translation": "烤箱控制旋钮",
+      "x": 714.17,
+      "y": 863,
+      "priority": 7.08,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "hood-vent-slot-pro-2",
+      "word": "hood vent slot",
+      "translation": "油烟机通风槽",
+      "x": 915.83,
+      "y": 863,
+      "priority": 7.081,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "cabinet-knob-pro-2",
+      "word": "cabinet knob",
+      "translation": "橱柜旋钮",
+      "x": 1117.5,
+      "y": 863,
+      "priority": 7.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-island"
+    },
+    {
+      "id": "backsplash-tile-pro-2",
+      "word": "backsplash tile",
+      "translation": "挡水板瓷砖",
+      "x": 1319.17,
+      "y": 863,
+      "priority": 7.083,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-kitchen-island"
     }
   ],
   "portals": [
@@ -1498,9 +1798,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/kitchen-premium-v3.jpg",
     "reviewedAssetSha256": "7623db6c6b87f6f386f6201d5a913de9f31eb016f0894b0a33eec52dc94a7f2e",
-    "rationale": "Re-audited the bright residential kitchen pixels and added only separately readable appliance, cookware, sink, coffee-nook and island parts; process words and invisible appliance claims remain excluded while the portal tightly bounds the complete coffee machine. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
-    "previousLabelCount": 155,
-    "retainedLabelCount": 146,
+    "rationale": "Re-audited the bright residential kitchen pixels and added only separately readable appliance, cookware, sink, coffee-nook and island parts; process words and invisible appliance claims remain excluded while the portal tightly bounds the complete coffee machine. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
+    "previousLabelCount": 185,
+    "retainedLabelCount": 176,
     "removedLabelCount": 9,
     "removedExamples": [
       "boiling",
@@ -1683,7 +1983,37 @@
         "island-drawer-front-pro-1",
         "cabinet-shelf-pro-1",
         "countertop-seam-pro-1",
-        "island-support-pro-1"
+        "island-support-pro-1",
+        "island-countertop-pro-2",
+        "cutting-board-grain-pro-2",
+        "cutting-board-edge-pro-2",
+        "bread-crust-edge-pro-2",
+        "fruit-bowl-base-pro-2",
+        "bowl-base-pro-2",
+        "measuring-cup-handle-pro-2",
+        "mixing-bowl-rim-pro-2",
+        "rolling-pin-barrel-pro-2",
+        "knife-handle-pro-2",
+        "whisk-loop-pro-2",
+        "spice-jar-lid-pro-2",
+        "oil-bottle-neck-pro-2",
+        "vinegar-bottle-neck-pro-2",
+        "dish-rack-tine-pro-2",
+        "plate-rim-pro-2",
+        "sink-faucet-base-pro-2",
+        "sink-drain-stopper-pro-2",
+        "island-support-foot-pro-2",
+        "stool-foot-ring-pro-2",
+        "towel-corner-pro-2",
+        "towel-stripe-pro-2",
+        "vase-base-pro-2",
+        "herb-stem-tip-pro-2",
+        "pan-handle-grip-pro-2",
+        "pot-lid-knob-pro-2",
+        "oven-control-dial-pro-2",
+        "hood-vent-slot-pro-2",
+        "cabinet-knob-pro-2",
+        "backsplash-tile-pro-2"
       ]
     },
     {

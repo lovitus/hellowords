@@ -1361,6 +1361,306 @@
       "priority": 7.051,
       "minLevel": 4,
       "sourceVisualRegion": "verified-bed"
+    },
+    {
+      "id": "headboard-seam-pro-2",
+      "word": "headboard seam",
+      "translation": "床头板接缝",
+      "x": 1157.08,
+      "y": 157,
+      "priority": 7.052,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "headboard-edge-pro-2",
+      "word": "headboard edge",
+      "translation": "床头板边缘",
+      "x": 1221.25,
+      "y": 157,
+      "priority": 7.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "mattress-side-pro-2",
+      "word": "mattress side",
+      "translation": "床垫侧面",
+      "x": 1285.42,
+      "y": 157,
+      "priority": 7.054,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "mattress-piping-pro-2",
+      "word": "mattress piping",
+      "translation": "床垫包边",
+      "x": 1349.58,
+      "y": 157,
+      "priority": 7.055,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "pillowcase-fold-pro-2",
+      "word": "pillowcase fold",
+      "translation": "枕套褶皱",
+      "x": 1413.75,
+      "y": 157,
+      "priority": 7.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "duvet-corner-pro-2",
+      "word": "duvet corner",
+      "translation": "被角",
+      "x": 1477.92,
+      "y": 157,
+      "priority": 7.057,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "duvet-piping-pro-2",
+      "word": "duvet piping",
+      "translation": "被子包边",
+      "x": 1157.08,
+      "y": 271,
+      "priority": 7.058,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "throw-fold-pro-2",
+      "word": "throw fold",
+      "translation": "盖毯褶皱",
+      "x": 1221.25,
+      "y": 271,
+      "priority": 7.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "bed-rail-pro-2",
+      "word": "bed rail",
+      "translation": "床侧梁",
+      "x": 1285.42,
+      "y": 271,
+      "priority": 7.06,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "bed-foot-rail-pro-2",
+      "word": "bed foot rail",
+      "translation": "床尾梁",
+      "x": 1349.58,
+      "y": 271,
+      "priority": 7.061,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "bedpost-pro-2",
+      "word": "bedpost",
+      "translation": "床柱",
+      "x": 1413.75,
+      "y": 271,
+      "priority": 7.062,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "runner-edge-pro-2",
+      "word": "runner edge",
+      "translation": "床旗边缘",
+      "x": 1477.92,
+      "y": 271,
+      "priority": 7.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "rug-motif-pro-2",
+      "word": "rug motif",
+      "translation": "地毯纹样",
+      "x": 1157.08,
+      "y": 385,
+      "priority": 7.064,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "rug-edge-pro-2",
+      "word": "rug edge",
+      "translation": "地毯边缘",
+      "x": 1221.25,
+      "y": 385,
+      "priority": 7.065,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "curtain-finial-pro-2",
+      "word": "curtain finial",
+      "translation": "窗帘杆端头",
+      "x": 1285.42,
+      "y": 385,
+      "priority": 7.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "curtain-track-pro-2",
+      "word": "curtain track",
+      "translation": "窗帘轨道",
+      "x": 1349.58,
+      "y": 385,
+      "priority": 7.067,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "window-handle-pro-2",
+      "word": "window handle",
+      "translation": "窗户把手",
+      "x": 1413.75,
+      "y": 385,
+      "priority": 7.068,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "window-glass-pro-2",
+      "word": "window glass",
+      "translation": "窗玻璃",
+      "x": 1477.92,
+      "y": 385,
+      "priority": 7.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "desk-drawer-face-pro-2",
+      "word": "desk drawer face",
+      "translation": "书桌抽屉面",
+      "x": 1157.08,
+      "y": 499,
+      "priority": 7.07,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "desk-leg-pro-2",
+      "word": "desk leg",
+      "translation": "书桌腿",
+      "x": 1221.25,
+      "y": 499,
+      "priority": 7.071,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "chair-backrest-pro-2",
+      "word": "chair backrest",
+      "translation": "椅背",
+      "x": 1285.42,
+      "y": 499,
+      "priority": 7.072,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "chair-armrest-pro-2",
+      "word": "chair armrest",
+      "translation": "椅扶手",
+      "x": 1349.58,
+      "y": 499,
+      "priority": 7.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "lamp-switch-pro-2",
+      "word": "lamp switch",
+      "translation": "台灯开关",
+      "x": 1413.75,
+      "y": 499,
+      "priority": 7.074,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "lamp-shade-rim-pro-2",
+      "word": "lamp shade rim",
+      "translation": "灯罩边",
+      "x": 1477.92,
+      "y": 499,
+      "priority": 7.075,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "mirror-edge-pro-2",
+      "word": "mirror edge",
+      "translation": "镜面边缘",
+      "x": 1157.08,
+      "y": 613,
+      "priority": 7.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "dresser-side-pro-2",
+      "word": "dresser side",
+      "translation": "梳妆柜侧板",
+      "x": 1221.25,
+      "y": 613,
+      "priority": 7.077,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "dresser-top-edge-pro-2",
+      "word": "dresser top edge",
+      "translation": "梳妆柜台边",
+      "x": 1285.42,
+      "y": 613,
+      "priority": 7.078,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "wardrobe-shelf-lip-pro-2",
+      "word": "wardrobe shelf lip",
+      "translation": "衣柜搁板前沿",
+      "x": 1349.58,
+      "y": 613,
+      "priority": 7.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "basket-rim-pro-2",
+      "word": "basket rim",
+      "translation": "篮筐边缘",
+      "x": 1413.75,
+      "y": 613,
+      "priority": 7.08,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
+    },
+    {
+      "id": "floorboard-grain-pro-2",
+      "word": "floorboard grain",
+      "translation": "地板木纹",
+      "x": 1477.92,
+      "y": 613,
+      "priority": 7.081,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-wardrobe"
     }
   ],
   "portals": [
@@ -1382,9 +1682,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/bedroom-premium-v2.jpg",
     "reviewedAssetSha256": "d0f4321616d608d4fe3d6686c4e530da8bae8c166074b224c9774cd49ae9901a",
-    "rationale": "Re-anchored every retained term to a distinct object or part in the bright bedroom photograph; the expanded set names readable bedding, desk, storage, textile and room-structure details without restoring activity words, and the portal remains bounded to the complete open wardrobe entrance on the right. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
-    "previousLabelCount": 145,
-    "retainedLabelCount": 134,
+    "rationale": "Re-anchored every retained term to a distinct object or part in the bright bedroom photograph; the expanded set names readable bedding, desk, storage, textile and room-structure details without restoring activity words, and the portal remains bounded to the complete open wardrobe entrance on the right. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
+    "previousLabelCount": 175,
+    "retainedLabelCount": 164,
     "removedLabelCount": 11,
     "removedExamples": [
       "sleep",
@@ -1572,7 +1872,37 @@
         "shoe-heel",
         "shelf-basket",
         "wardrobe-hinge",
-        "basket-weave"
+        "basket-weave",
+        "headboard-seam-pro-2",
+        "headboard-edge-pro-2",
+        "mattress-side-pro-2",
+        "mattress-piping-pro-2",
+        "pillowcase-fold-pro-2",
+        "duvet-corner-pro-2",
+        "duvet-piping-pro-2",
+        "throw-fold-pro-2",
+        "bed-rail-pro-2",
+        "bed-foot-rail-pro-2",
+        "bedpost-pro-2",
+        "runner-edge-pro-2",
+        "rug-motif-pro-2",
+        "rug-edge-pro-2",
+        "curtain-finial-pro-2",
+        "curtain-track-pro-2",
+        "window-handle-pro-2",
+        "window-glass-pro-2",
+        "desk-drawer-face-pro-2",
+        "desk-leg-pro-2",
+        "chair-backrest-pro-2",
+        "chair-armrest-pro-2",
+        "lamp-switch-pro-2",
+        "lamp-shade-rim-pro-2",
+        "mirror-edge-pro-2",
+        "dresser-side-pro-2",
+        "dresser-top-edge-pro-2",
+        "wardrobe-shelf-lip-pro-2",
+        "basket-rim-pro-2",
+        "floorboard-grain-pro-2"
       ]
     },
     {

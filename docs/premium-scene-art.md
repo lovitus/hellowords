@@ -122,7 +122,11 @@ JSON and requires byte-for-byte equality with the published data.
 
 Create a bright editorial two-level apartment cutaway in neutral daylight: living room upper-left, a complete kitchen upper-right, a narrow central stair, a complete bedroom lower-left and a complete bathroom lower-right. Keep the three destination rooms visually separate and large enough to act as non-overlapping portals. Exclude people, anatomy, medical objects, brands, readable text and objects leaking between rooms.
 
-The final-pixel audit retained 44 independently visible terms and rebuilt all three room portals. The completed image has a 140.1 mean luma; every destination crop remains substantially brighter than the former amber cutaway. The later room-depth pass adds 30 living-room terms while keeping the three portal rectangles unchanged.
+The final-pixel audit retained 143 independently visible terms and rebuilt all
+three room portals. The completed image has a 140.1 mean luma; every
+destination crop remains substantially brighter than the former amber
+cutaway. The room-depth pass adds 30 further living-room terms while keeping
+the three portal rectangles unchanged, for 173 authored anchors.
 
 ### City street
 
@@ -242,7 +246,10 @@ printed text and inferred plant qualities.
 
 Create a bright, elegant contemporary bathroom in soft natural daylight, composed as one coherent photographed room. Place a freestanding bathtub and window at left, an open vanity with sink, framed mirror and visible P-trap at center, a separate toilet, a glass walk-in shower with rainfall head, hand shower, niche and linear drain at right, and an open linen cabinet at the far edge. Make the bath tray, soap, washcloth, toiletry vessels, paper roll, brush, towels, tile and mat individually readable. Keep the room hygienic and serene, with no people, brands, writing, impossible plumbing or dark clinical atmosphere.
 
-The final-pixel audit retains 103 independently pointable structures across six authored zones. It adds only visible glass hardware, shower fittings, fixture edges, towel/storage parts and bath accessories; humidity, cleanliness, hot water and other inferred conditions remain excluded.
+The final-pixel audit retained 133 independently pointable structures across
+six authored zones. The later shower-depth pass adds 30 visible glass,
+hardware, tile and fixture parts, for 163 authored anchors; humidity,
+cleanliness, hot water and other inferred conditions remain excluded.
 
 ### Oak tree
 
@@ -272,7 +279,10 @@ The final scientific-material pass retained 51 grounded structures across six au
 
 Create a bright editorial residential kitchen with warm daylight, natural oak, sage cabinetry and stone worktops. Clearly separate the washing, cooking and island objects, including appliances, cookware, utensils, dishes, food and small tools. Keep a complete automatic coffee machine prominent in its own far-right nook as the next portal; exclude people, bedrooms, clinics and legible branding.
 
-The final-pixel audit retains 116 independently pointable structures across four authored zones. It adds only visible sink, cabinet, cooktop, oven, small-appliance, coffee-machine and island parts; cooking processes and hidden appliance functions remain excluded.
+The final-pixel audit retains 146 independently pointable structures across
+four authored zones. The later island-depth pass adds 30 more visible counter,
+utensil, cookware and surface parts, for 176 authored anchors; cooking
+processes and hidden appliance functions remain excluded.
 
 ### Coffee machine
 
@@ -302,10 +312,10 @@ The final-pixel audit retains 59 grounded terms across four authored anatomy cro
 
 Create a bright, elegant neighborhood cafe in natural daylight with no people. Separate the window seating, service counter, glass pastry display, professional espresso station and large foreground tableware setting so every retained object remains independently pointable. Keep the espresso machine parts physically attached, pastries individually readable and all menu boards, payment devices, exterior signs and equipment completely free of text, brands and pseudo-writing.
 
-The final-pixel audit retained 70 independently pointable terms across five
-detail zones. It adds door and window parts, seating construction, counter and
-display glass, espresso handles and tips, and foreground tableware details
-while rejecting people, branding and inferred service behavior.
+The final-pixel audit retained 100 independently pointable terms across five
+detail zones. The later pastry-depth pass adds 30 visible pastry, display,
+counter and espresso details, for 130 authored anchors; people, branding and
+inferred service behavior remain excluded.
 
 ### Polymer
 
@@ -317,12 +327,13 @@ The final-pixel audit retained 37 pointable terms. It added only the clearly vis
 
 Create a bright elegant bedroom with a complete central bed, layered bedding, window, curtains, writing desk, chair, dresser, mirror, lamps, plants, room finishes and small personal objects. Make the fully open, warmly lit wardrobe entrance on the far right unmistakable and unobstructed, with visible hanging and folded storage. Exclude people, mannequins, anatomy and medical imagery.
 
-The final-pixel audit retained 104 independently pointable terms across five
+The final-pixel audit retained 134 independently pointable terms across five
 detail zones. It adds readable bedding seams and folds, desk and chair parts,
 window and lamp hardware, wardrobe storage details, laundry-basket weave and
 floor finish while keeping the open wardrobe portal unobstructed and rejecting
 the removed activity, mood and routine claims. The later bedroom-depth pass
-adds 30 bedding and finish terms on the existing sleeping-area crop.
+adds 30 more bedding and finish terms on the existing sleeping-area crop, for
+164 authored anchors.
 
 ### Wardrobe interior
 

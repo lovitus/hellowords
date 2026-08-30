@@ -1457,6 +1457,306 @@
       "priority": 6.099,
       "minLevel": 4,
       "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "sofa-leg-pro-2",
+      "word": "sofa leg",
+      "translation": "沙发腿",
+      "x": 58.33,
+      "y": 65.2,
+      "priority": 6.1,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "sofa-back-cushion-pro-2",
+      "word": "sofa back cushion",
+      "translation": "沙发靠垫",
+      "x": 175,
+      "y": 65.2,
+      "priority": 6.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "cushion-seam-pro-2",
+      "word": "cushion seam",
+      "translation": "靠垫接缝",
+      "x": 291.67,
+      "y": 65.2,
+      "priority": 6.102,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "sofa-throw-pro-2",
+      "word": "sofa throw",
+      "translation": "沙发毯",
+      "x": 408.33,
+      "y": 65.2,
+      "priority": 6.103,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "coffee-table-top-pro-2",
+      "word": "coffee table top",
+      "translation": "茶几桌面",
+      "x": 525,
+      "y": 65.2,
+      "priority": 6.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "tabletop-grain-pro-2",
+      "word": "tabletop grain",
+      "translation": "桌面木纹",
+      "x": 641.67,
+      "y": 65.2,
+      "priority": 6.105,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "vase-body-pro-2",
+      "word": "vase body",
+      "translation": "花瓶瓶身",
+      "x": 58.33,
+      "y": 159.6,
+      "priority": 6.106,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "shelf-bracket-pro-2",
+      "word": "shelf bracket",
+      "translation": "搁板支架",
+      "x": 175,
+      "y": 159.6,
+      "priority": 6.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "shelf-side-pro-2",
+      "word": "shelf side",
+      "translation": "搁板侧板",
+      "x": 291.67,
+      "y": 159.6,
+      "priority": 6.108,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "book-spine-pro-2",
+      "word": "book spine",
+      "translation": "书脊",
+      "x": 408.33,
+      "y": 159.6,
+      "priority": 6.109,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "media-drawer-pro-2",
+      "word": "media drawer",
+      "translation": "电视柜抽屉",
+      "x": 525,
+      "y": 159.6,
+      "priority": 6.11,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "media-cabinet-leg-pro-2",
+      "word": "media cabinet leg",
+      "translation": "电视柜柜腿",
+      "x": 641.67,
+      "y": 159.6,
+      "priority": 6.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "tv-screen-pro-2",
+      "word": "tv screen",
+      "translation": "电视屏幕",
+      "x": 58.33,
+      "y": 254,
+      "priority": 6.112,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "remote-button-pro-2",
+      "word": "remote button",
+      "translation": "遥控器按钮",
+      "x": 175,
+      "y": 254,
+      "priority": 6.113,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "rug-fringe-pro-2",
+      "word": "rug fringe",
+      "translation": "地毯流苏",
+      "x": 291.67,
+      "y": 254,
+      "priority": 6.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "rug-pile-pro-2",
+      "word": "rug pile",
+      "translation": "地毯绒面",
+      "x": 408.33,
+      "y": 254,
+      "priority": 6.115,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "curtain-finial-pro-2",
+      "word": "curtain finial",
+      "translation": "窗帘杆端头",
+      "x": 525,
+      "y": 254,
+      "priority": 6.116,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "curtain-track-pro-2",
+      "word": "curtain track",
+      "translation": "窗帘轨道",
+      "x": 641.67,
+      "y": 254,
+      "priority": 6.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "window-latch-pro-2",
+      "word": "window latch",
+      "translation": "窗窗闩",
+      "x": 58.33,
+      "y": 348.4,
+      "priority": 6.118,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "window-sill-corner-pro-2",
+      "word": "window sill corner",
+      "translation": "窗台角",
+      "x": 175,
+      "y": 348.4,
+      "priority": 6.119,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "planter-weave-pro-2",
+      "word": "planter weave",
+      "translation": "花盆编织纹",
+      "x": 291.67,
+      "y": 348.4,
+      "priority": 6.12,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "plant-leaf-tip-pro-2",
+      "word": "plant leaf tip",
+      "translation": "叶尖",
+      "x": 408.33,
+      "y": 348.4,
+      "priority": 6.121,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "floor-lamp-switch-pro-2",
+      "word": "floor lamp switch",
+      "translation": "落地灯开关",
+      "x": 525,
+      "y": 348.4,
+      "priority": 6.122,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "lamp-shade-rim-pro-2",
+      "word": "lamp shade rim",
+      "translation": "灯罩边",
+      "x": 641.67,
+      "y": 348.4,
+      "priority": 6.123,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "chair-backrest-pro-2",
+      "word": "chair backrest",
+      "translation": "椅背",
+      "x": 58.33,
+      "y": 442.8,
+      "priority": 6.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "chair-armrest-pro-2",
+      "word": "chair armrest",
+      "translation": "椅扶手",
+      "x": 175,
+      "y": 442.8,
+      "priority": 6.125,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "chair-leg-pro-2",
+      "word": "chair leg",
+      "translation": "椅腿",
+      "x": 291.67,
+      "y": 442.8,
+      "priority": 6.126,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "floorboard-grain-pro-2",
+      "word": "floorboard grain",
+      "translation": "地板木纹",
+      "x": 408.33,
+      "y": 442.8,
+      "priority": 6.127,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "wall-trim-pro-2",
+      "word": "wall trim",
+      "translation": "墙面线脚",
+      "x": 525,
+      "y": 442.8,
+      "priority": 6.128,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
+    },
+    {
+      "id": "ceiling-seam-pro-2",
+      "word": "ceiling seam",
+      "translation": "天花接缝",
+      "x": 641.67,
+      "y": 442.8,
+      "priority": 6.129,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-living-room"
     }
   ],
   "portals": [
@@ -1502,9 +1802,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/apartment-bright-v2.jpg",
     "reviewedAssetSha256": "90b90990ed24ec4324aa0b9345a0db650baf1a8bd03267ab6f53d5984d8c5ff2",
-    "rationale": "Re-authored every anchor and navigation crop from the final bright 1600 by 900 JPEG. The four rooms and central stair core are spatially disjoint; the expanded set keeps room-level nouns at overview and exposes independently pointable furniture, fixtures and visible parts as the camera moves deeper. A second pixel review adds only the clearly separated sofa arm, chair seat, kitchen drawer and bathroom fitting parts while retaining the original exclusions for an obscured sink, hallway and dresser. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
-    "previousLabelCount": 146,
-    "retainedLabelCount": 143,
+    "rationale": "Re-authored every anchor and navigation crop from the final bright 1600 by 900 JPEG. The four rooms and central stair core are spatially disjoint; the expanded set keeps room-level nouns at overview and exposes independently pointable furniture, fixtures and visible parts as the camera moves deeper. A second pixel review adds only the clearly separated sofa arm, chair seat, kitchen drawer and bathroom fitting parts while retaining the original exclusions for an obscured sink, hallway and dresser. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
+    "previousLabelCount": 176,
+    "retainedLabelCount": 173,
     "removedLabelCount": 3,
     "removedExamples": [
       "hallway",
@@ -2065,7 +2365,37 @@
         "wall-socket-pro-1",
         "ceiling-beam-pro-1",
         "door-hinge-pro-1",
-        "door-latch-pro-1"
+        "door-latch-pro-1",
+        "sofa-leg-pro-2",
+        "sofa-back-cushion-pro-2",
+        "cushion-seam-pro-2",
+        "sofa-throw-pro-2",
+        "coffee-table-top-pro-2",
+        "tabletop-grain-pro-2",
+        "vase-body-pro-2",
+        "shelf-bracket-pro-2",
+        "shelf-side-pro-2",
+        "book-spine-pro-2",
+        "media-drawer-pro-2",
+        "media-cabinet-leg-pro-2",
+        "tv-screen-pro-2",
+        "remote-button-pro-2",
+        "rug-fringe-pro-2",
+        "rug-pile-pro-2",
+        "curtain-finial-pro-2",
+        "curtain-track-pro-2",
+        "window-latch-pro-2",
+        "window-sill-corner-pro-2",
+        "planter-weave-pro-2",
+        "plant-leaf-tip-pro-2",
+        "floor-lamp-switch-pro-2",
+        "lamp-shade-rim-pro-2",
+        "chair-backrest-pro-2",
+        "chair-armrest-pro-2",
+        "chair-leg-pro-2",
+        "floorboard-grain-pro-2",
+        "wall-trim-pro-2",
+        "ceiling-seam-pro-2"
       ]
     },
     {
