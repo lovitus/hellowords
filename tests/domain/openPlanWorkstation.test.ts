@@ -22,7 +22,7 @@ test("open-plan workstation keeps 150 reviewed, independently pointable terms", 
   assert.equal(scene.asset, "/scenes/open-plan-workstation-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 150);
-  assert.equal(scene.visualRegions.length, 150);
+  assert.equal(scene.visualRegions.length, 151);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }: { id: string; labelIds: string[] }) => [id, labelIds.length]), [
     ["open-plan-workstation-zone-left-workstation-island", 25],
     ["open-plan-workstation-zone-center-workstation-island", 25],

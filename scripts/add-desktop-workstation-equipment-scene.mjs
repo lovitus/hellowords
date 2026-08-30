@@ -6,14 +6,17 @@ import sharp from "sharp";
 /**
  * Author the desktop workstation equipment terminal scene from its reviewed
  * source raster. The default command writes only this scene JSON and verifies
- * both image tiers; open-plan-workstation integration stays on the main
- * branch.
+ * both image tiers. Pass --integrate after review to connect the visible
+ * centre workstation in the open-plan parent and update the manifest.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/desktop-workstation-equipment-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/desktop-workstation-equipment-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/desktop-workstation-equipment.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/open-plan-workstation.json");
+const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const integrate = process.argv.includes("--integrate");
 
 const SOURCE_WIDTH = 1_672;
 const SOURCE_HEIGHT = 941;
@@ -389,19 +392,72 @@ async function ensureAsset() {
   return true;
 }
 
+const parentPortal = {
+  id: "enter-desktop-workstation-equipment",
+  label: "Inspect the centre desktop workstation",
+  translation: "查看中央桌面工位",
+  childSceneId: "desktop-workstation-equipment",
+  sourceVisualRegion: "portal-centre-desktop-workstation",
+  x: 500,
+  y: 390,
+  width: 430,
+  height: 390,
+  enterScale: 3.2,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete centre workstation with monitor, keyboard, mouse, drawer pedestal, chair and under-desk cable routing",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "desktop-workstation-equipment")) {
+    const parentIndex = manifest.scenes.findIndex(({ id }) => id === "open-plan-workstation");
+    if (parentIndex < 0) throw new Error("open-plan-workstation is missing from the scene manifest");
+    manifest.scenes.splice(parentIndex + 1, 0, {
+      id: "desktop-workstation-equipment",
+      title: "Desktop workstation equipment",
+      parentId: "open-plan-workstation",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildDesktopWorkstationEquipmentScene() {
   const scene = buildScene();
   if (scene.labels.length < 145 || scene.labels.length > 155) {
     throw new Error(`desktop workstation label count ${scene.labels.length} is outside 145–155`);
   }
   if (scene.detailZones.length !== 6) throw new Error(`desktop workstation zone count ${scene.detailZones.length} is not 6`);
-  return {
+  const result = {
     assetChanged: await ensureAsset(),
     sceneChanged: await writeIfChanged(scenePath, scene),
     labels: scene.labels.length,
     zones: scene.detailZones.length,
     parentId: scene.parentId,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve(import.meta.filename)) {

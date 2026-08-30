@@ -1357,6 +1357,15 @@
       "y": 744.102019,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "portal-centre-desktop-workstation",
+      "description": "Complete centre workstation with monitor, keyboard, mouse, drawer pedestal, chair and under-desk cable routing",
+      "kind": "object",
+      "x": 500,
+      "y": 390,
+      "width": 430,
+      "height": 390
     }
   ],
   "detailZones": [
@@ -3261,5 +3270,18 @@
       "semanticRealmId": "people-society"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-desktop-workstation-equipment",
+      "label": "Inspect the centre desktop workstation",
+      "translation": "查看中央桌面工位",
+      "childSceneId": "desktop-workstation-equipment",
+      "sourceVisualRegion": "portal-centre-desktop-workstation",
+      "x": 500,
+      "y": 390,
+      "width": 430,
+      "height": 390,
+      "enterScale": 3.2
+    }
+  ]
 }

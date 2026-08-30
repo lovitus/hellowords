@@ -81,7 +81,7 @@ async function assertReviewedScene(scene: Scene, expected: {
   assert.equal(scene.asset, expected.asset);
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, expected.labelCount);
-  assert.equal(scene.visualRegions.length, expected.labelCount + (scene.portals.length ? 1 : 0));
+  assert.equal(scene.visualRegions.length, expected.labelCount + scene.portals.length);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), expected.zoneIds.map((zoneId, index) => [
     `${scene.id}-zone-${zoneId}`,
     expected.zoneSizes[index],
@@ -144,18 +144,32 @@ test("airport security checkpoint keeps 103 reviewed queue, document and screeni
     sourceWidth: 1_672,
     sourceHeight: 941,
   });
-  assert.deepEqual(scene.portals, [{
-    id: "enter-boarding-gate",
-    label: "Enter the boarding gate",
-    translation: "进入登机口",
-    childSceneId: "boarding-gate",
-    sourceVisualRegion: "portal-boarding-gate",
-    x: 1_250,
-    y: 140,
-    width: 350,
-    height: 380,
-    enterScale: 3.4,
-  }]);
+  assert.deepEqual(scene.portals, [
+    {
+      id: "enter-carry-on-baggage-scanner",
+      label: "Inspect the carry-on baggage scanner",
+      translation: "查看随身行李扫描器",
+      childSceneId: "carry-on-baggage-scanner",
+      sourceVisualRegion: "portal-carry-on-baggage-scanner",
+      x: 850,
+      y: 120,
+      width: 300,
+      height: 420,
+      enterScale: 3.35,
+    },
+    {
+      id: "enter-boarding-gate",
+      label: "Enter the boarding gate",
+      translation: "进入登机口",
+      childSceneId: "boarding-gate",
+      sourceVisualRegion: "portal-boarding-gate",
+      x: 1_250,
+      y: 140,
+      width: 350,
+      height: 380,
+      enterScale: 3.4,
+    },
+  ]);
 });
 
 test("boarding gate keeps 120 reviewed lounge, bridge, cabin and airside terms", async () => {

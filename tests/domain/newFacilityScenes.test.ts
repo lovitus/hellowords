@@ -32,6 +32,22 @@ const contracts = [
     labels: 150,
     zoneSizes: [25, 25, 25, 25, 25, 25],
   },
+  {
+    id: "carry-on-baggage-scanner",
+    parentId: "security-checkpoint",
+    asset: "/scenes/carry-on-baggage-scanner-premium-v1.jpg",
+    sha256: "b9bb1a4985763405fab88538574a621cf9c6679653747f1babc3ab4d0511c49f",
+    labels: 147,
+    zoneSizes: [25, 25, 25, 25, 25, 22],
+  },
+  {
+    id: "desktop-workstation-equipment",
+    parentId: "open-plan-workstation",
+    asset: "/scenes/desktop-workstation-equipment-premium-v1.jpg",
+    sha256: "1018242a50cc54d8d7eba6d9a0d6725037ed446fbfc8cdab2c5bf731f993d8a7",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
 ] as const;
 
 for (const contract of contracts) {
@@ -67,4 +83,22 @@ test("aircraft cabin exposes a disjoint, visible forward-galley entrance", async
   const region = parent.visualRegions.find(({ id }: { id: string }) => id === galley.sourceVisualRegion);
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [320, 60, 380, 780]);
+});
+
+test("security checkpoint and open-plan office expose bounded equipment entrances", async () => {
+  const checkpoint = await readJson("security-checkpoint.json");
+  const scanner = checkpoint.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "carry-on-baggage-scanner");
+  const boarding = checkpoint.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "boarding-gate");
+  assert.ok(scanner);
+  assert.ok(boarding);
+  assert.deepEqual([scanner.x, scanner.y, scanner.width, scanner.height], [850, 120, 300, 420]);
+  assert.ok(scanner.x + scanner.width <= boarding.x, "scanner and boarding-gate crops must not overlap");
+
+  const office = await readJson("open-plan-workstation.json");
+  const workstation = office.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "desktop-workstation-equipment");
+  assert.ok(workstation);
+  assert.deepEqual([workstation.x, workstation.y, workstation.width, workstation.height], [500, 390, 430, 390]);
+  const region = office.visualRegions.find(({ id }: { id: string }) => id === workstation.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [500, 390, 430, 390]);
 });

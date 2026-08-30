@@ -943,6 +943,15 @@
       "y": 140,
       "width": 350,
       "height": 380
+    },
+    {
+      "id": "portal-carry-on-baggage-scanner",
+      "description": "Complete CT scanner housing, tunnel, conveyor, operator screen and tray-return bank in the checkpoint photograph",
+      "kind": "object",
+      "x": 850,
+      "y": 120,
+      "width": 300,
+      "height": 420
     }
   ],
   "detailZones": [
@@ -2166,6 +2175,18 @@
     }
   ],
   "portals": [
+    {
+      "id": "enter-carry-on-baggage-scanner",
+      "label": "Inspect the carry-on baggage scanner",
+      "translation": "查看随身行李扫描器",
+      "childSceneId": "carry-on-baggage-scanner",
+      "sourceVisualRegion": "portal-carry-on-baggage-scanner",
+      "x": 850,
+      "y": 120,
+      "width": 300,
+      "height": 420,
+      "enterScale": 3.35
+    },
     {
       "id": "enter-boarding-gate",
       "label": "Enter the boarding gate",

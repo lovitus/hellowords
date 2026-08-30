@@ -281,6 +281,32 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 15,
     },
   },
+  "carry-on-baggage-scanner": {
+    asset: "/scenes/carry-on-baggage-scanner-premium-v1.jpg",
+    sha256: "b9bb1a4985763405fab88538574a621cf9c6679653747f1babc3ab4d0511c49f",
+    quality: {
+      minMeanLuminance: 105,
+      maxMeanLuminance: 125,
+      maxDarkFraction: 0.31,
+      maxDeepDarkFraction: 0.17,
+      minMeanChroma: 0.05,
+      maxMeanChroma: 0.09,
+      maxChannelMeanSpread: 8,
+    },
+  },
+  "desktop-workstation-equipment": {
+    asset: "/scenes/desktop-workstation-equipment-premium-v1.jpg",
+    sha256: "1018242a50cc54d8d7eba6d9a0d6725037ed446fbfc8cdab2c5bf731f993d8a7",
+    quality: {
+      minMeanLuminance: 95,
+      maxMeanLuminance: 120,
+      maxDarkFraction: 0.36,
+      maxDeepDarkFraction: 0.14,
+      minMeanChroma: 0.09,
+      maxMeanChroma: 0.14,
+      maxChannelMeanSpread: 30,
+    },
+  },
   "hemodialysis-unit": {
     asset: "/scenes/hemodialysis-unit-premium-v1.jpg",
     sha256: "fd89f968c45ae3139c699fd4a333c5eb7b5c10bdd053df35c56a9a6b8af964dc",

@@ -178,6 +178,11 @@
       "parentId": "office-building"
     },
     {
+      "id": "desktop-workstation-equipment",
+      "title": "Desktop workstation equipment",
+      "parentId": "open-plan-workstation"
+    },
+    {
       "id": "conference-room",
       "title": "Conference room",
       "parentId": "office-building"
@@ -351,6 +356,11 @@
       "id": "security-checkpoint",
       "title": "Security checkpoint",
       "parentId": "airport"
+    },
+    {
+      "id": "carry-on-baggage-scanner",
+      "title": "Carry-on baggage scanner",
+      "parentId": "security-checkpoint"
     },
     {
       "id": "boarding-gate",

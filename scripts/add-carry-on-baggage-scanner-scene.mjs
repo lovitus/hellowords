@@ -6,15 +6,17 @@ import sharp from "sharp";
 
 /**
  * Build the terminal carry-on baggage scanner scene from a reviewed
- * checkpoint photograph. Parent portal and manifest integration remain with
- * the root agent; this script owns only the new scene, assets and term audit.
+ * checkpoint photograph. Pass --integrate after review to connect the visible
+ * scanner bank in the security-checkpoint parent and update the manifest.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/carry-on-baggage-scanner-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/carry-on-baggage-scanner-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/carry-on-baggage-scanner.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/security-checkpoint.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const integrate = process.argv.includes("--integrate");
 
 const WIDTH = 1_600;
 const HEIGHT = 900;
@@ -385,17 +387,70 @@ async function assertUniqueWords(scene) {
   if (existingDuplicates.length > 0) throw new Error(`carry-on-baggage-scanner term duplicates existing words: ${existingDuplicates.join(", ")}`);
 }
 
+const parentPortal = {
+  id: "enter-carry-on-baggage-scanner",
+  label: "Inspect the carry-on baggage scanner",
+  translation: "查看随身行李扫描器",
+  childSceneId: "carry-on-baggage-scanner",
+  sourceVisualRegion: "portal-carry-on-baggage-scanner",
+  x: 850,
+  y: 120,
+  width: 300,
+  height: 420,
+  enterScale: 3.35,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete CT scanner housing, tunnel, conveyor, operator screen and tray-return bank in the checkpoint photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.unshift(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "carry-on-baggage-scanner")) {
+    const parentIndex = manifest.scenes.findIndex(({ id }) => id === "security-checkpoint");
+    if (parentIndex < 0) throw new Error("security-checkpoint is missing from the scene manifest");
+    manifest.scenes.splice(parentIndex + 1, 0, {
+      id: "carry-on-baggage-scanner",
+      title: "Carry-on baggage scanner",
+      parentId: "security-checkpoint",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildCarryOnBaggageScannerScene() {
   const assetChanged = await ensureAsset();
   const scene = makeScene();
   await assertUniqueWords(scene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
-  return {
+  const result = {
     assetChanged,
     sceneChanged,
     labels: scene.labels.length,
     zones: scene.detailZones.length,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 const isDirectInvocation = process.argv[1]

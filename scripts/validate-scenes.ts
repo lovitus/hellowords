@@ -132,6 +132,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The airport continuation resolves a complete screening lane and one
   // connected gate/boarding-bridge scene without passenger or flight claims.
   "security-checkpoint": 90,
+  "carry-on-baggage-scanner": 145,
   "boarding-gate": 100,
   // The connected wide-body cabin resolves the entry, galley, seating,
   // overhead-service, lavatory and room-fabric parts without flight claims.
@@ -142,6 +143,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // building-service hardware without inferring people, companies or policies.
   "office-building": 100,
   "open-plan-workstation": 140,
+  "desktop-workstation-equipment": 145,
   "conference-room": 130,
   "video-conferencing-console": 135,
   // The standalone service-core photograph resolves electrical, HVAC, fire,
@@ -230,12 +232,14 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "check-in-counter": 153,
   "baggage-drop-station": 155,
   "security-checkpoint": 103,
+  "carry-on-baggage-scanner": 150,
   "boarding-gate": 120,
   "aircraft-cabin": 142,
   "aircraft-galley-equipment": 150,
   "aircraft-lavatory": 138,
   "office-building": 390,
   "open-plan-workstation": 150,
+  "desktop-workstation-equipment": 155,
   "conference-room": 143,
   "video-conferencing-console": 144,
   // The service-core render supports 90 distinct visible facility parts while
