@@ -4,10 +4,10 @@
 
 ## 当前交付游标
 
-- 公开版本：`v130-135e876`（线上已完成真实冒烟；v131 词汇批次待发布）
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=130-135e876#world>
-- 源码：`135e8761fd8396c7e8c7c0f502e496f1d8c664d8`（v130 修正 Apartment 客厅词锚点并保留卧室衣柜语义修正；Hospital 410、Pathology lab 420、Hospital pharmacy 360、Airport 360、Office building 360；Home 为 Apartment 173、Kitchen 176、Bedroom 164、Bathroom 163、City cafe 130）。累计空间锚点 6,866、5,870 个去重词；继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：v131 已在本地加入 150 个可审计设施词（医院手术室、病理冷藏、药房配制台、机场行李提取、写字楼茶水间各 30 个），目标计数为 Hospital 440、Pathology lab 450、Hospital pharmacy 390、Airport 390、Office building 390；下一步完成发布后再做真实入口冒烟。
+- 公开版本：`v131-08c6079`（线上已完成真实冒烟）
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=131-08c6079#world>
+- 源码：`08c6079bf5200f35dba28be62454c49fb0bd2773`（v131 在医院手术室、病理冷藏、药房配制台、机场行李提取、写字楼茶水间各增加 30 个可审计词；Hospital 440、Pathology lab 450、Hospital pharmacy 390、Airport 390、Office building 390；Home 为 Apartment 173、Kitchen 176、Bedroom 164、Bathroom 163、City cafe 130）。累计空间锚点 7,016、5,985 个去重词；继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：v131 已公开发布并完成真实入口冒烟；下一步继续按“先堆词、再精修”扩展尚未达到审计上限的交通、自然与室内场景。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### v122 交付记录（2026-08-29）
@@ -44,8 +44,8 @@
 - v128 在五个 Home 场景增加 150 个可指认生活部件：Apartment 173、Kitchen 176、Bedroom 164、Bathroom 163、City cafe 130；词汇仍复用已有房间、柜体与设备细分区。
 - v129 将 Home 焦点区词优先挂载，并把 Bedroom 的新增词收回衣柜可见结构；完整校验、E2E 106/36 与性能门 2/2 通过。
 - v130 依据 Apartment bright v2 最终像素重新锚定客厅词（sofa leg、sofa cushion、coffee table、media cabinet handle 等），修正配图不符词；完整校验、E2E 106/36 与性能门 2/2 通过，公开 v130 已真实冒烟。
-- v131 在五张已审计设施图上再增加 150 个词：operating theatre、cold storage、compounding bench、baggage claim、office pantry 各 30 个；本地验证已通过（`npm run verify` 232 个域 + 28 个语义、E2E 106/36、性能 2/2），待一次发布与真实页面核对。
-- 清理记录：v128、v129、v130 归档已分别移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v128/`、`hellowords-v129/`、`hellowords-v130/`；v131 归档将在公开发布后处理，活动 `.codex/sessions` 与共享临时根不删除。
+- v131 在五张已审计设施图上再增加 150 个词：operating theatre、cold storage、compounding bench、baggage claim、office pantry 各 30 个；`npm run verify` 232 个域 + 28 个语义、E2E 106/36、性能 2/2 均通过，公开页真实核对五个新词与总量，error/warn 日志为空。
+- 清理记录：v128、v129、v130、v131 归档已分别移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v128/`、`/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v129/`、`/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v130/`、`/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v131/`；活动 `.codex/sessions` 与共享临时根不删除。
 
 ## 当前续开发游标（2026-08-29）
 
