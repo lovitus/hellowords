@@ -1294,6 +1294,15 @@
       "y": 170,
       "width": 390,
       "height": 560
+    },
+    {
+      "id": "portal-forward-aircraft-galley",
+      "description": "Complete forward-galley cabinet, oven, cart and worktop bank visible at the left of the aircraft-cabin photograph",
+      "kind": "object",
+      "x": 320,
+      "y": 60,
+      "width": 380,
+      "height": 780
     }
   ],
   "detailZones": [
@@ -2983,6 +2992,18 @@
       "width": 390,
       "height": 560,
       "enterScale": 3.6
+    },
+    {
+      "id": "enter-aircraft-galley-equipment",
+      "label": "Enter the forward aircraft galley",
+      "translation": "进入前部机上厨房",
+      "childSceneId": "aircraft-galley-equipment",
+      "sourceVisualRegion": "portal-forward-aircraft-galley",
+      "x": 320,
+      "y": 60,
+      "width": 380,
+      "height": 780,
+      "enterScale": 3.1
     }
   ]
 }

@@ -1102,7 +1102,7 @@
       "description": "Pixel-audited “galley cabin threshold” inside the Doorway and curtain crop of the aircraft galley photograph",
       "kind": "part",
       "x": 230,
-      "y": 870,
+      "y": 850,
       "width": 40,
       "height": 40
     },
@@ -2793,7 +2793,7 @@
       "word": "galley cabin threshold",
       "translation": "厨房客舱门槛",
       "x": 250,
-      "y": 890,
+      "y": 870,
       "priority": 1.121,
       "minLevel": 4,
       "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabin-threshold"

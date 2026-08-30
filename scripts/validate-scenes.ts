@@ -136,6 +136,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The connected wide-body cabin resolves the entry, galley, seating,
   // overhead-service, lavatory and room-fabric parts without flight claims.
   "aircraft-cabin": 120,
+  "aircraft-galley-equipment": 145,
   "aircraft-lavatory": 120,
   // The office atrium resolves reception, open work floor, meeting, pantry and
   // building-service hardware without inferring people, companies or policies.
@@ -231,6 +232,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "security-checkpoint": 103,
   "boarding-gate": 120,
   "aircraft-cabin": 142,
+  "aircraft-galley-equipment": 150,
   "aircraft-lavatory": 138,
   "office-building": 390,
   "open-plan-workstation": 150,

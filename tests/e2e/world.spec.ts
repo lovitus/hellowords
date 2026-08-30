@@ -821,7 +821,11 @@ test("plant cell exposes its organelle subparts through the real leaf path", asy
     await expect(app).toHaveAttribute("data-transition-state", "idle");
   }
 
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  if (testInfo.project.name === "mobile-chromium") {
+    await expect(page.getByRole("button", { name: /搜索当前场景的 60 个词/ })).toBeVisible();
+  } else {
+    await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  }
   const expectPlantZoneWord = async (word: string) => {
     if (testInfo.project.name === "mobile-chromium") {
       await expect.poll(async () => Number(

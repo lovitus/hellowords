@@ -163,6 +163,19 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("aircraft-galley-equipment", "aircraft-cabin", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "airport",
+    "security-checkpoint",
+    "boarding-gate",
+    "aircraft-cabin",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
   contract("video-conferencing-console", "conference-room", [
     "city-street",
     "transit-hub",

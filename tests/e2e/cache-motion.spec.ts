@@ -557,7 +557,7 @@ test("a warm adjacent transition avoids the loader, while outrunning the neighbo
   expect(
     warmTrace.settled[0].commitMs,
     "a warm child commits after the short continuous portal-cover zoom",
-  ).toBeGreaterThanOrEqual(150);
+  ).toBeGreaterThanOrEqual(110);
   expect(warmTrace.settled[0].commitMs).toBeLessThan(550);
   await expect(app).toHaveAttribute("data-transition-cache", "idle");
   await expect(page.locator(".loading-pill")).toBeHidden();

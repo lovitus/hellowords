@@ -800,7 +800,7 @@ test("active forward continuity uses a fixed compositor tile and freezes outgoin
   const continuityStart = source.indexOf("if (continuityView)");
   const continuityEnd = source.indexOf("let resizeFrame", continuityStart);
   const continuity = source.slice(continuityStart, continuityEnd);
-  assert.match(continuity, /const duration = continuityView\.direction === "back" \? 105 : 80/);
+  assert.match(continuity, /const duration = continuityView\.direction === "back" \? 80 : 60/);
   assert.match(source, /const HANDOFF_WHEEL_QUIET_MS = 180;/);
   assert.match(continuity, /quietUntil: now \+ HANDOFF_WHEEL_QUIET_MS/);
   assert.match(
@@ -818,7 +818,7 @@ test("active forward continuity uses a fixed compositor tile and freezes outgoin
   const portalTransition = source.slice(portalTransitionStart, portalTransitionEnd);
   assert.match(
     portalTransition,
-    /const duration = source === "zoom" \? 110 : readiness === "warm" \? 150 : 170/,
+    /const duration = source === "zoom" \? 90 : readiness === "warm" \? 110 : 130/,
   );
 });
 

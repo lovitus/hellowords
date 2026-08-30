@@ -6,15 +6,17 @@ import sharp from "sharp";
 
 /**
  * Build the terminal aircraft-galley-equipment scene from a reviewed cabin
- * photograph. Parent portal and manifest integration remain with the root
- * agent; this script owns only the new scene, assets and term audit.
+ * photograph. Pass --integrate after review to connect the real forward-galley
+ * crop in the aircraft-cabin parent and update the scene manifest.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/aircraft-galley-equipment-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/aircraft-galley-equipment-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/aircraft-galley-equipment.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/aircraft-cabin.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const integrate = process.argv.includes("--integrate");
 
 const WIDTH = 1_600;
 const HEIGHT = 900;
@@ -201,7 +203,7 @@ const zones = [
       ["galley curtain tieback", "厨房幕帘束带", 280, 500],
       ["galley curtain rail", "厨房幕帘导轨", 280, 80],
       ["galley curtain rail bracket", "厨房幕帘导轨支架", 270, 100],
-      ["galley cabin threshold", "厨房客舱门槛", 250, 890],
+      ["galley cabin threshold", "厨房客舱门槛", 250, 870],
       ["galley threshold tread", "厨房门槛踏板", 100, 880],
       ["galley door fastener", "厨房门框紧固件", 240, 600],
       ["galley entry wall liner", "厨房入口墙面内衬", 260, 250],
@@ -385,17 +387,70 @@ async function assertUniqueWords(scene) {
   if (existingDuplicates.length > 0) throw new Error(`aircraft-galley-equipment term duplicates existing words: ${existingDuplicates.join(", ")}`);
 }
 
+const parentPortal = {
+  id: "enter-aircraft-galley-equipment",
+  label: "Enter the forward aircraft galley",
+  translation: "进入前部机上厨房",
+  childSceneId: "aircraft-galley-equipment",
+  sourceVisualRegion: "portal-forward-aircraft-galley",
+  x: 320,
+  y: 60,
+  width: 380,
+  height: 780,
+  enterScale: 3.1,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete forward-galley cabinet, oven, cart and worktop bank visible at the left of the aircraft-cabin photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "aircraft-galley-equipment")) {
+    const cabinIndex = manifest.scenes.findIndex(({ id }) => id === "aircraft-cabin");
+    if (cabinIndex < 0) throw new Error("aircraft-cabin is missing from the scene manifest");
+    manifest.scenes.splice(cabinIndex + 1, 0, {
+      id: "aircraft-galley-equipment",
+      title: "Aircraft galley equipment",
+      parentId: "aircraft-cabin",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildAircraftGalleyEquipmentScene() {
   const assetChanged = await ensureAsset();
   const scene = makeScene();
   await assertUniqueWords(scene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
-  return {
+  const result = {
     assetChanged,
     sceneChanged,
     labels: scene.labels.length,
     zones: scene.detailZones.length,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 const isDirectInvocation = process.argv[1]

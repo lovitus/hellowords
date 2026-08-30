@@ -58,7 +58,7 @@ test("aircraft cabin keeps 142 reviewed door, galley, seating and lavatory terms
   assert.equal(scene.asset, "/scenes/aircraft-cabin-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 142);
-  assert.equal(scene.visualRegions.length, 143);
+  assert.equal(scene.visualRegions.length, 144);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), [
     ["aircraft-cabin-zone-entry-door-hardware", 22],
     ["aircraft-cabin-zone-forward-galley", 26],
@@ -74,7 +74,10 @@ test("aircraft cabin keeps 142 reviewed door, galley, seating and lavatory terms
   );
   assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 142);
   assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 142);
-  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["aircraft-lavatory"]);
+  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), [
+    "aircraft-lavatory",
+    "aircraft-galley-equipment",
+  ]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);

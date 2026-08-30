@@ -363,6 +363,11 @@
       "parentId": "boarding-gate"
     },
     {
+      "id": "aircraft-galley-equipment",
+      "title": "Aircraft galley equipment",
+      "parentId": "aircraft-cabin"
+    },
+    {
       "id": "aircraft-lavatory",
       "title": "Aircraft lavatory",
       "parentId": "aircraft-cabin"

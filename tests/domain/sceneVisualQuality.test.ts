@@ -268,6 +268,32 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 35,
     },
   },
+  "aircraft-galley-equipment": {
+    asset: "/scenes/aircraft-galley-equipment-premium-v1.jpg",
+    sha256: "ad4302dc7a0b87d7ae7bc6f596aec9a1c264ca29774d8c5ea0f024c91c3c0bbe",
+    quality: {
+      minMeanLuminance: 105,
+      maxMeanLuminance: 130,
+      maxDarkFraction: 0.34,
+      maxDeepDarkFraction: 0.17,
+      minMeanChroma: 0.05,
+      maxMeanChroma: 0.09,
+      maxChannelMeanSpread: 15,
+    },
+  },
+  "hemodialysis-unit": {
+    asset: "/scenes/hemodialysis-unit-premium-v1.jpg",
+    sha256: "fd89f968c45ae3139c699fd4a333c5eb7b5c10bdd053df35c56a9a6b8af964dc",
+    quality: {
+      minMeanLuminance: 140,
+      maxMeanLuminance: 160,
+      maxDarkFraction: 0.08,
+      maxDeepDarkFraction: 0.04,
+      minMeanChroma: 0.06,
+      maxMeanChroma: 0.09,
+      maxChannelMeanSpread: 8,
+    },
+  },
   "video-conferencing-console": {
     asset: "/scenes/video-conferencing-console-premium-v1.jpg",
     sha256: "191dcac69bbc53f5ec57497dc078f00d48c06104051886102b4fbf1ab0e863a5",
