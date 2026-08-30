@@ -1292,6 +1292,105 @@
       "minLevel": 4,
       "sourceVisualRegion": "attached-spider-silk",
       "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "ladybird-pronotum-focus-1",
+      "word": "ladybird pronotum",
+      "translation": "瓢虫前胸背板",
+      "x": 700,
+      "y": 258,
+      "priority": 5.109,
+      "minLevel": 2,
+      "sourceVisualRegion": "ladybird",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "ladybird-antenna-focus-2",
+      "word": "ladybird antenna",
+      "translation": "瓢虫触角",
+      "x": 718,
+      "y": 252,
+      "priority": 5.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "ladybird",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "aphid-antenna-focus-3",
+      "word": "aphid antenna",
+      "translation": "蚜虫触角",
+      "x": 884,
+      "y": 178,
+      "priority": 5.111,
+      "minLevel": 2,
+      "sourceVisualRegion": "aphid-colony",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "aphid-leg-focus-4",
+      "word": "aphid leg",
+      "translation": "蚜虫足",
+      "x": 875,
+      "y": 208,
+      "priority": 5.112,
+      "minLevel": 2,
+      "sourceVisualRegion": "aphid-colony",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "caterpillar-spiracle-focus-5",
+      "word": "caterpillar spiracle",
+      "translation": "毛虫气门",
+      "x": 1160,
+      "y": 520,
+      "priority": 5.113,
+      "minLevel": 3,
+      "sourceVisualRegion": "caterpillar-segments",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "caterpillar-tail-focus-6",
+      "word": "caterpillar tail",
+      "translation": "毛虫尾端",
+      "x": 1270,
+      "y": 548,
+      "priority": 5.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "caterpillar",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "acorn-tip-focus-7",
+      "word": "acorn tip",
+      "translation": "橡子尖",
+      "x": 165,
+      "y": 875,
+      "priority": 5.115,
+      "minLevel": 3,
+      "sourceVisualRegion": "attached-acorn",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "bud-base-focus-8",
+      "word": "bud base",
+      "translation": "芽基部",
+      "x": 285,
+      "y": 410,
+      "priority": 5.116,
+      "minLevel": 3,
+      "sourceVisualRegion": "twig-bud",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "gall-ridge-focus-9",
+      "word": "gall ridge",
+      "translation": "虫瘿脊",
+      "x": 500,
+      "y": 630,
+      "priority": 5.117,
+      "minLevel": 4,
+      "sourceVisualRegion": "oak-gall",
+      "semanticRealmId": "nature-life"
     }
   ],
   "portals": [
@@ -1313,9 +1412,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/leaf-natural-v3.jpg",
     "reviewedAssetSha256": "3047a8ee8f00fa78ac31d8b328034b52a62d414a20c7c4bdcc02c82a23ff9e13",
-    "rationale": "Expanded the final-pixel audit with only clearly separable twig, bud, acorn-cup, bark, insect and spider parts; the naturally lit oak branch, flattened dew lens and downstream plant-cell portal remain unchanged, while unsupported leaf underside and process claims stay rejected. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The focused detail batch adds 12 additional pixel-anchored parts inside previously reviewed crops.",
-    "previousLabelCount": 126,
-    "retainedLabelCount": 121,
+    "rationale": "Expanded the final-pixel audit with only clearly separable twig, bud, acorn-cup, bark, insect and spider parts; the naturally lit oak branch, flattened dew lens and downstream plant-cell portal remain unchanged, while unsupported leaf underside and process claims stay rejected. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The focused detail batch adds 12 additional pixel-anchored parts inside previously reviewed crops. The focused detail batch adds 9 additional pixel-anchored parts inside previously reviewed crops.",
+    "previousLabelCount": 135,
+    "retainedLabelCount": 130,
     "removedLabelCount": 5,
     "removedExamples": [
       "leaf blade",
@@ -1795,7 +1894,10 @@
         "bud-tip",
         "acorn-stalk",
         "bark-fissure",
-        "acorn-cup-scale"
+        "acorn-cup-scale",
+        "acorn-tip-focus-7",
+        "bud-base-focus-8",
+        "gall-ridge-focus-9"
       ]
     },
     {
@@ -1870,7 +1972,13 @@
         "caterpillar-head",
         "spider-abdomen",
         "spider-cephalothorax",
-        "ladybird-spot"
+        "ladybird-spot",
+        "ladybird-pronotum-focus-1",
+        "ladybird-antenna-focus-2",
+        "aphid-antenna-focus-3",
+        "aphid-leg-focus-4",
+        "caterpillar-spiracle-focus-5",
+        "caterpillar-tail-focus-6"
       ]
     },
     {

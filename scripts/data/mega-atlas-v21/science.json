@@ -6,7 +6,7 @@
     "width": 1672,
     "height": 941,
     "sha256": "f2f0a67e23ced774e050573af837f84b8644113c170a3a01b5a260bc80a6cb50",
-    "review": "original-resolution pixel audit with independently reviewed district crops"
+    "review": "original-resolution pixel audit with independently reviewed district crops The reviewed utilities crop adds separately pointable service hatch, paving, drainage, pipe, pump, valve, tank and fan parts."
   },
   "zones": [
     {
@@ -376,7 +376,21 @@
         "science-tank-cap",
         "science-cooling-unit-pair",
         "science-fan-grille",
-        "science-blue-utility-conduit"
+        "science-blue-utility-conduit",
+        "science-utility-wall-panel",
+        "science-utility-paving-slab",
+        "science-utility-drain-grate",
+        "science-utility-planter-curb",
+        "science-utility-tank-base",
+        "science-utility-fan-housing",
+        "science-utility-pipe-coupling",
+        "science-utility-pipe-bend",
+        "science-utility-tank-shoulder",
+        "science-utility-pump-base",
+        "science-utility-valve-handle",
+        "science-utility-pump-outlet-pipe",
+        "science-utility-fan-blade",
+        "science-utility-tank-outlet-collar"
       ],
       "translation": "建筑公用设施",
       "description": "Pixel-audited visible objects and parts across the building utilities district."
@@ -2433,6 +2447,132 @@
       "x": 1252,
       "y": 878,
       "lod": 1,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-wall-panel",
+      "word": "wall panel",
+      "translation": "墙面板",
+      "x": 520,
+      "y": 805,
+      "lod": 0,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-paving-slab",
+      "word": "paving slab",
+      "translation": "铺地板块",
+      "x": 650,
+      "y": 910,
+      "lod": 0,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-drain-grate",
+      "word": "drain grate",
+      "translation": "排水格栅",
+      "x": 713,
+      "y": 812,
+      "lod": 1,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-planter-curb",
+      "word": "planter curb",
+      "translation": "花坛缘石",
+      "x": 945,
+      "y": 873,
+      "lod": 1,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-tank-base",
+      "word": "tank base",
+      "translation": "储罐底座",
+      "x": 1465,
+      "y": 880,
+      "lod": 1,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-fan-housing",
+      "word": "fan housing",
+      "translation": "风扇外壳",
+      "x": 1580,
+      "y": 830,
+      "lod": 1,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-pipe-coupling",
+      "word": "pipe coupling",
+      "translation": "管道接头",
+      "x": 1085,
+      "y": 802,
+      "lod": 2,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-pipe-bend",
+      "word": "pipe bend",
+      "translation": "管道弯曲段",
+      "x": 1165,
+      "y": 803,
+      "lod": 2,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-tank-shoulder",
+      "word": "tank shoulder",
+      "translation": "储罐肩部",
+      "x": 1460,
+      "y": 810,
+      "lod": 2,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-pump-base",
+      "word": "pump base",
+      "translation": "水泵底座",
+      "x": 815,
+      "y": 852,
+      "lod": 2,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-valve-handle",
+      "word": "valve handle",
+      "translation": "阀门手柄",
+      "x": 1235,
+      "y": 850,
+      "lod": 3,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-pump-outlet-pipe",
+      "word": "pump outlet pipe",
+      "translation": "水泵出水管",
+      "x": 815,
+      "y": 822,
+      "lod": 3,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-fan-blade",
+      "word": "fan blade",
+      "translation": "风扇叶片",
+      "x": 1583,
+      "y": 826,
+      "lod": 4,
+      "zoneId": "science-utilities"
+    },
+    {
+      "id": "science-utility-tank-outlet-collar",
+      "word": "tank outlet collar",
+      "translation": "储罐出水口套环",
+      "x": 1525,
+      "y": 817,
+      "lod": 4,
       "zoneId": "science-utilities"
     }
   ],

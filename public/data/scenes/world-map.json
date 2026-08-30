@@ -1508,12 +1508,34 @@
       "semanticRealmId": "mind-values"
     },
     {
+      "id": "science-utility-paving-slab",
+      "word": "paving slab",
+      "translation": "铺地板块",
+      "x": 1209,
+      "y": 455,
+      "priority": 1.00135,
+      "minLevel": 0,
+      "sourceVisualRegion": "anchor-science-utility-paving-slab",
+      "semanticRealmId": "mind-values"
+    },
+    {
+      "id": "science-utility-wall-panel",
+      "word": "wall panel",
+      "translation": "墙面板",
+      "x": 1144,
+      "y": 402.5,
+      "priority": 1.00136,
+      "minLevel": 0,
+      "sourceVisualRegion": "anchor-science-utility-wall-panel",
+      "semanticRealmId": "mind-values"
+    },
+    {
       "id": "science-ventilation-duct",
       "word": "ventilation duct",
       "translation": "通风管道",
       "x": 1300,
       "y": 409,
-      "priority": 1.00135,
+      "priority": 1.00137,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-science-ventilation-duct",
       "semanticRealmId": "mind-values"
@@ -1524,7 +1546,7 @@
       "translation": "清洗台",
       "x": 1027.5,
       "y": 195,
-      "priority": 1.00136,
+      "priority": 1.00138,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-science-wash-station",
       "semanticRealmId": "mind-values"
@@ -1535,7 +1557,7 @@
       "translation": "木工台",
       "x": 1353.5,
       "y": 317.5,
-      "priority": 1.00137,
+      "priority": 1.00139,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-science-woodworking-bench",
       "semanticRealmId": "mind-values"
@@ -1546,7 +1568,7 @@
       "translation": "木工工具墙",
       "x": 1359,
       "y": 270.5,
-      "priority": 1.00138,
+      "priority": 1.0014,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-science-woodworking-tool-wall",
       "semanticRealmId": "mind-values"
@@ -1557,7 +1579,7 @@
       "translation": "货场小屋",
       "x": 2348,
       "y": 265.5,
-      "priority": 1.00139,
+      "priority": 1.00141,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-cargo-shed",
       "semanticRealmId": "objects-technology"
@@ -1568,7 +1590,7 @@
       "translation": "叉车",
       "x": 2279,
       "y": 257.5,
-      "priority": 1.0014,
+      "priority": 1.00142,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-forklift",
       "semanticRealmId": "objects-technology"
@@ -1579,7 +1601,7 @@
       "translation": "集装箱",
       "x": 2358,
       "y": 202,
-      "priority": 1.00141,
+      "priority": 1.00143,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-shipping-container",
       "semanticRealmId": "objects-technology"
@@ -1590,7 +1612,7 @@
       "translation": "木箱",
       "x": 2320,
       "y": 219,
-      "priority": 1.00142,
+      "priority": 1.00144,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-wooden-crate",
       "semanticRealmId": "objects-technology"
@@ -1601,7 +1623,7 @@
       "translation": "自行车停放区",
       "x": 1943,
       "y": 420,
-      "priority": 1.00143,
+      "priority": 1.00145,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-bicycle-parking-area",
       "semanticRealmId": "objects-technology"
@@ -1612,7 +1634,7 @@
       "translation": "载货自行车",
       "x": 1980.5,
       "y": 450,
-      "priority": 1.00144,
+      "priority": 1.00146,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-cargo-bicycle",
       "semanticRealmId": "objects-technology"
@@ -1623,7 +1645,7 @@
       "translation": "自行车工坊",
       "x": 1903,
       "y": 365,
-      "priority": 1.00145,
+      "priority": 1.00147,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-cycle-workshop",
       "semanticRealmId": "objects-technology"
@@ -1634,7 +1656,7 @@
       "translation": "小艇",
       "x": 2548,
       "y": 425,
-      "priority": 1.00146,
+      "priority": 1.00148,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-dinghy",
       "semanticRealmId": "objects-technology"
@@ -1645,7 +1667,7 @@
       "translation": "渔船",
       "x": 2493,
       "y": 400,
-      "priority": 1.00147,
+      "priority": 1.00149,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-fishing-boat",
       "semanticRealmId": "objects-technology"
@@ -1656,7 +1678,7 @@
       "translation": "平板车",
       "x": 2158,
       "y": 252.5,
-      "priority": 1.00148,
+      "priority": 1.0015,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-flatbed-wagon",
       "semanticRealmId": "objects-technology"
@@ -1667,7 +1689,7 @@
       "translation": "敞车",
       "x": 2118,
       "y": 205,
-      "priority": 1.00149,
+      "priority": 1.00151,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-gondola-wagon",
       "semanticRealmId": "objects-technology"
@@ -1678,7 +1700,7 @@
       "translation": "罐车",
       "x": 2223,
       "y": 198,
-      "priority": 1.0015,
+      "priority": 1.00152,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-tank-wagon",
       "semanticRealmId": "objects-technology"
@@ -1689,7 +1711,7 @@
       "translation": "门式起重机",
       "x": 2498,
       "y": 205,
-      "priority": 1.00151,
+      "priority": 1.00153,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-gantry-crane",
       "semanticRealmId": "objects-technology"
@@ -1700,7 +1722,7 @@
       "translation": "拖船",
       "x": 2492,
       "y": 287,
-      "priority": 1.00152,
+      "priority": 1.00154,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-tugboat",
       "semanticRealmId": "objects-technology"
@@ -1711,7 +1733,7 @@
       "translation": "手动托盘搬运车",
       "x": 2142,
       "y": 417.5,
-      "priority": 1.00153,
+      "priority": 1.00155,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-hand-pallet-truck",
       "semanticRealmId": "objects-technology"
@@ -1722,7 +1744,7 @@
       "translation": "中型散装容器",
       "x": 2128,
       "y": 335,
-      "priority": 1.00154,
+      "priority": 1.00156,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-ibc-container",
       "semanticRealmId": "objects-technology"
@@ -1733,7 +1755,7 @@
       "translation": "码头墙",
       "x": 2215.5,
       "y": 445,
-      "priority": 1.00155,
+      "priority": 1.00157,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-quay-wall",
       "semanticRealmId": "objects-technology"
@@ -1744,7 +1766,7 @@
       "translation": "电力机车",
       "x": 2294,
       "y": 124,
-      "priority": 1.00156,
+      "priority": 1.00158,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-electric-locomotive",
       "semanticRealmId": "objects-technology"
@@ -1755,7 +1777,7 @@
       "translation": "后挂机车",
       "x": 2362,
       "y": 110,
-      "priority": 1.00157,
+      "priority": 1.00159,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-trailing-locomotive",
       "semanticRealmId": "objects-technology"
@@ -1766,7 +1788,7 @@
       "translation": "检修库",
       "x": 2493,
       "y": 75,
-      "priority": 1.00158,
+      "priority": 1.0016,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-maintenance-depot",
       "semanticRealmId": "objects-technology"
@@ -1777,7 +1799,7 @@
       "translation": "检修工位",
       "x": 2468,
       "y": 90,
-      "priority": 1.00159,
+      "priority": 1.00161,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-service-bay",
       "semanticRealmId": "objects-technology"
@@ -1788,7 +1810,7 @@
       "translation": "调车机车",
       "x": 2490.5,
       "y": 125,
-      "priority": 1.0016,
+      "priority": 1.00162,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-shunter",
       "semanticRealmId": "objects-technology"
@@ -1799,7 +1821,7 @@
       "translation": "城市公交车",
       "x": 1809,
       "y": 105,
-      "priority": 1.00161,
+      "priority": 1.00163,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-city-bus",
       "semanticRealmId": "objects-technology"
@@ -1810,7 +1832,7 @@
       "translation": "小型汽车",
       "x": 2001.5,
       "y": 14,
-      "priority": 1.00162,
+      "priority": 1.00164,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-compact-car",
       "semanticRealmId": "objects-technology"
@@ -1821,7 +1843,7 @@
       "translation": "掀背车",
       "x": 1890,
       "y": 62,
-      "priority": 1.00163,
+      "priority": 1.00165,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-hatchback",
       "semanticRealmId": "objects-technology"
@@ -1832,7 +1854,7 @@
       "translation": "交叉路口",
       "x": 1905.5,
       "y": 75,
-      "priority": 1.00164,
+      "priority": 1.00166,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-intersection",
       "semanticRealmId": "objects-technology",
@@ -1844,7 +1866,7 @@
       "translation": "皮卡车",
       "x": 1913,
       "y": 147.5,
-      "priority": 1.00165,
+      "priority": 1.00167,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-pickup-truck",
       "semanticRealmId": "objects-technology"
@@ -1855,7 +1877,7 @@
       "translation": "环岛",
       "x": 1895.5,
       "y": 112,
-      "priority": 1.00166,
+      "priority": 1.00168,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-roundabout",
       "semanticRealmId": "objects-technology"
@@ -1866,7 +1888,7 @@
       "translation": "轿车",
       "x": 1839,
       "y": 57.5,
-      "priority": 1.00167,
+      "priority": 1.00169,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-sedan",
       "semanticRealmId": "objects-technology"
@@ -1877,7 +1899,7 @@
       "translation": "汽艇",
       "x": 2300.5,
       "y": 406,
-      "priority": 1.00168,
+      "priority": 1.0017,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-motorboat",
       "semanticRealmId": "objects-technology"
@@ -1888,7 +1910,7 @@
       "translation": "帆船",
       "x": 2358,
       "y": 405,
-      "priority": 1.00169,
+      "priority": 1.00171,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-sailboat",
       "semanticRealmId": "objects-technology"
@@ -1899,7 +1921,7 @@
       "translation": "通勤列车",
       "x": 2078,
       "y": 102.5,
-      "priority": 1.0017,
+      "priority": 1.00172,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-commuter-train",
       "semanticRealmId": "objects-technology"
@@ -1910,7 +1932,7 @@
       "translation": "客运车厢",
       "x": 2108.5,
       "y": 104,
-      "priority": 1.00171,
+      "priority": 1.00173,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-passenger-carriage",
       "semanticRealmId": "objects-technology"
@@ -1921,7 +1943,7 @@
       "translation": "站台雨棚",
       "x": 2118.5,
       "y": 47.5,
-      "priority": 1.00172,
+      "priority": 1.00174,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-station-canopy",
       "semanticRealmId": "objects-technology"
@@ -1932,7 +1954,7 @@
       "translation": "车站站台",
       "x": 2120.5,
       "y": 127,
-      "priority": 1.00173,
+      "priority": 1.00175,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-station-platform",
       "semanticRealmId": "objects-technology"
@@ -1943,7 +1965,7 @@
       "translation": "自行车棚",
       "x": 1868,
       "y": 240,
-      "priority": 1.00174,
+      "priority": 1.00176,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-bicycle-shelter",
       "semanticRealmId": "objects-technology"
@@ -1954,7 +1976,7 @@
       "translation": "通勤自行车",
       "x": 1858,
       "y": 263,
-      "priority": 1.00175,
+      "priority": 1.00177,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-commuter-bicycle",
       "semanticRealmId": "objects-technology"
@@ -1965,7 +1987,7 @@
       "translation": "厢式货车",
       "x": 1937.5,
       "y": 200,
-      "priority": 1.00176,
+      "priority": 1.00178,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-delivery-van",
       "semanticRealmId": "objects-technology"
@@ -1976,7 +1998,7 @@
       "translation": "踏板摩托车",
       "x": 1995.5,
       "y": 198.5,
-      "priority": 1.00177,
+      "priority": 1.00179,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-motor-scooter",
       "semanticRealmId": "objects-technology"
@@ -1987,7 +2009,7 @@
       "translation": "摩托车",
       "x": 2001,
       "y": 177,
-      "priority": 1.00178,
+      "priority": 1.0018,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-transport-motorcycle",
       "semanticRealmId": "objects-technology",
@@ -1999,7 +2021,7 @@
       "translation": "螃蟹",
       "x": 2140.5,
       "y": 768.5,
-      "priority": 1.00179,
+      "priority": 1.00181,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-crab",
       "semanticRealmId": "nature-life"
@@ -2010,7 +2032,7 @@
       "translation": "泥滩",
       "x": 2078,
       "y": 753.5,
-      "priority": 1.0018,
+      "priority": 1.00182,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-mudflat",
       "semanticRealmId": "nature-life"
@@ -2021,7 +2043,7 @@
       "translation": "码头",
       "x": 2403,
       "y": 878.5,
-      "priority": 1.00181,
+      "priority": 1.00183,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-dock",
       "semanticRealmId": "nature-life",
@@ -2033,7 +2055,7 @@
       "translation": "野外设备",
       "x": 1858,
       "y": 843.5,
-      "priority": 1.00182,
+      "priority": 1.00184,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-field-equipment",
       "semanticRealmId": "nature-life"
@@ -2044,7 +2066,7 @@
       "translation": "样方框",
       "x": 1963,
       "y": 858.5,
-      "priority": 1.00183,
+      "priority": 1.00185,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-quadrat-frame",
       "semanticRealmId": "nature-life"
@@ -2055,7 +2077,7 @@
       "translation": "橡胶靴",
       "x": 1868,
       "y": 871,
-      "priority": 1.00184,
+      "priority": 1.00186,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-rubber-boots",
       "semanticRealmId": "nature-life"
@@ -2066,7 +2088,7 @@
       "translation": "海岸水域",
       "x": 2518,
       "y": 743.5,
-      "priority": 1.00185,
+      "priority": 1.00187,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-coastal-water",
       "semanticRealmId": "nature-life"
@@ -2077,7 +2099,7 @@
       "translation": "木栈道",
       "x": 2273,
       "y": 623.5,
-      "priority": 1.00186,
+      "priority": 1.00188,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-boardwalk",
       "semanticRealmId": "nature-life"
@@ -2088,7 +2110,7 @@
       "translation": "划艇",
       "x": 2378,
       "y": 648.5,
-      "priority": 1.00187,
+      "priority": 1.00189,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-rowboat",
       "semanticRealmId": "nature-life"
@@ -2099,7 +2121,7 @@
       "translation": "沙丘",
       "x": 2293,
       "y": 581,
-      "priority": 1.00188,
+      "priority": 1.0019,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-sand-dune",
       "semanticRealmId": "nature-life"
@@ -2110,7 +2132,7 @@
       "translation": "湿地水道",
       "x": 2048,
       "y": 608.5,
-      "priority": 1.00189,
+      "priority": 1.00191,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-marsh-channel",
       "semanticRealmId": "nature-life"
@@ -2121,7 +2143,7 @@
       "translation": "泥质小岛",
       "x": 2108,
       "y": 603.5,
-      "priority": 1.0019,
+      "priority": 1.00192,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-muddy-island",
       "semanticRealmId": "nature-life"
@@ -2132,7 +2154,7 @@
       "translation": "岩石岸",
       "x": 2493,
       "y": 643.5,
-      "priority": 1.00191,
+      "priority": 1.00193,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-rocky-shore",
       "semanticRealmId": "nature-life"
@@ -2143,7 +2165,7 @@
       "translation": "池塘",
       "x": 1933,
       "y": 628.5,
-      "priority": 1.00192,
+      "priority": 1.00194,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-pond",
       "semanticRealmId": "nature-life",
@@ -2155,7 +2177,7 @@
       "translation": "挺水植物带",
       "x": 1858,
       "y": 623.5,
-      "priority": 1.00193,
+      "priority": 1.00195,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-reed-bed",
       "semanticRealmId": "nature-life"
@@ -2166,7 +2188,7 @@
       "translation": "研究小屋",
       "x": 1843,
       "y": 791,
-      "priority": 1.00194,
+      "priority": 1.00196,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-research-hut",
       "semanticRealmId": "nature-life"
@@ -2177,7 +2199,7 @@
       "translation": "气象监测杆",
       "x": 1805.5,
       "y": 728.5,
-      "priority": 1.00195,
+      "priority": 1.00197,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-weather-mast",
       "semanticRealmId": "nature-life"
@@ -2188,7 +2210,7 @@
       "translation": "木长椅",
       "x": 1918,
       "y": 786,
-      "priority": 1.00196,
+      "priority": 1.00198,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-wooden-bench",
       "semanticRealmId": "nature-life"
@@ -2199,7 +2221,7 @@
       "translation": "沙质岸坡",
       "x": 2258,
       "y": 718.5,
-      "priority": 1.00197,
+      "priority": 1.00199,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-sandy-bank",
       "semanticRealmId": "nature-life"
@@ -2210,7 +2232,7 @@
       "translation": "蜿蜒水道",
       "x": 2168,
       "y": 868.5,
-      "priority": 1.00198,
+      "priority": 1.002,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-meandering-channel",
       "semanticRealmId": "nature-life"
@@ -2221,7 +2243,7 @@
       "translation": "岩间水池",
       "x": 2318,
       "y": 843.5,
-      "priority": 1.00199,
+      "priority": 1.00201,
       "minLevel": 0,
       "sourceVisualRegion": "anchor-wetland-rock-pool",
       "semanticRealmId": "nature-life"
@@ -5344,12 +5366,56 @@
       "semanticRealmId": "mind-values"
     },
     {
+      "id": "science-utility-drain-grate",
+      "word": "drain grate",
+      "translation": "排水格栅",
+      "x": 1240.5,
+      "y": 406,
+      "priority": 2.00283,
+      "minLevel": 1,
+      "sourceVisualRegion": "anchor-science-utility-drain-grate",
+      "semanticRealmId": "mind-values"
+    },
+    {
+      "id": "science-utility-fan-housing",
+      "word": "fan housing",
+      "translation": "风扇外壳",
+      "x": 1674,
+      "y": 415,
+      "priority": 2.00284,
+      "minLevel": 1,
+      "sourceVisualRegion": "anchor-science-utility-fan-housing",
+      "semanticRealmId": "mind-values"
+    },
+    {
+      "id": "science-utility-planter-curb",
+      "word": "planter curb",
+      "translation": "花坛缘石",
+      "x": 1356.5,
+      "y": 436.5,
+      "priority": 2.00285,
+      "minLevel": 1,
+      "sourceVisualRegion": "anchor-science-utility-planter-curb",
+      "semanticRealmId": "mind-values"
+    },
+    {
+      "id": "science-utility-tank-base",
+      "word": "tank base",
+      "translation": "储罐底座",
+      "x": 1616.5,
+      "y": 440,
+      "priority": 2.00286,
+      "minLevel": 1,
+      "sourceVisualRegion": "anchor-science-utility-tank-base",
+      "semanticRealmId": "mind-values"
+    },
+    {
       "id": "science-coiled-water-hose",
       "word": "coiled water hose",
       "translation": "盘绕水管",
       "x": 1070.5,
       "y": 214,
-      "priority": 2.00283,
+      "priority": 2.00287,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-coiled-water-hose",
       "semanticRealmId": "mind-values"
@@ -5360,7 +5426,7 @@
       "translation": "应急柜",
       "x": 920,
       "y": 189,
-      "priority": 2.00284,
+      "priority": 2.00288,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-emergency-cabinet",
       "semanticRealmId": "mind-values"
@@ -5371,7 +5437,7 @@
       "translation": "灰色储物柜",
       "x": 961.5,
       "y": 194,
-      "priority": 2.00285,
+      "priority": 2.00289,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-gray-storage-locker",
       "semanticRealmId": "mind-values"
@@ -5382,7 +5448,7 @@
       "translation": "金属托盘架",
       "x": 901,
       "y": 210,
-      "priority": 2.00286,
+      "priority": 2.0029,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-metal-tray-rack",
       "semanticRealmId": "mind-values"
@@ -5393,7 +5459,7 @@
       "translation": "高公用储物柜",
       "x": 944.5,
       "y": 194.5,
-      "priority": 2.00287,
+      "priority": 2.00291,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-tall-utility-locker",
       "semanticRealmId": "mind-values"
@@ -5404,7 +5470,7 @@
       "translation": "公用置物架",
       "x": 901.5,
       "y": 203.5,
-      "priority": 2.00288,
+      "priority": 2.00292,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-utility-shelf",
       "semanticRealmId": "mind-values"
@@ -5415,7 +5481,7 @@
       "translation": "清洗池",
       "x": 992,
       "y": 196.5,
-      "priority": 2.00289,
+      "priority": 2.00293,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-wash-basin",
       "semanticRealmId": "mind-values"
@@ -5426,7 +5492,7 @@
       "translation": "小型钻台",
       "x": 1371,
       "y": 371,
-      "priority": 2.0029,
+      "priority": 2.00294,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-small-drill-stand",
       "semanticRealmId": "mind-values"
@@ -5437,7 +5503,7 @@
       "translation": "堆叠木板",
       "x": 1300,
       "y": 294,
-      "priority": 2.00291,
+      "priority": 2.00295,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-stacked-timber-planks",
       "semanticRealmId": "mind-values"
@@ -5448,7 +5514,7 @@
       "translation": "立式木料架",
       "x": 1293,
       "y": 281,
-      "priority": 2.00292,
+      "priority": 2.00296,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-vertical-lumber-rack",
       "semanticRealmId": "mind-values"
@@ -5459,7 +5525,7 @@
       "translation": "木框",
       "x": 1279,
       "y": 310,
-      "priority": 2.00293,
+      "priority": 2.00297,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-science-wooden-frame",
       "semanticRealmId": "mind-values"
@@ -5470,7 +5536,7 @@
       "translation": "货物框架",
       "x": 2326.5,
       "y": 242,
-      "priority": 2.00294,
+      "priority": 2.00298,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-cargo-rack",
       "semanticRealmId": "objects-technology"
@@ -5481,7 +5547,7 @@
       "translation": "叉车门架",
       "x": 2260,
       "y": 246,
-      "priority": 2.00295,
+      "priority": 2.00299,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-forklift-mast",
       "semanticRealmId": "objects-technology"
@@ -5492,7 +5558,7 @@
       "translation": "救生圈",
       "x": 2351.5,
       "y": 285,
-      "priority": 2.00296,
+      "priority": 2.003,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-lifebuoy",
       "semanticRealmId": "objects-technology"
@@ -5503,7 +5569,7 @@
       "translation": "装卸作业面",
       "x": 2378,
       "y": 260,
-      "priority": 2.00297,
+      "priority": 2.00301,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-loading-apron",
       "semanticRealmId": "objects-technology"
@@ -5514,7 +5580,7 @@
       "translation": "木托盘",
       "x": 2285.5,
       "y": 290,
-      "priority": 2.00298,
+      "priority": 2.00302,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-wooden-pallet",
       "semanticRealmId": "objects-technology"
@@ -5525,7 +5591,7 @@
       "translation": "包膜托盘货物",
       "x": 2255.5,
       "y": 288,
-      "priority": 2.00299,
+      "priority": 2.00303,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-wrapped-pallet",
       "semanticRealmId": "objects-technology"
@@ -5536,7 +5602,7 @@
       "translation": "筒形屋顶",
       "x": 1918,
       "y": 330,
-      "priority": 2.003,
+      "priority": 2.00304,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-barrel-roof",
       "semanticRealmId": "objects-technology"
@@ -5547,7 +5613,7 @@
       "translation": "自行车拖车",
       "x": 2007,
       "y": 447.5,
-      "priority": 2.00301,
+      "priority": 2.00305,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-bicycle-trailer",
       "semanticRealmId": "objects-technology"
@@ -5558,7 +5624,7 @@
       "translation": "铁丝网围栏",
       "x": 2003,
       "y": 410,
-      "priority": 2.00302,
+      "priority": 2.00306,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-chain-link-fence",
       "semanticRealmId": "objects-technology"
@@ -5569,7 +5635,7 @@
       "translation": "车库门",
       "x": 1858,
       "y": 365,
-      "priority": 2.00303,
+      "priority": 2.00307,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-garage-door",
       "semanticRealmId": "objects-technology"
@@ -5580,7 +5646,7 @@
       "translation": "气瓶",
       "x": 1963,
       "y": 384,
-      "priority": 2.00304,
+      "priority": 2.00308,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-gas-cylinder",
       "semanticRealmId": "objects-technology"
@@ -5591,7 +5657,7 @@
       "translation": "油桶",
       "x": 1863,
       "y": 420,
-      "priority": 2.00305,
+      "priority": 2.00309,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-oil-drum",
       "semanticRealmId": "objects-technology"
@@ -5602,7 +5668,7 @@
       "translation": "服务门",
       "x": 2003,
       "y": 370,
-      "priority": 2.00306,
+      "priority": 2.0031,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-service-door",
       "semanticRealmId": "objects-technology"
@@ -5613,7 +5679,7 @@
       "translation": "公用设施柜",
       "x": 1810.5,
       "y": 399,
-      "priority": 2.00307,
+      "priority": 2.00311,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-utility-cabinet",
       "semanticRealmId": "objects-technology"
@@ -5624,7 +5690,7 @@
       "translation": "甲板吊机",
       "x": 2523,
       "y": 375,
-      "priority": 2.00308,
+      "priority": 2.00312,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-deck-crane",
       "semanticRealmId": "objects-technology"
@@ -5635,7 +5701,7 @@
       "translation": "甲板绞车",
       "x": 2530.5,
       "y": 390,
-      "priority": 2.00309,
+      "priority": 2.00313,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-deck-winch",
       "semanticRealmId": "objects-technology"
@@ -5646,7 +5712,7 @@
       "translation": "渔船作业甲板",
       "x": 2533,
       "y": 390,
-      "priority": 2.0031,
+      "priority": 2.00314,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-fishing-deck",
       "semanticRealmId": "objects-technology"
@@ -5657,7 +5723,7 @@
       "translation": "渔船作业架",
       "x": 2513,
       "y": 370,
-      "priority": 2.00311,
+      "priority": 2.00315,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-fishing-gantry",
       "semanticRealmId": "objects-technology"
@@ -5668,7 +5734,7 @@
       "translation": "渔船驾驶室",
       "x": 2483,
       "y": 395,
-      "priority": 2.00312,
+      "priority": 2.00316,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-trawler-wheelhouse",
       "semanticRealmId": "objects-technology"
@@ -5679,7 +5745,7 @@
       "translation": "止冲挡",
       "x": 2068,
       "y": 262.5,
-      "priority": 2.00313,
+      "priority": 2.00317,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-buffer-stop",
       "semanticRealmId": "objects-technology"
@@ -5690,7 +5756,7 @@
       "translation": "圆柱罐体",
       "x": 2225.5,
       "y": 190,
-      "priority": 2.00314,
+      "priority": 2.00318,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-cylindrical-tank",
       "semanticRealmId": "objects-technology"
@@ -5701,7 +5767,7 @@
       "translation": "敞车车体",
       "x": 2118,
       "y": 195,
-      "priority": 2.00315,
+      "priority": 2.00319,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-open-wagon-body",
       "semanticRealmId": "objects-technology"
@@ -5712,7 +5778,7 @@
       "translation": "起重机主梁",
       "x": 2498,
       "y": 182.5,
-      "priority": 2.00316,
+      "priority": 2.0032,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-bridge-girder",
       "semanticRealmId": "objects-technology"
@@ -5723,7 +5789,7 @@
       "translation": "起重机支腿",
       "x": 2568,
       "y": 239,
-      "priority": 2.00317,
+      "priority": 2.00321,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-crane-leg",
       "semanticRealmId": "objects-technology"
@@ -5734,7 +5800,7 @@
       "translation": "起重小车",
       "x": 2478,
       "y": 195,
-      "priority": 2.00318,
+      "priority": 2.00322,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-crane-trolley",
       "semanticRealmId": "objects-technology"
@@ -5745,7 +5811,7 @@
       "translation": "前甲板",
       "x": 2440.5,
       "y": 295,
-      "priority": 2.00319,
+      "priority": 2.00323,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-foredeck",
       "semanticRealmId": "objects-technology"
@@ -5756,7 +5822,7 @@
       "translation": "吊钩",
       "x": 2478,
       "y": 226.5,
-      "priority": 2.0032,
+      "priority": 2.00324,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-lifting-hook",
       "semanticRealmId": "objects-technology"
@@ -5767,7 +5833,7 @@
       "translation": "驾驶舱",
       "x": 2490.5,
       "y": 262.5,
-      "priority": 2.00321,
+      "priority": 2.00325,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-wheelhouse",
       "semanticRealmId": "objects-technology"
@@ -5778,7 +5844,7 @@
       "translation": "成组纸箱货物",
       "x": 2178,
       "y": 375,
-      "priority": 2.00322,
+      "priority": 2.00326,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-carton-consignment",
       "semanticRealmId": "objects-technology"
@@ -5789,7 +5855,7 @@
       "translation": "空托盘",
       "x": 2175.5,
       "y": 410,
-      "priority": 2.00323,
+      "priority": 2.00327,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-empty-pallet",
       "semanticRealmId": "objects-technology"
@@ -5800,7 +5866,7 @@
       "translation": "系泊绞盘",
       "x": 2208,
       "y": 427.5,
-      "priority": 2.00324,
+      "priority": 2.00328,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-mooring-capstan",
       "semanticRealmId": "objects-technology"
@@ -5811,7 +5877,7 @@
       "translation": "托盘式设备货物",
       "x": 2153,
       "y": 380,
-      "priority": 2.00325,
+      "priority": 2.00329,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-palletized-equipment-load",
       "semanticRealmId": "objects-technology"
@@ -5822,7 +5888,7 @@
       "translation": "塑料储液罐",
       "x": 2125.5,
       "y": 337.5,
-      "priority": 2.00326,
+      "priority": 2.0033,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-plastic-reservoir",
       "semanticRealmId": "objects-technology"
@@ -5833,7 +5899,7 @@
       "translation": "收缩膜货物",
       "x": 2085.5,
       "y": 362.5,
-      "priority": 2.00327,
+      "priority": 2.00331,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-shrink-wrapped-load",
       "semanticRealmId": "objects-technology"
@@ -5844,7 +5910,7 @@
       "translation": "机车车头",
       "x": 2221,
       "y": 142,
-      "priority": 2.00328,
+      "priority": 2.00332,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-locomotive-nose",
       "semanticRealmId": "objects-technology"
@@ -5855,7 +5921,7 @@
       "translation": "受电弓",
       "x": 2284,
       "y": 86,
-      "priority": 2.00329,
+      "priority": 2.00333,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-pantograph",
       "semanticRealmId": "objects-technology"
@@ -5866,7 +5932,7 @@
       "translation": "道岔",
       "x": 2238.5,
       "y": 78.5,
-      "priority": 2.0033,
+      "priority": 2.00334,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-track-switch",
       "semanticRealmId": "objects-technology"
@@ -5877,7 +5943,7 @@
       "translation": "轮对",
       "x": 2348,
       "y": 153,
-      "priority": 2.00331,
+      "priority": 2.00335,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-wheelset",
       "semanticRealmId": "objects-technology"
@@ -5888,7 +5954,7 @@
       "translation": "拱形屋顶",
       "x": 2508,
       "y": 15,
-      "priority": 2.00332,
+      "priority": 2.00336,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-arched-roof",
       "semanticRealmId": "objects-technology"
@@ -5899,7 +5965,7 @@
       "translation": "卷帘门",
       "x": 2420.5,
       "y": 50,
-      "priority": 2.00333,
+      "priority": 2.00337,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-roller-shutter",
       "semanticRealmId": "objects-technology"
@@ -5910,7 +5976,7 @@
       "translation": "中央岛",
       "x": 1896,
       "y": 105.5,
-      "priority": 2.00334,
+      "priority": 2.00338,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-central-island",
       "semanticRealmId": "objects-technology"
@@ -5921,7 +5987,7 @@
       "translation": "人行横道",
       "x": 1911,
       "y": 47,
-      "priority": 2.00335,
+      "priority": 2.00339,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-crosswalk",
       "semanticRealmId": "objects-technology"
@@ -5932,7 +5998,7 @@
       "translation": "人行道",
       "x": 1980,
       "y": 56,
-      "priority": 2.00336,
+      "priority": 2.0034,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-sidewalk",
       "semanticRealmId": "objects-technology"
@@ -5943,7 +6009,7 @@
       "translation": "减速带",
       "x": 1810.5,
       "y": 134.5,
-      "priority": 2.00337,
+      "priority": 2.00341,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-speed-bump",
       "semanticRealmId": "objects-technology"
@@ -5954,7 +6020,7 @@
       "translation": "交通信号灯",
       "x": 1924.5,
       "y": 29,
-      "priority": 2.00338,
+      "priority": 2.00342,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-traffic-light",
       "semanticRealmId": "objects-technology"
@@ -5965,7 +6031,7 @@
       "translation": "驾驶座舱",
       "x": 2355.5,
       "y": 412,
-      "priority": 2.00339,
+      "priority": 2.00343,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-cockpit",
       "semanticRealmId": "objects-technology"
@@ -5976,7 +6042,7 @@
       "translation": "水上围栏",
       "x": 2253,
       "y": 450,
-      "priority": 2.0034,
+      "priority": 2.00344,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-floating-boom",
       "semanticRealmId": "objects-technology"
@@ -5987,7 +6053,7 @@
       "translation": "主帆",
       "x": 2362,
       "y": 362.5,
-      "priority": 2.00341,
+      "priority": 2.00345,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-mainsail",
       "semanticRealmId": "objects-technology"
@@ -5998,7 +6064,7 @@
       "translation": "标志浮标",
       "x": 2293,
       "y": 455,
-      "priority": 2.00342,
+      "priority": 2.00346,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-marker-buoy",
       "semanticRealmId": "objects-technology"
@@ -6009,7 +6075,7 @@
       "translation": "系泊浮球",
       "x": 2263,
       "y": 455,
-      "priority": 2.00343,
+      "priority": 2.00347,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-mooring-buoy",
       "semanticRealmId": "objects-technology"
@@ -6020,7 +6086,7 @@
       "translation": "码头梯",
       "x": 2253,
       "y": 365,
-      "priority": 2.00344,
+      "priority": 2.00348,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-quay-ladder",
       "semanticRealmId": "objects-technology"
@@ -6031,7 +6097,7 @@
       "translation": "帆船船体",
       "x": 2363,
       "y": 425,
-      "priority": 2.00345,
+      "priority": 2.00349,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-sailboat-hull",
       "semanticRealmId": "objects-technology"
@@ -6042,7 +6108,7 @@
       "translation": "帆船桅杆",
       "x": 2350.5,
       "y": 350,
-      "priority": 2.00346,
+      "priority": 2.0035,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-sailboat-mast",
       "semanticRealmId": "objects-technology"
@@ -6053,7 +6119,7 @@
       "translation": "驾驶室",
       "x": 2057.5,
       "y": 99.5,
-      "priority": 2.00347,
+      "priority": 2.00351,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-driver-cab",
       "semanticRealmId": "objects-technology"
@@ -6064,7 +6130,7 @@
       "translation": "站台长椅",
       "x": 2141,
       "y": 90,
-      "priority": 2.00348,
+      "priority": 2.00352,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-platform-bench",
       "semanticRealmId": "objects-technology"
@@ -6075,7 +6141,7 @@
       "translation": "铁路信号机",
       "x": 2187,
       "y": 119,
-      "priority": 2.00349,
+      "priority": 2.00353,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-railway-signal",
       "semanticRealmId": "objects-technology"
@@ -6086,7 +6152,7 @@
       "translation": "车站时钟",
       "x": 2159.5,
       "y": 66,
-      "priority": 2.0035,
+      "priority": 2.00354,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-station-clock",
       "semanticRealmId": "objects-technology"
@@ -6097,7 +6163,7 @@
       "translation": "自行车架",
       "x": 1857,
       "y": 265,
-      "priority": 2.00351,
+      "priority": 2.00355,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-bicycle-rack",
       "semanticRealmId": "objects-technology"
@@ -6108,7 +6174,7 @@
       "translation": "货厢",
       "x": 1936.5,
       "y": 197.5,
-      "priority": 2.00352,
+      "priority": 2.00356,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-cargo-body",
       "semanticRealmId": "objects-technology"
@@ -6119,7 +6185,7 @@
       "translation": "弧形顶棚",
       "x": 1870.5,
       "y": 210,
-      "priority": 2.00353,
+      "priority": 2.00357,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-curved-canopy",
       "semanticRealmId": "objects-technology"
@@ -6130,7 +6196,7 @@
       "translation": "垃圾桶",
       "x": 1998.5,
       "y": 230.5,
-      "priority": 2.00354,
+      "priority": 2.00358,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-transport-trash-bin",
       "semanticRealmId": "objects-technology"
@@ -6141,7 +6207,7 @@
       "translation": "水道交汇处",
       "x": 2153,
       "y": 693.5,
-      "priority": 2.00355,
+      "priority": 2.00359,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-channel-junction",
       "semanticRealmId": "nature-life"
@@ -6152,7 +6218,7 @@
       "translation": "溪沟支流",
       "x": 2163,
       "y": 683.5,
-      "priority": 2.00356,
+      "priority": 2.0036,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-creek-branch",
       "semanticRealmId": "nature-life"
@@ -6163,7 +6229,7 @@
       "translation": "泥质小块",
       "x": 2093,
       "y": 718.5,
-      "priority": 2.00357,
+      "priority": 2.00361,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-mud-island",
       "semanticRealmId": "nature-life"
@@ -6174,7 +6240,7 @@
       "translation": "植物草墩",
       "x": 2118,
       "y": 778.5,
-      "priority": 2.00358,
+      "priority": 2.00362,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-plant-tussock",
       "semanticRealmId": "nature-life"
@@ -6185,7 +6251,7 @@
       "translation": "浅水池",
       "x": 2133,
       "y": 723.5,
-      "priority": 2.00359,
+      "priority": 2.00363,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-shallow-pool",
       "semanticRealmId": "nature-life"
@@ -6196,7 +6262,7 @@
       "translation": "贝壳碎片",
       "x": 2028,
       "y": 768.5,
-      "priority": 2.0036,
+      "priority": 2.00364,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-shell-fragments",
       "semanticRealmId": "nature-life"
@@ -6207,7 +6273,7 @@
       "translation": "小艇船体",
       "x": 2453,
       "y": 918.5,
-      "priority": 2.00361,
+      "priority": 2.00365,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-dinghy-hull",
       "semanticRealmId": "nature-life"
@@ -6218,7 +6284,7 @@
       "translation": "码头桩",
       "x": 2403,
       "y": 868.5,
-      "priority": 2.00362,
+      "priority": 2.00366,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-dock-pile",
       "semanticRealmId": "nature-life"
@@ -6229,7 +6295,7 @@
       "translation": "波纹水面",
       "x": 2568,
       "y": 928.5,
-      "priority": 2.00363,
+      "priority": 2.00367,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-rippled-water",
       "semanticRealmId": "nature-life"
@@ -6240,7 +6306,7 @@
       "translation": "岸边种植",
       "x": 2533,
       "y": 968.5,
-      "priority": 2.00364,
+      "priority": 2.00368,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-shore-planting",
       "semanticRealmId": "nature-life"
@@ -6251,7 +6317,7 @@
       "translation": "水下巨石",
       "x": 2493,
       "y": 868.5,
-      "priority": 2.00365,
+      "priority": 2.00369,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-underwater-boulder",
       "semanticRealmId": "nature-life"
@@ -6262,7 +6328,7 @@
       "translation": "搬运箱",
       "x": 1818,
       "y": 858.5,
-      "priority": 2.00366,
+      "priority": 2.0037,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-carrying-crate",
       "semanticRealmId": "nature-life"
@@ -6273,7 +6339,7 @@
       "translation": "设备周转箱",
       "x": 1818,
       "y": 851,
-      "priority": 2.00367,
+      "priority": 2.00371,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-equipment-tub",
       "semanticRealmId": "nature-life"
@@ -6284,7 +6350,7 @@
       "translation": "开花地被",
       "x": 1858,
       "y": 928.5,
-      "priority": 2.00368,
+      "priority": 2.00372,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-flowering-groundcover",
       "semanticRealmId": "nature-life"
@@ -6295,7 +6361,7 @@
       "translation": "草本样地",
       "x": 1878,
       "y": 898.5,
-      "priority": 2.00369,
+      "priority": 2.00373,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-grass-plot",
       "semanticRealmId": "nature-life"
@@ -6306,7 +6372,7 @@
       "translation": "铺装小径",
       "x": 1893,
       "y": 983.5,
-      "priority": 2.0037,
+      "priority": 2.00374,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-paved-path",
       "semanticRealmId": "nature-life"
@@ -6317,7 +6383,7 @@
       "translation": "采样瓶",
       "x": 1893,
       "y": 868.5,
-      "priority": 2.00371,
+      "priority": 2.00375,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-sample-bottle",
       "semanticRealmId": "nature-life"
@@ -6328,7 +6394,7 @@
       "translation": "采样绳",
       "x": 1933,
       "y": 898.5,
-      "priority": 2.00372,
+      "priority": 2.00376,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-sampling-rope",
       "semanticRealmId": "nature-life"
@@ -6339,7 +6405,7 @@
       "translation": "调查仪器外壳",
       "x": 1910.5,
       "y": 828.5,
-      "priority": 2.00373,
+      "priority": 2.00377,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-survey-instrument-housing",
       "semanticRealmId": "nature-life"
@@ -6350,7 +6416,7 @@
       "translation": "露出水面的岩石",
       "x": 2428,
       "y": 698.5,
-      "priority": 2.00374,
+      "priority": 2.00378,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-exposed-rock",
       "semanticRealmId": "nature-life"
@@ -6361,7 +6427,7 @@
       "translation": "岸边种植带",
       "x": 2598,
       "y": 703.5,
-      "priority": 2.00375,
+      "priority": 2.00379,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-planted-border",
       "semanticRealmId": "nature-life"
@@ -6372,7 +6438,7 @@
       "translation": "浅水岩台",
       "x": 2568,
       "y": 778.5,
-      "priority": 2.00376,
+      "priority": 2.0038,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-shallow-shelf",
       "semanticRealmId": "nature-life"
@@ -6383,7 +6449,7 @@
       "translation": "水下岩石",
       "x": 2523,
       "y": 768.5,
-      "priority": 2.00377,
+      "priority": 2.00381,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-submerged-rock",
       "semanticRealmId": "nature-life"
@@ -6394,7 +6460,7 @@
       "translation": "水面泡沫",
       "x": 2443,
       "y": 698.5,
-      "priority": 2.00378,
+      "priority": 2.00382,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-surface-foam",
       "semanticRealmId": "nature-life"
@@ -6405,7 +6471,7 @@
       "translation": "沿岸水槽",
       "x": 2583,
       "y": 768.5,
-      "priority": 2.00379,
+      "priority": 2.00383,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-water-channel",
       "semanticRealmId": "nature-life"
@@ -6416,7 +6482,7 @@
       "translation": "海岸灌木",
       "x": 2348,
       "y": 581,
-      "priority": 2.0038,
+      "priority": 2.00384,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-coastal-shrub",
       "semanticRealmId": "nature-life"
@@ -6427,7 +6493,7 @@
       "translation": "漂流木",
       "x": 2233,
       "y": 666,
-      "priority": 2.00381,
+      "priority": 2.00385,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-driftwood",
       "semanticRealmId": "nature-life"
@@ -6438,7 +6504,7 @@
       "translation": "沙丘草",
       "x": 2293,
       "y": 568.5,
-      "priority": 2.00382,
+      "priority": 2.00386,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-dune-grass",
       "semanticRealmId": "nature-life"
@@ -6449,7 +6515,7 @@
       "translation": "金属盆",
       "x": 2360.5,
       "y": 658.5,
-      "priority": 2.00383,
+      "priority": 2.00387,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-metal-basin",
       "semanticRealmId": "nature-life"
@@ -6460,7 +6526,7 @@
       "translation": "橙色浮球",
       "x": 2343,
       "y": 656,
-      "priority": 2.00384,
+      "priority": 2.00388,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-orange-float",
       "semanticRealmId": "nature-life"
@@ -6471,7 +6537,7 @@
       "translation": "盘绕绳索",
       "x": 2335.5,
       "y": 662.5,
-      "priority": 2.00385,
+      "priority": 2.00389,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-rope-coil",
       "semanticRealmId": "nature-life"
@@ -6482,7 +6548,7 @@
       "translation": "沙地斑块",
       "x": 2338,
       "y": 606,
-      "priority": 2.00386,
+      "priority": 2.0039,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-sand-patch",
       "semanticRealmId": "nature-life"
@@ -6493,7 +6559,7 @@
       "translation": "金属丝围栏",
       "x": 2353,
       "y": 598.5,
-      "priority": 2.00387,
+      "priority": 2.00391,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-wire-fence",
       "semanticRealmId": "nature-life"
@@ -6504,7 +6570,7 @@
       "translation": "编织篮",
       "x": 2328,
       "y": 631,
-      "priority": 2.00388,
+      "priority": 2.00392,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-woven-basket",
       "semanticRealmId": "nature-life"
@@ -6515,7 +6581,7 @@
       "translation": "水道弯曲处",
       "x": 2053,
       "y": 656,
-      "priority": 2.00389,
+      "priority": 2.00393,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-channel-bend",
       "semanticRealmId": "nature-life"
@@ -6526,7 +6592,7 @@
       "translation": "湿地草本",
       "x": 2073,
       "y": 591,
-      "priority": 2.0039,
+      "priority": 2.00394,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-marsh-grass",
       "semanticRealmId": "nature-life"
@@ -6537,7 +6603,7 @@
       "translation": "湿地浅池",
       "x": 2128,
       "y": 648.5,
-      "priority": 2.00391,
+      "priority": 2.00395,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-marsh-pool",
       "semanticRealmId": "nature-life"
@@ -6548,7 +6614,7 @@
       "translation": "湿地草墩",
       "x": 2043,
       "y": 576,
-      "priority": 2.00392,
+      "priority": 2.00396,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-marsh-tussock",
       "semanticRealmId": "nature-life"
@@ -6559,7 +6625,7 @@
       "translation": "泥岸",
       "x": 2083,
       "y": 641,
-      "priority": 2.00393,
+      "priority": 2.00397,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-mud-bank",
       "semanticRealmId": "nature-life"
@@ -6570,7 +6636,7 @@
       "translation": "狭窄小水沟",
       "x": 2173,
       "y": 623.5,
-      "priority": 2.00394,
+      "priority": 2.00398,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-narrow-runnel",
       "semanticRealmId": "nature-life"
@@ -6581,7 +6647,7 @@
       "translation": "海滩沙",
       "x": 2453,
       "y": 593.5,
-      "priority": 2.00395,
+      "priority": 2.00399,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-beach-sand",
       "semanticRealmId": "nature-life"
@@ -6592,7 +6658,7 @@
       "translation": "巨石",
       "x": 2503,
       "y": 633.5,
-      "priority": 2.00396,
+      "priority": 2.004,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-boulder",
       "semanticRealmId": "nature-life"
@@ -6603,7 +6669,7 @@
       "translation": "种植带边界",
       "x": 2558,
       "y": 568.5,
-      "priority": 2.00397,
+      "priority": 2.00401,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-garden-border",
       "semanticRealmId": "nature-life"
@@ -6614,7 +6680,7 @@
       "translation": "外围铺装路面",
       "x": 2593,
       "y": 551,
-      "priority": 2.00398,
+      "priority": 2.00402,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-perimeter-pavement",
       "semanticRealmId": "nature-life"
@@ -6625,7 +6691,7 @@
       "translation": "海水泡沫",
       "x": 2538,
       "y": 648.5,
-      "priority": 2.00399,
+      "priority": 2.00403,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-sea-foam",
       "semanticRealmId": "nature-life"
@@ -6636,7 +6702,7 @@
       "translation": "海藻",
       "x": 2513,
       "y": 648.5,
-      "priority": 2.004,
+      "priority": 2.00404,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-seaweed",
       "semanticRealmId": "nature-life"
@@ -6647,7 +6713,7 @@
       "translation": "浅海水",
       "x": 2560.5,
       "y": 643.5,
-      "priority": 2.00401,
+      "priority": 2.00405,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-shallow-seawater",
       "semanticRealmId": "nature-life"
@@ -6658,7 +6724,7 @@
       "translation": "岸线",
       "x": 2543,
       "y": 648.5,
-      "priority": 2.00402,
+      "priority": 2.00406,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-shoreline",
       "semanticRealmId": "nature-life"
@@ -6669,7 +6735,7 @@
       "translation": "岸坡",
       "x": 1875.5,
       "y": 568.5,
-      "priority": 2.00403,
+      "priority": 2.00407,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-bank",
       "semanticRealmId": "nature-life"
@@ -6680,7 +6746,7 @@
       "translation": "边界种植带",
       "x": 1825.5,
       "y": 548.5,
-      "priority": 2.00404,
+      "priority": 2.00408,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-border-planting",
       "semanticRealmId": "nature-life"
@@ -6691,7 +6757,7 @@
       "translation": "挺水植物",
       "x": 1973,
       "y": 648.5,
-      "priority": 2.00405,
+      "priority": 2.00409,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-emergent-plant",
       "semanticRealmId": "nature-life"
@@ -6702,7 +6768,7 @@
       "translation": "浮叶",
       "x": 1943,
       "y": 648.5,
-      "priority": 2.00406,
+      "priority": 2.0041,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-floating-leaves",
       "semanticRealmId": "nature-life"
@@ -6713,7 +6779,7 @@
       "translation": "漂浮植被",
       "x": 1928,
       "y": 593.5,
-      "priority": 2.00407,
+      "priority": 2.00411,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-floating-vegetation",
       "semanticRealmId": "nature-life"
@@ -6724,7 +6790,7 @@
       "translation": "池塘边界",
       "x": 1893,
       "y": 566,
-      "priority": 2.00408,
+      "priority": 2.00412,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-pond-margin",
       "semanticRealmId": "nature-life"
@@ -6735,7 +6801,7 @@
       "translation": "池水",
       "x": 1943,
       "y": 621,
-      "priority": 2.00409,
+      "priority": 2.00413,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-pond-water",
       "semanticRealmId": "nature-life"
@@ -6746,7 +6812,7 @@
       "translation": "灌木",
       "x": 1818,
       "y": 553.5,
-      "priority": 2.0041,
+      "priority": 2.00414,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-shrub",
       "semanticRealmId": "nature-life"
@@ -6757,7 +6823,7 @@
       "translation": "小屋屋顶",
       "x": 1843,
       "y": 763.5,
-      "priority": 2.00411,
+      "priority": 2.00415,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-hut-roof",
       "semanticRealmId": "nature-life"
@@ -6768,7 +6834,7 @@
       "translation": "睡莲状浮叶",
       "x": 1918,
       "y": 678.5,
-      "priority": 2.00412,
+      "priority": 2.00416,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-lily-pad",
       "semanticRealmId": "nature-life"
@@ -6779,7 +6845,7 @@
       "translation": "金属桶",
       "x": 1960.5,
       "y": 803.5,
-      "priority": 2.00413,
+      "priority": 2.00417,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-metal-bucket",
       "semanticRealmId": "nature-life"
@@ -6790,7 +6856,7 @@
       "translation": "观察口",
       "x": 1843,
       "y": 798.5,
-      "priority": 2.00414,
+      "priority": 2.00418,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-observation-opening",
       "semanticRealmId": "nature-life"
@@ -6801,7 +6867,7 @@
       "translation": "池边芦状植物",
       "x": 1918,
       "y": 703.5,
-      "priority": 2.00415,
+      "priority": 2.00419,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-pond-reeds",
       "semanticRealmId": "nature-life"
@@ -6812,7 +6878,7 @@
       "translation": "雨量筒",
       "x": 1793,
       "y": 808.5,
-      "priority": 2.00416,
+      "priority": 2.0042,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-rain-gauge",
       "semanticRealmId": "nature-life"
@@ -6823,7 +6889,7 @@
       "translation": "样品箱",
       "x": 1878,
       "y": 818.5,
-      "priority": 2.00417,
+      "priority": 2.00421,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-sample-box",
       "semanticRealmId": "nature-life"
@@ -6834,7 +6900,7 @@
       "translation": "采样桶",
       "x": 1938,
       "y": 808.5,
-      "priority": 2.00418,
+      "priority": 2.00422,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-sampling-pail",
       "semanticRealmId": "nature-life"
@@ -6845,7 +6911,7 @@
       "translation": "风速传感器",
       "x": 1804,
       "y": 723.5,
-      "priority": 2.00419,
+      "priority": 2.00423,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-wind-sensor",
       "semanticRealmId": "nature-life"
@@ -6856,7 +6922,7 @@
       "translation": "藻类覆盖层",
       "x": 2353,
       "y": 768.5,
-      "priority": 2.0042,
+      "priority": 2.00424,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-algal-mat",
       "semanticRealmId": "nature-life"
@@ -6867,7 +6933,7 @@
       "translation": "小水道出口",
       "x": 2193,
       "y": 698.5,
-      "priority": 2.00421,
+      "priority": 2.00425,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-creek-mouth",
       "semanticRealmId": "nature-life"
@@ -6878,7 +6944,7 @@
       "translation": "干沙",
       "x": 2318,
       "y": 683.5,
-      "priority": 2.00422,
+      "priority": 2.00426,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-dry-sand",
       "semanticRealmId": "nature-life"
@@ -6889,7 +6955,7 @@
       "translation": "湿地边缘",
       "x": 2208,
       "y": 708.5,
-      "priority": 2.00423,
+      "priority": 2.00427,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-marsh-edge",
       "semanticRealmId": "nature-life"
@@ -6900,7 +6966,7 @@
       "translation": "岩石簇",
       "x": 2343,
       "y": 733.5,
-      "priority": 2.00424,
+      "priority": 2.00428,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-rock-cluster",
       "semanticRealmId": "nature-life"
@@ -6911,7 +6977,7 @@
       "translation": "岩间水洼",
       "x": 2358,
       "y": 798.5,
-      "priority": 2.00425,
+      "priority": 2.00429,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-rock-puddle",
       "semanticRealmId": "nature-life"
@@ -6922,7 +6988,7 @@
       "translation": "沙泥分界",
       "x": 2233,
       "y": 768.5,
-      "priority": 2.00426,
+      "priority": 2.0043,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-sand-mud-boundary",
       "semanticRealmId": "nature-life"
@@ -6933,7 +6999,7 @@
       "translation": "沙洲",
       "x": 2303,
       "y": 698.5,
-      "priority": 2.00427,
+      "priority": 2.00431,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-sandbar",
       "semanticRealmId": "nature-life"
@@ -6944,7 +7010,7 @@
       "translation": "湿沙",
       "x": 2258,
       "y": 778.5,
-      "priority": 2.00428,
+      "priority": 2.00432,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-wet-sand",
       "semanticRealmId": "nature-life"
@@ -6955,7 +7021,7 @@
       "translation": "水道岸边",
       "x": 2153,
       "y": 863.5,
-      "priority": 2.00429,
+      "priority": 2.00433,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-channel-bank",
       "semanticRealmId": "nature-life"
@@ -6966,7 +7032,7 @@
       "translation": "泥地水池",
       "x": 2118,
       "y": 868.5,
-      "priority": 2.0043,
+      "priority": 2.00434,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-mud-pool",
       "semanticRealmId": "nature-life"
@@ -6977,7 +7043,7 @@
       "translation": "植物土墩",
       "x": 2053,
       "y": 918.5,
-      "priority": 2.00431,
+      "priority": 2.00435,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-plant-mound",
       "semanticRealmId": "nature-life"
@@ -6988,7 +7054,7 @@
       "translation": "细小水沟",
       "x": 2138,
       "y": 843.5,
-      "priority": 2.00432,
+      "priority": 2.00436,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-small-rivulet",
       "semanticRealmId": "nature-life"
@@ -6999,7 +7065,7 @@
       "translation": "湿地外缘",
       "x": 2093,
       "y": 963.5,
-      "priority": 2.00433,
+      "priority": 2.00437,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-wetland-border",
       "semanticRealmId": "nature-life"
@@ -7010,7 +7076,7 @@
       "translation": "海岸外缘",
       "x": 2293,
       "y": 968.5,
-      "priority": 2.00434,
+      "priority": 2.00438,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-coastal-border",
       "semanticRealmId": "nature-life"
@@ -7021,7 +7087,7 @@
       "translation": "绿色藻层",
       "x": 2333,
       "y": 868.5,
-      "priority": 2.00435,
+      "priority": 2.00439,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-green-algae-mat",
       "semanticRealmId": "nature-life"
@@ -7032,7 +7098,7 @@
       "translation": "栈桥桩",
       "x": 2395.5,
       "y": 868.5,
-      "priority": 2.00436,
+      "priority": 2.0044,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-jetty-post",
       "semanticRealmId": "nature-life"
@@ -7043,7 +7109,7 @@
       "translation": "系泊绳",
       "x": 2390.5,
       "y": 893.5,
-      "priority": 2.00437,
+      "priority": 2.00441,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-mooring-rope",
       "semanticRealmId": "nature-life"
@@ -7054,7 +7120,7 @@
       "translation": "斑驳巨石",
       "x": 2293,
       "y": 883.5,
-      "priority": 2.00438,
+      "priority": 2.00442,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-mottled-boulder",
       "semanticRealmId": "nature-life"
@@ -7065,7 +7131,7 @@
       "translation": "岩石露头",
       "x": 2308,
       "y": 878.5,
-      "priority": 2.00439,
+      "priority": 2.00443,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-rock-outcrop",
       "semanticRealmId": "nature-life"
@@ -7076,7 +7142,7 @@
       "translation": "岩石带",
       "x": 2343,
       "y": 918.5,
-      "priority": 2.0044,
+      "priority": 2.00444,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-stone-field",
       "semanticRealmId": "nature-life"
@@ -7087,7 +7153,7 @@
       "translation": "岩间积水",
       "x": 2353,
       "y": 858.5,
-      "priority": 2.00441,
+      "priority": 2.00445,
       "minLevel": 1,
       "sourceVisualRegion": "anchor-wetland-water-pocket",
       "semanticRealmId": "nature-life"
@@ -10316,12 +10382,56 @@
       "semanticRealmId": "mind-values"
     },
     {
+      "id": "science-utility-pipe-bend",
+      "word": "pipe bend",
+      "translation": "管道弯曲段",
+      "x": 1466.5,
+      "y": 401.5,
+      "priority": 3.00293,
+      "minLevel": 2,
+      "sourceVisualRegion": "anchor-science-utility-pipe-bend",
+      "semanticRealmId": "mind-values"
+    },
+    {
+      "id": "science-utility-pipe-coupling",
+      "word": "pipe coupling",
+      "translation": "管道接头",
+      "x": 1426.5,
+      "y": 401,
+      "priority": 3.00294,
+      "minLevel": 2,
+      "sourceVisualRegion": "anchor-science-utility-pipe-coupling",
+      "semanticRealmId": "mind-values"
+    },
+    {
+      "id": "science-utility-pump-base",
+      "word": "pump base",
+      "translation": "水泵底座",
+      "x": 1291.5,
+      "y": 426,
+      "priority": 3.00295,
+      "minLevel": 2,
+      "sourceVisualRegion": "anchor-science-utility-pump-base",
+      "semanticRealmId": "mind-values"
+    },
+    {
+      "id": "science-utility-tank-shoulder",
+      "word": "tank shoulder",
+      "translation": "储罐肩部",
+      "x": 1614,
+      "y": 405,
+      "priority": 3.00296,
+      "minLevel": 2,
+      "sourceVisualRegion": "anchor-science-utility-tank-shoulder",
+      "semanticRealmId": "mind-values"
+    },
+    {
       "id": "science-faucet-row",
       "word": "faucet row",
       "translation": "成排龙头",
       "x": 1027.5,
       "y": 184.5,
-      "priority": 3.00293,
+      "priority": 3.00297,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-faucet-row",
       "semanticRealmId": "mind-values"
@@ -10332,7 +10442,7 @@
       "translation": "地面清洁器",
       "x": 1092,
       "y": 208,
-      "priority": 3.00294,
+      "priority": 3.00298,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-floor-cleaner",
       "semanticRealmId": "mind-values"
@@ -10343,7 +10453,7 @@
       "translation": "悬挂清洁工具",
       "x": 1095.5,
       "y": 195.5,
-      "priority": 3.00295,
+      "priority": 3.00299,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-hanging-cleaning-tool",
       "semanticRealmId": "mind-values"
@@ -10354,7 +10464,7 @@
       "translation": "墙边扫帚",
       "x": 1102,
       "y": 205,
-      "priority": 3.00296,
+      "priority": 3.003,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-wall-broom",
       "semanticRealmId": "mind-values"
@@ -10365,7 +10475,7 @@
       "translation": "黄色软管喷嘴",
       "x": 1076,
       "y": 188.5,
-      "priority": 3.00297,
+      "priority": 3.00301,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-yellow-hose-nozzles",
       "semanticRealmId": "mind-values"
@@ -10376,7 +10486,7 @@
       "translation": "台钳夹具",
       "x": 1331.5,
       "y": 301.5,
-      "priority": 3.00298,
+      "priority": 3.00302,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-bench-clamp",
       "semanticRealmId": "mind-values"
@@ -10387,7 +10497,7 @@
       "translation": "凿子架",
       "x": 1370,
       "y": 271,
-      "priority": 3.00299,
+      "priority": 3.00303,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-chisel-rack",
       "semanticRealmId": "mind-values"
@@ -10398,7 +10508,7 @@
       "translation": "羊角锤",
       "x": 1342.5,
       "y": 328.5,
-      "priority": 3.003,
+      "priority": 3.00304,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-claw-hammer",
       "semanticRealmId": "mind-values"
@@ -10409,7 +10519,7 @@
       "translation": "手锯",
       "x": 1366,
       "y": 294.5,
-      "priority": 3.00301,
+      "priority": 3.00305,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-hand-saw",
       "semanticRealmId": "mind-values"
@@ -10420,7 +10530,7 @@
       "translation": "悬挂扳手排",
       "x": 1407.5,
       "y": 272,
-      "priority": 3.00302,
+      "priority": 3.00306,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-hanging-spanner-row",
       "semanticRealmId": "mind-values"
@@ -10431,7 +10541,7 @@
       "translation": "细长工具排",
       "x": 1401.5,
       "y": 332.5,
-      "priority": 3.00303,
+      "priority": 3.00307,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-slender-tool-row",
       "semanticRealmId": "mind-values"
@@ -10442,7 +10552,7 @@
       "translation": "木槌",
       "x": 1322,
       "y": 327.5,
-      "priority": 3.00304,
+      "priority": 3.00308,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-wooden-mallet",
       "semanticRealmId": "mind-values"
@@ -10453,7 +10563,7 @@
       "translation": "木制工件",
       "x": 1385,
       "y": 371,
-      "priority": 3.00305,
+      "priority": 3.00309,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-science-wooden-workpiece",
       "semanticRealmId": "mind-values"
@@ -10464,7 +10574,7 @@
       "translation": "集装箱顶板",
       "x": 2350.5,
       "y": 183,
-      "priority": 3.00306,
+      "priority": 3.0031,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-container-roof",
       "semanticRealmId": "objects-technology"
@@ -10475,7 +10585,7 @@
       "translation": "波纹金属屋顶",
       "x": 2353,
       "y": 247,
-      "priority": 3.00307,
+      "priority": 3.00311,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-corrugated-metal-roof",
       "semanticRealmId": "objects-technology"
@@ -10486,7 +10596,7 @@
       "translation": "木箱盖",
       "x": 2320.5,
       "y": 206,
-      "priority": 3.00308,
+      "priority": 3.00312,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-crate-lid",
       "semanticRealmId": "objects-technology"
@@ -10497,7 +10607,7 @@
       "translation": "弯臂灯杆",
       "x": 2311.5,
       "y": 226.5,
-      "priority": 3.00309,
+      "priority": 3.00313,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-curved-lamp-post",
       "semanticRealmId": "objects-technology"
@@ -10508,7 +10618,7 @@
       "translation": "叉车货叉",
       "x": 2258,
       "y": 276,
-      "priority": 3.0031,
+      "priority": 3.00314,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-forklift-forks",
       "semanticRealmId": "objects-technology"
@@ -10519,7 +10629,7 @@
       "translation": "叉车护顶架",
       "x": 2286.5,
       "y": 236.5,
-      "priority": 3.00311,
+      "priority": 3.00315,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-overhead-guard",
       "semanticRealmId": "objects-technology"
@@ -10530,7 +10640,7 @@
       "translation": "小屋门",
       "x": 2326.5,
       "y": 289,
-      "priority": 3.00312,
+      "priority": 3.00316,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-shed-door",
       "semanticRealmId": "objects-technology"
@@ -10541,7 +10651,7 @@
       "translation": "桶装泵",
       "x": 1878,
       "y": 412.5,
-      "priority": 3.00313,
+      "priority": 3.00317,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-drum-pump",
       "semanticRealmId": "objects-technology"
@@ -10552,7 +10662,7 @@
       "translation": "屋檐",
       "x": 1925.5,
       "y": 351,
-      "priority": 3.00314,
+      "priority": 3.00318,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-eaves",
       "semanticRealmId": "objects-technology"
@@ -10563,7 +10673,7 @@
       "translation": "储物桶",
       "x": 1997,
       "y": 367.5,
-      "priority": 3.00315,
+      "priority": 3.00319,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-utility-barrel",
       "semanticRealmId": "objects-technology"
@@ -10574,7 +10684,7 @@
       "translation": "公用设施箱",
       "x": 1828,
       "y": 425,
-      "priority": 3.00316,
+      "priority": 3.0032,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-utility-box",
       "semanticRealmId": "objects-technology"
@@ -10585,7 +10695,7 @@
       "translation": "舱门",
       "x": 2497,
       "y": 400,
-      "priority": 3.00317,
+      "priority": 3.00321,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-cabin-door",
       "semanticRealmId": "objects-technology"
@@ -10596,7 +10706,7 @@
       "translation": "甲板缆绳卷筒",
       "x": 2535.5,
       "y": 380,
-      "priority": 3.00318,
+      "priority": 3.00322,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-deck-cable-drum",
       "semanticRealmId": "objects-technology"
@@ -10607,7 +10717,7 @@
       "translation": "小艇横座",
       "x": 2550.5,
       "y": 425,
-      "priority": 3.00319,
+      "priority": 3.00323,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-dinghy-thwart",
       "semanticRealmId": "objects-technology"
@@ -10618,7 +10728,7 @@
       "translation": "小艇艉板",
       "x": 2535.5,
       "y": 437.5,
-      "priority": 3.0032,
+      "priority": 3.00324,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-dinghy-transom",
       "semanticRealmId": "objects-technology"
@@ -10629,7 +10739,7 @@
       "translation": "船舷上缘",
       "x": 2473,
       "y": 415,
-      "priority": 3.00321,
+      "priority": 3.00325,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-gunwale",
       "semanticRealmId": "objects-technology"
@@ -10640,7 +10750,7 @@
       "translation": "粗系泊缆",
       "x": 2458,
       "y": 385,
-      "priority": 3.00322,
+      "priority": 3.00326,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-mooring-warp",
       "semanticRealmId": "objects-technology"
@@ -10651,7 +10761,7 @@
       "translation": "无线电天线",
       "x": 2498,
       "y": 345,
-      "priority": 3.00323,
+      "priority": 3.00327,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-radio-antenna",
       "semanticRealmId": "objects-technology"
@@ -10662,7 +10772,7 @@
       "translation": "索具支臂",
       "x": 2523,
       "y": 365,
-      "priority": 3.00324,
+      "priority": 3.00328,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-rigging-boom",
       "semanticRealmId": "objects-technology"
@@ -10673,7 +10783,7 @@
       "translation": "三脚桅架",
       "x": 2502,
       "y": 357.5,
-      "priority": 3.00325,
+      "priority": 3.00329,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-tripod-mast",
       "semanticRealmId": "objects-technology"
@@ -10684,7 +10794,7 @@
       "translation": "混凝土隔墙",
       "x": 2134.5,
       "y": 257.5,
-      "priority": 3.00326,
+      "priority": 3.0033,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-concrete-divider",
       "semanticRealmId": "objects-technology"
@@ -10695,7 +10805,7 @@
       "translation": "货车底架",
       "x": 2093,
       "y": 243,
-      "priority": 3.00327,
+      "priority": 3.00331,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-freight-undercarriage",
       "semanticRealmId": "objects-technology"
@@ -10706,7 +10816,7 @@
       "translation": "木质载货台",
       "x": 2168,
       "y": 232.5,
-      "priority": 3.00328,
+      "priority": 3.00332,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-timber-deck",
       "semanticRealmId": "objects-technology"
@@ -10717,7 +10827,7 @@
       "translation": "轨道终端",
       "x": 2078,
       "y": 272.5,
-      "priority": 3.00329,
+      "priority": 3.00333,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-track-terminus",
       "semanticRealmId": "objects-technology"
@@ -10728,7 +10838,7 @@
       "translation": "车厢端门",
       "x": 2061,
       "y": 215,
-      "priority": 3.0033,
+      "priority": 3.00334,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-wagon-end-gate",
       "semanticRealmId": "objects-technology"
@@ -10739,7 +10849,7 @@
       "translation": "驾驶台窗",
       "x": 2489,
       "y": 267,
-      "priority": 3.00331,
+      "priority": 3.00335,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-bridge-window",
       "semanticRealmId": "objects-technology"
@@ -10750,7 +10860,7 @@
       "translation": "舱室顶",
       "x": 2485.5,
       "y": 254,
-      "priority": 3.00332,
+      "priority": 3.00336,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-cabin-roof",
       "semanticRealmId": "objects-technology"
@@ -10761,7 +10871,7 @@
       "translation": "甲板栏杆",
       "x": 2464,
       "y": 280,
-      "priority": 3.00333,
+      "priority": 3.00337,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-deck-railing",
       "semanticRealmId": "objects-technology"
@@ -10772,7 +10882,7 @@
       "translation": "码头边缘",
       "x": 2568,
       "y": 272.5,
-      "priority": 3.00334,
+      "priority": 3.00338,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-dock-edge",
       "semanticRealmId": "objects-technology"
@@ -10783,7 +10893,7 @@
       "translation": "排气筒",
       "x": 2487,
       "y": 244.5,
-      "priority": 3.00335,
+      "priority": 3.00339,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-exhaust-stack",
       "semanticRealmId": "objects-technology"
@@ -10794,7 +10904,7 @@
       "translation": "起升滑轮组",
       "x": 2478,
       "y": 210,
-      "priority": 3.00336,
+      "priority": 3.0034,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-hoist-block",
       "semanticRealmId": "objects-technology"
@@ -10805,7 +10915,7 @@
       "translation": "船体护舷",
       "x": 2548,
       "y": 295,
-      "priority": 3.00337,
+      "priority": 3.00341,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-hull-fender",
       "semanticRealmId": "objects-technology"
@@ -10816,7 +10926,7 @@
       "translation": "系泊缆绳",
       "x": 2573,
       "y": 297,
-      "priority": 3.00338,
+      "priority": 3.00342,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-mooring-line",
       "semanticRealmId": "objects-technology"
@@ -10827,7 +10937,7 @@
       "translation": "码头设备座",
       "x": 2228,
       "y": 417.5,
-      "priority": 3.00339,
+      "priority": 3.00343,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-dock-pedestal",
       "semanticRealmId": "objects-technology"
@@ -10838,7 +10948,7 @@
       "translation": "草地",
       "x": 2118,
       "y": 450,
-      "priority": 3.0034,
+      "priority": 3.00344,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-grass-patch",
       "semanticRealmId": "objects-technology"
@@ -10849,7 +10959,7 @@
       "translation": "金属笼架",
       "x": 2128,
       "y": 325,
-      "priority": 3.00341,
+      "priority": 3.00345,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-metal-cage",
       "semanticRealmId": "objects-technology"
@@ -10860,7 +10970,7 @@
       "translation": "托盘底座",
       "x": 2128,
       "y": 351,
-      "priority": 3.00342,
+      "priority": 3.00346,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-pallet-base",
       "semanticRealmId": "objects-technology"
@@ -10871,7 +10981,7 @@
       "translation": "托盘车手柄",
       "x": 2153,
       "y": 394,
-      "priority": 3.00343,
+      "priority": 3.00347,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-pallet-jack-handle",
       "semanticRealmId": "objects-technology"
@@ -10882,7 +10992,7 @@
       "translation": "管路组件",
       "x": 2227.5,
       "y": 367.5,
-      "priority": 3.00344,
+      "priority": 3.00348,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-pipe-assembly",
       "semanticRealmId": "objects-technology"
@@ -10893,7 +11003,7 @@
       "translation": "安全栏杆",
       "x": 2168,
       "y": 452.5,
-      "priority": 3.00345,
+      "priority": 3.00349,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-safety-railing",
       "semanticRealmId": "objects-technology"
@@ -10904,7 +11014,7 @@
       "translation": "自动车钩",
       "x": 2230.5,
       "y": 160,
-      "priority": 3.00346,
+      "priority": 3.0035,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-automatic-coupler",
       "semanticRealmId": "objects-technology"
@@ -10915,7 +11025,7 @@
       "translation": "驾驶室窗",
       "x": 2227.5,
       "y": 126,
-      "priority": 3.00347,
+      "priority": 3.00351,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-cab-window",
       "semanticRealmId": "objects-technology"
@@ -10926,7 +11036,7 @@
       "translation": "压缩机组",
       "x": 2378,
       "y": 160,
-      "priority": 3.00348,
+      "priority": 3.00352,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-compressor-unit",
       "semanticRealmId": "objects-technology"
@@ -10937,7 +11047,7 @@
       "translation": "牵引转向架",
       "x": 2302,
       "y": 154.5,
-      "priority": 3.00349,
+      "priority": 3.00353,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-traction-bogie",
       "semanticRealmId": "objects-technology"
@@ -10948,7 +11058,7 @@
       "translation": "登高梯",
       "x": 2422,
       "y": 117.5,
-      "priority": 3.0035,
+      "priority": 3.00354,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-access-ladder",
       "semanticRealmId": "objects-technology"
@@ -10959,7 +11069,7 @@
       "translation": "设备箱",
       "x": 2560.5,
       "y": 165,
-      "priority": 3.00351,
+      "priority": 3.00355,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-equipment-crate",
       "semanticRealmId": "objects-technology"
@@ -10970,7 +11080,7 @@
       "translation": "检修地沟",
       "x": 2493,
       "y": 165,
-      "priority": 3.00352,
+      "priority": 3.00356,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-inspection-pit",
       "semanticRealmId": "objects-technology"
@@ -10981,7 +11091,7 @@
       "translation": "举升千斤顶",
       "x": 2518,
       "y": 140,
-      "priority": 3.00353,
+      "priority": 3.00357,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-lifting-jack",
       "semanticRealmId": "objects-technology"
@@ -10992,7 +11102,7 @@
       "translation": "检修平台",
       "x": 2487,
       "y": 154,
-      "priority": 3.00354,
+      "priority": 3.00358,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-maintenance-platform",
       "semanticRealmId": "objects-technology"
@@ -11003,7 +11113,7 @@
       "translation": "屋面覆板",
       "x": 2535.5,
       "y": 20,
-      "priority": 3.00355,
+      "priority": 3.00359,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-roof-cladding",
       "semanticRealmId": "objects-technology"
@@ -11014,7 +11124,7 @@
       "translation": "钢桁架",
       "x": 2495.5,
       "y": 39.5,
-      "priority": 3.00356,
+      "priority": 3.0036,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-steel-truss",
       "semanticRealmId": "objects-technology"
@@ -11025,7 +11135,7 @@
       "translation": "墙面覆板",
       "x": 2575.5,
       "y": 80,
-      "priority": 3.00357,
+      "priority": 3.00361,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-wall-cladding",
       "semanticRealmId": "objects-technology"
@@ -11036,7 +11146,7 @@
       "translation": "公交车门",
       "x": 1837.5,
       "y": 105,
-      "priority": 3.00358,
+      "priority": 3.00362,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-bus-door",
       "semanticRealmId": "objects-technology"
@@ -11047,7 +11157,7 @@
       "translation": "公交车窗",
       "x": 1820.5,
       "y": 98.5,
-      "priority": 3.00359,
+      "priority": 3.00363,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-bus-window",
       "semanticRealmId": "objects-technology"
@@ -11058,7 +11168,7 @@
       "translation": "路缘石",
       "x": 1960.5,
       "y": 39,
-      "priority": 3.0036,
+      "priority": 3.00364,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-curb",
       "semanticRealmId": "objects-technology",
@@ -11070,7 +11180,7 @@
       "translation": "车道标线",
       "x": 1993.5,
       "y": 14.5,
-      "priority": 3.00361,
+      "priority": 3.00365,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-lane-marking",
       "semanticRealmId": "objects-technology"
@@ -11081,7 +11191,7 @@
       "translation": "路侧护栏",
       "x": 1910.5,
       "y": 15,
-      "priority": 3.00362,
+      "priority": 3.00366,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-roadside-railing",
       "semanticRealmId": "objects-technology"
@@ -11092,7 +11202,7 @@
       "translation": "路灯",
       "x": 1962.5,
       "y": 138,
-      "priority": 3.00363,
+      "priority": 3.00367,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-streetlamp",
       "semanticRealmId": "objects-technology"
@@ -11103,7 +11213,7 @@
       "translation": "货斗",
       "x": 1892.5,
       "y": 152,
-      "priority": 3.00364,
+      "priority": 3.00368,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-truck-bed",
       "semanticRealmId": "objects-technology"
@@ -11114,7 +11224,7 @@
       "translation": "艇用挡风玻璃",
       "x": 2300,
       "y": 394,
-      "priority": 3.00365,
+      "priority": 3.00369,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-boat-windshield",
       "semanticRealmId": "objects-technology"
@@ -11125,7 +11235,7 @@
       "translation": "帆桁",
       "x": 2349,
       "y": 390,
-      "priority": 3.00366,
+      "priority": 3.0037,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-boom",
       "semanticRealmId": "objects-technology"
@@ -11136,7 +11246,7 @@
       "translation": "船艏",
       "x": 2393,
       "y": 421,
-      "priority": 3.00367,
+      "priority": 3.00371,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-bow",
       "semanticRealmId": "objects-technology"
@@ -11147,7 +11257,7 @@
       "translation": "船艏栏杆",
       "x": 2318,
       "y": 390,
-      "priority": 3.00368,
+      "priority": 3.00372,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-bow-rail",
       "semanticRealmId": "objects-technology"
@@ -11158,7 +11268,7 @@
       "translation": "舱顶",
       "x": 2335.5,
       "y": 404,
-      "priority": 3.00369,
+      "priority": 3.00373,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-cabin-top",
       "semanticRealmId": "objects-technology"
@@ -11169,7 +11279,7 @@
       "translation": "固定索具",
       "x": 2354,
       "y": 362.5,
-      "priority": 3.0037,
+      "priority": 3.00374,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-standing-rigging",
       "semanticRealmId": "objects-technology"
@@ -11180,7 +11290,7 @@
       "translation": "船艉",
       "x": 2320.5,
       "y": 417.5,
-      "priority": 3.00371,
+      "priority": 3.00375,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-stern",
       "semanticRealmId": "objects-technology"
@@ -11191,7 +11301,7 @@
       "translation": "雨棚立柱",
       "x": 2136,
       "y": 89,
-      "priority": 3.00372,
+      "priority": 3.00376,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-canopy-column",
       "semanticRealmId": "objects-technology"
@@ -11202,7 +11312,7 @@
       "translation": "接触网立柱",
       "x": 2172.5,
       "y": 83,
-      "priority": 3.00373,
+      "priority": 3.00377,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-catenary-mast",
       "semanticRealmId": "objects-technology"
@@ -11213,7 +11323,7 @@
       "translation": "乘客车门",
       "x": 2097.5,
       "y": 109,
-      "priority": 3.00374,
+      "priority": 3.00378,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-passenger-door",
       "semanticRealmId": "objects-technology"
@@ -11224,7 +11334,7 @@
       "translation": "站台边缘",
       "x": 2135.5,
       "y": 152.5,
-      "priority": 3.00375,
+      "priority": 3.00379,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-platform-edge",
       "semanticRealmId": "objects-technology"
@@ -11235,7 +11345,7 @@
       "translation": "站台安全带",
       "x": 2136,
       "y": 149,
-      "priority": 3.00376,
+      "priority": 3.0038,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-platform-safety-strip",
       "semanticRealmId": "objects-technology"
@@ -11246,7 +11356,7 @@
       "translation": "列车车窗",
       "x": 2120.5,
       "y": 97.5,
-      "priority": 3.00377,
+      "priority": 3.00381,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-train-window",
       "semanticRealmId": "objects-technology"
@@ -11257,7 +11367,7 @@
       "translation": "列车挡风玻璃",
       "x": 2055,
       "y": 99,
-      "priority": 3.00378,
+      "priority": 3.00382,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-train-windscreen",
       "semanticRealmId": "objects-technology"
@@ -11268,7 +11378,7 @@
       "translation": "自行车车架",
       "x": 1855.5,
       "y": 265,
-      "priority": 3.00379,
+      "priority": 3.00383,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-bicycle-frame",
       "semanticRealmId": "objects-technology"
@@ -11279,7 +11389,7 @@
       "translation": "顶棚支架",
       "x": 1881,
       "y": 250,
-      "priority": 3.0038,
+      "priority": 3.00384,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-canopy-support",
       "semanticRealmId": "objects-technology"
@@ -11290,7 +11400,7 @@
       "translation": "路旁草带",
       "x": 1939.5,
       "y": 223,
-      "priority": 3.00381,
+      "priority": 3.00385,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-grass-verge",
       "semanticRealmId": "objects-technology"
@@ -11301,7 +11411,7 @@
       "translation": "后车门",
       "x": 1915.5,
       "y": 201.5,
-      "priority": 3.00382,
+      "priority": 3.00386,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-transport-rear-door",
       "semanticRealmId": "objects-technology"
@@ -11312,7 +11422,7 @@
       "translation": "湿润沉积物",
       "x": 2128,
       "y": 768.5,
-      "priority": 3.00383,
+      "priority": 3.00387,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-damp-sediment",
       "semanticRealmId": "nature-life"
@@ -11323,7 +11433,7 @@
       "translation": "肉质地被",
       "x": 2068,
       "y": 743.5,
-      "priority": 3.00384,
+      "priority": 3.00388,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-fleshy-groundcover",
       "semanticRealmId": "nature-life"
@@ -11334,7 +11444,7 @@
       "translation": "泥地边缘",
       "x": 2038,
       "y": 718.5,
-      "priority": 3.00385,
+      "priority": 3.00389,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-mud-margin",
       "semanticRealmId": "nature-life"
@@ -11345,7 +11455,7 @@
       "translation": "圆润石块",
       "x": 2078,
       "y": 813.5,
-      "priority": 3.00386,
+      "priority": 3.0039,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-rounded-stone",
       "semanticRealmId": "nature-life"
@@ -11356,7 +11466,7 @@
       "translation": "土丘",
       "x": 2143,
       "y": 803.5,
-      "priority": 3.00387,
+      "priority": 3.00391,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-soil-mound",
       "semanticRealmId": "nature-life"
@@ -11367,7 +11477,7 @@
       "translation": "艇艏",
       "x": 2490.5,
       "y": 908.5,
-      "priority": 3.00388,
+      "priority": 3.00392,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-boat-bow",
       "semanticRealmId": "nature-life"
@@ -11378,7 +11488,7 @@
       "translation": "艇艉",
       "x": 2410.5,
       "y": 913.5,
-      "priority": 3.00389,
+      "priority": 3.00393,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-boat-stern",
       "semanticRealmId": "nature-life"
@@ -11389,7 +11499,7 @@
       "translation": "码头木板",
       "x": 2408,
       "y": 878.5,
-      "priority": 3.0039,
+      "priority": 3.00394,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-dock-planks",
       "semanticRealmId": "nature-life"
@@ -11400,7 +11510,7 @@
       "translation": "外缘路缘",
       "x": 2518,
       "y": 968.5,
-      "priority": 3.00391,
+      "priority": 3.00395,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-edge-curb",
       "semanticRealmId": "nature-life"
@@ -11411,7 +11521,7 @@
       "translation": "漂浮海藻",
       "x": 2518,
       "y": 858.5,
-      "priority": 3.00392,
+      "priority": 3.00396,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-floating-seaweed",
       "semanticRealmId": "nature-life"
@@ -11422,7 +11532,7 @@
       "translation": "水下藻草",
       "x": 2528,
       "y": 878.5,
-      "priority": 3.00393,
+      "priority": 3.00397,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-submerged-weed",
       "semanticRealmId": "nature-life"
@@ -11433,7 +11543,7 @@
       "translation": "艇内横座",
       "x": 2468,
       "y": 898.5,
-      "priority": 3.00394,
+      "priority": 3.00398,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-thwart",
       "semanticRealmId": "nature-life"
@@ -11444,7 +11554,7 @@
       "translation": "艇艉板",
       "x": 2418,
       "y": 908.5,
-      "priority": 3.00395,
+      "priority": 3.00399,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-transom",
       "semanticRealmId": "nature-life"
@@ -11455,7 +11565,7 @@
       "translation": "样地边缘路缘",
       "x": 1893,
       "y": 968.5,
-      "priority": 3.00396,
+      "priority": 3.004,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-border-curb",
       "semanticRealmId": "nature-life"
@@ -11466,7 +11576,7 @@
       "translation": "绳圈",
       "x": 1935.5,
       "y": 898.5,
-      "priority": 3.00397,
+      "priority": 3.00401,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-rope-loop",
       "semanticRealmId": "nature-life"
@@ -11477,7 +11587,7 @@
       "translation": "褐色藻类",
       "x": 2453,
       "y": 693.5,
-      "priority": 3.00398,
+      "priority": 3.00402,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-brown-algae",
       "semanticRealmId": "nature-life"
@@ -11488,7 +11598,7 @@
       "translation": "泡沫线",
       "x": 2478,
       "y": 718.5,
-      "priority": 3.00399,
+      "priority": 3.00403,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-foam-line",
       "semanticRealmId": "nature-life"
@@ -11499,7 +11609,7 @@
       "translation": "海带状藻体",
       "x": 2518,
       "y": 758.5,
-      "priority": 3.004,
+      "priority": 3.00404,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-kelp-strand",
       "semanticRealmId": "nature-life"
@@ -11510,7 +11620,7 @@
       "translation": "岩石台面",
       "x": 2418,
       "y": 728.5,
-      "priority": 3.00401,
+      "priority": 3.00405,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-rock-ledge",
       "semanticRealmId": "nature-life"
@@ -11521,7 +11631,7 @@
       "translation": "岸边路缘",
       "x": 2593,
       "y": 728.5,
-      "priority": 3.00402,
+      "priority": 3.00406,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-shoreline-curb",
       "semanticRealmId": "nature-life"
@@ -11532,7 +11642,7 @@
       "translation": "水面波纹",
       "x": 2538,
       "y": 733.5,
-      "priority": 3.00403,
+      "priority": 3.00407,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-water-ripple",
       "semanticRealmId": "nature-life"
@@ -11543,7 +11653,7 @@
       "translation": "艇内横座",
       "x": 2388,
       "y": 648.5,
-      "priority": 3.00404,
+      "priority": 3.00408,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-boat-bench",
       "semanticRealmId": "nature-life"
@@ -11554,7 +11664,7 @@
       "translation": "围栏柱",
       "x": 2343,
       "y": 598.5,
-      "priority": 3.00405,
+      "priority": 3.00409,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-fence-post",
       "semanticRealmId": "nature-life"
@@ -11565,7 +11675,7 @@
       "translation": "扶手",
       "x": 2278,
       "y": 613.5,
-      "priority": 3.00406,
+      "priority": 3.0041,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-handrail",
       "semanticRealmId": "nature-life"
@@ -11576,7 +11686,7 @@
       "translation": "低矮灌丛",
       "x": 2373,
       "y": 568.5,
-      "priority": 3.00407,
+      "priority": 3.00411,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-low-bush",
       "semanticRealmId": "nature-life"
@@ -11587,7 +11697,7 @@
       "translation": "散落砾石",
       "x": 2338,
       "y": 653.5,
-      "priority": 3.00408,
+      "priority": 3.00412,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-scattered-pebble",
       "semanticRealmId": "nature-life"
@@ -11598,7 +11708,7 @@
       "translation": "木板",
       "x": 2277,
       "y": 623.5,
-      "priority": 3.00409,
+      "priority": 3.00413,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-wooden-plank",
       "semanticRealmId": "nature-life"
@@ -11609,7 +11719,7 @@
       "translation": "开花植丛",
       "x": 2078,
       "y": 633.5,
-      "priority": 3.0041,
+      "priority": 3.00414,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-flowering-clump",
       "semanticRealmId": "nature-life"
@@ -11620,7 +11730,7 @@
       "translation": "草丘",
       "x": 2118,
       "y": 591,
-      "priority": 3.00411,
+      "priority": 3.00415,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-hummock",
       "semanticRealmId": "nature-life"
@@ -11631,7 +11741,7 @@
       "translation": "泥面",
       "x": 2173,
       "y": 658.5,
-      "priority": 3.00412,
+      "priority": 3.00416,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-mud-surface",
       "semanticRealmId": "nature-life"
@@ -11642,7 +11752,7 @@
       "translation": "水洼",
       "x": 2153,
       "y": 593.5,
-      "priority": 3.00413,
+      "priority": 3.00417,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-puddle",
       "semanticRealmId": "nature-life"
@@ -11653,7 +11763,7 @@
       "translation": "粉砂斑块",
       "x": 2068,
       "y": 621,
-      "priority": 3.00414,
+      "priority": 3.00418,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-silt-patch",
       "semanticRealmId": "nature-life"
@@ -11664,7 +11774,7 @@
       "translation": "浸水土壤",
       "x": 2138,
       "y": 633.5,
-      "priority": 3.00415,
+      "priority": 3.00419,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-waterlogged-soil",
       "semanticRealmId": "nature-life"
@@ -11675,7 +11785,7 @@
       "translation": "边缘灌木",
       "x": 2568,
       "y": 571,
-      "priority": 3.00416,
+      "priority": 3.0042,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-border-shrub",
       "semanticRealmId": "nature-life"
@@ -11686,7 +11796,7 @@
       "translation": "卵石",
       "x": 2468,
       "y": 628.5,
-      "priority": 3.00417,
+      "priority": 3.00421,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-cobble",
       "semanticRealmId": "nature-life"
@@ -11697,7 +11807,7 @@
       "translation": "干岩石",
       "x": 2513,
       "y": 621,
-      "priority": 3.00418,
+      "priority": 3.00422,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-dry-rock",
       "semanticRealmId": "nature-life"
@@ -11708,7 +11818,7 @@
       "translation": "沙丘植物",
       "x": 2418,
       "y": 558.5,
-      "priority": 3.00419,
+      "priority": 3.00423,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-dune-plant",
       "semanticRealmId": "nature-life"
@@ -11719,7 +11829,7 @@
       "translation": "挡土路缘",
       "x": 2553,
       "y": 588.5,
-      "priority": 3.0042,
+      "priority": 3.00424,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-retaining-curb",
       "semanticRealmId": "nature-life"
@@ -11730,7 +11840,7 @@
       "translation": "小浪",
       "x": 2553,
       "y": 661,
-      "priority": 3.00421,
+      "priority": 3.00425,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-wavelet",
       "semanticRealmId": "nature-life"
@@ -11741,7 +11851,7 @@
       "translation": "湿岩石",
       "x": 2513,
       "y": 638.5,
-      "priority": 3.00422,
+      "priority": 3.00426,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-wet-rock",
       "semanticRealmId": "nature-life"
@@ -11752,7 +11862,7 @@
       "translation": "岸边漂积物",
       "x": 2428,
       "y": 648.5,
-      "priority": 3.00423,
+      "priority": 3.00427,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-wrack",
       "semanticRealmId": "nature-life"
@@ -11763,7 +11873,7 @@
       "translation": "混凝土边条",
       "x": 1818,
       "y": 606,
-      "priority": 3.00424,
+      "priority": 3.00428,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-concrete-edging",
       "semanticRealmId": "nature-life"
@@ -11774,7 +11884,7 @@
       "translation": "倒落树枝",
       "x": 1893,
       "y": 646,
-      "priority": 3.00425,
+      "priority": 3.00429,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-fallen-branch",
       "semanticRealmId": "nature-life"
@@ -11785,7 +11895,7 @@
       "translation": "草丛",
       "x": 1858,
       "y": 556,
-      "priority": 3.00426,
+      "priority": 3.0043,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-grass-clump",
       "semanticRealmId": "nature-life"
@@ -11796,7 +11906,7 @@
       "translation": "地被植物",
       "x": 1833,
       "y": 568.5,
-      "priority": 3.00427,
+      "priority": 3.00431,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-groundcover",
       "semanticRealmId": "nature-life"
@@ -11807,7 +11917,7 @@
       "translation": "铺路石",
       "x": 1795.5,
       "y": 561,
-      "priority": 3.00428,
+      "priority": 3.00432,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-paving-stone",
       "semanticRealmId": "nature-life"
@@ -11818,7 +11928,7 @@
       "translation": "芦状茎",
       "x": 1870.5,
       "y": 613.5,
-      "priority": 3.00429,
+      "priority": 3.00433,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-reed-stem",
       "semanticRealmId": "nature-life"
@@ -11829,7 +11939,7 @@
       "translation": "水面",
       "x": 1933,
       "y": 608.5,
-      "priority": 3.0043,
+      "priority": 3.00434,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-water-surface",
       "semanticRealmId": "nature-life"
@@ -11840,7 +11950,7 @@
       "translation": "仪器外壳",
       "x": 1865.5,
       "y": 753.5,
-      "priority": 3.00431,
+      "priority": 3.00435,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-instrument-housing",
       "semanticRealmId": "nature-life"
@@ -11851,7 +11961,7 @@
       "translation": "紫色花",
       "x": 1958,
       "y": 763.5,
-      "priority": 3.00432,
+      "priority": 3.00436,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-purple-flower",
       "semanticRealmId": "nature-life"
@@ -11862,7 +11972,7 @@
       "translation": "传感器横臂",
       "x": 1809,
       "y": 728.5,
-      "priority": 3.00433,
+      "priority": 3.00437,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-sensor-arm",
       "semanticRealmId": "nature-life"
@@ -11873,7 +11983,7 @@
       "translation": "木墙板",
       "x": 1843,
       "y": 796,
-      "priority": 3.00434,
+      "priority": 3.00438,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-timber-siding",
       "semanticRealmId": "nature-life"
@@ -11884,7 +11994,7 @@
       "translation": "漂积碎片",
       "x": 2288,
       "y": 693.5,
-      "priority": 3.00435,
+      "priority": 3.00439,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-drift-fragment",
       "semanticRealmId": "nature-life"
@@ -11895,7 +12005,7 @@
       "translation": "裸露基质",
       "x": 2268,
       "y": 743.5,
-      "priority": 3.00436,
+      "priority": 3.0044,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-exposed-substrate",
       "semanticRealmId": "nature-life"
@@ -11906,7 +12016,7 @@
       "translation": "绿色附着物",
       "x": 2343,
       "y": 713.5,
-      "priority": 3.00437,
+      "priority": 3.00441,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-green-growth",
       "semanticRealmId": "nature-life"
@@ -11917,7 +12027,7 @@
       "translation": "植物小丛",
       "x": 2208,
       "y": 698.5,
-      "priority": 3.00438,
+      "priority": 3.00442,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-plant-tuft",
       "semanticRealmId": "nature-life"
@@ -11928,7 +12038,7 @@
       "translation": "岩石凹盆",
       "x": 2368,
       "y": 743.5,
-      "priority": 3.00439,
+      "priority": 3.00443,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-rock-basin",
       "semanticRealmId": "nature-life"
@@ -11939,7 +12049,7 @@
       "translation": "碎石条带",
       "x": 2318,
       "y": 723.5,
-      "priority": 3.0044,
+      "priority": 3.00444,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-rubble-strip",
       "semanticRealmId": "nature-life"
@@ -11950,7 +12060,7 @@
       "translation": "散石带",
       "x": 2293,
       "y": 753.5,
-      "priority": 3.00441,
+      "priority": 3.00445,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-stone-scatter",
       "semanticRealmId": "nature-life"
@@ -11961,7 +12071,7 @@
       "translation": "开花草墩",
       "x": 2093,
       "y": 848.5,
-      "priority": 3.00442,
+      "priority": 3.00446,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-flowering-tussock",
       "semanticRealmId": "nature-life"
@@ -11972,7 +12082,7 @@
       "translation": "下侧路缘",
       "x": 2093,
       "y": 968.5,
-      "priority": 3.00443,
+      "priority": 3.00447,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-lower-curb",
       "semanticRealmId": "nature-life"
@@ -11983,7 +12093,7 @@
       "translation": "根系垫层",
       "x": 2068,
       "y": 943.5,
-      "priority": 3.00444,
+      "priority": 3.00448,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-root-mat",
       "semanticRealmId": "nature-life"
@@ -11994,7 +12104,7 @@
       "translation": "沉积物斑块",
       "x": 2078,
       "y": 868.5,
-      "priority": 3.00445,
+      "priority": 3.00449,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-sediment-patch",
       "semanticRealmId": "nature-life"
@@ -12005,7 +12115,7 @@
       "translation": "肉质植物斑块",
       "x": 2028,
       "y": 933.5,
-      "priority": 3.00446,
+      "priority": 3.0045,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-succulent-patch",
       "semanticRealmId": "nature-life"
@@ -12016,7 +12126,7 @@
       "translation": "小水洼",
       "x": 2113,
       "y": 853.5,
-      "priority": 3.00447,
+      "priority": 3.00451,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-tiny-puddle",
       "semanticRealmId": "nature-life"
@@ -12027,7 +12137,7 @@
       "translation": "步道铺砖",
       "x": 2093,
       "y": 983.5,
-      "priority": 3.00448,
+      "priority": 3.00452,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-walkway-paver",
       "semanticRealmId": "nature-life"
@@ -12038,7 +12148,7 @@
       "translation": "褐藻斑块",
       "x": 2368,
       "y": 873.5,
-      "priority": 3.00449,
+      "priority": 3.00453,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-brown-algae-patch",
       "semanticRealmId": "nature-life"
@@ -12049,7 +12159,7 @@
       "translation": "岸边植物",
       "x": 2318,
       "y": 973.5,
-      "priority": 3.0045,
+      "priority": 3.00454,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-shore-plant",
       "semanticRealmId": "nature-life"
@@ -12060,7 +12170,7 @@
       "translation": "潮湿石面",
       "x": 2358,
       "y": 898.5,
-      "priority": 3.00451,
+      "priority": 3.00455,
       "minLevel": 2,
       "sourceVisualRegion": "anchor-wetland-wet-stone",
       "semanticRealmId": "nature-life"
@@ -13177,12 +13287,34 @@
       "semanticRealmId": "mind-values"
     },
     {
+      "id": "science-utility-pump-outlet-pipe",
+      "word": "pump outlet pipe",
+      "translation": "水泵出水管",
+      "x": 1291.5,
+      "y": 411,
+      "priority": 4.00101,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-science-utility-pump-outlet-pipe",
+      "semanticRealmId": "mind-values"
+    },
+    {
+      "id": "science-utility-valve-handle",
+      "word": "valve handle",
+      "translation": "阀门手柄",
+      "x": 1501.5,
+      "y": 425,
+      "priority": 4.00102,
+      "minLevel": 3,
+      "sourceVisualRegion": "anchor-science-utility-valve-handle",
+      "semanticRealmId": "mind-values"
+    },
+    {
       "id": "science-dustpan",
       "word": "dustpan",
       "translation": "簸箕",
       "x": 1108.5,
       "y": 211.5,
-      "priority": 4.00101,
+      "priority": 4.00103,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-science-dustpan",
       "semanticRealmId": "mind-values"
@@ -13193,7 +13325,7 @@
       "translation": "金属锉",
       "x": 1384.5,
       "y": 306,
-      "priority": 4.00102,
+      "priority": 4.00104,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-science-metal-file",
       "semanticRealmId": "mind-values"
@@ -13204,7 +13336,7 @@
       "translation": "直尺",
       "x": 1356,
       "y": 336,
-      "priority": 4.00103,
+      "priority": 4.00105,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-science-straight-ruler",
       "semanticRealmId": "mind-values"
@@ -13215,7 +13347,7 @@
       "translation": "集装箱波纹板",
       "x": 2363.5,
       "y": 215.5,
-      "priority": 4.00104,
+      "priority": 4.00106,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-container-corrugation",
       "semanticRealmId": "objects-technology"
@@ -13226,7 +13358,7 @@
       "translation": "驾驶座",
       "x": 2285,
       "y": 250,
-      "priority": 4.00105,
+      "priority": 4.00107,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-operator-seat",
       "semanticRealmId": "objects-technology"
@@ -13237,7 +13369,7 @@
       "translation": "自行车链条",
       "x": 1954,
       "y": 445,
-      "priority": 4.00106,
+      "priority": 4.00108,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-bicycle-chain",
       "semanticRealmId": "objects-technology"
@@ -13248,7 +13380,7 @@
       "translation": "自行车脚踏",
       "x": 1953,
       "y": 442,
-      "priority": 4.00107,
+      "priority": 4.00109,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-bicycle-pedal",
       "semanticRealmId": "objects-technology"
@@ -13259,7 +13391,7 @@
       "translation": "屋顶接缝",
       "x": 1918,
       "y": 327.5,
-      "priority": 4.00108,
+      "priority": 4.0011,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-roof-seam",
       "semanticRealmId": "objects-technology"
@@ -13270,7 +13402,7 @@
       "translation": "墙面通风口",
       "x": 2018,
       "y": 352,
-      "priority": 4.00109,
+      "priority": 4.00111,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-wall-vent",
       "semanticRealmId": "objects-technology"
@@ -13281,7 +13413,7 @@
       "translation": "桨架",
       "x": 2559.5,
       "y": 419,
-      "priority": 4.0011,
+      "priority": 4.00112,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-rowlock",
       "semanticRealmId": "objects-technology"
@@ -13292,7 +13424,7 @@
       "translation": "船舷防擦条",
       "x": 2473,
       "y": 421,
-      "priority": 4.00111,
+      "priority": 4.00113,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-rub-rail",
       "semanticRealmId": "objects-technology"
@@ -13303,7 +13435,7 @@
       "translation": "侧面板",
       "x": 2137,
       "y": 210,
-      "priority": 4.00112,
+      "priority": 4.00114,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-side-panel",
       "semanticRealmId": "objects-technology"
@@ -13314,7 +13446,7 @@
       "translation": "罐体支座",
       "x": 2221.5,
       "y": 215,
-      "priority": 4.00113,
+      "priority": 4.00115,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-tank-saddle",
       "semanticRealmId": "objects-technology"
@@ -13325,7 +13457,7 @@
       "translation": "场区安全线",
       "x": 2226.5,
       "y": 287.5,
-      "priority": 4.00114,
+      "priority": 4.00116,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-yard-safety-line",
       "semanticRealmId": "objects-technology"
@@ -13336,7 +13468,7 @@
       "translation": "起重机行走轮",
       "x": 2425.5,
       "y": 270,
-      "priority": 4.00115,
+      "priority": 4.00117,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-crane-wheel",
       "semanticRealmId": "objects-technology"
@@ -13347,7 +13479,7 @@
       "translation": "门机爬梯",
       "x": 2407,
       "y": 194,
-      "priority": 4.00116,
+      "priority": 4.00118,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-gantry-ladder",
       "semanticRealmId": "objects-technology"
@@ -13358,7 +13490,7 @@
       "translation": "航行灯",
       "x": 2503,
       "y": 248.5,
-      "priority": 4.00117,
+      "priority": 4.00119,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-navigation-light",
       "semanticRealmId": "objects-technology"
@@ -13369,7 +13501,7 @@
       "translation": "码头水电桩",
       "x": 2598,
       "y": 262.5,
-      "priority": 4.00118,
+      "priority": 4.0012,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-utility-pedestal",
       "semanticRealmId": "objects-technology"
@@ -13380,7 +13512,7 @@
       "translation": "钢丝绳",
       "x": 2477,
       "y": 202.5,
-      "priority": 4.00119,
+      "priority": 4.00121,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-wire-rope",
       "semanticRealmId": "objects-technology"
@@ -13391,7 +13523,7 @@
       "translation": "货物捆扎带",
       "x": 2093,
       "y": 345,
-      "priority": 4.0012,
+      "priority": 4.00122,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-cargo-strapping",
       "semanticRealmId": "objects-technology"
@@ -13402,7 +13534,7 @@
       "translation": "车轴",
       "x": 2365.5,
       "y": 139,
-      "priority": 4.00121,
+      "priority": 4.00123,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-axle",
       "semanticRealmId": "objects-technology"
@@ -13413,7 +13545,7 @@
       "translation": "电气绝缘子",
       "x": 2263.5,
       "y": 99,
-      "priority": 4.00122,
+      "priority": 4.00124,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-electrical-insulator",
       "semanticRealmId": "objects-technology"
@@ -13424,7 +13556,7 @@
       "translation": "前缓冲器",
       "x": 2219.5,
       "y": 159,
-      "priority": 4.00123,
+      "priority": 4.00125,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-front-buffer",
       "semanticRealmId": "objects-technology"
@@ -13435,7 +13567,7 @@
       "translation": "机车扶手",
       "x": 2320.5,
       "y": 136,
-      "priority": 4.00124,
+      "priority": 4.00126,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-locomotive-handrail",
       "semanticRealmId": "objects-technology"
@@ -13446,7 +13578,7 @@
       "translation": "机车前灯",
       "x": 2222,
       "y": 136.5,
-      "priority": 4.00125,
+      "priority": 4.00127,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-locomotive-headlight",
       "semanticRealmId": "objects-technology"
@@ -13457,7 +13589,7 @@
       "translation": "车顶设备",
       "x": 2308,
       "y": 88.5,
-      "priority": 4.00126,
+      "priority": 4.00128,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-roof-equipment",
       "semanticRealmId": "objects-technology"
@@ -13468,7 +13600,7 @@
       "translation": "侧窗",
       "x": 2315.5,
       "y": 112.5,
-      "priority": 4.00127,
+      "priority": 4.00129,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-side-window",
       "semanticRealmId": "objects-technology"
@@ -13479,7 +13611,7 @@
       "translation": "信号灯位",
       "x": 2269,
       "y": 157.5,
-      "priority": 4.00128,
+      "priority": 4.0013,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-signal-aspect",
       "semanticRealmId": "objects-technology"
@@ -13490,7 +13622,7 @@
       "translation": "动轮",
       "x": 2312,
       "y": 156.5,
-      "priority": 4.00129,
+      "priority": 4.00131,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-traction-wheel",
       "semanticRealmId": "objects-technology"
@@ -13501,7 +13633,7 @@
       "translation": "落水管",
       "x": 2600.5,
       "y": 100,
-      "priority": 4.0013,
+      "priority": 4.00132,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-drainpipe",
       "semanticRealmId": "objects-technology"
@@ -13512,7 +13644,7 @@
       "translation": "防护立柱",
       "x": 2508,
       "y": 140,
-      "priority": 4.00131,
+      "priority": 4.00133,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-protective-post",
       "semanticRealmId": "objects-technology"
@@ -13523,7 +13655,7 @@
       "translation": "调车机底架",
       "x": 2488,
       "y": 153.5,
-      "priority": 4.00132,
+      "priority": 4.00134,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-shunter-underframe",
       "semanticRealmId": "objects-technology"
@@ -13534,7 +13666,7 @@
       "translation": "墙面标牌",
       "x": 2585.5,
       "y": 139,
-      "priority": 4.00133,
+      "priority": 4.00135,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-wall-placard",
       "semanticRealmId": "objects-technology"
@@ -13545,7 +13677,7 @@
       "translation": "工作灯",
       "x": 2420,
       "y": 44,
-      "priority": 4.00134,
+      "priority": 4.00136,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-work-light",
       "semanticRealmId": "objects-technology"
@@ -13556,7 +13688,7 @@
       "translation": "公交车轮",
       "x": 1824,
       "y": 119.5,
-      "priority": 4.00135,
+      "priority": 4.00137,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-bus-wheel",
       "semanticRealmId": "objects-technology"
@@ -13567,7 +13699,7 @@
       "translation": "甲板舱口",
       "x": 2340.5,
       "y": 405,
-      "priority": 4.00136,
+      "priority": 4.00138,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-deck-hatch",
       "semanticRealmId": "objects-technology"
@@ -13578,7 +13710,7 @@
       "translation": "前支索",
       "x": 2389.5,
       "y": 391,
-      "priority": 4.00137,
+      "priority": 4.00139,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-forestay",
       "semanticRealmId": "objects-technology"
@@ -13589,7 +13721,7 @@
       "translation": "舷侧安全索",
       "x": 2370.5,
       "y": 397.5,
-      "priority": 4.00138,
+      "priority": 4.0014,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-lifeline",
       "semanticRealmId": "objects-technology"
@@ -13600,7 +13732,7 @@
       "translation": "玻璃顶板",
       "x": 2128,
       "y": 28.5,
-      "priority": 4.00139,
+      "priority": 4.00141,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-glass-roof-panel",
       "semanticRealmId": "objects-technology"
@@ -13611,7 +13743,7 @@
       "translation": "前照灯",
       "x": 2056.5,
       "y": 110.5,
-      "priority": 4.0014,
+      "priority": 4.00142,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-headlamp",
       "semanticRealmId": "objects-technology"
@@ -13622,7 +13754,7 @@
       "translation": "接触网导线",
       "x": 2178,
       "y": 30,
-      "priority": 4.00141,
+      "priority": 4.00143,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-overhead-contact-wire",
       "semanticRealmId": "objects-technology"
@@ -13633,7 +13765,7 @@
       "translation": "铁路枕木",
       "x": 2149,
       "y": 165,
-      "priority": 4.00142,
+      "priority": 4.00144,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-railway-sleeper",
       "semanticRealmId": "objects-technology"
@@ -13644,7 +13776,7 @@
       "translation": "车顶通风器",
       "x": 2084,
       "y": 78.5,
-      "priority": 4.00143,
+      "priority": 4.00145,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-roof-ventilator",
       "semanticRealmId": "objects-technology"
@@ -13655,7 +13787,7 @@
       "translation": "列车底盘",
       "x": 2071.5,
       "y": 125,
-      "priority": 4.00144,
+      "priority": 4.00146,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-train-undercarriage",
       "semanticRealmId": "objects-technology"
@@ -13666,7 +13798,7 @@
       "translation": "自行车车把",
       "x": 1865.5,
       "y": 250.5,
-      "priority": 4.00145,
+      "priority": 4.00147,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-bicycle-handlebar",
       "semanticRealmId": "objects-technology"
@@ -13677,7 +13809,7 @@
       "translation": "自行车座垫",
       "x": 1857,
       "y": 250,
-      "priority": 4.00146,
+      "priority": 4.00148,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-bicycle-saddle",
       "semanticRealmId": "objects-technology"
@@ -13688,7 +13820,7 @@
       "translation": "停车位线",
       "x": 1961,
       "y": 240,
-      "priority": 4.00147,
+      "priority": 4.00149,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-parking-bay-line",
       "semanticRealmId": "objects-technology"
@@ -13699,7 +13831,7 @@
       "translation": "侧后视镜",
       "x": 1960.5,
       "y": 195,
-      "priority": 4.00148,
+      "priority": 4.0015,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-transport-wing-mirror",
       "semanticRealmId": "objects-technology"
@@ -13710,7 +13842,7 @@
       "translation": "开花茎",
       "x": 2008,
       "y": 713.5,
-      "priority": 4.00149,
+      "priority": 4.00151,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-flowering-stem",
       "semanticRealmId": "nature-life"
@@ -13721,7 +13853,7 @@
       "translation": "湿地花朵",
       "x": 2043,
       "y": 683.5,
-      "priority": 4.0015,
+      "priority": 4.00152,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-marsh-bloom",
       "semanticRealmId": "nature-life"
@@ -13732,7 +13864,7 @@
       "translation": "艇内底板",
       "x": 2458,
       "y": 908.5,
-      "priority": 4.00151,
+      "priority": 4.00153,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-floorboard",
       "semanticRealmId": "nature-life"
@@ -13743,7 +13875,7 @@
       "translation": "水下阳光纹理",
       "x": 2538,
       "y": 893.5,
-      "priority": 4.00152,
+      "priority": 4.00154,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-sunlight-pattern",
       "semanticRealmId": "nature-life"
@@ -13754,7 +13886,7 @@
       "translation": "水中阴影",
       "x": 2468,
       "y": 943.5,
-      "priority": 4.00153,
+      "priority": 4.00155,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-water-shadow",
       "semanticRealmId": "nature-life"
@@ -13765,7 +13897,7 @@
       "translation": "水中漂浮物",
       "x": 2568,
       "y": 693.5,
-      "priority": 4.00154,
+      "priority": 4.00156,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-aquatic-debris",
       "semanticRealmId": "nature-life"
@@ -13776,7 +13908,7 @@
       "translation": "水下阴影",
       "x": 2543,
       "y": 793.5,
-      "priority": 4.00155,
+      "priority": 4.00157,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-underwater-shadow",
       "semanticRealmId": "nature-life"
@@ -13787,7 +13919,7 @@
       "translation": "草叶片",
       "x": 2318,
       "y": 578.5,
-      "priority": 4.00156,
+      "priority": 4.00158,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-grass-blade",
       "semanticRealmId": "nature-life"
@@ -13798,7 +13930,7 @@
       "translation": "草穗",
       "x": 2268,
       "y": 563.5,
-      "priority": 4.00157,
+      "priority": 4.00159,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-grass-seed-head",
       "semanticRealmId": "nature-life"
@@ -13809,7 +13941,7 @@
       "translation": "裸露茎杆",
       "x": 2158,
       "y": 618.5,
-      "priority": 4.00158,
+      "priority": 4.0016,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-bare-stem",
       "semanticRealmId": "nature-life"
@@ -13820,7 +13952,7 @@
       "translation": "漂落细枝",
       "x": 2113,
       "y": 631,
-      "priority": 4.00159,
+      "priority": 4.00161,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-drift-twig",
       "semanticRealmId": "nature-life"
@@ -13831,7 +13963,7 @@
       "translation": "小砾石",
       "x": 2448,
       "y": 611,
-      "priority": 4.0016,
+      "priority": 4.00162,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-pebble",
       "semanticRealmId": "nature-life"
@@ -13842,7 +13974,7 @@
       "translation": "岩缝",
       "x": 2498,
       "y": 633.5,
-      "priority": 4.00161,
+      "priority": 4.00163,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-rock-crevice",
       "semanticRealmId": "nature-life"
@@ -13853,7 +13985,7 @@
       "translation": "水中倒影",
       "x": 1948,
       "y": 583.5,
-      "priority": 4.00162,
+      "priority": 4.00164,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-reflection",
       "semanticRealmId": "nature-life",
@@ -13865,7 +13997,7 @@
       "translation": "穗状种子头",
       "x": 1860.5,
       "y": 603.5,
-      "priority": 4.00163,
+      "priority": 4.00165,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-seed-head",
       "semanticRealmId": "nature-life"
@@ -13876,7 +14008,7 @@
       "translation": "花穗",
       "x": 1948,
       "y": 743.5,
-      "priority": 4.00164,
+      "priority": 4.00166,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-flower-spike",
       "semanticRealmId": "nature-life"
@@ -13887,7 +14019,7 @@
       "translation": "光伏电池片",
       "x": 1845.5,
       "y": 771,
-      "priority": 4.00165,
+      "priority": 4.00167,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-photovoltaic-cell",
       "semanticRealmId": "nature-life"
@@ -13898,7 +14030,7 @@
       "translation": "光滑小石",
       "x": 2068,
       "y": 893.5,
-      "priority": 4.00166,
+      "priority": 4.00168,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-polished-pebble",
       "semanticRealmId": "nature-life"
@@ -13909,7 +14041,7 @@
       "translation": "种子茎",
       "x": 2018,
       "y": 833.5,
-      "priority": 4.00167,
+      "priority": 4.00169,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-seed-stalk",
       "semanticRealmId": "nature-life"
@@ -13920,7 +14052,7 @@
       "translation": "水面反光",
       "x": 2158,
       "y": 863.5,
-      "priority": 4.00168,
+      "priority": 4.0017,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-water-reflection",
       "semanticRealmId": "nature-life"
@@ -13931,7 +14063,7 @@
       "translation": "岩石裂缝",
       "x": 2328,
       "y": 868.5,
-      "priority": 4.00169,
+      "priority": 4.00171,
       "minLevel": 3,
       "sourceVisualRegion": "anchor-wetland-rock-crack",
       "semanticRealmId": "nature-life"
@@ -14036,12 +14168,34 @@
       "semanticRealmId": "mind-values"
     },
     {
+      "id": "science-utility-fan-blade",
+      "word": "fan blade",
+      "translation": "风扇叶片",
+      "x": 1675.5,
+      "y": 413,
+      "priority": 5.00009,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-science-utility-fan-blade",
+      "semanticRealmId": "mind-values"
+    },
+    {
+      "id": "science-utility-tank-outlet-collar",
+      "word": "tank outlet collar",
+      "translation": "储罐出水口套环",
+      "x": 1646.5,
+      "y": 408.5,
+      "priority": 5.0001,
+      "minLevel": 4,
+      "sourceVisualRegion": "anchor-science-utility-tank-outlet-collar",
+      "semanticRealmId": "mind-values"
+    },
+    {
       "id": "transport-air-hose",
       "word": "air hose",
       "translation": "空气软管",
       "x": 2389.5,
       "y": 164,
-      "priority": 5.00009,
+      "priority": 5.00011,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-transport-air-hose",
       "semanticRealmId": "objects-technology"
@@ -14052,7 +14206,7 @@
       "translation": "钢轨扣件",
       "x": 2268,
       "y": 68.5,
-      "priority": 5.0001,
+      "priority": 5.00012,
       "minLevel": 4,
       "sourceVisualRegion": "anchor-transport-rail-fastener",
       "semanticRealmId": "objects-technology"
@@ -14113,9 +14267,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/world-mega-atlas-2604-v21.jpg",
     "reviewedAssetSha256": "1f604a7727b9d18cf4d4447eaf88b5883eb3720f6d4540bdd1af6c86654bd54d",
-    "rationale": "Compiled 6 independently pixel-audited source panels into one shared 2604 by 989 logical atlas with 1275 unique, directly visible words across 66 exploration zones.",
-    "previousLabelCount": 1460,
-    "retainedLabelCount": 1275,
+    "rationale": "Compiled 6 independently pixel-audited source panels into one shared 2604 by 989 logical atlas with 1289 unique, directly visible words across 66 exploration zones.",
+    "previousLabelCount": 1474,
+    "retainedLabelCount": 1289,
     "removedLabelCount": 185,
     "removedExamples": [
       "additional orange sports balls",
@@ -15375,6 +15529,24 @@
       "kind": "whole",
       "x": 1348.5,
       "y": 420,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-paving-slab",
+      "description": "Pixel-audited visible “paving slab” on the science-maker source panel",
+      "kind": "whole",
+      "x": 1201,
+      "y": 447,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-wall-panel",
+      "description": "Pixel-audited visible “wall panel” on the science-maker source panel",
+      "kind": "whole",
+      "x": 1136,
+      "y": 394.5,
       "width": 16,
       "height": 16
     },
@@ -18507,6 +18679,42 @@
       "kind": "object",
       "x": 1499.5,
       "y": 412,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-drain-grate",
+      "description": "Pixel-audited visible “drain grate” on the science-maker source panel",
+      "kind": "object",
+      "x": 1232.5,
+      "y": 398,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-fan-housing",
+      "description": "Pixel-audited visible “fan housing” on the science-maker source panel",
+      "kind": "object",
+      "x": 1666,
+      "y": 407,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-planter-curb",
+      "description": "Pixel-audited visible “planter curb” on the science-maker source panel",
+      "kind": "object",
+      "x": 1348.5,
+      "y": 428.5,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-tank-base",
+      "description": "Pixel-audited visible “tank base” on the science-maker source panel",
+      "kind": "object",
+      "x": 1608.5,
+      "y": 432,
       "width": 16,
       "height": 16
     },
@@ -22579,6 +22787,42 @@
       "height": 16
     },
     {
+      "id": "anchor-science-utility-pipe-bend",
+      "description": "Pixel-audited visible “pipe bend” on the science-maker source panel",
+      "kind": "object",
+      "x": 1458.5,
+      "y": 393.5,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-pipe-coupling",
+      "description": "Pixel-audited visible “pipe coupling” on the science-maker source panel",
+      "kind": "object",
+      "x": 1418.5,
+      "y": 393,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-pump-base",
+      "description": "Pixel-audited visible “pump base” on the science-maker source panel",
+      "kind": "object",
+      "x": 1283.5,
+      "y": 418,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-tank-shoulder",
+      "description": "Pixel-audited visible “tank shoulder” on the science-maker source panel",
+      "kind": "object",
+      "x": 1606,
+      "y": 397,
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "anchor-science-faucet-row",
       "description": "Pixel-audited visible “faucet row” on the science-maker source panel",
       "kind": "object",
@@ -24919,6 +25163,24 @@
       "height": 16
     },
     {
+      "id": "anchor-science-utility-pump-outlet-pipe",
+      "description": "Pixel-audited visible “pump outlet pipe” on the science-maker source panel",
+      "kind": "part",
+      "x": 1283.5,
+      "y": 403,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-valve-handle",
+      "description": "Pixel-audited visible “valve handle” on the science-maker source panel",
+      "kind": "part",
+      "x": 1493.5,
+      "y": 417,
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "anchor-science-dustpan",
       "description": "Pixel-audited visible “dustpan” on the science-maker source panel",
       "kind": "part",
@@ -25621,6 +25883,24 @@
       "height": 16
     },
     {
+      "id": "anchor-science-utility-fan-blade",
+      "description": "Pixel-audited visible “fan blade” on the science-maker source panel",
+      "kind": "part",
+      "x": 1667.5,
+      "y": 405,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "anchor-science-utility-tank-outlet-collar",
+      "description": "Pixel-audited visible “tank outlet collar” on the science-maker source panel",
+      "kind": "part",
+      "x": 1638.5,
+      "y": 400.5,
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "anchor-transport-air-hose",
       "description": "Pixel-audited visible “air hose” on the transport source panel",
       "kind": "part",
@@ -26281,14 +26561,28 @@
         "science-cooling-unit-pair",
         "science-cylindrical-storage-tank",
         "science-landscape-shrub-bed",
+        "science-utility-paving-slab",
+        "science-utility-wall-panel",
         "science-ventilation-duct",
         "science-blue-utility-conduit",
         "science-blue-utility-pump",
         "science-exterior-water-pipe",
+        "science-utility-drain-grate",
+        "science-utility-fan-housing",
+        "science-utility-planter-curb",
+        "science-utility-tank-base",
         "science-blue-pipe-valve",
         "science-duct-elbow",
         "science-fan-grille",
-        "science-tank-cap"
+        "science-tank-cap",
+        "science-utility-pipe-bend",
+        "science-utility-pipe-coupling",
+        "science-utility-pump-base",
+        "science-utility-tank-shoulder",
+        "science-utility-pump-outlet-pipe",
+        "science-utility-valve-handle",
+        "science-utility-fan-blade",
+        "science-utility-tank-outlet-collar"
       ]
     },
     {

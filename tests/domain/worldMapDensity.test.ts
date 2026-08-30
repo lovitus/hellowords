@@ -18,10 +18,10 @@ import { buildViewerChromeProtectedRegions } from "../../app/components/SceneVie
 
 const projectRoot = resolve(import.meta.dirname, "../..");
 const scenePath = resolve(projectRoot, "public/data/scenes/world-map.json");
-const expectedGroundedLabels = 1_275;
-const expectedVisualRegions = 1_279;
+const expectedGroundedLabels = 1_289;
+const expectedVisualRegions = 1_293;
 const expectedDetailZones = 66;
-const expectedLodCounts = { 0: 200, 1: 442, 2: 452, 3: 170, 4: 11 } as const;
+const expectedLodCounts = { 0: 202, 1: 446, 2: 456, 3: 172, 4: 13 } as const;
 const minimumExplorationCoverage = 0.9;
 
 const expectedAssets = {
@@ -297,7 +297,7 @@ test("world atlas pins canonical base and on-demand high-resolution bytes", asyn
   assert.equal(scene.anchorAudit.retainedLabelCount, scene.labels.length);
 });
 
-test("world atlas contains 1275 unique grounded words across 66 bounded exploration zones", async () => {
+test("world atlas contains 1289 unique grounded words across 66 bounded exploration zones", async () => {
   const scene = await loadScene();
   const canvas = { x: 0, y: 0, width: scene.width, height: scene.height };
   const regions = scene.visualRegions;

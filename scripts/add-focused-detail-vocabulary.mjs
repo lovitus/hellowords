@@ -79,6 +79,15 @@ const additions = {
     ["caterpillar proleg", "毛虫腹足", 1150, 530, "caterpillar-segments", "margin-damage-and-silk"],
     ["insect egg shell", "昆虫卵壳", 1120, 350, "insect-eggs", "margin-damage-and-silk"],
     ["spider silk bridge", "蛛丝桥", 650, 430, "attached-spider-silk", "margin-damage-and-silk"],
+    ["ladybird pronotum", "瓢虫前胸背板", 700, 258, "ladybird", "small-leaf-habitat"],
+    ["ladybird antenna", "瓢虫触角", 718, 252, "ladybird", "small-leaf-habitat"],
+    ["aphid antenna", "蚜虫触角", 884, 178, "aphid-colony", "small-leaf-habitat"],
+    ["aphid leg", "蚜虫足", 875, 208, "aphid-colony", "small-leaf-habitat"],
+    ["caterpillar spiracle", "毛虫气门", 1160, 520, "caterpillar-segments", "small-leaf-habitat"],
+    ["caterpillar tail", "毛虫尾端", 1270, 548, "caterpillar", "small-leaf-habitat"],
+    ["acorn tip", "橡子尖", 165, 875, "attached-acorn", "twig-bud-and-fruit"],
+    ["bud base", "芽基部", 285, 410, "twig-bud", "twig-bud-and-fruit"],
+    ["gall ridge", "虫瘿脊", 500, 630, "oak-gall", "twig-bud-and-fruit"],
   ],
 };
 
