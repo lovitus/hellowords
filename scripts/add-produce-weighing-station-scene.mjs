@@ -14,6 +14,9 @@ const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/produce-weighing-station-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/produce-weighing-station-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/produce-weighing-station.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/supermarket-produce-department.json");
+const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const integrate = process.argv.includes("--integrate");
 
 const SOURCE_WIDTH = 1_672;
 const SOURCE_HEIGHT = 941;
@@ -389,19 +392,72 @@ async function ensureAsset() {
   return true;
 }
 
+const parentPortal = {
+  id: "enter-produce-weighing-station",
+  label: "Enter the produce weighing station",
+  translation: "进入果蔬称重台",
+  childSceneId: "produce-weighing-station",
+  sourceVisualRegion: "portal-produce-weighing-station-scale-counter",
+  x: 459,
+  y: 335,
+  width: 431,
+  height: 335,
+  enterScale: 3.35,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete visible produce scale, bowl, bag roll and counter workstation in the produce photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "produce-weighing-station")) {
+    const index = manifest.scenes.findIndex(({ id }) => id === "supermarket-produce-department");
+    if (index < 0) throw new Error("supermarket-produce-department is missing from the scene manifest");
+    manifest.scenes.splice(index + 1, 0, {
+      id: "produce-weighing-station",
+      title: "Produce weighing station",
+      parentId: "supermarket-produce-department",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildProduceWeighingStationScene() {
   const scene = buildScene();
   if (scene.labels.length < 140 || scene.labels.length > 155) {
     throw new Error(`produce weighing label count ${scene.labels.length} is outside 140–155`);
   }
   if (scene.detailZones.length !== 6) throw new Error(`produce weighing zone count ${scene.detailZones.length} is not 6`);
-  return {
+  const result = {
     assetChanged: await ensureAsset(),
     sceneChanged: await writeIfChanged(scenePath, scene),
     labels: scene.labels.length,
     zones: scene.detailZones.length,
     parentId: scene.parentId,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve(import.meta.filename)) {

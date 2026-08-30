@@ -151,6 +151,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "supermarket-checkout-station": 120,
   "refrigerated-display-case": 130,
   "supermarket-produce-department": 140,
+  "produce-weighing-station": 140,
   // The connected walk-in cooler resolves dairy, produce, mobile storage,
   // refrigeration, doorway and insulated-room parts without temperature claims.
   "supermarket-walk-in-cooler": 120,
@@ -234,6 +235,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "supermarket-checkout-station": 144,
   "refrigerated-display-case": 141,
   "supermarket-produce-department": 150,
+  "produce-weighing-station": 150,
   "supermarket-walk-in-cooler": 144,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.

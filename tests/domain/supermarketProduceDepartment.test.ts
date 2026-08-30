@@ -30,7 +30,7 @@ interface ProduceScene {
   readonly labels: readonly { id: string; word: string; x: number; y: number; minLevel: number; sourceVisualRegion: string }[];
   readonly visualRegions: readonly Region[];
   readonly detailZones: readonly { id: string; labelIds: readonly string[] }[];
-  readonly portals: readonly unknown[];
+  readonly portals: readonly { readonly childSceneId: string }[];
   readonly anchorAudit: { status: string; policy: string; reviewedAsset: string; reviewedAssetSha256: string; retainedLabelCount: number };
 }
 
@@ -44,7 +44,7 @@ test("the supermarket produce department grounds 150 distinct visible produce te
   assert.equal(scene.labels.length, 150);
   assert.equal(new Set(scene.labels.map(({ word }) => word)).size, 150);
   assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 150);
-  assert.equal(scene.visualRegions.length, 150);
+  assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), [
     ["supermarket-produce-department-zone-left-fruit-crates", 25],
     ["supermarket-produce-department-zone-central-fruit-display", 24],
@@ -55,7 +55,7 @@ test("the supermarket produce department grounds 150 distinct visible produce te
   ]);
   assert.deepEqual([0, 1, 2, 3, 4].map((level) => scene.labels.filter(({ minLevel }) => minLevel === level).length), [32, 42, 27, 30, 19]);
   assert.equal(new Set(scene.detailZones.flatMap(({ labelIds }) => labelIds)).size, 150);
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["produce-weighing-station"]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);

@@ -140,3 +140,16 @@ test("the produce weighing raster keeps a colorful, readable retail range", asyn
   assert.ok(metrics.meanChroma <= 0.3, `produce weighing mean chroma is ${metrics.meanChroma.toFixed(4)}`);
   assert.ok(metrics.channelMeanSpread <= 65, `produce weighing channel spread is ${metrics.channelMeanSpread.toFixed(2)}`);
 });
+
+test("the produce department exposes one bounded weighing-station entrance", async () => {
+  const parent = await readJson<{
+    readonly portals: readonly { childSceneId: string; sourceVisualRegion: string; x: number; y: number; width: number; height: number }[];
+    readonly visualRegions: readonly Region[];
+  }>("supermarket-produce-department.json");
+  const portal = parent.portals.find(({ childSceneId }) => childSceneId === "produce-weighing-station");
+  assert.ok(portal);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [459, 335, 431, 335]);
+  const region = parent.visualRegions.find(({ id }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+});

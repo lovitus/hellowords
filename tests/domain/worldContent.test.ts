@@ -134,6 +134,7 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "supermarket-grocery", "supermarket-checkout-station"],
     ["world-map", "supermarket-grocery", "refrigerated-display-case"],
     ["world-map", "supermarket-grocery", "supermarket-produce-department"],
+    ["world-map", "supermarket-grocery", "supermarket-produce-department", "produce-weighing-station"],
   ];
   for (const path of expectedPaths) {
     for (let index = 0; index < path.length - 1; index += 1) {

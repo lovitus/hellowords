@@ -450,6 +450,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 65,
     },
   },
+  "produce-weighing-station": {
+    asset: "/scenes/produce-weighing-station-premium-v1.jpg",
+    sha256: "c09efe1e2eccde845e097be6000e691d63e7baa934f2c0aa1eda524725803475",
+    quality: {
+      minMeanLuminance: 88,
+      maxMeanLuminance: 145,
+      maxDarkFraction: 0.4,
+      maxDeepDarkFraction: 0.19,
+      minMeanChroma: 0.18,
+      maxMeanChroma: 0.3,
+      maxChannelMeanSpread: 65,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

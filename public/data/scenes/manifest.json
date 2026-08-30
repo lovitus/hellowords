@@ -18,6 +18,11 @@
       "parentId": "supermarket-grocery"
     },
     {
+      "id": "produce-weighing-station",
+      "title": "Produce weighing station",
+      "parentId": "supermarket-produce-department"
+    },
+    {
       "id": "refrigerated-display-case",
       "title": "Refrigerated display case",
       "parentId": "supermarket-grocery"

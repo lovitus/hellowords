@@ -1357,6 +1357,15 @@
       "y": 744.102019,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "portal-produce-weighing-station-scale-counter",
+      "description": "Complete visible produce scale, bowl, bag roll and counter workstation in the produce photograph",
+      "kind": "object",
+      "x": 459,
+      "y": 335,
+      "width": 431,
+      "height": 335
     }
   ],
   "detailZones": [
@@ -3261,5 +3270,18 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-produce-weighing-station",
+      "label": "Enter the produce weighing station",
+      "translation": "进入果蔬称重台",
+      "childSceneId": "produce-weighing-station",
+      "sourceVisualRegion": "portal-produce-weighing-station-scale-counter",
+      "x": 459,
+      "y": 335,
+      "width": 431,
+      "height": 335,
+      "enterScale": 3.35
+    }
+  ]
 }
