@@ -129,9 +129,9 @@ test("the world atlas exposes the school campus through one reviewed portal", as
     childSceneId: "school-campus",
     sourceVisualRegion: "portal-enter-school-campus",
     x: 500,
-    y: 180,
+    y: 330,
     width: 220,
-    height: 145,
+    height: 100,
     enterScale: 3.75,
   });
   assert.ok(root.visualRegions.some(({ id }) => id === "portal-enter-school-campus"));

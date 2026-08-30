@@ -232,9 +232,9 @@ const rootSchoolPortal = {
   childSceneId: "school-campus",
   sourceVisualRegion: "portal-enter-school-campus",
   x: 500,
-  y: 180,
+  y: 330,
   width: 220,
-  height: 145,
+  height: 100,
   enterScale: 3.75,
 };
 
