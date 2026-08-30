@@ -6,8 +6,8 @@ import sharp from "sharp";
 
 /**
  * Build the terminal primary-classroom scene from a reviewed school
- * photograph. Parent portal and manifest integration remain with the root
- * agent; this script owns only the child scene, assets and term audit.
+ * photograph. Pass --integrate after review to connect the visible classroom
+ * in the school campus and update the manifest.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
@@ -15,6 +15,8 @@ const sourceAsset = resolve(projectRoot, "scripts/assets/primary-classroom-v1.pn
 const publicAsset = resolve(projectRoot, "public/scenes/primary-classroom-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/primary-classroom.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/school-campus.json");
+const integrate = process.argv.includes("--integrate");
 
 const WIDTH = 1_600;
 const HEIGHT = 900;
@@ -386,17 +388,70 @@ async function assertUniqueWords(scene) {
   if (existingDuplicates.length > 0) throw new Error(`primary-classroom term duplicates existing words: ${existingDuplicates.join(", ")}`);
 }
 
+const parentPortal = {
+  id: "enter-primary-classroom",
+  label: "Enter the primary classroom",
+  translation: "进入小学教室",
+  childSceneId: "primary-classroom",
+  sourceVisualRegion: "portal-primary-classroom",
+  x: 450,
+  y: 0,
+  width: 400,
+  height: 305,
+  enterScale: 3.4,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete classroom visible through the upper-centre school windows",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.unshift(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "primary-classroom")) {
+    const parentIndex = manifest.scenes.findIndex(({ id }) => id === "school-campus");
+    if (parentIndex < 0) throw new Error("school-campus is missing from the scene manifest");
+    manifest.scenes.splice(parentIndex + 1, 0, {
+      id: "primary-classroom",
+      title: "Primary classroom",
+      parentId: "school-campus",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildPrimaryClassroomScene() {
   const assetChanged = await ensureAsset();
   const scene = makeScene();
   await assertUniqueWords(scene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
-  return {
+  const result = {
     assetChanged,
     sceneChanged,
     labels: scene.labels.length,
     zones: scene.detailZones.length,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 const isDirectInvocation = process.argv[1]

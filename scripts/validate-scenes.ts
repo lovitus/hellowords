@@ -198,6 +198,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The reviewed school-campus photograph supports distinct classroom,
   // library, arts, music, gym, infirmary, locker, utility and grounds parts.
   "school-campus": 64,
+  "primary-classroom": 145,
+  "school-gymnasium-equipment": 145,
   // This terminal specialist image supports 28 distinct structures. Requiring
   // 32 produced synonym pairs at identical pixels, which is worse than an
   // explicit evidence-based exception.
@@ -332,6 +334,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The school-campus crop keeps one bounded label per newly reviewed fixture
   // or part; the ceiling blocks activities, signage and duplicate furniture.
   "school-campus": 73,
+  "primary-classroom": 150,
+  "school-gymnasium-equipment": 155,
   // The bright cutaway resolves chamber walls, individual cusps, connected
   // vessel openings, coronary surface branches and a readable red-cell rim;
   // the ceiling still excludes invisible physiology and conduction claims.

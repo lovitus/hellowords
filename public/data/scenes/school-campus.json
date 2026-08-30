@@ -673,6 +673,24 @@
       "y": 20,
       "width": 470,
       "height": 190
+    },
+    {
+      "id": "portal-primary-classroom",
+      "description": "Complete classroom visible through the upper-centre school windows",
+      "kind": "object",
+      "x": 450,
+      "y": 0,
+      "width": 400,
+      "height": 305
+    },
+    {
+      "id": "portal-school-gymnasium-equipment",
+      "description": "Complete gymnasium visible in the lower-right school wing, excluding the washroom",
+      "kind": "object",
+      "x": 930,
+      "y": 306,
+      "width": 410,
+      "height": 239
     }
   ],
   "detailZones": [
@@ -1632,6 +1650,18 @@
   ],
   "portals": [
     {
+      "id": "enter-primary-classroom",
+      "label": "Enter the primary classroom",
+      "translation": "进入小学教室",
+      "childSceneId": "primary-classroom",
+      "sourceVisualRegion": "portal-primary-classroom",
+      "x": 450,
+      "y": 0,
+      "width": 400,
+      "height": 305,
+      "enterScale": 3.4
+    },
+    {
       "id": "enter-library-reading-room",
       "label": "Enter the school library",
       "translation": "进入学校图书馆",
@@ -1641,6 +1671,18 @@
       "y": 20,
       "width": 470,
       "height": 190,
+      "enterScale": 3.4
+    },
+    {
+      "id": "enter-school-gymnasium-equipment",
+      "label": "Enter the school gymnasium",
+      "translation": "进入学校体育馆",
+      "childSceneId": "school-gymnasium-equipment",
+      "sourceVisualRegion": "portal-school-gymnasium-equipment",
+      "x": 930,
+      "y": 306,
+      "width": 410,
+      "height": 239,
       "enterScale": 3.4
     }
   ]

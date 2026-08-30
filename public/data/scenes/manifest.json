@@ -338,6 +338,16 @@
       "parentId": "world-map"
     },
     {
+      "id": "primary-classroom",
+      "title": "Primary classroom",
+      "parentId": "school-campus"
+    },
+    {
+      "id": "school-gymnasium-equipment",
+      "title": "School gymnasium equipment",
+      "parentId": "school-campus"
+    },
+    {
       "id": "service-core",
       "title": "Office service core",
       "parentId": "office-building"

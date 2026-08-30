@@ -60,7 +60,7 @@ test("school-campus is a reviewed branch scene with new practical vocabulary", a
   assert.equal(scene.width, 1_600);
   assert.equal(scene.height, 900);
   assert.equal(scene.labels.length, 73);
-  assert.equal(scene.visualRegions.length, scene.labels.length + 1);
+  assert.equal(scene.visualRegions.length, scene.labels.length + 3);
   assert.equal(scene.detailZones.length, 10);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
@@ -68,7 +68,7 @@ test("school-campus is a reviewed branch scene with new practical vocabulary", a
   );
   assert.deepEqual(
     scene.portals.map((portal) => (portal as { childSceneId: string }).childSceneId),
-    ["library-reading-room"],
+    ["primary-classroom", "library-reading-room", "school-gymnasium-equipment"],
   );
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");

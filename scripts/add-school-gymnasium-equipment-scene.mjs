@@ -5,14 +5,17 @@ import sharp from "sharp";
 
 /**
  * Author the school-gymnasium-equipment terminal scene from its reviewed
- * source raster. The default command writes only this scene JSON and verifies
- * both image tiers; school-campus integration stays on the main branch.
+ * source raster. Pass --integrate after review to connect the visible
+ * gymnasium in the school campus and update the manifest.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/school-gymnasium-equipment-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/school-gymnasium-equipment-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/school-gymnasium-equipment.json");
+const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/school-campus.json");
+const integrate = process.argv.includes("--integrate");
 
 const SOURCE_WIDTH = 1_672;
 const SOURCE_HEIGHT = 941;
@@ -388,19 +391,74 @@ async function ensureAsset() {
   return true;
 }
 
+const parentPortal = {
+  id: "enter-school-gymnasium-equipment",
+  label: "Enter the school gymnasium",
+  translation: "进入学校体育馆",
+  childSceneId: "school-gymnasium-equipment",
+  sourceVisualRegion: "portal-school-gymnasium-equipment",
+  x: 930,
+  y: 306,
+  width: 410,
+  height: 239,
+  enterScale: 3.4,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete gymnasium visible in the lower-right school wing, excluding the washroom",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "school-gymnasium-equipment")) {
+    const classroomIndex = manifest.scenes.findIndex(({ id }) => id === "primary-classroom");
+    const parentIndex = manifest.scenes.findIndex(({ id }) => id === "school-campus");
+    const insertionIndex = classroomIndex >= 0 ? classroomIndex + 1 : parentIndex + 1;
+    if (parentIndex < 0) throw new Error("school-campus is missing from the scene manifest");
+    manifest.scenes.splice(insertionIndex, 0, {
+      id: "school-gymnasium-equipment",
+      title: "School gymnasium equipment",
+      parentId: "school-campus",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildSchoolGymnasiumEquipmentScene() {
   const scene = buildScene();
   if (scene.labels.length < 145 || scene.labels.length > 155) {
     throw new Error(`gym label count ${scene.labels.length} is outside 145–155`);
   }
   if (scene.detailZones.length !== 6) throw new Error(`gym zone count ${scene.detailZones.length} is not 6`);
-  return {
+  const result = {
     assetChanged: await ensureAsset(),
     sceneChanged: await writeIfChanged(scenePath, scene),
     labels: scene.labels.length,
     zones: scene.detailZones.length,
     parentId: scene.parentId,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve(import.meta.filename)) {

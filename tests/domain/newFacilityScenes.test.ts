@@ -64,6 +64,22 @@ const contracts = [
     labels: 147,
     zoneSizes: [24, 25, 26, 25, 25, 22],
   },
+  {
+    id: "primary-classroom",
+    parentId: "school-campus",
+    asset: "/scenes/primary-classroom-premium-v1.jpg",
+    sha256: "20498cf9be8faf487b5945e9bc732c28afad79bacc4bad6b7dd3164d5af62071",
+    labels: 148,
+    zoneSizes: [25, 29, 22, 25, 23, 24],
+  },
+  {
+    id: "school-gymnasium-equipment",
+    parentId: "school-campus",
+    asset: "/scenes/school-gymnasium-equipment-premium-v1.jpg",
+    sha256: "406402409959fbbdd3b1b5cb2283d3b43506802de99cf7a6f307ecdbfd31a053",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
 ] as const;
 
 for (const contract of contracts) {
@@ -136,4 +152,24 @@ test("pathology laboratory and hospital pharmacy expose independently audited eq
   assert.ok(cabinetRegion);
   assert.deepEqual([cabinetRegion.x, cabinetRegion.y, cabinetRegion.width, cabinetRegion.height], [1_120, 80, 480, 680]);
   assert.notEqual(cabinet.sourceVisualRegion, "automated-cabinet", "the accurate portal crop must not reuse the narrower legacy semantic region");
+});
+
+test("school campus exposes disjoint classroom, library and gymnasium entrances", async () => {
+  const campus = await readJson("school-campus.json");
+  const classroom = campus.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "primary-classroom");
+  const library = campus.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "library-reading-room");
+  const gymnasium = campus.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "school-gymnasium-equipment");
+  assert.ok(classroom);
+  assert.ok(library);
+  assert.ok(gymnasium);
+  assert.deepEqual([classroom.x, classroom.y, classroom.width, classroom.height], [450, 0, 400, 305]);
+  assert.deepEqual([gymnasium.x, gymnasium.y, gymnasium.width, gymnasium.height], [930, 306, 410, 239]);
+  assert.ok(classroom.x + classroom.width <= library.x, "classroom and library crops must not overlap");
+  assert.ok(library.y + library.height <= gymnasium.y, "library and gymnasium crops must not overlap");
+  assert.ok(gymnasium.x + gymnasium.width <= 1_350, "gymnasium crop must exclude the adjacent washroom");
+  for (const portal of [classroom, gymnasium]) {
+    const region = campus.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+    assert.ok(region);
+    assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+  }
 });
