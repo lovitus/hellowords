@@ -1,0 +1,2873 @@
+{
+  "id": "aircraft-lavatory",
+  "title": "Aircraft lavatory",
+  "translation": "飞机卫生间",
+  "subtitle": "Entry, vanity, toilet, service fittings, door hardware and floor details",
+  "asset": "/scenes/aircraft-lavatory-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "aircraft-cabin",
+  "visualRegions": [
+    {
+      "id": "aircraft-lavatory-region-lavatory-entrance",
+      "description": "Pixel-audited “lavatory entrance” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-entrance-frame",
+      "description": "Pixel-audited “lavatory entrance frame” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 370,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-entrance-door-jamb",
+      "description": "Pixel-audited “entrance door jamb” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 385,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-doorway-threshold",
+      "description": "Pixel-audited “doorway threshold” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 320,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-doorway-threshold-plate",
+      "description": "Pixel-audited “doorway threshold plate” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-doorway-sill-trim",
+      "description": "Pixel-audited “doorway sill trim” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 350,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-doorway-seal",
+      "description": "Pixel-audited “doorway seal” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 375,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-door-jamb-fastener",
+      "description": "Pixel-audited “door jamb fastener” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 385,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-door-jamb-hinge",
+      "description": "Pixel-audited “door jamb hinge” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 385,
+      "y": 620,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-cabin-side-curtain",
+      "description": "Pixel-audited “cabin-side curtain” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-curtain-panel",
+      "description": "Pixel-audited “curtain panel” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 150,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-curtain-tieback",
+      "description": "Pixel-audited “curtain tieback” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-curtain-rail",
+      "description": "Pixel-audited “lavatory curtain rail” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 160,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-curtain-rail-bracket",
+      "description": "Pixel-audited “curtain rail bracket” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 220,
+      "y": 70,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-entry-grab-handle",
+      "description": "Pixel-audited “lavatory entry grab handle” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-grab-handle-mount",
+      "description": "Pixel-audited “grab handle mount” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 370,
+      "y": 590,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-cabin-side-seatback",
+      "description": "Pixel-audited “cabin-side seatback” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 60,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-cabin-side-seat-cushion",
+      "description": "Pixel-audited “cabin-side seat cushion” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 550,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-cabin-side-armrest",
+      "description": "Pixel-audited “cabin-side armrest” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-cabin-side-carpet",
+      "description": "Pixel-audited “cabin-side carpet” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-entry-wall-panel",
+      "description": "Pixel-audited “entry wall panel” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-entry-corner-trim",
+      "description": "Pixel-audited “entry corner trim” inside the Cabin connection and entry crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-upper-ceiling-panel",
+      "description": "Pixel-audited “lavatory upper ceiling panel” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-ceiling-light-fixture",
+      "description": "Pixel-audited “ceiling light fixture” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 50,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-ceiling-light-lens",
+      "description": "Pixel-audited “ceiling light lens” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 55,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-ceiling-vent-grille",
+      "description": "Pixel-audited “ceiling vent grille” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 30,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-ceiling-air-outlet",
+      "description": "Pixel-audited “ceiling air outlet” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-upper-wall-panel",
+      "description": "Pixel-audited “upper wall panel” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 210,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-rear-wall-panel",
+      "description": "Pixel-audited “rear wall panel” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 210,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-mirror-cabinet",
+      "description": "Pixel-audited “mirror cabinet” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-mirror-cabinet-door",
+      "description": "Pixel-audited “mirror cabinet door” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-mirror-cabinet-handle",
+      "description": "Pixel-audited “mirror cabinet handle” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-mirror-cabinet-hinge",
+      "description": "Pixel-audited “mirror cabinet hinge” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-mirror-cabinet-seam",
+      "description": "Pixel-audited “mirror cabinet seam” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-open-storage-shelf",
+      "description": "Pixel-audited “open storage shelf” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-storage-shelf-lip",
+      "description": "Pixel-audited “storage shelf lip” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 250,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-storage-shelf-bracket",
+      "description": "Pixel-audited “storage shelf bracket” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 950,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-upper-service-panel",
+      "description": "Pixel-audited “upper service panel” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-service-panel-latch",
+      "description": "Pixel-audited “service panel latch” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 920,
+      "y": 170,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-vanity-light-housing",
+      "description": "Pixel-audited “vanity light housing” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 520,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-vanity-light-diffuser",
+      "description": "Pixel-audited “vanity light diffuser” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-mirror-surround",
+      "description": "Pixel-audited “lavatory mirror surround” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 550,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-mirror-edge-trim",
+      "description": "Pixel-audited “mirror edge trim” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-mirror-glass",
+      "description": "Pixel-audited “mirror glass” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 170,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-wall-corner-trim",
+      "description": "Pixel-audited “wall corner trim” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-cabin-roof-seam",
+      "description": "Pixel-audited “cabin roof seam” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 10,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-ceiling-fastener",
+      "description": "Pixel-audited “ceiling fastener” inside the Upper wall and service fittings crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-aircraft-lavatory-vanity-unit",
+      "description": "Pixel-audited “aircraft lavatory vanity unit” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-sink-counter",
+      "description": "Pixel-audited “sink counter” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-wash-basin",
+      "description": "Pixel-audited “lavatory wash basin” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-basin-drain",
+      "description": "Pixel-audited “lavatory basin drain” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 470,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-faucet-spout",
+      "description": "Pixel-audited “lavatory faucet spout” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 570,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-faucet-handle",
+      "description": "Pixel-audited “lavatory faucet handle” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 555,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-faucet-base",
+      "description": "Pixel-audited “faucet base” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 405,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-backsplash-panel",
+      "description": "Pixel-audited “backsplash panel” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-backsplash-seam",
+      "description": "Pixel-audited “backsplash seam” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-aircraft-lavatory-soap-dispenser",
+      "description": "Pixel-audited “aircraft lavatory soap dispenser” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-soap-dispenser-pump",
+      "description": "Pixel-audited “soap dispenser pump” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-soap-dispenser-mount",
+      "description": "Pixel-audited “soap dispenser mount” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-paper-towel-holder",
+      "description": "Pixel-audited “paper towel holder” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-towel-roll",
+      "description": "Pixel-audited “towel roll” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-towel-holder-bracket",
+      "description": "Pixel-audited “towel holder bracket” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-vanity-front-panel",
+      "description": "Pixel-audited “vanity front panel” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-vanity-drawer",
+      "description": "Pixel-audited “lavatory vanity drawer” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-vanity-drawer-handle",
+      "description": "Pixel-audited “vanity drawer handle” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-under-sink-cabinet",
+      "description": "Pixel-audited “under-sink cabinet” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-cabinet-kickplate",
+      "description": "Pixel-audited “cabinet kickplate” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 520,
+      "y": 570,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-counter-edge",
+      "description": "Pixel-audited “lavatory counter edge” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-counter-sidewall",
+      "description": "Pixel-audited “counter sidewall” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-basin-overflow",
+      "description": "Pixel-audited “lavatory basin overflow” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 640,
+      "y": 455,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-tap-escutcheon",
+      "description": "Pixel-audited “tap escutcheon” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 570,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-vanity-counter-corner",
+      "description": "Pixel-audited “vanity counter corner” inside the Vanity and wash basin crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-toilet-compartment",
+      "description": "Pixel-audited “toilet compartment” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-aircraft-lavatory-bowl",
+      "description": "Pixel-audited “aircraft lavatory bowl” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-aircraft-lavatory-seat-ring",
+      "description": "Pixel-audited “aircraft lavatory seat ring” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-aircraft-lavatory-lid",
+      "description": "Pixel-audited “aircraft lavatory lid” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 550,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-aircraft-lavatory-seat-hinge",
+      "description": "Pixel-audited “aircraft lavatory seat hinge” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 570,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-toilet-shroud",
+      "description": "Pixel-audited “toilet shroud” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 940,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-aircraft-lavatory-pedestal",
+      "description": "Pixel-audited “aircraft lavatory pedestal” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 770,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-flush-panel",
+      "description": "Pixel-audited “flush panel” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-aircraft-lavatory-flush-button",
+      "description": "Pixel-audited “aircraft lavatory flush button” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-toilet-side-bumper",
+      "description": "Pixel-audited “toilet side bumper” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 670,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-floor-mount-ring",
+      "description": "Pixel-audited “floor mount ring” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 920,
+      "y": 810,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-toilet-floor-seal",
+      "description": "Pixel-audited “toilet floor seal” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-privacy-partition",
+      "description": "Pixel-audited “privacy partition” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-partition-edge",
+      "description": "Pixel-audited “partition edge” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 790,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-partition-trim",
+      "description": "Pixel-audited “partition trim” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-sidewall-panel",
+      "description": "Pixel-audited “lavatory sidewall panel” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1040,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-sidewall-seam",
+      "description": "Pixel-audited “sidewall seam” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1040,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lower-wall-panel",
+      "description": "Pixel-audited “lower wall panel” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-wall-service-cover",
+      "description": "Pixel-audited “wall service cover” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1010,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-service-cover-fastener",
+      "description": "Pixel-audited “service cover fastener” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1015,
+      "y": 590,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lower-wall-air-outlet",
+      "description": "Pixel-audited “lower wall air outlet” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 650,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-floor",
+      "description": "Pixel-audited “lavatory floor” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-non-slip-floor",
+      "description": "Pixel-audited “non-slip floor” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 840,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-floor-seam",
+      "description": "Pixel-audited “floor seam” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-floor-corner-trim",
+      "description": "Pixel-audited “floor corner trim” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-toilet-access-panel",
+      "description": "Pixel-audited “toilet access panel” inside the Toilet fixture and lower compartment crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-right-lavatory-door",
+      "description": "Pixel-audited “right lavatory door” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-door-inner-panel",
+      "description": "Pixel-audited “door inner panel” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-door-frame",
+      "description": "Pixel-audited “lavatory door frame” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-aircraft-lavatory-door-handle",
+      "description": "Pixel-audited “aircraft lavatory door handle” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-aircraft-lavatory-door-latch",
+      "description": "Pixel-audited “aircraft lavatory door latch” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-door-latch-plate",
+      "description": "Pixel-audited “door latch plate” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 490,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-door-hinge",
+      "description": "Pixel-audited “lavatory door hinge” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-door-edge-seal",
+      "description": "Pixel-audited “door edge seal” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1140,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-door-lock-housing",
+      "description": "Pixel-audited “door lock housing” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-right-grab-rail",
+      "description": "Pixel-audited “right grab rail” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-grab-rail-upper-mount",
+      "description": "Pixel-audited “grab rail upper mount” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1250,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-grab-rail-lower-mount",
+      "description": "Pixel-audited “grab rail lower mount” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1250,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-wall-coat-hook",
+      "description": "Pixel-audited “wall coat hook” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-coat-hook-base",
+      "description": "Pixel-audited “coat hook base” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 90,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-wall-service-panel",
+      "description": "Pixel-audited “wall service panel” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-service-panel-button",
+      "description": "Pixel-audited “service panel button” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 590,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-door-push-plate",
+      "description": "Pixel-audited “door push plate” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1320,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lower-access-panel",
+      "description": "Pixel-audited “lower access panel” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lower-panel-latch",
+      "description": "Pixel-audited “lower panel latch” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1440,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-right-wall-trim",
+      "description": "Pixel-audited “right wall trim” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-wall-corner-guard",
+      "description": "Pixel-audited “wall corner guard” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-threshold-side-cap",
+      "description": "Pixel-audited “threshold side cap” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-doorway-fastener",
+      "description": "Pixel-audited “lavatory doorway fastener” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1170,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-door-skin-seam",
+      "description": "Pixel-audited “door skin seam” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-door-sill",
+      "description": "Pixel-audited “lavatory door sill” inside the Right door and wall hardware crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-floor-mat",
+      "description": "Pixel-audited “lavatory floor mat” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-washroom-floor-pan",
+      "description": "Pixel-audited “washroom floor pan” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-floor-edge",
+      "description": "Pixel-audited “lavatory floor edge” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lavatory-floor-joint",
+      "description": "Pixel-audited “lavatory floor joint” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-floor-edge-trim",
+      "description": "Pixel-audited “floor edge trim” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 720,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-threshold-floor-joint",
+      "description": "Pixel-audited “threshold floor joint” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-under-vanity-toe-kick",
+      "description": "Pixel-audited “under-vanity toe kick” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-toe-kick-seam",
+      "description": "Pixel-audited “toe-kick seam” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 650,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-lower-cabinet-foot",
+      "description": "Pixel-audited “lower cabinet foot” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-vanity-base",
+      "description": "Pixel-audited “vanity base” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-floor-wall-junction",
+      "description": "Pixel-audited “floor wall junction” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-anti-slip-texture",
+      "description": "Pixel-audited “anti-slip texture” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-cabin-carpet-edge",
+      "description": "Pixel-audited “cabin carpet edge” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 410,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-curtain-lower-hem",
+      "description": "Pixel-audited “curtain lower hem” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 410,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-lavatory-region-doorway-floor-strip",
+      "description": "Pixel-audited “doorway floor strip” inside the Lower floor and cabinet base crop of the aircraft lavatory photograph",
+      "kind": "part",
+      "x": 420,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "aircraft-lavatory-zone-cabin-connection-entry",
+      "title": "Cabin connection and entry",
+      "translation": "客舱连接与卫生间入口",
+      "description": "Trace the open entrance, cabin-side curtain, jamb, grab hardware and threshold details.",
+      "x": 0,
+      "y": 0,
+      "width": 420,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-lavatory-lavatory-entrance",
+        "aircraft-lavatory-lavatory-entrance-frame",
+        "aircraft-lavatory-entrance-door-jamb",
+        "aircraft-lavatory-doorway-threshold",
+        "aircraft-lavatory-doorway-threshold-plate",
+        "aircraft-lavatory-doorway-sill-trim",
+        "aircraft-lavatory-doorway-seal",
+        "aircraft-lavatory-door-jamb-fastener",
+        "aircraft-lavatory-door-jamb-hinge",
+        "aircraft-lavatory-cabin-side-curtain",
+        "aircraft-lavatory-curtain-panel",
+        "aircraft-lavatory-curtain-tieback",
+        "aircraft-lavatory-lavatory-curtain-rail",
+        "aircraft-lavatory-curtain-rail-bracket",
+        "aircraft-lavatory-lavatory-entry-grab-handle",
+        "aircraft-lavatory-grab-handle-mount",
+        "aircraft-lavatory-cabin-side-seatback",
+        "aircraft-lavatory-cabin-side-seat-cushion",
+        "aircraft-lavatory-cabin-side-armrest",
+        "aircraft-lavatory-cabin-side-carpet",
+        "aircraft-lavatory-entry-wall-panel",
+        "aircraft-lavatory-entry-corner-trim"
+      ]
+    },
+    {
+      "id": "aircraft-lavatory-zone-upper-back-service",
+      "title": "Upper wall and service fittings",
+      "translation": "上部墙面与服务设施",
+      "description": "Study the visible ceiling, mirror cabinet, shelf, upper panels, vents and light fittings.",
+      "x": 420,
+      "y": 0,
+      "width": 660,
+      "height": 320,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-lavatory-lavatory-upper-ceiling-panel",
+        "aircraft-lavatory-ceiling-light-fixture",
+        "aircraft-lavatory-ceiling-light-lens",
+        "aircraft-lavatory-ceiling-vent-grille",
+        "aircraft-lavatory-ceiling-air-outlet",
+        "aircraft-lavatory-upper-wall-panel",
+        "aircraft-lavatory-rear-wall-panel",
+        "aircraft-lavatory-mirror-cabinet",
+        "aircraft-lavatory-mirror-cabinet-door",
+        "aircraft-lavatory-mirror-cabinet-handle",
+        "aircraft-lavatory-mirror-cabinet-hinge",
+        "aircraft-lavatory-mirror-cabinet-seam",
+        "aircraft-lavatory-open-storage-shelf",
+        "aircraft-lavatory-storage-shelf-lip",
+        "aircraft-lavatory-storage-shelf-bracket",
+        "aircraft-lavatory-upper-service-panel",
+        "aircraft-lavatory-service-panel-latch",
+        "aircraft-lavatory-vanity-light-housing",
+        "aircraft-lavatory-vanity-light-diffuser",
+        "aircraft-lavatory-lavatory-mirror-surround",
+        "aircraft-lavatory-mirror-edge-trim",
+        "aircraft-lavatory-mirror-glass",
+        "aircraft-lavatory-wall-corner-trim",
+        "aircraft-lavatory-cabin-roof-seam",
+        "aircraft-lavatory-ceiling-fastener"
+      ]
+    },
+    {
+      "id": "aircraft-lavatory-zone-vanity-left",
+      "title": "Vanity and wash basin",
+      "translation": "盥洗台与洗手盆",
+      "description": "Inspect the visible wash basin, faucet, soap dispenser, towel fitting, counter and cabinet face.",
+      "x": 420,
+      "y": 320,
+      "width": 580,
+      "height": 280,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-lavatory-aircraft-lavatory-vanity-unit",
+        "aircraft-lavatory-sink-counter",
+        "aircraft-lavatory-lavatory-wash-basin",
+        "aircraft-lavatory-lavatory-basin-drain",
+        "aircraft-lavatory-lavatory-faucet-spout",
+        "aircraft-lavatory-lavatory-faucet-handle",
+        "aircraft-lavatory-faucet-base",
+        "aircraft-lavatory-backsplash-panel",
+        "aircraft-lavatory-backsplash-seam",
+        "aircraft-lavatory-aircraft-lavatory-soap-dispenser",
+        "aircraft-lavatory-soap-dispenser-pump",
+        "aircraft-lavatory-soap-dispenser-mount",
+        "aircraft-lavatory-paper-towel-holder",
+        "aircraft-lavatory-towel-roll",
+        "aircraft-lavatory-towel-holder-bracket",
+        "aircraft-lavatory-vanity-front-panel",
+        "aircraft-lavatory-lavatory-vanity-drawer",
+        "aircraft-lavatory-vanity-drawer-handle",
+        "aircraft-lavatory-under-sink-cabinet",
+        "aircraft-lavatory-cabinet-kickplate",
+        "aircraft-lavatory-lavatory-counter-edge",
+        "aircraft-lavatory-counter-sidewall",
+        "aircraft-lavatory-lavatory-basin-overflow",
+        "aircraft-lavatory-tap-escutcheon",
+        "aircraft-lavatory-vanity-counter-corner"
+      ]
+    },
+    {
+      "id": "aircraft-lavatory-zone-toilet-center",
+      "title": "Toilet fixture and lower compartment",
+      "translation": "马桶设施与下部隔间",
+      "description": "Trace the visible toilet fixture, flush hardware, shroud, sidewall panels and floor mount details.",
+      "x": 780,
+      "y": 320,
+      "width": 360,
+      "height": 580,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-lavatory-toilet-compartment",
+        "aircraft-lavatory-aircraft-lavatory-bowl",
+        "aircraft-lavatory-aircraft-lavatory-seat-ring",
+        "aircraft-lavatory-aircraft-lavatory-lid",
+        "aircraft-lavatory-aircraft-lavatory-seat-hinge",
+        "aircraft-lavatory-toilet-shroud",
+        "aircraft-lavatory-aircraft-lavatory-pedestal",
+        "aircraft-lavatory-flush-panel",
+        "aircraft-lavatory-aircraft-lavatory-flush-button",
+        "aircraft-lavatory-toilet-side-bumper",
+        "aircraft-lavatory-floor-mount-ring",
+        "aircraft-lavatory-toilet-floor-seal",
+        "aircraft-lavatory-privacy-partition",
+        "aircraft-lavatory-partition-edge",
+        "aircraft-lavatory-partition-trim",
+        "aircraft-lavatory-lavatory-sidewall-panel",
+        "aircraft-lavatory-sidewall-seam",
+        "aircraft-lavatory-lower-wall-panel",
+        "aircraft-lavatory-wall-service-cover",
+        "aircraft-lavatory-service-cover-fastener",
+        "aircraft-lavatory-lower-wall-air-outlet",
+        "aircraft-lavatory-lavatory-floor",
+        "aircraft-lavatory-non-slip-floor",
+        "aircraft-lavatory-floor-seam",
+        "aircraft-lavatory-floor-corner-trim",
+        "aircraft-lavatory-toilet-access-panel"
+      ]
+    },
+    {
+      "id": "aircraft-lavatory-zone-right-door-wall",
+      "title": "Right door and wall hardware",
+      "translation": "右侧门与墙面五金",
+      "description": "Study the visible lavatory door, latch, grab rails, coat hook, access panels and trim.",
+      "x": 1140,
+      "y": 0,
+      "width": 460,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-lavatory-right-lavatory-door",
+        "aircraft-lavatory-door-inner-panel",
+        "aircraft-lavatory-lavatory-door-frame",
+        "aircraft-lavatory-aircraft-lavatory-door-handle",
+        "aircraft-lavatory-aircraft-lavatory-door-latch",
+        "aircraft-lavatory-door-latch-plate",
+        "aircraft-lavatory-lavatory-door-hinge",
+        "aircraft-lavatory-door-edge-seal",
+        "aircraft-lavatory-door-lock-housing",
+        "aircraft-lavatory-right-grab-rail",
+        "aircraft-lavatory-grab-rail-upper-mount",
+        "aircraft-lavatory-grab-rail-lower-mount",
+        "aircraft-lavatory-wall-coat-hook",
+        "aircraft-lavatory-coat-hook-base",
+        "aircraft-lavatory-wall-service-panel",
+        "aircraft-lavatory-service-panel-button",
+        "aircraft-lavatory-door-push-plate",
+        "aircraft-lavatory-lower-access-panel",
+        "aircraft-lavatory-lower-panel-latch",
+        "aircraft-lavatory-right-wall-trim",
+        "aircraft-lavatory-wall-corner-guard",
+        "aircraft-lavatory-threshold-side-cap",
+        "aircraft-lavatory-lavatory-doorway-fastener",
+        "aircraft-lavatory-door-skin-seam",
+        "aircraft-lavatory-lavatory-door-sill"
+      ]
+    },
+    {
+      "id": "aircraft-lavatory-zone-lower-floor",
+      "title": "Lower floor and cabinet base",
+      "translation": "下部地面与柜体底座",
+      "description": "Follow the visible lavatory floor pan, edge trim, vanity base, curtain hem and threshold joints.",
+      "x": 420,
+      "y": 600,
+      "width": 360,
+      "height": 300,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-lavatory-lavatory-floor-mat",
+        "aircraft-lavatory-washroom-floor-pan",
+        "aircraft-lavatory-lavatory-floor-edge",
+        "aircraft-lavatory-lavatory-floor-joint",
+        "aircraft-lavatory-floor-edge-trim",
+        "aircraft-lavatory-threshold-floor-joint",
+        "aircraft-lavatory-under-vanity-toe-kick",
+        "aircraft-lavatory-toe-kick-seam",
+        "aircraft-lavatory-lower-cabinet-foot",
+        "aircraft-lavatory-vanity-base",
+        "aircraft-lavatory-floor-wall-junction",
+        "aircraft-lavatory-anti-slip-texture",
+        "aircraft-lavatory-cabin-carpet-edge",
+        "aircraft-lavatory-curtain-lower-hem",
+        "aircraft-lavatory-doorway-floor-strip"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/aircraft-lavatory-premium-v1.jpg",
+    "reviewedAssetSha256": "656375726949d55919bcef32f468b24d9cf454bcfc731882871b4ba6c7de4f60",
+    "rationale": "The final 1600 by 900 aircraft-lavatory photograph was inspected at source and output resolution. It retains 138 independently pointable entrance, upper-service, vanity, toilet, door-hardware and floor parts. Passenger actions, cleanliness claims, safety outcomes, airline identity, readable signs and hidden plumbing or electrical systems were excluded.",
+    "previousLabelCount": 146,
+    "retainedLabelCount": 138,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "passenger action",
+      "cleanliness claim",
+      "safety outcome",
+      "airline brand",
+      "hidden plumbing",
+      "hidden electrical system"
+    ]
+  },
+  "labels": [
+    {
+      "id": "aircraft-lavatory-lavatory-entrance",
+      "word": "lavatory entrance",
+      "translation": "卫生间入口",
+      "x": 300,
+      "y": 300,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-entrance"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-entrance-frame",
+      "word": "lavatory entrance frame",
+      "translation": "卫生间入口框",
+      "x": 390,
+      "y": 300,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-entrance-frame"
+    },
+    {
+      "id": "aircraft-lavatory-entrance-door-jamb",
+      "word": "entrance door jamb",
+      "translation": "入口门框立柱",
+      "x": 405,
+      "y": 400,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-entrance-door-jamb"
+    },
+    {
+      "id": "aircraft-lavatory-doorway-threshold",
+      "word": "doorway threshold",
+      "translation": "门口门槛",
+      "x": 340,
+      "y": 820,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-doorway-threshold"
+    },
+    {
+      "id": "aircraft-lavatory-doorway-threshold-plate",
+      "word": "doorway threshold plate",
+      "translation": "门口门槛板",
+      "x": 350,
+      "y": 840,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-doorway-threshold-plate"
+    },
+    {
+      "id": "aircraft-lavatory-doorway-sill-trim",
+      "word": "doorway sill trim",
+      "translation": "门口门槛饰条",
+      "x": 370,
+      "y": 850,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-doorway-sill-trim"
+    },
+    {
+      "id": "aircraft-lavatory-doorway-seal",
+      "word": "doorway seal",
+      "translation": "门口密封条",
+      "x": 395,
+      "y": 450,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-doorway-seal"
+    },
+    {
+      "id": "aircraft-lavatory-door-jamb-fastener",
+      "word": "door jamb fastener",
+      "translation": "门框紧固件",
+      "x": 405,
+      "y": 520,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-door-jamb-fastener"
+    },
+    {
+      "id": "aircraft-lavatory-door-jamb-hinge",
+      "word": "door jamb hinge",
+      "translation": "门框铰链",
+      "x": 405,
+      "y": 640,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-door-jamb-hinge"
+    },
+    {
+      "id": "aircraft-lavatory-cabin-side-curtain",
+      "word": "cabin-side curtain",
+      "translation": "客舱侧帘",
+      "x": 120,
+      "y": 400,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-cabin-side-curtain"
+    },
+    {
+      "id": "aircraft-lavatory-curtain-panel",
+      "word": "curtain panel",
+      "translation": "帘布面板",
+      "x": 170,
+      "y": 350,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-curtain-panel"
+    },
+    {
+      "id": "aircraft-lavatory-curtain-tieback",
+      "word": "curtain tieback",
+      "translation": "帘布束带",
+      "x": 120,
+      "y": 520,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-curtain-tieback"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-curtain-rail",
+      "word": "lavatory curtain rail",
+      "translation": "卫生间帘布导轨",
+      "x": 180,
+      "y": 80,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-curtain-rail"
+    },
+    {
+      "id": "aircraft-lavatory-curtain-rail-bracket",
+      "word": "curtain rail bracket",
+      "translation": "帘布导轨支架",
+      "x": 240,
+      "y": 90,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-curtain-rail-bracket"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-entry-grab-handle",
+      "word": "lavatory entry grab handle",
+      "translation": "卫生间入口抓扶把手",
+      "x": 380,
+      "y": 600,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-entry-grab-handle"
+    },
+    {
+      "id": "aircraft-lavatory-grab-handle-mount",
+      "word": "grab handle mount",
+      "translation": "抓扶把手底座",
+      "x": 390,
+      "y": 610,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-grab-handle-mount"
+    },
+    {
+      "id": "aircraft-lavatory-cabin-side-seatback",
+      "word": "cabin-side seatback",
+      "translation": "客舱侧椅背",
+      "x": 80,
+      "y": 500,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-cabin-side-seatback"
+    },
+    {
+      "id": "aircraft-lavatory-cabin-side-seat-cushion",
+      "word": "cabin-side seat cushion",
+      "translation": "客舱侧坐垫",
+      "x": 100,
+      "y": 570,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-cabin-side-seat-cushion"
+    },
+    {
+      "id": "aircraft-lavatory-cabin-side-armrest",
+      "word": "cabin-side armrest",
+      "translation": "客舱侧扶手",
+      "x": 120,
+      "y": 620,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-cabin-side-armrest"
+    },
+    {
+      "id": "aircraft-lavatory-cabin-side-carpet",
+      "word": "cabin-side carpet",
+      "translation": "客舱侧地毯",
+      "x": 250,
+      "y": 760,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-cabin-side-carpet"
+    },
+    {
+      "id": "aircraft-lavatory-entry-wall-panel",
+      "word": "entry wall panel",
+      "translation": "入口墙板",
+      "x": 300,
+      "y": 180,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-entry-wall-panel"
+    },
+    {
+      "id": "aircraft-lavatory-entry-corner-trim",
+      "word": "entry corner trim",
+      "translation": "入口转角饰条",
+      "x": 350,
+      "y": 200,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-entry-corner-trim"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-upper-ceiling-panel",
+      "word": "lavatory upper ceiling panel",
+      "translation": "卫生间上部顶板",
+      "x": 500,
+      "y": 60,
+      "priority": 1.022,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-upper-ceiling-panel"
+    },
+    {
+      "id": "aircraft-lavatory-ceiling-light-fixture",
+      "word": "ceiling light fixture",
+      "translation": "顶面灯具",
+      "x": 650,
+      "y": 70,
+      "priority": 1.023,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-ceiling-light-fixture"
+    },
+    {
+      "id": "aircraft-lavatory-ceiling-light-lens",
+      "word": "ceiling light lens",
+      "translation": "顶灯灯罩",
+      "x": 650,
+      "y": 75,
+      "priority": 1.024,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-ceiling-light-lens"
+    },
+    {
+      "id": "aircraft-lavatory-ceiling-vent-grille",
+      "word": "ceiling vent grille",
+      "translation": "顶面通风格栅",
+      "x": 900,
+      "y": 50,
+      "priority": 1.025,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-ceiling-vent-grille"
+    },
+    {
+      "id": "aircraft-lavatory-ceiling-air-outlet",
+      "word": "ceiling air outlet",
+      "translation": "顶面出风口",
+      "x": 920,
+      "y": 80,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-ceiling-air-outlet"
+    },
+    {
+      "id": "aircraft-lavatory-upper-wall-panel",
+      "word": "upper wall panel",
+      "translation": "上部墙板",
+      "x": 520,
+      "y": 230,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-upper-wall-panel"
+    },
+    {
+      "id": "aircraft-lavatory-rear-wall-panel",
+      "word": "rear wall panel",
+      "translation": "后墙板",
+      "x": 700,
+      "y": 230,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-rear-wall-panel"
+    },
+    {
+      "id": "aircraft-lavatory-mirror-cabinet",
+      "word": "mirror cabinet",
+      "translation": "镜面柜",
+      "x": 700,
+      "y": 150,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-mirror-cabinet"
+    },
+    {
+      "id": "aircraft-lavatory-mirror-cabinet-door",
+      "word": "mirror cabinet door",
+      "translation": "镜面柜门",
+      "x": 700,
+      "y": 170,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-mirror-cabinet-door"
+    },
+    {
+      "id": "aircraft-lavatory-mirror-cabinet-handle",
+      "word": "mirror cabinet handle",
+      "translation": "镜面柜把手",
+      "x": 800,
+      "y": 180,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-mirror-cabinet-handle"
+    },
+    {
+      "id": "aircraft-lavatory-mirror-cabinet-hinge",
+      "word": "mirror cabinet hinge",
+      "translation": "镜面柜铰链",
+      "x": 820,
+      "y": 170,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-mirror-cabinet-hinge"
+    },
+    {
+      "id": "aircraft-lavatory-mirror-cabinet-seam",
+      "word": "mirror cabinet seam",
+      "translation": "镜面柜接缝",
+      "x": 760,
+      "y": 100,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-mirror-cabinet-seam"
+    },
+    {
+      "id": "aircraft-lavatory-open-storage-shelf",
+      "word": "open storage shelf",
+      "translation": "开放储物搁板",
+      "x": 1000,
+      "y": 250,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-open-storage-shelf"
+    },
+    {
+      "id": "aircraft-lavatory-storage-shelf-lip",
+      "word": "storage shelf lip",
+      "translation": "储物搁板边缘",
+      "x": 1000,
+      "y": 270,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-storage-shelf-lip"
+    },
+    {
+      "id": "aircraft-lavatory-storage-shelf-bracket",
+      "word": "storage shelf bracket",
+      "translation": "储物搁板支架",
+      "x": 970,
+      "y": 260,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-storage-shelf-bracket"
+    },
+    {
+      "id": "aircraft-lavatory-upper-service-panel",
+      "word": "upper service panel",
+      "translation": "上部服务面板",
+      "x": 930,
+      "y": 170,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-upper-service-panel"
+    },
+    {
+      "id": "aircraft-lavatory-service-panel-latch",
+      "word": "service panel latch",
+      "translation": "服务面板锁扣",
+      "x": 940,
+      "y": 190,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-service-panel-latch"
+    },
+    {
+      "id": "aircraft-lavatory-vanity-light-housing",
+      "word": "vanity light housing",
+      "translation": "盥洗台灯具外壳",
+      "x": 540,
+      "y": 300,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-vanity-light-housing"
+    },
+    {
+      "id": "aircraft-lavatory-vanity-light-diffuser",
+      "word": "vanity light diffuser",
+      "translation": "盥洗台灯具扩散罩",
+      "x": 560,
+      "y": 300,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-vanity-light-diffuser"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-mirror-surround",
+      "word": "lavatory mirror surround",
+      "translation": "卫生间镜面外框",
+      "x": 570,
+      "y": 180,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-mirror-surround"
+    },
+    {
+      "id": "aircraft-lavatory-mirror-edge-trim",
+      "word": "mirror edge trim",
+      "translation": "镜面边饰条",
+      "x": 600,
+      "y": 180,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-mirror-edge-trim"
+    },
+    {
+      "id": "aircraft-lavatory-mirror-glass",
+      "word": "mirror glass",
+      "translation": "镜面玻璃",
+      "x": 650,
+      "y": 190,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-mirror-glass"
+    },
+    {
+      "id": "aircraft-lavatory-wall-corner-trim",
+      "word": "wall corner trim",
+      "translation": "墙角饰条",
+      "x": 1050,
+      "y": 250,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-wall-corner-trim"
+    },
+    {
+      "id": "aircraft-lavatory-cabin-roof-seam",
+      "word": "cabin roof seam",
+      "translation": "客舱顶面接缝",
+      "x": 800,
+      "y": 30,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-cabin-roof-seam"
+    },
+    {
+      "id": "aircraft-lavatory-ceiling-fastener",
+      "word": "ceiling fastener",
+      "translation": "顶面紧固件",
+      "x": 1020,
+      "y": 60,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-ceiling-fastener"
+    },
+    {
+      "id": "aircraft-lavatory-aircraft-lavatory-vanity-unit",
+      "word": "aircraft lavatory vanity unit",
+      "translation": "飞机卫生间盥洗台",
+      "x": 600,
+      "y": 450,
+      "priority": 1.047,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-aircraft-lavatory-vanity-unit"
+    },
+    {
+      "id": "aircraft-lavatory-sink-counter",
+      "word": "sink counter",
+      "translation": "洗手盆台面",
+      "x": 620,
+      "y": 430,
+      "priority": 1.048,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-sink-counter"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-wash-basin",
+      "word": "lavatory wash basin",
+      "translation": "卫生间洗手盆",
+      "x": 620,
+      "y": 470,
+      "priority": 1.049,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-wash-basin"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-basin-drain",
+      "word": "lavatory basin drain",
+      "translation": "卫生间洗手盆排水口",
+      "x": 620,
+      "y": 490,
+      "priority": 1.05,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-basin-drain"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-faucet-spout",
+      "word": "lavatory faucet spout",
+      "translation": "卫生间水龙头出水口",
+      "x": 590,
+      "y": 400,
+      "priority": 1.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-faucet-spout"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-faucet-handle",
+      "word": "lavatory faucet handle",
+      "translation": "卫生间水龙头把手",
+      "x": 575,
+      "y": 410,
+      "priority": 1.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-faucet-handle"
+    },
+    {
+      "id": "aircraft-lavatory-faucet-base",
+      "word": "faucet base",
+      "translation": "水龙头底座",
+      "x": 600,
+      "y": 425,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-faucet-base"
+    },
+    {
+      "id": "aircraft-lavatory-backsplash-panel",
+      "word": "backsplash panel",
+      "translation": "挡水板",
+      "x": 650,
+      "y": 380,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-backsplash-panel"
+    },
+    {
+      "id": "aircraft-lavatory-backsplash-seam",
+      "word": "backsplash seam",
+      "translation": "挡水板接缝",
+      "x": 700,
+      "y": 380,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-backsplash-seam"
+    },
+    {
+      "id": "aircraft-lavatory-aircraft-lavatory-soap-dispenser",
+      "word": "aircraft lavatory soap dispenser",
+      "translation": "飞机卫生间皂液器",
+      "x": 730,
+      "y": 420,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-aircraft-lavatory-soap-dispenser"
+    },
+    {
+      "id": "aircraft-lavatory-soap-dispenser-pump",
+      "word": "soap dispenser pump",
+      "translation": "皂液器泵头",
+      "x": 730,
+      "y": 400,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-soap-dispenser-pump"
+    },
+    {
+      "id": "aircraft-lavatory-soap-dispenser-mount",
+      "word": "soap dispenser mount",
+      "translation": "皂液器底座",
+      "x": 730,
+      "y": 440,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-soap-dispenser-mount"
+    },
+    {
+      "id": "aircraft-lavatory-paper-towel-holder",
+      "word": "paper towel holder",
+      "translation": "纸巾架",
+      "x": 920,
+      "y": 450,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-paper-towel-holder"
+    },
+    {
+      "id": "aircraft-lavatory-towel-roll",
+      "word": "towel roll",
+      "translation": "纸巾卷",
+      "x": 930,
+      "y": 470,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-towel-roll"
+    },
+    {
+      "id": "aircraft-lavatory-towel-holder-bracket",
+      "word": "towel holder bracket",
+      "translation": "纸巾架支架",
+      "x": 920,
+      "y": 430,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-towel-holder-bracket"
+    },
+    {
+      "id": "aircraft-lavatory-vanity-front-panel",
+      "word": "vanity front panel",
+      "translation": "盥洗台前板",
+      "x": 600,
+      "y": 550,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-vanity-front-panel"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-vanity-drawer",
+      "word": "lavatory vanity drawer",
+      "translation": "卫生间盥洗台抽屉",
+      "x": 650,
+      "y": 550,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-vanity-drawer"
+    },
+    {
+      "id": "aircraft-lavatory-vanity-drawer-handle",
+      "word": "vanity drawer handle",
+      "translation": "盥洗台抽屉把手",
+      "x": 650,
+      "y": 540,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-vanity-drawer-handle"
+    },
+    {
+      "id": "aircraft-lavatory-under-sink-cabinet",
+      "word": "under-sink cabinet",
+      "translation": "洗手盆下柜",
+      "x": 520,
+      "y": 560,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-under-sink-cabinet"
+    },
+    {
+      "id": "aircraft-lavatory-cabinet-kickplate",
+      "word": "cabinet kickplate",
+      "translation": "柜体踢脚板",
+      "x": 540,
+      "y": 590,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-cabinet-kickplate"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-counter-edge",
+      "word": "lavatory counter edge",
+      "translation": "卫生间台面边缘",
+      "x": 760,
+      "y": 520,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-counter-edge"
+    },
+    {
+      "id": "aircraft-lavatory-counter-sidewall",
+      "word": "counter sidewall",
+      "translation": "台面侧墙",
+      "x": 800,
+      "y": 500,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-counter-sidewall"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-basin-overflow",
+      "word": "lavatory basin overflow",
+      "translation": "卫生间洗手盆溢水口",
+      "x": 660,
+      "y": 475,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-basin-overflow"
+    },
+    {
+      "id": "aircraft-lavatory-tap-escutcheon",
+      "word": "tap escutcheon",
+      "translation": "水龙头装饰盖",
+      "x": 590,
+      "y": 430,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-tap-escutcheon"
+    },
+    {
+      "id": "aircraft-lavatory-vanity-counter-corner",
+      "word": "vanity counter corner",
+      "translation": "盥洗台转角",
+      "x": 850,
+      "y": 500,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-vanity-counter-corner"
+    },
+    {
+      "id": "aircraft-lavatory-toilet-compartment",
+      "word": "toilet compartment",
+      "translation": "马桶隔间",
+      "x": 900,
+      "y": 600,
+      "priority": 1.072,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-toilet-compartment"
+    },
+    {
+      "id": "aircraft-lavatory-aircraft-lavatory-bowl",
+      "word": "aircraft lavatory bowl",
+      "translation": "飞机卫生间马桶盆",
+      "x": 930,
+      "y": 650,
+      "priority": 1.073,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-aircraft-lavatory-bowl"
+    },
+    {
+      "id": "aircraft-lavatory-aircraft-lavatory-seat-ring",
+      "word": "aircraft lavatory seat ring",
+      "translation": "飞机卫生间座圈",
+      "x": 930,
+      "y": 600,
+      "priority": 1.074,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-aircraft-lavatory-seat-ring"
+    },
+    {
+      "id": "aircraft-lavatory-aircraft-lavatory-lid",
+      "word": "aircraft lavatory lid",
+      "translation": "飞机卫生间马桶盖",
+      "x": 930,
+      "y": 570,
+      "priority": 1.075,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-aircraft-lavatory-lid"
+    },
+    {
+      "id": "aircraft-lavatory-aircraft-lavatory-seat-hinge",
+      "word": "aircraft lavatory seat hinge",
+      "translation": "飞机卫生间座圈铰链",
+      "x": 980,
+      "y": 590,
+      "priority": 1.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-aircraft-lavatory-seat-hinge"
+    },
+    {
+      "id": "aircraft-lavatory-toilet-shroud",
+      "word": "toilet shroud",
+      "translation": "马桶罩壳",
+      "x": 960,
+      "y": 730,
+      "priority": 1.077,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-toilet-shroud"
+    },
+    {
+      "id": "aircraft-lavatory-aircraft-lavatory-pedestal",
+      "word": "aircraft lavatory pedestal",
+      "translation": "飞机卫生间马桶底座",
+      "x": 930,
+      "y": 790,
+      "priority": 1.078,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-aircraft-lavatory-pedestal"
+    },
+    {
+      "id": "aircraft-lavatory-flush-panel",
+      "word": "flush panel",
+      "translation": "冲洗面板",
+      "x": 850,
+      "y": 520,
+      "priority": 1.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-flush-panel"
+    },
+    {
+      "id": "aircraft-lavatory-aircraft-lavatory-flush-button",
+      "word": "aircraft lavatory flush button",
+      "translation": "飞机卫生间冲洗按钮",
+      "x": 860,
+      "y": 520,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-aircraft-lavatory-flush-button"
+    },
+    {
+      "id": "aircraft-lavatory-toilet-side-bumper",
+      "word": "toilet side bumper",
+      "translation": "马桶侧缓冲垫",
+      "x": 1000,
+      "y": 690,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-toilet-side-bumper"
+    },
+    {
+      "id": "aircraft-lavatory-floor-mount-ring",
+      "word": "floor mount ring",
+      "translation": "地面安装环",
+      "x": 940,
+      "y": 830,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-floor-mount-ring"
+    },
+    {
+      "id": "aircraft-lavatory-toilet-floor-seal",
+      "word": "toilet floor seal",
+      "translation": "马桶地面密封圈",
+      "x": 950,
+      "y": 820,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-toilet-floor-seal"
+    },
+    {
+      "id": "aircraft-lavatory-privacy-partition",
+      "word": "privacy partition",
+      "translation": "隐私隔板",
+      "x": 800,
+      "y": 450,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-privacy-partition"
+    },
+    {
+      "id": "aircraft-lavatory-partition-edge",
+      "word": "partition edge",
+      "translation": "隔板边缘",
+      "x": 810,
+      "y": 500,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-partition-edge"
+    },
+    {
+      "id": "aircraft-lavatory-partition-trim",
+      "word": "partition trim",
+      "translation": "隔板饰条",
+      "x": 820,
+      "y": 520,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-partition-trim"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-sidewall-panel",
+      "word": "lavatory sidewall panel",
+      "translation": "卫生间侧墙板",
+      "x": 1060,
+      "y": 450,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-sidewall-panel"
+    },
+    {
+      "id": "aircraft-lavatory-sidewall-seam",
+      "word": "sidewall seam",
+      "translation": "侧墙板接缝",
+      "x": 1060,
+      "y": 520,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-sidewall-seam"
+    },
+    {
+      "id": "aircraft-lavatory-lower-wall-panel",
+      "word": "lower wall panel",
+      "translation": "下部墙板",
+      "x": 1020,
+      "y": 700,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-lower-wall-panel"
+    },
+    {
+      "id": "aircraft-lavatory-wall-service-cover",
+      "word": "wall service cover",
+      "translation": "墙面服务盖板",
+      "x": 1030,
+      "y": 600,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-wall-service-cover"
+    },
+    {
+      "id": "aircraft-lavatory-service-cover-fastener",
+      "word": "service cover fastener",
+      "translation": "服务盖板紧固件",
+      "x": 1035,
+      "y": 610,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-service-cover-fastener"
+    },
+    {
+      "id": "aircraft-lavatory-lower-wall-air-outlet",
+      "word": "lower wall air outlet",
+      "translation": "下部墙面出风口",
+      "x": 1050,
+      "y": 670,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-lower-wall-air-outlet"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-floor",
+      "word": "lavatory floor",
+      "translation": "卫生间地面",
+      "x": 850,
+      "y": 850,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-floor"
+    },
+    {
+      "id": "aircraft-lavatory-non-slip-floor",
+      "word": "non-slip floor",
+      "translation": "防滑地面",
+      "x": 900,
+      "y": 860,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-non-slip-floor"
+    },
+    {
+      "id": "aircraft-lavatory-floor-seam",
+      "word": "floor seam",
+      "translation": "地面接缝",
+      "x": 1000,
+      "y": 850,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-floor-seam"
+    },
+    {
+      "id": "aircraft-lavatory-floor-corner-trim",
+      "word": "floor corner trim",
+      "translation": "地面转角饰条",
+      "x": 1050,
+      "y": 820,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-floor-corner-trim"
+    },
+    {
+      "id": "aircraft-lavatory-toilet-access-panel",
+      "word": "toilet access panel",
+      "translation": "马桶检修面板",
+      "x": 1000,
+      "y": 760,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-toilet-access-panel"
+    },
+    {
+      "id": "aircraft-lavatory-right-lavatory-door",
+      "word": "right lavatory door",
+      "translation": "右侧卫生间门",
+      "x": 1350,
+      "y": 250,
+      "priority": 1.098,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-right-lavatory-door"
+    },
+    {
+      "id": "aircraft-lavatory-door-inner-panel",
+      "word": "door inner panel",
+      "translation": "门内板",
+      "x": 1350,
+      "y": 350,
+      "priority": 1.099,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-door-inner-panel"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-door-frame",
+      "word": "lavatory door frame",
+      "translation": "卫生间门框",
+      "x": 1180,
+      "y": 350,
+      "priority": 1.1,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-door-frame"
+    },
+    {
+      "id": "aircraft-lavatory-aircraft-lavatory-door-handle",
+      "word": "aircraft lavatory door handle",
+      "translation": "飞机卫生间门把手",
+      "x": 1330,
+      "y": 420,
+      "priority": 1.101,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-aircraft-lavatory-door-handle"
+    },
+    {
+      "id": "aircraft-lavatory-aircraft-lavatory-door-latch",
+      "word": "aircraft lavatory door latch",
+      "translation": "飞机卫生间门锁扣",
+      "x": 1330,
+      "y": 500,
+      "priority": 1.102,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-aircraft-lavatory-door-latch"
+    },
+    {
+      "id": "aircraft-lavatory-door-latch-plate",
+      "word": "door latch plate",
+      "translation": "门锁扣板",
+      "x": 1330,
+      "y": 510,
+      "priority": 1.103,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-door-latch-plate"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-door-hinge",
+      "word": "lavatory door hinge",
+      "translation": "卫生间门铰链",
+      "x": 1180,
+      "y": 500,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-door-hinge"
+    },
+    {
+      "id": "aircraft-lavatory-door-edge-seal",
+      "word": "door edge seal",
+      "translation": "门边密封条",
+      "x": 1160,
+      "y": 400,
+      "priority": 1.105,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-door-edge-seal"
+    },
+    {
+      "id": "aircraft-lavatory-door-lock-housing",
+      "word": "door lock housing",
+      "translation": "门锁体外壳",
+      "x": 1330,
+      "y": 520,
+      "priority": 1.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-door-lock-housing"
+    },
+    {
+      "id": "aircraft-lavatory-right-grab-rail",
+      "word": "right grab rail",
+      "translation": "右侧抓扶杆",
+      "x": 1250,
+      "y": 280,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-right-grab-rail"
+    },
+    {
+      "id": "aircraft-lavatory-grab-rail-upper-mount",
+      "word": "grab rail upper mount",
+      "translation": "抓扶杆上支座",
+      "x": 1270,
+      "y": 220,
+      "priority": 1.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-grab-rail-upper-mount"
+    },
+    {
+      "id": "aircraft-lavatory-grab-rail-lower-mount",
+      "word": "grab rail lower mount",
+      "translation": "抓扶杆下支座",
+      "x": 1270,
+      "y": 600,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-grab-rail-lower-mount"
+    },
+    {
+      "id": "aircraft-lavatory-wall-coat-hook",
+      "word": "wall coat hook",
+      "translation": "墙面衣帽钩",
+      "x": 1330,
+      "y": 100,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-wall-coat-hook"
+    },
+    {
+      "id": "aircraft-lavatory-coat-hook-base",
+      "word": "coat hook base",
+      "translation": "衣帽钩底座",
+      "x": 1330,
+      "y": 110,
+      "priority": 1.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-coat-hook-base"
+    },
+    {
+      "id": "aircraft-lavatory-wall-service-panel",
+      "word": "wall service panel",
+      "translation": "墙面服务面板",
+      "x": 1450,
+      "y": 600,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-wall-service-panel"
+    },
+    {
+      "id": "aircraft-lavatory-service-panel-button",
+      "word": "service panel button",
+      "translation": "服务面板按钮",
+      "x": 1450,
+      "y": 610,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-service-panel-button"
+    },
+    {
+      "id": "aircraft-lavatory-door-push-plate",
+      "word": "door push plate",
+      "translation": "门推板",
+      "x": 1340,
+      "y": 540,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-door-push-plate"
+    },
+    {
+      "id": "aircraft-lavatory-lower-access-panel",
+      "word": "lower access panel",
+      "translation": "下部检修面板",
+      "x": 1450,
+      "y": 760,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-lower-access-panel"
+    },
+    {
+      "id": "aircraft-lavatory-lower-panel-latch",
+      "word": "lower panel latch",
+      "translation": "下部面板锁扣",
+      "x": 1460,
+      "y": 760,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-lower-panel-latch"
+    },
+    {
+      "id": "aircraft-lavatory-right-wall-trim",
+      "word": "right wall trim",
+      "translation": "右侧墙面饰条",
+      "x": 1500,
+      "y": 400,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-right-wall-trim"
+    },
+    {
+      "id": "aircraft-lavatory-wall-corner-guard",
+      "word": "wall corner guard",
+      "translation": "墙角护条",
+      "x": 1180,
+      "y": 700,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-wall-corner-guard"
+    },
+    {
+      "id": "aircraft-lavatory-threshold-side-cap",
+      "word": "threshold side cap",
+      "translation": "门槛侧端盖",
+      "x": 1180,
+      "y": 820,
+      "priority": 1.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-threshold-side-cap"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-doorway-fastener",
+      "word": "lavatory doorway fastener",
+      "translation": "卫生间门框紧固件",
+      "x": 1190,
+      "y": 450,
+      "priority": 1.12,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-doorway-fastener"
+    },
+    {
+      "id": "aircraft-lavatory-door-skin-seam",
+      "word": "door skin seam",
+      "translation": "门板接缝",
+      "x": 1400,
+      "y": 300,
+      "priority": 1.121,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-door-skin-seam"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-door-sill",
+      "word": "lavatory door sill",
+      "translation": "卫生间门槛",
+      "x": 1250,
+      "y": 840,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-door-sill"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-floor-mat",
+      "word": "lavatory floor mat",
+      "translation": "卫生间地垫",
+      "x": 520,
+      "y": 760,
+      "priority": 1.123,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-floor-mat"
+    },
+    {
+      "id": "aircraft-lavatory-washroom-floor-pan",
+      "word": "washroom floor pan",
+      "translation": "卫生间地板盘",
+      "x": 620,
+      "y": 820,
+      "priority": 1.124,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-lavatory-region-washroom-floor-pan"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-floor-edge",
+      "word": "lavatory floor edge",
+      "translation": "卫生间地面边缘",
+      "x": 700,
+      "y": 780,
+      "priority": 1.125,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-floor-edge"
+    },
+    {
+      "id": "aircraft-lavatory-lavatory-floor-joint",
+      "word": "lavatory floor joint",
+      "translation": "卫生间地面接缝",
+      "x": 700,
+      "y": 840,
+      "priority": 1.126,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-lavatory-region-lavatory-floor-joint"
+    },
+    {
+      "id": "aircraft-lavatory-floor-edge-trim",
+      "word": "floor edge trim",
+      "translation": "地面边饰条",
+      "x": 740,
+      "y": 700,
+      "priority": 1.127,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-floor-edge-trim"
+    },
+    {
+      "id": "aircraft-lavatory-threshold-floor-joint",
+      "word": "threshold floor joint",
+      "translation": "门槛地面接缝",
+      "x": 450,
+      "y": 820,
+      "priority": 1.128,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-threshold-floor-joint"
+    },
+    {
+      "id": "aircraft-lavatory-under-vanity-toe-kick",
+      "word": "under-vanity toe kick",
+      "translation": "盥洗台下踢脚板",
+      "x": 520,
+      "y": 650,
+      "priority": 1.129,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-under-vanity-toe-kick"
+    },
+    {
+      "id": "aircraft-lavatory-toe-kick-seam",
+      "word": "toe-kick seam",
+      "translation": "踢脚板接缝",
+      "x": 560,
+      "y": 670,
+      "priority": 1.13,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-toe-kick-seam"
+    },
+    {
+      "id": "aircraft-lavatory-lower-cabinet-foot",
+      "word": "lower cabinet foot",
+      "translation": "下柜脚座",
+      "x": 600,
+      "y": 700,
+      "priority": 1.131,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-lower-cabinet-foot"
+    },
+    {
+      "id": "aircraft-lavatory-vanity-base",
+      "word": "vanity base",
+      "translation": "盥洗台底座",
+      "x": 650,
+      "y": 680,
+      "priority": 1.132,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-vanity-base"
+    },
+    {
+      "id": "aircraft-lavatory-floor-wall-junction",
+      "word": "floor wall junction",
+      "translation": "地墙交界",
+      "x": 760,
+      "y": 740,
+      "priority": 1.133,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-floor-wall-junction"
+    },
+    {
+      "id": "aircraft-lavatory-anti-slip-texture",
+      "word": "anti-slip texture",
+      "translation": "防滑纹理",
+      "x": 600,
+      "y": 850,
+      "priority": 1.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-anti-slip-texture"
+    },
+    {
+      "id": "aircraft-lavatory-cabin-carpet-edge",
+      "word": "cabin carpet edge",
+      "translation": "客舱地毯边缘",
+      "x": 430,
+      "y": 700,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-lavatory-region-cabin-carpet-edge"
+    },
+    {
+      "id": "aircraft-lavatory-curtain-lower-hem",
+      "word": "curtain lower hem",
+      "translation": "帘布下摆",
+      "x": 430,
+      "y": 650,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-lavatory-region-curtain-lower-hem"
+    },
+    {
+      "id": "aircraft-lavatory-doorway-floor-strip",
+      "word": "doorway floor strip",
+      "translation": "门口地面条",
+      "x": 440,
+      "y": 840,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-lavatory-region-doorway-floor-strip"
+    }
+  ],
+  "portals": []
+}
