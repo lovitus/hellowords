@@ -210,8 +210,8 @@ test("all fourteen spatial rules mirror only the three category differentiators"
 test("dense spatial labels reveal artwork without losing semantic tint or focus contrast", async () => {
   const css = await readFile(resolve(import.meta.dirname, "../../app/globals.css"), "utf8");
   const baseRule = css.match(/\.word-label\s*\{([\s\S]*?)\n\}/)?.[1] ?? "";
-  assert.match(baseRule, /--label-surface-opacity:\s*64%;/);
-  assert.match(baseRule, /--label-border-opacity:\s*64%;/);
+  assert.match(baseRule, /--label-surface-opacity:\s*56%;/);
+  assert.match(baseRule, /--label-border-opacity:\s*58%;/);
   assert.match(
     baseRule,
     /background:\s*color-mix\([\s\S]*?var\(--label-semantic-surface\) var\(--label-surface-opacity\)[\s\S]*?transparent[\s\S]*?\);/,

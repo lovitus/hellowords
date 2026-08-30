@@ -1040,8 +1040,8 @@ a:focus-visible {
   --label-anchor-y: 0px;
   --label-leader-angle: 0deg;
   --label-leader-length: 0px;
-  --label-surface-opacity: 64%;
-  --label-border-opacity: 64%;
+  --label-surface-opacity: 56%;
+  --label-border-opacity: 58%;
   --label-semantic-surface: #f6f3ed;
   --label-semantic-surface-hover: #fdfbf7;
   --label-semantic-border: #d2c9ba;
@@ -1072,7 +1072,7 @@ a:focus-visible {
   border-radius: 999px;
   /* The rgba value keeps a translucent, readable fallback for engines that
    * do not support color-mix. Modern engines preserve each semantic tint. */
-  background: rgba(246, 243, 237, 0.72);
+  background: rgba(246, 243, 237, 0.64);
   background: color-mix(
     in srgb,
     var(--label-semantic-surface) var(--label-surface-opacity),
