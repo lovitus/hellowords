@@ -4,10 +4,10 @@
 
 ## 当前交付游标
 
-- 公开版本：`v136-8470173`（线上已完成真实冒烟）
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=136-8470173#world>
-- 源码：`84701730b0f94edd12b00cf1e1abef167d66c523`（v136 在 v135 基础上降低空间词泡背景透明度至 56%，边框至 58%，保留文字白描边与阴影；词量和锚点不变）。累计空间锚点 7,226、6,157 个去重词；继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：v136 已公开发布并完成真实入口冒烟；Apartment 公共页实测词泡更透明且浏览器日志为空，下一步继续按“先堆词、再精修”扩展尚未达到审计上限的场景。
+- 公开版本：`v137-f0c7b67`（线上已完成真实冒烟）
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=137-f0c7b67#world>
+- 源码：`f0c7b6732ae0487c5af6e249c011525d19b70ae9`（v137 在 v136 基础上为交通枢纽、园艺工作台、温室育苗区和叶片特写加入 47 个显式像素锚定的部件词；保留小地图、LOD、缩放与门户几何）。累计空间锚点 7,273、6,195 个去重词；继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：v137 已公开发布并完成真实入口冒烟；交通枢纽 175、园艺工作台 116、温室 112、叶片 121 个词，新增细分区均可聚焦并读到新词，浏览器日志为空；下一步继续按“先堆词、再精修”扩展尚未达到审计上限的场景。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### v122 交付记录（2026-08-29）
@@ -56,6 +56,8 @@
 - 清理记录：v135 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v135/`；活动 `.codex/sessions` 与共享临时根不删除。
 - v136 将桌面空间词泡背景透明度从 64% 降到 56%、边框从 64% 降到 58%，并更新 CSS 合同；`npm run verify` 通过（234 个域测试 + 28 个语义），完整 E2E 106/36、性能 2/2 通过，公开 Apartment 画面实测 `--label-surface-opacity: 56%`、error/warn 日志为空。
 - 清理记录：v136 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v136/`；活动 `.codex/sessions` 与共享临时根不删除。
+- v137 在四张已审计园艺/交通图上加入 47 个显式像素锚定部件词：Transit hub +12、Potting workbench +12、Greenhouse interior +11、Leaf +12；同步更新细分区计数与温室/工作台证据上限。`npm run verify` 通过（234 个域测试 + 28 个语义），完整 E2E 106/36、性能 2/2 通过；公开页实测四个新增细分区各自可读新词，error/warn 日志为空。术语复核参考 FTA 交通设施词汇与 USDA/ARS 温室育苗资料：<https://www.transit.dot.gov/sites/fta.dot.gov/files/docs/ntd/58026/2017-glossary.pdf>、<https://www.ars.usda.gov/research/publications/publication/?seqNo115=140158>。
+- 清理记录：v137 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260830/hellowords-v137/`；活动 `.codex/sessions` 与共享临时根不删除。
 
 ## 当前续开发游标（2026-08-29）
 
