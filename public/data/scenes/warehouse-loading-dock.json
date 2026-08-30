@@ -1,0 +1,2521 @@
+{
+  "id": "warehouse-loading-dock",
+  "title": "Warehouse loading dock",
+  "translation": "仓库装卸中心",
+  "subtitle": "Storage, material handling, packing and truck dispatch",
+  "asset": "/scenes/warehouse-loading-dock-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "service-core",
+  "visualRegions": [
+    {
+      "id": "warehouse-region-forklift",
+      "description": "Pixel-audited “forklift” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 392.344498,
+      "y": 516.471838,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-overhead-guard",
+      "description": "Pixel-audited “overhead guard” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 416.267943,
+      "y": 363.443146,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-forklift-mast",
+      "description": "Pixel-audited “forklift mast” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 224.880383,
+      "y": 416.046759,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-outer-mast-rail",
+      "description": "Pixel-audited “outer mast rail” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 191.38756,
+      "y": 416.046759,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-inner-mast-rail",
+      "description": "Pixel-audited “inner mast rail” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 253.588517,
+      "y": 425.611052,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-lift-chain",
+      "description": "Pixel-audited “lift chain” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 267.942584,
+      "y": 478.214665,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-fork-carriage",
+      "description": "Pixel-audited “fork carriage” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 210.526316,
+      "y": 602.550478,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-load-backrest",
+      "description": "Pixel-audited “load backrest” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 186.602871,
+      "y": 545.164718,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-fork-tine",
+      "description": "Pixel-audited “fork tine” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 124.401914,
+      "y": 731.668438,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-fork-heel",
+      "description": "Pixel-audited “fork heel” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 205.741627,
+      "y": 659.936238,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-hydraulic-hose",
+      "description": "Pixel-audited “hydraulic hose” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 291.866029,
+      "y": 478.214665,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-tilt-cylinder",
+      "description": "Pixel-audited “tilt cylinder” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 315.789474,
+      "y": 540.382572,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-forklift-headlamp",
+      "description": "Pixel-audited “forklift headlamp” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 349.282297,
+      "y": 358.660999,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-warning-beacon",
+      "description": "Pixel-audited “warning beacon” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 459.330144,
+      "y": 301.275239,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-propane-cylinder",
+      "description": "Pixel-audited “propane cylinder” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 540.669856,
+      "y": 416.046759,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-cylinder-clamp",
+      "description": "Pixel-audited “cylinder clamp” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 540.669856,
+      "y": 439.957492,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-operator-seat",
+      "description": "Pixel-audited “operator seat” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 444.976077,
+      "y": 430.393199,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-seat-back",
+      "description": "Pixel-audited “seat back” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 449.760766,
+      "y": 392.136026,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-steering-wheel",
+      "description": "Pixel-audited “steering wheel” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 363.636364,
+      "y": 401.700319,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-instrument-panel",
+      "description": "Pixel-audited “instrument panel” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 377.990431,
+      "y": 435.175345,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-counterweight",
+      "description": "Pixel-audited “counterweight” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 531.100478,
+      "y": 540.382572,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-drive-wheel",
+      "description": "Pixel-audited “drive wheel” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 440.191388,
+      "y": 631.243358,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-steer-wheel",
+      "description": "Pixel-audited “steer wheel” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 574.162679,
+      "y": 602.550478,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-tire-tread",
+      "description": "Pixel-audited “tire tread” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 440.191388,
+      "y": 621.679065,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-engine-hood",
+      "description": "Pixel-audited “engine hood” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 502.392344,
+      "y": 478.214665,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-operator-step",
+      "description": "Pixel-audited “operator step” inside the Counterbalance forklift crop of the warehouse photograph",
+      "kind": "part",
+      "x": 382.77512,
+      "y": 588.204038,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-pallet-rack",
+      "description": "Pixel-audited “pallet rack” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 574.162679,
+      "y": 153.028693,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-rack-upright",
+      "description": "Pixel-audited “rack upright” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 478.4689,
+      "y": 219.978746,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-rack-beam",
+      "description": "Pixel-audited “rack beam” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 602.870813,
+      "y": 133.900106,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-diagonal-brace",
+      "description": "Pixel-audited “diagonal brace” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 444.976077,
+      "y": 229.543039,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-wire-decking",
+      "description": "Pixel-audited “wire decking” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 631.578947,
+      "y": 186.503719,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-upright-guard",
+      "description": "Pixel-audited “upright guard” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 516.746411,
+      "y": 349.096706,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-rack-base-plate",
+      "description": "Pixel-audited “rack base plate” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 488.038278,
+      "y": 368.225292,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-warehouse-pallet",
+      "description": "Pixel-audited “warehouse pallet” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 593.301435,
+      "y": 90.860786,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-deck-board",
+      "description": "Pixel-audited “deck board” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 607.655502,
+      "y": 88.947928,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-pallet-block",
+      "description": "Pixel-audited “pallet block” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 602.870813,
+      "y": 105.207226,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-pallet-stringer",
+      "description": "Pixel-audited “pallet stringer” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 626.794258,
+      "y": 112.858661,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-rack-bay",
+      "description": "Pixel-audited “rack bay” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 669.856459,
+      "y": 248.671626,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-storage-aisle",
+      "description": "Pixel-audited “storage aisle” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 138.755981,
+      "y": 315.621679,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-stacked-load",
+      "description": "Pixel-audited “stacked load” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 708.133971,
+      "y": 76.514346,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-shipping-case",
+      "description": "Pixel-audited “shipping case” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 641.148325,
+      "y": 57.38576,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-carton-stack",
+      "description": "Pixel-audited “carton stack” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 794.258373,
+      "y": 181.721573,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-blue-storage-tote",
+      "description": "Pixel-audited “blue storage tote” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 583.732057,
+      "y": 162.592986,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-grey-storage-tote",
+      "description": "Pixel-audited “grey storage tote” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 669.856459,
+      "y": 167.375133,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-wooden-crate",
+      "description": "Pixel-audited “wooden crate” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 708.133971,
+      "y": 306.057386,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-stretch-wrap",
+      "description": "Pixel-audited “stretch wrap” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 799.043062,
+      "y": 100.42508,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-corner-board",
+      "description": "Pixel-audited “corner board” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 765.550239,
+      "y": 86.07864,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-plastic-strapping",
+      "description": "Pixel-audited “plastic strapping” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 708.133971,
+      "y": 138.682253,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-beam-lock",
+      "description": "Pixel-audited “beam lock” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 593.301435,
+      "y": 148.246546,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-location-plate",
+      "description": "Pixel-audited “location plate” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 617.22488,
+      "y": 148.246546,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-wrapped-pallet",
+      "description": "Pixel-audited “wrapped pallet” inside the Pallet rack storage crop of the warehouse photograph",
+      "kind": "part",
+      "x": 765.550239,
+      "y": 219.978746,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-manual-pallet-jack",
+      "description": "Pixel-audited “manual pallet jack” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 727.272727,
+      "y": 473.432519,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-tiller-handle",
+      "description": "Pixel-audited “tiller handle” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 684.210526,
+      "y": 435.175345,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-jack-hydraulic-unit",
+      "description": "Pixel-audited “jack hydraulic unit” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 708.133971,
+      "y": 482.996812,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-jack-fork-arm",
+      "description": "Pixel-audited “jack fork arm” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 779.904306,
+      "y": 511.689692,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-jack-load-wheel",
+      "description": "Pixel-audited “jack load wheel” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 827.751196,
+      "y": 516.471838,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-jack-steer-caster",
+      "description": "Pixel-audited “jack steer caster” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 703.349282,
+      "y": 521.253985,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-electric-pallet-truck",
+      "description": "Pixel-audited “electric pallet truck” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 889.952153,
+      "y": 435.175345,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-powered-control-handle",
+      "description": "Pixel-audited “powered control handle” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 846.889952,
+      "y": 382.571732,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-battery-cover",
+      "description": "Pixel-audited “battery cover” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 875.598086,
+      "y": 430.393199,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-powered-fork",
+      "description": "Pixel-audited “powered fork” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 937.799043,
+      "y": 468.650372,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-drive-unit",
+      "description": "Pixel-audited “drive unit” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 856.45933,
+      "y": 459.086079,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-rolling-warehouse-ladder",
+      "description": "Pixel-audited “rolling warehouse ladder” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 918.660287,
+      "y": 258.235919,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-ladder-tread",
+      "description": "Pixel-audited “ladder tread” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 928.229665,
+      "y": 277.364506,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-ladder-handrail",
+      "description": "Pixel-audited “ladder handrail” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 937.799043,
+      "y": 181.721573,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-ladder-caster",
+      "description": "Pixel-audited “ladder caster” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 880.382775,
+      "y": 392.136026,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-ladder-platform",
+      "description": "Pixel-audited “ladder platform” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 966.507177,
+      "y": 200.850159,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-dock-guardrail",
+      "description": "Pixel-audited “dock guardrail” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1033.492823,
+      "y": 349.096706,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-rack-end-barrier",
+      "description": "Pixel-audited “rack end barrier” inside the Material-handling equipment crop of the warehouse photograph",
+      "kind": "part",
+      "x": 526.315789,
+      "y": 349.096706,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-packing-bench",
+      "description": "Pixel-audited “packing bench” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1167.464115,
+      "y": 669.500531,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-packing-worktop",
+      "description": "Pixel-audited “packing worktop” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1157.894737,
+      "y": 602.550478,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-roller-conveyor",
+      "description": "Pixel-audited “roller conveyor” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1358.851675,
+      "y": 583.421892,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-conveyor-roller",
+      "description": "Pixel-audited “conveyor roller” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1368.421053,
+      "y": 573.857598,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-conveyor-frame",
+      "description": "Pixel-audited “conveyor frame” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1416.267943,
+      "y": 650.371945,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-bench-scale",
+      "description": "Pixel-audited “bench scale” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 995.215311,
+      "y": 592.986185,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-scale-platform",
+      "description": "Pixel-audited “scale platform” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 985.645933,
+      "y": 569.075452,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-barcode-scanner",
+      "description": "Pixel-audited “barcode scanner” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1282.296651,
+      "y": 602.550478,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-scanner-trigger",
+      "description": "Pixel-audited “scanner trigger” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1282.296651,
+      "y": 607.332625,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-label-printer",
+      "description": "Pixel-audited “label printer” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1325.358852,
+      "y": 650.371945,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-label-liner",
+      "description": "Pixel-audited “label liner” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1334.92823,
+      "y": 698.193411,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-tape-dispenser",
+      "description": "Pixel-audited “tape dispenser” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1100.478469,
+      "y": 631.243358,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-packing-tape-roll",
+      "description": "Pixel-audited “packing tape roll” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1090.909091,
+      "y": 626.461211,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-box-cutter",
+      "description": "Pixel-audited “box cutter” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1023.923445,
+      "y": 607.332625,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-kraft-paper-roll",
+      "description": "Pixel-audited “kraft paper roll” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 966.507177,
+      "y": 516.471838,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-cushioning-paper",
+      "description": "Pixel-audited “cushioning paper” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1090.909091,
+      "y": 545.164718,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-open-shipping-carton",
+      "description": "Pixel-audited “open shipping carton” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1119.617225,
+      "y": 545.164718,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-grey-picking-tote",
+      "description": "Pixel-audited “grey picking tote” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 966.507177,
+      "y": 765.143464,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-blue-picking-tote",
+      "description": "Pixel-audited “blue picking tote” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1100.478469,
+      "y": 765.143464,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-flattened-carton",
+      "description": "Pixel-audited “flattened carton” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1224.880383,
+      "y": 793.836344,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-platform-hand-truck",
+      "description": "Pixel-audited “platform hand truck” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1444.976077,
+      "y": 707.757705,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-hand-truck-frame",
+      "description": "Pixel-audited “hand-truck frame” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1449.760766,
+      "y": 669.500531,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-hand-truck-toe-plate",
+      "description": "Pixel-audited “hand-truck toe plate” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1416.267943,
+      "y": 812.964931,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-hand-truck-wheel",
+      "description": "Pixel-audited “hand-truck wheel” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1492.822967,
+      "y": 822.529224,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-blue-waste-bin",
+      "description": "Pixel-audited “blue waste bin” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1483.253589,
+      "y": 554.729012,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-grey-waste-bin",
+      "description": "Pixel-audited “grey waste bin” inside the Packing and dispatch station crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1406.698565,
+      "y": 583.421892,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-overhead-dock-door",
+      "description": "Pixel-audited “overhead dock door” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1320.574163,
+      "y": 86.07864,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-sectional-door-panel",
+      "description": "Pixel-audited “sectional door panel” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1320.574163,
+      "y": 76.514346,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-door-hinge",
+      "description": "Pixel-audited “door hinge” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1291.866029,
+      "y": 153.028693,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-vertical-door-track",
+      "description": "Pixel-audited “vertical door track” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1205.741627,
+      "y": 76.514346,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-dock-shelter",
+      "description": "Pixel-audited “dock shelter” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1253.588517,
+      "y": 248.671626,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-truck-trailer",
+      "description": "Pixel-audited “truck trailer” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1339.712919,
+      "y": 296.493092,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-trailer-opening",
+      "description": "Pixel-audited “trailer opening” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1320.574163,
+      "y": 267.800213,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-trailer-floor",
+      "description": "Pixel-audited “trailer floor” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1320.574163,
+      "y": 411.264612,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-dock-leveler",
+      "description": "Pixel-audited “dock leveler” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1320.574163,
+      "y": 439.957492,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-dock-lip",
+      "description": "Pixel-audited “dock lip” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1291.866029,
+      "y": 459.086079,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-dock-bumper",
+      "description": "Pixel-audited “dock bumper” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1234.449761,
+      "y": 430.393199,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-dock-threshold",
+      "description": "Pixel-audited “dock threshold” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1272.727273,
+      "y": 430.393199,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-dock-light",
+      "description": "Pixel-audited “dock light” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1444.976077,
+      "y": 229.543039,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-safety-bollard",
+      "description": "Pixel-audited “safety bollard” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1483.253589,
+      "y": 382.571732,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-bollard-cap",
+      "description": "Pixel-audited “bollard cap” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1481.339713,
+      "y": 358.660999,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-dock-stair",
+      "description": "Pixel-audited “dock stair” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1454.545455,
+      "y": 430.393199,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-stair-tread",
+      "description": "Pixel-audited “stair tread” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1473.684211,
+      "y": 459.086079,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-stair-handrail",
+      "description": "Pixel-audited “stair handrail” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1454.545455,
+      "y": 363.443146,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-dock-curb",
+      "description": "Pixel-audited “dock curb” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1425.837321,
+      "y": 459.086079,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-pedestrian-lane",
+      "description": "Pixel-audited “pedestrian lane” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1377.990431,
+      "y": 497.343252,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-convex-safety-mirror",
+      "description": "Pixel-audited “convex safety mirror” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1497.607656,
+      "y": 66.950053,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-fire-extinguisher",
+      "description": "Pixel-audited “fire extinguisher” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1129.186603,
+      "y": 296.493092,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-first-aid-cabinet",
+      "description": "Pixel-audited “first-aid cabinet” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1071.770335,
+      "y": 277.364506,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-eyewash-station",
+      "description": "Pixel-audited “eyewash station” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1492.822967,
+      "y": 306.057386,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-eyewash-bowl",
+      "description": "Pixel-audited “eyewash bowl” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1497.607656,
+      "y": 310.839532,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "warehouse-region-dock-control-box",
+      "description": "Pixel-audited “dock control box” inside the Truck loading dock crop of the warehouse photograph",
+      "kind": "part",
+      "x": 1444.976077,
+      "y": 296.493092,
+      "width": 38.277512,
+      "height": 38.257173
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "warehouse-zone-forklift",
+      "title": "Counterbalance forklift",
+      "translation": "平衡重式叉车",
+      "description": "Inspect the complete forklift, its lifting assembly, operator area, wheels and rear body.",
+      "x": 76.555024,
+      "y": 286.928799,
+      "width": 564.593301,
+      "height": 535.600425,
+      "targetScale": 3.15,
+      "labelIds": [
+        "warehouse-forklift",
+        "warehouse-overhead-guard",
+        "warehouse-forklift-mast",
+        "warehouse-outer-mast-rail",
+        "warehouse-inner-mast-rail",
+        "warehouse-lift-chain",
+        "warehouse-fork-carriage",
+        "warehouse-load-backrest",
+        "warehouse-fork-tine",
+        "warehouse-fork-heel",
+        "warehouse-hydraulic-hose",
+        "warehouse-tilt-cylinder",
+        "warehouse-forklift-headlamp",
+        "warehouse-warning-beacon",
+        "warehouse-propane-cylinder",
+        "warehouse-cylinder-clamp",
+        "warehouse-operator-seat",
+        "warehouse-seat-back",
+        "warehouse-steering-wheel",
+        "warehouse-instrument-panel",
+        "warehouse-counterweight",
+        "warehouse-drive-wheel",
+        "warehouse-steer-wheel",
+        "warehouse-tire-tread",
+        "warehouse-engine-hood",
+        "warehouse-operator-step"
+      ]
+    },
+    {
+      "id": "warehouse-zone-rack-storage",
+      "title": "Pallet rack storage",
+      "translation": "托盘货架存储区",
+      "description": "Follow the rack structure, pallets, containers and secured loads along the storage aisle.",
+      "x": 0,
+      "y": 0,
+      "width": 918.660287,
+      "height": 411.264612,
+      "targetScale": 3.15,
+      "labelIds": [
+        "warehouse-pallet-rack",
+        "warehouse-rack-upright",
+        "warehouse-rack-beam",
+        "warehouse-diagonal-brace",
+        "warehouse-wire-decking",
+        "warehouse-upright-guard",
+        "warehouse-rack-base-plate",
+        "warehouse-warehouse-pallet",
+        "warehouse-deck-board",
+        "warehouse-pallet-block",
+        "warehouse-pallet-stringer",
+        "warehouse-rack-bay",
+        "warehouse-storage-aisle",
+        "warehouse-stacked-load",
+        "warehouse-shipping-case",
+        "warehouse-carton-stack",
+        "warehouse-blue-storage-tote",
+        "warehouse-grey-storage-tote",
+        "warehouse-wooden-crate",
+        "warehouse-stretch-wrap",
+        "warehouse-corner-board",
+        "warehouse-plastic-strapping",
+        "warehouse-beam-lock",
+        "warehouse-location-plate",
+        "warehouse-wrapped-pallet"
+      ]
+    },
+    {
+      "id": "warehouse-zone-material-handling",
+      "title": "Material-handling equipment",
+      "translation": "物料搬运设备区",
+      "description": "Inspect manual and powered pallet trucks, the rolling ladder and protective barriers.",
+      "x": 526.315789,
+      "y": 153.028693,
+      "width": 679.425837,
+      "height": 449.521785,
+      "targetScale": 3.15,
+      "labelIds": [
+        "warehouse-manual-pallet-jack",
+        "warehouse-tiller-handle",
+        "warehouse-jack-hydraulic-unit",
+        "warehouse-jack-fork-arm",
+        "warehouse-jack-load-wheel",
+        "warehouse-jack-steer-caster",
+        "warehouse-electric-pallet-truck",
+        "warehouse-powered-control-handle",
+        "warehouse-battery-cover",
+        "warehouse-powered-fork",
+        "warehouse-drive-unit",
+        "warehouse-rolling-warehouse-ladder",
+        "warehouse-ladder-tread",
+        "warehouse-ladder-handrail",
+        "warehouse-ladder-caster",
+        "warehouse-ladder-platform",
+        "warehouse-dock-guardrail",
+        "warehouse-rack-end-barrier"
+      ]
+    },
+    {
+      "id": "warehouse-zone-packing-station",
+      "title": "Packing and dispatch station",
+      "translation": "包装发运工作站",
+      "description": "Explore the packing bench, conveyor, scales, scanners, containers and hand truck.",
+      "x": 842.105263,
+      "y": 497.343252,
+      "width": 757.894737,
+      "height": 402.656748,
+      "targetScale": 3.15,
+      "labelIds": [
+        "warehouse-packing-bench",
+        "warehouse-packing-worktop",
+        "warehouse-roller-conveyor",
+        "warehouse-conveyor-roller",
+        "warehouse-conveyor-frame",
+        "warehouse-bench-scale",
+        "warehouse-scale-platform",
+        "warehouse-barcode-scanner",
+        "warehouse-scanner-trigger",
+        "warehouse-label-printer",
+        "warehouse-label-liner",
+        "warehouse-tape-dispenser",
+        "warehouse-packing-tape-roll",
+        "warehouse-box-cutter",
+        "warehouse-kraft-paper-roll",
+        "warehouse-cushioning-paper",
+        "warehouse-open-shipping-carton",
+        "warehouse-grey-picking-tote",
+        "warehouse-blue-picking-tote",
+        "warehouse-flattened-carton",
+        "warehouse-platform-hand-truck",
+        "warehouse-hand-truck-frame",
+        "warehouse-hand-truck-toe-plate",
+        "warehouse-hand-truck-wheel",
+        "warehouse-blue-waste-bin",
+        "warehouse-grey-waste-bin"
+      ]
+    },
+    {
+      "id": "warehouse-zone-loading-dock",
+      "title": "Truck loading dock",
+      "translation": "卡车装卸月台",
+      "description": "Inspect the dock door, trailer threshold, safety fixtures, access stair and emergency equipment.",
+      "x": 1043.062201,
+      "y": 0,
+      "width": 556.937799,
+      "height": 554.729012,
+      "targetScale": 3.15,
+      "labelIds": [
+        "warehouse-overhead-dock-door",
+        "warehouse-sectional-door-panel",
+        "warehouse-door-hinge",
+        "warehouse-vertical-door-track",
+        "warehouse-dock-shelter",
+        "warehouse-truck-trailer",
+        "warehouse-trailer-opening",
+        "warehouse-trailer-floor",
+        "warehouse-dock-leveler",
+        "warehouse-dock-lip",
+        "warehouse-dock-bumper",
+        "warehouse-dock-threshold",
+        "warehouse-dock-light",
+        "warehouse-safety-bollard",
+        "warehouse-bollard-cap",
+        "warehouse-dock-stair",
+        "warehouse-stair-tread",
+        "warehouse-stair-handrail",
+        "warehouse-dock-curb",
+        "warehouse-pedestrian-lane",
+        "warehouse-convex-safety-mirror",
+        "warehouse-fire-extinguisher",
+        "warehouse-first-aid-cabinet",
+        "warehouse-eyewash-station",
+        "warehouse-eyewash-bowl",
+        "warehouse-dock-control-box"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/warehouse-loading-dock-premium-v1.jpg",
+    "reviewedAssetSha256": "4ea669efc86bdf8b77aad57dc2b2054622501c57f45ef132503db0089de8350f",
+    "rationale": "The final 1600 by 900 warehouse photograph was inspected at source and output resolution. It supports independently pointable forklift parts, rack structure, pallets and containers, manual and powered handling equipment, packing hardware, dock components and emergency fixtures. Hidden inventory data, shipping operations, hazards, compliance claims, movements and worker roles are excluded.",
+    "previousLabelCount": 128,
+    "retainedLabelCount": 121,
+    "removedLabelCount": 7,
+    "removedExamples": [
+      "inventory level",
+      "delivery schedule",
+      "forklift operator",
+      "safe load",
+      "dispatch process",
+      "stock rotation",
+      "warehouse hazard"
+    ]
+  },
+  "labels": [
+    {
+      "id": "warehouse-forklift",
+      "word": "forklift",
+      "translation": "叉车",
+      "x": 411.483254,
+      "y": 535.600425,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-forklift"
+    },
+    {
+      "id": "warehouse-overhead-guard",
+      "word": "overhead guard",
+      "translation": "护顶架",
+      "x": 435.406699,
+      "y": 382.571732,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-overhead-guard"
+    },
+    {
+      "id": "warehouse-forklift-mast",
+      "word": "forklift mast",
+      "translation": "叉车门架",
+      "x": 244.019139,
+      "y": 435.175345,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-forklift-mast"
+    },
+    {
+      "id": "warehouse-outer-mast-rail",
+      "word": "outer mast rail",
+      "translation": "外门架导轨",
+      "x": 210.526316,
+      "y": 435.175345,
+      "priority": 1.003,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-outer-mast-rail"
+    },
+    {
+      "id": "warehouse-inner-mast-rail",
+      "word": "inner mast rail",
+      "translation": "内门架导轨",
+      "x": 272.727273,
+      "y": 444.739639,
+      "priority": 1.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-inner-mast-rail"
+    },
+    {
+      "id": "warehouse-lift-chain",
+      "word": "lift chain",
+      "translation": "起升链条",
+      "x": 287.08134,
+      "y": 497.343252,
+      "priority": 1.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-lift-chain"
+    },
+    {
+      "id": "warehouse-fork-carriage",
+      "word": "fork carriage",
+      "translation": "货叉架",
+      "x": 229.665072,
+      "y": 621.679065,
+      "priority": 1.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-fork-carriage"
+    },
+    {
+      "id": "warehouse-load-backrest",
+      "word": "load backrest",
+      "translation": "挡货架",
+      "x": 205.741627,
+      "y": 564.293305,
+      "priority": 1.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-load-backrest"
+    },
+    {
+      "id": "warehouse-fork-tine",
+      "word": "fork tine",
+      "translation": "货叉臂",
+      "x": 143.54067,
+      "y": 750.797024,
+      "priority": 1.008,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-fork-tine"
+    },
+    {
+      "id": "warehouse-fork-heel",
+      "word": "fork heel",
+      "translation": "货叉根部",
+      "x": 224.880383,
+      "y": 679.064825,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-fork-heel"
+    },
+    {
+      "id": "warehouse-hydraulic-hose",
+      "word": "hydraulic hose",
+      "translation": "液压软管",
+      "x": 311.004785,
+      "y": 497.343252,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-hydraulic-hose"
+    },
+    {
+      "id": "warehouse-tilt-cylinder",
+      "word": "tilt cylinder",
+      "translation": "倾斜油缸",
+      "x": 334.92823,
+      "y": 559.511158,
+      "priority": 1.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-tilt-cylinder"
+    },
+    {
+      "id": "warehouse-forklift-headlamp",
+      "word": "forklift headlamp",
+      "translation": "叉车前灯",
+      "x": 368.421053,
+      "y": 377.789586,
+      "priority": 1.012,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-forklift-headlamp"
+    },
+    {
+      "id": "warehouse-warning-beacon",
+      "word": "warning beacon",
+      "translation": "警示灯",
+      "x": 478.4689,
+      "y": 320.403826,
+      "priority": 1.013,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-warning-beacon"
+    },
+    {
+      "id": "warehouse-propane-cylinder",
+      "word": "propane cylinder",
+      "translation": "丙烷气瓶",
+      "x": 559.808612,
+      "y": 435.175345,
+      "priority": 1.014,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-propane-cylinder"
+    },
+    {
+      "id": "warehouse-cylinder-clamp",
+      "word": "cylinder clamp",
+      "translation": "气瓶夹具",
+      "x": 559.808612,
+      "y": 459.086079,
+      "priority": 1.015,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-cylinder-clamp"
+    },
+    {
+      "id": "warehouse-operator-seat",
+      "word": "operator seat",
+      "translation": "驾驶座椅",
+      "x": 464.114833,
+      "y": 449.521785,
+      "priority": 1.016,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-operator-seat"
+    },
+    {
+      "id": "warehouse-seat-back",
+      "word": "seat back",
+      "translation": "座椅靠背",
+      "x": 468.899522,
+      "y": 411.264612,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-seat-back"
+    },
+    {
+      "id": "warehouse-steering-wheel",
+      "word": "steering wheel",
+      "translation": "方向盘",
+      "x": 382.77512,
+      "y": 420.828905,
+      "priority": 1.018,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-steering-wheel"
+    },
+    {
+      "id": "warehouse-instrument-panel",
+      "word": "instrument panel",
+      "translation": "仪表台",
+      "x": 397.129187,
+      "y": 454.303932,
+      "priority": 1.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-instrument-panel"
+    },
+    {
+      "id": "warehouse-counterweight",
+      "word": "counterweight",
+      "translation": "平衡重",
+      "x": 550.239234,
+      "y": 559.511158,
+      "priority": 1.02,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-counterweight"
+    },
+    {
+      "id": "warehouse-drive-wheel",
+      "word": "drive wheel",
+      "translation": "驱动轮",
+      "x": 459.330144,
+      "y": 650.371945,
+      "priority": 1.021,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-drive-wheel"
+    },
+    {
+      "id": "warehouse-steer-wheel",
+      "word": "steer wheel",
+      "translation": "转向轮",
+      "x": 593.301435,
+      "y": 621.679065,
+      "priority": 1.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-steer-wheel"
+    },
+    {
+      "id": "warehouse-tire-tread",
+      "word": "tire tread",
+      "translation": "轮胎花纹",
+      "x": 459.330144,
+      "y": 640.807651,
+      "priority": 1.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-tire-tread"
+    },
+    {
+      "id": "warehouse-engine-hood",
+      "word": "engine hood",
+      "translation": "发动机罩",
+      "x": 521.5311,
+      "y": 497.343252,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-engine-hood"
+    },
+    {
+      "id": "warehouse-operator-step",
+      "word": "operator step",
+      "translation": "登车踏步",
+      "x": 401.913876,
+      "y": 607.332625,
+      "priority": 1.025,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-operator-step"
+    },
+    {
+      "id": "warehouse-pallet-rack",
+      "word": "pallet rack",
+      "translation": "托盘货架",
+      "x": 593.301435,
+      "y": 172.157279,
+      "priority": 1.026,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-pallet-rack"
+    },
+    {
+      "id": "warehouse-rack-upright",
+      "word": "rack upright",
+      "translation": "货架立柱",
+      "x": 497.607656,
+      "y": 239.107333,
+      "priority": 1.027,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-rack-upright"
+    },
+    {
+      "id": "warehouse-rack-beam",
+      "word": "rack beam",
+      "translation": "货架横梁",
+      "x": 622.009569,
+      "y": 153.028693,
+      "priority": 1.028,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-rack-beam"
+    },
+    {
+      "id": "warehouse-diagonal-brace",
+      "word": "diagonal brace",
+      "translation": "斜撑",
+      "x": 464.114833,
+      "y": 248.671626,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-diagonal-brace"
+    },
+    {
+      "id": "warehouse-wire-decking",
+      "word": "wire decking",
+      "translation": "钢丝层板",
+      "x": 650.717703,
+      "y": 205.632306,
+      "priority": 1.03,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-wire-decking"
+    },
+    {
+      "id": "warehouse-upright-guard",
+      "word": "upright guard",
+      "translation": "立柱护脚",
+      "x": 535.885167,
+      "y": 368.225292,
+      "priority": 1.031,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-upright-guard"
+    },
+    {
+      "id": "warehouse-rack-base-plate",
+      "word": "rack base plate",
+      "translation": "货架底板",
+      "x": 507.177033,
+      "y": 387.353879,
+      "priority": 1.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-rack-base-plate"
+    },
+    {
+      "id": "warehouse-warehouse-pallet",
+      "word": "warehouse pallet",
+      "translation": "仓储托盘",
+      "x": 612.440191,
+      "y": 109.989373,
+      "priority": 1.033,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-warehouse-pallet"
+    },
+    {
+      "id": "warehouse-deck-board",
+      "word": "deck board",
+      "translation": "托盘面板",
+      "x": 626.794258,
+      "y": 108.076514,
+      "priority": 1.034,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-deck-board"
+    },
+    {
+      "id": "warehouse-pallet-block",
+      "word": "pallet block",
+      "translation": "托盘垫块",
+      "x": 622.009569,
+      "y": 124.335813,
+      "priority": 1.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-pallet-block"
+    },
+    {
+      "id": "warehouse-pallet-stringer",
+      "word": "pallet stringer",
+      "translation": "托盘纵梁",
+      "x": 645.933014,
+      "y": 131.987248,
+      "priority": 1.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-pallet-stringer"
+    },
+    {
+      "id": "warehouse-rack-bay",
+      "word": "rack bay",
+      "translation": "货架跨",
+      "x": 688.995215,
+      "y": 267.800213,
+      "priority": 1.037,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-rack-bay"
+    },
+    {
+      "id": "warehouse-storage-aisle",
+      "word": "storage aisle",
+      "translation": "存储通道",
+      "x": 157.894737,
+      "y": 334.750266,
+      "priority": 1.038,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-storage-aisle"
+    },
+    {
+      "id": "warehouse-stacked-load",
+      "word": "stacked load",
+      "translation": "堆叠货载",
+      "x": 727.272727,
+      "y": 95.642933,
+      "priority": 1.039,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-stacked-load"
+    },
+    {
+      "id": "warehouse-shipping-case",
+      "word": "shipping case",
+      "translation": "运输箱",
+      "x": 660.287081,
+      "y": 76.514346,
+      "priority": 1.04,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-shipping-case"
+    },
+    {
+      "id": "warehouse-carton-stack",
+      "word": "carton stack",
+      "translation": "纸箱垛",
+      "x": 813.397129,
+      "y": 200.850159,
+      "priority": 1.041,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-carton-stack"
+    },
+    {
+      "id": "warehouse-blue-storage-tote",
+      "word": "blue storage tote",
+      "translation": "蓝色周转箱",
+      "x": 602.870813,
+      "y": 181.721573,
+      "priority": 1.042,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-blue-storage-tote"
+    },
+    {
+      "id": "warehouse-grey-storage-tote",
+      "word": "grey storage tote",
+      "translation": "灰色周转箱",
+      "x": 688.995215,
+      "y": 186.503719,
+      "priority": 1.043,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-grey-storage-tote"
+    },
+    {
+      "id": "warehouse-wooden-crate",
+      "word": "wooden crate",
+      "translation": "木制板条箱",
+      "x": 727.272727,
+      "y": 325.185972,
+      "priority": 1.044,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-wooden-crate"
+    },
+    {
+      "id": "warehouse-stretch-wrap",
+      "word": "stretch wrap",
+      "translation": "缠绕膜",
+      "x": 818.181818,
+      "y": 119.553666,
+      "priority": 1.045,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-stretch-wrap"
+    },
+    {
+      "id": "warehouse-corner-board",
+      "word": "corner board",
+      "translation": "护角板",
+      "x": 784.688995,
+      "y": 105.207226,
+      "priority": 1.046,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-corner-board"
+    },
+    {
+      "id": "warehouse-plastic-strapping",
+      "word": "plastic strapping",
+      "translation": "塑料捆扎带",
+      "x": 727.272727,
+      "y": 157.81084,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-plastic-strapping"
+    },
+    {
+      "id": "warehouse-beam-lock",
+      "word": "beam lock",
+      "translation": "横梁锁片",
+      "x": 612.440191,
+      "y": 167.375133,
+      "priority": 1.048,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-beam-lock"
+    },
+    {
+      "id": "warehouse-location-plate",
+      "word": "location plate",
+      "translation": "库位牌",
+      "x": 636.363636,
+      "y": 167.375133,
+      "priority": 1.049,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-location-plate"
+    },
+    {
+      "id": "warehouse-wrapped-pallet",
+      "word": "wrapped pallet",
+      "translation": "覆膜托盘货载",
+      "x": 784.688995,
+      "y": 239.107333,
+      "priority": 1.05,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-wrapped-pallet"
+    },
+    {
+      "id": "warehouse-manual-pallet-jack",
+      "word": "manual pallet jack",
+      "translation": "手动托盘车",
+      "x": 746.411483,
+      "y": 492.561105,
+      "priority": 1.051,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-manual-pallet-jack"
+    },
+    {
+      "id": "warehouse-tiller-handle",
+      "word": "tiller handle",
+      "translation": "操纵手柄",
+      "x": 703.349282,
+      "y": 454.303932,
+      "priority": 1.052,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-tiller-handle"
+    },
+    {
+      "id": "warehouse-jack-hydraulic-unit",
+      "word": "jack hydraulic unit",
+      "translation": "托盘车液压装置",
+      "x": 727.272727,
+      "y": 502.125399,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-jack-hydraulic-unit"
+    },
+    {
+      "id": "warehouse-jack-fork-arm",
+      "word": "jack fork arm",
+      "translation": "托盘车叉臂",
+      "x": 799.043062,
+      "y": 530.818278,
+      "priority": 1.054,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-jack-fork-arm"
+    },
+    {
+      "id": "warehouse-jack-load-wheel",
+      "word": "jack load wheel",
+      "translation": "托盘车承载轮",
+      "x": 846.889952,
+      "y": 535.600425,
+      "priority": 1.055,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-jack-load-wheel"
+    },
+    {
+      "id": "warehouse-jack-steer-caster",
+      "word": "jack steer caster",
+      "translation": "托盘车转向轮",
+      "x": 722.488038,
+      "y": 540.382572,
+      "priority": 1.056,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-jack-steer-caster"
+    },
+    {
+      "id": "warehouse-electric-pallet-truck",
+      "word": "electric pallet truck",
+      "translation": "电动托盘车",
+      "x": 909.090909,
+      "y": 454.303932,
+      "priority": 1.057,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-electric-pallet-truck"
+    },
+    {
+      "id": "warehouse-powered-control-handle",
+      "word": "powered control handle",
+      "translation": "电动控制手柄",
+      "x": 866.028708,
+      "y": 401.700319,
+      "priority": 1.058,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-powered-control-handle"
+    },
+    {
+      "id": "warehouse-battery-cover",
+      "word": "battery cover",
+      "translation": "电池盖",
+      "x": 894.736842,
+      "y": 449.521785,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-battery-cover"
+    },
+    {
+      "id": "warehouse-powered-fork",
+      "word": "powered fork",
+      "translation": "电动托盘车货叉",
+      "x": 956.937799,
+      "y": 487.778959,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-powered-fork"
+    },
+    {
+      "id": "warehouse-drive-unit",
+      "word": "drive unit",
+      "translation": "驱动单元",
+      "x": 875.598086,
+      "y": 478.214665,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-drive-unit"
+    },
+    {
+      "id": "warehouse-rolling-warehouse-ladder",
+      "word": "rolling warehouse ladder",
+      "translation": "仓库滚轮梯",
+      "x": 937.799043,
+      "y": 277.364506,
+      "priority": 1.062,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-rolling-warehouse-ladder"
+    },
+    {
+      "id": "warehouse-ladder-tread",
+      "word": "ladder tread",
+      "translation": "梯子踏板",
+      "x": 947.368421,
+      "y": 296.493092,
+      "priority": 1.063,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-ladder-tread"
+    },
+    {
+      "id": "warehouse-ladder-handrail",
+      "word": "ladder handrail",
+      "translation": "梯子扶手",
+      "x": 956.937799,
+      "y": 200.850159,
+      "priority": 1.064,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-ladder-handrail"
+    },
+    {
+      "id": "warehouse-ladder-caster",
+      "word": "ladder caster",
+      "translation": "梯子脚轮",
+      "x": 899.521531,
+      "y": 411.264612,
+      "priority": 1.065,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-ladder-caster"
+    },
+    {
+      "id": "warehouse-ladder-platform",
+      "word": "ladder platform",
+      "translation": "梯子平台",
+      "x": 985.645933,
+      "y": 219.978746,
+      "priority": 1.066,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-ladder-platform"
+    },
+    {
+      "id": "warehouse-dock-guardrail",
+      "word": "dock guardrail",
+      "translation": "月台防护栏",
+      "x": 1052.631579,
+      "y": 368.225292,
+      "priority": 1.067,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-dock-guardrail"
+    },
+    {
+      "id": "warehouse-rack-end-barrier",
+      "word": "rack end barrier",
+      "translation": "货架端部护栏",
+      "x": 545.454545,
+      "y": 368.225292,
+      "priority": 1.068,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-rack-end-barrier"
+    },
+    {
+      "id": "warehouse-packing-bench",
+      "word": "packing bench",
+      "translation": "包装工作台",
+      "x": 1186.602871,
+      "y": 688.629118,
+      "priority": 1.069,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-packing-bench"
+    },
+    {
+      "id": "warehouse-packing-worktop",
+      "word": "packing worktop",
+      "translation": "包装台面",
+      "x": 1177.033493,
+      "y": 621.679065,
+      "priority": 1.07,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-packing-worktop"
+    },
+    {
+      "id": "warehouse-roller-conveyor",
+      "word": "roller conveyor",
+      "translation": "滚筒输送机",
+      "x": 1377.990431,
+      "y": 602.550478,
+      "priority": 1.071,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-roller-conveyor"
+    },
+    {
+      "id": "warehouse-conveyor-roller",
+      "word": "conveyor roller",
+      "translation": "输送机滚筒",
+      "x": 1387.559809,
+      "y": 592.986185,
+      "priority": 1.072,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-conveyor-roller"
+    },
+    {
+      "id": "warehouse-conveyor-frame",
+      "word": "conveyor frame",
+      "translation": "输送机机架",
+      "x": 1435.406699,
+      "y": 669.500531,
+      "priority": 1.073,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-conveyor-frame"
+    },
+    {
+      "id": "warehouse-bench-scale",
+      "word": "bench scale",
+      "translation": "台秤",
+      "x": 1014.354067,
+      "y": 612.114772,
+      "priority": 1.074,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-bench-scale"
+    },
+    {
+      "id": "warehouse-scale-platform",
+      "word": "scale platform",
+      "translation": "秤台",
+      "x": 1004.784689,
+      "y": 588.204038,
+      "priority": 1.075,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-scale-platform"
+    },
+    {
+      "id": "warehouse-barcode-scanner",
+      "word": "barcode scanner",
+      "translation": "条码扫描器",
+      "x": 1301.435407,
+      "y": 621.679065,
+      "priority": 1.076,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-barcode-scanner"
+    },
+    {
+      "id": "warehouse-scanner-trigger",
+      "word": "scanner trigger",
+      "translation": "扫描器扳机",
+      "x": 1301.435407,
+      "y": 626.461211,
+      "priority": 1.077,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-scanner-trigger"
+    },
+    {
+      "id": "warehouse-label-printer",
+      "word": "label printer",
+      "translation": "标签打印机",
+      "x": 1344.497608,
+      "y": 669.500531,
+      "priority": 1.078,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-label-printer"
+    },
+    {
+      "id": "warehouse-label-liner",
+      "word": "label liner",
+      "translation": "标签底纸",
+      "x": 1354.066986,
+      "y": 717.321998,
+      "priority": 1.079,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-label-liner"
+    },
+    {
+      "id": "warehouse-tape-dispenser",
+      "word": "tape dispenser",
+      "translation": "胶带座",
+      "x": 1119.617225,
+      "y": 650.371945,
+      "priority": 1.08,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-tape-dispenser"
+    },
+    {
+      "id": "warehouse-packing-tape-roll",
+      "word": "packing tape roll",
+      "translation": "包装胶带卷",
+      "x": 1110.047847,
+      "y": 645.589798,
+      "priority": 1.081,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-packing-tape-roll"
+    },
+    {
+      "id": "warehouse-box-cutter",
+      "word": "box cutter",
+      "translation": "开箱刀",
+      "x": 1043.062201,
+      "y": 626.461211,
+      "priority": 1.082,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-box-cutter"
+    },
+    {
+      "id": "warehouse-kraft-paper-roll",
+      "word": "kraft paper roll",
+      "translation": "牛皮纸卷",
+      "x": 985.645933,
+      "y": 535.600425,
+      "priority": 1.083,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-kraft-paper-roll"
+    },
+    {
+      "id": "warehouse-cushioning-paper",
+      "word": "cushioning paper",
+      "translation": "缓冲纸",
+      "x": 1110.047847,
+      "y": 564.293305,
+      "priority": 1.084,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-cushioning-paper"
+    },
+    {
+      "id": "warehouse-open-shipping-carton",
+      "word": "open shipping carton",
+      "translation": "打开的运输纸箱",
+      "x": 1138.755981,
+      "y": 564.293305,
+      "priority": 1.085,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-open-shipping-carton"
+    },
+    {
+      "id": "warehouse-grey-picking-tote",
+      "word": "grey picking tote",
+      "translation": "灰色拣货箱",
+      "x": 985.645933,
+      "y": 784.272051,
+      "priority": 1.086,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-grey-picking-tote"
+    },
+    {
+      "id": "warehouse-blue-picking-tote",
+      "word": "blue picking tote",
+      "translation": "蓝色拣货箱",
+      "x": 1119.617225,
+      "y": 784.272051,
+      "priority": 1.087,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-blue-picking-tote"
+    },
+    {
+      "id": "warehouse-flattened-carton",
+      "word": "flattened carton",
+      "translation": "折平纸箱",
+      "x": 1244.019139,
+      "y": 812.964931,
+      "priority": 1.088,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-flattened-carton"
+    },
+    {
+      "id": "warehouse-platform-hand-truck",
+      "word": "platform hand truck",
+      "translation": "平板手推车",
+      "x": 1464.114833,
+      "y": 726.886291,
+      "priority": 1.089,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-platform-hand-truck"
+    },
+    {
+      "id": "warehouse-hand-truck-frame",
+      "word": "hand-truck frame",
+      "translation": "手推车车架",
+      "x": 1468.899522,
+      "y": 688.629118,
+      "priority": 1.09,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-hand-truck-frame"
+    },
+    {
+      "id": "warehouse-hand-truck-toe-plate",
+      "word": "hand-truck toe plate",
+      "translation": "手推车底板",
+      "x": 1435.406699,
+      "y": 832.093518,
+      "priority": 1.091,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-hand-truck-toe-plate"
+    },
+    {
+      "id": "warehouse-hand-truck-wheel",
+      "word": "hand-truck wheel",
+      "translation": "手推车轮",
+      "x": 1511.961722,
+      "y": 841.657811,
+      "priority": 1.092,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-hand-truck-wheel"
+    },
+    {
+      "id": "warehouse-blue-waste-bin",
+      "word": "blue waste bin",
+      "translation": "蓝色废物桶",
+      "x": 1502.392344,
+      "y": 573.857598,
+      "priority": 1.093,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-blue-waste-bin"
+    },
+    {
+      "id": "warehouse-grey-waste-bin",
+      "word": "grey waste bin",
+      "translation": "灰色废物桶",
+      "x": 1425.837321,
+      "y": 602.550478,
+      "priority": 1.094,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-grey-waste-bin"
+    },
+    {
+      "id": "warehouse-overhead-dock-door",
+      "word": "overhead dock door",
+      "translation": "上翻式月台门",
+      "x": 1339.712919,
+      "y": 105.207226,
+      "priority": 1.095,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-overhead-dock-door"
+    },
+    {
+      "id": "warehouse-sectional-door-panel",
+      "word": "sectional door panel",
+      "translation": "分节门板",
+      "x": 1339.712919,
+      "y": 95.642933,
+      "priority": 1.096,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-sectional-door-panel"
+    },
+    {
+      "id": "warehouse-door-hinge",
+      "word": "door hinge",
+      "translation": "门板铰链",
+      "x": 1311.004785,
+      "y": 172.157279,
+      "priority": 1.097,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-door-hinge"
+    },
+    {
+      "id": "warehouse-vertical-door-track",
+      "word": "vertical door track",
+      "translation": "垂直门轨",
+      "x": 1224.880383,
+      "y": 95.642933,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-vertical-door-track"
+    },
+    {
+      "id": "warehouse-dock-shelter",
+      "word": "dock shelter",
+      "translation": "月台门封",
+      "x": 1272.727273,
+      "y": 267.800213,
+      "priority": 1.099,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-dock-shelter"
+    },
+    {
+      "id": "warehouse-truck-trailer",
+      "word": "truck trailer",
+      "translation": "卡车挂车",
+      "x": 1358.851675,
+      "y": 315.621679,
+      "priority": 1.1,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-truck-trailer"
+    },
+    {
+      "id": "warehouse-trailer-opening",
+      "word": "trailer opening",
+      "translation": "挂车开口",
+      "x": 1339.712919,
+      "y": 286.928799,
+      "priority": 1.101,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-trailer-opening"
+    },
+    {
+      "id": "warehouse-trailer-floor",
+      "word": "trailer floor",
+      "translation": "挂车地板",
+      "x": 1339.712919,
+      "y": 430.393199,
+      "priority": 1.102,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-trailer-floor"
+    },
+    {
+      "id": "warehouse-dock-leveler",
+      "word": "dock leveler",
+      "translation": "登车桥",
+      "x": 1339.712919,
+      "y": 459.086079,
+      "priority": 1.103,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-dock-leveler"
+    },
+    {
+      "id": "warehouse-dock-lip",
+      "word": "dock lip",
+      "translation": "登车桥唇板",
+      "x": 1311.004785,
+      "y": 478.214665,
+      "priority": 1.104,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-dock-lip"
+    },
+    {
+      "id": "warehouse-dock-bumper",
+      "word": "dock bumper",
+      "translation": "月台防撞垫",
+      "x": 1253.588517,
+      "y": 449.521785,
+      "priority": 1.105,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-dock-bumper"
+    },
+    {
+      "id": "warehouse-dock-threshold",
+      "word": "dock threshold",
+      "translation": "月台门槛",
+      "x": 1291.866029,
+      "y": 449.521785,
+      "priority": 1.106,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-dock-threshold"
+    },
+    {
+      "id": "warehouse-dock-light",
+      "word": "dock light",
+      "translation": "月台照明灯",
+      "x": 1464.114833,
+      "y": 248.671626,
+      "priority": 1.107,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-dock-light"
+    },
+    {
+      "id": "warehouse-safety-bollard",
+      "word": "safety bollard",
+      "translation": "安全防撞柱",
+      "x": 1502.392344,
+      "y": 401.700319,
+      "priority": 1.108,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-safety-bollard"
+    },
+    {
+      "id": "warehouse-bollard-cap",
+      "word": "bollard cap",
+      "translation": "防撞柱帽",
+      "x": 1500.478469,
+      "y": 377.789586,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "warehouse-region-bollard-cap"
+    },
+    {
+      "id": "warehouse-dock-stair",
+      "word": "dock stair",
+      "translation": "月台楼梯",
+      "x": 1473.684211,
+      "y": 449.521785,
+      "priority": 1.11,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-dock-stair"
+    },
+    {
+      "id": "warehouse-stair-tread",
+      "word": "stair tread",
+      "translation": "楼梯踏板",
+      "x": 1492.822967,
+      "y": 478.214665,
+      "priority": 1.111,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-stair-tread"
+    },
+    {
+      "id": "warehouse-stair-handrail",
+      "word": "stair handrail",
+      "translation": "楼梯扶手",
+      "x": 1473.684211,
+      "y": 382.571732,
+      "priority": 1.112,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-stair-handrail"
+    },
+    {
+      "id": "warehouse-dock-curb",
+      "word": "dock curb",
+      "translation": "月台路缘",
+      "x": 1444.976077,
+      "y": 478.214665,
+      "priority": 1.113,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-dock-curb"
+    },
+    {
+      "id": "warehouse-pedestrian-lane",
+      "word": "pedestrian lane",
+      "translation": "人行通道",
+      "x": 1397.129187,
+      "y": 516.471838,
+      "priority": 1.114,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-pedestrian-lane"
+    },
+    {
+      "id": "warehouse-convex-safety-mirror",
+      "word": "convex safety mirror",
+      "translation": "凸面安全镜",
+      "x": 1516.746411,
+      "y": 86.07864,
+      "priority": 1.115,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-convex-safety-mirror"
+    },
+    {
+      "id": "warehouse-fire-extinguisher",
+      "word": "fire extinguisher",
+      "translation": "灭火器",
+      "x": 1148.325359,
+      "y": 315.621679,
+      "priority": 1.116,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-fire-extinguisher"
+    },
+    {
+      "id": "warehouse-first-aid-cabinet",
+      "word": "first-aid cabinet",
+      "translation": "急救柜",
+      "x": 1090.909091,
+      "y": 296.493092,
+      "priority": 1.117,
+      "minLevel": 1,
+      "sourceVisualRegion": "warehouse-region-first-aid-cabinet"
+    },
+    {
+      "id": "warehouse-eyewash-station",
+      "word": "eyewash station",
+      "translation": "洗眼器",
+      "x": 1511.961722,
+      "y": 325.185972,
+      "priority": 1.118,
+      "minLevel": 0,
+      "sourceVisualRegion": "warehouse-region-eyewash-station"
+    },
+    {
+      "id": "warehouse-eyewash-bowl",
+      "word": "eyewash bowl",
+      "translation": "洗眼盆",
+      "x": 1516.746411,
+      "y": 329.968119,
+      "priority": 1.119,
+      "minLevel": 3,
+      "sourceVisualRegion": "warehouse-region-eyewash-bowl"
+    },
+    {
+      "id": "warehouse-dock-control-box",
+      "word": "dock control box",
+      "translation": "月台控制箱",
+      "x": 1464.114833,
+      "y": 315.621679,
+      "priority": 1.12,
+      "minLevel": 2,
+      "sourceVisualRegion": "warehouse-region-dock-control-box"
+    }
+  ],
+  "portals": []
+}

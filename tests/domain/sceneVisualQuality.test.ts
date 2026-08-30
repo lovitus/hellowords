@@ -203,6 +203,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 45,
     },
   },
+  "warehouse-loading-dock": {
+    asset: "/scenes/warehouse-loading-dock-premium-v1.jpg",
+    sha256: "4ea669efc86bdf8b77aad57dc2b2054622501c57f45ef132503db0089de8350f",
+    quality: {
+      minMeanLuminance: 105,
+      maxMeanLuminance: 205,
+      maxDarkFraction: 0.3,
+      maxDeepDarkFraction: 0.16,
+      minMeanChroma: 0.04,
+      maxMeanChroma: 0.25,
+      maxChannelMeanSpread: 45,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

@@ -817,6 +817,15 @@
       "y": 573.857598,
       "width": 38.277512,
       "height": 38.257173
+    },
+    {
+      "id": "portal-warehouse-loading-dock",
+      "description": "Visible freight door, dock plate and pallet-handling area on the office service-core photograph",
+      "kind": "object",
+      "x": 1385,
+      "y": 405,
+      "width": 215,
+      "height": 300
     }
   ],
   "detailZones": [
@@ -1896,5 +1905,18 @@
       "sourceVisualRegion": "service-core-region-dock-leveler-hinge"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-warehouse-loading-dock",
+      "label": "Enter the warehouse loading dock",
+      "translation": "进入仓库装卸区",
+      "childSceneId": "warehouse-loading-dock",
+      "sourceVisualRegion": "portal-warehouse-loading-dock",
+      "x": 1385,
+      "y": 405,
+      "width": 215,
+      "height": 300,
+      "enterScale": 3.4
+    }
+  ]
 }

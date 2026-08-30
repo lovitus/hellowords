@@ -236,6 +236,11 @@
       "id": "service-core",
       "title": "Office service core",
       "parentId": "office-building"
+    },
+    {
+      "id": "warehouse-loading-dock",
+      "title": "Warehouse loading dock",
+      "parentId": "service-core"
     }
   ]
 }
