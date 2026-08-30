@@ -4863,6 +4863,18 @@
       "sourceVisualRegion": "pathology-laboratory"
     },
     {
+      "id": "enter-radiology-suite",
+      "label": "Enter the radiology suite",
+      "translation": "进入放射影像科",
+      "childSceneId": "radiology-suite",
+      "sourceVisualRegion": "radiology-suite",
+      "x": 700,
+      "y": 280,
+      "width": 310,
+      "height": 300,
+      "enterScale": 3.4
+    },
+    {
       "id": "enter-hospital-pharmacy",
       "label": "Enter the hospital pharmacy",
       "translation": "进入医院药房",

@@ -104,6 +104,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // pharmacy and operating-theatre areas; its floor keeps disease and INN terms
   // in the clinical-reference band without turning them into treatment advice.
   hospital: 100,
+  // The dedicated radiology photograph resolves CT, MRI, X-ray, mammography,
+  // ultrasound and preparation fixtures without adding patient or dose claims.
+  "radiology-suite": 64,
   // The dedicated pathology lab keeps microscope, specimen, embedding, staining
   // and cold-storage terms in one focused educational bench.
   "pathology-lab": 100,
@@ -167,6 +170,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The latest professional-depth passes add reviewed equipment, medicine,
   // airside, imaging, dispensing and conference-room bands to each facility.
   hospital: 440,
+  // The radiology-suite photograph resolves 87 independently pointable
+  // imaging, control, preparation and room-hardware parts.
+  "radiology-suite": 87,
   "pathology-lab": 450,
   "hospital-pharmacy": 390,
   airport: 390,

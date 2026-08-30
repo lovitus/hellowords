@@ -164,6 +164,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 50,
     },
   },
+  "radiology-suite": {
+    asset: "/scenes/radiology-suite-premium-v1.jpg",
+    sha256: "b61a9331f765812aabc429d86ea935ba00e947fb86b45e487743a410c01cecc5",
+    quality: {
+      minMeanLuminance: 120,
+      maxMeanLuminance: 190,
+      maxDarkFraction: 0.2,
+      maxDeepDarkFraction: 0.05,
+      minMeanChroma: 0.03,
+      maxMeanChroma: 0.2,
+      maxChannelMeanSpread: 30,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

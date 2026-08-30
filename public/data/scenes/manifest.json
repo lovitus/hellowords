@@ -68,6 +68,11 @@
       "parentId": "urban-services"
     },
     {
+      "id": "radiology-suite",
+      "title": "Radiology suite",
+      "parentId": "hospital"
+    },
+    {
       "id": "pathology-lab",
       "title": "Pathology lab",
       "parentId": "hospital"
