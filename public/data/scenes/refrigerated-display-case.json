@@ -1,0 +1,2933 @@
+{
+  "id": "refrigerated-display-case",
+  "title": "Refrigerated display case",
+  "translation": "冷藏陈列柜",
+  "subtitle": "Glass doors, shelves, dairy and egg packages, lighting and base ventilation",
+  "asset": "/scenes/refrigerated-display-case-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "supermarket-grocery",
+  "visualRegions": [
+    {
+      "id": "refrigerated-display-case-region-refrigerated-display-case",
+      "description": "Pixel-audited “refrigerated display case” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 35,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-merchandiser-canopy",
+      "description": "Pixel-audited “merchandiser canopy” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 50,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-canopy-fascia",
+      "description": "Pixel-audited “canopy fascia” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 75,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-canopy-top-panel",
+      "description": "Pixel-audited “canopy top panel” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 25,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-cabinet-header",
+      "description": "Pixel-audited “cabinet header” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-header-seam",
+      "description": "Pixel-audited “header seam” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-upper-side-panel",
+      "description": "Pixel-audited “upper side panel” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1260,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-side-panel",
+      "description": "Pixel-audited “right side panel” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1400,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-side-panel-seam",
+      "description": "Pixel-audited “side panel seam” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1370,
+      "y": 210,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-cabinet-corner-guard",
+      "description": "Pixel-audited “cabinet corner guard” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 85,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-merchandiser-cabinet-frame",
+      "description": "Pixel-audited “merchandiser cabinet frame” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-stainless-steel-frame",
+      "description": "Pixel-audited “stainless steel frame” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 135,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-vertical-frame-rail",
+      "description": "Pixel-audited “vertical frame rail” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 140,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-end-panel",
+      "description": "Pixel-audited “left end panel” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 170,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-end-panel",
+      "description": "Pixel-audited “right end panel” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1410,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-top-trim",
+      "description": "Pixel-audited “top trim” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 85,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-canopy-underside",
+      "description": "Pixel-audited “canopy underside” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-header-corner-seam",
+      "description": "Pixel-audited “header corner seam” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1240,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-exterior-side-rail",
+      "description": "Pixel-audited “exterior side rail” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1370,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-cabinet-shell-edge",
+      "description": "Pixel-audited “cabinet shell edge” inside the Cabinet canopy and shell crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-merchandiser-door",
+      "description": "Pixel-audited “left merchandiser door” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 300,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-door-frame",
+      "description": "Pixel-audited “left door frame” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-door-handle",
+      "description": "Pixel-audited “left door handle” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 195,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-door-hinge",
+      "description": "Pixel-audited “left door hinge” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 190,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-door-gasket",
+      "description": "Pixel-audited “left door gasket” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 125,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-door-sill",
+      "description": "Pixel-audited “left door sill” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 300,
+      "y": 670,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-door-mullion",
+      "description": "Pixel-audited “left door mullion” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 390,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-handle-mount",
+      "description": "Pixel-audited “left handle mount” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 195,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-magnetic-seal",
+      "description": "Pixel-audited “left magnetic seal” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-door-glass",
+      "description": "Pixel-audited “left door glass” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 310,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-shelf-lip",
+      "description": "Pixel-audited “left shelf lip” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-shelf-clip",
+      "description": "Pixel-audited “left shelf clip” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-shelf-bracket",
+      "description": "Pixel-audited “left shelf bracket” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-product-strip",
+      "description": "Pixel-audited “left product strip” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-interior-liner",
+      "description": "Pixel-audited “left interior liner” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 260,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-return-air-slot",
+      "description": "Pixel-audited “left return air slot” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 610,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-light-rail",
+      "description": "Pixel-audited “left light rail” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 115,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-yogurt-cup",
+      "description": "Pixel-audited “left yogurt cup” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-cream-cup",
+      "description": "Pixel-audited “left cream cup” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-dairy-carton",
+      "description": "Pixel-audited “left dairy carton” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-milk-carton",
+      "description": "Pixel-audited “left milk carton” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 490,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-cultured-cup",
+      "description": "Pixel-audited “left cultured cup” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 570,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-lower-carton",
+      "description": "Pixel-audited “left lower carton” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-shelf-divider",
+      "description": "Pixel-audited “left shelf divider” inside the Left glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-merchandiser-door",
+      "description": "Pixel-audited “center merchandiser door” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-door-frame",
+      "description": "Pixel-audited “center door frame” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 610,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-door-handle",
+      "description": "Pixel-audited “center door handle” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-door-hinge",
+      "description": "Pixel-audited “center door hinge” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-door-gasket",
+      "description": "Pixel-audited “center door gasket” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 125,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-door-sill",
+      "description": "Pixel-audited “center door sill” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 670,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-door-mullion",
+      "description": "Pixel-audited “center door mullion” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-handle-mount",
+      "description": "Pixel-audited “center handle mount” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-magnetic-seal",
+      "description": "Pixel-audited “center magnetic seal” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 850,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-door-glass",
+      "description": "Pixel-audited “center door glass” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-shelf-rail",
+      "description": "Pixel-audited “center shelf rail” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-shelf-clip",
+      "description": "Pixel-audited “center shelf clip” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-shelf-bracket",
+      "description": "Pixel-audited “center shelf bracket” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-product-strip",
+      "description": "Pixel-audited “center product strip” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-interior-liner",
+      "description": "Pixel-audited “center interior liner” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-air-return",
+      "description": "Pixel-audited “center air return” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 660,
+      "y": 610,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-light-rail",
+      "description": "Pixel-audited “center light rail” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 660,
+      "y": 115,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-milk-jug",
+      "description": "Pixel-audited “center milk jug” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-milk-cap",
+      "description": "Pixel-audited “center milk cap” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 250,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-cream-carton",
+      "description": "Pixel-audited “center cream carton” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-dairy-bottle",
+      "description": "Pixel-audited “center dairy bottle” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-lower-carton",
+      "description": "Pixel-audited “center lower carton” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-yogurt-cup",
+      "description": "Pixel-audited “center yogurt cup” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 190,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-butter-block",
+      "description": "Pixel-audited “center butter block” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-cheese-pack",
+      "description": "Pixel-audited “center cheese pack” inside the Center glass-door bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-merchandiser-door",
+      "description": "Pixel-audited “right merchandiser door” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-door-frame",
+      "description": "Pixel-audited “right door frame” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1050,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-door-handle",
+      "description": "Pixel-audited “right door handle” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1045,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-door-hinge",
+      "description": "Pixel-audited “right door hinge” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1050,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-door-gasket",
+      "description": "Pixel-audited “right door gasket” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 125,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-door-sill",
+      "description": "Pixel-audited “right door sill” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-door-mullion",
+      "description": "Pixel-audited “right door mullion” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1270,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-handle-mount",
+      "description": "Pixel-audited “right handle mount” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1045,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-magnetic-seal",
+      "description": "Pixel-audited “right magnetic seal” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1290,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-door-glass",
+      "description": "Pixel-audited “right door glass” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-shelf-rail",
+      "description": "Pixel-audited “right shelf rail” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1170,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-shelf-clip",
+      "description": "Pixel-audited “right shelf clip” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1100,
+      "y": 250,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-shelf-bracket",
+      "description": "Pixel-audited “right shelf bracket” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-product-strip",
+      "description": "Pixel-audited “right product strip” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-interior-liner",
+      "description": "Pixel-audited “right interior liner” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1340,
+      "y": 290,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-return-air-slot",
+      "description": "Pixel-audited “right return air slot” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 650,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-light-rail",
+      "description": "Pixel-audited “right light rail” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 115,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-upper-egg-carton",
+      "description": "Pixel-audited “upper egg carton” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1150,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-lower-egg-carton",
+      "description": "Pixel-audited “lower egg carton” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1150,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-egg-carton-lid",
+      "description": "Pixel-audited “display egg carton lid” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1200,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-egg-carton-cup",
+      "description": "Pixel-audited “egg carton cup” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1240,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-butter-block",
+      "description": "Pixel-audited “right butter block” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-cheese-block",
+      "description": "Pixel-audited “right cheese block” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-cheese-cube",
+      "description": "Pixel-audited “right cheese cube” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1220,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-cheese-package",
+      "description": "Pixel-audited “right cheese package” inside the Right egg and cheese bank crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-adjustable-wire-shelf",
+      "description": "Pixel-audited “adjustable wire shelf” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-case-shelf-front-edge",
+      "description": "Pixel-audited “case shelf front edge” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-shelf-rear-rail",
+      "description": "Pixel-audited “shelf rear rail” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 215,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-case-shelf-support",
+      "description": "Pixel-audited “case shelf support” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-case-shelf-divider",
+      "description": "Pixel-audited “case shelf divider” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-tray",
+      "description": "Pixel-audited “display tray” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-product-riser",
+      "description": "Pixel-audited “product riser” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 560,
+      "y": 570,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-carton-divider",
+      "description": "Pixel-audited “carton divider” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 750,
+      "y": 570,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-case-milk-carton",
+      "description": "Pixel-audited “display case milk carton” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-milk-carton-spout",
+      "description": "Pixel-audited “milk carton spout” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 590,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-milk-carton-cap",
+      "description": "Pixel-audited “milk carton cap” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 570,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-case-yogurt-lid",
+      "description": "Pixel-audited “display case yogurt lid” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 340,
+      "y": 165,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-case-yogurt-tub",
+      "description": "Pixel-audited “display case yogurt tub” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 290,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-case-dairy-bottle",
+      "description": "Pixel-audited “display case dairy bottle” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-dairy-bottle-cap",
+      "description": "Pixel-audited “dairy bottle cap” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 295,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-case-cream-container",
+      "description": "Pixel-audited “display case cream container” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-cream-container-lid",
+      "description": "Pixel-audited “cream container lid” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-butter-wrapper",
+      "description": "Pixel-audited “butter wrapper” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-case-butter-block",
+      "description": "Pixel-audited “display case butter block” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-case-cheese-block",
+      "description": "Pixel-audited “display case cheese block” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-case-cheese-pack",
+      "description": "Pixel-audited “display case cheese pack” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1040,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-case-egg-tray",
+      "description": "Pixel-audited “display case egg tray” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-egg-carton-handle",
+      "description": "Pixel-audited “egg carton handle” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1210,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-product-strip-rail",
+      "description": "Pixel-audited “product strip rail” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-shelf-end-stop",
+      "description": "Pixel-audited “shelf end stop” inside the Shelf and product detail crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-lower-cabinet-base",
+      "description": "Pixel-audited “lower cabinet base” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-black-kickplate",
+      "description": "Pixel-audited “black kickplate” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 770,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-condenser-grille",
+      "description": "Pixel-audited “condenser grille” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-ventilation-louver",
+      "description": "Pixel-audited “ventilation louver” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-return-air-grille",
+      "description": "Pixel-audited “return air grille” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-air-intake-slot",
+      "description": "Pixel-audited “air intake slot” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-bottom-grille-slat",
+      "description": "Pixel-audited “bottom grille slat” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-grille-frame",
+      "description": "Pixel-audited “grille frame” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-base-trim",
+      "description": "Pixel-audited “base trim” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-merchandiser-cabinet-plinth",
+      "description": "Pixel-audited “merchandiser cabinet plinth” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 750,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-left-base-rail",
+      "description": "Pixel-audited “left base rail” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-center-base-rail",
+      "description": "Pixel-audited “center base rail” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-right-base-rail",
+      "description": "Pixel-audited “right base rail” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-base-panel-seam",
+      "description": "Pixel-audited “base panel seam” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-leveling-foot",
+      "description": "Pixel-audited “leveling foot” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 840,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-floor-contact-pad",
+      "description": "Pixel-audited “floor contact pad” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-merchandiser-lower-shelf",
+      "description": "Pixel-audited “merchandiser lower shelf” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-lower-shelf-lip",
+      "description": "Pixel-audited “lower shelf lip” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 690,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-lower-shelf-support",
+      "description": "Pixel-audited “lower shelf support” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-display-case-floor-tile",
+      "description": "Pixel-audited “display-case floor tile” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-floor-grout-line",
+      "description": "Pixel-audited “floor grout line” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "refrigerated-display-case-region-base-grille-corner",
+      "description": "Pixel-audited “base grille corner” inside the Base and airflow hardware crop of the refrigerated display case photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "refrigerated-display-case-zone-cabinet-canopy",
+      "title": "Cabinet canopy and shell",
+      "translation": "柜体顶盖与外壳",
+      "description": "Trace the visible merchandiser canopy, header, stainless frame, side panels and shell seams.",
+      "x": 170,
+      "y": 0,
+      "width": 1430,
+      "height": 550,
+      "targetScale": 3.15,
+      "labelIds": [
+        "refrigerated-display-case-refrigerated-display-case",
+        "refrigerated-display-case-merchandiser-canopy",
+        "refrigerated-display-case-canopy-fascia",
+        "refrigerated-display-case-canopy-top-panel",
+        "refrigerated-display-case-cabinet-header",
+        "refrigerated-display-case-header-seam",
+        "refrigerated-display-case-upper-side-panel",
+        "refrigerated-display-case-right-side-panel",
+        "refrigerated-display-case-side-panel-seam",
+        "refrigerated-display-case-cabinet-corner-guard",
+        "refrigerated-display-case-merchandiser-cabinet-frame",
+        "refrigerated-display-case-stainless-steel-frame",
+        "refrigerated-display-case-vertical-frame-rail",
+        "refrigerated-display-case-left-end-panel",
+        "refrigerated-display-case-right-end-panel",
+        "refrigerated-display-case-top-trim",
+        "refrigerated-display-case-canopy-underside",
+        "refrigerated-display-case-header-corner-seam",
+        "refrigerated-display-case-exterior-side-rail",
+        "refrigerated-display-case-cabinet-shell-edge"
+      ]
+    },
+    {
+      "id": "refrigerated-display-case-zone-left-door-bank",
+      "title": "Left glass-door bank",
+      "translation": "左侧玻璃门组",
+      "description": "Inspect the left transparent door, frame, hinge, gasket, shelf hardware and visible dairy packages.",
+      "x": 190,
+      "y": 80,
+      "width": 430,
+      "height": 650,
+      "targetScale": 3.15,
+      "labelIds": [
+        "refrigerated-display-case-left-merchandiser-door",
+        "refrigerated-display-case-left-door-frame",
+        "refrigerated-display-case-left-door-handle",
+        "refrigerated-display-case-left-door-hinge",
+        "refrigerated-display-case-left-door-gasket",
+        "refrigerated-display-case-left-door-sill",
+        "refrigerated-display-case-left-door-mullion",
+        "refrigerated-display-case-left-handle-mount",
+        "refrigerated-display-case-left-magnetic-seal",
+        "refrigerated-display-case-left-door-glass",
+        "refrigerated-display-case-left-shelf-lip",
+        "refrigerated-display-case-left-shelf-clip",
+        "refrigerated-display-case-left-shelf-bracket",
+        "refrigerated-display-case-left-product-strip",
+        "refrigerated-display-case-left-interior-liner",
+        "refrigerated-display-case-left-return-air-slot",
+        "refrigerated-display-case-left-light-rail",
+        "refrigerated-display-case-left-yogurt-cup",
+        "refrigerated-display-case-left-cream-cup",
+        "refrigerated-display-case-left-dairy-carton",
+        "refrigerated-display-case-left-milk-carton",
+        "refrigerated-display-case-left-cultured-cup",
+        "refrigerated-display-case-left-lower-carton",
+        "refrigerated-display-case-left-shelf-divider"
+      ]
+    },
+    {
+      "id": "refrigerated-display-case-zone-center-door-bank",
+      "title": "Center glass-door bank",
+      "translation": "中央玻璃门组",
+      "description": "Follow the central door hardware, shelf rails, interior liner, bottle caps and dairy containers.",
+      "x": 600,
+      "y": 80,
+      "width": 480,
+      "height": 650,
+      "targetScale": 3.15,
+      "labelIds": [
+        "refrigerated-display-case-center-merchandiser-door",
+        "refrigerated-display-case-center-door-frame",
+        "refrigerated-display-case-center-door-handle",
+        "refrigerated-display-case-center-door-hinge",
+        "refrigerated-display-case-center-door-gasket",
+        "refrigerated-display-case-center-door-sill",
+        "refrigerated-display-case-center-door-mullion",
+        "refrigerated-display-case-center-handle-mount",
+        "refrigerated-display-case-center-magnetic-seal",
+        "refrigerated-display-case-center-door-glass",
+        "refrigerated-display-case-center-shelf-rail",
+        "refrigerated-display-case-center-shelf-clip",
+        "refrigerated-display-case-center-shelf-bracket",
+        "refrigerated-display-case-center-product-strip",
+        "refrigerated-display-case-center-interior-liner",
+        "refrigerated-display-case-center-air-return",
+        "refrigerated-display-case-center-light-rail",
+        "refrigerated-display-case-center-milk-jug",
+        "refrigerated-display-case-center-milk-cap",
+        "refrigerated-display-case-center-cream-carton",
+        "refrigerated-display-case-center-dairy-bottle",
+        "refrigerated-display-case-center-lower-carton",
+        "refrigerated-display-case-center-yogurt-cup",
+        "refrigerated-display-case-center-butter-block",
+        "refrigerated-display-case-center-cheese-pack"
+      ]
+    },
+    {
+      "id": "refrigerated-display-case-zone-right-door-bank",
+      "title": "Right egg and cheese bank",
+      "translation": "右侧蛋品与奶酪门组",
+      "description": "Inspect the right glass door, frame, shelf hardware and distinct egg, butter and cheese packages.",
+      "x": 1060,
+      "y": 80,
+      "width": 380,
+      "height": 700,
+      "targetScale": 3.15,
+      "labelIds": [
+        "refrigerated-display-case-right-merchandiser-door",
+        "refrigerated-display-case-right-door-frame",
+        "refrigerated-display-case-right-door-handle",
+        "refrigerated-display-case-right-door-hinge",
+        "refrigerated-display-case-right-door-gasket",
+        "refrigerated-display-case-right-door-sill",
+        "refrigerated-display-case-right-door-mullion",
+        "refrigerated-display-case-right-handle-mount",
+        "refrigerated-display-case-right-magnetic-seal",
+        "refrigerated-display-case-right-door-glass",
+        "refrigerated-display-case-right-shelf-rail",
+        "refrigerated-display-case-right-shelf-clip",
+        "refrigerated-display-case-right-shelf-bracket",
+        "refrigerated-display-case-right-product-strip",
+        "refrigerated-display-case-right-interior-liner",
+        "refrigerated-display-case-right-return-air-slot",
+        "refrigerated-display-case-right-light-rail",
+        "refrigerated-display-case-upper-egg-carton",
+        "refrigerated-display-case-lower-egg-carton",
+        "refrigerated-display-case-display-egg-carton-lid",
+        "refrigerated-display-case-egg-carton-cup",
+        "refrigerated-display-case-right-butter-block",
+        "refrigerated-display-case-right-cheese-block",
+        "refrigerated-display-case-right-cheese-cube",
+        "refrigerated-display-case-right-cheese-package"
+      ]
+    },
+    {
+      "id": "refrigerated-display-case-zone-shelf-product-detail",
+      "title": "Shelf and product detail",
+      "translation": "层架与商品细节",
+      "description": "Compare the visible shelf edges, supports, product separators and blank dairy package forms.",
+      "x": 220,
+      "y": 120,
+      "width": 1120,
+      "height": 600,
+      "targetScale": 3.15,
+      "labelIds": [
+        "refrigerated-display-case-adjustable-wire-shelf",
+        "refrigerated-display-case-case-shelf-front-edge",
+        "refrigerated-display-case-shelf-rear-rail",
+        "refrigerated-display-case-case-shelf-support",
+        "refrigerated-display-case-case-shelf-divider",
+        "refrigerated-display-case-display-tray",
+        "refrigerated-display-case-product-riser",
+        "refrigerated-display-case-carton-divider",
+        "refrigerated-display-case-display-case-milk-carton",
+        "refrigerated-display-case-milk-carton-spout",
+        "refrigerated-display-case-milk-carton-cap",
+        "refrigerated-display-case-display-case-yogurt-lid",
+        "refrigerated-display-case-display-case-yogurt-tub",
+        "refrigerated-display-case-display-case-dairy-bottle",
+        "refrigerated-display-case-dairy-bottle-cap",
+        "refrigerated-display-case-display-case-cream-container",
+        "refrigerated-display-case-cream-container-lid",
+        "refrigerated-display-case-butter-wrapper",
+        "refrigerated-display-case-display-case-butter-block",
+        "refrigerated-display-case-display-case-cheese-block",
+        "refrigerated-display-case-display-case-cheese-pack",
+        "refrigerated-display-case-display-case-egg-tray",
+        "refrigerated-display-case-egg-carton-handle",
+        "refrigerated-display-case-product-strip-rail",
+        "refrigerated-display-case-shelf-end-stop"
+      ]
+    },
+    {
+      "id": "refrigerated-display-case-zone-base-airflow",
+      "title": "Base and airflow hardware",
+      "translation": "底座与气流设施",
+      "description": "Trace the visible lower base, black ventilation louvers, rails, feet and floor contact details.",
+      "x": 180,
+      "y": 700,
+      "width": 1260,
+      "height": 200,
+      "targetScale": 3.15,
+      "labelIds": [
+        "refrigerated-display-case-lower-cabinet-base",
+        "refrigerated-display-case-black-kickplate",
+        "refrigerated-display-case-condenser-grille",
+        "refrigerated-display-case-ventilation-louver",
+        "refrigerated-display-case-return-air-grille",
+        "refrigerated-display-case-air-intake-slot",
+        "refrigerated-display-case-bottom-grille-slat",
+        "refrigerated-display-case-grille-frame",
+        "refrigerated-display-case-base-trim",
+        "refrigerated-display-case-merchandiser-cabinet-plinth",
+        "refrigerated-display-case-left-base-rail",
+        "refrigerated-display-case-center-base-rail",
+        "refrigerated-display-case-right-base-rail",
+        "refrigerated-display-case-base-panel-seam",
+        "refrigerated-display-case-leveling-foot",
+        "refrigerated-display-case-floor-contact-pad",
+        "refrigerated-display-case-merchandiser-lower-shelf",
+        "refrigerated-display-case-lower-shelf-lip",
+        "refrigerated-display-case-lower-shelf-support",
+        "refrigerated-display-case-display-case-floor-tile",
+        "refrigerated-display-case-floor-grout-line",
+        "refrigerated-display-case-base-grille-corner"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/refrigerated-display-case-premium-v1.jpg",
+    "reviewedAssetSha256": "80f2242e79d3edd8ac7bf10739a821c09a2c4f37e8abbc56e961f96be942b1a4",
+    "rationale": "The final 1600 by 900 refrigerated-display-case photograph was inspected at source and output resolution. It retains 141 independently pointable cabinet, door, shelf, dairy, egg, cheese, lighting and base-airflow parts. Product brands, readable package text, prices, barcodes, temperatures, energy performance, freshness, food-safety claims and hidden refrigeration components were excluded.",
+    "previousLabelCount": 149,
+    "retainedLabelCount": 141,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "product brand",
+      "package text",
+      "price",
+      "barcode",
+      "temperature",
+      "hidden compressor"
+    ]
+  },
+  "labels": [
+    {
+      "id": "refrigerated-display-case-refrigerated-display-case",
+      "word": "refrigerated display case",
+      "translation": "冷藏陈列柜",
+      "x": 760,
+      "y": 55,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-refrigerated-display-case"
+    },
+    {
+      "id": "refrigerated-display-case-merchandiser-canopy",
+      "word": "merchandiser canopy",
+      "translation": "陈列柜顶盖",
+      "x": 760,
+      "y": 70,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-merchandiser-canopy"
+    },
+    {
+      "id": "refrigerated-display-case-canopy-fascia",
+      "word": "canopy fascia",
+      "translation": "顶盖饰板",
+      "x": 760,
+      "y": 95,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-canopy-fascia"
+    },
+    {
+      "id": "refrigerated-display-case-canopy-top-panel",
+      "word": "canopy top panel",
+      "translation": "顶盖面板",
+      "x": 900,
+      "y": 45,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-canopy-top-panel"
+    },
+    {
+      "id": "refrigerated-display-case-cabinet-header",
+      "word": "cabinet header",
+      "translation": "柜体上梁",
+      "x": 500,
+      "y": 120,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-cabinet-header"
+    },
+    {
+      "id": "refrigerated-display-case-header-seam",
+      "word": "header seam",
+      "translation": "上梁接缝",
+      "x": 650,
+      "y": 120,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-header-seam"
+    },
+    {
+      "id": "refrigerated-display-case-upper-side-panel",
+      "word": "upper side panel",
+      "translation": "上侧板",
+      "x": 1280,
+      "y": 120,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-upper-side-panel"
+    },
+    {
+      "id": "refrigerated-display-case-right-side-panel",
+      "word": "right side panel",
+      "translation": "右侧板",
+      "x": 1420,
+      "y": 200,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-side-panel"
+    },
+    {
+      "id": "refrigerated-display-case-side-panel-seam",
+      "word": "side panel seam",
+      "translation": "侧板接缝",
+      "x": 1390,
+      "y": 230,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-side-panel-seam"
+    },
+    {
+      "id": "refrigerated-display-case-cabinet-corner-guard",
+      "word": "cabinet corner guard",
+      "translation": "柜体护角",
+      "x": 1400,
+      "y": 105,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-cabinet-corner-guard"
+    },
+    {
+      "id": "refrigerated-display-case-merchandiser-cabinet-frame",
+      "word": "merchandiser cabinet frame",
+      "translation": "陈列柜柜体框架",
+      "x": 1050,
+      "y": 150,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-merchandiser-cabinet-frame"
+    },
+    {
+      "id": "refrigerated-display-case-stainless-steel-frame",
+      "word": "stainless steel frame",
+      "translation": "不锈钢框架",
+      "x": 950,
+      "y": 155,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-stainless-steel-frame"
+    },
+    {
+      "id": "refrigerated-display-case-vertical-frame-rail",
+      "word": "vertical frame rail",
+      "translation": "竖向框条",
+      "x": 600,
+      "y": 160,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-vertical-frame-rail"
+    },
+    {
+      "id": "refrigerated-display-case-left-end-panel",
+      "word": "left end panel",
+      "translation": "左端板",
+      "x": 190,
+      "y": 200,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-end-panel"
+    },
+    {
+      "id": "refrigerated-display-case-right-end-panel",
+      "word": "right end panel",
+      "translation": "右端板",
+      "x": 1430,
+      "y": 320,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-end-panel"
+    },
+    {
+      "id": "refrigerated-display-case-top-trim",
+      "word": "top trim",
+      "translation": "顶部饰条",
+      "x": 1050,
+      "y": 105,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-top-trim"
+    },
+    {
+      "id": "refrigerated-display-case-canopy-underside",
+      "word": "canopy underside",
+      "translation": "顶盖底面",
+      "x": 900,
+      "y": 150,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-canopy-underside"
+    },
+    {
+      "id": "refrigerated-display-case-header-corner-seam",
+      "word": "header corner seam",
+      "translation": "上梁转角接缝",
+      "x": 1260,
+      "y": 150,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-header-corner-seam"
+    },
+    {
+      "id": "refrigerated-display-case-exterior-side-rail",
+      "word": "exterior side rail",
+      "translation": "外侧导轨",
+      "x": 1390,
+      "y": 410,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-exterior-side-rail"
+    },
+    {
+      "id": "refrigerated-display-case-cabinet-shell-edge",
+      "word": "cabinet shell edge",
+      "translation": "柜体外壳边缘",
+      "x": 1450,
+      "y": 500,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-cabinet-shell-edge"
+    },
+    {
+      "id": "refrigerated-display-case-left-merchandiser-door",
+      "word": "left merchandiser door",
+      "translation": "左侧陈列柜门",
+      "x": 320,
+      "y": 380,
+      "priority": 1.02,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-merchandiser-door"
+    },
+    {
+      "id": "refrigerated-display-case-left-door-frame",
+      "word": "left door frame",
+      "translation": "左侧门框",
+      "x": 220,
+      "y": 360,
+      "priority": 1.021,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-door-frame"
+    },
+    {
+      "id": "refrigerated-display-case-left-door-handle",
+      "word": "left door handle",
+      "translation": "左侧门把手",
+      "x": 215,
+      "y": 390,
+      "priority": 1.022,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-door-handle"
+    },
+    {
+      "id": "refrigerated-display-case-left-door-hinge",
+      "word": "left door hinge",
+      "translation": "左侧门铰链",
+      "x": 210,
+      "y": 520,
+      "priority": 1.023,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-door-hinge"
+    },
+    {
+      "id": "refrigerated-display-case-left-door-gasket",
+      "word": "left door gasket",
+      "translation": "左侧门密封条",
+      "x": 300,
+      "y": 145,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-door-gasket"
+    },
+    {
+      "id": "refrigerated-display-case-left-door-sill",
+      "word": "left door sill",
+      "translation": "左侧门槛",
+      "x": 320,
+      "y": 690,
+      "priority": 1.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-door-sill"
+    },
+    {
+      "id": "refrigerated-display-case-left-door-mullion",
+      "word": "left door mullion",
+      "translation": "左侧门竖框",
+      "x": 410,
+      "y": 360,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-door-mullion"
+    },
+    {
+      "id": "refrigerated-display-case-left-handle-mount",
+      "word": "left handle mount",
+      "translation": "左侧把手底座",
+      "x": 215,
+      "y": 420,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-handle-mount"
+    },
+    {
+      "id": "refrigerated-display-case-left-magnetic-seal",
+      "word": "left magnetic seal",
+      "translation": "左侧磁性密封条",
+      "x": 420,
+      "y": 500,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-magnetic-seal"
+    },
+    {
+      "id": "refrigerated-display-case-left-door-glass",
+      "word": "left door glass",
+      "translation": "左侧门玻璃",
+      "x": 330,
+      "y": 250,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-door-glass"
+    },
+    {
+      "id": "refrigerated-display-case-left-shelf-lip",
+      "word": "left shelf lip",
+      "translation": "左侧层架边缘",
+      "x": 350,
+      "y": 250,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-shelf-lip"
+    },
+    {
+      "id": "refrigerated-display-case-left-shelf-clip",
+      "word": "left shelf clip",
+      "translation": "左侧层架卡扣",
+      "x": 300,
+      "y": 260,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-shelf-clip"
+    },
+    {
+      "id": "refrigerated-display-case-left-shelf-bracket",
+      "word": "left shelf bracket",
+      "translation": "左侧层架支架",
+      "x": 380,
+      "y": 430,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-shelf-bracket"
+    },
+    {
+      "id": "refrigerated-display-case-left-product-strip",
+      "word": "left product strip",
+      "translation": "左侧商品条",
+      "x": 350,
+      "y": 450,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-product-strip"
+    },
+    {
+      "id": "refrigerated-display-case-left-interior-liner",
+      "word": "left interior liner",
+      "translation": "左侧内衬",
+      "x": 280,
+      "y": 300,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-interior-liner"
+    },
+    {
+      "id": "refrigerated-display-case-left-return-air-slot",
+      "word": "left return air slot",
+      "translation": "左侧回风槽",
+      "x": 250,
+      "y": 630,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-return-air-slot"
+    },
+    {
+      "id": "refrigerated-display-case-left-light-rail",
+      "word": "left light rail",
+      "translation": "左侧灯轨",
+      "x": 250,
+      "y": 135,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-light-rail"
+    },
+    {
+      "id": "refrigerated-display-case-left-yogurt-cup",
+      "word": "left yogurt cup",
+      "translation": "左侧酸奶杯",
+      "x": 300,
+      "y": 180,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-yogurt-cup"
+    },
+    {
+      "id": "refrigerated-display-case-left-cream-cup",
+      "word": "left cream cup",
+      "translation": "左侧奶油杯",
+      "x": 400,
+      "y": 340,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-cream-cup"
+    },
+    {
+      "id": "refrigerated-display-case-left-dairy-carton",
+      "word": "left dairy carton",
+      "translation": "左侧乳品纸盒",
+      "x": 300,
+      "y": 500,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-dairy-carton"
+    },
+    {
+      "id": "refrigerated-display-case-left-milk-carton",
+      "word": "left milk carton",
+      "translation": "左侧牛奶纸盒",
+      "x": 450,
+      "y": 510,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-milk-carton"
+    },
+    {
+      "id": "refrigerated-display-case-left-cultured-cup",
+      "word": "left cultured cup",
+      "translation": "左侧发酵乳杯",
+      "x": 300,
+      "y": 590,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-cultured-cup"
+    },
+    {
+      "id": "refrigerated-display-case-left-lower-carton",
+      "word": "left lower carton",
+      "translation": "左侧下层纸盒",
+      "x": 450,
+      "y": 620,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-lower-carton"
+    },
+    {
+      "id": "refrigerated-display-case-left-shelf-divider",
+      "word": "left shelf divider",
+      "translation": "左侧层架分隔片",
+      "x": 500,
+      "y": 430,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-shelf-divider"
+    },
+    {
+      "id": "refrigerated-display-case-center-merchandiser-door",
+      "word": "center merchandiser door",
+      "translation": "中央陈列柜门",
+      "x": 750,
+      "y": 380,
+      "priority": 1.044,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-merchandiser-door"
+    },
+    {
+      "id": "refrigerated-display-case-center-door-frame",
+      "word": "center door frame",
+      "translation": "中央门框",
+      "x": 630,
+      "y": 360,
+      "priority": 1.045,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-door-frame"
+    },
+    {
+      "id": "refrigerated-display-case-center-door-handle",
+      "word": "center door handle",
+      "translation": "中央门把手",
+      "x": 620,
+      "y": 390,
+      "priority": 1.046,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-door-handle"
+    },
+    {
+      "id": "refrigerated-display-case-center-door-hinge",
+      "word": "center door hinge",
+      "translation": "中央门铰链",
+      "x": 620,
+      "y": 520,
+      "priority": 1.047,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-door-hinge"
+    },
+    {
+      "id": "refrigerated-display-case-center-door-gasket",
+      "word": "center door gasket",
+      "translation": "中央门密封条",
+      "x": 760,
+      "y": 145,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-door-gasket"
+    },
+    {
+      "id": "refrigerated-display-case-center-door-sill",
+      "word": "center door sill",
+      "translation": "中央门槛",
+      "x": 760,
+      "y": 690,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-door-sill"
+    },
+    {
+      "id": "refrigerated-display-case-center-door-mullion",
+      "word": "center door mullion",
+      "translation": "中央门竖框",
+      "x": 850,
+      "y": 360,
+      "priority": 1.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-door-mullion"
+    },
+    {
+      "id": "refrigerated-display-case-center-handle-mount",
+      "word": "center handle mount",
+      "translation": "中央把手底座",
+      "x": 620,
+      "y": 420,
+      "priority": 1.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-handle-mount"
+    },
+    {
+      "id": "refrigerated-display-case-center-magnetic-seal",
+      "word": "center magnetic seal",
+      "translation": "中央磁性密封条",
+      "x": 870,
+      "y": 500,
+      "priority": 1.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-magnetic-seal"
+    },
+    {
+      "id": "refrigerated-display-case-center-door-glass",
+      "word": "center door glass",
+      "translation": "中央门玻璃",
+      "x": 760,
+      "y": 250,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-door-glass"
+    },
+    {
+      "id": "refrigerated-display-case-center-shelf-rail",
+      "word": "center shelf rail",
+      "translation": "中央层架导轨",
+      "x": 750,
+      "y": 250,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-shelf-rail"
+    },
+    {
+      "id": "refrigerated-display-case-center-shelf-clip",
+      "word": "center shelf clip",
+      "translation": "中央层架卡扣",
+      "x": 700,
+      "y": 260,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-shelf-clip"
+    },
+    {
+      "id": "refrigerated-display-case-center-shelf-bracket",
+      "word": "center shelf bracket",
+      "translation": "中央层架支架",
+      "x": 850,
+      "y": 430,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-shelf-bracket"
+    },
+    {
+      "id": "refrigerated-display-case-center-product-strip",
+      "word": "center product strip",
+      "translation": "中央商品条",
+      "x": 750,
+      "y": 450,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-product-strip"
+    },
+    {
+      "id": "refrigerated-display-case-center-interior-liner",
+      "word": "center interior liner",
+      "translation": "中央内衬",
+      "x": 700,
+      "y": 300,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-interior-liner"
+    },
+    {
+      "id": "refrigerated-display-case-center-air-return",
+      "word": "center air return",
+      "translation": "中央回风口",
+      "x": 680,
+      "y": 630,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-air-return"
+    },
+    {
+      "id": "refrigerated-display-case-center-light-rail",
+      "word": "center light rail",
+      "translation": "中央灯轨",
+      "x": 680,
+      "y": 135,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-light-rail"
+    },
+    {
+      "id": "refrigerated-display-case-center-milk-jug",
+      "word": "center milk jug",
+      "translation": "中央牛奶壶",
+      "x": 720,
+      "y": 300,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-milk-jug"
+    },
+    {
+      "id": "refrigerated-display-case-center-milk-cap",
+      "word": "center milk cap",
+      "translation": "中央牛奶壶盖",
+      "x": 720,
+      "y": 270,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-milk-cap"
+    },
+    {
+      "id": "refrigerated-display-case-center-cream-carton",
+      "word": "center cream carton",
+      "translation": "中央奶油纸盒",
+      "x": 850,
+      "y": 320,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-cream-carton"
+    },
+    {
+      "id": "refrigerated-display-case-center-dairy-bottle",
+      "word": "center dairy bottle",
+      "translation": "中央乳品瓶",
+      "x": 920,
+      "y": 330,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-dairy-bottle"
+    },
+    {
+      "id": "refrigerated-display-case-center-lower-carton",
+      "word": "center lower carton",
+      "translation": "中央下层纸盒",
+      "x": 720,
+      "y": 600,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-lower-carton"
+    },
+    {
+      "id": "refrigerated-display-case-center-yogurt-cup",
+      "word": "center yogurt cup",
+      "translation": "中央酸奶杯",
+      "x": 900,
+      "y": 210,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-yogurt-cup"
+    },
+    {
+      "id": "refrigerated-display-case-center-butter-block",
+      "word": "center butter block",
+      "translation": "中央黄油块",
+      "x": 920,
+      "y": 470,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-butter-block"
+    },
+    {
+      "id": "refrigerated-display-case-center-cheese-pack",
+      "word": "center cheese pack",
+      "translation": "中央奶酪包装",
+      "x": 920,
+      "y": 560,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-cheese-pack"
+    },
+    {
+      "id": "refrigerated-display-case-right-merchandiser-door",
+      "word": "right merchandiser door",
+      "translation": "右侧陈列柜门",
+      "x": 1180,
+      "y": 390,
+      "priority": 1.069,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-merchandiser-door"
+    },
+    {
+      "id": "refrigerated-display-case-right-door-frame",
+      "word": "right door frame",
+      "translation": "右侧门框",
+      "x": 1070,
+      "y": 370,
+      "priority": 1.07,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-door-frame"
+    },
+    {
+      "id": "refrigerated-display-case-right-door-handle",
+      "word": "right door handle",
+      "translation": "右侧门把手",
+      "x": 1065,
+      "y": 400,
+      "priority": 1.071,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-door-handle"
+    },
+    {
+      "id": "refrigerated-display-case-right-door-hinge",
+      "word": "right door hinge",
+      "translation": "右侧门铰链",
+      "x": 1070,
+      "y": 520,
+      "priority": 1.072,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-door-hinge"
+    },
+    {
+      "id": "refrigerated-display-case-right-door-gasket",
+      "word": "right door gasket",
+      "translation": "右侧门密封条",
+      "x": 1200,
+      "y": 145,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-door-gasket"
+    },
+    {
+      "id": "refrigerated-display-case-right-door-sill",
+      "word": "right door sill",
+      "translation": "右侧门槛",
+      "x": 1200,
+      "y": 740,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-door-sill"
+    },
+    {
+      "id": "refrigerated-display-case-right-door-mullion",
+      "word": "right door mullion",
+      "translation": "右侧门竖框",
+      "x": 1290,
+      "y": 370,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-door-mullion"
+    },
+    {
+      "id": "refrigerated-display-case-right-handle-mount",
+      "word": "right handle mount",
+      "translation": "右侧把手底座",
+      "x": 1065,
+      "y": 430,
+      "priority": 1.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-handle-mount"
+    },
+    {
+      "id": "refrigerated-display-case-right-magnetic-seal",
+      "word": "right magnetic seal",
+      "translation": "右侧磁性密封条",
+      "x": 1310,
+      "y": 520,
+      "priority": 1.077,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-magnetic-seal"
+    },
+    {
+      "id": "refrigerated-display-case-right-door-glass",
+      "word": "right door glass",
+      "translation": "右侧门玻璃",
+      "x": 1200,
+      "y": 260,
+      "priority": 1.078,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-door-glass"
+    },
+    {
+      "id": "refrigerated-display-case-right-shelf-rail",
+      "word": "right shelf rail",
+      "translation": "右侧层架导轨",
+      "x": 1190,
+      "y": 260,
+      "priority": 1.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-shelf-rail"
+    },
+    {
+      "id": "refrigerated-display-case-right-shelf-clip",
+      "word": "right shelf clip",
+      "translation": "右侧层架卡扣",
+      "x": 1120,
+      "y": 270,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-shelf-clip"
+    },
+    {
+      "id": "refrigerated-display-case-right-shelf-bracket",
+      "word": "right shelf bracket",
+      "translation": "右侧层架支架",
+      "x": 1330,
+      "y": 430,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-shelf-bracket"
+    },
+    {
+      "id": "refrigerated-display-case-right-product-strip",
+      "word": "right product strip",
+      "translation": "右侧商品条",
+      "x": 1200,
+      "y": 460,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-product-strip"
+    },
+    {
+      "id": "refrigerated-display-case-right-interior-liner",
+      "word": "right interior liner",
+      "translation": "右侧内衬",
+      "x": 1360,
+      "y": 310,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-interior-liner"
+    },
+    {
+      "id": "refrigerated-display-case-right-return-air-slot",
+      "word": "right return air slot",
+      "translation": "右侧回风槽",
+      "x": 1100,
+      "y": 670,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-return-air-slot"
+    },
+    {
+      "id": "refrigerated-display-case-right-light-rail",
+      "word": "right light rail",
+      "translation": "右侧灯轨",
+      "x": 1100,
+      "y": 135,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-light-rail"
+    },
+    {
+      "id": "refrigerated-display-case-upper-egg-carton",
+      "word": "upper egg carton",
+      "translation": "上层蛋盒",
+      "x": 1170,
+      "y": 200,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-upper-egg-carton"
+    },
+    {
+      "id": "refrigerated-display-case-lower-egg-carton",
+      "word": "lower egg carton",
+      "translation": "下层蛋盒",
+      "x": 1170,
+      "y": 340,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-lower-egg-carton"
+    },
+    {
+      "id": "refrigerated-display-case-display-egg-carton-lid",
+      "word": "display egg carton lid",
+      "translation": "陈列柜蛋盒盖",
+      "x": 1220,
+      "y": 200,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-egg-carton-lid"
+    },
+    {
+      "id": "refrigerated-display-case-egg-carton-cup",
+      "word": "egg carton cup",
+      "translation": "蛋盒凹槽",
+      "x": 1260,
+      "y": 350,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-egg-carton-cup"
+    },
+    {
+      "id": "refrigerated-display-case-right-butter-block",
+      "word": "right butter block",
+      "translation": "右侧黄油块",
+      "x": 1180,
+      "y": 500,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-butter-block"
+    },
+    {
+      "id": "refrigerated-display-case-right-cheese-block",
+      "word": "right cheese block",
+      "translation": "右侧奶酪块",
+      "x": 1330,
+      "y": 500,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-cheese-block"
+    },
+    {
+      "id": "refrigerated-display-case-right-cheese-cube",
+      "word": "right cheese cube",
+      "translation": "右侧奶酪方块",
+      "x": 1240,
+      "y": 620,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-cheese-cube"
+    },
+    {
+      "id": "refrigerated-display-case-right-cheese-package",
+      "word": "right cheese package",
+      "translation": "右侧奶酪包装",
+      "x": 1350,
+      "y": 620,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-cheese-package"
+    },
+    {
+      "id": "refrigerated-display-case-adjustable-wire-shelf",
+      "word": "adjustable wire shelf",
+      "translation": "可调节金属层架",
+      "x": 550,
+      "y": 250,
+      "priority": 1.094,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-adjustable-wire-shelf"
+    },
+    {
+      "id": "refrigerated-display-case-case-shelf-front-edge",
+      "word": "case shelf front edge",
+      "translation": "陈列柜层架前边缘",
+      "x": 600,
+      "y": 260,
+      "priority": 1.095,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-case-shelf-front-edge"
+    },
+    {
+      "id": "refrigerated-display-case-shelf-rear-rail",
+      "word": "shelf rear rail",
+      "translation": "层架后导轨",
+      "x": 700,
+      "y": 235,
+      "priority": 1.096,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-shelf-rear-rail"
+    },
+    {
+      "id": "refrigerated-display-case-case-shelf-support",
+      "word": "case shelf support",
+      "translation": "陈列柜层架支撑",
+      "x": 650,
+      "y": 430,
+      "priority": 1.097,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-case-shelf-support"
+    },
+    {
+      "id": "refrigerated-display-case-case-shelf-divider",
+      "word": "case shelf divider",
+      "translation": "陈列柜层架分隔片",
+      "x": 800,
+      "y": 450,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-case-shelf-divider"
+    },
+    {
+      "id": "refrigerated-display-case-display-tray",
+      "word": "display tray",
+      "translation": "陈列托盘",
+      "x": 500,
+      "y": 580,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-tray"
+    },
+    {
+      "id": "refrigerated-display-case-product-riser",
+      "word": "product riser",
+      "translation": "商品垫高架",
+      "x": 580,
+      "y": 590,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-product-riser"
+    },
+    {
+      "id": "refrigerated-display-case-carton-divider",
+      "word": "carton divider",
+      "translation": "纸盒分隔片",
+      "x": 770,
+      "y": 590,
+      "priority": 1.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-carton-divider"
+    },
+    {
+      "id": "refrigerated-display-case-display-case-milk-carton",
+      "word": "display case milk carton",
+      "translation": "陈列柜牛奶纸盒",
+      "x": 820,
+      "y": 620,
+      "priority": 1.102,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-case-milk-carton"
+    },
+    {
+      "id": "refrigerated-display-case-milk-carton-spout",
+      "word": "milk carton spout",
+      "translation": "牛奶纸盒倒嘴",
+      "x": 850,
+      "y": 610,
+      "priority": 1.103,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-milk-carton-spout"
+    },
+    {
+      "id": "refrigerated-display-case-milk-carton-cap",
+      "word": "milk carton cap",
+      "translation": "牛奶纸盒盖",
+      "x": 860,
+      "y": 590,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-milk-carton-cap"
+    },
+    {
+      "id": "refrigerated-display-case-display-case-yogurt-lid",
+      "word": "display case yogurt lid",
+      "translation": "陈列柜酸奶盖",
+      "x": 360,
+      "y": 185,
+      "priority": 1.105,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-case-yogurt-lid"
+    },
+    {
+      "id": "refrigerated-display-case-display-case-yogurt-tub",
+      "word": "display case yogurt tub",
+      "translation": "陈列柜酸奶桶",
+      "x": 380,
+      "y": 310,
+      "priority": 1.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-case-yogurt-tub"
+    },
+    {
+      "id": "refrigerated-display-case-display-case-dairy-bottle",
+      "word": "display case dairy bottle",
+      "translation": "陈列柜乳品瓶",
+      "x": 900,
+      "y": 350,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-case-dairy-bottle"
+    },
+    {
+      "id": "refrigerated-display-case-dairy-bottle-cap",
+      "word": "dairy bottle cap",
+      "translation": "乳品瓶盖",
+      "x": 900,
+      "y": 315,
+      "priority": 1.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-dairy-bottle-cap"
+    },
+    {
+      "id": "refrigerated-display-case-display-case-cream-container",
+      "word": "display case cream container",
+      "translation": "陈列柜奶油容器",
+      "x": 500,
+      "y": 350,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-case-cream-container"
+    },
+    {
+      "id": "refrigerated-display-case-cream-container-lid",
+      "word": "cream container lid",
+      "translation": "奶油容器盖",
+      "x": 500,
+      "y": 330,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-cream-container-lid"
+    },
+    {
+      "id": "refrigerated-display-case-butter-wrapper",
+      "word": "butter wrapper",
+      "translation": "黄油包装纸",
+      "x": 1000,
+      "y": 480,
+      "priority": 1.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-butter-wrapper"
+    },
+    {
+      "id": "refrigerated-display-case-display-case-butter-block",
+      "word": "display case butter block",
+      "translation": "陈列柜黄油块",
+      "x": 1000,
+      "y": 520,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-case-butter-block"
+    },
+    {
+      "id": "refrigerated-display-case-display-case-cheese-block",
+      "word": "display case cheese block",
+      "translation": "陈列柜奶酪块",
+      "x": 1000,
+      "y": 620,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-case-cheese-block"
+    },
+    {
+      "id": "refrigerated-display-case-display-case-cheese-pack",
+      "word": "display case cheese pack",
+      "translation": "陈列柜奶酪包装",
+      "x": 1060,
+      "y": 520,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-case-cheese-pack"
+    },
+    {
+      "id": "refrigerated-display-case-display-case-egg-tray",
+      "word": "display case egg tray",
+      "translation": "陈列柜蛋托",
+      "x": 1150,
+      "y": 350,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-case-egg-tray"
+    },
+    {
+      "id": "refrigerated-display-case-egg-carton-handle",
+      "word": "egg carton handle",
+      "translation": "蛋盒提手",
+      "x": 1230,
+      "y": 350,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-egg-carton-handle"
+    },
+    {
+      "id": "refrigerated-display-case-product-strip-rail",
+      "word": "product strip rail",
+      "translation": "商品条导轨",
+      "x": 700,
+      "y": 460,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-product-strip-rail"
+    },
+    {
+      "id": "refrigerated-display-case-shelf-end-stop",
+      "word": "shelf end stop",
+      "translation": "层架端挡",
+      "x": 1000,
+      "y": 260,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-shelf-end-stop"
+    },
+    {
+      "id": "refrigerated-display-case-lower-cabinet-base",
+      "word": "lower cabinet base",
+      "translation": "柜体下底座",
+      "x": 700,
+      "y": 760,
+      "priority": 1.119,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-lower-cabinet-base"
+    },
+    {
+      "id": "refrigerated-display-case-black-kickplate",
+      "word": "black kickplate",
+      "translation": "黑色踢脚板",
+      "x": 700,
+      "y": 790,
+      "priority": 1.12,
+      "minLevel": 0,
+      "sourceVisualRegion": "refrigerated-display-case-region-black-kickplate"
+    },
+    {
+      "id": "refrigerated-display-case-condenser-grille",
+      "word": "condenser grille",
+      "translation": "冷凝器格栅",
+      "x": 500,
+      "y": 800,
+      "priority": 1.121,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-condenser-grille"
+    },
+    {
+      "id": "refrigerated-display-case-ventilation-louver",
+      "word": "ventilation louver",
+      "translation": "通风百叶",
+      "x": 550,
+      "y": 820,
+      "priority": 1.122,
+      "minLevel": 1,
+      "sourceVisualRegion": "refrigerated-display-case-region-ventilation-louver"
+    },
+    {
+      "id": "refrigerated-display-case-return-air-grille",
+      "word": "return air grille",
+      "translation": "回风格栅",
+      "x": 900,
+      "y": 800,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-return-air-grille"
+    },
+    {
+      "id": "refrigerated-display-case-air-intake-slot",
+      "word": "air intake slot",
+      "translation": "进风槽",
+      "x": 1050,
+      "y": 820,
+      "priority": 1.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-air-intake-slot"
+    },
+    {
+      "id": "refrigerated-display-case-bottom-grille-slat",
+      "word": "bottom grille slat",
+      "translation": "底部格栅条",
+      "x": 1000,
+      "y": 840,
+      "priority": 1.125,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-bottom-grille-slat"
+    },
+    {
+      "id": "refrigerated-display-case-grille-frame",
+      "word": "grille frame",
+      "translation": "格栅框",
+      "x": 700,
+      "y": 820,
+      "priority": 1.126,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-grille-frame"
+    },
+    {
+      "id": "refrigerated-display-case-base-trim",
+      "word": "base trim",
+      "translation": "底座饰条",
+      "x": 750,
+      "y": 750,
+      "priority": 1.127,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-base-trim"
+    },
+    {
+      "id": "refrigerated-display-case-merchandiser-cabinet-plinth",
+      "word": "merchandiser cabinet plinth",
+      "translation": "陈列柜柜体基座",
+      "x": 850,
+      "y": 770,
+      "priority": 1.128,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-merchandiser-cabinet-plinth"
+    },
+    {
+      "id": "refrigerated-display-case-left-base-rail",
+      "word": "left base rail",
+      "translation": "左侧底部导轨",
+      "x": 300,
+      "y": 750,
+      "priority": 1.129,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-left-base-rail"
+    },
+    {
+      "id": "refrigerated-display-case-center-base-rail",
+      "word": "center base rail",
+      "translation": "中央底部导轨",
+      "x": 750,
+      "y": 750,
+      "priority": 1.13,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-center-base-rail"
+    },
+    {
+      "id": "refrigerated-display-case-right-base-rail",
+      "word": "right base rail",
+      "translation": "右侧底部导轨",
+      "x": 1200,
+      "y": 750,
+      "priority": 1.131,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-right-base-rail"
+    },
+    {
+      "id": "refrigerated-display-case-base-panel-seam",
+      "word": "base panel seam",
+      "translation": "底板接缝",
+      "x": 1000,
+      "y": 760,
+      "priority": 1.132,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-base-panel-seam"
+    },
+    {
+      "id": "refrigerated-display-case-leveling-foot",
+      "word": "leveling foot",
+      "translation": "调平脚",
+      "x": 1250,
+      "y": 860,
+      "priority": 1.133,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-leveling-foot"
+    },
+    {
+      "id": "refrigerated-display-case-floor-contact-pad",
+      "word": "floor contact pad",
+      "translation": "地面接触垫",
+      "x": 1250,
+      "y": 880,
+      "priority": 1.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-floor-contact-pad"
+    },
+    {
+      "id": "refrigerated-display-case-merchandiser-lower-shelf",
+      "word": "merchandiser lower shelf",
+      "translation": "陈列柜下层架",
+      "x": 1100,
+      "y": 700,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-merchandiser-lower-shelf"
+    },
+    {
+      "id": "refrigerated-display-case-lower-shelf-lip",
+      "word": "lower shelf lip",
+      "translation": "下层架边缘",
+      "x": 1100,
+      "y": 710,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-lower-shelf-lip"
+    },
+    {
+      "id": "refrigerated-display-case-lower-shelf-support",
+      "word": "lower shelf support",
+      "translation": "下层架支撑",
+      "x": 1150,
+      "y": 720,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-lower-shelf-support"
+    },
+    {
+      "id": "refrigerated-display-case-display-case-floor-tile",
+      "word": "display-case floor tile",
+      "translation": "陈列柜前地砖",
+      "x": 400,
+      "y": 870,
+      "priority": 1.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "refrigerated-display-case-region-display-case-floor-tile"
+    },
+    {
+      "id": "refrigerated-display-case-floor-grout-line",
+      "word": "floor grout line",
+      "translation": "地砖缝",
+      "x": 400,
+      "y": 850,
+      "priority": 1.139,
+      "minLevel": 4,
+      "sourceVisualRegion": "refrigerated-display-case-region-floor-grout-line"
+    },
+    {
+      "id": "refrigerated-display-case-base-grille-corner",
+      "word": "base grille corner",
+      "translation": "底部格栅转角",
+      "x": 800,
+      "y": 880,
+      "priority": 1.14,
+      "minLevel": 2,
+      "sourceVisualRegion": "refrigerated-display-case-region-base-grille-corner"
+    }
+  ],
+  "portals": []
+}
