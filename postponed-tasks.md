@@ -1,13 +1,13 @@
 # HelloWords 续开发清单
 
-更新时间：2026-08-29（Asia/Singapore）
+更新时间：2026-08-30（Asia/Singapore）
 
 ## 当前交付游标
 
-- 公开版本：`v122-dca2967`
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=122-dca2967#world>
-- 源码：`dca2967baff8b3a20f967d22ea20d853e05e48cc`（v122 公开运行时；医院 350、病理实验室 360、医院药房 300、机场 300、写字楼 300；城市街景 149、交通枢纽 103、科学馆 176、城市公园 144、社区花园 103；Apartment 143、Kitchen 146、Bedroom 134、Bathroom 133、City cafe 100；电动公交 85、电池包 90、铁路站台 126、列车车厢 100、转向架 95）。累计空间锚点 6,116，继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：继续按“先堆词、再精修”扩展专业场景；当前 v122 保持公开可验证，下一批继续增加词量。
+- 公开版本：`v123`（发布后补入 Sites 版本号与源码 SHA）
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=123#world>
+- 源码候选：`8923fc4`（医疗词汇批次与紧接的焦点区可读性修复；医院 350、病理实验室 360、医院药房 300、机场 300、写字楼 300；Blood cell 91、Heart 91、Human body 90、Hemoglobin 81、Oxygen molecule 90）。累计空间锚点 6,266、5,342 个去重词；继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：医疗链扩词已完成本地验证，正在公开发布；之后继续按“先堆词、再精修”扩展机场、医院、写字楼和其他可审计场景。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### v122 交付记录（2026-08-29）
@@ -29,6 +29,8 @@
 - 清理记录：v119/v120/v121 归档已分别移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v119/`、`hellowords-v120/`、`hellowords-v121/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
 - v122 为交通链再增加 150 个细节词，并让当前焦点区的 LOD4 词在目标缩放后直接提升为可读状态；公开实测 Kitchen 准备台 scale 1.54，`colander` 已挂载且可见，Battery pack 的 `cooling plate fin` 已可见。
 - 清理记录：v122 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v122/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
+- v123 在五个医疗科学场景各增加 30 个结构词：Blood cell 91、Heart 91、Human body 90、Hemoglobin 81、Oxygen molecule 90；词汇均落在既有审计图像与细节区，不引入诊疗建议或不可见过程。
+- v123 修复紧凑视口从深层区块切换到宽区块时的焦点丢词：区块点击允许最多半级回缩以容纳完整词群，并让当前焦点词优先获得安全标签槽；公开发布前已跑完整 E2E（106 通过 / 36 设计性跳过）与性能门（2/2）。
 
 ## 当前续开发游标（2026-08-29）
 
