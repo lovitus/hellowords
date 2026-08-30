@@ -80,6 +80,22 @@ const contracts = [
     labels: 150,
     zoneSizes: [25, 25, 25, 25, 25, 25],
   },
+  {
+    id: "school-art-studio",
+    parentId: "school-campus",
+    asset: "/scenes/school-art-studio-premium-v1.jpg",
+    sha256: "b5d3a87d8b03bbd08f3f9b615351f3351d8e16ddfd9afde65ec904dc264b0687",
+    labels: 151,
+    zoneSizes: [24, 26, 26, 27, 25, 23],
+  },
+  {
+    id: "school-music-room",
+    parentId: "school-campus",
+    asset: "/scenes/school-music-room-premium-v1.jpg",
+    sha256: "1503d02240eaf3534d2df3bde51c2b7ca62e60477f932a4f80fff1a60ee2095b",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
 ] as const;
 
 for (const contract of contracts) {
@@ -168,6 +184,25 @@ test("school campus exposes disjoint classroom, library and gymnasium entrances"
   assert.ok(library.y + library.height <= gymnasium.y, "library and gymnasium crops must not overlap");
   assert.ok(gymnasium.x + gymnasium.width <= 1_350, "gymnasium crop must exclude the adjacent washroom");
   for (const portal of [classroom, gymnasium]) {
+    const region = campus.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+    assert.ok(region);
+    assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+  }
+});
+
+test("school campus exposes adjacent, non-overlapping art and music rooms", async () => {
+  const campus = await readJson("school-campus.json");
+  const art = campus.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "school-art-studio");
+  const music = campus.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "school-music-room");
+  const gymnasium = campus.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "school-gymnasium-equipment");
+  assert.ok(art);
+  assert.ok(music);
+  assert.ok(gymnasium);
+  assert.deepEqual([art.x, art.y, art.width, art.height], [210, 306, 388, 239]);
+  assert.deepEqual([music.x, music.y, music.width, music.height], [598, 306, 330, 239]);
+  assert.ok(art.x + art.width <= music.x, "art and music room crops must not overlap");
+  assert.ok(music.x + music.width <= gymnasium.x, "music and gymnasium crops must not overlap");
+  for (const portal of [art, music]) {
     const region = campus.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
     assert.ok(region);
     assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);

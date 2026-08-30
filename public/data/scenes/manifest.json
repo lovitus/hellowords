@@ -343,6 +343,16 @@
       "parentId": "school-campus"
     },
     {
+      "id": "school-art-studio",
+      "title": "School art studio",
+      "parentId": "school-campus"
+    },
+    {
+      "id": "school-music-room",
+      "title": "School music room",
+      "parentId": "school-campus"
+    },
+    {
       "id": "school-gymnasium-equipment",
       "title": "School gymnasium equipment",
       "parentId": "school-campus"

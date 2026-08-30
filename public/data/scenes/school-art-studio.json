@@ -1,0 +1,3133 @@
+{
+  "id": "school-art-studio",
+  "title": "School art studio",
+  "translation": "学校美术教室",
+  "subtitle": "Easels, worktables, paint tools, clay tools, drying rack, storage, sink and washable floor",
+  "asset": "/scenes/school-art-studio-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "school-campus",
+  "visualRegions": [
+    {
+      "id": "school-art-studio-region-art-easel",
+      "description": "Pixel-audited “art easel” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-easel-frame",
+      "description": "Pixel-audited “art easel frame” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-easel-canvas",
+      "description": "Pixel-audited “easel canvas” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-canvas-clamp",
+      "description": "Pixel-audited “canvas clamp” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 90,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-canvas-ledge",
+      "description": "Pixel-audited “canvas ledge” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-easel-crossbar",
+      "description": "Pixel-audited “easel crossbar” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 550,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-easel-hinge",
+      "description": "Pixel-audited “easel hinge” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-easel-foot",
+      "description": "Pixel-audited “easel foot” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-middle-art-easel",
+      "description": "Pixel-audited “middle art easel” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-right-art-easel",
+      "description": "Pixel-audited “right art easel” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-window",
+      "description": "Pixel-audited “studio window” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-window-frame",
+      "description": "Pixel-audited “studio window frame” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-window-sill",
+      "description": "Pixel-audited “studio window sill” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 180,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-window-latch",
+      "description": "Pixel-audited “studio window latch” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-window-blind",
+      "description": "Pixel-audited “studio window blind” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-blind-slat",
+      "description": "Pixel-audited “studio blind slat” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 160,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-blind-rail",
+      "description": "Pixel-audited “studio blind rail” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 180,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-studio-radiator",
+      "description": "Pixel-audited “art studio radiator” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-radiator-grille",
+      "description": "Pixel-audited “studio radiator grille” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-radiator-valve",
+      "description": "Pixel-audited “studio radiator valve” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 320,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-window-light",
+      "description": "Pixel-audited “window light” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 260,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-easel-leg",
+      "description": "Pixel-audited “easel leg” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-blank-canvas-board",
+      "description": "Pixel-audited “blank canvas board” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-window-panel",
+      "description": "Pixel-audited “studio window panel” inside the Easels and windows crop of the school art studio photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-student-worktable",
+      "description": "Pixel-audited “student worktable” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-worktable-top",
+      "description": "Pixel-audited “worktable top” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-worktable-edge",
+      "description": "Pixel-audited “art worktable edge” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-worktable-leg",
+      "description": "Pixel-audited “worktable leg” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-worktable-foot",
+      "description": "Pixel-audited “worktable foot” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-worktable-apron",
+      "description": "Pixel-audited “worktable apron” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-stool",
+      "description": "Pixel-audited “art stool” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-stool-seat",
+      "description": "Pixel-audited “art stool seat” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-stool-leg",
+      "description": "Pixel-audited “art stool leg” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-stool-foot-ring",
+      "description": "Pixel-audited “art stool foot ring” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-paint-bottle",
+      "description": "Pixel-audited “paint bottle” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-red-paint-bottle",
+      "description": "Pixel-audited “red paint bottle” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 320,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-blue-paint-bottle",
+      "description": "Pixel-audited “blue paint bottle” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-yellow-paint-bottle",
+      "description": "Pixel-audited “yellow paint bottle” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-paint-pot",
+      "description": "Pixel-audited “paint pot” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-paint-pot-lid",
+      "description": "Pixel-audited “paint pot lid” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-mixing-palette",
+      "description": "Pixel-audited “mixing palette” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-palette-well",
+      "description": "Pixel-audited “palette well” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-brush-jar",
+      "description": "Pixel-audited “brush jar” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-paintbrush",
+      "description": "Pixel-audited “art paintbrush” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-brush-handle",
+      "description": "Pixel-audited “art brush handle” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-brush-bristle",
+      "description": "Pixel-audited “art brush bristle” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 550,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-paper-sheet",
+      "description": "Pixel-audited “paper sheet” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-paper-stack",
+      "description": "Pixel-audited “art paper stack” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-water-cup",
+      "description": "Pixel-audited “water cup” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-table-tray",
+      "description": "Pixel-audited “art table tray” inside the Student art worktable crop of the school art studio photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-slab",
+      "description": "Pixel-audited “clay slab” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-board",
+      "description": "Pixel-audited “clay board” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-rolling-pin",
+      "description": "Pixel-audited “clay rolling pin” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-wire-cutter",
+      "description": "Pixel-audited “clay wire cutter” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 560,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-rib-tool",
+      "description": "Pixel-audited “clay rib tool” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-loop-tool",
+      "description": "Pixel-audited “clay loop tool” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-knife",
+      "description": "Pixel-audited “clay knife” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-needle",
+      "description": "Pixel-audited “clay needle” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-modeling-tool",
+      "description": "Pixel-audited “clay modeling tool” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-texture-tool",
+      "description": "Pixel-audited “clay texture tool” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-unmarked-plaster-form",
+      "description": "Pixel-audited “unmarked plaster form” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-sculpture-base",
+      "description": "Pixel-audited “sculpture base” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-sculpture-sponge",
+      "description": "Pixel-audited “sculpture sponge” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-bowl",
+      "description": "Pixel-audited “clay bowl” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-water-cup",
+      "description": "Pixel-audited “clay water cup” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-sculpture-tray",
+      "description": "Pixel-audited “sculpture tray” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-sculpture-tray-liner",
+      "description": "Pixel-audited “sculpture tray liner” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 860,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-front-art-table",
+      "description": "Pixel-audited “front art table” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-front-table-leg",
+      "description": "Pixel-audited “front table leg” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-front-table-foot",
+      "description": "Pixel-audited “front table foot” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-table-support",
+      "description": "Pixel-audited “table support” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-front-table-underside",
+      "description": "Pixel-audited “front table underside” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-work-mat",
+      "description": "Pixel-audited “art work mat” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-mat-edge",
+      "description": "Pixel-audited “mat edge” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-tool-bundle",
+      "description": "Pixel-audited “clay tool bundle” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-clay-scraper",
+      "description": "Pixel-audited “clay scraper” inside the Clay and sculpture table crop of the school art studio photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-drying-rack",
+      "description": "Pixel-audited “art drying rack” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-drying-rack-frame",
+      "description": "Pixel-audited “drying rack frame” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 210,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-drying-rack-shelf",
+      "description": "Pixel-audited “art drying rack shelf” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-drying-rack-caster",
+      "description": "Pixel-audited “drying rack caster” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-drying-paper",
+      "description": "Pixel-audited “drying paper” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-paper-corner",
+      "description": "Pixel-audited “paper corner” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-paper-clip",
+      "description": "Pixel-audited “paper clip” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 660,
+      "y": 190,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-display-board",
+      "description": "Pixel-audited “art display board” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-display-card",
+      "description": "Pixel-audited “display card” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-card-mount",
+      "description": "Pixel-audited “card mount” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-display-hook",
+      "description": "Pixel-audited “display hook” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-display-rail",
+      "description": "Pixel-audited “art display rail” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 270,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-display-peg",
+      "description": "Pixel-audited “display peg” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-apron-rail",
+      "description": "Pixel-audited “apron rail” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-apron-hook",
+      "description": "Pixel-audited “apron hook” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-blue-apron",
+      "description": "Pixel-audited “blue apron” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-paint-storage-shelf",
+      "description": "Pixel-audited “paint storage shelf” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-storage-cubby",
+      "description": "Pixel-audited “storage cubby” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-storage-bin",
+      "description": "Pixel-audited “art storage bin” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-gray-art-bin",
+      "description": "Pixel-audited “gray art bin” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-blue-art-bin",
+      "description": "Pixel-audited “blue art bin” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-green-art-bin",
+      "description": "Pixel-audited “green art bin” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-studio-supply-shelf",
+      "description": "Pixel-audited “art studio supply shelf” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-shelf-divider",
+      "description": "Pixel-audited “art shelf divider” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-shelf-bracket",
+      "description": "Pixel-audited “art shelf bracket” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-paint-tray",
+      "description": "Pixel-audited “paint tray” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-marker-pot",
+      "description": "Pixel-audited “marker pot” inside the Drying, storage and display crop of the school art studio photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-teacher-demo-table",
+      "description": "Pixel-audited “teacher demo table” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-demo-table-top",
+      "description": "Pixel-audited “demo table top” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-demo-table-drawer",
+      "description": "Pixel-audited “demo table drawer” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-demo-drawer-handle",
+      "description": "Pixel-audited “demo drawer handle” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-teacher-cutting-mat",
+      "description": "Pixel-audited “teacher cutting mat” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-tablet",
+      "description": "Pixel-audited “art tablet” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-tablet-stand",
+      "description": "Pixel-audited “tablet stand” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-supply-drawer",
+      "description": "Pixel-audited “art supply drawer” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-prep-counter",
+      "description": "Pixel-audited “prep counter” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-sink",
+      "description": "Pixel-audited “studio sink” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-sink-basin",
+      "description": "Pixel-audited “studio sink basin” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 610,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-sink-drain",
+      "description": "Pixel-audited “studio sink drain” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-faucet",
+      "description": "Pixel-audited “studio faucet” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-faucet-spout",
+      "description": "Pixel-audited “studio faucet spout” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-faucet-handle",
+      "description": "Pixel-audited “studio faucet handle” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1460,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-sink-drainer",
+      "description": "Pixel-audited “sink drainer” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1360,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-sink-splashback",
+      "description": "Pixel-audited “sink splashback” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-sink-cabinet",
+      "description": "Pixel-audited “studio sink cabinet” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-sink-cabinet-door",
+      "description": "Pixel-audited “studio sink cabinet door” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-sink-cabinet-handle",
+      "description": "Pixel-audited “sink cabinet handle” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-waste-bin",
+      "description": "Pixel-audited “art waste bin” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-waste-liner",
+      "description": "Pixel-audited “art waste liner” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-drying-sponge",
+      "description": "Pixel-audited “drying sponge” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-apron-cabinet",
+      "description": "Pixel-audited “apron cabinet” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-prep-counter-edge",
+      "description": "Pixel-audited “prep counter edge” inside the Teacher preparation and sink crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-studio-floor",
+      "description": "Pixel-audited “art studio floor” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-washable-floor",
+      "description": "Pixel-audited “washable floor” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-floor-drain",
+      "description": "Pixel-audited “studio floor drain” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-floor-seam",
+      "description": "Pixel-audited “studio floor seam” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-floor-tile",
+      "description": "Pixel-audited “studio floor tile” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-wall-base-trim",
+      "description": "Pixel-audited “studio wall base trim” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-ceiling-panel",
+      "description": "Pixel-audited “studio ceiling panel” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 30,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-ceiling-light",
+      "description": "Pixel-audited “studio ceiling light” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 30,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-light-diffuser",
+      "description": "Pixel-audited “art light diffuser” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-acoustic-panel",
+      "description": "Pixel-audited “studio acoustic panel” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-ceiling-seam",
+      "description": "Pixel-audited “studio ceiling seam” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-doorway",
+      "description": "Pixel-audited “studio doorway” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-door-frame",
+      "description": "Pixel-audited “studio door frame” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-door-handle",
+      "description": "Pixel-audited “studio door handle” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1200,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-door-hinge",
+      "description": "Pixel-audited “studio door hinge” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1260,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-door-window",
+      "description": "Pixel-audited “studio door window” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1200,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-doorway-threshold",
+      "description": "Pixel-audited “studio doorway threshold” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-wall-panel",
+      "description": "Pixel-audited “studio wall panel” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-corner-trim",
+      "description": "Pixel-audited “studio corner trim” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-floor-mat",
+      "description": "Pixel-audited “studio floor mat” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-studio-mat-edge",
+      "description": "Pixel-audited “studio mat edge” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-plant",
+      "description": "Pixel-audited “art plant” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-art-studio-region-art-plant-pot",
+      "description": "Pixel-audited “art plant pot” inside the Studio floor and room finish crop of the school art studio photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "school-art-studio-zone-easels-windows",
+      "title": "Easels and windows",
+      "translation": "画架与窗户",
+      "description": "Inspect the visible easels, blank canvases, window frames, blinds and radiator hardware.",
+      "x": 0,
+      "y": 0,
+      "width": 450,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-art-studio-art-easel",
+        "school-art-studio-art-easel-frame",
+        "school-art-studio-easel-canvas",
+        "school-art-studio-canvas-clamp",
+        "school-art-studio-canvas-ledge",
+        "school-art-studio-easel-crossbar",
+        "school-art-studio-easel-hinge",
+        "school-art-studio-easel-foot",
+        "school-art-studio-middle-art-easel",
+        "school-art-studio-right-art-easel",
+        "school-art-studio-studio-window",
+        "school-art-studio-studio-window-frame",
+        "school-art-studio-studio-window-sill",
+        "school-art-studio-studio-window-latch",
+        "school-art-studio-studio-window-blind",
+        "school-art-studio-studio-blind-slat",
+        "school-art-studio-studio-blind-rail",
+        "school-art-studio-art-studio-radiator",
+        "school-art-studio-studio-radiator-grille",
+        "school-art-studio-studio-radiator-valve",
+        "school-art-studio-window-light",
+        "school-art-studio-easel-leg",
+        "school-art-studio-blank-canvas-board",
+        "school-art-studio-studio-window-panel"
+      ]
+    },
+    {
+      "id": "school-art-studio-zone-student-worktable",
+      "title": "Student art worktable",
+      "translation": "学生美术工作台",
+      "description": "Trace the visible student table, stools, paint bottles, palettes, brushes, paper and trays.",
+      "x": 120,
+      "y": 400,
+      "width": 680,
+      "height": 400,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-art-studio-student-worktable",
+        "school-art-studio-worktable-top",
+        "school-art-studio-art-worktable-edge",
+        "school-art-studio-worktable-leg",
+        "school-art-studio-worktable-foot",
+        "school-art-studio-worktable-apron",
+        "school-art-studio-art-stool",
+        "school-art-studio-art-stool-seat",
+        "school-art-studio-art-stool-leg",
+        "school-art-studio-art-stool-foot-ring",
+        "school-art-studio-paint-bottle",
+        "school-art-studio-red-paint-bottle",
+        "school-art-studio-blue-paint-bottle",
+        "school-art-studio-yellow-paint-bottle",
+        "school-art-studio-paint-pot",
+        "school-art-studio-paint-pot-lid",
+        "school-art-studio-mixing-palette",
+        "school-art-studio-palette-well",
+        "school-art-studio-brush-jar",
+        "school-art-studio-art-paintbrush",
+        "school-art-studio-art-brush-handle",
+        "school-art-studio-art-brush-bristle",
+        "school-art-studio-paper-sheet",
+        "school-art-studio-art-paper-stack",
+        "school-art-studio-water-cup",
+        "school-art-studio-art-table-tray"
+      ]
+    },
+    {
+      "id": "school-art-studio-zone-clay-sculpture-table",
+      "title": "Clay and sculpture table",
+      "translation": "陶土与雕塑工作台",
+      "description": "Inspect the visible clay slab, sculpting tools, rolling pin, trays, work mat and table structure.",
+      "x": 250,
+      "y": 580,
+      "width": 900,
+      "height": 320,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-art-studio-clay-slab",
+        "school-art-studio-clay-board",
+        "school-art-studio-clay-rolling-pin",
+        "school-art-studio-clay-wire-cutter",
+        "school-art-studio-clay-rib-tool",
+        "school-art-studio-clay-loop-tool",
+        "school-art-studio-clay-knife",
+        "school-art-studio-clay-needle",
+        "school-art-studio-clay-modeling-tool",
+        "school-art-studio-clay-texture-tool",
+        "school-art-studio-unmarked-plaster-form",
+        "school-art-studio-sculpture-base",
+        "school-art-studio-sculpture-sponge",
+        "school-art-studio-clay-bowl",
+        "school-art-studio-clay-water-cup",
+        "school-art-studio-sculpture-tray",
+        "school-art-studio-sculpture-tray-liner",
+        "school-art-studio-front-art-table",
+        "school-art-studio-front-table-leg",
+        "school-art-studio-front-table-foot",
+        "school-art-studio-table-support",
+        "school-art-studio-front-table-underside",
+        "school-art-studio-art-work-mat",
+        "school-art-studio-mat-edge",
+        "school-art-studio-clay-tool-bundle",
+        "school-art-studio-clay-scraper"
+      ]
+    },
+    {
+      "id": "school-art-studio-zone-drying-storage-display",
+      "title": "Drying, storage and display",
+      "translation": "干燥、储物与展示",
+      "description": "Trace the visible drying rack, blank papers, storage shelves, bins, aprons and display hardware.",
+      "x": 450,
+      "y": 100,
+      "width": 700,
+      "height": 500,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-art-studio-art-drying-rack",
+        "school-art-studio-drying-rack-frame",
+        "school-art-studio-art-drying-rack-shelf",
+        "school-art-studio-drying-rack-caster",
+        "school-art-studio-drying-paper",
+        "school-art-studio-paper-corner",
+        "school-art-studio-paper-clip",
+        "school-art-studio-art-display-board",
+        "school-art-studio-display-card",
+        "school-art-studio-card-mount",
+        "school-art-studio-display-hook",
+        "school-art-studio-art-display-rail",
+        "school-art-studio-display-peg",
+        "school-art-studio-apron-rail",
+        "school-art-studio-apron-hook",
+        "school-art-studio-blue-apron",
+        "school-art-studio-paint-storage-shelf",
+        "school-art-studio-storage-cubby",
+        "school-art-studio-art-storage-bin",
+        "school-art-studio-gray-art-bin",
+        "school-art-studio-blue-art-bin",
+        "school-art-studio-green-art-bin",
+        "school-art-studio-art-studio-supply-shelf",
+        "school-art-studio-art-shelf-divider",
+        "school-art-studio-art-shelf-bracket",
+        "school-art-studio-paint-tray",
+        "school-art-studio-marker-pot"
+      ]
+    },
+    {
+      "id": "school-art-studio-zone-teacher-sink-prep",
+      "title": "Teacher preparation and sink",
+      "translation": "教师准备台与水槽",
+      "description": "Inspect the visible demonstration table, tablet, cutting mat, drawers, sink, faucet and cabinet hardware.",
+      "x": 900,
+      "y": 300,
+      "width": 700,
+      "height": 600,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-art-studio-teacher-demo-table",
+        "school-art-studio-demo-table-top",
+        "school-art-studio-demo-table-drawer",
+        "school-art-studio-demo-drawer-handle",
+        "school-art-studio-teacher-cutting-mat",
+        "school-art-studio-art-tablet",
+        "school-art-studio-tablet-stand",
+        "school-art-studio-art-supply-drawer",
+        "school-art-studio-prep-counter",
+        "school-art-studio-studio-sink",
+        "school-art-studio-studio-sink-basin",
+        "school-art-studio-studio-sink-drain",
+        "school-art-studio-studio-faucet",
+        "school-art-studio-studio-faucet-spout",
+        "school-art-studio-studio-faucet-handle",
+        "school-art-studio-sink-drainer",
+        "school-art-studio-sink-splashback",
+        "school-art-studio-studio-sink-cabinet",
+        "school-art-studio-studio-sink-cabinet-door",
+        "school-art-studio-sink-cabinet-handle",
+        "school-art-studio-art-waste-bin",
+        "school-art-studio-art-waste-liner",
+        "school-art-studio-drying-sponge",
+        "school-art-studio-apron-cabinet",
+        "school-art-studio-prep-counter-edge"
+      ]
+    },
+    {
+      "id": "school-art-studio-zone-floor-lighting-room",
+      "title": "Studio floor and room finish",
+      "translation": "画室地面与房间饰面",
+      "description": "Trace the visible washable floor, drain, base trim, ceiling lights, doorway, plant and room panels.",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-art-studio-art-studio-floor",
+        "school-art-studio-washable-floor",
+        "school-art-studio-studio-floor-drain",
+        "school-art-studio-studio-floor-seam",
+        "school-art-studio-studio-floor-tile",
+        "school-art-studio-studio-wall-base-trim",
+        "school-art-studio-studio-ceiling-panel",
+        "school-art-studio-studio-ceiling-light",
+        "school-art-studio-art-light-diffuser",
+        "school-art-studio-studio-acoustic-panel",
+        "school-art-studio-studio-ceiling-seam",
+        "school-art-studio-studio-doorway",
+        "school-art-studio-studio-door-frame",
+        "school-art-studio-studio-door-handle",
+        "school-art-studio-studio-door-hinge",
+        "school-art-studio-studio-door-window",
+        "school-art-studio-studio-doorway-threshold",
+        "school-art-studio-studio-wall-panel",
+        "school-art-studio-studio-corner-trim",
+        "school-art-studio-studio-floor-mat",
+        "school-art-studio-studio-mat-edge",
+        "school-art-studio-art-plant",
+        "school-art-studio-art-plant-pot"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/school-art-studio-premium-v1.jpg",
+    "reviewedAssetSha256": "b5d3a87d8b03bbd08f3f9b615351f3351d8e16ddfd9afde65ec904dc264b0687",
+    "rationale": "The final 1600 by 900 school-art-studio photograph was inspected at source and output resolution. It retains 151 independently pointable easel, worktable, paint, clay, drying, storage, sink, doorway and room-finish parts. People, identities, lesson content, artwork authorship, school branding, chemical claims and hidden building systems were excluded.",
+    "previousLabelCount": 159,
+    "retainedLabelCount": 151,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "people",
+      "teacher identity",
+      "student identity",
+      "lesson content",
+      "artwork authorship",
+      "hidden building system"
+    ]
+  },
+  "labels": [
+    {
+      "id": "school-art-studio-art-easel",
+      "word": "art easel",
+      "translation": "美术画架",
+      "x": 100,
+      "y": 450,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-art-easel"
+    },
+    {
+      "id": "school-art-studio-art-easel-frame",
+      "word": "art easel frame",
+      "translation": "画架框架",
+      "x": 100,
+      "y": 380,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-art-easel-frame"
+    },
+    {
+      "id": "school-art-studio-easel-canvas",
+      "word": "easel canvas",
+      "translation": "画架画布",
+      "x": 100,
+      "y": 330,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-easel-canvas"
+    },
+    {
+      "id": "school-art-studio-canvas-clamp",
+      "word": "canvas clamp",
+      "translation": "画布夹",
+      "x": 110,
+      "y": 300,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-canvas-clamp"
+    },
+    {
+      "id": "school-art-studio-canvas-ledge",
+      "word": "canvas ledge",
+      "translation": "画布托沿",
+      "x": 100,
+      "y": 500,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-canvas-ledge"
+    },
+    {
+      "id": "school-art-studio-easel-crossbar",
+      "word": "easel crossbar",
+      "translation": "画架横档",
+      "x": 100,
+      "y": 570,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-easel-crossbar"
+    },
+    {
+      "id": "school-art-studio-easel-hinge",
+      "word": "easel hinge",
+      "translation": "画架铰链",
+      "x": 120,
+      "y": 580,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-easel-hinge"
+    },
+    {
+      "id": "school-art-studio-easel-foot",
+      "word": "easel foot",
+      "translation": "画架脚",
+      "x": 100,
+      "y": 650,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-easel-foot"
+    },
+    {
+      "id": "school-art-studio-middle-art-easel",
+      "word": "middle art easel",
+      "translation": "中间美术画架",
+      "x": 250,
+      "y": 450,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-middle-art-easel"
+    },
+    {
+      "id": "school-art-studio-right-art-easel",
+      "word": "right art easel",
+      "translation": "右侧美术画架",
+      "x": 350,
+      "y": 450,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-right-art-easel"
+    },
+    {
+      "id": "school-art-studio-studio-window",
+      "word": "studio window",
+      "translation": "画室窗",
+      "x": 120,
+      "y": 180,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-window"
+    },
+    {
+      "id": "school-art-studio-studio-window-frame",
+      "word": "studio window frame",
+      "translation": "画室窗框",
+      "x": 150,
+      "y": 200,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-studio-window-frame"
+    },
+    {
+      "id": "school-art-studio-studio-window-sill",
+      "word": "studio window sill",
+      "translation": "画室窗台",
+      "x": 200,
+      "y": 300,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-window-sill"
+    },
+    {
+      "id": "school-art-studio-studio-window-latch",
+      "word": "studio window latch",
+      "translation": "画室窗锁扣",
+      "x": 250,
+      "y": 250,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-window-latch"
+    },
+    {
+      "id": "school-art-studio-studio-window-blind",
+      "word": "studio window blind",
+      "translation": "画室窗百叶",
+      "x": 150,
+      "y": 100,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-studio-window-blind"
+    },
+    {
+      "id": "school-art-studio-studio-blind-slat",
+      "word": "studio blind slat",
+      "translation": "画室百叶片",
+      "x": 180,
+      "y": 120,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-blind-slat"
+    },
+    {
+      "id": "school-art-studio-studio-blind-rail",
+      "word": "studio blind rail",
+      "translation": "画室百叶导轨",
+      "x": 200,
+      "y": 80,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-blind-rail"
+    },
+    {
+      "id": "school-art-studio-art-studio-radiator",
+      "word": "art studio radiator",
+      "translation": "美术室暖气片",
+      "x": 300,
+      "y": 520,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-art-studio-radiator"
+    },
+    {
+      "id": "school-art-studio-studio-radiator-grille",
+      "word": "studio radiator grille",
+      "translation": "暖气片格栅",
+      "x": 300,
+      "y": 550,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-radiator-grille"
+    },
+    {
+      "id": "school-art-studio-studio-radiator-valve",
+      "word": "studio radiator valve",
+      "translation": "暖气片阀门",
+      "x": 340,
+      "y": 580,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-radiator-valve"
+    },
+    {
+      "id": "school-art-studio-window-light",
+      "word": "window light",
+      "translation": "窗边光线",
+      "x": 280,
+      "y": 200,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-window-light"
+    },
+    {
+      "id": "school-art-studio-easel-leg",
+      "word": "easel leg",
+      "translation": "画架支腿",
+      "x": 250,
+      "y": 650,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-easel-leg"
+    },
+    {
+      "id": "school-art-studio-blank-canvas-board",
+      "word": "blank canvas board",
+      "translation": "空白画布板",
+      "x": 250,
+      "y": 330,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-blank-canvas-board"
+    },
+    {
+      "id": "school-art-studio-studio-window-panel",
+      "word": "studio window panel",
+      "translation": "画室窗面板",
+      "x": 350,
+      "y": 200,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-studio-window-panel"
+    },
+    {
+      "id": "school-art-studio-student-worktable",
+      "word": "student worktable",
+      "translation": "学生工作台",
+      "x": 400,
+      "y": 560,
+      "priority": 1.024,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-student-worktable"
+    },
+    {
+      "id": "school-art-studio-worktable-top",
+      "word": "worktable top",
+      "translation": "工作台面",
+      "x": 400,
+      "y": 500,
+      "priority": 1.025,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-worktable-top"
+    },
+    {
+      "id": "school-art-studio-art-worktable-edge",
+      "word": "art worktable edge",
+      "translation": "工作台边缘",
+      "x": 400,
+      "y": 600,
+      "priority": 1.026,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-art-worktable-edge"
+    },
+    {
+      "id": "school-art-studio-worktable-leg",
+      "word": "worktable leg",
+      "translation": "工作台桌腿",
+      "x": 350,
+      "y": 700,
+      "priority": 1.027,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-worktable-leg"
+    },
+    {
+      "id": "school-art-studio-worktable-foot",
+      "word": "worktable foot",
+      "translation": "工作台桌脚",
+      "x": 350,
+      "y": 760,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-worktable-foot"
+    },
+    {
+      "id": "school-art-studio-worktable-apron",
+      "word": "worktable apron",
+      "translation": "工作台围板",
+      "x": 450,
+      "y": 650,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-worktable-apron"
+    },
+    {
+      "id": "school-art-studio-art-stool",
+      "word": "art stool",
+      "translation": "美术凳",
+      "x": 250,
+      "y": 700,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-art-stool"
+    },
+    {
+      "id": "school-art-studio-art-stool-seat",
+      "word": "art stool seat",
+      "translation": "凳面",
+      "x": 250,
+      "y": 650,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-art-stool-seat"
+    },
+    {
+      "id": "school-art-studio-art-stool-leg",
+      "word": "art stool leg",
+      "translation": "凳腿",
+      "x": 250,
+      "y": 740,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-art-stool-leg"
+    },
+    {
+      "id": "school-art-studio-art-stool-foot-ring",
+      "word": "art stool foot ring",
+      "translation": "凳脚圈",
+      "x": 250,
+      "y": 780,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-art-stool-foot-ring"
+    },
+    {
+      "id": "school-art-studio-paint-bottle",
+      "word": "paint bottle",
+      "translation": "颜料瓶",
+      "x": 300,
+      "y": 480,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-paint-bottle"
+    },
+    {
+      "id": "school-art-studio-red-paint-bottle",
+      "word": "red paint bottle",
+      "translation": "红色颜料瓶",
+      "x": 340,
+      "y": 480,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-red-paint-bottle"
+    },
+    {
+      "id": "school-art-studio-blue-paint-bottle",
+      "word": "blue paint bottle",
+      "translation": "蓝色颜料瓶",
+      "x": 380,
+      "y": 480,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-blue-paint-bottle"
+    },
+    {
+      "id": "school-art-studio-yellow-paint-bottle",
+      "word": "yellow paint bottle",
+      "translation": "黄色颜料瓶",
+      "x": 420,
+      "y": 480,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-yellow-paint-bottle"
+    },
+    {
+      "id": "school-art-studio-paint-pot",
+      "word": "paint pot",
+      "translation": "颜料罐",
+      "x": 500,
+      "y": 480,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-paint-pot"
+    },
+    {
+      "id": "school-art-studio-paint-pot-lid",
+      "word": "paint pot lid",
+      "translation": "颜料罐盖",
+      "x": 520,
+      "y": 470,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-paint-pot-lid"
+    },
+    {
+      "id": "school-art-studio-mixing-palette",
+      "word": "mixing palette",
+      "translation": "调色板",
+      "x": 450,
+      "y": 530,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-mixing-palette"
+    },
+    {
+      "id": "school-art-studio-palette-well",
+      "word": "palette well",
+      "translation": "调色板凹槽",
+      "x": 470,
+      "y": 530,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-palette-well"
+    },
+    {
+      "id": "school-art-studio-brush-jar",
+      "word": "brush jar",
+      "translation": "画笔罐",
+      "x": 550,
+      "y": 470,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-brush-jar"
+    },
+    {
+      "id": "school-art-studio-art-paintbrush",
+      "word": "art paintbrush",
+      "translation": "画笔",
+      "x": 550,
+      "y": 440,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-art-paintbrush"
+    },
+    {
+      "id": "school-art-studio-art-brush-handle",
+      "word": "art brush handle",
+      "translation": "画笔柄",
+      "x": 560,
+      "y": 430,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-art-brush-handle"
+    },
+    {
+      "id": "school-art-studio-art-brush-bristle",
+      "word": "art brush bristle",
+      "translation": "画笔刷毛",
+      "x": 570,
+      "y": 410,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-art-brush-bristle"
+    },
+    {
+      "id": "school-art-studio-paper-sheet",
+      "word": "paper sheet",
+      "translation": "画纸",
+      "x": 350,
+      "y": 540,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-paper-sheet"
+    },
+    {
+      "id": "school-art-studio-art-paper-stack",
+      "word": "art paper stack",
+      "translation": "画纸堆",
+      "x": 400,
+      "y": 550,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-art-paper-stack"
+    },
+    {
+      "id": "school-art-studio-water-cup",
+      "word": "water cup",
+      "translation": "水杯",
+      "x": 600,
+      "y": 500,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-water-cup"
+    },
+    {
+      "id": "school-art-studio-art-table-tray",
+      "word": "art table tray",
+      "translation": "美术台托盘",
+      "x": 650,
+      "y": 520,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-art-table-tray"
+    },
+    {
+      "id": "school-art-studio-clay-slab",
+      "word": "clay slab",
+      "translation": "陶土板",
+      "x": 500,
+      "y": 740,
+      "priority": 1.05,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-clay-slab"
+    },
+    {
+      "id": "school-art-studio-clay-board",
+      "word": "clay board",
+      "translation": "陶土垫板",
+      "x": 450,
+      "y": 700,
+      "priority": 1.051,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-clay-board"
+    },
+    {
+      "id": "school-art-studio-clay-rolling-pin",
+      "word": "clay rolling pin",
+      "translation": "陶土擀杖",
+      "x": 700,
+      "y": 680,
+      "priority": 1.052,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-clay-rolling-pin"
+    },
+    {
+      "id": "school-art-studio-clay-wire-cutter",
+      "word": "clay wire cutter",
+      "translation": "陶土钢丝切割器",
+      "x": 580,
+      "y": 800,
+      "priority": 1.053,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-clay-wire-cutter"
+    },
+    {
+      "id": "school-art-studio-clay-rib-tool",
+      "word": "clay rib tool",
+      "translation": "陶土刮片",
+      "x": 650,
+      "y": 800,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-clay-rib-tool"
+    },
+    {
+      "id": "school-art-studio-clay-loop-tool",
+      "word": "clay loop tool",
+      "translation": "陶土环形工具",
+      "x": 700,
+      "y": 800,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-clay-loop-tool"
+    },
+    {
+      "id": "school-art-studio-clay-knife",
+      "word": "clay knife",
+      "translation": "陶土刀",
+      "x": 760,
+      "y": 800,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-clay-knife"
+    },
+    {
+      "id": "school-art-studio-clay-needle",
+      "word": "clay needle",
+      "translation": "陶土针",
+      "x": 800,
+      "y": 800,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-clay-needle"
+    },
+    {
+      "id": "school-art-studio-clay-modeling-tool",
+      "word": "clay modeling tool",
+      "translation": "陶土塑形工具",
+      "x": 850,
+      "y": 800,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-clay-modeling-tool"
+    },
+    {
+      "id": "school-art-studio-clay-texture-tool",
+      "word": "clay texture tool",
+      "translation": "陶土纹理工具",
+      "x": 900,
+      "y": 800,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-clay-texture-tool"
+    },
+    {
+      "id": "school-art-studio-unmarked-plaster-form",
+      "word": "unmarked plaster form",
+      "translation": "无标记石膏模型",
+      "x": 750,
+      "y": 720,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-unmarked-plaster-form"
+    },
+    {
+      "id": "school-art-studio-sculpture-base",
+      "word": "sculpture base",
+      "translation": "雕塑底座",
+      "x": 750,
+      "y": 760,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-sculpture-base"
+    },
+    {
+      "id": "school-art-studio-sculpture-sponge",
+      "word": "sculpture sponge",
+      "translation": "雕塑海绵",
+      "x": 850,
+      "y": 720,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-sculpture-sponge"
+    },
+    {
+      "id": "school-art-studio-clay-bowl",
+      "word": "clay bowl",
+      "translation": "陶土碗",
+      "x": 900,
+      "y": 720,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-clay-bowl"
+    },
+    {
+      "id": "school-art-studio-clay-water-cup",
+      "word": "clay water cup",
+      "translation": "陶土用水杯",
+      "x": 950,
+      "y": 720,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-clay-water-cup"
+    },
+    {
+      "id": "school-art-studio-sculpture-tray",
+      "word": "sculpture tray",
+      "translation": "雕塑托盘",
+      "x": 850,
+      "y": 750,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-sculpture-tray"
+    },
+    {
+      "id": "school-art-studio-sculpture-tray-liner",
+      "word": "sculpture tray liner",
+      "translation": "托盘内衬",
+      "x": 880,
+      "y": 750,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-sculpture-tray-liner"
+    },
+    {
+      "id": "school-art-studio-front-art-table",
+      "word": "front art table",
+      "translation": "前方美术台",
+      "x": 600,
+      "y": 650,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-front-art-table"
+    },
+    {
+      "id": "school-art-studio-front-table-leg",
+      "word": "front table leg",
+      "translation": "前方桌腿",
+      "x": 500,
+      "y": 850,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-front-table-leg"
+    },
+    {
+      "id": "school-art-studio-front-table-foot",
+      "word": "front table foot",
+      "translation": "前方桌脚",
+      "x": 500,
+      "y": 880,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-front-table-foot"
+    },
+    {
+      "id": "school-art-studio-table-support",
+      "word": "table support",
+      "translation": "桌面支撑",
+      "x": 700,
+      "y": 850,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-table-support"
+    },
+    {
+      "id": "school-art-studio-front-table-underside",
+      "word": "front table underside",
+      "translation": "桌面底部",
+      "x": 700,
+      "y": 820,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-front-table-underside"
+    },
+    {
+      "id": "school-art-studio-art-work-mat",
+      "word": "art work mat",
+      "translation": "美术工作垫",
+      "x": 500,
+      "y": 700,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-art-work-mat"
+    },
+    {
+      "id": "school-art-studio-mat-edge",
+      "word": "mat edge",
+      "translation": "工作垫边缘",
+      "x": 500,
+      "y": 760,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-mat-edge"
+    },
+    {
+      "id": "school-art-studio-clay-tool-bundle",
+      "word": "clay tool bundle",
+      "translation": "陶土工具束",
+      "x": 950,
+      "y": 800,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-clay-tool-bundle"
+    },
+    {
+      "id": "school-art-studio-clay-scraper",
+      "word": "clay scraper",
+      "translation": "陶土刮刀",
+      "x": 1000,
+      "y": 800,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-clay-scraper"
+    },
+    {
+      "id": "school-art-studio-art-drying-rack",
+      "word": "art drying rack",
+      "translation": "美术干燥架",
+      "x": 600,
+      "y": 250,
+      "priority": 1.076,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-art-drying-rack"
+    },
+    {
+      "id": "school-art-studio-drying-rack-frame",
+      "word": "drying rack frame",
+      "translation": "干燥架框架",
+      "x": 600,
+      "y": 230,
+      "priority": 1.077,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-drying-rack-frame"
+    },
+    {
+      "id": "school-art-studio-art-drying-rack-shelf",
+      "word": "art drying rack shelf",
+      "translation": "干燥架搁层",
+      "x": 600,
+      "y": 280,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-art-drying-rack-shelf"
+    },
+    {
+      "id": "school-art-studio-drying-rack-caster",
+      "word": "drying rack caster",
+      "translation": "干燥架脚轮",
+      "x": 600,
+      "y": 400,
+      "priority": 1.079,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-drying-rack-caster"
+    },
+    {
+      "id": "school-art-studio-drying-paper",
+      "word": "drying paper",
+      "translation": "晾干画纸",
+      "x": 600,
+      "y": 200,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-drying-paper"
+    },
+    {
+      "id": "school-art-studio-paper-corner",
+      "word": "paper corner",
+      "translation": "画纸转角",
+      "x": 650,
+      "y": 200,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-paper-corner"
+    },
+    {
+      "id": "school-art-studio-paper-clip",
+      "word": "paper clip",
+      "translation": "纸夹",
+      "x": 680,
+      "y": 210,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-paper-clip"
+    },
+    {
+      "id": "school-art-studio-art-display-board",
+      "word": "art display board",
+      "translation": "美术展示板",
+      "x": 800,
+      "y": 180,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-art-display-board"
+    },
+    {
+      "id": "school-art-studio-display-card",
+      "word": "display card",
+      "translation": "展示卡片",
+      "x": 800,
+      "y": 200,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-display-card"
+    },
+    {
+      "id": "school-art-studio-card-mount",
+      "word": "card mount",
+      "translation": "卡片挂座",
+      "x": 800,
+      "y": 220,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-card-mount"
+    },
+    {
+      "id": "school-art-studio-display-hook",
+      "word": "display hook",
+      "translation": "展示挂钩",
+      "x": 800,
+      "y": 300,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-display-hook"
+    },
+    {
+      "id": "school-art-studio-art-display-rail",
+      "word": "art display rail",
+      "translation": "展示导轨",
+      "x": 800,
+      "y": 290,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-art-display-rail"
+    },
+    {
+      "id": "school-art-studio-display-peg",
+      "word": "display peg",
+      "translation": "展示插销",
+      "x": 820,
+      "y": 300,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-display-peg"
+    },
+    {
+      "id": "school-art-studio-apron-rail",
+      "word": "apron rail",
+      "translation": "围裙导轨",
+      "x": 900,
+      "y": 320,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-apron-rail"
+    },
+    {
+      "id": "school-art-studio-apron-hook",
+      "word": "apron hook",
+      "translation": "围裙挂钩",
+      "x": 930,
+      "y": 330,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-apron-hook"
+    },
+    {
+      "id": "school-art-studio-blue-apron",
+      "word": "blue apron",
+      "translation": "蓝色围裙",
+      "x": 930,
+      "y": 400,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-blue-apron"
+    },
+    {
+      "id": "school-art-studio-paint-storage-shelf",
+      "word": "paint storage shelf",
+      "translation": "颜料储物架",
+      "x": 700,
+      "y": 450,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-paint-storage-shelf"
+    },
+    {
+      "id": "school-art-studio-storage-cubby",
+      "word": "storage cubby",
+      "translation": "储物格",
+      "x": 750,
+      "y": 450,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-storage-cubby"
+    },
+    {
+      "id": "school-art-studio-art-storage-bin",
+      "word": "art storage bin",
+      "translation": "美术储物箱",
+      "x": 750,
+      "y": 500,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-art-storage-bin"
+    },
+    {
+      "id": "school-art-studio-gray-art-bin",
+      "word": "gray art bin",
+      "translation": "灰色美术箱",
+      "x": 800,
+      "y": 500,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-gray-art-bin"
+    },
+    {
+      "id": "school-art-studio-blue-art-bin",
+      "word": "blue art bin",
+      "translation": "蓝色美术箱",
+      "x": 850,
+      "y": 500,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-blue-art-bin"
+    },
+    {
+      "id": "school-art-studio-green-art-bin",
+      "word": "green art bin",
+      "translation": "绿色美术箱",
+      "x": 900,
+      "y": 500,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-green-art-bin"
+    },
+    {
+      "id": "school-art-studio-art-studio-supply-shelf",
+      "word": "art studio supply shelf",
+      "translation": "美术教室用品搁板",
+      "x": 700,
+      "y": 400,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-art-studio-supply-shelf"
+    },
+    {
+      "id": "school-art-studio-art-shelf-divider",
+      "word": "art shelf divider",
+      "translation": "搁板分隔片",
+      "x": 730,
+      "y": 400,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-art-shelf-divider"
+    },
+    {
+      "id": "school-art-studio-art-shelf-bracket",
+      "word": "art shelf bracket",
+      "translation": "搁板支架",
+      "x": 760,
+      "y": 420,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-art-shelf-bracket"
+    },
+    {
+      "id": "school-art-studio-paint-tray",
+      "word": "paint tray",
+      "translation": "颜料托盘",
+      "x": 950,
+      "y": 470,
+      "priority": 1.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-paint-tray"
+    },
+    {
+      "id": "school-art-studio-marker-pot",
+      "word": "marker pot",
+      "translation": "彩笔筒",
+      "x": 980,
+      "y": 470,
+      "priority": 1.102,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-marker-pot"
+    },
+    {
+      "id": "school-art-studio-teacher-demo-table",
+      "word": "teacher demo table",
+      "translation": "教师示范台",
+      "x": 1050,
+      "y": 500,
+      "priority": 1.103,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-teacher-demo-table"
+    },
+    {
+      "id": "school-art-studio-demo-table-top",
+      "word": "demo table top",
+      "translation": "示范台面",
+      "x": 1050,
+      "y": 450,
+      "priority": 1.104,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-demo-table-top"
+    },
+    {
+      "id": "school-art-studio-demo-table-drawer",
+      "word": "demo table drawer",
+      "translation": "示范台抽屉",
+      "x": 1050,
+      "y": 550,
+      "priority": 1.105,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-demo-table-drawer"
+    },
+    {
+      "id": "school-art-studio-demo-drawer-handle",
+      "word": "demo drawer handle",
+      "translation": "示范台抽屉把手",
+      "x": 1050,
+      "y": 550,
+      "priority": 1.106,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-demo-drawer-handle"
+    },
+    {
+      "id": "school-art-studio-teacher-cutting-mat",
+      "word": "teacher cutting mat",
+      "translation": "切割垫",
+      "x": 1100,
+      "y": 450,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-teacher-cutting-mat"
+    },
+    {
+      "id": "school-art-studio-art-tablet",
+      "word": "art tablet",
+      "translation": "美术平板",
+      "x": 1100,
+      "y": 400,
+      "priority": 1.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-art-tablet"
+    },
+    {
+      "id": "school-art-studio-tablet-stand",
+      "word": "tablet stand",
+      "translation": "平板支架",
+      "x": 1100,
+      "y": 450,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-tablet-stand"
+    },
+    {
+      "id": "school-art-studio-art-supply-drawer",
+      "word": "art supply drawer",
+      "translation": "美术用品抽屉",
+      "x": 1200,
+      "y": 550,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-art-supply-drawer"
+    },
+    {
+      "id": "school-art-studio-prep-counter",
+      "word": "prep counter",
+      "translation": "准备台",
+      "x": 1400,
+      "y": 500,
+      "priority": 1.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-prep-counter"
+    },
+    {
+      "id": "school-art-studio-studio-sink",
+      "word": "studio sink",
+      "translation": "画室水槽",
+      "x": 1450,
+      "y": 600,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-sink"
+    },
+    {
+      "id": "school-art-studio-studio-sink-basin",
+      "word": "studio sink basin",
+      "translation": "画室水槽盆",
+      "x": 1450,
+      "y": 630,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-studio-sink-basin"
+    },
+    {
+      "id": "school-art-studio-studio-sink-drain",
+      "word": "studio sink drain",
+      "translation": "画室水槽排水口",
+      "x": 1450,
+      "y": 650,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-sink-drain"
+    },
+    {
+      "id": "school-art-studio-studio-faucet",
+      "word": "studio faucet",
+      "translation": "画室水龙头",
+      "x": 1450,
+      "y": 500,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-faucet"
+    },
+    {
+      "id": "school-art-studio-studio-faucet-spout",
+      "word": "studio faucet spout",
+      "translation": "画室水龙头出水口",
+      "x": 1450,
+      "y": 530,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-studio-faucet-spout"
+    },
+    {
+      "id": "school-art-studio-studio-faucet-handle",
+      "word": "studio faucet handle",
+      "translation": "画室水龙头把手",
+      "x": 1480,
+      "y": 550,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-faucet-handle"
+    },
+    {
+      "id": "school-art-studio-sink-drainer",
+      "word": "sink drainer",
+      "translation": "水槽沥水板",
+      "x": 1380,
+      "y": 600,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-sink-drainer"
+    },
+    {
+      "id": "school-art-studio-sink-splashback",
+      "word": "sink splashback",
+      "translation": "水槽挡水板",
+      "x": 1450,
+      "y": 450,
+      "priority": 1.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-sink-splashback"
+    },
+    {
+      "id": "school-art-studio-studio-sink-cabinet",
+      "word": "studio sink cabinet",
+      "translation": "画室水槽柜",
+      "x": 1450,
+      "y": 750,
+      "priority": 1.12,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-sink-cabinet"
+    },
+    {
+      "id": "school-art-studio-studio-sink-cabinet-door",
+      "word": "studio sink cabinet door",
+      "translation": "水槽柜门",
+      "x": 1450,
+      "y": 780,
+      "priority": 1.121,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-sink-cabinet-door"
+    },
+    {
+      "id": "school-art-studio-sink-cabinet-handle",
+      "word": "sink cabinet handle",
+      "translation": "水槽柜门把手",
+      "x": 1450,
+      "y": 800,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-sink-cabinet-handle"
+    },
+    {
+      "id": "school-art-studio-art-waste-bin",
+      "word": "art waste bin",
+      "translation": "美术垃圾桶",
+      "x": 1300,
+      "y": 700,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-art-waste-bin"
+    },
+    {
+      "id": "school-art-studio-art-waste-liner",
+      "word": "art waste liner",
+      "translation": "美术垃圾桶内衬",
+      "x": 1300,
+      "y": 720,
+      "priority": 1.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-art-waste-liner"
+    },
+    {
+      "id": "school-art-studio-drying-sponge",
+      "word": "drying sponge",
+      "translation": "晾干海绵",
+      "x": 1350,
+      "y": 500,
+      "priority": 1.125,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-drying-sponge"
+    },
+    {
+      "id": "school-art-studio-apron-cabinet",
+      "word": "apron cabinet",
+      "translation": "围裙柜",
+      "x": 1150,
+      "y": 650,
+      "priority": 1.126,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-apron-cabinet"
+    },
+    {
+      "id": "school-art-studio-prep-counter-edge",
+      "word": "prep counter edge",
+      "translation": "准备台边缘",
+      "x": 1350,
+      "y": 550,
+      "priority": 1.127,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-prep-counter-edge"
+    },
+    {
+      "id": "school-art-studio-art-studio-floor",
+      "word": "art studio floor",
+      "translation": "美术室地面",
+      "x": 1100,
+      "y": 850,
+      "priority": 1.128,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-art-studio-floor"
+    },
+    {
+      "id": "school-art-studio-washable-floor",
+      "word": "washable floor",
+      "translation": "可清洗地面",
+      "x": 1000,
+      "y": 800,
+      "priority": 1.129,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-art-studio-region-washable-floor"
+    },
+    {
+      "id": "school-art-studio-studio-floor-drain",
+      "word": "studio floor drain",
+      "translation": "画室地漏",
+      "x": 1200,
+      "y": 780,
+      "priority": 1.13,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-studio-floor-drain"
+    },
+    {
+      "id": "school-art-studio-studio-floor-seam",
+      "word": "studio floor seam",
+      "translation": "画室地面接缝",
+      "x": 1300,
+      "y": 850,
+      "priority": 1.131,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-art-studio-region-studio-floor-seam"
+    },
+    {
+      "id": "school-art-studio-studio-floor-tile",
+      "word": "studio floor tile",
+      "translation": "画室地砖",
+      "x": 1350,
+      "y": 800,
+      "priority": 1.132,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-floor-tile"
+    },
+    {
+      "id": "school-art-studio-studio-wall-base-trim",
+      "word": "studio wall base trim",
+      "translation": "画室墙根饰条",
+      "x": 1300,
+      "y": 700,
+      "priority": 1.133,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-wall-base-trim"
+    },
+    {
+      "id": "school-art-studio-studio-ceiling-panel",
+      "word": "studio ceiling panel",
+      "translation": "画室顶板",
+      "x": 1200,
+      "y": 50,
+      "priority": 1.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-studio-ceiling-panel"
+    },
+    {
+      "id": "school-art-studio-studio-ceiling-light",
+      "word": "studio ceiling light",
+      "translation": "画室顶灯",
+      "x": 900,
+      "y": 50,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-ceiling-light"
+    },
+    {
+      "id": "school-art-studio-art-light-diffuser",
+      "word": "art light diffuser",
+      "translation": "美术室灯具扩散罩",
+      "x": 900,
+      "y": 60,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-art-light-diffuser"
+    },
+    {
+      "id": "school-art-studio-studio-acoustic-panel",
+      "word": "studio acoustic panel",
+      "translation": "画室吸音板",
+      "x": 1000,
+      "y": 100,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-studio-acoustic-panel"
+    },
+    {
+      "id": "school-art-studio-studio-ceiling-seam",
+      "word": "studio ceiling seam",
+      "translation": "画室顶面接缝",
+      "x": 1100,
+      "y": 80,
+      "priority": 1.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-ceiling-seam"
+    },
+    {
+      "id": "school-art-studio-studio-doorway",
+      "word": "studio doorway",
+      "translation": "画室门口",
+      "x": 1200,
+      "y": 280,
+      "priority": 1.139,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-doorway"
+    },
+    {
+      "id": "school-art-studio-studio-door-frame",
+      "word": "studio door frame",
+      "translation": "画室门框",
+      "x": 1250,
+      "y": 300,
+      "priority": 1.14,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-studio-door-frame"
+    },
+    {
+      "id": "school-art-studio-studio-door-handle",
+      "word": "studio door handle",
+      "translation": "画室门把手",
+      "x": 1220,
+      "y": 400,
+      "priority": 1.141,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-door-handle"
+    },
+    {
+      "id": "school-art-studio-studio-door-hinge",
+      "word": "studio door hinge",
+      "translation": "画室门铰链",
+      "x": 1280,
+      "y": 350,
+      "priority": 1.142,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-door-hinge"
+    },
+    {
+      "id": "school-art-studio-studio-door-window",
+      "word": "studio door window",
+      "translation": "画室门窗",
+      "x": 1220,
+      "y": 300,
+      "priority": 1.143,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-studio-door-window"
+    },
+    {
+      "id": "school-art-studio-studio-doorway-threshold",
+      "word": "studio doorway threshold",
+      "translation": "画室门槛",
+      "x": 1200,
+      "y": 470,
+      "priority": 1.144,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-doorway-threshold"
+    },
+    {
+      "id": "school-art-studio-studio-wall-panel",
+      "word": "studio wall panel",
+      "translation": "画室墙面板",
+      "x": 1350,
+      "y": 300,
+      "priority": 1.145,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-wall-panel"
+    },
+    {
+      "id": "school-art-studio-studio-corner-trim",
+      "word": "studio corner trim",
+      "translation": "画室转角饰条",
+      "x": 1300,
+      "y": 500,
+      "priority": 1.146,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-studio-corner-trim"
+    },
+    {
+      "id": "school-art-studio-studio-floor-mat",
+      "word": "studio floor mat",
+      "translation": "画室地垫",
+      "x": 1250,
+      "y": 700,
+      "priority": 1.147,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-studio-floor-mat"
+    },
+    {
+      "id": "school-art-studio-studio-mat-edge",
+      "word": "studio mat edge",
+      "translation": "画室地垫边缘",
+      "x": 1250,
+      "y": 720,
+      "priority": 1.148,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-art-studio-region-studio-mat-edge"
+    },
+    {
+      "id": "school-art-studio-art-plant",
+      "word": "art plant",
+      "translation": "美术室植物",
+      "x": 1000,
+      "y": 250,
+      "priority": 1.149,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-art-studio-region-art-plant"
+    },
+    {
+      "id": "school-art-studio-art-plant-pot",
+      "word": "art plant pot",
+      "translation": "美术室植物盆",
+      "x": 1000,
+      "y": 300,
+      "priority": 1.15,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-art-studio-region-art-plant-pot"
+    }
+  ],
+  "portals": []
+}
