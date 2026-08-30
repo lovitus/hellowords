@@ -13,6 +13,11 @@
       "parentId": "world-map"
     },
     {
+      "id": "supermarket-checkout-station",
+      "title": "Supermarket checkout station",
+      "parentId": "supermarket-grocery"
+    },
+    {
       "id": "supermarket-backroom",
       "title": "Supermarket backroom",
       "parentId": "supermarket-grocery"
@@ -301,6 +306,11 @@
       "id": "aircraft-cabin",
       "title": "Aircraft cabin",
       "parentId": "boarding-gate"
+    },
+    {
+      "id": "aircraft-lavatory",
+      "title": "Aircraft lavatory",
+      "parentId": "aircraft-cabin"
     }
   ]
 }

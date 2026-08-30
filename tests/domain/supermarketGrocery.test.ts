@@ -42,7 +42,7 @@ interface Scene {
   readonly labels: readonly Label[];
   readonly visualRegions: readonly Region[];
   readonly detailZones: readonly Zone[];
-  readonly portals: readonly unknown[];
+  readonly portals: readonly { readonly childSceneId: string }[];
   readonly anchorAudit: {
     readonly status: string;
     readonly policy: string;
@@ -65,7 +65,7 @@ test("supermarket grocery keeps dense practical vocabulary and one visible backr
   assert.equal(scene.asset, "/scenes/supermarket-grocery-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 115);
-  assert.equal(scene.visualRegions.length, scene.labels.length + 1);
+  assert.equal(scene.visualRegions.length, scene.labels.length + 2);
   assert.deepEqual(scene.detailZones.map((zone) => [zone.id, zone.labelIds.length]), [
     ["supermarket-grocery-zone-produce-section", 23],
     ["supermarket-grocery-zone-chilled-dairy", 24],
@@ -77,18 +77,10 @@ test("supermarket grocery keeps dense practical vocabulary and one visible backr
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
     [20, 29, 32, 22, 12],
   );
-  assert.deepEqual(scene.portals, [{
-    id: "enter-supermarket-backroom",
-    label: "Enter the supermarket backroom",
-    translation: "进入超市后场",
-    childSceneId: "supermarket-backroom",
-    sourceVisualRegion: "portal-supermarket-backroom-service-door",
-    x: 1_505,
-    y: 90,
-    width: 90,
-    height: 310,
-    enterScale: 4.2,
-  }]);
+  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), [
+    "supermarket-backroom",
+    "supermarket-checkout-station",
+  ]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);

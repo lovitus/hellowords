@@ -91,6 +91,11 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("supermarket-checkout-station", "supermarket-grocery", ["supermarket-grocery"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
   contract("supermarket-walk-in-cooler", "supermarket-backroom", ["supermarket-grocery", "supermarket-backroom"], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,
@@ -208,6 +213,19 @@ const newSceneContracts: NewSceneContract[] = [
     "airport",
     "security-checkpoint",
     "boarding-gate",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("aircraft-lavatory", "aircraft-cabin", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "airport",
+    "security-checkpoint",
+    "boarding-gate",
+    "aircraft-cabin",
   ], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,

@@ -1051,6 +1051,15 @@
       "y": 90,
       "width": 90,
       "height": 310
+    },
+    {
+      "id": "portal-supermarket-checkout-station",
+      "description": "Complete visible center checkout station in the supermarket photograph",
+      "kind": "object",
+      "x": 850,
+      "y": 440,
+      "width": 390,
+      "height": 450
     }
   ],
   "detailZones": [
@@ -2532,6 +2541,18 @@
       "width": 90,
       "height": 310,
       "enterScale": 4.2
+    },
+    {
+      "id": "enter-supermarket-checkout-station",
+      "label": "Enter the supermarket checkout station",
+      "translation": "进入超市收银台工位",
+      "childSceneId": "supermarket-checkout-station",
+      "sourceVisualRegion": "portal-supermarket-checkout-station",
+      "x": 850,
+      "y": 440,
+      "width": 390,
+      "height": 450,
+      "enterScale": 3.25
     }
   ]
 }

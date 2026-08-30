@@ -359,6 +359,32 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 25,
     },
   },
+  "supermarket-checkout-station": {
+    asset: "/scenes/supermarket-checkout-station-premium-v1.jpg",
+    sha256: "44d9ef20a386aa57eeddebbd51419a8353131a9aeb4759d6bbc0b95bfc61fe81",
+    quality: {
+      minMeanLuminance: 95,
+      maxMeanLuminance: 175,
+      maxDarkFraction: 0.38,
+      maxDeepDarkFraction: 0.24,
+      minMeanChroma: 0.09,
+      maxMeanChroma: 0.22,
+      maxChannelMeanSpread: 35,
+    },
+  },
+  "aircraft-lavatory": {
+    asset: "/scenes/aircraft-lavatory-premium-v1.jpg",
+    sha256: "656375726949d55919bcef32f468b24d9cf454bcfc731882871b4ba6c7de4f60",
+    quality: {
+      minMeanLuminance: 130,
+      maxMeanLuminance: 180,
+      maxDarkFraction: 0.18,
+      maxDeepDarkFraction: 0.08,
+      minMeanChroma: 0.05,
+      maxMeanChroma: 0.16,
+      maxChannelMeanSpread: 25,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

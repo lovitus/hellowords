@@ -131,6 +131,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The connected wide-body cabin resolves the entry, galley, seating,
   // overhead-service, lavatory and room-fabric parts without flight claims.
   "aircraft-cabin": 120,
+  "aircraft-lavatory": 120,
   // The office atrium resolves reception, open work floor, meeting, pantry and
   // building-service hardware without inferring people, companies or policies.
   "office-building": 100,
@@ -144,6 +145,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The connected supermarket backroom keeps receiving, material-handling,
   // pallet-rack, refrigeration, packing and sanitation hardware visible.
   "supermarket-backroom": 120,
+  "supermarket-checkout-station": 120,
   // The connected walk-in cooler resolves dairy, produce, mobile storage,
   // refrigeration, doorway and insulated-room parts without temperature claims.
   "supermarket-walk-in-cooler": 120,
@@ -213,6 +215,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "security-checkpoint": 103,
   "boarding-gate": 120,
   "aircraft-cabin": 142,
+  "aircraft-lavatory": 138,
   "office-building": 390,
   // The service-core render supports 90 distinct visible facility parts while
   // excluding hidden system states, operational claims and duplicate names.
@@ -220,6 +223,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "hotel-exterior": 69,
   "hotel-lobby-rooms": 107,
   "supermarket-backroom": 143,
+  "supermarket-checkout-station": 144,
   "supermarket-walk-in-cooler": 144,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
