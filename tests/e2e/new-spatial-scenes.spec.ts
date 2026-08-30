@@ -198,6 +198,28 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("microscope-workstation", "pathology-lab", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "hospital",
+    "pathology-lab",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("automated-dispensing-cabinet", "hospital-pharmacy", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "hospital",
+    "hospital-pharmacy",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
   contract("video-conferencing-console", "conference-room", [
     "city-street",
     "transit-hub",

@@ -6,16 +6,17 @@ import sharp from "sharp";
 
 /**
  * Build the terminal automated-dispensing-cabinet scene from a reviewed
- * hospital-pharmacy photograph. Parent portal and manifest integration remain
- * with the root agent; this script owns only the new scene, assets and term
- * audit.
+ * hospital-pharmacy photograph. Pass --integrate after review to connect the
+ * visible cabinet bank in the parent and update the manifest.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/automated-dispensing-cabinet-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/automated-dispensing-cabinet-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/automated-dispensing-cabinet.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/hospital-pharmacy.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const integrate = process.argv.includes("--integrate");
 
 const WIDTH = 1_600;
 const HEIGHT = 900;
@@ -386,17 +387,70 @@ async function assertUniqueWords(scene) {
   if (existingDuplicates.length > 0) throw new Error(`automated-dispensing-cabinet term duplicates existing words: ${existingDuplicates.join(", ")}`);
 }
 
+const parentPortal = {
+  id: "enter-automated-dispensing-cabinet",
+  label: "Inspect the automated dispensing cabinet",
+  translation: "查看自动发药柜",
+  childSceneId: "automated-dispensing-cabinet",
+  sourceVisualRegion: "portal-automated-dispensing-cabinet",
+  x: 1_120,
+  y: 80,
+  width: 480,
+  height: 680,
+  enterScale: 3.4,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Visible refrigerated medicine cabinet and automated dispensing cabinet bank along the pharmacy right wall",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "automated-dispensing-cabinet")) {
+    const parentIndex = manifest.scenes.findIndex(({ id }) => id === "hospital-pharmacy");
+    if (parentIndex < 0) throw new Error("hospital-pharmacy is missing from the scene manifest");
+    manifest.scenes.splice(parentIndex + 1, 0, {
+      id: "automated-dispensing-cabinet",
+      title: "Automated dispensing cabinet",
+      parentId: "hospital-pharmacy",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildAutomatedDispensingCabinetScene() {
   const assetChanged = await ensureAsset();
   const scene = makeScene();
   await assertUniqueWords(scene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
-  return {
+  const result = {
     assetChanged,
     sceneChanged,
     labels: scene.labels.length,
     zones: scene.detailZones.length,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 const isDirectInvocation = process.argv[1]

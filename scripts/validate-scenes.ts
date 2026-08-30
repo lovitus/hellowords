@@ -118,9 +118,11 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The dedicated pathology lab keeps microscope, specimen, embedding, staining
   // and cold-storage terms in one focused educational bench.
   "pathology-lab": 100,
+  "microscope-workstation": 145,
   // The pharmacy close-up keeps storage, dispensing, compounding and generic
   // medicine terms on visible shelves, counters and equipment.
   "hospital-pharmacy": 100,
+  "automated-dispensing-cabinet": 145,
   // The terminal raster resolves passenger processing, security, gate, baggage
   // claim and airside structures with a bounded, independently pointable set.
   airport: 100,
@@ -224,7 +226,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "bedside-monitor-station": 150,
   "infusion-pump-rack": 150,
   "pathology-lab": 450,
+  "microscope-workstation": 155,
   "hospital-pharmacy": 390,
+  "automated-dispensing-cabinet": 150,
   airport: 390,
   // The baggage-claim render supports 95 distinct visible carousel, luggage,
   // arrivals, customs and reception parts without duplicate parent terms.

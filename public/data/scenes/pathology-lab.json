@@ -4959,7 +4959,20 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": [],
+  "portals": [
+    {
+      "id": "enter-microscope-workstation",
+      "label": "Inspect the microscope workstation",
+      "translation": "查看显微镜工作台",
+      "childSceneId": "microscope-workstation",
+      "sourceVisualRegion": "portal-microscope-workstation",
+      "x": 20,
+      "y": 360,
+      "width": 300,
+      "height": 400,
+      "enterScale": 3.4
+    }
+  ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
@@ -5045,6 +5058,15 @@
       "y": 70,
       "width": 1260,
       "height": 190
+    },
+    {
+      "id": "portal-microscope-workstation",
+      "description": "Complete left-front compound microscope, stage, controls and surrounding glass workbench in the pathology laboratory photograph",
+      "kind": "object",
+      "x": 20,
+      "y": 360,
+      "width": 300,
+      "height": 400
     }
   ],
   "detailZones": [

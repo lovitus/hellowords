@@ -6,13 +6,17 @@ import sharp from "sharp";
 /**
  * Author the microscope-workstation terminal scene from its reviewed source
  * raster. The default command writes only this scene JSON and verifies both
- * image tiers; pathology-lab integration stays on the main branch.
+ * image tiers. Pass --integrate after review to connect the visible left-front
+ * microscope in pathology-lab and update the manifest.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/microscope-workstation-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/microscope-workstation-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/microscope-workstation.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/pathology-lab.json");
+const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const integrate = process.argv.includes("--integrate");
 
 const SOURCE_WIDTH = 1_672;
 const SOURCE_HEIGHT = 941;
@@ -35,31 +39,31 @@ const sourceZones = [
     height: 420,
     targetScale: 2.65,
     labels: [
-      ["Microscope workstation binocular head", "显微镜工作台双目镜筒", 700, 240, 0],
-      ["Microscope workstation left eyepiece", "显微镜工作台左目镜", 690, 170, 0],
-      ["Microscope workstation right eyepiece", "显微镜工作台右目镜", 800, 170, 0],
-      ["Microscope workstation left eyepiece lens", "显微镜工作台左目镜透镜", 690, 145, 2],
-      ["Microscope workstation right eyepiece lens", "显微镜工作台右目镜透镜", 800, 145, 2],
-      ["Microscope workstation left eyepiece tube", "显微镜工作台左目镜筒", 650, 210, 1],
-      ["Microscope workstation right eyepiece tube", "显微镜工作台右目镜筒", 830, 210, 1],
-      ["Microscope workstation head housing", "显微镜工作台光学头外壳", 700, 250, 0],
-      ["Microscope workstation trinocular port", "显微镜工作台三目接口", 600, 100, 1],
-      ["Microscope workstation camera housing", "显微镜工作台相机外壳", 600, 55, 0],
-      ["Microscope workstation camera cable", "显微镜工作台相机线", 520, 180, 2],
-      ["Microscope workstation photo tube", "显微镜工作台摄影筒", 600, 140, 1],
-      ["Microscope workstation head mount collar", "显微镜工作台光学头安装环", 700, 290, 2],
-      ["Microscope workstation upper arm", "显微镜工作台上支臂", 550, 300, 0],
-      ["Microscope workstation arm underside", "显微镜工作台支臂底面", 550, 320, 2],
-      ["Microscope workstation arm inner surface", "显微镜工作台支臂内侧", 500, 300, 3],
-      ["Microscope workstation stand upper frame", "显微镜工作台支架上框", 480, 260, 1],
-      ["Microscope workstation support column", "显微镜工作台支撑柱", 480, 350, 0],
-      ["Microscope workstation focus shaft", "显微镜工作台调焦轴", 420, 380, 3],
-      ["Microscope workstation arm screw", "显微镜工作台支臂螺钉", 500, 340, 4],
-      ["Microscope workstation cable loop", "显微镜工作台线缆环", 430, 300, 2],
-      ["Microscope workstation head tilt joint", "显微镜工作台光学头倾斜接头", 650, 300, 3],
-      ["Microscope workstation tube collar", "显微镜工作台镜筒环", 700, 280, 3],
-      ["Microscope workstation camera port cap", "显微镜工作台相机接口盖", 600, 85, 2],
-      ["Microscope workstation head rear plate", "显微镜工作台光学头后板", 620, 250, 2],
+      ["Microscope binocular head", "显微镜工作台双目镜筒", 700, 240, 0],
+      ["Microscope left eyepiece", "显微镜工作台左目镜", 690, 170, 0],
+      ["Microscope right eyepiece", "显微镜工作台右目镜", 800, 170, 0],
+      ["Microscope left eyepiece lens", "显微镜工作台左目镜透镜", 690, 145, 2],
+      ["Microscope right eyepiece lens", "显微镜工作台右目镜透镜", 800, 145, 2],
+      ["Microscope left eyepiece tube", "显微镜工作台左目镜筒", 650, 210, 1],
+      ["Microscope right eyepiece tube", "显微镜工作台右目镜筒", 830, 210, 1],
+      ["Microscope head housing", "显微镜工作台光学头外壳", 700, 250, 0],
+      ["Microscope trinocular port", "显微镜工作台三目接口", 600, 100, 1],
+      ["Microscope camera housing", "显微镜工作台相机外壳", 600, 55, 0],
+      ["Microscope camera cable", "显微镜工作台相机线", 520, 180, 2],
+      ["Microscope photo tube", "显微镜工作台摄影筒", 600, 140, 1],
+      ["Microscope head mount collar", "显微镜工作台光学头安装环", 700, 290, 2],
+      ["Microscope upper arm", "显微镜工作台上支臂", 550, 300, 0],
+      ["Microscope arm underside", "显微镜工作台支臂底面", 550, 320, 2],
+      ["Microscope arm inner surface", "显微镜工作台支臂内侧", 500, 300, 3],
+      ["Microscope stand upper frame", "显微镜工作台支架上框", 480, 260, 1],
+      ["Microscope support column", "显微镜工作台支撑柱", 480, 350, 0],
+      ["Microscope focus shaft", "显微镜工作台调焦轴", 420, 380, 3],
+      ["Microscope arm screw", "显微镜工作台支臂螺钉", 500, 340, 4],
+      ["Microscope cable loop", "显微镜工作台线缆环", 430, 300, 2],
+      ["Microscope head tilt joint", "显微镜工作台光学头倾斜接头", 650, 300, 3],
+      ["Microscope tube collar", "显微镜工作台镜筒环", 700, 280, 3],
+      ["Microscope camera port cap", "显微镜工作台相机接口盖", 600, 85, 2],
+      ["Microscope head rear plate", "显微镜工作台光学头后板", 620, 250, 2],
     ],
   },
   {
@@ -73,31 +77,31 @@ const sourceZones = [
     height: 400,
     targetScale: 2.65,
     labels: [
-      ["Microscope workstation revolving nosepiece", "显微镜工作台物镜转换器", 560, 370, 0],
-      ["Microscope workstation nosepiece ring", "显微镜工作台转换器环", 560, 360, 2],
-      ["Microscope workstation nosepiece click stop", "显微镜工作台转换器定位点", 600, 360, 3],
-      ["Microscope workstation blue objective lens", "显微镜工作台蓝环物镜", 500, 420, 1],
-      ["Microscope workstation yellow objective lens", "显微镜工作台黄环物镜", 550, 430, 1],
-      ["Microscope workstation white objective lens", "显微镜工作台白环物镜", 610, 430, 1],
-      ["Microscope workstation red objective lens", "显微镜工作台红环物镜", 670, 430, 1],
-      ["Microscope workstation blue objective collar", "显微镜工作台蓝环物镜套", 500, 405, 2],
-      ["Microscope workstation yellow objective collar", "显微镜工作台黄环物镜套", 550, 415, 2],
-      ["Microscope workstation white objective collar", "显微镜工作台白环物镜套", 610, 415, 2],
-      ["Microscope workstation red objective collar", "显微镜工作台红环物镜套", 670, 415, 2],
-      ["Microscope workstation turret underside", "显微镜工作台转换器底面", 560, 390, 3],
-      ["Microscope workstation mechanical stage", "显微镜工作台机械载物台", 580, 500, 0],
-      ["Microscope workstation stage plate", "显微镜工作台载物台板", 580, 510, 1],
-      ["Microscope workstation stage left edge", "显微镜工作台载物台左边", 430, 510, 3],
-      ["Microscope workstation stage right edge", "显微镜工作台载物台右边", 760, 510, 3],
-      ["Microscope workstation stage front edge", "显微镜工作台载物台前边", 580, 550, 2],
-      ["Microscope workstation slide holder", "显微镜工作台载玻片夹", 580, 480, 0],
-      ["Microscope workstation slide clip left", "显微镜工作台左压片夹", 470, 480, 3],
-      ["Microscope workstation slide clip right", "显微镜工作台右压片夹", 700, 480, 3],
-      ["Microscope workstation glass slide", "显微镜工作台玻璃载玻片", 580, 490, 1],
-      ["Microscope workstation coverslip", "显微镜工作台盖玻片", 620, 490, 3],
-      ["Microscope workstation stage aperture", "显微镜工作台载物台孔", 580, 570, 2],
-      ["Microscope workstation stage X control", "显微镜工作台 X 向旋钮", 760, 540, 3],
-      ["Microscope workstation stage Y control", "显微镜工作台 Y 向旋钮", 780, 560, 3],
+      ["Microscope revolving nosepiece", "显微镜工作台物镜转换器", 560, 370, 0],
+      ["Microscope nosepiece ring", "显微镜工作台转换器环", 560, 360, 2],
+      ["Microscope nosepiece click stop", "显微镜工作台转换器定位点", 600, 360, 3],
+      ["Microscope blue objective lens", "显微镜工作台蓝环物镜", 500, 420, 1],
+      ["Microscope yellow objective lens", "显微镜工作台黄环物镜", 550, 430, 1],
+      ["Microscope white objective lens", "显微镜工作台白环物镜", 610, 430, 1],
+      ["Microscope red objective lens", "显微镜工作台红环物镜", 670, 430, 1],
+      ["Microscope blue objective collar", "显微镜工作台蓝环物镜套", 500, 405, 2],
+      ["Microscope yellow objective collar", "显微镜工作台黄环物镜套", 550, 415, 2],
+      ["Microscope white objective collar", "显微镜工作台白环物镜套", 610, 415, 2],
+      ["Microscope red objective collar", "显微镜工作台红环物镜套", 670, 415, 2],
+      ["Microscope turret underside", "显微镜工作台转换器底面", 560, 390, 3],
+      ["Microscope mechanical stage", "显微镜工作台机械载物台", 580, 500, 0],
+      ["Microscope stage plate", "显微镜工作台载物台板", 580, 510, 1],
+      ["Microscope stage left edge", "显微镜工作台载物台左边", 430, 510, 3],
+      ["Microscope stage right edge", "显微镜工作台载物台右边", 760, 510, 3],
+      ["Microscope stage front edge", "显微镜工作台载物台前边", 580, 550, 2],
+      ["Microscope slide holder", "显微镜工作台载玻片夹", 580, 480, 0],
+      ["Microscope slide clip left", "显微镜工作台左压片夹", 470, 480, 3],
+      ["Microscope slide clip right", "显微镜工作台右压片夹", 700, 480, 3],
+      ["Microscope glass slide", "显微镜工作台玻璃载玻片", 580, 490, 1],
+      ["Microscope coverslip", "显微镜工作台盖玻片", 620, 490, 3],
+      ["Microscope stage aperture", "显微镜工作台载物台孔", 580, 570, 2],
+      ["Microscope stage X control", "显微镜工作台 X 向旋钮", 760, 540, 3],
+      ["Microscope stage Y control", "显微镜工作台 Y 向旋钮", 780, 560, 3],
     ],
   },
   {
@@ -111,31 +115,31 @@ const sourceZones = [
     height: 441,
     targetScale: 2.6,
     labels: [
-      ["Microscope workstation coarse focus knob", "显微镜工作台粗调焦旋钮", 300, 620, 0],
-      ["Microscope workstation fine focus knob", "显微镜工作台细调焦旋钮", 420, 680, 1],
-      ["Microscope workstation focus knob axle", "显微镜工作台调焦旋钮轴", 420, 680, 3],
-      ["Microscope workstation condenser", "显微镜工作台聚光器", 600, 620, 0],
-      ["Microscope workstation iris diaphragm", "显微镜工作台虹彩光阑", 600, 640, 2],
-      ["Microscope workstation diaphragm ring", "显微镜工作台光阑环", 600, 650, 3],
-      ["Microscope workstation condenser holder", "显微镜工作台聚光器架", 600, 590, 1],
-      ["Microscope workstation illuminator housing", "显微镜工作台光源外壳", 600, 710, 0],
-      ["Microscope workstation illuminator lens", "显微镜工作台光源透镜", 600, 700, 2],
-      ["Microscope workstation lamp collector", "显微镜工作台集光器", 600, 690, 3],
-      ["Microscope workstation field diaphragm", "显微镜工作台视场光阑", 620, 660, 3],
-      ["Microscope workstation light path aperture", "显微镜工作台光路孔", 600, 675, 4],
-      ["Microscope workstation base upper deck", "显微镜工作台底座上平台", 500, 760, 0],
-      ["Microscope workstation base front edge", "显微镜工作台底座前沿", 500, 830, 2],
-      ["Microscope workstation base left corner", "显微镜工作台底座左角", 350, 800, 3],
-      ["Microscope workstation base right corner", "显微镜工作台底座右角", 700, 800, 3],
-      ["Microscope workstation stand base", "显微镜工作台支架底座", 500, 780, 0],
-      ["Microscope workstation left rubber foot", "显微镜工作台左橡胶脚", 400, 875, 4],
-      ["Microscope workstation right rubber foot", "显微镜工作台右橡胶脚", 680, 875, 4],
-      ["Microscope workstation power switch", "显微镜工作台电源开关", 450, 750, 2],
-      ["Microscope workstation power cable", "显微镜工作台电源线", 280, 760, 1],
-      ["Microscope workstation lower arm support", "显微镜工作台下支臂", 360, 560, 1],
-      ["Microscope workstation stage support column", "显微镜工作台载物台支柱", 500, 600, 2],
-      ["Microscope workstation focus control shaft", "显微镜工作台调焦控制轴", 350, 650, 3],
-      ["Microscope workstation base rear edge", "显微镜工作台底座后沿", 650, 760, 3],
+      ["Microscope coarse focus knob", "显微镜工作台粗调焦旋钮", 300, 620, 0],
+      ["Microscope fine focus knob", "显微镜工作台细调焦旋钮", 420, 680, 1],
+      ["Microscope focus knob axle", "显微镜工作台调焦旋钮轴", 420, 680, 3],
+      ["Microscope condenser", "显微镜工作台聚光器", 600, 620, 0],
+      ["Microscope iris diaphragm", "显微镜工作台虹彩光阑", 600, 640, 2],
+      ["Microscope diaphragm ring", "显微镜工作台光阑环", 600, 650, 3],
+      ["Microscope condenser holder", "显微镜工作台聚光器架", 600, 590, 1],
+      ["Microscope illuminator housing", "显微镜工作台光源外壳", 600, 710, 0],
+      ["Microscope illuminator lens", "显微镜工作台光源透镜", 600, 700, 2],
+      ["Microscope lamp collector", "显微镜工作台集光器", 600, 690, 3],
+      ["Microscope field diaphragm", "显微镜工作台视场光阑", 620, 660, 3],
+      ["Microscope light path aperture", "显微镜工作台光路孔", 600, 675, 4],
+      ["Microscope base upper deck", "显微镜工作台底座上平台", 500, 760, 0],
+      ["Microscope base front edge", "显微镜工作台底座前沿", 500, 830, 2],
+      ["Microscope base left corner", "显微镜工作台底座左角", 350, 800, 3],
+      ["Microscope base right corner", "显微镜工作台底座右角", 700, 800, 3],
+      ["Microscope stand base", "显微镜工作台支架底座", 500, 780, 0],
+      ["Microscope left rubber foot", "显微镜工作台左橡胶脚", 400, 875, 4],
+      ["Microscope right rubber foot", "显微镜工作台右橡胶脚", 680, 875, 4],
+      ["Microscope power switch", "显微镜工作台电源开关", 450, 750, 2],
+      ["Microscope power cable", "显微镜工作台电源线", 280, 760, 1],
+      ["Microscope lower arm support", "显微镜工作台下支臂", 360, 560, 1],
+      ["Microscope stage support column", "显微镜工作台载物台支柱", 500, 600, 2],
+      ["Microscope focus control shaft", "显微镜工作台调焦控制轴", 350, 650, 3],
+      ["Microscope base rear edge", "显微镜工作台底座后沿", 650, 760, 3],
     ],
   },
   {
@@ -149,31 +153,31 @@ const sourceZones = [
     height: 590,
     targetScale: 2.55,
     labels: [
-      ["Microscope workstation slide tray", "显微镜工作台载玻片托盘", 1_050, 800, 0],
-      ["Microscope workstation violet slide cassette", "显微镜工作台紫色载片盒", 900, 790, 1],
-      ["Microscope workstation blue slide cassette", "显微镜工作台蓝色载片盒", 1_100, 790, 1],
-      ["Microscope workstation green slide cassette", "显微镜工作台绿色载片盒", 1_000, 790, 1],
-      ["Microscope workstation slide cassette lid", "显微镜工作台载片盒盖", 1_050, 770, 2],
-      ["Microscope workstation blank glass slide", "显微镜工作台空白玻璃片", 1_050, 815, 2],
-      ["Microscope workstation coverslip pack", "显微镜工作台盖玻片盒", 1_100, 830, 1],
-      ["Microscope workstation forceps", "显微镜工作台镊子", 1_250, 860, 0],
-      ["Microscope workstation forceps tip", "显微镜工作台镊尖", 1_250, 850, 3],
-      ["Microscope workstation stainless dish", "显微镜工作台不锈钢皿", 1_350, 750, 0],
-      ["Microscope workstation dish rim", "显微镜工作台金属皿边", 1_350, 730, 3],
-      ["Microscope workstation pipette rack", "显微镜工作台移液器架", 1_250, 550, 0],
-      ["Microscope workstation white pipette", "显微镜工作台白色移液器", 1_220, 500, 1],
-      ["Microscope workstation blue pipette", "显微镜工作台蓝色移液器", 1_300, 500, 1],
-      ["Microscope workstation pipette plunger", "显微镜工作台移液器推杆", 1_250, 470, 3],
-      ["Microscope workstation pipette stand", "显微镜工作台移液器底座", 1_250, 650, 2],
-      ["Microscope workstation clear tube rack", "显微镜工作台透明试管架", 1_000, 650, 0],
-      ["Microscope workstation glass tube", "显微镜工作台玻璃试管", 1_000, 610, 1],
-      ["Microscope workstation tube rack rail", "显微镜工作台试管架横杆", 1_000, 680, 2],
-      ["Microscope workstation tube rack foot", "显微镜工作台试管架脚", 1_000, 710, 3],
-      ["Microscope workstation specimen box", "显微镜工作台样本盒", 1_350, 600, 0],
-      ["Microscope workstation specimen box lid", "显微镜工作台样本盒盖", 1_350, 570, 2],
-      ["Microscope workstation lens tissue box", "显微镜工作台镜头纸盒", 850, 540, 0],
-      ["Microscope workstation lens tissue stack", "显微镜工作台镜头纸叠", 850, 530, 2],
-      ["Microscope workstation glass bench surface", "显微镜工作台玻璃台面", 1_100, 700, 0],
+      ["Microscope slide tray", "显微镜工作台载玻片托盘", 1_050, 800, 0],
+      ["Microscope violet slide cassette", "显微镜工作台紫色载片盒", 900, 790, 1],
+      ["Microscope blue slide cassette", "显微镜工作台蓝色载片盒", 1_100, 790, 1],
+      ["Microscope green slide cassette", "显微镜工作台绿色载片盒", 1_000, 790, 1],
+      ["Microscope slide cassette lid", "显微镜工作台载片盒盖", 1_050, 770, 2],
+      ["Microscope blank glass slide", "显微镜工作台空白玻璃片", 1_050, 815, 2],
+      ["Microscope coverslip pack", "显微镜工作台盖玻片盒", 1_100, 830, 1],
+      ["Microscope forceps", "显微镜工作台镊子", 1_250, 860, 0],
+      ["Microscope forceps tip", "显微镜工作台镊尖", 1_250, 850, 3],
+      ["Microscope stainless dish", "显微镜工作台不锈钢皿", 1_350, 750, 0],
+      ["Microscope dish rim", "显微镜工作台金属皿边", 1_350, 730, 3],
+      ["Microscope pipette rack", "显微镜工作台移液器架", 1_250, 550, 0],
+      ["Microscope white pipette", "显微镜工作台白色移液器", 1_220, 500, 1],
+      ["Microscope blue pipette", "显微镜工作台蓝色移液器", 1_300, 500, 1],
+      ["Microscope pipette plunger", "显微镜工作台移液器推杆", 1_250, 470, 3],
+      ["Microscope pipette stand", "显微镜工作台移液器底座", 1_250, 650, 2],
+      ["Microscope clear tube rack", "显微镜工作台透明试管架", 1_000, 650, 0],
+      ["Microscope glass tube", "显微镜工作台玻璃试管", 1_000, 610, 1],
+      ["Microscope tube rack rail", "显微镜工作台试管架横杆", 1_000, 680, 2],
+      ["Microscope tube rack foot", "显微镜工作台试管架脚", 1_000, 710, 3],
+      ["Microscope specimen box", "显微镜工作台样本盒", 1_350, 600, 0],
+      ["Microscope specimen box lid", "显微镜工作台样本盒盖", 1_350, 570, 2],
+      ["Microscope lens tissue box", "显微镜工作台镜头纸盒", 850, 540, 0],
+      ["Microscope lens tissue stack", "显微镜工作台镜头纸叠", 850, 530, 2],
+      ["Microscope glass bench surface", "显微镜工作台玻璃台面", 1_100, 700, 0],
     ],
   },
   {
@@ -187,31 +191,31 @@ const sourceZones = [
     height: 700,
     targetScale: 2.5,
     labels: [
-      ["Microscope workstation imaging monitor", "显微镜工作台成像显示器", 1_050, 350, 0],
-      ["Microscope workstation blank monitor screen", "显微镜工作台空白显示屏", 1_050, 350, 1],
-      ["Microscope workstation monitor bezel", "显微镜工作台显示器边框", 1_050, 350, 2],
-      ["Microscope workstation monitor stand", "显微镜工作台显示器支架", 1_050, 480, 1],
-      ["Microscope workstation imaging keyboard", "显微镜工作台成像键盘", 1_050, 520, 0],
-      ["Microscope workstation keyboard key field", "显微镜工作台键盘按键区", 1_050, 520, 3],
-      ["Microscope workstation camera monitor cable", "显微镜工作台成像线", 950, 450, 2],
-      ["Microscope workstation desk lamp", "显微镜工作台台灯", 900, 280, 0],
-      ["Microscope workstation lamp head", "显微镜工作台灯头", 900, 260, 2],
-      ["Microscope workstation lamp arm", "显微镜工作台灯臂", 850, 330, 1],
-      ["Microscope workstation rear microscope", "显微镜工作台后方显微镜", 1_400, 340, 0],
-      ["Microscope workstation rear eyepiece", "显微镜工作台后方目镜", 1_430, 280, 1],
-      ["Microscope workstation rear nosepiece", "显微镜工作台后方转换器", 1_390, 400, 2],
-      ["Microscope workstation rear stage", "显微镜工作台后方载物台", 1_400, 450, 1],
-      ["Microscope workstation rear stand base", "显微镜工作台后方底座", 1_400, 500, 0],
-      ["Microscope workstation rear camera", "显微镜工作台后方相机", 1_390, 250, 2],
-      ["Microscope workstation rear camera cable", "显微镜工作台后方相机线", 1_350, 270, 3],
-      ["Microscope workstation bench rear shelf", "显微镜工作台后层搁板", 1_200, 300, 0],
-      ["Microscope workstation bench backsplash", "显微镜工作台后挡板", 1_200, 400, 1],
-      ["Microscope workstation cabinet drawer", "显微镜工作台柜体抽屉", 1_350, 520, 0],
-      ["Microscope workstation cabinet handle", "显微镜工作台柜体拉手", 1_350, 520, 3],
-      ["Microscope workstation bench edge", "显微镜工作台台面边缘", 1_200, 700, 2],
-      ["Microscope workstation monitor power cable", "显微镜工作台显示电源线", 1_100, 500, 2],
-      ["Microscope workstation monitor support foot", "显微镜工作台显示器支脚", 1_050, 480, 3],
-      ["Microscope workstation glass bench edge", "显微镜工作台玻璃台边", 1_450, 700, 2],
+      ["Microscope imaging monitor", "显微镜工作台成像显示器", 1_050, 350, 0],
+      ["Microscope blank monitor screen", "显微镜工作台空白显示屏", 1_050, 350, 1],
+      ["Microscope monitor bezel", "显微镜工作台显示器边框", 1_050, 350, 2],
+      ["Microscope monitor stand", "显微镜工作台显示器支架", 1_050, 480, 1],
+      ["Microscope imaging keyboard", "显微镜工作台成像键盘", 1_050, 520, 0],
+      ["Microscope keyboard key field", "显微镜工作台键盘按键区", 1_050, 520, 3],
+      ["Microscope camera monitor cable", "显微镜工作台成像线", 950, 450, 2],
+      ["Microscope desk lamp", "显微镜工作台台灯", 900, 280, 0],
+      ["Microscope lamp head", "显微镜工作台灯头", 900, 260, 2],
+      ["Microscope lamp arm", "显微镜工作台灯臂", 850, 330, 1],
+      ["Microscope rear microscope", "显微镜工作台后方显微镜", 1_400, 340, 0],
+      ["Microscope rear eyepiece", "显微镜工作台后方目镜", 1_430, 280, 1],
+      ["Microscope rear nosepiece", "显微镜工作台后方转换器", 1_390, 400, 2],
+      ["Microscope rear stage", "显微镜工作台后方载物台", 1_400, 450, 1],
+      ["Microscope rear stand base", "显微镜工作台后方底座", 1_400, 500, 0],
+      ["Microscope rear camera", "显微镜工作台后方相机", 1_390, 250, 2],
+      ["Microscope rear camera cable", "显微镜工作台后方相机线", 1_350, 270, 3],
+      ["Microscope bench rear shelf", "显微镜工作台后层搁板", 1_200, 300, 0],
+      ["Microscope bench backsplash", "显微镜工作台后挡板", 1_200, 400, 1],
+      ["Microscope cabinet drawer", "显微镜工作台柜体抽屉", 1_350, 520, 0],
+      ["Microscope cabinet handle", "显微镜工作台柜体拉手", 1_350, 520, 3],
+      ["Microscope bench edge", "显微镜工作台台面边缘", 1_200, 700, 2],
+      ["Microscope monitor power cable", "显微镜工作台显示电源线", 1_100, 500, 2],
+      ["Microscope monitor support foot", "显微镜工作台显示器支脚", 1_050, 480, 3],
+      ["Microscope glass bench edge", "显微镜工作台玻璃台边", 1_450, 700, 2],
     ],
   },
   {
@@ -388,19 +392,72 @@ async function ensureAsset() {
   return true;
 }
 
+const parentPortal = {
+  id: "enter-microscope-workstation",
+  label: "Inspect the microscope workstation",
+  translation: "查看显微镜工作台",
+  childSceneId: "microscope-workstation",
+  sourceVisualRegion: "portal-microscope-workstation",
+  x: 20,
+  y: 360,
+  width: 300,
+  height: 400,
+  enterScale: 3.4,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete left-front compound microscope, stage, controls and surrounding glass workbench in the pathology laboratory photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "microscope-workstation")) {
+    const parentIndex = manifest.scenes.findIndex(({ id }) => id === "pathology-lab");
+    if (parentIndex < 0) throw new Error("pathology-lab is missing from the scene manifest");
+    manifest.scenes.splice(parentIndex + 1, 0, {
+      id: "microscope-workstation",
+      title: "Microscope workstation",
+      parentId: "pathology-lab",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildMicroscopeWorkstationScene() {
   const scene = buildScene();
   if (scene.labels.length < 145 || scene.labels.length > 155) {
     throw new Error(`microscope label count ${scene.labels.length} is outside 145–155`);
   }
   if (scene.detailZones.length !== 6) throw new Error(`microscope zone count ${scene.detailZones.length} is not 6`);
-  return {
+  const result = {
     assetChanged: await ensureAsset(),
     sceneChanged: await writeIfChanged(scenePath, scene),
     labels: scene.labels.length,
     zones: scene.detailZones.length,
     parentId: scene.parentId,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve(import.meta.filename)) {

@@ -307,6 +307,32 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 30,
     },
   },
+  "microscope-workstation": {
+    asset: "/scenes/microscope-workstation-premium-v1.jpg",
+    sha256: "c2d5ff3cb6db3262a4adba64367f320280abb11c95cbb762f727c052492e274a",
+    quality: {
+      minMeanLuminance: 145,
+      maxMeanLuminance: 165,
+      maxDarkFraction: 0.19,
+      maxDeepDarkFraction: 0.09,
+      minMeanChroma: 0.02,
+      maxMeanChroma: 0.07,
+      maxChannelMeanSpread: 8,
+    },
+  },
+  "automated-dispensing-cabinet": {
+    asset: "/scenes/automated-dispensing-cabinet-premium-v1.jpg",
+    sha256: "ffad54c64be1bcb601c5ea1483a93786adf1bfb18e351a4260dcfaedaa47fdad",
+    quality: {
+      minMeanLuminance: 145,
+      maxMeanLuminance: 165,
+      maxDarkFraction: 0.1,
+      maxDeepDarkFraction: 0.06,
+      minMeanChroma: 0.05,
+      maxMeanChroma: 0.09,
+      maxChannelMeanSpread: 8,
+    },
+  },
   "hemodialysis-unit": {
     asset: "/scenes/hemodialysis-unit-premium-v1.jpg",
     sha256: "fd89f968c45ae3139c699fd4a333c5eb7b5c10bdd053df35c56a9a6b8af964dc",

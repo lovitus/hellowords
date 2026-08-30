@@ -143,9 +143,19 @@
       "parentId": "hospital"
     },
     {
+      "id": "microscope-workstation",
+      "title": "Microscope workstation",
+      "parentId": "pathology-lab"
+    },
+    {
       "id": "hospital-pharmacy",
       "title": "Hospital pharmacy",
       "parentId": "hospital"
+    },
+    {
+      "id": "automated-dispensing-cabinet",
+      "title": "Automated dispensing cabinet",
+      "parentId": "hospital-pharmacy"
     },
     {
       "id": "airport",

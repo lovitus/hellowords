@@ -48,6 +48,22 @@ const contracts = [
     labels: 150,
     zoneSizes: [25, 25, 25, 25, 25, 25],
   },
+  {
+    id: "microscope-workstation",
+    parentId: "pathology-lab",
+    asset: "/scenes/microscope-workstation-premium-v1.jpg",
+    sha256: "c2d5ff3cb6db3262a4adba64367f320280abb11c95cbb762f727c052492e274a",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
+    id: "automated-dispensing-cabinet",
+    parentId: "hospital-pharmacy",
+    asset: "/scenes/automated-dispensing-cabinet-premium-v1.jpg",
+    sha256: "ffad54c64be1bcb601c5ea1483a93786adf1bfb18e351a4260dcfaedaa47fdad",
+    labels: 147,
+    zoneSizes: [24, 25, 26, 25, 25, 22],
+  },
 ] as const;
 
 for (const contract of contracts) {
@@ -101,4 +117,23 @@ test("security checkpoint and open-plan office expose bounded equipment entrance
   const region = office.visualRegions.find(({ id }: { id: string }) => id === workstation.sourceVisualRegion);
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [500, 390, 430, 390]);
+});
+
+test("pathology laboratory and hospital pharmacy expose independently audited equipment entrances", async () => {
+  const pathology = await readJson("pathology-lab.json");
+  const microscope = pathology.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "microscope-workstation");
+  assert.ok(microscope);
+  assert.deepEqual([microscope.x, microscope.y, microscope.width, microscope.height], [20, 360, 300, 400]);
+  const microscopeRegion = pathology.visualRegions.find(({ id }: { id: string }) => id === microscope.sourceVisualRegion);
+  assert.ok(microscopeRegion);
+  assert.deepEqual([microscopeRegion.x, microscopeRegion.y, microscopeRegion.width, microscopeRegion.height], [20, 360, 300, 400]);
+
+  const pharmacy = await readJson("hospital-pharmacy.json");
+  const cabinet = pharmacy.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "automated-dispensing-cabinet");
+  assert.ok(cabinet);
+  assert.deepEqual([cabinet.x, cabinet.y, cabinet.width, cabinet.height], [1_120, 80, 480, 680]);
+  const cabinetRegion = pharmacy.visualRegions.find(({ id }: { id: string }) => id === cabinet.sourceVisualRegion);
+  assert.ok(cabinetRegion);
+  assert.deepEqual([cabinetRegion.x, cabinetRegion.y, cabinetRegion.width, cabinetRegion.height], [1_120, 80, 480, 680]);
+  assert.notEqual(cabinet.sourceVisualRegion, "automated-cabinet", "the accurate portal crop must not reuse the narrower legacy semantic region");
 });

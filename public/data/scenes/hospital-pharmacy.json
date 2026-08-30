@@ -4299,7 +4299,20 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": [],
+  "portals": [
+    {
+      "id": "enter-automated-dispensing-cabinet",
+      "label": "Inspect the automated dispensing cabinet",
+      "translation": "查看自动发药柜",
+      "childSceneId": "automated-dispensing-cabinet",
+      "sourceVisualRegion": "portal-automated-dispensing-cabinet",
+      "x": 1120,
+      "y": 80,
+      "width": 480,
+      "height": 680,
+      "enterScale": 3.4
+    }
+  ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
@@ -4376,6 +4389,15 @@
       "y": 470,
       "width": 820,
       "height": 430
+    },
+    {
+      "id": "portal-automated-dispensing-cabinet",
+      "description": "Visible refrigerated medicine cabinet and automated dispensing cabinet bank along the pharmacy right wall",
+      "kind": "object",
+      "x": 1120,
+      "y": 80,
+      "width": 480,
+      "height": 680
     }
   ],
   "detailZones": [
