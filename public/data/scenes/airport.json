@@ -4311,6 +4311,18 @@
       "width": 430,
       "height": 360,
       "enterScale": 3.4
+    },
+    {
+      "id": "enter-security-checkpoint",
+      "label": "Enter the security checkpoint",
+      "translation": "进入安检区",
+      "childSceneId": "security-checkpoint",
+      "sourceVisualRegion": "security-screening",
+      "x": 280,
+      "y": 250,
+      "width": 500,
+      "height": 430,
+      "enterScale": 3.4
     }
   ],
   "anchorAudit": {

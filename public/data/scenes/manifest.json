@@ -266,6 +266,16 @@
       "id": "library-reading-room",
       "title": "School library",
       "parentId": "school-campus"
+    },
+    {
+      "id": "security-checkpoint",
+      "title": "Security checkpoint",
+      "parentId": "airport"
+    },
+    {
+      "id": "boarding-gate",
+      "title": "Boarding gate",
+      "parentId": "security-checkpoint"
     }
   ]
 }

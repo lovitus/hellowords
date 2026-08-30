@@ -190,6 +190,32 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 50,
     },
   },
+  "security-checkpoint": {
+    asset: "/scenes/airport-security-checkpoint-premium-v1.jpg",
+    sha256: "8a12c6f335b1107d676112bf52033cc30d51aa352e9fbacf0bde609a3ef85e20",
+    quality: {
+      minMeanLuminance: 125,
+      maxMeanLuminance: 190,
+      maxDarkFraction: 0.16,
+      maxDeepDarkFraction: 0.06,
+      minMeanChroma: 0.08,
+      maxMeanChroma: 0.22,
+      maxChannelMeanSpread: 35,
+    },
+  },
+  "boarding-gate": {
+    asset: "/scenes/airport-boarding-gate-premium-v1.jpg",
+    sha256: "12c9298681df0b7fa1f282fab91ba9af5f05f5a9ddcc16a3b51a5b9e9765436b",
+    quality: {
+      minMeanLuminance: 105,
+      maxMeanLuminance: 175,
+      maxDarkFraction: 0.22,
+      maxDeepDarkFraction: 0.07,
+      minMeanChroma: 0.04,
+      maxMeanChroma: 0.16,
+      maxChannelMeanSpread: 20,
+    },
+  },
   "service-core": {
     asset: "/scenes/office-service-core-premium-v1.jpg",
     sha256: "13b85aad4abb80939e27cc018ac5af21c1b6cabbb3a21dafb5aa04a27b189c8f",

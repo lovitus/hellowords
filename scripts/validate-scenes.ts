@@ -119,6 +119,10 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The standalone baggage-claim photograph resolves carousel, luggage,
   // arrivals, customs and service fixtures without inferring flight states.
   "baggage-claim": 64,
+  // The airport continuation resolves a complete screening lane and one
+  // connected gate/boarding-bridge scene without passenger or flight claims.
+  "security-checkpoint": 90,
+  "boarding-gate": 100,
   // The office atrium resolves reception, open work floor, meeting, pantry and
   // building-service hardware without inferring people, companies or policies.
   "office-building": 100,
@@ -192,6 +196,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The baggage-claim render supports 95 distinct visible carousel, luggage,
   // arrivals, customs and reception parts without duplicate parent terms.
   "baggage-claim": 95,
+  "security-checkpoint": 103,
+  "boarding-gate": 120,
   "office-building": 390,
   // The service-core render supports 90 distinct visible facility parts while
   // excluding hidden system states, operational claims and duplicate names.
