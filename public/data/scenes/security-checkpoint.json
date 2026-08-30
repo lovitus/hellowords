@@ -1,0 +1,2182 @@
+{
+  "id": "security-checkpoint",
+  "title": "Security checkpoint",
+  "translation": "机场安检区",
+  "subtitle": "Queue, screening lanes, inspection and sterile departure exit",
+  "asset": "/scenes/airport-security-checkpoint-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "airport",
+  "visualRegions": [
+    {
+      "id": "security-checkpoint-region-checkpoint-queue",
+      "description": "Pixel-audited “checkpoint queue” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-security-queue-rail",
+      "description": "Pixel-audited “security queue rail” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-stanchion-pole",
+      "description": "Pixel-audited “stanchion pole” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-stanchion-foot",
+      "description": "Pixel-audited “stanchion foot” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-belt-hook",
+      "description": "Pixel-audited “belt hook” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-queue-belt-buckle",
+      "description": "Pixel-audited “queue belt buckle” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-queue-sign-panel",
+      "description": "Pixel-audited “queue sign panel” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 60,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-floor-wayfinding-stripe",
+      "description": "Pixel-audited “floor wayfinding stripe” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-security-document-tray",
+      "description": "Pixel-audited “security document tray” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-boarding-pass-holder",
+      "description": "Pixel-audited “boarding pass holder” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 240,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-identity-document-tray",
+      "description": "Pixel-audited “identity document tray” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-passenger-bin-stack",
+      "description": "Pixel-audited “passenger bin stack” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-accessible-queue-lane",
+      "description": "Pixel-audited “accessible queue lane” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-queue-corner",
+      "description": "Pixel-audited “queue corner” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-barrier-base",
+      "description": "Pixel-audited “barrier base” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 220,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-checkpoint-lane-divider",
+      "description": "Pixel-audited “checkpoint lane divider” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-tray-cart",
+      "description": "Pixel-audited “tray cart” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-tray-cart-wheel",
+      "description": "Pixel-audited “tray cart wheel” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 110,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-queue-rail-cap",
+      "description": "Pixel-audited “queue rail cap” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 150,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-queue-post-collar",
+      "description": "Pixel-audited “queue post collar” inside the Checkpoint queue and divestiture crop of the airport photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-identity-check-podium",
+      "description": "Pixel-audited “identity-check podium” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-checkpoint-passport-scanner",
+      "description": "Pixel-audited “checkpoint passport scanner” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 590,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-boarding-pass-scanner",
+      "description": "Pixel-audited “boarding-pass scanner” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 650,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-document-scanner-bed",
+      "description": "Pixel-audited “document scanner bed” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 570,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-checkpoint-scanner-glass",
+      "description": "Pixel-audited “checkpoint scanner glass” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 570,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-monitor-housing",
+      "description": "Pixel-audited “monitor housing” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-keyboard-deck",
+      "description": "Pixel-audited “keyboard deck” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-inspection-counter-shelf",
+      "description": "Pixel-audited “inspection counter shelf” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-privacy-glass",
+      "description": "Pixel-audited “privacy glass” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-counter-cable-cover",
+      "description": "Pixel-audited “counter cable cover” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-check-in-reader",
+      "description": "Pixel-audited “check-in reader” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 660,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-document-reader-stand",
+      "description": "Pixel-audited “document reader stand” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 660,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-checkpoint-inspection-tray",
+      "description": "Pixel-audited “checkpoint inspection tray” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 720,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-document-tray-rim",
+      "description": "Pixel-audited “document tray rim” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-inspection-podium-drawer",
+      "description": "Pixel-audited “inspection podium drawer” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-inspection-podium-foot",
+      "description": "Pixel-audited “inspection podium foot” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-scanner-hood",
+      "description": "Pixel-audited “scanner hood” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 590,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-scanner-status-light",
+      "description": "Pixel-audited “scanner status light” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 610,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-checkpoint-glass-partition-post",
+      "description": "Pixel-audited “checkpoint glass partition post” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-desk-stool",
+      "description": "Pixel-audited “desk stool” inside the Document check podium crop of the airport photograph",
+      "kind": "part",
+      "x": 560,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-checkpoint-ct-scanner",
+      "description": "Pixel-audited “checkpoint ct scanner” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-ct-scanner-tunnel",
+      "description": "Pixel-audited “ct scanner tunnel” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-ct-conveyor-roller",
+      "description": "Pixel-audited “ct conveyor roller” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-conveyor-side-guard",
+      "description": "Pixel-audited “conveyor side guard” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-operator-console",
+      "description": "Pixel-audited “operator console” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 850,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-ct-console-monitor",
+      "description": "Pixel-audited “ct console monitor” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 870,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-tunnel-curtain",
+      "description": "Pixel-audited “tunnel curtain” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-exit-conveyor",
+      "description": "Pixel-audited “exit conveyor” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 1020,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-entrance-conveyor",
+      "description": "Pixel-audited “entrance conveyor” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-divestiture-table",
+      "description": "Pixel-audited “divestiture table” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-gray-tray",
+      "description": "Pixel-audited “gray tray” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-blue-tray",
+      "description": "Pixel-audited “blue tray” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-tray-nest",
+      "description": "Pixel-audited “tray nest” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-tray-return-rack",
+      "description": "Pixel-audited “tray return rack” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 1070,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-x-ray-unit-housing",
+      "description": "Pixel-audited “x-ray unit housing” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-walk-through-detector-arch",
+      "description": "Pixel-audited “walk-through detector arch” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 1040,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-walk-through-detector-mat",
+      "description": "Pixel-audited “walk-through detector mat” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 1050,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-security-shoe-tray",
+      "description": "Pixel-audited “security shoe tray” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 1010,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-laptop-tray",
+      "description": "Pixel-audited “laptop tray” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-bag-inspection-table",
+      "description": "Pixel-audited “bag inspection table” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 1060,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-scanner-belt",
+      "description": "Pixel-audited “scanner belt” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-scanner-belt-roller",
+      "description": "Pixel-audited “scanner belt roller” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 970,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-ct-scanner-panel",
+      "description": "Pixel-audited “ct scanner panel” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 920,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-scanner-vent",
+      "description": "Pixel-audited “scanner vent” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 940,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-scanner-foot",
+      "description": "Pixel-audited “scanner foot” inside the CT and conveyor lanes crop of the airport photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-secondary-inspection-table",
+      "description": "Pixel-audited “secondary inspection table” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-inspection-task-light",
+      "description": "Pixel-audited “inspection task light” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 920,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-hand-search-tray",
+      "description": "Pixel-audited “hand-search tray” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-swab-kit",
+      "description": "Pixel-audited “swab kit” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-swab-holder",
+      "description": "Pixel-audited “swab holder” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 920,
+      "y": 750,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-test-device-housing",
+      "description": "Pixel-audited “test-device housing” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-privacy-screen-panel",
+      "description": "Pixel-audited “privacy screen panel” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-evidence-bin",
+      "description": "Pixel-audited “evidence bin” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-secondary-glove-dispenser",
+      "description": "Pixel-audited “secondary glove dispenser” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-secondary-inspection-counter",
+      "description": "Pixel-audited “secondary inspection counter” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-inspection-stool",
+      "description": "Pixel-audited “inspection stool” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-camera-dome",
+      "description": "Pixel-audited “camera dome” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 610,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-floor-mat-edge",
+      "description": "Pixel-audited “floor mat edge” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-inspection-cabinet",
+      "description": "Pixel-audited “inspection cabinet” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-tray-support",
+      "description": "Pixel-audited “tray support” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-secondary-counter-drawer",
+      "description": "Pixel-audited “secondary counter drawer” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-bin-liner",
+      "description": "Pixel-audited “bin liner” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-search-light",
+      "description": "Pixel-audited “search light” inside the Secondary inspection crop of the airport photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 640,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-access-control-pedestal",
+      "description": "Pixel-audited “access-control pedestal” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1240,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-boarding-reader",
+      "description": "Pixel-audited “boarding reader” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1240,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-glass-swing-gate",
+      "description": "Pixel-audited “glass swing gate” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-sterile-gate-latch",
+      "description": "Pixel-audited “sterile gate latch” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1320,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-exit-barrier",
+      "description": "Pixel-audited “exit barrier” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1410,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-departure-side-corridor",
+      "description": "Pixel-audited “departure-side corridor” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1440,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-jet-bridge-doorway",
+      "description": "Pixel-audited “jet-bridge doorway” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1500,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-sterile-gate-podium",
+      "description": "Pixel-audited “sterile gate podium” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1260,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-gate-seating",
+      "description": "Pixel-audited “gate seating” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-seating-armrest",
+      "description": "Pixel-audited “seating armrest” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1410,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-charging-shelf",
+      "description": "Pixel-audited “charging shelf” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1470,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-checkpoint-wall-clock",
+      "description": "Pixel-audited “checkpoint wall clock” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1530,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-checkpoint-ceiling-light-panel",
+      "description": "Pixel-audited “checkpoint ceiling light panel” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-acoustic-ceiling-baffle",
+      "description": "Pixel-audited “acoustic ceiling baffle” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-terrazzo-floor-tile",
+      "description": "Pixel-audited “terrazzo floor tile” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-tactile-floor-strip",
+      "description": "Pixel-audited “tactile floor strip” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-checkpoint-fire-door",
+      "description": "Pixel-audited “checkpoint fire door” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-checkpoint-emergency-light",
+      "description": "Pixel-audited “checkpoint emergency light” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1190,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-extinguisher-cabinet",
+      "description": "Pixel-audited “extinguisher cabinet” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1200,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "security-checkpoint-region-sterile-exit-threshold",
+      "description": "Pixel-audited “sterile exit threshold” inside the Sterile departure exit crop of the airport photograph",
+      "kind": "part",
+      "x": 1490,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "portal-boarding-gate",
+      "description": "Large unobstructed sterile departure doorway leading from checkpoint to the boarding gate",
+      "kind": "object",
+      "x": 1250,
+      "y": 140,
+      "width": 350,
+      "height": 380
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "security-checkpoint-zone-queue-divestiture",
+      "title": "Checkpoint queue and divestiture",
+      "translation": "安检排队与置物区",
+      "description": "Follow the queue rails, tray stacks, floor stripes and accessible lane.",
+      "x": 0,
+      "y": 0,
+      "width": 500,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "security-checkpoint-checkpoint-queue",
+        "security-checkpoint-security-queue-rail",
+        "security-checkpoint-stanchion-pole",
+        "security-checkpoint-stanchion-foot",
+        "security-checkpoint-belt-hook",
+        "security-checkpoint-queue-belt-buckle",
+        "security-checkpoint-queue-sign-panel",
+        "security-checkpoint-floor-wayfinding-stripe",
+        "security-checkpoint-security-document-tray",
+        "security-checkpoint-boarding-pass-holder",
+        "security-checkpoint-identity-document-tray",
+        "security-checkpoint-passenger-bin-stack",
+        "security-checkpoint-accessible-queue-lane",
+        "security-checkpoint-queue-corner",
+        "security-checkpoint-barrier-base",
+        "security-checkpoint-checkpoint-lane-divider",
+        "security-checkpoint-tray-cart",
+        "security-checkpoint-tray-cart-wheel",
+        "security-checkpoint-queue-rail-cap",
+        "security-checkpoint-queue-post-collar"
+      ]
+    },
+    {
+      "id": "security-checkpoint-zone-document-check",
+      "title": "Document check podium",
+      "translation": "证件检查台",
+      "description": "Inspect the document podium, reader housings, glass partition and counter hardware.",
+      "x": 500,
+      "y": 0,
+      "width": 350,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "security-checkpoint-identity-check-podium",
+        "security-checkpoint-checkpoint-passport-scanner",
+        "security-checkpoint-boarding-pass-scanner",
+        "security-checkpoint-document-scanner-bed",
+        "security-checkpoint-checkpoint-scanner-glass",
+        "security-checkpoint-monitor-housing",
+        "security-checkpoint-keyboard-deck",
+        "security-checkpoint-inspection-counter-shelf",
+        "security-checkpoint-privacy-glass",
+        "security-checkpoint-counter-cable-cover",
+        "security-checkpoint-check-in-reader",
+        "security-checkpoint-document-reader-stand",
+        "security-checkpoint-checkpoint-inspection-tray",
+        "security-checkpoint-document-tray-rim",
+        "security-checkpoint-inspection-podium-drawer",
+        "security-checkpoint-inspection-podium-foot",
+        "security-checkpoint-scanner-hood",
+        "security-checkpoint-scanner-status-light",
+        "security-checkpoint-checkpoint-glass-partition-post",
+        "security-checkpoint-desk-stool"
+      ]
+    },
+    {
+      "id": "security-checkpoint-zone-ct-screening",
+      "title": "CT and conveyor lanes",
+      "translation": "CT 与传送带通道",
+      "description": "Study the checkpoint scanners, conveyor rollers, trays and operator controls.",
+      "x": 850,
+      "y": 0,
+      "width": 300,
+      "height": 600,
+      "targetScale": 3.15,
+      "labelIds": [
+        "security-checkpoint-checkpoint-ct-scanner",
+        "security-checkpoint-ct-scanner-tunnel",
+        "security-checkpoint-ct-conveyor-roller",
+        "security-checkpoint-conveyor-side-guard",
+        "security-checkpoint-operator-console",
+        "security-checkpoint-ct-console-monitor",
+        "security-checkpoint-tunnel-curtain",
+        "security-checkpoint-exit-conveyor",
+        "security-checkpoint-entrance-conveyor",
+        "security-checkpoint-divestiture-table",
+        "security-checkpoint-gray-tray",
+        "security-checkpoint-blue-tray",
+        "security-checkpoint-tray-nest",
+        "security-checkpoint-tray-return-rack",
+        "security-checkpoint-x-ray-unit-housing",
+        "security-checkpoint-walk-through-detector-arch",
+        "security-checkpoint-walk-through-detector-mat",
+        "security-checkpoint-security-shoe-tray",
+        "security-checkpoint-laptop-tray",
+        "security-checkpoint-bag-inspection-table",
+        "security-checkpoint-scanner-belt",
+        "security-checkpoint-scanner-belt-roller",
+        "security-checkpoint-ct-scanner-panel",
+        "security-checkpoint-scanner-vent",
+        "security-checkpoint-scanner-foot"
+      ]
+    },
+    {
+      "id": "security-checkpoint-zone-secondary-inspection",
+      "title": "Secondary inspection",
+      "translation": "复检区",
+      "description": "Inspect the hand-search table, swab kit, inspection light and evidence containers.",
+      "x": 500,
+      "y": 600,
+      "width": 650,
+      "height": 300,
+      "targetScale": 3.15,
+      "labelIds": [
+        "security-checkpoint-secondary-inspection-table",
+        "security-checkpoint-inspection-task-light",
+        "security-checkpoint-hand-search-tray",
+        "security-checkpoint-swab-kit",
+        "security-checkpoint-swab-holder",
+        "security-checkpoint-test-device-housing",
+        "security-checkpoint-privacy-screen-panel",
+        "security-checkpoint-evidence-bin",
+        "security-checkpoint-secondary-glove-dispenser",
+        "security-checkpoint-secondary-inspection-counter",
+        "security-checkpoint-inspection-stool",
+        "security-checkpoint-camera-dome",
+        "security-checkpoint-floor-mat-edge",
+        "security-checkpoint-inspection-cabinet",
+        "security-checkpoint-tray-support",
+        "security-checkpoint-secondary-counter-drawer",
+        "security-checkpoint-bin-liner",
+        "security-checkpoint-search-light"
+      ]
+    },
+    {
+      "id": "security-checkpoint-zone-sterile-exit",
+      "title": "Sterile departure exit",
+      "translation": "安检后出发区出口",
+      "description": "Follow the access pedestal, departure corridor, gate seating and boarding doorway.",
+      "x": 1150,
+      "y": 0,
+      "width": 450,
+      "height": 600,
+      "targetScale": 3.15,
+      "labelIds": [
+        "security-checkpoint-access-control-pedestal",
+        "security-checkpoint-boarding-reader",
+        "security-checkpoint-glass-swing-gate",
+        "security-checkpoint-sterile-gate-latch",
+        "security-checkpoint-exit-barrier",
+        "security-checkpoint-departure-side-corridor",
+        "security-checkpoint-jet-bridge-doorway",
+        "security-checkpoint-sterile-gate-podium",
+        "security-checkpoint-gate-seating",
+        "security-checkpoint-seating-armrest",
+        "security-checkpoint-charging-shelf",
+        "security-checkpoint-checkpoint-wall-clock",
+        "security-checkpoint-checkpoint-ceiling-light-panel",
+        "security-checkpoint-acoustic-ceiling-baffle",
+        "security-checkpoint-terrazzo-floor-tile",
+        "security-checkpoint-tactile-floor-strip",
+        "security-checkpoint-checkpoint-fire-door",
+        "security-checkpoint-checkpoint-emergency-light",
+        "security-checkpoint-extinguisher-cabinet",
+        "security-checkpoint-sterile-exit-threshold"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/airport-security-checkpoint-premium-v1.jpg",
+    "reviewedAssetSha256": "8a12c6f335b1107d676112bf52033cc30d51aa352e9fbacf0bde609a3ef85e20",
+    "rationale": "The final 1600 by 900 security-checkpoint photograph was inspected at source and output resolution. It retains 103 independently pointable queue, document, CT screening, secondary-inspection and sterile-exit parts. Passenger identity, screening outcomes, prohibited items, security performance, operational procedures and written signs were excluded.",
+    "previousLabelCount": 111,
+    "retainedLabelCount": 103,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "passenger identity",
+      "screening result",
+      "prohibited item",
+      "security procedure",
+      "flight status",
+      "airline brand"
+    ]
+  },
+  "labels": [
+    {
+      "id": "security-checkpoint-checkpoint-queue",
+      "word": "checkpoint queue",
+      "translation": "安检队列",
+      "x": 120,
+      "y": 250,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-queue"
+    },
+    {
+      "id": "security-checkpoint-security-queue-rail",
+      "word": "security queue rail",
+      "translation": "安检排队栏杆",
+      "x": 160,
+      "y": 320,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "security-checkpoint-region-security-queue-rail"
+    },
+    {
+      "id": "security-checkpoint-stanchion-pole",
+      "word": "stanchion pole",
+      "translation": "隔离柱杆",
+      "x": 120,
+      "y": 400,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "security-checkpoint-region-stanchion-pole"
+    },
+    {
+      "id": "security-checkpoint-stanchion-foot",
+      "word": "stanchion foot",
+      "translation": "隔离柱底座",
+      "x": 120,
+      "y": 500,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "security-checkpoint-region-stanchion-foot"
+    },
+    {
+      "id": "security-checkpoint-belt-hook",
+      "word": "belt hook",
+      "translation": "隔离带挂钩",
+      "x": 160,
+      "y": 350,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-belt-hook"
+    },
+    {
+      "id": "security-checkpoint-queue-belt-buckle",
+      "word": "queue belt buckle",
+      "translation": "排队隔离带扣",
+      "x": 160,
+      "y": 450,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-queue-belt-buckle"
+    },
+    {
+      "id": "security-checkpoint-queue-sign-panel",
+      "word": "queue sign panel",
+      "translation": "排队牌面板",
+      "x": 80,
+      "y": 520,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-queue-sign-panel"
+    },
+    {
+      "id": "security-checkpoint-floor-wayfinding-stripe",
+      "word": "floor wayfinding stripe",
+      "translation": "地面导向条",
+      "x": 300,
+      "y": 700,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-floor-wayfinding-stripe"
+    },
+    {
+      "id": "security-checkpoint-security-document-tray",
+      "word": "security document tray",
+      "translation": "安检证件托盘",
+      "x": 300,
+      "y": 740,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-security-document-tray"
+    },
+    {
+      "id": "security-checkpoint-boarding-pass-holder",
+      "word": "boarding pass holder",
+      "translation": "登机牌夹",
+      "x": 260,
+      "y": 760,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-boarding-pass-holder"
+    },
+    {
+      "id": "security-checkpoint-identity-document-tray",
+      "word": "identity document tray",
+      "translation": "身份证件托盘",
+      "x": 350,
+      "y": 780,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-identity-document-tray"
+    },
+    {
+      "id": "security-checkpoint-passenger-bin-stack",
+      "word": "passenger bin stack",
+      "translation": "乘客置物箱堆",
+      "x": 100,
+      "y": 760,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-passenger-bin-stack"
+    },
+    {
+      "id": "security-checkpoint-accessible-queue-lane",
+      "word": "accessible queue lane",
+      "translation": "无障碍排队通道",
+      "x": 420,
+      "y": 700,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-accessible-queue-lane"
+    },
+    {
+      "id": "security-checkpoint-queue-corner",
+      "word": "queue corner",
+      "translation": "排队转角",
+      "x": 420,
+      "y": 400,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-queue-corner"
+    },
+    {
+      "id": "security-checkpoint-barrier-base",
+      "word": "barrier base",
+      "translation": "隔离栏底座",
+      "x": 240,
+      "y": 350,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-barrier-base"
+    },
+    {
+      "id": "security-checkpoint-checkpoint-lane-divider",
+      "word": "checkpoint lane divider",
+      "translation": "安检通道分隔栏",
+      "x": 350,
+      "y": 450,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-lane-divider"
+    },
+    {
+      "id": "security-checkpoint-tray-cart",
+      "word": "tray cart",
+      "translation": "托盘车",
+      "x": 120,
+      "y": 700,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-tray-cart"
+    },
+    {
+      "id": "security-checkpoint-tray-cart-wheel",
+      "word": "tray cart wheel",
+      "translation": "托盘车轮",
+      "x": 130,
+      "y": 820,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-tray-cart-wheel"
+    },
+    {
+      "id": "security-checkpoint-queue-rail-cap",
+      "word": "queue rail cap",
+      "translation": "排队栏杆帽",
+      "x": 170,
+      "y": 320,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-queue-rail-cap"
+    },
+    {
+      "id": "security-checkpoint-queue-post-collar",
+      "word": "queue post collar",
+      "translation": "隔离柱环",
+      "x": 120,
+      "y": 400,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-queue-post-collar"
+    },
+    {
+      "id": "security-checkpoint-identity-check-podium",
+      "word": "identity-check podium",
+      "translation": "身份检查台",
+      "x": 550,
+      "y": 350,
+      "priority": 1.02,
+      "minLevel": 0,
+      "sourceVisualRegion": "security-checkpoint-region-identity-check-podium"
+    },
+    {
+      "id": "security-checkpoint-checkpoint-passport-scanner",
+      "word": "checkpoint passport scanner",
+      "translation": "安检护照扫描器",
+      "x": 610,
+      "y": 400,
+      "priority": 1.021,
+      "minLevel": 0,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-passport-scanner"
+    },
+    {
+      "id": "security-checkpoint-boarding-pass-scanner",
+      "word": "boarding-pass scanner",
+      "translation": "登机牌扫描器",
+      "x": 670,
+      "y": 400,
+      "priority": 1.022,
+      "minLevel": 1,
+      "sourceVisualRegion": "security-checkpoint-region-boarding-pass-scanner"
+    },
+    {
+      "id": "security-checkpoint-document-scanner-bed",
+      "word": "document scanner bed",
+      "translation": "证件扫描台面",
+      "x": 590,
+      "y": 470,
+      "priority": 1.023,
+      "minLevel": 1,
+      "sourceVisualRegion": "security-checkpoint-region-document-scanner-bed"
+    },
+    {
+      "id": "security-checkpoint-checkpoint-scanner-glass",
+      "word": "checkpoint scanner glass",
+      "translation": "安检扫描玻璃",
+      "x": 590,
+      "y": 460,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-scanner-glass"
+    },
+    {
+      "id": "security-checkpoint-monitor-housing",
+      "word": "monitor housing",
+      "translation": "显示器外壳",
+      "x": 550,
+      "y": 300,
+      "priority": 1.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-monitor-housing"
+    },
+    {
+      "id": "security-checkpoint-keyboard-deck",
+      "word": "keyboard deck",
+      "translation": "键盘台面",
+      "x": 560,
+      "y": 450,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-keyboard-deck"
+    },
+    {
+      "id": "security-checkpoint-inspection-counter-shelf",
+      "word": "inspection counter shelf",
+      "translation": "检查柜台搁板",
+      "x": 560,
+      "y": 500,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-inspection-counter-shelf"
+    },
+    {
+      "id": "security-checkpoint-privacy-glass",
+      "word": "privacy glass",
+      "translation": "隐私玻璃",
+      "x": 700,
+      "y": 350,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-privacy-glass"
+    },
+    {
+      "id": "security-checkpoint-counter-cable-cover",
+      "word": "counter cable cover",
+      "translation": "柜台电缆盖",
+      "x": 650,
+      "y": 500,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-counter-cable-cover"
+    },
+    {
+      "id": "security-checkpoint-check-in-reader",
+      "word": "check-in reader",
+      "translation": "值机读卡器",
+      "x": 680,
+      "y": 430,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-check-in-reader"
+    },
+    {
+      "id": "security-checkpoint-document-reader-stand",
+      "word": "document reader stand",
+      "translation": "证件读卡器支架",
+      "x": 680,
+      "y": 450,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-document-reader-stand"
+    },
+    {
+      "id": "security-checkpoint-checkpoint-inspection-tray",
+      "word": "checkpoint inspection tray",
+      "translation": "安检检查托盘",
+      "x": 740,
+      "y": 450,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-inspection-tray"
+    },
+    {
+      "id": "security-checkpoint-document-tray-rim",
+      "word": "document tray rim",
+      "translation": "证件托盘边",
+      "x": 760,
+      "y": 480,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-document-tray-rim"
+    },
+    {
+      "id": "security-checkpoint-inspection-podium-drawer",
+      "word": "inspection podium drawer",
+      "translation": "检查台抽屉",
+      "x": 550,
+      "y": 520,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-inspection-podium-drawer"
+    },
+    {
+      "id": "security-checkpoint-inspection-podium-foot",
+      "word": "inspection podium foot",
+      "translation": "检查台脚座",
+      "x": 550,
+      "y": 580,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-inspection-podium-foot"
+    },
+    {
+      "id": "security-checkpoint-scanner-hood",
+      "word": "scanner hood",
+      "translation": "扫描器罩",
+      "x": 610,
+      "y": 300,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-scanner-hood"
+    },
+    {
+      "id": "security-checkpoint-scanner-status-light",
+      "word": "scanner status light",
+      "translation": "扫描器状态灯",
+      "x": 630,
+      "y": 300,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-scanner-status-light"
+    },
+    {
+      "id": "security-checkpoint-checkpoint-glass-partition-post",
+      "word": "checkpoint glass partition post",
+      "translation": "安检玻璃隔断柱",
+      "x": 730,
+      "y": 300,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-glass-partition-post"
+    },
+    {
+      "id": "security-checkpoint-desk-stool",
+      "word": "desk stool",
+      "translation": "检查台凳",
+      "x": 580,
+      "y": 600,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-desk-stool"
+    },
+    {
+      "id": "security-checkpoint-checkpoint-ct-scanner",
+      "word": "checkpoint ct scanner",
+      "translation": "安检 CT 扫描器",
+      "x": 920,
+      "y": 220,
+      "priority": 1.04,
+      "minLevel": 0,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-ct-scanner"
+    },
+    {
+      "id": "security-checkpoint-ct-scanner-tunnel",
+      "word": "ct scanner tunnel",
+      "translation": "CT 扫描通道",
+      "x": 920,
+      "y": 300,
+      "priority": 1.041,
+      "minLevel": 0,
+      "sourceVisualRegion": "security-checkpoint-region-ct-scanner-tunnel"
+    },
+    {
+      "id": "security-checkpoint-ct-conveyor-roller",
+      "word": "ct conveyor roller",
+      "translation": "CT 传送带滚筒",
+      "x": 1000,
+      "y": 320,
+      "priority": 1.042,
+      "minLevel": 1,
+      "sourceVisualRegion": "security-checkpoint-region-ct-conveyor-roller"
+    },
+    {
+      "id": "security-checkpoint-conveyor-side-guard",
+      "word": "conveyor side guard",
+      "translation": "传送带侧护板",
+      "x": 1000,
+      "y": 350,
+      "priority": 1.043,
+      "minLevel": 1,
+      "sourceVisualRegion": "security-checkpoint-region-conveyor-side-guard"
+    },
+    {
+      "id": "security-checkpoint-operator-console",
+      "word": "operator console",
+      "translation": "操作台",
+      "x": 870,
+      "y": 400,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-operator-console"
+    },
+    {
+      "id": "security-checkpoint-ct-console-monitor",
+      "word": "ct console monitor",
+      "translation": "CT 操作台显示器",
+      "x": 890,
+      "y": 370,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-ct-console-monitor"
+    },
+    {
+      "id": "security-checkpoint-tunnel-curtain",
+      "word": "tunnel curtain",
+      "translation": "通道软帘",
+      "x": 930,
+      "y": 300,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-tunnel-curtain"
+    },
+    {
+      "id": "security-checkpoint-exit-conveyor",
+      "word": "exit conveyor",
+      "translation": "出口传送带",
+      "x": 1040,
+      "y": 420,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-exit-conveyor"
+    },
+    {
+      "id": "security-checkpoint-entrance-conveyor",
+      "word": "entrance conveyor",
+      "translation": "入口传送带",
+      "x": 860,
+      "y": 420,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-entrance-conveyor"
+    },
+    {
+      "id": "security-checkpoint-divestiture-table",
+      "word": "divestiture table",
+      "translation": "置物台",
+      "x": 1050,
+      "y": 500,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-divestiture-table"
+    },
+    {
+      "id": "security-checkpoint-gray-tray",
+      "word": "gray tray",
+      "translation": "灰色托盘",
+      "x": 1000,
+      "y": 500,
+      "priority": 1.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-gray-tray"
+    },
+    {
+      "id": "security-checkpoint-blue-tray",
+      "word": "blue tray",
+      "translation": "蓝色托盘",
+      "x": 950,
+      "y": 500,
+      "priority": 1.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-blue-tray"
+    },
+    {
+      "id": "security-checkpoint-tray-nest",
+      "word": "tray nest",
+      "translation": "托盘嵌套架",
+      "x": 900,
+      "y": 520,
+      "priority": 1.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-tray-nest"
+    },
+    {
+      "id": "security-checkpoint-tray-return-rack",
+      "word": "tray return rack",
+      "translation": "托盘回收架",
+      "x": 1090,
+      "y": 500,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-tray-return-rack"
+    },
+    {
+      "id": "security-checkpoint-x-ray-unit-housing",
+      "word": "x-ray unit housing",
+      "translation": "X 光设备外壳",
+      "x": 1000,
+      "y": 200,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-x-ray-unit-housing"
+    },
+    {
+      "id": "security-checkpoint-walk-through-detector-arch",
+      "word": "walk-through detector arch",
+      "translation": "步行探测门框",
+      "x": 1060,
+      "y": 260,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-walk-through-detector-arch"
+    },
+    {
+      "id": "security-checkpoint-walk-through-detector-mat",
+      "word": "walk-through detector mat",
+      "translation": "探测门脚垫",
+      "x": 1070,
+      "y": 380,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-walk-through-detector-mat"
+    },
+    {
+      "id": "security-checkpoint-security-shoe-tray",
+      "word": "security shoe tray",
+      "translation": "安检鞋物托盘",
+      "x": 1030,
+      "y": 520,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-security-shoe-tray"
+    },
+    {
+      "id": "security-checkpoint-laptop-tray",
+      "word": "laptop tray",
+      "translation": "电脑托盘",
+      "x": 1020,
+      "y": 550,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-laptop-tray"
+    },
+    {
+      "id": "security-checkpoint-bag-inspection-table",
+      "word": "bag inspection table",
+      "translation": "行李检查台",
+      "x": 1080,
+      "y": 550,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-bag-inspection-table"
+    },
+    {
+      "id": "security-checkpoint-scanner-belt",
+      "word": "scanner belt",
+      "translation": "扫描传送带",
+      "x": 980,
+      "y": 400,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-scanner-belt"
+    },
+    {
+      "id": "security-checkpoint-scanner-belt-roller",
+      "word": "scanner belt roller",
+      "translation": "扫描传送带滚轮",
+      "x": 990,
+      "y": 410,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-scanner-belt-roller"
+    },
+    {
+      "id": "security-checkpoint-ct-scanner-panel",
+      "word": "ct scanner panel",
+      "translation": "CT 扫描器面板",
+      "x": 940,
+      "y": 250,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-ct-scanner-panel"
+    },
+    {
+      "id": "security-checkpoint-scanner-vent",
+      "word": "scanner vent",
+      "translation": "扫描器通风口",
+      "x": 960,
+      "y": 200,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-scanner-vent"
+    },
+    {
+      "id": "security-checkpoint-scanner-foot",
+      "word": "scanner foot",
+      "translation": "扫描器脚座",
+      "x": 930,
+      "y": 480,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-scanner-foot"
+    },
+    {
+      "id": "security-checkpoint-secondary-inspection-table",
+      "word": "secondary inspection table",
+      "translation": "复检台",
+      "x": 900,
+      "y": 700,
+      "priority": 1.065,
+      "minLevel": 0,
+      "sourceVisualRegion": "security-checkpoint-region-secondary-inspection-table"
+    },
+    {
+      "id": "security-checkpoint-inspection-task-light",
+      "word": "inspection task light",
+      "translation": "复检工作灯",
+      "x": 940,
+      "y": 650,
+      "priority": 1.066,
+      "minLevel": 0,
+      "sourceVisualRegion": "security-checkpoint-region-inspection-task-light"
+    },
+    {
+      "id": "security-checkpoint-hand-search-tray",
+      "word": "hand-search tray",
+      "translation": "人工检查托盘",
+      "x": 900,
+      "y": 750,
+      "priority": 1.067,
+      "minLevel": 1,
+      "sourceVisualRegion": "security-checkpoint-region-hand-search-tray"
+    },
+    {
+      "id": "security-checkpoint-swab-kit",
+      "word": "swab kit",
+      "translation": "擦拭采样套件",
+      "x": 930,
+      "y": 760,
+      "priority": 1.068,
+      "minLevel": 1,
+      "sourceVisualRegion": "security-checkpoint-region-swab-kit"
+    },
+    {
+      "id": "security-checkpoint-swab-holder",
+      "word": "swab holder",
+      "translation": "采样棒支架",
+      "x": 940,
+      "y": 770,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-swab-holder"
+    },
+    {
+      "id": "security-checkpoint-test-device-housing",
+      "word": "test-device housing",
+      "translation": "检测设备外壳",
+      "x": 850,
+      "y": 700,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-test-device-housing"
+    },
+    {
+      "id": "security-checkpoint-privacy-screen-panel",
+      "word": "privacy screen panel",
+      "translation": "隐私屏风面板",
+      "x": 780,
+      "y": 650,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-privacy-screen-panel"
+    },
+    {
+      "id": "security-checkpoint-evidence-bin",
+      "word": "evidence bin",
+      "translation": "检查物品箱",
+      "x": 1000,
+      "y": 750,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-evidence-bin"
+    },
+    {
+      "id": "security-checkpoint-secondary-glove-dispenser",
+      "word": "secondary glove dispenser",
+      "translation": "复检手套分配盒",
+      "x": 780,
+      "y": 740,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-secondary-glove-dispenser"
+    },
+    {
+      "id": "security-checkpoint-secondary-inspection-counter",
+      "word": "secondary inspection counter",
+      "translation": "复检柜台",
+      "x": 850,
+      "y": 820,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-secondary-inspection-counter"
+    },
+    {
+      "id": "security-checkpoint-inspection-stool",
+      "word": "inspection stool",
+      "translation": "复检凳",
+      "x": 900,
+      "y": 850,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-inspection-stool"
+    },
+    {
+      "id": "security-checkpoint-camera-dome",
+      "word": "camera dome",
+      "translation": "摄像机穹顶",
+      "x": 1050,
+      "y": 630,
+      "priority": 1.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-camera-dome"
+    },
+    {
+      "id": "security-checkpoint-floor-mat-edge",
+      "word": "floor mat edge",
+      "translation": "地垫边",
+      "x": 980,
+      "y": 870,
+      "priority": 1.077,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-floor-mat-edge"
+    },
+    {
+      "id": "security-checkpoint-inspection-cabinet",
+      "word": "inspection cabinet",
+      "translation": "复检柜",
+      "x": 700,
+      "y": 700,
+      "priority": 1.078,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-inspection-cabinet"
+    },
+    {
+      "id": "security-checkpoint-tray-support",
+      "word": "tray support",
+      "translation": "托盘支撑",
+      "x": 850,
+      "y": 760,
+      "priority": 1.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-tray-support"
+    },
+    {
+      "id": "security-checkpoint-secondary-counter-drawer",
+      "word": "secondary counter drawer",
+      "translation": "复检柜台抽屉",
+      "x": 860,
+      "y": 840,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-secondary-counter-drawer"
+    },
+    {
+      "id": "security-checkpoint-bin-liner",
+      "word": "bin liner",
+      "translation": "箱内衬",
+      "x": 1000,
+      "y": 780,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-bin-liner"
+    },
+    {
+      "id": "security-checkpoint-search-light",
+      "word": "search light",
+      "translation": "检查灯",
+      "x": 950,
+      "y": 660,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-search-light"
+    },
+    {
+      "id": "security-checkpoint-access-control-pedestal",
+      "word": "access-control pedestal",
+      "translation": "门禁立柱",
+      "x": 1260,
+      "y": 420,
+      "priority": 1.083,
+      "minLevel": 0,
+      "sourceVisualRegion": "security-checkpoint-region-access-control-pedestal"
+    },
+    {
+      "id": "security-checkpoint-boarding-reader",
+      "word": "boarding reader",
+      "translation": "登机读卡器",
+      "x": 1260,
+      "y": 400,
+      "priority": 1.084,
+      "minLevel": 0,
+      "sourceVisualRegion": "security-checkpoint-region-boarding-reader"
+    },
+    {
+      "id": "security-checkpoint-glass-swing-gate",
+      "word": "glass swing gate",
+      "translation": "玻璃摆闸",
+      "x": 1330,
+      "y": 380,
+      "priority": 1.085,
+      "minLevel": 1,
+      "sourceVisualRegion": "security-checkpoint-region-glass-swing-gate"
+    },
+    {
+      "id": "security-checkpoint-sterile-gate-latch",
+      "word": "sterile gate latch",
+      "translation": "洁净区闸门插销",
+      "x": 1340,
+      "y": 400,
+      "priority": 1.086,
+      "minLevel": 1,
+      "sourceVisualRegion": "security-checkpoint-region-sterile-gate-latch"
+    },
+    {
+      "id": "security-checkpoint-exit-barrier",
+      "word": "exit barrier",
+      "translation": "出口隔离栏",
+      "x": 1430,
+      "y": 350,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-exit-barrier"
+    },
+    {
+      "id": "security-checkpoint-departure-side-corridor",
+      "word": "departure-side corridor",
+      "translation": "出发侧走廊",
+      "x": 1460,
+      "y": 220,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-departure-side-corridor"
+    },
+    {
+      "id": "security-checkpoint-jet-bridge-doorway",
+      "word": "jet-bridge doorway",
+      "translation": "登机廊桥门",
+      "x": 1520,
+      "y": 220,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-jet-bridge-doorway"
+    },
+    {
+      "id": "security-checkpoint-sterile-gate-podium",
+      "word": "sterile gate podium",
+      "translation": "洁净区登机台",
+      "x": 1280,
+      "y": 500,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-sterile-gate-podium"
+    },
+    {
+      "id": "security-checkpoint-gate-seating",
+      "word": "gate seating",
+      "translation": "登机区座椅",
+      "x": 1400,
+      "y": 450,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-gate-seating"
+    },
+    {
+      "id": "security-checkpoint-seating-armrest",
+      "word": "seating armrest",
+      "translation": "座椅扶手",
+      "x": 1430,
+      "y": 450,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-seating-armrest"
+    },
+    {
+      "id": "security-checkpoint-charging-shelf",
+      "word": "charging shelf",
+      "translation": "充电搁板",
+      "x": 1490,
+      "y": 500,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-charging-shelf"
+    },
+    {
+      "id": "security-checkpoint-checkpoint-wall-clock",
+      "word": "checkpoint wall clock",
+      "translation": "安检区挂钟",
+      "x": 1550,
+      "y": 180,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-wall-clock"
+    },
+    {
+      "id": "security-checkpoint-checkpoint-ceiling-light-panel",
+      "word": "checkpoint ceiling light panel",
+      "translation": "安检区顶面灯板",
+      "x": 1400,
+      "y": 100,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-ceiling-light-panel"
+    },
+    {
+      "id": "security-checkpoint-acoustic-ceiling-baffle",
+      "word": "acoustic ceiling baffle",
+      "translation": "吸音吊板",
+      "x": 1300,
+      "y": 100,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-acoustic-ceiling-baffle"
+    },
+    {
+      "id": "security-checkpoint-terrazzo-floor-tile",
+      "word": "terrazzo floor tile",
+      "translation": "水磨石地砖",
+      "x": 1400,
+      "y": 550,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-terrazzo-floor-tile"
+    },
+    {
+      "id": "security-checkpoint-tactile-floor-strip",
+      "word": "tactile floor strip",
+      "translation": "盲道条",
+      "x": 1500,
+      "y": 550,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-tactile-floor-strip"
+    },
+    {
+      "id": "security-checkpoint-checkpoint-fire-door",
+      "word": "checkpoint fire door",
+      "translation": "安检区防火门",
+      "x": 1200,
+      "y": 100,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-fire-door"
+    },
+    {
+      "id": "security-checkpoint-checkpoint-emergency-light",
+      "word": "checkpoint emergency light",
+      "translation": "安检区应急灯",
+      "x": 1210,
+      "y": 120,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "security-checkpoint-region-checkpoint-emergency-light"
+    },
+    {
+      "id": "security-checkpoint-extinguisher-cabinet",
+      "word": "extinguisher cabinet",
+      "translation": "灭火器柜",
+      "x": 1220,
+      "y": 220,
+      "priority": 1.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "security-checkpoint-region-extinguisher-cabinet"
+    },
+    {
+      "id": "security-checkpoint-sterile-exit-threshold",
+      "word": "sterile exit threshold",
+      "translation": "洁净区出口门槛",
+      "x": 1510,
+      "y": 400,
+      "priority": 1.102,
+      "minLevel": 3,
+      "sourceVisualRegion": "security-checkpoint-region-sterile-exit-threshold"
+    }
+  ],
+  "portals": [
+    {
+      "id": "enter-boarding-gate",
+      "label": "Enter the boarding gate",
+      "translation": "进入登机口",
+      "childSceneId": "boarding-gate",
+      "sourceVisualRegion": "portal-boarding-gate",
+      "x": 1250,
+      "y": 140,
+      "width": 350,
+      "height": 380,
+      "enterScale": 3.4
+    }
+  ]
+}
