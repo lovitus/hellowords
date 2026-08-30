@@ -229,6 +229,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 20,
     },
   },
+  "baggage-drop-station": {
+    asset: "/scenes/baggage-drop-station-premium-v1.jpg",
+    sha256: "ae99367a4eadff96cac480b88e6dcc41f585b2078615786283116bd8bd117e90",
+    quality: {
+      minMeanLuminance: 105,
+      maxMeanLuminance: 145,
+      maxDarkFraction: 0.25,
+      maxDeepDarkFraction: 0.13,
+      minMeanChroma: 0.045,
+      maxMeanChroma: 0.12,
+      maxChannelMeanSpread: 15,
+    },
+  },
   "security-checkpoint": {
     asset: "/scenes/airport-security-checkpoint-premium-v1.jpg",
     sha256: "8a12c6f335b1107d676112bf52033cc30d51aa352e9fbacf0bde609a3ef85e20",

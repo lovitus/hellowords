@@ -15,6 +15,8 @@ const sourceAsset = resolve(projectRoot, "scripts/assets/baggage-drop-station-v1
 const publicAsset = resolve(projectRoot, "public/scenes/baggage-drop-station-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/baggage-drop-station.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/check-in-counter.json");
+const integrate = process.argv.includes("--integrate");
 
 const WIDTH = 1_600;
 const HEIGHT = 900;
@@ -405,17 +407,70 @@ async function assertUniqueWords(scene) {
   if (existingDuplicates.length > 0) throw new Error(`baggage-drop-station term duplicates existing words: ${existingDuplicates.join(", ")}`);
 }
 
+const parentPortal = {
+  id: "enter-baggage-drop-station",
+  label: "Enter the baggage-drop station",
+  translation: "进入行李托运工位",
+  childSceneId: "baggage-drop-station",
+  sourceVisualRegion: "portal-baggage-drop-station-conveyor-scale",
+  x: 470,
+  y: 350,
+  width: 600,
+  height: 330,
+  enterScale: 3.35,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete visible conveyor, scale and side-guard module in the check-in-counter photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "baggage-drop-station")) {
+    const index = manifest.scenes.findIndex(({ id }) => id === "check-in-counter");
+    if (index < 0) throw new Error("check-in-counter is missing from the scene manifest");
+    manifest.scenes.splice(index + 1, 0, {
+      id: "baggage-drop-station",
+      title: "Baggage-drop station",
+      parentId: "check-in-counter",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildBaggageDropStationScene() {
   const assetChanged = await ensureAsset();
   const scene = makeScene();
   await assertUniqueWords(scene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
-  return {
+  const result = {
     assetChanged,
     sceneChanged,
     labels: scene.labels.length,
     zones: scene.detailZones.length,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 const isDirectInvocation = process.argv[1]

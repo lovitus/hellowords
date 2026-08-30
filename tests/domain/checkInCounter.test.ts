@@ -42,7 +42,7 @@ interface Scene {
     readonly height: number;
     readonly labelIds: readonly string[];
   }[];
-  readonly portals: readonly unknown[];
+  readonly portals: readonly { readonly childSceneId: string }[];
   readonly anchorAudit: {
     readonly status: string;
     readonly policy: string;
@@ -65,7 +65,7 @@ test("check-in counter keeps 153 reviewed counter, baggage and kiosk terms", asy
   assert.equal(scene.asset, "/scenes/check-in-counter-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 153);
-  assert.equal(scene.visualRegions.length, 153);
+  assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), [
     ["check-in-counter-zone-counter-row-shell", 22],
     ["check-in-counter-zone-staffed-desk-equipment", 27],
@@ -81,7 +81,7 @@ test("check-in counter keeps 153 reviewed counter, baggage and kiosk terms", asy
   );
   assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 153);
   assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 153);
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["baggage-drop-station"]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);

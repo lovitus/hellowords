@@ -141,3 +141,15 @@ test("baggage-drop station keeps 155 reviewed scale, conveyor and scanner terms"
   );
 });
 
+test("check-in counter exposes one bounded baggage-drop entrance", async () => {
+  const parent = await readJson<{
+    readonly portals: readonly { childSceneId: string; sourceVisualRegion: string; x: number; y: number; width: number; height: number }[];
+    readonly visualRegions: readonly { id: string; x: number; y: number; width: number; height: number }[];
+  }>("check-in-counter.json");
+  const portal = parent.portals.find(({ childSceneId }) => childSceneId === "baggage-drop-station");
+  assert.ok(portal);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [470, 350, 600, 330]);
+  const region = parent.visualRegions.find(({ id }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+});

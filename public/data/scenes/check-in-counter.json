@@ -1384,6 +1384,15 @@
       "y": 800,
       "width": 40,
       "height": 40
+    },
+    {
+      "id": "portal-baggage-drop-station-conveyor-scale",
+      "description": "Complete visible conveyor, scale and side-guard module in the check-in-counter photograph",
+      "kind": "object",
+      "x": 470,
+      "y": 350,
+      "width": 600,
+      "height": 330
     }
   ],
   "detailZones": [
@@ -3182,5 +3191,18 @@
       "sourceVisualRegion": "check-in-counter-region-kiosk-base-corner"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-baggage-drop-station",
+      "label": "Enter the baggage-drop station",
+      "translation": "进入行李托运工位",
+      "childSceneId": "baggage-drop-station",
+      "sourceVisualRegion": "portal-baggage-drop-station-conveyor-scale",
+      "x": 470,
+      "y": 350,
+      "width": 600,
+      "height": 330,
+      "enterScale": 3.35
+    }
+  ]
 }

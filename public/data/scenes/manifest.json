@@ -143,6 +143,11 @@
       "parentId": "airport"
     },
     {
+      "id": "baggage-drop-station",
+      "title": "Baggage-drop station",
+      "parentId": "check-in-counter"
+    },
+    {
       "id": "baggage-claim",
       "title": "Baggage claim",
       "parentId": "airport"
