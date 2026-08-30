@@ -116,9 +116,15 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The terminal raster resolves passenger processing, security, gate, baggage
   // claim and airside structures with a bounded, independently pointable set.
   airport: 100,
+  // The standalone baggage-claim photograph resolves carousel, luggage,
+  // arrivals, customs and service fixtures without inferring flight states.
+  "baggage-claim": 64,
   // The office atrium resolves reception, open work floor, meeting, pantry and
   // building-service hardware without inferring people, companies or policies.
   "office-building": 100,
+  // The standalone service-core photograph resolves electrical, HVAC, fire,
+  // janitorial and loading hardware as a bounded facilities vocabulary.
+  "service-core": 80,
   "city-cafe": 36,
   "electric-bus": 32,
   "railway-platform": 32,
@@ -176,7 +182,13 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "pathology-lab": 450,
   "hospital-pharmacy": 390,
   airport: 390,
+  // The baggage-claim render supports 95 distinct visible carousel, luggage,
+  // arrivals, customs and reception parts without duplicate parent terms.
+  "baggage-claim": 95,
   "office-building": 390,
+  // The service-core render supports 90 distinct visible facility parts while
+  // excluding hidden system states, operational claims and duplicate names.
+  "service-core": 90,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   // The final pixel pass also retains separately visible fossil, telescope,

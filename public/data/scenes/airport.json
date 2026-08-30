@@ -4299,7 +4299,20 @@
       "semanticRealmId": "objects-technology"
     }
   ],
-  "portals": [],
+  "portals": [
+    {
+      "id": "enter-baggage-claim",
+      "label": "Enter baggage claim",
+      "translation": "进入行李提取区",
+      "childSceneId": "baggage-claim",
+      "sourceVisualRegion": "baggage-claim",
+      "x": 1010,
+      "y": 470,
+      "width": 430,
+      "height": 360,
+      "enterScale": 3.4
+    }
+  ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",

@@ -177,6 +177,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 30,
     },
   },
+  "baggage-claim": {
+    asset: "/scenes/baggage-claim-premium-v1.jpg",
+    sha256: "867f17349b32d7c2802e2710a9b765117e50480301c30e0dea5ee7a4f10457c0",
+    quality: {
+      minMeanLuminance: 105,
+      maxMeanLuminance: 205,
+      maxDarkFraction: 0.2,
+      maxDeepDarkFraction: 0.06,
+      minMeanChroma: 0.07,
+      maxMeanChroma: 0.3,
+      maxChannelMeanSpread: 50,
+    },
+  },
   "service-core": {
     asset: "/scenes/office-service-core-premium-v1.jpg",
     sha256: "13b85aad4abb80939e27cc018ac5af21c1b6cabbb3a21dafb5aa04a27b189c8f",

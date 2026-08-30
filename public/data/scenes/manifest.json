@@ -88,6 +88,11 @@
       "parentId": "urban-services"
     },
     {
+      "id": "baggage-claim",
+      "title": "Baggage claim",
+      "parentId": "airport"
+    },
+    {
       "id": "office-building",
       "title": "Office building",
       "parentId": "urban-services"
@@ -226,6 +231,11 @@
       "id": "school-campus",
       "title": "School campus",
       "parentId": "world-map"
+    },
+    {
+      "id": "service-core",
+      "title": "Office service core",
+      "parentId": "office-building"
     }
   ]
 }
