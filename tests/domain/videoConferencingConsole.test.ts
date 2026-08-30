@@ -141,3 +141,15 @@ test("video conferencing console keeps 144 reviewed display, camera and cable te
   );
 });
 
+test("conference room exposes one bounded video-console entrance", async () => {
+  const parent = await readJson<{
+    readonly portals: readonly { childSceneId: string; sourceVisualRegion: string; x: number; y: number; width: number; height: number }[];
+    readonly visualRegions: readonly { id: string; x: number; y: number; width: number; height: number }[];
+  }>("conference-room.json");
+  const portal = parent.portals.find(({ childSceneId }) => childSceneId === "video-conferencing-console");
+  assert.ok(portal);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [760, 350, 350, 250]);
+  const region = parent.visualRegions.find(({ id }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+});

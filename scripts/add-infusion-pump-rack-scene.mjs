@@ -13,6 +13,9 @@ const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/infusion-pump-rack-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/infusion-pump-rack-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/infusion-pump-rack.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/bedside-monitor-station.json");
+const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const integrate = process.argv.includes("--integrate");
 
 const SOURCE_WIDTH = 1_672;
 const SOURCE_HEIGHT = 941;
@@ -388,19 +391,72 @@ async function ensureAsset() {
   return true;
 }
 
+const parentPortal = {
+  id: "enter-infusion-pump-rack",
+  label: "Enter the infusion pump rack",
+  translation: "进入输液泵架",
+  childSceneId: "infusion-pump-rack",
+  sourceVisualRegion: "portal-infusion-pump-rack-right-pump-stack",
+  x: 803,
+  y: 124,
+  width: 220,
+  height: 296,
+  enterScale: 3.55,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete visible right-hand stacked pump modules and carrier rail in the bedside-monitor photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "infusion-pump-rack")) {
+    const index = manifest.scenes.findIndex(({ id }) => id === "bedside-monitor-station");
+    if (index < 0) throw new Error("bedside-monitor-station is missing from the scene manifest");
+    manifest.scenes.splice(index + 1, 0, {
+      id: "infusion-pump-rack",
+      title: "Infusion pump rack",
+      parentId: "bedside-monitor-station",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildInfusionPumpRackScene() {
   const scene = buildScene();
   if (scene.labels.length < 140 || scene.labels.length > 155) {
     throw new Error(`infusion-pump label count ${scene.labels.length} is outside 140–155`);
   }
   if (scene.detailZones.length !== 6) throw new Error(`infusion-pump zone count ${scene.detailZones.length} is not 6`);
-  return {
+  const result = {
     assetChanged: await ensureAsset(),
     sceneChanged: await writeIfChanged(scenePath, scene),
     labels: scene.labels.length,
     zones: scene.detailZones.length,
     parentId: scene.parentId,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve(import.meta.filename)) {

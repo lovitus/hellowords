@@ -1294,6 +1294,15 @@
       "y": 830,
       "width": 40,
       "height": 40
+    },
+    {
+      "id": "portal-video-conferencing-console-device-group",
+      "description": "Complete visible speaker bar, lower display edge and tabletop meeting-device group in the conference-room photograph",
+      "kind": "object",
+      "x": 760,
+      "y": 350,
+      "width": 350,
+      "height": 250
     }
   ],
   "detailZones": [
@@ -2982,5 +2991,18 @@
       "sourceVisualRegion": "conference-room-region-meeting-room-corner"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-video-conferencing-console",
+      "label": "Enter the video-conferencing console",
+      "translation": "进入视频会议设备台",
+      "childSceneId": "video-conferencing-console",
+      "sourceVisualRegion": "portal-video-conferencing-console-device-group",
+      "x": 760,
+      "y": 350,
+      "width": 350,
+      "height": 250,
+      "enterScale": 3.45
+    }
+  ]
 }

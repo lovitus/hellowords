@@ -114,6 +114,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "post-anesthesia-care-unit": 120,
   "intensive-care-unit": 140,
   "bedside-monitor-station": 140,
+  "infusion-pump-rack": 140,
   // The dedicated pathology lab keeps microscope, specimen, embedding, staining
   // and cold-storage terms in one focused educational bench.
   "pathology-lab": 100,
@@ -140,6 +141,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // building-service hardware without inferring people, companies or policies.
   "office-building": 100,
   "conference-room": 130,
+  "video-conferencing-console": 135,
   // The standalone service-core photograph resolves electrical, HVAC, fire,
   // janitorial and loading hardware as a bounded facilities vocabulary.
   "service-core": 80,
@@ -216,6 +218,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "post-anesthesia-care-unit": 134,
   "intensive-care-unit": 159,
   "bedside-monitor-station": 150,
+  "infusion-pump-rack": 150,
   "pathology-lab": 450,
   "hospital-pharmacy": 390,
   airport: 390,
@@ -230,6 +233,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "aircraft-lavatory": 138,
   "office-building": 390,
   "conference-room": 143,
+  "video-conferencing-console": 144,
   // The service-core render supports 90 distinct visible facility parts while
   // excluding hidden system states, operational claims and duplicate names.
   "service-core": 90,

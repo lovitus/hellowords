@@ -1357,6 +1357,15 @@
       "y": 744.102019,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "portal-infusion-pump-rack-right-pump-stack",
+      "description": "Complete visible right-hand stacked pump modules and carrier rail in the bedside-monitor photograph",
+      "kind": "object",
+      "x": 803,
+      "y": 124,
+      "width": 220,
+      "height": 296
     }
   ],
   "detailZones": [
@@ -3261,5 +3270,18 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-infusion-pump-rack",
+      "label": "Enter the infusion pump rack",
+      "translation": "进入输液泵架",
+      "childSceneId": "infusion-pump-rack",
+      "sourceVisualRegion": "portal-infusion-pump-rack-right-pump-stack",
+      "x": 803,
+      "y": 124,
+      "width": 220,
+      "height": 296,
+      "enterScale": 3.55
+    }
+  ]
 }

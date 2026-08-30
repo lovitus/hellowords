@@ -42,7 +42,7 @@ interface Scene {
     readonly height: number;
     readonly labelIds: readonly string[];
   }[];
-  readonly portals: readonly unknown[];
+  readonly portals: readonly { readonly childSceneId: string }[];
   readonly anchorAudit: {
     readonly status: string;
     readonly policy: string;
@@ -65,7 +65,7 @@ test("conference room keeps 143 reviewed table, chair and meeting-device terms",
   assert.equal(scene.asset, "/scenes/conference-room-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 143);
-  assert.equal(scene.visualRegions.length, 143);
+  assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), [
     ["conference-room-zone-glass-entry", 20],
     ["conference-room-zone-credenza-storage", 20],
@@ -81,7 +81,7 @@ test("conference room keeps 143 reviewed table, chair and meeting-device terms",
   );
   assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 143);
   assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 143);
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["video-conferencing-console"]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);

@@ -136,6 +136,17 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("video-conferencing-console", "conference-room", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "office-building",
+    "conference-room",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
   contract("warehouse-loading-dock", "service-core", [
     "city-street",
     "transit-hub",
@@ -228,6 +239,19 @@ const newSceneContracts: NewSceneContract[] = [
     "hospital",
     "emergency-department",
     "intensive-care-unit",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("infusion-pump-rack", "bedside-monitor-station", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "hospital",
+    "emergency-department",
+    "intensive-care-unit",
+    "bedside-monitor-station",
   ], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,

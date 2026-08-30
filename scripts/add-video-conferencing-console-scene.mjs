@@ -15,6 +15,8 @@ const sourceAsset = resolve(projectRoot, "scripts/assets/video-conferencing-cons
 const publicAsset = resolve(projectRoot, "public/scenes/video-conferencing-console-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/video-conferencing-console.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/conference-room.json");
+const integrate = process.argv.includes("--integrate");
 
 const WIDTH = 1_600;
 const HEIGHT = 900;
@@ -394,17 +396,70 @@ async function assertUniqueWords(scene) {
   if (existingDuplicates.length > 0) throw new Error(`video-conferencing-console term duplicates existing words: ${existingDuplicates.join(", ")}`);
 }
 
+const parentPortal = {
+  id: "enter-video-conferencing-console",
+  label: "Enter the video-conferencing console",
+  translation: "进入视频会议设备台",
+  childSceneId: "video-conferencing-console",
+  sourceVisualRegion: "portal-video-conferencing-console-device-group",
+  x: 760,
+  y: 350,
+  width: 350,
+  height: 250,
+  enterScale: 3.45,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete visible speaker bar, lower display edge and tabletop meeting-device group in the conference-room photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "video-conferencing-console")) {
+    const index = manifest.scenes.findIndex(({ id }) => id === "conference-room");
+    if (index < 0) throw new Error("conference-room is missing from the scene manifest");
+    manifest.scenes.splice(index + 1, 0, {
+      id: "video-conferencing-console",
+      title: "Video-conferencing console",
+      parentId: "conference-room",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildVideoConferencingConsoleScene() {
   const assetChanged = await ensureAsset();
   const scene = makeScene();
   await assertUniqueWords(scene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
-  return {
+  const result = {
     assetChanged,
     sceneChanged,
     labels: scene.labels.length,
     zones: scene.detailZones.length,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 const isDirectInvocation = process.argv[1]

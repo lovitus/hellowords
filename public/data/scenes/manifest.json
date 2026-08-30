@@ -118,6 +118,11 @@
       "parentId": "intensive-care-unit"
     },
     {
+      "id": "infusion-pump-rack",
+      "title": "Infusion pump rack",
+      "parentId": "bedside-monitor-station"
+    },
+    {
       "id": "operating-theatre",
       "title": "Operating theatre",
       "parentId": "emergency-department"
@@ -171,6 +176,11 @@
       "id": "conference-room",
       "title": "Conference room",
       "parentId": "office-building"
+    },
+    {
+      "id": "video-conferencing-console",
+      "title": "Video-conferencing console",
+      "parentId": "conference-room"
     },
     {
       "id": "city-cafe",
