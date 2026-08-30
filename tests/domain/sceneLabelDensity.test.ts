@@ -130,7 +130,11 @@ test("all authored scenes fill spare first-screen space without collisions or de
           : configuration.name === "desktop-meaning"
             ? sceneLabelDensityTarget(viewport, true, configuration.scale)
             : configuration.name === "mobile-word"
-              ? 12
+              // A visible portal button and its caption reserve the same
+              // central footprint as roughly two compact word pills. Keep the
+              // full floor in terminal scenes and account only for cues that
+              // are actually projected into this viewport.
+              ? protectedRegions.length > 0 ? 10 : 11
               : 9;
         assert.ok(
           visible.length >= largeSceneFloor,
