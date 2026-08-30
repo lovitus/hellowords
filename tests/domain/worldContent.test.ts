@@ -797,12 +797,12 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
   const { scenes } = await loadWorld();
   const hub = scenes.find((scene) => scene.id === "transit-hub");
   assert.ok(hub);
-  assert.equal(hub.labels.length, 163);
+  assert.equal(hub.labels.length, 175);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       hub.labels.filter((label) => label.minLevel === level).length
     )),
-    [9, 9, 42, 50, 53],
+    [9, 9, 46, 54, 57],
   );
   const words = new Set(hub.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -822,6 +822,16 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
     "trolley wheel",
     "trolley handle",
     "bollard cap",
+    "bicycle handlebar",
+    "bicycle saddle",
+    "bicycle pedal",
+    "trolley basket",
+    "trolley frame",
+    "trolley caster",
+    "bollard body",
+    "bollard base",
+    "bollard band",
+    "floor reflection",
     "train nose",
     "train window frame",
     "train door handle",
@@ -850,7 +860,7 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
       ["railway-zone", 78],
       ["central-concourse", 66],
       ["electric-bus-zone", 11],
-      ["foreground-mobility", 8],
+      ["foreground-mobility", 20],
     ],
   );
   const labels = new Map(hub.labels.map((label) => [label.id, label] as const));
@@ -2773,20 +2783,20 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
 
   assert.equal(greenhouse.parentId, "community-garden");
   assert.equal(greenhouse.asset, "/scenes/greenhouse-interior-premium-v1.jpg");
-  assert.equal(greenhouse.labels.length, 101);
+  assert.equal(greenhouse.labels.length, 112);
   assert.deepEqual(
     greenhouse.labels.reduce<number[]>((counts, label) => {
       counts[label.minLevel ?? 0] += 1;
       return counts;
     }, [0, 0, 0, 0, 0]),
-    [9, 11, 31, 27, 23],
+    [9, 11, 35, 31, 26],
   );
   assert.deepEqual(
     greenhouse.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
       ["greenhouse-structure", 42],
       ["potting-workbench", 17],
-      ["propagation-area", 6],
+      ["propagation-area", 17],
       ["soil-station", 6],
       ["back-growing-bench", 8],
       ["central-aisle", 12],
@@ -2830,13 +2840,13 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
 
   assert.equal(workbench.parentId, "community-garden");
   assert.equal(workbench.asset, "/scenes/potting-workbench-premium-v1.jpg");
-  assert.equal(workbench.labels.length, 104);
+  assert.equal(workbench.labels.length, 116);
   assert.equal(workbench.portals.length, 0);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       workbench.labels.filter((label) => label.minLevel === level).length
     )),
-    [10, 10, 25, 30, 29],
+    [10, 10, 29, 34, 33],
   );
   assert.deepEqual(
     workbench.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
@@ -2846,7 +2856,7 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
       ["seedling-potting-zone", 16],
       ["hand-tool-zone", 44],
       ["tying-supplies-zone", 9],
-      ["lower-storage-zone", 8],
+      ["lower-storage-zone", 20],
       ["side-tool-zone", 5],
     ],
   );
@@ -2865,6 +2875,15 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
       "watering can rim",
       "watering can handle",
       "seed tray cell",
+      "propagation tray rim",
+      "tray divider",
+      "seedling plug",
+      "cotyledon",
+      "seedling leaf pair",
+      "potting mix surface",
+      "tray drainage hole",
+      "basil node",
+      "terracotta pot rim",
       "basil leaf",
       "pot rim",
       "saucer rim",
@@ -2932,6 +2951,18 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
       "soil sack fold",
       "trowel blade",
       "pruner spring",
+      "soil sack rim",
+      "soil sack opening",
+      "soil sack side",
+      "bucket side",
+      "nursery pot base",
+      "pot stack side",
+      "coir disc surface",
+      "coir fiber edge",
+      "burlap mat fold",
+      "burlap mat edge",
+      "lower shelf board",
+      "shelf front edge",
     ]],
   ] as const) {
     const words = new Set(scene.labels.map(({ word }) => word));

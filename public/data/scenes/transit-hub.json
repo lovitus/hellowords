@@ -1737,6 +1737,138 @@
       "minLevel": 4,
       "sourceVisualRegion": "verified-concourse",
       "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bicycle-handlebar-focus-1",
+      "word": "bicycle handlebar",
+      "translation": "自行车车把",
+      "x": 1100,
+      "y": 585,
+      "priority": 7.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bicycle",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bicycle-saddle-focus-2",
+      "word": "bicycle saddle",
+      "translation": "自行车鞍座",
+      "x": 1140,
+      "y": 595,
+      "priority": 7.117,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bicycle",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bicycle-pedal-focus-3",
+      "word": "bicycle pedal",
+      "translation": "自行车脚踏",
+      "x": 1125,
+      "y": 625,
+      "priority": 7.118,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bicycle",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bicycle-chain-focus-4",
+      "word": "bicycle chain",
+      "translation": "自行车链条",
+      "x": 1120,
+      "y": 610,
+      "priority": 7.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "verified-bicycle",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trolley-basket-focus-5",
+      "word": "trolley basket",
+      "translation": "行李车篮",
+      "x": 1135,
+      "y": 690,
+      "priority": 7.12,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-luggage-trolley",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trolley-frame-focus-6",
+      "word": "trolley frame",
+      "translation": "行李车车架",
+      "x": 1135,
+      "y": 735,
+      "priority": 7.121,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-luggage-trolley",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trolley-caster-focus-7",
+      "word": "trolley caster",
+      "translation": "行李车脚轮",
+      "x": 1105,
+      "y": 815,
+      "priority": 7.122,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-luggage-trolley",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trolley-basket-rail-focus-8",
+      "word": "trolley basket rail",
+      "translation": "行李车篮栏",
+      "x": 1165,
+      "y": 690,
+      "priority": 7.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "verified-luggage-trolley",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bollard-body-focus-9",
+      "word": "bollard body",
+      "translation": "护柱柱身",
+      "x": 1240,
+      "y": 760,
+      "priority": 7.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bollard",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bollard-base-focus-10",
+      "word": "bollard base",
+      "translation": "护柱底座",
+      "x": 1240,
+      "y": 850,
+      "priority": 7.125,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bollard",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bollard-band-focus-11",
+      "word": "bollard band",
+      "translation": "护柱环带",
+      "x": 1300,
+      "y": 730,
+      "priority": 7.126,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-bollard",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "floor-reflection-focus-12",
+      "word": "floor reflection",
+      "translation": "地面倒影",
+      "x": 1420,
+      "y": 820,
+      "priority": 7.127,
+      "minLevel": 4,
+      "sourceVisualRegion": "verified-polished-floor",
+      "semanticRealmId": "objects-technology"
     }
   ],
   "portals": [
@@ -1782,9 +1914,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/transit-hub-premium-v2.jpg",
     "reviewedAssetSha256": "0404f4a4fcfef1cba37b54231530085b708e498b1e21dd94e5585477f68652f9",
-    "rationale": "Re-anchored every retained term to a concrete object or part in the bright terminal photograph, with separate portal rectangles for the left train platform and right electric bus bay. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
-    "previousLabelCount": 175,
-    "retainedLabelCount": 163,
+    "rationale": "Re-anchored every retained term to a concrete object or part in the bright terminal photograph, with separate portal rectangles for the left train platform and right electric bus bay. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The focused detail batch adds 12 additional pixel-anchored parts inside previously reviewed crops.",
+    "previousLabelCount": 187,
+    "retainedLabelCount": 175,
     "removedLabelCount": 12,
     "removedExamples": [
       "passenger",
@@ -2008,7 +2140,19 @@
         "bicycle-wheel",
         "trolley-wheel",
         "trolley-handle",
-        "bollard-cap"
+        "bollard-cap",
+        "bicycle-handlebar-focus-1",
+        "bicycle-saddle-focus-2",
+        "bicycle-pedal-focus-3",
+        "bicycle-chain-focus-4",
+        "trolley-basket-focus-5",
+        "trolley-frame-focus-6",
+        "trolley-caster-focus-7",
+        "trolley-basket-rail-focus-8",
+        "bollard-body-focus-9",
+        "bollard-base-focus-10",
+        "bollard-band-focus-11",
+        "floor-reflection-focus-12"
       ]
     }
   ],

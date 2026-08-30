@@ -1047,6 +1047,127 @@
       "minLevel": 4,
       "sourceVisualRegion": "greenhouse-shell",
       "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "propagation-tray-rim-focus-1",
+      "word": "propagation tray rim",
+      "translation": "育苗盘边",
+      "x": 300,
+      "y": 430,
+      "priority": 7.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "tray-divider-focus-2",
+      "word": "tray divider",
+      "translation": "托盘隔格",
+      "x": 360,
+      "y": 435,
+      "priority": 7.057,
+      "minLevel": 2,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "seedling-plug-focus-3",
+      "word": "seedling plug",
+      "translation": "幼苗穴块",
+      "x": 330,
+      "y": 470,
+      "priority": 7.058,
+      "minLevel": 2,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "seedling-stem-focus-4",
+      "word": "seedling stem",
+      "translation": "幼苗茎",
+      "x": 460,
+      "y": 420,
+      "priority": 7.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "cotyledon-focus-5",
+      "word": "cotyledon",
+      "translation": "子叶",
+      "x": 465,
+      "y": 405,
+      "priority": 7.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "seedling-leaf-pair-focus-6",
+      "word": "seedling leaf pair",
+      "translation": "幼苗叶对",
+      "x": 490,
+      "y": 410,
+      "priority": 7.061,
+      "minLevel": 3,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "potting-mix-surface-focus-7",
+      "word": "potting mix surface",
+      "translation": "盆栽土表面",
+      "x": 350,
+      "y": 455,
+      "priority": 7.062,
+      "minLevel": 3,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "nursery-pot-rim-focus-8",
+      "word": "nursery pot rim",
+      "translation": "育苗盆边",
+      "x": 348,
+      "y": 458,
+      "priority": 7.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "tray-drainage-hole-focus-9",
+      "word": "tray drainage hole",
+      "translation": "托盘排水孔",
+      "x": 300,
+      "y": 510,
+      "priority": 7.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "basil-node-focus-10",
+      "word": "basil node",
+      "translation": "罗勒节",
+      "x": 500,
+      "y": 420,
+      "priority": 7.065,
+      "minLevel": 4,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "terracotta-pot-rim-focus-11",
+      "word": "terracotta pot rim",
+      "translation": "陶盆边",
+      "x": 575,
+      "y": 475,
+      "priority": 7.066,
+      "minLevel": 4,
+      "sourceVisualRegion": "propagation-trays",
+      "semanticRealmId": "nature-life"
     }
   ],
   "portals": [
@@ -1165,7 +1286,18 @@
         "nursery-pot",
         "plant-saucer",
         "seed-tray-cell",
-        "basil-leaf"
+        "basil-leaf",
+        "propagation-tray-rim-focus-1",
+        "tray-divider-focus-2",
+        "seedling-plug-focus-3",
+        "seedling-stem-focus-4",
+        "cotyledon-focus-5",
+        "seedling-leaf-pair-focus-6",
+        "potting-mix-surface-focus-7",
+        "nursery-pot-rim-focus-8",
+        "tray-drainage-hole-focus-9",
+        "basil-node-focus-10",
+        "terracotta-pot-rim-focus-11"
       ]
     },
     {
@@ -1262,9 +1394,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/greenhouse-interior-premium-v1.jpg",
     "reviewedAssetSha256": "11410d1677366513fc642c948570e08ae66fe20d20f05b2e43bed4245cc78667",
-    "rationale": "Reviewed the final 1600 by 900 greenhouse interior at original resolution and retained only independently visible frame parts, glass details, benches, tools, containers, plants, floor materials and irrigation fittings; the complete right tomato plant remains an unobstructed real child entrance. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
-    "previousLabelCount": 108,
-    "retainedLabelCount": 101,
+    "rationale": "Reviewed the final 1600 by 900 greenhouse interior at original resolution and retained only independently visible frame parts, glass details, benches, tools, containers, plants, floor materials and irrigation fittings; the complete right tomato plant remains an unobstructed real child entrance. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The focused detail batch adds 11 additional pixel-anchored parts inside previously reviewed crops.",
+    "previousLabelCount": 119,
+    "retainedLabelCount": 112,
     "removedLabelCount": 7,
     "removedExamples": [
       "photosynthesis",

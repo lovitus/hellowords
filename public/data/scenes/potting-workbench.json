@@ -1077,6 +1077,138 @@
       "minLevel": 4,
       "sourceVisualRegion": "hand-tool-row",
       "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "soil-sack-rim-focus-1",
+      "word": "soil sack rim",
+      "translation": "土袋袋口",
+      "x": 470,
+      "y": 615,
+      "priority": 7.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "soil-sack-opening-focus-2",
+      "word": "soil sack opening",
+      "translation": "土袋开口",
+      "x": 475,
+      "y": 640,
+      "priority": 7.057,
+      "minLevel": 2,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "soil-sack-side-focus-3",
+      "word": "soil sack side",
+      "translation": "土袋侧面",
+      "x": 430,
+      "y": 680,
+      "priority": 7.058,
+      "minLevel": 2,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "bucket-side-focus-4",
+      "word": "bucket side",
+      "translation": "桶身侧面",
+      "x": 660,
+      "y": 690,
+      "priority": 7.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "nursery-pot-base-focus-5",
+      "word": "nursery pot base",
+      "translation": "育苗盆底部",
+      "x": 770,
+      "y": 700,
+      "priority": 7.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "pot-stack-side-focus-6",
+      "word": "pot stack side",
+      "translation": "盆摞侧面",
+      "x": 760,
+      "y": 670,
+      "priority": 7.061,
+      "minLevel": 3,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "coir-disc-surface-focus-7",
+      "word": "coir disc surface",
+      "translation": "椰糠圆片表面",
+      "x": 980,
+      "y": 680,
+      "priority": 7.062,
+      "minLevel": 3,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "coir-fiber-edge-focus-8",
+      "word": "coir fiber edge",
+      "translation": "椰糠纤维边",
+      "x": 980,
+      "y": 700,
+      "priority": 7.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "burlap-mat-fold-focus-9",
+      "word": "burlap mat fold",
+      "translation": "粗麻垫折痕",
+      "x": 1110,
+      "y": 660,
+      "priority": 7.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "burlap-mat-edge-focus-10",
+      "word": "burlap mat edge",
+      "translation": "粗麻垫边缘",
+      "x": 1140,
+      "y": 700,
+      "priority": 7.065,
+      "minLevel": 4,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "lower-shelf-board-focus-11",
+      "word": "lower shelf board",
+      "translation": "下层搁板",
+      "x": 800,
+      "y": 740,
+      "priority": 7.066,
+      "minLevel": 4,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "shelf-front-edge-focus-12",
+      "word": "shelf front edge",
+      "translation": "搁板前沿",
+      "x": 900,
+      "y": 735,
+      "priority": 7.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "lower-storage",
+      "semanticRealmId": "nature-life"
     }
   ],
   "portals": [],
@@ -1085,9 +1217,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/potting-workbench-premium-v1.jpg",
     "reviewedAssetSha256": "89194ade5be41c7a2e0baf98d61e64e1d6b3df85370b64623ec773691791c311",
-    "rationale": "Reviewed the final bright 1600 by 900 JPEG pixel by pixel and retained only separately pointable bench structures, containers, seedlings, soil, watering equipment, tying supplies, pruning parts and hand tools; the terminal scene contains no portal and no label depends on printed text, a person, an action or an inferred quality. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
-    "previousLabelCount": 113,
-    "retainedLabelCount": 104,
+    "rationale": "Reviewed the final bright 1600 by 900 JPEG pixel by pixel and retained only separately pointable bench structures, containers, seedlings, soil, watering equipment, tying supplies, pruning parts and hand tools; the terminal scene contains no portal and no label depends on printed text, a person, an action or an inferred quality. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The focused detail batch adds 12 additional pixel-anchored parts inside previously reviewed crops.",
+    "previousLabelCount": 125,
+    "retainedLabelCount": 116,
     "removedLabelCount": 9,
     "removedExamples": [
       "potting",
@@ -1274,7 +1406,19 @@
         "burlap-mat",
         "pot-stack-rim",
         "bucket-rim",
-        "soil-sack-fold"
+        "soil-sack-fold",
+        "soil-sack-rim-focus-1",
+        "soil-sack-opening-focus-2",
+        "soil-sack-side-focus-3",
+        "bucket-side-focus-4",
+        "nursery-pot-base-focus-5",
+        "pot-stack-side-focus-6",
+        "coir-disc-surface-focus-7",
+        "coir-fiber-edge-focus-8",
+        "burlap-mat-fold-focus-9",
+        "burlap-mat-edge-focus-10",
+        "lower-shelf-board-focus-11",
+        "shelf-front-edge-focus-12"
       ]
     },
     {

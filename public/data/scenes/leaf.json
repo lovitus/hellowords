@@ -1160,6 +1160,138 @@
       "minLevel": 4,
       "sourceVisualRegion": "vein-network",
       "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "leaf-notch-edge-focus-1",
+      "word": "leaf notch edge",
+      "translation": "叶片缺口边",
+      "x": 1490,
+      "y": 330,
+      "priority": 5.097,
+      "minLevel": 2,
+      "sourceVisualRegion": "chewed-edge",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "leaf-tooth-focus-2",
+      "word": "leaf tooth",
+      "translation": "叶缘齿",
+      "x": 1530,
+      "y": 360,
+      "priority": 5.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "chewed-edge",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "silk-strand-junction-focus-3",
+      "word": "silk strand junction",
+      "translation": "蛛丝交汇",
+      "x": 500,
+      "y": 420,
+      "priority": 5.099,
+      "minLevel": 2,
+      "sourceVisualRegion": "attached-spider-silk",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "silk-anchor-point-focus-4",
+      "word": "silk anchor point",
+      "translation": "蛛丝锚点",
+      "x": 520,
+      "y": 430,
+      "priority": 5.1,
+      "minLevel": 2,
+      "sourceVisualRegion": "attached-spider-silk",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "water-droplet-focus-5",
+      "word": "water droplet",
+      "translation": "水滴",
+      "x": 800,
+      "y": 520,
+      "priority": 5.101,
+      "minLevel": 3,
+      "sourceVisualRegion": "small-water-beads",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "droplet-highlight-focus-6",
+      "word": "droplet highlight",
+      "translation": "水滴高光",
+      "x": 820,
+      "y": 530,
+      "priority": 5.102,
+      "minLevel": 3,
+      "sourceVisualRegion": "small-water-beads",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "leaf-spot-halo-focus-7",
+      "word": "leaf spot halo",
+      "translation": "叶斑晕圈",
+      "x": 880,
+      "y": 520,
+      "priority": 5.103,
+      "minLevel": 3,
+      "sourceVisualRegion": "leaf-spot",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "leaf-spot-center-focus-8",
+      "word": "leaf spot center",
+      "translation": "叶斑中心",
+      "x": 885,
+      "y": 530,
+      "priority": 5.104,
+      "minLevel": 3,
+      "sourceVisualRegion": "leaf-spot",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "caterpillar-bristle-focus-9",
+      "word": "caterpillar bristle",
+      "translation": "毛虫刚毛",
+      "x": 1120,
+      "y": 500,
+      "priority": 5.105,
+      "minLevel": 4,
+      "sourceVisualRegion": "caterpillar-segments",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "caterpillar-proleg-focus-10",
+      "word": "caterpillar proleg",
+      "translation": "毛虫腹足",
+      "x": 1150,
+      "y": 530,
+      "priority": 5.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "caterpillar-segments",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "insect-egg-shell-focus-11",
+      "word": "insect egg shell",
+      "translation": "昆虫卵壳",
+      "x": 1120,
+      "y": 350,
+      "priority": 5.107,
+      "minLevel": 4,
+      "sourceVisualRegion": "insect-eggs",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "spider-silk-bridge-focus-12",
+      "word": "spider silk bridge",
+      "translation": "蛛丝桥",
+      "x": 650,
+      "y": 430,
+      "priority": 5.108,
+      "minLevel": 4,
+      "sourceVisualRegion": "attached-spider-silk",
+      "semanticRealmId": "nature-life"
     }
   ],
   "portals": [
@@ -1181,9 +1313,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/leaf-natural-v3.jpg",
     "reviewedAssetSha256": "3047a8ee8f00fa78ac31d8b328034b52a62d414a20c7c4bdcc02c82a23ff9e13",
-    "rationale": "Expanded the final-pixel audit with only clearly separable twig, bud, acorn-cup, bark, insect and spider parts; the naturally lit oak branch, flattened dew lens and downstream plant-cell portal remain unchanged, while unsupported leaf underside and process claims stay rejected. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
-    "previousLabelCount": 114,
-    "retainedLabelCount": 109,
+    "rationale": "Expanded the final-pixel audit with only clearly separable twig, bud, acorn-cup, bark, insect and spider parts; the naturally lit oak branch, flattened dew lens and downstream plant-cell portal remain unchanged, while unsupported leaf underside and process claims stay rejected. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The focused detail batch adds 12 additional pixel-anchored parts inside previously reviewed crops.",
+    "previousLabelCount": 126,
+    "retainedLabelCount": 121,
     "removedLabelCount": 5,
     "removedExamples": [
       "leaf blade",
@@ -1808,7 +1940,19 @@
         "lobe",
         "leaf-tip",
         "chewed-edge",
-        "spider-silk"
+        "spider-silk",
+        "leaf-notch-edge-focus-1",
+        "leaf-tooth-focus-2",
+        "silk-strand-junction-focus-3",
+        "silk-anchor-point-focus-4",
+        "water-droplet-focus-5",
+        "droplet-highlight-focus-6",
+        "leaf-spot-halo-focus-7",
+        "leaf-spot-center-focus-8",
+        "caterpillar-bristle-focus-9",
+        "caterpillar-proleg-focus-10",
+        "insect-egg-shell-focus-11",
+        "spider-silk-bridge-focus-12"
       ]
     }
   ]
