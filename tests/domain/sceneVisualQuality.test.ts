@@ -177,6 +177,32 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 30,
     },
   },
+  "emergency-department": {
+    asset: "/scenes/emergency-department-premium-v1.jpg",
+    sha256: "0d5878b4fa27bb1cff5c82d21e8e28aa4e22c8d1885160bd9f2dc3191d94ec47",
+    quality: {
+      minMeanLuminance: 120,
+      maxMeanLuminance: 185,
+      maxDarkFraction: 0.16,
+      maxDeepDarkFraction: 0.06,
+      minMeanChroma: 0.06,
+      maxMeanChroma: 0.2,
+      maxChannelMeanSpread: 25,
+    },
+  },
+  "operating-theatre": {
+    asset: "/scenes/operating-theatre-premium-v1.jpg",
+    sha256: "97083eb3798a19d4faf518ba03e8863530c3e60038d782a75ae2dd40516df07e",
+    quality: {
+      minMeanLuminance: 120,
+      maxMeanLuminance: 185,
+      maxDarkFraction: 0.14,
+      maxDeepDarkFraction: 0.05,
+      minMeanChroma: 0.08,
+      maxMeanChroma: 0.22,
+      maxChannelMeanSpread: 30,
+    },
+  },
   "baggage-claim": {
     asset: "/scenes/baggage-claim-premium-v1.jpg",
     sha256: "867f17349b32d7c2802e2710a9b765117e50480301c30e0dea5ee7a4f10457c0",

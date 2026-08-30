@@ -107,6 +107,10 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The dedicated radiology photograph resolves CT, MRI, X-ray, mammography,
   // ultrasound and preparation fixtures without adding patient or dose claims.
   "radiology-suite": 64,
+  // Acute-care scenes retain only visible triage, resuscitation, examination,
+  // theatre, scrub, sterile-store and recovery fixtures.
+  "emergency-department": 90,
+  "operating-theatre": 90,
   // The dedicated pathology lab keeps microscope, specimen, embedding, staining
   // and cold-storage terms in one focused educational bench.
   "pathology-lab": 100,
@@ -190,6 +194,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The radiology-suite photograph resolves 87 independently pointable
   // imaging, control, preparation and room-hardware parts.
   "radiology-suite": 87,
+  "emergency-department": 108,
+  "operating-theatre": 109,
   "pathology-lab": 450,
   "hospital-pharmacy": 390,
   airport: 390,

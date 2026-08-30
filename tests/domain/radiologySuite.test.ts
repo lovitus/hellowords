@@ -133,7 +133,7 @@ test("hospital exposes the radiology suite through the CT/MRI atrium crop", asyn
   }>("hospital.json");
   assert.deepEqual(
     hospital.portals.map(({ childSceneId }) => childSceneId),
-    ["pathology-lab", "radiology-suite", "hospital-pharmacy"],
+    ["emergency-department", "pathology-lab", "radiology-suite", "hospital-pharmacy"],
   );
   assert.deepEqual(
     hospital.portals.find(({ childSceneId }) => childSceneId === "radiology-suite"),

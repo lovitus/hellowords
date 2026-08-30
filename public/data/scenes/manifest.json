@@ -78,6 +78,16 @@
       "parentId": "urban-services"
     },
     {
+      "id": "emergency-department",
+      "title": "Emergency department",
+      "parentId": "hospital"
+    },
+    {
+      "id": "operating-theatre",
+      "title": "Operating theatre",
+      "parentId": "emergency-department"
+    },
+    {
       "id": "radiology-suite",
       "title": "Radiology suite",
       "parentId": "hospital"

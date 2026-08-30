@@ -4851,6 +4851,18 @@
   ],
   "portals": [
     {
+      "id": "enter-emergency-department",
+      "label": "Enter the emergency department",
+      "translation": "进入急诊科",
+      "childSceneId": "emergency-department",
+      "sourceVisualRegion": "emergency-department",
+      "x": 20,
+      "y": 280,
+      "width": 320,
+      "height": 360,
+      "enterScale": 3.4
+    },
+    {
       "id": "enter-pathology-lab",
       "label": "Enter the pathology lab",
       "translation": "进入病理实验室",

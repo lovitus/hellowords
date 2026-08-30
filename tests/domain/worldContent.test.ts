@@ -119,6 +119,7 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "community-garden", "greenhouse-interior", "tomato-plant"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "pathology-lab"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "radiology-suite"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "emergency-department", "operating-theatre"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "security-checkpoint", "boarding-gate"],
@@ -3114,6 +3115,8 @@ test("urban services adds hospital, airport and office vocabulary without breaki
   for (const [sceneId, count, zones, parent, required] of [
     ["hospital", 440, 6, "urban-services", ["emergency department", "pathology laboratory", "mri scanner", "pharmacy", "cancer", "paracetamol", "cardiology", "hypertension", "suction unit", "table strap", "defibrillator", "pulse oximeter", "mri bore", "positioning laser", "surgical light handle"]],
     ["radiology-suite", 87, 6, "hospital", ["ct bay", "mri bay", "radiography room", "mammography room", "ultrasound bay", "contrast injector tower", "radiation indicator", "wall clock face", "x-ray collimator", "ultrasound probe head", "sink basin drain", "ceiling light panel"]],
+    ["emergency-department", 108, 5, "hospital", ["triage bay", "triage workstation", "ed resuscitation bay", "ed examination couch", "clinical pass-through", "ed door vision panel"]],
+    ["operating-theatre", 109, 5, "emergency-department", ["operating room", "theatre operating table", "theatre anesthesia machine", "scrub bay", "sterile ceiling panel", "recovery vacuum outlet"]],
     ["pathology-lab", 450, 6, "hospital", ["histopathology", "microscope", "tissue cassette", "microtome", "staining tray", "cold cabinet", "immunohistochemistry", "slide digitizer", "cryostat", "cold chain", "blade holder", "wax scraper", "section bath", "pipette plunger", "freezer door"]],
     ["hospital-pharmacy", 390, 5, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "doxycycline", "cetirizine", "lamotrigine", "drawer cart", "cart shelf mat", "azithromycin", "nystatin", "dispensing chute", "prescription scanner", "calibration weight"]],
     ["airport", 390, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower", "aircraft fuselage", "body scanner", "claim chute", "carousel motor", "runway threshold", "ground power unit", "gate sign frame", "departure board frame", "luggage shell"]],
@@ -3131,7 +3134,7 @@ test("urban services adds hospital, airport and office vocabulary without breaki
   }
   assert.deepEqual(
     byId.get("hospital")?.portals.map(({ childSceneId }) => childSceneId),
-    ["pathology-lab", "radiology-suite", "hospital-pharmacy"],
+    ["emergency-department", "pathology-lab", "radiology-suite", "hospital-pharmacy"],
   );
   assert.deepEqual(
     byId.get("airport")?.portals.map(({ childSceneId }) => childSceneId),
