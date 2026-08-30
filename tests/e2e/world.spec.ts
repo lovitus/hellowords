@@ -1170,7 +1170,7 @@ test("root atlas wheel zoom stays on one scene until an entry is explicitly clic
   expect(await sceneId(app)).toBe(parent);
   await expect(page.locator(
     `.scene-hotspot-region[data-portal-entry-mode="click"]`,
-  )).toHaveCount(4);
+  )).toHaveCount(5);
   const mapEntry = page.locator(
     `[data-testid="scene-minimap-child"][data-target-scene="${target}"]`,
   );
@@ -1188,7 +1188,7 @@ test("the current-scene word index finds and focuses a real label without a scen
 
   const index = page.getByTestId("scene-word-index");
   await expect(index).toBeVisible();
-  await expect(index.getByTestId("scene-word-index-summary")).toContainText("1275");
+  await expect(index.getByTestId("scene-word-index-summary")).toContainText("1289");
   await expect(index.getByTestId("scene-word-index-result")).toHaveCount(32);
   await expect(index.getByRole("searchbox")).toBeVisible();
   expect(await page.evaluate(() => {

@@ -3,7 +3,17 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import test from "node:test";
-import sharp from "sharp";
+import sharpModule from "sharp";
+
+interface ImagePipeline {
+  metadata(): Promise<{
+    readonly format?: string;
+    readonly width?: number;
+    readonly height?: number;
+  }>;
+}
+
+const decodeImage = sharpModule as unknown as (input: string | Buffer) => ImagePipeline;
 
 const projectRoot = resolve(import.meta.dirname, "../..");
 const sceneRoot = resolve(projectRoot, "public/data/scenes");
@@ -64,7 +74,7 @@ test("school-campus is a reviewed standalone scene with new practical vocabulary
 
   const assetPath = resolve(projectRoot, "public", scene.asset.replace(/^\//u, ""));
   const bytes = await readFile(assetPath);
-  const metadata = await sharp(bytes).metadata();
+  const metadata = await decodeImage(bytes).metadata();
   assert.equal(metadata.format, "jpeg");
   assert.equal(metadata.width, 1_600);
   assert.equal(metadata.height, 900);
@@ -118,10 +128,10 @@ test("the world atlas exposes the school campus through one reviewed portal", as
     translation: "探索校园",
     childSceneId: "school-campus",
     sourceVisualRegion: "portal-enter-school-campus",
-    x: 20,
-    y: 300,
+    x: 220,
+    y: 20,
     width: 220,
-    height: 90,
+    height: 145,
     enterScale: 3.75,
   });
   assert.ok(root.visualRegions.some(({ id }) => id === "portal-enter-school-campus"));

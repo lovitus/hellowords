@@ -121,7 +121,7 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   )))).toBe(true);
   expect(await districts.evaluateAll((buttons) => buttons.reduce((sum, button) => (
     sum + Number((button as HTMLElement).dataset.labelCount)
-  ), 0))).toBe(1275);
+  ), 0))).toBe(1289);
   if ((page.viewportSize()?.width ?? 1_000) <= 560) {
     expect(await minimap.evaluate((element) => {
       const bounds = element.getBoundingClientRect();
