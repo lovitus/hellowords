@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 /**
@@ -13,6 +14,9 @@ const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/open-plan-workstation-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/open-plan-workstation-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/open-plan-workstation.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/office-building.json");
+const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const integrate = process.argv.includes("--integrate");
 
 const SOURCE_WIDTH = 1_672;
 const SOURCE_HEIGHT = 941;
@@ -388,22 +392,75 @@ async function ensureAsset() {
   return true;
 }
 
+const parentPortal = {
+  id: "enter-open-plan-workstation",
+  label: "Enter the open-plan workstation",
+  translation: "进入开放式办公工位",
+  childSceneId: "open-plan-workstation",
+  sourceVisualRegion: "portal-open-plan-left-workstations",
+  x: 330,
+  y: 410,
+  width: 270,
+  height: 270,
+  enterScale: 3.5,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Two complete left-side desk rows, monitors, chairs and plant divider in the office-building photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "open-plan-workstation")) {
+    const officeIndex = manifest.scenes.findIndex(({ id }) => id === "office-building");
+    if (officeIndex < 0) throw new Error("office-building is missing from the scene manifest");
+    manifest.scenes.splice(officeIndex + 1, 0, {
+      id: "open-plan-workstation",
+      title: "Open-plan workstation",
+      parentId: "office-building",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildOpenPlanWorkstationScene() {
   const scene = buildScene();
   if (scene.labels.length < 140 || scene.labels.length > 155) {
     throw new Error(`open-plan label count ${scene.labels.length} is outside 140–155`);
   }
   if (scene.detailZones.length !== 6) throw new Error(`open-plan zone count ${scene.detailZones.length} is not 6`);
-  return {
+  const result = {
     assetChanged: await ensureAsset(),
     sceneChanged: await writeIfChanged(scenePath, scene),
     labels: scene.labels.length,
     zones: scene.detailZones.length,
     parentId: scene.parentId,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === resolve(import.meta.filename)) {
+if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   buildOpenPlanWorkstationScene()
     .then((result) => console.log(JSON.stringify(result, null, 2)))
     .catch((error) => {

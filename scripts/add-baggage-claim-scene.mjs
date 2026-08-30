@@ -342,10 +342,10 @@ const baggageParentVisualRegion = {
   id: "baggage-claim",
   description: "Arrival seating and the complete baggage carousel with suitcases at the right foreground",
   kind: "object",
-  x: 950,
-  y: 360,
-  width: 600,
-  height: 450,
+  x: 940,
+  y: 350,
+  width: 660,
+  height: 550,
 };
 
 async function updateAirport() {

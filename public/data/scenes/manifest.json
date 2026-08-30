@@ -173,6 +173,11 @@
       "parentId": "urban-services"
     },
     {
+      "id": "open-plan-workstation",
+      "title": "Open-plan workstation",
+      "parentId": "office-building"
+    },
+    {
       "id": "conference-room",
       "title": "Conference room",
       "parentId": "office-building"

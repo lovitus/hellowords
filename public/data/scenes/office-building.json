@@ -4323,6 +4323,18 @@
       "width": 500,
       "height": 340,
       "enterScale": 3.3
+    },
+    {
+      "id": "enter-open-plan-workstation",
+      "label": "Enter the open-plan workstation",
+      "translation": "进入开放式办公工位",
+      "childSceneId": "open-plan-workstation",
+      "sourceVisualRegion": "portal-open-plan-left-workstations",
+      "x": 330,
+      "y": 410,
+      "width": 270,
+      "height": 270,
+      "enterScale": 3.5
     }
   ],
   "anchorAudit": {
@@ -4419,6 +4431,15 @@
       "y": 300,
       "width": 500,
       "height": 340
+    },
+    {
+      "id": "portal-open-plan-left-workstations",
+      "description": "Two complete left-side desk rows, monitors, chairs and plant divider in the office-building photograph",
+      "kind": "object",
+      "x": 330,
+      "y": 410,
+      "width": 270,
+      "height": 270
     }
   ],
   "detailZones": [

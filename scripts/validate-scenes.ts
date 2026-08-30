@@ -140,6 +140,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The office atrium resolves reception, open work floor, meeting, pantry and
   // building-service hardware without inferring people, companies or policies.
   "office-building": 100,
+  "open-plan-workstation": 140,
   "conference-room": 130,
   "video-conferencing-console": 135,
   // The standalone service-core photograph resolves electrical, HVAC, fire,
@@ -232,6 +233,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "aircraft-cabin": 142,
   "aircraft-lavatory": 138,
   "office-building": 390,
+  "open-plan-workstation": 150,
   "conference-room": 143,
   "video-conferencing-console": 144,
   // The service-core render supports 90 distinct visible facility parts while

@@ -255,6 +255,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 30,
     },
   },
+  "open-plan-workstation": {
+    asset: "/scenes/open-plan-workstation-premium-v1.jpg",
+    sha256: "9acbbe66dd5fb56faa58562c07219f723bb39d12d535648fa7be6e3abcd7f1df",
+    quality: {
+      minMeanLuminance: 115,
+      maxMeanLuminance: 155,
+      maxDarkFraction: 0.29,
+      maxDeepDarkFraction: 0.17,
+      minMeanChroma: 0.09,
+      maxMeanChroma: 0.16,
+      maxChannelMeanSpread: 35,
+    },
+  },
   "video-conferencing-console": {
     asset: "/scenes/video-conferencing-console-premium-v1.jpg",
     sha256: "191dcac69bbc53f5ec57497dc078f00d48c06104051886102b4fbf1ab0e863a5",
