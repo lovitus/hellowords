@@ -1387,8 +1387,8 @@
       "description": "Inspect independently visible parts of the mobile storage.",
       "x": 570,
       "y": 250,
-      "width": 520,
-      "height": 500,
+      "width": 650,
+      "height": 520,
       "targetScale": 2.9,
       "labelIds": [
         "supermarket-walk-in-cooler-cooler-rolling-rack",

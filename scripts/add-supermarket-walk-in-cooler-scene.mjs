@@ -35,7 +35,7 @@ const zones = [
     ["cooler red apple", "冷库红苹果", 1200, 600, 0], ["red-apple skin", "红苹果果皮", 1200, 600, 4], ["blue produce crate", "蓝色果蔬周转箱", 1080, 365, 1],
     ["green produce crate", "绿色果蔬周转箱", 1230, 370, 1], ["orange produce crate", "橙色果蔬周转箱", 1080, 480, 2], ["produce-crate handhold", "果蔬箱提手孔", 1120, 470, 3],
   ] },
-  { id: "mobile-storage", title: "Mobile storage", translation: "移动存储", x: 570, y: 250, width: 520, height: 500, targetScale: 2.9, labels: [
+  { id: "mobile-storage", title: "Mobile storage", translation: "移动存储", x: 570, y: 250, width: 650, height: 520, targetScale: 2.9, labels: [
     ["cooler rolling rack", "冷库移动货架", 720, 480, 0], ["rolling-rack push handle", "移动架推手", 665, 380, 2], ["rolling-rack upright", "移动架立柱", 680, 500, 2],
     ["rolling-rack shelf", "移动架层板", 745, 430, 2], ["rolling-rack caster", "移动架脚轮", 680, 660, 3], ["cooler caster fork", "冷库脚轮轮叉", 680, 650, 4],
     ["caster wheel tread", "脚轮轮面", 690, 665, 4], ["rolling-rack dairy cup", "移动架乳品杯", 750, 380, 1], ["rolling-rack cheese block", "移动架奶酪块", 740, 550, 1],

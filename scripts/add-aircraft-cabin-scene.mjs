@@ -296,8 +296,8 @@ function makeScene() {
         id: `aircraft-cabin-region-${idSuffix}`,
         description: `Pixel-audited “${word}” inside the ${zone.title} crop of the aircraft cabin photograph`,
         kind: "part",
-        x: Math.max(0, x - 20),
-        y: Math.max(0, y - 20),
+        x: Math.max(0, Math.min(WIDTH - 40, x - 20)),
+        y: Math.max(0, Math.min(HEIGHT - 40, y - 20)),
         width: 40,
         height: 40,
       };

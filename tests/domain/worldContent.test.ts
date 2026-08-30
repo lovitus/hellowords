@@ -122,7 +122,7 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "emergency-department", "operating-theatre"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim"],
-    ["world-map", "city-street", "transit-hub", "urban-services", "airport", "security-checkpoint", "boarding-gate"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "airport", "security-checkpoint", "boarding-gate", "aircraft-cabin"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "service-core"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "service-core", "warehouse-loading-dock"],
     ["world-map", "city-street", "hotel-exterior", "hotel-lobby-rooms"],

@@ -202,7 +202,7 @@
       "description": "Pixel-audited “entry threshold strip” inside the Entry door hardware crop of the aircraft cabin photograph",
       "kind": "part",
       "x": 130,
-      "y": 875,
+      "y": 860,
       "width": 40,
       "height": 40
     },
@@ -1263,7 +1263,7 @@
       "id": "aircraft-cabin-region-fuselage-side-panel",
       "description": "Pixel-audited “fuselage side panel” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
       "kind": "part",
-      "x": 1580,
+      "x": 1560,
       "y": 230,
       "width": 40,
       "height": 40
@@ -1281,7 +1281,7 @@
       "id": "aircraft-cabin-region-doorway-fastener",
       "description": "Pixel-audited “doorway fastener” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
       "kind": "part",
-      "x": 1570,
+      "x": 1560,
       "y": 400,
       "width": 40,
       "height": 40

@@ -333,6 +333,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 25,
     },
   },
+  "aircraft-cabin": {
+    asset: "/scenes/aircraft-cabin-premium-v1.jpg",
+    sha256: "43bc4ae1927274df211288acce769e17f16975ddfea8e0c57d8ce5349f697dbc",
+    quality: {
+      minMeanLuminance: 110,
+      maxMeanLuminance: 180,
+      maxDarkFraction: 0.28,
+      maxDeepDarkFraction: 0.1,
+      minMeanChroma: 0.05,
+      maxMeanChroma: 0.18,
+      maxChannelMeanSpread: 25,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

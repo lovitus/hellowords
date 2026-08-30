@@ -127,6 +127,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // connected gate/boarding-bridge scene without passenger or flight claims.
   "security-checkpoint": 90,
   "boarding-gate": 100,
+  // The connected wide-body cabin resolves the entry, galley, seating,
+  // overhead-service, lavatory and room-fabric parts without flight claims.
+  "aircraft-cabin": 120,
   // The office atrium resolves reception, open work floor, meeting, pantry and
   // building-service hardware without inferring people, companies or policies.
   "office-building": 100,
@@ -207,6 +210,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "baggage-claim": 95,
   "security-checkpoint": 103,
   "boarding-gate": 120,
+  "aircraft-cabin": 142,
   "office-building": 390,
   // The service-core render supports 90 distinct visible facility parts while
   // excluding hidden system states, operational claims and duplicate names.
