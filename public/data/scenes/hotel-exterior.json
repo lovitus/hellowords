@@ -1,0 +1,1515 @@
+{
+  "id": "hotel-exterior",
+  "title": "Hotel exterior",
+  "translation": "酒店外立面",
+  "subtitle": "Arrival canopy, entrance and city-side hotel details",
+  "asset": "/scenes/hotel-exterior-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "city-street",
+  "visualRegions": [
+    {
+      "id": "hotel-exterior-region-hotel-facade",
+      "description": "Pixel-audited “hotel facade” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-stone-facade",
+      "description": "Pixel-audited “stone facade” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 110,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-blank-sign-panel",
+      "description": "Pixel-audited “blank sign panel” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 75,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-sign-frame",
+      "description": "Pixel-audited “sign frame” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 75,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-upper-window-bay",
+      "description": "Pixel-audited “upper window bay” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-balcony-railing",
+      "description": "Pixel-audited “balcony railing” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 140,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-balcony-door",
+      "description": "Pixel-audited “balcony door” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 125,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-facade-cornice",
+      "description": "Pixel-audited “facade cornice” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 45,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-pilaster-capital",
+      "description": "Pixel-audited “pilaster capital” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-rain-gutter",
+      "description": "Pixel-audited “rain gutter” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 0,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-facade-ledge",
+      "description": "Pixel-audited “facade ledge” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 155,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-window-transom",
+      "description": "Pixel-audited “window transom” inside the Upper hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 155,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-canopy-soffit",
+      "description": "Pixel-audited “canopy soffit” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 275,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-canopy-edge",
+      "description": "Pixel-audited “canopy edge” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 245,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-revolving-door",
+      "description": "Pixel-audited “revolving door” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-glass-vestibule",
+      "description": "Pixel-audited “glass vestibule” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-hotel-entrance-door",
+      "description": "Pixel-audited “hotel entrance door” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-door-pull",
+      "description": "Pixel-audited “door pull” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 795,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-lobby-chandelier",
+      "description": "Pixel-audited “lobby chandelier” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 295,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-lobby-wall-panel",
+      "description": "Pixel-audited “lobby wall panel” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-canopy-downlight",
+      "description": "Pixel-audited “canopy downlight” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 285,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-hotel-entry-threshold",
+      "description": "Pixel-audited “hotel entry threshold” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-glass-door-rail",
+      "description": "Pixel-audited “glass door rail” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-revolving-door-frame",
+      "description": "Pixel-audited “revolving door frame” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-vestibule-mullion",
+      "description": "Pixel-audited “vestibule mullion” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 820,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-lobby-floor-tile",
+      "description": "Pixel-audited “lobby floor tile” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-chandelier-chain",
+      "description": "Pixel-audited “chandelier chain” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-front-desk-plinth",
+      "description": "Pixel-audited “front desk plinth” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-hotel-key-reader",
+      "description": "Pixel-audited “hotel key reader” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-bell-desk",
+      "description": "Pixel-audited “bell desk” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-concierge-desk",
+      "description": "Pixel-audited “concierge desk” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-guest-entrance",
+      "description": "Pixel-audited “guest entrance” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-door-mat",
+      "description": "Pixel-audited “door mat” inside the Hotel entrance canopy crop of the hotel photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-stone-panel",
+      "description": "Pixel-audited “stone panel” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-stone-seam",
+      "description": "Pixel-audited “stone seam” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-entry-column",
+      "description": "Pixel-audited “entry column” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1250,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-window-bay",
+      "description": "Pixel-audited “window bay” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-window-trim",
+      "description": "Pixel-audited “window trim” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 95,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-balcony-post",
+      "description": "Pixel-audited “balcony post” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 140,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-railing-post",
+      "description": "Pixel-audited “railing post” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1305,
+      "y": 140,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-balcony-post-cap",
+      "description": "Pixel-audited “balcony post cap” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1305,
+      "y": 125,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-stone-trim",
+      "description": "Pixel-audited “stone trim” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1260,
+      "y": 95,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-stone-coping",
+      "description": "Pixel-audited “stone coping” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-plaque-frame",
+      "description": "Pixel-audited “plaque frame” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1270,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-plaque-mount",
+      "description": "Pixel-audited “plaque mount” inside the East hotel facade crop of the hotel photograph",
+      "kind": "part",
+      "x": 1270,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-drop-off-lane",
+      "description": "Pixel-audited “drop-off lane” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-loading-curb",
+      "description": "Pixel-audited “loading curb” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-wheel-stop",
+      "description": "Pixel-audited “wheel stop” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-driveway-paving",
+      "description": "Pixel-audited “driveway paving” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-curb-ramp-edge",
+      "description": "Pixel-audited “curb ramp edge” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-pavement-joint",
+      "description": "Pixel-audited “pavement joint” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-crosswalk-stripe",
+      "description": "Pixel-audited “crosswalk stripe” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-taxi-curb",
+      "description": "Pixel-audited “taxi curb” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-entry-bollard",
+      "description": "Pixel-audited “entry bollard” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-driveway-drain",
+      "description": "Pixel-audited “driveway drain” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-canopy-shadow-edge",
+      "description": "Pixel-audited “canopy shadow edge” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-driveway-paver",
+      "description": "Pixel-audited “driveway paver” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-curb-stone-joint",
+      "description": "Pixel-audited “curb stone joint” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-arrival-paving",
+      "description": "Pixel-audited “arrival paving” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-drop-off-stone",
+      "description": "Pixel-audited “drop-off stone” inside the Hotel arrival drive crop of the hotel photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-street-lamp",
+      "description": "Pixel-audited “street lamp” inside the West sidewalk arrival crop of the hotel photograph",
+      "kind": "part",
+      "x": 30,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-pedestrian-crossing-edge",
+      "description": "Pixel-audited “pedestrian crossing edge” inside the West sidewalk arrival crop of the hotel photograph",
+      "kind": "part",
+      "x": 0,
+      "y": 810,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-tree-pit",
+      "description": "Pixel-audited “tree pit” inside the West sidewalk arrival crop of the hotel photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-sidewalk-curb",
+      "description": "Pixel-audited “sidewalk curb” inside the West sidewalk arrival crop of the hotel photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-drop-off-curb",
+      "description": "Pixel-audited “drop-off curb” inside the West sidewalk arrival crop of the hotel photograph",
+      "kind": "part",
+      "x": 320,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-planter-wall",
+      "description": "Pixel-audited “planter wall” inside the East planted frontage crop of the hotel photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-shrub-bed",
+      "description": "Pixel-audited “shrub bed” inside the East planted frontage crop of the hotel photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-flower-planter",
+      "description": "Pixel-audited “flower planter” inside the East planted frontage crop of the hotel photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-exterior-region-planter-border",
+      "description": "Pixel-audited “planter border” inside the East planted frontage crop of the hotel photograph",
+      "kind": "part",
+      "x": 1450,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "portal-hotel-lobby-rooms",
+      "description": "Large unobstructed revolving-door and glass-vestibule entrance on the hotel exterior",
+      "kind": "object",
+      "x": 760,
+      "y": 320,
+      "width": 400,
+      "height": 250
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "hotel-exterior-zone-upper-facade",
+      "title": "Upper hotel facade",
+      "translation": "酒店上层立面",
+      "description": "Inspect windows, balcony rails, stone trim and the blank sign structure.",
+      "x": 350,
+      "y": 0,
+      "width": 900,
+      "height": 180,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-exterior-hotel-facade",
+        "hotel-exterior-stone-facade",
+        "hotel-exterior-blank-sign-panel",
+        "hotel-exterior-sign-frame",
+        "hotel-exterior-upper-window-bay",
+        "hotel-exterior-balcony-railing",
+        "hotel-exterior-balcony-door",
+        "hotel-exterior-facade-cornice",
+        "hotel-exterior-pilaster-capital",
+        "hotel-exterior-rain-gutter",
+        "hotel-exterior-facade-ledge",
+        "hotel-exterior-window-transom"
+      ]
+    },
+    {
+      "id": "hotel-exterior-zone-entrance-canopy",
+      "title": "Hotel entrance canopy",
+      "translation": "酒店入口雨棚",
+      "description": "Follow the canopy, glass vestibule, revolving door and visible lobby entrance.",
+      "x": 350,
+      "y": 180,
+      "width": 900,
+      "height": 420,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-exterior-canopy-soffit",
+        "hotel-exterior-canopy-edge",
+        "hotel-exterior-revolving-door",
+        "hotel-exterior-glass-vestibule",
+        "hotel-exterior-hotel-entrance-door",
+        "hotel-exterior-door-pull",
+        "hotel-exterior-lobby-chandelier",
+        "hotel-exterior-lobby-wall-panel",
+        "hotel-exterior-canopy-downlight",
+        "hotel-exterior-hotel-entry-threshold",
+        "hotel-exterior-glass-door-rail",
+        "hotel-exterior-revolving-door-frame",
+        "hotel-exterior-vestibule-mullion",
+        "hotel-exterior-lobby-floor-tile",
+        "hotel-exterior-chandelier-chain",
+        "hotel-exterior-front-desk-plinth",
+        "hotel-exterior-hotel-key-reader",
+        "hotel-exterior-bell-desk",
+        "hotel-exterior-concierge-desk",
+        "hotel-exterior-guest-entrance",
+        "hotel-exterior-door-mat"
+      ]
+    },
+    {
+      "id": "hotel-exterior-zone-east-facade",
+      "title": "East hotel facade",
+      "translation": "酒店东侧立面",
+      "description": "Study the stone panels, upper windows, balcony posts and plaque mount.",
+      "x": 1250,
+      "y": 0,
+      "width": 350,
+      "height": 600,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-exterior-stone-panel",
+        "hotel-exterior-stone-seam",
+        "hotel-exterior-entry-column",
+        "hotel-exterior-window-bay",
+        "hotel-exterior-window-trim",
+        "hotel-exterior-balcony-post",
+        "hotel-exterior-railing-post",
+        "hotel-exterior-balcony-post-cap",
+        "hotel-exterior-stone-trim",
+        "hotel-exterior-stone-coping",
+        "hotel-exterior-plaque-frame",
+        "hotel-exterior-plaque-mount"
+      ]
+    },
+    {
+      "id": "hotel-exterior-zone-arrival-drive",
+      "title": "Hotel arrival drive",
+      "translation": "酒店落客车道",
+      "description": "Trace the drop-off lane, paving joints, bollards and curb details.",
+      "x": 350,
+      "y": 600,
+      "width": 900,
+      "height": 300,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-exterior-drop-off-lane",
+        "hotel-exterior-loading-curb",
+        "hotel-exterior-wheel-stop",
+        "hotel-exterior-driveway-paving",
+        "hotel-exterior-curb-ramp-edge",
+        "hotel-exterior-pavement-joint",
+        "hotel-exterior-crosswalk-stripe",
+        "hotel-exterior-taxi-curb",
+        "hotel-exterior-entry-bollard",
+        "hotel-exterior-driveway-drain",
+        "hotel-exterior-canopy-shadow-edge",
+        "hotel-exterior-driveway-paver",
+        "hotel-exterior-curb-stone-joint",
+        "hotel-exterior-arrival-paving",
+        "hotel-exterior-drop-off-stone"
+      ]
+    },
+    {
+      "id": "hotel-exterior-zone-street-west",
+      "title": "West sidewalk arrival",
+      "translation": "西侧人行道入口",
+      "description": "Inspect the street lamp, planted tree pit and crossing-side curb.",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-exterior-street-lamp",
+        "hotel-exterior-pedestrian-crossing-edge",
+        "hotel-exterior-tree-pit",
+        "hotel-exterior-sidewalk-curb",
+        "hotel-exterior-drop-off-curb"
+      ]
+    },
+    {
+      "id": "hotel-exterior-zone-landscape-east",
+      "title": "East planted frontage",
+      "translation": "东侧花箱前沿",
+      "description": "Follow the planted wall, shrub bed and flower planter at the facade edge.",
+      "x": 1250,
+      "y": 600,
+      "width": 350,
+      "height": 300,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-exterior-planter-wall",
+        "hotel-exterior-shrub-bed",
+        "hotel-exterior-flower-planter",
+        "hotel-exterior-planter-border"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/hotel-exterior-premium-v1.jpg",
+    "reviewedAssetSha256": "5d8658256347fe839abbca9c2d81f71a4dab5262b96c2c74a8b5547103707464",
+    "rationale": "The final 1600 by 900 hotel exterior photograph was inspected at source and output resolution. It retains 69 independently pointable facade, entrance, arrival, sidewalk and planted-frontage details; the upper-floor mixed-use brick building portal on city street is separate from the cafe storefront below. Text, brand identity, occupancy, traffic states and unsupported hotel operations were excluded.",
+    "previousLabelCount": 75,
+    "retainedLabelCount": 69,
+    "removedLabelCount": 6,
+    "removedExamples": [
+      "hotel name",
+      "room number",
+      "taxi passenger",
+      "check-in action",
+      "building ownership",
+      "service schedule"
+    ]
+  },
+  "labels": [
+    {
+      "id": "hotel-exterior-hotel-facade",
+      "word": "hotel facade",
+      "translation": "酒店立面",
+      "x": 1000,
+      "y": 100,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-hotel-facade"
+    },
+    {
+      "id": "hotel-exterior-stone-facade",
+      "word": "stone facade",
+      "translation": "石材立面",
+      "x": 1180,
+      "y": 130,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-stone-facade"
+    },
+    {
+      "id": "hotel-exterior-blank-sign-panel",
+      "word": "blank sign panel",
+      "translation": "空白招牌面板",
+      "x": 550,
+      "y": 95,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-blank-sign-panel"
+    },
+    {
+      "id": "hotel-exterior-sign-frame",
+      "word": "sign frame",
+      "translation": "招牌框",
+      "x": 550,
+      "y": 95,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-sign-frame"
+    },
+    {
+      "id": "hotel-exterior-upper-window-bay",
+      "word": "upper window bay",
+      "translation": "上层窗格",
+      "x": 900,
+      "y": 120,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-upper-window-bay"
+    },
+    {
+      "id": "hotel-exterior-balcony-railing",
+      "word": "balcony railing",
+      "translation": "阳台栏杆",
+      "x": 1020,
+      "y": 160,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-balcony-railing"
+    },
+    {
+      "id": "hotel-exterior-balcony-door",
+      "word": "balcony door",
+      "translation": "阳台门",
+      "x": 900,
+      "y": 145,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-balcony-door"
+    },
+    {
+      "id": "hotel-exterior-facade-cornice",
+      "word": "facade cornice",
+      "translation": "立面檐口",
+      "x": 1100,
+      "y": 65,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-facade-cornice"
+    },
+    {
+      "id": "hotel-exterior-pilaster-capital",
+      "word": "pilaster capital",
+      "translation": "壁柱柱头",
+      "x": 720,
+      "y": 80,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-pilaster-capital"
+    },
+    {
+      "id": "hotel-exterior-rain-gutter",
+      "word": "rain gutter",
+      "translation": "雨水槽",
+      "x": 1180,
+      "y": 20,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-rain-gutter"
+    },
+    {
+      "id": "hotel-exterior-facade-ledge",
+      "word": "facade ledge",
+      "translation": "立面挑台",
+      "x": 1150,
+      "y": 175,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-facade-ledge"
+    },
+    {
+      "id": "hotel-exterior-window-transom",
+      "word": "window transom",
+      "translation": "窗上横梁",
+      "x": 900,
+      "y": 175,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-window-transom"
+    },
+    {
+      "id": "hotel-exterior-canopy-soffit",
+      "word": "canopy soffit",
+      "translation": "雨棚底面",
+      "x": 700,
+      "y": 295,
+      "priority": 1.012,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-canopy-soffit"
+    },
+    {
+      "id": "hotel-exterior-canopy-edge",
+      "word": "canopy edge",
+      "translation": "雨棚边缘",
+      "x": 800,
+      "y": 265,
+      "priority": 1.013,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-canopy-edge"
+    },
+    {
+      "id": "hotel-exterior-revolving-door",
+      "word": "revolving door",
+      "translation": "旋转门",
+      "x": 930,
+      "y": 430,
+      "priority": 1.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-revolving-door"
+    },
+    {
+      "id": "hotel-exterior-glass-vestibule",
+      "word": "glass vestibule",
+      "translation": "玻璃门厅",
+      "x": 850,
+      "y": 380,
+      "priority": 1.015,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-glass-vestibule"
+    },
+    {
+      "id": "hotel-exterior-hotel-entrance-door",
+      "word": "hotel entrance door",
+      "translation": "酒店入口门",
+      "x": 780,
+      "y": 420,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-hotel-entrance-door"
+    },
+    {
+      "id": "hotel-exterior-door-pull",
+      "word": "door pull",
+      "translation": "门拉手",
+      "x": 815,
+      "y": 430,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-door-pull"
+    },
+    {
+      "id": "hotel-exterior-lobby-chandelier",
+      "word": "lobby chandelier",
+      "translation": "大堂吊灯",
+      "x": 900,
+      "y": 315,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-lobby-chandelier"
+    },
+    {
+      "id": "hotel-exterior-lobby-wall-panel",
+      "word": "lobby wall panel",
+      "translation": "大堂墙面板",
+      "x": 860,
+      "y": 350,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-lobby-wall-panel"
+    },
+    {
+      "id": "hotel-exterior-canopy-downlight",
+      "word": "canopy downlight",
+      "translation": "雨棚筒灯",
+      "x": 700,
+      "y": 305,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-canopy-downlight"
+    },
+    {
+      "id": "hotel-exterior-hotel-entry-threshold",
+      "word": "hotel entry threshold",
+      "translation": "酒店入口门槛",
+      "x": 920,
+      "y": 540,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-hotel-entry-threshold"
+    },
+    {
+      "id": "hotel-exterior-glass-door-rail",
+      "word": "glass door rail",
+      "translation": "玻璃门轨",
+      "x": 930,
+      "y": 450,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-glass-door-rail"
+    },
+    {
+      "id": "hotel-exterior-revolving-door-frame",
+      "word": "revolving door frame",
+      "translation": "旋转门框",
+      "x": 950,
+      "y": 430,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-revolving-door-frame"
+    },
+    {
+      "id": "hotel-exterior-vestibule-mullion",
+      "word": "vestibule mullion",
+      "translation": "门厅竖框",
+      "x": 840,
+      "y": 380,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-vestibule-mullion"
+    },
+    {
+      "id": "hotel-exterior-lobby-floor-tile",
+      "word": "lobby floor tile",
+      "translation": "大堂地砖",
+      "x": 700,
+      "y": 500,
+      "priority": 1.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-lobby-floor-tile"
+    },
+    {
+      "id": "hotel-exterior-chandelier-chain",
+      "word": "chandelier chain",
+      "translation": "吊灯链",
+      "x": 900,
+      "y": 280,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-chandelier-chain"
+    },
+    {
+      "id": "hotel-exterior-front-desk-plinth",
+      "word": "front desk plinth",
+      "translation": "前台底座",
+      "x": 730,
+      "y": 410,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-front-desk-plinth"
+    },
+    {
+      "id": "hotel-exterior-hotel-key-reader",
+      "word": "hotel key reader",
+      "translation": "酒店钥匙读卡器",
+      "x": 780,
+      "y": 420,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-hotel-key-reader"
+    },
+    {
+      "id": "hotel-exterior-bell-desk",
+      "word": "bell desk",
+      "translation": "行李服务台",
+      "x": 760,
+      "y": 410,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-bell-desk"
+    },
+    {
+      "id": "hotel-exterior-concierge-desk",
+      "word": "concierge desk",
+      "translation": "礼宾台",
+      "x": 780,
+      "y": 410,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-concierge-desk"
+    },
+    {
+      "id": "hotel-exterior-guest-entrance",
+      "word": "guest entrance",
+      "translation": "客用入口",
+      "x": 900,
+      "y": 430,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-guest-entrance"
+    },
+    {
+      "id": "hotel-exterior-door-mat",
+      "word": "door mat",
+      "translation": "门垫",
+      "x": 920,
+      "y": 560,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-door-mat"
+    },
+    {
+      "id": "hotel-exterior-stone-panel",
+      "word": "stone panel",
+      "translation": "石材面板",
+      "x": 1300,
+      "y": 250,
+      "priority": 1.033,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-stone-panel"
+    },
+    {
+      "id": "hotel-exterior-stone-seam",
+      "word": "stone seam",
+      "translation": "石材接缝",
+      "x": 1300,
+      "y": 300,
+      "priority": 1.034,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-stone-seam"
+    },
+    {
+      "id": "hotel-exterior-entry-column",
+      "word": "entry column",
+      "translation": "入口立柱",
+      "x": 1270,
+      "y": 340,
+      "priority": 1.035,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-entry-column"
+    },
+    {
+      "id": "hotel-exterior-window-bay",
+      "word": "window bay",
+      "translation": "窗格",
+      "x": 1500,
+      "y": 150,
+      "priority": 1.036,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-window-bay"
+    },
+    {
+      "id": "hotel-exterior-window-trim",
+      "word": "window trim",
+      "translation": "窗框饰条",
+      "x": 1500,
+      "y": 115,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-window-trim"
+    },
+    {
+      "id": "hotel-exterior-balcony-post",
+      "word": "balcony post",
+      "translation": "阳台立柱",
+      "x": 1320,
+      "y": 160,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-balcony-post"
+    },
+    {
+      "id": "hotel-exterior-railing-post",
+      "word": "railing post",
+      "translation": "栏杆立柱",
+      "x": 1325,
+      "y": 160,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-railing-post"
+    },
+    {
+      "id": "hotel-exterior-balcony-post-cap",
+      "word": "balcony post cap",
+      "translation": "阳台柱帽",
+      "x": 1325,
+      "y": 145,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-balcony-post-cap"
+    },
+    {
+      "id": "hotel-exterior-stone-trim",
+      "word": "stone trim",
+      "translation": "石材饰条",
+      "x": 1280,
+      "y": 115,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-stone-trim"
+    },
+    {
+      "id": "hotel-exterior-stone-coping",
+      "word": "stone coping",
+      "translation": "压顶石",
+      "x": 1300,
+      "y": 220,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-stone-coping"
+    },
+    {
+      "id": "hotel-exterior-plaque-frame",
+      "word": "plaque frame",
+      "translation": "牌匾框",
+      "x": 1290,
+      "y": 430,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-plaque-frame"
+    },
+    {
+      "id": "hotel-exterior-plaque-mount",
+      "word": "plaque mount",
+      "translation": "牌匾底座",
+      "x": 1290,
+      "y": 440,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-plaque-mount"
+    },
+    {
+      "id": "hotel-exterior-drop-off-lane",
+      "word": "drop-off lane",
+      "translation": "落客车道",
+      "x": 700,
+      "y": 700,
+      "priority": 1.045,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-drop-off-lane"
+    },
+    {
+      "id": "hotel-exterior-loading-curb",
+      "word": "loading curb",
+      "translation": "装卸路缘",
+      "x": 600,
+      "y": 650,
+      "priority": 1.046,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-loading-curb"
+    },
+    {
+      "id": "hotel-exterior-wheel-stop",
+      "word": "wheel stop",
+      "translation": "车轮挡块",
+      "x": 450,
+      "y": 650,
+      "priority": 1.047,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-wheel-stop"
+    },
+    {
+      "id": "hotel-exterior-driveway-paving",
+      "word": "driveway paving",
+      "translation": "车道铺装",
+      "x": 700,
+      "y": 750,
+      "priority": 1.048,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-driveway-paving"
+    },
+    {
+      "id": "hotel-exterior-curb-ramp-edge",
+      "word": "curb ramp edge",
+      "translation": "路缘坡道边",
+      "x": 450,
+      "y": 840,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-curb-ramp-edge"
+    },
+    {
+      "id": "hotel-exterior-pavement-joint",
+      "word": "pavement joint",
+      "translation": "铺面接缝",
+      "x": 600,
+      "y": 780,
+      "priority": 1.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-pavement-joint"
+    },
+    {
+      "id": "hotel-exterior-crosswalk-stripe",
+      "word": "crosswalk stripe",
+      "translation": "斑马线条",
+      "x": 380,
+      "y": 850,
+      "priority": 1.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-crosswalk-stripe"
+    },
+    {
+      "id": "hotel-exterior-taxi-curb",
+      "word": "taxi curb",
+      "translation": "出租车路缘",
+      "x": 600,
+      "y": 760,
+      "priority": 1.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-taxi-curb"
+    },
+    {
+      "id": "hotel-exterior-entry-bollard",
+      "word": "entry bollard",
+      "translation": "入口防撞柱",
+      "x": 500,
+      "y": 620,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-entry-bollard"
+    },
+    {
+      "id": "hotel-exterior-driveway-drain",
+      "word": "driveway drain",
+      "translation": "车道排水口",
+      "x": 400,
+      "y": 870,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-driveway-drain"
+    },
+    {
+      "id": "hotel-exterior-canopy-shadow-edge",
+      "word": "canopy shadow edge",
+      "translation": "雨棚阴影边",
+      "x": 700,
+      "y": 620,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-canopy-shadow-edge"
+    },
+    {
+      "id": "hotel-exterior-driveway-paver",
+      "word": "driveway paver",
+      "translation": "车道铺砖",
+      "x": 760,
+      "y": 820,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-driveway-paver"
+    },
+    {
+      "id": "hotel-exterior-curb-stone-joint",
+      "word": "curb stone joint",
+      "translation": "路缘石接缝",
+      "x": 620,
+      "y": 820,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-exterior-region-curb-stone-joint"
+    },
+    {
+      "id": "hotel-exterior-arrival-paving",
+      "word": "arrival paving",
+      "translation": "落客区铺面",
+      "x": 850,
+      "y": 720,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-arrival-paving"
+    },
+    {
+      "id": "hotel-exterior-drop-off-stone",
+      "word": "drop-off stone",
+      "translation": "落客区石材",
+      "x": 950,
+      "y": 680,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-exterior-region-drop-off-stone"
+    },
+    {
+      "id": "hotel-exterior-street-lamp",
+      "word": "street lamp",
+      "translation": "街灯",
+      "x": 50,
+      "y": 480,
+      "priority": 1.06,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-street-lamp"
+    },
+    {
+      "id": "hotel-exterior-pedestrian-crossing-edge",
+      "word": "pedestrian crossing edge",
+      "translation": "人行横道边",
+      "x": 20,
+      "y": 830,
+      "priority": 1.061,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-pedestrian-crossing-edge"
+    },
+    {
+      "id": "hotel-exterior-tree-pit",
+      "word": "tree pit",
+      "translation": "树池",
+      "x": 120,
+      "y": 650,
+      "priority": 1.062,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-tree-pit"
+    },
+    {
+      "id": "hotel-exterior-sidewalk-curb",
+      "word": "sidewalk curb",
+      "translation": "人行道路缘",
+      "x": 300,
+      "y": 740,
+      "priority": 1.063,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-sidewalk-curb"
+    },
+    {
+      "id": "hotel-exterior-drop-off-curb",
+      "word": "drop-off curb",
+      "translation": "落客路缘",
+      "x": 340,
+      "y": 700,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-exterior-region-drop-off-curb"
+    },
+    {
+      "id": "hotel-exterior-planter-wall",
+      "word": "planter wall",
+      "translation": "花箱围墙",
+      "x": 1450,
+      "y": 650,
+      "priority": 1.065,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-planter-wall"
+    },
+    {
+      "id": "hotel-exterior-shrub-bed",
+      "word": "shrub bed",
+      "translation": "灌木花坛",
+      "x": 1450,
+      "y": 620,
+      "priority": 1.066,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-exterior-region-shrub-bed"
+    },
+    {
+      "id": "hotel-exterior-flower-planter",
+      "word": "flower planter",
+      "translation": "花卉花箱",
+      "x": 1350,
+      "y": 620,
+      "priority": 1.067,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-flower-planter"
+    },
+    {
+      "id": "hotel-exterior-planter-border",
+      "word": "planter border",
+      "translation": "花箱边框",
+      "x": 1470,
+      "y": 700,
+      "priority": 1.068,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-exterior-region-planter-border"
+    }
+  ],
+  "portals": [
+    {
+      "id": "enter-hotel-lobby-rooms",
+      "label": "Enter the hotel lobby and rooms",
+      "translation": "进入酒店大堂与客房",
+      "childSceneId": "hotel-lobby-rooms",
+      "sourceVisualRegion": "portal-hotel-lobby-rooms",
+      "x": 760,
+      "y": 320,
+      "width": 400,
+      "height": 250,
+      "enterScale": 3.4
+    }
+  ]
+}

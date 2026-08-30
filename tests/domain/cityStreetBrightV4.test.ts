@@ -156,6 +156,7 @@ test("city street v4 keeps 179 freshly grounded anchors and three destination co
       ["enter-science-museum", "science-museum"],
       ["enter-city-cafe", "city-cafe"],
       ["enter-transit", "transit-hub"],
+      ["enter-hotel-exterior", "hotel-exterior"],
     ],
   );
   for (let left = 0; left < scene.portals.length; left += 1) {

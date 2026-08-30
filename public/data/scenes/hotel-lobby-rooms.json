@@ -1,0 +1,2240 @@
+{
+  "id": "hotel-lobby-rooms",
+  "title": "Hotel lobby and rooms",
+  "translation": "酒店大堂与客房",
+  "subtitle": "Guest rooms, bathrooms, lobby services and housekeeping",
+  "asset": "/scenes/hotel-lobby-rooms-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "hotel-exterior",
+  "visualRegions": [
+    {
+      "id": "hotel-lobby-rooms-region-hotel-reception-desk",
+      "description": "Pixel-audited “hotel reception desk” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 290,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-registration-desk",
+      "description": "Pixel-audited “registration desk” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 290,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-hotel-luggage-trolley",
+      "description": "Pixel-audited “hotel luggage trolley” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 220,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-bell-cart",
+      "description": "Pixel-audited “guest bell cart” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 435,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-lobby-armchair",
+      "description": "Pixel-audited “lobby armchair” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-lobby-stone-tile",
+      "description": "Pixel-audited “lobby stone tile” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 220,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-lobby-floor-inlay",
+      "description": "Pixel-audited “lobby floor inlay” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-hotel-lobby-planter",
+      "description": "Pixel-audited “hotel lobby planter” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 60,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-front-desk-monitor",
+      "description": "Pixel-audited “front desk monitor” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 292,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-counter-bell",
+      "description": "Pixel-audited “counter bell” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 310,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-key-packet",
+      "description": "Pixel-audited “guest key packet” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 335,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-lobby-curtain",
+      "description": "Pixel-audited “lobby curtain” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 50,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-reception-drawer",
+      "description": "Pixel-audited “reception drawer” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 365,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-lobby-painting",
+      "description": "Pixel-audited “lobby painting” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-lobby-desk-plinth",
+      "description": "Pixel-audited “lobby desk plinth” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 290,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-lobby-floor-seam",
+      "description": "Pixel-audited “lobby floor seam” inside the Hotel lobby crop of the hotel photograph",
+      "kind": "part",
+      "x": 240,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-concierge-counter",
+      "description": "Pixel-audited “concierge counter” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-lobby-wall-mirror",
+      "description": "Pixel-audited “lobby wall mirror” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-luggage-bench",
+      "description": "Pixel-audited “luggage bench” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 220,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-staircase-balustrade",
+      "description": "Pixel-audited “staircase balustrade” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 620,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-stair-runner",
+      "description": "Pixel-audited “stair runner” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-elevator-door-panel",
+      "description": "Pixel-audited “elevator door panel” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-elevator-call-button-bezel",
+      "description": "Pixel-audited “elevator call button bezel” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 170,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-elevator-floor-plate",
+      "description": "Pixel-audited “elevator floor plate” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-elevator-door-rail",
+      "description": "Pixel-audited “elevator door rail” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 795,
+      "y": 165,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-linen-cart",
+      "description": "Pixel-audited “linen cart” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1020,
+      "y": 90,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-folded-towel-stack",
+      "description": "Pixel-audited “folded towel stack” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 35,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-laundry-hamper",
+      "description": "Pixel-audited “laundry hamper” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1010,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-vacuum-cleaner",
+      "description": "Pixel-audited “vacuum cleaner” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1060,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-cleaning-caddy",
+      "description": "Pixel-audited “cleaning caddy” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1070,
+      "y": 110,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-laundry-bag",
+      "description": "Pixel-audited “laundry bag” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 190,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-room-service-tray",
+      "description": "Pixel-audited “room-service tray” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 955,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-linen-shelf",
+      "description": "Pixel-audited “linen shelf” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 20,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-hamper-lid",
+      "description": "Pixel-audited “hamper lid” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1015,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-vacuum-hose",
+      "description": "Pixel-audited “vacuum hose” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1065,
+      "y": 170,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-caddy-handle",
+      "description": "Pixel-audited “caddy handle” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1075,
+      "y": 110,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-housekeeping-cart-handle",
+      "description": "Pixel-audited “housekeeping cart handle” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1020,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-service-cart",
+      "description": "Pixel-audited “service cart” inside the Elevator and housekeeping hall crop of the hotel photograph",
+      "kind": "part",
+      "x": 1015,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-bed",
+      "description": "Pixel-audited “guest bed” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-headboard",
+      "description": "Pixel-audited “guest headboard” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 170,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-pillowcase",
+      "description": "Pixel-audited “guest pillowcase” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1410,
+      "y": 155,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-duvet-fold",
+      "description": "Pixel-audited “guest duvet fold” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1440,
+      "y": 210,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-bedside-table",
+      "description": "Pixel-audited “guest bedside table” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1240,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-room-telephone",
+      "description": "Pixel-audited “room telephone” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-writing-desk",
+      "description": "Pixel-audited “writing desk” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1240,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-desk-chair",
+      "description": "Pixel-audited “desk chair” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-suitcase-stand",
+      "description": "Pixel-audited “suitcase stand” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1170,
+      "y": 170,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-open-wardrobe",
+      "description": "Pixel-audited “open wardrobe” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1140,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-suitcase-shell",
+      "description": "Pixel-audited “suitcase shell” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 190,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-room-curtain-panel",
+      "description": "Pixel-audited “room curtain panel” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1530,
+      "y": 110,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-room-blackout-blind",
+      "description": "Pixel-audited “room blackout blind” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1510,
+      "y": 90,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-artwork-frame",
+      "description": "Pixel-audited “guest artwork frame” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 70,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-mini-refrigerator",
+      "description": "Pixel-audited “mini refrigerator” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1170,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-coffee-tray",
+      "description": "Pixel-audited “coffee tray” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1240,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-room-safe",
+      "description": "Pixel-audited “room safe” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 270,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-thermostat",
+      "description": "Pixel-audited “guest thermostat” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-electrical-outlet",
+      "description": "Pixel-audited “electrical outlet” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1240,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-door-peephole",
+      "description": "Pixel-audited “door peephole” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 270,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-key-card-slot",
+      "description": "Pixel-audited “key-card slot” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1140,
+      "y": 275,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-carpet-edge",
+      "description": "Pixel-audited “guest carpet edge” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-duvet-corner",
+      "description": "Pixel-audited “guest duvet corner” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1450,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-wardrobe-rail",
+      "description": "Pixel-audited “guest wardrobe rail” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1140,
+      "y": 75,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-room-door",
+      "description": "Pixel-audited “guest room door” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1100,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-door-handle",
+      "description": "Pixel-audited “guest door handle” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1120,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-bedside-outlet",
+      "description": "Pixel-audited “bedside outlet” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1240,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-desk-lamp-shade",
+      "description": "Pixel-audited “desk lamp shade” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-wardrobe-shelf",
+      "description": "Pixel-audited “wardrobe shelf” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1150,
+      "y": 25,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-blind-pull",
+      "description": "Pixel-audited “blind pull” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1520,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-safe-keypad",
+      "description": "Pixel-audited “safe keypad” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1170,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-coffee-maker",
+      "description": "Pixel-audited “coffee maker” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1260,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-ice-bucket",
+      "description": "Pixel-audited “ice bucket” inside the Upper guest room crop of the hotel photograph",
+      "kind": "part",
+      "x": 1270,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-bathrobe",
+      "description": "Pixel-audited “guest bathrobe” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-toiletry-tray",
+      "description": "Pixel-audited “toiletry tray” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-conditioner-bottle",
+      "description": "Pixel-audited “conditioner bottle” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 890,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-bathroom-shelf",
+      "description": "Pixel-audited “guest bathroom shelf” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-bathroom-door",
+      "description": "Pixel-audited “guest bathroom door” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-hand-towel",
+      "description": "Pixel-audited “guest hand towel” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-vanity",
+      "description": "Pixel-audited “guest vanity” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-guest-vanity-counter",
+      "description": "Pixel-audited “guest vanity counter” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 570,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-bathroom-mirror",
+      "description": "Pixel-audited “bathroom mirror” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-bathroom-tile",
+      "description": "Pixel-audited “bathroom tile” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-bathroom-waste-bin",
+      "description": "Pixel-audited “bathroom waste bin” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-shower-enclosure",
+      "description": "Pixel-audited “shower enclosure” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-showerhead",
+      "description": "Pixel-audited “showerhead” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-mixer-handle",
+      "description": "Pixel-audited “mixer handle” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 920,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-glass-shower-door",
+      "description": "Pixel-audited “glass shower door” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-grab-bar",
+      "description": "Pixel-audited “grab bar” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-shower-seat",
+      "description": "Pixel-audited “shower seat” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-hairdryer",
+      "description": "Pixel-audited “hairdryer” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-robe-hook",
+      "description": "Pixel-audited “robe hook” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 950,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-towel-shelf",
+      "description": "Pixel-audited “towel shelf” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-shower-hinge",
+      "description": "Pixel-audited “shower hinge” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-shower-drain-cover",
+      "description": "Pixel-audited “shower drain cover” inside the Central guest bathroom crop of the hotel photograph",
+      "kind": "part",
+      "x": 900,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-bathroom-door-latch",
+      "description": "Pixel-audited “bathroom door latch” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1140,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-shower-seal",
+      "description": "Pixel-audited “shower seal” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1350,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-toilet-flush-button",
+      "description": "Pixel-audited “toilet flush button” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-basin-drain-cover",
+      "description": "Pixel-audited “basin drain cover” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1250,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-bathroom-shelf-bracket",
+      "description": "Pixel-audited “bathroom shelf bracket” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-vanity-light",
+      "description": "Pixel-audited “vanity light” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-room-floorboard",
+      "description": "Pixel-audited “room floorboard” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-room-baseboard",
+      "description": "Pixel-audited “room baseboard” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-bathroom-ceiling-vent",
+      "description": "Pixel-audited “bathroom ceiling vent” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-shower-shelf",
+      "description": "Pixel-audited “shower shelf” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-floor-drain-cover",
+      "description": "Pixel-audited “floor drain cover” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1350,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-toilet-flush-plate",
+      "description": "Pixel-audited “toilet flush plate” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1450,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-door-strike-plate",
+      "description": "Pixel-audited “door strike plate” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1140,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "hotel-lobby-rooms-region-toilet-roll-spring",
+      "description": "Pixel-audited “toilet roll spring” inside the East guest bathrooms crop of the hotel photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 670,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "hotel-lobby-rooms-zone-lobby",
+      "title": "Hotel lobby",
+      "translation": "酒店大堂",
+      "description": "Explore the reception desk, guest seating, floor inlay and lobby objects.",
+      "x": 0,
+      "y": 0,
+      "width": 400,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-lobby-rooms-hotel-reception-desk",
+        "hotel-lobby-rooms-registration-desk",
+        "hotel-lobby-rooms-hotel-luggage-trolley",
+        "hotel-lobby-rooms-guest-bell-cart",
+        "hotel-lobby-rooms-lobby-armchair",
+        "hotel-lobby-rooms-lobby-stone-tile",
+        "hotel-lobby-rooms-lobby-floor-inlay",
+        "hotel-lobby-rooms-hotel-lobby-planter",
+        "hotel-lobby-rooms-front-desk-monitor",
+        "hotel-lobby-rooms-counter-bell",
+        "hotel-lobby-rooms-guest-key-packet",
+        "hotel-lobby-rooms-lobby-curtain",
+        "hotel-lobby-rooms-reception-drawer",
+        "hotel-lobby-rooms-lobby-painting",
+        "hotel-lobby-rooms-lobby-desk-plinth",
+        "hotel-lobby-rooms-lobby-floor-seam"
+      ]
+    },
+    {
+      "id": "hotel-lobby-rooms-zone-upper-hall",
+      "title": "Elevator and housekeeping hall",
+      "translation": "电梯与客房服务走廊",
+      "description": "Inspect the elevator hall, stair rail and open housekeeping alcove.",
+      "x": 400,
+      "y": 0,
+      "width": 700,
+      "height": 460,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-lobby-rooms-concierge-counter",
+        "hotel-lobby-rooms-lobby-wall-mirror",
+        "hotel-lobby-rooms-luggage-bench",
+        "hotel-lobby-rooms-staircase-balustrade",
+        "hotel-lobby-rooms-stair-runner",
+        "hotel-lobby-rooms-elevator-door-panel",
+        "hotel-lobby-rooms-elevator-call-button-bezel",
+        "hotel-lobby-rooms-elevator-floor-plate",
+        "hotel-lobby-rooms-elevator-door-rail",
+        "hotel-lobby-rooms-linen-cart",
+        "hotel-lobby-rooms-folded-towel-stack",
+        "hotel-lobby-rooms-laundry-hamper",
+        "hotel-lobby-rooms-vacuum-cleaner",
+        "hotel-lobby-rooms-cleaning-caddy",
+        "hotel-lobby-rooms-laundry-bag",
+        "hotel-lobby-rooms-room-service-tray",
+        "hotel-lobby-rooms-linen-shelf",
+        "hotel-lobby-rooms-hamper-lid",
+        "hotel-lobby-rooms-vacuum-hose",
+        "hotel-lobby-rooms-caddy-handle",
+        "hotel-lobby-rooms-housekeeping-cart-handle",
+        "hotel-lobby-rooms-service-cart"
+      ]
+    },
+    {
+      "id": "hotel-lobby-rooms-zone-upper-east-room",
+      "title": "Upper guest room",
+      "translation": "上层客房",
+      "description": "Study the bed, desk, wardrobe, room controls and visible guest amenities.",
+      "x": 1100,
+      "y": 0,
+      "width": 500,
+      "height": 460,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-lobby-rooms-guest-bed",
+        "hotel-lobby-rooms-guest-headboard",
+        "hotel-lobby-rooms-guest-pillowcase",
+        "hotel-lobby-rooms-guest-duvet-fold",
+        "hotel-lobby-rooms-guest-bedside-table",
+        "hotel-lobby-rooms-room-telephone",
+        "hotel-lobby-rooms-writing-desk",
+        "hotel-lobby-rooms-desk-chair",
+        "hotel-lobby-rooms-suitcase-stand",
+        "hotel-lobby-rooms-open-wardrobe",
+        "hotel-lobby-rooms-suitcase-shell",
+        "hotel-lobby-rooms-room-curtain-panel",
+        "hotel-lobby-rooms-room-blackout-blind",
+        "hotel-lobby-rooms-guest-artwork-frame",
+        "hotel-lobby-rooms-mini-refrigerator",
+        "hotel-lobby-rooms-coffee-tray",
+        "hotel-lobby-rooms-room-safe",
+        "hotel-lobby-rooms-guest-thermostat",
+        "hotel-lobby-rooms-electrical-outlet",
+        "hotel-lobby-rooms-door-peephole",
+        "hotel-lobby-rooms-key-card-slot",
+        "hotel-lobby-rooms-guest-carpet-edge",
+        "hotel-lobby-rooms-guest-duvet-corner",
+        "hotel-lobby-rooms-guest-wardrobe-rail",
+        "hotel-lobby-rooms-guest-room-door",
+        "hotel-lobby-rooms-guest-door-handle",
+        "hotel-lobby-rooms-bedside-outlet",
+        "hotel-lobby-rooms-desk-lamp-shade",
+        "hotel-lobby-rooms-wardrobe-shelf",
+        "hotel-lobby-rooms-blind-pull",
+        "hotel-lobby-rooms-safe-keypad",
+        "hotel-lobby-rooms-coffee-maker",
+        "hotel-lobby-rooms-ice-bucket"
+      ]
+    },
+    {
+      "id": "hotel-lobby-rooms-zone-lower-central-bath",
+      "title": "Central guest bathroom",
+      "translation": "中央客房卫浴",
+      "description": "Inspect the vanity, shower enclosure, towel fittings and bathroom controls.",
+      "x": 400,
+      "y": 460,
+      "width": 700,
+      "height": 440,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-lobby-rooms-guest-bathrobe",
+        "hotel-lobby-rooms-toiletry-tray",
+        "hotel-lobby-rooms-conditioner-bottle",
+        "hotel-lobby-rooms-guest-bathroom-shelf",
+        "hotel-lobby-rooms-guest-bathroom-door",
+        "hotel-lobby-rooms-guest-hand-towel",
+        "hotel-lobby-rooms-guest-vanity",
+        "hotel-lobby-rooms-guest-vanity-counter",
+        "hotel-lobby-rooms-bathroom-mirror",
+        "hotel-lobby-rooms-bathroom-tile",
+        "hotel-lobby-rooms-bathroom-waste-bin",
+        "hotel-lobby-rooms-shower-enclosure",
+        "hotel-lobby-rooms-showerhead",
+        "hotel-lobby-rooms-mixer-handle",
+        "hotel-lobby-rooms-glass-shower-door",
+        "hotel-lobby-rooms-grab-bar",
+        "hotel-lobby-rooms-shower-seat",
+        "hotel-lobby-rooms-hairdryer",
+        "hotel-lobby-rooms-robe-hook",
+        "hotel-lobby-rooms-towel-shelf",
+        "hotel-lobby-rooms-shower-hinge",
+        "hotel-lobby-rooms-shower-drain-cover"
+      ]
+    },
+    {
+      "id": "hotel-lobby-rooms-zone-lower-east-baths",
+      "title": "East guest bathrooms",
+      "translation": "东侧客房卫浴",
+      "description": "Follow the second bathroom row, door hardware, drains and vanity details.",
+      "x": 1100,
+      "y": 460,
+      "width": 500,
+      "height": 440,
+      "targetScale": 3.15,
+      "labelIds": [
+        "hotel-lobby-rooms-bathroom-door-latch",
+        "hotel-lobby-rooms-shower-seal",
+        "hotel-lobby-rooms-toilet-flush-button",
+        "hotel-lobby-rooms-basin-drain-cover",
+        "hotel-lobby-rooms-bathroom-shelf-bracket",
+        "hotel-lobby-rooms-vanity-light",
+        "hotel-lobby-rooms-room-floorboard",
+        "hotel-lobby-rooms-room-baseboard",
+        "hotel-lobby-rooms-bathroom-ceiling-vent",
+        "hotel-lobby-rooms-shower-shelf",
+        "hotel-lobby-rooms-floor-drain-cover",
+        "hotel-lobby-rooms-toilet-flush-plate",
+        "hotel-lobby-rooms-door-strike-plate",
+        "hotel-lobby-rooms-toilet-roll-spring"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/hotel-lobby-rooms-premium-v1.jpg",
+    "reviewedAssetSha256": "7e3052ac5f4d31577fada2dd3d4bdeb863e467c8d3d8ae65243a2cd311225b49",
+    "rationale": "The final 1600 by 900 hotel lobby and guest-room photograph was inspected at source and output resolution. It retains 103 independently pointable lobby, elevator, housekeeping, guest-room and bathroom objects or parts. Room occupancy, guest identity, service actions, room numbers and hidden building systems were excluded; repeated rooms share no duplicate display term.",
+    "previousLabelCount": 113,
+    "retainedLabelCount": 107,
+    "removedLabelCount": 6,
+    "removedExamples": [
+      "guest identity",
+      "room number",
+      "occupancy state",
+      "room-service action",
+      "hotel brand",
+      "cleanliness claim"
+    ]
+  },
+  "labels": [
+    {
+      "id": "hotel-lobby-rooms-hotel-reception-desk",
+      "word": "hotel reception desk",
+      "translation": "酒店前台",
+      "x": 310,
+      "y": 300,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-hotel-reception-desk"
+    },
+    {
+      "id": "hotel-lobby-rooms-registration-desk",
+      "word": "registration desk",
+      "translation": "登记台",
+      "x": 310,
+      "y": 360,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-registration-desk"
+    },
+    {
+      "id": "hotel-lobby-rooms-hotel-luggage-trolley",
+      "word": "hotel luggage trolley",
+      "translation": "酒店行李车",
+      "x": 240,
+      "y": 450,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-hotel-luggage-trolley"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-bell-cart",
+      "word": "guest bell cart",
+      "translation": "客用行李车",
+      "x": 300,
+      "y": 455,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-bell-cart"
+    },
+    {
+      "id": "hotel-lobby-rooms-lobby-armchair",
+      "word": "lobby armchair",
+      "translation": "大堂扶手椅",
+      "x": 160,
+      "y": 620,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-lobby-armchair"
+    },
+    {
+      "id": "hotel-lobby-rooms-lobby-stone-tile",
+      "word": "lobby stone tile",
+      "translation": "大堂石砖",
+      "x": 240,
+      "y": 820,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-lobby-stone-tile"
+    },
+    {
+      "id": "hotel-lobby-rooms-lobby-floor-inlay",
+      "word": "lobby floor inlay",
+      "translation": "大堂地面镶嵌",
+      "x": 300,
+      "y": 700,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-lobby-floor-inlay"
+    },
+    {
+      "id": "hotel-lobby-rooms-hotel-lobby-planter",
+      "word": "hotel lobby planter",
+      "translation": "酒店大堂花盆",
+      "x": 80,
+      "y": 520,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-hotel-lobby-planter"
+    },
+    {
+      "id": "hotel-lobby-rooms-front-desk-monitor",
+      "word": "front desk monitor",
+      "translation": "前台显示器",
+      "x": 312,
+      "y": 300,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-front-desk-monitor"
+    },
+    {
+      "id": "hotel-lobby-rooms-counter-bell",
+      "word": "counter bell",
+      "translation": "柜台铃",
+      "x": 330,
+      "y": 340,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-counter-bell"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-key-packet",
+      "word": "guest key packet",
+      "translation": "客用钥匙套",
+      "x": 350,
+      "y": 355,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-key-packet"
+    },
+    {
+      "id": "hotel-lobby-rooms-lobby-curtain",
+      "word": "lobby curtain",
+      "translation": "大堂帘",
+      "x": 70,
+      "y": 250,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-lobby-curtain"
+    },
+    {
+      "id": "hotel-lobby-rooms-reception-drawer",
+      "word": "reception drawer",
+      "translation": "前台抽屉",
+      "x": 300,
+      "y": 385,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-reception-drawer"
+    },
+    {
+      "id": "hotel-lobby-rooms-lobby-painting",
+      "word": "lobby painting",
+      "translation": "大堂画作",
+      "x": 380,
+      "y": 300,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-lobby-painting"
+    },
+    {
+      "id": "hotel-lobby-rooms-lobby-desk-plinth",
+      "word": "lobby desk plinth",
+      "translation": "大堂台座",
+      "x": 310,
+      "y": 400,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-lobby-desk-plinth"
+    },
+    {
+      "id": "hotel-lobby-rooms-lobby-floor-seam",
+      "word": "lobby floor seam",
+      "translation": "大堂地面接缝",
+      "x": 260,
+      "y": 760,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-lobby-floor-seam"
+    },
+    {
+      "id": "hotel-lobby-rooms-concierge-counter",
+      "word": "concierge counter",
+      "translation": "礼宾柜台",
+      "x": 520,
+      "y": 350,
+      "priority": 1.016,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-concierge-counter"
+    },
+    {
+      "id": "hotel-lobby-rooms-lobby-wall-mirror",
+      "word": "lobby wall mirror",
+      "translation": "大堂墙镜",
+      "x": 560,
+      "y": 300,
+      "priority": 1.017,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-lobby-wall-mirror"
+    },
+    {
+      "id": "hotel-lobby-rooms-luggage-bench",
+      "word": "luggage bench",
+      "translation": "行李长椅",
+      "x": 720,
+      "y": 240,
+      "priority": 1.018,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-luggage-bench"
+    },
+    {
+      "id": "hotel-lobby-rooms-staircase-balustrade",
+      "word": "staircase balustrade",
+      "translation": "楼梯栏杆",
+      "x": 640,
+      "y": 80,
+      "priority": 1.019,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-staircase-balustrade"
+    },
+    {
+      "id": "hotel-lobby-rooms-stair-runner",
+      "word": "stair runner",
+      "translation": "楼梯地毯",
+      "x": 650,
+      "y": 180,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-stair-runner"
+    },
+    {
+      "id": "hotel-lobby-rooms-elevator-door-panel",
+      "word": "elevator door panel",
+      "translation": "电梯门板",
+      "x": 820,
+      "y": 150,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-elevator-door-panel"
+    },
+    {
+      "id": "hotel-lobby-rooms-elevator-call-button-bezel",
+      "word": "elevator call button bezel",
+      "translation": "电梯呼叫按钮圈",
+      "x": 860,
+      "y": 190,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-elevator-call-button-bezel"
+    },
+    {
+      "id": "hotel-lobby-rooms-elevator-floor-plate",
+      "word": "elevator floor plate",
+      "translation": "电梯楼层牌",
+      "x": 820,
+      "y": 100,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-elevator-floor-plate"
+    },
+    {
+      "id": "hotel-lobby-rooms-elevator-door-rail",
+      "word": "elevator door rail",
+      "translation": "电梯门轨",
+      "x": 815,
+      "y": 185,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-elevator-door-rail"
+    },
+    {
+      "id": "hotel-lobby-rooms-linen-cart",
+      "word": "linen cart",
+      "translation": "布草车",
+      "x": 1040,
+      "y": 110,
+      "priority": 1.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-linen-cart"
+    },
+    {
+      "id": "hotel-lobby-rooms-folded-towel-stack",
+      "word": "folded towel stack",
+      "translation": "叠放毛巾",
+      "x": 1050,
+      "y": 55,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-folded-towel-stack"
+    },
+    {
+      "id": "hotel-lobby-rooms-laundry-hamper",
+      "word": "laundry hamper",
+      "translation": "洗衣篮",
+      "x": 1030,
+      "y": 150,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-laundry-hamper"
+    },
+    {
+      "id": "hotel-lobby-rooms-vacuum-cleaner",
+      "word": "vacuum cleaner",
+      "translation": "吸尘器",
+      "x": 1080,
+      "y": 180,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-vacuum-cleaner"
+    },
+    {
+      "id": "hotel-lobby-rooms-cleaning-caddy",
+      "word": "cleaning caddy",
+      "translation": "清洁提篮",
+      "x": 1090,
+      "y": 130,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-cleaning-caddy"
+    },
+    {
+      "id": "hotel-lobby-rooms-laundry-bag",
+      "word": "laundry bag",
+      "translation": "洗衣袋",
+      "x": 1050,
+      "y": 210,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-laundry-bag"
+    },
+    {
+      "id": "hotel-lobby-rooms-room-service-tray",
+      "word": "room-service tray",
+      "translation": "客房服务托盘",
+      "x": 975,
+      "y": 220,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-room-service-tray"
+    },
+    {
+      "id": "hotel-lobby-rooms-linen-shelf",
+      "word": "linen shelf",
+      "translation": "布草搁板",
+      "x": 1050,
+      "y": 40,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-linen-shelf"
+    },
+    {
+      "id": "hotel-lobby-rooms-hamper-lid",
+      "word": "hamper lid",
+      "translation": "洗衣篮盖",
+      "x": 1035,
+      "y": 150,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-hamper-lid"
+    },
+    {
+      "id": "hotel-lobby-rooms-vacuum-hose",
+      "word": "vacuum hose",
+      "translation": "吸尘器软管",
+      "x": 1085,
+      "y": 190,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-vacuum-hose"
+    },
+    {
+      "id": "hotel-lobby-rooms-caddy-handle",
+      "word": "caddy handle",
+      "translation": "提篮把手",
+      "x": 1095,
+      "y": 130,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-caddy-handle"
+    },
+    {
+      "id": "hotel-lobby-rooms-housekeeping-cart-handle",
+      "word": "housekeeping cart handle",
+      "translation": "客房服务车把手",
+      "x": 1040,
+      "y": 120,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-housekeeping-cart-handle"
+    },
+    {
+      "id": "hotel-lobby-rooms-service-cart",
+      "word": "service cart",
+      "translation": "服务车",
+      "x": 1035,
+      "y": 100,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-service-cart"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-bed",
+      "word": "guest bed",
+      "translation": "客房床",
+      "x": 1400,
+      "y": 260,
+      "priority": 1.038,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-bed"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-headboard",
+      "word": "guest headboard",
+      "translation": "客房床头板",
+      "x": 1350,
+      "y": 190,
+      "priority": 1.039,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-headboard"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-pillowcase",
+      "word": "guest pillowcase",
+      "translation": "客房枕套",
+      "x": 1430,
+      "y": 175,
+      "priority": 1.04,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-pillowcase"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-duvet-fold",
+      "word": "guest duvet fold",
+      "translation": "客房被褥折边",
+      "x": 1460,
+      "y": 230,
+      "priority": 1.041,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-duvet-fold"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-bedside-table",
+      "word": "guest bedside table",
+      "translation": "客房床头桌",
+      "x": 1260,
+      "y": 260,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-bedside-table"
+    },
+    {
+      "id": "hotel-lobby-rooms-room-telephone",
+      "word": "room telephone",
+      "translation": "客房电话",
+      "x": 1250,
+      "y": 250,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-room-telephone"
+    },
+    {
+      "id": "hotel-lobby-rooms-writing-desk",
+      "word": "writing desk",
+      "translation": "书写桌",
+      "x": 1260,
+      "y": 120,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-writing-desk"
+    },
+    {
+      "id": "hotel-lobby-rooms-desk-chair",
+      "word": "desk chair",
+      "translation": "书桌椅",
+      "x": 1300,
+      "y": 150,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-desk-chair"
+    },
+    {
+      "id": "hotel-lobby-rooms-suitcase-stand",
+      "word": "suitcase stand",
+      "translation": "行李架",
+      "x": 1190,
+      "y": 190,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-suitcase-stand"
+    },
+    {
+      "id": "hotel-lobby-rooms-open-wardrobe",
+      "word": "open wardrobe",
+      "translation": "开放式衣柜",
+      "x": 1160,
+      "y": 80,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-open-wardrobe"
+    },
+    {
+      "id": "hotel-lobby-rooms-suitcase-shell",
+      "word": "suitcase shell",
+      "translation": "行李箱外壳",
+      "x": 1180,
+      "y": 210,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-suitcase-shell"
+    },
+    {
+      "id": "hotel-lobby-rooms-room-curtain-panel",
+      "word": "room curtain panel",
+      "translation": "客房窗帘面",
+      "x": 1550,
+      "y": 130,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-room-curtain-panel"
+    },
+    {
+      "id": "hotel-lobby-rooms-room-blackout-blind",
+      "word": "room blackout blind",
+      "translation": "客房遮光帘",
+      "x": 1530,
+      "y": 110,
+      "priority": 1.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-room-blackout-blind"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-artwork-frame",
+      "word": "guest artwork frame",
+      "translation": "客房画框",
+      "x": 1320,
+      "y": 90,
+      "priority": 1.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-artwork-frame"
+    },
+    {
+      "id": "hotel-lobby-rooms-mini-refrigerator",
+      "word": "mini refrigerator",
+      "translation": "小冰箱",
+      "x": 1190,
+      "y": 320,
+      "priority": 1.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-mini-refrigerator"
+    },
+    {
+      "id": "hotel-lobby-rooms-coffee-tray",
+      "word": "coffee tray",
+      "translation": "咖啡托盘",
+      "x": 1260,
+      "y": 260,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-coffee-tray"
+    },
+    {
+      "id": "hotel-lobby-rooms-room-safe",
+      "word": "room safe",
+      "translation": "客房保险箱",
+      "x": 1180,
+      "y": 290,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-room-safe"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-thermostat",
+      "word": "guest thermostat",
+      "translation": "客房恒温器",
+      "x": 1450,
+      "y": 100,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-thermostat"
+    },
+    {
+      "id": "hotel-lobby-rooms-electrical-outlet",
+      "word": "electrical outlet",
+      "translation": "电源插座",
+      "x": 1260,
+      "y": 220,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-electrical-outlet"
+    },
+    {
+      "id": "hotel-lobby-rooms-door-peephole",
+      "word": "door peephole",
+      "translation": "门窥视孔",
+      "x": 1150,
+      "y": 290,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-door-peephole"
+    },
+    {
+      "id": "hotel-lobby-rooms-key-card-slot",
+      "word": "key-card slot",
+      "translation": "房卡插槽",
+      "x": 1160,
+      "y": 295,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-key-card-slot"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-carpet-edge",
+      "word": "guest carpet edge",
+      "translation": "客房地毯边",
+      "x": 1450,
+      "y": 420,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-carpet-edge"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-duvet-corner",
+      "word": "guest duvet corner",
+      "translation": "客房被角",
+      "x": 1470,
+      "y": 280,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-duvet-corner"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-wardrobe-rail",
+      "word": "guest wardrobe rail",
+      "translation": "客房衣柜杆",
+      "x": 1160,
+      "y": 95,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-wardrobe-rail"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-room-door",
+      "word": "guest room door",
+      "translation": "客房门",
+      "x": 1120,
+      "y": 300,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-room-door"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-door-handle",
+      "word": "guest door handle",
+      "translation": "客房门把手",
+      "x": 1140,
+      "y": 300,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-door-handle"
+    },
+    {
+      "id": "hotel-lobby-rooms-bedside-outlet",
+      "word": "bedside outlet",
+      "translation": "床头插座",
+      "x": 1260,
+      "y": 280,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-bedside-outlet"
+    },
+    {
+      "id": "hotel-lobby-rooms-desk-lamp-shade",
+      "word": "desk lamp shade",
+      "translation": "台灯灯罩",
+      "x": 1250,
+      "y": 120,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-desk-lamp-shade"
+    },
+    {
+      "id": "hotel-lobby-rooms-wardrobe-shelf",
+      "word": "wardrobe shelf",
+      "translation": "衣柜搁板",
+      "x": 1170,
+      "y": 45,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-wardrobe-shelf"
+    },
+    {
+      "id": "hotel-lobby-rooms-blind-pull",
+      "word": "blind pull",
+      "translation": "遮光帘拉绳",
+      "x": 1540,
+      "y": 170,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-blind-pull"
+    },
+    {
+      "id": "hotel-lobby-rooms-safe-keypad",
+      "word": "safe keypad",
+      "translation": "保险箱键盘",
+      "x": 1190,
+      "y": 300,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-safe-keypad"
+    },
+    {
+      "id": "hotel-lobby-rooms-coffee-maker",
+      "word": "coffee maker",
+      "translation": "咖啡机",
+      "x": 1280,
+      "y": 250,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-coffee-maker"
+    },
+    {
+      "id": "hotel-lobby-rooms-ice-bucket",
+      "word": "ice bucket",
+      "translation": "冰桶",
+      "x": 1290,
+      "y": 260,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-ice-bucket"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-bathrobe",
+      "word": "guest bathrobe",
+      "translation": "客房浴袍",
+      "x": 850,
+      "y": 680,
+      "priority": 1.071,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-bathrobe"
+    },
+    {
+      "id": "hotel-lobby-rooms-toiletry-tray",
+      "word": "toiletry tray",
+      "translation": "洗漱用品托盘",
+      "x": 850,
+      "y": 700,
+      "priority": 1.072,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-toiletry-tray"
+    },
+    {
+      "id": "hotel-lobby-rooms-conditioner-bottle",
+      "word": "conditioner bottle",
+      "translation": "护发素瓶",
+      "x": 910,
+      "y": 700,
+      "priority": 1.073,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-conditioner-bottle"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-bathroom-shelf",
+      "word": "guest bathroom shelf",
+      "translation": "客房卫浴搁板",
+      "x": 900,
+      "y": 650,
+      "priority": 1.074,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-bathroom-shelf"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-bathroom-door",
+      "word": "guest bathroom door",
+      "translation": "客房卫浴门",
+      "x": 980,
+      "y": 700,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-bathroom-door"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-hand-towel",
+      "word": "guest hand towel",
+      "translation": "客房擦手巾",
+      "x": 1000,
+      "y": 700,
+      "priority": 1.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-hand-towel"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-vanity",
+      "word": "guest vanity",
+      "translation": "客房盥洗台",
+      "x": 750,
+      "y": 580,
+      "priority": 1.077,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-vanity"
+    },
+    {
+      "id": "hotel-lobby-rooms-guest-vanity-counter",
+      "word": "guest vanity counter",
+      "translation": "客房盥洗台面",
+      "x": 760,
+      "y": 590,
+      "priority": 1.078,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-guest-vanity-counter"
+    },
+    {
+      "id": "hotel-lobby-rooms-bathroom-mirror",
+      "word": "bathroom mirror",
+      "translation": "卫浴镜",
+      "x": 800,
+      "y": 560,
+      "priority": 1.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-bathroom-mirror"
+    },
+    {
+      "id": "hotel-lobby-rooms-bathroom-tile",
+      "word": "bathroom tile",
+      "translation": "卫浴瓷砖",
+      "x": 700,
+      "y": 650,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-bathroom-tile"
+    },
+    {
+      "id": "hotel-lobby-rooms-bathroom-waste-bin",
+      "word": "bathroom waste bin",
+      "translation": "卫浴垃圾桶",
+      "x": 980,
+      "y": 760,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-bathroom-waste-bin"
+    },
+    {
+      "id": "hotel-lobby-rooms-shower-enclosure",
+      "word": "shower enclosure",
+      "translation": "淋浴隔间",
+      "x": 900,
+      "y": 800,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-shower-enclosure"
+    },
+    {
+      "id": "hotel-lobby-rooms-showerhead",
+      "word": "showerhead",
+      "translation": "淋浴喷头",
+      "x": 930,
+      "y": 780,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-showerhead"
+    },
+    {
+      "id": "hotel-lobby-rooms-mixer-handle",
+      "word": "mixer handle",
+      "translation": "混水阀把手",
+      "x": 940,
+      "y": 800,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-mixer-handle"
+    },
+    {
+      "id": "hotel-lobby-rooms-glass-shower-door",
+      "word": "glass shower door",
+      "translation": "淋浴玻璃门",
+      "x": 950,
+      "y": 820,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-glass-shower-door"
+    },
+    {
+      "id": "hotel-lobby-rooms-grab-bar",
+      "word": "grab bar",
+      "translation": "扶手杆",
+      "x": 900,
+      "y": 850,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-grab-bar"
+    },
+    {
+      "id": "hotel-lobby-rooms-shower-seat",
+      "word": "shower seat",
+      "translation": "淋浴座椅",
+      "x": 920,
+      "y": 850,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-shower-seat"
+    },
+    {
+      "id": "hotel-lobby-rooms-hairdryer",
+      "word": "hairdryer",
+      "translation": "吹风机",
+      "x": 780,
+      "y": 650,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-hairdryer"
+    },
+    {
+      "id": "hotel-lobby-rooms-robe-hook",
+      "word": "robe hook",
+      "translation": "浴袍挂钩",
+      "x": 970,
+      "y": 680,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-robe-hook"
+    },
+    {
+      "id": "hotel-lobby-rooms-towel-shelf",
+      "word": "towel shelf",
+      "translation": "毛巾搁板",
+      "x": 760,
+      "y": 620,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-towel-shelf"
+    },
+    {
+      "id": "hotel-lobby-rooms-shower-hinge",
+      "word": "shower hinge",
+      "translation": "淋浴门铰链",
+      "x": 950,
+      "y": 820,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-shower-hinge"
+    },
+    {
+      "id": "hotel-lobby-rooms-shower-drain-cover",
+      "word": "shower drain cover",
+      "translation": "淋浴排水盖",
+      "x": 920,
+      "y": 870,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-shower-drain-cover"
+    },
+    {
+      "id": "hotel-lobby-rooms-bathroom-door-latch",
+      "word": "bathroom door latch",
+      "translation": "卫浴门闩",
+      "x": 1160,
+      "y": 520,
+      "priority": 1.093,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-bathroom-door-latch"
+    },
+    {
+      "id": "hotel-lobby-rooms-shower-seal",
+      "word": "shower seal",
+      "translation": "淋浴密封条",
+      "x": 1370,
+      "y": 620,
+      "priority": 1.094,
+      "minLevel": 0,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-shower-seal"
+    },
+    {
+      "id": "hotel-lobby-rooms-toilet-flush-button",
+      "word": "toilet flush button",
+      "translation": "马桶冲水按钮",
+      "x": 1450,
+      "y": 700,
+      "priority": 1.095,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-toilet-flush-button"
+    },
+    {
+      "id": "hotel-lobby-rooms-basin-drain-cover",
+      "word": "basin drain cover",
+      "translation": "洗手盆排水盖",
+      "x": 1270,
+      "y": 700,
+      "priority": 1.096,
+      "minLevel": 1,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-basin-drain-cover"
+    },
+    {
+      "id": "hotel-lobby-rooms-bathroom-shelf-bracket",
+      "word": "bathroom shelf bracket",
+      "translation": "卫浴搁板支架",
+      "x": 1300,
+      "y": 600,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-bathroom-shelf-bracket"
+    },
+    {
+      "id": "hotel-lobby-rooms-vanity-light",
+      "word": "vanity light",
+      "translation": "盥洗台灯",
+      "x": 1250,
+      "y": 520,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-vanity-light"
+    },
+    {
+      "id": "hotel-lobby-rooms-room-floorboard",
+      "word": "room floorboard",
+      "translation": "客房地板条",
+      "x": 1150,
+      "y": 880,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-room-floorboard"
+    },
+    {
+      "id": "hotel-lobby-rooms-room-baseboard",
+      "word": "room baseboard",
+      "translation": "客房踢脚线",
+      "x": 1450,
+      "y": 880,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-room-baseboard"
+    },
+    {
+      "id": "hotel-lobby-rooms-bathroom-ceiling-vent",
+      "word": "bathroom ceiling vent",
+      "translation": "卫浴顶面通风口",
+      "x": 1500,
+      "y": 540,
+      "priority": 1.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-bathroom-ceiling-vent"
+    },
+    {
+      "id": "hotel-lobby-rooms-shower-shelf",
+      "word": "shower shelf",
+      "translation": "淋浴搁板",
+      "x": 1400,
+      "y": 620,
+      "priority": 1.102,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-shower-shelf"
+    },
+    {
+      "id": "hotel-lobby-rooms-floor-drain-cover",
+      "word": "floor drain cover",
+      "translation": "地漏盖",
+      "x": 1370,
+      "y": 850,
+      "priority": 1.103,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-floor-drain-cover"
+    },
+    {
+      "id": "hotel-lobby-rooms-toilet-flush-plate",
+      "word": "toilet flush plate",
+      "translation": "马桶冲水板",
+      "x": 1470,
+      "y": 700,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-toilet-flush-plate"
+    },
+    {
+      "id": "hotel-lobby-rooms-door-strike-plate",
+      "word": "door strike plate",
+      "translation": "门框锁扣板",
+      "x": 1160,
+      "y": 520,
+      "priority": 1.105,
+      "minLevel": 3,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-door-strike-plate"
+    },
+    {
+      "id": "hotel-lobby-rooms-toilet-roll-spring",
+      "word": "toilet roll spring",
+      "translation": "卷纸架弹簧",
+      "x": 1300,
+      "y": 690,
+      "priority": 1.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "hotel-lobby-rooms-region-toilet-roll-spring"
+    }
+  ],
+  "portals": []
+}

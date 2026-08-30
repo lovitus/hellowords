@@ -1918,10 +1918,10 @@
       "label": "Enter the city cafe",
       "translation": "进入城市咖啡馆",
       "childSceneId": "city-cafe",
-      "x": 620,
-      "y": 155,
-      "width": 365,
-      "height": 470,
+      "x": 740,
+      "y": 340,
+      "width": 250,
+      "height": 300,
       "enterScale": 3.6,
       "sourceVisualRegion": "portal-cafe"
     },
@@ -1936,6 +1936,18 @@
       "height": 560,
       "enterScale": 3.6,
       "sourceVisualRegion": "portal-transit"
+    },
+    {
+      "id": "enter-hotel-exterior",
+      "label": "Enter the hotel exterior",
+      "translation": "进入酒店外立面",
+      "childSceneId": "hotel-exterior",
+      "sourceVisualRegion": "portal-hotel-exterior",
+      "x": 650,
+      "y": 155,
+      "width": 300,
+      "height": 180,
+      "enterScale": 3.4
     }
   ],
   "anchorAudit": {
@@ -2342,6 +2354,15 @@
       "y": 660,
       "width": 155,
       "height": 175
+    },
+    {
+      "id": "portal-hotel-exterior",
+      "description": "Upper-floor windows and facade of the mixed-use brick building above the cafe storefront",
+      "kind": "object",
+      "x": 650,
+      "y": 155,
+      "width": 300,
+      "height": 180
     }
   ],
   "detailZones": [
