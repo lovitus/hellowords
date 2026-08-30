@@ -4,10 +4,10 @@
 
 ## 当前交付游标
 
-- 公开版本：`v132-ae92270`（线上已完成真实冒烟）
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=132-ae92270#world>
-- 源码：`ae92270aee5dc93cfeb6338cd641f92a643d61b5`（v132 在社区花园、温室内部、番茄植株、园艺工作台、叶片各增加 30 个可审计词；Community garden 163、Greenhouse interior 101、Tomato plant 99、Potting workbench 104、Leaf 79；设施分支保持 Hospital 440、Pathology lab 450、Hospital pharmacy 390、Airport 390、Office building 390）。累计空间锚点 7,166、6,107 个去重词；继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：v133 已在本地加入 60 个可审计词（交通枢纽中央大厅 30 个、叶片脉络/水珠/昆虫/枝条 30 个），目标计数为 Transit hub 163、Leaf 109；待发布后做真实入口冒烟。
+- 公开版本：`v133-cb9ccb7`（线上已完成真实冒烟）
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=133-cb9ccb7#world>
+- 源码：`cb9ccb760f37dfcf3635e5589203f5db6d6e4a5b`（v133 在交通枢纽中央大厅与 Leaf 各增加 30 个可审计词；Transit hub 163、Leaf 109；设施分支保持 Hospital 440、Pathology lab 450、Hospital pharmacy 390、Airport 390、Office building 390；Home/园艺分支保持 v132 计数）。累计空间锚点 7,226、6,157 个去重词；继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：v133 已公开发布并完成真实入口冒烟；曾尝试移除过渡槽位以减小跳位，但本地性能门出现约 0.2–1.9ms 临界越界，未发布该实验，当前公开运行时保持 v133 原稳定实现。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### v122 交付记录（2026-08-29）
@@ -48,7 +48,8 @@
 - 清理记录：v128、v129、v130、v131 归档已分别移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v128/`、`/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v129/`、`/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v130/`、`/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v131/`；活动 `.codex/sessions` 与共享临时根不删除。
 - v132 在五张已审计园艺/植物图上再增加 150 个词：greenhouse structure、tomato leaf、potting tools、raised-bed crops、oak-leaf surface 各 30 个；`npm run verify` 232 个域 + 28 个语义、E2E 106/36、性能 2/2 均通过，公开页真实核对花园、温室、番茄、工作台、叶片新词，error/warn 日志为空。
 - 清理记录：v132 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v132/`；活动 `.codex/sessions` 与共享临时根不删除。
-- v133 在交通枢纽和 Leaf 两张已审计图上再增加 60 个词；本地验证待跑完后发布，仍不改变门户几何。
+- v133 在交通枢纽和 Leaf 两张已审计图上再增加 60 个词；`npm run verify` 232 个域 + 28 个语义、E2E 106/36、性能门曾通过 2/2，公开页真实核对中央大厅与 Leaf 新词，error/warn 日志为空，未改变门户几何。
+- 稳定性记录：未发布的 canonical-slot 实验在同一 macOS 性能门连续出现 75.05–76.92ms（预算 75ms），因此已恢复并公开 v133 原过渡候选实现；下一批先用真实公开回归再调整。
 
 ## 当前续开发游标（2026-08-29）
 
