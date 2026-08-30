@@ -4,10 +4,10 @@
 
 ## 当前交付游标
 
-- 公开版本：`v135-f26c83e`（线上已完成真实冒烟）
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=135-f26c83e#world>
-- 源码：`f26c83eb281cd2feab6ebed784f3fe09f55f2af9`（v135 在 v134 基础上同步细分区引用到首个相机帧，避免移动端焦点词先使用旧区域布局而消失；词量和锚点不变）。累计空间锚点 7,226、6,157 个去重词；继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：v135 已公开发布并完成真实入口冒烟；氧分子/医院移动端深层焦点连续回归通过，下一步继续按“先堆词、再精修”扩展尚未达到审计上限的场景。
+- 公开版本：`v136-8470173`（线上已完成真实冒烟）
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=136-8470173#world>
+- 源码：`84701730b0f94edd12b00cf1e1abef167d66c523`（v136 在 v135 基础上降低空间词泡背景透明度至 56%，边框至 58%，保留文字白描边与阴影；词量和锚点不变）。累计空间锚点 7,226、6,157 个去重词；继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：v136 已公开发布并完成真实入口冒烟；Apartment 公共页实测词泡更透明且浏览器日志为空，下一步继续按“先堆词、再精修”扩展尚未达到审计上限的场景。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### v122 交付记录（2026-08-29）
@@ -54,6 +54,8 @@
 - 清理记录：v134 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v134/`；活动 `.codex/sessions` 与共享临时根不删除。
 - v135 将 `focusedDetailZoneValueRef` 在细分区点击事件中同步到最新 zone，再启动相机动画；新增 source-contract 单测，`npm run verify` 通过（233 个域测试 + 28 个语义），完整 E2E 106/36、性能 2/2 通过，公开页医院 Clinical reference 的 `diagnosis` 可见且浏览器日志为空。
 - 清理记录：v135 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v135/`；活动 `.codex/sessions` 与共享临时根不删除。
+- v136 将桌面空间词泡背景透明度从 64% 降到 56%、边框从 64% 降到 58%，并更新 CSS 合同；`npm run verify` 通过（234 个域测试 + 28 个语义），完整 E2E 106/36、性能 2/2 通过，公开 Apartment 画面实测 `--label-surface-opacity: 56%`、error/warn 日志为空。
+- 清理记录：v136 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v136/`；活动 `.codex/sessions` 与共享临时根不删除。
 
 ## 当前续开发游标（2026-08-29）
 
