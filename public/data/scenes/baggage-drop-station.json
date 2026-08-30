@@ -1,0 +1,3226 @@
+{
+  "id": "baggage-drop-station",
+  "title": "Baggage-drop station",
+  "translation": "行李托运工位",
+  "subtitle": "Scales, conveyors, scanners, tag printers, luggage trays and queue fixtures",
+  "asset": "/scenes/baggage-drop-station-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "check-in-counter",
+  "visualRegions": [
+    {
+      "id": "baggage-drop-station-region-left-bag-drop-station",
+      "description": "Pixel-audited “left bag-drop station” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-baggage-scale",
+      "description": "Pixel-audited “left baggage scale” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-scale-platform",
+      "description": "Pixel-audited “left scale platform” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-scale-deck",
+      "description": "Pixel-audited “left scale deck” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-scale-edge",
+      "description": "Pixel-audited “left scale edge” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 670,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-bag-conveyor",
+      "description": "Pixel-audited “left bag conveyor” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 410,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-belt-surface",
+      "description": "Pixel-audited “left belt surface” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 410,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-conveyor-side-rail",
+      "description": "Pixel-audited “left conveyor side rail” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-spill-plate",
+      "description": "Pixel-audited “left spill plate” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-belt-end-plate",
+      "description": "Pixel-audited “left belt end plate” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 440,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-bag-chute",
+      "description": "Pixel-audited “left bag chute” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-cabinet-housing",
+      "description": "Pixel-audited “left cabinet housing” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-cabinet-door",
+      "description": "Pixel-audited “left cabinet door” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-service-drawer",
+      "description": "Pixel-audited “left service drawer” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-drawer-handle",
+      "description": "Pixel-audited “left drawer handle” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-scanner-arch",
+      "description": "Pixel-audited “left scanner arch” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 210,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-arch-beam",
+      "description": "Pixel-audited “left arch beam” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-arch-post",
+      "description": "Pixel-audited “left arch post” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-scanner-housing",
+      "description": "Pixel-audited “left scanner housing” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-blank-screen",
+      "description": "Pixel-audited “left blank screen” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-document-scanner",
+      "description": "Pixel-audited “left document scanner” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 300,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-tag-printer",
+      "description": "Pixel-audited “left tag printer” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 110,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-tag-roll",
+      "description": "Pixel-audited “left tag roll” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 115,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-paper-tray",
+      "description": "Pixel-audited “left paper tray” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-left-station-plinth",
+      "description": "Pixel-audited “left station plinth” inside the Left baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-bag-drop-station",
+      "description": "Pixel-audited “center bag-drop station” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-baggage-scale",
+      "description": "Pixel-audited “center baggage scale” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-scale-platform",
+      "description": "Pixel-audited “center scale platform” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-scale-display",
+      "description": "Pixel-audited “center scale display” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-scale-deck",
+      "description": "Pixel-audited “center scale deck” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 610,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-conveyor-belt",
+      "description": "Pixel-audited “center conveyor belt” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-belt-surface",
+      "description": "Pixel-audited “center belt surface” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-conveyor-roller",
+      "description": "Pixel-audited “center conveyor roller” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-roller-axle",
+      "description": "Pixel-audited “center roller axle” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-side-rail",
+      "description": "Pixel-audited “center side rail” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-spill-plate",
+      "description": "Pixel-audited “center spill plate” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-belt-end-plate",
+      "description": "Pixel-audited “center belt end plate” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-bag-chute",
+      "description": "Pixel-audited “center bag chute” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-divider-panel",
+      "description": "Pixel-audited “center divider panel” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-belt-guard",
+      "description": "Pixel-audited “center belt guard” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-scanner-arch",
+      "description": "Pixel-audited “center scanner arch” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-arch-beam",
+      "description": "Pixel-audited “center arch beam” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-arch-post",
+      "description": "Pixel-audited “center arch post” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 560,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-scanner-housing",
+      "description": "Pixel-audited “center scanner housing” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-scanner-lens",
+      "description": "Pixel-audited “center scanner lens” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-blank-screen",
+      "description": "Pixel-audited “center blank screen” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-luggage-case",
+      "description": "Pixel-audited “center luggage case” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-suitcase-handle",
+      "description": "Pixel-audited “center suitcase handle” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-suitcase-wheel",
+      "description": "Pixel-audited “center suitcase wheel” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 490,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-belt-seam",
+      "description": "Pixel-audited “center belt seam” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-station-plinth",
+      "description": "Pixel-audited “center station plinth” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-center-floor-plate",
+      "description": "Pixel-audited “center floor plate” inside the Center conveyor lane crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-bag-drop-station",
+      "description": "Pixel-audited “right bag-drop station” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-baggage-scale",
+      "description": "Pixel-audited “right baggage scale” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-scale-platform",
+      "description": "Pixel-audited “right scale platform” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-scale-display",
+      "description": "Pixel-audited “right scale display” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1260,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-scale-deck",
+      "description": "Pixel-audited “right scale deck” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-scale-side-rail",
+      "description": "Pixel-audited “right scale side rail” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-platform-edge",
+      "description": "Pixel-audited “right platform edge” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-bag-tray",
+      "description": "Pixel-audited “right bag tray” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-cabinet-housing",
+      "description": "Pixel-audited “right cabinet housing” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1250,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-cabinet-door",
+      "description": "Pixel-audited “right cabinet door” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1250,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-service-drawer",
+      "description": "Pixel-audited “right service drawer” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-drawer-pull",
+      "description": "Pixel-audited “right drawer pull” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-scanner-arch",
+      "description": "Pixel-audited “right scanner arch” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-arch-beam",
+      "description": "Pixel-audited “right arch beam” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 90,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-arch-post",
+      "description": "Pixel-audited “right arch post” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-scanner-housing",
+      "description": "Pixel-audited “right scanner housing” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-scanner-lens",
+      "description": "Pixel-audited “right scanner lens” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-blank-screen",
+      "description": "Pixel-audited “right blank screen” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-document-scanner",
+      "description": "Pixel-audited “right document scanner” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-tag-printer",
+      "description": "Pixel-audited “right tag printer” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-tag-roll",
+      "description": "Pixel-audited “right tag roll” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-receipt-tray",
+      "description": "Pixel-audited “right receipt tray” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1400,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-label-slot",
+      "description": "Pixel-audited “right label slot” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-station-plinth",
+      "description": "Pixel-audited “right station plinth” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-floor-plate",
+      "description": "Pixel-audited “right floor plate” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-right-cable-cover",
+      "description": "Pixel-audited “right cable cover” inside the Right baggage-drop module crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-tag-scanner",
+      "description": "Pixel-audited “bag-drop tag scanner” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 310,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-handheld-tag-scanner",
+      "description": "Pixel-audited “handheld tag scanner” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 320,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-overhead-tag-scanner",
+      "description": "Pixel-audited “overhead tag scanner” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-scanner-cradle",
+      "description": "Pixel-audited “bag-drop scanner cradle” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-scanner-trigger",
+      "description": "Pixel-audited “bag-drop scanner trigger” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 320,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-scanner-cable",
+      "description": "Pixel-audited “scanner cable” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 340,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-document-scan-bed",
+      "description": "Pixel-audited “drop document scan bed” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 300,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-document-scan-lid",
+      "description": "Pixel-audited “drop document scan lid” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 300,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-tag-printer-housing",
+      "description": "Pixel-audited “bag-tag printer housing” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 120,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-tag-printer-slot",
+      "description": "Pixel-audited “bag-tag printer slot” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 120,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-claim-tag-printer",
+      "description": "Pixel-audited “claim-tag printer” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-claim-tag-slot",
+      "description": "Pixel-audited “claim-tag slot” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-tag-roll",
+      "description": "Pixel-audited “bag-tag roll” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 150,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-blank-claim-tag",
+      "description": "Pixel-audited “blank claim tag” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1400,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-tag-feed-roller",
+      "description": "Pixel-audited “tag feed roller” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-paper-guide",
+      "description": "Pixel-audited “paper guide” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 180,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-tag-output-tray",
+      "description": "Pixel-audited “tag output tray” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-printer-cover",
+      "description": "Pixel-audited “bag-drop printer cover” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-printer-latch",
+      "description": "Pixel-audited “printer latch” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-control-tablet",
+      "description": "Pixel-audited “drop control tablet” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-blank-control-screen",
+      "description": "Pixel-audited “drop blank control screen” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-screen-bezel",
+      "description": "Pixel-audited “drop screen bezel” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-equipment-shelf",
+      "description": "Pixel-audited “equipment shelf” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-equipment-cable-pass-through",
+      "description": "Pixel-audited “equipment cable pass-through” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-scan-window",
+      "description": "Pixel-audited “drop scan window” inside the Scanning and tag equipment crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-conveyor-suitcase",
+      "description": "Pixel-audited “drop conveyor suitcase” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-suitcase-shell",
+      "description": "Pixel-audited “drop suitcase shell” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-suitcase-handle",
+      "description": "Pixel-audited “drop suitcase handle” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-suitcase-wheel",
+      "description": "Pixel-audited “drop suitcase wheel” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 490,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-suitcase-corner-guard",
+      "description": "Pixel-audited “suitcase corner guard” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-suitcase-zipper",
+      "description": "Pixel-audited “suitcase zipper” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-suitcase-side-grip",
+      "description": "Pixel-audited “suitcase side grip” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-second-conveyor-suitcase",
+      "description": "Pixel-audited “second conveyor suitcase” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-second-suitcase-shell",
+      "description": "Pixel-audited “second suitcase shell” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-second-suitcase-handle",
+      "description": "Pixel-audited “second suitcase handle” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-second-suitcase-wheel",
+      "description": "Pixel-audited “second suitcase wheel” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-baggage-tray",
+      "description": "Pixel-audited “baggage tray” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-tray",
+      "description": "Pixel-audited “bag-drop tray” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-tray-sidewall",
+      "description": "Pixel-audited “tray sidewall” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-tray-stop",
+      "description": "Pixel-audited “tray stop” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-belt-luggage-guide",
+      "description": "Pixel-audited “belt luggage guide” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-luggage-side-bumper",
+      "description": "Pixel-audited “luggage side bumper” inside the Baggage and tray details crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-station-cabinet",
+      "description": "Pixel-audited “bag-drop station cabinet” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-cabinet-side-panel",
+      "description": "Pixel-audited “bag-drop cabinet side panel” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-cabinet-top-panel",
+      "description": "Pixel-audited “cabinet top panel” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-cabinet-front-panel",
+      "description": "Pixel-audited “cabinet front panel” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-service-access-door",
+      "description": "Pixel-audited “service access door” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-access-door-handle",
+      "description": "Pixel-audited “access door handle” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-service-drawer",
+      "description": "Pixel-audited “service drawer” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-drawer-front",
+      "description": "Pixel-audited “bag-drop drawer front” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-drawer-pull",
+      "description": "Pixel-audited “bag-drop drawer pull” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-drop-cable-cover",
+      "description": "Pixel-audited “drop cable cover” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-power-inlet",
+      "description": "Pixel-audited “power inlet” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-equipment-vent",
+      "description": "Pixel-audited “equipment vent” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-ventilation-grille",
+      "description": "Pixel-audited “bag-drop ventilation grille” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-base-kickplate",
+      "description": "Pixel-audited “base kickplate” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-plinth-corner",
+      "description": "Pixel-audited “plinth corner” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-floor-junction",
+      "description": "Pixel-audited “floor junction” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-steel-trim",
+      "description": "Pixel-audited “steel trim” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-panel-seam",
+      "description": "Pixel-audited “panel seam” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-mounting-fastener",
+      "description": "Pixel-audited “mounting fastener” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-lower-service-panel",
+      "description": "Pixel-audited “lower service panel” inside the Cabinet and service panels crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-floor",
+      "description": "Pixel-audited “bag-drop floor” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-floor-tile",
+      "description": "Pixel-audited “bag-drop floor tile” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-grout-line",
+      "description": "Pixel-audited “bag-drop grout line” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-queue-rail",
+      "description": "Pixel-audited “bag-drop queue rail” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-stanchion-post",
+      "description": "Pixel-audited “bag-drop stanchion post” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-stanchion-foot",
+      "description": "Pixel-audited “bag-drop stanchion foot” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-queue-belt",
+      "description": "Pixel-audited “bag-drop queue belt” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-belt-receiver",
+      "description": "Pixel-audited “bag-drop belt receiver” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-lane-divider",
+      "description": "Pixel-audited “bag-drop lane divider” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-access-lane",
+      "description": "Pixel-audited “bag-drop access lane” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-bag-drop-floor-guide-stripe",
+      "description": "Pixel-audited “bag-drop floor guide stripe” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-platform-safety-edge",
+      "description": "Pixel-audited “platform safety edge” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-platform-guardrail",
+      "description": "Pixel-audited “platform guardrail” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-guardrail-post",
+      "description": "Pixel-audited “guardrail post” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1500,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "baggage-drop-station-region-guardrail-base",
+      "description": "Pixel-audited “guardrail base” inside the Floor and queue rails crop of the baggage-drop photograph",
+      "kind": "part",
+      "x": 1500,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "baggage-drop-station-zone-left-drop-module",
+      "title": "Left baggage-drop module",
+      "translation": "左侧行李托运模块",
+      "description": "Inspect the visible left drop station, scale, conveyor, scanner arch, printer and plinth.",
+      "x": 0,
+      "y": 0,
+      "width": 500,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "baggage-drop-station-left-bag-drop-station",
+        "baggage-drop-station-left-baggage-scale",
+        "baggage-drop-station-left-scale-platform",
+        "baggage-drop-station-left-scale-deck",
+        "baggage-drop-station-left-scale-edge",
+        "baggage-drop-station-left-bag-conveyor",
+        "baggage-drop-station-left-belt-surface",
+        "baggage-drop-station-left-conveyor-side-rail",
+        "baggage-drop-station-left-spill-plate",
+        "baggage-drop-station-left-belt-end-plate",
+        "baggage-drop-station-left-bag-chute",
+        "baggage-drop-station-left-cabinet-housing",
+        "baggage-drop-station-left-cabinet-door",
+        "baggage-drop-station-left-service-drawer",
+        "baggage-drop-station-left-drawer-handle",
+        "baggage-drop-station-left-scanner-arch",
+        "baggage-drop-station-left-arch-beam",
+        "baggage-drop-station-left-arch-post",
+        "baggage-drop-station-left-scanner-housing",
+        "baggage-drop-station-left-blank-screen",
+        "baggage-drop-station-left-document-scanner",
+        "baggage-drop-station-left-tag-printer",
+        "baggage-drop-station-left-tag-roll",
+        "baggage-drop-station-left-paper-tray",
+        "baggage-drop-station-left-station-plinth"
+      ]
+    },
+    {
+      "id": "baggage-drop-station-zone-center-conveyor-lane",
+      "title": "Center conveyor lane",
+      "translation": "中央传送带通道",
+      "description": "Follow the center belt, roller hardware, scanner arch, luggage and station floor plate.",
+      "x": 450,
+      "y": 100,
+      "width": 700,
+      "height": 800,
+      "targetScale": 3.15,
+      "labelIds": [
+        "baggage-drop-station-center-bag-drop-station",
+        "baggage-drop-station-center-baggage-scale",
+        "baggage-drop-station-center-scale-platform",
+        "baggage-drop-station-center-scale-display",
+        "baggage-drop-station-center-scale-deck",
+        "baggage-drop-station-center-conveyor-belt",
+        "baggage-drop-station-center-belt-surface",
+        "baggage-drop-station-center-conveyor-roller",
+        "baggage-drop-station-center-roller-axle",
+        "baggage-drop-station-center-side-rail",
+        "baggage-drop-station-center-spill-plate",
+        "baggage-drop-station-center-belt-end-plate",
+        "baggage-drop-station-center-bag-chute",
+        "baggage-drop-station-center-divider-panel",
+        "baggage-drop-station-center-belt-guard",
+        "baggage-drop-station-center-scanner-arch",
+        "baggage-drop-station-center-arch-beam",
+        "baggage-drop-station-center-arch-post",
+        "baggage-drop-station-center-scanner-housing",
+        "baggage-drop-station-center-scanner-lens",
+        "baggage-drop-station-center-blank-screen",
+        "baggage-drop-station-center-luggage-case",
+        "baggage-drop-station-center-suitcase-handle",
+        "baggage-drop-station-center-suitcase-wheel",
+        "baggage-drop-station-center-belt-seam",
+        "baggage-drop-station-center-station-plinth",
+        "baggage-drop-station-center-floor-plate"
+      ]
+    },
+    {
+      "id": "baggage-drop-station-zone-right-drop-module",
+      "title": "Right baggage-drop module",
+      "translation": "右侧行李托运模块",
+      "description": "Inspect the right scale platform, cabinet, scanner, tag printer, tray and floor plate.",
+      "x": 1100,
+      "y": 0,
+      "width": 500,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "baggage-drop-station-right-bag-drop-station",
+        "baggage-drop-station-right-baggage-scale",
+        "baggage-drop-station-right-scale-platform",
+        "baggage-drop-station-right-scale-display",
+        "baggage-drop-station-right-scale-deck",
+        "baggage-drop-station-right-scale-side-rail",
+        "baggage-drop-station-right-platform-edge",
+        "baggage-drop-station-right-bag-tray",
+        "baggage-drop-station-right-cabinet-housing",
+        "baggage-drop-station-right-cabinet-door",
+        "baggage-drop-station-right-service-drawer",
+        "baggage-drop-station-right-drawer-pull",
+        "baggage-drop-station-right-scanner-arch",
+        "baggage-drop-station-right-arch-beam",
+        "baggage-drop-station-right-arch-post",
+        "baggage-drop-station-right-scanner-housing",
+        "baggage-drop-station-right-scanner-lens",
+        "baggage-drop-station-right-blank-screen",
+        "baggage-drop-station-right-document-scanner",
+        "baggage-drop-station-right-tag-printer",
+        "baggage-drop-station-right-tag-roll",
+        "baggage-drop-station-right-receipt-tray",
+        "baggage-drop-station-right-label-slot",
+        "baggage-drop-station-right-station-plinth",
+        "baggage-drop-station-right-floor-plate",
+        "baggage-drop-station-right-cable-cover"
+      ]
+    },
+    {
+      "id": "baggage-drop-station-zone-scanner-tag-equipment",
+      "title": "Scanning and tag equipment",
+      "translation": "扫描与标签设备",
+      "description": "Compare the visible handheld and mounted scanners, printers, tag feeds, trays and blank controls.",
+      "x": 0,
+      "y": 100,
+      "width": 1600,
+      "height": 500,
+      "targetScale": 3.15,
+      "labelIds": [
+        "baggage-drop-station-bag-drop-tag-scanner",
+        "baggage-drop-station-handheld-tag-scanner",
+        "baggage-drop-station-overhead-tag-scanner",
+        "baggage-drop-station-bag-drop-scanner-cradle",
+        "baggage-drop-station-bag-drop-scanner-trigger",
+        "baggage-drop-station-scanner-cable",
+        "baggage-drop-station-drop-document-scan-bed",
+        "baggage-drop-station-drop-document-scan-lid",
+        "baggage-drop-station-bag-tag-printer-housing",
+        "baggage-drop-station-bag-tag-printer-slot",
+        "baggage-drop-station-claim-tag-printer",
+        "baggage-drop-station-claim-tag-slot",
+        "baggage-drop-station-bag-tag-roll",
+        "baggage-drop-station-blank-claim-tag",
+        "baggage-drop-station-tag-feed-roller",
+        "baggage-drop-station-paper-guide",
+        "baggage-drop-station-tag-output-tray",
+        "baggage-drop-station-bag-drop-printer-cover",
+        "baggage-drop-station-printer-latch",
+        "baggage-drop-station-drop-control-tablet",
+        "baggage-drop-station-drop-blank-control-screen",
+        "baggage-drop-station-drop-screen-bezel",
+        "baggage-drop-station-equipment-shelf",
+        "baggage-drop-station-equipment-cable-pass-through",
+        "baggage-drop-station-drop-scan-window"
+      ]
+    },
+    {
+      "id": "baggage-drop-station-zone-baggage-containers",
+      "title": "Baggage and tray details",
+      "translation": "行李与托盘细节",
+      "description": "Inspect the visible plain suitcases, shells, handles, wheels, trays and belt guides.",
+      "x": 450,
+      "y": 300,
+      "width": 700,
+      "height": 350,
+      "targetScale": 3.15,
+      "labelIds": [
+        "baggage-drop-station-drop-conveyor-suitcase",
+        "baggage-drop-station-drop-suitcase-shell",
+        "baggage-drop-station-drop-suitcase-handle",
+        "baggage-drop-station-drop-suitcase-wheel",
+        "baggage-drop-station-suitcase-corner-guard",
+        "baggage-drop-station-suitcase-zipper",
+        "baggage-drop-station-suitcase-side-grip",
+        "baggage-drop-station-second-conveyor-suitcase",
+        "baggage-drop-station-second-suitcase-shell",
+        "baggage-drop-station-second-suitcase-handle",
+        "baggage-drop-station-second-suitcase-wheel",
+        "baggage-drop-station-baggage-tray",
+        "baggage-drop-station-bag-drop-tray",
+        "baggage-drop-station-tray-sidewall",
+        "baggage-drop-station-tray-stop",
+        "baggage-drop-station-belt-luggage-guide",
+        "baggage-drop-station-luggage-side-bumper"
+      ]
+    },
+    {
+      "id": "baggage-drop-station-zone-cabinet-service-panels",
+      "title": "Cabinet and service panels",
+      "translation": "柜体与服务面板",
+      "description": "Trace the visible station cabinets, access panels, vents, plinths, seams and fasteners.",
+      "x": 0,
+      "y": 450,
+      "width": 1600,
+      "height": 450,
+      "targetScale": 3.15,
+      "labelIds": [
+        "baggage-drop-station-bag-drop-station-cabinet",
+        "baggage-drop-station-bag-drop-cabinet-side-panel",
+        "baggage-drop-station-cabinet-top-panel",
+        "baggage-drop-station-cabinet-front-panel",
+        "baggage-drop-station-service-access-door",
+        "baggage-drop-station-access-door-handle",
+        "baggage-drop-station-service-drawer",
+        "baggage-drop-station-bag-drop-drawer-front",
+        "baggage-drop-station-bag-drop-drawer-pull",
+        "baggage-drop-station-drop-cable-cover",
+        "baggage-drop-station-power-inlet",
+        "baggage-drop-station-equipment-vent",
+        "baggage-drop-station-bag-drop-ventilation-grille",
+        "baggage-drop-station-base-kickplate",
+        "baggage-drop-station-plinth-corner",
+        "baggage-drop-station-floor-junction",
+        "baggage-drop-station-steel-trim",
+        "baggage-drop-station-panel-seam",
+        "baggage-drop-station-mounting-fastener",
+        "baggage-drop-station-lower-service-panel"
+      ]
+    },
+    {
+      "id": "baggage-drop-station-zone-floor-safety-rails",
+      "title": "Floor and queue rails",
+      "translation": "地面与排队隔离设施",
+      "description": "Follow the visible floor finish, queue posts, belts, access lanes and platform rails.",
+      "x": 0,
+      "y": 450,
+      "width": 1600,
+      "height": 450,
+      "targetScale": 3.15,
+      "labelIds": [
+        "baggage-drop-station-bag-drop-floor",
+        "baggage-drop-station-bag-drop-floor-tile",
+        "baggage-drop-station-bag-drop-grout-line",
+        "baggage-drop-station-bag-drop-queue-rail",
+        "baggage-drop-station-bag-drop-stanchion-post",
+        "baggage-drop-station-bag-drop-stanchion-foot",
+        "baggage-drop-station-bag-drop-queue-belt",
+        "baggage-drop-station-bag-drop-belt-receiver",
+        "baggage-drop-station-bag-drop-lane-divider",
+        "baggage-drop-station-bag-drop-access-lane",
+        "baggage-drop-station-bag-drop-floor-guide-stripe",
+        "baggage-drop-station-platform-safety-edge",
+        "baggage-drop-station-platform-guardrail",
+        "baggage-drop-station-guardrail-post",
+        "baggage-drop-station-guardrail-base"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/baggage-drop-station-premium-v1.jpg",
+    "reviewedAssetSha256": "ae99367a4eadff96cac480b88e6dcc41f585b2078615786283116bd8bd117e90",
+    "rationale": "The final 1600 by 900 baggage-drop photograph was inspected at source and output resolution. It retains 155 independently pointable drop modules, scales, conveyors, scanner and tag equipment, luggage, cabinet panels and floor-rail parts. Passenger identity, scan results, baggage routing, security outcomes, flight status, readable labels and hidden controls were excluded.",
+    "previousLabelCount": 163,
+    "retainedLabelCount": 155,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "passenger identity",
+      "scan result",
+      "baggage routing",
+      "security outcome",
+      "flight status",
+      "hidden control"
+    ]
+  },
+  "labels": [
+    {
+      "id": "baggage-drop-station-left-bag-drop-station",
+      "word": "left bag-drop station",
+      "translation": "左侧行李托运工位",
+      "x": 350,
+      "y": 450,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-left-bag-drop-station"
+    },
+    {
+      "id": "baggage-drop-station-left-baggage-scale",
+      "word": "left baggage scale",
+      "translation": "左侧行李秤",
+      "x": 300,
+      "y": 580,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-left-baggage-scale"
+    },
+    {
+      "id": "baggage-drop-station-left-scale-platform",
+      "word": "left scale platform",
+      "translation": "左侧秤台",
+      "x": 300,
+      "y": 620,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-left-scale-platform"
+    },
+    {
+      "id": "baggage-drop-station-left-scale-deck",
+      "word": "left scale deck",
+      "translation": "左侧秤面板",
+      "x": 300,
+      "y": 650,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-left-scale-deck"
+    },
+    {
+      "id": "baggage-drop-station-left-scale-edge",
+      "word": "left scale edge",
+      "translation": "左侧秤台边缘",
+      "x": 300,
+      "y": 690,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-left-scale-edge"
+    },
+    {
+      "id": "baggage-drop-station-left-bag-conveyor",
+      "word": "left bag conveyor",
+      "translation": "左侧行李传送带",
+      "x": 430,
+      "y": 520,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-left-bag-conveyor"
+    },
+    {
+      "id": "baggage-drop-station-left-belt-surface",
+      "word": "left belt surface",
+      "translation": "左侧传送带表面",
+      "x": 430,
+      "y": 600,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-left-belt-surface"
+    },
+    {
+      "id": "baggage-drop-station-left-conveyor-side-rail",
+      "word": "left conveyor side rail",
+      "translation": "左侧传送带侧导轨",
+      "x": 450,
+      "y": 500,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-left-conveyor-side-rail"
+    },
+    {
+      "id": "baggage-drop-station-left-spill-plate",
+      "word": "left spill plate",
+      "translation": "左侧溢出板",
+      "x": 420,
+      "y": 740,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-left-spill-plate"
+    },
+    {
+      "id": "baggage-drop-station-left-belt-end-plate",
+      "word": "left belt end plate",
+      "translation": "左侧传送带端板",
+      "x": 460,
+      "y": 800,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-left-belt-end-plate"
+    },
+    {
+      "id": "baggage-drop-station-left-bag-chute",
+      "word": "left bag chute",
+      "translation": "左侧行李滑槽",
+      "x": 470,
+      "y": 760,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-left-bag-chute"
+    },
+    {
+      "id": "baggage-drop-station-left-cabinet-housing",
+      "word": "left cabinet housing",
+      "translation": "左侧柜体外壳",
+      "x": 220,
+      "y": 500,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-left-cabinet-housing"
+    },
+    {
+      "id": "baggage-drop-station-left-cabinet-door",
+      "word": "left cabinet door",
+      "translation": "左侧柜门",
+      "x": 220,
+      "y": 600,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-left-cabinet-door"
+    },
+    {
+      "id": "baggage-drop-station-left-service-drawer",
+      "word": "left service drawer",
+      "translation": "左侧服务抽屉",
+      "x": 220,
+      "y": 680,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-left-service-drawer"
+    },
+    {
+      "id": "baggage-drop-station-left-drawer-handle",
+      "word": "left drawer handle",
+      "translation": "左侧抽屉把手",
+      "x": 220,
+      "y": 680,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-left-drawer-handle"
+    },
+    {
+      "id": "baggage-drop-station-left-scanner-arch",
+      "word": "left scanner arch",
+      "translation": "左侧扫描拱架",
+      "x": 420,
+      "y": 230,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-left-scanner-arch"
+    },
+    {
+      "id": "baggage-drop-station-left-arch-beam",
+      "word": "left arch beam",
+      "translation": "左侧拱架横梁",
+      "x": 420,
+      "y": 120,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-left-arch-beam"
+    },
+    {
+      "id": "baggage-drop-station-left-arch-post",
+      "word": "left arch post",
+      "translation": "左侧拱架立柱",
+      "x": 400,
+      "y": 300,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-left-arch-post"
+    },
+    {
+      "id": "baggage-drop-station-left-scanner-housing",
+      "word": "left scanner housing",
+      "translation": "左侧扫描器外壳",
+      "x": 350,
+      "y": 340,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-left-scanner-housing"
+    },
+    {
+      "id": "baggage-drop-station-left-blank-screen",
+      "word": "left blank screen",
+      "translation": "左侧空白屏幕",
+      "x": 250,
+      "y": 180,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-left-blank-screen"
+    },
+    {
+      "id": "baggage-drop-station-left-document-scanner",
+      "word": "left document scanner",
+      "translation": "左侧证件扫描器",
+      "x": 320,
+      "y": 360,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-left-document-scanner"
+    },
+    {
+      "id": "baggage-drop-station-left-tag-printer",
+      "word": "left tag printer",
+      "translation": "左侧标签打印机",
+      "x": 130,
+      "y": 420,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-left-tag-printer"
+    },
+    {
+      "id": "baggage-drop-station-left-tag-roll",
+      "word": "left tag roll",
+      "translation": "左侧标签卷",
+      "x": 135,
+      "y": 450,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-left-tag-roll"
+    },
+    {
+      "id": "baggage-drop-station-left-paper-tray",
+      "word": "left paper tray",
+      "translation": "左侧纸张托盘",
+      "x": 160,
+      "y": 500,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-left-paper-tray"
+    },
+    {
+      "id": "baggage-drop-station-left-station-plinth",
+      "word": "left station plinth",
+      "translation": "左侧工位基座",
+      "x": 300,
+      "y": 820,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-left-station-plinth"
+    },
+    {
+      "id": "baggage-drop-station-center-bag-drop-station",
+      "word": "center bag-drop station",
+      "translation": "中央行李托运工位",
+      "x": 750,
+      "y": 450,
+      "priority": 1.025,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-center-bag-drop-station"
+    },
+    {
+      "id": "baggage-drop-station-center-baggage-scale",
+      "word": "center baggage scale",
+      "translation": "中央行李秤",
+      "x": 750,
+      "y": 560,
+      "priority": 1.026,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-center-baggage-scale"
+    },
+    {
+      "id": "baggage-drop-station-center-scale-platform",
+      "word": "center scale platform",
+      "translation": "中央秤台",
+      "x": 750,
+      "y": 600,
+      "priority": 1.027,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-center-scale-platform"
+    },
+    {
+      "id": "baggage-drop-station-center-scale-display",
+      "word": "center scale display",
+      "translation": "中央秤显示屏",
+      "x": 750,
+      "y": 520,
+      "priority": 1.028,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-center-scale-display"
+    },
+    {
+      "id": "baggage-drop-station-center-scale-deck",
+      "word": "center scale deck",
+      "translation": "中央秤面板",
+      "x": 750,
+      "y": 630,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-center-scale-deck"
+    },
+    {
+      "id": "baggage-drop-station-center-conveyor-belt",
+      "word": "center conveyor belt",
+      "translation": "中央传送带",
+      "x": 700,
+      "y": 500,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-center-conveyor-belt"
+    },
+    {
+      "id": "baggage-drop-station-center-belt-surface",
+      "word": "center belt surface",
+      "translation": "中央传送带表面",
+      "x": 700,
+      "y": 580,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-center-belt-surface"
+    },
+    {
+      "id": "baggage-drop-station-center-conveyor-roller",
+      "word": "center conveyor roller",
+      "translation": "中央传送带滚筒",
+      "x": 800,
+      "y": 720,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-center-conveyor-roller"
+    },
+    {
+      "id": "baggage-drop-station-center-roller-axle",
+      "word": "center roller axle",
+      "translation": "中央滚筒轴",
+      "x": 820,
+      "y": 730,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-center-roller-axle"
+    },
+    {
+      "id": "baggage-drop-station-center-side-rail",
+      "word": "center side rail",
+      "translation": "中央侧导轨",
+      "x": 600,
+      "y": 520,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-center-side-rail"
+    },
+    {
+      "id": "baggage-drop-station-center-spill-plate",
+      "word": "center spill plate",
+      "translation": "中央溢出板",
+      "x": 700,
+      "y": 760,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-center-spill-plate"
+    },
+    {
+      "id": "baggage-drop-station-center-belt-end-plate",
+      "word": "center belt end plate",
+      "translation": "中央传送带端板",
+      "x": 850,
+      "y": 800,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-center-belt-end-plate"
+    },
+    {
+      "id": "baggage-drop-station-center-bag-chute",
+      "word": "center bag chute",
+      "translation": "中央行李滑槽",
+      "x": 900,
+      "y": 760,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-center-bag-chute"
+    },
+    {
+      "id": "baggage-drop-station-center-divider-panel",
+      "word": "center divider panel",
+      "translation": "中央分隔板",
+      "x": 600,
+      "y": 430,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-center-divider-panel"
+    },
+    {
+      "id": "baggage-drop-station-center-belt-guard",
+      "word": "center belt guard",
+      "translation": "中央传送带护板",
+      "x": 900,
+      "y": 500,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-center-belt-guard"
+    },
+    {
+      "id": "baggage-drop-station-center-scanner-arch",
+      "word": "center scanner arch",
+      "translation": "中央扫描拱架",
+      "x": 600,
+      "y": 250,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-center-scanner-arch"
+    },
+    {
+      "id": "baggage-drop-station-center-arch-beam",
+      "word": "center arch beam",
+      "translation": "中央拱架横梁",
+      "x": 600,
+      "y": 120,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-center-arch-beam"
+    },
+    {
+      "id": "baggage-drop-station-center-arch-post",
+      "word": "center arch post",
+      "translation": "中央拱架立柱",
+      "x": 580,
+      "y": 300,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-center-arch-post"
+    },
+    {
+      "id": "baggage-drop-station-center-scanner-housing",
+      "word": "center scanner housing",
+      "translation": "中央扫描器外壳",
+      "x": 620,
+      "y": 330,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-center-scanner-housing"
+    },
+    {
+      "id": "baggage-drop-station-center-scanner-lens",
+      "word": "center scanner lens",
+      "translation": "中央扫描器镜头",
+      "x": 620,
+      "y": 340,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-center-scanner-lens"
+    },
+    {
+      "id": "baggage-drop-station-center-blank-screen",
+      "word": "center blank screen",
+      "translation": "中央空白屏幕",
+      "x": 700,
+      "y": 250,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-center-blank-screen"
+    },
+    {
+      "id": "baggage-drop-station-center-luggage-case",
+      "word": "center luggage case",
+      "translation": "中央行李箱",
+      "x": 780,
+      "y": 400,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-center-luggage-case"
+    },
+    {
+      "id": "baggage-drop-station-center-suitcase-handle",
+      "word": "center suitcase handle",
+      "translation": "中央行李箱把手",
+      "x": 800,
+      "y": 390,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-center-suitcase-handle"
+    },
+    {
+      "id": "baggage-drop-station-center-suitcase-wheel",
+      "word": "center suitcase wheel",
+      "translation": "中央行李箱轮",
+      "x": 800,
+      "y": 510,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-center-suitcase-wheel"
+    },
+    {
+      "id": "baggage-drop-station-center-belt-seam",
+      "word": "center belt seam",
+      "translation": "中央传送带接缝",
+      "x": 900,
+      "y": 650,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-center-belt-seam"
+    },
+    {
+      "id": "baggage-drop-station-center-station-plinth",
+      "word": "center station plinth",
+      "translation": "中央工位基座",
+      "x": 900,
+      "y": 840,
+      "priority": 1.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-center-station-plinth"
+    },
+    {
+      "id": "baggage-drop-station-center-floor-plate",
+      "word": "center floor plate",
+      "translation": "中央地板板",
+      "x": 900,
+      "y": 870,
+      "priority": 1.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-center-floor-plate"
+    },
+    {
+      "id": "baggage-drop-station-right-bag-drop-station",
+      "word": "right bag-drop station",
+      "translation": "右侧行李托运工位",
+      "x": 1300,
+      "y": 450,
+      "priority": 1.052,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-right-bag-drop-station"
+    },
+    {
+      "id": "baggage-drop-station-right-baggage-scale",
+      "word": "right baggage scale",
+      "translation": "右侧行李秤",
+      "x": 1350,
+      "y": 580,
+      "priority": 1.053,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-right-baggage-scale"
+    },
+    {
+      "id": "baggage-drop-station-right-scale-platform",
+      "word": "right scale platform",
+      "translation": "右侧秤台",
+      "x": 1350,
+      "y": 620,
+      "priority": 1.054,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-right-scale-platform"
+    },
+    {
+      "id": "baggage-drop-station-right-scale-display",
+      "word": "right scale display",
+      "translation": "右侧秤显示屏",
+      "x": 1280,
+      "y": 380,
+      "priority": 1.055,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-right-scale-display"
+    },
+    {
+      "id": "baggage-drop-station-right-scale-deck",
+      "word": "right scale deck",
+      "translation": "右侧秤面板",
+      "x": 1350,
+      "y": 650,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-right-scale-deck"
+    },
+    {
+      "id": "baggage-drop-station-right-scale-side-rail",
+      "word": "right scale side rail",
+      "translation": "右侧秤台侧导轨",
+      "x": 1250,
+      "y": 600,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-right-scale-side-rail"
+    },
+    {
+      "id": "baggage-drop-station-right-platform-edge",
+      "word": "right platform edge",
+      "translation": "右侧平台边缘",
+      "x": 1450,
+      "y": 680,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-right-platform-edge"
+    },
+    {
+      "id": "baggage-drop-station-right-bag-tray",
+      "word": "right bag tray",
+      "translation": "右侧行李托盘",
+      "x": 1450,
+      "y": 730,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-right-bag-tray"
+    },
+    {
+      "id": "baggage-drop-station-right-cabinet-housing",
+      "word": "right cabinet housing",
+      "translation": "右侧柜体外壳",
+      "x": 1270,
+      "y": 500,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-right-cabinet-housing"
+    },
+    {
+      "id": "baggage-drop-station-right-cabinet-door",
+      "word": "right cabinet door",
+      "translation": "右侧柜门",
+      "x": 1270,
+      "y": 580,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-right-cabinet-door"
+    },
+    {
+      "id": "baggage-drop-station-right-service-drawer",
+      "word": "right service drawer",
+      "translation": "右侧服务抽屉",
+      "x": 1300,
+      "y": 680,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-right-service-drawer"
+    },
+    {
+      "id": "baggage-drop-station-right-drawer-pull",
+      "word": "right drawer pull",
+      "translation": "右侧抽屉拉手",
+      "x": 1300,
+      "y": 680,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-right-drawer-pull"
+    },
+    {
+      "id": "baggage-drop-station-right-scanner-arch",
+      "word": "right scanner arch",
+      "translation": "右侧扫描拱架",
+      "x": 1250,
+      "y": 220,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-right-scanner-arch"
+    },
+    {
+      "id": "baggage-drop-station-right-arch-beam",
+      "word": "right arch beam",
+      "translation": "右侧拱架横梁",
+      "x": 1250,
+      "y": 110,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-right-arch-beam"
+    },
+    {
+      "id": "baggage-drop-station-right-arch-post",
+      "word": "right arch post",
+      "translation": "右侧拱架立柱",
+      "x": 1200,
+      "y": 300,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-right-arch-post"
+    },
+    {
+      "id": "baggage-drop-station-right-scanner-housing",
+      "word": "right scanner housing",
+      "translation": "右侧扫描器外壳",
+      "x": 1300,
+      "y": 330,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-right-scanner-housing"
+    },
+    {
+      "id": "baggage-drop-station-right-scanner-lens",
+      "word": "right scanner lens",
+      "translation": "右侧扫描器镜头",
+      "x": 1300,
+      "y": 340,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-right-scanner-lens"
+    },
+    {
+      "id": "baggage-drop-station-right-blank-screen",
+      "word": "right blank screen",
+      "translation": "右侧空白屏幕",
+      "x": 1400,
+      "y": 170,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-right-blank-screen"
+    },
+    {
+      "id": "baggage-drop-station-right-document-scanner",
+      "word": "right document scanner",
+      "translation": "右侧证件扫描器",
+      "x": 1320,
+      "y": 390,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-right-document-scanner"
+    },
+    {
+      "id": "baggage-drop-station-right-tag-printer",
+      "word": "right tag printer",
+      "translation": "右侧标签打印机",
+      "x": 1450,
+      "y": 390,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-right-tag-printer"
+    },
+    {
+      "id": "baggage-drop-station-right-tag-roll",
+      "word": "right tag roll",
+      "translation": "右侧标签卷",
+      "x": 1450,
+      "y": 420,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-right-tag-roll"
+    },
+    {
+      "id": "baggage-drop-station-right-receipt-tray",
+      "word": "right receipt tray",
+      "translation": "右侧收据托盘",
+      "x": 1420,
+      "y": 450,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-right-receipt-tray"
+    },
+    {
+      "id": "baggage-drop-station-right-label-slot",
+      "word": "right label slot",
+      "translation": "右侧标签插槽",
+      "x": 1450,
+      "y": 470,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-right-label-slot"
+    },
+    {
+      "id": "baggage-drop-station-right-station-plinth",
+      "word": "right station plinth",
+      "translation": "右侧工位基座",
+      "x": 1300,
+      "y": 820,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-right-station-plinth"
+    },
+    {
+      "id": "baggage-drop-station-right-floor-plate",
+      "word": "right floor plate",
+      "translation": "右侧地板板",
+      "x": 1400,
+      "y": 850,
+      "priority": 1.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-right-floor-plate"
+    },
+    {
+      "id": "baggage-drop-station-right-cable-cover",
+      "word": "right cable cover",
+      "translation": "右侧电缆盖",
+      "x": 1250,
+      "y": 730,
+      "priority": 1.077,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-right-cable-cover"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-tag-scanner",
+      "word": "bag-drop tag scanner",
+      "translation": "托运行李标签扫描器",
+      "x": 330,
+      "y": 360,
+      "priority": 1.078,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-tag-scanner"
+    },
+    {
+      "id": "baggage-drop-station-handheld-tag-scanner",
+      "word": "handheld tag scanner",
+      "translation": "手持标签扫描器",
+      "x": 340,
+      "y": 380,
+      "priority": 1.079,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-handheld-tag-scanner"
+    },
+    {
+      "id": "baggage-drop-station-overhead-tag-scanner",
+      "word": "overhead tag scanner",
+      "translation": "顶部标签扫描器",
+      "x": 620,
+      "y": 320,
+      "priority": 1.08,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-overhead-tag-scanner"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-scanner-cradle",
+      "word": "bag-drop scanner cradle",
+      "translation": "托运扫描器托架",
+      "x": 350,
+      "y": 410,
+      "priority": 1.081,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-scanner-cradle"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-scanner-trigger",
+      "word": "bag-drop scanner trigger",
+      "translation": "托运扫描器扳机",
+      "x": 340,
+      "y": 400,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-scanner-trigger"
+    },
+    {
+      "id": "baggage-drop-station-scanner-cable",
+      "word": "scanner cable",
+      "translation": "扫描器电缆",
+      "x": 360,
+      "y": 430,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-scanner-cable"
+    },
+    {
+      "id": "baggage-drop-station-drop-document-scan-bed",
+      "word": "drop document scan bed",
+      "translation": "托运证件扫描台",
+      "x": 320,
+      "y": 450,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-document-scan-bed"
+    },
+    {
+      "id": "baggage-drop-station-drop-document-scan-lid",
+      "word": "drop document scan lid",
+      "translation": "托运证件扫描盖",
+      "x": 320,
+      "y": 430,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-document-scan-lid"
+    },
+    {
+      "id": "baggage-drop-station-bag-tag-printer-housing",
+      "word": "bag-tag printer housing",
+      "translation": "行李标签打印机外壳",
+      "x": 140,
+      "y": 400,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-tag-printer-housing"
+    },
+    {
+      "id": "baggage-drop-station-bag-tag-printer-slot",
+      "word": "bag-tag printer slot",
+      "translation": "行李标签打印机插槽",
+      "x": 140,
+      "y": 440,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-tag-printer-slot"
+    },
+    {
+      "id": "baggage-drop-station-claim-tag-printer",
+      "word": "claim-tag printer",
+      "translation": "行李提取标签打印机",
+      "x": 1450,
+      "y": 400,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-claim-tag-printer"
+    },
+    {
+      "id": "baggage-drop-station-claim-tag-slot",
+      "word": "claim-tag slot",
+      "translation": "行李提取标签插槽",
+      "x": 1450,
+      "y": 450,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-claim-tag-slot"
+    },
+    {
+      "id": "baggage-drop-station-bag-tag-roll",
+      "word": "bag-tag roll",
+      "translation": "行李标签卷",
+      "x": 170,
+      "y": 450,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-tag-roll"
+    },
+    {
+      "id": "baggage-drop-station-blank-claim-tag",
+      "word": "blank claim tag",
+      "translation": "空白提取标签",
+      "x": 1420,
+      "y": 470,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-blank-claim-tag"
+    },
+    {
+      "id": "baggage-drop-station-tag-feed-roller",
+      "word": "tag feed roller",
+      "translation": "标签进纸滚轮",
+      "x": 160,
+      "y": 480,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-tag-feed-roller"
+    },
+    {
+      "id": "baggage-drop-station-paper-guide",
+      "word": "paper guide",
+      "translation": "纸张导向器",
+      "x": 200,
+      "y": 500,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-paper-guide"
+    },
+    {
+      "id": "baggage-drop-station-tag-output-tray",
+      "word": "tag output tray",
+      "translation": "标签出纸托盘",
+      "x": 150,
+      "y": 520,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-tag-output-tray"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-printer-cover",
+      "word": "bag-drop printer cover",
+      "translation": "托运打印机盖",
+      "x": 220,
+      "y": 390,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-printer-cover"
+    },
+    {
+      "id": "baggage-drop-station-printer-latch",
+      "word": "printer latch",
+      "translation": "打印机锁扣",
+      "x": 220,
+      "y": 430,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-printer-latch"
+    },
+    {
+      "id": "baggage-drop-station-drop-control-tablet",
+      "word": "drop control tablet",
+      "translation": "托运控制平板",
+      "x": 1330,
+      "y": 360,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-control-tablet"
+    },
+    {
+      "id": "baggage-drop-station-drop-blank-control-screen",
+      "word": "drop blank control screen",
+      "translation": "托运空白控制屏",
+      "x": 1330,
+      "y": 330,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-blank-control-screen"
+    },
+    {
+      "id": "baggage-drop-station-drop-screen-bezel",
+      "word": "drop screen bezel",
+      "translation": "托运屏幕边框",
+      "x": 1330,
+      "y": 320,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-screen-bezel"
+    },
+    {
+      "id": "baggage-drop-station-equipment-shelf",
+      "word": "equipment shelf",
+      "translation": "设备搁板",
+      "x": 1200,
+      "y": 430,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-equipment-shelf"
+    },
+    {
+      "id": "baggage-drop-station-equipment-cable-pass-through",
+      "word": "equipment cable pass-through",
+      "translation": "设备电缆穿线孔",
+      "x": 1250,
+      "y": 470,
+      "priority": 1.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-equipment-cable-pass-through"
+    },
+    {
+      "id": "baggage-drop-station-drop-scan-window",
+      "word": "drop scan window",
+      "translation": "托运扫描窗口",
+      "x": 1300,
+      "y": 400,
+      "priority": 1.102,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-scan-window"
+    },
+    {
+      "id": "baggage-drop-station-drop-conveyor-suitcase",
+      "word": "drop conveyor suitcase",
+      "translation": "托运传送带行李箱",
+      "x": 780,
+      "y": 400,
+      "priority": 1.103,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-conveyor-suitcase"
+    },
+    {
+      "id": "baggage-drop-station-drop-suitcase-shell",
+      "word": "drop suitcase shell",
+      "translation": "托运行李箱外壳",
+      "x": 780,
+      "y": 440,
+      "priority": 1.104,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-suitcase-shell"
+    },
+    {
+      "id": "baggage-drop-station-drop-suitcase-handle",
+      "word": "drop suitcase handle",
+      "translation": "托运行李箱把手",
+      "x": 800,
+      "y": 390,
+      "priority": 1.105,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-suitcase-handle"
+    },
+    {
+      "id": "baggage-drop-station-drop-suitcase-wheel",
+      "word": "drop suitcase wheel",
+      "translation": "托运行李箱轮",
+      "x": 800,
+      "y": 510,
+      "priority": 1.106,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-suitcase-wheel"
+    },
+    {
+      "id": "baggage-drop-station-suitcase-corner-guard",
+      "word": "suitcase corner guard",
+      "translation": "行李箱护角",
+      "x": 750,
+      "y": 460,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-suitcase-corner-guard"
+    },
+    {
+      "id": "baggage-drop-station-suitcase-zipper",
+      "word": "suitcase zipper",
+      "translation": "行李箱拉链",
+      "x": 760,
+      "y": 450,
+      "priority": 1.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-suitcase-zipper"
+    },
+    {
+      "id": "baggage-drop-station-suitcase-side-grip",
+      "word": "suitcase side grip",
+      "translation": "行李箱侧提手",
+      "x": 730,
+      "y": 430,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-suitcase-side-grip"
+    },
+    {
+      "id": "baggage-drop-station-second-conveyor-suitcase",
+      "word": "second conveyor suitcase",
+      "translation": "第二只传送带行李箱",
+      "x": 980,
+      "y": 460,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-second-conveyor-suitcase"
+    },
+    {
+      "id": "baggage-drop-station-second-suitcase-shell",
+      "word": "second suitcase shell",
+      "translation": "第二只行李箱外壳",
+      "x": 980,
+      "y": 500,
+      "priority": 1.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-second-suitcase-shell"
+    },
+    {
+      "id": "baggage-drop-station-second-suitcase-handle",
+      "word": "second suitcase handle",
+      "translation": "第二只行李箱把手",
+      "x": 1000,
+      "y": 450,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-second-suitcase-handle"
+    },
+    {
+      "id": "baggage-drop-station-second-suitcase-wheel",
+      "word": "second suitcase wheel",
+      "translation": "第二只行李箱轮",
+      "x": 1000,
+      "y": 560,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-second-suitcase-wheel"
+    },
+    {
+      "id": "baggage-drop-station-baggage-tray",
+      "word": "baggage tray",
+      "translation": "行李托盘",
+      "x": 900,
+      "y": 600,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-baggage-tray"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-tray",
+      "word": "bag-drop tray",
+      "translation": "行李托运托盘",
+      "x": 600,
+      "y": 600,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-tray"
+    },
+    {
+      "id": "baggage-drop-station-tray-sidewall",
+      "word": "tray sidewall",
+      "translation": "托盘侧墙",
+      "x": 620,
+      "y": 580,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-tray-sidewall"
+    },
+    {
+      "id": "baggage-drop-station-tray-stop",
+      "word": "tray stop",
+      "translation": "托盘止挡",
+      "x": 650,
+      "y": 600,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-tray-stop"
+    },
+    {
+      "id": "baggage-drop-station-belt-luggage-guide",
+      "word": "belt luggage guide",
+      "translation": "传送带行李导向板",
+      "x": 850,
+      "y": 550,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-belt-luggage-guide"
+    },
+    {
+      "id": "baggage-drop-station-luggage-side-bumper",
+      "word": "luggage side bumper",
+      "translation": "行李侧缓冲条",
+      "x": 900,
+      "y": 540,
+      "priority": 1.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-luggage-side-bumper"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-station-cabinet",
+      "word": "bag-drop station cabinet",
+      "translation": "托运工位柜体",
+      "x": 500,
+      "y": 560,
+      "priority": 1.12,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-station-cabinet"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-cabinet-side-panel",
+      "word": "bag-drop cabinet side panel",
+      "translation": "托运柜体侧板",
+      "x": 520,
+      "y": 620,
+      "priority": 1.121,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-cabinet-side-panel"
+    },
+    {
+      "id": "baggage-drop-station-cabinet-top-panel",
+      "word": "cabinet top panel",
+      "translation": "柜体顶板",
+      "x": 550,
+      "y": 500,
+      "priority": 1.122,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-cabinet-top-panel"
+    },
+    {
+      "id": "baggage-drop-station-cabinet-front-panel",
+      "word": "cabinet front panel",
+      "translation": "柜体前板",
+      "x": 550,
+      "y": 650,
+      "priority": 1.123,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-cabinet-front-panel"
+    },
+    {
+      "id": "baggage-drop-station-service-access-door",
+      "word": "service access door",
+      "translation": "服务检修门",
+      "x": 600,
+      "y": 700,
+      "priority": 1.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-service-access-door"
+    },
+    {
+      "id": "baggage-drop-station-access-door-handle",
+      "word": "access door handle",
+      "translation": "检修门把手",
+      "x": 620,
+      "y": 700,
+      "priority": 1.125,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-access-door-handle"
+    },
+    {
+      "id": "baggage-drop-station-service-drawer",
+      "word": "service drawer",
+      "translation": "服务抽屉",
+      "x": 700,
+      "y": 700,
+      "priority": 1.126,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-service-drawer"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-drawer-front",
+      "word": "bag-drop drawer front",
+      "translation": "托运抽屉前板",
+      "x": 700,
+      "y": 720,
+      "priority": 1.127,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-drawer-front"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-drawer-pull",
+      "word": "bag-drop drawer pull",
+      "translation": "托运抽屉拉手",
+      "x": 700,
+      "y": 700,
+      "priority": 1.128,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-drawer-pull"
+    },
+    {
+      "id": "baggage-drop-station-drop-cable-cover",
+      "word": "drop cable cover",
+      "translation": "托运电缆盖",
+      "x": 750,
+      "y": 750,
+      "priority": 1.129,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-drop-cable-cover"
+    },
+    {
+      "id": "baggage-drop-station-power-inlet",
+      "word": "power inlet",
+      "translation": "电源接口",
+      "x": 800,
+      "y": 760,
+      "priority": 1.13,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-power-inlet"
+    },
+    {
+      "id": "baggage-drop-station-equipment-vent",
+      "word": "equipment vent",
+      "translation": "设备通风口",
+      "x": 900,
+      "y": 730,
+      "priority": 1.131,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-equipment-vent"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-ventilation-grille",
+      "word": "bag-drop ventilation grille",
+      "translation": "托运通风格栅",
+      "x": 1000,
+      "y": 760,
+      "priority": 1.132,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-ventilation-grille"
+    },
+    {
+      "id": "baggage-drop-station-base-kickplate",
+      "word": "base kickplate",
+      "translation": "底座踢脚板",
+      "x": 900,
+      "y": 820,
+      "priority": 1.133,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-base-kickplate"
+    },
+    {
+      "id": "baggage-drop-station-plinth-corner",
+      "word": "plinth corner",
+      "translation": "基座转角",
+      "x": 1050,
+      "y": 840,
+      "priority": 1.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-plinth-corner"
+    },
+    {
+      "id": "baggage-drop-station-floor-junction",
+      "word": "floor junction",
+      "translation": "地面交界",
+      "x": 1100,
+      "y": 850,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-floor-junction"
+    },
+    {
+      "id": "baggage-drop-station-steel-trim",
+      "word": "steel trim",
+      "translation": "钢制饰条",
+      "x": 1200,
+      "y": 700,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-steel-trim"
+    },
+    {
+      "id": "baggage-drop-station-panel-seam",
+      "word": "panel seam",
+      "translation": "面板接缝",
+      "x": 1250,
+      "y": 750,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-panel-seam"
+    },
+    {
+      "id": "baggage-drop-station-mounting-fastener",
+      "word": "mounting fastener",
+      "translation": "安装紧固件",
+      "x": 1300,
+      "y": 780,
+      "priority": 1.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-mounting-fastener"
+    },
+    {
+      "id": "baggage-drop-station-lower-service-panel",
+      "word": "lower service panel",
+      "translation": "下部服务面板",
+      "x": 1350,
+      "y": 720,
+      "priority": 1.139,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-lower-service-panel"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-floor",
+      "word": "bag-drop floor",
+      "translation": "行李托运区地面",
+      "x": 1100,
+      "y": 820,
+      "priority": 1.14,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-floor"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-floor-tile",
+      "word": "bag-drop floor tile",
+      "translation": "行李托运区地砖",
+      "x": 1200,
+      "y": 850,
+      "priority": 1.141,
+      "minLevel": 0,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-floor-tile"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-grout-line",
+      "word": "bag-drop grout line",
+      "translation": "行李托运区地砖缝",
+      "x": 1250,
+      "y": 870,
+      "priority": 1.142,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-grout-line"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-queue-rail",
+      "word": "bag-drop queue rail",
+      "translation": "行李托运排队栏杆",
+      "x": 1450,
+      "y": 500,
+      "priority": 1.143,
+      "minLevel": 1,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-queue-rail"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-stanchion-post",
+      "word": "bag-drop stanchion post",
+      "translation": "行李托运隔离柱",
+      "x": 1400,
+      "y": 550,
+      "priority": 1.144,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-stanchion-post"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-stanchion-foot",
+      "word": "bag-drop stanchion foot",
+      "translation": "行李托运隔离柱脚",
+      "x": 1400,
+      "y": 620,
+      "priority": 1.145,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-stanchion-foot"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-queue-belt",
+      "word": "bag-drop queue belt",
+      "translation": "行李托运隔离带",
+      "x": 1450,
+      "y": 530,
+      "priority": 1.146,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-queue-belt"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-belt-receiver",
+      "word": "bag-drop belt receiver",
+      "translation": "行李托运隔离带接收扣",
+      "x": 1500,
+      "y": 530,
+      "priority": 1.147,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-belt-receiver"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-lane-divider",
+      "word": "bag-drop lane divider",
+      "translation": "行李托运通道分隔栏",
+      "x": 1300,
+      "y": 600,
+      "priority": 1.148,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-lane-divider"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-access-lane",
+      "word": "bag-drop access lane",
+      "translation": "行李托运通道",
+      "x": 1200,
+      "y": 700,
+      "priority": 1.149,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-access-lane"
+    },
+    {
+      "id": "baggage-drop-station-bag-drop-floor-guide-stripe",
+      "word": "bag-drop floor guide stripe",
+      "translation": "行李托运地面导向条",
+      "x": 1250,
+      "y": 750,
+      "priority": 1.15,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-bag-drop-floor-guide-stripe"
+    },
+    {
+      "id": "baggage-drop-station-platform-safety-edge",
+      "word": "platform safety edge",
+      "translation": "平台安全边缘",
+      "x": 1350,
+      "y": 700,
+      "priority": 1.151,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-platform-safety-edge"
+    },
+    {
+      "id": "baggage-drop-station-platform-guardrail",
+      "word": "platform guardrail",
+      "translation": "平台护栏",
+      "x": 1500,
+      "y": 650,
+      "priority": 1.152,
+      "minLevel": 2,
+      "sourceVisualRegion": "baggage-drop-station-region-platform-guardrail"
+    },
+    {
+      "id": "baggage-drop-station-guardrail-post",
+      "word": "guardrail post",
+      "translation": "护栏立柱",
+      "x": 1520,
+      "y": 700,
+      "priority": 1.153,
+      "minLevel": 3,
+      "sourceVisualRegion": "baggage-drop-station-region-guardrail-post"
+    },
+    {
+      "id": "baggage-drop-station-guardrail-base",
+      "word": "guardrail base",
+      "translation": "护栏底座",
+      "x": 1520,
+      "y": 760,
+      "priority": 1.154,
+      "minLevel": 4,
+      "sourceVisualRegion": "baggage-drop-station-region-guardrail-base"
+    }
+  ],
+  "portals": []
+}
