@@ -191,6 +191,14 @@ parts, bringing the same scenes to 410, 420, 360, 360 and 360. This keeps the
 medical, transport and building vocabulary dense without changing any portal
 geometry or artwork.
 
+The v131 continuation pass adds another 150 visible parts without changing the
+five facility images: 30 operating-theatre fixtures, 30 cold-storage fittings,
+30 compounding-bench tools, 30 baggage-claim components and 30 office pantry
+parts. The scenes now reach Hospital 440, Pathology lab 450, Hospital pharmacy
+390, Airport 390 and Office building 390. The new labels remain detail-first
+LOD entries inside the existing reviewed crops, with no new portals or inferred
+clinical advice.
+
 The medical-depth pass adds 150 structural anchors without changing the five
 medical images: Blood cell 91, Heart 91, Human body 90, Hemoglobin 81 and
 Oxygen molecule 90. The added membrane, vessel, joint, protein-fold and

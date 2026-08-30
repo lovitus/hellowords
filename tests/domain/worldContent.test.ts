@@ -3047,11 +3047,11 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     ["hospital", "airport", "office-building"],
   );
   for (const [sceneId, count, zones, parent, required] of [
-    ["hospital", 410, 6, "urban-services", ["emergency department", "pathology laboratory", "mri scanner", "pharmacy", "cancer", "paracetamol", "cardiology", "hypertension", "suction unit", "table strap", "defibrillator", "pulse oximeter", "mri bore", "positioning laser"]],
-    ["pathology-lab", 420, 6, "hospital", ["histopathology", "microscope", "tissue cassette", "microtome", "staining tray", "cold cabinet", "immunohistochemistry", "slide digitizer", "cryostat", "cold chain", "blade holder", "wax scraper", "section bath", "pipette plunger"]],
-    ["hospital-pharmacy", 360, 5, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "doxycycline", "cetirizine", "lamotrigine", "drawer cart", "cart shelf mat", "azithromycin", "nystatin", "dispensing chute", "prescription scanner"]],
-    ["airport", 360, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower", "aircraft fuselage", "body scanner", "claim chute", "carousel motor", "runway threshold", "ground power unit", "gate sign frame", "departure board frame"]],
-    ["office-building", 360, 5, "urban-services", ["reception", "open plan office", "conference room", "server room", "hvac duct", "fire panel", "data center", "docking station", "fan coil", "ceiling hatch", "lift indicator", "fiber tray", "conference table corner", "marker rack"]],
+    ["hospital", 440, 6, "urban-services", ["emergency department", "pathology laboratory", "mri scanner", "pharmacy", "cancer", "paracetamol", "cardiology", "hypertension", "suction unit", "table strap", "defibrillator", "pulse oximeter", "mri bore", "positioning laser", "surgical light handle"]],
+    ["pathology-lab", 450, 6, "hospital", ["histopathology", "microscope", "tissue cassette", "microtome", "staining tray", "cold cabinet", "immunohistochemistry", "slide digitizer", "cryostat", "cold chain", "blade holder", "wax scraper", "section bath", "pipette plunger", "freezer door"]],
+    ["hospital-pharmacy", 390, 5, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "doxycycline", "cetirizine", "lamotrigine", "drawer cart", "cart shelf mat", "azithromycin", "nystatin", "dispensing chute", "prescription scanner", "calibration weight"]],
+    ["airport", 390, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower", "aircraft fuselage", "body scanner", "claim chute", "carousel motor", "runway threshold", "ground power unit", "gate sign frame", "departure board frame", "luggage shell"]],
+    ["office-building", 390, 5, "urban-services", ["reception", "open plan office", "conference room", "server room", "hvac duct", "fire panel", "data center", "docking station", "fan coil", "ceiling hatch", "lift indicator", "fiber tray", "conference table corner", "marker rack", "backsplash tile"]],
   ] as const) {
     const scene = byId.get(sceneId);
     assert.ok(scene);
