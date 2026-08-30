@@ -2752,6 +2752,12 @@ export function SceneViewport({
       Math.max(start.scale, focusTarget.targetScale),
     );
     const focusedZone = scene.detailZones?.find(({ id }) => id === focusTarget.id);
+    // The state update that marks a zone active lands after this pointer event,
+    // while the camera animation can already be producing frames. Mirror the
+    // event's exact zone into the mutable frame ref immediately so the first
+    // focused frame promotes and mounts that crop's labels instead of briefly
+    // laying out the previous (or null) zone.
+    focusedDetailZoneValueRef.current = focusedZone ?? null;
     if (focusedZone && focusedZone.labelIds.length > 1) {
       const points = focusedZone.labelIds
         .map((labelId) => labelsById.get(labelId))

@@ -896,6 +896,19 @@ test("continuity owns the camera until the fitted child frame has settled", () =
   assert.match(source.slice(pointerStart), /continuitySettlingRef\.current\) return;/);
 });
 
+test("detail-zone focus reaches the frame ref before its first camera sample", () => {
+  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  const focusStart = source.indexOf("const focusSceneTarget = useCallback");
+  const focusEnd = source.indexOf("useEffect(() => {", focusStart);
+  const focus = source.slice(focusStart, focusEnd);
+  assert.match(focus, /const focusedZone = scene\.detailZones\?\.find/);
+  assert.match(
+    focus,
+    /focusedDetailZoneValueRef\.current = focusedZone \?\? null/,
+    "a zone click cannot render one frame with the previous zone's label priority",
+  );
+});
+
 test("screen-space labels reserve the compact minimap and persistent viewer controls", () => {
   const desktop = buildViewerChromeProtectedRegions(1280, 632);
   assert.ok(desktop.some((region) => (
