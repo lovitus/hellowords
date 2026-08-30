@@ -1,0 +1,3053 @@
+{
+  "id": "carry-on-baggage-scanner",
+  "title": "Carry-on baggage scanner",
+  "translation": "随身行李扫描器",
+  "subtitle": "CT and X-ray housings, conveyors, viewing stations, bins, trays, bags and room fixtures",
+  "asset": "/scenes/carry-on-baggage-scanner-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "security-checkpoint",
+  "visualRegions": [
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-scanner",
+      "description": "Pixel-audited “carry-on CT scanner” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-gantry",
+      "description": "Pixel-audited “scanner gantry” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-gantry-housing",
+      "description": "Pixel-audited “gantry housing” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-entry-tunnel",
+      "description": "Pixel-audited “scanner entry tunnel” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 520,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-exit-tunnel",
+      "description": "Pixel-audited “scanner exit tunnel” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-tunnel-curtain",
+      "description": "Pixel-audited “scanner tunnel curtain” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-tunnel-frame",
+      "description": "Pixel-audited “scanner tunnel frame” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 520,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-bonnet",
+      "description": "Pixel-audited “scanner bonnet” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-side-panel",
+      "description": "Pixel-audited “scanner side panel” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-top-cover",
+      "description": "Pixel-audited “scanner top cover” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 30,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-front-panel",
+      "description": "Pixel-audited “scanner front panel” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 370,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-rear-panel",
+      "description": "Pixel-audited “scanner rear panel” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 660,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-access-door",
+      "description": "Pixel-audited “scanner access door” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-access-latch",
+      "description": "Pixel-audited “scanner access latch” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 390,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-inspection-window",
+      "description": "Pixel-audited “scanner inspection window” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-support-column",
+      "description": "Pixel-audited “scanner support column” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-base-plinth",
+      "description": "Pixel-audited “scanner base plinth” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-scanner-foot",
+      "description": "Pixel-audited “carry-on scanner foot” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 370,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-belt-opening",
+      "description": "Pixel-audited “scanner belt opening” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 550,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-tunnel-sill",
+      "description": "Pixel-audited “scanner tunnel sill” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 550,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-inner-liner",
+      "description": "Pixel-audited “scanner inner liner” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-corner-guard",
+      "description": "Pixel-audited “scanner corner guard” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 220,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-fastener",
+      "description": "Pixel-audited “scanner fastener” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-panel-seam",
+      "description": "Pixel-audited “scanner panel seam” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 410,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-floor-plate",
+      "description": "Pixel-audited “scanner floor plate” inside the CT scanner body crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 550,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-infeed-conveyor",
+      "description": "Pixel-audited “carry-on infeed conveyor” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-belt",
+      "description": "Pixel-audited “infeed belt” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-roller",
+      "description": "Pixel-audited “infeed roller” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-roller-axle",
+      "description": "Pixel-audited “infeed roller axle” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-side-rail",
+      "description": "Pixel-audited “infeed side rail” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-belt-guard",
+      "description": "Pixel-audited “infeed belt guard” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-spill-plate",
+      "description": "Pixel-audited “infeed spill plate” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-end-plate",
+      "description": "Pixel-audited “infeed end plate” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-frame",
+      "description": "Pixel-audited “infeed frame” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-support-leg",
+      "description": "Pixel-audited “infeed support leg” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-caster",
+      "description": "Pixel-audited “infeed caster” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-floor-plate",
+      "description": "Pixel-audited “infeed floor plate” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-belt-surface",
+      "description": "Pixel-audited “carry-on belt surface” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-belt-edge-strip",
+      "description": "Pixel-audited “belt edge strip” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-infeed-conveyor-belt-seam",
+      "description": "Pixel-audited “infeed conveyor belt seam” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-bag-entry-guide",
+      "description": "Pixel-audited “bag entry guide” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-bag-exit-guide",
+      "description": "Pixel-audited “bag exit guide” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-conveyor-suitcase",
+      "description": "Pixel-audited “conveyor suitcase” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-conveyor-suitcase-shell",
+      "description": "Pixel-audited “conveyor suitcase shell” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-conveyor-suitcase-handle",
+      "description": "Pixel-audited “conveyor suitcase handle” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-conveyor-suitcase-wheel",
+      "description": "Pixel-audited “conveyor suitcase wheel” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 490,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-belt-tunnel-threshold",
+      "description": "Pixel-audited “belt tunnel threshold” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-conveyor-support-brace",
+      "description": "Pixel-audited “conveyor support brace” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-conveyor-cable-cover",
+      "description": "Pixel-audited “conveyor cable cover” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-conveyor-rail-fastener",
+      "description": "Pixel-audited “conveyor rail fastener” inside the Infeed conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 490,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-primary-viewing-station",
+      "description": "Pixel-audited “primary viewing station” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-alternate-viewing-station",
+      "description": "Pixel-audited “alternate viewing station” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 310,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-operator-monitor",
+      "description": "Pixel-audited “operator monitor” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-operator-monitor-bezel",
+      "description": "Pixel-audited “operator monitor bezel” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-operator-monitor-stand",
+      "description": "Pixel-audited “operator monitor stand” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-operator-monitor-arm",
+      "description": "Pixel-audited “operator monitor arm” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-blank-viewing-screen",
+      "description": "Pixel-audited “blank viewing screen” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-operator-keyboard",
+      "description": "Pixel-audited “operator keyboard” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-operator-keyboard-tray",
+      "description": "Pixel-audited “operator keyboard tray” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-viewing-desk",
+      "description": "Pixel-audited “viewing desk” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-viewing-desk-worktop",
+      "description": "Pixel-audited “viewing desk worktop” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 490,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-viewing-desk-drawer",
+      "description": "Pixel-audited “viewing desk drawer” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-viewing-drawer-handle",
+      "description": "Pixel-audited “viewing drawer handle” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-operator-computer-tower",
+      "description": "Pixel-audited “operator computer tower” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-computer-tower-vent",
+      "description": "Pixel-audited “computer tower vent” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-operator-power-tap",
+      "description": "Pixel-audited “operator power tap” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-operator-power-cable",
+      "description": "Pixel-audited “operator power cable” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 550,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-search-table",
+      "description": "Pixel-audited “carry-on search table” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-search-table-shelf",
+      "description": "Pixel-audited “search table shelf” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-inspection-light",
+      "description": "Pixel-audited “scanner inspection light” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-handheld-baggage-scanner",
+      "description": "Pixel-audited “handheld baggage scanner” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-baggage-scanner-cradle",
+      "description": "Pixel-audited “baggage scanner cradle” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-handheld-scanner-cable",
+      "description": "Pixel-audited “handheld scanner cable” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-operator-console",
+      "description": "Pixel-audited “scanner operator console” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-operator-console-foot",
+      "description": "Pixel-audited “operator console foot” inside the Operator viewing stations crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-x-ray-scanner",
+      "description": "Pixel-audited “carry-on x-ray scanner” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-housing",
+      "description": "Pixel-audited “x-ray housing” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-infeed",
+      "description": "Pixel-audited “x-ray infeed” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-outfeed",
+      "description": "Pixel-audited “x-ray outfeed” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-tunnel",
+      "description": "Pixel-audited “x-ray tunnel” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-tunnel-curtain",
+      "description": "Pixel-audited “x-ray tunnel curtain” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-belt",
+      "description": "Pixel-audited “x-ray belt” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-roller",
+      "description": "Pixel-audited “x-ray roller” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-side-rail",
+      "description": "Pixel-audited “x-ray side rail” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-belt-guard",
+      "description": "Pixel-audited “x-ray belt guard” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-diverter",
+      "description": "Pixel-audited “x-ray diverter” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-manual-diverter-arm",
+      "description": "Pixel-audited “manual diverter arm” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-diverter-hinge",
+      "description": "Pixel-audited “diverter hinge” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-diverter-stop",
+      "description": "Pixel-audited “diverter stop” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1200,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-outfeed-conveyor",
+      "description": "Pixel-audited “x-ray outfeed conveyor” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-outfeed-belt",
+      "description": "Pixel-audited “x-ray outfeed belt” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-outfeed-roller",
+      "description": "Pixel-audited “x-ray outfeed roller” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-outfeed-end-plate",
+      "description": "Pixel-audited “x-ray outfeed end plate” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-outfeed-support",
+      "description": "Pixel-audited “x-ray outfeed support” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-outfeed-frame",
+      "description": "Pixel-audited “x-ray outfeed frame” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-viewing-monitor",
+      "description": "Pixel-audited “x-ray viewing monitor” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-control-panel",
+      "description": "Pixel-audited “x-ray control panel” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-panel-bezel",
+      "description": "Pixel-audited “x-ray panel bezel” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 250,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-base",
+      "description": "Pixel-audited “x-ray base” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-x-ray-cable-cover",
+      "description": "Pixel-audited “x-ray cable cover” inside the X-ray conveyor lane crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-security-bin",
+      "description": "Pixel-audited “CT security bin” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-blue-security-bin",
+      "description": "Pixel-audited “blue security bin” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-gray-security-bin",
+      "description": "Pixel-audited “gray security bin” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-bin-return-lane",
+      "description": "Pixel-audited “bin return lane” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-bin-return-roller",
+      "description": "Pixel-audited “bin return roller” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-bin-return-rail",
+      "description": "Pixel-audited “bin return rail” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-bin-return-shelf",
+      "description": "Pixel-audited “bin return shelf” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-bin-sidewall",
+      "description": "Pixel-audited “bin sidewall” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-security-bin-handle",
+      "description": "Pixel-audited “security bin handle” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1060,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-bin-base",
+      "description": "Pixel-audited “bin base” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-tray",
+      "description": "Pixel-audited “screening tray” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-gray-screening-tray",
+      "description": "Pixel-audited “gray screening tray” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-blue-screening-tray",
+      "description": "Pixel-audited “blue screening tray” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-tray-rim",
+      "description": "Pixel-audited “screening tray rim” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-tray-corner",
+      "description": "Pixel-audited “screening tray corner” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-tray-stack",
+      "description": "Pixel-audited “screening tray stack” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-tray-cart",
+      "description": "Pixel-audited “screening tray cart” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-tray-cart-wheel",
+      "description": "Pixel-audited “screening tray cart wheel” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-bag",
+      "description": "Pixel-audited “carry-on bag” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-suitcase",
+      "description": "Pixel-audited “carry-on suitcase” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-suitcase-shell",
+      "description": "Pixel-audited “carry-on suitcase shell” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-suitcase-zipper",
+      "description": "Pixel-audited “carry-on suitcase zipper” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-suitcase-wheel",
+      "description": "Pixel-audited “carry-on suitcase wheel” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-luggage-handle",
+      "description": "Pixel-audited “carry-on luggage handle” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-carry-on-bag-inspection-tray",
+      "description": "Pixel-audited “carry-on bag inspection tray” inside the Bins, trays and carry-on bags crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-room-floor",
+      "description": "Pixel-audited “screening room floor” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-room-tile",
+      "description": "Pixel-audited “screening room tile” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-floor-safety-stripe",
+      "description": "Pixel-audited “screening floor safety stripe” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-queue-rail",
+      "description": "Pixel-audited “screening queue rail” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-queue-stanchion",
+      "description": "Pixel-audited “screening queue stanchion” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-stanchion-foot",
+      "description": "Pixel-audited “screening stanchion foot” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 160,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-glass-partition",
+      "description": "Pixel-audited “screening glass partition” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-partition-post",
+      "description": "Pixel-audited “screening partition post” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-partition-base-channel",
+      "description": "Pixel-audited “screening partition base channel” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-machine-guardrail",
+      "description": "Pixel-audited “machine guardrail” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-machine-guardrail-post",
+      "description": "Pixel-audited “machine guardrail post” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-machine-guardrail-base",
+      "description": "Pixel-audited “machine guardrail base” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-service-table",
+      "description": "Pixel-audited “scanner service table” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-service-table-cabinet",
+      "description": "Pixel-audited “service table cabinet” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-service-cabinet-door",
+      "description": "Pixel-audited “service cabinet door” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-service-cabinet-handle",
+      "description": "Pixel-audited “service cabinet handle” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-scanner-equipment-shelf",
+      "description": "Pixel-audited “scanner equipment shelf” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-equipment-shelf-bracket",
+      "description": "Pixel-audited “equipment shelf bracket” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1100,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-equipment-cable-channel",
+      "description": "Pixel-audited “equipment cable channel” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-power-panel",
+      "description": "Pixel-audited “screening power panel” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-wall-panel",
+      "description": "Pixel-audited “screening wall panel” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "carry-on-baggage-scanner-region-screening-wall-seam",
+      "description": "Pixel-audited “screening wall seam” inside the Service rails and room panels crop of the carry-on scanner photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "carry-on-baggage-scanner-zone-ct-scanner-body",
+      "title": "CT scanner body",
+      "translation": "CT 扫描器机体",
+      "description": "Trace the visible CT gantry, tunnels, curtains, housing panels, supports and floor plate.",
+      "x": 300,
+      "y": 0,
+      "width": 430,
+      "height": 780,
+      "targetScale": 3.15,
+      "labelIds": [
+        "carry-on-baggage-scanner-carry-on-scanner",
+        "carry-on-baggage-scanner-scanner-gantry",
+        "carry-on-baggage-scanner-gantry-housing",
+        "carry-on-baggage-scanner-scanner-entry-tunnel",
+        "carry-on-baggage-scanner-scanner-exit-tunnel",
+        "carry-on-baggage-scanner-scanner-tunnel-curtain",
+        "carry-on-baggage-scanner-scanner-tunnel-frame",
+        "carry-on-baggage-scanner-scanner-bonnet",
+        "carry-on-baggage-scanner-scanner-side-panel",
+        "carry-on-baggage-scanner-scanner-top-cover",
+        "carry-on-baggage-scanner-scanner-front-panel",
+        "carry-on-baggage-scanner-scanner-rear-panel",
+        "carry-on-baggage-scanner-scanner-access-door",
+        "carry-on-baggage-scanner-scanner-access-latch",
+        "carry-on-baggage-scanner-scanner-inspection-window",
+        "carry-on-baggage-scanner-scanner-support-column",
+        "carry-on-baggage-scanner-scanner-base-plinth",
+        "carry-on-baggage-scanner-carry-on-scanner-foot",
+        "carry-on-baggage-scanner-scanner-belt-opening",
+        "carry-on-baggage-scanner-scanner-tunnel-sill",
+        "carry-on-baggage-scanner-scanner-inner-liner",
+        "carry-on-baggage-scanner-scanner-corner-guard",
+        "carry-on-baggage-scanner-scanner-fastener",
+        "carry-on-baggage-scanner-scanner-panel-seam",
+        "carry-on-baggage-scanner-scanner-floor-plate"
+      ]
+    },
+    {
+      "id": "carry-on-baggage-scanner-zone-infeed-conveyor",
+      "title": "Infeed conveyor lane",
+      "translation": "入口传送带通道",
+      "description": "Inspect the visible infeed belt, rollers, rails, spill plate, frame, suitcase and floor hardware.",
+      "x": 450,
+      "y": 100,
+      "width": 700,
+      "height": 800,
+      "targetScale": 3.15,
+      "labelIds": [
+        "carry-on-baggage-scanner-carry-on-infeed-conveyor",
+        "carry-on-baggage-scanner-infeed-belt",
+        "carry-on-baggage-scanner-infeed-roller",
+        "carry-on-baggage-scanner-infeed-roller-axle",
+        "carry-on-baggage-scanner-infeed-side-rail",
+        "carry-on-baggage-scanner-infeed-belt-guard",
+        "carry-on-baggage-scanner-infeed-spill-plate",
+        "carry-on-baggage-scanner-infeed-end-plate",
+        "carry-on-baggage-scanner-infeed-frame",
+        "carry-on-baggage-scanner-infeed-support-leg",
+        "carry-on-baggage-scanner-infeed-caster",
+        "carry-on-baggage-scanner-infeed-floor-plate",
+        "carry-on-baggage-scanner-carry-on-belt-surface",
+        "carry-on-baggage-scanner-belt-edge-strip",
+        "carry-on-baggage-scanner-infeed-conveyor-belt-seam",
+        "carry-on-baggage-scanner-bag-entry-guide",
+        "carry-on-baggage-scanner-bag-exit-guide",
+        "carry-on-baggage-scanner-conveyor-suitcase",
+        "carry-on-baggage-scanner-conveyor-suitcase-shell",
+        "carry-on-baggage-scanner-conveyor-suitcase-handle",
+        "carry-on-baggage-scanner-conveyor-suitcase-wheel",
+        "carry-on-baggage-scanner-belt-tunnel-threshold",
+        "carry-on-baggage-scanner-conveyor-support-brace",
+        "carry-on-baggage-scanner-conveyor-cable-cover",
+        "carry-on-baggage-scanner-conveyor-rail-fastener"
+      ]
+    },
+    {
+      "id": "carry-on-baggage-scanner-zone-operator-viewing-station",
+      "title": "Operator viewing stations",
+      "translation": "操作员观察台",
+      "description": "Study the visible primary and alternate viewing stations, blank monitors, keyboard, desk and search table.",
+      "x": 0,
+      "y": 280,
+      "width": 480,
+      "height": 620,
+      "targetScale": 3.15,
+      "labelIds": [
+        "carry-on-baggage-scanner-primary-viewing-station",
+        "carry-on-baggage-scanner-alternate-viewing-station",
+        "carry-on-baggage-scanner-operator-monitor",
+        "carry-on-baggage-scanner-operator-monitor-bezel",
+        "carry-on-baggage-scanner-operator-monitor-stand",
+        "carry-on-baggage-scanner-operator-monitor-arm",
+        "carry-on-baggage-scanner-blank-viewing-screen",
+        "carry-on-baggage-scanner-operator-keyboard",
+        "carry-on-baggage-scanner-operator-keyboard-tray",
+        "carry-on-baggage-scanner-viewing-desk",
+        "carry-on-baggage-scanner-viewing-desk-worktop",
+        "carry-on-baggage-scanner-viewing-desk-drawer",
+        "carry-on-baggage-scanner-viewing-drawer-handle",
+        "carry-on-baggage-scanner-operator-computer-tower",
+        "carry-on-baggage-scanner-computer-tower-vent",
+        "carry-on-baggage-scanner-operator-power-tap",
+        "carry-on-baggage-scanner-operator-power-cable",
+        "carry-on-baggage-scanner-carry-on-search-table",
+        "carry-on-baggage-scanner-search-table-shelf",
+        "carry-on-baggage-scanner-scanner-inspection-light",
+        "carry-on-baggage-scanner-handheld-baggage-scanner",
+        "carry-on-baggage-scanner-baggage-scanner-cradle",
+        "carry-on-baggage-scanner-handheld-scanner-cable",
+        "carry-on-baggage-scanner-scanner-operator-console",
+        "carry-on-baggage-scanner-operator-console-foot"
+      ]
+    },
+    {
+      "id": "carry-on-baggage-scanner-zone-xray-conveyor",
+      "title": "X-ray conveyor lane",
+      "translation": "X 光传送带通道",
+      "description": "Trace the visible X-ray housing, tunnels, belts, diverter hardware, rollers, monitors and base.",
+      "x": 780,
+      "y": 100,
+      "width": 620,
+      "height": 700,
+      "targetScale": 3.15,
+      "labelIds": [
+        "carry-on-baggage-scanner-carry-on-x-ray-scanner",
+        "carry-on-baggage-scanner-x-ray-housing",
+        "carry-on-baggage-scanner-x-ray-infeed",
+        "carry-on-baggage-scanner-x-ray-outfeed",
+        "carry-on-baggage-scanner-x-ray-tunnel",
+        "carry-on-baggage-scanner-x-ray-tunnel-curtain",
+        "carry-on-baggage-scanner-x-ray-belt",
+        "carry-on-baggage-scanner-x-ray-roller",
+        "carry-on-baggage-scanner-x-ray-side-rail",
+        "carry-on-baggage-scanner-x-ray-belt-guard",
+        "carry-on-baggage-scanner-x-ray-diverter",
+        "carry-on-baggage-scanner-manual-diverter-arm",
+        "carry-on-baggage-scanner-diverter-hinge",
+        "carry-on-baggage-scanner-diverter-stop",
+        "carry-on-baggage-scanner-x-ray-outfeed-conveyor",
+        "carry-on-baggage-scanner-x-ray-outfeed-belt",
+        "carry-on-baggage-scanner-x-ray-outfeed-roller",
+        "carry-on-baggage-scanner-x-ray-outfeed-end-plate",
+        "carry-on-baggage-scanner-x-ray-outfeed-support",
+        "carry-on-baggage-scanner-x-ray-outfeed-frame",
+        "carry-on-baggage-scanner-x-ray-viewing-monitor",
+        "carry-on-baggage-scanner-x-ray-control-panel",
+        "carry-on-baggage-scanner-x-ray-panel-bezel",
+        "carry-on-baggage-scanner-x-ray-base",
+        "carry-on-baggage-scanner-x-ray-cable-cover"
+      ]
+    },
+    {
+      "id": "carry-on-baggage-scanner-zone-bins-trays-bags",
+      "title": "Bins, trays and carry-on bags",
+      "translation": "托盘、置物箱与随身行李",
+      "description": "Compare the visible blue and gray bins, return lane, trays, cart and plain carry-on bags.",
+      "x": 450,
+      "y": 300,
+      "width": 1150,
+      "height": 600,
+      "targetScale": 3.15,
+      "labelIds": [
+        "carry-on-baggage-scanner-security-bin",
+        "carry-on-baggage-scanner-blue-security-bin",
+        "carry-on-baggage-scanner-gray-security-bin",
+        "carry-on-baggage-scanner-bin-return-lane",
+        "carry-on-baggage-scanner-bin-return-roller",
+        "carry-on-baggage-scanner-bin-return-rail",
+        "carry-on-baggage-scanner-bin-return-shelf",
+        "carry-on-baggage-scanner-bin-sidewall",
+        "carry-on-baggage-scanner-security-bin-handle",
+        "carry-on-baggage-scanner-bin-base",
+        "carry-on-baggage-scanner-screening-tray",
+        "carry-on-baggage-scanner-gray-screening-tray",
+        "carry-on-baggage-scanner-blue-screening-tray",
+        "carry-on-baggage-scanner-screening-tray-rim",
+        "carry-on-baggage-scanner-screening-tray-corner",
+        "carry-on-baggage-scanner-screening-tray-stack",
+        "carry-on-baggage-scanner-screening-tray-cart",
+        "carry-on-baggage-scanner-screening-tray-cart-wheel",
+        "carry-on-baggage-scanner-carry-on-bag",
+        "carry-on-baggage-scanner-carry-on-suitcase",
+        "carry-on-baggage-scanner-carry-on-suitcase-shell",
+        "carry-on-baggage-scanner-carry-on-suitcase-zipper",
+        "carry-on-baggage-scanner-carry-on-suitcase-wheel",
+        "carry-on-baggage-scanner-carry-on-luggage-handle",
+        "carry-on-baggage-scanner-carry-on-bag-inspection-tray"
+      ]
+    },
+    {
+      "id": "carry-on-baggage-scanner-zone-service-rails-panels",
+      "title": "Service rails and room panels",
+      "translation": "服务导轨与房间面板",
+      "description": "Inspect the visible screening-room floor, rails, partitions, service table, shelves, panels and seams.",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "carry-on-baggage-scanner-screening-room-floor",
+        "carry-on-baggage-scanner-screening-room-tile",
+        "carry-on-baggage-scanner-screening-floor-safety-stripe",
+        "carry-on-baggage-scanner-screening-queue-rail",
+        "carry-on-baggage-scanner-screening-queue-stanchion",
+        "carry-on-baggage-scanner-screening-stanchion-foot",
+        "carry-on-baggage-scanner-screening-glass-partition",
+        "carry-on-baggage-scanner-screening-partition-post",
+        "carry-on-baggage-scanner-screening-partition-base-channel",
+        "carry-on-baggage-scanner-machine-guardrail",
+        "carry-on-baggage-scanner-machine-guardrail-post",
+        "carry-on-baggage-scanner-machine-guardrail-base",
+        "carry-on-baggage-scanner-scanner-service-table",
+        "carry-on-baggage-scanner-service-table-cabinet",
+        "carry-on-baggage-scanner-service-cabinet-door",
+        "carry-on-baggage-scanner-service-cabinet-handle",
+        "carry-on-baggage-scanner-scanner-equipment-shelf",
+        "carry-on-baggage-scanner-equipment-shelf-bracket",
+        "carry-on-baggage-scanner-equipment-cable-channel",
+        "carry-on-baggage-scanner-screening-power-panel",
+        "carry-on-baggage-scanner-screening-wall-panel",
+        "carry-on-baggage-scanner-screening-wall-seam"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/carry-on-baggage-scanner-premium-v1.jpg",
+    "reviewedAssetSha256": "b9bb1a4985763405fab88538574a621cf9c6679653747f1babc3ab4d0511c49f",
+    "rationale": "The final 1600 by 900 carry-on scanner photograph was inspected at source and output resolution. It retains 147 independently pointable CT/X-ray machine, conveyor, viewing-station, bin, tray, bag, rail and room-fixture parts. Passenger identity, image content, alarm state, threat detection, screening outcome, security status and hidden algorithms were excluded.",
+    "previousLabelCount": 155,
+    "retainedLabelCount": 147,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "passenger identity",
+      "image content",
+      "alarm state",
+      "threat detection",
+      "screening outcome",
+      "hidden algorithm"
+    ]
+  },
+  "labels": [
+    {
+      "id": "carry-on-baggage-scanner-carry-on-scanner",
+      "word": "carry-on CT scanner",
+      "translation": "随身行李 CT 扫描器",
+      "x": 500,
+      "y": 300,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-scanner"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-gantry",
+      "word": "scanner gantry",
+      "translation": "扫描器机架",
+      "x": 500,
+      "y": 180,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-gantry"
+    },
+    {
+      "id": "carry-on-baggage-scanner-gantry-housing",
+      "word": "gantry housing",
+      "translation": "机架外壳",
+      "x": 500,
+      "y": 120,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-gantry-housing"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-entry-tunnel",
+      "word": "scanner entry tunnel",
+      "translation": "扫描器入口通道",
+      "x": 540,
+      "y": 350,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-entry-tunnel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-exit-tunnel",
+      "word": "scanner exit tunnel",
+      "translation": "扫描器出口通道",
+      "x": 650,
+      "y": 350,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-exit-tunnel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-tunnel-curtain",
+      "word": "scanner tunnel curtain",
+      "translation": "扫描通道软帘",
+      "x": 560,
+      "y": 360,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-tunnel-curtain"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-tunnel-frame",
+      "word": "scanner tunnel frame",
+      "translation": "扫描通道框架",
+      "x": 540,
+      "y": 260,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-tunnel-frame"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-bonnet",
+      "word": "scanner bonnet",
+      "translation": "扫描器侧罩",
+      "x": 400,
+      "y": 200,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-bonnet"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-side-panel",
+      "word": "scanner side panel",
+      "translation": "扫描器侧板",
+      "x": 400,
+      "y": 400,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-side-panel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-top-cover",
+      "word": "scanner top cover",
+      "translation": "扫描器顶盖",
+      "x": 500,
+      "y": 50,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-top-cover"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-front-panel",
+      "word": "scanner front panel",
+      "translation": "扫描器前板",
+      "x": 390,
+      "y": 300,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-front-panel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-rear-panel",
+      "word": "scanner rear panel",
+      "translation": "扫描器后板",
+      "x": 680,
+      "y": 300,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-rear-panel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-access-door",
+      "word": "scanner access door",
+      "translation": "扫描器检修门",
+      "x": 400,
+      "y": 520,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-access-door"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-access-latch",
+      "word": "scanner access latch",
+      "translation": "扫描器检修门锁扣",
+      "x": 410,
+      "y": 520,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-access-latch"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-inspection-window",
+      "word": "scanner inspection window",
+      "translation": "扫描器观察窗",
+      "x": 450,
+      "y": 450,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-inspection-window"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-support-column",
+      "word": "scanner support column",
+      "translation": "扫描器支柱",
+      "x": 350,
+      "y": 500,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-support-column"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-base-plinth",
+      "word": "scanner base plinth",
+      "translation": "扫描器基座",
+      "x": 500,
+      "y": 650,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-base-plinth"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-scanner-foot",
+      "word": "carry-on scanner foot",
+      "translation": "随身行李扫描器脚座",
+      "x": 390,
+      "y": 700,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-scanner-foot"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-belt-opening",
+      "word": "scanner belt opening",
+      "translation": "扫描器传送带开口",
+      "x": 570,
+      "y": 430,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-belt-opening"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-tunnel-sill",
+      "word": "scanner tunnel sill",
+      "translation": "扫描通道门槛",
+      "x": 570,
+      "y": 450,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-tunnel-sill"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-inner-liner",
+      "word": "scanner inner liner",
+      "translation": "扫描器内衬",
+      "x": 600,
+      "y": 300,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-inner-liner"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-corner-guard",
+      "word": "scanner corner guard",
+      "translation": "扫描器护角",
+      "x": 350,
+      "y": 240,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-corner-guard"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-fastener",
+      "word": "scanner fastener",
+      "translation": "扫描器紧固件",
+      "x": 420,
+      "y": 280,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-fastener"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-panel-seam",
+      "word": "scanner panel seam",
+      "translation": "扫描器面板接缝",
+      "x": 430,
+      "y": 420,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-panel-seam"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-floor-plate",
+      "word": "scanner floor plate",
+      "translation": "扫描器地板板",
+      "x": 570,
+      "y": 720,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-floor-plate"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-infeed-conveyor",
+      "word": "carry-on infeed conveyor",
+      "translation": "随身行李入口传送带",
+      "x": 700,
+      "y": 500,
+      "priority": 1.025,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-infeed-conveyor"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-belt",
+      "word": "infeed belt",
+      "translation": "入口传送带",
+      "x": 700,
+      "y": 600,
+      "priority": 1.026,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-belt"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-roller",
+      "word": "infeed roller",
+      "translation": "入口滚筒",
+      "x": 700,
+      "y": 720,
+      "priority": 1.027,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-roller"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-roller-axle",
+      "word": "infeed roller axle",
+      "translation": "入口滚筒轴",
+      "x": 720,
+      "y": 730,
+      "priority": 1.028,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-roller-axle"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-side-rail",
+      "word": "infeed side rail",
+      "translation": "入口侧导轨",
+      "x": 600,
+      "y": 500,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-side-rail"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-belt-guard",
+      "word": "infeed belt guard",
+      "translation": "入口传送带护板",
+      "x": 650,
+      "y": 550,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-belt-guard"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-spill-plate",
+      "word": "infeed spill plate",
+      "translation": "入口溢出板",
+      "x": 700,
+      "y": 760,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-spill-plate"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-end-plate",
+      "word": "infeed end plate",
+      "translation": "入口端板",
+      "x": 800,
+      "y": 800,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-end-plate"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-frame",
+      "word": "infeed frame",
+      "translation": "入口框架",
+      "x": 600,
+      "y": 800,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-frame"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-support-leg",
+      "word": "infeed support leg",
+      "translation": "入口支撑腿",
+      "x": 650,
+      "y": 840,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-support-leg"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-caster",
+      "word": "infeed caster",
+      "translation": "入口脚轮",
+      "x": 750,
+      "y": 850,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-caster"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-floor-plate",
+      "word": "infeed floor plate",
+      "translation": "入口地板板",
+      "x": 850,
+      "y": 870,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-floor-plate"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-belt-surface",
+      "word": "carry-on belt surface",
+      "translation": "随身行李传送带表面",
+      "x": 760,
+      "y": 580,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-belt-surface"
+    },
+    {
+      "id": "carry-on-baggage-scanner-belt-edge-strip",
+      "word": "belt edge strip",
+      "translation": "传送带边条",
+      "x": 600,
+      "y": 600,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-belt-edge-strip"
+    },
+    {
+      "id": "carry-on-baggage-scanner-infeed-conveyor-belt-seam",
+      "word": "infeed conveyor belt seam",
+      "translation": "入口传送带接缝",
+      "x": 800,
+      "y": 650,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-infeed-conveyor-belt-seam"
+    },
+    {
+      "id": "carry-on-baggage-scanner-bag-entry-guide",
+      "word": "bag entry guide",
+      "translation": "行李入口导向板",
+      "x": 600,
+      "y": 450,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-bag-entry-guide"
+    },
+    {
+      "id": "carry-on-baggage-scanner-bag-exit-guide",
+      "word": "bag exit guide",
+      "translation": "行李出口导向板",
+      "x": 900,
+      "y": 500,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-bag-exit-guide"
+    },
+    {
+      "id": "carry-on-baggage-scanner-conveyor-suitcase",
+      "word": "conveyor suitcase",
+      "translation": "传送带行李箱",
+      "x": 700,
+      "y": 420,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-conveyor-suitcase"
+    },
+    {
+      "id": "carry-on-baggage-scanner-conveyor-suitcase-shell",
+      "word": "conveyor suitcase shell",
+      "translation": "传送带行李箱外壳",
+      "x": 700,
+      "y": 450,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-conveyor-suitcase-shell"
+    },
+    {
+      "id": "carry-on-baggage-scanner-conveyor-suitcase-handle",
+      "word": "conveyor suitcase handle",
+      "translation": "传送带行李箱把手",
+      "x": 720,
+      "y": 400,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-conveyor-suitcase-handle"
+    },
+    {
+      "id": "carry-on-baggage-scanner-conveyor-suitcase-wheel",
+      "word": "conveyor suitcase wheel",
+      "translation": "传送带行李箱轮",
+      "x": 720,
+      "y": 510,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-conveyor-suitcase-wheel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-belt-tunnel-threshold",
+      "word": "belt tunnel threshold",
+      "translation": "传送带通道门槛",
+      "x": 600,
+      "y": 430,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-belt-tunnel-threshold"
+    },
+    {
+      "id": "carry-on-baggage-scanner-conveyor-support-brace",
+      "word": "conveyor support brace",
+      "translation": "传送带支撑架",
+      "x": 850,
+      "y": 820,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-conveyor-support-brace"
+    },
+    {
+      "id": "carry-on-baggage-scanner-conveyor-cable-cover",
+      "word": "conveyor cable cover",
+      "translation": "传送带电缆盖",
+      "x": 900,
+      "y": 780,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-conveyor-cable-cover"
+    },
+    {
+      "id": "carry-on-baggage-scanner-conveyor-rail-fastener",
+      "word": "conveyor rail fastener",
+      "translation": "传送带导轨紧固件",
+      "x": 620,
+      "y": 510,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-conveyor-rail-fastener"
+    },
+    {
+      "id": "carry-on-baggage-scanner-primary-viewing-station",
+      "word": "primary viewing station",
+      "translation": "主观察台",
+      "x": 230,
+      "y": 470,
+      "priority": 1.05,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-primary-viewing-station"
+    },
+    {
+      "id": "carry-on-baggage-scanner-alternate-viewing-station",
+      "word": "alternate viewing station",
+      "translation": "备用观察台",
+      "x": 330,
+      "y": 450,
+      "priority": 1.051,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-alternate-viewing-station"
+    },
+    {
+      "id": "carry-on-baggage-scanner-operator-monitor",
+      "word": "operator monitor",
+      "translation": "操作员显示器",
+      "x": 230,
+      "y": 370,
+      "priority": 1.052,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-operator-monitor"
+    },
+    {
+      "id": "carry-on-baggage-scanner-operator-monitor-bezel",
+      "word": "operator monitor bezel",
+      "translation": "操作员显示器边框",
+      "x": 230,
+      "y": 380,
+      "priority": 1.053,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-operator-monitor-bezel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-operator-monitor-stand",
+      "word": "operator monitor stand",
+      "translation": "操作员显示器支架",
+      "x": 230,
+      "y": 470,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-operator-monitor-stand"
+    },
+    {
+      "id": "carry-on-baggage-scanner-operator-monitor-arm",
+      "word": "operator monitor arm",
+      "translation": "操作员显示器支臂",
+      "x": 220,
+      "y": 450,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-operator-monitor-arm"
+    },
+    {
+      "id": "carry-on-baggage-scanner-blank-viewing-screen",
+      "word": "blank viewing screen",
+      "translation": "空白观察屏",
+      "x": 230,
+      "y": 390,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-blank-viewing-screen"
+    },
+    {
+      "id": "carry-on-baggage-scanner-operator-keyboard",
+      "word": "operator keyboard",
+      "translation": "操作员键盘",
+      "x": 230,
+      "y": 530,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-operator-keyboard"
+    },
+    {
+      "id": "carry-on-baggage-scanner-operator-keyboard-tray",
+      "word": "operator keyboard tray",
+      "translation": "操作员键盘托盘",
+      "x": 230,
+      "y": 550,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-operator-keyboard-tray"
+    },
+    {
+      "id": "carry-on-baggage-scanner-viewing-desk",
+      "word": "viewing desk",
+      "translation": "观察台桌面",
+      "x": 230,
+      "y": 500,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-viewing-desk"
+    },
+    {
+      "id": "carry-on-baggage-scanner-viewing-desk-worktop",
+      "word": "viewing desk worktop",
+      "translation": "观察台台面",
+      "x": 250,
+      "y": 510,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-viewing-desk-worktop"
+    },
+    {
+      "id": "carry-on-baggage-scanner-viewing-desk-drawer",
+      "word": "viewing desk drawer",
+      "translation": "观察台抽屉",
+      "x": 230,
+      "y": 650,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-viewing-desk-drawer"
+    },
+    {
+      "id": "carry-on-baggage-scanner-viewing-drawer-handle",
+      "word": "viewing drawer handle",
+      "translation": "观察台抽屉把手",
+      "x": 230,
+      "y": 650,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-viewing-drawer-handle"
+    },
+    {
+      "id": "carry-on-baggage-scanner-operator-computer-tower",
+      "word": "operator computer tower",
+      "translation": "操作员电脑主机",
+      "x": 250,
+      "y": 730,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-operator-computer-tower"
+    },
+    {
+      "id": "carry-on-baggage-scanner-computer-tower-vent",
+      "word": "computer tower vent",
+      "translation": "电脑主机通风口",
+      "x": 250,
+      "y": 740,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-computer-tower-vent"
+    },
+    {
+      "id": "carry-on-baggage-scanner-operator-power-tap",
+      "word": "operator power tap",
+      "translation": "操作员电源排插",
+      "x": 350,
+      "y": 520,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-operator-power-tap"
+    },
+    {
+      "id": "carry-on-baggage-scanner-operator-power-cable",
+      "word": "operator power cable",
+      "translation": "操作员电源线",
+      "x": 350,
+      "y": 570,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-operator-power-cable"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-search-table",
+      "word": "carry-on search table",
+      "translation": "随身行李检查台",
+      "x": 400,
+      "y": 600,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-search-table"
+    },
+    {
+      "id": "carry-on-baggage-scanner-search-table-shelf",
+      "word": "search table shelf",
+      "translation": "检查台搁板",
+      "x": 400,
+      "y": 650,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-search-table-shelf"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-inspection-light",
+      "word": "scanner inspection light",
+      "translation": "扫描检查工作灯",
+      "x": 400,
+      "y": 500,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-inspection-light"
+    },
+    {
+      "id": "carry-on-baggage-scanner-handheld-baggage-scanner",
+      "word": "handheld baggage scanner",
+      "translation": "手持行李扫描器",
+      "x": 380,
+      "y": 530,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-handheld-baggage-scanner"
+    },
+    {
+      "id": "carry-on-baggage-scanner-baggage-scanner-cradle",
+      "word": "baggage scanner cradle",
+      "translation": "行李扫描器托架",
+      "x": 380,
+      "y": 560,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-baggage-scanner-cradle"
+    },
+    {
+      "id": "carry-on-baggage-scanner-handheld-scanner-cable",
+      "word": "handheld scanner cable",
+      "translation": "手持扫描器电缆",
+      "x": 380,
+      "y": 580,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-handheld-scanner-cable"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-operator-console",
+      "word": "scanner operator console",
+      "translation": "扫描操作员控制台",
+      "x": 300,
+      "y": 500,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-operator-console"
+    },
+    {
+      "id": "carry-on-baggage-scanner-operator-console-foot",
+      "word": "operator console foot",
+      "translation": "操作台脚座",
+      "x": 300,
+      "y": 700,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-operator-console-foot"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-x-ray-scanner",
+      "word": "carry-on x-ray scanner",
+      "translation": "随身行李 X 光扫描器",
+      "x": 1050,
+      "y": 300,
+      "priority": 1.075,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-x-ray-scanner"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-housing",
+      "word": "x-ray housing",
+      "translation": "X 光设备外壳",
+      "x": 1050,
+      "y": 180,
+      "priority": 1.076,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-housing"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-infeed",
+      "word": "x-ray infeed",
+      "translation": "X 光入口",
+      "x": 900,
+      "y": 350,
+      "priority": 1.077,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-infeed"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-outfeed",
+      "word": "x-ray outfeed",
+      "translation": "X 光出口",
+      "x": 1200,
+      "y": 350,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-outfeed"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-tunnel",
+      "word": "x-ray tunnel",
+      "translation": "X 光通道",
+      "x": 1050,
+      "y": 380,
+      "priority": 1.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-tunnel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-tunnel-curtain",
+      "word": "x-ray tunnel curtain",
+      "translation": "X 光通道软帘",
+      "x": 1050,
+      "y": 390,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-tunnel-curtain"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-belt",
+      "word": "x-ray belt",
+      "translation": "X 光传送带",
+      "x": 1050,
+      "y": 500,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-belt"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-roller",
+      "word": "x-ray roller",
+      "translation": "X 光滚筒",
+      "x": 1150,
+      "y": 560,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-roller"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-side-rail",
+      "word": "x-ray side rail",
+      "translation": "X 光侧导轨",
+      "x": 950,
+      "y": 450,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-side-rail"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-belt-guard",
+      "word": "x-ray belt guard",
+      "translation": "X 光传送带护板",
+      "x": 1100,
+      "y": 500,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-belt-guard"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-diverter",
+      "word": "x-ray diverter",
+      "translation": "X 光分流器",
+      "x": 1180,
+      "y": 450,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-diverter"
+    },
+    {
+      "id": "carry-on-baggage-scanner-manual-diverter-arm",
+      "word": "manual diverter arm",
+      "translation": "手动分流臂",
+      "x": 1180,
+      "y": 430,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-manual-diverter-arm"
+    },
+    {
+      "id": "carry-on-baggage-scanner-diverter-hinge",
+      "word": "diverter hinge",
+      "translation": "分流器铰链",
+      "x": 1200,
+      "y": 440,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-diverter-hinge"
+    },
+    {
+      "id": "carry-on-baggage-scanner-diverter-stop",
+      "word": "diverter stop",
+      "translation": "分流止挡",
+      "x": 1220,
+      "y": 470,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-diverter-stop"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-outfeed-conveyor",
+      "word": "x-ray outfeed conveyor",
+      "translation": "X 光出口传送带",
+      "x": 1250,
+      "y": 500,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-outfeed-conveyor"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-outfeed-belt",
+      "word": "x-ray outfeed belt",
+      "translation": "X 光出口皮带",
+      "x": 1250,
+      "y": 550,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-outfeed-belt"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-outfeed-roller",
+      "word": "x-ray outfeed roller",
+      "translation": "X 光出口滚筒",
+      "x": 1300,
+      "y": 580,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-outfeed-roller"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-outfeed-end-plate",
+      "word": "x-ray outfeed end plate",
+      "translation": "X 光出口端板",
+      "x": 1350,
+      "y": 600,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-outfeed-end-plate"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-outfeed-support",
+      "word": "x-ray outfeed support",
+      "translation": "X 光出口支撑",
+      "x": 1300,
+      "y": 700,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-outfeed-support"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-outfeed-frame",
+      "word": "x-ray outfeed frame",
+      "translation": "X 光出口框架",
+      "x": 1350,
+      "y": 650,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-outfeed-frame"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-viewing-monitor",
+      "word": "x-ray viewing monitor",
+      "translation": "X 光观察显示器",
+      "x": 900,
+      "y": 450,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-viewing-monitor"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-control-panel",
+      "word": "x-ray control panel",
+      "translation": "X 光控制面板",
+      "x": 1000,
+      "y": 260,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-control-panel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-panel-bezel",
+      "word": "x-ray panel bezel",
+      "translation": "X 光面板边框",
+      "x": 1000,
+      "y": 270,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-panel-bezel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-base",
+      "word": "x-ray base",
+      "translation": "X 光设备基座",
+      "x": 1050,
+      "y": 700,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-base"
+    },
+    {
+      "id": "carry-on-baggage-scanner-x-ray-cable-cover",
+      "word": "x-ray cable cover",
+      "translation": "X 光电缆盖",
+      "x": 1100,
+      "y": 730,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-x-ray-cable-cover"
+    },
+    {
+      "id": "carry-on-baggage-scanner-security-bin",
+      "word": "CT security bin",
+      "translation": "CT 安检置物箱",
+      "x": 1000,
+      "y": 550,
+      "priority": 1.1,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-security-bin"
+    },
+    {
+      "id": "carry-on-baggage-scanner-blue-security-bin",
+      "word": "blue security bin",
+      "translation": "蓝色安检置物箱",
+      "x": 1000,
+      "y": 520,
+      "priority": 1.101,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-blue-security-bin"
+    },
+    {
+      "id": "carry-on-baggage-scanner-gray-security-bin",
+      "word": "gray security bin",
+      "translation": "灰色安检置物箱",
+      "x": 1100,
+      "y": 560,
+      "priority": 1.102,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-gray-security-bin"
+    },
+    {
+      "id": "carry-on-baggage-scanner-bin-return-lane",
+      "word": "bin return lane",
+      "translation": "置物箱回收通道",
+      "x": 1300,
+      "y": 650,
+      "priority": 1.103,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-bin-return-lane"
+    },
+    {
+      "id": "carry-on-baggage-scanner-bin-return-roller",
+      "word": "bin return roller",
+      "translation": "置物箱回收滚筒",
+      "x": 1300,
+      "y": 680,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-bin-return-roller"
+    },
+    {
+      "id": "carry-on-baggage-scanner-bin-return-rail",
+      "word": "bin return rail",
+      "translation": "置物箱回收导轨",
+      "x": 1300,
+      "y": 620,
+      "priority": 1.105,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-bin-return-rail"
+    },
+    {
+      "id": "carry-on-baggage-scanner-bin-return-shelf",
+      "word": "bin return shelf",
+      "translation": "置物箱回收搁板",
+      "x": 1250,
+      "y": 600,
+      "priority": 1.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-bin-return-shelf"
+    },
+    {
+      "id": "carry-on-baggage-scanner-bin-sidewall",
+      "word": "bin sidewall",
+      "translation": "置物箱侧墙",
+      "x": 1020,
+      "y": 580,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-bin-sidewall"
+    },
+    {
+      "id": "carry-on-baggage-scanner-security-bin-handle",
+      "word": "security bin handle",
+      "translation": "安检置物箱把手",
+      "x": 1080,
+      "y": 540,
+      "priority": 1.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-security-bin-handle"
+    },
+    {
+      "id": "carry-on-baggage-scanner-bin-base",
+      "word": "bin base",
+      "translation": "置物箱底座",
+      "x": 1100,
+      "y": 620,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-bin-base"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-tray",
+      "word": "screening tray",
+      "translation": "安检托盘",
+      "x": 700,
+      "y": 650,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-tray"
+    },
+    {
+      "id": "carry-on-baggage-scanner-gray-screening-tray",
+      "word": "gray screening tray",
+      "translation": "灰色安检托盘",
+      "x": 700,
+      "y": 700,
+      "priority": 1.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-gray-screening-tray"
+    },
+    {
+      "id": "carry-on-baggage-scanner-blue-screening-tray",
+      "word": "blue screening tray",
+      "translation": "蓝色安检托盘",
+      "x": 900,
+      "y": 650,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-blue-screening-tray"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-tray-rim",
+      "word": "screening tray rim",
+      "translation": "安检托盘边缘",
+      "x": 720,
+      "y": 680,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-tray-rim"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-tray-corner",
+      "word": "screening tray corner",
+      "translation": "安检托盘转角",
+      "x": 750,
+      "y": 700,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-tray-corner"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-tray-stack",
+      "word": "screening tray stack",
+      "translation": "安检托盘堆",
+      "x": 550,
+      "y": 800,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-tray-stack"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-tray-cart",
+      "word": "screening tray cart",
+      "translation": "安检托盘车",
+      "x": 600,
+      "y": 760,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-tray-cart"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-tray-cart-wheel",
+      "word": "screening tray cart wheel",
+      "translation": "安检托盘车轮",
+      "x": 600,
+      "y": 840,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-tray-cart-wheel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-bag",
+      "word": "carry-on bag",
+      "translation": "随身行李包",
+      "x": 1000,
+      "y": 420,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-bag"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-suitcase",
+      "word": "carry-on suitcase",
+      "translation": "随身行李箱",
+      "x": 1000,
+      "y": 450,
+      "priority": 1.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-suitcase"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-suitcase-shell",
+      "word": "carry-on suitcase shell",
+      "translation": "随身行李箱外壳",
+      "x": 1000,
+      "y": 480,
+      "priority": 1.12,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-suitcase-shell"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-suitcase-zipper",
+      "word": "carry-on suitcase zipper",
+      "translation": "随身行李箱拉链",
+      "x": 1000,
+      "y": 460,
+      "priority": 1.121,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-suitcase-zipper"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-suitcase-wheel",
+      "word": "carry-on suitcase wheel",
+      "translation": "随身行李箱轮",
+      "x": 1020,
+      "y": 520,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-suitcase-wheel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-luggage-handle",
+      "word": "carry-on luggage handle",
+      "translation": "随身行李把手",
+      "x": 1020,
+      "y": 420,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-luggage-handle"
+    },
+    {
+      "id": "carry-on-baggage-scanner-carry-on-bag-inspection-tray",
+      "word": "carry-on bag inspection tray",
+      "translation": "随身行李检查托盘",
+      "x": 900,
+      "y": 600,
+      "priority": 1.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-carry-on-bag-inspection-tray"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-room-floor",
+      "word": "screening room floor",
+      "translation": "安检室地面",
+      "x": 1450,
+      "y": 820,
+      "priority": 1.125,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-room-floor"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-room-tile",
+      "word": "screening room tile",
+      "translation": "安检室地砖",
+      "x": 1350,
+      "y": 850,
+      "priority": 1.126,
+      "minLevel": 0,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-room-tile"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-floor-safety-stripe",
+      "word": "screening floor safety stripe",
+      "translation": "安检地面安全条",
+      "x": 300,
+      "y": 850,
+      "priority": 1.127,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-floor-safety-stripe"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-queue-rail",
+      "word": "screening queue rail",
+      "translation": "安检排队栏杆",
+      "x": 100,
+      "y": 600,
+      "priority": 1.128,
+      "minLevel": 1,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-queue-rail"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-queue-stanchion",
+      "word": "screening queue stanchion",
+      "translation": "安检排队隔离柱",
+      "x": 150,
+      "y": 700,
+      "priority": 1.129,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-queue-stanchion"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-stanchion-foot",
+      "word": "screening stanchion foot",
+      "translation": "安检隔离柱脚",
+      "x": 180,
+      "y": 760,
+      "priority": 1.13,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-stanchion-foot"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-glass-partition",
+      "word": "screening glass partition",
+      "translation": "安检玻璃隔断",
+      "x": 1250,
+      "y": 200,
+      "priority": 1.131,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-glass-partition"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-partition-post",
+      "word": "screening partition post",
+      "translation": "安检隔断立柱",
+      "x": 1300,
+      "y": 250,
+      "priority": 1.132,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-partition-post"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-partition-base-channel",
+      "word": "screening partition base channel",
+      "translation": "安检隔断底槽",
+      "x": 1250,
+      "y": 400,
+      "priority": 1.133,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-partition-base-channel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-machine-guardrail",
+      "word": "machine guardrail",
+      "translation": "设备护栏",
+      "x": 1350,
+      "y": 500,
+      "priority": 1.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-machine-guardrail"
+    },
+    {
+      "id": "carry-on-baggage-scanner-machine-guardrail-post",
+      "word": "machine guardrail post",
+      "translation": "设备护栏立柱",
+      "x": 1400,
+      "y": 550,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-machine-guardrail-post"
+    },
+    {
+      "id": "carry-on-baggage-scanner-machine-guardrail-base",
+      "word": "machine guardrail base",
+      "translation": "设备护栏底座",
+      "x": 1400,
+      "y": 650,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-machine-guardrail-base"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-service-table",
+      "word": "scanner service table",
+      "translation": "扫描器服务台",
+      "x": 1000,
+      "y": 650,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-service-table"
+    },
+    {
+      "id": "carry-on-baggage-scanner-service-table-cabinet",
+      "word": "service table cabinet",
+      "translation": "服务台柜体",
+      "x": 1000,
+      "y": 730,
+      "priority": 1.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-service-table-cabinet"
+    },
+    {
+      "id": "carry-on-baggage-scanner-service-cabinet-door",
+      "word": "service cabinet door",
+      "translation": "服务柜门",
+      "x": 1000,
+      "y": 740,
+      "priority": 1.139,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-service-cabinet-door"
+    },
+    {
+      "id": "carry-on-baggage-scanner-service-cabinet-handle",
+      "word": "service cabinet handle",
+      "translation": "服务柜门把手",
+      "x": 1020,
+      "y": 740,
+      "priority": 1.14,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-service-cabinet-handle"
+    },
+    {
+      "id": "carry-on-baggage-scanner-scanner-equipment-shelf",
+      "word": "scanner equipment shelf",
+      "translation": "扫描设备搁板",
+      "x": 1100,
+      "y": 700,
+      "priority": 1.141,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-scanner-equipment-shelf"
+    },
+    {
+      "id": "carry-on-baggage-scanner-equipment-shelf-bracket",
+      "word": "equipment shelf bracket",
+      "translation": "设备搁板支架",
+      "x": 1120,
+      "y": 720,
+      "priority": 1.142,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-equipment-shelf-bracket"
+    },
+    {
+      "id": "carry-on-baggage-scanner-equipment-cable-channel",
+      "word": "equipment cable channel",
+      "translation": "设备电缆通道",
+      "x": 1150,
+      "y": 760,
+      "priority": 1.143,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-equipment-cable-channel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-power-panel",
+      "word": "screening power panel",
+      "translation": "安检电源面板",
+      "x": 1450,
+      "y": 300,
+      "priority": 1.144,
+      "minLevel": 3,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-power-panel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-wall-panel",
+      "word": "screening wall panel",
+      "translation": "安检墙面板",
+      "x": 1500,
+      "y": 250,
+      "priority": 1.145,
+      "minLevel": 4,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-wall-panel"
+    },
+    {
+      "id": "carry-on-baggage-scanner-screening-wall-seam",
+      "word": "screening wall seam",
+      "translation": "安检墙面接缝",
+      "x": 1500,
+      "y": 400,
+      "priority": 1.146,
+      "minLevel": 2,
+      "sourceVisualRegion": "carry-on-baggage-scanner-region-screening-wall-seam"
+    }
+  ],
+  "portals": []
+}
