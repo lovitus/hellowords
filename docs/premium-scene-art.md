@@ -160,8 +160,11 @@ baggage-claim and 30 service-core terms, bringing the five professional scenes
 to Hospital 350, Pathology lab 360, Hospital pharmacy 300, Airport 300 and
 Office building 300. The later professional-depth pass adds another 150
 grounded terms, bringing those five scenes to Hospital 380, Pathology lab 390,
-Hospital pharmacy 330, Airport 330 and Office building 330. Generic medicine
-names remain educational labels only.
+Hospital pharmacy 330, Airport 330 and Office building 330. A further imaging,
+staining, dispensing, boarding and conference-room pass adds 150 more, bringing
+the five scenes to Hospital 410, Pathology lab 420, Hospital pharmacy 360,
+Airport 360 and Office building 360. Generic medicine names remain educational
+labels only.
 
 The breadth pass adds 330 more anchors without changing artwork or portal
 geometry: City street 179, Transit hub 133, Science museum 206, City park 174
@@ -178,7 +181,9 @@ The second professional-depth pass adds 150 more anchors without changing the
 five facility images: Hospital 380, Pathology lab 390, Hospital pharmacy 330,
 Airport 330 and Office building 330. The added emergency equipment, microtomy
 hardware, generic INN names, airside ground equipment and service-core parts
-stay inside the already reviewed regions and detail zones. This keeps the
+stay inside the already reviewed regions and detail zones. A third pass adds
+another 150 visible imaging, staining, dispensing, boarding and conference-room
+parts, bringing the same scenes to 410, 420, 360, 360 and 360. This keeps the
 medical, transport and building vocabulary dense without changing any portal
 geometry or artwork.
 

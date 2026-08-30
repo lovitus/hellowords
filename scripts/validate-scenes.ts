@@ -161,13 +161,13 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "city-street": 179,
   apartment: 143,
   "urban-services": 120,
-  // The second professional-depth pass adds another reviewed equipment,
-  // medicine, airside and service-core band to each facility scene.
-  hospital: 380,
-  "pathology-lab": 390,
-  "hospital-pharmacy": 330,
-  airport: 330,
-  "office-building": 330,
+  // The latest professional-depth passes add reviewed equipment, medicine,
+  // airside, imaging, dispensing and conference-room bands to each facility.
+  hospital: 440,
+  "pathology-lab": 450,
+  "hospital-pharmacy": 390,
+  airport: 390,
+  "office-building": 390,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   // The final pixel pass also retains separately visible fossil, telescope,
