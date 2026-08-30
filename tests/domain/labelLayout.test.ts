@@ -283,6 +283,20 @@ test("screen-space layout uses anchored callouts and nudges a colliding label", 
   );
 });
 
+test("edge anchors keep a chance to place a displaced pill inside the viewport", () => {
+  const edge = label("edge-anchor", -20, 1, 0, 150);
+  const placed = computeSceneLabelLayout(
+    [edge],
+    { x: 0, y: 0, fit: 1, scale: 1 },
+    { width: 500, height: 300, compact: false },
+    false,
+  )[0];
+
+  assert.equal(placed.interactive, true);
+  assert.ok(placed.screenX - placed.offsetX < 0, "the authored anchor remains outside the viewport");
+  assert.ok(placed.screenX > 0, "the displaced word pill is still readable at the edge");
+});
+
 test("continuous motion reserves every still-legal interactive slot before new first-fit claims", () => {
   const newcomer = label("newcomer", 200, 1, 0, 218);
   const retained = label("retained", 200, 2, 2, 150);

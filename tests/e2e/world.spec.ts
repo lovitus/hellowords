@@ -988,7 +988,7 @@ test("city park exposes its expanded nature and fixture vocabulary without losin
     ["oak-tree-detail", "acorn stem"],
     ["playground-detail", "playground rail"],
     ["fountain-garden-detail", "fountain nozzle"],
-    ["park-foreground-detail", "root ridge"],
+    ["park-foreground-detail", "root flare"],
   ] as const) {
     const zone = page.locator(
       `[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`,

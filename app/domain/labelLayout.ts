@@ -965,6 +965,12 @@ export function computeSceneLabelLayout(
   options: SceneLabelLayoutOptions = {},
 ): SceneLabelLayoutItem[] {
   const effectiveScale = camera.fit * camera.scale;
+  // A displaced pill can still land inside the viewport while its authored
+  // anchor is just outside the edge. Keep a small desktop leader-radius
+  // overscan in the candidate set; the final box and collision checks still
+  // require a fully visible, non-overlapping pill. Compact screens keep the
+  // original tight candidate window to protect touch-safe density.
+  const cullingMargin = viewport.compact ? 18 : 72;
   const candidates = labels
     .flatMap((label) => {
       const lod = sceneLabelLod(label);
@@ -975,10 +981,10 @@ export function computeSceneLabelLayout(
       // does not spend that work on labels that cannot enter this frame or
       // the bounded DOM window.
       if (
-        screenX < -18
-        || screenX > viewport.width + 18
-        || screenY < -18
-        || screenY > viewport.height + 18
+        screenX < -cullingMargin
+        || screenX > viewport.width + cullingMargin
+        || screenY < -cullingMargin
+        || screenY > viewport.height + cullingMargin
       ) return [];
       const naturalOpacity = sceneLabelRevealOpacity(label, camera.scale);
       const focusedReveal = Boolean(
