@@ -141,3 +141,15 @@ test("conference room keeps 143 reviewed table, chair and meeting-device terms",
   );
 });
 
+test("office building exposes one bounded central conference-room entrance", async () => {
+  const parent = await readJson<{
+    readonly portals: readonly { childSceneId: string; sourceVisualRegion: string; x: number; y: number; width: number; height: number }[];
+    readonly visualRegions: readonly { id: string; x: number; y: number; width: number; height: number }[];
+  }>("office-building.json");
+  const portal = parent.portals.find(({ childSceneId }) => childSceneId === "conference-room");
+  assert.ok(portal);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [610, 300, 500, 340]);
+  const region = parent.visualRegions.find(({ id }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+});

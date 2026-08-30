@@ -163,6 +163,11 @@
       "parentId": "urban-services"
     },
     {
+      "id": "conference-room",
+      "title": "Conference room",
+      "parentId": "office-building"
+    },
+    {
       "id": "city-cafe",
       "title": "City cafe",
       "parentId": "city-street"

@@ -15,6 +15,8 @@ const sourceAsset = resolve(projectRoot, "scripts/assets/conference-room-v1.png"
 const publicAsset = resolve(projectRoot, "public/scenes/conference-room-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/conference-room.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/office-building.json");
+const integrate = process.argv.includes("--integrate");
 
 const WIDTH = 1_600;
 const HEIGHT = 900;
@@ -393,17 +395,70 @@ async function assertUniqueWords(scene) {
   if (existingDuplicates.length > 0) throw new Error(`conference-room term duplicates existing words: ${existingDuplicates.join(", ")}`);
 }
 
+const parentPortal = {
+  id: "enter-conference-room",
+  label: "Enter the conference room",
+  translation: "进入会议室",
+  childSceneId: "conference-room",
+  sourceVisualRegion: "portal-conference-room-central-glass-room",
+  x: 610,
+  y: 300,
+  width: 500,
+  height: 340,
+  enterScale: 3.3,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete visible central glass conference room in the office-building photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "conference-room")) {
+    const index = manifest.scenes.findIndex(({ id }) => id === "office-building");
+    if (index < 0) throw new Error("office-building is missing from the scene manifest");
+    manifest.scenes.splice(index + 1, 0, {
+      id: "conference-room",
+      title: "Conference room",
+      parentId: "office-building",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildConferenceRoomScene() {
   const assetChanged = await ensureAsset();
   const scene = makeScene();
   await assertUniqueWords(scene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
-  return {
+  const result = {
     assetChanged,
     sceneChanged,
     labels: scene.labels.length,
     zones: scene.detailZones.length,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 const isDirectInvocation = process.argv[1]

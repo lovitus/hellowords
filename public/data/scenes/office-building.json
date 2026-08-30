@@ -4311,6 +4311,18 @@
       "width": 280,
       "height": 350,
       "enterScale": 3.4
+    },
+    {
+      "id": "enter-conference-room",
+      "label": "Enter the conference room",
+      "translation": "进入会议室",
+      "childSceneId": "conference-room",
+      "sourceVisualRegion": "portal-conference-room-central-glass-room",
+      "x": 610,
+      "y": 300,
+      "width": 500,
+      "height": 340,
+      "enterScale": 3.3
     }
   ],
   "anchorAudit": {
@@ -4398,6 +4410,15 @@
       "y": 200,
       "width": 280,
       "height": 350
+    },
+    {
+      "id": "portal-conference-room-central-glass-room",
+      "description": "Complete visible central glass conference room in the office-building photograph",
+      "kind": "object",
+      "x": 610,
+      "y": 300,
+      "width": 500,
+      "height": 340
     }
   ],
   "detailZones": [
