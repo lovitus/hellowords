@@ -113,6 +113,11 @@
       "parentId": "emergency-department"
     },
     {
+      "id": "bedside-monitor-station",
+      "title": "Bedside monitor station",
+      "parentId": "intensive-care-unit"
+    },
+    {
       "id": "operating-theatre",
       "title": "Operating theatre",
       "parentId": "emergency-department"

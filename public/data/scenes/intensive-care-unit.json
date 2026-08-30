@@ -1438,6 +1438,15 @@
       "y": 791.923486,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "portal-bedside-monitor-station-left-service-column",
+      "description": "Complete visible left bedside monitor, pump rack and service-column assembly in the ICU photograph",
+      "kind": "object",
+      "x": 182,
+      "y": 153,
+      "width": 230,
+      "height": 325
     }
   ],
   "detailZones": [
@@ -3450,5 +3459,18 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-bedside-monitor-station",
+      "label": "Enter the bedside monitor station",
+      "translation": "进入床旁监护台",
+      "childSceneId": "bedside-monitor-station",
+      "sourceVisualRegion": "portal-bedside-monitor-station-left-service-column",
+      "x": 182,
+      "y": 153,
+      "width": 230,
+      "height": 325,
+      "enterScale": 3.45
+    }
+  ]
 }

@@ -13,6 +13,9 @@ const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/bedside-monitor-station-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/bedside-monitor-station-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/bedside-monitor-station.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/intensive-care-unit.json");
+const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const integrate = process.argv.includes("--integrate");
 
 const SOURCE_WIDTH = 1_672;
 const SOURCE_HEIGHT = 941;
@@ -388,19 +391,72 @@ async function ensureAsset() {
   return true;
 }
 
+const parentPortal = {
+  id: "enter-bedside-monitor-station",
+  label: "Enter the bedside monitor station",
+  translation: "进入床旁监护台",
+  childSceneId: "bedside-monitor-station",
+  sourceVisualRegion: "portal-bedside-monitor-station-left-service-column",
+  x: 182,
+  y: 153,
+  width: 230,
+  height: 325,
+  enterScale: 3.45,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete visible left bedside monitor, pump rack and service-column assembly in the ICU photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "bedside-monitor-station")) {
+    const index = manifest.scenes.findIndex(({ id }) => id === "intensive-care-unit");
+    if (index < 0) throw new Error("intensive-care-unit is missing from the scene manifest");
+    manifest.scenes.splice(index + 1, 0, {
+      id: "bedside-monitor-station",
+      title: "Bedside monitor station",
+      parentId: "intensive-care-unit",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildBedsideMonitorStationScene() {
   const scene = buildScene();
   if (scene.labels.length < 140 || scene.labels.length > 155) {
     throw new Error(`bedside-monitor label count ${scene.labels.length} is outside 140–155`);
   }
   if (scene.detailZones.length !== 6) throw new Error(`bedside-monitor zone count ${scene.detailZones.length} is not 6`);
-  return {
+  const result = {
     assetChanged: await ensureAsset(),
     sceneChanged: await writeIfChanged(scenePath, scene),
     labels: scene.labels.length,
     zones: scene.detailZones.length,
     parentId: scene.parentId,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve(import.meta.filename)) {

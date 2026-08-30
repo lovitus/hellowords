@@ -113,6 +113,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "operating-theatre": 90,
   "post-anesthesia-care-unit": 120,
   "intensive-care-unit": 140,
+  "bedside-monitor-station": 140,
   // The dedicated pathology lab keeps microscope, specimen, embedding, staining
   // and cold-storage terms in one focused educational bench.
   "pathology-lab": 100,
@@ -214,6 +215,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "operating-theatre": 109,
   "post-anesthesia-care-unit": 134,
   "intensive-care-unit": 159,
+  "bedside-monitor-station": 150,
   "pathology-lab": 450,
   "hospital-pharmacy": 390,
   airport: 390,

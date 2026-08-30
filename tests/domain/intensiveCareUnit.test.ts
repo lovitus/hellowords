@@ -49,10 +49,10 @@ test("the intensive-care unit grounds 159 distinct visible ICU objects", async (
   assert.equal(scene.labels.length, 159);
   assert.equal(new Set(scene.labels.map(({ word }) => word)).size, 159);
   assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 159);
-  assert.equal(scene.visualRegions.length, 159);
+  assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.equal(scene.detailZones.length, 6);
   assert.equal(new Set(scene.detailZones.flatMap(({ labelIds }) => labelIds)).size, 159);
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["bedside-monitor-station"]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.retainedLabelCount, 159);

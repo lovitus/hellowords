@@ -437,6 +437,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 20,
     },
   },
+  "bedside-monitor-station": {
+    asset: "/scenes/bedside-monitor-station-premium-v1.jpg",
+    sha256: "f9af7efbe82d4e050bfc1b52210eb370ac1eeb08aec54f63d87676a9f96e03e6",
+    quality: {
+      minMeanLuminance: 130,
+      maxMeanLuminance: 180,
+      maxDarkFraction: 0.11,
+      maxDeepDarkFraction: 0.05,
+      minMeanChroma: 0.05,
+      maxMeanChroma: 0.16,
+      maxChannelMeanSpread: 20,
+    },
+  },
   "refrigerated-display-case": {
     asset: "/scenes/refrigerated-display-case-premium-v1.jpg",
     sha256: "80f2242e79d3edd8ac7bf10739a821c09a2c4f37e8abbc56e961f96be942b1a4",
