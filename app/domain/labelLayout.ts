@@ -1117,12 +1117,24 @@ export function computeSceneLabelLayout(
           || first[0] - second[0]
         ))
       : canonicalOffsets;
+    // A collision can make the remembered slot unavailable even though the
+    // anchor is still on screen. Try a few bounded points on the path toward
+    // the nearest canonical slots before taking the full ring jump; this keeps
+    // the leader moving locally while the collision pass remains authoritative.
+    const transitionalOffsets = hasPreferredOffset
+      ? preferredAlternatives
+        .slice(0, 8)
+        .flatMap(([offsetX, offsetY]) => [0.5, 0.78].map((progress) => (
+          [
+            preferredOffset!.offsetX + (offsetX - preferredOffset!.offsetX) * progress,
+            preferredOffset!.offsetY + (offsetY - preferredOffset!.offsetY) * progress,
+          ] as const
+        )))
+      : [];
     const authoredOffsets = hasPreferredOffset
       ? [
           [preferredOffset!.offsetX, preferredOffset!.offsetY] as const,
-          // CSS transitions the final callout move. Keeping the layout
-          // decision on a canonical slot avoids feeding a fractional
-          // in-between point back into the next frame's preferred offset.
+          ...transitionalOffsets,
           ...preferredAlternatives,
         ]
       : preferredAlternatives;
