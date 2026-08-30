@@ -65,7 +65,7 @@ test("supermarket grocery keeps dense practical vocabulary and one visible backr
   assert.equal(scene.asset, "/scenes/supermarket-grocery-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 115);
-  assert.equal(scene.visualRegions.length, scene.labels.length + 2);
+  assert.equal(scene.visualRegions.length, scene.labels.length + 3);
   assert.deepEqual(scene.detailZones.map((zone) => [zone.id, zone.labelIds.length]), [
     ["supermarket-grocery-zone-produce-section", 23],
     ["supermarket-grocery-zone-chilled-dairy", 24],
@@ -80,6 +80,7 @@ test("supermarket grocery keeps dense practical vocabulary and one visible backr
   assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), [
     "supermarket-backroom",
     "supermarket-checkout-station",
+    "refrigerated-display-case",
   ]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");

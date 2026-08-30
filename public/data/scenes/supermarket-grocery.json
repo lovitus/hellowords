@@ -1060,6 +1060,15 @@
       "y": 440,
       "width": 390,
       "height": 450
+    },
+    {
+      "id": "portal-refrigerated-display-case-central-cabinet",
+      "description": "Complete visible central glass-door refrigerated cabinet in the supermarket photograph",
+      "kind": "object",
+      "x": 320,
+      "y": 110,
+      "width": 520,
+      "height": 390
     }
   ],
   "detailZones": [
@@ -2553,6 +2562,18 @@
       "width": 390,
       "height": 450,
       "enterScale": 3.25
+    },
+    {
+      "id": "enter-refrigerated-display-case",
+      "label": "Enter the refrigerated display case",
+      "translation": "进入冷藏陈列柜",
+      "childSceneId": "refrigerated-display-case",
+      "sourceVisualRegion": "portal-refrigerated-display-case-central-cabinet",
+      "x": 320,
+      "y": 110,
+      "width": 520,
+      "height": 390,
+      "enterScale": 3.4
     }
   ]
 }

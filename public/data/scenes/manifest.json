@@ -13,6 +13,11 @@
       "parentId": "world-map"
     },
     {
+      "id": "refrigerated-display-case",
+      "title": "Refrigerated display case",
+      "parentId": "supermarket-grocery"
+    },
+    {
       "id": "supermarket-checkout-station",
       "title": "Supermarket checkout station",
       "parentId": "supermarket-grocery"

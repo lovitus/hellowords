@@ -16,6 +16,8 @@ const sourceAsset = resolve(projectRoot, "scripts/assets/refrigerated-display-ca
 const publicAsset = resolve(projectRoot, "public/scenes/refrigerated-display-case-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/refrigerated-display-case.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/supermarket-grocery.json");
+const integrate = process.argv.includes("--integrate");
 
 const WIDTH = 1_600;
 const HEIGHT = 900;
@@ -380,17 +382,70 @@ async function assertUniqueWords(scene) {
   if (existingDuplicates.length > 0) throw new Error(`refrigerated-display-case term duplicates existing words: ${existingDuplicates.join(", ")}`);
 }
 
+const parentPortal = {
+  id: "enter-refrigerated-display-case",
+  label: "Enter the refrigerated display case",
+  translation: "进入冷藏陈列柜",
+  childSceneId: "refrigerated-display-case",
+  sourceVisualRegion: "portal-refrigerated-display-case-central-cabinet",
+  x: 320,
+  y: 110,
+  width: 520,
+  height: 390,
+  enterScale: 3.4,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete visible central glass-door refrigerated cabinet in the supermarket photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "refrigerated-display-case")) {
+    const index = manifest.scenes.findIndex(({ id }) => id === "supermarket-grocery");
+    if (index < 0) throw new Error("supermarket-grocery is missing from the scene manifest");
+    manifest.scenes.splice(index + 1, 0, {
+      id: "refrigerated-display-case",
+      title: "Refrigerated display case",
+      parentId: "supermarket-grocery",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildRefrigeratedDisplayCaseScene() {
   const assetChanged = await ensureAsset();
   const scene = makeScene();
   await assertUniqueWords(scene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
-  return {
+  const result = {
     assetChanged,
     sceneChanged,
     labels: scene.labels.length,
     zones: scene.detailZones.length,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 const isDirectInvocation = process.argv[1]

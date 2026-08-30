@@ -398,6 +398,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 20,
     },
   },
+  "refrigerated-display-case": {
+    asset: "/scenes/refrigerated-display-case-premium-v1.jpg",
+    sha256: "80f2242e79d3edd8ac7bf10739a821c09a2c4f37e8abbc56e961f96be942b1a4",
+    quality: {
+      minMeanLuminance: 100,
+      maxMeanLuminance: 145,
+      maxDarkFraction: 0.3,
+      maxDeepDarkFraction: 0.14,
+      minMeanChroma: 0.08,
+      maxMeanChroma: 0.16,
+      maxChannelMeanSpread: 30,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<
