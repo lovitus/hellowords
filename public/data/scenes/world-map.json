@@ -14267,8 +14267,8 @@
       "translation": "探索校园",
       "childSceneId": "school-campus",
       "sourceVisualRegion": "portal-enter-school-campus",
-      "x": 220,
-      "y": 20,
+      "x": 500,
+      "y": 180,
       "width": 220,
       "height": 145,
       "enterScale": 3.75
@@ -14333,8 +14333,8 @@
       "id": "portal-enter-school-campus",
       "description": "Complete visible school interior and corridor area on the school atlas panel",
       "kind": "object",
-      "x": 220,
-      "y": 20,
+      "x": 500,
+      "y": 180,
       "width": 220,
       "height": 145
     },

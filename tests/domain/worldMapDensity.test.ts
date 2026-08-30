@@ -63,7 +63,7 @@ const expectedPortals = [
   {
     childSceneId: "school-campus",
     sourceVisualRegion: "portal-enter-school-campus",
-    rectangle: { x: 220, y: 20, width: 220, height: 145 },
+    rectangle: { x: 500, y: 180, width: 220, height: 145 },
   },
 ] as const;
 
