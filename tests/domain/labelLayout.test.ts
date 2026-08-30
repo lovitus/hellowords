@@ -102,6 +102,25 @@ test("focused detail batches promote their own LOD4 words only at the crop scale
   assert.ok(focused.opacity >= 0.82);
 });
 
+test("compact focused anchors take collision ownership before unrelated labels", () => {
+  const labels = [
+    label("overview", 180, 1, 0, 120),
+    label("focused", 180, 9, 0, 120),
+  ];
+  const layout = computeSceneLabelLayout(
+    labels,
+    { x: 0, y: 0, fit: 1, scale: 1 },
+    { width: 420, height: 260, compact: true },
+    false,
+    { priorityLabelIds: new Set(["focused"]) },
+  );
+  assert.ok(
+    layout.find((item) => item.id === "focused")!.placementOrder
+      < layout.find((item) => item.id === "overview")!.placementOrder,
+    "the focused crop should reserve the first collision slot",
+  );
+});
+
 test("dense desktop pills are one-third shorter while compact touch boxes stay 28px", () => {
   const labels = [
     label("overview", 120, 1, 0, 120),

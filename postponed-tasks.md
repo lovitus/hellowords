@@ -7,7 +7,7 @@
 - 公开版本：`v123-d6373bf`
 - 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=123-d6373bf#world>
 - 源码：`d6373bf382e8d65ca4b4efc945e67ebff1de9bb6`（医疗词汇批次与紧接的焦点区可读性修复；医院 350、病理实验室 360、医院药房 300、机场 300、写字楼 300；Blood cell 91、Heart 91、Human body 90、Hemoglobin 81、Oxygen molecule 90）。累计空间锚点 6,266、5,342 个去重词；继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：v123 已公开发布并完成真实冒烟；之后继续按“先堆词、再精修”扩展机场、医院、写字楼和其他可审计场景。
+- 当前工作批次：下一批专业场景扩词已写入工作树，待验证后发布 v124；继续按“先堆词、再精修”扩展机场、医院、写字楼和其他可审计场景。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### v122 交付记录（2026-08-29）
@@ -31,6 +31,7 @@
 - 清理记录：v122 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v122/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
 - v123 在五个医疗科学场景各增加 30 个结构词：Blood cell 91、Heart 91、Human body 90、Hemoglobin 81、Oxygen molecule 90；词汇均落在既有审计图像与细节区，不引入诊疗建议或不可见过程。
 - v123 修复紧凑视口从深层区块切换到宽区块时的焦点丢词：区块点击允许最多半级回缩以容纳完整词群，并让当前焦点词优先获得安全标签槽；公开发布前已跑完整 E2E（106 通过 / 36 设计性跳过）与性能门（2/2）。
+- v124 候选批次在既有五张设施图上再增加 150 个词：Hospital 380、Pathology lab 390、Hospital pharmacy 330、Airport 330、Office building 330；更新证据上限与文档后再做一次整批公开发布。
 
 ## 当前续开发游标（2026-08-29）
 
