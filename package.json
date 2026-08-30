@@ -18,6 +18,7 @@
     "test:e2e": "playwright test tests/e2e --project=chromium --project=mobile-chromium",
     "test:perf": "playwright test --project=performance",
     "analyze:build": "node scripts/analyze-build.mjs",
+    "release:check": "node scripts/check-public-release.mjs",
     "test": "npm run typecheck && npm run validate:data && npm run test:unit && npm run build && npm run test:ssr",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "verify": "npm run lint && npm test && npm run analyze:build",
