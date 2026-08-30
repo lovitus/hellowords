@@ -988,6 +988,15 @@
       "y": 724.973433,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "recovery-ward",
+      "description": "Complete visible recovery ward beyond the glazed opening in the operating-theatre photograph",
+      "kind": "object",
+      "x": 1050,
+      "y": 100,
+      "width": 500,
+      "height": 430
     }
   ],
   "detailZones": [
@@ -2385,5 +2394,18 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-post-anesthesia-care-unit",
+      "label": "Enter the post-anesthesia care unit",
+      "translation": "进入麻醉后恢复室",
+      "childSceneId": "post-anesthesia-care-unit",
+      "sourceVisualRegion": "recovery-ward",
+      "x": 1050,
+      "y": 100,
+      "width": 500,
+      "height": 430,
+      "enterScale": 3.4
+    }
+  ]
 }

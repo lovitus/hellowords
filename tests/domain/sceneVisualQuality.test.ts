@@ -346,6 +346,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 25,
     },
   },
+  "post-anesthesia-care-unit": {
+    asset: "/scenes/post-anesthesia-care-unit-premium-v1.jpg",
+    sha256: "e3329b44269fbd08545a2a1adf3e0f9929696fde864fd4ff42537366cb2cedef",
+    quality: {
+      minMeanLuminance: 135,
+      maxMeanLuminance: 180,
+      maxDarkFraction: 0.1,
+      maxDeepDarkFraction: 0.05,
+      minMeanChroma: 0.05,
+      maxMeanChroma: 0.18,
+      maxChannelMeanSpread: 25,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

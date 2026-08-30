@@ -10,6 +10,7 @@ interface Pipeline {
   removeAlpha(): Pipeline;
   extract(region: { left: number; top: number; width: number; height: number }): Pipeline;
   raw(): Pipeline;
+  metadata(): Promise<{ format?: string; width?: number; height?: number }>;
   toBuffer(options: { resolveWithObject: true }): Promise<{
     data: Buffer;
     info: { width: number; height: number; channels: number };
@@ -84,7 +85,7 @@ test("acute hospital rasters stay bright enough for dense labels", async () => {
     assert.ok(metrics.meanChroma >= contract.minChroma, `${contract.id} is too desaturated`);
     assert.ok(metrics.meanChroma <= contract.maxChroma, `${contract.id} is oversaturated`);
     assert.ok(metrics.channelMeanSpread <= contract.maxSpread, `${contract.id} has a color cast`);
-    if (contract.portalCrop) {
+    if ("portalCrop" in contract) {
       const portal = await measure(file, contract.portalCrop);
       assert.ok(portal.meanLuminance >= 95, "the operating-theatre doorway remains readable");
       assert.ok(portal.deepDarkFraction <= 0.12, "the operating-theatre doorway is not blocked by shadow");

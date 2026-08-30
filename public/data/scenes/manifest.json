@@ -93,6 +93,11 @@
       "parentId": "emergency-department"
     },
     {
+      "id": "post-anesthesia-care-unit",
+      "title": "Post-anesthesia care unit",
+      "parentId": "operating-theatre"
+    },
+    {
       "id": "radiology-suite",
       "title": "Radiology suite",
       "parentId": "hospital"
