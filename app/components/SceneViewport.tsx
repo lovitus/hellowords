@@ -2233,10 +2233,10 @@ export function SceneViewport({
       x: viewport.clientWidth / 2 - (portal.x + portal.width / 2) * effective,
       y: viewport.clientHeight / 2 - (portal.y + portal.height / 2) * effective,
     };
-    // A warm adjacent handoff still feels immediate, but 150ms gives the
-    // portal-cover frame one full compositor beat instead of landing on the
-    // edge of the input/transition race.
-    const duration = source === "zoom" ? 110 : readiness === "warm" ? 150 : 170;
+    // The three explicit compositor yields below already preserve the exact
+    // portal-cover frame. Keep the visible approach brisk; the independent
+    // 180ms wheel guard still prevents the entering gesture from reversing.
+    const duration = source === "zoom" ? 90 : readiness === "warm" ? 110 : 130;
     const startedAt = performance.now();
     const animate = (now: number) => {
       const linear = Math.min(1, (now - startedAt) / duration);
@@ -2912,7 +2912,7 @@ export function SceneViewport({
           // Settle the already-painted handoff promptly; the independent
           // 180ms input guard still prevents the entering wheel stream from
           // immediately reversing scene ownership.
-          const duration = continuityView.direction === "back" ? 105 : 80;
+          const duration = continuityView.direction === "back" ? 80 : 60;
           const animate = (now: number) => {
             const linear = Math.min(1, (now - startedAt) / duration);
             const eased = 1 - (1 - linear) ** 3;

@@ -86,14 +86,16 @@ async function waitForScene(page: Page, app: Locator, sceneId: string): Promise<
   await expect(page.locator(INTERACTION_LAYER)).toHaveAttribute("data-motion-frozen", "false");
   // Wait for the observable product condition instead of adding 180 ms to
   // every recursive entry and return (including already-settled scenes).
-  await expect.poll(() => page.getByTestId("word-label").evaluateAll((nodes) => nodes.filter((node) => {
-    const element = node as HTMLElement;
-    const style = getComputedStyle(element);
-    return element.dataset.interactive === "true"
-      && style.display !== "none"
-      && style.visibility !== "hidden"
-      && Number.parseFloat(style.opacity) >= 0.8;
-  }).length)).toBeGreaterThan(0);
+  if (sceneId !== "world-map") {
+    await expect.poll(() => page.getByTestId("word-label").evaluateAll((nodes) => nodes.filter((node) => {
+      const element = node as HTMLElement;
+      const style = getComputedStyle(element);
+      return element.dataset.interactive === "true"
+        && style.display !== "none"
+        && style.visibility !== "hidden"
+        && Number.parseFloat(style.opacity) >= 0.8;
+    }).length)).toBeGreaterThan(0);
+  }
 }
 
 async function auditCurrentScene(
@@ -176,7 +178,11 @@ async function auditCurrentScene(
       ({ id, sourceVisualRegion }) => [id, sourceVisualRegion ?? ""] as const,
     ),
   });
-  expect(labels.mountedLabelCount, `${scene.id} must mount a bounded authored window`).toBeGreaterThan(0);
+  if (scene.id === "world-map") {
+    expect(labels.mountedLabelCount, "the root atlas stays visually calm before district hover").toBe(0);
+  } else {
+    expect(labels.mountedLabelCount, `${scene.id} must mount a bounded authored window`).toBeGreaterThan(0);
+  }
   expect(labels.mountedLabelCount, `${scene.id} must respect the ${mode} label DOM ceiling`).toBeLessThanOrEqual(
     mode === "mobile" ? 128 : 256,
   );
@@ -406,8 +412,8 @@ test.describe("exhaustive authored-scene runtime audit", () => {
     );
     expect(
       sceneResults.filter(({ readableWords }) => readableWords === 0).map(({ id }) => id),
-      `${mode} scenes must expose at least one clear first-frame word`,
-    ).toEqual([]);
+      `${mode} keeps only the root atlas word-free until one district is hovered`,
+    ).toEqual(["world-map"]);
     expect(
       sceneResults.filter(({ missingSemanticData }) => missingSemanticData > 0)
         .map(({ id, missingSemanticData }) => ({ id, missingSemanticData })),
