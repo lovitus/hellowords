@@ -22,7 +22,7 @@ async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8")) as T;
 }
 
-test("school-campus is a reviewed standalone scene with new practical vocabulary", async () => {
+test("school-campus is a reviewed branch scene with new practical vocabulary", async () => {
   const scene = await readJson<{
     id: string;
     parentId: string;
@@ -60,13 +60,16 @@ test("school-campus is a reviewed standalone scene with new practical vocabulary
   assert.equal(scene.width, 1_600);
   assert.equal(scene.height, 900);
   assert.equal(scene.labels.length, 73);
-  assert.equal(scene.visualRegions.length, scene.labels.length);
+  assert.equal(scene.visualRegions.length, scene.labels.length + 1);
   assert.equal(scene.detailZones.length, 10);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
     [10, 10, 19, 18, 16],
   );
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(
+    scene.portals.map((portal) => (portal as { childSceneId: string }).childSceneId),
+    ["library-reading-room"],
+  );
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 6);

@@ -94,17 +94,24 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   const app = await openWorld(page);
   const minimap = page.locator(MINIMAP);
   await expect(minimap).toHaveAttribute("data-scene-id", "world-map");
-  await expect(minimap).toHaveAttribute("data-child-count", "5");
+  await expect(minimap).toHaveAttribute("data-child-count", "6");
   await expect(minimap).toHaveAttribute("data-terminal", "false");
   await expect(page.getByTestId("scene-minimap-title")).toHaveText("World atlas");
   await expect(page.getByTestId("scene-minimap-subtitle")).toHaveText(
     "Explore six detailed districts on one atlas",
   );
   await expect(page.locator(".scene-heading")).toHaveCount(0);
-  await expect(minimap.locator(CHILD)).toHaveCount(5);
+  await expect(minimap.locator(CHILD)).toHaveCount(6);
   expect((await minimap.locator(CHILD).evaluateAll((buttons) => buttons.map((button) => (
     (button as HTMLElement).dataset.targetScene
-  )).sort()))).toEqual(["apartment", "city-park", "city-street", "community-garden", "school-campus"]);
+  )).sort()))).toEqual([
+    "apartment",
+    "city-park",
+    "city-street",
+    "community-garden",
+    "school-campus",
+    "supermarket-grocery",
+  ]);
   expect(await minimap.locator(CHILD).evaluateAll((buttons) => buttons.every((button) => (
     (button as HTMLElement).dataset.navigation === "portal-continuity"
   )))).toBe(true);
@@ -258,7 +265,7 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   await rootCrumb.click();
   await expect(app).toHaveAttribute("data-scene-id", "world-map");
   await expect(app).toHaveAttribute("data-transition-state", "idle");
-  await expect(minimap).toHaveAttribute("data-child-count", "5");
+  await expect(minimap).toHaveAttribute("data-child-count", "6");
   await expect(minimap.locator(`${BREADCRUMB}[data-scene-id="world-map"]`)).toHaveAttribute(
     "data-current",
     "true",

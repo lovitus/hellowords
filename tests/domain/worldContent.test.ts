@@ -83,7 +83,7 @@ async function loadWorld(): Promise<{ manifest: Manifest; scenes: AuditedScene[]
   return { manifest, scenes };
 }
 
-test("mature world has five subject branches and ten deep, fully reachable paths", async () => {
+test("mature world has six subject branches and fully reachable practical paths", async () => {
   const { manifest, scenes } = await loadWorld();
   const byId = new Map(scenes.map((scene) => [scene.id, scene]));
   const root = byId.get(manifest.rootSceneId);
@@ -91,7 +91,7 @@ test("mature world has five subject branches and ten deep, fully reachable paths
   assert.equal(root.parentId, null);
   assert.deepEqual(
     root.portals.map((portal) => portal.childSceneId),
-    ["apartment", "city-street", "city-park", "community-garden", "school-campus"],
+    ["apartment", "city-street", "city-park", "community-garden", "school-campus", "supermarket-grocery"],
   );
 
   const reachable = new Set<string>();
@@ -122,7 +122,10 @@ test("mature world has five subject branches and ten deep, fully reachable paths
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "service-core"],
-    ["world-map", "school-campus"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "service-core", "warehouse-loading-dock"],
+    ["world-map", "city-street", "hotel-exterior", "hotel-lobby-rooms"],
+    ["world-map", "school-campus", "library-reading-room"],
+    ["world-map", "supermarket-grocery"],
   ];
   for (const path of expectedPaths) {
     for (let index = 0; index < path.length - 1; index += 1) {
@@ -3019,18 +3022,6 @@ test("city cafe is a new terminal storefront branch with a non-overlapping paren
   assert.ok(street);
   const cafePortal = street.portals.find(({ childSceneId }) => childSceneId === "city-cafe");
   assert.ok(cafePortal);
-  assert.deepEqual(cafePortal, {
-    id: "enter-city-cafe",
-    label: "Enter the city cafe",
-    translation: "进入城市咖啡馆",
-    childSceneId: "city-cafe",
-    x: 620,
-    y: 155,
-    width: 365,
-    height: 470,
-    enterScale: 3.6,
-    sourceVisualRegion: "portal-cafe",
-  });
   const overlaps = (
     a: { x: number; y: number; width: number; height: number },
     b: { x: number; y: number; width: number; height: number },
@@ -3040,6 +3031,33 @@ test("city cafe is a new terminal storefront branch with a non-overlapping paren
     && a.y < b.y + b.height
     && a.y + a.height > b.y
   );
+  assert.deepEqual(cafePortal, {
+    id: "enter-city-cafe",
+    label: "Enter the city cafe",
+    translation: "进入城市咖啡馆",
+    childSceneId: "city-cafe",
+    x: 740,
+    y: 340,
+    width: 250,
+    height: 300,
+    enterScale: 3.6,
+    sourceVisualRegion: "portal-cafe",
+  });
+  const hotelPortal = street.portals.find(({ childSceneId }) => childSceneId === "hotel-exterior");
+  assert.ok(hotelPortal);
+  assert.deepEqual(hotelPortal, {
+    id: "enter-hotel-exterior",
+    label: "Enter the hotel exterior",
+    translation: "进入酒店外立面",
+    childSceneId: "hotel-exterior",
+    sourceVisualRegion: "portal-hotel-exterior",
+    x: 650,
+    y: 155,
+    width: 300,
+    height: 180,
+    enterScale: 3.4,
+  });
+  assert.ok(!overlaps(cafePortal, hotelPortal), "hotel upper facade stays separate from cafe storefront");
   for (const portal of street.portals.filter(({ childSceneId }) => childSceneId !== "city-cafe")) {
     assert.ok(!overlaps(cafePortal, portal), `cafe portal does not overlap ${portal.id}`);
   }

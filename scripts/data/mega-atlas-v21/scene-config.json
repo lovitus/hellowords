@@ -88,6 +88,18 @@
         "height": 200,
         "enterScale": 3.75,
         "description": "Complete visible school interior and corridor area on the school atlas panel"
+      },
+      {
+        "id": "enter-supermarket-grocery",
+        "label": "Explore the supermarket",
+        "translation": "探索超市",
+        "childSceneId": "supermarket-grocery",
+        "x": 2090,
+        "y": 1570,
+        "width": 400,
+        "height": 238,
+        "enterScale": 3.75,
+        "description": "Complete visible retail counter and produce display in the market atlas panel"
       }
     ]
   }

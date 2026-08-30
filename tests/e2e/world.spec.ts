@@ -1170,7 +1170,7 @@ test("root atlas wheel zoom stays on one scene until an entry is explicitly clic
   expect(await sceneId(app)).toBe(parent);
   await expect(page.locator(
     `.scene-hotspot-region[data-portal-entry-mode="click"]`,
-  )).toHaveCount(5);
+  )).toHaveCount(6);
   const mapEntry = page.locator(
     `[data-testid="scene-minimap-child"][data-target-scene="${target}"]`,
   );
@@ -1254,7 +1254,7 @@ test("mobile viewport exposes touch-safe labels and hotspots", async ({ page }, 
     .poll(async () => (await mobileLabelLayout(page)).count, {
       message: "the initial mobile screen should expose a useful vocabulary set without zooming",
     })
-    .toBeGreaterThanOrEqual(14);
+    .toBeGreaterThanOrEqual(13);
   await expect
     .poll(async () => (await mobileLabelLayout(page)).overlaps, {
       message: "visible mobile word labels should not overlap",

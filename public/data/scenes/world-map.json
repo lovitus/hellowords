@@ -14272,6 +14272,18 @@
       "width": 200,
       "height": 100,
       "enterScale": 3.75
+    },
+    {
+      "id": "enter-supermarket-grocery",
+      "label": "Explore the supermarket",
+      "translation": "探索超市",
+      "childSceneId": "supermarket-grocery",
+      "sourceVisualRegion": "portal-enter-supermarket-grocery",
+      "x": 1045,
+      "y": 785,
+      "width": 200,
+      "height": 119,
+      "enterScale": 3.75
     }
   ],
   "anchorAudit": {
@@ -14337,6 +14349,15 @@
       "y": 300,
       "width": 200,
       "height": 100
+    },
+    {
+      "id": "portal-enter-supermarket-grocery",
+      "description": "Complete visible retail counter and produce display in the market atlas panel",
+      "kind": "object",
+      "x": 1045,
+      "y": 785,
+      "width": 200,
+      "height": 119
     },
     {
       "id": "anchor-farm-yard-farm-tractor",

@@ -125,6 +125,10 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The standalone service-core photograph resolves electrical, HVAC, fire,
   // janitorial and loading hardware as a bounded facilities vocabulary.
   "service-core": 80,
+  // The hotel exterior and connected lobby/rooms photographs keep facade,
+  // arrival, guest-room, bathroom and housekeeping parts independently visible.
+  "hotel-exterior": 64,
+  "hotel-lobby-rooms": 90,
   "city-cafe": 36,
   "electric-bus": 32,
   "railway-platform": 32,
@@ -189,6 +193,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The service-core render supports 90 distinct visible facility parts while
   // excluding hidden system states, operational claims and duplicate names.
   "service-core": 90,
+  "hotel-exterior": 69,
+  "hotel-lobby-rooms": 107,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   // The final pixel pass also retains separately visible fossil, telescope,

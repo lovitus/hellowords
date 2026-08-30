@@ -76,6 +76,11 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("library-reading-room", "school-campus", ["school-campus"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
   contract("service-core", "office-building", [
     "city-street",
     "transit-hub",
@@ -113,6 +118,16 @@ const newSceneContracts: NewSceneContract[] = [
     runOnMobile: false,
   }),
   contract("city-cafe", "city-street", ["city-street"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("hotel-exterior", "city-street", ["city-street"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("hotel-lobby-rooms", "hotel-exterior", ["city-street", "hotel-exterior"], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,
     runOnMobile: true,

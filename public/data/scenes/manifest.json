@@ -8,6 +8,11 @@
       "parentId": null
     },
     {
+      "id": "supermarket-grocery",
+      "title": "Supermarket grocery",
+      "parentId": "world-map"
+    },
+    {
       "id": "apartment",
       "title": "Apartment",
       "parentId": "world-map"
@@ -241,6 +246,21 @@
       "id": "warehouse-loading-dock",
       "title": "Warehouse loading dock",
       "parentId": "service-core"
+    },
+    {
+      "id": "hotel-exterior",
+      "title": "Hotel exterior",
+      "parentId": "city-street"
+    },
+    {
+      "id": "hotel-lobby-rooms",
+      "title": "Hotel lobby and rooms",
+      "parentId": "hotel-exterior"
+    },
+    {
+      "id": "library-reading-room",
+      "title": "School library",
+      "parentId": "school-campus"
     }
   ]
 }

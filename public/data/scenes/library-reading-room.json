@@ -1,0 +1,2520 @@
+{
+  "id": "library-reading-room",
+  "title": "School library",
+  "translation": "学校图书馆",
+  "subtitle": "Stacks, circulation, reading, children's books and media",
+  "asset": "/scenes/library-reading-room-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "school-campus",
+  "visualRegions": [
+    {
+      "id": "library-region-stack-room-bookcase",
+      "description": "Pixel-audited “stack-room bookcase” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 248.803828,
+      "y": 267.800213,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-shelving",
+      "description": "Pixel-audited “library shelving” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 325.358852,
+      "y": 277.364506,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-shelf-upright",
+      "description": "Pixel-audited “library shelf upright” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 267.942584,
+      "y": 286.928799,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-shelf-board",
+      "description": "Pixel-audited “library shelf board” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 330.143541,
+      "y": 296.493092,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-shelf-end-panel",
+      "description": "Pixel-audited “shelf end panel” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 430.62201,
+      "y": 296.493092,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-shelf-divider",
+      "description": "Pixel-audited “library shelf divider” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 368.421053,
+      "y": 248.671626,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-bookend",
+      "description": "Pixel-audited “library bookend” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 392.344498,
+      "y": 210.414453,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-hardcover-book",
+      "description": "Pixel-audited “hardcover book” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 315.789474,
+      "y": 239.107333,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-paperback-book",
+      "description": "Pixel-audited “paperback book” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 354.066986,
+      "y": 344.314559,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-book-spine",
+      "description": "Pixel-audited “library book spine” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 291.866029,
+      "y": 329.968119,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-book-cover",
+      "description": "Pixel-audited “book cover” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 564.593301,
+      "y": 301.275239,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-shelf-label-holder",
+      "description": "Pixel-audited “shelf-label holder” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 468.899522,
+      "y": 229.543039,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-face-out-book",
+      "description": "Pixel-audited “face-out book” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 559.808612,
+      "y": 301.275239,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-reference-volume",
+      "description": "Pixel-audited “reference volume” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 511.961722,
+      "y": 382.571732,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-atlas",
+      "description": "Pixel-audited “library atlas” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 478.4689,
+      "y": 353.878852,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-book-row",
+      "description": "Pixel-audited “book row” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 229.665072,
+      "y": 373.007439,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-oversize-volume",
+      "description": "Pixel-audited “oversize volume” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 531.100478,
+      "y": 430.393199,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-lower-bookshelf",
+      "description": "Pixel-audited “lower bookshelf” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 239.23445,
+      "y": 449.521785,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-top-bookshelf",
+      "description": "Pixel-audited “top bookshelf” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 258.373206,
+      "y": 119.553666,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-stack-aisle",
+      "description": "Pixel-audited “stack aisle” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 95.69378,
+      "y": 439.957492,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-step-stool",
+      "description": "Pixel-audited “library step stool” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 306.220096,
+      "y": 478.214665,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-step-stool-tread",
+      "description": "Pixel-audited “step-stool tread” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 306.220096,
+      "y": 468.650372,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-shelf-base",
+      "description": "Pixel-audited “shelf base” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 406.698565,
+      "y": 478.214665,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-bookcase-cap",
+      "description": "Pixel-audited “bookcase cap” inside the Book stacks crop of the library photograph",
+      "kind": "part",
+      "x": 272.727273,
+      "y": 124.335813,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-circulation-desk",
+      "description": "Pixel-audited “circulation desk” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 555.023923,
+      "y": 707.757705,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-service-countertop",
+      "description": "Pixel-audited “service countertop” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 574.162679,
+      "y": 583.421892,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-accessible-counter",
+      "description": "Pixel-audited “accessible counter” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 813.397129,
+      "y": 650.371945,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-staff-monitor",
+      "description": "Pixel-audited “staff monitor” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 459.330144,
+      "y": 564.293305,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-circulation-keyboard",
+      "description": "Pixel-audited “circulation keyboard” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 459.330144,
+      "y": 631.243358,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-circulation-mouse",
+      "description": "Pixel-audited “circulation mouse” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 545.454545,
+      "y": 640.807651,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-desk-barcode-scanner",
+      "description": "Pixel-audited “desk barcode scanner” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 602.870813,
+      "y": 602.550478,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-desk-scanner-cradle",
+      "description": "Pixel-audited “desk scanner cradle” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 602.870813,
+      "y": 631.243358,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-circulation-receipt-printer",
+      "description": "Pixel-audited “circulation receipt printer” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 698.564593,
+      "y": 631.243358,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-receipt-paper-slot",
+      "description": "Pixel-audited “receipt-paper slot” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 698.564593,
+      "y": 626.461211,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-pencil-cup",
+      "description": "Pixel-audited “library pencil cup” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 363.636364,
+      "y": 564.293305,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-card",
+      "description": "Pixel-audited “library card” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 641.148325,
+      "y": 707.757705,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-book-return-slot",
+      "description": "Pixel-audited “book-return slot” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 478.4689,
+      "y": 769.925611,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-return-slot-frame",
+      "description": "Pixel-audited “return-slot frame” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 478.4689,
+      "y": 769.925611,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-circulation-cabinet-door",
+      "description": "Pixel-audited “circulation cabinet door” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 382.77512,
+      "y": 789.054198,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-circulation-drawer-pull",
+      "description": "Pixel-audited “circulation drawer pull” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 449.760766,
+      "y": 736.450584,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-book-return-cart",
+      "description": "Pixel-audited “book-return cart” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 86.124402,
+      "y": 650.371945,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-return-cart-handle",
+      "description": "Pixel-audited “return-cart handle” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 95.69378,
+      "y": 545.164718,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-return-cart-shelf",
+      "description": "Pixel-audited “return-cart shelf” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 90.909091,
+      "y": 650.371945,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-return-cart-caster",
+      "description": "Pixel-audited “return-cart caster” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 129.186603,
+      "y": 817.747078,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-self-checkout-kiosk",
+      "description": "Pixel-audited “self-checkout kiosk” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 1052.631579,
+      "y": 640.807651,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-kiosk-touchscreen",
+      "description": "Pixel-audited “kiosk touchscreen” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 1071.770335,
+      "y": 573.857598,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-kiosk-scanner-bed",
+      "description": "Pixel-audited “kiosk scanner bed” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 1062.200957,
+      "y": 755.579171,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-checkout-pad",
+      "description": "Pixel-audited “RFID checkout pad” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 1196.172249,
+      "y": 769.925611,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-kiosk-receipt-slot",
+      "description": "Pixel-audited “kiosk receipt slot” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 1028.708134,
+      "y": 669.500531,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-kiosk-card-reader",
+      "description": "Pixel-audited “kiosk card reader” inside the Circulation and self-service crop of the library photograph",
+      "kind": "part",
+      "x": 1157.894737,
+      "y": 683.846971,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-reading-table",
+      "description": "Pixel-audited “library reading table” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 717.703349,
+      "y": 459.086079,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-reading-table-leg",
+      "description": "Pixel-audited “reading-table leg” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 708.133971,
+      "y": 564.293305,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-study-chair",
+      "description": "Pixel-audited “study chair” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 808.61244,
+      "y": 516.471838,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-chair-back-rail",
+      "description": "Pixel-audited “chair back rail” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 803.827751,
+      "y": 478.214665,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-upholstered-armchair",
+      "description": "Pixel-audited “upholstered armchair” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 602.870813,
+      "y": 315.621679,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-armchair-armrest",
+      "description": "Pixel-audited “armchair armrest” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 578.947368,
+      "y": 334.750266,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-side-table",
+      "description": "Pixel-audited “library side table” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 645.933014,
+      "y": 353.878852,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-reading-floor-lamp",
+      "description": "Pixel-audited “reading floor lamp” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 650.717703,
+      "y": 267.800213,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-floor-lamp-shade",
+      "description": "Pixel-audited “floor-lamp shade” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 650.717703,
+      "y": 229.543039,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-desk-task-lamp",
+      "description": "Pixel-audited “desk task lamp” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 598.086124,
+      "y": 430.393199,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-acoustic-divider",
+      "description": "Pixel-audited “acoustic divider” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 746.411483,
+      "y": 382.571732,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-divider-foot",
+      "description": "Pixel-audited “divider foot” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 746.411483,
+      "y": 468.650372,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-table-power-outlet",
+      "description": "Pixel-audited “table power outlet” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 755.980861,
+      "y": 401.700319,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-study-table-cable-grommet",
+      "description": "Pixel-audited “study-table cable grommet” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 789.473684,
+      "y": 430.393199,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-study-laptop",
+      "description": "Pixel-audited “study laptop” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 674.641148,
+      "y": 444.739639,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-study-laptop-screen",
+      "description": "Pixel-audited “study laptop screen” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 674.641148,
+      "y": 420.828905,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-study-notebook",
+      "description": "Pixel-audited “study notebook” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 746.411483,
+      "y": 439.957492,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-study-pencil-cup",
+      "description": "Pixel-audited “study pencil cup” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 794.258373,
+      "y": 411.264612,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-group-reading-table",
+      "description": "Pixel-audited “group reading table” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 866.028708,
+      "y": 301.275239,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-group-table-chair",
+      "description": "Pixel-audited “group-table chair” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 923.444976,
+      "y": 315.621679,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-whiteboard",
+      "description": "Pixel-audited “library whiteboard” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 736.842105,
+      "y": 196.068013,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-whiteboard-frame",
+      "description": "Pixel-audited “library whiteboard frame” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 736.842105,
+      "y": 196.068013,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-whiteboard-marker-tray",
+      "description": "Pixel-audited “whiteboard marker tray” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 736.842105,
+      "y": 291.710946,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-carpet-tile",
+      "description": "Pixel-audited “library carpet tile” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 765.550239,
+      "y": 554.729012,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-floor-transition-strip",
+      "description": "Pixel-audited “floor transition strip” inside the Reading and study area crop of the library photograph",
+      "kind": "part",
+      "x": 478.4689,
+      "y": 573.857598,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-picture-book-shelving",
+      "description": "Pixel-audited “picture-book shelving” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1153.110048,
+      "y": 277.364506,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-picture-book",
+      "description": "Pixel-audited “picture book” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1148.325359,
+      "y": 267.800213,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-face-out-display-rack",
+      "description": "Pixel-audited “face-out display rack” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1066.985646,
+      "y": 363.443146,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-magazine-rack",
+      "description": "Pixel-audited “magazine rack” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1062.200957,
+      "y": 363.443146,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-magazine-shelf",
+      "description": "Pixel-audited “magazine shelf” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1062.200957,
+      "y": 392.136026,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-story-theater-frame",
+      "description": "Pixel-audited “story-theater frame” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1301.435407,
+      "y": 267.800213,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-theater-curtain",
+      "description": "Pixel-audited “theater curtain” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1301.435407,
+      "y": 282.146652,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-story-area-globe",
+      "description": "Pixel-audited “story-area globe” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1440.191388,
+      "y": 239.107333,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-child-size-table",
+      "description": "Pixel-audited “child-size table” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1301.435407,
+      "y": 373.007439,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-child-size-chair",
+      "description": "Pixel-audited “child-size chair” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1368.421053,
+      "y": 392.136026,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-reading-floor-cushion",
+      "description": "Pixel-audited “reading floor cushion” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1224.880383,
+      "y": 392.136026,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-media-desk",
+      "description": "Pixel-audited “media desk” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1435.406699,
+      "y": 439.957492,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-media-desktop-monitor",
+      "description": "Pixel-audited “media desktop monitor” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1416.267943,
+      "y": 373.007439,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-headphones",
+      "description": "Pixel-audited “library headphones” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1497.607656,
+      "y": 411.264612,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-headphone-earcup",
+      "description": "Pixel-audited “headphone earcup” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1502.392344,
+      "y": 416.046759,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-media-keyboard",
+      "description": "Pixel-audited “media keyboard” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1421.052632,
+      "y": 444.739639,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-media-mouse",
+      "description": "Pixel-audited “media mouse” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1478.4689,
+      "y": 444.739639,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-media-area-printer",
+      "description": "Pixel-audited “media-area printer” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1535.885167,
+      "y": 430.393199,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-media-printer-paper-tray",
+      "description": "Pixel-audited “media printer paper tray” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1535.885167,
+      "y": 449.521785,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-map-cabinet",
+      "description": "Pixel-audited “map cabinet” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1488.038278,
+      "y": 602.550478,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-map-drawer",
+      "description": "Pixel-audited “map drawer” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1488.038278,
+      "y": 640.807651,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-map-drawer-pull",
+      "description": "Pixel-audited “map-drawer pull” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1488.038278,
+      "y": 636.025505,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-map-viewing-frame",
+      "description": "Pixel-audited “map viewing frame” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1488.038278,
+      "y": 545.164718,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-book-display-plinth",
+      "description": "Pixel-audited “book display plinth” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1177.033493,
+      "y": 516.471838,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-media-book-trolley",
+      "description": "Pixel-audited “media book trolley” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1368.421053,
+      "y": 650.371945,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-media-trolley-caster",
+      "description": "Pixel-audited “media-trolley caster” inside the Children and media area crop of the library photograph",
+      "kind": "part",
+      "x": 1416.267943,
+      "y": 750.797024,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-glazed-library-door",
+      "description": "Pixel-audited “glazed library door” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 937.799043,
+      "y": 191.285866,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-door-transom",
+      "description": "Pixel-audited “library door transom” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 937.799043,
+      "y": 66.950053,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-door-push-bar",
+      "description": "Pixel-audited “door push bar” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 913.875598,
+      "y": 219.978746,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-door-closer-arm",
+      "description": "Pixel-audited “door closer arm” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 976.076555,
+      "y": 105.207226,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-entrance-pull-handle",
+      "description": "Pixel-audited “entrance pull handle” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 966.507177,
+      "y": 210.414453,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-concrete-column",
+      "description": "Pixel-audited “concrete column” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 622.009569,
+      "y": 95.642933,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-ceiling-tile",
+      "description": "Pixel-audited “ceiling tile” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 727.272727,
+      "y": 23.910733,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-ceiling-light-panel",
+      "description": "Pixel-audited “library ceiling light panel” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 1129.186603,
+      "y": 14.34644,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-wood-pendant-light",
+      "description": "Pixel-audited “wood pendant light” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 1287.08134,
+      "y": 66.950053,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-ceiling-air-grille",
+      "description": "Pixel-audited “ceiling air grille” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 799.043062,
+      "y": 14.34644,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-sprinkler-head",
+      "description": "Pixel-audited “library sprinkler head” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 1449.760766,
+      "y": 33.475027,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-smoke-detector",
+      "description": "Pixel-audited “library smoke detector” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 200.956938,
+      "y": 23.910733,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-dome",
+      "description": "Pixel-audited “CCTV dome” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 995.215311,
+      "y": 9.564293,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-fire-extinguisher",
+      "description": "Pixel-audited “library fire extinguisher” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 1090.909091,
+      "y": 224.760893,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-fire-alarm-station",
+      "description": "Pixel-audited “fire alarm station” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 1095.69378,
+      "y": 167.375133,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-reading-room-wall-clock",
+      "description": "Pixel-audited “reading-room wall clock” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 799.043062,
+      "y": 95.642933,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-window-mullion",
+      "description": "Pixel-audited “library window mullion” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 1397.129187,
+      "y": 133.900106,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-clerestory-window",
+      "description": "Pixel-audited “clerestory window” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 937.799043,
+      "y": 52.603613,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-entrance-threshold",
+      "description": "Pixel-audited “entrance threshold” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 937.799043,
+      "y": 301.275239,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "library-region-library-entrance-door-frame",
+      "description": "Pixel-audited “library entrance door frame” inside the Entrance and safety fixtures crop of the library photograph",
+      "kind": "part",
+      "x": 985.645933,
+      "y": 191.285866,
+      "width": 38.277512,
+      "height": 38.257173
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "library-zone-book-stacks",
+      "title": "Book stacks",
+      "translation": "图书书库区",
+      "description": "Inspect shelving structure, arranged volumes, display hardware and a mobile return trolley.",
+      "x": 0,
+      "y": 86.07864,
+      "width": 622.009569,
+      "height": 478.214665,
+      "targetScale": 3.15,
+      "labelIds": [
+        "library-stack-room-bookcase",
+        "library-library-shelving",
+        "library-library-shelf-upright",
+        "library-library-shelf-board",
+        "library-shelf-end-panel",
+        "library-library-shelf-divider",
+        "library-library-bookend",
+        "library-hardcover-book",
+        "library-paperback-book",
+        "library-library-book-spine",
+        "library-book-cover",
+        "library-shelf-label-holder",
+        "library-face-out-book",
+        "library-reference-volume",
+        "library-library-atlas",
+        "library-book-row",
+        "library-oversize-volume",
+        "library-lower-bookshelf",
+        "library-top-bookshelf",
+        "library-stack-aisle",
+        "library-library-step-stool",
+        "library-step-stool-tread",
+        "library-shelf-base",
+        "library-bookcase-cap"
+      ]
+    },
+    {
+      "id": "library-zone-circulation",
+      "title": "Circulation and self-service",
+      "translation": "流通与自助服务区",
+      "description": "Explore the service desk, book return, staff hardware, return cart and self-checkout kiosk.",
+      "x": 0,
+      "y": 478.214665,
+      "width": 1320.574163,
+      "height": 421.785335,
+      "targetScale": 3.15,
+      "labelIds": [
+        "library-circulation-desk",
+        "library-service-countertop",
+        "library-accessible-counter",
+        "library-staff-monitor",
+        "library-circulation-keyboard",
+        "library-circulation-mouse",
+        "library-desk-barcode-scanner",
+        "library-desk-scanner-cradle",
+        "library-circulation-receipt-printer",
+        "library-receipt-paper-slot",
+        "library-library-pencil-cup",
+        "library-library-card",
+        "library-book-return-slot",
+        "library-return-slot-frame",
+        "library-circulation-cabinet-door",
+        "library-circulation-drawer-pull",
+        "library-book-return-cart",
+        "library-return-cart-handle",
+        "library-return-cart-shelf",
+        "library-return-cart-caster",
+        "library-self-checkout-kiosk",
+        "library-kiosk-touchscreen",
+        "library-kiosk-scanner-bed",
+        "library-checkout-pad",
+        "library-kiosk-receipt-slot",
+        "library-kiosk-card-reader"
+      ]
+    },
+    {
+      "id": "library-zone-reading-study",
+      "title": "Reading and study area",
+      "translation": "阅览与学习区",
+      "description": "Inspect reading furniture, study dividers, lighting and personal study objects.",
+      "x": 478.4689,
+      "y": 210.414453,
+      "width": 564.593301,
+      "height": 459.086079,
+      "targetScale": 3.15,
+      "labelIds": [
+        "library-library-reading-table",
+        "library-reading-table-leg",
+        "library-study-chair",
+        "library-chair-back-rail",
+        "library-upholstered-armchair",
+        "library-armchair-armrest",
+        "library-library-side-table",
+        "library-reading-floor-lamp",
+        "library-floor-lamp-shade",
+        "library-desk-task-lamp",
+        "library-acoustic-divider",
+        "library-divider-foot",
+        "library-table-power-outlet",
+        "library-study-table-cable-grommet",
+        "library-study-laptop",
+        "library-study-laptop-screen",
+        "library-study-notebook",
+        "library-study-pencil-cup",
+        "library-group-reading-table",
+        "library-group-table-chair",
+        "library-library-whiteboard",
+        "library-library-whiteboard-frame",
+        "library-whiteboard-marker-tray",
+        "library-library-carpet-tile",
+        "library-floor-transition-strip"
+      ]
+    },
+    {
+      "id": "library-zone-children-media",
+      "title": "Children and media area",
+      "translation": "儿童与媒体区",
+      "description": "Explore low book displays, story furniture, media hardware and map storage.",
+      "x": 995.215311,
+      "y": 162.592986,
+      "width": 604.784689,
+      "height": 621.679065,
+      "targetScale": 3.15,
+      "labelIds": [
+        "library-picture-book-shelving",
+        "library-picture-book",
+        "library-face-out-display-rack",
+        "library-magazine-rack",
+        "library-magazine-shelf",
+        "library-story-theater-frame",
+        "library-theater-curtain",
+        "library-story-area-globe",
+        "library-child-size-table",
+        "library-child-size-chair",
+        "library-reading-floor-cushion",
+        "library-media-desk",
+        "library-media-desktop-monitor",
+        "library-library-headphones",
+        "library-headphone-earcup",
+        "library-media-keyboard",
+        "library-media-mouse",
+        "library-media-area-printer",
+        "library-media-printer-paper-tray",
+        "library-map-cabinet",
+        "library-map-drawer",
+        "library-map-drawer-pull",
+        "library-map-viewing-frame",
+        "library-book-display-plinth",
+        "library-media-book-trolley",
+        "library-media-trolley-caster"
+      ]
+    },
+    {
+      "id": "library-zone-entrance-safety",
+      "title": "Entrance and safety fixtures",
+      "translation": "入口与安全设施",
+      "description": "Inspect the glazed entrance, ceiling services, clock, emergency fixtures and windows.",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 344.314559,
+      "targetScale": 3.15,
+      "labelIds": [
+        "library-glazed-library-door",
+        "library-library-door-transom",
+        "library-door-push-bar",
+        "library-door-closer-arm",
+        "library-entrance-pull-handle",
+        "library-concrete-column",
+        "library-ceiling-tile",
+        "library-library-ceiling-light-panel",
+        "library-wood-pendant-light",
+        "library-ceiling-air-grille",
+        "library-library-sprinkler-head",
+        "library-library-smoke-detector",
+        "library-dome",
+        "library-library-fire-extinguisher",
+        "library-fire-alarm-station",
+        "library-reading-room-wall-clock",
+        "library-library-window-mullion",
+        "library-clerestory-window",
+        "library-entrance-threshold",
+        "library-library-entrance-door-frame"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/library-reading-room-premium-v1.jpg",
+    "reviewedAssetSha256": "229653feffda532fe9f55e846829364d4cf1f6648acf9381ffdab65ac2d2e713",
+    "rationale": "The final 1600 by 900 library photograph was inspected at source and output resolution. It supports visible shelving, books, service and self-check hardware, reading furniture, children's displays, media equipment, map storage and entrance fixtures. Catalog records, loans, classifications, subjects, patrons, staff roles and other invisible library operations are excluded.",
+    "previousLabelCount": 127,
+    "retainedLabelCount": 121,
+    "removedLabelCount": 6,
+    "removedExamples": [
+      "catalog record",
+      "loan period",
+      "reference service",
+      "subject heading",
+      "library patron",
+      "circulation status"
+    ]
+  },
+  "labels": [
+    {
+      "id": "library-stack-room-bookcase",
+      "word": "stack-room bookcase",
+      "translation": "书库书柜",
+      "x": 267.942584,
+      "y": 286.928799,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-stack-room-bookcase"
+    },
+    {
+      "id": "library-library-shelving",
+      "word": "library shelving",
+      "translation": "图书馆搁架",
+      "x": 344.497608,
+      "y": 296.493092,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-library-shelving"
+    },
+    {
+      "id": "library-library-shelf-upright",
+      "word": "library shelf upright",
+      "translation": "图书馆搁架立柱",
+      "x": 287.08134,
+      "y": 306.057386,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-library-shelf-upright"
+    },
+    {
+      "id": "library-library-shelf-board",
+      "word": "library shelf board",
+      "translation": "图书馆搁板",
+      "x": 349.282297,
+      "y": 315.621679,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-library-shelf-board"
+    },
+    {
+      "id": "library-shelf-end-panel",
+      "word": "shelf end panel",
+      "translation": "书架端板",
+      "x": 449.760766,
+      "y": 315.621679,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-shelf-end-panel"
+    },
+    {
+      "id": "library-library-shelf-divider",
+      "word": "library shelf divider",
+      "translation": "图书馆书架分隔片",
+      "x": 387.559809,
+      "y": 267.800213,
+      "priority": 1.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-library-shelf-divider"
+    },
+    {
+      "id": "library-library-bookend",
+      "word": "library bookend",
+      "translation": "图书馆书挡",
+      "x": 411.483254,
+      "y": 229.543039,
+      "priority": 1.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-library-bookend"
+    },
+    {
+      "id": "library-hardcover-book",
+      "word": "hardcover book",
+      "translation": "精装书",
+      "x": 334.92823,
+      "y": 258.235919,
+      "priority": 1.007,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-hardcover-book"
+    },
+    {
+      "id": "library-paperback-book",
+      "word": "paperback book",
+      "translation": "平装书",
+      "x": 373.205742,
+      "y": 363.443146,
+      "priority": 1.008,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-paperback-book"
+    },
+    {
+      "id": "library-library-book-spine",
+      "word": "library book spine",
+      "translation": "图书馆书脊",
+      "x": 311.004785,
+      "y": 349.096706,
+      "priority": 1.009,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-library-book-spine"
+    },
+    {
+      "id": "library-book-cover",
+      "word": "book cover",
+      "translation": "书封面",
+      "x": 583.732057,
+      "y": 320.403826,
+      "priority": 1.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-book-cover"
+    },
+    {
+      "id": "library-shelf-label-holder",
+      "word": "shelf-label holder",
+      "translation": "书架标签夹",
+      "x": 488.038278,
+      "y": 248.671626,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-shelf-label-holder"
+    },
+    {
+      "id": "library-face-out-book",
+      "word": "face-out book",
+      "translation": "封面朝外图书",
+      "x": 578.947368,
+      "y": 320.403826,
+      "priority": 1.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-face-out-book"
+    },
+    {
+      "id": "library-reference-volume",
+      "word": "reference volume",
+      "translation": "参考书卷",
+      "x": 531.100478,
+      "y": 401.700319,
+      "priority": 1.013,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-reference-volume"
+    },
+    {
+      "id": "library-library-atlas",
+      "word": "library atlas",
+      "translation": "图书馆地图集",
+      "x": 497.607656,
+      "y": 373.007439,
+      "priority": 1.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-library-atlas"
+    },
+    {
+      "id": "library-book-row",
+      "word": "book row",
+      "translation": "一排图书",
+      "x": 248.803828,
+      "y": 392.136026,
+      "priority": 1.015,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-book-row"
+    },
+    {
+      "id": "library-oversize-volume",
+      "word": "oversize volume",
+      "translation": "大型开本图书",
+      "x": 550.239234,
+      "y": 449.521785,
+      "priority": 1.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-oversize-volume"
+    },
+    {
+      "id": "library-lower-bookshelf",
+      "word": "lower bookshelf",
+      "translation": "下层书架",
+      "x": 258.373206,
+      "y": 468.650372,
+      "priority": 1.017,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-lower-bookshelf"
+    },
+    {
+      "id": "library-top-bookshelf",
+      "word": "top bookshelf",
+      "translation": "顶层书架",
+      "x": 277.511962,
+      "y": 138.682253,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-top-bookshelf"
+    },
+    {
+      "id": "library-stack-aisle",
+      "word": "stack aisle",
+      "translation": "书库通道",
+      "x": 114.832536,
+      "y": 459.086079,
+      "priority": 1.019,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-stack-aisle"
+    },
+    {
+      "id": "library-library-step-stool",
+      "word": "library step stool",
+      "translation": "图书馆踏凳",
+      "x": 325.358852,
+      "y": 497.343252,
+      "priority": 1.02,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-library-step-stool"
+    },
+    {
+      "id": "library-step-stool-tread",
+      "word": "step-stool tread",
+      "translation": "踏凳踏面",
+      "x": 325.358852,
+      "y": 487.778959,
+      "priority": 1.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-step-stool-tread"
+    },
+    {
+      "id": "library-shelf-base",
+      "word": "shelf base",
+      "translation": "书架底座",
+      "x": 425.837321,
+      "y": 497.343252,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "library-region-shelf-base"
+    },
+    {
+      "id": "library-bookcase-cap",
+      "word": "bookcase cap",
+      "translation": "书柜顶板",
+      "x": 291.866029,
+      "y": 143.4644,
+      "priority": 1.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "library-region-bookcase-cap"
+    },
+    {
+      "id": "library-circulation-desk",
+      "word": "circulation desk",
+      "translation": "流通服务台",
+      "x": 574.162679,
+      "y": 726.886291,
+      "priority": 1.024,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-circulation-desk"
+    },
+    {
+      "id": "library-service-countertop",
+      "word": "service countertop",
+      "translation": "服务台面",
+      "x": 593.301435,
+      "y": 602.550478,
+      "priority": 1.025,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-service-countertop"
+    },
+    {
+      "id": "library-accessible-counter",
+      "word": "accessible counter",
+      "translation": "无障碍服务台",
+      "x": 832.535885,
+      "y": 669.500531,
+      "priority": 1.026,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-accessible-counter"
+    },
+    {
+      "id": "library-staff-monitor",
+      "word": "staff monitor",
+      "translation": "工作人员显示器",
+      "x": 478.4689,
+      "y": 583.421892,
+      "priority": 1.027,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-staff-monitor"
+    },
+    {
+      "id": "library-circulation-keyboard",
+      "word": "circulation keyboard",
+      "translation": "流通台键盘",
+      "x": 478.4689,
+      "y": 650.371945,
+      "priority": 1.028,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-circulation-keyboard"
+    },
+    {
+      "id": "library-circulation-mouse",
+      "word": "circulation mouse",
+      "translation": "流通台鼠标",
+      "x": 564.593301,
+      "y": 659.936238,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-circulation-mouse"
+    },
+    {
+      "id": "library-desk-barcode-scanner",
+      "word": "desk barcode scanner",
+      "translation": "服务台条码扫描器",
+      "x": 622.009569,
+      "y": 621.679065,
+      "priority": 1.03,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-desk-barcode-scanner"
+    },
+    {
+      "id": "library-desk-scanner-cradle",
+      "word": "desk scanner cradle",
+      "translation": "扫描器底座",
+      "x": 622.009569,
+      "y": 650.371945,
+      "priority": 1.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-desk-scanner-cradle"
+    },
+    {
+      "id": "library-circulation-receipt-printer",
+      "word": "circulation receipt printer",
+      "translation": "流通台小票打印机",
+      "x": 717.703349,
+      "y": 650.371945,
+      "priority": 1.032,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-circulation-receipt-printer"
+    },
+    {
+      "id": "library-receipt-paper-slot",
+      "word": "receipt-paper slot",
+      "translation": "小票出纸口",
+      "x": 717.703349,
+      "y": 645.589798,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-receipt-paper-slot"
+    },
+    {
+      "id": "library-library-pencil-cup",
+      "word": "library pencil cup",
+      "translation": "图书馆笔筒",
+      "x": 382.77512,
+      "y": 583.421892,
+      "priority": 1.034,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-library-pencil-cup"
+    },
+    {
+      "id": "library-library-card",
+      "word": "library card",
+      "translation": "借阅证",
+      "x": 660.287081,
+      "y": 726.886291,
+      "priority": 1.035,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-library-card"
+    },
+    {
+      "id": "library-book-return-slot",
+      "word": "book-return slot",
+      "translation": "还书口",
+      "x": 497.607656,
+      "y": 789.054198,
+      "priority": 1.036,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-book-return-slot"
+    },
+    {
+      "id": "library-return-slot-frame",
+      "word": "return-slot frame",
+      "translation": "还书口边框",
+      "x": 497.607656,
+      "y": 789.054198,
+      "priority": 1.037,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-return-slot-frame"
+    },
+    {
+      "id": "library-circulation-cabinet-door",
+      "word": "circulation cabinet door",
+      "translation": "流通台柜门",
+      "x": 401.913876,
+      "y": 808.182784,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-circulation-cabinet-door"
+    },
+    {
+      "id": "library-circulation-drawer-pull",
+      "word": "circulation drawer pull",
+      "translation": "流通台抽屉拉手",
+      "x": 468.899522,
+      "y": 755.579171,
+      "priority": 1.039,
+      "minLevel": 4,
+      "sourceVisualRegion": "library-region-circulation-drawer-pull"
+    },
+    {
+      "id": "library-book-return-cart",
+      "word": "book-return cart",
+      "translation": "还书车",
+      "x": 105.263158,
+      "y": 669.500531,
+      "priority": 1.04,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-book-return-cart"
+    },
+    {
+      "id": "library-return-cart-handle",
+      "word": "return-cart handle",
+      "translation": "还书车把手",
+      "x": 114.832536,
+      "y": 564.293305,
+      "priority": 1.041,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-return-cart-handle"
+    },
+    {
+      "id": "library-return-cart-shelf",
+      "word": "return-cart shelf",
+      "translation": "还书车层板",
+      "x": 110.047847,
+      "y": 669.500531,
+      "priority": 1.042,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-return-cart-shelf"
+    },
+    {
+      "id": "library-return-cart-caster",
+      "word": "return-cart caster",
+      "translation": "还书车脚轮",
+      "x": 148.325359,
+      "y": 836.875664,
+      "priority": 1.043,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-return-cart-caster"
+    },
+    {
+      "id": "library-self-checkout-kiosk",
+      "word": "self-checkout kiosk",
+      "translation": "自助借还机",
+      "x": 1071.770335,
+      "y": 659.936238,
+      "priority": 1.044,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-self-checkout-kiosk"
+    },
+    {
+      "id": "library-kiosk-touchscreen",
+      "word": "kiosk touchscreen",
+      "translation": "自助机触摸屏",
+      "x": 1090.909091,
+      "y": 592.986185,
+      "priority": 1.045,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-kiosk-touchscreen"
+    },
+    {
+      "id": "library-kiosk-scanner-bed",
+      "word": "kiosk scanner bed",
+      "translation": "自助机扫描台",
+      "x": 1081.339713,
+      "y": 774.707758,
+      "priority": 1.046,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-kiosk-scanner-bed"
+    },
+    {
+      "id": "library-checkout-pad",
+      "word": "RFID checkout pad",
+      "translation": "射频借还感应板",
+      "x": 1215.311005,
+      "y": 789.054198,
+      "priority": 1.047,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-checkout-pad"
+    },
+    {
+      "id": "library-kiosk-receipt-slot",
+      "word": "kiosk receipt slot",
+      "translation": "自助机小票口",
+      "x": 1047.84689,
+      "y": 688.629118,
+      "priority": 1.048,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-kiosk-receipt-slot"
+    },
+    {
+      "id": "library-kiosk-card-reader",
+      "word": "kiosk card reader",
+      "translation": "自助机读卡器",
+      "x": 1177.033493,
+      "y": 702.975558,
+      "priority": 1.049,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-kiosk-card-reader"
+    },
+    {
+      "id": "library-library-reading-table",
+      "word": "library reading table",
+      "translation": "图书馆阅览桌",
+      "x": 736.842105,
+      "y": 478.214665,
+      "priority": 1.05,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-library-reading-table"
+    },
+    {
+      "id": "library-reading-table-leg",
+      "word": "reading-table leg",
+      "translation": "阅览桌桌腿",
+      "x": 727.272727,
+      "y": 583.421892,
+      "priority": 1.051,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-reading-table-leg"
+    },
+    {
+      "id": "library-study-chair",
+      "word": "study chair",
+      "translation": "学习椅",
+      "x": 827.751196,
+      "y": 535.600425,
+      "priority": 1.052,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-study-chair"
+    },
+    {
+      "id": "library-chair-back-rail",
+      "word": "chair back rail",
+      "translation": "椅背横档",
+      "x": 822.966507,
+      "y": 497.343252,
+      "priority": 1.053,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-chair-back-rail"
+    },
+    {
+      "id": "library-upholstered-armchair",
+      "word": "upholstered armchair",
+      "translation": "软垫扶手椅",
+      "x": 622.009569,
+      "y": 334.750266,
+      "priority": 1.054,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-upholstered-armchair"
+    },
+    {
+      "id": "library-armchair-armrest",
+      "word": "armchair armrest",
+      "translation": "扶手椅扶手",
+      "x": 598.086124,
+      "y": 353.878852,
+      "priority": 1.055,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-armchair-armrest"
+    },
+    {
+      "id": "library-library-side-table",
+      "word": "library side table",
+      "translation": "图书馆边桌",
+      "x": 665.07177,
+      "y": 373.007439,
+      "priority": 1.056,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-library-side-table"
+    },
+    {
+      "id": "library-reading-floor-lamp",
+      "word": "reading floor lamp",
+      "translation": "阅读落地灯",
+      "x": 669.856459,
+      "y": 286.928799,
+      "priority": 1.057,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-reading-floor-lamp"
+    },
+    {
+      "id": "library-floor-lamp-shade",
+      "word": "floor-lamp shade",
+      "translation": "落地灯灯罩",
+      "x": 669.856459,
+      "y": 248.671626,
+      "priority": 1.058,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-floor-lamp-shade"
+    },
+    {
+      "id": "library-desk-task-lamp",
+      "word": "desk task lamp",
+      "translation": "桌面任务灯",
+      "x": 617.22488,
+      "y": 449.521785,
+      "priority": 1.059,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-desk-task-lamp"
+    },
+    {
+      "id": "library-acoustic-divider",
+      "word": "acoustic divider",
+      "translation": "吸音隔板",
+      "x": 765.550239,
+      "y": 401.700319,
+      "priority": 1.06,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-acoustic-divider"
+    },
+    {
+      "id": "library-divider-foot",
+      "word": "divider foot",
+      "translation": "隔板底脚",
+      "x": 765.550239,
+      "y": 487.778959,
+      "priority": 1.061,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-divider-foot"
+    },
+    {
+      "id": "library-table-power-outlet",
+      "word": "table power outlet",
+      "translation": "桌面电源插座",
+      "x": 775.119617,
+      "y": 420.828905,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-table-power-outlet"
+    },
+    {
+      "id": "library-study-table-cable-grommet",
+      "word": "study-table cable grommet",
+      "translation": "学习桌穿线孔",
+      "x": 808.61244,
+      "y": 449.521785,
+      "priority": 1.063,
+      "minLevel": 4,
+      "sourceVisualRegion": "library-region-study-table-cable-grommet"
+    },
+    {
+      "id": "library-study-laptop",
+      "word": "study laptop",
+      "translation": "学习笔记本电脑",
+      "x": 693.779904,
+      "y": 463.868225,
+      "priority": 1.064,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-study-laptop"
+    },
+    {
+      "id": "library-study-laptop-screen",
+      "word": "study laptop screen",
+      "translation": "学习笔记本屏幕",
+      "x": 693.779904,
+      "y": 439.957492,
+      "priority": 1.065,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-study-laptop-screen"
+    },
+    {
+      "id": "library-study-notebook",
+      "word": "study notebook",
+      "translation": "学习笔记本",
+      "x": 765.550239,
+      "y": 459.086079,
+      "priority": 1.066,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-study-notebook"
+    },
+    {
+      "id": "library-study-pencil-cup",
+      "word": "study pencil cup",
+      "translation": "学习铅笔杯",
+      "x": 813.397129,
+      "y": 430.393199,
+      "priority": 1.067,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-study-pencil-cup"
+    },
+    {
+      "id": "library-group-reading-table",
+      "word": "group reading table",
+      "translation": "小组阅览桌",
+      "x": 885.167464,
+      "y": 320.403826,
+      "priority": 1.068,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-group-reading-table"
+    },
+    {
+      "id": "library-group-table-chair",
+      "word": "group-table chair",
+      "translation": "小组桌椅",
+      "x": 942.583732,
+      "y": 334.750266,
+      "priority": 1.069,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-group-table-chair"
+    },
+    {
+      "id": "library-library-whiteboard",
+      "word": "library whiteboard",
+      "translation": "图书馆白板",
+      "x": 755.980861,
+      "y": 215.196599,
+      "priority": 1.07,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-library-whiteboard"
+    },
+    {
+      "id": "library-library-whiteboard-frame",
+      "word": "library whiteboard frame",
+      "translation": "图书馆白板边框",
+      "x": 755.980861,
+      "y": 215.196599,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-library-whiteboard-frame"
+    },
+    {
+      "id": "library-whiteboard-marker-tray",
+      "word": "whiteboard marker tray",
+      "translation": "白板笔托",
+      "x": 755.980861,
+      "y": 310.839532,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-whiteboard-marker-tray"
+    },
+    {
+      "id": "library-library-carpet-tile",
+      "word": "library carpet tile",
+      "translation": "图书馆方块地毯",
+      "x": 784.688995,
+      "y": 573.857598,
+      "priority": 1.073,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-library-carpet-tile"
+    },
+    {
+      "id": "library-floor-transition-strip",
+      "word": "floor transition strip",
+      "translation": "地面过渡条",
+      "x": 497.607656,
+      "y": 592.986185,
+      "priority": 1.074,
+      "minLevel": 4,
+      "sourceVisualRegion": "library-region-floor-transition-strip"
+    },
+    {
+      "id": "library-picture-book-shelving",
+      "word": "picture-book shelving",
+      "translation": "绘本书架",
+      "x": 1172.248804,
+      "y": 296.493092,
+      "priority": 1.075,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-picture-book-shelving"
+    },
+    {
+      "id": "library-picture-book",
+      "word": "picture book",
+      "translation": "绘本",
+      "x": 1167.464115,
+      "y": 286.928799,
+      "priority": 1.076,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-picture-book"
+    },
+    {
+      "id": "library-face-out-display-rack",
+      "word": "face-out display rack",
+      "translation": "封面展示架",
+      "x": 1086.124402,
+      "y": 382.571732,
+      "priority": 1.077,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-face-out-display-rack"
+    },
+    {
+      "id": "library-magazine-rack",
+      "word": "magazine rack",
+      "translation": "杂志架",
+      "x": 1081.339713,
+      "y": 382.571732,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-magazine-rack"
+    },
+    {
+      "id": "library-magazine-shelf",
+      "word": "magazine shelf",
+      "translation": "杂志搁板",
+      "x": 1081.339713,
+      "y": 411.264612,
+      "priority": 1.079,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-magazine-shelf"
+    },
+    {
+      "id": "library-story-theater-frame",
+      "word": "story-theater frame",
+      "translation": "故事剧场框架",
+      "x": 1320.574163,
+      "y": 286.928799,
+      "priority": 1.08,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-story-theater-frame"
+    },
+    {
+      "id": "library-theater-curtain",
+      "word": "theater curtain",
+      "translation": "剧场帘幕",
+      "x": 1320.574163,
+      "y": 301.275239,
+      "priority": 1.081,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-theater-curtain"
+    },
+    {
+      "id": "library-story-area-globe",
+      "word": "story-area globe",
+      "translation": "故事区地球仪",
+      "x": 1459.330144,
+      "y": 258.235919,
+      "priority": 1.082,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-story-area-globe"
+    },
+    {
+      "id": "library-child-size-table",
+      "word": "child-size table",
+      "translation": "儿童桌",
+      "x": 1320.574163,
+      "y": 392.136026,
+      "priority": 1.083,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-child-size-table"
+    },
+    {
+      "id": "library-child-size-chair",
+      "word": "child-size chair",
+      "translation": "儿童椅",
+      "x": 1387.559809,
+      "y": 411.264612,
+      "priority": 1.084,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-child-size-chair"
+    },
+    {
+      "id": "library-reading-floor-cushion",
+      "word": "reading floor cushion",
+      "translation": "阅读地垫",
+      "x": 1244.019139,
+      "y": 411.264612,
+      "priority": 1.085,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-reading-floor-cushion"
+    },
+    {
+      "id": "library-media-desk",
+      "word": "media desk",
+      "translation": "媒体工作台",
+      "x": 1454.545455,
+      "y": 459.086079,
+      "priority": 1.086,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-media-desk"
+    },
+    {
+      "id": "library-media-desktop-monitor",
+      "word": "media desktop monitor",
+      "translation": "媒体区台式显示器",
+      "x": 1435.406699,
+      "y": 392.136026,
+      "priority": 1.087,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-media-desktop-monitor"
+    },
+    {
+      "id": "library-library-headphones",
+      "word": "library headphones",
+      "translation": "图书馆耳机",
+      "x": 1516.746411,
+      "y": 430.393199,
+      "priority": 1.088,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-library-headphones"
+    },
+    {
+      "id": "library-headphone-earcup",
+      "word": "headphone earcup",
+      "translation": "耳机耳罩",
+      "x": 1521.5311,
+      "y": 435.175345,
+      "priority": 1.089,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-headphone-earcup"
+    },
+    {
+      "id": "library-media-keyboard",
+      "word": "media keyboard",
+      "translation": "媒体区键盘",
+      "x": 1440.191388,
+      "y": 463.868225,
+      "priority": 1.09,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-media-keyboard"
+    },
+    {
+      "id": "library-media-mouse",
+      "word": "media mouse",
+      "translation": "媒体区鼠标",
+      "x": 1497.607656,
+      "y": 463.868225,
+      "priority": 1.091,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-media-mouse"
+    },
+    {
+      "id": "library-media-area-printer",
+      "word": "media-area printer",
+      "translation": "媒体区打印机",
+      "x": 1555.023923,
+      "y": 449.521785,
+      "priority": 1.092,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-media-area-printer"
+    },
+    {
+      "id": "library-media-printer-paper-tray",
+      "word": "media printer paper tray",
+      "translation": "媒体打印机纸盒",
+      "x": 1555.023923,
+      "y": 468.650372,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-media-printer-paper-tray"
+    },
+    {
+      "id": "library-map-cabinet",
+      "word": "map cabinet",
+      "translation": "地图柜",
+      "x": 1507.177033,
+      "y": 621.679065,
+      "priority": 1.094,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-map-cabinet"
+    },
+    {
+      "id": "library-map-drawer",
+      "word": "map drawer",
+      "translation": "地图抽屉",
+      "x": 1507.177033,
+      "y": 659.936238,
+      "priority": 1.095,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-map-drawer"
+    },
+    {
+      "id": "library-map-drawer-pull",
+      "word": "map-drawer pull",
+      "translation": "地图抽屉拉手",
+      "x": 1507.177033,
+      "y": 655.154091,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-map-drawer-pull"
+    },
+    {
+      "id": "library-map-viewing-frame",
+      "word": "map viewing frame",
+      "translation": "地图阅览框",
+      "x": 1507.177033,
+      "y": 564.293305,
+      "priority": 1.097,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-map-viewing-frame"
+    },
+    {
+      "id": "library-book-display-plinth",
+      "word": "book display plinth",
+      "translation": "图书展示台",
+      "x": 1196.172249,
+      "y": 535.600425,
+      "priority": 1.098,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-book-display-plinth"
+    },
+    {
+      "id": "library-media-book-trolley",
+      "word": "media book trolley",
+      "translation": "媒体区图书车",
+      "x": 1387.559809,
+      "y": 669.500531,
+      "priority": 1.099,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-media-book-trolley"
+    },
+    {
+      "id": "library-media-trolley-caster",
+      "word": "media-trolley caster",
+      "translation": "媒体区图书车脚轮",
+      "x": 1435.406699,
+      "y": 769.925611,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "library-region-media-trolley-caster"
+    },
+    {
+      "id": "library-glazed-library-door",
+      "word": "glazed library door",
+      "translation": "图书馆玻璃门",
+      "x": 956.937799,
+      "y": 210.414453,
+      "priority": 1.101,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-glazed-library-door"
+    },
+    {
+      "id": "library-library-door-transom",
+      "word": "library door transom",
+      "translation": "图书馆门上亮窗",
+      "x": 956.937799,
+      "y": 86.07864,
+      "priority": 1.102,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-library-door-transom"
+    },
+    {
+      "id": "library-door-push-bar",
+      "word": "door push bar",
+      "translation": "门推杆",
+      "x": 933.014354,
+      "y": 239.107333,
+      "priority": 1.103,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-door-push-bar"
+    },
+    {
+      "id": "library-door-closer-arm",
+      "word": "door closer arm",
+      "translation": "闭门器连杆",
+      "x": 995.215311,
+      "y": 124.335813,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-door-closer-arm"
+    },
+    {
+      "id": "library-entrance-pull-handle",
+      "word": "entrance pull handle",
+      "translation": "入口拉手",
+      "x": 985.645933,
+      "y": 229.543039,
+      "priority": 1.105,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-entrance-pull-handle"
+    },
+    {
+      "id": "library-concrete-column",
+      "word": "concrete column",
+      "translation": "混凝土柱",
+      "x": 641.148325,
+      "y": 114.77152,
+      "priority": 1.106,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-concrete-column"
+    },
+    {
+      "id": "library-ceiling-tile",
+      "word": "ceiling tile",
+      "translation": "天花板板块",
+      "x": 746.411483,
+      "y": 43.03932,
+      "priority": 1.107,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-ceiling-tile"
+    },
+    {
+      "id": "library-library-ceiling-light-panel",
+      "word": "library ceiling light panel",
+      "translation": "图书馆天花板灯板",
+      "x": 1148.325359,
+      "y": 33.475027,
+      "priority": 1.108,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-library-ceiling-light-panel"
+    },
+    {
+      "id": "library-wood-pendant-light",
+      "word": "wood pendant light",
+      "translation": "木质吊灯",
+      "x": 1306.220096,
+      "y": 86.07864,
+      "priority": 1.109,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-wood-pendant-light"
+    },
+    {
+      "id": "library-ceiling-air-grille",
+      "word": "ceiling air grille",
+      "translation": "天花板风口",
+      "x": 818.181818,
+      "y": 33.475027,
+      "priority": 1.11,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-ceiling-air-grille"
+    },
+    {
+      "id": "library-library-sprinkler-head",
+      "word": "library sprinkler head",
+      "translation": "图书馆喷淋头",
+      "x": 1468.899522,
+      "y": 52.603613,
+      "priority": 1.111,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-library-sprinkler-head"
+    },
+    {
+      "id": "library-library-smoke-detector",
+      "word": "library smoke detector",
+      "translation": "图书馆烟雾探测器",
+      "x": 220.095694,
+      "y": 43.03932,
+      "priority": 1.112,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-library-smoke-detector"
+    },
+    {
+      "id": "library-dome",
+      "word": "CCTV dome",
+      "translation": "监控半球罩",
+      "x": 1014.354067,
+      "y": 28.69288,
+      "priority": 1.113,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-dome"
+    },
+    {
+      "id": "library-library-fire-extinguisher",
+      "word": "library fire extinguisher",
+      "translation": "图书馆灭火器",
+      "x": 1110.047847,
+      "y": 243.889479,
+      "priority": 1.114,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-library-fire-extinguisher"
+    },
+    {
+      "id": "library-fire-alarm-station",
+      "word": "fire alarm station",
+      "translation": "火灾报警按钮",
+      "x": 1114.832536,
+      "y": 186.503719,
+      "priority": 1.115,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-fire-alarm-station"
+    },
+    {
+      "id": "library-reading-room-wall-clock",
+      "word": "reading-room wall clock",
+      "translation": "阅览室挂钟",
+      "x": 818.181818,
+      "y": 114.77152,
+      "priority": 1.116,
+      "minLevel": 0,
+      "sourceVisualRegion": "library-region-reading-room-wall-clock"
+    },
+    {
+      "id": "library-library-window-mullion",
+      "word": "library window mullion",
+      "translation": "图书馆窗中梃",
+      "x": 1416.267943,
+      "y": 153.028693,
+      "priority": 1.117,
+      "minLevel": 2,
+      "sourceVisualRegion": "library-region-library-window-mullion"
+    },
+    {
+      "id": "library-clerestory-window",
+      "word": "clerestory window",
+      "translation": "高侧窗",
+      "x": 956.937799,
+      "y": 71.7322,
+      "priority": 1.118,
+      "minLevel": 1,
+      "sourceVisualRegion": "library-region-clerestory-window"
+    },
+    {
+      "id": "library-entrance-threshold",
+      "word": "entrance threshold",
+      "translation": "入口门槛",
+      "x": 956.937799,
+      "y": 320.403826,
+      "priority": 1.119,
+      "minLevel": 3,
+      "sourceVisualRegion": "library-region-entrance-threshold"
+    },
+    {
+      "id": "library-library-entrance-door-frame",
+      "word": "library entrance door frame",
+      "translation": "图书馆入口门框",
+      "x": 1004.784689,
+      "y": 210.414453,
+      "priority": 1.12,
+      "minLevel": 4,
+      "sourceVisualRegion": "library-region-library-entrance-door-frame"
+    }
+  ],
+  "portals": []
+}

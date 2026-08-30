@@ -2422,10 +2422,10 @@ a:focus-visible {
 
   .scene-minimap__children {
     display: grid;
-    /* Keep five root portals plus the explicit atlas button on one compact
+    /* Keep six root portals plus the explicit atlas button on one compact
      * row; adding a practical branch must not push the map into the lower
      * label/gesture chrome on a phone. */
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 3px;
     overflow: hidden;
   }

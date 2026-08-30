@@ -664,6 +664,15 @@
       "y": 841.657811,
       "width": 38.277512,
       "height": 38.257173
+    },
+    {
+      "id": "portal-library-reading-room",
+      "description": "Visible school library shelves, reading table and lounge chairs in the upper-right campus room",
+      "kind": "object",
+      "x": 850,
+      "y": 20,
+      "width": 470,
+      "height": 190
     }
   ],
   "detailZones": [
@@ -1621,5 +1630,18 @@
       "sourceVisualRegion": "school-campus-region-tree-planter-wall"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-library-reading-room",
+      "label": "Enter the school library",
+      "translation": "进入学校图书馆",
+      "childSceneId": "library-reading-room",
+      "sourceVisualRegion": "portal-library-reading-room",
+      "x": 850,
+      "y": 20,
+      "width": 470,
+      "height": 190,
+      "enterScale": 3.4
+    }
+  ]
 }
