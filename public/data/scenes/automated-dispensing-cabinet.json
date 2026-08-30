@@ -1,0 +1,3053 @@
+{
+  "id": "automated-dispensing-cabinet",
+  "title": "Automated dispensing cabinet",
+  "translation": "自动发药柜",
+  "subtitle": "Touchscreen, drawers, medication pockets, refrigerator, pharmacy trays and cabinet hardware",
+  "asset": "/scenes/automated-dispensing-cabinet-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "hospital-pharmacy",
+  "visualRegions": [
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-automated-dispensing-cabinet",
+      "description": "Pixel-audited “pharmacy automated dispensing cabinet” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-touchscreen",
+      "description": "Pixel-audited “adc touchscreen” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-screen-bezel",
+      "description": "Pixel-audited “adc screen bezel” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-blank-screen",
+      "description": "Pixel-audited “adc blank screen” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-screen-glass",
+      "description": "Pixel-audited “adc screen glass” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-barcode-reader",
+      "description": "Pixel-audited “adc barcode reader” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-barcode-recess",
+      "description": "Pixel-audited “adc barcode recess” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-reader-housing",
+      "description": "Pixel-audited “adc reader housing” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-card-reader-slot",
+      "description": "Pixel-audited “adc card reader slot” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 715,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-printer-bay",
+      "description": "Pixel-audited “adc printer bay” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-receipt-slot",
+      "description": "Pixel-audited “adc receipt slot” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-access-panel",
+      "description": "Pixel-audited “adc access panel” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-panel-handle",
+      "description": "Pixel-audited “adc panel handle” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-cabinet-side-panel",
+      "description": "Pixel-audited “adc cabinet side panel” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-cabinet-top-panel",
+      "description": "Pixel-audited “adc cabinet top panel” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-upper-seam",
+      "description": "Pixel-audited “adc upper seam” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-lower-drawer",
+      "description": "Pixel-audited “adc lower drawer” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-lower-drawer-handle",
+      "description": "Pixel-audited “adc lower drawer handle” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-cabinet-plinth",
+      "description": "Pixel-audited “adc cabinet plinth” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-leveling-foot",
+      "description": "Pixel-audited “adc leveling foot” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-power-cable",
+      "description": "Pixel-audited “adc power cable” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 715,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-cable-channel",
+      "description": "Pixel-audited “adc cable channel” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 715,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-wall-rail",
+      "description": "Pixel-audited “adc wall rail” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 510,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-side-trim",
+      "description": "Pixel-audited “adc side trim” inside the Automated cabinet control face crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-medication-matrix-drawer",
+      "description": "Pixel-audited “medication matrix drawer” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-matrix-drawer-front",
+      "description": "Pixel-audited “matrix drawer front” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-matrix-drawer-handle",
+      "description": "Pixel-audited “matrix drawer handle” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-matrix-drawer-pocket",
+      "description": "Pixel-audited “matrix drawer pocket” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-matrix-pocket-divider",
+      "description": "Pixel-audited “matrix pocket divider” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-matrix-pocket-bin",
+      "description": "Pixel-audited “matrix pocket bin” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 950,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-full-height-medication-drawer",
+      "description": "Pixel-audited “full-height medication drawer” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-half-height-medication-drawer",
+      "description": "Pixel-audited “half-height medication drawer” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-locked-medication-drawer",
+      "description": "Pixel-audited “locked medication drawer” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-drawer-faceplate",
+      "description": "Pixel-audited “adc drawer faceplate” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-drawer-pull",
+      "description": "Pixel-audited “adc drawer pull” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-drawer-rail",
+      "description": "Pixel-audited “adc drawer rail” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-drawer-hinge",
+      "description": "Pixel-audited “adc drawer hinge” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-drawer-latch",
+      "description": "Pixel-audited “adc drawer latch” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-blank-drawer-plate",
+      "description": "Pixel-audited “blank drawer plate” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-drawer-stop",
+      "description": "Pixel-audited “adc drawer stop” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-drawer-sidewall",
+      "description": "Pixel-audited “drawer sidewall” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-drawer-base",
+      "description": "Pixel-audited “drawer base” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-medication-cubby",
+      "description": "Pixel-audited “medication cubby” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-cubby-divider",
+      "description": "Pixel-audited “cubby divider” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-cubby-bin",
+      "description": "Pixel-audited “cubby bin” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-cubby-shelf",
+      "description": "Pixel-audited “cubby shelf” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-cabinet-center-mullion",
+      "description": "Pixel-audited “cabinet center mullion” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-cabinet-inner-liner",
+      "description": "Pixel-audited “cabinet inner liner” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1060,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-cabinet-frame-rail",
+      "description": "Pixel-audited “cabinet frame rail” inside the Matrix drawers and pockets crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-medication-refrigerator",
+      "description": "Pixel-audited “medication refrigerator” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-glass-door",
+      "description": "Pixel-audited “refrigerator glass door” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-door-frame",
+      "description": "Pixel-audited “refrigerator door frame” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-door-handle",
+      "description": "Pixel-audited “refrigerator door handle” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-door-gasket",
+      "description": "Pixel-audited “refrigerator door gasket” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-door-hinge",
+      "description": "Pixel-audited “refrigerator door hinge” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-door-sill",
+      "description": "Pixel-audited “refrigerator door sill” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-shelf",
+      "description": "Pixel-audited “refrigerator shelf” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-shelf-rail",
+      "description": "Pixel-audited “refrigerator shelf rail” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-shelf-clip",
+      "description": "Pixel-audited “refrigerator shelf clip” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-shelf-bracket",
+      "description": "Pixel-audited “refrigerator shelf bracket” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-interior-liner",
+      "description": "Pixel-audited “refrigerator interior liner” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-strip",
+      "description": "Pixel-audited “refrigerator LED strip” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-ceiling-panel",
+      "description": "Pixel-audited “refrigerator ceiling panel” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-bottom-pan",
+      "description": "Pixel-audited “refrigerator bottom pan” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-vent-grille",
+      "description": "Pixel-audited “refrigerator vent grille” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-base-grille",
+      "description": "Pixel-audited “refrigerator base grille” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-plinth",
+      "description": "Pixel-audited “refrigerator plinth” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerated-medicine-carton",
+      "description": "Pixel-audited “refrigerated medicine carton” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerated-medicine-bottle",
+      "description": "Pixel-audited “refrigerated medicine bottle” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerated-vial",
+      "description": "Pixel-audited “refrigerated vial” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-shelf-divider",
+      "description": "Pixel-audited “refrigerator shelf divider” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-door-seal",
+      "description": "Pixel-audited “refrigerator door seal” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-side-panel",
+      "description": "Pixel-audited “refrigerator side panel” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1540,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-handle-mount",
+      "description": "Pixel-audited “refrigerator handle mount” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-refrigerator-foot",
+      "description": "Pixel-audited “refrigerator foot” inside the Medication refrigerator crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-work-counter",
+      "description": "Pixel-audited “pharmacy work counter” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-counter-worktop",
+      "description": "Pixel-audited “pharmacy counter worktop” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-counter-backsplash",
+      "description": "Pixel-audited “pharmacy counter backsplash” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-counter-edge",
+      "description": "Pixel-audited “pharmacy counter edge” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-medication-tray",
+      "description": "Pixel-audited “medication tray” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-blue-medication-tray",
+      "description": "Pixel-audited “blue medication tray” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 550,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pill-cup",
+      "description": "Pixel-audited “pill cup” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 180,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pill-cup-lid",
+      "description": "Pixel-audited “pill cup lid” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 180,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-prescription-basket",
+      "description": "Pixel-audited “pharmacy prescription basket” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-supply-basket",
+      "description": "Pixel-audited “pharmacy supply basket” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-vial-rack",
+      "description": "Pixel-audited “pharmacy vial rack” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-amber-vial",
+      "description": "Pixel-audited “pharmacy amber vial” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-vial-cap",
+      "description": "Pixel-audited “pharmacy vial cap” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 490,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-vial-rack-divider",
+      "description": "Pixel-audited “vial rack divider” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-medication-label-printer",
+      "description": "Pixel-audited “medication label printer” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 60,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-label-printer-housing",
+      "description": "Pixel-audited “label printer housing” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 60,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-medication-receipt-tray",
+      "description": "Pixel-audited “medication receipt tray” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 610,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-medication-receipt-paper",
+      "description": "Pixel-audited “medication receipt paper” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 590,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-barcode-scanner",
+      "description": "Pixel-audited “pharmacy barcode scanner” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-scanner-stand",
+      "description": "Pixel-audited “pharmacy scanner stand” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-dispensing-bin",
+      "description": "Pixel-audited “dispensing bin” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-counter-drawer",
+      "description": "Pixel-audited “pharmacy counter drawer” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-drawer-handle",
+      "description": "Pixel-audited “pharmacy drawer handle” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-counter-lower-shelf",
+      "description": "Pixel-audited “counter lower shelf” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-counter-cabinet",
+      "description": "Pixel-audited “pharmacy counter cabinet” inside the Pharmacy preparation counter crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-wall-shelf",
+      "description": "Pixel-audited “pharmacy wall shelf” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 180,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-shelf-support-rail",
+      "description": "Pixel-audited “shelf support rail” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-white-medicine-carton",
+      "description": "Pixel-audited “white medicine carton” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 180,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-blue-medicine-carton",
+      "description": "Pixel-audited “blue medicine carton” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-green-medicine-carton",
+      "description": "Pixel-audited “green medicine carton” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-blank-medication-box",
+      "description": "Pixel-audited “blank medication box” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-amber-bottle",
+      "description": "Pixel-audited “pharmacy amber bottle” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-white-bottle",
+      "description": "Pixel-audited “white bottle” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-vial-tray",
+      "description": "Pixel-audited “vial tray” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-ampoule-rack",
+      "description": "Pixel-audited “ampoule rack” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-ampoule",
+      "description": "Pixel-audited “pharmacy ampoule” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-medication-cup",
+      "description": "Pixel-audited “medication cup” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-supply-bin",
+      "description": "Pixel-audited “supply bin” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-white-supply-basket",
+      "description": "Pixel-audited “white supply basket” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-blue-supply-bin",
+      "description": "Pixel-audited “blue supply bin” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-cabinet-shelf",
+      "description": "Pixel-audited “pharmacy cabinet shelf” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-shelf-edge",
+      "description": "Pixel-audited “pharmacy shelf edge” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-shelf-bracket",
+      "description": "Pixel-audited “pharmacy shelf bracket” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 140,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-paper-basket",
+      "description": "Pixel-audited “paper basket” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 30,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-stock-tray",
+      "description": "Pixel-audited “stock tray” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-stock-bottle",
+      "description": "Pixel-audited “stock bottle” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-stock-bottle-cap",
+      "description": "Pixel-audited “stock bottle cap” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 210,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-medicine-carton-side",
+      "description": "Pixel-audited “medicine carton side” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-carton-blank-panel",
+      "description": "Pixel-audited “carton blank panel” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-storage-shelf",
+      "description": "Pixel-audited “pharmacy storage shelf” inside the Medication storage and supplies crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-cabinet-base",
+      "description": "Pixel-audited “adc cabinet base” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-base-rail",
+      "description": "Pixel-audited “adc base rail” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-base-kickplate",
+      "description": "Pixel-audited “adc base kickplate” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-base-vent",
+      "description": "Pixel-audited “adc base vent” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-ventilation-grille",
+      "description": "Pixel-audited “pharmacy ventilation grille” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 810,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-lower-air-intake",
+      "description": "Pixel-audited “lower air intake” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 810,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-floor-threshold",
+      "description": "Pixel-audited “pharmacy floor threshold” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-floor-tile",
+      "description": "Pixel-audited “pharmacy floor tile” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-floor-seam",
+      "description": "Pixel-audited “pharmacy floor seam” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-wall-service-rail",
+      "description": "Pixel-audited “pharmacy wall service rail” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-wall-outlet",
+      "description": "Pixel-audited “pharmacy wall outlet” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-outlet-faceplate",
+      "description": "Pixel-audited “pharmacy outlet faceplate” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-cable-cover",
+      "description": "Pixel-audited “pharmacy cable cover” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-cabinet-side-trim",
+      "description": "Pixel-audited “cabinet side trim” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-cabinet-corner-guard",
+      "description": "Pixel-audited “adc cabinet corner guard” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-cabinet-leveling-foot",
+      "description": "Pixel-audited “adc cabinet leveling foot” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-base-panel",
+      "description": "Pixel-audited “base panel” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-adc-base-panel-seam",
+      "description": "Pixel-audited “adc base panel seam” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-floor-contact-pad",
+      "description": "Pixel-audited “pharmacy floor contact pad” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-room-wall-panel",
+      "description": "Pixel-audited “pharmacy room wall panel” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-pharmacy-room-wall-seam",
+      "description": "Pixel-audited “pharmacy room wall seam” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "automated-dispensing-cabinet-region-lower-storage-shelf",
+      "description": "Pixel-audited “lower storage shelf” inside the Cabinet bases and wall services crop of the automated dispensing cabinet photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "automated-dispensing-cabinet-zone-adc-touchscreen",
+      "title": "Automated cabinet control face",
+      "translation": "自动药柜控制面",
+      "description": "Trace the visible touchscreen, scanner recess, access panels, cable channel, trim and cabinet base.",
+      "x": 500,
+      "y": 0,
+      "width": 300,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "automated-dispensing-cabinet-pharmacy-automated-dispensing-cabinet",
+        "automated-dispensing-cabinet-adc-touchscreen",
+        "automated-dispensing-cabinet-adc-screen-bezel",
+        "automated-dispensing-cabinet-adc-blank-screen",
+        "automated-dispensing-cabinet-adc-screen-glass",
+        "automated-dispensing-cabinet-adc-barcode-reader",
+        "automated-dispensing-cabinet-adc-barcode-recess",
+        "automated-dispensing-cabinet-adc-reader-housing",
+        "automated-dispensing-cabinet-adc-card-reader-slot",
+        "automated-dispensing-cabinet-adc-printer-bay",
+        "automated-dispensing-cabinet-adc-receipt-slot",
+        "automated-dispensing-cabinet-adc-access-panel",
+        "automated-dispensing-cabinet-adc-panel-handle",
+        "automated-dispensing-cabinet-adc-cabinet-side-panel",
+        "automated-dispensing-cabinet-adc-cabinet-top-panel",
+        "automated-dispensing-cabinet-adc-upper-seam",
+        "automated-dispensing-cabinet-adc-lower-drawer",
+        "automated-dispensing-cabinet-adc-lower-drawer-handle",
+        "automated-dispensing-cabinet-adc-cabinet-plinth",
+        "automated-dispensing-cabinet-adc-leveling-foot",
+        "automated-dispensing-cabinet-adc-power-cable",
+        "automated-dispensing-cabinet-adc-cable-channel",
+        "automated-dispensing-cabinet-adc-wall-rail",
+        "automated-dispensing-cabinet-adc-side-trim"
+      ]
+    },
+    {
+      "id": "automated-dispensing-cabinet-zone-matrix-drawers",
+      "title": "Matrix drawers and pockets",
+      "translation": "矩阵抽屉与储物格",
+      "description": "Inspect the visible matrix pockets, drawer faces, rails, dividers, handles, latches and cabinet liner.",
+      "x": 780,
+      "y": 40,
+      "width": 420,
+      "height": 790,
+      "targetScale": 3.15,
+      "labelIds": [
+        "automated-dispensing-cabinet-medication-matrix-drawer",
+        "automated-dispensing-cabinet-matrix-drawer-front",
+        "automated-dispensing-cabinet-matrix-drawer-handle",
+        "automated-dispensing-cabinet-matrix-drawer-pocket",
+        "automated-dispensing-cabinet-matrix-pocket-divider",
+        "automated-dispensing-cabinet-matrix-pocket-bin",
+        "automated-dispensing-cabinet-full-height-medication-drawer",
+        "automated-dispensing-cabinet-half-height-medication-drawer",
+        "automated-dispensing-cabinet-locked-medication-drawer",
+        "automated-dispensing-cabinet-adc-drawer-faceplate",
+        "automated-dispensing-cabinet-adc-drawer-pull",
+        "automated-dispensing-cabinet-adc-drawer-rail",
+        "automated-dispensing-cabinet-adc-drawer-hinge",
+        "automated-dispensing-cabinet-adc-drawer-latch",
+        "automated-dispensing-cabinet-blank-drawer-plate",
+        "automated-dispensing-cabinet-adc-drawer-stop",
+        "automated-dispensing-cabinet-drawer-sidewall",
+        "automated-dispensing-cabinet-drawer-base",
+        "automated-dispensing-cabinet-medication-cubby",
+        "automated-dispensing-cabinet-cubby-divider",
+        "automated-dispensing-cabinet-cubby-bin",
+        "automated-dispensing-cabinet-cubby-shelf",
+        "automated-dispensing-cabinet-cabinet-center-mullion",
+        "automated-dispensing-cabinet-cabinet-inner-liner",
+        "automated-dispensing-cabinet-cabinet-frame-rail"
+      ]
+    },
+    {
+      "id": "automated-dispensing-cabinet-zone-medication-refrigerator",
+      "title": "Medication refrigerator",
+      "translation": "药品冷藏柜",
+      "description": "Study the visible refrigerator door, glass, gasket, shelves, clips, LED strip, vent and generic packages.",
+      "x": 1200,
+      "y": 40,
+      "width": 400,
+      "height": 820,
+      "targetScale": 3.15,
+      "labelIds": [
+        "automated-dispensing-cabinet-medication-refrigerator",
+        "automated-dispensing-cabinet-refrigerator-glass-door",
+        "automated-dispensing-cabinet-refrigerator-door-frame",
+        "automated-dispensing-cabinet-refrigerator-door-handle",
+        "automated-dispensing-cabinet-refrigerator-door-gasket",
+        "automated-dispensing-cabinet-refrigerator-door-hinge",
+        "automated-dispensing-cabinet-refrigerator-door-sill",
+        "automated-dispensing-cabinet-refrigerator-shelf",
+        "automated-dispensing-cabinet-refrigerator-shelf-rail",
+        "automated-dispensing-cabinet-refrigerator-shelf-clip",
+        "automated-dispensing-cabinet-refrigerator-shelf-bracket",
+        "automated-dispensing-cabinet-refrigerator-interior-liner",
+        "automated-dispensing-cabinet-refrigerator-strip",
+        "automated-dispensing-cabinet-refrigerator-ceiling-panel",
+        "automated-dispensing-cabinet-refrigerator-bottom-pan",
+        "automated-dispensing-cabinet-refrigerator-vent-grille",
+        "automated-dispensing-cabinet-refrigerator-base-grille",
+        "automated-dispensing-cabinet-refrigerator-plinth",
+        "automated-dispensing-cabinet-refrigerated-medicine-carton",
+        "automated-dispensing-cabinet-refrigerated-medicine-bottle",
+        "automated-dispensing-cabinet-refrigerated-vial",
+        "automated-dispensing-cabinet-refrigerator-shelf-divider",
+        "automated-dispensing-cabinet-refrigerator-door-seal",
+        "automated-dispensing-cabinet-refrigerator-side-panel",
+        "automated-dispensing-cabinet-refrigerator-handle-mount",
+        "automated-dispensing-cabinet-refrigerator-foot"
+      ]
+    },
+    {
+      "id": "automated-dispensing-cabinet-zone-pharmacy-counter",
+      "title": "Pharmacy preparation counter",
+      "translation": "药房配药台",
+      "description": "Inspect the visible pharmacy worktop, trays, cups, vials, racks, printer, scanner and lower storage.",
+      "x": 0,
+      "y": 350,
+      "width": 620,
+      "height": 550,
+      "targetScale": 3.15,
+      "labelIds": [
+        "automated-dispensing-cabinet-pharmacy-work-counter",
+        "automated-dispensing-cabinet-pharmacy-counter-worktop",
+        "automated-dispensing-cabinet-pharmacy-counter-backsplash",
+        "automated-dispensing-cabinet-pharmacy-counter-edge",
+        "automated-dispensing-cabinet-medication-tray",
+        "automated-dispensing-cabinet-blue-medication-tray",
+        "automated-dispensing-cabinet-pill-cup",
+        "automated-dispensing-cabinet-pill-cup-lid",
+        "automated-dispensing-cabinet-pharmacy-prescription-basket",
+        "automated-dispensing-cabinet-pharmacy-supply-basket",
+        "automated-dispensing-cabinet-pharmacy-vial-rack",
+        "automated-dispensing-cabinet-pharmacy-amber-vial",
+        "automated-dispensing-cabinet-pharmacy-vial-cap",
+        "automated-dispensing-cabinet-vial-rack-divider",
+        "automated-dispensing-cabinet-medication-label-printer",
+        "automated-dispensing-cabinet-label-printer-housing",
+        "automated-dispensing-cabinet-medication-receipt-tray",
+        "automated-dispensing-cabinet-medication-receipt-paper",
+        "automated-dispensing-cabinet-pharmacy-barcode-scanner",
+        "automated-dispensing-cabinet-pharmacy-scanner-stand",
+        "automated-dispensing-cabinet-dispensing-bin",
+        "automated-dispensing-cabinet-pharmacy-counter-drawer",
+        "automated-dispensing-cabinet-pharmacy-drawer-handle",
+        "automated-dispensing-cabinet-counter-lower-shelf",
+        "automated-dispensing-cabinet-pharmacy-counter-cabinet"
+      ]
+    },
+    {
+      "id": "automated-dispensing-cabinet-zone-storage-supplies",
+      "title": "Medication storage and supplies",
+      "translation": "药品储物与用品",
+      "description": "Compare the visible wall shelves, generic cartons, bottles, trays, bins, rack dividers and storage hardware.",
+      "x": 0,
+      "y": 0,
+      "width": 620,
+      "height": 550,
+      "targetScale": 3.15,
+      "labelIds": [
+        "automated-dispensing-cabinet-pharmacy-wall-shelf",
+        "automated-dispensing-cabinet-shelf-support-rail",
+        "automated-dispensing-cabinet-white-medicine-carton",
+        "automated-dispensing-cabinet-blue-medicine-carton",
+        "automated-dispensing-cabinet-green-medicine-carton",
+        "automated-dispensing-cabinet-blank-medication-box",
+        "automated-dispensing-cabinet-pharmacy-amber-bottle",
+        "automated-dispensing-cabinet-white-bottle",
+        "automated-dispensing-cabinet-vial-tray",
+        "automated-dispensing-cabinet-ampoule-rack",
+        "automated-dispensing-cabinet-pharmacy-ampoule",
+        "automated-dispensing-cabinet-medication-cup",
+        "automated-dispensing-cabinet-supply-bin",
+        "automated-dispensing-cabinet-white-supply-basket",
+        "automated-dispensing-cabinet-blue-supply-bin",
+        "automated-dispensing-cabinet-pharmacy-cabinet-shelf",
+        "automated-dispensing-cabinet-pharmacy-shelf-edge",
+        "automated-dispensing-cabinet-pharmacy-shelf-bracket",
+        "automated-dispensing-cabinet-paper-basket",
+        "automated-dispensing-cabinet-stock-tray",
+        "automated-dispensing-cabinet-stock-bottle",
+        "automated-dispensing-cabinet-stock-bottle-cap",
+        "automated-dispensing-cabinet-medicine-carton-side",
+        "automated-dispensing-cabinet-carton-blank-panel",
+        "automated-dispensing-cabinet-pharmacy-storage-shelf"
+      ]
+    },
+    {
+      "id": "automated-dispensing-cabinet-zone-cabinet-base-wall",
+      "title": "Cabinet bases and wall services",
+      "translation": "柜体底座与墙面设施",
+      "description": "Trace the visible cabinet bases, ventilation openings, floor finish, wall rail, outlets and service panels.",
+      "x": 500,
+      "y": 600,
+      "width": 1100,
+      "height": 300,
+      "targetScale": 3.15,
+      "labelIds": [
+        "automated-dispensing-cabinet-adc-cabinet-base",
+        "automated-dispensing-cabinet-adc-base-rail",
+        "automated-dispensing-cabinet-adc-base-kickplate",
+        "automated-dispensing-cabinet-adc-base-vent",
+        "automated-dispensing-cabinet-pharmacy-ventilation-grille",
+        "automated-dispensing-cabinet-lower-air-intake",
+        "automated-dispensing-cabinet-pharmacy-floor-threshold",
+        "automated-dispensing-cabinet-pharmacy-floor-tile",
+        "automated-dispensing-cabinet-pharmacy-floor-seam",
+        "automated-dispensing-cabinet-pharmacy-wall-service-rail",
+        "automated-dispensing-cabinet-pharmacy-wall-outlet",
+        "automated-dispensing-cabinet-pharmacy-outlet-faceplate",
+        "automated-dispensing-cabinet-pharmacy-cable-cover",
+        "automated-dispensing-cabinet-cabinet-side-trim",
+        "automated-dispensing-cabinet-adc-cabinet-corner-guard",
+        "automated-dispensing-cabinet-adc-cabinet-leveling-foot",
+        "automated-dispensing-cabinet-base-panel",
+        "automated-dispensing-cabinet-adc-base-panel-seam",
+        "automated-dispensing-cabinet-pharmacy-floor-contact-pad",
+        "automated-dispensing-cabinet-pharmacy-room-wall-panel",
+        "automated-dispensing-cabinet-pharmacy-room-wall-seam",
+        "automated-dispensing-cabinet-lower-storage-shelf"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/automated-dispensing-cabinet-premium-v1.jpg",
+    "reviewedAssetSha256": "ffad54c64be1bcb601c5ea1483a93786adf1bfb18e351a4260dcfaedaa47fdad",
+    "rationale": "The final 1600 by 900 automated-dispensing-cabinet photograph was inspected at source and output resolution. It retains 147 independently pointable cabinet, touchscreen, drawer, medication-pocket, refrigerator, counter, supply and base-service parts. Patient identity, medication identity, access authorization, inventory level, dispensing result, temperature, safety status, readable labels and hidden software were excluded.",
+    "previousLabelCount": 155,
+    "retainedLabelCount": 147,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "patient identity",
+      "medication identity",
+      "access authorization",
+      "inventory level",
+      "dispensing result",
+      "hidden software"
+    ]
+  },
+  "labels": [
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-automated-dispensing-cabinet",
+      "word": "pharmacy automated dispensing cabinet",
+      "translation": "药房自动发药柜",
+      "x": 650,
+      "y": 400,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-automated-dispensing-cabinet"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-touchscreen",
+      "word": "adc touchscreen",
+      "translation": "自动药柜触控屏",
+      "x": 650,
+      "y": 200,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-touchscreen"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-screen-bezel",
+      "word": "adc screen bezel",
+      "translation": "自动药柜屏幕边框",
+      "x": 650,
+      "y": 200,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-screen-bezel"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-blank-screen",
+      "word": "adc blank screen",
+      "translation": "自动药柜空白屏幕",
+      "x": 650,
+      "y": 200,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-blank-screen"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-screen-glass",
+      "word": "adc screen glass",
+      "translation": "自动药柜屏幕玻璃",
+      "x": 650,
+      "y": 200,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-screen-glass"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-barcode-reader",
+      "word": "adc barcode reader",
+      "translation": "自动药柜条码读取器",
+      "x": 700,
+      "y": 370,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-barcode-reader"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-barcode-recess",
+      "word": "adc barcode recess",
+      "translation": "自动药柜条码凹槽",
+      "x": 650,
+      "y": 350,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-barcode-recess"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-reader-housing",
+      "word": "adc reader housing",
+      "translation": "自动药柜读取器外壳",
+      "x": 700,
+      "y": 370,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-reader-housing"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-card-reader-slot",
+      "word": "adc card reader slot",
+      "translation": "自动药柜读卡插槽",
+      "x": 735,
+      "y": 370,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-card-reader-slot"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-printer-bay",
+      "word": "adc printer bay",
+      "translation": "自动药柜打印机舱",
+      "x": 650,
+      "y": 440,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-printer-bay"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-receipt-slot",
+      "word": "adc receipt slot",
+      "translation": "自动药柜收据插槽",
+      "x": 650,
+      "y": 450,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-receipt-slot"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-access-panel",
+      "word": "adc access panel",
+      "translation": "自动药柜检修面板",
+      "x": 650,
+      "y": 520,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-access-panel"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-panel-handle",
+      "word": "adc panel handle",
+      "translation": "自动药柜面板把手",
+      "x": 650,
+      "y": 520,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-panel-handle"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-cabinet-side-panel",
+      "word": "adc cabinet side panel",
+      "translation": "自动药柜侧板",
+      "x": 560,
+      "y": 500,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-cabinet-side-panel"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-cabinet-top-panel",
+      "word": "adc cabinet top panel",
+      "translation": "自动药柜顶板",
+      "x": 650,
+      "y": 80,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-cabinet-top-panel"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-upper-seam",
+      "word": "adc upper seam",
+      "translation": "自动药柜上部接缝",
+      "x": 650,
+      "y": 120,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-upper-seam"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-lower-drawer",
+      "word": "adc lower drawer",
+      "translation": "自动药柜下抽屉",
+      "x": 650,
+      "y": 650,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-lower-drawer"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-lower-drawer-handle",
+      "word": "adc lower drawer handle",
+      "translation": "自动药柜下抽屉把手",
+      "x": 650,
+      "y": 650,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-lower-drawer-handle"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-cabinet-plinth",
+      "word": "adc cabinet plinth",
+      "translation": "自动药柜基座",
+      "x": 650,
+      "y": 820,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-cabinet-plinth"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-leveling-foot",
+      "word": "adc leveling foot",
+      "translation": "自动药柜调平脚",
+      "x": 560,
+      "y": 840,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-leveling-foot"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-power-cable",
+      "word": "adc power cable",
+      "translation": "自动药柜电源线",
+      "x": 735,
+      "y": 500,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-power-cable"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-cable-channel",
+      "word": "adc cable channel",
+      "translation": "自动药柜电缆通道",
+      "x": 735,
+      "y": 550,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-cable-channel"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-wall-rail",
+      "word": "adc wall rail",
+      "translation": "自动药柜墙面导轨",
+      "x": 530,
+      "y": 200,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-wall-rail"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-side-trim",
+      "word": "adc side trim",
+      "translation": "自动药柜侧饰条",
+      "x": 780,
+      "y": 500,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-side-trim"
+    },
+    {
+      "id": "automated-dispensing-cabinet-medication-matrix-drawer",
+      "word": "medication matrix drawer",
+      "translation": "药品矩阵抽屉",
+      "x": 900,
+      "y": 450,
+      "priority": 1.024,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-medication-matrix-drawer"
+    },
+    {
+      "id": "automated-dispensing-cabinet-matrix-drawer-front",
+      "word": "matrix drawer front",
+      "translation": "矩阵抽屉前板",
+      "x": 900,
+      "y": 450,
+      "priority": 1.025,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-matrix-drawer-front"
+    },
+    {
+      "id": "automated-dispensing-cabinet-matrix-drawer-handle",
+      "word": "matrix drawer handle",
+      "translation": "矩阵抽屉把手",
+      "x": 900,
+      "y": 450,
+      "priority": 1.026,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-matrix-drawer-handle"
+    },
+    {
+      "id": "automated-dispensing-cabinet-matrix-drawer-pocket",
+      "word": "matrix drawer pocket",
+      "translation": "矩阵抽屉储物格",
+      "x": 900,
+      "y": 500,
+      "priority": 1.027,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-matrix-drawer-pocket"
+    },
+    {
+      "id": "automated-dispensing-cabinet-matrix-pocket-divider",
+      "word": "matrix pocket divider",
+      "translation": "矩阵储物格分隔片",
+      "x": 930,
+      "y": 500,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-matrix-pocket-divider"
+    },
+    {
+      "id": "automated-dispensing-cabinet-matrix-pocket-bin",
+      "word": "matrix pocket bin",
+      "translation": "矩阵储物格箱",
+      "x": 970,
+      "y": 500,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-matrix-pocket-bin"
+    },
+    {
+      "id": "automated-dispensing-cabinet-full-height-medication-drawer",
+      "word": "full-height medication drawer",
+      "translation": "全高药品抽屉",
+      "x": 850,
+      "y": 200,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-full-height-medication-drawer"
+    },
+    {
+      "id": "automated-dispensing-cabinet-half-height-medication-drawer",
+      "word": "half-height medication drawer",
+      "translation": "半高药品抽屉",
+      "x": 850,
+      "y": 320,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-half-height-medication-drawer"
+    },
+    {
+      "id": "automated-dispensing-cabinet-locked-medication-drawer",
+      "word": "locked medication drawer",
+      "translation": "带锁药品抽屉",
+      "x": 850,
+      "y": 400,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-locked-medication-drawer"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-drawer-faceplate",
+      "word": "adc drawer faceplate",
+      "translation": "自动药柜抽屉面板",
+      "x": 850,
+      "y": 220,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-drawer-faceplate"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-drawer-pull",
+      "word": "adc drawer pull",
+      "translation": "自动药柜抽屉拉手",
+      "x": 850,
+      "y": 220,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-drawer-pull"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-drawer-rail",
+      "word": "adc drawer rail",
+      "translation": "自动药柜抽屉导轨",
+      "x": 850,
+      "y": 250,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-drawer-rail"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-drawer-hinge",
+      "word": "adc drawer hinge",
+      "translation": "自动药柜抽屉铰链",
+      "x": 850,
+      "y": 320,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-drawer-hinge"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-drawer-latch",
+      "word": "adc drawer latch",
+      "translation": "自动药柜抽屉锁扣",
+      "x": 850,
+      "y": 360,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-drawer-latch"
+    },
+    {
+      "id": "automated-dispensing-cabinet-blank-drawer-plate",
+      "word": "blank drawer plate",
+      "translation": "空白抽屉牌",
+      "x": 850,
+      "y": 220,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-blank-drawer-plate"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-drawer-stop",
+      "word": "adc drawer stop",
+      "translation": "自动药柜抽屉止挡",
+      "x": 850,
+      "y": 330,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-drawer-stop"
+    },
+    {
+      "id": "automated-dispensing-cabinet-drawer-sidewall",
+      "word": "drawer sidewall",
+      "translation": "抽屉侧墙",
+      "x": 900,
+      "y": 500,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-drawer-sidewall"
+    },
+    {
+      "id": "automated-dispensing-cabinet-drawer-base",
+      "word": "drawer base",
+      "translation": "抽屉底座",
+      "x": 900,
+      "y": 560,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-drawer-base"
+    },
+    {
+      "id": "automated-dispensing-cabinet-medication-cubby",
+      "word": "medication cubby",
+      "translation": "药品储物格",
+      "x": 1000,
+      "y": 500,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-medication-cubby"
+    },
+    {
+      "id": "automated-dispensing-cabinet-cubby-divider",
+      "word": "cubby divider",
+      "translation": "储物格分隔片",
+      "x": 1020,
+      "y": 500,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-cubby-divider"
+    },
+    {
+      "id": "automated-dispensing-cabinet-cubby-bin",
+      "word": "cubby bin",
+      "translation": "储物格箱",
+      "x": 1050,
+      "y": 500,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-cubby-bin"
+    },
+    {
+      "id": "automated-dispensing-cabinet-cubby-shelf",
+      "word": "cubby shelf",
+      "translation": "储物格搁板",
+      "x": 1050,
+      "y": 430,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-cubby-shelf"
+    },
+    {
+      "id": "automated-dispensing-cabinet-cabinet-center-mullion",
+      "word": "cabinet center mullion",
+      "translation": "柜体中央竖框",
+      "x": 1000,
+      "y": 150,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-cabinet-center-mullion"
+    },
+    {
+      "id": "automated-dispensing-cabinet-cabinet-inner-liner",
+      "word": "cabinet inner liner",
+      "translation": "柜体内衬",
+      "x": 1080,
+      "y": 300,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-cabinet-inner-liner"
+    },
+    {
+      "id": "automated-dispensing-cabinet-cabinet-frame-rail",
+      "word": "cabinet frame rail",
+      "translation": "柜体框导轨",
+      "x": 1150,
+      "y": 300,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-cabinet-frame-rail"
+    },
+    {
+      "id": "automated-dispensing-cabinet-medication-refrigerator",
+      "word": "medication refrigerator",
+      "translation": "药品冷藏柜",
+      "x": 1400,
+      "y": 450,
+      "priority": 1.049,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-medication-refrigerator"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-glass-door",
+      "word": "refrigerator glass door",
+      "translation": "冷藏柜玻璃门",
+      "x": 1400,
+      "y": 400,
+      "priority": 1.05,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-glass-door"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-door-frame",
+      "word": "refrigerator door frame",
+      "translation": "冷藏柜门框",
+      "x": 1250,
+      "y": 400,
+      "priority": 1.051,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-door-frame"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-door-handle",
+      "word": "refrigerator door handle",
+      "translation": "冷藏柜门把手",
+      "x": 1250,
+      "y": 450,
+      "priority": 1.052,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-door-handle"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-door-gasket",
+      "word": "refrigerator door gasket",
+      "translation": "冷藏柜门密封条",
+      "x": 1250,
+      "y": 500,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-door-gasket"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-door-hinge",
+      "word": "refrigerator door hinge",
+      "translation": "冷藏柜门铰链",
+      "x": 1250,
+      "y": 300,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-door-hinge"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-door-sill",
+      "word": "refrigerator door sill",
+      "translation": "冷藏柜门槛",
+      "x": 1400,
+      "y": 760,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-door-sill"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-shelf",
+      "word": "refrigerator shelf",
+      "translation": "冷藏柜搁板",
+      "x": 1400,
+      "y": 300,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-shelf"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-shelf-rail",
+      "word": "refrigerator shelf rail",
+      "translation": "冷藏柜搁板导轨",
+      "x": 1400,
+      "y": 300,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-shelf-rail"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-shelf-clip",
+      "word": "refrigerator shelf clip",
+      "translation": "冷藏柜搁板卡扣",
+      "x": 1350,
+      "y": 300,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-shelf-clip"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-shelf-bracket",
+      "word": "refrigerator shelf bracket",
+      "translation": "冷藏柜搁板支架",
+      "x": 1500,
+      "y": 300,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-shelf-bracket"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-interior-liner",
+      "word": "refrigerator interior liner",
+      "translation": "冷藏柜内衬",
+      "x": 1300,
+      "y": 500,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-interior-liner"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-strip",
+      "word": "refrigerator LED strip",
+      "translation": "冷藏柜 LED 灯带",
+      "x": 1400,
+      "y": 120,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-strip"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-ceiling-panel",
+      "word": "refrigerator ceiling panel",
+      "translation": "冷藏柜顶板",
+      "x": 1400,
+      "y": 100,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-ceiling-panel"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-bottom-pan",
+      "word": "refrigerator bottom pan",
+      "translation": "冷藏柜底盘",
+      "x": 1400,
+      "y": 730,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-bottom-pan"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-vent-grille",
+      "word": "refrigerator vent grille",
+      "translation": "冷藏柜通风格栅",
+      "x": 1400,
+      "y": 800,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-vent-grille"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-base-grille",
+      "word": "refrigerator base grille",
+      "translation": "冷藏柜底部格栅",
+      "x": 1400,
+      "y": 820,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-base-grille"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-plinth",
+      "word": "refrigerator plinth",
+      "translation": "冷藏柜基座",
+      "x": 1400,
+      "y": 850,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-plinth"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerated-medicine-carton",
+      "word": "refrigerated medicine carton",
+      "translation": "冷藏药品纸盒",
+      "x": 1300,
+      "y": 250,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerated-medicine-carton"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerated-medicine-bottle",
+      "word": "refrigerated medicine bottle",
+      "translation": "冷藏药品瓶",
+      "x": 1400,
+      "y": 450,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerated-medicine-bottle"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerated-vial",
+      "word": "refrigerated vial",
+      "translation": "冷藏药瓶",
+      "x": 1400,
+      "y": 480,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerated-vial"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-shelf-divider",
+      "word": "refrigerator shelf divider",
+      "translation": "冷藏柜层架分隔片",
+      "x": 1500,
+      "y": 500,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-shelf-divider"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-door-seal",
+      "word": "refrigerator door seal",
+      "translation": "冷藏柜门封条",
+      "x": 1250,
+      "y": 550,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-door-seal"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-side-panel",
+      "word": "refrigerator side panel",
+      "translation": "冷藏柜侧板",
+      "x": 1560,
+      "y": 450,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-side-panel"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-handle-mount",
+      "word": "refrigerator handle mount",
+      "translation": "冷藏柜把手底座",
+      "x": 1250,
+      "y": 450,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-handle-mount"
+    },
+    {
+      "id": "automated-dispensing-cabinet-refrigerator-foot",
+      "word": "refrigerator foot",
+      "translation": "冷藏柜脚座",
+      "x": 1500,
+      "y": 850,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-refrigerator-foot"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-work-counter",
+      "word": "pharmacy work counter",
+      "translation": "药房工作台",
+      "x": 300,
+      "y": 550,
+      "priority": 1.075,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-work-counter"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-counter-worktop",
+      "word": "pharmacy counter worktop",
+      "translation": "药房工作台面",
+      "x": 300,
+      "y": 500,
+      "priority": 1.076,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-counter-worktop"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-counter-backsplash",
+      "word": "pharmacy counter backsplash",
+      "translation": "药房工作台挡板",
+      "x": 300,
+      "y": 400,
+      "priority": 1.077,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-counter-backsplash"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-counter-edge",
+      "word": "pharmacy counter edge",
+      "translation": "药房工作台边缘",
+      "x": 300,
+      "y": 600,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-counter-edge"
+    },
+    {
+      "id": "automated-dispensing-cabinet-medication-tray",
+      "word": "medication tray",
+      "translation": "药品托盘",
+      "x": 300,
+      "y": 540,
+      "priority": 1.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-medication-tray"
+    },
+    {
+      "id": "automated-dispensing-cabinet-blue-medication-tray",
+      "word": "blue medication tray",
+      "translation": "蓝色药品托盘",
+      "x": 300,
+      "y": 570,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-blue-medication-tray"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pill-cup",
+      "word": "pill cup",
+      "translation": "药杯",
+      "x": 200,
+      "y": 540,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pill-cup"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pill-cup-lid",
+      "word": "pill cup lid",
+      "translation": "药杯盖",
+      "x": 200,
+      "y": 560,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pill-cup-lid"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-prescription-basket",
+      "word": "pharmacy prescription basket",
+      "translation": "药房处方篮",
+      "x": 100,
+      "y": 500,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-prescription-basket"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-supply-basket",
+      "word": "pharmacy supply basket",
+      "translation": "药房用品篮",
+      "x": 450,
+      "y": 500,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-supply-basket"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-vial-rack",
+      "word": "pharmacy vial rack",
+      "translation": "药房药瓶架",
+      "x": 500,
+      "y": 480,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-vial-rack"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-amber-vial",
+      "word": "pharmacy amber vial",
+      "translation": "药房琥珀色药瓶",
+      "x": 500,
+      "y": 450,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-amber-vial"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-vial-cap",
+      "word": "pharmacy vial cap",
+      "translation": "药房药瓶盖",
+      "x": 510,
+      "y": 430,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-vial-cap"
+    },
+    {
+      "id": "automated-dispensing-cabinet-vial-rack-divider",
+      "word": "vial rack divider",
+      "translation": "药瓶架分隔片",
+      "x": 500,
+      "y": 500,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-vial-rack-divider"
+    },
+    {
+      "id": "automated-dispensing-cabinet-medication-label-printer",
+      "word": "medication label printer",
+      "translation": "药品标签打印机",
+      "x": 80,
+      "y": 600,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-medication-label-printer"
+    },
+    {
+      "id": "automated-dispensing-cabinet-label-printer-housing",
+      "word": "label printer housing",
+      "translation": "标签打印机外壳",
+      "x": 80,
+      "y": 580,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-label-printer-housing"
+    },
+    {
+      "id": "automated-dispensing-cabinet-medication-receipt-tray",
+      "word": "medication receipt tray",
+      "translation": "药品收据托盘",
+      "x": 100,
+      "y": 630,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-medication-receipt-tray"
+    },
+    {
+      "id": "automated-dispensing-cabinet-medication-receipt-paper",
+      "word": "medication receipt paper",
+      "translation": "药品收据纸",
+      "x": 100,
+      "y": 610,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-medication-receipt-paper"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-barcode-scanner",
+      "word": "pharmacy barcode scanner",
+      "translation": "药房条码扫描器",
+      "x": 400,
+      "y": 480,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-barcode-scanner"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-scanner-stand",
+      "word": "pharmacy scanner stand",
+      "translation": "药房扫描器支架",
+      "x": 400,
+      "y": 520,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-scanner-stand"
+    },
+    {
+      "id": "automated-dispensing-cabinet-dispensing-bin",
+      "word": "dispensing bin",
+      "translation": "发药箱",
+      "x": 450,
+      "y": 700,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-dispensing-bin"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-counter-drawer",
+      "word": "pharmacy counter drawer",
+      "translation": "药房柜台抽屉",
+      "x": 300,
+      "y": 750,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-counter-drawer"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-drawer-handle",
+      "word": "pharmacy drawer handle",
+      "translation": "药房抽屉把手",
+      "x": 300,
+      "y": 750,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-drawer-handle"
+    },
+    {
+      "id": "automated-dispensing-cabinet-counter-lower-shelf",
+      "word": "counter lower shelf",
+      "translation": "柜台下层架",
+      "x": 450,
+      "y": 820,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-counter-lower-shelf"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-counter-cabinet",
+      "word": "pharmacy counter cabinet",
+      "translation": "药房柜台柜体",
+      "x": 500,
+      "y": 700,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-counter-cabinet"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-wall-shelf",
+      "word": "pharmacy wall shelf",
+      "translation": "药房墙面搁板",
+      "x": 200,
+      "y": 100,
+      "priority": 1.1,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-wall-shelf"
+    },
+    {
+      "id": "automated-dispensing-cabinet-shelf-support-rail",
+      "word": "shelf support rail",
+      "translation": "搁板支撑轨",
+      "x": 300,
+      "y": 150,
+      "priority": 1.101,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-shelf-support-rail"
+    },
+    {
+      "id": "automated-dispensing-cabinet-white-medicine-carton",
+      "word": "white medicine carton",
+      "translation": "白色药品纸盒",
+      "x": 200,
+      "y": 200,
+      "priority": 1.102,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-white-medicine-carton"
+    },
+    {
+      "id": "automated-dispensing-cabinet-blue-medicine-carton",
+      "word": "blue medicine carton",
+      "translation": "蓝色药品纸盒",
+      "x": 300,
+      "y": 220,
+      "priority": 1.103,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-blue-medicine-carton"
+    },
+    {
+      "id": "automated-dispensing-cabinet-green-medicine-carton",
+      "word": "green medicine carton",
+      "translation": "绿色药品纸盒",
+      "x": 400,
+      "y": 220,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-green-medicine-carton"
+    },
+    {
+      "id": "automated-dispensing-cabinet-blank-medication-box",
+      "word": "blank medication box",
+      "translation": "空白药品盒",
+      "x": 500,
+      "y": 220,
+      "priority": 1.105,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-blank-medication-box"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-amber-bottle",
+      "word": "pharmacy amber bottle",
+      "translation": "药房琥珀色瓶",
+      "x": 100,
+      "y": 250,
+      "priority": 1.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-amber-bottle"
+    },
+    {
+      "id": "automated-dispensing-cabinet-white-bottle",
+      "word": "white bottle",
+      "translation": "白色瓶",
+      "x": 150,
+      "y": 260,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-white-bottle"
+    },
+    {
+      "id": "automated-dispensing-cabinet-vial-tray",
+      "word": "vial tray",
+      "translation": "药瓶托盘",
+      "x": 450,
+      "y": 300,
+      "priority": 1.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-vial-tray"
+    },
+    {
+      "id": "automated-dispensing-cabinet-ampoule-rack",
+      "word": "ampoule rack",
+      "translation": "安瓿架",
+      "x": 500,
+      "y": 320,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-ampoule-rack"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-ampoule",
+      "word": "pharmacy ampoule",
+      "translation": "药房安瓿",
+      "x": 500,
+      "y": 330,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-ampoule"
+    },
+    {
+      "id": "automated-dispensing-cabinet-medication-cup",
+      "word": "medication cup",
+      "translation": "药品杯",
+      "x": 400,
+      "y": 330,
+      "priority": 1.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-medication-cup"
+    },
+    {
+      "id": "automated-dispensing-cabinet-supply-bin",
+      "word": "supply bin",
+      "translation": "用品箱",
+      "x": 300,
+      "y": 450,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-supply-bin"
+    },
+    {
+      "id": "automated-dispensing-cabinet-white-supply-basket",
+      "word": "white supply basket",
+      "translation": "白色用品篮",
+      "x": 100,
+      "y": 450,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-white-supply-basket"
+    },
+    {
+      "id": "automated-dispensing-cabinet-blue-supply-bin",
+      "word": "blue supply bin",
+      "translation": "蓝色用品箱",
+      "x": 450,
+      "y": 450,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-blue-supply-bin"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-cabinet-shelf",
+      "word": "pharmacy cabinet shelf",
+      "translation": "药房柜体搁板",
+      "x": 500,
+      "y": 400,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-cabinet-shelf"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-shelf-edge",
+      "word": "pharmacy shelf edge",
+      "translation": "药房搁板边缘",
+      "x": 300,
+      "y": 150,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-shelf-edge"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-shelf-bracket",
+      "word": "pharmacy shelf bracket",
+      "translation": "药房搁板支架",
+      "x": 350,
+      "y": 160,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-shelf-bracket"
+    },
+    {
+      "id": "automated-dispensing-cabinet-paper-basket",
+      "word": "paper basket",
+      "translation": "纸张篮",
+      "x": 50,
+      "y": 400,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-paper-basket"
+    },
+    {
+      "id": "automated-dispensing-cabinet-stock-tray",
+      "word": "stock tray",
+      "translation": "库存托盘",
+      "x": 350,
+      "y": 420,
+      "priority": 1.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-stock-tray"
+    },
+    {
+      "id": "automated-dispensing-cabinet-stock-bottle",
+      "word": "stock bottle",
+      "translation": "库存瓶",
+      "x": 450,
+      "y": 250,
+      "priority": 1.12,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-stock-bottle"
+    },
+    {
+      "id": "automated-dispensing-cabinet-stock-bottle-cap",
+      "word": "stock bottle cap",
+      "translation": "库存瓶盖",
+      "x": 450,
+      "y": 230,
+      "priority": 1.121,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-stock-bottle-cap"
+    },
+    {
+      "id": "automated-dispensing-cabinet-medicine-carton-side",
+      "word": "medicine carton side",
+      "translation": "药品纸盒侧面",
+      "x": 300,
+      "y": 260,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-medicine-carton-side"
+    },
+    {
+      "id": "automated-dispensing-cabinet-carton-blank-panel",
+      "word": "carton blank panel",
+      "translation": "纸盒空白面板",
+      "x": 350,
+      "y": 260,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-carton-blank-panel"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-storage-shelf",
+      "word": "pharmacy storage shelf",
+      "translation": "药房储物搁板",
+      "x": 250,
+      "y": 300,
+      "priority": 1.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-storage-shelf"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-cabinet-base",
+      "word": "adc cabinet base",
+      "translation": "自动药柜底座",
+      "x": 700,
+      "y": 820,
+      "priority": 1.125,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-cabinet-base"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-base-rail",
+      "word": "adc base rail",
+      "translation": "自动药柜底部导轨",
+      "x": 800,
+      "y": 840,
+      "priority": 1.126,
+      "minLevel": 0,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-base-rail"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-base-kickplate",
+      "word": "adc base kickplate",
+      "translation": "自动药柜底部踢脚板",
+      "x": 900,
+      "y": 850,
+      "priority": 1.127,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-base-kickplate"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-base-vent",
+      "word": "adc base vent",
+      "translation": "自动药柜底部通风口",
+      "x": 1000,
+      "y": 820,
+      "priority": 1.128,
+      "minLevel": 1,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-base-vent"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-ventilation-grille",
+      "word": "pharmacy ventilation grille",
+      "translation": "药房通风格栅",
+      "x": 1200,
+      "y": 830,
+      "priority": 1.129,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-ventilation-grille"
+    },
+    {
+      "id": "automated-dispensing-cabinet-lower-air-intake",
+      "word": "lower air intake",
+      "translation": "下部进风口",
+      "x": 1300,
+      "y": 830,
+      "priority": 1.13,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-lower-air-intake"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-floor-threshold",
+      "word": "pharmacy floor threshold",
+      "translation": "药房地面门槛",
+      "x": 1000,
+      "y": 880,
+      "priority": 1.131,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-floor-threshold"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-floor-tile",
+      "word": "pharmacy floor tile",
+      "translation": "药房地砖",
+      "x": 700,
+      "y": 880,
+      "priority": 1.132,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-floor-tile"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-floor-seam",
+      "word": "pharmacy floor seam",
+      "translation": "药房地面接缝",
+      "x": 800,
+      "y": 880,
+      "priority": 1.133,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-floor-seam"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-wall-service-rail",
+      "word": "pharmacy wall service rail",
+      "translation": "药房墙面服务轨",
+      "x": 1100,
+      "y": 620,
+      "priority": 1.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-wall-service-rail"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-wall-outlet",
+      "word": "pharmacy wall outlet",
+      "translation": "药房墙面插座",
+      "x": 1100,
+      "y": 650,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-wall-outlet"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-outlet-faceplate",
+      "word": "pharmacy outlet faceplate",
+      "translation": "药房插座面板",
+      "x": 1100,
+      "y": 650,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-outlet-faceplate"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-cable-cover",
+      "word": "pharmacy cable cover",
+      "translation": "药房电缆盖",
+      "x": 1100,
+      "y": 700,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-cable-cover"
+    },
+    {
+      "id": "automated-dispensing-cabinet-cabinet-side-trim",
+      "word": "cabinet side trim",
+      "translation": "柜体侧饰条",
+      "x": 1250,
+      "y": 700,
+      "priority": 1.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-cabinet-side-trim"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-cabinet-corner-guard",
+      "word": "adc cabinet corner guard",
+      "translation": "自动药柜护角",
+      "x": 1300,
+      "y": 700,
+      "priority": 1.139,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-cabinet-corner-guard"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-cabinet-leveling-foot",
+      "word": "adc cabinet leveling foot",
+      "translation": "自动药柜调平脚",
+      "x": 750,
+      "y": 870,
+      "priority": 1.14,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-cabinet-leveling-foot"
+    },
+    {
+      "id": "automated-dispensing-cabinet-base-panel",
+      "word": "base panel",
+      "translation": "底部面板",
+      "x": 900,
+      "y": 780,
+      "priority": 1.141,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-base-panel"
+    },
+    {
+      "id": "automated-dispensing-cabinet-adc-base-panel-seam",
+      "word": "adc base panel seam",
+      "translation": "自动药柜底部面板接缝",
+      "x": 900,
+      "y": 800,
+      "priority": 1.142,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-adc-base-panel-seam"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-floor-contact-pad",
+      "word": "pharmacy floor contact pad",
+      "translation": "药房地面接触垫",
+      "x": 1250,
+      "y": 880,
+      "priority": 1.143,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-floor-contact-pad"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-room-wall-panel",
+      "word": "pharmacy room wall panel",
+      "translation": "药房墙面板",
+      "x": 1450,
+      "y": 650,
+      "priority": 1.144,
+      "minLevel": 3,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-room-wall-panel"
+    },
+    {
+      "id": "automated-dispensing-cabinet-pharmacy-room-wall-seam",
+      "word": "pharmacy room wall seam",
+      "translation": "药房墙面接缝",
+      "x": 1450,
+      "y": 700,
+      "priority": 1.145,
+      "minLevel": 4,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-pharmacy-room-wall-seam"
+    },
+    {
+      "id": "automated-dispensing-cabinet-lower-storage-shelf",
+      "word": "lower storage shelf",
+      "translation": "下部储物搁板",
+      "x": 600,
+      "y": 780,
+      "priority": 1.146,
+      "minLevel": 2,
+      "sourceVisualRegion": "automated-dispensing-cabinet-region-lower-storage-shelf"
+    }
+  ],
+  "portals": []
+}
