@@ -141,3 +141,31 @@ test("check-in counter keeps 153 reviewed counter, baggage and kiosk terms", asy
   );
 });
 
+test("airport exposes one bounded left-hand check-in-counter entrance", async () => {
+  const airport = await readJson<{
+    readonly portals: readonly {
+      readonly childSceneId: string;
+      readonly sourceVisualRegion: string;
+      readonly x: number;
+      readonly y: number;
+      readonly width: number;
+      readonly height: number;
+    }[];
+    readonly visualRegions: readonly {
+      readonly id: string;
+      readonly x: number;
+      readonly y: number;
+      readonly width: number;
+      readonly height: number;
+    }[];
+  }>("airport.json");
+  const portal = airport.portals.find(({ childSceneId }) => childSceneId === "check-in-counter");
+  assert.ok(portal);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [0, 340, 270, 220]);
+  const region = airport.visualRegions.find(({ id }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual(
+    [region.x, region.y, region.width, region.height],
+    [portal.x, portal.y, portal.width, portal.height],
+  );
+});

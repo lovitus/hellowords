@@ -133,6 +133,11 @@
       "parentId": "urban-services"
     },
     {
+      "id": "check-in-counter",
+      "title": "Check-in counter",
+      "parentId": "airport"
+    },
+    {
       "id": "baggage-claim",
       "title": "Baggage claim",
       "parentId": "airport"

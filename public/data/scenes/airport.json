@@ -4323,6 +4323,18 @@
       "width": 500,
       "height": 430,
       "enterScale": 3.4
+    },
+    {
+      "id": "enter-check-in-counter",
+      "label": "Enter the check-in counter",
+      "translation": "进入值机柜台",
+      "childSceneId": "check-in-counter",
+      "sourceVisualRegion": "portal-check-in-counter-left-counter-bank",
+      "x": 0,
+      "y": 340,
+      "width": 270,
+      "height": 220,
+      "enterScale": 3.5
     }
   ],
   "anchorAudit": {
@@ -4401,6 +4413,15 @@
       "y": 80,
       "width": 700,
       "height": 430
+    },
+    {
+      "id": "portal-check-in-counter-left-counter-bank",
+      "description": "Complete visible left-hand check-in counter bank in the airport photograph",
+      "kind": "object",
+      "x": 0,
+      "y": 340,
+      "width": 270,
+      "height": 220
     }
   ],
   "detailZones": [

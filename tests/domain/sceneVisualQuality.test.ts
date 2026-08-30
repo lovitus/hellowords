@@ -216,6 +216,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 50,
     },
   },
+  "check-in-counter": {
+    asset: "/scenes/check-in-counter-premium-v1.jpg",
+    sha256: "f3089bcc3e56bdb5805cfe3a7208e06a56a683d05297ecbb54efea73d5be2414",
+    quality: {
+      minMeanLuminance: 105,
+      maxMeanLuminance: 145,
+      maxDarkFraction: 0.25,
+      maxDeepDarkFraction: 0.11,
+      minMeanChroma: 0.07,
+      maxMeanChroma: 0.15,
+      maxChannelMeanSpread: 20,
+    },
+  },
   "security-checkpoint": {
     asset: "/scenes/airport-security-checkpoint-premium-v1.jpg",
     sha256: "8a12c6f335b1107d676112bf52033cc30d51aa352e9fbacf0bde609a3ef85e20",

@@ -123,6 +123,7 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "emergency-department", "intensive-care-unit"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "airport", "check-in-counter"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "security-checkpoint", "boarding-gate", "aircraft-cabin", "aircraft-lavatory"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "service-core"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "service-core", "warehouse-loading-dock"],
@@ -3141,7 +3142,7 @@ test("urban services adds hospital, airport and office vocabulary without breaki
   );
   assert.deepEqual(
     byId.get("airport")?.portals.map(({ childSceneId }) => childSceneId),
-    ["baggage-claim", "security-checkpoint"],
+    ["baggage-claim", "security-checkpoint", "check-in-counter"],
   );
   const transit = byId.get("transit-hub");
   assert.ok(transit?.portals.some(({ childSceneId }) => childSceneId === "urban-services"));

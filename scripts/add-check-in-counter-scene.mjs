@@ -15,6 +15,8 @@ const sourceAsset = resolve(projectRoot, "scripts/assets/check-in-counter-v1.png
 const publicAsset = resolve(projectRoot, "public/scenes/check-in-counter-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/check-in-counter.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
+const parentPath = resolve(projectRoot, "public/data/scenes/airport.json");
+const integrate = process.argv.includes("--integrate");
 
 const WIDTH = 1_600;
 const HEIGHT = 900;
@@ -403,17 +405,70 @@ async function assertUniqueWords(scene) {
   if (existingDuplicates.length > 0) throw new Error(`check-in-counter term duplicates existing words: ${existingDuplicates.join(", ")}`);
 }
 
+const parentPortal = {
+  id: "enter-check-in-counter",
+  label: "Enter the check-in counter",
+  translation: "进入值机柜台",
+  childSceneId: "check-in-counter",
+  sourceVisualRegion: "portal-check-in-counter-left-counter-bank",
+  x: 0,
+  y: 340,
+  width: 270,
+  height: 220,
+  enterScale: 3.5,
+};
+
+const parentRegion = {
+  id: parentPortal.sourceVisualRegion,
+  description: "Complete visible left-hand check-in counter bank in the airport photograph",
+  kind: "object",
+  x: parentPortal.x,
+  y: parentPortal.y,
+  width: parentPortal.width,
+  height: parentPortal.height,
+};
+
+async function updateParent() {
+  const parent = JSON.parse(await readFile(parentPath, "utf8"));
+  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
+  else parent.portals.push(parentPortal);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
+  else parent.visualRegions.push(parentRegion);
+  return writeIfChanged(parentPath, parent);
+}
+
+async function updateManifest() {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  if (!manifest.scenes.some(({ id }) => id === "check-in-counter")) {
+    const index = manifest.scenes.findIndex(({ id }) => id === "airport");
+    if (index < 0) throw new Error("airport is missing from the scene manifest");
+    manifest.scenes.splice(index + 1, 0, {
+      id: "check-in-counter",
+      title: "Check-in counter",
+      parentId: "airport",
+    });
+  }
+  return writeIfChanged(manifestPath, manifest);
+}
+
 export async function buildCheckInCounterScene() {
   const assetChanged = await ensureAsset();
   const scene = makeScene();
   await assertUniqueWords(scene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
-  return {
+  const result = {
     assetChanged,
     sceneChanged,
     labels: scene.labels.length,
     zones: scene.detailZones.length,
   };
+  if (integrate) {
+    result.parentChanged = await updateParent();
+    result.manifestChanged = await updateManifest();
+  }
+  return result;
 }
 
 const isDirectInvocation = process.argv[1]
