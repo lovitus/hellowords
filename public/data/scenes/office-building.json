@@ -4299,7 +4299,20 @@
       "semanticRealmId": "people-society"
     }
   ],
-  "portals": [],
+  "portals": [
+    {
+      "id": "enter-service-core",
+      "label": "Enter the service core",
+      "translation": "进入设备核心",
+      "childSceneId": "service-core",
+      "sourceVisualRegion": "portal-service-core",
+      "x": 1320,
+      "y": 200,
+      "width": 280,
+      "height": 350,
+      "enterScale": 3.4
+    }
+  ],
   "anchorAudit": {
     "status": "human-verified",
     "policy": "visible-object-or-part-only",
@@ -4376,6 +4389,15 @@
       "y": 70,
       "width": 280,
       "height": 780
+    },
+    {
+      "id": "portal-service-core",
+      "description": "Bright visible elevator, stairwell and building-service core on the office atrium photograph",
+      "kind": "object",
+      "x": 1320,
+      "y": 200,
+      "width": 280,
+      "height": 350
     }
   ],
   "detailZones": [

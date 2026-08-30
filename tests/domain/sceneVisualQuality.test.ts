@@ -177,6 +177,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 30,
     },
   },
+  "service-core": {
+    asset: "/scenes/office-service-core-premium-v1.jpg",
+    sha256: "13b85aad4abb80939e27cc018ac5af21c1b6cabbb3a21dafb5aa04a27b189c8f",
+    quality: {
+      minMeanLuminance: 90,
+      maxMeanLuminance: 165,
+      maxDarkFraction: 0.4,
+      maxDeepDarkFraction: 0.16,
+      minMeanChroma: 0.04,
+      maxMeanChroma: 0.22,
+      maxChannelMeanSpread: 45,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

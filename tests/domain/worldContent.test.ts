@@ -120,6 +120,7 @@ test("mature world has five subject branches and ten deep, fully reachable paths
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "pathology-lab"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "radiology-suite"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "service-core"],
     ["world-map", "school-campus"],
   ];
   for (const path of expectedPaths) {
@@ -3097,6 +3098,7 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     ["hospital-pharmacy", 390, 5, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "doxycycline", "cetirizine", "lamotrigine", "drawer cart", "cart shelf mat", "azithromycin", "nystatin", "dispensing chute", "prescription scanner", "calibration weight"]],
     ["airport", 390, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower", "aircraft fuselage", "body scanner", "claim chute", "carousel motor", "runway threshold", "ground power unit", "gate sign frame", "departure board frame", "luggage shell"]],
     ["office-building", 390, 5, "urban-services", ["reception", "open plan office", "conference room", "server room", "hvac duct", "fire panel", "data center", "docking station", "fan coil", "ceiling hatch", "lift indicator", "fiber tray", "conference table corner", "marker rack", "backsplash tile"]],
+    ["service-core", 90, 5, "office-building", ["switchboard door", "breaker handle", "filter pleat", "valve wheel", "utility sink basin", "dock plate", "pallet jack handle", "freight elevator seam"]],
   ] as const) {
     const scene = byId.get(sceneId);
     assert.ok(scene);

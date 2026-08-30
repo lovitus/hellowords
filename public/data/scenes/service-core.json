@@ -1,0 +1,1900 @@
+{
+  "id": "service-core",
+  "title": "Office service core",
+  "translation": "写字楼设备核心",
+  "subtitle": "Power, air, fire safety and building logistics",
+  "asset": "/scenes/office-service-core-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "office-building",
+  "visualRegions": [
+    {
+      "id": "service-core-region-switchboard-door",
+      "description": "Pixel-audited “switchboard door” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 315.789474,
+      "y": 191.285866,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-breaker-handle",
+      "description": "Pixel-audited “breaker handle” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 325.358852,
+      "y": 253.453773,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-panel-louver",
+      "description": "Pixel-audited “panel louver” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 449.760766,
+      "y": 196.068013,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-transformer-fin",
+      "description": "Pixel-audited “transformer fin” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 124.401914,
+      "y": 382.571732,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-conduit-elbow",
+      "description": "Pixel-audited “conduit elbow” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 95.69378,
+      "y": 119.553666,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-busbar-insulator",
+      "description": "Pixel-audited “busbar insulator” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 497.607656,
+      "y": 119.553666,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-junction-box-cover",
+      "description": "Pixel-audited “junction box cover” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 540.669856,
+      "y": 133.900106,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-meter-face",
+      "description": "Pixel-audited “meter face” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 100.478469,
+      "y": 227.630181,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-equipment-plinth",
+      "description": "Pixel-audited “equipment plinth” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 129.186603,
+      "y": 435.175345,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-access-floor-panel",
+      "description": "Pixel-audited “access floor panel” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 411.483254,
+      "y": 392.136026,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-rack-blanking-plate",
+      "description": "Pixel-audited “rack blanking plate” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 602.870813,
+      "y": 239.107333,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-rack-power-strip",
+      "description": "Pixel-audited “rack power strip” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 602.870813,
+      "y": 286.928799,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-conduit-coupling",
+      "description": "Pixel-audited “conduit coupling” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 540.669856,
+      "y": 119.553666,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-switchgear-hinge",
+      "description": "Pixel-audited “switchgear hinge” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 267.942584,
+      "y": 172.157279,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-panel-warning-plate",
+      "description": "Pixel-audited “panel warning plate” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 287.08134,
+      "y": 215.196599,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-transformer-base",
+      "description": "Pixel-audited “transformer base” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 124.401914,
+      "y": 439.957492,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-battery-terminal",
+      "description": "Pixel-audited “battery terminal” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 574.162679,
+      "y": 325.185972,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-fuse-carrier",
+      "description": "Pixel-audited “fuse carrier” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 531.100478,
+      "y": 133.900106,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-disconnect-handle",
+      "description": "Pixel-audited “disconnect handle” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 215.311005,
+      "y": 243.889479,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-cable-tray-bracket",
+      "description": "Pixel-audited “cable tray bracket” inside the Electrical distribution crop of the office service-core photograph",
+      "kind": "part",
+      "x": 373.205742,
+      "y": 47.821467,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-filter-pleat",
+      "description": "Pixel-audited “filter pleat” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1119.617225,
+      "y": 224.760893,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-filter-access-door",
+      "description": "Pixel-audited “filter access door” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1009.569378,
+      "y": 191.285866,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-access-door-latch",
+      "description": "Pixel-audited “access door latch” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1014.354067,
+      "y": 215.196599,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-condensate-drain",
+      "description": "Pixel-audited “condensate drain” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1196.172249,
+      "y": 334.750266,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-pipe-union",
+      "description": "Pixel-audited “pipe union” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 928.229665,
+      "y": 229.543039,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-flanged-joint",
+      "description": "Pixel-audited “flanged joint” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 880.382775,
+      "y": 114.77152,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-pump-coupling",
+      "description": "Pixel-audited “pump coupling” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 947.368421,
+      "y": 306.057386,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-expansion-tank-base",
+      "description": "Pixel-audited “expansion tank base” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 803.827751,
+      "y": 329.968119,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-vibration-pad",
+      "description": "Pixel-audited “vibration pad” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 976.076555,
+      "y": 358.660999,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-duct-seam",
+      "description": "Pixel-audited “duct seam” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 827.751196,
+      "y": 114.77152,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-duct-hanger",
+      "description": "Pixel-audited “duct hanger” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 784.688995,
+      "y": 38.257173,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-duct-support",
+      "description": "Pixel-audited “duct support” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 861.244019,
+      "y": 57.38576,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-damper-linkage",
+      "description": "Pixel-audited “damper linkage” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1430.62201,
+      "y": 57.38576,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-air-intake-grille",
+      "description": "Pixel-audited “air intake grille” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1511.961722,
+      "y": 66.950053,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-return-grille-blade",
+      "description": "Pixel-audited “return grille blade” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1502.392344,
+      "y": 243.889479,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-service-gauge",
+      "description": "Pixel-audited “service gauge” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 937.799043,
+      "y": 277.364506,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-pipe-insulation-seam",
+      "description": "Pixel-audited “pipe insulation seam” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 918.660287,
+      "y": 138.682253,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-valve-stem",
+      "description": "Pixel-audited “valve stem” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 956.937799,
+      "y": 282.146652,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-fan-hub",
+      "description": "Pixel-audited “fan hub” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1291.866029,
+      "y": 219.978746,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-coil-fin",
+      "description": "Pixel-audited “coil fin” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1110.047847,
+      "y": 224.760893,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-drain-pan-edge",
+      "description": "Pixel-audited “drain pan edge” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1062.200957,
+      "y": 315.621679,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-duct-access-handle",
+      "description": "Pixel-audited “duct access handle” inside the HVAC mechanical room crop of the office service-core photograph",
+      "kind": "part",
+      "x": 813.397129,
+      "y": 172.157279,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-valve-wheel",
+      "description": "Pixel-audited “valve wheel” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 124.401914,
+      "y": 707.757705,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-test-drain",
+      "description": "Pixel-audited “test drain” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 239.23445,
+      "y": 793.836344,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-sight-glass",
+      "description": "Pixel-audited “sight glass” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 306.220096,
+      "y": 717.321998,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-alarm-strobe",
+      "description": "Pixel-audited “alarm strobe” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 358.851675,
+      "y": 592.986185,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-pull-station-cover",
+      "description": "Pixel-audited “pull station cover” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 440.191388,
+      "y": 621.679065,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-fire-door-closer",
+      "description": "Pixel-audited “fire door closer” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 488.038278,
+      "y": 554.729012,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-panic-bar",
+      "description": "Pixel-audited “panic bar” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 507.177033,
+      "y": 621.679065,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-standpipe-cap",
+      "description": "Pixel-audited “standpipe cap” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 57.416268,
+      "y": 683.846971,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-pressure-gauge-bezel",
+      "description": "Pixel-audited “pressure gauge bezel” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 177.033493,
+      "y": 612.114772,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-pipe-hanger",
+      "description": "Pixel-audited “pipe hanger” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 86.124402,
+      "y": 535.600425,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-flow-switch-housing",
+      "description": "Pixel-audited “flow switch housing” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 287.08134,
+      "y": 698.193411,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-fire-pump-coupling",
+      "description": "Pixel-audited “fire pump coupling” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 220.095694,
+      "y": 765.143464,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-drain-funnel",
+      "description": "Pixel-audited “drain funnel” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 306.220096,
+      "y": 817.747078,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-sprinkler-branch-line",
+      "description": "Pixel-audited “sprinkler branch line” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 76.555024,
+      "y": 516.471838,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-valve-tag-plate",
+      "description": "Pixel-audited “valve tag plate” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 191.38756,
+      "y": 722.104145,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-alarm-panel-hinge",
+      "description": "Pixel-audited “alarm panel hinge” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 354.066986,
+      "y": 607.332625,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-fire-cabinet-latch",
+      "description": "Pixel-audited “fire cabinet latch” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 368.421053,
+      "y": 607.332625,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-sprinkler-valve-handle",
+      "description": "Pixel-audited “sprinkler valve handle” inside the Fire protection riser crop of the office service-core photograph",
+      "kind": "part",
+      "x": 124.401914,
+      "y": 679.064825,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-utility-sink-basin",
+      "description": "Pixel-audited “utility sink basin” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 736.842105,
+      "y": 545.164718,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-utility-shelf-bracket",
+      "description": "Pixel-audited “utility shelf bracket” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 842.105263,
+      "y": 482.996812,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-paper-towel-roll",
+      "description": "Pixel-audited “paper towel roll” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 746.411483,
+      "y": 478.214665,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-cabinet-latch",
+      "description": "Pixel-audited “cabinet latch” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 976.076555,
+      "y": 506.907545,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-mop-wringer",
+      "description": "Pixel-audited “mop wringer” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 870.813397,
+      "y": 659.936238,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-broom-bristles",
+      "description": "Pixel-audited “broom bristles” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 755.980861,
+      "y": 707.757705,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-hard-hat-shelf",
+      "description": "Pixel-audited “hard hat shelf” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1014.354067,
+      "y": 492.561105,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-cleaning-bottle-rack",
+      "description": "Pixel-audited “cleaning bottle rack” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 899.521531,
+      "y": 612.114772,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-bin-pedal",
+      "description": "Pixel-audited “bin pedal” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1023.923445,
+      "y": 592.986185,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-recycling-lid",
+      "description": "Pixel-audited “recycling lid” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1062.200957,
+      "y": 592.986185,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-utility-faucet-handle",
+      "description": "Pixel-audited “utility faucet handle” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 755.980861,
+      "y": 526.036132,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-sink-backsplash",
+      "description": "Pixel-audited “sink backsplash” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 736.842105,
+      "y": 492.561105,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-cleaning-cart-tray",
+      "description": "Pixel-audited “cleaning cart tray” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 870.813397,
+      "y": 621.679065,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-yellow-cabinet-hinge",
+      "description": "Pixel-audited “yellow cabinet hinge” inside the Janitorial service area crop of the office service-core photograph",
+      "kind": "part",
+      "x": 976.076555,
+      "y": 506.907545,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-dock-plate",
+      "description": "Pixel-audited “dock plate” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1377.990431,
+      "y": 554.729012,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-dock-bumper",
+      "description": "Pixel-audited “dock bumper” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1397.129187,
+      "y": 602.550478,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-dock-guide",
+      "description": "Pixel-audited “dock guide” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1349.282297,
+      "y": 592.986185,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-pallet-slat",
+      "description": "Pixel-audited “pallet slat” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1205.741627,
+      "y": 746.014878,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-pallet-jack-handle",
+      "description": "Pixel-audited “pallet jack handle” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1224.880383,
+      "y": 726.886291,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-hand-truck-toe-plate",
+      "description": "Pixel-audited “hand truck toe plate” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1157.894737,
+      "y": 650.371945,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-freight-door-track",
+      "description": "Pixel-audited “freight door track” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1425.837321,
+      "y": 478.214665,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-dock-shelter",
+      "description": "Pixel-audited “dock shelter” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1444.976077,
+      "y": 478.214665,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-loading-bay-threshold",
+      "description": "Pixel-audited “loading bay threshold” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1416.267943,
+      "y": 554.729012,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-cart-side-rail",
+      "description": "Pixel-audited “cart side rail” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1339.712919,
+      "y": 707.757705,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-pallet-jack-wheel",
+      "description": "Pixel-audited “pallet jack wheel” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1224.880383,
+      "y": 779.489904,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-hand-truck-wheel",
+      "description": "Pixel-audited “hand truck wheel” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1148.325359,
+      "y": 707.757705,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-service-corridor-light",
+      "description": "Pixel-audited “service corridor light” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1205.741627,
+      "y": 478.214665,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-freight-elevator-seam",
+      "description": "Pixel-audited “freight elevator seam” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1186.602871,
+      "y": 516.471838,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-safety-bollard-sleeve",
+      "description": "Pixel-audited “safety bollard sleeve” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1339.712919,
+      "y": 602.550478,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "service-core-region-dock-leveler-hinge",
+      "description": "Pixel-audited “dock leveler hinge” inside the Loading and service corridor crop of the office service-core photograph",
+      "kind": "part",
+      "x": 1416.267943,
+      "y": 573.857598,
+      "width": 38.277512,
+      "height": 38.257173
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "service-core-zone-electrical-distribution",
+      "title": "Electrical distribution",
+      "translation": "电气配电区",
+      "description": "Inspect switchboard doors, transformer fins, cable trays and grounding hardware.",
+      "x": 0,
+      "y": 0,
+      "width": 746.411483,
+      "height": 478.214665,
+      "targetScale": 3.15,
+      "labelIds": [
+        "service-core-switchboard-door",
+        "service-core-breaker-handle",
+        "service-core-panel-louver",
+        "service-core-transformer-fin",
+        "service-core-conduit-elbow",
+        "service-core-busbar-insulator",
+        "service-core-junction-box-cover",
+        "service-core-meter-face",
+        "service-core-equipment-plinth",
+        "service-core-access-floor-panel",
+        "service-core-rack-blanking-plate",
+        "service-core-rack-power-strip",
+        "service-core-conduit-coupling",
+        "service-core-switchgear-hinge",
+        "service-core-panel-warning-plate",
+        "service-core-transformer-base",
+        "service-core-battery-terminal",
+        "service-core-fuse-carrier",
+        "service-core-disconnect-handle",
+        "service-core-cable-tray-bracket"
+      ]
+    },
+    {
+      "id": "service-core-zone-hvac-mechanical",
+      "title": "HVAC mechanical room",
+      "translation": "暖通机械区",
+      "description": "Follow the air handler, duct seams, pipe unions, gauges and service supports.",
+      "x": 746.411483,
+      "y": 0,
+      "width": 853.588517,
+      "height": 382.571732,
+      "targetScale": 3.15,
+      "labelIds": [
+        "service-core-filter-pleat",
+        "service-core-filter-access-door",
+        "service-core-access-door-latch",
+        "service-core-condensate-drain",
+        "service-core-pipe-union",
+        "service-core-flanged-joint",
+        "service-core-pump-coupling",
+        "service-core-expansion-tank-base",
+        "service-core-vibration-pad",
+        "service-core-duct-seam",
+        "service-core-duct-hanger",
+        "service-core-duct-support",
+        "service-core-damper-linkage",
+        "service-core-air-intake-grille",
+        "service-core-return-grille-blade",
+        "service-core-service-gauge",
+        "service-core-pipe-insulation-seam",
+        "service-core-valve-stem",
+        "service-core-fan-hub",
+        "service-core-coil-fin",
+        "service-core-drain-pan-edge",
+        "service-core-duct-access-handle"
+      ]
+    },
+    {
+      "id": "service-core-zone-fire-riser",
+      "title": "Fire protection riser",
+      "translation": "消防立管区",
+      "description": "Inspect the sprinkler riser, gauges, alarm hardware, door and safety fittings.",
+      "x": 0,
+      "y": 478.214665,
+      "width": 574.162679,
+      "height": 421.785335,
+      "targetScale": 3.15,
+      "labelIds": [
+        "service-core-valve-wheel",
+        "service-core-test-drain",
+        "service-core-sight-glass",
+        "service-core-alarm-strobe",
+        "service-core-pull-station-cover",
+        "service-core-fire-door-closer",
+        "service-core-panic-bar",
+        "service-core-standpipe-cap",
+        "service-core-pressure-gauge-bezel",
+        "service-core-pipe-hanger",
+        "service-core-flow-switch-housing",
+        "service-core-fire-pump-coupling",
+        "service-core-drain-funnel",
+        "service-core-sprinkler-branch-line",
+        "service-core-valve-tag-plate",
+        "service-core-alarm-panel-hinge",
+        "service-core-fire-cabinet-latch",
+        "service-core-sprinkler-valve-handle"
+      ]
+    },
+    {
+      "id": "service-core-zone-janitorial-service",
+      "title": "Janitorial service area",
+      "translation": "清洁后勤区",
+      "description": "Explore the utility sink, cleaning carts, supply shelves and protective storage.",
+      "x": 574.162679,
+      "y": 478.214665,
+      "width": 545.454545,
+      "height": 421.785335,
+      "targetScale": 3.15,
+      "labelIds": [
+        "service-core-utility-sink-basin",
+        "service-core-utility-shelf-bracket",
+        "service-core-paper-towel-roll",
+        "service-core-cabinet-latch",
+        "service-core-mop-wringer",
+        "service-core-broom-bristles",
+        "service-core-hard-hat-shelf",
+        "service-core-cleaning-bottle-rack",
+        "service-core-bin-pedal",
+        "service-core-recycling-lid",
+        "service-core-utility-faucet-handle",
+        "service-core-sink-backsplash",
+        "service-core-cleaning-cart-tray",
+        "service-core-yellow-cabinet-hinge"
+      ]
+    },
+    {
+      "id": "service-core-zone-loading-service",
+      "title": "Loading and service corridor",
+      "translation": "装卸与服务走廊",
+      "description": "Inspect the loading dock, elevator, pallet equipment and protective barriers.",
+      "x": 1119.617225,
+      "y": 382.571732,
+      "width": 480.382775,
+      "height": 517.428268,
+      "targetScale": 3.15,
+      "labelIds": [
+        "service-core-dock-plate",
+        "service-core-dock-bumper",
+        "service-core-dock-guide",
+        "service-core-pallet-slat",
+        "service-core-pallet-jack-handle",
+        "service-core-hand-truck-toe-plate",
+        "service-core-freight-door-track",
+        "service-core-dock-shelter",
+        "service-core-loading-bay-threshold",
+        "service-core-cart-side-rail",
+        "service-core-pallet-jack-wheel",
+        "service-core-hand-truck-wheel",
+        "service-core-service-corridor-light",
+        "service-core-freight-elevator-seam",
+        "service-core-safety-bollard-sleeve",
+        "service-core-dock-leveler-hinge"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/office-service-core-premium-v1.jpg",
+    "reviewedAssetSha256": "13b85aad4abb80939e27cc018ac5af21c1b6cabbb3a21dafb5aa04a27b189c8f",
+    "rationale": "The final 1600 by 900 service-core photograph was inspected at source and output resolution. It supports 90 independently pointable parts across electrical distribution, HVAC equipment, fire protection, janitorial service and loading logistics. New terms stay on visible doors, handles, gauges, seams, supports, carts and dock hardware; electrical states, airflow, pressure values, safety compliance, maintenance actions, people and hidden system functions are excluded.",
+    "previousLabelCount": 96,
+    "retainedLabelCount": 90,
+    "removedLabelCount": 6,
+    "removedExamples": [
+      "live circuit",
+      "air quality",
+      "fire compliance",
+      "maintenance task",
+      "loading schedule",
+      "building operator"
+    ]
+  },
+  "labels": [
+    {
+      "id": "service-core-switchboard-door",
+      "word": "switchboard door",
+      "translation": "配电柜门",
+      "x": 334.92823,
+      "y": 210.414453,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "service-core-region-switchboard-door"
+    },
+    {
+      "id": "service-core-breaker-handle",
+      "word": "breaker handle",
+      "translation": "断路器手柄",
+      "x": 344.497608,
+      "y": 272.582359,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "service-core-region-breaker-handle"
+    },
+    {
+      "id": "service-core-panel-louver",
+      "word": "panel louver",
+      "translation": "面板百叶",
+      "x": 468.899522,
+      "y": 215.196599,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "service-core-region-panel-louver"
+    },
+    {
+      "id": "service-core-transformer-fin",
+      "word": "transformer fin",
+      "translation": "变压器散热片",
+      "x": 143.54067,
+      "y": 401.700319,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "service-core-region-transformer-fin"
+    },
+    {
+      "id": "service-core-conduit-elbow",
+      "word": "conduit elbow",
+      "translation": "导管弯头",
+      "x": 114.832536,
+      "y": 138.682253,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-conduit-elbow"
+    },
+    {
+      "id": "service-core-busbar-insulator",
+      "word": "busbar insulator",
+      "translation": "母线绝缘子",
+      "x": 516.746411,
+      "y": 138.682253,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-busbar-insulator"
+    },
+    {
+      "id": "service-core-junction-box-cover",
+      "word": "junction box cover",
+      "translation": "接线盒盖",
+      "x": 559.808612,
+      "y": 153.028693,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-junction-box-cover"
+    },
+    {
+      "id": "service-core-meter-face",
+      "word": "meter face",
+      "translation": "仪表表盘",
+      "x": 119.617225,
+      "y": 246.758767,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-meter-face"
+    },
+    {
+      "id": "service-core-equipment-plinth",
+      "word": "equipment plinth",
+      "translation": "设备底座",
+      "x": 148.325359,
+      "y": 454.303932,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-equipment-plinth"
+    },
+    {
+      "id": "service-core-access-floor-panel",
+      "word": "access floor panel",
+      "translation": "架空地板板块",
+      "x": 430.62201,
+      "y": 411.264612,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-access-floor-panel"
+    },
+    {
+      "id": "service-core-rack-blanking-plate",
+      "word": "rack blanking plate",
+      "translation": "机架挡板",
+      "x": 622.009569,
+      "y": 258.235919,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-rack-blanking-plate"
+    },
+    {
+      "id": "service-core-rack-power-strip",
+      "word": "rack power strip",
+      "translation": "机架电源排",
+      "x": 622.009569,
+      "y": 306.057386,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-rack-power-strip"
+    },
+    {
+      "id": "service-core-conduit-coupling",
+      "word": "conduit coupling",
+      "translation": "导管接头",
+      "x": 559.808612,
+      "y": 138.682253,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-conduit-coupling"
+    },
+    {
+      "id": "service-core-switchgear-hinge",
+      "word": "switchgear hinge",
+      "translation": "开关设备铰链",
+      "x": 287.08134,
+      "y": 191.285866,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-switchgear-hinge"
+    },
+    {
+      "id": "service-core-panel-warning-plate",
+      "word": "panel warning plate",
+      "translation": "面板警示牌",
+      "x": 306.220096,
+      "y": 234.325186,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-panel-warning-plate"
+    },
+    {
+      "id": "service-core-transformer-base",
+      "word": "transformer base",
+      "translation": "变压器底座",
+      "x": 143.54067,
+      "y": 459.086079,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-transformer-base"
+    },
+    {
+      "id": "service-core-battery-terminal",
+      "word": "battery terminal",
+      "translation": "电池端子",
+      "x": 593.301435,
+      "y": 344.314559,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-battery-terminal"
+    },
+    {
+      "id": "service-core-fuse-carrier",
+      "word": "fuse carrier",
+      "translation": "熔断器座",
+      "x": 550.239234,
+      "y": 153.028693,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-fuse-carrier"
+    },
+    {
+      "id": "service-core-disconnect-handle",
+      "word": "disconnect handle",
+      "translation": "隔离开关手柄",
+      "x": 234.449761,
+      "y": 263.018066,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-disconnect-handle"
+    },
+    {
+      "id": "service-core-cable-tray-bracket",
+      "word": "cable tray bracket",
+      "translation": "电缆桥架支架",
+      "x": 392.344498,
+      "y": 66.950053,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-cable-tray-bracket"
+    },
+    {
+      "id": "service-core-filter-pleat",
+      "word": "filter pleat",
+      "translation": "过滤器褶片",
+      "x": 1138.755981,
+      "y": 243.889479,
+      "priority": 1.02,
+      "minLevel": 0,
+      "sourceVisualRegion": "service-core-region-filter-pleat"
+    },
+    {
+      "id": "service-core-filter-access-door",
+      "word": "filter access door",
+      "translation": "过滤器检修门",
+      "x": 1028.708134,
+      "y": 210.414453,
+      "priority": 1.021,
+      "minLevel": 0,
+      "sourceVisualRegion": "service-core-region-filter-access-door"
+    },
+    {
+      "id": "service-core-access-door-latch",
+      "word": "access door latch",
+      "translation": "检修门闩",
+      "x": 1033.492823,
+      "y": 234.325186,
+      "priority": 1.022,
+      "minLevel": 1,
+      "sourceVisualRegion": "service-core-region-access-door-latch"
+    },
+    {
+      "id": "service-core-condensate-drain",
+      "word": "condensate drain",
+      "translation": "冷凝水排水管",
+      "x": 1215.311005,
+      "y": 353.878852,
+      "priority": 1.023,
+      "minLevel": 1,
+      "sourceVisualRegion": "service-core-region-condensate-drain"
+    },
+    {
+      "id": "service-core-pipe-union",
+      "word": "pipe union",
+      "translation": "管道活接",
+      "x": 947.368421,
+      "y": 248.671626,
+      "priority": 1.024,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-pipe-union"
+    },
+    {
+      "id": "service-core-flanged-joint",
+      "word": "flanged joint",
+      "translation": "法兰接头",
+      "x": 899.521531,
+      "y": 133.900106,
+      "priority": 1.025,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-flanged-joint"
+    },
+    {
+      "id": "service-core-pump-coupling",
+      "word": "pump coupling",
+      "translation": "水泵联轴器",
+      "x": 966.507177,
+      "y": 325.185972,
+      "priority": 1.026,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-pump-coupling"
+    },
+    {
+      "id": "service-core-expansion-tank-base",
+      "word": "expansion tank base",
+      "translation": "膨胀罐底座",
+      "x": 822.966507,
+      "y": 349.096706,
+      "priority": 1.027,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-expansion-tank-base"
+    },
+    {
+      "id": "service-core-vibration-pad",
+      "word": "vibration pad",
+      "translation": "减振垫",
+      "x": 995.215311,
+      "y": 377.789586,
+      "priority": 1.028,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-vibration-pad"
+    },
+    {
+      "id": "service-core-duct-seam",
+      "word": "duct seam",
+      "translation": "风管接缝",
+      "x": 846.889952,
+      "y": 133.900106,
+      "priority": 1.029,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-duct-seam"
+    },
+    {
+      "id": "service-core-duct-hanger",
+      "word": "duct hanger",
+      "translation": "风管吊架",
+      "x": 803.827751,
+      "y": 57.38576,
+      "priority": 1.03,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-duct-hanger"
+    },
+    {
+      "id": "service-core-duct-support",
+      "word": "duct support",
+      "translation": "风管支撑",
+      "x": 880.382775,
+      "y": 76.514346,
+      "priority": 1.031,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-duct-support"
+    },
+    {
+      "id": "service-core-damper-linkage",
+      "word": "damper linkage",
+      "translation": "风阀连杆",
+      "x": 1449.760766,
+      "y": 76.514346,
+      "priority": 1.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-damper-linkage"
+    },
+    {
+      "id": "service-core-air-intake-grille",
+      "word": "air intake grille",
+      "translation": "进风格栅",
+      "x": 1531.100478,
+      "y": 86.07864,
+      "priority": 1.033,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-air-intake-grille"
+    },
+    {
+      "id": "service-core-return-grille-blade",
+      "word": "return grille blade",
+      "translation": "回风格栅叶片",
+      "x": 1521.5311,
+      "y": 263.018066,
+      "priority": 1.034,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-return-grille-blade"
+    },
+    {
+      "id": "service-core-service-gauge",
+      "word": "service gauge",
+      "translation": "检修压力表",
+      "x": 956.937799,
+      "y": 296.493092,
+      "priority": 1.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-service-gauge"
+    },
+    {
+      "id": "service-core-pipe-insulation-seam",
+      "word": "pipe insulation seam",
+      "translation": "管道保温接缝",
+      "x": 937.799043,
+      "y": 157.81084,
+      "priority": 1.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-pipe-insulation-seam"
+    },
+    {
+      "id": "service-core-valve-stem",
+      "word": "valve stem",
+      "translation": "阀杆",
+      "x": 976.076555,
+      "y": 301.275239,
+      "priority": 1.037,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-valve-stem"
+    },
+    {
+      "id": "service-core-fan-hub",
+      "word": "fan hub",
+      "translation": "风机轮毂",
+      "x": 1311.004785,
+      "y": 239.107333,
+      "priority": 1.038,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-fan-hub"
+    },
+    {
+      "id": "service-core-coil-fin",
+      "word": "coil fin",
+      "translation": "盘管翅片",
+      "x": 1129.186603,
+      "y": 243.889479,
+      "priority": 1.039,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-coil-fin"
+    },
+    {
+      "id": "service-core-drain-pan-edge",
+      "word": "drain pan edge",
+      "translation": "接水盘边缘",
+      "x": 1081.339713,
+      "y": 334.750266,
+      "priority": 1.04,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-drain-pan-edge"
+    },
+    {
+      "id": "service-core-duct-access-handle",
+      "word": "duct access handle",
+      "translation": "风管检修把手",
+      "x": 832.535885,
+      "y": 191.285866,
+      "priority": 1.041,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-duct-access-handle"
+    },
+    {
+      "id": "service-core-valve-wheel",
+      "word": "valve wheel",
+      "translation": "阀轮",
+      "x": 143.54067,
+      "y": 726.886291,
+      "priority": 1.042,
+      "minLevel": 0,
+      "sourceVisualRegion": "service-core-region-valve-wheel"
+    },
+    {
+      "id": "service-core-test-drain",
+      "word": "test drain",
+      "translation": "测试排水口",
+      "x": 258.373206,
+      "y": 812.964931,
+      "priority": 1.043,
+      "minLevel": 0,
+      "sourceVisualRegion": "service-core-region-test-drain"
+    },
+    {
+      "id": "service-core-sight-glass",
+      "word": "sight glass",
+      "translation": "视镜",
+      "x": 325.358852,
+      "y": 736.450584,
+      "priority": 1.044,
+      "minLevel": 1,
+      "sourceVisualRegion": "service-core-region-sight-glass"
+    },
+    {
+      "id": "service-core-alarm-strobe",
+      "word": "alarm strobe",
+      "translation": "报警频闪灯",
+      "x": 377.990431,
+      "y": 612.114772,
+      "priority": 1.045,
+      "minLevel": 1,
+      "sourceVisualRegion": "service-core-region-alarm-strobe"
+    },
+    {
+      "id": "service-core-pull-station-cover",
+      "word": "pull station cover",
+      "translation": "手动报警按钮盖",
+      "x": 459.330144,
+      "y": 640.807651,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-pull-station-cover"
+    },
+    {
+      "id": "service-core-fire-door-closer",
+      "word": "fire door closer",
+      "translation": "防火门闭门器",
+      "x": 507.177033,
+      "y": 573.857598,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-fire-door-closer"
+    },
+    {
+      "id": "service-core-panic-bar",
+      "word": "panic bar",
+      "translation": "推杆式逃生杆",
+      "x": 526.315789,
+      "y": 640.807651,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-panic-bar"
+    },
+    {
+      "id": "service-core-standpipe-cap",
+      "word": "standpipe cap",
+      "translation": "立管端盖",
+      "x": 76.555024,
+      "y": 702.975558,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-standpipe-cap"
+    },
+    {
+      "id": "service-core-pressure-gauge-bezel",
+      "word": "pressure gauge bezel",
+      "translation": "压力表圈",
+      "x": 196.172249,
+      "y": 631.243358,
+      "priority": 1.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-pressure-gauge-bezel"
+    },
+    {
+      "id": "service-core-pipe-hanger",
+      "word": "pipe hanger",
+      "translation": "管道吊架",
+      "x": 105.263158,
+      "y": 554.729012,
+      "priority": 1.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-pipe-hanger"
+    },
+    {
+      "id": "service-core-flow-switch-housing",
+      "word": "flow switch housing",
+      "translation": "水流指示器外壳",
+      "x": 306.220096,
+      "y": 717.321998,
+      "priority": 1.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-flow-switch-housing"
+    },
+    {
+      "id": "service-core-fire-pump-coupling",
+      "word": "fire pump coupling",
+      "translation": "消防泵联轴器",
+      "x": 239.23445,
+      "y": 784.272051,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-fire-pump-coupling"
+    },
+    {
+      "id": "service-core-drain-funnel",
+      "word": "drain funnel",
+      "translation": "排水漏斗",
+      "x": 325.358852,
+      "y": 836.875664,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-drain-funnel"
+    },
+    {
+      "id": "service-core-sprinkler-branch-line",
+      "word": "sprinkler branch line",
+      "translation": "喷淋支管",
+      "x": 95.69378,
+      "y": 535.600425,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-sprinkler-branch-line"
+    },
+    {
+      "id": "service-core-valve-tag-plate",
+      "word": "valve tag plate",
+      "translation": "阀门铭牌",
+      "x": 210.526316,
+      "y": 741.232731,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-valve-tag-plate"
+    },
+    {
+      "id": "service-core-alarm-panel-hinge",
+      "word": "alarm panel hinge",
+      "translation": "报警面板铰链",
+      "x": 373.205742,
+      "y": 626.461211,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-alarm-panel-hinge"
+    },
+    {
+      "id": "service-core-fire-cabinet-latch",
+      "word": "fire cabinet latch",
+      "translation": "消防柜闩",
+      "x": 387.559809,
+      "y": 626.461211,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-fire-cabinet-latch"
+    },
+    {
+      "id": "service-core-sprinkler-valve-handle",
+      "word": "sprinkler valve handle",
+      "translation": "喷淋阀手柄",
+      "x": 143.54067,
+      "y": 698.193411,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-sprinkler-valve-handle"
+    },
+    {
+      "id": "service-core-utility-sink-basin",
+      "word": "utility sink basin",
+      "translation": "后勤水槽盆",
+      "x": 755.980861,
+      "y": 564.293305,
+      "priority": 1.06,
+      "minLevel": 0,
+      "sourceVisualRegion": "service-core-region-utility-sink-basin"
+    },
+    {
+      "id": "service-core-utility-shelf-bracket",
+      "word": "utility shelf bracket",
+      "translation": "后勤搁架支架",
+      "x": 861.244019,
+      "y": 502.125399,
+      "priority": 1.061,
+      "minLevel": 0,
+      "sourceVisualRegion": "service-core-region-utility-shelf-bracket"
+    },
+    {
+      "id": "service-core-paper-towel-roll",
+      "word": "paper towel roll",
+      "translation": "纸巾卷",
+      "x": 765.550239,
+      "y": 497.343252,
+      "priority": 1.062,
+      "minLevel": 1,
+      "sourceVisualRegion": "service-core-region-paper-towel-roll"
+    },
+    {
+      "id": "service-core-cabinet-latch",
+      "word": "cabinet latch",
+      "translation": "柜门闩",
+      "x": 995.215311,
+      "y": 526.036132,
+      "priority": 1.063,
+      "minLevel": 1,
+      "sourceVisualRegion": "service-core-region-cabinet-latch"
+    },
+    {
+      "id": "service-core-mop-wringer",
+      "word": "mop wringer",
+      "translation": "拖把拧干器",
+      "x": 889.952153,
+      "y": 679.064825,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-mop-wringer"
+    },
+    {
+      "id": "service-core-broom-bristles",
+      "word": "broom bristles",
+      "translation": "扫帚刷毛",
+      "x": 775.119617,
+      "y": 726.886291,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-broom-bristles"
+    },
+    {
+      "id": "service-core-hard-hat-shelf",
+      "word": "hard hat shelf",
+      "translation": "安全帽搁板",
+      "x": 1033.492823,
+      "y": 511.689692,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-hard-hat-shelf"
+    },
+    {
+      "id": "service-core-cleaning-bottle-rack",
+      "word": "cleaning bottle rack",
+      "translation": "清洁瓶架",
+      "x": 918.660287,
+      "y": 631.243358,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-cleaning-bottle-rack"
+    },
+    {
+      "id": "service-core-bin-pedal",
+      "word": "bin pedal",
+      "translation": "垃圾桶踏板",
+      "x": 1043.062201,
+      "y": 612.114772,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-bin-pedal"
+    },
+    {
+      "id": "service-core-recycling-lid",
+      "word": "recycling lid",
+      "translation": "回收桶盖",
+      "x": 1081.339713,
+      "y": 612.114772,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-recycling-lid"
+    },
+    {
+      "id": "service-core-utility-faucet-handle",
+      "word": "utility faucet handle",
+      "translation": "后勤水龙头把手",
+      "x": 775.119617,
+      "y": 545.164718,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-utility-faucet-handle"
+    },
+    {
+      "id": "service-core-sink-backsplash",
+      "word": "sink backsplash",
+      "translation": "水槽挡水板",
+      "x": 755.980861,
+      "y": 511.689692,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-sink-backsplash"
+    },
+    {
+      "id": "service-core-cleaning-cart-tray",
+      "word": "cleaning cart tray",
+      "translation": "清洁车托盘",
+      "x": 889.952153,
+      "y": 640.807651,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-cleaning-cart-tray"
+    },
+    {
+      "id": "service-core-yellow-cabinet-hinge",
+      "word": "yellow cabinet hinge",
+      "translation": "黄色柜铰链",
+      "x": 995.215311,
+      "y": 526.036132,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-yellow-cabinet-hinge"
+    },
+    {
+      "id": "service-core-dock-plate",
+      "word": "dock plate",
+      "translation": "装卸平台板",
+      "x": 1397.129187,
+      "y": 573.857598,
+      "priority": 1.074,
+      "minLevel": 0,
+      "sourceVisualRegion": "service-core-region-dock-plate"
+    },
+    {
+      "id": "service-core-dock-bumper",
+      "word": "dock bumper",
+      "translation": "装卸平台防撞垫",
+      "x": 1416.267943,
+      "y": 621.679065,
+      "priority": 1.075,
+      "minLevel": 0,
+      "sourceVisualRegion": "service-core-region-dock-bumper"
+    },
+    {
+      "id": "service-core-dock-guide",
+      "word": "dock guide",
+      "translation": "装卸平台导向件",
+      "x": 1368.421053,
+      "y": 612.114772,
+      "priority": 1.076,
+      "minLevel": 1,
+      "sourceVisualRegion": "service-core-region-dock-guide"
+    },
+    {
+      "id": "service-core-pallet-slat",
+      "word": "pallet slat",
+      "translation": "托盘板条",
+      "x": 1224.880383,
+      "y": 765.143464,
+      "priority": 1.077,
+      "minLevel": 1,
+      "sourceVisualRegion": "service-core-region-pallet-slat"
+    },
+    {
+      "id": "service-core-pallet-jack-handle",
+      "word": "pallet jack handle",
+      "translation": "托盘车把手",
+      "x": 1244.019139,
+      "y": 746.014878,
+      "priority": 1.078,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-pallet-jack-handle"
+    },
+    {
+      "id": "service-core-hand-truck-toe-plate",
+      "word": "hand truck toe plate",
+      "translation": "手推车底板",
+      "x": 1177.033493,
+      "y": 669.500531,
+      "priority": 1.079,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-hand-truck-toe-plate"
+    },
+    {
+      "id": "service-core-freight-door-track",
+      "word": "freight door track",
+      "translation": "货运门轨道",
+      "x": 1444.976077,
+      "y": 497.343252,
+      "priority": 1.08,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-freight-door-track"
+    },
+    {
+      "id": "service-core-dock-shelter",
+      "word": "dock shelter",
+      "translation": "装卸平台防护罩",
+      "x": 1464.114833,
+      "y": 497.343252,
+      "priority": 1.081,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-dock-shelter"
+    },
+    {
+      "id": "service-core-loading-bay-threshold",
+      "word": "loading bay threshold",
+      "translation": "装卸口门槛",
+      "x": 1435.406699,
+      "y": 573.857598,
+      "priority": 1.082,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-loading-bay-threshold"
+    },
+    {
+      "id": "service-core-cart-side-rail",
+      "word": "cart side rail",
+      "translation": "推车侧栏",
+      "x": 1358.851675,
+      "y": 726.886291,
+      "priority": 1.083,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-cart-side-rail"
+    },
+    {
+      "id": "service-core-pallet-jack-wheel",
+      "word": "pallet jack wheel",
+      "translation": "托盘车轮",
+      "x": 1244.019139,
+      "y": 798.618491,
+      "priority": 1.084,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-pallet-jack-wheel"
+    },
+    {
+      "id": "service-core-hand-truck-wheel",
+      "word": "hand truck wheel",
+      "translation": "手推车轮",
+      "x": 1167.464115,
+      "y": 726.886291,
+      "priority": 1.085,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-hand-truck-wheel"
+    },
+    {
+      "id": "service-core-service-corridor-light",
+      "word": "service corridor light",
+      "translation": "服务走廊灯",
+      "x": 1224.880383,
+      "y": 497.343252,
+      "priority": 1.086,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-service-corridor-light"
+    },
+    {
+      "id": "service-core-freight-elevator-seam",
+      "word": "freight elevator seam",
+      "translation": "货梯门缝",
+      "x": 1205.741627,
+      "y": 535.600425,
+      "priority": 1.087,
+      "minLevel": 4,
+      "sourceVisualRegion": "service-core-region-freight-elevator-seam"
+    },
+    {
+      "id": "service-core-safety-bollard-sleeve",
+      "word": "safety bollard sleeve",
+      "translation": "安全防撞柱套",
+      "x": 1358.851675,
+      "y": 621.679065,
+      "priority": 1.088,
+      "minLevel": 2,
+      "sourceVisualRegion": "service-core-region-safety-bollard-sleeve"
+    },
+    {
+      "id": "service-core-dock-leveler-hinge",
+      "word": "dock leveler hinge",
+      "translation": "登车桥铰链",
+      "x": 1435.406699,
+      "y": 592.986185,
+      "priority": 1.089,
+      "minLevel": 3,
+      "sourceVisualRegion": "service-core-region-dock-leveler-hinge"
+    }
+  ],
+  "portals": []
+}
