@@ -2032,6 +2032,7 @@ test("apartment keeps its room portals and newly reviewed fixture parts", async 
     "coffee table top",
     "media drawer",
     "floorboard grain",
+    "media cabinet handle",
   ]) {
     assert.ok(words.has(required), `apartment visibly grounds ${required}`);
   }
@@ -2045,6 +2046,16 @@ test("apartment keeps its room portals and newly reviewed fixture parts", async 
       ["central-stair-upper-detail", 8],
       ["central-stair-lower-detail", 4],
     ],
+  );
+  const apartmentLabels = new Map(apartment.labels.map((label) => [label.id, label] as const));
+  assert.deepEqual(
+    ["sofa-leg-pro-2", "media-cabinet-handle-pro-2"].map((id) => {
+      const label = apartmentLabels.get(id);
+      assert.ok(label);
+      return [label.x, label.y];
+    }),
+    [[340, 416], [50, 335]],
+    "new living-room parts stay on their visible object pixels",
   );
 });
 
