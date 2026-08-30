@@ -203,7 +203,7 @@ test("scene progress conserves its total and switches to pan guidance at maximum
   await expect(progress).toHaveAttribute("aria-label", /拖动探索/);
 });
 
-test("continued zoom beyond a spatial image opens the ten-thousand-word plane", async ({ page }) => {
+test("continued zoom at a terminal spatial scene stays in the scene", async ({ page }) => {
   const app = await openWorld(page);
   for (const sceneId of ["community-garden", "potting-workbench"]) {
     await page.locator(
@@ -230,68 +230,18 @@ test("continued zoom beyond a spatial image opens the ten-thousand-word plane", 
   }, { intervals: [45], timeout: 8_000 }).toBeGreaterThanOrEqual(requiredScale);
 
   const progress = page.getByTestId("scene-word-progress");
-  await expect(progress).toHaveAttribute("data-next-plane", "semantic");
+  await expect(progress).toHaveAttribute("data-next-plane", "spatial-terminal");
+  await expect(progress).toContainText("已到最大倍率");
   const dialog = page.getByRole("dialog", { name: DIALOG_NAME });
-  const field = dialog.locator(FIELD);
-  await expect.poll(async () => {
-    if (await dialog.count() === 0) await wheelSceneAt(page, point, -240);
-    return dialog.count();
-  }, {
-    intervals: [75],
-    timeout: 3_000,
-    message: "continued max-scale zoom should cross the semantic intent threshold",
-  }).toBe(1);
-  await expect(dialog).toBeVisible();
-  await expect(app).toHaveAttribute("data-semantic-entry-mode", "spatial-overscroll");
-  await expect(app).toHaveAttribute("data-semantic-transition-state", "open");
-  await expect(app).toHaveAttribute("data-semantic-return-scene", "potting-workbench");
-  await expect(dialog).toHaveAttribute("data-entry-mode", "spatial-overscroll");
-  await expect(dialog).toHaveAttribute("data-zoom-out-boundary", "enabled");
-  await expect(field).toHaveAttribute("data-zoom-out-boundary", "enabled");
-  await expect(field).toHaveAttribute("aria-busy", "false");
-  expect(["realm", "topic"]).toContain(await field.getAttribute("data-level"));
-
-  const spatialSurface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
-  const entryCamera = await spatialSurface.evaluate((element) => ({
-    scale: (element as HTMLElement).dataset.sceneScale,
-    transform: (element as HTMLElement).style.transform,
-  }));
-  await field.getByTestId("semantic-zoom-reset").click();
-  await expect(field).toHaveAttribute("data-view-scale", "1.000");
-
-  const fieldBounds = await field.boundingBox();
-  expect(fieldBounds).not.toBeNull();
-  await page.mouse.move(
-    fieldBounds!.x + fieldBounds!.width / 2,
-    fieldBounds!.y + fieldBounds!.height / 2,
-  );
-  await expect.poll(async () => {
-    if (await app.getAttribute("data-semantic-transition-state") === "open") {
-      await field.dispatchEvent("wheel", {
-        deltaY: 120,
-        deltaMode: 0,
-        bubbles: true,
-        cancelable: true,
-      });
-    }
-    return app.getAttribute("data-semantic-transition-state");
-  }, {
-    intervals: [50],
-    message: "two continuous field-owned wheel impulses should cross the reverse intent threshold",
-  }).toBe("returning");
-  await expect(dialog).toHaveAttribute("data-semantic-transition-state", "returning");
-  await expect(dialog).toHaveAttribute("data-zoom-out-boundary", "disabled");
-  await expect(
-    dialog,
-    "continued semantic overview zoom-out should return to the captured spatial camera",
-  ).toHaveCount(0);
-
+  await expect(dialog).toHaveCount(0);
   await expect(app).toHaveAttribute("data-scene-id", "potting-workbench");
-  await expect(app).toHaveAttribute("data-semantic-entry-mode", "closed");
   await expect(app).toHaveAttribute("data-semantic-transition-state", "idle");
-  await expect(app).not.toHaveAttribute("data-semantic-return-scene", /.+/);
-  await expect(spatialSurface).toHaveAttribute("data-scene-scale", entryCamera.scale!);
-  await expect.poll(() => spatialSurface.evaluate((element) => (
-    (element as HTMLElement).style.transform
-  ))).toBe(entryCamera.transform);
+
+  // Additional inward wheel samples at the hard spatial ceiling must remain
+  // inert rather than opening a second plane behind the learner's back.
+  for (let index = 0; index < 3; index += 1) await wheelSceneAt(page, point, -240);
+  await page.waitForTimeout(300);
+  await expect(dialog).toHaveCount(0);
+  await expect(app).toHaveAttribute("data-scene-id", "potting-workbench");
+  await expect(progress).toHaveAttribute("data-next-plane", "spatial-terminal");
 });

@@ -622,9 +622,10 @@ export interface SemanticOverscrollResult {
 }
 
 /**
- * A deliberate extra zoom beyond the spatial image opens the semantic plane.
- * Portal pixels always keep ownership of the gesture, and zooming out resets
- * the accumulator so an ordinary fit/zoom cycle cannot open the atlas.
+ * A deliberate extra zoom beyond a non-terminal spatial image may open the
+ * semantic plane. Portal pixels always keep ownership of the gesture, and a
+ * terminal scene can disable the bridge entirely. Zooming out resets the
+ * accumulator so an ordinary fit/zoom cycle cannot open the atlas.
  */
 export function advanceSemanticOverscroll(
   accumulated: number,
@@ -632,8 +633,9 @@ export function advanceSemanticOverscroll(
   atMaximumScale: boolean,
   portalOwnsGesture: boolean,
   elapsedSincePreviousMs = 0,
+  semanticEntryEnabled = true,
 ): SemanticOverscrollResult {
-  if (!atMaximumScale || portalOwnsGesture || factor <= 1) {
+  if (!semanticEntryEnabled || !atMaximumScale || portalOwnsGesture || factor <= 1) {
     return { accumulated: 0, trigger: false };
   }
   const continuedGesture = Number.isFinite(elapsedSincePreviousMs)
@@ -1703,14 +1705,19 @@ export function SceneViewport({
       const total = scene.labels.length;
       const remaining = atlasOverviewMode ? total : Math.max(0, total - visibleCount);
       const maximumZoom = camera.scale >= maximumScale - 0.02;
+      const semanticEntryEnabled = scene.portals.length > 0;
       const action = atlasOverviewMode
         ? "悬停大区显示该区锚点词，放大可见更多"
         : remaining === 0
           ? maximumZoom
-            ? "本景词汇已全部在当前视野，继续放大进入万词大图"
+            ? semanticEntryEnabled
+              ? "本景词汇已全部在当前视野，继续放大进入万词大图"
+              : "本景词汇已全部在当前视野，已到最大倍率"
             : "本景词汇已全部在当前视野"
           : maximumZoom
-            ? `拖动探索其余 ${remaining} 个词，继续放大进入万词大图`
+            ? semanticEntryEnabled
+              ? `拖动探索其余 ${remaining} 个词，继续放大进入万词大图`
+              : `拖动探索其余 ${remaining} 个词，已到最大倍率`
             : `放大或拖动探索其余 ${remaining} 个词`;
       const compact = viewportWidth <= 560;
       const text = atlasOverviewMode
@@ -1718,7 +1725,9 @@ export function SceneViewport({
           ? "悬停大区查看锚点词"
           : action
         : compact
-          ? `视野 ${visibleCount}/${total} · ${maximumZoom ? "拖动看词 / 继续放大进万词大图" : remaining === 0 ? "已全部展开" : `放大/拖动看其余 ${remaining}`}`
+          ? `视野 ${visibleCount}/${total} · ${maximumZoom
+            ? semanticEntryEnabled ? "拖动看词 / 继续放大进万词大图" : "拖动看词 / 已到最大倍率"
+            : remaining === 0 ? "已全部展开" : `放大/拖动看其余 ${remaining}`}`
           : `当前视野 ${visibleCount} / 本景 ${total} 个词 · ${action}`;
       if (sceneWordProgress.textContent !== text) sceneWordProgress.textContent = text;
       setAttributeIfChanged(
@@ -1739,7 +1748,9 @@ export function SceneViewport({
       setDatasetValueIfChanged(
         sceneWordProgress,
         "nextPlane",
-        atlasOverviewMode ? "atlas-category" : maximumZoom ? "semantic" : "spatial",
+        atlasOverviewMode
+          ? "atlas-category"
+          : maximumZoom ? semanticEntryEnabled ? "semantic" : "spatial-terminal" : "spatial",
       );
     }
 
@@ -2389,6 +2400,13 @@ export function SceneViewport({
     factor: number,
     portal: ScenePortal | undefined,
   ): boolean => {
+    // Terminal spatial studies are deliberately closed worlds. Continuing to
+    // zoom an object there must stop at its authored maximum; the ten-thousand
+    // word plane is reachable only through an explicit map/header action.
+    if (scene.portals.length === 0) {
+      resetSemanticOverscroll();
+      return false;
+    }
     const now = performance.now();
     const result = advanceSemanticOverscroll(
       semanticOverscrollRef.current,
@@ -2398,6 +2416,7 @@ export function SceneViewport({
       semanticOverscrollTimestampRef.current === null
         ? Number.POSITIVE_INFINITY
         : now - semanticOverscrollTimestampRef.current,
+      scene.portals.length > 0,
     );
     semanticOverscrollRef.current = result.accumulated;
     semanticOverscrollTimestampRef.current = result.accumulated > 0 ? now : null;
@@ -2425,7 +2444,7 @@ export function SceneViewport({
     updateZoomDirection("in");
     onExploreSemanticPlane(nearest, "zoom");
     return true;
-  }, [cancelCameraAnimation, onExploreSemanticPlane, scene.labels, stopWheelAnimation, updateZoomDirection]);
+  }, [cancelCameraAnimation, onExploreSemanticPlane, resetSemanticOverscroll, scene.labels, scene.portals, stopWheelAnimation, updateZoomDirection]);
 
   const zoomAt = useCallback(
     (point: Point, factor: number, previousPoint: Point = point) => {

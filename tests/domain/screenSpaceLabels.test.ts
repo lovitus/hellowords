@@ -464,6 +464,11 @@ test("continued zoom past the spatial maximum deliberately enters the semantic p
     "a real child portal keeps ownership of the same zoom gesture",
   );
   assert.deepEqual(
+    advanceSemanticOverscroll(first.accumulated, Math.exp(0.3), true, false, 0, false),
+    { accumulated: 0, trigger: false },
+    "a terminal spatial scene cannot bridge into the semantic plane",
+  );
+  assert.deepEqual(
     advanceSemanticOverscroll(first.accumulated, 0.8, true, false),
     { accumulated: 0, trigger: false },
     "zooming out resets semantic overscroll intent",
