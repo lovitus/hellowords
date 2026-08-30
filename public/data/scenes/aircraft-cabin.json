@@ -1,0 +1,2966 @@
+{
+  "id": "aircraft-cabin",
+  "title": "Aircraft cabin",
+  "translation": "飞机客舱",
+  "subtitle": "Entry door, galley, seating, overhead service, lavatory and cabin finishes",
+  "asset": "/scenes/aircraft-cabin-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "boarding-gate",
+  "visualRegions": [
+    {
+      "id": "aircraft-cabin-region-cabin-entry-door",
+      "description": "Pixel-audited “cabin entry door” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 160,
+      "y": 190,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-entry-door-frame",
+      "description": "Pixel-audited “cabin entry door frame” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 150,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-door-inner-panel",
+      "description": "Pixel-audited “entry door inner panel” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-door-upper-hinge",
+      "description": "Pixel-audited “entry door upper hinge” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 45,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-door-mid-hinge",
+      "description": "Pixel-audited “entry door mid hinge” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-door-lower-hinge",
+      "description": "Pixel-audited “entry door lower hinge” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 690,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-hinge-cover",
+      "description": "Pixel-audited “entry hinge cover” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 215,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-latch-body",
+      "description": "Pixel-audited “entry latch body” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-latch-hook",
+      "description": "Pixel-audited “entry latch hook” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 215,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-latch-pin",
+      "description": "Pixel-audited “entry latch pin” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 220,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-door-handle",
+      "description": "Pixel-audited “entry door handle” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 30,
+      "y": 615,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-handle-mount",
+      "description": "Pixel-audited “entry handle mount” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 65,
+      "y": 605,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-entry-handrail",
+      "description": "Pixel-audited “cabin entry handrail” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 30,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-handrail-bracket",
+      "description": "Pixel-audited “entry handrail bracket” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 55,
+      "y": 750,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-handrail-end-cap",
+      "description": "Pixel-audited “entry handrail end cap” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 35,
+      "y": 845,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-door-viewing-window",
+      "description": "Pixel-audited “entry door viewing window” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 50,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-window-frame",
+      "description": "Pixel-audited “entry window frame” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 70,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-window-seal",
+      "description": "Pixel-audited “entry window seal” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 90,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-door-frame-fastener",
+      "description": "Pixel-audited “door frame fastener” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 385,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-door-edge-trim",
+      "description": "Pixel-audited “entry door edge trim” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 255,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-sill-trim",
+      "description": "Pixel-audited “entry sill trim” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 855,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-entry-threshold-strip",
+      "description": "Pixel-audited “entry threshold strip” inside the Entry door hardware crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 875,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-galley",
+      "description": "Pixel-audited “forward galley” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-upper-galley-cabinet",
+      "description": "Pixel-audited “upper galley cabinet” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 70,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-upper-cabinet-door",
+      "description": "Pixel-audited “forward upper cabinet door” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 460,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabinet-door-handle",
+      "description": "Pixel-audited “cabinet door handle” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 105,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabinet-door-hinge",
+      "description": "Pixel-audited “cabinet door hinge” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 110,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabinet-latch",
+      "description": "Pixel-audited “forward cabinet latch” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 170,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-sidewall",
+      "description": "Pixel-audited “galley sidewall” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-ceiling-locker",
+      "description": "Pixel-audited “galley ceiling locker” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 35,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-oven",
+      "description": "Pixel-audited “galley oven” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 255,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-oven-door",
+      "description": "Pixel-audited “galley oven door” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-oven-handle",
+      "description": "Pixel-audited “galley oven handle” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 410,
+      "y": 325,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-oven-latch",
+      "description": "Pixel-audited “galley oven latch” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-countertop",
+      "description": "Pixel-audited “galley countertop” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 460,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-worktop-edge",
+      "description": "Pixel-audited “galley worktop edge” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-backsplash",
+      "description": "Pixel-audited “galley backsplash” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-service-cart",
+      "description": "Pixel-audited “galley service cart” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 370,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-cart-handle",
+      "description": "Pixel-audited “galley cart handle” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-cart-caster",
+      "description": "Pixel-audited “galley cart caster” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-cart-drawer",
+      "description": "Pixel-audited “galley cart drawer” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-cart-latch",
+      "description": "Pixel-audited “galley cart latch” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 460,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-coffee-pot",
+      "description": "Pixel-audited “galley coffee pot” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 550,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-coffee-pot-handle",
+      "description": "Pixel-audited “coffee pot handle” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-coffee-pot-lid",
+      "description": "Pixel-audited “coffee pot lid” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 555,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-storage-drawer",
+      "description": "Pixel-audited “galley storage drawer” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-kickplate",
+      "description": "Pixel-audited “galley kickplate” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 835,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-galley-floor-track",
+      "description": "Pixel-audited “galley floor track” inside the Forward galley crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 620,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-left-overhead-bin",
+      "description": "Pixel-audited “left overhead bin” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 770,
+      "y": 125,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-overhead-bin-door",
+      "description": "Pixel-audited “overhead bin door” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-overhead-bin-latch",
+      "description": "Pixel-audited “overhead bin latch” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-overhead-bin-lip",
+      "description": "Pixel-audited “overhead bin lip” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 225,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-overhead-bin-hinge",
+      "description": "Pixel-audited “overhead bin hinge” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 215,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-overhead-bin-end-cap",
+      "description": "Pixel-audited “overhead bin end cap” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-overhead-bin-seam",
+      "description": "Pixel-audited “overhead bin seam” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-stowage-compartment",
+      "description": "Pixel-audited “cabin stowage compartment” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 140,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-left-passenger-service-unit",
+      "description": "Pixel-audited “left passenger service unit” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 770,
+      "y": 250,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-passenger-service-panel",
+      "description": "Pixel-audited “passenger service panel” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 258,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-reading-light-bezel",
+      "description": "Pixel-audited “reading light bezel” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 805,
+      "y": 258,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-air-vent-nozzle",
+      "description": "Pixel-audited “air vent nozzle” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 258,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-speaker-grille",
+      "description": "Pixel-audited “cabin speaker grille” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 860,
+      "y": 258,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-light-lens",
+      "description": "Pixel-audited “cabin light lens” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 910,
+      "y": 250,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-ceiling-panel",
+      "description": "Pixel-audited “cabin ceiling panel” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-ceiling-trim-rail",
+      "description": "Pixel-audited “ceiling trim rail” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 0,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-ceiling-light",
+      "description": "Pixel-audited “cabin ceiling light” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1010,
+      "y": 90,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-left-sidewall-cove",
+      "description": "Pixel-audited “left sidewall cove” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-upper-sidewall-panel",
+      "description": "Pixel-audited “upper sidewall panel” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 720,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-bin-hinge-cover",
+      "description": "Pixel-audited “bin hinge cover” inside the Overhead stowage and passenger service unit crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 870,
+      "y": 220,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabin-seat",
+      "description": "Pixel-audited “forward cabin seat” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabin-seatback",
+      "description": "Pixel-audited “forward cabin seatback” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabin-headrest",
+      "description": "Pixel-audited “forward cabin headrest” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabin-cushion",
+      "description": "Pixel-audited “forward cabin cushion” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 750,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabin-armrest",
+      "description": "Pixel-audited “forward cabin armrest” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabin-seat-leg",
+      "description": "Pixel-audited “forward cabin seat leg” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 770,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabin-tray-table",
+      "description": "Pixel-audited “forward cabin tray table” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabin-seatback-pocket",
+      "description": "Pixel-audited “forward cabin seatback pocket” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 750,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabin-seat-belt",
+      "description": "Pixel-audited “forward cabin seat belt” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 785,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-forward-cabin-seat-buckle",
+      "description": "Pixel-audited “forward cabin seat buckle” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 795,
+      "y": 545,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-middle-cabin-seat",
+      "description": "Pixel-audited “middle cabin seat” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-middle-cabin-seatback",
+      "description": "Pixel-audited “middle cabin seatback” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-middle-cabin-headrest",
+      "description": "Pixel-audited “middle cabin headrest” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 845,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-middle-cabin-cushion",
+      "description": "Pixel-audited “middle cabin cushion” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 850,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-middle-cabin-armrest",
+      "description": "Pixel-audited “middle cabin armrest” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 895,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-middle-cabin-seat-leg",
+      "description": "Pixel-audited “middle cabin seat leg” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 865,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-middle-cabin-tray-table",
+      "description": "Pixel-audited “middle cabin tray table” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 850,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-middle-cabin-seatback-pocket",
+      "description": "Pixel-audited “middle cabin seatback pocket” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 850,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-middle-cabin-seat-buckle",
+      "description": "Pixel-audited “middle cabin seat buckle” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 550,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-rear-cabin-seat",
+      "description": "Pixel-audited “rear cabin seat” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-rear-cabin-seatback",
+      "description": "Pixel-audited “rear cabin seatback” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 455,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-rear-cabin-headrest",
+      "description": "Pixel-audited “rear cabin headrest” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 425,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-rear-cabin-cushion",
+      "description": "Pixel-audited “rear cabin cushion” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 940,
+      "y": 505,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-rear-cabin-armrest",
+      "description": "Pixel-audited “rear cabin armrest” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 970,
+      "y": 515,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-rear-cabin-seat-leg",
+      "description": "Pixel-audited “rear cabin seat leg” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 950,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-rear-cabin-tray-table",
+      "description": "Pixel-audited “rear cabin tray table” inside the Passenger seating crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 940,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-center-aisle",
+      "description": "Pixel-audited “cabin center aisle” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1100,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-aisle-carpet-runner",
+      "description": "Pixel-audited “aisle carpet runner” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1100,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-aisle-edge-trim",
+      "description": "Pixel-audited “aisle edge trim” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1020,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-aisle-floor-seam",
+      "description": "Pixel-audited “aisle floor seam” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1140,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-floor-panel",
+      "description": "Pixel-audited “cabin floor panel” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1140,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-seat-track-cover",
+      "description": "Pixel-audited “seat track cover” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1010,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-seat-track-fastener",
+      "description": "Pixel-audited “seat track fastener” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1010,
+      "y": 650,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-aisle-sidewall",
+      "description": "Pixel-audited “aisle sidewall” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1040,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-partition-edge",
+      "description": "Pixel-audited “cabin partition edge” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1060,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-bulkhead-panel",
+      "description": "Pixel-audited “cabin bulkhead panel” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-floor-guide-stripe",
+      "description": "Pixel-audited “cabin floor guide stripe” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-aisle-carpet-border",
+      "description": "Pixel-audited “aisle carpet border” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1070,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-cabin-seat-rail",
+      "description": "Pixel-audited “cabin seat rail” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-floor-threshold-joint",
+      "description": "Pixel-audited “floor threshold joint” inside the Aisle and floor finish crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1160,
+      "y": 855,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-aircraft-lavatory-entry",
+      "description": "Pixel-audited “aircraft lavatory entry” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-door-handle",
+      "description": "Pixel-audited “lavatory door handle” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1410,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-door-latch",
+      "description": "Pixel-audited “lavatory door latch” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1400,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-threshold",
+      "description": "Pixel-audited “lavatory threshold” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 710,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-bulkhead",
+      "description": "Pixel-audited “lavatory bulkhead” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-vanity",
+      "description": "Pixel-audited “lavatory vanity” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1290,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-sink-basin",
+      "description": "Pixel-audited “lavatory sink basin” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-faucet",
+      "description": "Pixel-audited “lavatory faucet” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-tap-handle",
+      "description": "Pixel-audited “lavatory tap handle” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1305,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-backsplash",
+      "description": "Pixel-audited “lavatory backsplash” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-mirror",
+      "description": "Pixel-audited “lavatory mirror” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-mirror-frame",
+      "description": "Pixel-audited “lavatory mirror frame” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-soap-dispenser",
+      "description": "Pixel-audited “lavatory soap dispenser” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1350,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-shelf",
+      "description": "Pixel-audited “lavatory shelf” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1370,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-waste-bin",
+      "description": "Pixel-audited “lavatory waste bin” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1370,
+      "y": 620,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-toilet-bowl",
+      "description": "Pixel-audited “lavatory toilet bowl” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-toilet-seat",
+      "description": "Pixel-audited “lavatory toilet seat” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-toilet-lid",
+      "description": "Pixel-audited “lavatory toilet lid” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-toilet-base",
+      "description": "Pixel-audited “lavatory toilet base” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 620,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-floor-pan",
+      "description": "Pixel-audited “lavatory floor pan” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1300,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-wall-panel",
+      "description": "Pixel-audited “lavatory wall panel” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-ceiling-panel",
+      "description": "Pixel-audited “lavatory ceiling panel” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-lavatory-cabinet-door",
+      "description": "Pixel-audited “lavatory cabinet door” inside the Lavatory interior crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-right-doorway-jamb",
+      "description": "Pixel-audited “right doorway jamb” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1550,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-right-jamb-cover",
+      "description": "Pixel-audited “right jamb cover” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1540,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-doorway-latch-receiver",
+      "description": "Pixel-audited “doorway latch receiver” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1550,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-doorway-lock-housing",
+      "description": "Pixel-audited “doorway lock housing” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1560,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-doorway-grab-rail",
+      "description": "Pixel-audited “doorway grab rail” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1530,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-grab-rail-mount",
+      "description": "Pixel-audited “grab rail mount” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1535,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-doorway-seal-strip",
+      "description": "Pixel-audited “doorway seal strip” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1520,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-doorway-sill-cap",
+      "description": "Pixel-audited “doorway sill cap” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1530,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-fuselage-side-panel",
+      "description": "Pixel-audited “fuselage side panel” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1580,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-fuselage-panel-seam",
+      "description": "Pixel-audited “fuselage panel seam” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1560,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-cabin-region-doorway-fastener",
+      "description": "Pixel-audited “doorway fastener” inside the Doorway and fuselage side crop of the aircraft cabin photograph",
+      "kind": "part",
+      "x": 1570,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "aircraft-cabin-zone-entry-door-hardware",
+      "title": "Entry door hardware",
+      "translation": "客舱入口门与五金",
+      "description": "Trace the visible entry-door frame, hinges, latch pieces, window, rails and threshold trim.",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-cabin-cabin-entry-door",
+        "aircraft-cabin-cabin-entry-door-frame",
+        "aircraft-cabin-entry-door-inner-panel",
+        "aircraft-cabin-entry-door-upper-hinge",
+        "aircraft-cabin-entry-door-mid-hinge",
+        "aircraft-cabin-entry-door-lower-hinge",
+        "aircraft-cabin-entry-hinge-cover",
+        "aircraft-cabin-entry-latch-body",
+        "aircraft-cabin-entry-latch-hook",
+        "aircraft-cabin-entry-latch-pin",
+        "aircraft-cabin-entry-door-handle",
+        "aircraft-cabin-entry-handle-mount",
+        "aircraft-cabin-cabin-entry-handrail",
+        "aircraft-cabin-entry-handrail-bracket",
+        "aircraft-cabin-entry-handrail-end-cap",
+        "aircraft-cabin-entry-door-viewing-window",
+        "aircraft-cabin-entry-window-frame",
+        "aircraft-cabin-entry-window-seal",
+        "aircraft-cabin-door-frame-fastener",
+        "aircraft-cabin-entry-door-edge-trim",
+        "aircraft-cabin-entry-sill-trim",
+        "aircraft-cabin-entry-threshold-strip"
+      ]
+    },
+    {
+      "id": "aircraft-cabin-zone-forward-galley",
+      "title": "Forward galley",
+      "translation": "前部厨房",
+      "description": "Inspect the visible galley cabinets, oven fronts, carts, coffee equipment, worktop and floor hardware.",
+      "x": 320,
+      "y": 0,
+      "width": 380,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-cabin-forward-galley",
+        "aircraft-cabin-upper-galley-cabinet",
+        "aircraft-cabin-forward-upper-cabinet-door",
+        "aircraft-cabin-cabinet-door-handle",
+        "aircraft-cabin-cabinet-door-hinge",
+        "aircraft-cabin-forward-cabinet-latch",
+        "aircraft-cabin-galley-sidewall",
+        "aircraft-cabin-galley-ceiling-locker",
+        "aircraft-cabin-galley-oven",
+        "aircraft-cabin-galley-oven-door",
+        "aircraft-cabin-galley-oven-handle",
+        "aircraft-cabin-galley-oven-latch",
+        "aircraft-cabin-galley-countertop",
+        "aircraft-cabin-galley-worktop-edge",
+        "aircraft-cabin-galley-backsplash",
+        "aircraft-cabin-galley-service-cart",
+        "aircraft-cabin-galley-cart-handle",
+        "aircraft-cabin-galley-cart-caster",
+        "aircraft-cabin-galley-cart-drawer",
+        "aircraft-cabin-galley-cart-latch",
+        "aircraft-cabin-galley-coffee-pot",
+        "aircraft-cabin-coffee-pot-handle",
+        "aircraft-cabin-coffee-pot-lid",
+        "aircraft-cabin-galley-storage-drawer",
+        "aircraft-cabin-galley-kickplate",
+        "aircraft-cabin-galley-floor-track"
+      ]
+    },
+    {
+      "id": "aircraft-cabin-zone-overhead-psu",
+      "title": "Overhead stowage and passenger service unit",
+      "translation": "头顶行李架与旅客服务单元",
+      "description": "Study the overhead bin, latches, seams, passenger-service panel, lights, vents and ceiling finish.",
+      "x": 700,
+      "y": 0,
+      "width": 800,
+      "height": 280,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-cabin-left-overhead-bin",
+        "aircraft-cabin-overhead-bin-door",
+        "aircraft-cabin-overhead-bin-latch",
+        "aircraft-cabin-overhead-bin-lip",
+        "aircraft-cabin-overhead-bin-hinge",
+        "aircraft-cabin-overhead-bin-end-cap",
+        "aircraft-cabin-overhead-bin-seam",
+        "aircraft-cabin-cabin-stowage-compartment",
+        "aircraft-cabin-left-passenger-service-unit",
+        "aircraft-cabin-passenger-service-panel",
+        "aircraft-cabin-reading-light-bezel",
+        "aircraft-cabin-air-vent-nozzle",
+        "aircraft-cabin-cabin-speaker-grille",
+        "aircraft-cabin-cabin-light-lens",
+        "aircraft-cabin-cabin-ceiling-panel",
+        "aircraft-cabin-ceiling-trim-rail",
+        "aircraft-cabin-cabin-ceiling-light",
+        "aircraft-cabin-left-sidewall-cove",
+        "aircraft-cabin-upper-sidewall-panel",
+        "aircraft-cabin-bin-hinge-cover"
+      ]
+    },
+    {
+      "id": "aircraft-cabin-zone-cabin-seating",
+      "title": "Passenger seating",
+      "translation": "客舱座椅",
+      "description": "Compare the visible forward, middle and rear seat rows, cushions, armrests, tables and fittings.",
+      "x": 700,
+      "y": 280,
+      "width": 300,
+      "height": 620,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-cabin-forward-cabin-seat",
+        "aircraft-cabin-forward-cabin-seatback",
+        "aircraft-cabin-forward-cabin-headrest",
+        "aircraft-cabin-forward-cabin-cushion",
+        "aircraft-cabin-forward-cabin-armrest",
+        "aircraft-cabin-forward-cabin-seat-leg",
+        "aircraft-cabin-forward-cabin-tray-table",
+        "aircraft-cabin-forward-cabin-seatback-pocket",
+        "aircraft-cabin-forward-cabin-seat-belt",
+        "aircraft-cabin-forward-cabin-seat-buckle",
+        "aircraft-cabin-middle-cabin-seat",
+        "aircraft-cabin-middle-cabin-seatback",
+        "aircraft-cabin-middle-cabin-headrest",
+        "aircraft-cabin-middle-cabin-cushion",
+        "aircraft-cabin-middle-cabin-armrest",
+        "aircraft-cabin-middle-cabin-seat-leg",
+        "aircraft-cabin-middle-cabin-tray-table",
+        "aircraft-cabin-middle-cabin-seatback-pocket",
+        "aircraft-cabin-middle-cabin-seat-buckle",
+        "aircraft-cabin-rear-cabin-seat",
+        "aircraft-cabin-rear-cabin-seatback",
+        "aircraft-cabin-rear-cabin-headrest",
+        "aircraft-cabin-rear-cabin-cushion",
+        "aircraft-cabin-rear-cabin-armrest",
+        "aircraft-cabin-rear-cabin-seat-leg",
+        "aircraft-cabin-rear-cabin-tray-table"
+      ]
+    },
+    {
+      "id": "aircraft-cabin-zone-aisle-floor",
+      "title": "Aisle and floor finish",
+      "translation": "过道与地面饰面",
+      "description": "Follow the central aisle, carpet boundaries, floor joints, seat tracks and partition edges.",
+      "x": 1000,
+      "y": 280,
+      "width": 250,
+      "height": 620,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-cabin-cabin-center-aisle",
+        "aircraft-cabin-aisle-carpet-runner",
+        "aircraft-cabin-aisle-edge-trim",
+        "aircraft-cabin-aisle-floor-seam",
+        "aircraft-cabin-cabin-floor-panel",
+        "aircraft-cabin-seat-track-cover",
+        "aircraft-cabin-seat-track-fastener",
+        "aircraft-cabin-aisle-sidewall",
+        "aircraft-cabin-cabin-partition-edge",
+        "aircraft-cabin-cabin-bulkhead-panel",
+        "aircraft-cabin-cabin-floor-guide-stripe",
+        "aircraft-cabin-aisle-carpet-border",
+        "aircraft-cabin-cabin-seat-rail",
+        "aircraft-cabin-floor-threshold-joint"
+      ]
+    },
+    {
+      "id": "aircraft-cabin-zone-lavatory",
+      "title": "Lavatory interior",
+      "translation": "客舱卫生间",
+      "description": "Inspect the visible lavatory doorway, vanity, sink, faucet, mirror, toilet and surface hardware.",
+      "x": 1250,
+      "y": 280,
+      "width": 250,
+      "height": 480,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-cabin-aircraft-lavatory-entry",
+        "aircraft-cabin-lavatory-door-handle",
+        "aircraft-cabin-lavatory-door-latch",
+        "aircraft-cabin-lavatory-threshold",
+        "aircraft-cabin-lavatory-bulkhead",
+        "aircraft-cabin-lavatory-vanity",
+        "aircraft-cabin-lavatory-sink-basin",
+        "aircraft-cabin-lavatory-faucet",
+        "aircraft-cabin-lavatory-tap-handle",
+        "aircraft-cabin-lavatory-backsplash",
+        "aircraft-cabin-lavatory-mirror",
+        "aircraft-cabin-lavatory-mirror-frame",
+        "aircraft-cabin-lavatory-soap-dispenser",
+        "aircraft-cabin-lavatory-shelf",
+        "aircraft-cabin-lavatory-waste-bin",
+        "aircraft-cabin-lavatory-toilet-bowl",
+        "aircraft-cabin-lavatory-toilet-seat",
+        "aircraft-cabin-lavatory-toilet-lid",
+        "aircraft-cabin-lavatory-toilet-base",
+        "aircraft-cabin-lavatory-floor-pan",
+        "aircraft-cabin-lavatory-wall-panel",
+        "aircraft-cabin-lavatory-ceiling-panel",
+        "aircraft-cabin-lavatory-cabinet-door"
+      ]
+    },
+    {
+      "id": "aircraft-cabin-zone-right-door-jamb",
+      "title": "Doorway and fuselage side",
+      "translation": "门框与机身侧板",
+      "description": "Trace the visible right-hand doorway jamb, latch housing, grab rail, sill and fuselage panel seams.",
+      "x": 1500,
+      "y": 0,
+      "width": 100,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-cabin-right-doorway-jamb",
+        "aircraft-cabin-right-jamb-cover",
+        "aircraft-cabin-doorway-latch-receiver",
+        "aircraft-cabin-doorway-lock-housing",
+        "aircraft-cabin-doorway-grab-rail",
+        "aircraft-cabin-grab-rail-mount",
+        "aircraft-cabin-doorway-seal-strip",
+        "aircraft-cabin-doorway-sill-cap",
+        "aircraft-cabin-fuselage-side-panel",
+        "aircraft-cabin-fuselage-panel-seam",
+        "aircraft-cabin-doorway-fastener"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/aircraft-cabin-premium-v1.jpg",
+    "reviewedAssetSha256": "43bc4ae1927274df211288acce769e17f16975ddfea8e0c57d8ce5349f697dbc",
+    "rationale": "The final 1600 by 900 aircraft-cabin photograph was inspected at source and output resolution. It retains 142 independently pointable entry-door, galley, overhead-service, seating, aisle, lavatory and doorway-side parts. Flight status, passenger actions, airline identity, readable signs, safety outcomes and hidden aircraft systems were excluded.",
+    "previousLabelCount": 150,
+    "retainedLabelCount": 142,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "flight status",
+      "passenger action",
+      "airline brand",
+      "cabin pressure",
+      "hidden system",
+      "safety outcome"
+    ]
+  },
+  "labels": [
+    {
+      "id": "aircraft-cabin-cabin-entry-door",
+      "word": "cabin entry door",
+      "translation": "客舱入口门",
+      "x": 180,
+      "y": 210,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-entry-door"
+    },
+    {
+      "id": "aircraft-cabin-cabin-entry-door-frame",
+      "word": "cabin entry door frame",
+      "translation": "客舱入口门框",
+      "x": 170,
+      "y": 200,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-entry-door-frame"
+    },
+    {
+      "id": "aircraft-cabin-entry-door-inner-panel",
+      "word": "entry door inner panel",
+      "translation": "入口门内板",
+      "x": 150,
+      "y": 350,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-door-inner-panel"
+    },
+    {
+      "id": "aircraft-cabin-entry-door-upper-hinge",
+      "word": "entry door upper hinge",
+      "translation": "入口门上铰链",
+      "x": 220,
+      "y": 65,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-door-upper-hinge"
+    },
+    {
+      "id": "aircraft-cabin-entry-door-mid-hinge",
+      "word": "entry door mid hinge",
+      "translation": "入口门中铰链",
+      "x": 220,
+      "y": 260,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-door-mid-hinge"
+    },
+    {
+      "id": "aircraft-cabin-entry-door-lower-hinge",
+      "word": "entry door lower hinge",
+      "translation": "入口门下铰链",
+      "x": 220,
+      "y": 710,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-door-lower-hinge"
+    },
+    {
+      "id": "aircraft-cabin-entry-hinge-cover",
+      "word": "entry hinge cover",
+      "translation": "入口铰链盖",
+      "x": 235,
+      "y": 120,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-hinge-cover"
+    },
+    {
+      "id": "aircraft-cabin-entry-latch-body",
+      "word": "entry latch body",
+      "translation": "入口插销主体",
+      "x": 230,
+      "y": 480,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-latch-body"
+    },
+    {
+      "id": "aircraft-cabin-entry-latch-hook",
+      "word": "entry latch hook",
+      "translation": "入口插销钩",
+      "x": 235,
+      "y": 500,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-latch-hook"
+    },
+    {
+      "id": "aircraft-cabin-entry-latch-pin",
+      "word": "entry latch pin",
+      "translation": "入口插销销轴",
+      "x": 240,
+      "y": 550,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-latch-pin"
+    },
+    {
+      "id": "aircraft-cabin-entry-door-handle",
+      "word": "entry door handle",
+      "translation": "入口门把手",
+      "x": 50,
+      "y": 635,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-door-handle"
+    },
+    {
+      "id": "aircraft-cabin-entry-handle-mount",
+      "word": "entry handle mount",
+      "translation": "入口把手底座",
+      "x": 85,
+      "y": 625,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-handle-mount"
+    },
+    {
+      "id": "aircraft-cabin-cabin-entry-handrail",
+      "word": "cabin entry handrail",
+      "translation": "客舱入口扶手",
+      "x": 50,
+      "y": 780,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-entry-handrail"
+    },
+    {
+      "id": "aircraft-cabin-entry-handrail-bracket",
+      "word": "entry handrail bracket",
+      "translation": "入口扶手支架",
+      "x": 75,
+      "y": 770,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-handrail-bracket"
+    },
+    {
+      "id": "aircraft-cabin-entry-handrail-end-cap",
+      "word": "entry handrail end cap",
+      "translation": "入口扶手端盖",
+      "x": 55,
+      "y": 865,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-handrail-end-cap"
+    },
+    {
+      "id": "aircraft-cabin-entry-door-viewing-window",
+      "word": "entry door viewing window",
+      "translation": "入口门观察窗",
+      "x": 70,
+      "y": 220,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-door-viewing-window"
+    },
+    {
+      "id": "aircraft-cabin-entry-window-frame",
+      "word": "entry window frame",
+      "translation": "入口窗框",
+      "x": 90,
+      "y": 220,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-window-frame"
+    },
+    {
+      "id": "aircraft-cabin-entry-window-seal",
+      "word": "entry window seal",
+      "translation": "入口窗密封条",
+      "x": 110,
+      "y": 220,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-window-seal"
+    },
+    {
+      "id": "aircraft-cabin-door-frame-fastener",
+      "word": "door frame fastener",
+      "translation": "门框紧固件",
+      "x": 250,
+      "y": 405,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-door-frame-fastener"
+    },
+    {
+      "id": "aircraft-cabin-entry-door-edge-trim",
+      "word": "entry door edge trim",
+      "translation": "入口门边饰条",
+      "x": 275,
+      "y": 300,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-door-edge-trim"
+    },
+    {
+      "id": "aircraft-cabin-entry-sill-trim",
+      "word": "entry sill trim",
+      "translation": "入口门槛饰条",
+      "x": 160,
+      "y": 875,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-sill-trim"
+    },
+    {
+      "id": "aircraft-cabin-entry-threshold-strip",
+      "word": "entry threshold strip",
+      "translation": "入口门槛条",
+      "x": 150,
+      "y": 895,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-entry-threshold-strip"
+    },
+    {
+      "id": "aircraft-cabin-forward-galley",
+      "word": "forward galley",
+      "translation": "前部厨房",
+      "x": 500,
+      "y": 300,
+      "priority": 1.022,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-galley"
+    },
+    {
+      "id": "aircraft-cabin-upper-galley-cabinet",
+      "word": "upper galley cabinet",
+      "translation": "厨房上柜",
+      "x": 500,
+      "y": 90,
+      "priority": 1.023,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-upper-galley-cabinet"
+    },
+    {
+      "id": "aircraft-cabin-forward-upper-cabinet-door",
+      "word": "forward upper cabinet door",
+      "translation": "前部上柜柜门",
+      "x": 480,
+      "y": 120,
+      "priority": 1.024,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-upper-cabinet-door"
+    },
+    {
+      "id": "aircraft-cabin-cabinet-door-handle",
+      "word": "cabinet door handle",
+      "translation": "柜门把手",
+      "x": 520,
+      "y": 125,
+      "priority": 1.025,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-cabinet-door-handle"
+    },
+    {
+      "id": "aircraft-cabin-cabinet-door-hinge",
+      "word": "cabinet door hinge",
+      "translation": "柜门铰链",
+      "x": 450,
+      "y": 130,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-cabinet-door-hinge"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabinet-latch",
+      "word": "forward cabinet latch",
+      "translation": "前部柜门锁扣",
+      "x": 500,
+      "y": 190,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabinet-latch"
+    },
+    {
+      "id": "aircraft-cabin-galley-sidewall",
+      "word": "galley sidewall",
+      "translation": "厨房侧墙",
+      "x": 620,
+      "y": 200,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-sidewall"
+    },
+    {
+      "id": "aircraft-cabin-galley-ceiling-locker",
+      "word": "galley ceiling locker",
+      "translation": "厨房顶柜",
+      "x": 500,
+      "y": 55,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-ceiling-locker"
+    },
+    {
+      "id": "aircraft-cabin-galley-oven",
+      "word": "galley oven",
+      "translation": "厨房烤箱",
+      "x": 420,
+      "y": 275,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-oven"
+    },
+    {
+      "id": "aircraft-cabin-galley-oven-door",
+      "word": "galley oven door",
+      "translation": "厨房烤箱门",
+      "x": 420,
+      "y": 330,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-oven-door"
+    },
+    {
+      "id": "aircraft-cabin-galley-oven-handle",
+      "word": "galley oven handle",
+      "translation": "厨房烤箱把手",
+      "x": 430,
+      "y": 345,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-oven-handle"
+    },
+    {
+      "id": "aircraft-cabin-galley-oven-latch",
+      "word": "galley oven latch",
+      "translation": "厨房烤箱锁扣",
+      "x": 450,
+      "y": 360,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-oven-latch"
+    },
+    {
+      "id": "aircraft-cabin-galley-countertop",
+      "word": "galley countertop",
+      "translation": "厨房台面",
+      "x": 480,
+      "y": 420,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-countertop"
+    },
+    {
+      "id": "aircraft-cabin-galley-worktop-edge",
+      "word": "galley worktop edge",
+      "translation": "厨房台面边缘",
+      "x": 500,
+      "y": 430,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-worktop-edge"
+    },
+    {
+      "id": "aircraft-cabin-galley-backsplash",
+      "word": "galley backsplash",
+      "translation": "厨房挡板",
+      "x": 500,
+      "y": 390,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-backsplash"
+    },
+    {
+      "id": "aircraft-cabin-galley-service-cart",
+      "word": "galley service cart",
+      "translation": "厨房服务车",
+      "x": 390,
+      "y": 600,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-service-cart"
+    },
+    {
+      "id": "aircraft-cabin-galley-cart-handle",
+      "word": "galley cart handle",
+      "translation": "厨房推车把手",
+      "x": 380,
+      "y": 600,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-cart-handle"
+    },
+    {
+      "id": "aircraft-cabin-galley-cart-caster",
+      "word": "galley cart caster",
+      "translation": "厨房推车脚轮",
+      "x": 400,
+      "y": 850,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-cart-caster"
+    },
+    {
+      "id": "aircraft-cabin-galley-cart-drawer",
+      "word": "galley cart drawer",
+      "translation": "厨房推车抽屉",
+      "x": 450,
+      "y": 600,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-cart-drawer"
+    },
+    {
+      "id": "aircraft-cabin-galley-cart-latch",
+      "word": "galley cart latch",
+      "translation": "厨房推车锁扣",
+      "x": 480,
+      "y": 650,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-cart-latch"
+    },
+    {
+      "id": "aircraft-cabin-galley-coffee-pot",
+      "word": "galley coffee pot",
+      "translation": "厨房咖啡壶",
+      "x": 570,
+      "y": 350,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-coffee-pot"
+    },
+    {
+      "id": "aircraft-cabin-coffee-pot-handle",
+      "word": "coffee pot handle",
+      "translation": "咖啡壶把手",
+      "x": 600,
+      "y": 360,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-coffee-pot-handle"
+    },
+    {
+      "id": "aircraft-cabin-coffee-pot-lid",
+      "word": "coffee pot lid",
+      "translation": "咖啡壶盖",
+      "x": 575,
+      "y": 330,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-coffee-pot-lid"
+    },
+    {
+      "id": "aircraft-cabin-galley-storage-drawer",
+      "word": "galley storage drawer",
+      "translation": "厨房储物抽屉",
+      "x": 550,
+      "y": 520,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-storage-drawer"
+    },
+    {
+      "id": "aircraft-cabin-galley-kickplate",
+      "word": "galley kickplate",
+      "translation": "厨房踢脚板",
+      "x": 500,
+      "y": 855,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-kickplate"
+    },
+    {
+      "id": "aircraft-cabin-galley-floor-track",
+      "word": "galley floor track",
+      "translation": "厨房地面导轨",
+      "x": 640,
+      "y": 850,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-galley-floor-track"
+    },
+    {
+      "id": "aircraft-cabin-left-overhead-bin",
+      "word": "left overhead bin",
+      "translation": "左侧头顶行李架",
+      "x": 790,
+      "y": 145,
+      "priority": 1.048,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-left-overhead-bin"
+    },
+    {
+      "id": "aircraft-cabin-overhead-bin-door",
+      "word": "overhead bin door",
+      "translation": "头顶行李架门",
+      "x": 800,
+      "y": 170,
+      "priority": 1.049,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-overhead-bin-door"
+    },
+    {
+      "id": "aircraft-cabin-overhead-bin-latch",
+      "word": "overhead bin latch",
+      "translation": "头顶行李架锁扣",
+      "x": 820,
+      "y": 220,
+      "priority": 1.05,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-overhead-bin-latch"
+    },
+    {
+      "id": "aircraft-cabin-overhead-bin-lip",
+      "word": "overhead bin lip",
+      "translation": "头顶行李架边缘",
+      "x": 860,
+      "y": 245,
+      "priority": 1.051,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-overhead-bin-lip"
+    },
+    {
+      "id": "aircraft-cabin-overhead-bin-hinge",
+      "word": "overhead bin hinge",
+      "translation": "头顶行李架铰链",
+      "x": 900,
+      "y": 235,
+      "priority": 1.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-overhead-bin-hinge"
+    },
+    {
+      "id": "aircraft-cabin-overhead-bin-end-cap",
+      "word": "overhead bin end cap",
+      "translation": "头顶行李架端盖",
+      "x": 720,
+      "y": 150,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-overhead-bin-end-cap"
+    },
+    {
+      "id": "aircraft-cabin-overhead-bin-seam",
+      "word": "overhead bin seam",
+      "translation": "头顶行李架接缝",
+      "x": 900,
+      "y": 170,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-overhead-bin-seam"
+    },
+    {
+      "id": "aircraft-cabin-cabin-stowage-compartment",
+      "word": "cabin stowage compartment",
+      "translation": "客舱储物舱",
+      "x": 950,
+      "y": 160,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-stowage-compartment"
+    },
+    {
+      "id": "aircraft-cabin-left-passenger-service-unit",
+      "word": "left passenger service unit",
+      "translation": "左侧旅客服务单元",
+      "x": 790,
+      "y": 270,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-left-passenger-service-unit"
+    },
+    {
+      "id": "aircraft-cabin-passenger-service-panel",
+      "word": "passenger service panel",
+      "translation": "旅客服务面板",
+      "x": 800,
+      "y": 278,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-passenger-service-panel"
+    },
+    {
+      "id": "aircraft-cabin-reading-light-bezel",
+      "word": "reading light bezel",
+      "translation": "阅读灯边框",
+      "x": 825,
+      "y": 278,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-reading-light-bezel"
+    },
+    {
+      "id": "aircraft-cabin-air-vent-nozzle",
+      "word": "air vent nozzle",
+      "translation": "通风口喷嘴",
+      "x": 850,
+      "y": 278,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-air-vent-nozzle"
+    },
+    {
+      "id": "aircraft-cabin-cabin-speaker-grille",
+      "word": "cabin speaker grille",
+      "translation": "客舱扬声器格栅",
+      "x": 880,
+      "y": 278,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-speaker-grille"
+    },
+    {
+      "id": "aircraft-cabin-cabin-light-lens",
+      "word": "cabin light lens",
+      "translation": "客舱灯罩",
+      "x": 930,
+      "y": 270,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-light-lens"
+    },
+    {
+      "id": "aircraft-cabin-cabin-ceiling-panel",
+      "word": "cabin ceiling panel",
+      "translation": "客舱顶板",
+      "x": 1000,
+      "y": 80,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-ceiling-panel"
+    },
+    {
+      "id": "aircraft-cabin-ceiling-trim-rail",
+      "word": "ceiling trim rail",
+      "translation": "顶面饰条",
+      "x": 1000,
+      "y": 20,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-ceiling-trim-rail"
+    },
+    {
+      "id": "aircraft-cabin-cabin-ceiling-light",
+      "word": "cabin ceiling light",
+      "translation": "客舱顶灯",
+      "x": 1030,
+      "y": 110,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-ceiling-light"
+    },
+    {
+      "id": "aircraft-cabin-left-sidewall-cove",
+      "word": "left sidewall cove",
+      "translation": "左侧墙面凹槽",
+      "x": 730,
+      "y": 260,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-left-sidewall-cove"
+    },
+    {
+      "id": "aircraft-cabin-upper-sidewall-panel",
+      "word": "upper sidewall panel",
+      "translation": "上侧墙板",
+      "x": 740,
+      "y": 200,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-upper-sidewall-panel"
+    },
+    {
+      "id": "aircraft-cabin-bin-hinge-cover",
+      "word": "bin hinge cover",
+      "translation": "行李架铰链盖",
+      "x": 890,
+      "y": 240,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-bin-hinge-cover"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabin-seat",
+      "word": "forward cabin seat",
+      "translation": "前排客舱座椅",
+      "x": 760,
+      "y": 480,
+      "priority": 1.068,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabin-seat"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabin-seatback",
+      "word": "forward cabin seatback",
+      "translation": "前排客舱椅背",
+      "x": 760,
+      "y": 450,
+      "priority": 1.069,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabin-seatback"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabin-headrest",
+      "word": "forward cabin headrest",
+      "translation": "前排客舱头枕",
+      "x": 760,
+      "y": 400,
+      "priority": 1.07,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabin-headrest"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabin-cushion",
+      "word": "forward cabin cushion",
+      "translation": "前排客舱坐垫",
+      "x": 770,
+      "y": 500,
+      "priority": 1.071,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabin-cushion"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabin-armrest",
+      "word": "forward cabin armrest",
+      "translation": "前排客舱扶手",
+      "x": 820,
+      "y": 520,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabin-armrest"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabin-seat-leg",
+      "word": "forward cabin seat leg",
+      "translation": "前排客舱椅腿",
+      "x": 790,
+      "y": 650,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabin-seat-leg"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabin-tray-table",
+      "word": "forward cabin tray table",
+      "translation": "前排客舱小桌板",
+      "x": 780,
+      "y": 520,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabin-tray-table"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabin-seatback-pocket",
+      "word": "forward cabin seatback pocket",
+      "translation": "前排客舱椅背袋",
+      "x": 770,
+      "y": 540,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabin-seatback-pocket"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabin-seat-belt",
+      "word": "forward cabin seat belt",
+      "translation": "前排客舱安全带",
+      "x": 805,
+      "y": 560,
+      "priority": 1.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabin-seat-belt"
+    },
+    {
+      "id": "aircraft-cabin-forward-cabin-seat-buckle",
+      "word": "forward cabin seat buckle",
+      "translation": "前排客舱安全带扣",
+      "x": 815,
+      "y": 565,
+      "priority": 1.077,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-forward-cabin-seat-buckle"
+    },
+    {
+      "id": "aircraft-cabin-middle-cabin-seat",
+      "word": "middle cabin seat",
+      "translation": "中排客舱座椅",
+      "x": 860,
+      "y": 500,
+      "priority": 1.078,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-middle-cabin-seat"
+    },
+    {
+      "id": "aircraft-cabin-middle-cabin-seatback",
+      "word": "middle cabin seatback",
+      "translation": "中排客舱椅背",
+      "x": 860,
+      "y": 470,
+      "priority": 1.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-middle-cabin-seatback"
+    },
+    {
+      "id": "aircraft-cabin-middle-cabin-headrest",
+      "word": "middle cabin headrest",
+      "translation": "中排客舱头枕",
+      "x": 865,
+      "y": 430,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-middle-cabin-headrest"
+    },
+    {
+      "id": "aircraft-cabin-middle-cabin-cushion",
+      "word": "middle cabin cushion",
+      "translation": "中排客舱坐垫",
+      "x": 870,
+      "y": 520,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-middle-cabin-cushion"
+    },
+    {
+      "id": "aircraft-cabin-middle-cabin-armrest",
+      "word": "middle cabin armrest",
+      "translation": "中排客舱扶手",
+      "x": 915,
+      "y": 530,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-middle-cabin-armrest"
+    },
+    {
+      "id": "aircraft-cabin-middle-cabin-seat-leg",
+      "word": "middle cabin seat leg",
+      "translation": "中排客舱椅腿",
+      "x": 885,
+      "y": 650,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-middle-cabin-seat-leg"
+    },
+    {
+      "id": "aircraft-cabin-middle-cabin-tray-table",
+      "word": "middle cabin tray table",
+      "translation": "中排客舱小桌板",
+      "x": 870,
+      "y": 540,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-middle-cabin-tray-table"
+    },
+    {
+      "id": "aircraft-cabin-middle-cabin-seatback-pocket",
+      "word": "middle cabin seatback pocket",
+      "translation": "中排客舱椅背袋",
+      "x": 870,
+      "y": 560,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-middle-cabin-seatback-pocket"
+    },
+    {
+      "id": "aircraft-cabin-middle-cabin-seat-buckle",
+      "word": "middle cabin seat buckle",
+      "translation": "中排客舱安全带扣",
+      "x": 900,
+      "y": 570,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-middle-cabin-seat-buckle"
+    },
+    {
+      "id": "aircraft-cabin-rear-cabin-seat",
+      "word": "rear cabin seat",
+      "translation": "后排客舱座椅",
+      "x": 950,
+      "y": 500,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-rear-cabin-seat"
+    },
+    {
+      "id": "aircraft-cabin-rear-cabin-seatback",
+      "word": "rear cabin seatback",
+      "translation": "后排客舱椅背",
+      "x": 950,
+      "y": 475,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-rear-cabin-seatback"
+    },
+    {
+      "id": "aircraft-cabin-rear-cabin-headrest",
+      "word": "rear cabin headrest",
+      "translation": "后排客舱头枕",
+      "x": 950,
+      "y": 445,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-rear-cabin-headrest"
+    },
+    {
+      "id": "aircraft-cabin-rear-cabin-cushion",
+      "word": "rear cabin cushion",
+      "translation": "后排客舱坐垫",
+      "x": 960,
+      "y": 525,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-rear-cabin-cushion"
+    },
+    {
+      "id": "aircraft-cabin-rear-cabin-armrest",
+      "word": "rear cabin armrest",
+      "translation": "后排客舱扶手",
+      "x": 990,
+      "y": 535,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-rear-cabin-armrest"
+    },
+    {
+      "id": "aircraft-cabin-rear-cabin-seat-leg",
+      "word": "rear cabin seat leg",
+      "translation": "后排客舱椅腿",
+      "x": 970,
+      "y": 650,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-rear-cabin-seat-leg"
+    },
+    {
+      "id": "aircraft-cabin-rear-cabin-tray-table",
+      "word": "rear cabin tray table",
+      "translation": "后排客舱小桌板",
+      "x": 960,
+      "y": 550,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-rear-cabin-tray-table"
+    },
+    {
+      "id": "aircraft-cabin-cabin-center-aisle",
+      "word": "cabin center aisle",
+      "translation": "客舱中央过道",
+      "x": 1120,
+      "y": 600,
+      "priority": 1.094,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-center-aisle"
+    },
+    {
+      "id": "aircraft-cabin-aisle-carpet-runner",
+      "word": "aisle carpet runner",
+      "translation": "过道地毯",
+      "x": 1120,
+      "y": 700,
+      "priority": 1.095,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-aisle-carpet-runner"
+    },
+    {
+      "id": "aircraft-cabin-aisle-edge-trim",
+      "word": "aisle edge trim",
+      "translation": "过道边饰条",
+      "x": 1040,
+      "y": 700,
+      "priority": 1.096,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-aisle-edge-trim"
+    },
+    {
+      "id": "aircraft-cabin-aisle-floor-seam",
+      "word": "aisle floor seam",
+      "translation": "过道地面接缝",
+      "x": 1160,
+      "y": 800,
+      "priority": 1.097,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-aisle-floor-seam"
+    },
+    {
+      "id": "aircraft-cabin-cabin-floor-panel",
+      "word": "cabin floor panel",
+      "translation": "客舱地板面板",
+      "x": 1160,
+      "y": 850,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-floor-panel"
+    },
+    {
+      "id": "aircraft-cabin-seat-track-cover",
+      "word": "seat track cover",
+      "translation": "座椅导轨盖",
+      "x": 1030,
+      "y": 650,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-seat-track-cover"
+    },
+    {
+      "id": "aircraft-cabin-seat-track-fastener",
+      "word": "seat track fastener",
+      "translation": "座椅导轨紧固件",
+      "x": 1030,
+      "y": 670,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-seat-track-fastener"
+    },
+    {
+      "id": "aircraft-cabin-aisle-sidewall",
+      "word": "aisle sidewall",
+      "translation": "过道侧墙",
+      "x": 1060,
+      "y": 400,
+      "priority": 1.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-aisle-sidewall"
+    },
+    {
+      "id": "aircraft-cabin-cabin-partition-edge",
+      "word": "cabin partition edge",
+      "translation": "客舱隔断边缘",
+      "x": 1080,
+      "y": 330,
+      "priority": 1.102,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-partition-edge"
+    },
+    {
+      "id": "aircraft-cabin-cabin-bulkhead-panel",
+      "word": "cabin bulkhead panel",
+      "translation": "客舱隔板",
+      "x": 1100,
+      "y": 300,
+      "priority": 1.103,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-bulkhead-panel"
+    },
+    {
+      "id": "aircraft-cabin-cabin-floor-guide-stripe",
+      "word": "cabin floor guide stripe",
+      "translation": "客舱地面导向条",
+      "x": 1180,
+      "y": 750,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-floor-guide-stripe"
+    },
+    {
+      "id": "aircraft-cabin-aisle-carpet-border",
+      "word": "aisle carpet border",
+      "translation": "过道地毯边界",
+      "x": 1090,
+      "y": 720,
+      "priority": 1.105,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-aisle-carpet-border"
+    },
+    {
+      "id": "aircraft-cabin-cabin-seat-rail",
+      "word": "cabin seat rail",
+      "translation": "客舱座椅导轨",
+      "x": 1020,
+      "y": 680,
+      "priority": 1.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-cabin-seat-rail"
+    },
+    {
+      "id": "aircraft-cabin-floor-threshold-joint",
+      "word": "floor threshold joint",
+      "translation": "地面门槛接缝",
+      "x": 1180,
+      "y": 875,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-floor-threshold-joint"
+    },
+    {
+      "id": "aircraft-cabin-aircraft-lavatory-entry",
+      "word": "aircraft lavatory entry",
+      "translation": "飞机卫生间入口",
+      "x": 1330,
+      "y": 300,
+      "priority": 1.108,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-aircraft-lavatory-entry"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-door-handle",
+      "word": "lavatory door handle",
+      "translation": "卫生间门把手",
+      "x": 1430,
+      "y": 350,
+      "priority": 1.109,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-door-handle"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-door-latch",
+      "word": "lavatory door latch",
+      "translation": "卫生间门锁扣",
+      "x": 1420,
+      "y": 400,
+      "priority": 1.11,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-door-latch"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-threshold",
+      "word": "lavatory threshold",
+      "translation": "卫生间门槛",
+      "x": 1320,
+      "y": 730,
+      "priority": 1.111,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-threshold"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-bulkhead",
+      "word": "lavatory bulkhead",
+      "translation": "卫生间隔板",
+      "x": 1300,
+      "y": 280,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-bulkhead"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-vanity",
+      "word": "lavatory vanity",
+      "translation": "卫生间盥洗台",
+      "x": 1310,
+      "y": 400,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-vanity"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-sink-basin",
+      "word": "lavatory sink basin",
+      "translation": "卫生间洗手盆",
+      "x": 1300,
+      "y": 440,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-sink-basin"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-faucet",
+      "word": "lavatory faucet",
+      "translation": "卫生间水龙头",
+      "x": 1300,
+      "y": 360,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-faucet"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-tap-handle",
+      "word": "lavatory tap handle",
+      "translation": "卫生间水龙头把手",
+      "x": 1325,
+      "y": 370,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-tap-handle"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-backsplash",
+      "word": "lavatory backsplash",
+      "translation": "卫生间挡水板",
+      "x": 1300,
+      "y": 420,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-backsplash"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-mirror",
+      "word": "lavatory mirror",
+      "translation": "卫生间镜子",
+      "x": 1320,
+      "y": 300,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-mirror"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-mirror-frame",
+      "word": "lavatory mirror frame",
+      "translation": "卫生间镜框",
+      "x": 1320,
+      "y": 300,
+      "priority": 1.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-mirror-frame"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-soap-dispenser",
+      "word": "lavatory soap dispenser",
+      "translation": "卫生间皂液器",
+      "x": 1370,
+      "y": 410,
+      "priority": 1.12,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-soap-dispenser"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-shelf",
+      "word": "lavatory shelf",
+      "translation": "卫生间搁板",
+      "x": 1390,
+      "y": 350,
+      "priority": 1.121,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-shelf"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-waste-bin",
+      "word": "lavatory waste bin",
+      "translation": "卫生间垃圾桶",
+      "x": 1390,
+      "y": 640,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-waste-bin"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-toilet-bowl",
+      "word": "lavatory toilet bowl",
+      "translation": "卫生间马桶盆",
+      "x": 1320,
+      "y": 560,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-toilet-bowl"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-toilet-seat",
+      "word": "lavatory toilet seat",
+      "translation": "卫生间马桶座圈",
+      "x": 1320,
+      "y": 540,
+      "priority": 1.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-toilet-seat"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-toilet-lid",
+      "word": "lavatory toilet lid",
+      "translation": "卫生间马桶盖",
+      "x": 1320,
+      "y": 520,
+      "priority": 1.125,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-toilet-lid"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-toilet-base",
+      "word": "lavatory toilet base",
+      "translation": "卫生间马桶底座",
+      "x": 1320,
+      "y": 640,
+      "priority": 1.126,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-toilet-base"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-floor-pan",
+      "word": "lavatory floor pan",
+      "translation": "卫生间地板盘",
+      "x": 1320,
+      "y": 700,
+      "priority": 1.127,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-floor-pan"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-wall-panel",
+      "word": "lavatory wall panel",
+      "translation": "卫生间墙板",
+      "x": 1450,
+      "y": 500,
+      "priority": 1.128,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-wall-panel"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-ceiling-panel",
+      "word": "lavatory ceiling panel",
+      "translation": "卫生间顶板",
+      "x": 1400,
+      "y": 280,
+      "priority": 1.129,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-ceiling-panel"
+    },
+    {
+      "id": "aircraft-cabin-lavatory-cabinet-door",
+      "word": "lavatory cabinet door",
+      "translation": "卫生间柜门",
+      "x": 1300,
+      "y": 470,
+      "priority": 1.13,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-lavatory-cabinet-door"
+    },
+    {
+      "id": "aircraft-cabin-right-doorway-jamb",
+      "word": "right doorway jamb",
+      "translation": "右侧门框立柱",
+      "x": 1570,
+      "y": 300,
+      "priority": 1.131,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-right-doorway-jamb"
+    },
+    {
+      "id": "aircraft-cabin-right-jamb-cover",
+      "word": "right jamb cover",
+      "translation": "右侧门框盖",
+      "x": 1560,
+      "y": 200,
+      "priority": 1.132,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-cabin-region-right-jamb-cover"
+    },
+    {
+      "id": "aircraft-cabin-doorway-latch-receiver",
+      "word": "doorway latch receiver",
+      "translation": "门框锁扣座",
+      "x": 1570,
+      "y": 500,
+      "priority": 1.133,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-doorway-latch-receiver"
+    },
+    {
+      "id": "aircraft-cabin-doorway-lock-housing",
+      "word": "doorway lock housing",
+      "translation": "门框锁体外壳",
+      "x": 1580,
+      "y": 500,
+      "priority": 1.134,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-cabin-region-doorway-lock-housing"
+    },
+    {
+      "id": "aircraft-cabin-doorway-grab-rail",
+      "word": "doorway grab rail",
+      "translation": "门框抓扶杆",
+      "x": 1550,
+      "y": 450,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-doorway-grab-rail"
+    },
+    {
+      "id": "aircraft-cabin-grab-rail-mount",
+      "word": "grab rail mount",
+      "translation": "抓扶杆底座",
+      "x": 1555,
+      "y": 460,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-grab-rail-mount"
+    },
+    {
+      "id": "aircraft-cabin-doorway-seal-strip",
+      "word": "doorway seal strip",
+      "translation": "门框密封条",
+      "x": 1540,
+      "y": 300,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-doorway-seal-strip"
+    },
+    {
+      "id": "aircraft-cabin-doorway-sill-cap",
+      "word": "doorway sill cap",
+      "translation": "门槛端盖",
+      "x": 1550,
+      "y": 700,
+      "priority": 1.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-doorway-sill-cap"
+    },
+    {
+      "id": "aircraft-cabin-fuselage-side-panel",
+      "word": "fuselage side panel",
+      "translation": "机身侧板",
+      "x": 1600,
+      "y": 250,
+      "priority": 1.139,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-cabin-region-fuselage-side-panel"
+    },
+    {
+      "id": "aircraft-cabin-fuselage-panel-seam",
+      "word": "fuselage panel seam",
+      "translation": "机身板接缝",
+      "x": 1580,
+      "y": 350,
+      "priority": 1.14,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-cabin-region-fuselage-panel-seam"
+    },
+    {
+      "id": "aircraft-cabin-doorway-fastener",
+      "word": "doorway fastener",
+      "translation": "门框紧固件",
+      "x": 1590,
+      "y": 420,
+      "priority": 1.141,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-cabin-region-doorway-fastener"
+    }
+  ],
+  "portals": []
+}

@@ -1087,6 +1087,15 @@
       "y": 580,
       "width": 40,
       "height": 40
+    },
+    {
+      "id": "portal-aircraft-cabin",
+      "description": "Open aircraft doorway with a clear view into the passenger cabin on the boarding-gate photograph",
+      "kind": "object",
+      "x": 1300,
+      "y": 150,
+      "width": 230,
+      "height": 420
     }
   ],
   "detailZones": [
@@ -2509,5 +2518,18 @@
       "sourceVisualRegion": "boarding-gate-region-aircraft-fuselage-panel"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-aircraft-cabin",
+      "label": "Enter the aircraft cabin",
+      "translation": "进入飞机客舱",
+      "childSceneId": "aircraft-cabin",
+      "sourceVisualRegion": "portal-aircraft-cabin",
+      "x": 1300,
+      "y": 150,
+      "width": 230,
+      "height": 420,
+      "enterScale": 3.6
+    }
+  ]
 }

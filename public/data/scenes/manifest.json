@@ -291,6 +291,11 @@
       "id": "boarding-gate",
       "title": "Boarding gate",
       "parentId": "security-checkpoint"
+    },
+    {
+      "id": "aircraft-cabin",
+      "title": "Aircraft cabin",
+      "parentId": "boarding-gate"
     }
   ]
 }
