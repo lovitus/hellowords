@@ -71,6 +71,11 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("school-campus", "world-map", [], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
   contract("greenhouse-interior", "community-garden", ["community-garden"], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,

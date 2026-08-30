@@ -1,0 +1,1625 @@
+{
+  "id": "school-campus",
+  "title": "School campus",
+  "translation": "校园",
+  "subtitle": "Classrooms, arts, health and everyday campus spaces",
+  "asset": "/scenes/school-campus-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "world-map",
+  "visualRegions": [
+    {
+      "id": "school-campus-region-gate-hinge",
+      "description": "Pixel-audited “gate hinge” inside the Campus entry crop of the school campus photograph",
+      "kind": "part",
+      "x": 305.263158,
+      "y": 137.725824,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-gate-latch",
+      "description": "Pixel-audited “gate latch” inside the Campus entry crop of the school campus photograph",
+      "kind": "part",
+      "x": 311.004785,
+      "y": 140.595112,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-pathway-tile",
+      "description": "Pixel-audited “pathway tile” inside the Campus entry crop of the school campus photograph",
+      "kind": "part",
+      "x": 308.133971,
+      "y": 227.630181,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-brick-pillar-cap",
+      "description": "Pixel-audited “brick pillar cap” inside the Campus entry crop of the school campus photograph",
+      "kind": "part",
+      "x": 220.095694,
+      "y": 131.987248,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-garden-bench-slat",
+      "description": "Pixel-audited “garden bench slat” inside the Campus entry crop of the school campus photograph",
+      "kind": "part",
+      "x": 144.497608,
+      "y": 182.678002,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-projector-housing",
+      "description": "Pixel-audited “projector housing” inside the Classroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 650.717703,
+      "y": 9.564293,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-whiteboard-frame",
+      "description": "Pixel-audited “whiteboard frame” inside the Classroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 629.665072,
+      "y": 25.823592,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-whiteboard-tray",
+      "description": "Pixel-audited “whiteboard tray” inside the Classroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 629.665072,
+      "y": 115.727949,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-teacher-desk-drawer",
+      "description": "Pixel-audited “teacher desk drawer” inside the Classroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 550.239234,
+      "y": 127.205101,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-student-desk-drawer",
+      "description": "Pixel-audited “student desk drawer” inside the Classroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 488.995215,
+      "y": 153.985122,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-student-chair-back",
+      "description": "Pixel-audited “student chair back” inside the Classroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 489.952153,
+      "y": 170.244421,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-bookcase-shelf",
+      "description": "Pixel-audited “bookcase shelf” inside the Classroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 805.741627,
+      "y": 71.7322,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-classroom-rug-border",
+      "description": "Pixel-audited “classroom rug border” inside the Classroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 737.799043,
+      "y": 131.987248,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-book-spine-row",
+      "description": "Pixel-audited “book spine row” inside the Library and office detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 904.30622,
+      "y": 65.993624,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-bookcase-divider",
+      "description": "Pixel-audited “bookcase divider” inside the Library and office detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 893.779904,
+      "y": 80.340064,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-reading-table-edge",
+      "description": "Pixel-audited “reading table edge” inside the Library and office detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 961.722488,
+      "y": 134.856536,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-armchair-cushion",
+      "description": "Pixel-audited “armchair cushion” inside the Library and office detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1081.339713,
+      "y": 128.16153,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-stair-handrail",
+      "description": "Pixel-audited “stair handrail” inside the Library and office detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1356.937799,
+      "y": 121.466525,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-printer-output-tray",
+      "description": "Pixel-audited “printer output tray” inside the Library and office detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1219.138756,
+      "y": 175.026567,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-door-lever",
+      "description": "Pixel-audited “door lever” inside the Library and office detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1251.674641,
+      "y": 254.410202,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-office-keyboard",
+      "description": "Pixel-audited “office keyboard” inside the Library and office detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1049.760766,
+      "y": 228.58661,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-easel-frame",
+      "description": "Pixel-audited “easel frame” inside the Art studio detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 246.889952,
+      "y": 408.395324,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-canvas-stretcher",
+      "description": "Pixel-audited “canvas stretcher” inside the Art studio detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 256.45933,
+      "y": 394.048884,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-palette-wells",
+      "description": "Pixel-audited “palette wells” inside the Art studio detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 454.545455,
+      "y": 375.876727,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-paint-tube",
+      "description": "Pixel-audited “paint tube” inside the Art studio detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 273.684211,
+      "y": 315.621679,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-supply-cart-shelf",
+      "description": "Pixel-audited “supply cart shelf” inside the Art studio detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 545.454545,
+      "y": 345.270988,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-worktable-edge",
+      "description": "Pixel-audited “worktable edge” inside the Art studio detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 473.684211,
+      "y": 396.918172,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-canvas-clip",
+      "description": "Pixel-audited “canvas clip” inside the Art studio detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 449.760766,
+      "y": 347.183847,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-paint-jar-lid",
+      "description": "Pixel-audited “paint jar lid” inside the Art studio detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 254.545455,
+      "y": 306.057386,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-piano-lid",
+      "description": "Pixel-audited “piano lid” inside the Music room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 648.803828,
+      "y": 359.617428,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-piano-leg",
+      "description": "Pixel-audited “piano leg” inside the Music room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 648.803828,
+      "y": 416.046759,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-keybed",
+      "description": "Pixel-audited “keybed” inside the Music room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 657.416268,
+      "y": 392.136026,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-piano-pedal",
+      "description": "Pixel-audited “piano pedal” inside the Music room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 607.655502,
+      "y": 427.523911,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-guitar-soundhole",
+      "description": "Pixel-audited “guitar soundhole” inside the Music room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 770.334928,
+      "y": 338.575983,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-drum-shell",
+      "description": "Pixel-audited “drum shell” inside the Music room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 790.430622,
+      "y": 410.308183,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-cymbal-stand",
+      "description": "Pixel-audited “cymbal stand” inside the Music room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 818.181818,
+      "y": 392.136026,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-music-stand-shelf",
+      "description": "Pixel-audited “music stand shelf” inside the Music room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 726.315789,
+      "y": 392.136026,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-basketball-backboard",
+      "description": "Pixel-audited “basketball backboard” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1152.15311,
+      "y": 319.447396,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-hoop-net",
+      "description": "Pixel-audited “hoop net” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1152.15311,
+      "y": 347.183847,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-gym-mat-edge",
+      "description": "Pixel-audited “gym mat edge” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 982.77512,
+      "y": 395.961743,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-wall-bar-rung",
+      "description": "Pixel-audited “wall bar rung” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1025.837321,
+      "y": 336.663124,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-climbing-rope-knot",
+      "description": "Pixel-audited “climbing rope knot” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1093.779904,
+      "y": 335.706695,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-ball-cart-shelf",
+      "description": "Pixel-audited “ball cart shelf” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1239.23445,
+      "y": 428.48034,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-ball-rack",
+      "description": "Pixel-audited “ball rack” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1244.019139,
+      "y": 416.046759,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-vaulting-box-handle",
+      "description": "Pixel-audited “vaulting box handle” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1126.315789,
+      "y": 487.778959,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-goal-net",
+      "description": "Pixel-audited “goal net” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1200,
+      "y": 504.994687,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-marker-cone-tip",
+      "description": "Pixel-audited “marker cone tip” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1155.980861,
+      "y": 424.654623,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-washroom-mirror-frame",
+      "description": "Pixel-audited “washroom mirror frame” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1365.550239,
+      "y": 312.752391,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-basin-faucet-handle",
+      "description": "Pixel-audited “basin faucet handle” inside the Gym and washroom detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1364.593301,
+      "y": 331.880978,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-examination-bedrail",
+      "description": "Pixel-audited “examination bedrail” inside the School infirmary detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 242.105263,
+      "y": 621.679065,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-headrest-cushion",
+      "description": "Pixel-audited “headrest cushion” inside the School infirmary detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 322.488038,
+      "y": 634.112646,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-privacy-curtain-ring",
+      "description": "Pixel-audited “privacy curtain ring” inside the School infirmary detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 155.980861,
+      "y": 602.550478,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-privacy-screen-frame",
+      "description": "Pixel-audited “privacy screen frame” inside the School infirmary detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 152.15311,
+      "y": 597.768332,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-cabinet-glass-door",
+      "description": "Pixel-audited “cabinet glass door” inside the School infirmary detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 236.363636,
+      "y": 573.857598,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-cabinet-shelf-edge",
+      "description": "Pixel-audited “cabinet shelf edge” inside the School infirmary detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 236.363636,
+      "y": 585.33475,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-pedal-bin-lid",
+      "description": "Pixel-audited “pedal bin lid” inside the School infirmary detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 283.253589,
+      "y": 588.204038,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-supply-cabinet-handle",
+      "description": "Pixel-audited “supply cabinet handle” inside the School infirmary detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 63.157895,
+      "y": 669.500531,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-locker-vent",
+      "description": "Pixel-audited “locker vent” inside the Corridor and lockers detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 555.023923,
+      "y": 683.846971,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-label-holder",
+      "description": "Pixel-audited “label holder” inside the Corridor and lockers detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 570.334928,
+      "y": 669.500531,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-notice-board-frame",
+      "description": "Pixel-audited “notice board frame” inside the Corridor and lockers detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 644.976077,
+      "y": 544.208289,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-locker-door-seam",
+      "description": "Pixel-audited “locker door seam” inside the Corridor and lockers detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 555.023923,
+      "y": 683.846971,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-storage-shelf-edge",
+      "description": "Pixel-audited “storage shelf edge” inside the Equipment and preparation room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 875.598086,
+      "y": 573.857598,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-equipment-bin-handle",
+      "description": "Pixel-audited “equipment bin handle” inside the Equipment and preparation room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 890.909091,
+      "y": 689.585547,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-hoop-rim",
+      "description": "Pixel-audited “hoop rim” inside the Equipment and preparation room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 971.291866,
+      "y": 707.757705,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-bucket-handle",
+      "description": "Pixel-audited “bucket handle” inside the Equipment and preparation room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 717.321998,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-sink-faucet-handle",
+      "description": "Pixel-audited “sink faucet handle” inside the Equipment and preparation room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1289.952153,
+      "y": 557.5983,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-sink-drain-opening",
+      "description": "Pixel-audited “sink drain opening” inside the Equipment and preparation room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1322.488038,
+      "y": 581.509033,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-printer-paper-tray",
+      "description": "Pixel-audited “printer paper tray” inside the Equipment and preparation room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1069.856459,
+      "y": 635.069075,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-printer-control-panel",
+      "description": "Pixel-audited “printer control panel” inside the Equipment and preparation room detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1079.425837,
+      "y": 640.807651,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-path-light-cap",
+      "description": "Pixel-audited “path light cap” inside the South campus grounds detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 14.354067,
+      "y": 808.182784,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-hedge-top",
+      "description": "Pixel-audited “hedge top” inside the South campus grounds detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 277.511962,
+      "y": 752.709883,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-lawn-edge",
+      "description": "Pixel-audited “lawn edge” inside the South campus grounds detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 1416.267943,
+      "y": 832.093518,
+      "width": 38.277512,
+      "height": 38.257173
+    },
+    {
+      "id": "school-campus-region-tree-planter-wall",
+      "description": "Pixel-audited “tree planter wall” inside the South campus grounds detail crop of the school campus photograph",
+      "kind": "part",
+      "x": 459.330144,
+      "y": 841.657811,
+      "width": 38.277512,
+      "height": 38.257173
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "school-campus-zone-campus-entry",
+      "title": "Campus entry",
+      "translation": "校园入口",
+      "description": "Follow the gate, walkway, brick posts and planted entry court.",
+      "x": 0,
+      "y": 0,
+      "width": 449.760766,
+      "height": 306.057386,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-campus-gate-hinge",
+        "school-campus-gate-latch",
+        "school-campus-pathway-tile",
+        "school-campus-brick-pillar-cap",
+        "school-campus-garden-bench-slat"
+      ]
+    },
+    {
+      "id": "school-campus-zone-classroom",
+      "title": "Classroom detail",
+      "translation": "教室细节",
+      "description": "Inspect the teaching wall, desk storage, globe stand and floor.",
+      "x": 449.760766,
+      "y": 0,
+      "width": 406.698565,
+      "height": 306.057386,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-campus-projector-housing",
+        "school-campus-whiteboard-frame",
+        "school-campus-whiteboard-tray",
+        "school-campus-teacher-desk-drawer",
+        "school-campus-student-desk-drawer",
+        "school-campus-student-chair-back",
+        "school-campus-bookcase-shelf",
+        "school-campus-classroom-rug-border"
+      ]
+    },
+    {
+      "id": "school-campus-zone-library-office",
+      "title": "Library and office detail",
+      "translation": "图书馆与办公室细节",
+      "description": "Explore book rows, reading furniture, stairs and office hardware.",
+      "x": 856.45933,
+      "y": 0,
+      "width": 743.54067,
+      "height": 306.057386,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-campus-book-spine-row",
+        "school-campus-bookcase-divider",
+        "school-campus-reading-table-edge",
+        "school-campus-armchair-cushion",
+        "school-campus-stair-handrail",
+        "school-campus-printer-output-tray",
+        "school-campus-door-lever",
+        "school-campus-office-keyboard"
+      ]
+    },
+    {
+      "id": "school-campus-zone-art-studio",
+      "title": "Art studio detail",
+      "translation": "艺术室细节",
+      "description": "Study the easel frames, paint containers, carts and bicycle rack.",
+      "x": 0,
+      "y": 306.057386,
+      "width": 598.086124,
+      "height": 239.107333,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-campus-easel-frame",
+        "school-campus-canvas-stretcher",
+        "school-campus-palette-wells",
+        "school-campus-paint-tube",
+        "school-campus-supply-cart-shelf",
+        "school-campus-worktable-edge",
+        "school-campus-canvas-clip",
+        "school-campus-paint-jar-lid"
+      ]
+    },
+    {
+      "id": "school-campus-zone-music-room",
+      "title": "Music room detail",
+      "translation": "音乐室细节",
+      "description": "Follow the piano, guitar, drum and stand hardware in rehearsal space.",
+      "x": 598.086124,
+      "y": 306.057386,
+      "width": 330.143541,
+      "height": 239.107333,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-campus-piano-lid",
+        "school-campus-piano-leg",
+        "school-campus-keybed",
+        "school-campus-piano-pedal",
+        "school-campus-guitar-soundhole",
+        "school-campus-drum-shell",
+        "school-campus-cymbal-stand",
+        "school-campus-music-stand-shelf"
+      ]
+    },
+    {
+      "id": "school-campus-zone-gym-washroom",
+      "title": "Gym and washroom detail",
+      "translation": "体育馆与洗手间细节",
+      "description": "Inspect sports hardware, mats, ball storage and washroom fixtures.",
+      "x": 928.229665,
+      "y": 306.057386,
+      "width": 576.076555,
+      "height": 239.107333,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-campus-basketball-backboard",
+        "school-campus-hoop-net",
+        "school-campus-gym-mat-edge",
+        "school-campus-wall-bar-rung",
+        "school-campus-climbing-rope-knot",
+        "school-campus-ball-cart-shelf",
+        "school-campus-ball-rack",
+        "school-campus-vaulting-box-handle",
+        "school-campus-goal-net",
+        "school-campus-marker-cone-tip",
+        "school-campus-washroom-mirror-frame",
+        "school-campus-basin-faucet-handle"
+      ]
+    },
+    {
+      "id": "school-campus-zone-infirmary",
+      "title": "School infirmary detail",
+      "translation": "校医室细节",
+      "description": "Explore the examination bed, privacy fittings and medical storage.",
+      "x": 0,
+      "y": 545.164718,
+      "width": 382.77512,
+      "height": 219.978746,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-campus-examination-bedrail",
+        "school-campus-headrest-cushion",
+        "school-campus-privacy-curtain-ring",
+        "school-campus-privacy-screen-frame",
+        "school-campus-cabinet-glass-door",
+        "school-campus-cabinet-shelf-edge",
+        "school-campus-pedal-bin-lid",
+        "school-campus-supply-cabinet-handle"
+      ]
+    },
+    {
+      "id": "school-campus-zone-corridor-lockers",
+      "title": "Corridor and lockers detail",
+      "translation": "走廊与储物柜细节",
+      "description": "Inspect locker vents, label slots, the notice board and cabinet seams.",
+      "x": 382.77512,
+      "y": 545.164718,
+      "width": 468.899522,
+      "height": 219.978746,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-campus-locker-vent",
+        "school-campus-label-holder",
+        "school-campus-notice-board-frame",
+        "school-campus-locker-door-seam"
+      ]
+    },
+    {
+      "id": "school-campus-zone-equipment-prep",
+      "title": "Equipment and preparation room detail",
+      "translation": "器材与准备间细节",
+      "description": "Follow storage edges, bins, sink hardware and office-machine controls.",
+      "x": 851.674641,
+      "y": 545.164718,
+      "width": 748.325359,
+      "height": 219.978746,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-campus-storage-shelf-edge",
+        "school-campus-equipment-bin-handle",
+        "school-campus-hoop-rim",
+        "school-campus-bucket-handle",
+        "school-campus-sink-faucet-handle",
+        "school-campus-sink-drain-opening",
+        "school-campus-printer-paper-tray",
+        "school-campus-printer-control-panel"
+      ]
+    },
+    {
+      "id": "school-campus-zone-south-grounds",
+      "title": "South campus grounds detail",
+      "translation": "校园南侧绿地细节",
+      "description": "Trace the path-light cap and hedge top along the planted grounds.",
+      "x": 0,
+      "y": 765.143464,
+      "width": 1600,
+      "height": 134.856536,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-campus-path-light-cap",
+        "school-campus-hedge-top",
+        "school-campus-lawn-edge",
+        "school-campus-tree-planter-wall"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/school-campus-premium-v1.jpg",
+    "reviewedAssetSha256": "ba3863de7141714144a7c1fc91327fdfb021bdc9f53087027d7c32adb6d766a3",
+    "rationale": "The resized school-campus photograph was inspected at source and final pixels. This batch retains only 73 independently pointable fixture or part details across classrooms, library, arts, music, gym, infirmary, lockers, preparation rooms and planted grounds; all 73 display terms are new to the existing 43-scene world and the atlas school panel vocabulary. Student activities, signage, writing, medical procedures, hidden equipment functions and generic duplicate furniture were excluded.",
+    "previousLabelCount": 79,
+    "retainedLabelCount": 73,
+    "removedLabelCount": 6,
+    "removedExamples": [
+      "student activity",
+      "class schedule",
+      "school bell",
+      "lesson content",
+      "medical procedure",
+      "sports practice"
+    ]
+  },
+  "labels": [
+    {
+      "id": "school-campus-gate-hinge",
+      "word": "gate hinge",
+      "translation": "铁门铰链",
+      "x": 324.401914,
+      "y": 156.85441,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-campus-region-gate-hinge"
+    },
+    {
+      "id": "school-campus-gate-latch",
+      "word": "gate latch",
+      "translation": "铁门插销",
+      "x": 330.143541,
+      "y": 159.723698,
+      "priority": 1.001,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-campus-region-gate-latch"
+    },
+    {
+      "id": "school-campus-pathway-tile",
+      "word": "pathway tile",
+      "translation": "小路铺砖",
+      "x": 327.272727,
+      "y": 246.758767,
+      "priority": 1.002,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-pathway-tile"
+    },
+    {
+      "id": "school-campus-brick-pillar-cap",
+      "word": "brick pillar cap",
+      "translation": "砖柱顶盖",
+      "x": 239.23445,
+      "y": 151.115834,
+      "priority": 1.003,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-brick-pillar-cap"
+    },
+    {
+      "id": "school-campus-garden-bench-slat",
+      "word": "garden bench slat",
+      "translation": "花园长椅木条",
+      "x": 163.636364,
+      "y": 201.806589,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-garden-bench-slat"
+    },
+    {
+      "id": "school-campus-projector-housing",
+      "word": "projector housing",
+      "translation": "投影机外壳",
+      "x": 669.856459,
+      "y": 28.69288,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-campus-region-projector-housing"
+    },
+    {
+      "id": "school-campus-whiteboard-frame",
+      "word": "whiteboard frame",
+      "translation": "白板边框",
+      "x": 648.803828,
+      "y": 44.952179,
+      "priority": 1.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-campus-region-whiteboard-frame"
+    },
+    {
+      "id": "school-campus-whiteboard-tray",
+      "word": "whiteboard tray",
+      "translation": "白板托槽",
+      "x": 648.803828,
+      "y": 134.856536,
+      "priority": 1.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-whiteboard-tray"
+    },
+    {
+      "id": "school-campus-teacher-desk-drawer",
+      "word": "teacher desk drawer",
+      "translation": "教师桌抽屉",
+      "x": 569.37799,
+      "y": 146.333688,
+      "priority": 1.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-teacher-desk-drawer"
+    },
+    {
+      "id": "school-campus-student-desk-drawer",
+      "word": "student desk drawer",
+      "translation": "学生桌抽屉",
+      "x": 508.133971,
+      "y": 173.113709,
+      "priority": 1.009,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-student-desk-drawer"
+    },
+    {
+      "id": "school-campus-student-chair-back",
+      "word": "student chair back",
+      "translation": "学生椅靠背",
+      "x": 509.090909,
+      "y": 189.373007,
+      "priority": 1.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-student-chair-back"
+    },
+    {
+      "id": "school-campus-bookcase-shelf",
+      "word": "bookcase shelf",
+      "translation": "书柜搁板",
+      "x": 824.880383,
+      "y": 90.860786,
+      "priority": 1.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-bookcase-shelf"
+    },
+    {
+      "id": "school-campus-classroom-rug-border",
+      "word": "classroom rug border",
+      "translation": "教室地毯边缘",
+      "x": 756.937799,
+      "y": 151.115834,
+      "priority": 1.012,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-classroom-rug-border"
+    },
+    {
+      "id": "school-campus-book-spine-row",
+      "word": "book spine row",
+      "translation": "书脊排列",
+      "x": 923.444976,
+      "y": 85.12221,
+      "priority": 1.013,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-campus-region-book-spine-row"
+    },
+    {
+      "id": "school-campus-bookcase-divider",
+      "word": "bookcase divider",
+      "translation": "书柜隔板",
+      "x": 912.91866,
+      "y": 99.46865,
+      "priority": 1.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-campus-region-bookcase-divider"
+    },
+    {
+      "id": "school-campus-reading-table-edge",
+      "word": "reading table edge",
+      "translation": "阅读桌边",
+      "x": 980.861244,
+      "y": 153.985122,
+      "priority": 1.015,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-reading-table-edge"
+    },
+    {
+      "id": "school-campus-armchair-cushion",
+      "word": "armchair cushion",
+      "translation": "扶手椅坐垫",
+      "x": 1100.478469,
+      "y": 147.290117,
+      "priority": 1.016,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-armchair-cushion"
+    },
+    {
+      "id": "school-campus-stair-handrail",
+      "word": "stair handrail",
+      "translation": "楼梯扶手",
+      "x": 1376.076555,
+      "y": 140.595112,
+      "priority": 1.017,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-stair-handrail"
+    },
+    {
+      "id": "school-campus-printer-output-tray",
+      "word": "printer output tray",
+      "translation": "打印机出纸托盘",
+      "x": 1238.277512,
+      "y": 194.155154,
+      "priority": 1.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-printer-output-tray"
+    },
+    {
+      "id": "school-campus-door-lever",
+      "word": "door lever",
+      "translation": "门杆把手",
+      "x": 1270.813397,
+      "y": 273.538789,
+      "priority": 1.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-door-lever"
+    },
+    {
+      "id": "school-campus-office-keyboard",
+      "word": "office keyboard",
+      "translation": "办公键盘",
+      "x": 1068.899522,
+      "y": 247.715197,
+      "priority": 1.02,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-office-keyboard"
+    },
+    {
+      "id": "school-campus-easel-frame",
+      "word": "easel frame",
+      "translation": "画架框架",
+      "x": 266.028708,
+      "y": 427.523911,
+      "priority": 1.021,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-campus-region-easel-frame"
+    },
+    {
+      "id": "school-campus-canvas-stretcher",
+      "word": "canvas stretcher",
+      "translation": "画布绷架",
+      "x": 275.598086,
+      "y": 413.177471,
+      "priority": 1.022,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-campus-region-canvas-stretcher"
+    },
+    {
+      "id": "school-campus-palette-wells",
+      "word": "palette wells",
+      "translation": "调色板凹槽",
+      "x": 473.684211,
+      "y": 395.005313,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-palette-wells"
+    },
+    {
+      "id": "school-campus-paint-tube",
+      "word": "paint tube",
+      "translation": "颜料管",
+      "x": 292.822967,
+      "y": 334.750266,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-paint-tube"
+    },
+    {
+      "id": "school-campus-supply-cart-shelf",
+      "word": "supply cart shelf",
+      "translation": "用品车搁板",
+      "x": 564.593301,
+      "y": 364.399575,
+      "priority": 1.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-supply-cart-shelf"
+    },
+    {
+      "id": "school-campus-worktable-edge",
+      "word": "worktable edge",
+      "translation": "工作台边缘",
+      "x": 492.822967,
+      "y": 416.046759,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-worktable-edge"
+    },
+    {
+      "id": "school-campus-canvas-clip",
+      "word": "canvas clip",
+      "translation": "画布夹",
+      "x": 468.899522,
+      "y": 366.312434,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-canvas-clip"
+    },
+    {
+      "id": "school-campus-paint-jar-lid",
+      "word": "paint jar lid",
+      "translation": "颜料罐盖",
+      "x": 273.684211,
+      "y": 325.185972,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-paint-jar-lid"
+    },
+    {
+      "id": "school-campus-piano-lid",
+      "word": "piano lid",
+      "translation": "钢琴盖",
+      "x": 667.942584,
+      "y": 378.746015,
+      "priority": 1.029,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-campus-region-piano-lid"
+    },
+    {
+      "id": "school-campus-piano-leg",
+      "word": "piano leg",
+      "translation": "钢琴支腿",
+      "x": 667.942584,
+      "y": 435.175345,
+      "priority": 1.03,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-campus-region-piano-leg"
+    },
+    {
+      "id": "school-campus-keybed",
+      "word": "keybed",
+      "translation": "键床",
+      "x": 676.555024,
+      "y": 411.264612,
+      "priority": 1.031,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-keybed"
+    },
+    {
+      "id": "school-campus-piano-pedal",
+      "word": "piano pedal",
+      "translation": "钢琴踏板",
+      "x": 626.794258,
+      "y": 446.652497,
+      "priority": 1.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-piano-pedal"
+    },
+    {
+      "id": "school-campus-guitar-soundhole",
+      "word": "guitar soundhole",
+      "translation": "吉他音孔",
+      "x": 789.473684,
+      "y": 357.70457,
+      "priority": 1.033,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-guitar-soundhole"
+    },
+    {
+      "id": "school-campus-drum-shell",
+      "word": "drum shell",
+      "translation": "鼓腔外壳",
+      "x": 809.569378,
+      "y": 429.436769,
+      "priority": 1.034,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-drum-shell"
+    },
+    {
+      "id": "school-campus-cymbal-stand",
+      "word": "cymbal stand",
+      "translation": "镲片架",
+      "x": 837.320574,
+      "y": 411.264612,
+      "priority": 1.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-cymbal-stand"
+    },
+    {
+      "id": "school-campus-music-stand-shelf",
+      "word": "music stand shelf",
+      "translation": "乐谱架托板",
+      "x": 745.454545,
+      "y": 411.264612,
+      "priority": 1.036,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-music-stand-shelf"
+    },
+    {
+      "id": "school-campus-basketball-backboard",
+      "word": "basketball backboard",
+      "translation": "篮球篮板",
+      "x": 1171.291866,
+      "y": 338.575983,
+      "priority": 1.037,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-campus-region-basketball-backboard"
+    },
+    {
+      "id": "school-campus-hoop-net",
+      "word": "hoop net",
+      "translation": "篮圈网",
+      "x": 1171.291866,
+      "y": 366.312434,
+      "priority": 1.038,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-campus-region-hoop-net"
+    },
+    {
+      "id": "school-campus-gym-mat-edge",
+      "word": "gym mat edge",
+      "translation": "体操垫边",
+      "x": 1001.913876,
+      "y": 415.090329,
+      "priority": 1.039,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-gym-mat-edge"
+    },
+    {
+      "id": "school-campus-wall-bar-rung",
+      "word": "wall bar rung",
+      "translation": "肋木横杆",
+      "x": 1044.976077,
+      "y": 355.791711,
+      "priority": 1.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-wall-bar-rung"
+    },
+    {
+      "id": "school-campus-climbing-rope-knot",
+      "word": "climbing rope knot",
+      "translation": "攀爬绳结",
+      "x": 1112.91866,
+      "y": 354.835282,
+      "priority": 1.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-climbing-rope-knot"
+    },
+    {
+      "id": "school-campus-ball-cart-shelf",
+      "word": "ball cart shelf",
+      "translation": "球车搁板",
+      "x": 1258.373206,
+      "y": 447.608927,
+      "priority": 1.042,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-ball-cart-shelf"
+    },
+    {
+      "id": "school-campus-ball-rack",
+      "word": "ball rack",
+      "translation": "球架",
+      "x": 1263.157895,
+      "y": 435.175345,
+      "priority": 1.043,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-ball-rack"
+    },
+    {
+      "id": "school-campus-vaulting-box-handle",
+      "word": "vaulting box handle",
+      "translation": "跳箱把手",
+      "x": 1145.454545,
+      "y": 506.907545,
+      "priority": 1.044,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-vaulting-box-handle"
+    },
+    {
+      "id": "school-campus-goal-net",
+      "word": "goal net",
+      "translation": "球门网",
+      "x": 1219.138756,
+      "y": 524.123273,
+      "priority": 1.045,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-goal-net"
+    },
+    {
+      "id": "school-campus-marker-cone-tip",
+      "word": "marker cone tip",
+      "translation": "标志锥顶端",
+      "x": 1175.119617,
+      "y": 443.783209,
+      "priority": 1.046,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-marker-cone-tip"
+    },
+    {
+      "id": "school-campus-washroom-mirror-frame",
+      "word": "washroom mirror frame",
+      "translation": "洗手间镜框",
+      "x": 1384.688995,
+      "y": 331.880978,
+      "priority": 1.047,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-washroom-mirror-frame"
+    },
+    {
+      "id": "school-campus-basin-faucet-handle",
+      "word": "basin faucet handle",
+      "translation": "洗手盆水龙头把手",
+      "x": 1383.732057,
+      "y": 351.009564,
+      "priority": 1.048,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-basin-faucet-handle"
+    },
+    {
+      "id": "school-campus-examination-bedrail",
+      "word": "examination bedrail",
+      "translation": "检查床护栏",
+      "x": 261.244019,
+      "y": 640.807651,
+      "priority": 1.049,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-campus-region-examination-bedrail"
+    },
+    {
+      "id": "school-campus-headrest-cushion",
+      "word": "headrest cushion",
+      "translation": "头枕坐垫",
+      "x": 341.626794,
+      "y": 653.241233,
+      "priority": 1.05,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-campus-region-headrest-cushion"
+    },
+    {
+      "id": "school-campus-privacy-curtain-ring",
+      "word": "privacy curtain ring",
+      "translation": "隔帘环",
+      "x": 175.119617,
+      "y": 621.679065,
+      "priority": 1.051,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-privacy-curtain-ring"
+    },
+    {
+      "id": "school-campus-privacy-screen-frame",
+      "word": "privacy screen frame",
+      "translation": "隔断屏框",
+      "x": 171.291866,
+      "y": 616.896918,
+      "priority": 1.052,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-privacy-screen-frame"
+    },
+    {
+      "id": "school-campus-cabinet-glass-door",
+      "word": "cabinet glass door",
+      "translation": "玻璃柜门",
+      "x": 255.502392,
+      "y": 592.986185,
+      "priority": 1.053,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-cabinet-glass-door"
+    },
+    {
+      "id": "school-campus-cabinet-shelf-edge",
+      "word": "cabinet shelf edge",
+      "translation": "柜架边缘",
+      "x": 255.502392,
+      "y": 604.463337,
+      "priority": 1.054,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-cabinet-shelf-edge"
+    },
+    {
+      "id": "school-campus-pedal-bin-lid",
+      "word": "pedal bin lid",
+      "translation": "脚踏垃圾桶盖",
+      "x": 302.392344,
+      "y": 607.332625,
+      "priority": 1.055,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-pedal-bin-lid"
+    },
+    {
+      "id": "school-campus-supply-cabinet-handle",
+      "word": "supply cabinet handle",
+      "translation": "用品柜把手",
+      "x": 82.296651,
+      "y": 688.629118,
+      "priority": 1.056,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-supply-cabinet-handle"
+    },
+    {
+      "id": "school-campus-locker-vent",
+      "word": "locker vent",
+      "translation": "储物柜通风孔",
+      "x": 574.162679,
+      "y": 702.975558,
+      "priority": 1.057,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-campus-region-locker-vent"
+    },
+    {
+      "id": "school-campus-label-holder",
+      "word": "label holder",
+      "translation": "标签槽",
+      "x": 589.473684,
+      "y": 688.629118,
+      "priority": 1.058,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-campus-region-label-holder"
+    },
+    {
+      "id": "school-campus-notice-board-frame",
+      "word": "notice board frame",
+      "translation": "通知板边框",
+      "x": 664.114833,
+      "y": 563.336876,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-notice-board-frame"
+    },
+    {
+      "id": "school-campus-locker-door-seam",
+      "word": "locker door seam",
+      "translation": "储物柜门缝",
+      "x": 574.162679,
+      "y": 702.975558,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-locker-door-seam"
+    },
+    {
+      "id": "school-campus-storage-shelf-edge",
+      "word": "storage shelf edge",
+      "translation": "储物架边缘",
+      "x": 894.736842,
+      "y": 592.986185,
+      "priority": 1.061,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-campus-region-storage-shelf-edge"
+    },
+    {
+      "id": "school-campus-equipment-bin-handle",
+      "word": "equipment bin handle",
+      "translation": "器材箱把手",
+      "x": 910.047847,
+      "y": 708.714134,
+      "priority": 1.062,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-campus-region-equipment-bin-handle"
+    },
+    {
+      "id": "school-campus-hoop-rim",
+      "word": "hoop rim",
+      "translation": "圈架边缘",
+      "x": 990.430622,
+      "y": 726.886291,
+      "priority": 1.063,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-hoop-rim"
+    },
+    {
+      "id": "school-campus-bucket-handle",
+      "word": "bucket handle",
+      "translation": "水桶把手",
+      "x": 1019.138756,
+      "y": 736.450584,
+      "priority": 1.064,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-bucket-handle"
+    },
+    {
+      "id": "school-campus-sink-faucet-handle",
+      "word": "sink faucet handle",
+      "translation": "水槽水龙头把手",
+      "x": 1309.090909,
+      "y": 576.726886,
+      "priority": 1.065,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-sink-faucet-handle"
+    },
+    {
+      "id": "school-campus-sink-drain-opening",
+      "word": "sink drain opening",
+      "translation": "水槽排水口",
+      "x": 1341.626794,
+      "y": 600.63762,
+      "priority": 1.066,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-sink-drain-opening"
+    },
+    {
+      "id": "school-campus-printer-paper-tray",
+      "word": "printer paper tray",
+      "translation": "打印机纸盘",
+      "x": 1088.995215,
+      "y": 654.197662,
+      "priority": 1.067,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-printer-paper-tray"
+    },
+    {
+      "id": "school-campus-printer-control-panel",
+      "word": "printer control panel",
+      "translation": "打印机控制面板",
+      "x": 1098.564593,
+      "y": 659.936238,
+      "priority": 1.068,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-campus-region-printer-control-panel"
+    },
+    {
+      "id": "school-campus-path-light-cap",
+      "word": "path light cap",
+      "translation": "路灯顶盖",
+      "x": 33.492823,
+      "y": 827.311371,
+      "priority": 1.069,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-campus-region-path-light-cap"
+    },
+    {
+      "id": "school-campus-hedge-top",
+      "word": "hedge top",
+      "translation": "绿篱顶部",
+      "x": 296.650718,
+      "y": 771.83847,
+      "priority": 1.07,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-campus-region-hedge-top"
+    },
+    {
+      "id": "school-campus-lawn-edge",
+      "word": "lawn edge",
+      "translation": "草坪边缘",
+      "x": 1435.406699,
+      "y": 851.222104,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-campus-region-lawn-edge"
+    },
+    {
+      "id": "school-campus-tree-planter-wall",
+      "word": "tree planter wall",
+      "translation": "树池围墙",
+      "x": 478.4689,
+      "y": 860.786397,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-campus-region-tree-planter-wall"
+    }
+  ],
+  "portals": []
+}

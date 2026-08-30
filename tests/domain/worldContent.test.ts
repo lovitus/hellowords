@@ -83,7 +83,7 @@ async function loadWorld(): Promise<{ manifest: Manifest; scenes: AuditedScene[]
   return { manifest, scenes };
 }
 
-test("mature world has four subject branches and ten deep, fully reachable paths", async () => {
+test("mature world has five subject branches and ten deep, fully reachable paths", async () => {
   const { manifest, scenes } = await loadWorld();
   const byId = new Map(scenes.map((scene) => [scene.id, scene]));
   const root = byId.get(manifest.rootSceneId);
@@ -91,7 +91,7 @@ test("mature world has four subject branches and ten deep, fully reachable paths
   assert.equal(root.parentId, null);
   assert.deepEqual(
     root.portals.map((portal) => portal.childSceneId),
-    ["apartment", "city-street", "city-park", "community-garden"],
+    ["apartment", "city-street", "city-park", "community-garden", "school-campus"],
   );
 
   const reachable = new Set<string>();
@@ -119,6 +119,7 @@ test("mature world has four subject branches and ten deep, fully reachable paths
     ["world-map", "community-garden", "greenhouse-interior", "tomato-plant"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "pathology-lab"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy"],
+    ["world-map", "school-campus"],
   ];
   for (const path of expectedPaths) {
     for (let index = 0; index < path.length - 1; index += 1) {

@@ -151,6 +151,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 45,
     },
   },
+  "school-campus": {
+    asset: "/scenes/school-campus-premium-v1.jpg",
+    sha256: "ba3863de7141714144a7c1fc91327fdfb021bdc9f53087027d7c32adb6d766a3",
+    quality: {
+      minMeanLuminance: 95,
+      maxMeanLuminance: 175,
+      maxDarkFraction: 0.34,
+      maxDeepDarkFraction: 0.12,
+      minMeanChroma: 0.08,
+      maxMeanChroma: 0.3,
+      maxChannelMeanSpread: 50,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

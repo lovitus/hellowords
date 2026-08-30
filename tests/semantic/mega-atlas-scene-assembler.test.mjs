@@ -269,5 +269,5 @@ test("the published mega atlas is byte-reproducible from six reviewed local batc
   assert.equal(`${JSON.stringify(generated, null, 2)}\n`, publishedText);
   assert.equal(generated.labels.length, 1_289);
   assert.equal(generated.detailZones.length, 66);
-  assert.equal(generated.visualRegions.length, 1_293);
+  assert.equal(generated.visualRegions.length, 1_294);
 });

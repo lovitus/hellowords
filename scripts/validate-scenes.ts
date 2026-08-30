@@ -146,6 +146,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The reviewed alpha2-beta2 render now exposes distinct heme, ribbon and
   // coordination structures; the lower floor keeps future revisions evidence-led.
   hemoglobin: 44,
+  // The reviewed school-campus photograph supports distinct classroom,
+  // library, arts, music, gym, infirmary, locker, utility and grounds parts.
+  "school-campus": 64,
   // This terminal specialist image supports 28 distinct structures. Requiring
   // 32 produced synonym pairs at identical pixels, which is worse than an
   // explicit evidence-based exception.
@@ -240,6 +243,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // surfaces, sheet folds and collector edges while still excluding invisible
   // electrochemistry and performance claims.
   "lithium-ion-cell": 60,
+  // The school-campus crop keeps one bounded label per newly reviewed fixture
+  // or part; the ceiling blocks activities, signage and duplicate furniture.
+  "school-campus": 73,
   // The bright cutaway resolves chamber walls, individual cusps, connected
   // vessel openings, coronary surface branches and a readable red-cell rim;
   // the ceiling still excludes invisible physiology and conduction claims.

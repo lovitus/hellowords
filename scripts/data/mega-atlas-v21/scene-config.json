@@ -76,6 +76,18 @@
         "height": 520,
         "enterScale": 3.75,
         "description": "Complete visible greenhouse, growing benches and cultivated farm beds"
+      },
+      {
+        "id": "enter-school-campus",
+        "label": "Explore the school campus",
+        "translation": "探索校园",
+        "childSceneId": "school-campus",
+        "x": 40,
+        "y": 600,
+        "width": 440,
+        "height": 180,
+        "enterScale": 3.75,
+        "description": "Complete visible school interior and corridor area on the school atlas panel"
       }
     ]
   }

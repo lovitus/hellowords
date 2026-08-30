@@ -19,7 +19,7 @@ import { buildViewerChromeProtectedRegions } from "../../app/components/SceneVie
 const projectRoot = resolve(import.meta.dirname, "../..");
 const scenePath = resolve(projectRoot, "public/data/scenes/world-map.json");
 const expectedGroundedLabels = 1_289;
-const expectedVisualRegions = 1_293;
+const expectedVisualRegions = 1_294;
 const expectedDetailZones = 66;
 const expectedLodCounts = { 0: 202, 1: 446, 2: 456, 3: 172, 4: 13 } as const;
 const minimumExplorationCoverage = 0.9;
@@ -59,6 +59,11 @@ const expectedPortals = [
     childSceneId: "community-garden",
     sourceVisualRegion: "portal-enter-community-garden",
     rectangle: { x: 240, y: 530, width: 480, height: 260 },
+  },
+  {
+    childSceneId: "school-campus",
+    sourceVisualRegion: "portal-enter-school-campus",
+    rectangle: { x: 20, y: 300, width: 220, height: 90 },
   },
 ] as const;
 
@@ -375,11 +380,11 @@ test("world atlas contains 1289 unique grounded words across 66 bounded explorat
   }
 });
 
-test("world atlas keeps four exact, non-overlapping spatial entrances", async () => {
+test("world atlas keeps five exact, non-overlapping spatial entrances", async () => {
   const scene = await loadScene();
   const canvas = { x: 0, y: 0, width: scene.width, height: scene.height };
   const regions = new Map((scene.visualRegions ?? []).map((region) => [region.id, region]));
-  assert.equal(scene.portals.length, 4);
+  assert.equal(scene.portals.length, 5);
   assert.deepEqual(
     scene.portals.map(({ childSceneId }) => childSceneId),
     expectedPortals.map(({ childSceneId }) => childSceneId),

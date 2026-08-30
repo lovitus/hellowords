@@ -216,6 +216,11 @@
       "id": "potting-workbench",
       "title": "Potting workbench",
       "parentId": "community-garden"
+    },
+    {
+      "id": "school-campus",
+      "title": "School campus",
+      "parentId": "world-map"
     }
   ]
 }
