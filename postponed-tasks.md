@@ -4,10 +4,10 @@
 
 ## 当前交付游标
 
-- 公开版本：`v141-1856302`（线上已完成真实冒烟）
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=141-1856302#world>
-- 源码：`1856302b258bc8ec57b4d3a6136aa8ee6d5c92dc`（v141 在学校场景批次基础上新增可进入的 Radiology suite：87 个真实影像设备/部件词、6 个细分区；并把 School campus 入口移到学校面板下方已审计的器材/准备区，避免移动端首页分类遮挡）。累计 45 个场景、7,456 个空间锚点、6,372 个去重展示词、323 个细分区、44 个门户；世界地图仍为 1,289 个去重锚点。继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：v141 已公开发布并完成真实入口冒烟；路径 `City street → Transit hub → Urban services → Hospital → Radiology suite` 可进入，公开页读到 CT/MRI/X-ray/超声等 87 词与 6 个细分区。完整门禁：241 个域/语义测试、110 个浏览器测试通过（36 个设计性跳过）、性能 2/2 通过。下一步继续按“先堆场景与词、再精修”新增 Airport baggage claim 或 Office service core；必须先生成并审计新图片，不用同义词填充。
+- 公开版本：`v142-8e3cab7`（线上已完成真实冒烟）
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=142-8e3cab7#world>
+- 源码：`8e3cab7039f684a434887faa76c6ba7c617ce8ea`（v142 在 v141 基础上新增可进入的 Airport baggage claim：95 个真实转盘/行李/到达厅/海关/服务词、5 个细分区；以及 Office service core：90 个电气/HVAC/消防/清洁/装卸词、5 个细分区）。累计 47 个场景、7,641 个空间锚点、6,557 个去重展示词、333 个细分区、46 个门户；世界地图仍为 1,289 个去重锚点。继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：v142 已公开发布并完成真实入口冒烟；公开路径 `City street → Transit hub → Urban services → Airport → Baggage claim` 与 `… → Office building → Office service core` 均可进入，分别读到 95/90 词和 5 个细分区。完整门禁：245 个域/语义测试、114 个浏览器测试通过（36 个设计性跳过）、性能 2/2 通过。下一步继续按“先堆场景与词、再精修”扩展新的实用空间；必须先生成并审计新图片，不用同义词填充。
 - 子 agent：`/root/exploration_ux_audit` 与 `/root/scene_content_batch` 已完成本批、保持可复用；继续并行推进内容与必要的阻断性体验修复。历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### v140/v141 交付记录（2026-08-30）
@@ -15,6 +15,7 @@
 - v140 首次公开学校批次：新增 `school-campus` 终端场景，73 个像素复核词、10 个细分区；世界地图新增第 5 个根入口。首次发布后发现移动端 Campus 分类热点被学校入口遮挡，改为同一校园面板内的安全矩形；随后又将入口调整为 `x600,y300,width200,height100`，通过亮度/深暗率门槛与首页移动端 hover 回归。
 - v141 将上述学校入口修复与 Radiology suite 一起重新发布。Radiology 图像为 1600×900 RGB JPEG，87 个新词覆盖 CT bay、MRI bay、X-ray/mammography、control、ultrasound、preparation/supplies 六区；入口从 Hospital 的 CT/MRI 区进入，公开浏览器快照显示当前场景 87 词且细分区可聚焦。
 - v141 本地验证：`npm run verify`（241 个域/语义测试）通过；完整 E2E 110 通过 / 36 设计性跳过；`PERF_RUN=1 npm run test:perf` 2/2；公开页真实冒烟无阻断错误。v140/v141 归档均已可恢复移动到 `/Users/fanli/.Trash/codex-session-cleanup-20260830/hellowords-v140/` 与 `/Users/fanli/.Trash/codex-session-cleanup-20260830/hellowords-v141/`。
+- v142 新增两条实用分支：Airport → Baggage claim（95 词/5 区）与 Office building → Office service core（90 词/5 区）。图片、入口、去重、质量、域契约和桌面/移动 E2E 均通过；v142 归档已可恢复移动到 `/Users/fanli/.Trash/codex-session-cleanup-20260830/hellowords-v142/`。
 - 视觉优化（气泡、线条、标题/小地图、放大抖动）暂不扩散改动；按用户当前优先级延期，避免阻塞场景和词汇增长。
 
 ### v122 交付记录（2026-08-29）
