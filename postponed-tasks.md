@@ -31,7 +31,7 @@
 - 清理记录：v122 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v122/`；活动 `.codex/sessions` 与其他项目临时文件未删除。
 - v123 在五个医疗科学场景各增加 30 个结构词：Blood cell 91、Heart 91、Human body 90、Hemoglobin 81、Oxygen molecule 90；词汇均落在既有审计图像与细节区，不引入诊疗建议或不可见过程。
 - v123 修复紧凑视口从深层区块切换到宽区块时的焦点丢词：区块点击允许最多半级回缩以容纳完整词群，并让当前焦点词优先获得安全标签槽；公开发布前已跑完整 E2E（106 通过 / 36 设计性跳过）与性能门（2/2）。
-- v124 候选批次在既有五张设施图上再增加 150 个词：Hospital 380、Pathology lab 390、Hospital pharmacy 330、Airport 330、Office building 330；更新证据上限与文档后再做一次整批公开发布。
+- v124 批次在既有五张设施图上再增加 150 个词：Hospital 380、Pathology lab 390、Hospital pharmacy 330、Airport 330、Office building 330；同步更新证据上限与文档。
 - v124 已完成公开发布：五个设施场景各增加 30 个词，完整校验通过（232 个域测试），整套 E2E 106 通过 / 36 设计性跳过，性能门 2/2 通过。
 - v125 让医院、病理、药房、机场、写字楼的焦点区在桌面与移动端都优先占用可读槽位，并为医院 `defibrillator` 增加公开路径断言；公开冒烟确认首页 6 大区/0 词、Campus 21/移出 0，医院 380、病理 390、药房 330、机场 330、写字楼 330，新词焦点可见且无 error/warn 日志。
 - 清理记录：v124/v125 归档已分别移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v124/` 与 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v125/`；当前 `.codex/sessions` 与共享临时根未删除。
