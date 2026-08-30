@@ -1705,19 +1705,14 @@ export function SceneViewport({
       const total = scene.labels.length;
       const remaining = atlasOverviewMode ? total : Math.max(0, total - visibleCount);
       const maximumZoom = camera.scale >= maximumScale - 0.02;
-      const semanticEntryEnabled = scene.portals.length > 0;
       const action = atlasOverviewMode
         ? "悬停大区显示该区锚点词，放大可见更多"
         : remaining === 0
           ? maximumZoom
-            ? semanticEntryEnabled
-              ? "本景词汇已全部在当前视野，继续放大进入万词大图"
-              : "本景词汇已全部在当前视野，已到最大倍率"
+            ? "本景词汇已全部在当前视野，已到最大倍率"
             : "本景词汇已全部在当前视野"
           : maximumZoom
-            ? semanticEntryEnabled
-              ? `拖动探索其余 ${remaining} 个词，继续放大进入万词大图`
-              : `拖动探索其余 ${remaining} 个词，已到最大倍率`
+            ? `拖动探索其余 ${remaining} 个词，已到最大倍率`
             : `放大或拖动探索其余 ${remaining} 个词`;
       const compact = viewportWidth <= 560;
       const text = atlasOverviewMode
@@ -1726,7 +1721,7 @@ export function SceneViewport({
           : action
         : compact
           ? `视野 ${visibleCount}/${total} · ${maximumZoom
-            ? semanticEntryEnabled ? "拖动看词 / 继续放大进万词大图" : "拖动看词 / 已到最大倍率"
+            ? "拖动看词 / 已到最大倍率"
             : remaining === 0 ? "已全部展开" : `放大/拖动看其余 ${remaining}`}`
           : `当前视野 ${visibleCount} / 本景 ${total} 个词 · ${action}`;
       if (sceneWordProgress.textContent !== text) sceneWordProgress.textContent = text;
@@ -1750,7 +1745,7 @@ export function SceneViewport({
         "nextPlane",
         atlasOverviewMode
           ? "atlas-category"
-          : maximumZoom ? semanticEntryEnabled ? "semantic" : "spatial-terminal" : "spatial",
+          : maximumZoom ? "spatial-terminal" : "spatial",
       );
     }
 

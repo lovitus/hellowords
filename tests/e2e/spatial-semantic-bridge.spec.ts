@@ -197,9 +197,9 @@ test("scene progress conserves its total and switches to pan guidance at maximum
   expect(maximum.current).toBeGreaterThan(0);
   expect(maximum.current + maximum.remaining).toBe(maximum.total);
   expect(maximum.cameraMode).toBe("pan");
-  expect(maximum.nextPlane).toBe("semantic");
+  expect(maximum.nextPlane).toBe("spatial-terminal");
   expect(maximum.text).toContain("拖动");
-  expect(maximum.text).toContain("继续放大");
+  expect(maximum.text).toContain("已到最大倍率");
   await expect(progress).toHaveAttribute("aria-label", /拖动探索/);
 });
 
