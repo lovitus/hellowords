@@ -1321,6 +1321,9 @@ export function SceneViewport({
     );
     const focusRegion = focusedDetailZoneRef.current;
     const activeFocusedDetailZone = focusedDetailZoneValueRef.current;
+    const focusedPriorityLabelIds = activeFocusedDetailZone && viewportWidth <= 900
+      ? new Set(activeFocusedDetailZone.labelIds)
+      : undefined;
     if (focusRegion) {
       if (activeFocusedDetailZone) {
         const bounds = projectSceneRectToScreen(activeFocusedDetailZone, camera);
@@ -1449,6 +1452,7 @@ export function SceneViewport({
         revealAtScale: activeFocusedDetailZone
           ? Math.max(1, activeFocusedDetailZone.targetScale - 0.35)
           : undefined,
+        priorityLabelIds: focusedPriorityLabelIds,
         preferredOffsets: labelPlacementOffsetsRef.current,
         protectedRegions: [
           ...buildViewerChromeProtectedRegions(
@@ -2749,7 +2753,12 @@ export function SceneViewport({
         ) * 0.88;
         targetScale = Math.min(
           targetScale,
-          Math.max(start.scale + 0.28, batchFitScale),
+          // A zone click is an explicit request to inspect that whole crop.
+          // If the user is already deeper in a neighbouring crop, allow a
+          // small zoom-out so the newly selected batch is not clipped to one
+          // edge of the viewport. Ordinary wheel zoom still starts from this
+          // fitted frame and can continue inward afterwards.
+          Math.max(1.05, start.scale - 0.5, batchFitScale),
         );
       }
     }

@@ -831,7 +831,7 @@ test("plant cell exposes its organelle subparts through the real leaf path", asy
     }
     await expect.poll(() => page.locator(
       `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
-    ).count()).toBeGreaterThan(0);
+    ).count(), { message: `${word} should be visible` }).toBeGreaterThan(0);
   };
   const nucleusZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="nucleus-and-er"]',
@@ -891,7 +891,7 @@ test("oxygen scene exposes its expanded exchange path through the real blood rou
     await expect(zone).toHaveAttribute("data-active", "true");
     await expect.poll(() => page.locator(
       `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
-    ).count()).toBeGreaterThan(0);
+    ).count(), { message: `${zoneId}/${word} should be visible` }).toBeGreaterThan(0);
   }
 });
 

@@ -52,6 +52,8 @@ export interface SceneLabelLayoutOptions {
   /** Explicitly focused detail labels may become readable once their crop is reached. */
   readonly revealLabelIds?: ReadonlySet<string>;
   readonly revealAtScale?: number;
+  /** Focused anchors own the first collision slots for a compact crop. */
+  readonly priorityLabelIds?: ReadonlySet<string>;
   /** Screen-space controls, such as portal cues, that word pills must avoid. */
   readonly protectedRegions?: readonly SceneLabelProtectedRegion[];
   /** Previous interactive slots retained during one continuous camera direction. */
@@ -1011,6 +1013,9 @@ export function computeSceneLabelLayout(
       const selected = Number(second.label.id === options.selectedLabelId)
         - Number(first.label.id === options.selectedLabelId);
       if (selected !== 0) return selected;
+      const focused = Number(options.priorityLabelIds?.has(second.label.id))
+        - Number(options.priorityLabelIds?.has(first.label.id));
+      if (focused !== 0) return focused;
       // Camera history must not decide collision ownership. A stable authored
       // order makes an exact zoom round trip reproduce both the same labels
       // and the same callout directions.
@@ -1139,11 +1144,27 @@ export function computeSceneLabelLayout(
     });
     const offsetX = placement?.[0] ?? 0;
     const offsetY = placement?.[1] ?? 0;
-    const blocked = placement === undefined;
+    const forcedPlacement = placement ?? (
+      options.priorityLabelIds?.has(candidate.label.id)
+        ? authoredOffsets.find(([fallbackX, fallbackY]) => {
+          const bounds = boundsAt(
+            candidate.screenX + fallbackX,
+            candidate.screenY + fallbackY,
+            candidate.width,
+            candidate.height,
+          );
+          return insideViewport(bounds, viewport, edgeMargin)
+            && !(options.protectedRegions ?? []).some((region) => overlaps(bounds, region, 0));
+        })
+        : undefined
+    );
+    const resolvedOffsetX = forcedPlacement?.[0] ?? offsetX;
+    const resolvedOffsetY = forcedPlacement?.[1] ?? offsetY;
+    const blocked = forcedPlacement === undefined;
     if (!blocked && !reservedPlacement) {
       collisionIndex.add(boundsAt(
-        candidate.screenX + offsetX,
-        candidate.screenY + offsetY,
+        candidate.screenX + resolvedOffsetX,
+        candidate.screenY + resolvedOffsetY,
         candidate.width,
         candidate.height,
       ));
@@ -1158,10 +1179,10 @@ export function computeSceneLabelLayout(
       adaptive: !blocked && adaptive,
       width: candidate.width,
       height: candidate.height,
-      screenX: candidate.screenX + offsetX,
-      screenY: candidate.screenY + offsetY,
-      offsetX,
-      offsetY,
+      screenX: candidate.screenX + resolvedOffsetX,
+      screenY: candidate.screenY + resolvedOffsetY,
+      offsetX: resolvedOffsetX,
+      offsetY: resolvedOffsetY,
       placementOrder,
     });
   }
