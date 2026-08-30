@@ -41,7 +41,7 @@ The graph contains 43 reachable scenes and 42 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 7,016 human-verified anchors representing 5,985
+Spatial scenes now contain 7,166 human-verified anchors representing 6,107
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -106,10 +106,10 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Scene | Before → retained | Main removal reason |
 |---|---:|---|
 | World atlas | 1,296 audited source anchors → 1,275 unique labels | Six independently pixel-reviewed panels compile across 66 zones; cross-panel duplicate words are reconciled while four disjoint entrances remain intact |
-| Community garden | 141 → 133 | Bright greenhouse, beds, tools, irrigation, compost and flowers retain visible structural parts; the added glazing, crop and hardware terms stay inside the reviewed crops |
-| Greenhouse interior | 78 → 71 | Sunlit glasshouse grounds shell hardware, benches, seedlings, crops, floor equipment and a complete tomato portal; climate and growth processes remain removed |
-| Tomato plant | 76 → 69 | Complete supported plant grounds stem, compound-leaf, flower, fruit, support, substrate and visible pest details; physiology and underground processes remain removed |
-| Potting workbench | 83 → 74 | Complete daylight bench grounds tool edges, containers, seedlings, soil and watering fittings; actions, properties and printed-label readings remain removed |
+| Community garden | 171 → 163 | Bright greenhouse, beds, tools, irrigation, compost and flowers retain visible structural parts; the added glazing, crop and hardware terms stay inside the reviewed crops |
+| Greenhouse interior | 108 → 101 | Sunlit glasshouse grounds shell hardware, benches, seedlings, crops, floor equipment and a complete tomato portal; climate and growth processes remain removed |
+| Tomato plant | 106 → 99 | Complete supported plant grounds stem, compound-leaf, flower, fruit, support, substrate and visible pest details; physiology and underground processes remain removed |
+| Potting workbench | 113 → 104 | Complete daylight bench grounds tool edges, containers, seedlings, soil and watering fittings; actions, properties and printed-label readings remain removed |
 | Apartment | 176 → 173 | Bright replacement preserves three room portals, then adds living-room furniture and finish parts while retaining the excluded sink, hallway and dresser claims |
 | Kitchen | 185 → 176 | Bright kitchen grounds appliances, sink, cookware, coffee-nook and island parts; added preparation tools stay on the reviewed island crop |
 | Coffee machine | 78 → 60 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit, pump fittings and electronics; invisible functions and brewing processes remain removed |
@@ -143,7 +143,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Oxygen molecule | 112 → 90 | Premium gas-exchange cutaway grounds the airway, alveolar pores and lining, air-blood barrier, capillary wall, red-cell surface and paired gas models; added molecule-path and interface details remain visual rather than physiological claims |
 | City park | 195 → 174 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities; the final audit adds bridge arches, shoreline waterlines, lily/reed parts and fine pond surface details |
 | Oak tree | 81 → 68 | Bright neutral-daylight woodland close-up grounds wildlife, fungi and texture; the final audit adds bark, web, nest, leaf, acorn, root, moss, fern, flower and grass parts while invisible processes and growth rings stay removed |
-| Leaf | 54 → 49 | Natural-colour macro retains independently visible twig, bud, acorn-cup, bark, insect and spider parts while rejecting duplicate vein terms and unsupported underside/curl details |
+| Leaf | 84 → 79 | Natural-colour macro retains independently visible twig, bud, acorn-cup, bark, insect and spider parts while rejecting duplicate vein terms and unsupported underside/curl details |
 | Plant cell | 75 → 60 | Premium 3D cutaway resolves organelles, membrane layers, chloroplast discs, cytoplasmic strands and vesicle interiors; the final audit adds rough-ER sheets, Golgi stacks, vacuole edges, thylakoid membranes, granum edges, mitochondrial folds and wall junctions, with a dedicated thylakoid-stack focus zone while unseen molecules and processes stay removed |
 | Chloroplast interior | 57 → 51 | Bright coherent organelle resolves its envelope, grana, intergranal lamellae, DNA strands, storage bodies, stromal particles and surface complexes; reactions and metabolites stay removed |
 | Pond edge | 73 → 65 | Premium spring shallows ground shoreline textures, aquatic plants, insects, fish, tadpoles, snail and the real Frog portal; the final audit adds visible stems, leaf parts, insect bodies, ripple/bubble details, fish parts, bank textures and frog surface parts while absent birds, turtles and activities remain removed |

@@ -2607,19 +2607,19 @@ test("community garden adds one disjoint root portal and two grounded local bran
   assert.ok(garden);
   assert.equal(garden.parentId, "world-map");
   assert.equal(garden.asset, "/scenes/community-garden-premium-v1.jpg");
-  assert.equal(garden.labels.length, 133);
+  assert.equal(garden.labels.length, 163);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       garden.labels.filter((label) => label.minLevel === level).length
     )),
-    [10, 10, 35, 44, 34],
+    [10, 10, 45, 54, 44],
   );
   assert.deepEqual(
     garden.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
       ["garden-overview", 6],
       ["greenhouse-zone", 73],
-      ["raised-bed-zone", 12],
+      ["raised-bed-zone", 42],
       ["potting-zone", 13],
       ["water-zone", 11],
       ["compost-zone", 10],
@@ -2727,6 +2727,11 @@ test("community garden adds one disjoint root portal and two grounded local bran
     "seedling cotyledon",
     "tomato pedicel",
     "drip emitter",
+    "bed soil surface",
+    "kale stalk",
+    "trellis clip",
+    "tomato stem",
+    "crop stake",
   ]) {
     assert.ok(words.has(visible), `community garden visibly grounds ${visible}`);
   }
@@ -2764,18 +2769,18 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
 
   assert.equal(greenhouse.parentId, "community-garden");
   assert.equal(greenhouse.asset, "/scenes/greenhouse-interior-premium-v1.jpg");
-  assert.equal(greenhouse.labels.length, 71);
+  assert.equal(greenhouse.labels.length, 101);
   assert.deepEqual(
     greenhouse.labels.reduce<number[]>((counts, label) => {
       counts[label.minLevel ?? 0] += 1;
       return counts;
     }, [0, 0, 0, 0, 0]),
-    [9, 11, 21, 17, 13],
+    [9, 11, 31, 27, 23],
   );
   assert.deepEqual(
     greenhouse.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["greenhouse-structure", 12],
+      ["greenhouse-structure", 42],
       ["potting-workbench", 17],
       ["propagation-area", 6],
       ["soil-station", 6],
@@ -2799,19 +2804,19 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
 
   assert.equal(tomato.parentId, "greenhouse-interior");
   assert.equal(tomato.asset, "/scenes/tomato-plant-premium-v1.jpg");
-  assert.equal(tomato.labels.length, 69);
+  assert.equal(tomato.labels.length, 99);
   assert.equal(tomato.portals.length, 0);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       tomato.labels.filter((label) => label.minLevel === level).length
     )),
-    [9, 11, 21, 19, 9],
+    [9, 11, 31, 29, 19],
   );
   assert.deepEqual(
     tomato.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
       ["plant-architecture", 8],
-      ["leaf-anatomy", 15],
+      ["leaf-anatomy", 45],
       ["flower-anatomy", 10],
       ["fruit-anatomy", 14],
       ["support-and-base", 18],
@@ -2821,13 +2826,13 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
 
   assert.equal(workbench.parentId, "community-garden");
   assert.equal(workbench.asset, "/scenes/potting-workbench-premium-v1.jpg");
-  assert.equal(workbench.labels.length, 74);
+  assert.equal(workbench.labels.length, 104);
   assert.equal(workbench.portals.length, 0);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       workbench.labels.filter((label) => label.minLevel === level).length
     )),
-    [10, 10, 15, 20, 19],
+    [10, 10, 25, 30, 29],
   );
   assert.deepEqual(
     workbench.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
@@ -2835,7 +2840,7 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
       ["bench-structure-zone", 11],
       ["watering-zone", 9],
       ["seedling-potting-zone", 16],
-      ["hand-tool-zone", 14],
+      ["hand-tool-zone", 44],
       ["tying-supplies-zone", 9],
       ["lower-storage-zone", 8],
       ["side-tool-zone", 5],
@@ -2921,6 +2926,8 @@ test("greenhouse, tomato plant and potting workbench form dense truthful garden 
       "bamboo tip",
       "sieve mesh",
       "soil sack fold",
+      "trowel blade",
+      "pruner spring",
     ]],
   ] as const) {
     const words = new Set(scene.labels.map(({ word }) => word));

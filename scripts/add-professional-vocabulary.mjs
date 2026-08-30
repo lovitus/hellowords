@@ -2378,6 +2378,166 @@ const groups = [
     drawer face=抽屉面板
     shelf lip=搁板前沿
   `),
+  group("greenhouse-interior", "greenhouse-shell", "greenhouse-structure", `
+    roof frame=屋顶框架
+    sidewall panel=侧墙板
+    glazing bar=玻璃压条
+    glazing seam=玻璃接缝
+    frame post=框架立柱
+    door panel=门板
+    door latch=门闩
+    door sweep=门底扫条
+    bench post=种植台立柱
+    bench surface=种植台台面
+    bench tray=种植托盘
+    propagation dome=育苗罩
+    propagation lid=育苗盖
+    potting cup=育苗杯
+    crop row=作物行
+    tomato truss=番茄花序
+    pepper leaf=辣椒叶
+    basil stem=罗勒茎
+    marigold petal=万寿菊花瓣
+    irrigation hose=灌溉软管
+    hose nozzle=软管喷嘴
+    drip line=滴灌管线
+    floor drain=地面排水口
+    floor mat=地垫
+    shade cloth=遮阳布
+    fan guard=风扇护罩
+    circulation fan=循环风扇
+    thermometer=温度计
+    humidity gauge=湿度表
+    gravel joint=砾石接缝
+  `),
+  group("tomato-plant", "left-foliage", "leaf-anatomy", `
+    leaf rachilla=小叶轴
+    leaflet serration=小叶锯齿
+    leaf margin tooth=叶缘齿
+    leaf vein branch=叶脉分支
+    leaf tip hair=叶尖毛
+    petiole base=叶柄基部
+    petiole groove=叶柄沟
+    leaf curl=叶片卷曲
+    veinlet=细脉
+    leaflet pair=小叶对
+    leaflet stalk=小叶柄
+    leaflet joint=小叶连接处
+    leaflet lobe edge=小叶裂片边
+    leaflet veinlet=小叶细脉
+    leaflet hair=小叶毛
+    leaf fold=叶片折痕
+    leaf crease=叶片褶皱
+    leaf shadow=叶片阴影
+    leaf cluster=叶簇
+    leaf segment=叶片段
+    leaf branch=叶片分支
+    leaf surface sheen=叶面光泽
+    leaf edge=叶片边缘
+    leaf tip notch=叶尖缺口
+    leaf spot edge=叶斑边缘
+    leaf vein junction=叶脉交汇
+    leaf underside=叶片背面
+    leaf base crease=叶基褶痕
+    leaflet midrib=小叶中脉
+    leaflet tip notch=小叶尖缺口
+  `),
+  group("potting-workbench", "hand-tool-row", "hand-tool-zone", `
+    trowel blade=小铲刃
+    trowel ferrule=小铲箍
+    hand fork handle=手叉把手
+    rake head=耙头
+    rake handle=耙柄
+    pruner spring=修枝剪弹簧
+    pruner blade=修枝剪刃
+    shear pivot=剪刀转轴
+    shear handle=剪刀把手
+    brush bristle=刷毛
+    brush handle=刷柄
+    dibber tip=移苗锥尖
+    dibber shaft=移苗锥杆
+    mister body=喷雾壶壶身
+    mister cap=喷雾壶盖
+    spray trigger=喷壶扳机
+    watering handle=浇水壶把手
+    can lid=浇水壶盖
+    hose coupling=软管接头
+    tool hook mount=工具挂钩座
+    rail bracket=工具轨支架
+    rail cap=工具轨端盖
+    handle loop=把手环
+    glove palm=手套掌面
+    glove finger=手套指部
+    apron tie=围裙系带
+    bench crossbar=工作台横梁
+    bench brace=工作台撑杆
+    bench peg=工作台插销
+    shelf bracket=搁板支架
+  `),
+  group("community-garden", "raised-beds", "raised-bed-zone", `
+    bed soil surface=种植床土面
+    bed timber end=种植床木端
+    bed corner joint=种植床角接头
+    bed liner=种植床衬层
+    bed mulch=种植床覆盖物
+    row marker=种植行标记
+    seedling row=幼苗行
+    kale stalk=羽衣甘蓝茎
+    lettuce head=生菜球
+    lettuce leaf=生菜叶
+    bean flower=豆花
+    bean stem=豆茎
+    carrot shoulder=胡萝卜肩
+    carrot root=胡萝卜根
+    trellis foot=棚架脚
+    trellis clip=棚架夹
+    trellis post cap=棚架柱帽
+    tomato leaf=番茄叶
+    tomato stem=番茄茎
+    soil clod=土块
+    mulch chip=覆盖木屑
+    bed path=种植床小径
+    irrigation line=灌溉管线
+    drip connector=滴灌接头
+    crop stake=作物支杆
+    crop row=作物行
+    leaf cluster=叶簇
+    bed support=种植床支撑
+    timber screw=木梁螺钉
+    bed side rail=种植床侧轨
+  `),
+  group("leaf", "main-oak-leaf", "leaf-form-and-surface", `
+    leaf outline=叶片轮廓
+    leaf apex=叶尖
+    leaf lobe edge=叶裂片边
+    lobe tip=裂片尖
+    midvein=中脉
+    veinlet branch=细脉分支
+    veinlet tip=细脉尖
+    leaf scar=叶痕
+    leaf vein junction=叶脉交汇
+    leaf surface sheen=叶面光泽
+    petiole groove=叶柄沟
+    vein network branch=叶脉网分支
+    leaf margin notch=叶缘缺口
+    dew bead edge=露珠边
+    water bead cluster=水珠簇
+    leaf blemish=叶面斑痕
+    leaf fold=叶片折痕
+    leaf notch=叶片缺口
+    leaf ridge=叶片脊
+    leaf texture=叶面纹理
+    leaf vein fork=叶脉分叉
+    leaf surface patch=叶面斑块
+    leaf edge crease=叶缘褶痕
+    leaf tip edge=叶尖边缘
+    leaf base fold=叶基折痕
+    leaf midrib groove=叶中脉沟
+    leaf vein ridge=叶脉凸起
+    leaf dew line=叶面露线
+    leaf sheen patch=叶面光泽斑
+    leaf water film=叶面水膜
+  `),
 ];
 
 const realmByScene = {
@@ -2391,6 +2551,10 @@ const realmByScene = {
   "science-museum": "objects-technology",
   "city-park": "nature-life",
   "community-garden": "nature-life",
+  "greenhouse-interior": "nature-life",
+  "tomato-plant": "nature-life",
+  "potting-workbench": "nature-life",
+  leaf: "nature-life",
   "electric-bus": "objects-technology",
   battery: "objects-technology",
   "railway-platform": "objects-technology",

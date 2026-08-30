@@ -251,19 +251,19 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright garden resolves greenhouse fittings, raised-bed crops, tools,
   // compost, rain collection and a flowering border; the ceiling blocks
   // gardening activities and inferred ecological processes.
-  "community-garden": 133,
+  "community-garden": 163,
   // The greenhouse raster resolves shell hardware, benches, propagation trays,
   // soil, aisle equipment and the complete tomato portal; the ceiling blocks
   // invisible growing processes and climate claims.
-  "greenhouse-interior": 71,
+  "greenhouse-interior": 101,
   // The close tomato raster resolves external stem, leaf, flower, fruit,
   // support, substrate and pest evidence; the ceiling blocks invisible plant
   // physiology and unsupported underground structures.
-  "tomato-plant": 69,
+  "tomato-plant": 99,
   // The final workbench raster resolves timber joints, containers, seedlings,
   // tool edges and watering fittings; the ceiling blocks actions and claims
   // about plant health or material quality.
-  "potting-workbench": 74,
+  "potting-workbench": 104,
   // The photographed wardrobe resolves a complete cabinet, garment rack,
   // shirt construction and accessory shelf; the ceiling blocks fabric and
   // stitching claims while allowing the reviewed 60-anchor set.

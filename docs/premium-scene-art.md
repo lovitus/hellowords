@@ -199,6 +199,14 @@ parts. The scenes now reach Hospital 440, Pathology lab 450, Hospital pharmacy
 LOD entries inside the existing reviewed crops, with no new portals or inferred
 clinical advice.
 
+The v132 continuation pass adds 150 more plant and garden parts without changing
+the five reviewed rasters: 30 greenhouse structures, 30 tomato-leaf details, 30
+potting-workbench tools, 30 raised-bed crops and 30 oak-leaf surface details.
+The scenes now reach Community garden 163, Greenhouse interior 101, Tomato plant
+99, Potting workbench 104 and Leaf 79. These labels stay inside existing local
+zones and remain detail-first LOD entries; no growth process or ecological claim
+is inferred from the still image.
+
 The medical-depth pass adds 150 structural anchors without changing the five
 medical images: Blood cell 91, Heart 91, Human body 90, Hemoglobin 81 and
 Oxygen molecule 90. The added membrane, vessel, joint, protein-fold and

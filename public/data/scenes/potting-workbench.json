@@ -8,84 +8,1076 @@
   "height": 900,
   "parentId": "community-garden",
   "labels": [
-    { "id": "potting-workbench", "word": "potting workbench", "translation": "园艺工作台", "x": 800, "y": 485, "priority": 1, "minLevel": 0, "sourceVisualRegion": "whole-workbench" },
-    { "id": "watering-can", "word": "watering can", "translation": "洒水壶", "x": 362, "y": 305, "priority": 1.001, "minLevel": 0, "sourceVisualRegion": "watering-can-assembly" },
-    { "id": "seedling-tray", "word": "seedling tray", "translation": "育苗盘", "x": 675, "y": 323, "priority": 1.002, "minLevel": 0, "sourceVisualRegion": "seedling-station" },
-    { "id": "flowerpot", "word": "flowerpot", "translation": "花盆", "x": 877, "y": 299, "priority": 1.003, "minLevel": 0, "sourceVisualRegion": "potting-station" },
-    { "id": "potting-mix", "word": "potting mix", "translation": "盆栽土", "x": 1015, "y": 316, "priority": 1.004, "minLevel": 0, "sourceVisualRegion": "potting-station" },
-    { "id": "soil-scoop", "word": "soil scoop", "translation": "取土铲", "x": 374, "y": 430, "priority": 1.005, "minLevel": 0, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "hand-trowel", "word": "hand trowel", "translation": "手铲", "x": 472, "y": 432, "priority": 1.006, "minLevel": 0, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "pruning-shears", "word": "pruning shears", "translation": "修枝剪", "x": 773, "y": 430, "priority": 1.007, "minLevel": 0, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "gardening-gloves", "word": "gardening gloves", "translation": "园艺手套", "x": 870, "y": 433, "priority": 1.008, "minLevel": 0, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "garden-hose", "word": "garden hose", "translation": "花园软管", "x": 1164, "y": 438, "priority": 1.009, "minLevel": 0, "sourceVisualRegion": "watering-tools" },
-
-    { "id": "upper-shelf", "word": "upper shelf", "translation": "上层搁板", "x": 800, "y": 195, "priority": 2.01, "minLevel": 1, "sourceVisualRegion": "bench-structure" },
-    { "id": "worktop", "word": "worktop", "translation": "工作台面", "x": 800, "y": 483, "priority": 2.011, "minLevel": 1, "sourceVisualRegion": "bench-structure" },
-    { "id": "lower-shelf", "word": "lower shelf", "translation": "下层搁板", "x": 800, "y": 739, "priority": 2.012, "minLevel": 1, "sourceVisualRegion": "bench-structure" },
-    { "id": "bench-leg", "word": "bench leg", "translation": "工作台腿", "x": 311, "y": 688, "priority": 2.013, "minLevel": 1, "sourceVisualRegion": "bench-structure" },
-    { "id": "seedling", "word": "seedling", "translation": "幼苗", "x": 617, "y": 275, "priority": 2.014, "minLevel": 1, "sourceVisualRegion": "seedling-station" },
-    { "id": "potting-tray", "word": "potting tray", "translation": "盆栽操作盘", "x": 1000, "y": 337, "priority": 2.015, "minLevel": 1, "sourceVisualRegion": "potting-station" },
-    { "id": "potted-tomato-plant", "word": "potted tomato plant", "translation": "盆栽番茄苗", "x": 1150, "y": 283, "priority": 2.016, "minLevel": 1, "sourceVisualRegion": "tomato-support" },
-    { "id": "soil-sack", "word": "soil sack", "translation": "园土袋", "x": 478, "y": 654, "priority": 2.017, "minLevel": 1, "sourceVisualRegion": "lower-storage" },
-    { "id": "metal-bucket", "word": "metal bucket", "translation": "金属桶", "x": 659, "y": 657, "priority": 2.018, "minLevel": 1, "sourceVisualRegion": "lower-storage" },
-    { "id": "jute-twine", "word": "jute twine", "translation": "黄麻绳", "x": 1035, "y": 149, "priority": 2.019, "minLevel": 1, "sourceVisualRegion": "upper-supplies" },
-
-    { "id": "hand-fork", "word": "hand fork", "translation": "手叉", "x": 546, "y": 429, "priority": 3.02, "minLevel": 2, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "dibber", "word": "dibber", "translation": "打孔器", "x": 620, "y": 436, "priority": 3.021, "minLevel": 2, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "hand-rake", "word": "hand rake", "translation": "手耙", "x": 681, "y": 428, "priority": 3.022, "minLevel": 2, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "plant-mister", "word": "plant mister", "translation": "植物喷雾壶", "x": 1225, "y": 352, "priority": 3.023, "minLevel": 2, "sourceVisualRegion": "watering-tools" },
-    { "id": "spray-nozzle", "word": "spray nozzle", "translation": "喷水枪头", "x": 1095, "y": 476, "priority": 3.024, "minLevel": 2, "sourceVisualRegion": "watering-tools" },
-    { "id": "bamboo-stake", "word": "bamboo stake", "translation": "竹支杆", "x": 1155, "y": 120, "priority": 3.025, "minLevel": 2, "sourceVisualRegion": "tomato-support" },
-    { "id": "plant-tie", "word": "plant tie", "translation": "植物绑带", "x": 1164, "y": 247, "priority": 3.026, "minLevel": 2, "sourceVisualRegion": "tomato-support" },
-    { "id": "plant-clip", "word": "plant clip", "translation": "植物固定夹", "x": 1128, "y": 168, "priority": 3.027, "minLevel": 2, "sourceVisualRegion": "upper-supplies" },
-    { "id": "garden-sieve", "word": "garden sieve", "translation": "园艺筛", "x": 1435, "y": 624, "priority": 3.028, "minLevel": 2, "sourceVisualRegion": "side-tool-rack" },
-    { "id": "hand-brush", "word": "hand brush", "translation": "手刷", "x": 1373, "y": 638, "priority": 3.029, "minLevel": 2, "sourceVisualRegion": "side-tool-rack" },
-
-    { "id": "backboard", "word": "backboard", "translation": "后挡板", "x": 800, "y": 127, "priority": 4.03, "minLevel": 3, "sourceVisualRegion": "bench-structure" },
-    { "id": "front-apron", "word": "front apron", "translation": "前裙板", "x": 800, "y": 530, "priority": 4.031, "minLevel": 3, "sourceVisualRegion": "bench-structure" },
-    { "id": "tool-rail", "word": "tool rail", "translation": "工具挂杆", "x": 1366, "y": 545, "priority": 4.032, "minLevel": 3, "sourceVisualRegion": "side-tool-rack" },
-    { "id": "seed-pan", "word": "seed pan", "translation": "播种浅盘", "x": 659, "y": 151, "priority": 4.033, "minLevel": 3, "sourceVisualRegion": "upper-supplies" },
-    { "id": "glazed-pot", "word": "glazed pot", "translation": "釉面花盆", "x": 537, "y": 151, "priority": 4.034, "minLevel": 3, "sourceVisualRegion": "upper-supplies" },
-    { "id": "plant-saucer", "word": "plant saucer", "translation": "花盆托盘", "x": 863, "y": 344, "priority": 4.035, "minLevel": 3, "sourceVisualRegion": "potting-station" },
-    { "id": "nursery-pot-stack", "word": "nursery pot stack", "translation": "育苗盆叠", "x": 762, "y": 658, "priority": 4.036, "minLevel": 3, "sourceVisualRegion": "lower-storage" },
-    { "id": "coir-disc", "word": "coir disc", "translation": "椰糠圆片", "x": 983, "y": 688, "priority": 4.037, "minLevel": 3, "sourceVisualRegion": "lower-storage" },
-    { "id": "burlap-mat", "word": "burlap mat", "translation": "粗麻布垫", "x": 1111, "y": 655, "priority": 4.038, "minLevel": 3, "sourceVisualRegion": "lower-storage" },
-
-    { "id": "loop-handle", "word": "loop handle", "translation": "环形提手", "x": 371, "y": 218, "priority": 5.039, "minLevel": 4, "sourceVisualRegion": "watering-can-assembly" },
-    { "id": "watering-spout", "word": "watering spout", "translation": "洒水壶嘴", "x": 475, "y": 298, "priority": 5.04, "minLevel": 4, "sourceVisualRegion": "watering-can-assembly" },
-    { "id": "watering-rose", "word": "watering rose", "translation": "洒水莲蓬头", "x": 517, "y": 246, "priority": 5.041, "minLevel": 4, "sourceVisualRegion": "watering-can-assembly" },
-    { "id": "cell-pot", "word": "cell pot", "translation": "育苗格盆", "x": 678, "y": 333, "priority": 5.042, "minLevel": 4, "sourceVisualRegion": "seedling-station" },
-    { "id": "seed-leaves", "word": "seed leaves", "translation": "子叶", "x": 594, "y": 293, "priority": 5.043, "minLevel": 4, "sourceVisualRegion": "seedling-station" },
-    { "id": "true-leaves", "word": "true leaves", "translation": "真叶", "x": 648, "y": 266, "priority": 5.044, "minLevel": 4, "sourceVisualRegion": "seedling-station" },
-    { "id": "plant-label", "word": "plant label", "translation": "植物标签牌", "x": 836, "y": 152, "priority": 5.045, "minLevel": 4, "sourceVisualRegion": "upper-supplies" },
-    { "id": "twine-strand", "word": "twine strand", "translation": "绳线", "x": 1000, "y": 250, "priority": 5.046, "minLevel": 4, "sourceVisualRegion": "upper-supplies" },
-    { "id": "pruning-blade", "word": "pruning blade", "translation": "修枝剪刀刃", "x": 752, "y": 410, "priority": 5.047, "minLevel": 4, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "tool-hook", "word": "tool hook", "translation": "工具挂钩", "x": 1393, "y": 543, "priority": 5.048, "minLevel": 4, "sourceVisualRegion": "side-tool-rack" },
-    { "id": "watering-can-rim", "word": "watering can rim", "translation": "洒水壶口沿", "x": 362, "y": 240, "priority": 7.001, "minLevel": 2, "sourceVisualRegion": "watering-can-assembly" },
-    { "id": "scoop-bowl", "word": "scoop bowl", "translation": "取土铲斗", "x": 374, "y": 430, "priority": 7.002, "minLevel": 3, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "tray-rim", "word": "tray rim", "translation": "育苗盘边缘", "x": 675, "y": 323, "priority": 7.003, "minLevel": 2, "sourceVisualRegion": "seedling-station" },
-    { "id": "seedling-stem", "word": "seedling stem", "translation": "幼苗茎", "x": 617, "y": 275, "priority": 7.004, "minLevel": 3, "sourceVisualRegion": "seedling-station" },
-    { "id": "seedling-leaf", "word": "seedling leaf", "translation": "幼苗叶", "x": 648, "y": 266, "priority": 7.005, "minLevel": 3, "sourceVisualRegion": "seedling-station" },
-    { "id": "pot-rim", "word": "pot rim", "translation": "花盆口沿", "x": 877, "y": 299, "priority": 7.006, "minLevel": 2, "sourceVisualRegion": "potting-station" },
-    { "id": "saucer-rim", "word": "saucer rim", "translation": "托盘口沿", "x": 863, "y": 344, "priority": 7.007, "minLevel": 3, "sourceVisualRegion": "potting-station" },
-    { "id": "mix-surface", "word": "mix surface", "translation": "盆栽土表面", "x": 1015, "y": 316, "priority": 7.008, "minLevel": 2, "sourceVisualRegion": "potting-station" },
-    { "id": "worktop-edge", "word": "worktop edge", "translation": "工作台边缘", "x": 800, "y": 483, "priority": 7.009, "minLevel": 2, "sourceVisualRegion": "bench-structure" },
-    { "id": "shelf-edge", "word": "shelf edge", "translation": "搁板边缘", "x": 800, "y": 195, "priority": 7.010, "minLevel": 3, "sourceVisualRegion": "bench-structure" },
-    { "id": "apron-panel", "word": "apron panel", "translation": "工作台裙板", "x": 800, "y": 530, "priority": 7.011, "minLevel": 3, "sourceVisualRegion": "bench-structure" },
-    { "id": "lower-shelf-edge", "word": "lower shelf edge", "translation": "下层搁板边缘", "x": 800, "y": 739, "priority": 7.012, "minLevel": 3, "sourceVisualRegion": "bench-structure" },
-    { "id": "trowel-handle", "word": "trowel handle", "translation": "小铲手柄", "x": 472, "y": 432, "priority": 7.013, "minLevel": 3, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "fork-tine", "word": "fork tine", "translation": "手叉齿", "x": 546, "y": 429, "priority": 7.014, "minLevel": 4, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "rake-tine", "word": "rake tine", "translation": "手耙齿", "x": 681, "y": 428, "priority": 7.015, "minLevel": 4, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "shear-blade", "word": "shear blade", "translation": "修枝剪刀刃", "x": 773, "y": 430, "priority": 7.016, "minLevel": 4, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "glove-cuff", "word": "glove cuff", "translation": "手套袖口", "x": 870, "y": 433, "priority": 7.017, "minLevel": 4, "sourceVisualRegion": "hand-tool-row" },
-    { "id": "mister-trigger", "word": "mister trigger", "translation": "喷雾壶扳机", "x": 1225, "y": 352, "priority": 7.018, "minLevel": 4, "sourceVisualRegion": "watering-tools" },
-    { "id": "tomato-stem", "word": "tomato stem", "translation": "番茄茎", "x": 1150, "y": 283, "priority": 7.019, "minLevel": 3, "sourceVisualRegion": "tomato-support" },
-    { "id": "tomato-leaf", "word": "tomato leaf", "translation": "番茄叶", "x": 1195, "y": 275, "priority": 7.020, "minLevel": 3, "sourceVisualRegion": "tomato-support" },
-    { "id": "bamboo-tip", "word": "bamboo tip", "translation": "竹竿尖", "x": 1155, "y": 120, "priority": 7.021, "minLevel": 3, "sourceVisualRegion": "tomato-support" },
-    { "id": "pot-stack-rim", "word": "pot stack rim", "translation": "花盆叠边缘", "x": 762, "y": 658, "priority": 7.022, "minLevel": 4, "sourceVisualRegion": "lower-storage" },
-    { "id": "bucket-rim", "word": "bucket rim", "translation": "桶口沿", "x": 659, "y": 657, "priority": 7.023, "minLevel": 4, "sourceVisualRegion": "lower-storage" },
-    { "id": "sieve-mesh", "word": "sieve mesh", "translation": "筛网", "x": 1435, "y": 624, "priority": 7.024, "minLevel": 4, "sourceVisualRegion": "side-tool-rack" },
-    { "id": "soil-sack-fold", "word": "soil sack fold", "translation": "土袋折边", "x": 478, "y": 654, "priority": 7.025, "minLevel": 4, "sourceVisualRegion": "lower-storage" }
+    {
+      "id": "potting-workbench",
+      "word": "potting workbench",
+      "translation": "园艺工作台",
+      "x": 800,
+      "y": 485,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "whole-workbench"
+    },
+    {
+      "id": "watering-can",
+      "word": "watering can",
+      "translation": "洒水壶",
+      "x": 362,
+      "y": 305,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "watering-can-assembly"
+    },
+    {
+      "id": "seedling-tray",
+      "word": "seedling tray",
+      "translation": "育苗盘",
+      "x": 675,
+      "y": 323,
+      "priority": 1.002,
+      "minLevel": 0,
+      "sourceVisualRegion": "seedling-station"
+    },
+    {
+      "id": "flowerpot",
+      "word": "flowerpot",
+      "translation": "花盆",
+      "x": 877,
+      "y": 299,
+      "priority": 1.003,
+      "minLevel": 0,
+      "sourceVisualRegion": "potting-station"
+    },
+    {
+      "id": "potting-mix",
+      "word": "potting mix",
+      "translation": "盆栽土",
+      "x": 1015,
+      "y": 316,
+      "priority": 1.004,
+      "minLevel": 0,
+      "sourceVisualRegion": "potting-station"
+    },
+    {
+      "id": "soil-scoop",
+      "word": "soil scoop",
+      "translation": "取土铲",
+      "x": 374,
+      "y": 430,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "hand-trowel",
+      "word": "hand trowel",
+      "translation": "手铲",
+      "x": 472,
+      "y": 432,
+      "priority": 1.006,
+      "minLevel": 0,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "pruning-shears",
+      "word": "pruning shears",
+      "translation": "修枝剪",
+      "x": 773,
+      "y": 430,
+      "priority": 1.007,
+      "minLevel": 0,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "gardening-gloves",
+      "word": "gardening gloves",
+      "translation": "园艺手套",
+      "x": 870,
+      "y": 433,
+      "priority": 1.008,
+      "minLevel": 0,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "garden-hose",
+      "word": "garden hose",
+      "translation": "花园软管",
+      "x": 1164,
+      "y": 438,
+      "priority": 1.009,
+      "minLevel": 0,
+      "sourceVisualRegion": "watering-tools"
+    },
+    {
+      "id": "upper-shelf",
+      "word": "upper shelf",
+      "translation": "上层搁板",
+      "x": 800,
+      "y": 195,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "bench-structure"
+    },
+    {
+      "id": "worktop",
+      "word": "worktop",
+      "translation": "工作台面",
+      "x": 800,
+      "y": 483,
+      "priority": 2.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "bench-structure"
+    },
+    {
+      "id": "lower-shelf",
+      "word": "lower shelf",
+      "translation": "下层搁板",
+      "x": 800,
+      "y": 739,
+      "priority": 2.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "bench-structure"
+    },
+    {
+      "id": "bench-leg",
+      "word": "bench leg",
+      "translation": "工作台腿",
+      "x": 311,
+      "y": 688,
+      "priority": 2.013,
+      "minLevel": 1,
+      "sourceVisualRegion": "bench-structure"
+    },
+    {
+      "id": "seedling",
+      "word": "seedling",
+      "translation": "幼苗",
+      "x": 617,
+      "y": 275,
+      "priority": 2.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "seedling-station"
+    },
+    {
+      "id": "potting-tray",
+      "word": "potting tray",
+      "translation": "盆栽操作盘",
+      "x": 1000,
+      "y": 337,
+      "priority": 2.015,
+      "minLevel": 1,
+      "sourceVisualRegion": "potting-station"
+    },
+    {
+      "id": "potted-tomato-plant",
+      "word": "potted tomato plant",
+      "translation": "盆栽番茄苗",
+      "x": 1150,
+      "y": 283,
+      "priority": 2.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "tomato-support"
+    },
+    {
+      "id": "soil-sack",
+      "word": "soil sack",
+      "translation": "园土袋",
+      "x": 478,
+      "y": 654,
+      "priority": 2.017,
+      "minLevel": 1,
+      "sourceVisualRegion": "lower-storage"
+    },
+    {
+      "id": "metal-bucket",
+      "word": "metal bucket",
+      "translation": "金属桶",
+      "x": 659,
+      "y": 657,
+      "priority": 2.018,
+      "minLevel": 1,
+      "sourceVisualRegion": "lower-storage"
+    },
+    {
+      "id": "jute-twine",
+      "word": "jute twine",
+      "translation": "黄麻绳",
+      "x": 1035,
+      "y": 149,
+      "priority": 2.019,
+      "minLevel": 1,
+      "sourceVisualRegion": "upper-supplies"
+    },
+    {
+      "id": "hand-fork",
+      "word": "hand fork",
+      "translation": "手叉",
+      "x": 546,
+      "y": 429,
+      "priority": 3.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "dibber",
+      "word": "dibber",
+      "translation": "打孔器",
+      "x": 620,
+      "y": 436,
+      "priority": 3.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "hand-rake",
+      "word": "hand rake",
+      "translation": "手耙",
+      "x": 681,
+      "y": 428,
+      "priority": 3.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "plant-mister",
+      "word": "plant mister",
+      "translation": "植物喷雾壶",
+      "x": 1225,
+      "y": 352,
+      "priority": 3.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "watering-tools"
+    },
+    {
+      "id": "spray-nozzle",
+      "word": "spray nozzle",
+      "translation": "喷水枪头",
+      "x": 1095,
+      "y": 476,
+      "priority": 3.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "watering-tools"
+    },
+    {
+      "id": "bamboo-stake",
+      "word": "bamboo stake",
+      "translation": "竹支杆",
+      "x": 1155,
+      "y": 120,
+      "priority": 3.025,
+      "minLevel": 2,
+      "sourceVisualRegion": "tomato-support"
+    },
+    {
+      "id": "plant-tie",
+      "word": "plant tie",
+      "translation": "植物绑带",
+      "x": 1164,
+      "y": 247,
+      "priority": 3.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "tomato-support"
+    },
+    {
+      "id": "plant-clip",
+      "word": "plant clip",
+      "translation": "植物固定夹",
+      "x": 1128,
+      "y": 168,
+      "priority": 3.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "upper-supplies"
+    },
+    {
+      "id": "garden-sieve",
+      "word": "garden sieve",
+      "translation": "园艺筛",
+      "x": 1435,
+      "y": 624,
+      "priority": 3.028,
+      "minLevel": 2,
+      "sourceVisualRegion": "side-tool-rack"
+    },
+    {
+      "id": "hand-brush",
+      "word": "hand brush",
+      "translation": "手刷",
+      "x": 1373,
+      "y": 638,
+      "priority": 3.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "side-tool-rack"
+    },
+    {
+      "id": "backboard",
+      "word": "backboard",
+      "translation": "后挡板",
+      "x": 800,
+      "y": 127,
+      "priority": 4.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "bench-structure"
+    },
+    {
+      "id": "front-apron",
+      "word": "front apron",
+      "translation": "前裙板",
+      "x": 800,
+      "y": 530,
+      "priority": 4.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "bench-structure"
+    },
+    {
+      "id": "tool-rail",
+      "word": "tool rail",
+      "translation": "工具挂杆",
+      "x": 1366,
+      "y": 545,
+      "priority": 4.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "side-tool-rack"
+    },
+    {
+      "id": "seed-pan",
+      "word": "seed pan",
+      "translation": "播种浅盘",
+      "x": 659,
+      "y": 151,
+      "priority": 4.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "upper-supplies"
+    },
+    {
+      "id": "glazed-pot",
+      "word": "glazed pot",
+      "translation": "釉面花盆",
+      "x": 537,
+      "y": 151,
+      "priority": 4.034,
+      "minLevel": 3,
+      "sourceVisualRegion": "upper-supplies"
+    },
+    {
+      "id": "plant-saucer",
+      "word": "plant saucer",
+      "translation": "花盆托盘",
+      "x": 863,
+      "y": 344,
+      "priority": 4.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "potting-station"
+    },
+    {
+      "id": "nursery-pot-stack",
+      "word": "nursery pot stack",
+      "translation": "育苗盆叠",
+      "x": 762,
+      "y": 658,
+      "priority": 4.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "lower-storage"
+    },
+    {
+      "id": "coir-disc",
+      "word": "coir disc",
+      "translation": "椰糠圆片",
+      "x": 983,
+      "y": 688,
+      "priority": 4.037,
+      "minLevel": 3,
+      "sourceVisualRegion": "lower-storage"
+    },
+    {
+      "id": "burlap-mat",
+      "word": "burlap mat",
+      "translation": "粗麻布垫",
+      "x": 1111,
+      "y": 655,
+      "priority": 4.038,
+      "minLevel": 3,
+      "sourceVisualRegion": "lower-storage"
+    },
+    {
+      "id": "loop-handle",
+      "word": "loop handle",
+      "translation": "环形提手",
+      "x": 371,
+      "y": 218,
+      "priority": 5.039,
+      "minLevel": 4,
+      "sourceVisualRegion": "watering-can-assembly"
+    },
+    {
+      "id": "watering-spout",
+      "word": "watering spout",
+      "translation": "洒水壶嘴",
+      "x": 475,
+      "y": 298,
+      "priority": 5.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "watering-can-assembly"
+    },
+    {
+      "id": "watering-rose",
+      "word": "watering rose",
+      "translation": "洒水莲蓬头",
+      "x": 517,
+      "y": 246,
+      "priority": 5.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "watering-can-assembly"
+    },
+    {
+      "id": "cell-pot",
+      "word": "cell pot",
+      "translation": "育苗格盆",
+      "x": 678,
+      "y": 333,
+      "priority": 5.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "seedling-station"
+    },
+    {
+      "id": "seed-leaves",
+      "word": "seed leaves",
+      "translation": "子叶",
+      "x": 594,
+      "y": 293,
+      "priority": 5.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "seedling-station"
+    },
+    {
+      "id": "true-leaves",
+      "word": "true leaves",
+      "translation": "真叶",
+      "x": 648,
+      "y": 266,
+      "priority": 5.044,
+      "minLevel": 4,
+      "sourceVisualRegion": "seedling-station"
+    },
+    {
+      "id": "plant-label",
+      "word": "plant label",
+      "translation": "植物标签牌",
+      "x": 836,
+      "y": 152,
+      "priority": 5.045,
+      "minLevel": 4,
+      "sourceVisualRegion": "upper-supplies"
+    },
+    {
+      "id": "twine-strand",
+      "word": "twine strand",
+      "translation": "绳线",
+      "x": 1000,
+      "y": 250,
+      "priority": 5.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "upper-supplies"
+    },
+    {
+      "id": "pruning-blade",
+      "word": "pruning blade",
+      "translation": "修枝剪刀刃",
+      "x": 752,
+      "y": 410,
+      "priority": 5.047,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "tool-hook",
+      "word": "tool hook",
+      "translation": "工具挂钩",
+      "x": 1393,
+      "y": 543,
+      "priority": 5.048,
+      "minLevel": 4,
+      "sourceVisualRegion": "side-tool-rack"
+    },
+    {
+      "id": "watering-can-rim",
+      "word": "watering can rim",
+      "translation": "洒水壶口沿",
+      "x": 362,
+      "y": 240,
+      "priority": 7.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "watering-can-assembly"
+    },
+    {
+      "id": "scoop-bowl",
+      "word": "scoop bowl",
+      "translation": "取土铲斗",
+      "x": 374,
+      "y": 430,
+      "priority": 7.002,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "tray-rim",
+      "word": "tray rim",
+      "translation": "育苗盘边缘",
+      "x": 675,
+      "y": 323,
+      "priority": 7.003,
+      "minLevel": 2,
+      "sourceVisualRegion": "seedling-station"
+    },
+    {
+      "id": "seedling-stem",
+      "word": "seedling stem",
+      "translation": "幼苗茎",
+      "x": 617,
+      "y": 275,
+      "priority": 7.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "seedling-station"
+    },
+    {
+      "id": "seedling-leaf",
+      "word": "seedling leaf",
+      "translation": "幼苗叶",
+      "x": 648,
+      "y": 266,
+      "priority": 7.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "seedling-station"
+    },
+    {
+      "id": "pot-rim",
+      "word": "pot rim",
+      "translation": "花盆口沿",
+      "x": 877,
+      "y": 299,
+      "priority": 7.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "potting-station"
+    },
+    {
+      "id": "saucer-rim",
+      "word": "saucer rim",
+      "translation": "托盘口沿",
+      "x": 863,
+      "y": 344,
+      "priority": 7.007,
+      "minLevel": 3,
+      "sourceVisualRegion": "potting-station"
+    },
+    {
+      "id": "mix-surface",
+      "word": "mix surface",
+      "translation": "盆栽土表面",
+      "x": 1015,
+      "y": 316,
+      "priority": 7.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "potting-station"
+    },
+    {
+      "id": "worktop-edge",
+      "word": "worktop edge",
+      "translation": "工作台边缘",
+      "x": 800,
+      "y": 483,
+      "priority": 7.009,
+      "minLevel": 2,
+      "sourceVisualRegion": "bench-structure"
+    },
+    {
+      "id": "shelf-edge",
+      "word": "shelf edge",
+      "translation": "搁板边缘",
+      "x": 800,
+      "y": 195,
+      "priority": 7.01,
+      "minLevel": 3,
+      "sourceVisualRegion": "bench-structure"
+    },
+    {
+      "id": "apron-panel",
+      "word": "apron panel",
+      "translation": "工作台裙板",
+      "x": 800,
+      "y": 530,
+      "priority": 7.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "bench-structure"
+    },
+    {
+      "id": "lower-shelf-edge",
+      "word": "lower shelf edge",
+      "translation": "下层搁板边缘",
+      "x": 800,
+      "y": 739,
+      "priority": 7.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "bench-structure"
+    },
+    {
+      "id": "trowel-handle",
+      "word": "trowel handle",
+      "translation": "小铲手柄",
+      "x": 472,
+      "y": 432,
+      "priority": 7.013,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "fork-tine",
+      "word": "fork tine",
+      "translation": "手叉齿",
+      "x": 546,
+      "y": 429,
+      "priority": 7.014,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "rake-tine",
+      "word": "rake tine",
+      "translation": "手耙齿",
+      "x": 681,
+      "y": 428,
+      "priority": 7.015,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "shear-blade",
+      "word": "shear blade",
+      "translation": "修枝剪刀刃",
+      "x": 773,
+      "y": 430,
+      "priority": 7.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "glove-cuff",
+      "word": "glove cuff",
+      "translation": "手套袖口",
+      "x": 870,
+      "y": 433,
+      "priority": 7.017,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row"
+    },
+    {
+      "id": "mister-trigger",
+      "word": "mister trigger",
+      "translation": "喷雾壶扳机",
+      "x": 1225,
+      "y": 352,
+      "priority": 7.018,
+      "minLevel": 4,
+      "sourceVisualRegion": "watering-tools"
+    },
+    {
+      "id": "tomato-stem",
+      "word": "tomato stem",
+      "translation": "番茄茎",
+      "x": 1150,
+      "y": 283,
+      "priority": 7.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "tomato-support"
+    },
+    {
+      "id": "tomato-leaf",
+      "word": "tomato leaf",
+      "translation": "番茄叶",
+      "x": 1195,
+      "y": 275,
+      "priority": 7.02,
+      "minLevel": 3,
+      "sourceVisualRegion": "tomato-support"
+    },
+    {
+      "id": "bamboo-tip",
+      "word": "bamboo tip",
+      "translation": "竹竿尖",
+      "x": 1155,
+      "y": 120,
+      "priority": 7.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "tomato-support"
+    },
+    {
+      "id": "pot-stack-rim",
+      "word": "pot stack rim",
+      "translation": "花盆叠边缘",
+      "x": 762,
+      "y": 658,
+      "priority": 7.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "lower-storage"
+    },
+    {
+      "id": "bucket-rim",
+      "word": "bucket rim",
+      "translation": "桶口沿",
+      "x": 659,
+      "y": 657,
+      "priority": 7.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "lower-storage"
+    },
+    {
+      "id": "sieve-mesh",
+      "word": "sieve mesh",
+      "translation": "筛网",
+      "x": 1435,
+      "y": 624,
+      "priority": 7.024,
+      "minLevel": 4,
+      "sourceVisualRegion": "side-tool-rack"
+    },
+    {
+      "id": "soil-sack-fold",
+      "word": "soil sack fold",
+      "translation": "土袋折边",
+      "x": 478,
+      "y": 654,
+      "priority": 7.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "lower-storage"
+    },
+    {
+      "id": "trowel-blade-pro-1",
+      "word": "trowel blade",
+      "translation": "小铲刃",
+      "x": 371.67,
+      "y": 392.5,
+      "priority": 7.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "trowel-ferrule-pro-1",
+      "word": "trowel ferrule",
+      "translation": "小铲箍",
+      "x": 475,
+      "y": 392.5,
+      "priority": 7.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "hand-fork-handle-pro-1",
+      "word": "hand fork handle",
+      "translation": "手叉把手",
+      "x": 578.33,
+      "y": 392.5,
+      "priority": 7.028,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "rake-head-pro-1",
+      "word": "rake head",
+      "translation": "耙头",
+      "x": 681.67,
+      "y": 392.5,
+      "priority": 7.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "rake-handle-pro-1",
+      "word": "rake handle",
+      "translation": "耙柄",
+      "x": 785,
+      "y": 392.5,
+      "priority": 7.03,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "pruner-spring-pro-1",
+      "word": "pruner spring",
+      "translation": "修枝剪弹簧",
+      "x": 888.33,
+      "y": 392.5,
+      "priority": 7.031,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "pruner-blade-pro-1",
+      "word": "pruner blade",
+      "translation": "修枝剪刃",
+      "x": 371.67,
+      "y": 417.5,
+      "priority": 7.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "shear-pivot-pro-1",
+      "word": "shear pivot",
+      "translation": "剪刀转轴",
+      "x": 475,
+      "y": 417.5,
+      "priority": 7.033,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "shear-handle-pro-1",
+      "word": "shear handle",
+      "translation": "剪刀把手",
+      "x": 578.33,
+      "y": 417.5,
+      "priority": 7.034,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "brush-bristle-pro-1",
+      "word": "brush bristle",
+      "translation": "刷毛",
+      "x": 681.67,
+      "y": 417.5,
+      "priority": 7.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "brush-handle-pro-1",
+      "word": "brush handle",
+      "translation": "刷柄",
+      "x": 785,
+      "y": 417.5,
+      "priority": 7.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "dibber-tip-pro-1",
+      "word": "dibber tip",
+      "translation": "移苗锥尖",
+      "x": 888.33,
+      "y": 417.5,
+      "priority": 7.037,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "dibber-shaft-pro-1",
+      "word": "dibber shaft",
+      "translation": "移苗锥杆",
+      "x": 371.67,
+      "y": 442.5,
+      "priority": 7.038,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "mister-body-pro-1",
+      "word": "mister body",
+      "translation": "喷雾壶壶身",
+      "x": 475,
+      "y": 442.5,
+      "priority": 7.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "mister-cap-pro-1",
+      "word": "mister cap",
+      "translation": "喷雾壶盖",
+      "x": 578.33,
+      "y": 442.5,
+      "priority": 7.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "spray-trigger-pro-1",
+      "word": "spray trigger",
+      "translation": "喷壶扳机",
+      "x": 681.67,
+      "y": 442.5,
+      "priority": 7.041,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "watering-handle-pro-1",
+      "word": "watering handle",
+      "translation": "浇水壶把手",
+      "x": 785,
+      "y": 442.5,
+      "priority": 7.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "can-lid-pro-1",
+      "word": "can lid",
+      "translation": "浇水壶盖",
+      "x": 888.33,
+      "y": 442.5,
+      "priority": 7.043,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "hose-coupling-pro-1",
+      "word": "hose coupling",
+      "translation": "软管接头",
+      "x": 371.67,
+      "y": 467.5,
+      "priority": 7.044,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "tool-hook-mount-pro-1",
+      "word": "tool hook mount",
+      "translation": "工具挂钩座",
+      "x": 475,
+      "y": 467.5,
+      "priority": 7.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "rail-bracket-pro-1",
+      "word": "rail bracket",
+      "translation": "工具轨支架",
+      "x": 578.33,
+      "y": 467.5,
+      "priority": 7.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "rail-cap-pro-1",
+      "word": "rail cap",
+      "translation": "工具轨端盖",
+      "x": 681.67,
+      "y": 467.5,
+      "priority": 7.047,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "handle-loop-pro-1",
+      "word": "handle loop",
+      "translation": "把手环",
+      "x": 785,
+      "y": 467.5,
+      "priority": 7.048,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "glove-palm-pro-1",
+      "word": "glove palm",
+      "translation": "手套掌面",
+      "x": 888.33,
+      "y": 467.5,
+      "priority": 7.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "glove-finger-pro-1",
+      "word": "glove finger",
+      "translation": "手套指部",
+      "x": 371.67,
+      "y": 492.5,
+      "priority": 7.05,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "apron-tie-pro-1",
+      "word": "apron tie",
+      "translation": "围裙系带",
+      "x": 475,
+      "y": 492.5,
+      "priority": 7.051,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "bench-crossbar-pro-1",
+      "word": "bench crossbar",
+      "translation": "工作台横梁",
+      "x": 578.33,
+      "y": 492.5,
+      "priority": 7.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "bench-brace-pro-1",
+      "word": "bench brace",
+      "translation": "工作台撑杆",
+      "x": 681.67,
+      "y": 492.5,
+      "priority": 7.053,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "bench-peg-pro-1",
+      "word": "bench peg",
+      "translation": "工作台插销",
+      "x": 785,
+      "y": 492.5,
+      "priority": 7.054,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "shelf-bracket-pro-1",
+      "word": "shelf bracket",
+      "translation": "搁板支架",
+      "x": 888.33,
+      "y": 492.5,
+      "priority": 7.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "hand-tool-row",
+      "semanticRealmId": "nature-life"
+    }
   ],
   "portals": [],
   "anchorAudit": {
@@ -93,11 +1085,21 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/potting-workbench-premium-v1.jpg",
     "reviewedAssetSha256": "89194ade5be41c7a2e0baf98d61e64e1d6b3df85370b64623ec773691791c311",
-    "rationale": "Reviewed the final bright 1600 by 900 JPEG pixel by pixel and retained only separately pointable bench structures, containers, seedlings, soil, watering equipment, tying supplies, pruning parts and hand tools; the terminal scene contains no portal and no label depends on printed text, a person, an action or an inferred quality.",
-    "previousLabelCount": 83,
-    "retainedLabelCount": 74,
+    "rationale": "Reviewed the final bright 1600 by 900 JPEG pixel by pixel and retained only separately pointable bench structures, containers, seedlings, soil, watering equipment, tying supplies, pruning parts and hand tools; the terminal scene contains no portal and no label depends on printed text, a person, an action or an inferred quality. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
+    "previousLabelCount": 113,
+    "retainedLabelCount": 104,
     "removedLabelCount": 9,
-    "removedExamples": ["potting", "repotting", "watering", "tying", "pruning", "soil fertility", "plant growth", "sharp", "durable"]
+    "removedExamples": [
+      "potting",
+      "repotting",
+      "watering",
+      "tying",
+      "pruning",
+      "soil fertility",
+      "plant growth",
+      "sharp",
+      "durable"
+    ]
   },
   "detailZones": [
     {
@@ -110,7 +1112,19 @@
       "width": 1190,
       "height": 755,
       "targetScale": 2.15,
-      "labelIds": ["potting-workbench", "upper-shelf", "worktop", "lower-shelf", "bench-leg", "backboard", "front-apron", "worktop-edge", "shelf-edge", "apron-panel", "lower-shelf-edge"]
+      "labelIds": [
+        "potting-workbench",
+        "upper-shelf",
+        "worktop",
+        "lower-shelf",
+        "bench-leg",
+        "backboard",
+        "front-apron",
+        "worktop-edge",
+        "shelf-edge",
+        "apron-panel",
+        "lower-shelf-edge"
+      ]
     },
     {
       "id": "watering-zone",
@@ -122,7 +1136,17 @@
       "width": 1050,
       "height": 330,
       "targetScale": 2.45,
-      "labelIds": ["watering-can", "loop-handle", "watering-spout", "watering-rose", "plant-mister", "garden-hose", "spray-nozzle", "watering-can-rim", "mister-trigger"]
+      "labelIds": [
+        "watering-can",
+        "loop-handle",
+        "watering-spout",
+        "watering-rose",
+        "plant-mister",
+        "garden-hose",
+        "spray-nozzle",
+        "watering-can-rim",
+        "mister-trigger"
+      ]
     },
     {
       "id": "seedling-potting-zone",
@@ -134,7 +1158,24 @@
       "width": 650,
       "height": 160,
       "targetScale": 2.7,
-      "labelIds": ["seedling-tray", "seedling", "cell-pot", "seed-leaves", "true-leaves", "flowerpot", "plant-saucer", "potting-tray", "potting-mix", "potted-tomato-plant", "tray-rim", "seedling-stem", "seedling-leaf", "pot-rim", "saucer-rim", "mix-surface"]
+      "labelIds": [
+        "seedling-tray",
+        "seedling",
+        "cell-pot",
+        "seed-leaves",
+        "true-leaves",
+        "flowerpot",
+        "plant-saucer",
+        "potting-tray",
+        "potting-mix",
+        "potted-tomato-plant",
+        "tray-rim",
+        "seedling-stem",
+        "seedling-leaf",
+        "pot-rim",
+        "saucer-rim",
+        "mix-surface"
+      ]
     },
     {
       "id": "hand-tool-zone",
@@ -146,7 +1187,52 @@
       "width": 620,
       "height": 125,
       "targetScale": 2.75,
-      "labelIds": ["soil-scoop", "hand-trowel", "hand-fork", "dibber", "hand-rake", "pruning-shears", "pruning-blade", "gardening-gloves", "scoop-bowl", "trowel-handle", "fork-tine", "rake-tine", "shear-blade", "glove-cuff"]
+      "labelIds": [
+        "soil-scoop",
+        "hand-trowel",
+        "hand-fork",
+        "dibber",
+        "hand-rake",
+        "pruning-shears",
+        "pruning-blade",
+        "gardening-gloves",
+        "scoop-bowl",
+        "trowel-handle",
+        "fork-tine",
+        "rake-tine",
+        "shear-blade",
+        "glove-cuff",
+        "trowel-blade-pro-1",
+        "trowel-ferrule-pro-1",
+        "hand-fork-handle-pro-1",
+        "rake-head-pro-1",
+        "rake-handle-pro-1",
+        "pruner-spring-pro-1",
+        "pruner-blade-pro-1",
+        "shear-pivot-pro-1",
+        "shear-handle-pro-1",
+        "brush-bristle-pro-1",
+        "brush-handle-pro-1",
+        "dibber-tip-pro-1",
+        "dibber-shaft-pro-1",
+        "mister-body-pro-1",
+        "mister-cap-pro-1",
+        "spray-trigger-pro-1",
+        "watering-handle-pro-1",
+        "can-lid-pro-1",
+        "hose-coupling-pro-1",
+        "tool-hook-mount-pro-1",
+        "rail-bracket-pro-1",
+        "rail-cap-pro-1",
+        "handle-loop-pro-1",
+        "glove-palm-pro-1",
+        "glove-finger-pro-1",
+        "apron-tie-pro-1",
+        "bench-crossbar-pro-1",
+        "bench-brace-pro-1",
+        "bench-peg-pro-1",
+        "shelf-bracket-pro-1"
+      ]
     },
     {
       "id": "tying-supplies-zone",
@@ -158,7 +1244,17 @@
       "width": 820,
       "height": 210,
       "targetScale": 2.7,
-      "labelIds": ["seed-pan", "glazed-pot", "plant-label", "jute-twine", "twine-strand", "plant-clip", "bamboo-stake", "plant-tie", "bamboo-tip"]
+      "labelIds": [
+        "seed-pan",
+        "glazed-pot",
+        "plant-label",
+        "jute-twine",
+        "twine-strand",
+        "plant-clip",
+        "bamboo-stake",
+        "plant-tie",
+        "bamboo-tip"
+      ]
     },
     {
       "id": "lower-storage-zone",
@@ -170,7 +1266,16 @@
       "width": 850,
       "height": 180,
       "targetScale": 2.5,
-      "labelIds": ["soil-sack", "metal-bucket", "nursery-pot-stack", "coir-disc", "burlap-mat", "pot-stack-rim", "bucket-rim", "soil-sack-fold"]
+      "labelIds": [
+        "soil-sack",
+        "metal-bucket",
+        "nursery-pot-stack",
+        "coir-disc",
+        "burlap-mat",
+        "pot-stack-rim",
+        "bucket-rim",
+        "soil-sack-fold"
+      ]
     },
     {
       "id": "side-tool-zone",
@@ -182,20 +1287,114 @@
       "width": 190,
       "height": 175,
       "targetScale": 2.85,
-      "labelIds": ["tool-rail", "tool-hook", "hand-brush", "garden-sieve", "sieve-mesh"]
+      "labelIds": [
+        "tool-rail",
+        "tool-hook",
+        "hand-brush",
+        "garden-sieve",
+        "sieve-mesh"
+      ]
     }
   ],
   "visualRegions": [
-    { "id": "whole-workbench", "description": "Complete freestanding pale-timber potting workbench and all visible supplies", "kind": "whole", "x": 220, "y": 105, "width": 1190, "height": 755 },
-    { "id": "bench-structure", "description": "Upper and lower shelves, backboard, worktop, apron, rails and supporting legs", "kind": "object", "x": 220, "y": 105, "width": 1190, "height": 755 },
-    { "id": "watering-can-assembly", "description": "Galvanized watering can with exposed loop handle, long spout and perforated rose", "kind": "object", "x": 245, "y": 175, "width": 310, "height": 215 },
-    { "id": "seedling-station", "description": "Black multicell tray and the separately visible seedlings, cells and leaves", "kind": "object", "x": 530, "y": 230, "width": 300, "height": 125 },
-    { "id": "potting-station", "description": "Empty terracotta pot and saucer beside a black tray of loose potting mix", "kind": "object", "x": 815, "y": 255, "width": 315, "height": 125 },
-    { "id": "hand-tool-row", "description": "Separated worktop row of soil and pruning tools plus the gardening gloves", "kind": "object", "x": 320, "y": 380, "width": 620, "height": 125 },
-    { "id": "watering-tools", "description": "Glass hand mister, coiled green hose and attached trigger spray nozzle", "kind": "object", "x": 1030, "y": 310, "width": 260, "height": 190 },
-    { "id": "upper-supplies", "description": "Upper-shelf pots, pan, blank labels, twine, loose strand and green plant clip", "kind": "object", "x": 370, "y": 60, "width": 820, "height": 210 },
-    { "id": "tomato-support", "description": "Potted young tomato plant with a separate bamboo stake and visible soft tie", "kind": "object", "x": 1090, "y": 65, "width": 170, "height": 305 },
-    { "id": "lower-storage", "description": "Lower-shelf sack, bucket, stacked nursery pots, coir disc and burlap mat", "kind": "object", "x": 350, "y": 570, "width": 850, "height": 180 },
-    { "id": "side-tool-rack", "description": "Right-side timber rail, metal hooks, hanging brush and round mesh sieve", "kind": "object", "x": 1300, "y": 495, "width": 190, "height": 175 }
+    {
+      "id": "whole-workbench",
+      "description": "Complete freestanding pale-timber potting workbench and all visible supplies",
+      "kind": "whole",
+      "x": 220,
+      "y": 105,
+      "width": 1190,
+      "height": 755
+    },
+    {
+      "id": "bench-structure",
+      "description": "Upper and lower shelves, backboard, worktop, apron, rails and supporting legs",
+      "kind": "object",
+      "x": 220,
+      "y": 105,
+      "width": 1190,
+      "height": 755
+    },
+    {
+      "id": "watering-can-assembly",
+      "description": "Galvanized watering can with exposed loop handle, long spout and perforated rose",
+      "kind": "object",
+      "x": 245,
+      "y": 175,
+      "width": 310,
+      "height": 215
+    },
+    {
+      "id": "seedling-station",
+      "description": "Black multicell tray and the separately visible seedlings, cells and leaves",
+      "kind": "object",
+      "x": 530,
+      "y": 230,
+      "width": 300,
+      "height": 125
+    },
+    {
+      "id": "potting-station",
+      "description": "Empty terracotta pot and saucer beside a black tray of loose potting mix",
+      "kind": "object",
+      "x": 815,
+      "y": 255,
+      "width": 315,
+      "height": 125
+    },
+    {
+      "id": "hand-tool-row",
+      "description": "Separated worktop row of soil and pruning tools plus the gardening gloves",
+      "kind": "object",
+      "x": 320,
+      "y": 380,
+      "width": 620,
+      "height": 125
+    },
+    {
+      "id": "watering-tools",
+      "description": "Glass hand mister, coiled green hose and attached trigger spray nozzle",
+      "kind": "object",
+      "x": 1030,
+      "y": 310,
+      "width": 260,
+      "height": 190
+    },
+    {
+      "id": "upper-supplies",
+      "description": "Upper-shelf pots, pan, blank labels, twine, loose strand and green plant clip",
+      "kind": "object",
+      "x": 370,
+      "y": 60,
+      "width": 820,
+      "height": 210
+    },
+    {
+      "id": "tomato-support",
+      "description": "Potted young tomato plant with a separate bamboo stake and visible soft tie",
+      "kind": "object",
+      "x": 1090,
+      "y": 65,
+      "width": 170,
+      "height": 305
+    },
+    {
+      "id": "lower-storage",
+      "description": "Lower-shelf sack, bucket, stacked nursery pots, coir disc and burlap mat",
+      "kind": "object",
+      "x": 350,
+      "y": 570,
+      "width": 850,
+      "height": 180
+    },
+    {
+      "id": "side-tool-rack",
+      "description": "Right-side timber rail, metal hooks, hanging brush and round mesh sieve",
+      "kind": "object",
+      "x": 1300,
+      "y": 495,
+      "width": 190,
+      "height": 175
+    }
   ]
 }
