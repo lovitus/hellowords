@@ -1042,6 +1042,15 @@
       "y": 93.730074,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "portal-supermarket-backroom-service-door",
+      "description": "Complete visible service door at the right edge of the supermarket photograph",
+      "kind": "object",
+      "x": 1505,
+      "y": 90,
+      "width": 90,
+      "height": 310
     }
   ],
   "detailZones": [
@@ -2511,5 +2520,18 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-supermarket-backroom",
+      "label": "Enter the supermarket backroom",
+      "translation": "进入超市后场",
+      "childSceneId": "supermarket-backroom",
+      "sourceVisualRegion": "portal-supermarket-backroom-service-door",
+      "x": 1505,
+      "y": 90,
+      "width": 90,
+      "height": 310,
+      "enterScale": 4.2
+    }
+  ]
 }

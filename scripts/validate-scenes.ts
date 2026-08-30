@@ -129,6 +129,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // arrival, guest-room, bathroom and housekeeping parts independently visible.
   "hotel-exterior": 64,
   "hotel-lobby-rooms": 90,
+  // The connected supermarket backroom keeps receiving, material-handling,
+  // pallet-rack, refrigeration, packing and sanitation hardware visible.
+  "supermarket-backroom": 120,
   "city-cafe": 36,
   "electric-bus": 32,
   "railway-platform": 32,
@@ -195,6 +198,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "service-core": 90,
   "hotel-exterior": 69,
   "hotel-lobby-rooms": 107,
+  "supermarket-backroom": 143,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   // The final pixel pass also retains separately visible fossil, telescope,

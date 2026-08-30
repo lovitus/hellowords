@@ -13,6 +13,11 @@
       "parentId": "world-map"
     },
     {
+      "id": "supermarket-backroom",
+      "title": "Supermarket backroom",
+      "parentId": "supermarket-grocery"
+    },
+    {
       "id": "apartment",
       "title": "Apartment",
       "parentId": "world-map"

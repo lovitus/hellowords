@@ -255,6 +255,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 50,
     },
   },
+  "supermarket-backroom": {
+    asset: "/scenes/supermarket-backroom-premium-v1.jpg",
+    sha256: "d04f6dd8280bb1581a865a543d3ed7d954c060c8c98676dbc651619a464fad31",
+    quality: {
+      minMeanLuminance: 110,
+      maxMeanLuminance: 180,
+      maxDarkFraction: 0.25,
+      maxDeepDarkFraction: 0.12,
+      minMeanChroma: 0.05,
+      maxMeanChroma: 0.18,
+      maxChannelMeanSpread: 30,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

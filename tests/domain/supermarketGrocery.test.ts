@@ -58,14 +58,14 @@ async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8")) as T;
 }
 
-test("supermarket grocery is an audited terminal scene with dense practical vocabulary", async () => {
+test("supermarket grocery keeps dense practical vocabulary and one visible backroom branch", async () => {
   const scene = await readJson<Scene>("supermarket-grocery.json");
   assert.equal(scene.id, "supermarket-grocery");
   assert.equal(scene.parentId, "world-map");
   assert.equal(scene.asset, "/scenes/supermarket-grocery-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 115);
-  assert.equal(scene.visualRegions.length, scene.labels.length);
+  assert.equal(scene.visualRegions.length, scene.labels.length + 1);
   assert.deepEqual(scene.detailZones.map((zone) => [zone.id, zone.labelIds.length]), [
     ["supermarket-grocery-zone-produce-section", 23],
     ["supermarket-grocery-zone-chilled-dairy", 24],
@@ -77,7 +77,18 @@ test("supermarket grocery is an audited terminal scene with dense practical voca
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
     [20, 29, 32, 22, 12],
   );
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(scene.portals, [{
+    id: "enter-supermarket-backroom",
+    label: "Enter the supermarket backroom",
+    translation: "进入超市后场",
+    childSceneId: "supermarket-backroom",
+    sourceVisualRegion: "portal-supermarket-backroom-service-door",
+    x: 1_505,
+    y: 90,
+    width: 90,
+    height: 310,
+    enterScale: 4.2,
+  }]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);
