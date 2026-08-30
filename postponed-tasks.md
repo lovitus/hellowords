@@ -4,11 +4,18 @@
 
 ## 当前交付游标
 
-- 公开版本：`v137-f0c7b67`（线上已完成真实冒烟）
-- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=137-f0c7b67#world>
-- 源码：`f0c7b6732ae0487c5af6e249c011525d19b70ae9`（v137 在 v136 基础上为交通枢纽、园艺工作台、温室育苗区和叶片特写加入 47 个显式像素锚定的部件词；保留小地图、LOD、缩放与门户几何）。累计空间锚点 7,273、6,195 个去重词；继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：v137 已公开发布并完成真实入口冒烟；交通枢纽 175、园艺工作台 116、温室 112、叶片 121 个词，新增细分区均可聚焦并读到新词，浏览器日志为空；下一步继续按“先堆词、再精修”扩展尚未达到审计上限的场景。
-- 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
+- 公开版本：`v141-1856302`（线上已完成真实冒烟）
+- 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=141-1856302#world>
+- 源码：`1856302b258bc8ec57b4d3a6136aa8ee6d5c92dc`（v141 在学校场景批次基础上新增可进入的 Radiology suite：87 个真实影像设备/部件词、6 个细分区；并把 School campus 入口移到学校面板下方已审计的器材/准备区，避免移动端首页分类遮挡）。累计 45 个场景、7,456 个空间锚点、6,372 个去重展示词、323 个细分区、44 个门户；世界地图仍为 1,289 个去重锚点。继续保留屏幕外词的每帧裁剪。
+- 当前工作批次：v141 已公开发布并完成真实入口冒烟；路径 `City street → Transit hub → Urban services → Hospital → Radiology suite` 可进入，公开页读到 CT/MRI/X-ray/超声等 87 词与 6 个细分区。完整门禁：241 个域/语义测试、110 个浏览器测试通过（36 个设计性跳过）、性能 2/2 通过。下一步继续按“先堆场景与词、再精修”新增 Airport baggage claim 或 Office service core；必须先生成并审计新图片，不用同义词填充。
+- 子 agent：`/root/exploration_ux_audit` 与 `/root/scene_content_batch` 已完成本批、保持可复用；继续并行推进内容与必要的阻断性体验修复。历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
+
+### v140/v141 交付记录（2026-08-30）
+
+- v140 首次公开学校批次：新增 `school-campus` 终端场景，73 个像素复核词、10 个细分区；世界地图新增第 5 个根入口。首次发布后发现移动端 Campus 分类热点被学校入口遮挡，改为同一校园面板内的安全矩形；随后又将入口调整为 `x600,y300,width200,height100`，通过亮度/深暗率门槛与首页移动端 hover 回归。
+- v141 将上述学校入口修复与 Radiology suite 一起重新发布。Radiology 图像为 1600×900 RGB JPEG，87 个新词覆盖 CT bay、MRI bay、X-ray/mammography、control、ultrasound、preparation/supplies 六区；入口从 Hospital 的 CT/MRI 区进入，公开浏览器快照显示当前场景 87 词且细分区可聚焦。
+- v141 本地验证：`npm run verify`（241 个域/语义测试）通过；完整 E2E 110 通过 / 36 设计性跳过；`PERF_RUN=1 npm run test:perf` 2/2；公开页真实冒烟无阻断错误。v140/v141 归档均已可恢复移动到 `/Users/fanli/.Trash/codex-session-cleanup-20260830/hellowords-v140/` 与 `/Users/fanli/.Trash/codex-session-cleanup-20260830/hellowords-v141/`。
+- 视觉优化（气泡、线条、标题/小地图、放大抖动）暂不扩散改动；按用户当前优先级延期，避免阻塞场景和词汇增长。
 
 ### v122 交付记录（2026-08-29）
 
