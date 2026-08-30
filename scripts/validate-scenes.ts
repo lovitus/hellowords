@@ -140,6 +140,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The connected supermarket backroom keeps receiving, material-handling,
   // pallet-rack, refrigeration, packing and sanitation hardware visible.
   "supermarket-backroom": 120,
+  // The connected walk-in cooler resolves dairy, produce, mobile storage,
+  // refrigeration, doorway and insulated-room parts without temperature claims.
+  "supermarket-walk-in-cooler": 120,
   "city-cafe": 36,
   "electric-bus": 32,
   "railway-platform": 32,
@@ -211,6 +214,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "hotel-exterior": 69,
   "hotel-lobby-rooms": 107,
   "supermarket-backroom": 143,
+  "supermarket-walk-in-cooler": 144,
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   // The final pixel pass also retains separately visible fossil, telescope,

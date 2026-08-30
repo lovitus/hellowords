@@ -1294,6 +1294,15 @@
       "y": 579,
       "width": 42,
       "height": 42
+    },
+    {
+      "id": "portal-supermarket-walk-in-cooler-doorway",
+      "description": "Complete visible open walk-in cooler doorway in the supermarket backroom photograph",
+      "kind": "object",
+      "x": 1040,
+      "y": 155,
+      "width": 280,
+      "height": 465
     }
   ],
   "detailZones": [
@@ -3114,5 +3123,18 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-supermarket-walk-in-cooler",
+      "label": "Enter the supermarket walk-in cooler",
+      "translation": "进入超市步入式冷库",
+      "childSceneId": "supermarket-walk-in-cooler",
+      "sourceVisualRegion": "portal-supermarket-walk-in-cooler-doorway",
+      "x": 1040,
+      "y": 155,
+      "width": 280,
+      "height": 465,
+      "enterScale": 3.2
+    }
+  ]
 }

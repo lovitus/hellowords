@@ -320,6 +320,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 30,
     },
   },
+  "supermarket-walk-in-cooler": {
+    asset: "/scenes/supermarket-walk-in-cooler-premium-v1.jpg",
+    sha256: "efa6b81519ae88ad40713303792d610212c6b3faa5b4bc61fa7bea3fe9b2d34a",
+    quality: {
+      minMeanLuminance: 100,
+      maxMeanLuminance: 175,
+      maxDarkFraction: 0.32,
+      maxDeepDarkFraction: 0.17,
+      minMeanChroma: 0.05,
+      maxMeanChroma: 0.18,
+      maxChannelMeanSpread: 25,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

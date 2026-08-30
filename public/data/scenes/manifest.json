@@ -18,6 +18,11 @@
       "parentId": "supermarket-grocery"
     },
     {
+      "id": "supermarket-walk-in-cooler",
+      "title": "Supermarket walk-in cooler",
+      "parentId": "supermarket-backroom"
+    },
+    {
       "id": "apartment",
       "title": "Apartment",
       "parentId": "world-map"
