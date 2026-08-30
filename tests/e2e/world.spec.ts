@@ -941,7 +941,7 @@ test("science museum exposes additional exhibit parts without losing its child p
     museumViewport!.x + museumViewport!.width / 2,
     museumViewport!.y + museumViewport!.height - 36,
   );
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "176");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "206");
   for (const [zoneId, word] of [
     ["dinosaur-gallery", "vertebra"],
     ["space-observatory", "mounting knob"],
@@ -982,7 +982,7 @@ test("city park exposes its expanded nature and fixture vocabulary without losin
   await expect(app).toHaveAttribute("data-scene-loading", "false");
   await expect(app).toHaveAttribute("data-transition-state", "idle");
 
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "144");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "174");
   for (const [zoneId, word] of [
     ["pond-habitat-detail", "pond basin"],
     ["oak-tree-detail", "acorn stem"],

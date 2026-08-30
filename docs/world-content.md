@@ -41,7 +41,7 @@ The graph contains 43 reachable scenes and 42 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 6,416 human-verified anchors representing 5,479
+Spatial scenes now contain 6,566 human-verified anchors representing 5,608
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -106,7 +106,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Scene | Before → retained | Main removal reason |
 |---|---:|---|
 | World atlas | 1,296 audited source anchors → 1,275 unique labels | Six independently pixel-reviewed panels compile across 66 zones; cross-panel duplicate words are reconciled while four disjoint entrances remain intact |
-| Community garden | 111 → 103 | Bright greenhouse, beds, tools, irrigation, compost and flowers retain visible structural parts; the added glazing, crop and hardware terms stay inside the reviewed crops |
+| Community garden | 141 → 133 | Bright greenhouse, beds, tools, irrigation, compost and flowers retain visible structural parts; the added glazing, crop and hardware terms stay inside the reviewed crops |
 | Greenhouse interior | 78 → 71 | Sunlit glasshouse grounds shell hardware, benches, seedlings, crops, floor equipment and a complete tomato portal; climate and growth processes remain removed |
 | Tomato plant | 76 → 69 | Complete supported plant grounds stem, compound-leaf, flower, fruit, support, substrate and visible pest details; physiology and underground processes remain removed |
 | Potting workbench | 83 → 74 | Complete daylight bench grounds tool edges, containers, seedlings, soil and watering fittings; actions, properties and printed-label readings remain removed |
@@ -119,7 +119,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Bathroom | 136 → 133 | Daylight bathroom grounds bath, vanity, toilet, shower, plumbing, glass hardware, tile and linen details; invisible conditions remain removed |
 | Wardrobe interior | 72 → 60 | Premium wardrobe grounds cabinet frame, hanger and garment parts, accessory details and nearby daylight-corner objects; the final audit adds a window sill, door panel, jacket cuff and trouser leg while materials, stitching claims and actions remain removed |
 | Cotton shirt | 63 → 55 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools, plus visible yoke, buttonhole, seam and tool parts; machinery, factory actions and performance properties remain removed |
-| City street | 154 → 149 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects; added facade, roadway and mobility parts stay in existing regions |
+| City street | 184 → 179 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects; added facade, roadway and mobility parts stay in existing regions |
 | Urban services | 128 → 120 | Aerial masterplan visibly separates hospital, airport and office campuses plus shared roads, water and planting connectors |
 | Hospital | 390 → 380 | Bright atrium grounds departments, emergency, pathology, radiology, pharmacy, operating-theatre fixtures and a generic disease reference band; added clinical terms remain non-prescriptive |
 | Pathology lab | 400 → 390 | Close laboratory raster grounds microscopes, specimen handling, paraffin embedding, microtomy, staining, cold storage and a larger histology/diagnostic display vocabulary |
@@ -127,21 +127,21 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Airport | 340 → 330 | Terminal photograph grounds check-in, security, gate, baggage claim, airside aircraft, flight hardware and ramp-service structures |
 | Office building | 340 → 330 | Warm atrium grounds reception, open-plan workstations, conference room, pantry and a deeper service-core vocabulary for power, data, HVAC and fire hardware |
 | City cafe | 107 → 100 | New daylight cafe grounds door, seating, counter, pastry-display and espresso subparts; added pastry/tableware parts remain inside the display crop |
-| Transit hub | 115 → 103 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
+| Transit hub | 145 → 133 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
 | Electric bus | 101 → 85 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; added cabin glazing and seating parts remain grounded while people, branding and operating concepts stay removed |
 | Battery | 96 → 90 | Premium engineering cutaway grounds pack, module, cell, electrical, cooling and enclosure hardware; added shell, cooling and connector parts remain grounded while internal chemistry and unsupported sensor claims stay removed |
 | Lithium-ion cell | 70 → 60 | Premium prismatic-cell cutaway grounds enclosure, polarity-specific terminals, flattened winding and unfolded layers; the final audit adds terminal seals, a fill-port collar, cover lip, winding/core surfaces, tab roots, sheet folds and collector edge while ambiguous liquid, invisible charge motion, performance metrics and hazard states remain removed |
 | Railway platform | 142 → 126 | Premium station view grounds passenger fixtures, train hardware, overhead electrification and track subparts; added rail joints, fasteners and platform edges remain grounded while signage and service states stay removed |
 | Train carriage | 108 → 100 | Premium carriage cutaway grounds the cabin, doors, accessibility fixtures, roof, suspension and foreground track hardware plus the real bogie portal; added underbody brake, axle and coupler parts remain grounded while passengers and unsupported amenities stay removed |
 | Rail bogie | 103 → 95 | Premium powered-bogie study grounds frame, wheelsets, suspension, motor drive, disc brakes, linkages and track hardware; added frame, pivot, spring and brake fittings remain grounded while maintenance actions, failure states and invisible load concepts stay removed |
-| Science museum | 183 → 176 | Premium gallery resolves specific fossil, instrument, robotic, physics and life-science parts plus newly audited bone, fossil and mount subparts while rejecting roles, venues and signage |
+| Science museum | 213 → 206 | Premium gallery resolves specific fossil, instrument, robotic, physics and life-science parts plus newly audited bone, fossil and mount subparts while rejecting roles, venues and signage |
 | Dinosaur hall | 77 → 69 | Sunlit paleontology gallery grounds mounted bones, distinct fossils, preparation tools and rock structure; the final audit adds skull, jaw, vertebra, limb, horn, fossil and tool parts while behavior, era, weak rock features and museum activities remain removed |
 | Human body | 96 → 90 | Bright three-model anatomy exhibit grounds the mannequin's body regions and distal parts, the skeleton's jaw, long bones and hand/foot groups, and distinct chest, arm, abdominal and calf muscles; added joint and outline terms remain on the skeleton crop |
 | Heart | 111 → 91 | Bright cutaway grounds chambers, valves, walls, great and coronary vessels plus an artery cross-section; added artery wall and vessel-rim details remain visible while invisible physiology and conduction remain removed |
 | Blood cell | 111 → 91 | Bright capillary cutaway grounds vessel layers, red-cell membrane and skeleton, one neutrophil, platelets and the real Hemoglobin portal; added membrane and cell-surface details remain grounded while unsupported immune processes remain removed |
 | Hemoglobin | 107 → 81 | Premium molecular view grounds the alpha/beta globin assembly, four-heme array, ribbon folds, central interfaces and the enlarged oxygen-coordination pocket; added chain and pocket details remain structural, not biochemical claims |
 | Oxygen molecule | 112 → 90 | Premium gas-exchange cutaway grounds the airway, alveolar pores and lining, air-blood barrier, capillary wall, red-cell surface and paired gas models; added molecule-path and interface details remain visual rather than physiological claims |
-| City park | 165 → 144 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities; the final audit adds bridge arches, shoreline waterlines, lily/reed parts and fine pond surface details |
+| City park | 195 → 174 | Bright replacement grounds two complete habitat portals, separate pond/bridge/playground/fountain/gazebo/oak/bench parts and visible wildlife while rejecting inferred activities; the final audit adds bridge arches, shoreline waterlines, lily/reed parts and fine pond surface details |
 | Oak tree | 81 → 68 | Bright neutral-daylight woodland close-up grounds wildlife, fungi and texture; the final audit adds bark, web, nest, leaf, acorn, root, moss, fern, flower and grass parts while invisible processes and growth rings stay removed |
 | Leaf | 54 → 49 | Natural-colour macro retains independently visible twig, bud, acorn-cup, bark, insect and spider parts while rejecting duplicate vein terms and unsupported underside/curl details |
 | Plant cell | 75 → 60 | Premium 3D cutaway resolves organelles, membrane layers, chloroplast discs, cytoplasmic strands and vesicle interiors; the final audit adds rough-ER sheets, Golgi stacks, vacuole edges, thylakoid membranes, granum edges, mitochondrial folds and wall junctions, with a dedicated thylakoid-stack focus zone while unseen molecules and processes stay removed |
@@ -165,7 +165,7 @@ zooming. `city-street` uses `city-street-bright-v4.jpg`: a complete columned
 science museum with a telescope-and-mineral window stands at left, a complete
 blank-fronted brick cafe occupies the centre, and a complete arched-glass transit
 hall anchors the right above the crossing and accessible curb. Its final-pixel
-audit retains 89 distinct terms, and the three portal silhouettes remain
+audit retains 179 distinct terms, and the three portal silhouettes remain
 disjoint and legible without words, logos, anatomy displays or pseudo-signage.
 
 The transit hub now opens an `Urban services` masterplan. Its reviewed overview

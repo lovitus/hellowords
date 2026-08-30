@@ -126,20 +126,20 @@ async function luminanceMetrics(pipeline: Pipeline): Promise<{
   };
 }
 
-test("city street v4 keeps 149 freshly grounded anchors and three destination contracts", async () => {
+test("city street v4 keeps 179 freshly grounded anchors and three destination contracts", async () => {
   const scene = await loadScene();
   assert.equal(scene.id, "city-street");
   assert.equal(scene.parentId, "world-map");
   assert.equal(scene.asset, expectedAsset);
   assert.equal(scene.width, 1600);
   assert.equal(scene.height, 900);
-  assert.equal(scene.labels.length, 149);
+  assert.equal(scene.labels.length, 179);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
-    [8, 8, 31, 40, 62],
+    [8, 8, 41, 50, 72],
   );
-  assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 149);
-  assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 149);
+  assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 179);
+  assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 179);
 
   const words = new Set(scene.labels.map(({ word }) => word));
   for (const required of [
@@ -196,7 +196,7 @@ test("city street v4 anchors, regions, portals and six zoom zones stay on audite
       assert.ok(pointInside(label, zone), `zone misses anchor: ${zone.id}/${labelId}`);
     }
   }
-  assert.equal(assigned.size, scene.labels.length, "all 149 anchors participate in local zoom exploration");
+    assert.equal(assigned.size, scene.labels.length, "all 179 anchors participate in local zoom exploration");
 });
 
 test("city street v4 locks the reviewed bright RGB JPEG and audit", async () => {

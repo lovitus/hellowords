@@ -156,9 +156,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // fountain, gazebo, oak, bench, daisy and picnic parts without activity or
   // wildlife inference; the ceiling blocks ornamental padding.
   // The final park raster also resolves bridge arches, pond waterlines, plant
-  // veins, bark grooves, root forks and small fixture parts for 114 anchors.
-  "city-park": 144,
-  "city-street": 149,
+  // veins, bark grooves, root forks and small fixture parts for 174 anchors.
+  "city-park": 174,
+  "city-street": 179,
   apartment: 143,
   "urban-services": 120,
   // The second professional-depth pass adds another reviewed equipment,
@@ -171,8 +171,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright gallery resolves separate fossil, optical, robotic, physics and
   // life-science parts; the ceiling blocks roles, venues and signage claims.
   // The final pixel pass also retains separately visible fossil, telescope,
-  // microscope, robot, optics and anatomy subparts for a 146-anchor set.
-  "science-museum": 176,
+  // microscope, robot, optics and anatomy subparts for a 206-anchor set.
+  "science-museum": 206,
   // The final kitchen raster resolves appliance, sink, coffee-nook and island
   // parts; the ceiling blocks cooking processes and hidden appliance claims.
   kitchen: 146,
@@ -182,7 +182,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   polymer: 60,
   // The bright bathroom exposes a full suite of independently pointable
   // fixtures plus readable hardware/textile subparts; the ceiling blocks
-  // invisible conditions while allowing the reviewed 103-anchor scene.
+  // invisible conditions while allowing the reviewed 133-anchor scene.
   bathroom: 133,
   // The bright bedroom resolves separate bedding, study, window, storage and
   // room-finish parts; the ceiling blocks moods, actions and hidden routines.
@@ -251,7 +251,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright garden resolves greenhouse fittings, raised-bed crops, tools,
   // compost, rain collection and a flowering border; the ceiling blocks
   // gardening activities and inferred ecological processes.
-  "community-garden": 103,
+  "community-garden": 133,
   // The greenhouse raster resolves shell hardware, benches, propagation trays,
   // soil, aisle equipment and the complete tomato portal; the ceiling blocks
   // invisible growing processes and climate claims.

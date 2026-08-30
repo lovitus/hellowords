@@ -226,15 +226,15 @@ test("known floating-label regressions stay removed and critical portals match v
 
   const cityPark = byId.get("city-park");
   assert.ok(cityPark);
-  assert.equal(cityPark.labels.length, 144, "city park keeps its expanded final-pixel vocabulary");
+  assert.equal(cityPark.labels.length, 174, "city park keeps its expanded final-pixel vocabulary");
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => cityPark.labels.filter((label) => label.minLevel === level).length),
-    [13, 22, 49, 36, 24],
+    [13, 22, 59, 46, 34],
   );
   assert.deepEqual(
     cityPark.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["pond-habitat-detail", 59],
+      ["pond-habitat-detail", 89],
       ["oak-tree-detail", 24],
       ["playground-detail", 13],
       ["picnic-detail", 5],
@@ -296,6 +296,12 @@ test("known floating-label regressions stay removed and critical portals match v
     "acorn tip",
     "leaf margin",
     "root ridge",
+    "bridge rail post",
+    "bridge deck plank",
+    "lily pad rim",
+    "duck bill",
+    "water surface",
+    "shoreline stone",
   ]) {
     assert.ok(cityParkWords.has(term), `city park shows ${term}`);
   }
@@ -399,6 +405,7 @@ test("known floating-label regressions stay removed and critical portals match v
   const cityStreet = byId.get("city-street");
   assert.ok(cityStreet);
   assert.equal(cityStreet.asset, "/scenes/city-street-bright-v4.jpg");
+  assert.equal(cityStreet.labels.length, 179, "city street keeps its expanded facade vocabulary");
   const streetWords = new Set(cityStreet.labels.map((label) => label.word));
   for (const visibleMuseumTerm of ["science museum", "museum entrance", "exhibit window", "telescope"]) {
     assert.ok(streetWords.has(visibleMuseumTerm), `city street shows ${visibleMuseumTerm}`);
@@ -785,12 +792,12 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
   const { scenes } = await loadWorld();
   const hub = scenes.find((scene) => scene.id === "transit-hub");
   assert.ok(hub);
-  assert.equal(hub.labels.length, 103);
+  assert.equal(hub.labels.length, 133);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       hub.labels.filter((label) => label.minLevel === level).length
     )),
-    [9, 9, 22, 30, 33],
+    [9, 9, 32, 40, 43],
   );
   const words = new Set(hub.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -819,13 +826,19 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
     "bus front grille",
     "charging connector",
     "floor tile",
+    "platform canopy",
+    "boarding marker",
+    "ticket validator",
+    "escalator comb",
+    "wayfinding panel",
+    "overhead mast",
   ]) {
     assert.ok(words.has(required), `transit hub visibly grounds ${required}`);
   }
   assert.deepEqual(
     hub.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["railway-zone", 48],
+      ["railway-zone", 78],
       ["central-concourse", 36],
       ["electric-bus-zone", 11],
       ["foreground-mobility", 8],
@@ -2133,7 +2146,11 @@ test("dinosaur hall is a grounded terminal branch with a separate museum portal"
 
   const museum = byId.get("science-museum");
   assert.ok(museum);
-  assert.equal(museum.labels.length, 176, "science museum keeps its expanded final-pixel vocabulary");
+  assert.equal(museum.labels.length, 206, "science museum keeps its expanded final-pixel vocabulary");
+  assert.deepEqual(
+    [0, 1, 2, 3, 4].map((level) => museum.labels.filter((label) => label.minLevel === level).length),
+    [8, 18, 47, 61, 72],
+  );
   const museumWords = new Set(museum.labels.map((label) => label.word));
   for (const term of [
     "dinosaur tail",
@@ -2151,6 +2168,11 @@ test("dinosaur hall is a grounded terminal branch with a separate museum portal"
     "ammonite chamber",
     "prism edge",
     "anatomy leg",
+    "zygomatic arch",
+    "cervical vertebra",
+    "femoral head",
+    "skeletal mount",
+    "bone surface",
   ]) {
     assert.ok(museumWords.has(term), `science museum shows ${term}`);
   }
@@ -2555,18 +2577,18 @@ test("community garden adds one disjoint root portal and two grounded local bran
   assert.ok(garden);
   assert.equal(garden.parentId, "world-map");
   assert.equal(garden.asset, "/scenes/community-garden-premium-v1.jpg");
-  assert.equal(garden.labels.length, 103);
+  assert.equal(garden.labels.length, 133);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       garden.labels.filter((label) => label.minLevel === level).length
     )),
-    [10, 10, 25, 34, 24],
+    [10, 10, 35, 44, 34],
   );
   assert.deepEqual(
     garden.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
       ["garden-overview", 6],
-      ["greenhouse-zone", 43],
+      ["greenhouse-zone", 73],
       ["raised-bed-zone", 12],
       ["potting-zone", 13],
       ["water-zone", 11],
@@ -2669,6 +2691,12 @@ test("community garden adds one disjoint root portal and two grounded local bran
     "sunflower petal",
     "butterfly wing",
     "fence post",
+    "greenhouse frame joint",
+    "glazing clip",
+    "vent louver",
+    "seedling cotyledon",
+    "tomato pedicel",
+    "drip emitter",
   ]) {
     assert.ok(words.has(visible), `community garden visibly grounds ${visible}`);
   }

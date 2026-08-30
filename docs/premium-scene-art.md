@@ -163,9 +163,9 @@ grounded terms, bringing those five scenes to Hospital 380, Pathology lab 390,
 Hospital pharmacy 330, Airport 330 and Office building 330. Generic medicine
 names remain educational labels only.
 
-The next breadth pass adds 180 more anchors without changing artwork or portal
-geometry: City street 149, Transit hub 103, Science museum 176, City park 144
-and Community garden 103. The additions stay inside the existing facade,
+The breadth pass adds 330 more anchors without changing artwork or portal
+geometry: City street 179, Transit hub 133, Science museum 206, City park 174
+and Community garden 133. The additions stay inside the existing facade,
 mobility, rail, fossil, pond and greenhouse crops, so the larger word sets are
 available through the same minimap zones and five LOD bands.
 
