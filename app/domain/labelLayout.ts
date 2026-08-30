@@ -1016,6 +1016,13 @@ export function computeSceneLabelLayout(
       const focused = Number(options.priorityLabelIds?.has(second.label.id))
         - Number(options.priorityLabelIds?.has(first.label.id));
       if (focused !== 0) return focused;
+      // Keep labels that already own a readable slot ahead of newly emerging
+      // adaptive words. Map label engines use the same previous-placement
+      // preference: a newcomer should take the remaining slot instead of
+      // forcing an established callout to jump on every zoom frame.
+      const retained = Number(options.preferredOffsets?.has(second.label.id))
+        - Number(options.preferredOffsets?.has(first.label.id));
+      if (retained !== 0) return retained;
       // Camera history must not decide collision ownership. A stable authored
       // order makes an exact zoom round trip reproduce both the same labels
       // and the same callout directions.

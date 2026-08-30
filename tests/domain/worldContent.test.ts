@@ -797,12 +797,12 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
   const { scenes } = await loadWorld();
   const hub = scenes.find((scene) => scene.id === "transit-hub");
   assert.ok(hub);
-  assert.equal(hub.labels.length, 133);
+  assert.equal(hub.labels.length, 163);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       hub.labels.filter((label) => label.minLevel === level).length
     )),
-    [9, 9, 32, 40, 43],
+    [9, 9, 42, 50, 53],
   );
   const words = new Set(hub.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -837,6 +837,10 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
     "escalator comb",
     "wayfinding panel",
     "overhead mast",
+    "ceiling beam joint",
+    "escalator balustrade",
+    "fare gate pedestal",
+    "route map frame",
   ]) {
     assert.ok(words.has(required), `transit hub visibly grounds ${required}`);
   }
@@ -844,7 +848,7 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
     hub.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
       ["railway-zone", 78],
-      ["central-concourse", 36],
+      ["central-concourse", 66],
       ["electric-bus-zone", 11],
       ["foreground-mobility", 8],
     ],

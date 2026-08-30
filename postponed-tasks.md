@@ -7,7 +7,7 @@
 - 公开版本：`v132-ae92270`（线上已完成真实冒烟）
 - 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=132-ae92270#world>
 - 源码：`ae92270aee5dc93cfeb6338cd641f92a643d61b5`（v132 在社区花园、温室内部、番茄植株、园艺工作台、叶片各增加 30 个可审计词；Community garden 163、Greenhouse interior 101、Tomato plant 99、Potting workbench 104、Leaf 79；设施分支保持 Hospital 440、Pathology lab 450、Hospital pharmacy 390、Airport 390、Office building 390）。累计空间锚点 7,166、6,107 个去重词；继续保留屏幕外词的每帧裁剪。
-- 当前工作批次：v132 已公开发布并完成真实入口冒烟；下一步继续按“先堆词、再精修”扩展尚未达到审计上限的交通、室内与专业场景。
+- 当前工作批次：v133 已在本地加入 60 个可审计词（交通枢纽中央大厅 30 个、叶片脉络/水珠/昆虫/枝条 30 个），目标计数为 Transit hub 163、Leaf 109；待发布后做真实入口冒烟。
 - 子 agent：当前没有运行中的子 agent；历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### v122 交付记录（2026-08-29）
@@ -48,6 +48,7 @@
 - 清理记录：v128、v129、v130、v131 归档已分别移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v128/`、`/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v129/`、`/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v130/`、`/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v131/`；活动 `.codex/sessions` 与共享临时根不删除。
 - v132 在五张已审计园艺/植物图上再增加 150 个词：greenhouse structure、tomato leaf、potting tools、raised-bed crops、oak-leaf surface 各 30 个；`npm run verify` 232 个域 + 28 个语义、E2E 106/36、性能 2/2 均通过，公开页真实核对花园、温室、番茄、工作台、叶片新词，error/warn 日志为空。
 - 清理记录：v132 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260829/hellowords-v132/`；活动 `.codex/sessions` 与共享临时根不删除。
+- v133 在交通枢纽和 Leaf 两张已审计图上再增加 60 个词；本地验证待跑完后发布，仍不改变门户几何。
 
 ## 当前续开发游标（2026-08-29）
 

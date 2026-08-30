@@ -207,6 +207,12 @@ The scenes now reach Community garden 163, Greenhouse interior 101, Tomato plant
 zones and remain detail-first LOD entries; no growth process or ecological claim
 is inferred from the still image.
 
+The v133 continuation pass adds 60 additional transport and leaf details without
+changing artwork or portal geometry: 30 central-concourse fixtures in the
+transit hub and 30 vein, water, insect and twig details in the Leaf scene. The
+scenes now reach Transit hub 163 and Leaf 109; both additions stay within their
+existing authored zones and use the same bounded LOD disclosure.
+
 The medical-depth pass adds 150 structural anchors without changing the five
 medical images: Blood cell 91, Heart 91, Human body 90, Hemoglobin 81 and
 Oxygen molecule 90. The added membrane, vessel, joint, protein-fold and

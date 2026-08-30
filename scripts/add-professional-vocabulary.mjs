@@ -2538,6 +2538,70 @@ const groups = [
     leaf sheen patch=叶面光泽斑
     leaf water film=叶面水膜
   `),
+  group("transit-hub", "verified-concourse", "central-concourse", `
+    ceiling beam joint=天花梁接缝
+    skylight mullion=天窗竖框
+    roof gasket=屋顶密封条
+    escalator balustrade=扶梯侧板
+    escalator comb plate=扶梯梳齿板
+    escalator skirt=扶梯裙板
+    handrail return=扶手回转端
+    stair nosing=楼梯踏步前缘
+    stair riser=楼梯立板
+    stair stringer=楼梯梯梁
+    fare gate pedestal=闸机底座
+    fare gate sensor=闸机传感器
+    ticket machine bezel=售票机边框
+    ticket machine slot=售票机插槽
+    elevator call button=电梯呼叫按钮
+    elevator door seam=电梯门缝
+    elevator threshold=电梯门槛
+    clock mount=时钟支座
+    display housing=显示屏外壳
+    route map frame=线路图边框
+    information kiosk shelf=信息亭搁板
+    kiosk bezel=信息亭边框
+    bench slat=长椅木条
+    planter box=种植箱
+    plant stem=植物茎
+    floor tile seam=地砖接缝
+    expansion joint cover=伸缩缝盖板
+    polished floor reflection=抛光地面倒影
+    security dome=安防球罩
+    extinguisher bracket=灭火器支架
+  `),
+  group("leaf", "vein-network", "veins-water-and-lens", `
+    vein branch=叶脉分支
+    vein junction=叶脉交汇
+    veinlet chain=细脉链
+    veinlet fork=细脉分叉
+    vein ridge=叶脉凸脊
+    vein groove=叶脉沟
+    midrib edge=中脉边
+    petiole base=叶柄基部
+    petiole scar=叶柄痕
+    leaf surface grain=叶面纹理
+    cuticle sheen=角质层光泽
+    dew droplet=露珠
+    droplet rim=水滴边缘
+    water film edge=水膜边缘
+    water bead ridge=水珠脊
+    leaf highlight=叶面高光
+    leaf shadow=叶片阴影
+    leaf blotch=叶面斑块
+    leaf puncture=叶面孔点
+    chew notch=啃食缺口
+    web anchor=蛛网锚点
+    web cross thread=蛛网交叉丝
+    silk strand=蛛丝
+    spider silk knot=蛛丝结
+    ladybird leg=瓢虫足
+    aphid body=蚜虫身体
+    caterpillar segment edge=毛虫节段边
+    acorn cap scale=橡果帽鳞片
+    bud scale fold=芽鳞折痕
+    twig node scar=枝节痕
+  `),
 ];
 
 const realmByScene = {

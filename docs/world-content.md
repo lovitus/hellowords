@@ -41,7 +41,7 @@ The graph contains 43 reachable scenes and 42 parent-to-child portals. Four disj
 
 ## Vocabulary and LOD
 
-Spatial scenes now contain 7,166 human-verified anchors representing 6,107
+Spatial scenes now contain 7,226 human-verified anchors representing 6,157
 distinct English display terms. This expansion adds grounded anchors through
 richer, independently reviewed artwork rather than by restoring floating topic
 words. Global vocabulary remains available in the lexical world; a word only
@@ -127,7 +127,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Airport | 400 → 390 | Terminal photograph grounds check-in, security, gate, baggage claim, airside aircraft, flight hardware and ramp-service structures |
 | Office building | 400 → 390 | Warm atrium grounds reception, open-plan workstations, conference room, pantry and a deeper service-core vocabulary for power, data, HVAC and fire hardware |
 | City cafe | 137 → 130 | New daylight cafe grounds door, seating, counter, pastry-display and espresso subparts; added pastry/tableware parts remain inside the display crop |
-| Transit hub | 145 → 133 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
+| Transit hub | 175 → 163 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
 | Electric bus | 101 → 85 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; added cabin glazing and seating parts remain grounded while people, branding and operating concepts stay removed |
 | Battery | 96 → 90 | Premium engineering cutaway grounds pack, module, cell, electrical, cooling and enclosure hardware; added shell, cooling and connector parts remain grounded while internal chemistry and unsupported sensor claims stay removed |
 | Lithium-ion cell | 70 → 60 | Premium prismatic-cell cutaway grounds enclosure, polarity-specific terminals, flattened winding and unfolded layers; the final audit adds terminal seals, a fill-port collar, cover lip, winding/core surfaces, tab roots, sheet folds and collector edge while ambiguous liquid, invisible charge motion, performance metrics and hazard states remain removed |
