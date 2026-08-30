@@ -1,0 +1,3053 @@
+{
+  "id": "aircraft-galley-equipment",
+  "title": "Aircraft galley equipment",
+  "translation": "飞机厨房设备",
+  "subtitle": "Galley cabinets, ovens, beverage equipment, trolleys, sink, doorway and cabin-side fixtures",
+  "asset": "/scenes/aircraft-galley-equipment-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "aircraft-cabin",
+  "visualRegions": [
+    {
+      "id": "aircraft-galley-equipment-region-galley-upper-cabinet",
+      "description": "Pixel-audited “galley upper cabinet” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 70,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cabinet-door",
+      "description": "Pixel-audited “galley cabinet door” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cabinet-handle",
+      "description": "Pixel-audited “galley cabinet handle” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 510,
+      "y": 105,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cabinet-hinge",
+      "description": "Pixel-audited “galley cabinet hinge” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 110,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cabinet-latch",
+      "description": "Pixel-audited “galley cabinet latch” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 165,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cabinet-seam",
+      "description": "Pixel-audited “galley cabinet seam” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-storage-bay",
+      "description": "Pixel-audited “galley storage bay” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-shelf",
+      "description": "Pixel-audited “galley shelf” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-shelf-lip",
+      "description": "Pixel-audited “galley shelf lip” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-shelf-bracket",
+      "description": "Pixel-audited “galley shelf bracket” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-divider",
+      "description": "Pixel-audited “galley divider” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 130,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-ceiling-panel",
+      "description": "Pixel-audited “galley ceiling panel” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 0,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-top-trim",
+      "description": "Pixel-audited “galley top trim” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 20,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-side-trim",
+      "description": "Pixel-audited “galley side trim” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 140,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-light",
+      "description": "Pixel-audited “galley light” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 170,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-light-housing",
+      "description": "Pixel-audited “galley light housing” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 175,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-upper-work-panel",
+      "description": "Pixel-audited “galley upper work panel” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 170,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-overhead-liner",
+      "description": "Pixel-audited “galley overhead liner” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cabinet-fastener",
+      "description": "Pixel-audited “galley cabinet fastener” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 590,
+      "y": 110,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-locker-edge",
+      "description": "Pixel-audited “galley locker edge” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 135,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-locker-pull",
+      "description": "Pixel-audited “galley locker pull” inside the Galley upper storage crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 105,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-oven-bank",
+      "description": "Pixel-audited “galley oven bank” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-upper-galley-oven",
+      "description": "Pixel-audited “upper galley oven” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 250,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-lower-galley-oven",
+      "description": "Pixel-audited “lower galley oven” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-aircraft-galley-oven-door",
+      "description": "Pixel-audited “aircraft galley oven door” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 295,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-aircraft-galley-oven-handle",
+      "description": "Pixel-audited “aircraft galley oven handle” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-aircraft-galley-oven-latch",
+      "description": "Pixel-audited “aircraft galley oven latch” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 225,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-oven-hinge",
+      "description": "Pixel-audited “galley oven hinge” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-oven-bezel",
+      "description": "Pixel-audited “galley oven bezel” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-oven-cavity",
+      "description": "Pixel-audited “galley oven cavity” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-oven-panel",
+      "description": "Pixel-audited “galley oven panel” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-oven-fastener",
+      "description": "Pixel-audited “galley oven fastener” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-beverage-maker",
+      "description": "Pixel-audited “galley beverage maker” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-coffee-maker",
+      "description": "Pixel-audited “galley coffee maker” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-coffee-maker-carafe",
+      "description": "Pixel-audited “coffee maker carafe” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-coffee-maker-lid",
+      "description": "Pixel-audited “coffee maker lid” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 295,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-coffee-maker-handle",
+      "description": "Pixel-audited “coffee maker handle” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-coffee-maker-base",
+      "description": "Pixel-audited “coffee maker base” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-water-boiler",
+      "description": "Pixel-audited “galley water boiler” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-boiler-spout",
+      "description": "Pixel-audited “boiler spout” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 550,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-boiler-drip-tray",
+      "description": "Pixel-audited “boiler drip tray” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 550,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-beverage-dispenser",
+      "description": "Pixel-audited “galley beverage dispenser” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 540,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-dispenser-nozzle",
+      "description": "Pixel-audited “dispenser nozzle” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 550,
+      "y": 350,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-dispenser-tray",
+      "description": "Pixel-audited “dispenser tray” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 560,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cup-dispenser",
+      "description": "Pixel-audited “galley cup dispenser” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 760,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cup-shelf",
+      "description": "Pixel-audited “galley cup shelf” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cup",
+      "description": "Pixel-audited “galley cup” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 260,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cup-stack",
+      "description": "Pixel-audited “galley cup stack” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 250,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-beverage-panel",
+      "description": "Pixel-audited “galley beverage panel” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-beverage-drip-tray",
+      "description": "Pixel-audited “beverage drip tray” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-worktop",
+      "description": "Pixel-audited “galley worktop” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-worktop-backsplash",
+      "description": "Pixel-audited “galley worktop backsplash” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 395,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-aircraft-galley-worktop-edge",
+      "description": "Pixel-audited “aircraft galley worktop edge” inside the Oven and beverage equipment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 435,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-service-trolley",
+      "description": "Pixel-audited “galley service trolley” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-door",
+      "description": "Pixel-audited “trolley door” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-service-trolley-handle",
+      "description": "Pixel-audited “service trolley handle” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-latch",
+      "description": "Pixel-audited “trolley latch” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 590,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-hinge",
+      "description": "Pixel-audited “trolley hinge” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-drawer",
+      "description": "Pixel-audited “trolley drawer” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-drawer-handle",
+      "description": "Pixel-audited “trolley drawer handle” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-container-bay",
+      "description": "Pixel-audited “trolley container bay” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-service-trolley-caster",
+      "description": "Pixel-audited “service trolley caster” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 600,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-service-trolley-wheel",
+      "description": "Pixel-audited “service trolley wheel” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-brake",
+      "description": "Pixel-audited “trolley brake” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 640,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-lower-rail",
+      "description": "Pixel-audited “trolley lower rail” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-upper-rail",
+      "description": "Pixel-audited “trolley upper rail” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 490,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-left-service-trolley",
+      "description": "Pixel-audited “left service trolley” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 560,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-center-service-trolley",
+      "description": "Pixel-audited “center service trolley” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-right-service-trolley",
+      "description": "Pixel-audited “right service trolley” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-door-seal",
+      "description": "Pixel-audited “trolley door seal” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-side-panel",
+      "description": "Pixel-audited “trolley side panel” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 740,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-front-panel",
+      "description": "Pixel-audited “trolley front panel” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-access-flap",
+      "description": "Pixel-audited “trolley access flap” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-tray",
+      "description": "Pixel-audited “trolley tray” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-tray-handle",
+      "description": "Pixel-audited “trolley tray handle” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-storage-bin",
+      "description": "Pixel-audited “trolley storage bin” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 720,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-bin-lid",
+      "description": "Pixel-audited “trolley bin lid” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-wheel-housing",
+      "description": "Pixel-audited “trolley wheel housing” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-floor-guide",
+      "description": "Pixel-audited “trolley floor guide” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-trolley-bay",
+      "description": "Pixel-audited “galley trolley bay” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-bay-divider",
+      "description": "Pixel-audited “trolley bay divider” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-retaining-bracket",
+      "description": "Pixel-audited “trolley retaining bracket” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trolley-base-plate",
+      "description": "Pixel-audited “trolley base plate” inside the Service trolley banks crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 840,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-sink",
+      "description": "Pixel-audited “galley sink” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-sink-basin",
+      "description": "Pixel-audited “galley sink basin” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-sink-drain",
+      "description": "Pixel-audited “galley sink drain” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 435,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-faucet",
+      "description": "Pixel-audited “galley faucet” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-faucet-spout",
+      "description": "Pixel-audited “galley faucet spout” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-faucet-handle",
+      "description": "Pixel-audited “galley faucet handle” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 340,
+      "y": 375,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-faucet-base",
+      "description": "Pixel-audited “galley faucet base” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 390,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-splashback",
+      "description": "Pixel-audited “galley splashback” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-sink-counter",
+      "description": "Pixel-audited “galley sink counter” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-sink-counter-edge",
+      "description": "Pixel-audited “galley sink counter edge” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-waste-compartment",
+      "description": "Pixel-audited “galley waste compartment” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 370,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-waste-compartment-door",
+      "description": "Pixel-audited “waste compartment door” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 370,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-waste-door-handle",
+      "description": "Pixel-audited “waste door handle” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-trash-receptacle",
+      "description": "Pixel-audited “galley trash receptacle” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trash-bin-rim",
+      "description": "Pixel-audited “trash bin rim” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-trash-bin-liner",
+      "description": "Pixel-audited “trash bin liner” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 360,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-waste-cabinet",
+      "description": "Pixel-audited “galley waste cabinet” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-waste-cabinet-hinge",
+      "description": "Pixel-audited “waste cabinet hinge” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 450,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-waste-cabinet-latch",
+      "description": "Pixel-audited “waste cabinet latch” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 440,
+      "y": 640,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-lower-galley-panel",
+      "description": "Pixel-audited “lower galley panel” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-lower-panel-handle",
+      "description": "Pixel-audited “lower panel handle” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-aircraft-galley-kickplate",
+      "description": "Pixel-audited “aircraft galley kickplate” inside the Sink and waste compartment crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-entry-doorway",
+      "description": "Pixel-audited “galley entry doorway” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 160,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-door-jamb",
+      "description": "Pixel-audited “galley door jamb” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 200,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-door-hinge",
+      "description": "Pixel-audited “galley door hinge” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 170,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-door-latch",
+      "description": "Pixel-audited “galley door latch” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 190,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-door-seal",
+      "description": "Pixel-audited “galley door seal” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 210,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-door-frame-trim",
+      "description": "Pixel-audited “galley door frame trim” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-entry-handrail",
+      "description": "Pixel-audited “galley entry handrail” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 50,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-handrail-mount",
+      "description": "Pixel-audited “galley handrail mount” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 60,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-yellow-entry-handrail",
+      "description": "Pixel-audited “yellow entry handrail” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 40,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-door-sill",
+      "description": "Pixel-audited “galley door sill” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 140,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-sill-plate",
+      "description": "Pixel-audited “galley sill plate” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 160,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-curtain",
+      "description": "Pixel-audited “galley curtain” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 260,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-curtain-panel",
+      "description": "Pixel-audited “galley curtain panel” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 260,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-curtain-tieback",
+      "description": "Pixel-audited “galley curtain tieback” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 260,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-curtain-rail",
+      "description": "Pixel-audited “galley curtain rail” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 260,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-curtain-rail-bracket",
+      "description": "Pixel-audited “galley curtain rail bracket” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 250,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cabin-threshold",
+      "description": "Pixel-audited “galley cabin threshold” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 870,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-threshold-tread",
+      "description": "Pixel-audited “galley threshold tread” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-door-fastener",
+      "description": "Pixel-audited “galley door fastener” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 220,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-entry-wall-liner",
+      "description": "Pixel-audited “galley entry wall liner” inside the Doorway and curtain crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 240,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-side-cabin-seat",
+      "description": "Pixel-audited “galley-side cabin seat” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-side-seatback",
+      "description": "Pixel-audited “galley-side seatback” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-side-seat-cushion",
+      "description": "Pixel-audited “galley-side seat cushion” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-side-seat-armrest",
+      "description": "Pixel-audited “galley-side seat armrest” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1410,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-side-seat-shell",
+      "description": "Pixel-audited “galley-side seat shell” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 510,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-side-headrest",
+      "description": "Pixel-audited “galley-side headrest” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-aisle-carpet",
+      "description": "Pixel-audited “galley aisle carpet” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cabin-floor",
+      "description": "Pixel-audited “galley cabin floor” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-floor-seam",
+      "description": "Pixel-audited “galley floor seam” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-aircraft-galley-floor-track",
+      "description": "Pixel-audited “aircraft galley floor track” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 850,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-floor-panel",
+      "description": "Pixel-audited “galley floor panel” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 810,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-aircraft-galley-sidewall",
+      "description": "Pixel-audited “aircraft galley sidewall” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-curtain-lower-hem",
+      "description": "Pixel-audited “galley curtain lower hem” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1200,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-aisle-side-trim",
+      "description": "Pixel-audited “galley aisle side trim” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1210,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cabin-wall-panel",
+      "description": "Pixel-audited “galley cabin wall panel” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-overhead-sidewall",
+      "description": "Pixel-audited “galley overhead sidewall” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-sidewall-seam",
+      "description": "Pixel-audited “galley sidewall seam” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-floor-edge-strip",
+      "description": "Pixel-audited “galley floor edge strip” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1200,
+      "y": 860,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-cabin-window",
+      "description": "Pixel-audited “galley cabin window” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-window-frame",
+      "description": "Pixel-audited “galley window frame” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-side-seat-base",
+      "description": "Pixel-audited “galley-side seat base” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "aircraft-galley-equipment-region-galley-side-seat-leg",
+      "description": "Pixel-audited “galley-side seat leg” inside the Cabin-side seating and floor crop of the aircraft galley photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "aircraft-galley-equipment-zone-upper-storage",
+      "title": "Galley upper storage",
+      "translation": "厨房上部储物",
+      "description": "Trace the visible upper cabinets, locker edges, shelves, dividers, trim and ceiling finish.",
+      "x": 320,
+      "y": 0,
+      "width": 880,
+      "height": 210,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-galley-equipment-galley-upper-cabinet",
+        "aircraft-galley-equipment-galley-cabinet-door",
+        "aircraft-galley-equipment-galley-cabinet-handle",
+        "aircraft-galley-equipment-galley-cabinet-hinge",
+        "aircraft-galley-equipment-galley-cabinet-latch",
+        "aircraft-galley-equipment-galley-cabinet-seam",
+        "aircraft-galley-equipment-galley-storage-bay",
+        "aircraft-galley-equipment-galley-shelf",
+        "aircraft-galley-equipment-galley-shelf-lip",
+        "aircraft-galley-equipment-galley-shelf-bracket",
+        "aircraft-galley-equipment-galley-divider",
+        "aircraft-galley-equipment-galley-ceiling-panel",
+        "aircraft-galley-equipment-galley-top-trim",
+        "aircraft-galley-equipment-galley-side-trim",
+        "aircraft-galley-equipment-galley-light",
+        "aircraft-galley-equipment-galley-light-housing",
+        "aircraft-galley-equipment-galley-upper-work-panel",
+        "aircraft-galley-equipment-galley-overhead-liner",
+        "aircraft-galley-equipment-galley-cabinet-fastener",
+        "aircraft-galley-equipment-galley-locker-edge",
+        "aircraft-galley-equipment-galley-locker-pull"
+      ]
+    },
+    {
+      "id": "aircraft-galley-equipment-zone-oven-beverage",
+      "title": "Oven and beverage equipment",
+      "translation": "烤箱与饮品设备",
+      "description": "Inspect the visible oven fronts, beverage maker, coffee carafe, boiler, dispenser and worktop hardware.",
+      "x": 300,
+      "y": 190,
+      "width": 900,
+      "height": 280,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-galley-equipment-galley-oven-bank",
+        "aircraft-galley-equipment-upper-galley-oven",
+        "aircraft-galley-equipment-lower-galley-oven",
+        "aircraft-galley-equipment-aircraft-galley-oven-door",
+        "aircraft-galley-equipment-aircraft-galley-oven-handle",
+        "aircraft-galley-equipment-aircraft-galley-oven-latch",
+        "aircraft-galley-equipment-galley-oven-hinge",
+        "aircraft-galley-equipment-galley-oven-bezel",
+        "aircraft-galley-equipment-galley-oven-cavity",
+        "aircraft-galley-equipment-galley-oven-panel",
+        "aircraft-galley-equipment-galley-oven-fastener",
+        "aircraft-galley-equipment-galley-beverage-maker",
+        "aircraft-galley-equipment-galley-coffee-maker",
+        "aircraft-galley-equipment-coffee-maker-carafe",
+        "aircraft-galley-equipment-coffee-maker-lid",
+        "aircraft-galley-equipment-coffee-maker-handle",
+        "aircraft-galley-equipment-coffee-maker-base",
+        "aircraft-galley-equipment-galley-water-boiler",
+        "aircraft-galley-equipment-boiler-spout",
+        "aircraft-galley-equipment-boiler-drip-tray",
+        "aircraft-galley-equipment-galley-beverage-dispenser",
+        "aircraft-galley-equipment-dispenser-nozzle",
+        "aircraft-galley-equipment-dispenser-tray",
+        "aircraft-galley-equipment-galley-cup-dispenser",
+        "aircraft-galley-equipment-galley-cup-shelf",
+        "aircraft-galley-equipment-galley-cup",
+        "aircraft-galley-equipment-galley-cup-stack",
+        "aircraft-galley-equipment-galley-beverage-panel",
+        "aircraft-galley-equipment-beverage-drip-tray",
+        "aircraft-galley-equipment-galley-worktop",
+        "aircraft-galley-equipment-galley-worktop-backsplash",
+        "aircraft-galley-equipment-aircraft-galley-worktop-edge"
+      ]
+    },
+    {
+      "id": "aircraft-galley-equipment-zone-trolley-banks",
+      "title": "Service trolley banks",
+      "translation": "服务推车组",
+      "description": "Compare the visible stowed trolleys, doors, handles, latches, drawers, bays, casters and retaining hardware.",
+      "x": 500,
+      "y": 450,
+      "width": 780,
+      "height": 450,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-galley-equipment-galley-service-trolley",
+        "aircraft-galley-equipment-trolley-door",
+        "aircraft-galley-equipment-service-trolley-handle",
+        "aircraft-galley-equipment-trolley-latch",
+        "aircraft-galley-equipment-trolley-hinge",
+        "aircraft-galley-equipment-trolley-drawer",
+        "aircraft-galley-equipment-trolley-drawer-handle",
+        "aircraft-galley-equipment-trolley-container-bay",
+        "aircraft-galley-equipment-service-trolley-caster",
+        "aircraft-galley-equipment-service-trolley-wheel",
+        "aircraft-galley-equipment-trolley-brake",
+        "aircraft-galley-equipment-trolley-lower-rail",
+        "aircraft-galley-equipment-trolley-upper-rail",
+        "aircraft-galley-equipment-left-service-trolley",
+        "aircraft-galley-equipment-center-service-trolley",
+        "aircraft-galley-equipment-right-service-trolley",
+        "aircraft-galley-equipment-trolley-door-seal",
+        "aircraft-galley-equipment-trolley-side-panel",
+        "aircraft-galley-equipment-trolley-front-panel",
+        "aircraft-galley-equipment-trolley-access-flap",
+        "aircraft-galley-equipment-trolley-tray",
+        "aircraft-galley-equipment-trolley-tray-handle",
+        "aircraft-galley-equipment-trolley-storage-bin",
+        "aircraft-galley-equipment-trolley-bin-lid",
+        "aircraft-galley-equipment-trolley-wheel-housing",
+        "aircraft-galley-equipment-trolley-floor-guide",
+        "aircraft-galley-equipment-galley-trolley-bay",
+        "aircraft-galley-equipment-trolley-bay-divider",
+        "aircraft-galley-equipment-trolley-retaining-bracket",
+        "aircraft-galley-equipment-trolley-base-plate"
+      ]
+    },
+    {
+      "id": "aircraft-galley-equipment-zone-sink-waste",
+      "title": "Sink and waste compartment",
+      "translation": "水槽与废弃物舱",
+      "description": "Inspect the visible galley sink, faucet, counter, waste compartment, receptacle and lower panel hardware.",
+      "x": 250,
+      "y": 220,
+      "width": 300,
+      "height": 680,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-galley-equipment-galley-sink",
+        "aircraft-galley-equipment-galley-sink-basin",
+        "aircraft-galley-equipment-galley-sink-drain",
+        "aircraft-galley-equipment-galley-faucet",
+        "aircraft-galley-equipment-galley-faucet-spout",
+        "aircraft-galley-equipment-galley-faucet-handle",
+        "aircraft-galley-equipment-galley-faucet-base",
+        "aircraft-galley-equipment-galley-splashback",
+        "aircraft-galley-equipment-galley-sink-counter",
+        "aircraft-galley-equipment-galley-sink-counter-edge",
+        "aircraft-galley-equipment-galley-waste-compartment",
+        "aircraft-galley-equipment-waste-compartment-door",
+        "aircraft-galley-equipment-waste-door-handle",
+        "aircraft-galley-equipment-galley-trash-receptacle",
+        "aircraft-galley-equipment-trash-bin-rim",
+        "aircraft-galley-equipment-trash-bin-liner",
+        "aircraft-galley-equipment-galley-waste-cabinet",
+        "aircraft-galley-equipment-waste-cabinet-hinge",
+        "aircraft-galley-equipment-waste-cabinet-latch",
+        "aircraft-galley-equipment-lower-galley-panel",
+        "aircraft-galley-equipment-lower-panel-handle",
+        "aircraft-galley-equipment-aircraft-galley-kickplate"
+      ]
+    },
+    {
+      "id": "aircraft-galley-equipment-zone-doorway-curtain",
+      "title": "Doorway and curtain",
+      "translation": "门口与幕帘",
+      "description": "Trace the visible galley doorway, aircraft door hardware, handrails, sill, curtain and entry liner.",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-galley-equipment-galley-entry-doorway",
+        "aircraft-galley-equipment-galley-door-jamb",
+        "aircraft-galley-equipment-galley-door-hinge",
+        "aircraft-galley-equipment-galley-door-latch",
+        "aircraft-galley-equipment-galley-door-seal",
+        "aircraft-galley-equipment-galley-door-frame-trim",
+        "aircraft-galley-equipment-galley-entry-handrail",
+        "aircraft-galley-equipment-galley-handrail-mount",
+        "aircraft-galley-equipment-yellow-entry-handrail",
+        "aircraft-galley-equipment-galley-door-sill",
+        "aircraft-galley-equipment-galley-sill-plate",
+        "aircraft-galley-equipment-galley-curtain",
+        "aircraft-galley-equipment-galley-curtain-panel",
+        "aircraft-galley-equipment-galley-curtain-tieback",
+        "aircraft-galley-equipment-galley-curtain-rail",
+        "aircraft-galley-equipment-galley-curtain-rail-bracket",
+        "aircraft-galley-equipment-galley-cabin-threshold",
+        "aircraft-galley-equipment-galley-threshold-tread",
+        "aircraft-galley-equipment-galley-door-fastener",
+        "aircraft-galley-equipment-galley-entry-wall-liner"
+      ]
+    },
+    {
+      "id": "aircraft-galley-equipment-zone-cabin-side-floor",
+      "title": "Cabin-side seating and floor",
+      "translation": "客舱侧座椅与地面",
+      "description": "Inspect the visible cabin-side seat parts, aisle floor, wall panels, window and galley floor finish.",
+      "x": 1200,
+      "y": 0,
+      "width": 400,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "aircraft-galley-equipment-galley-side-cabin-seat",
+        "aircraft-galley-equipment-galley-side-seatback",
+        "aircraft-galley-equipment-galley-side-seat-cushion",
+        "aircraft-galley-equipment-galley-side-seat-armrest",
+        "aircraft-galley-equipment-galley-side-seat-shell",
+        "aircraft-galley-equipment-galley-side-headrest",
+        "aircraft-galley-equipment-galley-aisle-carpet",
+        "aircraft-galley-equipment-galley-cabin-floor",
+        "aircraft-galley-equipment-galley-floor-seam",
+        "aircraft-galley-equipment-aircraft-galley-floor-track",
+        "aircraft-galley-equipment-galley-floor-panel",
+        "aircraft-galley-equipment-aircraft-galley-sidewall",
+        "aircraft-galley-equipment-galley-curtain-lower-hem",
+        "aircraft-galley-equipment-galley-aisle-side-trim",
+        "aircraft-galley-equipment-galley-cabin-wall-panel",
+        "aircraft-galley-equipment-galley-overhead-sidewall",
+        "aircraft-galley-equipment-galley-sidewall-seam",
+        "aircraft-galley-equipment-galley-floor-edge-strip",
+        "aircraft-galley-equipment-galley-cabin-window",
+        "aircraft-galley-equipment-galley-window-frame",
+        "aircraft-galley-equipment-galley-side-seat-base",
+        "aircraft-galley-equipment-galley-side-seat-leg"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/aircraft-galley-equipment-premium-v1.jpg",
+    "reviewedAssetSha256": "ad4302dc7a0b87d7ae7bc6f596aec9a1c264ca29774d8c5ea0f024c91c3c0bbe",
+    "rationale": "The final 1600 by 900 aircraft-galley photograph was inspected at source and output resolution. It retains 147 independently pointable cabinet, oven, beverage, trolley, sink, doorway and cabin-side parts. Passenger actions, crew actions, food-service outcomes, airline identity, readable labels, power state, temperature and hidden aircraft systems were excluded.",
+    "previousLabelCount": 155,
+    "retainedLabelCount": 147,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "passenger action",
+      "crew action",
+      "food-service outcome",
+      "airline identity",
+      "power state",
+      "hidden system"
+    ]
+  },
+  "labels": [
+    {
+      "id": "aircraft-galley-equipment-galley-upper-cabinet",
+      "word": "galley upper cabinet",
+      "translation": "厨房上柜",
+      "x": 500,
+      "y": 90,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-upper-cabinet"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cabinet-door",
+      "word": "galley cabinet door",
+      "translation": "厨房柜门",
+      "x": 500,
+      "y": 120,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabinet-door"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cabinet-handle",
+      "word": "galley cabinet handle",
+      "translation": "厨房柜门把手",
+      "x": 530,
+      "y": 125,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabinet-handle"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cabinet-hinge",
+      "word": "galley cabinet hinge",
+      "translation": "厨房柜门铰链",
+      "x": 450,
+      "y": 130,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabinet-hinge"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cabinet-latch",
+      "word": "galley cabinet latch",
+      "translation": "厨房柜门锁扣",
+      "x": 500,
+      "y": 185,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabinet-latch"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cabinet-seam",
+      "word": "galley cabinet seam",
+      "translation": "厨房柜体接缝",
+      "x": 650,
+      "y": 120,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabinet-seam"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-storage-bay",
+      "word": "galley storage bay",
+      "translation": "厨房储物舱",
+      "x": 700,
+      "y": 100,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-storage-bay"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-shelf",
+      "word": "galley shelf",
+      "translation": "厨房搁板",
+      "x": 760,
+      "y": 150,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-shelf"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-shelf-lip",
+      "word": "galley shelf lip",
+      "translation": "厨房搁板边缘",
+      "x": 760,
+      "y": 170,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-shelf-lip"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-shelf-bracket",
+      "word": "galley shelf bracket",
+      "translation": "厨房搁板支架",
+      "x": 800,
+      "y": 170,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-shelf-bracket"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-divider",
+      "word": "galley divider",
+      "translation": "厨房分隔板",
+      "x": 820,
+      "y": 150,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-divider"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-ceiling-panel",
+      "word": "galley ceiling panel",
+      "translation": "厨房顶板",
+      "x": 850,
+      "y": 20,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-ceiling-panel"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-top-trim",
+      "word": "galley top trim",
+      "translation": "厨房顶部饰条",
+      "x": 900,
+      "y": 40,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-top-trim"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-side-trim",
+      "word": "galley side trim",
+      "translation": "厨房侧饰条",
+      "x": 1050,
+      "y": 160,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-side-trim"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-light",
+      "word": "galley light",
+      "translation": "厨房灯",
+      "x": 400,
+      "y": 190,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-light"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-light-housing",
+      "word": "galley light housing",
+      "translation": "厨房灯具外壳",
+      "x": 400,
+      "y": 195,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-light-housing"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-upper-work-panel",
+      "word": "galley upper work panel",
+      "translation": "厨房上部工作面板",
+      "x": 600,
+      "y": 190,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-upper-work-panel"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-overhead-liner",
+      "word": "galley overhead liner",
+      "translation": "厨房顶置内衬",
+      "x": 1000,
+      "y": 100,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-overhead-liner"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cabinet-fastener",
+      "word": "galley cabinet fastener",
+      "translation": "厨房柜体紧固件",
+      "x": 610,
+      "y": 130,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabinet-fastener"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-locker-edge",
+      "word": "galley locker edge",
+      "translation": "厨房储物柜边缘",
+      "x": 1000,
+      "y": 155,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-locker-edge"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-locker-pull",
+      "word": "galley locker pull",
+      "translation": "厨房储物柜拉手",
+      "x": 1020,
+      "y": 125,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-locker-pull"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-oven-bank",
+      "word": "galley oven bank",
+      "translation": "厨房烤箱组",
+      "x": 950,
+      "y": 300,
+      "priority": 1.021,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-oven-bank"
+    },
+    {
+      "id": "aircraft-galley-equipment-upper-galley-oven",
+      "word": "upper galley oven",
+      "translation": "厨房上层烤箱",
+      "x": 950,
+      "y": 270,
+      "priority": 1.022,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-upper-galley-oven"
+    },
+    {
+      "id": "aircraft-galley-equipment-lower-galley-oven",
+      "word": "lower galley oven",
+      "translation": "厨房下层烤箱",
+      "x": 950,
+      "y": 380,
+      "priority": 1.023,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-lower-galley-oven"
+    },
+    {
+      "id": "aircraft-galley-equipment-aircraft-galley-oven-door",
+      "word": "aircraft galley oven door",
+      "translation": "飞机厨房烤箱门",
+      "x": 950,
+      "y": 315,
+      "priority": 1.024,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-aircraft-galley-oven-door"
+    },
+    {
+      "id": "aircraft-galley-equipment-aircraft-galley-oven-handle",
+      "word": "aircraft galley oven handle",
+      "translation": "飞机厨房烤箱把手",
+      "x": 950,
+      "y": 260,
+      "priority": 1.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-aircraft-galley-oven-handle"
+    },
+    {
+      "id": "aircraft-galley-equipment-aircraft-galley-oven-latch",
+      "word": "aircraft galley oven latch",
+      "translation": "飞机厨房烤箱锁扣",
+      "x": 950,
+      "y": 245,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-aircraft-galley-oven-latch"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-oven-hinge",
+      "word": "galley oven hinge",
+      "translation": "厨房烤箱铰链",
+      "x": 1000,
+      "y": 400,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-oven-hinge"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-oven-bezel",
+      "word": "galley oven bezel",
+      "translation": "厨房烤箱边框",
+      "x": 900,
+      "y": 250,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-oven-bezel"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-oven-cavity",
+      "word": "galley oven cavity",
+      "translation": "厨房烤箱腔体",
+      "x": 950,
+      "y": 330,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-oven-cavity"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-oven-panel",
+      "word": "galley oven panel",
+      "translation": "厨房烤箱面板",
+      "x": 1050,
+      "y": 330,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-oven-panel"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-oven-fastener",
+      "word": "galley oven fastener",
+      "translation": "厨房烤箱紧固件",
+      "x": 1050,
+      "y": 250,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-oven-fastener"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-beverage-maker",
+      "word": "galley beverage maker",
+      "translation": "厨房饮品机",
+      "x": 560,
+      "y": 300,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-beverage-maker"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-coffee-maker",
+      "word": "galley coffee maker",
+      "translation": "厨房咖啡机",
+      "x": 700,
+      "y": 330,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-coffee-maker"
+    },
+    {
+      "id": "aircraft-galley-equipment-coffee-maker-carafe",
+      "word": "coffee maker carafe",
+      "translation": "咖啡机壶",
+      "x": 700,
+      "y": 360,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-coffee-maker-carafe"
+    },
+    {
+      "id": "aircraft-galley-equipment-coffee-maker-lid",
+      "word": "coffee maker lid",
+      "translation": "咖啡机壶盖",
+      "x": 700,
+      "y": 315,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-coffee-maker-lid"
+    },
+    {
+      "id": "aircraft-galley-equipment-coffee-maker-handle",
+      "word": "coffee maker handle",
+      "translation": "咖啡机壶把手",
+      "x": 730,
+      "y": 360,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-coffee-maker-handle"
+    },
+    {
+      "id": "aircraft-galley-equipment-coffee-maker-base",
+      "word": "coffee maker base",
+      "translation": "咖啡机底座",
+      "x": 700,
+      "y": 410,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-coffee-maker-base"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-water-boiler",
+      "word": "galley water boiler",
+      "translation": "厨房热水锅炉",
+      "x": 560,
+      "y": 300,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-water-boiler"
+    },
+    {
+      "id": "aircraft-galley-equipment-boiler-spout",
+      "word": "boiler spout",
+      "translation": "锅炉出水口",
+      "x": 570,
+      "y": 370,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-boiler-spout"
+    },
+    {
+      "id": "aircraft-galley-equipment-boiler-drip-tray",
+      "word": "boiler drip tray",
+      "translation": "锅炉滴水盘",
+      "x": 570,
+      "y": 420,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-boiler-drip-tray"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-beverage-dispenser",
+      "word": "galley beverage dispenser",
+      "translation": "厨房饮品分配器",
+      "x": 560,
+      "y": 260,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-beverage-dispenser"
+    },
+    {
+      "id": "aircraft-galley-equipment-dispenser-nozzle",
+      "word": "dispenser nozzle",
+      "translation": "分配器喷嘴",
+      "x": 570,
+      "y": 370,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-dispenser-nozzle"
+    },
+    {
+      "id": "aircraft-galley-equipment-dispenser-tray",
+      "word": "dispenser tray",
+      "translation": "分配器托盘",
+      "x": 580,
+      "y": 420,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-dispenser-tray"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cup-dispenser",
+      "word": "galley cup dispenser",
+      "translation": "厨房杯子分配架",
+      "x": 780,
+      "y": 300,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cup-dispenser"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cup-shelf",
+      "word": "galley cup shelf",
+      "translation": "厨房杯架",
+      "x": 760,
+      "y": 300,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cup-shelf"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cup",
+      "word": "galley cup",
+      "translation": "厨房杯子",
+      "x": 760,
+      "y": 280,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cup"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cup-stack",
+      "word": "galley cup stack",
+      "translation": "厨房杯子堆",
+      "x": 760,
+      "y": 270,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cup-stack"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-beverage-panel",
+      "word": "galley beverage panel",
+      "translation": "厨房饮品面板",
+      "x": 550,
+      "y": 250,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-beverage-panel"
+    },
+    {
+      "id": "aircraft-galley-equipment-beverage-drip-tray",
+      "word": "beverage drip tray",
+      "translation": "饮品滴水盘",
+      "x": 620,
+      "y": 420,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-beverage-drip-tray"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-worktop",
+      "word": "galley worktop",
+      "translation": "厨房台面",
+      "x": 750,
+      "y": 440,
+      "priority": 1.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-worktop"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-worktop-backsplash",
+      "word": "galley worktop backsplash",
+      "translation": "厨房台面挡板",
+      "x": 750,
+      "y": 415,
+      "priority": 1.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-worktop-backsplash"
+    },
+    {
+      "id": "aircraft-galley-equipment-aircraft-galley-worktop-edge",
+      "word": "aircraft galley worktop edge",
+      "translation": "飞机厨房台面边缘",
+      "x": 750,
+      "y": 455,
+      "priority": 1.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-aircraft-galley-worktop-edge"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-service-trolley",
+      "word": "galley service trolley",
+      "translation": "厨房服务推车",
+      "x": 600,
+      "y": 620,
+      "priority": 1.053,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-service-trolley"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-door",
+      "word": "trolley door",
+      "translation": "推车门",
+      "x": 600,
+      "y": 650,
+      "priority": 1.054,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-door"
+    },
+    {
+      "id": "aircraft-galley-equipment-service-trolley-handle",
+      "word": "service trolley handle",
+      "translation": "服务推车把手",
+      "x": 600,
+      "y": 540,
+      "priority": 1.055,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-service-trolley-handle"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-latch",
+      "word": "trolley latch",
+      "translation": "推车锁扣",
+      "x": 610,
+      "y": 500,
+      "priority": 1.056,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-latch"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-hinge",
+      "word": "trolley hinge",
+      "translation": "推车铰链",
+      "x": 550,
+      "y": 700,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-hinge"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-drawer",
+      "word": "trolley drawer",
+      "translation": "推车抽屉",
+      "x": 600,
+      "y": 700,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-drawer"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-drawer-handle",
+      "word": "trolley drawer handle",
+      "translation": "推车抽屉把手",
+      "x": 600,
+      "y": 700,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-drawer-handle"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-container-bay",
+      "word": "trolley container bay",
+      "translation": "推车容器舱",
+      "x": 600,
+      "y": 760,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-container-bay"
+    },
+    {
+      "id": "aircraft-galley-equipment-service-trolley-caster",
+      "word": "service trolley caster",
+      "translation": "服务推车脚轮",
+      "x": 620,
+      "y": 850,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-service-trolley-caster"
+    },
+    {
+      "id": "aircraft-galley-equipment-service-trolley-wheel",
+      "word": "service trolley wheel",
+      "translation": "服务推车轮",
+      "x": 650,
+      "y": 850,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-service-trolley-wheel"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-brake",
+      "word": "trolley brake",
+      "translation": "推车刹车",
+      "x": 660,
+      "y": 840,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-brake"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-lower-rail",
+      "word": "trolley lower rail",
+      "translation": "推车下导轨",
+      "x": 700,
+      "y": 820,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-lower-rail"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-upper-rail",
+      "word": "trolley upper rail",
+      "translation": "推车上导轨",
+      "x": 700,
+      "y": 510,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-upper-rail"
+    },
+    {
+      "id": "aircraft-galley-equipment-left-service-trolley",
+      "word": "left service trolley",
+      "translation": "左侧服务推车",
+      "x": 580,
+      "y": 600,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-left-service-trolley"
+    },
+    {
+      "id": "aircraft-galley-equipment-center-service-trolley",
+      "word": "center service trolley",
+      "translation": "中央服务推车",
+      "x": 800,
+      "y": 600,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-center-service-trolley"
+    },
+    {
+      "id": "aircraft-galley-equipment-right-service-trolley",
+      "word": "right service trolley",
+      "translation": "右侧服务推车",
+      "x": 1050,
+      "y": 600,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-right-service-trolley"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-door-seal",
+      "word": "trolley door seal",
+      "translation": "推车门密封条",
+      "x": 760,
+      "y": 550,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-door-seal"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-side-panel",
+      "word": "trolley side panel",
+      "translation": "推车侧板",
+      "x": 760,
+      "y": 700,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-side-panel"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-front-panel",
+      "word": "trolley front panel",
+      "translation": "推车前板",
+      "x": 800,
+      "y": 650,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-front-panel"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-access-flap",
+      "word": "trolley access flap",
+      "translation": "推车检修翻板",
+      "x": 800,
+      "y": 760,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-access-flap"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-tray",
+      "word": "trolley tray",
+      "translation": "推车托盘",
+      "x": 800,
+      "y": 530,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-tray"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-tray-handle",
+      "word": "trolley tray handle",
+      "translation": "推车托盘把手",
+      "x": 820,
+      "y": 530,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-tray-handle"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-storage-bin",
+      "word": "trolley storage bin",
+      "translation": "推车储物箱",
+      "x": 900,
+      "y": 740,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-storage-bin"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-bin-lid",
+      "word": "trolley bin lid",
+      "translation": "推车箱盖",
+      "x": 900,
+      "y": 720,
+      "priority": 1.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-bin-lid"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-wheel-housing",
+      "word": "trolley wheel housing",
+      "translation": "推车轮罩",
+      "x": 900,
+      "y": 850,
+      "priority": 1.077,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-wheel-housing"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-floor-guide",
+      "word": "trolley floor guide",
+      "translation": "推车地面导轨",
+      "x": 950,
+      "y": 880,
+      "priority": 1.078,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-floor-guide"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-trolley-bay",
+      "word": "galley trolley bay",
+      "translation": "厨房推车舱",
+      "x": 1000,
+      "y": 600,
+      "priority": 1.079,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-trolley-bay"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-bay-divider",
+      "word": "trolley bay divider",
+      "translation": "推车舱分隔板",
+      "x": 1000,
+      "y": 500,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-bay-divider"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-retaining-bracket",
+      "word": "trolley retaining bracket",
+      "translation": "推车固定支架",
+      "x": 1050,
+      "y": 820,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-retaining-bracket"
+    },
+    {
+      "id": "aircraft-galley-equipment-trolley-base-plate",
+      "word": "trolley base plate",
+      "translation": "推车底板",
+      "x": 1050,
+      "y": 860,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trolley-base-plate"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-sink",
+      "word": "galley sink",
+      "translation": "厨房水槽",
+      "x": 380,
+      "y": 430,
+      "priority": 1.083,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-sink"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-sink-basin",
+      "word": "galley sink basin",
+      "translation": "厨房水槽盆",
+      "x": 380,
+      "y": 440,
+      "priority": 1.084,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-sink-basin"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-sink-drain",
+      "word": "galley sink drain",
+      "translation": "厨房水槽排水口",
+      "x": 380,
+      "y": 455,
+      "priority": 1.085,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-sink-drain"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-faucet",
+      "word": "galley faucet",
+      "translation": "厨房水龙头",
+      "x": 380,
+      "y": 350,
+      "priority": 1.086,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-faucet"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-faucet-spout",
+      "word": "galley faucet spout",
+      "translation": "厨房水龙头出水口",
+      "x": 380,
+      "y": 380,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-faucet-spout"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-faucet-handle",
+      "word": "galley faucet handle",
+      "translation": "厨房水龙头把手",
+      "x": 360,
+      "y": 395,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-faucet-handle"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-faucet-base",
+      "word": "galley faucet base",
+      "translation": "厨房水龙头底座",
+      "x": 380,
+      "y": 410,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-faucet-base"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-splashback",
+      "word": "galley splashback",
+      "translation": "厨房挡水板",
+      "x": 400,
+      "y": 300,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-splashback"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-sink-counter",
+      "word": "galley sink counter",
+      "translation": "厨房水槽台面",
+      "x": 420,
+      "y": 460,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-sink-counter"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-sink-counter-edge",
+      "word": "galley sink counter edge",
+      "translation": "厨房水槽台面边缘",
+      "x": 450,
+      "y": 470,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-sink-counter-edge"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-waste-compartment",
+      "word": "galley waste compartment",
+      "translation": "厨房废弃物舱",
+      "x": 390,
+      "y": 700,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-waste-compartment"
+    },
+    {
+      "id": "aircraft-galley-equipment-waste-compartment-door",
+      "word": "waste compartment door",
+      "translation": "废弃物舱门",
+      "x": 390,
+      "y": 650,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-waste-compartment-door"
+    },
+    {
+      "id": "aircraft-galley-equipment-waste-door-handle",
+      "word": "waste door handle",
+      "translation": "废弃物舱门把手",
+      "x": 450,
+      "y": 650,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-waste-door-handle"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-trash-receptacle",
+      "word": "galley trash receptacle",
+      "translation": "厨房垃圾容器",
+      "x": 380,
+      "y": 760,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-trash-receptacle"
+    },
+    {
+      "id": "aircraft-galley-equipment-trash-bin-rim",
+      "word": "trash bin rim",
+      "translation": "垃圾箱边缘",
+      "x": 380,
+      "y": 700,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trash-bin-rim"
+    },
+    {
+      "id": "aircraft-galley-equipment-trash-bin-liner",
+      "word": "trash bin liner",
+      "translation": "垃圾箱内衬",
+      "x": 380,
+      "y": 780,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-trash-bin-liner"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-waste-cabinet",
+      "word": "galley waste cabinet",
+      "translation": "厨房废弃物柜",
+      "x": 450,
+      "y": 600,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-waste-cabinet"
+    },
+    {
+      "id": "aircraft-galley-equipment-waste-cabinet-hinge",
+      "word": "waste cabinet hinge",
+      "translation": "废弃物柜铰链",
+      "x": 470,
+      "y": 620,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-waste-cabinet-hinge"
+    },
+    {
+      "id": "aircraft-galley-equipment-waste-cabinet-latch",
+      "word": "waste cabinet latch",
+      "translation": "废弃物柜锁扣",
+      "x": 460,
+      "y": 660,
+      "priority": 1.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-waste-cabinet-latch"
+    },
+    {
+      "id": "aircraft-galley-equipment-lower-galley-panel",
+      "word": "lower galley panel",
+      "translation": "厨房下部面板",
+      "x": 500,
+      "y": 820,
+      "priority": 1.102,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-lower-galley-panel"
+    },
+    {
+      "id": "aircraft-galley-equipment-lower-panel-handle",
+      "word": "lower panel handle",
+      "translation": "下部面板把手",
+      "x": 500,
+      "y": 780,
+      "priority": 1.103,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-lower-panel-handle"
+    },
+    {
+      "id": "aircraft-galley-equipment-aircraft-galley-kickplate",
+      "word": "aircraft galley kickplate",
+      "translation": "飞机厨房踢脚板",
+      "x": 450,
+      "y": 870,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-aircraft-galley-kickplate"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-entry-doorway",
+      "word": "galley entry doorway",
+      "translation": "厨房入口门口",
+      "x": 180,
+      "y": 300,
+      "priority": 1.105,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-entry-doorway"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-door-jamb",
+      "word": "galley door jamb",
+      "translation": "厨房门框立柱",
+      "x": 220,
+      "y": 400,
+      "priority": 1.106,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-door-jamb"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-door-hinge",
+      "word": "galley door hinge",
+      "translation": "厨房门铰链",
+      "x": 190,
+      "y": 200,
+      "priority": 1.107,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-door-hinge"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-door-latch",
+      "word": "galley door latch",
+      "translation": "厨房门锁扣",
+      "x": 210,
+      "y": 500,
+      "priority": 1.108,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-door-latch"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-door-seal",
+      "word": "galley door seal",
+      "translation": "厨房门密封条",
+      "x": 230,
+      "y": 450,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-door-seal"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-door-frame-trim",
+      "word": "galley door frame trim",
+      "translation": "厨房门框饰条",
+      "x": 250,
+      "y": 350,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-door-frame-trim"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-entry-handrail",
+      "word": "galley entry handrail",
+      "translation": "厨房入口扶手",
+      "x": 70,
+      "y": 780,
+      "priority": 1.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-entry-handrail"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-handrail-mount",
+      "word": "galley handrail mount",
+      "translation": "厨房扶手底座",
+      "x": 80,
+      "y": 760,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-handrail-mount"
+    },
+    {
+      "id": "aircraft-galley-equipment-yellow-entry-handrail",
+      "word": "yellow entry handrail",
+      "translation": "黄色入口扶手",
+      "x": 60,
+      "y": 820,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-yellow-entry-handrail"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-door-sill",
+      "word": "galley door sill",
+      "translation": "厨房门槛",
+      "x": 160,
+      "y": 870,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-door-sill"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-sill-plate",
+      "word": "galley sill plate",
+      "translation": "厨房门槛板",
+      "x": 180,
+      "y": 850,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-sill-plate"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-curtain",
+      "word": "galley curtain",
+      "translation": "厨房幕帘",
+      "x": 280,
+      "y": 400,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-curtain"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-curtain-panel",
+      "word": "galley curtain panel",
+      "translation": "厨房幕帘面板",
+      "x": 280,
+      "y": 350,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-curtain-panel"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-curtain-tieback",
+      "word": "galley curtain tieback",
+      "translation": "厨房幕帘束带",
+      "x": 280,
+      "y": 500,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-curtain-tieback"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-curtain-rail",
+      "word": "galley curtain rail",
+      "translation": "厨房幕帘导轨",
+      "x": 280,
+      "y": 80,
+      "priority": 1.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-curtain-rail"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-curtain-rail-bracket",
+      "word": "galley curtain rail bracket",
+      "translation": "厨房幕帘导轨支架",
+      "x": 270,
+      "y": 100,
+      "priority": 1.12,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-curtain-rail-bracket"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cabin-threshold",
+      "word": "galley cabin threshold",
+      "translation": "厨房客舱门槛",
+      "x": 250,
+      "y": 890,
+      "priority": 1.121,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabin-threshold"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-threshold-tread",
+      "word": "galley threshold tread",
+      "translation": "厨房门槛踏板",
+      "x": 100,
+      "y": 880,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-threshold-tread"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-door-fastener",
+      "word": "galley door fastener",
+      "translation": "厨房门框紧固件",
+      "x": 240,
+      "y": 600,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-door-fastener"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-entry-wall-liner",
+      "word": "galley entry wall liner",
+      "translation": "厨房入口墙面内衬",
+      "x": 260,
+      "y": 250,
+      "priority": 1.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-entry-wall-liner"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-side-cabin-seat",
+      "word": "galley-side cabin seat",
+      "translation": "厨房侧客舱座椅",
+      "x": 1350,
+      "y": 550,
+      "priority": 1.125,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-side-cabin-seat"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-side-seatback",
+      "word": "galley-side seatback",
+      "translation": "厨房侧椅背",
+      "x": 1350,
+      "y": 500,
+      "priority": 1.126,
+      "minLevel": 0,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-side-seatback"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-side-seat-cushion",
+      "word": "galley-side seat cushion",
+      "translation": "厨房侧坐垫",
+      "x": 1350,
+      "y": 600,
+      "priority": 1.127,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-side-seat-cushion"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-side-seat-armrest",
+      "word": "galley-side seat armrest",
+      "translation": "厨房侧扶手",
+      "x": 1430,
+      "y": 620,
+      "priority": 1.128,
+      "minLevel": 1,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-side-seat-armrest"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-side-seat-shell",
+      "word": "galley-side seat shell",
+      "translation": "厨房侧椅壳",
+      "x": 1350,
+      "y": 530,
+      "priority": 1.129,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-side-seat-shell"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-side-headrest",
+      "word": "galley-side headrest",
+      "translation": "厨房侧头枕",
+      "x": 1350,
+      "y": 450,
+      "priority": 1.13,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-side-headrest"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-aisle-carpet",
+      "word": "galley aisle carpet",
+      "translation": "厨房侧过道地毯",
+      "x": 1250,
+      "y": 800,
+      "priority": 1.131,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-aisle-carpet"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cabin-floor",
+      "word": "galley cabin floor",
+      "translation": "厨房侧客舱地面",
+      "x": 1350,
+      "y": 850,
+      "priority": 1.132,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabin-floor"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-floor-seam",
+      "word": "galley floor seam",
+      "translation": "厨房地面接缝",
+      "x": 1300,
+      "y": 840,
+      "priority": 1.133,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-floor-seam"
+    },
+    {
+      "id": "aircraft-galley-equipment-aircraft-galley-floor-track",
+      "word": "aircraft galley floor track",
+      "translation": "飞机厨房地面导轨",
+      "x": 1250,
+      "y": 870,
+      "priority": 1.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-aircraft-galley-floor-track"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-floor-panel",
+      "word": "galley floor panel",
+      "translation": "厨房地面面板",
+      "x": 1450,
+      "y": 830,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-floor-panel"
+    },
+    {
+      "id": "aircraft-galley-equipment-aircraft-galley-sidewall",
+      "word": "aircraft galley sidewall",
+      "translation": "飞机厨房侧墙",
+      "x": 1250,
+      "y": 220,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-aircraft-galley-sidewall"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-curtain-lower-hem",
+      "word": "galley curtain lower hem",
+      "translation": "厨房幕帘下摆",
+      "x": 1220,
+      "y": 700,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-curtain-lower-hem"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-aisle-side-trim",
+      "word": "galley aisle side trim",
+      "translation": "厨房过道侧饰条",
+      "x": 1230,
+      "y": 500,
+      "priority": 1.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-aisle-side-trim"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cabin-wall-panel",
+      "word": "galley cabin wall panel",
+      "translation": "厨房客舱墙板",
+      "x": 1300,
+      "y": 300,
+      "priority": 1.139,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabin-wall-panel"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-overhead-sidewall",
+      "word": "galley overhead sidewall",
+      "translation": "厨房上侧墙",
+      "x": 1400,
+      "y": 180,
+      "priority": 1.14,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-overhead-sidewall"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-sidewall-seam",
+      "word": "galley sidewall seam",
+      "translation": "厨房侧墙接缝",
+      "x": 1450,
+      "y": 300,
+      "priority": 1.141,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-sidewall-seam"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-floor-edge-strip",
+      "word": "galley floor edge strip",
+      "translation": "厨房地面边条",
+      "x": 1220,
+      "y": 880,
+      "priority": 1.142,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-floor-edge-strip"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-cabin-window",
+      "word": "galley cabin window",
+      "translation": "厨房侧客舱窗",
+      "x": 1500,
+      "y": 350,
+      "priority": 1.143,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-cabin-window"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-window-frame",
+      "word": "galley window frame",
+      "translation": "厨房侧客舱窗框",
+      "x": 1500,
+      "y": 350,
+      "priority": 1.144,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-window-frame"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-side-seat-base",
+      "word": "galley-side seat base",
+      "translation": "厨房侧椅底座",
+      "x": 1350,
+      "y": 720,
+      "priority": 1.145,
+      "minLevel": 4,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-side-seat-base"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-side-seat-leg",
+      "word": "galley-side seat leg",
+      "translation": "厨房侧椅腿",
+      "x": 1400,
+      "y": 760,
+      "priority": 1.146,
+      "minLevel": 2,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-side-seat-leg"
+    }
+  ],
+  "portals": []
+}
