@@ -1067,6 +1067,13 @@ test("urban services exposes hospital, airport and office vocabulary through the
   ).click();
   await expect(app).toHaveAttribute("data-scene-id", "hospital");
   await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "380");
+  const emergencyZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="emergency-department-detail"]',
+  );
+  await emergencyZone.click();
+  await expect.poll(() => page.locator(
+    '[data-testid="word-label"][data-word="defibrillator"][data-visible="true"]',
+  ).count(), { message: "hospital emergency focus should show defibrillator" }).toBeGreaterThan(0);
   const pathologyZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="pathology-laboratory-detail"]',
   );

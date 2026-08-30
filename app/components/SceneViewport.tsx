@@ -682,6 +682,18 @@ const INITIAL_LABEL_MOUNT_VIEWPORT = {
   compact: true,
 } as const;
 
+// Facility scenes carry the newest high-density professional batches. Keep
+// their explicitly selected crop ahead of unrelated overview labels on both
+// desktop and compact screens; other scenes retain the established desktop
+// collision order while compact focus still receives the same treatment.
+const FOCUSED_PRIORITY_SCENES = new Set([
+  "hospital",
+  "pathology-lab",
+  "hospital-pharmacy",
+  "airport",
+  "office-building",
+]);
+
 // Scene JSON objects are retained by the bounded repository while users move
 // between a parent and child. Reuse the last truthful DOM window when that
 // exact scene is revisited: this avoids rebuilding a compact seed and then
@@ -1321,7 +1333,8 @@ export function SceneViewport({
     );
     const focusRegion = focusedDetailZoneRef.current;
     const activeFocusedDetailZone = focusedDetailZoneValueRef.current;
-    const focusedPriorityLabelIds = activeFocusedDetailZone && viewportWidth <= 900
+    const focusedPriorityLabelIds = activeFocusedDetailZone
+      && (viewportWidth <= 900 || FOCUSED_PRIORITY_SCENES.has(scene.id))
       ? new Set(activeFocusedDetailZone.labelIds)
       : undefined;
     if (focusRegion) {
