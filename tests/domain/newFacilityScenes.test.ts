@@ -112,6 +112,22 @@ const contracts = [
     labels: 150,
     zoneSizes: [25, 25, 25, 25, 25, 25],
   },
+  {
+    id: "school-corridor",
+    parentId: "school-campus",
+    asset: "/scenes/school-corridor-premium-v1.jpg",
+    sha256: "bfee1ecd5f13dd2ca1a8a6860cb16582bd1d9c4a5c456702e37966261f9be13b",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
+    id: "school-science-laboratory",
+    parentId: "school-science-preparation-room",
+    asset: "/scenes/school-science-laboratory-premium-v1.jpg",
+    sha256: "baafd0b221a587705b595a40553582af48216c1ccdceb9657fc90a8f06bc6a36",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
 ] as const;
 
 for (const contract of contracts) {
@@ -122,7 +138,7 @@ for (const contract of contracts) {
     assert.equal(scene.asset, contract.asset);
     assert.deepEqual([scene.width, scene.height], [1_600, 900]);
     assert.equal(scene.labels.length, contract.labels);
-    assert.equal(scene.visualRegions.length, contract.labels);
+    assert.equal(scene.visualRegions.length, contract.labels + scene.portals.length);
     assert.deepEqual(scene.detailZones.map(({ labelIds }: { labelIds: string[] }) => labelIds.length), contract.zoneSizes);
     assert.equal(new Set(scene.labels.map(({ id }: { id: string }) => id)).size, contract.labels);
     assert.equal(new Set(scene.labels.map(({ word }: { word: string }) => word.toLocaleLowerCase())).size, contract.labels);
@@ -242,6 +258,22 @@ test("school campus exposes separate lower-floor infirmary and science-preparati
   assert.ok(infirmary.x + infirmary.width <= science.x, "lower-floor room crops must remain disjoint");
   for (const portal of [infirmary, science]) {
     const region = campus.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+    assert.ok(region);
+    assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+  }
+});
+
+test("the remaining central campus crop opens a corridor and the preparation-room door opens the science lab", async () => {
+  const campus = await readJson("school-campus.json");
+  const preparation = await readJson("school-science-preparation-room.json");
+  const corridor = campus.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "school-corridor");
+  const laboratory = preparation.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "school-science-laboratory");
+  assert.ok(corridor);
+  assert.ok(laboratory);
+  assert.deepEqual([corridor.x, corridor.y, corridor.width, corridor.height], [382, 545, 668, 220]);
+  assert.deepEqual([laboratory.x, laboratory.y, laboratory.width, laboratory.height], [285, 110, 155, 330]);
+  for (const [parent, portal] of [[campus, corridor], [preparation, laboratory]]) {
+    const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
     assert.ok(region);
     assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
   }

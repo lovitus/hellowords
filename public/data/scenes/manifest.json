@@ -368,6 +368,16 @@
       "parentId": "school-campus"
     },
     {
+      "id": "school-science-laboratory",
+      "title": "School science laboratory",
+      "parentId": "school-science-preparation-room"
+    },
+    {
+      "id": "school-corridor",
+      "title": "School corridor",
+      "parentId": "school-campus"
+    },
+    {
       "id": "service-core",
       "title": "Office service core",
       "parentId": "office-building"

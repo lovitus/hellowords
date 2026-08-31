@@ -727,6 +727,15 @@
       "y": 545,
       "width": 500,
       "height": 220
+    },
+    {
+      "id": "portal-school-corridor",
+      "description": "Complete central locker corridor visible between the lower school rooms",
+      "kind": "object",
+      "x": 382,
+      "y": 545,
+      "width": 668,
+      "height": 220
     }
   ],
   "detailZones": [
@@ -1768,6 +1777,18 @@
       "width": 500,
       "height": 220,
       "enterScale": 3.4
+    },
+    {
+      "id": "enter-school-corridor",
+      "label": "Enter the school corridor",
+      "translation": "进入学校走廊",
+      "childSceneId": "school-corridor",
+      "sourceVisualRegion": "portal-school-corridor",
+      "x": 382,
+      "y": 545,
+      "width": 668,
+      "height": 220,
+      "enterScale": 3.15
     }
   ]
 }

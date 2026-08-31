@@ -1357,6 +1357,15 @@
       "y": 218.065887,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "portal-school-science-laboratory",
+      "description": "Complete glazed preparation-room doorway leading into the teaching laboratory",
+      "kind": "object",
+      "x": 285,
+      "y": 110,
+      "width": 155,
+      "height": 330
     }
   ],
   "detailZones": [
@@ -3261,5 +3270,18 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-school-science-laboratory",
+      "label": "Enter the science laboratory",
+      "translation": "进入学校科学实验室",
+      "childSceneId": "school-science-laboratory",
+      "sourceVisualRegion": "portal-school-science-laboratory",
+      "x": 285,
+      "y": 110,
+      "width": 155,
+      "height": 330,
+      "enterScale": 3.2
+    }
+  ]
 }

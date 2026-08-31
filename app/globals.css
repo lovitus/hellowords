@@ -2506,6 +2506,19 @@ a:focus-visible {
     font-size: 12px;
   }
 
+  .scene-hotspot {
+    width: 32px;
+    height: 32px;
+  }
+
+  .scene-hotspot::before {
+    inset: -4px;
+  }
+
+  .scene-hotspot-icon {
+    font-size: 15px;
+  }
+
   .vocabulary-zoom-cue-copy strong {
     font-size: 11px;
   }

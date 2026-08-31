@@ -146,6 +146,8 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "school-campus", "school-music-room"],
     ["world-map", "school-campus", "school-infirmary"],
     ["world-map", "school-campus", "school-science-preparation-room"],
+    ["world-map", "school-campus", "school-corridor"],
+    ["world-map", "school-campus", "school-science-preparation-room", "school-science-laboratory"],
     ["world-map", "supermarket-grocery", "supermarket-backroom", "supermarket-walk-in-cooler"],
     ["world-map", "supermarket-grocery", "supermarket-checkout-station"],
     ["world-map", "supermarket-grocery", "refrigerated-display-case"],

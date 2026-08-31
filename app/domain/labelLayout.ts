@@ -377,7 +377,10 @@ export function buildPortalCueProtectedRegions(
   viewport: SceneLabelViewport,
 ): SceneLabelProtectedRegion[] {
   const effectiveScale = camera.fit * camera.scale;
-  const cueSize = 58;
+  // Desktop keeps the generous 44px button plus its progress halo. Compact
+  // scenes use the 32px control defined by the mobile stylesheet, leaving
+  // dense branch overviews enough real vocabulary space without overlap.
+  const cueSize = viewport.compact ? 40 : 58;
   const cueHalf = cueSize / 2;
   return portals.flatMap((portal) => {
     const centerX = camera.x + (portal.x + portal.width / 2) * effectiveScale;
