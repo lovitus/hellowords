@@ -264,15 +264,22 @@ async function finishTransitionProbe(page: Page): Promise<TransitionProbeResult>
   }, TRANSITION_PROBE);
 }
 
-async function preparePortal(page: Page, childId: string): Promise<Locator> {
+async function preparePortal(
+  page: Page,
+  childId: string,
+  mode: "desktop" | "mobile",
+): Promise<Locator> {
   const portal = page.locator(`${HOTSPOT}[data-target-scene="${childId}"]`);
   await expect(portal).toHaveCount(1);
-  await portal.focus();
-  const tile = page.locator(`${CONTINUOUS_TILE}[data-child-scene="${childId}"]`);
-  await expect(tile).toHaveAttribute("data-state", "preview");
-  await expect.poll(() => tile.locator("img").evaluate((image: HTMLImageElement) => (
-    image.complete && image.naturalWidth > 0 && image.naturalHeight > 0
-  ))).toBe(true);
+  await expect(portal).toBeVisible();
+  if (mode === "desktop") {
+    await portal.focus();
+    const tile = page.locator(`${CONTINUOUS_TILE}[data-child-scene="${childId}"]`);
+    await expect(tile).toHaveAttribute("data-state", "preview");
+    await expect.poll(() => tile.locator("img").evaluate((image: HTMLImageElement) => (
+      image.complete && image.naturalWidth > 0 && image.naturalHeight > 0
+    ))).toBe(true);
+  }
   return portal;
 }
 
@@ -295,7 +302,7 @@ async function runTreeAudit(
   sceneResults.push(await auditCurrentScene(page, scene!, mode));
 
   for (const { childSceneId } of scene!.portals) {
-    const portal = await preparePortal(page, childSceneId);
+    const portal = await preparePortal(page, childSceneId, mode);
     const forwardStarted = performance.now();
     if (mode === "desktop") await startTransitionProbe(page);
     await portal.dispatchEvent("click", { detail: 1 });

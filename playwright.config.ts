@@ -2,13 +2,16 @@ import { defineConfig, devices } from "@playwright/test";
 
 const isPerformanceRun = process.env.PERF_RUN === "1";
 const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:4173";
+const serverUrl = new URL(baseURL);
+const serverHostname = serverUrl.hostname;
+const serverPort = serverUrl.port || (serverUrl.protocol === "https:" ? "443" : "80");
 
 export default defineConfig({
   testDir: "./tests",
   fullyParallel: false,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI && !isPerformanceRun ? 1 : 0,
-  workers: process.env.CI || isPerformanceRun ? 1 : undefined,
+  workers: process.env.CI || isPerformanceRun ? 1 : 2,
   timeout: isPerformanceRun ? 180_000 : 45_000,
   expect: { timeout: 8_000 },
   outputDir: isPerformanceRun
@@ -70,7 +73,7 @@ export default defineConfig({
     ? undefined
     : {
         command:
-          "npm run start -- --hostname 127.0.0.1 --port 4173",
+          `npm run start -- --hostname ${serverHostname} --port ${serverPort}`,
         url: baseURL,
         reuseExistingServer: false,
         timeout: 120_000,

@@ -128,6 +128,22 @@ const contracts = [
     labels: 150,
     zoneSizes: [25, 25, 25, 25, 25, 25],
   },
+  {
+    id: "school-dining-hall",
+    parentId: "school-corridor",
+    asset: "/scenes/school-dining-hall-premium-v1.jpg",
+    sha256: "e29ef77ebb98d7e9c8aa1bee7717d84eb7bdf6b680248e16635d8a957bc70e8a",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
+    id: "school-catering-kitchen",
+    parentId: "school-dining-hall",
+    asset: "/scenes/school-catering-kitchen-premium-v1.jpg",
+    sha256: "9ceb221c31c96361341d496e4f199d0e31cb980027a9d8281e9c540079fcc733",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
 ] as const;
 
 for (const contract of contracts) {
@@ -273,6 +289,22 @@ test("the remaining central campus crop opens a corridor and the preparation-roo
   assert.deepEqual([corridor.x, corridor.y, corridor.width, corridor.height], [382, 545, 668, 220]);
   assert.deepEqual([laboratory.x, laboratory.y, laboratory.width, laboratory.height], [285, 110, 155, 330]);
   for (const [parent, portal] of [[campus, corridor], [preparation, laboratory]]) {
+    const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+    assert.ok(region);
+    assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+  }
+});
+
+test("the corridor dining doorway continues through the dining hall kitchen opening", async () => {
+  const corridor = await readJson("school-corridor.json");
+  const diningHall = await readJson("school-dining-hall.json");
+  const diningPortal = corridor.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "school-dining-hall");
+  const kitchenPortal = diningHall.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "school-catering-kitchen");
+  assert.ok(diningPortal);
+  assert.ok(kitchenPortal);
+  assert.deepEqual([diningPortal.x, diningPortal.y, diningPortal.width, diningPortal.height], [690, 295, 270, 295]);
+  assert.deepEqual([kitchenPortal.x, kitchenPortal.y, kitchenPortal.width, kitchenPortal.height], [1_045, 205, 260, 305]);
+  for (const [parent, portal] of [[corridor, diningPortal], [diningHall, kitchenPortal]]) {
     const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
     assert.ok(region);
     assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);

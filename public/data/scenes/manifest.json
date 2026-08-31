@@ -378,6 +378,16 @@
       "parentId": "school-campus"
     },
     {
+      "id": "school-dining-hall",
+      "title": "School dining hall",
+      "parentId": "school-corridor"
+    },
+    {
+      "id": "school-catering-kitchen",
+      "title": "School catering kitchen",
+      "parentId": "school-dining-hall"
+    },
+    {
       "id": "service-core",
       "title": "Office service core",
       "parentId": "office-building"

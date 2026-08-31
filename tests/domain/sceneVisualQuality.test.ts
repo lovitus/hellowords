@@ -437,6 +437,32 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 18,
     },
   },
+  "school-dining-hall": {
+    asset: "/scenes/school-dining-hall-premium-v1.jpg",
+    sha256: "e29ef77ebb98d7e9c8aa1bee7717d84eb7bdf6b680248e16635d8a957bc70e8a",
+    quality: {
+      minMeanLuminance: 145,
+      maxMeanLuminance: 165,
+      maxDarkFraction: 0.12,
+      maxDeepDarkFraction: 0.06,
+      minMeanChroma: 0.12,
+      maxMeanChroma: 0.18,
+      maxChannelMeanSpread: 38,
+    },
+  },
+  "school-catering-kitchen": {
+    asset: "/scenes/school-catering-kitchen-premium-v1.jpg",
+    sha256: "9ceb221c31c96361341d496e4f199d0e31cb980027a9d8281e9c540079fcc733",
+    quality: {
+      minMeanLuminance: 115,
+      maxMeanLuminance: 140,
+      maxDarkFraction: 0.22,
+      maxDeepDarkFraction: 0.09,
+      minMeanChroma: 0.06,
+      maxMeanChroma: 0.11,
+      maxChannelMeanSpread: 25,
+    },
+  },
   "hemodialysis-unit": {
     asset: "/scenes/hemodialysis-unit-premium-v1.jpg",
     sha256: "fd89f968c45ae3139c699fd4a333c5eb7b5c10bdd053df35c56a9a6b8af964dc",

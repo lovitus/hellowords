@@ -1357,6 +1357,15 @@
       "y": 571.94474,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "portal-school-dining-hall",
+      "description": "Complete open double doorway with dining tables visibly continuing beyond the corridor",
+      "kind": "object",
+      "x": 690,
+      "y": 295,
+      "width": 270,
+      "height": 295
     }
   ],
   "detailZones": [
@@ -3261,5 +3270,18 @@
       "semanticRealmId": "body-daily-life"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-school-dining-hall",
+      "label": "Enter the school dining hall",
+      "translation": "进入学校餐厅",
+      "childSceneId": "school-dining-hall",
+      "sourceVisualRegion": "portal-school-dining-hall",
+      "x": 690,
+      "y": 295,
+      "width": 270,
+      "height": 295,
+      "enterScale": 3.2
+    }
+  ]
 }

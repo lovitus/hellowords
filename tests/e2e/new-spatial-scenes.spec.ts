@@ -138,6 +138,16 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("school-dining-hall", "school-corridor", ["school-campus", "school-corridor"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("school-catering-kitchen", "school-dining-hall", ["school-campus", "school-corridor", "school-dining-hall"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
   contract("supermarket-grocery", "world-map", [], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,

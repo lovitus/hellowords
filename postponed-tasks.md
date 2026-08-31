@@ -6,15 +6,15 @@
 
 - 公开版本：`v142-8e3cab7`（线上已完成真实冒烟）
 - 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=142-8e3cab7#world>
-- 公开源码仍冻结在 `8e3cab7039f684a434887faa76c6ba7c617ce8ea`；本地候选继续批量开发但不发布。当前已接入 86 个场景、13,048 个空间锚点、11,964 个去重展示词、565 个细分区、85 个门户、6 条首页分支；校园新增 School campus → School corridor（150 词/6 区）与 School science preparation room → School science laboratory（150 词/6 区）。走廊入口来自校园父图中央下层最后一块完整未占用区域；实验室入口来自科学准备室左侧完整可见门。另有 150 词的 Hemodialysis unit 成品已完成资产与锚点审计，但医院父图没有可信可见入口，暂不伪造空间连接。
-- 当前未发布批次在仓库、图书馆、酒店、超市基础上继续新增 Supermarket → Backroom（143 词/6 区）→ Walk-in cooler（144 词/6 区）、Airport → Security checkpoint（103 词/5 区）→ Boarding gate（120 词/6 区）→ Aircraft cabin（142 词/7 区）、Hospital → Emergency department（108 词/5 区）→ Operating theatre（109 词/5 区）→ Post-anesthesia care unit（134 词/6 区）。所有新词均通过全 manifest 去重；完整域测试 319、语义/词境测试 28 通过，桌面/移动 E2E 192 通过、36 个设计性跳过，性能 2/2 通过；另有 86 场景逐场桌面运行时遍历通过。终端场景继续放大保持原场景，不进入万词大图；首页仍只在悬浮分区时显示该区词。移动入口按钮按现有 32px 触控合同收紧，八入口校园在 390px 视口仍显示 14 个英文词或 9 个带释义词，不靠隐藏词或放宽碰撞实现。
-- 子 agent：继续固定复用 `/root/exploration_ux_audit` 与 `/root/scene_content_batch`，不新增第三位；本批内容产物已由根任务完成复核，`exploration_ux_audit` 的最后一次只读复审因账户用量上限中断，不影响本地全量门槛结果。历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
+- 公开源码仍冻结在 `8e3cab7039f684a434887faa76c6ba7c617ce8ea`；本地候选继续批量开发但不发布。当前已接入 88 个场景、13,348 个空间锚点、12,264 个去重展示词、577 个细分区、87 个门户、6 条首页分支；校园分支新增 School corridor → School dining hall（150 词/6 区）→ School catering kitchen（150 词/6 区）。餐厅入口来自走廊中央完整双开门；后厨入口来自餐厅供餐柜台后的完整厨房开口。两个新增场景均为 1600×900 固定 JPEG，入口、锚点和细分区已写入 `anchorAudit.status: "human-verified"`。
+- 本地候选批次已完成 `npm run verify`（lint、typecheck、数据验证、322 个 domain 测试、28 个 semantic/lexical 测试、build、SSR 与 build analysis）、完整桌面/移动 E2E（196 通过/36 设计性跳过）、88 场景桌面/移动 runtime audit（2 通过/2 设计性跳过）、性能门（2/2），以及发布冻结检查（`npm run release:check` 按预期失败）。两次早期单命令 `verify:full` 曾被同工作树并发 Playwright/build 进程替换 `dist` 产物污染，表现为 `vinext start` 静态文件 ENOENT/connection refused；清理进程并隔离端口后实际产品逻辑门槛均通过。所有新增 300 个展示词均通过全 manifest 精确去重；终端场景继续放大保持原场景，不进入万词大图；首页仍只在悬浮分区时显示该区词。Hemodialysis unit 仍因缺少可信医院父入口而延期，不伪造空间连接；School catering kitchen 中央冷库门可作为下一批真实入口候选。
+- 子 agent：继续固定复用内容 authoring 与集成复审角色，不新增第三位；本批复审发现的 4 个词汇准确性问题已在生成脚本中修复并重新生成，脚本二次运行 `sceneChanged: false`。历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### 发布冻结与万词里程碑（2026-08-30 用户要求）
 
 - 停止按单场景、小修复或 agent 批次连续公开新版本；v142 保持为当前公开基线。开发期间只合并、测试和保留可恢复的本地产物，不调用 Sites 发布。
 - 下一次公开发布只允许在用户明确要求预览，或“万词现实交互探索”候选版满足全部门槛后进行：至少 10,000 个去重展示词；词必须落在可见现实物体/区域的空间锚点上并可由首页沿门户进入，不以分类卡片、同义词、重复部件或纯语义列表填数；连续放大不能跳入万词列表，所有可进入层级可缩放或返回退出；首页维持仅悬浮分区显示该区词；统一通过数据、域/语义、完整桌面与移动 E2E、性能门和真实入口冒烟。
-- 当前已接入的未发布里程碑为 11,964 个去重展示词，已跨过 10,000；共 86 个现实场景、13,048 个空间锚点、85 条可进入路径。校园批次现有八个真实直属入口，并由 Science preparation room 再深入到 Science laboratory；所有父入口均来自独立复核的清晰可见区域。Hemodialysis unit（150 词/6 区）保持为已审计待接入素材。仍冻结公开发布，后续继续整批扩充现实场景，由用户决定何时发布一个里程碑版本。
+- 当前已接入的未发布里程碑为 12,264 个去重展示词，已跨过 10,000；共 88 个现实场景、13,348 个空间锚点、87 条可进入路径。校园批次现有九个真实校园分支场景，并由 Science preparation room 深入到 Science laboratory、School corridor 深入到 School dining hall 和 School catering kitchen；所有父入口均来自独立复核的清晰可见区域。Hemodialysis unit（150 词/6 区）保持为已审计待接入素材。仍冻结公开发布，后续继续整批扩充现实场景，由用户决定何时发布一个里程碑版本。
 - 发布冻结现由 `.openai/RELEASE_FREEZE.md` 和 `npm run release:check` 双重记录：普通调用、未达到 10,000 词的里程碑调用、没有当前用户明确授权的预览调用，以及脏工作树都会直接失败；一次授权批次只允许产生一个公开版本。
 
 ### v140/v141 交付记录（2026-08-30）

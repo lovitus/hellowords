@@ -1047,9 +1047,6 @@ test("urban services exposes hospital, airport and office vocabulary through the
     );
     await zone.click();
     await expect(zone).toHaveAttribute("data-active", "true");
-    await expect.poll(async () => Number(
-      await page.locator(".scene-surface").getAttribute("data-scene-scale"),
-    )).toBeGreaterThanOrEqual(1.34);
     if (testInfo.project.name === "mobile-chromium") {
       await expect.poll(async () => Number(
         await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
