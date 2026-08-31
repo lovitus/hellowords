@@ -368,8 +368,8 @@ export function sceneVocabularyCueLimit(viewportWidth: number): number {
 
 /**
  * Converts authored portal rectangles to the screen-space footprint of their
- * gold button and caption. Protecting only the cue (rather than the whole
- * object region) keeps nearby object vocabulary available.
+ * always-visible gold button. The caption is transient and overlays the word
+ * layer only while the portal is hovered, focused, or selected as a candidate.
  */
 export function buildPortalCueProtectedRegions(
   portals: readonly Portal[],
@@ -377,23 +377,22 @@ export function buildPortalCueProtectedRegions(
   viewport: SceneLabelViewport,
 ): SceneLabelProtectedRegion[] {
   const effectiveScale = camera.fit * camera.scale;
-  const cueWidth = viewport.compact ? 154 : 204;
-  const cueTop = viewport.compact ? 30 : 32;
-  const cueBottom = viewport.compact ? 56 : 62;
+  const cueSize = 58;
+  const cueHalf = cueSize / 2;
   return portals.flatMap((portal) => {
     const centerX = camera.x + (portal.x + portal.width / 2) * effectiveScale;
     const centerY = camera.y + (portal.y + portal.height / 2) * effectiveScale;
     if (
-      centerX < -cueWidth / 2
-      || centerX > viewport.width + cueWidth / 2
-      || centerY < -cueBottom
-      || centerY > viewport.height + cueTop
+      centerX < -cueHalf
+      || centerX > viewport.width + cueHalf
+      || centerY < -cueHalf
+      || centerY > viewport.height + cueHalf
     ) return [];
     return [{
-      left: centerX - cueWidth / 2,
-      right: centerX + cueWidth / 2,
-      top: centerY - cueTop,
-      bottom: centerY + cueBottom,
+      left: centerX - cueHalf,
+      right: centerX + cueHalf,
+      top: centerY - cueHalf,
+      bottom: centerY + cueHalf,
     }];
   });
 }

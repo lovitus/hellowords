@@ -709,6 +709,24 @@
       "y": 306,
       "width": 330,
       "height": 239
+    },
+    {
+      "id": "portal-school-infirmary",
+      "description": "Complete infirmary visible in the lower-left school wing",
+      "kind": "object",
+      "x": 0,
+      "y": 545,
+      "width": 382,
+      "height": 220
+    },
+    {
+      "id": "portal-school-science-preparation-room",
+      "description": "Complete science preparation room visible in the lower-right school wing",
+      "kind": "object",
+      "x": 1050,
+      "y": 545,
+      "width": 500,
+      "height": 220
     }
   ],
   "detailZones": [
@@ -1725,6 +1743,30 @@
       "y": 306,
       "width": 410,
       "height": 239,
+      "enterScale": 3.4
+    },
+    {
+      "id": "enter-school-infirmary",
+      "label": "Enter the school infirmary",
+      "translation": "进入学校医务室",
+      "childSceneId": "school-infirmary",
+      "sourceVisualRegion": "portal-school-infirmary",
+      "x": 0,
+      "y": 545,
+      "width": 382,
+      "height": 220,
+      "enterScale": 3.4
+    },
+    {
+      "id": "enter-school-science-preparation-room",
+      "label": "Enter the science preparation room",
+      "translation": "进入学校科学准备室",
+      "childSceneId": "school-science-preparation-room",
+      "sourceVisualRegion": "portal-school-science-preparation-room",
+      "x": 1050,
+      "y": 545,
+      "width": 500,
+      "height": 220,
       "enterScale": 3.4
     }
   ]

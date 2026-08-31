@@ -6,15 +6,15 @@
 
 - 公开版本：`v142-8e3cab7`（线上已完成真实冒烟）
 - 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=142-8e3cab7#world>
-- 公开源码仍冻结在 `8e3cab7039f684a434887faa76c6ba7c617ce8ea`；本地候选继续批量开发但不发布。当前已接入 82 个场景、12,444 个空间锚点、11,360 个去重展示词、541 个细分区、81 个门户、6 条首页分支；校园继续新增 School campus → School art studio（151 词/6 区）与 School campus → School music room（150 词/6 区），入口分别来自校园父图中完整、相邻但互不重叠的美术教室和音乐教室区域。另有 150 词的 Hemodialysis unit 成品已完成资产与锚点审计，但医院父图没有可信可见入口，暂不伪造空间连接。
-- 当前未发布批次在仓库、图书馆、酒店、超市基础上继续新增 Supermarket → Backroom（143 词/6 区）→ Walk-in cooler（144 词/6 区）、Airport → Security checkpoint（103 词/5 区）→ Boarding gate（120 词/6 区）→ Aircraft cabin（142 词/7 区）、Hospital → Emergency department（108 词/5 区）→ Operating theatre（109 词/5 区）→ Post-anesthesia care unit（134 词/6 区）。所有新词均通过全 manifest 去重；完整域测试 313、语义/词境测试 28 通过，桌面/移动 E2E 184 通过、36 个设计性跳过，性能 2/2 通过；另有 82 场景逐场桌面运行时遍历通过。终端场景继续放大保持原场景，不进入万词大图；首页仍只在悬浮分区时显示该区词。
-- 子 agent：`/root/exploration_ux_audit` 与 `/root/scene_content_batch` 已完成本批、保持可复用；继续并行推进内容与必要的阻断性体验修复。历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
+- 公开源码仍冻结在 `8e3cab7039f684a434887faa76c6ba7c617ce8ea`；本地候选继续批量开发但不发布。当前已接入 84 个场景、12,748 个空间锚点、11,664 个去重展示词、553 个细分区、83 个门户、6 条首页分支；校园新增 School campus → School infirmary（154 词/6 区）与 School campus → School science preparation room（150 词/6 区），入口分别来自校园父图下层互不重叠的医务室和科学准备室区域。另有 150 词的 Hemodialysis unit 成品已完成资产与锚点审计，但医院父图没有可信可见入口，暂不伪造空间连接。
+- 当前未发布批次在仓库、图书馆、酒店、超市基础上继续新增 Supermarket → Backroom（143 词/6 区）→ Walk-in cooler（144 词/6 区）、Airport → Security checkpoint（103 词/5 区）→ Boarding gate（120 词/6 区）→ Aircraft cabin（142 词/7 区）、Hospital → Emergency department（108 词/5 区）→ Operating theatre（109 词/5 区）→ Post-anesthesia care unit（134 词/6 区）。所有新词均通过全 manifest 去重；完整域测试 316、语义/词境测试 28 通过，桌面/移动 E2E 188 通过、36 个设计性跳过，性能 2/2 通过；另有 84 场景逐场桌面运行时遍历通过。终端场景继续放大保持原场景，不进入万词大图；首页仍只在悬浮分区时显示该区词。场景入口标题改为仅在悬浮、键盘聚焦或缩放候选时显示，常态只保留圆形入口；学校首页移动英文词由 9 增至 11、显示释义由 6 增至 8，同时避开 7 个入口按钮。
+- 子 agent：继续固定复用 `/root/exploration_ux_audit` 与 `/root/scene_content_batch`，不新增第三位；本批内容产物已由根任务完成复核，`exploration_ux_audit` 的最后一次只读复审因账户用量上限中断，不影响本地全量门槛结果。历史审计、浏览器验收和 E2E 记录见本地忽略目录 `artifacts/codex-handoff-2026-08-12/README.md`。
 
 ### 发布冻结与万词里程碑（2026-08-30 用户要求）
 
 - 停止按单场景、小修复或 agent 批次连续公开新版本；v142 保持为当前公开基线。开发期间只合并、测试和保留可恢复的本地产物，不调用 Sites 发布。
 - 下一次公开发布只允许在用户明确要求预览，或“万词现实交互探索”候选版满足全部门槛后进行：至少 10,000 个去重展示词；词必须落在可见现实物体/区域的空间锚点上并可由首页沿门户进入，不以分类卡片、同义词、重复部件或纯语义列表填数；连续放大不能跳入万词列表，所有可进入层级可缩放或返回退出；首页维持仅悬浮分区显示该区词；统一通过数据、域/语义、完整桌面与移动 E2E、性能门和真实入口冒烟。
-- 当前已接入的未发布里程碑为 11,360 个去重展示词，已跨过 10,000；共 82 个现实场景、12,444 个空间锚点、81 条可进入路径。校园批次现已包含 Primary classroom、Library reading room、School art studio、School music room 与 School gymnasium equipment 五个真实子入口；所有父入口均来自独立复核的清晰可见房间区域。Hemodialysis unit（150 词/6 区）保持为已审计待接入素材。仍冻结公开发布，后续继续整批扩充现实场景，由用户决定何时发布一个里程碑版本。
+- 当前已接入的未发布里程碑为 11,664 个去重展示词，已跨过 10,000；共 84 个现实场景、12,748 个空间锚点、83 条可进入路径。校园批次现已包含 Primary classroom、Library reading room、School art studio、School music room、School gymnasium equipment、School infirmary 与 School science preparation room 七个真实子入口；所有父入口均来自独立复核的清晰可见房间区域。Hemodialysis unit（150 词/6 区）保持为已审计待接入素材。仍冻结公开发布，后续继续整批扩充现实场景，由用户决定何时发布一个里程碑版本。
 - 发布冻结现由 `.openai/RELEASE_FREEZE.md` 和 `npm run release:check` 双重记录：普通调用、未达到 10,000 词的里程碑调用、没有当前用户明确授权的预览调用，以及脏工作树都会直接失败；一次授权批次只允许产生一个公开版本。
 
 ### v140/v141 交付记录（2026-08-30）

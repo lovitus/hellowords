@@ -1,0 +1,3193 @@
+{
+  "id": "school-infirmary",
+  "title": "School infirmary",
+  "translation": "学校医务室",
+  "subtitle": "Examination bed, first-aid tools, nurse desk, storage, sink, mobility aids and room fixtures",
+  "asset": "/scenes/school-infirmary-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "school-campus",
+  "visualRegions": [
+    {
+      "id": "school-infirmary-region-examination-bed",
+      "description": "Pixel-audited “examination bed” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-adjustable-bed-frame",
+      "description": "Pixel-audited “adjustable bed frame” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-mattress",
+      "description": "Pixel-audited “bed mattress” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-pillow",
+      "description": "Pixel-audited “bed pillow” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-pillowcase",
+      "description": "Pixel-audited “bed pillowcase” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-examination-sheet",
+      "description": "Pixel-audited “examination sheet” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-examination-headboard",
+      "description": "Pixel-audited “examination headboard” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-examination-footboard",
+      "description": "Pixel-audited “examination footboard” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-examination-side-rail",
+      "description": "Pixel-audited “examination side rail” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-side-rail-latch",
+      "description": "Pixel-audited “side rail latch” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-side-rail-hinge",
+      "description": "Pixel-audited “side rail hinge” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 500,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-examination-frame",
+      "description": "Pixel-audited “examination frame” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 700,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-caster",
+      "description": "Pixel-audited “bed caster” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-caster-brake",
+      "description": "Pixel-audited “bed caster brake” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-wheel",
+      "description": "Pixel-audited “bed wheel” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-control-handset",
+      "description": "Pixel-audited “bed control handset” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-control-cable",
+      "description": "Pixel-audited “bed control cable” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 590,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-examination-mattress-seam",
+      "description": "Pixel-audited “examination mattress seam” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-mattress-corner",
+      "description": "Pixel-audited “mattress corner” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-footboard-handle",
+      "description": "Pixel-audited “footboard handle” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 600,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-underframe",
+      "description": "Pixel-audited “bed underframe” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-lifting-column",
+      "description": "Pixel-audited “bed lifting column” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-tray",
+      "description": "Pixel-audited “bed tray” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-tray-support",
+      "description": "Pixel-audited “bed tray support” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-examination-step-stool",
+      "description": "Pixel-audited “examination step stool” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-stool-tread",
+      "description": "Pixel-audited “stool tread” inside the Examination bed crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 760,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bed-privacy-curtain",
+      "description": "Pixel-audited “bed privacy curtain” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-privacy-curtain-track",
+      "description": "Pixel-audited “privacy curtain track” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 230,
+      "y": 50,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-track-carrier",
+      "description": "Pixel-audited “track carrier” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 240,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-curtain-hook",
+      "description": "Pixel-audited “curtain hook” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 130,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-privacy-curtain-hem",
+      "description": "Pixel-audited “privacy curtain hem” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 100,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-blue-privacy-curtain",
+      "description": "Pixel-audited “blue privacy curtain” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 80,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-curtain-divider",
+      "description": "Pixel-audited “curtain divider” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 160,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-window",
+      "description": "Pixel-audited “infirmary window” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-window-frame",
+      "description": "Pixel-audited “infirmary window frame” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-window-sill",
+      "description": "Pixel-audited “infirmary window sill” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-window-blind",
+      "description": "Pixel-audited “infirmary window blind” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 80,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-blind-slat",
+      "description": "Pixel-audited “infirmary blind slat” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 100,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-blind-rail",
+      "description": "Pixel-audited “infirmary blind rail” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-blind-cord",
+      "description": "Pixel-audited “infirmary blind cord” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 320,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-window-latch",
+      "description": "Pixel-audited “infirmary window latch” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-radiator",
+      "description": "Pixel-audited “infirmary radiator” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-radiator-grille",
+      "description": "Pixel-audited “infirmary radiator grille” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-radiator-valve",
+      "description": "Pixel-audited “infirmary radiator valve” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-privacy-screen",
+      "description": "Pixel-audited “infirmary privacy screen” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medical-wall-rail",
+      "description": "Pixel-audited “medical wall rail” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 280,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-wall-supply-rail",
+      "description": "Pixel-audited “wall supply rail” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 330,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-wall-outlet",
+      "description": "Pixel-audited “infirmary wall outlet” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 380,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-outlet-cover",
+      "description": "Pixel-audited “outlet cover” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 400,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-room-wall-panel",
+      "description": "Pixel-audited “infirmary room wall panel” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 180,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-wall-panel-seam",
+      "description": "Pixel-audited “infirmary wall panel seam” inside the Privacy and window area crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 430,
+      "y": 220,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-desk",
+      "description": "Pixel-audited “nurse desk” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-desk-worktop",
+      "description": "Pixel-audited “nurse desk worktop” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-workstation-drawer",
+      "description": "Pixel-audited “workstation drawer” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-workstation-drawer-handle",
+      "description": "Pixel-audited “workstation drawer handle” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 580,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-chair",
+      "description": "Pixel-audited “nurse chair” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-chair-backrest",
+      "description": "Pixel-audited “nurse chair backrest” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 370,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-chair-seat",
+      "description": "Pixel-audited “nurse chair seat” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-chair-caster",
+      "description": "Pixel-audited “nurse chair caster” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-blank-medical-monitor",
+      "description": "Pixel-audited “blank medical monitor” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medical-monitor-bezel",
+      "description": "Pixel-audited “medical monitor bezel” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 320,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medical-monitor-stand",
+      "description": "Pixel-audited “medical monitor stand” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-keyboard",
+      "description": "Pixel-audited “nurse keyboard” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 560,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-mouse",
+      "description": "Pixel-audited “nurse mouse” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-document-tray",
+      "description": "Pixel-audited “nurse document tray” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-desk-organizer",
+      "description": "Pixel-audited “nurse desk organizer” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 680,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-pen-cup",
+      "description": "Pixel-audited “nurse pen cup” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-blank-chart-folder",
+      "description": "Pixel-audited “blank chart folder” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 700,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-chart-rack",
+      "description": "Pixel-audited “chart rack” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 710,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-desk-power-strip",
+      "description": "Pixel-audited “desk power strip” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-desk-cable",
+      "description": "Pixel-audited “nurse desk cable” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 480,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-workstation-foot",
+      "description": "Pixel-audited “workstation foot” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-nurse-desk-lower-panel",
+      "description": "Pixel-audited “nurse desk lower panel” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 530,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-chart-divider",
+      "description": "Pixel-audited “chart divider” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 730,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-desk-side-cabinet",
+      "description": "Pixel-audited “desk side cabinet” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-desk-side-panel",
+      "description": "Pixel-audited “desk side panel” inside the Nurse workstation crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 630,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-treatment-cart",
+      "description": "Pixel-audited “treatment cart” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 580,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-cart-top-shelf",
+      "description": "Pixel-audited “cart top shelf” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-cart-middle-shelf",
+      "description": "Pixel-audited “cart middle shelf” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-cart-lower-shelf",
+      "description": "Pixel-audited “cart lower shelf” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-cart-drawer",
+      "description": "Pixel-audited “cart drawer” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 550,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-cart-drawer-handle",
+      "description": "Pixel-audited “cart drawer handle” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 830,
+      "y": 560,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-treatment-cart-side-rail",
+      "description": "Pixel-audited “treatment cart side rail” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-cart-push-handle",
+      "description": "Pixel-audited “cart push handle” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-treatment-cart-caster",
+      "description": "Pixel-audited “treatment cart caster” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 780,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-treatment-cart-wheel",
+      "description": "Pixel-audited “treatment cart wheel” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 800,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-treatment-cart-brake",
+      "description": "Pixel-audited “treatment cart brake” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 820,
+      "y": 810,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-first-aid-supply-tray",
+      "description": "Pixel-audited “first-aid supply tray” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-blue-supply-tray",
+      "description": "Pixel-audited “blue supply tray” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-white-supply-tray",
+      "description": "Pixel-audited “white supply tray” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-bandage-roll",
+      "description": "Pixel-audited “bandage roll” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-sterile-gauze-pack",
+      "description": "Pixel-audited “sterile gauze pack” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medical-tape-roll",
+      "description": "Pixel-audited “medical tape roll” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 460,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-instant-ice-pack",
+      "description": "Pixel-audited “instant ice pack” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-treatment-glove-box",
+      "description": "Pixel-audited “treatment glove box” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 960,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-disposable-glove",
+      "description": "Pixel-audited “disposable glove” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-eye-wash-bottle",
+      "description": "Pixel-audited “eye-wash bottle” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 950,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-clinical-thermometer",
+      "description": "Pixel-audited “infirmary clinical thermometer” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1000,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-blood-pressure-cuff",
+      "description": "Pixel-audited “infirmary blood-pressure cuff” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 800,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-pressure-gauge",
+      "description": "Pixel-audited “infirmary pressure gauge” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 840,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-stethoscope",
+      "description": "Pixel-audited “infirmary stethoscope” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 880,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-cart-bottle-rack",
+      "description": "Pixel-audited “cart bottle rack” inside the Treatment cart and first-aid supplies crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 930,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-lockable-medicine-cabinet",
+      "description": "Pixel-audited “lockable medicine cabinet” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-cabinet-glass-door",
+      "description": "Pixel-audited “medicine cabinet glass door” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-cabinet-handle",
+      "description": "Pixel-audited “medicine cabinet handle” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1310,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-cabinet-hinge",
+      "description": "Pixel-audited “medicine cabinet hinge” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-cabinet-lock",
+      "description": "Pixel-audited “medicine cabinet lock” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-cabinet-shelf",
+      "description": "Pixel-audited “medicine cabinet shelf” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-shelf-clip",
+      "description": "Pixel-audited “medicine shelf clip” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 400,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-school-medicine-refrigerator",
+      "description": "Pixel-audited “school medicine refrigerator” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 530,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-refrigerator-glass-door",
+      "description": "Pixel-audited “medicine refrigerator glass door” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-refrigerator-door-handle",
+      "description": "Pixel-audited “medicine refrigerator door handle” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-refrigerator-door-gasket",
+      "description": "Pixel-audited “medicine refrigerator door gasket” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-refrigerator-shelf",
+      "description": "Pixel-audited “medicine refrigerator shelf” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-refrigerator-shelf-rail",
+      "description": "Pixel-audited “medicine refrigerator shelf rail” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 380,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medicine-refrigerator-strip",
+      "description": "Pixel-audited “medicine refrigerator LED strip” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 160,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-refrigerator-bottom-vent",
+      "description": "Pixel-audited “refrigerator bottom vent” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 730,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-refrigerator-base",
+      "description": "Pixel-audited “refrigerator base” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 780,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-blank-medicine-carton",
+      "description": "Pixel-audited “blank medicine carton” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-plain-medicine-bottle",
+      "description": "Pixel-audited “plain medicine bottle” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 310,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-blue-medicine-box",
+      "description": "Pixel-audited “blue medicine box” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-white-medicine-box",
+      "description": "Pixel-audited “white medicine box” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-medication-storage-bin",
+      "description": "Pixel-audited “medication storage bin” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1230,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-refrigerated-supply-box",
+      "description": "Pixel-audited “refrigerated supply box” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1330,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-clinical-sink",
+      "description": "Pixel-audited “clinical sink” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1460,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-clinical-sink-basin",
+      "description": "Pixel-audited “clinical sink basin” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1460,
+      "y": 520,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-clinical-sink-faucet",
+      "description": "Pixel-audited “clinical sink faucet” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 410,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-clinical-sink-spout",
+      "description": "Pixel-audited “clinical sink spout” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-clinical-sink-handle",
+      "description": "Pixel-audited “clinical sink handle” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1500,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-clinical-sink-drainer",
+      "description": "Pixel-audited “clinical sink drainer” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1400,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-clinical-sink-splashback",
+      "description": "Pixel-audited “clinical sink splashback” inside the Medical storage and sink crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 360,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-wheelchair",
+      "description": "Pixel-audited “infirmary wheelchair” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-wheelchair-seat",
+      "description": "Pixel-audited “wheelchair seat” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 500,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-wheelchair-backrest",
+      "description": "Pixel-audited “wheelchair backrest” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1130,
+      "y": 430,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-wheelchair-armrest",
+      "description": "Pixel-audited “infirmary wheelchair armrest” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-wheelchair-footrest",
+      "description": "Pixel-audited “wheelchair footrest” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1140,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-wheelchair-wheel",
+      "description": "Pixel-audited “infirmary wheelchair wheel” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 660,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-wheelchair-handrim",
+      "description": "Pixel-audited “wheelchair handrim” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-wheelchair-caster",
+      "description": "Pixel-audited “wheelchair caster” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-crutch",
+      "description": "Pixel-audited “crutch” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 330,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-crutch-pad",
+      "description": "Pixel-audited “crutch pad” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-crutch-tip",
+      "description": "Pixel-audited “crutch tip” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 480,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-crutch-cuff",
+      "description": "Pixel-audited “crutch cuff” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1030,
+      "y": 300,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-apron",
+      "description": "Pixel-audited “PPE apron” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 280,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-apron-hook",
+      "description": "Pixel-audited “infirmary apron hook” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 200,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-clinical-waste-bin",
+      "description": "Pixel-audited “clinical waste bin” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-yellow-waste-bin",
+      "description": "Pixel-audited “yellow waste bin” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1530,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-waste-lid",
+      "description": "Pixel-audited “waste lid” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1480,
+      "y": 680,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-sharps-container",
+      "description": "Pixel-audited “infirmary sharps container” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1430,
+      "y": 630,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-floor-drain-cover",
+      "description": "Pixel-audited “infirmary floor drain cover” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1180,
+      "y": 820,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-ventilation-grille",
+      "description": "Pixel-audited “infirmary ventilation grille” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1380,
+      "y": 50,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-infirmary-ceiling-light",
+      "description": "Pixel-audited “infirmary ceiling light” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1080,
+      "y": 20,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-room-door-trim",
+      "description": "Pixel-audited “room door trim” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 980,
+      "y": 230,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "school-infirmary-region-room-floor-trim",
+      "description": "Pixel-audited “room floor trim” inside the Mobility aids and room fixtures crop of the school infirmary photograph",
+      "kind": "part",
+      "x": 1280,
+      "y": 830,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "school-infirmary-zone-examination-bed",
+      "title": "Examination bed",
+      "translation": "检查床",
+      "description": "Inspect the visible adjustable bed, pillow, mattress, rails, frame, tray and step stool.",
+      "x": 100,
+      "y": 280,
+      "width": 700,
+      "height": 620,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-infirmary-examination-bed",
+        "school-infirmary-adjustable-bed-frame",
+        "school-infirmary-bed-mattress",
+        "school-infirmary-bed-pillow",
+        "school-infirmary-bed-pillowcase",
+        "school-infirmary-examination-sheet",
+        "school-infirmary-examination-headboard",
+        "school-infirmary-examination-footboard",
+        "school-infirmary-examination-side-rail",
+        "school-infirmary-side-rail-latch",
+        "school-infirmary-side-rail-hinge",
+        "school-infirmary-examination-frame",
+        "school-infirmary-bed-caster",
+        "school-infirmary-bed-caster-brake",
+        "school-infirmary-bed-wheel",
+        "school-infirmary-bed-control-handset",
+        "school-infirmary-bed-control-cable",
+        "school-infirmary-examination-mattress-seam",
+        "school-infirmary-mattress-corner",
+        "school-infirmary-footboard-handle",
+        "school-infirmary-bed-underframe",
+        "school-infirmary-bed-lifting-column",
+        "school-infirmary-bed-tray",
+        "school-infirmary-bed-tray-support",
+        "school-infirmary-examination-step-stool",
+        "school-infirmary-stool-tread"
+      ]
+    },
+    {
+      "id": "school-infirmary-zone-privacy-window",
+      "title": "Privacy and window area",
+      "translation": "隐私与窗边区域",
+      "description": "Trace the visible privacy curtain, ceiling track, window, blinds, radiator and wall rails.",
+      "x": 0,
+      "y": 0,
+      "width": 500,
+      "height": 700,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-infirmary-bed-privacy-curtain",
+        "school-infirmary-privacy-curtain-track",
+        "school-infirmary-track-carrier",
+        "school-infirmary-curtain-hook",
+        "school-infirmary-privacy-curtain-hem",
+        "school-infirmary-blue-privacy-curtain",
+        "school-infirmary-curtain-divider",
+        "school-infirmary-infirmary-window",
+        "school-infirmary-infirmary-window-frame",
+        "school-infirmary-infirmary-window-sill",
+        "school-infirmary-infirmary-window-blind",
+        "school-infirmary-infirmary-blind-slat",
+        "school-infirmary-infirmary-blind-rail",
+        "school-infirmary-infirmary-blind-cord",
+        "school-infirmary-infirmary-window-latch",
+        "school-infirmary-infirmary-radiator",
+        "school-infirmary-infirmary-radiator-grille",
+        "school-infirmary-infirmary-radiator-valve",
+        "school-infirmary-infirmary-privacy-screen",
+        "school-infirmary-medical-wall-rail",
+        "school-infirmary-wall-supply-rail",
+        "school-infirmary-infirmary-wall-outlet",
+        "school-infirmary-outlet-cover",
+        "school-infirmary-infirmary-room-wall-panel",
+        "school-infirmary-infirmary-wall-panel-seam"
+      ]
+    },
+    {
+      "id": "school-infirmary-zone-nurse-workstation",
+      "title": "Nurse workstation",
+      "translation": "护士工作台",
+      "description": "Inspect the visible desk, chair, blank monitor, keyboard, trays, chart rack and desk hardware.",
+      "x": 400,
+      "y": 280,
+      "width": 450,
+      "height": 370,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-infirmary-nurse-desk",
+        "school-infirmary-nurse-desk-worktop",
+        "school-infirmary-workstation-drawer",
+        "school-infirmary-workstation-drawer-handle",
+        "school-infirmary-nurse-chair",
+        "school-infirmary-nurse-chair-backrest",
+        "school-infirmary-nurse-chair-seat",
+        "school-infirmary-nurse-chair-caster",
+        "school-infirmary-blank-medical-monitor",
+        "school-infirmary-medical-monitor-bezel",
+        "school-infirmary-medical-monitor-stand",
+        "school-infirmary-nurse-keyboard",
+        "school-infirmary-nurse-mouse",
+        "school-infirmary-nurse-document-tray",
+        "school-infirmary-nurse-desk-organizer",
+        "school-infirmary-nurse-pen-cup",
+        "school-infirmary-blank-chart-folder",
+        "school-infirmary-chart-rack",
+        "school-infirmary-desk-power-strip",
+        "school-infirmary-nurse-desk-cable",
+        "school-infirmary-workstation-foot",
+        "school-infirmary-nurse-desk-lower-panel",
+        "school-infirmary-chart-divider",
+        "school-infirmary-desk-side-cabinet",
+        "school-infirmary-desk-side-panel"
+      ]
+    },
+    {
+      "id": "school-infirmary-zone-treatment-cart-supplies",
+      "title": "Treatment cart and first-aid supplies",
+      "translation": "治疗推车与急救用品",
+      "description": "Compare the visible treatment cart, shelves, drawers, wheels, trays and blank first-aid tools.",
+      "x": 700,
+      "y": 400,
+      "width": 400,
+      "height": 500,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-infirmary-treatment-cart",
+        "school-infirmary-cart-top-shelf",
+        "school-infirmary-cart-middle-shelf",
+        "school-infirmary-cart-lower-shelf",
+        "school-infirmary-cart-drawer",
+        "school-infirmary-cart-drawer-handle",
+        "school-infirmary-treatment-cart-side-rail",
+        "school-infirmary-cart-push-handle",
+        "school-infirmary-treatment-cart-caster",
+        "school-infirmary-treatment-cart-wheel",
+        "school-infirmary-treatment-cart-brake",
+        "school-infirmary-first-aid-supply-tray",
+        "school-infirmary-blue-supply-tray",
+        "school-infirmary-white-supply-tray",
+        "school-infirmary-bandage-roll",
+        "school-infirmary-sterile-gauze-pack",
+        "school-infirmary-medical-tape-roll",
+        "school-infirmary-instant-ice-pack",
+        "school-infirmary-treatment-glove-box",
+        "school-infirmary-disposable-glove",
+        "school-infirmary-eye-wash-bottle",
+        "school-infirmary-infirmary-clinical-thermometer",
+        "school-infirmary-infirmary-blood-pressure-cuff",
+        "school-infirmary-infirmary-pressure-gauge",
+        "school-infirmary-infirmary-stethoscope",
+        "school-infirmary-cart-bottle-rack"
+      ]
+    },
+    {
+      "id": "school-infirmary-zone-medical-storage-sink",
+      "title": "Medical storage and sink",
+      "translation": "医疗储物与洗手池",
+      "description": "Inspect the visible lockable cabinet, medicine refrigerator, generic packages, sink and wall fixtures.",
+      "x": 1100,
+      "y": 0,
+      "width": 500,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-infirmary-lockable-medicine-cabinet",
+        "school-infirmary-medicine-cabinet-glass-door",
+        "school-infirmary-medicine-cabinet-handle",
+        "school-infirmary-medicine-cabinet-hinge",
+        "school-infirmary-medicine-cabinet-lock",
+        "school-infirmary-medicine-cabinet-shelf",
+        "school-infirmary-medicine-shelf-clip",
+        "school-infirmary-school-medicine-refrigerator",
+        "school-infirmary-medicine-refrigerator-glass-door",
+        "school-infirmary-medicine-refrigerator-door-handle",
+        "school-infirmary-medicine-refrigerator-door-gasket",
+        "school-infirmary-medicine-refrigerator-shelf",
+        "school-infirmary-medicine-refrigerator-shelf-rail",
+        "school-infirmary-medicine-refrigerator-strip",
+        "school-infirmary-refrigerator-bottom-vent",
+        "school-infirmary-refrigerator-base",
+        "school-infirmary-blank-medicine-carton",
+        "school-infirmary-plain-medicine-bottle",
+        "school-infirmary-blue-medicine-box",
+        "school-infirmary-white-medicine-box",
+        "school-infirmary-medication-storage-bin",
+        "school-infirmary-refrigerated-supply-box",
+        "school-infirmary-clinical-sink",
+        "school-infirmary-clinical-sink-basin",
+        "school-infirmary-clinical-sink-faucet",
+        "school-infirmary-clinical-sink-spout",
+        "school-infirmary-clinical-sink-handle",
+        "school-infirmary-clinical-sink-drainer",
+        "school-infirmary-clinical-sink-splashback"
+      ]
+    },
+    {
+      "id": "school-infirmary-zone-mobility-room-fixtures",
+      "title": "Mobility aids and room fixtures",
+      "translation": "行动辅助器具与房间设施",
+      "description": "Trace the visible wheelchair, crutches, apron, waste bins, sharps container, vent and light.",
+      "x": 850,
+      "y": 0,
+      "width": 750,
+      "height": 900,
+      "targetScale": 3.15,
+      "labelIds": [
+        "school-infirmary-infirmary-wheelchair",
+        "school-infirmary-wheelchair-seat",
+        "school-infirmary-wheelchair-backrest",
+        "school-infirmary-infirmary-wheelchair-armrest",
+        "school-infirmary-wheelchair-footrest",
+        "school-infirmary-infirmary-wheelchair-wheel",
+        "school-infirmary-wheelchair-handrim",
+        "school-infirmary-wheelchair-caster",
+        "school-infirmary-crutch",
+        "school-infirmary-crutch-pad",
+        "school-infirmary-crutch-tip",
+        "school-infirmary-crutch-cuff",
+        "school-infirmary-apron",
+        "school-infirmary-infirmary-apron-hook",
+        "school-infirmary-clinical-waste-bin",
+        "school-infirmary-yellow-waste-bin",
+        "school-infirmary-waste-lid",
+        "school-infirmary-infirmary-sharps-container",
+        "school-infirmary-infirmary-floor-drain-cover",
+        "school-infirmary-infirmary-ventilation-grille",
+        "school-infirmary-infirmary-ceiling-light",
+        "school-infirmary-room-door-trim",
+        "school-infirmary-room-floor-trim"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/school-infirmary-premium-v1.jpg",
+    "reviewedAssetSha256": "085385245360991ea48a38cc9a14a2082d0f2b3a331c4b400e178711adb47105",
+    "rationale": "The final 1600 by 900 school-infirmary photograph was inspected at source and output resolution. It retains 154 independently pointable bed, privacy, workstation, treatment-cart, storage, sink, mobility-aid and room-fixture parts. Patient identity, illness, diagnosis, treatment outcome, dosage, staff identity, readable packaging and hidden clinical systems were excluded.",
+    "previousLabelCount": 162,
+    "retainedLabelCount": 154,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "patient identity",
+      "illness",
+      "diagnosis",
+      "treatment outcome",
+      "dosage",
+      "hidden clinical system"
+    ]
+  },
+  "labels": [
+    {
+      "id": "school-infirmary-examination-bed",
+      "word": "examination bed",
+      "translation": "检查床",
+      "x": 400,
+      "y": 550,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-examination-bed"
+    },
+    {
+      "id": "school-infirmary-adjustable-bed-frame",
+      "word": "adjustable bed frame",
+      "translation": "可调床架",
+      "x": 400,
+      "y": 700,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-adjustable-bed-frame"
+    },
+    {
+      "id": "school-infirmary-bed-mattress",
+      "word": "bed mattress",
+      "translation": "床垫",
+      "x": 400,
+      "y": 480,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-bed-mattress"
+    },
+    {
+      "id": "school-infirmary-bed-pillow",
+      "word": "bed pillow",
+      "translation": "枕头",
+      "x": 250,
+      "y": 420,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-bed-pillow"
+    },
+    {
+      "id": "school-infirmary-bed-pillowcase",
+      "word": "bed pillowcase",
+      "translation": "枕套",
+      "x": 250,
+      "y": 400,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-bed-pillowcase"
+    },
+    {
+      "id": "school-infirmary-examination-sheet",
+      "word": "examination sheet",
+      "translation": "床单",
+      "x": 400,
+      "y": 520,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-examination-sheet"
+    },
+    {
+      "id": "school-infirmary-examination-headboard",
+      "word": "examination headboard",
+      "translation": "床头板",
+      "x": 650,
+      "y": 500,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-examination-headboard"
+    },
+    {
+      "id": "school-infirmary-examination-footboard",
+      "word": "examination footboard",
+      "translation": "床尾板",
+      "x": 650,
+      "y": 650,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-examination-footboard"
+    },
+    {
+      "id": "school-infirmary-examination-side-rail",
+      "word": "examination side rail",
+      "translation": "床侧护栏",
+      "x": 500,
+      "y": 600,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-examination-side-rail"
+    },
+    {
+      "id": "school-infirmary-side-rail-latch",
+      "word": "side rail latch",
+      "translation": "护栏锁扣",
+      "x": 500,
+      "y": 620,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-side-rail-latch"
+    },
+    {
+      "id": "school-infirmary-side-rail-hinge",
+      "word": "side rail hinge",
+      "translation": "护栏铰链",
+      "x": 520,
+      "y": 650,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-side-rail-hinge"
+    },
+    {
+      "id": "school-infirmary-examination-frame",
+      "word": "examination frame",
+      "translation": "床架",
+      "x": 400,
+      "y": 720,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-examination-frame"
+    },
+    {
+      "id": "school-infirmary-bed-caster",
+      "word": "bed caster",
+      "translation": "床脚轮",
+      "x": 650,
+      "y": 760,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-bed-caster"
+    },
+    {
+      "id": "school-infirmary-bed-caster-brake",
+      "word": "bed caster brake",
+      "translation": "脚轮刹车",
+      "x": 650,
+      "y": 780,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-bed-caster-brake"
+    },
+    {
+      "id": "school-infirmary-bed-wheel",
+      "word": "bed wheel",
+      "translation": "床轮",
+      "x": 700,
+      "y": 800,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-bed-wheel"
+    },
+    {
+      "id": "school-infirmary-bed-control-handset",
+      "word": "bed control handset",
+      "translation": "床控手柄",
+      "x": 600,
+      "y": 550,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-bed-control-handset"
+    },
+    {
+      "id": "school-infirmary-bed-control-cable",
+      "word": "bed control cable",
+      "translation": "床控电缆",
+      "x": 610,
+      "y": 580,
+      "priority": 1.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-bed-control-cable"
+    },
+    {
+      "id": "school-infirmary-examination-mattress-seam",
+      "word": "examination mattress seam",
+      "translation": "床垫接缝",
+      "x": 400,
+      "y": 500,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-examination-mattress-seam"
+    },
+    {
+      "id": "school-infirmary-mattress-corner",
+      "word": "mattress corner",
+      "translation": "床垫转角",
+      "x": 600,
+      "y": 500,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-mattress-corner"
+    },
+    {
+      "id": "school-infirmary-footboard-handle",
+      "word": "footboard handle",
+      "translation": "床尾板把手",
+      "x": 650,
+      "y": 620,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-footboard-handle"
+    },
+    {
+      "id": "school-infirmary-bed-underframe",
+      "word": "bed underframe",
+      "translation": "床下框架",
+      "x": 450,
+      "y": 800,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-bed-underframe"
+    },
+    {
+      "id": "school-infirmary-bed-lifting-column",
+      "word": "bed lifting column",
+      "translation": "床升降柱",
+      "x": 500,
+      "y": 760,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-bed-lifting-column"
+    },
+    {
+      "id": "school-infirmary-bed-tray",
+      "word": "bed tray",
+      "translation": "床上托盘",
+      "x": 700,
+      "y": 450,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-bed-tray"
+    },
+    {
+      "id": "school-infirmary-bed-tray-support",
+      "word": "bed tray support",
+      "translation": "托盘支撑",
+      "x": 700,
+      "y": 470,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-bed-tray-support"
+    },
+    {
+      "id": "school-infirmary-examination-step-stool",
+      "word": "examination step stool",
+      "translation": "检查踏凳",
+      "x": 250,
+      "y": 800,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-examination-step-stool"
+    },
+    {
+      "id": "school-infirmary-stool-tread",
+      "word": "stool tread",
+      "translation": "踏凳踏面",
+      "x": 250,
+      "y": 780,
+      "priority": 1.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-stool-tread"
+    },
+    {
+      "id": "school-infirmary-bed-privacy-curtain",
+      "word": "bed privacy curtain",
+      "translation": "隐私帘",
+      "x": 100,
+      "y": 300,
+      "priority": 1.026,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-bed-privacy-curtain"
+    },
+    {
+      "id": "school-infirmary-privacy-curtain-track",
+      "word": "privacy curtain track",
+      "translation": "隐私帘轨道",
+      "x": 250,
+      "y": 70,
+      "priority": 1.027,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-privacy-curtain-track"
+    },
+    {
+      "id": "school-infirmary-track-carrier",
+      "word": "track carrier",
+      "translation": "帘轨滑轮",
+      "x": 260,
+      "y": 80,
+      "priority": 1.028,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-track-carrier"
+    },
+    {
+      "id": "school-infirmary-curtain-hook",
+      "word": "curtain hook",
+      "translation": "帘钩",
+      "x": 150,
+      "y": 300,
+      "priority": 1.029,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-curtain-hook"
+    },
+    {
+      "id": "school-infirmary-privacy-curtain-hem",
+      "word": "privacy curtain hem",
+      "translation": "帘子下摆",
+      "x": 120,
+      "y": 650,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-privacy-curtain-hem"
+    },
+    {
+      "id": "school-infirmary-blue-privacy-curtain",
+      "word": "blue privacy curtain",
+      "translation": "蓝色隐私帘",
+      "x": 100,
+      "y": 400,
+      "priority": 1.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-blue-privacy-curtain"
+    },
+    {
+      "id": "school-infirmary-curtain-divider",
+      "word": "curtain divider",
+      "translation": "帘子隔断",
+      "x": 180,
+      "y": 350,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-curtain-divider"
+    },
+    {
+      "id": "school-infirmary-infirmary-window",
+      "word": "infirmary window",
+      "translation": "医务室窗户",
+      "x": 300,
+      "y": 180,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-window"
+    },
+    {
+      "id": "school-infirmary-infirmary-window-frame",
+      "word": "infirmary window frame",
+      "translation": "医务室窗框",
+      "x": 300,
+      "y": 180,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-window-frame"
+    },
+    {
+      "id": "school-infirmary-infirmary-window-sill",
+      "word": "infirmary window sill",
+      "translation": "医务室窗台",
+      "x": 300,
+      "y": 340,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-window-sill"
+    },
+    {
+      "id": "school-infirmary-infirmary-window-blind",
+      "word": "infirmary window blind",
+      "translation": "医务室窗百叶",
+      "x": 300,
+      "y": 100,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-window-blind"
+    },
+    {
+      "id": "school-infirmary-infirmary-blind-slat",
+      "word": "infirmary blind slat",
+      "translation": "医务室百叶片",
+      "x": 300,
+      "y": 120,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-blind-slat"
+    },
+    {
+      "id": "school-infirmary-infirmary-blind-rail",
+      "word": "infirmary blind rail",
+      "translation": "医务室百叶导轨",
+      "x": 300,
+      "y": 80,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-blind-rail"
+    },
+    {
+      "id": "school-infirmary-infirmary-blind-cord",
+      "word": "infirmary blind cord",
+      "translation": "百叶绳",
+      "x": 340,
+      "y": 220,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-blind-cord"
+    },
+    {
+      "id": "school-infirmary-infirmary-window-latch",
+      "word": "infirmary window latch",
+      "translation": "窗锁扣",
+      "x": 350,
+      "y": 220,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-window-latch"
+    },
+    {
+      "id": "school-infirmary-infirmary-radiator",
+      "word": "infirmary radiator",
+      "translation": "医务室暖气片",
+      "x": 300,
+      "y": 400,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-radiator"
+    },
+    {
+      "id": "school-infirmary-infirmary-radiator-grille",
+      "word": "infirmary radiator grille",
+      "translation": "医务室暖气片格栅",
+      "x": 300,
+      "y": 420,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-radiator-grille"
+    },
+    {
+      "id": "school-infirmary-infirmary-radiator-valve",
+      "word": "infirmary radiator valve",
+      "translation": "医务室暖气片阀门",
+      "x": 350,
+      "y": 450,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-radiator-valve"
+    },
+    {
+      "id": "school-infirmary-infirmary-privacy-screen",
+      "word": "infirmary privacy screen",
+      "translation": "隐私屏",
+      "x": 450,
+      "y": 350,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-privacy-screen"
+    },
+    {
+      "id": "school-infirmary-medical-wall-rail",
+      "word": "medical wall rail",
+      "translation": "医疗墙面导轨",
+      "x": 300,
+      "y": 250,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-medical-wall-rail"
+    },
+    {
+      "id": "school-infirmary-wall-supply-rail",
+      "word": "wall supply rail",
+      "translation": "墙面用品导轨",
+      "x": 350,
+      "y": 250,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-wall-supply-rail"
+    },
+    {
+      "id": "school-infirmary-infirmary-wall-outlet",
+      "word": "infirmary wall outlet",
+      "translation": "医务室墙面插座",
+      "x": 400,
+      "y": 250,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-wall-outlet"
+    },
+    {
+      "id": "school-infirmary-outlet-cover",
+      "word": "outlet cover",
+      "translation": "插座盖",
+      "x": 420,
+      "y": 250,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-outlet-cover"
+    },
+    {
+      "id": "school-infirmary-infirmary-room-wall-panel",
+      "word": "infirmary room wall panel",
+      "translation": "医务室墙面板",
+      "x": 450,
+      "y": 200,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-room-wall-panel"
+    },
+    {
+      "id": "school-infirmary-infirmary-wall-panel-seam",
+      "word": "infirmary wall panel seam",
+      "translation": "医务室墙面接缝",
+      "x": 450,
+      "y": 240,
+      "priority": 1.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-wall-panel-seam"
+    },
+    {
+      "id": "school-infirmary-nurse-desk",
+      "word": "nurse desk",
+      "translation": "护士桌",
+      "x": 550,
+      "y": 450,
+      "priority": 1.051,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-nurse-desk"
+    },
+    {
+      "id": "school-infirmary-nurse-desk-worktop",
+      "word": "nurse desk worktop",
+      "translation": "桌面",
+      "x": 550,
+      "y": 400,
+      "priority": 1.052,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-nurse-desk-worktop"
+    },
+    {
+      "id": "school-infirmary-workstation-drawer",
+      "word": "workstation drawer",
+      "translation": "工作台抽屉",
+      "x": 600,
+      "y": 540,
+      "priority": 1.053,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-workstation-drawer"
+    },
+    {
+      "id": "school-infirmary-workstation-drawer-handle",
+      "word": "workstation drawer handle",
+      "translation": "工作台抽屉把手",
+      "x": 600,
+      "y": 550,
+      "priority": 1.054,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-workstation-drawer-handle"
+    },
+    {
+      "id": "school-infirmary-nurse-chair",
+      "word": "nurse chair",
+      "translation": "护士椅",
+      "x": 750,
+      "y": 430,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-nurse-chair"
+    },
+    {
+      "id": "school-infirmary-nurse-chair-backrest",
+      "word": "nurse chair backrest",
+      "translation": "护士椅背",
+      "x": 750,
+      "y": 390,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-nurse-chair-backrest"
+    },
+    {
+      "id": "school-infirmary-nurse-chair-seat",
+      "word": "nurse chair seat",
+      "translation": "护士椅座",
+      "x": 750,
+      "y": 470,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-nurse-chair-seat"
+    },
+    {
+      "id": "school-infirmary-nurse-chair-caster",
+      "word": "nurse chair caster",
+      "translation": "护士椅脚轮",
+      "x": 750,
+      "y": 600,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-nurse-chair-caster"
+    },
+    {
+      "id": "school-infirmary-blank-medical-monitor",
+      "word": "blank medical monitor",
+      "translation": "空白医疗显示器",
+      "x": 550,
+      "y": 340,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-blank-medical-monitor"
+    },
+    {
+      "id": "school-infirmary-medical-monitor-bezel",
+      "word": "medical monitor bezel",
+      "translation": "医疗显示器边框",
+      "x": 550,
+      "y": 340,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-medical-monitor-bezel"
+    },
+    {
+      "id": "school-infirmary-medical-monitor-stand",
+      "word": "medical monitor stand",
+      "translation": "医疗显示器支架",
+      "x": 550,
+      "y": 400,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-medical-monitor-stand"
+    },
+    {
+      "id": "school-infirmary-nurse-keyboard",
+      "word": "nurse keyboard",
+      "translation": "护士键盘",
+      "x": 580,
+      "y": 440,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-nurse-keyboard"
+    },
+    {
+      "id": "school-infirmary-nurse-mouse",
+      "word": "nurse mouse",
+      "translation": "护士鼠标",
+      "x": 650,
+      "y": 440,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-nurse-mouse"
+    },
+    {
+      "id": "school-infirmary-nurse-document-tray",
+      "word": "nurse document tray",
+      "translation": "护士文件托盘",
+      "x": 700,
+      "y": 400,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-nurse-document-tray"
+    },
+    {
+      "id": "school-infirmary-nurse-desk-organizer",
+      "word": "nurse desk organizer",
+      "translation": "桌面收纳架",
+      "x": 700,
+      "y": 450,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-nurse-desk-organizer"
+    },
+    {
+      "id": "school-infirmary-nurse-pen-cup",
+      "word": "nurse pen cup",
+      "translation": "护士笔筒",
+      "x": 730,
+      "y": 450,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-nurse-pen-cup"
+    },
+    {
+      "id": "school-infirmary-blank-chart-folder",
+      "word": "blank chart folder",
+      "translation": "空白病历夹",
+      "x": 720,
+      "y": 500,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-blank-chart-folder"
+    },
+    {
+      "id": "school-infirmary-chart-rack",
+      "word": "chart rack",
+      "translation": "病历架",
+      "x": 730,
+      "y": 520,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-chart-rack"
+    },
+    {
+      "id": "school-infirmary-desk-power-strip",
+      "word": "desk power strip",
+      "translation": "桌面排插",
+      "x": 500,
+      "y": 480,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-desk-power-strip"
+    },
+    {
+      "id": "school-infirmary-nurse-desk-cable",
+      "word": "nurse desk cable",
+      "translation": "护士桌电缆",
+      "x": 500,
+      "y": 520,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-nurse-desk-cable"
+    },
+    {
+      "id": "school-infirmary-workstation-foot",
+      "word": "workstation foot",
+      "translation": "工作台脚座",
+      "x": 550,
+      "y": 600,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-workstation-foot"
+    },
+    {
+      "id": "school-infirmary-nurse-desk-lower-panel",
+      "word": "nurse desk lower panel",
+      "translation": "桌下板",
+      "x": 550,
+      "y": 550,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-nurse-desk-lower-panel"
+    },
+    {
+      "id": "school-infirmary-chart-divider",
+      "word": "chart divider",
+      "translation": "病历分隔片",
+      "x": 750,
+      "y": 520,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-chart-divider"
+    },
+    {
+      "id": "school-infirmary-desk-side-cabinet",
+      "word": "desk side cabinet",
+      "translation": "桌侧柜",
+      "x": 650,
+      "y": 560,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-desk-side-cabinet"
+    },
+    {
+      "id": "school-infirmary-desk-side-panel",
+      "word": "desk side panel",
+      "translation": "桌侧板",
+      "x": 650,
+      "y": 580,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-desk-side-panel"
+    },
+    {
+      "id": "school-infirmary-treatment-cart",
+      "word": "treatment cart",
+      "translation": "治疗推车",
+      "x": 850,
+      "y": 600,
+      "priority": 1.076,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-treatment-cart"
+    },
+    {
+      "id": "school-infirmary-cart-top-shelf",
+      "word": "cart top shelf",
+      "translation": "推车上层架",
+      "x": 850,
+      "y": 500,
+      "priority": 1.077,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-cart-top-shelf"
+    },
+    {
+      "id": "school-infirmary-cart-middle-shelf",
+      "word": "cart middle shelf",
+      "translation": "推车中层架",
+      "x": 850,
+      "y": 650,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-cart-middle-shelf"
+    },
+    {
+      "id": "school-infirmary-cart-lower-shelf",
+      "word": "cart lower shelf",
+      "translation": "推车下层架",
+      "x": 850,
+      "y": 760,
+      "priority": 1.079,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-cart-lower-shelf"
+    },
+    {
+      "id": "school-infirmary-cart-drawer",
+      "word": "cart drawer",
+      "translation": "推车抽屉",
+      "x": 850,
+      "y": 570,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-cart-drawer"
+    },
+    {
+      "id": "school-infirmary-cart-drawer-handle",
+      "word": "cart drawer handle",
+      "translation": "推车抽屉把手",
+      "x": 850,
+      "y": 580,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-cart-drawer-handle"
+    },
+    {
+      "id": "school-infirmary-treatment-cart-side-rail",
+      "word": "treatment cart side rail",
+      "translation": "推车侧栏",
+      "x": 800,
+      "y": 550,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-treatment-cart-side-rail"
+    },
+    {
+      "id": "school-infirmary-cart-push-handle",
+      "word": "cart push handle",
+      "translation": "推车推手",
+      "x": 800,
+      "y": 500,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-cart-push-handle"
+    },
+    {
+      "id": "school-infirmary-treatment-cart-caster",
+      "word": "treatment cart caster",
+      "translation": "推车脚轮",
+      "x": 800,
+      "y": 820,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-treatment-cart-caster"
+    },
+    {
+      "id": "school-infirmary-treatment-cart-wheel",
+      "word": "treatment cart wheel",
+      "translation": "推车轮",
+      "x": 820,
+      "y": 820,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-treatment-cart-wheel"
+    },
+    {
+      "id": "school-infirmary-treatment-cart-brake",
+      "word": "treatment cart brake",
+      "translation": "推车刹车",
+      "x": 840,
+      "y": 830,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-treatment-cart-brake"
+    },
+    {
+      "id": "school-infirmary-first-aid-supply-tray",
+      "word": "first-aid supply tray",
+      "translation": "急救用品托盘",
+      "x": 900,
+      "y": 500,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-first-aid-supply-tray"
+    },
+    {
+      "id": "school-infirmary-blue-supply-tray",
+      "word": "blue supply tray",
+      "translation": "蓝色用品托盘",
+      "x": 900,
+      "y": 520,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-blue-supply-tray"
+    },
+    {
+      "id": "school-infirmary-white-supply-tray",
+      "word": "white supply tray",
+      "translation": "白色用品托盘",
+      "x": 980,
+      "y": 520,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-white-supply-tray"
+    },
+    {
+      "id": "school-infirmary-bandage-roll",
+      "word": "bandage roll",
+      "translation": "绷带卷",
+      "x": 900,
+      "y": 480,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-bandage-roll"
+    },
+    {
+      "id": "school-infirmary-sterile-gauze-pack",
+      "word": "sterile gauze pack",
+      "translation": "无菌纱布包",
+      "x": 950,
+      "y": 480,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-sterile-gauze-pack"
+    },
+    {
+      "id": "school-infirmary-medical-tape-roll",
+      "word": "medical tape roll",
+      "translation": "医用胶带卷",
+      "x": 1000,
+      "y": 480,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-medical-tape-roll"
+    },
+    {
+      "id": "school-infirmary-instant-ice-pack",
+      "word": "instant ice pack",
+      "translation": "即冷冰袋",
+      "x": 900,
+      "y": 680,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-instant-ice-pack"
+    },
+    {
+      "id": "school-infirmary-treatment-glove-box",
+      "word": "treatment glove box",
+      "translation": "手套盒",
+      "x": 980,
+      "y": 680,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-treatment-glove-box"
+    },
+    {
+      "id": "school-infirmary-disposable-glove",
+      "word": "disposable glove",
+      "translation": "一次性手套",
+      "x": 1000,
+      "y": 700,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-disposable-glove"
+    },
+    {
+      "id": "school-infirmary-eye-wash-bottle",
+      "word": "eye-wash bottle",
+      "translation": "洗眼瓶",
+      "x": 970,
+      "y": 450,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-eye-wash-bottle"
+    },
+    {
+      "id": "school-infirmary-infirmary-clinical-thermometer",
+      "word": "infirmary clinical thermometer",
+      "translation": "体温计",
+      "x": 1020,
+      "y": 450,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-clinical-thermometer"
+    },
+    {
+      "id": "school-infirmary-infirmary-blood-pressure-cuff",
+      "word": "infirmary blood-pressure cuff",
+      "translation": "血压袖带",
+      "x": 820,
+      "y": 460,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-blood-pressure-cuff"
+    },
+    {
+      "id": "school-infirmary-infirmary-pressure-gauge",
+      "word": "infirmary pressure gauge",
+      "translation": "压力表",
+      "x": 860,
+      "y": 460,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-pressure-gauge"
+    },
+    {
+      "id": "school-infirmary-infirmary-stethoscope",
+      "word": "infirmary stethoscope",
+      "translation": "听诊器",
+      "x": 900,
+      "y": 450,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-stethoscope"
+    },
+    {
+      "id": "school-infirmary-cart-bottle-rack",
+      "word": "cart bottle rack",
+      "translation": "推车瓶架",
+      "x": 950,
+      "y": 550,
+      "priority": 1.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-cart-bottle-rack"
+    },
+    {
+      "id": "school-infirmary-lockable-medicine-cabinet",
+      "word": "lockable medicine cabinet",
+      "translation": "可锁药品柜",
+      "x": 1300,
+      "y": 250,
+      "priority": 1.102,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-lockable-medicine-cabinet"
+    },
+    {
+      "id": "school-infirmary-medicine-cabinet-glass-door",
+      "word": "medicine cabinet glass door",
+      "translation": "柜体玻璃门",
+      "x": 1300,
+      "y": 250,
+      "priority": 1.103,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-medicine-cabinet-glass-door"
+    },
+    {
+      "id": "school-infirmary-medicine-cabinet-handle",
+      "word": "medicine cabinet handle",
+      "translation": "药品柜把手",
+      "x": 1330,
+      "y": 320,
+      "priority": 1.104,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-medicine-cabinet-handle"
+    },
+    {
+      "id": "school-infirmary-medicine-cabinet-hinge",
+      "word": "medicine cabinet hinge",
+      "translation": "药品柜铰链",
+      "x": 1200,
+      "y": 300,
+      "priority": 1.105,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-medicine-cabinet-hinge"
+    },
+    {
+      "id": "school-infirmary-medicine-cabinet-lock",
+      "word": "medicine cabinet lock",
+      "translation": "药品柜锁",
+      "x": 1300,
+      "y": 350,
+      "priority": 1.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-medicine-cabinet-lock"
+    },
+    {
+      "id": "school-infirmary-medicine-cabinet-shelf",
+      "word": "medicine cabinet shelf",
+      "translation": "药品柜搁板",
+      "x": 1300,
+      "y": 420,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-medicine-cabinet-shelf"
+    },
+    {
+      "id": "school-infirmary-medicine-shelf-clip",
+      "word": "medicine shelf clip",
+      "translation": "药品层架卡扣",
+      "x": 1350,
+      "y": 420,
+      "priority": 1.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-medicine-shelf-clip"
+    },
+    {
+      "id": "school-infirmary-school-medicine-refrigerator",
+      "word": "school medicine refrigerator",
+      "translation": "学校药品冰箱",
+      "x": 1400,
+      "y": 550,
+      "priority": 1.109,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-school-medicine-refrigerator"
+    },
+    {
+      "id": "school-infirmary-medicine-refrigerator-glass-door",
+      "word": "medicine refrigerator glass door",
+      "translation": "冰箱玻璃门",
+      "x": 1400,
+      "y": 450,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-medicine-refrigerator-glass-door"
+    },
+    {
+      "id": "school-infirmary-medicine-refrigerator-door-handle",
+      "word": "medicine refrigerator door handle",
+      "translation": "冰箱门把手",
+      "x": 1250,
+      "y": 450,
+      "priority": 1.111,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-medicine-refrigerator-door-handle"
+    },
+    {
+      "id": "school-infirmary-medicine-refrigerator-door-gasket",
+      "word": "medicine refrigerator door gasket",
+      "translation": "冰箱门密封条",
+      "x": 1250,
+      "y": 520,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-medicine-refrigerator-door-gasket"
+    },
+    {
+      "id": "school-infirmary-medicine-refrigerator-shelf",
+      "word": "medicine refrigerator shelf",
+      "translation": "冰箱搁板",
+      "x": 1400,
+      "y": 400,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-medicine-refrigerator-shelf"
+    },
+    {
+      "id": "school-infirmary-medicine-refrigerator-shelf-rail",
+      "word": "medicine refrigerator shelf rail",
+      "translation": "冰箱搁板导轨",
+      "x": 1400,
+      "y": 400,
+      "priority": 1.114,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-medicine-refrigerator-shelf-rail"
+    },
+    {
+      "id": "school-infirmary-medicine-refrigerator-strip",
+      "word": "medicine refrigerator LED strip",
+      "translation": "冰箱 LED 灯带",
+      "x": 1400,
+      "y": 180,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-medicine-refrigerator-strip"
+    },
+    {
+      "id": "school-infirmary-refrigerator-bottom-vent",
+      "word": "refrigerator bottom vent",
+      "translation": "冰箱底部通风口",
+      "x": 1400,
+      "y": 750,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-refrigerator-bottom-vent"
+    },
+    {
+      "id": "school-infirmary-refrigerator-base",
+      "word": "refrigerator base",
+      "translation": "冰箱底座",
+      "x": 1400,
+      "y": 800,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-refrigerator-base"
+    },
+    {
+      "id": "school-infirmary-blank-medicine-carton",
+      "word": "blank medicine carton",
+      "translation": "空白药品纸盒",
+      "x": 1200,
+      "y": 300,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-blank-medicine-carton"
+    },
+    {
+      "id": "school-infirmary-plain-medicine-bottle",
+      "word": "plain medicine bottle",
+      "translation": "无标记药瓶",
+      "x": 1350,
+      "y": 330,
+      "priority": 1.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-plain-medicine-bottle"
+    },
+    {
+      "id": "school-infirmary-blue-medicine-box",
+      "word": "blue medicine box",
+      "translation": "蓝色药品盒",
+      "x": 1200,
+      "y": 450,
+      "priority": 1.12,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-blue-medicine-box"
+    },
+    {
+      "id": "school-infirmary-white-medicine-box",
+      "word": "white medicine box",
+      "translation": "白色药品盒",
+      "x": 1300,
+      "y": 450,
+      "priority": 1.121,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-white-medicine-box"
+    },
+    {
+      "id": "school-infirmary-medication-storage-bin",
+      "word": "medication storage bin",
+      "translation": "药品储物箱",
+      "x": 1250,
+      "y": 700,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-medication-storage-bin"
+    },
+    {
+      "id": "school-infirmary-refrigerated-supply-box",
+      "word": "refrigerated supply box",
+      "translation": "冷藏用品盒",
+      "x": 1350,
+      "y": 650,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-refrigerated-supply-box"
+    },
+    {
+      "id": "school-infirmary-clinical-sink",
+      "word": "clinical sink",
+      "translation": "临床洗手池",
+      "x": 1480,
+      "y": 500,
+      "priority": 1.124,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-clinical-sink"
+    },
+    {
+      "id": "school-infirmary-clinical-sink-basin",
+      "word": "clinical sink basin",
+      "translation": "临床洗手盆",
+      "x": 1480,
+      "y": 540,
+      "priority": 1.125,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-clinical-sink-basin"
+    },
+    {
+      "id": "school-infirmary-clinical-sink-faucet",
+      "word": "clinical sink faucet",
+      "translation": "临床水龙头",
+      "x": 1500,
+      "y": 430,
+      "priority": 1.126,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-clinical-sink-faucet"
+    },
+    {
+      "id": "school-infirmary-clinical-sink-spout",
+      "word": "clinical sink spout",
+      "translation": "临床出水口",
+      "x": 1500,
+      "y": 460,
+      "priority": 1.127,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-clinical-sink-spout"
+    },
+    {
+      "id": "school-infirmary-clinical-sink-handle",
+      "word": "clinical sink handle",
+      "translation": "临床水龙头把手",
+      "x": 1520,
+      "y": 470,
+      "priority": 1.128,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-clinical-sink-handle"
+    },
+    {
+      "id": "school-infirmary-clinical-sink-drainer",
+      "word": "clinical sink drainer",
+      "translation": "洗手池沥水板",
+      "x": 1420,
+      "y": 520,
+      "priority": 1.129,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-clinical-sink-drainer"
+    },
+    {
+      "id": "school-infirmary-clinical-sink-splashback",
+      "word": "clinical sink splashback",
+      "translation": "洗手池挡水板",
+      "x": 1450,
+      "y": 380,
+      "priority": 1.13,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-clinical-sink-splashback"
+    },
+    {
+      "id": "school-infirmary-infirmary-wheelchair",
+      "word": "infirmary wheelchair",
+      "translation": "轮椅",
+      "x": 1150,
+      "y": 560,
+      "priority": 1.131,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-wheelchair"
+    },
+    {
+      "id": "school-infirmary-wheelchair-seat",
+      "word": "wheelchair seat",
+      "translation": "轮椅座椅",
+      "x": 1150,
+      "y": 520,
+      "priority": 1.132,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-infirmary-region-wheelchair-seat"
+    },
+    {
+      "id": "school-infirmary-wheelchair-backrest",
+      "word": "wheelchair backrest",
+      "translation": "轮椅椅背",
+      "x": 1150,
+      "y": 450,
+      "priority": 1.133,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-wheelchair-backrest"
+    },
+    {
+      "id": "school-infirmary-infirmary-wheelchair-armrest",
+      "word": "infirmary wheelchair armrest",
+      "translation": "轮椅扶手",
+      "x": 1100,
+      "y": 500,
+      "priority": 1.134,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-wheelchair-armrest"
+    },
+    {
+      "id": "school-infirmary-wheelchair-footrest",
+      "word": "wheelchair footrest",
+      "translation": "轮椅脚踏",
+      "x": 1160,
+      "y": 650,
+      "priority": 1.135,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-wheelchair-footrest"
+    },
+    {
+      "id": "school-infirmary-infirmary-wheelchair-wheel",
+      "word": "infirmary wheelchair wheel",
+      "translation": "轮椅大轮",
+      "x": 1200,
+      "y": 680,
+      "priority": 1.136,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-wheelchair-wheel"
+    },
+    {
+      "id": "school-infirmary-wheelchair-handrim",
+      "word": "wheelchair handrim",
+      "translation": "轮椅手圈",
+      "x": 1200,
+      "y": 650,
+      "priority": 1.137,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-wheelchair-handrim"
+    },
+    {
+      "id": "school-infirmary-wheelchair-caster",
+      "word": "wheelchair caster",
+      "translation": "轮椅脚轮",
+      "x": 1100,
+      "y": 700,
+      "priority": 1.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-wheelchair-caster"
+    },
+    {
+      "id": "school-infirmary-crutch",
+      "word": "crutch",
+      "translation": "拐杖",
+      "x": 1050,
+      "y": 350,
+      "priority": 1.139,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-crutch"
+    },
+    {
+      "id": "school-infirmary-crutch-pad",
+      "word": "crutch pad",
+      "translation": "拐杖垫",
+      "x": 1050,
+      "y": 300,
+      "priority": 1.14,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-crutch-pad"
+    },
+    {
+      "id": "school-infirmary-crutch-tip",
+      "word": "crutch tip",
+      "translation": "拐杖脚帽",
+      "x": 1050,
+      "y": 500,
+      "priority": 1.141,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-crutch-tip"
+    },
+    {
+      "id": "school-infirmary-crutch-cuff",
+      "word": "crutch cuff",
+      "translation": "拐杖腋托",
+      "x": 1050,
+      "y": 320,
+      "priority": 1.142,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-crutch-cuff"
+    },
+    {
+      "id": "school-infirmary-apron",
+      "word": "PPE apron",
+      "translation": "防护围裙",
+      "x": 1200,
+      "y": 300,
+      "priority": 1.143,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-apron"
+    },
+    {
+      "id": "school-infirmary-infirmary-apron-hook",
+      "word": "infirmary apron hook",
+      "translation": "围裙挂钩",
+      "x": 1200,
+      "y": 220,
+      "priority": 1.144,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-apron-hook"
+    },
+    {
+      "id": "school-infirmary-clinical-waste-bin",
+      "word": "clinical waste bin",
+      "translation": "临床废物箱",
+      "x": 1500,
+      "y": 760,
+      "priority": 1.145,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-clinical-waste-bin"
+    },
+    {
+      "id": "school-infirmary-yellow-waste-bin",
+      "word": "yellow waste bin",
+      "translation": "黄色废物箱",
+      "x": 1550,
+      "y": 760,
+      "priority": 1.146,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-yellow-waste-bin"
+    },
+    {
+      "id": "school-infirmary-waste-lid",
+      "word": "waste lid",
+      "translation": "废物箱盖",
+      "x": 1500,
+      "y": 700,
+      "priority": 1.147,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-waste-lid"
+    },
+    {
+      "id": "school-infirmary-infirmary-sharps-container",
+      "word": "infirmary sharps container",
+      "translation": "锐器盒",
+      "x": 1450,
+      "y": 650,
+      "priority": 1.148,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-sharps-container"
+    },
+    {
+      "id": "school-infirmary-infirmary-floor-drain-cover",
+      "word": "infirmary floor drain cover",
+      "translation": "地漏盖",
+      "x": 1200,
+      "y": 840,
+      "priority": 1.149,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-floor-drain-cover"
+    },
+    {
+      "id": "school-infirmary-infirmary-ventilation-grille",
+      "word": "infirmary ventilation grille",
+      "translation": "医务室通风格栅",
+      "x": 1400,
+      "y": 70,
+      "priority": 1.15,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-ventilation-grille"
+    },
+    {
+      "id": "school-infirmary-infirmary-ceiling-light",
+      "word": "infirmary ceiling light",
+      "translation": "医务室顶灯",
+      "x": 1100,
+      "y": 40,
+      "priority": 1.151,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-infirmary-region-infirmary-ceiling-light"
+    },
+    {
+      "id": "school-infirmary-room-door-trim",
+      "word": "room door trim",
+      "translation": "房门饰条",
+      "x": 1000,
+      "y": 250,
+      "priority": 1.152,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-infirmary-region-room-door-trim"
+    },
+    {
+      "id": "school-infirmary-room-floor-trim",
+      "word": "room floor trim",
+      "translation": "房间地面饰条",
+      "x": 1300,
+      "y": 850,
+      "priority": 1.153,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-infirmary-region-room-floor-trim"
+    }
+  ],
+  "portals": []
+}

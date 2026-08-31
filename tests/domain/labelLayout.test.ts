@@ -863,9 +863,18 @@ test("portal cue footprint is reserved before adaptive labels are placed", () =>
   );
 
   assert.equal(placed.interactive, true);
+  assert.deepEqual(protectedRegion, {
+    left: 471,
+    right: 529,
+    top: 271,
+    bottom: 329,
+  });
   assert.ok(
-    placed.screenY < protectedRegion.top || placed.screenY > protectedRegion.bottom,
-    "the word moves clear of the gold cue and caption rather than sitting beneath it",
+    placed.screenX + placed.width / 2 <= protectedRegion.left
+      || placed.screenX - placed.width / 2 >= protectedRegion.right
+      || placed.screenY + placed.height / 2 <= protectedRegion.top
+      || placed.screenY - placed.height / 2 >= protectedRegion.bottom,
+    "the word moves clear of the always-visible gold portal button",
   );
 });
 

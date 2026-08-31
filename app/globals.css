@@ -1656,19 +1656,23 @@ a:focus-visible {
   font-weight: 800;
   letter-spacing: 0.02em;
   line-height: 1;
-  opacity: 1;
+  opacity: 0;
   overflow: hidden;
   pointer-events: none;
   text-overflow: ellipsis;
   transform: translateX(calc(-50% + var(--portal-caption-shift-x)));
-  transition: opacity 160ms ease;
+  transition: opacity 160ms ease, visibility 0s linear 160ms;
+  visibility: hidden;
   white-space: nowrap;
 }
 
+.scene-hotspot-region:hover .scene-hotspot-caption,
 .scene-hotspot-region[data-candidate="true"] .scene-hotspot-caption,
 .scene-hotspot:focus-visible .scene-hotspot-caption {
   opacity: 1;
   transform: translate(calc(-50% + var(--portal-caption-shift-x)), 2px);
+  transition-delay: 0s;
+  visibility: visible;
 }
 
 .viewport-vignette {

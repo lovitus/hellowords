@@ -1240,4 +1240,10 @@ test("scene anchors project into screen coordinates while labels remain outside 
   assert.doesNotMatch(vocabularyCueRule, /scale\s*\(/);
   assert.doesNotMatch(hotspotRule, /scale\s*\(/);
   assert.match(hotspotCaptionRule, /--portal-caption-shift-x/);
+  assert.match(hotspotCaptionRule, /opacity:\s*0/);
+  assert.match(hotspotCaptionRule, /visibility:\s*hidden/);
+  assert.match(
+    css,
+    /\.scene-hotspot-region:hover \.scene-hotspot-caption,[\s\S]*?data-candidate="true"[\s\S]*?focus-visible[\s\S]*?visibility:\s*visible/,
+  );
 });

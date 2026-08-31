@@ -385,6 +385,32 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 58,
     },
   },
+  "school-infirmary": {
+    asset: "/scenes/school-infirmary-premium-v1.jpg",
+    sha256: "085385245360991ea48a38cc9a14a2082d0f2b3a331c4b400e178711adb47105",
+    quality: {
+      minMeanLuminance: 135,
+      maxMeanLuminance: 155,
+      maxDarkFraction: 0.12,
+      maxDeepDarkFraction: 0.05,
+      minMeanChroma: 0.08,
+      maxMeanChroma: 0.16,
+      maxChannelMeanSpread: 25,
+    },
+  },
+  "school-science-preparation-room": {
+    asset: "/scenes/school-science-preparation-room-premium-v1.jpg",
+    sha256: "d779047bc8c5bdfc3ffcd4d0a638d55d2abdcf50ff78d6a14c1c2f19c9a2131c",
+    quality: {
+      minMeanLuminance: 145,
+      maxMeanLuminance: 168,
+      maxDarkFraction: 0.1,
+      maxDeepDarkFraction: 0.05,
+      minMeanChroma: 0.08,
+      maxMeanChroma: 0.16,
+      maxChannelMeanSpread: 28,
+    },
+  },
   "hemodialysis-unit": {
     asset: "/scenes/hemodialysis-unit-premium-v1.jpg",
     sha256: "fd89f968c45ae3139c699fd4a333c5eb7b5c10bdd053df35c56a9a6b8af964dc",

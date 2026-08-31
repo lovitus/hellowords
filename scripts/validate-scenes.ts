@@ -202,6 +202,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "school-gymnasium-equipment": 145,
   "school-art-studio": 145,
   "school-music-room": 145,
+  "school-infirmary": 145,
+  "school-science-preparation-room": 145,
   // This terminal specialist image supports 28 distinct structures. Requiring
   // 32 produced synonym pairs at identical pixels, which is worse than an
   // explicit evidence-based exception.
@@ -340,6 +342,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "school-gymnasium-equipment": 155,
   "school-art-studio": 155,
   "school-music-room": 155,
+  "school-infirmary": 155,
+  "school-science-preparation-room": 155,
   // The bright cutaway resolves chamber walls, individual cusps, connected
   // vessel openings, coronary surface branches and a readable red-cell rim;
   // the ceiling still excludes invisible physiology and conduction claims.
