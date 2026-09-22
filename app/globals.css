@@ -2595,3 +2595,21 @@ a:focus-visible {
     to { opacity: 0; }
   }
 }
+/* Compact scene-bound language practice; native dialog preserves camera and focus. */
+.scene-conversation-toggle { position: absolute; z-index: 19; top: 16px; right: 16px; border: 1px solid #b8c8d6; border-radius: 8px; min-height: 44px; padding: 7px 10px; background: #f5faff; color: #18344c; white-space: nowrap; }
+.scene-conversation { width: min(960px, calc(100vw - 24px)); max-height: calc(100dvh - 32px); padding: 18px; border: 1px solid #b8c8d6; border-radius: 14px; color: #18344c; background: #f5faff; overflow: auto; overscroll-behavior: contain; }
+.scene-conversation::backdrop { background: rgb(12 28 45 / 40%); }
+.scene-conversation header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.scene-conversation h2 { margin: 0; font-size: 1.2rem; }
+.scene-conversation button { min-width: 36px; min-height: 36px; border: 1px solid #a9bdcc; border-radius: 7px; background: white; color: #163f5b; }
+.scene-conversation button:disabled { opacity: .5; }
+.scene-conversation-practice { display: flex; gap: 8px; align-items: center; margin: 14px 0; font-size: .9rem; }
+.scene-conversation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.scene-conversation h3 { margin: 0 0 8px; font-size: 1rem; }
+.scene-conversation ol { margin: 0; padding: 0; list-style: none; }
+.scene-conversation li { display: grid; grid-template-columns: 3.8em minmax(0, 1fr) auto; gap: 8px; border-top: 1px solid #d1dde6; padding: 10px 0; align-items: start; }
+.scene-conversation li p { margin: 0; line-height: 1.45; overflow-wrap: anywhere; font-size: 1rem; }
+.scene-conversation .scene-conversation-translation { margin-top: 3px; color: #476175; font-size: .875rem; }
+.scene-conversation-role { font-size: .875rem; color: #476175; }
+.scene-conversation-note { font-size: .8125rem; color: #476175; }
+@media (max-width: 700px) { .scene-conversation-grid { grid-template-columns: 1fr; } .scene-conversation { padding: 12px; } }

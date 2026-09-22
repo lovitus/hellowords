@@ -4,6 +4,12 @@
 
 ## 当前交付游标
 
+- 2026-09-22 用户已授权创建私有 GitHub 仓库，已建立 `https://github.com/lovitus/hellowords` 并接为 `origin`；原 Sites 远程不变。此前“缺少 GitHub 仓库”的阻塞已解除。会话功能、内容、域测试、桌面/手机回归与文档合并为一个完整候选批次，下一步由现有 CI 执行正确性、构建、E2E 与性能验收；结果未出前不发布新 Sites 版本。`.sites-runtime/` 明确忽略，避免把临时新站副本或发布归档带入仓库。
+- 2026-09-22 会话批次续接：入口已移到场景右上角以避免手机顶栏溢出；语音能力检测改为打开时执行，组件卸载释放探索锁。新增 `tests/e2e/scene-conversations.spec.ts`，覆盖真实首页→街道→咖啡馆路径、12 句同屏组读、遮译、横向溢出、关闭保持镜头、Esc 与返回。`git diff --check` 通过；测试仅编写，尚未执行，不代表验收通过。唯一下一步：由用户指定 GitHub 仓库或授权创建私有仓库，接续已有 `.github/workflows/ci.yml` 运行整批验证；现有远程仅 `sites` / `sites-legacy`，不擅自建立源码外部副本。新站 v1 保持不变，本批未提交未发布。
+- **当前唯一公开入口（2026-09-22）**：https://hellowords-explore.lilifenghao44444.chatgpt.site 。新站 v1 已成功部署（Sites `succeeded`）；源码 `b202808596f869876ced1b87209bf6a6ec1a3412`，版本 `appgprj_6ab219c32ef0819198d4d7facbfd9cdc~appgver_0431e2a444c481918443c39c96aeef2c`，部署 `appgdep_6ab21be4a96c8191829a621d18d044cb`。该提交仅变更新站身份，产品内容沿用已审核 `530f76c` 与保留构建。平台发布成功已验证，新域名的人工浏览器业务冒烟尚未执行，不冒充真实业务验收。主工作树已快进到新站提交并将新远程设为 `sites`，旧远程保留为 `sites-legacy`；以下 v142/冻结记录是历史基线，不再是当前发布目标。下一步：继续现有会话批次并确定 GitHub 验证仓库，未经整批验收不发布它。
+- 2026-09-22 用户明确授权新建 Site：已创建 `appgprj_6ab219c32ef0819198d4d7facbfd9cdc`，slug `hellowords-explore`，访问模式已设为 public。新站独立工作树为 `.sites-runtime/new-site/`，从已审核 `530f76c` 克隆，原站 manifest/远程保持不变；当前只发布原审核源码及其保留构建，不包含主工作树尚未验收的会话功能。不要再次创建站点。新站发布成功与否以后续部署终态为准。
+- 下一开发批次（未验收、未提交）：`app/domain/sceneConversations.ts` 与 `app/components/SceneConversation.tsx` 已添加 6 个现有场景、12 组原创双语会话、72 句表达，支持整组阅读、遮译与设备合成听读；已接 WorldApp，尚待静态检查/浏览器验收，不能宣称可发布。现无 GitHub remote，只有原 Sites remote，按用户新的 GitHub workflow 验证要求需先确定 GitHub 仓库，不擅自创建或公开源码。研究参考：https://h5p.org/node/464381 、https://learnenglish.britishcouncil.org/free-resources/speaking/a1 、https://react.dev/versions 。React 新版不会提供产品会话内容，本批不增依赖、不升级。
+- 2026-09-22 发布续接：用户已明确允许审核完成后发布一次；候选提交 `530f76c`，工作树干净。Sites 发布工具现已可调用，但对 `.openai/hosting.json` 中原项目执行 `get_site` 返回 `NOT_FOUND / project_not_found`（404）。未创建新站、未替换项目 ID、未保存或部署新版本；需要恢复当前 Sites 连接对原项目的访问后，继续发布同一审核批次。此问题不代表原公开站已删除，也不能据此判断账户或工作区是哪一项有误。
 - 公开版本：`v142-8e3cab7`（线上已完成真实冒烟）
 - 地址：<https://hellowords-world.perky-spoon-0500.chatgpt.site/?v=142-8e3cab7#world>
 - 公开源码仍冻结在 `8e3cab7039f684a434887faa76c6ba7c617ce8ea`；本地候选继续批量开发但不发布。当前已接入 88 个场景、13,348 个空间锚点、12,264 个去重展示词、577 个细分区、87 个门户、6 条首页分支；校园分支新增 School corridor → School dining hall（150 词/6 区）→ School catering kitchen（150 词/6 区）。餐厅入口来自走廊中央完整双开门；后厨入口来自餐厅供餐柜台后的完整厨房开口。两个新增场景均为 1600×900 固定 JPEG，入口、锚点和细分区已写入 `anchorAudit.status: "human-verified"`。

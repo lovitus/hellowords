@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { LexicalWorld } from "./LexicalWorld";
+import { SceneConversation } from "./SceneConversation";
 import {
   childCameraFromPortalTile,
   fullyFittedSceneCamera,
@@ -141,6 +142,7 @@ export function WorldApp() {
   const [focusedAtlasZoneId, setFocusedAtlasZoneId] = useState<string | null>(null);
   const [focusedSceneDetailZoneId, setFocusedSceneDetailZoneId] = useState<string | null>(null);
   const [sceneWordIndexOpen, setSceneWordIndexOpen] = useState(false);
+  const [conversationOpen, setConversationOpen] = useState(false);
   const [sceneWordIndexQuery, setSceneWordIndexQuery] = useState("");
   const navigationRef = useRef<AbortController | null>(null);
   const sceneHeadingRef = useRef<HTMLHeadingElement>(null);
@@ -861,6 +863,8 @@ export function WorldApp() {
         inert={lexicalWorldOpen ? true : undefined}
         aria-hidden={lexicalWorldOpen ? true : undefined}
       >
+        {scene ? <SceneConversation key={scene.id} sceneId={scene.id} disabled={sceneControlsLocked}
+          onOpenChange={setConversationOpen} /> : null}
         <aside
           className="scene-minimap"
           data-testid="scene-minimap"
@@ -1182,7 +1186,7 @@ export function WorldApp() {
               selectedLabelId={selectedLabel?.id ?? null}
               portalTargetTitles={sceneTitles}
               transitionPhase={outgoingScene ? "incoming" : "active"}
-              interactionLocked={sceneControlsLocked}
+              interactionLocked={sceneControlsLocked || conversationOpen}
               onCommitScene={beginSceneCommit}
               onEnterScene={(sceneId, source) => navigate(sceneId, "forward", source)}
               onExitScene={() => goBack("zoom")}
