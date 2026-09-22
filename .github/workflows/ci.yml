@@ -18,10 +18,10 @@ env:
   WRANGLER_LOG_PATH: .wrangler/wrangler.log
 
 jobs:
-  correctness:
-    name: Correctness
+  verification:
+    name: Full verification
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v7
@@ -33,89 +33,30 @@ jobs:
       - run: npm run typecheck
       - run: npm run validate:data
       - run: npm run test:unit
-      - uses: actions/upload-artifact@v5
-        if: ${{ !cancelled() }}
-        with:
-          name: correctness-${{ github.sha }}
-          path: artifacts/correctness
-          if-no-files-found: ignore
-          retention-days: 14
-
-  build:
-    name: Production build
-    needs: correctness
-    runs-on: ubuntu-24.04
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v7
-        with:
-          node-version: "22"
-          cache: npm
-      - run: npm ci
+      # Tests use this exact build on the same runner: storage quotas cannot
+      # prevent a downstream test job from obtaining it.
       - run: npm run build
       - run: npm run test:ssr
       - run: node scripts/analyze-build.mjs
-      - uses: actions/upload-artifact@v5
-        with:
-          name: production-build-${{ github.sha }}
-          path: |
-            dist
-            artifacts/build
-          include-hidden-files: true
-          retention-days: 7
-
-  e2e:
-    name: Browser E2E
-    needs: build
-    runs-on: ubuntu-24.04
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v7
-        with:
-          node-version: "22"
-          cache: npm
-      - run: npm ci
-      - uses: actions/download-artifact@v5
-        with:
-          name: production-build-${{ github.sha }}
-          path: .
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
-      - uses: actions/upload-artifact@v5
-        if: ${{ !cancelled() }}
-        with:
-          name: browser-e2e-${{ github.sha }}
-          path: artifacts/e2e
-          if-no-files-found: ignore
-          retention-days: 30
-
-  perf:
-    name: Runtime performance
-    needs: build
-    runs-on: ubuntu-24.04
-    timeout-minutes: 20
-    env:
-      PERF_RUN: "1"
-      PERF_SCENE_CYCLES: "20"
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v7
-        with:
-          node-version: "22"
-          cache: npm
-      - run: npm ci
-      - uses: actions/download-artifact@v5
-        with:
-          name: production-build-${{ github.sha }}
-          path: .
-      - run: npx playwright install --with-deps chromium
       - run: npm run test:perf
+        env:
+          PERF_RUN: "1"
+          PERF_SCENE_CYCLES: "20"
+      # Retention is optional; every validation command above remains blocking.
+      # Missing downloadable output must never be used as release evidence.
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
+        continue-on-error: true
         with:
-          name: runtime-performance-${{ github.sha }}
-          path: artifacts/perf
-          if-no-files-found: error
-          retention-days: 30
+          name: verification-${{ github.sha }}
+          path: |
+            artifacts/correctness
+            artifacts/build
+            artifacts/e2e
+            artifacts/perf
+            dist
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 7
