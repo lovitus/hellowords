@@ -91,6 +91,21 @@ test("camera smoothing validates timing inputs", () => {
   assert.throws(() => smoothCameraTowards(camera, camera, 16, 0), RangeError);
 });
 
+test("delayed camera frames catch up by elapsed time without overshooting", () => {
+  const initial = { x: 80, y: -120, scale: 1 };
+  const target = { x: -420, y: 260, scale: 4 };
+  let regular = initial;
+  for (let frame = 0; frame < 5; frame += 1) regular = smoothCameraTowards(regular, target, 16, 52);
+  const delayed = smoothCameraTowards(initial, target, 80, 52);
+  for (const key of ["x", "y", "scale"] as const) {
+    assert.ok(Math.abs(delayed[key] - regular[key]) < 1e-10);
+    assert.ok(delayed[key] >= Math.min(initial[key], target[key]));
+    assert.ok(delayed[key] <= Math.max(initial[key], target[key]));
+  }
+  const resumed = smoothCameraTowards(initial, target, 2000, 52);
+  assert.deepEqual(resumed, target);
+});
+
 test("camera smoothing is monotonic, bounded and symmetric in log scale", () => {
   const target = { x: -420, y: 260, scale: 4 };
   const zoomIn = [{ x: 80, y: -120, scale: 1 }];

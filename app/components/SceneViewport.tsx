@@ -2568,7 +2568,10 @@ export function SceneViewport({
       const smoothed = smoothCameraTowards(
         current,
         nextTarget,
-        Math.min(34, Math.max(1, now - previousTime)),
+        // Exponential smoothing is bounded for any elapsed time. Clipping a
+        // delayed frame to 34ms makes slow devices chase an artificial clock
+        // and render extra catch-up frames after wheel input has stopped.
+        Math.max(0, now - previousTime),
         WHEEL_RESPONSE_MS,
       );
       const settled = (

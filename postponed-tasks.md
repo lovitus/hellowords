@@ -4,6 +4,8 @@
 
 ## 当前交付游标
 
+- 已发现并修复低帧率缩放的时间截断：wheel动画调用稳定指数平滑时将每帧时间强制封顶34ms，慢帧因此推进不足并产生多余追赶帧。改为真实非负rAF时间差，不改52ms响应常数、终点或进出层级阈值；新增80ms与5×16ms等价、长间隔不越界测试。尚未执行正式CI，不能宣称性能门通过。参考 https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame 。
+- 最新正式验收：`35698256887` / `e5ae8de` failure，正确性与构建阶段通过；性能为CPU976ms/次、renderer156.405ms/次、ScriptDuration1.689s/40次、PSS峰值459.062MiB/增量99.824MiB，仍未达750/75/350/40门槛。相较上一轮数值下降，但本轮 runner CPU 型号从EPYC7763变为EPYC9V74，不能把差值全部归因于代码优化。visual p95=282.4ms、cold LCP352ms、live DOM197；第二性能测试未运行，E2E也因前置失败未运行。本轮不重复重跑、不发布。下一步需检查图像/合成资源与样式计算，而非继续重复静态词数据优化。
 - 本地只读诊断（使用保留的旧构建 `530f76c`，非当前候选验收）：4轮点击进入/滚轮返回的 CDP CPU 采样定位到 `computeSceneLabelLayout` 与 preferred-alternative 距离排序，映射来自 bundle 实际行列。代码确认即使第一遍已经为标签保留合法位置，第二遍仍构造/排序备用环然后被 `reservedPlacement ?? ...` 丢弃。已增加仅对已保留位置跳过备用环的精确快路，保持碰撞与最终位置规则；新增测试要求此路径不调用距离计算。正式正确性和性能仍待 GitHub，不能用本地采样替代通过证据。
 - CI `35697494122` / `c9ecf52` 已结束 failure：CPU=1011ms/次、renderer=184.413ms/次、PSS峰值467.432MiB、PSS增量110.418MiB，仍明显超标；静态缓存复用有等价性保障，但该测量未证明导航性能显著改善，不得宣称已优化成功。视觉切换p95=280.9ms、LCP=364ms、live DOM=197。应停止仅凭总量猜测修改，下一步获取实际执行热点/合成资源证据，再确定修复；不再重复同一无新诊断依据的测试。新站仍保持旧审核版本。
 - 下一修复批次：为同一不可变 Scene 快照跨 keyed SceneViewport 挂载复用 labelsById、semantic styles、vocabulary cues；WeakMap 以 Scene 对象而非 ID 为键，刷新对象重新计算，旧场景可回收。新增等价性/复用/刷新隔离测试。另移除全仓没有消费者的逐帧 `--scene-zoom` CSS 变量写入，仍保留 data-scene-scale 与真实 transform；恢复上批未验证有效的 backdrop 视觉样式。性能提升尚待 CI，不宣称根因已解决。
