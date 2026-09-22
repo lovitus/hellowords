@@ -4,6 +4,10 @@
 
 ## 当前交付游标
 
+- 性能修复候选：移除小地图及首页分区牌的实时 backdrop 模糊；小地图已有独立场景缩略图和纸色遮罩，保留其透明度、图片、边框与文字，不改气泡密度、锚点或缩放契约。这是基于代码与 WebKit 渲染说明的待验证假设，不宣称已证明 941ms 的唯一根因。与性能日志分解、先性能后 E2E 的完整门槛编排合为一个批次验证，750ms 阈值不变。参考 https://webkit.org/blog/3632/introducing-backdrop-filters/ 。
+- 运行 `35695292868` 已回收真实终态 failure：唯一失败步骤 `npm run test:perf`，浏览器 CPU/transition=941.25ms >750ms；第二个性能测试 did not run。按该 job 顺序，lint/typecheck/data/unit/build/SSR/analysis/完整 E2E 已执行成功；完整验收未通过。归档下载返回 no valid artifacts，无法取得 renderer/memory 分解，不能武断归因于 CI 或会话代码。已在本地补上失败日志可见的性能摘要并将性能检查提前到 E2E 前（仍保留全部门槛），尚未提交/运行。唯一下一步：取到 CPU 主线程/合成与内存细分后修复实际瓶颈，整批再验收；不提高阈值、不发布。
+- 本次有界验收等待已于 600 秒上限返回 `timeout`，运行 ID `35695292868`，对应候选 `216593c`。这是观察超时，不是测试失败或进程终止；不得重新触发 workflow，后续应继续读取同一运行的终态。没有最终结果，因此会话版本仍未发布。
+- 2026-09-22 用户已自行将 GitHub 项目改为公开，`gh repo view lovitus/hellowords --json visibility` 实测 `PUBLIC`；后续保留此公开设置，不改回私有。提交 `216593c` 的单 job 完整验收已启动，由同一个全局状态等待脚本观察，不重复触发 workflow。
 - 2026-09-22 存储阻塞的无删除替代方案：依据 GitHub 官方同 job 共享文件系统的行为，将原四阶段合并为一个 job，仍依次运行 lint/typecheck/data/unit/build/SSR/build analysis/完整 E2E/20 周期性能门；没有测试 `continue-on-error`。仅最终报告与产物归档允许失败，构建不再依赖上传下载；上传缺失仍代表发布产物不可取得，不得冒充发布就绪。上游 upload-artifact 已到 v7，但升级不能消除账号配额，本批保留已有版本。参考 https://docs.github.com/en/actions/tutorials/store-and-share-data 与 https://github.com/actions/upload-artifact 。下一步等待此次整批 CI 真实结果，不再要求先清理其他项目产物才能运行测试。
 - 2026-09-22 GitHub 已实际接入：私有 `lovitus/hellowords` 的 main 已确认收到 `9d34856d133340a2d1a8b20714216023d0ee716c`（两次 Git push 都返回连接重置，但最终 `ls-remote` 证明已收到，禁止因此重复推送）。CI `35694966102` 终态 failure，唯一失败日志为 Correctness 的 `actions/upload-artifact@v5` 报 `Artifact storage quota has been hit`；build/E2E/perf 均 skipped，不能宣称整批通过。未删除任何仓库产物、未更改付费额度、未弱化测试。下一步需用户允许清理账号中指定的旧 Actions 产物或自行释放额度，再继续同一批次验收。会话功能未公开发布，新站仍为上一已审核版本。
 - 2026-09-22 用户已授权创建私有 GitHub 仓库，已建立 `https://github.com/lovitus/hellowords` 并接为 `origin`；原 Sites 远程不变。此前“缺少 GitHub 仓库”的阻塞已解除。会话功能、内容、域测试、桌面/手机回归与文档合并为一个完整候选批次，下一步由现有 CI 执行正确性、构建、E2E 与性能验收；结果未出前不发布新 Sites 版本。`.sites-runtime/` 明确忽略，避免把临时新站副本或发布归档带入仓库。

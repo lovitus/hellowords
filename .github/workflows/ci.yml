@@ -39,11 +39,11 @@ jobs:
       - run: npm run test:ssr
       - run: node scripts/analyze-build.mjs
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
       - run: npm run test:perf
         env:
           PERF_RUN: "1"
           PERF_SCENE_CYCLES: "20"
+      - run: npm run test:e2e
       # Retention is optional; every validation command above remains blocking.
       # Missing downloadable output must never be used as release evidence.
       - uses: actions/upload-artifact@v5

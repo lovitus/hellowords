@@ -283,6 +283,16 @@ test("scene slices stay within CPU and memory budgets", async ({ browser, page }
     "",
   ].join("\n");
   await writeFile("artifacts/perf/summary.md", markdown);
+  // Keep the measured bottleneck readable in failed-step logs even when the
+  // account cannot retain Actions artifacts. This does not change any budget.
+  console.log("SCENE_PERFORMANCE", JSON.stringify({
+    environment: summary.environment,
+    cold: summary.cold,
+    result: summary.result,
+    visualTransitionP95Ms: summary.visualTransitionP95Ms,
+    liveDomNodes: summary.liveDomNodes,
+    budgets,
+  }));
   if (process.env.GITHUB_STEP_SUMMARY) {
     await appendFile(process.env.GITHUB_STEP_SUMMARY, markdown);
   }
