@@ -4,6 +4,8 @@
 
 ## 当前交付游标
 
+- 下一修复批次：为同一不可变 Scene 快照跨 keyed SceneViewport 挂载复用 labelsById、semantic styles、vocabulary cues；WeakMap 以 Scene 对象而非 ID 为键，刷新对象重新计算，旧场景可回收。新增等价性/复用/刷新隔离测试。另移除全仓没有消费者的逐帧 `--scene-zoom` CSS 变量写入，仍保留 data-scene-scale 与真实 transform；恢复上批未验证有效的 backdrop 视觉样式。性能提升尚待 CI，不宣称根因已解决。
+- 最新性能证据：CI `35696830785` / `88a2303` failure，移除两处 backdrop 未证实改善，已在工作树撤回这项视觉改动（未提交）。40 次切换 CPU=1008.5ms/次（预算750），renderer task=185.641ms/次（75），peak PSS=466.847MiB（350），retained PSS delta=116.926MiB（40）；visual p95=275.4ms（650）、cold LCP=360ms（2500）、live DOM=197、peak JS heap=19.88MiB。此前断言短路只暴露CPU失败，新日志表明还要检查主线程与原生图像/合成内存，不能只调滤镜或放宽阈值。第二个性能测试未运行，当前提交 E2E 因前置性能失败未运行（上一 `216593c` E2E通过）。下一步：对场景切换计算和图像/合成资源生命周期做针对性修复；保留完整性能日志输出，不重复发布。
 - 性能修复候选：移除小地图及首页分区牌的实时 backdrop 模糊；小地图已有独立场景缩略图和纸色遮罩，保留其透明度、图片、边框与文字，不改气泡密度、锚点或缩放契约。这是基于代码与 WebKit 渲染说明的待验证假设，不宣称已证明 941ms 的唯一根因。与性能日志分解、先性能后 E2E 的完整门槛编排合为一个批次验证，750ms 阈值不变。参考 https://webkit.org/blog/3632/introducing-backdrop-filters/ 。
 - 运行 `35695292868` 已回收真实终态 failure：唯一失败步骤 `npm run test:perf`，浏览器 CPU/transition=941.25ms >750ms；第二个性能测试 did not run。按该 job 顺序，lint/typecheck/data/unit/build/SSR/analysis/完整 E2E 已执行成功；完整验收未通过。归档下载返回 no valid artifacts，无法取得 renderer/memory 分解，不能武断归因于 CI 或会话代码。已在本地补上失败日志可见的性能摘要并将性能检查提前到 E2E 前（仍保留全部门槛），尚未提交/运行。唯一下一步：取到 CPU 主线程/合成与内存细分后修复实际瓶颈，整批再验收；不提高阈值、不发布。
 - 本次有界验收等待已于 600 秒上限返回 `timeout`，运行 ID `35695292868`，对应候选 `216593c`。这是观察超时，不是测试失败或进程终止；不得重新触发 workflow，后续应继续读取同一运行的终态。没有最终结果，因此会话版本仍未发布。

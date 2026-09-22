@@ -330,8 +330,8 @@ a:focus-visible {
   background-size: cover, cover;
   background-blend-mode: normal, luminosity;
   box-shadow: 0 9px 28px rgba(29, 45, 38, 0.14), inset 0 1px rgba(255, 255, 255, 0.72);
-  /* This panel already draws its own scene thumbnail and paper wash. Avoid
-   * re-filtering the moving world underneath on every camera frame. */
+  backdrop-filter: blur(14px) saturate(0.88);
+  -webkit-backdrop-filter: blur(14px) saturate(0.88);
 }
 
 .eyebrow {
@@ -978,7 +978,7 @@ a:focus-visible {
   color: #24453c;
   text-align: center;
   transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-  /* Keep the translucent surface without a separate moving-backdrop pass. */
+  backdrop-filter: blur(9px) saturate(0.92);
 }
 
 .atlas-category-nameplate strong {

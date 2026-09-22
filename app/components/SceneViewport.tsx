@@ -15,12 +15,10 @@ import {
 import {
   advanceLabelDwell,
   createSceneAssetLoadState,
-  buildLabelSemanticStyleMap,
   buildPortalCueProtectedRegions,
   buildSceneLabelMountWindow,
   buildVocabularyCueRevealState,
   buildVocabularyRevealSummary,
-  buildVocabularyZoomCues,
   consolidateVocabularyCueBatches,
   computeSceneLabelLayout,
   advanceParentExitHysteresis,
@@ -47,7 +45,7 @@ import {
   type SceneDetailZone,
   type SceneLabelProtectedRegion,
 } from "../domain";
-import { SPATIAL_LEXEME_REALMS } from "../domain/spatialLexemeRealms.generated";
+import { getScenePresentation } from "../lib/scene-presentation";
 import { decodedSceneAssetCache } from "../lib/decoded-scene-asset-cache";
 
 interface SceneViewportProps {
@@ -949,10 +947,7 @@ export function SceneViewport({
   const [interactionPositioned, setInteractionPositioned] = useState(false);
   const interactionPositionedRef = useRef(false);
   const [encounterTick, setEncounterTick] = useState(0);
-  const labelsById = useMemo(
-    () => new Map(scene.labels.map((label) => [label.id, label])),
-    [scene.labels],
-  );
+  const { labelsById, labelSemanticStyles, vocabularyZoomCues } = getScenePresentation(scene);
   const focusedDetailZone = useMemo(
     () => focusedDetailZoneId
       ? scene.detailZones?.find((zone) => zone.id === focusedDetailZoneId) ?? null
@@ -963,25 +958,6 @@ export function SceneViewport({
   // Keep the latest zone in a ref so every animation frame paints the active
   // focus frame instead of briefly reverting to the old (null) value.
   const focusedDetailZoneValueRef = useRef<SceneDetailZone | null>(focusedDetailZone);
-  const labelSemanticStyles = useMemo(
-    () => buildLabelSemanticStyleMap(
-      scene.labels,
-      scene.visualRegions ?? [],
-      SPATIAL_LEXEME_REALMS,
-    ),
-    [scene.labels, scene.visualRegions],
-  );
-  const vocabularyZoomCues = useMemo(
-    () => buildVocabularyZoomCues(
-      scene.labels,
-      scene.portals,
-      scene.width,
-      scene.height,
-      8,
-      scene.detailZones,
-    ),
-    [scene.detailZones, scene.height, scene.labels, scene.portals, scene.width],
-  );
   const activeAtlasDistrict = useMemo(
     () => atlasDistricts?.find((district) => district.id === atlasCategoryId) ?? null,
     [atlasCategoryId, atlasDistricts],
@@ -1254,7 +1230,6 @@ export function SceneViewport({
       "transform",
       `translate3d(${camera.x}px, ${camera.y}px, 0) scale(${effectiveScale})`,
     );
-    setStylePropertyIfChanged(surface.style, "--scene-zoom", sceneScaleValue);
     setDatasetValueIfChanged(surface, "zoomLevel", String(zoomLevel));
     setDatasetValueIfChanged(surface, "lodLevel", String(zoomLevel));
     setDatasetValueIfChanged(surface, "sceneScale", sceneScaleValue);
@@ -3177,7 +3152,6 @@ export function SceneViewport({
             height: scene.height,
             ...(effectiveInitialView ? {
               transform: `translate3d(${effectiveInitialView.camera.x}px, ${effectiveInitialView.camera.y}px, 0) scale(${effectiveInitialView.camera.fit * effectiveInitialView.camera.scale})`,
-              "--scene-zoom": effectiveInitialView.camera.scale.toFixed(3),
             } : {}),
           } as CSSProperties}
         >
