@@ -297,6 +297,23 @@ test("edge anchors keep a chance to place a displaced pill inside the viewport",
   assert.ok(placed.screenX > 0, "the displaced word pill is still readable at the edge");
 });
 
+test("a reserved label never calculates unused fallback distances", (context) => {
+  const retained = label("retained", 200, 1, 0, 150);
+  context.mock.method(Math, "hypot", () => {
+    throw new Error("reserved placement must bypass fallback-ring distances");
+  });
+  const placed = computeSceneLabelLayout(
+    [retained],
+    { x: 0, y: 0, fit: 1, scale: 1 },
+    { width: 500, height: 300, compact: false },
+    false,
+    { preferredOffsets: new Map([[retained.id, { offsetX: 0, offsetY: 34 }]]) },
+  )[0];
+  assert.equal(placed.interactive, true);
+  assert.equal(placed.offsetX, 0);
+  assert.equal(placed.offsetY, 34);
+});
+
 test("continuous motion reserves every still-legal interactive slot before new first-fit claims", () => {
   const newcomer = label("newcomer", 200, 1, 0, 218);
   const retained = label("retained", 200, 2, 2, 150);

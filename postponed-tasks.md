@@ -4,6 +4,8 @@
 
 ## 当前交付游标
 
+- 本地只读诊断（使用保留的旧构建 `530f76c`，非当前候选验收）：4轮点击进入/滚轮返回的 CDP CPU 采样定位到 `computeSceneLabelLayout` 与 preferred-alternative 距离排序，映射来自 bundle 实际行列。代码确认即使第一遍已经为标签保留合法位置，第二遍仍构造/排序备用环然后被 `reservedPlacement ?? ...` 丢弃。已增加仅对已保留位置跳过备用环的精确快路，保持碰撞与最终位置规则；新增测试要求此路径不调用距离计算。正式正确性和性能仍待 GitHub，不能用本地采样替代通过证据。
+- CI `35697494122` / `c9ecf52` 已结束 failure：CPU=1011ms/次、renderer=184.413ms/次、PSS峰值467.432MiB、PSS增量110.418MiB，仍明显超标；静态缓存复用有等价性保障，但该测量未证明导航性能显著改善，不得宣称已优化成功。视觉切换p95=280.9ms、LCP=364ms、live DOM=197。应停止仅凭总量猜测修改，下一步获取实际执行热点/合成资源证据，再确定修复；不再重复同一无新诊断依据的测试。新站仍保持旧审核版本。
 - 下一修复批次：为同一不可变 Scene 快照跨 keyed SceneViewport 挂载复用 labelsById、semantic styles、vocabulary cues；WeakMap 以 Scene 对象而非 ID 为键，刷新对象重新计算，旧场景可回收。新增等价性/复用/刷新隔离测试。另移除全仓没有消费者的逐帧 `--scene-zoom` CSS 变量写入，仍保留 data-scene-scale 与真实 transform；恢复上批未验证有效的 backdrop 视觉样式。性能提升尚待 CI，不宣称根因已解决。
 - 最新性能证据：CI `35696830785` / `88a2303` failure，移除两处 backdrop 未证实改善，已在工作树撤回这项视觉改动（未提交）。40 次切换 CPU=1008.5ms/次（预算750），renderer task=185.641ms/次（75），peak PSS=466.847MiB（350），retained PSS delta=116.926MiB（40）；visual p95=275.4ms（650）、cold LCP=360ms（2500）、live DOM=197、peak JS heap=19.88MiB。此前断言短路只暴露CPU失败，新日志表明还要检查主线程与原生图像/合成内存，不能只调滤镜或放宽阈值。第二个性能测试未运行，当前提交 E2E 因前置性能失败未运行（上一 `216593c` E2E通过）。下一步：对场景切换计算和图像/合成资源生命周期做针对性修复；保留完整性能日志输出，不重复发布。
 - 性能修复候选：移除小地图及首页分区牌的实时 backdrop 模糊；小地图已有独立场景缩略图和纸色遮罩，保留其透明度、图片、边框与文字，不改气泡密度、锚点或缩放契约。这是基于代码与 WebKit 渲染说明的待验证假设，不宣称已证明 941ms 的唯一根因。与性能日志分解、先性能后 E2E 的完整门槛编排合为一个批次验证，750ms 阈值不变。参考 https://webkit.org/blog/3632/introducing-backdrop-filters/ 。

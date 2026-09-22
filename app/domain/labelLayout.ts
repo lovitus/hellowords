@@ -1094,13 +1094,16 @@ export function computeSceneLabelLayout(
           ? Math.max(0.82, candidate.naturalOpacity)
         : candidate.naturalOpacity;
     if (candidateOpacity <= 0.025) continue;
+    const reservedPlacement = reservedPreferredOffsets.get(candidate.label.id);
     const preferredOffset = options.preferredOffsets?.get(candidate.label.id);
     const hasPreferredOffset = Boolean(
       preferredOffset
       && Number.isFinite(preferredOffset.offsetX)
       && Number.isFinite(preferredOffset.offsetY),
     );
-    const canonicalOffsets = placementOffsets(
+    // The first pass has already checked and reserved this exact position.
+    // Do not generate/sort fallback rings for a placement that cannot use them.
+    const canonicalOffsets = reservedPlacement ? [] : placementOffsets(
       candidate.label.id,
       candidate.width,
       candidate.height,
@@ -1146,7 +1149,6 @@ export function computeSceneLabelLayout(
           ...preferredAlternatives,
         ]
       : preferredAlternatives;
-    const reservedPlacement = reservedPreferredOffsets.get(candidate.label.id);
     const placement = reservedPlacement ?? authoredOffsets.find(([offsetX, offsetY]) => {
       const bounds = boundsAt(
         candidate.screenX + offsetX,
