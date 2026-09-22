@@ -68,10 +68,22 @@ jobs:
           PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
         run: npm run test:perf
       - run: npm run test:perf
+        id: candidate_performance
+        continue-on-error: true
         env:
           PERF_RUN: "1"
           PERF_SCENE_CYCLES: "20"
       - run: npm run test:e2e
+        id: candidate_browser
+        continue-on-error: true
+      - name: Enforce both candidate gates
+        if: ${{ !cancelled() }}
+        env:
+          PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
+          BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}
+        run: |
+          printf 'Performance: %s\nBrowser: %s\n' "$PERF_OUTCOME" "$BROWSER_OUTCOME"
+          test "$PERF_OUTCOME" = success && test "$BROWSER_OUTCOME" = success
       # Retention is optional; every validation command above remains blocking.
       # Missing downloadable output must never be used as release evidence.
       - uses: actions/upload-artifact@v5
