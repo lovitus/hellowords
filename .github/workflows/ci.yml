@@ -5,6 +5,11 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      compare_published_baseline:
+        description: Compare the last audited product source on the same runner
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -39,6 +44,29 @@ jobs:
       - run: npm run test:ssr
       - run: node scripts/analyze-build.mjs
       - run: npx playwright install --with-deps chromium
+      - name: Check out audited baseline for optional comparison
+        if: ${{ inputs.compare_published_baseline }}
+        uses: actions/checkout@v6
+        with:
+          ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
+          path: baseline-reference
+          persist-credentials: false
+      - name: Prepare identical measurement harness for baseline
+        if: ${{ inputs.compare_published_baseline }}
+        run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
+      - name: Build audited baseline
+        if: ${{ inputs.compare_published_baseline }}
+        working-directory: baseline-reference
+        run: npm ci && npm run build
+      - name: Measure audited baseline (diagnostic, not candidate acceptance)
+        if: ${{ inputs.compare_published_baseline }}
+        continue-on-error: true
+        working-directory: baseline-reference
+        env:
+          PERF_RUN: "1"
+          PERF_SCENE_CYCLES: "20"
+          PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
+        run: npm run test:perf
       - run: npm run test:perf
         env:
           PERF_RUN: "1"

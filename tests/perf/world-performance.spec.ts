@@ -221,7 +221,7 @@ test("scene slices stay within CPU and memory budgets", async ({ browser, page }
   const visualTransitionP95Ms = percentile(browserState.sceneTransitions, 0.95);
   const summary = {
     schemaVersion: 1,
-    gitSha: process.env.GITHUB_SHA ?? null,
+    gitSha: process.env.PERF_SOURCE_SHA ?? process.env.GITHUB_SHA ?? null,
     environment: {
       platform: process.platform,
       release: release(),
@@ -286,6 +286,7 @@ test("scene slices stay within CPU and memory budgets", async ({ browser, page }
   // Keep the measured bottleneck readable in failed-step logs even when the
   // account cannot retain Actions artifacts. This does not change any budget.
   console.log("SCENE_PERFORMANCE", JSON.stringify({
+    gitSha: summary.gitSha,
     environment: summary.environment,
     cold: summary.cold,
     result: summary.result,
