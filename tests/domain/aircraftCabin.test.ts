@@ -54,7 +54,7 @@ async function readJson<T>(file: string): Promise<T> {
 test("aircraft cabin keeps 142 reviewed door, galley, seating and lavatory terms", async () => {
   const scene = await readJson<Scene>("aircraft-cabin.json");
   assert.equal(scene.id, "aircraft-cabin");
-  assert.equal(scene.parentId, "boarding-gate");
+  assert.equal(scene.parentId, "passenger-boarding-bridge");
   assert.equal(scene.asset, "/scenes/aircraft-cabin-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 142);
@@ -120,30 +120,59 @@ test("aircraft cabin keeps 142 reviewed door, galley, seating and lavatory terms
   );
 });
 
-test("boarding gate exposes the open aircraft doorway as the cabin portal", async () => {
+test("boarding gate enters the bridge before the cabin doorway", async () => {
   const boardingGate = await readJson<{
     readonly portals: readonly Record<string, unknown>[];
     readonly visualRegions: readonly { readonly id: string; readonly x: number; readonly y: number; readonly width: number; readonly height: number }[];
   }>("boarding-gate.json");
-  assert.deepEqual(boardingGate.portals.find(({ childSceneId }) => childSceneId === "aircraft-cabin"), {
+  assert.deepEqual(boardingGate.portals.find(({ childSceneId }) => childSceneId === "passenger-boarding-bridge"), {
+    id: "enter-passenger-boarding-bridge",
+    label: "Enter the passenger boarding bridge",
+    translation: "进入旅客登机廊桥",
+    childSceneId: "passenger-boarding-bridge",
+    sourceVisualRegion: "portal-passenger-boarding-bridge",
+    x: 795,
+    y: 195,
+    width: 218,
+    height: 330,
+    enterScale: 3.45,
+  });
+  assert.deepEqual(boardingGate.visualRegions.find(({ id }) => id === "portal-passenger-boarding-bridge"), {
+    id: "portal-passenger-boarding-bridge",
+    description: "Open boarding-bridge corridor entrance between the gate lounge and aircraft-side bridge",
+    kind: "object",
+    x: 795,
+    y: 195,
+    width: 218,
+    height: 330,
+  });
+});
+
+test("boarding bridge exposes the visible aircraft doorway as the cabin portal", async () => {
+  const bridge = await readJson<{
+    readonly portals: readonly Record<string, unknown>[];
+    readonly visualRegions: readonly { readonly id: string; readonly x: number; readonly y: number; readonly width: number; readonly height: number }[];
+  }>("passenger-boarding-bridge.json");
+  const portal = bridge.portals.find(({ childSceneId }) => childSceneId === "aircraft-cabin");
+  assert.deepEqual(portal, {
     id: "enter-aircraft-cabin",
     label: "Enter the aircraft cabin",
     translation: "进入飞机客舱",
     childSceneId: "aircraft-cabin",
     sourceVisualRegion: "portal-aircraft-cabin",
-    x: 1_300,
-    y: 150,
-    width: 230,
-    height: 420,
+    x: 735,
+    y: 205,
+    width: 108,
+    height: 228,
     enterScale: 3.6,
   });
-  assert.deepEqual(boardingGate.visualRegions.find(({ id }) => id === "portal-aircraft-cabin"), {
+  assert.deepEqual(bridge.visualRegions.find(({ id }) => id === "portal-aircraft-cabin"), {
     id: "portal-aircraft-cabin",
-    description: "Open aircraft doorway with a clear view into the passenger cabin on the boarding-gate photograph",
+    description: "Open aircraft doorway visible at the end of the passenger boarding bridge",
     kind: "object",
-    x: 1_300,
-    y: 150,
-    width: 230,
-    height: 420,
+    x: 735,
+    y: 205,
+    width: 108,
+    height: 228,
   });
 });

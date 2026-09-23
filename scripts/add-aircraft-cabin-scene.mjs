@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 /**
- * Build the terminal aircraft-cabin scene from the reviewed boarding-gate
+ * Build the terminal aircraft-cabin scene from the reviewed boarding-bridge
  * doorway image. Labels describe only visible cabin objects or object parts;
  * flight state, passenger actions, airline identity and hidden systems stay
  * outside this batch.
@@ -15,7 +15,7 @@ const projectRoot = resolve(import.meta.dirname, "..");
 const sourceAsset = resolve(projectRoot, "scripts/assets/aircraft-cabin-v1.png");
 const publicAsset = resolve(projectRoot, "public/scenes/aircraft-cabin-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/aircraft-cabin.json");
-const boardingGatePath = resolve(projectRoot, "public/data/scenes/boarding-gate.json");
+const boardingBridgePath = resolve(projectRoot, "public/data/scenes/passenger-boarding-bridge.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
 
 const WIDTH = 1_600;
@@ -258,16 +258,16 @@ const cabinPortal = {
   translation: "进入飞机客舱",
   childSceneId: "aircraft-cabin",
   sourceVisualRegion: "portal-aircraft-cabin",
-  x: 1_300,
-  y: 150,
-  width: 230,
-  height: 420,
+  x: 735,
+  y: 205,
+  width: 108,
+  height: 228,
   enterScale: 3.6,
 };
 
 const cabinPortalRegion = {
   id: cabinPortal.sourceVisualRegion,
-  description: "Open aircraft doorway with a clear view into the passenger cabin on the boarding-gate photograph",
+  description: "Open aircraft doorway visible at the end of the passenger boarding bridge",
   kind: "object",
   x: cabinPortal.x,
   y: cabinPortal.y,
@@ -337,7 +337,7 @@ function makeScene() {
     asset: "/scenes/aircraft-cabin-premium-v1.jpg",
     width: WIDTH,
     height: HEIGHT,
-    parentId: "boarding-gate",
+    parentId: "passenger-boarding-bridge",
     visualRegions,
     detailZones,
     anchorAudit: {
@@ -386,22 +386,22 @@ async function ensureAsset() {
   return true;
 }
 
-async function updateBoardingGate() {
-  const boardingGate = JSON.parse(await readFile(boardingGatePath, "utf8"));
-  const index = boardingGate.portals.findIndex(({ id }) => id === cabinPortal.id);
-  if (index === -1) boardingGate.portals.push(cabinPortal);
-  else boardingGate.portals[index] = cabinPortal;
-  const regionIndex = boardingGate.visualRegions.findIndex(({ id }) => id === cabinPortalRegion.id);
-  if (regionIndex === -1) boardingGate.visualRegions.push(cabinPortalRegion);
-  else boardingGate.visualRegions[regionIndex] = cabinPortalRegion;
-  return writeIfChanged(boardingGatePath, boardingGate);
+async function updateBoardingBridge() {
+  const bridge = JSON.parse(await readFile(boardingBridgePath, "utf8"));
+  const index = bridge.portals.findIndex(({ id }) => id === cabinPortal.id);
+  if (index === -1) bridge.portals.push(cabinPortal);
+  else bridge.portals[index] = cabinPortal;
+  const regionIndex = bridge.visualRegions.findIndex(({ id }) => id === cabinPortalRegion.id);
+  if (regionIndex === -1) bridge.visualRegions.push(cabinPortalRegion);
+  else bridge.visualRegions[regionIndex] = cabinPortalRegion;
+  return writeIfChanged(boardingBridgePath, bridge);
 }
 
 async function updateManifest() {
   const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
   const existing = manifest.scenes.find(({ id }) => id === "aircraft-cabin");
-  if (!existing) manifest.scenes.push({ id: "aircraft-cabin", title: "Aircraft cabin", parentId: "boarding-gate" });
-  else if (existing.title !== "Aircraft cabin" || existing.parentId !== "boarding-gate") {
+  if (!existing) manifest.scenes.push({ id: "aircraft-cabin", title: "Aircraft cabin", parentId: "passenger-boarding-bridge" });
+  else if (existing.title !== "Aircraft cabin" || existing.parentId !== "passenger-boarding-bridge") {
     throw new Error("aircraft-cabin manifest entry has a different parent or title");
   }
   return writeIfChanged(manifestPath, manifest);
@@ -443,12 +443,12 @@ export async function buildAircraftCabinScene() {
   const scene = makeScene();
   await assertUniqueWords(scene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
-  const boardingGateChanged = await updateBoardingGate();
+  const boardingBridgeChanged = await updateBoardingBridge();
   const manifestChanged = await updateManifest();
   return {
     assetChanged,
     sceneChanged,
-    boardingGateChanged,
+    boardingBridgeChanged,
     manifestChanged,
     labels: scene.labels.length,
     zones: scene.detailZones.length,

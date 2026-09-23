@@ -1357,6 +1357,15 @@
       "y": 418.916047,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "portal-office-elevator-car",
+      "description": "Passenger-lift doors and adjacent call panel in the office reception lobby",
+      "kind": "object",
+      "x": 1044,
+      "y": 183,
+      "width": 152,
+      "height": 180
     }
   ],
   "detailZones": [
@@ -3261,5 +3270,18 @@
       "semanticRealmId": "people-society"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-office-elevator-car",
+      "label": "Enter the office elevator",
+      "translation": "进入写字楼电梯",
+      "childSceneId": "office-elevator-car",
+      "sourceVisualRegion": "portal-office-elevator-car",
+      "x": 1044,
+      "y": 183,
+      "width": 152,
+      "height": 180,
+      "enterScale": 3.3
+    }
+  ]
 }

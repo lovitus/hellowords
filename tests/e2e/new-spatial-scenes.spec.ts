@@ -178,6 +178,18 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("office-elevator-car", "office-reception-lobby", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "office-building",
+    "office-reception-lobby",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+    terminal: true,
+  }),
   contract("office-break-room", "office-building", [
     "city-street",
     "transit-hub",
@@ -284,6 +296,7 @@ const newSceneContracts: NewSceneContract[] = [
     "airport",
     "security-checkpoint",
     "boarding-gate",
+    "passenger-boarding-bridge",
     "aircraft-cabin",
   ], {
     desktopMinimumWords: 12,
@@ -509,13 +522,26 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
-  contract("aircraft-cabin", "boarding-gate", [
+  contract("passenger-boarding-bridge", "boarding-gate", [
     "city-street",
     "transit-hub",
     "urban-services",
     "airport",
     "security-checkpoint",
     "boarding-gate",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("aircraft-cabin", "passenger-boarding-bridge", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "airport",
+    "security-checkpoint",
+    "boarding-gate",
+    "passenger-boarding-bridge",
   ], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,
@@ -528,6 +554,7 @@ const newSceneContracts: NewSceneContract[] = [
     "airport",
     "security-checkpoint",
     "boarding-gate",
+    "passenger-boarding-bridge",
     "aircraft-cabin",
   ], {
     desktopMinimumWords: 12,
@@ -752,7 +779,7 @@ for (const sceneContract of newSceneContracts) {
       ? sceneContract.mobileMinimumWords
       : sceneContract.desktopMinimumWords;
     await expect.poll(() => readableWordCount(page)).toBeGreaterThanOrEqual(minimumWords);
-    if (sceneContract.terminal && testInfo.project.name !== "mobile-chromium") {
+    if (sceneContract.terminal) {
       await assertTerminalSceneDoesNotOpenSemanticWorld(page, app, sceneContract.target);
     }
 

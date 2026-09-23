@@ -1089,13 +1089,13 @@
       "height": 40
     },
     {
-      "id": "portal-aircraft-cabin",
-      "description": "Open aircraft doorway with a clear view into the passenger cabin on the boarding-gate photograph",
+      "id": "portal-passenger-boarding-bridge",
+      "description": "Open boarding-bridge corridor entrance between the gate lounge and aircraft-side bridge",
       "kind": "object",
-      "x": 1300,
-      "y": 150,
-      "width": 230,
-      "height": 420
+      "x": 795,
+      "y": 195,
+      "width": 218,
+      "height": 330
     }
   ],
   "detailZones": [
@@ -2520,16 +2520,16 @@
   ],
   "portals": [
     {
-      "id": "enter-aircraft-cabin",
-      "label": "Enter the aircraft cabin",
-      "translation": "进入飞机客舱",
-      "childSceneId": "aircraft-cabin",
-      "sourceVisualRegion": "portal-aircraft-cabin",
-      "x": 1300,
-      "y": 150,
-      "width": 230,
-      "height": 420,
-      "enterScale": 3.6
+      "id": "enter-passenger-boarding-bridge",
+      "label": "Enter the passenger boarding bridge",
+      "translation": "进入旅客登机廊桥",
+      "childSceneId": "passenger-boarding-bridge",
+      "sourceVisualRegion": "portal-passenger-boarding-bridge",
+      "x": 795,
+      "y": 195,
+      "width": 218,
+      "height": 330,
+      "enterScale": 3.45
     }
   ]
 }

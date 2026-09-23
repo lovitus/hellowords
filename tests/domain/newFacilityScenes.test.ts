@@ -17,6 +17,26 @@ async function readJson(file: string) {
 
 const contracts = [
   {
+    id: "passenger-boarding-bridge",
+    parentId: "boarding-gate",
+    asset: "/scenes/airport-boarding-bridge-premium-v1.jpg",
+    sha256: "f2d8b7c4fde68f8c8abf1b05d708536bd956a64e892ffa620dd9732b80d52835",
+    source: "scripts/assets/airport-boarding-bridge-v1.png",
+    sourceSha256: "0c4fb4c93ddf746e6c7f9e9ab370ca6eda2c168c3bde2e3f4656b1c149548cba",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
+    id: "office-elevator-car",
+    parentId: "office-reception-lobby",
+    asset: "/scenes/office-elevator-car-premium-v1.jpg",
+    sha256: "991fbda7b0bd3bf0527cb65600655fda73cbbf9ec3865aec0a75718a1593cd3b",
+    source: "scripts/assets/office-elevator-car-v1.png",
+    sourceSha256: "1053e7aee909fff760d04a822796ce0613a68ba745e0f751afd50ca4ebc9b9f2",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
     id: "aircraft-galley-equipment",
     parentId: "aircraft-cabin",
     asset: "/scenes/aircraft-galley-equipment-premium-v1.jpg",
@@ -251,6 +271,12 @@ for (const contract of contracts) {
     assert.equal(createHash("sha256").update(bytes).digest("hex"), contract.sha256);
     const metadata = await decodeImage(bytes).metadata();
     assert.deepEqual([metadata.format, metadata.width, metadata.height], ["jpeg", 1_600, 900]);
+    if ("source" in contract) {
+      const sourceBytes = await readFile(resolve(projectRoot, contract.source));
+      assert.equal(createHash("sha256").update(sourceBytes).digest("hex"), contract.sourceSha256);
+      const sourceMetadata = await decodeImage(sourceBytes).metadata();
+      assert.deepEqual([sourceMetadata.format, sourceMetadata.width, sourceMetadata.height], ["png", 1_672, 941]);
+    }
   });
 }
 
@@ -304,6 +330,26 @@ test("office building exposes a tight break-room entrance separate from the serv
   assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [930, 360, 240, 190]);
   assert.ok(portal.x + portal.width <= serviceCore.x, "break-room and service-core entrances stay separate");
   const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+});
+
+test("office reception exposes the visible lift doors as an elevator-car entrance", async () => {
+  const lobby = await readJson("office-reception-lobby.json");
+  const portal = lobby.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "office-elevator-car");
+  assert.deepEqual(portal, {
+    id: "enter-office-elevator-car",
+    label: "Enter the office elevator",
+    translation: "进入写字楼电梯",
+    childSceneId: "office-elevator-car",
+    sourceVisualRegion: "portal-office-elevator-car",
+    x: 1_044,
+    y: 183,
+    width: 152,
+    height: 180,
+    enterScale: 3.3,
+  });
+  const region = lobby.visualRegions.find(({ id }: { id: string }) => id === "portal-office-elevator-car");
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
 });

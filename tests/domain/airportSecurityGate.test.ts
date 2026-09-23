@@ -172,7 +172,7 @@ test("airport security checkpoint keeps 103 reviewed queue, document and screeni
   ]);
 });
 
-test("boarding gate keeps 120 reviewed lounge, bridge, cabin and airside terms", async () => {
+test("boarding gate keeps 120 reviewed lounge, bridge and airside terms", async () => {
   const scene = await readJson<Scene>("boarding-gate.json");
   await assertReviewedScene(scene, {
     id: "boarding-gate",
@@ -188,7 +188,7 @@ test("boarding gate keeps 120 reviewed lounge, bridge, cabin and airside terms",
     sourceWidth: 1_672,
     sourceHeight: 941,
   });
-  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["aircraft-cabin"]);
+  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["passenger-boarding-bridge"]);
 });
 
 test("airport branch exposes a truthful security-to-boarding path", async () => {
@@ -211,8 +211,9 @@ test("airport branch exposes a truthful security-to-boarding path", async () => 
   assert.ok(airport.visualRegions.some(({ id }) => id === "security-screening"));
 
   const manifest = await readJson<{ readonly scenes: readonly { readonly id: string; readonly title: string; readonly parentId: string | null }[] }>("manifest.json");
-  assert.deepEqual(manifest.scenes.filter(({ id }) => ["security-checkpoint", "boarding-gate"].includes(id)), [
+  assert.deepEqual(manifest.scenes.filter(({ id }) => ["security-checkpoint", "boarding-gate", "passenger-boarding-bridge"].includes(id)), [
     { id: "security-checkpoint", title: "Security checkpoint", parentId: "airport" },
     { id: "boarding-gate", title: "Boarding gate", parentId: "security-checkpoint" },
+    { id: "passenger-boarding-bridge", title: "Passenger boarding bridge", parentId: "boarding-gate" },
   ]);
 });

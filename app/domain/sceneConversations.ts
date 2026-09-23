@@ -530,6 +530,42 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Follow the signs to the accessible boarding lane.", "沿着标志走到无障碍登机通道。"],
     ] },
   ],
+  "passenger-boarding-bridge": [
+    { title: "穿过登机廊桥", roles: ["旅客", "工作人员"], lines: [
+      ["Is this the walkway to the aircraft?", "这是通往飞机的通道吗？"],
+      ["Yes. Follow the enclosed bridge to the cabin doorway.", "是的，沿着封闭廊桥走到客舱门口。"],
+      ["Could I hold the handrail while I cross?", "我可以扶着扶手通过吗？"],
+      ["Of course. Please keep the boarding path clear.", "当然，请保持登机通道畅通。"],
+      ["Where can I speak to a staff member?", "我可以在哪里联系工作人员？"],
+      ["Use the emergency phone beside the bridge controls.", "请使用廊桥控制装置旁的应急电话。"],
+    ] },
+    { title: "确认登机协助", roles: ["旅客", "工作人员"], lines: [
+      ["I requested boarding assistance with my booking.", "我在预订时申请了登机协助。"],
+      ["Please tell the gate team before you continue.", "继续登机前请告知登机口工作人员。"],
+      ["Is the aircraft doorway at the end of this bridge?", "飞机舱门在这座廊桥的尽头吗？"],
+      ["Yes. The cabin entrance is directly ahead.", "是的，客舱入口就在前方。"],
+      ["Should I touch the bridge control panel?", "我需要操作廊桥控制面板吗？"],
+      ["No. Only authorised airport staff operate that equipment.", "不用，只有获授权的机场工作人员才能操作该设备。"],
+    ] },
+  ],
+  "office-elevator-car": [
+    { title: "选择楼层与进出电梯", roles: ["访客", "同事"], lines: [
+      ["Which button should I press for level five?", "去五楼应该按哪个按钮？"],
+      ["Choose the floor button for your destination.", "请选择你要去的楼层按钮。"],
+      ["Could you hold the door while I enter?", "我进来时你能帮我挡一下门吗？"],
+      ["Please keep clear of the closing doors.", "请避开正在关闭的电梯门。"],
+      ["Is there enough room for a wheelchair?", "轿厢里有足够的轮椅空间吗？"],
+      ["There is an open area between the side handrails.", "两侧扶手之间有一片空地。"],
+    ] },
+    { title: "使用轿厢控制与寻求帮助", roles: ["访客", "同事"], lines: [
+      ["Could you show me the door-open control?", "你能指给我看开门按钮吗？"],
+      ["It is on the car panel beside the other buttons.", "它在轿厢面板上，和其他按钮在一起。"],
+      ["What should I do if I need assistance?", "如果我需要帮助，应该怎么做？"],
+      ["Use the assistance control and follow the building guidance.", "请使用求助按钮并遵循大楼指引。"],
+      ["Can I see the floor indicator from here?", "我在这里能看到楼层显示窗吗？"],
+      ["Yes, look above the control panel.", "能，请看控制面板上方。"],
+    ] },
+  ],
   "open-plan-workstation": [
     { title: "使用共享工位", roles: ["新同事", "同事"], lines: [
       ["Is this desk free for today?", "这张桌子今天可以用吗？"],

@@ -101,3 +101,52 @@ test("school locker practice opens from the real school scene path", async ({ pa
   await expect(dialog).toContainText("I can't open my locker after entering the combination.");
   await expect(dialog).toContainText("我把水瓶落在长椅上了。");
 });
+
+test("airport bridge and office elevator expose their bilingual scene practice", async ({ page }) => {
+  const app = page.getByTestId("world-app");
+  const openPractice = async (sceneId: string, expectedLine: string) => {
+    const button = page.getByRole("button", { name: "情景会话", exact: true });
+    await button.click();
+    const dialog = page.getByRole("dialog", { name: "在这里怎么说" });
+    await expect(dialog).toBeVisible();
+    await expect(dialog.locator("li")).toHaveCount(12);
+    await expect(dialog).toContainText(expectedLine);
+    await dialog.getByRole("button", { name: "关闭情景会话" }).click();
+    await expect(app).toHaveAttribute("data-scene-id", sceneId);
+  };
+  const enterPath = async (path: string[]) => {
+    for (const sceneId of path) {
+      const portal = page.locator(`[data-testid="scene-hotspot"][data-target-scene="${sceneId}"]`);
+      await expect(portal).toBeVisible();
+      await portal.click();
+      await expect(app).toHaveAttribute("data-scene-id", sceneId);
+      await expect(app).toHaveAttribute("data-scene-loading", "false");
+      await expect(app).toHaveAttribute("data-transition-state", "idle");
+    }
+  };
+
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+  await enterPath([
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "airport",
+    "security-checkpoint",
+    "boarding-gate",
+    "passenger-boarding-bridge",
+  ]);
+  await openPractice("passenger-boarding-bridge", "Is this the walkway to the aircraft?");
+
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+  await enterPath([
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "office-building",
+    "office-reception-lobby",
+    "office-elevator-car",
+  ]);
+  await openPractice("office-elevator-car", "Which button should I press for level five?");
+});

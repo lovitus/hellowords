@@ -412,6 +412,29 @@ const securityPortal = {
   enterScale: 3.4,
 };
 
+const boardingBridgePortal = {
+  id: "enter-passenger-boarding-bridge",
+  label: "Enter the passenger boarding bridge",
+  translation: "进入旅客登机廊桥",
+  childSceneId: "passenger-boarding-bridge",
+  sourceVisualRegion: "portal-passenger-boarding-bridge",
+  x: 795,
+  y: 195,
+  width: 218,
+  height: 330,
+  enterScale: 3.45,
+};
+
+const boardingBridgePortalRegion = {
+  id: boardingBridgePortal.sourceVisualRegion,
+  description: "Open boarding-bridge corridor entrance between the gate lounge and aircraft-side bridge",
+  kind: "object",
+  x: boardingBridgePortal.x,
+  y: boardingBridgePortal.y,
+  width: boardingBridgePortal.width,
+  height: boardingBridgePortal.height,
+};
+
 const securityPortalRegion = {
   id: securityPortal.sourceVisualRegion,
   description: "Large unobstructed sterile departure doorway leading from checkpoint to the boarding gate",
@@ -596,9 +619,9 @@ export async function buildAirportSecurityAndGateScenes() {
     PUBLIC_ASSET_SHA256.gate,
     {
       parentId: "security-checkpoint",
-      value: null,
-      region: null,
-      rationale: "The final 1600 by 900 boarding-gate photograph was inspected at source and output resolution. It retains 120 independently pointable lounge, podium, boarding-bridge, aircraft-cabin and airside service parts. Gate numbers, airline identity, passenger actions, flight status, hidden aircraft systems and operational claims were excluded.",
+      value: boardingBridgePortal,
+      region: boardingBridgePortalRegion,
+      rationale: "The final 1600 by 900 boarding-gate photograph was inspected at source and output resolution. It retains 120 independently pointable lounge, podium, boarding-bridge, aircraft-cabin and airside service parts. The visible bridge corridor is the entry to the detailed passenger-boarding-bridge scene. Gate numbers, airline identity, passenger actions, flight status, hidden aircraft systems and operational claims were excluded.",
       removedExamples: ["gate number", "airline brand", "boarding action", "flight delay", "passenger identity", "aircraft control"],
     },
   );

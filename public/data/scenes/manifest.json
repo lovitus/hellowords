@@ -218,6 +218,11 @@
       "parentId": "office-building"
     },
     {
+      "id": "office-elevator-car",
+      "title": "Office elevator car",
+      "parentId": "office-reception-lobby"
+    },
+    {
       "id": "office-break-room",
       "title": "Office break room",
       "parentId": "office-building"
@@ -473,9 +478,14 @@
       "parentId": "security-checkpoint"
     },
     {
+      "id": "passenger-boarding-bridge",
+      "title": "Passenger boarding bridge",
+      "parentId": "boarding-gate"
+    },
+    {
       "id": "aircraft-cabin",
       "title": "Aircraft cabin",
-      "parentId": "boarding-gate"
+      "parentId": "passenger-boarding-bridge"
     },
     {
       "id": "aircraft-galley-equipment",

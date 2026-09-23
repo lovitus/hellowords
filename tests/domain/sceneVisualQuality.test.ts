@@ -528,6 +528,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 20,
     },
   },
+  "passenger-boarding-bridge": {
+    asset: "/scenes/airport-boarding-bridge-premium-v1.jpg",
+    sha256: "f2d8b7c4fde68f8c8abf1b05d708536bd956a64e892ffa620dd9732b80d52835",
+    quality: {
+      minMeanLuminance: 120,
+      maxMeanLuminance: 200,
+      maxDarkFraction: 0.25,
+      maxDeepDarkFraction: 0.1,
+      minMeanChroma: 0.04,
+      maxMeanChroma: 0.24,
+      maxChannelMeanSpread: 50,
+    },
+  },
   "service-core": {
     asset: "/scenes/office-service-core-premium-v1.jpg",
     sha256: "13b85aad4abb80939e27cc018ac5af21c1b6cabbb3a21dafb5aa04a27b189c8f",
@@ -773,6 +786,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       minMeanChroma: 0.12,
       maxMeanChroma: 0.2,
       maxChannelMeanSpread: 45,
+    },
+  },
+  "office-elevator-car": {
+    asset: "/scenes/office-elevator-car-premium-v1.jpg",
+    sha256: "991fbda7b0bd3bf0527cb65600655fda73cbbf9ec3865aec0a75718a1593cd3b",
+    quality: {
+      minMeanLuminance: 95,
+      maxMeanLuminance: 175,
+      maxDarkFraction: 0.35,
+      maxDeepDarkFraction: 0.14,
+      minMeanChroma: 0.06,
+      maxMeanChroma: 0.3,
+      maxChannelMeanSpread: 55,
     },
   },
   "airport-customs-hall": {

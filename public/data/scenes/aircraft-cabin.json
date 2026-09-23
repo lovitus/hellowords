@@ -6,7 +6,7 @@
   "asset": "/scenes/aircraft-cabin-premium-v1.jpg",
   "width": 1600,
   "height": 900,
-  "parentId": "boarding-gate",
+  "parentId": "passenger-boarding-bridge",
   "visualRegions": [
     {
       "id": "aircraft-cabin-region-cabin-entry-door",
