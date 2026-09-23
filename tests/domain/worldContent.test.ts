@@ -130,6 +130,7 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "check-in-counter"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "check-in-counter", "baggage-drop-station"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "airport", "check-in-counter", "baggage-drop-station", "airport-baggage-conveyor"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "security-checkpoint", "boarding-gate", "aircraft-cabin", "aircraft-galley-equipment"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "security-checkpoint", "carry-on-baggage-scanner"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "security-checkpoint", "boarding-gate", "aircraft-cabin", "aircraft-lavatory"],
@@ -140,6 +141,7 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "conference-room"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "conference-room", "video-conferencing-console"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-reception-lobby"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-break-room"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim", "airport-customs-hall"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim", "airport-customs-hall", "customs-baggage-examination"],
     ["world-map", "city-street", "hotel-exterior", "hotel-lobby-rooms"],
@@ -3151,10 +3153,12 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     ["hospital-pharmacy", 390, 5, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "doxycycline", "cetirizine", "lamotrigine", "drawer cart", "cart shelf mat", "azithromycin", "nystatin", "dispensing chute", "prescription scanner", "calibration weight"]],
     ["airport", 390, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower", "aircraft fuselage", "body scanner", "claim chute", "carousel motor", "runway threshold", "ground power unit", "gate sign frame", "departure board frame", "luggage shell"]],
     ["baggage-claim", 95, 5, "airport", ["reclaim carousel", "hard-shell suitcase", "claim tag", "arrival foyer", "cart bay", "customs booth", "inspection tray", "arrivals reception counter", "arrival wall clock", "security camera dome"]],
+    ["airport-baggage-conveyor", 150, 6, "baggage-drop-station", ["Airport incline belt", "Airport green hard-shell suitcase", "Airport blue ribbed suitcase", "Airport yellow transfer guard", "Airport front transfer roller", "Airport large conveyor motor", "Airport red emergency-stop button"]],
     ["airport-customs-hall", 150, 6, "baggage-claim", ["Customs X-ray scanner", "Customs scanner tunnel", "Customs inspection counter", "Customs nested luggage trolley", "Customs arrivals exit doors"]],
     ["customs-baggage-examination", 150, 6, "airport-customs-hall", ["Customs inspection workbench", "Curtain-lined scanner tunnel", "Open carry-on case", "Navy roller carry-on", "Baggage-inspection workstation", "Customs tray-storage rack"]],
     ["school-locker-bank", 75, 5, "school-corridor", ["School locker bank", "Open locker compartment", "Combination-lock dial", "Navy school backpack", "White lunch container", "Closed exercise book"]],
     ["office-building", 390, 5, "urban-services", ["reception", "open plan office", "conference room", "server room", "hvac duct", "fire panel", "data center", "docking station", "fan coil", "ceiling hatch", "lift indicator", "fiber tray", "conference table corner", "marker rack", "backsplash tile"]],
+    ["office-break-room", 150, 6, "office-building", ["Office break-room open refrigerator", "Office break-room green apple", "Office break-room drip coffee maker", "Office break-room electric kettle", "Office break-room sink", "Office break-room countertop microwave", "Office break-room blue recycling bin"]],
     ["service-core", 90, 5, "office-building", ["switchboard door", "breaker handle", "filter pleat", "valve wheel", "utility sink basin", "dock plate", "pallet jack handle", "freight elevator seam"]],
   ] as const) {
     const scene = byId.get(sceneId);
@@ -3177,6 +3181,25 @@ test("urban services adds hospital, airport and office vocabulary without breaki
   );
   const transit = byId.get("transit-hub");
   assert.ok(transit?.portals.some(({ childSceneId }) => childSceneId === "urban-services"));
+});
+
+test("office break-room refrigerator anchors sit on the visible rail, bottle, jar and lid", async () => {
+  const { scenes } = await loadWorld();
+  const scene = scenes.find(({ id }) => id === "office-break-room");
+  assert.ok(scene);
+  const labels = new Map(scene.labels.map((label) => [label.word.toLocaleLowerCase(), label] as const));
+  const anchors = [
+    ["office break-room upper door-shelf front rail", 239, 124],
+    ["office break-room orange drink bottle", 239, 143],
+    ["office break-room clear food jar", 340, 145],
+    ["office break-room food-jar lid", 340, 130],
+  ] as const;
+  for (const [word, x, y] of anchors) {
+    const label = labels.get(word);
+    assert.ok(label, `${word} remains authored`);
+    assert.ok(Math.abs(label.x - x) <= 1, `${word} x anchor remains on the pictured object`);
+    assert.ok(Math.abs(label.y - y) <= 1, `${word} y anchor remains on the pictured object`);
+  }
 });
 
 test("spatial anchors cross-link to real, word-identical entries in the 10k lexicon", async () => {

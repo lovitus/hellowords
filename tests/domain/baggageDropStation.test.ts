@@ -42,7 +42,13 @@ interface Scene {
     readonly height: number;
     readonly labelIds: readonly string[];
   }[];
-  readonly portals: readonly unknown[];
+  readonly portals: readonly {
+    readonly childSceneId: string;
+    readonly x: number;
+    readonly y: number;
+    readonly width: number;
+    readonly height: number;
+  }[];
   readonly anchorAudit: {
     readonly status: string;
     readonly policy: string;
@@ -65,7 +71,7 @@ test("baggage-drop station keeps 155 reviewed scale, conveyor and scanner terms"
   assert.equal(scene.asset, "/scenes/baggage-drop-station-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 155);
-  assert.equal(scene.visualRegions.length, 155);
+  assert.equal(scene.visualRegions.length, 156);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), [
     ["baggage-drop-station-zone-left-drop-module", 25],
     ["baggage-drop-station-zone-center-conveyor-lane", 27],
@@ -81,7 +87,9 @@ test("baggage-drop station keeps 155 reviewed scale, conveyor and scanner terms"
   );
   assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 155);
   assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 155);
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["airport-baggage-conveyor"]);
+  const conveyorPortal = scene.portals[0];
+  assert.deepEqual([conveyorPortal.x, conveyorPortal.y, conveyorPortal.width, conveyorPortal.height], [700, 320, 285, 205]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);

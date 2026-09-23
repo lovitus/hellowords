@@ -4320,7 +4320,7 @@
       "sourceVisualRegion": "portal-conference-room-central-glass-room",
       "x": 610,
       "y": 300,
-      "width": 500,
+      "width": 320,
       "height": 340,
       "enterScale": 3.3
     },
@@ -4347,6 +4347,18 @@
       "width": 300,
       "height": 360,
       "enterScale": 3.3
+    },
+    {
+      "id": "enter-office-break-room",
+      "label": "Explore the office break room",
+      "translation": "探索写字楼休息区",
+      "childSceneId": "office-break-room",
+      "sourceVisualRegion": "portal-office-break-room",
+      "x": 930,
+      "y": 360,
+      "width": 240,
+      "height": 190,
+      "enterScale": 3.2
     }
   ],
   "anchorAudit": {
@@ -4437,11 +4449,11 @@
     },
     {
       "id": "portal-conference-room-central-glass-room",
-      "description": "Complete visible central glass conference room in the office-building photograph",
+      "description": "Visible glass conference room bounded at the right by the adjacent kitchenette in the office-building photograph",
       "kind": "object",
       "x": 610,
       "y": 300,
-      "width": 500,
+      "width": 320,
       "height": 340
     },
     {
@@ -4461,6 +4473,15 @@
       "y": 500,
       "width": 300,
       "height": 360
+    },
+    {
+      "id": "portal-office-break-room",
+      "description": "Visible kitchenette counter, sink, dish rack and nearby seating within the office-building photograph.",
+      "kind": "object",
+      "x": 930,
+      "y": 360,
+      "width": 240,
+      "height": 190
     }
   ],
   "detailZones": [

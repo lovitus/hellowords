@@ -109,24 +109,67 @@ async function enterFirstChild(page: Page, app: Locator) {
   return { target: target as string, durationMs: performance.now() - started };
 }
 
+async function dispatchWheelBurstAtViewportCenter(page: Page, deltaY: number, count: number) {
+  const delivered = await page.locator(
+    `.viewer-shell:not([data-phase]) ${VIEWPORT}`,
+  ).evaluate(
+    (viewport, { wheelDeltaY, wheelCount }) => {
+      const bounds = viewport.getBoundingClientRect();
+      for (let index = 0; index < wheelCount; index += 1) {
+        viewport.dispatchEvent(new WheelEvent("wheel", {
+          bubbles: true,
+          cancelable: true,
+          clientX: bounds.left + bounds.width / 2,
+          clientY: bounds.top + bounds.height / 2,
+          deltaY: wheelDeltaY,
+          deltaMode: WheelEvent.DOM_DELTA_PIXEL,
+        }));
+      }
+      return wheelCount;
+    },
+    { wheelDeltaY: deltaY, wheelCount: count },
+  );
+  expect(delivered).toBe(count);
+}
+
 async function exitToParent(page: Page, app: Locator, parent: string) {
-  const viewport = page.locator(VIEWPORT);
+  const child = await currentScene(app);
+  const activeShell = page.locator(".viewer-shell:not([data-phase])");
+  const viewport = activeShell.locator(VIEWPORT);
+  const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
+  const interactionLayer = page.locator(
+    ".viewer-shell:not([data-phase]) [data-testid='scene-interaction-layer']",
+  );
+  await expect(surface).toHaveAttribute("data-scene-scale", "1.000");
+  await expect(interactionLayer).toHaveAttribute("data-motion-frozen", "false");
   const box = await viewport.boundingBox();
   expect(box).not.toBeNull();
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
+
+  // Match the tested product contract: wait for the forward handoff guard,
+  // send one continuous overview gesture, then a fresh outward gesture after
+  // the required quiet gap. Polling one wheel notch every 220ms accidentally
+  // turned this into three separate animations and included the harness's
+  // polling cadence in the reported transition time.
+  await page.waitForTimeout(220);
   const started = performance.now();
-  await expect
-    .poll(
-      async () => {
-        if ((await app.getAttribute("data-scene-id")) !== parent) {
-          await page.mouse.wheel(0, 120);
-        }
-        return app.getAttribute("data-scene-id");
-      },
-      { intervals: [220], timeout: 8_000 },
-    )
-    .toBe(parent);
+  await dispatchWheelBurstAtViewportCenter(page, 240, 4);
+  await expect.poll(
+    async () => Number(await surface.getAttribute("data-scene-scale")),
+    { intervals: [16, 32, 64], timeout: 4_000 },
+  ).toBeLessThanOrEqual(0.7);
+  await expect(app).toHaveAttribute("data-scene-id", child);
+  await page.waitForTimeout(220);
+  await dispatchWheelBurstAtViewportCenter(page, 240, 4);
+  await expect.poll(
+    () => app.getAttribute("data-scene-id"),
+    { intervals: [16, 32, 64], timeout: 8_000 },
+  ).toBe(parent);
   await expect(app).not.toHaveAttribute("data-scene-loading", "true");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(activeShell.locator(".scene-surface")).toHaveAttribute("data-scene-scale", "1.000");
+  await expect(activeShell.locator("[data-testid='scene-interaction-layer']"))
+    .toHaveAttribute("data-motion-frozen", "false");
   return performance.now() - started;
 }
 

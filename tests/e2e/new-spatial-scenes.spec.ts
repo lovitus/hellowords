@@ -5,7 +5,10 @@ import { expect, test, type Locator, type Page } from "@playwright/test";
 const APP = '[data-testid="world-app"]';
 const INTERACTION_LAYER = '[data-testid="scene-interaction-layer"]';
 const HOTSPOT = '[data-testid="scene-hotspot"]';
+const VIEWPORT = '[data-testid="world-viewport"]';
 const AUTHORED_CUE = '[data-testid="scene-vocabulary-cue"][data-cue-source="authored-zone"]';
+const DIALOG_NAME = "一万个词的分层探索世界";
+const INDEPENDENT_WHEEL_GESTURE_GAP_MS = 240;
 const projectRoot = process.cwd();
 
 interface SceneFile {
@@ -32,6 +35,7 @@ interface NewSceneContract {
   desktopMinimumWords: number;
   mobileMinimumWords: number;
   runOnMobile: boolean;
+  terminal?: boolean;
 }
 
 interface ReturnTrace {
@@ -49,7 +53,7 @@ function contract(
   target: string,
   parent: string,
   path: string[],
-  options: Pick<NewSceneContract, "desktopMinimumWords" | "mobileMinimumWords" | "runOnMobile">,
+  options: Pick<NewSceneContract, "desktopMinimumWords" | "mobileMinimumWords" | "runOnMobile" | "terminal">,
 ): NewSceneContract {
   const scene = readScene(target);
   const labelById = new Map(scene.labels.map((label) => [label.id, label]));
@@ -173,6 +177,17 @@ const newSceneContracts: NewSceneContract[] = [
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,
     runOnMobile: true,
+  }),
+  contract("office-break-room", "office-building", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "office-building",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+    terminal: true,
   }),
   contract("airport-customs-hall", "baggage-claim", [
     "city-street",
@@ -455,6 +470,12 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("airport-baggage-conveyor", "baggage-drop-station", ["city-street", "transit-hub", "urban-services", "airport", "check-in-counter", "baggage-drop-station"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+    terminal: true,
+  }),
   contract("security-checkpoint", "airport", ["city-street", "transit-hub", "urban-services", "airport"], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,
@@ -541,6 +562,53 @@ async function enterScene(page: Page, app: Locator, target: string): Promise<voi
   await expect(app).toHaveAttribute("data-scene-loading", "false");
   await expect(app).toHaveAttribute("data-transition-state", "idle");
   await expect(page.locator(INTERACTION_LAYER)).toHaveAttribute("data-positioned", "true");
+}
+
+async function wheelSceneAt(page: Page, point: { x: number; y: number }, deltaY: number): Promise<void> {
+  await page.locator(VIEWPORT).dispatchEvent("wheel", {
+    clientX: point.x,
+    clientY: point.y,
+    deltaY,
+    deltaMode: 0,
+    bubbles: true,
+    cancelable: true,
+  });
+}
+
+async function assertTerminalSceneDoesNotOpenSemanticWorld(
+  page: Page,
+  app: Locator,
+  sceneId: string,
+): Promise<void> {
+  await expect(page.getByTestId("scene-minimap")).toHaveAttribute("data-terminal", "true");
+  const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
+  await expect(surface).toHaveAttribute("data-maximum-scale", /\d/u);
+  const maximumScale = Number(await surface.getAttribute("data-maximum-scale"));
+  const bounds = await page.locator(VIEWPORT).boundingBox();
+  expect(bounds).not.toBeNull();
+  const point = { x: bounds!.x + bounds!.width / 2, y: bounds!.y + bounds!.height / 2 };
+  await page.mouse.move(point.x, point.y);
+  await page.waitForTimeout(INDEPENDENT_WHEEL_GESTURE_GAP_MS);
+  const requiredScale = maximumScale - 0.021;
+  await expect.poll(async () => {
+    const scale = Number(await surface.getAttribute("data-scene-scale"));
+    if (Number.isFinite(scale) && scale < requiredScale) await wheelSceneAt(page, point, -480);
+    return Number(await surface.getAttribute("data-scene-scale"));
+  }, { intervals: [45], timeout: 8_000 }).toBeGreaterThanOrEqual(requiredScale);
+
+  const progress = page.getByTestId("scene-word-progress");
+  await expect(progress).toHaveAttribute("data-next-plane", "spatial-terminal");
+  await expect(progress).toContainText("已到最大倍率");
+  const dialog = page.getByRole("dialog", { name: DIALOG_NAME });
+  await expect(dialog).toHaveCount(0);
+  await expect(app).toHaveAttribute("data-scene-id", sceneId);
+  await expect(app).toHaveAttribute("data-semantic-transition-state", "idle");
+
+  for (let index = 0; index < 3; index += 1) await wheelSceneAt(page, point, -240);
+  await page.waitForTimeout(300);
+  await expect(dialog).toHaveCount(0);
+  await expect(app).toHaveAttribute("data-scene-id", sceneId);
+  await expect(progress).toHaveAttribute("data-next-plane", "spatial-terminal");
 }
 
 async function navigateToParent(
@@ -644,6 +712,7 @@ for (const sceneContract of newSceneContracts) {
     const scenePayload = await sceneResponse.json() as SceneFile;
     expect(scenePayload.detailZones?.length ?? 0).toBe(sceneContract.authoredZoneCount);
     expect(sceneContract.authoredZoneCount).toBeGreaterThanOrEqual(5);
+    if (sceneContract.terminal) expect(scenePayload.portals).toHaveLength(0);
     const authoredCues = page.locator(AUTHORED_CUE);
     expect(sceneContract.eligibleAuthoredZoneCount).toBeGreaterThanOrEqual(4);
     // SceneViewport intentionally mounts at most eight navigation cues. Every
@@ -666,6 +735,9 @@ for (const sceneContract of newSceneContracts) {
       ? sceneContract.mobileMinimumWords
       : sceneContract.desktopMinimumWords;
     await expect.poll(() => readableWordCount(page)).toBeGreaterThanOrEqual(minimumWords);
+    if (sceneContract.terminal && testInfo.project.name !== "mobile-chromium") {
+      await assertTerminalSceneDoesNotOpenSemanticWorld(page, app, sceneContract.target);
+    }
 
     await expect(app).toHaveAttribute("data-transition-cache", "idle");
     await startReturnTrace(page);

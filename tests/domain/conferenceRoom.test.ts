@@ -141,15 +141,25 @@ test("conference room keeps 143 reviewed table, chair and meeting-device terms",
   );
 });
 
-test("office building exposes one bounded central conference-room entrance", async () => {
+test("office building exposes separate, bounded conference-room and break-room entrances", async () => {
   const parent = await readJson<{
     readonly portals: readonly { childSceneId: string; sourceVisualRegion: string; x: number; y: number; width: number; height: number }[];
     readonly visualRegions: readonly { id: string; x: number; y: number; width: number; height: number }[];
   }>("office-building.json");
   const portal = parent.portals.find(({ childSceneId }) => childSceneId === "conference-room");
+  const breakRoom = parent.portals.find(({ childSceneId }) => childSceneId === "office-break-room");
   assert.ok(portal);
-  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [610, 300, 500, 340]);
+  assert.ok(breakRoom);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [610, 300, 320, 340]);
+  assert.deepEqual([breakRoom.x, breakRoom.y, breakRoom.width, breakRoom.height], [930, 360, 240, 190]);
+  assert.equal(portal.x + portal.width, breakRoom.x, "the meeting-room crop stops where the visible kitchenette begins");
+  const serviceCore = parent.portals.find(({ childSceneId }) => childSceneId === "service-core");
+  assert.ok(serviceCore);
+  assert.ok(breakRoom.x + breakRoom.width <= serviceCore.x, "break-room and service-core crops stay disjoint");
   const region = parent.visualRegions.find(({ id }) => id === portal.sourceVisualRegion);
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+  const breakRoomRegion = parent.visualRegions.find(({ id }) => id === breakRoom.sourceVisualRegion);
+  assert.ok(breakRoomRegion);
+  assert.deepEqual([breakRoomRegion.x, breakRoomRegion.y, breakRoomRegion.width, breakRoomRegion.height], [breakRoom.x, breakRoom.y, breakRoom.width, breakRoom.height]);
 });

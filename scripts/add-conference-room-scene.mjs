@@ -403,14 +403,14 @@ const parentPortal = {
   sourceVisualRegion: "portal-conference-room-central-glass-room",
   x: 610,
   y: 300,
-  width: 500,
+  width: 320,
   height: 340,
   enterScale: 3.3,
 };
 
 const parentRegion = {
   id: parentPortal.sourceVisualRegion,
-  description: "Complete visible central glass conference room in the office-building photograph",
+  description: "Visible glass conference room bounded at the right by the adjacent kitchenette in the office-building photograph",
   kind: "object",
   x: parentPortal.x,
   y: parentPortal.y,

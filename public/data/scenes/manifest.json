@@ -178,6 +178,11 @@
       "parentId": "check-in-counter"
     },
     {
+      "id": "airport-baggage-conveyor",
+      "title": "Airport baggage conveyor",
+      "parentId": "baggage-drop-station"
+    },
+    {
       "id": "baggage-claim",
       "title": "Baggage claim",
       "parentId": "airport"
@@ -205,6 +210,11 @@
     {
       "id": "office-reception-lobby",
       "title": "Office reception lobby",
+      "parentId": "office-building"
+    },
+    {
+      "id": "office-break-room",
+      "title": "Office break room",
       "parentId": "office-building"
     },
     {

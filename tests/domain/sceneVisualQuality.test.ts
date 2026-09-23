@@ -801,6 +801,32 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 15,
     },
   },
+  "airport-baggage-conveyor": {
+    asset: "/scenes/airport-baggage-conveyor-premium-v1.jpg",
+    sha256: "d9447e581a12127dabcf7c9df53e091c4026aea517e12124610d9c0d53b8ed93",
+    quality: {
+      minMeanLuminance: 100,
+      maxMeanLuminance: 175,
+      maxDarkFraction: 0.42,
+      maxDeepDarkFraction: 0.22,
+      minMeanChroma: 0.02,
+      maxMeanChroma: 0.2,
+      maxChannelMeanSpread: 30,
+    },
+  },
+  "office-break-room": {
+    asset: "/scenes/office-break-room-premium-v1.jpg",
+    sha256: "1fe63b2f3ca69e6a33f655c583c01655118ad4400b8b0d95342f04ab75f0f53d",
+    quality: {
+      minMeanLuminance: 140,
+      maxMeanLuminance: 200,
+      maxDarkFraction: 0.2,
+      maxDeepDarkFraction: 0.08,
+      minMeanChroma: 0.06,
+      maxMeanChroma: 0.28,
+      maxChannelMeanSpread: 45,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

@@ -1402,6 +1402,15 @@
       "y": 740,
       "width": 40,
       "height": 40
+    },
+    {
+      "id": "portal-airport-baggage-conveyor",
+      "description": "Central loaded conveyor belt and suitcase in the baggage-drop station photograph; the crop does not include the neighbouring check-in or scanning equipment.",
+      "kind": "object",
+      "x": 700,
+      "y": 320,
+      "width": 285,
+      "height": 205
     }
   ],
   "detailZones": [
@@ -3222,5 +3231,18 @@
       "sourceVisualRegion": "baggage-drop-station-region-guardrail-base"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-airport-baggage-conveyor",
+      "label": "Explore the baggage conveyor",
+      "translation": "探索行李输送带",
+      "childSceneId": "airport-baggage-conveyor",
+      "sourceVisualRegion": "portal-airport-baggage-conveyor",
+      "x": 700,
+      "y": 320,
+      "width": 285,
+      "height": 205,
+      "enterScale": 3.25
+    }
+  ]
 }

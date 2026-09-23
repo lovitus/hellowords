@@ -10,6 +10,10 @@ on:
         description: Compare the last audited product source on the same runner
         type: boolean
         default: false
+      milestone_release_preflight:
+        description: Run the 10k public-release preflight and verify the clean commit; does not publish
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -34,32 +38,42 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
+      - name: Check 10k milestone release preflight
+        if: ${{ inputs.milestone_release_preflight }}
+        run: npm run release:check -- --milestone
       - run: npm run lint
+        if: ${{ !inputs.milestone_release_preflight }}
       - run: npm run typecheck
+        if: ${{ !inputs.milestone_release_preflight }}
       - run: npm run validate:data
+        if: ${{ !inputs.milestone_release_preflight }}
       - run: npm run test:unit
+        if: ${{ !inputs.milestone_release_preflight }}
       # Tests use this exact build on the same runner: storage quotas cannot
       # prevent a downstream test job from obtaining it.
       - run: npm run build
+        if: ${{ !inputs.milestone_release_preflight }}
       - run: npm run test:ssr
+        if: ${{ !inputs.milestone_release_preflight }}
       - run: node scripts/analyze-build.mjs
+        if: ${{ !inputs.milestone_release_preflight }}
       - run: npx playwright install --with-deps chromium
       - name: Check out audited baseline for optional comparison
-        if: ${{ inputs.compare_published_baseline }}
+        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
         uses: actions/checkout@v6
         with:
           ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
           path: baseline-reference
           persist-credentials: false
       - name: Prepare identical measurement harness for baseline
-        if: ${{ inputs.compare_published_baseline }}
+        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
         run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
       - name: Build audited baseline
-        if: ${{ inputs.compare_published_baseline }}
+        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
         working-directory: baseline-reference
         run: npm ci && npm run build
       - name: Measure audited baseline (diagnostic, not candidate acceptance)
-        if: ${{ inputs.compare_published_baseline }}
+        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
         continue-on-error: true
         working-directory: baseline-reference
         env:
@@ -70,14 +84,19 @@ jobs:
       - run: npm run test:perf
         id: candidate_performance
         continue-on-error: true
+        if: ${{ !inputs.milestone_release_preflight }}
         env:
           PERF_RUN: "1"
           PERF_SCENE_CYCLES: "20"
+      - name: Verify complete milestone candidate on the preflighted clean commit
+        if: ${{ inputs.milestone_release_preflight }}
+        run: npm run verify:full
       - run: npm run test:e2e
         id: candidate_browser
         continue-on-error: true
+        if: ${{ !inputs.milestone_release_preflight }}
       - name: Enforce both candidate gates
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && !inputs.milestone_release_preflight }}
         env:
           PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
           BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}

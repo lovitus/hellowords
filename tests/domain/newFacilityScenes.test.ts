@@ -184,6 +184,22 @@ const contracts = [
     labels: 75,
     zoneSizes: [15, 15, 15, 15, 15],
   },
+  {
+    id: "airport-baggage-conveyor",
+    parentId: "baggage-drop-station",
+    asset: "/scenes/airport-baggage-conveyor-premium-v1.jpg",
+    sha256: "d9447e581a12127dabcf7c9df53e091c4026aea517e12124610d9c0d53b8ed93",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
+    id: "office-break-room",
+    parentId: "office-building",
+    asset: "/scenes/office-break-room-premium-v1.jpg",
+    sha256: "1fe63b2f3ca69e6a33f655c583c01655118ad4400b8b0d95342f04ab75f0f53d",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
 ] as const;
 
 for (const contract of contracts) {
@@ -198,6 +214,20 @@ for (const contract of contracts) {
     assert.deepEqual(scene.detailZones.map(({ labelIds }: { labelIds: string[] }) => labelIds.length), contract.zoneSizes);
     assert.equal(new Set(scene.labels.map(({ id }: { id: string }) => id)).size, contract.labels);
     assert.equal(new Set(scene.labels.map(({ word }: { word: string }) => word.toLocaleLowerCase())).size, contract.labels);
+    const labelsById = new Map<string, { id: string; x: number; y: number }>(
+      scene.labels.map((label: { id: string; x: number; y: number }) => [label.id, label] as const),
+    );
+    for (const zone of scene.detailZones) {
+      for (const labelId of zone.labelIds) {
+        const label = labelsById.get(labelId);
+        assert.ok(label, `${scene.id}/${zone.id} references ${labelId}`);
+        assert.ok(
+          label.x >= zone.x && label.x <= zone.x + zone.width
+            && label.y >= zone.y && label.y <= zone.y + zone.height,
+          `${scene.id}/${zone.id} contains ${labelId} at (${label.x}, ${label.y})`,
+        );
+      }
+    }
     assert.equal(scene.anchorAudit.status, "human-verified");
     assert.equal(scene.anchorAudit.reviewedAssetSha256, contract.sha256);
 
@@ -237,6 +267,29 @@ test("security checkpoint and open-plan office expose bounded equipment entrance
   const region = office.visualRegions.find(({ id }: { id: string }) => id === workstation.sourceVisualRegion);
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [500, 390, 430, 390]);
+});
+
+test("baggage drop exposes a bounded central conveyor entrance", async () => {
+  const parent = await readJson("baggage-drop-station.json");
+  const portal = parent.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "airport-baggage-conveyor");
+  assert.ok(portal);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [700, 320, 285, 205]);
+  const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+});
+
+test("office building exposes a tight break-room entrance separate from the service core", async () => {
+  const parent = await readJson("office-building.json");
+  const portal = parent.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "office-break-room");
+  const serviceCore = parent.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "service-core");
+  assert.ok(portal);
+  assert.ok(serviceCore);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [930, 360, 240, 190]);
+  assert.ok(portal.x + portal.width <= serviceCore.x, "break-room and service-core entrances stay separate");
+  const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
 });
 
 test("pathology laboratory and hospital pharmacy expose independently audited equipment entrances", async () => {

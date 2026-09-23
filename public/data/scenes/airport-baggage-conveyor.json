@@ -1,0 +1,3115 @@
+{
+  "id": "airport-baggage-conveyor",
+  "title": "Airport baggage conveyor",
+  "translation": "机场行李输送带",
+  "subtitle": "Conveyor belts, transfer rollers, luggage, drive units and safety controls",
+  "asset": "/scenes/airport-baggage-conveyor-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "baggage-drop-station",
+  "visualRegions": [
+    {
+      "id": "airport-baggage-conveyor-region-incline-belt",
+      "description": "Airport incline belt visible in Incline feed and green case",
+      "kind": "object",
+      "x": 103.349282,
+      "y": 112.858661,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-incline-belt-centre",
+      "description": "Airport incline belt centre visible in Incline feed and green case",
+      "kind": "object",
+      "x": 213.397129,
+      "y": 175.026567,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-incline-belt-lower-edge",
+      "description": "Airport incline belt lower edge visible in Incline feed and green case",
+      "kind": "object",
+      "x": 333.014354,
+      "y": 237.194474,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-incline-belt-upper-edge",
+      "description": "Airport incline belt upper edge visible in Incline feed and green case",
+      "kind": "object",
+      "x": 151.196172,
+      "y": 93.730074,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-inner-belt-sidewall",
+      "description": "Airport inner belt sidewall visible in Incline feed and green case",
+      "kind": "object",
+      "x": 428.708134,
+      "y": 275.451647,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-outer-belt-sidewall",
+      "description": "Airport outer belt sidewall visible in Incline feed and green case",
+      "kind": "object",
+      "x": 45.933014,
+      "y": 84.165781,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-incline-steel-skirt",
+      "description": "Airport incline steel skirt visible in Incline feed and green case",
+      "kind": "object",
+      "x": 328.229665,
+      "y": 261.105207,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-incline-frame-rail",
+      "description": "Airport incline frame rail visible in Incline feed and green case",
+      "kind": "object",
+      "x": 433.492823,
+      "y": 318.490967,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-incline-diagonal-beam",
+      "description": "Airport incline diagonal beam visible in Incline feed and green case",
+      "kind": "object",
+      "x": 471.770335,
+      "y": 179.808714,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-incline-cross-brace",
+      "description": "Airport incline cross brace visible in Incline feed and green case",
+      "kind": "object",
+      "x": 328.229665,
+      "y": 151.115834,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-incline-frame-upright",
+      "description": "Airport incline frame upright visible in Incline feed and green case",
+      "kind": "object",
+      "x": 486.124402,
+      "y": 258.235919,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-incline-floor-foot",
+      "description": "Airport incline floor foot visible in Incline feed and green case",
+      "kind": "object",
+      "x": 505.263158,
+      "y": 371.09458,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-yellow-guardrail-top-bar",
+      "description": "Airport yellow guardrail top bar visible in Incline feed and green case",
+      "kind": "object",
+      "x": 232.535885,
+      "y": 65.037194,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-yellow-guardrail-upright",
+      "description": "Airport yellow guardrail upright visible in Incline feed and green case",
+      "kind": "object",
+      "x": 347.368421,
+      "y": 93.730074,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guardrail-corner-joint",
+      "description": "Airport guardrail corner joint visible in Incline feed and green case",
+      "kind": "object",
+      "x": 404.784689,
+      "y": 79.383634,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-green-hard-shell-suitcase",
+      "description": "Airport green hard-shell suitcase visible in Incline feed and green case",
+      "kind": "object",
+      "x": 216.267943,
+      "y": 190.329437,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-green-suitcase-shell",
+      "description": "Airport green suitcase shell visible in Incline feed and green case",
+      "kind": "object",
+      "x": 208.61244,
+      "y": 197.024442,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-green-suitcase-shell-ribs",
+      "description": "Airport green suitcase shell ribs visible in Incline feed and green case",
+      "kind": "object",
+      "x": 210.526316,
+      "y": 178.852285,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-green-suitcase-corner-cap",
+      "description": "Airport green suitcase corner cap visible in Incline feed and green case",
+      "kind": "object",
+      "x": 145.454545,
+      "y": 172.157279,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-green-suitcase-wheel",
+      "description": "Airport green suitcase wheel visible in Incline feed and green case",
+      "kind": "object",
+      "x": 253.588517,
+      "y": 217.109458,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-green-suitcase-wheel-housing",
+      "description": "Airport green suitcase wheel housing visible in Incline feed and green case",
+      "kind": "object",
+      "x": 256.45933,
+      "y": 220.935175,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-green-suitcase-side-seam",
+      "description": "Airport green suitcase side seam visible in Incline feed and green case",
+      "kind": "object",
+      "x": 174.162679,
+      "y": 203.719447,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-green-suitcase-end-panel",
+      "description": "Airport green suitcase end panel visible in Incline feed and green case",
+      "kind": "object",
+      "x": 279.425837,
+      "y": 188.416578,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-green-suitcase-foot-pad",
+      "description": "Airport green suitcase foot pad visible in Incline feed and green case",
+      "kind": "object",
+      "x": 287.08134,
+      "y": 222.848034,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-upper-conveyor-backdrop-belt",
+      "description": "Airport upper conveyor backdrop belt visible in Incline feed and green case",
+      "kind": "object",
+      "x": 93.779904,
+      "y": 43.995749,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-main-dark-belt-surface",
+      "description": "Airport main dark belt surface visible in Main belt and blue case",
+      "kind": "object",
+      "x": 428.708134,
+      "y": 323.273114,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-main-belt-travel-surface",
+      "description": "Airport main belt travel surface visible in Main belt and blue case",
+      "kind": "object",
+      "x": 524.401914,
+      "y": 366.312434,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-main-belt-left-edge",
+      "description": "Airport main belt left edge visible in Main belt and blue case",
+      "kind": "object",
+      "x": 409.569378,
+      "y": 285.01594,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-main-belt-right-edge",
+      "description": "Airport main belt right edge visible in Main belt and blue case",
+      "kind": "object",
+      "x": 620.095694,
+      "y": 384.484591,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-main-belt-side-rail",
+      "description": "Airport main belt side rail visible in Main belt and blue case",
+      "kind": "object",
+      "x": 648.803828,
+      "y": 362.486716,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-belt-retaining-flange",
+      "description": "Airport belt retaining flange visible in Main belt and blue case",
+      "kind": "object",
+      "x": 629.665072,
+      "y": 385.44102,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-belt-transfer-lip",
+      "description": "Airport belt transfer lip visible in Main belt and blue case",
+      "kind": "object",
+      "x": 533.971292,
+      "y": 409.351753,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-main-conveyor-frame",
+      "description": "Airport main conveyor frame visible in Main belt and blue case",
+      "kind": "object",
+      "x": 466.985646,
+      "y": 414.1339,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-ribbed-suitcase",
+      "description": "Airport blue ribbed suitcase visible in Main belt and blue case",
+      "kind": "object",
+      "x": 491.866029,
+      "y": 283.103082,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-shell",
+      "description": "Airport blue suitcase shell visible in Main belt and blue case",
+      "kind": "object",
+      "x": 495.69378,
+      "y": 294.580234,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-front-panel",
+      "description": "Airport blue suitcase front panel visible in Main belt and blue case",
+      "kind": "object",
+      "x": 503.349282,
+      "y": 274.495218,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-horizontal-ribs",
+      "description": "Airport blue suitcase horizontal ribs visible in Main belt and blue case",
+      "kind": "object",
+      "x": 490.909091,
+      "y": 265.887354,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-rounded-corner",
+      "description": "Airport blue suitcase rounded corner visible in Main belt and blue case",
+      "kind": "object",
+      "x": 394.258373,
+      "y": 272.582359,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-wheel",
+      "description": "Airport blue suitcase wheel visible in Main belt and blue case",
+      "kind": "object",
+      "x": 410.526316,
+      "y": 329.968119,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-wheel-bracket",
+      "description": "Airport blue suitcase wheel bracket visible in Main belt and blue case",
+      "kind": "object",
+      "x": 415.311005,
+      "y": 332.837407,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-side-grip",
+      "description": "Airport blue suitcase side grip visible in Main belt and blue case",
+      "kind": "object",
+      "x": 601.913876,
+      "y": 267.800213,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-short-side-panel",
+      "description": "Airport blue suitcase short side panel visible in Main belt and blue case",
+      "kind": "object",
+      "x": 600.956938,
+      "y": 305.100956,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-lower-edge",
+      "description": "Airport blue suitcase lower edge visible in Main belt and blue case",
+      "kind": "object",
+      "x": 514.832536,
+      "y": 334.750266,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-shell-seam",
+      "description": "Airport blue suitcase shell seam visible in Main belt and blue case",
+      "kind": "object",
+      "x": 553.110048,
+      "y": 289.798087,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-suitcase-upper-rim",
+      "description": "Airport blue suitcase upper rim visible in Main belt and blue case",
+      "kind": "object",
+      "x": 482.296651,
+      "y": 240.063762,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-belt-frame-end-plate",
+      "description": "Airport belt frame end plate visible in Main belt and blue case",
+      "kind": "object",
+      "x": 368.421053,
+      "y": 381.615303,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-belt-frame-fastener",
+      "description": "Airport belt frame fastener visible in Main belt and blue case",
+      "kind": "object",
+      "x": 358.851675,
+      "y": 407.438895,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-side-rail-support-bracket",
+      "description": "Airport side rail support bracket visible in Main belt and blue case",
+      "kind": "object",
+      "x": 666.028708,
+      "y": 395.005313,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-belt-edge-trim",
+      "description": "Airport belt edge trim visible in Main belt and blue case",
+      "kind": "object",
+      "x": 433.492823,
+      "y": 375.876727,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-conveyor-overlap-seam",
+      "description": "Airport conveyor overlap seam visible in Main belt and blue case",
+      "kind": "object",
+      "x": 691.866029,
+      "y": 344.314559,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-curved-transfer-belt",
+      "description": "Airport curved transfer belt visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 754.066986,
+      "y": 337.619554,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-curved-belt-inner-edge",
+      "description": "Airport curved belt inner edge visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 687.08134,
+      "y": 297.449522,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-curved-belt-outer-edge",
+      "description": "Airport curved belt outer edge visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 807.655502,
+      "y": 358.660999,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-curve-side-guide",
+      "description": "Airport curve side guide visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 701.435407,
+      "y": 262.061637,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-inner-steel-divider",
+      "description": "Airport inner steel divider visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 654.545455,
+      "y": 246.758767,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-outer-steel-divider",
+      "description": "Airport outer steel divider visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 882.296651,
+      "y": 302.231668,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-yellow-transfer-guard",
+      "description": "Airport yellow transfer guard visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 1012.440191,
+      "y": 323.273114,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guard-sloped-face",
+      "description": "Airport guard sloped face visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 1002.870813,
+      "y": 307.970244,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guard-front-plate",
+      "description": "Airport guard front plate visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 1028.708134,
+      "y": 340.488842,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guard-lower-flange",
+      "description": "Airport guard lower flange visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 1031.578947,
+      "y": 351.965994,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guard-mounting-bolt",
+      "description": "Airport guard mounting bolt visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 995.215311,
+      "y": 351.009564,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guard-mounting-tab",
+      "description": "Airport guard mounting tab visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 1052.631579,
+      "y": 350.053135,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-transfer-chute-lip",
+      "description": "Airport transfer chute lip visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 926.315789,
+      "y": 365.356004,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-belt-to-roller-nose",
+      "description": "Airport belt-to-roller nose visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 1065.07177,
+      "y": 374.920298,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-bed-sidewall",
+      "description": "Airport roller-bed sidewall visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 964.593301,
+      "y": 386.39745,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-conveyor-lane-separator",
+      "description": "Airport conveyor lane separator visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 849.760766,
+      "y": 265.887354,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-upper-return-conveyor",
+      "description": "Airport upper return conveyor visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 854.545455,
+      "y": 173.113709,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-upper-conveyor-side-rail",
+      "description": "Airport upper conveyor side rail visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 940.669856,
+      "y": 175.026567,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-rear-conveyor-upright",
+      "description": "Airport rear conveyor upright visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 797.129187,
+      "y": 149.202976,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-rear-conveyor-crossbar",
+      "description": "Airport rear conveyor crossbar visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 873.684211,
+      "y": 131.987248,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-transfer-frame-corner",
+      "description": "Airport transfer-frame corner visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 935.885167,
+      "y": 411.264612,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-transfer-frame-seam",
+      "description": "Airport transfer-frame seam visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 911.961722,
+      "y": 396.918172,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-belt-guard-lip",
+      "description": "Airport belt guard lip visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 725.358852,
+      "y": 271.62593,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-support-angle-bracket",
+      "description": "Airport support angle bracket visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 835.406699,
+      "y": 419.872476,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-yellow-guard-side-edge",
+      "description": "Airport yellow guard side edge visible in Curved transfer and yellow guard",
+      "kind": "object",
+      "x": 1064.114833,
+      "y": 329.01169,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-front-transfer-roller",
+      "description": "Airport front transfer roller visible in Roller bed",
+      "kind": "object",
+      "x": 1096.650718,
+      "y": 375.876727,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-second-transfer-roller",
+      "description": "Airport second transfer roller visible in Roller bed",
+      "kind": "object",
+      "x": 1136.842105,
+      "y": 391.179596,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-third-transfer-roller",
+      "description": "Airport third transfer roller visible in Roller bed",
+      "kind": "object",
+      "x": 1178.947368,
+      "y": 404.569607,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-fourth-transfer-roller",
+      "description": "Airport fourth transfer roller visible in Roller bed",
+      "kind": "object",
+      "x": 1220.095694,
+      "y": 417.003188,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-fifth-transfer-roller",
+      "description": "Airport fifth transfer roller visible in Roller bed",
+      "kind": "object",
+      "x": 1262.200957,
+      "y": 430.393199,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-sixth-transfer-roller",
+      "description": "Airport sixth transfer roller visible in Roller bed",
+      "kind": "object",
+      "x": 1304.30622,
+      "y": 444.739639,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-seventh-transfer-roller",
+      "description": "Airport seventh transfer roller visible in Roller bed",
+      "kind": "object",
+      "x": 1347.368421,
+      "y": 459.086079,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-eighth-transfer-roller",
+      "description": "Airport eighth transfer roller visible in Roller bed",
+      "kind": "object",
+      "x": 1387.559809,
+      "y": 472.476089,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-ninth-transfer-roller",
+      "description": "Airport ninth transfer roller visible in Roller bed",
+      "kind": "object",
+      "x": 1431.578947,
+      "y": 485.8661,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-tenth-transfer-roller",
+      "description": "Airport tenth transfer roller visible in Roller bed",
+      "kind": "object",
+      "x": 1471.770335,
+      "y": 501.168969,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-end-cap",
+      "description": "Airport roller end cap visible in Roller bed",
+      "kind": "object",
+      "x": 1136.842105,
+      "y": 380.658874,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-axle-end",
+      "description": "Airport roller axle end visible in Roller bed",
+      "kind": "object",
+      "x": 1179.904306,
+      "y": 386.39745,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-bearing-block",
+      "description": "Airport roller bearing block visible in Roller bed",
+      "kind": "object",
+      "x": 1222.966507,
+      "y": 447.608927,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-bed-left-rail",
+      "description": "Airport roller bed left rail visible in Roller bed",
+      "kind": "object",
+      "x": 1098.564593,
+      "y": 428.48034,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-bed-right-rail",
+      "description": "Airport roller bed right rail visible in Roller bed",
+      "kind": "object",
+      "x": 1457.416268,
+      "y": 524.123273,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-bed-crossmember",
+      "description": "Airport roller bed crossmember visible in Roller bed",
+      "kind": "object",
+      "x": 1318.660287,
+      "y": 545.164718,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-frame-end-plate",
+      "description": "Airport roller frame end plate visible in Roller bed",
+      "kind": "object",
+      "x": 1486.124402,
+      "y": 579.596174,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-frame-side-bracket",
+      "description": "Airport roller frame side bracket visible in Roller bed",
+      "kind": "object",
+      "x": 1431.578947,
+      "y": 568.119022,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-support-leg",
+      "description": "Airport roller support leg visible in Roller bed",
+      "kind": "object",
+      "x": 1285.167464,
+      "y": 600.63762,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-leg-foot-plate",
+      "description": "Airport roller leg foot plate visible in Roller bed",
+      "kind": "object",
+      "x": 1285.167464,
+      "y": 651.328374,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-bed-to-belt-junction",
+      "description": "Airport bed-to-belt junction visible in Roller bed",
+      "kind": "object",
+      "x": 1084.210526,
+      "y": 404.569607,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-gap",
+      "description": "Airport roller gap visible in Roller bed",
+      "kind": "object",
+      "x": 1256.45933,
+      "y": 417.003188,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-steel-roller-crown",
+      "description": "Airport steel roller crown visible in Roller bed",
+      "kind": "object",
+      "x": 1366.507177,
+      "y": 443.783209,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-end-shoulder",
+      "description": "Airport roller end shoulder visible in Roller bed",
+      "kind": "object",
+      "x": 1404.784689,
+      "y": 466.737513,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-bed-floor-brace",
+      "description": "Airport roller-bed floor brace visible in Roller bed",
+      "kind": "object",
+      "x": 1376.076555,
+      "y": 633.156217,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-large-conveyor-motor",
+      "description": "Airport large conveyor motor visible in Drive motors and frame",
+      "kind": "object",
+      "x": 993.301435,
+      "y": 574.814028,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-motor-outer-casing",
+      "description": "Airport motor outer casing visible in Drive motors and frame",
+      "kind": "object",
+      "x": 953.110048,
+      "y": 571.94474,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-motor-fan-cover",
+      "description": "Airport motor fan cover visible in Drive motors and frame",
+      "kind": "object",
+      "x": 1055.502392,
+      "y": 570.031881,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-fan-cover-grille",
+      "description": "Airport fan-cover grille visible in Drive motors and frame",
+      "kind": "object",
+      "x": 1052.631579,
+      "y": 565.249734,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-motor-cooling-fin",
+      "description": "Airport motor cooling fin visible in Drive motors and frame",
+      "kind": "object",
+      "x": 964.593301,
+      "y": 548.034006,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-motor-terminal-box",
+      "description": "Airport motor terminal box visible in Drive motors and frame",
+      "kind": "object",
+      "x": 945.454545,
+      "y": 530.818278,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-motor-mounting-foot",
+      "description": "Airport motor mounting foot visible in Drive motors and frame",
+      "kind": "object",
+      "x": 988.516746,
+      "y": 652.284803,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-motor-base-plate",
+      "description": "Airport motor base plate visible in Drive motors and frame",
+      "kind": "object",
+      "x": 998.086124,
+      "y": 677.151966,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-yellow-motor-guard",
+      "description": "Airport yellow motor guard visible in Drive motors and frame",
+      "kind": "object",
+      "x": 1050.717703,
+      "y": 619.766206,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guard-top-panel",
+      "description": "Airport guard top panel visible in Drive motors and frame",
+      "kind": "object",
+      "x": 1041.148325,
+      "y": 562.380446,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guard-side-panel",
+      "description": "Airport guard side panel visible in Drive motors and frame",
+      "kind": "object",
+      "x": 1079.425837,
+      "y": 614.98406,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guard-folded-edge",
+      "description": "Airport guard folded edge visible in Drive motors and frame",
+      "kind": "object",
+      "x": 1098.564593,
+      "y": 643.676939,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guard-fastener",
+      "description": "Airport guard fastener visible in Drive motors and frame",
+      "kind": "object",
+      "x": 1062.200957,
+      "y": 664.718385,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-smaller-blue-drive-motor",
+      "description": "Airport smaller blue drive motor visible in Drive motors and frame",
+      "kind": "object",
+      "x": 706.220096,
+      "y": 536.556854,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-motor-casing",
+      "description": "Airport blue motor casing visible in Drive motors and frame",
+      "kind": "object",
+      "x": 711.004785,
+      "y": 533.687566,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-motor-fan-grille",
+      "description": "Airport blue motor fan grille visible in Drive motors and frame",
+      "kind": "object",
+      "x": 734.92823,
+      "y": 528.90542,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blue-motor-terminal-cap",
+      "description": "Airport blue motor terminal cap visible in Drive motors and frame",
+      "kind": "object",
+      "x": 690.909091,
+      "y": 503.081828,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-drive-coupling-cover",
+      "description": "Airport drive coupling cover visible in Drive motors and frame",
+      "kind": "object",
+      "x": 777.990431,
+      "y": 533.687566,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-drive-shaft-support",
+      "description": "Airport drive shaft support visible in Drive motors and frame",
+      "kind": "object",
+      "x": 677.511962,
+      "y": 495.430393,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-bearing-housing-cap",
+      "description": "Airport bearing housing cap visible in Drive motors and frame",
+      "kind": "object",
+      "x": 663.157895,
+      "y": 489.691817,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-open-machinery-side-rail",
+      "description": "Airport open machinery side rail visible in Drive motors and frame",
+      "kind": "object",
+      "x": 567.464115,
+      "y": 533.687566,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-lower-frame-crossbar",
+      "description": "Airport lower frame crossbar visible in Drive motors and frame",
+      "kind": "object",
+      "x": 840.191388,
+      "y": 734.537726,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-drive-frame-diagonal-brace",
+      "description": "Airport drive-frame diagonal brace visible in Drive motors and frame",
+      "kind": "object",
+      "x": 1146.411483,
+      "y": 744.102019,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-conveyor-support-column",
+      "description": "Airport conveyor support column visible in Drive motors and frame",
+      "kind": "object",
+      "x": 1194.258373,
+      "y": 690.541977,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-support-column-foot",
+      "description": "Airport support column foot visible in Drive motors and frame",
+      "kind": "object",
+      "x": 1194.258373,
+      "y": 790.010627,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-conveyor-control-cabinet",
+      "description": "Airport conveyor control cabinet visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 903.349282,
+      "y": 179.808714,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-cabinet-door",
+      "description": "Airport cabinet door visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 950.239234,
+      "y": 179.808714,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-blank-cabinet-display",
+      "description": "Airport blank cabinet display visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 945.454545,
+      "y": 133.900106,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-display-bezel",
+      "description": "Airport display bezel visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 945.454545,
+      "y": 107.120085,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-cabinet-latch",
+      "description": "Airport cabinet latch visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 914.832536,
+      "y": 173.113709,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-cabinet-hinge",
+      "description": "Airport cabinet hinge visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 988.516746,
+      "y": 168.331562,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-cabinet-base-plinth",
+      "description": "Airport cabinet base plinth visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 950.239234,
+      "y": 258.235919,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-yellow-sensor-post",
+      "description": "Airport yellow sensor post visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 733.014354,
+      "y": 221.891605,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-photoelectric-sensor-head",
+      "description": "Airport photoelectric sensor head visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 734.92823,
+      "y": 216.153029,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-sensor-mounting-bracket",
+      "description": "Airport sensor mounting bracket visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 752.15311,
+      "y": 226.673751,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-red-emergency-stop-button",
+      "description": "Airport red emergency-stop button visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1207.655502,
+      "y": 418.916047,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-emergency-stop-collar",
+      "description": "Airport emergency-stop collar visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1207.655502,
+      "y": 442.82678,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-control-station-support-post",
+      "description": "Airport control-station support post visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1211.483254,
+      "y": 532.731137,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-control-station-base",
+      "description": "Airport control-station base visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1213.397129,
+      "y": 567.162593,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-yellow-guardrail",
+      "description": "Airport yellow guardrail visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1175.119617,
+      "y": 153.985122,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guardrail-upper-tube",
+      "description": "Airport guardrail upper tube visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1098.564593,
+      "y": 153.985122,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guardrail-lower-tube",
+      "description": "Airport guardrail lower tube visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1103.349282,
+      "y": 180.765143,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-guardrail-post-foot",
+      "description": "Airport guardrail post foot visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1165.550239,
+      "y": 192.242295,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-overhead-frame-crossbar",
+      "description": "Airport overhead frame crossbar visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1266.028708,
+      "y": 130.074389,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-upper-conveyor-support-rail",
+      "description": "Airport upper conveyor support rail visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1404.784689,
+      "y": 123.379384,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-upper-rail-mounting-bracket",
+      "description": "Airport upper rail mounting bracket visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1443.062201,
+      "y": 150.159405,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-sensor-post-clamp",
+      "description": "Airport sensor-post clamp visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 744.497608,
+      "y": 239.107333,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-right-roller-lane-guard",
+      "description": "Airport right roller-lane guard visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1366.507177,
+      "y": 270.669501,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-roller-lane-guard-fastener",
+      "description": "Airport roller-lane guard fastener visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1366.507177,
+      "y": 265.887354,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-baggage-conveyor-region-safety-rail-end-cap",
+      "description": "Airport safety-rail end cap visible in Controls, sensors and safety",
+      "kind": "object",
+      "x": 1084.210526,
+      "y": 160.680128,
+      "width": 42.105263,
+      "height": 42.082891
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "airport-baggage-conveyor-zone-incline-feed-and-green-case",
+      "title": "Incline feed and green case",
+      "translation": "倾斜输送段与绿色行李箱",
+      "description": "Explore the visible inclined belt, yellow guardrail, support frame and green hard-shell case.",
+      "x": 0,
+      "y": 0,
+      "width": 602.870813,
+      "height": 425.611052,
+      "targetScale": 2.55,
+      "labelIds": [
+        "airport-baggage-conveyor-incline-belt",
+        "airport-baggage-conveyor-incline-belt-centre",
+        "airport-baggage-conveyor-incline-belt-lower-edge",
+        "airport-baggage-conveyor-incline-belt-upper-edge",
+        "airport-baggage-conveyor-inner-belt-sidewall",
+        "airport-baggage-conveyor-outer-belt-sidewall",
+        "airport-baggage-conveyor-incline-steel-skirt",
+        "airport-baggage-conveyor-incline-frame-rail",
+        "airport-baggage-conveyor-incline-diagonal-beam",
+        "airport-baggage-conveyor-incline-cross-brace",
+        "airport-baggage-conveyor-incline-frame-upright",
+        "airport-baggage-conveyor-incline-floor-foot",
+        "airport-baggage-conveyor-yellow-guardrail-top-bar",
+        "airport-baggage-conveyor-yellow-guardrail-upright",
+        "airport-baggage-conveyor-guardrail-corner-joint",
+        "airport-baggage-conveyor-green-hard-shell-suitcase",
+        "airport-baggage-conveyor-green-suitcase-shell",
+        "airport-baggage-conveyor-green-suitcase-shell-ribs",
+        "airport-baggage-conveyor-green-suitcase-corner-cap",
+        "airport-baggage-conveyor-green-suitcase-wheel",
+        "airport-baggage-conveyor-green-suitcase-wheel-housing",
+        "airport-baggage-conveyor-green-suitcase-side-seam",
+        "airport-baggage-conveyor-green-suitcase-end-panel",
+        "airport-baggage-conveyor-green-suitcase-foot-pad",
+        "airport-baggage-conveyor-upper-conveyor-backdrop-belt"
+      ]
+    },
+    {
+      "id": "airport-baggage-conveyor-zone-main-belt-and-blue-case",
+      "title": "Main belt and blue case",
+      "translation": "主输送带与蓝色行李箱",
+      "description": "Inspect the broad dark belt, its metallic side rails and the blue ribbed suitcase resting on it.",
+      "x": 325.358852,
+      "y": 167.375133,
+      "width": 497.607656,
+      "height": 282.146652,
+      "targetScale": 2.6,
+      "labelIds": [
+        "airport-baggage-conveyor-main-dark-belt-surface",
+        "airport-baggage-conveyor-main-belt-travel-surface",
+        "airport-baggage-conveyor-main-belt-left-edge",
+        "airport-baggage-conveyor-main-belt-right-edge",
+        "airport-baggage-conveyor-main-belt-side-rail",
+        "airport-baggage-conveyor-belt-retaining-flange",
+        "airport-baggage-conveyor-belt-transfer-lip",
+        "airport-baggage-conveyor-main-conveyor-frame",
+        "airport-baggage-conveyor-blue-ribbed-suitcase",
+        "airport-baggage-conveyor-blue-suitcase-shell",
+        "airport-baggage-conveyor-blue-suitcase-front-panel",
+        "airport-baggage-conveyor-blue-suitcase-horizontal-ribs",
+        "airport-baggage-conveyor-blue-suitcase-rounded-corner",
+        "airport-baggage-conveyor-blue-suitcase-wheel",
+        "airport-baggage-conveyor-blue-suitcase-wheel-bracket",
+        "airport-baggage-conveyor-blue-suitcase-side-grip",
+        "airport-baggage-conveyor-blue-suitcase-short-side-panel",
+        "airport-baggage-conveyor-blue-suitcase-lower-edge",
+        "airport-baggage-conveyor-blue-suitcase-shell-seam",
+        "airport-baggage-conveyor-blue-suitcase-upper-rim",
+        "airport-baggage-conveyor-belt-frame-end-plate",
+        "airport-baggage-conveyor-belt-frame-fastener",
+        "airport-baggage-conveyor-side-rail-support-bracket",
+        "airport-baggage-conveyor-belt-edge-trim",
+        "airport-baggage-conveyor-conveyor-overlap-seam"
+      ]
+    },
+    {
+      "id": "airport-baggage-conveyor-zone-curve-transfer-and-yellow-guard",
+      "title": "Curved transfer and yellow guard",
+      "translation": "弯道转接与黄色护板",
+      "description": "Follow the curved belt path, stainless divider panels, yellow transfer guard and visible conveyor transitions.",
+      "x": 593.301435,
+      "y": 138.682253,
+      "width": 545.454545,
+      "height": 353.878852,
+      "targetScale": 2.65,
+      "labelIds": [
+        "airport-baggage-conveyor-curved-transfer-belt",
+        "airport-baggage-conveyor-curved-belt-inner-edge",
+        "airport-baggage-conveyor-curved-belt-outer-edge",
+        "airport-baggage-conveyor-curve-side-guide",
+        "airport-baggage-conveyor-inner-steel-divider",
+        "airport-baggage-conveyor-outer-steel-divider",
+        "airport-baggage-conveyor-yellow-transfer-guard",
+        "airport-baggage-conveyor-guard-sloped-face",
+        "airport-baggage-conveyor-guard-front-plate",
+        "airport-baggage-conveyor-guard-lower-flange",
+        "airport-baggage-conveyor-guard-mounting-bolt",
+        "airport-baggage-conveyor-guard-mounting-tab",
+        "airport-baggage-conveyor-transfer-chute-lip",
+        "airport-baggage-conveyor-belt-to-roller-nose",
+        "airport-baggage-conveyor-roller-bed-sidewall",
+        "airport-baggage-conveyor-conveyor-lane-separator",
+        "airport-baggage-conveyor-upper-return-conveyor",
+        "airport-baggage-conveyor-upper-conveyor-side-rail",
+        "airport-baggage-conveyor-rear-conveyor-upright",
+        "airport-baggage-conveyor-rear-conveyor-crossbar",
+        "airport-baggage-conveyor-transfer-frame-corner",
+        "airport-baggage-conveyor-transfer-frame-seam",
+        "airport-baggage-conveyor-belt-guard-lip",
+        "airport-baggage-conveyor-support-angle-bracket",
+        "airport-baggage-conveyor-yellow-guard-side-edge"
+      ]
+    },
+    {
+      "id": "airport-baggage-conveyor-zone-roller-bed",
+      "title": "Roller bed",
+      "translation": "滚筒输送床",
+      "description": "Explore the steel gravity rollers, their visible end caps, bed rails and the supporting frame beneath them.",
+      "x": 1004.784689,
+      "y": 306.057386,
+      "width": 595.215311,
+      "height": 387.353879,
+      "targetScale": 2.6,
+      "labelIds": [
+        "airport-baggage-conveyor-front-transfer-roller",
+        "airport-baggage-conveyor-second-transfer-roller",
+        "airport-baggage-conveyor-third-transfer-roller",
+        "airport-baggage-conveyor-fourth-transfer-roller",
+        "airport-baggage-conveyor-fifth-transfer-roller",
+        "airport-baggage-conveyor-sixth-transfer-roller",
+        "airport-baggage-conveyor-seventh-transfer-roller",
+        "airport-baggage-conveyor-eighth-transfer-roller",
+        "airport-baggage-conveyor-ninth-transfer-roller",
+        "airport-baggage-conveyor-tenth-transfer-roller",
+        "airport-baggage-conveyor-roller-end-cap",
+        "airport-baggage-conveyor-roller-axle-end",
+        "airport-baggage-conveyor-roller-bearing-block",
+        "airport-baggage-conveyor-roller-bed-left-rail",
+        "airport-baggage-conveyor-roller-bed-right-rail",
+        "airport-baggage-conveyor-roller-bed-crossmember",
+        "airport-baggage-conveyor-roller-frame-end-plate",
+        "airport-baggage-conveyor-roller-frame-side-bracket",
+        "airport-baggage-conveyor-roller-support-leg",
+        "airport-baggage-conveyor-roller-leg-foot-plate",
+        "airport-baggage-conveyor-bed-to-belt-junction",
+        "airport-baggage-conveyor-roller-gap",
+        "airport-baggage-conveyor-steel-roller-crown",
+        "airport-baggage-conveyor-roller-end-shoulder",
+        "airport-baggage-conveyor-roller-bed-floor-brace"
+      ]
+    },
+    {
+      "id": "airport-baggage-conveyor-zone-drive-motors-and-frame",
+      "title": "Drive motors and frame",
+      "translation": "驱动电机与机架",
+      "description": "Inspect the exposed drive assembly, motor housings, yellow guards, brackets, wiring runs and steel supports.",
+      "x": 267.942584,
+      "y": 401.700319,
+      "width": 985.645933,
+      "height": 487.778959,
+      "targetScale": 2.55,
+      "labelIds": [
+        "airport-baggage-conveyor-large-conveyor-motor",
+        "airport-baggage-conveyor-motor-outer-casing",
+        "airport-baggage-conveyor-motor-fan-cover",
+        "airport-baggage-conveyor-fan-cover-grille",
+        "airport-baggage-conveyor-motor-cooling-fin",
+        "airport-baggage-conveyor-motor-terminal-box",
+        "airport-baggage-conveyor-motor-mounting-foot",
+        "airport-baggage-conveyor-motor-base-plate",
+        "airport-baggage-conveyor-yellow-motor-guard",
+        "airport-baggage-conveyor-guard-top-panel",
+        "airport-baggage-conveyor-guard-side-panel",
+        "airport-baggage-conveyor-guard-folded-edge",
+        "airport-baggage-conveyor-guard-fastener",
+        "airport-baggage-conveyor-smaller-blue-drive-motor",
+        "airport-baggage-conveyor-blue-motor-casing",
+        "airport-baggage-conveyor-blue-motor-fan-grille",
+        "airport-baggage-conveyor-blue-motor-terminal-cap",
+        "airport-baggage-conveyor-drive-coupling-cover",
+        "airport-baggage-conveyor-drive-shaft-support",
+        "airport-baggage-conveyor-bearing-housing-cap",
+        "airport-baggage-conveyor-open-machinery-side-rail",
+        "airport-baggage-conveyor-lower-frame-crossbar",
+        "airport-baggage-conveyor-drive-frame-diagonal-brace",
+        "airport-baggage-conveyor-conveyor-support-column",
+        "airport-baggage-conveyor-support-column-foot"
+      ]
+    },
+    {
+      "id": "airport-baggage-conveyor-zone-controls-sensors-and-safety",
+      "title": "Controls, sensors and safety",
+      "translation": "控制、传感与安全设施",
+      "description": "Explore the control cabinet, blank display, stop control, visible sensors, yellow safety rails and cable covers.",
+      "x": 722.488038,
+      "y": 0,
+      "width": 877.511962,
+      "height": 621.679065,
+      "targetScale": 2.55,
+      "labelIds": [
+        "airport-baggage-conveyor-conveyor-control-cabinet",
+        "airport-baggage-conveyor-cabinet-door",
+        "airport-baggage-conveyor-blank-cabinet-display",
+        "airport-baggage-conveyor-display-bezel",
+        "airport-baggage-conveyor-cabinet-latch",
+        "airport-baggage-conveyor-cabinet-hinge",
+        "airport-baggage-conveyor-cabinet-base-plinth",
+        "airport-baggage-conveyor-yellow-sensor-post",
+        "airport-baggage-conveyor-photoelectric-sensor-head",
+        "airport-baggage-conveyor-sensor-mounting-bracket",
+        "airport-baggage-conveyor-red-emergency-stop-button",
+        "airport-baggage-conveyor-emergency-stop-collar",
+        "airport-baggage-conveyor-control-station-support-post",
+        "airport-baggage-conveyor-control-station-base",
+        "airport-baggage-conveyor-yellow-guardrail",
+        "airport-baggage-conveyor-guardrail-upper-tube",
+        "airport-baggage-conveyor-guardrail-lower-tube",
+        "airport-baggage-conveyor-guardrail-post-foot",
+        "airport-baggage-conveyor-overhead-frame-crossbar",
+        "airport-baggage-conveyor-upper-conveyor-support-rail",
+        "airport-baggage-conveyor-upper-rail-mounting-bracket",
+        "airport-baggage-conveyor-sensor-post-clamp",
+        "airport-baggage-conveyor-right-roller-lane-guard",
+        "airport-baggage-conveyor-roller-lane-guard-fastener",
+        "airport-baggage-conveyor-safety-rail-end-cap"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/airport-baggage-conveyor-premium-v1.jpg",
+    "reviewedAssetSha256": "d9447e581a12127dabcf7c9df53e091c4026aea517e12124610d9c0d53b8ed93",
+    "rationale": "The generated source and final JPEG were inspected at native and final pixels. 150 independently pointable objects and visible parts are distributed across 6 bounded zones. People, identity, readable text, brands, hidden contents, inferred processes and unsupported equipment states were excluded.",
+    "previousLabelCount": 158,
+    "retainedLabelCount": 150,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "diverter status",
+      "belt speed",
+      "bag destination",
+      "scanner result",
+      "operator identity",
+      "maintenance state",
+      "written label",
+      "brand name"
+    ]
+  },
+  "labels": [
+    {
+      "id": "airport-baggage-conveyor-incline-belt",
+      "word": "Airport incline belt",
+      "translation": "机场倾斜输送带",
+      "x": 124.401914,
+      "y": 133.900106,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-incline-belt"
+    },
+    {
+      "id": "airport-baggage-conveyor-incline-belt-centre",
+      "word": "Airport incline belt centre",
+      "translation": "机场倾斜输送带中段",
+      "x": 234.449761,
+      "y": 196.068013,
+      "priority": 1.001,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-incline-belt-centre"
+    },
+    {
+      "id": "airport-baggage-conveyor-incline-belt-lower-edge",
+      "word": "Airport incline belt lower edge",
+      "translation": "机场倾斜输送带下沿",
+      "x": 354.066986,
+      "y": 258.235919,
+      "priority": 1.002,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-incline-belt-lower-edge"
+    },
+    {
+      "id": "airport-baggage-conveyor-incline-belt-upper-edge",
+      "word": "Airport incline belt upper edge",
+      "translation": "机场倾斜输送带上沿",
+      "x": 172.248804,
+      "y": 114.77152,
+      "priority": 1.003,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-incline-belt-upper-edge"
+    },
+    {
+      "id": "airport-baggage-conveyor-inner-belt-sidewall",
+      "word": "Airport inner belt sidewall",
+      "translation": "机场输送带内侧挡板",
+      "x": 449.760766,
+      "y": 296.493092,
+      "priority": 1.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-inner-belt-sidewall"
+    },
+    {
+      "id": "airport-baggage-conveyor-outer-belt-sidewall",
+      "word": "Airport outer belt sidewall",
+      "translation": "机场输送带外侧挡板",
+      "x": 66.985646,
+      "y": 105.207226,
+      "priority": 1.005,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-outer-belt-sidewall"
+    },
+    {
+      "id": "airport-baggage-conveyor-incline-steel-skirt",
+      "word": "Airport incline steel skirt",
+      "translation": "机场倾斜段钢制裙板",
+      "x": 349.282297,
+      "y": 282.146652,
+      "priority": 1.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-incline-steel-skirt"
+    },
+    {
+      "id": "airport-baggage-conveyor-incline-frame-rail",
+      "word": "Airport incline frame rail",
+      "translation": "机场倾斜段机架导轨",
+      "x": 454.545455,
+      "y": 339.532412,
+      "priority": 1.007,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-incline-frame-rail"
+    },
+    {
+      "id": "airport-baggage-conveyor-incline-diagonal-beam",
+      "word": "Airport incline diagonal beam",
+      "translation": "机场倾斜段斜撑梁",
+      "x": 492.822967,
+      "y": 200.850159,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-incline-diagonal-beam"
+    },
+    {
+      "id": "airport-baggage-conveyor-incline-cross-brace",
+      "word": "Airport incline cross brace",
+      "translation": "机场倾斜段横撑",
+      "x": 349.282297,
+      "y": 172.157279,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-incline-cross-brace"
+    },
+    {
+      "id": "airport-baggage-conveyor-incline-frame-upright",
+      "word": "Airport incline frame upright",
+      "translation": "机场倾斜段机架立柱",
+      "x": 507.177033,
+      "y": 279.277365,
+      "priority": 1.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-incline-frame-upright"
+    },
+    {
+      "id": "airport-baggage-conveyor-incline-floor-foot",
+      "word": "Airport incline floor foot",
+      "translation": "机场倾斜段落地底脚",
+      "x": 526.315789,
+      "y": 392.136026,
+      "priority": 1.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-incline-floor-foot"
+    },
+    {
+      "id": "airport-baggage-conveyor-yellow-guardrail-top-bar",
+      "word": "Airport yellow guardrail top bar",
+      "translation": "机场黄色护栏顶杆",
+      "x": 253.588517,
+      "y": 86.07864,
+      "priority": 1.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-yellow-guardrail-top-bar"
+    },
+    {
+      "id": "airport-baggage-conveyor-yellow-guardrail-upright",
+      "word": "Airport yellow guardrail upright",
+      "translation": "机场黄色护栏立柱",
+      "x": 368.421053,
+      "y": 114.77152,
+      "priority": 1.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-yellow-guardrail-upright"
+    },
+    {
+      "id": "airport-baggage-conveyor-guardrail-corner-joint",
+      "word": "Airport guardrail corner joint",
+      "translation": "机场护栏转角接头",
+      "x": 425.837321,
+      "y": 100.42508,
+      "priority": 1.014,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guardrail-corner-joint"
+    },
+    {
+      "id": "airport-baggage-conveyor-green-hard-shell-suitcase",
+      "word": "Airport green hard-shell suitcase",
+      "translation": "机场绿色硬壳行李箱",
+      "x": 237.320574,
+      "y": 211.370882,
+      "priority": 1.015,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-green-hard-shell-suitcase"
+    },
+    {
+      "id": "airport-baggage-conveyor-green-suitcase-shell",
+      "word": "Airport green suitcase shell",
+      "translation": "机场绿色行李箱箱壳",
+      "x": 229.665072,
+      "y": 218.065887,
+      "priority": 1.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-green-suitcase-shell"
+    },
+    {
+      "id": "airport-baggage-conveyor-green-suitcase-shell-ribs",
+      "word": "Airport green suitcase shell ribs",
+      "translation": "机场绿色行李箱壳体筋条",
+      "x": 231.578947,
+      "y": 199.89373,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-green-suitcase-shell-ribs"
+    },
+    {
+      "id": "airport-baggage-conveyor-green-suitcase-corner-cap",
+      "word": "Airport green suitcase corner cap",
+      "translation": "机场绿色行李箱护角",
+      "x": 166.507177,
+      "y": 193.198725,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-green-suitcase-corner-cap"
+    },
+    {
+      "id": "airport-baggage-conveyor-green-suitcase-wheel",
+      "word": "Airport green suitcase wheel",
+      "translation": "机场绿色行李箱滚轮",
+      "x": 274.641148,
+      "y": 238.150903,
+      "priority": 1.019,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-green-suitcase-wheel"
+    },
+    {
+      "id": "airport-baggage-conveyor-green-suitcase-wheel-housing",
+      "word": "Airport green suitcase wheel housing",
+      "translation": "机场绿色行李箱轮罩",
+      "x": 277.511962,
+      "y": 241.976621,
+      "priority": 1.02,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-green-suitcase-wheel-housing"
+    },
+    {
+      "id": "airport-baggage-conveyor-green-suitcase-side-seam",
+      "word": "Airport green suitcase side seam",
+      "translation": "机场绿色行李箱侧缝",
+      "x": 195.215311,
+      "y": 224.760893,
+      "priority": 1.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-green-suitcase-side-seam"
+    },
+    {
+      "id": "airport-baggage-conveyor-green-suitcase-end-panel",
+      "word": "Airport green suitcase end panel",
+      "translation": "机场绿色行李箱端板",
+      "x": 300.478469,
+      "y": 209.458023,
+      "priority": 1.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-green-suitcase-end-panel"
+    },
+    {
+      "id": "airport-baggage-conveyor-green-suitcase-foot-pad",
+      "word": "Airport green suitcase foot pad",
+      "translation": "机场绿色行李箱底部脚垫",
+      "x": 308.133971,
+      "y": 243.889479,
+      "priority": 1.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-green-suitcase-foot-pad"
+    },
+    {
+      "id": "airport-baggage-conveyor-upper-conveyor-backdrop-belt",
+      "word": "Airport upper conveyor backdrop belt",
+      "translation": "机场上层输送带背景带面",
+      "x": 114.832536,
+      "y": 65.037194,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-upper-conveyor-backdrop-belt"
+    },
+    {
+      "id": "airport-baggage-conveyor-main-dark-belt-surface",
+      "word": "Airport main dark belt surface",
+      "translation": "机场主输送带深色带面",
+      "x": 449.760766,
+      "y": 344.314559,
+      "priority": 1.025,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-main-dark-belt-surface"
+    },
+    {
+      "id": "airport-baggage-conveyor-main-belt-travel-surface",
+      "word": "Airport main belt travel surface",
+      "translation": "机场主输送带承载面",
+      "x": 545.454545,
+      "y": 387.353879,
+      "priority": 1.026,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-main-belt-travel-surface"
+    },
+    {
+      "id": "airport-baggage-conveyor-main-belt-left-edge",
+      "word": "Airport main belt left edge",
+      "translation": "机场主输送带左侧边缘",
+      "x": 430.62201,
+      "y": 306.057386,
+      "priority": 1.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-main-belt-left-edge"
+    },
+    {
+      "id": "airport-baggage-conveyor-main-belt-right-edge",
+      "word": "Airport main belt right edge",
+      "translation": "机场主输送带右侧边缘",
+      "x": 641.148325,
+      "y": 405.526036,
+      "priority": 1.028,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-main-belt-right-edge"
+    },
+    {
+      "id": "airport-baggage-conveyor-main-belt-side-rail",
+      "word": "Airport main belt side rail",
+      "translation": "机场主输送带侧导轨",
+      "x": 669.856459,
+      "y": 383.528162,
+      "priority": 1.029,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-main-belt-side-rail"
+    },
+    {
+      "id": "airport-baggage-conveyor-belt-retaining-flange",
+      "word": "Airport belt retaining flange",
+      "translation": "机场输送带限位翻边",
+      "x": 650.717703,
+      "y": 406.482465,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-belt-retaining-flange"
+    },
+    {
+      "id": "airport-baggage-conveyor-belt-transfer-lip",
+      "word": "Airport belt transfer lip",
+      "translation": "机场输送带过渡唇边",
+      "x": 555.023923,
+      "y": 430.393199,
+      "priority": 1.031,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-belt-transfer-lip"
+    },
+    {
+      "id": "airport-baggage-conveyor-main-conveyor-frame",
+      "word": "Airport main conveyor frame",
+      "translation": "机场主输送机机架",
+      "x": 488.038278,
+      "y": 435.175345,
+      "priority": 1.032,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-main-conveyor-frame"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-ribbed-suitcase",
+      "word": "Airport blue ribbed suitcase",
+      "translation": "机场蓝色筋纹行李箱",
+      "x": 512.91866,
+      "y": 304.144527,
+      "priority": 1.033,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-ribbed-suitcase"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-shell",
+      "word": "Airport blue suitcase shell",
+      "translation": "机场蓝色行李箱箱壳",
+      "x": 516.746411,
+      "y": 315.621679,
+      "priority": 1.034,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-shell"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-front-panel",
+      "word": "Airport blue suitcase front panel",
+      "translation": "机场蓝色行李箱正面板",
+      "x": 524.401914,
+      "y": 295.536663,
+      "priority": 1.035,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-front-panel"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-horizontal-ribs",
+      "word": "Airport blue suitcase horizontal ribs",
+      "translation": "机场蓝色行李箱横向筋条",
+      "x": 511.961722,
+      "y": 286.928799,
+      "priority": 1.036,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-horizontal-ribs"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-rounded-corner",
+      "word": "Airport blue suitcase rounded corner",
+      "translation": "机场蓝色行李箱圆角",
+      "x": 415.311005,
+      "y": 293.623804,
+      "priority": 1.037,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-rounded-corner"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-wheel",
+      "word": "Airport blue suitcase wheel",
+      "translation": "机场蓝色行李箱滚轮",
+      "x": 431.578947,
+      "y": 351.009564,
+      "priority": 1.038,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-wheel"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-wheel-bracket",
+      "word": "Airport blue suitcase wheel bracket",
+      "translation": "机场蓝色行李箱轮架",
+      "x": 436.363636,
+      "y": 353.878852,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-wheel-bracket"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-side-grip",
+      "word": "Airport blue suitcase side grip",
+      "translation": "机场蓝色行李箱侧提把",
+      "x": 622.966507,
+      "y": 288.841658,
+      "priority": 1.04,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-side-grip"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-short-side-panel",
+      "word": "Airport blue suitcase short side panel",
+      "translation": "机场蓝色行李箱短侧板",
+      "x": 622.009569,
+      "y": 326.142402,
+      "priority": 1.041,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-short-side-panel"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-lower-edge",
+      "word": "Airport blue suitcase lower edge",
+      "translation": "机场蓝色行李箱底边",
+      "x": 535.885167,
+      "y": 355.791711,
+      "priority": 1.042,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-lower-edge"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-shell-seam",
+      "word": "Airport blue suitcase shell seam",
+      "translation": "机场蓝色行李箱壳体接缝",
+      "x": 574.162679,
+      "y": 310.839532,
+      "priority": 1.043,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-shell-seam"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-suitcase-upper-rim",
+      "word": "Airport blue suitcase upper rim",
+      "translation": "机场蓝色行李箱上沿",
+      "x": 503.349282,
+      "y": 261.105207,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-suitcase-upper-rim"
+    },
+    {
+      "id": "airport-baggage-conveyor-belt-frame-end-plate",
+      "word": "Airport belt frame end plate",
+      "translation": "机场输送带机架端板",
+      "x": 389.473684,
+      "y": 402.656748,
+      "priority": 1.045,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-belt-frame-end-plate"
+    },
+    {
+      "id": "airport-baggage-conveyor-belt-frame-fastener",
+      "word": "Airport belt frame fastener",
+      "translation": "机场输送带机架紧固件",
+      "x": 379.904306,
+      "y": 428.48034,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-belt-frame-fastener"
+    },
+    {
+      "id": "airport-baggage-conveyor-side-rail-support-bracket",
+      "word": "Airport side rail support bracket",
+      "translation": "机场侧导轨支架",
+      "x": 687.08134,
+      "y": 416.046759,
+      "priority": 1.047,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-side-rail-support-bracket"
+    },
+    {
+      "id": "airport-baggage-conveyor-belt-edge-trim",
+      "word": "Airport belt edge trim",
+      "translation": "机场输送带边缘包边",
+      "x": 454.545455,
+      "y": 396.918172,
+      "priority": 1.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-belt-edge-trim"
+    },
+    {
+      "id": "airport-baggage-conveyor-conveyor-overlap-seam",
+      "word": "Airport conveyor overlap seam",
+      "translation": "机场输送带搭接缝",
+      "x": 712.91866,
+      "y": 365.356004,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-conveyor-overlap-seam"
+    },
+    {
+      "id": "airport-baggage-conveyor-curved-transfer-belt",
+      "word": "Airport curved transfer belt",
+      "translation": "机场弯道转接带面",
+      "x": 775.119617,
+      "y": 358.660999,
+      "priority": 1.05,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-curved-transfer-belt"
+    },
+    {
+      "id": "airport-baggage-conveyor-curved-belt-inner-edge",
+      "word": "Airport curved belt inner edge",
+      "translation": "机场弯道输送带内沿",
+      "x": 708.133971,
+      "y": 318.490967,
+      "priority": 1.051,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-curved-belt-inner-edge"
+    },
+    {
+      "id": "airport-baggage-conveyor-curved-belt-outer-edge",
+      "word": "Airport curved belt outer edge",
+      "translation": "机场弯道输送带外沿",
+      "x": 828.708134,
+      "y": 379.702444,
+      "priority": 1.052,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-curved-belt-outer-edge"
+    },
+    {
+      "id": "airport-baggage-conveyor-curve-side-guide",
+      "word": "Airport curve side guide",
+      "translation": "机场弯道侧向导板",
+      "x": 722.488038,
+      "y": 283.103082,
+      "priority": 1.053,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-curve-side-guide"
+    },
+    {
+      "id": "airport-baggage-conveyor-inner-steel-divider",
+      "word": "Airport inner steel divider",
+      "translation": "机场内侧钢制隔板",
+      "x": 675.598086,
+      "y": 267.800213,
+      "priority": 1.054,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-inner-steel-divider"
+    },
+    {
+      "id": "airport-baggage-conveyor-outer-steel-divider",
+      "word": "Airport outer steel divider",
+      "translation": "机场外侧钢制隔板",
+      "x": 903.349282,
+      "y": 323.273114,
+      "priority": 1.055,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-outer-steel-divider"
+    },
+    {
+      "id": "airport-baggage-conveyor-yellow-transfer-guard",
+      "word": "Airport yellow transfer guard",
+      "translation": "机场黄色转接护板",
+      "x": 1033.492823,
+      "y": 344.314559,
+      "priority": 1.056,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-yellow-transfer-guard"
+    },
+    {
+      "id": "airport-baggage-conveyor-guard-sloped-face",
+      "word": "Airport guard sloped face",
+      "translation": "机场护板斜面",
+      "x": 1023.923445,
+      "y": 329.01169,
+      "priority": 1.057,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guard-sloped-face"
+    },
+    {
+      "id": "airport-baggage-conveyor-guard-front-plate",
+      "word": "Airport guard front plate",
+      "translation": "机场护板前板",
+      "x": 1049.760766,
+      "y": 361.530287,
+      "priority": 1.058,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guard-front-plate"
+    },
+    {
+      "id": "airport-baggage-conveyor-guard-lower-flange",
+      "word": "Airport guard lower flange",
+      "translation": "机场护板下翻边",
+      "x": 1052.631579,
+      "y": 373.007439,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guard-lower-flange"
+    },
+    {
+      "id": "airport-baggage-conveyor-guard-mounting-bolt",
+      "word": "Airport guard mounting bolt",
+      "translation": "机场护板固定螺栓",
+      "x": 1016.267943,
+      "y": 372.05101,
+      "priority": 1.06,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guard-mounting-bolt"
+    },
+    {
+      "id": "airport-baggage-conveyor-guard-mounting-tab",
+      "word": "Airport guard mounting tab",
+      "translation": "机场护板安装耳",
+      "x": 1073.684211,
+      "y": 371.09458,
+      "priority": 1.061,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guard-mounting-tab"
+    },
+    {
+      "id": "airport-baggage-conveyor-transfer-chute-lip",
+      "word": "Airport transfer chute lip",
+      "translation": "机场转接滑道唇边",
+      "x": 947.368421,
+      "y": 386.39745,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-transfer-chute-lip"
+    },
+    {
+      "id": "airport-baggage-conveyor-belt-to-roller-nose",
+      "word": "Airport belt-to-roller nose",
+      "translation": "机场皮带至滚筒过渡鼻端",
+      "x": 1086.124402,
+      "y": 395.961743,
+      "priority": 1.063,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-belt-to-roller-nose"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-bed-sidewall",
+      "word": "Airport roller-bed sidewall",
+      "translation": "机场滚筒床侧挡板",
+      "x": 985.645933,
+      "y": 407.438895,
+      "priority": 1.064,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-bed-sidewall"
+    },
+    {
+      "id": "airport-baggage-conveyor-conveyor-lane-separator",
+      "word": "Airport conveyor lane separator",
+      "translation": "机场输送线分隔板",
+      "x": 870.813397,
+      "y": 286.928799,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-conveyor-lane-separator"
+    },
+    {
+      "id": "airport-baggage-conveyor-upper-return-conveyor",
+      "word": "Airport upper return conveyor",
+      "translation": "机场上层回程输送带",
+      "x": 875.598086,
+      "y": 194.155154,
+      "priority": 1.066,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-upper-return-conveyor"
+    },
+    {
+      "id": "airport-baggage-conveyor-upper-conveyor-side-rail",
+      "word": "Airport upper conveyor side rail",
+      "translation": "机场上层输送机侧导轨",
+      "x": 961.722488,
+      "y": 196.068013,
+      "priority": 1.067,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-upper-conveyor-side-rail"
+    },
+    {
+      "id": "airport-baggage-conveyor-rear-conveyor-upright",
+      "word": "Airport rear conveyor upright",
+      "translation": "机场后部输送机立柱",
+      "x": 818.181818,
+      "y": 170.244421,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-rear-conveyor-upright"
+    },
+    {
+      "id": "airport-baggage-conveyor-rear-conveyor-crossbar",
+      "word": "Airport rear conveyor crossbar",
+      "translation": "机场后部输送机横梁",
+      "x": 894.736842,
+      "y": 153.028693,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-rear-conveyor-crossbar"
+    },
+    {
+      "id": "airport-baggage-conveyor-transfer-frame-corner",
+      "word": "Airport transfer-frame corner",
+      "translation": "机场转接机架角部",
+      "x": 956.937799,
+      "y": 432.306057,
+      "priority": 1.07,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-transfer-frame-corner"
+    },
+    {
+      "id": "airport-baggage-conveyor-transfer-frame-seam",
+      "word": "Airport transfer-frame seam",
+      "translation": "机场转接机架接缝",
+      "x": 933.014354,
+      "y": 417.959617,
+      "priority": 1.071,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-transfer-frame-seam"
+    },
+    {
+      "id": "airport-baggage-conveyor-belt-guard-lip",
+      "word": "Airport belt guard lip",
+      "translation": "机场输送带护边唇口",
+      "x": 746.411483,
+      "y": 292.667375,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-belt-guard-lip"
+    },
+    {
+      "id": "airport-baggage-conveyor-support-angle-bracket",
+      "word": "Airport support angle bracket",
+      "translation": "机场支撑角码",
+      "x": 856.45933,
+      "y": 440.913921,
+      "priority": 1.073,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-support-angle-bracket"
+    },
+    {
+      "id": "airport-baggage-conveyor-yellow-guard-side-edge",
+      "word": "Airport yellow guard side edge",
+      "translation": "机场黄色护板侧边",
+      "x": 1085.167464,
+      "y": 350.053135,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-yellow-guard-side-edge"
+    },
+    {
+      "id": "airport-baggage-conveyor-front-transfer-roller",
+      "word": "Airport front transfer roller",
+      "translation": "机场前端转接滚筒",
+      "x": 1117.703349,
+      "y": 396.918172,
+      "priority": 1.075,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-front-transfer-roller"
+    },
+    {
+      "id": "airport-baggage-conveyor-second-transfer-roller",
+      "word": "Airport second transfer roller",
+      "translation": "机场第二根转接滚筒",
+      "x": 1157.894737,
+      "y": 412.221041,
+      "priority": 1.076,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-second-transfer-roller"
+    },
+    {
+      "id": "airport-baggage-conveyor-third-transfer-roller",
+      "word": "Airport third transfer roller",
+      "translation": "机场第三根转接滚筒",
+      "x": 1200,
+      "y": 425.611052,
+      "priority": 1.077,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-third-transfer-roller"
+    },
+    {
+      "id": "airport-baggage-conveyor-fourth-transfer-roller",
+      "word": "Airport fourth transfer roller",
+      "translation": "机场第四根转接滚筒",
+      "x": 1241.148325,
+      "y": 438.044633,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-fourth-transfer-roller"
+    },
+    {
+      "id": "airport-baggage-conveyor-fifth-transfer-roller",
+      "word": "Airport fifth transfer roller",
+      "translation": "机场第五根转接滚筒",
+      "x": 1283.253589,
+      "y": 451.434644,
+      "priority": 1.079,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-fifth-transfer-roller"
+    },
+    {
+      "id": "airport-baggage-conveyor-sixth-transfer-roller",
+      "word": "Airport sixth transfer roller",
+      "translation": "机场第六根转接滚筒",
+      "x": 1325.358852,
+      "y": 465.781084,
+      "priority": 1.08,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-sixth-transfer-roller"
+    },
+    {
+      "id": "airport-baggage-conveyor-seventh-transfer-roller",
+      "word": "Airport seventh transfer roller",
+      "translation": "机场第七根转接滚筒",
+      "x": 1368.421053,
+      "y": 480.127524,
+      "priority": 1.081,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-seventh-transfer-roller"
+    },
+    {
+      "id": "airport-baggage-conveyor-eighth-transfer-roller",
+      "word": "Airport eighth transfer roller",
+      "translation": "机场第八根转接滚筒",
+      "x": 1408.61244,
+      "y": 493.517535,
+      "priority": 1.082,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-eighth-transfer-roller"
+    },
+    {
+      "id": "airport-baggage-conveyor-ninth-transfer-roller",
+      "word": "Airport ninth transfer roller",
+      "translation": "机场第九根转接滚筒",
+      "x": 1452.631579,
+      "y": 506.907545,
+      "priority": 1.083,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-ninth-transfer-roller"
+    },
+    {
+      "id": "airport-baggage-conveyor-tenth-transfer-roller",
+      "word": "Airport tenth transfer roller",
+      "translation": "机场第十根转接滚筒",
+      "x": 1492.822967,
+      "y": 522.210414,
+      "priority": 1.084,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-tenth-transfer-roller"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-end-cap",
+      "word": "Airport roller end cap",
+      "translation": "机场滚筒端盖",
+      "x": 1157.894737,
+      "y": 401.700319,
+      "priority": 1.085,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-end-cap"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-axle-end",
+      "word": "Airport roller axle end",
+      "translation": "机场滚筒轴端",
+      "x": 1200.956938,
+      "y": 407.438895,
+      "priority": 1.086,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-axle-end"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-bearing-block",
+      "word": "Airport roller bearing block",
+      "translation": "机场滚筒轴承座",
+      "x": 1244.019139,
+      "y": 468.650372,
+      "priority": 1.087,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-bearing-block"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-bed-left-rail",
+      "word": "Airport roller bed left rail",
+      "translation": "机场滚筒床左侧梁",
+      "x": 1119.617225,
+      "y": 449.521785,
+      "priority": 1.088,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-bed-left-rail"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-bed-right-rail",
+      "word": "Airport roller bed right rail",
+      "translation": "机场滚筒床右侧梁",
+      "x": 1478.4689,
+      "y": 545.164718,
+      "priority": 1.089,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-bed-right-rail"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-bed-crossmember",
+      "word": "Airport roller bed crossmember",
+      "translation": "机场滚筒床横梁",
+      "x": 1339.712919,
+      "y": 566.206164,
+      "priority": 1.09,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-bed-crossmember"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-frame-end-plate",
+      "word": "Airport roller frame end plate",
+      "translation": "机场滚筒机架端板",
+      "x": 1507.177033,
+      "y": 600.63762,
+      "priority": 1.091,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-frame-end-plate"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-frame-side-bracket",
+      "word": "Airport roller frame side bracket",
+      "translation": "机场滚筒机架侧支架",
+      "x": 1452.631579,
+      "y": 589.160468,
+      "priority": 1.092,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-frame-side-bracket"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-support-leg",
+      "word": "Airport roller support leg",
+      "translation": "机场滚筒支腿",
+      "x": 1306.220096,
+      "y": 621.679065,
+      "priority": 1.093,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-support-leg"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-leg-foot-plate",
+      "word": "Airport roller leg foot plate",
+      "translation": "机场滚筒支腿底板",
+      "x": 1306.220096,
+      "y": 672.369819,
+      "priority": 1.094,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-leg-foot-plate"
+    },
+    {
+      "id": "airport-baggage-conveyor-bed-to-belt-junction",
+      "word": "Airport bed-to-belt junction",
+      "translation": "机场滚筒床与皮带接合处",
+      "x": 1105.263158,
+      "y": 425.611052,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-bed-to-belt-junction"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-gap",
+      "word": "Airport roller gap",
+      "translation": "机场滚筒间隙",
+      "x": 1277.511962,
+      "y": 438.044633,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-gap"
+    },
+    {
+      "id": "airport-baggage-conveyor-steel-roller-crown",
+      "word": "Airport steel roller crown",
+      "translation": "机场钢制滚筒弧面",
+      "x": 1387.559809,
+      "y": 464.824655,
+      "priority": 1.097,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-steel-roller-crown"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-end-shoulder",
+      "word": "Airport roller end shoulder",
+      "translation": "机场滚筒端部轴肩",
+      "x": 1425.837321,
+      "y": 487.778959,
+      "priority": 1.098,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-end-shoulder"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-bed-floor-brace",
+      "word": "Airport roller-bed floor brace",
+      "translation": "机场滚筒床落地斜撑",
+      "x": 1397.129187,
+      "y": 654.197662,
+      "priority": 1.099,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-bed-floor-brace"
+    },
+    {
+      "id": "airport-baggage-conveyor-large-conveyor-motor",
+      "word": "Airport large conveyor motor",
+      "translation": "机场大型输送机电机",
+      "x": 1014.354067,
+      "y": 595.855473,
+      "priority": 1.1,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-large-conveyor-motor"
+    },
+    {
+      "id": "airport-baggage-conveyor-motor-outer-casing",
+      "word": "Airport motor outer casing",
+      "translation": "机场电机外壳",
+      "x": 974.162679,
+      "y": 592.986185,
+      "priority": 1.101,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-motor-outer-casing"
+    },
+    {
+      "id": "airport-baggage-conveyor-motor-fan-cover",
+      "word": "Airport motor fan cover",
+      "translation": "机场电机风扇罩",
+      "x": 1076.555024,
+      "y": 591.073326,
+      "priority": 1.102,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-motor-fan-cover"
+    },
+    {
+      "id": "airport-baggage-conveyor-fan-cover-grille",
+      "word": "Airport fan-cover grille",
+      "translation": "机场风扇罩格栅",
+      "x": 1073.684211,
+      "y": 586.29118,
+      "priority": 1.103,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-fan-cover-grille"
+    },
+    {
+      "id": "airport-baggage-conveyor-motor-cooling-fin",
+      "word": "Airport motor cooling fin",
+      "translation": "机场电机散热筋",
+      "x": 985.645933,
+      "y": 569.075452,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-motor-cooling-fin"
+    },
+    {
+      "id": "airport-baggage-conveyor-motor-terminal-box",
+      "word": "Airport motor terminal box",
+      "translation": "机场电机接线盒",
+      "x": 966.507177,
+      "y": 551.859724,
+      "priority": 1.105,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-motor-terminal-box"
+    },
+    {
+      "id": "airport-baggage-conveyor-motor-mounting-foot",
+      "word": "Airport motor mounting foot",
+      "translation": "机场电机安装脚",
+      "x": 1009.569378,
+      "y": 673.326249,
+      "priority": 1.106,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-motor-mounting-foot"
+    },
+    {
+      "id": "airport-baggage-conveyor-motor-base-plate",
+      "word": "Airport motor base plate",
+      "translation": "机场电机底板",
+      "x": 1019.138756,
+      "y": 698.193411,
+      "priority": 1.107,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-motor-base-plate"
+    },
+    {
+      "id": "airport-baggage-conveyor-yellow-motor-guard",
+      "word": "Airport yellow motor guard",
+      "translation": "机场黄色电机防护罩",
+      "x": 1071.770335,
+      "y": 640.807651,
+      "priority": 1.108,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-yellow-motor-guard"
+    },
+    {
+      "id": "airport-baggage-conveyor-guard-top-panel",
+      "word": "Airport guard top panel",
+      "translation": "机场护罩顶板",
+      "x": 1062.200957,
+      "y": 583.421892,
+      "priority": 1.109,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guard-top-panel"
+    },
+    {
+      "id": "airport-baggage-conveyor-guard-side-panel",
+      "word": "Airport guard side panel",
+      "translation": "机场护罩侧板",
+      "x": 1100.478469,
+      "y": 636.025505,
+      "priority": 1.11,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guard-side-panel"
+    },
+    {
+      "id": "airport-baggage-conveyor-guard-folded-edge",
+      "word": "Airport guard folded edge",
+      "translation": "机场护罩折边",
+      "x": 1119.617225,
+      "y": 664.718385,
+      "priority": 1.111,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guard-folded-edge"
+    },
+    {
+      "id": "airport-baggage-conveyor-guard-fastener",
+      "word": "Airport guard fastener",
+      "translation": "机场护罩紧固件",
+      "x": 1083.253589,
+      "y": 685.75983,
+      "priority": 1.112,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guard-fastener"
+    },
+    {
+      "id": "airport-baggage-conveyor-smaller-blue-drive-motor",
+      "word": "Airport smaller blue drive motor",
+      "translation": "机场较小的蓝灰色驱动电机",
+      "x": 727.272727,
+      "y": 557.5983,
+      "priority": 1.113,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-smaller-blue-drive-motor"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-motor-casing",
+      "word": "Airport blue motor casing",
+      "translation": "机场蓝灰色电机壳体",
+      "x": 732.057416,
+      "y": 554.729012,
+      "priority": 1.114,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-motor-casing"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-motor-fan-grille",
+      "word": "Airport blue motor fan grille",
+      "translation": "机场蓝灰色电机风罩格栅",
+      "x": 755.980861,
+      "y": 549.946865,
+      "priority": 1.115,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-motor-fan-grille"
+    },
+    {
+      "id": "airport-baggage-conveyor-blue-motor-terminal-cap",
+      "word": "Airport blue motor terminal cap",
+      "translation": "机场蓝灰色电机接线盒盖",
+      "x": 711.961722,
+      "y": 524.123273,
+      "priority": 1.116,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blue-motor-terminal-cap"
+    },
+    {
+      "id": "airport-baggage-conveyor-drive-coupling-cover",
+      "word": "Airport drive coupling cover",
+      "translation": "机场驱动联轴器护盖",
+      "x": 799.043062,
+      "y": 554.729012,
+      "priority": 1.117,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-drive-coupling-cover"
+    },
+    {
+      "id": "airport-baggage-conveyor-drive-shaft-support",
+      "word": "Airport drive shaft support",
+      "translation": "机场驱动轴支撑座",
+      "x": 698.564593,
+      "y": 516.471838,
+      "priority": 1.118,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-drive-shaft-support"
+    },
+    {
+      "id": "airport-baggage-conveyor-bearing-housing-cap",
+      "word": "Airport bearing housing cap",
+      "translation": "机场轴承座端盖",
+      "x": 684.210526,
+      "y": 510.733262,
+      "priority": 1.119,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-bearing-housing-cap"
+    },
+    {
+      "id": "airport-baggage-conveyor-open-machinery-side-rail",
+      "word": "Airport open machinery side rail",
+      "translation": "机场设备侧机架梁",
+      "x": 588.516746,
+      "y": 554.729012,
+      "priority": 1.12,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-open-machinery-side-rail"
+    },
+    {
+      "id": "airport-baggage-conveyor-lower-frame-crossbar",
+      "word": "Airport lower frame crossbar",
+      "translation": "机场下部机架横梁",
+      "x": 861.244019,
+      "y": 755.579171,
+      "priority": 1.121,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-lower-frame-crossbar"
+    },
+    {
+      "id": "airport-baggage-conveyor-drive-frame-diagonal-brace",
+      "word": "Airport drive-frame diagonal brace",
+      "translation": "机场驱动机架斜撑",
+      "x": 1167.464115,
+      "y": 765.143464,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-drive-frame-diagonal-brace"
+    },
+    {
+      "id": "airport-baggage-conveyor-conveyor-support-column",
+      "word": "Airport conveyor support column",
+      "translation": "机场输送机支撑立柱",
+      "x": 1215.311005,
+      "y": 711.583422,
+      "priority": 1.123,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-conveyor-support-column"
+    },
+    {
+      "id": "airport-baggage-conveyor-support-column-foot",
+      "word": "Airport support column foot",
+      "translation": "机场支撑立柱底脚",
+      "x": 1215.311005,
+      "y": 811.052072,
+      "priority": 1.124,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-support-column-foot"
+    },
+    {
+      "id": "airport-baggage-conveyor-conveyor-control-cabinet",
+      "word": "Airport conveyor control cabinet",
+      "translation": "机场输送机控制柜",
+      "x": 924.401914,
+      "y": 200.850159,
+      "priority": 1.125,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-conveyor-control-cabinet"
+    },
+    {
+      "id": "airport-baggage-conveyor-cabinet-door",
+      "word": "Airport cabinet door",
+      "translation": "机场控制柜柜门",
+      "x": 971.291866,
+      "y": 200.850159,
+      "priority": 1.126,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-cabinet-door"
+    },
+    {
+      "id": "airport-baggage-conveyor-blank-cabinet-display",
+      "word": "Airport blank cabinet display",
+      "translation": "机场控制柜空白显示屏",
+      "x": 966.507177,
+      "y": 154.941552,
+      "priority": 1.127,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-blank-cabinet-display"
+    },
+    {
+      "id": "airport-baggage-conveyor-display-bezel",
+      "word": "Airport display bezel",
+      "translation": "机场显示屏边框",
+      "x": 966.507177,
+      "y": 128.16153,
+      "priority": 1.128,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-display-bezel"
+    },
+    {
+      "id": "airport-baggage-conveyor-cabinet-latch",
+      "word": "Airport cabinet latch",
+      "translation": "机场控制柜门扣",
+      "x": 935.885167,
+      "y": 194.155154,
+      "priority": 1.129,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-cabinet-latch"
+    },
+    {
+      "id": "airport-baggage-conveyor-cabinet-hinge",
+      "word": "Airport cabinet hinge",
+      "translation": "机场控制柜铰链",
+      "x": 1009.569378,
+      "y": 189.373007,
+      "priority": 1.13,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-cabinet-hinge"
+    },
+    {
+      "id": "airport-baggage-conveyor-cabinet-base-plinth",
+      "word": "Airport cabinet base plinth",
+      "translation": "机场控制柜底座",
+      "x": 971.291866,
+      "y": 279.277365,
+      "priority": 1.131,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-cabinet-base-plinth"
+    },
+    {
+      "id": "airport-baggage-conveyor-yellow-sensor-post",
+      "word": "Airport yellow sensor post",
+      "translation": "机场黄色传感器立柱",
+      "x": 754.066986,
+      "y": 242.93305,
+      "priority": 1.132,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-yellow-sensor-post"
+    },
+    {
+      "id": "airport-baggage-conveyor-photoelectric-sensor-head",
+      "word": "Airport photoelectric sensor head",
+      "translation": "机场光电传感器头",
+      "x": 755.980861,
+      "y": 237.194474,
+      "priority": 1.133,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-photoelectric-sensor-head"
+    },
+    {
+      "id": "airport-baggage-conveyor-sensor-mounting-bracket",
+      "word": "Airport sensor mounting bracket",
+      "translation": "机场传感器安装支架",
+      "x": 773.205742,
+      "y": 247.715197,
+      "priority": 1.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-sensor-mounting-bracket"
+    },
+    {
+      "id": "airport-baggage-conveyor-red-emergency-stop-button",
+      "word": "Airport red emergency-stop button",
+      "translation": "机场红色急停按钮",
+      "x": 1228.708134,
+      "y": 439.957492,
+      "priority": 1.135,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-red-emergency-stop-button"
+    },
+    {
+      "id": "airport-baggage-conveyor-emergency-stop-collar",
+      "word": "Airport emergency-stop collar",
+      "translation": "机场急停按钮护圈",
+      "x": 1228.708134,
+      "y": 463.868225,
+      "priority": 1.136,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-emergency-stop-collar"
+    },
+    {
+      "id": "airport-baggage-conveyor-control-station-support-post",
+      "word": "Airport control-station support post",
+      "translation": "机场控制台支撑柱",
+      "x": 1232.535885,
+      "y": 553.772582,
+      "priority": 1.137,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-control-station-support-post"
+    },
+    {
+      "id": "airport-baggage-conveyor-control-station-base",
+      "word": "Airport control-station base",
+      "translation": "机场控制台底座",
+      "x": 1234.449761,
+      "y": 588.204038,
+      "priority": 1.138,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-control-station-base"
+    },
+    {
+      "id": "airport-baggage-conveyor-yellow-guardrail",
+      "word": "Airport yellow guardrail",
+      "translation": "机场黄色安全护栏",
+      "x": 1196.172249,
+      "y": 175.026567,
+      "priority": 1.139,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-yellow-guardrail"
+    },
+    {
+      "id": "airport-baggage-conveyor-guardrail-upper-tube",
+      "word": "Airport guardrail upper tube",
+      "translation": "机场护栏上管",
+      "x": 1119.617225,
+      "y": 175.026567,
+      "priority": 1.14,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guardrail-upper-tube"
+    },
+    {
+      "id": "airport-baggage-conveyor-guardrail-lower-tube",
+      "word": "Airport guardrail lower tube",
+      "translation": "机场护栏下管",
+      "x": 1124.401914,
+      "y": 201.806589,
+      "priority": 1.141,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guardrail-lower-tube"
+    },
+    {
+      "id": "airport-baggage-conveyor-guardrail-post-foot",
+      "word": "Airport guardrail post foot",
+      "translation": "机场护栏立柱底座",
+      "x": 1186.602871,
+      "y": 213.283741,
+      "priority": 1.142,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-guardrail-post-foot"
+    },
+    {
+      "id": "airport-baggage-conveyor-overhead-frame-crossbar",
+      "word": "Airport overhead frame crossbar",
+      "translation": "机场上方机架横梁",
+      "x": 1287.08134,
+      "y": 151.115834,
+      "priority": 1.143,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-overhead-frame-crossbar"
+    },
+    {
+      "id": "airport-baggage-conveyor-upper-conveyor-support-rail",
+      "word": "Airport upper conveyor support rail",
+      "translation": "机场上层输送机支撑导轨",
+      "x": 1425.837321,
+      "y": 144.420829,
+      "priority": 1.144,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-upper-conveyor-support-rail"
+    },
+    {
+      "id": "airport-baggage-conveyor-upper-rail-mounting-bracket",
+      "word": "Airport upper rail mounting bracket",
+      "translation": "机场上层导轨安装支架",
+      "x": 1464.114833,
+      "y": 171.20085,
+      "priority": 1.145,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-upper-rail-mounting-bracket"
+    },
+    {
+      "id": "airport-baggage-conveyor-sensor-post-clamp",
+      "word": "Airport sensor-post clamp",
+      "translation": "机场传感器立柱夹箍",
+      "x": 765.550239,
+      "y": 260.148778,
+      "priority": 1.146,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-sensor-post-clamp"
+    },
+    {
+      "id": "airport-baggage-conveyor-right-roller-lane-guard",
+      "word": "Airport right roller-lane guard",
+      "translation": "机场右侧滚筒通道护板",
+      "x": 1387.559809,
+      "y": 291.710946,
+      "priority": 1.147,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-right-roller-lane-guard"
+    },
+    {
+      "id": "airport-baggage-conveyor-roller-lane-guard-fastener",
+      "word": "Airport roller-lane guard fastener",
+      "translation": "机场滚筒通道护板紧固件",
+      "x": 1387.559809,
+      "y": 286.928799,
+      "priority": 1.148,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-roller-lane-guard-fastener"
+    },
+    {
+      "id": "airport-baggage-conveyor-safety-rail-end-cap",
+      "word": "Airport safety-rail end cap",
+      "translation": "机场安全栏杆端盖",
+      "x": 1105.263158,
+      "y": 181.721573,
+      "priority": 1.149,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-baggage-conveyor-region-safety-rail-end-cap"
+    }
+  ],
+  "portals": []
+}
