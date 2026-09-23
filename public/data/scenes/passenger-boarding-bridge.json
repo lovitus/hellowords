@@ -1490,7 +1490,7 @@
       "description": "Follow both continuous handrails, their brackets and the visible raised aircraft-door threshold.",
       "x": 390,
       "y": 300,
-      "width": 720,
+      "width": 740,
       "height": 350,
       "targetScale": 2.7,
       "labelIds": [
