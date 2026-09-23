@@ -108,6 +108,16 @@
       "parentId": "hospital"
     },
     {
+      "id": "emergency-triage-reception",
+      "title": "Emergency triage reception",
+      "parentId": "emergency-department"
+    },
+    {
+      "id": "emergency-assessment-bay",
+      "title": "Emergency assessment bay",
+      "parentId": "emergency-triage-reception"
+    },
+    {
       "id": "intensive-care-unit",
       "title": "Intensive care unit",
       "parentId": "emergency-department"

@@ -696,6 +696,8 @@ const FOCUSED_PRIORITY_SCENES = new Set([
   "hospital",
   "pathology-lab",
   "hospital-pharmacy",
+  "emergency-triage-reception",
+  "emergency-assessment-bay",
   "airport",
   "office-building",
 ]);
@@ -971,10 +973,16 @@ export function SceneViewport({
       .filter((label) => labelIds.has(label.id))
       .sort((first, second) => first.priority - second.priority || first.id.localeCompare(second.id));
   }, [activeAtlasDistrict, scene.labels]);
-  const activeAtlasLabelIds = useMemo(
-    () => new Set(activeAtlasLabels.map((label) => label.id)),
-    [activeAtlasLabels],
-  );
+  const labelsForRender = useMemo(() => {
+    if (transitionPhase === "outgoing") return [] as Label[];
+    // The root atlas has 1,289 labels but paints only the hovered district.
+    // Filter that small subset directly instead of scanning the whole atlas
+    // on each scene-view render.
+    const candidates = atlasOverviewMode
+      ? selectedLabelId ? [] : activeAtlasLabels
+      : scene.labels;
+    return candidates.filter((label) => mountedLabelIds.has(label.id));
+  }, [activeAtlasLabels, atlasOverviewMode, mountedLabelIds, scene.labels, selectedLabelId, transitionPhase]);
 
   const cancelAtlasCategoryClose = useCallback(() => {
     if (atlasCategoryCloseTimerRef.current === null) return;
@@ -3441,10 +3449,7 @@ export function SceneViewport({
           aria-hidden={motionFrozen ? true : undefined}
           aria-label="Words in this scene"
         >
-          {scene.labels.filter((label) => (
-            (!atlasOverviewMode || (!selectedLabelId && activeAtlasLabelIds.has(label.id)))
-            && transitionPhase !== "outgoing" && mountedLabelIds.has(label.id)
-          )).map((label) => {
+          {labelsForRender.map((label) => {
             const semanticStyle = labelSemanticStyles.get(label.id);
             return (
               <button

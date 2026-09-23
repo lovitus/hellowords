@@ -216,12 +216,53 @@ const sceneDefinitions = [
       translation: "进入手术室",
       childSceneId: "operating-theatre",
       sourceVisualRegion: "operating-theatre-door",
-      x: 1_130,
-      y: 30,
-      width: 429,
-      height: 285,
+      x: 1_390,
+      y: 162,
+      width: 84,
+      height: 84,
       enterScale: 3.4,
     },
+    additionalPortals: [
+      {
+        id: "enter-intensive-care-unit",
+        label: "Enter the intensive care unit",
+        translation: "进入重症监护室",
+        childSceneId: "intensive-care-unit",
+        sourceVisualRegion: "portal-intensive-care-unit-critical-care-bay",
+        x: 625,
+        y: 555,
+        width: 70,
+        height: 70,
+        enterScale: 3.2,
+        sceneCoordinates: true,
+      },
+      {
+        id: "enter-hospital-inpatient-bedspace",
+        label: "Explore the inpatient bedspace",
+        translation: "探索住院床位区",
+        childSceneId: "hospital-inpatient-bedspace",
+        sourceVisualRegion: "portal-hospital-inpatient-bedspace",
+        x: 1_220,
+        y: 660,
+        width: 70,
+        height: 70,
+        enterScale: 3.35,
+        sceneCoordinates: true,
+      },
+      {
+        id: "enter-emergency-triage-reception",
+        label: "Explore the triage registration desk",
+        translation: "探索分诊登记台",
+        childSceneId: "emergency-triage-reception",
+        sourceVisualRegion: "portal-emergency-triage-reception-counter-face",
+        x: 0,
+        y: 420,
+        width: 280,
+        height: 80,
+        enterScale: 3.15,
+        sceneCoordinates: true,
+      },
+    ],
   },
   {
     id: "operating-theatre",
@@ -409,6 +450,21 @@ const sceneDefinitions = [
       },
     ],
     portal: null,
+    additionalPortals: [
+      {
+        id: "enter-post-anesthesia-care-unit",
+        label: "Enter the post-anesthesia care unit",
+        translation: "进入麻醉后恢复室",
+        childSceneId: "post-anesthesia-care-unit",
+        sourceVisualRegion: "recovery-ward",
+        x: 1_440,
+        y: 335,
+        width: 80,
+        height: 80,
+        enterScale: 3.4,
+        sceneCoordinates: true,
+      },
+    ],
   },
 ];
 
@@ -480,26 +536,41 @@ function buildScene(definition) {
       labelIds,
     });
   }
-  let scenePortal = null;
-  if (definition.portal) {
-    const portal = definition.portal;
-    scenePortal = {
-      ...portal,
-      x: scenePoint(portal.x, "x"),
-      y: scenePoint(portal.y, "y"),
-      width: scenePoint(portal.width, "x"),
-      height: scenePoint(portal.height, "y"),
+  const portalDefinitions = [
+    ...(definition.portal ? [definition.portal] : []),
+    ...(definition.additionalPortals ?? []),
+  ];
+  const portals = portalDefinitions.map((portal) => {
+    const {
+      sceneCoordinates = false,
+      ...portalFields
+    } = portal;
+    const point = (value, axis) => sceneCoordinates ? value : scenePoint(value, axis);
+    const normalizedPortal = {
+      ...portalFields,
+      x: point(portal.x, "x"),
+      y: point(portal.y, "y"),
+      width: point(portal.width, "x"),
+      height: point(portal.height, "y"),
+    };
+    const portalDescriptions = {
+      "operating-theatre": "A clear patch over the visible operating-theatre table beyond the doorway",
+      "intensive-care-unit": "A clear patch over the visible resuscitation stretcher in the central emergency-department bay",
+      "hospital-inpatient-bedspace": "A clear patch over the visible examination couch in the right-hand emergency-department bay",
+      "emergency-triage-reception": "The clear, lower front face of the visible emergency triage registration counter",
+      "post-anesthesia-care-unit": "A clear patch over the visible recovery bed beyond the glazed opening in the operating-theatre photograph",
     };
     visualRegions.push({
       id: portal.sourceVisualRegion,
-      description: "Complete visible operating-theatre doorway in the emergency-department photograph",
+      description: portalDescriptions[portal.childSceneId] ?? `Visible ${portal.childSceneId} entrance in the emergency-department photograph`,
       kind: "object",
-      x: scenePoint(portal.x, "x"),
-      y: scenePoint(portal.y, "y"),
-      width: scenePoint(portal.width, "x"),
-      height: scenePoint(portal.height, "y"),
+      x: normalizedPortal.x,
+      y: normalizedPortal.y,
+      width: normalizedPortal.width,
+      height: normalizedPortal.height,
     });
-  }
+    return normalizedPortal;
+  });
   return {
     id: definition.id,
     title: definition.title,
@@ -530,7 +601,7 @@ function buildScene(definition) {
       ],
     },
     labels,
-    portals: scenePortal ? [scenePortal] : [],
+    portals,
   };
 }
 

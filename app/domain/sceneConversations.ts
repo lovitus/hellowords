@@ -346,6 +346,58 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["I'll let the care team know what support you requested.", "我会把您需要的协助告知医护团队。"],
     ] },
   ],
+  "emergency-triage-reception": [
+    { title: "办理登记并说明来意", roles: ["患者", "接待员"], lines: [
+      ["I would like to check in and speak with the triage nurse.", "我想办理登记，并和分诊护士谈一谈。"],
+      ["Please tell me what brought you to the emergency department.", "请告诉我您因为什么来到急诊科。"],
+      ["I have a symptom that began this morning.", "我有一种今天早上开始出现的症状。"],
+      ["When did you first notice it?", "您最初是什么时候注意到的？"],
+      ["I wrote down a few details to help me explain.", "我记下了一些细节，方便说明情况。"],
+      ["Thank you. I will pass that information to the clinical team.", "谢谢，我会把这些信息转告给医护团队。"],
+    ] },
+    { title: "请求口译和沟通协助", roles: ["患者", "分诊护士"], lines: [
+      ["I would feel more comfortable speaking Mandarin.", "用普通话交流会让我感觉更自在。"],
+      ["Could you arrange a Mandarin interpreter to join our conversation?", "您能安排一位普通话口译员来协助交流吗？"],
+      ["Yes, please. I want to describe what has changed.", "需要，谢谢。我想说明情况有哪些变化。"],
+      ["I will check what language support is available.", "我会确认目前有哪些语言协助服务。"],
+      ["Could I show you the notes I brought with me?", "我可以给您看我带来的记录吗？"],
+      ["Yes. Please show them to the triage nurse.", "可以，请把记录给分诊护士看。"],
+    ] },
+    { title: "确认候诊位置并及时求助", roles: ["患者", "接待员"], lines: [
+      ["Where should I wait after I have checked in?", "登记后我应该在哪里等候？"],
+      ["Please take a seat in the waiting area.", "请在候诊区找个座位坐下。"],
+      ["What should I do if I start to feel worse?", "如果我开始感觉更不舒服，应该怎么办？"],
+      ["Please tell a member of staff straight away.", "请马上告诉工作人员。"],
+      ["May I keep the wheelchair beside me while I wait?", "等候时我可以把轮椅放在身边吗？"],
+      ["Yes. Let us know if you need help moving it.", "可以。如果移动时需要帮助，请告诉我们。"],
+    ] },
+  ],
+  "emergency-assessment-bay": [
+    { title: "描述不适与变化", roles: ["患者", "护士"], lines: [
+      ["The discomfort is on my left side.", "不适在我的左侧。"],
+      ["When did the discomfort first begin?", "这种不适最初是什么时候开始的？"],
+      ["It began about an hour ago.", "大约一小时前开始的。"],
+      ["Has anything changed since then?", "从那时起有什么变化吗？"],
+      ["It feels worse when I move.", "我活动时感觉更不舒服。"],
+      ["Please let us know if it changes while we assess you.", "评估期间如果情况有变化，请告诉我们。"],
+    ] },
+    { title: "了解检查与设备", roles: ["患者", "护士"], lines: [
+      ["Could you explain what the monitor is for?", "您能解释一下这台监护仪的用途吗？"],
+      ["It helps the care team check you during your assessment.", "它可以帮助医护团队在评估期间查看您的情况。"],
+      ["Will you explain before carrying out a check?", "进行检查前，您会先向我说明吗？"],
+      ["Yes. I will explain each step and answer your questions.", "会的，我会说明每一步并回答您的问题。"],
+      ["May I ask you to pause if I feel uncomfortable?", "如果我感觉不舒服，可以请您暂停吗？"],
+      ["Yes. Please tell me, and we can talk about it.", "可以，请告诉我，我们可以先沟通一下。"],
+    ] },
+    { title: "请求口译与维护隐私", roles: ["患者", "护士"], lines: [
+      ["Could I speak with an interpreter?", "我可以请口译员协助交流吗？"],
+      ["I can ask the team to arrange language support.", "我可以请团队安排语言协助。"],
+      ["Could you close the curtain while we talk?", "我们交谈时，您能拉上隔帘吗？"],
+      ["Of course. I will give you as much privacy as possible.", "当然，我会尽可能保护您的隐私。"],
+      ["Where should I put my belongings?", "我的随身物品应该放在哪里？"],
+      ["Keep them with you, and tell us if you need help.", "请把物品放在身边；如果需要帮助，请告诉我们。"],
+    ] },
+  ],
   "hospital-inpatient-bedspace": [
     { title: "询问床旁设备与呼叫方式", roles: ["患者", "护士"], lines: [
       ["Could you show me how to use the nurse-call handset?", "您能教我怎样使用护士呼叫器吗？"],

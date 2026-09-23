@@ -374,8 +374,8 @@ test("dense SSR starts from a compact bounded seed and wires low-frequency camer
   assert.match(source, /buildSceneLabelMountWindow\([\s\S]*previousIds: mountedLabelIdsRef\.current/);
   assert.match(
     source,
-    /scene\.labels\.filter\(\(label\) => \([\s\S]*?transitionPhase !== "outgoing" && mountedLabelIds\.has\(label\.id\)[\s\S]*?\)\)\.map/,
-    "an inert outgoing layer retains no duplicate word-button DOM",
+    /const labelsForRender = useMemo\(\(\) => \{[\s\S]*?if \(transitionPhase === "outgoing"\) return \[\] as Label\[\];[\s\S]*?const candidates = atlasOverviewMode[\s\S]*?selectedLabelId \? \[\] : activeAtlasLabels[\s\S]*?: scene\.labels;[\s\S]*?return candidates\.filter\(\(label\) => mountedLabelIds\.has\(label\.id\)\);[\s\S]*?\}, \[activeAtlasLabels, atlasOverviewMode, mountedLabelIds, scene\.labels, selectedLabelId, transitionPhase\]\);[\s\S]*?\{labelsForRender\.map\(\(label\) => \{/,
+    "memoized labels still preserve root hover-scoping, bounded mounts, and an empty outgoing word layer",
   );
   assert.match(
     source,

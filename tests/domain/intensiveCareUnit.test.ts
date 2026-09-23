@@ -102,7 +102,7 @@ test("the emergency department exposes one bounded visible ICU entrance", async 
   assert.ok(portal);
   assert.deepEqual(
     [portal.x, portal.y, portal.width, portal.height],
-    [400, 280, 450, 430],
+    [625, 555, 70, 70],
   );
   const region = parent.visualRegions.find(({ id }) => id === portal.sourceVisualRegion);
   assert.ok(region);

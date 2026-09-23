@@ -74,6 +74,24 @@ test("acute hospital rasters stay bright enough for dense labels", async () => {
       maxChroma: 0.3,
       maxSpread: 45,
     },
+    {
+      id: "emergency-triage-reception",
+      minLuminance: 105,
+      maxDark: 0.25,
+      maxDeepDark: 0.08,
+      minChroma: 0.05,
+      maxChroma: 0.25,
+      maxSpread: 45,
+    },
+    {
+      id: "emergency-assessment-bay",
+      minLuminance: 105,
+      maxDark: 0.25,
+      maxDeepDark: 0.08,
+      minChroma: 0.04,
+      maxChroma: 0.32,
+      maxSpread: 50,
+    },
   ] as const;
   for (const contract of contracts) {
     const file = resolve(projectRoot, `public/scenes/${contract.id}-premium-v1.jpg`);
@@ -94,7 +112,7 @@ test("acute hospital rasters stay bright enough for dense labels", async () => {
 });
 
 test("the source rasters remain valid RGB 1672 by 941 audit images", async () => {
-  for (const id of ["emergency-department", "operating-theatre"]) {
+  for (const id of ["emergency-department", "operating-theatre", "emergency-triage-reception", "emergency-assessment-bay"]) {
     const file = resolve(projectRoot, `scripts/assets/${id}-v1.png`);
     const bytes = await readFile(file);
     const metadata = await decodeImage(bytes).metadata();

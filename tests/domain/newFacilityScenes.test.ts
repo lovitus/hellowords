@@ -173,6 +173,26 @@ const contracts = [
     zoneSizes: [25, 25, 25, 25, 25, 25],
   },
   {
+    id: "emergency-triage-reception",
+    parentId: "emergency-department",
+    asset: "/scenes/emergency-triage-reception-premium-v1.jpg",
+    sha256: "0b4a4f85f57c172fdac61cfa99be5f762b8953ac366094f71422740572d373b8",
+    source: "scripts/assets/emergency-triage-reception-v1.png",
+    sourceSha256: "0b58f34f842e8e72b89e4bbb30dfb82ce0ebacabffdc46639d2cddffdb8cded0",
+    labels: 302,
+    zoneSizes: [44, 44, 43, 43, 45, 44, 39],
+  },
+  {
+    id: "emergency-assessment-bay",
+    parentId: "emergency-triage-reception",
+    asset: "/scenes/emergency-assessment-bay-premium-v1.jpg",
+    sha256: "f8bf7333b715e7dc07d19c219444afc0eda6c95ff218a2d9eb5b79463b4e48cd",
+    source: "scripts/assets/emergency-assessment-bay-v1.png",
+    sourceSha256: "e0c71d09e58710929db8f78672ccc0ba5e6379aba306e5bdf5b123ee8185b734",
+    labels: 148,
+    zoneSizes: [24, 24, 17, 24, 24, 19, 16],
+  },
+  {
     id: "office-reception-lobby",
     parentId: "office-building",
     asset: "/scenes/office-reception-lobby-premium-v1.jpg",
@@ -395,7 +415,7 @@ test("pathology laboratory and hospital pharmacy expose independently audited eq
 
 test("hospital bedspace, office reception and customs entrances use accurate separate crops", async () => {
   const contracts = [
-    { file: "emergency-department.json", child: "hospital-inpatient-bedspace", rect: [1_090, 420, 480, 400] },
+    { file: "emergency-department.json", child: "hospital-inpatient-bedspace", rect: [1_220, 660, 70, 70] },
     { file: "office-building.json", child: "office-reception-lobby", rect: [0, 500, 300, 360] },
     { file: "baggage-claim.json", child: "airport-customs-hall", rect: [1_210, 75, 340, 320] },
     { file: "airport-customs-hall.json", child: "customs-baggage-examination", rect: [285, 230, 350, 300] },
@@ -533,6 +553,79 @@ test("the corridor locker portal targets a separate complete door without coveri
   const region = corridor.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+});
+
+test("emergency triage reception opens a visible assessment bay without covering anchors or portals", async () => {
+  const emergency = await readJson("emergency-department.json");
+  const portal = emergency.portals.find(({ childSceneId }: { childSceneId: string }) => (
+    childSceneId === "emergency-triage-reception"
+  ));
+  assert.ok(portal);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [0, 420, 280, 80]);
+  assert.equal(portal.enterScale, 3.15);
+  assert.equal(
+    emergency.labels.filter(({ x, y }: { x: number; y: number }) => (
+      x >= portal.x && x <= portal.x + portal.width && y >= portal.y && y <= portal.y + portal.height
+    )).length,
+    0,
+    "the counter-face hotspot must preserve all existing ED label anchors",
+  );
+  const overlapsExistingPortal = emergency.portals.some((candidate: typeof portal) => {
+    if (candidate.id === portal.id) return false;
+    return portal.x < candidate.x + candidate.width
+      && candidate.x < portal.x + portal.width
+      && portal.y < candidate.y + candidate.height
+      && candidate.y < portal.y + portal.height;
+  });
+  assert.equal(overlapsExistingPortal, false);
+  const region = emergency.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+
+  const triage = await readJson("emergency-triage-reception.json");
+  const assessmentPortal = triage.portals.find(({ childSceneId }: { childSceneId: string }) => (
+    childSceneId === "emergency-assessment-bay"
+  ));
+  assert.ok(assessmentPortal);
+  assert.deepEqual(
+    [assessmentPortal.x, assessmentPortal.y, assessmentPortal.width, assessmentPortal.height],
+    [1_150, 120, 65, 65],
+  );
+  assert.equal(assessmentPortal.enterScale, 3.25);
+  assert.equal(
+    triage.labels.filter(({ x, y }: { x: number; y: number }) => (
+      x >= assessmentPortal.x && x <= assessmentPortal.x + assessmentPortal.width
+      && y >= assessmentPortal.y && y <= assessmentPortal.y + assessmentPortal.height
+    )).length,
+    0,
+    "the assessment hotspot must preserve triage label anchors",
+  );
+  const assessmentRegion = triage.visualRegions.find(({ id }: { id: string }) => (
+    id === assessmentPortal.sourceVisualRegion
+  ));
+  assert.ok(assessmentRegion);
+  assert.deepEqual(
+    [assessmentRegion.x, assessmentRegion.y, assessmentRegion.width, assessmentRegion.height],
+    [assessmentPortal.x, assessmentPortal.y, assessmentPortal.width, assessmentPortal.height],
+  );
+
+  const child = await readJson("emergency-assessment-bay.json");
+  assert.deepEqual(child.portals, [], "continued zoom remains inside the terminal assessment bay");
+
+  const manifest = await readJson("manifest.json");
+  const existingWords = new Set<string>();
+  for (const { id } of manifest.scenes.filter(({ id }: { id: string }) => ![triage.id, child.id].includes(id))) {
+    const other = await readJson(`${id}.json`);
+    for (const label of other.labels as Array<{ word: string }>) {
+      existingWords.add(label.word.toLocaleLowerCase());
+    }
+  }
+  for (const scene of [triage, child]) {
+    for (const label of scene.labels as Array<{ word: string }>) {
+      assert.equal(existingWords.has(label.word.toLocaleLowerCase()), false, `${label.word} is unique across scenes`);
+      existingWords.add(label.word.toLocaleLowerCase());
+    }
+  }
 });
 
 test("the school locker bank remains a terminal spatial scene", async () => {

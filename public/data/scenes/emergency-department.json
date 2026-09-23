@@ -982,30 +982,39 @@
     },
     {
       "id": "operating-theatre-door",
-      "description": "Complete visible operating-theatre doorway in the emergency-department photograph",
+      "description": "A clear patch over the visible operating-theatre table beyond the doorway",
       "kind": "object",
-      "x": 1081.339713,
-      "y": 28.69288,
-      "width": 410.526316,
-      "height": 272.582359
+      "x": 1330.143541,
+      "y": 154.941552,
+      "width": 80.382775,
+      "height": 80.340064
     },
     {
       "id": "portal-intensive-care-unit-critical-care-bay",
-      "description": "Complete visible monitored critical-care bay in the emergency-department photograph",
+      "description": "A clear patch over the visible resuscitation stretcher in the central emergency-department bay",
       "kind": "object",
-      "x": 400,
-      "y": 280,
-      "width": 450,
-      "height": 430
+      "x": 625,
+      "y": 555,
+      "width": 70,
+      "height": 70
     },
     {
       "id": "portal-hospital-inpatient-bedspace",
-      "description": "The right-hand emergency examination bed and its complete bedhead service area",
+      "description": "A clear patch over the visible examination couch in the right-hand emergency-department bay",
       "kind": "object",
-      "x": 1090,
+      "x": 1220,
+      "y": 660,
+      "width": 70,
+      "height": 70
+    },
+    {
+      "id": "portal-emergency-triage-reception-counter-face",
+      "description": "The clear, lower front face of the visible emergency triage registration counter",
+      "kind": "object",
+      "x": 0,
       "y": 420,
-      "width": 480,
-      "height": 400
+      "width": 280,
+      "height": 80
     }
   ],
   "detailZones": [
@@ -2398,10 +2407,10 @@
       "translation": "进入手术室",
       "childSceneId": "operating-theatre",
       "sourceVisualRegion": "operating-theatre-door",
-      "x": 1081.339713,
-      "y": 28.69288,
-      "width": 410.526316,
-      "height": 272.582359,
+      "x": 1330.143541,
+      "y": 154.941552,
+      "width": 80.382775,
+      "height": 80.340064,
       "enterScale": 3.4
     },
     {
@@ -2410,10 +2419,10 @@
       "translation": "进入重症监护室",
       "childSceneId": "intensive-care-unit",
       "sourceVisualRegion": "portal-intensive-care-unit-critical-care-bay",
-      "x": 400,
-      "y": 280,
-      "width": 450,
-      "height": 430,
+      "x": 625,
+      "y": 555,
+      "width": 70,
+      "height": 70,
       "enterScale": 3.2
     },
     {
@@ -2422,11 +2431,23 @@
       "translation": "探索住院床位区",
       "childSceneId": "hospital-inpatient-bedspace",
       "sourceVisualRegion": "portal-hospital-inpatient-bedspace",
-      "x": 1090,
-      "y": 420,
-      "width": 480,
-      "height": 400,
+      "x": 1220,
+      "y": 660,
+      "width": 70,
+      "height": 70,
       "enterScale": 3.35
+    },
+    {
+      "id": "enter-emergency-triage-reception",
+      "label": "Explore the triage registration desk",
+      "translation": "探索分诊登记台",
+      "childSceneId": "emergency-triage-reception",
+      "sourceVisualRegion": "portal-emergency-triage-reception-counter-face",
+      "x": 0,
+      "y": 420,
+      "width": 280,
+      "height": 80,
+      "enterScale": 3.15
     }
   ]
 }

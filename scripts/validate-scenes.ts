@@ -110,6 +110,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // Acute-care scenes retain only visible triage, resuscitation, examination,
   // theatre, scrub, sterile-store and recovery fixtures.
   "emergency-department": 90,
+  "emergency-triage-reception": 302,
+  "emergency-assessment-bay": 145,
   "operating-theatre": 90,
   "post-anesthesia-care-unit": 120,
   "intensive-care-unit": 140,
@@ -237,6 +239,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // imaging, control, preparation and room-hardware parts.
   "radiology-suite": 87,
   "emergency-department": 108,
+  "emergency-triage-reception": 302,
+  // Keep the assessment scene bounded to its seven visually reviewed object groups.
+  "emergency-assessment-bay": 148,
   "operating-theatre": 109,
   "post-anesthesia-care-unit": 134,
   "intensive-care-unit": 159,

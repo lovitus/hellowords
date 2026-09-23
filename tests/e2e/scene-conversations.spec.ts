@@ -81,6 +81,55 @@ test("emergency-department practice opens on its real hospital path with a clear
   await expect(dialog).toContainText("仅用于语言练习，不提供诊断或用药建议。");
 });
 
+test("emergency triage reception offers check-in, interpreter and waiting-area practice", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const app = page.getByTestId("world-app");
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+  for (const sceneId of [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "hospital",
+    "emergency-department",
+    "emergency-triage-reception",
+  ]) {
+    const portal = page.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${sceneId}"]`,
+    ).first();
+    await expect(portal).toBeVisible();
+    await portal.click();
+    await expect(app).toHaveAttribute("data-scene-id", sceneId);
+    await expect(app).toHaveAttribute("data-scene-loading", "false");
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+  }
+  await page.getByRole("button", { name: "情景会话", exact: true }).click();
+  const dialog = page.getByRole("dialog", { name: "在这里怎么说" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator("li")).toHaveCount(18);
+  await expect(dialog).toContainText("I would like to check in and speak with the triage nurse.");
+  await expect(dialog).toContainText("Could you arrange a Mandarin interpreter to join our conversation?");
+  await expect(dialog).toContainText("Please tell a member of staff straight away.");
+  await expect(dialog).toContainText("仅用于语言练习，不提供诊断或用药建议。");
+  await dialog.getByRole("button", { name: "关闭情景会话" }).click();
+  const assessmentBay = page.locator(
+    '[data-testid="scene-hotspot"][data-target-scene="emergency-assessment-bay"]',
+  );
+  await expect(assessmentBay).toBeVisible();
+  await assessmentBay.click();
+  await expect(app).toHaveAttribute("data-scene-id", "emergency-assessment-bay");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await page.getByRole("button", { name: "情景会话", exact: true }).click();
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator("li")).toHaveCount(18);
+  await expect(dialog).toContainText("Could you explain what the monitor is for?");
+  await expect(dialog).toContainText("仅用于语言练习，不提供诊断或用药建议。");
+  await dialog.getByRole("button", { name: "关闭情景会话" }).click();
+  await page.getByRole("button", { name: /返回上一层/ }).click();
+  await expect(app).toHaveAttribute("data-scene-id", "emergency-triage-reception");
+  await page.getByRole("button", { name: /返回上一层/ }).click();
+  await expect(app).toHaveAttribute("data-scene-id", "emergency-department");
+});
+
 test("school locker practice opens from the real school scene path", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
   const app = page.getByTestId("world-app");

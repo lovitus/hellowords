@@ -8,6 +8,8 @@ const MEDICAL_CONVERSATION_SCENE_IDS = new Set([
   "hospital-inpatient-bedspace",
   "hospital-pharmacy",
   "emergency-department",
+  "emergency-triage-reception",
+  "emergency-assessment-bay",
   "intensive-care-unit",
   "operating-theatre",
   "radiology-suite",

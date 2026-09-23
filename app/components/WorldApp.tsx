@@ -96,6 +96,16 @@ interface RootAtlasZone {
   readonly targetScale: number;
 }
 
+interface SceneDetailFocusZone {
+  readonly id: string;
+  readonly title: string;
+  readonly translation: string;
+  readonly labelCount: number;
+  readonly focusX: number;
+  readonly focusY: number;
+  readonly targetScale: number;
+}
+
 function focusPointForLabelIds(
   labelIds: readonly string[],
   labelsById: ReadonlyMap<string, Label>,
@@ -109,6 +119,94 @@ function focusPointForLabelIds(
     x: (Math.min(...points.map((label) => label.x)) + Math.max(...points.map((label) => label.x))) / 2,
     y: (Math.min(...points.map((label) => label.y)) + Math.max(...points.map((label) => label.y))) / 2,
   };
+}
+
+// A warm return reuses the same immutable root Scene. Cache its derived
+// district/focus geometry so every visit does not remap all 1,289 anchors.
+const rootAtlasDistrictsCache = new WeakMap<Scene, readonly RootAtlasDistrict[]>();
+const emptyRootAtlasDistricts: readonly RootAtlasDistrict[] = [];
+
+function rootAtlasDistrictsForScene(scene: Scene | null): readonly RootAtlasDistrict[] {
+  if (scene?.id !== "world-map" || !scene.detailZones?.length) return emptyRootAtlasDistricts;
+  const cached = rootAtlasDistrictsCache.get(scene);
+  if (cached) return cached;
+
+  const labelsById = new Map(scene.labels.map((label) => [label.id, label]));
+  const districts = ROOT_ATLAS_DISTRICT_META.flatMap((meta) => {
+    const zones = scene.detailZones!.filter((zone) => zone.id.startsWith(meta.prefix));
+    if (zones.length === 0) return [];
+    const left = Math.min(...zones.map((zone) => zone.x));
+    const top = Math.min(...zones.map((zone) => zone.y));
+    const right = Math.max(...zones.map((zone) => zone.x + zone.width));
+    const bottom = Math.max(...zones.map((zone) => zone.y + zone.height));
+    const labelIds = [...new Set(zones.flatMap((zone) => zone.labelIds))];
+    const districtFocus = focusPointForLabelIds(
+      labelIds,
+      labelsById,
+      { x: (left + right) / 2, y: (top + bottom) / 2 },
+    );
+    return [{
+      id: meta.id,
+      label: meta.label,
+      translation: meta.translation,
+      labelCount: labelIds.length,
+      zoneCount: zones.length,
+      labelIds,
+      x: left,
+      y: top,
+      width: right - left,
+      height: bottom - top,
+      focusX: districtFocus.x,
+      focusY: districtFocus.y,
+      targetScale: Math.min(2.8, Math.max(2.35, Math.min(...zones.map((zone) => zone.targetScale)))),
+      zones: zones.map((zone) => {
+        const zoneFocus = focusPointForLabelIds(
+          zone.labelIds,
+          labelsById,
+          { x: zone.x + zone.width / 2, y: zone.y + zone.height / 2 },
+        );
+        return {
+          id: zone.id,
+          title: zone.title,
+          labelCount: zone.labelIds.length,
+          focusX: zoneFocus.x,
+          focusY: zoneFocus.y,
+          targetScale: zone.targetScale,
+        };
+      }),
+    }];
+  });
+  rootAtlasDistrictsCache.set(scene, districts);
+  return districts;
+}
+
+const sceneDetailZonesCache = new WeakMap<Scene, readonly SceneDetailFocusZone[]>();
+const emptySceneDetailZones: readonly SceneDetailFocusZone[] = [];
+
+function sceneDetailZonesForScene(scene: Scene | null) {
+  if (!scene || scene.id === "world-map" || !scene.detailZones?.length) return emptySceneDetailZones;
+  const cached = sceneDetailZonesCache.get(scene);
+  if (cached) return cached;
+
+  const labelsById = new Map(scene.labels.map((label) => [label.id, label]));
+  const zones = scene.detailZones.map((zone) => {
+    const focus = focusPointForLabelIds(
+      zone.labelIds,
+      labelsById,
+      { x: zone.x + zone.width / 2, y: zone.y + zone.height / 2 },
+    );
+    return {
+      id: zone.id,
+      title: zone.title,
+      translation: zone.translation,
+      labelCount: zone.labelIds.length,
+      focusX: focus.x,
+      focusY: focus.y,
+      targetScale: zone.targetScale,
+    };
+  });
+  sceneDetailZonesCache.set(scene, zones);
+  return zones;
 }
 
 declare global {
@@ -164,79 +262,19 @@ export function WorldApp() {
   const discoveredEntriesRef = useRef<ReadonlySet<string>>(new Set());
   const sceneControlsLocked = loading || continuousTransitionActive || viewportMotionFrozen;
 
-  const rootAtlasDistricts = useMemo<readonly RootAtlasDistrict[]>(() => {
-    if (scene?.id !== "world-map" || !scene.detailZones?.length) return [];
-    const labelsById = new Map(scene.labels.map((label) => [label.id, label]));
-    return ROOT_ATLAS_DISTRICT_META.flatMap((meta) => {
-      const zones = scene.detailZones!.filter((zone) => zone.id.startsWith(meta.prefix));
-      if (zones.length === 0) return [];
-      const left = Math.min(...zones.map((zone) => zone.x));
-      const top = Math.min(...zones.map((zone) => zone.y));
-      const right = Math.max(...zones.map((zone) => zone.x + zone.width));
-      const bottom = Math.max(...zones.map((zone) => zone.y + zone.height));
-      const labelIds = [...new Set(zones.flatMap((zone) => zone.labelIds))];
-      const districtFocus = focusPointForLabelIds(
-        labelIds,
-        labelsById,
-        { x: (left + right) / 2, y: (top + bottom) / 2 },
-      );
-      return [{
-        id: meta.id,
-        label: meta.label,
-        translation: meta.translation,
-        labelCount: labelIds.length,
-        zoneCount: zones.length,
-        labelIds,
-        x: left,
-        y: top,
-        width: right - left,
-        height: bottom - top,
-        focusX: districtFocus.x,
-        focusY: districtFocus.y,
-        targetScale: Math.min(2.8, Math.max(2.35, Math.min(...zones.map((zone) => zone.targetScale)))),
-        zones: zones.map((zone) => {
-          const zoneFocus = focusPointForLabelIds(
-            zone.labelIds,
-            labelsById,
-            { x: zone.x + zone.width / 2, y: zone.y + zone.height / 2 },
-          );
-          return {
-            id: zone.id,
-            title: zone.title,
-            labelCount: zone.labelIds.length,
-            focusX: zoneFocus.x,
-            focusY: zoneFocus.y,
-            targetScale: zone.targetScale,
-          };
-        }),
-      }];
-    });
-  }, [scene]);
+  const rootAtlasDistricts = useMemo(
+    () => rootAtlasDistrictsForScene(scene),
+    [scene],
+  );
 
   const selectedAtlasDistrict = rootAtlasDistricts.find(
     (district) => district.id === selectedAtlasDistrictId,
   ) ?? null;
 
-  const sceneDetailZones = useMemo(() => {
-    if (!scene || scene.id === "world-map") return [];
-    const labelsById = new Map(scene.labels.map((label) => [label.id, label]));
-    return (scene.detailZones ?? []).map((zone) => {
-      const focus = focusPointForLabelIds(
-        zone.labelIds,
-        labelsById,
-        { x: zone.x + zone.width / 2, y: zone.y + zone.height / 2 },
-      );
-      return {
-        id: zone.id,
-        title: zone.title,
-        translation: zone.translation,
-        labelCount: zone.labelIds.length,
-        focusX: focus.x,
-        focusY: focus.y,
-        targetScale: zone.targetScale,
-      };
-    });
-  }, [scene]);
+  const sceneDetailZones = useMemo(
+    () => sceneDetailZonesForScene(scene),
+    [scene],
+  );
 
   const sceneWordIndexMatches = useMemo(() => {
     if (!scene) return { total: 0, labels: [] as readonly Label[] };

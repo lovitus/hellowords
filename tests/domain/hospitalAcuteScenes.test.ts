@@ -7,14 +7,14 @@ import sharpModule from "sharp";
 
 const projectRoot = resolve(import.meta.dirname, "../..");
 const sceneRoot = resolve(projectRoot, "public/data/scenes");
-const sceneIds = ["emergency-department", "operating-theatre"] as const;
+const sceneIds = ["emergency-department", "operating-theatre", "emergency-triage-reception", "emergency-assessment-bay"] as const;
 const expected = {
   "emergency-department": {
     labels: 108,
     zones: 5,
     lod: [21, 23, 27, 22, 15],
     parentId: "hospital",
-    children: ["operating-theatre", "intensive-care-unit", "hospital-inpatient-bedspace"],
+    children: ["operating-theatre", "intensive-care-unit", "hospital-inpatient-bedspace", "emergency-triage-reception"],
     asset: "/scenes/emergency-department-premium-v1.jpg",
     assetSha256: "0d5878b4fa27bb1cff5c82d21e8e28aa4e22c8d1885160bd9f2dc3191d94ec47",
     source: "scripts/assets/emergency-department-v1.png",
@@ -30,6 +30,28 @@ const expected = {
     assetSha256: "97083eb3798a19d4faf518ba03e8863530c3e60038d782a75ae2dd40516df07e",
     source: "scripts/assets/operating-theatre-v1.png",
     sourceSha256: "dc848c9957e3095e390478367ffe5ed80800e246aca34c5094ecf591900a06d9",
+  },
+  "emergency-triage-reception": {
+    labels: 302,
+    zones: 7,
+    lod: [7, 60, 24, 144, 67],
+    parentId: "emergency-department",
+    children: ["emergency-assessment-bay"],
+    asset: "/scenes/emergency-triage-reception-premium-v1.jpg",
+    assetSha256: "0b4a4f85f57c172fdac61cfa99be5f762b8953ac366094f71422740572d373b8",
+    source: "scripts/assets/emergency-triage-reception-v1.png",
+    sourceSha256: "0b58f34f842e8e72b89e4bbb30dfb82ce0ebacabffdc46639d2cddffdb8cded0",
+  },
+  "emergency-assessment-bay": {
+    labels: 148,
+    zones: 7,
+    lod: [7, 6, 32, 57, 46],
+    parentId: "emergency-triage-reception",
+    children: [],
+    asset: "/scenes/emergency-assessment-bay-premium-v1.jpg",
+    assetSha256: "f8bf7333b715e7dc07d19c219444afc0eda6c95ff218a2d9eb5b79463b4e48cd",
+    source: "scripts/assets/emergency-assessment-bay-v1.png",
+    sourceSha256: "e0c71d09e58710929db8f78672ccc0ba5e6379aba306e5bdf5b123ee8185b734",
   },
 } as const;
 
@@ -110,7 +132,7 @@ function rectangleContains(rectangle: Region | Zone | Portal, x: number, y: numb
   );
 }
 
-test("the two hospital acute scenes provide 217 distinct pixel-audited anchors", async () => {
+test("the hospital acute scene chain provides 667 distinct pixel-audited anchors", async () => {
   const scenes = new Map<string, Scene>();
   for (const id of sceneIds) scenes.set(id, await readJson<Scene>(`${id}.json`));
 
@@ -172,9 +194,14 @@ test("the two hospital acute scenes provide 217 distinct pixel-audited anchors",
       assert.ok(portalRegion, `${entry.id} child portal keeps a source region`);
       assert.ok(rectangleContains(portalRegion, portal.x, portal.y));
       assert.ok(rectangleContains(portalRegion, portal.x + portal.width, portal.y + portal.height));
+      assert.equal(
+        entry.labels.filter((label) => rectangleContains(portal, label.x, label.y)).length,
+        0,
+        `${entry.id}/${portal.childSceneId} portal region must not obscure word anchors`,
+      );
     }
   }
-  assert.equal(words.size, 217);
+  assert.equal(words.size, 667);
 });
 
 test("the acute scene chain continues to theatre, PACU, ICU and inpatient bedspace", async () => {
@@ -182,7 +209,7 @@ test("the acute scene chain continues to theatre, PACU, ICU and inpatient bedspa
   const theatre = await readJson<Scene>("operating-theatre.json");
   assert.deepEqual(
     emergency.portals.map(({ childSceneId }) => childSceneId),
-    ["operating-theatre", "intensive-care-unit", "hospital-inpatient-bedspace"],
+    ["operating-theatre", "intensive-care-unit", "hospital-inpatient-bedspace", "emergency-triage-reception"],
   );
   assert.equal(theatre.parentId, emergency.id);
   assert.deepEqual(theatre.portals.map(({ childSceneId }) => childSceneId), ["post-anesthesia-care-unit"]);

@@ -991,12 +991,12 @@
     },
     {
       "id": "recovery-ward",
-      "description": "Complete visible recovery ward beyond the glazed opening in the operating-theatre photograph",
+      "description": "A clear patch over the visible recovery bed beyond the glazed opening in the operating-theatre photograph",
       "kind": "object",
-      "x": 1050,
-      "y": 100,
-      "width": 500,
-      "height": 430
+      "x": 1440,
+      "y": 335,
+      "width": 80,
+      "height": 80
     }
   ],
   "detailZones": [
@@ -2401,10 +2401,10 @@
       "translation": "进入麻醉后恢复室",
       "childSceneId": "post-anesthesia-care-unit",
       "sourceVisualRegion": "recovery-ward",
-      "x": 1050,
-      "y": 100,
-      "width": 500,
-      "height": 430,
+      "x": 1440,
+      "y": 335,
+      "width": 80,
+      "height": 80,
       "enterScale": 3.4
     }
   ]
