@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   buildPortalCueProtectedRegions,
   buildVocabularyCueRevealState,
+  buildVocabularyCueRevealStateFromSummary,
   buildVocabularyRevealSummary,
   buildVocabularyZoomCues,
   consolidateVocabularyCueBatches,
@@ -582,16 +583,55 @@ test("authored cue counts all remaining words but targets only the nearest revea
   )[0];
 
   const overview = buildVocabularyCueRevealState(cue, labels, 1, 4);
+  assert.deepEqual(
+    buildVocabularyCueRevealStateFromSummary(
+      cue,
+      buildVocabularyRevealSummary(labels, 1, 4),
+      1,
+      4,
+    ),
+    overview,
+    "the camera-frame fast path must preserve the exact cue disclosure state",
+  );
   assert.deepEqual(overview.hiddenLabels.map((item) => item.id), ["near", "later", "deep"]);
   assert.deepEqual(overview.nextLabels.map((item) => item.id), ["near"]);
   assert.equal(overview.nextLod, 2);
   assert.ok(overview.targetScale! > cue.targetScale!);
 
   const afterFirstReveal = buildVocabularyCueRevealState(cue, labels, 1.4, 4);
+  assert.deepEqual(
+    buildVocabularyCueRevealStateFromSummary(
+      cue,
+      buildVocabularyRevealSummary(labels, 1.4, 4),
+      1.4,
+      4,
+    ),
+    afterFirstReveal,
+    "the optimized cue path must preserve remaining count and target scale after a reveal",
+  );
   assert.deepEqual(afterFirstReveal.hiddenLabels.map((item) => item.id), ["later", "deep"]);
   assert.deepEqual(afterFirstReveal.nextLabels.map((item) => item.id), ["later"]);
   assert.equal(afterFirstReveal.nextLod, 3);
   assert.ok(afterFirstReveal.targetScale! > overview.targetScale!);
+
+  const encountered = new Set(["later"]);
+  const encounterAwareSummary = buildVocabularyRevealSummary(
+    labels,
+    1,
+    4,
+    0.52,
+    encountered,
+  );
+  assert.deepEqual(
+    buildVocabularyCueRevealStateFromSummary(cue, encounterAwareSummary, 1, 4),
+    buildVocabularyCueRevealState(
+      cue,
+      labels.filter((item) => !encountered.has(item.id)),
+      1,
+      4,
+    ),
+    "encountered words stay excluded from a cue derived from the global snapshot",
+  );
 });
 
 test("authored cues focus the next real anchors instead of an empty zone centre", () => {

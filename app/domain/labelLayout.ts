@@ -325,6 +325,55 @@ export function buildVocabularyCueRevealState(
 }
 
 /**
+ * Resolves an authored cue from the already sorted scene-wide hidden-word
+ * snapshot. Camera frames build that snapshot once; rebuilding and sorting a
+ * second summary for every detail zone only repeats the same reveal probes.
+ */
+export function buildVocabularyCueRevealStateFromSummary(
+  cue: VocabularyZoomCue,
+  sceneSummary: VocabularyRevealSummary,
+  currentScale: number,
+  maximumScale: number,
+  visibilityThreshold = 0.52,
+): VocabularyCueRevealState {
+  const cueLabelIds = new Set(cue.labelIds);
+  const hiddenLabels = sceneSummary.hiddenLabels.filter((label) => cueLabelIds.has(label.id));
+  const firstHiddenLabel = hiddenLabels[0];
+  if (!firstHiddenLabel) {
+    return { hiddenLabels: [], nextLabels: [], nextLod: null, targetScale: null };
+  }
+
+  // The scene summary is ordered by LOD, reveal threshold, priority, and id.
+  // Filtering it preserves the exact order the cue-local summary would use.
+  const nextLod = sceneLabelLod(firstHiddenLabel);
+  const nextLabels = hiddenLabels.filter((label) => sceneLabelLod(label) === nextLod);
+  const firstNextLabel = nextLabels[0];
+  if (!firstNextLabel) {
+    return { hiddenLabels, nextLabels: [], nextLod: null, targetScale: null };
+  }
+  const firstRevealScale = nextVocabularyRevealScale(
+    firstNextLabel,
+    currentScale,
+    maximumScale,
+    visibilityThreshold,
+  );
+  if (firstRevealScale === null) {
+    return { hiddenLabels, nextLabels: [], nextLod: null, targetScale: null };
+  }
+
+  return {
+    hiddenLabels,
+    nextLabels,
+    nextLod,
+    targetScale: Math.min(maximumScale, Math.max(
+      currentScale + 0.28,
+      firstRevealScale + 0.08,
+      cue.targetScale ?? 0,
+    )),
+  };
+}
+
+/**
  * Focus an authored cue on the vocabulary it is about to reveal. A detail
  * zone's authored centre can be far from its remaining labels after earlier
  * words have already appeared, which would make a truthful cue zoom to empty
@@ -825,6 +874,8 @@ function insideViewport(
 
 function createCollisionIndex(cellSize: number) {
   const cells = new Map<number, LabelBounds[]>();
+  const lastVisitedByQuery = new WeakMap<LabelBounds, number>();
+  let queryToken = 0;
   const visitCells = (
     bounds: LabelBounds,
     padding: number,
@@ -847,12 +898,13 @@ function createCollisionIndex(cellSize: number) {
     overlaps(bounds: LabelBounds, padding: number): boolean {
       // A pill usually spans several grid cells. De-duplicate those references
       // inside one query so dense overview frames do not compare the same two
-      // bounds repeatedly for every shared cell.
-      const visited = new Set<LabelBounds>();
+      // bounds repeatedly for every shared cell. A query stamp avoids allocating
+      // a short-lived Set for every candidate position in the camera loop.
+      const currentQuery = ++queryToken;
       return visitCells(bounds, padding, (cell) => {
         for (const placed of cell) {
-          if (visited.has(placed)) continue;
-          visited.add(placed);
+          if (lastVisitedByQuery.get(placed) === currentQuery) continue;
+          lastVisitedByQuery.set(placed, currentQuery);
           if (overlaps(bounds, placed, padding)) return true;
         }
         return false;
@@ -1014,12 +1066,14 @@ export function computeSceneLabelLayout(
       options.revealLabelIds?.has(label.id)
       && camera.scale >= (options.revealAtScale ?? Number.POSITIVE_INFINITY),
     );
-    const futureRevealScale = nextVocabularyRevealScale(
-      label,
-      camera.scale,
-      4.15,
-      0.52,
-    );
+    const futureRevealScale = naturalOpacity >= 0.52
+      ? null
+      : nextVocabularyRevealScale(
+        label,
+        camera.scale,
+        4.15,
+        0.52,
+      );
     if (
       naturalOpacity <= 0.025
       && futureRevealScale === null

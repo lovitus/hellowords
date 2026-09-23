@@ -17,7 +17,7 @@ import {
   createSceneAssetLoadState,
   buildPortalCueProtectedRegions,
   buildSceneLabelMountWindow,
-  buildVocabularyCueRevealState,
+  buildVocabularyCueRevealStateFromSummary,
   buildVocabularyRevealSummary,
   consolidateVocabularyCueBatches,
   computeSceneLabelLayout,
@@ -1832,14 +1832,10 @@ export function SceneViewport({
     );
     const globallyHiddenIds = new Set(revealSummary.hiddenLabels.map((label) => label.id));
     const cueCandidates = (atlasOverviewMode ? [] : vocabularyZoomCues).flatMap((cue) => {
-      const hidden = cue.labelIds
-        .map((id) => labelsById.get(id))
-        .filter((label): label is Label => Boolean(label))
-        .filter((label) => globallyHiddenIds.has(label.id));
       if (cue.source === "authored-zone") {
-        const state = buildVocabularyCueRevealState(
+        const state = buildVocabularyCueRevealStateFromSummary(
           cue,
-          hidden,
+          revealSummary,
           camera.scale,
           maximumScale,
           LABEL_ENCOUNTER_OPACITY,
@@ -1858,6 +1854,10 @@ export function SceneViewport({
           targetScale: state.targetScale,
         }];
       }
+      const hidden = cue.labelIds
+        .map((id) => labelsById.get(id))
+        .filter((label): label is Label => Boolean(label))
+        .filter((label) => globallyHiddenIds.has(label.id));
       const nextLod = hidden.reduce<number>(
         (lowest, label) => Math.min(lowest, sceneLabelLod(label)),
         Number.POSITIVE_INFINITY,
