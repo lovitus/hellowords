@@ -43,6 +43,7 @@ import {
   type ResolvedSceneAsset,
   type SceneAssetLoadState,
   type SceneDetailZone,
+  type SceneLabelLayoutItem,
   type SceneLabelProtectedRegion,
 } from "../domain";
 import { getScenePresentation } from "../lib/scene-presentation";
@@ -1227,19 +1228,6 @@ export function SceneViewport({
     const viewportWidth = viewport.clientWidth;
     const viewportHeight = viewport.clientHeight;
     const camera = (cameraRef.current = clampCamera(cameraRef.current));
-    const wheelTarget = wheelTargetRef.current;
-    const wheelInMotion = Boolean(
-      wheelAnimationRef.current !== null
-      && wheelTarget
-      && (
-        Math.abs(camera.x - wheelTarget.x) > WHEEL_POSITION_EPSILON
-        || Math.abs(camera.y - wheelTarget.y) > WHEEL_POSITION_EPSILON
-        || Math.abs(Math.log(camera.scale / wheelTarget.scale)) > WHEEL_SCALE_EPSILON
-      )
-    );
-    const cameraInMotion = pointersRef.current.size > 0
-      || cameraAnimationRef.current !== null
-      || wheelInMotion;
     const maximumScale = maximumSceneCameraScale(camera.fit);
     const effectiveScale = camera.fit * camera.scale;
     const zoomLevel = sceneLodLevel(camera.scale);
@@ -1507,6 +1495,8 @@ export function SceneViewport({
           ? Math.max(1, activeFocusedDetailZone.targetScale - 0.35)
           : undefined,
         priorityLabelIds: focusedPriorityLabelIds,
+        includeHiddenItems: false,
+        retainedLabelIds: mountedLabelIdsRef.current,
         preferredOffsets: labelPlacementOffsetsRef.current,
         protectedRegions: [
           ...buildViewerChromeProtectedRegions(
@@ -1538,12 +1528,18 @@ export function SceneViewport({
       }
     }
     const previousLabelPlacementOffsets = labelPlacementOffsetsRef.current;
-    const nextLabelPlacementOffsets = new Map(layout
-      .filter((item) => item.interactive)
-      .map((item) => [item.id, {
-        offsetX: item.offsetX,
-        offsetY: item.offsetY,
-      }]));
+    const nextLabelPlacementOffsets = new Map<string, {
+      readonly offsetX: number;
+      readonly offsetY: number;
+    }>();
+    for (const item of layout) {
+      if (item.interactive) {
+        nextLabelPlacementOffsets.set(item.id, {
+          offsetX: item.offsetX,
+          offsetY: item.offsetY,
+        });
+      }
+    }
     // Retain a bounded warm slot for mounted labels whose authored anchor is
     // just outside the viewport or was collision-blocked in this frame. The
     // next layout can try the same object-relative slot before falling back to
@@ -1589,7 +1585,8 @@ export function SceneViewport({
       pendingLabelWindowPaintRef.current = true;
       setMountedLabelIds(nextMountedLabelIds);
     }
-    const byId = new Map(layout.map((item) => [item.id, item]));
+    const byId = new Map<string, SceneLabelLayoutItem>();
+    for (const item of layout) byId.set(item.id, item);
     let visibleCount = 0;
     let emergingCount = 0;
     const dwellEligibleLabelIds: string[] = [];
@@ -1640,15 +1637,9 @@ export function SceneViewport({
             item.offsetY - previousOffset.offsetY,
           )
           : 0;
-        const previousTimer = labelShiftTimersRef.current.get(labelId);
-        if (cameraInMotion) {
-          if (previousTimer !== undefined) {
-            window.clearTimeout(previousTimer);
-            labelShiftTimersRef.current.delete(labelId);
-          }
-          if (element.dataset.layoutShift === "true") delete element.dataset.layoutShift;
-        } else if (offsetShift >= 12) {
+        if (offsetShift >= 12) {
           setDatasetValueIfChanged(element, "layoutShift", "true");
+          const previousTimer = labelShiftTimersRef.current.get(labelId);
           if (previousTimer !== undefined) window.clearTimeout(previousTimer);
           const timer = window.setTimeout(() => {
             if (labelShiftTimersRef.current.get(labelId) !== timer) return;
@@ -3171,12 +3162,7 @@ export function SceneViewport({
     resetSemanticOverscroll();
     pointersRef.current.delete(event.pointerId);
     previousPointersRef.current.delete(event.pointerId);
-    if (viewerInteractive && !committingRef.current) {
-      // Paint once after the last pointer leaves so any final settled collision
-      // correction can use its short easing without lagging behind the drag.
-      requestCameraFrame();
-      scheduleNavigationCheck();
-    }
+    if (viewerInteractive && !committingRef.current) scheduleNavigationCheck();
   };
 
   const viewportCenter = () => {

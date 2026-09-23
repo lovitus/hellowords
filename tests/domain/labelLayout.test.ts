@@ -79,6 +79,45 @@ test("default LOD words stay revealed at maximum zoom unless an author explicitl
   }
 });
 
+test("camera rendering omits hidden placeholders but preserves focused and mounted targets", () => {
+  const labels = [
+    label("visible", 180, 1, 0, 120),
+    label("future", 360, 2, 4, 120),
+    label("focused-offscreen", 980, 3, 0, 120),
+    label("hidden-offscreen", 1200, 4, 0, 120),
+  ];
+  const camera = { x: 0, y: 0, fit: 1, scale: 1 };
+  const viewport = { width: 600, height: 300, compact: false };
+  const complete = computeSceneLabelLayout(labels, camera, viewport, false, {
+    selectedLabelId: "focused-offscreen",
+    adaptiveRevealScale: 4,
+    retainedLabelIds: new Set(["future"]),
+  });
+  const sparse = computeSceneLabelLayout(labels, camera, viewport, false, {
+    selectedLabelId: "focused-offscreen",
+    adaptiveRevealScale: 4,
+    includeHiddenItems: false,
+    retainedLabelIds: new Set(["future"]),
+  });
+
+  assert.ok(complete.length > sparse.length, "offscreen and not-yet-revealed words need no frame object");
+  const sparseById = new Map(sparse.map((item) => [item.id, item]));
+  for (const item of complete.filter((candidate) => (
+    candidate.interactive
+    || candidate.opacity > 0.025
+    || candidate.id === "focused-offscreen"
+  ))) {
+    assert.deepEqual(sparseById.get(item.id), item, `${item.id} keeps its complete-layout geometry`);
+  }
+  assert.ok(sparse.some((item) => item.id === "focused-offscreen" && Number.isNaN(item.screenX)));
+  assert.ok(sparse.some((item) => (
+    item.id === "future"
+    && item.opacity === 0
+    && Number.isFinite(item.screenX)
+  )));
+  assert.ok(!sparseById.has("hidden-offscreen"));
+});
+
 test("focused detail batches promote their own LOD4 words only at the crop scale", () => {
   const detail = label("focused-detail", 100, 1, 4, 100);
   const viewport = { width: 600, height: 300, compact: false };

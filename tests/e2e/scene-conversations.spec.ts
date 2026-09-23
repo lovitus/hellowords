@@ -86,5 +86,5 @@ test("school locker practice opens from the real school scene path", async ({ pa
   await expect(dialog).toBeVisible();
   await expect(dialog.locator("li")).toHaveCount(12);
   await expect(dialog).toContainText("I can't open my locker after entering the combination.");
-  await expect(dialog).toContainText("上课时我的运动包可以放在哪里？");
+  await expect(dialog).toContainText("我把水瓶落在长椅上了。");
 });

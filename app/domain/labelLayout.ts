@@ -56,6 +56,10 @@ export interface SceneLabelLayoutOptions {
   readonly priorityLabelIds?: ReadonlySet<string>;
   /** Screen-space controls, such as portal cues, that word pills must avoid. */
   readonly protectedRegions?: readonly SceneLabelProtectedRegion[];
+  /** Omit fully hidden/offscreen placeholders for per-frame camera rendering. */
+  readonly includeHiddenItems?: boolean;
+  /** Preserve geometry for mounted hidden labels that can still enter the viewport. */
+  readonly retainedLabelIds?: ReadonlySet<string>;
   /** Previous interactive slots retained during one continuous camera direction. */
   readonly preferredOffsets?: ReadonlyMap<string, {
     readonly offsetX: number;
@@ -143,6 +147,18 @@ const DEFAULT_REVEAL_BANDS = [
 ] as const;
 
 type LabelLod = SceneLabelLayoutItem["lod"];
+
+interface SceneLabelCandidate {
+  readonly label: Label;
+  readonly lod: LabelLod;
+  readonly naturalOpacity: number;
+  readonly focusedReveal: boolean;
+  readonly futureRevealScale: number | null;
+  readonly screenX: number;
+  readonly screenY: number;
+  readonly width: number;
+  readonly height: number;
+}
 
 const revealScaleCache = new WeakMap<Label, Map<string, number | null>>();
 const estimatedSizeCache = new WeakMap<Label, Readonly<{
@@ -889,7 +905,7 @@ export function sameSceneLabelMountWindow(
 }
 
 /**
- * Selects the bounded DOM window for a complete scene layout.
+ * Selects the bounded DOM window for a scene layout, complete or frame-sparse.
  *
  * Layout still owns all authored labels. Every painted/interactive label and
  * the active keyboard/selection targets enter first. Previous candidates then
@@ -903,15 +919,21 @@ export function buildSceneLabelMountWindow(
   options: SceneLabelMountWindowOptions = {},
 ): Set<string> {
   const limit = sceneLabelMountLimit(viewport);
-  const labelIds = new Set(labels.map(({ id }) => id));
-  const layoutById = new Map(layout.map((item) => [item.id, item]));
-  const labelPriority = new Map(labels.map(({ id, priority }, index) => [
-    id,
-    { priority, index },
-  ]));
+  const labelIndex = new Map<string, number>();
+  for (let index = 0; index < labels.length; index += 1) {
+    labelIndex.set(labels[index].id, index);
+  }
+  const layoutById = new Map<string, SceneLabelLayoutItem>();
+  const essential: SceneLabelLayoutItem[] = [];
+  for (const item of layout) {
+    layoutById.set(item.id, item);
+    if (item.interactive || item.opacity > 0.025) {
+      essential.push(item);
+    }
+  }
   const mounted = new Set<string>();
   const add = (id: string | null | undefined) => {
-    if (!id || mounted.size >= limit || !labelIds.has(id)) return;
+    if (!id || mounted.size >= limit || !labelIndex.has(id)) return;
     mounted.add(id);
   };
 
@@ -928,17 +950,16 @@ export function buildSceneLabelMountWindow(
     add(id);
   }
 
-  const stableOrder = (first: SceneLabelLayoutItem, second: SceneLabelLayoutItem) => (
-    first.placementOrder - second.placementOrder
-    || (labelPriority.get(first.id)?.priority ?? Number.POSITIVE_INFINITY)
-      - (labelPriority.get(second.id)?.priority ?? Number.POSITIVE_INFINITY)
-    || (labelPriority.get(first.id)?.index ?? Number.POSITIVE_INFINITY)
-      - (labelPriority.get(second.id)?.index ?? Number.POSITIVE_INFINITY)
-    || first.id.localeCompare(second.id)
-  );
-  const essential = layout
-    .filter((item) => item.interactive || item.opacity > 0.025)
-    .sort(stableOrder);
+  const stableOrder = (first: SceneLabelLayoutItem, second: SceneLabelLayoutItem) => {
+    const firstIndex = labelIndex.get(first.id);
+    const secondIndex = labelIndex.get(second.id);
+    return first.placementOrder - second.placementOrder
+      || (firstIndex === undefined ? Number.POSITIVE_INFINITY : labels[firstIndex].priority)
+        - (secondIndex === undefined ? Number.POSITIVE_INFINITY : labels[secondIndex].priority)
+      || (firstIndex ?? Number.POSITIVE_INFINITY) - (secondIndex ?? Number.POSITIVE_INFINITY)
+      || first.id.localeCompare(second.id);
+  };
+  essential.sort(stableOrder);
   for (const item of essential) add(item.id);
 
   // A production collision pass stays below the corresponding hard limit.
@@ -973,71 +994,71 @@ export function computeSceneLabelLayout(
   // require a fully visible, non-overlapping pill. Compact screens keep the
   // original tight candidate window to protect touch-safe density.
   const cullingMargin = viewport.compact ? 18 : 72;
-  const candidates = labels
-    .flatMap((label) => {
-      const lod = sceneLabelLod(label);
-      const screenX = camera.x + label.x * effectiveScale;
-      const screenY = camera.y + label.y * effectiveScale;
-      // Future-reveal probing is a small binary search over the authored
-      // scale bands. Screen-space culling must happen first so a large scene
-      // does not spend that work on labels that cannot enter this frame or
-      // the bounded DOM window.
-      if (
-        screenX < -cullingMargin
-        || screenX > viewport.width + cullingMargin
-        || screenY < -cullingMargin
-        || screenY > viewport.height + cullingMargin
-      ) return [];
-      const naturalOpacity = sceneLabelRevealOpacity(label, camera.scale);
-      const focusedReveal = Boolean(
-        options.revealLabelIds?.has(label.id)
-        && camera.scale >= (options.revealAtScale ?? Number.POSITIVE_INFINITY),
-      );
-      const futureRevealScale = nextVocabularyRevealScale(
-        label,
-        camera.scale,
-        4.15,
-        0.52,
-      );
-      const size = estimatedLabelSize(label, meaningVisible, lod, viewport.compact);
-      return [{
-        label,
-        lod,
-        naturalOpacity,
-        focusedReveal,
-        futureRevealScale,
-        screenX,
-        screenY,
-        ...size,
-      }];
-    })
-    .filter(({ label, naturalOpacity, focusedReveal, futureRevealScale }) => (
-      (naturalOpacity > 0.025
-        || futureRevealScale !== null
-        || focusedReveal
-        || label.id === options.selectedLabelId)
-    ))
-    .sort((first, second) => {
-      const selected = Number(second.label.id === options.selectedLabelId)
-        - Number(first.label.id === options.selectedLabelId);
-      if (selected !== 0) return selected;
-      const focused = Number(options.priorityLabelIds?.has(second.label.id))
-        - Number(options.priorityLabelIds?.has(first.label.id));
-      if (focused !== 0) return focused;
-      // Keep labels that already own a readable slot ahead of newly emerging
-      // adaptive words. Map label engines use the same previous-placement
-      // preference: a newcomer should take the remaining slot instead of
-      // forcing an established callout to jump on every zoom frame.
-      const retained = Number(options.preferredOffsets?.has(second.label.id))
-        - Number(options.preferredOffsets?.has(first.label.id));
-      if (retained !== 0) return retained;
-      // Camera history must not decide collision ownership. A stable authored
-      // order makes an exact zoom round trip reproduce both the same labels
-      // and the same callout directions.
-      return first.label.priority - second.label.priority
-        || first.lod - second.lod
-        || first.label.id.localeCompare(second.label.id);
+  const candidates: SceneLabelCandidate[] = [];
+  for (const label of labels) {
+    const lod = sceneLabelLod(label);
+    const screenX = camera.x + label.x * effectiveScale;
+    const screenY = camera.y + label.y * effectiveScale;
+    // Future-reveal probing is a small binary search over the authored
+    // scale bands. Screen-space culling must happen first so a large scene
+    // does not spend that work on labels that cannot enter this frame or
+    // the bounded DOM window.
+    if (
+      screenX < -cullingMargin
+      || screenX > viewport.width + cullingMargin
+      || screenY < -cullingMargin
+      || screenY > viewport.height + cullingMargin
+    ) continue;
+    const naturalOpacity = sceneLabelRevealOpacity(label, camera.scale);
+    const focusedReveal = Boolean(
+      options.revealLabelIds?.has(label.id)
+      && camera.scale >= (options.revealAtScale ?? Number.POSITIVE_INFINITY),
+    );
+    const futureRevealScale = nextVocabularyRevealScale(
+      label,
+      camera.scale,
+      4.15,
+      0.52,
+    );
+    if (
+      naturalOpacity <= 0.025
+      && futureRevealScale === null
+      && !focusedReveal
+      && label.id !== options.selectedLabelId
+    ) continue;
+    const size = estimatedLabelSize(label, meaningVisible, lod, viewport.compact);
+    candidates.push({
+      label,
+      lod,
+      naturalOpacity,
+      focusedReveal,
+      futureRevealScale,
+      screenX,
+      screenY,
+      ...size,
     });
+  }
+  candidates.sort((first, second) => {
+    const selected = Number(second.label.id === options.selectedLabelId)
+      - Number(first.label.id === options.selectedLabelId);
+    if (selected !== 0) return selected;
+    const focused = Number(options.priorityLabelIds?.has(second.label.id))
+      - Number(options.priorityLabelIds?.has(first.label.id));
+    if (focused !== 0) return focused;
+    // Keep labels that already own a readable slot ahead of newly emerging
+    // adaptive words. Map label engines use the same previous-placement
+    // preference: a newcomer should take the remaining slot instead of
+    // forcing an established callout to jump on every zoom frame.
+    const retained = Number(options.preferredOffsets?.has(second.label.id))
+      - Number(options.preferredOffsets?.has(first.label.id));
+    if (retained !== 0) return retained;
+    // Camera history must not decide collision ownership. A stable authored
+    // order makes an exact zoom round trip reproduce both the same labels
+    // and the same callout directions.
+    return first.label.priority - second.label.priority
+      || first.lod - second.lod
+      || first.label.id.localeCompare(second.label.id);
+  });
 
   const collisionIndex = createCollisionIndex(viewport.compact ? 40 : 48);
   for (const region of options.protectedRegions ?? []) collisionIndex.add(region);
@@ -1070,7 +1091,8 @@ export function computeSceneLabelLayout(
     reservedPreferredOffsets.set(candidate.label.id, [preferred.offsetX, preferred.offsetY]);
   }
   const visible = new Map<string, SceneLabelLayoutItem>();
-  for (const [placementOrder, candidate] of candidates.entries()) {
+  for (let placementOrder = 0; placementOrder < candidates.length; placementOrder += 1) {
+    const candidate = candidates[placementOrder];
     const selected = candidate.label.id === options.selectedLabelId;
     const naturallyInteractive = candidate.naturalOpacity >= 0.52;
     // A free, readable slot is more useful than an artificial "more words"
@@ -1093,7 +1115,31 @@ export function computeSceneLabelLayout(
         : focusedReveal
           ? Math.max(0.82, candidate.naturalOpacity)
         : candidate.naturalOpacity;
-    if (candidateOpacity <= 0.025) continue;
+    if (candidateOpacity <= 0.025) {
+      if (
+        options.includeHiddenItems === false
+        && options.retainedLabelIds?.has(candidate.label.id)
+      ) {
+        // Keep an already-mounted hidden label warm while its anchor remains
+        // inside the candidate window. It doesn't reserve a collision slot;
+        // the next visible frame will compute its real placement as usual.
+        visible.set(candidate.label.id, {
+          id: candidate.label.id,
+          lod: candidate.lod,
+          opacity: 0,
+          interactive: false,
+          adaptive: false,
+          width: candidate.width,
+          height: candidate.height,
+          screenX: candidate.screenX,
+          screenY: candidate.screenY,
+          offsetX: 0,
+          offsetY: 0,
+          placementOrder,
+        });
+      }
+      continue;
+    }
     const reservedPlacement = reservedPreferredOffsets.get(candidate.label.id);
     const preferredOffset = options.preferredOffsets?.get(candidate.label.id);
     const hasPreferredOffset = Boolean(
@@ -1204,6 +1250,39 @@ export function computeSceneLabelLayout(
     });
   }
 
+  if (options.includeHiddenItems === false) {
+    const painted: SceneLabelLayoutItem[] = [];
+    for (const item of visible.values()) {
+      if (
+        item.interactive
+        || item.opacity > 0.025
+        || item.id === options.selectedLabelId
+        || options.retainedLabelIds?.has(item.id)
+      ) {
+        painted.push(item);
+      }
+    }
+    if (options.selectedLabelId && !visible.has(options.selectedLabelId)) {
+      const selectedLabel = labels.find(({ id }) => id === options.selectedLabelId);
+      if (selectedLabel) {
+        painted.push({
+          id: selectedLabel.id,
+          lod: sceneLabelLod(selectedLabel),
+          opacity: 0,
+          interactive: false,
+          adaptive: false,
+          width: 0,
+          height: 0,
+          screenX: Number.NaN,
+          screenY: Number.NaN,
+          offsetX: 0,
+          offsetY: 0,
+          placementOrder: Number.POSITIVE_INFINITY,
+        });
+      }
+    }
+    return painted;
+  }
   return labels.map((label) => visible.get(label.id) ?? {
     id: label.id,
     lod: sceneLabelLod(label),
