@@ -9,7 +9,7 @@
   "parentId": "boarding-gate",
   "visualRegions": [
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-window-band",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-window-band-1",
       "description": "Jet-bridge left window band is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 510,
@@ -18,7 +18,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-window-pane",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-window-pane-2",
       "description": "Jet-bridge left window pane is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 510,
@@ -27,7 +27,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-glazing-mullion",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-glazing-mullion-3",
       "description": "Jet-bridge left glazing mullion is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 495,
@@ -36,7 +36,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-window-sill",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-window-sill-4",
       "description": "Jet-bridge left window sill is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 510,
@@ -45,7 +45,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-glazing-gasket",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-glazing-gasket-5",
       "description": "Jet-bridge left glazing gasket is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 530,
@@ -54,7 +54,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-frame-jamb",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-frame-jamb-6",
       "description": "Jet-bridge left frame jamb is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 495,
@@ -63,7 +63,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-transom-rail",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-transom-rail-7",
       "description": "Jet-bridge left transom rail is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 510,
@@ -72,7 +72,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-lower-glazing",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-lower-glazing-8",
       "description": "Jet-bridge left lower glazing is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 510,
@@ -81,7 +81,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-upper-glazing",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-upper-glazing-9",
       "description": "Jet-bridge left upper glazing is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 510,
@@ -90,7 +90,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-wall-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-wall-panel-10",
       "description": "Jet-bridge left wall panel is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 460,
@@ -99,7 +99,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-panel-seam",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-panel-seam-11",
       "description": "Jet-bridge left panel seam is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 450,
@@ -108,7 +108,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-wall-corner",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-wall-corner-12",
       "description": "Jet-bridge left wall corner is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 400,
@@ -117,7 +117,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-kick-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-kick-panel-13",
       "description": "Jet-bridge left kick panel is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 418,
@@ -126,7 +126,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-window-band",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-window-band-14",
       "description": "Jet-bridge right window band is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1195,
@@ -135,7 +135,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-window-pane",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-window-pane-15",
       "description": "Jet-bridge right window pane is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1205,
@@ -144,7 +144,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-glazing-mullion",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-glazing-mullion-16",
       "description": "Jet-bridge right glazing mullion is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1180,
@@ -153,7 +153,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-window-sill",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-window-sill-17",
       "description": "Jet-bridge right window sill is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1195,
@@ -162,7 +162,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-glazing-gasket",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-glazing-gasket-18",
       "description": "Jet-bridge right glazing gasket is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1185,
@@ -171,7 +171,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-frame-jamb",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-frame-jamb-19",
       "description": "Jet-bridge right frame jamb is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1180,
@@ -180,7 +180,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-transom-rail",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-transom-rail-20",
       "description": "Jet-bridge right transom rail is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1195,
@@ -189,7 +189,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-lower-glazing",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-lower-glazing-21",
       "description": "Jet-bridge right lower glazing is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1205,
@@ -198,7 +198,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-upper-glazing",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-upper-glazing-22",
       "description": "Jet-bridge right upper glazing is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1205,
@@ -207,7 +207,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-wall-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-wall-panel-23",
       "description": "Jet-bridge right wall panel is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1080,
@@ -216,7 +216,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-panel-seam",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-panel-seam-24",
       "description": "Jet-bridge right panel seam is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1082,
@@ -225,7 +225,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-wall-corner",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-wall-corner-25",
       "description": "Jet-bridge right wall corner is visible in the Bridge glazing and side walls area of the reviewed image",
       "kind": "part",
       "x": 1120,
@@ -234,7 +234,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-panel-26",
       "description": "Jet-bridge ceiling panel is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 710,
@@ -243,7 +243,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-seam",
+      "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-seam-27",
       "description": "Jet-bridge ceiling seam is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 540,
@@ -252,7 +252,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-recessed-light",
+      "id": "passenger-boarding-bridge-region-jet-bridge-recessed-light-28",
       "description": "Jet-bridge recessed light is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 770,
@@ -261,7 +261,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-light-diffuser",
+      "id": "passenger-boarding-bridge-region-jet-bridge-light-diffuser-29",
       "description": "Jet-bridge light diffuser is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 775,
@@ -270,7 +270,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-crossbeam",
+      "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-crossbeam-30",
       "description": "Jet-bridge ceiling crossbeam is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 550,
@@ -279,7 +279,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-roof-support",
+      "id": "passenger-boarding-bridge-region-jet-bridge-roof-support-31",
       "description": "Jet-bridge roof support is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 1000,
@@ -288,7 +288,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-telescoping-roof-section",
+      "id": "passenger-boarding-bridge-region-jet-bridge-telescoping-roof-section-32",
       "description": "Jet-bridge telescoping roof section is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 798,
@@ -297,7 +297,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-telescoping-side-section",
+      "id": "passenger-boarding-bridge-region-jet-bridge-telescoping-side-section-33",
       "description": "Jet-bridge telescoping side section is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 971,
@@ -306,7 +306,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-flexible-vestibule",
+      "id": "passenger-boarding-bridge-region-jet-bridge-flexible-vestibule-34",
       "description": "Jet-bridge flexible vestibule is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 864,
@@ -315,7 +315,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-canopy",
+      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-canopy-35",
       "description": "Jet-bridge vestibule canopy is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 820,
@@ -324,7 +324,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-accordion-fold",
+      "id": "passenger-boarding-bridge-region-jet-bridge-accordion-fold-36",
       "description": "Jet-bridge accordion fold is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 938,
@@ -333,7 +333,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-accordion-rib",
+      "id": "passenger-boarding-bridge-region-jet-bridge-accordion-rib-37",
       "description": "Jet-bridge accordion rib is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 959,
@@ -342,7 +342,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-curtain",
+      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-curtain-38",
       "description": "Jet-bridge vestibule side curtain is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 990,
@@ -351,7 +351,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-roof-curtain",
+      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-roof-curtain-39",
       "description": "Jet-bridge vestibule roof curtain is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 938,
@@ -360,7 +360,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-end-frame",
+      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-end-frame-40",
       "description": "Jet-bridge vestibule end frame is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 868,
@@ -369,7 +369,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-lamp-housing",
+      "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-lamp-housing-41",
       "description": "Jet-bridge ceiling lamp housing is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 640,
@@ -378,7 +378,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-panel-joint",
+      "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-panel-joint-42",
       "description": "Jet-bridge ceiling panel joint is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 720,
@@ -387,7 +387,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-inner-roof-rail",
+      "id": "passenger-boarding-bridge-region-jet-bridge-inner-roof-rail-43",
       "description": "Jet-bridge inner roof rail is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 570,
@@ -396,7 +396,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-upper-wall-junction",
+      "id": "passenger-boarding-bridge-region-jet-bridge-upper-wall-junction-44",
       "description": "Jet-bridge upper wall junction is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 516,
@@ -405,7 +405,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-roof-liner",
+      "id": "passenger-boarding-bridge-region-jet-bridge-roof-liner-45",
       "description": "Jet-bridge roof liner is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 680,
@@ -414,7 +414,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-lower-flap",
+      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-lower-flap-46",
       "description": "Jet-bridge vestibule lower flap is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 921,
@@ -423,7 +423,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-seal",
+      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-seal-47",
       "description": "Jet-bridge vestibule side seal is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 983,
@@ -432,7 +432,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-canopy-corner",
+      "id": "passenger-boarding-bridge-region-jet-bridge-canopy-corner-48",
       "description": "Jet-bridge canopy corner is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 841,
@@ -441,7 +441,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cross-section-frame",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cross-section-frame-49",
       "description": "Jet-bridge cross-section frame is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 1003,
@@ -450,7 +450,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-overhead-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-overhead-panel-50",
       "description": "Jet-bridge overhead panel is visible in the Roof and telescoping vestibule area of the reviewed image",
       "kind": "part",
       "x": 602,
@@ -459,7 +459,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-operator-console",
+      "id": "passenger-boarding-bridge-region-jet-bridge-operator-console-51",
       "description": "Jet-bridge operator console is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 270,
@@ -468,7 +468,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-control-cabinet",
+      "id": "passenger-boarding-bridge-region-jet-bridge-control-cabinet-52",
       "description": "Jet-bridge control cabinet is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 268,
@@ -477,7 +477,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-console-top",
+      "id": "passenger-boarding-bridge-region-jet-bridge-console-top-53",
       "description": "Jet-bridge console top is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 263,
@@ -486,7 +486,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-joystick",
+      "id": "passenger-boarding-bridge-region-jet-bridge-joystick-54",
       "description": "Jet-bridge joystick is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 267,
@@ -495,7 +495,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-joystick-grip",
+      "id": "passenger-boarding-bridge-region-jet-bridge-joystick-grip-55",
       "description": "Jet-bridge joystick grip is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 274,
@@ -504,7 +504,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-joystick-boot",
+      "id": "passenger-boarding-bridge-region-jet-bridge-joystick-boot-56",
       "description": "Jet-bridge joystick boot is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 266,
@@ -513,7 +513,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-console-red-button",
+      "id": "passenger-boarding-bridge-region-jet-bridge-console-red-button-57",
       "description": "Jet-bridge console red button is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 309,
@@ -522,7 +522,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-console-black-button",
+      "id": "passenger-boarding-bridge-region-jet-bridge-console-black-button-58",
       "description": "Jet-bridge console black button is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 233,
@@ -531,7 +531,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-console-switch",
+      "id": "passenger-boarding-bridge-region-jet-bridge-console-switch-59",
       "description": "Jet-bridge console switch is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 342,
@@ -540,7 +540,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-console-indicator",
+      "id": "passenger-boarding-bridge-region-jet-bridge-console-indicator-60",
       "description": "Jet-bridge console indicator is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 366,
@@ -549,7 +549,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cabinet-front-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cabinet-front-panel-61",
       "description": "Jet-bridge cabinet front panel is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 269,
@@ -558,7 +558,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cabinet-side-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cabinet-side-panel-62",
       "description": "Jet-bridge cabinet side panel is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 357,
@@ -567,7 +567,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cabinet-corner-seam",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cabinet-corner-seam-63",
       "description": "Jet-bridge cabinet corner seam is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 352,
@@ -576,7 +576,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cabinet-base",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cabinet-base-64",
       "description": "Jet-bridge cabinet base is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 270,
@@ -585,7 +585,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-console-lower-edge",
+      "id": "passenger-boarding-bridge-region-jet-bridge-console-lower-edge-65",
       "description": "Jet-bridge console lower edge is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 270,
@@ -594,7 +594,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-emergency-phone-cabinet",
+      "id": "passenger-boarding-bridge-region-jet-bridge-emergency-phone-cabinet-66",
       "description": "Jet-bridge emergency phone cabinet is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 344,
@@ -603,7 +603,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-emergency-phone-handset",
+      "id": "passenger-boarding-bridge-region-jet-bridge-emergency-phone-handset-67",
       "description": "Jet-bridge emergency phone handset is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 345,
@@ -612,7 +612,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-handset-cradle",
+      "id": "passenger-boarding-bridge-region-jet-bridge-handset-cradle-68",
       "description": "Jet-bridge handset cradle is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 345,
@@ -621,7 +621,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-coiled-phone-cord",
+      "id": "passenger-boarding-bridge-region-jet-bridge-coiled-phone-cord-69",
       "description": "Jet-bridge coiled phone cord is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 367,
@@ -630,7 +630,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-emergency-call-unit",
+      "id": "passenger-boarding-bridge-region-jet-bridge-emergency-call-unit-70",
       "description": "Jet-bridge emergency call unit is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 345,
@@ -639,7 +639,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-phone-cabinet-door",
+      "id": "passenger-boarding-bridge-region-jet-bridge-phone-cabinet-door-71",
       "description": "Jet-bridge phone cabinet door is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 345,
@@ -648,7 +648,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-phone-cabinet-latch",
+      "id": "passenger-boarding-bridge-region-jet-bridge-phone-cabinet-latch-72",
       "description": "Jet-bridge phone cabinet latch is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 378,
@@ -657,7 +657,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-phone-speaker-grille",
+      "id": "passenger-boarding-bridge-region-jet-bridge-phone-speaker-grille-73",
       "description": "Jet-bridge phone speaker grille is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 343,
@@ -666,7 +666,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-console-mounting-base",
+      "id": "passenger-boarding-bridge-region-jet-bridge-console-mounting-base-74",
       "description": "Jet-bridge console mounting base is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 269,
@@ -675,7 +675,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-control-cabinet-foot",
+      "id": "passenger-boarding-bridge-region-jet-bridge-control-cabinet-foot-75",
       "description": "Jet-bridge control-cabinet foot is visible in the Bridge controls and emergency phone area of the reviewed image",
       "kind": "part",
       "x": 265,
@@ -684,7 +684,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-handrail",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-handrail-76",
       "description": "Jet-bridge left handrail is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 460,
@@ -693,7 +693,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-handrail-grip",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-handrail-grip-77",
       "description": "Jet-bridge left handrail grip is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 527,
@@ -702,7 +702,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-handrail-bracket",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-handrail-bracket-78",
       "description": "Jet-bridge left handrail bracket is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 485,
@@ -711,7 +711,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-rail-end-cap",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-rail-end-cap-79",
       "description": "Jet-bridge left rail end cap is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 400,
@@ -720,7 +720,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-rail-wall-mount",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-rail-wall-mount-80",
       "description": "Jet-bridge left rail wall mount is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 540,
@@ -729,7 +729,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-handrail",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-handrail-81",
       "description": "Jet-bridge right handrail is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 1080,
@@ -738,7 +738,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-handrail-grip",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-handrail-grip-82",
       "description": "Jet-bridge right handrail grip is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 1008,
@@ -747,7 +747,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-handrail-bracket",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-handrail-bracket-83",
       "description": "Jet-bridge right handrail bracket is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 1040,
@@ -756,7 +756,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-rail-end-cap",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-rail-end-cap-84",
       "description": "Jet-bridge right rail end cap is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 1100,
@@ -765,7 +765,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-rail-wall-mount",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-rail-wall-mount-85",
       "description": "Jet-bridge right rail wall mount is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 980,
@@ -774,7 +774,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-boarding-threshold",
+      "id": "passenger-boarding-bridge-region-jet-bridge-boarding-threshold-86",
       "description": "Jet-bridge boarding threshold is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 760,
@@ -783,7 +783,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-threshold-sill",
+      "id": "passenger-boarding-bridge-region-jet-bridge-threshold-sill-87",
       "description": "Jet-bridge threshold sill is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 757,
@@ -792,7 +792,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-threshold-edge-strip",
+      "id": "passenger-boarding-bridge-region-jet-bridge-threshold-edge-strip-88",
       "description": "Jet-bridge threshold edge strip is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 690,
@@ -801,7 +801,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-door-sill-plate",
+      "id": "passenger-boarding-bridge-region-jet-bridge-door-sill-plate-89",
       "description": "Jet-bridge door sill plate is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 754,
@@ -810,7 +810,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-raised-transition-lip",
+      "id": "passenger-boarding-bridge-region-jet-bridge-raised-transition-lip-90",
       "description": "Jet-bridge raised transition lip is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 722,
@@ -819,7 +819,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-doorway-grab-rail",
+      "id": "passenger-boarding-bridge-region-jet-bridge-doorway-grab-rail-91",
       "description": "Jet-bridge doorway grab rail is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 630,
@@ -828,7 +828,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-door-grab-rail",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-door-grab-rail-92",
       "description": "Jet-bridge left door grab rail is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 605,
@@ -837,7 +837,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-door-grab-rail",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-door-grab-rail-93",
       "description": "Jet-bridge right door grab rail is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 923,
@@ -846,7 +846,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-grab-rail-mount",
+      "id": "passenger-boarding-bridge-region-jet-bridge-grab-rail-mount-94",
       "description": "Jet-bridge grab-rail mount is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 610,
@@ -855,7 +855,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-safety-rail-post",
+      "id": "passenger-boarding-bridge-region-jet-bridge-safety-rail-post-95",
       "description": "Jet-bridge safety rail post is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 845,
@@ -864,7 +864,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-handrail-return",
+      "id": "passenger-boarding-bridge-region-jet-bridge-handrail-return-96",
       "description": "Jet-bridge handrail return is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 415,
@@ -873,7 +873,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-handrail-lower-brace",
+      "id": "passenger-boarding-bridge-region-jet-bridge-handrail-lower-brace-97",
       "description": "Jet-bridge handrail lower brace is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 499,
@@ -882,7 +882,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-threshold-corner",
+      "id": "passenger-boarding-bridge-region-jet-bridge-threshold-corner-98",
       "description": "Jet-bridge threshold corner is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 821,
@@ -891,7 +891,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-accessible-clear-width",
+      "id": "passenger-boarding-bridge-region-jet-bridge-accessible-clear-width-99",
       "description": "Jet-bridge accessible clear width is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 764,
@@ -900,7 +900,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-step-free-sill",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-step-free-sill-100",
       "description": "Jet-bridge cabin-entry step-free sill is visible in the Handrails and boarding threshold area of the reviewed image",
       "kind": "part",
       "x": 785,
@@ -909,7 +909,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-non-slip-floor",
+      "id": "passenger-boarding-bridge-region-jet-bridge-non-slip-floor-101",
       "description": "Jet-bridge non-slip floor is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 756,
@@ -918,7 +918,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-texture",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-texture-102",
       "description": "Jet-bridge floor texture is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 850,
@@ -927,7 +927,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-panel-103",
       "description": "Jet-bridge floor panel is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 640,
@@ -936,7 +936,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-expansion-joint",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-expansion-joint-104",
       "description": "Jet-bridge floor expansion joint is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 766,
@@ -945,7 +945,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-transverse-floor-seam",
+      "id": "passenger-boarding-bridge-region-jet-bridge-transverse-floor-seam-105",
       "description": "Jet-bridge transverse floor seam is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 762,
@@ -954,7 +954,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-edge-trim",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-edge-trim-106",
       "description": "Jet-bridge floor edge trim is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 521,
@@ -963,7 +963,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-left-floor-border",
+      "id": "passenger-boarding-bridge-region-jet-bridge-left-floor-border-107",
       "description": "Jet-bridge left floor border is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 500,
@@ -972,7 +972,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-right-floor-border",
+      "id": "passenger-boarding-bridge-region-jet-bridge-right-floor-border-108",
       "description": "Jet-bridge right floor border is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 1034,
@@ -981,7 +981,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-front-floor-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-front-floor-panel-109",
       "description": "Jet-bridge front floor panel is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 770,
@@ -990,7 +990,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-rear-floor-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-rear-floor-panel-110",
       "description": "Jet-bridge rear floor panel is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 780,
@@ -999,7 +999,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-seam-cover",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-seam-cover-111",
       "description": "Jet-bridge floor seam cover is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 545,
@@ -1008,7 +1008,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-sill-transition-plate",
+      "id": "passenger-boarding-bridge-region-jet-bridge-sill-transition-plate-112",
       "description": "Jet-bridge sill transition plate is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 777,
@@ -1017,7 +1017,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-metal-floor-strip",
+      "id": "passenger-boarding-bridge-region-jet-bridge-metal-floor-strip-113",
       "description": "Jet-bridge metal floor strip is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 770,
@@ -1026,7 +1026,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-border-channel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-border-channel-114",
       "description": "Jet-bridge floor-border channel is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 510,
@@ -1035,7 +1035,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-center-walking-lane",
+      "id": "passenger-boarding-bridge-region-jet-bridge-center-walking-lane-115",
       "description": "Jet-bridge center walking lane is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 780,
@@ -1044,7 +1044,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-clear-boarding-path",
+      "id": "passenger-boarding-bridge-region-jet-bridge-clear-boarding-path-116",
       "description": "Jet-bridge clear boarding path is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 783,
@@ -1053,7 +1053,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-panel-corner",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-panel-corner-117",
       "description": "Jet-bridge floor-panel corner is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 585,
@@ -1062,7 +1062,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-joint-fastener",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-joint-fastener-118",
       "description": "Jet-bridge floor joint fastener is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 1008,
@@ -1071,7 +1071,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-patch-boundary",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-patch-boundary-119",
       "description": "Jet-bridge floor-patch boundary is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 950,
@@ -1080,7 +1080,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-surface-grain",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-surface-grain-120",
       "description": "Jet-bridge floor surface grain is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 893,
@@ -1089,7 +1089,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-aisle-side-floor",
+      "id": "passenger-boarding-bridge-region-jet-bridge-aisle-side-floor-121",
       "description": "Jet-bridge aisle-side floor is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 623,
@@ -1098,7 +1098,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-center-floor-section",
+      "id": "passenger-boarding-bridge-region-jet-bridge-center-floor-section-122",
       "description": "Jet-bridge center floor section is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 801,
@@ -1107,7 +1107,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-threshold-floor-seam",
+      "id": "passenger-boarding-bridge-region-jet-bridge-threshold-floor-seam-123",
       "description": "Jet-bridge threshold floor seam is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 795,
@@ -1116,7 +1116,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-floor-to-wall-junction",
+      "id": "passenger-boarding-bridge-region-jet-bridge-floor-to-wall-junction-124",
       "description": "Jet-bridge floor-to-wall junction is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 1076,
@@ -1125,7 +1125,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-boarding-route-surface",
+      "id": "passenger-boarding-bridge-region-jet-bridge-boarding-route-surface-125",
       "description": "Jet-bridge boarding-route surface is visible in the Floor and boarding route area of the reviewed image",
       "kind": "part",
       "x": 720,
@@ -1134,7 +1134,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-doorway",
+      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-doorway-126",
       "description": "Jet-bridge aircraft doorway is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 680,
@@ -1143,7 +1143,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-frame",
+      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-frame-127",
       "description": "Jet-bridge aircraft door frame is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 685,
@@ -1152,7 +1152,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-doorway-jamb",
+      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-doorway-jamb-128",
       "description": "Jet-bridge aircraft doorway jamb is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 685,
@@ -1161,7 +1161,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-door-reveal",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-door-reveal-129",
       "description": "Jet-bridge cabin door reveal is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 840,
@@ -1170,7 +1170,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-gasket",
+      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-gasket-130",
       "description": "Jet-bridge aircraft door gasket is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 845,
@@ -1179,7 +1179,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-side-doorway",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-side-doorway-131",
       "description": "Jet-bridge cabin-side doorway is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 680,
@@ -1188,7 +1188,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-sill",
+      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-sill-132",
       "description": "Jet-bridge aircraft-door sill is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 680,
@@ -1197,7 +1197,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-threshold-strip",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-threshold-strip-133",
       "description": "Jet-bridge cabin threshold strip is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 680,
@@ -1206,7 +1206,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-end-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-end-panel-134",
       "description": "Jet-bridge vestibule end panel is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 673,
@@ -1215,7 +1215,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-end-panel-seam",
+      "id": "passenger-boarding-bridge-region-jet-bridge-end-panel-seam-135",
       "description": "Jet-bridge end-panel seam is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 672,
@@ -1224,7 +1224,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-doorway-side-seal",
+      "id": "passenger-boarding-bridge-region-jet-bridge-doorway-side-seal-136",
       "description": "Jet-bridge doorway side seal is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 696,
@@ -1233,7 +1233,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-doorway-head-seal",
+      "id": "passenger-boarding-bridge-region-jet-bridge-doorway-head-seal-137",
       "description": "Jet-bridge doorway head seal is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 760,
@@ -1242,7 +1242,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-door-side-grab-point",
+      "id": "passenger-boarding-bridge-region-jet-bridge-door-side-grab-point-138",
       "description": "Jet-bridge door-side grab point is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 838,
@@ -1251,7 +1251,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-corner-post",
+      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-corner-post-139",
       "description": "Jet-bridge vestibule corner post is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 870,
@@ -1260,7 +1260,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-lower-frame",
+      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-lower-frame-140",
       "description": "Jet-bridge aircraft-door lower frame is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 680,
@@ -1269,7 +1269,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-passenger-cabin-opening",
+      "id": "passenger-boarding-bridge-region-jet-bridge-passenger-cabin-opening-141",
       "description": "Jet-bridge passenger-cabin opening is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 680,
@@ -1278,7 +1278,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-doorway-upper-frame",
+      "id": "passenger-boarding-bridge-region-jet-bridge-doorway-upper-frame-142",
       "description": "Jet-bridge doorway upper frame is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 769,
@@ -1287,7 +1287,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-doorway-frame-cap",
+      "id": "passenger-boarding-bridge-region-jet-bridge-doorway-frame-cap-143",
       "description": "Jet-bridge doorway frame cap is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 716,
@@ -1296,7 +1296,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-handhold",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-handhold-144",
       "description": "Jet-bridge cabin-entry handhold is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 835,
@@ -1305,7 +1305,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-threshold-side-trim",
+      "id": "passenger-boarding-bridge-region-jet-bridge-threshold-side-trim-145",
       "description": "Jet-bridge threshold side trim is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 695,
@@ -1314,7 +1314,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-floor-lip",
+      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-floor-lip-146",
       "description": "Jet-bridge vestibule floor lip is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 667,
@@ -1323,7 +1323,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-trim",
+      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-trim-147",
       "description": "Jet-bridge aircraft-door trim is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 840,
@@ -1332,7 +1332,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-panel",
+      "id": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-panel-148",
       "description": "Jet-bridge vestibule side panel is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 869,
@@ -1341,7 +1341,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-seal",
+      "id": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-seal-149",
       "description": "Jet-bridge cabin entry seal is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 840,
@@ -1350,7 +1350,7 @@
       "height": 40
     },
     {
-      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-entry-aperture",
+      "id": "passenger-boarding-bridge-region-jet-bridge-aircraft-entry-aperture-150",
       "description": "Jet-bridge aircraft-entry aperture is visible in the Aircraft door vestibule area of the reviewed image",
       "kind": "part",
       "x": 680,
@@ -1380,31 +1380,31 @@
       "height": 730,
       "targetScale": 2.55,
       "labelIds": [
-        "passenger-boarding-bridge-jet-bridge-left-window-band",
-        "passenger-boarding-bridge-jet-bridge-left-window-pane",
-        "passenger-boarding-bridge-jet-bridge-left-glazing-mullion",
-        "passenger-boarding-bridge-jet-bridge-left-window-sill",
-        "passenger-boarding-bridge-jet-bridge-left-glazing-gasket",
-        "passenger-boarding-bridge-jet-bridge-left-frame-jamb",
-        "passenger-boarding-bridge-jet-bridge-left-transom-rail",
-        "passenger-boarding-bridge-jet-bridge-left-lower-glazing",
-        "passenger-boarding-bridge-jet-bridge-left-upper-glazing",
-        "passenger-boarding-bridge-jet-bridge-left-wall-panel",
-        "passenger-boarding-bridge-jet-bridge-left-panel-seam",
-        "passenger-boarding-bridge-jet-bridge-left-wall-corner",
-        "passenger-boarding-bridge-jet-bridge-left-kick-panel",
-        "passenger-boarding-bridge-jet-bridge-right-window-band",
-        "passenger-boarding-bridge-jet-bridge-right-window-pane",
-        "passenger-boarding-bridge-jet-bridge-right-glazing-mullion",
-        "passenger-boarding-bridge-jet-bridge-right-window-sill",
-        "passenger-boarding-bridge-jet-bridge-right-glazing-gasket",
-        "passenger-boarding-bridge-jet-bridge-right-frame-jamb",
-        "passenger-boarding-bridge-jet-bridge-right-transom-rail",
-        "passenger-boarding-bridge-jet-bridge-right-lower-glazing",
-        "passenger-boarding-bridge-jet-bridge-right-upper-glazing",
-        "passenger-boarding-bridge-jet-bridge-right-wall-panel",
-        "passenger-boarding-bridge-jet-bridge-right-panel-seam",
-        "passenger-boarding-bridge-jet-bridge-right-wall-corner"
+        "passenger-boarding-bridge-jet-bridge-left-window-band-1",
+        "passenger-boarding-bridge-jet-bridge-left-window-pane-2",
+        "passenger-boarding-bridge-jet-bridge-left-glazing-mullion-3",
+        "passenger-boarding-bridge-jet-bridge-left-window-sill-4",
+        "passenger-boarding-bridge-jet-bridge-left-glazing-gasket-5",
+        "passenger-boarding-bridge-jet-bridge-left-frame-jamb-6",
+        "passenger-boarding-bridge-jet-bridge-left-transom-rail-7",
+        "passenger-boarding-bridge-jet-bridge-left-lower-glazing-8",
+        "passenger-boarding-bridge-jet-bridge-left-upper-glazing-9",
+        "passenger-boarding-bridge-jet-bridge-left-wall-panel-10",
+        "passenger-boarding-bridge-jet-bridge-left-panel-seam-11",
+        "passenger-boarding-bridge-jet-bridge-left-wall-corner-12",
+        "passenger-boarding-bridge-jet-bridge-left-kick-panel-13",
+        "passenger-boarding-bridge-jet-bridge-right-window-band-14",
+        "passenger-boarding-bridge-jet-bridge-right-window-pane-15",
+        "passenger-boarding-bridge-jet-bridge-right-glazing-mullion-16",
+        "passenger-boarding-bridge-jet-bridge-right-window-sill-17",
+        "passenger-boarding-bridge-jet-bridge-right-glazing-gasket-18",
+        "passenger-boarding-bridge-jet-bridge-right-frame-jamb-19",
+        "passenger-boarding-bridge-jet-bridge-right-transom-rail-20",
+        "passenger-boarding-bridge-jet-bridge-right-lower-glazing-21",
+        "passenger-boarding-bridge-jet-bridge-right-upper-glazing-22",
+        "passenger-boarding-bridge-jet-bridge-right-wall-panel-23",
+        "passenger-boarding-bridge-jet-bridge-right-panel-seam-24",
+        "passenger-boarding-bridge-jet-bridge-right-wall-corner-25"
       ]
     },
     {
@@ -1418,31 +1418,31 @@
       "height": 470,
       "targetScale": 2.7,
       "labelIds": [
-        "passenger-boarding-bridge-jet-bridge-ceiling-panel",
-        "passenger-boarding-bridge-jet-bridge-ceiling-seam",
-        "passenger-boarding-bridge-jet-bridge-recessed-light",
-        "passenger-boarding-bridge-jet-bridge-light-diffuser",
-        "passenger-boarding-bridge-jet-bridge-ceiling-crossbeam",
-        "passenger-boarding-bridge-jet-bridge-roof-support",
-        "passenger-boarding-bridge-jet-bridge-telescoping-roof-section",
-        "passenger-boarding-bridge-jet-bridge-telescoping-side-section",
-        "passenger-boarding-bridge-jet-bridge-flexible-vestibule",
-        "passenger-boarding-bridge-jet-bridge-vestibule-canopy",
-        "passenger-boarding-bridge-jet-bridge-accordion-fold",
-        "passenger-boarding-bridge-jet-bridge-accordion-rib",
-        "passenger-boarding-bridge-jet-bridge-vestibule-side-curtain",
-        "passenger-boarding-bridge-jet-bridge-vestibule-roof-curtain",
-        "passenger-boarding-bridge-jet-bridge-vestibule-end-frame",
-        "passenger-boarding-bridge-jet-bridge-ceiling-lamp-housing",
-        "passenger-boarding-bridge-jet-bridge-ceiling-panel-joint",
-        "passenger-boarding-bridge-jet-bridge-inner-roof-rail",
-        "passenger-boarding-bridge-jet-bridge-upper-wall-junction",
-        "passenger-boarding-bridge-jet-bridge-roof-liner",
-        "passenger-boarding-bridge-jet-bridge-vestibule-lower-flap",
-        "passenger-boarding-bridge-jet-bridge-vestibule-side-seal",
-        "passenger-boarding-bridge-jet-bridge-canopy-corner",
-        "passenger-boarding-bridge-jet-bridge-cross-section-frame",
-        "passenger-boarding-bridge-jet-bridge-overhead-panel"
+        "passenger-boarding-bridge-jet-bridge-ceiling-panel-26",
+        "passenger-boarding-bridge-jet-bridge-ceiling-seam-27",
+        "passenger-boarding-bridge-jet-bridge-recessed-light-28",
+        "passenger-boarding-bridge-jet-bridge-light-diffuser-29",
+        "passenger-boarding-bridge-jet-bridge-ceiling-crossbeam-30",
+        "passenger-boarding-bridge-jet-bridge-roof-support-31",
+        "passenger-boarding-bridge-jet-bridge-telescoping-roof-section-32",
+        "passenger-boarding-bridge-jet-bridge-telescoping-side-section-33",
+        "passenger-boarding-bridge-jet-bridge-flexible-vestibule-34",
+        "passenger-boarding-bridge-jet-bridge-vestibule-canopy-35",
+        "passenger-boarding-bridge-jet-bridge-accordion-fold-36",
+        "passenger-boarding-bridge-jet-bridge-accordion-rib-37",
+        "passenger-boarding-bridge-jet-bridge-vestibule-side-curtain-38",
+        "passenger-boarding-bridge-jet-bridge-vestibule-roof-curtain-39",
+        "passenger-boarding-bridge-jet-bridge-vestibule-end-frame-40",
+        "passenger-boarding-bridge-jet-bridge-ceiling-lamp-housing-41",
+        "passenger-boarding-bridge-jet-bridge-ceiling-panel-joint-42",
+        "passenger-boarding-bridge-jet-bridge-inner-roof-rail-43",
+        "passenger-boarding-bridge-jet-bridge-upper-wall-junction-44",
+        "passenger-boarding-bridge-jet-bridge-roof-liner-45",
+        "passenger-boarding-bridge-jet-bridge-vestibule-lower-flap-46",
+        "passenger-boarding-bridge-jet-bridge-vestibule-side-seal-47",
+        "passenger-boarding-bridge-jet-bridge-canopy-corner-48",
+        "passenger-boarding-bridge-jet-bridge-cross-section-frame-49",
+        "passenger-boarding-bridge-jet-bridge-overhead-panel-50"
       ]
     },
     {
@@ -1456,31 +1456,31 @@
       "height": 500,
       "targetScale": 2.8,
       "labelIds": [
-        "passenger-boarding-bridge-jet-bridge-operator-console",
-        "passenger-boarding-bridge-jet-bridge-control-cabinet",
-        "passenger-boarding-bridge-jet-bridge-console-top",
-        "passenger-boarding-bridge-jet-bridge-joystick",
-        "passenger-boarding-bridge-jet-bridge-joystick-grip",
-        "passenger-boarding-bridge-jet-bridge-joystick-boot",
-        "passenger-boarding-bridge-jet-bridge-console-red-button",
-        "passenger-boarding-bridge-jet-bridge-console-black-button",
-        "passenger-boarding-bridge-jet-bridge-console-switch",
-        "passenger-boarding-bridge-jet-bridge-console-indicator",
-        "passenger-boarding-bridge-jet-bridge-cabinet-front-panel",
-        "passenger-boarding-bridge-jet-bridge-cabinet-side-panel",
-        "passenger-boarding-bridge-jet-bridge-cabinet-corner-seam",
-        "passenger-boarding-bridge-jet-bridge-cabinet-base",
-        "passenger-boarding-bridge-jet-bridge-console-lower-edge",
-        "passenger-boarding-bridge-jet-bridge-emergency-phone-cabinet",
-        "passenger-boarding-bridge-jet-bridge-emergency-phone-handset",
-        "passenger-boarding-bridge-jet-bridge-handset-cradle",
-        "passenger-boarding-bridge-jet-bridge-coiled-phone-cord",
-        "passenger-boarding-bridge-jet-bridge-emergency-call-unit",
-        "passenger-boarding-bridge-jet-bridge-phone-cabinet-door",
-        "passenger-boarding-bridge-jet-bridge-phone-cabinet-latch",
-        "passenger-boarding-bridge-jet-bridge-phone-speaker-grille",
-        "passenger-boarding-bridge-jet-bridge-console-mounting-base",
-        "passenger-boarding-bridge-jet-bridge-control-cabinet-foot"
+        "passenger-boarding-bridge-jet-bridge-operator-console-51",
+        "passenger-boarding-bridge-jet-bridge-control-cabinet-52",
+        "passenger-boarding-bridge-jet-bridge-console-top-53",
+        "passenger-boarding-bridge-jet-bridge-joystick-54",
+        "passenger-boarding-bridge-jet-bridge-joystick-grip-55",
+        "passenger-boarding-bridge-jet-bridge-joystick-boot-56",
+        "passenger-boarding-bridge-jet-bridge-console-red-button-57",
+        "passenger-boarding-bridge-jet-bridge-console-black-button-58",
+        "passenger-boarding-bridge-jet-bridge-console-switch-59",
+        "passenger-boarding-bridge-jet-bridge-console-indicator-60",
+        "passenger-boarding-bridge-jet-bridge-cabinet-front-panel-61",
+        "passenger-boarding-bridge-jet-bridge-cabinet-side-panel-62",
+        "passenger-boarding-bridge-jet-bridge-cabinet-corner-seam-63",
+        "passenger-boarding-bridge-jet-bridge-cabinet-base-64",
+        "passenger-boarding-bridge-jet-bridge-console-lower-edge-65",
+        "passenger-boarding-bridge-jet-bridge-emergency-phone-cabinet-66",
+        "passenger-boarding-bridge-jet-bridge-emergency-phone-handset-67",
+        "passenger-boarding-bridge-jet-bridge-handset-cradle-68",
+        "passenger-boarding-bridge-jet-bridge-coiled-phone-cord-69",
+        "passenger-boarding-bridge-jet-bridge-emergency-call-unit-70",
+        "passenger-boarding-bridge-jet-bridge-phone-cabinet-door-71",
+        "passenger-boarding-bridge-jet-bridge-phone-cabinet-latch-72",
+        "passenger-boarding-bridge-jet-bridge-phone-speaker-grille-73",
+        "passenger-boarding-bridge-jet-bridge-console-mounting-base-74",
+        "passenger-boarding-bridge-jet-bridge-control-cabinet-foot-75"
       ]
     },
     {
@@ -1494,31 +1494,31 @@
       "height": 350,
       "targetScale": 2.7,
       "labelIds": [
-        "passenger-boarding-bridge-jet-bridge-left-handrail",
-        "passenger-boarding-bridge-jet-bridge-left-handrail-grip",
-        "passenger-boarding-bridge-jet-bridge-left-handrail-bracket",
-        "passenger-boarding-bridge-jet-bridge-left-rail-end-cap",
-        "passenger-boarding-bridge-jet-bridge-left-rail-wall-mount",
-        "passenger-boarding-bridge-jet-bridge-right-handrail",
-        "passenger-boarding-bridge-jet-bridge-right-handrail-grip",
-        "passenger-boarding-bridge-jet-bridge-right-handrail-bracket",
-        "passenger-boarding-bridge-jet-bridge-right-rail-end-cap",
-        "passenger-boarding-bridge-jet-bridge-right-rail-wall-mount",
-        "passenger-boarding-bridge-jet-bridge-boarding-threshold",
-        "passenger-boarding-bridge-jet-bridge-threshold-sill",
-        "passenger-boarding-bridge-jet-bridge-threshold-edge-strip",
-        "passenger-boarding-bridge-jet-bridge-door-sill-plate",
-        "passenger-boarding-bridge-jet-bridge-raised-transition-lip",
-        "passenger-boarding-bridge-jet-bridge-doorway-grab-rail",
-        "passenger-boarding-bridge-jet-bridge-left-door-grab-rail",
-        "passenger-boarding-bridge-jet-bridge-right-door-grab-rail",
-        "passenger-boarding-bridge-jet-bridge-grab-rail-mount",
-        "passenger-boarding-bridge-jet-bridge-safety-rail-post",
-        "passenger-boarding-bridge-jet-bridge-handrail-return",
-        "passenger-boarding-bridge-jet-bridge-handrail-lower-brace",
-        "passenger-boarding-bridge-jet-bridge-threshold-corner",
-        "passenger-boarding-bridge-jet-bridge-accessible-clear-width",
-        "passenger-boarding-bridge-jet-bridge-cabin-entry-step-free-sill"
+        "passenger-boarding-bridge-jet-bridge-left-handrail-76",
+        "passenger-boarding-bridge-jet-bridge-left-handrail-grip-77",
+        "passenger-boarding-bridge-jet-bridge-left-handrail-bracket-78",
+        "passenger-boarding-bridge-jet-bridge-left-rail-end-cap-79",
+        "passenger-boarding-bridge-jet-bridge-left-rail-wall-mount-80",
+        "passenger-boarding-bridge-jet-bridge-right-handrail-81",
+        "passenger-boarding-bridge-jet-bridge-right-handrail-grip-82",
+        "passenger-boarding-bridge-jet-bridge-right-handrail-bracket-83",
+        "passenger-boarding-bridge-jet-bridge-right-rail-end-cap-84",
+        "passenger-boarding-bridge-jet-bridge-right-rail-wall-mount-85",
+        "passenger-boarding-bridge-jet-bridge-boarding-threshold-86",
+        "passenger-boarding-bridge-jet-bridge-threshold-sill-87",
+        "passenger-boarding-bridge-jet-bridge-threshold-edge-strip-88",
+        "passenger-boarding-bridge-jet-bridge-door-sill-plate-89",
+        "passenger-boarding-bridge-jet-bridge-raised-transition-lip-90",
+        "passenger-boarding-bridge-jet-bridge-doorway-grab-rail-91",
+        "passenger-boarding-bridge-jet-bridge-left-door-grab-rail-92",
+        "passenger-boarding-bridge-jet-bridge-right-door-grab-rail-93",
+        "passenger-boarding-bridge-jet-bridge-grab-rail-mount-94",
+        "passenger-boarding-bridge-jet-bridge-safety-rail-post-95",
+        "passenger-boarding-bridge-jet-bridge-handrail-return-96",
+        "passenger-boarding-bridge-jet-bridge-handrail-lower-brace-97",
+        "passenger-boarding-bridge-jet-bridge-threshold-corner-98",
+        "passenger-boarding-bridge-jet-bridge-accessible-clear-width-99",
+        "passenger-boarding-bridge-jet-bridge-cabin-entry-step-free-sill-100"
       ]
     },
     {
@@ -1532,31 +1532,31 @@
       "height": 400,
       "targetScale": 2.45,
       "labelIds": [
-        "passenger-boarding-bridge-jet-bridge-non-slip-floor",
-        "passenger-boarding-bridge-jet-bridge-floor-texture",
-        "passenger-boarding-bridge-jet-bridge-floor-panel",
-        "passenger-boarding-bridge-jet-bridge-floor-expansion-joint",
-        "passenger-boarding-bridge-jet-bridge-transverse-floor-seam",
-        "passenger-boarding-bridge-jet-bridge-floor-edge-trim",
-        "passenger-boarding-bridge-jet-bridge-left-floor-border",
-        "passenger-boarding-bridge-jet-bridge-right-floor-border",
-        "passenger-boarding-bridge-jet-bridge-front-floor-panel",
-        "passenger-boarding-bridge-jet-bridge-rear-floor-panel",
-        "passenger-boarding-bridge-jet-bridge-floor-seam-cover",
-        "passenger-boarding-bridge-jet-bridge-sill-transition-plate",
-        "passenger-boarding-bridge-jet-bridge-metal-floor-strip",
-        "passenger-boarding-bridge-jet-bridge-floor-border-channel",
-        "passenger-boarding-bridge-jet-bridge-center-walking-lane",
-        "passenger-boarding-bridge-jet-bridge-clear-boarding-path",
-        "passenger-boarding-bridge-jet-bridge-floor-panel-corner",
-        "passenger-boarding-bridge-jet-bridge-floor-joint-fastener",
-        "passenger-boarding-bridge-jet-bridge-floor-patch-boundary",
-        "passenger-boarding-bridge-jet-bridge-floor-surface-grain",
-        "passenger-boarding-bridge-jet-bridge-aisle-side-floor",
-        "passenger-boarding-bridge-jet-bridge-center-floor-section",
-        "passenger-boarding-bridge-jet-bridge-threshold-floor-seam",
-        "passenger-boarding-bridge-jet-bridge-floor-to-wall-junction",
-        "passenger-boarding-bridge-jet-bridge-boarding-route-surface"
+        "passenger-boarding-bridge-jet-bridge-non-slip-floor-101",
+        "passenger-boarding-bridge-jet-bridge-floor-texture-102",
+        "passenger-boarding-bridge-jet-bridge-floor-panel-103",
+        "passenger-boarding-bridge-jet-bridge-floor-expansion-joint-104",
+        "passenger-boarding-bridge-jet-bridge-transverse-floor-seam-105",
+        "passenger-boarding-bridge-jet-bridge-floor-edge-trim-106",
+        "passenger-boarding-bridge-jet-bridge-left-floor-border-107",
+        "passenger-boarding-bridge-jet-bridge-right-floor-border-108",
+        "passenger-boarding-bridge-jet-bridge-front-floor-panel-109",
+        "passenger-boarding-bridge-jet-bridge-rear-floor-panel-110",
+        "passenger-boarding-bridge-jet-bridge-floor-seam-cover-111",
+        "passenger-boarding-bridge-jet-bridge-sill-transition-plate-112",
+        "passenger-boarding-bridge-jet-bridge-metal-floor-strip-113",
+        "passenger-boarding-bridge-jet-bridge-floor-border-channel-114",
+        "passenger-boarding-bridge-jet-bridge-center-walking-lane-115",
+        "passenger-boarding-bridge-jet-bridge-clear-boarding-path-116",
+        "passenger-boarding-bridge-jet-bridge-floor-panel-corner-117",
+        "passenger-boarding-bridge-jet-bridge-floor-joint-fastener-118",
+        "passenger-boarding-bridge-jet-bridge-floor-patch-boundary-119",
+        "passenger-boarding-bridge-jet-bridge-floor-surface-grain-120",
+        "passenger-boarding-bridge-jet-bridge-aisle-side-floor-121",
+        "passenger-boarding-bridge-jet-bridge-center-floor-section-122",
+        "passenger-boarding-bridge-jet-bridge-threshold-floor-seam-123",
+        "passenger-boarding-bridge-jet-bridge-floor-to-wall-junction-124",
+        "passenger-boarding-bridge-jet-bridge-boarding-route-surface-125"
       ]
     },
     {
@@ -1570,31 +1570,31 @@
       "height": 370,
       "targetScale": 2.8,
       "labelIds": [
-        "passenger-boarding-bridge-jet-bridge-aircraft-doorway",
-        "passenger-boarding-bridge-jet-bridge-aircraft-door-frame",
-        "passenger-boarding-bridge-jet-bridge-aircraft-doorway-jamb",
-        "passenger-boarding-bridge-jet-bridge-cabin-door-reveal",
-        "passenger-boarding-bridge-jet-bridge-aircraft-door-gasket",
-        "passenger-boarding-bridge-jet-bridge-cabin-side-doorway",
-        "passenger-boarding-bridge-jet-bridge-aircraft-door-sill",
-        "passenger-boarding-bridge-jet-bridge-cabin-threshold-strip",
-        "passenger-boarding-bridge-jet-bridge-vestibule-end-panel",
-        "passenger-boarding-bridge-jet-bridge-end-panel-seam",
-        "passenger-boarding-bridge-jet-bridge-doorway-side-seal",
-        "passenger-boarding-bridge-jet-bridge-doorway-head-seal",
-        "passenger-boarding-bridge-jet-bridge-door-side-grab-point",
-        "passenger-boarding-bridge-jet-bridge-vestibule-corner-post",
-        "passenger-boarding-bridge-jet-bridge-aircraft-door-lower-frame",
-        "passenger-boarding-bridge-jet-bridge-passenger-cabin-opening",
-        "passenger-boarding-bridge-jet-bridge-doorway-upper-frame",
-        "passenger-boarding-bridge-jet-bridge-doorway-frame-cap",
-        "passenger-boarding-bridge-jet-bridge-cabin-entry-handhold",
-        "passenger-boarding-bridge-jet-bridge-threshold-side-trim",
-        "passenger-boarding-bridge-jet-bridge-vestibule-floor-lip",
-        "passenger-boarding-bridge-jet-bridge-aircraft-door-trim",
-        "passenger-boarding-bridge-jet-bridge-vestibule-side-panel",
-        "passenger-boarding-bridge-jet-bridge-cabin-entry-seal",
-        "passenger-boarding-bridge-jet-bridge-aircraft-entry-aperture"
+        "passenger-boarding-bridge-jet-bridge-aircraft-doorway-126",
+        "passenger-boarding-bridge-jet-bridge-aircraft-door-frame-127",
+        "passenger-boarding-bridge-jet-bridge-aircraft-doorway-jamb-128",
+        "passenger-boarding-bridge-jet-bridge-cabin-door-reveal-129",
+        "passenger-boarding-bridge-jet-bridge-aircraft-door-gasket-130",
+        "passenger-boarding-bridge-jet-bridge-cabin-side-doorway-131",
+        "passenger-boarding-bridge-jet-bridge-aircraft-door-sill-132",
+        "passenger-boarding-bridge-jet-bridge-cabin-threshold-strip-133",
+        "passenger-boarding-bridge-jet-bridge-vestibule-end-panel-134",
+        "passenger-boarding-bridge-jet-bridge-end-panel-seam-135",
+        "passenger-boarding-bridge-jet-bridge-doorway-side-seal-136",
+        "passenger-boarding-bridge-jet-bridge-doorway-head-seal-137",
+        "passenger-boarding-bridge-jet-bridge-door-side-grab-point-138",
+        "passenger-boarding-bridge-jet-bridge-vestibule-corner-post-139",
+        "passenger-boarding-bridge-jet-bridge-aircraft-door-lower-frame-140",
+        "passenger-boarding-bridge-jet-bridge-passenger-cabin-opening-141",
+        "passenger-boarding-bridge-jet-bridge-doorway-upper-frame-142",
+        "passenger-boarding-bridge-jet-bridge-doorway-frame-cap-143",
+        "passenger-boarding-bridge-jet-bridge-cabin-entry-handhold-144",
+        "passenger-boarding-bridge-jet-bridge-threshold-side-trim-145",
+        "passenger-boarding-bridge-jet-bridge-vestibule-floor-lip-146",
+        "passenger-boarding-bridge-jet-bridge-aircraft-door-trim-147",
+        "passenger-boarding-bridge-jet-bridge-vestibule-side-panel-148",
+        "passenger-boarding-bridge-jet-bridge-cabin-entry-seal-149",
+        "passenger-boarding-bridge-jet-bridge-aircraft-entry-aperture-150"
       ]
     }
   ],
@@ -1620,1653 +1620,1653 @@
   },
   "labels": [
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-window-band",
+      "id": "passenger-boarding-bridge-jet-bridge-left-window-band-1",
       "word": "Jet-bridge left window band",
       "translation": "廊桥左侧窗带",
       "x": 530,
       "y": 220,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-window-band",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-window-band-1",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-window-pane",
+      "id": "passenger-boarding-bridge-jet-bridge-left-window-pane-2",
       "word": "Jet-bridge left window pane",
       "translation": "廊桥左侧窗玻璃",
       "x": 530,
       "y": 180,
       "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-window-pane",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-window-pane-2",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-glazing-mullion",
+      "id": "passenger-boarding-bridge-jet-bridge-left-glazing-mullion-3",
       "word": "Jet-bridge left glazing mullion",
       "translation": "廊桥左侧玻璃竖框",
       "x": 515,
       "y": 220,
       "priority": 1.002,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-glazing-mullion",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-glazing-mullion-3",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-window-sill",
+      "id": "passenger-boarding-bridge-jet-bridge-left-window-sill-4",
       "word": "Jet-bridge left window sill",
       "translation": "廊桥左侧窗台",
       "x": 530,
       "y": 375,
       "priority": 1.003,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-window-sill",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-window-sill-4",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-glazing-gasket",
+      "id": "passenger-boarding-bridge-jet-bridge-left-glazing-gasket-5",
       "word": "Jet-bridge left glazing gasket",
       "translation": "廊桥左侧玻璃密封条",
       "x": 550,
       "y": 250,
       "priority": 1.004,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-glazing-gasket",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-glazing-gasket-5",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-frame-jamb",
+      "id": "passenger-boarding-bridge-jet-bridge-left-frame-jamb-6",
       "word": "Jet-bridge left frame jamb",
       "translation": "廊桥左侧窗框立边",
       "x": 515,
       "y": 160,
       "priority": 1.005,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-frame-jamb",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-frame-jamb-6",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-transom-rail",
+      "id": "passenger-boarding-bridge-jet-bridge-left-transom-rail-7",
       "word": "Jet-bridge left transom rail",
       "translation": "廊桥左侧窗上横档",
       "x": 530,
       "y": 28,
       "priority": 1.006,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-transom-rail",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-transom-rail-7",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-lower-glazing",
+      "id": "passenger-boarding-bridge-jet-bridge-left-lower-glazing-8",
       "word": "Jet-bridge left lower glazing",
       "translation": "廊桥左下方玻璃",
       "x": 530,
       "y": 330,
       "priority": 1.007,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-lower-glazing",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-lower-glazing-8",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-upper-glazing",
+      "id": "passenger-boarding-bridge-jet-bridge-left-upper-glazing-9",
       "word": "Jet-bridge left upper glazing",
       "translation": "廊桥左上方玻璃",
       "x": 530,
       "y": 80,
       "priority": 1.008,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-upper-glazing",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-upper-glazing-9",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-wall-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-left-wall-panel-10",
       "word": "Jet-bridge left wall panel",
       "translation": "廊桥左侧墙板",
       "x": 480,
       "y": 296,
       "priority": 1.009,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-wall-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-wall-panel-10",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-panel-seam",
+      "id": "passenger-boarding-bridge-jet-bridge-left-panel-seam-11",
       "word": "Jet-bridge left panel seam",
       "translation": "廊桥左侧墙板接缝",
       "x": 470,
       "y": 353,
       "priority": 1.01,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-panel-seam",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-panel-seam-11",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-wall-corner",
+      "id": "passenger-boarding-bridge-jet-bridge-left-wall-corner-12",
       "word": "Jet-bridge left wall corner",
       "translation": "廊桥左侧墙角",
       "x": 420,
       "y": 480,
       "priority": 1.011,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-wall-corner",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-wall-corner-12",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-kick-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-left-kick-panel-13",
       "word": "Jet-bridge left kick panel",
       "translation": "廊桥左侧墙脚板",
       "x": 438,
       "y": 606,
       "priority": 1.012,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-kick-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-kick-panel-13",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-window-band",
+      "id": "passenger-boarding-bridge-jet-bridge-right-window-band-14",
       "word": "Jet-bridge right window band",
       "translation": "廊桥右侧窗带",
       "x": 1215,
       "y": 288,
       "priority": 1.013,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-window-band",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-window-band-14",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-window-pane",
+      "id": "passenger-boarding-bridge-jet-bridge-right-window-pane-15",
       "word": "Jet-bridge right window pane",
       "translation": "廊桥右侧窗玻璃",
       "x": 1225,
       "y": 275,
       "priority": 1.014,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-window-pane",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-window-pane-15",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-glazing-mullion",
+      "id": "passenger-boarding-bridge-jet-bridge-right-glazing-mullion-16",
       "word": "Jet-bridge right glazing mullion",
       "translation": "廊桥右侧玻璃竖框",
       "x": 1200,
       "y": 305,
       "priority": 1.015,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-glazing-mullion",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-glazing-mullion-16",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-window-sill",
+      "id": "passenger-boarding-bridge-jet-bridge-right-window-sill-17",
       "word": "Jet-bridge right window sill",
       "translation": "廊桥右侧窗台",
       "x": 1215,
       "y": 420,
       "priority": 1.016,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-window-sill",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-window-sill-17",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-glazing-gasket",
+      "id": "passenger-boarding-bridge-jet-bridge-right-glazing-gasket-18",
       "word": "Jet-bridge right glazing gasket",
       "translation": "廊桥右侧玻璃密封条",
       "x": 1205,
       "y": 361,
       "priority": 1.017,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-glazing-gasket",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-glazing-gasket-18",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-frame-jamb",
+      "id": "passenger-boarding-bridge-jet-bridge-right-frame-jamb-19",
       "word": "Jet-bridge right frame jamb",
       "translation": "廊桥右侧窗框立边",
       "x": 1200,
       "y": 210,
       "priority": 1.018,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-frame-jamb",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-frame-jamb-19",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-transom-rail",
+      "id": "passenger-boarding-bridge-jet-bridge-right-transom-rail-20",
       "word": "Jet-bridge right transom rail",
       "translation": "廊桥右侧窗上横档",
       "x": 1215,
       "y": 182,
       "priority": 1.019,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-transom-rail",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-transom-rail-20",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-lower-glazing",
+      "id": "passenger-boarding-bridge-jet-bridge-right-lower-glazing-21",
       "word": "Jet-bridge right lower glazing",
       "translation": "廊桥右下方玻璃",
       "x": 1225,
       "y": 488,
       "priority": 1.02,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-lower-glazing",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-lower-glazing-21",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-upper-glazing",
+      "id": "passenger-boarding-bridge-jet-bridge-right-upper-glazing-22",
       "word": "Jet-bridge right upper glazing",
       "translation": "廊桥右上方玻璃",
       "x": 1225,
       "y": 220,
       "priority": 1.021,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-upper-glazing",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-upper-glazing-22",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-wall-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-right-wall-panel-23",
       "word": "Jet-bridge right wall panel",
       "translation": "廊桥右侧墙板",
       "x": 1100,
       "y": 287,
       "priority": 1.022,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-wall-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-wall-panel-23",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-panel-seam",
+      "id": "passenger-boarding-bridge-jet-bridge-right-panel-seam-24",
       "word": "Jet-bridge right panel seam",
       "translation": "廊桥右侧墙板接缝",
       "x": 1102,
       "y": 356,
       "priority": 1.023,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-panel-seam",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-panel-seam-24",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-wall-corner",
+      "id": "passenger-boarding-bridge-jet-bridge-right-wall-corner-25",
       "word": "Jet-bridge right wall corner",
       "translation": "廊桥右侧墙角",
       "x": 1140,
       "y": 474,
       "priority": 1.024,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-wall-corner",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-wall-corner-25",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-ceiling-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-ceiling-panel-26",
       "word": "Jet-bridge ceiling panel",
       "translation": "廊桥天花板",
       "x": 730,
       "y": 65,
       "priority": 1.025,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-ceiling-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-ceiling-panel-26",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-ceiling-seam",
+      "id": "passenger-boarding-bridge-jet-bridge-ceiling-seam-27",
       "word": "Jet-bridge ceiling seam",
       "translation": "廊桥天花板接缝",
       "x": 560,
       "y": 105,
       "priority": 1.026,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-ceiling-seam",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-ceiling-seam-27",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-recessed-light",
+      "id": "passenger-boarding-bridge-jet-bridge-recessed-light-28",
       "word": "Jet-bridge recessed light",
       "translation": "廊桥嵌入式顶灯",
       "x": 790,
       "y": 23,
       "priority": 1.027,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-recessed-light",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-recessed-light-28",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-light-diffuser",
+      "id": "passenger-boarding-bridge-jet-bridge-light-diffuser-29",
       "word": "Jet-bridge light diffuser",
       "translation": "廊桥灯具扩散罩",
       "x": 795,
       "y": 21,
       "priority": 1.028,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-light-diffuser",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-light-diffuser-29",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-ceiling-crossbeam",
+      "id": "passenger-boarding-bridge-jet-bridge-ceiling-crossbeam-30",
       "word": "Jet-bridge ceiling crossbeam",
       "translation": "廊桥天花横梁",
       "x": 570,
       "y": 133,
       "priority": 1.029,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-ceiling-crossbeam",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-ceiling-crossbeam-30",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-roof-support",
+      "id": "passenger-boarding-bridge-jet-bridge-roof-support-31",
       "word": "Jet-bridge roof support",
       "translation": "廊桥顶棚支撑件",
       "x": 1020,
       "y": 112,
       "priority": 1.03,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-roof-support",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-roof-support-31",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-telescoping-roof-section",
+      "id": "passenger-boarding-bridge-jet-bridge-telescoping-roof-section-32",
       "word": "Jet-bridge telescoping roof section",
       "translation": "廊桥伸缩顶棚段",
       "x": 818,
       "y": 112,
       "priority": 1.031,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-telescoping-roof-section",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-telescoping-roof-section-32",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-telescoping-side-section",
+      "id": "passenger-boarding-bridge-jet-bridge-telescoping-side-section-33",
       "word": "Jet-bridge telescoping side section",
       "translation": "廊桥伸缩侧段",
       "x": 991,
       "y": 221,
       "priority": 1.032,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-telescoping-side-section",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-telescoping-side-section-33",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-flexible-vestibule",
+      "id": "passenger-boarding-bridge-jet-bridge-flexible-vestibule-34",
       "word": "Jet-bridge flexible vestibule",
       "translation": "廊桥柔性接头",
       "x": 884,
       "y": 191,
       "priority": 1.033,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-flexible-vestibule",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-flexible-vestibule-34",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-vestibule-canopy",
+      "id": "passenger-boarding-bridge-jet-bridge-vestibule-canopy-35",
       "word": "Jet-bridge vestibule canopy",
       "translation": "廊桥接头顶罩",
       "x": 840,
       "y": 143,
       "priority": 1.034,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-canopy",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-canopy-35",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-accordion-fold",
+      "id": "passenger-boarding-bridge-jet-bridge-accordion-fold-36",
       "word": "Jet-bridge accordion fold",
       "translation": "廊桥接头风琴褶",
       "x": 958,
       "y": 207,
       "priority": 1.035,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-accordion-fold",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-accordion-fold-36",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-accordion-rib",
+      "id": "passenger-boarding-bridge-jet-bridge-accordion-rib-37",
       "word": "Jet-bridge accordion rib",
       "translation": "廊桥接头风琴肋",
       "x": 979,
       "y": 205,
       "priority": 1.036,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-accordion-rib",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-accordion-rib-37",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-vestibule-side-curtain",
+      "id": "passenger-boarding-bridge-jet-bridge-vestibule-side-curtain-38",
       "word": "Jet-bridge vestibule side curtain",
       "translation": "廊桥接头侧帘",
       "x": 1010,
       "y": 293,
       "priority": 1.037,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-curtain",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-curtain-38",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-vestibule-roof-curtain",
+      "id": "passenger-boarding-bridge-jet-bridge-vestibule-roof-curtain-39",
       "word": "Jet-bridge vestibule roof curtain",
       "translation": "廊桥接头顶帘",
       "x": 958,
       "y": 156,
       "priority": 1.038,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-roof-curtain",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-roof-curtain-39",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-vestibule-end-frame",
+      "id": "passenger-boarding-bridge-jet-bridge-vestibule-end-frame-40",
       "word": "Jet-bridge vestibule end frame",
       "translation": "廊桥接头端框",
       "x": 888,
       "y": 304,
       "priority": 1.039,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-end-frame",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-end-frame-40",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-ceiling-lamp-housing",
+      "id": "passenger-boarding-bridge-jet-bridge-ceiling-lamp-housing-41",
       "word": "Jet-bridge ceiling lamp housing",
       "translation": "廊桥顶灯外壳",
       "x": 660,
       "y": 22,
       "priority": 1.04,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-ceiling-lamp-housing",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-ceiling-lamp-housing-41",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-ceiling-panel-joint",
+      "id": "passenger-boarding-bridge-jet-bridge-ceiling-panel-joint-42",
       "word": "Jet-bridge ceiling panel joint",
       "translation": "廊桥顶板拼缝",
       "x": 740,
       "y": 93,
       "priority": 1.041,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-ceiling-panel-joint",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-ceiling-panel-joint-42",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-inner-roof-rail",
+      "id": "passenger-boarding-bridge-jet-bridge-inner-roof-rail-43",
       "word": "Jet-bridge inner roof rail",
       "translation": "廊桥内侧顶轨",
       "x": 590,
       "y": 171,
       "priority": 1.042,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-inner-roof-rail",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-inner-roof-rail-43",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-upper-wall-junction",
+      "id": "passenger-boarding-bridge-jet-bridge-upper-wall-junction-44",
       "word": "Jet-bridge upper wall junction",
       "translation": "廊桥上方墙顶接缝",
       "x": 536,
       "y": 192,
       "priority": 1.043,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-upper-wall-junction",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-upper-wall-junction-44",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-roof-liner",
+      "id": "passenger-boarding-bridge-jet-bridge-roof-liner-45",
       "word": "Jet-bridge roof liner",
       "translation": "廊桥顶棚内衬",
       "x": 700,
       "y": 114,
       "priority": 1.044,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-roof-liner",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-roof-liner-45",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-vestibule-lower-flap",
+      "id": "passenger-boarding-bridge-jet-bridge-vestibule-lower-flap-46",
       "word": "Jet-bridge vestibule lower flap",
       "translation": "廊桥接头下挡片",
       "x": 941,
       "y": 388,
       "priority": 1.045,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-lower-flap",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-lower-flap-46",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-vestibule-side-seal",
+      "id": "passenger-boarding-bridge-jet-bridge-vestibule-side-seal-47",
       "word": "Jet-bridge vestibule side seal",
       "translation": "廊桥接头侧密封条",
       "x": 1003,
       "y": 322,
       "priority": 1.046,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-seal",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-seal-47",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-canopy-corner",
+      "id": "passenger-boarding-bridge-jet-bridge-canopy-corner-48",
       "word": "Jet-bridge canopy corner",
       "translation": "廊桥顶罩转角",
       "x": 861,
       "y": 139,
       "priority": 1.047,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-canopy-corner",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-canopy-corner-48",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cross-section-frame",
+      "id": "passenger-boarding-bridge-jet-bridge-cross-section-frame-49",
       "word": "Jet-bridge cross-section frame",
       "translation": "廊桥伸缩段横框",
       "x": 1023,
       "y": 180,
       "priority": 1.048,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cross-section-frame",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cross-section-frame-49",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-overhead-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-overhead-panel-50",
       "word": "Jet-bridge overhead panel",
       "translation": "廊桥上方内板",
       "x": 622,
       "y": 75,
       "priority": 1.049,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-overhead-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-overhead-panel-50",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-operator-console",
+      "id": "passenger-boarding-bridge-jet-bridge-operator-console-51",
       "word": "Jet-bridge operator console",
       "translation": "廊桥操作台",
       "x": 290,
       "y": 511,
       "priority": 1.05,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-operator-console",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-operator-console-51",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-control-cabinet",
+      "id": "passenger-boarding-bridge-jet-bridge-control-cabinet-52",
       "word": "Jet-bridge control cabinet",
       "translation": "廊桥控制柜",
       "x": 288,
       "y": 567,
       "priority": 1.051,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-control-cabinet",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-control-cabinet-52",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-console-top",
+      "id": "passenger-boarding-bridge-jet-bridge-console-top-53",
       "word": "Jet-bridge console top",
       "translation": "廊桥控制台面",
       "x": 283,
       "y": 471,
       "priority": 1.052,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-top",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-top-53",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-joystick",
+      "id": "passenger-boarding-bridge-jet-bridge-joystick-54",
       "word": "Jet-bridge joystick",
       "translation": "廊桥操纵杆",
       "x": 287,
       "y": 461,
       "priority": 1.053,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-joystick",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-joystick-54",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-joystick-grip",
+      "id": "passenger-boarding-bridge-jet-bridge-joystick-grip-55",
       "word": "Jet-bridge joystick grip",
       "translation": "廊桥操纵杆握柄",
       "x": 294,
       "y": 453,
       "priority": 1.054,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-joystick-grip",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-joystick-grip-55",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-joystick-boot",
+      "id": "passenger-boarding-bridge-jet-bridge-joystick-boot-56",
       "word": "Jet-bridge joystick boot",
       "translation": "廊桥操纵杆防尘罩",
       "x": 286,
       "y": 478,
       "priority": 1.055,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-joystick-boot",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-joystick-boot-56",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-console-red-button",
+      "id": "passenger-boarding-bridge-jet-bridge-console-red-button-57",
       "word": "Jet-bridge console red button",
       "translation": "廊桥控制台红色按钮",
       "x": 329,
       "y": 483,
       "priority": 1.056,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-red-button",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-red-button-57",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-console-black-button",
+      "id": "passenger-boarding-bridge-jet-bridge-console-black-button-58",
       "word": "Jet-bridge console black button",
       "translation": "廊桥控制台黑色按钮",
       "x": 253,
       "y": 477,
       "priority": 1.057,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-black-button",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-black-button-58",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-console-switch",
+      "id": "passenger-boarding-bridge-jet-bridge-console-switch-59",
       "word": "Jet-bridge console switch",
       "translation": "廊桥控制台开关",
       "x": 362,
       "y": 494,
       "priority": 1.058,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-switch",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-switch-59",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-console-indicator",
+      "id": "passenger-boarding-bridge-jet-bridge-console-indicator-60",
       "word": "Jet-bridge console indicator",
       "translation": "廊桥控制台指示灯",
       "x": 386,
       "y": 506,
       "priority": 1.059,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-indicator",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-indicator-60",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cabinet-front-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-cabinet-front-panel-61",
       "word": "Jet-bridge cabinet front panel",
       "translation": "廊桥控制柜前板",
       "x": 289,
       "y": 548,
       "priority": 1.06,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabinet-front-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabinet-front-panel-61",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cabinet-side-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-cabinet-side-panel-62",
       "word": "Jet-bridge cabinet side panel",
       "translation": "廊桥控制柜侧板",
       "x": 377,
       "y": 550,
       "priority": 1.061,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabinet-side-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabinet-side-panel-62",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cabinet-corner-seam",
+      "id": "passenger-boarding-bridge-jet-bridge-cabinet-corner-seam-63",
       "word": "Jet-bridge cabinet corner seam",
       "translation": "廊桥控制柜边角接缝",
       "x": 372,
       "y": 535,
       "priority": 1.062,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabinet-corner-seam",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabinet-corner-seam-63",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cabinet-base",
+      "id": "passenger-boarding-bridge-jet-bridge-cabinet-base-64",
       "word": "Jet-bridge cabinet base",
       "translation": "廊桥控制柜底座",
       "x": 290,
       "y": 605,
       "priority": 1.063,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabinet-base",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabinet-base-64",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-console-lower-edge",
+      "id": "passenger-boarding-bridge-jet-bridge-console-lower-edge-65",
       "word": "Jet-bridge console lower edge",
       "translation": "廊桥控制台下沿",
       "x": 290,
       "y": 589,
       "priority": 1.064,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-lower-edge",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-lower-edge-65",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-emergency-phone-cabinet",
+      "id": "passenger-boarding-bridge-jet-bridge-emergency-phone-cabinet-66",
       "word": "Jet-bridge emergency phone cabinet",
       "translation": "廊桥应急电话柜",
       "x": 364,
       "y": 337,
       "priority": 1.065,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-emergency-phone-cabinet",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-emergency-phone-cabinet-66",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-emergency-phone-handset",
+      "id": "passenger-boarding-bridge-jet-bridge-emergency-phone-handset-67",
       "word": "Jet-bridge emergency phone handset",
       "translation": "廊桥应急电话听筒",
       "x": 365,
       "y": 319,
       "priority": 1.066,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-emergency-phone-handset",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-emergency-phone-handset-67",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-handset-cradle",
+      "id": "passenger-boarding-bridge-jet-bridge-handset-cradle-68",
       "word": "Jet-bridge handset cradle",
       "translation": "廊桥电话听筒座",
       "x": 365,
       "y": 343,
       "priority": 1.067,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-handset-cradle",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-handset-cradle-68",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-coiled-phone-cord",
+      "id": "passenger-boarding-bridge-jet-bridge-coiled-phone-cord-69",
       "word": "Jet-bridge coiled phone cord",
       "translation": "廊桥电话螺旋线",
       "x": 387,
       "y": 387,
       "priority": 1.068,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-coiled-phone-cord",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-coiled-phone-cord-69",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-emergency-call-unit",
+      "id": "passenger-boarding-bridge-jet-bridge-emergency-call-unit-70",
       "word": "Jet-bridge emergency call unit",
       "translation": "廊桥应急通话装置",
       "x": 365,
       "y": 310,
       "priority": 1.069,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-emergency-call-unit",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-emergency-call-unit-70",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-phone-cabinet-door",
+      "id": "passenger-boarding-bridge-jet-bridge-phone-cabinet-door-71",
       "word": "Jet-bridge phone cabinet door",
       "translation": "廊桥电话柜门",
       "x": 365,
       "y": 354,
       "priority": 1.07,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-phone-cabinet-door",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-phone-cabinet-door-71",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-phone-cabinet-latch",
+      "id": "passenger-boarding-bridge-jet-bridge-phone-cabinet-latch-72",
       "word": "Jet-bridge phone cabinet latch",
       "translation": "廊桥电话柜门扣",
       "x": 398,
       "y": 350,
       "priority": 1.071,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-phone-cabinet-latch",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-phone-cabinet-latch-72",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-phone-speaker-grille",
+      "id": "passenger-boarding-bridge-jet-bridge-phone-speaker-grille-73",
       "word": "Jet-bridge phone speaker grille",
       "translation": "廊桥电话扬声器格栅",
       "x": 363,
       "y": 291,
       "priority": 1.072,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-phone-speaker-grille",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-phone-speaker-grille-73",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-console-mounting-base",
+      "id": "passenger-boarding-bridge-jet-bridge-console-mounting-base-74",
       "word": "Jet-bridge console mounting base",
       "translation": "廊桥控制台安装底座",
       "x": 289,
       "y": 625,
       "priority": 1.073,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-mounting-base",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-console-mounting-base-74",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-control-cabinet-foot",
+      "id": "passenger-boarding-bridge-jet-bridge-control-cabinet-foot-75",
       "word": "Jet-bridge control-cabinet foot",
       "translation": "廊桥控制柜支脚",
       "x": 285,
       "y": 618,
       "priority": 1.074,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-control-cabinet-foot",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-control-cabinet-foot-75",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-handrail",
+      "id": "passenger-boarding-bridge-jet-bridge-left-handrail-76",
       "word": "Jet-bridge left handrail",
       "translation": "廊桥左侧扶手",
       "x": 480,
       "y": 460,
       "priority": 1.075,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-handrail",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-handrail-76",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-handrail-grip",
+      "id": "passenger-boarding-bridge-jet-bridge-left-handrail-grip-77",
       "word": "Jet-bridge left handrail grip",
       "translation": "廊桥左侧扶手握持面",
       "x": 547,
       "y": 452,
       "priority": 1.076,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-handrail-grip",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-handrail-grip-77",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-handrail-bracket",
+      "id": "passenger-boarding-bridge-jet-bridge-left-handrail-bracket-78",
       "word": "Jet-bridge left handrail bracket",
       "translation": "廊桥左侧扶手支架",
       "x": 505,
       "y": 420,
       "priority": 1.077,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-handrail-bracket",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-handrail-bracket-78",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-rail-end-cap",
+      "id": "passenger-boarding-bridge-jet-bridge-left-rail-end-cap-79",
       "word": "Jet-bridge left rail end cap",
       "translation": "廊桥左侧扶手端盖",
       "x": 420,
       "y": 490,
       "priority": 1.078,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-rail-end-cap",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-rail-end-cap-79",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-rail-wall-mount",
+      "id": "passenger-boarding-bridge-jet-bridge-left-rail-wall-mount-80",
       "word": "Jet-bridge left rail wall mount",
       "translation": "廊桥左扶手墙面固定座",
       "x": 560,
       "y": 437,
       "priority": 1.079,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-rail-wall-mount",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-rail-wall-mount-80",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-handrail",
+      "id": "passenger-boarding-bridge-jet-bridge-right-handrail-81",
       "word": "Jet-bridge right handrail",
       "translation": "廊桥右侧扶手",
       "x": 1100,
       "y": 463,
       "priority": 1.08,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-handrail",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-handrail-81",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-handrail-grip",
+      "id": "passenger-boarding-bridge-jet-bridge-right-handrail-grip-82",
       "word": "Jet-bridge right handrail grip",
       "translation": "廊桥右侧扶手握持面",
       "x": 1028,
       "y": 450,
       "priority": 1.081,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-handrail-grip",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-handrail-grip-82",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-handrail-bracket",
+      "id": "passenger-boarding-bridge-jet-bridge-right-handrail-bracket-83",
       "word": "Jet-bridge right handrail bracket",
       "translation": "廊桥右侧扶手支架",
       "x": 1060,
       "y": 414,
       "priority": 1.082,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-handrail-bracket",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-handrail-bracket-83",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-rail-end-cap",
+      "id": "passenger-boarding-bridge-jet-bridge-right-rail-end-cap-84",
       "word": "Jet-bridge right rail end cap",
       "translation": "廊桥右侧扶手端盖",
       "x": 1120,
       "y": 486,
       "priority": 1.083,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-rail-end-cap",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-rail-end-cap-84",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-rail-wall-mount",
+      "id": "passenger-boarding-bridge-jet-bridge-right-rail-wall-mount-85",
       "word": "Jet-bridge right rail wall mount",
       "translation": "廊桥右扶手墙面固定座",
       "x": 1000,
       "y": 433,
       "priority": 1.084,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-rail-wall-mount",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-rail-wall-mount-85",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-boarding-threshold",
+      "id": "passenger-boarding-bridge-jet-bridge-boarding-threshold-86",
       "word": "Jet-bridge boarding threshold",
       "translation": "廊桥登机门槛",
       "x": 780,
       "y": 447,
       "priority": 1.085,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-boarding-threshold",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-boarding-threshold-86",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-threshold-sill",
+      "id": "passenger-boarding-bridge-jet-bridge-threshold-sill-87",
       "word": "Jet-bridge threshold sill",
       "translation": "廊桥门槛底槛",
       "x": 777,
       "y": 459,
       "priority": 1.086,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-threshold-sill",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-threshold-sill-87",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-threshold-edge-strip",
+      "id": "passenger-boarding-bridge-jet-bridge-threshold-edge-strip-88",
       "word": "Jet-bridge threshold edge strip",
       "translation": "廊桥门槛边条",
       "x": 710,
       "y": 466,
       "priority": 1.087,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-threshold-edge-strip",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-threshold-edge-strip-88",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-door-sill-plate",
+      "id": "passenger-boarding-bridge-jet-bridge-door-sill-plate-89",
       "word": "Jet-bridge door sill plate",
       "translation": "廊桥登机门槛板",
       "x": 774,
       "y": 478,
       "priority": 1.088,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-door-sill-plate",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-door-sill-plate-89",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-raised-transition-lip",
+      "id": "passenger-boarding-bridge-jet-bridge-raised-transition-lip-90",
       "word": "Jet-bridge raised transition lip",
       "translation": "廊桥凸起过渡边",
       "x": 742,
       "y": 485,
       "priority": 1.089,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-raised-transition-lip",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-raised-transition-lip-90",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-doorway-grab-rail",
+      "id": "passenger-boarding-bridge-jet-bridge-doorway-grab-rail-91",
       "word": "Jet-bridge doorway grab rail",
       "translation": "廊桥门口抓握扶手",
       "x": 650,
       "y": 363,
       "priority": 1.09,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-doorway-grab-rail",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-doorway-grab-rail-91",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-door-grab-rail",
+      "id": "passenger-boarding-bridge-jet-bridge-left-door-grab-rail-92",
       "word": "Jet-bridge left door grab rail",
       "translation": "廊桥左侧门口扶手",
       "x": 625,
       "y": 352,
       "priority": 1.091,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-door-grab-rail",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-door-grab-rail-92",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-door-grab-rail",
+      "id": "passenger-boarding-bridge-jet-bridge-right-door-grab-rail-93",
       "word": "Jet-bridge right door grab rail",
       "translation": "廊桥右侧门口扶手",
       "x": 943,
       "y": 352,
       "priority": 1.092,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-door-grab-rail",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-door-grab-rail-93",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-grab-rail-mount",
+      "id": "passenger-boarding-bridge-jet-bridge-grab-rail-mount-94",
       "word": "Jet-bridge grab-rail mount",
       "translation": "廊桥门口扶手固定座",
       "x": 630,
       "y": 364,
       "priority": 1.093,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-grab-rail-mount",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-grab-rail-mount-94",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-safety-rail-post",
+      "id": "passenger-boarding-bridge-jet-bridge-safety-rail-post-95",
       "word": "Jet-bridge safety rail post",
       "translation": "廊桥安全扶手立柱",
       "x": 865,
       "y": 365,
       "priority": 1.094,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-safety-rail-post",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-safety-rail-post-95",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-handrail-return",
+      "id": "passenger-boarding-bridge-jet-bridge-handrail-return-96",
       "word": "Jet-bridge handrail return",
       "translation": "廊桥扶手回弯",
       "x": 435,
       "y": 474,
       "priority": 1.095,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-handrail-return",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-handrail-return-96",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-handrail-lower-brace",
+      "id": "passenger-boarding-bridge-jet-bridge-handrail-lower-brace-97",
       "word": "Jet-bridge handrail lower brace",
       "translation": "廊桥扶手下支撑",
       "x": 519,
       "y": 480,
       "priority": 1.096,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-handrail-lower-brace",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-handrail-lower-brace-97",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-threshold-corner",
+      "id": "passenger-boarding-bridge-jet-bridge-threshold-corner-98",
       "word": "Jet-bridge threshold corner",
       "translation": "廊桥门槛转角",
       "x": 841,
       "y": 448,
       "priority": 1.097,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-threshold-corner",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-threshold-corner-98",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-accessible-clear-width",
+      "id": "passenger-boarding-bridge-jet-bridge-accessible-clear-width-99",
       "word": "Jet-bridge accessible clear width",
       "translation": "廊桥无障碍通行宽度",
       "x": 784,
       "y": 500,
       "priority": 1.098,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-accessible-clear-width",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-accessible-clear-width-99",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cabin-entry-step-free-sill",
+      "id": "passenger-boarding-bridge-jet-bridge-cabin-entry-step-free-sill-100",
       "word": "Jet-bridge cabin-entry step-free sill",
       "translation": "廊桥无台阶登机门槛",
       "x": 805,
       "y": 455,
       "priority": 1.099,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-step-free-sill",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-step-free-sill-100",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-non-slip-floor",
+      "id": "passenger-boarding-bridge-jet-bridge-non-slip-floor-101",
       "word": "Jet-bridge non-slip floor",
       "translation": "廊桥防滑地面",
       "x": 776,
       "y": 730,
       "priority": 1.1,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-non-slip-floor",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-non-slip-floor-101",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-texture",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-texture-102",
       "word": "Jet-bridge floor texture",
       "translation": "廊桥地面纹理",
       "x": 870,
       "y": 815,
       "priority": 1.101,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-texture",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-texture-102",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-panel-103",
       "word": "Jet-bridge floor panel",
       "translation": "廊桥地板",
       "x": 660,
       "y": 745,
       "priority": 1.102,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-panel-103",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-expansion-joint",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-expansion-joint-104",
       "word": "Jet-bridge floor expansion joint",
       "translation": "廊桥地面伸缩缝",
       "x": 786,
       "y": 711,
       "priority": 1.103,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-expansion-joint",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-expansion-joint-104",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-transverse-floor-seam",
+      "id": "passenger-boarding-bridge-jet-bridge-transverse-floor-seam-105",
       "word": "Jet-bridge transverse floor seam",
       "translation": "廊桥横向地板接缝",
       "x": 782,
       "y": 523,
       "priority": 1.104,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-transverse-floor-seam",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-transverse-floor-seam-105",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-edge-trim",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-edge-trim-106",
       "word": "Jet-bridge floor edge trim",
       "translation": "廊桥地面边饰条",
       "x": 541,
       "y": 746,
       "priority": 1.105,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-edge-trim",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-edge-trim-106",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-left-floor-border",
+      "id": "passenger-boarding-bridge-jet-bridge-left-floor-border-107",
       "word": "Jet-bridge left floor border",
       "translation": "廊桥左侧地面边界",
       "x": 520,
       "y": 686,
       "priority": 1.106,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-floor-border",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-left-floor-border-107",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-right-floor-border",
+      "id": "passenger-boarding-bridge-jet-bridge-right-floor-border-108",
       "word": "Jet-bridge right floor border",
       "translation": "廊桥右侧地面边界",
       "x": 1054,
       "y": 680,
       "priority": 1.107,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-floor-border",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-right-floor-border-108",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-front-floor-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-front-floor-panel-109",
       "word": "Jet-bridge front floor panel",
       "translation": "廊桥前部地板",
       "x": 790,
       "y": 590,
       "priority": 1.108,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-front-floor-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-front-floor-panel-109",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-rear-floor-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-rear-floor-panel-110",
       "word": "Jet-bridge rear floor panel",
       "translation": "廊桥后部地板",
       "x": 800,
       "y": 859,
       "priority": 1.109,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-rear-floor-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-rear-floor-panel-110",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-seam-cover",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-seam-cover-111",
       "word": "Jet-bridge floor seam cover",
       "translation": "廊桥地缝盖条",
       "x": 565,
       "y": 705,
       "priority": 1.11,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-seam-cover",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-seam-cover-111",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-sill-transition-plate",
+      "id": "passenger-boarding-bridge-jet-bridge-sill-transition-plate-112",
       "word": "Jet-bridge sill transition plate",
       "translation": "廊桥门槛过渡板",
       "x": 797,
       "y": 520,
       "priority": 1.111,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-sill-transition-plate",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-sill-transition-plate-112",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-metal-floor-strip",
+      "id": "passenger-boarding-bridge-jet-bridge-metal-floor-strip-113",
       "word": "Jet-bridge metal floor strip",
       "translation": "廊桥金属地板条",
       "x": 790,
       "y": 523,
       "priority": 1.112,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-metal-floor-strip",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-metal-floor-strip-113",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-border-channel",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-border-channel-114",
       "word": "Jet-bridge floor-border channel",
       "translation": "廊桥地边槽",
       "x": 530,
       "y": 740,
       "priority": 1.113,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-border-channel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-border-channel-114",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-center-walking-lane",
+      "id": "passenger-boarding-bridge-jet-bridge-center-walking-lane-115",
       "word": "Jet-bridge center walking lane",
       "translation": "廊桥中央步行通道",
       "x": 800,
       "y": 655,
       "priority": 1.114,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-center-walking-lane",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-center-walking-lane-115",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-clear-boarding-path",
+      "id": "passenger-boarding-bridge-jet-bridge-clear-boarding-path-116",
       "word": "Jet-bridge clear boarding path",
       "translation": "廊桥畅通登机路线",
       "x": 803,
       "y": 690,
       "priority": 1.115,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-clear-boarding-path",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-clear-boarding-path-116",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-panel-corner",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-panel-corner-117",
       "word": "Jet-bridge floor-panel corner",
       "translation": "廊桥地板角",
       "x": 605,
       "y": 848,
       "priority": 1.116,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-panel-corner",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-panel-corner-117",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-joint-fastener",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-joint-fastener-118",
       "word": "Jet-bridge floor joint fastener",
       "translation": "廊桥地板接缝紧固件",
       "x": 1028,
       "y": 711,
       "priority": 1.117,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-joint-fastener",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-joint-fastener-118",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-patch-boundary",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-patch-boundary-119",
       "word": "Jet-bridge floor-patch boundary",
       "translation": "廊桥地面板块边界",
       "x": 970,
       "y": 842,
       "priority": 1.118,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-patch-boundary",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-patch-boundary-119",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-surface-grain",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-surface-grain-120",
       "word": "Jet-bridge floor surface grain",
       "translation": "廊桥地面表面纹理",
       "x": 913,
       "y": 879,
       "priority": 1.119,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-surface-grain",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-surface-grain-120",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-aisle-side-floor",
+      "id": "passenger-boarding-bridge-jet-bridge-aisle-side-floor-121",
       "word": "Jet-bridge aisle-side floor",
       "translation": "廊桥通道侧地面",
       "x": 643,
       "y": 625,
       "priority": 1.12,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aisle-side-floor",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aisle-side-floor-121",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-center-floor-section",
+      "id": "passenger-boarding-bridge-jet-bridge-center-floor-section-122",
       "word": "Jet-bridge center floor section",
       "translation": "廊桥中央地面段",
       "x": 821,
       "y": 803,
       "priority": 1.121,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-center-floor-section",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-center-floor-section-122",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-threshold-floor-seam",
+      "id": "passenger-boarding-bridge-jet-bridge-threshold-floor-seam-123",
       "word": "Jet-bridge threshold floor seam",
       "translation": "廊桥门槛地板接缝",
       "x": 815,
       "y": 532,
       "priority": 1.122,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-threshold-floor-seam",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-threshold-floor-seam-123",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-floor-to-wall-junction",
+      "id": "passenger-boarding-bridge-jet-bridge-floor-to-wall-junction-124",
       "word": "Jet-bridge floor-to-wall junction",
       "translation": "廊桥地墙交界",
       "x": 1096,
       "y": 699,
       "priority": 1.123,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-to-wall-junction",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-floor-to-wall-junction-124",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-boarding-route-surface",
+      "id": "passenger-boarding-bridge-jet-bridge-boarding-route-surface-125",
       "word": "Jet-bridge boarding-route surface",
       "translation": "廊桥登机路线表面",
       "x": 740,
       "y": 574,
       "priority": 1.124,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-boarding-route-surface",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-boarding-route-surface-125",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-aircraft-doorway",
+      "id": "passenger-boarding-bridge-jet-bridge-aircraft-doorway-126",
       "word": "Jet-bridge aircraft doorway",
       "translation": "廊桥尽头的飞机舱门",
       "x": 700,
       "y": 300,
       "priority": 1.125,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-doorway",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-doorway-126",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-aircraft-door-frame",
+      "id": "passenger-boarding-bridge-jet-bridge-aircraft-door-frame-127",
       "word": "Jet-bridge aircraft door frame",
       "translation": "廊桥尽头的飞机舱门框",
       "x": 705,
       "y": 300,
       "priority": 1.126,
       "minLevel": 0,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-frame",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-frame-127",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-aircraft-doorway-jamb",
+      "id": "passenger-boarding-bridge-jet-bridge-aircraft-doorway-jamb-128",
       "word": "Jet-bridge aircraft doorway jamb",
       "translation": "飞机舱门侧框",
       "x": 705,
       "y": 332,
       "priority": 1.127,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-doorway-jamb",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-doorway-jamb-128",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cabin-door-reveal",
+      "id": "passenger-boarding-bridge-jet-bridge-cabin-door-reveal-129",
       "word": "Jet-bridge cabin door reveal",
       "translation": "飞机舱门内凹边",
       "x": 860,
       "y": 299,
       "priority": 1.128,
       "minLevel": 1,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-door-reveal",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-door-reveal-129",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-aircraft-door-gasket",
+      "id": "passenger-boarding-bridge-jet-bridge-aircraft-door-gasket-130",
       "word": "Jet-bridge aircraft door gasket",
       "translation": "飞机舱门密封条",
       "x": 865,
       "y": 327,
       "priority": 1.129,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-gasket",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-gasket-130",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cabin-side-doorway",
+      "id": "passenger-boarding-bridge-jet-bridge-cabin-side-doorway-131",
       "word": "Jet-bridge cabin-side doorway",
       "translation": "廊桥尽头客舱门口",
       "x": 700,
       "y": 276,
       "priority": 1.13,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-side-doorway",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-side-doorway-131",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-aircraft-door-sill",
+      "id": "passenger-boarding-bridge-jet-bridge-aircraft-door-sill-132",
       "word": "Jet-bridge aircraft-door sill",
       "translation": "飞机舱门底槛",
       "x": 700,
       "y": 424,
       "priority": 1.131,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-sill",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-sill-132",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cabin-threshold-strip",
+      "id": "passenger-boarding-bridge-jet-bridge-cabin-threshold-strip-133",
       "word": "Jet-bridge cabin threshold strip",
       "translation": "客舱入口门槛条",
       "x": 700,
       "y": 431,
       "priority": 1.132,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-threshold-strip",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-threshold-strip-133",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-vestibule-end-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-vestibule-end-panel-134",
       "word": "Jet-bridge vestibule end panel",
       "translation": "廊桥接头端部内板",
       "x": 693,
       "y": 272,
       "priority": 1.133,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-end-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-end-panel-134",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-end-panel-seam",
+      "id": "passenger-boarding-bridge-jet-bridge-end-panel-seam-135",
       "word": "Jet-bridge end-panel seam",
       "translation": "廊桥端部内板接缝",
       "x": 692,
       "y": 366,
       "priority": 1.134,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-end-panel-seam",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-end-panel-seam-135",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-doorway-side-seal",
+      "id": "passenger-boarding-bridge-jet-bridge-doorway-side-seal-136",
       "word": "Jet-bridge doorway side seal",
       "translation": "廊桥登机口侧密封条",
       "x": 716,
       "y": 312,
       "priority": 1.135,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-doorway-side-seal",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-doorway-side-seal-136",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-doorway-head-seal",
+      "id": "passenger-boarding-bridge-jet-bridge-doorway-head-seal-137",
       "word": "Jet-bridge doorway head seal",
       "translation": "廊桥登机口上缘密封条",
       "x": 780,
       "y": 199,
       "priority": 1.136,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-doorway-head-seal",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-doorway-head-seal-137",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-door-side-grab-point",
+      "id": "passenger-boarding-bridge-jet-bridge-door-side-grab-point-138",
       "word": "Jet-bridge door-side grab point",
       "translation": "飞机舱门旁抓握处",
       "x": 858,
       "y": 350,
       "priority": 1.137,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-door-side-grab-point",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-door-side-grab-point-138",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-vestibule-corner-post",
+      "id": "passenger-boarding-bridge-jet-bridge-vestibule-corner-post-139",
       "word": "Jet-bridge vestibule corner post",
       "translation": "廊桥接头转角立柱",
       "x": 890,
       "y": 346,
       "priority": 1.138,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-corner-post",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-corner-post-139",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-aircraft-door-lower-frame",
+      "id": "passenger-boarding-bridge-jet-bridge-aircraft-door-lower-frame-140",
       "word": "Jet-bridge aircraft-door lower frame",
       "translation": "飞机舱门下框",
       "x": 700,
       "y": 409,
       "priority": 1.139,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-lower-frame",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-lower-frame-140",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-passenger-cabin-opening",
+      "id": "passenger-boarding-bridge-jet-bridge-passenger-cabin-opening-141",
       "word": "Jet-bridge passenger-cabin opening",
       "translation": "廊桥尽头的客舱开口",
       "x": 700,
       "y": 252,
       "priority": 1.14,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-passenger-cabin-opening",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-passenger-cabin-opening-141",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-doorway-upper-frame",
+      "id": "passenger-boarding-bridge-jet-bridge-doorway-upper-frame-142",
       "word": "Jet-bridge doorway upper frame",
       "translation": "飞机舱门上框",
       "x": 789,
       "y": 196,
       "priority": 1.141,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-doorway-upper-frame",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-doorway-upper-frame-142",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-doorway-frame-cap",
+      "id": "passenger-boarding-bridge-jet-bridge-doorway-frame-cap-143",
       "word": "Jet-bridge doorway frame cap",
       "translation": "飞机舱门框端盖",
       "x": 736,
       "y": 202,
       "priority": 1.142,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-doorway-frame-cap",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-doorway-frame-cap-143",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cabin-entry-handhold",
+      "id": "passenger-boarding-bridge-jet-bridge-cabin-entry-handhold-144",
       "word": "Jet-bridge cabin-entry handhold",
       "translation": "客舱入口握把",
       "x": 855,
       "y": 333,
       "priority": 1.143,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-handhold",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-handhold-144",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-threshold-side-trim",
+      "id": "passenger-boarding-bridge-jet-bridge-threshold-side-trim-145",
       "word": "Jet-bridge threshold side trim",
       "translation": "登机门槛侧饰条",
       "x": 715,
       "y": 415,
       "priority": 1.144,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-threshold-side-trim",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-threshold-side-trim-145",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-vestibule-floor-lip",
+      "id": "passenger-boarding-bridge-jet-bridge-vestibule-floor-lip-146",
       "word": "Jet-bridge vestibule floor lip",
       "translation": "接头区地板凸缘",
       "x": 687,
       "y": 441,
       "priority": 1.145,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-floor-lip",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-floor-lip-146",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-aircraft-door-trim",
+      "id": "passenger-boarding-bridge-jet-bridge-aircraft-door-trim-147",
       "word": "Jet-bridge aircraft-door trim",
       "translation": "飞机舱门饰边",
       "x": 860,
       "y": 211,
       "priority": 1.146,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-trim",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-door-trim-147",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-vestibule-side-panel",
+      "id": "passenger-boarding-bridge-jet-bridge-vestibule-side-panel-148",
       "word": "Jet-bridge vestibule side panel",
       "translation": "廊桥接头侧板",
       "x": 889,
       "y": 265,
       "priority": 1.147,
       "minLevel": 3,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-panel",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-vestibule-side-panel-148",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-cabin-entry-seal",
+      "id": "passenger-boarding-bridge-jet-bridge-cabin-entry-seal-149",
       "word": "Jet-bridge cabin entry seal",
       "translation": "客舱入口密封条",
       "x": 860,
       "y": 385,
       "priority": 1.148,
       "minLevel": 4,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-seal",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-cabin-entry-seal-149",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passenger-boarding-bridge-jet-bridge-aircraft-entry-aperture",
+      "id": "passenger-boarding-bridge-jet-bridge-aircraft-entry-aperture-150",
       "word": "Jet-bridge aircraft-entry aperture",
       "translation": "飞机入口开口",
       "x": 700,
       "y": 235,
       "priority": 1.149,
       "minLevel": 2,
-      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-entry-aperture",
+      "sourceVisualRegion": "passenger-boarding-bridge-region-jet-bridge-aircraft-entry-aperture-150",
       "semanticRealmId": "objects-technology"
     }
   ],

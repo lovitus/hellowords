@@ -9,7 +9,7 @@
   "parentId": "office-reception-lobby",
   "visualRegions": [
     {
-      "id": "office-elevator-car-region-elevator-car-operating-panel",
+      "id": "office-elevator-car-region-elevator-car-operating-panel-1",
       "description": "Elevator-car operating panel is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -18,7 +18,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-indicator-window",
+      "id": "office-elevator-car-region-elevator-car-indicator-window-2",
       "description": "Elevator-car indicator window is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -27,7 +27,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-blank-display",
+      "id": "office-elevator-car-region-elevator-car-blank-display-3",
       "description": "Elevator-car blank display is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -36,7 +36,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-panel-speaker-grille",
+      "id": "office-elevator-car-region-elevator-car-panel-speaker-grille-4",
       "description": "Elevator-car panel speaker grille is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -45,7 +45,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-top-row-button",
+      "id": "office-elevator-car-region-elevator-car-top-row-button-5",
       "description": "Elevator-car top-row button is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -54,7 +54,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-upper-middle-button",
+      "id": "office-elevator-car-region-elevator-car-upper-middle-button-6",
       "description": "Elevator-car upper-middle button is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -63,7 +63,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-center-button",
+      "id": "office-elevator-car-region-elevator-car-center-button-7",
       "description": "Elevator-car center button is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -72,7 +72,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-lower-middle-button",
+      "id": "office-elevator-car-region-elevator-car-lower-middle-button-8",
       "description": "Elevator-car lower-middle button is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -81,7 +81,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-bottom-row-button",
+      "id": "office-elevator-car-region-elevator-car-bottom-row-button-9",
       "description": "Elevator-car bottom-row button is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -90,7 +90,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-upper-button-rim",
+      "id": "office-elevator-car-region-elevator-car-upper-button-rim-10",
       "description": "Elevator-car upper button rim is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1292,
@@ -99,7 +99,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-upper-middle-button-face",
+      "id": "office-elevator-car-region-elevator-car-upper-middle-button-face-11",
       "description": "Elevator-car upper-middle button face is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1292,
@@ -108,7 +108,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-upper-middle-raised-center",
+      "id": "office-elevator-car-region-elevator-car-upper-middle-raised-center-12",
       "description": "Elevator-car upper-middle raised center is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -117,7 +117,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-center-button-surround",
+      "id": "office-elevator-car-region-elevator-car-center-button-surround-13",
       "description": "Elevator-car center button surround is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1292,
@@ -126,7 +126,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-lower-middle-button-face",
+      "id": "office-elevator-car-region-elevator-car-lower-middle-button-face-14",
       "description": "Elevator-car lower-middle button face is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1292,
@@ -135,7 +135,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-bottom-button-face",
+      "id": "office-elevator-car-region-elevator-car-bottom-button-face-15",
       "description": "Elevator-car bottom button face is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1292,
@@ -144,7 +144,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-panel-faceplate",
+      "id": "office-elevator-car-region-elevator-car-panel-faceplate-16",
       "description": "Elevator-car panel faceplate is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -153,7 +153,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-panel-side-trim",
+      "id": "office-elevator-car-region-elevator-car-panel-side-trim-17",
       "description": "Elevator-car panel side trim is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1269,
@@ -162,7 +162,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-panel-lower-edge",
+      "id": "office-elevator-car-region-elevator-car-panel-lower-edge-18",
       "description": "Elevator-car panel lower edge is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -171,7 +171,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-control-panel-screw",
+      "id": "office-elevator-car-region-elevator-car-control-panel-screw-19",
       "description": "Elevator-car control-panel screw is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1270,
@@ -180,7 +180,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-indicator-bezel",
+      "id": "office-elevator-car-region-elevator-car-indicator-bezel-20",
       "description": "Elevator-car indicator bezel is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -189,7 +189,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-lower-round-button",
+      "id": "office-elevator-car-region-elevator-car-lower-round-button-21",
       "description": "Elevator-car lower round button is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1295,
@@ -198,7 +198,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-middle-button-ring",
+      "id": "office-elevator-car-region-elevator-car-middle-button-ring-22",
       "description": "Elevator-car middle button ring is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1292,
@@ -207,7 +207,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-button-center",
+      "id": "office-elevator-car-region-elevator-car-button-center-23",
       "description": "Elevator-car button center is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1285,
@@ -216,7 +216,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-panel-mounting-rail",
+      "id": "office-elevator-car-region-elevator-car-panel-mounting-rail-24",
       "description": "Elevator-car panel mounting rail is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1270,
@@ -225,7 +225,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-control-panel-seam",
+      "id": "office-elevator-car-region-elevator-car-control-panel-seam-25",
       "description": "Elevator-car control-panel seam is visible in the Car operating panel area of the reviewed image",
       "kind": "part",
       "x": 1320,
@@ -234,7 +234,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-entrance-opening",
+      "id": "office-elevator-car-region-elevator-car-entrance-opening-26",
       "description": "Elevator-car entrance opening is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 855,
@@ -243,7 +243,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-door-leaf",
+      "id": "office-elevator-car-region-elevator-car-left-door-leaf-27",
       "description": "Elevator-car left door leaf is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 646,
@@ -252,7 +252,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-door-leaf",
+      "id": "office-elevator-car-region-elevator-car-right-door-leaf-28",
       "description": "Elevator-car right door leaf is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 1065,
@@ -261,7 +261,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-doorway-frame",
+      "id": "office-elevator-car-region-elevator-car-doorway-frame-29",
       "description": "Elevator-car doorway frame is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 867,
@@ -270,7 +270,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-doorway-header",
+      "id": "office-elevator-car-region-elevator-car-doorway-header-30",
       "description": "Elevator-car doorway header is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 857,
@@ -279,7 +279,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-door-jamb",
+      "id": "office-elevator-car-region-elevator-car-left-door-jamb-31",
       "description": "Elevator-car left door jamb is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 659,
@@ -288,7 +288,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-door-jamb",
+      "id": "office-elevator-car-region-elevator-car-right-door-jamb-32",
       "description": "Elevator-car right door jamb is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 1061,
@@ -297,7 +297,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-door-track-cover",
+      "id": "office-elevator-car-region-elevator-car-door-track-cover-33",
       "description": "Elevator-car door-track cover is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 847,
@@ -306,7 +306,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-overhead-door-track",
+      "id": "office-elevator-car-region-elevator-car-overhead-door-track-34",
       "description": "Elevator-car overhead door track is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 843,
@@ -315,7 +315,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-door-leading-edge",
+      "id": "office-elevator-car-region-elevator-car-door-leading-edge-35",
       "description": "Elevator-car door leading edge is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 691,
@@ -324,7 +324,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-entrance-sill",
+      "id": "office-elevator-car-region-elevator-car-entrance-sill-36",
       "description": "Elevator-car entrance sill is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 849,
@@ -333,7 +333,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-sill-groove",
+      "id": "office-elevator-car-region-elevator-car-sill-groove-37",
       "description": "Elevator-car sill groove is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 851,
@@ -342,7 +342,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-threshold-plate",
+      "id": "office-elevator-car-region-elevator-car-threshold-plate-38",
       "description": "Elevator-car threshold plate is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 854,
@@ -351,7 +351,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-floor-level-marker",
+      "id": "office-elevator-car-region-elevator-car-floor-level-marker-39",
       "description": "Elevator-car floor-level marker is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 707,
@@ -360,7 +360,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-door-pocket",
+      "id": "office-elevator-car-region-elevator-car-door-pocket-40",
       "description": "Elevator-car door pocket is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 615,
@@ -369,7 +369,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-frame-trim",
+      "id": "office-elevator-car-region-elevator-car-left-frame-trim-41",
       "description": "Elevator-car left frame trim is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 680,
@@ -378,7 +378,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-frame-trim",
+      "id": "office-elevator-car-region-elevator-car-right-frame-trim-42",
       "description": "Elevator-car right frame trim is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 1040,
@@ -387,7 +387,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-upper-frame-joint",
+      "id": "office-elevator-car-region-elevator-car-upper-frame-joint-43",
       "description": "Elevator-car upper frame joint is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 926,
@@ -396,7 +396,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-door-side-seal",
+      "id": "office-elevator-car-region-elevator-car-door-side-seal-44",
       "description": "Elevator-car door-side seal is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 1052,
@@ -405,7 +405,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-door-bottom-guide",
+      "id": "office-elevator-car-region-elevator-car-door-bottom-guide-45",
       "description": "Elevator-car door bottom guide is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 998,
@@ -414,7 +414,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-door-panel",
+      "id": "office-elevator-car-region-elevator-car-left-door-panel-46",
       "description": "Elevator-car left door panel is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 612,
@@ -423,7 +423,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-door-panel",
+      "id": "office-elevator-car-region-elevator-car-right-door-panel-47",
       "description": "Elevator-car right door panel is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 1087,
@@ -432,7 +432,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-entrance-corner",
+      "id": "office-elevator-car-region-elevator-car-entrance-corner-48",
       "description": "Elevator-car entrance corner is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 1008,
@@ -441,7 +441,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-sill-end-cap",
+      "id": "office-elevator-car-region-elevator-car-sill-end-cap-49",
       "description": "Elevator-car sill end cap is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 1000,
@@ -450,7 +450,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-doorway-reveal",
+      "id": "office-elevator-car-region-elevator-car-doorway-reveal-50",
       "description": "Elevator-car doorway reveal is visible in the Doors and entry area of the reviewed image",
       "kind": "part",
       "x": 690,
@@ -459,7 +459,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-full-height-mirror",
+      "id": "office-elevator-car-region-elevator-car-full-height-mirror-51",
       "description": "Elevator-car full-height mirror is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 335,
@@ -468,7 +468,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-mirror-glass",
+      "id": "office-elevator-car-region-elevator-car-mirror-glass-52",
       "description": "Elevator-car mirror glass is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 315,
@@ -477,7 +477,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-mirror-edge",
+      "id": "office-elevator-car-region-elevator-car-mirror-edge-53",
       "description": "Elevator-car mirror edge is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 381,
@@ -486,7 +486,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-mirror-lower-trim",
+      "id": "office-elevator-car-region-elevator-car-mirror-lower-trim-54",
       "description": "Elevator-car mirror lower trim is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 333,
@@ -495,7 +495,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-mirror-side-channel",
+      "id": "office-elevator-car-region-elevator-car-mirror-side-channel-55",
       "description": "Elevator-car mirror side channel is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 391,
@@ -504,7 +504,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-oak-wall-panel",
+      "id": "office-elevator-car-region-elevator-car-left-oak-wall-panel-56",
       "description": "Elevator-car left oak wall panel is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 509,
@@ -513,7 +513,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-veneer-grain",
+      "id": "office-elevator-car-region-elevator-car-left-veneer-grain-57",
       "description": "Elevator-car left veneer grain is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 517,
@@ -522,7 +522,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-oak-wall-panel",
+      "id": "office-elevator-car-region-elevator-car-right-oak-wall-panel-58",
       "description": "Elevator-car right oak wall panel is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1182,
@@ -531,7 +531,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-veneer-grain",
+      "id": "office-elevator-car-region-elevator-car-right-veneer-grain-59",
       "description": "Elevator-car right veneer grain is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1206,
@@ -540,7 +540,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-timber-panel-seam",
+      "id": "office-elevator-car-region-elevator-car-timber-panel-seam-60",
       "description": "Elevator-car timber panel seam is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1170,
@@ -549,7 +549,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-stainless-wall",
+      "id": "office-elevator-car-region-elevator-car-stainless-wall-61",
       "description": "Elevator-car stainless wall is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1133,
@@ -558,7 +558,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-brushed-metal-grain",
+      "id": "office-elevator-car-region-elevator-car-brushed-metal-grain-62",
       "description": "Elevator-car brushed-metal grain is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1139,
@@ -567,7 +567,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-stainless-reflection",
+      "id": "office-elevator-car-region-elevator-car-stainless-reflection-63",
       "description": "Elevator-car stainless reflection is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1222,
@@ -576,7 +576,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-wall-panel-joint",
+      "id": "office-elevator-car-region-elevator-car-wall-panel-joint-64",
       "description": "Elevator-car wall panel joint is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1106,
@@ -585,7 +585,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-vertical-wall-trim",
+      "id": "office-elevator-car-region-elevator-car-vertical-wall-trim-65",
       "description": "Elevator-car vertical wall trim is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1067,
@@ -594,7 +594,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-wood-reveal",
+      "id": "office-elevator-car-region-elevator-car-left-wood-reveal-66",
       "description": "Elevator-car left wood reveal is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 565,
@@ -603,7 +603,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-wood-reveal",
+      "id": "office-elevator-car-region-elevator-car-right-wood-reveal-67",
       "description": "Elevator-car right wood reveal is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1197,
@@ -612,7 +612,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-wall-corner-joint",
+      "id": "office-elevator-car-region-elevator-car-wall-corner-joint-68",
       "description": "Elevator-car wall corner joint is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1134,
@@ -621,7 +621,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-lower-wall-protection",
+      "id": "office-elevator-car-region-elevator-car-lower-wall-protection-69",
       "description": "Elevator-car lower wall protection is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1120,
@@ -630,7 +630,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-wall-base-trim",
+      "id": "office-elevator-car-region-elevator-car-wall-base-trim-70",
       "description": "Elevator-car wall base trim is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1150,
@@ -639,7 +639,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-oak-panel-edge",
+      "id": "office-elevator-car-region-elevator-car-oak-panel-edge-71",
       "description": "Elevator-car oak panel edge is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 475,
@@ -648,7 +648,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-steel-to-wood-joint",
+      "id": "office-elevator-car-region-elevator-car-steel-to-wood-joint-72",
       "description": "Elevator-car steel-to-wood joint is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1095,
@@ -657,7 +657,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-mirror-reflection",
+      "id": "office-elevator-car-region-elevator-car-mirror-reflection-73",
       "description": "Elevator-car mirror reflection is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 284,
@@ -666,7 +666,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-wall-fastener",
+      "id": "office-elevator-car-region-elevator-car-wall-fastener-74",
       "description": "Elevator-car wall fastener is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1235,
@@ -675,7 +675,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-sidewall-panel",
+      "id": "office-elevator-car-region-elevator-car-sidewall-panel-75",
       "description": "Elevator-car sidewall panel is visible in the Mirror and wall panels area of the reviewed image",
       "kind": "part",
       "x": 1242,
@@ -684,7 +684,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-handrail",
+      "id": "office-elevator-car-region-elevator-car-left-handrail-76",
       "description": "Elevator-car left handrail is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 255,
@@ -693,7 +693,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-handrail-grip",
+      "id": "office-elevator-car-region-elevator-car-left-handrail-grip-77",
       "description": "Elevator-car left handrail grip is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 435,
@@ -702,7 +702,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-handrail-end-cap",
+      "id": "office-elevator-car-region-elevator-car-left-handrail-end-cap-78",
       "description": "Elevator-car left handrail end cap is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 180,
@@ -711,7 +711,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-rail-bracket",
+      "id": "office-elevator-car-region-elevator-car-left-rail-bracket-79",
       "description": "Elevator-car left rail bracket is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 509,
@@ -720,7 +720,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-rail-wall-mount",
+      "id": "office-elevator-car-region-elevator-car-left-rail-wall-mount-80",
       "description": "Elevator-car left rail wall mount is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 378,
@@ -729,7 +729,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-handrail",
+      "id": "office-elevator-car-region-elevator-car-right-handrail-81",
       "description": "Elevator-car right handrail is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 1199,
@@ -738,7 +738,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-handrail-grip",
+      "id": "office-elevator-car-region-elevator-car-right-handrail-grip-82",
       "description": "Elevator-car right handrail grip is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 1174,
@@ -747,7 +747,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-handrail-end-cap",
+      "id": "office-elevator-car-region-elevator-car-right-handrail-end-cap-83",
       "description": "Elevator-car right handrail end cap is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 1224,
@@ -756,7 +756,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-rail-bracket",
+      "id": "office-elevator-car-region-elevator-car-right-rail-bracket-84",
       "description": "Elevator-car right rail bracket is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 1149,
@@ -765,7 +765,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-rail-wall-mount",
+      "id": "office-elevator-car-region-elevator-car-right-rail-wall-mount-85",
       "description": "Elevator-car right rail wall mount is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 1198,
@@ -774,7 +774,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-clear-turning-area",
+      "id": "office-elevator-car-region-elevator-car-clear-turning-area-86",
       "description": "Elevator-car clear turning area is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 853,
@@ -783,7 +783,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-open-floor-space",
+      "id": "office-elevator-car-region-elevator-car-open-floor-space-87",
       "description": "Elevator-car open floor space is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 791,
@@ -792,7 +792,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-standing-area",
+      "id": "office-elevator-car-region-elevator-car-standing-area-88",
       "description": "Elevator-car standing area is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 992,
@@ -801,7 +801,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-wheelchair-approach-area",
+      "id": "office-elevator-car-region-elevator-car-wheelchair-approach-area-89",
       "description": "Elevator-car wheelchair approach area is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 731,
@@ -810,7 +810,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-handrail-return",
+      "id": "office-elevator-car-region-elevator-car-handrail-return-90",
       "description": "Elevator-car handrail return is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 1221,
@@ -819,7 +819,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-handrail-underside",
+      "id": "office-elevator-car-region-elevator-car-handrail-underside-91",
       "description": "Elevator-car handrail underside is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 442,
@@ -828,7 +828,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-rail-support-arm",
+      "id": "office-elevator-car-region-elevator-car-rail-support-arm-92",
       "description": "Elevator-car rail support arm is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 520,
@@ -837,7 +837,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-rail-mounting-plate",
+      "id": "office-elevator-car-region-elevator-car-rail-mounting-plate-93",
       "description": "Elevator-car rail mounting plate is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 1150,
@@ -846,7 +846,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-handrail-wall-clearance",
+      "id": "office-elevator-car-region-elevator-car-handrail-wall-clearance-94",
       "description": "Elevator-car handrail wall clearance is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 1233,
@@ -855,7 +855,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-grab-rail-curve",
+      "id": "office-elevator-car-region-elevator-car-grab-rail-curve-95",
       "description": "Elevator-car grab-rail curve is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 60,
@@ -864,7 +864,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-accessible-cabin-floor",
+      "id": "office-elevator-car-region-elevator-car-accessible-cabin-floor-96",
       "description": "Elevator-car accessible cabin floor is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 890,
@@ -873,7 +873,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-reachable-control-height",
+      "id": "office-elevator-car-region-elevator-car-reachable-control-height-97",
       "description": "Elevator-car reachable control height is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 1275,
@@ -882,7 +882,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-handrail-end-fitting",
+      "id": "office-elevator-car-region-elevator-car-handrail-end-fitting-98",
       "description": "Elevator-car handrail end fitting is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 1213,
@@ -891,7 +891,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-side-handhold",
+      "id": "office-elevator-car-region-elevator-car-side-handhold-99",
       "description": "Elevator-car side handhold is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 47,
@@ -900,7 +900,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-uncluttered-cabin-area",
+      "id": "office-elevator-car-region-elevator-car-uncluttered-cabin-area-100",
       "description": "Elevator-car uncluttered cabin area is visible in the Handrail and accessible space area of the reviewed image",
       "kind": "part",
       "x": 913,
@@ -909,7 +909,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling",
+      "id": "office-elevator-car-region-elevator-car-ceiling-101",
       "description": "Elevator-car ceiling is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 430,
@@ -918,7 +918,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-panel",
+      "id": "office-elevator-car-region-elevator-car-ceiling-panel-102",
       "description": "Elevator-car ceiling panel is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1090,
@@ -927,7 +927,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-panel-seam",
+      "id": "office-elevator-car-region-elevator-car-ceiling-panel-seam-103",
       "description": "Elevator-car ceiling panel seam is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 410,
@@ -936,7 +936,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-recessed-downlight",
+      "id": "office-elevator-car-region-elevator-car-recessed-downlight-104",
       "description": "Elevator-car recessed downlight is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 590,
@@ -945,7 +945,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-downlight-diffuser",
+      "id": "office-elevator-car-region-elevator-car-downlight-diffuser-105",
       "description": "Elevator-car downlight diffuser is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 593,
@@ -954,7 +954,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-light-aperture",
+      "id": "office-elevator-car-region-elevator-car-ceiling-light-aperture-106",
       "description": "Elevator-car ceiling light aperture is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 20,
@@ -963,7 +963,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-ceiling-lamp",
+      "id": "office-elevator-car-region-elevator-car-left-ceiling-lamp-107",
       "description": "Elevator-car left ceiling lamp is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 170,
@@ -972,7 +972,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-center-ceiling-lamp",
+      "id": "office-elevator-car-region-elevator-car-center-ceiling-lamp-108",
       "description": "Elevator-car center ceiling lamp is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 590,
@@ -981,7 +981,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-ceiling-lamp",
+      "id": "office-elevator-car-region-elevator-car-right-ceiling-lamp-109",
       "description": "Elevator-car right ceiling lamp is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1043,
@@ -990,7 +990,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-rear-ceiling-lamp",
+      "id": "office-elevator-car-region-elevator-car-rear-ceiling-lamp-110",
       "description": "Elevator-car rear ceiling lamp is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1060,
@@ -999,7 +999,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-cove",
+      "id": "office-elevator-car-region-elevator-car-ceiling-cove-111",
       "description": "Elevator-car ceiling cove is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1180,
@@ -1008,7 +1008,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-return",
+      "id": "office-elevator-car-region-elevator-car-ceiling-return-112",
       "description": "Elevator-car ceiling return is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1240,
@@ -1017,7 +1017,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-perimeter-trim",
+      "id": "office-elevator-car-region-elevator-car-ceiling-perimeter-trim-113",
       "description": "Elevator-car ceiling perimeter trim is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 450,
@@ -1026,7 +1026,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-cross-joint",
+      "id": "office-elevator-car-region-elevator-car-ceiling-cross-joint-114",
       "description": "Elevator-car ceiling cross-joint is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1100,
@@ -1035,7 +1035,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-longitudinal-seam",
+      "id": "office-elevator-car-region-elevator-car-ceiling-longitudinal-seam-115",
       "description": "Elevator-car ceiling longitudinal seam is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 500,
@@ -1044,7 +1044,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-ceiling-panel",
+      "id": "office-elevator-car-region-elevator-car-right-ceiling-panel-116",
       "description": "Elevator-car right ceiling panel is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1180,
@@ -1053,7 +1053,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-light-reflection",
+      "id": "office-elevator-car-region-elevator-car-ceiling-light-reflection-117",
       "description": "Elevator-car ceiling light reflection is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1165,
@@ -1062,7 +1062,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-lamp-trim-ring",
+      "id": "office-elevator-car-region-elevator-car-lamp-trim-ring-118",
       "description": "Elevator-car lamp trim ring is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 593,
@@ -1071,7 +1071,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-light-panel-edge",
+      "id": "office-elevator-car-region-elevator-car-light-panel-edge-119",
       "description": "Elevator-car light-panel edge is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1106,
@@ -1080,7 +1080,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-corner",
+      "id": "office-elevator-car-region-elevator-car-ceiling-corner-120",
       "description": "Elevator-car ceiling corner is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1243,
@@ -1089,7 +1089,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-soffit-panel",
+      "id": "office-elevator-car-region-elevator-car-soffit-panel-121",
       "description": "Elevator-car soffit panel is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 409,
@@ -1098,7 +1098,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-flush-ceiling-joint",
+      "id": "office-elevator-car-region-elevator-car-flush-ceiling-joint-122",
       "description": "Elevator-car flush ceiling joint is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 500,
@@ -1107,7 +1107,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-surface",
+      "id": "office-elevator-car-region-elevator-car-ceiling-surface-123",
       "description": "Elevator-car ceiling surface is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1200,
@@ -1116,7 +1116,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-downlight-housing",
+      "id": "office-elevator-car-region-elevator-car-downlight-housing-124",
       "description": "Elevator-car downlight housing is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1043,
@@ -1125,7 +1125,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-ceiling-wall-junction",
+      "id": "office-elevator-car-region-elevator-car-ceiling-wall-junction-125",
       "description": "Elevator-car ceiling-wall junction is visible in the Ceiling and lighting area of the reviewed image",
       "kind": "part",
       "x": 1015,
@@ -1134,7 +1134,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-floor",
+      "id": "office-elevator-car-region-elevator-car-carpet-floor-126",
       "description": "Elevator-car carpet floor is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 816,
@@ -1143,7 +1143,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-speckled-carpet-finish",
+      "id": "office-elevator-car-region-elevator-car-speckled-carpet-finish-127",
       "description": "Elevator-car speckled carpet finish is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 627,
@@ -1152,7 +1152,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-pile",
+      "id": "office-elevator-car-region-elevator-car-carpet-pile-128",
       "description": "Elevator-car carpet pile is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 970,
@@ -1161,7 +1161,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-mottling",
+      "id": "office-elevator-car-region-elevator-car-carpet-mottling-129",
       "description": "Elevator-car carpet mottling is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 1040,
@@ -1170,7 +1170,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-fleck",
+      "id": "office-elevator-car-region-elevator-car-carpet-fleck-130",
       "description": "Elevator-car carpet fleck is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 709,
@@ -1179,7 +1179,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-entrance-sill-plate",
+      "id": "office-elevator-car-region-elevator-car-entrance-sill-plate-131",
       "description": "Elevator-car entrance sill plate is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 827,
@@ -1188,7 +1188,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-sill-edge",
+      "id": "office-elevator-car-region-elevator-car-sill-edge-132",
       "description": "Elevator-car sill edge is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 927,
@@ -1197,8 +1197,8 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-sill-groove",
-      "description": "Elevator-car sill groove is visible in the Floor and sill area of the reviewed image",
+      "id": "office-elevator-car-region-elevator-car-door-track-slot-133",
+      "description": "Elevator-car door-track slot is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 850,
       "y": 684,
@@ -1206,7 +1206,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-floor-to-sill-joint",
+      "id": "office-elevator-car-region-elevator-car-floor-to-sill-joint-134",
       "description": "Elevator-car floor-to-sill joint is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 759,
@@ -1215,7 +1215,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-threshold-metal-strip",
+      "id": "office-elevator-car-region-elevator-car-threshold-metal-strip-135",
       "description": "Elevator-car threshold metal strip is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 980,
@@ -1224,7 +1224,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-left-floor-corner",
+      "id": "office-elevator-car-region-elevator-car-left-floor-corner-136",
       "description": "Elevator-car left floor corner is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 83,
@@ -1233,7 +1233,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-right-floor-corner",
+      "id": "office-elevator-car-region-elevator-car-right-floor-corner-137",
       "description": "Elevator-car right floor corner is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 1401,
@@ -1242,7 +1242,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-front-carpet",
+      "id": "office-elevator-car-region-elevator-car-front-carpet-138",
       "description": "Elevator-car front carpet is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 640,
@@ -1251,7 +1251,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-rear-carpet",
+      "id": "office-elevator-car-region-elevator-car-rear-carpet-139",
       "description": "Elevator-car rear carpet is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 1075,
@@ -1260,7 +1260,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-boundary",
+      "id": "office-elevator-car-region-elevator-car-carpet-boundary-140",
       "description": "Elevator-car carpet boundary is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 494,
@@ -1269,7 +1269,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-surface-fleck",
+      "id": "office-elevator-car-region-elevator-car-carpet-surface-fleck-141",
       "description": "Elevator-car carpet surface fleck is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 1173,
@@ -1278,7 +1278,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-pile-texture",
+      "id": "office-elevator-car-region-elevator-car-carpet-pile-texture-142",
       "description": "Elevator-car carpet pile texture is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 661,
@@ -1287,7 +1287,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-sill-end-piece",
+      "id": "office-elevator-car-region-elevator-car-sill-end-piece-143",
       "description": "Elevator-car sill end piece is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 975,
@@ -1296,7 +1296,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-perimeter",
+      "id": "office-elevator-car-region-elevator-car-carpet-perimeter-144",
       "description": "Elevator-car carpet perimeter is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 1237,
@@ -1305,7 +1305,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-level-transition",
+      "id": "office-elevator-car-region-elevator-car-level-transition-145",
       "description": "Elevator-car level transition is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 933,
@@ -1314,7 +1314,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-nap",
+      "id": "office-elevator-car-region-elevator-car-carpet-nap-146",
       "description": "Elevator-car carpet nap is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 386,
@@ -1323,7 +1323,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-surface",
+      "id": "office-elevator-car-region-elevator-car-carpet-surface-147",
       "description": "Elevator-car carpet surface is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 540,
@@ -1332,7 +1332,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-sill-channel",
+      "id": "office-elevator-car-region-elevator-car-sill-channel-148",
       "description": "Elevator-car sill channel is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 777,
@@ -1341,7 +1341,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-carpet-to-wall-edge",
+      "id": "office-elevator-car-region-elevator-car-carpet-to-wall-edge-149",
       "description": "Elevator-car carpet-to-wall edge is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 1229,
@@ -1350,7 +1350,7 @@
       "height": 40
     },
     {
-      "id": "office-elevator-car-region-elevator-car-cabin-carpet-plane",
+      "id": "office-elevator-car-region-elevator-car-cabin-carpet-plane-150",
       "description": "Elevator-car cabin carpet plane is visible in the Floor and sill area of the reviewed image",
       "kind": "part",
       "x": 844,
@@ -1371,31 +1371,31 @@
       "height": 545,
       "targetScale": 2.6,
       "labelIds": [
-        "office-elevator-car-elevator-car-operating-panel",
-        "office-elevator-car-elevator-car-indicator-window",
-        "office-elevator-car-elevator-car-blank-display",
-        "office-elevator-car-elevator-car-panel-speaker-grille",
-        "office-elevator-car-elevator-car-top-row-button",
-        "office-elevator-car-elevator-car-upper-middle-button",
-        "office-elevator-car-elevator-car-center-button",
-        "office-elevator-car-elevator-car-lower-middle-button",
-        "office-elevator-car-elevator-car-bottom-row-button",
-        "office-elevator-car-elevator-car-upper-button-rim",
-        "office-elevator-car-elevator-car-upper-middle-button-face",
-        "office-elevator-car-elevator-car-upper-middle-raised-center",
-        "office-elevator-car-elevator-car-center-button-surround",
-        "office-elevator-car-elevator-car-lower-middle-button-face",
-        "office-elevator-car-elevator-car-bottom-button-face",
-        "office-elevator-car-elevator-car-panel-faceplate",
-        "office-elevator-car-elevator-car-panel-side-trim",
-        "office-elevator-car-elevator-car-panel-lower-edge",
-        "office-elevator-car-elevator-car-control-panel-screw",
-        "office-elevator-car-elevator-car-indicator-bezel",
-        "office-elevator-car-elevator-car-lower-round-button",
-        "office-elevator-car-elevator-car-middle-button-ring",
-        "office-elevator-car-elevator-car-button-center",
-        "office-elevator-car-elevator-car-panel-mounting-rail",
-        "office-elevator-car-elevator-car-control-panel-seam"
+        "office-elevator-car-elevator-car-operating-panel-1",
+        "office-elevator-car-elevator-car-indicator-window-2",
+        "office-elevator-car-elevator-car-blank-display-3",
+        "office-elevator-car-elevator-car-panel-speaker-grille-4",
+        "office-elevator-car-elevator-car-top-row-button-5",
+        "office-elevator-car-elevator-car-upper-middle-button-6",
+        "office-elevator-car-elevator-car-center-button-7",
+        "office-elevator-car-elevator-car-lower-middle-button-8",
+        "office-elevator-car-elevator-car-bottom-row-button-9",
+        "office-elevator-car-elevator-car-upper-button-rim-10",
+        "office-elevator-car-elevator-car-upper-middle-button-face-11",
+        "office-elevator-car-elevator-car-upper-middle-raised-center-12",
+        "office-elevator-car-elevator-car-center-button-surround-13",
+        "office-elevator-car-elevator-car-lower-middle-button-face-14",
+        "office-elevator-car-elevator-car-bottom-button-face-15",
+        "office-elevator-car-elevator-car-panel-faceplate-16",
+        "office-elevator-car-elevator-car-panel-side-trim-17",
+        "office-elevator-car-elevator-car-panel-lower-edge-18",
+        "office-elevator-car-elevator-car-control-panel-screw-19",
+        "office-elevator-car-elevator-car-indicator-bezel-20",
+        "office-elevator-car-elevator-car-lower-round-button-21",
+        "office-elevator-car-elevator-car-middle-button-ring-22",
+        "office-elevator-car-elevator-car-button-center-23",
+        "office-elevator-car-elevator-car-panel-mounting-rail-24",
+        "office-elevator-car-elevator-car-control-panel-seam-25"
       ]
     },
     {
@@ -1409,31 +1409,31 @@
       "height": 690,
       "targetScale": 2.65,
       "labelIds": [
-        "office-elevator-car-elevator-car-entrance-opening",
-        "office-elevator-car-elevator-car-left-door-leaf",
-        "office-elevator-car-elevator-car-right-door-leaf",
-        "office-elevator-car-elevator-car-doorway-frame",
-        "office-elevator-car-elevator-car-doorway-header",
-        "office-elevator-car-elevator-car-left-door-jamb",
-        "office-elevator-car-elevator-car-right-door-jamb",
-        "office-elevator-car-elevator-car-door-track-cover",
-        "office-elevator-car-elevator-car-overhead-door-track",
-        "office-elevator-car-elevator-car-door-leading-edge",
-        "office-elevator-car-elevator-car-entrance-sill",
-        "office-elevator-car-elevator-car-sill-groove",
-        "office-elevator-car-elevator-car-threshold-plate",
-        "office-elevator-car-elevator-car-floor-level-marker",
-        "office-elevator-car-elevator-car-door-pocket",
-        "office-elevator-car-elevator-car-left-frame-trim",
-        "office-elevator-car-elevator-car-right-frame-trim",
-        "office-elevator-car-elevator-car-upper-frame-joint",
-        "office-elevator-car-elevator-car-door-side-seal",
-        "office-elevator-car-elevator-car-door-bottom-guide",
-        "office-elevator-car-elevator-car-left-door-panel",
-        "office-elevator-car-elevator-car-right-door-panel",
-        "office-elevator-car-elevator-car-entrance-corner",
-        "office-elevator-car-elevator-car-sill-end-cap",
-        "office-elevator-car-elevator-car-doorway-reveal"
+        "office-elevator-car-elevator-car-entrance-opening-26",
+        "office-elevator-car-elevator-car-left-door-leaf-27",
+        "office-elevator-car-elevator-car-right-door-leaf-28",
+        "office-elevator-car-elevator-car-doorway-frame-29",
+        "office-elevator-car-elevator-car-doorway-header-30",
+        "office-elevator-car-elevator-car-left-door-jamb-31",
+        "office-elevator-car-elevator-car-right-door-jamb-32",
+        "office-elevator-car-elevator-car-door-track-cover-33",
+        "office-elevator-car-elevator-car-overhead-door-track-34",
+        "office-elevator-car-elevator-car-door-leading-edge-35",
+        "office-elevator-car-elevator-car-entrance-sill-36",
+        "office-elevator-car-elevator-car-sill-groove-37",
+        "office-elevator-car-elevator-car-threshold-plate-38",
+        "office-elevator-car-elevator-car-floor-level-marker-39",
+        "office-elevator-car-elevator-car-door-pocket-40",
+        "office-elevator-car-elevator-car-left-frame-trim-41",
+        "office-elevator-car-elevator-car-right-frame-trim-42",
+        "office-elevator-car-elevator-car-upper-frame-joint-43",
+        "office-elevator-car-elevator-car-door-side-seal-44",
+        "office-elevator-car-elevator-car-door-bottom-guide-45",
+        "office-elevator-car-elevator-car-left-door-panel-46",
+        "office-elevator-car-elevator-car-right-door-panel-47",
+        "office-elevator-car-elevator-car-entrance-corner-48",
+        "office-elevator-car-elevator-car-sill-end-cap-49",
+        "office-elevator-car-elevator-car-doorway-reveal-50"
       ]
     },
     {
@@ -1447,31 +1447,31 @@
       "height": 760,
       "targetScale": 2.55,
       "labelIds": [
-        "office-elevator-car-elevator-car-full-height-mirror",
-        "office-elevator-car-elevator-car-mirror-glass",
-        "office-elevator-car-elevator-car-mirror-edge",
-        "office-elevator-car-elevator-car-mirror-lower-trim",
-        "office-elevator-car-elevator-car-mirror-side-channel",
-        "office-elevator-car-elevator-car-left-oak-wall-panel",
-        "office-elevator-car-elevator-car-left-veneer-grain",
-        "office-elevator-car-elevator-car-right-oak-wall-panel",
-        "office-elevator-car-elevator-car-right-veneer-grain",
-        "office-elevator-car-elevator-car-timber-panel-seam",
-        "office-elevator-car-elevator-car-stainless-wall",
-        "office-elevator-car-elevator-car-brushed-metal-grain",
-        "office-elevator-car-elevator-car-stainless-reflection",
-        "office-elevator-car-elevator-car-wall-panel-joint",
-        "office-elevator-car-elevator-car-vertical-wall-trim",
-        "office-elevator-car-elevator-car-left-wood-reveal",
-        "office-elevator-car-elevator-car-right-wood-reveal",
-        "office-elevator-car-elevator-car-wall-corner-joint",
-        "office-elevator-car-elevator-car-lower-wall-protection",
-        "office-elevator-car-elevator-car-wall-base-trim",
-        "office-elevator-car-elevator-car-oak-panel-edge",
-        "office-elevator-car-elevator-car-steel-to-wood-joint",
-        "office-elevator-car-elevator-car-mirror-reflection",
-        "office-elevator-car-elevator-car-wall-fastener",
-        "office-elevator-car-elevator-car-sidewall-panel"
+        "office-elevator-car-elevator-car-full-height-mirror-51",
+        "office-elevator-car-elevator-car-mirror-glass-52",
+        "office-elevator-car-elevator-car-mirror-edge-53",
+        "office-elevator-car-elevator-car-mirror-lower-trim-54",
+        "office-elevator-car-elevator-car-mirror-side-channel-55",
+        "office-elevator-car-elevator-car-left-oak-wall-panel-56",
+        "office-elevator-car-elevator-car-left-veneer-grain-57",
+        "office-elevator-car-elevator-car-right-oak-wall-panel-58",
+        "office-elevator-car-elevator-car-right-veneer-grain-59",
+        "office-elevator-car-elevator-car-timber-panel-seam-60",
+        "office-elevator-car-elevator-car-stainless-wall-61",
+        "office-elevator-car-elevator-car-brushed-metal-grain-62",
+        "office-elevator-car-elevator-car-stainless-reflection-63",
+        "office-elevator-car-elevator-car-wall-panel-joint-64",
+        "office-elevator-car-elevator-car-vertical-wall-trim-65",
+        "office-elevator-car-elevator-car-left-wood-reveal-66",
+        "office-elevator-car-elevator-car-right-wood-reveal-67",
+        "office-elevator-car-elevator-car-wall-corner-joint-68",
+        "office-elevator-car-elevator-car-lower-wall-protection-69",
+        "office-elevator-car-elevator-car-wall-base-trim-70",
+        "office-elevator-car-elevator-car-oak-panel-edge-71",
+        "office-elevator-car-elevator-car-steel-to-wood-joint-72",
+        "office-elevator-car-elevator-car-mirror-reflection-73",
+        "office-elevator-car-elevator-car-wall-fastener-74",
+        "office-elevator-car-elevator-car-sidewall-panel-75"
       ]
     },
     {
@@ -1485,31 +1485,31 @@
       "height": 390,
       "targetScale": 2.55,
       "labelIds": [
-        "office-elevator-car-elevator-car-left-handrail",
-        "office-elevator-car-elevator-car-left-handrail-grip",
-        "office-elevator-car-elevator-car-left-handrail-end-cap",
-        "office-elevator-car-elevator-car-left-rail-bracket",
-        "office-elevator-car-elevator-car-left-rail-wall-mount",
-        "office-elevator-car-elevator-car-right-handrail",
-        "office-elevator-car-elevator-car-right-handrail-grip",
-        "office-elevator-car-elevator-car-right-handrail-end-cap",
-        "office-elevator-car-elevator-car-right-rail-bracket",
-        "office-elevator-car-elevator-car-right-rail-wall-mount",
-        "office-elevator-car-elevator-car-clear-turning-area",
-        "office-elevator-car-elevator-car-open-floor-space",
-        "office-elevator-car-elevator-car-standing-area",
-        "office-elevator-car-elevator-car-wheelchair-approach-area",
-        "office-elevator-car-elevator-car-handrail-return",
-        "office-elevator-car-elevator-car-handrail-underside",
-        "office-elevator-car-elevator-car-rail-support-arm",
-        "office-elevator-car-elevator-car-rail-mounting-plate",
-        "office-elevator-car-elevator-car-handrail-wall-clearance",
-        "office-elevator-car-elevator-car-grab-rail-curve",
-        "office-elevator-car-elevator-car-accessible-cabin-floor",
-        "office-elevator-car-elevator-car-reachable-control-height",
-        "office-elevator-car-elevator-car-handrail-end-fitting",
-        "office-elevator-car-elevator-car-side-handhold",
-        "office-elevator-car-elevator-car-uncluttered-cabin-area"
+        "office-elevator-car-elevator-car-left-handrail-76",
+        "office-elevator-car-elevator-car-left-handrail-grip-77",
+        "office-elevator-car-elevator-car-left-handrail-end-cap-78",
+        "office-elevator-car-elevator-car-left-rail-bracket-79",
+        "office-elevator-car-elevator-car-left-rail-wall-mount-80",
+        "office-elevator-car-elevator-car-right-handrail-81",
+        "office-elevator-car-elevator-car-right-handrail-grip-82",
+        "office-elevator-car-elevator-car-right-handrail-end-cap-83",
+        "office-elevator-car-elevator-car-right-rail-bracket-84",
+        "office-elevator-car-elevator-car-right-rail-wall-mount-85",
+        "office-elevator-car-elevator-car-clear-turning-area-86",
+        "office-elevator-car-elevator-car-open-floor-space-87",
+        "office-elevator-car-elevator-car-standing-area-88",
+        "office-elevator-car-elevator-car-wheelchair-approach-area-89",
+        "office-elevator-car-elevator-car-handrail-return-90",
+        "office-elevator-car-elevator-car-handrail-underside-91",
+        "office-elevator-car-elevator-car-rail-support-arm-92",
+        "office-elevator-car-elevator-car-rail-mounting-plate-93",
+        "office-elevator-car-elevator-car-handrail-wall-clearance-94",
+        "office-elevator-car-elevator-car-grab-rail-curve-95",
+        "office-elevator-car-elevator-car-accessible-cabin-floor-96",
+        "office-elevator-car-elevator-car-reachable-control-height-97",
+        "office-elevator-car-elevator-car-handrail-end-fitting-98",
+        "office-elevator-car-elevator-car-side-handhold-99",
+        "office-elevator-car-elevator-car-uncluttered-cabin-area-100"
       ]
     },
     {
@@ -1523,31 +1523,31 @@
       "height": 195,
       "targetScale": 2.7,
       "labelIds": [
-        "office-elevator-car-elevator-car-ceiling",
-        "office-elevator-car-elevator-car-ceiling-panel",
-        "office-elevator-car-elevator-car-ceiling-panel-seam",
-        "office-elevator-car-elevator-car-recessed-downlight",
-        "office-elevator-car-elevator-car-downlight-diffuser",
-        "office-elevator-car-elevator-car-ceiling-light-aperture",
-        "office-elevator-car-elevator-car-left-ceiling-lamp",
-        "office-elevator-car-elevator-car-center-ceiling-lamp",
-        "office-elevator-car-elevator-car-right-ceiling-lamp",
-        "office-elevator-car-elevator-car-rear-ceiling-lamp",
-        "office-elevator-car-elevator-car-ceiling-cove",
-        "office-elevator-car-elevator-car-ceiling-return",
-        "office-elevator-car-elevator-car-ceiling-perimeter-trim",
-        "office-elevator-car-elevator-car-ceiling-cross-joint",
-        "office-elevator-car-elevator-car-ceiling-longitudinal-seam",
-        "office-elevator-car-elevator-car-right-ceiling-panel",
-        "office-elevator-car-elevator-car-ceiling-light-reflection",
-        "office-elevator-car-elevator-car-lamp-trim-ring",
-        "office-elevator-car-elevator-car-light-panel-edge",
-        "office-elevator-car-elevator-car-ceiling-corner",
-        "office-elevator-car-elevator-car-soffit-panel",
-        "office-elevator-car-elevator-car-flush-ceiling-joint",
-        "office-elevator-car-elevator-car-ceiling-surface",
-        "office-elevator-car-elevator-car-downlight-housing",
-        "office-elevator-car-elevator-car-ceiling-wall-junction"
+        "office-elevator-car-elevator-car-ceiling-101",
+        "office-elevator-car-elevator-car-ceiling-panel-102",
+        "office-elevator-car-elevator-car-ceiling-panel-seam-103",
+        "office-elevator-car-elevator-car-recessed-downlight-104",
+        "office-elevator-car-elevator-car-downlight-diffuser-105",
+        "office-elevator-car-elevator-car-ceiling-light-aperture-106",
+        "office-elevator-car-elevator-car-left-ceiling-lamp-107",
+        "office-elevator-car-elevator-car-center-ceiling-lamp-108",
+        "office-elevator-car-elevator-car-right-ceiling-lamp-109",
+        "office-elevator-car-elevator-car-rear-ceiling-lamp-110",
+        "office-elevator-car-elevator-car-ceiling-cove-111",
+        "office-elevator-car-elevator-car-ceiling-return-112",
+        "office-elevator-car-elevator-car-ceiling-perimeter-trim-113",
+        "office-elevator-car-elevator-car-ceiling-cross-joint-114",
+        "office-elevator-car-elevator-car-ceiling-longitudinal-seam-115",
+        "office-elevator-car-elevator-car-right-ceiling-panel-116",
+        "office-elevator-car-elevator-car-ceiling-light-reflection-117",
+        "office-elevator-car-elevator-car-lamp-trim-ring-118",
+        "office-elevator-car-elevator-car-light-panel-edge-119",
+        "office-elevator-car-elevator-car-ceiling-corner-120",
+        "office-elevator-car-elevator-car-soffit-panel-121",
+        "office-elevator-car-elevator-car-flush-ceiling-joint-122",
+        "office-elevator-car-elevator-car-ceiling-surface-123",
+        "office-elevator-car-elevator-car-downlight-housing-124",
+        "office-elevator-car-elevator-car-ceiling-wall-junction-125"
       ]
     },
     {
@@ -1561,31 +1561,31 @@
       "height": 225,
       "targetScale": 2.5,
       "labelIds": [
-        "office-elevator-car-elevator-car-carpet-floor",
-        "office-elevator-car-elevator-car-speckled-carpet-finish",
-        "office-elevator-car-elevator-car-carpet-pile",
-        "office-elevator-car-elevator-car-carpet-mottling",
-        "office-elevator-car-elevator-car-carpet-fleck",
-        "office-elevator-car-elevator-car-entrance-sill-plate",
-        "office-elevator-car-elevator-car-sill-edge",
-        "office-elevator-car-elevator-car-sill-groove",
-        "office-elevator-car-elevator-car-floor-to-sill-joint",
-        "office-elevator-car-elevator-car-threshold-metal-strip",
-        "office-elevator-car-elevator-car-left-floor-corner",
-        "office-elevator-car-elevator-car-right-floor-corner",
-        "office-elevator-car-elevator-car-front-carpet",
-        "office-elevator-car-elevator-car-rear-carpet",
-        "office-elevator-car-elevator-car-carpet-boundary",
-        "office-elevator-car-elevator-car-carpet-surface-fleck",
-        "office-elevator-car-elevator-car-carpet-pile-texture",
-        "office-elevator-car-elevator-car-sill-end-piece",
-        "office-elevator-car-elevator-car-carpet-perimeter",
-        "office-elevator-car-elevator-car-level-transition",
-        "office-elevator-car-elevator-car-carpet-nap",
-        "office-elevator-car-elevator-car-carpet-surface",
-        "office-elevator-car-elevator-car-sill-channel",
-        "office-elevator-car-elevator-car-carpet-to-wall-edge",
-        "office-elevator-car-elevator-car-cabin-carpet-plane"
+        "office-elevator-car-elevator-car-carpet-floor-126",
+        "office-elevator-car-elevator-car-speckled-carpet-finish-127",
+        "office-elevator-car-elevator-car-carpet-pile-128",
+        "office-elevator-car-elevator-car-carpet-mottling-129",
+        "office-elevator-car-elevator-car-carpet-fleck-130",
+        "office-elevator-car-elevator-car-entrance-sill-plate-131",
+        "office-elevator-car-elevator-car-sill-edge-132",
+        "office-elevator-car-elevator-car-door-track-slot-133",
+        "office-elevator-car-elevator-car-floor-to-sill-joint-134",
+        "office-elevator-car-elevator-car-threshold-metal-strip-135",
+        "office-elevator-car-elevator-car-left-floor-corner-136",
+        "office-elevator-car-elevator-car-right-floor-corner-137",
+        "office-elevator-car-elevator-car-front-carpet-138",
+        "office-elevator-car-elevator-car-rear-carpet-139",
+        "office-elevator-car-elevator-car-carpet-boundary-140",
+        "office-elevator-car-elevator-car-carpet-surface-fleck-141",
+        "office-elevator-car-elevator-car-carpet-pile-texture-142",
+        "office-elevator-car-elevator-car-sill-end-piece-143",
+        "office-elevator-car-elevator-car-carpet-perimeter-144",
+        "office-elevator-car-elevator-car-level-transition-145",
+        "office-elevator-car-elevator-car-carpet-nap-146",
+        "office-elevator-car-elevator-car-carpet-surface-147",
+        "office-elevator-car-elevator-car-sill-channel-148",
+        "office-elevator-car-elevator-car-carpet-to-wall-edge-149",
+        "office-elevator-car-elevator-car-cabin-carpet-plane-150"
       ]
     }
   ],
@@ -1611,1653 +1611,1653 @@
   },
   "labels": [
     {
-      "id": "office-elevator-car-elevator-car-operating-panel",
+      "id": "office-elevator-car-elevator-car-operating-panel-1",
       "word": "Elevator-car operating panel",
       "translation": "电梯轿厢操作面板",
       "x": 1305,
       "y": 357,
       "priority": 1,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-operating-panel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-operating-panel-1",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-indicator-window",
+      "id": "office-elevator-car-elevator-car-indicator-window-2",
       "word": "Elevator-car indicator window",
       "translation": "电梯轿厢指示窗",
       "x": 1305,
       "y": 140,
       "priority": 1.001,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-indicator-window",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-indicator-window-2",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-blank-display",
+      "id": "office-elevator-car-elevator-car-blank-display-3",
       "word": "Elevator-car blank display",
       "translation": "电梯轿厢空白显示屏",
       "x": 1305,
       "y": 150,
       "priority": 1.002,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-blank-display",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-blank-display-3",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-panel-speaker-grille",
+      "id": "office-elevator-car-elevator-car-panel-speaker-grille-4",
       "word": "Elevator-car panel speaker grille",
       "translation": "电梯轿厢面板扬声器格栅",
       "x": 1305,
       "y": 210,
       "priority": 1.003,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-panel-speaker-grille",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-panel-speaker-grille-4",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-top-row-button",
+      "id": "office-elevator-car-elevator-car-top-row-button-5",
       "word": "Elevator-car top-row button",
       "translation": "电梯轿厢上排按钮",
       "x": 1305,
       "y": 323,
       "priority": 1.004,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-top-row-button",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-top-row-button-5",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-upper-middle-button",
+      "id": "office-elevator-car-elevator-car-upper-middle-button-6",
       "word": "Elevator-car upper-middle button",
       "translation": "电梯轿厢上中排按钮",
       "x": 1305,
       "y": 374,
       "priority": 1.005,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-upper-middle-button",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-upper-middle-button-6",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-center-button",
+      "id": "office-elevator-car-elevator-car-center-button-7",
       "word": "Elevator-car center button",
       "translation": "电梯轿厢中排按钮",
       "x": 1305,
       "y": 423,
       "priority": 1.006,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-center-button",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-center-button-7",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-lower-middle-button",
+      "id": "office-elevator-car-elevator-car-lower-middle-button-8",
       "word": "Elevator-car lower-middle button",
       "translation": "电梯轿厢下中排按钮",
       "x": 1305,
       "y": 474,
       "priority": 1.007,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-lower-middle-button",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-lower-middle-button-8",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-bottom-row-button",
+      "id": "office-elevator-car-elevator-car-bottom-row-button-9",
       "word": "Elevator-car bottom-row button",
       "translation": "电梯轿厢下排按钮",
       "x": 1305,
       "y": 524,
       "priority": 1.008,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-bottom-row-button",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-bottom-row-button-9",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-upper-button-rim",
+      "id": "office-elevator-car-elevator-car-upper-button-rim-10",
       "word": "Elevator-car upper button rim",
       "translation": "电梯轿厢上排按钮边圈",
       "x": 1312,
       "y": 323,
       "priority": 1.009,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-upper-button-rim",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-upper-button-rim-10",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-upper-middle-button-face",
+      "id": "office-elevator-car-elevator-car-upper-middle-button-face-11",
       "word": "Elevator-car upper-middle button face",
       "translation": "电梯轿厢上中排按钮面",
       "x": 1312,
       "y": 374,
       "priority": 1.01,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-upper-middle-button-face",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-upper-middle-button-face-11",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-upper-middle-raised-center",
+      "id": "office-elevator-car-elevator-car-upper-middle-raised-center-12",
       "word": "Elevator-car upper-middle raised center",
       "translation": "电梯轿厢上中排按钮凸面",
       "x": 1305,
       "y": 374,
       "priority": 1.011,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-upper-middle-raised-center",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-upper-middle-raised-center-12",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-center-button-surround",
+      "id": "office-elevator-car-elevator-car-center-button-surround-13",
       "word": "Elevator-car center button surround",
       "translation": "电梯轿厢中排按钮外圈",
       "x": 1312,
       "y": 423,
       "priority": 1.012,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-center-button-surround",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-center-button-surround-13",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-lower-middle-button-face",
+      "id": "office-elevator-car-elevator-car-lower-middle-button-face-14",
       "word": "Elevator-car lower-middle button face",
       "translation": "电梯轿厢下中排按钮面",
       "x": 1312,
       "y": 474,
       "priority": 1.013,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-lower-middle-button-face",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-lower-middle-button-face-14",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-bottom-button-face",
+      "id": "office-elevator-car-elevator-car-bottom-button-face-15",
       "word": "Elevator-car bottom button face",
       "translation": "电梯轿厢下排按钮面",
       "x": 1312,
       "y": 524,
       "priority": 1.014,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-bottom-button-face",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-bottom-button-face-15",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-panel-faceplate",
+      "id": "office-elevator-car-elevator-car-panel-faceplate-16",
       "word": "Elevator-car panel faceplate",
       "translation": "电梯轿厢面板盖板",
       "x": 1305,
       "y": 385,
       "priority": 1.015,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-panel-faceplate",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-panel-faceplate-16",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-panel-side-trim",
+      "id": "office-elevator-car-elevator-car-panel-side-trim-17",
       "word": "Elevator-car panel side trim",
       "translation": "电梯轿厢面板侧饰条",
       "x": 1289,
       "y": 394,
       "priority": 1.016,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-panel-side-trim",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-panel-side-trim-17",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-panel-lower-edge",
+      "id": "office-elevator-car-elevator-car-panel-lower-edge-18",
       "word": "Elevator-car panel lower edge",
       "translation": "电梯轿厢面板下沿",
       "x": 1305,
       "y": 575,
       "priority": 1.017,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-panel-lower-edge",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-panel-lower-edge-18",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-control-panel-screw",
+      "id": "office-elevator-car-elevator-car-control-panel-screw-19",
       "word": "Elevator-car control-panel screw",
       "translation": "电梯轿厢面板固定螺钉",
       "x": 1290,
       "y": 583,
       "priority": 1.018,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-control-panel-screw",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-control-panel-screw-19",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-indicator-bezel",
+      "id": "office-elevator-car-elevator-car-indicator-bezel-20",
       "word": "Elevator-car indicator bezel",
       "translation": "电梯轿厢指示窗边框",
       "x": 1305,
       "y": 132,
       "priority": 1.019,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-indicator-bezel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-indicator-bezel-20",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-lower-round-button",
+      "id": "office-elevator-car-elevator-car-lower-round-button-21",
       "word": "Elevator-car lower round button",
       "translation": "电梯轿厢下方圆形按钮",
       "x": 1315,
       "y": 474,
       "priority": 1.02,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-lower-round-button",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-lower-round-button-21",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-middle-button-ring",
+      "id": "office-elevator-car-elevator-car-middle-button-ring-22",
       "word": "Elevator-car middle button ring",
       "translation": "电梯轿厢中排按钮金属圈",
       "x": 1312,
       "y": 423,
       "priority": 1.021,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-middle-button-ring",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-middle-button-ring-22",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-button-center",
+      "id": "office-elevator-car-elevator-car-button-center-23",
       "word": "Elevator-car button center",
       "translation": "电梯轿厢上中排按钮中心",
       "x": 1305,
       "y": 374,
       "priority": 1.022,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-button-center",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-button-center-23",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-panel-mounting-rail",
+      "id": "office-elevator-car-elevator-car-panel-mounting-rail-24",
       "word": "Elevator-car panel mounting rail",
       "translation": "电梯轿厢面板安装条",
       "x": 1290,
       "y": 402,
       "priority": 1.023,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-panel-mounting-rail",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-panel-mounting-rail-24",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-control-panel-seam",
+      "id": "office-elevator-car-elevator-car-control-panel-seam-25",
       "word": "Elevator-car control-panel seam",
       "translation": "电梯轿厢控制面板接缝",
       "x": 1340,
       "y": 236,
       "priority": 1.024,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-control-panel-seam",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-control-panel-seam-25",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-entrance-opening",
+      "id": "office-elevator-car-elevator-car-entrance-opening-26",
       "word": "Elevator-car entrance opening",
       "translation": "电梯轿厢入口",
       "x": 875,
       "y": 394,
       "priority": 1.025,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-entrance-opening",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-entrance-opening-26",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-door-leaf",
+      "id": "office-elevator-car-elevator-car-left-door-leaf-27",
       "word": "Elevator-car left door leaf",
       "translation": "电梯轿厢左侧门扇",
       "x": 666,
       "y": 383,
       "priority": 1.026,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-door-leaf",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-door-leaf-27",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-door-leaf",
+      "id": "office-elevator-car-elevator-car-right-door-leaf-28",
       "word": "Elevator-car right door leaf",
       "translation": "电梯轿厢右侧门扇",
       "x": 1085,
       "y": 383,
       "priority": 1.027,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-door-leaf",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-door-leaf-28",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-doorway-frame",
+      "id": "office-elevator-car-elevator-car-doorway-frame-29",
       "word": "Elevator-car doorway frame",
       "translation": "电梯轿厢门框",
       "x": 887,
       "y": 104,
       "priority": 1.028,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-doorway-frame",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-doorway-frame-29",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-doorway-header",
+      "id": "office-elevator-car-elevator-car-doorway-header-30",
       "word": "Elevator-car doorway header",
       "translation": "电梯轿厢入口上框",
       "x": 877,
       "y": 90,
       "priority": 1.029,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-doorway-header",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-doorway-header-30",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-door-jamb",
+      "id": "office-elevator-car-elevator-car-left-door-jamb-31",
       "word": "Elevator-car left door jamb",
       "translation": "电梯轿厢左门框立边",
       "x": 679,
       "y": 380,
       "priority": 1.03,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-door-jamb",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-door-jamb-31",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-door-jamb",
+      "id": "office-elevator-car-elevator-car-right-door-jamb-32",
       "word": "Elevator-car right door jamb",
       "translation": "电梯轿厢右门框立边",
       "x": 1081,
       "y": 380,
       "priority": 1.031,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-door-jamb",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-door-jamb-32",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-door-track-cover",
+      "id": "office-elevator-car-elevator-car-door-track-cover-33",
       "word": "Elevator-car door-track cover",
       "translation": "电梯轿厢门轨盖板",
       "x": 867,
       "y": 101,
       "priority": 1.032,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-track-cover",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-track-cover-33",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-overhead-door-track",
+      "id": "office-elevator-car-elevator-car-overhead-door-track-34",
       "word": "Elevator-car overhead door track",
       "translation": "电梯轿厢顶部门轨",
       "x": 863,
       "y": 104,
       "priority": 1.033,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-overhead-door-track",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-overhead-door-track-34",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-door-leading-edge",
+      "id": "office-elevator-car-elevator-car-door-leading-edge-35",
       "word": "Elevator-car door leading edge",
       "translation": "电梯轿厢门扇前缘",
       "x": 711,
       "y": 404,
       "priority": 1.034,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-leading-edge",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-leading-edge-35",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-entrance-sill",
+      "id": "office-elevator-car-elevator-car-entrance-sill-36",
       "word": "Elevator-car entrance sill",
       "translation": "电梯轿厢入口门槛",
       "x": 869,
       "y": 700,
       "priority": 1.035,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-entrance-sill",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-entrance-sill-36",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-sill-groove",
+      "id": "office-elevator-car-elevator-car-sill-groove-37",
       "word": "Elevator-car sill groove",
       "translation": "电梯轿厢门槛槽",
       "x": 871,
       "y": 704,
       "priority": 1.036,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-groove",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-groove-37",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-threshold-plate",
+      "id": "office-elevator-car-elevator-car-threshold-plate-38",
       "word": "Elevator-car threshold plate",
       "translation": "电梯轿厢门口过渡板",
       "x": 874,
       "y": 710,
       "priority": 1.037,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-threshold-plate",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-threshold-plate-38",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-floor-level-marker",
+      "id": "office-elevator-car-elevator-car-floor-level-marker-39",
       "word": "Elevator-car floor-level marker",
       "translation": "电梯轿厢地面边界",
       "x": 727,
       "y": 690,
       "priority": 1.038,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-floor-level-marker",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-floor-level-marker-39",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-door-pocket",
+      "id": "office-elevator-car-elevator-car-door-pocket-40",
       "word": "Elevator-car door pocket",
       "translation": "电梯轿厢门扇收纳侧槽",
       "x": 635,
       "y": 392,
       "priority": 1.039,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-pocket",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-pocket-40",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-frame-trim",
+      "id": "office-elevator-car-elevator-car-left-frame-trim-41",
       "word": "Elevator-car left frame trim",
       "translation": "电梯轿厢左门框饰条",
       "x": 700,
       "y": 214,
       "priority": 1.04,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-frame-trim",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-frame-trim-41",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-frame-trim",
+      "id": "office-elevator-car-elevator-car-right-frame-trim-42",
       "word": "Elevator-car right frame trim",
       "translation": "电梯轿厢右门框饰条",
       "x": 1060,
       "y": 215,
       "priority": 1.041,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-frame-trim",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-frame-trim-42",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-upper-frame-joint",
+      "id": "office-elevator-car-elevator-car-upper-frame-joint-43",
       "word": "Elevator-car upper frame joint",
       "translation": "电梯轿厢上框接缝",
       "x": 946,
       "y": 105,
       "priority": 1.042,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-upper-frame-joint",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-upper-frame-joint-43",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-door-side-seal",
+      "id": "office-elevator-car-elevator-car-door-side-seal-44",
       "word": "Elevator-car door-side seal",
       "translation": "电梯轿厢门侧密封条",
       "x": 1072,
       "y": 320,
       "priority": 1.043,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-side-seal",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-side-seal-44",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-door-bottom-guide",
+      "id": "office-elevator-car-elevator-car-door-bottom-guide-45",
       "word": "Elevator-car door bottom guide",
       "translation": "电梯轿厢门底导向件",
       "x": 1018,
       "y": 699,
       "priority": 1.044,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-bottom-guide",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-bottom-guide-45",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-door-panel",
+      "id": "office-elevator-car-elevator-car-left-door-panel-46",
       "word": "Elevator-car left door panel",
       "translation": "电梯轿厢左侧门板",
       "x": 632,
       "y": 300,
       "priority": 1.045,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-door-panel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-door-panel-46",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-door-panel",
+      "id": "office-elevator-car-elevator-car-right-door-panel-47",
       "word": "Elevator-car right door panel",
       "translation": "电梯轿厢右侧门板",
       "x": 1107,
       "y": 304,
       "priority": 1.046,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-door-panel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-door-panel-47",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-entrance-corner",
+      "id": "office-elevator-car-elevator-car-entrance-corner-48",
       "word": "Elevator-car entrance corner",
       "translation": "电梯轿厢入口转角",
       "x": 1028,
       "y": 699,
       "priority": 1.047,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-entrance-corner",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-entrance-corner-48",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-sill-end-cap",
+      "id": "office-elevator-car-elevator-car-sill-end-cap-49",
       "word": "Elevator-car sill end cap",
       "translation": "电梯轿厢门槛端盖",
       "x": 1020,
       "y": 700,
       "priority": 1.048,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-end-cap",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-end-cap-49",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-doorway-reveal",
+      "id": "office-elevator-car-elevator-car-doorway-reveal-50",
       "word": "Elevator-car doorway reveal",
       "translation": "电梯轿厢入口内凹边",
       "x": 710,
       "y": 178,
       "priority": 1.049,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-doorway-reveal",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-doorway-reveal-50",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-full-height-mirror",
+      "id": "office-elevator-car-elevator-car-full-height-mirror-51",
       "word": "Elevator-car full-height mirror",
       "translation": "电梯轿厢全身镜",
       "x": 355,
       "y": 365,
       "priority": 1.05,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-full-height-mirror",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-full-height-mirror-51",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-mirror-glass",
+      "id": "office-elevator-car-elevator-car-mirror-glass-52",
       "word": "Elevator-car mirror glass",
       "translation": "电梯轿厢镜面玻璃",
       "x": 335,
       "y": 333,
       "priority": 1.051,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-mirror-glass",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-mirror-glass-52",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-mirror-edge",
+      "id": "office-elevator-car-elevator-car-mirror-edge-53",
       "word": "Elevator-car mirror edge",
       "translation": "电梯轿厢镜面边缘",
       "x": 401,
       "y": 350,
       "priority": 1.052,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-mirror-edge",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-mirror-edge-53",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-mirror-lower-trim",
+      "id": "office-elevator-car-elevator-car-mirror-lower-trim-54",
       "word": "Elevator-car mirror lower trim",
       "translation": "电梯轿厢镜面下饰条",
       "x": 353,
       "y": 671,
       "priority": 1.053,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-mirror-lower-trim",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-mirror-lower-trim-54",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-mirror-side-channel",
+      "id": "office-elevator-car-elevator-car-mirror-side-channel-55",
       "word": "Elevator-car mirror side channel",
       "translation": "电梯轿厢镜面侧槽",
       "x": 411,
       "y": 377,
       "priority": 1.054,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-mirror-side-channel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-mirror-side-channel-55",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-oak-wall-panel",
+      "id": "office-elevator-car-elevator-car-left-oak-wall-panel-56",
       "word": "Elevator-car left oak wall panel",
       "translation": "电梯轿厢左侧橡木饰板",
       "x": 529,
       "y": 368,
       "priority": 1.055,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-oak-wall-panel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-oak-wall-panel-56",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-veneer-grain",
+      "id": "office-elevator-car-elevator-car-left-veneer-grain-57",
       "word": "Elevator-car left veneer grain",
       "translation": "电梯轿厢左侧木饰纹理",
       "x": 537,
       "y": 350,
       "priority": 1.056,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-veneer-grain",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-veneer-grain-57",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-oak-wall-panel",
+      "id": "office-elevator-car-elevator-car-right-oak-wall-panel-58",
       "word": "Elevator-car right oak wall panel",
       "translation": "电梯轿厢右侧橡木饰板",
       "x": 1202,
       "y": 385,
       "priority": 1.057,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-oak-wall-panel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-oak-wall-panel-58",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-veneer-grain",
+      "id": "office-elevator-car-elevator-car-right-veneer-grain-59",
       "word": "Elevator-car right veneer grain",
       "translation": "电梯轿厢右侧木饰纹理",
       "x": 1226,
       "y": 375,
       "priority": 1.058,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-veneer-grain",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-veneer-grain-59",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-timber-panel-seam",
+      "id": "office-elevator-car-elevator-car-timber-panel-seam-60",
       "word": "Elevator-car timber panel seam",
       "translation": "电梯轿厢木饰板拼缝",
       "x": 1190,
       "y": 308,
       "priority": 1.059,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-timber-panel-seam",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-timber-panel-seam-60",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-stainless-wall",
+      "id": "office-elevator-car-elevator-car-stainless-wall-61",
       "word": "Elevator-car stainless wall",
       "translation": "电梯轿厢不锈钢墙面",
       "x": 1153,
       "y": 449,
       "priority": 1.06,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-stainless-wall",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-stainless-wall-61",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-brushed-metal-grain",
+      "id": "office-elevator-car-elevator-car-brushed-metal-grain-62",
       "word": "Elevator-car brushed-metal grain",
       "translation": "电梯轿厢拉丝金属纹理",
       "x": 1159,
       "y": 427,
       "priority": 1.061,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-brushed-metal-grain",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-brushed-metal-grain-62",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-stainless-reflection",
+      "id": "office-elevator-car-elevator-car-stainless-reflection-63",
       "word": "Elevator-car stainless reflection",
       "translation": "电梯轿厢不锈钢反光面",
       "x": 1242,
       "y": 500,
       "priority": 1.062,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-stainless-reflection",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-stainless-reflection-63",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-wall-panel-joint",
+      "id": "office-elevator-car-elevator-car-wall-panel-joint-64",
       "word": "Elevator-car wall panel joint",
       "translation": "电梯轿厢墙板接缝",
       "x": 1126,
       "y": 581,
       "priority": 1.063,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-wall-panel-joint",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-wall-panel-joint-64",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-vertical-wall-trim",
+      "id": "office-elevator-car-elevator-car-vertical-wall-trim-65",
       "word": "Elevator-car vertical wall trim",
       "translation": "电梯轿厢竖向墙饰条",
       "x": 1087,
       "y": 491,
       "priority": 1.064,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-vertical-wall-trim",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-vertical-wall-trim-65",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-wood-reveal",
+      "id": "office-elevator-car-elevator-car-left-wood-reveal-66",
       "word": "Elevator-car left wood reveal",
       "translation": "电梯轿厢左侧木饰内边",
       "x": 585,
       "y": 196,
       "priority": 1.065,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-wood-reveal",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-wood-reveal-66",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-wood-reveal",
+      "id": "office-elevator-car-elevator-car-right-wood-reveal-67",
       "word": "Elevator-car right wood reveal",
       "translation": "电梯轿厢右侧木饰内边",
       "x": 1217,
       "y": 199,
       "priority": 1.066,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-wood-reveal",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-wood-reveal-67",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-wall-corner-joint",
+      "id": "office-elevator-car-elevator-car-wall-corner-joint-68",
       "word": "Elevator-car wall corner joint",
       "translation": "电梯轿厢壁板转角接缝",
       "x": 1154,
       "y": 642,
       "priority": 1.067,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-wall-corner-joint",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-wall-corner-joint-68",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-lower-wall-protection",
+      "id": "office-elevator-car-elevator-car-lower-wall-protection-69",
       "word": "Elevator-car lower wall protection",
       "translation": "电梯轿厢下部护板",
       "x": 1140,
       "y": 686,
       "priority": 1.068,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-lower-wall-protection",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-lower-wall-protection-69",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-wall-base-trim",
+      "id": "office-elevator-car-elevator-car-wall-base-trim-70",
       "word": "Elevator-car wall base trim",
       "translation": "电梯轿厢墙脚饰条",
       "x": 1170,
       "y": 712,
       "priority": 1.069,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-wall-base-trim",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-wall-base-trim-70",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-oak-panel-edge",
+      "id": "office-elevator-car-elevator-car-oak-panel-edge-71",
       "word": "Elevator-car oak panel edge",
       "translation": "电梯轿厢橡木饰板边缘",
       "x": 495,
       "y": 545,
       "priority": 1.07,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-oak-panel-edge",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-oak-panel-edge-71",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-steel-to-wood-joint",
+      "id": "office-elevator-car-elevator-car-steel-to-wood-joint-72",
       "word": "Elevator-car steel-to-wood joint",
       "translation": "电梯轿厢金属与木板交界",
       "x": 1115,
       "y": 238,
       "priority": 1.071,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-steel-to-wood-joint",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-steel-to-wood-joint-72",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-mirror-reflection",
+      "id": "office-elevator-car-elevator-car-mirror-reflection-73",
       "word": "Elevator-car mirror reflection",
       "translation": "电梯轿厢镜中反射",
       "x": 304,
       "y": 474,
       "priority": 1.072,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-mirror-reflection",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-mirror-reflection-73",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-wall-fastener",
+      "id": "office-elevator-car-elevator-car-wall-fastener-74",
       "word": "Elevator-car wall fastener",
       "translation": "电梯轿厢墙板固定件",
       "x": 1255,
       "y": 622,
       "priority": 1.073,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-wall-fastener",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-wall-fastener-74",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-sidewall-panel",
+      "id": "office-elevator-car-elevator-car-sidewall-panel-75",
       "word": "Elevator-car sidewall panel",
       "translation": "电梯轿厢侧壁板",
       "x": 1262,
       "y": 452,
       "priority": 1.074,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sidewall-panel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sidewall-panel-75",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-handrail",
+      "id": "office-elevator-car-elevator-car-left-handrail-76",
       "word": "Elevator-car left handrail",
       "translation": "电梯轿厢左侧扶手",
       "x": 275,
       "y": 520,
       "priority": 1.075,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-handrail",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-handrail-76",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-handrail-grip",
+      "id": "office-elevator-car-elevator-car-left-handrail-grip-77",
       "word": "Elevator-car left handrail grip",
       "translation": "电梯轿厢左扶手握持面",
       "x": 455,
       "y": 514,
       "priority": 1.076,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-handrail-grip",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-handrail-grip-77",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-handrail-end-cap",
+      "id": "office-elevator-car-elevator-car-left-handrail-end-cap-78",
       "word": "Elevator-car left handrail end cap",
       "translation": "电梯轿厢左扶手端盖",
       "x": 200,
       "y": 500,
       "priority": 1.077,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-handrail-end-cap",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-handrail-end-cap-78",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-rail-bracket",
+      "id": "office-elevator-car-elevator-car-left-rail-bracket-79",
       "word": "Elevator-car left rail bracket",
       "translation": "电梯轿厢左扶手支架",
       "x": 529,
       "y": 495,
       "priority": 1.078,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-rail-bracket",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-rail-bracket-79",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-rail-wall-mount",
+      "id": "office-elevator-car-elevator-car-left-rail-wall-mount-80",
       "word": "Elevator-car left rail wall mount",
       "translation": "电梯轿厢左扶手墙面底座",
       "x": 398,
       "y": 507,
       "priority": 1.079,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-rail-wall-mount",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-rail-wall-mount-80",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-handrail",
+      "id": "office-elevator-car-elevator-car-right-handrail-81",
       "word": "Elevator-car right handrail",
       "translation": "电梯轿厢右侧扶手",
       "x": 1219,
       "y": 522,
       "priority": 1.08,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-handrail",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-handrail-81",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-handrail-grip",
+      "id": "office-elevator-car-elevator-car-right-handrail-grip-82",
       "word": "Elevator-car right handrail grip",
       "translation": "电梯轿厢右扶手握持面",
       "x": 1194,
       "y": 515,
       "priority": 1.081,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-handrail-grip",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-handrail-grip-82",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-handrail-end-cap",
+      "id": "office-elevator-car-elevator-car-right-handrail-end-cap-83",
       "word": "Elevator-car right handrail end cap",
       "translation": "电梯轿厢右扶手端盖",
       "x": 1244,
       "y": 550,
       "priority": 1.082,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-handrail-end-cap",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-handrail-end-cap-83",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-rail-bracket",
+      "id": "office-elevator-car-elevator-car-right-rail-bracket-84",
       "word": "Elevator-car right rail bracket",
       "translation": "电梯轿厢右扶手支架",
       "x": 1169,
       "y": 501,
       "priority": 1.083,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-rail-bracket",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-rail-bracket-84",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-rail-wall-mount",
+      "id": "office-elevator-car-elevator-car-right-rail-wall-mount-85",
       "word": "Elevator-car right rail wall mount",
       "translation": "电梯轿厢右扶手墙面底座",
       "x": 1218,
       "y": 508,
       "priority": 1.084,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-rail-wall-mount",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-rail-wall-mount-85",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-clear-turning-area",
+      "id": "office-elevator-car-elevator-car-clear-turning-area-86",
       "word": "Elevator-car clear turning area",
       "translation": "电梯轿厢轮椅转向空间",
       "x": 873,
       "y": 790,
       "priority": 1.085,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-clear-turning-area",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-clear-turning-area-86",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-open-floor-space",
+      "id": "office-elevator-car-elevator-car-open-floor-space-87",
       "word": "Elevator-car open floor space",
       "translation": "电梯轿厢空置地面",
       "x": 811,
       "y": 780,
       "priority": 1.086,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-open-floor-space",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-open-floor-space-87",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-standing-area",
+      "id": "office-elevator-car-elevator-car-standing-area-88",
       "word": "Elevator-car standing area",
       "translation": "电梯轿厢站立空间",
       "x": 1012,
       "y": 790,
       "priority": 1.087,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-standing-area",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-standing-area-88",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-wheelchair-approach-area",
+      "id": "office-elevator-car-elevator-car-wheelchair-approach-area-89",
       "word": "Elevator-car wheelchair approach area",
       "translation": "电梯轿厢轮椅靠近空间",
       "x": 751,
       "y": 790,
       "priority": 1.088,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-wheelchair-approach-area",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-wheelchair-approach-area-89",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-handrail-return",
+      "id": "office-elevator-car-elevator-car-handrail-return-90",
       "word": "Elevator-car handrail return",
       "translation": "电梯轿厢扶手回弯",
       "x": 1241,
       "y": 533,
       "priority": 1.089,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-handrail-return",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-handrail-return-90",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-handrail-underside",
+      "id": "office-elevator-car-elevator-car-handrail-underside-91",
       "word": "Elevator-car handrail underside",
       "translation": "电梯轿厢扶手底面",
       "x": 462,
       "y": 532,
       "priority": 1.09,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-handrail-underside",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-handrail-underside-91",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-rail-support-arm",
+      "id": "office-elevator-car-elevator-car-rail-support-arm-92",
       "word": "Elevator-car rail support arm",
       "translation": "电梯轿厢扶手支臂",
       "x": 540,
       "y": 520,
       "priority": 1.091,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-rail-support-arm",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-rail-support-arm-92",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-rail-mounting-plate",
+      "id": "office-elevator-car-elevator-car-rail-mounting-plate-93",
       "word": "Elevator-car rail mounting plate",
       "translation": "电梯轿厢扶手安装板",
       "x": 1170,
       "y": 510,
       "priority": 1.092,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-rail-mounting-plate",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-rail-mounting-plate-93",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-handrail-wall-clearance",
+      "id": "office-elevator-car-elevator-car-handrail-wall-clearance-94",
       "word": "Elevator-car handrail wall clearance",
       "translation": "电梯轿厢扶手墙面间距",
       "x": 1253,
       "y": 513,
       "priority": 1.093,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-handrail-wall-clearance",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-handrail-wall-clearance-94",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-grab-rail-curve",
+      "id": "office-elevator-car-elevator-car-grab-rail-curve-95",
       "word": "Elevator-car grab-rail curve",
       "translation": "电梯轿厢抓握扶手弧段",
       "x": 80,
       "y": 509,
       "priority": 1.094,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-grab-rail-curve",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-grab-rail-curve-95",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-accessible-cabin-floor",
+      "id": "office-elevator-car-elevator-car-accessible-cabin-floor-96",
       "word": "Elevator-car accessible cabin floor",
       "translation": "电梯轿厢无障碍地面",
       "x": 910,
       "y": 785,
       "priority": 1.095,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-accessible-cabin-floor",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-accessible-cabin-floor-96",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-reachable-control-height",
+      "id": "office-elevator-car-elevator-car-reachable-control-height-97",
       "word": "Elevator-car reachable control height",
       "translation": "电梯轿厢可触及按钮高度",
       "x": 1295,
       "y": 507,
       "priority": 1.096,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-reachable-control-height",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-reachable-control-height-97",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-handrail-end-fitting",
+      "id": "office-elevator-car-elevator-car-handrail-end-fitting-98",
       "word": "Elevator-car handrail end fitting",
       "translation": "电梯轿厢扶手端部接头",
       "x": 1233,
       "y": 547,
       "priority": 1.097,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-handrail-end-fitting",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-handrail-end-fitting-98",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-side-handhold",
+      "id": "office-elevator-car-elevator-car-side-handhold-99",
       "word": "Elevator-car side handhold",
       "translation": "电梯轿厢侧边握持扶手",
       "x": 67,
       "y": 524,
       "priority": 1.098,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-side-handhold",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-side-handhold-99",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-uncluttered-cabin-area",
+      "id": "office-elevator-car-elevator-car-uncluttered-cabin-area-100",
       "word": "Elevator-car uncluttered cabin area",
       "translation": "电梯轿厢无障碍空地",
       "x": 933,
       "y": 790,
       "priority": 1.099,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-uncluttered-cabin-area",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-uncluttered-cabin-area-100",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling",
+      "id": "office-elevator-car-elevator-car-ceiling-101",
       "word": "Elevator-car ceiling",
       "translation": "电梯轿厢天花板",
       "x": 450,
       "y": 43,
       "priority": 1.1,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-101",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-panel",
+      "id": "office-elevator-car-elevator-car-ceiling-panel-102",
       "word": "Elevator-car ceiling panel",
       "translation": "电梯轿厢顶板",
       "x": 1110,
       "y": 52,
       "priority": 1.101,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-panel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-panel-102",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-panel-seam",
+      "id": "office-elevator-car-elevator-car-ceiling-panel-seam-103",
       "word": "Elevator-car ceiling panel seam",
       "translation": "电梯轿厢顶板接缝",
       "x": 430,
       "y": 38,
       "priority": 1.102,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-panel-seam",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-panel-seam-103",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-recessed-downlight",
+      "id": "office-elevator-car-elevator-car-recessed-downlight-104",
       "word": "Elevator-car recessed downlight",
       "translation": "电梯轿厢嵌灯",
       "x": 610,
       "y": 29,
       "priority": 1.103,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-recessed-downlight",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-recessed-downlight-104",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-downlight-diffuser",
+      "id": "office-elevator-car-elevator-car-downlight-diffuser-105",
       "word": "Elevator-car downlight diffuser",
       "translation": "电梯轿厢灯具扩散罩",
       "x": 613,
       "y": 27,
       "priority": 1.104,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-downlight-diffuser",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-downlight-diffuser-105",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-light-aperture",
+      "id": "office-elevator-car-elevator-car-ceiling-light-aperture-106",
       "word": "Elevator-car ceiling light aperture",
       "translation": "电梯轿厢天花灯孔",
       "x": 40,
       "y": 44,
       "priority": 1.105,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-light-aperture",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-light-aperture-106",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-ceiling-lamp",
+      "id": "office-elevator-car-elevator-car-left-ceiling-lamp-107",
       "word": "Elevator-car left ceiling lamp",
       "translation": "电梯轿厢左侧顶灯",
       "x": 190,
       "y": 87,
       "priority": 1.106,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-ceiling-lamp",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-ceiling-lamp-107",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-center-ceiling-lamp",
+      "id": "office-elevator-car-elevator-car-center-ceiling-lamp-108",
       "word": "Elevator-car center ceiling lamp",
       "translation": "电梯轿厢中央顶灯",
       "x": 610,
       "y": 29,
       "priority": 1.107,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-center-ceiling-lamp",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-center-ceiling-lamp-108",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-ceiling-lamp",
+      "id": "office-elevator-car-elevator-car-right-ceiling-lamp-109",
       "word": "Elevator-car right ceiling lamp",
       "translation": "电梯轿厢右侧顶灯",
       "x": 1063,
       "y": 5,
       "priority": 1.108,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-ceiling-lamp",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-ceiling-lamp-109",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-rear-ceiling-lamp",
+      "id": "office-elevator-car-elevator-car-rear-ceiling-lamp-110",
       "word": "Elevator-car rear ceiling lamp",
       "translation": "电梯轿厢后部顶灯",
       "x": 1080,
       "y": 25,
       "priority": 1.109,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-rear-ceiling-lamp",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-rear-ceiling-lamp-110",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-cove",
+      "id": "office-elevator-car-elevator-car-ceiling-cove-111",
       "word": "Elevator-car ceiling cove",
       "translation": "电梯轿厢天花凹槽",
       "x": 1200,
       "y": 55,
       "priority": 1.11,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-cove",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-cove-111",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-return",
+      "id": "office-elevator-car-elevator-car-ceiling-return-112",
       "word": "Elevator-car ceiling return",
       "translation": "电梯轿厢顶棚折边",
       "x": 1260,
       "y": 69,
       "priority": 1.111,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-return",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-return-112",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-perimeter-trim",
+      "id": "office-elevator-car-elevator-car-ceiling-perimeter-trim-113",
       "word": "Elevator-car ceiling perimeter trim",
       "translation": "电梯轿厢天花周边饰条",
       "x": 470,
       "y": 70,
       "priority": 1.112,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-perimeter-trim",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-perimeter-trim-113",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-cross-joint",
+      "id": "office-elevator-car-elevator-car-ceiling-cross-joint-114",
       "word": "Elevator-car ceiling cross-joint",
       "translation": "电梯轿厢天花横向接缝",
       "x": 1120,
       "y": 55,
       "priority": 1.113,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-cross-joint",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-cross-joint-114",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-longitudinal-seam",
+      "id": "office-elevator-car-elevator-car-ceiling-longitudinal-seam-115",
       "word": "Elevator-car ceiling longitudinal seam",
       "translation": "电梯轿厢天花纵向接缝",
       "x": 520,
       "y": 12,
       "priority": 1.114,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-longitudinal-seam",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-longitudinal-seam-115",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-ceiling-panel",
+      "id": "office-elevator-car-elevator-car-right-ceiling-panel-116",
       "word": "Elevator-car right ceiling panel",
       "translation": "电梯轿厢右侧顶板",
       "x": 1200,
       "y": 30,
       "priority": 1.115,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-ceiling-panel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-ceiling-panel-116",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-light-reflection",
+      "id": "office-elevator-car-elevator-car-ceiling-light-reflection-117",
       "word": "Elevator-car ceiling light reflection",
       "translation": "电梯轿厢顶灯反光",
       "x": 1185,
       "y": 25,
       "priority": 1.116,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-light-reflection",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-light-reflection-117",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-lamp-trim-ring",
+      "id": "office-elevator-car-elevator-car-lamp-trim-ring-118",
       "word": "Elevator-car lamp trim ring",
       "translation": "电梯轿厢灯具装饰圈",
       "x": 613,
       "y": 30,
       "priority": 1.117,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-lamp-trim-ring",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-lamp-trim-ring-118",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-light-panel-edge",
+      "id": "office-elevator-car-elevator-car-light-panel-edge-119",
       "word": "Elevator-car light-panel edge",
       "translation": "电梯轿厢灯板边缘",
       "x": 1126,
       "y": 44,
       "priority": 1.118,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-light-panel-edge",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-light-panel-edge-119",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-corner",
+      "id": "office-elevator-car-elevator-car-ceiling-corner-120",
       "word": "Elevator-car ceiling corner",
       "translation": "电梯轿厢天花转角",
       "x": 1263,
       "y": 75,
       "priority": 1.119,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-corner",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-corner-120",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-soffit-panel",
+      "id": "office-elevator-car-elevator-car-soffit-panel-121",
       "word": "Elevator-car soffit panel",
       "translation": "电梯轿厢顶棚内板",
       "x": 429,
       "y": 60,
       "priority": 1.12,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-soffit-panel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-soffit-panel-121",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-flush-ceiling-joint",
+      "id": "office-elevator-car-elevator-car-flush-ceiling-joint-122",
       "word": "Elevator-car flush ceiling joint",
       "translation": "电梯轿厢齐平顶板接合处",
       "x": 520,
       "y": 17,
       "priority": 1.121,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-flush-ceiling-joint",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-flush-ceiling-joint-122",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-surface",
+      "id": "office-elevator-car-elevator-car-ceiling-surface-123",
       "word": "Elevator-car ceiling surface",
       "translation": "电梯轿厢顶面",
       "x": 1220,
       "y": 65,
       "priority": 1.122,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-surface",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-surface-123",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-downlight-housing",
+      "id": "office-elevator-car-elevator-car-downlight-housing-124",
       "word": "Elevator-car downlight housing",
       "translation": "电梯轿厢嵌灯外壳",
       "x": 1063,
       "y": 5,
       "priority": 1.123,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-downlight-housing",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-downlight-housing-124",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-ceiling-wall-junction",
+      "id": "office-elevator-car-elevator-car-ceiling-wall-junction-125",
       "word": "Elevator-car ceiling-wall junction",
       "translation": "电梯轿厢顶墙交界",
       "x": 1035,
       "y": 78,
       "priority": 1.124,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-wall-junction",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-ceiling-wall-junction-125",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-floor",
+      "id": "office-elevator-car-elevator-car-carpet-floor-126",
       "word": "Elevator-car carpet floor",
       "translation": "电梯轿厢地毯地面",
       "x": 836,
       "y": 821,
       "priority": 1.125,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-floor",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-floor-126",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-speckled-carpet-finish",
+      "id": "office-elevator-car-elevator-car-speckled-carpet-finish-127",
       "word": "Elevator-car speckled carpet finish",
       "translation": "电梯轿厢斑点地毯饰面",
       "x": 647,
       "y": 820,
       "priority": 1.126,
       "minLevel": 0,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-speckled-carpet-finish",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-speckled-carpet-finish-127",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-pile",
+      "id": "office-elevator-car-elevator-car-carpet-pile-128",
       "word": "Elevator-car carpet pile",
       "translation": "电梯轿厢地毯绒面",
       "x": 990,
       "y": 821,
       "priority": 1.127,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-pile",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-pile-128",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-mottling",
+      "id": "office-elevator-car-elevator-car-carpet-mottling-129",
       "word": "Elevator-car carpet mottling",
       "translation": "电梯轿厢地毯斑驳纹理",
       "x": 1060,
       "y": 855,
       "priority": 1.128,
       "minLevel": 1,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-mottling",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-mottling-129",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-fleck",
+      "id": "office-elevator-car-elevator-car-carpet-fleck-130",
       "word": "Elevator-car carpet fleck",
       "translation": "电梯轿厢地毯颗粒",
       "x": 729,
       "y": 862,
       "priority": 1.129,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-fleck",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-fleck-130",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-entrance-sill-plate",
+      "id": "office-elevator-car-elevator-car-entrance-sill-plate-131",
       "word": "Elevator-car entrance sill plate",
       "translation": "电梯轿厢入口门槛板",
       "x": 847,
       "y": 700,
       "priority": 1.13,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-entrance-sill-plate",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-entrance-sill-plate-131",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-sill-edge",
+      "id": "office-elevator-car-elevator-car-sill-edge-132",
       "word": "Elevator-car sill edge",
       "translation": "电梯轿厢门槛边缘",
       "x": 947,
       "y": 702,
       "priority": 1.131,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-edge",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-edge-132",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-sill-groove",
-      "word": "Elevator-car sill groove",
-      "translation": "电梯轿厢门槛沟槽",
+      "id": "office-elevator-car-elevator-car-door-track-slot-133",
+      "word": "Elevator-car door-track slot",
+      "translation": "电梯轿厢门导轨槽",
       "x": 870,
       "y": 704,
       "priority": 1.132,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-groove",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-door-track-slot-133",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-floor-to-sill-joint",
+      "id": "office-elevator-car-elevator-car-floor-to-sill-joint-134",
       "word": "Elevator-car floor-to-sill joint",
       "translation": "电梯轿厢地面与门槛接缝",
       "x": 779,
       "y": 703,
       "priority": 1.133,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-floor-to-sill-joint",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-floor-to-sill-joint-134",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-threshold-metal-strip",
+      "id": "office-elevator-car-elevator-car-threshold-metal-strip-135",
       "word": "Elevator-car threshold metal strip",
       "translation": "电梯轿厢门槛金属条",
       "x": 1000,
       "y": 701,
       "priority": 1.134,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-threshold-metal-strip",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-threshold-metal-strip-135",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-left-floor-corner",
+      "id": "office-elevator-car-elevator-car-left-floor-corner-136",
       "word": "Elevator-car left floor corner",
       "translation": "电梯轿厢左侧地面角",
       "x": 103,
       "y": 721,
       "priority": 1.135,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-floor-corner",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-left-floor-corner-136",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-right-floor-corner",
+      "id": "office-elevator-car-elevator-car-right-floor-corner-137",
       "word": "Elevator-car right floor corner",
       "translation": "电梯轿厢右侧地面角",
       "x": 1421,
       "y": 768,
       "priority": 1.136,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-floor-corner",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-right-floor-corner-137",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-front-carpet",
+      "id": "office-elevator-car-elevator-car-front-carpet-138",
       "word": "Elevator-car front carpet",
       "translation": "电梯轿厢前部地毯",
       "x": 660,
       "y": 787,
       "priority": 1.137,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-front-carpet",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-front-carpet-138",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-rear-carpet",
+      "id": "office-elevator-car-elevator-car-rear-carpet-139",
       "word": "Elevator-car rear carpet",
       "translation": "电梯轿厢后部地毯",
       "x": 1095,
       "y": 815,
       "priority": 1.138,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-rear-carpet",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-rear-carpet-139",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-boundary",
+      "id": "office-elevator-car-elevator-car-carpet-boundary-140",
       "word": "Elevator-car carpet boundary",
       "translation": "电梯轿厢地毯边界",
       "x": 514,
       "y": 860,
       "priority": 1.139,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-boundary",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-boundary-140",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-surface-fleck",
+      "id": "office-elevator-car-elevator-car-carpet-surface-fleck-141",
       "word": "Elevator-car carpet surface fleck",
       "translation": "电梯轿厢地毯表面颗粒",
       "x": 1193,
       "y": 849,
       "priority": 1.14,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-surface-fleck",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-surface-fleck-141",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-pile-texture",
+      "id": "office-elevator-car-elevator-car-carpet-pile-texture-142",
       "word": "Elevator-car carpet pile texture",
       "translation": "电梯轿厢地毯绒面纹理",
       "x": 681,
       "y": 779,
       "priority": 1.141,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-pile-texture",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-pile-texture-142",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-sill-end-piece",
+      "id": "office-elevator-car-elevator-car-sill-end-piece-143",
       "word": "Elevator-car sill end piece",
       "translation": "电梯轿厢门槛端片",
       "x": 995,
       "y": 704,
       "priority": 1.142,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-end-piece",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-end-piece-143",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-perimeter",
+      "id": "office-elevator-car-elevator-car-carpet-perimeter-144",
       "word": "Elevator-car carpet perimeter",
       "translation": "电梯轿厢地毯周边",
       "x": 1257,
       "y": 818,
       "priority": 1.143,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-perimeter",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-perimeter-144",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-level-transition",
+      "id": "office-elevator-car-elevator-car-level-transition-145",
       "word": "Elevator-car level transition",
       "translation": "电梯轿厢平层过渡面",
       "x": 953,
       "y": 700,
       "priority": 1.144,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-level-transition",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-level-transition-145",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-nap",
+      "id": "office-elevator-car-elevator-car-carpet-nap-146",
       "word": "Elevator-car carpet nap",
       "translation": "电梯轿厢地毯绒毛",
       "x": 406,
       "y": 849,
       "priority": 1.145,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-nap",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-nap-146",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-surface",
+      "id": "office-elevator-car-elevator-car-carpet-surface-147",
       "word": "Elevator-car carpet surface",
       "translation": "电梯轿厢地毯表面",
       "x": 560,
       "y": 797,
       "priority": 1.146,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-surface",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-surface-147",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-sill-channel",
+      "id": "office-elevator-car-elevator-car-sill-channel-148",
       "word": "Elevator-car sill channel",
       "translation": "电梯轿厢门槛导槽",
       "x": 797,
       "y": 702,
       "priority": 1.147,
       "minLevel": 3,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-channel",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-sill-channel-148",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-carpet-to-wall-edge",
+      "id": "office-elevator-car-elevator-car-carpet-to-wall-edge-149",
       "word": "Elevator-car carpet-to-wall edge",
       "translation": "电梯轿厢地毯与墙面交界",
       "x": 1249,
       "y": 774,
       "priority": 1.148,
       "minLevel": 4,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-to-wall-edge",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-carpet-to-wall-edge-149",
       "semanticRealmId": "people-society"
     },
     {
-      "id": "office-elevator-car-elevator-car-cabin-carpet-plane",
+      "id": "office-elevator-car-elevator-car-cabin-carpet-plane-150",
       "word": "Elevator-car cabin carpet plane",
       "translation": "电梯轿厢地毯平面",
       "x": 864,
       "y": 878,
       "priority": 1.149,
       "minLevel": 2,
-      "sourceVisualRegion": "office-elevator-car-region-elevator-car-cabin-carpet-plane",
+      "sourceVisualRegion": "office-elevator-car-region-elevator-car-cabin-carpet-plane-150",
       "semanticRealmId": "people-society"
     }
   ],

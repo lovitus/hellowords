@@ -138,7 +138,7 @@ const scenes = [
       ] },
       { id: "floor-and-sill", title: "Floor and sill", translation: "地面与门槛", description: "Identify the speckled carpet surface, entrance sill, threshold edge and metal floor strip.", x: 0, y: 675, width: 1_600, height: 225, targetScale: 2.5, labels: [
         label("Elevator-car carpet floor", "电梯轿厢地毯地面", 836, 821), label("Elevator-car speckled carpet finish", "电梯轿厢斑点地毯饰面", 647, 820), label("Elevator-car carpet pile", "电梯轿厢地毯绒面", 990, 821), label("Elevator-car carpet mottling", "电梯轿厢地毯斑驳纹理", 1_060, 855), label("Elevator-car carpet fleck", "电梯轿厢地毯颗粒", 729, 862),
-        label("Elevator-car entrance sill plate", "电梯轿厢入口门槛板", 847, 700), label("Elevator-car sill edge", "电梯轿厢门槛边缘", 947, 702), label("Elevator-car sill groove", "电梯轿厢门槛沟槽", 870, 704), label("Elevator-car floor-to-sill joint", "电梯轿厢地面与门槛接缝", 779, 703), label("Elevator-car threshold metal strip", "电梯轿厢门槛金属条", 1_000, 701),
+        label("Elevator-car entrance sill plate", "电梯轿厢入口门槛板", 847, 700), label("Elevator-car sill edge", "电梯轿厢门槛边缘", 947, 702), label("Elevator-car door-track slot", "电梯轿厢门导轨槽", 870, 704), label("Elevator-car floor-to-sill joint", "电梯轿厢地面与门槛接缝", 779, 703), label("Elevator-car threshold metal strip", "电梯轿厢门槛金属条", 1_000, 701),
         label("Elevator-car left floor corner", "电梯轿厢左侧地面角", 103, 721), label("Elevator-car right floor corner", "电梯轿厢右侧地面角", 1_421, 768), label("Elevator-car front carpet", "电梯轿厢前部地毯", 660, 787), label("Elevator-car rear carpet", "电梯轿厢后部地毯", 1_095, 815), label("Elevator-car carpet boundary", "电梯轿厢地毯边界", 514, 860),
         label("Elevator-car carpet surface fleck", "电梯轿厢地毯表面颗粒", 1_193, 849), label("Elevator-car carpet pile texture", "电梯轿厢地毯绒面纹理", 681, 779), label("Elevator-car sill end piece", "电梯轿厢门槛端片", 995, 704), label("Elevator-car carpet perimeter", "电梯轿厢地毯周边", 1_257, 818), label("Elevator-car level transition", "电梯轿厢平层过渡面", 953, 700),
         label("Elevator-car carpet nap", "电梯轿厢地毯绒毛", 406, 849), label("Elevator-car carpet surface", "电梯轿厢地毯表面", 560, 797), label("Elevator-car sill channel", "电梯轿厢门槛导槽", 797, 702), label("Elevator-car carpet-to-wall edge", "电梯轿厢地毯与墙面交界", 1_249, 774), label("Elevator-car cabin carpet plane", "电梯轿厢地毯平面", 864, 878),
@@ -207,8 +207,9 @@ function makeScene(config, assetSha256) {
     const labelIds = [];
     for (const item of zone.labels) {
       const itemSlug = slug(item.word);
-      const id = `${config.id}-${itemSlug}`;
-      const regionId = `${config.id}-region-${itemSlug}`;
+      const itemNumber = sequence + 1;
+      const id = `${config.id}-${itemSlug}-${itemNumber}`;
+      const regionId = `${config.id}-region-${itemSlug}-${itemNumber}`;
       const localIndex = labelIds.length;
       const x = Number(item.x.toFixed(3));
       const y = Number(item.y.toFixed(3));
