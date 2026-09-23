@@ -67,3 +67,24 @@ test("emergency-department practice opens on its real hospital path with a clear
   await expect(dialog).toContainText("I feel unwell and need some help.");
   await expect(dialog).toContainText("仅用于语言练习，不提供诊断或用药建议。");
 });
+
+test("school locker practice opens from the real school scene path", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const app = page.getByTestId("world-app");
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+  for (const sceneId of ["school-campus", "school-corridor", "school-locker-bank"]) {
+    const portal = page.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${sceneId}"]`,
+    );
+    await expect(portal).toBeVisible();
+    await portal.click();
+    await expect(app).toHaveAttribute("data-scene-id", sceneId);
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+  }
+  await page.getByRole("button", { name: "情景会话", exact: true }).click();
+  const dialog = page.getByRole("dialog", { name: "在这里怎么说" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator("li")).toHaveCount(12);
+  await expect(dialog).toContainText("I can't open my locker after entering the combination.");
+  await expect(dialog).toContainText("上课时我的运动包可以放在哪里？");
+});

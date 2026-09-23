@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { SCENE_CONVERSATIONS } from "../../app/domain/sceneConversations";
 
-test("scene practice supplies 336 original bilingual turns in twenty-eight reachable scenes", () => {
+test("scene practice supplies 348 original bilingual turns in twenty-nine reachable scenes", () => {
   const manifest = JSON.parse(readFileSync(new URL("../../public/data/scenes/manifest.json", import.meta.url), "utf8"));
   const scenes = manifest.scenes as Array<{ id: string; parentId: string | null }>;
   const parentById = new Map(scenes.map(({ id, parentId }) => [id, parentId] as const));
@@ -17,7 +17,7 @@ test("scene practice supplies 336 original bilingual turns in twenty-eight reach
     return current === manifest.rootSceneId;
   };
   const sentences = new Set<string>();
-  assert.equal(Object.keys(SCENE_CONVERSATIONS).length, 28);
+  assert.equal(Object.keys(SCENE_CONVERSATIONS).length, 29);
   for (const [sceneId, conversations] of Object.entries(SCENE_CONVERSATIONS)) {
     assert.ok(reachesRoot(sceneId), `${sceneId} must lead back to ${manifest.rootSceneId}`);
     assert.equal(conversations.length, 2);
@@ -32,6 +32,7 @@ test("scene practice supplies 336 original bilingual turns in twenty-eight reach
       }
     }
   }
-  assert.equal(sentences.size, 336);
+  assert.equal(sentences.size, 348);
+  assert.ok(SCENE_CONVERSATIONS["school-locker-bank"]);
   assert.equal(SCENE_CONVERSATIONS["world-map"], undefined);
 });

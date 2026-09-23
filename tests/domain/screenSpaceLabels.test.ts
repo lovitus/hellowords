@@ -222,6 +222,33 @@ test("selected label collision priority follows the controlled same-scene word c
   assert.match(selectionSync, /\[labelsById, requestCameraFrame, selectedLabelId\]/);
 });
 
+test("collision easing waits until camera movement settles", () => {
+  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  const applyStart = source.indexOf("const applyCamera = useCallback");
+  const applyEnd = source.indexOf("useLayoutEffect(() => {", applyStart);
+  const applyCamera = source.slice(applyStart, applyEnd);
+  const shiftStart = applyCamera.indexOf("const previousTimer = labelShiftTimersRef.current.get(labelId)");
+  const shiftEnd = applyCamera.indexOf("const anchorX = -item.offsetX", shiftStart);
+  assert.ok(applyStart >= 0 && applyEnd > applyStart);
+  assert.ok(shiftStart >= 0 && shiftEnd > shiftStart);
+  assert.match(
+    applyCamera,
+    /const cameraInMotion = pointersRef\.current\.size > 0[\s\S]*cameraAnimationRef\.current !== null[\s\S]*wheelInMotion/,
+  );
+  assert.match(
+    applyCamera.slice(shiftStart, shiftEnd),
+    /if \(cameraInMotion\)[\s\S]*?clearTimeout\(previousTimer\)[\s\S]*?delete element\.dataset\.layoutShift[\s\S]*?\} else if \(offsetShift >= 12\)/,
+    "camera motion follows the anchor directly and only settled collision changes ease",
+  );
+  const releaseStart = source.indexOf("const releasePointer =", applyEnd);
+  const releaseEnd = source.indexOf("const viewportCenter", releaseStart);
+  assert.match(
+    source.slice(releaseStart, releaseEnd),
+    /pointersRef\.current\.delete\(event\.pointerId\)[\s\S]*requestCameraFrame\(\)/,
+    "pointer release schedules the settled camera paint",
+  );
+});
+
 function matchingDivClose(markup: string, openIndex: number): number {
   const tags = /<div\b[^>]*>|<\/div>/g;
   tags.lastIndex = openIndex;

@@ -1227,6 +1227,19 @@ export function SceneViewport({
     const viewportWidth = viewport.clientWidth;
     const viewportHeight = viewport.clientHeight;
     const camera = (cameraRef.current = clampCamera(cameraRef.current));
+    const wheelTarget = wheelTargetRef.current;
+    const wheelInMotion = Boolean(
+      wheelAnimationRef.current !== null
+      && wheelTarget
+      && (
+        Math.abs(camera.x - wheelTarget.x) > WHEEL_POSITION_EPSILON
+        || Math.abs(camera.y - wheelTarget.y) > WHEEL_POSITION_EPSILON
+        || Math.abs(Math.log(camera.scale / wheelTarget.scale)) > WHEEL_SCALE_EPSILON
+      )
+    );
+    const cameraInMotion = pointersRef.current.size > 0
+      || cameraAnimationRef.current !== null
+      || wheelInMotion;
     const maximumScale = maximumSceneCameraScale(camera.fit);
     const effectiveScale = camera.fit * camera.scale;
     const zoomLevel = sceneLodLevel(camera.scale);
@@ -1627,9 +1640,15 @@ export function SceneViewport({
             item.offsetY - previousOffset.offsetY,
           )
           : 0;
-        if (offsetShift >= 12) {
+        const previousTimer = labelShiftTimersRef.current.get(labelId);
+        if (cameraInMotion) {
+          if (previousTimer !== undefined) {
+            window.clearTimeout(previousTimer);
+            labelShiftTimersRef.current.delete(labelId);
+          }
+          if (element.dataset.layoutShift === "true") delete element.dataset.layoutShift;
+        } else if (offsetShift >= 12) {
           setDatasetValueIfChanged(element, "layoutShift", "true");
-          const previousTimer = labelShiftTimersRef.current.get(labelId);
           if (previousTimer !== undefined) window.clearTimeout(previousTimer);
           const timer = window.setTimeout(() => {
             if (labelShiftTimersRef.current.get(labelId) !== timer) return;
@@ -3152,7 +3171,12 @@ export function SceneViewport({
     resetSemanticOverscroll();
     pointersRef.current.delete(event.pointerId);
     previousPointersRef.current.delete(event.pointerId);
-    if (viewerInteractive && !committingRef.current) scheduleNavigationCheck();
+    if (viewerInteractive && !committingRef.current) {
+      // Paint once after the last pointer leaves so any final settled collision
+      // correction can use its short easing without lagging behind the drag.
+      requestCameraFrame();
+      scheduleNavigationCheck();
+    }
   };
 
   const viewportCenter = () => {

@@ -222,6 +222,24 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["I will ask the clinical team to help you.", "我会请医护团队帮助您。"],
     ] },
   ],
+  "school-locker-bank": [
+    { title: "询问密码锁与卡住的柜门", roles: ["学生", "学校工作人员"], lines: [
+      ["I can't open my locker after entering the combination.", "输入密码后，我还是打不开储物柜。"],
+      ["Which locker are you trying to open?", "你想打开的是哪个储物柜？"],
+      ["The blue door beside the open locker.", "旁边那扇蓝色的柜门，就在敞开的柜子旁。"],
+      ["Please don't force the door or twist the handle.", "请不要硬拉柜门，也不要扭动把手。"],
+      ["Could you check the dial and latch for me?", "你能帮我检查一下转盘和锁扣吗？"],
+      ["I'll ask the school office to check the jammed lock.", "我会请学校办公室检查卡住的锁。"],
+    ] },
+    { title: "存放物品与归还失物", roles: ["学生", "学校工作人员"], lines: [
+      ["I left my water bottle on the bench.", "我把水瓶落在长椅上了。"],
+      ["Is it the clear bottle beside the dark backpack?", "是深色背包旁边的透明水瓶吗？"],
+      ["Yes, and my lunch box is beside it too.", "是的，我的午餐盒也在旁边。"],
+      ["I found a pair of shoes inside the open locker.", "我在敞开的储物柜里发现了一双鞋。"],
+      ["They aren't mine. Should I take them to the office?", "不是我的。我应该把它们交到办公室吗？"],
+      ["Yes, please hand in anything you find.", "是的，请把捡到的物品交到办公室。"],
+    ] },
+  ],
   "hospital-pharmacy": [
     { title: "领取处方药", roles: ["患者", "药师"], lines: [
       ["I'm here to collect my prescription.", "我来领取处方药。"],
