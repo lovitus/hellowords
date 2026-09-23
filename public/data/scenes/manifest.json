@@ -163,6 +163,11 @@
       "parentId": "pathology-lab"
     },
     {
+      "id": "histology-sectioning-workstation",
+      "title": "Histology sectioning workstation",
+      "parentId": "pathology-lab"
+    },
+    {
       "id": "hospital-pharmacy",
       "title": "Hospital pharmacy",
       "parentId": "hospital"

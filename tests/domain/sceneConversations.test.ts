@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { SCENE_CONVERSATIONS } from "../../app/domain/sceneConversations";
 
-test("scene practice supplies 474 original bilingual turns in thirty-five reachable scenes", () => {
+test("scene practice supplies 492 original bilingual turns in thirty-six reachable scenes", () => {
   const manifest = JSON.parse(readFileSync(new URL("../../public/data/scenes/manifest.json", import.meta.url), "utf8"));
   const scenes = manifest.scenes as Array<{ id: string; parentId: string | null }>;
   const parentById = new Map(scenes.map(({ id, parentId }) => [id, parentId] as const));
@@ -27,8 +27,9 @@ test("scene practice supplies 474 original bilingual turns in thirty-five reacha
     "operating-theatre",
     "radiology-suite",
     "pathology-lab",
+    "histology-sectioning-workstation",
   ]);
-  assert.equal(Object.keys(SCENE_CONVERSATIONS).length, 35);
+  assert.equal(Object.keys(SCENE_CONVERSATIONS).length, 36);
   for (const [sceneId, conversations] of Object.entries(SCENE_CONVERSATIONS)) {
     assert.ok(reachesRoot(sceneId), `${sceneId} must lead back to ${manifest.rootSceneId}`);
     assert.equal(conversations.length, expandedMedicalScenes.has(sceneId) ? 3 : 2);
@@ -43,7 +44,7 @@ test("scene practice supplies 474 original bilingual turns in thirty-five reacha
       }
     }
   }
-  assert.equal(sentences.size, 474);
+  assert.equal(sentences.size, 492);
   assert.ok(SCENE_CONVERSATIONS["school-locker-bank"]);
   assert.ok(SCENE_CONVERSATIONS["airport-conveyor-drive-unit"]);
   assert.ok(SCENE_CONVERSATIONS["office-network-rack"]);
@@ -51,5 +52,6 @@ test("scene practice supplies 474 original bilingual turns in thirty-five reacha
   assert.ok(SCENE_CONVERSATIONS["office-elevator-car"]);
   assert.ok(SCENE_CONVERSATIONS["emergency-triage-reception"]);
   assert.ok(SCENE_CONVERSATIONS["emergency-assessment-bay"]);
+  assert.ok(SCENE_CONVERSATIONS["histology-sectioning-workstation"]);
   assert.equal(SCENE_CONVERSATIONS["world-map"], undefined);
 });

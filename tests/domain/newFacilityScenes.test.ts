@@ -77,6 +77,16 @@ const contracts = [
     zoneSizes: [25, 25, 25, 25, 25, 25],
   },
   {
+    id: "histology-sectioning-workstation",
+    parentId: "pathology-lab",
+    asset: "/scenes/histology-sectioning-workstation-premium-v1.jpg",
+    sha256: "6d844355b38d760d56534ebd950bc2cff5f32e606f244005e5ffacf11a824292",
+    source: "scripts/assets/histology-sectioning-workstation-v1.png",
+    sourceSha256: "e9c6440be9f18776133303b5e89269b74282f5e740f7d90e9b128e5bde4753cb",
+    labels: 108,
+    zoneSizes: [19, 18, 16, 17, 19, 19],
+  },
+  {
     id: "automated-dispensing-cabinet",
     parentId: "hospital-pharmacy",
     asset: "/scenes/automated-dispensing-cabinet-premium-v1.jpg",
@@ -411,6 +421,29 @@ test("pathology laboratory and hospital pharmacy expose independently audited eq
   assert.ok(cabinetRegion);
   assert.deepEqual([cabinetRegion.x, cabinetRegion.y, cabinetRegion.width, cabinetRegion.height], [1_120, 80, 480, 680]);
   assert.notEqual(cabinet.sourceVisualRegion, "automated-cabinet", "the accurate portal crop must not reuse the narrower legacy semantic region");
+});
+
+test("pathology lab opens a terminal histology sectioning workstation without covering anchors", async () => {
+  const pathology = await readJson("pathology-lab.json");
+  const portal = pathology.portals.find(({ childSceneId }: { childSceneId: string }) => (
+    childSceneId === "histology-sectioning-workstation"
+  ));
+  assert.ok(portal);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [1_270, 520, 70, 70]);
+  assert.equal(portal.enterScale, 3.35);
+  const coveredLabels = pathology.labels.filter(({ x, y }: { x: number; y: number }) => (
+    x >= portal.x && x <= portal.x + portal.width && y >= portal.y && y <= portal.y + portal.height
+  ));
+  assert.deepEqual(coveredLabels, []);
+  const region = pathology.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+
+  const child = await readJson("histology-sectioning-workstation.json");
+  assert.equal(child.parentId, "pathology-lab");
+  assert.deepEqual(child.portals, [], "terminal zoom remains within the sectioning workstation");
+  assert.equal(child.labels.length, 108);
+  assert.equal(child.detailZones.length, 6);
 });
 
 test("hospital bedspace, office reception and customs entrances use accurate separate crops", async () => {

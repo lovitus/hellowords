@@ -14,6 +14,7 @@ const MEDICAL_CONVERSATION_SCENE_IDS = new Set([
   "operating-theatre",
   "radiology-suite",
   "pathology-lab",
+  "histology-sectioning-workstation",
 ]);
 
 export function SceneConversation({ sceneId, disabled, onOpenChange }: {

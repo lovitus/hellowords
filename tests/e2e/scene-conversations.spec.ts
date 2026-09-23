@@ -81,6 +81,38 @@ test("emergency-department practice opens on its real hospital path with a clear
   await expect(dialog).toContainText("仅用于语言练习，不提供诊断或用药建议。");
 });
 
+test("histology workstation practice opens from the visible pathology-lab equipment", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const app = page.getByTestId("world-app");
+  await expect(app).toHaveAttribute("data-scene-loading", "false");
+  for (const sceneId of [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "hospital",
+    "pathology-lab",
+    "histology-sectioning-workstation",
+  ]) {
+    const portal = page.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${sceneId}"]`,
+    ).first();
+    await expect(portal).toBeVisible();
+    await portal.click();
+    await expect(app).toHaveAttribute("data-scene-id", sceneId);
+    await expect(app).toHaveAttribute("data-scene-loading", "false");
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+  }
+  await page.getByRole("button", { name: "情景会话", exact: true }).click();
+  const dialog = page.getByRole("dialog", { name: "在这里怎么说" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator("li")).toHaveCount(18);
+  await expect(dialog).toContainText("What is the name of this instrument?");
+  await expect(dialog).toContainText("It is a rotary microtome.");
+  await expect(dialog).toContainText("仅用于语言练习，不提供诊断或用药建议。");
+  await dialog.getByRole("button", { name: "关闭情景会话" }).click();
+  await expect(app).toHaveAttribute("data-scene-id", "histology-sectioning-workstation");
+});
+
 test("emergency triage reception offers check-in, interpreter and waiting-area practice", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
   const app = page.getByTestId("world-app");

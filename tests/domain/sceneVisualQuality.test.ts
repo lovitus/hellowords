@@ -320,6 +320,19 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 8,
     },
   },
+  "histology-sectioning-workstation": {
+    asset: "/scenes/histology-sectioning-workstation-premium-v1.jpg",
+    sha256: "6d844355b38d760d56534ebd950bc2cff5f32e606f244005e5ffacf11a824292",
+    quality: {
+      minMeanLuminance: 145,
+      maxMeanLuminance: 165,
+      maxDarkFraction: 0.12,
+      maxDeepDarkFraction: 0.06,
+      minMeanChroma: 0.03,
+      maxMeanChroma: 0.08,
+      maxChannelMeanSpread: 8,
+    },
+  },
   "automated-dispensing-cabinet": {
     asset: "/scenes/automated-dispensing-cabinet-premium-v1.jpg",
     sha256: "ffad54c64be1bcb601c5ea1483a93786adf1bfb18e351a4260dcfaedaa47fdad",

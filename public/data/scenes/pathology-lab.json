@@ -4971,6 +4971,18 @@
       "width": 300,
       "height": 400,
       "enterScale": 3.4
+    },
+    {
+      "id": "enter-histology-sectioning-workstation",
+      "label": "Inspect the histology sectioning workstation",
+      "translation": "查看组织切片工作台",
+      "childSceneId": "histology-sectioning-workstation",
+      "sourceVisualRegion": "portal-histology-sectioning-workstation",
+      "x": 1270,
+      "y": 520,
+      "width": 70,
+      "height": 70,
+      "enterScale": 3.35
     }
   ],
   "anchorAudit": {
@@ -5067,6 +5079,15 @@
       "y": 360,
       "width": 300,
       "height": 400
+    },
+    {
+      "id": "portal-histology-sectioning-workstation",
+      "description": "Visible right-side microtome and tissue-sectioning equipment in the pathology laboratory photograph",
+      "kind": "object",
+      "x": 1270,
+      "y": 520,
+      "width": 70,
+      "height": 70
     }
   ],
   "detailZones": [

@@ -695,6 +695,7 @@ const FOCUSED_PRIORITY_SCENES = new Set([
   "city-cafe",
   "hospital",
   "pathology-lab",
+  "histology-sectioning-workstation",
   "hospital-pharmacy",
   "emergency-triage-reception",
   "emergency-assessment-bay",

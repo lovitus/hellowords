@@ -528,6 +528,32 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Use the approved laboratory record for this case.", "请在该病例的正式实验室记录中登记。"],
     ] },
   ],
+  "histology-sectioning-workstation": [
+    { title: "寻找切片与核对记录", roles: ["访客", "实验室工作人员"], lines: [
+      ["Could you show me where the prepared slides are kept?", "能告诉我准备好的载玻片放在哪里吗？"],
+      ["The slide rack is beside the water bath.", "载玻片架在水浴槽旁边。"],
+      ["Is this the correct tray for the next slide?", "下一张载玻片应该放进这个托盘吗？"],
+      ["Please check with the technician assigned to this bench.", "请向负责这个工作台的技术员确认。"],
+      ["I can't read the reference on this label.", "我看不清这个标签上的编号。"],
+      ["Please ask authorized staff to verify the reference.", "请让获授权的工作人员核对编号。"],
+    ] },
+    { title: "询问设备与安全", roles: ["访客", "实验室工作人员"], lines: [
+      ["What is the name of this instrument?", "这台仪器叫什么？"],
+      ["It is a rotary microtome.", "这是一台旋转式切片机。"],
+      ["May I turn the handwheel?", "我可以转动手轮吗？"],
+      ["Please don't operate equipment unless you are trained and authorized.", "未经培训和授权，请不要操作设备。"],
+      ["Could you tell me which area I should keep clear?", "能告诉我应该避开哪一块区域吗？"],
+      ["Please ask your supervisor before approaching the instrument.", "靠近仪器前请先询问主管。"],
+    ] },
+    { title: "询问进度与报告沟通", roles: ["访客", "实验室工作人员"], lines: [
+      ["Has my specimen reached the laboratory?", "我的标本到达实验室了吗？"],
+      ["The team can check its status using the approved reference.", "团队可以使用获批的编号查询状态。"],
+      ["When can I expect an update about the report?", "我什么时候能收到报告进度？"],
+      ["Please contact the clinician who arranged the test.", "请联系安排这项检查的临床医生。"],
+      ["Can I speak with someone in my preferred language?", "我可以用自己熟悉的语言与人沟通吗？"],
+      ["I can ask the hospital team about interpreter support.", "我可以向医院团队询问口译支持。"],
+    ] },
+  ],
   "check-in-counter": [
     { title: "申请登机协助", roles: ["旅客", "值机员"], lines: [
       ["I'd like some extra time when boarding begins.", "我希望登机时能多一些时间。"],

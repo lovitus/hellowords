@@ -121,6 +121,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // and cold-storage terms in one focused educational bench.
   "pathology-lab": 100,
   "microscope-workstation": 145,
+  "histology-sectioning-workstation": 108,
   // The pharmacy close-up keeps storage, dispensing, compounding and generic
   // medicine terms on visible shelves, counters and equipment.
   "hospital-pharmacy": 100,
@@ -249,6 +250,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "infusion-pump-rack": 150,
   "pathology-lab": 450,
   "microscope-workstation": 155,
+  "histology-sectioning-workstation": 120,
   "hospital-pharmacy": 390,
   "automated-dispensing-cabinet": 150,
   airport: 390,
