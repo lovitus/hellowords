@@ -1,0 +1,3115 @@
+{
+  "id": "office-network-rack",
+  "title": "Office network rack",
+  "translation": "写字楼网络机柜",
+  "subtitle": "Rack enclosure, patch panels, switches, servers, cable management and power",
+  "asset": "/scenes/office-network-rack-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "service-core",
+  "visualRegions": [
+    {
+      "id": "office-network-rack-region-cabinet-shell",
+      "description": "Network cabinet shell visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 949.282297,
+      "y": 479.171095,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-open-mesh-front-door",
+      "description": "Network open mesh front door visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 450.717703,
+      "y": 381.615303,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-door-perforated-panel",
+      "description": "Network door perforated panel visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 443.062201,
+      "y": 220.935175,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-door-outer-frame",
+      "description": "Network door outer frame visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 520.574163,
+      "y": 427.523911,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-door-inner-border",
+      "description": "Network door inner border visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 559.808612,
+      "y": 525.079702,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-door-hinge",
+      "description": "Network upper door hinge visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 572.248804,
+      "y": 66.950053,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-middle-door-hinge",
+      "description": "Network middle door hinge visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 573.205742,
+      "y": 326.142402,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-door-hinge",
+      "description": "Network lower door hinge visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 573.205742,
+      "y": 650.371945,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-door-pull-handle",
+      "description": "Network door pull handle visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 531.100478,
+      "y": 390.223167,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-door-latch-plate",
+      "description": "Network door latch plate visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 547.368421,
+      "y": 396.918172,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-door-lock-cylinder",
+      "description": "Network door lock cylinder visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 544.497608,
+      "y": 419.872476,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-front-left-rack-post",
+      "description": "Network front left rack post visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 605.741627,
+      "y": 459.086079,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-front-right-rack-post",
+      "description": "Network front right rack post visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 949.282297,
+      "y": 506.907545,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-inner-mounting-rail",
+      "description": "Network inner mounting rail visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 650.717703,
+      "y": 361.530287,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-rack-top-crosspiece",
+      "description": "Network rack top crosspiece visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 759.808612,
+      "y": 2.869288,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-cabinet-crossbar",
+      "description": "Network lower cabinet crossbar visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 824.880383,
+      "y": 785.22848,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-cabinet-foot-left",
+      "description": "Network cabinet foot left visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 562.679426,
+      "y": 843.57067,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-cabinet-foot-right",
+      "description": "Network cabinet foot right visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 977.990431,
+      "y": 843.57067,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-left-post-square-hole-row",
+      "description": "Network left post square-hole row visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 602.870813,
+      "y": 216.153029,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-right-post-square-hole-row",
+      "description": "Network right post square-hole row visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 949.282297,
+      "y": 216.153029,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-front-frame-corner-bracket",
+      "description": "Network front frame corner bracket visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 609.569378,
+      "y": 774.707758,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-door-lower-hinge-pin",
+      "description": "Network door lower hinge pin visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 572.248804,
+      "y": 662.805526,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-side-frame-joint",
+      "description": "Network side-frame joint visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 949.282297,
+      "y": 559.511158,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-cabinet-base-pan",
+      "description": "Network cabinet base pan visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 788.516746,
+      "y": 819.659936,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-bottom-frame-fastener",
+      "description": "Network bottom frame fastener visible in Cabinet frame and open door",
+      "kind": "object",
+      "x": 949.282297,
+      "y": 809.139214,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-fiber-patch-panel",
+      "description": "Network upper fiber patch panel visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 774.162679,
+      "y": 120.510096,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-fiber-panel-chassis",
+      "description": "Network fiber-panel chassis visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 792.344498,
+      "y": 103.294368,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-left-lc-adapter-row",
+      "description": "Network left LC adapter row visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 694.736842,
+      "y": 113.81509,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-right-lc-adapter-row",
+      "description": "Network right LC adapter row visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 859.330144,
+      "y": 113.81509,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-first-duplex-fiber-adapter",
+      "description": "Network first duplex fiber adapter visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 714.832536,
+      "y": 112.858661,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-second-duplex-fiber-adapter",
+      "description": "Network second duplex fiber adapter visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 750.239234,
+      "y": 112.858661,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-third-duplex-fiber-adapter",
+      "description": "Network third duplex fiber adapter visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 784.688995,
+      "y": 112.858661,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-fourth-duplex-fiber-adapter",
+      "description": "Network fourth duplex fiber adapter visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 819.138756,
+      "y": 112.858661,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-yellow-fiber-jumper-one",
+      "description": "Network yellow fiber jumper one visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 719.617225,
+      "y": 130.074389,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-yellow-fiber-jumper-two",
+      "description": "Network yellow fiber jumper two visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 762.679426,
+      "y": 131.987248,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-yellow-fiber-jumper-three",
+      "description": "Network yellow fiber jumper three visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 807.655502,
+      "y": 130.074389,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blue-fiber-trunk",
+      "description": "Network blue fiber trunk visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 624.880383,
+      "y": 218.065887,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-horizontal-cable-bar",
+      "description": "Network upper horizontal cable bar visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 755.980861,
+      "y": 152.072264,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-brush-pass-through",
+      "description": "Network upper brush pass-through visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 794.258373,
+      "y": 173.113709,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-copper-patch-panel-upper",
+      "description": "Network copper patch panel upper visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 787.559809,
+      "y": 225.717322,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-ethernet-jack-row",
+      "description": "Network upper Ethernet jack row visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 795.215311,
+      "y": 234.325186,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-left-ethernet-jack-bank",
+      "description": "Network left Ethernet jack bank visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 702.392344,
+      "y": 234.325186,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-right-ethernet-jack-bank",
+      "description": "Network right Ethernet jack bank visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 882.296651,
+      "y": 234.325186,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blue-patch-cord-group",
+      "description": "Network blue patch cord group visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 794.258373,
+      "y": 252.497343,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blue-patch-cord-bend",
+      "description": "Network blue patch cord bend visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 824.880383,
+      "y": 268.756642,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-panel-left-mounting-ear",
+      "description": "Network panel left mounting ear visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 641.148325,
+      "y": 239.107333,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-panel-right-mounting-ear",
+      "description": "Network panel right mounting ear visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 935.885167,
+      "y": 239.107333,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blank-horizontal-cable-cover",
+      "description": "Network blank horizontal cable cover visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 776.076555,
+      "y": 184.590861,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-fiber-panel-screw-head",
+      "description": "Network fiber-panel screw head visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 926.315789,
+      "y": 107.120085,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-panel-side-cable-guide",
+      "description": "Network panel-side cable guide visible in Fiber and copper patching",
+      "kind": "object",
+      "x": 660.287081,
+      "y": 155.897981,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-ethernet-switch",
+      "description": "Network upper Ethernet switch visible in Switches and network appliances",
+      "kind": "object",
+      "x": 800,
+      "y": 356.74814,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-switch-faceplate",
+      "description": "Network upper switch faceplate visible in Switches and network appliances",
+      "kind": "object",
+      "x": 799.043062,
+      "y": 353.878852,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-switch-port-bank",
+      "description": "Network upper switch port bank visible in Switches and network appliances",
+      "kind": "object",
+      "x": 771.291866,
+      "y": 363.443146,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-switch-uplink-slots",
+      "description": "Network upper switch uplink slots visible in Switches and network appliances",
+      "kind": "object",
+      "x": 872.727273,
+      "y": 363.443146,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-switch-sfp-module",
+      "description": "Network upper switch SFP module visible in Switches and network appliances",
+      "kind": "object",
+      "x": 876.555024,
+      "y": 362.486716,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-switch-status-leds",
+      "description": "Network upper switch status LEDs visible in Switches and network appliances",
+      "kind": "object",
+      "x": 917.703349,
+      "y": 363.443146,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-switch-vent-grille",
+      "description": "Network upper switch vent grille visible in Switches and network appliances",
+      "kind": "object",
+      "x": 914.832536,
+      "y": 351.965994,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-ethernet-switch",
+      "description": "Network lower Ethernet switch visible in Switches and network appliances",
+      "kind": "object",
+      "x": 798.086124,
+      "y": 428.48034,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-switch-port-bank",
+      "description": "Network lower switch port bank visible in Switches and network appliances",
+      "kind": "object",
+      "x": 776.076555,
+      "y": 432.306057,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-switch-left-port",
+      "description": "Network lower switch left port visible in Switches and network appliances",
+      "kind": "object",
+      "x": 746.411483,
+      "y": 432.306057,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-switch-right-port",
+      "description": "Network lower switch right port visible in Switches and network appliances",
+      "kind": "object",
+      "x": 844.976077,
+      "y": 432.306057,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-switch-power-inlet",
+      "description": "Network lower switch power inlet visible in Switches and network appliances",
+      "kind": "object",
+      "x": 904.30622,
+      "y": 437.088204,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-centre-equipment-blanking-panel",
+      "description": "Network centre equipment blanking panel visible in Switches and network appliances",
+      "kind": "object",
+      "x": 801.913876,
+      "y": 484.909671,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blank-panel-pull-handle",
+      "description": "Network blank-panel pull handle visible in Switches and network appliances",
+      "kind": "object",
+      "x": 792.344498,
+      "y": 482.040383,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blank-panel-left-screw",
+      "description": "Network blank-panel left screw visible in Switches and network appliances",
+      "kind": "object",
+      "x": 746.411483,
+      "y": 485.8661,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blank-panel-right-screw",
+      "description": "Network blank-panel right screw visible in Switches and network appliances",
+      "kind": "object",
+      "x": 903.349282,
+      "y": 485.8661,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blank-panel-right-edge",
+      "description": "Network blank-panel right edge visible in Switches and network appliances",
+      "kind": "object",
+      "x": 921.5311,
+      "y": 484.909671,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blank-panel-lower-seam",
+      "description": "Network blank-panel lower seam visible in Switches and network appliances",
+      "kind": "object",
+      "x": 801.913876,
+      "y": 500.21254,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-rackmount-cable-bar",
+      "description": "Network rackmount cable bar visible in Switches and network appliances",
+      "kind": "object",
+      "x": 787.559809,
+      "y": 263.974495,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-bar-finger-opening",
+      "description": "Network bar finger opening visible in Switches and network appliances",
+      "kind": "object",
+      "x": 731.100478,
+      "y": 265.887354,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-switch-mounting-ear-left",
+      "description": "Network switch mounting ear left visible in Switches and network appliances",
+      "kind": "object",
+      "x": 650.717703,
+      "y": 360.573858,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-switch-mounting-ear-right",
+      "description": "Network switch mounting ear right visible in Switches and network appliances",
+      "kind": "object",
+      "x": 937.799043,
+      "y": 360.573858,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-retainer-screw-upper",
+      "description": "Network retainer screw upper visible in Switches and network appliances",
+      "kind": "object",
+      "x": 936.842105,
+      "y": 353.878852,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-retainer-screw-lower",
+      "description": "Network retainer screw lower visible in Switches and network appliances",
+      "kind": "object",
+      "x": 935.885167,
+      "y": 434.218916,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-front-cable-guide-fingers",
+      "description": "Network front cable guide fingers visible in Switches and network appliances",
+      "kind": "object",
+      "x": 653.588517,
+      "y": 432.306057,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-server-chassis",
+      "description": "Network upper server chassis visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 801.913876,
+      "y": 548.990436,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-server-bezel",
+      "description": "Network upper server bezel visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 800.956938,
+      "y": 548.990436,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-server-drive-bay-one",
+      "description": "Network upper server drive bay one visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 697.607656,
+      "y": 539.426142,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-server-drive-bay-two",
+      "description": "Network upper server drive bay two visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 745.454545,
+      "y": 539.426142,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-server-drive-bay-three",
+      "description": "Network upper server drive bay three visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 792.344498,
+      "y": 539.426142,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-server-drive-bay-four",
+      "description": "Network upper server drive bay four visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 839.23445,
+      "y": 539.426142,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-server-drive-bay-five",
+      "description": "Network upper server drive bay five visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 886.124402,
+      "y": 539.426142,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-server-drive-bay-six",
+      "description": "Network upper server drive bay six visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 931.100478,
+      "y": 539.426142,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-drive-tray-latch",
+      "description": "Network upper drive-tray latch visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 792.344498,
+      "y": 527.94899,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-server-release-handle",
+      "description": "Network upper server release handle visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 653.588517,
+      "y": 554.729012,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-server-chassis",
+      "description": "Network lower server chassis visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 802.870813,
+      "y": 619.766206,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-server-faceplate",
+      "description": "Network lower server faceplate visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 802.870813,
+      "y": 619.766206,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-server-drive-bay-one",
+      "description": "Network lower server drive bay one visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 697.607656,
+      "y": 610.201913,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-server-drive-bay-two",
+      "description": "Network lower server drive bay two visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 744.497608,
+      "y": 610.201913,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-server-drive-bay-three",
+      "description": "Network lower server drive bay three visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 793.301435,
+      "y": 610.201913,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-server-drive-bay-four",
+      "description": "Network lower server drive bay four visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 839.23445,
+      "y": 610.201913,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-server-drive-bay-five",
+      "description": "Network lower server drive bay five visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 886.124402,
+      "y": 610.201913,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-server-drive-bay-six",
+      "description": "Network lower server drive bay six visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 933.014354,
+      "y": 610.201913,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-drive-tray-latch",
+      "description": "Network lower drive-tray latch visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 792.344498,
+      "y": 598.724761,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-server-pull-handle",
+      "description": "Network lower server pull handle visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 653.588517,
+      "y": 626.461211,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-server-intake-grille",
+      "description": "Network server intake grille visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 947.368421,
+      "y": 694.367694,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-chassis-rail-left",
+      "description": "Network chassis rail left visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 644.976077,
+      "y": 692.454835,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-chassis-rail-right",
+      "description": "Network chassis rail right visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 963.636364,
+      "y": 692.454835,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-drive-carrier-release-tab",
+      "description": "Network drive carrier release tab visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 887.08134,
+      "y": 559.511158,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-server-bezel-fastener",
+      "description": "Network server bezel fastener visible in Server chassis and drive bays",
+      "kind": "object",
+      "x": 955.023923,
+      "y": 537.513284,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-left-vertical-cable-manager",
+      "description": "Network left vertical cable manager visible in Vertical cable management",
+      "kind": "object",
+      "x": 622.009569,
+      "y": 380.658874,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-right-vertical-cable-manager",
+      "description": "Network right vertical cable manager visible in Vertical cable management",
+      "kind": "object",
+      "x": 984.688995,
+      "y": 380.658874,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-left-manager-front-channel",
+      "description": "Network left manager front channel visible in Vertical cable management",
+      "kind": "object",
+      "x": 630.62201,
+      "y": 361.530287,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-right-manager-front-channel",
+      "description": "Network right manager front channel visible in Vertical cable management",
+      "kind": "object",
+      "x": 978.947368,
+      "y": 369.181722,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blue-vertical-patch-cord-bundle",
+      "description": "Network blue vertical patch-cord bundle visible in Vertical cable management",
+      "kind": "object",
+      "x": 625.837321,
+      "y": 220.935175,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-yellow-vertical-fiber-bundle",
+      "description": "Network yellow vertical fiber bundle visible in Vertical cable management",
+      "kind": "object",
+      "x": 999.043062,
+      "y": 227.630181,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-cable-retainer-finger",
+      "description": "Network upper cable-retainer finger visible in Vertical cable management",
+      "kind": "object",
+      "x": 636.363636,
+      "y": 126.248672,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-middle-cable-retainer-finger",
+      "description": "Network middle cable-retainer finger visible in Vertical cable management",
+      "kind": "object",
+      "x": 637.320574,
+      "y": 320.403826,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-cable-retainer-finger",
+      "description": "Network lower cable-retainer finger visible in Vertical cable management",
+      "kind": "object",
+      "x": 638.277512,
+      "y": 533.687566,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-side-cable-guide-ring",
+      "description": "Network side cable-guide ring visible in Vertical cable management",
+      "kind": "object",
+      "x": 639.23445,
+      "y": 609.245484,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-yellow-fiber-jumper-connector",
+      "description": "Network yellow fiber jumper connector visible in Vertical cable management",
+      "kind": "object",
+      "x": 994.258373,
+      "y": 71.7322,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-blue-copper-patch-lead",
+      "description": "Network blue copper patch lead visible in Vertical cable management",
+      "kind": "object",
+      "x": 682.296651,
+      "y": 310.839532,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-patch-cord-plug-boot",
+      "description": "Network patch-cord plug boot visible in Vertical cable management",
+      "kind": "object",
+      "x": 743.54067,
+      "y": 319.447396,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-short-fiber-bend-loop",
+      "description": "Network short fiber bend loop visible in Vertical cable management",
+      "kind": "object",
+      "x": 855.502392,
+      "y": 133.900106,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-horizontal-slack-loop",
+      "description": "Network horizontal slack loop visible in Vertical cable management",
+      "kind": "object",
+      "x": 881.339713,
+      "y": 158.767269,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-vertical-cable-tie-saddle",
+      "description": "Network vertical cable tie saddle visible in Vertical cable management",
+      "kind": "object",
+      "x": 998.086124,
+      "y": 181.721573,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-strain-relief-bracket",
+      "description": "Network upper strain-relief bracket visible in Vertical cable management",
+      "kind": "object",
+      "x": 971.291866,
+      "y": 209.458023,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-strain-relief-bracket",
+      "description": "Network lower strain-relief bracket visible in Vertical cable management",
+      "kind": "object",
+      "x": 971.291866,
+      "y": 495.430393,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-manager-mounting-screw-upper",
+      "description": "Network manager mounting screw upper visible in Vertical cable management",
+      "kind": "object",
+      "x": 979.904306,
+      "y": 111.902232,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-manager-mounting-screw-lower",
+      "description": "Network manager mounting screw lower visible in Vertical cable management",
+      "kind": "object",
+      "x": 980.861244,
+      "y": 716.365569,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-rear-cable-drop",
+      "description": "Network rear cable drop visible in Vertical cable management",
+      "kind": "object",
+      "x": 1043.062201,
+      "y": 364.399575,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-side-rack-cable-loom",
+      "description": "Network side-rack cable loom visible in Vertical cable management",
+      "kind": "object",
+      "x": 1090.909091,
+      "y": 240.063762,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-fiber-cord-crossing-guide",
+      "description": "Network fiber-cord crossing guide visible in Vertical cable management",
+      "kind": "object",
+      "x": 1024.880383,
+      "y": 380.658874,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-patch-lead-retaining-strap",
+      "description": "Network patch-lead retaining strap visible in Vertical cable management",
+      "kind": "object",
+      "x": 991.38756,
+      "y": 564.293305,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-cable-entry-comb",
+      "description": "Network cable-entry comb visible in Vertical cable management",
+      "kind": "object",
+      "x": 990.430622,
+      "y": 752.709883,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-vertical-power-strip",
+      "description": "Network vertical power strip visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1006.698565,
+      "y": 428.48034,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-power-outlet",
+      "description": "Network upper power outlet visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 999.043062,
+      "y": 99.46865,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-middle-power-outlet",
+      "description": "Network middle power outlet visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 999.043062,
+      "y": 369.181722,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-lower-power-outlet",
+      "description": "Network lower power outlet visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 999.043062,
+      "y": 648.459086,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-plugged-power-cord-upper",
+      "description": "Network plugged power cord upper visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1023.923445,
+      "y": 127.205101,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-plugged-power-cord-lower",
+      "description": "Network plugged power cord lower visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1022.009569,
+      "y": 680.977683,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-rack-power-strip-bracket",
+      "description": "Network rack power-strip bracket visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 993.301435,
+      "y": 226.673751,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-power-strip-side-seam",
+      "description": "Network power-strip side seam visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1002.870813,
+      "y": 490.648247,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-ups-chassis",
+      "description": "Network UPS chassis visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 801.913876,
+      "y": 725.929862,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-ups-front-grille",
+      "description": "Network UPS front grille visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 803.827751,
+      "y": 724.017003,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-ups-left-ear",
+      "description": "Network UPS left ear visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 653.588517,
+      "y": 729.755579,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-ups-right-ear",
+      "description": "Network UPS right ear visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 945.454545,
+      "y": 730.712009,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-upper-rack-fan-tray",
+      "description": "Network upper rack fan tray visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 803.827751,
+      "y": 28.69288,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-left-cooling-fan",
+      "description": "Network left cooling fan visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 724.401914,
+      "y": 32.518597,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-centre-cooling-fan",
+      "description": "Network centre cooling fan visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 801.913876,
+      "y": 32.518597,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-right-cooling-fan",
+      "description": "Network right cooling fan visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 882.296651,
+      "y": 32.518597,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-fan-guard-ring",
+      "description": "Network fan guard ring visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 803.827751,
+      "y": 21.041445,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-fan-tray-mounting-rail",
+      "description": "Network fan-tray mounting rail visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 973.205742,
+      "y": 36.344315,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-rack-rear-exhaust-grille",
+      "description": "Network rack rear exhaust grille visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1405.741627,
+      "y": 237.194474,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-room-ceiling-diffuser",
+      "description": "Network room ceiling diffuser visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1235.406699,
+      "y": 25.823592,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-perforated-floor-tile",
+      "description": "Network perforated floor tile visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1224.880383,
+      "y": 821.572795,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-floor-grille-slot-row",
+      "description": "Network floor-grille slot row visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1225.837321,
+      "y": 819.659936,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-floor-access-tile-seam",
+      "description": "Network floor access-tile seam visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1357.894737,
+      "y": 811.052072,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-equipment-ground-lead",
+      "description": "Network equipment ground lead visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1005.741627,
+      "y": 780.446334,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "office-network-rack-region-grounding-lug",
+      "description": "Network grounding lug visible in Rack power, cooling and floor",
+      "kind": "object",
+      "x": 1024.880383,
+      "y": 794.792774,
+      "width": 42.105263,
+      "height": 42.082891
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "office-network-rack-zone-cabinet-frame-and-open-door",
+      "title": "Cabinet frame and open door",
+      "translation": "机柜框架与敞开柜门",
+      "description": "Explore the open perforated door, hinges, front posts, mounting rails, cabinet base and visible frame hardware.",
+      "x": 325.358852,
+      "y": 0,
+      "width": 813.397129,
+      "height": 889.479277,
+      "targetScale": 2.5,
+      "labelIds": [
+        "office-network-rack-cabinet-shell",
+        "office-network-rack-open-mesh-front-door",
+        "office-network-rack-door-perforated-panel",
+        "office-network-rack-door-outer-frame",
+        "office-network-rack-door-inner-border",
+        "office-network-rack-upper-door-hinge",
+        "office-network-rack-middle-door-hinge",
+        "office-network-rack-lower-door-hinge",
+        "office-network-rack-door-pull-handle",
+        "office-network-rack-door-latch-plate",
+        "office-network-rack-door-lock-cylinder",
+        "office-network-rack-front-left-rack-post",
+        "office-network-rack-front-right-rack-post",
+        "office-network-rack-inner-mounting-rail",
+        "office-network-rack-rack-top-crosspiece",
+        "office-network-rack-lower-cabinet-crossbar",
+        "office-network-rack-cabinet-foot-left",
+        "office-network-rack-cabinet-foot-right",
+        "office-network-rack-left-post-square-hole-row",
+        "office-network-rack-right-post-square-hole-row",
+        "office-network-rack-front-frame-corner-bracket",
+        "office-network-rack-door-lower-hinge-pin",
+        "office-network-rack-side-frame-joint",
+        "office-network-rack-cabinet-base-pan",
+        "office-network-rack-bottom-frame-fastener"
+      ]
+    },
+    {
+      "id": "office-network-rack-zone-fiber-and-copper-patching",
+      "title": "Fiber and copper patching",
+      "translation": "光纤与铜缆配线",
+      "description": "Inspect the visible fiber patch panel, copper patch panels, connector rows and short patch cords.",
+      "x": 622.009569,
+      "y": 76.514346,
+      "width": 468.899522,
+      "height": 286.928799,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-network-rack-upper-fiber-patch-panel",
+        "office-network-rack-fiber-panel-chassis",
+        "office-network-rack-left-lc-adapter-row",
+        "office-network-rack-right-lc-adapter-row",
+        "office-network-rack-first-duplex-fiber-adapter",
+        "office-network-rack-second-duplex-fiber-adapter",
+        "office-network-rack-third-duplex-fiber-adapter",
+        "office-network-rack-fourth-duplex-fiber-adapter",
+        "office-network-rack-yellow-fiber-jumper-one",
+        "office-network-rack-yellow-fiber-jumper-two",
+        "office-network-rack-yellow-fiber-jumper-three",
+        "office-network-rack-blue-fiber-trunk",
+        "office-network-rack-upper-horizontal-cable-bar",
+        "office-network-rack-upper-brush-pass-through",
+        "office-network-rack-copper-patch-panel-upper",
+        "office-network-rack-upper-ethernet-jack-row",
+        "office-network-rack-left-ethernet-jack-bank",
+        "office-network-rack-right-ethernet-jack-bank",
+        "office-network-rack-blue-patch-cord-group",
+        "office-network-rack-blue-patch-cord-bend",
+        "office-network-rack-panel-left-mounting-ear",
+        "office-network-rack-panel-right-mounting-ear",
+        "office-network-rack-blank-horizontal-cable-cover",
+        "office-network-rack-fiber-panel-screw-head",
+        "office-network-rack-panel-side-cable-guide"
+      ]
+    },
+    {
+      "id": "office-network-rack-zone-switches-and-network-appliances",
+      "title": "Switches and network appliances",
+      "translation": "交换机与网络设备",
+      "description": "Follow both installed switches and their visible port banks, then inspect the equipment blanking panel and rack cable bar.",
+      "x": 622.009569,
+      "y": 239.107333,
+      "width": 478.4689,
+      "height": 344.314559,
+      "targetScale": 2.75,
+      "labelIds": [
+        "office-network-rack-upper-ethernet-switch",
+        "office-network-rack-upper-switch-faceplate",
+        "office-network-rack-upper-switch-port-bank",
+        "office-network-rack-upper-switch-uplink-slots",
+        "office-network-rack-upper-switch-sfp-module",
+        "office-network-rack-upper-switch-status-leds",
+        "office-network-rack-upper-switch-vent-grille",
+        "office-network-rack-lower-ethernet-switch",
+        "office-network-rack-lower-switch-port-bank",
+        "office-network-rack-lower-switch-left-port",
+        "office-network-rack-lower-switch-right-port",
+        "office-network-rack-lower-switch-power-inlet",
+        "office-network-rack-centre-equipment-blanking-panel",
+        "office-network-rack-blank-panel-pull-handle",
+        "office-network-rack-blank-panel-left-screw",
+        "office-network-rack-blank-panel-right-screw",
+        "office-network-rack-blank-panel-right-edge",
+        "office-network-rack-blank-panel-lower-seam",
+        "office-network-rack-rackmount-cable-bar",
+        "office-network-rack-bar-finger-opening",
+        "office-network-rack-switch-mounting-ear-left",
+        "office-network-rack-switch-mounting-ear-right",
+        "office-network-rack-retainer-screw-upper",
+        "office-network-rack-retainer-screw-lower",
+        "office-network-rack-front-cable-guide-fingers"
+      ]
+    },
+    {
+      "id": "office-network-rack-zone-server-chassis-and-drive-bays",
+      "title": "Server chassis and drive bays",
+      "translation": "服务器机箱与硬盘托架",
+      "description": "Inspect the two front-facing server chassis, their separate drive trays, handles and ventilation grilles.",
+      "x": 622.009569,
+      "y": 497.343252,
+      "width": 478.4689,
+      "height": 334.750266,
+      "targetScale": 2.75,
+      "labelIds": [
+        "office-network-rack-upper-server-chassis",
+        "office-network-rack-upper-server-bezel",
+        "office-network-rack-upper-server-drive-bay-one",
+        "office-network-rack-upper-server-drive-bay-two",
+        "office-network-rack-upper-server-drive-bay-three",
+        "office-network-rack-upper-server-drive-bay-four",
+        "office-network-rack-upper-server-drive-bay-five",
+        "office-network-rack-upper-server-drive-bay-six",
+        "office-network-rack-upper-drive-tray-latch",
+        "office-network-rack-upper-server-release-handle",
+        "office-network-rack-lower-server-chassis",
+        "office-network-rack-lower-server-faceplate",
+        "office-network-rack-lower-server-drive-bay-one",
+        "office-network-rack-lower-server-drive-bay-two",
+        "office-network-rack-lower-server-drive-bay-three",
+        "office-network-rack-lower-server-drive-bay-four",
+        "office-network-rack-lower-server-drive-bay-five",
+        "office-network-rack-lower-server-drive-bay-six",
+        "office-network-rack-lower-drive-tray-latch",
+        "office-network-rack-lower-server-pull-handle",
+        "office-network-rack-server-intake-grille",
+        "office-network-rack-chassis-rail-left",
+        "office-network-rack-chassis-rail-right",
+        "office-network-rack-drive-carrier-release-tab",
+        "office-network-rack-server-bezel-fastener"
+      ]
+    },
+    {
+      "id": "office-network-rack-zone-vertical-cable-management",
+      "title": "Vertical cable management",
+      "translation": "垂直线缆管理",
+      "description": "Trace the colored patch leads, vertical managers, retaining fingers, routing loops and strain-relief hardware.",
+      "x": 574.162679,
+      "y": 33.475027,
+      "width": 622.009569,
+      "height": 812.964931,
+      "targetScale": 2.65,
+      "labelIds": [
+        "office-network-rack-left-vertical-cable-manager",
+        "office-network-rack-right-vertical-cable-manager",
+        "office-network-rack-left-manager-front-channel",
+        "office-network-rack-right-manager-front-channel",
+        "office-network-rack-blue-vertical-patch-cord-bundle",
+        "office-network-rack-yellow-vertical-fiber-bundle",
+        "office-network-rack-upper-cable-retainer-finger",
+        "office-network-rack-middle-cable-retainer-finger",
+        "office-network-rack-lower-cable-retainer-finger",
+        "office-network-rack-side-cable-guide-ring",
+        "office-network-rack-yellow-fiber-jumper-connector",
+        "office-network-rack-blue-copper-patch-lead",
+        "office-network-rack-patch-cord-plug-boot",
+        "office-network-rack-short-fiber-bend-loop",
+        "office-network-rack-horizontal-slack-loop",
+        "office-network-rack-vertical-cable-tie-saddle",
+        "office-network-rack-upper-strain-relief-bracket",
+        "office-network-rack-lower-strain-relief-bracket",
+        "office-network-rack-manager-mounting-screw-upper",
+        "office-network-rack-manager-mounting-screw-lower",
+        "office-network-rack-rear-cable-drop",
+        "office-network-rack-side-rack-cable-loom",
+        "office-network-rack-fiber-cord-crossing-guide",
+        "office-network-rack-patch-lead-retaining-strap",
+        "office-network-rack-cable-entry-comb"
+      ]
+    },
+    {
+      "id": "office-network-rack-zone-rack-power-cooling-and-floor",
+      "title": "Rack power, cooling and floor",
+      "translation": "机柜供电、散热与地面",
+      "description": "Explore the visible vertical power strip, plugs, fan openings, UPS face, ventilation and floor grilles.",
+      "x": 593.301435,
+      "y": 0,
+      "width": 1004.784689,
+      "height": 899.043571,
+      "targetScale": 2.55,
+      "labelIds": [
+        "office-network-rack-vertical-power-strip",
+        "office-network-rack-upper-power-outlet",
+        "office-network-rack-middle-power-outlet",
+        "office-network-rack-lower-power-outlet",
+        "office-network-rack-plugged-power-cord-upper",
+        "office-network-rack-plugged-power-cord-lower",
+        "office-network-rack-rack-power-strip-bracket",
+        "office-network-rack-power-strip-side-seam",
+        "office-network-rack-ups-chassis",
+        "office-network-rack-ups-front-grille",
+        "office-network-rack-ups-left-ear",
+        "office-network-rack-ups-right-ear",
+        "office-network-rack-upper-rack-fan-tray",
+        "office-network-rack-left-cooling-fan",
+        "office-network-rack-centre-cooling-fan",
+        "office-network-rack-right-cooling-fan",
+        "office-network-rack-fan-guard-ring",
+        "office-network-rack-fan-tray-mounting-rail",
+        "office-network-rack-rack-rear-exhaust-grille",
+        "office-network-rack-room-ceiling-diffuser",
+        "office-network-rack-perforated-floor-tile",
+        "office-network-rack-floor-grille-slot-row",
+        "office-network-rack-floor-access-tile-seam",
+        "office-network-rack-equipment-ground-lead",
+        "office-network-rack-grounding-lug"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/office-network-rack-premium-v1.jpg",
+    "reviewedAssetSha256": "bc42d7c3cb274f47451d0bdbede8c90d2c6ae9f7b21256b99884e98d5fea19da",
+    "rationale": "The generated source and final JPEG were inspected at native and final pixels. 150 independently pointable objects and visible parts are distributed across 6 bounded zones. People, identity, readable text, brands, hidden contents, inferred processes and unsupported equipment states were excluded.",
+    "previousLabelCount": 158,
+    "retainedLabelCount": 150,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "network address",
+      "account credential",
+      "server workload",
+      "data content",
+      "live voltage",
+      "airflow rate",
+      "device temperature",
+      "cable destination"
+    ]
+  },
+  "labels": [
+    {
+      "id": "office-network-rack-cabinet-shell",
+      "word": "Network cabinet shell",
+      "translation": "写字楼网络机柜外壳",
+      "x": 970.334928,
+      "y": 500.21254,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-cabinet-shell"
+    },
+    {
+      "id": "office-network-rack-open-mesh-front-door",
+      "word": "Network open mesh front door",
+      "translation": "写字楼敞开的网孔前门",
+      "x": 471.770335,
+      "y": 402.656748,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-open-mesh-front-door"
+    },
+    {
+      "id": "office-network-rack-door-perforated-panel",
+      "word": "Network door perforated panel",
+      "translation": "写字楼柜门冲孔面板",
+      "x": 464.114833,
+      "y": 241.976621,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-door-perforated-panel"
+    },
+    {
+      "id": "office-network-rack-door-outer-frame",
+      "word": "Network door outer frame",
+      "translation": "写字楼柜门外框",
+      "x": 541.626794,
+      "y": 448.565356,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-door-outer-frame"
+    },
+    {
+      "id": "office-network-rack-door-inner-border",
+      "word": "Network door inner border",
+      "translation": "写字楼柜门内边框",
+      "x": 580.861244,
+      "y": 546.121148,
+      "priority": 1.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-door-inner-border"
+    },
+    {
+      "id": "office-network-rack-upper-door-hinge",
+      "word": "Network upper door hinge",
+      "translation": "写字楼上部柜门铰链",
+      "x": 593.301435,
+      "y": 87.991498,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-upper-door-hinge"
+    },
+    {
+      "id": "office-network-rack-middle-door-hinge",
+      "word": "Network middle door hinge",
+      "translation": "写字楼中部柜门铰链",
+      "x": 594.258373,
+      "y": 347.183847,
+      "priority": 1.006,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-middle-door-hinge"
+    },
+    {
+      "id": "office-network-rack-lower-door-hinge",
+      "word": "Network lower door hinge",
+      "translation": "写字楼下部柜门铰链",
+      "x": 594.258373,
+      "y": 671.41339,
+      "priority": 1.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-lower-door-hinge"
+    },
+    {
+      "id": "office-network-rack-door-pull-handle",
+      "word": "Network door pull handle",
+      "translation": "写字楼柜门拉手",
+      "x": 552.15311,
+      "y": 411.264612,
+      "priority": 1.008,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-door-pull-handle"
+    },
+    {
+      "id": "office-network-rack-door-latch-plate",
+      "word": "Network door latch plate",
+      "translation": "写字楼柜门锁扣板",
+      "x": 568.421053,
+      "y": 417.959617,
+      "priority": 1.009,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-door-latch-plate"
+    },
+    {
+      "id": "office-network-rack-door-lock-cylinder",
+      "word": "Network door lock cylinder",
+      "translation": "写字楼柜门锁芯",
+      "x": 565.550239,
+      "y": 440.913921,
+      "priority": 1.01,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-door-lock-cylinder"
+    },
+    {
+      "id": "office-network-rack-front-left-rack-post",
+      "word": "Network front left rack post",
+      "translation": "写字楼前左机柜立柱",
+      "x": 626.794258,
+      "y": 480.127524,
+      "priority": 1.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-front-left-rack-post"
+    },
+    {
+      "id": "office-network-rack-front-right-rack-post",
+      "word": "Network front right rack post",
+      "translation": "写字楼前右机柜立柱",
+      "x": 970.334928,
+      "y": 527.94899,
+      "priority": 1.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-front-right-rack-post"
+    },
+    {
+      "id": "office-network-rack-inner-mounting-rail",
+      "word": "Network inner mounting rail",
+      "translation": "写字楼内侧安装导轨",
+      "x": 671.770335,
+      "y": 382.571732,
+      "priority": 1.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-inner-mounting-rail"
+    },
+    {
+      "id": "office-network-rack-rack-top-crosspiece",
+      "word": "Network rack top crosspiece",
+      "translation": "写字楼机柜顶部横梁",
+      "x": 780.861244,
+      "y": 23.910733,
+      "priority": 1.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-rack-top-crosspiece"
+    },
+    {
+      "id": "office-network-rack-lower-cabinet-crossbar",
+      "word": "Network lower cabinet crossbar",
+      "translation": "写字楼机柜下横梁",
+      "x": 845.933014,
+      "y": 806.269926,
+      "priority": 1.015,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-lower-cabinet-crossbar"
+    },
+    {
+      "id": "office-network-rack-cabinet-foot-left",
+      "word": "Network cabinet foot left",
+      "translation": "写字楼机柜左脚",
+      "x": 583.732057,
+      "y": 864.612115,
+      "priority": 1.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-cabinet-foot-left"
+    },
+    {
+      "id": "office-network-rack-cabinet-foot-right",
+      "word": "Network cabinet foot right",
+      "translation": "写字楼机柜右脚",
+      "x": 999.043062,
+      "y": 864.612115,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-cabinet-foot-right"
+    },
+    {
+      "id": "office-network-rack-left-post-square-hole-row",
+      "word": "Network left post square-hole row",
+      "translation": "写字楼左立柱方孔列",
+      "x": 623.923445,
+      "y": 237.194474,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-left-post-square-hole-row"
+    },
+    {
+      "id": "office-network-rack-right-post-square-hole-row",
+      "word": "Network right post square-hole row",
+      "translation": "写字楼右立柱方孔列",
+      "x": 970.334928,
+      "y": 237.194474,
+      "priority": 1.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-right-post-square-hole-row"
+    },
+    {
+      "id": "office-network-rack-front-frame-corner-bracket",
+      "word": "Network front frame corner bracket",
+      "translation": "写字楼前框角部托架",
+      "x": 630.62201,
+      "y": 795.749203,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-front-frame-corner-bracket"
+    },
+    {
+      "id": "office-network-rack-door-lower-hinge-pin",
+      "word": "Network door lower hinge pin",
+      "translation": "写字楼柜门下铰链销",
+      "x": 593.301435,
+      "y": 683.846971,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-door-lower-hinge-pin"
+    },
+    {
+      "id": "office-network-rack-side-frame-joint",
+      "word": "Network side-frame joint",
+      "translation": "写字楼侧框接合处",
+      "x": 970.334928,
+      "y": 580.552604,
+      "priority": 1.022,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-side-frame-joint"
+    },
+    {
+      "id": "office-network-rack-cabinet-base-pan",
+      "word": "Network cabinet base pan",
+      "translation": "写字楼机柜底盘",
+      "x": 809.569378,
+      "y": 840.701382,
+      "priority": 1.023,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-cabinet-base-pan"
+    },
+    {
+      "id": "office-network-rack-bottom-frame-fastener",
+      "word": "Network bottom frame fastener",
+      "translation": "写字楼底框紧固件",
+      "x": 970.334928,
+      "y": 830.180659,
+      "priority": 1.024,
+      "minLevel": 4,
+      "sourceVisualRegion": "office-network-rack-region-bottom-frame-fastener"
+    },
+    {
+      "id": "office-network-rack-upper-fiber-patch-panel",
+      "word": "Network upper fiber patch panel",
+      "translation": "写字楼上层光纤配线架",
+      "x": 795.215311,
+      "y": 141.551541,
+      "priority": 1.025,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-upper-fiber-patch-panel"
+    },
+    {
+      "id": "office-network-rack-fiber-panel-chassis",
+      "word": "Network fiber-panel chassis",
+      "translation": "写字楼光纤配线架外壳",
+      "x": 813.397129,
+      "y": 124.335813,
+      "priority": 1.026,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-fiber-panel-chassis"
+    },
+    {
+      "id": "office-network-rack-left-lc-adapter-row",
+      "word": "Network left LC adapter row",
+      "translation": "写字楼左侧LC适配器列",
+      "x": 715.789474,
+      "y": 134.856536,
+      "priority": 1.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-left-lc-adapter-row"
+    },
+    {
+      "id": "office-network-rack-right-lc-adapter-row",
+      "word": "Network right LC adapter row",
+      "translation": "写字楼右侧LC适配器列",
+      "x": 880.382775,
+      "y": 134.856536,
+      "priority": 1.028,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-right-lc-adapter-row"
+    },
+    {
+      "id": "office-network-rack-first-duplex-fiber-adapter",
+      "word": "Network first duplex fiber adapter",
+      "translation": "写字楼第一只双工光纤适配器",
+      "x": 735.885167,
+      "y": 133.900106,
+      "priority": 1.029,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-first-duplex-fiber-adapter"
+    },
+    {
+      "id": "office-network-rack-second-duplex-fiber-adapter",
+      "word": "Network second duplex fiber adapter",
+      "translation": "写字楼第二只双工光纤适配器",
+      "x": 771.291866,
+      "y": 133.900106,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-second-duplex-fiber-adapter"
+    },
+    {
+      "id": "office-network-rack-third-duplex-fiber-adapter",
+      "word": "Network third duplex fiber adapter",
+      "translation": "写字楼第三只双工光纤适配器",
+      "x": 805.741627,
+      "y": 133.900106,
+      "priority": 1.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-third-duplex-fiber-adapter"
+    },
+    {
+      "id": "office-network-rack-fourth-duplex-fiber-adapter",
+      "word": "Network fourth duplex fiber adapter",
+      "translation": "写字楼第四只双工光纤适配器",
+      "x": 840.191388,
+      "y": 133.900106,
+      "priority": 1.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-fourth-duplex-fiber-adapter"
+    },
+    {
+      "id": "office-network-rack-yellow-fiber-jumper-one",
+      "word": "Network yellow fiber jumper one",
+      "translation": "写字楼第一根黄色跳纤",
+      "x": 740.669856,
+      "y": 151.115834,
+      "priority": 1.033,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-yellow-fiber-jumper-one"
+    },
+    {
+      "id": "office-network-rack-yellow-fiber-jumper-two",
+      "word": "Network yellow fiber jumper two",
+      "translation": "写字楼第二根黄色跳纤",
+      "x": 783.732057,
+      "y": 153.028693,
+      "priority": 1.034,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-yellow-fiber-jumper-two"
+    },
+    {
+      "id": "office-network-rack-yellow-fiber-jumper-three",
+      "word": "Network yellow fiber jumper three",
+      "translation": "写字楼第三根黄色跳纤",
+      "x": 828.708134,
+      "y": 151.115834,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-yellow-fiber-jumper-three"
+    },
+    {
+      "id": "office-network-rack-blue-fiber-trunk",
+      "word": "Network blue fiber trunk",
+      "translation": "写字楼蓝色光纤主干束",
+      "x": 645.933014,
+      "y": 239.107333,
+      "priority": 1.036,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-blue-fiber-trunk"
+    },
+    {
+      "id": "office-network-rack-upper-horizontal-cable-bar",
+      "word": "Network upper horizontal cable bar",
+      "translation": "写字楼上层水平理线杆",
+      "x": 777.033493,
+      "y": 173.113709,
+      "priority": 1.037,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-horizontal-cable-bar"
+    },
+    {
+      "id": "office-network-rack-upper-brush-pass-through",
+      "word": "Network upper brush pass-through",
+      "translation": "写字楼上层毛刷过线口",
+      "x": 815.311005,
+      "y": 194.155154,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-upper-brush-pass-through"
+    },
+    {
+      "id": "office-network-rack-copper-patch-panel-upper",
+      "word": "Network copper patch panel upper",
+      "translation": "写字楼上层铜缆配线架",
+      "x": 808.61244,
+      "y": 246.758767,
+      "priority": 1.039,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-copper-patch-panel-upper"
+    },
+    {
+      "id": "office-network-rack-upper-ethernet-jack-row",
+      "word": "Network upper Ethernet jack row",
+      "translation": "写字楼上层以太网插孔列",
+      "x": 816.267943,
+      "y": 255.366631,
+      "priority": 1.04,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-upper-ethernet-jack-row"
+    },
+    {
+      "id": "office-network-rack-left-ethernet-jack-bank",
+      "word": "Network left Ethernet jack bank",
+      "translation": "写字楼左侧以太网插孔组",
+      "x": 723.444976,
+      "y": 255.366631,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-left-ethernet-jack-bank"
+    },
+    {
+      "id": "office-network-rack-right-ethernet-jack-bank",
+      "word": "Network right Ethernet jack bank",
+      "translation": "写字楼右侧以太网插孔组",
+      "x": 903.349282,
+      "y": 255.366631,
+      "priority": 1.042,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-right-ethernet-jack-bank"
+    },
+    {
+      "id": "office-network-rack-blue-patch-cord-group",
+      "word": "Network blue patch cord group",
+      "translation": "写字楼蓝色跳线组",
+      "x": 815.311005,
+      "y": 273.538789,
+      "priority": 1.043,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-blue-patch-cord-group"
+    },
+    {
+      "id": "office-network-rack-blue-patch-cord-bend",
+      "word": "Network blue patch cord bend",
+      "translation": "写字楼蓝色跳线弯折处",
+      "x": 845.933014,
+      "y": 289.798087,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-blue-patch-cord-bend"
+    },
+    {
+      "id": "office-network-rack-panel-left-mounting-ear",
+      "word": "Network panel left mounting ear",
+      "translation": "写字楼配线架左安装耳",
+      "x": 662.200957,
+      "y": 260.148778,
+      "priority": 1.045,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-panel-left-mounting-ear"
+    },
+    {
+      "id": "office-network-rack-panel-right-mounting-ear",
+      "word": "Network panel right mounting ear",
+      "translation": "写字楼配线架右安装耳",
+      "x": 956.937799,
+      "y": 260.148778,
+      "priority": 1.046,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-panel-right-mounting-ear"
+    },
+    {
+      "id": "office-network-rack-blank-horizontal-cable-cover",
+      "word": "Network blank horizontal cable cover",
+      "translation": "写字楼水平理线盖板",
+      "x": 797.129187,
+      "y": 205.632306,
+      "priority": 1.047,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-blank-horizontal-cable-cover"
+    },
+    {
+      "id": "office-network-rack-fiber-panel-screw-head",
+      "word": "Network fiber-panel screw head",
+      "translation": "写字楼光纤架螺钉头",
+      "x": 947.368421,
+      "y": 128.16153,
+      "priority": 1.048,
+      "minLevel": 4,
+      "sourceVisualRegion": "office-network-rack-region-fiber-panel-screw-head"
+    },
+    {
+      "id": "office-network-rack-panel-side-cable-guide",
+      "word": "Network panel-side cable guide",
+      "translation": "写字楼配线架侧向导线槽",
+      "x": 681.339713,
+      "y": 176.939426,
+      "priority": 1.049,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-panel-side-cable-guide"
+    },
+    {
+      "id": "office-network-rack-upper-ethernet-switch",
+      "word": "Network upper Ethernet switch",
+      "translation": "写字楼上层以太网交换机",
+      "x": 821.052632,
+      "y": 377.789586,
+      "priority": 1.05,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-upper-ethernet-switch"
+    },
+    {
+      "id": "office-network-rack-upper-switch-faceplate",
+      "word": "Network upper switch faceplate",
+      "translation": "写字楼上层交换机面板",
+      "x": 820.095694,
+      "y": 374.920298,
+      "priority": 1.051,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-switch-faceplate"
+    },
+    {
+      "id": "office-network-rack-upper-switch-port-bank",
+      "word": "Network upper switch port bank",
+      "translation": "写字楼上层交换机端口组",
+      "x": 792.344498,
+      "y": 384.484591,
+      "priority": 1.052,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-switch-port-bank"
+    },
+    {
+      "id": "office-network-rack-upper-switch-uplink-slots",
+      "word": "Network upper switch uplink slots",
+      "translation": "写字楼上层交换机上联插槽",
+      "x": 893.779904,
+      "y": 384.484591,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-upper-switch-uplink-slots"
+    },
+    {
+      "id": "office-network-rack-upper-switch-sfp-module",
+      "word": "Network upper switch SFP module",
+      "translation": "写字楼上层交换机SFP模块",
+      "x": 897.607656,
+      "y": 383.528162,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-upper-switch-sfp-module"
+    },
+    {
+      "id": "office-network-rack-upper-switch-status-leds",
+      "word": "Network upper switch status LEDs",
+      "translation": "写字楼上层交换机状态灯",
+      "x": 938.755981,
+      "y": 384.484591,
+      "priority": 1.055,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-upper-switch-status-leds"
+    },
+    {
+      "id": "office-network-rack-upper-switch-vent-grille",
+      "word": "Network upper switch vent grille",
+      "translation": "写字楼上层交换机散热格栅",
+      "x": 935.885167,
+      "y": 373.007439,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-upper-switch-vent-grille"
+    },
+    {
+      "id": "office-network-rack-lower-ethernet-switch",
+      "word": "Network lower Ethernet switch",
+      "translation": "写字楼下层以太网交换机",
+      "x": 819.138756,
+      "y": 449.521785,
+      "priority": 1.057,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-lower-ethernet-switch"
+    },
+    {
+      "id": "office-network-rack-lower-switch-port-bank",
+      "word": "Network lower switch port bank",
+      "translation": "写字楼下层交换机端口组",
+      "x": 797.129187,
+      "y": 453.347503,
+      "priority": 1.058,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-lower-switch-port-bank"
+    },
+    {
+      "id": "office-network-rack-lower-switch-left-port",
+      "word": "Network lower switch left port",
+      "translation": "写字楼下层交换机左端口",
+      "x": 767.464115,
+      "y": 453.347503,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-lower-switch-left-port"
+    },
+    {
+      "id": "office-network-rack-lower-switch-right-port",
+      "word": "Network lower switch right port",
+      "translation": "写字楼下层交换机右端口",
+      "x": 866.028708,
+      "y": 453.347503,
+      "priority": 1.06,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-lower-switch-right-port"
+    },
+    {
+      "id": "office-network-rack-lower-switch-power-inlet",
+      "word": "Network lower switch power inlet",
+      "translation": "写字楼下层交换机电源入口",
+      "x": 925.358852,
+      "y": 458.129649,
+      "priority": 1.061,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-lower-switch-power-inlet"
+    },
+    {
+      "id": "office-network-rack-centre-equipment-blanking-panel",
+      "word": "Network centre equipment blanking panel",
+      "translation": "写字楼中部设备盲板",
+      "x": 822.966507,
+      "y": 505.951116,
+      "priority": 1.062,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-centre-equipment-blanking-panel"
+    },
+    {
+      "id": "office-network-rack-blank-panel-pull-handle",
+      "word": "Network blank-panel pull handle",
+      "translation": "写字楼盲板拉手",
+      "x": 813.397129,
+      "y": 503.081828,
+      "priority": 1.063,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-blank-panel-pull-handle"
+    },
+    {
+      "id": "office-network-rack-blank-panel-left-screw",
+      "word": "Network blank-panel left screw",
+      "translation": "写字楼盲板左侧螺钉",
+      "x": 767.464115,
+      "y": 506.907545,
+      "priority": 1.064,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-blank-panel-left-screw"
+    },
+    {
+      "id": "office-network-rack-blank-panel-right-screw",
+      "word": "Network blank-panel right screw",
+      "translation": "写字楼盲板右侧螺钉",
+      "x": 924.401914,
+      "y": 506.907545,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-blank-panel-right-screw"
+    },
+    {
+      "id": "office-network-rack-blank-panel-right-edge",
+      "word": "Network blank-panel right edge",
+      "translation": "写字楼盲板右边沿",
+      "x": 942.583732,
+      "y": 505.951116,
+      "priority": 1.066,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-blank-panel-right-edge"
+    },
+    {
+      "id": "office-network-rack-blank-panel-lower-seam",
+      "word": "Network blank-panel lower seam",
+      "translation": "写字楼盲板下沿接缝",
+      "x": 822.966507,
+      "y": 521.253985,
+      "priority": 1.067,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-blank-panel-lower-seam"
+    },
+    {
+      "id": "office-network-rack-rackmount-cable-bar",
+      "word": "Network rackmount cable bar",
+      "translation": "写字楼机架水平理线杆",
+      "x": 808.61244,
+      "y": 285.01594,
+      "priority": 1.068,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-rackmount-cable-bar"
+    },
+    {
+      "id": "office-network-rack-bar-finger-opening",
+      "word": "Network bar finger opening",
+      "translation": "写字楼理线杆梳齿开口",
+      "x": 752.15311,
+      "y": 286.928799,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-bar-finger-opening"
+    },
+    {
+      "id": "office-network-rack-switch-mounting-ear-left",
+      "word": "Network switch mounting ear left",
+      "translation": "写字楼交换机左安装耳",
+      "x": 671.770335,
+      "y": 381.615303,
+      "priority": 1.07,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-switch-mounting-ear-left"
+    },
+    {
+      "id": "office-network-rack-switch-mounting-ear-right",
+      "word": "Network switch mounting ear right",
+      "translation": "写字楼交换机右安装耳",
+      "x": 958.851675,
+      "y": 381.615303,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-switch-mounting-ear-right"
+    },
+    {
+      "id": "office-network-rack-retainer-screw-upper",
+      "word": "Network retainer screw upper",
+      "translation": "写字楼上部设备固定螺钉",
+      "x": 957.894737,
+      "y": 374.920298,
+      "priority": 1.072,
+      "minLevel": 4,
+      "sourceVisualRegion": "office-network-rack-region-retainer-screw-upper"
+    },
+    {
+      "id": "office-network-rack-retainer-screw-lower",
+      "word": "Network retainer screw lower",
+      "translation": "写字楼下部设备固定螺钉",
+      "x": 956.937799,
+      "y": 455.260361,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "office-network-rack-region-retainer-screw-lower"
+    },
+    {
+      "id": "office-network-rack-front-cable-guide-fingers",
+      "word": "Network front cable guide fingers",
+      "translation": "写字楼前侧理线梳齿",
+      "x": 674.641148,
+      "y": 453.347503,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-front-cable-guide-fingers"
+    },
+    {
+      "id": "office-network-rack-upper-server-chassis",
+      "word": "Network upper server chassis",
+      "translation": "写字楼上层服务器机箱",
+      "x": 822.966507,
+      "y": 570.031881,
+      "priority": 1.075,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-upper-server-chassis"
+    },
+    {
+      "id": "office-network-rack-upper-server-bezel",
+      "word": "Network upper server bezel",
+      "translation": "写字楼上层服务器前面板",
+      "x": 822.009569,
+      "y": 570.031881,
+      "priority": 1.076,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-server-bezel"
+    },
+    {
+      "id": "office-network-rack-upper-server-drive-bay-one",
+      "word": "Network upper server drive bay one",
+      "translation": "写字楼上层服务器硬盘位一",
+      "x": 718.660287,
+      "y": 560.467588,
+      "priority": 1.077,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-server-drive-bay-one"
+    },
+    {
+      "id": "office-network-rack-upper-server-drive-bay-two",
+      "word": "Network upper server drive bay two",
+      "translation": "写字楼上层服务器硬盘位二",
+      "x": 766.507177,
+      "y": 560.467588,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-server-drive-bay-two"
+    },
+    {
+      "id": "office-network-rack-upper-server-drive-bay-three",
+      "word": "Network upper server drive bay three",
+      "translation": "写字楼上层服务器硬盘位三",
+      "x": 813.397129,
+      "y": 560.467588,
+      "priority": 1.079,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-server-drive-bay-three"
+    },
+    {
+      "id": "office-network-rack-upper-server-drive-bay-four",
+      "word": "Network upper server drive bay four",
+      "translation": "写字楼上层服务器硬盘位四",
+      "x": 860.287081,
+      "y": 560.467588,
+      "priority": 1.08,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-server-drive-bay-four"
+    },
+    {
+      "id": "office-network-rack-upper-server-drive-bay-five",
+      "word": "Network upper server drive bay five",
+      "translation": "写字楼上层服务器硬盘位五",
+      "x": 907.177033,
+      "y": 560.467588,
+      "priority": 1.081,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-server-drive-bay-five"
+    },
+    {
+      "id": "office-network-rack-upper-server-drive-bay-six",
+      "word": "Network upper server drive bay six",
+      "translation": "写字楼上层服务器硬盘位六",
+      "x": 952.15311,
+      "y": 560.467588,
+      "priority": 1.082,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-server-drive-bay-six"
+    },
+    {
+      "id": "office-network-rack-upper-drive-tray-latch",
+      "word": "Network upper drive-tray latch",
+      "translation": "写字楼上层硬盘托架卡扣",
+      "x": 813.397129,
+      "y": 548.990436,
+      "priority": 1.083,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-upper-drive-tray-latch"
+    },
+    {
+      "id": "office-network-rack-upper-server-release-handle",
+      "word": "Network upper server release handle",
+      "translation": "写字楼上层服务器释放把手",
+      "x": 674.641148,
+      "y": 575.770457,
+      "priority": 1.084,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-upper-server-release-handle"
+    },
+    {
+      "id": "office-network-rack-lower-server-chassis",
+      "word": "Network lower server chassis",
+      "translation": "写字楼下层服务器机箱",
+      "x": 823.923445,
+      "y": 640.807651,
+      "priority": 1.085,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-lower-server-chassis"
+    },
+    {
+      "id": "office-network-rack-lower-server-faceplate",
+      "word": "Network lower server faceplate",
+      "translation": "写字楼下层服务器前面板",
+      "x": 823.923445,
+      "y": 640.807651,
+      "priority": 1.086,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-lower-server-faceplate"
+    },
+    {
+      "id": "office-network-rack-lower-server-drive-bay-one",
+      "word": "Network lower server drive bay one",
+      "translation": "写字楼下层服务器硬盘位一",
+      "x": 718.660287,
+      "y": 631.243358,
+      "priority": 1.087,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-lower-server-drive-bay-one"
+    },
+    {
+      "id": "office-network-rack-lower-server-drive-bay-two",
+      "word": "Network lower server drive bay two",
+      "translation": "写字楼下层服务器硬盘位二",
+      "x": 765.550239,
+      "y": 631.243358,
+      "priority": 1.088,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-lower-server-drive-bay-two"
+    },
+    {
+      "id": "office-network-rack-lower-server-drive-bay-three",
+      "word": "Network lower server drive bay three",
+      "translation": "写字楼下层服务器硬盘位三",
+      "x": 814.354067,
+      "y": 631.243358,
+      "priority": 1.089,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-lower-server-drive-bay-three"
+    },
+    {
+      "id": "office-network-rack-lower-server-drive-bay-four",
+      "word": "Network lower server drive bay four",
+      "translation": "写字楼下层服务器硬盘位四",
+      "x": 860.287081,
+      "y": 631.243358,
+      "priority": 1.09,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-lower-server-drive-bay-four"
+    },
+    {
+      "id": "office-network-rack-lower-server-drive-bay-five",
+      "word": "Network lower server drive bay five",
+      "translation": "写字楼下层服务器硬盘位五",
+      "x": 907.177033,
+      "y": 631.243358,
+      "priority": 1.091,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-lower-server-drive-bay-five"
+    },
+    {
+      "id": "office-network-rack-lower-server-drive-bay-six",
+      "word": "Network lower server drive bay six",
+      "translation": "写字楼下层服务器硬盘位六",
+      "x": 954.066986,
+      "y": 631.243358,
+      "priority": 1.092,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-lower-server-drive-bay-six"
+    },
+    {
+      "id": "office-network-rack-lower-drive-tray-latch",
+      "word": "Network lower drive-tray latch",
+      "translation": "写字楼下层硬盘托架卡扣",
+      "x": 813.397129,
+      "y": 619.766206,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-lower-drive-tray-latch"
+    },
+    {
+      "id": "office-network-rack-lower-server-pull-handle",
+      "word": "Network lower server pull handle",
+      "translation": "写字楼下层服务器拉手",
+      "x": 674.641148,
+      "y": 647.502657,
+      "priority": 1.094,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-lower-server-pull-handle"
+    },
+    {
+      "id": "office-network-rack-server-intake-grille",
+      "word": "Network server intake grille",
+      "translation": "写字楼服务器进风格栅",
+      "x": 968.421053,
+      "y": 715.409139,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-server-intake-grille"
+    },
+    {
+      "id": "office-network-rack-chassis-rail-left",
+      "word": "Network chassis rail left",
+      "translation": "写字楼机箱左滑轨",
+      "x": 666.028708,
+      "y": 713.496281,
+      "priority": 1.096,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-chassis-rail-left"
+    },
+    {
+      "id": "office-network-rack-chassis-rail-right",
+      "word": "Network chassis rail right",
+      "translation": "写字楼机箱右滑轨",
+      "x": 984.688995,
+      "y": 713.496281,
+      "priority": 1.097,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-chassis-rail-right"
+    },
+    {
+      "id": "office-network-rack-drive-carrier-release-tab",
+      "word": "Network drive carrier release tab",
+      "translation": "写字楼硬盘托架释放片",
+      "x": 908.133971,
+      "y": 580.552604,
+      "priority": 1.098,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-drive-carrier-release-tab"
+    },
+    {
+      "id": "office-network-rack-server-bezel-fastener",
+      "word": "Network server bezel fastener",
+      "translation": "写字楼服务器面板紧固件",
+      "x": 976.076555,
+      "y": 558.554729,
+      "priority": 1.099,
+      "minLevel": 4,
+      "sourceVisualRegion": "office-network-rack-region-server-bezel-fastener"
+    },
+    {
+      "id": "office-network-rack-left-vertical-cable-manager",
+      "word": "Network left vertical cable manager",
+      "translation": "写字楼左侧垂直理线槽",
+      "x": 643.062201,
+      "y": 401.700319,
+      "priority": 1.1,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-left-vertical-cable-manager"
+    },
+    {
+      "id": "office-network-rack-right-vertical-cable-manager",
+      "word": "Network right vertical cable manager",
+      "translation": "写字楼右侧垂直理线槽",
+      "x": 1005.741627,
+      "y": 401.700319,
+      "priority": 1.101,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-right-vertical-cable-manager"
+    },
+    {
+      "id": "office-network-rack-left-manager-front-channel",
+      "word": "Network left manager front channel",
+      "translation": "写字楼左理线槽前通道",
+      "x": 651.674641,
+      "y": 382.571732,
+      "priority": 1.102,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-left-manager-front-channel"
+    },
+    {
+      "id": "office-network-rack-right-manager-front-channel",
+      "word": "Network right manager front channel",
+      "translation": "写字楼右理线槽前通道",
+      "x": 1000,
+      "y": 390.223167,
+      "priority": 1.103,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-right-manager-front-channel"
+    },
+    {
+      "id": "office-network-rack-blue-vertical-patch-cord-bundle",
+      "word": "Network blue vertical patch-cord bundle",
+      "translation": "写字楼蓝色垂直跳线束",
+      "x": 646.889952,
+      "y": 241.976621,
+      "priority": 1.104,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-blue-vertical-patch-cord-bundle"
+    },
+    {
+      "id": "office-network-rack-yellow-vertical-fiber-bundle",
+      "word": "Network yellow vertical fiber bundle",
+      "translation": "写字楼黄色垂直光纤束",
+      "x": 1020.095694,
+      "y": 248.671626,
+      "priority": 1.105,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-yellow-vertical-fiber-bundle"
+    },
+    {
+      "id": "office-network-rack-upper-cable-retainer-finger",
+      "word": "Network upper cable-retainer finger",
+      "translation": "写字楼上部线缆固定齿",
+      "x": 657.416268,
+      "y": 147.290117,
+      "priority": 1.106,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-upper-cable-retainer-finger"
+    },
+    {
+      "id": "office-network-rack-middle-cable-retainer-finger",
+      "word": "Network middle cable-retainer finger",
+      "translation": "写字楼中部线缆固定齿",
+      "x": 658.373206,
+      "y": 341.445271,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-middle-cable-retainer-finger"
+    },
+    {
+      "id": "office-network-rack-lower-cable-retainer-finger",
+      "word": "Network lower cable-retainer finger",
+      "translation": "写字楼下部线缆固定齿",
+      "x": 659.330144,
+      "y": 554.729012,
+      "priority": 1.108,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-lower-cable-retainer-finger"
+    },
+    {
+      "id": "office-network-rack-side-cable-guide-ring",
+      "word": "Network side cable-guide ring",
+      "translation": "写字楼侧边导线环",
+      "x": 660.287081,
+      "y": 630.286929,
+      "priority": 1.109,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-side-cable-guide-ring"
+    },
+    {
+      "id": "office-network-rack-yellow-fiber-jumper-connector",
+      "word": "Network yellow fiber jumper connector",
+      "translation": "写字楼黄色跳纤接头",
+      "x": 1015.311005,
+      "y": 92.773645,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-yellow-fiber-jumper-connector"
+    },
+    {
+      "id": "office-network-rack-blue-copper-patch-lead",
+      "word": "Network blue copper patch lead",
+      "translation": "写字楼蓝色铜缆跳线",
+      "x": 703.349282,
+      "y": 331.880978,
+      "priority": 1.111,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-blue-copper-patch-lead"
+    },
+    {
+      "id": "office-network-rack-patch-cord-plug-boot",
+      "word": "Network patch-cord plug boot",
+      "translation": "写字楼跳线插头护套",
+      "x": 764.593301,
+      "y": 340.488842,
+      "priority": 1.112,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-patch-cord-plug-boot"
+    },
+    {
+      "id": "office-network-rack-short-fiber-bend-loop",
+      "word": "Network short fiber bend loop",
+      "translation": "写字楼短光纤弯曲环",
+      "x": 876.555024,
+      "y": 154.941552,
+      "priority": 1.113,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-short-fiber-bend-loop"
+    },
+    {
+      "id": "office-network-rack-horizontal-slack-loop",
+      "word": "Network horizontal slack loop",
+      "translation": "写字楼水平余缆环",
+      "x": 902.392344,
+      "y": 179.808714,
+      "priority": 1.114,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-horizontal-slack-loop"
+    },
+    {
+      "id": "office-network-rack-vertical-cable-tie-saddle",
+      "word": "Network vertical cable tie saddle",
+      "translation": "写字楼垂直扎带鞍座",
+      "x": 1019.138756,
+      "y": 202.763018,
+      "priority": 1.115,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-vertical-cable-tie-saddle"
+    },
+    {
+      "id": "office-network-rack-upper-strain-relief-bracket",
+      "word": "Network upper strain-relief bracket",
+      "translation": "写字楼上部应力释放支架",
+      "x": 992.344498,
+      "y": 230.499469,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-upper-strain-relief-bracket"
+    },
+    {
+      "id": "office-network-rack-lower-strain-relief-bracket",
+      "word": "Network lower strain-relief bracket",
+      "translation": "写字楼下部应力释放支架",
+      "x": 992.344498,
+      "y": 516.471838,
+      "priority": 1.117,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-lower-strain-relief-bracket"
+    },
+    {
+      "id": "office-network-rack-manager-mounting-screw-upper",
+      "word": "Network manager mounting screw upper",
+      "translation": "写字楼理线槽上固定螺钉",
+      "x": 1000.956938,
+      "y": 132.943677,
+      "priority": 1.118,
+      "minLevel": 4,
+      "sourceVisualRegion": "office-network-rack-region-manager-mounting-screw-upper"
+    },
+    {
+      "id": "office-network-rack-manager-mounting-screw-lower",
+      "word": "Network manager mounting screw lower",
+      "translation": "写字楼理线槽下固定螺钉",
+      "x": 1001.913876,
+      "y": 737.407014,
+      "priority": 1.119,
+      "minLevel": 4,
+      "sourceVisualRegion": "office-network-rack-region-manager-mounting-screw-lower"
+    },
+    {
+      "id": "office-network-rack-rear-cable-drop",
+      "word": "Network rear cable drop",
+      "translation": "写字楼后侧下行线缆",
+      "x": 1064.114833,
+      "y": 385.44102,
+      "priority": 1.12,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-rear-cable-drop"
+    },
+    {
+      "id": "office-network-rack-side-rack-cable-loom",
+      "word": "Network side-rack cable loom",
+      "translation": "写字楼侧机柜线束",
+      "x": 1111.961722,
+      "y": 261.105207,
+      "priority": 1.121,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-side-rack-cable-loom"
+    },
+    {
+      "id": "office-network-rack-fiber-cord-crossing-guide",
+      "word": "Network fiber-cord crossing guide",
+      "translation": "写字楼跳纤交叉导向件",
+      "x": 1045.933014,
+      "y": 401.700319,
+      "priority": 1.122,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-fiber-cord-crossing-guide"
+    },
+    {
+      "id": "office-network-rack-patch-lead-retaining-strap",
+      "word": "Network patch-lead retaining strap",
+      "translation": "写字楼跳线固定带",
+      "x": 1012.440191,
+      "y": 585.33475,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-patch-lead-retaining-strap"
+    },
+    {
+      "id": "office-network-rack-cable-entry-comb",
+      "word": "Network cable-entry comb",
+      "translation": "写字楼线缆入口梳",
+      "x": 1011.483254,
+      "y": 773.751328,
+      "priority": 1.124,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-cable-entry-comb"
+    },
+    {
+      "id": "office-network-rack-vertical-power-strip",
+      "word": "Network vertical power strip",
+      "translation": "写字楼垂直机柜电源排",
+      "x": 1027.751196,
+      "y": 449.521785,
+      "priority": 1.125,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-vertical-power-strip"
+    },
+    {
+      "id": "office-network-rack-upper-power-outlet",
+      "word": "Network upper power outlet",
+      "translation": "写字楼上部电源插座",
+      "x": 1020.095694,
+      "y": 120.510096,
+      "priority": 1.126,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-upper-power-outlet"
+    },
+    {
+      "id": "office-network-rack-middle-power-outlet",
+      "word": "Network middle power outlet",
+      "translation": "写字楼中部电源插座",
+      "x": 1020.095694,
+      "y": 390.223167,
+      "priority": 1.127,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-middle-power-outlet"
+    },
+    {
+      "id": "office-network-rack-lower-power-outlet",
+      "word": "Network lower power outlet",
+      "translation": "写字楼下部电源插座",
+      "x": 1020.095694,
+      "y": 669.500531,
+      "priority": 1.128,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-lower-power-outlet"
+    },
+    {
+      "id": "office-network-rack-plugged-power-cord-upper",
+      "word": "Network plugged power cord upper",
+      "translation": "写字楼上部插接电源线",
+      "x": 1044.976077,
+      "y": 148.246546,
+      "priority": 1.129,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-plugged-power-cord-upper"
+    },
+    {
+      "id": "office-network-rack-plugged-power-cord-lower",
+      "word": "Network plugged power cord lower",
+      "translation": "写字楼下部插接电源线",
+      "x": 1043.062201,
+      "y": 702.019129,
+      "priority": 1.13,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-plugged-power-cord-lower"
+    },
+    {
+      "id": "office-network-rack-rack-power-strip-bracket",
+      "word": "Network rack power-strip bracket",
+      "translation": "写字楼机柜电源排支架",
+      "x": 1014.354067,
+      "y": 247.715197,
+      "priority": 1.131,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-rack-power-strip-bracket"
+    },
+    {
+      "id": "office-network-rack-power-strip-side-seam",
+      "word": "Network power-strip side seam",
+      "translation": "写字楼电源排侧缝",
+      "x": 1023.923445,
+      "y": 511.689692,
+      "priority": 1.132,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-power-strip-side-seam"
+    },
+    {
+      "id": "office-network-rack-ups-chassis",
+      "word": "Network UPS chassis",
+      "translation": "写字楼机架式不间断电源机箱",
+      "x": 822.966507,
+      "y": 746.971307,
+      "priority": 1.133,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-ups-chassis"
+    },
+    {
+      "id": "office-network-rack-ups-front-grille",
+      "word": "Network UPS front grille",
+      "translation": "写字楼不间断电源前格栅",
+      "x": 824.880383,
+      "y": 745.058448,
+      "priority": 1.134,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-ups-front-grille"
+    },
+    {
+      "id": "office-network-rack-ups-left-ear",
+      "word": "Network UPS left ear",
+      "translation": "写字楼不间断电源左安装耳",
+      "x": 674.641148,
+      "y": 750.797024,
+      "priority": 1.135,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-ups-left-ear"
+    },
+    {
+      "id": "office-network-rack-ups-right-ear",
+      "word": "Network UPS right ear",
+      "translation": "写字楼不间断电源右安装耳",
+      "x": 966.507177,
+      "y": 751.753454,
+      "priority": 1.136,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-ups-right-ear"
+    },
+    {
+      "id": "office-network-rack-upper-rack-fan-tray",
+      "word": "Network upper rack fan tray",
+      "translation": "写字楼上部机柜风扇盘",
+      "x": 824.880383,
+      "y": 49.734325,
+      "priority": 1.137,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-upper-rack-fan-tray"
+    },
+    {
+      "id": "office-network-rack-left-cooling-fan",
+      "word": "Network left cooling fan",
+      "translation": "写字楼左侧散热风扇",
+      "x": 745.454545,
+      "y": 53.560043,
+      "priority": 1.138,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-left-cooling-fan"
+    },
+    {
+      "id": "office-network-rack-centre-cooling-fan",
+      "word": "Network centre cooling fan",
+      "translation": "写字楼中间散热风扇",
+      "x": 822.966507,
+      "y": 53.560043,
+      "priority": 1.139,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-centre-cooling-fan"
+    },
+    {
+      "id": "office-network-rack-right-cooling-fan",
+      "word": "Network right cooling fan",
+      "translation": "写字楼右侧散热风扇",
+      "x": 903.349282,
+      "y": 53.560043,
+      "priority": 1.14,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-right-cooling-fan"
+    },
+    {
+      "id": "office-network-rack-fan-guard-ring",
+      "word": "Network fan guard ring",
+      "translation": "写字楼风扇护圈",
+      "x": 824.880383,
+      "y": 42.082891,
+      "priority": 1.141,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-fan-guard-ring"
+    },
+    {
+      "id": "office-network-rack-fan-tray-mounting-rail",
+      "word": "Network fan-tray mounting rail",
+      "translation": "写字楼风扇盘安装导轨",
+      "x": 994.258373,
+      "y": 57.38576,
+      "priority": 1.142,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-fan-tray-mounting-rail"
+    },
+    {
+      "id": "office-network-rack-rack-rear-exhaust-grille",
+      "word": "Network rack rear exhaust grille",
+      "translation": "写字楼机柜后部排风格栅",
+      "x": 1426.794258,
+      "y": 258.235919,
+      "priority": 1.143,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-rack-rear-exhaust-grille"
+    },
+    {
+      "id": "office-network-rack-room-ceiling-diffuser",
+      "word": "Network room ceiling diffuser",
+      "translation": "写字楼房间吊顶送风口",
+      "x": 1256.45933,
+      "y": 46.865037,
+      "priority": 1.144,
+      "minLevel": 0,
+      "sourceVisualRegion": "office-network-rack-region-room-ceiling-diffuser"
+    },
+    {
+      "id": "office-network-rack-perforated-floor-tile",
+      "word": "Network perforated floor tile",
+      "translation": "写字楼穿孔地板块",
+      "x": 1245.933014,
+      "y": 842.61424,
+      "priority": 1.145,
+      "minLevel": 1,
+      "sourceVisualRegion": "office-network-rack-region-perforated-floor-tile"
+    },
+    {
+      "id": "office-network-rack-floor-grille-slot-row",
+      "word": "Network floor-grille slot row",
+      "translation": "写字楼地面格栅槽列",
+      "x": 1246.889952,
+      "y": 840.701382,
+      "priority": 1.146,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-floor-grille-slot-row"
+    },
+    {
+      "id": "office-network-rack-floor-access-tile-seam",
+      "word": "Network floor access-tile seam",
+      "translation": "写字楼地板检修板接缝",
+      "x": 1378.947368,
+      "y": 832.093518,
+      "priority": 1.147,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-floor-access-tile-seam"
+    },
+    {
+      "id": "office-network-rack-equipment-ground-lead",
+      "word": "Network equipment ground lead",
+      "translation": "写字楼设备接地线",
+      "x": 1026.794258,
+      "y": 801.487779,
+      "priority": 1.148,
+      "minLevel": 2,
+      "sourceVisualRegion": "office-network-rack-region-equipment-ground-lead"
+    },
+    {
+      "id": "office-network-rack-grounding-lug",
+      "word": "Network grounding lug",
+      "translation": "写字楼接地端子",
+      "x": 1045.933014,
+      "y": 815.834219,
+      "priority": 1.149,
+      "minLevel": 3,
+      "sourceVisualRegion": "office-network-rack-region-grounding-lug"
+    }
+  ],
+  "portals": []
+}

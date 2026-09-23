@@ -183,6 +183,11 @@
       "parentId": "baggage-drop-station"
     },
     {
+      "id": "airport-conveyor-drive-unit",
+      "title": "Airport conveyor drive unit",
+      "parentId": "airport-baggage-conveyor"
+    },
+    {
       "id": "baggage-claim",
       "title": "Baggage claim",
       "parentId": "airport"
@@ -430,6 +435,11 @@
     {
       "id": "warehouse-loading-dock",
       "title": "Warehouse loading dock",
+      "parentId": "service-core"
+    },
+    {
+      "id": "office-network-rack",
+      "title": "Office network rack",
       "parentId": "service-core"
     },
     {

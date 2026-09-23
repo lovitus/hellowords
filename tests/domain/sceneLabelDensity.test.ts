@@ -137,7 +137,7 @@ test("all authored scenes fill spare first-screen space without collisions or de
               : protectedRegions.length >= 6 ? 8 : 9;
         assert.ok(
           visible.length >= largeSceneFloor,
-          `${configuration.name}/${scene.id} uses its large authored vocabulary instead of leaving avoidable blank space`,
+          `${configuration.name}/${scene.id} uses its large authored vocabulary instead of leaving avoidable blank space (visible ${visible.length}/${largeSceneFloor})`,
         );
       }
 

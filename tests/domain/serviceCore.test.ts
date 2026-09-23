@@ -45,7 +45,7 @@ test("service-core is a reviewed facilities branch with 90 grounded parts", asyn
   assert.equal(scene.parentId, "office-building");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 90);
-  assert.equal(scene.visualRegions.length, 91);
+  assert.equal(scene.visualRegions.length, 92);
   assert.deepEqual(scene.detailZones.map((zone) => [zone.id, zone.labelIds.length]), [
     ["service-core-zone-electrical-distribution", 20],
     ["service-core-zone-hvac-mechanical", 22],
@@ -59,7 +59,7 @@ test("service-core is a reviewed facilities branch with 90 grounded parts", asyn
   );
   assert.deepEqual(
     scene.portals.map((portal) => (portal as { childSceneId: string }).childSceneId),
-    ["warehouse-loading-dock"],
+    ["warehouse-loading-dock", "office-network-rack"],
   );
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");

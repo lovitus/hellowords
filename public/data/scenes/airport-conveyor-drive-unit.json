@@ -1,0 +1,3115 @@
+{
+  "id": "airport-conveyor-drive-unit",
+  "title": "Airport conveyor drive unit",
+  "translation": "机场行李输送驱动单元",
+  "subtitle": "Gearmotor, drive drum, transfer rollers, steel supports and safety controls",
+  "asset": "/scenes/airport-conveyor-drive-unit-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "airport-baggage-conveyor",
+  "visualRegions": [
+    {
+      "id": "airport-conveyor-drive-unit-region-gearmotor",
+      "description": "Airport gearmotor visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 792.344498,
+      "y": 509.776833,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-electric-motor-casing",
+      "description": "Airport electric motor casing visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 916.746411,
+      "y": 514.55898,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-motor-cooling-fin-row",
+      "description": "Airport motor cooling-fin row visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 950.239234,
+      "y": 495.430393,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-motor-fan-end-shroud",
+      "description": "Airport motor fan-end shroud visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 1016.267943,
+      "y": 503.081828,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-fan-shroud-vent-slots",
+      "description": "Airport fan-shroud vent slots visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 1012.440191,
+      "y": 487.778959,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-motor-end-shield-seam",
+      "description": "Airport motor end-shield seam visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 978.947368,
+      "y": 538.469713,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-drive-terminal-box",
+      "description": "Airport drive terminal box visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 903.349282,
+      "y": 403.613177,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-terminal-box-lid",
+      "description": "Airport terminal-box lid visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 903.349282,
+      "y": 388.310308,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-terminal-lid-screw",
+      "description": "Airport terminal-lid screw visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 885.167464,
+      "y": 393.092455,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-cable-entry-gland",
+      "description": "Airport cable-entry gland visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 949.282297,
+      "y": 408.395324,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-motor-lifting-eye",
+      "description": "Airport motor lifting eye visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 789.473684,
+      "y": 379.702444,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-gear-reducer-housing",
+      "description": "Airport gear reducer housing visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 778.947368,
+      "y": 518.384697,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-reducer-casting-seam",
+      "description": "Airport reducer casting seam visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 763.636364,
+      "y": 500.21254,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-motor-adapter-flange",
+      "description": "Airport motor adapter flange visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 884.210526,
+      "y": 510.733262,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-coupling-sleeve",
+      "description": "Airport coupling sleeve visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 878.4689,
+      "y": 493.517535,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-coupling-sleeve-edge",
+      "description": "Airport coupling sleeve edge visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 867.942584,
+      "y": 490.648247,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-reducer-mounting-foot-near",
+      "description": "Airport reducer mounting foot near visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 661.244019,
+      "y": 620.722635,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-reducer-mounting-foot-far",
+      "description": "Airport reducer mounting foot far visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 707.177033,
+      "y": 618.809777,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-motor-mounting-foot-left",
+      "description": "Airport motor mounting foot left visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 889.952153,
+      "y": 603.506908,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-motor-mounting-foot-right",
+      "description": "Airport motor mounting foot right visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 932.057416,
+      "y": 602.550478,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-near-motor-hold-down-bolt",
+      "description": "Airport near motor hold-down bolt visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 893.779904,
+      "y": 621.679065,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-far-motor-hold-down-bolt",
+      "description": "Airport far motor hold-down bolt visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 935.885167,
+      "y": 619.766206,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-shared-motor-bedplate",
+      "description": "Airport shared motor bedplate visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 793.301435,
+      "y": 652.284803,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-bedplate-side-rail",
+      "description": "Airport bedplate side rail visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 763.636364,
+      "y": 658.023379,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-flexible-motor-conduit-elbow",
+      "description": "Airport flexible motor conduit elbow visible in Gearmotor and reducer",
+      "kind": "object",
+      "x": 1067.942584,
+      "y": 558.554729,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-drive-drum",
+      "description": "Airport drive drum visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 639.23445,
+      "y": 479.171095,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-black-drum-sleeve",
+      "description": "Airport black drum sleeve visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 634.449761,
+      "y": 479.171095,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-drum-left-end-face",
+      "description": "Airport drum left end face visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 636.363636,
+      "y": 490.648247,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-drum-right-shoulder",
+      "description": "Airport drum right shoulder visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 679.425837,
+      "y": 490.648247,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-drive-shaft-stub",
+      "description": "Airport drive-shaft stub visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 699.521531,
+      "y": 489.691817,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-shaft-end-collar",
+      "description": "Airport shaft-end collar visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 712.91866,
+      "y": 490.648247,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-drive-bearing-support",
+      "description": "Airport drive bearing support visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 493.779904,
+      "y": 479.171095,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-bearing-housing",
+      "description": "Airport bearing housing visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 485.167464,
+      "y": 488.735388,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-drive-bearing-housing-cap",
+      "description": "Airport drive bearing housing cap visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 493.779904,
+      "y": 466.737513,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-upper-bearing-cap-bolt",
+      "description": "Airport upper bearing-cap bolt visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 489.952153,
+      "y": 464.824655,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-lower-bearing-cap-bolt",
+      "description": "Airport lower bearing-cap bolt visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 499.521531,
+      "y": 497.343252,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-yellow-guard",
+      "description": "Airport yellow guard visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 488.038278,
+      "y": 428.48034,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-guard-upper-flange",
+      "description": "Airport guard upper flange visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 474.641148,
+      "y": 346.227418,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-guard-forward-panel",
+      "description": "Airport guard forward panel visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 446.889952,
+      "y": 462.911796,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-guard-return-edge",
+      "description": "Airport guard return edge visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 555.023923,
+      "y": 535.600425,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-guard-ventilation-perforations",
+      "description": "Airport guard ventilation perforations visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 444.019139,
+      "y": 385.44102,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-guard-corner-bend",
+      "description": "Airport guard corner bend visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 562.679426,
+      "y": 380.658874,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-upper-guard-fastener",
+      "description": "Airport upper guard fastener visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 456.45933,
+      "y": 364.399575,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-lower-guard-fastener",
+      "description": "Airport lower guard fastener visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 462.200957,
+      "y": 609.245484,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-guard-mounting-ear",
+      "description": "Airport guard mounting ear visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 577.990431,
+      "y": 613.071201,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-wrap-over-drum",
+      "description": "Airport belt wrap over drum visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 593.301435,
+      "y": 388.310308,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-left-lower-support-rail",
+      "description": "Airport left lower support rail visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 368.421053,
+      "y": 564.293305,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-to-drum-contact",
+      "description": "Airport belt-to-drum contact visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 610.526316,
+      "y": 409.351753,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-drum-support-plate",
+      "description": "Airport drum support plate visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 599.043062,
+      "y": 623.591923,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-guard-side-frame-fastener",
+      "description": "Airport guard side-frame fastener visible in Drive drum and yellow guard",
+      "kind": "object",
+      "x": 576.076555,
+      "y": 589.160468,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-main-belt",
+      "description": "Airport main belt visible in Main belt and transfer",
+      "kind": "object",
+      "x": 390.430622,
+      "y": 258.235919,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-carry-surface",
+      "description": "Airport belt carry surface visible in Main belt and transfer",
+      "kind": "object",
+      "x": 323.444976,
+      "y": 222.848034,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-centre-strip",
+      "description": "Airport belt centre strip visible in Main belt and transfer",
+      "kind": "object",
+      "x": 466.985646,
+      "y": 251.540914,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-left-belt-edge",
+      "description": "Airport left belt edge visible in Main belt and transfer",
+      "kind": "object",
+      "x": 49.760766,
+      "y": 230.499469,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-near-belt-edge",
+      "description": "Airport near belt edge visible in Main belt and transfer",
+      "kind": "object",
+      "x": 495.69378,
+      "y": 366.312434,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-far-belt-edge",
+      "description": "Airport far belt edge visible in Main belt and transfer",
+      "kind": "object",
+      "x": 214.354067,
+      "y": 149.202976,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-inner-sidewall-panel",
+      "description": "Airport inner sidewall panel visible in Main belt and transfer",
+      "kind": "object",
+      "x": 124.401914,
+      "y": 200.850159,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-outer-sidewall-panel",
+      "description": "Airport outer sidewall panel visible in Main belt and transfer",
+      "kind": "object",
+      "x": 670.813397,
+      "y": 370.138151,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-guide-rail",
+      "description": "Airport belt guide rail visible in Main belt and transfer",
+      "kind": "object",
+      "x": 712.91866,
+      "y": 351.965994,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-guide-rail-top-lip",
+      "description": "Airport guide-rail top lip visible in Main belt and transfer",
+      "kind": "object",
+      "x": 730.143541,
+      "y": 372.05101,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-drive-belt-retaining-flange",
+      "description": "Airport drive belt retaining flange visible in Main belt and transfer",
+      "kind": "object",
+      "x": 631.578947,
+      "y": 380.658874,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-skirt-strip",
+      "description": "Airport belt skirt strip visible in Main belt and transfer",
+      "kind": "object",
+      "x": 351.196172,
+      "y": 360.573858,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-stainless-side-plate",
+      "description": "Airport stainless side plate visible in Main belt and transfer",
+      "kind": "object",
+      "x": 583.732057,
+      "y": 397.874601,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-side-plate-seam",
+      "description": "Airport side-plate seam visible in Main belt and transfer",
+      "kind": "object",
+      "x": 568.421053,
+      "y": 408.395324,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-splice-line",
+      "description": "Airport belt splice line visible in Main belt and transfer",
+      "kind": "object",
+      "x": 260.287081,
+      "y": 238.150903,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-backing-edge",
+      "description": "Airport belt backing edge visible in Main belt and transfer",
+      "kind": "object",
+      "x": 299.521531,
+      "y": 351.965994,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-nose-plate",
+      "description": "Airport transfer nose plate visible in Main belt and transfer",
+      "kind": "object",
+      "x": 777.990431,
+      "y": 368.225292,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-lip",
+      "description": "Airport transfer lip visible in Main belt and transfer",
+      "kind": "object",
+      "x": 811.483254,
+      "y": 379.702444,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-discharge-end",
+      "description": "Airport discharge end visible in Main belt and transfer",
+      "kind": "object",
+      "x": 855.502392,
+      "y": 347.183847,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-entry",
+      "description": "Airport roller entry visible in Main belt and transfer",
+      "kind": "object",
+      "x": 920.574163,
+      "y": 332.837407,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-infeed-frame-corner",
+      "description": "Airport infeed frame corner visible in Main belt and transfer",
+      "kind": "object",
+      "x": 36.363636,
+      "y": 292.667375,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-side-trim-strip",
+      "description": "Airport belt-side trim strip visible in Main belt and transfer",
+      "kind": "object",
+      "x": 436.363636,
+      "y": 374.920298,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-support-pan",
+      "description": "Airport belt support pan visible in Main belt and transfer",
+      "kind": "object",
+      "x": 655.502392,
+      "y": 394.048884,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-frame-top-plate",
+      "description": "Airport transfer-frame top plate visible in Main belt and transfer",
+      "kind": "object",
+      "x": 837.320574,
+      "y": 398.831031,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-to-roller-gap",
+      "description": "Airport belt-to-roller gap visible in Main belt and transfer",
+      "kind": "object",
+      "x": 887.08134,
+      "y": 363.443146,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller",
+      "description": "Airport transfer roller visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1041.148325,
+      "y": 288.841658,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-two",
+      "description": "Airport transfer roller two visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1088.995215,
+      "y": 303.188098,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-three",
+      "description": "Airport transfer roller three visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1136.842105,
+      "y": 315.621679,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-four",
+      "description": "Airport transfer roller four visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1184.688995,
+      "y": 330.924548,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-five",
+      "description": "Airport transfer roller five visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1232.535885,
+      "y": 345.270988,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-six",
+      "description": "Airport transfer roller six visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1280.382775,
+      "y": 358.660999,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-seven",
+      "description": "Airport transfer roller seven visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1328.229665,
+      "y": 374.920298,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-eight",
+      "description": "Airport transfer roller eight visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1376.076555,
+      "y": 388.310308,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-nine",
+      "description": "Airport transfer roller nine visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1425.837321,
+      "y": 403.613177,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-ten",
+      "description": "Airport transfer roller ten visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1473.684211,
+      "y": 417.003188,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-shell-surface",
+      "description": "Airport roller shell surface visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1218.181818,
+      "y": 317.534538,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-end-cap",
+      "description": "Airport transfer roller end cap visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1139.712919,
+      "y": 318.490967,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-axle-tip",
+      "description": "Airport roller axle tip visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1272.727273,
+      "y": 356.74814,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-transfer-roller-bearing-block",
+      "description": "Airport transfer roller bearing block visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1368.421053,
+      "y": 417.959617,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-left-roller-bed-rail",
+      "description": "Airport left roller-bed rail visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1069.856459,
+      "y": 382.571732,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-right-roller-bed-rail",
+      "description": "Airport right roller-bed rail visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1490.909091,
+      "y": 496.386823,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-bed-crossmember",
+      "description": "Airport roller-bed crossmember visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1333.014354,
+      "y": 515.515409,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-end-stop",
+      "description": "Airport roller end stop visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1542.583732,
+      "y": 427.523911,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-spacing-gap",
+      "description": "Airport roller spacing gap visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1165.550239,
+      "y": 333.793836,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-bed-side-flange",
+      "description": "Airport roller-bed side flange visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1443.062201,
+      "y": 466.737513,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-support-bracket",
+      "description": "Airport roller support bracket visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1395.215311,
+      "y": 500.21254,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-seat-cutout",
+      "description": "Airport roller seat cutout visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1371.291866,
+      "y": 449.521785,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-bed-junction-plate",
+      "description": "Airport roller-bed junction plate visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1018.181818,
+      "y": 401.700319,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-upper-roller",
+      "description": "Airport upper roller visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1318.660287,
+      "y": 195.111583,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-rear-roller-lane-divider",
+      "description": "Airport rear roller-lane divider visible in Transfer roller bed",
+      "kind": "object",
+      "x": 1519.617225,
+      "y": 246.758767,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-support-leg",
+      "description": "Airport support leg visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 251.674641,
+      "y": 687.672689,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-left-support-foot-plate",
+      "description": "Airport left support foot plate visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 258.373206,
+      "y": 816.790648,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-support-column",
+      "description": "Airport support column visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 947.368421,
+      "y": 669.500531,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-right-roller-support-leg",
+      "description": "Airport right roller support leg visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 1412.440191,
+      "y": 668.544102,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-right-floor-base-plate",
+      "description": "Airport right floor base plate visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 1406.698565,
+      "y": 819.659936,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-lower-conveyor-crossbeam",
+      "description": "Airport lower conveyor crossbeam visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 725.358852,
+      "y": 747.927736,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-longitudinal-support-channel",
+      "description": "Airport longitudinal support channel visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 1163.636364,
+      "y": 660.892667,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-diagonal-frame-brace",
+      "description": "Airport diagonal frame brace visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 345.454545,
+      "y": 760.361318,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-motor-bed-frame-rail",
+      "description": "Airport motor-bed frame rail visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 846.889952,
+      "y": 703.931987,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-roller-bed-cross-brace",
+      "description": "Airport roller-bed cross brace visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 1295.69378,
+      "y": 683.846971,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-frame-gusset-plate",
+      "description": "Airport frame gusset plate visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 888.038278,
+      "y": 714.45271,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-upright-leg-bracket",
+      "description": "Airport upright leg bracket visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 941.626794,
+      "y": 647.502657,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-support-column-flange",
+      "description": "Airport support-column flange visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 964.593301,
+      "y": 779.489904,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-left-floor-anchor-bolt",
+      "description": "Airport left floor anchor bolt visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 241.148325,
+      "y": 819.659936,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-right-floor-anchor-bolt",
+      "description": "Airport right floor anchor bolt visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 1427.751196,
+      "y": 824.442083,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-near-base-plate-washer",
+      "description": "Airport near base-plate washer visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 951.196172,
+      "y": 812.008502,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-frame-side-channel-lip",
+      "description": "Airport frame side-channel lip visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 637.320574,
+      "y": 710.626993,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-lower-frame-seam",
+      "description": "Airport lower frame seam visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 774.162679,
+      "y": 735.494155,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-support-beam-end-cap",
+      "description": "Airport support beam end cap visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 1242.105263,
+      "y": 677.151966,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-leg-to-beam-junction",
+      "description": "Airport leg-to-beam junction visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 941.626794,
+      "y": 691.498406,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-frame-rail-bolt-head",
+      "description": "Airport frame rail bolt head visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 637.320574,
+      "y": 715.409139,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-cross-brace-mounting-tab",
+      "description": "Airport cross-brace mounting tab visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 369.37799,
+      "y": 732.624867,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-floor-leveling-foot",
+      "description": "Airport floor-leveling foot visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 311.004785,
+      "y": 833.049947,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-machine-foot-pad",
+      "description": "Airport machine foot pad visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 972.248804,
+      "y": 818.703507,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-lower-frame-rail",
+      "description": "Airport lower frame rail visible in Support frame and floor feet",
+      "kind": "object",
+      "x": 570.334928,
+      "y": 766.099894,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-drive-junction-box",
+      "description": "Airport drive junction box visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1121.5311,
+      "y": 430.393199,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-junction-box-front-lid",
+      "description": "Airport junction-box front lid visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1117.703349,
+      "y": 423.698193,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-junction-box-corner-seam",
+      "description": "Airport junction-box corner seam visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1084.210526,
+      "y": 399.78746,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-junction-lid-screw-upper",
+      "description": "Airport junction lid screw upper visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1099.521531,
+      "y": 396.918172,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-junction-lid-screw-lower",
+      "description": "Airport junction lid screw lower visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1142.583732,
+      "y": 457.17322,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-box-bottom-cable-port",
+      "description": "Airport box bottom cable port visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1121.5311,
+      "y": 476.301807,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-conduit-gland-at-box",
+      "description": "Airport conduit gland at box visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1088.995215,
+      "y": 486.822529,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-black-flex-conduit",
+      "description": "Airport black flex conduit visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1050.717703,
+      "y": 522.210414,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-conduit-retaining-clip",
+      "description": "Airport conduit retaining clip visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1033.492823,
+      "y": 543.25186,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-e-stop-station",
+      "description": "Airport e-stop station visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1203.827751,
+      "y": 397.874601,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-red-emergency-stop-mushroom",
+      "description": "Airport red emergency-stop mushroom visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1207.655502,
+      "y": 387.353879,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-yellow-e-stop-bezel",
+      "description": "Airport yellow e-stop bezel visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1207.655502,
+      "y": 408.395324,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-stop-station-mounting-stem",
+      "description": "Airport stop-station mounting stem visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1207.655502,
+      "y": 445.696068,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-stop-station-base-bracket",
+      "description": "Airport stop-station base bracket visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1208.61244,
+      "y": 469.606801,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-upper-photoeye",
+      "description": "Airport upper photoeye visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1368.421053,
+      "y": 175.982997,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-sensor-lens-window",
+      "description": "Airport sensor lens window visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1367.464115,
+      "y": 171.20085,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-upper-sensor-clamp",
+      "description": "Airport upper sensor clamp visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1357.894737,
+      "y": 193.198725,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-upper-sensor-support-post",
+      "description": "Airport upper sensor support post visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1359.808612,
+      "y": 228.58661,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-sensor",
+      "description": "Airport belt sensor visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 901.435407,
+      "y": 198.937301,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-belt-sensor-bracket",
+      "description": "Airport belt sensor bracket visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 901.435407,
+      "y": 219.022317,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-sensor-post-clamp-bolt",
+      "description": "Airport sensor-post clamp bolt visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1356.937799,
+      "y": 197.980871,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-blue-sensor-cable",
+      "description": "Airport blue sensor cable visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1370.334928,
+      "y": 218.065887,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-sensor-cable-conduit",
+      "description": "Airport sensor cable conduit visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1309.090909,
+      "y": 252.497343,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-box-mounting-ear",
+      "description": "Airport box mounting ear visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1157.894737,
+      "y": 460.042508,
+      "width": 42.105263,
+      "height": 42.082891
+    },
+    {
+      "id": "airport-conveyor-drive-unit-region-enclosure-lower-mounting-screw",
+      "description": "Airport enclosure lower mounting screw visible in Junction box, safety stop and sensors",
+      "kind": "object",
+      "x": 1154.066986,
+      "y": 462.911796,
+      "width": 42.105263,
+      "height": 42.082891
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "airport-conveyor-drive-unit-zone-gear-motor-and-reducer",
+      "title": "Gearmotor and reducer",
+      "translation": "减速电机与齿轮箱",
+      "description": "Inspect the visible electric motor, finned housing, terminal box, coupling, reducer and their mounting feet.",
+      "x": 497.607656,
+      "y": 315.621679,
+      "width": 688.995215,
+      "height": 449.521785,
+      "targetScale": 2.65,
+      "labelIds": [
+        "airport-conveyor-drive-unit-gearmotor",
+        "airport-conveyor-drive-unit-electric-motor-casing",
+        "airport-conveyor-drive-unit-motor-cooling-fin-row",
+        "airport-conveyor-drive-unit-motor-fan-end-shroud",
+        "airport-conveyor-drive-unit-fan-shroud-vent-slots",
+        "airport-conveyor-drive-unit-motor-end-shield-seam",
+        "airport-conveyor-drive-unit-drive-terminal-box",
+        "airport-conveyor-drive-unit-terminal-box-lid",
+        "airport-conveyor-drive-unit-terminal-lid-screw",
+        "airport-conveyor-drive-unit-cable-entry-gland",
+        "airport-conveyor-drive-unit-motor-lifting-eye",
+        "airport-conveyor-drive-unit-gear-reducer-housing",
+        "airport-conveyor-drive-unit-reducer-casting-seam",
+        "airport-conveyor-drive-unit-motor-adapter-flange",
+        "airport-conveyor-drive-unit-coupling-sleeve",
+        "airport-conveyor-drive-unit-coupling-sleeve-edge",
+        "airport-conveyor-drive-unit-reducer-mounting-foot-near",
+        "airport-conveyor-drive-unit-reducer-mounting-foot-far",
+        "airport-conveyor-drive-unit-motor-mounting-foot-left",
+        "airport-conveyor-drive-unit-motor-mounting-foot-right",
+        "airport-conveyor-drive-unit-near-motor-hold-down-bolt",
+        "airport-conveyor-drive-unit-far-motor-hold-down-bolt",
+        "airport-conveyor-drive-unit-shared-motor-bedplate",
+        "airport-conveyor-drive-unit-bedplate-side-rail",
+        "airport-conveyor-drive-unit-flexible-motor-conduit-elbow"
+      ]
+    },
+    {
+      "id": "airport-conveyor-drive-unit-zone-drive-drum-and-yellow-guard",
+      "title": "Drive drum and yellow guard",
+      "translation": "驱动滚筒与黄色护罩",
+      "description": "Follow the black drive drum, exposed shaft end, bearing support and perforated yellow safety guard.",
+      "x": 315.789474,
+      "y": 286.928799,
+      "width": 440.191388,
+      "height": 420.828905,
+      "targetScale": 2.7,
+      "labelIds": [
+        "airport-conveyor-drive-unit-drive-drum",
+        "airport-conveyor-drive-unit-black-drum-sleeve",
+        "airport-conveyor-drive-unit-drum-left-end-face",
+        "airport-conveyor-drive-unit-drum-right-shoulder",
+        "airport-conveyor-drive-unit-drive-shaft-stub",
+        "airport-conveyor-drive-unit-shaft-end-collar",
+        "airport-conveyor-drive-unit-drive-bearing-support",
+        "airport-conveyor-drive-unit-bearing-housing",
+        "airport-conveyor-drive-unit-drive-bearing-housing-cap",
+        "airport-conveyor-drive-unit-upper-bearing-cap-bolt",
+        "airport-conveyor-drive-unit-lower-bearing-cap-bolt",
+        "airport-conveyor-drive-unit-yellow-guard",
+        "airport-conveyor-drive-unit-guard-upper-flange",
+        "airport-conveyor-drive-unit-guard-forward-panel",
+        "airport-conveyor-drive-unit-guard-return-edge",
+        "airport-conveyor-drive-unit-guard-ventilation-perforations",
+        "airport-conveyor-drive-unit-guard-corner-bend",
+        "airport-conveyor-drive-unit-upper-guard-fastener",
+        "airport-conveyor-drive-unit-lower-guard-fastener",
+        "airport-conveyor-drive-unit-guard-mounting-ear",
+        "airport-conveyor-drive-unit-belt-wrap-over-drum",
+        "airport-conveyor-drive-unit-left-lower-support-rail",
+        "airport-conveyor-drive-unit-belt-to-drum-contact",
+        "airport-conveyor-drive-unit-drum-support-plate",
+        "airport-conveyor-drive-unit-guard-side-frame-fastener"
+      ]
+    },
+    {
+      "id": "airport-conveyor-drive-unit-zone-main-belt-and-transfer",
+      "title": "Main belt and transfer",
+      "translation": "主输送带与转接段",
+      "description": "Explore the broad black belt run, its steel edge guides and the visible belt-to-roller transfer.",
+      "x": 0,
+      "y": 47.821467,
+      "width": 1129.186603,
+      "height": 420.828905,
+      "targetScale": 2.55,
+      "labelIds": [
+        "airport-conveyor-drive-unit-main-belt",
+        "airport-conveyor-drive-unit-belt-carry-surface",
+        "airport-conveyor-drive-unit-belt-centre-strip",
+        "airport-conveyor-drive-unit-left-belt-edge",
+        "airport-conveyor-drive-unit-near-belt-edge",
+        "airport-conveyor-drive-unit-far-belt-edge",
+        "airport-conveyor-drive-unit-inner-sidewall-panel",
+        "airport-conveyor-drive-unit-outer-sidewall-panel",
+        "airport-conveyor-drive-unit-belt-guide-rail",
+        "airport-conveyor-drive-unit-guide-rail-top-lip",
+        "airport-conveyor-drive-unit-drive-belt-retaining-flange",
+        "airport-conveyor-drive-unit-belt-skirt-strip",
+        "airport-conveyor-drive-unit-stainless-side-plate",
+        "airport-conveyor-drive-unit-side-plate-seam",
+        "airport-conveyor-drive-unit-belt-splice-line",
+        "airport-conveyor-drive-unit-belt-backing-edge",
+        "airport-conveyor-drive-unit-transfer-nose-plate",
+        "airport-conveyor-drive-unit-transfer-lip",
+        "airport-conveyor-drive-unit-discharge-end",
+        "airport-conveyor-drive-unit-roller-entry",
+        "airport-conveyor-drive-unit-infeed-frame-corner",
+        "airport-conveyor-drive-unit-belt-side-trim-strip",
+        "airport-conveyor-drive-unit-belt-support-pan",
+        "airport-conveyor-drive-unit-transfer-frame-top-plate",
+        "airport-conveyor-drive-unit-belt-to-roller-gap"
+      ]
+    },
+    {
+      "id": "airport-conveyor-drive-unit-zone-roller-bed",
+      "title": "Transfer roller bed",
+      "translation": "转接滚筒床",
+      "description": "Inspect the clearly separated steel rollers, roller ends, bed rails and transfer supports.",
+      "x": 889.952153,
+      "y": 143.4644,
+      "width": 710.047847,
+      "height": 411.264612,
+      "targetScale": 2.65,
+      "labelIds": [
+        "airport-conveyor-drive-unit-transfer-roller",
+        "airport-conveyor-drive-unit-transfer-roller-two",
+        "airport-conveyor-drive-unit-transfer-roller-three",
+        "airport-conveyor-drive-unit-transfer-roller-four",
+        "airport-conveyor-drive-unit-transfer-roller-five",
+        "airport-conveyor-drive-unit-transfer-roller-six",
+        "airport-conveyor-drive-unit-transfer-roller-seven",
+        "airport-conveyor-drive-unit-transfer-roller-eight",
+        "airport-conveyor-drive-unit-transfer-roller-nine",
+        "airport-conveyor-drive-unit-transfer-roller-ten",
+        "airport-conveyor-drive-unit-roller-shell-surface",
+        "airport-conveyor-drive-unit-transfer-roller-end-cap",
+        "airport-conveyor-drive-unit-roller-axle-tip",
+        "airport-conveyor-drive-unit-transfer-roller-bearing-block",
+        "airport-conveyor-drive-unit-left-roller-bed-rail",
+        "airport-conveyor-drive-unit-right-roller-bed-rail",
+        "airport-conveyor-drive-unit-roller-bed-crossmember",
+        "airport-conveyor-drive-unit-roller-end-stop",
+        "airport-conveyor-drive-unit-roller-spacing-gap",
+        "airport-conveyor-drive-unit-roller-bed-side-flange",
+        "airport-conveyor-drive-unit-roller-support-bracket",
+        "airport-conveyor-drive-unit-roller-seat-cutout",
+        "airport-conveyor-drive-unit-roller-bed-junction-plate",
+        "airport-conveyor-drive-unit-upper-roller",
+        "airport-conveyor-drive-unit-rear-roller-lane-divider"
+      ]
+    },
+    {
+      "id": "airport-conveyor-drive-unit-zone-support-frame-and-feet",
+      "title": "Support frame and floor feet",
+      "translation": "支撑机架与落地底脚",
+      "description": "Trace the visible conveyor frame, cross-braces, support legs, floor plates and their fasteners.",
+      "x": 38.277512,
+      "y": 430.393199,
+      "width": 1511.961722,
+      "height": 459.086079,
+      "targetScale": 2.5,
+      "labelIds": [
+        "airport-conveyor-drive-unit-support-leg",
+        "airport-conveyor-drive-unit-left-support-foot-plate",
+        "airport-conveyor-drive-unit-support-column",
+        "airport-conveyor-drive-unit-right-roller-support-leg",
+        "airport-conveyor-drive-unit-right-floor-base-plate",
+        "airport-conveyor-drive-unit-lower-conveyor-crossbeam",
+        "airport-conveyor-drive-unit-longitudinal-support-channel",
+        "airport-conveyor-drive-unit-diagonal-frame-brace",
+        "airport-conveyor-drive-unit-motor-bed-frame-rail",
+        "airport-conveyor-drive-unit-roller-bed-cross-brace",
+        "airport-conveyor-drive-unit-frame-gusset-plate",
+        "airport-conveyor-drive-unit-upright-leg-bracket",
+        "airport-conveyor-drive-unit-support-column-flange",
+        "airport-conveyor-drive-unit-left-floor-anchor-bolt",
+        "airport-conveyor-drive-unit-right-floor-anchor-bolt",
+        "airport-conveyor-drive-unit-near-base-plate-washer",
+        "airport-conveyor-drive-unit-frame-side-channel-lip",
+        "airport-conveyor-drive-unit-lower-frame-seam",
+        "airport-conveyor-drive-unit-support-beam-end-cap",
+        "airport-conveyor-drive-unit-leg-to-beam-junction",
+        "airport-conveyor-drive-unit-frame-rail-bolt-head",
+        "airport-conveyor-drive-unit-cross-brace-mounting-tab",
+        "airport-conveyor-drive-unit-floor-leveling-foot",
+        "airport-conveyor-drive-unit-machine-foot-pad",
+        "airport-conveyor-drive-unit-lower-frame-rail"
+      ]
+    },
+    {
+      "id": "airport-conveyor-drive-unit-zone-junction-safety-and-sensors",
+      "title": "Junction box, safety stop and sensors",
+      "translation": "接线盒、急停与传感器",
+      "description": "Inspect the blank electrical enclosure, red emergency-stop control, sensor heads, mounts and cable runs.",
+      "x": 861.244019,
+      "y": 162.592986,
+      "width": 729.186603,
+      "height": 497.343252,
+      "targetScale": 2.6,
+      "labelIds": [
+        "airport-conveyor-drive-unit-drive-junction-box",
+        "airport-conveyor-drive-unit-junction-box-front-lid",
+        "airport-conveyor-drive-unit-junction-box-corner-seam",
+        "airport-conveyor-drive-unit-junction-lid-screw-upper",
+        "airport-conveyor-drive-unit-junction-lid-screw-lower",
+        "airport-conveyor-drive-unit-box-bottom-cable-port",
+        "airport-conveyor-drive-unit-conduit-gland-at-box",
+        "airport-conveyor-drive-unit-black-flex-conduit",
+        "airport-conveyor-drive-unit-conduit-retaining-clip",
+        "airport-conveyor-drive-unit-e-stop-station",
+        "airport-conveyor-drive-unit-red-emergency-stop-mushroom",
+        "airport-conveyor-drive-unit-yellow-e-stop-bezel",
+        "airport-conveyor-drive-unit-stop-station-mounting-stem",
+        "airport-conveyor-drive-unit-stop-station-base-bracket",
+        "airport-conveyor-drive-unit-upper-photoeye",
+        "airport-conveyor-drive-unit-sensor-lens-window",
+        "airport-conveyor-drive-unit-upper-sensor-clamp",
+        "airport-conveyor-drive-unit-upper-sensor-support-post",
+        "airport-conveyor-drive-unit-belt-sensor",
+        "airport-conveyor-drive-unit-belt-sensor-bracket",
+        "airport-conveyor-drive-unit-sensor-post-clamp-bolt",
+        "airport-conveyor-drive-unit-blue-sensor-cable",
+        "airport-conveyor-drive-unit-sensor-cable-conduit",
+        "airport-conveyor-drive-unit-box-mounting-ear",
+        "airport-conveyor-drive-unit-enclosure-lower-mounting-screw"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/airport-conveyor-drive-unit-premium-v1.jpg",
+    "reviewedAssetSha256": "084c09e4e7703bbd1fb116eefb4b2274e48a8cc1ae3fdbd7b4e0ecbdb42b7f23",
+    "rationale": "The generated source and final JPEG were inspected at native and final pixels. 150 independently pointable objects and visible parts are distributed across 6 bounded zones. People, identity, readable text, brands, hidden contents, inferred processes and unsupported equipment states were excluded.",
+    "previousLabelCount": 158,
+    "retainedLabelCount": 150,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "belt speed",
+      "load rating",
+      "motor torque",
+      "live voltage",
+      "network address",
+      "maintenance status",
+      "airline identity",
+      "machine operation"
+    ]
+  },
+  "labels": [
+    {
+      "id": "airport-conveyor-drive-unit-gearmotor",
+      "word": "Airport gearmotor",
+      "translation": "机场减速电机组件",
+      "x": 813.397129,
+      "y": 530.818278,
+      "priority": 0.11,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-gearmotor"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-electric-motor-casing",
+      "word": "Airport electric motor casing",
+      "translation": "机场电动机壳体",
+      "x": 937.799043,
+      "y": 535.600425,
+      "priority": 1.001,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-electric-motor-casing"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-motor-cooling-fin-row",
+      "word": "Airport motor cooling-fin row",
+      "translation": "机场电机散热筋列",
+      "x": 971.291866,
+      "y": 516.471838,
+      "priority": 1.002,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-motor-cooling-fin-row"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-motor-fan-end-shroud",
+      "word": "Airport motor fan-end shroud",
+      "translation": "机场电机风扇端罩",
+      "x": 1037.320574,
+      "y": 524.123273,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-motor-fan-end-shroud"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-fan-shroud-vent-slots",
+      "word": "Airport fan-shroud vent slots",
+      "translation": "机场风扇罩通风槽",
+      "x": 1033.492823,
+      "y": 508.820404,
+      "priority": 1.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-fan-shroud-vent-slots"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-motor-end-shield-seam",
+      "word": "Airport motor end-shield seam",
+      "translation": "机场电机端盖接缝",
+      "x": 1000,
+      "y": 559.511158,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-motor-end-shield-seam"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-drive-terminal-box",
+      "word": "Airport drive terminal box",
+      "translation": "机场驱动电机接线盒",
+      "x": 924.401914,
+      "y": 424.654623,
+      "priority": 0.111,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-drive-terminal-box"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-terminal-box-lid",
+      "word": "Airport terminal-box lid",
+      "translation": "机场接线盒盖",
+      "x": 924.401914,
+      "y": 409.351753,
+      "priority": 1.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-terminal-box-lid"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-terminal-lid-screw",
+      "word": "Airport terminal-lid screw",
+      "translation": "机场接线盒盖螺钉",
+      "x": 906.220096,
+      "y": 414.1339,
+      "priority": 1.008,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-terminal-lid-screw"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-cable-entry-gland",
+      "word": "Airport cable-entry gland",
+      "translation": "机场电缆入口接头",
+      "x": 970.334928,
+      "y": 429.436769,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-cable-entry-gland"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-motor-lifting-eye",
+      "word": "Airport motor lifting eye",
+      "translation": "机场电机吊环",
+      "x": 810.526316,
+      "y": 400.743889,
+      "priority": 1.01,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-motor-lifting-eye"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-gear-reducer-housing",
+      "word": "Airport gear reducer housing",
+      "translation": "机场齿轮减速器壳体",
+      "x": 800,
+      "y": 539.426142,
+      "priority": 1.011,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-gear-reducer-housing"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-reducer-casting-seam",
+      "word": "Airport reducer casting seam",
+      "translation": "机场减速器铸造接缝",
+      "x": 784.688995,
+      "y": 521.253985,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-reducer-casting-seam"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-motor-adapter-flange",
+      "word": "Airport motor adapter flange",
+      "translation": "机场电机连接法兰",
+      "x": 905.263158,
+      "y": 531.774708,
+      "priority": 1.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-motor-adapter-flange"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-coupling-sleeve",
+      "word": "Airport coupling sleeve",
+      "translation": "机场联轴器套筒",
+      "x": 899.521531,
+      "y": 514.55898,
+      "priority": 1.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-coupling-sleeve"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-coupling-sleeve-edge",
+      "word": "Airport coupling sleeve edge",
+      "translation": "机场联轴器套筒边缘",
+      "x": 888.995215,
+      "y": 511.689692,
+      "priority": 1.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-coupling-sleeve-edge"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-reducer-mounting-foot-near",
+      "word": "Airport reducer mounting foot near",
+      "translation": "机场近侧减速器安装脚",
+      "x": 682.296651,
+      "y": 641.764081,
+      "priority": 1.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-reducer-mounting-foot-near"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-reducer-mounting-foot-far",
+      "word": "Airport reducer mounting foot far",
+      "translation": "机场远侧减速器安装脚",
+      "x": 728.229665,
+      "y": 639.851222,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-reducer-mounting-foot-far"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-motor-mounting-foot-left",
+      "word": "Airport motor mounting foot left",
+      "translation": "机场左电机安装脚",
+      "x": 911.004785,
+      "y": 624.548353,
+      "priority": 1.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-motor-mounting-foot-left"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-motor-mounting-foot-right",
+      "word": "Airport motor mounting foot right",
+      "translation": "机场右电机安装脚",
+      "x": 953.110048,
+      "y": 623.591923,
+      "priority": 1.019,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-motor-mounting-foot-right"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-near-motor-hold-down-bolt",
+      "word": "Airport near motor hold-down bolt",
+      "translation": "机场近侧电机固定螺栓",
+      "x": 914.832536,
+      "y": 642.72051,
+      "priority": 1.02,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-near-motor-hold-down-bolt"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-far-motor-hold-down-bolt",
+      "word": "Airport far motor hold-down bolt",
+      "translation": "机场远侧电机固定螺栓",
+      "x": 956.937799,
+      "y": 640.807651,
+      "priority": 1.021,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-far-motor-hold-down-bolt"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-shared-motor-bedplate",
+      "word": "Airport shared motor bedplate",
+      "translation": "机场电机共用底板",
+      "x": 814.354067,
+      "y": 673.326249,
+      "priority": 1.022,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-shared-motor-bedplate"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-bedplate-side-rail",
+      "word": "Airport bedplate side rail",
+      "translation": "机场底板侧梁",
+      "x": 784.688995,
+      "y": 679.064825,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-bedplate-side-rail"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-flexible-motor-conduit-elbow",
+      "word": "Airport flexible motor conduit elbow",
+      "translation": "机场电机软管弯头",
+      "x": 1088.995215,
+      "y": 579.596174,
+      "priority": 1.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-flexible-motor-conduit-elbow"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-drive-drum",
+      "word": "Airport drive drum",
+      "translation": "机场滚筒组件",
+      "x": 660.287081,
+      "y": 500.21254,
+      "priority": 0.114,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-drive-drum"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-black-drum-sleeve",
+      "word": "Airport black drum sleeve",
+      "translation": "机场黑色滚筒包胶",
+      "x": 655.502392,
+      "y": 500.21254,
+      "priority": 1.026,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-black-drum-sleeve"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-drum-left-end-face",
+      "word": "Airport drum left end face",
+      "translation": "机场滚筒左端面",
+      "x": 657.416268,
+      "y": 511.689692,
+      "priority": 1.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-drum-left-end-face"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-drum-right-shoulder",
+      "word": "Airport drum right shoulder",
+      "translation": "机场滚筒右轴肩",
+      "x": 700.478469,
+      "y": 511.689692,
+      "priority": 1.028,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-drum-right-shoulder"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-drive-shaft-stub",
+      "word": "Airport drive-shaft stub",
+      "translation": "机场驱动轴短轴端",
+      "x": 720.574163,
+      "y": 510.733262,
+      "priority": 1.029,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-drive-shaft-stub"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-shaft-end-collar",
+      "word": "Airport shaft-end collar",
+      "translation": "机场轴端套环",
+      "x": 733.971292,
+      "y": 511.689692,
+      "priority": 1.03,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-shaft-end-collar"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-drive-bearing-support",
+      "word": "Airport drive bearing support",
+      "translation": "机场驱动轴承支架",
+      "x": 514.832536,
+      "y": 500.21254,
+      "priority": 1.031,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-drive-bearing-support"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-bearing-housing",
+      "word": "Airport bearing housing",
+      "translation": "机场轴承座",
+      "x": 506.220096,
+      "y": 509.776833,
+      "priority": 1.032,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-bearing-housing"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-drive-bearing-housing-cap",
+      "word": "Airport drive bearing housing cap",
+      "translation": "机场驱动轴承座端盖",
+      "x": 514.832536,
+      "y": 487.778959,
+      "priority": 1.033,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-drive-bearing-housing-cap"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-upper-bearing-cap-bolt",
+      "word": "Airport upper bearing-cap bolt",
+      "translation": "机场轴承盖上螺栓",
+      "x": 511.004785,
+      "y": 485.8661,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-upper-bearing-cap-bolt"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-lower-bearing-cap-bolt",
+      "word": "Airport lower bearing-cap bolt",
+      "translation": "机场轴承盖下螺栓",
+      "x": 520.574163,
+      "y": 518.384697,
+      "priority": 1.035,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-lower-bearing-cap-bolt"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-yellow-guard",
+      "word": "Airport yellow guard",
+      "translation": "机场黄色穿孔护罩",
+      "x": 509.090909,
+      "y": 449.521785,
+      "priority": 0.106,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-yellow-guard"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-guard-upper-flange",
+      "word": "Airport guard upper flange",
+      "translation": "机场护罩上翻边",
+      "x": 495.69378,
+      "y": 367.268863,
+      "priority": 1.037,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-guard-upper-flange"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-guard-forward-panel",
+      "word": "Airport guard forward panel",
+      "translation": "机场护罩前面板",
+      "x": 467.942584,
+      "y": 483.953241,
+      "priority": 1.038,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-guard-forward-panel"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-guard-return-edge",
+      "word": "Airport guard return edge",
+      "translation": "机场护罩回折边",
+      "x": 576.076555,
+      "y": 556.64187,
+      "priority": 1.039,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-guard-return-edge"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-guard-ventilation-perforations",
+      "word": "Airport guard ventilation perforations",
+      "translation": "机场护罩通风孔",
+      "x": 465.07177,
+      "y": 406.482465,
+      "priority": 1.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-guard-ventilation-perforations"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-guard-corner-bend",
+      "word": "Airport guard corner bend",
+      "translation": "机场护罩折角",
+      "x": 583.732057,
+      "y": 401.700319,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-guard-corner-bend"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-upper-guard-fastener",
+      "word": "Airport upper guard fastener",
+      "translation": "机场护罩上部紧固件",
+      "x": 477.511962,
+      "y": 385.44102,
+      "priority": 1.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-upper-guard-fastener"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-lower-guard-fastener",
+      "word": "Airport lower guard fastener",
+      "translation": "机场护罩下部紧固件",
+      "x": 483.253589,
+      "y": 630.286929,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-lower-guard-fastener"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-guard-mounting-ear",
+      "word": "Airport guard mounting ear",
+      "translation": "机场护罩安装耳",
+      "x": 599.043062,
+      "y": 634.112646,
+      "priority": 1.044,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-guard-mounting-ear"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-wrap-over-drum",
+      "word": "Airport belt wrap over drum",
+      "translation": "机场滚筒包覆输送带",
+      "x": 614.354067,
+      "y": 409.351753,
+      "priority": 1.045,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-wrap-over-drum"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-left-lower-support-rail",
+      "word": "Airport left lower support rail",
+      "translation": "机场左下支撑梁",
+      "x": 389.473684,
+      "y": 585.33475,
+      "priority": 1.046,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-left-lower-support-rail"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-to-drum-contact",
+      "word": "Airport belt-to-drum contact",
+      "translation": "机场输送带与滚筒接触处",
+      "x": 631.578947,
+      "y": 430.393199,
+      "priority": 1.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-to-drum-contact"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-drum-support-plate",
+      "word": "Airport drum support plate",
+      "translation": "机场滚筒支撑板",
+      "x": 620.095694,
+      "y": 644.633369,
+      "priority": 1.048,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-drum-support-plate"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-guard-side-frame-fastener",
+      "word": "Airport guard side-frame fastener",
+      "translation": "机场护罩侧框紧固件",
+      "x": 597.129187,
+      "y": 610.201913,
+      "priority": 1.049,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-guard-side-frame-fastener"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-main-belt",
+      "word": "Airport main belt",
+      "translation": "机场主行李输送带",
+      "x": 411.483254,
+      "y": 279.277365,
+      "priority": 0.1,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-main-belt"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-carry-surface",
+      "word": "Airport belt carry surface",
+      "translation": "机场输送带承载面",
+      "x": 344.497608,
+      "y": 243.889479,
+      "priority": 1.051,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-carry-surface"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-centre-strip",
+      "word": "Airport belt centre strip",
+      "translation": "机场输送带中部带面",
+      "x": 488.038278,
+      "y": 272.582359,
+      "priority": 1.052,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-centre-strip"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-left-belt-edge",
+      "word": "Airport left belt edge",
+      "translation": "机场输送带左边沿",
+      "x": 70.813397,
+      "y": 251.540914,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-left-belt-edge"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-near-belt-edge",
+      "word": "Airport near belt edge",
+      "translation": "机场近侧带边",
+      "x": 516.746411,
+      "y": 387.353879,
+      "priority": 1.054,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-near-belt-edge"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-far-belt-edge",
+      "word": "Airport far belt edge",
+      "translation": "机场远侧带边",
+      "x": 235.406699,
+      "y": 170.244421,
+      "priority": 1.055,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-far-belt-edge"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-inner-sidewall-panel",
+      "word": "Airport inner sidewall panel",
+      "translation": "机场内侧挡板",
+      "x": 145.454545,
+      "y": 221.891605,
+      "priority": 1.056,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-inner-sidewall-panel"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-outer-sidewall-panel",
+      "word": "Airport outer sidewall panel",
+      "translation": "机场外侧挡板",
+      "x": 691.866029,
+      "y": 391.179596,
+      "priority": 1.057,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-outer-sidewall-panel"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-guide-rail",
+      "word": "Airport belt guide rail",
+      "translation": "机场输送带导轨",
+      "x": 733.971292,
+      "y": 373.007439,
+      "priority": 1.058,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-guide-rail"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-guide-rail-top-lip",
+      "word": "Airport guide-rail top lip",
+      "translation": "机场导轨上唇",
+      "x": 751.196172,
+      "y": 393.092455,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-guide-rail-top-lip"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-drive-belt-retaining-flange",
+      "word": "Airport drive belt retaining flange",
+      "translation": "机场驱动输送带限位翻边",
+      "x": 652.631579,
+      "y": 401.700319,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-drive-belt-retaining-flange"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-skirt-strip",
+      "word": "Airport belt skirt strip",
+      "translation": "机场输送带裙边",
+      "x": 372.248804,
+      "y": 381.615303,
+      "priority": 1.061,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-skirt-strip"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-stainless-side-plate",
+      "word": "Airport stainless side plate",
+      "translation": "机场不锈钢侧板",
+      "x": 604.784689,
+      "y": 418.916047,
+      "priority": 1.062,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-stainless-side-plate"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-side-plate-seam",
+      "word": "Airport side-plate seam",
+      "translation": "机场侧板接缝",
+      "x": 589.473684,
+      "y": 429.436769,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-side-plate-seam"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-splice-line",
+      "word": "Airport belt splice line",
+      "translation": "机场输送带接合线",
+      "x": 281.339713,
+      "y": 259.192349,
+      "priority": 1.064,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-splice-line"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-backing-edge",
+      "word": "Airport belt backing edge",
+      "translation": "机场输送带背衬边",
+      "x": 320.574163,
+      "y": 373.007439,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-backing-edge"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-nose-plate",
+      "word": "Airport transfer nose plate",
+      "translation": "机场转接鼻端板",
+      "x": 799.043062,
+      "y": 389.266738,
+      "priority": 1.066,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-nose-plate"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-lip",
+      "word": "Airport transfer lip",
+      "translation": "机场转接唇边",
+      "x": 832.535885,
+      "y": 400.743889,
+      "priority": 1.067,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-lip"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-discharge-end",
+      "word": "Airport discharge end",
+      "translation": "机场输送带出料端",
+      "x": 876.555024,
+      "y": 368.225292,
+      "priority": 0.115,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-discharge-end"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-entry",
+      "word": "Airport roller entry",
+      "translation": "机场滚筒床入口",
+      "x": 941.626794,
+      "y": 353.878852,
+      "priority": 0.107,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-entry"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-infeed-frame-corner",
+      "word": "Airport infeed frame corner",
+      "translation": "机场进料机架角",
+      "x": 57.416268,
+      "y": 313.70882,
+      "priority": 1.07,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-infeed-frame-corner"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-side-trim-strip",
+      "word": "Airport belt-side trim strip",
+      "translation": "机场带侧包边条",
+      "x": 457.416268,
+      "y": 395.961743,
+      "priority": 1.071,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-side-trim-strip"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-support-pan",
+      "word": "Airport belt support pan",
+      "translation": "机场输送带承托板",
+      "x": 676.555024,
+      "y": 415.090329,
+      "priority": 1.072,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-support-pan"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-frame-top-plate",
+      "word": "Airport transfer-frame top plate",
+      "translation": "机场转接机架顶板",
+      "x": 858.373206,
+      "y": 419.872476,
+      "priority": 1.073,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-frame-top-plate"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-to-roller-gap",
+      "word": "Airport belt-to-roller gap",
+      "translation": "机场带式与滚筒段间隙",
+      "x": 908.133971,
+      "y": 384.484591,
+      "priority": 1.074,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-to-roller-gap"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller",
+      "word": "Airport transfer roller",
+      "translation": "机场第一根转接滚筒",
+      "x": 1062.200957,
+      "y": 309.883103,
+      "priority": 0.112,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-two",
+      "word": "Airport transfer roller two",
+      "translation": "机场第二根转接滚筒",
+      "x": 1110.047847,
+      "y": 324.229543,
+      "priority": 1.076,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-two"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-three",
+      "word": "Airport transfer roller three",
+      "translation": "机场第三根转接滚筒",
+      "x": 1157.894737,
+      "y": 336.663124,
+      "priority": 1.077,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-three"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-four",
+      "word": "Airport transfer roller four",
+      "translation": "机场第四根转接滚筒",
+      "x": 1205.741627,
+      "y": 351.965994,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-four"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-five",
+      "word": "Airport transfer roller five",
+      "translation": "机场第五根转接滚筒",
+      "x": 1253.588517,
+      "y": 366.312434,
+      "priority": 1.079,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-five"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-six",
+      "word": "Airport transfer roller six",
+      "translation": "机场第六根转接滚筒",
+      "x": 1301.435407,
+      "y": 379.702444,
+      "priority": 1.08,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-six"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-seven",
+      "word": "Airport transfer roller seven",
+      "translation": "机场第七根转接滚筒",
+      "x": 1349.282297,
+      "y": 395.961743,
+      "priority": 1.081,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-seven"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-eight",
+      "word": "Airport transfer roller eight",
+      "translation": "机场第八根转接滚筒",
+      "x": 1397.129187,
+      "y": 409.351753,
+      "priority": 1.082,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-eight"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-nine",
+      "word": "Airport transfer roller nine",
+      "translation": "机场第九根转接滚筒",
+      "x": 1446.889952,
+      "y": 424.654623,
+      "priority": 1.083,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-nine"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-ten",
+      "word": "Airport transfer roller ten",
+      "translation": "机场第十根转接滚筒",
+      "x": 1494.736842,
+      "y": 438.044633,
+      "priority": 1.084,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-ten"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-shell-surface",
+      "word": "Airport roller shell surface",
+      "translation": "机场滚筒外圆表面",
+      "x": 1239.23445,
+      "y": 338.575983,
+      "priority": 1.085,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-shell-surface"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-end-cap",
+      "word": "Airport transfer roller end cap",
+      "translation": "机场转接滚筒端盖",
+      "x": 1160.76555,
+      "y": 339.532412,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-end-cap"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-axle-tip",
+      "word": "Airport roller axle tip",
+      "translation": "机场滚筒轴端",
+      "x": 1293.779904,
+      "y": 377.789586,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-axle-tip"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-transfer-roller-bearing-block",
+      "word": "Airport transfer roller bearing block",
+      "translation": "机场转接滚筒轴承块",
+      "x": 1389.473684,
+      "y": 439.001063,
+      "priority": 1.088,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-transfer-roller-bearing-block"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-left-roller-bed-rail",
+      "word": "Airport left roller-bed rail",
+      "translation": "机场左侧滚筒床梁",
+      "x": 1090.909091,
+      "y": 403.613177,
+      "priority": 1.089,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-left-roller-bed-rail"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-right-roller-bed-rail",
+      "word": "Airport right roller-bed rail",
+      "translation": "机场右侧滚筒床梁",
+      "x": 1511.961722,
+      "y": 517.428268,
+      "priority": 1.09,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-right-roller-bed-rail"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-bed-crossmember",
+      "word": "Airport roller-bed crossmember",
+      "translation": "机场滚筒床横梁",
+      "x": 1354.066986,
+      "y": 536.556854,
+      "priority": 1.091,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-bed-crossmember"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-end-stop",
+      "word": "Airport roller end stop",
+      "translation": "机场滚筒端部止挡",
+      "x": 1563.636364,
+      "y": 448.565356,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-end-stop"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-spacing-gap",
+      "word": "Airport roller spacing gap",
+      "translation": "机场滚筒间距",
+      "x": 1186.602871,
+      "y": 354.835282,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-spacing-gap"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-bed-side-flange",
+      "word": "Airport roller-bed side flange",
+      "translation": "机场滚筒床侧翻边",
+      "x": 1464.114833,
+      "y": 487.778959,
+      "priority": 1.094,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-bed-side-flange"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-support-bracket",
+      "word": "Airport roller support bracket",
+      "translation": "机场滚筒支撑托架",
+      "x": 1416.267943,
+      "y": 521.253985,
+      "priority": 1.095,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-support-bracket"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-seat-cutout",
+      "word": "Airport roller seat cutout",
+      "translation": "机场滚筒轴承槽口",
+      "x": 1392.344498,
+      "y": 470.563231,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-seat-cutout"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-bed-junction-plate",
+      "word": "Airport roller-bed junction plate",
+      "translation": "机场滚筒床接合板",
+      "x": 1039.23445,
+      "y": 422.741764,
+      "priority": 1.097,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-bed-junction-plate"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-upper-roller",
+      "word": "Airport upper roller",
+      "translation": "机场上层转接滚筒",
+      "x": 1339.712919,
+      "y": 216.153029,
+      "priority": 0.109,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-upper-roller"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-rear-roller-lane-divider",
+      "word": "Airport rear roller-lane divider",
+      "translation": "机场后侧滚筒通道隔板",
+      "x": 1540.669856,
+      "y": 267.800213,
+      "priority": 1.099,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-rear-roller-lane-divider"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-support-leg",
+      "word": "Airport support leg",
+      "translation": "机场左侧输送机支腿",
+      "x": 272.727273,
+      "y": 708.714134,
+      "priority": 0.101,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-support-leg"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-left-support-foot-plate",
+      "word": "Airport left support foot plate",
+      "translation": "机场左支腿底板",
+      "x": 279.425837,
+      "y": 837.832094,
+      "priority": 1.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-left-support-foot-plate"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-support-column",
+      "word": "Airport support column",
+      "translation": "机场近侧滚筒支柱",
+      "x": 968.421053,
+      "y": 690.541977,
+      "priority": 0.108,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-support-column"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-right-roller-support-leg",
+      "word": "Airport right roller support leg",
+      "translation": "机场右侧滚筒支腿",
+      "x": 1433.492823,
+      "y": 689.585547,
+      "priority": 1.103,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-right-roller-support-leg"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-right-floor-base-plate",
+      "word": "Airport right floor base plate",
+      "translation": "机场右侧落地底板",
+      "x": 1427.751196,
+      "y": 840.701382,
+      "priority": 1.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-right-floor-base-plate"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-lower-conveyor-crossbeam",
+      "word": "Airport lower conveyor crossbeam",
+      "translation": "机场输送机下横梁",
+      "x": 746.411483,
+      "y": 768.969182,
+      "priority": 1.105,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-lower-conveyor-crossbeam"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-longitudinal-support-channel",
+      "word": "Airport longitudinal support channel",
+      "translation": "机场纵向支撑槽钢",
+      "x": 1184.688995,
+      "y": 681.934113,
+      "priority": 1.106,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-longitudinal-support-channel"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-diagonal-frame-brace",
+      "word": "Airport diagonal frame brace",
+      "translation": "机场机架斜撑",
+      "x": 366.507177,
+      "y": 781.402763,
+      "priority": 1.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-diagonal-frame-brace"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-motor-bed-frame-rail",
+      "word": "Airport motor-bed frame rail",
+      "translation": "机场电机底座机架梁",
+      "x": 867.942584,
+      "y": 724.973433,
+      "priority": 1.108,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-motor-bed-frame-rail"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-roller-bed-cross-brace",
+      "word": "Airport roller-bed cross brace",
+      "translation": "机场滚筒床横撑",
+      "x": 1316.746411,
+      "y": 704.888417,
+      "priority": 1.109,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-roller-bed-cross-brace"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-frame-gusset-plate",
+      "word": "Airport frame gusset plate",
+      "translation": "机场机架加劲板",
+      "x": 909.090909,
+      "y": 735.494155,
+      "priority": 1.11,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-frame-gusset-plate"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-upright-leg-bracket",
+      "word": "Airport upright leg bracket",
+      "translation": "机场立柱连接托架",
+      "x": 962.679426,
+      "y": 668.544102,
+      "priority": 1.111,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-upright-leg-bracket"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-support-column-flange",
+      "word": "Airport support-column flange",
+      "translation": "机场支柱法兰",
+      "x": 985.645933,
+      "y": 800.53135,
+      "priority": 1.112,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-support-column-flange"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-left-floor-anchor-bolt",
+      "word": "Airport left floor anchor bolt",
+      "translation": "机场左侧地脚螺栓",
+      "x": 262.200957,
+      "y": 840.701382,
+      "priority": 1.113,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-left-floor-anchor-bolt"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-right-floor-anchor-bolt",
+      "word": "Airport right floor anchor bolt",
+      "translation": "机场右侧地脚螺栓",
+      "x": 1448.803828,
+      "y": 845.483528,
+      "priority": 1.114,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-right-floor-anchor-bolt"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-near-base-plate-washer",
+      "word": "Airport near base-plate washer",
+      "translation": "机场近侧底板垫圈",
+      "x": 972.248804,
+      "y": 833.049947,
+      "priority": 1.115,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-near-base-plate-washer"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-frame-side-channel-lip",
+      "word": "Airport frame side-channel lip",
+      "translation": "机场机架槽边",
+      "x": 658.373206,
+      "y": 731.668438,
+      "priority": 1.116,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-frame-side-channel-lip"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-lower-frame-seam",
+      "word": "Airport lower frame seam",
+      "translation": "机场下部机架接缝",
+      "x": 795.215311,
+      "y": 756.5356,
+      "priority": 1.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-lower-frame-seam"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-support-beam-end-cap",
+      "word": "Airport support beam end cap",
+      "translation": "机场支撑梁端盖",
+      "x": 1263.157895,
+      "y": 698.193411,
+      "priority": 1.118,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-support-beam-end-cap"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-leg-to-beam-junction",
+      "word": "Airport leg-to-beam junction",
+      "translation": "机场支腿与横梁接合处",
+      "x": 962.679426,
+      "y": 712.539851,
+      "priority": 1.119,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-leg-to-beam-junction"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-frame-rail-bolt-head",
+      "word": "Airport frame rail bolt head",
+      "translation": "机场机架梁螺栓头",
+      "x": 658.373206,
+      "y": 736.450584,
+      "priority": 1.12,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-frame-rail-bolt-head"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-cross-brace-mounting-tab",
+      "word": "Airport cross-brace mounting tab",
+      "translation": "机场斜撑安装耳",
+      "x": 390.430622,
+      "y": 753.666312,
+      "priority": 1.121,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-cross-brace-mounting-tab"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-floor-leveling-foot",
+      "word": "Airport floor-leveling foot",
+      "translation": "机场落地调平脚",
+      "x": 332.057416,
+      "y": 854.091392,
+      "priority": 1.122,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-floor-leveling-foot"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-machine-foot-pad",
+      "word": "Airport machine foot pad",
+      "translation": "机场设备支脚垫片",
+      "x": 993.301435,
+      "y": 839.744952,
+      "priority": 1.123,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-machine-foot-pad"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-lower-frame-rail",
+      "word": "Airport lower frame rail",
+      "translation": "机场开放机架下梁",
+      "x": 591.38756,
+      "y": 787.141339,
+      "priority": 0.104,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-lower-frame-rail"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-drive-junction-box",
+      "word": "Airport drive junction box",
+      "translation": "机场驱动接线箱",
+      "x": 1142.583732,
+      "y": 451.434644,
+      "priority": 0.113,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-drive-junction-box"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-junction-box-front-lid",
+      "word": "Airport junction-box front lid",
+      "translation": "机场接线箱前盖",
+      "x": 1138.755981,
+      "y": 444.739639,
+      "priority": 1.126,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-junction-box-front-lid"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-junction-box-corner-seam",
+      "word": "Airport junction-box corner seam",
+      "translation": "机场接线箱角部接缝",
+      "x": 1105.263158,
+      "y": 420.828905,
+      "priority": 1.127,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-junction-box-corner-seam"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-junction-lid-screw-upper",
+      "word": "Airport junction lid screw upper",
+      "translation": "机场接线箱盖上螺钉",
+      "x": 1120.574163,
+      "y": 417.959617,
+      "priority": 1.128,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-junction-lid-screw-upper"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-junction-lid-screw-lower",
+      "word": "Airport junction lid screw lower",
+      "translation": "机场接线箱盖下螺钉",
+      "x": 1163.636364,
+      "y": 478.214665,
+      "priority": 1.129,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-junction-lid-screw-lower"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-box-bottom-cable-port",
+      "word": "Airport box bottom cable port",
+      "translation": "机场箱底电缆口",
+      "x": 1142.583732,
+      "y": 497.343252,
+      "priority": 1.13,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-box-bottom-cable-port"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-conduit-gland-at-box",
+      "word": "Airport conduit gland at box",
+      "translation": "机场接线箱软管接头",
+      "x": 1110.047847,
+      "y": 507.863974,
+      "priority": 1.131,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-conduit-gland-at-box"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-black-flex-conduit",
+      "word": "Airport black flex conduit",
+      "translation": "机场黑色柔性导管",
+      "x": 1071.770335,
+      "y": 543.25186,
+      "priority": 1.132,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-black-flex-conduit"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-conduit-retaining-clip",
+      "word": "Airport conduit retaining clip",
+      "translation": "机场导管固定夹",
+      "x": 1054.545455,
+      "y": 564.293305,
+      "priority": 1.133,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-conduit-retaining-clip"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-e-stop-station",
+      "word": "Airport e-stop station",
+      "translation": "机场急停控制盒",
+      "x": 1224.880383,
+      "y": 418.916047,
+      "priority": 0.105,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-e-stop-station"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-red-emergency-stop-mushroom",
+      "word": "Airport red emergency-stop mushroom",
+      "translation": "机场红色蘑菇头急停按钮",
+      "x": 1228.708134,
+      "y": 408.395324,
+      "priority": 1.135,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-red-emergency-stop-mushroom"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-yellow-e-stop-bezel",
+      "word": "Airport yellow e-stop bezel",
+      "translation": "机场黄色急停按钮护圈",
+      "x": 1228.708134,
+      "y": 429.436769,
+      "priority": 1.136,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-yellow-e-stop-bezel"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-stop-station-mounting-stem",
+      "word": "Airport stop-station mounting stem",
+      "translation": "机场急停站支撑杆",
+      "x": 1228.708134,
+      "y": 466.737513,
+      "priority": 1.137,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-stop-station-mounting-stem"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-stop-station-base-bracket",
+      "word": "Airport stop-station base bracket",
+      "translation": "机场急停站底托",
+      "x": 1229.665072,
+      "y": 490.648247,
+      "priority": 1.138,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-stop-station-base-bracket"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-upper-photoeye",
+      "word": "Airport upper photoeye",
+      "translation": "机场上部光电传感器",
+      "x": 1389.473684,
+      "y": 197.024442,
+      "priority": 0.102,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-upper-photoeye"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-sensor-lens-window",
+      "word": "Airport sensor lens window",
+      "translation": "机场传感器透镜窗",
+      "x": 1388.516746,
+      "y": 192.242295,
+      "priority": 1.14,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-sensor-lens-window"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-upper-sensor-clamp",
+      "word": "Airport upper sensor clamp",
+      "translation": "机场上部传感器夹座",
+      "x": 1378.947368,
+      "y": 214.24017,
+      "priority": 1.141,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-upper-sensor-clamp"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-upper-sensor-support-post",
+      "word": "Airport upper sensor support post",
+      "translation": "机场上部传感器立柱",
+      "x": 1380.861244,
+      "y": 249.628055,
+      "priority": 1.142,
+      "minLevel": 1,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-upper-sensor-support-post"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-sensor",
+      "word": "Airport belt sensor",
+      "translation": "机场下方带侧传感器头",
+      "x": 922.488038,
+      "y": 219.978746,
+      "priority": 0.103,
+      "minLevel": 0,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-sensor"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-belt-sensor-bracket",
+      "word": "Airport belt sensor bracket",
+      "translation": "机场带侧传感器支架",
+      "x": 922.488038,
+      "y": 240.063762,
+      "priority": 1.144,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-belt-sensor-bracket"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-sensor-post-clamp-bolt",
+      "word": "Airport sensor-post clamp bolt",
+      "translation": "机场传感器夹座螺栓",
+      "x": 1377.990431,
+      "y": 219.022317,
+      "priority": 1.145,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-sensor-post-clamp-bolt"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-blue-sensor-cable",
+      "word": "Airport blue sensor cable",
+      "translation": "机场蓝色传感器电缆",
+      "x": 1391.38756,
+      "y": 239.107333,
+      "priority": 1.146,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-blue-sensor-cable"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-sensor-cable-conduit",
+      "word": "Airport sensor cable conduit",
+      "translation": "机场传感器导管",
+      "x": 1330.143541,
+      "y": 273.538789,
+      "priority": 1.147,
+      "minLevel": 2,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-sensor-cable-conduit"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-box-mounting-ear",
+      "word": "Airport box mounting ear",
+      "translation": "机场接线箱安装耳",
+      "x": 1178.947368,
+      "y": 481.083953,
+      "priority": 1.148,
+      "minLevel": 3,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-box-mounting-ear"
+    },
+    {
+      "id": "airport-conveyor-drive-unit-enclosure-lower-mounting-screw",
+      "word": "Airport enclosure lower mounting screw",
+      "translation": "机场箱体下部固定螺钉",
+      "x": 1175.119617,
+      "y": 483.953241,
+      "priority": 1.149,
+      "minLevel": 4,
+      "sourceVisualRegion": "airport-conveyor-drive-unit-region-enclosure-lower-mounting-screw"
+    }
+  ],
+  "portals": []
+}

@@ -131,6 +131,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "baggage-claim": 64,
   "check-in-counter": 140,
   "baggage-drop-station": 145,
+  "airport-conveyor-drive-unit": 145,
   // The airport continuation resolves a complete screening lane and one
   // connected gate/boarding-bridge scene without passenger or flight claims.
   "security-checkpoint": 90,
@@ -151,6 +152,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The standalone service-core photograph resolves electrical, HVAC, fire,
   // janitorial and loading hardware as a bounded facilities vocabulary.
   "service-core": 80,
+  "office-network-rack": 145,
   // The hotel exterior and connected lobby/rooms photographs keep facade,
   // arrival, guest-room, bathroom and housekeeping parts independently visible.
   "hotel-exterior": 64,
@@ -248,6 +250,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "baggage-claim": 95,
   "check-in-counter": 153,
   "baggage-drop-station": 155,
+  "airport-conveyor-drive-unit": 155,
   "security-checkpoint": 103,
   "carry-on-baggage-scanner": 150,
   "boarding-gate": 120,
@@ -262,6 +265,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The service-core render supports 90 distinct visible facility parts while
   // excluding hidden system states, operational claims and duplicate names.
   "service-core": 90,
+  "office-network-rack": 155,
   "hotel-exterior": 69,
   "hotel-lobby-rooms": 107,
   "supermarket-backroom": 143,

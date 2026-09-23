@@ -291,6 +291,287 @@ const scenes = [
   },
 ];
 
+scenes.push(
+  {
+    id: "airport-conveyor-drive-unit",
+    title: "Airport conveyor drive unit",
+    translation: "机场行李输送驱动单元",
+    subtitle: "Gearmotor, drive drum, transfer rollers, steel supports and safety controls",
+    parentId: "airport-baggage-conveyor",
+    source: "scripts/assets/airport-conveyor-drive-unit-v1.png",
+    asset: "/scenes/airport-conveyor-drive-unit-premium-v1.jpg",
+    sourceSha256: "dc0bfd0c79cf7c47e2c29b7237a7b9df2f0be031685aeb7aa185285fedbcb3f7",
+    assetSha256: "084c09e4e7703bbd1fb116eefb4b2274e48a8cc1ae3fdbd7b4e0ecbdb42b7f23",
+    wordPrefix: "Airport",
+    translationPrefix: "机场",
+    overviewPriorityTerms: [
+      "main belt", "support leg", "upper photoeye", "belt sensor",
+      "lower frame rail", "e-stop station", "yellow guard", "roller entry",
+      "support column", "upper roller", "gearmotor", "drive terminal box",
+      "transfer roller", "drive junction box", "drive drum", "discharge end",
+    ],
+    removedExamples: ["belt speed", "load rating", "motor torque", "live voltage", "network address", "maintenance status", "airline identity", "machine operation"],
+    zones: [
+      {
+        id: "gear-motor-and-reducer", title: "Gearmotor and reducer", translation: "减速电机与齿轮箱",
+        description: "Inspect the visible electric motor, finned housing, terminal box, coupling, reducer and their mounting feet.",
+        x: 520, y: 330, width: 720, height: 470, targetScale: 2.65,
+        labels: [
+          ["gearmotor", "减速电机组件", 850, 555, 0], ["electric motor casing", "电动机壳体", 980, 560, 1],
+          ["motor cooling-fin row", "电机散热筋列", 1015, 540, 2], ["motor fan-end shroud", "电机风扇端罩", 1084, 548, 1],
+          ["fan-shroud vent slots", "风扇罩通风槽", 1080, 532, 3], ["motor end-shield seam", "电机端盖接缝", 1045, 585, 2],
+          ["drive terminal box", "驱动电机接线盒", 966, 444, 1], ["terminal-box lid", "接线盒盖", 966, 428, 2],
+          ["terminal-lid screw", "接线盒盖螺钉", 947, 433, 4], ["cable-entry gland", "电缆入口接头", 1014, 449, 3],
+          ["motor lifting eye", "电机吊环", 847, 419, 3], ["gear reducer housing", "齿轮减速器壳体", 836, 564, 0],
+          ["reducer casting seam", "减速器铸造接缝", 820, 545, 3], ["motor adapter flange", "电机连接法兰", 946, 556, 2],
+          ["coupling sleeve", "联轴器套筒", 940, 538, 1], ["coupling sleeve edge", "联轴器套筒边缘", 929, 535, 3],
+          ["reducer mounting foot near", "近侧减速器安装脚", 713, 671, 2], ["reducer mounting foot far", "远侧减速器安装脚", 761, 669, 2],
+          ["motor mounting foot left", "左电机安装脚", 952, 653, 2], ["motor mounting foot right", "右电机安装脚", 996, 652, 2],
+          ["near motor hold-down bolt", "近侧电机固定螺栓", 956, 672, 4], ["far motor hold-down bolt", "远侧电机固定螺栓", 1000, 670, 4],
+          ["shared motor bedplate", "电机共用底板", 851, 704, 1], ["bedplate side rail", "底板侧梁", 820, 710, 2],
+          ["flexible motor conduit elbow", "电机软管弯头", 1138, 606, 2],
+        ],
+      },
+      {
+        id: "drive-drum-and-yellow-guard", title: "Drive drum and yellow guard", translation: "驱动滚筒与黄色护罩",
+        description: "Follow the black drive drum, exposed shaft end, bearing support and perforated yellow safety guard.",
+        x: 330, y: 300, width: 460, height: 440, targetScale: 2.7,
+        labels: [
+          ["drive drum", "滚筒组件", 690, 523, 0], ["black drum sleeve", "黑色滚筒包胶", 685, 523, 1],
+          ["drum left end face", "滚筒左端面", 687, 535, 2], ["drum right shoulder", "滚筒右轴肩", 732, 535, 2],
+          ["drive-shaft stub", "驱动轴短轴端", 753, 534, 1], ["shaft-end collar", "轴端套环", 767, 535, 3],
+          ["drive bearing support", "驱动轴承支架", 538, 523, 1], ["bearing housing", "轴承座", 529, 533, 1],
+          ["drive bearing housing cap", "驱动轴承座端盖", 538, 510, 2], ["upper bearing-cap bolt", "轴承盖上螺栓", 534, 508, 4],
+          ["lower bearing-cap bolt", "轴承盖下螺栓", 544, 542, 4], ["yellow guard", "黄色穿孔护罩", 532, 470, 0],
+          ["guard upper flange", "护罩上翻边", 518, 384, 2], ["guard forward panel", "护罩前面板", 489, 506, 1],
+          ["guard return edge", "护罩回折边", 602, 582, 2], ["guard ventilation perforations", "护罩通风孔", 486, 425, 3],
+          ["guard corner bend", "护罩折角", 610, 420, 2], ["upper guard fastener", "护罩上部紧固件", 499, 403, 4],
+          ["lower guard fastener", "护罩下部紧固件", 505, 659, 4], ["guard mounting ear", "护罩安装耳", 626, 663, 3],
+          ["belt wrap over drum", "滚筒包覆输送带", 642, 428, 1], ["left lower support rail", "左下支撑梁", 407, 612, 2],
+          ["belt-to-drum contact", "输送带与滚筒接触处", 660, 450, 2], ["drum support plate", "滚筒支撑板", 648, 674, 2],
+          ["guard side-frame fastener", "护罩侧框紧固件", 624, 638, 3],
+        ],
+      },
+      {
+        id: "main-belt-and-transfer", title: "Main belt and transfer", translation: "主输送带与转接段",
+        description: "Explore the broad black belt run, its steel edge guides and the visible belt-to-roller transfer.",
+        x: 0, y: 50, width: 1180, height: 440, targetScale: 2.55,
+        labels: [
+          ["main belt", "主行李输送带", 430, 292, 0], ["belt carry surface", "输送带承载面", 360, 255, 1],
+          ["belt centre strip", "输送带中部带面", 510, 285, 1], ["left belt edge", "输送带左边沿", 74, 263, 2],
+          ["near belt edge", "近侧带边", 540, 405, 2], ["far belt edge", "远侧带边", 246, 178, 2],
+          ["inner sidewall panel", "内侧挡板", 152, 232, 1], ["outer sidewall panel", "外侧挡板", 723, 409, 1],
+          ["belt guide rail", "输送带导轨", 767, 390, 1], ["guide-rail top lip", "导轨上唇", 785, 411, 2],
+          ["drive belt retaining flange", "驱动输送带限位翻边", 682, 420, 3], ["belt skirt strip", "输送带裙边", 389, 399, 2],
+          ["stainless side plate", "不锈钢侧板", 632, 438, 1], ["side-plate seam", "侧板接缝", 616, 449, 3],
+          ["belt splice line", "输送带接合线", 294, 271, 3], ["belt backing edge", "输送带背衬边", 335, 390, 2],
+          ["transfer nose plate", "转接鼻端板", 835, 407, 1], ["transfer lip", "转接唇边", 870, 419, 2],
+          ["discharge end", "输送带出料端", 916, 385, 1], ["roller entry", "滚筒床入口", 984, 370, 0],
+          ["infeed frame corner", "进料机架角", 60, 328, 2], ["belt-side trim strip", "带侧包边条", 478, 414, 3],
+          ["belt support pan", "输送带承托板", 707, 434, 2], ["transfer-frame top plate", "转接机架顶板", 897, 439, 2],
+          ["belt-to-roller gap", "带式与滚筒段间隙", 949, 402, 3],
+        ],
+      },
+      {
+        id: "roller-bed", title: "Transfer roller bed", translation: "转接滚筒床",
+        description: "Inspect the clearly separated steel rollers, roller ends, bed rails and transfer supports.",
+        x: 930, y: 150, width: 742, height: 430, targetScale: 2.65,
+        labels: [
+          ["transfer roller", "第一根转接滚筒", 1110, 324, 0], ["transfer roller two", "第二根转接滚筒", 1160, 339, 1],
+          ["transfer roller three", "第三根转接滚筒", 1210, 352, 1], ["transfer roller four", "第四根转接滚筒", 1260, 368, 1],
+          ["transfer roller five", "第五根转接滚筒", 1310, 383, 1], ["transfer roller six", "第六根转接滚筒", 1360, 397, 1],
+          ["transfer roller seven", "第七根转接滚筒", 1410, 414, 1], ["transfer roller eight", "第八根转接滚筒", 1460, 428, 1],
+          ["transfer roller nine", "第九根转接滚筒", 1512, 444, 1], ["transfer roller ten", "第十根转接滚筒", 1562, 458, 1],
+          ["roller shell surface", "滚筒外圆表面", 1295, 354, 2], ["transfer roller end cap", "转接滚筒端盖", 1213, 355, 2],
+          ["roller axle tip", "滚筒轴端", 1352, 395, 3], ["transfer roller bearing block", "转接滚筒轴承块", 1452, 459, 2],
+          ["left roller-bed rail", "左侧滚筒床梁", 1140, 422, 1], ["right roller-bed rail", "右侧滚筒床梁", 1580, 541, 1],
+          ["roller-bed crossmember", "滚筒床横梁", 1415, 561, 2], ["roller end stop", "滚筒端部止挡", 1634, 469, 2],
+          ["roller spacing gap", "滚筒间距", 1240, 371, 3], ["roller-bed side flange", "滚筒床侧翻边", 1530, 510, 2],
+          ["roller support bracket", "滚筒支撑托架", 1480, 545, 3], ["roller seat cutout", "滚筒轴承槽口", 1455, 492, 3],
+          ["roller-bed junction plate", "滚筒床接合板", 1086, 442, 2], ["upper roller", "上层转接滚筒", 1400, 226, 1],
+          ["rear roller-lane divider", "后侧滚筒通道隔板", 1610, 280, 2],
+        ],
+      },
+      {
+        id: "support-frame-and-feet", title: "Support frame and floor feet", translation: "支撑机架与落地底脚",
+        description: "Trace the visible conveyor frame, cross-braces, support legs, floor plates and their fasteners.",
+        x: 40, y: 450, width: 1580, height: 480, targetScale: 2.5,
+        labels: [
+          ["support leg", "左侧输送机支腿", 285, 741, 0], ["left support foot plate", "左支腿底板", 292, 876, 2],
+          ["support column", "近侧滚筒支柱", 1012, 722, 1], ["right roller support leg", "右侧滚筒支腿", 1498, 721, 1],
+          ["right floor base plate", "右侧落地底板", 1492, 879, 2], ["lower conveyor crossbeam", "输送机下横梁", 780, 804, 1],
+          ["longitudinal support channel", "纵向支撑槽钢", 1238, 713, 1], ["diagonal frame brace", "机架斜撑", 383, 817, 2],
+          ["motor-bed frame rail", "电机底座机架梁", 907, 758, 1], ["roller-bed cross brace", "滚筒床横撑", 1376, 737, 2],
+          ["frame gusset plate", "机架加劲板", 950, 769, 2], ["upright leg bracket", "立柱连接托架", 1006, 699, 2],
+          ["support-column flange", "支柱法兰", 1030, 837, 2], ["left floor anchor bolt", "左侧地脚螺栓", 274, 879, 4],
+          ["right floor anchor bolt", "右侧地脚螺栓", 1514, 884, 4], ["near base-plate washer", "近侧底板垫圈", 1016, 871, 4],
+          ["frame side-channel lip", "机架槽边", 688, 765, 2], ["lower frame seam", "下部机架接缝", 831, 791, 3],
+          ["support beam end cap", "支撑梁端盖", 1320, 730, 2], ["leg-to-beam junction", "支腿与横梁接合处", 1006, 745, 2],
+          ["frame rail bolt head", "机架梁螺栓头", 688, 770, 4], ["cross-brace mounting tab", "斜撑安装耳", 408, 788, 3],
+          ["floor-leveling foot", "落地调平脚", 347, 893, 3], ["machine foot pad", "设备支脚垫片", 1038, 878, 3],
+          ["lower frame rail", "开放机架下梁", 618, 823, 1],
+        ],
+      },
+      {
+        id: "junction-safety-and-sensors", title: "Junction box, safety stop and sensors", translation: "接线盒、急停与传感器",
+        description: "Inspect the blank electrical enclosure, red emergency-stop control, sensor heads, mounts and cable runs.",
+        x: 900, y: 170, width: 762, height: 520, targetScale: 2.6,
+        labels: [
+          ["drive junction box", "驱动接线箱", 1194, 472, 0], ["junction-box front lid", "接线箱前盖", 1190, 465, 1],
+          ["junction-box corner seam", "接线箱角部接缝", 1155, 440, 2], ["junction lid screw upper", "接线箱盖上螺钉", 1171, 437, 4],
+          ["junction lid screw lower", "接线箱盖下螺钉", 1216, 500, 4], ["box bottom cable port", "箱底电缆口", 1194, 520, 2],
+          ["conduit gland at box", "接线箱软管接头", 1160, 531, 3], ["black flex conduit", "黑色柔性导管", 1120, 568, 1],
+          ["conduit retaining clip", "导管固定夹", 1102, 590, 3], ["e-stop station", "急停控制盒", 1280, 438, 0],
+          ["red emergency-stop mushroom", "红色蘑菇头急停按钮", 1284, 427, 1], ["yellow e-stop bezel", "黄色急停按钮护圈", 1284, 449, 2],
+          ["stop-station mounting stem", "急停站支撑杆", 1284, 488, 1], ["stop-station base bracket", "急停站底托", 1285, 513, 2],
+          ["upper photoeye", "上部光电传感器", 1452, 206, 0], ["sensor lens window", "传感器透镜窗", 1451, 201, 2],
+          ["upper sensor clamp", "上部传感器夹座", 1441, 224, 2], ["upper sensor support post", "上部传感器立柱", 1443, 261, 1],
+          ["belt sensor", "下方带侧传感器头", 964, 230, 0], ["belt sensor bracket", "带侧传感器支架", 964, 251, 2],
+          ["sensor-post clamp bolt", "传感器夹座螺栓", 1440, 229, 4], ["blue sensor cable", "蓝色传感器电缆", 1454, 250, 2],
+          ["sensor cable conduit", "传感器导管", 1390, 286, 2], ["box mounting ear", "接线箱安装耳", 1232, 503, 3],
+          ["enclosure lower mounting screw", "箱体下部固定螺钉", 1228, 506, 4],
+        ],
+      },
+    ],
+  },
+  {
+    id: "office-network-rack",
+    title: "Office network rack",
+    translation: "写字楼网络机柜",
+    subtitle: "Rack enclosure, patch panels, switches, servers, cable management and power",
+    parentId: "service-core",
+    source: "scripts/assets/office-network-rack-v1.png",
+    asset: "/scenes/office-network-rack-premium-v1.jpg",
+    sourceSha256: "ac18cc16489c3ea82bdd5394fc4178fd3ad42a646e2a677778a1c4996e6d57f0",
+    assetSha256: "bc42d7c3cb274f47451d0bdbede8c90d2c6ae9f7b21256b99884e98d5fea19da",
+    wordPrefix: "Network",
+    translationPrefix: "写字楼",
+    removedExamples: ["network address", "account credential", "server workload", "data content", "live voltage", "airflow rate", "device temperature", "cable destination"],
+    zones: [
+      {
+        id: "cabinet-frame-and-open-door", title: "Cabinet frame and open door", translation: "机柜框架与敞开柜门",
+        description: "Explore the open perforated door, hinges, front posts, mounting rails, cabinet base and visible frame hardware.",
+        x: 340, y: 0, width: 850, height: 930, targetScale: 2.5,
+        labels: [
+          ["cabinet shell", "网络机柜外壳", 1014, 523, 0], ["open mesh front door", "敞开的网孔前门", 493, 421, 0],
+          ["door perforated panel", "柜门冲孔面板", 485, 253, 1], ["door outer frame", "柜门外框", 566, 469, 1],
+          ["door inner border", "柜门内边框", 607, 571, 2], ["upper door hinge", "上部柜门铰链", 620, 92, 2],
+          ["middle door hinge", "中部柜门铰链", 621, 363, 2], ["lower door hinge", "下部柜门铰链", 621, 702, 2],
+          ["door pull handle", "柜门拉手", 577, 430, 1], ["door latch plate", "柜门锁扣板", 594, 437, 2],
+          ["door lock cylinder", "柜门锁芯", 591, 461, 3], ["front left rack post", "前左机柜立柱", 655, 502, 1],
+          ["front right rack post", "前右机柜立柱", 1014, 552, 1], ["inner mounting rail", "内侧安装导轨", 702, 400, 2],
+          ["rack top crosspiece", "机柜顶部横梁", 816, 25, 1], ["lower cabinet crossbar", "机柜下横梁", 884, 843, 2],
+          ["cabinet foot left", "机柜左脚", 610, 904, 2], ["cabinet foot right", "机柜右脚", 1044, 904, 2],
+          ["left post square-hole row", "左立柱方孔列", 652, 248, 3], ["right post square-hole row", "右立柱方孔列", 1014, 248, 3],
+          ["front frame corner bracket", "前框角部托架", 659, 832, 2], ["door lower hinge pin", "柜门下铰链销", 620, 715, 3],
+          ["side-frame joint", "侧框接合处", 1014, 607, 2], ["cabinet base pan", "机柜底盘", 846, 879, 1],
+          ["bottom frame fastener", "底框紧固件", 1014, 868, 4],
+        ],
+      },
+      {
+        id: "fiber-and-copper-patching", title: "Fiber and copper patching", translation: "光纤与铜缆配线",
+        description: "Inspect the visible fiber patch panel, copper patch panels, connector rows and short patch cords.",
+        x: 650, y: 80, width: 490, height: 300, targetScale: 2.8,
+        labels: [
+          ["upper fiber patch panel", "上层光纤配线架", 831, 148, 0], ["fiber-panel chassis", "光纤配线架外壳", 850, 130, 1],
+          ["left LC adapter row", "左侧LC适配器列", 748, 141, 2], ["right LC adapter row", "右侧LC适配器列", 920, 141, 2],
+          ["first duplex fiber adapter", "第一只双工光纤适配器", 769, 140, 3], ["second duplex fiber adapter", "第二只双工光纤适配器", 806, 140, 3],
+          ["third duplex fiber adapter", "第三只双工光纤适配器", 842, 140, 3], ["fourth duplex fiber adapter", "第四只双工光纤适配器", 878, 140, 3],
+          ["yellow fiber jumper one", "第一根黄色跳纤", 774, 158, 2], ["yellow fiber jumper two", "第二根黄色跳纤", 819, 160, 2],
+          ["yellow fiber jumper three", "第三根黄色跳纤", 866, 158, 2], ["blue fiber trunk", "蓝色光纤主干束", 675, 250, 1],
+          ["upper horizontal cable bar", "上层水平理线杆", 812, 181, 1], ["upper brush pass-through", "上层毛刷过线口", 852, 203, 2],
+          ["copper patch panel upper", "上层铜缆配线架", 845, 258, 0], ["upper Ethernet jack row", "上层以太网插孔列", 853, 267, 2],
+          ["left Ethernet jack bank", "左侧以太网插孔组", 756, 267, 2], ["right Ethernet jack bank", "右侧以太网插孔组", 944, 267, 2],
+          ["blue patch cord group", "蓝色跳线组", 852, 286, 1], ["blue patch cord bend", "蓝色跳线弯折处", 884, 303, 2],
+          ["panel left mounting ear", "配线架左安装耳", 692, 272, 2], ["panel right mounting ear", "配线架右安装耳", 1000, 272, 2],
+          ["blank horizontal cable cover", "水平理线盖板", 833, 215, 1], ["fiber-panel screw head", "光纤架螺钉头", 990, 134, 4],
+          ["panel-side cable guide", "配线架侧向导线槽", 712, 185, 2],
+        ],
+      },
+      {
+        id: "switches-and-network-appliances", title: "Switches and network appliances", translation: "交换机与网络设备",
+        description: "Follow both installed switches and their visible port banks, then inspect the equipment blanking panel and rack cable bar.",
+        x: 650, y: 250, width: 500, height: 360, targetScale: 2.75,
+        labels: [
+          ["upper Ethernet switch", "上层以太网交换机", 858, 395, 0], ["upper switch faceplate", "上层交换机面板", 857, 392, 1],
+          ["upper switch port bank", "上层交换机端口组", 828, 402, 1], ["upper switch uplink slots", "上层交换机上联插槽", 934, 402, 2],
+          ["upper switch SFP module", "上层交换机SFP模块", 938, 401, 3], ["upper switch status LEDs", "上层交换机状态灯", 981, 402, 3],
+          ["upper switch vent grille", "上层交换机散热格栅", 978, 390, 2], ["lower Ethernet switch", "下层以太网交换机", 856, 470, 0],
+          ["lower switch port bank", "下层交换机端口组", 833, 474, 1], ["lower switch left port", "下层交换机左端口", 802, 474, 2],
+          ["lower switch right port", "下层交换机右端口", 905, 474, 2], ["lower switch power inlet", "下层交换机电源入口", 967, 479, 3],
+          ["centre equipment blanking panel", "中部设备盲板", 860, 529, 0], ["blank-panel pull handle", "盲板拉手", 850, 526, 1],
+          ["blank-panel left screw", "盲板左侧螺钉", 802, 530, 2], ["blank-panel right screw", "盲板右侧螺钉", 966, 530, 2],
+          ["blank-panel right edge", "盲板右边沿", 985, 529, 2], ["blank-panel lower seam", "盲板下沿接缝", 860, 545, 3],
+          ["rackmount cable bar", "机架水平理线杆", 845, 298, 1], ["bar finger opening", "理线杆梳齿开口", 786, 300, 3],
+          ["switch mounting ear left", "交换机左安装耳", 702, 399, 2], ["switch mounting ear right", "交换机右安装耳", 1002, 399, 2],
+          ["retainer screw upper", "上部设备固定螺钉", 1001, 392, 4], ["retainer screw lower", "下部设备固定螺钉", 1000, 476, 4],
+          ["front cable guide fingers", "前侧理线梳齿", 705, 474, 2],
+        ],
+      },
+      {
+        id: "server-chassis-and-drive-bays", title: "Server chassis and drive bays", translation: "服务器机箱与硬盘托架",
+        description: "Inspect the two front-facing server chassis, their separate drive trays, handles and ventilation grilles.",
+        x: 650, y: 520, width: 500, height: 350, targetScale: 2.75,
+        labels: [
+          ["upper server chassis", "上层服务器机箱", 860, 596, 0], ["upper server bezel", "上层服务器前面板", 859, 596, 1],
+          ["upper server drive bay one", "上层服务器硬盘位一", 751, 586, 1], ["upper server drive bay two", "上层服务器硬盘位二", 801, 586, 1],
+          ["upper server drive bay three", "上层服务器硬盘位三", 850, 586, 1], ["upper server drive bay four", "上层服务器硬盘位四", 899, 586, 1],
+          ["upper server drive bay five", "上层服务器硬盘位五", 948, 586, 1], ["upper server drive bay six", "上层服务器硬盘位六", 995, 586, 1],
+          ["upper drive-tray latch", "上层硬盘托架卡扣", 850, 574, 3], ["upper server release handle", "上层服务器释放把手", 705, 602, 2],
+          ["lower server chassis", "下层服务器机箱", 861, 670, 0], ["lower server faceplate", "下层服务器前面板", 861, 670, 1],
+          ["lower server drive bay one", "下层服务器硬盘位一", 751, 660, 1], ["lower server drive bay two", "下层服务器硬盘位二", 800, 660, 1],
+          ["lower server drive bay three", "下层服务器硬盘位三", 851, 660, 1], ["lower server drive bay four", "下层服务器硬盘位四", 899, 660, 1],
+          ["lower server drive bay five", "下层服务器硬盘位五", 948, 660, 1], ["lower server drive bay six", "下层服务器硬盘位六", 997, 660, 1],
+          ["lower drive-tray latch", "下层硬盘托架卡扣", 850, 648, 3], ["lower server pull handle", "下层服务器拉手", 705, 677, 2],
+          ["server intake grille", "服务器进风格栅", 1012, 748, 2], ["chassis rail left", "机箱左滑轨", 696, 746, 2],
+          ["chassis rail right", "机箱右滑轨", 1029, 746, 2], ["drive carrier release tab", "硬盘托架释放片", 949, 607, 3],
+          ["server bezel fastener", "服务器面板紧固件", 1020, 584, 4],
+        ],
+      },
+      {
+        id: "vertical-cable-management", title: "Vertical cable management", translation: "垂直线缆管理",
+        description: "Trace the colored patch leads, vertical managers, retaining fingers, routing loops and strain-relief hardware.",
+        x: 600, y: 35, width: 650, height: 850, targetScale: 2.65,
+        labels: [
+          ["left vertical cable manager", "左侧垂直理线槽", 672, 420, 0], ["right vertical cable manager", "右侧垂直理线槽", 1051, 420, 0],
+          ["left manager front channel", "左理线槽前通道", 681, 400, 1], ["right manager front channel", "右理线槽前通道", 1045, 408, 1],
+          ["blue vertical patch-cord bundle", "蓝色垂直跳线束", 676, 253, 1], ["yellow vertical fiber bundle", "黄色垂直光纤束", 1066, 260, 1],
+          ["upper cable-retainer finger", "上部线缆固定齿", 687, 154, 2], ["middle cable-retainer finger", "中部线缆固定齿", 688, 357, 2],
+          ["lower cable-retainer finger", "下部线缆固定齿", 689, 580, 2], ["side cable-guide ring", "侧边导线环", 690, 659, 3],
+          ["yellow fiber jumper connector", "黄色跳纤接头", 1061, 97, 2], ["blue copper patch lead", "蓝色铜缆跳线", 735, 347, 1],
+          ["patch-cord plug boot", "跳线插头护套", 799, 356, 3], ["short fiber bend loop", "短光纤弯曲环", 916, 162, 2],
+          ["horizontal slack loop", "水平余缆环", 943, 188, 2], ["vertical cable tie saddle", "垂直扎带鞍座", 1065, 212, 3],
+          ["upper strain-relief bracket", "上部应力释放支架", 1037, 241, 2], ["lower strain-relief bracket", "下部应力释放支架", 1037, 540, 2],
+          ["manager mounting screw upper", "理线槽上固定螺钉", 1046, 139, 4], ["manager mounting screw lower", "理线槽下固定螺钉", 1047, 771, 4],
+          ["rear cable drop", "后侧下行线缆", 1112, 403, 1], ["side-rack cable loom", "侧机柜线束", 1162, 273, 1],
+          ["fiber-cord crossing guide", "跳纤交叉导向件", 1093, 420, 2], ["patch-lead retaining strap", "跳线固定带", 1058, 612, 3],
+          ["cable-entry comb", "线缆入口梳", 1057, 809, 2],
+        ],
+      },
+      {
+        id: "rack-power-cooling-and-floor", title: "Rack power, cooling and floor", translation: "机柜供电、散热与地面",
+        description: "Explore the visible vertical power strip, plugs, fan openings, UPS face, ventilation and floor grilles.",
+        x: 620, y: 0, width: 1050, height: 940, targetScale: 2.55,
+        labels: [
+          ["vertical power strip", "垂直机柜电源排", 1074, 470, 0], ["upper power outlet", "上部电源插座", 1066, 126, 1],
+          ["middle power outlet", "中部电源插座", 1066, 408, 1], ["lower power outlet", "下部电源插座", 1066, 700, 1],
+          ["plugged power cord upper", "上部插接电源线", 1092, 155, 2], ["plugged power cord lower", "下部插接电源线", 1090, 734, 2],
+          ["rack power-strip bracket", "机柜电源排支架", 1060, 259, 2], ["power-strip side seam", "电源排侧缝", 1070, 535, 2],
+          ["UPS chassis", "机架式不间断电源机箱", 860, 781, 0], ["UPS front grille", "不间断电源前格栅", 862, 779, 1],
+          ["UPS left ear", "不间断电源左安装耳", 705, 785, 2], ["UPS right ear", "不间断电源右安装耳", 1010, 786, 2],
+          ["upper rack fan tray", "上部机柜风扇盘", 862, 52, 0], ["left cooling fan", "左侧散热风扇", 779, 56, 1],
+          ["centre cooling fan", "中间散热风扇", 860, 56, 1], ["right cooling fan", "右侧散热风扇", 944, 56, 1],
+          ["fan guard ring", "风扇护圈", 862, 44, 2], ["fan-tray mounting rail", "风扇盘安装导轨", 1039, 60, 2],
+          ["rack rear exhaust grille", "机柜后部排风格栅", 1491, 270, 1], ["room ceiling diffuser", "房间吊顶送风口", 1313, 49, 0],
+          ["perforated floor tile", "穿孔地板块", 1302, 881, 1], ["floor-grille slot row", "地面格栅槽列", 1303, 879, 2],
+          ["floor access-tile seam", "地板检修板接缝", 1441, 870, 2], ["equipment ground lead", "设备接地线", 1073, 838, 2],
+          ["grounding lug", "接地端子", 1093, 853, 3],
+        ],
+      },
+    ],
+  },
+);
+
 const integrations = [
   {
     parentId: "baggage-drop-station", childId: "airport-baggage-conveyor", title: "Airport baggage conveyor",
@@ -304,6 +585,19 @@ const integrations = [
   },
 ];
 
+integrations.push(
+  {
+    parentId: "airport-baggage-conveyor", childId: "airport-conveyor-drive-unit", title: "Airport conveyor drive unit",
+    portal: { id: "enter-airport-conveyor-drive-unit", label: "Explore the conveyor drive unit", translation: "探索输送机驱动单元", childSceneId: "airport-conveyor-drive-unit", sourceVisualRegion: "portal-airport-conveyor-drive-unit", x: 945, y: 540, width: 195, height: 170, enterScale: 3.25 },
+    description: "The complete, unobstructed main gearmotor and its yellow guard in the airport baggage-conveyor photograph.",
+  },
+  {
+    parentId: "service-core", childId: "office-network-rack", title: "Office network rack",
+    portal: { id: "enter-office-network-rack", label: "Explore the office network rack", translation: "探索写字楼网络机柜", childSceneId: "office-network-rack", sourceVisualRegion: "portal-office-network-rack", x: 610, y: 130, width: 100, height: 220, enterScale: 3.2 },
+    description: "The separate black network-equipment rack at the left of the office service-core photograph; it is distinct from the warehouse dock portal on the right.",
+  },
+);
+
 const officeConferenceRect = { x: 610, y: 300, width: 320, height: 340 };
 
 function sha256(value) { return createHash("sha256").update(value).digest("hex"); }
@@ -314,6 +608,7 @@ function sceneRectangle(value) {
 }
 function buildScene(config) {
   const labels = []; const visualRegions = []; const detailZones = []; let priorityIndex = 0;
+  const overviewPriorityByTerm = new Map((config.overviewPriorityTerms ?? []).map((term, index) => [term, index]));
   for (const zone of config.zones) {
     const labelIds = [];
     for (const [term, translation, x, y, minLevel] of zone.labels) {
@@ -322,7 +617,11 @@ function buildScene(config) {
       const sourceX = Math.max(0, Math.min(SOURCE_WIDTH - 44, x - 22));
       const sourceY = Math.max(0, Math.min(SOURCE_HEIGHT - 44, y - 22));
       const regionId = `${config.id}-region-${slugify(term)}`;
-      labels.push({ id, word, translation: `${config.translationPrefix}${translation}`, x: scenePoint(x, "x"), y: scenePoint(y, "y"), priority: Number((1 + priorityIndex / 1000).toFixed(6)), minLevel, sourceVisualRegion: regionId });
+      const overviewPriority = overviewPriorityByTerm.get(term);
+      const priority = overviewPriority === undefined
+        ? Number((1 + priorityIndex / 1000).toFixed(6))
+        : Number((0.1 + overviewPriority / 1000).toFixed(6));
+      labels.push({ id, word, translation: `${config.translationPrefix}${translation}`, x: scenePoint(x, "x"), y: scenePoint(y, "y"), priority, minLevel, sourceVisualRegion: regionId });
       visualRegions.push({ id: regionId, description: `${word} visible in ${zone.title}`, kind: "object", x: scenePoint(sourceX, "x"), y: scenePoint(sourceY, "y"), width: scenePoint(44, "x"), height: scenePoint(44, "y") });
       labelIds.push(id); priorityIndex += 1;
     }

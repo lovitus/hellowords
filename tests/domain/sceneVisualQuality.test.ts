@@ -827,6 +827,32 @@ const replacementContracts: Readonly<Record<string, ReplacementContract>> = {
       maxChannelMeanSpread: 45,
     },
   },
+  "airport-conveyor-drive-unit": {
+    asset: "/scenes/airport-conveyor-drive-unit-premium-v1.jpg",
+    sha256: "084c09e4e7703bbd1fb116eefb4b2274e48a8cc1ae3fdbd7b4e0ecbdb42b7f23",
+    quality: {
+      minMeanLuminance: 100,
+      maxMeanLuminance: 175,
+      maxDarkFraction: 0.18,
+      maxDeepDarkFraction: 0.06,
+      minMeanChroma: 0.03,
+      maxMeanChroma: 0.18,
+      maxChannelMeanSpread: 20,
+    },
+  },
+  "office-network-rack": {
+    asset: "/scenes/office-network-rack-premium-v1.jpg",
+    sha256: "bc42d7c3cb274f47451d0bdbede8c90d2c6ae9f7b21256b99884e98d5fea19da",
+    quality: {
+      minMeanLuminance: 100,
+      maxMeanLuminance: 160,
+      maxDarkFraction: 0.36,
+      maxDeepDarkFraction: 0.17,
+      minMeanChroma: 0.025,
+      maxMeanChroma: 0.16,
+      maxChannelMeanSpread: 25,
+    },
+  },
 };
 
 const portalQualityLimits: Readonly<Record<string, Pick<

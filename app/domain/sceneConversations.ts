@@ -78,6 +78,24 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Follow the public-arrivals signs beyond those doors.", "穿过那些门后，请跟随公共入境区的指示牌。"],
     ] },
   ],
+  "airport-conveyor-drive-unit": [
+    { title: "报告输送带卡阻", roles: ["地勤员工", "值班主管"], lines: [
+      ["A suitcase has stopped beside the drive unit.", "一个行李箱停在驱动装置旁边。"],
+      ["Please keep clear of the moving rollers.", "请与正在运转的滚筒保持距离。"],
+      ["Should I reach in and move it?", "我可以伸手进去把它移开吗？"],
+      ["No. Step back and notify the designated operator.", "不行。请退后并通知指定操作员。"],
+      ["The lane is clear, and I have reported the jam.", "通道已经清空，我也报告了卡阻。"],
+      ["Thanks. Wait here while the team follows the safe procedure.", "谢谢。请在这里等候，工作人员会按安全流程处理。"],
+    ] },
+    { title: "交接设备检查", roles: ["维修员", "值班主管"], lines: [
+      ["The drive motor area is making an unusual noise.", "驱动电机区域有异常噪声。"],
+      ["Has the conveyor been stopped and reported?", "输送带已经停机并报告了吗？"],
+      ["Yes. I kept people clear and notified the supervisor.", "是的，我让人员避开并通知了主管。"],
+      ["Please do not remove the guard or inspect inside the unit.", "请不要拆护罩，也不要检查装置内部。"],
+      ["Understood. I will leave it to the authorized technician.", "明白，我会把它交给获授权的技术人员处理。"],
+      ["I will record the location and wait for their instructions.", "我会记录位置并等待他们的指示。"],
+    ] },
+  ],
   "customs-baggage-examination": [
     { title: "配合行李检查", roles: ["旅客", "海关工作人员"], lines: [
       ["Where would you like me to place this carry-on?", "您希望我把这件随身行李放在哪里？"],
@@ -472,6 +490,24 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["It's in the project folder under today's date.", "它在项目文件夹今天日期的目录里。"],
       ["Could you point out the changes?", "您能指出修改的地方吗？"],
       ["Look at the notes in the right-hand column.", "请看右侧那一栏的备注。"],
+    ] },
+  ],
+  "office-network-rack": [
+    { title: "追踪机柜跳线", roles: ["同事", "IT技术员"], lines: [
+      ["Could you help me trace this patch cable?", "你能帮我追踪这根跳线吗？"],
+      ["Let's check the rack and port labels first.", "我们先核对机柜和端口标签。"],
+      ["This cable runs from the patch panel to the switch.", "这根线从配线架连到交换机。"],
+      ["Does the label match the change request?", "标签和变更申请一致吗？"],
+      ["Yes, but I will wait for approval before moving it.", "一致，但我会等批准后再移动它。"],
+      ["Good. Record the port mapping after the approved change.", "好，获批变更后请记录端口对应关系。"],
+    ] },
+    { title: "报告机柜布线问题", roles: ["同事", "IT技术员"], lines: [
+      ["One cable is blocking the rack's front airflow path.", "有一根线挡住了机柜前方的气流通道。"],
+      ["Are you sure which device it connects to?", "你确定它连接的是哪台设备吗？"],
+      ["No, so I have not unplugged or moved it.", "不确定，所以我没有拔掉或移动它。"],
+      ["Please check the port record and contact the device owner.", "请核对端口记录并联系设备负责人。"],
+      ["I found the owner and opened a change request.", "我找到负责人并提交了变更申请。"],
+      ["Thanks. We can reroute it during the approved maintenance window.", "谢谢。我们可以在获批的维护窗口重新布线。"],
     ] },
   ],
   "service-core": [

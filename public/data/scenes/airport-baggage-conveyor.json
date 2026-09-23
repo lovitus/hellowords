@@ -1357,6 +1357,15 @@
       "y": 160.680128,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "portal-airport-conveyor-drive-unit",
+      "description": "The complete, unobstructed main gearmotor and its yellow guard in the airport baggage-conveyor photograph.",
+      "kind": "object",
+      "x": 945,
+      "y": 540,
+      "width": 195,
+      "height": 170
     }
   ],
   "detailZones": [
@@ -3111,5 +3120,18 @@
       "sourceVisualRegion": "airport-baggage-conveyor-region-safety-rail-end-cap"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-airport-conveyor-drive-unit",
+      "label": "Explore the conveyor drive unit",
+      "translation": "探索输送机驱动单元",
+      "childSceneId": "airport-conveyor-drive-unit",
+      "sourceVisualRegion": "portal-airport-conveyor-drive-unit",
+      "x": 945,
+      "y": 540,
+      "width": 195,
+      "height": 170,
+      "enterScale": 3.25
+    }
+  ]
 }

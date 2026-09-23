@@ -200,6 +200,22 @@ const contracts = [
     labels: 150,
     zoneSizes: [25, 25, 25, 25, 25, 25],
   },
+  {
+    id: "airport-conveyor-drive-unit",
+    parentId: "airport-baggage-conveyor",
+    asset: "/scenes/airport-conveyor-drive-unit-premium-v1.jpg",
+    sha256: "084c09e4e7703bbd1fb116eefb4b2274e48a8cc1ae3fdbd7b4e0ecbdb42b7f23",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
+    id: "office-network-rack",
+    parentId: "service-core",
+    asset: "/scenes/office-network-rack-premium-v1.jpg",
+    sha256: "bc42d7c3cb274f47451d0bdbede8c90d2c6ae9f7b21256b99884e98d5fea19da",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
 ] as const;
 
 for (const contract of contracts) {
@@ -290,6 +306,26 @@ test("office building exposes a tight break-room entrance separate from the serv
   const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+});
+
+test("baggage drive and office rack portals target complete equipment without overlapping other entrances", async () => {
+  const conveyor = await readJson("airport-baggage-conveyor.json");
+  const drive = conveyor.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "airport-conveyor-drive-unit");
+  assert.ok(drive);
+  assert.deepEqual([drive.x, drive.y, drive.width, drive.height], [945, 540, 195, 170]);
+
+  const serviceCore = await readJson("service-core.json");
+  const rack = serviceCore.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "office-network-rack");
+  const loadingDock = serviceCore.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "warehouse-loading-dock");
+  assert.ok(rack);
+  assert.ok(loadingDock);
+  assert.deepEqual([rack.x, rack.y, rack.width, rack.height], [610, 130, 100, 220]);
+  assert.ok(rack.x + rack.width <= loadingDock.x, "the rack entrance remains separate from the warehouse dock");
+  for (const [parent, portal] of [[conveyor, drive], [serviceCore, rack]]) {
+    const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+    assert.ok(region);
+    assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+  }
 });
 
 test("pathology laboratory and hospital pharmacy expose independently audited equipment entrances", async () => {

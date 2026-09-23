@@ -356,6 +356,18 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("office-network-rack", "service-core", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "office-building",
+    "service-core",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+    terminal: true,
+  }),
   contract("greenhouse-interior", "community-garden", ["community-garden"], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,
@@ -471,6 +483,11 @@ const newSceneContracts: NewSceneContract[] = [
     runOnMobile: true,
   }),
   contract("airport-baggage-conveyor", "baggage-drop-station", ["city-street", "transit-hub", "urban-services", "airport", "check-in-counter", "baggage-drop-station"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("airport-conveyor-drive-unit", "airport-baggage-conveyor", ["city-street", "transit-hub", "urban-services", "airport", "check-in-counter", "baggage-drop-station", "airport-baggage-conveyor"], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,
     runOnMobile: true,
