@@ -208,6 +208,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "school-science-laboratory": 145,
   "school-dining-hall": 145,
   "school-catering-kitchen": 145,
+  // The terminal locker crop supports 75 individually placed hardware,
+  // compartment, school-bag and bench anchors across five focused zones.
+  "school-locker-bank": 70,
   // This terminal specialist image supports 28 distinct structures. Requiring
   // 32 produced synonym pairs at identical pixels, which is worse than an
   // explicit evidence-based exception.
@@ -352,6 +355,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "school-science-laboratory": 155,
   "school-dining-hall": 155,
   "school-catering-kitchen": 155,
+  // Lock the visible-object ceiling to the reviewed 75-label crop; do not pad
+  // the terminal scene with unseen contents or repeated locker synonyms.
+  "school-locker-bank": 75,
   // The bright cutaway resolves chamber walls, individual cusps, connected
   // vessel openings, coronary surface branches and a readable red-cell rim;
   // the ceiling still excludes invisible physiology and conduction claims.

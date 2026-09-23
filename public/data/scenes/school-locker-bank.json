@@ -1,0 +1,1601 @@
+{
+  "id": "school-locker-bank",
+  "title": "School locker bank",
+  "translation": "学校储物柜区",
+  "subtitle": "Locker doors, storage hardware, student bags, school items and bench",
+  "asset": "/scenes/school-locker-bank-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "school-corridor",
+  "visualRegions": [
+    {
+      "id": "school-locker-bank-region-school-locker-bank",
+      "description": "Pixel-audited “School locker bank” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 472.727273,
+      "y": 228.58661,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-left-locker-door-jamb",
+      "description": "Pixel-audited “Left locker door jamb” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 137.799043,
+      "y": 314.66525,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-second-blue-locker-door-panel",
+      "description": "Pixel-audited “Second blue locker door panel” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 439.23445,
+      "y": 219.022317,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-bank-top-rail",
+      "description": "Pixel-audited “Locker-bank top rail” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 649.760766,
+      "y": 20.085016,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-vertical-locker-divider",
+      "description": "Pixel-audited “Vertical locker divider” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 625.837321,
+      "y": 266.843783,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-blue-locker-door-panel",
+      "description": "Pixel-audited “Blue locker door panel” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 190.430622,
+      "y": 219.022317,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-sage-locker-door-panel",
+      "description": "Pixel-audited “Sage locker door panel” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 314.832536,
+      "y": 219.022317,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-door-edge-seam",
+      "description": "Pixel-audited “Locker door edge seam” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 251.674641,
+      "y": 190.329437,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-upper-locker-vent-grille",
+      "description": "Pixel-audited “Upper locker vent grille” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 190.430622,
+      "y": 78.427205,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-upper-vent-louver",
+      "description": "Pixel-audited “Upper vent louver” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 190.430622,
+      "y": 89.904357,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-lock-faceplate",
+      "description": "Pixel-audited “Locker lock faceplate” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 174.162679,
+      "y": 314.66525,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-combination-lock-dial",
+      "description": "Pixel-audited “Combination-lock dial” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 175.119617,
+      "y": 323.273114,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-dial-index-mark",
+      "description": "Pixel-audited “Locker dial index mark” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 175.119617,
+      "y": 300.31881,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-door-hinge-leaf",
+      "description": "Pixel-audited “Locker door hinge leaf” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 248.803828,
+      "y": 311.795962,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-hinge-knuckle",
+      "description": "Pixel-audited “Locker hinge knuckle” inside the Locker doors and frame crop of the school locker photograph",
+      "kind": "part",
+      "x": 249.760766,
+      "y": 314.66525,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-open-locker-compartment",
+      "description": "Pixel-audited “Open locker compartment” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 807.655502,
+      "y": 295.536663,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-upper-shelf",
+      "description": "Pixel-audited “Locker upper shelf” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 807.655502,
+      "y": 118.597237,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-shelf-front-lip",
+      "description": "Pixel-audited “Shelf front lip” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 807.655502,
+      "y": 128.16153,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-shelf-bracket",
+      "description": "Pixel-audited “Locker shelf bracket” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 769.37799,
+      "y": 123.379384,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-interior-left-wall",
+      "description": "Pixel-audited “Locker interior left wall” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 761.722488,
+      "y": 266.843783,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-interior-right-wall",
+      "description": "Pixel-audited “Locker interior right wall” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 865.07177,
+      "y": 266.843783,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-rear-panel",
+      "description": "Pixel-audited “Locker rear panel” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 812.440191,
+      "y": 238.150903,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-double-coat-hook",
+      "description": "Pixel-audited “Double coat hook” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 814.354067,
+      "y": 166.418704,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-coat-hook-mounting-plate",
+      "description": "Pixel-audited “Coat-hook mounting plate” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 814.354067,
+      "y": 156.85441,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-open-locker-door-inner-face",
+      "description": "Pixel-audited “Open locker door inner face” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 908.133971,
+      "y": 266.843783,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-inner-door-vent-slots",
+      "description": "Pixel-audited “Inner-door vent slots” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 908.133971,
+      "y": 80.340064,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-door-mounted-lock-case",
+      "description": "Pixel-audited “Door-mounted lock case” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 912.91866,
+      "y": 318.490967,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-lower-locker-cubby",
+      "description": "Pixel-audited “Lower locker cubby” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 812.440191,
+      "y": 477.258236,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-threshold-lip",
+      "description": "Pixel-audited “Locker threshold lip” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 812.440191,
+      "y": 462.911796,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-shoe-pair",
+      "description": "Pixel-audited “Locker shoe pair” inside the Open locker compartment crop of the school locker photograph",
+      "kind": "part",
+      "x": 808.61244,
+      "y": 578.639745,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-right-locker-bank-wing",
+      "description": "Pixel-audited “Right locker-bank wing” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1223.923445,
+      "y": 228.58661,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-far-right-blue-locker-door",
+      "description": "Pixel-audited “Far-right blue locker door” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1434.449761,
+      "y": 228.58661,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-right-sage-locker-door",
+      "description": "Pixel-audited “Right sage locker door” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1046.889952,
+      "y": 228.58661,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-right-bank-door-seam",
+      "description": "Pixel-audited “Right-bank door seam” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1386.602871,
+      "y": 219.022317,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-right-locker-vent-block",
+      "description": "Pixel-audited “Right locker vent block” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1434.449761,
+      "y": 87.035069,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-lower-right-vent-block",
+      "description": "Pixel-audited “Lower-right vent block” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1434.449761,
+      "y": 568.119022,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-right-side-lock-plate",
+      "description": "Pixel-audited “Right-side lock plate” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1027.751196,
+      "y": 319.447396,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-right-side-dial-ring",
+      "description": "Pixel-audited “Right-side dial ring” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1046.889952,
+      "y": 319.447396,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-right-side-hinge",
+      "description": "Pixel-audited “Right-side hinge” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1007.655502,
+      "y": 314.66525,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-far-right-upper-door-hinge",
+      "description": "Pixel-audited “Far-right upper door hinge” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1477.511962,
+      "y": 319.447396,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-right-bank-top-edge",
+      "description": "Pixel-audited “Right-bank top edge” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1367.464115,
+      "y": 15.302869,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-right-bank-lower-rail",
+      "description": "Pixel-audited “Right-bank lower rail” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1271.770335,
+      "y": 625.504782,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-locker-bank-right-upright",
+      "description": "Pixel-audited “Locker-bank right upright” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1487.08134,
+      "y": 477.258236,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-lower-right-locker-door-panel",
+      "description": "Pixel-audited “Lower-right locker door panel” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1046.889952,
+      "y": 592.029756,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-right-locker-door-bottom-edge",
+      "description": "Pixel-audited “Right locker door bottom edge” inside the Right locker doors crop of the school locker photograph",
+      "kind": "part",
+      "x": 1046.889952,
+      "y": 615.940489,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-navy-school-backpack",
+      "description": "Pixel-audited “Navy school backpack” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 372.248804,
+      "y": 639.851222,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-backpack-carry-loop",
+      "description": "Pixel-audited “Backpack carry loop” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 386.602871,
+      "y": 467.693943,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-backpack-side-seam",
+      "description": "Pixel-audited “Backpack side seam” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 295.69378,
+      "y": 601.594049,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-backpack-front-pocket",
+      "description": "Pixel-audited “Backpack front pocket” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 367.464115,
+      "y": 668.544102,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-front-pocket-zipper",
+      "description": "Pixel-audited “Front-pocket zipper” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 324.401914,
+      "y": 657.06695,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-backpack-zipper-pull",
+      "description": "Pixel-audited “Backpack zipper pull” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 295.69378,
+      "y": 658.979809,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-backpack-side-pocket",
+      "description": "Pixel-audited “Backpack side pocket” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 446.889952,
+      "y": 649.415515,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-backpack-bottom-panel",
+      "description": "Pixel-audited “Backpack bottom panel” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 381.818182,
+      "y": 716.365569,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-white-lunch-container",
+      "description": "Pixel-audited “White lunch container” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 551.196172,
+      "y": 697.236982,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-lunch-container-lid",
+      "description": "Pixel-audited “Lunch-container lid” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 554.066986,
+      "y": 666.631243,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-lunch-container-clasp",
+      "description": "Pixel-audited “Lunch-container clasp” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 573.205742,
+      "y": 670.456961,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-clear-locker-area-bottle",
+      "description": "Pixel-audited “Clear locker-area bottle” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 640.191388,
+      "y": 663.761955,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-water-bottle-cap",
+      "description": "Pixel-audited “Water-bottle cap” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 640.191388,
+      "y": 603.506908,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-bottle-carry-loop",
+      "description": "Pixel-audited “Bottle carry loop” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 649.760766,
+      "y": 601.594049,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-transparent-bottle-body",
+      "description": "Pixel-audited “Transparent bottle body” inside the Backpack and school items crop of the school locker photograph",
+      "kind": "part",
+      "x": 640.191388,
+      "y": 668.544102,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-school-locker-bench",
+      "description": "Pixel-audited “School locker bench” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 936.842105,
+      "y": 711.583422,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-timber-bench-seat-plank",
+      "description": "Pixel-audited “Timber bench seat plank” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 936.842105,
+      "y": 687.672689,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-bench-front-edge",
+      "description": "Pixel-audited “Bench front edge” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 936.842105,
+      "y": 725.929862,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-bench-support-leg",
+      "description": "Pixel-audited “Bench support leg” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 1200,
+      "y": 816.790648,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-closed-exercise-book",
+      "description": "Pixel-audited “Closed exercise book” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 755.023923,
+      "y": 702.019129,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-book-front-cover",
+      "description": "Pixel-audited “Book front cover” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 764.593301,
+      "y": 697.236982,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-exercise-book-page-block",
+      "description": "Pixel-audited “Exercise-book page block” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 759.808612,
+      "y": 721.147715,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-book-spine-edge",
+      "description": "Pixel-audited “Book spine edge” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 692.822967,
+      "y": 706.801275,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-blue-pencil-pouch",
+      "description": "Pixel-audited “Blue pencil pouch” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 912.91866,
+      "y": 704.888417,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-pencil-pouch-zipper",
+      "description": "Pixel-audited “Pencil-pouch zipper” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 908.133971,
+      "y": 689.585547,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-pencil-pouch-pull-tab",
+      "description": "Pixel-audited “Pencil-pouch pull tab” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 965.550239,
+      "y": 693.411265,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-folded-rain-jacket",
+      "description": "Pixel-audited “Folded rain jacket” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 1118.660287,
+      "y": 697.236982,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-jacket-sleeve-fold",
+      "description": "Pixel-audited “Jacket sleeve fold” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 1166.507177,
+      "y": 697.236982,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-jacket-cuff-edge",
+      "description": "Pixel-audited “Jacket cuff edge” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 1223.923445,
+      "y": 716.365569,
+      "width": 40.191388,
+      "height": 40.170032
+    },
+    {
+      "id": "school-locker-bank-region-bench-right-end",
+      "description": "Pixel-audited “Bench right end” inside the Bench, books and clothing crop of the school locker photograph",
+      "kind": "part",
+      "x": 1310.047847,
+      "y": 692.454835,
+      "width": 40.191388,
+      "height": 40.170032
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "school-locker-bank-zone-left-locker-bank",
+      "title": "Locker doors and frame",
+      "translation": "储物柜门与框架",
+      "description": "Inspect the left locker doors, top frame, vents, hinges and visible dial hardware.",
+      "x": 138.755981,
+      "y": 33.475027,
+      "width": 622.009569,
+      "height": 420.828905,
+      "targetScale": 2.85,
+      "labelIds": [
+        "school-locker-bank-school-locker-bank",
+        "school-locker-bank-left-locker-door-jamb",
+        "school-locker-bank-second-blue-locker-door-panel",
+        "school-locker-bank-locker-bank-top-rail",
+        "school-locker-bank-vertical-locker-divider",
+        "school-locker-bank-blue-locker-door-panel",
+        "school-locker-bank-sage-locker-door-panel",
+        "school-locker-bank-locker-door-edge-seam",
+        "school-locker-bank-upper-locker-vent-grille",
+        "school-locker-bank-upper-vent-louver",
+        "school-locker-bank-locker-lock-faceplate",
+        "school-locker-bank-combination-lock-dial",
+        "school-locker-bank-locker-dial-index-mark",
+        "school-locker-bank-locker-door-hinge-leaf",
+        "school-locker-bank-locker-hinge-knuckle"
+      ]
+    },
+    {
+      "id": "school-locker-bank-zone-open-locker-compartment",
+      "title": "Open locker compartment",
+      "translation": "打开的储物柜格",
+      "description": "Focus on the open compartment, shelf, coat hook, inner door and visible lower cubby.",
+      "x": 765.550239,
+      "y": 33.475027,
+      "width": 196.172249,
+      "height": 621.679065,
+      "targetScale": 2.85,
+      "labelIds": [
+        "school-locker-bank-open-locker-compartment",
+        "school-locker-bank-locker-upper-shelf",
+        "school-locker-bank-shelf-front-lip",
+        "school-locker-bank-locker-shelf-bracket",
+        "school-locker-bank-locker-interior-left-wall",
+        "school-locker-bank-locker-interior-right-wall",
+        "school-locker-bank-locker-rear-panel",
+        "school-locker-bank-double-coat-hook",
+        "school-locker-bank-coat-hook-mounting-plate",
+        "school-locker-bank-open-locker-door-inner-face",
+        "school-locker-bank-inner-door-vent-slots",
+        "school-locker-bank-door-mounted-lock-case",
+        "school-locker-bank-lower-locker-cubby",
+        "school-locker-bank-locker-threshold-lip",
+        "school-locker-bank-locker-shoe-pair"
+      ]
+    },
+    {
+      "id": "school-locker-bank-zone-right-locker-bank",
+      "title": "Right locker doors",
+      "translation": "右侧储物柜门",
+      "description": "Compare the right-side blue and sage doors, their vents, frames and separate lock hardware.",
+      "x": 961.722488,
+      "y": 33.475027,
+      "width": 550.239234,
+      "height": 621.679065,
+      "targetScale": 2.85,
+      "labelIds": [
+        "school-locker-bank-right-locker-bank-wing",
+        "school-locker-bank-far-right-blue-locker-door",
+        "school-locker-bank-right-sage-locker-door",
+        "school-locker-bank-right-bank-door-seam",
+        "school-locker-bank-right-locker-vent-block",
+        "school-locker-bank-lower-right-vent-block",
+        "school-locker-bank-right-side-lock-plate",
+        "school-locker-bank-right-side-dial-ring",
+        "school-locker-bank-right-side-hinge",
+        "school-locker-bank-far-right-upper-door-hinge",
+        "school-locker-bank-right-bank-top-edge",
+        "school-locker-bank-right-bank-lower-rail",
+        "school-locker-bank-locker-bank-right-upright",
+        "school-locker-bank-lower-right-locker-door-panel",
+        "school-locker-bank-right-locker-door-bottom-edge"
+      ]
+    },
+    {
+      "id": "school-locker-bank-zone-backpack-and-bottle",
+      "title": "Backpack and school items",
+      "translation": "书包与学习用品",
+      "description": "Trace the backpack pockets and straps, lunch container and clear water bottle beside the lockers.",
+      "x": 138.755981,
+      "y": 454.303932,
+      "width": 564.593301,
+      "height": 353.878852,
+      "targetScale": 2.85,
+      "labelIds": [
+        "school-locker-bank-navy-school-backpack",
+        "school-locker-bank-backpack-carry-loop",
+        "school-locker-bank-backpack-side-seam",
+        "school-locker-bank-backpack-front-pocket",
+        "school-locker-bank-front-pocket-zipper",
+        "school-locker-bank-backpack-zipper-pull",
+        "school-locker-bank-backpack-side-pocket",
+        "school-locker-bank-backpack-bottom-panel",
+        "school-locker-bank-white-lunch-container",
+        "school-locker-bank-lunch-container-lid",
+        "school-locker-bank-lunch-container-clasp",
+        "school-locker-bank-clear-locker-area-bottle",
+        "school-locker-bank-water-bottle-cap",
+        "school-locker-bank-bottle-carry-loop",
+        "school-locker-bank-transparent-bottle-body"
+      ]
+    },
+    {
+      "id": "school-locker-bank-zone-bench-and-books",
+      "title": "Bench, books and clothing",
+      "translation": "长椅、书本与衣物",
+      "description": "Inspect the timber bench, closed exercise book, pencil pouch and folded rain jacket.",
+      "x": 703.349282,
+      "y": 655.154091,
+      "width": 679.425837,
+      "height": 219.978746,
+      "targetScale": 2.85,
+      "labelIds": [
+        "school-locker-bank-school-locker-bench",
+        "school-locker-bank-timber-bench-seat-plank",
+        "school-locker-bank-bench-front-edge",
+        "school-locker-bank-bench-support-leg",
+        "school-locker-bank-closed-exercise-book",
+        "school-locker-bank-book-front-cover",
+        "school-locker-bank-exercise-book-page-block",
+        "school-locker-bank-book-spine-edge",
+        "school-locker-bank-blue-pencil-pouch",
+        "school-locker-bank-pencil-pouch-zipper",
+        "school-locker-bank-pencil-pouch-pull-tab",
+        "school-locker-bank-folded-rain-jacket",
+        "school-locker-bank-jacket-sleeve-fold",
+        "school-locker-bank-jacket-cuff-edge",
+        "school-locker-bank-bench-right-end"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "human-verified",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/school-locker-bank-premium-v1.jpg",
+    "reviewedAssetSha256": "8f03e0c4b267c589dce954be3191337945407f6df32cb6bb716610ba8209509c",
+    "rationale": "The final 1600 by 900 photograph was reviewed at native size. It retains 75 independently pointable locker structures, compartment parts, footwear, student storage items, stationery, clothing and bench parts across five non-overlapping focus regions. Student identity, readable labels, school branding, activities and hidden contents were excluded.",
+    "previousLabelCount": 82,
+    "retainedLabelCount": 75,
+    "removedLabelCount": 7,
+    "removedExamples": [
+      "student identity",
+      "locker number",
+      "school branding",
+      "printed name",
+      "bag contents",
+      "brand",
+      "school activity"
+    ]
+  },
+  "labels": [
+    {
+      "id": "school-locker-bank-school-locker-bank",
+      "word": "School locker bank",
+      "translation": "学校储物柜组",
+      "x": 492.822967,
+      "y": 248.671626,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-locker-bank-region-school-locker-bank"
+    },
+    {
+      "id": "school-locker-bank-left-locker-door-jamb",
+      "word": "Left locker door jamb",
+      "translation": "储物柜左侧门框立边",
+      "x": 157.894737,
+      "y": 334.750266,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-locker-bank-region-left-locker-door-jamb"
+    },
+    {
+      "id": "school-locker-bank-second-blue-locker-door-panel",
+      "word": "Second blue locker door panel",
+      "translation": "第二扇蓝色储物柜门板",
+      "x": 459.330144,
+      "y": 239.107333,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-locker-bank-region-second-blue-locker-door-panel"
+    },
+    {
+      "id": "school-locker-bank-locker-bank-top-rail",
+      "word": "Locker-bank top rail",
+      "translation": "储物柜组上横梁",
+      "x": 669.856459,
+      "y": 40.170032,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-locker-bank-region-locker-bank-top-rail"
+    },
+    {
+      "id": "school-locker-bank-vertical-locker-divider",
+      "word": "Vertical locker divider",
+      "translation": "储物柜竖向隔板",
+      "x": 645.933014,
+      "y": 286.928799,
+      "priority": 1.004,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-vertical-locker-divider"
+    },
+    {
+      "id": "school-locker-bank-blue-locker-door-panel",
+      "word": "Blue locker door panel",
+      "translation": "蓝色储物柜门板",
+      "x": 210.526316,
+      "y": 239.107333,
+      "priority": 1.005,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-blue-locker-door-panel"
+    },
+    {
+      "id": "school-locker-bank-sage-locker-door-panel",
+      "word": "Sage locker door panel",
+      "translation": "灰绿色储物柜门板",
+      "x": 334.92823,
+      "y": 239.107333,
+      "priority": 1.006,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-sage-locker-door-panel"
+    },
+    {
+      "id": "school-locker-bank-locker-door-edge-seam",
+      "word": "Locker door edge seam",
+      "translation": "储物柜门边接缝",
+      "x": 271.770335,
+      "y": 210.414453,
+      "priority": 1.007,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-locker-door-edge-seam"
+    },
+    {
+      "id": "school-locker-bank-upper-locker-vent-grille",
+      "word": "Upper locker vent grille",
+      "translation": "储物柜上部通风格栅",
+      "x": 210.526316,
+      "y": 98.512221,
+      "priority": 1.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-upper-locker-vent-grille"
+    },
+    {
+      "id": "school-locker-bank-upper-vent-louver",
+      "word": "Upper vent louver",
+      "translation": "上部通风百叶片",
+      "x": 210.526316,
+      "y": 109.989373,
+      "priority": 1.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-upper-vent-louver"
+    },
+    {
+      "id": "school-locker-bank-locker-lock-faceplate",
+      "word": "Locker lock faceplate",
+      "translation": "储物柜锁面板",
+      "x": 194.258373,
+      "y": 334.750266,
+      "priority": 1.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-locker-lock-faceplate"
+    },
+    {
+      "id": "school-locker-bank-combination-lock-dial",
+      "word": "Combination-lock dial",
+      "translation": "密码锁旋钮",
+      "x": 195.215311,
+      "y": 343.35813,
+      "priority": 1.011,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-combination-lock-dial"
+    },
+    {
+      "id": "school-locker-bank-locker-dial-index-mark",
+      "word": "Locker dial index mark",
+      "translation": "储物柜旋钮指示刻线",
+      "x": 195.215311,
+      "y": 320.403826,
+      "priority": 1.012,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-locker-dial-index-mark"
+    },
+    {
+      "id": "school-locker-bank-locker-door-hinge-leaf",
+      "word": "Locker door hinge leaf",
+      "translation": "储物柜门铰链页片",
+      "x": 268.899522,
+      "y": 331.880978,
+      "priority": 1.013,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-locker-door-hinge-leaf"
+    },
+    {
+      "id": "school-locker-bank-locker-hinge-knuckle",
+      "word": "Locker hinge knuckle",
+      "translation": "储物柜铰链关节",
+      "x": 269.856459,
+      "y": 334.750266,
+      "priority": 1.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-locker-hinge-knuckle"
+    },
+    {
+      "id": "school-locker-bank-open-locker-compartment",
+      "word": "Open locker compartment",
+      "translation": "打开的储物柜格",
+      "x": 827.751196,
+      "y": 315.621679,
+      "priority": 1.015,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-locker-bank-region-open-locker-compartment"
+    },
+    {
+      "id": "school-locker-bank-locker-upper-shelf",
+      "word": "Locker upper shelf",
+      "translation": "储物柜上层隔板",
+      "x": 827.751196,
+      "y": 138.682253,
+      "priority": 1.016,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-locker-bank-region-locker-upper-shelf"
+    },
+    {
+      "id": "school-locker-bank-shelf-front-lip",
+      "word": "Shelf front lip",
+      "translation": "隔板前沿",
+      "x": 827.751196,
+      "y": 148.246546,
+      "priority": 1.017,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-locker-bank-region-shelf-front-lip"
+    },
+    {
+      "id": "school-locker-bank-locker-shelf-bracket",
+      "word": "Locker shelf bracket",
+      "translation": "储物柜隔板托架",
+      "x": 789.473684,
+      "y": 143.4644,
+      "priority": 1.018,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-locker-bank-region-locker-shelf-bracket"
+    },
+    {
+      "id": "school-locker-bank-locker-interior-left-wall",
+      "word": "Locker interior left wall",
+      "translation": "储物柜内左侧壁",
+      "x": 781.818182,
+      "y": 286.928799,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-locker-interior-left-wall"
+    },
+    {
+      "id": "school-locker-bank-locker-interior-right-wall",
+      "word": "Locker interior right wall",
+      "translation": "储物柜内右侧壁",
+      "x": 885.167464,
+      "y": 286.928799,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-locker-interior-right-wall"
+    },
+    {
+      "id": "school-locker-bank-locker-rear-panel",
+      "word": "Locker rear panel",
+      "translation": "储物柜后板",
+      "x": 832.535885,
+      "y": 258.235919,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-locker-rear-panel"
+    },
+    {
+      "id": "school-locker-bank-double-coat-hook",
+      "word": "Double coat hook",
+      "translation": "双头衣钩",
+      "x": 834.449761,
+      "y": 186.503719,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-double-coat-hook"
+    },
+    {
+      "id": "school-locker-bank-coat-hook-mounting-plate",
+      "word": "Coat-hook mounting plate",
+      "translation": "衣钩安装底板",
+      "x": 834.449761,
+      "y": 176.939426,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-coat-hook-mounting-plate"
+    },
+    {
+      "id": "school-locker-bank-open-locker-door-inner-face",
+      "word": "Open locker door inner face",
+      "translation": "储物柜门内侧面",
+      "x": 928.229665,
+      "y": 286.928799,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-open-locker-door-inner-face"
+    },
+    {
+      "id": "school-locker-bank-inner-door-vent-slots",
+      "word": "Inner-door vent slots",
+      "translation": "门内侧通风槽",
+      "x": 928.229665,
+      "y": 100.42508,
+      "priority": 1.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-inner-door-vent-slots"
+    },
+    {
+      "id": "school-locker-bank-door-mounted-lock-case",
+      "word": "Door-mounted lock case",
+      "translation": "门内侧锁盒",
+      "x": 933.014354,
+      "y": 338.575983,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-door-mounted-lock-case"
+    },
+    {
+      "id": "school-locker-bank-lower-locker-cubby",
+      "word": "Lower locker cubby",
+      "translation": "储物柜下部格",
+      "x": 832.535885,
+      "y": 497.343252,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-lower-locker-cubby"
+    },
+    {
+      "id": "school-locker-bank-locker-threshold-lip",
+      "word": "Locker threshold lip",
+      "translation": "储物柜门槛边",
+      "x": 832.535885,
+      "y": 482.996812,
+      "priority": 1.028,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-locker-threshold-lip"
+    },
+    {
+      "id": "school-locker-bank-locker-shoe-pair",
+      "word": "Locker shoe pair",
+      "translation": "储物柜里的鞋",
+      "x": 828.708134,
+      "y": 598.724761,
+      "priority": 1.029,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-locker-shoe-pair"
+    },
+    {
+      "id": "school-locker-bank-right-locker-bank-wing",
+      "word": "Right locker-bank wing",
+      "translation": "储物柜组右侧",
+      "x": 1244.019139,
+      "y": 248.671626,
+      "priority": 1.03,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-locker-bank-region-right-locker-bank-wing"
+    },
+    {
+      "id": "school-locker-bank-far-right-blue-locker-door",
+      "word": "Far-right blue locker door",
+      "translation": "最右侧蓝色储物柜门",
+      "x": 1454.545455,
+      "y": 248.671626,
+      "priority": 1.031,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-locker-bank-region-far-right-blue-locker-door"
+    },
+    {
+      "id": "school-locker-bank-right-sage-locker-door",
+      "word": "Right sage locker door",
+      "translation": "右侧灰绿色储物柜门",
+      "x": 1066.985646,
+      "y": 248.671626,
+      "priority": 1.032,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-locker-bank-region-right-sage-locker-door"
+    },
+    {
+      "id": "school-locker-bank-right-bank-door-seam",
+      "word": "Right-bank door seam",
+      "translation": "右侧柜门接缝",
+      "x": 1406.698565,
+      "y": 239.107333,
+      "priority": 1.033,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-locker-bank-region-right-bank-door-seam"
+    },
+    {
+      "id": "school-locker-bank-right-locker-vent-block",
+      "word": "Right locker vent block",
+      "translation": "右侧储物柜通风组",
+      "x": 1454.545455,
+      "y": 107.120085,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-right-locker-vent-block"
+    },
+    {
+      "id": "school-locker-bank-lower-right-vent-block",
+      "word": "Lower-right vent block",
+      "translation": "右下通风组",
+      "x": 1454.545455,
+      "y": 588.204038,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-lower-right-vent-block"
+    },
+    {
+      "id": "school-locker-bank-right-side-lock-plate",
+      "word": "Right-side lock plate",
+      "translation": "右侧锁面板",
+      "x": 1047.84689,
+      "y": 339.532412,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-right-side-lock-plate"
+    },
+    {
+      "id": "school-locker-bank-right-side-dial-ring",
+      "word": "Right-side dial ring",
+      "translation": "右侧旋钮环",
+      "x": 1066.985646,
+      "y": 339.532412,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-right-side-dial-ring"
+    },
+    {
+      "id": "school-locker-bank-right-side-hinge",
+      "word": "Right-side hinge",
+      "translation": "右侧铰链",
+      "x": 1027.751196,
+      "y": 334.750266,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-right-side-hinge"
+    },
+    {
+      "id": "school-locker-bank-far-right-upper-door-hinge",
+      "word": "Far-right upper door hinge",
+      "translation": "最右侧柜门上部铰链",
+      "x": 1497.607656,
+      "y": 339.532412,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-far-right-upper-door-hinge"
+    },
+    {
+      "id": "school-locker-bank-right-bank-top-edge",
+      "word": "Right-bank top edge",
+      "translation": "右侧柜组顶沿",
+      "x": 1387.559809,
+      "y": 35.387885,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-right-bank-top-edge"
+    },
+    {
+      "id": "school-locker-bank-right-bank-lower-rail",
+      "word": "Right-bank lower rail",
+      "translation": "右侧柜组下横梁",
+      "x": 1291.866029,
+      "y": 645.589798,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-right-bank-lower-rail"
+    },
+    {
+      "id": "school-locker-bank-locker-bank-right-upright",
+      "word": "Locker-bank right upright",
+      "translation": "储物柜组右立柱",
+      "x": 1507.177033,
+      "y": 497.343252,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-locker-bank-right-upright"
+    },
+    {
+      "id": "school-locker-bank-lower-right-locker-door-panel",
+      "word": "Lower-right locker door panel",
+      "translation": "右下储物柜门板",
+      "x": 1066.985646,
+      "y": 612.114772,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-lower-right-locker-door-panel"
+    },
+    {
+      "id": "school-locker-bank-right-locker-door-bottom-edge",
+      "word": "Right locker door bottom edge",
+      "translation": "右侧柜门下沿",
+      "x": 1066.985646,
+      "y": 636.025505,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-right-locker-door-bottom-edge"
+    },
+    {
+      "id": "school-locker-bank-navy-school-backpack",
+      "word": "Navy school backpack",
+      "translation": "藏蓝色学生书包",
+      "x": 392.344498,
+      "y": 659.936238,
+      "priority": 1.045,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-locker-bank-region-navy-school-backpack"
+    },
+    {
+      "id": "school-locker-bank-backpack-carry-loop",
+      "word": "Backpack carry loop",
+      "translation": "书包提环",
+      "x": 406.698565,
+      "y": 487.778959,
+      "priority": 1.046,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-locker-bank-region-backpack-carry-loop"
+    },
+    {
+      "id": "school-locker-bank-backpack-side-seam",
+      "word": "Backpack side seam",
+      "translation": "书包侧缝",
+      "x": 315.789474,
+      "y": 621.679065,
+      "priority": 1.047,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-locker-bank-region-backpack-side-seam"
+    },
+    {
+      "id": "school-locker-bank-backpack-front-pocket",
+      "word": "Backpack front pocket",
+      "translation": "书包前袋",
+      "x": 387.559809,
+      "y": 688.629118,
+      "priority": 1.048,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-locker-bank-region-backpack-front-pocket"
+    },
+    {
+      "id": "school-locker-bank-front-pocket-zipper",
+      "word": "Front-pocket zipper",
+      "translation": "前袋拉链",
+      "x": 344.497608,
+      "y": 677.151966,
+      "priority": 1.049,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-front-pocket-zipper"
+    },
+    {
+      "id": "school-locker-bank-backpack-zipper-pull",
+      "word": "Backpack zipper pull",
+      "translation": "书包拉链头",
+      "x": 315.789474,
+      "y": 679.064825,
+      "priority": 1.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-backpack-zipper-pull"
+    },
+    {
+      "id": "school-locker-bank-backpack-side-pocket",
+      "word": "Backpack side pocket",
+      "translation": "书包侧袋",
+      "x": 466.985646,
+      "y": 669.500531,
+      "priority": 1.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-backpack-side-pocket"
+    },
+    {
+      "id": "school-locker-bank-backpack-bottom-panel",
+      "word": "Backpack bottom panel",
+      "translation": "书包底部面板",
+      "x": 401.913876,
+      "y": 736.450584,
+      "priority": 1.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-backpack-bottom-panel"
+    },
+    {
+      "id": "school-locker-bank-white-lunch-container",
+      "word": "White lunch container",
+      "translation": "白色午餐盒",
+      "x": 571.291866,
+      "y": 717.321998,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-white-lunch-container"
+    },
+    {
+      "id": "school-locker-bank-lunch-container-lid",
+      "word": "Lunch-container lid",
+      "translation": "午餐盒盖",
+      "x": 574.162679,
+      "y": 686.716259,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-lunch-container-lid"
+    },
+    {
+      "id": "school-locker-bank-lunch-container-clasp",
+      "word": "Lunch-container clasp",
+      "translation": "午餐盒扣",
+      "x": 593.301435,
+      "y": 690.541977,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-lunch-container-clasp"
+    },
+    {
+      "id": "school-locker-bank-clear-locker-area-bottle",
+      "word": "Clear locker-area bottle",
+      "translation": "储物柜旁透明水瓶",
+      "x": 660.287081,
+      "y": 683.846971,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-clear-locker-area-bottle"
+    },
+    {
+      "id": "school-locker-bank-water-bottle-cap",
+      "word": "Water-bottle cap",
+      "translation": "水瓶盖",
+      "x": 660.287081,
+      "y": 623.591923,
+      "priority": 1.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-water-bottle-cap"
+    },
+    {
+      "id": "school-locker-bank-bottle-carry-loop",
+      "word": "Bottle carry loop",
+      "translation": "水瓶提环",
+      "x": 669.856459,
+      "y": 621.679065,
+      "priority": 1.058,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-bottle-carry-loop"
+    },
+    {
+      "id": "school-locker-bank-transparent-bottle-body",
+      "word": "Transparent bottle body",
+      "translation": "透明瓶身",
+      "x": 660.287081,
+      "y": 688.629118,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-transparent-bottle-body"
+    },
+    {
+      "id": "school-locker-bank-school-locker-bench",
+      "word": "School locker bench",
+      "translation": "学校储物柜长椅",
+      "x": 956.937799,
+      "y": 731.668438,
+      "priority": 1.06,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-locker-bank-region-school-locker-bench"
+    },
+    {
+      "id": "school-locker-bank-timber-bench-seat-plank",
+      "word": "Timber bench seat plank",
+      "translation": "木制长椅坐板",
+      "x": 956.937799,
+      "y": 707.757705,
+      "priority": 1.061,
+      "minLevel": 0,
+      "sourceVisualRegion": "school-locker-bank-region-timber-bench-seat-plank"
+    },
+    {
+      "id": "school-locker-bank-bench-front-edge",
+      "word": "Bench front edge",
+      "translation": "长椅前沿",
+      "x": 956.937799,
+      "y": 746.014878,
+      "priority": 1.062,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-locker-bank-region-bench-front-edge"
+    },
+    {
+      "id": "school-locker-bank-bench-support-leg",
+      "word": "Bench support leg",
+      "translation": "长椅支腿",
+      "x": 1220.095694,
+      "y": 836.875664,
+      "priority": 1.063,
+      "minLevel": 1,
+      "sourceVisualRegion": "school-locker-bank-region-bench-support-leg"
+    },
+    {
+      "id": "school-locker-bank-closed-exercise-book",
+      "word": "Closed exercise book",
+      "translation": "合上的练习本",
+      "x": 775.119617,
+      "y": 722.104145,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-closed-exercise-book"
+    },
+    {
+      "id": "school-locker-bank-book-front-cover",
+      "word": "Book front cover",
+      "translation": "书本封面",
+      "x": 784.688995,
+      "y": 717.321998,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-book-front-cover"
+    },
+    {
+      "id": "school-locker-bank-exercise-book-page-block",
+      "word": "Exercise-book page block",
+      "translation": "练习本书页",
+      "x": 779.904306,
+      "y": 741.232731,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-exercise-book-page-block"
+    },
+    {
+      "id": "school-locker-bank-book-spine-edge",
+      "word": "Book spine edge",
+      "translation": "书脊边",
+      "x": 712.91866,
+      "y": 726.886291,
+      "priority": 1.067,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-book-spine-edge"
+    },
+    {
+      "id": "school-locker-bank-blue-pencil-pouch",
+      "word": "Blue pencil pouch",
+      "translation": "蓝色铅笔袋",
+      "x": 933.014354,
+      "y": 724.973433,
+      "priority": 1.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-blue-pencil-pouch"
+    },
+    {
+      "id": "school-locker-bank-pencil-pouch-zipper",
+      "word": "Pencil-pouch zipper",
+      "translation": "铅笔袋拉链",
+      "x": 928.229665,
+      "y": 709.670563,
+      "priority": 1.069,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-pencil-pouch-zipper"
+    },
+    {
+      "id": "school-locker-bank-pencil-pouch-pull-tab",
+      "word": "Pencil-pouch pull tab",
+      "translation": "铅笔袋拉片",
+      "x": 985.645933,
+      "y": 713.496281,
+      "priority": 1.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-pencil-pouch-pull-tab"
+    },
+    {
+      "id": "school-locker-bank-folded-rain-jacket",
+      "word": "Folded rain jacket",
+      "translation": "折叠雨衣",
+      "x": 1138.755981,
+      "y": 717.321998,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-folded-rain-jacket"
+    },
+    {
+      "id": "school-locker-bank-jacket-sleeve-fold",
+      "word": "Jacket sleeve fold",
+      "translation": "外套袖褶",
+      "x": 1186.602871,
+      "y": 717.321998,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-locker-bank-region-jacket-sleeve-fold"
+    },
+    {
+      "id": "school-locker-bank-jacket-cuff-edge",
+      "word": "Jacket cuff edge",
+      "translation": "外套袖口边",
+      "x": 1244.019139,
+      "y": 736.450584,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-locker-bank-region-jacket-cuff-edge"
+    },
+    {
+      "id": "school-locker-bank-bench-right-end",
+      "word": "Bench right end",
+      "translation": "长椅右端",
+      "x": 1330.143541,
+      "y": 712.539851,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "school-locker-bank-region-bench-right-end"
+    }
+  ],
+  "portals": []
+}

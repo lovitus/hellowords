@@ -148,6 +148,55 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
+  contract("school-locker-bank", "school-corridor", ["school-campus", "school-corridor"], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("hospital-inpatient-bedspace", "emergency-department", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "hospital",
+    "emergency-department",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("office-reception-lobby", "office-building", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "office-building",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("airport-customs-hall", "baggage-claim", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "airport",
+    "baggage-claim",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
+  contract("customs-baggage-examination", "airport-customs-hall", [
+    "city-street",
+    "transit-hub",
+    "urban-services",
+    "airport",
+    "baggage-claim",
+    "airport-customs-hall",
+  ], {
+    desktopMinimumWords: 12,
+    mobileMinimumWords: 7,
+    runOnMobile: true,
+  }),
   contract("supermarket-grocery", "world-map", [], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,

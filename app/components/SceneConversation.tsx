@@ -3,6 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import { SCENE_CONVERSATIONS } from "../domain/sceneConversations";
 
+const MEDICAL_CONVERSATION_SCENE_IDS = new Set([
+  "hospital",
+  "hospital-pharmacy",
+  "emergency-department",
+  "intensive-care-unit",
+  "operating-theatre",
+  "radiology-suite",
+  "pathology-lab",
+]);
+
 export function SceneConversation({ sceneId, disabled, onOpenChange }: {
   sceneId: string;
   disabled: boolean;
@@ -74,7 +84,9 @@ export function SceneConversation({ sceneId, disabled, onOpenChange }: {
         </section>)}
       </div>
       <p className="scene-conversation-note" role="status">{speechError || (!speechAvailable ? "当前浏览器不支持听读。" : "听读使用设备合成语音。关闭后回到原来的探索位置。")}</p>
-      {sceneId === "hospital" || sceneId === "hospital-pharmacy" ? <p className="scene-conversation-note">仅用于语言练习，不提供诊断或用药建议。</p> : null}
+      {MEDICAL_CONVERSATION_SCENE_IDS.has(sceneId)
+        ? <p className="scene-conversation-note">仅用于语言练习，不提供诊断或用药建议。</p>
+        : null}
     </dialog>
   </>;
 }

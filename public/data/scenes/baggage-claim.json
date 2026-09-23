@@ -862,6 +862,15 @@
       "y": 256.323061,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "portal-airport-customs-hall",
+      "description": "The glazed arrivals exit doors at the upper-right end of the baggage-claim hall",
+      "kind": "object",
+      "x": 1210,
+      "y": 75,
+      "width": 340,
+      "height": 320
     }
   ],
   "detailZones": [
@@ -2091,5 +2100,18 @@
       "semanticRealmId": "objects-technology"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-airport-customs-hall",
+      "label": "Explore the customs hall",
+      "translation": "探索海关大厅",
+      "childSceneId": "airport-customs-hall",
+      "sourceVisualRegion": "portal-airport-customs-hall",
+      "x": 1210,
+      "y": 75,
+      "width": 340,
+      "height": 320,
+      "enterScale": 3.3
+    }
+  ]
 }

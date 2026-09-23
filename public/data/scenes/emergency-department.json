@@ -997,6 +997,15 @@
       "y": 280,
       "width": 450,
       "height": 430
+    },
+    {
+      "id": "portal-hospital-inpatient-bedspace",
+      "description": "The right-hand emergency examination bed and its complete bedhead service area",
+      "kind": "object",
+      "x": 1090,
+      "y": 420,
+      "width": 480,
+      "height": 400
     }
   ],
   "detailZones": [
@@ -2406,6 +2415,18 @@
       "width": 450,
       "height": 430,
       "enterScale": 3.2
+    },
+    {
+      "id": "enter-hospital-inpatient-bedspace",
+      "label": "Explore the inpatient bedspace",
+      "translation": "探索住院床位区",
+      "childSceneId": "hospital-inpatient-bedspace",
+      "sourceVisualRegion": "portal-hospital-inpatient-bedspace",
+      "x": 1090,
+      "y": 420,
+      "width": 480,
+      "height": 400,
+      "enterScale": 3.35
     }
   ]
 }

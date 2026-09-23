@@ -317,15 +317,17 @@ export function sceneAssetPixelDemand(camera: SceneAssetCamera, devicePixelRatio
   return demand;
 }
 
-/** Chooses the smallest available raster that satisfies camera-scale × DPR demand. */
+/** Chooses the smallest sufficient raster, or pins the covered handoff to base art. */
 export function selectSceneAsset(
   scene: Pick<Scene, "asset" | "width" | "height" | "assets" | "anchorAudit">,
   camera: SceneAssetCamera,
   devicePixelRatio: number,
+  allowHighTier = true,
 ): ResolvedSceneAsset {
   const assets = resolveSceneAssets(scene);
   const demand = sceneAssetPixelDemand(camera, devicePixelRatio);
-  return assets.find(({ pixelRatio }) => pixelRatio >= demand) ?? assets.at(-1)!;
+  const selected = assets.find(({ pixelRatio }) => pixelRatio >= demand) ?? assets.at(-1)!;
+  return !allowHighTier && selected.tier === "high" ? assets[0]! : selected;
 }
 
 export function createSceneAssetLoadState(): SceneAssetLoadState {
@@ -352,8 +354,9 @@ export function reconcileSceneAssetLoad(
   current: SceneAssetLoadState,
   camera: SceneAssetCamera,
   devicePixelRatio: number,
+  allowHighTier = true,
 ): SceneAssetLoadTransition {
-  const desired = selectSceneAsset(scene, camera, devicePixelRatio);
+  const desired = selectSceneAsset(scene, camera, devicePixelRatio, allowHighTier);
   if (current.readyTiers.includes(desired.tier)) {
     return {
       state: {

@@ -4335,6 +4335,18 @@
       "width": 270,
       "height": 270,
       "enterScale": 3.5
+    },
+    {
+      "id": "enter-office-reception-lobby",
+      "label": "Explore the reception lobby",
+      "translation": "探索接待大厅",
+      "childSceneId": "office-reception-lobby",
+      "sourceVisualRegion": "portal-office-reception-lobby",
+      "x": 0,
+      "y": 500,
+      "width": 300,
+      "height": 360,
+      "enterScale": 3.3
     }
   ],
   "anchorAudit": {
@@ -4440,6 +4452,15 @@
       "y": 410,
       "width": 270,
       "height": 270
+    },
+    {
+      "id": "portal-office-reception-lobby",
+      "description": "The visible curved reception counter at the left foreground of the office-building photograph",
+      "kind": "object",
+      "x": 0,
+      "y": 500,
+      "width": 300,
+      "height": 360
     }
   ],
   "detailZones": [

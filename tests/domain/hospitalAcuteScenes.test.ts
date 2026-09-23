@@ -14,7 +14,7 @@ const expected = {
     zones: 5,
     lod: [21, 23, 27, 22, 15],
     parentId: "hospital",
-    children: ["operating-theatre", "intensive-care-unit"],
+    children: ["operating-theatre", "intensive-care-unit", "hospital-inpatient-bedspace"],
     asset: "/scenes/emergency-department-premium-v1.jpg",
     assetSha256: "0d5878b4fa27bb1cff5c82d21e8e28aa4e22c8d1885160bd9f2dc3191d94ec47",
     source: "scripts/assets/emergency-department-v1.png",
@@ -177,12 +177,12 @@ test("the two hospital acute scenes provide 217 distinct pixel-audited anchors",
   assert.equal(words.size, 217);
 });
 
-test("the acute scene chain continues from emergency department through theatre to PACU", async () => {
+test("the acute scene chain continues to theatre, PACU, ICU and inpatient bedspace", async () => {
   const emergency = await readJson<Scene>("emergency-department.json");
   const theatre = await readJson<Scene>("operating-theatre.json");
   assert.deepEqual(
     emergency.portals.map(({ childSceneId }) => childSceneId),
-    ["operating-theatre", "intensive-care-unit"],
+    ["operating-theatre", "intensive-care-unit", "hospital-inpatient-bedspace"],
   );
   assert.equal(theatre.parentId, emergency.id);
   assert.deepEqual(theatre.portals.map(({ childSceneId }) => childSceneId), ["post-anesthesia-care-unit"]);

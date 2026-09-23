@@ -1366,6 +1366,15 @@
       "y": 295,
       "width": 270,
       "height": 295
+    },
+    {
+      "id": "portal-school-locker-bank",
+      "description": "Complete far-right blue locker door in the foreground locker bank of the school corridor",
+      "kind": "object",
+      "x": 1518,
+      "y": 38,
+      "width": 77,
+      "height": 722
     }
   ],
   "detailZones": [
@@ -3282,6 +3291,18 @@
       "width": 270,
       "height": 295,
       "enterScale": 3.2
+    },
+    {
+      "id": "enter-school-locker-bank",
+      "label": "Explore the school lockers",
+      "translation": "探索学校储物柜",
+      "childSceneId": "school-locker-bank",
+      "sourceVisualRegion": "portal-school-locker-bank",
+      "x": 1518,
+      "y": 38,
+      "width": 77,
+      "height": 722,
+      "enterScale": 3.3
     }
   ]
 }

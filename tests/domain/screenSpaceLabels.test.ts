@@ -281,7 +281,17 @@ test("multi-resolution scenes server-render base and expose one atomic runtime t
   );
 
   const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  assert.match(source, /reconcileSceneAssetLoad\([\s\S]*camera,[\s\S]*devicePixelRatio/);
+  assert.match(source, /reconcileSceneAssetLoad\([\s\S]*camera,[\s\S]*devicePixelRatio,[\s\S]*allowHighTier/);
+  assert.match(
+    source,
+    /const tileMatchesPortal\s*=\s*Boolean\([\s\S]*activePortal\?\.id\s*===\s*tile\.dataset\.portalId[\s\S]*activePortal\?\.childSceneId\s*===\s*tile\.dataset\.childScene/,
+    "only a preview for the current portal and child scene can suppress the parent high-resolution raster",
+  );
+  assert.match(
+    source,
+    /const previewTileOwnsCrop\s*=\s*Boolean\([\s\S]*tile\.dataset\.state\s*===\s*"preview"[\s\S]*tile\.dataset\.direction\s*===\s*"forward"[\s\S]*portalProgress\s*>=\s*PORTAL_ARMED_PROGRESS[\s\S]*const activeHandoffOwnsCrop\s*=\s*Boolean\([\s\S]*tile\.dataset\.state\s*===\s*"active"[\s\S]*committingRef\.current[\s\S]*continuitySettlingRef\.current[\s\S]*const allowHighTier\s*=\s*!\([\s\S]*handoffTileOwnsCrop[\s\S]*reconcileSceneAssetForCamera\([\s\S]*allowHighTier/,
+    "the parent keeps base art when a matching child preview covers the portal or owns an active handoff",
+  );
   assert.match(source, /image\.decode\(\)[\s\S]*settleSceneAssetPreload/);
   assert.match(
     source,
@@ -915,6 +925,31 @@ test("continuity owns the camera until the fitted child frame has settled", () =
   assert.match(source.slice(zoomStart, wheelStart), /continuitySettlingRef\.current\) return;/);
   assert.match(source.slice(wheelStart, vocabularyStart), /continuitySettlingRef\.current\) return;/);
   assert.match(source.slice(pointerStart), /continuitySettlingRef\.current\) return;/);
+});
+
+test("hidden scene-transition overlays skip per-frame label layout but keep camera snapshots", () => {
+  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
+  const applyStart = source.indexOf("const applyCamera = useCallback");
+  const applyEnd = source.indexOf("useLayoutEffect(() => {", applyStart);
+  const applyCamera = source.slice(applyStart, applyEnd);
+  const hiddenPhase = applyCamera.indexOf('if (transitionPhaseRef.current !== "active")');
+  const hiddenReturn = applyCamera.indexOf("return;", hiddenPhase);
+  const collisionLayout = applyCamera.indexOf("computeSceneLabelLayout", hiddenPhase);
+  const dependencies = applyCamera.match(/^\s*\}, \[(.+)\]\);$/m)?.[1] ?? "";
+  assert.ok(applyStart >= 0 && applyEnd > applyStart);
+  assert.ok(hiddenPhase >= 0 && hiddenReturn > hiddenPhase);
+  assert.ok(collisionLayout > hiddenReturn, "hidden overlays return before collision and label layout");
+  assert.match(
+    applyCamera.slice(hiddenPhase, hiddenReturn),
+    /onCameraFrame\?\.\([\s\S]*?viewportHeight,[\s\S]*?\)/,
+    "incoming/outgoing camera snapshots remain available for scene continuity",
+  );
+  assert.doesNotMatch(dependencies, /\btransitionPhase\b/, "phase changes do not rebuild the camera callback");
+  assert.match(
+    source,
+    /const previousPhase = transitionPhaseRef\.current;\s*transitionPhaseRef\.current = transitionPhase;\s*if \(previousPhase !== transitionPhase && transitionPhase === "active"\)\s*\{\s*requestCameraFrame\(\);/,
+    "the active phase schedules a fresh paint without invalidating camera callback dependencies",
+  );
 });
 
 test("detail-zone focus reaches the frame ref before its first camera sample", () => {

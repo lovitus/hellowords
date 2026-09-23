@@ -113,6 +113,11 @@
       "parentId": "emergency-department"
     },
     {
+      "id": "hospital-inpatient-bedspace",
+      "title": "Hospital inpatient bedspace",
+      "parentId": "emergency-department"
+    },
+    {
       "id": "bedside-monitor-station",
       "title": "Bedside monitor station",
       "parentId": "intensive-care-unit"
@@ -178,6 +183,16 @@
       "parentId": "airport"
     },
     {
+      "id": "airport-customs-hall",
+      "title": "Airport customs hall",
+      "parentId": "baggage-claim"
+    },
+    {
+      "id": "customs-baggage-examination",
+      "title": "Customs baggage examination",
+      "parentId": "airport-customs-hall"
+    },
+    {
       "id": "office-building",
       "title": "Office building",
       "parentId": "urban-services"
@@ -185,6 +200,11 @@
     {
       "id": "open-plan-workstation",
       "title": "Open-plan workstation",
+      "parentId": "office-building"
+    },
+    {
+      "id": "office-reception-lobby",
+      "title": "Office reception lobby",
       "parentId": "office-building"
     },
     {
@@ -376,6 +396,11 @@
       "id": "school-corridor",
       "title": "School corridor",
       "parentId": "school-campus"
+    },
+    {
+      "id": "school-locker-bank",
+      "title": "School locker bank",
+      "parentId": "school-corridor"
     },
     {
       "id": "school-dining-hall",

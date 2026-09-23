@@ -827,6 +827,7 @@ export function SceneViewport({
   );
   const effectiveInitialView = continuityViewForMotion(initialView, reducedContinuityAtMount);
   const atlasOverviewMode = scene.id === "world-map" && Boolean(atlasDistricts?.length);
+  const transitionPhaseRef = useRef(transitionPhase);
   const [atlasCategoryId, setAtlasCategoryId] = useState<string | null>(null);
   const [mountedLabelIds, setMountedLabelIds] = useState<ReadonlySet<string>>(
     () => atlasOverviewMode
@@ -1127,7 +1128,11 @@ export function SceneViewport({
     );
   }, [commitSceneAssetLoadState, scene.id]);
 
-  const reconcileSceneAssetForCamera = useCallback((camera: Camera, devicePixelRatio: number) => {
+  const reconcileSceneAssetForCamera = useCallback((
+    camera: Camera,
+    devicePixelRatio: number,
+    allowHighTier: boolean,
+  ) => {
     const current = sceneAssetRuntimeRef.current;
     if (current.sceneId !== scene.id) return;
     const transition = reconcileSceneAssetLoad(
@@ -1135,6 +1140,7 @@ export function SceneViewport({
       current.loadState,
       camera,
       devicePixelRatio,
+      allowHighTier,
     );
     if (!commitSceneAssetLoadState(scene.id, transition.state)) return;
     if (transition.preloadAsset) preloadSceneAsset(transition.preloadAsset);
@@ -1234,14 +1240,42 @@ export function SceneViewport({
     setDatasetValueIfChanged(surface, "lodLevel", String(zoomLevel));
     setDatasetValueIfChanged(surface, "sceneScale", sceneScaleValue);
     setDatasetValueIfChanged(surface, "maximumScale", maximumScale.toFixed(3));
-    const devicePixelRatio = Math.max(1, window.devicePixelRatio || 1);
-    reconcileSceneAssetForCamera(camera, devicePixelRatio);
-
     const activePortal = portalCandidateRef.current ?? previewPortalRef.current;
     const enterScale = activePortal?.enterScale ?? 3.6;
     const portalProgress = activePortal
       ? portalRevealProgress(camera.scale, enterScale)
       : 0;
+    const devicePixelRatio = Math.max(1, window.devicePixelRatio || 1);
+    // Once a matching child preview covers most of the portal, high-resolution
+    // parent art is immediately hidden beneath that tile. Avoid decoding and
+    // rasterizing it for the final approach and handoff; ordinary inspection
+    // still regains automatic high-tier selection as soon as the preview recedes.
+    const tile = continuousTileRef.current;
+    const tileMatchesPortal = Boolean(
+      tile
+      && activePortal?.id === tile.dataset.portalId
+      && activePortal?.childSceneId === tile.dataset.childScene,
+    );
+    const previewTileOwnsCrop = Boolean(
+      tile
+      && tileMatchesPortal
+      && tile.dataset.state === "preview"
+      && tile.dataset.direction === "forward"
+      && portalProgress >= PORTAL_ARMED_PROGRESS
+    );
+    const activeHandoffOwnsCrop = Boolean(
+      tile
+      && tile.dataset.state === "active"
+      && (committingRef.current || continuitySettlingRef.current)
+    );
+    const handoffTileOwnsCrop = previewTileOwnsCrop || activeHandoffOwnsCrop;
+    const allowHighTier = !(handoffTileOwnsCrop);
+    reconcileSceneAssetForCamera(
+      camera,
+      devicePixelRatio,
+      allowHighTier,
+    );
+
     if (continuousTileRef.current) {
       if (shouldWriteContinuousTileProgress(continuousTileState, continuousTileDirection)) {
         const tilePortalId = continuousTileRef.current.dataset.portalId;
@@ -1283,7 +1317,6 @@ export function SceneViewport({
     const frameMotionFrozen = committingRef.current
       || continuitySettlingRef.current
       || imminentParentExit;
-    positionAtlasCategories(camera);
     syncMotionFrozenLayer(labelLayer, frameMotionFrozen);
     syncMotionFrozenLayer(interactionLayer, frameMotionFrozen);
     if (frameMotionFrozen) {
@@ -1295,6 +1328,19 @@ export function SceneViewport({
       });
       return;
     }
+    // During a scene handoff these overlays are hidden by the transition
+    // layer. Keep the camera snapshot current, but avoid resolving collisions
+    // and rewriting hundreds of label/portal styles that cannot be painted.
+    if (transitionPhaseRef.current !== "active") {
+      onCameraFrame?.({
+        sceneId: scene.id,
+        camera: { ...camera },
+        viewportWidth,
+        viewportHeight,
+      });
+      return;
+    }
+    positionAtlasCategories(camera);
 
     const nextPreviewPhase = portalProgress >= PORTAL_ARMED_PROGRESS ? "armed" : "preview";
     if (activePortal && previewPortalRef.current?.id !== activePortal.id) {
@@ -2020,6 +2066,14 @@ export function SceneViewport({
   const requestCameraFrame = useCallback(() => {
     if (frameRef.current === null) frameRef.current = requestAnimationFrame(applyCamera);
   }, [applyCamera]);
+
+  useLayoutEffect(() => {
+    const previousPhase = transitionPhaseRef.current;
+    transitionPhaseRef.current = transitionPhase;
+    if (previousPhase !== transitionPhase && transitionPhase === "active") {
+      requestCameraFrame();
+    }
+  }, [requestCameraFrame, transitionPhase]);
 
   useLayoutEffect(() => {
     focusedDetailZoneValueRef.current = focusedDetailZone;

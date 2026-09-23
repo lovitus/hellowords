@@ -144,6 +144,46 @@ const contracts = [
     labels: 150,
     zoneSizes: [25, 25, 25, 25, 25, 25],
   },
+  {
+    id: "hospital-inpatient-bedspace",
+    parentId: "emergency-department",
+    asset: "/scenes/hospital-inpatient-bedspace-premium-v1.jpg",
+    sha256: "237730a426a5b8406f6b152f1fd719e98c619685e28616eac4731c71fb4df54f",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
+    id: "office-reception-lobby",
+    parentId: "office-building",
+    asset: "/scenes/office-reception-lobby-premium-v1.jpg",
+    sha256: "f2db98876ee462b82b684d01308ea4250d5e1c9bc8a7abeb2cc2d13984025ad1",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
+    id: "airport-customs-hall",
+    parentId: "baggage-claim",
+    asset: "/scenes/airport-customs-hall-premium-v1.jpg",
+    sha256: "123816c93796df56223b3e50aa3c1cd696fa9ca7747f5c904e4c04132d4c4e40",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
+    id: "customs-baggage-examination",
+    parentId: "airport-customs-hall",
+    asset: "/scenes/customs-baggage-examination-premium-v1.jpg",
+    sha256: "14415cb0597bdd93dcda2448a9c05b2aaf41e341a466a2f238ecdc0a9e611688",
+    labels: 150,
+    zoneSizes: [25, 25, 25, 25, 25, 25],
+  },
+  {
+    id: "school-locker-bank",
+    parentId: "school-corridor",
+    asset: "/scenes/school-locker-bank-premium-v1.jpg",
+    sha256: "8f03e0c4b267c589dce954be3191337945407f6df32cb6bb716610ba8209509c",
+    labels: 75,
+    zoneSizes: [15, 15, 15, 15, 15],
+  },
 ] as const;
 
 for (const contract of contracts) {
@@ -216,6 +256,31 @@ test("pathology laboratory and hospital pharmacy expose independently audited eq
   assert.ok(cabinetRegion);
   assert.deepEqual([cabinetRegion.x, cabinetRegion.y, cabinetRegion.width, cabinetRegion.height], [1_120, 80, 480, 680]);
   assert.notEqual(cabinet.sourceVisualRegion, "automated-cabinet", "the accurate portal crop must not reuse the narrower legacy semantic region");
+});
+
+test("hospital bedspace, office reception and customs entrances use accurate separate crops", async () => {
+  const contracts = [
+    { file: "emergency-department.json", child: "hospital-inpatient-bedspace", rect: [1_090, 420, 480, 400] },
+    { file: "office-building.json", child: "office-reception-lobby", rect: [0, 500, 300, 360] },
+    { file: "baggage-claim.json", child: "airport-customs-hall", rect: [1_210, 75, 340, 320] },
+    { file: "airport-customs-hall.json", child: "customs-baggage-examination", rect: [285, 230, 350, 300] },
+  ];
+  for (const contract of contracts) {
+    const parent = await readJson(contract.file);
+    const portal = parent.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === contract.child);
+    assert.ok(portal, `${contract.child} portal must be present on ${contract.file}`);
+    assert.deepEqual([portal.x, portal.y, portal.width, portal.height], contract.rect);
+    const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+    assert.ok(region);
+    assert.deepEqual([region.x, region.y, region.width, region.height], contract.rect);
+    for (const other of parent.portals.filter(({ childSceneId }: { childSceneId: string }) => childSceneId !== contract.child)) {
+      const separated = portal.x + portal.width <= other.x
+        || other.x + other.width <= portal.x
+        || portal.y + portal.height <= other.y
+        || other.y + other.height <= portal.y;
+      assert.ok(separated, `${contract.child} must not overlap ${other.childSceneId}`);
+    }
+  }
 });
 
 test("school campus exposes disjoint classroom, library and gymnasium entrances", async () => {
@@ -309,4 +374,33 @@ test("the corridor dining doorway continues through the dining hall kitchen open
     assert.ok(region);
     assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
   }
+});
+
+test("the corridor locker portal targets a separate complete door without covering existing anchors", async () => {
+  const corridor = await readJson("school-corridor.json");
+  const portal = corridor.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "school-locker-bank");
+  const dining = corridor.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "school-dining-hall");
+  assert.ok(portal);
+  assert.ok(dining);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [1_518, 38, 77, 722]);
+  const separated = portal.x + portal.width <= dining.x
+    || dining.x + dining.width <= portal.x
+    || portal.y + portal.height <= dining.y
+    || dining.y + dining.height <= portal.y;
+  assert.ok(separated, "locker and dining entrances remain disjoint");
+  assert.equal(
+    corridor.labels.filter(({ x, y }: { x: number; y: number }) => (
+      x >= portal.x && x <= portal.x + portal.width && y >= portal.y && y <= portal.y + portal.height
+    )).length,
+    0,
+    "the new hotspot must not hide existing corridor anchors",
+  );
+  const region = corridor.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
+  assert.ok(region);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
+});
+
+test("the school locker bank remains a terminal spatial scene", async () => {
+  const scene = await readJson("school-locker-bank.json");
+  assert.deepEqual(scene.portals, [], "continued zoom stays inside the locker scene");
 });

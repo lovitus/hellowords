@@ -245,6 +245,56 @@ test("preload state keeps base active until high is decoded and ignores stale co
   assert.equal(reused.preloadAsset, undefined, "a stale but decoded high raster is reused synchronously");
 });
 
+test("portal handoffs keep the covered parent on base art and restore normal high-tier selection afterward", () => {
+  const initial = createSceneAssetLoadState();
+  const deferred = reconcileSceneAssetLoad(
+    enhancedScene,
+    initial,
+    { fit: 0.9, scale: 1 },
+    2,
+    false,
+  );
+  assert.equal(deferred.state.activeTier, "base");
+  assert.equal(deferred.state.desiredTier, "base");
+  assert.equal(deferred.state.preloadingTier, null);
+  assert.equal(deferred.preloadAsset, undefined);
+  assert.equal(
+    selectSceneAsset(enhancedScene, { fit: 0.9, scale: 1 }, 2, false).tier,
+    "base",
+  );
+
+  const normalZoom = reconcileSceneAssetLoad(
+    enhancedScene,
+    deferred.state,
+    { fit: 0.9, scale: 1 },
+    2,
+  );
+  assert.equal(normalZoom.state.desiredTier, "high");
+  assert.equal(normalZoom.preloadAsset?.tier, "high");
+
+  const pendingDuringHandoff = reconcileSceneAssetLoad(
+    enhancedScene,
+    normalZoom.state,
+    { fit: 0.9, scale: 1 },
+    2,
+    false,
+  );
+  const lateDecode = settleSceneAssetPreload(pendingDuringHandoff.state, "high", true);
+  assert.equal(lateDecode.activeTier, "base", "a late decode cannot replace covered parent art");
+
+  const alreadyDecoded = settleSceneAssetPreload(normalZoom.state, "high", true);
+  const handoff = reconcileSceneAssetLoad(
+    enhancedScene,
+    alreadyDecoded,
+    { fit: 0.9, scale: 1 },
+    2,
+    false,
+  );
+  assert.equal(handoff.state.activeTier, "base");
+  assert.equal(handoff.state.desiredTier, "base");
+  assert.ok(handoff.state.readyTiers.includes("high"));
+});
+
 test("failed high preloads stay on base and retry only after an explicit request", () => {
   const request = reconcileSceneAssetLoad(
     enhancedScene,

@@ -17,7 +17,7 @@ async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8")) as T;
 }
 
-test("baggage claim is a reviewed terminal airport scene with 95 grounded parts", async () => {
+test("baggage claim is a reviewed airport scene with 95 grounded parts", async () => {
   const scene = await readJson<{
     id: string;
     parentId: string;
@@ -27,7 +27,7 @@ test("baggage claim is a reviewed terminal airport scene with 95 grounded parts"
     labels: Array<{ id: string; word: string; minLevel: number; sourceVisualRegion: string }>;
     visualRegions: Array<{ id: string }>;
     detailZones: Array<{ id: string; labelIds: string[] }>;
-    portals: unknown[];
+    portals: Array<{ childSceneId: string }>;
     anchorAudit: {
       status: string;
       policy: string;
@@ -41,7 +41,7 @@ test("baggage claim is a reviewed terminal airport scene with 95 grounded parts"
   assert.equal(scene.parentId, "airport");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, 95);
-  assert.equal(scene.visualRegions.length, 95);
+  assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.deepEqual(scene.detailZones.map((zone) => [zone.id, zone.labelIds.length]), [
     ["baggage-claim-zone-reclaim-carousel", 21],
     ["baggage-claim-zone-luggage-detail", 23],
@@ -53,7 +53,10 @@ test("baggage claim is a reviewed terminal airport scene with 95 grounded parts"
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
     [19, 21, 27, 14, 14],
   );
-  assert.deepEqual(scene.portals, []);
+  assert.deepEqual(
+    scene.portals.map(({ childSceneId }) => childSceneId),
+    ["airport-customs-hall"],
+  );
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 6);
