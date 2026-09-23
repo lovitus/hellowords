@@ -1595,10 +1595,19 @@
     "reviewedAsset": "/scenes/office-elevator-car-premium-v1.jpg",
     "reviewedAssetSha256": "991fbda7b0bd3bf0527cb65600655fda73cbbf9ec3865aec0a75718a1593cd3b",
     "rationale": "The source image was inspected at native resolution. The view shows the complete lift car, operating panel, mirror, handrails, wall finishes, open doors and floor. Labels describe only visible fittings and surfaces; service states and hidden lift machinery were excluded.",
-    "previousLabelCount": 150,
+    "previousLabelCount": 158,
     "retainedLabelCount": 150,
-    "removedLabelCount": 0,
-    "removedExamples": []
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "floor number",
+      "floor indicator value",
+      "door movement state",
+      "elevator speed",
+      "lift motor",
+      "passenger identity",
+      "emergency event",
+      "manufacturer brand"
+    ]
   },
   "labels": [
     {

@@ -1604,10 +1604,19 @@
     "reviewedAsset": "/scenes/airport-boarding-bridge-premium-v1.jpg",
     "reviewedAssetSha256": "f2d8b7c4fde68f8c8abf1b05d708536bd956a64e892ffa620dd9732b80d52835",
     "rationale": "The source image was inspected at native resolution. The bridge route is unobstructed and shows its handrails, operator console, emergency phone, telescoping vestibule and aircraft threshold. Anchors refer only to visible parts; hidden drive systems and passenger states were excluded.",
-    "previousLabelCount": 150,
+    "previousLabelCount": 158,
     "retainedLabelCount": 150,
-    "removedLabelCount": 0,
-    "removedExamples": []
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "airline brand",
+      "gate number",
+      "flight delay",
+      "boarding announcement",
+      "passenger identity",
+      "bridge operating state",
+      "hidden drive motor",
+      "aircraft model"
+    ]
   },
   "labels": [
     {
