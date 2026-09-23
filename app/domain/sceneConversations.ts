@@ -275,6 +275,14 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Who should I contact if I have more questions?", "如果还有疑问，我应该联系谁？"],
       ["You can contact the pharmacy or your prescriber.", "您可以联系药房或开处方的医护人员。"],
     ] },
+    { title: "核对不同名称的药品", roles: ["患者", "药师"], lines: [
+      ["The name on this box looks different from my previous supply.", "这盒药上的名称和我上次领到的看起来不一样。"],
+      ["Let's compare the label with your prescription.", "我们一起对照标签和您的处方。"],
+      ["Could this be a generic medicine?", "这可能是通用名药品吗？"],
+      ["I'll check the active ingredient and confirm the product.", "我会核对有效成分并确认具体药品。"],
+      ["Should I use it before the label has been checked?", "标签还没核对清楚前，我应该先使用它吗？"],
+      ["Please wait while I verify the instructions.", "请稍等，我先核实使用说明。"],
+    ] },
   ],
   "office-building": [
     { title: "访客登记", roles: ["访客", "前台"], lines: [
@@ -329,6 +337,14 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Could you say it slowly so I can hear clearly?", "您能慢一点说吗？这样我能听清楚。"],
       ["Of course. Tell the desk if you need any help.", "当然。如果需要帮助，请告诉服务台。"],
     ] },
+    { title: "说明用药与语言需求", roles: ["患者", "分诊护士"], lines: [
+      ["I brought a list of my medicines and allergies.", "我带来了用药和过敏情况清单。"],
+      ["Thank you. Please show it to the triage nurse.", "谢谢，请把它交给分诊护士查看。"],
+      ["I feel more comfortable speaking Mandarin.", "我用普通话交流会更自在。"],
+      ["Would you like help requesting an interpreter?", "您需要我们帮忙申请口译员吗？"],
+      ["Yes, and I would like to explain when this started.", "需要，我还想说明这种情况是什么时候开始的。"],
+      ["I'll let the care team know what support you requested.", "我会把您需要的协助告知医护团队。"],
+    ] },
   ],
   "hospital-inpatient-bedspace": [
     { title: "询问床旁设备与呼叫方式", roles: ["患者", "护士"], lines: [
@@ -346,6 +362,14 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["You can use the bedside cabinet, and keep valuables with you.", "您可以使用床旁柜，贵重物品请随身保管。"],
       ["Could you explain the call bell again, more slowly?", "能再慢一点解释一下呼叫铃的用法吗？"],
       ["Of course. I will show you the button and wait while you try it.", "当然，我会指给您看按钮，并等您试着操作。"],
+    ] },
+    { title: "确认出院后的沟通", roles: ["患者", "护士"], lines: [
+      ["Could you explain the plan for going home?", "您能说明一下回家前的安排吗？"],
+      ["The clinical team will review the plan with you.", "医护团队会和您一起确认安排。"],
+      ["Could I have the instructions in writing?", "能给我一份书面说明吗？"],
+      ["Yes. I'll ask the team to provide a copy.", "可以，我会请团队提供一份。"],
+      ["Who should I contact if I have a question later?", "之后有问题时，我应该联系谁？"],
+      ["Please check the contact details on your discharge papers.", "请查看出院文件上的联系信息。"],
     ] },
   ],
   "intensive-care-unit": [
@@ -365,6 +389,14 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["It says to clean my hands before entering.", "上面写着进入前要清洁双手。"],
       ["Please use the hand rub beside the entrance.", "请使用入口旁的免洗手消毒液。"],
     ] },
+    { title: "询问床旁监护设备", roles: ["家属", "护士"], lines: [
+      ["The monitor is beeping. Should I press a button?", "监护仪在响，我需要按哪个按钮吗？"],
+      ["Please do not touch it; use the call button to reach us.", "请不要触碰设备；按呼叫按钮联系工作人员。"],
+      ["Could you explain what the alarm means?", "您能解释一下这个警报是什么意思吗？"],
+      ["I'll check with the care team and explain what I can.", "我会向医护团队确认，再为您说明我能解释的部分。"],
+      ["Should I clean my hands before going to the bedside?", "到床旁前我需要清洁双手吗？"],
+      ["Yes. Please use the hand rub at the unit entrance.", "需要，请使用病区入口处的免洗手消毒液。"],
+    ] },
   ],
   "operating-theatre": [
     { title: "找到术前等候区", roles: ["患者", "工作人员"], lines: [
@@ -382,6 +414,14 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Certainly. I can also arrange an interpreter.", "当然。我也可以为您安排口译员。"],
       ["Thank you. I need a moment to read this.", "谢谢，我需要一点时间读一下。"],
       ["Take your time and ask if anything is unclear.", "请慢慢看，有不清楚的地方就问我。"],
+    ] },
+    { title: "补充过敏与知情沟通", roles: ["患者", "护士"], lines: [
+      ["I need to add a medicine allergy to my record.", "我需要在记录里补充一项药物过敏。"],
+      ["Please tell the surgical team before the procedure begins.", "请在手术开始前告知手术团队。"],
+      ["Could you go through the consent form with me?", "您能和我一起看一下知情同意书吗？"],
+      ["The team can pause and answer questions before you decide.", "您作决定前，团队可以停下来回答您的问题。"],
+      ["I need an interpreter before I sign anything.", "签署任何文件前，我需要口译员协助。"],
+      ["I'll arrange language support and let the team know.", "我会安排语言协助并通知团队。"],
     ] },
   ],
   "radiology-suite": [
@@ -401,6 +441,14 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Could someone help me with a wheelchair?", "有人能帮我安排轮椅吗？"],
       ["I'll contact the support team for you.", "我来帮您联系协助团队。"],
     ] },
+    { title: "告知影像检查相关信息", roles: ["患者", "放射技师"], lines: [
+      ["I may be pregnant. Should I tell the radiographer?", "我可能怀孕了，需要告诉放射技师吗？"],
+      ["Yes. Please tell the radiology team before the examination.", "需要，请在检查前告知放射科团队。"],
+      ["I also have a metal implant.", "我体内还有一个金属植入物。"],
+      ["Please share that so the team can check the details.", "请告知团队，以便他们核对具体情况。"],
+      ["Will I receive the scan results here?", "我会在这里拿到影像检查结果吗？"],
+      ["The clinician who requested it can explain how results are shared.", "开具检查的临床医生可以说明结果会如何告知。"],
+    ] },
   ],
   "pathology-lab": [
     { title: "核对样本标签", roles: ["实验室同事甲", "实验室同事乙"], lines: [
@@ -418,6 +466,14 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Use the number printed on each slide label.", "请使用每张切片标签上印的编号。"],
       ["This slide has no label.", "这张切片没有标签。"],
       ["Set it aside and report it to the supervisor.", "先把它放在一旁，并报告给主管。"],
+    ] },
+    { title: "确认病理报告的沟通", roles: ["实验室技术员", "临床医生"], lines: [
+      ["The biopsy specimen is ready for review.", "活检标本已准备好复核。"],
+      ["Please confirm the patient identifiers against the request.", "请对照申请单核实患者身份信息。"],
+      ["The report uses the term carcinoma.", "报告中使用了 carcinoma（癌）这个术语。"],
+      ["The treating clinician should explain what the finding means.", "检查结果的含义应由负责治疗的临床医生解释。"],
+      ["Where should I record the case number?", "我应该在哪里记录病例编号？"],
+      ["Use the approved laboratory record for this case.", "请在该病例的正式实验室记录中登记。"],
     ] },
   ],
   "check-in-counter": [

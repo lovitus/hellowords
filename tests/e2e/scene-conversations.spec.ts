@@ -63,8 +63,21 @@ test("emergency-department practice opens on its real hospital path with a clear
   await page.getByRole("button", { name: "情景会话", exact: true }).click();
   const dialog = page.getByRole("dialog", { name: "在这里怎么说" });
   await expect(dialog).toBeVisible();
-  await expect(dialog.locator("li")).toHaveCount(12);
+  await expect(dialog.locator("li")).toHaveCount(18);
   await expect(dialog).toContainText("I feel unwell and need some help.");
+  await expect(dialog).toContainText("I brought a list of my medicines and allergies.");
+  await expect(dialog).toContainText("仅用于语言练习，不提供诊断或用药建议。");
+  await dialog.getByRole("button", { name: "关闭情景会话" }).click();
+  const bedspace = page.locator(
+    '[data-testid="scene-hotspot"][data-target-scene="hospital-inpatient-bedspace"]',
+  );
+  await expect(bedspace).toBeVisible();
+  await bedspace.click();
+  await expect(app).toHaveAttribute("data-scene-id", "hospital-inpatient-bedspace");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await page.getByRole("button", { name: "情景会话", exact: true }).click();
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator("li")).toHaveCount(18);
   await expect(dialog).toContainText("仅用于语言练习，不提供诊断或用药建议。");
 });
 

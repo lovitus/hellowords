@@ -5,6 +5,7 @@ import { SCENE_CONVERSATIONS } from "../domain/sceneConversations";
 
 const MEDICAL_CONVERSATION_SCENE_IDS = new Set([
   "hospital",
+  "hospital-inpatient-bedspace",
   "hospital-pharmacy",
   "emergency-department",
   "intensive-care-unit",
