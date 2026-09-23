@@ -315,7 +315,6 @@ async function main() {
   for (const config of scenes) assetHashes[config.id] = await ensureAsset(config.id);
   const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
 
-  const boardingGate = JSON.parse(await readFile(resolve(sceneRoot, "boarding-gate.json"), "utf8"));
   const bridgePortal = {
     id: "enter-passenger-boarding-bridge", label: "Enter the passenger boarding bridge", translation: "进入旅客登机廊桥",
     childSceneId: "passenger-boarding-bridge", sourceVisualRegion: "portal-passenger-boarding-bridge",
