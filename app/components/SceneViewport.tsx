@@ -2361,6 +2361,7 @@ export function SceneViewport({
         if (portal) {
           portalCandidateRef.current = portal;
           showPortalPreview(portal);
+          if (scene.parentId && nextScale < 2.65) void onPrefetchScene(portal.childSceneId);
         } else if (!previousFocus || distance(previousFocus, point) > 16) {
           portalCandidateRef.current = null;
           showPortalPreview(null);
@@ -2427,6 +2428,7 @@ export function SceneViewport({
         portalCandidateRef.current = portal;
         showPortalPreview(portal);
         if (target.scale >= 2.65) requestContinuousTile(portal);
+        else if (scene.parentId) void onPrefetchScene(portal.childSceneId);
       } else if (!previousFocus || distance(previousFocus, point) > 16) {
         portalCandidateRef.current = null;
         showPortalPreview(null);

@@ -16,6 +16,7 @@ import {
 } from "./SceneViewport";
 import {
   getPreparedScene,
+  loadScene,
   loadSceneManifest,
   prefetchScene,
   prepareScene,
@@ -357,19 +358,6 @@ export function WorldApp() {
     };
   }, [scene]);
 
-  useEffect(() => {
-    if (!scene) return;
-    const preferredIsChild = scene.portals.some((portal) => portal.childSceneId === preferredChildRef.current);
-    const target = preferredIsChild ? preferredChildRef.current : scene.portals[0]?.childSceneId;
-    preferredChildRef.current = target ?? null;
-    retainSceneNeighborhood(scene.id, scene.parentId ?? null, target);
-    if (!target) return;
-    // The neighborhood is deliberately tiny, so warming its single child is
-    // cheap and should begin immediately. Deferring this to idle time made a
-    // quick first zoom pay the complete network/decode cost.
-    prefetchScene(target);
-  }, [scene]);
-
   const prefetchPreferredScene = useCallback((targetId: string) => {
     if (!scene) return null;
     const rememberedChild = scene.portals.some((portal) => portal.childSceneId === preferredChildRef.current)
@@ -493,7 +481,14 @@ export function WorldApp() {
           : nextScene.portals[0]?.childSceneId;
         preferredChildRef.current = nextPreferredChild ?? null;
         retainSceneNeighborhood(nextScene.id, nextScene.parentId ?? null, nextPreferredChild);
-        if (nextPreferredChild) prefetchScene(nextPreferredChild);
+        if (nextPreferredChild) {
+          if (direction === "back") {
+            prefetchScene(nextPreferredChild);
+          } else {
+            // A nested scene's first portal is speculative until the user targets it.
+            void loadScene(nextPreferredChild).catch(() => undefined);
+          }
+        }
         const snapshot = activeViewportSnapshotRef.current;
         let nextContinuityView: SceneContinuityView | undefined;
         if (snapshot?.sceneId === scene.id) {
