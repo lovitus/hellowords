@@ -65,22 +65,22 @@ test("conference room keeps its 143 terms across photographed objects and relate
   assert.equal(scene.parentId, "office-building");
   assert.equal(scene.asset, "/scenes/conference-room-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
-  assert.equal(scene.labels.length, 130);
-  assert.equal(scene.relatedWords.length, 13);
+  assert.equal(scene.labels.length, 87);
+  assert.equal(scene.relatedWords.length, 56);
   assert.ok(scene.relatedWords.every((word) => !("x" in word) && !("y" in word)));
   assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), [
-    ["conference-room-zone-glass-entry", 20],
-    ["conference-room-zone-credenza-storage", 20],
-    ["conference-room-zone-table-cable-hardware", 19],
-    ["conference-room-zone-chair-seating", 25],
-    ["conference-room-zone-display-whiteboard", 14],
-    ["conference-room-zone-ceiling-light-acoustic", 17],
-    ["conference-room-zone-floor-glass-edges", 15],
+    ["conference-room-zone-glass-entry", 8],
+    ["conference-room-zone-credenza-storage", 14],
+    ["conference-room-zone-table-cable-hardware", 11],
+    ["conference-room-zone-chair-seating", 23],
+    ["conference-room-zone-display-whiteboard", 13],
+    ["conference-room-zone-ceiling-light-acoustic", 9],
+    ["conference-room-zone-floor-glass-edges", 9],
   ]);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter(({ minLevel }) => minLevel === level).length),
-    [14, 12, 34, 33, 37],
+    [13, 10, 23, 20, 21],
   );
   const vocabulary = [...scene.labels, ...scene.relatedWords];
   // Fingerprint of the sorted vocabulary IDs from the original 143 spatial terms.

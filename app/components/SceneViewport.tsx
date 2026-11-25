@@ -270,7 +270,7 @@ function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
 export function sceneEntryCamera(scene: Scene, viewport: FrameSize): SceneViewportCamera {
   // The apartment is a floor plan: keep all four rooms in view. Inside a
   // room, show more of the furnishings while leaving space for the map and controls.
-  if (scene.parentId === "apartment" && usesPortraitPhotoBounds(scene, viewport)) {
+  if ((scene.parentId === "apartment" || scene.id === "conference-room") && usesPortraitPhotoBounds(scene, viewport)) {
     const fit = fitScale(scene.width, scene.height, viewport.width, viewport.height);
     const scale = Math.max(1, viewport.height * 0.6 / (scene.height * fit));
     return centeredSceneCamera(scene, viewport, scale);

@@ -142,7 +142,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "office-elevator-car": 120,
   "open-plan-workstation": 140,
   "desktop-workstation-equipment": 145,
-  "conference-room": 130,
+  "conference-room": 87,
   "video-conferencing-console": 68,
   // The standalone service-core photograph resolves electrical, HVAC, fire,
   // janitorial and loading hardware as a bounded facilities vocabulary.
@@ -260,7 +260,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "office-elevator-car": 150,
   "open-plan-workstation": 150,
   "desktop-workstation-equipment": 155,
-  "conference-room": 130,
+  // The remaining 56 conference terms are searchable without a pin on the photograph.
+  "conference-room": 87,
   "video-conferencing-console": 68,
   // The service-core render supports 90 distinct visible facility parts while
   // excluding hidden system states, operational claims and duplicate names.

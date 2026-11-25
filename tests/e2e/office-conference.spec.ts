@@ -197,3 +197,49 @@ test("mobile pinch from the gold display entrance stays in the conference room",
   await page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }).tap();
   await pinchFromEntrance(page, testInfo);
 });
+
+test("conference room returns to a readable photograph and labels the photographed chair and credenza", async ({ page, isMobile }, testInfo) => {
+  await openPhotographedRoute(page, isMobile, roomRoute, roomAsset, roomHash);
+  const minimap = page.getByTestId("scene-minimap");
+  const collapse = minimap.getByRole("button", { name: "收起小地图" });
+  if (isMobile) await collapse.tap();
+  else await collapse.click();
+  await checkPaintedWords(page, isMobile, testInfo, [
+    { word: "far chair backrest", meaning: "远侧椅背", assertion: "far chair backrest ends on the farthest left chair back",
+      outlines: [[[776, 386], [782, 383], [808, 383], [820, 429], [782, 438]]] },
+    { word: "meeting-room plant pot", meaning: "会议室植物盆",
+      outlines: [[[474, 365], [510, 365], [506, 391], [478, 393]]] },
+    { word: "credenza drawer handle", meaning: "边柜抽屉把手",
+      outlines: [[[95, 573], [105, 572], [137, 565], [141, 565], [141, 567], [105, 576], [95, 576]]] },
+  ], roomHash);
+});
+
+test("phone returns to the furnished room before Fit", async ({ page, isMobile }, testInfo) => {
+  test.skip(!isMobile, "Portrait phone composition");
+  await openPhotographedRoute(page, true, [...roomRoute, [consoleScene, "Video-conferencing console"]], consoleAsset,
+    "191dcac69bbc53f5ec57497dc078f00d48c06104051886102b4fbf1ab0e863a5");
+  await page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }).tap();
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  await zoomBack(page, true, consoleScene, room, roomAsset, { x: 1003, y: 714 });
+  await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
+  await (await image.elementHandle()).waitForElementState("stable");
+  const coverage = await image.evaluate(img => {
+    const photo = img.getBoundingClientRect();
+    const frame = img.closest(".world-viewport")!.getBoundingClientRect();
+    const w = Math.min(frame.right, photo.right) - Math.max(frame.left, photo.left);
+    const h = Math.min(frame.bottom, photo.bottom) - Math.max(frame.top, photo.top);
+    return w * h / (frame.width * frame.height);
+  });
+  const display = await projectPhoto(image, 940, 280);
+  const tabletop = await projectPhoto(image, 890, 552);
+  await testInfo.attach("returned-room-framing", {
+    body: JSON.stringify({ coverage, display, tabletop }), contentType: "application/json",
+  });
+  await testInfo.attach("returned-room-portrait", { body: await page.screenshot(), contentType: "image/png" });
+  expect(coverage, "the returned photograph fills half of the exploration area").toBeGreaterThanOrEqual(0.5);
+  expect(display.visible && tabletop.visible, "the front display and conference table stay in view").toBe(true);
+  await viewer.getByRole("button", { name: "Fit scene", exact: true }).tap();
+  await (await image.elementHandle()).waitForElementState("stable");
+  expect((await projectPhoto(image, 940, 280)).crop, "Fit shows all four edges").toBeLessThanOrEqual(1);
+});

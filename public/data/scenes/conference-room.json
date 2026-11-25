@@ -12,361 +12,199 @@
       "id": "conference-room-region-conference-room-entry",
       "description": "Pixel-audited “conference room entry” inside the Glass entry and partition crop of the conference-room photograph",
       "kind": "part",
-      "x": 240,
-      "y": 340,
-      "width": 40,
-      "height": 40
+      "x": 313,
+      "y": 507,
+      "width": 9,
+      "height": 11
     },
     {
       "id": "conference-room-region-glass-entry-door",
       "description": "Pixel-audited “glass entry door” inside the Glass entry and partition crop of the conference-room photograph",
       "kind": "part",
-      "x": 230,
-      "y": 430,
-      "width": 40,
-      "height": 40
+      "x": 216,
+      "y": 286,
+      "width": 7,
+      "height": 22
     },
     {
       "id": "conference-room-region-glass-door-frame",
       "description": "Pixel-audited “glass door frame” inside the Glass entry and partition crop of the conference-room photograph",
       "kind": "part",
-      "x": 190,
-      "y": 380,
-      "width": 40,
-      "height": 40
+      "x": 250,
+      "y": 416,
+      "width": 6,
+      "height": 25
     },
     {
       "id": "conference-room-region-conference-glass-door-handle",
       "description": "Pixel-audited “conference glass door handle” inside the Glass entry and partition crop of the conference-room photograph",
       "kind": "part",
-      "x": 225,
-      "y": 500,
-      "width": 40,
-      "height": 40
+      "x": 215,
+      "y": 517,
+      "width": 10,
+      "height": 4
     },
     {
       "id": "conference-room-region-door-handle-mount",
       "description": "Pixel-audited “door handle mount” inside the Glass entry and partition crop of the conference-room photograph",
       "kind": "part",
-      "x": 225,
-      "y": 510,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-door-hinge",
-      "description": "Pixel-audited “conference door hinge” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 270,
-      "y": 560,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-door-closer",
-      "description": "Pixel-audited “conference door closer” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 260,
-      "y": 250,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-door-latch",
-      "description": "Pixel-audited “conference door latch” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 250,
-      "y": 540,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-door-jamb",
-      "description": "Pixel-audited “conference door jamb” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 295,
-      "y": 430,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-entry-threshold",
-      "description": "Pixel-audited “entry threshold” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 240,
-      "y": 740,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-threshold-plate",
-      "description": "Pixel-audited “threshold plate” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 250,
-      "y": 760,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-doorway-seal",
-      "description": "Pixel-audited “conference doorway seal” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 290,
-      "y": 480,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-glass-partition",
-      "description": "Pixel-audited “conference glass partition” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 140,
-      "y": 230,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-partition-mullion",
-      "description": "Pixel-audited “partition mullion” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 150,
-      "y": 380,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-partition-base-channel",
-      "description": "Pixel-audited “partition base channel” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 160,
-      "y": 680,
-      "width": 40,
-      "height": 40
+      "x": 288,
+      "y": 478,
+      "width": 9,
+      "height": 15
     },
     {
       "id": "conference-room-region-left-conference-window",
       "description": "Pixel-audited “left conference window” inside the Glass entry and partition crop of the conference-room photograph",
       "kind": "part",
-      "x": 20,
-      "y": 260,
-      "width": 40,
-      "height": 40
+      "x": 46,
+      "y": 202,
+      "width": 21,
+      "height": 26
     },
     {
       "id": "conference-room-region-conference-window-blind",
       "description": "Pixel-audited “conference window blind” inside the Glass entry and partition crop of the conference-room photograph",
       "kind": "part",
-      "x": 80,
-      "y": 160,
-      "width": 40,
-      "height": 40
+      "x": 150,
+      "y": 62,
+      "width": 17,
+      "height": 13
     },
     {
       "id": "conference-room-region-blind-slat",
       "description": "Pixel-audited “blind slat” inside the Glass entry and partition crop of the conference-room photograph",
       "kind": "part",
-      "x": 90,
-      "y": 170,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-blind-rail",
-      "description": "Pixel-audited “blind rail” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 100,
-      "y": 90,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-window-sill",
-      "description": "Pixel-audited “conference window sill” inside the Glass entry and partition crop of the conference-room photograph",
-      "kind": "part",
-      "x": 120,
-      "y": 400,
-      "width": 40,
-      "height": 40
+      "x": 174,
+      "y": 104,
+      "width": 4,
+      "height": 2
     },
     {
       "id": "conference-room-region-conference-credenza",
       "description": "Pixel-audited “conference credenza” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 430,
-      "y": 560,
-      "width": 40,
-      "height": 40
+      "x": 385,
+      "y": 481,
+      "width": 23,
+      "height": 23
     },
     {
       "id": "conference-room-region-credenza-cabinet",
       "description": "Pixel-audited “credenza cabinet” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 280,
-      "y": 560,
-      "width": 40,
-      "height": 40
+      "x": 199,
+      "y": 474,
+      "width": 3,
+      "height": 12
     },
     {
       "id": "conference-room-region-credenza-drawer",
       "description": "Pixel-audited “credenza drawer” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 280,
-      "y": 630,
-      "width": 40,
-      "height": 40
+      "x": 130,
+      "y": 603,
+      "width": 16,
+      "height": 10
     },
     {
       "id": "conference-room-region-credenza-drawer-handle",
       "description": "Pixel-audited “credenza drawer handle” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 280,
-      "y": 630,
-      "width": 40,
-      "height": 40
+      "x": 122,
+      "y": 569,
+      "width": 4,
+      "height": 2
     },
     {
       "id": "conference-room-region-credenza-cabinet-door",
       "description": "Pixel-audited “credenza cabinet door” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 460,
-      "y": 580,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-credenza-cabinet-hinge",
-      "description": "Pixel-audited “credenza cabinet hinge” inside the Credenza and storage crop of the conference-room photograph",
-      "kind": "part",
-      "x": 460,
-      "y": 550,
-      "width": 40,
-      "height": 40
+      "x": 370,
+      "y": 536,
+      "width": 18,
+      "height": 20
     },
     {
       "id": "conference-room-region-credenza-cabinet-pull",
       "description": "Pixel-audited “credenza cabinet pull” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 460,
-      "y": 600,
-      "width": 40,
-      "height": 40
+      "x": 362,
+      "y": 454,
+      "width": 2,
+      "height": 15
     },
     {
       "id": "conference-room-region-conference-storage-shelf",
       "description": "Pixel-audited “conference storage shelf” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 210,
-      "y": 310,
-      "width": 40,
-      "height": 40
+      "x": 142,
+      "y": 536,
+      "width": 6,
+      "height": 2
     },
     {
       "id": "conference-room-region-conference-storage-box",
       "description": "Pixel-audited “conference storage box” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 160,
-      "y": 280,
-      "width": 40,
-      "height": 40
+      "x": 119,
+      "y": 379,
+      "width": 23,
+      "height": 19
     },
     {
       "id": "conference-room-region-conference-binder",
       "description": "Pixel-audited “conference binder” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 330,
-      "y": 300,
-      "width": 40,
-      "height": 40
+      "x": 349,
+      "y": 371,
+      "width": 5,
+      "height": 18
     },
     {
       "id": "conference-room-region-meeting-room-plant-pot",
       "description": "Pixel-audited “meeting-room plant pot” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 480,
-      "y": 280,
-      "width": 40,
-      "height": 40
+      "x": 482,
+      "y": 371,
+      "width": 16,
+      "height": 11
     },
     {
       "id": "conference-room-region-credenza-countertop",
       "description": "Pixel-audited “credenza countertop” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 310,
-      "y": 380,
-      "width": 40,
-      "height": 40
+      "x": 403,
+      "y": 405,
+      "width": 10,
+      "height": 4
     },
     {
       "id": "conference-room-region-credenza-countertop-edge",
       "description": "Pixel-audited “credenza countertop edge” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 380,
-      "y": 400,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-file-holder",
-      "description": "Pixel-audited “file holder” inside the Credenza and storage crop of the conference-room photograph",
-      "kind": "part",
-      "x": 250,
-      "y": 320,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-cable-box",
-      "description": "Pixel-audited “cable box” inside the Credenza and storage crop of the conference-room photograph",
-      "kind": "part",
-      "x": 540,
-      "y": 430,
-      "width": 40,
-      "height": 40
+      "x": 397,
+      "y": 416,
+      "width": 5,
+      "height": 2
     },
     {
       "id": "conference-room-region-credenza-base",
       "description": "Pixel-audited “credenza base” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 330,
-      "y": 670,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-credenza-foot",
-      "description": "Pixel-audited “credenza foot” inside the Credenza and storage crop of the conference-room photograph",
-      "kind": "part",
-      "x": 480,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-wall-shelf",
-      "description": "Pixel-audited “conference wall shelf” inside the Credenza and storage crop of the conference-room photograph",
-      "kind": "part",
-      "x": 560,
-      "y": 220,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-shelf-bracket",
-      "description": "Pixel-audited “conference shelf bracket” inside the Credenza and storage crop of the conference-room photograph",
-      "kind": "part",
-      "x": 560,
-      "y": 240,
-      "width": 40,
-      "height": 40
+      "x": 152,
+      "y": 668,
+      "width": 6,
+      "height": 4
     },
     {
       "id": "conference-room-region-meeting-room-storage-bin",
       "description": "Pixel-audited “meeting-room storage bin” inside the Credenza and storage crop of the conference-room photograph",
       "kind": "part",
-      "x": 180,
-      "y": 480,
-      "width": 40,
-      "height": 40
+      "x": 149,
+      "y": 507,
+      "width": 13,
+      "height": 13
     },
     {
       "id": "conference-room-region-conference-table",
@@ -423,94 +261,31 @@
       "height": 6
     },
     {
-      "id": "conference-room-region-conference-table-power-module",
-      "description": "Pixel-audited “conference table power module” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 755,
-      "y": 519,
-      "width": 24,
-      "height": 9
-    },
-    {
-      "id": "conference-room-region-table-microphone-pod",
-      "description": "Pixel-audited “table microphone pod” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 673,
-      "y": 500,
-      "width": 28,
-      "height": 10
-    },
-    {
-      "id": "conference-room-region-table-speaker-pod",
-      "description": "Pixel-audited “table speaker pod” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 905,
-      "y": 495,
-      "width": 26,
-      "height": 8
-    },
-    {
       "id": "conference-room-region-conference-table-leg",
       "description": "Pixel-audited “conference table leg” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 630,
-      "y": 740,
-      "width": 40,
-      "height": 40
+      "x": 637,
+      "y": 733,
+      "width": 9,
+      "height": 24
     },
     {
       "id": "conference-room-region-table-leg-foot",
       "description": "Pixel-audited “table leg foot” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 630,
-      "y": 830,
-      "width": 40,
-      "height": 40
+      "x": 605,
+      "y": 772,
+      "width": 8,
+      "height": 4
     },
     {
       "id": "conference-room-region-table-modesty-panel",
       "description": "Pixel-audited “table modesty panel” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 780,
-      "y": 680,
+      "x": 690,
+      "y": 628,
       "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-table-stretcher",
-      "description": "Pixel-audited “table stretcher” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 780,
-      "y": 800,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-table-floor-cable-cover",
-      "description": "Pixel-audited “table floor cable cover” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 680,
-      "y": 850,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-table-support-bracket",
-      "description": "Pixel-audited “table support bracket” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 930,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-tabletop-outlet",
-      "description": "Pixel-audited “tabletop outlet” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 769,
-      "y": 517,
-      "width": 14,
-      "height": 8
+      "height": 35
     },
     {
       "id": "conference-room-region-table-cable-channel",
@@ -522,247 +297,220 @@
       "height": 7
     },
     {
-      "id": "conference-room-region-table-underside",
-      "description": "Pixel-audited “table underside” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 650,
-      "width": 40,
-      "height": 40
-    },
-    {
       "id": "conference-room-region-under-table-crossbar",
       "description": "Pixel-audited “under-table crossbar” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 830,
-      "y": 780,
-      "width": 40,
-      "height": 40
+      "x": 846,
+      "y": 643,
+      "width": 9,
+      "height": 6
     },
     {
       "id": "conference-room-region-meeting-room-chair",
       "description": "Pixel-audited “meeting-room chair” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 500,
-      "y": 580,
-      "width": 40,
-      "height": 40
+      "x": 486,
+      "y": 475,
+      "width": 16,
+      "height": 17
     },
     {
       "id": "conference-room-region-meeting-room-chair-backrest",
       "description": "Pixel-audited “meeting-room chair backrest” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 500,
-      "y": 500,
-      "width": 40,
-      "height": 40
+      "x": 568,
+      "y": 441,
+      "width": 13,
+      "height": 15
     },
     {
       "id": "conference-room-region-chair-seat-pan",
       "description": "Pixel-audited “chair seat pan” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 500,
-      "y": 600,
-      "width": 40,
-      "height": 40
+      "x": 505,
+      "y": 588,
+      "width": 13,
+      "height": 12
     },
     {
       "id": "conference-room-region-meeting-room-chair-armrest",
       "description": "Pixel-audited “meeting-room chair armrest” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 540,
-      "y": 590,
-      "width": 40,
-      "height": 40
+      "x": 462,
+      "y": 601,
+      "width": 6,
+      "height": 16
     },
     {
       "id": "conference-room-region-chair-five-star-base",
       "description": "Pixel-audited “chair five-star base” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 500,
-      "y": 760,
-      "width": 40,
-      "height": 40
+      "x": 480,
+      "y": 688,
+      "width": 8,
+      "height": 4
     },
     {
       "id": "conference-room-region-meeting-room-chair-caster",
       "description": "Pixel-audited “meeting-room chair caster” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 480,
-      "y": 800,
-      "width": 40,
-      "height": 40
+      "x": 402,
+      "y": 733,
+      "width": 7,
+      "height": 10
     },
     {
       "id": "conference-room-region-chair-back-mesh",
       "description": "Pixel-audited “chair back mesh” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 500,
-      "y": 530,
-      "width": 40,
-      "height": 40
+      "x": 445,
+      "y": 459,
+      "width": 16,
+      "height": 15
     },
     {
       "id": "conference-room-region-chair-height-column",
       "description": "Pixel-audited “chair height column” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 510,
-      "y": 710,
-      "width": 40,
-      "height": 40
+      "x": 518,
+      "y": 656,
+      "width": 6,
+      "height": 14
     },
     {
       "id": "conference-room-region-meeting-room-chair-wheel",
       "description": "Pixel-audited “meeting-room chair wheel” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 530,
-      "y": 800,
-      "width": 40,
-      "height": 40
+      "x": 1169,
+      "y": 837,
+      "width": 10,
+      "height": 10
     },
     {
       "id": "conference-room-region-near-conference-chair",
       "description": "Pixel-audited “near conference chair” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 680,
-      "y": 630,
-      "width": 40,
-      "height": 40
+      "x": 1054,
+      "y": 701,
+      "width": 12,
+      "height": 10
     },
     {
       "id": "conference-room-region-near-chair-backrest",
       "description": "Pixel-audited “near chair backrest” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 680,
-      "y": 540,
-      "width": 40,
-      "height": 40
+      "x": 1089,
+      "y": 548,
+      "width": 12,
+      "height": 16
     },
     {
       "id": "conference-room-region-near-chair-armrest",
       "description": "Pixel-audited “near chair armrest” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 720,
+      "x": 984,
       "y": 630,
-      "width": 40,
-      "height": 40
+      "width": 16,
+      "height": 6
     },
     {
       "id": "conference-room-region-near-chair-base",
       "description": "Pixel-audited “near chair base” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 680,
-      "y": 780,
-      "width": 40,
-      "height": 40
+      "x": 1086,
+      "y": 795,
+      "width": 11,
+      "height": 6
     },
     {
       "id": "conference-room-region-middle-conference-chair",
       "description": "Pixel-audited “middle conference chair” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 880,
-      "y": 600,
-      "width": 40,
-      "height": 40
+      "x": 644,
+      "y": 416,
+      "width": 13,
+      "height": 14
     },
     {
       "id": "conference-room-region-middle-chair-backrest",
       "description": "Pixel-audited “middle chair backrest” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 880,
-      "y": 510,
-      "width": 40,
-      "height": 40
+      "x": 669,
+      "y": 444,
+      "width": 10,
+      "height": 13
     },
     {
       "id": "conference-room-region-middle-chair-armrest",
       "description": "Pixel-audited “middle chair armrest” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 920,
-      "y": 600,
-      "width": 40,
-      "height": 40
+      "x": 1053,
+      "y": 525,
+      "width": 14,
+      "height": 3
     },
     {
       "id": "conference-room-region-middle-chair-caster",
       "description": "Pixel-audited “middle chair caster” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 880,
-      "y": 780,
-      "width": 40,
-      "height": 40
+      "x": 1208,
+      "y": 644,
+      "width": 8,
+      "height": 7
     },
     {
       "id": "conference-room-region-far-conference-chair",
       "description": "Pixel-audited “far conference chair” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 1030,
-      "y": 500,
-      "width": 40,
-      "height": 40
+      "x": 782,
+      "y": 389,
+      "width": 8,
+      "height": 9
     },
     {
       "id": "conference-room-region-far-chair-backrest",
       "description": "Pixel-audited “far chair backrest” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 1030,
-      "y": 440,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-far-chair-seat",
-      "description": "Pixel-audited “far chair seat” inside the Conference chair seating crop of the conference-room photograph",
-      "kind": "part",
-      "x": 1040,
-      "y": 520,
-      "width": 40,
-      "height": 40
+      "x": 790,
+      "y": 398,
+      "width": 15,
+      "height": 20
     },
     {
       "id": "conference-room-region-far-chair-armrest",
       "description": "Pixel-audited “far chair armrest” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 1080,
-      "y": 520,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-far-chair-base",
-      "description": "Pixel-audited “far chair base” inside the Conference chair seating crop of the conference-room photograph",
-      "kind": "part",
-      "x": 1040,
-      "y": 630,
-      "width": 40,
-      "height": 40
+      "x": 1106,
+      "y": 454,
+      "width": 9,
+      "height": 3
     },
     {
       "id": "conference-room-region-chair-seat-edge",
       "description": "Pixel-audited “chair seat edge” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 740,
-      "y": 630,
-      "width": 40,
-      "height": 40
+      "x": 541,
+      "y": 622,
+      "width": 6,
+      "height": 2
     },
     {
       "id": "conference-room-region-chair-back-frame",
       "description": "Pixel-audited “chair back frame” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 780,
-      "y": 500,
-      "width": 40,
-      "height": 40
+      "x": 1063,
+      "y": 642,
+      "width": 4,
+      "height": 8
     },
     {
       "id": "conference-room-region-meeting-room-chair-arm-pad",
       "description": "Pixel-audited “meeting-room chair arm pad” inside the Conference chair seating crop of the conference-room photograph",
       "kind": "part",
-      "x": 800,
-      "y": 610,
-      "width": 40,
-      "height": 40
+      "x": 441,
+      "y": 530,
+      "width": 5,
+      "height": 3
     },
     {
       "id": "conference-room-region-meeting-room-wall-display",
@@ -831,352 +579,217 @@
       "id": "conference-room-region-meeting-whiteboard-frame",
       "description": "Pixel-audited “meeting whiteboard frame” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 1280,
-      "y": 260,
-      "width": 40,
-      "height": 40
+      "x": 1085,
+      "y": 289,
+      "width": 3,
+      "height": 13
     },
     {
       "id": "conference-room-region-meeting-whiteboard-tray",
       "description": "Pixel-audited “meeting whiteboard tray” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 1280,
-      "y": 380,
-      "width": 40,
-      "height": 40
+      "x": 1292,
+      "y": 379,
+      "width": 9,
+      "height": 2
     },
     {
       "id": "conference-room-region-marker-cup",
       "description": "Pixel-audited “marker cup” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 1380,
-      "y": 380,
-      "width": 40,
-      "height": 40
+      "x": 1316,
+      "y": 363,
+      "width": 22,
+      "height": 12
     },
     {
       "id": "conference-room-region-whiteboard-marker",
       "description": "Pixel-audited “whiteboard marker” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 1380,
-      "y": 375,
-      "width": 40,
-      "height": 40
+      "x": 1327,
+      "y": 354,
+      "width": 3,
+      "height": 4
     },
     {
       "id": "conference-room-region-meeting-whiteboard-corner",
       "description": "Pixel-audited “meeting whiteboard corner” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 1400,
-      "y": 160,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-meeting-wall-acoustic-panel",
-      "description": "Pixel-audited “meeting wall acoustic panel” inside the Display and whiteboard wall crop of the conference-room photograph",
-      "kind": "part",
-      "x": 1180,
-      "y": 180,
-      "width": 40,
-      "height": 40
+      "x": 1364,
+      "y": 191,
+      "width": 3,
+      "height": 3
     },
     {
       "id": "conference-room-region-conference-wall-panel-seam",
       "description": "Pixel-audited “conference wall panel seam” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 1180,
-      "y": 230,
-      "width": 40,
-      "height": 40
+      "x": 1263,
+      "y": 157,
+      "width": 2,
+      "height": 16
     },
     {
       "id": "conference-room-region-conference-acoustic-ceiling-baffle",
       "description": "Pixel-audited “conference acoustic ceiling baffle” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
       "kind": "part",
-      "x": 780,
-      "y": 80,
-      "width": 40,
-      "height": 40
+      "x": 1080,
+      "y": 46,
+      "width": 20,
+      "height": 7
     },
     {
       "id": "conference-room-region-baffle-edge",
       "description": "Pixel-audited “baffle edge” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
       "kind": "part",
-      "x": 780,
-      "y": 90,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-baffle-suspension-rod",
-      "description": "Pixel-audited “baffle suspension rod” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
-      "kind": "part",
-      "x": 800,
-      "y": 50,
-      "width": 40,
-      "height": 40
+      "x": 1088,
+      "y": 59,
+      "width": 4,
+      "height": 1
     },
     {
       "id": "conference-room-region-recessed-ceiling-light",
       "description": "Pixel-audited “recessed ceiling light” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
       "kind": "part",
-      "x": 480,
-      "y": 100,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-light-trim",
-      "description": "Pixel-audited “conference light trim” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
-      "kind": "part",
-      "x": 480,
-      "y": 100,
-      "width": 40,
-      "height": 40
+      "x": 467,
+      "y": 56,
+      "width": 10,
+      "height": 3
     },
     {
       "id": "conference-room-region-conference-pendant-light",
       "description": "Pixel-audited “conference pendant light” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
       "kind": "part",
-      "x": 680,
-      "y": 160,
-      "width": 40,
-      "height": 40
+      "x": 837,
+      "y": 139,
+      "width": 16,
+      "height": 4
     },
     {
       "id": "conference-room-region-conference-pendant-shade",
       "description": "Pixel-audited “conference pendant shade” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
       "kind": "part",
-      "x": 680,
-      "y": 160,
-      "width": 40,
-      "height": 40
+      "x": 681,
+      "y": 66,
+      "width": 20,
+      "height": 7
     },
     {
       "id": "conference-room-region-pendant-cord",
       "description": "Pixel-audited “pendant cord” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
       "kind": "part",
-      "x": 680,
-      "y": 100,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-ceiling-panel",
-      "description": "Pixel-audited “conference ceiling panel” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 30,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-ceiling-seam",
-      "description": "Pixel-audited “conference ceiling seam” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 60,
-      "width": 40,
-      "height": 40
+      "x": 690,
+      "y": 14,
+      "width": 1,
+      "height": 8
     },
     {
       "id": "conference-room-region-meeting-diffuser",
       "description": "Pixel-audited “meeting HVAC diffuser” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
       "kind": "part",
-      "x": 1180,
-      "y": 10,
-      "width": 40,
-      "height": 40
+      "x": 941,
+      "y": 27,
+      "width": 4,
+      "height": 2
     },
     {
       "id": "conference-room-region-diffuser-grille",
       "description": "Pixel-audited “diffuser grille” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
       "kind": "part",
-      "x": 1180,
-      "y": 10,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-spotlight-housing",
-      "description": "Pixel-audited “conference spotlight housing” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
-      "kind": "part",
-      "x": 1080,
-      "y": 120,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-ceiling-cable",
-      "description": "Pixel-audited “ceiling cable” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 130,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-upper-wall-cove",
-      "description": "Pixel-audited “upper wall cove” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
-      "kind": "part",
-      "x": 1330,
-      "y": 170,
-      "width": 40,
-      "height": 40
+      "x": 916,
+      "y": 22,
+      "width": 4,
+      "height": 1
     },
     {
       "id": "conference-room-region-ceiling-corner",
       "description": "Pixel-audited “ceiling corner” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
       "kind": "part",
-      "x": 1430,
-      "y": 160,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-acoustic-wall-felt",
-      "description": "Pixel-audited “acoustic wall felt” inside the Ceiling light and acoustic treatment crop of the conference-room photograph",
-      "kind": "part",
-      "x": 1330,
-      "y": 190,
-      "width": 40,
-      "height": 40
+      "x": 681,
+      "y": 144,
+      "width": 3,
+      "height": 3
     },
     {
       "id": "conference-room-region-conference-room-carpet",
       "description": "Pixel-audited “conference room carpet” inside the Floor and glass edges crop of the conference-room photograph",
       "kind": "part",
-      "x": 880,
-      "y": 730,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-carpet-tile",
-      "description": "Pixel-audited “conference carpet tile” inside the Floor and glass edges crop of the conference-room photograph",
-      "kind": "part",
-      "x": 280,
-      "y": 780,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-carpet-seam",
-      "description": "Pixel-audited “conference carpet seam” inside the Floor and glass edges crop of the conference-room photograph",
-      "kind": "part",
-      "x": 1080,
-      "y": 760,
-      "width": 40,
-      "height": 40
+      "x": 1285,
+      "y": 687,
+      "width": 20,
+      "height": 18
     },
     {
       "id": "conference-room-region-floor-access-cover",
       "description": "Pixel-audited “floor access cover” inside the Floor and glass edges crop of the conference-room photograph",
       "kind": "part",
-      "x": 780,
-      "y": 830,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-floor-power-box",
-      "description": "Pixel-audited “floor power box” inside the Floor and glass edges crop of the conference-room photograph",
-      "kind": "part",
-      "x": 800,
-      "y": 830,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-floor-threshold-strip",
-      "description": "Pixel-audited “floor threshold strip” inside the Floor and glass edges crop of the conference-room photograph",
-      "kind": "part",
-      "x": 230,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-floor-expansion-joint",
-      "description": "Pixel-audited “conference floor expansion joint” inside the Floor and glass edges crop of the conference-room photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 850,
-      "width": 40,
-      "height": 40
+      "x": 618,
+      "y": 843,
+      "width": 15,
+      "height": 9
     },
     {
       "id": "conference-room-region-conference-glass-wall",
       "description": "Pixel-audited “conference glass wall” inside the Floor and glass edges crop of the conference-room photograph",
       "kind": "part",
-      "x": 1480,
-      "y": 480,
-      "width": 40,
-      "height": 40
+      "x": 1447,
+      "y": 511,
+      "width": 14,
+      "height": 13
     },
     {
       "id": "conference-room-region-right-glass-panel",
       "description": "Pixel-audited “right glass panel” inside the Floor and glass edges crop of the conference-room photograph",
       "kind": "part",
-      "x": 1480,
-      "y": 680,
-      "width": 40,
-      "height": 40
+      "x": 1565,
+      "y": 602,
+      "width": 15,
+      "height": 15
     },
     {
       "id": "conference-room-region-glass-wall-mullion",
       "description": "Pixel-audited “glass wall mullion” inside the Floor and glass edges crop of the conference-room photograph",
       "kind": "part",
-      "x": 1430,
-      "y": 630,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-mullion-cap",
-      "description": "Pixel-audited “mullion cap” inside the Floor and glass edges crop of the conference-room photograph",
-      "kind": "part",
-      "x": 1430,
-      "y": 680,
-      "width": 40,
-      "height": 40
+      "x": 1532,
+      "y": 586,
+      "width": 4,
+      "height": 20
     },
     {
       "id": "conference-room-region-wall-base-trim",
       "description": "Pixel-audited “wall base trim” inside the Floor and glass edges crop of the conference-room photograph",
       "kind": "part",
-      "x": 1280,
-      "y": 830,
-      "width": 40,
-      "height": 40
+      "x": 1313,
+      "y": 530,
+      "width": 15,
+      "height": 5
     },
     {
       "id": "conference-room-region-conference-floor-edge-trim",
       "description": "Pixel-audited “conference floor edge trim” inside the Floor and glass edges crop of the conference-room photograph",
       "kind": "part",
-      "x": 1180,
-      "y": 850,
-      "width": 40,
-      "height": 40
+      "x": 1495,
+      "y": 641,
+      "width": 6,
+      "height": 4
     },
     {
       "id": "conference-room-region-carpet-border",
       "description": "Pixel-audited “carpet border” inside the Floor and glass edges crop of the conference-room photograph",
       "kind": "part",
-      "x": 1030,
-      "y": 680,
-      "width": 40,
-      "height": 40
+      "x": 1543,
+      "y": 709,
+      "width": 2,
+      "height": 2
     },
     {
       "id": "conference-room-region-meeting-room-corner",
       "description": "Pixel-audited “meeting room corner” inside the Floor and glass edges crop of the conference-room photograph",
       "kind": "part",
-      "x": 1380,
-      "y": 830,
-      "width": 40,
-      "height": 40
+      "x": 1403,
+      "y": 542,
+      "width": 3,
+      "height": 3
     },
     {
       "id": "portal-video-conferencing-console-display",
@@ -1193,7 +806,7 @@
       "id": "conference-room-zone-glass-entry",
       "title": "Glass entry and partition",
       "translation": "玻璃入口与隔断",
-      "description": "Trace the visible glass door, jamb, handle, threshold, partition mullions and window blinds.",
+      "description": "Find the glass door and its handle, then follow the blinds along the windows to the left.",
       "x": 0,
       "y": 0,
       "width": 350,
@@ -1205,21 +818,9 @@
         "conference-room-glass-door-frame",
         "conference-room-conference-glass-door-handle",
         "conference-room-door-handle-mount",
-        "conference-room-conference-door-hinge",
-        "conference-room-conference-door-closer",
-        "conference-room-conference-door-latch",
-        "conference-room-conference-door-jamb",
-        "conference-room-entry-threshold",
-        "conference-room-threshold-plate",
-        "conference-room-conference-doorway-seal",
-        "conference-room-conference-glass-partition",
-        "conference-room-partition-mullion",
-        "conference-room-partition-base-channel",
         "conference-room-left-conference-window",
         "conference-room-conference-window-blind",
-        "conference-room-blind-slat",
-        "conference-room-blind-rail",
-        "conference-room-conference-window-sill"
+        "conference-room-blind-slat"
       ]
     },
     {
@@ -1238,7 +839,6 @@
         "conference-room-credenza-drawer",
         "conference-room-credenza-drawer-handle",
         "conference-room-credenza-cabinet-door",
-        "conference-room-credenza-cabinet-hinge",
         "conference-room-credenza-cabinet-pull",
         "conference-room-conference-storage-shelf",
         "conference-room-conference-storage-box",
@@ -1246,12 +846,7 @@
         "conference-room-meeting-room-plant-pot",
         "conference-room-credenza-countertop",
         "conference-room-credenza-countertop-edge",
-        "conference-room-file-holder",
-        "conference-room-cable-box",
         "conference-room-credenza-base",
-        "conference-room-credenza-foot",
-        "conference-room-conference-wall-shelf",
-        "conference-room-conference-shelf-bracket",
         "conference-room-meeting-room-storage-bin"
       ]
     },
@@ -1259,7 +854,7 @@
       "id": "conference-room-zone-table-cable-hardware",
       "title": "Conference table and cable hardware",
       "translation": "会议桌与线缆设备",
-      "description": "Follow the visible table surface, cable trough, power modules, microphone pods, legs and modesty panel.",
+      "description": "Follow the cable trough across the tabletop, then look underneath for the legs, feet and modesty panel.",
       "x": 400,
       "y": 380,
       "width": 800,
@@ -1272,18 +867,10 @@
         "conference-room-table-corner",
         "conference-room-cable-trough",
         "conference-room-cable-trough-cover",
-        "conference-room-conference-table-power-module",
-        "conference-room-table-microphone-pod",
-        "conference-room-table-speaker-pod",
         "conference-room-conference-table-leg",
         "conference-room-table-leg-foot",
         "conference-room-table-modesty-panel",
-        "conference-room-table-stretcher",
-        "conference-room-table-floor-cable-cover",
-        "conference-room-table-support-bracket",
-        "conference-room-tabletop-outlet",
         "conference-room-table-cable-channel",
-        "conference-room-table-underside",
         "conference-room-under-table-crossbar"
       ]
     },
@@ -1317,9 +904,7 @@
         "conference-room-middle-chair-caster",
         "conference-room-far-conference-chair",
         "conference-room-far-chair-backrest",
-        "conference-room-far-chair-seat",
         "conference-room-far-chair-armrest",
-        "conference-room-far-chair-base",
         "conference-room-chair-seat-edge",
         "conference-room-chair-back-frame",
         "conference-room-meeting-room-chair-arm-pad"
@@ -1348,7 +933,6 @@
         "conference-room-marker-cup",
         "conference-room-whiteboard-marker",
         "conference-room-meeting-whiteboard-corner",
-        "conference-room-meeting-wall-acoustic-panel",
         "conference-room-conference-wall-panel-seam"
       ]
     },
@@ -1356,7 +940,7 @@
       "id": "conference-room-zone-ceiling-light-acoustic",
       "title": "Ceiling light and acoustic treatment",
       "translation": "顶面照明与吸音设施",
-      "description": "Trace the visible acoustic baffles, pendant lights, recessed fixtures, diffuser and ceiling seams.",
+      "description": "Trace the edges of the ceiling baffles, follow the pendant cords and locate the circular diffuser.",
       "x": 300,
       "y": 0,
       "width": 1200,
@@ -1365,28 +949,20 @@
       "labelIds": [
         "conference-room-conference-acoustic-ceiling-baffle",
         "conference-room-baffle-edge",
-        "conference-room-baffle-suspension-rod",
         "conference-room-recessed-ceiling-light",
-        "conference-room-conference-light-trim",
         "conference-room-conference-pendant-light",
         "conference-room-conference-pendant-shade",
         "conference-room-pendant-cord",
-        "conference-room-conference-ceiling-panel",
-        "conference-room-conference-ceiling-seam",
         "conference-room-meeting-diffuser",
         "conference-room-diffuser-grille",
-        "conference-room-conference-spotlight-housing",
-        "conference-room-ceiling-cable",
-        "conference-room-upper-wall-cove",
-        "conference-room-ceiling-corner",
-        "conference-room-acoustic-wall-felt"
+        "conference-room-ceiling-corner"
       ]
     },
     {
       "id": "conference-room-zone-floor-glass-edges",
       "title": "Floor and glass edges",
       "translation": "地面与玻璃边缘",
-      "description": "Inspect the visible carpet tiles, floor covers, glass panels, mullion caps and base trims.",
+      "description": "Find the access cover in the carpet and follow the glass partition to the trim along the floor.",
       "x": 0,
       "y": 450,
       "width": 1600,
@@ -1394,16 +970,10 @@
       "targetScale": 3.15,
       "labelIds": [
         "conference-room-conference-room-carpet",
-        "conference-room-conference-carpet-tile",
-        "conference-room-conference-carpet-seam",
         "conference-room-floor-access-cover",
-        "conference-room-floor-power-box",
-        "conference-room-floor-threshold-strip",
-        "conference-room-conference-floor-expansion-joint",
         "conference-room-conference-glass-wall",
         "conference-room-right-glass-panel",
         "conference-room-glass-wall-mullion",
-        "conference-room-mullion-cap",
         "conference-room-wall-base-trim",
         "conference-room-conference-floor-edge-trim",
         "conference-room-carpet-border",
@@ -1416,10 +986,10 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/conference-room-premium-v1.jpg",
     "reviewedAssetSha256": "d12438f3e95d9d580d0beb21b18baa7547d921ce18f205a61b279219a82533e1",
-    "rationale": "The earlier scene recorded a human review of 143 terms across seven zones. This agent image review checked the front-wall display, its upper camera and lower speaker bar, the circular tabletop pods, cable trough and front table corner against the 1600 by 900 image. Socket types, tiny controls and concealed mount hardware remain available as related words.",
+    "rationale": "Agents reviewed all seven zones on the 1600 by 900 photograph. Each spatial term points to a visible fixture or part, including the far chair backrest, cabinet handles, floor access cover and whiteboard frame. The searchable related vocabulary includes concealed fittings and device functions that cannot be distinguished from their appearance.",
     "previousLabelCount": 151,
-    "retainedLabelCount": 130,
-    "removedLabelCount": 21,
+    "retainedLabelCount": 87,
+    "removedLabelCount": 64,
     "removedExamples": [
       "people",
       "company identity",
@@ -1434,8 +1004,8 @@
       "id": "conference-room-conference-room-entry",
       "word": "conference room entry",
       "translation": "会议室入口",
-      "x": 260,
-      "y": 360,
+      "x": 318,
+      "y": 512,
       "priority": 1,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-conference-room-entry"
@@ -1444,8 +1014,8 @@
       "id": "conference-room-glass-entry-door",
       "word": "glass entry door",
       "translation": "玻璃入口门",
-      "x": 250,
-      "y": 450,
+      "x": 220,
+      "y": 298,
       "priority": 1.001,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-glass-entry-door"
@@ -1454,8 +1024,8 @@
       "id": "conference-room-glass-door-frame",
       "word": "glass door frame",
       "translation": "玻璃门框",
-      "x": 210,
-      "y": 400,
+      "x": 253,
+      "y": 430,
       "priority": 1.002,
       "minLevel": 1,
       "sourceVisualRegion": "conference-room-region-glass-door-frame"
@@ -1464,8 +1034,8 @@
       "id": "conference-room-conference-glass-door-handle",
       "word": "conference glass door handle",
       "translation": "会议玻璃门把手",
-      "x": 245,
-      "y": 520,
+      "x": 220,
+      "y": 519,
       "priority": 1.003,
       "minLevel": 1,
       "sourceVisualRegion": "conference-room-region-conference-glass-door-handle"
@@ -1474,118 +1044,18 @@
       "id": "conference-room-door-handle-mount",
       "word": "door handle mount",
       "translation": "门把手底座",
-      "x": 245,
-      "y": 530,
+      "x": 289,
+      "y": 485,
       "priority": 1.004,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-door-handle-mount"
     },
     {
-      "id": "conference-room-conference-door-hinge",
-      "word": "conference door hinge",
-      "translation": "会议室门铰链",
-      "x": 290,
-      "y": 580,
-      "priority": 1.005,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-conference-door-hinge"
-    },
-    {
-      "id": "conference-room-conference-door-closer",
-      "word": "conference door closer",
-      "translation": "会议室闭门器",
-      "x": 280,
-      "y": 270,
-      "priority": 1.006,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-conference-door-closer"
-    },
-    {
-      "id": "conference-room-conference-door-latch",
-      "word": "conference door latch",
-      "translation": "会议室门锁扣",
-      "x": 270,
-      "y": 560,
-      "priority": 1.007,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-conference-door-latch"
-    },
-    {
-      "id": "conference-room-conference-door-jamb",
-      "word": "conference door jamb",
-      "translation": "会议室门框立柱",
-      "x": 315,
-      "y": 450,
-      "priority": 1.008,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-conference-door-jamb"
-    },
-    {
-      "id": "conference-room-entry-threshold",
-      "word": "entry threshold",
-      "translation": "入口门槛",
-      "x": 260,
-      "y": 760,
-      "priority": 1.009,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-entry-threshold"
-    },
-    {
-      "id": "conference-room-threshold-plate",
-      "word": "threshold plate",
-      "translation": "门槛板",
-      "x": 270,
-      "y": 780,
-      "priority": 1.01,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-threshold-plate"
-    },
-    {
-      "id": "conference-room-conference-doorway-seal",
-      "word": "conference doorway seal",
-      "translation": "会议室门口密封条",
-      "x": 310,
-      "y": 500,
-      "priority": 1.011,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-conference-doorway-seal"
-    },
-    {
-      "id": "conference-room-conference-glass-partition",
-      "word": "conference glass partition",
-      "translation": "会议室玻璃隔断",
-      "x": 160,
-      "y": 250,
-      "priority": 1.012,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-conference-glass-partition"
-    },
-    {
-      "id": "conference-room-partition-mullion",
-      "word": "partition mullion",
-      "translation": "隔断竖框",
-      "x": 170,
-      "y": 400,
-      "priority": 1.013,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-partition-mullion"
-    },
-    {
-      "id": "conference-room-partition-base-channel",
-      "word": "partition base channel",
-      "translation": "隔断底槽",
-      "x": 180,
-      "y": 700,
-      "priority": 1.014,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-partition-base-channel"
-    },
-    {
       "id": "conference-room-left-conference-window",
       "word": "left conference window",
       "translation": "左侧会议室窗",
-      "x": 40,
-      "y": 280,
+      "x": 58,
+      "y": 214,
       "priority": 1.015,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-left-conference-window"
@@ -1594,8 +1064,8 @@
       "id": "conference-room-conference-window-blind",
       "word": "conference window blind",
       "translation": "会议室窗百叶",
-      "x": 100,
-      "y": 180,
+      "x": 159,
+      "y": 68,
       "priority": 1.016,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-conference-window-blind"
@@ -1604,38 +1074,18 @@
       "id": "conference-room-blind-slat",
       "word": "blind slat",
       "translation": "百叶片",
-      "x": 110,
-      "y": 190,
+      "x": 176,
+      "y": 105,
       "priority": 1.017,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-blind-slat"
     },
     {
-      "id": "conference-room-blind-rail",
-      "word": "blind rail",
-      "translation": "百叶导轨",
-      "x": 120,
-      "y": 110,
-      "priority": 1.018,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-blind-rail"
-    },
-    {
-      "id": "conference-room-conference-window-sill",
-      "word": "conference window sill",
-      "translation": "会议室窗台",
-      "x": 140,
-      "y": 420,
-      "priority": 1.019,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-conference-window-sill"
-    },
-    {
       "id": "conference-room-conference-credenza",
       "word": "conference credenza",
       "translation": "会议室边柜",
-      "x": 450,
-      "y": 580,
+      "x": 398,
+      "y": 495,
       "priority": 1.02,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-conference-credenza"
@@ -1644,8 +1094,8 @@
       "id": "conference-room-credenza-cabinet",
       "word": "credenza cabinet",
       "translation": "边柜柜体",
-      "x": 300,
-      "y": 580,
+      "x": 200,
+      "y": 480,
       "priority": 1.021,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-credenza-cabinet"
@@ -1654,8 +1104,8 @@
       "id": "conference-room-credenza-drawer",
       "word": "credenza drawer",
       "translation": "边柜抽屉",
-      "x": 300,
-      "y": 650,
+      "x": 139,
+      "y": 608,
       "priority": 1.022,
       "minLevel": 1,
       "sourceVisualRegion": "conference-room-region-credenza-drawer"
@@ -1664,8 +1114,8 @@
       "id": "conference-room-credenza-drawer-handle",
       "word": "credenza drawer handle",
       "translation": "边柜抽屉把手",
-      "x": 300,
-      "y": 650,
+      "x": 124,
+      "y": 570,
       "priority": 1.023,
       "minLevel": 1,
       "sourceVisualRegion": "conference-room-region-credenza-drawer-handle"
@@ -1674,28 +1124,18 @@
       "id": "conference-room-credenza-cabinet-door",
       "word": "credenza cabinet door",
       "translation": "边柜柜门",
-      "x": 480,
-      "y": 600,
+      "x": 379,
+      "y": 546,
       "priority": 1.024,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-credenza-cabinet-door"
     },
     {
-      "id": "conference-room-credenza-cabinet-hinge",
-      "word": "credenza cabinet hinge",
-      "translation": "边柜柜门铰链",
-      "x": 480,
-      "y": 570,
-      "priority": 1.025,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-credenza-cabinet-hinge"
-    },
-    {
       "id": "conference-room-credenza-cabinet-pull",
       "word": "credenza cabinet pull",
       "translation": "边柜柜门拉手",
-      "x": 480,
-      "y": 620,
+      "x": 363,
+      "y": 462,
       "priority": 1.026,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-credenza-cabinet-pull"
@@ -1704,8 +1144,8 @@
       "id": "conference-room-conference-storage-shelf",
       "word": "conference storage shelf",
       "translation": "会议室储物搁板",
-      "x": 230,
-      "y": 330,
+      "x": 145,
+      "y": 537,
       "priority": 1.027,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-conference-storage-shelf"
@@ -1714,8 +1154,8 @@
       "id": "conference-room-conference-storage-box",
       "word": "conference storage box",
       "translation": "会议室储物箱",
-      "x": 180,
-      "y": 300,
+      "x": 132,
+      "y": 390,
       "priority": 1.028,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-conference-storage-box"
@@ -1724,8 +1164,8 @@
       "id": "conference-room-conference-binder",
       "word": "conference binder",
       "translation": "会议室文件夹",
-      "x": 350,
-      "y": 320,
+      "x": 352,
+      "y": 380,
       "priority": 1.029,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-conference-binder"
@@ -1734,8 +1174,8 @@
       "id": "conference-room-meeting-room-plant-pot",
       "word": "meeting-room plant pot",
       "translation": "会议室植物盆",
-      "x": 500,
-      "y": 300,
+      "x": 492,
+      "y": 378,
       "priority": 1.03,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-meeting-room-plant-pot"
@@ -1744,8 +1184,8 @@
       "id": "conference-room-credenza-countertop",
       "word": "credenza countertop",
       "translation": "边柜台面",
-      "x": 330,
-      "y": 400,
+      "x": 408,
+      "y": 407,
       "priority": 1.031,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-credenza-countertop"
@@ -1755,77 +1195,27 @@
       "word": "credenza countertop edge",
       "translation": "边柜台面边缘",
       "x": 400,
-      "y": 420,
+      "y": 417,
       "priority": 1.032,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-credenza-countertop-edge"
     },
     {
-      "id": "conference-room-file-holder",
-      "word": "file holder",
-      "translation": "文件架",
-      "x": 270,
-      "y": 340,
-      "priority": 1.033,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-file-holder"
-    },
-    {
-      "id": "conference-room-cable-box",
-      "word": "cable box",
-      "translation": "电缆盒",
-      "x": 560,
-      "y": 450,
-      "priority": 1.034,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-cable-box"
-    },
-    {
       "id": "conference-room-credenza-base",
       "word": "credenza base",
       "translation": "边柜底座",
-      "x": 350,
-      "y": 690,
+      "x": 155,
+      "y": 670,
       "priority": 1.035,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-credenza-base"
     },
     {
-      "id": "conference-room-credenza-foot",
-      "word": "credenza foot",
-      "translation": "边柜脚座",
-      "x": 500,
-      "y": 700,
-      "priority": 1.036,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-credenza-foot"
-    },
-    {
-      "id": "conference-room-conference-wall-shelf",
-      "word": "conference wall shelf",
-      "translation": "会议室墙面搁板",
-      "x": 580,
-      "y": 240,
-      "priority": 1.037,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-conference-wall-shelf"
-    },
-    {
-      "id": "conference-room-conference-shelf-bracket",
-      "word": "conference shelf bracket",
-      "translation": "会议室搁板支架",
-      "x": 580,
-      "y": 260,
-      "priority": 1.038,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-conference-shelf-bracket"
-    },
-    {
       "id": "conference-room-meeting-room-storage-bin",
       "word": "meeting-room storage bin",
       "translation": "会议室储物箱",
-      "x": 200,
-      "y": 500,
+      "x": 156,
+      "y": 514,
       "priority": 1.039,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-meeting-room-storage-bin"
@@ -1891,41 +1281,11 @@
       "sourceVisualRegion": "conference-room-region-cable-trough-cover"
     },
     {
-      "id": "conference-room-conference-table-power-module",
-      "word": "conference table power module",
-      "translation": "会议桌面电源模块",
-      "x": 765,
-      "y": 523,
-      "priority": 1.046,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-conference-table-power-module"
-    },
-    {
-      "id": "conference-room-table-microphone-pod",
-      "word": "table microphone pod",
-      "translation": "桌面麦克风单元",
-      "x": 687,
-      "y": 504,
-      "priority": 1.05,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-table-microphone-pod"
-    },
-    {
-      "id": "conference-room-table-speaker-pod",
-      "word": "table speaker pod",
-      "translation": "桌面扬声器单元",
-      "x": 918,
-      "y": 498,
-      "priority": 1.052,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-table-speaker-pod"
-    },
-    {
       "id": "conference-room-conference-table-leg",
       "word": "conference table leg",
       "translation": "会议桌桌腿",
-      "x": 650,
-      "y": 760,
+      "x": 641,
+      "y": 744,
       "priority": 1.055,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-conference-table-leg"
@@ -1934,8 +1294,8 @@
       "id": "conference-room-table-leg-foot",
       "word": "table leg foot",
       "translation": "桌腿脚座",
-      "x": 650,
-      "y": 850,
+      "x": 609,
+      "y": 774,
       "priority": 1.056,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-table-leg-foot"
@@ -1944,51 +1304,11 @@
       "id": "conference-room-table-modesty-panel",
       "word": "table modesty panel",
       "translation": "桌面挡板",
-      "x": 800,
-      "y": 700,
+      "x": 710,
+      "y": 645,
       "priority": 1.057,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-table-modesty-panel"
-    },
-    {
-      "id": "conference-room-table-stretcher",
-      "word": "table stretcher",
-      "translation": "桌腿横撑",
-      "x": 800,
-      "y": 820,
-      "priority": 1.058,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-table-stretcher"
-    },
-    {
-      "id": "conference-room-table-floor-cable-cover",
-      "word": "table floor cable cover",
-      "translation": "桌下地面线缆盖",
-      "x": 700,
-      "y": 870,
-      "priority": 1.059,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-table-floor-cable-cover"
-    },
-    {
-      "id": "conference-room-table-support-bracket",
-      "word": "table support bracket",
-      "translation": "桌面支撑架",
-      "x": 950,
-      "y": 700,
-      "priority": 1.063,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-table-support-bracket"
-    },
-    {
-      "id": "conference-room-tabletop-outlet",
-      "word": "tabletop outlet",
-      "translation": "桌面插口",
-      "x": 778,
-      "y": 521,
-      "priority": 1.064,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-tabletop-outlet"
     },
     {
       "id": "conference-room-table-cable-channel",
@@ -2001,21 +1321,11 @@
       "sourceVisualRegion": "conference-room-region-table-cable-channel"
     },
     {
-      "id": "conference-room-table-underside",
-      "word": "table underside",
-      "translation": "桌面底面",
-      "x": 900,
-      "y": 670,
-      "priority": 1.066,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-table-underside"
-    },
-    {
       "id": "conference-room-under-table-crossbar",
       "word": "under-table crossbar",
       "translation": "桌下横梁",
       "x": 850,
-      "y": 800,
+      "y": 646,
       "priority": 1.067,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-under-table-crossbar"
@@ -2024,8 +1334,8 @@
       "id": "conference-room-meeting-room-chair",
       "word": "meeting-room chair",
       "translation": "会议室椅",
-      "x": 520,
-      "y": 600,
+      "x": 494,
+      "y": 483,
       "priority": 1.068,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-meeting-room-chair"
@@ -2034,8 +1344,8 @@
       "id": "conference-room-meeting-room-chair-backrest",
       "word": "meeting-room chair backrest",
       "translation": "会议室椅背",
-      "x": 520,
-      "y": 520,
+      "x": 574,
+      "y": 448,
       "priority": 1.069,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-meeting-room-chair-backrest"
@@ -2044,8 +1354,8 @@
       "id": "conference-room-chair-seat-pan",
       "word": "chair seat pan",
       "translation": "椅座",
-      "x": 520,
-      "y": 620,
+      "x": 511,
+      "y": 594,
       "priority": 1.07,
       "minLevel": 1,
       "sourceVisualRegion": "conference-room-region-chair-seat-pan"
@@ -2054,8 +1364,8 @@
       "id": "conference-room-meeting-room-chair-armrest",
       "word": "meeting-room chair armrest",
       "translation": "会议室椅扶手",
-      "x": 560,
-      "y": 610,
+      "x": 465,
+      "y": 609,
       "priority": 1.071,
       "minLevel": 1,
       "sourceVisualRegion": "conference-room-region-meeting-room-chair-armrest"
@@ -2064,8 +1374,8 @@
       "id": "conference-room-chair-five-star-base",
       "word": "chair five-star base",
       "translation": "椅子五星脚",
-      "x": 520,
-      "y": 780,
+      "x": 484,
+      "y": 690,
       "priority": 1.072,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-chair-five-star-base"
@@ -2074,8 +1384,8 @@
       "id": "conference-room-meeting-room-chair-caster",
       "word": "meeting-room chair caster",
       "translation": "会议室椅脚轮",
-      "x": 500,
-      "y": 820,
+      "x": 405,
+      "y": 738,
       "priority": 1.073,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-meeting-room-chair-caster"
@@ -2084,8 +1394,8 @@
       "id": "conference-room-chair-back-mesh",
       "word": "chair back mesh",
       "translation": "椅背网面",
-      "x": 520,
-      "y": 550,
+      "x": 453,
+      "y": 466,
       "priority": 1.074,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-chair-back-mesh"
@@ -2094,8 +1404,8 @@
       "id": "conference-room-chair-height-column",
       "word": "chair height column",
       "translation": "椅子升降柱",
-      "x": 530,
-      "y": 730,
+      "x": 521,
+      "y": 663,
       "priority": 1.075,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-chair-height-column"
@@ -2104,8 +1414,8 @@
       "id": "conference-room-meeting-room-chair-wheel",
       "word": "meeting-room chair wheel",
       "translation": "会议室椅轮",
-      "x": 550,
-      "y": 820,
+      "x": 1174,
+      "y": 842,
       "priority": 1.076,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-meeting-room-chair-wheel"
@@ -2114,8 +1424,8 @@
       "id": "conference-room-near-conference-chair",
       "word": "near conference chair",
       "translation": "近侧会议椅",
-      "x": 700,
-      "y": 650,
+      "x": 1060,
+      "y": 706,
       "priority": 1.077,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-near-conference-chair"
@@ -2124,8 +1434,8 @@
       "id": "conference-room-near-chair-backrest",
       "word": "near chair backrest",
       "translation": "近侧椅背",
-      "x": 700,
-      "y": 560,
+      "x": 1095,
+      "y": 556,
       "priority": 1.078,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-near-chair-backrest"
@@ -2134,8 +1444,8 @@
       "id": "conference-room-near-chair-armrest",
       "word": "near chair armrest",
       "translation": "近侧椅扶手",
-      "x": 740,
-      "y": 650,
+      "x": 992,
+      "y": 633,
       "priority": 1.079,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-near-chair-armrest"
@@ -2144,8 +1454,8 @@
       "id": "conference-room-near-chair-base",
       "word": "near chair base",
       "translation": "近侧椅底座",
-      "x": 700,
-      "y": 800,
+      "x": 1091,
+      "y": 798,
       "priority": 1.08,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-near-chair-base"
@@ -2154,8 +1464,8 @@
       "id": "conference-room-middle-conference-chair",
       "word": "middle conference chair",
       "translation": "中侧会议椅",
-      "x": 900,
-      "y": 620,
+      "x": 650,
+      "y": 423,
       "priority": 1.081,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-middle-conference-chair"
@@ -2164,8 +1474,8 @@
       "id": "conference-room-middle-chair-backrest",
       "word": "middle chair backrest",
       "translation": "中侧椅背",
-      "x": 900,
-      "y": 530,
+      "x": 674,
+      "y": 450,
       "priority": 1.082,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-middle-chair-backrest"
@@ -2174,8 +1484,8 @@
       "id": "conference-room-middle-chair-armrest",
       "word": "middle chair armrest",
       "translation": "中侧椅扶手",
-      "x": 940,
-      "y": 620,
+      "x": 1060,
+      "y": 526,
       "priority": 1.083,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-middle-chair-armrest"
@@ -2184,8 +1494,8 @@
       "id": "conference-room-middle-chair-caster",
       "word": "middle chair caster",
       "translation": "中侧椅脚轮",
-      "x": 900,
-      "y": 800,
+      "x": 1212,
+      "y": 647,
       "priority": 1.084,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-middle-chair-caster"
@@ -2194,8 +1504,8 @@
       "id": "conference-room-far-conference-chair",
       "word": "far conference chair",
       "translation": "远侧会议椅",
-      "x": 1050,
-      "y": 520,
+      "x": 786,
+      "y": 393,
       "priority": 1.085,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-far-conference-chair"
@@ -2204,48 +1514,28 @@
       "id": "conference-room-far-chair-backrest",
       "word": "far chair backrest",
       "translation": "远侧椅背",
-      "x": 1050,
-      "y": 460,
+      "x": 798,
+      "y": 409,
       "priority": 1.086,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-far-chair-backrest"
     },
     {
-      "id": "conference-room-far-chair-seat",
-      "word": "far chair seat",
-      "translation": "远侧椅座",
-      "x": 1060,
-      "y": 540,
-      "priority": 1.087,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-far-chair-seat"
-    },
-    {
       "id": "conference-room-far-chair-armrest",
       "word": "far chair armrest",
       "translation": "远侧椅扶手",
-      "x": 1100,
-      "y": 540,
+      "x": 1110,
+      "y": 455,
       "priority": 1.088,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-far-chair-armrest"
     },
     {
-      "id": "conference-room-far-chair-base",
-      "word": "far chair base",
-      "translation": "远侧椅底座",
-      "x": 1060,
-      "y": 650,
-      "priority": 1.089,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-far-chair-base"
-    },
-    {
       "id": "conference-room-chair-seat-edge",
       "word": "chair seat edge",
       "translation": "椅座边缘",
-      "x": 760,
-      "y": 650,
+      "x": 544,
+      "y": 623,
       "priority": 1.09,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-chair-seat-edge"
@@ -2254,8 +1544,8 @@
       "id": "conference-room-chair-back-frame",
       "word": "chair back frame",
       "translation": "椅背框架",
-      "x": 800,
-      "y": 520,
+      "x": 1065,
+      "y": 646,
       "priority": 1.091,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-chair-back-frame"
@@ -2264,8 +1554,8 @@
       "id": "conference-room-meeting-room-chair-arm-pad",
       "word": "meeting-room chair arm pad",
       "translation": "会议室椅扶手垫",
-      "x": 820,
-      "y": 630,
+      "x": 443,
+      "y": 532,
       "priority": 1.092,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-meeting-room-chair-arm-pad"
@@ -2344,8 +1634,8 @@
       "id": "conference-room-meeting-whiteboard-frame",
       "word": "meeting whiteboard frame",
       "translation": "会议白板框",
-      "x": 1300,
-      "y": 280,
+      "x": 1086,
+      "y": 295,
       "priority": 1.104,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-meeting-whiteboard-frame"
@@ -2354,8 +1644,8 @@
       "id": "conference-room-meeting-whiteboard-tray",
       "word": "meeting whiteboard tray",
       "translation": "会议白板托盘",
-      "x": 1300,
-      "y": 400,
+      "x": 1296,
+      "y": 380,
       "priority": 1.105,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-meeting-whiteboard-tray"
@@ -2364,8 +1654,8 @@
       "id": "conference-room-marker-cup",
       "word": "marker cup",
       "translation": "白板笔杯",
-      "x": 1400,
-      "y": 400,
+      "x": 1327,
+      "y": 369,
       "priority": 1.106,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-marker-cup"
@@ -2374,8 +1664,8 @@
       "id": "conference-room-whiteboard-marker",
       "word": "whiteboard marker",
       "translation": "白板笔",
-      "x": 1400,
-      "y": 395,
+      "x": 1328,
+      "y": 355,
       "priority": 1.107,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-whiteboard-marker"
@@ -2384,28 +1674,18 @@
       "id": "conference-room-meeting-whiteboard-corner",
       "word": "meeting whiteboard corner",
       "translation": "会议白板转角",
-      "x": 1420,
-      "y": 180,
+      "x": 1365,
+      "y": 192,
       "priority": 1.108,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-meeting-whiteboard-corner"
     },
     {
-      "id": "conference-room-meeting-wall-acoustic-panel",
-      "word": "meeting wall acoustic panel",
-      "translation": "会议墙吸音板",
-      "x": 1200,
-      "y": 200,
-      "priority": 1.109,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-meeting-wall-acoustic-panel"
-    },
-    {
       "id": "conference-room-conference-wall-panel-seam",
       "word": "conference wall panel seam",
       "translation": "会议室墙面板接缝",
-      "x": 1200,
-      "y": 250,
+      "x": 1263,
+      "y": 165,
       "priority": 1.11,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-conference-wall-panel-seam"
@@ -2414,8 +1694,8 @@
       "id": "conference-room-conference-acoustic-ceiling-baffle",
       "word": "conference acoustic ceiling baffle",
       "translation": "会议室顶面吸音板",
-      "x": 800,
-      "y": 100,
+      "x": 1090,
+      "y": 49,
       "priority": 1.111,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-conference-acoustic-ceiling-baffle"
@@ -2424,48 +1704,28 @@
       "id": "conference-room-baffle-edge",
       "word": "baffle edge",
       "translation": "吸音板边缘",
-      "x": 800,
-      "y": 110,
+      "x": 1090,
+      "y": 59,
       "priority": 1.112,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-baffle-edge"
     },
     {
-      "id": "conference-room-baffle-suspension-rod",
-      "word": "baffle suspension rod",
-      "translation": "吸音板吊杆",
-      "x": 820,
-      "y": 70,
-      "priority": 1.113,
-      "minLevel": 1,
-      "sourceVisualRegion": "conference-room-region-baffle-suspension-rod"
-    },
-    {
       "id": "conference-room-recessed-ceiling-light",
       "word": "recessed ceiling light",
       "translation": "嵌入式顶灯",
-      "x": 500,
-      "y": 120,
+      "x": 472,
+      "y": 57,
       "priority": 1.114,
       "minLevel": 1,
       "sourceVisualRegion": "conference-room-region-recessed-ceiling-light"
     },
     {
-      "id": "conference-room-conference-light-trim",
-      "word": "conference light trim",
-      "translation": "会议室灯具饰边",
-      "x": 500,
-      "y": 120,
-      "priority": 1.115,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-conference-light-trim"
-    },
-    {
       "id": "conference-room-conference-pendant-light",
       "word": "conference pendant light",
       "translation": "会议室吊灯",
-      "x": 700,
-      "y": 180,
+      "x": 845,
+      "y": 141,
       "priority": 1.116,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-conference-pendant-light"
@@ -2474,8 +1734,8 @@
       "id": "conference-room-conference-pendant-shade",
       "word": "conference pendant shade",
       "translation": "会议室吊灯灯罩",
-      "x": 700,
-      "y": 180,
+      "x": 691,
+      "y": 70,
       "priority": 1.117,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-conference-pendant-shade"
@@ -2484,38 +1744,18 @@
       "id": "conference-room-pendant-cord",
       "word": "pendant cord",
       "translation": "吊灯电线",
-      "x": 700,
-      "y": 120,
+      "x": 690,
+      "y": 18,
       "priority": 1.118,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-pendant-cord"
     },
     {
-      "id": "conference-room-conference-ceiling-panel",
-      "word": "conference ceiling panel",
-      "translation": "会议室顶面板",
-      "x": 1000,
-      "y": 50,
-      "priority": 1.119,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-conference-ceiling-panel"
-    },
-    {
-      "id": "conference-room-conference-ceiling-seam",
-      "word": "conference ceiling seam",
-      "translation": "会议室顶面接缝",
-      "x": 1000,
-      "y": 80,
-      "priority": 1.12,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-conference-ceiling-seam"
-    },
-    {
       "id": "conference-room-meeting-diffuser",
       "word": "meeting HVAC diffuser",
       "translation": "会议室空调扩散器",
-      "x": 1200,
-      "y": 30,
+      "x": 943,
+      "y": 28,
       "priority": 1.121,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-meeting-diffuser"
@@ -2524,138 +1764,48 @@
       "id": "conference-room-diffuser-grille",
       "word": "diffuser grille",
       "translation": "扩散器格栅",
-      "x": 1200,
-      "y": 30,
+      "x": 918,
+      "y": 22,
       "priority": 1.122,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-diffuser-grille"
     },
     {
-      "id": "conference-room-conference-spotlight-housing",
-      "word": "conference spotlight housing",
-      "translation": "会议室射灯外壳",
-      "x": 1100,
-      "y": 140,
-      "priority": 1.123,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-conference-spotlight-housing"
-    },
-    {
-      "id": "conference-room-ceiling-cable",
-      "word": "ceiling cable",
-      "translation": "顶面电缆",
-      "x": 900,
-      "y": 150,
-      "priority": 1.124,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-ceiling-cable"
-    },
-    {
-      "id": "conference-room-upper-wall-cove",
-      "word": "upper wall cove",
-      "translation": "上部墙面凹槽",
-      "x": 1350,
-      "y": 190,
-      "priority": 1.125,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-upper-wall-cove"
-    },
-    {
       "id": "conference-room-ceiling-corner",
       "word": "ceiling corner",
       "translation": "顶面转角",
-      "x": 1450,
-      "y": 180,
+      "x": 682,
+      "y": 145,
       "priority": 1.126,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-ceiling-corner"
     },
     {
-      "id": "conference-room-acoustic-wall-felt",
-      "word": "acoustic wall felt",
-      "translation": "吸音墙毡",
-      "x": 1350,
-      "y": 210,
-      "priority": 1.127,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-acoustic-wall-felt"
-    },
-    {
       "id": "conference-room-conference-room-carpet",
       "word": "conference room carpet",
       "translation": "会议室地毯",
-      "x": 900,
-      "y": 750,
+      "x": 1295,
+      "y": 696,
       "priority": 1.128,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-conference-room-carpet"
     },
     {
-      "id": "conference-room-conference-carpet-tile",
-      "word": "conference carpet tile",
-      "translation": "会议室地毯块",
-      "x": 300,
-      "y": 800,
-      "priority": 1.129,
-      "minLevel": 0,
-      "sourceVisualRegion": "conference-room-region-conference-carpet-tile"
-    },
-    {
-      "id": "conference-room-conference-carpet-seam",
-      "word": "conference carpet seam",
-      "translation": "会议室地毯接缝",
-      "x": 1100,
-      "y": 780,
-      "priority": 1.13,
-      "minLevel": 1,
-      "sourceVisualRegion": "conference-room-region-conference-carpet-seam"
-    },
-    {
       "id": "conference-room-floor-access-cover",
       "word": "floor access cover",
       "translation": "地面检修盖",
-      "x": 800,
-      "y": 850,
+      "x": 626,
+      "y": 847,
       "priority": 1.131,
       "minLevel": 1,
       "sourceVisualRegion": "conference-room-region-floor-access-cover"
     },
     {
-      "id": "conference-room-floor-power-box",
-      "word": "floor power box",
-      "translation": "地面电源盒",
-      "x": 820,
-      "y": 850,
-      "priority": 1.132,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-floor-power-box"
-    },
-    {
-      "id": "conference-room-floor-threshold-strip",
-      "word": "floor threshold strip",
-      "translation": "地面门槛条",
-      "x": 250,
-      "y": 700,
-      "priority": 1.133,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-floor-threshold-strip"
-    },
-    {
-      "id": "conference-room-conference-floor-expansion-joint",
-      "word": "conference floor expansion joint",
-      "translation": "会议室地面伸缩缝",
-      "x": 1000,
-      "y": 870,
-      "priority": 1.134,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-conference-floor-expansion-joint"
-    },
-    {
       "id": "conference-room-conference-glass-wall",
       "word": "conference glass wall",
       "translation": "会议室玻璃墙",
-      "x": 1500,
-      "y": 500,
+      "x": 1454,
+      "y": 517,
       "priority": 1.135,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-conference-glass-wall"
@@ -2664,8 +1814,8 @@
       "id": "conference-room-right-glass-panel",
       "word": "right glass panel",
       "translation": "右侧玻璃板",
-      "x": 1500,
-      "y": 700,
+      "x": 1572,
+      "y": 609,
       "priority": 1.136,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-right-glass-panel"
@@ -2674,28 +1824,18 @@
       "id": "conference-room-glass-wall-mullion",
       "word": "glass wall mullion",
       "translation": "玻璃墙竖框",
-      "x": 1450,
-      "y": 650,
+      "x": 1534,
+      "y": 596,
       "priority": 1.137,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-glass-wall-mullion"
     },
     {
-      "id": "conference-room-mullion-cap",
-      "word": "mullion cap",
-      "translation": "竖框端盖",
-      "x": 1450,
-      "y": 700,
-      "priority": 1.138,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-mullion-cap"
-    },
-    {
       "id": "conference-room-wall-base-trim",
       "word": "wall base trim",
       "translation": "墙根饰条",
-      "x": 1300,
-      "y": 850,
+      "x": 1320,
+      "y": 532,
       "priority": 1.139,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-wall-base-trim"
@@ -2704,8 +1844,8 @@
       "id": "conference-room-conference-floor-edge-trim",
       "word": "conference floor edge trim",
       "translation": "会议室地面边饰条",
-      "x": 1200,
-      "y": 870,
+      "x": 1498,
+      "y": 643,
       "priority": 1.14,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-conference-floor-edge-trim"
@@ -2714,8 +1854,8 @@
       "id": "conference-room-carpet-border",
       "word": "carpet border",
       "translation": "地毯边界",
-      "x": 1050,
-      "y": 700,
+      "x": 1544,
+      "y": 709,
       "priority": 1.141,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-carpet-border"
@@ -2724,14 +1864,109 @@
       "id": "conference-room-meeting-room-corner",
       "word": "meeting room corner",
       "translation": "会议室转角",
-      "x": 1400,
-      "y": 850,
+      "x": 1404,
+      "y": 543,
       "priority": 1.142,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-meeting-room-corner"
     }
   ],
   "relatedWords": [
+    {
+      "id": "conference-room-conference-door-hinge",
+      "word": "conference door hinge",
+      "translation": "会议室门铰链"
+    },
+    {
+      "id": "conference-room-conference-door-closer",
+      "word": "conference door closer",
+      "translation": "会议室闭门器"
+    },
+    {
+      "id": "conference-room-conference-door-latch",
+      "word": "conference door latch",
+      "translation": "会议室门锁扣"
+    },
+    {
+      "id": "conference-room-conference-door-jamb",
+      "word": "conference door jamb",
+      "translation": "会议室门框立柱"
+    },
+    {
+      "id": "conference-room-entry-threshold",
+      "word": "entry threshold",
+      "translation": "入口门槛"
+    },
+    {
+      "id": "conference-room-threshold-plate",
+      "word": "threshold plate",
+      "translation": "门槛板"
+    },
+    {
+      "id": "conference-room-conference-doorway-seal",
+      "word": "conference doorway seal",
+      "translation": "会议室门口密封条"
+    },
+    {
+      "id": "conference-room-conference-glass-partition",
+      "word": "conference glass partition",
+      "translation": "会议室玻璃隔断"
+    },
+    {
+      "id": "conference-room-partition-mullion",
+      "word": "partition mullion",
+      "translation": "隔断竖框"
+    },
+    {
+      "id": "conference-room-partition-base-channel",
+      "word": "partition base channel",
+      "translation": "隔断底槽"
+    },
+    {
+      "id": "conference-room-blind-rail",
+      "word": "blind rail",
+      "translation": "百叶导轨"
+    },
+    {
+      "id": "conference-room-conference-window-sill",
+      "word": "conference window sill",
+      "translation": "会议室窗台"
+    },
+    {
+      "id": "conference-room-credenza-cabinet-hinge",
+      "word": "credenza cabinet hinge",
+      "translation": "边柜柜门铰链"
+    },
+    {
+      "id": "conference-room-file-holder",
+      "word": "file holder",
+      "translation": "文件架"
+    },
+    {
+      "id": "conference-room-cable-box",
+      "word": "cable box",
+      "translation": "电缆盒"
+    },
+    {
+      "id": "conference-room-credenza-foot",
+      "word": "credenza foot",
+      "translation": "边柜脚座"
+    },
+    {
+      "id": "conference-room-conference-wall-shelf",
+      "word": "conference wall shelf",
+      "translation": "会议室墙面搁板"
+    },
+    {
+      "id": "conference-room-conference-shelf-bracket",
+      "word": "conference shelf bracket",
+      "translation": "会议室搁板支架"
+    },
+    {
+      "id": "conference-room-conference-table-power-module",
+      "word": "conference table power module",
+      "translation": "会议桌面电源模块"
+    },
     {
       "id": "conference-room-conference-power-socket",
       "word": "conference power socket",
@@ -2748,9 +1983,19 @@
       "translation": "数据插座"
     },
     {
+      "id": "conference-room-table-microphone-pod",
+      "word": "table microphone pod",
+      "translation": "桌面麦克风单元"
+    },
+    {
       "id": "conference-room-microphone-mute-button",
       "word": "microphone mute button",
       "translation": "麦克风静音按钮"
+    },
+    {
+      "id": "conference-room-table-speaker-pod",
+      "word": "table speaker pod",
+      "translation": "桌面扬声器单元"
     },
     {
       "id": "conference-room-table-cable-clip",
@@ -2761,6 +2006,16 @@
       "id": "conference-room-table-cable-grommet",
       "word": "table cable grommet",
       "translation": "桌面穿线孔"
+    },
+    {
+      "id": "conference-room-table-stretcher",
+      "word": "table stretcher",
+      "translation": "桌腿横撑"
+    },
+    {
+      "id": "conference-room-table-floor-cable-cover",
+      "word": "table floor cable cover",
+      "translation": "桌下地面线缆盖"
     },
     {
       "id": "conference-room-tabletop-control-unit",
@@ -2776,6 +2031,31 @@
       "id": "conference-room-table-seam",
       "word": "table seam",
       "translation": "桌面接缝"
+    },
+    {
+      "id": "conference-room-table-support-bracket",
+      "word": "table support bracket",
+      "translation": "桌面支撑架"
+    },
+    {
+      "id": "conference-room-tabletop-outlet",
+      "word": "tabletop outlet",
+      "translation": "桌面插口"
+    },
+    {
+      "id": "conference-room-table-underside",
+      "word": "table underside",
+      "translation": "桌面底面"
+    },
+    {
+      "id": "conference-room-far-chair-seat",
+      "word": "far chair seat",
+      "translation": "远侧椅座"
+    },
+    {
+      "id": "conference-room-far-chair-base",
+      "word": "far chair base",
+      "translation": "远侧椅底座"
     },
     {
       "id": "conference-room-meeting-display-mount",
@@ -2796,6 +2076,81 @@
       "id": "conference-room-speaker-bar-grille",
       "word": "speaker bar grille",
       "translation": "扬声器条格栅"
+    },
+    {
+      "id": "conference-room-meeting-wall-acoustic-panel",
+      "word": "meeting wall acoustic panel",
+      "translation": "会议墙吸音板"
+    },
+    {
+      "id": "conference-room-baffle-suspension-rod",
+      "word": "baffle suspension rod",
+      "translation": "吸音板吊杆"
+    },
+    {
+      "id": "conference-room-conference-light-trim",
+      "word": "conference light trim",
+      "translation": "会议室灯具饰边"
+    },
+    {
+      "id": "conference-room-conference-ceiling-panel",
+      "word": "conference ceiling panel",
+      "translation": "会议室顶面板"
+    },
+    {
+      "id": "conference-room-conference-ceiling-seam",
+      "word": "conference ceiling seam",
+      "translation": "会议室顶面接缝"
+    },
+    {
+      "id": "conference-room-conference-spotlight-housing",
+      "word": "conference spotlight housing",
+      "translation": "会议室射灯外壳"
+    },
+    {
+      "id": "conference-room-ceiling-cable",
+      "word": "ceiling cable",
+      "translation": "顶面电缆"
+    },
+    {
+      "id": "conference-room-upper-wall-cove",
+      "word": "upper wall cove",
+      "translation": "上部墙面凹槽"
+    },
+    {
+      "id": "conference-room-acoustic-wall-felt",
+      "word": "acoustic wall felt",
+      "translation": "吸音墙毡"
+    },
+    {
+      "id": "conference-room-conference-carpet-tile",
+      "word": "conference carpet tile",
+      "translation": "会议室地毯块"
+    },
+    {
+      "id": "conference-room-conference-carpet-seam",
+      "word": "conference carpet seam",
+      "translation": "会议室地毯接缝"
+    },
+    {
+      "id": "conference-room-floor-power-box",
+      "word": "floor power box",
+      "translation": "地面电源盒"
+    },
+    {
+      "id": "conference-room-floor-threshold-strip",
+      "word": "floor threshold strip",
+      "translation": "地面门槛条"
+    },
+    {
+      "id": "conference-room-conference-floor-expansion-joint",
+      "word": "conference floor expansion joint",
+      "translation": "会议室地面伸缩缝"
+    },
+    {
+      "id": "conference-room-mullion-cap",
+      "word": "mullion cap",
+      "translation": "竖框端盖"
     }
   ],
   "portals": [
