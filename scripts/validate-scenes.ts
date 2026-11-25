@@ -237,9 +237,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The latest professional-depth passes add reviewed equipment, medicine,
   // airside, imaging, dispensing and conference-room bands to each facility.
   hospital: 440,
-  // The radiology-suite photograph resolves 87 independently pointable
-  // imaging, control, preparation and room-hardware parts.
-  "radiology-suite": 87,
+  // The remaining 13 radiology terms have no separate visible feature in this image.
+  "radiology-suite": 74,
   "emergency-department": 108,
   "emergency-triage-reception": 302,
   // Keep the assessment scene bounded to its seven visually reviewed object groups.

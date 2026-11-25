@@ -4879,11 +4879,11 @@
       "label": "Enter the radiology suite",
       "translation": "进入放射影像科",
       "childSceneId": "radiology-suite",
-      "sourceVisualRegion": "radiology-suite",
-      "x": 700,
-      "y": 280,
-      "width": 310,
-      "height": 300,
+      "sourceVisualRegion": "portal-radiology-scanner-bore",
+      "x": 865,
+      "y": 450,
+      "width": 70,
+      "height": 60,
       "enterScale": 3.4
     },
     {
@@ -4957,6 +4957,15 @@
       "y": 230,
       "width": 370,
       "height": 430
+    },
+    {
+      "id": "portal-radiology-scanner-bore",
+      "description": "Round scanner opening and inner rim above the patient table in the central blue-lit room",
+      "kind": "part",
+      "x": 865,
+      "y": 450,
+      "width": 70,
+      "height": 60
     },
     {
       "id": "pharmacy-dispensary",

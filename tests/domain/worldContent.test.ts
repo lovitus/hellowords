@@ -3161,7 +3161,7 @@ test("urban services adds hospital, airport and office vocabulary without breaki
   );
   for (const [sceneId, count, zones, parent, required] of [
     ["hospital", 440, 6, "urban-services", ["emergency department", "pathology laboratory", "mri scanner", "pharmacy", "cancer", "paracetamol", "cardiology", "hypertension", "suction unit", "table strap", "defibrillator", "pulse oximeter", "mri bore", "positioning laser", "surgical light handle"]],
-    ["radiology-suite", 87, 6, "hospital", ["ct bay", "mri bay", "radiography room", "mammography room", "ultrasound bay", "contrast injector tower", "radiation indicator", "wall clock face", "x-ray collimator", "ultrasound probe head", "sink basin drain", "ceiling light panel"]],
+    ["radiology-suite", 74, 6, "hospital", ["ct bay", "mri bay", "radiography room", "mammography room", "ultrasound bay", "ultrasound monitor", "radiation indicator", "wall clock face", "x-ray collimator", "ultrasound cart wheel", "sink basin drain", "exam couch cushion"]],
     ["emergency-department", 108, 5, "hospital", ["triage bay", "triage workstation", "ed resuscitation bay", "ed examination couch", "clinical pass-through", "ed door vision panel"]],
     ["emergency-triage-reception", 302, 7, "emergency-department", ["triage-left registration monitor", "patient check-in station", "triage patient chair", "triage-reception wheelchair", "triage-room door handle", "open circulation floor"]],
     ["emergency-assessment-bay", 148, 7, "emergency-triage-reception", ["assessment couch", "vitals monitor", "bedhead panel", "bay supply cart", "bay sink", "bay privacy curtain"]],

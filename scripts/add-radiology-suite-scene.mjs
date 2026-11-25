@@ -26,6 +26,8 @@ const PUBLIC_ASSET_SHA256 = "b61a9331f765812aabc429d86ea935ba00e947fb86b45e48774
 const SCALE_X = SCENE_WIDTH / SOURCE_WIDTH;
 const SCALE_Y = SCENE_HEIGHT / SOURCE_HEIGHT;
 
+// Each anchor and its crop are measured on the original 1672 × 941 illustration.
+// Rows hold the term, translation, point, first zoom level, crop and visible feature.
 const sourceZones = [
   {
     id: "ct-bay",
@@ -34,48 +36,45 @@ const sourceZones = [
     description: "Inspect the CT gantry, aperture, couch, control details and the adjacent wash area.",
     x: 0,
     y: 80,
-    width: 480,
+    width: 554,
     height: 430,
     targetScale: 2.35,
     labels: [
-      ["CT bay", "CT 检查区", 190, 270, 0],
-      ["CT gantry housing", "CT 机架外壳", 185, 230, 0],
-      ["CT aperture", "CT 孔径", 185, 285, 1],
-      ["CT patient couch", "CT 患者检查床", 235, 370, 1],
-      ["CT couch cushion", "CT 床垫", 265, 350, 2],
-      ["CT couch base", "CT 床座", 260, 430, 2],
-      ["CT couch handle", "CT 床把手", 285, 380, 3],
-      ["CT alignment light", "CT 定位灯", 185, 195, 3],
-      ["CT scanner display", "CT 扫描器显示屏", 185, 178, 4],
-      ["CT control panel", "CT 控制面板", 300, 255, 3],
-      ["CT room sink", "CT 室水槽", 360, 205, 0],
-      ["CT room cabinet", "CT 室柜体", 400, 270, 1],
-      ["CT bay glass partition", "CT 区玻璃隔断", 420, 440, 2],
+      ["CT gantry housing", "CT 机架外壳", 57, 228, 0, [23, 185, 68, 79], "White ring-shaped scanner housing at the far left"],
+      ["CT patient couch", "CT 患者检查床", 327, 411, 1, [143, 285, 198, 167], "White sliding CT table carrying the long blue pad"],
+      ["CT bay", "CT 检查区", 365, 367, 1, [12, 132, 401, 314], "Left imaging bay containing the ring scanner, couch and cabinet"],
+      ["CT aperture", "CT 孔径", 164, 255, 2, [127, 228, 77, 59], "Round open bore through the center of the CT gantry"],
+      ["CT couch cushion", "CT 床垫", 213, 344, 2, [195, 329, 44, 31], "Long blue cushion lying on the CT table"],
+      ["CT couch base", "CT 床座", 248, 477, 3, [227, 466, 67, 20], "Low pedestal foot under the sliding CT table, visible through the glass"],
+      ["CT scanner display", "CT 扫描器显示屏", 165, 187, 3, [151, 180, 30, 16], "Small dark rectangular display above the CT bore"],
+      ["CT control panel", "CT 控制面板", 79, 270, 4, [66, 258, 26, 26], "Round cluster of controls on the left side of the gantry face"],
+      ["CT room sink", "CT 室水槽", 305, 212, 3, [295, 208, 23, 10], "Small metal basin below the faucet behind the CT scanner"],
+      ["CT room cabinet", "CT 室柜体", 357, 250, 2, [341, 224, 55, 51], "Wooden cupboard under the CT room countertop"],
+      ["CT bay glass partition", "CT 区玻璃隔断", 490, 375, 4, [479, 348, 33, 61], "Blue-tinted glass running along the right side of the CT bay"],
     ],
   },
   {
     id: "mri-bay",
     title: "MRI bay",
     translation: "MRI 检查区",
-    description: "Follow the MRI magnet, tunnel, patient couch, head cradle, trolley and console desk.",
+    description: "Locate the magnet and head cradle, then follow the patient couch toward the separate console behind the glass.",
     x: 390,
     y: 40,
     width: 590,
     height: 430,
     targetScale: 2.4,
     labels: [
-      ["MRI bay", "MRI 检查区", 650, 200, 0],
-      ["MRI magnet housing", "MRI 磁体外壳", 650, 180, 0],
-      ["MRI tunnel", "MRI 隧道", 650, 260, 1],
-      ["MRI patient couch", "MRI 患者检查床", 760, 335, 1],
-      ["MRI couch pedestal", "MRI 床立柱", 760, 405, 2],
-      ["MRI head cradle", "MRI 头部托架", 680, 300, 2],
-      ["MRI cable loop", "MRI 电缆环", 700, 365, 3],
-      ["MRI control monitor", "MRI 控制监视器", 900, 300, 3],
-      ["MRI equipment trolley", "MRI 设备推车", 830, 220, 2],
-      ["MRI console desk", "MRI 控制台桌", 895, 350, 4],
-      ["ceiling light panel", "顶灯面板", 800, 55, 0],
-      ["glass partition post", "玻璃隔断立柱", 800, 420, 3],
+      ["MRI magnet housing", "MRI 磁体外壳", 550, 188, 0, [524, 155, 41, 66], "Outer white shell of the MRI magnet in the teal-walled bay"],
+      ["MRI patient couch", "MRI 患者检查床", 788, 331, 1, [627, 245, 189, 110], "Sliding patient table projecting from the MRI bore"],
+      ["MRI bay", "MRI 检查区", 833, 294, 1, [511, 80, 346, 327], "Central teal-walled imaging bay containing the MRI magnet and couch"],
+      ["MRI tunnel", "MRI 隧道", 681, 198, 2, [633, 181, 58, 31], "Shadowed interior of the MRI bore behind the head cradle"],
+      ["MRI couch pedestal", "MRI 床立柱", 733, 373, 2, [700, 360, 63, 27], "Stacked white pedestal supporting the MRI table"],
+      ["MRI head cradle", "MRI 头部托架", 668, 221, 3, [643, 209, 49, 38], "Small arched white head support at the mouth of the MRI bore"],
+      ["MRI cable loop", "MRI 电缆环", 662, 365, 4, [651, 343, 20, 31], "Dark hanging cable looping beside the MRI pedestal"],
+      ["MRI control monitor", "MRI 控制监视器", 949, 320, 2, [918, 304, 52, 32], "Dark monitor on the separate desk behind the glass"],
+      ["MRI equipment trolley", "MRI 设备推车", 797, 206, 3, [768, 140, 62, 113], "Open wheeled cart with shelves against the teal MRI wall"],
+      ["MRI console desk", "MRI 控制台桌", 914, 374, 3, [895, 368, 37, 16], "Desktop beneath the MRI control monitor"],
+      ["glass partition post", "玻璃隔断立柱", 895, 216, 4, [891, 181, 9, 76], "Upright blue metal post on the glass wall behind the MRI monitor"],
     ],
   },
   {
@@ -89,22 +88,19 @@ const sourceZones = [
     height: 420,
     targetScale: 2.45,
     labels: [
-      ["radiography room", "放射摄影室", 1350, 250, 0],
-      ["mammography room", "乳腺摄影室", 1015, 170, 0],
-      ["mammography machine", "乳腺摄影机", 1015, 165, 1],
-      ["mammography compression paddle", "乳腺摄影压迫板", 1015, 200, 2],
-      ["mammography detector plate", "乳腺摄影探测板", 1015, 225, 3],
-      ["mammography support arm", "乳腺摄影支臂", 1020, 125, 2],
-      ["X-ray tube arm", "X 光管支臂", 1260, 140, 1],
-      ["X-ray collimator", "X 光准直器", 1275, 165, 2],
-      ["X-ray detector stand", "X 光探测器支架", 1470, 220, 1],
-      ["X-ray detector cassette", "X 光探测器盒", 1470, 235, 3],
-      ["X-ray wall stand", "X 光壁挂支架", 1230, 225, 2],
-      ["radiographic table", "放射摄影床", 1350, 325, 0],
-      ["radiographic table pad", "放射摄影床垫", 1350, 300, 2],
-      ["lead barrier", "防护屏", 1550, 300, 1],
-      ["detector stand base", "探测器支架底座", 1470, 390, 4],
-      ["privacy screen caster", "隐私屏脚轮", 1550, 370, 4],
+      ["mammography machine", "乳腺摄影机", 1070, 183, 0, [1002, 63, 88, 173], "Upright mammography unit in the small purple-walled room"],
+      ["radiographic table", "放射摄影床", 1361, 321, 0, [1270, 226, 195, 131], "White X-ray examination table on a tiered pedestal"],
+      ["X-ray tube arm", "X 光管支臂", 1294, 79, 1, [1253, 65, 80, 32], "Horizontal arm projecting from the wall to suspend the X-ray tube"],
+      ["radiography room", "放射摄影室", 1442, 367, 1, [1142, 54, 519, 357], "Upper right room containing the suspended tube and the X-ray table"],
+      ["mammography room", "乳腺摄影室", 1105, 157, 2, [950, 44, 170, 197], "Narrow purple-walled room around the mammography machine"],
+      ["mammography compression paddle", "乳腺摄影压迫板", 1021, 136, 4, [1008, 131, 29, 10], "Thin upper paddle above the thicker black mammography support plate"],
+      ["mammography detector plate", "乳腺摄影探测板", 1029, 164, 3, [1008, 157, 40, 15], "Lower black plate beneath the mammography compression paddle"],
+      ["mammography support arm", "乳腺摄影支臂", 1046, 110, 3, [1039, 98, 14, 24], "Upright section of the moving arm just above its round pivot"],
+      ["X-ray collimator", "X 光准直器", 1380, 169, 3, [1369, 160, 23, 18], "Small rectangular beam-limiting head under the suspended X-ray tube"],
+      ["X-ray detector stand", "X 光探测器支架", 1512, 253, 2, [1495, 131, 32, 174], "Tall detector carrier on a wheeled column beside the X-ray table"],
+      ["radiographic table pad", "放射摄影床垫", 1352, 257, 2, [1336, 248, 40, 17], "Pale top pad on the radiographic table"],
+      ["detector stand base", "探测器支架底座", 1508, 317, 4, [1474, 311, 64, 13], "Low rectangular base supporting the detector column"],
+      ["privacy screen caster", "隐私屏脚轮", 1583, 406, 4, [1577, 398, 12, 16], "Small front caster beneath the freestanding gray screen"],
     ],
   },
   {
@@ -118,80 +114,89 @@ const sourceZones = [
     height: 430,
     targetScale: 2.45,
     labels: [
-      ["control room", "控制室", 220, 560, 0],
-      ["control workstation", "控制工作站", 160, 550, 0],
-      ["control desk", "控制台桌", 240, 565, 1],
-      ["workstation monitor", "工作站监视器", 140, 540, 1],
-      ["console chair", "控制台椅", 180, 670, 2],
-      ["control keyboard", "控制键盘", 160, 620, 3],
-      ["console keypad", "控制台按键板", 250, 555, 4],
-      ["control-room glazing", "控制室玻璃窗", 430, 500, 2],
-      ["glass partition frame", "玻璃隔断框", 430, 520, 3],
+      ["control workstation", "控制工作站", 138, 577, 0, [76, 499, 286, 124], "Foreground workstation with monitor, keyboard and white control console"],
+      ["control room", "控制室", 392, 680, 1, [28, 465, 443, 285], "Glazed work area in front of the CT bay"],
+      ["workstation monitor", "工作站监视器", 132, 540, 1, [82, 506, 91, 65], "Black monitor on the left side of the foreground desk"],
+      ["control desk", "控制台桌", 321, 571, 2, [303, 562, 46, 17], "Exposed silver desktop at the right of the white console keypad"],
+      ["console chair", "控制台椅", 196, 642, 2, [153, 607, 79, 62], "Black swivel chair in front of the control desk"],
+      ["control keyboard", "控制键盘", 151, 593, 3, [126, 586, 49, 14], "Black computer keyboard in front of the workstation monitor"],
+      ["console keypad", "控制台按键板", 238, 558, 4, [209, 550, 50, 15], "Separate white keypad on the desk to the right of the keyboard"],
+      ["control-room glazing", "控制室玻璃窗", 413, 544, 2, [382, 511, 62, 77], "Blue-tinted glass beside the foreground desk"],
+      ["glass partition frame", "玻璃隔断框", 465, 558, 3, [459, 511, 14, 93], "Right-hand upright of the frame surrounding the control-room glass"],
     ],
   },
   {
     id: "ultrasound-bay",
     title: "Ultrasound bay",
     translation: "超声检查区",
-    description: "Follow the portable ultrasound machine, probe, gel bottle, cart and examination couch.",
+    description: "Find the blue-capped gel bottle next to the ultrasound controls, then compare the wheels under the cart and couch.",
     x: 500,
     y: 430,
     width: 620,
     height: 511,
     targetScale: 2.55,
     labels: [
-      ["ultrasound bay", "超声检查区", 750, 700, 0],
-      ["ultrasound machine", "超声机", 680, 700, 0],
-      ["ultrasound monitor", "超声监视器", 660, 580, 1],
-      ["ultrasound control panel", "超声控制面板", 680, 650, 2],
-      ["ultrasound probe handle", "超声探头手柄", 730, 660, 2],
-      ["ultrasound probe head", "超声探头头端", 730, 700, 3],
-      ["ultrasound gel bottle", "超声耦合剂瓶", 760, 635, 3],
-      ["ultrasound cable loop", "超声电缆环", 720, 720, 4],
-      ["ultrasound cart", "超声推车", 680, 760, 1],
-      ["ultrasound cart drawer", "超声推车抽屉", 680, 790, 3],
-      ["ultrasound cart wheel", "超声推车脚轮", 640, 825, 4],
-      ["exam couch wheel", "检查床脚轮", 900, 835, 4],
-      ["exam couch cushion", "检查床垫", 900, 700, 2],
-      ["ultrasound machine base", "超声机底座", 680, 815, 3],
-      ["floor guide stripe", "地面导向条", 850, 460, 4],
+      ["ultrasound machine", "超声机", 681, 640, 0, [615, 539, 158, 323], "Portable ultrasound unit with a raised monitor and an angled control console beside the blue couch"],
+      ["exam couch cushion", "检查床垫", 918, 731, 0, [868, 694, 84, 64], "Middle blue upholstered section of the ultrasound examination couch"],
+      ["ultrasound monitor", "超声监视器", 687, 571, 1, [645, 543, 90, 58], "Large upright black screen above the ultrasound console"],
+      ["ultrasound bay", "超声检查区", 837, 855, 1, [544, 538, 535, 392], "Foreground examination area with a portable ultrasound unit, stool and blue couch"],
+      ["ultrasound control panel", "超声控制面板", 711, 676, 2, [664, 654, 79, 32], "Angled keypad and circular trackball directly below the two screens"],
+      ["ultrasound gel bottle", "超声耦合剂瓶", 758, 650, 3, [751, 627, 16, 38], "Upright white squeeze bottle with a blue nozzle in the console's right holder"],
+      ["ultrasound cable loop", "超声电缆环", 761, 724, 4, [757, 701, 16, 29], "Hanging U-shaped cable immediately below the gel bottle"],
+      ["ultrasound cart", "超声推车", 642, 757, 2, [627, 714, 51, 85], "Light gray mobile cart body supporting the ultrasound console"],
+      ["ultrasound cart wheel", "超声推车脚轮", 668, 853, 4, [658, 840, 21, 26], "Near left caster directly attached to the ultrasound cart base"],
+      ["exam couch wheel", "检查床脚轮", 900, 913, 4, [886, 893, 28, 36], "Large near caster under the white examination couch pedestal"],
+      ["ultrasound machine base", "超声机底座", 703, 822, 3, [689, 816, 31, 12], "Dark bottom platform of the ultrasound unit above its casters"],
+      ["floor guide stripe", "地面导向条", 780, 538, 3, [761, 531, 42, 16], "Broad blue floor stripe behind the ultrasound monitor"],
     ],
   },
   {
     id: "preparation-and-supplies",
     title: "Preparation and supplies",
     translation: "准备与物资区",
-    description: "Inspect contrast preparation, protective garments, storage, handwashing and room hardware.",
-    x: 900,
-    y: 400,
-    width: 772,
-    height: 541,
+    description: "Find the hooked IV pole and supply cart, the garments on their rail and the sink in front of the cabinets.",
+    x: 858,
+    y: 370,
+    width: 814,
+    height: 571,
     targetScale: 2.6,
     labels: [
-      ["contrast injector tower", "造影剂注射塔", 1015, 550, 0],
-      ["injector control head", "注射器控制头", 1015, 500, 2],
-      ["contrast reservoir", "造影剂储液罐", 1040, 550, 1],
-      ["injector hose", "注射器软管", 1035, 580, 3],
-      ["IV pole", "输液杆", 1000, 480, 1],
-      ["equipment cart drawer", "设备推车抽屉", 930, 520, 2],
-      ["equipment cart caster", "设备推车脚轮", 950, 580, 4],
-      ["supply cabinet", "物资柜", 1500, 700, 0],
-      ["supply shelf", "物资搁板", 1500, 750, 2],
-      ["apron rack", "围裙架", 1260, 720, 1],
-      ["protective gown", "防护袍", 1280, 740, 3],
-      ["stainless sink", "不锈钢水槽", 1300, 840, 0],
-      ["sink mixer handle", "水槽混合龙头把手", 1330, 790, 3],
-      ["sink basin drain", "水槽盆排水口", 1310, 850, 4],
-      ["sanitizer pump", "消毒液泵头", 1400, 650, 2],
-      ["supply box", "物资盒", 1550, 750, 3],
-      ["wall clock face", "挂钟表盘", 1320, 500, 0],
-      ["radiation indicator", "辐射指示灯", 1150, 420, 1],
-      ["radiology door handle", "影像科门把手", 1170, 630, 3],
-      ["door vision panel", "门观察窗", 1180, 570, 2],
-      ["imaging room wall", "影像室墙面", 1100, 450, 1],
-      ["sink counter edge", "水槽台面边缘", 1300, 790, 2],
+      ["supply cabinet", "物资柜", 1513, 615, 0, [1403, 578, 269, 326], "Gray, glass-fronted supply cabinet at the far right"],
+      ["stainless sink", "不锈钢水槽", 1303, 870, 0, [1253, 837, 124, 70], "Rectangular steel washbasin in the foreground countertop"],
+      ["IV pole", "输液杆", 1044, 462, 1, [1030, 426, 28, 89], "Thin vertical pole with two hooks above the preparation equipment"],
+      ["wall clock face", "挂钟表盘", 1324, 522, 1, [1306, 499, 36, 48], "Round wall clock above the protective garments"],
+      ["apron rack", "围裙架", 1269, 625, 1, [1237, 601, 74, 49], "Metal rail holding the row of hanging protective garments"],
+      ["protective gown", "防护袍", 1297, 745, 2, [1289, 718, 20, 66], "Turquoise protective garment at the right end of the rack"],
+      ["equipment cart drawer", "设备推车抽屉", 939, 519, 2, [914, 513, 44, 16], "Blue drawer front on the rolling equipment cabinet"],
+      ["equipment cart caster", "设备推车脚轮", 909, 578, 4, [901, 570, 14, 16], "Near caster below the stack of blue drawers"],
+      ["supply shelf", "物资搁板", 1454, 681, 3, [1445, 674, 20, 15], "Metal shelf under the top compartment of the glass supply cabinet"],
+      ["sink mixer handle", "水槽混合龙头把手", 1367, 835, 4, [1362, 824, 11, 22], "Short upright lever next to the base of the curved faucet"],
+      ["sink basin drain", "水槽盆排水口", 1316, 902, 4, [1303, 894, 23, 14], "Round drain at the lowest visible point of the steel basin"],
+      ["sanitizer pump", "消毒液泵头", 1350, 670, 3, [1342, 661, 16, 18], "Blue push lever at the base of the white wall dispenser"],
+      ["supply box", "物资盒", 1472, 669, 3, [1462, 657, 18, 24], "Small closed supply box visible in the cabinet's upper left compartment"],
+      ["radiation indicator", "辐射指示灯", 1167, 393, 2, [1160, 384, 12, 17], "Red warning lamp on the dark indicator panel above the imaging room door"],
+      ["radiology door handle", "影像科门把手", 1145, 596, 3, [1134, 586, 21, 19], "Silver lever on the left side of the gray imaging room door"],
+      ["door vision panel", "门观察窗", 1180, 551, 2, [1169, 513, 23, 69], "Narrow glazed viewing panel set into the gray door"],
+      ["imaging room wall", "影像室墙面", 1241, 502, 2, [1228, 481, 44, 53], "Off-white wall between the imaging room door and clock"],
+      ["sink counter edge", "水槽台面边缘", 1230, 882, 4, [1224, 873, 16, 18], "Diagonal front edge of the white countertop to the left of the sink"],
     ],
   },
+];
+
+const relatedTerms = [
+  ["ceiling light panel", "顶灯面板"],
+  ["contrast injector tower", "造影剂注射塔"],
+  ["contrast reservoir", "造影剂储液罐"],
+  ["CT alignment light", "CT 定位灯"],
+  ["CT couch handle", "CT 床把手"],
+  ["injector control head", "注射器控制头"],
+  ["injector hose", "注射器软管"],
+  ["lead barrier", "防护屏"],
+  ["ultrasound cart drawer", "超声推车抽屉"],
+  ["ultrasound probe handle", "超声探头手柄"],
+  ["ultrasound probe head", "超声探头头端"],
+  ["X-ray detector cassette", "X 光探测器盒"],
+  ["X-ray wall stand", "X 光壁挂支架"],
 ];
 
 function sha256(bytes) {
@@ -216,18 +221,6 @@ function slugify(word) {
   return word.toLocaleLowerCase("en-US").replace(/[^a-z]+/gu, "-").replace(/^-|-$/gu, "");
 }
 
-function visualRegionFor(word, x, y, zoneTitle) {
-  const size = 48;
-  const left = Math.max(0, Math.min(SOURCE_WIDTH - size, x - size / 2));
-  const top = Math.max(0, Math.min(SOURCE_HEIGHT - size, y - size / 2));
-  return {
-    id: `radiology-suite-region-${slugify(word)}`,
-    description: `Pixel-audited “${word}” inside the ${zoneTitle} crop of the radiology-suite photograph`,
-    kind: "part",
-    ...sceneRectangle({ x: left, y: top, width: size, height: size }),
-  };
-}
-
 function buildScene() {
   const labels = [];
   const visualRegions = [];
@@ -235,16 +228,22 @@ function buildScene() {
   let priorityIndex = 0;
   for (const zone of sourceZones) {
     const labelIds = [];
-    for (const [word, translation, x, y, minLevel] of zone.labels) {
+    for (const [word, translation, x, y, minLevel, crop, description] of zone.labels) {
       const id = `radiology-suite-${slugify(word)}`;
-      const sourceVisualRegion = visualRegionFor(word, x, y, zone.title);
+      const [left, top, width, height] = crop;
+      const sourceVisualRegion = {
+        id: `radiology-suite-region-${slugify(word)}`,
+        description,
+        kind: "part",
+        ...sceneRectangle({ x: left, y: top, width, height }),
+      };
       labels.push({
         id,
         word,
         translation,
         x: scenePoint(x, "x"),
         y: scenePoint(y, "y"),
-        priority: Number((1 + priorityIndex / 1000).toFixed(6)),
+        priority: Number((1 + minLevel + priorityIndex / 1000).toFixed(6)),
         minLevel,
         sourceVisualRegion: sourceVisualRegion.id,
         semanticRealmId: "body-daily-life",
@@ -279,10 +278,10 @@ function buildScene() {
       policy: "visible-object-or-part-only",
       reviewedAsset: "/scenes/radiology-suite-premium-v1.jpg",
       reviewedAssetSha256: PUBLIC_ASSET_SHA256,
-      rationale: "The source and resized radiology-suite photographs were inspected at native and final pixels. This batch retains 87 independently pointable imaging-room fixtures and equipment parts across CT, MRI, X-ray, mammography, control, ultrasound and preparation areas. Patient procedures, diagnoses, radiation dose, staff roles, brands, unreadable screen content and hidden machine functions were excluded.",
+      rationale: "The source illustration distinguishes the ultrasound monitor, console, squeeze bottle, hanging cable and two separate sets of casters. The CT, MRI, mammography and X-ray equipment, glazed control desk and foreground supplies have separate image regions. Vocabulary for parts and functions that the illustration cannot distinguish is kept in related words.",
       previousLabelCount: 93,
-      retainedLabelCount: 87,
-      removedLabelCount: 6,
+      retainedLabelCount: labels.length,
+      removedLabelCount: 93 - labels.length,
       removedExamples: [
         "patient procedure",
         "diagnostic result",
@@ -293,6 +292,11 @@ function buildScene() {
       ],
     },
     labels,
+    relatedWords: relatedTerms.map(([word, translation]) => ({
+      id: `radiology-suite-${slugify(word)}`,
+      word,
+      translation,
+    })),
     portals: [],
   };
 }
@@ -331,24 +335,41 @@ async function ensureAsset() {
   return true;
 }
 
+const scannerBoreBounds = { x: 865, y: 450, width: 70, height: 60 };
 const radiologyPortal = {
   id: "enter-radiology-suite",
   label: "Enter the radiology suite",
   translation: "进入放射影像科",
   childSceneId: "radiology-suite",
-  sourceVisualRegion: "radiology-suite",
-  x: 700,
-  y: 280,
-  width: 310,
-  height: 300,
+  sourceVisualRegion: "portal-radiology-scanner-bore",
+  ...scannerBoreBounds,
   enterScale: 3.4,
+};
+
+const scannerBoreRegion = {
+  id: radiologyPortal.sourceVisualRegion,
+  description: "Round scanner opening and inner rim above the patient table in the central blue-lit room",
+  kind: "part",
+  ...scannerBoreBounds,
 };
 
 async function updateHospital() {
   const hospital = JSON.parse(await readFile(hospitalPath, "utf8"));
   const existingIndex = hospital.portals.findIndex(({ id }) => id === radiologyPortal.id);
   if (existingIndex >= 0) hospital.portals[existingIndex] = radiologyPortal;
-  else hospital.portals.splice(1, 0, radiologyPortal);
+  else {
+    const pathologyIndex = hospital.portals.findIndex(({ childSceneId }) => childSceneId === "pathology-lab");
+    const pharmacyIndex = hospital.portals.findIndex(({ childSceneId }) => childSceneId === "hospital-pharmacy");
+    const insertionIndex = pathologyIndex >= 0 ? pathologyIndex + 1 : pharmacyIndex;
+    hospital.portals.splice(insertionIndex >= 0 ? insertionIndex : hospital.portals.length, 0, radiologyPortal);
+  }
+  const regionIndex = hospital.visualRegions.findIndex(({ id }) => id === scannerBoreRegion.id);
+  if (regionIndex >= 0) hospital.visualRegions[regionIndex] = scannerBoreRegion;
+  else {
+    const suiteIndex = hospital.visualRegions.findIndex(({ id }) => id === "radiology-suite");
+    if (suiteIndex < 0) throw new Error("hospital is missing the radiology-suite image region");
+    hospital.visualRegions.splice(suiteIndex + 1, 0, scannerBoreRegion);
+  }
   return writeIfChanged(hospitalPath, hospital);
 }
 

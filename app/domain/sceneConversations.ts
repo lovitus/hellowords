@@ -485,11 +485,11 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Should I keep this form with me?", "这张表格需要我随身带着吗？"],
       ["Please give it to the staff member when your name is called.", "工作人员叫到您时，请把表格交给他们。"],
     ] },
-    { title: "确认等候地点与协助", roles: ["患者", "工作人员"], lines: [
-      ["How do I get to the ultrasound rooms?", "超声检查室怎么走？"],
-      ["Walk past reception and turn left at the lift.", "经过接待处，在电梯旁左转。"],
-      ["My appointment letter says room four.", "我的预约单上写着四号房间。"],
-      ["Please check in here before going through that door.", "经过那扇门之前，请先在这里登记。"],
+    { title: "找到超声检查区", roles: ["患者", "工作人员"], lines: [
+      ["Where do I go for my ultrasound scan?", "我做超声检查该去哪里？"],
+      ["Can you see the blue examination couch next to the ultrasound machine?", "您能看到超声机旁边那张蓝色的检查床吗？"],
+      ["Is it the one beside the round stool?", "是圆凳旁边那张吗？"],
+      ["Yes. I'll meet you there.", "对，我到那边接您。"],
       ["Could someone help me with a wheelchair?", "有人能帮我安排轮椅吗？"],
       ["I'll contact the support team for you.", "我来帮您联系协助团队。"],
     ] },

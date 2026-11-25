@@ -261,7 +261,8 @@ export function fullyFittedSceneCamera(sceneSize: FrameSize, viewportSize: Frame
 }
 
 function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
-  return (scene.id === "apartment" || scene.parentId === "apartment" || scene.id === "baggage-drop-station")
+  return (scene.id === "apartment" || scene.parentId === "apartment"
+    || scene.id === "baggage-drop-station" || scene.id === "radiology-suite")
     && viewport.width <= 560 && viewport.height > viewport.width;
 }
 

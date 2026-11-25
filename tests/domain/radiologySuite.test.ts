@@ -44,6 +44,7 @@ interface RadiologyScene {
   readonly height: number;
   readonly parentId: string;
   readonly labels: readonly RadiologyLabel[];
+  readonly relatedWords: readonly Pick<RadiologyLabel, "id" | "word" | "translation">[];
   readonly visualRegions: readonly RadiologyRegion[];
   readonly detailZones: readonly RadiologyZone[];
   readonly portals: readonly unknown[];
@@ -68,19 +69,25 @@ test("radiology suite is an audited terminal scene with distinct practical terms
   assert.equal(scene.parentId, "hospital");
   assert.equal(scene.asset, "/scenes/radiology-suite-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
-  assert.equal(scene.labels.length, 87);
+  assert.equal(scene.labels.length, 74);
+  assert.equal(scene.relatedWords.length, 13);
+  const vocabulary = [...scene.labels, ...scene.relatedWords];
+  assert.equal(new Set(vocabulary.map(({ id }) => id)).size, 87);
+  assert.equal(new Set(vocabulary.map(({ word }) => word.toLowerCase())).size, 87);
+  assert.ok(scene.relatedWords.every((word) => !("x" in word) && !("y" in word)));
   assert.equal(scene.visualRegions.length, scene.labels.length);
   assert.equal(scene.detailZones.length, 6);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
-    [17, 18, 22, 19, 11],
+    [9, 13, 19, 18, 15],
   );
   assert.deepEqual(scene.portals, []);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);
-  assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 6);
-  assert.equal(scene.anchorAudit.retainedLabelCount, 87);
+  assert.equal(scene.anchorAudit.previousLabelCount, 93);
+  assert.equal(scene.anchorAudit.removedLabelCount, 6 + scene.relatedWords.length);
+  assert.equal(scene.anchorAudit.retainedLabelCount, scene.labels.length);
 
   const assetPath = resolve(projectRoot, "public", scene.asset.replace(/^\//u, ""));
   const assetBytes = await readFile(assetPath);
@@ -111,8 +118,8 @@ test("radiology suite is an audited terminal scene with distinct practical terms
     const other = await readJson<{ labels: readonly { word: string }[] }>(`${entry.id}.json`);
     for (const label of other.labels) existingWords.add(label.word.toLocaleLowerCase());
   }
-  for (const label of scene.labels) {
-    assert.equal(existingWords.has(label.word.toLocaleLowerCase()), false, `radiology batch duplicates ${label.word}`);
+  for (const { word } of vocabulary) {
+    assert.equal(existingWords.has(word.toLocaleLowerCase()), false, `radiology batch duplicates ${word}`);
   }
 });
 
@@ -142,11 +149,11 @@ test("hospital exposes the radiology suite through the CT/MRI atrium crop", asyn
       label: "Enter the radiology suite",
       translation: "进入放射影像科",
       childSceneId: "radiology-suite",
-      sourceVisualRegion: "radiology-suite",
-      x: 700,
-      y: 280,
-      width: 310,
-      height: 300,
+      sourceVisualRegion: "portal-radiology-scanner-bore",
+      x: 865,
+      y: 450,
+      width: 70,
+      height: 60,
       enterScale: 3.4,
     },
   );
