@@ -14215,8 +14215,8 @@
   "portals": [
     {
       "id": "enter-home",
-      "label": "Explore interior spaces",
-      "translation": "探索室内空间",
+      "label": "Visit the apartment",
+      "translation": "前往公寓",
       "childSceneId": "apartment",
       "sourceVisualRegion": "portal-enter-home",
       "x": 1500,

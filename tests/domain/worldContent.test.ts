@@ -2110,15 +2110,17 @@ test("apartment keeps its room portals and newly reviewed fixture parts", async 
     ],
   );
   const apartmentLabels = new Map(apartment.labels.map((label) => [label.id, label] as const));
-  assert.deepEqual(
-    ["sofa-leg-pro-2", "media-cabinet-handle-pro-2"].map((id) => {
-      const label = apartmentLabels.get(id);
-      assert.ok(label);
-      return [label.x, label.y];
-    }),
-    [[340, 416], [50, 335]],
-    "new living-room parts stay on their visible object pixels",
-  );
+  // The front-left sofa leg is visible beside the lamp. The media cabinet
+  // pull is the small dark recess in its drawer below the open shelf.
+  for (const [id, left, top, right, bottom] of [
+    ["sofa-leg-pro-2", 308, 405, 310, 415],
+    ["media-cabinet-handle-pro-2", 62, 407, 66, 409],
+  ] as const) {
+    const label = apartmentLabels.get(id);
+    assert.ok(label);
+    assert.ok(label.x >= left && label.x <= right && label.y >= top && label.y <= bottom,
+      `${id} must point inside the photographed furniture detail`);
+  }
 });
 
 test("bathroom adds a dense terminal apartment room without overlapping sibling portals", async () => {

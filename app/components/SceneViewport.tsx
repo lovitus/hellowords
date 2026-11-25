@@ -2282,10 +2282,9 @@ export function SceneViewport({
     const now = performance.now();
     if (now - lastNavigationRef.current < 350) return;
     const camera = cameraRef.current;
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-    const focus = zoomFocusRef.current ?? { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
-    const candidate = portalCandidateRef.current ?? portalAtScreenPoint(scene.portals, camera, focus);
+    // Only the zoom gesture can nominate a portal. A minimap focus can
+    // center the same object at entry scale while the user reads its words.
+    const candidate = portalCandidateRef.current;
     const portal = sceneUsesWheelPortalEntry(scene.id)
       && zoomDirectionRef.current === "in"
       && candidate
@@ -2307,7 +2306,7 @@ export function SceneViewport({
       resetParentExitHysteresis();
       onExitScene();
     }
-  }, [beginPortalTransition, onExitScene, resetParentExitHysteresis, scene.id, scene.parentId, scene.portals]);
+  }, [beginPortalTransition, onExitScene, resetParentExitHysteresis, scene.id, scene.parentId]);
 
   const scheduleNavigationCheck = useCallback(() => {
     if (navigationFrameRef.current !== null) return;
@@ -3041,7 +3040,6 @@ export function SceneViewport({
     tapStartRef.current = null;
     pointersRef.current.delete(event.pointerId);
     previousPointersRef.current.delete(event.pointerId);
-    if (viewerInteractive && !committingRef.current) scheduleNavigationCheck();
   };
 
   const viewportCenter = () => {
