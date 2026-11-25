@@ -1,9 +1,9 @@
-name: Verify photographed and related kitchen vocabulary
+name: Verify portrait apartment and kitchen exploration
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Product commit with the reviewed anchors
+        description: Product commit with the portrait room changes
         required: true
         type: string
       recipient:
@@ -15,7 +15,7 @@ permissions:
   actions: read
 env:
   CI: "true"
-  BASE: c4324cdc4ce79632467468a87d62f891cbe1dcb0
+  BASE: 0a057d091a59c8a4f0ebd27122885cb5356573e1
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
@@ -41,31 +41,37 @@ jobs:
       - uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASE }}
-          run-id: 45686825080
+          run-id: 45691094815
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/previous
-      - name: Reproduce an unpictured kitchen word moving the camera
+      - name: Reproduce the undersized portrait kitchen on the previous production build
         id: baseline
         continue-on-error: true
         run: |
           jq -e --arg sha "$BASE" '.gitSha == $sha' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
           mv "$RUNNER_TEMP/previous/dist" dist
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/kitchen-vocabulary.spec.ts --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
+          ./node_modules/.bin/playwright test tests/e2e/portrait-room.spec.ts --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
           mv dist "$RUNNER_TEMP/previous/dist"
           mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old.json"
           mv artifacts/e2e/test-results "$RUNNER_TEMP/evidence/old-screens"
           test "$code" -eq 1
-          jq -e '.stats.unexpected == 2 and .stats.flaky == 0 and
-            ([.suites[].specs[].tests[] | select(.results[0].status == "failed")
-              | select(any(.results[0].errors[]; .message | contains("opening a related kitchen word must keep the kitchen camera in place")))
-              | .projectName] | sort) == ["chromium", "mobile-chromium"]' "$RUNNER_TEMP/evidence/old.json"
-      - name: Verify scene contracts
+          jq -e '
+            .stats.unexpected == 1 and .stats.expected == 0 and .stats.skipped == 0 and .stats.flaky == 0 and
+            any(.suites[].specs[] | select(.file == "e2e/portrait-room.spec.ts") | .tests[];
+              .projectName == "mobile-chromium" and (.results | length) == 1 and .results[0].status == "failed" and
+              (.results[0].errors[0].message | contains("portrait kitchen photograph covers at least half of the visible exploration area")) and
+              any(.results[0].attachments[]; .name == "portrait-kitchen-entry" and .contentType == "image/png" and (.body | length) > 0) and
+              any(.results[0].attachments[] | select(.name == "portrait-kitchen-geometry") | .body | @base64d | fromjson;
+                (.coverage | type) == "number" and .coverage > 0 and .coverage < 0.5))' "$RUNNER_TEMP/evidence/old.json"
+      - name: Verify scene data, camera geometry, navigation and label placement
         run: |
           npm run typecheck > "$RUNNER_TEMP/evidence/types.log" 2>&1
           npm run validate:data > "$RUNNER_TEMP/evidence/scene-data.log" 2>&1
           ./node_modules/.bin/tsx --test tests/domain/worldContent.test.ts tests/domain/newFacilityScenes.test.ts tests/domain/sceneGraph.test.ts tests/domain/worldAtlasVisualContract.test.ts tests/domain/sceneVisualQuality.test.ts > "$RUNNER_TEMP/evidence/contracts.log" 2>&1
           ./node_modules/.bin/tsx --test --test-name-pattern='fill spare first-screen space|preserve default LOD disclosure' tests/domain/sceneLabelDensity.test.ts > "$RUNNER_TEMP/evidence/density.log" 2>&1
+          ./node_modules/.bin/tsx --test tests/domain/camera.test.ts tests/domain/navigation.test.ts tests/domain/labelLayout.test.ts tests/domain/labelPlacement.test.ts > "$RUNNER_TEMP/evidence/room-domain.log" 2>&1
+          ./node_modules/.bin/tsx --test --test-name-pattern='painted portal geometry round-trips|painted child art bounds round-trip|parent portal and child camera handoffs are exact inverses|reduced motion starts from one stable fitted frame|continuity settlement contains the complete child scene' tests/domain/screenSpaceLabels.test.ts > "$RUNNER_TEMP/evidence/framing.log" 2>&1
       - name: Build the candidate once
         run: |
           GITHUB_SHA="$PRODUCT" npm run build
@@ -83,10 +89,23 @@ jobs:
           retention-days: 7
       - name: Follow the route on desktop and mobile Chromium
         run: |
-          ./node_modules/.bin/playwright test tests/e2e/kitchen-vocabulary.spec.ts tests/e2e/home-kitchen.spec.ts tests/e2e/world.spec.ts \
-            --grep 'related kitchen word|kitchen object anchor|the current-scene word index finds' \
+          ./node_modules/.bin/playwright test \
+            tests/e2e/home-kitchen.spec.ts tests/e2e/kitchen-vocabulary.spec.ts tests/e2e/portrait-room.spec.ts \
+            tests/e2e/world.spec.ts tests/e2e/scene-minimap.spec.ts tests/e2e/continuous-semantic-zoom.spec.ts tests/e2e/cache-motion.spec.ts \
+            --grep 'kitchen object anchor|related kitchen word|portrait apartment entrances|the current-scene word index finds|the Apartment minimap focuses named zones|Apartment handoff settles to the complete child|root portal click settles apartment' \
             --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/new.log" 2>&1
-          jq -e '.stats.expected == 6 and .stats.skipped == 0 and .stats.unexpected == 0 and .stats.flaky == 0' artifacts/e2e/results.json
+          jq -e '
+            .stats.expected == 12 and .stats.skipped == 2 and .stats.unexpected == 0 and .stats.flaky == 0 and
+            ([.suites[].specs[] as $spec | $spec.tests[] | select(.results[0].status == "skipped")
+              | [$spec.file, .projectName]] | sort) ==
+              [["e2e/cache-motion.spec.ts","mobile-chromium"], ["e2e/portrait-room.spec.ts","chromium"]] and
+            any(.suites[].specs[] | select(.file == "e2e/portrait-room.spec.ts") | .tests[];
+              .projectName == "mobile-chromium" and .results[0].status == "passed" and
+              ((["portrait-apartment-entrances","portrait-apartment-return","portrait-kitchen-entry","portrait-kitchen-fit"] -
+                [.results[0].attachments[] | select(.contentType == "image/png" and (.body | length) > 0) | .name]) | length) == 0 and
+              any(.results[0].attachments[] | select(.name == "portrait-kitchen-geometry") | .body | @base64d | fromjson;
+                (.coverage | type) == "number" and .coverage >= 0.5 and .paintedCount > 0 and
+                .centersOutside == [] and .edgesOutside == []))' artifacts/e2e/results.json
       - name: Preserve browser evidence
         if: ${{ !cancelled() }}
         env:
@@ -105,6 +124,6 @@ jobs:
           path: ${{ runner.temp }}/home-route.cms
           if-no-files-found: error
           retention-days: 7
-      - name: Require the original camera failures
+      - name: Require the original portrait coverage failure
         if: ${{ !cancelled() }}
         run: test "${{ steps.baseline.outcome }}" = success
