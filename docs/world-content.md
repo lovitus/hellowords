@@ -205,7 +205,7 @@ while replacing realm, topic, subcluster and word labels on the same plane.
 
 `scripts/validate-scenes.ts` rejects content when:
 
-- a scene lacks a human-verified `anchorAudit`, or its audit counts do not reconcile;
+- a scene lacks a human-verified `anchorAudit`, or its audit counts do not reconcile. For an unpublished candidate, `npm run validate:data -- --allow-image-reviewed` also accepts image-reviewed scenes and lists each one awaiting human signoff. Public releases use the default check;
 - a premium audit hash differs from the exact raster bytes that were reviewed;
 - a label lacks `sourceVisualRegion`, or its authored point lies outside that visible region;
 - a portal lacks a visual source region, or its complete hit rectangle is not contained by that region;

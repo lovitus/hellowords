@@ -2,12 +2,12 @@ import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { isDeepStrictEqual } from "node:util";
 import sharp from "sharp";
 
 /**
- * Build the terminal conference-room scene from a reviewed glass-room
- * photograph. Parent portal and manifest integration remain with the root
- * agent; this script owns only the new scene, assets and global-term audit.
+ * Build the conference-room scene, including the display that leads to the
+ * video-conferencing console. --integrate also registers the room in the office.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
@@ -22,6 +22,23 @@ const WIDTH = 1_600;
 const HEIGHT = 900;
 const SOURCE_SHA256 = "75295d1d3a58d08877dd49b1046b0cd00086899ba1fb68f5f89d3c350a1af2f6";
 const PUBLIC_ASSET_SHA256 = "d12438f3e95d9d580d0beb21b18baa7547d921ce18f205a61b279219a82533e1";
+
+const displayBounds = { x: 818, y: 219, width: 238, height: 132 };
+export const videoConsolePortal = {
+  id: "enter-video-conferencing-console",
+  label: "Enter the video-conferencing console",
+  translation: "进入视频会议设备台",
+  childSceneId: "video-conferencing-console",
+  sourceVisualRegion: "portal-video-conferencing-console-display",
+  ...displayBounds,
+  enterScale: 3.45,
+};
+export const videoConsolePortalRegion = {
+  id: videoConsolePortal.sourceVisualRegion,
+  description: "Black display face on the front wall between the wood paneling and the whiteboard, above the speaker bar.",
+  kind: "object",
+  ...displayBounds,
+};
 
 const zones = [
   {
@@ -99,31 +116,31 @@ const zones = [
     height: 520,
     labels: [
       ["conference table", "会议桌", 800, 560],
-      ["conference tabletop", "会议桌面", 800, 500],
-      ["wood table edge", "木桌边缘", 700, 590],
-      ["table corner", "桌角", 1_100, 600],
-      ["cable trough", "线缆槽", 800, 520],
-      ["cable trough cover", "线缆槽盖", 820, 520],
-      ["conference table power module", "会议桌面电源模块", 700, 540],
-      ["conference power socket", "会议室电源插座", 700, 545],
-      ["USB socket", "USB 插座", 730, 545],
-      ["data socket", "数据插座", 760, 545],
-      ["table microphone pod", "桌面麦克风单元", 650, 480],
-      ["microphone mute button", "麦克风静音按钮", 650, 480],
-      ["table speaker pod", "桌面扬声器单元", 930, 510],
-      ["table cable clip", "桌面线缆夹", 850, 530],
-      ["table cable grommet", "桌面穿线孔", 900, 540],
+      ["conference tabletop", "会议桌面", 940, 554, [915, 535, 60, 35]],
+      ["wood table edge", "木桌边缘", 700, 586, [687, 584, 26, 5]],
+      ["table corner", "桌角", 942, 613, [937, 609, 10, 8]],
+      ["cable trough", "线缆槽", 772, 522, [757, 518, 29, 9]],
+      ["cable trough cover", "线缆槽盖", 716, 544, [703, 540, 28, 6]],
+      ["conference table power module", "会议桌面电源模块", 765, 523, [755, 519, 24, 9]],
+      ["conference power socket", "会议室电源插座"],
+      ["USB socket", "USB 插座"],
+      ["data socket", "数据插座"],
+      ["table microphone pod", "桌面麦克风单元", 687, 504, [673, 500, 28, 10]],
+      ["microphone mute button", "麦克风静音按钮"],
+      ["table speaker pod", "桌面扬声器单元", 918, 498, [905, 495, 26, 8]],
+      ["table cable clip", "桌面线缆夹"],
+      ["table cable grommet", "桌面穿线孔"],
       ["conference table leg", "会议桌桌腿", 650, 760],
       ["table leg foot", "桌腿脚座", 650, 850],
       ["table modesty panel", "桌面挡板", 800, 700],
       ["table stretcher", "桌腿横撑", 800, 820],
       ["table floor cable cover", "桌下地面线缆盖", 700, 870],
-      ["tabletop control unit", "桌面控制单元", 950, 530],
-      ["control dial", "控制旋钮", 950, 530],
-      ["table seam", "桌面接缝", 1_000, 580],
+      ["tabletop control unit", "桌面控制单元"],
+      ["control dial", "控制旋钮"],
+      ["table seam", "桌面接缝"],
       ["table support bracket", "桌面支撑架", 950, 700],
-      ["tabletop outlet", "桌面插口", 1_000, 540],
-      ["table cable channel", "桌面线缆通道", 1_000, 520],
+      ["tabletop outlet", "桌面插口", 778, 521, [769, 517, 14, 8]],
+      ["table cable channel", "桌面线缆通道", 860, 481, [852, 478, 16, 7]],
       ["table underside", "桌面底面", 900, 670],
       ["under-table crossbar", "桌下横梁", 850, 800],
     ],
@@ -175,16 +192,16 @@ const zones = [
     width: 700,
     height: 300,
     labels: [
-      ["meeting-room wall display", "会议室墙面显示屏", 1_000, 280],
-      ["meeting display bezel", "会议显示屏边框", 1_000, 285],
-      ["meeting display mount", "会议显示屏挂架", 1_000, 390],
-      ["display mount arm", "显示屏挂架支臂", 980, 400],
-      ["display cable", "显示屏电缆", 1_000, 410],
-      ["conference camera", "会议摄像机", 1_000, 390],
-      ["meeting camera lens", "会议摄像机镜头", 1_000, 390],
-      ["camera housing", "摄像机外壳", 1_000, 390],
-      ["meeting speaker bar", "会议扬声器条", 1_000, 410],
-      ["speaker bar grille", "扬声器条格栅", 1_000, 415],
+      ["meeting-room wall display", "会议室墙面显示屏", 1_000, 280, [818, 219, 238, 132]],
+      ["meeting display bezel", "会议显示屏边框", 1_063, 285, [1061, 274, 4, 22]],
+      ["meeting display mount", "会议显示屏挂架"],
+      ["display mount arm", "显示屏挂架支臂"],
+      ["display cable", "显示屏电缆"],
+      ["conference camera", "会议摄像机", 927, 199, [919, 194, 15, 11]],
+      ["meeting camera lens", "会议摄像机镜头", 925, 198, [922, 195, 7, 7]],
+      ["camera housing", "摄像机外壳", 932, 200, [930, 197, 4, 6]],
+      ["meeting speaker bar", "会议扬声器条", 948, 377, [881, 369, 98, 15]],
+      ["speaker bar grille", "扬声器条格栅"],
       ["meeting-room whiteboard", "会议室白板", 1_300, 280],
       ["meeting whiteboard frame", "会议白板框", 1_300, 280],
       ["meeting whiteboard tray", "会议白板托盘", 1_300, 400],
@@ -263,36 +280,44 @@ function slug(value) {
 
 function makeScene() {
   const labels = [];
+  const relatedWords = [];
   const visualRegions = [];
   const detailZones = [];
   let priority = 0;
   for (const zone of zones) {
     const labelIds = [];
-    for (const [word, labelTranslation, x, y] of zone.labels) {
+    for (const [localIndex, [word, labelTranslation, x, y, bounds]] of zone.labels.entries()) {
       const idSuffix = slug(word);
+      const id = `conference-room-${idSuffix}`;
+      // Keep the original priority and level of neighbouring words when one
+      // term moves to the searchable vocabulary without an image anchor.
+      const index = priority++;
+      if (x === undefined) {
+        relatedWords.push({ id, word, translation: labelTranslation });
+        continue;
+      }
+      const [left, top, width, height] = bounds ?? [Math.max(0, x - 20), Math.max(0, y - 20), 40, 40];
       const region = {
         id: `conference-room-region-${idSuffix}`,
         description: `Pixel-audited “${word}” inside the ${zone.title} crop of the conference-room photograph`,
         kind: "part",
-        x: Math.max(0, x - 20),
-        y: Math.max(0, y - 20),
-        width: 40,
-        height: 40,
+        x: left,
+        y: top,
+        width,
+        height,
       };
-      const localIndex = zone.labels.findIndex((row) => row[0] === word);
       labels.push({
-        id: `conference-room-${idSuffix}`,
+        id,
         word,
         translation: labelTranslation,
         x,
         y,
-        priority: Number((1 + priority / 1000).toFixed(6)),
-        minLevel: localIndex < 2 ? 0 : localIndex < 4 ? 1 : 2 + ((priority + 1) % 3),
+        priority: Number((1 + index / 1000).toFixed(6)),
+        minLevel: localIndex < 2 ? 0 : localIndex < 4 ? 1 : 2 + ((index + 1) % 3),
         sourceVisualRegion: region.id,
       });
       visualRegions.push(region);
-      labelIds.push(`conference-room-${idSuffix}`);
-      priority += 1;
+      labelIds.push(id);
     }
     detailZones.push({
       id: `conference-room-zone-${zone.id}`,
@@ -316,21 +341,22 @@ function makeScene() {
     width: WIDTH,
     height: HEIGHT,
     parentId: "office-building",
-    visualRegions,
+    visualRegions: [...visualRegions, videoConsolePortalRegion],
     detailZones,
     anchorAudit: {
-      status: "human-verified",
+      status: "image-reviewed",
       policy: "visible-object-or-part-only",
       reviewedAsset: "/scenes/conference-room-premium-v1.jpg",
       reviewedAssetSha256: PUBLIC_ASSET_SHA256,
-      rationale: `The final 1600 by 900 conference-room photograph was inspected at source and output resolution. It retains ${labels.length} independently pointable glass-entry, storage, table, chair, meeting-device, ceiling and floor parts. People, company identity, meeting content, readable screens, network state, occupancy and hidden wiring or HVAC state were excluded.`,
-      previousLabelCount: labels.length + 8,
+      rationale: "The earlier scene recorded a human review of 143 terms across seven zones. This agent image review checked the front-wall display, its upper camera and lower speaker bar, the circular tabletop pods, cable trough and front table corner against the 1600 by 900 image. Socket types, tiny controls and concealed mount hardware remain available as related words.",
+      previousLabelCount: labels.length + relatedWords.length + 8,
       retainedLabelCount: labels.length,
-      removedLabelCount: 8,
+      removedLabelCount: 8 + relatedWords.length,
       removedExamples: ["people", "company identity", "meeting content", "readable screen", "network state", "hidden wiring"],
     },
     labels,
-    portals: [],
+    relatedWords,
+    portals: [videoConsolePortal],
   };
 }
 
@@ -339,6 +365,15 @@ async function writeIfChanged(path, value) {
   try {
     const current = await readFile(path);
     if (Buffer.compare(current, next) === 0) return false;
+    if (path === scenePath) {
+      const existing = JSON.parse(current.toString("utf8"));
+      if (existing.anchorAudit?.status === "human-verified") {
+        // A later reviewer can sign off on the same generated scene in their own words.
+        existing.anchorAudit.status = value.anchorAudit.status;
+        existing.anchorAudit.rationale = value.anchorAudit.rationale;
+        if (isDeepStrictEqual(existing, value)) return false;
+      }
+    }
   } catch (error) {
     if (error.code !== "ENOENT") throw error;
   }
@@ -366,7 +401,7 @@ async function ensureAsset() {
 
 async function assertUniqueWords(scene) {
   const wordSources = new Map();
-  for (const label of scene.labels) {
+  for (const label of [...scene.labels, ...scene.relatedWords]) {
     const normalized = label.word.toLocaleLowerCase();
     const sources = wordSources.get(normalized) ?? [];
     sources.push(label.id);
@@ -401,16 +436,16 @@ const parentPortal = {
   translation: "进入会议室",
   childSceneId: "conference-room",
   sourceVisualRegion: "portal-conference-room-central-glass-room",
-  x: 610,
-  y: 300,
-  width: 320,
-  height: 340,
+  x: 674,
+  y: 487,
+  width: 196,
+  height: 82,
   enterScale: 3.3,
 };
 
 const parentRegion = {
   id: parentPortal.sourceVisualRegion,
-  description: "Visible glass conference room bounded at the right by the adjacent kitchenette in the office-building photograph",
+  description: "Meeting table and chair backs inside the central glass enclosure on the ground floor of the office atrium. An agent reviewed this entrance against the atrium image.",
   kind: "object",
   x: parentPortal.x,
   y: parentPortal.y,
@@ -418,14 +453,23 @@ const parentRegion = {
   height: parentPortal.height,
 };
 
+const parentReviewNote = "The earlier human review covered the atrium vocabulary. An agent reviewed the revised glass meeting-room entrance against the atrium image, identifying the meeting table and chair backs inside the glass and the coffee maker outside it.";
+
 async function updateParent() {
   const parent = JSON.parse(await readFile(parentPath, "utf8"));
   const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
+  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
+  if (isDeepStrictEqual(parent.portals[portalIndex], parentPortal)
+      && isDeepStrictEqual(parent.visualRegions[regionIndex], parentRegion)) return false;
+
   if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
   else parent.portals.push(parentPortal);
-  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
   if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
   else parent.visualRegions.push(parentRegion);
+  parent.anchorAudit.status = "image-reviewed";
+  if (!parent.anchorAudit.rationale.includes(parentReviewNote)) {
+    parent.anchorAudit.rationale += ` ${parentReviewNote}`;
+  }
   return writeIfChanged(parentPath, parent);
 }
 

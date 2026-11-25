@@ -2,12 +2,13 @@ import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { isDeepStrictEqual } from "node:util";
 import sharp from "sharp";
+import { videoConsolePortal, videoConsolePortalRegion } from "./add-conference-room-scene.mjs";
 
 /**
- * Build the terminal video-conferencing-console scene from a reviewed office
- * technology photograph. Parent portal and manifest integration remain with
- * the root agent; this script owns only the new scene, assets and term audit.
+ * Build the terminal equipment scene from the office photograph. With
+ * --integrate, install the conference room's display portal and manifest entry.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
@@ -23,235 +24,239 @@ const HEIGHT = 900;
 const SOURCE_SHA256 = "cad302ea3d5edb5932d441231ba5dd311792de17950d1df41205fe376f068f1d";
 const PUBLIC_ASSET_SHA256 = "191dcac69bbc53f5ec57497dc078f00d48c06104051886102b4fbf1ab0e863a5";
 
+// Label rows specify the term, translation, first zoom level, image point, crop and visible cue.
 const zones = [
   {
     id: "display-front",
     title: "Front display surface",
     translation: "前部显示屏",
-    description: "Trace the visible blank display, bezels, mount pieces, cable channel and front wall finish.",
-    x: 500,
-    y: 130,
-    width: 700,
-    height: 370,
+    description: "Compare the screen face with the thin outer frame and the wall panels around the display.",
+    x: 289,
+    y: 0,
+    width: 858,
+    height: 554,
     labels: [
-      ["video conferencing display", "视频会议显示屏", 850, 280],
-      ["display panel", "显示面板", 850, 280],
-      ["video display bezel", "视频显示屏边框", 850, 220],
-      ["meeting display glass", "会议显示屏玻璃", 850, 300],
-      ["display lower bezel", "显示屏下边框", 850, 450],
-      ["display top bezel", "显示屏上边框", 850, 200],
-      ["display side frame", "显示屏侧框", 580, 300],
-      ["display wall mount", "显示屏墙面挂架", 850, 470],
-      ["display mounting rail", "显示屏安装导轨", 800, 460],
-      ["display bracket", "显示屏支架", 900, 470],
-      ["display spacer", "显示屏垫块", 920, 470],
-      ["display cable channel", "显示屏电缆通道", 850, 480],
-      ["blank display surface", "空白显示面", 850, 300],
-      ["display lower ledge", "显示屏下沿", 850, 465],
-      ["display corner guard", "显示屏护角", 1_120, 210],
-      ["display mount screw", "显示屏挂架螺钉", 900, 470],
-      ["display backplate", "显示屏背板", 850, 480],
-      ["video display support arm", "视频显示屏支撑臂", 850, 475],
-      ["display trim strip", "显示屏饰条", 850, 455],
-      ["front wall panel", "前墙面板", 650, 250],
-      ["front wall seam", "前墙面接缝", 700, 300],
-      ["display bottom rail", "显示屏底部导轨", 850, 460],
+      ["video conferencing display", "视频会议显示屏", 0, 835, 269, [535, 97, 600, 345], "Large wall display above the video bar", "object"],
+      ["display panel", "显示面板", 1, 662, 238, [553, 112, 560, 314], "Single uninterrupted dark screen surface inside the narrow frame"],
+      ["video display bezel", "视频显示屏边框", 3, 1129, 311, [1126, 269, 7, 80], "Black vertical bezel on the right side of the display"],
+      ["display lower bezel", "显示屏下边框", 3, 1070, 437, [1033, 435, 76, 5], "Dark lower frame directly beneath the screen face"],
+      ["display top bezel", "显示屏上边框", 3, 938, 102, [898, 99, 81, 7], "Black top edge of the display to the right of the camera"],
+      ["display side frame", "显示屏侧框", 4, 539, 285, [536, 245, 7, 81], "Narrow left-hand frame beside the gray wall"],
+      ["display trim strip", "显示屏饰条", 4, 663, 434, [637, 433, 53, 3], "Fine gray horizontal strip across the lower display frame"],
+      ["front wall panel", "前墙面板", 2, 479, 317, [429, 273, 97, 85], "Textured wall panel immediately to the left of the display"],
+      ["front wall seam", "前墙面接缝", 4, 634, 47, [632, 15, 5, 69], "Straight vertical joint over the left half of the display"],
     ],
   },
   {
     id: "camera-speaker-bar",
     title: "Camera and speaker bar",
     translation: "摄像机与扬声器条",
-    description: "Inspect the visible room camera, lens, shutter, mount, soundbar grille, end caps and cable.",
-    x: 650,
-    y: 0,
-    width: 600,
-    height: 540,
+    description: "Locate the camera above the display and the separate video bar with two grille sections below it.",
+    x: 678,
+    y: 45,
+    width: 299,
+    height: 463,
     labels: [
-      ["room camera", "会议室摄像机", 850, 80],
-      ["meeting camera housing", "会议摄像机外壳", 850, 75],
-      ["video camera lens", "视频摄像机镜头", 850, 70],
-      ["camera privacy shutter", "摄像机隐私挡板", 870, 75],
-      ["camera mount foot", "摄像机安装脚", 850, 105],
-      ["camera tilt joint", "摄像机俯仰关节", 820, 100],
-      ["camera cable", "摄像机电缆", 880, 120],
-      ["conference video bar", "会议视频条", 850, 430],
-      ["video bar grille", "视频条格栅", 800, 430],
-      ["video bar end cap", "视频条端盖", 740, 430],
-      ["video bar mount", "视频条挂架", 850, 470],
-      ["video bar bracket", "视频条支架", 900, 470],
-      ["video bar control button", "视频条控制按钮", 900, 430],
-      ["left speaker grille", "左扬声器格栅", 760, 430],
-      ["right speaker grille", "右扬声器格栅", 940, 430],
-      ["speaker enclosure", "扬声器外壳", 850, 440],
-      ["speaker cable", "扬声器电缆", 900, 480],
-      ["camera indicator window", "摄像机指示窗", 850, 75],
-      ["soundbar center grille", "音箱条中央格栅", 850, 430],
-      ["bar wall spacer", "视频条墙面垫块", 850, 480],
+      ["room camera", "会议室摄像机", 0, 821, 74, [805, 54, 62, 32], "Small rectangular camera centered on the top edge of the wall display", "object"],
+      ["conference video bar", "会议视频条", 0, 784, 480, [693, 452, 271, 47], "Wide black unit with a central lens below the wall screen", "object"],
+      ["meeting camera housing", "会议摄像机外壳", 2, 858, 68, [851, 58, 13, 22], "Rectangular black camera casing beside the top camera lens"],
+      ["video camera lens", "视频摄像机镜头", 2, 828, 475, [811, 457, 34, 37], "Round glass camera lens in the center of the video bar below the display"],
+      ["camera mount foot", "摄像机安装脚", 4, 835, 85, [826, 83, 18, 5], "Short central foot joining the small camera body to its longer plate"],
+      ["left speaker grille", "左扬声器格栅", 2, 748, 474, [706, 461, 99, 27], "Textured grille on the left side of the video bar"],
+      ["right speaker grille", "右扬声器格栅", 2, 906, 474, [864, 461, 84, 27], "Textured grille on the right side of the video bar"],
+      ["video bar end cap", "视频条端盖", 4, 960, 479, [956, 458, 8, 36], "Rounded black end of the video bar on the right"],
+      ["speaker enclosure", "扬声器外壳", 3, 732, 495, [708, 492, 53, 6], "Lower black casing beneath the left speaker grille"],
     ],
   },
   {
     id: "touch-console",
     title: "Touch console",
     translation: "桌面触控台",
-    description: "Study the visible tabletop touch console, screen, stand, hinge, base, ports and cable retention.",
-    x: 750,
-    y: 500,
-    width: 450,
-    height: 400,
+    description: "Find the tilted touchscreen, its exposed wedge support and base, and the separate connected device at the back of the table.",
+    x: 758,
+    y: 557,
+    width: 376,
+    height: 294,
     labels: [
-      ["room touch console", "会议室触控台", 1_000, 680],
-      ["meeting console screen", "会议触控台屏幕", 1_000, 620],
-      ["meeting console bezel", "会议触控台边框", 1_000, 610],
-      ["console screen glass", "触控台屏幕玻璃", 1_000, 625],
-      ["console stand", "触控台支架", 1_000, 750],
-      ["console hinge", "触控台铰链", 1_000, 730],
-      ["console base", "触控台底座", 1_000, 790],
-      ["console cable", "触控台电缆", 1_000, 800],
-      ["console power lead", "触控台电源线", 1_000, 810],
-      ["console side button", "触控台侧按钮", 1_080, 670],
-      ["console port panel", "触控台接口面板", 1_040, 760],
-      ["console port cover", "触控台接口盖", 1_040, 770],
-      ["console strain relief", "触控台应力释放套", 1_020, 805],
-      ["console rear foot", "触控台后脚", 1_040, 790],
-      ["console cable loop", "触控台线缆环", 950, 800],
-      ["console blank surface", "触控台空白面", 1_000, 630],
-      ["console screen border", "触控台屏幕边界", 1_000, 640],
-      ["tabletop device base", "桌面设备底座", 900, 730],
-      ["tabletop device cable", "桌面设备电缆", 900, 760],
-      ["console rear panel", "触控台后面板", 1_070, 750],
-      ["console foot pad", "触控台脚垫", 1_000, 800],
+      ["room touch console", "会议室触控台", 0, 1005, 725, [884, 626, 241, 213], "Angled black touch console on the tabletop to the left of the right microphone", "object"],
+      ["meeting console screen", "会议触控台屏幕", 1, 979, 685, [949, 663, 90, 63], "Inset dark screen face on the tilted console"],
+      ["meeting console bezel", "会议触控台边框", 3, 1044, 795, [1038, 787, 14, 17], "Wide black bezel between the inset screen and its silver outer edge"],
+      ["console stand", "触控台支架", 2, 1086, 786, [1078, 773, 16, 22], "Exposed triangular support behind the lower right side of the screen"],
+      ["console base", "触控台底座", 2, 1007, 825, [989, 817, 38, 15], "Flat black base on the table below the tilted screen"],
+      ["console cable", "触控台电缆", 3, 878, 787, [862, 784, 41, 8], "Black lead running from the foreground hub under the left side of the console"],
+      ["tabletop device base", "桌面设备底座", 4, 853, 600, [845, 597, 14, 7], "Low rectangular foot beneath the small black device at the back of the table"],
+      ["tabletop device cable", "桌面设备电缆", 4, 819, 604, [815, 598, 10, 13], "Short lead exiting the near side of the small rear tabletop device"],
     ],
   },
   {
     id: "table-microphones",
     title: "Table microphone pods",
     translation: "桌面麦克风单元",
-    description: "Compare the visible microphone pod housings, grilles, buttons, ports, feet, cables and table trough.",
-    x: 300,
-    y: 470,
-    width: 1_150,
-    height: 430,
+    description: "Compare the four round microphones, then follow the leads from their grilles and housings to the center of the table.",
+    x: 340,
+    y: 577,
+    width: 1020,
+    height: 323,
     labels: [
-      ["video table microphone pod", "视频桌面麦克风单元", 600, 620],
-      ["microphone pod housing", "麦克风单元外壳", 600, 620],
-      ["microphone grille", "麦克风格栅", 600, 615],
-      ["video microphone mute button", "视频麦克风静音按钮", 630, 620],
-      ["microphone cable port", "麦克风电缆接口", 620, 640],
-      ["microphone rubber foot", "麦克风橡胶脚", 590, 650],
-      ["near microphone pod", "近侧麦克风单元", 450, 790],
-      ["near microphone grille", "近侧麦克风格栅", 450, 785],
-      ["near microphone cable", "近侧麦克风电缆", 500, 800],
-      ["far microphone pod", "远侧麦克风单元", 1_100, 650],
-      ["far microphone grille", "远侧麦克风格栅", 1_100, 645],
-      ["far microphone cable", "远侧麦克风电缆", 1_050, 670],
-      ["left microphone pod", "左侧麦克风单元", 720, 530],
-      ["right microphone pod", "右侧麦克风单元", 1_250, 700],
-      ["pod cable junction", "单元线缆接点", 800, 600],
-      ["tabletop cable trough", "桌面线缆槽", 800, 650],
-      ["trough lid", "线缆槽盖", 800, 650],
-      ["trough divider", "线缆槽分隔片", 800, 680],
-      ["video tabletop grommet", "视频桌面穿线孔", 900, 670],
-      ["table edge trim", "桌面边饰条", 700, 770],
-      ["video tabletop seam", "视频桌面接缝", 900, 760],
-      ["table control pod", "桌面控制单元", 850, 600],
+      ["right microphone pod", "右侧麦克风单元", 0, 1270, 801, [1194, 761, 153, 81], "Front right round microphone beside the touch console", "object"],
+      ["near microphone pod", "近侧麦克风单元", 0, 437, 779, [366, 741, 142, 76], "Large round microphone in the front left of the table", "object"],
+      ["left microphone pod", "左侧麦克风单元", 1, 614, 605, [577, 588, 75, 31], "Small rear left microphone near the far edge of the table", "object"],
+      ["far microphone pod", "远侧麦克风单元", 1, 1027, 607, [989, 591, 76, 31], "Small rear right microphone behind the angled console", "object"],
+      ["microphone pod housing", "麦克风单元外壳", 2, 1306, 817, [1278, 812, 55, 13], "Smooth black sidewall around the front right microphone"],
+      ["microphone grille", "麦克风格栅", 3, 1290, 781, [1266, 770, 54, 20], "Perforated top of the front right microphone"],
+      ["near microphone grille", "近侧麦克风格栅", 3, 425, 761, [400, 752, 52, 17], "Round mesh insert on the foreground left microphone"],
+      ["near microphone cable", "近侧麦克风电缆", 2, 598, 750, [579, 747, 44, 9], "Black cable arching rightward from the foreground left microphone"],
+      ["far microphone grille", "远侧麦克风格栅", 4, 1030, 598, [1014, 594, 32, 9], "Small top grille on the rear right microphone"],
+      ["far microphone cable", "远侧麦克风电缆", 3, 937, 600, [916, 595, 42, 10], "Lead running left from the rear right pod toward the table channel"],
+      ["microphone cable port", "麦克风电缆接口", 4, 507, 773, [501, 764, 15, 13], "Plug entering the right side of the foreground left microphone housing"],
+      ["tabletop cable trough", "桌面线缆槽", 1, 731, 786, [711, 734, 29, 87], "Recessed cable space along the left of the foreground outlet module"],
+      ["trough lid", "线缆槽盖", 2, 771, 865, [725, 838, 122, 55], "Closed foreground cover continuing forward from the recessed outlet module"],
     ],
   },
   {
     id: "cable-power-hub",
     title: "Cable and power hub",
     translation: "线缆与电源模块",
-    description: "Inspect the visible tabletop power hub, sockets, grommets, cable clips, credenza compute box and outlet.",
-    x: 250,
-    y: 430,
-    width: 900,
-    height: 470,
+    description: "Inspect the central outlet module and cable openings, then trace the visible adapter lead between the cabinet and the wall.",
+    x: 0,
+    y: 399,
+    width: 870,
+    height: 439,
     labels: [
-      ["video room power hub", "视频会议电源模块", 800, 650],
-      ["power hub lid", "电源模块盖", 800, 650],
-      ["video room power socket", "视频会议电源插座", 800, 660],
-      ["video room data socket", "视频会议数据插座", 820, 660],
-      ["video room USB port", "视频会议 USB 接口", 840, 660],
-      ["video cable grommet", "视频线缆穿线孔", 900, 670],
-      ["video cable clip", "视频线缆夹", 850, 700],
-      ["video cable strain relief", "视频线缆应力释放套", 850, 720],
-      ["braided video cable", "编织视频线", 900, 730],
-      ["video cable trough", "视频线缆槽", 800, 680],
-      ["video trough divider", "视频线缆槽分隔片", 800, 700],
-      ["video floor cable cover", "视频设备地面线缆盖", 700, 850],
-      ["console side credenza", "控制台侧边柜", 300, 500],
-      ["room compute box", "会议室计算盒", 300, 480],
-      ["room power adapter", "会议室电源适配器", 420, 490],
-      ["adapter cable", "适配器电缆", 450, 510],
-      ["room wall outlet", "会议室墙面插座", 400, 430],
-      ["outlet faceplate", "插座面板", 400, 430],
-      ["video equipment shelf", "视频设备搁板", 300, 520],
-      ["cable pass-through", "电缆穿线孔", 450, 540],
-      ["video cable loop", "视频电缆环", 500, 560],
+      ["video room power hub", "视频会议电源模块", 1, 765, 790, [730, 731, 100, 89], "Recessed rectangular outlet module in the foreground table channel", "object"],
+      ["video room power socket", "视频会议电源插座", 2, 786, 775, [770, 766, 33, 19], "Multihole power receptacle in the center of the foreground module"],
+      ["power hub lid", "电源模块盖", 3, 783, 664, [778, 650, 31, 37], "Flat sliding cover beside the opening in the middle tabletop module"],
+      ["console side credenza", "控制台侧边柜", 0, 74, 572, [0, 479, 419, 261], "Low wooden cabinet to the left of the wall display", "object"],
+      ["room compute box", "会议室计算盒", 1, 217, 467, [176, 448, 90, 36], "Larger rectangular equipment box on top of the wooden credenza", "object"],
+      ["room power adapter", "会议室电源适配器", 2, 327, 475, [299, 465, 51, 19], "Small black adapter beside the equipment box under the wall outlet", "object"],
+      ["adapter cable", "适配器电缆", 3, 316, 452, [310, 440, 13, 26], "Short black lead rising from the adapter to the wall outlet"],
+      ["room wall outlet", "会议室墙面插座", 2, 320, 426, [312, 418, 15, 17], "Left receptacle in the black wall plate above the credenza"],
+      ["outlet faceplate", "插座面板", 4, 352, 436, [349, 413, 8, 28], "Right-hand border of the two-socket black wall plate"],
+      ["cable pass-through", "电缆穿线孔", 3, 837, 788, [824, 781, 24, 16], "Open slot through which the console lead enters the near hub"],
+      ["video cable loop", "视频电缆环", 4, 768, 597, [764, 588, 18, 15], "Short curved loop at the left connector of the small rear tabletop device"],
     ],
   },
   {
     id: "mount-wall-hardware",
     title: "Mounting and wall hardware",
     translation: "安装与墙面五金",
-    description: "Trace the visible camera/display/speaker mounts, blank whiteboard, acoustic panels and glass partition hardware.",
-    x: 500,
+    description: "Locate the whiteboard frame and tray, the acoustic wall panels, the glass partition and the door pull seen through it.",
+    x: 300,
     y: 0,
-    width: 1_100,
-    height: 500,
+    width: 1300,
+    height: 567,
     labels: [
-      ["wall camera mount", "墙面摄像机挂架", 850, 100],
-      ["camera mounting plate", "摄像机安装板", 850, 110],
-      ["speaker wall bracket", "扬声器墙面支架", 850, 480],
-      ["wall display rail", "墙面显示导轨", 850, 460],
-      ["meeting whiteboard", "会议白板", 1_300, 280],
-      ["console whiteboard frame", "控制台白板框", 1_300, 280],
-      ["meeting marker tray", "会议白板笔托盘", 1_300, 420],
-      ["meeting marker cup", "会议白板笔杯", 1_400, 420],
-      ["blank whiteboard", "空白白板面", 1_300, 280],
-      ["whiteboard fastener", "白板紧固件", 1_420, 180],
-      ["meeting acoustic wall panel", "会议吸音墙板", 1_200, 150],
-      ["meeting wall panel seam", "会议墙板接缝", 1_200, 250],
-      ["meeting wall power outlet", "会议墙面电源插座", 1_100, 450],
-      ["meeting wall cable channel", "会议墙面电缆通道", 1_050, 460],
-      ["meeting glass partition", "会议室玻璃隔断", 1_500, 350],
-      ["meeting glass mullion", "会议室玻璃竖框", 1_500, 300],
-      ["meeting mullion cap", "会议室竖框端盖", 1_500, 330],
-      ["meeting partition door", "会议室隔断门", 1_520, 450],
-      ["partition door pull", "隔断门拉手", 1_520, 450],
+      ["meeting whiteboard", "会议白板", 0, 1246, 223, [1170, 125, 197, 324], "Tall whiteboard immediately to the right of the wall display", "object"],
+      ["meeting glass partition", "会议室玻璃隔断", 1, 1382, 172, [1365, 9, 222, 518], "Full-height glazing to the right of the whiteboard", "object"],
+      ["camera mounting plate", "摄像机安装板", 3, 786, 92, [773, 87, 127, 11], "Long black mounting plate between the small camera and the top of the display"],
+      ["console whiteboard frame", "控制台白板框", 3, 1175, 304, [1171, 269, 8, 70], "Thin metal edging along the left side of the whiteboard"],
+      ["meeting marker tray", "会议白板笔托盘", 3, 1290, 444, [1243, 440, 113, 7], "Shallow lower ledge supporting the board markers"],
+      ["blank whiteboard", "空白白板面", 2, 1302, 337, [1265, 301, 75, 73], "Blank white writing surface inside the board frame"],
+      ["whiteboard fastener", "白板紧固件", 4, 1189, 140, [1184, 135, 11, 11], "Dark circular fastener near the board’s upper left corner"],
+      ["meeting acoustic wall panel", "会议吸音墙板", 1, 1201, 68, [1142, 27, 159, 75], "Textured gray wall panel above the whiteboard"],
+      ["meeting wall panel seam", "会议墙板接缝", 4, 1049, 525, [1046, 501, 5, 50], "Vertical wall-panel joint to the right of the video bar"],
+      ["meeting wall power outlet", "会议墙面电源插座", 3, 340, 426, [332, 417, 16, 17], "Right receptacle in the two-socket plate above the wood cabinet"],
+      ["meeting wall cable channel", "会议墙面电缆通道", 2, 829, 532, [821, 498, 16, 64], "Vertical cable channel running from the video bar down to the table"],
+      ["meeting glass mullion", "会议室玻璃竖框", 2, 1457, 281, [1443, 232, 30, 98], "Thick black vertical mullion in the foreground glass partition"],
+      ["meeting partition door", "会议室隔断门", 3, 1409, 352, [1367, 214, 67, 351], "Framed glass door visible beyond the foreground glazing"],
+      ["partition door pull", "隔断门拉手", 4, 1424, 422, [1419, 402, 9, 34], "Slender dark vertical door pull visible through the right-side glass"],
     ],
   },
   {
     id: "room-finish",
     title: "Room furniture and finish",
     translation: "房间家具与饰面",
-    description: "Inspect the visible table, chairs, casters, carpet, floor cover, glass panel, blind and plant pot.",
+    description: "Follow the wooden conference tabletop to its far edge, and compare the mesh chair backs with the large glass wall pane.",
     x: 0,
     y: 0,
-    width: 1_600,
+    width: 1600,
     height: 900,
     labels: [
-      ["video room table", "视频会议桌", 800, 700],
-      ["video tabletop edge", "视频会议桌边缘", 700, 760],
-      ["video table modesty panel", "视频会议桌挡板", 800, 780],
-      ["video table leg", "视频会议桌腿", 700, 820],
-      ["video table foot", "视频会议桌脚座", 700, 870],
-      ["meeting chair backrest", "会议椅背", 500, 600],
-      ["meeting chair seat", "会议椅座", 500, 680],
-      ["meeting chair armrest", "会议椅扶手", 540, 650],
-      ["meeting chair base", "会议椅底座", 500, 780],
-      ["meeting chair caster", "会议椅脚轮", 500, 820],
-      ["meeting chair caster fork", "会议椅脚轮叉", 520, 820],
-      ["video room carpet", "视频会议室地毯", 1_200, 760],
-      ["video carpet tile", "视频会议室地毯块", 1_300, 800],
-      ["video carpet seam", "视频会议室地毯接缝", 1_350, 820],
-      ["video floor access cover", "视频会议室地面检修盖", 700, 870],
-      ["video room floor", "视频会议室地面", 1_100, 850],
-      ["video wall base trim", "视频会议室墙根饰条", 1_400, 870],
-      ["video glass wall panel", "视频会议室玻璃墙板", 1_520, 600],
-      ["video window blind", "视频会议室窗百叶", 200, 250],
+      ["video room table", "视频会议桌", 0, 544, 666, [353, 641, 278, 81], "Wood-grain conference tabletop surrounding the central equipment channel", "object"],
+      ["meeting chair backrest", "会议椅背", 1, 185, 599, [143, 566, 87, 85], "Black mesh backrest of the chair in front of the left credenza"],
+      ["video tabletop edge", "视频会议桌边缘", 3, 923, 563, [887, 560, 62, 6], "Far edge of the wooden table where it meets the gray front wall"],
+      ["video glass wall panel", "视频会议室玻璃墙板", 2, 1522, 117, [1480, 54, 111, 129], "Clear pane to the right of the heavy black foreground mullion"],
     ],
   },
+];
+
+const relatedTerms = [
+  ["bar wall spacer", "视频条墙面垫块"],
+  ["blank display surface", "空白显示面"],
+  ["braided video cable", "编织视频线"],
+  ["camera cable", "摄像机电缆"],
+  ["camera indicator window", "摄像机指示窗"],
+  ["camera privacy shutter", "摄像机隐私挡板"],
+  ["camera tilt joint", "摄像机俯仰关节"],
+  ["console blank surface", "触控台空白面"],
+  ["console cable loop", "触控台线缆环"],
+  ["console foot pad", "触控台脚垫"],
+  ["console hinge", "触控台铰链"],
+  ["console port cover", "触控台接口盖"],
+  ["console port panel", "触控台接口面板"],
+  ["console power lead", "触控台电源线"],
+  ["console rear foot", "触控台后脚"],
+  ["console rear panel", "触控台后面板"],
+  ["console screen border", "触控台屏幕边界"],
+  ["console screen glass", "触控台屏幕玻璃"],
+  ["console side button", "触控台侧按钮"],
+  ["console strain relief", "触控台应力释放套"],
+  ["display backplate", "显示屏背板"],
+  ["display bottom rail", "显示屏底部导轨"],
+  ["display bracket", "显示屏支架"],
+  ["display cable channel", "显示屏电缆通道"],
+  ["display corner guard", "显示屏护角"],
+  ["display lower ledge", "显示屏下沿"],
+  ["display mount screw", "显示屏挂架螺钉"],
+  ["display mounting rail", "显示屏安装导轨"],
+  ["display spacer", "显示屏垫块"],
+  ["display wall mount", "显示屏墙面挂架"],
+  ["meeting chair armrest", "会议椅扶手"],
+  ["meeting chair base", "会议椅底座"],
+  ["meeting chair caster", "会议椅脚轮"],
+  ["meeting chair caster fork", "会议椅脚轮叉"],
+  ["meeting chair seat", "会议椅座"],
+  ["meeting display glass", "会议显示屏玻璃"],
+  ["meeting marker cup", "会议白板笔杯"],
+  ["meeting mullion cap", "会议室竖框端盖"],
+  ["microphone rubber foot", "麦克风橡胶脚"],
+  ["pod cable junction", "单元线缆接点"],
+  ["soundbar center grille", "音箱条中央格栅"],
+  ["speaker cable", "扬声器电缆"],
+  ["speaker wall bracket", "扬声器墙面支架"],
+  ["table control pod", "桌面控制单元"],
+  ["table edge trim", "桌面边饰条"],
+  ["trough divider", "线缆槽分隔片"],
+  ["video bar bracket", "视频条支架"],
+  ["video bar control button", "视频条控制按钮"],
+  ["video bar grille", "视频条格栅"],
+  ["video bar mount", "视频条挂架"],
+  ["video cable clip", "视频线缆夹"],
+  ["video cable grommet", "视频线缆穿线孔"],
+  ["video cable strain relief", "视频线缆应力释放套"],
+  ["video cable trough", "视频线缆槽"],
+  ["video carpet seam", "视频会议室地毯接缝"],
+  ["video carpet tile", "视频会议室地毯块"],
+  ["video display support arm", "视频显示屏支撑臂"],
+  ["video equipment shelf", "视频设备搁板"],
+  ["video floor access cover", "视频会议室地面检修盖"],
+  ["video floor cable cover", "视频设备地面线缆盖"],
+  ["video microphone mute button", "视频麦克风静音按钮"],
+  ["video room carpet", "视频会议室地毯"],
+  ["video room data socket", "视频会议数据插座"],
+  ["video room floor", "视频会议室地面"],
+  ["video room USB port", "视频会议 USB 接口"],
+  ["video table foot", "视频会议桌脚座"],
+  ["video table leg", "视频会议桌腿"],
+  ["video table microphone pod", "视频桌面麦克风单元"],
+  ["video table modesty panel", "视频会议桌挡板"],
+  ["video tabletop grommet", "视频桌面穿线孔"],
+  ["video tabletop seam", "视频桌面接缝"],
+  ["video trough divider", "视频线缆槽分隔片"],
+  ["video wall base trim", "视频会议室墙根饰条"],
+  ["video window blind", "视频会议室窗百叶"],
+  ["wall camera mount", "墙面摄像机挂架"],
+  ["wall display rail", "墙面显示导轨"],
 ];
 
 function sha256(bytes) {
@@ -269,26 +274,26 @@ function makeScene() {
   let priority = 0;
   for (const zone of zones) {
     const labelIds = [];
-    for (const [word, labelTranslation, x, y] of zone.labels) {
+    for (const [word, labelTranslation, minLevel, x, y, bounds, description, kind = "part"] of zone.labels) {
       const idSuffix = slug(word);
+      const [left, top, width, height] = bounds;
       const region = {
         id: `video-conferencing-console-region-${idSuffix}`,
-        description: `Pixel-audited “${word}” inside the ${zone.title} crop of the video-conferencing-console photograph`,
-        kind: "part",
-        x: Math.max(0, x - 20),
-        y: Math.max(0, y - 20),
-        width: 40,
-        height: 40,
+        description,
+        kind,
+        x: left,
+        y: top,
+        width,
+        height,
       };
-      const localIndex = zone.labels.findIndex((row) => row[0] === word);
       labels.push({
         id: `video-conferencing-console-${idSuffix}`,
         word,
         translation: labelTranslation,
         x,
         y,
-        priority: Number((1 + priority / 1000).toFixed(6)),
-        minLevel: localIndex < 2 ? 0 : localIndex < 4 ? 1 : 2 + ((priority + 1) % 3),
+        priority: Number((1 + minLevel + priority / 1000).toFixed(6)),
+        minLevel,
         sourceVisualRegion: region.id,
       });
       visualRegions.push(region);
@@ -320,17 +325,22 @@ function makeScene() {
     visualRegions,
     detailZones,
     anchorAudit: {
-      status: "human-verified",
+      status: "image-reviewed",
       policy: "visible-object-or-part-only",
       reviewedAsset: "/scenes/video-conferencing-console-premium-v1.jpg",
       reviewedAssetSha256: PUBLIC_ASSET_SHA256,
-      rationale: `The final 1600 by 900 video-conferencing-console photograph was inspected at source and output resolution. It retains ${labels.length} independently pointable display, camera, speaker, touch-console, microphone, cable, mounting and room-finish parts. Meeting content, people, company identity, network connectivity, recording state, occupancy and hidden wiring were excluded.`,
-      previousLabelCount: labels.length + 8,
+      rationale: "The 1600 by 900 image shows four round microphones in two rows, a tilted touch console and an inset table outlet. Each mapped word has an image crop for its visible object or part. Related words preserve names for concealed fittings, indistinguishable device features and alternate names for the same surface.",
+      previousLabelCount: 152,
       retainedLabelCount: labels.length,
-      removedLabelCount: 8,
+      removedLabelCount: 152 - labels.length,
       removedExamples: ["meeting content", "people", "company identity", "network connectivity", "recording state", "hidden wiring"],
     },
     labels,
+    relatedWords: relatedTerms.map(([word, translation]) => ({
+      id: `video-conferencing-console-${slug(word)}`,
+      word,
+      translation,
+    })),
     portals: [],
   };
 }
@@ -340,6 +350,15 @@ async function writeIfChanged(path, value) {
   try {
     const current = await readFile(path);
     if (Buffer.compare(current, next) === 0) return false;
+    if (path === scenePath) {
+      const existing = JSON.parse(current.toString("utf8"));
+      if (existing.anchorAudit?.status === "human-verified") {
+        // Preserve a subsequent sign-off when the reviewed content still matches.
+        existing.anchorAudit.status = value.anchorAudit.status;
+        existing.anchorAudit.rationale = value.anchorAudit.rationale;
+        if (isDeepStrictEqual(existing, value)) return false;
+      }
+    }
   } catch (error) {
     if (error.code !== "ENOENT") throw error;
   }
@@ -367,7 +386,7 @@ async function ensureAsset() {
 
 async function assertUniqueWords(scene) {
   const wordSources = new Map();
-  for (const label of scene.labels) {
+  for (const label of [...scene.labels, ...scene.relatedWords]) {
     const normalized = label.word.toLocaleLowerCase();
     const sources = wordSources.get(normalized) ?? [];
     sources.push(label.id);
@@ -390,44 +409,36 @@ async function assertUniqueWords(scene) {
       if (error.code === "ENOENT") continue;
       throw error;
     }
-    for (const label of other.labels) existingWords.add(label.word.toLocaleLowerCase());
+    for (const label of [...other.labels, ...(other.relatedWords ?? [])]) existingWords.add(label.word.toLocaleLowerCase());
   }
   const existingDuplicates = [...wordSources.keys()].filter((word) => existingWords.has(word));
   if (existingDuplicates.length > 0) throw new Error(`video-conferencing-console term duplicates existing words: ${existingDuplicates.join(", ")}`);
 }
 
-const parentPortal = {
-  id: "enter-video-conferencing-console",
-  label: "Enter the video-conferencing console",
-  translation: "进入视频会议设备台",
-  childSceneId: "video-conferencing-console",
-  sourceVisualRegion: "portal-video-conferencing-console-device-group",
-  x: 760,
-  y: 350,
-  width: 350,
-  height: 250,
-  enterScale: 3.45,
-};
+export function integrateVideoConsolePortal(parent) {
+  const legacyRegionId = "portal-video-conferencing-console-device-group";
+  const consolePortals = parent.portals.filter(({ id }) => id === videoConsolePortal.id);
+  const consoleRegions = parent.visualRegions.filter(({ id }) => (
+    id === legacyRegionId || id === videoConsolePortalRegion.id
+  ));
+  if (isDeepStrictEqual(consolePortals, [videoConsolePortal]) &&
+      isDeepStrictEqual(consoleRegions, [videoConsolePortalRegion])) return parent;
 
-const parentRegion = {
-  id: parentPortal.sourceVisualRegion,
-  description: "Complete visible speaker bar, lower display edge and tabletop meeting-device group in the conference-room photograph",
-  kind: "object",
-  x: parentPortal.x,
-  y: parentPortal.y,
-  width: parentPortal.width,
-  height: parentPortal.height,
-};
-
-async function updateParent() {
-  const parent = JSON.parse(await readFile(parentPath, "utf8"));
-  const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);
-  if (portalIndex >= 0) parent.portals[portalIndex] = parentPortal;
-  else parent.portals.push(parentPortal);
-  const regionIndex = parent.visualRegions.findIndex(({ id }) => id === parentRegion.id);
-  if (regionIndex >= 0) parent.visualRegions[regionIndex] = parentRegion;
-  else parent.visualRegions.push(parentRegion);
-  return writeIfChanged(parentPath, parent);
+  const reviewNote = "An image review updated the video-console entrance and its image region to the front-wall display above the speaker bar.";
+  const previousRationale = parent.anchorAudit.rationale;
+  return {
+    ...parent,
+    visualRegions: [
+      ...parent.visualRegions.filter(({ id }) => id !== legacyRegionId && id !== videoConsolePortalRegion.id),
+      videoConsolePortalRegion,
+    ],
+    portals: [...parent.portals.filter(({ id }) => id !== videoConsolePortal.id), videoConsolePortal],
+    anchorAudit: {
+      ...parent.anchorAudit,
+      status: "image-reviewed",
+      rationale: previousRationale.includes(reviewNote) ? previousRationale : `${previousRationale} ${reviewNote}`,
+    },
+  };
 }
 
 async function updateManifest() {
@@ -456,7 +467,8 @@ export async function buildVideoConferencingConsoleScene() {
     zones: scene.detailZones.length,
   };
   if (integrate) {
-    result.parentChanged = await updateParent();
+    const parent = JSON.parse(await readFile(parentPath, "utf8"));
+    result.parentChanged = await writeIfChanged(parentPath, integrateVideoConsolePortal(parent));
     result.manifestChanged = await updateManifest();
   }
   return result;

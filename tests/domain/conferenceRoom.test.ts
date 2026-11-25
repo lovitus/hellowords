@@ -27,6 +27,7 @@ interface Scene {
   readonly width: number;
   readonly height: number;
   readonly labels: readonly Label[];
+  readonly relatedWords: readonly Pick<Label, "id" | "word">[];
   readonly visualRegions: readonly {
     readonly id: string;
     readonly x: number;
@@ -58,36 +59,45 @@ async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8")) as T;
 }
 
-test("conference room keeps 143 reviewed table, chair and meeting-device terms", async () => {
+test("conference room keeps its 143 terms across photographed objects and related vocabulary", async () => {
   const scene = await readJson<Scene>("conference-room.json");
   assert.equal(scene.id, "conference-room");
   assert.equal(scene.parentId, "office-building");
   assert.equal(scene.asset, "/scenes/conference-room-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
-  assert.equal(scene.labels.length, 143);
+  assert.equal(scene.labels.length, 130);
+  assert.equal(scene.relatedWords.length, 13);
+  assert.ok(scene.relatedWords.every((word) => !("x" in word) && !("y" in word)));
   assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), [
     ["conference-room-zone-glass-entry", 20],
     ["conference-room-zone-credenza-storage", 20],
-    ["conference-room-zone-table-cable-hardware", 28],
+    ["conference-room-zone-table-cable-hardware", 19],
     ["conference-room-zone-chair-seating", 25],
-    ["conference-room-zone-display-whiteboard", 18],
+    ["conference-room-zone-display-whiteboard", 14],
     ["conference-room-zone-ceiling-light-acoustic", 17],
     ["conference-room-zone-floor-glass-edges", 15],
   ]);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter(({ minLevel }) => minLevel === level).length),
-    [14, 14, 37, 38, 40],
+    [14, 12, 34, 33, 37],
   );
-  assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 143);
-  assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 143);
+  const vocabulary = [...scene.labels, ...scene.relatedWords];
+  // Fingerprint of the sorted vocabulary IDs from the original 143 spatial terms.
+  const ids = vocabulary.map(({ id }) => id).sort();
+  assert.equal(
+    createHash("sha256").update(ids.join("\n")).digest("hex"),
+    "4b50cedb077092ce202a9016afe5c892d6121c02d5875ea104033029a74d9f65",
+  );
+  assert.equal(new Set(vocabulary.map(({ word }) => word.toLocaleLowerCase())).size, 143);
   assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["video-conferencing-console"]);
-  assert.equal(scene.anchorAudit.status, "human-verified");
+  assert.ok(["image-reviewed", "human-verified"].includes(scene.anchorAudit.status));
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);
   assert.equal(scene.anchorAudit.reviewedAssetSha256, "d12438f3e95d9d580d0beb21b18baa7547d921ce18f205a61b279219a82533e1");
-  assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 8);
-  assert.equal(scene.anchorAudit.removedLabelCount, 8);
+  assert.equal(scene.anchorAudit.previousLabelCount, 151);
+  assert.equal(scene.anchorAudit.retainedLabelCount, scene.labels.length);
+  assert.equal(scene.anchorAudit.removedLabelCount, 8 + scene.relatedWords.length);
 
   const regions = new Map(scene.visualRegions.map((region) => [region.id, region]));
   for (const label of scene.labels) {
@@ -116,8 +126,8 @@ test("conference room keeps 143 reviewed table, chair and meeting-device terms",
     const other = await readJson<{ readonly labels: readonly { readonly word: string }[] }>(`${entry.id}.json`);
     for (const label of other.labels) existingWords.add(label.word.toLocaleLowerCase());
   }
-  for (const word of new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase()))) {
-    assert.equal(existingWords.has(word), false, `conference room does not duplicate ${word}`);
+  for (const { word } of vocabulary) {
+    assert.equal(existingWords.has(word.toLocaleLowerCase()), false, `conference room does not duplicate ${word}`);
   }
 
   const assetPath = resolve(projectRoot, "public", scene.asset.slice(1));
@@ -150,12 +160,12 @@ test("office building exposes separate, bounded conference-room and break-room e
   const breakRoom = parent.portals.find(({ childSceneId }) => childSceneId === "office-break-room");
   assert.ok(portal);
   assert.ok(breakRoom);
-  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [610, 300, 320, 340]);
-  assert.deepEqual([breakRoom.x, breakRoom.y, breakRoom.width, breakRoom.height], [930, 360, 240, 190]);
-  assert.equal(portal.x + portal.width, breakRoom.x, "the meeting-room crop stops where the visible kitchenette begins");
-  const serviceCore = parent.portals.find(({ childSceneId }) => childSceneId === "service-core");
-  assert.ok(serviceCore);
-  assert.ok(breakRoom.x + breakRoom.width <= serviceCore.x, "break-room and service-core crops stay disjoint");
+  const destinationsAt = (x: number, y: number) => parent.portals
+    .filter((p) => x >= p.x && x <= p.x + p.width && y >= p.y && y <= p.y + p.height)
+    .map((p) => p.childSceneId);
+  assert.deepEqual(destinationsAt(772, 528), ["conference-room"], "table inside the glass meeting room");
+  assert.deepEqual(destinationsAt(918, 493), [], "coffee maker beside the glass stays explorable in the atrium");
+  assert.deepEqual(destinationsAt(1048, 510), ["office-break-room"], "kitchenette counter");
   const region = parent.visualRegions.find(({ id }) => id === portal.sourceVisualRegion);
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);

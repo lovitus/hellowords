@@ -104,7 +104,8 @@ export interface Portal {
 }
 
 export interface SceneAnchorAudit {
-  readonly status: "human-verified";
+  /** Image-reviewed candidates still require human signoff before release. */
+  readonly status: "human-verified" | "image-reviewed";
   readonly policy: "visible-object-or-part-only";
   readonly reviewedAsset: string;
   /** Pins audited anchors to the exact reviewed raster bytes when available. */

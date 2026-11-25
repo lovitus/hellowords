@@ -4318,10 +4318,10 @@
       "translation": "进入会议室",
       "childSceneId": "conference-room",
       "sourceVisualRegion": "portal-conference-room-central-glass-room",
-      "x": 610,
-      "y": 300,
-      "width": 320,
-      "height": 340,
+      "x": 674,
+      "y": 487,
+      "width": 196,
+      "height": 82,
       "enterScale": 3.3
     },
     {
@@ -4362,11 +4362,11 @@
     }
   ],
   "anchorAudit": {
-    "status": "human-verified",
+    "status": "image-reviewed",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/office-atrium-premium-v1.jpg",
     "reviewedAssetSha256": "9403fc42abf40af87d59f9a12401e5dcff76256fc13870a7780e79ae8e3a7cdf",
-    "rationale": "The office atrium clearly resolves a reception lobby, open-plan workstations, glass conference room, kitchenette and a service core with elevator, stairs, server racks, ducts and a fire panel; labels stay on those visible fixtures and surfaces. The professional vocabulary pass adds 120 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
+    "rationale": "The office atrium clearly resolves a reception lobby, open-plan workstations, glass conference room, kitchenette and a service core with elevator, stairs, server racks, ducts and a fire panel; labels stay on those visible fixtures and surfaces. The professional vocabulary pass adds 120 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The earlier human review covered the atrium vocabulary. An agent reviewed the revised glass meeting-room entrance against the atrium image, identifying the meeting table and chair backs inside the glass and the coffee maker outside it.",
     "previousLabelCount": 400,
     "retainedLabelCount": 390,
     "removedLabelCount": 10,
@@ -4449,12 +4449,12 @@
     },
     {
       "id": "portal-conference-room-central-glass-room",
-      "description": "Visible glass conference room bounded at the right by the adjacent kitchenette in the office-building photograph",
+      "description": "Meeting table and chair backs inside the central glass enclosure on the ground floor of the office atrium. An agent reviewed this entrance against the atrium image.",
       "kind": "object",
-      "x": 610,
-      "y": 300,
-      "width": 320,
-      "height": 340
+      "x": 674,
+      "y": 487,
+      "width": 196,
+      "height": 82
     },
     {
       "id": "portal-open-plan-left-workstations",

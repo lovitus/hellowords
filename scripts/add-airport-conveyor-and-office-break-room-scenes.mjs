@@ -598,8 +598,6 @@ integrations.push(
   },
 );
 
-const officeConferenceRect = { x: 610, y: 300, width: 320, height: 340 };
-
 function sha256(value) { return createHash("sha256").update(value).digest("hex"); }
 function slugify(value) { return value.toLocaleLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 function scenePoint(value, axis) { return Number((value * (axis === "x" ? SCALE_X : SCALE_Y)).toFixed(6)); }
@@ -673,14 +671,6 @@ async function integrateParents() {
   const changes = {};
   for (const item of integrations) {
     const path = resolve(sceneRoot, `${item.parentId}.json`); const parent = JSON.parse(await readFile(path, "utf8"));
-    if (item.childId === "office-break-room") {
-      const conferencePortal = parent.portals.find(({ childSceneId }) => childSceneId === "conference-room");
-      if (!conferencePortal) throw new Error("office-building has no existing conference-room portal");
-      Object.assign(conferencePortal, officeConferenceRect);
-      const conferenceRegion = parent.visualRegions.find(({ id }) => id === conferencePortal.sourceVisualRegion);
-      if (!conferenceRegion) throw new Error("office-building has no conference-room portal visual region");
-      Object.assign(conferenceRegion, officeConferenceRect);
-    }
     const region = { id: item.portal.sourceVisualRegion, description: item.description, kind: "object", x: item.portal.x, y: item.portal.y, width: item.portal.width, height: item.portal.height };
     const pi = parent.portals.findIndex(({ id }) => id === item.portal.id); if (pi >= 0) parent.portals[pi] = item.portal; else parent.portals.push(item.portal);
     const ri = parent.visualRegions.findIndex(({ id }) => id === region.id); if (ri >= 0) parent.visualRegions[ri] = region; else parent.visualRegions.push(region);

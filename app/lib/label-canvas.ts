@@ -53,6 +53,8 @@ const PILL_SURFACE_ALPHA = 0.34;
 const PILL_SURFACE_ALPHA_ACTIVE = 0.9;
 const HIT_PADDING = 2;
 const MIN_TOUCH_TARGET = 28;
+const ANCHOR_RADIUS = 4;
+const ANCHOR_OUTER_RADIUS = ANCHOR_RADIUS + 1;
 /** Room around a pill for the focus ring; sprites are sized to it once. */
 const SPRITE_PAD = 4;
 const SPRITE_CACHE_LIMIT = 500;
@@ -69,12 +71,28 @@ export function hitPaintedLabel(
 ): PaintedLabel | null {
   let nearest: PaintedLabel | null = null;
   let nearestDistance = Infinity;
+  let nearestAnchor: PaintedLabel | null = null;
+  let anchorDistanceSquared = Infinity;
+  const anchorHitRadius = pointerType === "touch" ? MIN_TOUCH_TARGET / 2 : ANCHOR_OUTER_RADIUS + HIT_PADDING;
   for (let index = labels.length - 1; index >= 0; index -= 1) {
     const item = labels[index];
     if (!item.interactive || item.opacity < 0.52) continue;
-    const dx = Math.max(0, Math.abs(x - item.centerX) - item.width / 2);
-    const dy = Math.max(0, Math.abs(y - item.centerY) - item.height / 2);
-    if (dx === 0 && dy === 0) return item;
+    const offsetX = Math.abs(x - item.centerX);
+    const offsetY = Math.abs(y - item.centerY);
+    const radius = item.height / 2;
+    const dx = Math.max(0, offsetX - item.width / 2);
+    const dy = Math.max(0, offsetY - radius);
+    if (dx === 0 && dy === 0) {
+      const capX = Math.max(0, offsetX - (item.width / 2 - radius));
+      if (capX * capX + offsetY * offsetY <= (radius + 0.5) ** 2) return item;
+    }
+    const anchorDx = x - item.anchorX;
+    const anchorDy = y - item.anchorY;
+    const distanceToAnchor = anchorDx * anchorDx + anchorDy * anchorDy;
+    if (distanceToAnchor <= anchorHitRadius * anchorHitRadius && distanceToAnchor < anchorDistanceSquared) {
+      nearestAnchor = item;
+      anchorDistanceSquared = distanceToAnchor;
+    }
     const paddingX = pointerType === "touch" ? Math.max(HIT_PADDING, (MIN_TOUCH_TARGET - item.width) / 2) : HIT_PADDING;
     const paddingY = pointerType === "touch" ? Math.max(HIT_PADDING, (MIN_TOUCH_TARGET - item.height) / 2) : HIT_PADDING;
     const distance = dx * dx + dy * dy;
@@ -83,7 +101,10 @@ export function hitPaintedLabel(
       nearestDistance = distance;
     }
   }
-  return nearest;
+  // A visible dot wins over invisible padding. A visible pill, painted above
+  // the dots, already won inside the loop. Keep the existing pill touch area.
+  if (anchorDistanceSquared <= ANCHOR_OUTER_RADIUS * ANCHOR_OUTER_RADIUS) return nearestAnchor;
+  return nearest ?? nearestAnchor;
 }
 
 const paletteCache = new WeakMap<object, Palette>();
@@ -256,8 +277,8 @@ function paintAnchors(
   for (const [color, group] of byColor) {
     context.beginPath();
     for (const item of group) {
-      context.moveTo(item.anchorX + 4, item.anchorY);
-      context.arc(item.anchorX, item.anchorY, 4, 0, Math.PI * 2);
+      context.moveTo(item.anchorX + ANCHOR_RADIUS, item.anchorY);
+      context.arc(item.anchorX, item.anchorY, ANCHOR_RADIUS, 0, Math.PI * 2);
     }
     context.fillStyle = color;
     context.fill();
