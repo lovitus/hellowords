@@ -2,6 +2,7 @@ import { appendFile, mkdir, writeFile } from "node:fs/promises";
 import { cpus, release, totalmem } from "node:os";
 import { performance } from "node:perf_hooks";
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import { installInventory, startMemoryTrace } from "./scene-memory-observer";
 import {
   BrowserMetricsSampler,
   type BrowserMetricsSummary,
@@ -213,6 +214,39 @@ function scenarioSummary(metrics: BrowserMetricsSummary, transitionMs: number[])
 }
 
 test.describe.configure({ mode: "serial" });
+
+test("identify resident memory across warm apartment visits", async ({ browser, page }) => {
+  test.setTimeout(180_000);
+  const directory = process.env.MEMORY_EVIDENCE_DIR!;
+  await mkdir(directory, { recursive: true });
+  await installInventory(page);
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const app = await waitForWorld(page);
+  const parent = await currentScene(app);
+  expect(parent).toBe("world-map");
+  expect((await enterFirstChild(page, app)).target).toBe("apartment");
+  await exitToParent(page, app, parent);
+  const memory = await startMemoryTrace(browser, page, directory);
+  try {
+    await memory.collect();
+    await memory.checkpoint("warm-map-after-gc");
+    for (let i = 1; i <= 20; i++) {
+      expect((await enterFirstChild(page, app)).target).toBe("apartment");
+      if (i === 20) await memory.checkpoint("apartment-20");
+      await exitToParent(page, app, parent);
+      if (i === 5 || i === 20) await memory.checkpoint(`map-${i}`);
+    }
+    await page.waitForTimeout(5000);
+    await memory.checkpoint("idle-map");
+    await memory.collect();
+    await memory.checkpoint("idle-map-after-gc");
+    await memory.pressure();
+    await page.waitForTimeout(5000);
+    await memory.checkpoint("idle-map-after-pressure");
+  } finally {
+    await memory.finish();
+  }
+});
 
 test("scene slices stay within CPU and memory budgets", async ({ browser, page }, testInfo) => {
   test.skip(testInfo.project.name !== "performance");
