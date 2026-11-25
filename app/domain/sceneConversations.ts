@@ -578,8 +578,8 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Please check that the destination code is correct.", "请核对目的地代码是否正确。"],
       ["It should say SYD. Can you verify it?", "应该写SYD。您能帮我确认吗？"],
       ["Yes, this label is for Sydney.", "是的，这个标签的目的地是悉尼。"],
-      ["Where should I leave the suitcase?", "我应该把行李箱放在哪里？"],
-      ["Place it on the marked belt after the light turns green.", "指示灯变绿后，把它放到标记的传送带上。"],
+      ["Where can I weigh my suitcase?", "我可以在哪里称行李？"],
+      ["Put it on the scale in front of the counter, please.", "请把行李箱放在柜台前的秤台上。"],
     ] },
     { title: "询问特殊行李", roles: ["旅客", "工作人员"], lines: [
       ["This case has a musical instrument inside.", "这个箱子里装着一件乐器。"],

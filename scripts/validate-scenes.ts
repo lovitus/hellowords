@@ -133,7 +133,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // arrivals, customs and service fixtures without inferring flight states.
   "baggage-claim": 64,
   "check-in-counter": 140,
-  "baggage-drop-station": 145,
+  // The photo resolves 71 objects and parts. The other 84 terms are searchable.
+  "baggage-drop-station": 71,
   "airport-conveyor-drive-unit": 145,
   // The airport continuation resolves a complete screening lane and one
   // connected gate/boarding-bridge scene without passenger or flight claims.
@@ -258,7 +259,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // arrivals, customs and reception parts without duplicate parent terms.
   "baggage-claim": 95,
   "check-in-counter": 153,
-  "baggage-drop-station": 155,
+  "baggage-drop-station": 71,
   "airport-conveyor-drive-unit": 155,
   "security-checkpoint": 103,
   "carry-on-baggage-scanner": 150,

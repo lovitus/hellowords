@@ -259,15 +259,15 @@ export function fullyFittedSceneCamera(sceneSize: FrameSize, viewportSize: Frame
   return centeredSceneCamera(sceneSize, viewportSize, 1);
 }
 
-function isPortraitRoom(scene: Scene, viewport: FrameSize): boolean {
-  return (scene.id === "apartment" || scene.parentId === "apartment")
+function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
+  return (scene.id === "apartment" || scene.parentId === "apartment" || scene.id === "baggage-drop-station")
     && viewport.width <= 560 && viewport.height > viewport.width;
 }
 
 export function sceneEntryCamera(scene: Scene, viewport: FrameSize): SceneViewportCamera {
   // The apartment is a floor plan: keep all four rooms in view. Inside a
   // room, show more of the furnishings while leaving space for the map and controls.
-  if (scene.parentId === "apartment" && isPortraitRoom(scene, viewport)) {
+  if (scene.parentId === "apartment" && usesPortraitPhotoBounds(scene, viewport)) {
     const fit = fitScale(scene.width, scene.height, viewport.width, viewport.height);
     const scale = Math.max(1, viewport.height * 0.6 / (scene.height * fit));
     return centeredSceneCamera(scene, viewport, scale);
@@ -683,7 +683,7 @@ function initialSceneLabelMountWindow(scene: Scene, meaningVisible: boolean, sel
   const viewport = INITIAL_LABEL_MOUNT_VIEWPORT;
   const camera = sceneEntryCamera(scene, viewport);
   const layout = computeScenePlacements(scene.labels, camera, viewport, meaningVisible, {
-    photoSize: isPortraitRoom(scene, viewport) ? scene : undefined,
+    photoSize: usesPortraitPhotoBounds(scene, viewport) ? scene : undefined,
     selectedLabelId,
     protectedRegions: [
       ...buildViewerChromeProtectedRegions(viewport.width, viewport.height),
@@ -1402,7 +1402,7 @@ export function SceneViewport({
       labelViewport,
       meaningVisibleRef.current,
       {
-        photoSize: isPortraitRoom(scene, labelViewport) ? scene : undefined,
+        photoSize: usesPortraitPhotoBounds(scene, labelViewport) ? scene : undefined,
         selectedLabelId: focusedLabelId
           ?? pendingKeyboardFocusLabelId
           ?? selectedLabelIdRef.current,
@@ -2080,12 +2080,12 @@ export function SceneViewport({
       height: viewport.clientHeight,
     };
     let fittedCamera = fittedSceneCamera(scene, size);
-    const portraitRoom = isPortraitRoom(scene, size);
-    if (portraitRoom) {
+    const fitPhoto = usesPortraitPhotoBounds(scene, size);
+    if (fitPhoto) {
       fittedCamera = framing === "entry" ? sceneEntryCamera(scene, size) : fullyFittedSceneCamera(scene, size);
     }
     fittedViewportSizeRef.current = { ...size, followEntry: framing === "entry" };
-    viewport.toggleAttribute("data-portrait-room", portraitRoom);
+    viewport.toggleAttribute("data-portrait-room", fitPhoto);
     const continuityView = initialViewRef.current;
     initialViewRef.current = undefined;
     continuityWheelGuardRef.current = {
@@ -2335,7 +2335,6 @@ export function SceneViewport({
       stopWheelAnimation();
       cancelCameraAnimation();
       const camera = cameraRef.current;
-      const previousFocus = zoomFocusRef.current;
       const minimum = scene.parentId ? 0.68 : 0.9;
       const nextScale = Math.min(
         maximumSceneCameraScale(camera.fit),
@@ -2374,7 +2373,7 @@ export function SceneViewport({
           portalCandidateRef.current = portal;
           showPortalPreview(portal);
           if (scene.parentId && nextScale < 2.65) void onPrefetchScene(portal.childSceneId);
-        } else if (!previousFocus || distance(previousFocus, point) > 16) {
+        } else {
           portalCandidateRef.current = null;
           showPortalPreview(null);
         }
@@ -2414,7 +2413,6 @@ export function SceneViewport({
     cancelCameraAnimation();
 
     const base = wheelTargetRef.current ?? cameraRef.current;
-    const previousFocus = zoomFocusRef.current;
     const minimum = scene.parentId ? 0.68 : 0.9;
     const nextScale = Math.min(
       maximumSceneCameraScale(base.fit),
@@ -2441,7 +2439,7 @@ export function SceneViewport({
         showPortalPreview(portal);
         if (target.scale >= 2.65) requestContinuousTile(portal);
         else if (scene.parentId) void onPrefetchScene(portal.childSceneId);
-      } else if (!previousFocus || distance(previousFocus, point) > 16) {
+      } else {
         portalCandidateRef.current = null;
         showPortalPreview(null);
       }
@@ -2656,7 +2654,7 @@ export function SceneViewport({
     const viewportSize = { width: viewport.clientWidth, height: viewport.clientHeight };
     // On a narrow phone, a room may already open beyond a word's authored
     // scale. Give object searches a closer view without compounding repeat searches.
-    const detailScale = focusTarget.kind === "word" && isPortraitRoom(scene, viewportSize)
+    const detailScale = focusTarget.kind === "word" && usesPortraitPhotoBounds(scene, viewportSize)
       ? sceneEntryCamera(scene, viewportSize).scale * 1.2 : 1;
     let targetScale = Math.min(
       maximumSceneCameraScale(start.fit),
@@ -2861,7 +2859,7 @@ export function SceneViewport({
       }
       const previousSize = fittedViewportSizeRef.current;
       const size = pendingSize;
-      if (!previousSize || !isPortraitRoom(scene, previousSize) || !isPortraitRoom(scene, size)) {
+      if (!previousSize || !usesPortraitPhotoBounds(scene, previousSize) || !usesPortraitPhotoBounds(scene, size)) {
         resetCamera();
         return;
       }
@@ -2900,7 +2898,7 @@ export function SceneViewport({
         pendingSize = { width: viewport.clientWidth, height: viewport.clientHeight };
         if (resizeFrame === null) resizeFrame = requestAnimationFrame(reconcileViewportSize);
       }
-      viewport.toggleAttribute("data-portrait-room", isPortraitRoom(scene, pendingSize));
+      viewport.toggleAttribute("data-portrait-room", usesPortraitPhotoBounds(scene, pendingSize));
     });
     observer.observe(viewport);
     return () => {
