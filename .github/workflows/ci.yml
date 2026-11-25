@@ -27,12 +27,69 @@ env:
   WRANGLER_LOG_PATH: .wrangler/wrangler.log
 
 jobs:
+  regression_baseline:
+    name: Reproduce display regressions before the fixes
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 3
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Restore the old display behavior in this disposable checkout
+        run: |
+          git checkout --detach HEAD^
+          git restore --source=HEAD^ -- app/components/LexicalWorld.tsx app/components/lexical-world.css app/components/SemanticZoomField.tsx app/components/semantic-zoom-field.css app/domain/semanticZoom.ts app/domain/semanticBackdrop.ts
+          sed -i 's/manual \&\& next === "in"/false/' app/components/SceneViewport.tsx
+          sed -i 's/const VOCABULARY_HINTS_ENABLED = false/const VOCABULARY_HINTS_ENABLED = true/' app/components/SceneViewport.tsx
+          sed -i 's/npm run start -- --hostname/npm run dev -- --hostname/' playwright.config.ts
+      - name: Verify the previous motif and crossing leaders fail numerical assertions
+        run: |
+          if npx tsx --test --test-name-pattern='unit and quantity' tests/domain/semanticBackdrop.test.ts > "$RUNNER_TEMP/motif.tap" 2>&1; then exit 1; fi
+          grep -q 'ERR_ASSERTION' "$RUNNER_TEMP/motif.tap"
+          # The previous placement API accepts the same camera, viewport and label inputs.
+          sed -i 's/  computeScenePlacements,/  computeSceneLabelLayout as computeScenePlacements,/' tests/domain/labelPlacement.test.ts
+          if npx tsx --test --test-name-pattern='leaders never cross' tests/domain/labelPlacement.test.ts > "$RUNNER_TEMP/leaders.tap" 2>&1; then exit 1; fi
+          grep -q 'ERR_ASSERTION' "$RUNNER_TEMP/leaders.tap"
+      - name: Verify the old interface fails the user-facing assertions
+        run: |
+          if npx playwright test tests/e2e/label-zoom-retention.spec.ts tests/e2e/semantic-density.spec.ts --project=chromium --project=mobile-chromium --workers=1 --retries=0 --grep='continuous zoom retains|long words and definitions fit|ordinary scenes hide' --reporter=json > "$RUNNER_TEMP/display.json"; then exit 1; fi
+          node --input-type=module <<'NODE'
+          import assert from "node:assert/strict";
+          import fs from "node:fs";
+          const report = JSON.parse(fs.readFileSync(`${process.env.RUNNER_TEMP}/display.json`, "utf8"));
+          const specs = suite => [...(suite.specs ?? []), ...(suite.suites ?? []).flatMap(specs)];
+          const tested = report.suites.flatMap(specs);
+          const checks = [
+            ["continuous zoom retains", "chromium", /words that moved despite a clear slot|largest jump between painted frames/],
+            ["long words and definitions fit", "mobile-chromium", /General Communication must contain|vt\.|vi\.|full search definition must fit/],
+            ["ordinary scenes hide", "chromium", /toBeHidden/],
+          ];
+          for (const [title, project, expected] of checks) {
+            const test = tested.find(spec => spec.title.startsWith(title))?.tests.find(t => t.projectName === project);
+            assert.equal(test?.results[0]?.status, "failed", `${project}: ${title}`);
+            assert.ok(test.results[0].errors.some(err => expected.test(err.message)), `Expected the behavioral failure: ${title}`);
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `- Reproduced: ${title} (${project})\n`);
+          }
+          NODE
   verification:
     name: Full verification
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+      - name: Select the exact clean product candidate
+        id: candidate
+        run: |
+          git checkout --detach HEAD^
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -90,7 +147,7 @@ jobs:
           PERF_SCENE_CYCLES: "20"
       - name: Verify complete milestone candidate on the preflighted clean commit
         if: ${{ inputs.milestone_release_preflight }}
-        run: npm run verify:full
+        run: GITHUB_SHA="$(git rev-parse HEAD)" PERF_SOURCE_SHA="$(git rev-parse HEAD)" npm run verify:full
       - run: npm run test:e2e
         id: candidate_browser
         continue-on-error: true
@@ -109,7 +166,7 @@ jobs:
         if: ${{ !cancelled() }}
         continue-on-error: true
         with:
-          name: verification-${{ github.sha }}
+          name: verification-${{ steps.candidate.outputs.sha }}
           path: |
             artifacts/correctness
             artifacts/build
