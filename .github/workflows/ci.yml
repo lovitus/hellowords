@@ -16,6 +16,7 @@ permissions:
 env:
   CI: "true"
   BASE: 60362cdbf115ded9d4c507a505c3ce8606099305
+  MOBILE_BASE: 0c135e5532d803dd9cd9d6c155307f56c192a9c4
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
@@ -40,18 +41,18 @@ jobs:
           ./node_modules/.bin/playwright install --with-deps chromium
       - uses: actions/download-artifact@v5
         with:
-          name: production-dist-${{ env.BASE }}
-          run-id: 45678609782
+          name: production-dist-${{ env.MOBILE_BASE }}
+          run-id: 45684837251
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/previous
-      - name: Reproduce both misplaced anchors on the preceding build
+      - name: Reproduce the refrigerator card entering the coffee machine on a phone
         id: baseline
         continue-on-error: true
         run: |
-          jq -e --arg sha "$BASE" '.gitSha == $sha' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
+          jq -e --arg sha "$MOBILE_BASE" '.gitSha == $sha' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
           mv "$RUNNER_TEMP/previous/dist" dist
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/home-kitchen.spec.ts --project=chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
+          ./node_modules/.bin/playwright test tests/e2e/home-kitchen.spec.ts --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
           mv dist "$RUNNER_TEMP/previous/dist"
           mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old.json"
           mv artifacts/e2e/test-results "$RUNNER_TEMP/evidence/old-screens"
@@ -59,10 +60,10 @@ jobs:
           jq -e '.stats.unexpected == 1 and .stats.flaky == 0 and
             ([.suites[].specs[] | select(.file == "e2e/home-kitchen.spec.ts")
               | .tests[] | [.projectName, (.results | map(.status)),
-                [.results[0].errors[].message | split("\n")[0]]]]
-              | length == 1 and .[0][0] == "chromium" and .[0][1] == ["failed"] and
-                (.[0][2] | length == 2 and (.[0] | contains("kitchen object anchor: sink at")) and
-                 (.[1] | contains("kitchen object anchor: faucet at"))))' "$RUNNER_TEMP/evidence/old.json"
+                [.results[0].errors[].message]]]
+              | length == 1 and .[0][0] == "mobile-chromium" and .[0][1] == ["failed"] and
+                (.[0][2] | length == 1 and (.[0] | contains("reading the refrigerator card must keep the kitchen open")
+                and contains("coffee-machine"))))' "$RUNNER_TEMP/evidence/old.json"
       - name: Verify scene contracts
         run: |
           npm run typecheck > "$RUNNER_TEMP/evidence/types.log" 2>&1
@@ -86,10 +87,13 @@ jobs:
       - name: Follow the route on desktop and mobile Chromium
         run: |
           ./node_modules/.bin/playwright test tests/e2e/home-kitchen.spec.ts tests/e2e/portal-prefetch.spec.ts \
-            tests/e2e/scene-minimap.spec.ts tests/e2e/continuous-semantic-zoom.spec.ts \
-            --grep 'kitchen object anchor|apartment reads kitchen data|the Apartment minimap focuses|Apartment handoff settles' \
+            tests/e2e/scene-minimap.spec.ts tests/e2e/continuous-semantic-zoom.spec.ts tests/e2e/scene-transition.spec.ts \
+            tests/e2e/spatial-semantic-bridge.spec.ts \
+            --grep 'kitchen object anchor|apartment reads kitchen data|the Apartment minimap focuses|Apartment handoff settles|wheel entry uses the same continuous tile handoff|zooming into ordinary terrain|continued zoom at a terminal' \
             --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/new.log" 2>&1
-          jq -e '.stats.expected == 8 and .stats.skipped == 0 and .stats.flaky == 0 and
+          jq -e '.stats.expected == 13 and .stats.skipped == 1 and .stats.flaky == 0 and
+            ([.suites[].specs[] | .title as $title | .tests[] | select(.results[0].status == "skipped") | [$title,.projectName]]
+              == [["wheel entry uses the same continuous tile handoff","mobile-chromium"]]) and
             ([.suites[].specs[] | select(.file == "e2e/home-kitchen.spec.ts")
               | .tests[] | [.projectName, (.results | map(.status))]] | sort)
             == [["chromium", ["passed"]], ["mobile-chromium", ["passed"]]]' artifacts/e2e/results.json
@@ -111,6 +115,6 @@ jobs:
           path: ${{ runner.temp }}/home-route.cms
           if-no-files-found: error
           retention-days: 7
-      - name: Require both original failures
+      - name: Require the original mobile navigation failure
         if: ${{ !cancelled() }}
         run: test "${{ steps.baseline.outcome }}" = success
