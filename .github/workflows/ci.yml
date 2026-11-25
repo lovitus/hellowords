@@ -1,9 +1,9 @@
-name: Verify portrait apartment and kitchen exploration
+name: Verify the airport baggage-drop journey
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Product commit with the portrait room changes
+        description: Product commit with the baggage-drop scene and navigation
         required: true
         type: string
       recipient:
@@ -15,7 +15,7 @@ permissions:
   actions: read
 env:
   CI: "true"
-  BASE: 0a057d091a59c8a4f0ebd27122885cb5356573e1
+  BASE: 748d045d9b7576d6ef539d1032979e36cb7f7b03
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
@@ -41,34 +41,36 @@ jobs:
       - uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASE }}
-          run-id: 45691094815
+          run-id: 45696335349
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/previous
-      - name: Reproduce the undersized portrait kitchen on the previous production build
+      - name: Reproduce the misplaced baggage scale on the previous build
         id: baseline
         continue-on-error: true
         run: |
           jq -e --arg sha "$BASE" '.gitSha == $sha' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
           mv "$RUNNER_TEMP/previous/dist" dist
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/portrait-room.spec.ts --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
+          ./node_modules/.bin/playwright test tests/e2e/airport-bag-drop.spec.ts --project=chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
           mv dist "$RUNNER_TEMP/previous/dist"
           mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old.json"
           mv artifacts/e2e/test-results "$RUNNER_TEMP/evidence/old-screens"
           test "$code" -eq 1
           jq -e '
             .stats.unexpected == 1 and .stats.expected == 0 and .stats.skipped == 0 and .stats.flaky == 0 and
-            any(.suites[].specs[] | select(.file == "e2e/portrait-room.spec.ts") | .tests[];
-              .projectName == "mobile-chromium" and (.results | length) == 1 and .results[0].status == "failed" and
-              (.results[0].errors[0].message | contains("portrait kitchen photograph covers at least half of the visible exploration area")) and
-              any(.results[0].attachments[]; .name == "portrait-kitchen-entry" and .contentType == "image/png" and (.body | length) > 0) and
-              any(.results[0].attachments[] | select(.name == "portrait-kitchen-geometry") | .body | @base64d | fromjson;
-                (.coverage | type) == "number" and .coverage > 0 and .coverage < 0.5))' "$RUNNER_TEMP/evidence/old.json"
+            any(.suites[].specs[] | select(.file == "e2e/airport-bag-drop.spec.ts") | .tests[];
+              .projectName == "chromium" and (.results | length) == 1 and .results[0].status == "failed" and
+              (.results[0].errors[0].message | contains("left baggage scale leader must end on the photographed floor scale")) and
+              any(.results[0].attachments[]; .name == "left-baggage-scale-view" and .contentType == "image/png" and (.body | length) > 0) and
+              any(.results[0].attachments[] | select(.name == "left-baggage-scale-geometry") | .body | @base64d | fromjson;
+                .onObject == false and (.photoX - 300 | fabs) < 2 and (.photoY - 580 | fabs) < 2))' "$RUNNER_TEMP/evidence/old.json"
       - name: Verify scene data, camera geometry, navigation and label placement
         run: |
+          git show "$BASE:public/data/scenes/baggage-drop-station.json" | jq -S '[.labels[] | {id, word, translation}] | sort_by(.id)' > "$RUNNER_TEMP/previous-words.json"
+          jq -S '[(.labels[], .relatedWords[]) | {id, word, translation}] | sort_by(.id)' public/data/scenes/baggage-drop-station.json | cmp - "$RUNNER_TEMP/previous-words.json"
           npm run typecheck > "$RUNNER_TEMP/evidence/types.log" 2>&1
           npm run validate:data > "$RUNNER_TEMP/evidence/scene-data.log" 2>&1
-          ./node_modules/.bin/tsx --test tests/domain/worldContent.test.ts tests/domain/newFacilityScenes.test.ts tests/domain/sceneGraph.test.ts tests/domain/worldAtlasVisualContract.test.ts tests/domain/sceneVisualQuality.test.ts > "$RUNNER_TEMP/evidence/contracts.log" 2>&1
+          ./node_modules/.bin/tsx --test tests/domain/worldContent.test.ts tests/domain/baggageDropStation.test.ts tests/domain/checkInCounter.test.ts tests/domain/newFacilityScenes.test.ts tests/domain/sceneGraph.test.ts tests/domain/worldAtlasVisualContract.test.ts tests/domain/sceneVisualQuality.test.ts > "$RUNNER_TEMP/evidence/contracts.log" 2>&1
           ./node_modules/.bin/tsx --test --test-name-pattern='fill spare first-screen space|preserve default LOD disclosure' tests/domain/sceneLabelDensity.test.ts > "$RUNNER_TEMP/evidence/density.log" 2>&1
           ./node_modules/.bin/tsx --test tests/domain/camera.test.ts tests/domain/navigation.test.ts tests/domain/labelLayout.test.ts tests/domain/labelPlacement.test.ts > "$RUNNER_TEMP/evidence/room-domain.log" 2>&1
           ./node_modules/.bin/tsx --test --test-name-pattern='painted portal geometry round-trips|painted child art bounds round-trip|parent portal and child camera handoffs are exact inverses|reduced motion starts from one stable fitted frame|continuity settlement contains the complete child scene' tests/domain/screenSpaceLabels.test.ts > "$RUNNER_TEMP/evidence/framing.log" 2>&1
@@ -90,22 +92,19 @@ jobs:
       - name: Follow the route on desktop and mobile Chromium
         run: |
           ./node_modules/.bin/playwright test \
-            tests/e2e/home-kitchen.spec.ts tests/e2e/kitchen-vocabulary.spec.ts tests/e2e/portrait-room.spec.ts \
-            tests/e2e/world.spec.ts tests/e2e/scene-minimap.spec.ts tests/e2e/continuous-semantic-zoom.spec.ts tests/e2e/cache-motion.spec.ts \
-            --grep 'kitchen object anchor|related kitchen word|portrait apartment entrances|the current-scene word index finds|the Apartment minimap focuses named zones|Apartment handoff settles to the complete child|root portal click settles apartment' \
+            tests/e2e/airport-bag-drop.spec.ts tests/e2e/world.spec.ts tests/e2e/portrait-room.spec.ts \
+            --grep 'airport bag drop|portrait apartment entrances|enters a scene slice on zoom|root atlas wheel zoom stays' \
             --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/new.log" 2>&1
           jq -e '
-            .stats.expected == 12 and .stats.skipped == 2 and .stats.unexpected == 0 and .stats.flaky == 0 and
-            ([.suites[].specs[] as $spec | $spec.tests[] | select(.results[0].status == "skipped")
-              | [$spec.file, .projectName]] | sort) ==
-              [["e2e/cache-motion.spec.ts","mobile-chromium"], ["e2e/portrait-room.spec.ts","chromium"]] and
-            any(.suites[].specs[] | select(.file == "e2e/portrait-room.spec.ts") | .tests[];
-              .projectName == "mobile-chromium" and .results[0].status == "passed" and
-              ((["portrait-apartment-entrances","portrait-apartment-return","portrait-kitchen-entry","portrait-kitchen-fit"] -
-                [.results[0].attachments[] | select(.contentType == "image/png" and (.body | length) > 0) | .name]) | length) == 0 and
-              any(.results[0].attachments[] | select(.name == "portrait-kitchen-geometry") | .body | @base64d | fromjson;
-                (.coverage | type) == "number" and .coverage >= 0.5 and .paintedCount > 0 and
-                .centersOutside == [] and .edgesOutside == []))' artifacts/e2e/results.json
+            .stats.unexpected == 0 and .stats.flaky == 0 and
+            ([.suites[].specs[] | select(.file == "e2e/airport-bag-drop.spec.ts") | .tests[] |
+              select(.results[0].status == "passed" and
+                ((["baggage-drop-fit-both-platforms", "left-baggage-scale-painted-card", "left-scale-platform-painted-card",
+                  "drop-conveyor-suitcase-painted-card", "second-conveyor-suitcase-painted-card", "right-baggage-scale-painted-card",
+                  "right-suitcase-magnified", "silver-rollers-conveyor-entry", "baggage-drop-return", "check-in-counter-return"] -
+                  [.results[0].attachments[] | select(.contentType == "image/png" and (.body | length) > 0) | .name]) | length) == 0 and
+                ([.results[0].attachments[] | select(.name | endswith("-geometry")) | .body | @base64d | fromjson | select(.onObject == true)] | length) == 5)
+              | .projectName] | sort) == ["chromium","mobile-chromium"]' artifacts/e2e/results.json
       - name: Preserve browser evidence
         if: ${{ !cancelled() }}
         env:
@@ -124,6 +123,6 @@ jobs:
           path: ${{ runner.temp }}/home-route.cms
           if-no-files-found: error
           retention-days: 7
-      - name: Require the original portrait coverage failure
+      - name: Require the original baggage scale failure
         if: ${{ !cancelled() }}
         run: test "${{ steps.baseline.outcome }}" = success
