@@ -454,8 +454,20 @@ function syncMotionFrozenLayer(element: HTMLElement, frozen: boolean): void {
 }
 
 const WHEEL_RESPONSE_MS = 52;
-const WHEEL_POSITION_EPSILON = 0.08;
-const WHEEL_SCALE_EPSILON = 0.00045;
+
+// Project only the visible part of this image axis. The remaining displacement
+// is affine in the source coordinate, so its largest magnitude is at an edge.
+function visibleAxisTravel(
+  origin: number, targetOrigin: number, scale: number, targetScale: number,
+  imageExtent: number, viewportExtent: number,
+): number {
+  const first = Math.max(0, -origin / scale);
+  const last = Math.min(imageExtent, (viewportExtent - origin) / scale);
+  const translation = targetOrigin - origin;
+  const dilation = targetScale - scale;
+  return Math.max(Math.abs(translation + first * dilation), Math.abs(translation + last * dilation));
+}
+
 /**
  * Per-user direction: the "还剩 N 个词" hints are off. Every word that has a
  * free, non-overlapping callout is shown directly, so no count-style cue is
@@ -1082,16 +1094,18 @@ export function SceneViewport({
   }, [onPrefetchScene]);
 
   const clampCamera = useCallback(
-    (camera: Camera): Camera => {
+    (camera: Camera, viewportWidth?: number, viewportHeight?: number): Camera => {
       const viewport = viewportRef.current;
       if (!viewport) return camera;
+      const frameWidth = viewportWidth ?? viewport.clientWidth;
+      const frameHeight = viewportHeight ?? viewport.clientHeight;
       const width = scene.width * camera.fit * camera.scale;
       const height = scene.height * camera.fit * camera.scale;
-      const margin = Math.min(viewport.clientWidth, viewport.clientHeight) * 0.18;
-      const minX = Math.min(margin, viewport.clientWidth - width - margin);
-      const maxX = Math.max(viewport.clientWidth - width - margin, margin);
-      const minY = Math.min(margin, viewport.clientHeight - height - margin);
-      const maxY = Math.max(viewport.clientHeight - height - margin, margin);
+      const margin = Math.min(frameWidth, frameHeight) * 0.18;
+      const minX = Math.min(margin, frameWidth - width - margin);
+      const maxX = Math.max(frameWidth - width - margin, margin);
+      const minY = Math.min(margin, frameHeight - height - margin);
+      const maxY = Math.max(frameHeight - height - margin, margin);
       return {
         ...camera,
         x: Math.min(maxX, Math.max(minX, camera.x)),
@@ -1101,7 +1115,7 @@ export function SceneViewport({
     [scene.height, scene.width],
   );
 
-  const applyCamera = useCallback(() => {
+  const applyCamera = useCallback((wheelFrame?: { camera: Camera; width: number; height: number; dpr: number }) => {
     frameRef.current = null;
     const surface = surfaceRef.current;
     const labelLayer = labelLayerRef.current;
@@ -1111,9 +1125,10 @@ export function SceneViewport({
     // Read layout once before this frame starts mutating styles. Re-reading
     // viewport geometry after the surface/overlays have been written forces a
     // synchronous layout in every camera frame.
-    const viewportWidth = viewport.clientWidth;
-    const viewportHeight = viewport.clientHeight;
-    const camera = (cameraRef.current = clampCamera(cameraRef.current));
+    const viewportWidth = wheelFrame?.width ?? viewport.clientWidth;
+    const viewportHeight = wheelFrame?.height ?? viewport.clientHeight;
+    const camera = wheelFrame?.camera ?? clampCamera(cameraRef.current, viewportWidth, viewportHeight);
+    cameraRef.current = camera;
     const maximumScale = maximumSceneCameraScale(camera.fit);
     const effectiveScale = camera.fit * camera.scale;
     const zoomLevel = sceneLodLevel(camera.scale);
@@ -1132,7 +1147,7 @@ export function SceneViewport({
     const portalProgress = activePortal
       ? portalRevealProgress(camera.scale, enterScale)
       : 0;
-    const devicePixelRatio = Math.max(1, window.devicePixelRatio || 1);
+    const devicePixelRatio = Math.max(1, wheelFrame?.dpr ?? (window.devicePixelRatio || 1));
     // Once a matching child preview covers most of the portal, high-resolution
     // parent art is immediately hidden beneath that tile. Avoid decoding and
     // rasterizing it for the final approach and handoff; ordinary inspection
@@ -1945,7 +1960,7 @@ export function SceneViewport({
   }, [applyCamera, mountedLabelIds]);
 
   const requestCameraFrame = useCallback(() => {
-    if (frameRef.current === null) frameRef.current = requestAnimationFrame(applyCamera);
+    if (frameRef.current === null) frameRef.current = requestAnimationFrame(() => applyCamera());
   }, [applyCamera]);
 
   useLayoutEffect(() => {
@@ -2437,7 +2452,8 @@ export function SceneViewport({
     if (wheelAnimationRef.current !== null) return;
     const animate = (now: number) => {
       const nextTarget = wheelTargetRef.current;
-      if (!nextTarget || committingRef.current) {
+      const viewport = viewportRef.current;
+      if (!nextTarget || committingRef.current || !viewport) {
         wheelAnimationRef.current = null;
         wheelFrameTimeRef.current = null;
         return;
@@ -2454,19 +2470,22 @@ export function SceneViewport({
         Math.max(0, now - previousTime),
         WHEEL_RESPONSE_MS,
       );
-      const settled = (
-        Math.abs(smoothed.x - nextTarget.x) <= WHEEL_POSITION_EPSILON
-        && Math.abs(smoothed.y - nextTarget.y) <= WHEEL_POSITION_EPSILON
-        && Math.abs(Math.log(smoothed.scale / nextTarget.scale)) <= WHEEL_SCALE_EPSILON
-      );
-      cameraRef.current = settled
-        ? { ...nextTarget }
-        : { ...smoothed, fit: nextTarget.fit };
+      const width = viewport.clientWidth;
+      const height = viewport.clientHeight;
+      const dpr = window.devicePixelRatio || 1;
+      const target = clampCamera(nextTarget, width, height);
+      const currentScale = current.fit * current.scale;
+      const targetScale = target.fit * target.scale;
+      const dx = visibleAxisTravel(current.x, target.x, currentScale, targetScale, scene.width, width);
+      const dy = visibleAxisTravel(current.y, target.y, currentScale, targetScale, scene.height, height);
+      // Both axis maxima meet at a corner of the visible image rectangle.
+      const settled = Math.hypot(dx, dy) * dpr < 1;
+      const camera = settled ? target : clampCamera({ ...smoothed, fit: nextTarget.fit }, width, height);
       if (frameRef.current !== null) {
         cancelAnimationFrame(frameRef.current);
         frameRef.current = null;
       }
-      applyCamera();
+      applyCamera({ camera, width, height, dpr });
       scheduleNavigationCheck();
       if (!settled) {
         wheelAnimationRef.current = requestAnimationFrame(animate);
@@ -2477,7 +2496,7 @@ export function SceneViewport({
       wheelFrameTimeRef.current = null;
     };
     wheelAnimationRef.current = requestAnimationFrame(animate);
-  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, sampleParentExitHysteresis, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, updateZoomDirection, viewerInteractive]);
+  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, sampleParentExitHysteresis, scene.height, scene.parentId, scene.portals, scene.width, scheduleNavigationCheck, showPortalPreview, updateZoomDirection, viewerInteractive]);
 
   const focusVocabularyTarget = useCallback((
     fallbackLabelId: string,

@@ -362,6 +362,14 @@ export function computeScenePlacements(
       }
     }
     if (preferred && smallestShift > MAX_SLOT_SHIFT ** 2) {
+      const freeShiftedSlot = (dx: number, dy: number): Slot | null => {
+        const x = preferred.offsetX + dx;
+        const y = preferred.offsetY + dy;
+        const gapX = Math.max(0, Math.abs(x) - width / 2);
+        const gapY = Math.max(0, Math.abs(y) - height / 2);
+        if (Math.max(gapX, gapY) <= ANCHOR_CLEARANCE || Math.hypot(gapX, gapY) > MAX_SLOT_SHIFT) return null;
+        return freeSlot(candidate, anchorX + x, anchorY + y);
+      };
       // Try the direction of the nearest legal slot too. When it lies just
       // beyond the limit, part of the same open space can still be in reach.
       const distanceToClosest = Math.sqrt(smallestShift);
@@ -374,14 +382,34 @@ export function computeScenePlacements(
       ] : LOCAL_SHIFT_DIRECTIONS;
       for (const shift of LOCAL_SHIFT_DISTANCES) {
         for (const [dx, dy] of directions) {
-          const x = preferred.offsetX + dx * shift;
-          const y = preferred.offsetY + dy * shift;
-          const gapX = Math.max(0, Math.abs(x) - width / 2);
-          const gapY = Math.max(0, Math.abs(y) - height / 2);
-          if (Math.max(gapX, gapY) <= ANCHOR_CLEARANCE || Math.hypot(gapX, gapY) > MAX_SLOT_SHIFT) continue;
-          const slot = freeSlot(candidate, anchorX + x, anchorY + y);
+          const slot = freeShiftedSlot(dx * shift, dy * shift);
           if (slot) {
             occupy(candidate, slot);
+            return;
+          }
+        }
+      }
+      if (closest) {
+        // A narrow opening between leaders can fall between the sampled rays.
+        // Before accepting a distant slot, fill those gaps around the old pill.
+        for (const step of [16, 8, 4]) {
+          const extent = Math.floor(MAX_SLOT_SHIFT / step) * step;
+          let nearest: Slot | null = null;
+          let nearestSquared = MAX_SLOT_SHIFT ** 2;
+          for (let dy = -extent; dy <= extent; dy += step) {
+            for (let dx = -extent; dx <= extent; dx += step) {
+              if (step < 16 && dx % (2 * step) === 0 && dy % (2 * step) === 0) continue;
+              const squared = dx * dx + dy * dy;
+              if (squared >= nearestSquared) continue;
+              const slot = freeShiftedSlot(dx, dy);
+              if (slot) {
+                nearest = slot;
+                nearestSquared = squared;
+              }
+            }
+          }
+          if (nearest) {
+            occupy(candidate, nearest);
             return;
           }
         }
