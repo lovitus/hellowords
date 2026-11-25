@@ -5,7 +5,7 @@ import { LexicalWorld } from "./LexicalWorld";
 import { SceneConversation } from "./SceneConversation";
 import {
   childCameraFromPortalTile,
-  fullyFittedSceneCamera,
+  sceneEntryCamera,
   parentCameraFromChildTile,
   SceneViewport,
   type SceneFocusNavigator,
@@ -504,7 +504,7 @@ export function WorldApp() {
               nextContinuityView = {
                 direction: "forward",
                 camera: childCameraFromPortalTile(portal, snapshot.camera, nextScene, viewportSize),
-                settledCamera: fullyFittedSceneCamera(nextScene, viewportSize),
+                settledCamera: sceneEntryCamera(nextScene, viewportSize),
               };
             }
           } else {
@@ -519,7 +519,7 @@ export function WorldApp() {
                   scene,
                   viewportSize,
                 ),
-                settledCamera: fullyFittedSceneCamera(nextScene, viewportSize),
+                settledCamera: sceneEntryCamera(nextScene, viewportSize),
                 tileScene: scene,
                 tilePortal: returnPortal,
               };
@@ -641,7 +641,7 @@ export function WorldApp() {
     setSelectedAtlasDistrictId(district.id);
     setFocusedAtlasZoneId(null);
     const target: SceneFocusTarget = {
-      id: `atlas-district-${district.id}`,
+      kind: "region",
       x: district.focusX,
       y: district.focusY,
       targetScale: district.targetScale,
@@ -653,7 +653,8 @@ export function WorldApp() {
     if (sceneControlsLocked || scene?.id !== "world-map") return false;
     setFocusedAtlasZoneId(zone.id);
     const target: SceneFocusTarget = {
-      id: zone.id,
+      kind: "region",
+      zoneId: zone.id,
       x: zone.focusX,
       y: zone.focusY,
       targetScale: zone.targetScale,
@@ -665,7 +666,8 @@ export function WorldApp() {
     if (sceneControlsLocked || !scene || scene.id === "world-map") return false;
     setFocusedSceneDetailZoneId(zone.id);
     const target: SceneFocusTarget = {
-      id: zone.id,
+      kind: "region",
+      zoneId: zone.id,
       x: zone.focusX,
       y: zone.focusY,
       targetScale: zone.targetScale,
@@ -676,8 +678,10 @@ export function WorldApp() {
   const openSceneWordFromIndex = useCallback((word: SceneWord, source: "pointer" | "keyboard") => {
     if (sceneControlsLocked || !scene) return false;
     if (isSpatialWord(word)) {
+      const zone = scene.detailZones?.find((entry) => entry.labelIds.includes(word.id));
       const target: SceneFocusTarget = {
-        id: word.id,
+        kind: "word",
+        zoneId: zone?.id,
         x: word.x,
         y: word.y,
         targetScale: Math.min(
@@ -686,6 +690,7 @@ export function WorldApp() {
         ),
       };
       if (!activeFocusTargetNavigatorRef.current?.(target, source)) return false;
+      if (scene.id !== "world-map") setFocusedSceneDetailZoneId(zone?.id ?? null);
     }
     setSelectedWord(word);
     setSceneWordIndexOpen(false);

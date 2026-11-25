@@ -150,12 +150,10 @@ test("kitchen object anchor stays on each photographed object from home entry th
   const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
   const outward = page.getByRole("button", { name: "Zoom out", exact: true });
   await activate(page.getByRole("button", { name: "Fit scene", exact: true }));
-  await expect(surface).toHaveAttribute("data-scene-scale", isMobile ? "1.300" : "1.000");
-  for (const scale of isMobile ? ["0.962", "0.712"] : ["0.740"]) {
-    await activate(outward);
-    await expect(surface).toHaveAttribute("data-scene-scale", scale);
-    await expect(app).toHaveAttribute("data-scene-id", "kitchen");
-  }
+  await expect(surface).toHaveAttribute("data-scene-scale", "1.000");
+  await activate(outward);
+  await expect(surface).toHaveAttribute("data-scene-scale", "0.740");
+  await expect(app).toHaveAttribute("data-scene-id", "kitchen");
   // The overview and the exit must be two independent gestures.
   await page.waitForTimeout(240);
   await activate(outward);

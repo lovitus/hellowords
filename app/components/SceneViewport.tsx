@@ -98,7 +98,8 @@ export type ScenePortalNavigator = (
 ) => boolean;
 
 export interface SceneFocusTarget {
-  readonly id: string;
+  readonly kind: "region" | "word";
+  readonly zoneId?: string;
   /** Scene-space point that should land at the viewport centre. */
   readonly x: number;
   readonly y: number;
@@ -146,7 +147,7 @@ export interface SceneViewportSnapshot {
 export interface SceneContinuityView {
   readonly direction: "forward" | "back";
   readonly camera: SceneViewportCamera;
-  /** Stable fully-fitted frame used as the first frame for reduced motion. */
+  /** Resting view used as the first frame for reduced motion. */
   readonly settledCamera?: SceneViewportCamera;
   readonly tileScene?: Scene;
   readonly tilePortal?: ScenePortal;
@@ -229,9 +230,12 @@ function fitScale(
   return Math.min(viewportWidth / sceneWidth, viewportHeight / sceneHeight);
 }
 
-export function fittedSceneCamera(
-  sceneSize: { readonly width: number; readonly height: number },
-  viewportSize: { readonly width: number; readonly height: number },
+type FrameSize = Pick<Scene, "width" | "height">;
+
+function centeredSceneCamera(
+  sceneSize: FrameSize,
+  viewportSize: FrameSize,
+  scale: number,
 ): SceneViewportCamera {
   const fit = fitScale(
     sceneSize.width,
@@ -239,7 +243,6 @@ export function fittedSceneCamera(
     viewportSize.width,
     viewportSize.height,
   );
-  const scale = viewportSize.height > viewportSize.width * 1.25 ? 1.3 : 1;
   return {
     fit,
     scale,
@@ -248,23 +251,28 @@ export function fittedSceneCamera(
   };
 }
 
-/** A true object-fit:contain camera used when continuity settles a scene. */
-export function fullyFittedSceneCamera(
-  sceneSize: { readonly width: number; readonly height: number },
-  viewportSize: { readonly width: number; readonly height: number },
-): SceneViewportCamera {
-  const fit = fitScale(
-    sceneSize.width,
-    sceneSize.height,
-    viewportSize.width,
-    viewportSize.height,
-  );
-  return {
-    fit,
-    scale: 1,
-    x: (viewportSize.width - sceneSize.width * fit) / 2,
-    y: (viewportSize.height - sceneSize.height * fit) / 2,
-  };
+export function fittedSceneCamera(sceneSize: FrameSize, viewportSize: FrameSize): SceneViewportCamera {
+  return centeredSceneCamera(sceneSize, viewportSize, viewportSize.height > viewportSize.width * 1.25 ? 1.3 : 1);
+}
+
+export function fullyFittedSceneCamera(sceneSize: FrameSize, viewportSize: FrameSize): SceneViewportCamera {
+  return centeredSceneCamera(sceneSize, viewportSize, 1);
+}
+
+function isPortraitRoom(scene: Scene, viewport: FrameSize): boolean {
+  return (scene.id === "apartment" || scene.parentId === "apartment")
+    && viewport.width <= 560 && viewport.height > viewport.width;
+}
+
+export function sceneEntryCamera(scene: Scene, viewport: FrameSize): SceneViewportCamera {
+  // The apartment is a floor plan: keep all four rooms in view. Inside a
+  // room, show more of the furnishings while leaving space for the map and controls.
+  if (scene.parentId === "apartment" && isPortraitRoom(scene, viewport)) {
+    const fit = fitScale(scene.width, scene.height, viewport.width, viewport.height);
+    const scale = Math.max(1, viewport.height * 0.6 / (scene.height * fit));
+    return centeredSceneCamera(scene, viewport, scale);
+  }
+  return fullyFittedSceneCamera(scene, viewport);
 }
 
 /** Keyboard activation must reveal its exact word; pointer activation keeps the authored region composition. */
@@ -673,8 +681,9 @@ function portalAtScreenPoint(portals: readonly ScenePortal[], camera: Camera, po
 const INITIAL_LABEL_MOUNT_VIEWPORT = { width: 390, height: 780, compact: true } as const;
 function initialSceneLabelMountWindow(scene: Scene, meaningVisible: boolean, selectedLabelId: string | null) {
   const viewport = INITIAL_LABEL_MOUNT_VIEWPORT;
-  const camera = fullyFittedSceneCamera(scene, viewport);
+  const camera = sceneEntryCamera(scene, viewport);
   const layout = computeScenePlacements(scene.labels, camera, viewport, meaningVisible, {
+    photoSize: isPortraitRoom(scene, viewport) ? scene : undefined,
     selectedLabelId,
     protectedRegions: [
       ...buildViewerChromeProtectedRegions(viewport.width, viewport.height),
@@ -799,7 +808,7 @@ export function SceneViewport({
   const parentZoomPrefetchRef = useRef(false);
   const initialViewRef = useRef(effectiveInitialView);
   const initializedSceneRef = useRef<string | null>(null);
-  const fittedViewportSizeRef = useRef<{ readonly width: number; readonly height: number } | null>(null);
+  const fittedViewportSizeRef = useRef<(FrameSize & { followEntry: boolean }) | null>(null);
   const continuitySettlingRef = useRef(false);
   const continuityWheelGuardRef = useRef({
     active: Boolean(effectiveInitialView),
@@ -1393,6 +1402,7 @@ export function SceneViewport({
       labelViewport,
       meaningVisibleRef.current,
       {
+        photoSize: isPortraitRoom(scene, labelViewport) ? scene : undefined,
         selectedLabelId: focusedLabelId
           ?? pendingKeyboardFocusLabelId
           ?? selectedLabelIdRef.current,
@@ -2058,21 +2068,24 @@ export function SceneViewport({
     if (encounterTick > 0) requestCameraFrame();
   }, [encounterTick, requestCameraFrame]);
 
-  const resetCamera = useCallback(() => {
+  const resetCamera = useCallback((framing: "fit" | "entry" = "fit") => {
     const viewport = viewportRef.current;
     if (!viewport || committingRef.current) return;
     resetParentExitHysteresis();
     labelPlacementOffsetsRef.current.clear();
     stopWheelAnimation();
     cancelCameraAnimation();
-    const fittedCamera = fittedSceneCamera(
-      scene,
-      { width: viewport.clientWidth, height: viewport.clientHeight },
-    );
-    fittedViewportSizeRef.current = {
+    const size = {
       width: viewport.clientWidth,
       height: viewport.clientHeight,
     };
+    let fittedCamera = fittedSceneCamera(scene, size);
+    const portraitRoom = isPortraitRoom(scene, size);
+    if (portraitRoom) {
+      fittedCamera = framing === "entry" ? sceneEntryCamera(scene, size) : fullyFittedSceneCamera(scene, size);
+    }
+    fittedViewportSizeRef.current = { ...size, followEntry: framing === "entry" };
+    viewport.toggleAttribute("data-portrait-room", portraitRoom);
     const continuityView = initialViewRef.current;
     initialViewRef.current = undefined;
     continuityWheelGuardRef.current = {
@@ -2083,7 +2096,7 @@ export function SceneViewport({
     continuitySettlingRef.current = Boolean(continuityView && !reducedContinuityAtMount);
     setMotionFrozen(continuitySettlingRef.current);
     continuityProgressRef.current = continuityView?.direction === "back" && continuityView.tileScene ? 1 : 0;
-    zoomFocusRef.current = { x: viewport.clientWidth / 2, y: viewport.clientHeight / 2 };
+    zoomFocusRef.current = { x: size.width / 2, y: size.height / 2 };
     updateZoomDirection(null);
     portalCandidateRef.current = null;
     // ResizeObserver can fire just after keyboard focus enters a portal. Keep
@@ -2640,18 +2653,23 @@ export function SceneViewport({
     lastNavigationRef.current = performance.now();
 
     const start = { ...cameraRef.current };
+    const viewportSize = { width: viewport.clientWidth, height: viewport.clientHeight };
+    // On a narrow phone, a room may already open beyond a word's authored
+    // scale. Give object searches a closer view without compounding repeat searches.
+    const detailScale = focusTarget.kind === "word" && isPortraitRoom(scene, viewportSize)
+      ? sceneEntryCamera(scene, viewportSize).scale * 1.2 : 1;
     let targetScale = Math.min(
       maximumSceneCameraScale(start.fit),
-      Math.max(start.scale, focusTarget.targetScale),
+      Math.max(start.scale, focusTarget.targetScale, detailScale),
     );
-    const focusedZone = scene.detailZones?.find(({ id }) => id === focusTarget.id);
+    const focusedZone = scene.detailZones?.find(({ id }) => id === focusTarget.zoneId);
     // The state update that marks a zone active lands after this pointer event,
     // while the camera animation can already be producing frames. Mirror the
     // event's exact zone into the mutable frame ref immediately so the first
     // focused frame promotes and mounts that crop's labels instead of briefly
     // laying out the previous (or null) zone.
     focusedDetailZoneValueRef.current = focusedZone ?? null;
-    if (focusedZone && focusedZone.labelIds.length > 1) {
+    if (focusTarget.kind === "region" && focusedZone && focusedZone.labelIds.length > 1) {
       const points = focusedZone.labelIds
         .map((labelId) => labelsById.get(labelId))
         .filter((label): label is Label => Boolean(label));
@@ -2716,7 +2734,7 @@ export function SceneViewport({
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
     return true;
-  }, [cancelCameraAnimation, clampCamera, labelsById, requestCameraFrame, resetParentExitHysteresis, scene.detailZones, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
+  }, [cancelCameraAnimation, clampCamera, labelsById, requestCameraFrame, resetParentExitHysteresis, scene, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
 
   useEffect(() => {
     if (!onFocusTargetNavigatorReady) return;
@@ -2766,7 +2784,7 @@ export function SceneViewport({
     if (!viewport) return;
     if (initializedSceneRef.current !== scene.id) {
       initializedSceneRef.current = scene.id;
-      resetCamera();
+      resetCamera("entry");
       const continuityView = initialView;
       if (continuityView) {
         const target = continuityView.settledCamera ?? fittedSceneCamera(
@@ -2829,13 +2847,9 @@ export function SceneViewport({
       }
     }
     let resizeFrame: number | null = null;
+    let pendingSize: FrameSize;
     const reconcileViewportSize = () => {
       resizeFrame = null;
-      const previousSize = fittedViewportSizeRef.current;
-      if (
-        previousSize?.width === viewport.clientWidth
-        && previousSize.height === viewport.clientHeight
-      ) return;
       const cameraBusy = continuitySettlingRef.current
         || committingRef.current
         || wheelAnimationRef.current !== null
@@ -2845,10 +2859,48 @@ export function SceneViewport({
         resizeFrame = requestAnimationFrame(reconcileViewportSize);
         return;
       }
-      resetCamera();
+      const previousSize = fittedViewportSizeRef.current;
+      const size = pendingSize;
+      if (!previousSize || !isPortraitRoom(scene, previousSize) || !isPortraitRoom(scene, size)) {
+        resetCamera();
+        return;
+      }
+      const current = cameraRef.current;
+      const entry = sceneEntryCamera(scene, previousSize);
+      if (
+        previousSize.followEntry
+        && Math.abs(current.scale - entry.scale) < 0.000001
+        && Math.abs(current.x - entry.x) < 0.01
+        && Math.abs(current.y - entry.y) < 0.01
+      ) {
+        resetCamera("entry");
+        return;
+      }
+      // Fit and user-adjusted views retain their zoom and the scene point at
+      // the viewport center as the available space changes.
+      const fit = fitScale(scene.width, scene.height, size.width, size.height);
+      const ratio = fit / current.fit;
+      cameraRef.current = {
+        ...current,
+        fit,
+        x: size.width / 2 - (previousSize.width / 2 - current.x) * ratio,
+        y: size.height / 2 - (previousSize.height / 2 - current.y) * ratio,
+      };
+      fittedViewportSizeRef.current = { ...size, followEntry: false };
+      requestCameraFrame();
     };
     const observer = new ResizeObserver(() => {
-      if (resizeFrame === null) resizeFrame = requestAnimationFrame(reconcileViewportSize);
+      const previousSize = fittedViewportSizeRef.current;
+      if (previousSize?.width === viewport.clientWidth && previousSize.height === viewport.clientHeight) {
+        if (resizeFrame === null) return;
+        cancelAnimationFrame(resizeFrame);
+        resizeFrame = null;
+        pendingSize = previousSize;
+      } else {
+        pendingSize = { width: viewport.clientWidth, height: viewport.clientHeight };
+        if (resizeFrame === null) resizeFrame = requestAnimationFrame(reconcileViewportSize);
+      }
+      viewport.toggleAttribute("data-portrait-room", isPortraitRoom(scene, pendingSize));
     });
     observer.observe(viewport);
     return () => {
@@ -3417,7 +3469,7 @@ export function SceneViewport({
           <div className="zoom-controls" aria-label="Zoom controls">
             <button type="button" onClick={() => requestSteppedZoom(1.34)} aria-label="Zoom in">＋</button>
             <button type="button" onClick={() => requestSteppedZoom(0.74)} aria-label="Zoom out">−</button>
-            <button type="button" onClick={resetCamera} aria-label="Fit scene">⌂</button>
+            <button type="button" onClick={() => resetCamera()} aria-label="Fit scene">⌂</button>
           </div>
           {previewPortal ? (
             <div

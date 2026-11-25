@@ -834,6 +834,10 @@ a:focus-visible {
   }
 }
 
+.world-viewport[data-portrait-room]::before {
+  content: none;
+}
+
 .world-viewport:active {
   cursor: grabbing;
 }
