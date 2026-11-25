@@ -710,14 +710,20 @@ test("premium exploration scenes expose dense, truthful local detail slices", as
   }
 });
 
-test("kitchen preserves its expanded appliance and island vocabulary", async () => {
+test("kitchen grounds visible parts and keeps unpictured vocabulary in the scene index", async () => {
   const { scenes } = await loadWorld();
   const kitchen = scenes.find((scene) => scene.id === "kitchen");
   assert.ok(kitchen);
-  assert.equal(kitchen.labels.length, 176);
+  assert.equal(kitchen.labels.length, 139);
   const words = new Set(kitchen.labels.map(({ word }) => word.toLocaleLowerCase()));
-  for (const required of ["sink divider", "cabinet hinge", "burner", "oven door", "coffee screen", "steam wand", "island edge", "island countertop", "cutting board grain", "hood vent slot", "cabinet knob"]) {
+  for (const required of ["sink divider", "oven door", "coffee screen", "steam wand", "island edge", "island countertop", "cutting board grain", "glass bottle"]) {
     assert.ok(words.has(required), `kitchen visibly grounds ${required}`);
+  }
+  const related = new Set(kitchen.relatedWords?.map(({ word }) => word));
+  assert.equal(related.size, 38);
+  for (const word of related) assert.ok(!words.has(word), `${word} has no kitchen anchor`);
+  for (const word of ["cabinet hinge", "burner", "hood vent slot", "cabinet knob", "oil bottle neck", "peeler", "oven mitt"]) {
+    assert.ok(related.has(word), `kitchen retains ${word} for lookup`);
   }
 });
 

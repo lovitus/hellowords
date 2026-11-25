@@ -326,6 +326,15 @@ function validateLabels(
       );
     }
   }
+  for (const [index, word] of (scene.relatedWords ?? []).entries()) {
+    const path = `${scenePath}.relatedWords[${index}]`;
+    validateUniqueId(issues, word.id, ids, `${path}.id`, "related-word");
+    requireText(issues, word.word, `${path}.word`, "related-word.empty-word");
+    requireText(issues, word.translation, `${path}.translation`, "related-word.empty-translation");
+    if ("x" in word || "y" in word || "priority" in word) {
+      error(issues, "related-word.spatial-fields", path, "Related words cannot carry a spatial placement");
+    }
+  }
 }
 
 function validatePortals(
@@ -469,7 +478,7 @@ function validateUniqueId(
   id: string,
   ids: Set<string>,
   path: string,
-  kind: "label" | "portal" | "detail-zone",
+  kind: "label" | "portal" | "detail-zone" | "related-word",
 ): void {
   if (!nonEmpty(id)) {
     error(issues, `${kind}.empty-id`, path, `${kind} id cannot be empty`);

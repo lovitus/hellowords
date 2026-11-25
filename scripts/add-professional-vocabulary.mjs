@@ -2655,8 +2655,9 @@ function addGroup(scene, definition, groupIndex) {
     throw new Error(`${scene.id}/${definition.regionId} and ${definition.zoneId} do not overlap`);
   }
 
-  const existingWords = new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase()));
-  const existingIds = new Set(scene.labels.map(({ id }) => id));
+  const vocabulary = [...scene.labels, ...(scene.relatedWords ?? [])];
+  const existingWords = new Set(vocabulary.map(({ word }) => word.toLocaleLowerCase()));
+  const existingIds = new Set(vocabulary.map(({ id }) => id));
   const presentCount = definition.terms.filter(({ word }) => (
     existingWords.has(word.toLocaleLowerCase())
   )).length;
@@ -2717,7 +2718,10 @@ function rebalanceProfessionalLod(scene) {
     grouped.set(groupIndex, group);
   }
   let changed = 0;
-  for (const labels of grouped.values()) {
+  for (const [groupIndex, labels] of grouped) {
+    // An image review has already assigned the surviving objects to zoom bands.
+    // Packing a reviewed group again would promote words into earlier bands.
+    if (scene.relatedWords?.some((word) => word.id.endsWith(`-pro-${groupIndex}`))) continue;
     labels.sort((first, second) => (
       (first.priority ?? 0) - (second.priority ?? 0)
       || first.id.localeCompare(second.id)

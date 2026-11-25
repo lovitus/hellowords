@@ -290,9 +290,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The final pixel pass also retains separately visible fossil, telescope,
   // microscope, robot, optics and anatomy subparts for a 206-anchor set.
   "science-museum": 206,
-  // The final kitchen raster resolves appliance, sink, coffee-nook and island
-  // parts; the ceiling blocks cooking processes and hidden appliance claims.
-  kitchen: 176,
+  // The reviewed photograph grounds 139 objects and parts. The scene index
+  // also retains vocabulary for objects that cannot be identified here.
+  kitchen: 139,
   // The final raster has clear macro forms, microstructure and one coherent
   // molecular model; the 60-anchor ceiling excludes unsupported chemistry
   // while admitting separately visible edges, junctions and fracture parts.

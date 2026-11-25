@@ -199,6 +199,10 @@ const scenes = [
           ["Catering-kitchen tray rack", "后厨托盘车架", 695, 415, 0], ["Catering-kitchen tray-rack rail", "后厨托盘车导轨", 700, 385, 3],
           ["Catering-kitchen tray-rack caster", "后厨托盘车脚轮", 690, 520, 4], ["Catering-kitchen cooking splashguard", "后厨烹饪区防溅板", 360, 390, 2],
           ["Catering-kitchen cooking-line floor", "后厨烹饪区地面", 610, 625, 1],
+          ["hood vent slot", "油烟机通风槽", 431, 143, 4, {
+            priorityIndex: 150, bounds: { x: 427, y: 137, width: 12, height: 10 },
+            description: "Dark air slot between two diagonal baffles under the extraction hood",
+          }],
         ],
       },
       {
@@ -219,6 +223,10 @@ const scenes = [
           ["Catering-kitchen rear prep table", "后厨后部备餐台", 930, 430, 0], ["Catering-kitchen stand mixer", "后厨立式搅拌机", 875, 370, 0],
           ["Catering-kitchen mixer bowl", "后厨搅拌机碗", 875, 415, 1], ["Catering-kitchen food processor", "后厨食物处理机", 960, 420, 1],
           ["Catering-kitchen digital scale", "后厨电子秤", 1080, 450, 0],
+          ["mixer beater", "搅拌机搅拌头", 895, 393, 3, {
+            priorityIndex: 151, bounds: { x: 880, y: 378, width: 20, height: 22 },
+            description: "Slanted metal beater wire below the white mixer head and above the steel bowl",
+          }],
         ],
       },
       {
@@ -295,14 +303,18 @@ function buildScene(config) {
   const labels = []; const visualRegions = []; const detailZones = []; let priorityIndex = 0;
   for (const zone of config.zones) {
     const labelIds = [];
-    for (const [word, translation, x, y, minLevel] of zone.labels) {
+    for (const [word, translation, x, y, minLevel, detail] of zone.labels) {
       const id = `${config.id}-${slugify(word)}`;
-      const sourceX = Math.max(0, Math.min(SOURCE_WIDTH - 44, x - 22));
-      const sourceY = Math.max(0, Math.min(SOURCE_HEIGHT - 44, y - 22));
       const regionId = `${config.id}-region-${slugify(word)}`;
-      labels.push({ id, word, translation, x: scenePoint(x, "x"), y: scenePoint(y, "y"), priority: Number((1 + priorityIndex / 1000).toFixed(6)), minLevel, sourceVisualRegion: regionId, semanticRealmId: "body-daily-life" });
-      visualRegions.push({ id: regionId, description: `${word} visible in ${zone.title}`, kind: "object", x: scenePoint(sourceX, "x"), y: scenePoint(sourceY, "y"), width: scenePoint(44, "x"), height: scenePoint(44, "y") });
-      labelIds.push(id); priorityIndex += 1;
+      const bounds = detail?.bounds ?? {
+        x: Math.max(0, Math.min(SOURCE_WIDTH - 44, x - 22)),
+        y: Math.max(0, Math.min(SOURCE_HEIGHT - 44, y - 22)),
+        width: 44, height: 44,
+      };
+      const index = detail?.priorityIndex ?? priorityIndex++;
+      labels.push({ id, word, translation, x: scenePoint(x, "x"), y: scenePoint(y, "y"), priority: Number((1 + index / 1000).toFixed(6)), minLevel, sourceVisualRegion: regionId, semanticRealmId: "body-daily-life" });
+      visualRegions.push({ id: regionId, description: detail?.description ?? `${word} visible in ${zone.title}`, kind: detail ? "part" : "object", ...sceneRectangle(bounds) });
+      labelIds.push(id);
     }
     detailZones.push({ id: `${config.id}-zone-${zone.id}`, title: zone.title, translation: zone.translation, description: zone.description, ...sceneRectangle(zone), targetScale: zone.targetScale, labelIds });
   }
@@ -395,12 +407,16 @@ export async function buildSchoolDiningAndKitchenScenes() {
   const builtScenes = scenes.map(buildScene);
   if (integrate) applyIntegrationsToBuiltScenes(builtScenes);
   for (const scene of builtScenes) {
-    if (scene.labels.length !== 150) throw new Error(`${scene.id} must contain exactly 150 labels; got ${scene.labels.length}`);
-    if (scene.detailZones.length !== 6 || scene.detailZones.some(({ labelIds }) => labelIds.length !== 25)) throw new Error(`${scene.id} must contain six 25-word zones`);
+    const zoneSizes = scene.id === "school-catering-kitchen" ? [25, 26, 26, 25, 25, 25] : [25, 25, 25, 25, 25, 25];
+    const labelCount = zoneSizes.reduce((sum, count) => sum + count, 0);
+    if (scene.labels.length !== labelCount || scene.detailZones.length !== zoneSizes.length ||
+        scene.detailZones.some(({ labelIds }, i) => labelIds.length !== zoneSizes[i])) {
+      throw new Error(`${scene.id} must contain the reviewed zone sizes ${zoneSizes.join(", ")}`);
+    }
   }
   await assertUniqueWords(builtScenes);
   const result = { scenes: [] };
-  for (let index = 0; index < scenes.length; index += 1) result.scenes.push({ id: scenes[index].id, labels: 150, assetChanged: await ensureAsset(scenes[index]), sceneChanged: await writeIfChanged(resolve(sceneRoot, `${scenes[index].id}.json`), builtScenes[index]) });
+  for (let index = 0; index < scenes.length; index += 1) result.scenes.push({ id: scenes[index].id, labels: builtScenes[index].labels.length, assetChanged: await ensureAsset(scenes[index]), sceneChanged: await writeIfChanged(resolve(sceneRoot, `${scenes[index].id}.json`), builtScenes[index]) });
   if (integrate) Object.assign(result, await integrateScenes());
   return result;
 }

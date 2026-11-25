@@ -954,6 +954,15 @@
       "height": 40
     },
     {
+      "id": "aircraft-galley-equipment-region-galley-countertop-seam",
+      "description": "Narrow joint in the stainless countertop at the front edge to the right of the sink",
+      "kind": "part",
+      "x": 493,
+      "y": 422,
+      "width": 7,
+      "height": 25
+    },
+    {
       "id": "aircraft-galley-equipment-region-galley-entry-doorway",
       "description": "Pixel-audited “galley entry doorway” inside the Doorway and curtain crop of the aircraft galley photograph",
       "kind": "part",
@@ -1487,7 +1496,8 @@
         "aircraft-galley-equipment-waste-cabinet-latch",
         "aircraft-galley-equipment-lower-galley-panel",
         "aircraft-galley-equipment-lower-panel-handle",
-        "aircraft-galley-equipment-aircraft-galley-kickplate"
+        "aircraft-galley-equipment-aircraft-galley-kickplate",
+        "aircraft-galley-equipment-galley-countertop-seam"
       ]
     },
     {
@@ -1564,9 +1574,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/aircraft-galley-equipment-premium-v1.jpg",
     "reviewedAssetSha256": "ad4302dc7a0b87d7ae7bc6f596aec9a1c264ca29774d8c5ea0f024c91c3c0bbe",
-    "rationale": "The final 1600 by 900 aircraft-galley photograph was inspected at source and output resolution. It retains 147 independently pointable cabinet, oven, beverage, trolley, sink, doorway and cabin-side parts. Passenger actions, crew actions, food-service outcomes, airline identity, readable labels, power state, temperature and hidden aircraft systems were excluded.",
-    "previousLabelCount": 155,
-    "retainedLabelCount": 147,
+    "rationale": "The final 1600 by 900 aircraft-galley photograph was inspected at source and output resolution. It retains 148 independently pointable cabinet, oven, beverage, trolley, sink, doorway and cabin-side parts. Passenger actions, crew actions, food-service outcomes, airline identity, readable labels, power state, temperature and hidden aircraft systems were excluded.",
+    "previousLabelCount": 156,
+    "retainedLabelCount": 148,
     "removedLabelCount": 8,
     "removedExamples": [
       "passenger action",
@@ -2627,6 +2637,16 @@
       "priority": 1.104,
       "minLevel": 2,
       "sourceVisualRegion": "aircraft-galley-equipment-region-aircraft-galley-kickplate"
+    },
+    {
+      "id": "aircraft-galley-equipment-galley-countertop-seam",
+      "word": "galley countertop seam",
+      "translation": "台面接缝",
+      "x": 496,
+      "y": 440,
+      "priority": 1.147,
+      "minLevel": 3,
+      "sourceVisualRegion": "aircraft-galley-equipment-region-galley-countertop-seam"
     },
     {
       "id": "aircraft-galley-equipment-galley-entry-doorway",

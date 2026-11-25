@@ -1101,8 +1101,8 @@
       "id": "office-break-room-region-bar-stool-footrest",
       "description": "Office break-room bar stool footrest visible in Tables, chairs and recycling",
       "kind": "object",
-      "x": 1375.119617,
-      "y": 671.41339,
+      "x": 1344.497608,
+      "y": 724.973433,
       "width": 42.105263,
       "height": 42.082891
     },
@@ -2824,8 +2824,8 @@
       "id": "office-break-room-bar-stool-footrest",
       "word": "Office break-room bar stool footrest",
       "translation": "写字楼休息区吧凳脚踏杆",
-      "x": 1396.172249,
-      "y": 692.454835,
+      "x": 1365.550239,
+      "y": 746.014878,
       "priority": 1.121,
       "minLevel": 2,
       "sourceVisualRegion": "office-break-room-region-bar-stool-footrest"

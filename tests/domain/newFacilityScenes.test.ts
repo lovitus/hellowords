@@ -41,8 +41,8 @@ const contracts = [
     parentId: "aircraft-cabin",
     asset: "/scenes/aircraft-galley-equipment-premium-v1.jpg",
     sha256: "ad4302dc7a0b87d7ae7bc6f596aec9a1c264ca29774d8c5ea0f024c91c3c0bbe",
-    labels: 147,
-    zoneSizes: [21, 32, 30, 22, 20, 22],
+    labels: 148,
+    zoneSizes: [21, 32, 30, 23, 20, 22],
   },
   {
     id: "hemodialysis-unit",
@@ -171,8 +171,8 @@ const contracts = [
     parentId: "school-dining-hall",
     asset: "/scenes/school-catering-kitchen-premium-v1.jpg",
     sha256: "9ceb221c31c96361341d496e4f199d0e31cb980027a9d8281e9c540079fcc733",
-    labels: 150,
-    zoneSizes: [25, 25, 25, 25, 25, 25],
+    labels: 152,
+    zoneSizes: [25, 26, 26, 25, 25, 25],
   },
   {
     id: "hospital-inpatient-bedspace",

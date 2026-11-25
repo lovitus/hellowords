@@ -459,6 +459,15 @@
       "height": 42.082891
     },
     {
+      "id": "school-catering-kitchen-region-hood-vent-slot",
+      "description": "Dark air slot between two diagonal baffles under the extraction hood",
+      "kind": "part",
+      "x": 408.61244,
+      "y": 131.030818,
+      "width": 11.483254,
+      "height": 9.564293
+    },
+    {
       "id": "school-catering-kitchen-region-catering-kitchen-front-prep-table",
       "description": "Catering-kitchen front prep table visible in Preparation islands",
       "kind": "object",
@@ -682,6 +691,15 @@
       "y": 409.351753,
       "width": 42.105263,
       "height": 42.082891
+    },
+    {
+      "id": "school-catering-kitchen-region-mixer-beater",
+      "description": "Slanted metal beater wire below the white mixer head and above the steel bowl",
+      "kind": "part",
+      "x": 842.105263,
+      "y": 361.530287,
+      "width": 19.138756,
+      "height": 21.041445
     },
     {
       "id": "school-catering-kitchen-region-catering-kitchen-cold-room-door",
@@ -1433,7 +1451,8 @@
         "school-catering-kitchen-catering-kitchen-tray-rack-rail",
         "school-catering-kitchen-catering-kitchen-tray-rack-caster",
         "school-catering-kitchen-catering-kitchen-cooking-splashguard",
-        "school-catering-kitchen-catering-kitchen-cooking-line-floor"
+        "school-catering-kitchen-catering-kitchen-cooking-line-floor",
+        "school-catering-kitchen-hood-vent-slot"
       ]
     },
     {
@@ -1471,7 +1490,8 @@
         "school-catering-kitchen-catering-kitchen-stand-mixer",
         "school-catering-kitchen-catering-kitchen-mixer-bowl",
         "school-catering-kitchen-catering-kitchen-food-processor",
-        "school-catering-kitchen-catering-kitchen-digital-scale"
+        "school-catering-kitchen-catering-kitchen-digital-scale",
+        "school-catering-kitchen-mixer-beater"
       ]
     },
     {
@@ -1594,9 +1614,9 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/school-catering-kitchen-premium-v1.jpg",
     "reviewedAssetSha256": "9ceb221c31c96361341d496e4f199d0e31cb980027a9d8281e9c540079fcc733",
-    "rationale": "The generated source and final JPEG were inspected at native and final pixels. This scene retains 150 independently pointable objects and visible parts across 6 bounded zones. People, identity, readable text, brands, hidden contents, inferred processes and unsupported states were excluded.",
-    "previousLabelCount": 158,
-    "retainedLabelCount": 150,
+    "rationale": "The generated source and final JPEG were inspected at native and final pixels. This scene retains 152 independently pointable objects and visible parts across 6 bounded zones. People, identity, readable text, brands, hidden contents, inferred processes and unsupported states were excluded.",
+    "previousLabelCount": 160,
+    "retainedLabelCount": 152,
     "removedLabelCount": 8,
     "removedExamples": [
       "food safety status",
@@ -2161,6 +2181,17 @@
       "semanticRealmId": "body-daily-life"
     },
     {
+      "id": "school-catering-kitchen-hood-vent-slot",
+      "word": "hood vent slot",
+      "translation": "油烟机通风槽",
+      "x": 412.440191,
+      "y": 136.769394,
+      "priority": 1.15,
+      "minLevel": 4,
+      "sourceVisualRegion": "school-catering-kitchen-region-hood-vent-slot",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
       "id": "school-catering-kitchen-catering-kitchen-front-prep-table",
       "word": "Catering-kitchen front prep table",
       "translation": "后厨前部备餐台",
@@ -2433,6 +2464,17 @@
       "priority": 1.074,
       "minLevel": 0,
       "sourceVisualRegion": "school-catering-kitchen-region-catering-kitchen-digital-scale",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "school-catering-kitchen-mixer-beater",
+      "word": "mixer beater",
+      "translation": "搅拌机搅拌头",
+      "x": 856.45933,
+      "y": 375.876727,
+      "priority": 1.151,
+      "minLevel": 3,
+      "sourceVisualRegion": "school-catering-kitchen-region-mixer-beater",
       "semanticRealmId": "body-daily-life"
     },
     {

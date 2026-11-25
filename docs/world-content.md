@@ -99,7 +99,7 @@ Vocabulary cues are generated only from reviewed label anchors outside every por
 
 Every visible word is rendered as a callout: a luminous semantic-colour anchor dot remains on the exact reviewed pixel while a glossy high-contrast leader connects it to the collision-adjusted word capsule. This keeps the semantic attachment visible even when nearby labels must move apart for readability.
 
-Translations remain authored for the visible scene meaning. For example, the heart cutaway distinguishes `right atrium` as `右心房` and `left ventricle` as `左心室`. Removed spatial labels are not deleted from the application vocabulary; they remain learnable in the lexical world without pretending that the current image depicts them.
+Translations follow the meaning in the scene. For example, the heart cutaway distinguishes `right atrium` (右心房) and `left ventricle` (左心室). The scene word finder also searches optional `relatedWords`. These entries have an ID, English word and Chinese translation. Selecting one opens its word card at the current camera position. Only `labels` supply anchors, detail zones and spatial discovery counts.
 
 ## Per-scene audit result
 
@@ -111,7 +111,7 @@ Translations remain authored for the visible scene meaning. For example, the hea
 | Tomato plant | 106 → 99 | Complete supported plant grounds stem, compound-leaf, flower, fruit, support, substrate and visible pest details; physiology and underground processes remain removed |
 | Potting workbench | 113 → 104 | Complete daylight bench grounds tool edges, containers, seedlings, soil and watering fittings; actions, properties and printed-label readings remain removed |
 | Apartment | 176 → 173 | Bright replacement preserves three room portals, then adds living-room furniture and finish parts while retaining the excluded sink, hallway and dresser claims |
-| Kitchen | 185 → 176 | Bright kitchen grounds appliances, sink, cookware, coffee-nook and island parts; added preparation tools stay on the reviewed island crop |
+| Kitchen | 185 → 139 | The photograph shows a glass bottle beside the pepper mill. The scene finder retains 38 unpictured terms including oil bottle, peeler and oven mitt. |
 | Coffee machine | 78 → 60 | Premium product cutaway grounds the open reservoir, grinder, controls, brew group, steam hardware, boiler circuit, pump fittings and electronics; invisible functions and brewing processes remain removed |
 | Water tank | 71 → 61 | Premium clear-reservoir portrait grounds lid, water, molded walls, hinge/latch hardware, outlet valve internals, filter surfaces, mounts and the real Polymer portal; the final audit adds lid, water-surface, filter, corner-post and base-rail parts, with the water-surface, detached filter-cup, lid-corner and base-bracket details now in their own focus zones while sensors, hidden plumbing, properties and maintenance actions remain removed |
 | Polymer | 91 → 60 | Premium multiscale material scene grounds specimens, film and fiber forms, ordered lamellae, amorphous pockets, defects, pores and molecular-chain junctions; undefined molecular identities, properties and processes stay removed |

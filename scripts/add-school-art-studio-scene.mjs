@@ -79,7 +79,7 @@ const zones = [
       ["art stool", "美术凳", 250, 700],
       ["art stool seat", "凳面", 250, 650],
       ["art stool leg", "凳腿", 250, 740],
-      ["art stool foot ring", "凳脚圈", 250, 780],
+      ["art stool foot ring", "凳脚圈", 228, 689],
       ["paint bottle", "颜料瓶", 300, 480],
       ["red paint bottle", "红色颜料瓶", 340, 480],
       ["blue paint bottle", "蓝色颜料瓶", 380, 480],

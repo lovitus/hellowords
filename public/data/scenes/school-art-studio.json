@@ -309,8 +309,8 @@
       "id": "school-art-studio-region-art-stool-foot-ring",
       "description": "Pixel-audited “art stool foot ring” inside the Student art worktable crop of the school art studio photograph",
       "kind": "part",
-      "x": 230,
-      "y": 760,
+      "x": 208,
+      "y": 669,
       "width": 40,
       "height": 40
     },
@@ -1952,8 +1952,8 @@
       "id": "school-art-studio-art-stool-foot-ring",
       "word": "art stool foot ring",
       "translation": "凳脚圈",
-      "x": 250,
-      "y": 780,
+      "x": 228,
+      "y": 689,
       "priority": 1.033,
       "minLevel": 3,
       "sourceVisualRegion": "school-art-studio-region-art-stool-foot-ring"

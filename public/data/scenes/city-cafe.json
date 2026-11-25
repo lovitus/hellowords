@@ -574,11 +574,11 @@
       "id": "shelf-bracket",
       "word": "shelf bracket",
       "translation": "搁板支架",
-      "x": 745,
-      "y": 230,
+      "x": 662,
+      "y": 206,
       "priority": 7.012,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-wall-shelf"
+      "sourceVisualRegion": "verified-shelf-bracket"
     },
     {
       "id": "plant-leaf",
@@ -1752,6 +1752,15 @@
       "y": 160,
       "width": 225,
       "height": 85
+    },
+    {
+      "id": "verified-shelf-bracket",
+      "description": "Left triangular wooden support under the rear wall shelf",
+      "kind": "part",
+      "x": 651,
+      "y": 192,
+      "width": 18,
+      "height": 32
     },
     {
       "id": "verified-water-glass",

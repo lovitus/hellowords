@@ -175,6 +175,10 @@ const zones = [
       ["lower galley panel", "厨房下部面板", 500, 820],
       ["lower panel handle", "下部面板把手", 500, 780],
       ["aircraft galley kickplate", "飞机厨房踢脚板", 450, 870],
+      ["galley countertop seam", "台面接缝", 496, 440, {
+        priorityIndex: 147, bounds: { x: 493, y: 422, width: 7, height: 25 },
+        description: "Narrow joint in the stainless countertop at the front edge to the right of the sink",
+      }],
     ],
   },
   {
@@ -260,31 +264,28 @@ function makeScene() {
   let priority = 0;
   for (const zone of zones) {
     const labelIds = [];
-    for (const [word, labelTranslation, x, y] of zone.labels) {
+    for (const [word, labelTranslation, x, y, detail] of zone.labels) {
       const idSuffix = slug(word);
       const region = {
         id: `aircraft-galley-equipment-region-${idSuffix}`,
-        description: `Pixel-audited “${word}” inside the ${zone.title} crop of the aircraft galley photograph`,
+        description: detail?.description ?? `Pixel-audited “${word}” inside the ${zone.title} crop of the aircraft galley photograph`,
         kind: "part",
-        x: Math.max(0, x - 20),
-        y: Math.max(0, y - 20),
-        width: 40,
-        height: 40,
+        ...(detail?.bounds ?? { x: Math.max(0, x - 20), y: Math.max(0, y - 20), width: 40, height: 40 }),
       };
       const localIndex = zone.labels.findIndex((row) => row[0] === word);
+      const index = detail?.priorityIndex ?? priority++;
       labels.push({
         id: `aircraft-galley-equipment-${idSuffix}`,
         word,
         translation: labelTranslation,
         x,
         y,
-        priority: Number((1 + priority / 1000).toFixed(6)),
-        minLevel: localIndex < 2 ? 0 : localIndex < 4 ? 1 : 2 + ((priority + 1) % 3),
+        priority: Number((1 + index / 1000).toFixed(6)),
+        minLevel: localIndex < 2 ? 0 : localIndex < 4 ? 1 : 2 + ((index + 1) % 3),
         sourceVisualRegion: region.id,
       });
       visualRegions.push(region);
       labelIds.push(`aircraft-galley-equipment-${idSuffix}`);
-      priority += 1;
     }
     detailZones.push({
       id: `aircraft-galley-equipment-zone-${zone.id}`,

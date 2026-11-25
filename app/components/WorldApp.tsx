@@ -29,6 +29,7 @@ import {
   serializeDiscoveredEntries,
   type Label,
   type Portal,
+  type SceneWord,
 } from "../domain";
 import { SPATIAL_LEXEME_REALMS } from "../domain/spatialLexemeRealms.generated";
 
@@ -61,6 +62,10 @@ interface LexicalWorldEntryState {
 }
 
 type SemanticTransitionState = "idle" | "open" | "returning";
+
+function isSpatialWord(word: SceneWord): word is Label {
+  return "priority" in word;
+}
 
 const ROOT_ATLAS_DISTRICT_META = [
   { id: "school", label: "Campus", translation: "校园", prefix: "school-" },
@@ -232,7 +237,8 @@ export function WorldApp() {
   const [transitionTarget, setTransitionTarget] = useState<string | null>(null);
   const [transitionCache, setTransitionCache] = useState<"idle" | SceneTransitionCacheReadiness>("idle");
   const [announcedSceneTitle, setAnnouncedSceneTitle] = useState<string | null>(null);
-  const [selectedLabel, setSelectedLabel] = useState<Label | null>(null);
+  const [selectedWord, setSelectedWord] = useState<SceneWord | null>(null);
+  const selectedLabel = selectedWord && isSpatialWord(selectedWord) ? selectedWord : null;
   const [sceneContinuityView, setSceneContinuityView] = useState<SceneContinuityView | undefined>();
   const [continuousTransitionActive, setContinuousTransitionActive] = useState(false);
   const [viewportMotionFrozen, setViewportMotionFrozen] = useState(false);
@@ -278,22 +284,18 @@ export function WorldApp() {
     [scene],
   );
 
+  const sceneWordCount = (scene?.labels.length ?? 0) + (scene?.relatedWords?.length ?? 0);
   const sceneWordIndexMatches = useMemo(() => {
-    if (!scene) return { total: 0, labels: [] as readonly Label[] };
+    if (!scene || !sceneWordIndexOpen) return { total: 0, words: [] };
     const query = sceneWordIndexQuery.trim().toLocaleLowerCase("en-US");
-    const matches = query
-      ? scene.labels.filter((label) => (
-        label.word.toLocaleLowerCase("en-US").includes(query)
-        || label.translation.toLocaleLowerCase("zh-CN").includes(query)
-      ))
-      : scene.labels;
-    return {
-      total: matches.length,
-      labels: [...matches]
-        .sort((first, second) => first.priority - second.priority || first.id.localeCompare(second.id))
-        .slice(0, 32),
-    };
-  }, [scene, sceneWordIndexQuery]);
+    const matches = (word: SceneWord) => !query || word.word.toLocaleLowerCase("en-US").includes(query)
+      || word.translation.toLocaleLowerCase("zh-CN").includes(query);
+    const labels = scene.labels.filter(matches)
+      .sort((first, second) => first.priority - second.priority || first.id.localeCompare(second.id));
+    const related = scene.relatedWords?.filter(matches) ?? [];
+    const words: SceneWord[] = [...labels, ...related];
+    return { total: words.length, words: words.slice(0, 32) };
+  }, [scene, sceneWordIndexOpen, sceneWordIndexQuery]);
 
   useEffect(() => {
     if (!sceneWordIndexOpen || window.innerWidth <= 900) return;
@@ -351,7 +353,7 @@ export function WorldApp() {
     let active = true;
     queueMicrotask(() => {
       if (!active) return;
-      setSelectedLabel(null);
+      setSelectedWord(null);
     });
     return () => {
       active = false;
@@ -671,24 +673,24 @@ export function WorldApp() {
     return activeFocusTargetNavigatorRef.current?.(target, source) ?? false;
   }, [scene, sceneControlsLocked]);
 
-  const focusSceneLabelFromIndex = useCallback((label: Label, source: "pointer" | "keyboard") => {
+  const openSceneWordFromIndex = useCallback((word: SceneWord, source: "pointer" | "keyboard") => {
     if (sceneControlsLocked || !scene) return false;
-    const target: SceneFocusTarget = {
-      id: label.id,
-      x: label.x,
-      y: label.y,
-      targetScale: Math.min(
-        3.8,
-        Math.max(1.2, (label.minScale ?? 0) + 0.4, 1.15 + (label.minLevel ?? 0) * 0.55),
-      ),
-    };
-    const focused = activeFocusTargetNavigatorRef.current?.(target, source) ?? false;
-    if (focused) {
-      setSelectedLabel(label);
-      setSceneWordIndexOpen(false);
-      setSceneWordIndexQuery("");
+    if (isSpatialWord(word)) {
+      const target: SceneFocusTarget = {
+        id: word.id,
+        x: word.x,
+        y: word.y,
+        targetScale: Math.min(
+          3.8,
+          Math.max(1.2, (word.minScale ?? 0) + 0.4, 1.15 + (word.minLevel ?? 0) * 0.55),
+        ),
+      };
+      if (!activeFocusTargetNavigatorRef.current?.(target, source)) return false;
     }
-    return focused;
+    setSelectedWord(word);
+    setSceneWordIndexOpen(false);
+    setSceneWordIndexQuery("");
+    return true;
   }, [scene, sceneControlsLocked]);
 
   const handleViewportMotionFrozen = useCallback((frozen: boolean) => {
@@ -857,7 +859,7 @@ export function WorldApp() {
             data-testid="scene-word-index-toggle"
             aria-expanded={sceneWordIndexOpen}
             aria-controls="scene-word-index"
-            aria-label={`搜索当前场景的 ${scene?.labels.length ?? 0} 个词`}
+            aria-label={`搜索当前场景的 ${sceneWordCount} 个词`}
             disabled={sceneControlsLocked || !scene}
             onClick={() => setSceneWordIndexOpen((open) => !open)}
           >
@@ -1176,25 +1178,25 @@ export function WorldApp() {
             </label>
             <p className="scene-word-index__summary" data-testid="scene-word-index-summary">
               {sceneWordIndexQuery.trim()
-                ? `${sceneWordIndexMatches.total} 个匹配 · 显示前 ${sceneWordIndexMatches.labels.length}`
-                : `本场景 ${scene.labels.length} 个词 · 输入查找并定位`}
+                ? `${sceneWordIndexMatches.total} 个匹配 · 显示前 ${sceneWordIndexMatches.words.length}`
+                : `本场景 ${sceneWordCount} 个词 · 搜索英文或中文`}
             </p>
             <div className="scene-word-index__results" data-testid="scene-word-index-results">
-              {sceneWordIndexMatches.labels.length > 0 ? sceneWordIndexMatches.labels.map((label) => (
+              {sceneWordIndexMatches.words.length > 0 ? sceneWordIndexMatches.words.map((word) => (
                 <button
-                  key={label.id}
+                  key={word.id}
                   type="button"
                   className="scene-word-index__result"
                   data-testid="scene-word-index-result"
-                  data-label-id={label.id}
-                  data-word={label.word}
+                  data-label-id={isSpatialWord(word) ? word.id : undefined}
+                  data-word={word.word}
                   onClick={(event) => {
-                    focusSceneLabelFromIndex(label, event.detail === 0 ? "keyboard" : "pointer");
+                    openSceneWordFromIndex(word, event.detail === 0 ? "keyboard" : "pointer");
                   }}
-                  aria-label={`${label.word}，${label.translation}`}
+                  aria-label={`${word.word}，${word.translation}${isSpatialWord(word) ? "" : "，图中未标注"}`}
                 >
-                  <strong>{label.word}</strong>
-                  <span>{label.translation}</span>
+                  <strong>{word.word}</strong>
+                  <span>{word.translation}{isSpatialWord(word) ? "" : " · 图中未标注"}</span>
                 </button>
               )) : (
                 <p className="scene-word-index__empty">没有匹配的场景词</p>
@@ -1236,7 +1238,7 @@ export function WorldApp() {
               onExitScene={() => goBack("zoom")}
               onLabelsEncountered={recordEncounteredLabels}
               onLabelEncountered={recordEncounteredLabel}
-              onSelectWord={setSelectedLabel}
+              onSelectWord={setSelectedWord}
               onPrefetchScene={prefetchPreferredScene}
               initialView={sceneContinuityView}
               onCameraFrame={recordViewportSnapshot}
@@ -1274,25 +1276,25 @@ export function WorldApp() {
             ← 返回上一层
           </button>
         ) : null}
-        {selectedLabel ? (
-          <aside className="word-dock" aria-label={`${selectedLabel.word} word details`}>
+        {selectedWord ? (
+          <aside className="word-dock" aria-label={`${selectedWord.word} word details`}>
             <button
               type="button"
               className="word-dock-close"
-              onClick={() => setSelectedLabel(null)}
+              onClick={() => setSelectedWord(null)}
               aria-label="关闭单词卡"
             >
               ×
             </button>
-            <span className="eyebrow">WORD ENCOUNTER</span>
-            <strong>{selectedLabel.word}</strong>
-            <p>{selectedLabel.translation}</p>
+            <span className="eyebrow">{selectedLabel ? "WORD ENCOUNTER" : "相关词 · 图中未标注"}</span>
+            <strong>{selectedWord.word}</strong>
+            <p>{selectedWord.translation}</p>
             <button
               type="button"
               className="listen-button"
               onClick={() => {
                 window.speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(selectedLabel.word);
+                const utterance = new SpeechSynthesisUtterance(selectedWord.word);
                 utterance.lang = "en-US";
                 utterance.rate = 0.86;
                 window.speechSynthesis.speak(utterance);
@@ -1300,7 +1302,7 @@ export function WorldApp() {
             >
               <span aria-hidden="true">◖))</span> 听发音
             </button>
-            {selectedLabelRealmId ? (
+            {selectedLabel && selectedLabelRealmId ? (
               <button
                 type="button"
                 className="lexical-bridge-button"

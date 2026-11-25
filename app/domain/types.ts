@@ -16,10 +16,13 @@ export interface Camera {
   readonly scale: number;
 }
 
-export interface Label {
+export interface SceneWord {
   readonly id: string;
   readonly word: string;
   readonly translation: string;
+}
+
+export interface Label extends SceneWord {
   readonly x: number;
   readonly y: number;
   readonly priority: number;
@@ -151,6 +154,8 @@ export interface Scene {
   readonly detailZones?: readonly SceneDetailZone[];
   readonly anchorAudit?: SceneAnchorAudit;
   readonly labels: readonly Label[];
+  /** Searchable vocabulary without an independently identifiable point in this image. */
+  readonly relatedWords?: readonly SceneWord[];
   readonly portals: readonly Portal[];
 }
 

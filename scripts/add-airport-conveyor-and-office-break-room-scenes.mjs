@@ -262,7 +262,7 @@ const scenes = [
           ["centre chair seat", "中央餐椅椅座", 601, 620, 1], ["chair fabric surface", "椅面织物", 610, 570, 2],
           ["right round table", "右侧圆桌", 1541, 447, 0], ["round tabletop edge", "圆桌桌沿", 1495, 445, 1],
           ["round-table pedestal", "圆桌支柱", 1575, 530, 1], ["bar stool seat", "吧凳坐面", 1456, 530, 0],
-          ["bar stool back", "吧凳靠背", 1458, 499, 1], ["bar stool footrest", "吧凳脚踏杆", 1459, 724, 2],
+          ["bar stool back", "吧凳靠背", 1458, 499, 1], ["bar stool footrest", "吧凳脚踏杆", 1427, 780, 2],
           ["blue recycling bin", "蓝色回收桶", 1554, 701, 0], ["recycling-bin lid", "回收桶盖", 1548, 536, 1],
           ["grey waste bin", "灰色垃圾桶", 1640, 702, 0],
         ],
