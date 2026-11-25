@@ -1,4 +1,4 @@
-name: Verify the apartment and kitchen route
+name: Verify photographed and related kitchen vocabulary
 on:
   workflow_dispatch:
     inputs:
@@ -15,8 +15,7 @@ permissions:
   actions: read
 env:
   CI: "true"
-  BASE: 60362cdbf115ded9d4c507a505c3ce8606099305
-  MOBILE_BASE: 0c135e5532d803dd9cd9d6c155307f56c192a9c4
+  BASE: c4324cdc4ce79632467468a87d62f891cbe1dcb0
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
@@ -41,34 +40,32 @@ jobs:
           ./node_modules/.bin/playwright install --with-deps chromium
       - uses: actions/download-artifact@v5
         with:
-          name: production-dist-${{ env.MOBILE_BASE }}
-          run-id: 45684837251
+          name: production-dist-${{ env.BASE }}
+          run-id: 45686825080
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/previous
-      - name: Reproduce the refrigerator card entering the coffee machine on a phone
+      - name: Reproduce an unpictured kitchen word moving the camera
         id: baseline
         continue-on-error: true
         run: |
-          jq -e --arg sha "$MOBILE_BASE" '.gitSha == $sha' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
+          jq -e --arg sha "$BASE" '.gitSha == $sha' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
           mv "$RUNNER_TEMP/previous/dist" dist
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/home-kitchen.spec.ts --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
+          ./node_modules/.bin/playwright test tests/e2e/kitchen-vocabulary.spec.ts --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
           mv dist "$RUNNER_TEMP/previous/dist"
           mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old.json"
           mv artifacts/e2e/test-results "$RUNNER_TEMP/evidence/old-screens"
           test "$code" -eq 1
-          jq -e '.stats.unexpected == 1 and .stats.flaky == 0 and
-            ([.suites[].specs[] | select(.file == "e2e/home-kitchen.spec.ts")
-              | .tests[] | [.projectName, (.results | map(.status)),
-                [.results[0].errors[].message]]]
-              | length == 1 and .[0][0] == "mobile-chromium" and .[0][1] == ["failed"] and
-                (.[0][2] | length == 1 and (.[0] | contains("reading the refrigerator card must keep the kitchen open")
-                and contains("coffee-machine"))))' "$RUNNER_TEMP/evidence/old.json"
+          jq -e '.stats.unexpected == 2 and .stats.flaky == 0 and
+            ([.suites[].specs[].tests[] | select(.results[0].status == "failed")
+              | select(any(.results[0].errors[]; .message | contains("opening a related kitchen word must keep the kitchen camera in place")))
+              | .projectName] | sort) == ["chromium", "mobile-chromium"]' "$RUNNER_TEMP/evidence/old.json"
       - name: Verify scene contracts
         run: |
           npm run typecheck > "$RUNNER_TEMP/evidence/types.log" 2>&1
           npm run validate:data > "$RUNNER_TEMP/evidence/scene-data.log" 2>&1
-          ./node_modules/.bin/tsx --test tests/domain/worldContent.test.ts tests/domain/worldAtlasVisualContract.test.ts tests/domain/sceneVisualQuality.test.ts > "$RUNNER_TEMP/evidence/contracts.log" 2>&1
+          ./node_modules/.bin/tsx --test tests/domain/worldContent.test.ts tests/domain/newFacilityScenes.test.ts tests/domain/sceneGraph.test.ts tests/domain/worldAtlasVisualContract.test.ts tests/domain/sceneVisualQuality.test.ts > "$RUNNER_TEMP/evidence/contracts.log" 2>&1
+          ./node_modules/.bin/tsx --test --test-name-pattern='fill spare first-screen space|preserve default LOD disclosure' tests/domain/sceneLabelDensity.test.ts > "$RUNNER_TEMP/evidence/density.log" 2>&1
       - name: Build the candidate once
         run: |
           GITHUB_SHA="$PRODUCT" npm run build
@@ -86,17 +83,10 @@ jobs:
           retention-days: 7
       - name: Follow the route on desktop and mobile Chromium
         run: |
-          ./node_modules/.bin/playwright test tests/e2e/home-kitchen.spec.ts tests/e2e/portal-prefetch.spec.ts \
-            tests/e2e/scene-minimap.spec.ts tests/e2e/continuous-semantic-zoom.spec.ts tests/e2e/scene-transition.spec.ts \
-            tests/e2e/spatial-semantic-bridge.spec.ts \
-            --grep 'kitchen object anchor|apartment reads kitchen data|the Apartment minimap focuses|Apartment handoff settles|wheel entry uses the same continuous tile handoff|zooming into ordinary terrain|continued zoom at a terminal' \
+          ./node_modules/.bin/playwright test tests/e2e/kitchen-vocabulary.spec.ts tests/e2e/home-kitchen.spec.ts tests/e2e/world.spec.ts \
+            --grep 'related kitchen word|kitchen object anchor|the current-scene word index finds' \
             --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/new.log" 2>&1
-          jq -e '.stats.expected == 13 and .stats.skipped == 1 and .stats.flaky == 0 and
-            ([.suites[].specs[] | .title as $title | .tests[] | select(.results[0].status == "skipped") | [$title,.projectName]]
-              == [["wheel entry uses the same continuous tile handoff","mobile-chromium"]]) and
-            ([.suites[].specs[] | select(.file == "e2e/home-kitchen.spec.ts")
-              | .tests[] | [.projectName, (.results | map(.status))]] | sort)
-            == [["chromium", ["passed"]], ["mobile-chromium", ["passed"]]]' artifacts/e2e/results.json
+          jq -e '.stats.expected == 6 and .stats.skipped == 0 and .stats.unexpected == 0 and .stats.flaky == 0' artifacts/e2e/results.json
       - name: Preserve browser evidence
         if: ${{ !cancelled() }}
         env:
@@ -115,6 +105,6 @@ jobs:
           path: ${{ runner.temp }}/home-route.cms
           if-no-files-found: error
           retention-days: 7
-      - name: Require the original mobile navigation failure
+      - name: Require the original camera failures
         if: ${{ !cancelled() }}
         run: test "${{ steps.baseline.outcome }}" = success
