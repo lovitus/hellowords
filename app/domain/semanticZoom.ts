@@ -57,6 +57,8 @@ export interface SemanticZoomPlacedNode<T extends SemanticZoomNodeInput = Semant
 
 export interface SemanticZoomPlacementOptions {
   readonly expanded?: boolean;
+  /** Browser line breaks can require more height than the initial text estimate. */
+  readonly minimumHeights?: ReadonlyMap<string, number>;
   /** Screen-space UI that vocabulary pills must not cover. */
   readonly protectedRegions?: readonly SemanticZoomBounds[];
 }
@@ -710,12 +712,10 @@ export function placeSemanticZoomNodes<T extends SemanticZoomNodeInput>(
   options: SemanticZoomPlacementOptions = {},
 ): SemanticZoomPlacedNode<T>[] {
   if (!nodes.length) return [];
-  const boxes = nodes.map((node) => semanticZoomNodeBox(
-    node.node,
-    level,
-    viewport.width,
-    options.expanded ?? false,
-  ));
+  const boxes = nodes.map(({ node }) => {
+    const box = semanticZoomNodeBox(node, level, viewport.width, options.expanded ?? false);
+    return { width: box.width, height: Math.max(box.height, options.minimumHeights?.get(node.id) ?? 0) };
+  });
   const gap = level === "word" ? 4 : 7;
   const gutter = 6;
   const rowWidth = Math.max(0, viewport.width - gutter * 2);

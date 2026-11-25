@@ -1,10 +1,28 @@
 # HelloWords 续开发清单
 
-更新时间：2026-09-24（Asia/Singapore）
+更新时间为 2026-11-26（Asia/Singapore）
 
 ## 当前交付游标
 
-- 当前唯一游标：提交 `29e0a6f` 已推送到 `codex/practical-conversation-expansion`，新增终端场景 `histology-sectioning-workstation`，从病理实验室可见切片设备门户 `[1270,520,70,70]`、enterScale 3.35进入；子场景无门户，继续放大留在切片工作台。锚点终审通过：108个可见词、6区（19/18/16/17/19/19），从初稿移除12个重复、不可见或图像无法确认标签；所有坐标均在对应细节区内。另新增3组/18句双语会话。PNG SHA `e9c6440be9f18776133303b5e89269b74282f5e740f7d90e9b128e5bde4753cb`，1600×900 JPEG SHA `6d844355b38d760d56534ebd950bc2cff5f32e606f244005e5ffacf11a824292`。整世界现为102场景、15,481锚点、14,397全局唯一展示词、662细节区、101门户；10k内容目标已过。GitHub milestone preflight run `35920349511` 已取得终态失败（只读一次失败摘要）：正确性、构建、SSR及桌面/移动E2E通过，E2E为236通过/36设计性跳过；唯一失败为性能预算：转场p95 668.8ms（≤650）、浏览器CPU 770ms/次（≤750）、Renderer Task 125.9ms/次（≤75）、峰值PSS 354.5MiB（≤350）、保留PSS增长44.5MiB（≤40）；视觉转场、LCP、JS heap和DOM门槛通过。未降低预算、不发布；Site仍为公开v1。当前工作树已针对相机帧热路径减少重复区级揭词排序和碰撞去重分配，并增加与原实现等价的域测试；遵守要求，未在本机运行测试/build。下一步一次提交/推送该完整性能批次，运行GitHub milestone preflight；门禁通过后再按既有授权发布累积交付。医学设备名按 [Harvard/Leica 微切片机手册](https://arboretum.harvard.edu/wp-content/uploads/2020/07/leica_rm2155manual.pdf) 与 [Monash Histology 服务说明](https://www.monash.edu/researchinfrastructure/histology/our-services?external-uuid=933f4fa4-86f8-43e6-bea3-9954042f3ba0) 核对；会话不提供诊断或操作建议。
+- 方案二冻结场景内容。当前源数据含 102 个场景、15,481 个锚点和 14,397 个不同的展示词。Sites 已确认现行公开版为 v1。本批候选基于 0382df2，GitHub 验收与公开部署状态以本节为准。
+- 固定角色沿用 scene_layout_engineer（词牌布局）、lexical_design（分类阅读与配图）和 exploration_acceptance（交互复验）。旧 adaptive_label_density 和 asset_pipeline_audit 句柄恢复时不存在，以这三个可调用角色为准。
+- 手机视口实测，急诊可点 28 词，除颤器可打开，称重台可点 9 词，电子秤可打开。公寓词牌中心及上下各 13px 可点，拖回和捏合松手均未打开词卡。聚合物放大到 7.767× 后仍在原场景，松手后再次缩小可返回水箱。实体手机未验。
+- 分类页已合入卡片按实测高度避让、长词和完整释义换行、所属词群以及配图修正。浏览器预览确认 `Language Unit` 的语言配图与 `term` 词卡对应。公寓小地图用真实 Tab 可到达 `kitchen` 并用 Enter 打开，社区花园对准地面放到最大再缩回仍在花园。
+- 社区花园在 1440×900 的桌面 Chromium 中从 1× 放至 4.15×。修复前 `shovel` 原位有空却跳了 72.4px；第一轮修正仍有顶边换位 278px。第二轮修正就近避让，原 125 帧回放中最大换位 113.78px；独立滚轮轨迹 134 帧、7,713 次有空旧槽检查，零无故换位或消失，最深视野仍有 28 个可读词。Fit 后相机与 116 个词的几何完全恢复。
+- 本批只创建一个产品候选。临时验证分支的 CI 会在独立 GitHub-hosted 作业中重现旧版失败，并对同一干净产品提交执行里程碑预检及 `verify:full`。本地浏览器结果仅用于复现和开发。下一步是取得该批 GitHub 正式结果，根据浏览器、性能与产物决定是否发布一次。
+
+## 历史记录（按当时状态保留）
+
+- 【方案二 · 本地探测第 3 轮 · 未提交、未发布】本地构建与 4180 服务。结果：桌面全量 127 通过、0 失败、9 跳过；移动端全量 99 通过、2 失败、35 跳过。本轮：① 水箱 `surface ripple` 修复：紧凑视口的 8px 短引线只在“不覆盖其他词锚点”时才可用，桌面规则不变；② 小地图“已到最深层”文字与“万词大图”按钮修复：`.scene-minimap__terminal` 加 `nowrap` 与 `flex: 0 0 auto`，移动端 7 列网格中占 6 列，终端文字 174px 宽、按钮完整显示；③ 撤回分层选槽方案（它回退了 office-break-room 与 intensive-care-unit 两个密度用例）。剩余 2 个移动端失败，已定位、未修：（a）`urban-services` 的 `defibrillator` 与同场景词共坐标，根因是 `scripts/add-professional-vocabulary.mjs` 的 6×5 固定网格，全库约 2162 个词、85 个场景受影响，需改生成器并重生成数据，影响面大，记入延期；（b）`supermarket-produce-department` 的 `produce-weighing-station` 密度 6 对 7，差 1 个词。另发现约 1003 个新词带场景名前缀（如 “Office break-room sink”），是部分场景密度不足的原因之一；去前缀会影响全局唯一性，属于内容决定，未改。未决事项不变：提交与 GitHub 门禁、发布批准范围、sessions/artifacts/tmp 清理清单、常驻 Chrome PID 84881、分类视图截断与配图、新词批次、首页植物配色。
+
+- 【方案二 · 本地探测第 2 轮 · 未提交、未发布】本地构建与 4180 服务，E2E 本地 Chrome。结果：桌面全量 127 通过、0 失败、9 跳过；移动端全量 99 通过、2 失败、35 跳过。本轮改动：① 紧凑（移动端）词牌高 28→18px，DOM 镜像 `.word-label` 同步 28→18px，气泡高度降约 36%；② 紧凑视口间距 3→2px、引线增加 8px 档（仅紧凑视口，桌面保持原值，因为桌面 crista 用例依赖原值）；③ 小地图“万词大图”按钮 `white-space: nowrap` 并允许子容器横向溢出，已目视为横排完整显示；④ 移动端 `mobile viewport exposes touch-safe labels` 的最小边长断言 28→18，理由见测试注释。撤回的尝试：16 方向、距离表扩展、候选锚点禁覆盖（移动端一次性 15 个密度失败，不可用）、放大急诊区 targetScale 到 2.4（可见词反而减少）。剩余 2 个移动端失败均已定位、未修：（a）`hospital` 急诊区 `defibrillator`（`defibrillator-pro-7`，210,293）与 `crash-cart-pro-7` 等词共用同一坐标；全库 103 个场景中约 2162 个词与同场景其他词共坐标，85 个场景受影响，根因是 `scripts/add-professional-vocabulary.mjs` 的 6×5 固定网格让不同组落在同一点，属于内容生成缺陷，需要改生成器并重生成，已记入延期；（b）`water-tank` 移动端 `surface ripple` 被紧凑引线的 `water surface` 词牌盖住，锚点位于后排。未决：分类视图截断与配图、新增医院/机场/写字楼词量、首页植物配色、锚点审计、提交与 GitHub 门禁、Site 发布（需用户批准范围）、sessions 与 artifacts 清理（需用户确认清单）、常驻 Chrome PID 84881（需用户确认）。
+
+- 【方案二 · 显示层收尾 · 未提交、未发布】本地探测（4180/4190，Chrome，非 GitHub 门禁）。已完成：① 放大穿越：零缩放入口 `SEMANTIC_ZOOM_ENTRY_ENABLED=false`，Apartment 深处放大仍停留在本景，缩回后整屋可见。② 左上角标题改为半透明小地图（236px），可折叠为标题胶囊（`scene-minimap__toggle`），收起时保护区同步缩小，单词不再为空白标题让位。③ 去掉普通场景的“本景 N 个词 · 还有 K 个”提示（仅首页保留悬停提示）。④ 子场景入口行改为换行，不再横向截断。⑤ canvas 暴露 `data-readable-count` 与绘制几何（仅供测试），E2E 从读 DOM 镜像改为读绘制结果；`canvas-words.ts` 用真实鼠标坐标点击已绘制的词。未完成：首页植物颜色与分区层次（需新美术或重画，未验证）；医院/机场/写字楼词量（按“冻结内容”未加）；锚点对齐与划线交叉仍有残留（新场景未逐一复核）；`sessions` 与 `artifacts` 清理（待用户确认清单）。延期的 E2E：`continuous zoom retains…`（逐帧历史槽位，与确定性布局冲突，test.fixme）；`an authored detail-zone cue…`、`scene progress conserves…`、`viewport progress distinguishes…`（提示功能已下线，test.fixme）。
+
+- 【方案二 · canvas 显示层 · 未提交、未发布】本地探测（非 GitHub 门禁）：词牌由 `app/lib/label-canvas.ts` 逐帧绘制，精灵图缓存；DOM 镜像按钮只保留键盘与读屏状态，不再逐帧写样式；普通场景全部挂载镜像，首页图集仍用挂载窗口。本地 `world-performance` 用例复跑两次：渲染线程 68.9/69.7ms（门槛 75，HEAD 本地基线 72.7），CPU 198/198ms（门槛 750，HEAD 254），过渡 p95 263ms（门槛 650）。canvas 悬停（光标 pointer）与点击选词已在本地 Chrome 验证。域测试 356/356，tsc 与 lint 干净。删除并改写了读取 CSS 文本的 `labelSemanticStyle` 测试。未完成：依赖 DOM 标签位置的 E2E 未改写；底部“本景还有 N 个词”提示仍在；左上角标题遮挡词、放大穿越万词大图、锚点错位、首页配色与悬停分区、医院/机场/写字楼词量均未处理。唯一下一步：改写 E2E 为行为断言并关闭底部计数提示，再整批走 GitHub 门禁。快照：`/Volumes/micron512g/tmp-project/snapshot-plan2-20261106-1657-pre-canvas`。
+
+- 【方案二 · 显示层重做 · 未提交】用户决定：冻结内容（不再加场景），重做显示层，允许本地敏捷探测（本地构建、域测试、Chrome 上的仓库 perf 用例；最终门禁仍走 GitHub）。已在工作区完成：① `app/domain/labelPlacement.ts`：无历史状态的确定性布局，固定 8 方向、直线引线，拒绝重叠、引线交叉、覆盖锚点、越界；`tests/domain/labelPlacement.test.ts` 7 项行为测试全部通过，其中“引线不交叉”在旧布局上失败（先红后绿证据）。② 视图层两处布局调用改用新函数，去掉历史挂载/预留槽，关闭“还剩 N 个词”提示（`VOCABULARY_HINTS_ENABLED=false`）。③ 气泡高 15→12px、表面透明 56%→34%、描边 0.45→2px、引线改金色高光。④ 删除 6 个违反 AGENTS 的源码字符串/调用顺序测试。域测试 356/356、lint、tsc、build 通过。**本地性能结论（同口径，Chrome，仓库 perf 用例）**：HEAD 基线 过渡 p95 648ms、CPU 254ms/次、渲染线程 72.7ms/次（全部过线）；新布局 p95 635ms、CPU 408ms/次、渲染线程 142.6ms/次（渲染超 75，未过）。Trace 显示瓶颈是每帧对约 400 个 DOM 元素做样式重算（UpdateLayoutTree），与可见胶囊数成正比；全量挂载实验证明不是挂载抖动。**下一步唯一动作**：把标签层改为单个 canvas 绘制（布局沿用 `labelPlacement`，引线与胶囊在 canvas 中绘制，点击用命中测试，保留仅用于可访问性的 sr-only 按钮），再用本地 perf 与 HEAD 对照；随后重写依赖胶囊 DOM 的 E2E 断言（`world.spec.ts` 等）。未完成：左上角标题改半透明小地图、万词大图禁止无退出进入、锚点精度（用户要求复杂的不修）、E2E、发布。本地 Chromium 下载超时，本地探测用系统 Chrome；未发布、未提交。
+- 当时的远端候选：`0382df2` 已推送到 `codex/practical-conversation-expansion`，在 `29e0a6f` 的组织切片工作站批次之上减少相机帧重复计算：细节区复用全场景隐藏词排序、碰撞索引用查询标记替代每候选槽位新建 `Set`，并跳过已自然可读标签无用的未来揭词探测。新增域合同比较优化前后的剩余词、词序和目标缩放；没有改词数、锚点或发布预算。该代码没有本机测试/build（遵守 GitHub-only 验证要求）。GitHub milestone preflight `35923296603` 的规定单次同步等待已在600秒超时，未取得终态，未读取日志、未重试；不得把它算作通过或失败，也不要对该run再次查询。上一候选 `35920349511` 的一次失败摘要仍显示正确性、构建、SSR及桌面/移动E2E通过（236通过/36设计性跳过），但性能预算失败：转场p95 668.8ms（≤650）、浏览器CPU 770ms/次（≤750）、Renderer Task 125.9ms/次（≤75）、峰值PSS 354.5MiB（≤350）、保留PSS增长44.5MiB（≤40）；视觉转场、LCP、JS heap和DOM门槛通过。项目全局规则禁止超时后重查或启动可能取消同分支run的新workflow；Site仍为公开v1，不发布。整世界为102场景、15,481锚点、14,397全局唯一展示词、662细节区、101门户；10k内容目标已过。下一次续接从此阻塞状态开始：先遵守不重查规则；等待用户或新的外部终态证据后再决定新完整验证，不降低预算。医学设备名按 [Harvard/Leica 微切片机手册](https://arboretum.harvard.edu/wp-content/uploads/2020/07/leica_rm2155manual.pdf) 与 [Monash Histology 服务说明](https://www.monash.edu/researchinfrastructure/histology/our-services?external-uuid=933f4fa4-86f8-43e6-bea3-9954042f3ba0) 核对；会话不提供诊断或操作建议。
 
 - 前一批急诊评估区的修订已在 `a4ccae2` 推送；GitHub run `35914132458` 的完整正确性、构建、SSR与桌面/移动 E2E通过，仅性能门失败：转场 p95 676ms（≤650）、浏览器 CPU 808.5ms/次（≤750）、Renderer TaskDuration 127.54ms/次（≤75）、峰值 PSS 362.4MiB（≤350）、保留 PSS 增量57.3MiB（≤40）；不降低预算。当前批次完成后才重新跑完整门禁；若性能仍失败则保留未发布状态，继续按用户优先级扩场景，不声称已达到发布验收。
 - 上一个完整非里程碑 run `35904939872` 的数据/lint/typecheck/build/SSR/E2E通过，performance未通过：视觉转场 p95 271.3ms（≤650）、Playwright转场 p95 668.1ms（≤650失败）、浏览器CPU 790.5ms/次（≤750失败）、Renderer TaskDuration 130.589ms/次（≤75失败）、峰值PSS 352.499MiB（≤350失败）、PSS增长40.0068MiB（≤40失败）；JS heap、LCP和DOM通过。预算不放宽；新里程碑工作流需重新完整覆盖这些门槛后才能发布。
@@ -106,7 +124,7 @@
 - v137 在四张已审计园艺/交通图上加入 47 个显式像素锚定部件词：Transit hub +12、Potting workbench +12、Greenhouse interior +11、Leaf +12；同步更新细分区计数与温室/工作台证据上限。`npm run verify` 通过（234 个域测试 + 28 个语义），完整 E2E 106/36、性能 2/2 通过；公开页实测四个新增细分区各自可读新词，error/warn 日志为空。术语复核参考 FTA 交通设施词汇与 USDA/ARS 温室育苗资料：<https://www.transit.dot.gov/sites/fta.dot.gov/files/docs/ntd/58026/2017-glossary.pdf>、<https://www.ars.usda.gov/research/publications/publication/?seqNo115=140158>。
 - 清理记录：v137 归档已移入 `/Users/fanli/.Trash/codex-session-cleanup-20260830/hellowords-v137/`；活动 `.codex/sessions` 与共享临时根不删除。
 
-## 当前续开发游标（2026-08-29）
+## 2026-08-29 的开发记录
 
 - 活跃根任务：`019fe5fe-faec-7070-9788-dbe33e98e645`（当前对话，保留）。没有运行中的协作 agent。
 - 已归档的完成子任务：`01a04618-091d-7a63-bf16-a78fd56aab74`，主题为“修复场景切换与首页展示”；它的代码曾被明确撤销，当前只保留本批工作树中的新改动。
@@ -251,7 +269,7 @@
 - 发现的孤立词库缓存 `/var/folders/.../T/hellowords-wordnet-cbda5ea6eef7.zip` 未被任何进程打开，已移入系统废纸篓；浏览器/Codex runtime 目录未触碰。
 - 已停止一个无测试进程使用的本地 HelloWords `vinext` 4173 服务；公开站点和当前源代码不受影响。
 
-## 续开发起点
+## 早期开发入口（归档）
 
 ```sh
 cd /Volumes/micron512g/code/hellowords

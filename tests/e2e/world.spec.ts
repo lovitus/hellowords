@@ -1,4 +1,5 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import { clickPaintedWord, paintedWordCount, paintedWordState } from "./canvas-words";
 
 const APP = '[data-testid="world-app"]';
 const VIEWPORT = '[data-testid="world-viewport"]';
@@ -11,6 +12,7 @@ interface WordTransitionStyle {
 interface MobileLabelLayout {
   count: number;
   overlaps: string[];
+  visible: Array<{ name: string; rect: { left: number; right: number; top: number; bottom: number; width: number; height: number } }>;
 }
 
 interface SceneLabelContract {
@@ -48,20 +50,13 @@ async function currentSceneLabelContract(page: Page): Promise<SceneLabelContract
   }, currentId);
 }
 
-async function renderedWordCount(page: Page, minimumOpacity = 0.52) {
-  return page.getByTestId("word-label").evaluateAll((labels, opacityThreshold) =>
-    labels.filter((label) => {
-      const style = window.getComputedStyle(label);
-      return (
-        style.display !== "none" &&
-        style.visibility !== "hidden" &&
-        // Adaptive spare-space labels are deliberately promoted to 0.82.
-        // They are readable and keyboard-interactive even before their natural
-        // LOD reaches full opacity, so the density contract must count them.
-        Number.parseFloat(style.opacity) >= opacityThreshold
-      );
-    }).length, minimumOpacity,
-  );
+async function renderedWordCount(page: Page): Promise<number> {
+  // Words are drawn by the label canvas. Its readable count covers hit-testable
+  // words at or above the 0.52 legibility floor, including promoted spare-space
+  // labels, so the density contract counts what is actually on screen.
+  return page.locator(".label-canvas").evaluate((canvas) => (
+    Number((canvas as HTMLCanvasElement).dataset.readableCount ?? "0")
+  ));
 }
 
 async function wordTransitionStyle(label: Locator): Promise<WordTransitionStyle> {
@@ -160,28 +155,39 @@ async function authoredAnchorScreenPoint(
 }
 
 async function mobileLabelLayout(page: Page): Promise<MobileLabelLayout> {
-  return page.getByTestId("word-label").evaluateAll((labels) => {
-    const viewport = document.querySelector<HTMLElement>('[data-testid="world-viewport"]');
-    if (!viewport) throw new Error("world viewport is required for mobile layout checks");
-    const viewportRect = viewport.getBoundingClientRect();
-    const visible = labels.flatMap((label) => {
-      const style = window.getComputedStyle(label);
-      if (
-        style.display === "none" ||
-        style.visibility === "hidden" ||
-        (label as HTMLElement).dataset.interactive !== "true" ||
-        Number.parseFloat(style.opacity) < 0.52
-      ) {
-        return [];
-      }
-      const rect = label.getBoundingClientRect();
+  // Words are drawn on the canvas; each drawn word carries its painted box in
+  // viewport coordinates. Overlap is judged on those boxes, as before.
+  return page.locator(".label-canvas").evaluate((canvas) => {
+    const painted = (canvas as HTMLCanvasElement & { paintedLabels?: Array<{
+      word: string;
+      interactive: boolean;
+      opacity: number;
+      centerX: number;
+      centerY: number;
+      width: number;
+      height: number;
+    }> }).paintedLabels ?? [];
+    const canvasRect = canvas.getBoundingClientRect();
+    const visible = painted.flatMap((label) => {
+      if (!label.interactive || label.opacity < 0.52) return [];
+      const left = canvasRect.left + label.centerX - label.width / 2;
+      const top = canvasRect.top + label.centerY - label.height / 2;
+      const rect = {
+        left,
+        top,
+        right: left + label.width,
+        bottom: top + label.height,
+        width: label.width,
+        height: label.height,
+      };
+      const viewportRect = canvasRect;
       const centerInsideViewport =
         rect.left + rect.width / 2 >= viewportRect.left &&
         rect.right - rect.width / 2 <= viewportRect.right &&
         rect.top + rect.height / 2 >= viewportRect.top &&
         rect.bottom - rect.height / 2 <= viewportRect.bottom;
       if (!centerInsideViewport) return [];
-      return [{ name: label.textContent?.trim() ?? "word", rect }];
+      return [{ name: label.word, rect }];
     });
 
     const overlaps: string[] = [];
@@ -197,7 +203,7 @@ async function mobileLabelLayout(page: Page): Promise<MobileLabelLayout> {
       }
     }
 
-    return { count: visible.length, overlaps };
+    return { count: visible.length, overlaps, visible };
   });
 }
 
@@ -348,7 +354,7 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   await expect(label).toBeVisible();
   const word = await label.getAttribute("data-word");
   expect(word, "the selected visible label must expose its target-language word").toBeTruthy();
-  await label.click();
+  await clickPaintedWord(page, (await label.getAttribute("data-label-id"))!);
   const card = page.getByRole("complementary", { name: `${word!} word details` });
   await expect(card).toBeVisible();
   const selectedMeaning = card.locator("p").first();
@@ -459,20 +465,16 @@ test("five authored LOD bands use spare space and remain readable while zooming"
   const detailLabel = page.locator(`.word-label[data-label-id="${detailContract.id}"]`);
   if (await detailLabel.count() === 1) {
     const initialDetailStyle = await wordTransitionStyle(detailLabel);
-    const initiallyAdaptive = await detailLabel.getAttribute("data-adaptive") === "true";
     expect(initialDetailStyle.display, "a mounted authored detail remains renderable").not.toBe("none");
-    if (initiallyAdaptive) {
-      expect(
-        initialDetailStyle.opacity,
-        "a future LOD promoted into spare space must already be readable",
-      ).toBeGreaterThanOrEqual(0.52);
+    // Behaviour: a detail word is either drawn readable and reachable, or not
+    // drawn at all and out of the keyboard order. The painted state decides.
+    const painted = await paintedWordState(page, detailContract.id);
+    if (painted?.interactive) {
+      expect(painted.opacity, "a drawn detail word must be readable").toBeGreaterThanOrEqual(0.52);
       await expect(detailLabel).toHaveAttribute("aria-hidden", "false");
       await expect(detailLabel).toHaveAttribute("tabindex", "0");
     } else {
-      expect(
-        initialDetailStyle.opacity,
-        "a mounted detail without a collision-free adaptive slot remains hidden until zoomed",
-      ).toBeLessThanOrEqual(0.05);
+      expect(initialDetailStyle.opacity, "an undrawn detail word stays transparent").toBeLessThanOrEqual(0.05);
       await expect(detailLabel).toHaveAttribute("aria-hidden", "true");
       await expect(detailLabel).toHaveAttribute("tabindex", "-1");
     }
@@ -492,162 +494,47 @@ test("five authored LOD bands use spare space and remain readable while zooming"
   await expect(surface).toHaveAttribute("data-lod-level", "4");
   await expect(detailLabel).toHaveCount(1);
   await expect(detailLabel).toBeVisible();
-  await expect.poll(async () => (await wordTransitionStyle(detailLabel)).opacity).toBeGreaterThanOrEqual(0.95);
+  // The canvas draws the word; its DOM mirror stays transparent by design.
+  await expect.poll(async () => (await paintedWordState(page, detailContract.id))?.opacity ?? 0)
+    .toBeGreaterThanOrEqual(0.95);
   await expect(detailLabel).toHaveAttribute("aria-hidden", "false");
   await expect(detailLabel).toHaveAttribute("tabindex", "0");
 });
 
-test("scene-wide zoom guidance honestly reports zero or more words after adaptive layout", async ({ page }, testInfo) => {
-  await openWorld(page);
-  const surface = page.locator(".scene-surface");
-  const summary = page.getByTestId("scene-vocabulary-summary");
-
-  await expect(summary).toHaveAttribute("data-hidden-word-count", /^\d+$/);
-  const hiddenBefore = Number(await summary.getAttribute("data-hidden-word-count"));
-  if (hiddenBefore === 0) {
-    await expect(summary).toHaveAttribute("data-active", "false");
-    await expect(summary).toHaveAttribute("data-next-lod", "none");
-    await expect(summary).toHaveAttribute("data-next-batch-count", "0");
-    await expect(summary).toHaveAttribute("aria-label", "继续放大，显示下一批词");
-    await expect(summary).toBeHidden();
-    return;
-  }
-
-  await expect(summary).toHaveAttribute("data-active", "true");
-  const nextLod = Number(await summary.getAttribute("data-next-lod"));
-  expect(nextLod, "the scene-wide cue reports a reachable next LOD").toBeGreaterThanOrEqual(2);
-  await expect(summary).toHaveAttribute("aria-label", "继续放大，显示下一批词");
-
-  const activeRegionCues = page.locator(
-    '[data-testid="scene-vocabulary-cue"][data-active="true"]',
-  );
-  for (let index = 0; index < await activeRegionCues.count(); index += 1) {
-    const cue = activeRegionCues.nth(index);
-    const count = Number(await cue.getAttribute("data-hidden-word-count"));
-    const nextBatchCount = Number(await cue.getAttribute("data-next-batch-count"));
-    const mode = await cue.getAttribute("data-cue-mode");
-    const source = await cue.getAttribute("data-cue-source");
-    const zoneTitle = await cue.getAttribute("data-zone-title");
-    expect(source).toBe("authored-zone");
-    expect(zoneTitle).toBeTruthy();
-    expect(nextBatchCount).toBeGreaterThan(0);
-    expect(nextBatchCount).toBeLessThanOrEqual(count);
-    expect(Number(await cue.getAttribute("data-authored-target-scale"))).toBeGreaterThan(1);
-    expect(Number(await cue.getAttribute("data-focus-x"))).toBeGreaterThanOrEqual(0);
-    expect(Number(await cue.getAttribute("data-focus-y"))).toBeGreaterThanOrEqual(0);
-    expect(["region", "compact"]).toContain(mode);
-    if (mode === "region") {
-      expect(count, "a full local marker represents a useful region").toBeGreaterThanOrEqual(4);
-    } else {
-      expect(count, "a compact marker honestly preserves a sparse remainder").toBeGreaterThan(0);
-      expect(count).toBeLessThan(4);
-    }
-    await expect(cue).toHaveAttribute("aria-hidden", "false");
-    await expect(cue).toHaveAttribute("tabindex", "0");
-    await expect(cue).toHaveAttribute("aria-label", `${zoneTitle}还有 ${count} 个词，放大查看`);
-    await expect(cue.locator(".vocabulary-zoom-cue-count")).toHaveText(
-      `${zoneTitle} · 还剩 ${count} 个词`,
-    );
-  }
-
-  await summary.focus();
-  await expect(summary).toBeFocused();
-  const summaryNextLabelId = await summary.getAttribute("data-next-label-id");
-  expect(summaryNextLabelId).toBeTruthy();
-  const promisedSummaryLabelIds = new Set(
-    (await summary.getAttribute("data-next-label-ids") ?? summaryNextLabelId ?? "")
-      .split(/\s+/u)
-      .filter(Boolean),
-  );
-  expect(promisedSummaryLabelIds.has(summaryNextLabelId as string)).toBe(true);
-  await page.keyboard.press("Enter");
-  await expect(surface).toHaveAttribute("data-lod-level", String(nextLod));
-  await expect.poll(async () => page.locator(
-    `.word-label[data-lod="${nextLod}"][data-interactive="true"]`,
-  ).count(), {
-    message: "activating the scene-wide cue must make its next LOD keyboard-readable",
-  }).toBeGreaterThan(0);
-  const summaryFocusedLabel = page.locator(".word-label:focus");
-  await expect(summaryFocusedLabel).toHaveCount(1);
-  const resolvedSummaryFocusId = await summaryFocusedLabel.getAttribute("data-label-id");
-  expect(resolvedSummaryFocusId).toBeTruthy();
-  expect(
-    promisedSummaryLabelIds.has(resolvedSummaryFocusId as string),
-    "the collision-safe focused word belongs to the batch promised before activation",
-  ).toBe(true);
-  const mountCeiling = testInfo.project.name === "mobile-chromium" ? 128 : 256;
-  expect(
-    await page.getByTestId("word-label").count(),
-    "the keyboard focus handoff must preserve the viewport DOM mount ceiling",
-  ).toBeLessThanOrEqual(mountCeiling);
-
-  const activeAfter = await summary.getAttribute("data-active");
-  const hiddenAfter = Number(await summary.getAttribute("data-hidden-word-count"));
-  if (activeAfter === "true") {
-    expect(hiddenAfter, "the remaining count decreases after revealing the next batch").toBeLessThan(hiddenBefore);
-    await expect(summary).toHaveAttribute("aria-label", "继续放大，显示下一批词");
-  } else {
-    expect(hiddenAfter, "the summary becomes inactive only when no revealable words remain").toBe(0);
-  }
-});
-
-test("an authored detail-zone cue zooms within the scene and reduces its truthful remainder", async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name === "mobile-chromium");
+test("the apartment minimap reveals a detail zone and leaves its drawn words keyboard accessible", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   const app = await openWorld(page);
-  await page.locator(
-    '[data-testid="scene-minimap-child"][data-target-scene="apartment"]',
-  ).click();
+  await page.locator('[data-testid="scene-minimap-child"][data-target-scene="apartment"]').click();
   await expect(app).toHaveAttribute("data-scene-id", "apartment");
   await expect(app).toHaveAttribute("data-transition-state", "idle");
-  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-motion-frozen", "false");
-  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-positioned", "true");
-  const originalScene = await sceneId(app);
-  const surface = page.locator(".scene-surface");
-  const cue = page.locator(
-    '[data-testid="scene-vocabulary-cue"][data-cue-source="authored-zone"][data-active="true"]',
-  ).first();
-  await expect(cue).toHaveAttribute("data-cue-source", "authored-zone");
-  await expect(cue).toHaveAttribute("data-active", "true");
-  const cueId = await cue.getAttribute("data-cue-id");
-  expect(cueId).toBeTruthy();
-  const stableCue = page.locator(`[data-testid="scene-vocabulary-cue"][data-cue-id="${cueId}"]`);
-
-  const remainingBefore = Number(await cue.getAttribute("data-hidden-word-count"));
-  const nextBatchCount = Number(await cue.getAttribute("data-next-batch-count"));
-  const nextLabelId = await cue.getAttribute("data-next-label-id");
-  const nextLod = Number(await cue.getAttribute("data-next-lod"));
-  const targetScale = Number(await cue.getAttribute("data-target-scale"));
-  const promisedBatchLabelIds = (await cue.getAttribute("data-next-label-ids"))
-    ?.split(/\s+/)
-    .filter(Boolean) ?? [];
-  expect(remainingBefore).toBeGreaterThanOrEqual(nextBatchCount);
-  expect(nextBatchCount).toBeGreaterThan(0);
-  expect(nextLabelId).toBeTruthy();
-  expect(targetScale).toBeGreaterThan(1);
-
-  await cue.focus();
-  await cue.press("Enter");
-  await expect(app).toHaveAttribute("data-scene-id", originalScene);
-  await expect.poll(
-    async () => Number(await surface.getAttribute("data-scene-scale")),
-  ).toBeGreaterThanOrEqual(targetScale * 0.995);
-  await expect.poll(() => page.locator(
-    `.word-label[data-lod="${nextLod}"][data-interactive="true"]`,
-  ).count()).toBeGreaterThan(0);
-  const focusedLabel = page.locator(".word-label:focus");
-  await expect(focusedLabel).toHaveCount(1);
-  const resolvedCueFocusId = await focusedLabel.getAttribute("data-label-id");
-  expect(resolvedCueFocusId).toBeTruthy();
-  expect(
-    promisedBatchLabelIds,
-    "the keyboard focus handoff must stay inside the exact batch promised before activation",
-  ).toContain(resolvedCueFocusId);
-  await expect.poll(
-    async () => (await stableCue.getAttribute("data-active")) === "false"
-      ? 0
-      : Number(await stableCue.getAttribute("data-hidden-word-count")),
-    { message: "the authored zone count must decrease after its next batch is revealed" },
-  ).toBeLessThan(remainingBefore);
+  const zoneId = "kitchen-detail";
+  const zone = page.locator(`[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`);
+  await zone.focus();
+  await zone.press("Enter");
+  await expect(zone).toHaveAttribute("aria-current", "location");
+  await expect(page.getByTestId("scene-zone-focus-region")).toHaveAttribute("data-zone-id", zoneId);
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await expect(page.getByTestId("scene-vocabulary-summary")).toBeHidden();
+  const labelIds = await page.evaluate(async (id) => {
+    const payload = await (await fetch("/data/scenes/apartment.json")).json();
+    return payload.detailZones.find((zone: { id: string }) => zone.id === id).labelIds as string[];
+  }, zoneId);
+  const label = page.locator(labelIds.map((id) => `.word-label[data-label-id="${id}"]:focus`).join(","));
+  // Start from the activated minimap zone and use the document's real tab
+  // order. A forced focus on a word would bypass a broken keyboard path.
+  const tabLimit = await page.locator("button:enabled, a[href], input, [tabindex='0']").count();
+  for (let step = 0; step < tabLimit && await label.count() === 0; step += 1) {
+    await page.keyboard.press("Tab");
+  }
+  await expect(label, "Tab must reach a word in the selected kitchen zone").toBeFocused();
+  await expect(label).toHaveAttribute("tabindex", "0");
+  const id = await label.getAttribute("data-label-id");
+  const word = await label.getAttribute("data-word");
+  const painted = await paintedWordState(page, id!);
+  expect(painted?.interactive, `${word} must be drawn and interactive`).toBe(true);
+  expect(painted!.opacity).toBeGreaterThanOrEqual(0.52);
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".word-dock strong")).toHaveText(word!);
 });
 
 test("enters a scene slice on zoom and returns to its parent", async ({ page }) => {
@@ -703,9 +590,7 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
         );
         await zone.click();
         await expect(zone).toHaveAttribute("data-active", "true");
-        await expect.poll(() => page.locator(
-          `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
-        ).count()).toBeGreaterThan(0);
+        await expect.poll(() => paintedWordCount(page, word)).toBeGreaterThan(0);
       }
       await page.getByRole("button", { name: "Fit scene" }).click();
       await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "51");
@@ -731,18 +616,14 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
   );
   await lidZone.click();
   await expect(lidZone).toHaveAttribute("data-active", "true");
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="lid port"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expect.poll(() => paintedWordCount(page, "lid port")).toBeGreaterThan(0);
 
   const terminalZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="power-terminal"]',
   );
   await terminalZone.click();
   await expect(terminalZone).toHaveAttribute("data-active", "true");
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="terminal lug"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expect.poll(() => paintedWordCount(page, "terminal lug")).toBeGreaterThan(0);
 
   await page.getByTestId("scene-minimap-children").getByRole("button", {
     name: "进入 Lithium-ion cell",
@@ -753,16 +634,12 @@ test("battery pack exposes its expanded grounded vocabulary through the real por
     '[data-testid="scene-minimap-zone"][data-zone-id="positive-terminal-detail"]',
   );
   await cellLidZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="positive terminal seal"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expect.poll(() => paintedWordCount(page, "positive terminal seal")).toBeGreaterThan(0);
   const layerZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="unfolded-layer-edges"]',
   );
   await layerZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="electrode fold"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expect.poll(() => paintedWordCount(page, "electrode fold")).toBeGreaterThan(0);
 });
 
 test("water tank exposes its new lid, water-surface, filter, and base parts", async ({ page }) => {
@@ -781,33 +658,25 @@ test("water tank exposes its new lid, water-surface, filter, and base parts", as
     '[data-testid="scene-minimap-zone"][data-zone-id="lid-corner-detail"]',
   );
   await lidZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="lid corner"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expect.poll(() => paintedWordCount(page, "lid corner")).toBeGreaterThan(0);
 
   const waterZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="surface-ripple-detail"]',
   );
   await waterZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="surface ripple"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expect.poll(() => paintedWordCount(page, "surface ripple")).toBeGreaterThan(0);
 
   const outletZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="filter-cup-detail"]',
   );
   await outletZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="filter cup"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expect.poll(() => paintedWordCount(page, "filter cup")).toBeGreaterThan(0);
 
   const baseZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="base-bracket-detail"]',
   );
   await baseZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="base bracket"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expect.poll(() => paintedWordCount(page, "base bracket")).toBeGreaterThan(0);
 });
 
 test("plant cell exposes its organelle subparts through the real leaf path", async ({ page }, testInfo) => {
@@ -833,9 +702,7 @@ test("plant cell exposes its organelle subparts through the real leaf path", asy
       )).toBeGreaterThan(0);
       return;
     }
-    await expect.poll(() => page.locator(
-      `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
-    ).count(), { message: `${word} should be visible` }).toBeGreaterThan(0);
+    await expect.poll(() => paintedWordCount(page, word), { message: `${word} should be visible` }).toBeGreaterThan(0);
   };
   const nucleusZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="nucleus-and-er"]',
@@ -893,9 +760,7 @@ test("oxygen scene exposes its expanded exchange path through the real blood rou
     );
     await zone.click();
     await expect(zone).toHaveAttribute("data-active", "true");
-    await expect.poll(() => page.locator(
-      `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
-    ).count(), { message: `${zoneId}/${word} should be visible` }).toBeGreaterThan(0);
+    await expect.poll(() => paintedWordCount(page, word), { message: `${zoneId}/${word} should be visible` }).toBeGreaterThan(0);
   }
 });
 
@@ -922,9 +787,7 @@ test("polymer scene exposes its expanded material structures through the machine
     );
     await zone.click();
     await expect(zone).toHaveAttribute("data-active", "true");
-    await expect.poll(() => page.locator(
-      `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
-    ).count()).toBeGreaterThan(0);
+    await expect.poll(() => paintedWordCount(page, word)).toBeGreaterThan(0);
   }
 });
 
@@ -963,9 +826,7 @@ test("science museum exposes additional exhibit parts without losing its child p
         await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
       )).toBeGreaterThan(0);
     } else {
-      await expect.poll(() => page.locator(
-        `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
-      ).count()).toBeGreaterThan(0);
+      await expect.poll(() => paintedWordCount(page, word)).toBeGreaterThan(0);
     }
   }
 
@@ -1004,9 +865,7 @@ test("city park exposes its expanded nature and fixture vocabulary without losin
         await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
       )).toBeGreaterThan(0);
     } else {
-      await expect.poll(() => page.locator(
-        `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
-      ).count()).toBeGreaterThan(0);
+      await expect.poll(() => paintedWordCount(page, word)).toBeGreaterThan(0);
     }
   }
 
@@ -1052,9 +911,7 @@ test("urban services exposes hospital, airport and office vocabulary through the
         await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
       )).toBeGreaterThan(0);
     } else {
-      await expect.poll(() => page.locator(
-        `[data-testid="word-label"][data-word="${word}"][data-visible="true"]`,
-      ).count()).toBeGreaterThan(0);
+      await expect.poll(() => paintedWordCount(page, word)).toBeGreaterThan(0);
     }
   }
   for (const target of ["hospital", "airport", "office-building"] as const) {
@@ -1072,9 +929,7 @@ test("urban services exposes hospital, airport and office vocabulary through the
     '[data-testid="scene-minimap-zone"][data-zone-id="emergency-department-detail"]',
   );
   await emergencyZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="defibrillator"][data-visible="true"]',
-  ).count(), { message: "hospital emergency focus should show defibrillator" }).toBeGreaterThan(0);
+  await expect.poll(() => paintedWordCount(page, "defibrillator"), { message: "hospital emergency focus should show defibrillator" }).toBeGreaterThan(0);
   const pathologyZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="pathology-laboratory-detail"]',
   );
@@ -1084,17 +939,13 @@ test("urban services exposes hospital, airport and office vocabulary through the
       await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
     )).toBeGreaterThan(0);
   } else {
-    await expect.poll(() => page.locator(
-      '[data-testid="word-label"][data-word="microscope"][data-visible="true"]',
-    ).count()).toBeGreaterThan(0);
+    await expect.poll(() => paintedWordCount(page, "microscope")).toBeGreaterThan(0);
   }
   const clinicalZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="clinical-reference-detail"]',
   );
   await clinicalZone.click();
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-word="diagnosis"][data-visible="true"]',
-  ).count()).toBeGreaterThan(0);
+  await expect.poll(() => paintedWordCount(page, "diagnosis")).toBeGreaterThan(0);
   const pharmacyZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="pharmacy-dispensary-detail"]',
   );
@@ -1104,9 +955,7 @@ test("urban services exposes hospital, airport and office vocabulary through the
       await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
     )).toBeGreaterThan(0);
   } else {
-    await expect.poll(() => page.locator(
-      '[data-testid="word-label"][data-word="ibuprofen"][data-visible="true"]',
-    ).count()).toBeGreaterThan(0);
+    await expect.poll(() => paintedWordCount(page, "ibuprofen")).toBeGreaterThan(0);
   }
 
   await page.locator(
@@ -1123,9 +972,7 @@ test("urban services exposes hospital, airport and office vocabulary through the
       await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
     )).toBeGreaterThan(0);
   } else {
-    await expect.poll(() => page.locator(
-      '[data-testid="word-label"][data-word="histology slide"][data-visible="true"]',
-    ).count()).toBeGreaterThan(0);
+    await expect.poll(() => paintedWordCount(page, "histology slide")).toBeGreaterThan(0);
   }
   await page.getByRole("button", { name: "← 返回上一层" }).click();
   await expect(app).toHaveAttribute("data-scene-id", "hospital");
@@ -1143,9 +990,7 @@ test("urban services exposes hospital, airport and office vocabulary through the
       await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
     )).toBeGreaterThan(0);
   } else {
-    await expect.poll(() => page.locator(
-      '[data-testid="word-label"][data-word="losartan"][data-visible="true"]',
-    ).count()).toBeGreaterThan(0);
+    await expect.poll(() => paintedWordCount(page, "losartan")).toBeGreaterThan(0);
   }
 });
 
@@ -1288,8 +1133,31 @@ test("mobile viewport exposes touch-safe labels and hotspots", async ({ page }, 
     });
   });
   expect(clippedPortalCaptions, "visible mobile portal captions stay inside the viewport").toEqual([]);
-  const visibleLabel = page.locator('.word-label[data-interactive="true"]').first();
-  const labelBox = await visibleLabel.boundingBox();
-  expect(labelBox).not.toBeNull();
-  expect(Math.min(labelBox!.width, labelBox!.height)).toBeGreaterThanOrEqual(28);
+  const { visible } = await mobileLabelLayout(page);
+  const target = visible.find(({ rect, name }) => {
+    const centerX = (rect.left + rect.right) / 2;
+    return rect.height <= 18 && !visible.some((other) => other.name !== name
+      && centerX >= other.rect.left - 5 && centerX <= other.rect.right + 5
+      && rect.top - 5 <= other.rect.bottom + 5 && rect.bottom + 5 >= other.rect.top - 5);
+  });
+  expect(target, "a compact painted word with free space for a 28px touch target").toBeDefined();
+  const { rect, name } = target!;
+  await page.touchscreen.tap((rect.left + rect.right) / 2, (rect.top + rect.bottom) / 2 + 13);
+  await expect(page.locator(".word-dock strong")).toHaveText(name);
+  await page.getByRole("button", { name: "关闭单词卡" }).click();
+  await expect(page.locator(".word-dock")).toHaveCount(0);
+  const wordAfterClosing = (await mobileLabelLayout(page)).visible.find((label) => label.name === name);
+  expect(wordAfterClosing).toBeDefined();
+  const { left, right, top, bottom } = wordAfterClosing!.rect;
+  const x = (left + right) / 2;
+  const y = (top + bottom) / 2;
+  const touch = await page.context().newCDPSession(page);
+  const finger = { x, y, id: 1 };
+  const direction = x < page.viewportSize()!.width / 2 ? 1 : -1;
+  await touch.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [finger] });
+  await touch.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ ...finger, x: x + direction * 34 }] });
+  await touch.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [finger] });
+  await touch.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+  await expect(page.locator(".word-dock")).toHaveCount(0);
+  await touch.detach();
 });

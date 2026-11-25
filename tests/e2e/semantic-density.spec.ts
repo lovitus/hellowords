@@ -222,7 +222,7 @@ test("the lexical world accounts for 10,000 words and reaches every word in a le
   await expect(dialog.locator("canvas")).toHaveCount(0);
 });
 
-test("Number & measure → Integer keeps complete cards on its native number-line backdrop", async ({ page }, testInfo) => {
+test("Integer keeps complete cards on its number line and Language Unit opens term on its language backdrop", async ({ page }, testInfo) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   const dialog = await openLexicalWorld(page);
   const field = dialog.getByTestId("semantic-zoom-field");
@@ -282,6 +282,20 @@ test("Number & measure → Integer keeps complete cards on its native number-lin
 
   const minimumWordCount = testInfo.project.name === "mobile-chromium" ? 8 : 20;
   await assertSemanticCardsReadableAndPacked(field, minimumWordCount);
+
+  await meanings.click();
+  await field.getByTestId("semantic-zoom-reset").click();
+  await field.locator(`${SEMANTIC_NODE}[data-id="language-culture"]`).click();
+  await field.locator(`${SEMANTIC_NODE}[data-id="language"]`).click();
+  await field.locator(`${SEMANTIC_NODE}[data-id="language--language-unit"]`).click();
+  await expect(field).toHaveAttribute("data-level", "word");
+  const languageBackdrop = field.getByTestId("semantic-backdrop");
+  await expect(languageBackdrop).toHaveAttribute("data-motif", "language");
+  await expect(languageBackdrop.getByText("Aa", { exact: true })).toBeVisible();
+  await field.getByRole("button", { name: /^term，/u }).click();
+  const termCard = dialog.getByRole("complementary", { name: "term 词汇详情", exact: true });
+  await expect(termCard.getByRole("heading", { name: "term", exact: true })).toBeVisible();
+  await expect(termCard.getByRole("group", { name: "所属词群" })).toContainText("语言单位");
 });
 
 test("the ten realm nodes reveal ten distinct successfully loaded realm tiles", async ({ page }, testInfo) => {
@@ -357,6 +371,66 @@ test("searching coffee opens its word detail and keeps map meanings off", async 
   await expect(field.locator(".semantic-zoom-field__node > span:not(.semantic-zoom-field__node-dot)")).toHaveCount(0);
 });
 
+test("long words and definitions fit their cards and search rows on a phone", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile-chromium");
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const dialog = await openLexicalWorld(page);
+  await dialog.getByRole("button", { name: "释义 关" }).click();
+  const field = dialog.getByTestId("semantic-zoom-field");
+  await field.locator('[data-id="objects-technology"]').click();
+  await field.locator('[data-id="technology-computing"]').click();
+  const group = field.locator('[data-id="technology-computing--general-communication"]');
+  await expect(group.getByText("通用 · 交流", { exact: true })).toBeVisible();
+  await expect.poll(() => group.evaluate((card) => {
+    const bounds = card.getBoundingClientRect();
+    const range = document.createRange();
+    range.selectNodeContents(card.querySelector("span:last-of-type")!);
+    return range.getBoundingClientRect().bottom <= bounds.bottom + 1
+      && [...card.parentElement!.children].every((sibling) => {
+        const other = sibling.getBoundingClientRect();
+        return sibling === card || other.top >= bounds.bottom - 1 || other.bottom <= bounds.top + 1
+          || other.left >= bounds.right - 1 || other.right <= bounds.left + 1;
+      });
+  }), { message: "General Communication must contain its full translation and clear its neighbors" }).toBe(true);
+
+  await page.setViewportSize({ width: 320, height: 568 });
+  const search = dialog.getByRole("combobox");
+  await search.fill("turn");
+  const result = dialog.locator(".lexical-world__results button").first();
+  await expect(result.locator("strong")).toHaveText("turn");
+  const turnDefinition = [
+    "n. 转弯, 转动, 旋转, 翻转, 一圈, 顺次, 改动, 变化, 性格, 特色, 形状, 转折",
+    "vt. 使旋转, 转弯, 转动, 使转向, 驱赶, 阻挡, 兑换, 改写, 使作对, 绕过, 使流通",
+    "vi. 转动, 转弯, 转向, 翻转, 回转, 改变, 转身, 变成, 变质, 晕眩, 易脱手",
+  ].join("\n");
+  const textFits = (element: HTMLElement | SVGElement) => (
+    element.scrollWidth <= element.clientWidth + 1 && element.scrollHeight <= element.clientHeight + 1
+  );
+  const resultDefinition = result.locator("span");
+  await expect(resultDefinition).toHaveText(turnDefinition);
+  expect(await resultDefinition.evaluate(textFits), "the full search definition must fit the row").toBe(true);
+  await result.click();
+  const turnCard = dialog.getByRole("complementary", { name: "turn 词汇详情" });
+  await expect(turnCard.locator("p").last()).toHaveText(turnDefinition);
+  await field.getByTestId("semantic-zoom-reset").click();
+  await expect(field).toHaveAttribute("data-level", "realm");
+  await turnCard.evaluate((card) => { card.scrollTop = card.scrollHeight; });
+  const closeCard = turnCard.getByRole("button", { name: "关闭词汇详情" });
+  await expect(closeCard).toBeInViewport();
+  await closeCard.click();
+  await search.fill("telecommunications");
+  await expect(result.locator("strong")).toHaveText("telecommunications");
+  expect(await result.locator("strong").evaluate(textFits)).toBe(true);
+  await result.click();
+  const detail = dialog.getByRole("complementary", { name: "telecommunications 词汇详情" });
+  const title = detail.getByRole("heading", { name: "telecommunications", exact: true });
+  await expect(title).toBeVisible();
+  expect(await title.evaluate(textFits), "the word card title must show the entire English word").toBe(true);
+  expect(await detail.evaluate((card) => card.scrollWidth <= card.clientWidth + 1)).toBe(true);
+  await expect(detail.getByLabel("所属词群")).toContainText("语言");
+});
+
 test("a failed semantic shard search clears its spinner and leaves exploration usable", async ({ page }) => {
   let rejectedShard = false;
   await page.route("**/data/semantic/topics/*.json", async (route) => {
@@ -386,7 +460,8 @@ test("a failed semantic shard search clears its spinner and leaves exploration u
   await expect(field).toHaveAttribute("data-level", "topic");
 });
 
-test("scene word labels remain native-size siblings of the zoomed artwork", async ({ page }) => {
+test("zooming the city artwork keeps its word labels at their original reading size", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/#world", { waitUntil: "domcontentloaded" });
   const app = page.getByTestId("world-app");
   await page.locator(
@@ -399,26 +474,24 @@ test("scene word labels remain native-size siblings of the zoomed artwork", asyn
   const labelLayer = viewport.locator(":scope > [data-testid='scene-label-layer']");
   await expect(surface).toBeVisible();
   await expect(labelLayer).toHaveAttribute("data-coordinate-space", "screen");
-  await expect(labelLayer.locator(":scope > .word-label").first()).toBeVisible();
-
-  const relationship = await viewport.evaluate((element) => {
-    const artwork = element.querySelector<HTMLElement>(":scope > .scene-surface");
-    const labels = element.querySelector<HTMLElement>(":scope > .label-layer");
-    const word = labels?.querySelector<HTMLElement>(".word-label");
-    return {
-      artworkParentIsViewport: artwork?.parentElement === element,
-      labelsParentIsViewport: labels?.parentElement === element,
-      artworkContainsLabels: Boolean(artwork?.contains(labels ?? null)),
-      layerTransform: labels ? getComputedStyle(labels).transform : "missing",
-      wordTransform: word ? getComputedStyle(word).transform : "missing",
+  const canvas = labelLayer.locator(".label-canvas");
+  const snapshot = () => canvas.evaluate((element) => {
+    const layer = element as HTMLCanvasElement & {
+      paintedLabels: { id: string; width: number; height: number; interactive: boolean }[];
     };
+    const rect = layer.getBoundingClientRect();
+    const xScale = rect.width / layer.clientWidth;
+    const yScale = rect.height / layer.clientHeight;
+    return Object.fromEntries(layer.paintedLabels.filter((label) => label.interactive)
+      .map((label) => [label.id, [label.width * xScale, label.height * yScale]]));
   });
-
-  expect(relationship).toEqual({
-    artworkParentIsViewport: true,
-    labelsParentIsViewport: true,
-    artworkContainsLabels: false,
-    layerTransform: "none",
-    wordTransform: expect.stringMatching(/^matrix\(1, 0, 0, 1,/),
-  });
+  const initial = await snapshot();
+  expect(Object.keys(initial).length).toBeGreaterThan(0);
+  const startScale = Number(await surface.getAttribute("data-scene-scale"));
+  await page.getByRole("button", { name: "Zoom in", exact: true }).click();
+  await expect.poll(async () => Number(await surface.getAttribute("data-scene-scale"))).toBeGreaterThan(startScale * 1.2);
+  const zoomed = await snapshot();
+  const retained = Object.keys(initial).filter((id) => zoomed[id]);
+  expect(retained.length).toBeGreaterThan(0);
+  for (const id of retained) expect(zoomed[id], id).toEqual(initial[id]);
 });

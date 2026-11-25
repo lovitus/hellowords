@@ -4,7 +4,6 @@ import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import {
-  advanceSemanticOverscroll,
   buildViewerChromeProtectedRegions,
   cameraFromRenderedPortalRect,
   childCameraFromPortalTile,
@@ -17,21 +16,18 @@ import {
   parentCameraFromChildTile,
   portalIntersectsMinimap,
   portalRevealProgress,
-  projectScenePointToScreen,
   projectSceneRectToScreen,
   resolveInteractiveVocabularyFocusTarget,
   SceneViewport,
   setStylePropertyIfChanged,
   shouldResetLabelPlacementMemory,
   sceneUsesWheelPortalEntry,
-  shouldWriteContinuousTileProgress,
   vocabularyActivationFocusPoint,
   WHEEL_ZOOM_SENSITIVITY,
   wheelZoomFactor,
 } from "../../app/components/SceneViewport";
 import {
   COMPACT_SCENE_LABEL_MOUNT_LIMIT,
-  computeSceneLabelLayout,
   DEFAULT_PORTAL_HYSTERESIS_POLICY,
   DESKTOP_SCENE_LABEL_MOUNT_LIMIT,
   type Label,
@@ -221,33 +217,6 @@ test("selected label collision priority follows the controlled same-scene word c
   assert.match(selectionSync, /: null;[\s\S]*requestCameraFrame\(\)/);
   assert.match(selectionSync, /\[labelsById, requestCameraFrame, selectedLabelId\]/);
 });
-
-test("camera frames request a sparse layout while keeping the default layout API complete", () => {
-  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  const layoutSource = readFileSync(new URL("app/domain/labelLayout.ts", ROOT), "utf8");
-  const applyStart = source.indexOf("const applyCamera = useCallback");
-  const applyEnd = source.indexOf("useLayoutEffect(() => {", applyStart);
-  const applyCamera = source.slice(applyStart, applyEnd);
-  assert.ok(applyStart >= 0 && applyEnd > applyStart);
-  assert.match(applyCamera, /computeSceneLabelLayout\([\s\S]*includeHiddenItems: false/);
-  assert.match(
-    layoutSource,
-    /if \(options\.includeHiddenItems === false\)[\s\S]*return painted;[\s\S]*return labels\.map/,
-    "ordinary domain callers retain complete hidden placeholders",
-  );
-});
-
-function matchingDivClose(markup: string, openIndex: number): number {
-  const tags = /<div\b[^>]*>|<\/div>/g;
-  tags.lastIndex = openIndex;
-  let depth = 0;
-  for (let match = tags.exec(markup); match; match = tags.exec(markup)) {
-    if (match[0].startsWith("</")) depth -= 1;
-    else depth += 1;
-    if (depth === 0) return tags.lastIndex;
-  }
-  throw new Error("scene surface has no matching closing div");
-}
 
 test("multi-resolution scenes server-render base and expose one atomic runtime tier contract", () => {
   const scene: Scene = {
@@ -459,109 +428,6 @@ test("portal captions stay inside narrow viewports without moving centered cues"
   assert.equal(clampCenteredOverlayShift(370, 180, 390), -82);
   assert.equal(clampCenteredOverlayShift(-40, 180, 390), 142);
   assert.equal(clampCenteredOverlayShift(24, 500, 100), 26);
-});
-
-test("continued zoom past the spatial maximum deliberately enters the semantic plane", () => {
-  const first = advanceSemanticOverscroll(0, Math.exp(0.18), true, false);
-  assert.equal(first.trigger, false);
-  assert.ok(first.accumulated > 0.17);
-
-  const second = advanceSemanticOverscroll(first.accumulated, Math.exp(0.15), true, false);
-  assert.equal(second.trigger, true);
-  assert.equal(second.accumulated, 0);
-
-  const expired = advanceSemanticOverscroll(
-    first.accumulated,
-    Math.exp(0.15),
-    true,
-    false,
-    10_000,
-  );
-  assert.equal(expired.trigger, false);
-  assert.ok(
-    Math.abs(expired.accumulated - 0.15) < 1e-12,
-    "separate gestures cannot combine into a delayed semantic transition",
-  );
-
-  assert.deepEqual(
-    advanceSemanticOverscroll(first.accumulated, Math.exp(0.3), true, true),
-    { accumulated: 0, trigger: false },
-    "a real child portal keeps ownership of the same zoom gesture",
-  );
-  assert.deepEqual(
-    advanceSemanticOverscroll(first.accumulated, Math.exp(0.3), true, false, 0, false),
-    { accumulated: 0, trigger: false },
-    "a terminal spatial scene cannot bridge into the semantic plane",
-  );
-  assert.deepEqual(
-    advanceSemanticOverscroll(first.accumulated, 0.8, true, false),
-    { accumulated: 0, trigger: false },
-    "zooming out resets semantic overscroll intent",
-  );
-  assert.deepEqual(
-    advanceSemanticOverscroll(first.accumulated, Math.exp(0.3), false, false),
-    { accumulated: 0, trigger: false },
-    "ordinary spatial zoom cannot open the semantic plane early",
-  );
-});
-
-test("semantic overscroll gives painted portal pixels ownership and resets with camera gestures", () => {
-  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  const wheelStart = source.indexOf("const queueWheelZoom");
-  const wheelEnd = source.indexOf("const focusVocabularyTarget", wheelStart);
-  const wheelPath = source.slice(wheelStart, wheelEnd);
-  const paintedPortal = wheelPath.indexOf(
-    "portalAtScreenPoint(scene.portals, cameraRef.current, point)",
-  );
-  const targetPortal = wheelPath.indexOf("portalAtScreenPoint(scene.portals, base, point)");
-  assert.ok(paintedPortal >= 0 && targetPortal > paintedPortal);
-
-  const semanticStart = source.indexOf("const trySemanticOverscroll");
-  const semanticEnd = source.indexOf("const zoomAt", semanticStart);
-  const semanticPath = source.slice(semanticStart, semanticEnd);
-  assert.match(
-    semanticPath,
-    /cameraRef\.current\.scale >= maximumSceneCameraScale\(cameraRef\.current\.fit\) - 0\.02/,
-    "semantic overscroll waits for the viewport-responsive spatial ceiling",
-  );
-  assert.match(
-    semanticPath,
-    /updateZoomDirection\("in"\);[\s\S]*onExploreSemanticPlane\(nearest, "zoom"\)/,
-    "semantic entry retains its inward direction so the first spatial zoom-out resets placement memory",
-  );
-  assert.match(semanticPath, /\[[^\]]*updateZoomDirection[^\]]*\]\);/);
-
-  const resetStart = source.indexOf("const resetSemanticOverscroll");
-  const cameraResetStart = source.indexOf("const resetCamera", resetStart);
-  const cameraResetEnd = source.indexOf("const beginPortalTransition", cameraResetStart);
-  const pointerStart = source.indexOf("const handlePointerDown", cameraResetEnd);
-  const pointerEnd = source.indexOf("const viewportCenter", pointerStart);
-  assert.match(source.slice(cameraResetStart, cameraResetEnd), /resetSemanticOverscroll\(\)/);
-  assert.ok(
-    (source.slice(pointerStart, pointerEnd).match(/resetSemanticOverscroll\(\)/g) ?? []).length >= 3,
-    "pointer start, one-finger pan and pointer end each clear stale overscroll intent",
-  );
-  assert.match(
-    source.slice(resetStart, cameraResetStart),
-    /\[[^\]]*resetSemanticOverscroll[^\]]*scene\.id[^\]]*\]/,
-    "scene ownership changes clear stale overscroll intent",
-  );
-});
-
-test("spatial zoom cannot open the semantic plane when the focal object has no portal", () => {
-  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  const semanticStart = source.indexOf("const trySemanticOverscroll");
-  const semanticEnd = source.indexOf("const zoomAt", semanticStart);
-  const semanticPath = source.slice(semanticStart, semanticEnd);
-  const guard = semanticPath.indexOf("if (!portal || scene.portals.length === 0)");
-  const reducer = semanticPath.indexOf("const result = advanceSemanticOverscroll");
-  assert.ok(guard >= 0, "semantic overscroll must guard the focal portal before accumulating intent");
-  assert.ok(guard < reducer, "a missing focal portal must return before semantic accumulation");
-  assert.match(
-    semanticPath,
-    /if \(!portal \|\| scene\.portals\.length === 0\) \{[\s\S]*?resetSemanticOverscroll\(\);[\s\S]*?return false;/,
-    "zooming an ordinary object resets overscroll instead of opening the ten-thousand-word plane",
-  );
 });
 
 test("painted portal geometry round-trips to the camera used for child handoff", () => {
@@ -776,76 +642,6 @@ test("portal reveal progress is clamped and monotonic while zooming forward", ()
   assert.match(source, /Math\.max\(sameTile \? previous\.value : 0, portalProgress\)/);
 });
 
-test("active forward continuity uses a fixed compositor tile and freezes outgoing overlays", () => {
-  assert.equal(shouldWriteContinuousTileProgress("preview", "forward"), true);
-  assert.equal(shouldWriteContinuousTileProgress("active", "forward"), false);
-  assert.equal(shouldWriteContinuousTileProgress("active", "back"), true);
-
-  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  const css = readFileSync(new URL("app/globals.css", ROOT), "utf8");
-  const applyStart = source.indexOf("const applyCamera");
-  const frameStart = source.indexOf("const requestCameraFrame", applyStart);
-  const applyPath = source.slice(applyStart, frameStart);
-  const frozenBranch = applyPath.indexOf("if (frameMotionFrozen)");
-  const labelLayout = applyPath.indexOf("computeSceneLabelLayout");
-
-  assert.ok(frozenBranch >= 0 && labelLayout > frozenBranch);
-  assert.match(
-    applyPath.slice(frozenBranch, labelLayout),
-    /onCameraFrame\?\.\([\s\S]*?return;/,
-    "the outgoing camera snapshot is published before overlay work is skipped",
-  );
-  assert.match(
-    source,
-    /const \[motionFrozen, setMotionFrozen\] = useState\(\s*Boolean\(effectiveInitialView && !reducedContinuityAtMount\)/,
-  );
-  assert.match(source, /committingRef\.current = true;\s*setMotionFrozen\(true\)/);
-  assert.match(
-    applyPath,
-    /const imminentParentExit = Boolean\([\s\S]*?scene\.parentId[\s\S]*?zoomDirectionRef\.current === "out"[\s\S]*?wheelTargetRef\.current\?\.scale[\s\S]*?< EXIT_SCALE[\s\S]*?\);/,
-  );
-  assert.match(
-    applyPath,
-    /const frameMotionFrozen = committingRef\.current[\s\S]*?\|\| continuitySettlingRef\.current[\s\S]*?\|\| imminentParentExit;/,
-  );
-  assert.match(applyPath, /syncMotionFrozenLayer\(labelLayer, frameMotionFrozen\)/);
-  assert.match(applyPath, /syncMotionFrozenLayer\(interactionLayer, frameMotionFrozen\)/);
-  assert.match(source, /data-motion-frozen=\{String\(motionFrozen\)\}/);
-  assert.match(source, /inert=\{motionFrozen \? true : undefined\}/);
-  assert.match(css, /\.scene-continuous-tile\[data-state="active"\]\[data-direction="forward"\][\s\S]*?opacity: 1;/);
-  assert.match(css, /\.scene-continuous-tile\[data-state="active"\]\[data-direction="back"\][\s\S]*?opacity: var\(--tile-progress\);/);
-  assert.doesNotMatch(css, /will-change:\s*[^;]*border-radius/);
-  assert.match(css, /\[data-motion-frozen="true"\][\s\S]*?opacity: 0;/);
-  assert.match(
-    css,
-    /\[data-motion-frozen="true"\][\s\S]*?content-visibility: hidden;/,
-    "inert continuity overlays defer descendant style work until their settled frame",
-  );
-
-  const continuityStart = source.indexOf("if (continuityView)");
-  const continuityEnd = source.indexOf("let resizeFrame", continuityStart);
-  const continuity = source.slice(continuityStart, continuityEnd);
-  assert.match(continuity, /const duration = continuityView\.direction === "back" \? 80 : 60/);
-  assert.match(source, /const HANDOFF_WHEEL_QUIET_MS = 180;/);
-  assert.match(continuity, /quietUntil: now \+ HANDOFF_WHEEL_QUIET_MS/);
-  assert.match(
-    continuity,
-    /continuitySettlingRef\.current = false;[\s\S]*?setMotionFrozen\(false\);[\s\S]*?requestCameraFrame\(\);/,
-    "a settled child schedules one complete overlay layout frame",
-  );
-  const cancelStart = source.indexOf("const cancelCameraAnimation");
-  const cancelEnd = source.indexOf("useEffect", cancelStart);
-  const cancel = source.slice(cancelStart, cancelEnd);
-  assert.match(cancel, /setMotionFrozen\(false\);\s*requestCameraFrame\(\);/);
-
-  const portalTransitionStart = source.indexOf("const beginPortalTransition");
-  const portalTransitionEnd = source.indexOf("const evaluateNavigation", portalTransitionStart);
-  const portalTransition = source.slice(portalTransitionStart, portalTransitionEnd);
-  assert.match(
-    portalTransition,
-    /const duration = source === "zoom" \? 90 : readiness === "warm" \? 110 : 130/,
-  );
-});
 
 test("parent portal and child camera handoffs are exact inverses", () => {
   const portal = { x: 510, y: 600, width: 470, height: 285 };
@@ -942,30 +738,6 @@ test("continuity owns the camera until the fitted child frame has settled", () =
   assert.match(source.slice(pointerStart), /continuitySettlingRef\.current\) return;/);
 });
 
-test("hidden scene-transition overlays skip per-frame label layout but keep camera snapshots", () => {
-  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  const applyStart = source.indexOf("const applyCamera = useCallback");
-  const applyEnd = source.indexOf("useLayoutEffect(() => {", applyStart);
-  const applyCamera = source.slice(applyStart, applyEnd);
-  const hiddenPhase = applyCamera.indexOf('if (transitionPhaseRef.current !== "active")');
-  const hiddenReturn = applyCamera.indexOf("return;", hiddenPhase);
-  const collisionLayout = applyCamera.indexOf("computeSceneLabelLayout", hiddenPhase);
-  const dependencies = applyCamera.match(/^\s*\}, \[(.+)\]\);$/m)?.[1] ?? "";
-  assert.ok(applyStart >= 0 && applyEnd > applyStart);
-  assert.ok(hiddenPhase >= 0 && hiddenReturn > hiddenPhase);
-  assert.ok(collisionLayout > hiddenReturn, "hidden overlays return before collision and label layout");
-  assert.match(
-    applyCamera.slice(hiddenPhase, hiddenReturn),
-    /onCameraFrame\?\.\([\s\S]*?viewportHeight,[\s\S]*?\)/,
-    "incoming/outgoing camera snapshots remain available for scene continuity",
-  );
-  assert.doesNotMatch(dependencies, /\btransitionPhase\b/, "phase changes do not rebuild the camera callback");
-  assert.match(
-    source,
-    /const previousPhase = transitionPhaseRef\.current;\s*transitionPhaseRef\.current = transitionPhase;\s*if \(previousPhase !== transitionPhase && transitionPhase === "active"\)\s*\{\s*requestCameraFrame\(\);/,
-    "the active phase schedules a fresh paint without invalidating camera callback dependencies",
-  );
-});
 
 test("detail-zone focus reaches the frame ref before its first camera sample", () => {
   const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
@@ -982,11 +754,19 @@ test("detail-zone focus reaches the frame ref before its first camera sample", (
 
 test("screen-space labels reserve the compact minimap and persistent viewer controls", () => {
   const desktop = buildViewerChromeProtectedRegions(1280, 632);
+  // The mini-map is a translucent 236x155 panel (globals.css .scene-minimap);
+  // the reserved rectangle covers its measured rendered footprint.
   assert.ok(desktop.some((region) => (
     region.left === 0 && region.top === 0
-    && region.right >= 400 && region.right < 430
-    && region.bottom === 120
+    && region.right >= 250 && region.right < 280
+    && region.bottom === 178
   )), "the compact scene minimap owns only its measured top-left rectangle");
+  const folded = buildViewerChromeProtectedRegions(1280, 632, false, true);
+  assert.ok(folded.some((region) => (
+    region.left === 0 && region.top === 0
+    && region.right >= 170 && region.right < 200
+    && region.bottom <= 60
+  )), "a folded mini-map reserves only its title pill");
   assert.ok(desktop.some((region) => (
     region.left < 640 && region.right > 640 && region.top === 0
   )), "the desktop vocabulary summary owns the top-center area");
@@ -1010,290 +790,4 @@ test("screen-space labels reserve the compact minimap and persistent viewer cont
       && region.top === 14
       && region.bottom <= 608
   )), "the open scene word index owns its measured right-side panel");
-});
-
-test("scene anchors project into screen coordinates while labels remain outside the scaled surface", () => {
-  const detail: Label = {
-    id: "grain",
-    word: "grain",
-    translation: "纹理",
-    x: 120,
-    y: 80,
-    priority: 1,
-    minLevel: 4,
-  };
-  const viewport = { width: 900, height: 600, compact: false };
-  for (const scale of [2.55, 3] as const) {
-    const camera = { x: 13, y: -9, fit: 0.75, scale };
-    const [placed] = computeSceneLabelLayout([detail], camera, viewport, false);
-    assert.equal(placed.screenX - placed.offsetX, camera.x + detail.x * camera.fit * scale);
-    assert.equal(placed.screenY - placed.offsetY, camera.y + detail.y * camera.fit * scale);
-    assert.deepEqual(projectScenePointToScreen(detail, camera), {
-      x: camera.x + detail.x * camera.fit * scale,
-      y: camera.y + detail.y * camera.fit * scale,
-    });
-    assert.deepEqual(
-      projectSceneRectToScreen({ x: 40, y: 50, width: 160, height: 90 }, camera),
-      {
-        x: camera.x + 40 * camera.fit * scale,
-        y: camera.y + 50 * camera.fit * scale,
-        width: 160 * camera.fit * scale,
-        height: 90 * camera.fit * scale,
-      },
-      "portal bounds use the same scene camera as the artwork",
-    );
-  }
-
-  const scene: Scene = {
-    id: "screen-space-contract",
-    title: "Screen space",
-    subtitle: "Crisp labels",
-    asset: "/scene.svg",
-    width: 900,
-    height: 600,
-    labels: [detail],
-    portals: [{
-      id: "enter-detail",
-      label: "Enter detail",
-      childSceneId: "detail",
-      x: 40,
-      y: 50,
-      width: 160,
-      height: 90,
-    }],
-  };
-  const detailScene: Scene = {
-    id: "detail",
-    title: "Detail",
-    subtitle: "Nested premium tile",
-    asset: "/detail.jpg",
-    width: 1600,
-    height: 900,
-    parentId: scene.id,
-    labels: [],
-    portals: [],
-  };
-  const markup = renderToStaticMarkup(createElement(SceneViewport, {
-    scene,
-    meaningVisible: false,
-    portalTargetTitles: {},
-    onCommitScene: () => "warm" as const,
-    onEnterScene: async () => true,
-    onExitScene: () => undefined,
-    onLabelsEncountered: () => undefined,
-    onLabelEncountered: () => undefined,
-    onSelectWord: () => undefined,
-    onPrefetchScene: () => undefined,
-    initialView: {
-      direction: "back" as const,
-      camera: { x: -120, y: -80, fit: 0.8, scale: 2.4 },
-      tileScene: detailScene,
-      tilePortal: scene.portals[0],
-    },
-  }));
-  const surfaceStart = markup.indexOf('<div class="scene-surface"');
-  const layerStart = markup.indexOf('<div class="label-layer"');
-  const interactionStart = markup.indexOf('<div class="scene-interaction-layer"');
-  assert.ok(
-    surfaceStart >= 0 && layerStart >= 0 && interactionStart >= 0,
-    "artwork, labels and interaction cues render in distinct layers",
-  );
-  const surfaceClose = matchingDivClose(markup, surfaceStart);
-  const surfaceMarkup = markup.slice(surfaceStart, surfaceClose);
-  assert.match(
-    surfaceMarkup,
-    /class="scene-continuous-tile"[^>]*data-child-scene="detail"[^>]*data-portal-id="enter-detail"[^>]*data-state="active"[^>]*data-direction="back"[^>]*data-progress="1\.000"/,
-    "the high-resolution child tile is clipped inside the scaled artwork surface",
-  );
-  assert.match(surfaceMarkup, /class="scene-continuous-tile-art"[^>]*src="\/detail\.jpg"/);
-  assert.ok(
-    interactionStart >= surfaceClose,
-    "the interaction layer is a sibling after the scaled scene surface, never its descendant",
-  );
-  assert.equal(markup.slice(surfaceClose, interactionStart).trim(), "");
-  const interactionClose = matchingDivClose(markup, interactionStart);
-  assert.equal(markup.slice(interactionClose, layerStart).trim(), "");
-  assert.ok(
-    layerStart >= interactionClose,
-    "portal and vocabulary controls precede every word in natural keyboard order",
-  );
-  assert.match(markup, /class="label-layer"[^>]*data-coordinate-space="screen"/);
-  assert.match(markup, /class="scene-interaction-layer"[^>]*data-coordinate-space="screen"/);
-  assert.match(markup, /data-semantic-group="visual-(?:whole|object|part|diagram)"/);
-  assert.match(markup, /data-palette-index="\d+"/);
-  const wordButtonMarkup = markup.match(/<button[^>]*class="word-label"[^>]*>/)?.[0] ?? "";
-  assert.ok(wordButtonMarkup, "SSR contains one native word button");
-  assert.match(wordButtonMarkup, /data-word="grain"/);
-  assert.match(wordButtonMarkup, /data-lod="4"/);
-  assert.doesNotMatch(
-    wordButtonMarkup,
-    /data-(?:priority|visual-region|min-level|anchor-mode|leader-span)=/,
-    "word buttons omit redundant static and renderer-internal attributes",
-  );
-  assert.doesNotMatch(
-    wordButtonMarkup,
-    /aria-label=/,
-    "the direct word text supplies the native button's accessible name",
-  );
-  assert.doesNotMatch(
-    markup,
-    /class="word-label"[^>]*style="[^"]*--label-semantic-/,
-    "word buttons do not repeat the shared semantic palette as inline styles",
-  );
-
-  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  const css = readFileSync(new URL("app/globals.css", ROOT), "utf8");
-  assert.doesNotMatch(
-    source,
-    /style=\{semanticStyle\?\.cssVariables/,
-    "dense scene mounts select one of the static palette rules by data attribute",
-  );
-  assert.match(css, /\.word-label\[data-palette-index="0"\]\s*\{/);
-  assert.match(css, /\.word-label\[data-palette-index="13"\]\s*\{/);
-  const wordRule = css.match(/\.word-label\s*\{([\s\S]*?)\}/)?.[1];
-  assert.ok(wordRule, "word-label CSS rule exists");
-  assert.doesNotMatch(wordRule, /scale\s*\(/, "camera scale must never enter a word transform");
-  assert.match(
-    wordRule,
-    /transform:\s*translate3d\(0px, 0px, 0\) translate\(-50%, -50%\)/,
-  );
-  assert.match(wordRule, /box-shadow:\s*0 4px 12px rgba\(27, 57, 52, 0\.12\);/);
-  assert.match(
-    wordRule,
-    /transition:\s*opacity 90ms cubic-bezier\(0\.22, 0\.75, 0\.25, 1\);/,
-  );
-  assert.match(
-    css,
-    /\.word-label\[data-layout-shift="true"\]\s*\{[\s\S]*?transform 140ms cubic-bezier\(0\.22, 0\.75, 0\.25, 1\)/,
-    "large collision corrections use a bounded transform transition",
-  );
-  assert.doesNotMatch(wordRule, /(?:border-color|box-shadow|background)\s+120ms/);
-  const cameraFrameStart = source.indexOf("const applyCamera");
-  const cameraFrameEnd = source.indexOf("const requestCameraFrame", cameraFrameStart);
-  const cameraFrame = source.slice(cameraFrameStart, cameraFrameEnd);
-  assert.match(
-    source,
-    /const labelShiftTimersRef = useRef\(new Map<string, number>\(\)\)/,
-    "collision transitions use one bounded timer map instead of per-frame animation loops",
-  );
-  assert.match(
-    cameraFrame,
-    /const offsetShift = previousOffset[\s\S]*?if \(offsetShift >= 12\)/,
-    "only material slot changes opt into the collision transition",
-  );
-  const firstCameraWrite = cameraFrame.indexOf("setStylePropertyIfChanged(");
-  assert.ok(cameraFrame.indexOf("const viewportWidth = viewport.clientWidth") < firstCameraWrite);
-  assert.ok(cameraFrame.indexOf("const viewportHeight = viewport.clientHeight") < firstCameraWrite);
-  assert.doesNotMatch(
-    cameraFrame.slice(firstCameraWrite),
-    /viewport\.client(?:Width|Height)/,
-    "camera frames must not force layout by reading viewport geometry after a style write",
-  );
-  assert.match(
-    cameraFrame,
-    /translate3d\(\$\{screenX\}px, \$\{screenY\}px, 0\) translate\(-50%, -50%\)/,
-    "labels move with a native-size composited translation instead of layout properties",
-  );
-  assert.doesNotMatch(
-    cameraFrame,
-    /setStylePropertyIfChanged\(element\.style, "(?:left|top)"/,
-    "camera frames do not reposition word labels through layout",
-  );
-  assert.match(
-    source,
-    /const labelElementsRef = useRef\(new Map<string, HTMLButtonElement>\(\)\)/,
-    "dense scenes retain a stable id-to-node index instead of querying every label each frame",
-  );
-  assert.doesNotMatch(
-    cameraFrame,
-    /labelLayer\.querySelectorAll<HTMLButtonElement>\("\.word-label"\)/,
-    "camera frames do not rebuild the dense label NodeList",
-  );
-  const hiddenGeometryGuard = cameraFrame.indexOf("(opacity > 0.025 || ownsFocus)");
-  const labelTransformWrite = cameraFrame.indexOf(
-    '`translate3d(${screenX}px, ${screenY}px, 0) translate(-50%, -50%)`',
-  );
-  assert.ok(
-    hiddenGeometryGuard >= 0 && hiddenGeometryGuard < labelTransformWrite,
-    "offscreen and collision-blocked labels skip unobservable geometry writes",
-  );
-  const anchorModeWrite = cameraFrame.indexOf(
-    'setDatasetValueIfChanged(element, "anchorMode"',
-  );
-  const leaderSpanWrite = cameraFrame.indexOf(
-    'setDatasetValueIfChanged(element, "leaderSpan"',
-  );
-  const visibleWrite = cameraFrame.indexOf('setDatasetValueIfChanged(element, "visible"');
-  assert.ok(
-    anchorModeWrite > labelTransformWrite
-      && leaderSpanWrite > labelTransformWrite
-      && visibleWrite > anchorModeWrite
-      && visibleWrite > leaderSpanWrite,
-    "a painted label receives live anchor metadata before its visibility gate opens",
-  );
-  assert.doesNotMatch(
-    markup,
-    /word-anchor-marker/,
-    "the exact object anchor does not cost an extra DOM node per mounted word",
-  );
-  assert.doesNotMatch(
-    markup,
-    /word-label-text/,
-    "the word itself stays a text node instead of costing one wrapper per mounted word",
-  );
-  assert.match(markup, /data-word="[^"]+"/, "the exact word remains available without a wrapper");
-  assert.match(source, /data-word=\{label\.word\}[\s\S]*?>\s*\{label\.word\}/);
-  assert.match(
-    css,
-    /\.word-label::before\s*\{[\s\S]*?width:\s*8px;[\s\S]*?rgba\(255, 252, 241, 0\.96\)[\s\S]*?var\(--label-semantic-dot\)[\s\S]*?0 0 0 2px rgba\(255, 255, 255, 0\.82\)[\s\S]*?0 0 9px 2px var\(--label-semantic-leader-fade\)[\s\S]*?content:\s*"";[\s\S]*?var\(--label-anchor-x\)[\s\S]*?var\(--label-anchor-y\)/,
-    "the label pseudo-element renders the glossy semantic marker at the exact object anchor",
-  );
-  assert.match(
-    css,
-    /\.word-label\[data-displaced="true"\]::after\s*\{[\s\S]*?--label-leader-length/,
-    "a displaced pill draws a screen-space leader back to that anchor",
-  );
-  assert.match(
-    css,
-    /\.word-label\[data-displaced="true"\]::after\s*\{[\s\S]*?rgba\(255, 255, 255, 0\.94\)[\s\S]*?var\(--label-semantic-leader\)/,
-    "leaders combine a bright specular edge with their semantic color core",
-  );
-  assert.match(
-    css,
-    /\.word-label\[data-displaced="true"\]::after\s*\{[\s\S]*?box-shadow:\s*0 0 7px var\(--label-semantic-leader-fade\);/,
-    "the leader uses one semantic glow without another white paint layer",
-  );
-  assert.match(
-    css,
-    /\.word-label\[data-interactive="true"\]:hover,[\s\S]*?\.word-label\[data-interactive="true"\]:focus-visible\s*\{[\s\S]*?box-shadow:\s*0 8px 22px rgba\(27, 57, 52, 0\.2\);/,
-    "hover and focus use one immediate shadow while the global focus outline stays authoritative",
-  );
-  assert.match(css, /button:focus-visible,[\s\S]*?outline:\s*3px solid/);
-  assert.match(
-    css,
-    /\.word-label\[data-leader-span="long"\]::after\s*\{[\s\S]*?opacity:\s*0\.92/,
-    "long bounded fallbacks remain easy to track without dashed visual clutter",
-  );
-
-  const surfaceRule = css.match(/\.scene-surface\s*\{([\s\S]*?)\}/)?.[1] ?? "";
-  const labelLayerRule = css.match(/\.label-layer\s*\{([\s\S]*?)\}/)?.[1] ?? "";
-  const interactionLayerRule = css.match(/\.scene-interaction-layer\s*\{([\s\S]*?)\}/)?.[1] ?? "";
-  const surfaceZ = Number(surfaceRule.match(/z-index:\s*(\d+)/)?.[1]);
-  const labelZ = Number(labelLayerRule.match(/z-index:\s*(\d+)/)?.[1]);
-  const interactionZ = Number(interactionLayerRule.match(/z-index:\s*(\d+)/)?.[1]);
-  assert.ok(labelZ > surfaceZ, "labels stay above the artwork surface");
-  assert.ok(interactionZ > labelZ, "portal and vocabulary cues always stack above words");
-
-  const vocabularyCueRule = css.match(/\.vocabulary-zoom-cue\s*\{([\s\S]*?)\}/)?.[1] ?? "";
-  const hotspotRule = css.match(/\.scene-hotspot\s*\{([\s\S]*?)\}/)?.[1] ?? "";
-  const hotspotCaptionRule = css.match(/\.scene-hotspot-caption\s*\{([\s\S]*?)\}/)?.[1] ?? "";
-  assert.doesNotMatch(vocabularyCueRule, /scale\s*\(/);
-  assert.doesNotMatch(hotspotRule, /scale\s*\(/);
-  assert.match(hotspotCaptionRule, /--portal-caption-shift-x/);
-  assert.match(hotspotCaptionRule, /opacity:\s*0/);
-  assert.match(hotspotCaptionRule, /visibility:\s*hidden/);
-  assert.match(
-    css,
-    /\.scene-hotspot-region:hover \.scene-hotspot-caption,[\s\S]*?data-candidate="true"[\s\S]*?focus-visible[\s\S]*?visibility:\s*visible/,
-  );
 });

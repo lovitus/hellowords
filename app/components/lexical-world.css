@@ -96,7 +96,7 @@
   min-height: 100%;
 }
 
-/* Every semantic card stays at native screen size; the domain reserves these exact footprints. */
+/* Every semantic card stays at native screen size and expands for the browser's actual line breaks. */
 .lexical-world .semantic-zoom-field__labels .semantic-zoom-field__node {
   grid-template-columns: auto minmax(0, 1fr) auto;
   grid-template-rows: auto;
@@ -105,7 +105,8 @@
   row-gap: 4px;
   width: var(--semantic-node-width);
   max-width: calc(100% - 12px);
-  height: var(--semantic-node-height);
+  height: auto;
+  min-height: var(--semantic-node-height);
   padding: 8px 10px;
 }
 .lexical-world .semantic-zoom-field__labels .semantic-zoom-field__node-dot {
@@ -150,7 +151,8 @@
   row-gap: 4px;
   width: var(--semantic-node-width);
   max-width: calc(100% - 12px);
-  height: var(--semantic-node-height);
+  height: auto;
+  min-height: var(--semantic-node-height);
   padding: 8px 10px;
 }
 .lexical-world .semantic-zoom-field__labels--word .semantic-zoom-field__node-dot {
@@ -183,19 +185,22 @@
 }
 
 .lexical-world__word-detail { position: absolute !important; z-index: 8 !important; right: clamp(18px, 3vw, 44px); bottom: 52px; width: min(330px, calc(100% - 36px)); max-height: min(470px, calc(100% - 70px)); padding: 22px 24px; overflow: auto; border: 1px solid color-mix(in srgb, var(--lexical-accent) 38%, transparent); border-radius: 20px; background: rgba(255, 254, 249, .96); box-shadow: 0 24px 70px rgba(34, 43, 36, .2); backdrop-filter: blur(18px); }
-.lexical-world__word-detail > button { position: absolute; top: 9px; right: 10px; width: 30px; height: 30px; border: 0; color: #67766e; background: transparent; cursor: pointer; font-size: 21px; }
+.lexical-world__word-detail > button { position: sticky; z-index: 1; top: 0; float: right; width: 30px; height: 30px; margin: -12px -12px 0 0; border: 0; border-radius: 50%; color: #52635a; background: #fffef9; cursor: pointer; font-size: 21px; }
 .lexical-world__word-detail > small { color: var(--lexical-accent); font-size: 9px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
-.lexical-world__word-detail h2 { margin: 10px 0 0; font-family: Georgia, serif; font-size: 38px; font-weight: 500; }
-.lexical-world__word-detail p { margin: 9px 0 0; color: #53675e; line-height: 1.62; white-space: pre-line; }
+.lexical-world__word-detail h2 { margin: 10px 0 0; font-family: Georgia, serif; font-size: clamp(28px, 7vw, 38px); font-weight: 500; line-height: 1.12; overflow-wrap: anywhere; }
+.lexical-world__word-detail p { margin: 9px 0 0; color: #53675e; line-height: 1.62; white-space: pre-line; overflow-wrap: anywhere; }
+.lexical-world__word-group { margin-top: 12px; color: var(--lexical-accent); font-size: 12px; overflow-wrap: anywhere; }
 .lexical-world__word-detail .lexical-world__detail-phonetic { color: #927449; font-family: Georgia, serif; }
 .lexical-world__word-detail footer { margin-top: 15px; padding-top: 12px; border-top: 1px solid rgba(38, 64, 53, .1); color: #929992; font-size: 9px; }
 
 .lexical-world__results { position: fixed; z-index: 20; top: 64px; left: 50%; width: min(660px, calc(100% - 28px)); max-height: min(470px, calc(100vh - 90px)); margin: 0; padding: 7px; overflow: auto; list-style: none; border: 1px solid rgba(37, 62, 52, .14); border-radius: 17px; background: rgba(255, 253, 248, .97); box-shadow: 0 24px 75px rgba(42, 43, 34, .2); transform: translateX(-50%); backdrop-filter: blur(18px); }
 .lexical-world__results li + li { border-top: 1px solid rgba(39, 64, 54, .08); }
-.lexical-world__results button { display: grid; grid-template-columns: minmax(90px, .65fr) minmax(130px, 1.45fr) auto auto; align-items: baseline; gap: 12px; width: 100%; padding: 10px 12px; border: 0; border-radius: 10px; color: #2b453b; text-align: left; background: transparent; cursor: pointer; }
+.lexical-world__results button { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.45fr) auto auto; align-items: baseline; gap: 12px; width: 100%; padding: 10px 12px; border: 0; border-radius: 10px; color: #2b453b; text-align: left; background: transparent; cursor: pointer; }
 .lexical-world__results button:hover,
 .lexical-world__results button:focus-visible { outline: 0; background: #e9eee7; }
-.lexical-world__results span { overflow: hidden; color: #707c75; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.lexical-world__results strong,
+.lexical-world__results span { min-width: 0; overflow-wrap: anywhere; }
+.lexical-world__results span { color: #53675e; font-size: 13px; line-height: 1.45; white-space: pre-line; }
 .lexical-world__results small { color: #977848; }
 .lexical-world__results em { color: var(--lexical-accent); font-size: 9px; font-style: normal; font-weight: 700; }
 
@@ -223,8 +228,10 @@
   .lexical-world__actions button { height: 34px; padding: 0 10px; font-size: 11px; }
   .lexical-world__actions .lexical-world__close { width: 34px; }
   .lexical-world__results { top: 106px; }
+  /* Leave the map controls above the card and its progress strip below it. */
+  .lexical-world__word-detail { max-height: min(470px, calc(100% - 156px)); }
   .lexical-world .semantic-zoom-field__labels .semantic-zoom-field__node {
-    min-height: 44px;
+    min-height: max(44px, var(--semantic-node-height));
   }
   .lexical-world .semantic-zoom-field__labels .semantic-zoom-field__node strong {
     font-size: .84rem;
@@ -245,7 +252,10 @@
 }
 
 @media (max-width: 480px) {
-  .lexical-world__results button { grid-template-columns: minmax(72px, .8fr) minmax(90px, 1.2fr) auto; gap: 7px; }
+  .lexical-world__results button { grid-template-columns: minmax(0, 1fr) auto; gap: 3px 10px; }
+  .lexical-world__results strong { grid-column: 1; grid-row: 1; }
+  .lexical-world__results small { grid-column: 2; grid-row: 1; }
+  .lexical-world__results span { grid-column: 1 / -1; grid-row: 2; }
   .lexical-world__results em { display: none; }
 }
 

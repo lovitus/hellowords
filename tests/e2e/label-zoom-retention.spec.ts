@@ -1,4 +1,6 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import { buildViewerChromeProtectedRegions } from "../../app/components/SceneViewport";
+import type { PaintedLabel } from "../../app/lib/label-canvas";
 
 const APP = '[data-testid="world-app"]';
 const VIEWPORT = '[data-testid="world-viewport"]';
@@ -7,7 +9,6 @@ const LABEL_LAYER = '[data-testid="scene-label-layer"]';
 const INTERACTION_LAYER = '[data-testid="scene-interaction-layer"]';
 const TARGET_SCENE = "community-garden";
 const AUTHORED_MAX_SCALE = 4.15;
-const LABEL_MOUNT_OVERSCAN_PX = 18;
 
 interface TraceRect {
   readonly left: number;
@@ -16,33 +17,19 @@ interface TraceRect {
   readonly bottom: number;
 }
 
-interface TraceLabel {
-  readonly id: string;
-  readonly word: string;
-  readonly lod: number;
-  readonly interactive: boolean;
-  readonly logicalOpacity: number;
-  readonly anchorX: number;
-  readonly anchorY: number;
-  readonly offsetX: number;
-  readonly offsetY: number;
-  readonly width: number;
-  readonly height: number;
-  readonly bounds: TraceRect;
-  readonly ariaHidden: string | null;
-  readonly tabIndex: number;
-  readonly layoutShift: boolean;
-}
+type TraceLabel = Pick<PaintedLabel,
+  "id" | "interactive" | "opacity" | "anchorX" | "anchorY" |
+  "centerX" | "centerY" | "width" | "height"
+>;
 
 interface LabelZoomFrame {
-  readonly timestamp: number;
   readonly sceneId: string;
   readonly scale: number;
   readonly lodLevel: number;
-  readonly cameraTransform: string;
+  readonly camera: { readonly x: number; readonly y: number; readonly scale: number };
   readonly motionFrozen: boolean;
   readonly viewport: TraceRect;
-  readonly protectedRegions: readonly TraceRect[];
+  readonly controlBounds: readonly TraceRect[];
   readonly labels: readonly TraceLabel[];
 }
 
@@ -134,17 +121,26 @@ async function captureFitSceneSnapshot(page: Page): Promise<FitSceneSnapshot> {
     const labelLayer = document.querySelector<HTMLElement>(labelLayerSelector);
     const surface = document.querySelector<HTMLElement>(surfaceSelector);
     const progress = document.querySelector<HTMLElement>('[data-testid="scene-word-progress"]');
-    if (!labelLayer || !surface || !progress) {
-      throw new Error("fit-scene snapshot requires labels, camera and progress summary");
+    const canvas = labelLayer?.querySelector<HTMLCanvasElement & {
+      paintedLabels?: readonly {
+        readonly id: string;
+        readonly interactive: boolean;
+        readonly anchorX: number;
+        readonly anchorY: number;
+        readonly centerX: number;
+        readonly centerY: number;
+      }[];
+    }>(".label-canvas");
+    if (!labelLayer || !surface || !progress || !canvas) {
+      throw new Error("fit-scene snapshot requires painted labels, camera and progress summary");
     }
-    const labels = [...labelLayer.querySelectorAll<HTMLElement>('[data-testid="word-label"]')]
-      .filter((label) => label.dataset.interactive === "true")
+    // Words are painted on the canvas. Each drawn word carries its anchor and
+    // centre, so the leader geometry comes from what is actually on screen.
+    const labels = (canvas.paintedLabels ?? [])
+      .filter((label) => label.interactive)
       .map((label): FitLabelSnapshot => {
-        const offsetX = -Number.parseFloat(label.style.getPropertyValue("--label-anchor-x"));
-        const offsetY = -Number.parseFloat(label.style.getPropertyValue("--label-anchor-y"));
-        if (!Number.isFinite(offsetX) || !Number.isFinite(offsetY)) {
-          throw new Error(`interactive label ${label.dataset.labelId} has no painted offset`);
-        }
+        const offsetX = label.centerX - label.anchorX;
+        const offsetY = label.centerY - label.anchorY;
         const displacement = Math.hypot(offsetX, offsetY);
         const leaderSide = displacement < 4
           ? "anchor"
@@ -152,12 +148,12 @@ async function captureFitSceneSnapshot(page: Page): Promise<FitSceneSnapshot> {
             ? offsetX < 0 ? "left" : "right"
             : offsetY < 0 ? "up" : "down";
         return {
-          id: label.dataset.labelId ?? "",
+          id: label.id,
           offsetX,
           offsetY,
           leaderSide,
-          anchorMode: label.dataset.anchorMode,
-          leaderSpan: label.dataset.leaderSpan,
+          anchorMode: displacement >= 4 ? "leader" : "stem",
+          leaderSpan: displacement >= 82 ? "long" : "short",
         };
       })
       .sort((first, second) => first.id.localeCompare(second.id));
@@ -211,164 +207,55 @@ async function startLabelZoomTrace(page: Page): Promise<void> {
     const viewport = document.querySelector<HTMLElement>(viewportSelector);
     const surface = document.querySelector<HTMLElement>(surfaceSelector);
     const labelLayer = document.querySelector<HTMLElement>(labelLayerSelector);
-    if (!app || !viewport || !surface || !labelLayer) {
-      throw new Error("label zoom trace requires the active scene viewport");
+    const canvas = labelLayer?.querySelector<HTMLCanvasElement & {
+      paintedLabels?: readonly PaintedLabel[];
+    }>(".label-canvas");
+    if (!app || !viewport || !surface || !labelLayer || !canvas?.paintedLabels) {
+      throw new Error("label zoom trace requires the active scene camera and painted words");
     }
 
     const frames: LabelZoomFrame[] = [];
     let active = true;
     let animationFrame = 0;
     let lastSignature = "";
+    let lastPaint: readonly PaintedLabel[] | undefined;
 
-    const toGlobalRect = (
-      viewportRect: DOMRect,
-      left: number,
-      right: number,
-      top: number,
-      bottom: number,
-    ): TraceRect => ({
-      left: viewportRect.left + left,
-      right: viewportRect.left + right,
-      top: viewportRect.top + top,
-      bottom: viewportRect.top + bottom,
-    });
-
-    const viewerChromeRegions = (viewportRect: DOMRect): TraceRect[] => {
-      const width = viewport.clientWidth;
-      const height = viewport.clientHeight;
-      const compact = width <= 900;
-      const phone = width <= 560;
-      const minimapRight = Math.min(width, phone ? 312 : compact ? 348 : 412);
-      const minimapBottom = phone ? 112 : compact ? 116 : 126;
-      const regions = [toGlobalRect(
-        viewportRect,
-        0,
-        minimapRight,
-        0,
-        minimapBottom,
-      )];
-      if (!phone) {
-        regions.push(toGlobalRect(
-          viewportRect,
-          Math.max(0, width / 2 - 205),
-          Math.min(width, width / 2 + 205),
-          0,
-          82,
-        ));
-      }
-      regions.push(toGlobalRect(
-        viewportRect,
-        Math.max(0, width - (phone ? 116 : 260)),
-        width,
-        0,
-        phone ? 82 : 86,
-      ));
-      regions.push(toGlobalRect(
-        viewportRect,
-        Math.max(0, width - 184),
-        width,
-        Math.max(0, height - 88),
-        height,
-      ));
-      regions.push(toGlobalRect(
-        viewportRect,
-        0,
-        phone ? 150 : 190,
-        Math.max(0, height - 88),
-        height,
-      ));
-      if (phone) {
-        regions.push(toGlobalRect(
-          viewportRect,
-          12,
-          Math.max(12, width - 12),
-          Math.max(0, height - 144),
-          Math.max(0, height - 64),
-        ));
-      }
-      return regions;
-    };
-
-    const portalCueRegions = (viewportRect: DOMRect): TraceRect[] => {
-      const compact = viewport.clientWidth <= 900;
-      const cueWidth = compact ? 154 : 204;
-      const cueTop = compact ? 30 : 32;
-      const cueBottom = compact ? 56 : 62;
-      return [...document.querySelectorAll<HTMLElement>(".scene-hotspot-region")].flatMap((region) => {
-        const bounds = region.getBoundingClientRect();
-        const centerX = bounds.left + bounds.width / 2;
-        const centerY = bounds.top + bounds.height / 2;
-        if (
-          centerX < viewportRect.left - cueWidth / 2
-          || centerX > viewportRect.right + cueWidth / 2
-          || centerY < viewportRect.top - cueBottom
-          || centerY > viewportRect.bottom + cueTop
-        ) return [];
-        return [{
-          left: centerX - cueWidth / 2,
-          right: centerX + cueWidth / 2,
-          top: centerY - cueTop,
-          bottom: centerY + cueBottom,
-        }];
-      });
-    };
+    // These controls share the stage with the canvas. A portal's progress
+    // halo extends 7 CSS pixels past its desktop button.
+    const controls = [...document.querySelectorAll<HTMLElement>(
+      ".scene-minimap, .zoom-controls, .back-button, .scene-hotspot",
+    )];
 
     const capture = () => {
       const scale = Number(surface.dataset.sceneScale);
       const cameraTransform = surface.style.transform;
       const signature = `${app.dataset.sceneId}:${scale.toFixed(3)}:${cameraTransform}`;
-      if (Number.isFinite(scale) && signature !== lastSignature) {
+      if (Number.isFinite(scale) && (signature !== lastSignature || canvas.paintedLabels !== lastPaint)) {
         lastSignature = signature;
-        const viewportRect = viewport.getBoundingClientRect();
+        lastPaint = canvas.paintedLabels;
+        const viewportRect = canvas.getBoundingClientRect();
         const camera = new DOMMatrixReadOnly(cameraTransform);
-        const labels = [...labelLayer.querySelectorAll<HTMLElement>('[data-testid="word-label"]')]
-          .map((label): TraceLabel => {
-            const anchor = camera.transformPoint({
-              x: Number(label.dataset.anchorX),
-              y: Number(label.dataset.anchorY),
-            });
-            const bounds = label.getBoundingClientRect();
-            return {
-              id: label.dataset.labelId ?? "",
-              word: label.dataset.word ?? label.getAttribute("aria-label") ?? "",
-              lod: Number(label.dataset.lod),
-              interactive: label.dataset.interactive === "true",
-              logicalOpacity: Number(label.style.getPropertyValue("--label-opacity")),
-              anchorX: viewportRect.left + anchor.x,
-              anchorY: viewportRect.top + anchor.y,
-              offsetX: -Number.parseFloat(label.style.getPropertyValue("--label-anchor-x")),
-              offsetY: -Number.parseFloat(label.style.getPropertyValue("--label-anchor-y")),
-              width: bounds.width,
-              height: bounds.height,
-              bounds: {
-                left: bounds.left,
-                right: bounds.right,
-                top: bounds.top,
-                bottom: bounds.bottom,
-              },
-              ariaHidden: label.getAttribute("aria-hidden"),
-              tabIndex: label.tabIndex,
-              layoutShift: label.dataset.layoutShift === "true",
-            };
-          });
         frames.push({
-          timestamp: performance.now(),
           sceneId: app.dataset.sceneId ?? "",
           scale,
           lodLevel: Number(surface.dataset.lodLevel),
-          cameraTransform,
+          camera: { x: camera.e, y: camera.f, scale: camera.a },
           motionFrozen: labelLayer.dataset.motionFrozen === "true",
-          viewport: {
-            left: viewportRect.left,
-            right: viewportRect.right,
-            top: viewportRect.top,
-            bottom: viewportRect.bottom,
-          },
-          protectedRegions: [
-            ...viewerChromeRegions(viewportRect),
-            ...portalCueRegions(viewportRect),
-          ],
-          labels,
+          viewport: { left: 0, top: 0, right: viewportRect.width, bottom: viewportRect.height },
+          controlBounds: controls.flatMap((element) => {
+            const bounds = element.getBoundingClientRect();
+            if (!bounds.width || !bounds.height) return [];
+            const halo = element.matches(".scene-hotspot") ? 7 : 0;
+            return [{
+              left: bounds.left - viewportRect.left - halo,
+              right: bounds.right - viewportRect.left + halo,
+              top: bounds.top - viewportRect.top - halo,
+              bottom: bounds.bottom - viewportRect.top + halo,
+            }];
+          }),
+          labels: (canvas.paintedLabels ?? []).map(({
+            id, interactive, opacity, anchorX, anchorY, centerX, centerY, width, height,
+          }) => ({ id, interactive, opacity, anchorX, anchorY, centerX, centerY, width, height })),
         });
       }
       if (active) animationFrame = requestAnimationFrame(capture);
@@ -462,26 +349,6 @@ function anchorInsideViewport(label: TraceLabel, frame: LabelZoomFrame): boolean
     && label.anchorY <= frame.viewport.bottom;
 }
 
-function authoredAnchorInsideMountOverscan(
-  label: SceneContract["labels"][number],
-  frame: LabelZoomFrame,
-): boolean {
-  const match = frame.cameraTransform.match(
-    /translate3d\((-?[\d.]+)px,\s*(-?[\d.]+)px,\s*0(?:px)?\)\s*scale\(([\d.]+)\)/,
-  );
-  if (!match) throw new Error(`Unable to project authored anchor through ${frame.cameraTransform}`);
-  const translateX = Number(match[1]);
-  const translateY = Number(match[2]);
-  const scale = Number(match[3]);
-  const anchorX = frame.viewport.left + translateX + label.x * scale;
-  const anchorY = frame.viewport.top + translateY + label.y * scale;
-  const overscan = LABEL_MOUNT_OVERSCAN_PX;
-  return anchorX >= frame.viewport.left - overscan
-    && anchorX <= frame.viewport.right + overscan
-    && anchorY >= frame.viewport.top - overscan
-    && anchorY <= frame.viewport.bottom + overscan;
-}
-
 function overlaps(first: TraceRect, second: TraceRect, padding = 0): boolean {
   return !(
     first.right + padding <= second.left
@@ -491,82 +358,67 @@ function overlaps(first: TraceRect, second: TraceRect, padding = 0): boolean {
   );
 }
 
-function projectedEstimatedSlot(
-  label: TraceLabel,
-  offsetX: number,
-  offsetY: number,
-  frame: LabelZoomFrame,
-): TraceRect {
-  const detailed = label.lod >= 3;
-  const wordWidth = Math.max(
-    24,
-    Array.from(label.word).length * (detailed ? 6.55 : 7.15),
-  );
-  // Keep this reservation footprint identical to estimatedLabelSize with
-  // meanings hidden. DOM text width can be several pixels narrower while the
-  // production collision pass deliberately reserves the conservative size.
-  const width = Math.min(250, (detailed ? 27 : 31) + wordWidth);
-  const viewportWidth = frame.viewport.right - frame.viewport.left;
-  const height = viewportWidth <= 900 ? 28 : detailed ? 18 : 20;
+function pillBounds(label: TraceLabel): TraceRect {
   return {
-    left: label.anchorX + offsetX - width / 2,
-    right: label.anchorX + offsetX + width / 2,
-    top: label.anchorY + offsetY - height / 2,
-    bottom: label.anchorY + offsetY + height / 2,
+    left: label.centerX - label.width / 2,
+    right: label.centerX + label.width / 2,
+    top: label.centerY - label.height / 2,
+    bottom: label.centerY + label.height / 2,
   };
 }
 
-function projectedPreferredSlot(
-  previous: TraceLabel,
-  current: TraceLabel,
-  frame: LabelZoomFrame,
-): TraceRect | null {
-  const slot = projectedEstimatedSlot(
-    current,
-    previous.offsetX,
-    previous.offsetY,
-    frame,
-  );
-  const margin = 6;
-  return slot.left >= frame.viewport.left + margin
-    && slot.right <= frame.viewport.right - margin
-    && slot.top >= frame.viewport.top + margin
-    && slot.bottom <= frame.viewport.bottom - margin
-    && !frame.protectedRegions.some((region) => overlaps(slot, region, 0))
-    ? slot
-    : null;
+function anchorTouchesPill(label: TraceLabel, pill: TraceRect): boolean {
+  return label.anchorX >= pill.left - 3 && label.anchorX <= pill.right + 3
+    && label.anchorY >= pill.top - 3 && label.anchorY <= pill.bottom + 3;
 }
 
-function previousSlotHasNoActiveContention(
-  previous: TraceLabel,
-  current: TraceLabel,
-  previousFrame: LabelZoomFrame,
-  currentFrame: LabelZoomFrame,
-): boolean {
-  const slot = projectedPreferredSlot(previous, current, currentFrame);
-  if (!slot) return false;
-  const currentById = new Map(currentFrame.labels.map((label) => [label.id, label]));
-  const conflictsWithActiveReservation = previousFrame.labels.some((otherPrevious) => {
-    if (!otherPrevious.interactive || otherPrevious.id === previous.id) return false;
-    const otherCurrent = currentById.get(otherPrevious.id);
-    if (!otherCurrent) return false;
-    const otherSlot = projectedPreferredSlot(otherPrevious, otherCurrent, currentFrame);
-    return otherSlot !== null && overlaps(slot, otherSlot, 0);
-  });
-  if (conflictsWithActiveReservation) return false;
+// Clip the drawn straight leader to the pill along each axis. The remaining
+// parameter interval is nonempty exactly when the segment touches the pill.
+function leaderTouchesPill(line: TraceLabel, pill: TraceRect): boolean {
+  let near = 0;
+  let far = 1;
+  for (const [start, end, low, high] of [
+    [line.anchorX, line.centerX, pill.left, pill.right],
+    [line.anchorY, line.centerY, pill.top, pill.bottom],
+  ]) {
+    const delta = end - start;
+    if (delta === 0) {
+      if (start < low || start > high) return false;
+      continue;
+    }
+    const first = (low - start) / delta;
+    const second = (high - start) / delta;
+    near = Math.max(near, Math.min(first, second));
+    far = Math.min(far, Math.max(first, second));
+  }
+  return near <= far;
+}
 
-  // Reproduce the normal placement pass after reservation: an earlier label
-  // may legitimately occupy this old slot even when it was not active in the
-  // preceding frame. Desktop collision padding is 2px in labelLayout.
-  return !currentFrame.labels.some((otherCurrent) => {
-    if (otherCurrent.id === previous.id || !otherCurrent.interactive) return false;
-    const otherSlot = projectedEstimatedSlot(
-      otherCurrent,
-      otherCurrent.offsetX,
-      otherCurrent.offsetY,
-      currentFrame,
-    );
-    return overlaps(slot, otherSlot, 2);
+function leadersCross(first: TraceLabel, second: TraceLabel): boolean {
+  const side = (line: TraceLabel, x: number, y: number) => (
+    (line.centerX - line.anchorX) * (y - line.anchorY)
+    - (line.centerY - line.anchorY) * (x - line.anchorX)
+  );
+  return side(first, second.anchorX, second.anchorY) * side(first, second.centerX, second.centerY) < 0
+    && side(second, first.anchorX, first.anchorY) * side(second, first.centerX, first.centerY) < 0;
+}
+
+function slotIsClear(
+  projected: TraceLabel,
+  frame: LabelZoomFrame,
+  controls: readonly TraceRect[],
+): boolean {
+  const pill = pillBounds(projected);
+  if (pill.left < 4 || pill.right > frame.viewport.right - 4
+    || pill.top < 4 || pill.bottom > frame.viewport.bottom - 4
+    || controls.some((control) => overlaps(pill, control))) return false;
+  return !frame.labels.some((neighbor) => {
+    if (neighbor.id === projected.id || neighbor.opacity <= 0.025) return false;
+    const otherPill = pillBounds(neighbor);
+    return overlaps(pill, otherPill, 3)
+      || anchorTouchesPill(neighbor, pill) || anchorTouchesPill(projected, otherPill)
+      || leaderTouchesPill(projected, otherPill) || leaderTouchesPill(neighbor, pill)
+      || leadersCross(projected, neighbor);
   });
 }
 
@@ -621,6 +473,9 @@ test("oak-tree fit fills safe slots and round-trips the exact label layout", asy
   expect(returned.progress.remaining).toBe(returned.progress.total - returned.labels.length);
 });
 
+// In a 1440×900 garden trace, "shovel" jumped 72.4 CSS px at 1.803×→1.822×
+// with its old slot clear. Measure every painted word so the gate also covers
+// a wheel stream that samples different intermediate camera positions.
 test("continuous zoom retains grounded labels and their object-relative slots", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
   const app = await openLeafScene(page);
@@ -638,73 +493,85 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
   ));
 
   await expect(app).toHaveAttribute("data-scene-id", TARGET_SCENE);
-  expect(frames.length, "rAF trace must cover multiple continuous camera frames").toBeGreaterThan(12);
-  expect(frames.at(-1)?.scale).toBeCloseTo(AUTHORED_MAX_SCALE, 3);
+  expect(new Set(frames.map((frame) => frame.scale)).size, "rAF trace must cover multiple continuous camera frames").toBeGreaterThan(12);
+  const maximumScale = Number(await page.locator(SURFACE).getAttribute("data-maximum-scale"));
+  expect(frames.at(-1)?.scale).toBeCloseTo(maximumScale, 3);
   expect(frames.some((frame) => frame.lodLevel === 4), "trace must reach the deepest LOD").toBe(true);
 
   const legalViewportDepartures = new Set<string>();
   const legalSlotChanges = new Set<string>();
   const authoredLabelsById = new Map(sceneContract.labels.map((label) => [label.id, label]));
-  let largestObservedOffsetJump = 0;
+  const dropped: string[] = [];
+  const moved: string[] = [];
+  const retainedOverviewAtMax: TraceLabel[] = [];
+  let largestJump = { pixels: 0, context: "" };
+  let largestAnchorError = 0;
   let retainedFrameChecks = 0;
   let stableSlotChecks = 0;
-  for (let frameIndex = 0; frameIndex < frames.length; frameIndex += 1) {
+  for (let frameIndex = 1; frameIndex < frames.length; frameIndex += 1) {
     const frame = frames[frameIndex];
     const byId = new Map(frame.labels.map((label) => [label.id, label]));
-    if (frameIndex === 0) continue;
-
     const previous = frames[frameIndex - 1];
+    const controls = [
+      ...frame.controlBounds,
+      ...buildViewerChromeProtectedRegions(frame.viewport.right, frame.viewport.bottom),
+    ];
     expect(
       frame.scale,
       `zoom scale reversed between rAF samples ${frameIndex - 1} and ${frameIndex}`,
     ).toBeGreaterThanOrEqual(previous.scale - 0.001);
-    for (const previousLabel of previous.labels.filter((label) => label.interactive)) {
+    for (const previousLabel of previous.labels.filter((label) => label.interactive && label.opacity >= 0.52)) {
       const current = byId.get(previousLabel.id);
-      if (!current) {
-        const authored = authoredLabelsById.get(previousLabel.id);
-        expect(authored, `${previousLabel.id} must remain in the scene data contract`).toBeDefined();
-        expect(
-          authoredAnchorInsideMountOverscan(authored!, frame),
-          `${previousLabel.id} may unmount only after its authored anchor leaves mount overscan`,
-        ).toBe(false);
-        legalViewportDepartures.add(previousLabel.id);
-        continue;
-      }
-      if (!anchorInsideViewport(current!, frame)) {
-        legalViewportDepartures.add(previousLabel.id);
-        continue;
-      }
-      if (!previousLabel.layoutShift && !current.layoutShift) {
-        largestObservedOffsetJump = Math.max(
-          largestObservedOffsetJump,
-          Math.hypot(
-            current!.offsetX - previousLabel.offsetX,
-            current!.offsetY - previousLabel.offsetY,
-          ),
+      const authored = authoredLabelsById.get(previousLabel.id);
+      if (!authored) throw new Error(`Unknown painted word ${previousLabel.id}`);
+      if (authored.maxScale !== undefined && frame.scale > authored.maxScale) continue;
+      // A dropped word has no current canvas record. Project its authored
+      // anchor with the live camera, then carry its last painted slot forward.
+      const authoredX = frame.camera.x + authored.x * frame.camera.scale;
+      const authoredY = frame.camera.y + authored.y * frame.camera.scale;
+      if (current) {
+        largestAnchorError = Math.max(
+          largestAnchorError,
+          Math.hypot(current.anchorX - authoredX, current.anchorY - authoredY),
         );
       }
-      if (previousLabel.layoutShift || current.layoutShift) {
-        legalSlotChanges.add(previousLabel.id);
+      const anchorX = current?.anchorX ?? authoredX;
+      const anchorY = current?.anchorY ?? authoredY;
+      const projected = {
+        ...previousLabel,
+        anchorX,
+        anchorY,
+        centerX: anchorX + (previousLabel.centerX - previousLabel.anchorX),
+        centerY: anchorY + (previousLabel.centerY - previousLabel.anchorY),
+      };
+      if (!anchorInsideViewport(projected, frame)) {
+        if (!anchorInsideViewport(previousLabel, previous)) continue;
+        legalViewportDepartures.add(previousLabel.id);
         continue;
       }
-      if (!previousSlotHasNoActiveContention(previousLabel, current!, previous, frame)) {
-        legalSlotChanges.add(previousLabel.id);
+      const context = `${previousLabel.id} at ${previous.scale.toFixed(3)}× → ${frame.scale.toFixed(3)}×`;
+      const readable = current?.interactive && current.opacity >= 0.52;
+      const dx = current ? current.centerX - projected.centerX : 0;
+      const dy = current ? current.centerY - projected.centerY : 0;
+      const delta = Math.hypot(dx, dy);
+      if (readable && delta > largestJump.pixels) largestJump = { pixels: delta, context };
+      const changedSlot = Math.abs(dx) >= 0.005 || Math.abs(dy) >= 0.005;
+      if (!slotIsClear(projected, frame, controls)) {
+        if (!readable || changedSlot) legalSlotChanges.add(previousLabel.id);
         continue;
       }
       retainedFrameChecks += 1;
-      expect(
-        current!.interactive,
-        `${previousLabel.id} became inactive at scale ${frame.scale.toFixed(3)} while its object anchor remained on screen`,
-      ).toBe(true);
+      if (!readable) {
+        if (dropped.length < 5) dropped.push(context);
+        continue;
+      }
       stableSlotChecks += 1;
-      expect(
-        current!.offsetX,
-        `${previousLabel.id} changed callout side although its previous horizontal slot still fit`,
-      ).toBeCloseTo(previousLabel.offsetX, 2);
-      expect(
-        current!.offsetY,
-        `${previousLabel.id} changed callout side although its previous vertical slot still fit`,
-      ).toBeCloseTo(previousLabel.offsetY, 2);
+      if (changedSlot && moved.length < 5) {
+        moved.push(`${context} (${delta.toFixed(1)} CSS px)`);
+      }
+      if (frameIndex === frames.length - 1 && (authored.minLevel ?? 0) <= 2 && authored.maxScale === undefined) {
+        retainedOverviewAtMax.push(current);
+      }
     }
   }
 
@@ -719,68 +586,65 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
     legalSlotChanges.size,
     "the trace must distinguish slots blocked by chrome, portal cues, edges, or another active preferred slot",
   ).toBeGreaterThan(0);
-  expect(
-    largestObservedOffsetJump,
-    "bounded intermediate placement candidates should keep continuous zoom callouts from making a large slot jump",
-  ).toBeLessThanOrEqual(120);
-
-  const finalFrame = frames.at(-1)!;
-  const finalById = new Map(finalFrame.labels.map((label) => [label.id, label]));
-  const defaultOverviewIds = new Set(sceneContract.labels.filter((label) => (
-    (label.minLevel ?? 0) <= 2 && label.maxScale === undefined
-  )).map((label) => label.id));
-  const previousFinalFrame = frames.at(-2)!;
-  const retainedOverviewAtMax = previousFinalFrame.labels
-    .filter((previousLabel) => previousLabel.interactive && defaultOverviewIds.has(previousLabel.id))
-    .filter((previousLabel) => {
-      const label = finalById.get(previousLabel.id);
-      return Boolean(label
-        && anchorInsideViewport(label, finalFrame)
-        && previousSlotHasNoActiveContention(
-          previousLabel,
-          label,
-          previousFinalFrame,
-          finalFrame,
-        ));
-    })
-    .map((label) => label.id);
+  expect.soft(largestAnchorError, "leaders must remain grounded in their authored object pixels").toBeLessThan(0.1);
+  expect.soft(dropped, "words that disappeared despite a clear slot").toEqual([]);
+  expect.soft(moved, "words that moved despite a clear slot").toEqual([]);
+  expect.soft(largestJump.pixels, `${largestJump.context}: largest jump between painted frames`).toBeLessThanOrEqual(120);
   expect(
     retainedOverviewAtMax.length,
     "max zoom must retain an observable sample of default LOD 0–2 vocabulary",
   ).toBeGreaterThan(0);
-  for (const id of retainedOverviewAtMax) {
-    const label = finalById.get(id)!;
-    expect(label.interactive, `${id} must not be retired at max zoom`).toBe(true);
-    expect(label.logicalOpacity, `${id} must keep full logical opacity at max zoom`).toBeGreaterThanOrEqual(0.99);
-    expect(label.ariaHidden, `${id} must remain exposed to assistive technology`).toBe("false");
-    expect(label.tabIndex, `${id} must remain keyboard reachable`).toBe(0);
+  for (const label of retainedOverviewAtMax) {
+    expect(label.opacity, `${label.id} must keep full painted opacity at max zoom`).toBeGreaterThanOrEqual(0.99);
+    const mirror = page.locator(`[data-testid="word-label"][data-label-id="${label.id}"]`);
+    await expect(mirror).toHaveAttribute("aria-hidden", "false");
+    await expect(mirror).toHaveJSProperty("tabIndex", 0);
   }
 });
 
-test("viewport progress distinguishes the current crop from the full scene", async ({ page }) => {
-  await openLeafScene(page);
+test("ordinary scenes hide the progress hint while the canvas counts only the current crop", async ({ page }) => {
+  const app = await openLeafScene(page);
   const progress = page.getByTestId("scene-word-progress");
-  await expect(progress).toBeVisible();
-
   const sceneContract = await page.evaluate(async (sceneId): Promise<SceneContract> => {
     const response = await fetch(`/data/scenes/${encodeURIComponent(sceneId)}.json`);
     if (!response.ok) throw new Error(`Unable to load scene contract for ${sceneId}`);
     return response.json() as Promise<SceneContract>;
   }, TARGET_SCENE);
-  await expect(progress).toHaveAttribute("data-total", String(sceneContract.labels.length));
-  await expect.poll(async () => Number(await progress.getAttribute("data-current"))).toBeGreaterThan(0);
+  const canvas = page.locator(".label-canvas");
+  const captureCrop = async () => {
+    await expect(app).toHaveAttribute("data-scene-id", TARGET_SCENE);
+    await expect(progress).toBeHidden();
+    await expect(canvas).toBeVisible();
+    const crop = await canvas.evaluate((element: HTMLCanvasElement & { paintedLabels?: readonly PaintedLabel[] }) => {
+      const context = element.getContext("2d");
+      if (!context || !element.paintedLabels) throw new Error("Missing painted word canvas");
+      const bounds = element.getBoundingClientRect();
+      const pixels = context.getImageData(0, 0, element.width, element.height).data;
+      const words = element.paintedLabels.filter((label) => label.interactive && label.opacity >= 0.52);
+      // Count readable pills from the current raster. Geometry outside the
+      // crop and an empty backing bitmap cannot contribute a visible word.
+      const visibleIds = words.filter((label) => {
+        const x = Math.floor(label.centerX / bounds.width * element.width);
+        const y = Math.floor(label.centerY / bounds.height * element.height);
+        return x >= 0 && x < element.width && y >= 0 && y < element.height
+          && pixels[(y * element.width + x) * 4 + 3] > 0;
+      }).map((label) => label.id);
+      return { ids: visibleIds.sort(), count: Number(element.dataset.readableCount) };
+    });
+    expect(crop.count).toBe(crop.ids.length);
+    expect(crop.count).toBeGreaterThan(0);
+    expect(crop.count).toBeLessThan(sceneContract.labels.length);
+    await expect(progress).toHaveAttribute("data-current", String(crop.count));
+    await expect(progress).toHaveAttribute("data-total", String(sceneContract.labels.length));
+    await expect(progress).toHaveAttribute("data-remaining", String(sceneContract.labels.length - crop.count));
+    return crop;
+  };
 
+  await waitForCameraSettled(page);
+  const overview = await captureCrop();
   await zoomThroughScales(page, [1.65, 2.3, 3.12, AUTHORED_MAX_SCALE]);
   await waitForCameraSettled(page);
-  const snapshot = await progress.evaluate((element) => ({
-    current: Number((element as HTMLElement).dataset.current),
-    total: Number((element as HTMLElement).dataset.total),
-    remaining: Number((element as HTMLElement).dataset.remaining),
-    cameraMode: (element as HTMLElement).dataset.cameraMode,
-    text: element.textContent ?? "",
-  }));
-  expect(snapshot.current).toBeGreaterThan(0);
-  expect(snapshot.current + snapshot.remaining).toBe(snapshot.total);
-  expect(snapshot.cameraMode).toBe("pan");
-  expect(snapshot.text).toContain("拖动");
+  const detail = await captureCrop();
+  expect(detail.ids, "zooming to a new crop must change which words are visible").not.toEqual(overview.ids);
+  await expect(progress).toHaveAttribute("data-camera-mode", "pan");
 });

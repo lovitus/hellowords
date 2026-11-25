@@ -1,0 +1,371 @@
+import type { Label } from "./types";
+import type {
+  SceneLabelCamera,
+  SceneLabelLayoutItem,
+  SceneLabelLayoutOptions,
+  SceneLabelProtectedRegion,
+  SceneLabelViewport,
+} from "./labelLayout";
+
+/**
+ * Deterministic callout placement for scene words. During continuous desktop
+ * zoom the caller can also supply the last painted offsets. Legal old slots
+ * are then reserved before the layout looks for alternatives.
+ */
+export interface ScenePlacementOptions {
+  readonly selectedLabelId?: string | null;
+  readonly protectedRegions?: readonly SceneLabelProtectedRegion[];
+  /** Words of the focused detail zone, placed before other words of equal rank. */
+  readonly priorityLabelIds?: ReadonlySet<string>;
+  readonly preferredOffsets?: SceneLabelLayoutOptions["preferredOffsets"];
+}
+
+interface Rect {
+  readonly left: number;
+  readonly right: number;
+  readonly top: number;
+  readonly bottom: number;
+}
+
+interface Segment {
+  readonly x1: number;
+  readonly y1: number;
+  readonly x2: number;
+  readonly y2: number;
+}
+
+interface Slot {
+  readonly rect: Rect;
+  readonly segment: Segment;
+}
+
+type Direction = readonly [number, number];
+
+/** Preferred order: right-hand side first (reading direction), then left, then vertical. */
+const DIRECTIONS: readonly Direction[] = ([
+  [1, -1],
+  [1, 0],
+  [1, 1],
+  [-1, -1],
+  [-1, 0],
+  [-1, 1],
+  [0, -1],
+  [0, 1],
+] as const).map(([x, y]) => {
+  const length = Math.hypot(x, y);
+  return [x / length, y / length] as const;
+});
+
+/** Distance from anchor to the nearest pill edge, tried shortest first. */
+const LEADER_DISTANCES = [14, 30, 52, 80] as const;
+/**
+ * Compact screens also try a very short leader first. Such a slot is only
+ * taken when its pill covers no other word's anchor, so a tight pill never
+ * hides a neighbouring word.
+ */
+const COMPACT_LEADER_DISTANCES = [8, 14, 30, 52, 80] as const;
+const SHORT_LEADER_DISTANCE = 8;
+// When a conflict would flip a word to the far side of its object, look for a
+// legal position around its previous pill within a single visible movement.
+const MAX_SLOT_SHIFT = 120;
+const LOCAL_SHIFT_DISTANCES = [...LEADER_DISTANCES, 112];
+const LOCAL_SHIFT_DIRECTIONS: readonly Direction[] = Array.from({ length: 24 }, (_, index) => {
+  const angle = index * Math.PI / 12;
+  return [Math.cos(angle), Math.sin(angle)];
+});
+const VIEWPORT_MARGIN = 4;
+/** Pill clearance; compact screens pack words slightly tighter, since their pills are taller. */
+const PILL_GAP = 3;
+const COMPACT_PILL_GAP = 2;
+const ANCHOR_CLEARANCE = 3;
+const CULL_MARGIN = 120;
+
+const CJK = /[\u3000-\u9fff\uf900-\ufaff]/;
+
+function glyphWidth(character: string): number {
+  return CJK.test(character) ? 11 : 6.6;
+}
+
+/** Desktop pills are 12px tall; compact screens use 18px so dense scenes keep room for words. */
+export function scenePlacementSize(
+  label: Label,
+  meaningVisible: boolean,
+  compact: boolean,
+): { width: number; height: number } {
+  let textWidth = 0;
+  for (const character of label.word) textWidth += glyphWidth(character);
+  if (meaningVisible && label.translation) {
+    let translationWidth = 0;
+    for (const character of label.translation) translationWidth += glyphWidth(character);
+    textWidth += 8 + translationWidth;
+  }
+  return {
+    width: Math.min(260, Math.max(28, Math.ceil(textWidth + 14))),
+    height: compact ? 18 : 12,
+  };
+}
+
+function rectAt(centerX: number, centerY: number, width: number, height: number): Rect {
+  return {
+    left: centerX - width / 2,
+    right: centerX + width / 2,
+    top: centerY - height / 2,
+    bottom: centerY + height / 2,
+  };
+}
+
+function rectsOverlap(first: Rect, second: Rect, gap: number): boolean {
+  return first.left < second.right + gap
+    && first.right + gap > second.left
+    && first.top < second.bottom + gap
+    && first.bottom + gap > second.top;
+}
+
+function pointInRect(x: number, y: number, rect: Rect, gap: number): boolean {
+  return x >= rect.left - gap && x <= rect.right + gap
+    && y >= rect.top - gap && y <= rect.bottom + gap;
+}
+
+function cross(ax: number, ay: number, bx: number, by: number): number {
+  return ax * by - ay * bx;
+}
+
+function segmentsIntersect(first: Segment, second: Segment): boolean {
+  const d1 = cross(second.x2 - second.x1, second.y2 - second.y1, first.x1 - second.x1, first.y1 - second.y1);
+  const d2 = cross(second.x2 - second.x1, second.y2 - second.y1, first.x2 - second.x1, first.y2 - second.y1);
+  const d3 = cross(first.x2 - first.x1, first.y2 - first.y1, second.x1 - first.x1, second.y1 - first.y1);
+  const d4 = cross(first.x2 - first.x1, first.y2 - first.y1, second.x2 - first.x1, second.y2 - first.y1);
+  return ((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0))
+    && ((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0));
+}
+
+function segmentTouchesRect(segment: Segment, rect: Rect): boolean {
+  if (pointInRect(segment.x1, segment.y1, rect, 0) || pointInRect(segment.x2, segment.y2, rect, 0)) return true;
+  const corners = [
+    { x: rect.left, y: rect.top },
+    { x: rect.right, y: rect.top },
+    { x: rect.right, y: rect.bottom },
+    { x: rect.left, y: rect.bottom },
+  ];
+  for (let index = 0; index < 4; index += 1) {
+    const start = corners[index];
+    const end = corners[(index + 1) % 4];
+    if (segmentsIntersect(segment, { x1: start.x, y1: start.y, x2: end.x, y2: end.y })) return true;
+  }
+  return false;
+}
+
+function compareLabels(
+  first: { label: Label; lod: number; distance: number; selected: boolean; priority: boolean },
+  second: { label: Label; lod: number; distance: number; selected: boolean; priority: boolean },
+  compact: boolean,
+): number {
+  return Number(second.selected) - Number(first.selected)
+    || Number(second.priority) - Number(first.priority)
+    // When inspecting a crop on a small screen, give the objects nearest
+    // the viewport center a slot before filling in the wider overview.
+    || (compact && first.priority && second.priority ? first.distance - second.distance : 0)
+    || first.lod - second.lod
+    || first.distance - second.distance
+    || first.label.id.localeCompare(second.label.id);
+}
+
+export function computeScenePlacements(
+  labels: readonly Label[],
+  camera: SceneLabelCamera,
+  viewport: SceneLabelViewport,
+  meaningVisible: boolean,
+  options: ScenePlacementOptions = {},
+): SceneLabelLayoutItem[] {
+  const scale = camera.fit * camera.scale;
+  const centerX = viewport.width / 2;
+  const centerY = viewport.height / 2;
+  const protectedRegions = options.protectedRegions ?? [];
+  const preferredOffsets = viewport.compact ? undefined : options.preferredOffsets;
+  const pillGap = viewport.compact ? COMPACT_PILL_GAP : PILL_GAP;
+  const leaderDistances = viewport.compact ? COMPACT_LEADER_DISTANCES : LEADER_DISTANCES;
+  const candidates: Array<{ label: Label; lod: number; distance: number; selected: boolean; priority: boolean; anchorX: number; anchorY: number; width: number; height: number }> = [];
+  for (const label of labels) {
+    if (label.minScale !== undefined && camera.scale < label.minScale) continue;
+    if (label.maxScale !== undefined && camera.scale > label.maxScale) continue;
+    const anchorX = camera.x + label.x * scale;
+    const anchorY = camera.y + label.y * scale;
+    if (
+      anchorX < -CULL_MARGIN
+      || anchorX > viewport.width + CULL_MARGIN
+      || anchorY < -CULL_MARGIN
+      || anchorY > viewport.height + CULL_MARGIN
+    ) continue;
+    const size = scenePlacementSize(label, meaningVisible, viewport.compact);
+    candidates.push({
+      label,
+      lod: Math.min(4, Math.max(0, Math.round(label.minLevel ?? 0))),
+      distance: Math.hypot(anchorX - centerX, anchorY - centerY),
+      selected: label.id === options.selectedLabelId,
+      priority: options.priorityLabelIds?.has(label.id) ?? false,
+      anchorX,
+      anchorY,
+      width: size.width,
+      height: size.height,
+    });
+  }
+  candidates.sort((first, second) => compareLabels(first, second, viewport.compact));
+
+  const placedRects: Rect[] = [];
+  const placedLeaders: Segment[] = [];
+  const placedAnchors: Array<{ x: number; y: number }> = [];
+  const placed = new Map<string, SceneLabelLayoutItem>();
+  const uncoveredAnchorsUnder = (rect: Rect, selfId: string): number => {
+    let covered = 0;
+    for (const other of candidates) {
+      if (other.label.id !== selfId && !placed.has(other.label.id)
+        && pointInRect(other.anchorX, other.anchorY, rect, ANCHOR_CLEARANCE)) covered += 1;
+    }
+    return covered;
+  };
+
+  type Candidate = (typeof candidates)[number];
+  function freeSlot(candidate: Candidate, centerX: number, centerY: number, short = false): Slot | null {
+    const rect = rectAt(centerX, centerY, candidate.width, candidate.height);
+    if (
+      rect.left < VIEWPORT_MARGIN
+      || rect.right > viewport.width - VIEWPORT_MARGIN
+      || rect.top < VIEWPORT_MARGIN
+      || rect.bottom > viewport.height - VIEWPORT_MARGIN
+    ) return null;
+    if (protectedRegions.some((region) => rectsOverlap(rect, region, 0))) return null;
+    if (placedRects.some((placedRect) => rectsOverlap(rect, placedRect, pillGap))) return null;
+    if (placedAnchors.some((anchor) => pointInRect(anchor.x, anchor.y, rect, ANCHOR_CLEARANCE))) return null;
+    const segment = { x1: candidate.anchorX, y1: candidate.anchorY, x2: centerX, y2: centerY };
+    if (placedRects.some((placedRect) => segmentTouchesRect(segment, placedRect))) return null;
+    if (placedLeaders.some((leader) => segmentsIntersect(segment, leader))) return null;
+    if (placedLeaders.some((leader) => segmentTouchesRect(leader, rect))) return null;
+    if (short && uncoveredAnchorsUnder(rect, candidate.label.id) > 0) return null;
+    return { rect, segment };
+  }
+
+  function occupy(candidate: Candidate, slot: Slot) {
+    const { segment } = slot;
+    placedRects.push(slot.rect);
+    placedLeaders.push(segment);
+    placedAnchors.push({ x: candidate.anchorX, y: candidate.anchorY });
+    placed.set(candidate.label.id, {
+      id: candidate.label.id,
+      lod: candidate.lod as SceneLabelLayoutItem["lod"],
+      opacity: 1,
+      interactive: true,
+      adaptive: false,
+      width: candidate.width,
+      height: candidate.height,
+      screenX: segment.x2,
+      screenY: segment.y2,
+      offsetX: segment.x2 - segment.x1,
+      offsetY: segment.y2 - segment.y1,
+      placementOrder: placed.size,
+    });
+  }
+
+  function placeInFreeSlot(candidate: Candidate) {
+    const { anchorX, anchorY, width, height } = candidate;
+    if (
+      !candidate.priority
+      && placedRects.some((rect) => pointInRect(anchorX, anchorY, rect, ANCHOR_CLEARANCE))
+    ) return;
+    const preferred = preferredOffsets?.get(candidate.label.id);
+    if (preferred) {
+      // A pill grazing the edge can slide along it while its anchor stays on
+      // screen. Try that minimum translation before changing leader direction.
+      const oldX = anchorX + preferred.offsetX;
+      const oldY = anchorY + preferred.offsetY;
+      const x = Math.max(VIEWPORT_MARGIN + width / 2, Math.min(viewport.width - VIEWPORT_MARGIN - width / 2, oldX));
+      const y = Math.max(VIEWPORT_MARGIN + height / 2, Math.min(viewport.height - VIEWPORT_MARGIN - height / 2, oldY));
+      if ((x !== oldX || y !== oldY) && Math.hypot(x - oldX, y - oldY) <= MAX_SLOT_SHIFT
+        && !pointInRect(anchorX, anchorY, rectAt(x, y, width, height), ANCHOR_CLEARANCE)) {
+        const slot = freeSlot(candidate, x, y);
+        if (slot) {
+          occupy(candidate, slot);
+          return;
+        }
+      }
+    }
+    let closest: Slot | null = null;
+    let smallestShift = Infinity;
+    for (const distance of leaderDistances) {
+      for (const [directionX, directionY] of DIRECTIONS) {
+        const support = (width / 2) * Math.abs(directionX) + (height / 2) * Math.abs(directionY);
+        const reach = distance + support;
+        // On narrow screens the nearest corner of a diagonal pill sits
+        // `distance` from the anchor, even for a long, thin word.
+        const pillCenterX = anchorX + (viewport.compact
+          ? Math.sign(directionX) * width / 2 + directionX * distance
+          : directionX * reach);
+        const pillCenterY = anchorY + (viewport.compact
+          ? Math.sign(directionY) * height / 2 + directionY * distance
+          : directionY * reach);
+        const shift = preferred
+          ? (pillCenterX - anchorX - preferred.offsetX) ** 2 + (pillCenterY - anchorY - preferred.offsetY) ** 2
+          : 0;
+        if (shift >= smallestShift) continue;
+        const slot = freeSlot(candidate, pillCenterX, pillCenterY, distance === SHORT_LEADER_DISTANCE);
+        if (!slot) continue;
+        if (!preferred) {
+          occupy(candidate, slot);
+          return;
+        }
+        closest = slot;
+        smallestShift = shift;
+      }
+    }
+    if (preferred && smallestShift > MAX_SLOT_SHIFT ** 2) {
+      for (const shift of LOCAL_SHIFT_DISTANCES) {
+        for (const [dx, dy] of LOCAL_SHIFT_DIRECTIONS) {
+          const x = preferred.offsetX + dx * shift;
+          const y = preferred.offsetY + dy * shift;
+          const gapX = Math.max(0, Math.abs(x) - width / 2);
+          const gapY = Math.max(0, Math.abs(y) - height / 2);
+          if (Math.max(gapX, gapY) <= ANCHOR_CLEARANCE || Math.hypot(gapX, gapY) > MAX_SLOT_SHIFT) continue;
+          const slot = freeSlot(candidate, anchorX + x, anchorY + y);
+          if (slot) {
+            occupy(candidate, slot);
+            return;
+          }
+        }
+      }
+    }
+    if (closest) occupy(candidate, closest);
+  }
+
+  if (preferredOffsets?.size) {
+    for (const candidate of candidates) {
+      const previous = preferredOffsets.get(candidate.label.id);
+      if (previous && (candidate.priority || !placedRects.some((rect) => (
+        pointInRect(candidate.anchorX, candidate.anchorY, rect, ANCHOR_CLEARANCE)
+      )))) {
+        const slot = freeSlot(candidate, candidate.anchorX + previous.offsetX, candidate.anchorY + previous.offsetY);
+        if (slot) {
+          occupy(candidate, slot);
+          continue;
+        }
+      }
+      if (candidate.selected) placeInFreeSlot(candidate);
+    }
+  }
+  for (const candidate of candidates) {
+    if (!placed.has(candidate.label.id)) placeInFreeSlot(candidate);
+  }
+
+  return labels.map((label) => placed.get(label.id) ?? {
+    id: label.id,
+    lod: Math.min(4, Math.max(0, Math.round(label.minLevel ?? 0))) as SceneLabelLayoutItem["lod"],
+    opacity: 0,
+    interactive: false,
+    adaptive: false,
+    width: 0,
+    height: 0,
+    screenX: Number.NaN,
+    screenY: Number.NaN,
+    offsetX: 0,
+    offsetY: 0,
+    placementOrder: Number.POSITIVE_INFINITY,
+  });
+}

@@ -238,6 +238,7 @@ export function WorldApp() {
   const [discoveredCount, setDiscoveredCount] = useState(0);
   const [selectedAtlasDistrictId, setSelectedAtlasDistrictId] = useState<string | null>(null);
   const [focusedAtlasZoneId, setFocusedAtlasZoneId] = useState<string | null>(null);
+  const [minimapCollapsed, setMinimapCollapsed] = useState(false);
   const [focusedSceneDetailZoneId, setFocusedSceneDetailZoneId] = useState<string | null>(null);
   const [sceneWordIndexOpen, setSceneWordIndexOpen] = useState(false);
   const [conversationOpen, setConversationOpen] = useState(false);
@@ -913,6 +914,7 @@ export function WorldApp() {
           data-child-count={scene?.portals.length ?? 0}
           data-terminal={String(Boolean(scene && scene.portals.length === 0))}
           data-continuous={sceneContinuityView ? "true" : undefined}
+          data-collapsed={String(minimapCollapsed)}
           aria-label="场景小地图"
         >
           <div className="scene-minimap__heading">
@@ -925,6 +927,16 @@ export function WorldApp() {
             >
               {sceneTitle}
             </h1>
+            <button
+              type="button"
+              className="scene-minimap__toggle"
+              data-testid="scene-minimap-toggle"
+              aria-expanded={!minimapCollapsed}
+              aria-label={minimapCollapsed ? "展开小地图" : "收起小地图"}
+              onClick={() => setMinimapCollapsed((value) => !value)}
+            >
+              {minimapCollapsed ? "+" : "−"}
+            </button>
           </div>
           {scene?.subtitle ? (
             <p className="scene-minimap__subtitle" data-testid="scene-minimap-subtitle">
@@ -1212,7 +1224,6 @@ export function WorldApp() {
                 onLabelsEncountered={() => undefined}
                 onLabelEncountered={() => undefined}
                 onSelectWord={() => undefined}
-                onExploreSemanticPlane={() => undefined}
                 onPrefetchScene={() => undefined}
                 atlasDistricts={outgoingScene.id === "world-map" ? rootAtlasDistricts : undefined}
               />
@@ -1231,7 +1242,6 @@ export function WorldApp() {
               onLabelsEncountered={recordEncounteredLabels}
               onLabelEncountered={recordEncounteredLabel}
               onSelectWord={setSelectedLabel}
-              onExploreSemanticPlane={openLexicalFromScene}
               onPrefetchScene={prefetchPreferredScene}
               initialView={sceneContinuityView}
               onCameraFrame={recordViewportSnapshot}
@@ -1241,6 +1251,7 @@ export function WorldApp() {
               atlasDistricts={scene.id === "world-map" ? rootAtlasDistricts : undefined}
               focusedDetailZoneId={scene?.id === "world-map" ? focusedAtlasZoneId : focusedSceneDetailZoneId}
               wordIndexOpen={sceneWordIndexOpen}
+              minimapCollapsed={minimapCollapsed}
             />
           </>
         ) : (
