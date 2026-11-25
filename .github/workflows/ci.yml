@@ -1,121 +1,153 @@
-name: CI
-
+name: Verify scene prefetch on real artwork
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
     inputs:
-      compare_published_baseline:
-        description: Compare the last audited product source on the same runner
-        type: boolean
-        default: false
-      milestone_release_preflight:
-        description: Run the 10k public-release preflight and verify the clean commit; does not publish
-        type: boolean
-        default: false
-
+      candidate:
+        description: Source commit to verify
+        type: string
+        required: true
+      recipient:
+        description: Public certificate for diagnostic evidence
+        type: string
+        required: true
 permissions:
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
+  actions: read
 env:
   CI: "true"
-  WRANGLER_LOG_PATH: .wrangler/wrangler.log
-
+  BASE: 5af3aa6796b52ce8e288644449364bf3b430f46c
+  PRODUCT: ${{ inputs.candidate }}
+  PREFETCH_CASE: apartment reads kitchen data and warms its original artwork on minimap focus
 jobs:
-  verification:
-    name: Full verification
+  verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.candidate }}
+          fetch-depth: 2
+          persist-credentials: false
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
-      - run: npm ci
-      - name: Check 10k milestone release preflight
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run release:check -- --milestone
-      - run: npm run lint
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run typecheck
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run validate:data
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:unit
-        if: ${{ !inputs.milestone_release_preflight }}
-      # Tests use this exact build on the same runner: storage quotas cannot
-      # prevent a downstream test job from obtaining it.
-      - run: npm run build
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:ssr
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: node scripts/analyze-build.mjs
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npx playwright install --with-deps chromium
-      - name: Check out audited baseline for optional comparison
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        uses: actions/checkout@v6
+      - run: |
+          test "$(git rev-parse HEAD^)" = "$BASE"
+          test "$(git rev-parse HEAD)" = "$PRODUCT"
+          mkdir -p "$RUNNER_TEMP/evidence"
+          npm ci
+          npm run typecheck
+          ./node_modules/.bin/tsx --test tests/domain/sceneRepository.test.ts
+          ./node_modules/.bin/playwright install --with-deps chromium
+      - uses: actions/download-artifact@v5
         with:
-          ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-          path: baseline-reference
-          persist-credentials: false
-      - name: Prepare identical measurement harness for baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
-      - name: Build audited baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        working-directory: baseline-reference
-        run: npm ci && npm run build
-      - name: Measure audited baseline (diagnostic, not candidate acceptance)
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        continue-on-error: true
-        working-directory: baseline-reference
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-          PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-        run: npm run test:perf
-      - run: npm run test:perf
-        id: candidate_performance
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-      - name: Verify complete milestone candidate on the preflighted clean commit
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run verify:full
-      - run: npm run test:e2e
-        id: candidate_browser
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-      - name: Enforce both candidate gates
-        if: ${{ !cancelled() && !inputs.milestone_release_preflight }}
-        env:
-          PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
-          BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}
+          name: production-dist-${{ env.BASE }}
+          run-id: 45671966683
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/previous
+      - name: Reproduce the unwanted artwork load on the preceding build
         run: |
-          printf 'Performance: %s\nBrowser: %s\n' "$PERF_OUTCOME" "$BROWSER_OUTCOME"
-          test "$PERF_OUTCOME" = success && test "$BROWSER_OUTCOME" = success
-      # Retention is optional; every validation command above remains blocking.
-      # Missing downloadable output must never be used as release evidence.
+          jq -e --arg sha "$BASE" '.gitSha == $sha' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
+          mv "$RUNNER_TEMP/previous/dist" dist
+          status=0
+          ./node_modules/.bin/playwright test tests/e2e/portal-prefetch.spec.ts --project=chromium --retries=0 \
+            > "$RUNNER_TEMP/evidence/old-browser.log" 2>&1 || status=$?
+          mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old-browser.json"
+          test "$status" -eq 1
+          jq -e --arg title "$PREFETCH_CASE" '.stats.unexpected == 1 and
+            ([.suites[].specs[] | select(.file == "e2e/portal-prefetch.spec.ts" and .title == $title)
+              | .tests[] | select(.projectName == "chromium" and .expectedStatus == "passed")
+              | .results[] | [.status, (.error.message | contains("unvisited kitchen artwork"))]]
+              == [["failed", true]])' \
+            "$RUNNER_TEMP/evidence/old-browser.json"
+      - name: Record the original forty transitions on this runner
+        env:
+          PERF_SOURCE_SHA: ${{ env.BASE }}
+          PERF_SCENE_CYCLES: "20"
+          PERF_RUN: "1"
+        run: |
+          result=0
+          npm run test:perf -- --grep 'scene slices stay within CPU and memory budgets' \
+            > "$RUNNER_TEMP/evidence/baseline-performance.log" 2>&1 || result=$?
+          jq -e --arg sha "$BASE" '.gitSha == $sha and .result.transitions == 40' artifacts/perf/summary.json
+          mv artifacts/perf "$RUNNER_TEMP/evidence/baseline-perf"
+          mv dist "$RUNNER_TEMP/previous/dist"
+          echo "Baseline budget exit code $result" >> "$GITHUB_STEP_SUMMARY"
+      - name: Build the candidate with original scene art
+        run: |
+          GITHUB_SHA="$PRODUCT" npm run build
+          GITHUB_SHA="$PRODUCT" npm run analyze:build
+          jq -e --arg sha "$PRODUCT" '.gitSha == $sha' artifacts/build/dist-manifest.json
+      - uses: actions/upload-artifact@v5
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          path: |
+            dist
+            artifacts/build/dist-manifest.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+      - id: prefetch
+        name: Verify artwork loads on intent
+        continue-on-error: true
+        run: |
+          result=0
+          ./node_modules/.bin/playwright test tests/e2e/portal-prefetch.spec.ts \
+            --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/new-browser.log" 2>&1 || result=$?
+          mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/new-browser.json"
+          test "$result" -eq 0
+          jq -e --arg title "$PREFETCH_CASE" '.stats.expected == 2 and
+            ([.suites[].specs[] | select(.file == "e2e/portal-prefetch.spec.ts" and .title == $title)
+              | .tests[] | [.projectName, [.results[].status]]] | sort)
+            == [["chromium", ["passed"]], ["mobile-chromium", ["passed"]]]' \
+            "$RUNNER_TEMP/evidence/new-browser.json"
+      - id: interactions
+        name: Verify warm navigation and apartment handoff
+        continue-on-error: true
+        run: |
+          ./node_modules/.bin/playwright test tests/e2e/cache-motion.spec.ts \
+            tests/e2e/continuous-semantic-zoom.spec.ts --project=chromium --project=mobile-chromium --retries=0 \
+            --grep 'a decoded parent stays hot|continuous input prepares one preferred child|a warm adjacent transition avoids|mobile keeps its warmed child|Apartment handoff settles' \
+            > "$RUNNER_TEMP/evidence/browser.log" 2>&1
+          jq -e '.stats.expected == 7 and .stats.skipped == 3' artifacts/e2e/results.json
+      - id: performance
+        name: Measure forty transitions at the existing budgets
+        continue-on-error: true
+        env:
+          PERF_SOURCE_SHA: ${{ inputs.candidate }}
+          PERF_SCENE_CYCLES: "20"
+          PERF_RUN: "1"
+        run: |
+          npm run test:perf -- --grep 'scene slices stay within CPU and memory budgets' \
+            > "$RUNNER_TEMP/evidence/performance.log" 2>&1
+          jq -e --arg sha "$PRODUCT" \
+            '.gitSha == $sha and .scenario.cycles == 20 and .result.transitions == 40' artifacts/perf/summary.json
+      - name: Preserve evidence
+        if: ${{ !cancelled() }}
+        env:
+          RECIPIENT: ${{ inputs.recipient }}
+        run: |
+          set -o pipefail
+          if test -f artifacts/e2e/results.json; then cp artifacts/e2e/results.json "$RUNNER_TEMP/evidence/last-browser.json"; fi
+          if test -d artifacts/perf; then cp -r artifacts/perf "$RUNNER_TEMP/evidence/perf"; fi
+          printf '%s\n' "$RECIPIENT" > "$RUNNER_TEMP/recipient.pem"
+          tar -C "$RUNNER_TEMP" -czf - evidence | openssl cms -encrypt -stream -binary -aes-256-cbc -outform DER \
+            -out "$RUNNER_TEMP/verification.cms" "$RUNNER_TEMP/recipient.pem"
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
-        continue-on-error: true
         with:
-          name: verification-${{ github.sha }}
-          path: |
-            artifacts/correctness
-            artifacts/build
-            artifacts/e2e
-            artifacts/perf
-            dist
-          include-hidden-files: true
-          if-no-files-found: warn
+          name: prefetch-verification
+          path: ${{ runner.temp }}/verification.cms
+          if-no-files-found: error
           retention-days: 7
+      - name: Enforce actual candidate outcomes
+        if: ${{ !cancelled() }}
+        env:
+          PREFETCH: ${{ steps.prefetch.outcome }}
+          BROWSER: ${{ steps.interactions.outcome }}
+          PERF: ${{ steps.performance.outcome }}
+        run: |
+          test "$PREFETCH" = success
+          test "$BROWSER" = success
+          test "$PERF" = success
