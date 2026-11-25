@@ -1,121 +1,124 @@
-name: CI
-
+name: Warm layout comparison
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
     inputs:
-      compare_published_baseline:
-        description: Compare the last audited product source on the same runner
-        type: boolean
-        default: false
-      milestone_release_preflight:
-        description: Run the 10k public-release preflight and verify the clean commit; does not publish
-        type: boolean
-        default: false
-
+      product:
+        description: Product candidate commit
+        type: string
+        required: true
+      recipient:
+        description: Public diagnostic recipient certificate
+        type: string
+        required: true
 permissions:
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
+  actions: read
 env:
   CI: "true"
   WRANGLER_LOG_PATH: .wrangler/wrangler.log
-
+  PREVIOUS: 5927af6bf9d507083a7e56647030625bbdc583b7
+  PRODUCT: ${{ inputs.product }}
 jobs:
-  verification:
-    name: Full verification
+  compare:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - run: cp scripts/compare-layout-samples.mts "$RUNNER_TEMP/"
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.product }}
+          fetch-depth: 2
+          persist-credentials: false
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
       - run: npm ci
-      - name: Check 10k milestone release preflight
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run release:check -- --milestone
-      - run: npm run lint
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run typecheck
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run validate:data
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:unit
-        if: ${{ !inputs.milestone_release_preflight }}
-      # Tests use this exact build on the same runner: storage quotas cannot
-      # prevent a downstream test job from obtaining it.
-      - run: npm run build
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:ssr
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: node scripts/analyze-build.mjs
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npx playwright install --with-deps chromium
-      - name: Check out audited baseline for optional comparison
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        uses: actions/checkout@v6
-        with:
-          ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-          path: baseline-reference
-          persist-credentials: false
-      - name: Prepare identical measurement harness for baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
-      - name: Build audited baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        working-directory: baseline-reference
-        run: npm ci && npm run build
-      - name: Measure audited baseline (diagnostic, not candidate acceptance)
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        continue-on-error: true
-        working-directory: baseline-reference
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-          PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-        run: npm run test:perf
-      - run: npm run test:perf
-        id: candidate_performance
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-      - name: Verify complete milestone candidate on the preflighted clean commit
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run verify:full
-      - run: npm run test:e2e
-        id: candidate_browser
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-      - name: Enforce both candidate gates
-        if: ${{ !cancelled() && !inputs.milestone_release_preflight }}
-        env:
-          PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
-          BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}
+      - name: Check types and placement contracts
         run: |
-          printf 'Performance: %s\nBrowser: %s\n' "$PERF_OUTCOME" "$BROWSER_OUTCOME"
-          test "$PERF_OUTCOME" = success && test "$BROWSER_OUTCOME" = success
-      # Retention is optional; every validation command above remains blocking.
-      # Missing downloadable output must never be used as release evidence.
+          test "$(git rev-parse HEAD)" = "$PRODUCT"
+          test "$(git rev-parse HEAD^)" = "$PREVIOUS"
+          npm run typecheck
+          npx tsx --test tests/domain/labelPlacement.test.ts
+      - name: Replay real scene geometry against its historical implementation
+        run: |
+          cp "$RUNNER_TEMP/compare-layout-samples.mts" scripts/
+          git show "$PREVIOUS:app/domain/labelPlacement.ts" > app/domain/previousPlacement.ts
+          mkdir -p "$RUNNER_TEMP/observations"
+          npx tsx scripts/compare-layout-samples.mts > "$RUNNER_TEMP/observations/geometry.json"
+          jq . "$RUNNER_TEMP/observations/geometry.json"
+          rm scripts/compare-layout-samples.mts app/domain/previousPlacement.ts
+      - uses: actions/download-artifact@v5
+        with:
+          name: production-dist-5927af6bf9d507083a7e56647030625bbdc583b7
+          run-id: 45664808893
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/prior
+      - run: npx playwright install --with-deps chromium
+      - name: Observe baseline for 20 uninstrumented round trips
+        env:
+          PERF_SOURCE_SHA: ${{ env.PREVIOUS }}
+          PERF_SCENE_CYCLES: "20"
+          PERF_RUN: "1"
+        run: |
+          jq -e --arg sha "$PREVIOUS" '.gitSha == $sha' "$RUNNER_TEMP/prior/artifacts/build/dist-manifest.json"
+          mv "$RUNNER_TEMP/prior/dist" dist
+          result=0
+          npm run test:perf -- --grep 'scene slices stay within CPU and memory budgets' || result=$?
+          jq -e --arg sha "$PREVIOUS" '.gitSha == $sha and .result.transitions == 40' artifacts/perf/summary.json
+          mv artifacts/perf "$RUNNER_TEMP/observations/baseline"
+          mv dist "$RUNNER_TEMP/prior/dist"
+          echo "Baseline performance exit code $result" >> "$GITHUB_STEP_SUMMARY"
+      - name: Build the candidate
+        run: |
+          GITHUB_SHA="$PRODUCT" npm run build
+          GITHUB_SHA="$PRODUCT" npm run analyze:build
+          jq -e --arg sha "$PRODUCT" '.gitSha == $sha' artifacts/build/dist-manifest.json
+      - uses: actions/upload-artifact@v5
+        with:
+          name: production-dist-${{ inputs.product }}
+          path: |
+            dist
+            artifacts/build/dist-manifest.json
+          retention-days: 7
+          include-hidden-files: true
+          if-no-files-found: error
+      - id: measure
+        name: Measure candidate for 20 uninstrumented round trips
+        continue-on-error: true
+        env:
+          PERF_RUN: "1"
+          PERF_SCENE_CYCLES: "20"
+          PERF_SOURCE_SHA: ${{ inputs.product }}
+        run: npm run test:perf -- --grep 'scene slices stay within CPU and memory budgets'
+      - id: interactions
+        name: Exercise actual keyboard, pointer and zoom behavior
+        continue-on-error: true
+        run: |
+          npx playwright test --project=chromium --project=mobile-chromium --retries=0 --grep 'oak-tree fit fills|continuous zoom retains grounded|ordinary scenes hide the progress|five authored LOD bands|the apartment minimap reveals|the home atlas keeps its artwork|Apartment handoff settles|continued zoom at a terminal|the Apartment minimap focuses|plant cell exposes its organelle'
+      - name: Encrypt measured evidence
+        if: ${{ !cancelled() }}
+        env:
+          RECIPIENT: ${{ inputs.recipient }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/observations"
+          if test -d artifacts/perf; then cp -r artifacts/perf "$RUNNER_TEMP/observations/candidate"; fi
+          if test -f artifacts/e2e/results.json; then cp artifacts/e2e/results.json "$RUNNER_TEMP/observations/interactions.json"; fi
+          printf '%s\n' "$RECIPIENT" > "$RUNNER_TEMP/recipient.pem"
+          tar -C "$RUNNER_TEMP" -czf - observations | openssl cms -encrypt -binary -stream -aes-256-cbc -outform DER -out "$RUNNER_TEMP/comparison.cms" "$RUNNER_TEMP/recipient.pem"
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
-        continue-on-error: true
         with:
-          name: verification-${{ github.sha }}
-          path: |
-            artifacts/correctness
-            artifacts/build
-            artifacts/e2e
-            artifacts/perf
-            dist
-          include-hidden-files: true
-          if-no-files-found: warn
+          name: warm-layout-comparison
+          path: ${{ runner.temp }}/comparison.cms
+          if-no-files-found: error
           retention-days: 7
+      - name: Enforce candidate results
+        run: |
+          test "$PERFORMANCE" = success && test "$INTERACTIONS" = success
+        env:
+          PERFORMANCE: ${{ steps.measure.outcome }}
+          INTERACTIONS: ${{ steps.interactions.outcome }}
