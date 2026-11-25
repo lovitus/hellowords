@@ -35,8 +35,8 @@
       "word": "sink",
       "translation": "水槽",
       "lexemeId": "en-1978baf2c153fd3b",
-      "x": 165,
-      "y": 490,
+      "x": 170,
+      "y": 471,
       "priority": 1.002,
       "minLevel": 0,
       "sourceVisualRegion": "verified-sink"
@@ -56,8 +56,8 @@
       "word": "cabinet",
       "translation": "橱柜",
       "lexemeId": "en-a6e42a44e79e131a",
-      "x": 640,
-      "y": 160,
+      "x": 601,
+      "y": 164,
       "priority": 1.004,
       "minLevel": 0,
       "sourceVisualRegion": "verified-cabinet"
@@ -66,8 +66,8 @@
       "id": "kitchen-island",
       "word": "kitchen island",
       "translation": "厨房岛台",
-      "x": 800,
-      "y": 700,
+      "x": 1285,
+      "y": 708,
       "priority": 1.005,
       "minLevel": 0,
       "sourceVisualRegion": "verified-kitchen-island"
@@ -87,8 +87,8 @@
       "word": "oven",
       "translation": "烤箱",
       "lexemeId": "en-4908abbcc9666d67",
-      "x": 810,
-      "y": 550,
+      "x": 850,
+      "y": 527,
       "priority": 1.007,
       "minLevel": 0,
       "sourceVisualRegion": "verified-oven"
@@ -97,8 +97,8 @@
       "id": "cooktop",
       "word": "cooktop",
       "translation": "炉灶台",
-      "x": 855,
-      "y": 450,
+      "x": 718,
+      "y": 414,
       "priority": 1.008,
       "minLevel": 0,
       "sourceVisualRegion": "verified-cooktop"
@@ -107,8 +107,8 @@
       "id": "faucet",
       "word": "faucet",
       "translation": "水龙头",
-      "x": 160,
-      "y": 390,
+      "x": 141,
+      "y": 389,
       "priority": 2.009,
       "minLevel": 1,
       "sourceVisualRegion": "verified-faucet"
@@ -138,8 +138,8 @@
       "word": "drawer",
       "translation": "抽屉",
       "lexemeId": "en-d329f11d9a60de9b",
-      "x": 490,
-      "y": 515,
+      "x": 640,
+      "y": 472,
       "priority": 2.012,
       "minLevel": 1,
       "sourceVisualRegion": "verified-drawer"
@@ -168,8 +168,8 @@
       "id": "backsplash",
       "word": "backsplash",
       "translation": "防溅墙",
-      "x": 760,
-      "y": 300,
+      "x": 850,
+      "y": 280,
       "priority": 2.015,
       "minLevel": 1,
       "sourceVisualRegion": "verified-backsplash"
@@ -228,8 +228,8 @@
       "id": "stockpot",
       "word": "stockpot",
       "translation": "汤锅",
-      "x": 805,
-      "y": 410,
+      "x": 776,
+      "y": 389,
       "priority": 3.021,
       "minLevel": 2,
       "sourceVisualRegion": "verified-stockpot"
@@ -238,8 +238,8 @@
       "id": "frying-pan",
       "word": "frying pan",
       "translation": "煎锅",
-      "x": 930,
-      "y": 430,
+      "x": 868,
+      "y": 405,
       "priority": 3.022,
       "minLevel": 2,
       "sourceVisualRegion": "verified-frying-pan"
@@ -258,8 +258,8 @@
       "id": "fruit-bowl",
       "word": "fruit bowl",
       "translation": "水果碗",
-      "x": 515,
-      "y": 570,
+      "x": 510,
+      "y": 591,
       "priority": 3.024,
       "minLevel": 2,
       "sourceVisualRegion": "verified-fruit-bowl"
@@ -279,8 +279,8 @@
       "id": "potted-herb",
       "word": "potted herb",
       "translation": "盆栽香草",
-      "x": 1130,
-      "y": 390,
+      "x": 1124,
+      "y": 352,
       "priority": 3.026,
       "minLevel": 2,
       "sourceVisualRegion": "verified-potted-herb"
@@ -299,8 +299,8 @@
       "id": "sponge",
       "word": "sponge",
       "translation": "海绵",
-      "x": 75,
-      "y": 440,
+      "x": 74,
+      "y": 447,
       "priority": 4.028,
       "minLevel": 3,
       "sourceVisualRegion": "verified-sponge"
@@ -381,8 +381,8 @@
       "id": "drawer-pull",
       "word": "drawer pull",
       "translation": "抽屉拉手",
-      "x": 490,
-      "y": 515,
+      "x": 606,
+      "y": 461,
       "priority": 5.036,
       "minLevel": 4,
       "sourceVisualRegion": "verified-drawer-pull"
@@ -411,8 +411,8 @@
       "id": "wooden-spoon",
       "word": "wooden spoon",
       "translation": "木勺",
-      "x": 700,
-      "y": 345,
+      "x": 705,
+      "y": 326,
       "priority": 5.039,
       "minLevel": 4,
       "sourceVisualRegion": "verified-wooden-spoon"
@@ -421,8 +421,8 @@
       "id": "whisk",
       "word": "whisk",
       "translation": "打蛋器",
-      "x": 730,
-      "y": 670,
+      "x": 743,
+      "y": 653,
       "priority": 5.04,
       "minLevel": 4,
       "sourceVisualRegion": "verified-whisk"
@@ -431,8 +431,8 @@
       "id": "rolling-pin",
       "word": "rolling pin",
       "translation": "擀面杖",
-      "x": 960,
-      "y": 650,
+      "x": 1002,
+      "y": 626,
       "priority": 5.041,
       "minLevel": 4,
       "sourceVisualRegion": "verified-rolling-pin"
@@ -442,8 +442,8 @@
       "word": "knife",
       "translation": "厨刀",
       "lexemeId": "en-3d4d101cd7ea9e5e",
-      "x": 850,
-      "y": 610,
+      "x": 812,
+      "y": 607,
       "priority": 5.042,
       "minLevel": 4,
       "sourceVisualRegion": "verified-knife"
@@ -452,8 +452,8 @@
       "id": "pepper-mill",
       "word": "pepper mill",
       "translation": "胡椒研磨器",
-      "x": 1060,
-      "y": 370,
+      "x": 1048,
+      "y": 372,
       "priority": 5.043,
       "minLevel": 4,
       "sourceVisualRegion": "verified-pepper-mill"
@@ -472,8 +472,8 @@
       "id": "coffee-spout",
       "word": "coffee spout",
       "translation": "咖啡出口",
-      "x": 1515,
-      "y": 405,
+      "x": 1524,
+      "y": 399,
       "priority": 5.045,
       "minLevel": 4,
       "sourceVisualRegion": "verified-coffee-spout"
@@ -482,8 +482,8 @@
       "id": "drip-tray",
       "word": "drip tray",
       "translation": "滴水盘",
-      "x": 1515,
-      "y": 495,
+      "x": 1556,
+      "y": 456,
       "priority": 5.046,
       "minLevel": 4,
       "sourceVisualRegion": "verified-drip-tray"
@@ -492,8 +492,8 @@
       "id": "coffee-cup",
       "word": "coffee cup",
       "translation": "咖啡杯",
-      "x": 1520,
-      "y": 450,
+      "x": 1506,
+      "y": 437,
       "priority": 5.047,
       "minLevel": 4,
       "sourceVisualRegion": "verified-coffee-cup"
@@ -502,8 +502,8 @@
       "id": "window-frame",
       "word": "window frame",
       "translation": "窗框",
-      "x": 160,
-      "y": 180,
+      "x": 110,
+      "y": 186,
       "priority": 6.001,
       "minLevel": 2,
       "sourceVisualRegion": "verified-window"
@@ -511,7 +511,7 @@
     {
       "id": "window-blind",
       "word": "window blind",
-      "translation": "百叶帘",
+      "translation": "升降布帘",
       "x": 160,
       "y": 70,
       "priority": 6.002,
@@ -522,8 +522,8 @@
       "id": "window-sill",
       "word": "window sill",
       "translation": "窗台",
-      "x": 165,
-      "y": 345,
+      "x": 191,
+      "y": 387,
       "priority": 6.003,
       "minLevel": 4,
       "sourceVisualRegion": "verified-window"
@@ -552,8 +552,8 @@
       "id": "faucet-spout",
       "word": "faucet spout",
       "translation": "水龙头出水口",
-      "x": 175,
-      "y": 340,
+      "x": 200,
+      "y": 364,
       "priority": 6.006,
       "minLevel": 3,
       "sourceVisualRegion": "verified-faucet"
@@ -562,8 +562,8 @@
       "id": "sink-divider",
       "word": "sink divider",
       "translation": "水槽隔板",
-      "x": 165,
-      "y": 465,
+      "x": 202,
+      "y": 458,
       "priority": 7.001,
       "minLevel": 2,
       "sourceVisualRegion": "verified-sink"
@@ -572,8 +572,8 @@
       "id": "faucet-handle",
       "word": "faucet handle",
       "translation": "水龙头把手",
-      "x": 205,
-      "y": 380,
+      "x": 162,
+      "y": 409,
       "priority": 7.002,
       "minLevel": 4,
       "sourceVisualRegion": "verified-faucet"
@@ -592,8 +592,8 @@
       "id": "shelf",
       "word": "shelf",
       "translation": "搁架",
-      "x": 390,
-      "y": 125,
+      "x": 484,
+      "y": 136,
       "priority": 6.007,
       "minLevel": 2,
       "sourceVisualRegion": "verified-shelf"
@@ -602,8 +602,8 @@
       "id": "storage-jar",
       "word": "storage jar",
       "translation": "储物罐",
-      "x": 485,
-      "y": 125,
+      "x": 529,
+      "y": 111,
       "priority": 6.008,
       "minLevel": 4,
       "sourceVisualRegion": "verified-shelf"
@@ -612,8 +612,8 @@
       "id": "cabinet-door",
       "word": "cabinet door",
       "translation": "橱柜门",
-      "x": 640,
-      "y": 180,
+      "x": 586,
+      "y": 168,
       "priority": 6.009,
       "minLevel": 3,
       "sourceVisualRegion": "verified-cabinet"
@@ -622,8 +622,8 @@
       "id": "bulb",
       "word": "bulb",
       "translation": "灯泡",
-      "x": 640,
-      "y": 60,
+      "x": 631,
+      "y": 90,
       "priority": 6.01,
       "minLevel": 4,
       "sourceVisualRegion": "verified-pendant-light"
@@ -632,8 +632,8 @@
       "id": "glass-shade",
       "word": "glass shade",
       "translation": "玻璃灯罩",
-      "x": 640,
-      "y": 100,
+      "x": 581,
+      "y": 102,
       "priority": 6.011,
       "minLevel": 3,
       "sourceVisualRegion": "verified-pendant-light"
@@ -652,8 +652,8 @@
       "id": "drawer-front",
       "word": "drawer front",
       "translation": "抽屉面板",
-      "x": 550,
-      "y": 515,
+      "x": 564,
+      "y": 471,
       "priority": 6.013,
       "minLevel": 3,
       "sourceVisualRegion": "verified-drawer"
@@ -662,8 +662,8 @@
       "id": "mixer-bowl",
       "word": "mixer bowl",
       "translation": "搅拌碗",
-      "x": 635,
-      "y": 420,
+      "x": 614,
+      "y": 360,
       "priority": 6.014,
       "minLevel": 3,
       "sourceVisualRegion": "verified-stand-mixer"
@@ -672,8 +672,8 @@
       "id": "mixer-head",
       "word": "mixer head",
       "translation": "搅拌机头",
-      "x": 635,
-      "y": 330,
+      "x": 608,
+      "y": 307,
       "priority": 6.015,
       "minLevel": 4,
       "sourceVisualRegion": "verified-stand-mixer"
@@ -682,8 +682,8 @@
       "id": "kettle-handle",
       "word": "kettle handle",
       "translation": "水壶把手",
-      "x": 390,
-      "y": 350,
+      "x": 410,
+      "y": 351,
       "priority": 6.016,
       "minLevel": 4,
       "sourceVisualRegion": "verified-kettle"
@@ -692,8 +692,8 @@
       "id": "kettle-spout",
       "word": "kettle spout",
       "translation": "水壶壶嘴",
-      "x": 370,
-      "y": 385,
+      "x": 361,
+      "y": 344,
       "priority": 6.017,
       "minLevel": 4,
       "sourceVisualRegion": "verified-kettle"
@@ -702,8 +702,8 @@
       "id": "toaster-slot",
       "word": "toaster slot",
       "translation": "烤面包机槽口",
-      "x": 470,
-      "y": 355,
+      "x": 458,
+      "y": 335,
       "priority": 6.018,
       "minLevel": 4,
       "sourceVisualRegion": "verified-toaster"
@@ -712,8 +712,8 @@
       "id": "toaster-lever",
       "word": "toaster lever",
       "translation": "烤面包机拨杆",
-      "x": 475,
-      "y": 390,
+      "x": 491,
+      "y": 349,
       "priority": 6.019,
       "minLevel": 4,
       "sourceVisualRegion": "verified-toaster"
@@ -732,8 +732,8 @@
       "id": "blender-base",
       "word": "blender base",
       "translation": "搅拌机底座",
-      "x": 545,
-      "y": 390,
+      "x": 548,
+      "y": 373,
       "priority": 6.021,
       "minLevel": 4,
       "sourceVisualRegion": "verified-blender"
@@ -742,8 +742,8 @@
       "id": "pot-handle",
       "word": "pot handle",
       "translation": "锅柄",
-      "x": 875,
-      "y": 405,
+      "x": 820,
+      "y": 372,
       "priority": 6.022,
       "minLevel": 4,
       "sourceVisualRegion": "verified-stockpot"
@@ -752,8 +752,8 @@
       "id": "pan-handle",
       "word": "pan handle",
       "translation": "平底锅柄",
-      "x": 1000,
-      "y": 410,
+      "x": 945,
+      "y": 389,
       "priority": 6.023,
       "minLevel": 4,
       "sourceVisualRegion": "verified-frying-pan"
@@ -762,7 +762,7 @@
       "id": "bread-slice",
       "word": "bread slice",
       "translation": "面包片",
-      "x": 770,
+      "x": 786,
       "y": 575,
       "priority": 6.024,
       "minLevel": 3,
@@ -772,8 +772,8 @@
       "id": "apple",
       "word": "apple",
       "translation": "苹果",
-      "x": 480,
-      "y": 560,
+      "x": 493,
+      "y": 551,
       "priority": 6.025,
       "minLevel": 4,
       "sourceVisualRegion": "verified-fruit-bowl"
@@ -782,8 +782,8 @@
       "id": "orange",
       "word": "orange",
       "translation": "橙子",
-      "x": 550,
-      "y": 580,
+      "x": 527,
+      "y": 568,
       "priority": 6.026,
       "minLevel": 4,
       "sourceVisualRegion": "verified-fruit-bowl"
@@ -792,8 +792,8 @@
       "id": "grape",
       "word": "grape",
       "translation": "葡萄",
-      "x": 500,
-      "y": 545,
+      "x": 505,
+      "y": 522,
       "priority": 6.027,
       "minLevel": 4,
       "sourceVisualRegion": "verified-fruit-bowl"
@@ -812,8 +812,8 @@
       "id": "measuring-handle",
       "word": "measuring handle",
       "translation": "量杯把手",
-      "x": 1140,
-      "y": 590,
+      "x": 1151,
+      "y": 568,
       "priority": 6.029,
       "minLevel": 4,
       "sourceVisualRegion": "verified-measuring-cup"
@@ -822,8 +822,8 @@
       "id": "bowl-rim",
       "word": "bowl rim",
       "translation": "碗沿",
-      "x": 970,
-      "y": 550,
+      "x": 972,
+      "y": 556,
       "priority": 6.03,
       "minLevel": 4,
       "sourceVisualRegion": "verified-bowl"
@@ -832,8 +832,8 @@
       "id": "mug-handle",
       "word": "mug handle",
       "translation": "马克杯把手",
-      "x": 1170,
-      "y": 645,
+      "x": 1193,
+      "y": 632,
       "priority": 6.031,
       "minLevel": 4,
       "sourceVisualRegion": "verified-mug"
@@ -842,8 +842,8 @@
       "id": "towel-fringe",
       "word": "towel fringe",
       "translation": "毛巾流苏",
-      "x": 850,
-      "y": 760,
+      "x": 829,
+      "y": 803,
       "priority": 6.032,
       "minLevel": 4,
       "sourceVisualRegion": "verified-dish-towel"
@@ -852,8 +852,8 @@
       "id": "vase-stem",
       "word": "vase stem",
       "translation": "花瓶茎秆",
-      "x": 1250,
-      "y": 520,
+      "x": 1237,
+      "y": 613,
       "priority": 6.033,
       "minLevel": 4,
       "sourceVisualRegion": "verified-vase"
@@ -862,8 +862,8 @@
       "id": "spice-cap",
       "word": "spice cap",
       "translation": "香料罐盖",
-      "x": 1165,
-      "y": 360,
+      "x": 1148,
+      "y": 378,
       "priority": 6.034,
       "minLevel": 4,
       "sourceVisualRegion": "verified-spice-jar"
@@ -872,8 +872,8 @@
       "id": "spoon-head",
       "word": "spoon head",
       "translation": "勺头",
-      "x": 700,
-      "y": 320,
+      "x": 712,
+      "y": 319,
       "priority": 6.035,
       "minLevel": 4,
       "sourceVisualRegion": "verified-wooden-spoon"
@@ -882,8 +882,8 @@
       "id": "whisk-wire",
       "word": "whisk wire",
       "translation": "打蛋器钢丝",
-      "x": 730,
-      "y": 660,
+      "x": 737,
+      "y": 653,
       "priority": 6.036,
       "minLevel": 4,
       "sourceVisualRegion": "verified-whisk"
@@ -892,8 +892,8 @@
       "id": "rolling-pin-handle",
       "word": "rolling pin handle",
       "translation": "擀面杖把手",
-      "x": 1060,
-      "y": 650,
+      "x": 1061,
+      "y": 615,
       "priority": 6.037,
       "minLevel": 4,
       "sourceVisualRegion": "verified-rolling-pin"
@@ -902,8 +902,8 @@
       "id": "knife-blade",
       "word": "knife blade",
       "translation": "刀刃",
-      "x": 850,
-      "y": 600,
+      "x": 802,
+      "y": 610,
       "priority": 6.038,
       "minLevel": 4,
       "sourceVisualRegion": "verified-knife"
@@ -912,8 +912,8 @@
       "id": "mill-top",
       "word": "mill top",
       "translation": "研磨罐顶",
-      "x": 1060,
-      "y": 330,
+      "x": 1049,
+      "y": 331,
       "priority": 6.039,
       "minLevel": 4,
       "sourceVisualRegion": "verified-pepper-mill"
@@ -943,7 +943,7 @@
       "word": "countertop edge",
       "translation": "台面边缘",
       "x": 600,
-      "y": 535,
+      "y": 424,
       "priority": 6.042,
       "minLevel": 3,
       "sourceVisualRegion": "verified-countertop"
@@ -952,8 +952,8 @@
       "id": "island-leg",
       "word": "island leg",
       "translation": "岛台支腿",
-      "x": 300,
-      "y": 760,
+      "x": 322,
+      "y": 706,
       "priority": 6.043,
       "minLevel": 4,
       "sourceVisualRegion": "verified-kitchen-island"
@@ -962,8 +962,8 @@
       "id": "stool-seat",
       "word": "stool seat",
       "translation": "凳面",
-      "x": 465,
-      "y": 800,
+      "x": 472,
+      "y": 766,
       "priority": 6.044,
       "minLevel": 3,
       "sourceVisualRegion": "verified-stool"
@@ -972,8 +972,8 @@
       "id": "stool-leg",
       "word": "stool leg",
       "translation": "凳腿",
-      "x": 465,
-      "y": 860,
+      "x": 350,
+      "y": 870,
       "priority": 6.045,
       "minLevel": 4,
       "sourceVisualRegion": "verified-stool"
@@ -1002,8 +1002,8 @@
       "id": "range-hood-chimney",
       "word": "range hood chimney",
       "translation": "抽油烟机烟道",
-      "x": 850,
-      "y": 80,
+      "x": 880,
+      "y": 64,
       "priority": 7.006,
       "minLevel": 2,
       "sourceVisualRegion": "verified-range-hood"
@@ -1023,7 +1023,7 @@
       "word": "oven handle",
       "translation": "烤箱把手",
       "x": 810,
-      "y": 520,
+      "y": 500,
       "priority": 7.008,
       "minLevel": 4,
       "sourceVisualRegion": "verified-oven"
@@ -1032,8 +1032,8 @@
       "id": "oven-door",
       "word": "oven door",
       "translation": "烤箱门",
-      "x": 810,
-      "y": 570,
+      "x": 794,
+      "y": 521,
       "priority": 7.009,
       "minLevel": 2,
       "sourceVisualRegion": "verified-oven"
@@ -1042,8 +1042,8 @@
       "id": "pan-rim",
       "word": "pan rim",
       "translation": "平底锅边缘",
-      "x": 930,
-      "y": 430,
+      "x": 864,
+      "y": 385,
       "priority": 7.01,
       "minLevel": 4,
       "sourceVisualRegion": "verified-frying-pan"
@@ -1082,8 +1082,8 @@
       "id": "blender-lid",
       "word": "blender lid",
       "translation": "搅拌机盖",
-      "x": 545,
-      "y": 285,
+      "x": 542,
+      "y": 278,
       "priority": 7.014,
       "minLevel": 4,
       "sourceVisualRegion": "verified-blender"
@@ -1092,8 +1092,8 @@
       "id": "kettle-lid",
       "word": "kettle lid",
       "translation": "水壶盖",
-      "x": 390,
-      "y": 330,
+      "x": 380,
+      "y": 329,
       "priority": 7.015,
       "minLevel": 4,
       "sourceVisualRegion": "verified-kettle"
@@ -1112,8 +1112,8 @@
       "id": "fruit-bowl-rim",
       "word": "fruit bowl rim",
       "translation": "水果碗边缘",
-      "x": 515,
-      "y": 535,
+      "x": 592,
+      "y": 558,
       "priority": 7.017,
       "minLevel": 4,
       "sourceVisualRegion": "verified-fruit-bowl"
@@ -1132,8 +1132,8 @@
       "id": "coffee-screen",
       "word": "coffee screen",
       "translation": "咖啡机屏幕",
-      "x": 1515,
-      "y": 350,
+      "x": 1500,
+      "y": 327,
       "priority": 7.019,
       "minLevel": 3,
       "sourceVisualRegion": "verified-coffee-machine"
@@ -1143,7 +1143,7 @@
       "word": "steam wand",
       "translation": "蒸汽棒",
       "x": 1570,
-      "y": 395,
+      "y": 418,
       "priority": 7.02,
       "minLevel": 4,
       "sourceVisualRegion": "verified-coffee-machine"
@@ -1152,8 +1152,8 @@
       "id": "island-edge",
       "word": "island edge",
       "translation": "中岛边缘",
-      "x": 1200,
-      "y": 700,
+      "x": 1307,
+      "y": 805,
       "priority": 7.021,
       "minLevel": 2,
       "sourceVisualRegion": "verified-kitchen-island"
@@ -1262,11 +1262,11 @@
       "id": "utensil-crock-pro-1",
       "word": "utensil crock",
       "translation": "厨具筒",
-      "x": 714.17,
-      "y": 641,
+      "x": 706,
+      "y": 368,
       "priority": 7.032,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-utensil-crock"
     },
     {
       "id": "ladle-pro-1",
@@ -1282,11 +1282,11 @@
       "id": "spatula-pro-1",
       "word": "spatula",
       "translation": "锅铲",
-      "x": 1117.5,
-      "y": 641,
+      "x": 681,
+      "y": 318,
       "priority": 7.034,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-utensil-crock"
     },
     {
       "id": "tongs-pro-1",
@@ -1392,31 +1392,31 @@
       "id": "board-handle-pro-1",
       "word": "board handle",
       "translation": "砧板把手",
-      "x": 915.83,
-      "y": 789,
+      "x": 731,
+      "y": 283,
       "priority": 7.045,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-rear-cutting-board"
     },
     {
       "id": "dish-stack-pro-1",
       "word": "dish stack",
       "translation": "餐盘叠",
-      "x": 1117.5,
-      "y": 789,
+      "x": 458,
+      "y": 211,
       "priority": 7.046,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-shelf"
     },
     {
       "id": "glass-jar-pro-1",
       "word": "glass jar",
       "translation": "玻璃罐",
-      "x": 1319.17,
-      "y": 789,
+      "x": 1146,
+      "y": 402,
       "priority": 7.047,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-spice-jar"
     },
     {
       "id": "storage-tin-pro-1",
@@ -1452,11 +1452,11 @@
       "id": "cabinet-shelf-pro-1",
       "word": "cabinet shelf",
       "translation": "柜内搁板",
-      "x": 915.83,
-      "y": 863,
+      "x": 489,
+      "y": 136,
       "priority": 7.051,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-shelf"
     },
     {
       "id": "countertop-seam-pro-1",
@@ -1472,8 +1472,8 @@
       "id": "island-support-pro-1",
       "word": "island support",
       "translation": "岛台支撑",
-      "x": 1319.17,
-      "y": 863,
+      "x": 330,
+      "y": 690,
       "priority": 7.053,
       "minLevel": 4,
       "sourceVisualRegion": "verified-kitchen-island"
@@ -1482,8 +1482,8 @@
       "id": "island-countertop-pro-2",
       "word": "island countertop",
       "translation": "岛台台面",
-      "x": 310.83,
-      "y": 567,
+      "x": 1270,
+      "y": 718,
       "priority": 7.054,
       "minLevel": 2,
       "sourceVisualRegion": "verified-kitchen-island"
@@ -1492,111 +1492,111 @@
       "id": "cutting-board-grain-pro-2",
       "word": "cutting board grain",
       "translation": "砧板木纹",
-      "x": 512.5,
-      "y": 567,
+      "x": 693,
+      "y": 603,
       "priority": 7.055,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-cutting-board"
     },
     {
       "id": "cutting-board-edge-pro-2",
       "word": "cutting board edge",
       "translation": "砧板边缘",
-      "x": 714.17,
-      "y": 567,
+      "x": 658,
+      "y": 610,
       "priority": 7.056,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-cutting-board"
     },
     {
       "id": "bread-crust-edge-pro-2",
       "word": "bread crust edge",
       "translation": "面包皮边",
-      "x": 915.83,
-      "y": 567,
+      "x": 718,
+      "y": 533,
       "priority": 7.057,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-bread"
     },
     {
       "id": "fruit-bowl-base-pro-2",
       "word": "fruit bowl base",
       "translation": "水果碗底",
-      "x": 1117.5,
-      "y": 567,
+      "x": 506,
+      "y": 609,
       "priority": 7.058,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-fruit-bowl"
     },
     {
       "id": "bowl-base-pro-2",
       "word": "bowl base",
       "translation": "碗底",
-      "x": 1319.17,
-      "y": 567,
+      "x": 990,
+      "y": 595,
       "priority": 7.059,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-bowl"
     },
     {
       "id": "measuring-cup-handle-pro-2",
       "word": "measuring cup handle",
       "translation": "量杯把手",
-      "x": 310.83,
-      "y": 641,
+      "x": 1151,
+      "y": 574,
       "priority": 7.06,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-measuring-cup"
     },
     {
       "id": "mixing-bowl-rim-pro-2",
       "word": "mixing bowl rim",
       "translation": "搅拌碗边",
-      "x": 512.5,
-      "y": 641,
+      "x": 615,
+      "y": 339,
       "priority": 7.061,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-stand-mixer"
     },
     {
       "id": "rolling-pin-barrel-pro-2",
       "word": "rolling pin barrel",
       "translation": "擀面杖筒",
-      "x": 714.17,
-      "y": 641,
+      "x": 983,
+      "y": 630,
       "priority": 7.062,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-rolling-pin"
     },
     {
       "id": "knife-handle-pro-2",
       "word": "knife handle",
       "translation": "刀柄",
-      "x": 915.83,
-      "y": 641,
+      "x": 875,
+      "y": 590,
       "priority": 7.063,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-knife"
     },
     {
       "id": "whisk-loop-pro-2",
       "word": "whisk loop",
       "translation": "打蛋器环",
-      "x": 1117.5,
-      "y": 641,
+      "x": 735,
+      "y": 652,
       "priority": 7.064,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-whisk"
     },
     {
       "id": "spice-jar-lid-pro-2",
       "word": "spice jar lid",
       "translation": "香料罐盖",
-      "x": 1319.17,
-      "y": 641,
+      "x": 1118,
+      "y": 378,
       "priority": 7.065,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-spice-jar"
     },
     {
       "id": "oil-bottle-neck-pro-2",
@@ -1622,31 +1622,31 @@
       "id": "dish-rack-tine-pro-2",
       "word": "dish rack tine",
       "translation": "碗碟架齿",
-      "x": 714.17,
-      "y": 715,
+      "x": 376,
+      "y": 412,
       "priority": 7.068,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-dish-rack"
     },
     {
       "id": "plate-rim-pro-2",
       "word": "plate rim",
       "translation": "盘沿",
-      "x": 915.83,
-      "y": 715,
+      "x": 330,
+      "y": 360,
       "priority": 7.069,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-plates"
     },
     {
       "id": "sink-faucet-base-pro-2",
       "word": "sink faucet base",
       "translation": "水龙头底座",
-      "x": 1117.5,
-      "y": 715,
+      "x": 141,
+      "y": 446,
       "priority": 7.07,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-faucet"
     },
     {
       "id": "sink-drain-stopper-pro-2",
@@ -1682,71 +1682,71 @@
       "id": "towel-corner-pro-2",
       "word": "towel corner",
       "translation": "毛巾角",
-      "x": 714.17,
-      "y": 789,
+      "x": 882,
+      "y": 835,
       "priority": 7.074,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-dish-towel"
     },
     {
       "id": "towel-stripe-pro-2",
       "word": "towel stripe",
       "translation": "毛巾条纹",
-      "x": 915.83,
-      "y": 789,
+      "x": 815,
+      "y": 716,
       "priority": 7.075,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-dish-towel"
     },
     {
       "id": "vase-base-pro-2",
       "word": "vase base",
       "translation": "花瓶底",
-      "x": 1117.5,
-      "y": 789,
+      "x": 1231,
+      "y": 639,
       "priority": 7.076,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-vase"
     },
     {
       "id": "herb-stem-tip-pro-2",
       "word": "herb stem tip",
       "translation": "香草茎尖",
-      "x": 1319.17,
-      "y": 789,
+      "x": 1138,
+      "y": 326,
       "priority": 7.077,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-potted-herb"
     },
     {
       "id": "pan-handle-grip-pro-2",
       "word": "pan handle grip",
       "translation": "平底锅握柄",
-      "x": 310.83,
-      "y": 863,
+      "x": 977,
+      "y": 385,
       "priority": 7.078,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-frying-pan"
     },
     {
       "id": "pot-lid-knob-pro-2",
       "word": "pot lid knob",
       "translation": "锅盖旋钮",
-      "x": 512.5,
-      "y": 863,
+      "x": 777,
+      "y": 355,
       "priority": 7.079,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-stockpot"
     },
     {
       "id": "oven-control-dial-pro-2",
       "word": "oven control dial",
       "translation": "烤箱控制旋钮",
-      "x": 714.17,
-      "y": 863,
+      "x": 858,
+      "y": 471,
       "priority": 7.08,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-oven"
     },
     {
       "id": "hood-vent-slot-pro-2",
@@ -1772,11 +1772,11 @@
       "id": "backsplash-tile-pro-2",
       "word": "backsplash tile",
       "translation": "挡水板瓷砖",
-      "x": 1319.17,
-      "y": 863,
+      "x": 852,
+      "y": 287,
       "priority": 7.083,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-kitchen-island"
+      "sourceVisualRegion": "verified-backsplash"
     }
   ],
   "portals": [
@@ -1798,7 +1798,7 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/kitchen-premium-v3.jpg",
     "reviewedAssetSha256": "7623db6c6b87f6f386f6201d5a913de9f31eb016f0894b0a33eec52dc94a7f2e",
-    "rationale": "Re-audited the bright residential kitchen pixels and added only separately readable appliance, cookware, sink, coffee-nook and island parts; process words and invisible appliance claims remain excluded while the portal tightly bounds the complete coffee machine. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
+    "rationale": "The marked sink basins, faucet, refrigerator, hob, oven, countertop appliances and island utensils were checked against this exact image. The following 38 legacy labels retain unverified placements: sink drain, dish rack handle, hood filter, cabinet hinge, shelf bracket, burner, mixer beater, stool footrest, colander, saucepan, saucepan lid, casserole dish, baking tray, loaf pan, oven mitt, apron, ladle, tongs, peeler, grater, measuring spoon, timer, salt cellar, pepper shaker, oil bottle, vinegar bottle, cutting mat, storage tin, pantry basket, island drawer front, countertop seam, oil bottle neck, vinegar bottle neck, sink drain stopper, island support foot, stool foot ring, hood vent slot, cabinet knob. The window covering is a fabric shade; slats cannot be seen in the photograph.",
     "previousLabelCount": 185,
     "retainedLabelCount": 176,
     "removedLabelCount": 9,
@@ -1821,7 +1821,7 @@
       "y": 60,
       "width": 450,
       "height": 495,
-      "targetScale": 2.3,
+      "targetScale": 3,
       "labelIds": [
         "window",
         "sink",
@@ -1838,7 +1838,10 @@
         "faucet-spout",
         "sink-divider",
         "faucet-handle",
-        "dish-rack-handle"
+        "dish-rack-handle",
+        "dish-rack-tine-pro-2",
+        "plate-rim-pro-2",
+        "sink-faucet-base-pro-2"
       ]
     },
     {
@@ -1907,7 +1910,20 @@
         "mixer-beater",
         "blender-lid",
         "kettle-lid",
-        "toaster-body"
+        "toaster-body",
+        "utensil-crock-pro-1",
+        "spatula-pro-1",
+        "board-handle-pro-1",
+        "dish-stack-pro-1",
+        "glass-jar-pro-1",
+        "cabinet-shelf-pro-1",
+        "mixing-bowl-rim-pro-2",
+        "spice-jar-lid-pro-2",
+        "herb-stem-tip-pro-2",
+        "pan-handle-grip-pro-2",
+        "pot-lid-knob-pro-2",
+        "oven-control-dial-pro-2",
+        "backsplash-tile-pro-2"
       ]
     },
     {
@@ -1962,9 +1978,7 @@
         "loaf-pan-pro-1",
         "oven-mitt-pro-1",
         "apron-pro-1",
-        "utensil-crock-pro-1",
         "ladle-pro-1",
-        "spatula-pro-1",
         "tongs-pro-1",
         "peeler-pro-1",
         "grater-pro-1",
@@ -1975,13 +1989,9 @@
         "oil-bottle-pro-1",
         "vinegar-bottle-pro-1",
         "cutting-mat-pro-1",
-        "board-handle-pro-1",
-        "dish-stack-pro-1",
-        "glass-jar-pro-1",
         "storage-tin-pro-1",
         "pantry-basket-pro-1",
         "island-drawer-front-pro-1",
-        "cabinet-shelf-pro-1",
         "countertop-seam-pro-1",
         "island-support-pro-1",
         "island-countertop-pro-2",
@@ -1991,29 +2001,19 @@
         "fruit-bowl-base-pro-2",
         "bowl-base-pro-2",
         "measuring-cup-handle-pro-2",
-        "mixing-bowl-rim-pro-2",
         "rolling-pin-barrel-pro-2",
         "knife-handle-pro-2",
         "whisk-loop-pro-2",
-        "spice-jar-lid-pro-2",
         "oil-bottle-neck-pro-2",
         "vinegar-bottle-neck-pro-2",
-        "dish-rack-tine-pro-2",
-        "plate-rim-pro-2",
-        "sink-faucet-base-pro-2",
         "sink-drain-stopper-pro-2",
         "island-support-foot-pro-2",
         "stool-foot-ring-pro-2",
         "towel-corner-pro-2",
         "towel-stripe-pro-2",
         "vase-base-pro-2",
-        "herb-stem-tip-pro-2",
-        "pan-handle-grip-pro-2",
-        "pot-lid-knob-pro-2",
-        "oven-control-dial-pro-2",
         "hood-vent-slot-pro-2",
-        "cabinet-knob-pro-2",
-        "backsplash-tile-pro-2"
+        "cabinet-knob-pro-2"
       ]
     },
     {
@@ -2064,27 +2064,27 @@
       "description": "Large daylight window above the sink",
       "kind": "object",
       "x": 0,
-      "y": 70,
+      "y": 65,
       "width": 300,
-      "height": 340
+      "height": 350
     },
     {
       "id": "verified-sink",
       "description": "Double-basin stainless-steel sink",
       "kind": "object",
-      "x": 45,
-      "y": 410,
-      "width": 280,
-      "height": 135
+      "x": 42,
+      "y": 432,
+      "width": 308,
+      "height": 64
     },
     {
       "id": "verified-refrigerator",
       "description": "Tall stainless-steel refrigerator on the right",
       "kind": "object",
-      "x": 1210,
-      "y": 90,
-      "width": 220,
-      "height": 490
+      "x": 1223,
+      "y": 96,
+      "width": 174,
+      "height": 502
     },
     {
       "id": "verified-cabinet",
@@ -2099,19 +2099,19 @@
       "id": "verified-shelf",
       "description": "Open oak shelf with bowls, a jar and books",
       "kind": "object",
-      "x": 320,
-      "y": 35,
-      "width": 200,
-      "height": 210
+      "x": 345,
+      "y": 46,
+      "width": 201,
+      "height": 194
     },
     {
       "id": "verified-kitchen-island",
       "description": "Large stone-topped island in the foreground",
       "kind": "object",
       "x": 210,
-      "y": 530,
-      "width": 1210,
-      "height": 370
+      "y": 514,
+      "width": 1214,
+      "height": 386
     },
     {
       "id": "verified-coffee-machine",
@@ -2126,28 +2126,28 @@
       "id": "verified-oven",
       "description": "Built-in black oven below the cooktop",
       "kind": "object",
-      "x": 690,
-      "y": 460,
-      "width": 250,
-      "height": 175
+      "x": 694,
+      "y": 433,
+      "width": 223,
+      "height": 132
     },
     {
       "id": "verified-cooktop",
       "description": "Black induction cooktop on the back counter",
       "kind": "object",
-      "x": 680,
-      "y": 405,
-      "width": 365,
-      "height": 85
+      "x": 689,
+      "y": 381,
+      "width": 309,
+      "height": 68
     },
     {
       "id": "verified-faucet",
       "description": "Curved metal faucet over the sink",
       "kind": "object",
-      "x": 120,
-      "y": 315,
-      "width": 105,
-      "height": 200
+      "x": 128,
+      "y": 312,
+      "width": 80,
+      "height": 138
     },
     {
       "id": "verified-range-hood",
@@ -2171,10 +2171,10 @@
       "id": "verified-drawer",
       "description": "Wide green drawer beneath the counter",
       "kind": "object",
-      "x": 390,
-      "y": 475,
-      "width": 305,
-      "height": 105
+      "x": 520,
+      "y": 430,
+      "width": 175,
+      "height": 99
     },
     {
       "id": "verified-stool",
@@ -2216,10 +2216,10 @@
       "id": "verified-stand-mixer",
       "description": "Sage stand mixer on the back counter",
       "kind": "object",
-      "x": 575,
-      "y": 280,
-      "width": 135,
-      "height": 165
+      "x": 570,
+      "y": 283,
+      "width": 89,
+      "height": 117
     },
     {
       "id": "verified-kettle",
@@ -2252,19 +2252,19 @@
       "id": "verified-stockpot",
       "description": "Lidded stockpot on the induction surface",
       "kind": "object",
-      "x": 740,
-      "y": 360,
-      "width": 140,
-      "height": 115
+      "x": 718,
+      "y": 348,
+      "width": 113,
+      "height": 70
     },
     {
       "id": "verified-frying-pan",
       "description": "Black frying pan on the cooktop",
       "kind": "object",
-      "x": 840,
-      "y": 385,
-      "width": 185,
-      "height": 100
+      "x": 830,
+      "y": 382,
+      "width": 158,
+      "height": 45
     },
     {
       "id": "verified-cutting-board",
@@ -2288,19 +2288,19 @@
       "id": "verified-bread",
       "description": "Sliced crusty loaf on the cutting board",
       "kind": "object",
-      "x": 635,
-      "y": 535,
-      "width": 195,
-      "height": 110
+      "x": 644,
+      "y": 525,
+      "width": 171,
+      "height": 76
     },
     {
       "id": "verified-potted-herb",
       "description": "Leafy potted herb on the back counter",
       "kind": "object",
-      "x": 1070,
-      "y": 305,
-      "width": 145,
-      "height": 150
+      "x": 1061,
+      "y": 308,
+      "width": 99,
+      "height": 107
     },
     {
       "id": "verified-soap-dispenser",
@@ -2315,10 +2315,10 @@
       "id": "verified-sponge",
       "description": "Yellow sponge beside the sink basin",
       "kind": "object",
-      "x": 40,
-      "y": 415,
-      "width": 80,
-      "height": 55
+      "x": 52,
+      "y": 438,
+      "width": 45,
+      "height": 22
     },
     {
       "id": "verified-plates",
@@ -2342,10 +2342,10 @@
       "id": "verified-bowl",
       "description": "White ceramic bowl on the island",
       "kind": "object",
-      "x": 915,
-      "y": 525,
-      "width": 135,
-      "height": 95
+      "x": 914,
+      "y": 530,
+      "width": 120,
+      "height": 76
     },
     {
       "id": "verified-mug",
@@ -2387,10 +2387,10 @@
       "id": "verified-drawer-pull",
       "description": "Dark metal pull on the wide drawer",
       "kind": "part",
-      "x": 455,
-      "y": 485,
-      "width": 75,
-      "height": 60
+      "x": 583,
+      "y": 454,
+      "width": 48,
+      "height": 15
     },
     {
       "id": "verified-cabinet-handle",
@@ -2423,10 +2423,10 @@
       "id": "verified-whisk",
       "description": "Wire whisk lying on the island",
       "kind": "object",
-      "x": 690,
-      "y": 640,
-      "width": 90,
-      "height": 60
+      "x": 720,
+      "y": 635,
+      "width": 91,
+      "height": 36
     },
     {
       "id": "verified-rolling-pin",
@@ -2441,19 +2441,19 @@
       "id": "verified-knife",
       "description": "Chef knife beside the sliced bread",
       "kind": "object",
-      "x": 785,
+      "x": 753,
       "y": 580,
-      "width": 145,
-      "height": 65
+      "width": 155,
+      "height": 44
     },
     {
       "id": "verified-pepper-mill",
       "description": "Tall wooden pepper mill near the herbs",
       "kind": "object",
-      "x": 1030,
-      "y": 315,
-      "width": 65,
-      "height": 125
+      "x": 1034,
+      "y": 317,
+      "width": 34,
+      "height": 98
     },
     {
       "id": "verified-bean-hopper",
@@ -2468,28 +2468,46 @@
       "id": "verified-coffee-spout",
       "description": "Twin coffee spout above the cup",
       "kind": "part",
-      "x": 1475,
-      "y": 375,
-      "width": 85,
-      "height": 65
+      "x": 1483,
+      "y": 364,
+      "width": 57,
+      "height": 48
     },
     {
       "id": "verified-drip-tray",
       "description": "Metal drip tray at the machine base",
       "kind": "part",
-      "x": 1445,
-      "y": 465,
-      "width": 130,
-      "height": 65
+      "x": 1437,
+      "y": 450,
+      "width": 153,
+      "height": 30
     },
     {
       "id": "verified-coffee-cup",
       "description": "White cup beneath the coffee spout",
       "kind": "object",
-      "x": 1480,
-      "y": 410,
-      "width": 90,
-      "height": 90
+      "x": 1482,
+      "y": 412,
+      "width": 69,
+      "height": 48
+    },
+    {
+      "id": "verified-utensil-crock",
+      "description": "White ceramic utensil crock with a black slotted spatula and wooden spoons on the back counter.",
+      "kind": "object",
+      "x": 670,
+      "y": 301,
+      "width": 66,
+      "height": 98
+    },
+    {
+      "id": "verified-rear-cutting-board",
+      "description": "Upright wooden cutting board with a pierced handle behind the utensil crock.",
+      "kind": "object",
+      "x": 688,
+      "y": 268,
+      "width": 79,
+      "height": 114
     }
   ]
 }
