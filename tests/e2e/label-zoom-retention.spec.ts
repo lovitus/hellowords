@@ -1,4 +1,5 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import { mkdir, writeFile } from "node:fs/promises";
 import { buildViewerChromeProtectedRegions } from "../../app/components/SceneViewport";
 import type { PaintedLabel } from "../../app/lib/label-canvas";
 
@@ -491,6 +492,9 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
   const frames = (await stopLabelZoomTrace(page)).filter((frame) => (
     frame.sceneId === TARGET_SCENE && !frame.motionFrozen
   ));
+  await mkdir("artifacts/handoff-observations", { recursive: true });
+  await writeFile(`artifacts/handoff-observations/garden-${testInfo.repeatEachIndex}.json`,
+    JSON.stringify({ frames, scene: TARGET_SCENE, source: process.env.PERF_SOURCE_SHA }));
 
   await expect(app).toHaveAttribute("data-scene-id", TARGET_SCENE);
   expect(new Set(frames.map((frame) => frame.scale)).size, "rAF trace must cover multiple continuous camera frames").toBeGreaterThan(12);
