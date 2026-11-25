@@ -1,9 +1,9 @@
-name: Verify the airport baggage-drop journey
+name: Verify the hospital radiology journey
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Product commit with the baggage-drop scene and navigation
+        description: Product commit with the radiology scene and navigation
         required: true
         type: string
       recipient:
@@ -15,7 +15,7 @@ permissions:
   actions: read
 env:
   CI: "true"
-  BASE: 748d045d9b7576d6ef539d1032979e36cb7f7b03
+  BASE: 4376074dc76430ac227f33f5c8e0adc435043f21
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
@@ -41,57 +41,40 @@ jobs:
       - uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASE }}
-          run-id: 45696335349
+          run-id: 45701071764
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/previous
-      - name: Reproduce the misplaced baggage scale on the previous build
+      - name: Reproduce the cart wheel pointing at the stool on the previous build
         id: baseline
         continue-on-error: true
         run: |
           jq -e --arg sha "$BASE" '.gitSha == $sha' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
           mv "$RUNNER_TEMP/previous/dist" dist
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/airport-bag-drop.spec.ts --grep 'airport bag drop keeps' --project=chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
+          ./node_modules/.bin/playwright test tests/e2e/hospital-radiology.spec.ts --project=chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
           mv dist "$RUNNER_TEMP/previous/dist"
           mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old.json"
           mv artifacts/e2e/test-results "$RUNNER_TEMP/evidence/old-screens"
           test "$code" -eq 1
           jq -e '
-            .stats.unexpected == 1 and .stats.expected == 0 and .stats.skipped == 0 and .stats.flaky == 0 and
-            any(.suites[].specs[] | select(.file == "e2e/airport-bag-drop.spec.ts") | .tests[];
+            .stats.unexpected == 2 and .stats.expected == 0 and .stats.skipped == 0 and .stats.flaky == 0 and
+            any(.suites[].specs[].tests[].results[];
+              any(.errors[]; .message | contains("magnifying the photographed console-monitor must leave hospital open")) and
+              any(.attachments[] | select(.name == "console-monitor-gesture") | .body | @base64d | fromjson;
+                .scene == "radiology-suite" and .x == 766 and .y == 452)) and
+            any(.suites[].specs[] | select(.file == "e2e/hospital-radiology.spec.ts") | .tests[];
               .projectName == "chromium" and (.results | length) == 1 and .results[0].status == "failed" and
-              (.results[0].errors[0].message | contains("left baggage scale leader must end on the photographed floor scale")) and
-              any(.results[0].attachments[]; .name == "left-baggage-scale-view" and .contentType == "image/png" and (.body | length) > 0) and
-              any(.results[0].attachments[] | select(.name == "left-baggage-scale-geometry") | .body | @base64d | fromjson;
-                .onObject == false and (.photoX - 300 | fabs) < 2 and (.photoY - 580 | fabs) < 2))' "$RUNNER_TEMP/evidence/old.json"
-      - uses: actions/download-artifact@v5
-        with:
-          name: production-dist-123febaec72a7da0b1038d3501a21742fa9df14c
-          run-id: 45699531823
-          github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/before-gesture
-      - name: Reproduce the missing entrance and interrupted pinch on mobile
-        id: gesture_baseline
-        continue-on-error: true
-        run: |
-          jq -e '.gitSha == "123febaec72a7da0b1038d3501a21742fa9df14c"' "$RUNNER_TEMP/before-gesture/artifacts/build/dist-manifest.json"
-          mv "$RUNNER_TEMP/before-gesture/dist" dist
-          code=0
-          ./node_modules/.bin/playwright test tests/e2e/airport-bag-drop.spec.ts --grep 'airport Fit keeps|one fixed-midpoint pinch' --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/old-gesture.log" 2>&1 || code=$?
-          mv dist "$RUNNER_TEMP/before-gesture/dist"
-          mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old-gesture.json"
-          mv artifacts/e2e/test-results "$RUNNER_TEMP/evidence/old-gesture-screens"
-          test "$code" -eq 1
-          jq -e '.stats.unexpected == 2 and
-            any(.. | objects | .errors? // [] | .[]; .message | contains("airport Fit keeps the whole left check-in button")) and
-            any(.. | objects | .errors? // [] | .[]; .message | contains("silver rollers enters the baggage conveyor"))' "$RUNNER_TEMP/evidence/old-gesture.json"
+              (.results[0].errors[0].message | contains("ultrasound cart wheel leader must end on a photographed cart caster")) and
+              any(.results[0].attachments[]; .name == "ultrasound-cart-wheel-view" and .contentType == "image/png" and (.body | length) > 0) and
+              any(.results[0].attachments[] | select(.name == "ultrasound-cart-wheel-geometry") | .body | @base64d | fromjson;
+                .inside == false and (.x - 612.44 | fabs) < 2 and (.y - 789.05 | fabs) < 2))' "$RUNNER_TEMP/evidence/old.json"
       - name: Verify scene data, camera geometry, navigation and label placement
         run: |
-          git show "$BASE:public/data/scenes/baggage-drop-station.json" | jq -S '[.labels[] | {id, word, translation}] | sort_by(.id)' > "$RUNNER_TEMP/previous-words.json"
-          jq -S '[(.labels[], .relatedWords[]) | {id, word, translation}] | sort_by(.id)' public/data/scenes/baggage-drop-station.json | cmp - "$RUNNER_TEMP/previous-words.json"
+          git show "$BASE:public/data/scenes/radiology-suite.json" | jq -S '[.labels[] | {id, word, translation}] | sort_by(.id)' > "$RUNNER_TEMP/previous-words.json"
+          jq -S '[(.labels[], .relatedWords[]) | {id, word, translation}] | sort_by(.id)' public/data/scenes/radiology-suite.json | cmp - "$RUNNER_TEMP/previous-words.json"
           npm run typecheck > "$RUNNER_TEMP/evidence/types.log" 2>&1
           npm run validate:data > "$RUNNER_TEMP/evidence/scene-data.log" 2>&1
-          ./node_modules/.bin/tsx --test tests/domain/worldContent.test.ts tests/domain/baggageDropStation.test.ts tests/domain/checkInCounter.test.ts tests/domain/newFacilityScenes.test.ts tests/domain/sceneGraph.test.ts tests/domain/worldAtlasVisualContract.test.ts tests/domain/sceneVisualQuality.test.ts > "$RUNNER_TEMP/evidence/contracts.log" 2>&1
+          ./node_modules/.bin/tsx --test tests/domain/worldContent.test.ts tests/domain/radiologySuite.test.ts tests/domain/sceneConversations.test.ts tests/domain/newFacilityScenes.test.ts tests/domain/sceneGraph.test.ts tests/domain/worldAtlasVisualContract.test.ts tests/domain/sceneVisualQuality.test.ts > "$RUNNER_TEMP/evidence/contracts.log" 2>&1
           ./node_modules/.bin/tsx --test --test-name-pattern='fill spare first-screen space|preserve default LOD disclosure' tests/domain/sceneLabelDensity.test.ts > "$RUNNER_TEMP/evidence/density.log" 2>&1
           ./node_modules/.bin/tsx --test tests/domain/camera.test.ts tests/domain/navigation.test.ts tests/domain/labelLayout.test.ts tests/domain/labelPlacement.test.ts > "$RUNNER_TEMP/evidence/room-domain.log" 2>&1
           ./node_modules/.bin/tsx --test --test-name-pattern='painted portal geometry round-trips|painted child art bounds round-trip|parent portal and child camera handoffs are exact inverses|reduced motion starts from one stable fitted frame|continuity settlement contains the complete child scene' tests/domain/screenSpaceLabels.test.ts > "$RUNNER_TEMP/evidence/framing.log" 2>&1
@@ -113,18 +96,17 @@ jobs:
       - name: Follow the route on desktop and mobile Chromium
         run: |
           ./node_modules/.bin/playwright test \
-            tests/e2e/airport-bag-drop.spec.ts tests/e2e/world.spec.ts tests/e2e/portrait-room.spec.ts \
-            --grep 'airport bag drop|airport Fit keeps|one fixed-midpoint pinch|portrait apartment entrances|enters a scene slice on zoom|root atlas wheel zoom stays' \
+            tests/e2e/hospital-radiology.spec.ts tests/e2e/world.spec.ts tests/e2e/new-spatial-scenes.spec.ts \
+            --grep 'hospital radiology|hospital console and couch|radiology-suite|enters a scene slice on zoom|root atlas wheel zoom stays' \
             --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/new.log" 2>&1
           jq -e '
             .stats.unexpected == 0 and .stats.flaky == 0 and
-            ([.suites[].specs[] | select(.file == "e2e/airport-bag-drop.spec.ts") | .tests[] |
+            ([.suites[].specs[] | select(.file == "e2e/hospital-radiology.spec.ts" and (.title | startswith("hospital radiology keeps"))) | .tests[] |
               select(.results[0].status == "passed" and
-                ((["baggage-drop-fit-both-platforms", "left-baggage-scale-painted-card", "left-scale-platform-painted-card",
-                  "drop-conveyor-suitcase-painted-card", "second-conveyor-suitcase-painted-card", "right-baggage-scale-painted-card",
-                  "right-suitcase-magnified", "silver-rollers-conveyor-entry", "baggage-drop-return", "check-in-counter-return"] -
+                ((["radiology-fit", "ultrasound-cart-wheel-painted-card", "ultrasound-monitor-painted-card",
+                  "exam-couch-cushion-painted-card", "radiology-couch-magnified", "hospital-return"] -
                   [.results[0].attachments[] | select(.contentType == "image/png" and (.body | length) > 0) | .name]) | length) == 0 and
-                ([.results[0].attachments[] | select(.name | endswith("-geometry")) | .body | @base64d | fromjson | select(.onObject == true)] | length) == 5)
+                ([.results[0].attachments[] | select(.name | endswith("-geometry")) | .body | @base64d | fromjson | select(.inside == true)] | length) == 3)
               | .projectName] | sort) == ["chromium","mobile-chromium"]' artifacts/e2e/results.json
       - name: Preserve browser evidence
         if: ${{ !cancelled() }}
@@ -144,6 +126,6 @@ jobs:
           path: ${{ runner.temp }}/home-route.cms
           if-no-files-found: error
           retention-days: 7
-      - name: Require the original baggage scale failure
+      - name: Require the original wheel placement failure
         if: ${{ !cancelled() }}
-        run: test "${{ steps.baseline.outcome }}" = success && test "${{ steps.gesture_baseline.outcome }}" = success
+        run: test "${{ steps.baseline.outcome }}" = success
