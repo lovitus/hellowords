@@ -15,6 +15,8 @@ import type {
 export interface ScenePlacementOptions {
   readonly selectedLabelId?: string | null;
   readonly protectedRegions?: readonly SceneLabelProtectedRegion[];
+  /** Intrinsic photo size when compact portrait labels must stay on the visible photograph. */
+  readonly photoSize?: Pick<SceneLabelViewport, "width" | "height">;
   /** Words of the focused detail zone, placed before other words of equal rank. */
   readonly priorityLabelIds?: ReadonlySet<string>;
   readonly preferredOffsets?: SceneLabelLayoutOptions["preferredOffsets"];
@@ -78,6 +80,8 @@ const LOCAL_SHIFT_DIRECTIONS: readonly Direction[] = Array.from({ length: 24 }, 
   return [Math.cos(angle), Math.sin(angle)];
 });
 const VIEWPORT_MARGIN = 4;
+// The 28px compact touch target extends 5px above and below its 18px pill.
+const PHOTO_VERTICAL_MARGIN = 5;
 /** Pill clearance; compact screens pack words slightly tighter, since their pills are taller. */
 const PILL_GAP = 3;
 const COMPACT_PILL_GAP = 2;
@@ -168,13 +172,11 @@ function segmentTouchesRect(segment: Segment, rect: Rect): boolean {
 function compareLabels(
   first: { label: Label; lod: number; distance: number; selected: boolean; priority: boolean },
   second: { label: Label; lod: number; distance: number; selected: boolean; priority: boolean },
-  compact: boolean,
+  focusByDistance: boolean,
 ): number {
   return Number(second.selected) - Number(first.selected)
     || Number(second.priority) - Number(first.priority)
-    // When inspecting a crop on a small screen, give the objects nearest
-    // the viewport center a slot before filling in the wider overview.
-    || (compact && first.priority && second.priority ? first.distance - second.distance : 0)
+    || (focusByDistance && first.priority && second.priority ? first.distance - second.distance : 0)
     || first.lod - second.lod
     || first.distance - second.distance
     || first.label.id.localeCompare(second.label.id);
@@ -190,6 +192,16 @@ export function computeScenePlacements(
   const scale = camera.fit * camera.scale;
   const centerX = viewport.width / 2;
   const centerY = viewport.height / 2;
+  const photo = options.photoSize;
+  // In a photo crop the object at the end of each readable leader must be in view.
+  const anchorLeft = photo ? Math.max(0, camera.x) : -CULL_MARGIN;
+  const anchorRight = photo ? Math.min(viewport.width, camera.x + photo.width * scale) : viewport.width + CULL_MARGIN;
+  const anchorTop = photo ? Math.max(0, camera.y) : -CULL_MARGIN;
+  const anchorBottom = photo ? Math.min(viewport.height, camera.y + photo.height * scale) : viewport.height + CULL_MARGIN;
+  const left = photo ? anchorLeft + VIEWPORT_MARGIN : VIEWPORT_MARGIN;
+  const right = (photo ? anchorRight : viewport.width) - VIEWPORT_MARGIN;
+  const top = photo ? anchorTop + PHOTO_VERTICAL_MARGIN : VIEWPORT_MARGIN;
+  const bottom = photo ? anchorBottom - PHOTO_VERTICAL_MARGIN : viewport.height - VIEWPORT_MARGIN;
   const protectedRegions = options.protectedRegions ?? [];
   const preferredOffsets = viewport.compact ? undefined : options.preferredOffsets;
   const pillGap = viewport.compact ? COMPACT_PILL_GAP : PILL_GAP;
@@ -201,10 +213,10 @@ export function computeScenePlacements(
     const anchorX = camera.x + label.x * scale;
     const anchorY = camera.y + label.y * scale;
     if (
-      anchorX < -CULL_MARGIN
-      || anchorX > viewport.width + CULL_MARGIN
-      || anchorY < -CULL_MARGIN
-      || anchorY > viewport.height + CULL_MARGIN
+      anchorX < anchorLeft
+      || anchorX > anchorRight
+      || anchorY < anchorTop
+      || anchorY > anchorBottom
     ) continue;
     const size = scenePlacementSize(label, meaningVisible, viewport.compact);
     candidates.push({
@@ -219,7 +231,10 @@ export function computeScenePlacements(
       height: size.height,
     });
   }
-  candidates.sort((first, second) => compareLabels(first, second, viewport.compact));
+  // In a portrait photo, give the focused zone's overview words the first
+  // slots. A nearby part such as a spout can otherwise hide the faucet itself.
+  const focusByDistance = viewport.compact && !photo;
+  candidates.sort((first, second) => compareLabels(first, second, focusByDistance));
 
   const clearance = Math.max(pillGap, ANCHOR_CLEARANCE);
   const cellStride = Math.ceil((viewport.width + 2 * (CULL_MARGIN + clearance)) / SLOT_CELL_SIZE) + 1;
@@ -256,10 +271,10 @@ export function computeScenePlacements(
   function freeSlot(candidate: Candidate, centerX: number, centerY: number, short = false): Slot | null {
     const rect = rectAt(centerX, centerY, candidate.width, candidate.height);
     if (
-      rect.left < VIEWPORT_MARGIN
-      || rect.right > viewport.width - VIEWPORT_MARGIN
-      || rect.top < VIEWPORT_MARGIN
-      || rect.bottom > viewport.height - VIEWPORT_MARGIN
+      rect.left < left
+      || rect.right > right
+      || rect.top < top
+      || rect.bottom > bottom
     ) return null;
     if (protectedRegions.some((region) => rectsOverlap(rect, region, 0))) return null;
     const segment = { x1: candidate.anchorX, y1: candidate.anchorY, x2: centerX, y2: centerY };
@@ -315,8 +330,8 @@ export function computeScenePlacements(
       // screen. Try that minimum translation before changing leader direction.
       const oldX = anchorX + preferred.offsetX;
       const oldY = anchorY + preferred.offsetY;
-      const x = Math.max(VIEWPORT_MARGIN + width / 2, Math.min(viewport.width - VIEWPORT_MARGIN - width / 2, oldX));
-      const y = Math.max(VIEWPORT_MARGIN + height / 2, Math.min(viewport.height - VIEWPORT_MARGIN - height / 2, oldY));
+      const x = Math.max(left + width / 2, Math.min(right - width / 2, oldX));
+      const y = Math.max(top + height / 2, Math.min(bottom - height / 2, oldY));
       if ((x !== oldX || y !== oldY) && Math.hypot(x - oldX, y - oldY) <= MAX_SLOT_SHIFT
         && !pointInRect(anchorX, anchorY, rectAt(x, y, width, height), ANCHOR_CLEARANCE)) {
         const slot = freeSlot(candidate, x, y);

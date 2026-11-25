@@ -15,6 +15,7 @@ async function firstDifferentCameraOrOriginal(surface: Locator, original: string
 }
 
 test("a related kitchen word opens from either search language while only the photographed oven door zooms in", async ({ page, isMobile }) => {
+  if (isMobile) await page.setViewportSize({ width: 360, height: 846 });
   const activate = (button: Locator) => isMobile ? button.tap() : button.click();
   const app = page.getByTestId("world-app");
   const viewer = page.locator(".viewer-shell:not([data-phase])");
@@ -70,6 +71,8 @@ test("a related kitchen word opens from either search language while only the ph
 
   const ovenCard = await chooseWord("oven door", "oven door");
   await expect(ovenCard.getByText("烤箱门", { exact: true })).toBeVisible();
+  await expect(page.getByTestId("scene-minimap-zone").filter({ hasText: "Cooking wall" }))
+    .toHaveAttribute("aria-current", "location");
   await expect.poll(async () => Number(await surface.getAttribute("data-scene-scale")),
     { message: "choosing the photographed oven door zooms in on the kitchen" }).toBeGreaterThan(originalScale * 1.1);
   await expect.poll(() => paintedWordCount(page, "oven door")).toBeGreaterThan(0);
