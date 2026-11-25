@@ -271,18 +271,23 @@ export function paintLabelCanvas(
   styles: ReadonlyMap<string, LabelSemanticStyle>,
 ): void {
   if (!canvas) return;
+  if (!state || !state.labels.some((item) => item.opacity > 0.025)) {
+    // A zero-width bitmap has no stale pixels and needs no drawing context.
+    if (canvas.width) canvas.width = 0;
+    return;
+  }
   const context = canvas.getContext("2d");
   if (!context) return;
   const dpr = Math.max(1, window.devicePixelRatio || 1);
-  const width = state?.width ?? 0;
-  const height = state?.height ?? 0;
-  const pixelWidth = Math.round(width * dpr);
-  const pixelHeight = Math.round(height * dpr);
-  if (canvas.width !== pixelWidth) canvas.width = pixelWidth;
-  if (canvas.height !== pixelHeight) canvas.height = pixelHeight;
-  context.setTransform(1, 0, 0, 1, 0, 0);
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  if (!state || state.labels.length === 0) return;
+  const pixelWidth = Math.round(state.width * dpr);
+  const pixelHeight = Math.round(state.height * dpr);
+  if (canvas.width !== pixelWidth || canvas.height !== pixelHeight) {
+    if (canvas.height !== pixelHeight) canvas.height = pixelHeight;
+    if (canvas.width !== pixelWidth) canvas.width = pixelWidth;
+  } else {
+    context.setTransform(1, 0, 0, 1, 0, 0);
+    context.clearRect(0, 0, pixelWidth, pixelHeight);
+  }
   context.setTransform(dpr, 0, 0, dpr, 0, 0);
   context.lineJoin = "round";
   context.lineCap = "round";

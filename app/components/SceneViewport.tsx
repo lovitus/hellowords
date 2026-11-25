@@ -656,100 +656,20 @@ function portalAtScreenPoint(portals: readonly ScenePortal[], camera: Camera, po
     .sort((first, second) => first.width * first.height - second.width * second.height)[0];
 }
 
-// One compact deterministic seed is identical during SSR and hydration. The
-// first real camera frame reconciles it to genuinely painted labels under the
-// bounded desktop/compact ceiling before newly mounted labels become visible.
-const INITIAL_LABEL_MOUNT_VIEWPORT = {
-  width: 390,
-  height: 780,
-  compact: true,
-} as const;
-
-// Scene JSON objects are retained by the bounded repository while users move
-// between a parent and child. Reuse the last truthful DOM window when that
-// exact scene is revisited: this avoids rebuilding a compact seed and then
-// expanding it in a second React commit, while the first live camera frame
-// still recomputes every placement and corrects the window if needed.
-const revisitedSceneLabelMountWindows = new WeakMap<
-  readonly Label[],
-  Map<string, ReadonlySet<string>>
->();
-
-function sceneLabelMountWindowCacheKey(meaningVisible: boolean, compact: boolean): string {
-  return `${meaningVisible ? "meaning" : "word"}:${compact ? "compact" : "desktop"}`;
-}
-
-function rememberSceneLabelMountWindow(
-  labels: readonly Label[],
-  meaningVisible: boolean,
-  compact: boolean,
-  mountedLabelIds: ReadonlySet<string>,
-): void {
-  const cache = revisitedSceneLabelMountWindows.get(labels) ?? new Map<string, ReadonlySet<string>>();
-  cache.set(
-    sceneLabelMountWindowCacheKey(meaningVisible, compact),
-    new Set(mountedLabelIds),
-  );
-  revisitedSceneLabelMountWindows.set(labels, cache);
-}
-
-function recalledSceneLabelMountWindow(
-  scene: Scene,
-  meaningVisible: boolean,
-  selectedLabelId: string | null,
-): Set<string> | null {
-  if (typeof window === "undefined") return null;
-  const compact = window.innerWidth <= 900;
-  const cached = revisitedSceneLabelMountWindows
-    .get(scene.labels)
-    ?.get(sceneLabelMountWindowCacheKey(meaningVisible, compact));
-  if (!cached || cached.size > sceneLabelMountLimit({ compact })) return null;
-  const validLabelIds = new Set(scene.labels.map(({ id }) => id));
-  if ([...cached].some((id) => !validLabelIds.has(id))) return null;
-  const recalled = new Set(cached);
-  if (
-    selectedLabelId
-    && validLabelIds.has(selectedLabelId)
-    && !recalled.has(selectedLabelId)
-    && recalled.size < sceneLabelMountLimit({ compact })
-  ) recalled.add(selectedLabelId);
-  return recalled;
-}
-
-function initialSceneLabelMountWindow(
-  scene: Scene,
-  meaningVisible: boolean,
-  selectedLabelId: string | null,
-): Set<string> {
-  const recalled = recalledSceneLabelMountWindow(scene, meaningVisible, selectedLabelId);
-  if (recalled) return recalled;
-  const camera = fullyFittedSceneCamera(scene, INITIAL_LABEL_MOUNT_VIEWPORT);
-  const layout = computeScenePlacements(
-    scene.labels,
-    camera,
-    INITIAL_LABEL_MOUNT_VIEWPORT,
-    meaningVisible,
-    {
-      selectedLabelId,
-      protectedRegions: [
-        ...buildViewerChromeProtectedRegions(
-          INITIAL_LABEL_MOUNT_VIEWPORT.width,
-          INITIAL_LABEL_MOUNT_VIEWPORT.height,
-        ),
-        ...buildPortalCueProtectedRegions(
-          scene.portals,
-          camera,
-          INITIAL_LABEL_MOUNT_VIEWPORT,
-        ),
-      ],
-    },
-  );
-  return buildSceneLabelMountWindow(
-    scene.labels,
-    layout,
-    INITIAL_LABEL_MOUNT_VIEWPORT,
-    { selectedLabelId },
-  );
+// A directly rendered scene needs the same bounded seed for SSR and hydration.
+// Navigation already supplies a real camera, so it can skip this provisional layout.
+const INITIAL_LABEL_MOUNT_VIEWPORT = { width: 390, height: 780, compact: true } as const;
+function initialSceneLabelMountWindow(scene: Scene, meaningVisible: boolean, selectedLabelId: string | null) {
+  const viewport = INITIAL_LABEL_MOUNT_VIEWPORT;
+  const camera = fullyFittedSceneCamera(scene, viewport);
+  const layout = computeScenePlacements(scene.labels, camera, viewport, meaningVisible, {
+    selectedLabelId,
+    protectedRegions: [
+      ...buildViewerChromeProtectedRegions(viewport.width, viewport.height),
+      ...buildPortalCueProtectedRegions(scene.portals, camera, viewport),
+    ],
+  });
+  return buildSceneLabelMountWindow(scene.labels, layout, viewport, { selectedLabelId });
 }
 
 export function SceneViewport({
@@ -786,9 +706,13 @@ export function SceneViewport({
   const atlasOverviewMode = scene.id === "world-map" && Boolean(atlasDistricts?.length);
   const transitionPhaseRef = useRef(transitionPhase);
   const [atlasCategoryId, setAtlasCategoryId] = useState<string | null>(null);
+  const sceneLabelIds = useMemo(
+    () => atlasOverviewMode ? new Set<string>() : new Set(scene.labels.map((label) => label.id)),
+    [atlasOverviewMode, scene.labels],
+  );
   const [mountedLabelIds, setMountedLabelIds] = useState<ReadonlySet<string>>(
-    () => atlasOverviewMode
-      ? new Set<string>()
+    () => atlasOverviewMode || initialView
+      ? sceneLabelIds
       : initialSceneLabelMountWindow(scene, meaningVisible, selectedLabelId),
   );
   const mountedLabelIdsRef = useRef(mountedLabelIds);
@@ -804,6 +728,11 @@ export function SceneViewport({
   const labelLayerRef = useRef<HTMLDivElement>(null);
   const minimapCollapsedRef = useRef(minimapCollapsed);
   const labelCanvasRef = useRef<HTMLCanvasElement>(null);
+  const attachLabelCanvas = useCallback((node: HTMLCanvasElement | null) => {
+    const previous = labelCanvasRef.current;
+    if (previous && previous !== node && previous.width) previous.width = 0;
+    labelCanvasRef.current = node;
+  }, []);
   const hoveredLabelIdRef = useRef<string | null>(null);
   const labelPaintStateRef = useRef<LabelPaintState | null>(null);
   const tapStartRef = useRef<{ pointerId: number; x: number; y: number } | null>(null);
@@ -932,9 +861,6 @@ export function SceneViewport({
   }, [activeAtlasDistrict, scene.labels]);
   const labelsForRender = useMemo(() => {
     if (transitionPhase === "outgoing") return [] as Label[];
-    // The root atlas has 1,289 labels but paints only the hovered district.
-    // Filter that small subset directly instead of scanning the whole atlas
-    // on each scene-view render.
     const candidates = atlasOverviewMode
       ? selectedLabelId ? [] : activeAtlasLabels
       : scene.labels;
@@ -1231,8 +1157,15 @@ export function SceneViewport({
     );
     const handoffTileOwnsCrop = previewTileOwnsCrop || activeHandoffOwnsCrop;
     const allowHighTier = !(handoffTileOwnsCrop);
+    // While returning through a child tile the enlarged parent camera is
+    // transient. Choose the raster that the settled view actually needs.
+    const returningToParent = initialView?.direction === "back"
+      && (initializedSceneRef.current !== scene.id || continuitySettlingRef.current);
+    const assetCamera = returningToParent
+      ? initialView.settledCamera ?? fittedSceneCamera(scene, { width: viewportWidth, height: viewportHeight })
+      : camera;
     reconcileSceneAssetForCamera(
-      camera,
+      assetCamera,
       devicePixelRatio,
       allowHighTier,
     );
@@ -1510,15 +1443,10 @@ export function SceneViewport({
           previousIds: mountedLabelIdsRef.current,
         },
       )
-      : new Set(labelsForCameraLayout.map((label) => label.id));
-    if (!sameSceneLabelMountWindow(mountedLabelIdsRef.current, nextMountedLabelIds)) {
+      : sceneLabelIds;
+    if (nextMountedLabelIds !== mountedLabelIdsRef.current
+      && !sameSceneLabelMountWindow(mountedLabelIdsRef.current, nextMountedLabelIds)) {
       mountedLabelIdsRef.current = nextMountedLabelIds;
-      rememberSceneLabelMountWindow(
-        labelsForCameraLayout,
-        meaningVisibleRef.current,
-        labelViewport.compact,
-        nextMountedLabelIds,
-      );
       pendingLabelWindowPaintRef.current = true;
       setMountedLabelIds(nextMountedLabelIds);
     }
@@ -2000,7 +1928,7 @@ export function SceneViewport({
       }
       setAttributeIfChanged(summaryElement, "aria-label", "继续放大，显示下一批词");
     }
-  }, [activeAtlasLabels, atlasOverviewMode, clampCamera, continuousTileDirection, continuousTileState, labelSemanticStyles, labelsById, onCameraFrame, onLabelsEncountered, positionAtlasCategories, reconcileSceneAssetForCamera, scene, selectedLabelId, showPortalPreview, vocabularyZoomCues, wordIndexOpen]);
+  }, [activeAtlasLabels, atlasOverviewMode, clampCamera, continuousTileDirection, continuousTileState, initialView, labelSemanticStyles, labelsById, onCameraFrame, onLabelsEncountered, positionAtlasCategories, reconcileSceneAssetForCamera, scene, sceneLabelIds, selectedLabelId, showPortalPreview, vocabularyZoomCues, wordIndexOpen]);
 
   useLayoutEffect(() => {
     if (pendingLabelWindowPaintRef.current) {
@@ -3372,7 +3300,7 @@ export function SceneViewport({
           aria-hidden={motionFrozen ? true : undefined}
           aria-label="Words in this scene"
         >
-          <canvas ref={labelCanvasRef} className="label-canvas" aria-hidden="true" />
+          <canvas ref={attachLabelCanvas} width={0} height={0} className="label-canvas" aria-hidden="true" />
           {labelsForRender.map((label) => {
             const semanticStyle = labelSemanticStyles.get(label.id);
             return (

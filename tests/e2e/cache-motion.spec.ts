@@ -211,11 +211,15 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
     if (!response.ok) throw new Error(`Unable to read scene ${sceneId}`);
     const scene = await response.json() as {
       asset: string;
-      assets?: { base: { src: string }; high?: { src: string } };
+      width: number;
+      height: number;
+      assets?: { base: { src: string; width: number; height: number }; high?: { src: string } };
     };
     return {
       manifest: `/data/scenes/${sceneId}.json`,
       base: new URL(scene.assets?.base.src ?? scene.asset, window.location.href).pathname,
+      baseWidth: scene.assets?.base.width ?? scene.width,
+      baseHeight: scene.assets?.base.height ?? scene.height,
       high: scene.assets?.high
         ? new URL(scene.assets.high.src, window.location.href).pathname
         : null,
@@ -252,6 +256,8 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
 
   await returnToParentWithIndependentWheelGestures(page, app, child, parent);
   await expect(app).toHaveAttribute("data-scene-loading", "false");
+  await expect(page.locator(".scene-surface")).toHaveAttribute("data-scene-scale", "1.000");
+  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-motion-frozen", "false");
 
   const firstReturnRequests = sceneRequests.slice(requestsBeforeReturn).map((url) => new URL(url).pathname);
   expect(
@@ -263,8 +269,18 @@ test("a decoded parent stays hot when entering a child and zooming back out", as
   const firstHighRequests = parentAssetContract.high
     ? firstReturnRequests.filter((path) => path === parentAssetContract.high)
     : [];
-  expect(firstHighRequests.length, "a high-density parent tier is fetched at most once on demand")
-    .toBeLessThanOrEqual(1);
+  const baseCoversOverview = await page.locator(".scene-art").evaluate((image, base) => {
+    const bounds = image.getBoundingClientRect();
+    return bounds.width * devicePixelRatio <= base.baseWidth
+      && bounds.height * devicePixelRatio <= base.baseHeight;
+  }, parentAssetContract);
+  if (baseCoversOverview) {
+    expect(firstHighRequests, "returning to a base-resolution overview must not fetch high art for the animation")
+      .toEqual([]);
+  } else {
+    expect(firstHighRequests.length, "a high-density parent tier is fetched at most once on demand")
+      .toBeLessThanOrEqual(1);
+  }
   expect(
     await page.evaluate((assetPath) => (
       (Reflect.get(window, "__hellowordsDecodeCalls") as string[])

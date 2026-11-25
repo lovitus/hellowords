@@ -140,6 +140,11 @@ function segmentsIntersect(first: Segment, second: Segment): boolean {
 }
 
 function segmentTouchesRect(segment: Segment, rect: Rect): boolean {
+  // Reject only strict separation so points on an edge keep the existing contact rules.
+  if ((segment.x1 < rect.left && segment.x2 < rect.left)
+    || (segment.x1 > rect.right && segment.x2 > rect.right)
+    || (segment.y1 < rect.top && segment.y2 < rect.top)
+    || (segment.y1 > rect.bottom && segment.y2 > rect.bottom)) return false;
   if (pointInRect(segment.x1, segment.y1, rect, 0) || pointInRect(segment.x2, segment.y2, rect, 0)) return true;
   const corners = [
     { x: rect.left, y: rect.top },
