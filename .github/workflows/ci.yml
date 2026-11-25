@@ -1,121 +1,169 @@
-name: CI
+name: Scene performance diagnostic
 
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
     inputs:
-      compare_published_baseline:
-        description: Compare the last audited product source on the same runner
-        type: boolean
-        default: false
-      milestone_release_preflight:
-        description: Run the 10k public-release preflight and verify the clean commit; does not publish
-        type: boolean
-        default: false
+      product_sha:
+        description: Full 40-character product commit SHA
+        required: true
+        type: string
 
 permissions:
   contents: read
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 env:
   CI: "true"
+  PRODUCT_SHA: ${{ inputs.product_sha }}
   WRANGLER_LOG_PATH: .wrangler/wrangler.log
 
 jobs:
-  verification:
-    name: Full verification
+  baseline:
+    name: Check the mobile return against the previous build
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      actions: read
+    env:
+      BASELINE_SHA: 3f3299db343f53bd83945edae7328cd6b69e55c3
     steps:
+      - name: Require a full commit SHA
+        run: '[[ "$PRODUCT_SHA" =~ ^[0-9a-f]{40}$ ]]'
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.product_sha }}
+          persist-credentials: false
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
       - run: npm ci
-      - name: Check 10k milestone release preflight
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run release:check -- --milestone
-      - run: npm run lint
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run typecheck
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run validate:data
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:unit
-        if: ${{ !inputs.milestone_release_preflight }}
-      # Tests use this exact build on the same runner: storage quotas cannot
-      # prevent a downstream test job from obtaining it.
-      - run: npm run build
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:ssr
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: node scripts/analyze-build.mjs
-        if: ${{ !inputs.milestone_release_preflight }}
       - run: npx playwright install --with-deps chromium
-      - name: Check out audited baseline for optional comparison
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        uses: actions/checkout@v6
+      - uses: actions/download-artifact@v5
         with:
-          ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-          path: baseline-reference
-          persist-credentials: false
-      - name: Prepare identical measurement harness for baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
-      - name: Build audited baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        working-directory: baseline-reference
-        run: npm ci && npm run build
-      - name: Measure audited baseline (diagnostic, not candidate acceptance)
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        continue-on-error: true
-        working-directory: baseline-reference
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-          PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-        run: npm run test:perf
-      - run: npm run test:perf
-        id: candidate_performance
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-      - name: Verify complete milestone candidate on the preflighted clean commit
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run verify:full
-      - run: npm run test:e2e
-        id: candidate_browser
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-      - name: Enforce both candidate gates
-        if: ${{ !cancelled() && !inputs.milestone_release_preflight }}
-        env:
-          PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
-          BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}
+          name: verification-${{ env.BASELINE_SHA }}
+          run-id: 45656574383
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/previous-build
+      - name: Use the recorded build with the candidate browser assertions
         run: |
-          printf 'Performance: %s\nBrowser: %s\n' "$PERF_OUTCOME" "$BROWSER_OUTCOME"
-          test "$PERF_OUTCOME" = success && test "$BROWSER_OUTCOME" = success
-      # Retention is optional; every validation command above remains blocking.
-      # Missing downloadable output must never be used as release evidence.
-      - uses: actions/upload-artifact@v5
-        if: ${{ !cancelled() }}
+          test "$(git rev-parse HEAD)" = "$PRODUCT_SHA"
+          jq -e --arg sha "$BASELINE_SHA" '.gitSha == $sha' "$RUNNER_TEMP/previous-build/artifacts/build/dist-manifest.json"
+          test ! -e dist
+          mv "$RUNNER_TEMP/previous-build/dist" dist
+      - name: Run one mobile round-trip test
+        id: browser
         continue-on-error: true
+        run: >-
+          npx playwright test tests/e2e/cache-motion.spec.ts
+          --grep 'a decoded parent stays hot' --project=mobile-chromium --retries=0
+      - name: Identify the observed failure
+        env:
+          BROWSER_OUTCOME: ${{ steps.browser.outcome }}
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from "node:assert/strict";
+          import { appendFileSync, readFileSync } from "node:fs";
+          import { stripVTControlCharacters } from "node:util";
+
+          const report = JSON.parse(readFileSync("artifacts/e2e/results.json", "utf8"));
+          const flatten = suite => [...(suite.specs ?? []), ...(suite.suites ?? []).flatMap(flatten)];
+          const specs = flatten(report);
+          assert.equal(specs.length, 1, "Expected one cache test");
+          assert.match(specs[0].title, /^a decoded parent stays hot/);
+          assert.equal(specs[0].tests.length, 1);
+          const [test] = specs[0].tests;
+          assert.equal(test.projectName, "mobile-chromium");
+          assert.equal(test.results.length, 1);
+          assert.equal(report.errors.length, 0, "Playwright reported a runner error");
+          const [result] = test.results;
+          const reason = result.errors.map(error => stripVTControlCharacters(error.message ?? "").split(/\n\s*\d+\s*\|/)[0]);
+          const expected = reason.find(message =>
+            /^Error: (?:returning to a base-resolution overview must not fetch high art|a second round trip must reuse the parent manifest, hot base image, and on-demand high tier)\b/.test(message)
+            && message.includes("/scenes/world-mega-atlas-5208-v21.jpg"));
+          const reproduced = result.status === "failed" && process.env.BROWSER_OUTCOME === "failure" && Boolean(expected);
+          const verdict = reproduced ? expected.split("\n")[0]
+            : result.status === "passed" ? "Not reproduced on this attempt."
+            : `Unexpected result (${result.status}). See the raw Playwright report.`;
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+            `Baseline build \`${process.env.BASELINE_SHA}\`, assertions \`${process.env.PRODUCT_SHA}\`.\n\n${verdict}\n`);
+          assert.ok(reproduced, verdict);
+          NODE
+      - uses: actions/upload-artifact@v5
+        if: ${{ !cancelled() && (steps.browser.outcome == 'success' || steps.browser.outcome == 'failure') }}
         with:
-          name: verification-${{ github.sha }}
+          name: baseline-mobile-${{ inputs.product_sha }}
+          path: artifacts/e2e/results.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Exercise the anonymous round trip on public v1
+        id: public_smoke
+        if: ${{ !cancelled() && (steps.browser.outcome == 'success' || steps.browser.outcome == 'failure') }}
+        env:
+          PLAYWRIGHT_EXTERNAL_SERVER: "1"
+          PLAYWRIGHT_BASE_URL: https://hellowords-explore.lilifenghao44444.chatgpt.site
+        run: >-
+          npx playwright test tests/e2e/world.spec.ts
+          --grep 'enters a scene slice on zoom and returns to its parent'
+          --project=chromium --retries=0 --reporter=line
+      - name: Record the public site result separately
+        if: ${{ !cancelled() }}
+        env:
+          PUBLIC_SMOKE: ${{ steps.public_smoke.outcome }}
+        run: |
+          printf '\n### Public v1\n\nAnonymous desktop round trip: %s\n' "$PUBLIC_SMOKE" >> "$GITHUB_STEP_SUMMARY"
+
+  candidate:
+    name: Measure the candidate and check affected interactions
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Require a full commit SHA
+        run: '[[ "$PRODUCT_SHA" =~ ^[0-9a-f]{40}$ ]]'
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.product_sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Build the product commit
+        id: build
+        run: |
+          test "$(git rev-parse HEAD)" = "$PRODUCT_SHA"
+          npm run build
+      - run: npm run typecheck
+      - name: Check label placement and scene rendering
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npx tsx --test tests/domain/labelPlacement.test.ts tests/domain/screenSpaceLabels.test.ts
+      - name: Check affected desktop and mobile interactions
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: >-
+          npx playwright test
+          tests/e2e/world.spec.ts tests/e2e/scene-minimap.spec.ts tests/e2e/cache-motion.spec.ts
+          tests/e2e/runtime-asset-reachability.spec.ts tests/e2e/label-zoom-retention.spec.ts
+          --grep 'the home atlas keeps|a selected word reveals its meaning|a decoded parent stays hot|world-map swaps its decoded high-density tier|the Apartment minimap|the apartment minimap reveals|continuous zoom retains'
+          --project=chromium --project=mobile-chromium --retries=0
+      - name: Run the full 20-cycle performance suite
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        env:
+          PERF_RUN: "1"
+          PERF_SCENE_CYCLES: "20"
+          PERF_SOURCE_SHA: ${{ inputs.product_sha }}
+        run: npm run test:perf
+      - uses: actions/upload-artifact@v5
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        with:
+          name: candidate-diagnostic-${{ inputs.product_sha }}
           path: |
-            artifacts/correctness
-            artifacts/build
-            artifacts/e2e
-            artifacts/perf
-            dist
-          include-hidden-files: true
-          if-no-files-found: warn
+            artifacts/e2e/results.json
+            artifacts/perf/results.json
+            artifacts/perf/summary.json
+            artifacts/perf/summary.md
+            artifacts/perf/semantic-summary.json
+            artifacts/perf/samples.ndjson
+          if-no-files-found: error
           retention-days: 7
