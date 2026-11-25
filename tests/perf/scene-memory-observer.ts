@@ -2,7 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import type { Browser, Page } from "@playwright/test";
 
 type Shape = { kind: string; ref: WeakRef<Element> };
-type Inventory = { seen: WeakSet<Element>; items: Shape[] };
+type Inventory = { seen: WeakSet<Element>; items: Shape[]; decodes: Record<string, number> };
 declare global {
   interface Window { sceneMemoryInventory: Inventory }
 }
@@ -11,7 +11,14 @@ export async function installInventory(page: Page) {
   await page.addInitScript(() => {
     const seen = new WeakSet<Element>();
     const items: Shape[] = [];
-    window.sceneMemoryInventory = { seen, items };
+    const decodes: Record<string, number> = {};
+    window.sceneMemoryInventory = { seen, items, decodes };
+    const decode = HTMLImageElement.prototype.decode;
+    HTMLImageElement.prototype.decode = function () {
+      const path = new URL(this.currentSrc || this.src, document.baseURI).pathname;
+      decodes[path] = (decodes[path] ?? 0) + 1;
+      return decode.call(this);
+    };
     const prototype = HTMLCanvasElement.prototype;
     const getContext = prototype.getContext;
     prototype.getContext = function (this: HTMLCanvasElement, ...args: Parameters<typeof getContext>) {
@@ -63,7 +70,10 @@ export async function startMemoryTrace(browser: Browser, page: Page, directory: 
         if (node.isConnected) stats.attached++;
         if (node instanceof HTMLCanvasElement) stats.livePixels += node.width * node.height;
       }
-      return { scene: document.querySelector<HTMLElement>('[data-testid="world-app"]')?.dataset.sceneId, counts };
+      return {
+        scene: document.querySelector<HTMLElement>('[data-testid="world-app"]')?.dataset.sceneId,
+        counts, decodes: { ...window.sceneMemoryInventory.decodes },
+      };
     });
     const [dom, heap, processList] = await Promise.all([
       target.send("Memory.getDOMCounters"), target.send("Runtime.getHeapUsage"), control.send("SystemInfo.getProcessInfo"),

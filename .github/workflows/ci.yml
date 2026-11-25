@@ -1,4 +1,4 @@
-name: Identify resident memory across apartment visits
+name: Attribute repeat image allocations to a scene
 on:
   workflow_dispatch:
     inputs:
@@ -20,13 +20,13 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-          fetch-depth: 2
+          fetch-depth: 3
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
       - run: |
-          test "$(git rev-parse HEAD^)" = "$PRODUCT"
+          test "$(git rev-parse HEAD~2)" = "$PRODUCT"
           npm ci
       - uses: actions/download-artifact@v5
         with:
@@ -37,16 +37,31 @@ jobs:
       - run: |
           jq -e --arg sha "$PRODUCT" '.gitSha == $sha' artifacts/build/dist-manifest.json
           ./node_modules/.bin/playwright install --with-deps chromium
-      - name: Sample the unchanged candidate during the established 20 round trips
+      - name: Compare original artwork with an identifiable size for the unvisited kitchen
         env:
-          MEMORY_EVIDENCE_DIR: ${{ runner.temp }}/residency
+          RECORDS: ${{ runner.temp }}/residency
           PERF_RUN: "1"
         run: |
-          mkdir -p "$MEMORY_EVIDENCE_DIR"
-          printf 'Product %s\n' "$PRODUCT" > "$MEMORY_EVIDENCE_DIR/product.txt"
-          ./node_modules/.bin/playwright test tests/perf/world-performance.spec.ts --project=performance \
-            --grep 'identify resident memory' --workers=1 --retries=0 > "$MEMORY_EVIDENCE_DIR/browser.log" 2>&1
-          jq -e 'length == 7 and all(.[]; .dump.success)' "$MEMORY_EVIDENCE_DIR/checkpoints.json"
+          mkdir -p "$RECORDS"
+          printf 'Product %s\n' "$PRODUCT" > "$RECORDS/product.txt"
+          for arm in original kitchen-size; do
+            export MEMORY_EVIDENCE_DIR="$RECORDS/$arm"
+            mkdir -p "$MEMORY_EVIDENCE_DIR"
+            if test "$arm" = kitchen-size; then
+              node --input-type=module - <<'JS'
+          import sharp from "sharp";
+          import { writeFile } from "node:fs/promises";
+          const path = "dist/client/scenes/kitchen-premium-v3.jpg";
+          const old = await sharp(path).metadata();
+          if (old.width !== 1600 || old.height !== 900) throw Error("Unexpected original kitchen size");
+          const marked = await sharp(path).resize(1024, 576).jpeg().toBuffer();
+          await writeFile(path, marked);
+          JS
+            fi
+            ./node_modules/.bin/playwright test tests/perf/world-performance.spec.ts --project=performance \
+              --grep 'identify resident memory' --workers=1 --retries=0 > "$MEMORY_EVIDENCE_DIR/browser.log" 2>&1
+            jq -e 'length == 7 and all(.[]; .dump.success)' "$MEMORY_EVIDENCE_DIR/checkpoints.json"
+          done
       - name: Encrypt the diagnostic evidence
         if: ${{ !cancelled() }}
         env:
