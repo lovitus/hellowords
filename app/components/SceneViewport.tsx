@@ -16,11 +16,12 @@ import {
   advanceLabelDwell,
   createSceneAssetLoadState,
   buildPortalCueProtectedRegions,
+  portalCueProtectedRegion,
   buildSceneLabelMountWindow,
   buildVocabularyCueRevealStateFromSummary,
   buildVocabularyRevealSummary,
   consolidateVocabularyCueBatches,
-  computeSceneLabelLayout,
+  computeScenePlacements,
   advanceParentExitHysteresis,
   createParentExitHysteresisState,
   DEFAULT_PORTAL_HYSTERESIS_POLICY,
@@ -48,6 +49,12 @@ import {
 } from "../domain";
 import { getScenePresentation } from "../lib/scene-presentation";
 import { decodedSceneAssetCache } from "../lib/decoded-scene-asset-cache";
+import {
+  hitPaintedLabel,
+  paintLabelCanvas,
+  type LabelPaintState,
+  type PaintedLabel,
+} from "../lib/label-canvas";
 
 interface SceneViewportProps {
   scene: Scene;
@@ -69,10 +76,6 @@ interface SceneViewportProps {
   onLabelsEncountered: (labels: readonly Label[]) => void;
   onLabelEncountered: (label: Label) => void;
   onSelectWord: (label: Label) => void;
-  onExploreSemanticPlane?: (
-    label: Label | null,
-    source: "zoom" | "pointer" | "keyboard",
-  ) => void;
   onPrefetchScene: (
     sceneId: string,
   ) => void | Scene | null | Promise<Scene | null>;
@@ -85,6 +88,8 @@ interface SceneViewportProps {
   atlasDistricts?: readonly SceneAtlasDistrict[];
   focusedDetailZoneId?: string | null;
   wordIndexOpen?: boolean;
+  /** The top-left mini-map is folded to its title pill, freeing room for words. */
+  minimapCollapsed?: boolean;
 }
 
 export type ScenePortalNavigator = (
@@ -451,15 +456,14 @@ function syncMotionFrozenLayer(element: HTMLElement, frozen: boolean): void {
 const WHEEL_RESPONSE_MS = 52;
 const WHEEL_POSITION_EPSILON = 0.08;
 const WHEEL_SCALE_EPSILON = 0.00045;
-// Keep a just-offscreen label's last legal callout slot warm while its mounted
-// overscan is still nearby. This prevents a one-frame collision fallback from
-// resetting the slot when a coalesced pointer/wheel sample brings the anchor
-// back into view.
-const LABEL_PLACEMENT_MEMORY_OVERSCAN = 120;
+/**
+ * Per-user direction: the "还剩 N 个词" hints are off. Every word that has a
+ * free, non-overlapping callout is shown directly, so no count-style cue is
+ * needed to reach it. Set to true only to bring the old cue system back.
+ */
+const VOCABULARY_HINTS_ENABLED = false;
 const EXIT_SCALE = DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale;
 const HANDOFF_WHEEL_QUIET_MS = 180;
-const SEMANTIC_OVERSCROLL_THRESHOLD = 0.32;
-const SEMANTIC_OVERSCROLL_WINDOW_MS = 850;
 const PORTAL_PREVIEW_LEAD = 1;
 const PORTAL_ARMED_PROGRESS = 0.82;
 
@@ -488,26 +492,40 @@ const VOCABULARY_REVEAL_SCALE: Readonly<Record<2 | 3 | 4, number>> = {
   4: 3.12,
 };
 
+/**
+ * Footprint of the translucent top-left mini-map. Words avoid only this
+ * rectangle; a collapsed map reserves just its title pill.
+ */
+function minimapFootprint(width: number, collapsed: boolean): { right: number; bottom: number } {
+  const phone = width <= 560;
+  const compact = width <= 900;
+  if (collapsed) {
+    return {
+      right: Math.min(width, phone ? 170 : 180),
+      bottom: 52,
+    };
+  }
+  // Measured rendered panel (stage coordinates, see globals.css .scene-minimap):
+  // desktop 236x155, compact 320x151, phone 220x127, each with a few px margin.
+  return {
+    right: Math.min(width, phone ? 240 : compact ? 340 : 262),
+    bottom: phone ? 144 : compact ? 160 : 178,
+  };
+}
+
 export function buildViewerChromeProtectedRegions(
   width: number,
   height: number,
   wordIndexOpen = false,
+  minimapCollapsed = false,
 ): SceneLabelProtectedRegion[] {
-  const compact = width <= 900;
   const phone = width <= 560;
-  // Match the compact translucent scene minimap instead of reserving the old
-  // multi-line title block. This gives grounded labels the rest of the
-  // top-left image back without allowing pills to sit under navigation.
-  const minimapRight = Math.min(width, phone ? 312 : compact ? 348 : 412);
-  // The desktop minimap's rendered panel ends around 120px in the viewport.
-  // Reserving the old 126px rectangle made nearby words jump to a distant
-  // leader slot even when only a few pixels touched the translucent panel.
-  const minimapBottom = phone ? 112 : compact ? 116 : 120;
+  const minimap = minimapFootprint(width, minimapCollapsed);
   const regions: SceneLabelProtectedRegion[] = [{
     left: 0,
-    right: minimapRight,
+    right: minimap.right,
     top: 0,
-    bottom: minimapBottom,
+    bottom: minimap.bottom,
   }];
 
   if (!phone) {
@@ -574,13 +592,10 @@ export function portalIntersectsMinimap(
   viewport: { readonly width: number; readonly height: number },
 ): boolean {
   const bounds = projectSceneRectToScreen(portal, camera);
-  const phone = viewport.width <= 560;
-  const compact = viewport.width <= 900;
-  const minimapRight = Math.min(viewport.width, phone ? 312 : compact ? 348 : 412);
-  const minimapBottom = phone ? 112 : compact ? 116 : 120;
-  return bounds.x < minimapRight
+  const minimap = minimapFootprint(viewport.width, false);
+  return bounds.x < minimap.right
     && bounds.x + bounds.width > 0
-    && bounds.y < minimapBottom
+    && bounds.y < minimap.bottom
     && bounds.y + bounds.height > 0;
 }
 
@@ -613,39 +628,6 @@ export function shouldResetLabelPlacementMemory(
   next: "in" | "out" | null,
 ): boolean {
   return previous !== null && next !== null && previous !== next;
-}
-
-export interface SemanticOverscrollResult {
-  readonly accumulated: number;
-  readonly trigger: boolean;
-}
-
-/**
- * A deliberate extra zoom beyond a non-terminal spatial image may open the
- * semantic plane. Portal pixels always keep ownership of the gesture, and a
- * terminal scene can disable the bridge entirely. Zooming out resets the
- * accumulator so an ordinary fit/zoom cycle cannot open the atlas.
- */
-export function advanceSemanticOverscroll(
-  accumulated: number,
-  factor: number,
-  atMaximumScale: boolean,
-  portalOwnsGesture: boolean,
-  elapsedSincePreviousMs = 0,
-  semanticEntryEnabled = true,
-): SemanticOverscrollResult {
-  if (!semanticEntryEnabled || !atMaximumScale || portalOwnsGesture || factor <= 1) {
-    return { accumulated: 0, trigger: false };
-  }
-  const continuedGesture = Number.isFinite(elapsedSincePreviousMs)
-    && elapsedSincePreviousMs >= 0
-    && elapsedSincePreviousMs <= SEMANTIC_OVERSCROLL_WINDOW_MS;
-  const next = (continuedGesture ? Math.max(0, accumulated) : 0)
-    + Math.max(0, Math.log(factor));
-  if (next < SEMANTIC_OVERSCROLL_THRESHOLD) {
-    return { accumulated: next, trigger: false };
-  }
-  return { accumulated: 0, trigger: true };
 }
 
 function distance(a: Point, b: Point): number {
@@ -683,26 +665,6 @@ const INITIAL_LABEL_MOUNT_VIEWPORT = {
   compact: true,
 } as const;
 
-// Facility scenes carry the newest high-density professional batches. Keep
-// their explicitly selected crop ahead of unrelated overview labels on both
-// desktop and compact screens; other scenes retain the established desktop
-// collision order while compact focus still receives the same treatment.
-const FOCUSED_PRIORITY_SCENES = new Set([
-  "apartment",
-  "kitchen",
-  "bedroom",
-  "bathroom",
-  "city-cafe",
-  "hospital",
-  "pathology-lab",
-  "histology-sectioning-workstation",
-  "hospital-pharmacy",
-  "emergency-triage-reception",
-  "emergency-assessment-bay",
-  "airport",
-  "office-building",
-]);
-
 // Scene JSON objects are retained by the bounded repository while users move
 // between a parent and child. Reuse the last truthful DOM window when that
 // exact scene is revisited: this avoids rebuilding a compact seed and then
@@ -712,14 +674,6 @@ const revisitedSceneLabelMountWindows = new WeakMap<
   readonly Label[],
   Map<string, ReadonlySet<string>>
 >();
-
-function adaptiveRevealScaleForScene(scene: Scene): number | undefined {
-  // Keep the root atlas rich at its fitted overview. Larger child scenes use
-  // their authored room/exhibit zones as the invitation to go deeper, so
-  // their finest labels can enter over a few camera steps instead of adding a
-  // large style/layout burst during a warm scene handoff.
-  return scene.id !== "world-map" && scene.labels.length >= 96 ? 1 : undefined;
-}
 
 function sceneLabelMountWindowCacheKey(meaningVisible: boolean, compact: boolean): string {
   return `${meaningVisible ? "meaning" : "word"}:${compact ? "compact" : "desktop"}`;
@@ -770,14 +724,13 @@ function initialSceneLabelMountWindow(
   const recalled = recalledSceneLabelMountWindow(scene, meaningVisible, selectedLabelId);
   if (recalled) return recalled;
   const camera = fullyFittedSceneCamera(scene, INITIAL_LABEL_MOUNT_VIEWPORT);
-  const layout = computeSceneLabelLayout(
+  const layout = computeScenePlacements(
     scene.labels,
     camera,
     INITIAL_LABEL_MOUNT_VIEWPORT,
     meaningVisible,
     {
       selectedLabelId,
-      adaptiveRevealScale: adaptiveRevealScaleForScene(scene),
       protectedRegions: [
         ...buildViewerChromeProtectedRegions(
           INITIAL_LABEL_MOUNT_VIEWPORT.width,
@@ -812,7 +765,6 @@ export function SceneViewport({
   onLabelsEncountered,
   onLabelEncountered,
   onSelectWord,
-  onExploreSemanticPlane,
   onPrefetchScene,
   initialView,
   onCameraFrame,
@@ -822,6 +774,7 @@ export function SceneViewport({
   atlasDistricts,
   focusedDetailZoneId = null,
   wordIndexOpen = false,
+  minimapCollapsed = false,
 }: SceneViewportProps) {
   const reducedContinuityAtMount = Boolean(
     initialView
@@ -849,6 +802,11 @@ export function SceneViewport({
   const continuousTileRef = useRef<HTMLDivElement>(null);
   const focusedDetailZoneRef = useRef<HTMLDivElement>(null);
   const labelLayerRef = useRef<HTMLDivElement>(null);
+  const minimapCollapsedRef = useRef(minimapCollapsed);
+  const labelCanvasRef = useRef<HTMLCanvasElement>(null);
+  const hoveredLabelIdRef = useRef<string | null>(null);
+  const labelPaintStateRef = useRef<LabelPaintState | null>(null);
+  const tapStartRef = useRef<{ pointerId: number; x: number; y: number } | null>(null);
   // Camera frames address labels through their stable authored ids. Keeping
   // the mounted nodes in a ref avoids rebuilding a NodeList and re-reading a
   // data attribute for every word on every wheel/pinch animation frame.
@@ -883,7 +841,7 @@ export function SceneViewport({
     readonly offsetX: number;
     readonly offsetY: number;
   }>());
-  const labelShiftTimersRef = useRef(new Map<string, number>());
+  const retainManualZoomSlotsRef = useRef(false);
   const lastNavigationRef = useRef(0);
   const zoomFocusRef = useRef<Point | null>(null);
   const zoomDirectionRef = useRef<"in" | "out" | null>(null);
@@ -893,8 +851,6 @@ export function SceneViewport({
   const vocabularyAnnouncementRef = useRef<HTMLParagraphElement>(null);
   const vocabularySummaryRef = useRef<HTMLButtonElement>(null);
   const sceneWordProgressRef = useRef<HTMLParagraphElement>(null);
-  const semanticOverscrollRef = useRef(0);
-  const semanticOverscrollTimestampRef = useRef<number | null>(null);
   const atlasCategoryElementsRef = useRef(new Map<string, HTMLDivElement>());
   const atlasCategoryCloseTimerRef = useRef<number | null>(null);
   const previewPhaseRef = useRef<"preview" | "armed">("preview");
@@ -1063,11 +1019,6 @@ export function SceneViewport({
     setDatasetValueIfChanged(node, "progress", progressValue);
     setStylePropertyIfChanged(node.style, "--tile-progress", progressValue);
   }, [scene.portals]);
-
-  useEffect(() => () => {
-    for (const timer of labelShiftTimersRef.current.values()) window.clearTimeout(timer);
-    labelShiftTimersRef.current.clear();
-  }, []);
 
   const viewerInteractive = transitionPhase === "active" && !interactionLocked && !motionFrozen;
   const viewerInteractiveRef = useRef(viewerInteractive);
@@ -1371,10 +1322,6 @@ export function SceneViewport({
     );
     const focusRegion = focusedDetailZoneRef.current;
     const activeFocusedDetailZone = focusedDetailZoneValueRef.current;
-    const focusedPriorityLabelIds = activeFocusedDetailZone
-      && (viewportWidth <= 900 || FOCUSED_PRIORITY_SCENES.has(scene.id))
-      ? new Set(activeFocusedDetailZone.labelIds)
-      : undefined;
     if (focusRegion) {
       if (activeFocusedDetailZone) {
         const bounds = projectSceneRectToScreen(activeFocusedDetailZone, camera);
@@ -1393,6 +1340,12 @@ export function SceneViewport({
         if (focusRegion.dataset.zoneId !== undefined) delete focusRegion.dataset.zoneId;
       }
     }
+    const labelViewport = {
+      width: viewportWidth,
+      height: viewportHeight,
+      compact: viewportWidth <= 900,
+    };
+    const portalCueRegions: SceneLabelProtectedRegion[] = [];
     let portalOverlapsMinimap = false;
     for (const region of interactionLayer.querySelectorAll<HTMLElement>(".scene-hotspot-region")) {
       const portal = scene.portals.find((candidate) => candidate.id === region.dataset.portalId);
@@ -1408,6 +1361,10 @@ export function SceneViewport({
         const right = snapToDevicePixel(bounds.x + bounds.width);
         const bottom = snapToDevicePixel(bounds.y + bounds.height);
         const portalCenterX = bounds.x + bounds.width / 2;
+        // CSS grid centers the marker between these snapped edges. Use the
+        // same screen rectangle for its label exclusion, even at a half pixel.
+        const cue = portalCueProtectedRegion((left + right) / 2, (top + bottom) / 2, labelViewport);
+        if (cue) portalCueRegions.push(cue);
         const captionWidth = Math.min(
           viewportWidth <= 700 ? 180 : 190,
           Math.max(0, viewportWidth - 24),
@@ -1476,18 +1433,13 @@ export function SceneViewport({
     const labelsForCameraLayout: readonly Label[] = atlasOverviewMode
       ? selectedLabelId ? [] : activeAtlasLabels
       : scene.labels;
-    const labelViewport = {
-      width: viewportWidth,
-      height: viewportHeight,
-      compact: viewportWidth <= 900,
-    };
     const activeElement = document.activeElement;
     const focusedLabelId = activeElement instanceof HTMLButtonElement
       && activeElement.matches(".word-label")
       ? activeElement.dataset.labelId ?? null
       : null;
     let pendingKeyboardFocusLabelId = pendingKeyboardFocusLabelIdRef.current;
-    const layout = computeSceneLabelLayout(
+    const layout = computeScenePlacements(
       labelsForCameraLayout,
       camera,
       labelViewport,
@@ -1496,24 +1448,20 @@ export function SceneViewport({
         selectedLabelId: focusedLabelId
           ?? pendingKeyboardFocusLabelId
           ?? selectedLabelIdRef.current,
-        adaptiveRevealScale: adaptiveRevealScaleForScene(scene),
-        revealLabelIds: activeFocusedDetailZone
+        priorityLabelIds: activeFocusedDetailZone
           ? new Set(activeFocusedDetailZone.labelIds)
           : undefined,
-        revealAtScale: activeFocusedDetailZone
-          ? Math.max(1, activeFocusedDetailZone.targetScale - 0.35)
+        preferredOffsets: !labelViewport.compact && !atlasOverviewMode && retainManualZoomSlotsRef.current
+          ? labelPlacementOffsetsRef.current
           : undefined,
-        priorityLabelIds: focusedPriorityLabelIds,
-        includeHiddenItems: false,
-        retainedLabelIds: mountedLabelIdsRef.current,
-        preferredOffsets: labelPlacementOffsetsRef.current,
         protectedRegions: [
           ...buildViewerChromeProtectedRegions(
             labelViewport.width,
             labelViewport.height,
             wordIndexOpen,
+            minimapCollapsedRef.current,
           ),
-          ...buildPortalCueProtectedRegions(scene.portals, camera, labelViewport),
+          ...portalCueRegions,
         ],
       },
     );
@@ -1536,53 +1484,33 @@ export function SceneViewport({
         queuedKeyboardFocusLabelIdRef.current = null;
       }
     }
-    const previousLabelPlacementOffsets = labelPlacementOffsetsRef.current;
-    const nextLabelPlacementOffsets = new Map<string, {
-      readonly offsetX: number;
-      readonly offsetY: number;
-    }>();
-    for (const item of layout) {
-      if (item.interactive) {
-        nextLabelPlacementOffsets.set(item.id, {
-          offsetX: item.offsetX,
-          offsetY: item.offsetY,
-        });
+    // Only visible desktop words need a claim on the next zoom frame.
+    const previousSlots = labelPlacementOffsetsRef.current;
+    previousSlots.clear();
+    if (!labelViewport.compact && !atlasOverviewMode) {
+      for (const item of layout) {
+        if (item.interactive) previousSlots.set(item.id, item);
       }
     }
-    // Retain a bounded warm slot for mounted labels whose authored anchor is
-    // just outside the viewport or was collision-blocked in this frame. The
-    // next layout can try the same object-relative slot before falling back to
-    // another direction, so coalesced input does not create a visible flip.
-    const memoryMargin = LABEL_PLACEMENT_MEMORY_OVERSCAN;
-    for (const [labelId, offset] of previousLabelPlacementOffsets) {
-      if (nextLabelPlacementOffsets.has(labelId) || !mountedLabelIdsRef.current.has(labelId)) continue;
-      const label = labelsById.get(labelId);
-      if (!label) continue;
-      const anchorX = camera.x + label.x * effectiveScale;
-      const anchorY = camera.y + label.y * effectiveScale;
-      if (
-        anchorX >= -memoryMargin
-        && anchorX <= viewportWidth + memoryMargin
-        && anchorY >= -memoryMargin
-        && anchorY <= viewportHeight + memoryMargin
-      ) {
-        nextLabelPlacementOffsets.set(labelId, offset);
-      }
-    }
-    labelPlacementOffsetsRef.current = nextLabelPlacementOffsets;
-    const nextMountedLabelIds = buildSceneLabelMountWindow(
-      labelsForCameraLayout,
-      layout,
-      labelViewport,
-      {
-        focusedLabelId: focusedLabelId ?? pendingKeyboardFocusLabelId,
-        selectedLabelId: selectedLabelIdRef.current,
-        preferredIds: activeFocusedDetailZone
-          ? new Set(activeFocusedDetailZone.labelIds)
-          : undefined,
-        previousIds: mountedLabelIdsRef.current,
-      },
-    );
+    // Words are painted by the canvas, so every word of an ordinary scene keeps
+    // its keyboard mirror mounted. A camera-driven window would commit a React
+    // update (re-rendering every mirror) each time a word crossed the edge.
+    // The root atlas keeps the bounded window because it has 1,289 words.
+    const nextMountedLabelIds = atlasOverviewMode
+      ? buildSceneLabelMountWindow(
+        labelsForCameraLayout,
+        layout,
+        labelViewport,
+        {
+          focusedLabelId: focusedLabelId ?? pendingKeyboardFocusLabelId,
+          selectedLabelId: selectedLabelIdRef.current,
+          preferredIds: activeFocusedDetailZone
+            ? new Set(activeFocusedDetailZone.labelIds)
+            : undefined,
+          previousIds: mountedLabelIdsRef.current,
+        },
+      )
+      : new Set(labelsForCameraLayout.map((label) => label.id));
     if (!sameSceneLabelMountWindow(mountedLabelIdsRef.current, nextMountedLabelIds)) {
       mountedLabelIdsRef.current = nextMountedLabelIds;
       rememberSceneLabelMountWindow(
@@ -1612,6 +1540,58 @@ export function SceneViewport({
         dwellEligibleLabelIds.push(item.id);
       }
     }
+    // Every placed word is painted from the layout result, including words
+    // whose DOM mirror is not mounted. The DOM buttons only carry state for
+    // keyboard and assistive technology; they no longer move per frame.
+    const cameraScale = camera.fit * camera.scale;
+    const paintedLabels: PaintedLabel[] = [];
+    for (const item of layout) {
+      const label = labelsById.get(item.id);
+      if (!label || !Number.isFinite(item.screenX) || !Number.isFinite(item.screenY)) continue;
+      const ownsFocus = item.id === focusedLabelId;
+      const opacity = ownsFocus ? Math.max(1, item.opacity) : item.opacity;
+      if (opacity <= 0.025) continue;
+      paintedLabels.push({
+        id: item.id,
+        label,
+        word: label.word,
+        translation: label.translation ?? "",
+        anchorX: camera.x + label.x * cameraScale,
+        anchorY: camera.y + label.y * cameraScale,
+        centerX: item.screenX,
+        centerY: item.screenY,
+        width: item.width,
+        height: item.height,
+        // The word index is a deliberate reading surface; hide the spatial
+        // words for its entire lifetime.
+        opacity: wordIndexOpen ? 0 : opacity,
+        interactive: !wordIndexOpen && viewerInteractiveRef.current && (ownsFocus || item.interactive),
+      });
+    }
+    const paintState: LabelPaintState = {
+      labels: paintedLabels,
+      width: viewportWidth,
+      height: viewportHeight,
+      meaningVisible: meaningVisibleRef.current,
+      focusedId: focusedLabelId,
+      hoveredId: hoveredLabelIdRef.current,
+    };
+    labelPaintStateRef.current = paintState;
+    paintLabelCanvas(labelCanvasRef.current, paintState, labelSemanticStyles);
+    // The canvas owns every visible word, so its readable count is the only
+    // truthful on-screen count. Tests read this attribute instead of the
+    // transparent keyboard mirrors.
+    if (labelCanvasRef.current) {
+      setDatasetValueIfChanged(
+        labelCanvasRef.current,
+        "readableCount",
+        String(paintedLabels.filter((label) => label.interactive && label.opacity >= 0.52).length),
+      );
+      // The painted geometry stays on the element object (not in the DOM) so
+      // browser tests can aim real pointer clicks at a word's drawn position.
+      (labelCanvasRef.current as HTMLCanvasElement & { paintedLabels?: PaintedLabel[] })
+        .paintedLabels = paintedLabels;
+    }
     for (const [labelId, element] of labelElementsRef.current) {
       const item = byId.get(labelId);
       const ownsFocus = activeElement === element;
@@ -1622,63 +1602,10 @@ export function SceneViewport({
       const interactive = !wordIndexOpen
         && viewerInteractiveRef.current
         && (ownsFocus || Boolean(item?.interactive));
-      const opacityStyle = opacity.toFixed(3);
       const visibleValue = String(!wordIndexOpen && opacity > 0.025);
       const interactiveValue = String(interactive);
       const adaptiveValue = String(Boolean(item?.adaptive));
       const hiddenValue = String(!interactive);
-      setStylePropertyIfChanged(element.style, "--label-opacity", opacityStyle);
-      // Collision-blocked and offscreen labels are aria-hidden, unfocusable and
-      // fully transparent. Their last geometry cannot be observed, so do not
-      // churn transform/leader custom properties until the label is actually
-      // painted again. A newly visible label receives every value in this same
-      // frame before data-visible opens its CSS visibility gate.
-      if (
-        (opacity > 0.025 || ownsFocus)
-        && item
-        && Number.isFinite(item.screenX)
-        && Number.isFinite(item.screenY)
-      ) {
-        const previousOffset = previousLabelPlacementOffsets.get(labelId);
-        const offsetShift = previousOffset
-          ? Math.hypot(
-            item.offsetX - previousOffset.offsetX,
-            item.offsetY - previousOffset.offsetY,
-          )
-          : 0;
-        if (offsetShift >= 12) {
-          setDatasetValueIfChanged(element, "layoutShift", "true");
-          const previousTimer = labelShiftTimersRef.current.get(labelId);
-          if (previousTimer !== undefined) window.clearTimeout(previousTimer);
-          const timer = window.setTimeout(() => {
-            if (labelShiftTimersRef.current.get(labelId) !== timer) return;
-            labelShiftTimersRef.current.delete(labelId);
-            if (element.isConnected) delete element.dataset.layoutShift;
-          }, 150);
-          labelShiftTimersRef.current.set(labelId, timer);
-        }
-        const anchorX = -item.offsetX;
-        const anchorY = -item.offsetY;
-        const displacement = Math.hypot(anchorX, anchorY);
-        const leaderAngle = Math.atan2(anchorY, anchorX) * 180 / Math.PI;
-        // The artwork keeps its single composited camera transform, while text
-        // is projected into this unscaled sibling overlay. A pixel-snapped
-        // translation keeps glyphs native-sized without invalidating layout.
-        const screenX = snapToDevicePixel(item.screenX).toFixed(2);
-        const screenY = snapToDevicePixel(item.screenY).toFixed(2);
-        setStylePropertyIfChanged(
-          element.style,
-          "transform",
-          `translate3d(${screenX}px, ${screenY}px, 0) translate(-50%, -50%)`,
-        );
-        setStylePropertyIfChanged(element.style, "--label-anchor-x", `${anchorX.toFixed(2)}px`);
-        setStylePropertyIfChanged(element.style, "--label-anchor-y", `${anchorY.toFixed(2)}px`);
-        setStylePropertyIfChanged(element.style, "--label-leader-length", `${displacement.toFixed(2)}px`);
-        setStylePropertyIfChanged(element.style, "--label-leader-angle", `${leaderAngle.toFixed(2)}deg`);
-        setDatasetValueIfChanged(element, "displaced", String(displacement >= 4));
-        setDatasetValueIfChanged(element, "leaderSpan", displacement >= 82 ? "long" : "short");
-        setDatasetValueIfChanged(element, "anchorMode", displacement >= 4 ? "leader" : "stem");
-      }
       setDatasetValueIfChanged(element, "visible", visibleValue);
       setDatasetValueIfChanged(element, "interactive", interactiveValue);
       setDatasetValueIfChanged(element, "adaptive", adaptiveValue);
@@ -1742,6 +1669,9 @@ export function SceneViewport({
     setDatasetValueIfChanged(labelLayer, "sceneScale", sceneScaleValue);
     const sceneWordProgress = sceneWordProgressRef.current;
     if (sceneWordProgress) {
+      // Per-user direction: no "本景还有 N 个词" count in ordinary scenes. The
+      // home atlas keeps its one-line hover instruction.
+      sceneWordProgress.hidden = !(atlasOverviewMode || VOCABULARY_HINTS_ENABLED);
       const total = scene.labels.length;
       const remaining = atlasOverviewMode ? total : Math.max(0, total - visibleCount);
       const maximumZoom = camera.scale >= maximumScale - 0.02;
@@ -1815,6 +1745,22 @@ export function SceneViewport({
         setEncounterTick((current) => current + 1);
       }, Math.max(1, Math.ceil(dwell.nextCheckInMs)));
     }
+
+    setDatasetValueIfChanged(interactionLayer, "sceneScale", sceneScaleValue);
+    if (!interactionPositionedRef.current) {
+      interactionPositionedRef.current = true;
+      setDatasetValueIfChanged(interactionLayer, "positioned", "true");
+      setInteractionPositioned(true);
+    }
+    onCameraFrame?.({
+      sceneId: scene.id,
+      camera: { ...camera },
+      viewportWidth,
+      viewportHeight,
+    });
+    // Disabled hint controls retain their initial hidden state. In particular,
+    // a wheel or pinch frame shouldn't compute a batch of words for them.
+    if (!VOCABULARY_HINTS_ENABLED) return;
 
     const visibleItemsInPlacementOrder = layout
       .filter((item) => item.interactive)
@@ -1905,7 +1851,7 @@ export function SceneViewport({
         visibleSceneWidth * 0.4,
         visibleSceneHeight * 0.4,
       );
-    const cueLimit = sceneVocabularyCueLimit(viewportWidth);
+    const cueLimit = VOCABULARY_HINTS_ENABLED ? sceneVocabularyCueLimit(viewportWidth) : 0;
     let activeCueCount = 0;
     for (const element of interactionLayer.querySelectorAll<HTMLButtonElement>(".vocabulary-zoom-cue")) {
       const batch = cueBatches.find((candidate) => candidate.cue.id === element.dataset.cueId);
@@ -2014,17 +1960,11 @@ export function SceneViewport({
       Number.isFinite(nextSceneLod) ? String(nextSceneLod) : "none",
     );
     setDatasetValueIfChanged(surface, "visibleVocabularyCueCount", String(activeCueCount));
-    setDatasetValueIfChanged(interactionLayer, "sceneScale", sceneScaleValue);
-    if (!interactionPositionedRef.current) {
-      interactionPositionedRef.current = true;
-      setDatasetValueIfChanged(interactionLayer, "positioned", "true");
-      setInteractionPositioned(true);
-    }
 
     const summaryElement = vocabularySummaryRef.current;
     if (summaryElement) {
       const leadingLabel = revealSummary.nextLabels[0];
-      const summaryActive = Boolean(
+      const summaryActive = VOCABULARY_HINTS_ENABLED && Boolean(
         leadingLabel
         && revealSummary.nextLod !== null
         && revealSummary.targetScale !== null
@@ -2060,13 +2000,7 @@ export function SceneViewport({
       }
       setAttributeIfChanged(summaryElement, "aria-label", "继续放大，显示下一批词");
     }
-    onCameraFrame?.({
-      sceneId: scene.id,
-      camera: { ...camera },
-      viewportWidth,
-      viewportHeight,
-    });
-  }, [activeAtlasLabels, atlasOverviewMode, clampCamera, continuousTileDirection, continuousTileState, labelsById, onCameraFrame, onLabelsEncountered, positionAtlasCategories, reconcileSceneAssetForCamera, scene, selectedLabelId, showPortalPreview, vocabularyZoomCues, wordIndexOpen]);
+  }, [activeAtlasLabels, atlasOverviewMode, clampCamera, continuousTileDirection, continuousTileState, labelSemanticStyles, labelsById, onCameraFrame, onLabelsEncountered, positionAtlasCategories, reconcileSceneAssetForCamera, scene, selectedLabelId, showPortalPreview, vocabularyZoomCues, wordIndexOpen]);
 
   useLayoutEffect(() => {
     if (pendingLabelWindowPaintRef.current) {
@@ -2098,6 +2032,14 @@ export function SceneViewport({
     focusedDetailZoneValueRef.current = focusedDetailZone;
     requestCameraFrame();
   }, [focusedDetailZone, requestCameraFrame]);
+
+  // The mini-map reserves less room when collapsed, so words must re-place
+  // as soon as the user folds or unfolds it.
+  useLayoutEffect(() => {
+    if (minimapCollapsedRef.current === minimapCollapsed) return;
+    minimapCollapsedRef.current = minimapCollapsed;
+    requestCameraFrame();
+  }, [minimapCollapsed, requestCameraFrame]);
 
   // Category regions mount after the first scene frame. A layout effect gives
   // each region a concrete camera rectangle before the browser paints, so the
@@ -2133,11 +2075,6 @@ export function SceneViewport({
     requestCameraFrame();
   }, [requestCameraFrame]);
 
-  const resetSemanticOverscroll = useCallback(() => {
-    semanticOverscrollRef.current = 0;
-    semanticOverscrollTimestampRef.current = null;
-  }, []);
-
   const resetParentExitHysteresis = useCallback(() => {
     parentExitHysteresisRef.current = createParentExitHysteresisState();
     parentExitReadyRef.current = false;
@@ -2161,7 +2098,8 @@ export function SceneViewport({
     }
   }, [scene.parentId]);
 
-  const updateZoomDirection = useCallback((next: "in" | "out" | null) => {
+  const updateZoomDirection = useCallback((next: "in" | "out" | null, manual = false) => {
+    retainManualZoomSlotsRef.current = manual && next === "in";
     const previous = zoomDirectionRef.current;
     if (shouldResetLabelPlacementMemory(previous, next)) {
       labelPlacementOffsetsRef.current.clear();
@@ -2170,9 +2108,8 @@ export function SceneViewport({
   }, []);
 
   useEffect(() => {
-    resetSemanticOverscroll();
     resetParentExitHysteresis();
-  }, [resetParentExitHysteresis, resetSemanticOverscroll, scene.id]);
+  }, [resetParentExitHysteresis, scene.id]);
 
   useEffect(() => {
     if (encounterTick > 0) requestCameraFrame();
@@ -2181,7 +2118,6 @@ export function SceneViewport({
   const resetCamera = useCallback(() => {
     const viewport = viewportRef.current;
     if (!viewport || committingRef.current) return;
-    resetSemanticOverscroll();
     resetParentExitHysteresis();
     labelPlacementOffsetsRef.current.clear();
     stopWheelAnimation();
@@ -2214,7 +2150,7 @@ export function SceneViewport({
       && document.activeElement.matches(".scene-hotspot");
     if (!portalHasFocus && !continuityView) showPortalPreview(null);
     requestCameraFrame();
-  }, [cancelCameraAnimation, reducedContinuityAtMount, requestCameraFrame, resetParentExitHysteresis, resetSemanticOverscroll, scene, showPortalPreview, stopWheelAnimation, updateZoomDirection]);
+  }, [cancelCameraAnimation, reducedContinuityAtMount, requestCameraFrame, resetParentExitHysteresis, scene, showPortalPreview, stopWheelAnimation, updateZoomDirection]);
 
   const beginPortalTransition = useCallback((
     portal: ScenePortal,
@@ -2438,63 +2374,9 @@ export function SceneViewport({
     });
   }, [evaluateNavigation]);
 
-  const trySemanticOverscroll = useCallback((
-    point: Point,
-    factor: number,
-    portal: ScenePortal | undefined,
-  ): boolean => {
-    // A spatial zoom must never turn into a semantic-world jump merely because
-    // the scene has some other portal. Only an explicit semantic bridge may
-    // call the semantic plane; the current product has no such spatial bridge.
-    // A portal under the focal point is left to evaluateNavigation, which owns
-    // the scene entry and keeps the object under the user's cursor.
-    if (!portal || scene.portals.length === 0) {
-      resetSemanticOverscroll();
-      return false;
-    }
-    const now = performance.now();
-    const result = advanceSemanticOverscroll(
-      semanticOverscrollRef.current,
-      factor,
-      cameraRef.current.scale >= maximumSceneCameraScale(cameraRef.current.fit) - 0.02,
-      Boolean(portal),
-      semanticOverscrollTimestampRef.current === null
-        ? Number.POSITIVE_INFINITY
-        : now - semanticOverscrollTimestampRef.current,
-      scene.portals.length > 0,
-    );
-    semanticOverscrollRef.current = result.accumulated;
-    semanticOverscrollTimestampRef.current = result.accumulated > 0 ? now : null;
-    if (!result.trigger || !onExploreSemanticPlane) return false;
-
-    const activeIds = new Set(
-      [...(labelLayerRef.current?.querySelectorAll<HTMLElement>(
-        '.word-label[data-interactive="true"]',
-      ) ?? [])].map((element) => element.dataset.labelId),
-    );
-    const nearest = scene.labels
-      .filter((label) => label.lexemeId && activeIds.has(label.id))
-      .map((label) => ({
-        label,
-        distance: distance(projectScenePointToScreen(label, cameraRef.current), point),
-      }))
-      .filter(({ distance: labelDistance }) => labelDistance <= 190)
-      .sort((a, b) => a.distance - b.distance)[0]?.label ?? null;
-
-    stopWheelAnimation();
-    cancelCameraAnimation();
-    // Semantic overscroll is the tail of an inward spatial gesture. Preserve
-    // that direction while the overlay is open so the first outward gesture
-    // after returning clears the inward-only callout placement memory.
-    updateZoomDirection("in");
-    onExploreSemanticPlane(nearest, "zoom");
-    return true;
-  }, [cancelCameraAnimation, onExploreSemanticPlane, resetSemanticOverscroll, scene.labels, scene.portals, stopWheelAnimation, updateZoomDirection]);
-
   const zoomAt = useCallback(
     (point: Point, factor: number, previousPoint: Point = point) => {
       if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
-      if (factor <= 1) resetSemanticOverscroll();
       stopWheelAnimation();
       cancelCameraAnimation();
       const camera = cameraRef.current;
@@ -2505,15 +2387,19 @@ export function SceneViewport({
         Math.max(minimum, camera.scale * factor),
       );
       sampleParentExitHysteresis(factor, nextScale);
-      const semanticPortal = factor > 1 && sceneUsesWheelPortalEntry(scene.id)
-        ? portalAtScreenPoint(scene.portals, camera, previousPoint)
-        : undefined;
-      if (trySemanticOverscroll(point, factor, semanticPortal)) return;
       if (
         nextScale === camera.scale
         && point.x === previousPoint.x
         && point.y === previousPoint.y
-      ) return;
+      ) {
+        // A fresh outward gesture at the minimum can leave the scene even
+        // though it produces no new camera frame.
+        if (parentExitReadyRef.current) {
+          updateZoomDirection("out", true);
+          scheduleNavigationCheck();
+        }
+        return;
+      }
       const ratio = nextScale / camera.scale;
       const nextCamera = {
         ...camera,
@@ -2523,8 +2409,8 @@ export function SceneViewport({
       };
       cameraRef.current = nextCamera;
       zoomFocusRef.current = point;
-      if (factor > 1) updateZoomDirection("in");
-      else if (factor < 1) updateZoomDirection("out");
+      if (factor > 1) updateZoomDirection("in", true);
+      else if (factor < 1) updateZoomDirection("out", true);
       else updateZoomDirection(null);
       if (factor > 1) {
         const portal = portalAtScreenPoint(scene.portals, camera, previousPoint)
@@ -2560,12 +2446,11 @@ export function SceneViewport({
       requestCameraFrame();
       scheduleNavigationCheck();
     },
-    [cancelCameraAnimation, resetSemanticOverscroll, sampleParentExitHysteresis, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.id, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, trySemanticOverscroll, updateZoomDirection],
+    [cancelCameraAnimation, sampleParentExitHysteresis, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, updateZoomDirection],
   );
 
   const queueWheelZoom = useCallback((point: Point, factor: number) => {
     if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
-    if (factor <= 1) resetSemanticOverscroll();
     if (navigationFrameRef.current !== null) {
       cancelAnimationFrame(navigationFrameRef.current);
       navigationFrameRef.current = null;
@@ -2587,16 +2472,10 @@ export function SceneViewport({
       x: point.x - (point.x - base.x) * ratio,
       y: point.y - (point.y - base.y) * ratio,
     });
-    const semanticPortal = factor > 1 && sceneUsesWheelPortalEntry(scene.id)
-      ? portalAtScreenPoint(scene.portals, cameraRef.current, point)
-        ?? portalAtScreenPoint(scene.portals, base, point)
-        ?? portalAtScreenPoint(scene.portals, target, point)
-      : undefined;
-    if (trySemanticOverscroll(point, factor, semanticPortal)) return;
     wheelTargetRef.current = target;
     zoomFocusRef.current = point;
-    if (factor > 1) updateZoomDirection("in");
-    else if (factor < 1) updateZoomDirection("out");
+    if (factor > 1) updateZoomDirection("in", true);
+    else if (factor < 1) updateZoomDirection("out", true);
 
     if (factor > 1) {
       const portal = portalAtScreenPoint(scene.portals, base, point)
@@ -2670,7 +2549,7 @@ export function SceneViewport({
       wheelFrameTimeRef.current = null;
     };
     wheelAnimationRef.current = requestAnimationFrame(animate);
-  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, resetSemanticOverscroll, sampleParentExitHysteresis, scene.id, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, trySemanticOverscroll, updateZoomDirection, viewerInteractive]);
+  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, sampleParentExitHysteresis, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, updateZoomDirection, viewerInteractive]);
 
   const focusVocabularyTarget = useCallback((
     fallbackLabelId: string,
@@ -2804,7 +2683,6 @@ export function SceneViewport({
 
     stopWheelAnimation();
     cancelCameraAnimation();
-    resetSemanticOverscroll();
     resetParentExitHysteresis();
     portalCandidateRef.current = null;
     showPortalPreview(null);
@@ -2890,7 +2768,7 @@ export function SceneViewport({
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
     return true;
-  }, [cancelCameraAnimation, clampCamera, labelsById, requestCameraFrame, resetParentExitHysteresis, resetSemanticOverscroll, scene.detailZones, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
+  }, [cancelCameraAnimation, clampCamera, labelsById, requestCameraFrame, resetParentExitHysteresis, scene.detailZones, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
 
   useEffect(() => {
     if (!onFocusTargetNavigatorReady) return;
@@ -3033,6 +2911,7 @@ export function SceneViewport({
 
   useEffect(() => {
     viewerInteractiveRef.current = viewerInteractive;
+    if (meaningVisibleRef.current !== meaningVisible) retainManualZoomSlotsRef.current = false;
     meaningVisibleRef.current = meaningVisible;
     requestCameraFrame();
   }, [meaningVisible, requestCameraFrame, viewerInteractive]);
@@ -3085,14 +2964,51 @@ export function SceneViewport({
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
+    if (pointersRef.current.size > 0) tapStartRef.current = null;
     if ((event.target as Element).closest("button")) return;
-    resetSemanticOverscroll();
     stopWheelAnimation();
     cancelCameraAnimation();
     event.currentTarget.setPointerCapture(event.pointerId);
     const point = { x: event.clientX, y: event.clientY };
+    tapStartRef.current = event.isPrimary && event.button === 0 && pointersRef.current.size === 0
+      ? { pointerId: event.pointerId, ...point }
+      : null;
     pointersRef.current.set(event.pointerId, point);
     previousPointersRef.current.set(event.pointerId, point);
+  };
+
+  const updateCanvasLabelHover = (event: React.PointerEvent<HTMLDivElement>) => {
+    const state = labelPaintStateRef.current;
+    if (!state) return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const hit = hitPaintedLabel(state.labels, event.clientX - bounds.left, event.clientY - bounds.top);
+    const nextId = hit?.id ?? null;
+    if (nextId === hoveredLabelIdRef.current) return;
+    hoveredLabelIdRef.current = nextId;
+    const next: LabelPaintState = { ...state, hoveredId: nextId };
+    labelPaintStateRef.current = next;
+    paintLabelCanvas(labelCanvasRef.current, next, labelSemanticStyles);
+    event.currentTarget.style.cursor = hit ? "pointer" : "";
+  };
+
+  // Canvas words are hit-tested by pointer on release. Keyboard users reach the
+  // focusable DOM mirror buttons, whose own click handlers stay in place.
+  const activateCanvasLabel = (event: React.PointerEvent<HTMLDivElement>) => {
+    const start = tapStartRef.current;
+    if (!start || start.pointerId !== event.pointerId || !viewerInteractive || committingRef.current
+      || continuitySettlingRef.current || event.defaultPrevented
+      || Math.hypot(event.clientX - start.x, event.clientY - start.y) > 6) return;
+    if ((event.target as Element).closest("button, a, input, textarea, select")) return;
+    const state = labelPaintStateRef.current;
+    if (!state) return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const hit = hitPaintedLabel(state.labels, event.clientX - bounds.left, event.clientY - bounds.top, event.pointerType);
+    if (!hit) return;
+    if (atlasOverviewMode) setAtlasCategoryId(null);
+    selectedLabelIdRef.current = hit.id;
+    requestCameraFrame();
+    reportClickedLabel(hit.label);
+    onSelectWord(hit.label);
   };
 
   const updateAtlasCategoryHover = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -3124,19 +3040,22 @@ export function SceneViewport({
   };
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!pointersRef.current.has(event.pointerId)) updateCanvasLabelHover(event);
     if (!pointersRef.current.has(event.pointerId)) {
       updateAtlasCategoryHover(event);
       return;
     }
     if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
     const current = { x: event.clientX, y: event.clientY };
+    const start = tapStartRef.current;
+    if (start && Math.hypot(current.x - start.x, current.y - start.y) > 6) tapStartRef.current = null;
     const previous = previousPointersRef.current.get(event.pointerId) ?? current;
     pointersRef.current.set(event.pointerId, current);
 
     const points = [...pointersRef.current.entries()];
     if (points.length === 1) {
-      resetSemanticOverscroll();
       const camera = cameraRef.current;
+      if (current.x !== previous.x || current.y !== previous.y) retainManualZoomSlotsRef.current = false;
       cameraRef.current = {
         ...camera,
         x: camera.x + current.x - previous.x,
@@ -3168,7 +3087,9 @@ export function SceneViewport({
   };
 
   const releasePointer = (event: React.PointerEvent<HTMLDivElement>) => {
-    resetSemanticOverscroll();
+    if (!pointersRef.current.has(event.pointerId)) return;
+    if (event.type === "pointerup") activateCanvasLabel(event);
+    tapStartRef.current = null;
     pointersRef.current.delete(event.pointerId);
     previousPointersRef.current.delete(event.pointerId);
     if (viewerInteractive && !committingRef.current) scheduleNavigationCheck();
@@ -3445,11 +3366,13 @@ export function SceneViewport({
           className="label-layer"
           data-testid="scene-label-layer"
           data-coordinate-space="screen"
+          data-paint="canvas"
           data-motion-frozen={String(motionFrozen)}
           inert={motionFrozen ? true : undefined}
           aria-hidden={motionFrozen ? true : undefined}
           aria-label="Words in this scene"
         >
+          <canvas ref={labelCanvasRef} className="label-canvas" aria-hidden="true" />
           {labelsForRender.map((label) => {
             const semanticStyle = labelSemanticStyles.get(label.id);
             return (
@@ -3490,7 +3413,11 @@ export function SceneViewport({
                 }}
                 onPointerEnter={atlasOverviewMode ? cancelAtlasCategoryClose : undefined}
                 onPointerLeave={atlasOverviewMode ? scheduleAtlasCategoryClose : undefined}
-                onFocus={atlasOverviewMode ? cancelAtlasCategoryClose : undefined}
+                onFocus={() => {
+                  if (atlasOverviewMode) cancelAtlasCategoryClose();
+                  requestCameraFrame();
+                }}
+                onBlur={requestCameraFrame}
               >
                 {label.word}
                 {meaningVisible ? (
@@ -3571,6 +3498,7 @@ export function SceneViewport({
               ref={sceneWordProgressRef}
               className="gesture-hint"
               data-testid="scene-word-progress"
+              hidden={!VOCABULARY_HINTS_ENABLED}
               data-current="0"
               data-total={scene.labels.length}
               data-remaining={scene.labels.length}

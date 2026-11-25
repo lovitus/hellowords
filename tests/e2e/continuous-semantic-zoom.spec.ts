@@ -804,6 +804,17 @@ test("reduced motion commits the child on its stable fit frame without a portal-
   });
   expect(firstFrame).toEqual({ firstScale: "1.000", firstTileCount: 0 });
   await expect(page.locator(".loading-pill, .scene-transition-veil, [data-testid='scene-transition-layer']")).toHaveCount(0);
+
+  const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
+  await page.locator(VIEWPORT).hover();
+  await page.waitForTimeout(240);
+  await dispatchWheelBurstAtViewportCenter(page, 240, 2);
+  await expect(surface).toHaveAttribute("data-scene-scale", "0.680");
+  await expect(app).toHaveAttribute("data-scene-id", childScene!);
+  await page.waitForTimeout(240);
+  await page.mouse.wheel(0, 240);
+  await expect(app, "a fresh outward gesture at the minimum returns to the parent")
+    .toHaveAttribute("data-scene-id", "world-map");
 });
 
 test("the semantic field reveals approved realm tiles and native-size words on one plane", async ({ page }, testInfo) => {

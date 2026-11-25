@@ -26,6 +26,25 @@ async function openWorld(page: Page): Promise<Locator> {
   return app;
 }
 
+async function expectReadableMinimapName(button: Locator, name: string): Promise<void> {
+  await button.scrollIntoViewIfNeeded();
+  const label = button.getByText(name, { exact: true });
+  await expect(label).toBeVisible();
+  const fits = await label.evaluate((element) => {
+    const button = element.closest("button")!;
+    const range = document.createRange();
+    range.selectNodeContents(element);
+    const text = range.getBoundingClientRect();
+    if (element.scrollWidth > element.clientWidth + 1 || element.scrollHeight > element.clientHeight + 1) return false;
+    return [button, button.parentElement!].every((container) => {
+      const box = container.getBoundingClientRect();
+      return text.left >= box.left - 1 && text.right <= box.right + 1
+        && text.top >= box.top - 1 && text.bottom <= box.bottom + 1;
+    });
+  });
+  expect(fits, `the full name "${name}" must fit inside its button and the visible list`).toBe(true);
+}
+
 async function startTransitionProbe(page: Page): Promise<void> {
   await page.evaluate(() => {
     const probe: MinimapTransitionProbe = { hardTransitionAppeared: false, settled: [], handoffs: [] };
@@ -152,17 +171,19 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
       background: style.backgroundColor,
       backgroundImage: style.backgroundImage,
       imageVariable: element.getAttribute("style") ?? "",
-      protectedRight: phone ? 312 : compact ? 348 : 412,
-      protectedBottom: phone ? 112 : compact ? 116 : 126,
+      protectedRight: phone ? 240 : compact ? 340 : 262,
+      protectedBottom: phone ? 144 : compact ? 160 : 178,
       rightInStage: bounds.right - (stage?.left ?? 0),
       bottomInStage: bounds.bottom - (stage?.top ?? 0),
     };
   });
   expect(visualContract.width).toBeLessThanOrEqual(370);
-  expect(visualContract.height).toBeLessThan(130);
+  // The panel is a translucent 236x155 card on desktop (see globals.css); its
+  // reserved word-free rectangle must cover it fully.
+  expect(visualContract.height).toBeLessThanOrEqual(visualContract.protectedBottom);
   expect(visualContract.rightInStage).toBeLessThanOrEqual(visualContract.protectedRight);
   expect(visualContract.bottomInStage).toBeLessThanOrEqual(visualContract.protectedBottom);
-  expect(visualContract.background).toMatch(/^rgba\(.+, 0\.78\)$/);
+  expect(visualContract.background).toMatch(/^rgba\(.+, 0\.42\)$/);
   expect(visualContract.backgroundImage).toContain("linear-gradient");
   expect(visualContract.backgroundImage).toContain("world-mega-atlas-2604-v21.jpg");
   expect(visualContract.imageVariable).toContain("--scene-minimap-image");
@@ -170,6 +191,8 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   const scienceDistrict = minimap.locator(
     '[data-testid="scene-minimap-district"][data-district-id="science"]',
   );
+  const districtList = minimap.getByTestId("scene-minimap-districts");
+  const districtListHeight = await districtList.evaluate((list) => list.clientHeight);
   await scienceDistrict.click();
   await expect(app).toHaveAttribute("data-scene-id", "world-map");
   await expect(minimap.locator('[data-testid="scene-minimap-district"]')).toHaveCount(0);
@@ -201,6 +224,8 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
   const chemistryZone = minimap.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="science-chemistry-lab"]',
   );
+  await expectReadableMinimapName(chemistryZone, "Chemistry laboratory");
+  expect(await districtList.evaluate((list) => list.clientHeight)).toBeLessThanOrEqual(districtListHeight + 1);
   await chemistryZone.click();
   await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale"))).toBeGreaterThan(2.3);
   await expect.poll(async () => Number(await page.locator(".scene-surface").getAttribute("data-scene-scale"))).toBeGreaterThan(3.0);
@@ -222,6 +247,13 @@ test("the compact minimap exposes direct children, terminal state, and ancestor 
     if (!viewport || !Number.isFinite(x) || !Number.isFinite(y)) return Number.POSITIVE_INFINITY;
     return Math.hypot(matrix.a * x + matrix.e - viewport.width / 2, matrix.d * y + matrix.f - viewport.height / 2);
   })).toBeLessThan(180);
+  const woodworking = minimap.getByRole("button", { name: /^聚焦 Woodworking bench，/u });
+  await districtList.hover();
+  await page.mouse.wheel(0, await districtList.evaluate((list) => list.scrollHeight));
+  await expect(woodworking).toBeInViewport({ ratio: 0.99 });
+  await expectReadableMinimapName(woodworking, "Woodworking bench");
+  await woodworking.click();
+  await expect(page.getByTestId("scene-zone-focus-region")).toHaveAttribute("data-zone-id", "science-woodworking");
   await minimap.getByTestId("scene-minimap-district-back").click();
   await expect(minimap.locator('[data-testid="scene-minimap-district"]')).toHaveCount(6);
   await expect(minimap.locator('[data-testid="scene-minimap-zone"]')).toHaveCount(0);
@@ -303,7 +335,7 @@ test("the home atlas keeps words hover-scoped to one district", async ({ page },
   await expect(names).toHaveCount(6);
 });
 
-test("child-scene minimaps focus the authored room zones without changing scene ownership", async ({ page }) => {
+test("the Apartment minimap focuses named zones and navigates to Bathroom and back to World atlas", async ({ page }) => {
   const app = await openWorld(page);
   const minimap = page.locator(MINIMAP);
   await minimap.locator(`${CHILD}[data-target-scene="apartment"]`).click();
@@ -348,6 +380,11 @@ test("child-scene minimaps focus the authored room zones without changing scene 
     await expect(button).toHaveAttribute("data-focus-y", String(expectedFocusY));
   }
 
+  const stair = zones.getByRole("button", { name: /^聚焦 Stair entrance，/u });
+  await expectReadableMinimapName(stair, "Stair entrance");
+  await stair.click();
+  await expect(page.getByTestId("scene-zone-focus-region")).toHaveAttribute("data-zone-id", "central-stair-upper-detail");
+
   const kitchen = zones.locator('[data-testid="scene-minimap-zone"][data-zone-id="kitchen-detail"]');
   await expect(kitchen).toBeEnabled();
   await kitchen.click();
@@ -361,6 +398,26 @@ test("child-scene minimaps focus the authored room zones without changing scene 
     "data-zone-id",
     "kitchen-detail",
   );
+
+  const roomLinks = minimap.locator(CHILD);
+  await expect(roomLinks.locator("b")).toHaveText(["Kitchen", "Bedroom", "Bathroom"]);
+  for (const name of ["Kitchen", "Bedroom", "Bathroom"]) {
+    await expectReadableMinimapName(minimap.getByRole("button", { name: `进入 ${name}`, exact: true }), name);
+  }
+  await minimap.getByRole("button", { name: "进入 Bathroom", exact: true }).click();
+  await expect(app).toHaveAttribute("data-scene-id", "bathroom");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(minimap.getByTestId("scene-minimap-title")).toHaveText("Bathroom");
+
+  const path = minimap.getByTestId("scene-minimap-path");
+  await path.getByRole("button", { name: "Apartment", exact: true }).click();
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(minimap.getByTestId("scene-minimap-title")).toHaveText("Apartment");
+  await path.getByRole("button", { name: "World atlas", exact: true }).click();
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(minimap.getByTestId("scene-minimap-title")).toHaveText("World atlas");
 });
 
 test("the minimap exposes the complete color-coded ten-thousand-word plane", async ({ page }) => {

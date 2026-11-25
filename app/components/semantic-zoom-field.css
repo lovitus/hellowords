@@ -531,14 +531,11 @@
 }
 
 .semantic-zoom-field__context span {
-  overflow: hidden;
   color: #5e6a63;
   font-size: 0.68rem;
   font-weight: 720;
-  letter-spacing: 0.08em;
-  text-overflow: ellipsis;
-  text-transform: uppercase;
-  white-space: nowrap;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
 }
 
 .semantic-zoom-field__context strong {

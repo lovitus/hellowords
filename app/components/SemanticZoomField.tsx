@@ -206,6 +206,10 @@ export function SemanticZoomField({
   const [selectedSubcluster, setSelectedSubcluster] = useState<LexicalLevelDescriptor>();
   const [dragging, setDragging] = useState(false);
   const [navigationAnnouncement, setNavigationAnnouncement] = useState("");
+  const [measuredCards, setMeasuredCards] = useState<{
+    layout: string;
+    heights: ReadonlyMap<string, number>;
+  }>();
 
   const resetZoomOutBoundary = useCallback(() => {
     zoomOutBoundaryRef.current = 0;
@@ -415,6 +419,31 @@ export function SemanticZoomField({
     [currentLayout],
   );
   const camera = semanticZoomCamera(view, viewport, activeLayoutBounds);
+  const cardLayout = `${viewport.width}:${displayLevel}:${showMeanings}`;
+  const observeCard = useMemo(() => {
+    if (typeof ResizeObserver === "undefined") return undefined;
+    const observer = new ResizeObserver((entries) => {
+      const tallerCards = new Map<string, number>();
+      for (const entry of entries) {
+        const card = entry.target as HTMLButtonElement;
+        const height = Math.ceil(entry.borderBoxSize?.[0]?.blockSize ?? card.offsetHeight);
+        if (card.dataset.id && height > Number(card.dataset.boxHeight)) {
+          tallerCards.set(card.dataset.id, height);
+        }
+      }
+      if (tallerCards.size) {
+        setMeasuredCards((previous) => ({
+          layout: cardLayout,
+          heights: new Map([...(previous?.layout === cardLayout ? previous.heights : []), ...tallerCards]),
+        }));
+      }
+    });
+    return (card: HTMLButtonElement | null) => {
+      if (!card) return;
+      observer.observe(card, { box: "border-box" });
+      return () => observer.unobserve(card);
+    };
+  }, [cardLayout]);
   const projectedNodes = placeSemanticZoomNodes(
     projectSemanticZoomNodes(
       currentLayout,
@@ -427,6 +456,7 @@ export function SemanticZoomField({
     displayLevel,
     {
       expanded: showMeanings,
+      minimumHeights: measuredCards?.layout === cardLayout ? measuredCards.heights : undefined,
       protectedRegions: [
         { x: 0, y: 0, width: viewport.width, height: viewport.width < 820 ? 94 : 88 },
         { x: 0, y: Math.max(0, viewport.height - 58), width: viewport.width, height: 58 },
@@ -1021,6 +1051,7 @@ export function SemanticZoomField({
           return (
               <button
                 key={`${displayLevel}:${projected.node.id}`}
+                ref={observeCard}
                 type="button"
                 className="semantic-zoom-field__node"
                 data-testid="semantic-zoom-node"
@@ -1035,7 +1066,7 @@ export function SemanticZoomField({
                 data-box-width={projected.boxWidth}
                 data-box-height={projected.boxHeight}
                 data-lexical-word-id={projected.node.word?.id}
-                data-leader={visualMode === "photo" && leaderLength > 8 ? "true" : "false"}
+                data-leader={visualMode === "photo" && leaderLength > 8 && projected.node.authoredPoint ? "true" : "false"}
                 style={{
                   ...style,
                   "--semantic-leader-x": `${leaderX}px`,
@@ -1063,7 +1094,9 @@ export function SemanticZoomField({
         <div className="semantic-zoom-field__context">
           <span>{spatialEntryWord
             ? `${spatialEntryWord} · 实景词 → 相关词域（其余词按语义组织）`
-            : displayLevel === "realm" ? "10 个词汇领域" : breadcrumb}</span>
+            : displayLevel === "realm" ? "10 个词汇领域"
+              : displayLevel === "topic" && selectedRealm ? `${selectedRealm.labelZh} · 领域插画`
+                : breadcrumb}</span>
           <strong>{`${levelLabel} · 当前 ${progressLabel}`}</strong>
         </div>
         <div className="semantic-zoom-field__controls" aria-label="缩放控制">

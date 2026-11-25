@@ -436,32 +436,38 @@ export function sceneVocabularyCueLimit(viewportWidth: number): number {
  * always-visible gold button. The caption is transient and overlays the word
  * layer only while the portal is hovered, focused, or selected as a candidate.
  */
+export function portalCueProtectedRegion(
+  centerX: number,
+  centerY: number,
+  viewport: SceneLabelViewport,
+): SceneLabelProtectedRegion | null {
+  // Desktop keeps the generous 44px button plus its progress halo. Compact
+  // scenes use the 32px control defined by the mobile stylesheet, leaving
+  // dense branch overviews enough real vocabulary space without overlap.
+  const cueSize = viewport.compact ? 40 : 58;
+  const cueHalf = cueSize / 2;
+  if (
+    centerX < -cueHalf
+    || centerX > viewport.width + cueHalf
+    || centerY < -cueHalf
+    || centerY > viewport.height + cueHalf
+  ) return null;
+  return { left: centerX - cueHalf, right: centerX + cueHalf, top: centerY - cueHalf, bottom: centerY + cueHalf };
+}
+
 export function buildPortalCueProtectedRegions(
   portals: readonly Portal[],
   camera: SceneLabelCamera,
   viewport: SceneLabelViewport,
 ): SceneLabelProtectedRegion[] {
   const effectiveScale = camera.fit * camera.scale;
-  // Desktop keeps the generous 44px button plus its progress halo. Compact
-  // scenes use the 32px control defined by the mobile stylesheet, leaving
-  // dense branch overviews enough real vocabulary space without overlap.
-  const cueSize = viewport.compact ? 40 : 58;
-  const cueHalf = cueSize / 2;
   return portals.flatMap((portal) => {
-    const centerX = camera.x + (portal.x + portal.width / 2) * effectiveScale;
-    const centerY = camera.y + (portal.y + portal.height / 2) * effectiveScale;
-    if (
-      centerX < -cueHalf
-      || centerX > viewport.width + cueHalf
-      || centerY < -cueHalf
-      || centerY > viewport.height + cueHalf
-    ) return [];
-    return [{
-      left: centerX - cueHalf,
-      right: centerX + cueHalf,
-      top: centerY - cueHalf,
-      bottom: centerY + cueHalf,
-    }];
+    const cue = portalCueProtectedRegion(
+      camera.x + (portal.x + portal.width / 2) * effectiveScale,
+      camera.y + (portal.y + portal.height / 2) * effectiveScale,
+      viewport,
+    );
+    return cue ? [cue] : [];
   });
 }
 

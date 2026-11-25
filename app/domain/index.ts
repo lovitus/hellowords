@@ -4,6 +4,7 @@ export * from "./navigation";
 export * from "./sceneGraph";
 export * from "./sceneAssets";
 export * from "./labelLayout";
+export * from "./labelPlacement";
 export * from "./labelSemanticStyle";
 export * from "./semanticZoom";
 export * from "./semanticBackdrop";

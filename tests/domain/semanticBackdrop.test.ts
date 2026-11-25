@@ -61,6 +61,19 @@ test("backdrop copy exposes complete topic and leaf names with ordinals", () => 
   assert.match(model.ordinalLabel, /^TOPIC \d+\/44 · WORD GROUP 2\/3$/u);
 });
 
+test("unit and quantity word groups retain the artwork of their reviewed topic", () => {
+  for (const [topic, group, motif] of [
+    ["community", "administrative-unit", "network"],
+    ["community", "military-unit", "network"],
+    ["community", "unit", "network"],
+    ["government-law", "unit", "grid"],
+    ["language", "language-unit", "language"],
+    ["time", "fundamental-quantity", "timeline"],
+  ] as const) {
+    assert.equal(semanticBackdropMotif(topic, `${topic}--${group}`), motif, group);
+  }
+});
+
 test("Field contracts photo overview/topic and diagram subcluster/word modes", () => {
   const source = readFileSync(new URL("app/components/SemanticZoomField.tsx", ROOT), "utf8");
   const css = readFileSync(new URL("app/components/semantic-zoom-field.css", ROOT), "utf8");

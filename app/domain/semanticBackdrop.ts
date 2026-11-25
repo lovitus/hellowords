@@ -120,13 +120,16 @@ export function semanticBackdropMotif(
   subclusterId = "",
   subclusterLabelEn = "",
 ): SemanticBackdropMotif {
+  const reviewedMotif = SEMANTIC_BACKDROP_TOPIC_MOTIFS[
+    topicId as keyof typeof SEMANTIC_BACKDROP_TOPIC_MOTIFS
+  ];
+  if (reviewedMotif) return reviewedMotif;
+
   const numericLeaf = `${subclusterId} ${subclusterLabelEn}`.toLowerCase();
   if (/\b(integer|number|numeral|quantity|measurement|unit|linear-unit)\b/u.test(numericLeaf)) {
     return "number-line";
   }
-  return SEMANTIC_BACKDROP_TOPIC_MOTIFS[
-    topicId as keyof typeof SEMANTIC_BACKDROP_TOPIC_MOTIFS
-  ] ?? fallbackMotif(topicId);
+  return fallbackMotif(topicId);
 }
 
 export function semanticBackdropModel(

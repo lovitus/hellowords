@@ -107,6 +107,7 @@ export function LexicalWorld({
   const [results, setResults] = useState<readonly LexicalWord[]>([]);
   const [searching, setSearching] = useState(false);
   const [selected, setSelected] = useState<LexicalWord | null>(null);
+  const [wordGroup, setWordGroup] = useState<{ wordId: string; labels: string[] }>();
   const [announcement, setAnnouncement] = useState("");
   const repository = useMemo(() => createLexicalWorldRepository(manifestUrl), [manifestUrl]);
 
@@ -196,6 +197,22 @@ export function LexicalWorld({
     const frame = requestAnimationFrame(() => detailCloseRef.current?.focus({ preventScroll: true }));
     return () => cancelAnimationFrame(frame);
   }, [selected]);
+
+  useEffect(() => {
+    if (!open || !selected) return;
+    const controller = new AbortController();
+    void repository.resolvePath(selected, controller.signal).then((path) => {
+      if (!controller.signal.aborted) {
+        setWordGroup({
+          wordId: selected.id,
+          labels: path.slice(1).map((group) => group.labelZh || group.labelEn),
+        });
+      }
+    }).catch(() => {
+      // A missing category index must leave the selected dictionary entry readable.
+    });
+    return () => controller.abort();
+  }, [open, repository, selected]);
 
   useEffect(() => {
     if (!open) {
@@ -318,9 +335,9 @@ export function LexicalWorld({
           {results.map((word) => (
             <li key={word.id}>
               <button type="button" onClick={() => selectWord(word)}>
-                <strong>{word.word}</strong>{" "}
-                {showMeanings ? <span>{word.meaning.split("\n")[0]}</span> : <span>{word.topicId.replaceAll("-", " ")}</span>}{" "}
-                <small>#{word.rank}</small>{" "}
+                <strong>{word.word}</strong>
+                <span>{showMeanings ? word.meaning : word.topicId.replaceAll("-", " ")}</span>
+                <small>#{word.rank}</small>
                 <em>查看词卡 →</em>
               </button>
             </li>
@@ -345,6 +362,11 @@ export function LexicalWorld({
             <small>#{selected.rank} · {selected.partsOfSpeech.join(" · ") || "word"}</small>
             <h2>{selected.word}</h2>
             {selected.phonetic ? <p className="lexical-world__detail-phonetic">/{selected.phonetic}/</p> : null}
+            {wordGroup?.wordId === selected.id ? (
+              <div className="lexical-world__word-group" role="group" aria-label="所属词群">
+                {wordGroup.labels.join(" › ")}
+              </div>
+            ) : null}
             <p>{selected.meaning || "暂无释义"}</p>
             <footer>词卡详情始终显示释义</footer>
           </aside>

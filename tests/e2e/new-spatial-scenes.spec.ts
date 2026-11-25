@@ -700,15 +700,11 @@ async function navigateToParent(
 }
 
 async function readableWordCount(page: Page): Promise<number> {
-  return page.getByTestId("word-label").evaluateAll((labels) => labels.filter((label) => {
-    const style = window.getComputedStyle(label);
-    return (
-      (label as HTMLElement).dataset.interactive === "true"
-      && style.display !== "none"
-      && style.visibility !== "hidden"
-      && Number.parseFloat(style.opacity) >= 0.8
-    );
-  }).length);
+  // Words are painted by the label canvas; its readable count is the number of
+  // words actually drawn at full strength and hit-testable.
+  return page.locator(".label-canvas").evaluate((canvas) => (
+    Number((canvas as HTMLCanvasElement).dataset.readableCount ?? "0")
+  ));
 }
 
 async function startReturnTrace(page: Page): Promise<void> {

@@ -1,4 +1,5 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import { clickPaintedWord } from "./canvas-words";
 
 const APP = '[data-testid="world-app"]';
 const VIEWPORT = '[data-testid="world-viewport"]';
@@ -22,7 +23,6 @@ async function sceneProgress(progress: Locator): Promise<{
   remaining: number;
   cameraMode: string | undefined;
   nextPlane: string | undefined;
-  text: string;
 }> {
   return progress.evaluate((element) => ({
     current: Number((element as HTMLElement).dataset.current),
@@ -30,41 +30,29 @@ async function sceneProgress(progress: Locator): Promise<{
     remaining: Number((element as HTMLElement).dataset.remaining),
     cameraMode: (element as HTMLElement).dataset.cameraMode,
     nextPlane: (element as HTMLElement).dataset.nextPlane,
-    text: element.textContent ?? "",
   }));
 }
 
-async function safeZoomPoint(page: Page): Promise<{ x: number; y: number }> {
-  return page.locator(VIEWPORT).evaluate((element) => {
+async function aimAtOpenTerrain(page: Page): Promise<void> {
+  const point = await page.locator(VIEWPORT).evaluate((element) => {
     const bounds = element.getBoundingClientRect();
+    const surface = element.querySelector(".scene-surface")?.getBoundingClientRect();
+    if (!surface) throw new Error("Missing spatial scene");
+    const x = bounds.left + bounds.width / 2;
+    const y = bounds.top + bounds.height / 2;
+    const target = document.elementFromPoint(x, y);
     const portalBounds = [...element.querySelectorAll<HTMLElement>(".scene-hotspot-region")]
       .map((portal) => portal.getBoundingClientRect());
-    for (const yFraction of [0.35, 0.5, 0.65, 0.8]) {
-      for (const xFraction of [0.08, 0.2, 0.38, 0.62, 0.8, 0.92]) {
-        const x = bounds.left + bounds.width * xFraction;
-        const y = bounds.top + bounds.height * yFraction;
-        if (portalBounds.every((portal) => (
-          x < portal.left || x > portal.right || y < portal.top || y > portal.bottom
-        ))) return { x, y };
-      }
+    const containsPoint = (rect: DOMRect) => (
+      x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom
+    );
+    if (!containsPoint(surface) || portalBounds.some(containsPoint)
+      || !target || !element.contains(target) || target.closest("button, a, input")) {
+      throw new Error("The center of this scene must hit the visible terrain outside its portals");
     }
-    throw new Error("scene needs a non-portal point for the maximum-zoom progress contract");
+    return { x, y };
   });
-}
-
-async function wheelSceneAt(
-  page: Page,
-  point: { x: number; y: number },
-  deltaY: number,
-): Promise<void> {
-  await page.locator(VIEWPORT).dispatchEvent("wheel", {
-    clientX: point.x,
-    clientY: point.y,
-    deltaY,
-    deltaMode: 0,
-    bubbles: true,
-    cancelable: true,
-  });
+  await page.mouse.move(point.x, point.y);
 }
 
 test("a reviewed spatial word enters its exact semantic realm without search fanout", async ({ page }, testInfo) => {
@@ -88,7 +76,7 @@ test("a reviewed spatial word enters its exact semantic realm without search fan
     "wetland",
   );
   await expect(pond).toHaveAttribute("data-interactive", "true");
-  await pond.click();
+  await clickPaintedWord(page, "wetland-pond");
   const card = page.getByRole("complementary", { name: "pond word details" });
   await expect(card).toBeVisible();
   const bridge = card.getByRole("button", {
@@ -157,22 +145,22 @@ test("the global header entry remains a provenance-free realm overview", async (
   await expect(app).toHaveAttribute("data-semantic-transition-state", "open");
 });
 
-test("scene progress conserves its total and switches to pan guidance at maximum zoom", async ({ page }) => {
+test("zooming into ordinary terrain in a scene with portals keeps the spatial camera", async ({ page }) => {
   const app = await openWorld(page);
   await page.locator('[data-testid="scene-minimap-child"][data-target-scene="community-garden"]').click();
   await expect(app).toHaveAttribute("data-scene-id", "community-garden");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
   await expect(page.getByTestId("scene-label-layer")).toHaveAttribute("data-motion-frozen", "false");
   const progress = page.getByTestId("scene-word-progress");
-  await expect(progress).toBeVisible();
+  await expect(progress).toBeHidden();
   await expect.poll(async () => (await sceneProgress(progress)).current).toBeGreaterThan(0);
   const initial = await sceneProgress(progress);
   expect(initial.current + initial.remaining).toBe(initial.total);
 
-  const point = await safeZoomPoint(page);
-  await page.mouse.move(point.x, point.y);
   // A navigation handoff deliberately consumes its trailing wheel stream.
   // Start this zoom as a separate user gesture after the handoff quiet window.
   await page.waitForTimeout(INDEPENDENT_WHEEL_GESTURE_GAP_MS);
+  await aimAtOpenTerrain(page);
   const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
   await expect(surface).toHaveAttribute("data-maximum-scale", /\d/u);
   const maximumScale = Number(await surface.getAttribute("data-maximum-scale"));
@@ -183,7 +171,7 @@ test("scene progress conserves its total and switches to pan guidance at maximum
   await expect.poll(async () => {
     const scale = Number(await surface.getAttribute("data-scene-scale"));
     if (Number.isFinite(scale) && scale < requiredScale) {
-      await wheelSceneAt(page, point, -480);
+      await page.mouse.wheel(0, -480);
     }
     return Number(await surface.getAttribute("data-scene-scale"));
   }, {
@@ -198,9 +186,12 @@ test("scene progress conserves its total and switches to pan guidance at maximum
   expect(maximum.current + maximum.remaining).toBe(maximum.total);
   expect(maximum.cameraMode).toBe("pan");
   expect(maximum.nextPlane).toBe("spatial-terminal");
-  expect(maximum.text).toContain("拖动");
-  expect(maximum.text).toContain("已到最大倍率");
-  await expect(progress).toHaveAttribute("aria-label", /拖动探索/);
+  for (let i = 0; i < 3; i += 1) await page.mouse.wheel(0, -240);
+  await expect(app).toHaveAttribute("data-scene-id", "community-garden");
+  await expect(page.getByRole("dialog", { name: DIALOG_NAME })).toHaveCount(0);
+  await page.mouse.wheel(0, 360);
+  await expect.poll(async () => Number(await surface.getAttribute("data-scene-scale"))).toBeLessThan(requiredScale);
+  await expect(app).toHaveAttribute("data-scene-id", "community-garden");
 });
 
 test("continued zoom at a terminal spatial scene stays in the scene", async ({ page }) => {
@@ -214,9 +205,8 @@ test("continued zoom at a terminal spatial scene stays in the scene", async ({ p
   }
   await expect(page.getByTestId("scene-label-layer")).toHaveAttribute("data-motion-frozen", "false");
   await expect(page.getByTestId("scene-minimap")).toHaveAttribute("data-terminal", "true");
-  const point = await safeZoomPoint(page);
-  await page.mouse.move(point.x, point.y);
   await page.waitForTimeout(INDEPENDENT_WHEEL_GESTURE_GAP_MS);
+  await aimAtOpenTerrain(page);
   const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
   await expect(surface).toHaveAttribute("data-maximum-scale", /\d/u);
   const maximumScale = Number(await surface.getAttribute("data-maximum-scale"));
@@ -224,14 +214,15 @@ test("continued zoom at a terminal spatial scene stays in the scene", async ({ p
   await expect.poll(async () => {
     const scale = Number(await surface.getAttribute("data-scene-scale"));
     if (Number.isFinite(scale) && scale < requiredScale) {
-      await wheelSceneAt(page, point, -480);
+      await page.mouse.wheel(0, -480);
     }
     return Number(await surface.getAttribute("data-scene-scale"));
   }, { intervals: [45], timeout: 8_000 }).toBeGreaterThanOrEqual(requiredScale);
 
   const progress = page.getByTestId("scene-word-progress");
+  await expect(progress).toBeHidden();
+  await expect(progress).toHaveAttribute("data-camera-mode", "pan");
   await expect(progress).toHaveAttribute("data-next-plane", "spatial-terminal");
-  await expect(progress).toContainText("已到最大倍率");
   const dialog = page.getByRole("dialog", { name: DIALOG_NAME });
   await expect(dialog).toHaveCount(0);
   await expect(app).toHaveAttribute("data-scene-id", "potting-workbench");
@@ -239,9 +230,20 @@ test("continued zoom at a terminal spatial scene stays in the scene", async ({ p
 
   // Additional inward wheel samples at the hard spatial ceiling must remain
   // inert rather than opening a second plane behind the learner's back.
-  for (let index = 0; index < 3; index += 1) await wheelSceneAt(page, point, -240);
+  for (let index = 0; index < 3; index += 1) await page.mouse.wheel(0, -240);
   await page.waitForTimeout(300);
   await expect(dialog).toHaveCount(0);
   await expect(app).toHaveAttribute("data-scene-id", "potting-workbench");
   await expect(progress).toHaveAttribute("data-next-plane", "spatial-terminal");
+
+  // One continuous outward gesture returns to the workbench overview. Only
+  // a fresh gesture at that boundary should take the learner to the garden.
+  for (let index = 0; index < 16; index += 1) await page.mouse.wheel(0, 480);
+  await expect.poll(async () => Number(await surface.getAttribute("data-scene-scale"))).toBeLessThanOrEqual(0.7);
+  await expect(app).toHaveAttribute("data-scene-id", "potting-workbench");
+  await page.waitForTimeout(INDEPENDENT_WHEEL_GESTURE_GAP_MS);
+  await page.mouse.wheel(0, 480);
+  await expect(app).toHaveAttribute("data-scene-id", "community-garden");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(dialog).toHaveCount(0);
 });
