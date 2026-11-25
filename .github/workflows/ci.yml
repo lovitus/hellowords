@@ -51,7 +51,7 @@ jobs:
           jq -e --arg sha "$BASE" '.gitSha == $sha' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
           mv "$RUNNER_TEMP/previous/dist" dist
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/airport-bag-drop.spec.ts --project=chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
+          ./node_modules/.bin/playwright test tests/e2e/airport-bag-drop.spec.ts --grep 'airport bag drop keeps' --project=chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
           mv dist "$RUNNER_TEMP/previous/dist"
           mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old.json"
           mv artifacts/e2e/test-results "$RUNNER_TEMP/evidence/old-screens"
@@ -64,6 +64,27 @@ jobs:
               any(.results[0].attachments[]; .name == "left-baggage-scale-view" and .contentType == "image/png" and (.body | length) > 0) and
               any(.results[0].attachments[] | select(.name == "left-baggage-scale-geometry") | .body | @base64d | fromjson;
                 .onObject == false and (.photoX - 300 | fabs) < 2 and (.photoY - 580 | fabs) < 2))' "$RUNNER_TEMP/evidence/old.json"
+      - uses: actions/download-artifact@v5
+        with:
+          name: production-dist-123febaec72a7da0b1038d3501a21742fa9df14c
+          run-id: 45699531823
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/before-gesture
+      - name: Reproduce the missing entrance and interrupted pinch on mobile
+        id: gesture_baseline
+        continue-on-error: true
+        run: |
+          jq -e '.gitSha == "123febaec72a7da0b1038d3501a21742fa9df14c"' "$RUNNER_TEMP/before-gesture/artifacts/build/dist-manifest.json"
+          mv "$RUNNER_TEMP/before-gesture/dist" dist
+          code=0
+          ./node_modules/.bin/playwright test tests/e2e/airport-bag-drop.spec.ts --grep 'airport Fit keeps|one fixed-midpoint pinch' --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/old-gesture.log" 2>&1 || code=$?
+          mv dist "$RUNNER_TEMP/before-gesture/dist"
+          mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old-gesture.json"
+          mv artifacts/e2e/test-results "$RUNNER_TEMP/evidence/old-gesture-screens"
+          test "$code" -eq 1
+          jq -e '.stats.unexpected == 2 and
+            any(.. | objects | .errors? // [] | .[]; .message | contains("airport Fit keeps the whole left check-in button")) and
+            any(.. | objects | .errors? // [] | .[]; .message | contains("silver rollers enters the baggage conveyor"))' "$RUNNER_TEMP/evidence/old-gesture.json"
       - name: Verify scene data, camera geometry, navigation and label placement
         run: |
           git show "$BASE:public/data/scenes/baggage-drop-station.json" | jq -S '[.labels[] | {id, word, translation}] | sort_by(.id)' > "$RUNNER_TEMP/previous-words.json"
@@ -93,7 +114,7 @@ jobs:
         run: |
           ./node_modules/.bin/playwright test \
             tests/e2e/airport-bag-drop.spec.ts tests/e2e/world.spec.ts tests/e2e/portrait-room.spec.ts \
-            --grep 'airport bag drop|portrait apartment entrances|enters a scene slice on zoom|root atlas wheel zoom stays' \
+            --grep 'airport bag drop|airport Fit keeps|one fixed-midpoint pinch|portrait apartment entrances|enters a scene slice on zoom|root atlas wheel zoom stays' \
             --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/new.log" 2>&1
           jq -e '
             .stats.unexpected == 0 and .stats.flaky == 0 and
@@ -125,4 +146,4 @@ jobs:
           retention-days: 7
       - name: Require the original baggage scale failure
         if: ${{ !cancelled() }}
-        run: test "${{ steps.baseline.outcome }}" = success
+        run: test "${{ steps.baseline.outcome }}" = success && test "${{ steps.gesture_baseline.outcome }}" = success
