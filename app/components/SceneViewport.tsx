@@ -24,6 +24,7 @@ import {
   computeScenePlacements,
   advanceParentExitHysteresis,
   createParentExitHysteresisState,
+  DEFAULT_PARENT_EXIT_HYSTERESIS_POLICY,
   DEFAULT_PORTAL_HYSTERESIS_POLICY,
   LABEL_ENCOUNTER_OPACITY,
   maximumSceneCameraScale,
@@ -259,15 +260,15 @@ export function fullyFittedSceneCamera(sceneSize: FrameSize, viewportSize: Frame
   return centeredSceneCamera(sceneSize, viewportSize, 1);
 }
 
-function isPortraitRoom(scene: Scene, viewport: FrameSize): boolean {
-  return (scene.id === "apartment" || scene.parentId === "apartment")
+function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
+  return (scene.id === "apartment" || scene.parentId === "apartment" || scene.id === "baggage-drop-station")
     && viewport.width <= 560 && viewport.height > viewport.width;
 }
 
 export function sceneEntryCamera(scene: Scene, viewport: FrameSize): SceneViewportCamera {
   // The apartment is a floor plan: keep all four rooms in view. Inside a
   // room, show more of the furnishings while leaving space for the map and controls.
-  if (scene.parentId === "apartment" && isPortraitRoom(scene, viewport)) {
+  if (scene.parentId === "apartment" && usesPortraitPhotoBounds(scene, viewport)) {
     const fit = fitScale(scene.width, scene.height, viewport.width, viewport.height);
     const scale = Math.max(1, viewport.height * 0.6 / (scene.height * fit));
     return centeredSceneCamera(scene, viewport, scale);
@@ -462,6 +463,8 @@ function syncMotionFrozenLayer(element: HTMLElement, frozen: boolean): void {
 }
 
 const WHEEL_RESPONSE_MS = 52;
+const PORTAL_AIM_SLOP = 16;
+type ZoomInput = "pinch" | "wheel" | "step";
 
 // Project only the visible part of this image axis. The remaining displacement
 // is affine in the source coordinate, so its largest magnitude is at an edge.
@@ -683,7 +686,7 @@ function initialSceneLabelMountWindow(scene: Scene, meaningVisible: boolean, sel
   const viewport = INITIAL_LABEL_MOUNT_VIEWPORT;
   const camera = sceneEntryCamera(scene, viewport);
   const layout = computeScenePlacements(scene.labels, camera, viewport, meaningVisible, {
-    photoSize: isPortraitRoom(scene, viewport) ? scene : undefined,
+    photoSize: usesPortraitPhotoBounds(scene, viewport) ? scene : undefined,
     selectedLabelId,
     protectedRegions: [
       ...buildViewerChromeProtectedRegions(viewport.width, viewport.height),
@@ -772,6 +775,7 @@ export function SceneViewport({
   const sceneAssetPreloadRequestRef = useRef(0);
   const pointersRef = useRef(new Map<number, Point>());
   const previousPointersRef = useRef(new Map<number, Point>());
+  const pinchFrameRef = useRef<number | null>(null);
   const frameRef = useRef<number | null>(null);
   const cameraAnimationRef = useRef<number | null>(null);
   const wheelAnimationRef = useRef<number | null>(null);
@@ -796,6 +800,12 @@ export function SceneViewport({
   const zoomFocusRef = useRef<Point | null>(null);
   const zoomDirectionRef = useRef<"in" | "out" | null>(null);
   const portalCandidateRef = useRef<ScenePortal | null>(null);
+  const portalGestureRef = useRef<{
+    input: ZoomInput;
+    origin: Point;
+    portal: ScenePortal | undefined;
+    lastInputAt: number;
+  } | null>(null);
   const previewPortalRef = useRef<ScenePortal | null>(null);
   const previewRef = useRef<HTMLDivElement>(null);
   const vocabularyAnnouncementRef = useRef<HTMLParagraphElement>(null);
@@ -1402,7 +1412,7 @@ export function SceneViewport({
       labelViewport,
       meaningVisibleRef.current,
       {
-        photoSize: isPortraitRoom(scene, labelViewport) ? scene : undefined,
+        photoSize: usesPortraitPhotoBounds(scene, labelViewport) ? scene : undefined,
         selectedLabelId: focusedLabelId
           ?? pendingKeyboardFocusLabelId
           ?? selectedLabelIdRef.current,
@@ -1969,9 +1979,16 @@ export function SceneViewport({
     }
   }, [applyCamera, mountedLabelIds]);
 
+  // A search starts its camera animation while the word index is still open.
+  // Every frame, including the last one, must paint with the current UI state.
+  const framePainterRef = useRef(applyCamera);
   const requestCameraFrame = useCallback(() => {
-    if (frameRef.current === null) frameRef.current = requestAnimationFrame(() => applyCamera());
-  }, [applyCamera]);
+    if (frameRef.current === null) frameRef.current = requestAnimationFrame(() => framePainterRef.current());
+  }, []);
+  useLayoutEffect(() => {
+    framePainterRef.current = applyCamera;
+    requestCameraFrame();
+  }, [applyCamera, requestCameraFrame]);
 
   useLayoutEffect(() => {
     const previousPhase = transitionPhaseRef.current;
@@ -2001,7 +2018,8 @@ export function SceneViewport({
     if (atlasOverviewMode) requestCameraFrame();
   }, [atlasCategoryId, atlasDistricts, atlasOverviewMode, requestCameraFrame]);
 
-  const stopWheelAnimation = useCallback(() => {
+  const stopWheelAnimation = useCallback((keepPortalAim = false) => {
+    if (!keepPortalAim) portalGestureRef.current = null;
     if (wheelAnimationRef.current !== null) {
       cancelAnimationFrame(wheelAnimationRef.current);
       wheelAnimationRef.current = null;
@@ -2080,12 +2098,12 @@ export function SceneViewport({
       height: viewport.clientHeight,
     };
     let fittedCamera = fittedSceneCamera(scene, size);
-    const portraitRoom = isPortraitRoom(scene, size);
-    if (portraitRoom) {
+    const fitPhoto = usesPortraitPhotoBounds(scene, size);
+    if (fitPhoto || scene.id === "airport") {
       fittedCamera = framing === "entry" ? sceneEntryCamera(scene, size) : fullyFittedSceneCamera(scene, size);
     }
     fittedViewportSizeRef.current = { ...size, followEntry: framing === "entry" };
-    viewport.toggleAttribute("data-portrait-room", portraitRoom);
+    viewport.toggleAttribute("data-portrait-room", fitPhoto);
     const continuityView = initialViewRef.current;
     initialViewRef.current = undefined;
     continuityWheelGuardRef.current = {
@@ -2329,32 +2347,38 @@ export function SceneViewport({
     });
   }, [evaluateNavigation]);
 
+  const portalForZoom = useCallback((input: ZoomInput, camera: Camera, point: Point, previousPoint = point) => {
+    const now = performance.now();
+    const gesture = portalGestureRef.current;
+    const continuing = gesture && gesture.input === input && input !== "step"
+      && (input === "pinch" || now - gesture.lastInputAt < DEFAULT_PARENT_EXIT_HYSTERESIS_POLICY.gestureGapMs);
+    // Camera clamping can move a narrow belt away from stationary fingers.
+    // Measure intentional retargeting from the original aim, not the last sample.
+    if (continuing && distance(gesture.origin, point) <= PORTAL_AIM_SLOP) {
+      gesture.lastInputAt = now;
+      return gesture.portal;
+    }
+    const origin = continuing || distance(previousPoint, point) > PORTAL_AIM_SLOP ? point : previousPoint;
+    const portal = portalAtScreenPoint(scene.portals, camera, origin);
+    portalGestureRef.current = { input, origin, portal, lastInputAt: now };
+    return portal;
+  }, [scene.portals]);
+
   const zoomAt = useCallback(
-    (point: Point, factor: number, previousPoint: Point = point) => {
+    (point: Point, factor: number, input: ZoomInput, previousPoint: Point = point) => {
       if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
-      stopWheelAnimation();
+      stopWheelAnimation(true);
       cancelCameraAnimation();
       const camera = cameraRef.current;
-      const previousFocus = zoomFocusRef.current;
       const minimum = scene.parentId ? 0.68 : 0.9;
       const nextScale = Math.min(
         maximumSceneCameraScale(camera.fit),
         Math.max(minimum, camera.scale * factor),
       );
       sampleParentExitHysteresis(factor, nextScale);
-      if (
-        nextScale === camera.scale
-        && point.x === previousPoint.x
-        && point.y === previousPoint.y
-      ) {
-        // A fresh outward gesture at the minimum can leave the scene even
-        // though it produces no new camera frame.
-        if (parentExitReadyRef.current) {
-          updateZoomDirection("out", true);
-          scheduleNavigationCheck();
-        }
-        return;
-      }
+      // At either scale limit the input can still nominate a portal or request
+      // a parent exit. Only a stationary, neutral sample has nothing to do.
+      if (factor === 1 && point.x === previousPoint.x && point.y === previousPoint.y) return;
       const ratio = nextScale / camera.scale;
       const nextCamera = {
         ...camera,
@@ -2368,21 +2392,21 @@ export function SceneViewport({
       else if (factor < 1) updateZoomDirection("out", true);
       else updateZoomDirection(null);
       if (factor > 1) {
-        const portal = portalAtScreenPoint(scene.portals, camera, previousPoint)
-          ?? portalAtScreenPoint(scene.portals, nextCamera, point);
+        const portal = portalForZoom(input, camera, point, previousPoint);
         if (portal) {
           portalCandidateRef.current = portal;
           showPortalPreview(portal);
           if (scene.parentId && nextScale < 2.65) void onPrefetchScene(portal.childSceneId);
-        } else if (!previousFocus || distance(previousFocus, point) > 16) {
+        } else {
           portalCandidateRef.current = null;
           showPortalPreview(null);
         }
       } else if (factor < 1) {
+        portalGestureRef.current = null;
         portalCandidateRef.current = null;
         if (nextScale < 2.45) showPortalPreview(null);
       } else {
-        const portal = portalAtScreenPoint(scene.portals, nextCamera, point);
+        const portal = portalForZoom(input, camera, point, previousPoint);
         portalCandidateRef.current = portal ?? null;
         showPortalPreview(portal ?? null);
       }
@@ -2400,12 +2424,13 @@ export function SceneViewport({
         onPrefetchScene(scene.parentId);
       }
       requestCameraFrame();
-      scheduleNavigationCheck();
+      if (input === "pinch") evaluateNavigation();
+      else scheduleNavigationCheck();
     },
-    [cancelCameraAnimation, sampleParentExitHysteresis, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scene.portals, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, updateZoomDirection],
+    [cancelCameraAnimation, evaluateNavigation, portalForZoom, sampleParentExitHysteresis, viewerInteractive, onPrefetchScene, requestCameraFrame, requestContinuousTile, scene.parentId, scheduleNavigationCheck, showPortalPreview, stopWheelAnimation, updateZoomDirection],
   );
 
-  const queueWheelZoom = useCallback((point: Point, factor: number) => {
+  const queueWheelZoom = useCallback((point: Point, factor: number, input: "wheel" | "step") => {
     if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
     if (navigationFrameRef.current !== null) {
       cancelAnimationFrame(navigationFrameRef.current);
@@ -2414,7 +2439,6 @@ export function SceneViewport({
     cancelCameraAnimation();
 
     const base = wheelTargetRef.current ?? cameraRef.current;
-    const previousFocus = zoomFocusRef.current;
     const minimum = scene.parentId ? 0.68 : 0.9;
     const nextScale = Math.min(
       maximumSceneCameraScale(base.fit),
@@ -2434,18 +2458,18 @@ export function SceneViewport({
     else if (factor < 1) updateZoomDirection("out", true);
 
     if (factor > 1) {
-      const portal = portalAtScreenPoint(scene.portals, base, point)
-        ?? portalAtScreenPoint(scene.portals, target, point);
+      const portal = portalForZoom(input, cameraRef.current, point);
       if (portal) {
         portalCandidateRef.current = portal;
         showPortalPreview(portal);
         if (target.scale >= 2.65) requestContinuousTile(portal);
         else if (scene.parentId) void onPrefetchScene(portal.childSceneId);
-      } else if (!previousFocus || distance(previousFocus, point) > 16) {
+      } else {
         portalCandidateRef.current = null;
         showPortalPreview(null);
       }
     } else if (factor < 1) {
+      portalGestureRef.current = null;
       portalCandidateRef.current = null;
       if (target.scale < 2.45) showPortalPreview(null);
       if (
@@ -2510,7 +2534,7 @@ export function SceneViewport({
       wheelFrameTimeRef.current = null;
     };
     wheelAnimationRef.current = requestAnimationFrame(animate);
-  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, requestContinuousTile, sampleParentExitHysteresis, scene.height, scene.parentId, scene.portals, scene.width, scheduleNavigationCheck, showPortalPreview, updateZoomDirection, viewerInteractive]);
+  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, portalForZoom, requestContinuousTile, sampleParentExitHysteresis, scene.height, scene.parentId, scene.width, scheduleNavigationCheck, showPortalPreview, updateZoomDirection, viewerInteractive]);
 
   const focusVocabularyTarget = useCallback((
     fallbackLabelId: string,
@@ -2656,7 +2680,7 @@ export function SceneViewport({
     const viewportSize = { width: viewport.clientWidth, height: viewport.clientHeight };
     // On a narrow phone, a room may already open beyond a word's authored
     // scale. Give object searches a closer view without compounding repeat searches.
-    const detailScale = focusTarget.kind === "word" && isPortraitRoom(scene, viewportSize)
+    const detailScale = focusTarget.kind === "word" && usesPortraitPhotoBounds(scene, viewportSize)
       ? sceneEntryCamera(scene, viewportSize).scale * 1.2 : 1;
     let targetScale = Math.min(
       maximumSceneCameraScale(start.fit),
@@ -2861,7 +2885,7 @@ export function SceneViewport({
       }
       const previousSize = fittedViewportSizeRef.current;
       const size = pendingSize;
-      if (!previousSize || !isPortraitRoom(scene, previousSize) || !isPortraitRoom(scene, size)) {
+      if (!previousSize || !usesPortraitPhotoBounds(scene, previousSize) || !usesPortraitPhotoBounds(scene, size)) {
         resetCamera();
         return;
       }
@@ -2900,7 +2924,7 @@ export function SceneViewport({
         pendingSize = { width: viewport.clientWidth, height: viewport.clientHeight };
         if (resizeFrame === null) resizeFrame = requestAnimationFrame(reconcileViewportSize);
       }
-      viewport.toggleAttribute("data-portrait-room", isPortraitRoom(scene, pendingSize));
+      viewport.toggleAttribute("data-portrait-room", usesPortraitPhotoBounds(scene, pendingSize));
     });
     observer.observe(viewport);
     return () => {
@@ -2933,9 +2957,9 @@ export function SceneViewport({
       const point = { x: event.clientX - bounds.left, y: event.clientY - bounds.top };
       const factor = wheelZoomFactor(event.deltaY, event.deltaMode, viewport.clientHeight);
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        zoomAt(point, factor);
+        zoomAt(point, factor, "wheel");
       } else {
-        queueWheelZoom(point, factor);
+        queueWheelZoom(point, factor, "wheel");
       }
     };
     viewport.addEventListener("wheel", onWheel, { passive: false });
@@ -2947,6 +2971,7 @@ export function SceneViewport({
       if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
       if (cameraAnimationRef.current !== null) cancelAnimationFrame(cameraAnimationRef.current);
       if (wheelAnimationRef.current !== null) cancelAnimationFrame(wheelAnimationRef.current);
+      if (pinchFrameRef.current !== null) cancelAnimationFrame(pinchFrameRef.current);
       if (navigationFrameRef.current !== null) cancelAnimationFrame(navigationFrameRef.current);
       if (encounterDwellRef.current) clearTimeout(encounterDwellRef.current);
     },
@@ -2967,6 +2992,7 @@ export function SceneViewport({
     if (pointersRef.current.size > 0) tapStartRef.current = null;
     if ((event.target as Element).closest("button")) return;
     stopWheelAnimation();
+    portalCandidateRef.current = null;
     cancelCameraAnimation();
     event.currentTarget.setPointerCapture(event.pointerId);
     const point = { x: event.clientX, y: event.clientY };
@@ -3039,6 +3065,28 @@ export function SceneViewport({
     }
   };
 
+  const applyPinch = () => {
+    pinchFrameRef.current = null;
+    const viewport = viewportRef.current;
+    if (!viewport || pointersRef.current.size !== 2) return;
+    const [[firstId, first], [secondId, second]] = pointersRef.current;
+    const previousFirst = previousPointersRef.current.get(firstId) ?? first;
+    const previousSecond = previousPointersRef.current.get(secondId) ?? second;
+    const bounds = viewport.getBoundingClientRect();
+    const midpoint = (a: Point, b: Point) => ({
+      x: (a.x + b.x) / 2 - bounds.left,
+      y: (a.y + b.y) / 2 - bounds.top,
+    });
+    zoomAt(
+      midpoint(first, second),
+      Math.max(1, distance(first, second)) / Math.max(1, distance(previousFirst, previousSecond)),
+      "pinch",
+      midpoint(previousFirst, previousSecond),
+    );
+    previousPointersRef.current.set(firstId, first);
+    previousPointersRef.current.set(secondId, second);
+  };
+
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!pointersRef.current.has(event.pointerId)) updateCanvasLabelHover(event);
     if (!pointersRef.current.has(event.pointerId)) {
@@ -3052,8 +3100,13 @@ export function SceneViewport({
     const previous = previousPointersRef.current.get(event.pointerId) ?? current;
     pointersRef.current.set(event.pointerId, current);
 
-    const points = [...pointersRef.current.entries()];
-    if (points.length === 1) {
+    if (pointersRef.current.size === 2) {
+      // The browser reports each finger separately, even for one symmetric
+      // pinch. Sample the pair together so a half-updated midpoint cannot retarget it.
+      if (pinchFrameRef.current === null) pinchFrameRef.current = requestAnimationFrame(applyPinch);
+      return;
+    }
+    if (pointersRef.current.size === 1) {
       const camera = cameraRef.current;
       if (current.x !== previous.x || current.y !== previous.y) retainManualZoomSlotsRef.current = false;
       cameraRef.current = {
@@ -3062,32 +3115,26 @@ export function SceneViewport({
         y: camera.y + current.y - previous.y,
       };
       requestCameraFrame();
-    } else if (points.length === 2) {
-      const [[firstId, first], [secondId, second]] = points;
-      const previousFirst = previousPointersRef.current.get(firstId) ?? first;
-      const previousSecond = previousPointersRef.current.get(secondId) ?? second;
-      const previousDistance = Math.max(1, distance(previousFirst, previousSecond));
-      const nextDistance = Math.max(1, distance(first, second));
-      const bounds = event.currentTarget.getBoundingClientRect();
-      const previousCenter = {
-        x: (previousFirst.x + previousSecond.x) / 2 - bounds.left,
-        y: (previousFirst.y + previousSecond.y) / 2 - bounds.top,
-      };
-      const nextCenter = {
-        x: (first.x + second.x) / 2 - bounds.left,
-        y: (first.y + second.y) / 2 - bounds.top,
-      };
-      zoomAt(
-        nextCenter,
-        nextDistance / previousDistance,
-        previousCenter,
-      );
     }
     previousPointersRef.current.set(event.pointerId, current);
   };
 
   const releasePointer = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!pointersRef.current.has(event.pointerId)) return;
+    if (pointersRef.current.size === 2) {
+      if (pinchFrameRef.current !== null) {
+        cancelAnimationFrame(pinchFrameRef.current);
+        pinchFrameRef.current = null;
+        // Process a final movement that arrived in the same frame as lift.
+        if (event.type === "pointerup") applyPinch();
+      }
+      if (event.type === "pointerup") evaluateNavigation();
+      portalGestureRef.current = null;
+      if (!committingRef.current) {
+        portalCandidateRef.current = null;
+        showPortalPreview(null);
+      }
+    }
     if (event.type === "pointerup") activateCanvasLabel(event);
     tapStartRef.current = null;
     pointersRef.current.delete(event.pointerId);
@@ -3104,9 +3151,9 @@ export function SceneViewport({
   const requestSteppedZoom = (factor: number) => {
     const point = viewportCenter();
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      zoomAt(point, factor);
+      zoomAt(point, factor, "step");
     } else {
-      queueWheelZoom(point, factor);
+      queueWheelZoom(point, factor, "step");
     }
   };
 

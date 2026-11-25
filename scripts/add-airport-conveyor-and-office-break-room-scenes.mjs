@@ -575,8 +575,8 @@ scenes.push(
 const integrations = [
   {
     parentId: "baggage-drop-station", childId: "airport-baggage-conveyor", title: "Airport baggage conveyor",
-    portal: { id: "enter-airport-baggage-conveyor", label: "Explore the baggage conveyor", translation: "探索行李输送带", childSceneId: "airport-baggage-conveyor", sourceVisualRegion: "portal-airport-baggage-conveyor", x: 700, y: 320, width: 285, height: 205, enterScale: 3.25 },
-    description: "Central loaded conveyor belt and suitcase in the baggage-drop station photograph; the crop does not include the neighbouring check-in or scanning equipment.",
+    portal: { id: "enter-airport-baggage-conveyor", label: "Explore the baggage conveyor", translation: "探索行李输送带", childSceneId: "airport-baggage-conveyor", sourceVisualRegion: "portal-airport-baggage-conveyor", x: 1020, y: 535, width: 120, height: 32, enterScale: 3.25 },
+    description: "Exposed silver conveyor rollers in front of the suitcase on the right-hand belt.",
   },
   {
     parentId: "office-building", childId: "office-break-room", title: "Office break room",

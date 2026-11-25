@@ -1387,12 +1387,12 @@
     },
     {
       "id": "portal-baggage-drop-station-conveyor-scale",
-      "description": "Complete visible conveyor, scale and side-guard module in the check-in-counter photograph",
+      "description": "Exposed black weighing belt between the first two staffed check-in counters",
       "kind": "object",
-      "x": 470,
-      "y": 350,
-      "width": 600,
-      "height": 330
+      "x": 490,
+      "y": 448,
+      "width": 107,
+      "height": 39
     }
   ],
   "detailZones": [
@@ -3198,10 +3198,10 @@
       "translation": "进入行李托运工位",
       "childSceneId": "baggage-drop-station",
       "sourceVisualRegion": "portal-baggage-drop-station-conveyor-scale",
-      "x": 470,
-      "y": 350,
-      "width": 600,
-      "height": 330,
+      "x": 490,
+      "y": 448,
+      "width": 107,
+      "height": 39,
       "enterScale": 3.35
     }
   ]

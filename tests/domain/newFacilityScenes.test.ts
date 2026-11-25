@@ -345,7 +345,7 @@ test("baggage drop exposes a bounded central conveyor entrance", async () => {
   const parent = await readJson("baggage-drop-station.json");
   const portal = parent.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "airport-baggage-conveyor");
   assert.ok(portal);
-  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [700, 320, 285, 205]);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [1020, 535, 120, 32]);
   const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);

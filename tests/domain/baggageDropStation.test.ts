@@ -27,6 +27,7 @@ interface Scene {
   readonly width: number;
   readonly height: number;
   readonly labels: readonly Label[];
+  readonly relatedWords: readonly Pick<Label, "id" | "word">[];
   readonly visualRegions: readonly {
     readonly id: string;
     readonly x: number;
@@ -64,38 +65,42 @@ async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8")) as T;
 }
 
-test("baggage-drop station keeps 155 reviewed scale, conveyor and scanner terms", async () => {
+test("baggage-drop station keeps all 155 terms and maps the photograph's visible objects", async () => {
   const scene = await readJson<Scene>("baggage-drop-station.json");
   assert.equal(scene.id, "baggage-drop-station");
   assert.equal(scene.parentId, "check-in-counter");
   assert.equal(scene.asset, "/scenes/baggage-drop-station-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
-  assert.equal(scene.labels.length, 155);
-  assert.equal(scene.visualRegions.length, 156);
+  assert.equal(scene.labels.length, 71);
+  assert.equal(scene.relatedWords.length, 84);
+  assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), [
-    ["baggage-drop-station-zone-left-drop-module", 25],
-    ["baggage-drop-station-zone-center-conveyor-lane", 27],
-    ["baggage-drop-station-zone-right-drop-module", 26],
-    ["baggage-drop-station-zone-scanner-tag-equipment", 25],
-    ["baggage-drop-station-zone-baggage-containers", 17],
-    ["baggage-drop-station-zone-cabinet-service-panels", 20],
-    ["baggage-drop-station-zone-floor-safety-rails", 15],
+    ["baggage-drop-station-zone-left-drop-module", 18],
+    ["baggage-drop-station-zone-center-conveyor-lane", 6],
+    ["baggage-drop-station-zone-right-drop-module", 16],
+    ["baggage-drop-station-zone-scanner-tag-equipment", 10],
+    ["baggage-drop-station-zone-baggage-containers", 7],
+    ["baggage-drop-station-zone-cabinet-service-panels", 8],
+    ["baggage-drop-station-zone-floor-safety-rails", 6],
   ]);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter(({ minLevel }) => minLevel === level).length),
-    [14, 14, 43, 42, 42],
+    [8, 11, 18, 17, 17],
   );
-  assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 155);
-  assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 155);
+  const allTerms = [...scene.labels, ...scene.relatedWords];
+  assert.equal(new Set(allTerms.map(({ id }) => id)).size, 155);
+  assert.equal(new Set(allTerms.map(({ word }) => word.toLocaleLowerCase())).size, 155);
+  assert.ok(scene.relatedWords.every((word) => !("x" in word) && !("y" in word)));
   assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["airport-baggage-conveyor"]);
   const conveyorPortal = scene.portals[0];
-  assert.deepEqual([conveyorPortal.x, conveyorPortal.y, conveyorPortal.width, conveyorPortal.height], [700, 320, 285, 205]);
+  assert.deepEqual([conveyorPortal.x, conveyorPortal.y, conveyorPortal.width, conveyorPortal.height], [1020, 535, 120, 32]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);
   assert.equal(scene.anchorAudit.reviewedAssetSha256, "ae99367a4eadff96cac480b88e6dcc41f585b2078615786283116bd8bd117e90");
-  assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 8);
-  assert.equal(scene.anchorAudit.removedLabelCount, 8);
+  assert.equal(scene.anchorAudit.retainedLabelCount, scene.labels.length);
+  assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, scene.anchorAudit.removedLabelCount);
+  assert.equal(scene.anchorAudit.removedLabelCount, 8 + scene.relatedWords.length);
 
   const regions = new Map(scene.visualRegions.map((region) => [region.id, region]));
   for (const label of scene.labels) {
@@ -124,7 +129,7 @@ test("baggage-drop station keeps 155 reviewed scale, conveyor and scanner terms"
     const other = await readJson<{ readonly labels: readonly { readonly word: string }[] }>(`${entry.id}.json`);
     for (const label of other.labels) existingWords.add(label.word.toLocaleLowerCase());
   }
-  for (const word of new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase()))) {
+  for (const word of new Set(allTerms.map(({ word }) => word.toLocaleLowerCase()))) {
     assert.equal(existingWords.has(word), false, `baggage-drop station does not duplicate ${word}`);
   }
 
@@ -156,7 +161,7 @@ test("check-in counter exposes one bounded baggage-drop entrance", async () => {
   }>("check-in-counter.json");
   const portal = parent.portals.find(({ childSceneId }) => childSceneId === "baggage-drop-station");
   assert.ok(portal);
-  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [470, 350, 600, 330]);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [490, 448, 107, 39]);
   const region = parent.visualRegions.find(({ id }) => id === portal.sourceVisualRegion);
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
