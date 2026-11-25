@@ -39,6 +39,10 @@ interface Slot {
   readonly segment: Segment;
 }
 
+interface IndexedSlot extends Slot {
+  lastQuery: number;
+}
+
 type Direction = readonly [number, number];
 
 /** Preferred order: right-hand side first (reading direction), then left, then vertical. */
@@ -79,6 +83,7 @@ const PILL_GAP = 3;
 const COMPACT_PILL_GAP = 2;
 const ANCHOR_CLEARANCE = 3;
 const CULL_MARGIN = 120;
+const SLOT_CELL_SIZE = 64;
 
 const CJK = /[\u3000-\u9fff\uf900-\ufaff]/;
 
@@ -216,14 +221,36 @@ export function computeScenePlacements(
   }
   candidates.sort((first, second) => compareLabels(first, second, viewport.compact));
 
-  const placedRects: Rect[] = [];
-  const placedLeaders: Segment[] = [];
-  const placedAnchors: Array<{ x: number; y: number }> = [];
+  const clearance = Math.max(pillGap, ANCHOR_CLEARANCE);
+  const cellStride = Math.ceil((viewport.width + 2 * (CULL_MARGIN + clearance)) / SLOT_CELL_SIZE) + 1;
+  const slotCells = new Map<number, IndexedSlot[]>();
+  let queryNumber = 0;
   const placed = new Map<string, SceneLabelLayoutItem>();
   const coversUnplacedAnchor = (rect: Rect, selfId: string, priorityOnly = false): boolean => (
     candidates.some((other) => other.label.id !== selfId && (!priorityOnly || other.priority)
       && !placed.has(other.label.id) && pointInRect(other.anchorX, other.anchorY, rect, ANCHOR_CLEARANCE))
   );
+
+  // The leader ends at the pill center, so the pill and anchor bound the
+  // whole slot. Include both boundary cells, even for offscreen anchors.
+  function visitSlotCells(rect: Rect, segment: Segment, visit: (key: number) => boolean | void): boolean {
+    const firstColumn = Math.floor((Math.min(rect.left, segment.x1) - clearance) / SLOT_CELL_SIZE);
+    const lastColumn = Math.floor((Math.max(rect.right, segment.x1) + clearance) / SLOT_CELL_SIZE);
+    const firstRow = Math.floor((Math.min(rect.top, segment.y1) - clearance) / SLOT_CELL_SIZE);
+    const lastRow = Math.floor((Math.max(rect.bottom, segment.y1) + clearance) / SLOT_CELL_SIZE);
+    for (let row = firstRow; row <= lastRow; row += 1) {
+      const rowKey = row * cellStride;
+      for (let column = firstColumn; column <= lastColumn; column += 1) {
+        if (visit(rowKey + column)) return true;
+      }
+    }
+    return false;
+  }
+
+  function anchorIsCovered(x: number, y: number): boolean {
+    const key = Math.floor(y / SLOT_CELL_SIZE) * cellStride + Math.floor(x / SLOT_CELL_SIZE);
+    return slotCells.get(key)?.some(({ rect }) => pointInRect(x, y, rect, ANCHOR_CLEARANCE)) ?? false;
+  }
 
   type Candidate = (typeof candidates)[number];
   function freeSlot(candidate: Candidate, centerX: number, centerY: number, short = false): Slot | null {
@@ -235,21 +262,34 @@ export function computeScenePlacements(
       || rect.bottom > viewport.height - VIEWPORT_MARGIN
     ) return null;
     if (protectedRegions.some((region) => rectsOverlap(rect, region, 0))) return null;
-    if (placedRects.some((placedRect) => rectsOverlap(rect, placedRect, pillGap))) return null;
-    if (placedAnchors.some((anchor) => pointInRect(anchor.x, anchor.y, rect, ANCHOR_CLEARANCE))) return null;
     const segment = { x1: candidate.anchorX, y1: candidate.anchorY, x2: centerX, y2: centerY };
-    if (placedRects.some((placedRect) => segmentTouchesRect(segment, placedRect))) return null;
-    if (placedLeaders.some((leader) => segmentsIntersect(segment, leader))) return null;
-    if (placedLeaders.some((leader) => segmentTouchesRect(leader, rect))) return null;
+    const query = ++queryNumber;
+    if (visitSlotCells(rect, segment, (key) => {
+      const cell = slotCells.get(key);
+      if (!cell) return false;
+      for (const other of cell) {
+        if (other.lastQuery === query) continue;
+        other.lastQuery = query;
+        if (rectsOverlap(rect, other.rect, pillGap)
+          || pointInRect(other.segment.x1, other.segment.y1, rect, ANCHOR_CLEARANCE)
+          || segmentTouchesRect(segment, other.rect)
+          || segmentsIntersect(segment, other.segment)
+          || segmentTouchesRect(other.segment, rect)) return true;
+      }
+      return false;
+    })) return null;
     if (short && coversUnplacedAnchor(rect, candidate.label.id)) return null;
     return { rect, segment };
   }
 
   function occupy(candidate: Candidate, slot: Slot) {
     const { segment } = slot;
-    placedRects.push(slot.rect);
-    placedLeaders.push(segment);
-    placedAnchors.push({ x: candidate.anchorX, y: candidate.anchorY });
+    const indexed: IndexedSlot = { rect: slot.rect, segment, lastQuery: 0 };
+    visitSlotCells(slot.rect, segment, (key) => {
+      const cell = slotCells.get(key);
+      if (cell) cell.push(indexed);
+      else slotCells.set(key, [indexed]);
+    });
     placed.set(candidate.label.id, {
       id: candidate.label.id,
       lod: candidate.lod as SceneLabelLayoutItem["lod"],
@@ -268,10 +308,7 @@ export function computeScenePlacements(
 
   function placeInFreeSlot(candidate: Candidate) {
     const { anchorX, anchorY, width, height } = candidate;
-    if (
-      !candidate.priority
-      && placedRects.some((rect) => pointInRect(anchorX, anchorY, rect, ANCHOR_CLEARANCE))
-    ) return;
+    if (!candidate.priority && anchorIsCovered(anchorX, anchorY)) return;
     const preferred = preferredOffsets?.get(candidate.label.id);
     if (preferred) {
       // A pill grazing the edge can slide along it while its anchor stays on
@@ -356,9 +393,7 @@ export function computeScenePlacements(
   if (preferredOffsets?.size) {
     for (const candidate of candidates) {
       const previous = preferredOffsets.get(candidate.label.id);
-      if (previous && (candidate.priority || !placedRects.some((rect) => (
-        pointInRect(candidate.anchorX, candidate.anchorY, rect, ANCHOR_CLEARANCE)
-      )))) {
+      if (previous && (candidate.priority || !anchorIsCovered(candidate.anchorX, candidate.anchorY))) {
         const slot = freeSlot(candidate, candidate.anchorX + previous.offsetX, candidate.anchorY + previous.offsetY);
         if (slot) {
           occupy(candidate, slot);
