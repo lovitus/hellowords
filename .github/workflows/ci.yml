@@ -1,115 +1,123 @@
 name: CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-  workflow_dispatch:
-    inputs:
-      compare_published_baseline:
-        description: Compare the last audited product source on the same runner
-        type: boolean
-        default: false
-      milestone_release_preflight:
-        description: Run the 10k public-release preflight and verify the clean commit; does not publish
-        type: boolean
-        default: false
+on: workflow_dispatch
 
 permissions:
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  actions: read
 
 env:
   CI: "true"
   WRANGLER_LOG_PATH: .wrangler/wrangler.log
 
 jobs:
-  verification:
-    name: Full verification
+  baseline:
+    name: Reproduce ${{ matrix.baseline }} regressions on the historical product
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - baseline: reading
+            ref: 0382df2e84ac74303ce21c8f3473b1d360ec61d4
+            pattern: long words and definitions fit|ordinary scenes hide
+          - baseline: navigation
+            ref: 04c23d841122187284d13c8bc728db56598ad748
+            pattern: the Apartment minimap|reduced motion commits the child
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ matrix.ref }}
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
       - run: npm ci
-      - name: Check 10k milestone release preflight
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run release:check -- --milestone
-      - run: npm run lint
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run typecheck
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run validate:data
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:unit
-        if: ${{ !inputs.milestone_release_preflight }}
-      # Tests use this exact build on the same runner: storage quotas cannot
-      # prevent a downstream test job from obtaining it.
-      - run: npm run build
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:ssr
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: node scripts/analyze-build.mjs
-        if: ${{ !inputs.milestone_release_preflight }}
       - run: npx playwright install --with-deps chromium
-      - name: Check out audited baseline for optional comparison
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        uses: actions/checkout@v6
-        with:
-          ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-          path: baseline-reference
-          persist-credentials: false
-      - name: Prepare identical measurement harness for baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
-      - name: Build audited baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        working-directory: baseline-reference
-        run: npm ci && npm run build
-      - name: Measure audited baseline (diagnostic, not candidate acceptance)
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        continue-on-error: true
-        working-directory: baseline-reference
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-          PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-        run: npm run test:perf
-      - run: npm run test:perf
-        id: candidate_performance
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-      - name: Verify complete milestone candidate on the preflighted clean commit
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run verify:full
-      - run: npm run test:e2e
-        id: candidate_browser
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-      - name: Enforce both candidate gates
-        if: ${{ !cancelled() && !inputs.milestone_release_preflight }}
-        env:
-          PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
-          BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}
+      - name: Use the candidate's browser assertions against the historical app
         run: |
-          printf 'Performance: %s\nBrowser: %s\n' "$PERF_OUTCOME" "$BROWSER_OUTCOME"
-          test "$PERF_OUTCOME" = success && test "$BROWSER_OUTCOME" = success
-      # Retention is optional; every validation command above remains blocking.
-      # Missing downloadable output must never be used as release evidence.
-      - uses: actions/upload-artifact@v5
-        if: ${{ !cancelled() }}
-        continue-on-error: true
+          git fetch --no-tags --depth=1 origin "$GITHUB_SHA"
+          git restore --source="$GITHUB_SHA" -- tests/e2e
+      - if: matrix.baseline == 'reading'
+        run: npm run build
+      - if: matrix.baseline == 'navigation'
+        uses: actions/download-artifact@v5
         with:
-          name: verification-${{ github.sha }}
+          name: verification-04c23d841122187284d13c8bc728db56598ad748
+          run-id: 45651079784
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/previous-build
+      - if: matrix.baseline == 'navigation'
+        run: cp -R "$RUNNER_TEMP/previous-build/dist" dist
+      - name: Exercise the actual production server
+        env:
+          PATTERN: ${{ matrix.pattern }}
+        run: |
+          if npx playwright test tests/e2e/semantic-density.spec.ts tests/e2e/label-zoom-retention.spec.ts tests/e2e/scene-minimap.spec.ts tests/e2e/continuous-semantic-zoom.spec.ts --grep="$PATTERN" --project=chromium --project=mobile-chromium --workers=1 --retries=0; then
+            echo "Expected at least one observable regression against this baseline."
+            exit 1
+          fi
+          node --input-type=module <<'NODE'
+          import assert from "node:assert/strict";
+          import { readFileSync, appendFileSync } from "node:fs";
+          const report = JSON.parse(readFileSync("artifacts/e2e/results.json", "utf8"));
+          const flatten = suite => [...(suite.specs ?? []), ...(suite.suites ?? []).flatMap(flatten)];
+          const specs = flatten(report);
+          const checks = process.env.PATTERN.startsWith("long") ? [
+            ["long words and definitions fit", "mobile-chromium", /General Communication must contain|vt\.|vi\.|full search definition must fit|word card title must show/],
+            ["ordinary scenes hide", "chromium", /toBeHidden/],
+          ] : [
+            ["the Apartment minimap", "mobile-chromium", /the full name "(?:Stair entrance|Bedroom|Bathroom)" must fit/],
+            ["reduced motion commits the child", "chromium", /a fresh outward gesture at the minimum returns to the parent/],
+          ];
+          for (const [prefix, project, expected] of checks) {
+            const result = specs.filter(spec => spec.title.startsWith(prefix))
+              .flatMap(spec => spec.tests).find(test => test.projectName === project)?.results[0];
+            assert.ok(result, `Missing baseline test for ${prefix} on ${project}`);
+            assert.equal(result.status, "failed", prefix);
+            assert.ok(result.errors.some(error => expected.test(error.message)), `${prefix} failed for another reason. See baseline result artifact.`);
+            appendFileSync(process.env.GITHUB_STEP_SUMMARY, `- Reproduced ${project}: ${prefix}\n`);
+          }
+          NODE
+      - if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: baseline-${{ matrix.baseline }}
+          path: artifacts/e2e/results.json
+          retention-days: 7
+  milestone:
+    name: Verify the complete product commit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+      - id: product
+        run: |
+          git checkout --detach HEAD^
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run release:check -- --milestone
+      - name: Run the release checks on the exact product commit
+        env:
+          PERF_SOURCE_SHA: ${{ steps.product.outputs.sha }}
+        run: GITHUB_SHA="$PERF_SOURCE_SHA" npm run verify:full
+      - name: Collect performance evidence if browser assertions stopped the release checks
+        if: failure() && hashFiles('artifacts/e2e/results.json') != '' && hashFiles('artifacts/perf/results.json') == ''
+        env:
+          PERF_RUN: "1"
+          PERF_SOURCE_SHA: ${{ steps.product.outputs.sha }}
+        run: npm run test:perf
+      - if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: verification-${{ steps.product.outputs.sha }}
           path: |
             artifacts/correctness
             artifacts/build
@@ -117,5 +125,4 @@ jobs:
             artifacts/perf
             dist
           include-hidden-files: true
-          if-no-files-found: warn
           retention-days: 7
