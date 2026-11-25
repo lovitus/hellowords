@@ -150,6 +150,24 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Yes, with an owner and a deadline for each action.", "可以，每项都会注明负责人和截止时间。"],
     ] },
   ],
+  "video-conferencing-console": [
+    { title: "在桌边加入会议", roles: ["同事甲", "同事乙"], lines: [
+      ["Which device do I use to join the call?", "我该用哪台设备加入通话？"],
+      ["Use the tilted touch panel between the two round microphones.", "用两个圆形麦克风之间那块倾斜的触控屏。"],
+      ["Do I need to move the microphone closer?", "我需要把麦克风挪近一点吗？"],
+      ["Try speaking from your seat first. I'll listen from the other end.", "先坐在原位说句话试试。我在通话另一端听一下。"],
+      ["Can you hear me from this side of the table?", "我坐在桌子这边说话，你听得见吗？"],
+      ["Yes, your voice is clear from there.", "听得见，你在那里说话很清楚。"],
+    ] },
+    { title: "检查镜头里的画面", roles: ["主持人", "远程同事"], lines: [
+      ["Can you see the people at both ends of the table?", "你能看到桌子两端的人吗？"],
+      ["I can see the left side. The person on the right is just outside the frame.", "我能看到左边。右边那位同事刚好在画面外。"],
+      ["I'll move my chair a little closer to the middle.", "我把椅子往中间挪一点。"],
+      ["That's better. I can see everyone now.", "好多了。现在我能看到所有人了。"],
+      ["When I speak, should I look at the display or at the camera above it?", "我说话时该看显示屏，还是看它上方的摄像头？"],
+      ["Look at the camera when you address us. It feels more natural.", "和我们讲话时看摄像头吧，这样更自然。"],
+    ] },
+  ],
   "school-catering-kitchen": [
     { title: "交接备餐任务", roles: ["同事甲", "同事乙"], lines: [
       ["Which preparation tasks are still outstanding?", "还有哪些备餐任务没完成？"],

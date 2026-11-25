@@ -381,127 +381,73 @@
       "id": "conference-room-region-conference-tabletop",
       "description": "Pixel-audited “conference tabletop” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 780,
-      "y": 480,
-      "width": 40,
-      "height": 40
+      "x": 915,
+      "y": 535,
+      "width": 60,
+      "height": 35
     },
     {
       "id": "conference-room-region-wood-table-edge",
       "description": "Pixel-audited “wood table edge” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 680,
-      "y": 570,
-      "width": 40,
-      "height": 40
+      "x": 687,
+      "y": 584,
+      "width": 26,
+      "height": 5
     },
     {
       "id": "conference-room-region-table-corner",
       "description": "Pixel-audited “table corner” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 1080,
-      "y": 580,
-      "width": 40,
-      "height": 40
+      "x": 937,
+      "y": 609,
+      "width": 10,
+      "height": 8
     },
     {
       "id": "conference-room-region-cable-trough",
       "description": "Pixel-audited “cable trough” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 780,
-      "y": 500,
-      "width": 40,
-      "height": 40
+      "x": 757,
+      "y": 518,
+      "width": 29,
+      "height": 9
     },
     {
       "id": "conference-room-region-cable-trough-cover",
       "description": "Pixel-audited “cable trough cover” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 800,
-      "y": 500,
-      "width": 40,
-      "height": 40
+      "x": 703,
+      "y": 540,
+      "width": 28,
+      "height": 6
     },
     {
       "id": "conference-room-region-conference-table-power-module",
       "description": "Pixel-audited “conference table power module” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 680,
-      "y": 520,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-conference-power-socket",
-      "description": "Pixel-audited “conference power socket” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 680,
-      "y": 525,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-socket",
-      "description": "Pixel-audited “USB socket” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 710,
-      "y": 525,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-data-socket",
-      "description": "Pixel-audited “data socket” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 740,
-      "y": 525,
-      "width": 40,
-      "height": 40
+      "x": 755,
+      "y": 519,
+      "width": 24,
+      "height": 9
     },
     {
       "id": "conference-room-region-table-microphone-pod",
       "description": "Pixel-audited “table microphone pod” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 630,
-      "y": 460,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-microphone-mute-button",
-      "description": "Pixel-audited “microphone mute button” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 630,
-      "y": 460,
-      "width": 40,
-      "height": 40
+      "x": 673,
+      "y": 500,
+      "width": 28,
+      "height": 10
     },
     {
       "id": "conference-room-region-table-speaker-pod",
       "description": "Pixel-audited “table speaker pod” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 910,
-      "y": 490,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-table-cable-clip",
-      "description": "Pixel-audited “table cable clip” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 510,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-table-cable-grommet",
-      "description": "Pixel-audited “table cable grommet” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 520,
-      "width": 40,
-      "height": 40
+      "x": 905,
+      "y": 495,
+      "width": 26,
+      "height": 8
     },
     {
       "id": "conference-room-region-conference-table-leg",
@@ -549,33 +495,6 @@
       "height": 40
     },
     {
-      "id": "conference-room-region-tabletop-control-unit",
-      "description": "Pixel-audited “tabletop control unit” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 930,
-      "y": 510,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-control-dial",
-      "description": "Pixel-audited “control dial” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 930,
-      "y": 510,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-table-seam",
-      "description": "Pixel-audited “table seam” inside the Conference table and cable hardware crop of the conference-room photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 560,
-      "width": 40,
-      "height": 40
-    },
-    {
       "id": "conference-room-region-table-support-bracket",
       "description": "Pixel-audited “table support bracket” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
@@ -588,19 +507,19 @@
       "id": "conference-room-region-tabletop-outlet",
       "description": "Pixel-audited “tabletop outlet” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 980,
-      "y": 520,
-      "width": 40,
-      "height": 40
+      "x": 769,
+      "y": 517,
+      "width": 14,
+      "height": 8
     },
     {
       "id": "conference-room-region-table-cable-channel",
       "description": "Pixel-audited “table cable channel” inside the Conference table and cable hardware crop of the conference-room photograph",
       "kind": "part",
-      "x": 980,
-      "y": 500,
-      "width": 40,
-      "height": 40
+      "x": 852,
+      "y": 478,
+      "width": 16,
+      "height": 7
     },
     {
       "id": "conference-room-region-table-underside",
@@ -849,91 +768,55 @@
       "id": "conference-room-region-meeting-room-wall-display",
       "description": "Pixel-audited “meeting-room wall display” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 980,
-      "y": 260,
-      "width": 40,
-      "height": 40
+      "x": 818,
+      "y": 219,
+      "width": 238,
+      "height": 132
     },
     {
       "id": "conference-room-region-meeting-display-bezel",
       "description": "Pixel-audited “meeting display bezel” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 980,
-      "y": 265,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-meeting-display-mount",
-      "description": "Pixel-audited “meeting display mount” inside the Display and whiteboard wall crop of the conference-room photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 370,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-display-mount-arm",
-      "description": "Pixel-audited “display mount arm” inside the Display and whiteboard wall crop of the conference-room photograph",
-      "kind": "part",
-      "x": 960,
-      "y": 380,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-display-cable",
-      "description": "Pixel-audited “display cable” inside the Display and whiteboard wall crop of the conference-room photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 390,
-      "width": 40,
-      "height": 40
+      "x": 1061,
+      "y": 274,
+      "width": 4,
+      "height": 22
     },
     {
       "id": "conference-room-region-conference-camera",
       "description": "Pixel-audited “conference camera” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 980,
-      "y": 370,
-      "width": 40,
-      "height": 40
+      "x": 919,
+      "y": 194,
+      "width": 15,
+      "height": 11
     },
     {
       "id": "conference-room-region-meeting-camera-lens",
       "description": "Pixel-audited “meeting camera lens” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 980,
-      "y": 370,
-      "width": 40,
-      "height": 40
+      "x": 922,
+      "y": 195,
+      "width": 7,
+      "height": 7
     },
     {
       "id": "conference-room-region-camera-housing",
       "description": "Pixel-audited “camera housing” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 980,
-      "y": 370,
-      "width": 40,
-      "height": 40
+      "x": 930,
+      "y": 197,
+      "width": 4,
+      "height": 6
     },
     {
       "id": "conference-room-region-meeting-speaker-bar",
       "description": "Pixel-audited “meeting speaker bar” inside the Display and whiteboard wall crop of the conference-room photograph",
       "kind": "part",
-      "x": 980,
-      "y": 390,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "conference-room-region-speaker-bar-grille",
-      "description": "Pixel-audited “speaker bar grille” inside the Display and whiteboard wall crop of the conference-room photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 395,
-      "width": 40,
-      "height": 40
+      "x": 881,
+      "y": 369,
+      "width": 98,
+      "height": 15
     },
     {
       "id": "conference-room-region-meeting-room-whiteboard",
@@ -1296,13 +1179,13 @@
       "height": 40
     },
     {
-      "id": "portal-video-conferencing-console-device-group",
-      "description": "Complete visible speaker bar, lower display edge and tabletop meeting-device group in the conference-room photograph",
+      "id": "portal-video-conferencing-console-display",
+      "description": "Black display face on the front wall between the wood paneling and the whiteboard, above the speaker bar.",
       "kind": "object",
-      "x": 760,
-      "y": 350,
-      "width": 350,
-      "height": 250
+      "x": 818,
+      "y": 219,
+      "width": 238,
+      "height": 132
     }
   ],
   "detailZones": [
@@ -1390,22 +1273,13 @@
         "conference-room-cable-trough",
         "conference-room-cable-trough-cover",
         "conference-room-conference-table-power-module",
-        "conference-room-conference-power-socket",
-        "conference-room-socket",
-        "conference-room-data-socket",
         "conference-room-table-microphone-pod",
-        "conference-room-microphone-mute-button",
         "conference-room-table-speaker-pod",
-        "conference-room-table-cable-clip",
-        "conference-room-table-cable-grommet",
         "conference-room-conference-table-leg",
         "conference-room-table-leg-foot",
         "conference-room-table-modesty-panel",
         "conference-room-table-stretcher",
         "conference-room-table-floor-cable-cover",
-        "conference-room-tabletop-control-unit",
-        "conference-room-control-dial",
-        "conference-room-table-seam",
         "conference-room-table-support-bracket",
         "conference-room-tabletop-outlet",
         "conference-room-table-cable-channel",
@@ -1464,14 +1338,10 @@
       "labelIds": [
         "conference-room-meeting-room-wall-display",
         "conference-room-meeting-display-bezel",
-        "conference-room-meeting-display-mount",
-        "conference-room-display-mount-arm",
-        "conference-room-display-cable",
         "conference-room-conference-camera",
         "conference-room-meeting-camera-lens",
         "conference-room-camera-housing",
         "conference-room-meeting-speaker-bar",
-        "conference-room-speaker-bar-grille",
         "conference-room-meeting-room-whiteboard",
         "conference-room-meeting-whiteboard-frame",
         "conference-room-meeting-whiteboard-tray",
@@ -1542,14 +1412,14 @@
     }
   ],
   "anchorAudit": {
-    "status": "human-verified",
+    "status": "image-reviewed",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/conference-room-premium-v1.jpg",
     "reviewedAssetSha256": "d12438f3e95d9d580d0beb21b18baa7547d921ce18f205a61b279219a82533e1",
-    "rationale": "The final 1600 by 900 conference-room photograph was inspected at source and output resolution. It retains 143 independently pointable glass-entry, storage, table, chair, meeting-device, ceiling and floor parts. People, company identity, meeting content, readable screens, network state, occupancy and hidden wiring or HVAC state were excluded.",
+    "rationale": "The earlier scene recorded a human review of 143 terms across seven zones. This agent image review checked the front-wall display, its upper camera and lower speaker bar, the circular tabletop pods, cable trough and front table corner against the 1600 by 900 image. Socket types, tiny controls and concealed mount hardware remain available as related words.",
     "previousLabelCount": 151,
-    "retainedLabelCount": 143,
-    "removedLabelCount": 8,
+    "retainedLabelCount": 130,
+    "removedLabelCount": 21,
     "removedExamples": [
       "people",
       "company identity",
@@ -1974,8 +1844,8 @@
       "id": "conference-room-conference-tabletop",
       "word": "conference tabletop",
       "translation": "会议桌面",
-      "x": 800,
-      "y": 500,
+      "x": 940,
+      "y": 554,
       "priority": 1.041,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-conference-tabletop"
@@ -1985,7 +1855,7 @@
       "word": "wood table edge",
       "translation": "木桌边缘",
       "x": 700,
-      "y": 590,
+      "y": 586,
       "priority": 1.042,
       "minLevel": 1,
       "sourceVisualRegion": "conference-room-region-wood-table-edge"
@@ -1994,8 +1864,8 @@
       "id": "conference-room-table-corner",
       "word": "table corner",
       "translation": "桌角",
-      "x": 1100,
-      "y": 600,
+      "x": 942,
+      "y": 613,
       "priority": 1.043,
       "minLevel": 1,
       "sourceVisualRegion": "conference-room-region-table-corner"
@@ -2004,8 +1874,8 @@
       "id": "conference-room-cable-trough",
       "word": "cable trough",
       "translation": "线缆槽",
-      "x": 800,
-      "y": 520,
+      "x": 772,
+      "y": 522,
       "priority": 1.044,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-cable-trough"
@@ -2014,8 +1884,8 @@
       "id": "conference-room-cable-trough-cover",
       "word": "cable trough cover",
       "translation": "线缆槽盖",
-      "x": 820,
-      "y": 520,
+      "x": 716,
+      "y": 544,
       "priority": 1.045,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-cable-trough-cover"
@@ -2024,91 +1894,31 @@
       "id": "conference-room-conference-table-power-module",
       "word": "conference table power module",
       "translation": "会议桌面电源模块",
-      "x": 700,
-      "y": 540,
+      "x": 765,
+      "y": 523,
       "priority": 1.046,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-conference-table-power-module"
     },
     {
-      "id": "conference-room-conference-power-socket",
-      "word": "conference power socket",
-      "translation": "会议室电源插座",
-      "x": 700,
-      "y": 545,
-      "priority": 1.047,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-conference-power-socket"
-    },
-    {
-      "id": "conference-room-socket",
-      "word": "USB socket",
-      "translation": "USB 插座",
-      "x": 730,
-      "y": 545,
-      "priority": 1.048,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-socket"
-    },
-    {
-      "id": "conference-room-data-socket",
-      "word": "data socket",
-      "translation": "数据插座",
-      "x": 760,
-      "y": 545,
-      "priority": 1.049,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-data-socket"
-    },
-    {
       "id": "conference-room-table-microphone-pod",
       "word": "table microphone pod",
       "translation": "桌面麦克风单元",
-      "x": 650,
-      "y": 480,
+      "x": 687,
+      "y": 504,
       "priority": 1.05,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-table-microphone-pod"
     },
     {
-      "id": "conference-room-microphone-mute-button",
-      "word": "microphone mute button",
-      "translation": "麦克风静音按钮",
-      "x": 650,
-      "y": 480,
-      "priority": 1.051,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-microphone-mute-button"
-    },
-    {
       "id": "conference-room-table-speaker-pod",
       "word": "table speaker pod",
       "translation": "桌面扬声器单元",
-      "x": 930,
-      "y": 510,
+      "x": 918,
+      "y": 498,
       "priority": 1.052,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-table-speaker-pod"
-    },
-    {
-      "id": "conference-room-table-cable-clip",
-      "word": "table cable clip",
-      "translation": "桌面线缆夹",
-      "x": 850,
-      "y": 530,
-      "priority": 1.053,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-table-cable-clip"
-    },
-    {
-      "id": "conference-room-table-cable-grommet",
-      "word": "table cable grommet",
-      "translation": "桌面穿线孔",
-      "x": 900,
-      "y": 540,
-      "priority": 1.054,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-table-cable-grommet"
     },
     {
       "id": "conference-room-conference-table-leg",
@@ -2161,36 +1971,6 @@
       "sourceVisualRegion": "conference-room-region-table-floor-cable-cover"
     },
     {
-      "id": "conference-room-tabletop-control-unit",
-      "word": "tabletop control unit",
-      "translation": "桌面控制单元",
-      "x": 950,
-      "y": 530,
-      "priority": 1.06,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-tabletop-control-unit"
-    },
-    {
-      "id": "conference-room-control-dial",
-      "word": "control dial",
-      "translation": "控制旋钮",
-      "x": 950,
-      "y": 530,
-      "priority": 1.061,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-control-dial"
-    },
-    {
-      "id": "conference-room-table-seam",
-      "word": "table seam",
-      "translation": "桌面接缝",
-      "x": 1000,
-      "y": 580,
-      "priority": 1.062,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room-region-table-seam"
-    },
-    {
       "id": "conference-room-table-support-bracket",
       "word": "table support bracket",
       "translation": "桌面支撑架",
@@ -2204,8 +1984,8 @@
       "id": "conference-room-tabletop-outlet",
       "word": "tabletop outlet",
       "translation": "桌面插口",
-      "x": 1000,
-      "y": 540,
+      "x": 778,
+      "y": 521,
       "priority": 1.064,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-tabletop-outlet"
@@ -2214,8 +1994,8 @@
       "id": "conference-room-table-cable-channel",
       "word": "table cable channel",
       "translation": "桌面线缆通道",
-      "x": 1000,
-      "y": 520,
+      "x": 860,
+      "y": 481,
       "priority": 1.065,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-table-cable-channel"
@@ -2504,48 +2284,18 @@
       "id": "conference-room-meeting-display-bezel",
       "word": "meeting display bezel",
       "translation": "会议显示屏边框",
-      "x": 1000,
+      "x": 1063,
       "y": 285,
       "priority": 1.094,
       "minLevel": 0,
       "sourceVisualRegion": "conference-room-region-meeting-display-bezel"
     },
     {
-      "id": "conference-room-meeting-display-mount",
-      "word": "meeting display mount",
-      "translation": "会议显示屏挂架",
-      "x": 1000,
-      "y": 390,
-      "priority": 1.095,
-      "minLevel": 1,
-      "sourceVisualRegion": "conference-room-region-meeting-display-mount"
-    },
-    {
-      "id": "conference-room-display-mount-arm",
-      "word": "display mount arm",
-      "translation": "显示屏挂架支臂",
-      "x": 980,
-      "y": 400,
-      "priority": 1.096,
-      "minLevel": 1,
-      "sourceVisualRegion": "conference-room-region-display-mount-arm"
-    },
-    {
-      "id": "conference-room-display-cable",
-      "word": "display cable",
-      "translation": "显示屏电缆",
-      "x": 1000,
-      "y": 410,
-      "priority": 1.097,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room-region-display-cable"
-    },
-    {
       "id": "conference-room-conference-camera",
       "word": "conference camera",
       "translation": "会议摄像机",
-      "x": 1000,
-      "y": 390,
+      "x": 927,
+      "y": 199,
       "priority": 1.098,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-conference-camera"
@@ -2554,8 +2304,8 @@
       "id": "conference-room-meeting-camera-lens",
       "word": "meeting camera lens",
       "translation": "会议摄像机镜头",
-      "x": 1000,
-      "y": 390,
+      "x": 925,
+      "y": 198,
       "priority": 1.099,
       "minLevel": 3,
       "sourceVisualRegion": "conference-room-region-meeting-camera-lens"
@@ -2564,8 +2314,8 @@
       "id": "conference-room-camera-housing",
       "word": "camera housing",
       "translation": "摄像机外壳",
-      "x": 1000,
-      "y": 390,
+      "x": 932,
+      "y": 200,
       "priority": 1.1,
       "minLevel": 4,
       "sourceVisualRegion": "conference-room-region-camera-housing"
@@ -2574,21 +2324,11 @@
       "id": "conference-room-meeting-speaker-bar",
       "word": "meeting speaker bar",
       "translation": "会议扬声器条",
-      "x": 1000,
-      "y": 410,
+      "x": 948,
+      "y": 377,
       "priority": 1.101,
       "minLevel": 2,
       "sourceVisualRegion": "conference-room-region-meeting-speaker-bar"
-    },
-    {
-      "id": "conference-room-speaker-bar-grille",
-      "word": "speaker bar grille",
-      "translation": "扬声器条格栅",
-      "x": 1000,
-      "y": 415,
-      "priority": 1.102,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room-region-speaker-bar-grille"
     },
     {
       "id": "conference-room-meeting-room-whiteboard",
@@ -2991,17 +2731,84 @@
       "sourceVisualRegion": "conference-room-region-meeting-room-corner"
     }
   ],
+  "relatedWords": [
+    {
+      "id": "conference-room-conference-power-socket",
+      "word": "conference power socket",
+      "translation": "会议室电源插座"
+    },
+    {
+      "id": "conference-room-socket",
+      "word": "USB socket",
+      "translation": "USB 插座"
+    },
+    {
+      "id": "conference-room-data-socket",
+      "word": "data socket",
+      "translation": "数据插座"
+    },
+    {
+      "id": "conference-room-microphone-mute-button",
+      "word": "microphone mute button",
+      "translation": "麦克风静音按钮"
+    },
+    {
+      "id": "conference-room-table-cable-clip",
+      "word": "table cable clip",
+      "translation": "桌面线缆夹"
+    },
+    {
+      "id": "conference-room-table-cable-grommet",
+      "word": "table cable grommet",
+      "translation": "桌面穿线孔"
+    },
+    {
+      "id": "conference-room-tabletop-control-unit",
+      "word": "tabletop control unit",
+      "translation": "桌面控制单元"
+    },
+    {
+      "id": "conference-room-control-dial",
+      "word": "control dial",
+      "translation": "控制旋钮"
+    },
+    {
+      "id": "conference-room-table-seam",
+      "word": "table seam",
+      "translation": "桌面接缝"
+    },
+    {
+      "id": "conference-room-meeting-display-mount",
+      "word": "meeting display mount",
+      "translation": "会议显示屏挂架"
+    },
+    {
+      "id": "conference-room-display-mount-arm",
+      "word": "display mount arm",
+      "translation": "显示屏挂架支臂"
+    },
+    {
+      "id": "conference-room-display-cable",
+      "word": "display cable",
+      "translation": "显示屏电缆"
+    },
+    {
+      "id": "conference-room-speaker-bar-grille",
+      "word": "speaker bar grille",
+      "translation": "扬声器条格栅"
+    }
+  ],
   "portals": [
     {
       "id": "enter-video-conferencing-console",
       "label": "Enter the video-conferencing console",
       "translation": "进入视频会议设备台",
       "childSceneId": "video-conferencing-console",
-      "sourceVisualRegion": "portal-video-conferencing-console-device-group",
-      "x": 760,
-      "y": 350,
-      "width": 350,
-      "height": 250,
+      "sourceVisualRegion": "portal-video-conferencing-console-display",
+      "x": 818,
+      "y": 219,
+      "width": 238,
+      "height": 132,
       "enterScale": 3.45
     }
   ]

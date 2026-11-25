@@ -8,6 +8,7 @@ import {
   buildVocabularyZoomCues,
   computeSceneLabelLayout,
   type Scene,
+  type SceneAnchorAudit,
 } from "../../app/domain";
 
 interface Manifest {
@@ -26,17 +27,7 @@ interface VisualRegion {
 }
 
 interface AuditedScene extends Scene {
-  anchorAudit: {
-    status: "human-verified";
-    policy: "visible-object-or-part-only";
-    reviewedAsset: string;
-    reviewedAssetSha256?: string;
-    rationale: string;
-    previousLabelCount: number;
-    retainedLabelCount: number;
-    removedLabelCount: number;
-    removedExamples: string[];
-  };
+  anchorAudit: SceneAnchorAudit;
   visualRegions: VisualRegion[];
   labels: Array<Scene["labels"][number] & { sourceVisualRegion: string }>;
   portals: Array<Scene["portals"][number] & { sourceVisualRegion: string }>;
@@ -178,7 +169,7 @@ test("mature world has six subject branches and fully reachable practical paths"
   }
 });
 
-test("every spatial label and portal is traceable to a human-verified visual region", async () => {
+test("every spatial label and portal is traceable to an audited visual region", async () => {
   const { scenes } = await loadWorld();
   for (const scene of scenes) {
     const expectedCanvas = scene.id === "world-map"
@@ -189,7 +180,7 @@ test("every spatial label and portal is traceable to a human-verified visual reg
       expectedCanvas,
       `${scene.id} logical canvas`,
     );
-    assert.equal(scene.anchorAudit.status, "human-verified", `${scene.id} audit status`);
+    assert.ok(["human-verified", "image-reviewed"].includes(scene.anchorAudit.status), `${scene.id} audit status`);
     assert.equal(
       scene.anchorAudit.policy,
       "visible-object-or-part-only",

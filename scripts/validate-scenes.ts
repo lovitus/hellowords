@@ -8,6 +8,7 @@ import {
   type Label,
   type Portal,
   type Scene,
+  type SceneAnchorAudit,
   type SceneDetailZone,
 } from "../app/domain/index";
 
@@ -29,18 +30,6 @@ interface VisualRegion {
   height: number;
 }
 
-interface AnchorAudit {
-  status: "human-verified";
-  policy: "visible-object-or-part-only";
-  reviewedAsset: string;
-  reviewedAssetSha256?: string;
-  rationale: string;
-  previousLabelCount: number;
-  retainedLabelCount: number;
-  removedLabelCount: number;
-  removedExamples: string[];
-}
-
 interface AuditedLabel extends Label {
   sourceVisualRegion: string;
 }
@@ -50,7 +39,7 @@ interface AuditedPortal extends Portal {
 }
 
 interface AuditedScene extends Scene {
-  anchorAudit: AnchorAudit;
+  anchorAudit: SceneAnchorAudit;
   visualRegions: VisualRegion[];
   detailZones?: SceneDetailZone[];
   labels: AuditedLabel[];
@@ -154,7 +143,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "open-plan-workstation": 140,
   "desktop-workstation-equipment": 145,
   "conference-room": 130,
-  "video-conferencing-console": 135,
+  "video-conferencing-console": 68,
   // The standalone service-core photograph resolves electrical, HVAC, fire,
   // janitorial and loading hardware as a bounded facilities vocabulary.
   "service-core": 80,
@@ -271,8 +260,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "office-elevator-car": 150,
   "open-plan-workstation": 150,
   "desktop-workstation-equipment": 155,
-  "conference-room": 143,
-  "video-conferencing-console": 144,
+  "conference-room": 130,
+  "video-conferencing-console": 68,
   // The service-core render supports 90 distinct visible facility parts while
   // excluding hidden system states, operational claims and duplicate names.
   "service-core": 90,
@@ -629,8 +618,8 @@ function validateAnchorAudit(
   lexiconById: ReadonlyMap<string, SemanticNode>,
 ): void {
   const { anchorAudit } = scene;
-  if (!anchorAudit || anchorAudit.status !== "human-verified") {
-    throw new Error(`Scene ${scene.id} has not been human verified against its visual`);
+  if (!anchorAudit || !["human-verified", "image-reviewed"].includes(anchorAudit.status)) {
+    throw new Error(`Scene ${scene.id} has no recognized visual audit`);
   }
   if (anchorAudit.policy !== "visible-object-or-part-only") {
     throw new Error(`Scene ${scene.id} uses an unsupported anchor policy`);
@@ -953,6 +942,10 @@ async function main() {
   );
 
   assertValidSceneGraph(scenes.map(({ scene }) => scene));
+  const pendingHumanReview = scenes.filter(({ scene }) => scene.anchorAudit.status === "image-reviewed");
+  if (pendingHumanReview.length && !process.argv.includes("--allow-image-reviewed")) {
+    throw new Error(`Human review required before release: ${pendingHumanReview.map(({ scene }) => scene.id).join(", ")}`);
+  }
   const root = scenes.find(({ scene }) => scene.id === manifest.rootSceneId)?.scene;
   if (!root || root.parentId != null) throw new Error("Manifest root is not a root scene");
   if (scenes.length < MIN_MATURE_SCENES) {
@@ -1032,7 +1025,8 @@ async function main() {
     detailZoneCount,
     previousLabelCount,
     removedLabelCount,
-    anchorVerifiedCount: labelCount,
+    anchorVerifiedCount: labelCount - pendingHumanReview.reduce((sum, { scene }) => sum + scene.labels.length, 0),
+    pendingHumanReview: pendingHumanReview.map(({ scene }) => scene.id),
     minLabelsPerScene: Math.min(...scenes.map(({ scene }) => scene.labels.length)),
     maxLabelsPerScene: Math.max(...scenes.map(({ scene }) => scene.labels.length)),
     portalCount,

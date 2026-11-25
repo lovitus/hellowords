@@ -10,1299 +10,615 @@
   "visualRegions": [
     {
       "id": "video-conferencing-console-region-video-conferencing-display",
-      "description": "Pixel-audited “video conferencing display” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 260,
-      "width": 40,
-      "height": 40
+      "description": "Large wall display above the video bar",
+      "kind": "object",
+      "x": 535,
+      "y": 97,
+      "width": 600,
+      "height": 345
     },
     {
       "id": "video-conferencing-console-region-display-panel",
-      "description": "Pixel-audited “display panel” inside the Front display surface crop of the video-conferencing-console photograph",
+      "description": "Single uninterrupted dark screen surface inside the narrow frame",
       "kind": "part",
-      "x": 830,
-      "y": 260,
-      "width": 40,
-      "height": 40
+      "x": 553,
+      "y": 112,
+      "width": 560,
+      "height": 314
     },
     {
       "id": "video-conferencing-console-region-video-display-bezel",
-      "description": "Pixel-audited “video display bezel” inside the Front display surface crop of the video-conferencing-console photograph",
+      "description": "Black vertical bezel on the right side of the display",
       "kind": "part",
-      "x": 830,
-      "y": 200,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-display-glass",
-      "description": "Pixel-audited “meeting display glass” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 280,
-      "width": 40,
-      "height": 40
+      "x": 1126,
+      "y": 269,
+      "width": 7,
+      "height": 80
     },
     {
       "id": "video-conferencing-console-region-display-lower-bezel",
-      "description": "Pixel-audited “display lower bezel” inside the Front display surface crop of the video-conferencing-console photograph",
+      "description": "Dark lower frame directly beneath the screen face",
       "kind": "part",
-      "x": 830,
-      "y": 430,
-      "width": 40,
-      "height": 40
+      "x": 1033,
+      "y": 435,
+      "width": 76,
+      "height": 5
     },
     {
       "id": "video-conferencing-console-region-display-top-bezel",
-      "description": "Pixel-audited “display top bezel” inside the Front display surface crop of the video-conferencing-console photograph",
+      "description": "Black top edge of the display to the right of the camera",
       "kind": "part",
-      "x": 830,
-      "y": 180,
-      "width": 40,
-      "height": 40
+      "x": 898,
+      "y": 99,
+      "width": 81,
+      "height": 7
     },
     {
       "id": "video-conferencing-console-region-display-side-frame",
-      "description": "Pixel-audited “display side frame” inside the Front display surface crop of the video-conferencing-console photograph",
+      "description": "Narrow left-hand frame beside the gray wall",
       "kind": "part",
-      "x": 560,
-      "y": 280,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-display-wall-mount",
-      "description": "Pixel-audited “display wall mount” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 450,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-display-mounting-rail",
-      "description": "Pixel-audited “display mounting rail” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 780,
-      "y": 440,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-display-bracket",
-      "description": "Pixel-audited “display bracket” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 450,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-display-spacer",
-      "description": "Pixel-audited “display spacer” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 900,
-      "y": 450,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-display-cable-channel",
-      "description": "Pixel-audited “display cable channel” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 460,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-blank-display-surface",
-      "description": "Pixel-audited “blank display surface” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 280,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-display-lower-ledge",
-      "description": "Pixel-audited “display lower ledge” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 445,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-display-corner-guard",
-      "description": "Pixel-audited “display corner guard” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1100,
-      "y": 190,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-display-mount-screw",
-      "description": "Pixel-audited “display mount screw” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 450,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-display-backplate",
-      "description": "Pixel-audited “display backplate” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 460,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-display-support-arm",
-      "description": "Pixel-audited “video display support arm” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 455,
-      "width": 40,
-      "height": 40
+      "x": 536,
+      "y": 245,
+      "width": 7,
+      "height": 81
     },
     {
       "id": "video-conferencing-console-region-display-trim-strip",
-      "description": "Pixel-audited “display trim strip” inside the Front display surface crop of the video-conferencing-console photograph",
+      "description": "Fine gray horizontal strip across the lower display frame",
       "kind": "part",
-      "x": 830,
-      "y": 435,
-      "width": 40,
-      "height": 40
+      "x": 637,
+      "y": 433,
+      "width": 53,
+      "height": 3
     },
     {
       "id": "video-conferencing-console-region-front-wall-panel",
-      "description": "Pixel-audited “front wall panel” inside the Front display surface crop of the video-conferencing-console photograph",
+      "description": "Textured wall panel immediately to the left of the display",
       "kind": "part",
-      "x": 630,
-      "y": 230,
-      "width": 40,
-      "height": 40
+      "x": 429,
+      "y": 273,
+      "width": 97,
+      "height": 85
     },
     {
       "id": "video-conferencing-console-region-front-wall-seam",
-      "description": "Pixel-audited “front wall seam” inside the Front display surface crop of the video-conferencing-console photograph",
+      "description": "Straight vertical joint over the left half of the display",
       "kind": "part",
-      "x": 680,
-      "y": 280,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-display-bottom-rail",
-      "description": "Pixel-audited “display bottom rail” inside the Front display surface crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 440,
-      "width": 40,
-      "height": 40
+      "x": 632,
+      "y": 15,
+      "width": 5,
+      "height": 69
     },
     {
       "id": "video-conferencing-console-region-room-camera",
-      "description": "Pixel-audited “room camera” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 60,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-camera-housing",
-      "description": "Pixel-audited “meeting camera housing” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 55,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-camera-lens",
-      "description": "Pixel-audited “video camera lens” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 50,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-camera-privacy-shutter",
-      "description": "Pixel-audited “camera privacy shutter” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 850,
-      "y": 55,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-camera-mount-foot",
-      "description": "Pixel-audited “camera mount foot” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 85,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-camera-tilt-joint",
-      "description": "Pixel-audited “camera tilt joint” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 800,
-      "y": 80,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-camera-cable",
-      "description": "Pixel-audited “camera cable” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 860,
-      "y": 100,
-      "width": 40,
-      "height": 40
+      "description": "Small rectangular camera centered on the top edge of the wall display",
+      "kind": "object",
+      "x": 805,
+      "y": 54,
+      "width": 62,
+      "height": 32
     },
     {
       "id": "video-conferencing-console-region-conference-video-bar",
-      "description": "Pixel-audited “conference video bar” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 410,
-      "width": 40,
-      "height": 40
+      "description": "Wide black unit with a central lens below the wall screen",
+      "kind": "object",
+      "x": 693,
+      "y": 452,
+      "width": 271,
+      "height": 47
     },
     {
-      "id": "video-conferencing-console-region-video-bar-grille",
-      "description": "Pixel-audited “video bar grille” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
+      "id": "video-conferencing-console-region-meeting-camera-housing",
+      "description": "Rectangular black camera casing beside the top camera lens",
       "kind": "part",
-      "x": 780,
-      "y": 410,
-      "width": 40,
-      "height": 40
+      "x": 851,
+      "y": 58,
+      "width": 13,
+      "height": 22
     },
     {
-      "id": "video-conferencing-console-region-video-bar-end-cap",
-      "description": "Pixel-audited “video bar end cap” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
+      "id": "video-conferencing-console-region-video-camera-lens",
+      "description": "Round glass camera lens in the center of the video bar below the display",
       "kind": "part",
-      "x": 720,
-      "y": 410,
-      "width": 40,
-      "height": 40
+      "x": 811,
+      "y": 457,
+      "width": 34,
+      "height": 37
     },
     {
-      "id": "video-conferencing-console-region-video-bar-mount",
-      "description": "Pixel-audited “video bar mount” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
+      "id": "video-conferencing-console-region-camera-mount-foot",
+      "description": "Short central foot joining the small camera body to its longer plate",
       "kind": "part",
-      "x": 830,
-      "y": 450,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-bar-bracket",
-      "description": "Pixel-audited “video bar bracket” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 450,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-bar-control-button",
-      "description": "Pixel-audited “video bar control button” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 410,
-      "width": 40,
-      "height": 40
+      "x": 826,
+      "y": 83,
+      "width": 18,
+      "height": 5
     },
     {
       "id": "video-conferencing-console-region-left-speaker-grille",
-      "description": "Pixel-audited “left speaker grille” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
+      "description": "Textured grille on the left side of the video bar",
       "kind": "part",
-      "x": 740,
-      "y": 410,
-      "width": 40,
-      "height": 40
+      "x": 706,
+      "y": 461,
+      "width": 99,
+      "height": 27
     },
     {
       "id": "video-conferencing-console-region-right-speaker-grille",
-      "description": "Pixel-audited “right speaker grille” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
+      "description": "Textured grille on the right side of the video bar",
       "kind": "part",
-      "x": 920,
-      "y": 410,
-      "width": 40,
-      "height": 40
+      "x": 864,
+      "y": 461,
+      "width": 84,
+      "height": 27
+    },
+    {
+      "id": "video-conferencing-console-region-video-bar-end-cap",
+      "description": "Rounded black end of the video bar on the right",
+      "kind": "part",
+      "x": 956,
+      "y": 458,
+      "width": 8,
+      "height": 36
     },
     {
       "id": "video-conferencing-console-region-speaker-enclosure",
-      "description": "Pixel-audited “speaker enclosure” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
+      "description": "Lower black casing beneath the left speaker grille",
       "kind": "part",
-      "x": 830,
-      "y": 420,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-speaker-cable",
-      "description": "Pixel-audited “speaker cable” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 460,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-camera-indicator-window",
-      "description": "Pixel-audited “camera indicator window” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 55,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-soundbar-center-grille",
-      "description": "Pixel-audited “soundbar center grille” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 410,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-bar-wall-spacer",
-      "description": "Pixel-audited “bar wall spacer” inside the Camera and speaker bar crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 460,
-      "width": 40,
-      "height": 40
+      "x": 708,
+      "y": 492,
+      "width": 53,
+      "height": 6
     },
     {
       "id": "video-conferencing-console-region-room-touch-console",
-      "description": "Pixel-audited “room touch console” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 660,
-      "width": 40,
-      "height": 40
+      "description": "Angled black touch console on the tabletop to the left of the right microphone",
+      "kind": "object",
+      "x": 884,
+      "y": 626,
+      "width": 241,
+      "height": 213
     },
     {
       "id": "video-conferencing-console-region-meeting-console-screen",
-      "description": "Pixel-audited “meeting console screen” inside the Touch console crop of the video-conferencing-console photograph",
+      "description": "Inset dark screen face on the tilted console",
       "kind": "part",
-      "x": 980,
-      "y": 600,
-      "width": 40,
-      "height": 40
+      "x": 949,
+      "y": 663,
+      "width": 90,
+      "height": 63
     },
     {
       "id": "video-conferencing-console-region-meeting-console-bezel",
-      "description": "Pixel-audited “meeting console bezel” inside the Touch console crop of the video-conferencing-console photograph",
+      "description": "Wide black bezel between the inset screen and its silver outer edge",
       "kind": "part",
-      "x": 980,
-      "y": 590,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-screen-glass",
-      "description": "Pixel-audited “console screen glass” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 605,
-      "width": 40,
-      "height": 40
+      "x": 1038,
+      "y": 787,
+      "width": 14,
+      "height": 17
     },
     {
       "id": "video-conferencing-console-region-console-stand",
-      "description": "Pixel-audited “console stand” inside the Touch console crop of the video-conferencing-console photograph",
+      "description": "Exposed triangular support behind the lower right side of the screen",
       "kind": "part",
-      "x": 980,
-      "y": 730,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-hinge",
-      "description": "Pixel-audited “console hinge” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 710,
-      "width": 40,
-      "height": 40
+      "x": 1078,
+      "y": 773,
+      "width": 16,
+      "height": 22
     },
     {
       "id": "video-conferencing-console-region-console-base",
-      "description": "Pixel-audited “console base” inside the Touch console crop of the video-conferencing-console photograph",
+      "description": "Flat black base on the table below the tilted screen",
       "kind": "part",
-      "x": 980,
-      "y": 770,
-      "width": 40,
-      "height": 40
+      "x": 989,
+      "y": 817,
+      "width": 38,
+      "height": 15
     },
     {
       "id": "video-conferencing-console-region-console-cable",
-      "description": "Pixel-audited “console cable” inside the Touch console crop of the video-conferencing-console photograph",
+      "description": "Black lead running from the foreground hub under the left side of the console",
       "kind": "part",
-      "x": 980,
-      "y": 780,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-power-lead",
-      "description": "Pixel-audited “console power lead” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 790,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-side-button",
-      "description": "Pixel-audited “console side button” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1060,
-      "y": 650,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-port-panel",
-      "description": "Pixel-audited “console port panel” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1020,
-      "y": 740,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-port-cover",
-      "description": "Pixel-audited “console port cover” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1020,
-      "y": 750,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-strain-relief",
-      "description": "Pixel-audited “console strain relief” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1000,
-      "y": 785,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-rear-foot",
-      "description": "Pixel-audited “console rear foot” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1020,
-      "y": 770,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-cable-loop",
-      "description": "Pixel-audited “console cable loop” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 930,
-      "y": 780,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-blank-surface",
-      "description": "Pixel-audited “console blank surface” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 610,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-screen-border",
-      "description": "Pixel-audited “console screen border” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 620,
-      "width": 40,
-      "height": 40
+      "x": 862,
+      "y": 784,
+      "width": 41,
+      "height": 8
     },
     {
       "id": "video-conferencing-console-region-tabletop-device-base",
-      "description": "Pixel-audited “tabletop device base” inside the Touch console crop of the video-conferencing-console photograph",
+      "description": "Low rectangular foot beneath the small black device at the back of the table",
       "kind": "part",
-      "x": 880,
-      "y": 710,
-      "width": 40,
-      "height": 40
+      "x": 845,
+      "y": 597,
+      "width": 14,
+      "height": 7
     },
     {
       "id": "video-conferencing-console-region-tabletop-device-cable",
-      "description": "Pixel-audited “tabletop device cable” inside the Touch console crop of the video-conferencing-console photograph",
+      "description": "Short lead exiting the near side of the small rear tabletop device",
       "kind": "part",
-      "x": 880,
-      "y": 740,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-rear-panel",
-      "description": "Pixel-audited “console rear panel” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1050,
-      "y": 730,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-foot-pad",
-      "description": "Pixel-audited “console foot pad” inside the Touch console crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 980,
-      "y": 780,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-table-microphone-pod",
-      "description": "Pixel-audited “video table microphone pod” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 580,
-      "y": 600,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-microphone-pod-housing",
-      "description": "Pixel-audited “microphone pod housing” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 580,
-      "y": 600,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-microphone-grille",
-      "description": "Pixel-audited “microphone grille” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 580,
-      "y": 595,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-microphone-mute-button",
-      "description": "Pixel-audited “video microphone mute button” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 610,
-      "y": 600,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-microphone-cable-port",
-      "description": "Pixel-audited “microphone cable port” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 600,
-      "y": 620,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-microphone-rubber-foot",
-      "description": "Pixel-audited “microphone rubber foot” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 570,
-      "y": 630,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-near-microphone-pod",
-      "description": "Pixel-audited “near microphone pod” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 430,
-      "y": 770,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-near-microphone-grille",
-      "description": "Pixel-audited “near microphone grille” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 430,
-      "y": 765,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-near-microphone-cable",
-      "description": "Pixel-audited “near microphone cable” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 480,
-      "y": 780,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-far-microphone-pod",
-      "description": "Pixel-audited “far microphone pod” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1080,
-      "y": 630,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-far-microphone-grille",
-      "description": "Pixel-audited “far microphone grille” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1080,
-      "y": 625,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-far-microphone-cable",
-      "description": "Pixel-audited “far microphone cable” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1030,
-      "y": 650,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-left-microphone-pod",
-      "description": "Pixel-audited “left microphone pod” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 700,
-      "y": 510,
-      "width": 40,
-      "height": 40
+      "x": 815,
+      "y": 598,
+      "width": 10,
+      "height": 13
     },
     {
       "id": "video-conferencing-console-region-right-microphone-pod",
-      "description": "Pixel-audited “right microphone pod” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1230,
-      "y": 680,
-      "width": 40,
-      "height": 40
+      "description": "Front right round microphone beside the touch console",
+      "kind": "object",
+      "x": 1194,
+      "y": 761,
+      "width": 153,
+      "height": 81
     },
     {
-      "id": "video-conferencing-console-region-pod-cable-junction",
-      "description": "Pixel-audited “pod cable junction” inside the Table microphone pods crop of the video-conferencing-console photograph",
+      "id": "video-conferencing-console-region-near-microphone-pod",
+      "description": "Large round microphone in the front left of the table",
+      "kind": "object",
+      "x": 366,
+      "y": 741,
+      "width": 142,
+      "height": 76
+    },
+    {
+      "id": "video-conferencing-console-region-left-microphone-pod",
+      "description": "Small rear left microphone near the far edge of the table",
+      "kind": "object",
+      "x": 577,
+      "y": 588,
+      "width": 75,
+      "height": 31
+    },
+    {
+      "id": "video-conferencing-console-region-far-microphone-pod",
+      "description": "Small rear right microphone behind the angled console",
+      "kind": "object",
+      "x": 989,
+      "y": 591,
+      "width": 76,
+      "height": 31
+    },
+    {
+      "id": "video-conferencing-console-region-microphone-pod-housing",
+      "description": "Smooth black sidewall around the front right microphone",
       "kind": "part",
-      "x": 780,
-      "y": 580,
-      "width": 40,
-      "height": 40
+      "x": 1278,
+      "y": 812,
+      "width": 55,
+      "height": 13
+    },
+    {
+      "id": "video-conferencing-console-region-microphone-grille",
+      "description": "Perforated top of the front right microphone",
+      "kind": "part",
+      "x": 1266,
+      "y": 770,
+      "width": 54,
+      "height": 20
+    },
+    {
+      "id": "video-conferencing-console-region-near-microphone-grille",
+      "description": "Round mesh insert on the foreground left microphone",
+      "kind": "part",
+      "x": 400,
+      "y": 752,
+      "width": 52,
+      "height": 17
+    },
+    {
+      "id": "video-conferencing-console-region-near-microphone-cable",
+      "description": "Black cable arching rightward from the foreground left microphone",
+      "kind": "part",
+      "x": 579,
+      "y": 747,
+      "width": 44,
+      "height": 9
+    },
+    {
+      "id": "video-conferencing-console-region-far-microphone-grille",
+      "description": "Small top grille on the rear right microphone",
+      "kind": "part",
+      "x": 1014,
+      "y": 594,
+      "width": 32,
+      "height": 9
+    },
+    {
+      "id": "video-conferencing-console-region-far-microphone-cable",
+      "description": "Lead running left from the rear right pod toward the table channel",
+      "kind": "part",
+      "x": 916,
+      "y": 595,
+      "width": 42,
+      "height": 10
+    },
+    {
+      "id": "video-conferencing-console-region-microphone-cable-port",
+      "description": "Plug entering the right side of the foreground left microphone housing",
+      "kind": "part",
+      "x": 501,
+      "y": 764,
+      "width": 15,
+      "height": 13
     },
     {
       "id": "video-conferencing-console-region-tabletop-cable-trough",
-      "description": "Pixel-audited “tabletop cable trough” inside the Table microphone pods crop of the video-conferencing-console photograph",
+      "description": "Recessed cable space along the left of the foreground outlet module",
       "kind": "part",
-      "x": 780,
-      "y": 630,
-      "width": 40,
-      "height": 40
+      "x": 711,
+      "y": 734,
+      "width": 29,
+      "height": 87
     },
     {
       "id": "video-conferencing-console-region-trough-lid",
-      "description": "Pixel-audited “trough lid” inside the Table microphone pods crop of the video-conferencing-console photograph",
+      "description": "Closed foreground cover continuing forward from the recessed outlet module",
       "kind": "part",
-      "x": 780,
-      "y": 630,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-trough-divider",
-      "description": "Pixel-audited “trough divider” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 780,
-      "y": 660,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-tabletop-grommet",
-      "description": "Pixel-audited “video tabletop grommet” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 650,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-table-edge-trim",
-      "description": "Pixel-audited “table edge trim” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 680,
-      "y": 750,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-tabletop-seam",
-      "description": "Pixel-audited “video tabletop seam” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 740,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-table-control-pod",
-      "description": "Pixel-audited “table control pod” inside the Table microphone pods crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 580,
-      "width": 40,
-      "height": 40
+      "x": 725,
+      "y": 838,
+      "width": 122,
+      "height": 55
     },
     {
       "id": "video-conferencing-console-region-video-room-power-hub",
-      "description": "Pixel-audited “video room power hub” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 780,
-      "y": 630,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-power-hub-lid",
-      "description": "Pixel-audited “power hub lid” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 780,
-      "y": 630,
-      "width": 40,
-      "height": 40
+      "description": "Recessed rectangular outlet module in the foreground table channel",
+      "kind": "object",
+      "x": 730,
+      "y": 731,
+      "width": 100,
+      "height": 89
     },
     {
       "id": "video-conferencing-console-region-video-room-power-socket",
-      "description": "Pixel-audited “video room power socket” inside the Cable and power hub crop of the video-conferencing-console photograph",
+      "description": "Multihole power receptacle in the center of the foreground module",
       "kind": "part",
-      "x": 780,
-      "y": 640,
-      "width": 40,
-      "height": 40
+      "x": 770,
+      "y": 766,
+      "width": 33,
+      "height": 19
     },
     {
-      "id": "video-conferencing-console-region-video-room-data-socket",
-      "description": "Pixel-audited “video room data socket” inside the Cable and power hub crop of the video-conferencing-console photograph",
+      "id": "video-conferencing-console-region-power-hub-lid",
+      "description": "Flat sliding cover beside the opening in the middle tabletop module",
       "kind": "part",
-      "x": 800,
-      "y": 640,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-room-port",
-      "description": "Pixel-audited “video room USB port” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 820,
-      "y": 640,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-cable-grommet",
-      "description": "Pixel-audited “video cable grommet” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 880,
+      "x": 778,
       "y": 650,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-cable-clip",
-      "description": "Pixel-audited “video cable clip” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-cable-strain-relief",
-      "description": "Pixel-audited “video cable strain relief” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 700,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-braided-video-cable",
-      "description": "Pixel-audited “braided video cable” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 710,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-cable-trough",
-      "description": "Pixel-audited “video cable trough” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 780,
-      "y": 660,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-trough-divider",
-      "description": "Pixel-audited “video trough divider” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 780,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-floor-cable-cover",
-      "description": "Pixel-audited “video floor cable cover” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 680,
-      "y": 830,
-      "width": 40,
-      "height": 40
+      "width": 31,
+      "height": 37
     },
     {
       "id": "video-conferencing-console-region-console-side-credenza",
-      "description": "Pixel-audited “console side credenza” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 280,
-      "y": 480,
-      "width": 40,
-      "height": 40
+      "description": "Low wooden cabinet to the left of the wall display",
+      "kind": "object",
+      "x": 0,
+      "y": 479,
+      "width": 419,
+      "height": 261
     },
     {
       "id": "video-conferencing-console-region-room-compute-box",
-      "description": "Pixel-audited “room compute box” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 280,
-      "y": 460,
-      "width": 40,
-      "height": 40
+      "description": "Larger rectangular equipment box on top of the wooden credenza",
+      "kind": "object",
+      "x": 176,
+      "y": 448,
+      "width": 90,
+      "height": 36
     },
     {
       "id": "video-conferencing-console-region-room-power-adapter",
-      "description": "Pixel-audited “room power adapter” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 400,
-      "y": 470,
-      "width": 40,
-      "height": 40
+      "description": "Small black adapter beside the equipment box under the wall outlet",
+      "kind": "object",
+      "x": 299,
+      "y": 465,
+      "width": 51,
+      "height": 19
     },
     {
       "id": "video-conferencing-console-region-adapter-cable",
-      "description": "Pixel-audited “adapter cable” inside the Cable and power hub crop of the video-conferencing-console photograph",
+      "description": "Short black lead rising from the adapter to the wall outlet",
       "kind": "part",
-      "x": 430,
-      "y": 490,
-      "width": 40,
-      "height": 40
+      "x": 310,
+      "y": 440,
+      "width": 13,
+      "height": 26
     },
     {
       "id": "video-conferencing-console-region-room-wall-outlet",
-      "description": "Pixel-audited “room wall outlet” inside the Cable and power hub crop of the video-conferencing-console photograph",
+      "description": "Left receptacle in the black wall plate above the credenza",
       "kind": "part",
-      "x": 380,
-      "y": 410,
-      "width": 40,
-      "height": 40
+      "x": 312,
+      "y": 418,
+      "width": 15,
+      "height": 17
     },
     {
       "id": "video-conferencing-console-region-outlet-faceplate",
-      "description": "Pixel-audited “outlet faceplate” inside the Cable and power hub crop of the video-conferencing-console photograph",
+      "description": "Right-hand border of the two-socket black wall plate",
       "kind": "part",
-      "x": 380,
-      "y": 410,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-equipment-shelf",
-      "description": "Pixel-audited “video equipment shelf” inside the Cable and power hub crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 280,
-      "y": 500,
-      "width": 40,
-      "height": 40
+      "x": 349,
+      "y": 413,
+      "width": 8,
+      "height": 28
     },
     {
       "id": "video-conferencing-console-region-cable-pass-through",
-      "description": "Pixel-audited “cable pass-through” inside the Cable and power hub crop of the video-conferencing-console photograph",
+      "description": "Open slot through which the console lead enters the near hub",
       "kind": "part",
-      "x": 430,
-      "y": 520,
-      "width": 40,
-      "height": 40
+      "x": 824,
+      "y": 781,
+      "width": 24,
+      "height": 16
     },
     {
       "id": "video-conferencing-console-region-video-cable-loop",
-      "description": "Pixel-audited “video cable loop” inside the Cable and power hub crop of the video-conferencing-console photograph",
+      "description": "Short curved loop at the left connector of the small rear tabletop device",
       "kind": "part",
-      "x": 480,
-      "y": 540,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-wall-camera-mount",
-      "description": "Pixel-audited “wall camera mount” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 80,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-camera-mounting-plate",
-      "description": "Pixel-audited “camera mounting plate” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 90,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-speaker-wall-bracket",
-      "description": "Pixel-audited “speaker wall bracket” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 460,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-wall-display-rail",
-      "description": "Pixel-audited “wall display rail” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 830,
-      "y": 440,
-      "width": 40,
-      "height": 40
+      "x": 764,
+      "y": 588,
+      "width": 18,
+      "height": 15
     },
     {
       "id": "video-conferencing-console-region-meeting-whiteboard",
-      "description": "Pixel-audited “meeting whiteboard” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1280,
-      "y": 260,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-console-whiteboard-frame",
-      "description": "Pixel-audited “console whiteboard frame” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1280,
-      "y": 260,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-marker-tray",
-      "description": "Pixel-audited “meeting marker tray” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1280,
-      "y": 400,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-marker-cup",
-      "description": "Pixel-audited “meeting marker cup” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1380,
-      "y": 400,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-blank-whiteboard",
-      "description": "Pixel-audited “blank whiteboard” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1280,
-      "y": 260,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-whiteboard-fastener",
-      "description": "Pixel-audited “whiteboard fastener” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1400,
-      "y": 160,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-acoustic-wall-panel",
-      "description": "Pixel-audited “meeting acoustic wall panel” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1180,
-      "y": 130,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-wall-panel-seam",
-      "description": "Pixel-audited “meeting wall panel seam” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1180,
-      "y": 230,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-wall-power-outlet",
-      "description": "Pixel-audited “meeting wall power outlet” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1080,
-      "y": 430,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-wall-cable-channel",
-      "description": "Pixel-audited “meeting wall cable channel” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1030,
-      "y": 440,
-      "width": 40,
-      "height": 40
+      "description": "Tall whiteboard immediately to the right of the wall display",
+      "kind": "object",
+      "x": 1170,
+      "y": 125,
+      "width": 197,
+      "height": 324
     },
     {
       "id": "video-conferencing-console-region-meeting-glass-partition",
-      "description": "Pixel-audited “meeting glass partition” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
+      "description": "Full-height glazing to the right of the whiteboard",
+      "kind": "object",
+      "x": 1365,
+      "y": 9,
+      "width": 222,
+      "height": 518
+    },
+    {
+      "id": "video-conferencing-console-region-camera-mounting-plate",
+      "description": "Long black mounting plate between the small camera and the top of the display",
       "kind": "part",
-      "x": 1480,
-      "y": 330,
-      "width": 40,
-      "height": 40
+      "x": 773,
+      "y": 87,
+      "width": 127,
+      "height": 11
+    },
+    {
+      "id": "video-conferencing-console-region-console-whiteboard-frame",
+      "description": "Thin metal edging along the left side of the whiteboard",
+      "kind": "part",
+      "x": 1171,
+      "y": 269,
+      "width": 8,
+      "height": 70
+    },
+    {
+      "id": "video-conferencing-console-region-meeting-marker-tray",
+      "description": "Shallow lower ledge supporting the board markers",
+      "kind": "part",
+      "x": 1243,
+      "y": 440,
+      "width": 113,
+      "height": 7
+    },
+    {
+      "id": "video-conferencing-console-region-blank-whiteboard",
+      "description": "Blank white writing surface inside the board frame",
+      "kind": "part",
+      "x": 1265,
+      "y": 301,
+      "width": 75,
+      "height": 73
+    },
+    {
+      "id": "video-conferencing-console-region-whiteboard-fastener",
+      "description": "Dark circular fastener near the board’s upper left corner",
+      "kind": "part",
+      "x": 1184,
+      "y": 135,
+      "width": 11,
+      "height": 11
+    },
+    {
+      "id": "video-conferencing-console-region-meeting-acoustic-wall-panel",
+      "description": "Textured gray wall panel above the whiteboard",
+      "kind": "part",
+      "x": 1142,
+      "y": 27,
+      "width": 159,
+      "height": 75
+    },
+    {
+      "id": "video-conferencing-console-region-meeting-wall-panel-seam",
+      "description": "Vertical wall-panel joint to the right of the video bar",
+      "kind": "part",
+      "x": 1046,
+      "y": 501,
+      "width": 5,
+      "height": 50
+    },
+    {
+      "id": "video-conferencing-console-region-meeting-wall-power-outlet",
+      "description": "Right receptacle in the two-socket plate above the wood cabinet",
+      "kind": "part",
+      "x": 332,
+      "y": 417,
+      "width": 16,
+      "height": 17
+    },
+    {
+      "id": "video-conferencing-console-region-meeting-wall-cable-channel",
+      "description": "Vertical cable channel running from the video bar down to the table",
+      "kind": "part",
+      "x": 821,
+      "y": 498,
+      "width": 16,
+      "height": 64
     },
     {
       "id": "video-conferencing-console-region-meeting-glass-mullion",
-      "description": "Pixel-audited “meeting glass mullion” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
+      "description": "Thick black vertical mullion in the foreground glass partition",
       "kind": "part",
-      "x": 1480,
-      "y": 280,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-mullion-cap",
-      "description": "Pixel-audited “meeting mullion cap” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1480,
-      "y": 310,
-      "width": 40,
-      "height": 40
+      "x": 1443,
+      "y": 232,
+      "width": 30,
+      "height": 98
     },
     {
       "id": "video-conferencing-console-region-meeting-partition-door",
-      "description": "Pixel-audited “meeting partition door” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
+      "description": "Framed glass door visible beyond the foreground glazing",
       "kind": "part",
-      "x": 1500,
-      "y": 430,
-      "width": 40,
-      "height": 40
+      "x": 1367,
+      "y": 214,
+      "width": 67,
+      "height": 351
     },
     {
       "id": "video-conferencing-console-region-partition-door-pull",
-      "description": "Pixel-audited “partition door pull” inside the Mounting and wall hardware crop of the video-conferencing-console photograph",
+      "description": "Slender dark vertical door pull visible through the right-side glass",
       "kind": "part",
-      "x": 1500,
-      "y": 430,
-      "width": 40,
-      "height": 40
+      "x": 1419,
+      "y": 402,
+      "width": 9,
+      "height": 34
     },
     {
       "id": "video-conferencing-console-region-video-room-table",
-      "description": "Pixel-audited “video room table” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 780,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-tabletop-edge",
-      "description": "Pixel-audited “video tabletop edge” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 680,
-      "y": 740,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-table-modesty-panel",
-      "description": "Pixel-audited “video table modesty panel” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 780,
-      "y": 760,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-table-leg",
-      "description": "Pixel-audited “video table leg” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 680,
-      "y": 800,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-table-foot",
-      "description": "Pixel-audited “video table foot” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 680,
-      "y": 850,
-      "width": 40,
-      "height": 40
+      "description": "Wood-grain conference tabletop surrounding the central equipment channel",
+      "kind": "object",
+      "x": 353,
+      "y": 641,
+      "width": 278,
+      "height": 81
     },
     {
       "id": "video-conferencing-console-region-meeting-chair-backrest",
-      "description": "Pixel-audited “meeting chair backrest” inside the Room furniture and finish crop of the video-conferencing-console photograph",
+      "description": "Black mesh backrest of the chair in front of the left credenza",
       "kind": "part",
-      "x": 480,
-      "y": 580,
-      "width": 40,
-      "height": 40
+      "x": 143,
+      "y": 566,
+      "width": 87,
+      "height": 85
     },
     {
-      "id": "video-conferencing-console-region-meeting-chair-seat",
-      "description": "Pixel-audited “meeting chair seat” inside the Room furniture and finish crop of the video-conferencing-console photograph",
+      "id": "video-conferencing-console-region-video-tabletop-edge",
+      "description": "Far edge of the wooden table where it meets the gray front wall",
       "kind": "part",
-      "x": 480,
-      "y": 660,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-chair-armrest",
-      "description": "Pixel-audited “meeting chair armrest” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 520,
-      "y": 630,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-chair-base",
-      "description": "Pixel-audited “meeting chair base” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 480,
-      "y": 760,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-chair-caster",
-      "description": "Pixel-audited “meeting chair caster” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 480,
-      "y": 800,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-meeting-chair-caster-fork",
-      "description": "Pixel-audited “meeting chair caster fork” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 500,
-      "y": 800,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-room-carpet",
-      "description": "Pixel-audited “video room carpet” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1180,
-      "y": 740,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-carpet-tile",
-      "description": "Pixel-audited “video carpet tile” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1280,
-      "y": 780,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-carpet-seam",
-      "description": "Pixel-audited “video carpet seam” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1330,
-      "y": 800,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-floor-access-cover",
-      "description": "Pixel-audited “video floor access cover” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 680,
-      "y": 850,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-room-floor",
-      "description": "Pixel-audited “video room floor” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1080,
-      "y": 830,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-wall-base-trim",
-      "description": "Pixel-audited “video wall base trim” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 1380,
-      "y": 850,
-      "width": 40,
-      "height": 40
+      "x": 887,
+      "y": 560,
+      "width": 62,
+      "height": 6
     },
     {
       "id": "video-conferencing-console-region-video-glass-wall-panel",
-      "description": "Pixel-audited “video glass wall panel” inside the Room furniture and finish crop of the video-conferencing-console photograph",
+      "description": "Clear pane to the right of the heavy black foreground mullion",
       "kind": "part",
-      "x": 1500,
-      "y": 580,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "video-conferencing-console-region-video-window-blind",
-      "description": "Pixel-audited “video window blind” inside the Room furniture and finish crop of the video-conferencing-console photograph",
-      "kind": "part",
-      "x": 180,
-      "y": 230,
-      "width": 40,
-      "height": 40
+      "x": 1480,
+      "y": 54,
+      "width": 111,
+      "height": 129
     }
   ],
   "detailZones": [
@@ -1310,169 +626,113 @@
       "id": "video-conferencing-console-zone-display-front",
       "title": "Front display surface",
       "translation": "前部显示屏",
-      "description": "Trace the visible blank display, bezels, mount pieces, cable channel and front wall finish.",
-      "x": 500,
-      "y": 130,
-      "width": 700,
-      "height": 370,
+      "description": "Compare the screen face with the thin outer frame and the wall panels around the display.",
+      "x": 289,
+      "y": 0,
+      "width": 858,
+      "height": 554,
       "targetScale": 3.15,
       "labelIds": [
         "video-conferencing-console-video-conferencing-display",
         "video-conferencing-console-display-panel",
         "video-conferencing-console-video-display-bezel",
-        "video-conferencing-console-meeting-display-glass",
         "video-conferencing-console-display-lower-bezel",
         "video-conferencing-console-display-top-bezel",
         "video-conferencing-console-display-side-frame",
-        "video-conferencing-console-display-wall-mount",
-        "video-conferencing-console-display-mounting-rail",
-        "video-conferencing-console-display-bracket",
-        "video-conferencing-console-display-spacer",
-        "video-conferencing-console-display-cable-channel",
-        "video-conferencing-console-blank-display-surface",
-        "video-conferencing-console-display-lower-ledge",
-        "video-conferencing-console-display-corner-guard",
-        "video-conferencing-console-display-mount-screw",
-        "video-conferencing-console-display-backplate",
-        "video-conferencing-console-video-display-support-arm",
         "video-conferencing-console-display-trim-strip",
         "video-conferencing-console-front-wall-panel",
-        "video-conferencing-console-front-wall-seam",
-        "video-conferencing-console-display-bottom-rail"
+        "video-conferencing-console-front-wall-seam"
       ]
     },
     {
       "id": "video-conferencing-console-zone-camera-speaker-bar",
       "title": "Camera and speaker bar",
       "translation": "摄像机与扬声器条",
-      "description": "Inspect the visible room camera, lens, shutter, mount, soundbar grille, end caps and cable.",
-      "x": 650,
-      "y": 0,
-      "width": 600,
-      "height": 540,
+      "description": "Locate the camera above the display and the separate video bar with two grille sections below it.",
+      "x": 678,
+      "y": 45,
+      "width": 299,
+      "height": 463,
       "targetScale": 3.15,
       "labelIds": [
         "video-conferencing-console-room-camera",
+        "video-conferencing-console-conference-video-bar",
         "video-conferencing-console-meeting-camera-housing",
         "video-conferencing-console-video-camera-lens",
-        "video-conferencing-console-camera-privacy-shutter",
         "video-conferencing-console-camera-mount-foot",
-        "video-conferencing-console-camera-tilt-joint",
-        "video-conferencing-console-camera-cable",
-        "video-conferencing-console-conference-video-bar",
-        "video-conferencing-console-video-bar-grille",
-        "video-conferencing-console-video-bar-end-cap",
-        "video-conferencing-console-video-bar-mount",
-        "video-conferencing-console-video-bar-bracket",
-        "video-conferencing-console-video-bar-control-button",
         "video-conferencing-console-left-speaker-grille",
         "video-conferencing-console-right-speaker-grille",
-        "video-conferencing-console-speaker-enclosure",
-        "video-conferencing-console-speaker-cable",
-        "video-conferencing-console-camera-indicator-window",
-        "video-conferencing-console-soundbar-center-grille",
-        "video-conferencing-console-bar-wall-spacer"
+        "video-conferencing-console-video-bar-end-cap",
+        "video-conferencing-console-speaker-enclosure"
       ]
     },
     {
       "id": "video-conferencing-console-zone-touch-console",
       "title": "Touch console",
       "translation": "桌面触控台",
-      "description": "Study the visible tabletop touch console, screen, stand, hinge, base, ports and cable retention.",
-      "x": 750,
-      "y": 500,
-      "width": 450,
-      "height": 400,
+      "description": "Find the tilted touchscreen, its exposed wedge support and base, and the separate connected device at the back of the table.",
+      "x": 758,
+      "y": 557,
+      "width": 376,
+      "height": 294,
       "targetScale": 3.15,
       "labelIds": [
         "video-conferencing-console-room-touch-console",
         "video-conferencing-console-meeting-console-screen",
         "video-conferencing-console-meeting-console-bezel",
-        "video-conferencing-console-console-screen-glass",
         "video-conferencing-console-console-stand",
-        "video-conferencing-console-console-hinge",
         "video-conferencing-console-console-base",
         "video-conferencing-console-console-cable",
-        "video-conferencing-console-console-power-lead",
-        "video-conferencing-console-console-side-button",
-        "video-conferencing-console-console-port-panel",
-        "video-conferencing-console-console-port-cover",
-        "video-conferencing-console-console-strain-relief",
-        "video-conferencing-console-console-rear-foot",
-        "video-conferencing-console-console-cable-loop",
-        "video-conferencing-console-console-blank-surface",
-        "video-conferencing-console-console-screen-border",
         "video-conferencing-console-tabletop-device-base",
-        "video-conferencing-console-tabletop-device-cable",
-        "video-conferencing-console-console-rear-panel",
-        "video-conferencing-console-console-foot-pad"
+        "video-conferencing-console-tabletop-device-cable"
       ]
     },
     {
       "id": "video-conferencing-console-zone-table-microphones",
       "title": "Table microphone pods",
       "translation": "桌面麦克风单元",
-      "description": "Compare the visible microphone pod housings, grilles, buttons, ports, feet, cables and table trough.",
-      "x": 300,
-      "y": 470,
-      "width": 1150,
-      "height": 430,
+      "description": "Compare the four round microphones, then follow the leads from their grilles and housings to the center of the table.",
+      "x": 340,
+      "y": 577,
+      "width": 1020,
+      "height": 323,
       "targetScale": 3.15,
       "labelIds": [
-        "video-conferencing-console-video-table-microphone-pod",
+        "video-conferencing-console-right-microphone-pod",
+        "video-conferencing-console-near-microphone-pod",
+        "video-conferencing-console-left-microphone-pod",
+        "video-conferencing-console-far-microphone-pod",
         "video-conferencing-console-microphone-pod-housing",
         "video-conferencing-console-microphone-grille",
-        "video-conferencing-console-video-microphone-mute-button",
-        "video-conferencing-console-microphone-cable-port",
-        "video-conferencing-console-microphone-rubber-foot",
-        "video-conferencing-console-near-microphone-pod",
         "video-conferencing-console-near-microphone-grille",
         "video-conferencing-console-near-microphone-cable",
-        "video-conferencing-console-far-microphone-pod",
         "video-conferencing-console-far-microphone-grille",
         "video-conferencing-console-far-microphone-cable",
-        "video-conferencing-console-left-microphone-pod",
-        "video-conferencing-console-right-microphone-pod",
-        "video-conferencing-console-pod-cable-junction",
+        "video-conferencing-console-microphone-cable-port",
         "video-conferencing-console-tabletop-cable-trough",
-        "video-conferencing-console-trough-lid",
-        "video-conferencing-console-trough-divider",
-        "video-conferencing-console-video-tabletop-grommet",
-        "video-conferencing-console-table-edge-trim",
-        "video-conferencing-console-video-tabletop-seam",
-        "video-conferencing-console-table-control-pod"
+        "video-conferencing-console-trough-lid"
       ]
     },
     {
       "id": "video-conferencing-console-zone-cable-power-hub",
       "title": "Cable and power hub",
       "translation": "线缆与电源模块",
-      "description": "Inspect the visible tabletop power hub, sockets, grommets, cable clips, credenza compute box and outlet.",
-      "x": 250,
-      "y": 430,
-      "width": 900,
-      "height": 470,
+      "description": "Inspect the central outlet module and cable openings, then trace the visible adapter lead between the cabinet and the wall.",
+      "x": 0,
+      "y": 399,
+      "width": 870,
+      "height": 439,
       "targetScale": 3.15,
       "labelIds": [
         "video-conferencing-console-video-room-power-hub",
-        "video-conferencing-console-power-hub-lid",
         "video-conferencing-console-video-room-power-socket",
-        "video-conferencing-console-video-room-data-socket",
-        "video-conferencing-console-video-room-port",
-        "video-conferencing-console-video-cable-grommet",
-        "video-conferencing-console-video-cable-clip",
-        "video-conferencing-console-video-cable-strain-relief",
-        "video-conferencing-console-braided-video-cable",
-        "video-conferencing-console-video-cable-trough",
-        "video-conferencing-console-video-trough-divider",
-        "video-conferencing-console-video-floor-cable-cover",
+        "video-conferencing-console-power-hub-lid",
         "video-conferencing-console-console-side-credenza",
         "video-conferencing-console-room-compute-box",
         "video-conferencing-console-room-power-adapter",
         "video-conferencing-console-adapter-cable",
         "video-conferencing-console-room-wall-outlet",
         "video-conferencing-console-outlet-faceplate",
-        "video-conferencing-console-video-equipment-shelf",
         "video-conferencing-console-cable-pass-through",
         "video-conferencing-console-video-cable-loop"
       ]
@@ -1481,30 +741,25 @@
       "id": "video-conferencing-console-zone-mount-wall-hardware",
       "title": "Mounting and wall hardware",
       "translation": "安装与墙面五金",
-      "description": "Trace the visible camera/display/speaker mounts, blank whiteboard, acoustic panels and glass partition hardware.",
-      "x": 500,
+      "description": "Locate the whiteboard frame and tray, the acoustic wall panels, the glass partition and the door pull seen through it.",
+      "x": 300,
       "y": 0,
-      "width": 1100,
-      "height": 500,
+      "width": 1300,
+      "height": 567,
       "targetScale": 3.15,
       "labelIds": [
-        "video-conferencing-console-wall-camera-mount",
-        "video-conferencing-console-camera-mounting-plate",
-        "video-conferencing-console-speaker-wall-bracket",
-        "video-conferencing-console-wall-display-rail",
         "video-conferencing-console-meeting-whiteboard",
+        "video-conferencing-console-meeting-glass-partition",
+        "video-conferencing-console-camera-mounting-plate",
         "video-conferencing-console-console-whiteboard-frame",
         "video-conferencing-console-meeting-marker-tray",
-        "video-conferencing-console-meeting-marker-cup",
         "video-conferencing-console-blank-whiteboard",
         "video-conferencing-console-whiteboard-fastener",
         "video-conferencing-console-meeting-acoustic-wall-panel",
         "video-conferencing-console-meeting-wall-panel-seam",
         "video-conferencing-console-meeting-wall-power-outlet",
         "video-conferencing-console-meeting-wall-cable-channel",
-        "video-conferencing-console-meeting-glass-partition",
         "video-conferencing-console-meeting-glass-mullion",
-        "video-conferencing-console-meeting-mullion-cap",
         "video-conferencing-console-meeting-partition-door",
         "video-conferencing-console-partition-door-pull"
       ]
@@ -1513,7 +768,7 @@
       "id": "video-conferencing-console-zone-room-finish",
       "title": "Room furniture and finish",
       "translation": "房间家具与饰面",
-      "description": "Inspect the visible table, chairs, casters, carpet, floor cover, glass panel, blind and plant pot.",
+      "description": "Follow the wooden conference tabletop to its far edge, and compare the mesh chair backs with the large glass wall pane.",
       "x": 0,
       "y": 0,
       "width": 1600,
@@ -1521,36 +776,21 @@
       "targetScale": 3.15,
       "labelIds": [
         "video-conferencing-console-video-room-table",
-        "video-conferencing-console-video-tabletop-edge",
-        "video-conferencing-console-video-table-modesty-panel",
-        "video-conferencing-console-video-table-leg",
-        "video-conferencing-console-video-table-foot",
         "video-conferencing-console-meeting-chair-backrest",
-        "video-conferencing-console-meeting-chair-seat",
-        "video-conferencing-console-meeting-chair-armrest",
-        "video-conferencing-console-meeting-chair-base",
-        "video-conferencing-console-meeting-chair-caster",
-        "video-conferencing-console-meeting-chair-caster-fork",
-        "video-conferencing-console-video-room-carpet",
-        "video-conferencing-console-video-carpet-tile",
-        "video-conferencing-console-video-carpet-seam",
-        "video-conferencing-console-video-floor-access-cover",
-        "video-conferencing-console-video-room-floor",
-        "video-conferencing-console-video-wall-base-trim",
-        "video-conferencing-console-video-glass-wall-panel",
-        "video-conferencing-console-video-window-blind"
+        "video-conferencing-console-video-tabletop-edge",
+        "video-conferencing-console-video-glass-wall-panel"
       ]
     }
   ],
   "anchorAudit": {
-    "status": "human-verified",
+    "status": "image-reviewed",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/video-conferencing-console-premium-v1.jpg",
     "reviewedAssetSha256": "191dcac69bbc53f5ec57497dc078f00d48c06104051886102b4fbf1ab0e863a5",
-    "rationale": "The final 1600 by 900 video-conferencing-console photograph was inspected at source and output resolution. It retains 144 independently pointable display, camera, speaker, touch-console, microphone, cable, mounting and room-finish parts. Meeting content, people, company identity, network connectivity, recording state, occupancy and hidden wiring were excluded.",
+    "rationale": "The 1600 by 900 image shows four round microphones in two rows, a tilted touch console and an inset table outlet. Each mapped word has an image crop for its visible object or part. Related words preserve names for concealed fittings, indistinguishable device features and alternate names for the same surface.",
     "previousLabelCount": 152,
-    "retainedLabelCount": 144,
-    "removedLabelCount": 8,
+    "retainedLabelCount": 68,
+    "removedLabelCount": 84,
     "removedExamples": [
       "meeting content",
       "people",
@@ -1565,8 +805,8 @@
       "id": "video-conferencing-console-video-conferencing-display",
       "word": "video conferencing display",
       "translation": "视频会议显示屏",
-      "x": 850,
-      "y": 280,
+      "x": 835,
+      "y": 269,
       "priority": 1,
       "minLevel": 0,
       "sourceVisualRegion": "video-conferencing-console-region-video-conferencing-display"
@@ -1575,349 +815,139 @@
       "id": "video-conferencing-console-display-panel",
       "word": "display panel",
       "translation": "显示面板",
-      "x": 850,
-      "y": 280,
-      "priority": 1.001,
-      "minLevel": 0,
+      "x": 662,
+      "y": 238,
+      "priority": 2.001,
+      "minLevel": 1,
       "sourceVisualRegion": "video-conferencing-console-region-display-panel"
     },
     {
       "id": "video-conferencing-console-video-display-bezel",
       "word": "video display bezel",
       "translation": "视频显示屏边框",
-      "x": 850,
-      "y": 220,
-      "priority": 1.002,
-      "minLevel": 1,
+      "x": 1129,
+      "y": 311,
+      "priority": 4.002,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-video-display-bezel"
-    },
-    {
-      "id": "video-conferencing-console-meeting-display-glass",
-      "word": "meeting display glass",
-      "translation": "会议显示屏玻璃",
-      "x": 850,
-      "y": 300,
-      "priority": 1.003,
-      "minLevel": 1,
-      "sourceVisualRegion": "video-conferencing-console-region-meeting-display-glass"
     },
     {
       "id": "video-conferencing-console-display-lower-bezel",
       "word": "display lower bezel",
       "translation": "显示屏下边框",
-      "x": 850,
-      "y": 450,
-      "priority": 1.004,
-      "minLevel": 4,
+      "x": 1070,
+      "y": 437,
+      "priority": 4.003,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-display-lower-bezel"
     },
     {
       "id": "video-conferencing-console-display-top-bezel",
       "word": "display top bezel",
       "translation": "显示屏上边框",
-      "x": 850,
-      "y": 200,
-      "priority": 1.005,
-      "minLevel": 2,
+      "x": 938,
+      "y": 102,
+      "priority": 4.004,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-display-top-bezel"
     },
     {
       "id": "video-conferencing-console-display-side-frame",
       "word": "display side frame",
       "translation": "显示屏侧框",
-      "x": 580,
-      "y": 300,
-      "priority": 1.006,
-      "minLevel": 3,
+      "x": 539,
+      "y": 285,
+      "priority": 5.005,
+      "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-display-side-frame"
-    },
-    {
-      "id": "video-conferencing-console-display-wall-mount",
-      "word": "display wall mount",
-      "translation": "显示屏墙面挂架",
-      "x": 850,
-      "y": 470,
-      "priority": 1.007,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-display-wall-mount"
-    },
-    {
-      "id": "video-conferencing-console-display-mounting-rail",
-      "word": "display mounting rail",
-      "translation": "显示屏安装导轨",
-      "x": 800,
-      "y": 460,
-      "priority": 1.008,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-display-mounting-rail"
-    },
-    {
-      "id": "video-conferencing-console-display-bracket",
-      "word": "display bracket",
-      "translation": "显示屏支架",
-      "x": 900,
-      "y": 470,
-      "priority": 1.009,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-display-bracket"
-    },
-    {
-      "id": "video-conferencing-console-display-spacer",
-      "word": "display spacer",
-      "translation": "显示屏垫块",
-      "x": 920,
-      "y": 470,
-      "priority": 1.01,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-display-spacer"
-    },
-    {
-      "id": "video-conferencing-console-display-cable-channel",
-      "word": "display cable channel",
-      "translation": "显示屏电缆通道",
-      "x": 850,
-      "y": 480,
-      "priority": 1.011,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-display-cable-channel"
-    },
-    {
-      "id": "video-conferencing-console-blank-display-surface",
-      "word": "blank display surface",
-      "translation": "空白显示面",
-      "x": 850,
-      "y": 300,
-      "priority": 1.012,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-blank-display-surface"
-    },
-    {
-      "id": "video-conferencing-console-display-lower-ledge",
-      "word": "display lower ledge",
-      "translation": "显示屏下沿",
-      "x": 850,
-      "y": 465,
-      "priority": 1.013,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-display-lower-ledge"
-    },
-    {
-      "id": "video-conferencing-console-display-corner-guard",
-      "word": "display corner guard",
-      "translation": "显示屏护角",
-      "x": 1120,
-      "y": 210,
-      "priority": 1.014,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-display-corner-guard"
-    },
-    {
-      "id": "video-conferencing-console-display-mount-screw",
-      "word": "display mount screw",
-      "translation": "显示屏挂架螺钉",
-      "x": 900,
-      "y": 470,
-      "priority": 1.015,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-display-mount-screw"
-    },
-    {
-      "id": "video-conferencing-console-display-backplate",
-      "word": "display backplate",
-      "translation": "显示屏背板",
-      "x": 850,
-      "y": 480,
-      "priority": 1.016,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-display-backplate"
-    },
-    {
-      "id": "video-conferencing-console-video-display-support-arm",
-      "word": "video display support arm",
-      "translation": "视频显示屏支撑臂",
-      "x": 850,
-      "y": 475,
-      "priority": 1.017,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-video-display-support-arm"
     },
     {
       "id": "video-conferencing-console-display-trim-strip",
       "word": "display trim strip",
       "translation": "显示屏饰条",
-      "x": 850,
-      "y": 455,
-      "priority": 1.018,
-      "minLevel": 3,
+      "x": 663,
+      "y": 434,
+      "priority": 5.006,
+      "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-display-trim-strip"
     },
     {
       "id": "video-conferencing-console-front-wall-panel",
       "word": "front wall panel",
       "translation": "前墙面板",
-      "x": 650,
-      "y": 250,
-      "priority": 1.019,
-      "minLevel": 4,
+      "x": 479,
+      "y": 317,
+      "priority": 3.007,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-front-wall-panel"
     },
     {
       "id": "video-conferencing-console-front-wall-seam",
       "word": "front wall seam",
       "translation": "前墙面接缝",
-      "x": 700,
-      "y": 300,
-      "priority": 1.02,
-      "minLevel": 2,
+      "x": 634,
+      "y": 47,
+      "priority": 5.008,
+      "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-front-wall-seam"
-    },
-    {
-      "id": "video-conferencing-console-display-bottom-rail",
-      "word": "display bottom rail",
-      "translation": "显示屏底部导轨",
-      "x": 850,
-      "y": 460,
-      "priority": 1.021,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-display-bottom-rail"
     },
     {
       "id": "video-conferencing-console-room-camera",
       "word": "room camera",
       "translation": "会议室摄像机",
-      "x": 850,
-      "y": 80,
-      "priority": 1.022,
+      "x": 821,
+      "y": 74,
+      "priority": 1.009,
       "minLevel": 0,
       "sourceVisualRegion": "video-conferencing-console-region-room-camera"
+    },
+    {
+      "id": "video-conferencing-console-conference-video-bar",
+      "word": "conference video bar",
+      "translation": "会议视频条",
+      "x": 784,
+      "y": 480,
+      "priority": 1.01,
+      "minLevel": 0,
+      "sourceVisualRegion": "video-conferencing-console-region-conference-video-bar"
     },
     {
       "id": "video-conferencing-console-meeting-camera-housing",
       "word": "meeting camera housing",
       "translation": "会议摄像机外壳",
-      "x": 850,
-      "y": 75,
-      "priority": 1.023,
-      "minLevel": 0,
+      "x": 858,
+      "y": 68,
+      "priority": 3.011,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-camera-housing"
     },
     {
       "id": "video-conferencing-console-video-camera-lens",
       "word": "video camera lens",
       "translation": "视频摄像机镜头",
-      "x": 850,
-      "y": 70,
-      "priority": 1.024,
-      "minLevel": 1,
+      "x": 828,
+      "y": 475,
+      "priority": 3.012,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-video-camera-lens"
-    },
-    {
-      "id": "video-conferencing-console-camera-privacy-shutter",
-      "word": "camera privacy shutter",
-      "translation": "摄像机隐私挡板",
-      "x": 870,
-      "y": 75,
-      "priority": 1.025,
-      "minLevel": 1,
-      "sourceVisualRegion": "video-conferencing-console-region-camera-privacy-shutter"
     },
     {
       "id": "video-conferencing-console-camera-mount-foot",
       "word": "camera mount foot",
       "translation": "摄像机安装脚",
-      "x": 850,
-      "y": 105,
-      "priority": 1.026,
-      "minLevel": 2,
+      "x": 835,
+      "y": 85,
+      "priority": 5.013,
+      "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-camera-mount-foot"
-    },
-    {
-      "id": "video-conferencing-console-camera-tilt-joint",
-      "word": "camera tilt joint",
-      "translation": "摄像机俯仰关节",
-      "x": 820,
-      "y": 100,
-      "priority": 1.027,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-camera-tilt-joint"
-    },
-    {
-      "id": "video-conferencing-console-camera-cable",
-      "word": "camera cable",
-      "translation": "摄像机电缆",
-      "x": 880,
-      "y": 120,
-      "priority": 1.028,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-camera-cable"
-    },
-    {
-      "id": "video-conferencing-console-conference-video-bar",
-      "word": "conference video bar",
-      "translation": "会议视频条",
-      "x": 850,
-      "y": 430,
-      "priority": 1.029,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-conference-video-bar"
-    },
-    {
-      "id": "video-conferencing-console-video-bar-grille",
-      "word": "video bar grille",
-      "translation": "视频条格栅",
-      "x": 800,
-      "y": 430,
-      "priority": 1.03,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-video-bar-grille"
-    },
-    {
-      "id": "video-conferencing-console-video-bar-end-cap",
-      "word": "video bar end cap",
-      "translation": "视频条端盖",
-      "x": 740,
-      "y": 430,
-      "priority": 1.031,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-video-bar-end-cap"
-    },
-    {
-      "id": "video-conferencing-console-video-bar-mount",
-      "word": "video bar mount",
-      "translation": "视频条挂架",
-      "x": 850,
-      "y": 470,
-      "priority": 1.032,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-video-bar-mount"
-    },
-    {
-      "id": "video-conferencing-console-video-bar-bracket",
-      "word": "video bar bracket",
-      "translation": "视频条支架",
-      "x": 900,
-      "y": 470,
-      "priority": 1.033,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-video-bar-bracket"
-    },
-    {
-      "id": "video-conferencing-console-video-bar-control-button",
-      "word": "video bar control button",
-      "translation": "视频条控制按钮",
-      "x": 900,
-      "y": 430,
-      "priority": 1.034,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-video-bar-control-button"
     },
     {
       "id": "video-conferencing-console-left-speaker-grille",
       "word": "left speaker grille",
       "translation": "左扬声器格栅",
-      "x": 760,
-      "y": 430,
-      "priority": 1.035,
+      "x": 748,
+      "y": 474,
+      "priority": 3.014,
       "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-left-speaker-grille"
     },
@@ -1925,69 +955,39 @@
       "id": "video-conferencing-console-right-speaker-grille",
       "word": "right speaker grille",
       "translation": "右扬声器格栅",
-      "x": 940,
-      "y": 430,
-      "priority": 1.036,
-      "minLevel": 3,
+      "x": 906,
+      "y": 474,
+      "priority": 3.015,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-right-speaker-grille"
+    },
+    {
+      "id": "video-conferencing-console-video-bar-end-cap",
+      "word": "video bar end cap",
+      "translation": "视频条端盖",
+      "x": 960,
+      "y": 479,
+      "priority": 5.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "video-conferencing-console-region-video-bar-end-cap"
     },
     {
       "id": "video-conferencing-console-speaker-enclosure",
       "word": "speaker enclosure",
       "translation": "扬声器外壳",
-      "x": 850,
-      "y": 440,
-      "priority": 1.037,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-speaker-enclosure"
-    },
-    {
-      "id": "video-conferencing-console-speaker-cable",
-      "word": "speaker cable",
-      "translation": "扬声器电缆",
-      "x": 900,
-      "y": 480,
-      "priority": 1.038,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-speaker-cable"
-    },
-    {
-      "id": "video-conferencing-console-camera-indicator-window",
-      "word": "camera indicator window",
-      "translation": "摄像机指示窗",
-      "x": 850,
-      "y": 75,
-      "priority": 1.039,
+      "x": 732,
+      "y": 495,
+      "priority": 4.017,
       "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-camera-indicator-window"
-    },
-    {
-      "id": "video-conferencing-console-soundbar-center-grille",
-      "word": "soundbar center grille",
-      "translation": "音箱条中央格栅",
-      "x": 850,
-      "y": 430,
-      "priority": 1.04,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-soundbar-center-grille"
-    },
-    {
-      "id": "video-conferencing-console-bar-wall-spacer",
-      "word": "bar wall spacer",
-      "translation": "视频条墙面垫块",
-      "x": 850,
-      "y": 480,
-      "priority": 1.041,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-bar-wall-spacer"
+      "sourceVisualRegion": "video-conferencing-console-region-speaker-enclosure"
     },
     {
       "id": "video-conferencing-console-room-touch-console",
       "word": "room touch console",
       "translation": "会议室触控台",
-      "x": 1000,
-      "y": 680,
-      "priority": 1.042,
+      "x": 1005,
+      "y": 725,
+      "priority": 1.018,
       "minLevel": 0,
       "sourceVisualRegion": "video-conferencing-console-region-room-touch-console"
     },
@@ -1995,309 +995,159 @@
       "id": "video-conferencing-console-meeting-console-screen",
       "word": "meeting console screen",
       "translation": "会议触控台屏幕",
-      "x": 1000,
-      "y": 620,
-      "priority": 1.043,
-      "minLevel": 0,
+      "x": 979,
+      "y": 685,
+      "priority": 2.019,
+      "minLevel": 1,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-console-screen"
     },
     {
       "id": "video-conferencing-console-meeting-console-bezel",
       "word": "meeting console bezel",
       "translation": "会议触控台边框",
-      "x": 1000,
-      "y": 610,
-      "priority": 1.044,
-      "minLevel": 1,
+      "x": 1044,
+      "y": 795,
+      "priority": 4.02,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-console-bezel"
-    },
-    {
-      "id": "video-conferencing-console-console-screen-glass",
-      "word": "console screen glass",
-      "translation": "触控台屏幕玻璃",
-      "x": 1000,
-      "y": 625,
-      "priority": 1.045,
-      "minLevel": 1,
-      "sourceVisualRegion": "video-conferencing-console-region-console-screen-glass"
     },
     {
       "id": "video-conferencing-console-console-stand",
       "word": "console stand",
       "translation": "触控台支架",
-      "x": 1000,
-      "y": 750,
-      "priority": 1.046,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-console-stand"
-    },
-    {
-      "id": "video-conferencing-console-console-hinge",
-      "word": "console hinge",
-      "translation": "触控台铰链",
-      "x": 1000,
-      "y": 730,
-      "priority": 1.047,
+      "x": 1086,
+      "y": 786,
+      "priority": 3.021,
       "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-console-hinge"
+      "sourceVisualRegion": "video-conferencing-console-region-console-stand"
     },
     {
       "id": "video-conferencing-console-console-base",
       "word": "console base",
       "translation": "触控台底座",
-      "x": 1000,
-      "y": 790,
-      "priority": 1.048,
-      "minLevel": 3,
+      "x": 1007,
+      "y": 825,
+      "priority": 3.022,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-console-base"
     },
     {
       "id": "video-conferencing-console-console-cable",
       "word": "console cable",
       "translation": "触控台电缆",
-      "x": 1000,
-      "y": 800,
-      "priority": 1.049,
-      "minLevel": 4,
+      "x": 878,
+      "y": 787,
+      "priority": 4.023,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-console-cable"
-    },
-    {
-      "id": "video-conferencing-console-console-power-lead",
-      "word": "console power lead",
-      "translation": "触控台电源线",
-      "x": 1000,
-      "y": 810,
-      "priority": 1.05,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-console-power-lead"
-    },
-    {
-      "id": "video-conferencing-console-console-side-button",
-      "word": "console side button",
-      "translation": "触控台侧按钮",
-      "x": 1080,
-      "y": 670,
-      "priority": 1.051,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-console-side-button"
-    },
-    {
-      "id": "video-conferencing-console-console-port-panel",
-      "word": "console port panel",
-      "translation": "触控台接口面板",
-      "x": 1040,
-      "y": 760,
-      "priority": 1.052,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-console-port-panel"
-    },
-    {
-      "id": "video-conferencing-console-console-port-cover",
-      "word": "console port cover",
-      "translation": "触控台接口盖",
-      "x": 1040,
-      "y": 770,
-      "priority": 1.053,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-console-port-cover"
-    },
-    {
-      "id": "video-conferencing-console-console-strain-relief",
-      "word": "console strain relief",
-      "translation": "触控台应力释放套",
-      "x": 1020,
-      "y": 805,
-      "priority": 1.054,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-console-strain-relief"
-    },
-    {
-      "id": "video-conferencing-console-console-rear-foot",
-      "word": "console rear foot",
-      "translation": "触控台后脚",
-      "x": 1040,
-      "y": 790,
-      "priority": 1.055,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-console-rear-foot"
-    },
-    {
-      "id": "video-conferencing-console-console-cable-loop",
-      "word": "console cable loop",
-      "translation": "触控台线缆环",
-      "x": 950,
-      "y": 800,
-      "priority": 1.056,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-console-cable-loop"
-    },
-    {
-      "id": "video-conferencing-console-console-blank-surface",
-      "word": "console blank surface",
-      "translation": "触控台空白面",
-      "x": 1000,
-      "y": 630,
-      "priority": 1.057,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-console-blank-surface"
-    },
-    {
-      "id": "video-conferencing-console-console-screen-border",
-      "word": "console screen border",
-      "translation": "触控台屏幕边界",
-      "x": 1000,
-      "y": 640,
-      "priority": 1.058,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-console-screen-border"
     },
     {
       "id": "video-conferencing-console-tabletop-device-base",
       "word": "tabletop device base",
       "translation": "桌面设备底座",
-      "x": 900,
-      "y": 730,
-      "priority": 1.059,
-      "minLevel": 2,
+      "x": 853,
+      "y": 600,
+      "priority": 5.024,
+      "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-tabletop-device-base"
     },
     {
       "id": "video-conferencing-console-tabletop-device-cable",
       "word": "tabletop device cable",
       "translation": "桌面设备电缆",
-      "x": 900,
-      "y": 760,
-      "priority": 1.06,
-      "minLevel": 3,
+      "x": 819,
+      "y": 604,
+      "priority": 5.025,
+      "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-tabletop-device-cable"
     },
     {
-      "id": "video-conferencing-console-console-rear-panel",
-      "word": "console rear panel",
-      "translation": "触控台后面板",
-      "x": 1070,
-      "y": 750,
-      "priority": 1.061,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-console-rear-panel"
-    },
-    {
-      "id": "video-conferencing-console-console-foot-pad",
-      "word": "console foot pad",
-      "translation": "触控台脚垫",
-      "x": 1000,
-      "y": 800,
-      "priority": 1.062,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-console-foot-pad"
-    },
-    {
-      "id": "video-conferencing-console-video-table-microphone-pod",
-      "word": "video table microphone pod",
-      "translation": "视频桌面麦克风单元",
-      "x": 600,
-      "y": 620,
-      "priority": 1.063,
+      "id": "video-conferencing-console-right-microphone-pod",
+      "word": "right microphone pod",
+      "translation": "右侧麦克风单元",
+      "x": 1270,
+      "y": 801,
+      "priority": 1.026,
       "minLevel": 0,
-      "sourceVisualRegion": "video-conferencing-console-region-video-table-microphone-pod"
+      "sourceVisualRegion": "video-conferencing-console-region-right-microphone-pod"
+    },
+    {
+      "id": "video-conferencing-console-near-microphone-pod",
+      "word": "near microphone pod",
+      "translation": "近侧麦克风单元",
+      "x": 437,
+      "y": 779,
+      "priority": 1.027,
+      "minLevel": 0,
+      "sourceVisualRegion": "video-conferencing-console-region-near-microphone-pod"
+    },
+    {
+      "id": "video-conferencing-console-left-microphone-pod",
+      "word": "left microphone pod",
+      "translation": "左侧麦克风单元",
+      "x": 614,
+      "y": 605,
+      "priority": 2.028,
+      "minLevel": 1,
+      "sourceVisualRegion": "video-conferencing-console-region-left-microphone-pod"
+    },
+    {
+      "id": "video-conferencing-console-far-microphone-pod",
+      "word": "far microphone pod",
+      "translation": "远侧麦克风单元",
+      "x": 1027,
+      "y": 607,
+      "priority": 2.029,
+      "minLevel": 1,
+      "sourceVisualRegion": "video-conferencing-console-region-far-microphone-pod"
     },
     {
       "id": "video-conferencing-console-microphone-pod-housing",
       "word": "microphone pod housing",
       "translation": "麦克风单元外壳",
-      "x": 600,
-      "y": 620,
-      "priority": 1.064,
-      "minLevel": 0,
+      "x": 1306,
+      "y": 817,
+      "priority": 3.03,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-microphone-pod-housing"
     },
     {
       "id": "video-conferencing-console-microphone-grille",
       "word": "microphone grille",
       "translation": "麦克风格栅",
-      "x": 600,
-      "y": 615,
-      "priority": 1.065,
-      "minLevel": 1,
-      "sourceVisualRegion": "video-conferencing-console-region-microphone-grille"
-    },
-    {
-      "id": "video-conferencing-console-video-microphone-mute-button",
-      "word": "video microphone mute button",
-      "translation": "视频麦克风静音按钮",
-      "x": 630,
-      "y": 620,
-      "priority": 1.066,
-      "minLevel": 1,
-      "sourceVisualRegion": "video-conferencing-console-region-video-microphone-mute-button"
-    },
-    {
-      "id": "video-conferencing-console-microphone-cable-port",
-      "word": "microphone cable port",
-      "translation": "麦克风电缆接口",
-      "x": 620,
-      "y": 640,
-      "priority": 1.067,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-microphone-cable-port"
-    },
-    {
-      "id": "video-conferencing-console-microphone-rubber-foot",
-      "word": "microphone rubber foot",
-      "translation": "麦克风橡胶脚",
-      "x": 590,
-      "y": 650,
-      "priority": 1.068,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-microphone-rubber-foot"
-    },
-    {
-      "id": "video-conferencing-console-near-microphone-pod",
-      "word": "near microphone pod",
-      "translation": "近侧麦克风单元",
-      "x": 450,
-      "y": 790,
-      "priority": 1.069,
+      "x": 1290,
+      "y": 781,
+      "priority": 4.031,
       "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-near-microphone-pod"
+      "sourceVisualRegion": "video-conferencing-console-region-microphone-grille"
     },
     {
       "id": "video-conferencing-console-near-microphone-grille",
       "word": "near microphone grille",
       "translation": "近侧麦克风格栅",
-      "x": 450,
-      "y": 785,
-      "priority": 1.07,
-      "minLevel": 4,
+      "x": 425,
+      "y": 761,
+      "priority": 4.032,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-near-microphone-grille"
     },
     {
       "id": "video-conferencing-console-near-microphone-cable",
       "word": "near microphone cable",
       "translation": "近侧麦克风电缆",
-      "x": 500,
-      "y": 800,
-      "priority": 1.071,
+      "x": 598,
+      "y": 750,
+      "priority": 3.033,
       "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-near-microphone-cable"
-    },
-    {
-      "id": "video-conferencing-console-far-microphone-pod",
-      "word": "far microphone pod",
-      "translation": "远侧麦克风单元",
-      "x": 1100,
-      "y": 650,
-      "priority": 1.072,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-far-microphone-pod"
     },
     {
       "id": "video-conferencing-console-far-microphone-grille",
       "word": "far microphone grille",
       "translation": "远侧麦克风格栅",
-      "x": 1100,
-      "y": 645,
-      "priority": 1.073,
+      "x": 1030,
+      "y": 598,
+      "priority": 5.034,
       "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-far-microphone-grille"
     },
@@ -2305,279 +1155,119 @@
       "id": "video-conferencing-console-far-microphone-cable",
       "word": "far microphone cable",
       "translation": "远侧麦克风电缆",
-      "x": 1050,
-      "y": 670,
-      "priority": 1.074,
-      "minLevel": 2,
+      "x": 937,
+      "y": 600,
+      "priority": 4.035,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-far-microphone-cable"
     },
     {
-      "id": "video-conferencing-console-left-microphone-pod",
-      "word": "left microphone pod",
-      "translation": "左侧麦克风单元",
-      "x": 720,
-      "y": 530,
-      "priority": 1.075,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-left-microphone-pod"
-    },
-    {
-      "id": "video-conferencing-console-right-microphone-pod",
-      "word": "right microphone pod",
-      "translation": "右侧麦克风单元",
-      "x": 1250,
-      "y": 700,
-      "priority": 1.076,
+      "id": "video-conferencing-console-microphone-cable-port",
+      "word": "microphone cable port",
+      "translation": "麦克风电缆接口",
+      "x": 507,
+      "y": 773,
+      "priority": 5.036,
       "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-right-microphone-pod"
-    },
-    {
-      "id": "video-conferencing-console-pod-cable-junction",
-      "word": "pod cable junction",
-      "translation": "单元线缆接点",
-      "x": 800,
-      "y": 600,
-      "priority": 1.077,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-pod-cable-junction"
+      "sourceVisualRegion": "video-conferencing-console-region-microphone-cable-port"
     },
     {
       "id": "video-conferencing-console-tabletop-cable-trough",
       "word": "tabletop cable trough",
       "translation": "桌面线缆槽",
-      "x": 800,
-      "y": 650,
-      "priority": 1.078,
-      "minLevel": 3,
+      "x": 731,
+      "y": 786,
+      "priority": 2.037,
+      "minLevel": 1,
       "sourceVisualRegion": "video-conferencing-console-region-tabletop-cable-trough"
     },
     {
       "id": "video-conferencing-console-trough-lid",
       "word": "trough lid",
       "translation": "线缆槽盖",
-      "x": 800,
-      "y": 650,
-      "priority": 1.079,
-      "minLevel": 4,
+      "x": 771,
+      "y": 865,
+      "priority": 3.038,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-trough-lid"
-    },
-    {
-      "id": "video-conferencing-console-trough-divider",
-      "word": "trough divider",
-      "translation": "线缆槽分隔片",
-      "x": 800,
-      "y": 680,
-      "priority": 1.08,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-trough-divider"
-    },
-    {
-      "id": "video-conferencing-console-video-tabletop-grommet",
-      "word": "video tabletop grommet",
-      "translation": "视频桌面穿线孔",
-      "x": 900,
-      "y": 670,
-      "priority": 1.081,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-video-tabletop-grommet"
-    },
-    {
-      "id": "video-conferencing-console-table-edge-trim",
-      "word": "table edge trim",
-      "translation": "桌面边饰条",
-      "x": 700,
-      "y": 770,
-      "priority": 1.082,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-table-edge-trim"
-    },
-    {
-      "id": "video-conferencing-console-video-tabletop-seam",
-      "word": "video tabletop seam",
-      "translation": "视频桌面接缝",
-      "x": 900,
-      "y": 760,
-      "priority": 1.083,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-video-tabletop-seam"
-    },
-    {
-      "id": "video-conferencing-console-table-control-pod",
-      "word": "table control pod",
-      "translation": "桌面控制单元",
-      "x": 850,
-      "y": 600,
-      "priority": 1.084,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-table-control-pod"
     },
     {
       "id": "video-conferencing-console-video-room-power-hub",
       "word": "video room power hub",
       "translation": "视频会议电源模块",
-      "x": 800,
-      "y": 650,
-      "priority": 1.085,
-      "minLevel": 0,
+      "x": 765,
+      "y": 790,
+      "priority": 2.039,
+      "minLevel": 1,
       "sourceVisualRegion": "video-conferencing-console-region-video-room-power-hub"
-    },
-    {
-      "id": "video-conferencing-console-power-hub-lid",
-      "word": "power hub lid",
-      "translation": "电源模块盖",
-      "x": 800,
-      "y": 650,
-      "priority": 1.086,
-      "minLevel": 0,
-      "sourceVisualRegion": "video-conferencing-console-region-power-hub-lid"
     },
     {
       "id": "video-conferencing-console-video-room-power-socket",
       "word": "video room power socket",
       "translation": "视频会议电源插座",
-      "x": 800,
-      "y": 660,
-      "priority": 1.087,
-      "minLevel": 1,
+      "x": 786,
+      "y": 775,
+      "priority": 3.04,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-video-room-power-socket"
     },
     {
-      "id": "video-conferencing-console-video-room-data-socket",
-      "word": "video room data socket",
-      "translation": "视频会议数据插座",
-      "x": 820,
-      "y": 660,
-      "priority": 1.088,
-      "minLevel": 1,
-      "sourceVisualRegion": "video-conferencing-console-region-video-room-data-socket"
-    },
-    {
-      "id": "video-conferencing-console-video-room-port",
-      "word": "video room USB port",
-      "translation": "视频会议 USB 接口",
-      "x": 840,
-      "y": 660,
-      "priority": 1.089,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-video-room-port"
-    },
-    {
-      "id": "video-conferencing-console-video-cable-grommet",
-      "word": "video cable grommet",
-      "translation": "视频线缆穿线孔",
-      "x": 900,
-      "y": 670,
-      "priority": 1.09,
+      "id": "video-conferencing-console-power-hub-lid",
+      "word": "power hub lid",
+      "translation": "电源模块盖",
+      "x": 783,
+      "y": 664,
+      "priority": 4.041,
       "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-video-cable-grommet"
-    },
-    {
-      "id": "video-conferencing-console-video-cable-clip",
-      "word": "video cable clip",
-      "translation": "视频线缆夹",
-      "x": 850,
-      "y": 700,
-      "priority": 1.091,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-video-cable-clip"
-    },
-    {
-      "id": "video-conferencing-console-video-cable-strain-relief",
-      "word": "video cable strain relief",
-      "translation": "视频线缆应力释放套",
-      "x": 850,
-      "y": 720,
-      "priority": 1.092,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-video-cable-strain-relief"
-    },
-    {
-      "id": "video-conferencing-console-braided-video-cable",
-      "word": "braided video cable",
-      "translation": "编织视频线",
-      "x": 900,
-      "y": 730,
-      "priority": 1.093,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-braided-video-cable"
-    },
-    {
-      "id": "video-conferencing-console-video-cable-trough",
-      "word": "video cable trough",
-      "translation": "视频线缆槽",
-      "x": 800,
-      "y": 680,
-      "priority": 1.094,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-video-cable-trough"
-    },
-    {
-      "id": "video-conferencing-console-video-trough-divider",
-      "word": "video trough divider",
-      "translation": "视频线缆槽分隔片",
-      "x": 800,
-      "y": 700,
-      "priority": 1.095,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-video-trough-divider"
-    },
-    {
-      "id": "video-conferencing-console-video-floor-cable-cover",
-      "word": "video floor cable cover",
-      "translation": "视频设备地面线缆盖",
-      "x": 700,
-      "y": 850,
-      "priority": 1.096,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-video-floor-cable-cover"
+      "sourceVisualRegion": "video-conferencing-console-region-power-hub-lid"
     },
     {
       "id": "video-conferencing-console-console-side-credenza",
       "word": "console side credenza",
       "translation": "控制台侧边柜",
-      "x": 300,
-      "y": 500,
-      "priority": 1.097,
-      "minLevel": 4,
+      "x": 74,
+      "y": 572,
+      "priority": 1.042,
+      "minLevel": 0,
       "sourceVisualRegion": "video-conferencing-console-region-console-side-credenza"
     },
     {
       "id": "video-conferencing-console-room-compute-box",
       "word": "room compute box",
       "translation": "会议室计算盒",
-      "x": 300,
-      "y": 480,
-      "priority": 1.098,
-      "minLevel": 2,
+      "x": 217,
+      "y": 467,
+      "priority": 2.043,
+      "minLevel": 1,
       "sourceVisualRegion": "video-conferencing-console-region-room-compute-box"
     },
     {
       "id": "video-conferencing-console-room-power-adapter",
       "word": "room power adapter",
       "translation": "会议室电源适配器",
-      "x": 420,
-      "y": 490,
-      "priority": 1.099,
-      "minLevel": 3,
+      "x": 327,
+      "y": 475,
+      "priority": 3.044,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-room-power-adapter"
     },
     {
       "id": "video-conferencing-console-adapter-cable",
       "word": "adapter cable",
       "translation": "适配器电缆",
-      "x": 450,
-      "y": 510,
-      "priority": 1.1,
-      "minLevel": 4,
+      "x": 316,
+      "y": 452,
+      "priority": 4.045,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-adapter-cable"
     },
     {
       "id": "video-conferencing-console-room-wall-outlet",
       "word": "room wall outlet",
       "translation": "会议室墙面插座",
-      "x": 400,
-      "y": 430,
-      "priority": 1.101,
+      "x": 320,
+      "y": 426,
+      "priority": 3.046,
       "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-room-wall-outlet"
     },
@@ -2585,99 +1275,69 @@
       "id": "video-conferencing-console-outlet-faceplate",
       "word": "outlet faceplate",
       "translation": "插座面板",
-      "x": 400,
-      "y": 430,
-      "priority": 1.102,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-outlet-faceplate"
-    },
-    {
-      "id": "video-conferencing-console-video-equipment-shelf",
-      "word": "video equipment shelf",
-      "translation": "视频设备搁板",
-      "x": 300,
-      "y": 520,
-      "priority": 1.103,
+      "x": 352,
+      "y": 436,
+      "priority": 5.047,
       "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-video-equipment-shelf"
+      "sourceVisualRegion": "video-conferencing-console-region-outlet-faceplate"
     },
     {
       "id": "video-conferencing-console-cable-pass-through",
       "word": "cable pass-through",
       "translation": "电缆穿线孔",
-      "x": 450,
-      "y": 540,
-      "priority": 1.104,
-      "minLevel": 2,
+      "x": 837,
+      "y": 788,
+      "priority": 4.048,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-cable-pass-through"
     },
     {
       "id": "video-conferencing-console-video-cable-loop",
       "word": "video cable loop",
       "translation": "视频电缆环",
-      "x": 500,
-      "y": 560,
-      "priority": 1.105,
-      "minLevel": 3,
+      "x": 768,
+      "y": 597,
+      "priority": 5.049,
+      "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-video-cable-loop"
-    },
-    {
-      "id": "video-conferencing-console-wall-camera-mount",
-      "word": "wall camera mount",
-      "translation": "墙面摄像机挂架",
-      "x": 850,
-      "y": 100,
-      "priority": 1.106,
-      "minLevel": 0,
-      "sourceVisualRegion": "video-conferencing-console-region-wall-camera-mount"
-    },
-    {
-      "id": "video-conferencing-console-camera-mounting-plate",
-      "word": "camera mounting plate",
-      "translation": "摄像机安装板",
-      "x": 850,
-      "y": 110,
-      "priority": 1.107,
-      "minLevel": 0,
-      "sourceVisualRegion": "video-conferencing-console-region-camera-mounting-plate"
-    },
-    {
-      "id": "video-conferencing-console-speaker-wall-bracket",
-      "word": "speaker wall bracket",
-      "translation": "扬声器墙面支架",
-      "x": 850,
-      "y": 480,
-      "priority": 1.108,
-      "minLevel": 1,
-      "sourceVisualRegion": "video-conferencing-console-region-speaker-wall-bracket"
-    },
-    {
-      "id": "video-conferencing-console-wall-display-rail",
-      "word": "wall display rail",
-      "translation": "墙面显示导轨",
-      "x": 850,
-      "y": 460,
-      "priority": 1.109,
-      "minLevel": 1,
-      "sourceVisualRegion": "video-conferencing-console-region-wall-display-rail"
     },
     {
       "id": "video-conferencing-console-meeting-whiteboard",
       "word": "meeting whiteboard",
       "translation": "会议白板",
-      "x": 1300,
-      "y": 280,
-      "priority": 1.11,
-      "minLevel": 2,
+      "x": 1246,
+      "y": 223,
+      "priority": 1.05,
+      "minLevel": 0,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-whiteboard"
+    },
+    {
+      "id": "video-conferencing-console-meeting-glass-partition",
+      "word": "meeting glass partition",
+      "translation": "会议室玻璃隔断",
+      "x": 1382,
+      "y": 172,
+      "priority": 2.051,
+      "minLevel": 1,
+      "sourceVisualRegion": "video-conferencing-console-region-meeting-glass-partition"
+    },
+    {
+      "id": "video-conferencing-console-camera-mounting-plate",
+      "word": "camera mounting plate",
+      "translation": "摄像机安装板",
+      "x": 786,
+      "y": 92,
+      "priority": 4.052,
+      "minLevel": 3,
+      "sourceVisualRegion": "video-conferencing-console-region-camera-mounting-plate"
     },
     {
       "id": "video-conferencing-console-console-whiteboard-frame",
       "word": "console whiteboard frame",
       "translation": "控制台白板框",
-      "x": 1300,
-      "y": 280,
-      "priority": 1.111,
+      "x": 1175,
+      "y": 304,
+      "priority": 4.053,
       "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-console-whiteboard-frame"
     },
@@ -2685,39 +1345,29 @@
       "id": "video-conferencing-console-meeting-marker-tray",
       "word": "meeting marker tray",
       "translation": "会议白板笔托盘",
-      "x": 1300,
-      "y": 420,
-      "priority": 1.112,
-      "minLevel": 4,
+      "x": 1290,
+      "y": 444,
+      "priority": 4.054,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-marker-tray"
-    },
-    {
-      "id": "video-conferencing-console-meeting-marker-cup",
-      "word": "meeting marker cup",
-      "translation": "会议白板笔杯",
-      "x": 1400,
-      "y": 420,
-      "priority": 1.113,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-meeting-marker-cup"
     },
     {
       "id": "video-conferencing-console-blank-whiteboard",
       "word": "blank whiteboard",
       "translation": "空白白板面",
-      "x": 1300,
-      "y": 280,
-      "priority": 1.114,
-      "minLevel": 3,
+      "x": 1302,
+      "y": 337,
+      "priority": 3.055,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-blank-whiteboard"
     },
     {
       "id": "video-conferencing-console-whiteboard-fastener",
       "word": "whiteboard fastener",
       "translation": "白板紧固件",
-      "x": 1420,
-      "y": 180,
-      "priority": 1.115,
+      "x": 1189,
+      "y": 140,
+      "priority": 5.056,
       "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-whiteboard-fastener"
     },
@@ -2725,79 +1375,59 @@
       "id": "video-conferencing-console-meeting-acoustic-wall-panel",
       "word": "meeting acoustic wall panel",
       "translation": "会议吸音墙板",
-      "x": 1200,
-      "y": 150,
-      "priority": 1.116,
-      "minLevel": 2,
+      "x": 1201,
+      "y": 68,
+      "priority": 2.057,
+      "minLevel": 1,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-acoustic-wall-panel"
     },
     {
       "id": "video-conferencing-console-meeting-wall-panel-seam",
       "word": "meeting wall panel seam",
       "translation": "会议墙板接缝",
-      "x": 1200,
-      "y": 250,
-      "priority": 1.117,
-      "minLevel": 3,
+      "x": 1049,
+      "y": 525,
+      "priority": 5.058,
+      "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-wall-panel-seam"
     },
     {
       "id": "video-conferencing-console-meeting-wall-power-outlet",
       "word": "meeting wall power outlet",
       "translation": "会议墙面电源插座",
-      "x": 1100,
-      "y": 450,
-      "priority": 1.118,
-      "minLevel": 4,
+      "x": 340,
+      "y": 426,
+      "priority": 4.059,
+      "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-wall-power-outlet"
     },
     {
       "id": "video-conferencing-console-meeting-wall-cable-channel",
       "word": "meeting wall cable channel",
       "translation": "会议墙面电缆通道",
-      "x": 1050,
-      "y": 460,
-      "priority": 1.119,
+      "x": 829,
+      "y": 532,
+      "priority": 3.06,
       "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-wall-cable-channel"
-    },
-    {
-      "id": "video-conferencing-console-meeting-glass-partition",
-      "word": "meeting glass partition",
-      "translation": "会议室玻璃隔断",
-      "x": 1500,
-      "y": 350,
-      "priority": 1.12,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-meeting-glass-partition"
     },
     {
       "id": "video-conferencing-console-meeting-glass-mullion",
       "word": "meeting glass mullion",
       "translation": "会议室玻璃竖框",
-      "x": 1500,
-      "y": 300,
-      "priority": 1.121,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-meeting-glass-mullion"
-    },
-    {
-      "id": "video-conferencing-console-meeting-mullion-cap",
-      "word": "meeting mullion cap",
-      "translation": "会议室竖框端盖",
-      "x": 1500,
-      "y": 330,
-      "priority": 1.122,
+      "x": 1457,
+      "y": 281,
+      "priority": 3.061,
       "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-meeting-mullion-cap"
+      "sourceVisualRegion": "video-conferencing-console-region-meeting-glass-mullion"
     },
     {
       "id": "video-conferencing-console-meeting-partition-door",
       "word": "meeting partition door",
       "translation": "会议室隔断门",
-      "x": 1520,
-      "y": 450,
-      "priority": 1.123,
+      "x": 1409,
+      "y": 352,
+      "priority": 4.062,
       "minLevel": 3,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-partition-door"
     },
@@ -2805,9 +1435,9 @@
       "id": "video-conferencing-console-partition-door-pull",
       "word": "partition door pull",
       "translation": "隔断门拉手",
-      "x": 1520,
-      "y": 450,
-      "priority": 1.124,
+      "x": 1424,
+      "y": 422,
+      "priority": 5.063,
       "minLevel": 4,
       "sourceVisualRegion": "video-conferencing-console-region-partition-door-pull"
     },
@@ -2815,191 +1445,423 @@
       "id": "video-conferencing-console-video-room-table",
       "word": "video room table",
       "translation": "视频会议桌",
-      "x": 800,
-      "y": 700,
-      "priority": 1.125,
+      "x": 544,
+      "y": 666,
+      "priority": 1.064,
       "minLevel": 0,
       "sourceVisualRegion": "video-conferencing-console-region-video-room-table"
-    },
-    {
-      "id": "video-conferencing-console-video-tabletop-edge",
-      "word": "video tabletop edge",
-      "translation": "视频会议桌边缘",
-      "x": 700,
-      "y": 760,
-      "priority": 1.126,
-      "minLevel": 0,
-      "sourceVisualRegion": "video-conferencing-console-region-video-tabletop-edge"
-    },
-    {
-      "id": "video-conferencing-console-video-table-modesty-panel",
-      "word": "video table modesty panel",
-      "translation": "视频会议桌挡板",
-      "x": 800,
-      "y": 780,
-      "priority": 1.127,
-      "minLevel": 1,
-      "sourceVisualRegion": "video-conferencing-console-region-video-table-modesty-panel"
-    },
-    {
-      "id": "video-conferencing-console-video-table-leg",
-      "word": "video table leg",
-      "translation": "视频会议桌腿",
-      "x": 700,
-      "y": 820,
-      "priority": 1.128,
-      "minLevel": 1,
-      "sourceVisualRegion": "video-conferencing-console-region-video-table-leg"
-    },
-    {
-      "id": "video-conferencing-console-video-table-foot",
-      "word": "video table foot",
-      "translation": "视频会议桌脚座",
-      "x": 700,
-      "y": 870,
-      "priority": 1.129,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-video-table-foot"
     },
     {
       "id": "video-conferencing-console-meeting-chair-backrest",
       "word": "meeting chair backrest",
       "translation": "会议椅背",
-      "x": 500,
-      "y": 600,
-      "priority": 1.13,
-      "minLevel": 4,
+      "x": 185,
+      "y": 599,
+      "priority": 2.065,
+      "minLevel": 1,
       "sourceVisualRegion": "video-conferencing-console-region-meeting-chair-backrest"
     },
     {
-      "id": "video-conferencing-console-meeting-chair-seat",
-      "word": "meeting chair seat",
-      "translation": "会议椅座",
-      "x": 500,
-      "y": 680,
-      "priority": 1.131,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-meeting-chair-seat"
-    },
-    {
-      "id": "video-conferencing-console-meeting-chair-armrest",
-      "word": "meeting chair armrest",
-      "translation": "会议椅扶手",
-      "x": 540,
-      "y": 650,
-      "priority": 1.132,
+      "id": "video-conferencing-console-video-tabletop-edge",
+      "word": "video tabletop edge",
+      "translation": "视频会议桌边缘",
+      "x": 923,
+      "y": 563,
+      "priority": 4.066,
       "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-meeting-chair-armrest"
-    },
-    {
-      "id": "video-conferencing-console-meeting-chair-base",
-      "word": "meeting chair base",
-      "translation": "会议椅底座",
-      "x": 500,
-      "y": 780,
-      "priority": 1.133,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-meeting-chair-base"
-    },
-    {
-      "id": "video-conferencing-console-meeting-chair-caster",
-      "word": "meeting chair caster",
-      "translation": "会议椅脚轮",
-      "x": 500,
-      "y": 820,
-      "priority": 1.134,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-meeting-chair-caster"
-    },
-    {
-      "id": "video-conferencing-console-meeting-chair-caster-fork",
-      "word": "meeting chair caster fork",
-      "translation": "会议椅脚轮叉",
-      "x": 520,
-      "y": 820,
-      "priority": 1.135,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-meeting-chair-caster-fork"
-    },
-    {
-      "id": "video-conferencing-console-video-room-carpet",
-      "word": "video room carpet",
-      "translation": "视频会议室地毯",
-      "x": 1200,
-      "y": 760,
-      "priority": 1.136,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-video-room-carpet"
-    },
-    {
-      "id": "video-conferencing-console-video-carpet-tile",
-      "word": "video carpet tile",
-      "translation": "视频会议室地毯块",
-      "x": 1300,
-      "y": 800,
-      "priority": 1.137,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-video-carpet-tile"
-    },
-    {
-      "id": "video-conferencing-console-video-carpet-seam",
-      "word": "video carpet seam",
-      "translation": "视频会议室地毯接缝",
-      "x": 1350,
-      "y": 820,
-      "priority": 1.138,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-video-carpet-seam"
-    },
-    {
-      "id": "video-conferencing-console-video-floor-access-cover",
-      "word": "video floor access cover",
-      "translation": "视频会议室地面检修盖",
-      "x": 700,
-      "y": 870,
-      "priority": 1.139,
-      "minLevel": 4,
-      "sourceVisualRegion": "video-conferencing-console-region-video-floor-access-cover"
-    },
-    {
-      "id": "video-conferencing-console-video-room-floor",
-      "word": "video room floor",
-      "translation": "视频会议室地面",
-      "x": 1100,
-      "y": 850,
-      "priority": 1.14,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-video-room-floor"
-    },
-    {
-      "id": "video-conferencing-console-video-wall-base-trim",
-      "word": "video wall base trim",
-      "translation": "视频会议室墙根饰条",
-      "x": 1400,
-      "y": 870,
-      "priority": 1.141,
-      "minLevel": 3,
-      "sourceVisualRegion": "video-conferencing-console-region-video-wall-base-trim"
+      "sourceVisualRegion": "video-conferencing-console-region-video-tabletop-edge"
     },
     {
       "id": "video-conferencing-console-video-glass-wall-panel",
       "word": "video glass wall panel",
       "translation": "视频会议室玻璃墙板",
-      "x": 1520,
-      "y": 600,
-      "priority": 1.142,
-      "minLevel": 4,
+      "x": 1522,
+      "y": 117,
+      "priority": 3.067,
+      "minLevel": 2,
       "sourceVisualRegion": "video-conferencing-console-region-video-glass-wall-panel"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "video-conferencing-console-bar-wall-spacer",
+      "word": "bar wall spacer",
+      "translation": "视频条墙面垫块"
+    },
+    {
+      "id": "video-conferencing-console-blank-display-surface",
+      "word": "blank display surface",
+      "translation": "空白显示面"
+    },
+    {
+      "id": "video-conferencing-console-braided-video-cable",
+      "word": "braided video cable",
+      "translation": "编织视频线"
+    },
+    {
+      "id": "video-conferencing-console-camera-cable",
+      "word": "camera cable",
+      "translation": "摄像机电缆"
+    },
+    {
+      "id": "video-conferencing-console-camera-indicator-window",
+      "word": "camera indicator window",
+      "translation": "摄像机指示窗"
+    },
+    {
+      "id": "video-conferencing-console-camera-privacy-shutter",
+      "word": "camera privacy shutter",
+      "translation": "摄像机隐私挡板"
+    },
+    {
+      "id": "video-conferencing-console-camera-tilt-joint",
+      "word": "camera tilt joint",
+      "translation": "摄像机俯仰关节"
+    },
+    {
+      "id": "video-conferencing-console-console-blank-surface",
+      "word": "console blank surface",
+      "translation": "触控台空白面"
+    },
+    {
+      "id": "video-conferencing-console-console-cable-loop",
+      "word": "console cable loop",
+      "translation": "触控台线缆环"
+    },
+    {
+      "id": "video-conferencing-console-console-foot-pad",
+      "word": "console foot pad",
+      "translation": "触控台脚垫"
+    },
+    {
+      "id": "video-conferencing-console-console-hinge",
+      "word": "console hinge",
+      "translation": "触控台铰链"
+    },
+    {
+      "id": "video-conferencing-console-console-port-cover",
+      "word": "console port cover",
+      "translation": "触控台接口盖"
+    },
+    {
+      "id": "video-conferencing-console-console-port-panel",
+      "word": "console port panel",
+      "translation": "触控台接口面板"
+    },
+    {
+      "id": "video-conferencing-console-console-power-lead",
+      "word": "console power lead",
+      "translation": "触控台电源线"
+    },
+    {
+      "id": "video-conferencing-console-console-rear-foot",
+      "word": "console rear foot",
+      "translation": "触控台后脚"
+    },
+    {
+      "id": "video-conferencing-console-console-rear-panel",
+      "word": "console rear panel",
+      "translation": "触控台后面板"
+    },
+    {
+      "id": "video-conferencing-console-console-screen-border",
+      "word": "console screen border",
+      "translation": "触控台屏幕边界"
+    },
+    {
+      "id": "video-conferencing-console-console-screen-glass",
+      "word": "console screen glass",
+      "translation": "触控台屏幕玻璃"
+    },
+    {
+      "id": "video-conferencing-console-console-side-button",
+      "word": "console side button",
+      "translation": "触控台侧按钮"
+    },
+    {
+      "id": "video-conferencing-console-console-strain-relief",
+      "word": "console strain relief",
+      "translation": "触控台应力释放套"
+    },
+    {
+      "id": "video-conferencing-console-display-backplate",
+      "word": "display backplate",
+      "translation": "显示屏背板"
+    },
+    {
+      "id": "video-conferencing-console-display-bottom-rail",
+      "word": "display bottom rail",
+      "translation": "显示屏底部导轨"
+    },
+    {
+      "id": "video-conferencing-console-display-bracket",
+      "word": "display bracket",
+      "translation": "显示屏支架"
+    },
+    {
+      "id": "video-conferencing-console-display-cable-channel",
+      "word": "display cable channel",
+      "translation": "显示屏电缆通道"
+    },
+    {
+      "id": "video-conferencing-console-display-corner-guard",
+      "word": "display corner guard",
+      "translation": "显示屏护角"
+    },
+    {
+      "id": "video-conferencing-console-display-lower-ledge",
+      "word": "display lower ledge",
+      "translation": "显示屏下沿"
+    },
+    {
+      "id": "video-conferencing-console-display-mount-screw",
+      "word": "display mount screw",
+      "translation": "显示屏挂架螺钉"
+    },
+    {
+      "id": "video-conferencing-console-display-mounting-rail",
+      "word": "display mounting rail",
+      "translation": "显示屏安装导轨"
+    },
+    {
+      "id": "video-conferencing-console-display-spacer",
+      "word": "display spacer",
+      "translation": "显示屏垫块"
+    },
+    {
+      "id": "video-conferencing-console-display-wall-mount",
+      "word": "display wall mount",
+      "translation": "显示屏墙面挂架"
+    },
+    {
+      "id": "video-conferencing-console-meeting-chair-armrest",
+      "word": "meeting chair armrest",
+      "translation": "会议椅扶手"
+    },
+    {
+      "id": "video-conferencing-console-meeting-chair-base",
+      "word": "meeting chair base",
+      "translation": "会议椅底座"
+    },
+    {
+      "id": "video-conferencing-console-meeting-chair-caster",
+      "word": "meeting chair caster",
+      "translation": "会议椅脚轮"
+    },
+    {
+      "id": "video-conferencing-console-meeting-chair-caster-fork",
+      "word": "meeting chair caster fork",
+      "translation": "会议椅脚轮叉"
+    },
+    {
+      "id": "video-conferencing-console-meeting-chair-seat",
+      "word": "meeting chair seat",
+      "translation": "会议椅座"
+    },
+    {
+      "id": "video-conferencing-console-meeting-display-glass",
+      "word": "meeting display glass",
+      "translation": "会议显示屏玻璃"
+    },
+    {
+      "id": "video-conferencing-console-meeting-marker-cup",
+      "word": "meeting marker cup",
+      "translation": "会议白板笔杯"
+    },
+    {
+      "id": "video-conferencing-console-meeting-mullion-cap",
+      "word": "meeting mullion cap",
+      "translation": "会议室竖框端盖"
+    },
+    {
+      "id": "video-conferencing-console-microphone-rubber-foot",
+      "word": "microphone rubber foot",
+      "translation": "麦克风橡胶脚"
+    },
+    {
+      "id": "video-conferencing-console-pod-cable-junction",
+      "word": "pod cable junction",
+      "translation": "单元线缆接点"
+    },
+    {
+      "id": "video-conferencing-console-soundbar-center-grille",
+      "word": "soundbar center grille",
+      "translation": "音箱条中央格栅"
+    },
+    {
+      "id": "video-conferencing-console-speaker-cable",
+      "word": "speaker cable",
+      "translation": "扬声器电缆"
+    },
+    {
+      "id": "video-conferencing-console-speaker-wall-bracket",
+      "word": "speaker wall bracket",
+      "translation": "扬声器墙面支架"
+    },
+    {
+      "id": "video-conferencing-console-table-control-pod",
+      "word": "table control pod",
+      "translation": "桌面控制单元"
+    },
+    {
+      "id": "video-conferencing-console-table-edge-trim",
+      "word": "table edge trim",
+      "translation": "桌面边饰条"
+    },
+    {
+      "id": "video-conferencing-console-trough-divider",
+      "word": "trough divider",
+      "translation": "线缆槽分隔片"
+    },
+    {
+      "id": "video-conferencing-console-video-bar-bracket",
+      "word": "video bar bracket",
+      "translation": "视频条支架"
+    },
+    {
+      "id": "video-conferencing-console-video-bar-control-button",
+      "word": "video bar control button",
+      "translation": "视频条控制按钮"
+    },
+    {
+      "id": "video-conferencing-console-video-bar-grille",
+      "word": "video bar grille",
+      "translation": "视频条格栅"
+    },
+    {
+      "id": "video-conferencing-console-video-bar-mount",
+      "word": "video bar mount",
+      "translation": "视频条挂架"
+    },
+    {
+      "id": "video-conferencing-console-video-cable-clip",
+      "word": "video cable clip",
+      "translation": "视频线缆夹"
+    },
+    {
+      "id": "video-conferencing-console-video-cable-grommet",
+      "word": "video cable grommet",
+      "translation": "视频线缆穿线孔"
+    },
+    {
+      "id": "video-conferencing-console-video-cable-strain-relief",
+      "word": "video cable strain relief",
+      "translation": "视频线缆应力释放套"
+    },
+    {
+      "id": "video-conferencing-console-video-cable-trough",
+      "word": "video cable trough",
+      "translation": "视频线缆槽"
+    },
+    {
+      "id": "video-conferencing-console-video-carpet-seam",
+      "word": "video carpet seam",
+      "translation": "视频会议室地毯接缝"
+    },
+    {
+      "id": "video-conferencing-console-video-carpet-tile",
+      "word": "video carpet tile",
+      "translation": "视频会议室地毯块"
+    },
+    {
+      "id": "video-conferencing-console-video-display-support-arm",
+      "word": "video display support arm",
+      "translation": "视频显示屏支撑臂"
+    },
+    {
+      "id": "video-conferencing-console-video-equipment-shelf",
+      "word": "video equipment shelf",
+      "translation": "视频设备搁板"
+    },
+    {
+      "id": "video-conferencing-console-video-floor-access-cover",
+      "word": "video floor access cover",
+      "translation": "视频会议室地面检修盖"
+    },
+    {
+      "id": "video-conferencing-console-video-floor-cable-cover",
+      "word": "video floor cable cover",
+      "translation": "视频设备地面线缆盖"
+    },
+    {
+      "id": "video-conferencing-console-video-microphone-mute-button",
+      "word": "video microphone mute button",
+      "translation": "视频麦克风静音按钮"
+    },
+    {
+      "id": "video-conferencing-console-video-room-carpet",
+      "word": "video room carpet",
+      "translation": "视频会议室地毯"
+    },
+    {
+      "id": "video-conferencing-console-video-room-data-socket",
+      "word": "video room data socket",
+      "translation": "视频会议数据插座"
+    },
+    {
+      "id": "video-conferencing-console-video-room-floor",
+      "word": "video room floor",
+      "translation": "视频会议室地面"
+    },
+    {
+      "id": "video-conferencing-console-video-room-port",
+      "word": "video room USB port",
+      "translation": "视频会议 USB 接口"
+    },
+    {
+      "id": "video-conferencing-console-video-table-foot",
+      "word": "video table foot",
+      "translation": "视频会议桌脚座"
+    },
+    {
+      "id": "video-conferencing-console-video-table-leg",
+      "word": "video table leg",
+      "translation": "视频会议桌腿"
+    },
+    {
+      "id": "video-conferencing-console-video-table-microphone-pod",
+      "word": "video table microphone pod",
+      "translation": "视频桌面麦克风单元"
+    },
+    {
+      "id": "video-conferencing-console-video-table-modesty-panel",
+      "word": "video table modesty panel",
+      "translation": "视频会议桌挡板"
+    },
+    {
+      "id": "video-conferencing-console-video-tabletop-grommet",
+      "word": "video tabletop grommet",
+      "translation": "视频桌面穿线孔"
+    },
+    {
+      "id": "video-conferencing-console-video-tabletop-seam",
+      "word": "video tabletop seam",
+      "translation": "视频桌面接缝"
+    },
+    {
+      "id": "video-conferencing-console-video-trough-divider",
+      "word": "video trough divider",
+      "translation": "视频线缆槽分隔片"
+    },
+    {
+      "id": "video-conferencing-console-video-wall-base-trim",
+      "word": "video wall base trim",
+      "translation": "视频会议室墙根饰条"
     },
     {
       "id": "video-conferencing-console-video-window-blind",
       "word": "video window blind",
-      "translation": "视频会议室窗百叶",
-      "x": 200,
-      "y": 250,
-      "priority": 1.143,
-      "minLevel": 2,
-      "sourceVisualRegion": "video-conferencing-console-region-video-window-blind"
+      "translation": "视频会议室窗百叶"
+    },
+    {
+      "id": "video-conferencing-console-wall-camera-mount",
+      "word": "wall camera mount",
+      "translation": "墙面摄像机挂架"
+    },
+    {
+      "id": "video-conferencing-console-wall-display-rail",
+      "word": "wall display rail",
+      "translation": "墙面显示导轨"
     }
   ],
   "portals": []

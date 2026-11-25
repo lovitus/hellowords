@@ -351,13 +351,16 @@ test("baggage drop exposes a bounded central conveyor entrance", async () => {
   assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
 });
 
-test("office building exposes a tight break-room entrance separate from the service core", async () => {
+test("office kitchenette stays between the glass meeting room and the service core", async () => {
   const parent = await readJson("office-building.json");
   const portal = parent.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "office-break-room");
+  const meetingRoom = parent.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "conference-room");
   const serviceCore = parent.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "service-core");
   assert.ok(portal);
+  assert.ok(meetingRoom);
   assert.ok(serviceCore);
   assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [930, 360, 240, 190]);
+  assert.ok(meetingRoom.x + meetingRoom.width < portal.x, "the glass meeting-room entrance leaves the coffee station outside");
   assert.ok(portal.x + portal.width <= serviceCore.x, "break-room and service-core entrances stay separate");
   const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
   assert.ok(region);

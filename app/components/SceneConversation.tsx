@@ -24,6 +24,7 @@ export function SceneConversation({ sceneId, disabled, onOpenChange }: {
 }) {
   const conversations = SCENE_CONVERSATIONS[sceneId];
   const dialog = useRef<HTMLDialogElement>(null);
+  const touchStart = useRef<{ id: number; x: number; y: number } | null>(null);
   const [hideTranslation, setHideTranslation] = useState(false);
   const [speechError, setSpeechError] = useState("");
   const [speechAvailable, setSpeechAvailable] = useState(false);
@@ -41,14 +42,28 @@ export function SceneConversation({ sceneId, disabled, onOpenChange }: {
     speaking.current = false;
   }
 
+  function openConversation() {
+    if (disabled || !dialog.current || dialog.current.open) return;
+    setSpeechAvailable("speechSynthesis" in window && "SpeechSynthesisUtterance" in window);
+    setSpeechError("");
+    dialog.current.showModal();
+    onOpenChange(true);
+  }
+
   return <>
     <button type="button" className="scene-conversation-toggle" disabled={disabled}
-      onClick={() => {
-        setSpeechAvailable("speechSynthesis" in window && "SpeechSynthesisUtterance" in window);
-        setSpeechError("");
-        dialog.current?.showModal();
-        onOpenChange(true);
-      }}>
+      onPointerDown={event => {
+        touchStart.current = event.pointerType === "touch" && event.isPrimary
+          ? { id: event.pointerId, x: event.clientX, y: event.clientY } : null;
+      }}
+      onPointerCancel={() => { touchStart.current = null; }}
+      onPointerUp={event => {
+        const start = touchStart.current;
+        touchStart.current = null;
+        if (start?.id === event.pointerId && Math.hypot(event.clientX - start.x, event.clientY - start.y) <= 6
+          && event.currentTarget.contains(document.elementFromPoint(event.clientX, event.clientY))) openConversation();
+      }}
+      onClick={openConversation}>
       情景会话
     </button>
     <dialog ref={dialog} className="scene-conversation" aria-labelledby="scene-conversation-title"

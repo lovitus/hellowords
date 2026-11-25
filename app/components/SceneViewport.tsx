@@ -262,7 +262,8 @@ export function fullyFittedSceneCamera(sceneSize: FrameSize, viewportSize: Frame
 
 function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
   return (scene.id === "apartment" || scene.parentId === "apartment"
-    || scene.id === "baggage-drop-station" || scene.id === "radiology-suite")
+    || scene.id === "baggage-drop-station" || scene.id === "radiology-suite"
+    || scene.id === "conference-room" || scene.id === "video-conferencing-console")
     && viewport.width <= 560 && viewport.height > viewport.width;
 }
 
@@ -273,6 +274,11 @@ export function sceneEntryCamera(scene: Scene, viewport: FrameSize): SceneViewpo
     const fit = fitScale(scene.width, scene.height, viewport.width, viewport.height);
     const scale = Math.max(1, viewport.height * 0.6 / (scene.height * fit));
     return centeredSceneCamera(scene, viewport, scale);
+  }
+  // Keep both foreground microphones and the touch panel in the first phone
+  // view. Fit still reveals the chairs and cabinets at the edges of the room.
+  if (scene.id === "video-conferencing-console" && usesPortraitPhotoBounds(scene, viewport)) {
+    return centeredSceneCamera(scene, viewport, 1.4);
   }
   return fullyFittedSceneCamera(scene, viewport);
 }
@@ -761,6 +767,7 @@ export function SceneViewport({
   const hoveredLabelIdRef = useRef<string | null>(null);
   const labelPaintStateRef = useRef<LabelPaintState | null>(null);
   const tapStartRef = useRef<{ pointerId: number; x: number; y: number } | null>(null);
+  const suppressPortalClickRef = useRef(false);
   // Camera frames address labels through their stable authored ids. Keeping
   // the mounted nodes in a ref avoids rebuilding a NodeList and re-reading a
   // data attribute for every word on every wheel/pinch animation frame.
@@ -2991,11 +2998,14 @@ export function SceneViewport({
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
     if (pointersRef.current.size > 0) tapStartRef.current = null;
-    if ((event.target as Element).closest("button")) return;
+    const target = event.target as Element;
+    const button = target.closest("button");
+    if (button && !button.matches(".scene-hotspot")) return;
     stopWheelAnimation();
     portalCandidateRef.current = null;
     cancelCameraAnimation();
-    event.currentTarget.setPointerCapture(event.pointerId);
+    // Keep the native button click target while its gestures bubble to the viewport.
+    (button ? target : event.currentTarget).setPointerCapture(event.pointerId);
     const point = { x: event.clientX, y: event.clientY };
     tapStartRef.current = event.isPrimary && event.button === 0 && pointersRef.current.size === 0
       ? { pointerId: event.pointerId, ...point }
@@ -3021,10 +3031,6 @@ export function SceneViewport({
   // Canvas words are hit-tested by pointer on release. Keyboard users reach the
   // focusable DOM mirror buttons, whose own click handlers stay in place.
   const activateCanvasLabel = (event: React.PointerEvent<HTMLDivElement>) => {
-    const start = tapStartRef.current;
-    if (!start || start.pointerId !== event.pointerId || !viewerInteractive || committingRef.current
-      || continuitySettlingRef.current || event.defaultPrevented
-      || Math.hypot(event.clientX - start.x, event.clientY - start.y) > 6) return;
     if ((event.target as Element).closest("button, a, input, textarea, select")) return;
     const state = labelPaintStateRef.current;
     if (!state) return;
@@ -3136,7 +3142,15 @@ export function SceneViewport({
         showPortalPreview(null);
       }
     }
-    if (event.type === "pointerup") activateCanvasLabel(event);
+    const start = tapStartRef.current;
+    const isTap = event.type === "pointerup" && start?.pointerId === event.pointerId
+      && Math.hypot(event.clientX - start.x, event.clientY - start.y) <= 6
+      && viewerInteractive && !committingRef.current && !continuitySettlingRef.current && !event.defaultPrevented;
+    if ((event.target as Element).closest(".scene-hotspot")) {
+      suppressPortalClickRef.current = !isTap;
+    } else if (isTap) {
+      activateCanvasLabel(event);
+    }
     tapStartRef.current = null;
     pointersRef.current.delete(event.pointerId);
     previousPointersRef.current.delete(event.pointerId);
@@ -3373,6 +3387,7 @@ export function SceneViewport({
                 aria-describedby={previewPortal?.id === portal.id ? `portal-preview-${scene.id}` : undefined}
                 onClick={(event) => {
                   event.stopPropagation();
+                  if (event.detail !== 0 && suppressPortalClickRef.current) return;
                   beginPortalTransition(portal, event.detail === 0 ? "keyboard" : "pointer");
                 }}
                 onFocus={() => {
