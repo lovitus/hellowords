@@ -109,12 +109,13 @@ async function enterFirstChild(page: Page, app: Locator) {
   return { target: target as string, durationMs: performance.now() - started };
 }
 
-async function dispatchWheelBurstAtViewportCenter(page: Page, deltaY: number, count: number) {
+async function dispatchWheelBurstAtViewportCenter(page: Page, deltaY: number, count: number, mark: string) {
   const delivered = await page.locator(
     `.viewer-shell:not([data-phase]) ${VIEWPORT}`,
   ).evaluate(
-    (viewport, { wheelDeltaY, wheelCount }) => {
+    (viewport, { wheelDeltaY, wheelCount, mark }) => {
       const bounds = viewport.getBoundingClientRect();
+      performance.mark(mark);
       for (let index = 0; index < wheelCount; index += 1) {
         viewport.dispatchEvent(new WheelEvent("wheel", {
           bubbles: true,
@@ -127,7 +128,7 @@ async function dispatchWheelBurstAtViewportCenter(page: Page, deltaY: number, co
       }
       return wheelCount;
     },
-    { wheelDeltaY: deltaY, wheelCount: count },
+    { wheelDeltaY: deltaY, wheelCount: count, mark },
   );
   expect(delivered).toBe(count);
 }
@@ -153,14 +154,15 @@ async function exitToParent(page: Page, app: Locator, parent: string) {
   // polling cadence in the reported transition time.
   await page.waitForTimeout(220);
   const started = performance.now();
-  await dispatchWheelBurstAtViewportCenter(page, 240, 4);
+  await dispatchWheelBurstAtViewportCenter(page, 240, 4, "world-apartment-shrink");
   await expect.poll(
     async () => Number(await surface.getAttribute("data-scene-scale")),
     { intervals: [16, 32, 64], timeout: 4_000 },
   ).toBeLessThanOrEqual(0.7);
+  await page.evaluate(() => { performance.mark("world-apartment-overview"); });
   await expect(app).toHaveAttribute("data-scene-id", child);
   await page.waitForTimeout(220);
-  await dispatchWheelBurstAtViewportCenter(page, 240, 4);
+  await dispatchWheelBurstAtViewportCenter(page, 240, 4, "world-apartment-exit");
   await expect.poll(
     () => app.getAttribute("data-scene-id"),
     { intervals: [16, 32, 64], timeout: 8_000 },
@@ -239,20 +241,56 @@ test("scene slices stay within CPU and memory budgets", async ({ browser, page }
   });
 
   const sampler = new BrowserMetricsSampler(browser, page);
+  const profileSession = process.env.PERF_RENDERER_TRACE === "1"
+    ? await page.context().newCDPSession(page)
+    : undefined;
+  if (profileSession) {
+    await mkdir("artifacts/perf", { recursive: true });
+    await profileSession.send("Profiler.enable");
+    await browser.startTracing(page, {
+      path: "artifacts/perf/chromium-timeline.json",
+      screenshots: false,
+      categories: [
+        "-*", "toplevel", "devtools.timeline", "disabled-by-default-devtools.timeline",
+        "disabled-by-default-devtools.timeline.frame", "blink.user_timing", "v8", "v8.execute",
+      ],
+    });
+  }
   await sampler.start();
   const measuredTransitions: number[] = [];
-  for (let cycle = 0; cycle < cycles; cycle += 1) {
-    const entered = await enterFirstChild(page, app);
-    measuredTransitions.push(entered.durationMs);
-    measuredTransitions.push(await exitToParent(page, app, parent));
+  let metrics: BrowserMetricsSummary;
+  try {
+    if (profileSession) {
+      await profileSession.send("Profiler.start");
+      await page.evaluate(() => { performance.mark("world-warm-cycles-start"); });
+    }
+    for (let cycle = 0; cycle < cycles; cycle += 1) {
+      const entered = await enterFirstChild(page, app);
+      measuredTransitions.push(entered.durationMs);
+      measuredTransitions.push(await exitToParent(page, app, parent));
+    }
+    await page.evaluate(
+      () =>
+        new Promise<void>((resolve) => {
+          requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+        }),
+    );
+    if (profileSession) {
+      await page.evaluate(() => { performance.mark("world-warm-cycles-end"); });
+    }
+  } finally {
+    try {
+      // Take the normal final sample before flushing the timeline to disk.
+      const [collected, cpu] = await Promise.all([sampler.stop(), profileSession?.send("Profiler.stop")]);
+      metrics = collected;
+      if (cpu) await writeFile("artifacts/perf/renderer.cpuprofile", JSON.stringify(cpu.profile));
+    } finally {
+      if (profileSession) {
+        await browser.stopTracing();
+        await profileSession.detach();
+      }
+    }
   }
-  await page.evaluate(
-    () =>
-      new Promise<void>((resolve) => {
-        requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
-      }),
-  );
-  const metrics = await sampler.stop();
   const browserState = await page.evaluate(() => ({
     ...window.__WORLD_PERF__,
     userTiming: performance
@@ -280,6 +318,7 @@ test("scene slices stay within CPU and memory budgets", async ({ browser, page }
       name: "warm-scene-navigation",
       version: 1,
       cycles,
+      ...(profileSession ? { instrumentation: "Chromium timeline and sampled V8 renderer profile" } : {}),
       viewport: { width: 1440, height: 900, deviceScaleFactor: 1 },
     },
     cold: {

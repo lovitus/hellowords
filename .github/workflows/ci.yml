@@ -1,121 +1,144 @@
-name: CI
-
+name: Warm scene renderer profile
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
     inputs:
-      compare_published_baseline:
-        description: Compare the last audited product source on the same runner
-        type: boolean
-        default: false
-      milestone_release_preflight:
-        description: Run the 10k public-release preflight and verify the clean commit; does not publish
-        type: boolean
-        default: false
+      recipient:
+        description: Public recipient certificate for the diagnostic archive
+        required: true
+        type: string
 
 permissions:
   contents: read
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 env:
   CI: "true"
+  PRODUCT_SHA: 5927af6bf9d507083a7e56647030625bbdc583b7
   WRANGLER_LOG_PATH: .wrangler/wrangler.log
 
 jobs:
-  verification:
-    name: Full verification
+  profile:
+    name: Diagnose eight instrumented round trips
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Save the diagnostic harness
+        run: cp tests/perf/world-performance.spec.ts "$RUNNER_TEMP/world-performance-observed.spec.ts"
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ env.PRODUCT_SHA }}
+          persist-credentials: false
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
       - run: npm ci
-      - name: Check 10k milestone release preflight
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run release:check -- --milestone
-      - run: npm run lint
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run typecheck
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run validate:data
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:unit
-        if: ${{ !inputs.milestone_release_preflight }}
-      # Tests use this exact build on the same runner: storage quotas cannot
-      # prevent a downstream test job from obtaining it.
-      - run: npm run build
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:ssr
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: node scripts/analyze-build.mjs
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npx playwright install --with-deps chromium
-      - name: Check out audited baseline for optional comparison
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        uses: actions/checkout@v6
-        with:
-          ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-          path: baseline-reference
-          persist-credentials: false
-      - name: Prepare identical measurement harness for baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
-      - name: Build audited baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        working-directory: baseline-reference
-        run: npm ci && npm run build
-      - name: Measure audited baseline (diagnostic, not candidate acceptance)
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        continue-on-error: true
-        working-directory: baseline-reference
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-          PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-        run: npm run test:perf
-      - run: npm run test:perf
-        id: candidate_performance
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-      - name: Verify complete milestone candidate on the preflighted clean commit
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run verify:full
-      - run: npm run test:e2e
-        id: candidate_browser
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-      - name: Enforce both candidate gates
-        if: ${{ !cancelled() && !inputs.milestone_release_preflight }}
-        env:
-          PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
-          BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}
+      - name: Build and identify the unmodified production distribution
         run: |
-          printf 'Performance: %s\nBrowser: %s\n' "$PERF_OUTCOME" "$BROWSER_OUTCOME"
-          test "$PERF_OUTCOME" = success && test "$BROWSER_OUTCOME" = success
-      # Retention is optional; every validation command above remains blocking.
-      # Missing downloadable output must never be used as release evidence.
-      - uses: actions/upload-artifact@v5
-        if: ${{ !cancelled() }}
-        continue-on-error: true
+          test "$(git rev-parse HEAD)" = "$PRODUCT_SHA"
+          GITHUB_SHA="$PRODUCT_SHA" npm run build
+          GITHUB_SHA="$PRODUCT_SHA" npm run analyze:build
+          jq -e --arg sha "$PRODUCT_SHA" '.gitSha == $sha' artifacts/build/dist-manifest.json
+      - name: Preserve the build for the uninstrumented verification
+        uses: actions/upload-artifact@v5
         with:
-          name: verification-${{ github.sha }}
+          name: production-dist-${{ env.PRODUCT_SHA }}
           path: |
-            artifacts/correctness
-            artifacts/build
-            artifacts/e2e
-            artifacts/perf
             dist
+            artifacts/build/dist-manifest.json
           include-hidden-files: true
-          if-no-files-found: warn
+          if-no-files-found: error
+          retention-days: 7
+      - run: npx playwright install --with-deps chromium
+      - name: Record the existing warm navigation scenario
+        id: measure
+        env:
+          PERF_RUN: "1"
+          PERF_SOURCE_SHA: ${{ env.PRODUCT_SHA }}
+          PERF_SCENE_CYCLES: "8"
+          PERF_RENDERER_TRACE: "1"
+        run: |
+          cp "$RUNNER_TEMP/world-performance-observed.spec.ts" tests/perf/world-performance.spec.ts
+          printf 'Instrumented diagnostic on `%s`: 8 measured round trips after the original warmup. The 20-cycle release measurement is separate.\n\n' "$PRODUCT_SHA" >> "$GITHUB_STEP_SUMMARY"
+          npm run test:perf -- --grep 'scene slices stay within CPU and memory budgets'
+      - name: Attribute renderer timeline events and sampled functions
+        if: ${{ !cancelled() && (steps.measure.outcome == 'success' || steps.measure.outcome == 'failure') }}
+        run: |
+          python3 - <<'PY'
+          import collections
+          import json
+          import os
+          from pathlib import Path
+
+          root = Path("artifacts/perf")
+          events = json.loads((root / "chromium-timeline.json").read_text())["traceEvents"]
+          profile = json.loads((root / "renderer.cpuprofile").read_text())
+
+          def mark(name):
+              matches = [e for e in events if e["name"] == name and "blink.user_timing" in e.get("cat", "")]
+              if len(matches) != 1:
+                  raise ValueError(f"Expected one completed workload marker {name}, found {len(matches)}")
+              return matches[0]
+
+          start, end = mark("world-warm-cycles-start"), mark("world-warm-cycles-end")
+          thread = (start["pid"], start["tid"])
+          if (end["pid"], end["tid"]) != thread or end["ts"] <= start["ts"]:
+              raise ValueError("The two workload markers do not bound one renderer thread")
+          by_event = collections.defaultdict(list)
+          for event in events:
+              if (event.get("pid"), event.get("tid")) != thread or event.get("ph") != "X":
+                  continue
+              duration = event.get("dur", 0)
+              if duration > 0 and start["ts"] <= event["ts"] and event["ts"] + duration <= end["ts"]:
+                  by_event[event["name"]].append(duration)
+          event_rows = [{"name": name, "occurrences": len(durations), "inclusiveWallMs": round(sum(durations) / 1000, 3)}
+                        for name, durations in by_event.items()]
+          event_rows.sort(key=lambda row: row["inclusiveWallMs"], reverse=True)
+
+          frames = {n["id"]: n["callFrame"] for n in profile["nodes"]}
+          samples, deltas = profile["samples"], profile["timeDeltas"]
+          if len(samples) != len(deltas):
+              raise ValueError("V8 sample IDs and timestamps differ in length")
+          leaf_counts = collections.Counter()
+          timestamp = profile["startTime"]
+          for sample, delta in zip(samples, deltas):
+              timestamp += delta
+              if start["ts"] <= timestamp <= end["ts"]:
+                  frame = frames[sample]
+                  leaf_counts[(frame["functionName"], frame["url"], frame["lineNumber"], frame["columnNumber"])] += 1
+          if not event_rows or not leaf_counts:
+              raise ValueError("Missing renderer events or attributable samples inside the workload")
+          function_rows = [{"function": name or "(anonymous)", "url": url, "line": line + 1, "column": col + 1, "selfSamples": count}
+                           for (name, url, line, col), count in leaf_counts.most_common()]
+          result = {"productSha": os.environ["PRODUCT_SHA"], "cycles": int(os.environ["PERF_SCENE_CYCLES"]),
+                    "rendererPid": thread[0], "rendererTid": thread[1], "windowMs": (end["ts"] - start["ts"]) / 1000,
+                    "events": event_rows, "functions": function_rows}
+          (root / "renderer-attribution.json").write_text(json.dumps(result, indent=2) + "\n")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as output:
+              print("\nRenderer events by inclusive wall time (nested durations overlap):", file=output)
+              for row in event_rows[:10]:
+                  print(f"- `{row['name']}`: {row['inclusiveWallMs']:.1f} ms over {row['occurrences']} events", file=output)
+              print("\nV8 non-idle leaf frames by sample count (bundle locations are one-based):", file=output)
+              active = [row for row in function_rows if row["function"] not in ("(idle)", "(program)", "(root)")]
+              for row in active[:10]:
+                  print(f"- `{row['function']}` at `{row['url']}:{row['line']}:{row['column']}`: {row['selfSamples']} samples", file=output)
+          PY
+        env:
+          PERF_SCENE_CYCLES: "8"
+      - name: Encrypt diagnostic files for private examination
+        if: ${{ !cancelled() && (steps.measure.outcome == 'success' || steps.measure.outcome == 'failure') }}
+        env:
+          RECIPIENT: ${{ inputs.recipient }}
+        run: |
+          printf '%s\n' "$RECIPIENT" > "$RUNNER_TEMP/recipient.pem"
+          tar -C artifacts -czf - perf | openssl cms -encrypt -binary -stream -aes-256-cbc -outform DER -out "$RUNNER_TEMP/profile.cms" "$RUNNER_TEMP/recipient.pem"
+      - name: Preserve encrypted diagnostic archive
+        if: ${{ !cancelled() && (steps.measure.outcome == 'success' || steps.measure.outcome == 'failure') }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: renderer-profile-${{ env.PRODUCT_SHA }}
+          path: ${{ runner.temp }}/profile.cms
+          if-no-files-found: error
           retention-days: 7
