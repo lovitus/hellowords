@@ -1,5 +1,6 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
 import { labelDiscoveryKey } from "../../app/domain/discovery";
+import type { PaintedLabel } from "../../app/lib/label-canvas";
 import { clickPaintedWord, paintedWordCount, paintedWordState } from "./canvas-words";
 
 const APP = '[data-testid="world-app"]';
@@ -603,6 +604,54 @@ test("the apartment minimap reveals a detail zone and leaves its drawn words key
   expect(painted!.opacity).toBeGreaterThanOrEqual(0.52);
   await page.keyboard.press("Enter");
   await expect(page.locator(".word-dock strong")).toHaveText(word!);
+});
+
+test("portrait bilingual apartment returns keyboard focus from living room to the apartment word", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "Portrait phone with a keyboard");
+  const app = await openWorld(page);
+  await page.locator('[data-testid="scene-minimap-child"][data-target-scene="apartment"]').tap();
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  const meanings = page.getByTestId("meaning-toggle");
+  if (await meanings.getAttribute("aria-pressed") === "false") await meanings.tap();
+  await expect(meanings).toHaveAttribute("aria-pressed", "true");
+
+  const hasPaintedFocusRing = (id: string) => page.locator(".label-canvas").evaluate((element, id) => {
+    const canvas = element as HTMLCanvasElement & { paintedLabels?: readonly PaintedLabel[] };
+    const word = canvas.paintedLabels?.find(label => label.id === id && label.interactive);
+    if (!word) return false;
+    const bounds = canvas.getBoundingClientRect();
+    const dx = canvas.width / bounds.width, dy = canvas.height / bounds.height;
+    // Sample the straight portion of the visible outline just above the pill.
+    // Copying the bitmap also works when the painter owns an OffscreenCanvas.
+    const sample = document.createElement("canvas");
+    sample.width = 8;
+    sample.height = 3;
+    const context = sample.getContext("2d")!;
+    context.drawImage(canvas, (word.centerX - 4) * dx, (word.centerY - word.height / 2 - 4) * dy,
+      8 * dx, 3 * dy, 0, 0, 8, 3);
+    const pixels = context.getImageData(0, 0, 8, 3).data;
+    return [0, 1, 2].some(row => pixels.subarray(row * 32, (row + 1) * 32)
+      .every((value, index) => index % 4 !== 3 || value >= 128));
+  }, id);
+
+  const apartment = page.locator('[data-testid="word-label"][data-label-id="apartment"]');
+  const tabLimit = await page.locator("button:enabled, a[href], input, [tabindex='0']").count();
+  for (let step = 0; step < tabLimit && !await apartment.evaluate(el => el === document.activeElement); step++) {
+    await page.keyboard.press("Tab");
+  }
+  await expect(apartment).toBeFocused();
+  await expect.poll(() => hasPaintedFocusRing("apartment")).toBe(true);
+  await page.keyboard.press("Tab");
+  await expect(page.locator('[data-testid="word-label"][data-label-id="living-room"]')).toBeFocused();
+  await expect.poll(() => hasPaintedFocusRing("living-room"), { message: "the living room focus ring is painted" }).toBe(true);
+  await page.keyboard.press("Shift+Tab");
+  await expect(apartment, "Shift+Tab from living room returns to the apartment word").toBeFocused();
+  await page.keyboard.press("Enter");
+  const card = page.getByRole("complementary", { name: "apartment word details", exact: true });
+  await expect(card.locator("strong")).toHaveText("apartment");
+  await expect(card.locator("p").first()).toHaveText("公寓");
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
 });
 
 test("enters a scene slice on zoom and returns to its parent", async ({ page }) => {

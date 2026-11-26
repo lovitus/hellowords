@@ -130,6 +130,24 @@ export function zoomAndClampCamera(
   return clampCamera(zoomCameraAboutPoint(camera, nextScale, point), bounds);
 }
 
+/** Use the same scale change to project the image and its origin about the zoom point. */
+export function interpolateZoomCamera(from: Camera, to: Camera, progress: number): Camera {
+  assertCamera(from);
+  assertCamera(to);
+  finite(progress, "progress");
+  if (progress <= 0) return { ...from };
+  if (progress >= 1) return { ...to };
+  const logRatio = Math.log(to.scale / from.scale);
+  const logStep = logRatio * progress;
+  // A pure pan has no zoom point. expm1 keeps the ratio accurate for small wheel steps.
+  const panProgress = logRatio === 0 ? progress : Math.expm1(logStep) / Math.expm1(logRatio);
+  return {
+    x: from.x + (to.x - from.x) * panProgress,
+    y: from.y + (to.y - from.y) * panProgress,
+    scale: from.scale * Math.exp(logStep),
+  };
+}
+
 /**
  * Advances a camera toward a target using time-based exponential smoothing.
  * Logarithmic scale interpolation keeps zoom-in and zoom-out motion symmetric.

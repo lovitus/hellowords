@@ -515,6 +515,46 @@ test("continuous wheel input advances in monotonic animation frames without a sc
   }
 });
 
+test("wheel zoom keeps the photographed point beneath the pointer throughout the gesture", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === "mobile-chromium", "This is a desktop wheel gesture");
+  await openWorld(page);
+  const viewport = page.locator(`.viewer-shell:not([data-phase]) ${VIEWPORT}`);
+  const samples = await viewport.evaluate(async element => {
+    const photo = element.querySelector<HTMLImageElement>(".scene-art")!;
+    const viewportBounds = element.getBoundingClientRect();
+    const initial = photo.getBoundingClientRect();
+    const x = Math.round(viewportBounds.left + viewportBounds.width * 0.67);
+    const y = Math.round(viewportBounds.top + viewportBounds.height * 0.43);
+    const u = (x - initial.left) / initial.width;
+    const v = (y - initial.top) / initial.height;
+    const frames: { scale: number; drift: number }[] = [];
+
+    for (let index = 0; index < 10; index++) {
+      element.dispatchEvent(new WheelEvent("wheel", {
+        bubbles: true, cancelable: true, clientX: x, clientY: y, deltaY: -36,
+      }));
+    }
+    const started = performance.now();
+    let settledFrames = 0;
+    while (performance.now() - started < 2000 && settledFrames < 3) {
+      await new Promise(requestAnimationFrame);
+      const bounds = photo.getBoundingClientRect();
+      const scale = bounds.width / initial.width;
+      settledFrames = scale > 1.5 && scale === frames.at(-1)?.scale ? settledFrames + 1 : 0;
+      frames.push({ scale, drift: Math.hypot(bounds.left + u * bounds.width - x, bounds.top + v * bounds.height - y) });
+    }
+    return frames;
+  });
+  await testInfo.attach("wheel-pointer-trajectory", {
+    body: JSON.stringify(samples), contentType: "application/json",
+  });
+  expect(new Set(samples.map(frame => frame.scale)).size).toBeGreaterThan(2);
+  expect(samples.at(-1)!.scale).toBeGreaterThan(1.5);
+  expect(samples.at(-1)!.drift, "the wheel destination retains its original point").toBeLessThan(1);
+  expect(Math.max(...samples.map(frame => frame.drift)),
+    "the photographed point stays within one CSS pixel of the pointer in every frame").toBeLessThan(1);
+});
+
 test("continuous input prepares one preferred child only once", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
   const sceneDataRequests: string[] = [];

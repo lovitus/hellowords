@@ -29,6 +29,7 @@ import {
   DEFAULT_PARENT_EXIT_HYSTERESIS_POLICY,
   DEFAULT_PORTAL_HYSTERESIS_POLICY,
   LABEL_ENCOUNTER_OPACITY,
+  interpolateZoomCamera,
   maximumSceneCameraScale,
   prioritizeCurrentLabelOrder,
   reconcileSceneAssetLoad,
@@ -39,7 +40,6 @@ import {
   sceneVocabularyCueLimit,
   sameSceneLabelMountWindow,
   settleSceneAssetPreload,
-  smoothCameraTowards,
   vocabularyCueFocusPoint,
   type Label,
   type Portal as ScenePortal,
@@ -171,6 +171,10 @@ export function continuityViewForMotion(
 }
 
 type Camera = SceneViewportCamera;
+
+type LabelView = Pick<SceneViewportSnapshot, "camera" | "viewportWidth" | "viewportHeight"> & {
+  readonly meaningVisible: boolean;
+};
 
 interface Point {
   x: number;
@@ -492,7 +496,8 @@ function syncMotionFrozenLayer(element: HTMLElement, frozen: boolean): void {
   }
 }
 
-const WHEEL_RESPONSE_MS = 52;
+// Quartic ease-out has the previous 52ms initial response and a finite end.
+const WHEEL_SETTLE_MS = 208;
 const PORTAL_AIM_SLOP = 16;
 type ZoomInput = "pinch" | "wheel" | "step";
 
@@ -799,7 +804,8 @@ export function SceneViewport({
     labelCanvasRef.current = node;
   }, []);
   const hoveredLabelIdRef = useRef<string | null>(null);
-  const labelPaintStateRef = useRef<LabelPaintState | null>(null);
+  const labelPaintStateRef = useRef<(LabelPaintState & { camera: Camera }) | null>(null);
+  const stationaryWordFocusViewRef = useRef<LabelView | null>(null);
   const tapStartRef = useRef<{ pointerId: number; x: number; y: number } | null>(null);
   const suppressPortalClickRef = useRef(false);
   // Camera frames address labels through their stable authored ids. Keeping
@@ -822,7 +828,6 @@ export function SceneViewport({
   const cameraAnimationRef = useRef<number | null>(null);
   const wheelAnimationRef = useRef<number | null>(null);
   const wheelTargetRef = useRef<Camera | null>(null);
-  const wheelFrameTimeRef = useRef<number | null>(null);
   const navigationFrameRef = useRef<number | null>(null);
   const encounterDwellRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const visibleSinceRef = useRef<ReadonlyMap<string, number>>(new Map());
@@ -1474,9 +1479,20 @@ export function SceneViewport({
     const activeElement = document.activeElement;
     const focusedLabelId = activeElement instanceof HTMLButtonElement
       && activeElement.matches(".word-label")
+      && labelLayer.contains(activeElement)
       ? activeElement.dataset.labelId ?? null
       : null;
     let pendingKeyboardFocusLabelId = pendingKeyboardFocusLabelIdRef.current;
+    const focusView = stationaryWordFocusViewRef.current;
+    if (focusView && (
+      focusView.camera.x !== camera.x || focusView.camera.y !== camera.y
+      || focusView.camera.scale !== camera.scale || focusView.camera.fit !== camera.fit
+      || focusView.viewportWidth !== viewportWidth || focusView.viewportHeight !== viewportHeight
+      || focusView.meaningVisible !== meaningVisibleRef.current
+    )) {
+      stationaryWordFocusViewRef.current = null;
+    }
+    const retainedFocusLabelId = stationaryWordFocusViewRef.current ? null : focusedLabelId;
     const layout = computeScenePlacements(
       labelsForCameraLayout,
       camera,
@@ -1484,9 +1500,7 @@ export function SceneViewport({
       meaningVisibleRef.current,
       {
         photoSize: usesPortraitPhotoBounds(scene, labelViewport) ? scene : undefined,
-        selectedLabelId: focusedLabelId
-          ?? pendingKeyboardFocusLabelId
-          ?? selectedLabelIdRef.current,
+        selectedLabelId: retainedFocusLabelId ?? pendingKeyboardFocusLabelId ?? selectedLabelIdRef.current,
         priorityLabelIds: activeFocusedDetailZone
           ? new Set(activeFocusedDetailZone.labelIds)
           : portraitOverviewLabelIds(scene, labelViewport, camera.scale),
@@ -1560,7 +1574,7 @@ export function SceneViewport({
     let emergingCount = 0;
     const dwellEligibleLabelIds: string[] = [];
     for (const item of layout) {
-      const ownsFocus = item.id === focusedLabelId;
+      const ownsFocus = item.id === retainedFocusLabelId;
       const opacity = ownsFocus ? Math.max(1, item.opacity) : item.opacity;
       if (opacity >= LABEL_ENCOUNTER_OPACITY) visibleCount += 1;
       else if (opacity > 0.025) emergingCount += 1;
@@ -1573,7 +1587,7 @@ export function SceneViewport({
     for (const item of layout) {
       const label = labelsById.get(item.id);
       if (!label || !Number.isFinite(item.screenX) || !Number.isFinite(item.screenY)) continue;
-      const ownsFocus = item.id === focusedLabelId;
+      const ownsFocus = item.id === retainedFocusLabelId;
       const opacity = ownsFocus ? Math.max(1, item.opacity) : item.opacity;
       if (opacity <= 0.025) continue;
       const interactive = !wordIndexOpen && viewerInteractiveRef.current && (ownsFocus || item.interactive);
@@ -1595,7 +1609,8 @@ export function SceneViewport({
         interactive,
       });
     }
-    const paintState: LabelPaintState = {
+    const paintState = {
+      camera,
       labels: paintedLabels,
       width: viewportWidth,
       height: viewportHeight,
@@ -1621,7 +1636,7 @@ export function SceneViewport({
     }
     for (const [labelId, element] of labelElementsRef.current) {
       const item = byId.get(labelId);
-      const ownsFocus = activeElement === element;
+      const ownsFocus = labelId === retainedFocusLabelId;
       const opacity = ownsFocus ? Math.max(1, item?.opacity ?? 0) : item?.opacity ?? 0;
       // The word index is a deliberate reading surface. Hide the spatial
       // pills for its entire lifetime so the panel can never flash over a
@@ -2064,7 +2079,6 @@ export function SceneViewport({
       wheelAnimationRef.current = null;
     }
     wheelTargetRef.current = null;
-    wheelFrameTimeRef.current = null;
   }, []);
 
   const cancelCameraAnimation = useCallback(() => {
@@ -2525,26 +2539,21 @@ export function SceneViewport({
     scheduleNavigationCheck();
 
     if (wheelAnimationRef.current !== null) return;
+    let motion: { from: Camera; to: Camera; startedAt: number } | null = null;
+    let previousFrameTime: number | null = null;
     const animate = (now: number) => {
       const nextTarget = wheelTargetRef.current;
       const viewport = viewportRef.current;
       if (!nextTarget || committingRef.current || !viewport) {
         wheelAnimationRef.current = null;
-        wheelFrameTimeRef.current = null;
         return;
       }
-      const previousTime = wheelFrameTimeRef.current ?? now - 16;
-      wheelFrameTimeRef.current = now;
       const current = cameraRef.current;
-      const smoothed = smoothCameraTowards(
-        current,
-        nextTarget,
-        // Exponential smoothing is bounded for any elapsed time. Clipping a
-        // delayed frame to 34ms makes slow devices chase an artificial clock
-        // and render extra catch-up frames after wheel input has stopped.
-        Math.max(0, now - previousTime),
-        WHEEL_RESPONSE_MS,
-      );
+      if (!motion || motion.to.scale !== nextTarget.scale
+        || motion.to.x !== nextTarget.x || motion.to.y !== nextTarget.y) {
+        motion = { from: current, to: nextTarget, startedAt: previousFrameTime ?? now - 16 };
+      }
+      previousFrameTime = now;
       const width = viewport.clientWidth;
       const height = viewport.clientHeight;
       const dpr = window.devicePixelRatio || 1;
@@ -2554,8 +2563,12 @@ export function SceneViewport({
       const dx = visibleAxisTravel(current.x, target.x, currentScale, targetScale, scene.width, width);
       const dy = visibleAxisTravel(current.y, target.y, currentScale, targetScale, scene.height, height);
       // Both axis maxima meet at a corner of the visible image rectangle.
-      const settled = Math.hypot(dx, dy) * dpr < 1;
-      const camera = settled ? target : clampCamera({ ...smoothed, fit: nextTarget.fit }, width, height);
+      const progress = cameraAnimationProgress(now, motion.startedAt, WHEEL_SETTLE_MS);
+      const settled = progress === 1 || Math.hypot(dx, dy) * dpr < 1;
+      const camera = settled ? target : clampCamera({
+        ...interpolateZoomCamera(motion.from, target, 1 - (1 - progress) ** 4),
+        fit: target.fit,
+      }, width, height);
       if (frameRef.current !== null) {
         cancelAnimationFrame(frameRef.current);
         frameRef.current = null;
@@ -2568,7 +2581,6 @@ export function SceneViewport({
       }
       wheelAnimationRef.current = null;
       wheelTargetRef.current = null;
-      wheelFrameTimeRef.current = null;
     };
     wheelAnimationRef.current = requestAnimationFrame(animate);
   }, [cancelCameraAnimation, clampCamera, onPrefetchScene, portalForZoom, requestContinuousTile, sampleParentExitHysteresis, scene.height, scene.parentId, scene.width, scheduleNavigationCheck, showPortalPreview, updateZoomDirection, viewerInteractive]);
@@ -3023,6 +3035,93 @@ export function SceneViewport({
     onLabelEncountered(label);
   }, [onLabelEncountered]);
 
+  const paintWordFocus = useCallback((focusedId: string | null) => {
+    const state = labelPaintStateRef.current;
+    if (!state || state.focusedId === focusedId) return;
+    const next = { ...state, focusedId };
+    labelPaintStateRef.current = next;
+    paintLabelCanvas(labelCanvasRef.current, next, labelSemanticStyles);
+  }, [labelSemanticStyles]);
+
+  const focusWord = useCallback((id: string) => {
+    stationaryWordFocusViewRef.current = null;
+    if (atlasOverviewMode) cancelAtlasCategoryClose();
+    const state = labelPaintStateRef.current;
+    if (!atlasOverviewMode && !pendingKeyboardFocusLabelIdRef.current
+      && state?.labels.some((word) => word.id === id && word.interactive)) {
+      // Tabbing between words already on the canvas must preserve their spatial
+      // layout and tab order. Camera movement resumes normal focus retention.
+      stationaryWordFocusViewRef.current = {
+        camera: state.camera, viewportWidth: state.width, viewportHeight: state.height,
+        meaningVisible: state.meaningVisible,
+      };
+      paintWordFocus(id);
+    } else {
+      requestCameraFrame();
+    }
+  }, [atlasOverviewMode, cancelAtlasCategoryClose, paintWordFocus, requestCameraFrame]);
+
+  const blurWord = useCallback((event: React.FocusEvent<HTMLButtonElement>) => {
+    const hadStationaryFocus = stationaryWordFocusViewRef.current !== null;
+    stationaryWordFocusViewRef.current = null;
+    if (!atlasOverviewMode && event.relatedTarget instanceof HTMLButtonElement
+      && labelLayerRef.current?.contains(event.relatedTarget)) return;
+    if (hadStationaryFocus) paintWordFocus(null);
+    else requestCameraFrame();
+  }, [atlasOverviewMode, paintWordFocus, requestCameraFrame]);
+
+  const wordButtons = useMemo(() => labelsForRender.map((label) => {
+    const semanticStyle = labelSemanticStyles.get(label.id);
+    return (
+      <button
+        key={label.id}
+        ref={(element) => {
+          if (element) {
+            labelElementsRef.current.set(label.id, element);
+            if (label.id === pendingKeyboardFocusLabelIdRef.current) requestCameraFrame();
+          } else labelElementsRef.current.delete(label.id);
+        }}
+        type="button"
+        className="word-label"
+        data-testid={atlasOverviewMode ? "atlas-category-word" : "word-label"}
+        data-atlas-category-word={atlasOverviewMode ? "true" : undefined}
+        data-category-id={atlasOverviewMode ? atlasCategoryId ?? undefined : undefined}
+        data-label-id={label.id}
+        data-word={label.word}
+        data-lod={label.minLevel ?? 0}
+        data-anchor-x={label.x}
+        data-anchor-y={label.y}
+        data-semantic-group={semanticStyle?.semanticGroup}
+        data-palette-index={semanticStyle?.paletteIndex}
+        data-visible="false"
+        data-interactive="false"
+        data-adaptive="false"
+        tabIndex={-1}
+        aria-hidden="true"
+        onClick={(event) => {
+          event.stopPropagation();
+          if (atlasOverviewMode) setAtlasCategoryId(null);
+          selectedLabelIdRef.current = label.id;
+          requestCameraFrame();
+          reportClickedLabel(label);
+          onSelectWord(label);
+        }}
+        onPointerEnter={atlasOverviewMode ? cancelAtlasCategoryClose : undefined}
+        onPointerLeave={atlasOverviewMode ? scheduleAtlasCategoryClose : undefined}
+        onFocus={() => focusWord(label.id)}
+        onBlur={blurWord}
+      >
+        {label.word}
+        {meaningVisible ? (
+          <span className="word-translation" data-testid="word-translation">
+            {label.translation}
+          </span>
+        ) : null}
+      </button>
+    );
+  }), [atlasCategoryId, atlasOverviewMode, blurWord, cancelAtlasCategoryClose, focusWord, labelSemanticStyles,
+    labelsForRender, meaningVisible, onSelectWord, reportClickedLabel, requestCameraFrame, scheduleAtlasCategoryClose]);
+
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
     if (pointersRef.current.size > 0) tapStartRef.current = null;
@@ -3050,7 +3149,7 @@ export function SceneViewport({
     const nextId = hit?.id ?? null;
     if (nextId === hoveredLabelIdRef.current) return;
     hoveredLabelIdRef.current = nextId;
-    const next: LabelPaintState = { ...state, hoveredId: nextId };
+    const next = { ...state, hoveredId: nextId };
     labelPaintStateRef.current = next;
     paintLabelCanvas(labelCanvasRef.current, next, labelSemanticStyles);
     event.currentTarget.style.cursor = hit ? "pointer" : "";
@@ -3463,61 +3562,7 @@ export function SceneViewport({
           aria-label="Words in this scene"
         >
           <canvas ref={attachLabelCanvas} width={0} height={0} className="label-canvas" aria-hidden="true" />
-          {labelsForRender.map((label) => {
-            const semanticStyle = labelSemanticStyles.get(label.id);
-            return (
-              <button
-                key={label.id}
-                ref={(element) => {
-                  if (element) {
-                    labelElementsRef.current.set(label.id, element);
-                    if (label.id === pendingKeyboardFocusLabelIdRef.current) {
-                      requestCameraFrame();
-                    }
-                  } else labelElementsRef.current.delete(label.id);
-                }}
-                type="button"
-                className="word-label"
-                data-testid={atlasOverviewMode ? "atlas-category-word" : "word-label"}
-                data-atlas-category-word={atlasOverviewMode ? "true" : undefined}
-                data-category-id={atlasOverviewMode ? atlasCategoryId ?? undefined : undefined}
-                data-label-id={label.id}
-                data-word={label.word}
-                data-lod={label.minLevel ?? 0}
-                data-anchor-x={label.x}
-                data-anchor-y={label.y}
-                data-semantic-group={semanticStyle?.semanticGroup}
-                data-palette-index={semanticStyle?.paletteIndex}
-                data-visible="false"
-                data-interactive="false"
-                data-adaptive="false"
-                tabIndex={-1}
-                aria-hidden="true"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  if (atlasOverviewMode) setAtlasCategoryId(null);
-                  selectedLabelIdRef.current = label.id;
-                  requestCameraFrame();
-                  reportClickedLabel(label);
-                  onSelectWord(label);
-                }}
-                onPointerEnter={atlasOverviewMode ? cancelAtlasCategoryClose : undefined}
-                onPointerLeave={atlasOverviewMode ? scheduleAtlasCategoryClose : undefined}
-                onFocus={() => {
-                  if (atlasOverviewMode) cancelAtlasCategoryClose();
-                  requestCameraFrame();
-                }}
-                onBlur={requestCameraFrame}
-              >
-                {label.word}
-                {meaningVisible ? (
-                  <span className="word-translation" data-testid="word-translation">
-                    {label.translation}
-                  </span>
-                ) : null}
-              </button>
-            );
-          })}
+          {wordButtons}
         </div>
         <div className="viewport-vignette" aria-hidden="true" />
       </div>
