@@ -1183,6 +1183,31 @@ test("the current-scene word index finds and focuses a real label without a scen
   })).toBe(true);
 });
 
+test("keyboard selection from the scene word index keeps the next action on the selected card", async ({ page }, testInfo) => {
+  const app = await openWorld(page);
+  await page.locator('[data-testid="scene-minimap-child"][data-target-scene="apartment"]').click();
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  const toggle = page.getByTestId("scene-word-index-toggle");
+  await toggle.click();
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill("basin");
+  await page.keyboard.press("Tab");
+  await expect(index.getByRole("button", { name: "basin，洗手盆", exact: true })).toBeFocused();
+  await page.keyboard.press("Enter");
+
+  const card = page.getByRole("complementary", { name: "basin word details", exact: true });
+  await expect(card).toBeVisible();
+  await expect(card).toContainText("洗手盆");
+  await expect(card, "the selected word card receives keyboard focus after its index result disappears").toBeFocused();
+  await testInfo.attach("basin-index-keyboard-focus", { body: await page.screenshot(), contentType: "image/png" });
+  await page.keyboard.press("Tab");
+  await expect(card.getByRole("button", { name: "关闭单词卡" })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(card).toHaveCount(0);
+  await expect(toggle).toBeFocused();
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+});
+
 test("hysteresis prevents scene thrashing near a zoom boundary", async ({ page }) => {
   const app = await openWorld(page);
   const parent = await sceneId(app);

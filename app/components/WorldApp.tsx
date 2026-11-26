@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { LexicalWorld } from "./LexicalWorld";
 import { SceneConversation } from "./SceneConversation";
 import {
@@ -253,6 +253,9 @@ export function WorldApp() {
   const navigationRef = useRef<AbortController | null>(null);
   const sceneHeadingRef = useRef<HTMLHeadingElement>(null);
   const sceneWordIndexInputRef = useRef<HTMLInputElement>(null);
+  const sceneWordIndexToggleRef = useRef<HTMLButtonElement>(null);
+  const wordDockRef = useRef<HTMLElement>(null);
+  const keyboardIndexSelectionRef = useRef(false);
   const focusHeadingAfterNavigationRef = useRef(false);
   const navigationPhaseRef = useRef<"idle" | "committing" | "navigating" | "settling">("idle");
   const transitionTargetIdRef = useRef<string | null>(null);
@@ -300,6 +303,14 @@ export function WorldApp() {
   useEffect(() => {
     if (!sceneWordIndexOpen || window.innerWidth <= 900) return;
     sceneWordIndexInputRef.current?.focus();
+  }, [sceneWordIndexOpen]);
+
+  useLayoutEffect(() => {
+    if (sceneWordIndexOpen) {
+      keyboardIndexSelectionRef.current = false;
+    } else if (keyboardIndexSelectionRef.current) {
+      wordDockRef.current?.focus({ preventScroll: true });
+    }
   }, [sceneWordIndexOpen]);
 
   useEffect(() => {
@@ -692,11 +703,17 @@ export function WorldApp() {
       if (!activeFocusTargetNavigatorRef.current?.(target, source)) return false;
       if (scene.id !== "world-map") setFocusedSceneDetailZoneId(zone?.id ?? null);
     }
+    keyboardIndexSelectionRef.current = source === "keyboard";
     setSelectedWord(word);
     setSceneWordIndexOpen(false);
     setSceneWordIndexQuery("");
     return true;
   }, [scene, sceneControlsLocked]);
+
+  const selectViewportWord = useCallback((label: Label) => {
+    keyboardIndexSelectionRef.current = false;
+    setSelectedWord(label);
+  }, []);
 
   const handleViewportMotionFrozen = useCallback((frozen: boolean) => {
     setViewportMotionFrozen(frozen);
@@ -861,6 +878,7 @@ export function WorldApp() {
           <button
             type="button"
             className="scene-word-index-toggle"
+            ref={sceneWordIndexToggleRef}
             data-testid="scene-word-index-toggle"
             aria-expanded={sceneWordIndexOpen}
             aria-controls="scene-word-index"
@@ -1243,7 +1261,7 @@ export function WorldApp() {
               onExitScene={() => goBack("zoom")}
               onLabelsEncountered={recordEncounteredLabels}
               onLabelEncountered={recordEncounteredLabel}
-              onSelectWord={setSelectedWord}
+              onSelectWord={selectViewportWord}
               onPrefetchScene={prefetchPreferredScene}
               initialView={sceneContinuityView}
               onCameraFrame={recordViewportSnapshot}
@@ -1282,11 +1300,23 @@ export function WorldApp() {
           </button>
         ) : null}
         {selectedWord ? (
-          <aside className="word-dock" aria-label={`${selectedWord.word} word details`}>
+          <aside
+            ref={wordDockRef}
+            className="word-dock"
+            tabIndex={-1}
+            aria-label={`${selectedWord.word} word details`}
+            aria-describedby="word-dock-translation"
+          >
             <button
               type="button"
               className="word-dock-close"
-              onClick={() => setSelectedWord(null)}
+              onClick={(event) => {
+                if (event.detail === 0 && keyboardIndexSelectionRef.current) {
+                  sceneWordIndexToggleRef.current?.focus({ preventScroll: true });
+                }
+                keyboardIndexSelectionRef.current = false;
+                setSelectedWord(null);
+              }}
               aria-label="关闭单词卡"
             >
               ×
@@ -1296,7 +1326,7 @@ export function WorldApp() {
                 {selectedLabel ? "WORD ENCOUNTER" : "相关词 · 图中未标注"}
               </span>
               <strong>{selectedWord.word}</strong>
-              <p>{selectedWord.translation}</p>
+              <p id="word-dock-translation">{selectedWord.translation}</p>
             </div>
             <button
               type="button"
