@@ -61,11 +61,11 @@ def verify_manifest(root, sha):
             raise ValueError("Production file size or digest mismatch")
 
 
-def run_browser(phase, temp):
+def run_browser(phase, temp, cases=None):
     folder = temp / phase
     folder.mkdir()
     case_list = folder / "cases.txt"
-    case_list.write_text("".join(f"[{p}] > {f} > {t}\n" for p, f, t in CASES[phase]))
+    case_list.write_text("".join(f"[{p}] > {f} > {t}\n" for p, f, t in (CASES[phase] if cases is None else cases)))
     with (folder / "browser.log").open("wb") as log:
         result = subprocess.run([
             "./node_modules/.bin/playwright", "test", "--test-list", str(case_list),

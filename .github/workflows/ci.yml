@@ -1,22 +1,23 @@
-name: Check the reviewed desktop camera cases on the frozen build
+name: Verify the office monitor leader after returning to the atrium
 on:
   workflow_dispatch:
     inputs:
-      reviewed:
-        description: Full SHA of the reviewed delivery commit
+      candidate:
+        description: Full SHA of the product commit containing the revised office return case
         required: true
         type: string
 permissions:
-  contents: read
   actions: read
+  contents: read
 env:
   CI: "true"
+  BASE: ab818088afaca358ea2cb60e9d8a8cfe5aad99c3
   FROZEN: 0c6407d600da8105ca07f3603be04a0d4626934f
-  REVIEWED: ${{ inputs.reviewed }}
+  PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 25
     defaults:
       run:
         working-directory: product
@@ -25,71 +26,113 @@ jobs:
         with:
           sparse-checkout: .github
           persist-credentials: false
-      - name: Require a full reviewed commit
+      - name: Require a new full candidate SHA
         working-directory: .
-        run: '[[ "$REVIEWED" =~ ^[0-9a-f]{40}$ ]]'
+        run: |
+          mkdir "$RUNNER_TEMP/diagnosis"
+          [[ "$PRODUCT" =~ ^[0-9a-f]{40}$ && "$PRODUCT" != "$BASE" && "$PRODUCT" != "$FROZEN" ]]
       - uses: actions/checkout@v6
         with:
-          ref: ${{ inputs.reviewed }}
+          ref: ${{ inputs.candidate }}
           path: product
           persist-credentials: false
-      - name: Compare both source trees outside the two revised tests and their delivery record
+      - name: Verify checkout and record the identical browser test used on both builds
         id: source
+        run: |
+          test "$(git rev-parse HEAD)" = "$PRODUCT"
+          sha256sum tests/e2e/office-conference.spec.ts > "$RUNNER_TEMP/diagnosis/browser-test.sha256"
+      - name: Verify the archived build's source against the baseline
+        id: equivalent
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir "$RUNNER_TEMP/diagnosis"
-          test "$(git rev-parse HEAD)" = "$REVIEWED"
-          git -c 'credential.helper=!gh auth git-credential' fetch --quiet --no-tags --depth=1 origin "$FROZEN" \
+          git -c 'credential.helper=!gh auth git-credential' fetch --quiet --no-tags --depth=1 origin "$FROZEN" "$BASE" \
             > "$RUNNER_TEMP/fetch.log" 2>&1
-          git diff --quiet "$FROZEN" "$REVIEWED" -- . ':(exclude)tests/e2e/office-conference.spec.ts' \
+          git diff --quiet "$FROZEN" "$BASE" -- . ':(exclude)tests/e2e/office-conference.spec.ts' \
             ':(exclude)tests/domain/screenSpaceLabels.test.ts' ':(exclude)postponed-tasks.md'
-          git diff --name-only "$FROZEN" "$REVIEWED" | jq -Rn '[inputs]' > "$RUNNER_TEMP/diagnosis/changed-files.json"
+          git diff --name-only "$FROZEN" "$BASE" | jq -Rn '[inputs]' > "$RUNNER_TEMP/diagnosis/baseline-source-diff.json"
+      - uses: actions/setup-node@v7
+        id: node
+        if: ${{ !cancelled() && steps.source.outcome == 'success' }}
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: product/package-lock.json
+      - name: Install product dependencies
+        id: dependencies
+        if: ${{ !cancelled() && steps.node.outcome == 'success' }}
+        run: npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
+      - name: Install Chromium
+        id: chromium
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
       - uses: actions/download-artifact@v5
+        id: download
+        if: ${{ !cancelled() && steps.equivalent.outcome == 'success' }}
         with:
           name: production-dist-${{ env.FROZEN }}
           run-id: 45783267309
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
-      - name: Check all frozen production file names, sizes and digests
-        id: artifact
+      - name: Verify the archived production manifest
+        id: baseline_manifest
+        if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: |
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$FROZEN"
-          jq --arg reviewed "$REVIEWED" '{reviewed:$reviewed,production:.gitSha,sourceRun:45783267309,files:(.files|length)}' \
-            "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/diagnosis/build.json"
+          jq --arg base "$BASE" '{baseline:$base,build:.gitSha,sourceRun:45783267309,files:(.files|length)}' \
+            "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
+      - name: Run the candidate's phone return case against the archived build
+        id: red
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && steps.baseline_manifest.outcome == 'success' }}
+        run: |
           test ! -e dist
           mv "$RUNNER_TEMP/frozen/dist" dist
-      - uses: actions/setup-node@v7
-        with:
-          node-version: "22"
-          cache: npm
-          cache-dependency-path: product/package-lock.json
-      - name: Install the frozen dependencies
-        id: dependencies
-        run: npm ci > "$RUNNER_TEMP/npm.log" 2>&1
-      - name: Check only the revised screen-space labels file
-        id: domain
-        run: python ../.github/diagnose-office-phone.py screen-space-labels
-      - name: Run just the desktop wheel and apartment handoff cases
-        id: desktop
+          trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
+          python ../.github/verify-office-leader.py baseline
+      - name: Build the candidate once and verify its production manifest
+        id: build
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         run: |
-          ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-          python ../.github/verify-desktop-camera.py
-      - name: Record gate outcomes
+          test ! -e dist
+          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
+          GITHUB_SHA="$PRODUCT" npm run analyze:build > "$RUNNER_TEMP/analysis.log" 2>&1
+          python ../.github/verify-office-phone.py manifest . "$PRODUCT"
+      - uses: actions/upload-artifact@v5
+        id: production
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          path: |
+            product/dist
+            product/artifacts/build/dist-manifest.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+      - name: Run the candidate's phone and desktop office return cases
+        id: green
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && steps.build.outcome == 'success' }}
+        run: python ../.github/verify-office-leader.py candidate
+      - name: Verify label placement, layout, screen-space labels and canvas hit detection
+        id: domain
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: python ../.github/verify-office-leader.py domain
+      - name: Validate scene data
+        id: data
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: python ../.github/diagnose-office-phone.py data
+      - name: Record gate outcomes and missing browser observations
         if: ${{ !cancelled() }}
         working-directory: .
         env:
           RESULTS: ${{ toJSON(steps) }}
-        run: |
-          mkdir -p "$RUNNER_TEMP/diagnosis"
-          jq -n --arg reviewed "$REVIEWED" --arg frozen "$FROZEN" --argjson gates "$RESULTS" \
-            '{reviewed:$reviewed,frozen:$frozen,checks:($gates|with_entries(.value=.value.outcome))}' \
-            > "$RUNNER_TEMP/diagnosis/summary.json"
+        run: python .github/verify-office-leader.py evidence
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: final-desktop-camera-${{ github.run_id }}-${{ github.run_attempt }}
+          name: office-monitor-leader-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/diagnosis
           if-no-files-found: error
           retention-days: 7
+      - name: Require the specified intersection on the old phone and passing candidate checks
+        if: ${{ !cancelled() }}
+        run: jq -e '.accepted == true' "$RUNNER_TEMP/diagnosis/summary.json"
