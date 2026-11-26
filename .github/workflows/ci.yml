@@ -9,15 +9,15 @@ on:
       parent:
         description: Full SHA of the preceding product source, used to check the candidate diff
         required: true
-        default: d33c9dd008d2efaf34147de92c633229e89d9825
+        default: de4829c0db0952cb2ee6e7439f5398487457bb93
         type: string
 permissions:
   actions: read
   contents: read
 env:
   CI: "true"
-  BASE: d33c9dd008d2efaf34147de92c633229e89d9825
-  BASE_RUN: "45845890780"
+  BASE: de4829c0db0952cb2ee6e7439f5398487457bb93
+  BASE_RUN: "45856661720"
   PRODUCT: ${{ inputs.candidate }}
   PARENT: ${{ inputs.parent }}
 jobs:
@@ -74,11 +74,11 @@ jobs:
         if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: |
           manifest="$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json"
-          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = 714389467d9f6f91d740299bc253f30c91985a2b92eea7911b7bf3e5bc6e9124
+          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = a91ae396ac79fb945f41fef6a0578b0d0d70c4a5b308af8650fbf21f49829746
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASE"
           jq --argjson run "$BASE_RUN" '{build:.gitSha, sourceRun:$run, files:(.files|length)}' \
             "$manifest" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
-      - name: Reproduce the misplaced remote control on the archived apartment on desktop and phone
+      - name: Reproduce the lagging pin during a mobile photo search on the previous build
         id: red
         if: ${{ !cancelled() && steps.baseline_manifest.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: |

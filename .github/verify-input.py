@@ -39,9 +39,11 @@ office_case = (desktop, verify["OFFICE"], "a gradual second wheel gesture return
 office_screenshot = "office-after-gradual-return"
 home = "e2e/home-kitchen.spec.ts"
 apartment_title = "apartment search distinguishes the photographed shower hinge from the unpictured remote control"
-apartment_assertion = "the remote control must be listed without a photo pin"
+apartment_assertion = "during mobile focus the painted dot must follow the photographed hinge"
+hinge_capture = "apartment-shower-hinge-focus-frames"
 apartment_screenshot = "apartment-shower-hinge"
 apartment_cases = [(project, home, apartment_title) for project in (desktop, phone)]
+phone_hinge = (phone, home, apartment_title)
 kitchen_title = "kitchen object anchor stays on each photographed object from home entry through card selection and apartment return"
 kitchen_cases = [(project, home, kitchen_title) for project in (desktop, phone)]
 district_titles = (
@@ -53,6 +55,8 @@ regressions = [
     *index_cases, reverse_tab, pointer,
     (desktop, motion, "continuous wheel input advances in monotonic animation frames without a scale jump"),
     (desktop, "e2e/label-zoom-retention.spec.ts", verify["APARTMENT"]),
+    *((project, "e2e/label-zoom-retention.spec.ts", "ordinary scenes hide the progress hint while the canvas counts only the current crop")
+      for project in (desktop, phone)),
     (desktop, "e2e/continuous-semantic-zoom.spec.ts", "Apartment handoff settles to the complete child before a fresh outward gesture can exit"),
     (desktop, motion, "root portal click settles apartment before a deliberate third-step exit"),
     (desktop, verify["OFFICE"], verify["RETURN"]), verify["PHONE_RETURN"],
@@ -101,6 +105,10 @@ def retain_attempt(phase, number, case, result, folder):
         if mime == "application/json":
             body = json.loads(data)
             path = dest / f"{index:02d}-{name}.json"
+            if name == hinge_capture:
+                drift = [math.dist(s["photographedHinge"], s["paintedDot"]) for s in body["misplaced"]]
+                record["hinge"] = {"frames": len(body["frames"]), "misplaced": len(drift),
+                                   "peakMisplacedCssPx": max(drift, default=0)}
             if name == "wheel-pointer-trajectory":
                 drifts = [frame["drift"] for frame in body]
                 scales = [frame["scale"] for frame in body]
@@ -117,17 +125,18 @@ def retain_attempt(phase, number, case, result, folder):
     names = {a["name"] for a in receipts}
     pngs = {a["name"] for a in receipts if a["file"].endswith(".png")}
     if old:
-        message = helpers["ANSI"].sub("", primary.get("message", ""))
         record["accepted"] = (result["status"] == "failed" and result["retry"] == 0
-                              and case in apartment_cases and [headline(e) for e in errors] == [apartment_assertion]
+                              and case == phone_hinge and [headline(e) for e in errors] == [apartment_assertion]
                               and headline(primary) == apartment_assertion and "screenshot" in pngs
-                              and "toBeNull" in message
-                              and re.search(r'(?m)^\s*Received:\s*"remote-control-pro-1"\s*$', message) is not None
+                              and record.get("hinge", {}).get("peakMisplacedCssPx", 0) > 8
                               and any(frame["file"] == f"tests/{case[1]}" for frame in details(primary)["source"]))
         return record
     evidence_ok = True
     if case in apartment_cases:
         evidence_ok = apartment_screenshot in pngs
+        if case == phone_hinge:
+            hinge = record.get("hinge", {})
+            evidence_ok = evidence_ok and hinge.get("frames", 0) > 2 and hinge.get("misplaced") == 0
     if case == office_case:
         evidence_ok = office_screenshot in pngs
     if case == bus_case:
@@ -150,7 +159,7 @@ def retain_attempt(phase, number, case, result, folder):
 
 def browser(phase):
     old = phase == "baseline"
-    cases = apartment_cases if old else [*apartment_cases, *kitchen_cases, bus_case, *regressions, office_case]
+    cases = [phone_hinge] if old else [*apartment_cases, *kitchen_cases, bus_case, *regressions, office_case]
     projects = {project for project, _, _ in cases}
     folder = temp / phase
     verify["run_browser"](phase, temp, cases)
@@ -243,7 +252,7 @@ def summary():
         if outcomes[gate] == "failure" and path.exists():
             diagnostics[log] = helpers["process_error"](path)
     write(out / "summary.json", {"baseline": os.environ["BASE"], "baselineRun": int(os.environ["BASE_RUN"]),
-                                 "requiredOldApartmentFailures": {"projects": [desktop, phone], "file": home, "title": apartment_title,
+                                 "requiredOldApartmentFailures": {"projects": [phone], "file": home, "title": apartment_title,
                                                                   "assertion": apartment_assertion},
                                  "requiredApartmentScreenshot": apartment_screenshot,
                                  "requiredOfficeScreenshot": office_screenshot,
