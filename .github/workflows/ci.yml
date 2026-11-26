@@ -1,90 +1,207 @@
-name: Attribute memory after twenty apartment round trips
-on: workflow_dispatch
-
+name: Verify the photographed open-plan workstation
+on:
+  workflow_dispatch:
+    inputs:
+      candidate:
+        description: Full workstation candidate commit SHA
+        required: true
+        type: string
 permissions:
   contents: read
   actions: read
-
 env:
-  PRODUCT: 4dae0eaa88776720ef45cc42fc502fd9c5f86d41
-  BUILD_RUN: "45753668035"
   CI: "true"
-
+  BASE: abf4eb3b594774db089c4df9eb2e8f0eac025cf1
+  PRODUCT: ${{ inputs.candidate }}
+  WORDS: open-plan workstation labels its photographed mouse, drawer handle and shared printer before returning to the office
+  ZOOM: open-plan workstation zoom keeps the printer and chair caster in the room and opens desktop equipment from the keyboard
+  ATRIUM: returning to the office restores the atrium photograph and its own object labels
+  CONSOLE: office console keeps the painted microphone, touch screen and video bar on their devices and zooms back to the conference room
 jobs:
-  ownership:
+  workstation:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v6
         with:
-          path: probe
+          ref: ${{ inputs.candidate }}
+          fetch-depth: 2
           persist-credentials: false
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ env.PRODUCT }}
-          path: product
-          persist-credentials: false
-      - uses: actions/download-artifact@v5
-        with:
-          name: production-dist-${{ env.PRODUCT }}
-          run-id: ${{ env.BUILD_RUN }}
-          github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/build
-      - name: Verify the artifact inventory, file sizes and SHA-256 digests
-        working-directory: product
-        run: |
-          test "$(git rev-parse HEAD)" = "$PRODUCT"
-          python - <<'PY'
-          import hashlib, json, os
-          from pathlib import Path
-          artifact = Path(os.environ["RUNNER_TEMP"]) / "build"
-          dist = artifact / "dist"
-          manifest = json.loads((artifact / "artifacts/build/dist-manifest.json").read_text())
-          files = manifest["files"]
-          assert manifest["gitSha"] == os.environ["PRODUCT"]
-          assert len(files) == manifest["totals"]["files"] > 0
-          paths = list(dist.rglob("*"))
-          assert not dist.is_symlink() and not any(p.is_symlink() for p in paths)
-          inventory = {p.relative_to(dist).as_posix() for p in paths if p.is_file()}
-          assert len(inventory) == len(files) and inventory == {f["path"] for f in files}
-          for entry in files:
-              path = dist / entry["path"]
-              assert path.stat().st_size == entry["bytes"]
-              with path.open("rb") as stream:
-                  assert hashlib.file_digest(stream, "sha256").hexdigest() == entry["sha256"]
-          print(f"Verified {len(files)} production files")
-          PY
-          test ! -e dist
-          mv "$RUNNER_TEMP/build/dist" dist
-          cp ../probe/tests/perf/renderer-ownership.spec.ts tests/perf/
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
-          cache-dependency-path: product/package-lock.json
-      - name: Install the product's locked dependencies and Chromium
-        working-directory: product
-        run: |
+      - run: |
+          test "$(git rev-parse HEAD)" = "$PRODUCT"
+          test "$(git rev-parse HEAD^)" = "$BASE"
           npm ci
           ./node_modules/.bin/playwright install --with-deps chromium
-      - name: Capture two detailed dumps and their renderer PSS
-        working-directory: product
-        env:
-          PERF_RUN: "1"
+      - uses: actions/download-artifact@v5
+        with:
+          name: production-dist-${{ env.BASE }}
+          run-id: 45756682147
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/previous
+      - name: Verify the baseline artifact before starting its server
         run: |
-          umask 077
-          if ! ./node_modules/.bin/playwright test tests/perf/renderer-ownership.spec.ts --project=performance --workers=1 --retries=0 --reporter=line > "$RUNNER_TEMP/probe.log" 2>&1; then
-            if test -f "$RUNNER_TEMP/ownership-stage.txt"; then
-              cat "$RUNNER_TEMP/ownership-stage.txt"
-            else
-              echo "The diagnostic failed before page setup"
-            fi
-            exit 1
-          fi
-          test -s "$RUNNER_TEMP/renderer-ownership.json"
+          manifest="$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
+          jq -e --arg sha "$BASE" '.gitSha == $sha and (.files | length > 0)' "$manifest"
+          jq -r '.files[] | "\(.sha256)  \(.path)"' "$manifest" > "$RUNNER_TEMP/baseline.sha256"
+          (cd "$RUNNER_TEMP/previous/dist" && sha256sum --quiet --check "$RUNNER_TEMP/baseline.sha256")
+      - name: Reproduce the mouse and printer defects on the baseline
+        id: baseline
+        continue-on-error: true
+        run: |
+          mv "$RUNNER_TEMP/previous/dist" dist
+          code=0
+          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "($WORDS|$ZOOM)$" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/old.log" 2>&1 || code=$?
+          mv dist "$RUNNER_TEMP/previous/dist"
+          mv artifacts/e2e "$RUNNER_TEMP/old"
+          test "$code" -eq 1
+      - name: Check the candidate types, scene data and workstation contracts
+        run: |
+          npm run typecheck
+          npm run validate:data -- --allow-image-reviewed > "$RUNNER_TEMP/data.log" 2>&1
+          npm exec -- tsx --test tests/domain/openPlanWorkstation.test.ts tests/domain/newFacilityScenes.test.ts
+      - name: Build and record the candidate
+        run: |
+          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
+          GITHUB_SHA="$PRODUCT" npm run analyze:build
+          jq -e --arg sha "$PRODUCT" '.gitSha == $sha' artifacts/build/dist-manifest.json
+          npm run test:ssr
       - uses: actions/upload-artifact@v5
         with:
-          name: renderer-ownership-${{ env.PRODUCT }}
-          path: ${{ runner.temp }}/renderer-ownership.json
+          name: production-dist-${{ env.PRODUCT }}
+          path: |
+            dist
+            artifacts/build/dist-manifest.json
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
+      - name: Exercise workstation words, zoom, office return and conference conversation
+        run: |
+          code=0
+          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "($WORDS|$ZOOM|$ATRIUM|$CONSOLE)$" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/new.log" 2>&1 || code=$?
+          mv artifacts/e2e "$RUNNER_TEMP/new"
+          exit "$code"
+      - name: Check each browser result and retain only the relevant evidence
+        if: ${{ !cancelled() }}
+        run: |
+          python - <<'PY'
+          import base64, json, math, os
+          from pathlib import Path
+
+          temp = Path(os.environ["RUNNER_TEMP"])
+          out = temp / "workstation-evidence"
+          out.mkdir()
+          titles = {os.environ[k]: k for k in ("WORDS", "ZOOM", "ATRIUM", "CONSOLE")}
+          errors = {
+              "WORDS": "left mouse leader ends on the mouse body above its pad",
+              "ZOOM": "magnifying the photographed shared printer must leave open-plan-workstation open",
+          }
+          workstation = "open-plan-workstation"
+          equipment = "desktop-workstation-equipment"
+          photo_hash = "9acbbe66dd5fb56faa58562c07219f723bb39d12d535648fa7be6e3abcd7f1df"
+          words = ["Open-plan-left-mouse", "Open-plan-center-drawer-handle", "Shared-open-plan-printer"]
+          gestures = [("shared printer", 543, 447, workstation), ("chair caster", 682, 743, workstation),
+                      ("center keyboard", 853, 487, equipment)]
+          projects = ("chromium", "mobile-chromium")
+
+          def cases(suite):
+              for spec in suite.get("specs", []):
+                  for test in spec["tests"]:
+                      yield titles.get(spec["title"]), test
+              for child in suite.get("suites", []):
+                  yield from cases(child)
+
+          def check_build(build):
+              old = build == "old"
+              selected = errors if old else titles.values()
+              expected = {(case, project) for case in selected for project in projects}
+              report = json.loads((temp / build / "results.json").read_text())
+              stats = report["stats"]
+              count = len(expected)
+              observations = []
+              for case, test in cases(report):
+                  project = test["projectName"]
+                  assert (case, project) in expected, f"{build}: missing, extra or repeated test"
+                  expected.remove((case, project))
+                  result, = test["results"]
+                  attachments = {a["name"]: a for a in result["attachments"]}
+                  screenshots = {
+                      "WORDS": [f"{w}-{suffix}" for w in words for suffix in ("view", "painted-card")],
+                      "ZOOM": [f"{g[0]}-end" for g in gestures],
+                      "ATRIUM": ["office-atrium-return", "office-camera-lens-card"],
+                      "CONSOLE": ["console-conversation", "conference-room-return"],
+                  }[case]
+
+                  def body(name, kind):
+                      a = attachments[name]
+                      assert a["contentType"] == kind, name
+                      return base64.b64decode(a["body"], validate=True)
+
+                  for name in screenshots:
+                      if name not in attachments:
+                          continue
+                      png = body(name, "image/png")
+                      assert png.startswith(b"\x89PNG\r\n\x1a\n"), name
+                      (out / f"{build}-{project}-{name.replace(' ', '-')}.png").write_bytes(png)
+
+                  assert test["expectedStatus"] == "passed" and result["retry"] == 0, (build, case, project)
+                  assert result["status"] == ("failed" if old else "passed"), (build, case, project)
+                  observation = {"case": case, "project": project, "status": result["status"]}
+                  if old:
+                      assert errors[case] in result["error"]["message"], (build, case, project)
+                      observation["assertion"] = errors[case]
+                  if case == "WORDS":
+                      anchors = []
+                      for word in (words[:1] if old else words):
+                          anchor = json.loads(body(f"{word}-geometry", "application/json"))
+                          assert anchor["sha256"] == photo_hash and anchor["inside"] is (not old), word
+                          assert all(math.isfinite(anchor[k]) for k in ("x", "y")), word
+                          anchors.append({"word": word, **{k: anchor[k] for k in ("x", "y", "inside")}})
+                          assert (f"{word}-view" if old else f"{word}-painted-card") in attachments, word
+                      observation.update(photoSha256=photo_hash, anchors=anchors)
+                  elif case == "ZOOM":
+                      observed = []
+                      for name, x, y, destination in (gestures[:1] if old else gestures):
+                          g = json.loads(body(f"{name}-gesture", "application/json"))
+                          assert (g["x"], g["y"], g["scene"]) == (x, y, equipment if old else destination), name
+                          assert math.isfinite(g["scale"]), name
+                          observed.append({"object": name, **{k: g[k] for k in ("x", "y", "scene", "scale")}})
+                          assert f"{name}-end" in attachments, name
+                      observation["gestures"] = observed
+                  else:
+                      assert all(name in attachments for name in screenshots), (build, case, project)
+                  observations.append(observation)
+              assert not expected, f"{build}: incomplete browser coverage"
+              assert not report["errors"] and stats["flaky"] == stats["skipped"] == 0, build
+              assert stats["unexpected"] == (count if old else 0), build
+              assert stats["expected"] == (0 if old else count), build
+              evidence = {"commit": os.environ["BASE" if old else "PRODUCT"], "results": observations}
+              (out / f"{build}.json").write_text(json.dumps(evidence, indent=2) + "\n")
+
+          failures = []
+          for build in ("old", "new"):
+              try:
+                  check_build(build)
+              except (AssertionError, KeyError, ValueError, FileNotFoundError) as error:
+                  # Assertion labels are controlled by this verifier; raw reporter errors stay on the runner.
+                  reason = str(error) if isinstance(error, AssertionError) else type(error).__name__
+                  failures.append(f"{build}: {reason}")
+          if failures:
+              (out / "incomplete.txt").write_text("\n".join(failures) + "\n")
+              raise SystemExit("\n".join(failures))
+          PY
+      - uses: actions/upload-artifact@v5
+        if: ${{ !cancelled() }}
+        with:
+          name: workstation-evidence-${{ env.PRODUCT }}
+          path: ${{ runner.temp }}/workstation-evidence
+          if-no-files-found: error
+          retention-days: 7
+      - name: Require the observed regression
+        if: ${{ !cancelled() }}
+        env:
+          BASELINE: ${{ steps.baseline.outcome }}
+        run: test "$BASELINE" = success
