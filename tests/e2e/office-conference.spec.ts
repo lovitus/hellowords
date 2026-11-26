@@ -1,4 +1,5 @@
 import { expect, test, type Locator, type Page, type TestInfo } from "@playwright/test";
+import type { PaintedLabel } from "../../app/lib/label-canvas";
 import { clickPaintedWord, paintedWordState } from "./canvas-words";
 import { checkMagnifiedObject, checkPaintedWords, magnify, openPhotographedRoute, pinch, projectPhoto, zoomBack, type PhotographedWord } from "./photo-journey";
 
@@ -428,28 +429,68 @@ test("returning to the office restores the atrium photograph and its own object 
   const returnedIds = await paintedIds();
   await shot("office-atrium-return");
   if (isMobile) {
-    const framing = await image.evaluate(img => {
+    const landmarks = ["reception-counter", "monitor", "glass-wall", "refrigerator", "server-rack"];
+    const framing = await image.evaluate((img, landmarks) => {
       const stage = img.closest(".world-viewport")!;
       const frame = stage.getBoundingClientRect();
       const photo = img.getBoundingClientRect();
+      const canvas = stage.querySelector<HTMLCanvasElement & { paintedLabels?: PaintedLabel[] }>("canvas.label-canvas")!;
+      const layer = canvas.getBoundingClientRect();
+      const painted = canvas.paintedLabels ?? [];
+      const monitor = painted.find(label => label.id === "monitor");
+      const leader = monitor && {
+        start: { x: layer.left + monitor.anchorX, y: layer.top + monitor.anchorY },
+        end: { x: layer.left + monitor.centerX, y: layer.top + monitor.centerY },
+      };
       const entrances = [...stage.querySelectorAll<HTMLElement>("[data-testid='scene-hotspot']")].map(button => {
         const box = button.getBoundingClientRect();
-        const hit = document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2);
+        const center = { x: box.left + box.width / 2, y: box.top + box.height / 2 };
+        const radius = Math.min(box.width, box.height) / 2;
+        const hit = document.elementFromPoint(center.x, center.y);
+        let monitorInkClearance = null;
+        if (leader) {
+          const dx = leader.end.x - leader.start.x, dy = leader.end.y - leader.start.y;
+          const length = Math.hypot(dx, dy);
+          // The canvas draws an anchor-to-centre segment when longer than 5 CSS px.
+          if (length > 5) {
+            const projection = ((center.x - leader.start.x) * dx + (center.y - leader.start.y) * dy) / (length * length);
+            const t = Math.max(0, Math.min(1, projection));
+            const distance = Math.hypot(center.x - (leader.start.x + t * dx), center.y - (leader.start.y + t * dy));
+            monitorInkClearance = distance - radius - 1.5; // Half the widest canvas stroke.
+          }
+        }
         return {
-          target: button.dataset.targetScene,
+          target: button.dataset.targetScene, center, radius, monitorInkClearance,
           fullyVisible: box.left >= frame.left && box.right <= frame.right && box.top >= frame.top && box.bottom <= frame.bottom,
           tappable: button.contains(hit),
         };
       });
-      return { entryWidthRatio: photo.width / frame.width, entrances };
-    });
+      const readableLandmarks = painted.filter(label => {
+        if (!landmarks.includes(label.id) || !label.interactive || label.opacity < 0.98 || !label.word || !label.translation) return false;
+        const x = layer.left + label.centerX, y = layer.top + label.centerY;
+        const hit = document.elementFromPoint(x, y);
+        return hit && stage.contains(hit) && !hit.closest("button, nav, aside")
+          && x - label.width / 2 >= Math.max(photo.left, frame.left) && x + label.width / 2 <= Math.min(photo.right, frame.right)
+          && y - label.height / 2 >= Math.max(photo.top, frame.top) && y + label.height / 2 <= Math.min(photo.bottom, frame.bottom)
+          && entrances.every(({ center, radius }) => {
+            const dx = Math.max(0, Math.abs(center.x - x) - label.width / 2);
+            const dy = Math.max(0, Math.abs(center.y - y) - label.height / 2);
+            return Math.hypot(dx, dy) >= radius - 0.5;
+          });
+      }).map(label => label.id);
+      return { entryWidthRatio: photo.width / frame.width, entrances, leader, readableLandmarks };
+    }, landmarks);
     await testInfo.attach("office-portrait-framing", { body: JSON.stringify(framing), contentType: "application/json" });
     expect(framing.entryWidthRatio, "the returned atrium gives its objects a closer view than the complete photograph").toBeGreaterThan(1.15);
     expect(framing.entrances.filter(e => e.fullyVisible && e.tappable).map(e => e.target).sort()).toEqual([
       "conference-room", "office-break-room", "office-reception-lobby", "open-plan-workstation", "service-core",
     ]);
-    expect(returnedIds, "both landmarks are painted together in the returned overview")
-      .toEqual(expect.arrayContaining(["reception-counter", "monitor"]));
+    expect(framing.readableLandmarks, "all five bilingual landmarks are readable together before opening a card")
+      .toEqual(expect.arrayContaining(landmarks));
+    for (const entrance of framing.entrances) {
+      expect(entrance.monitorInkClearance, `the painted monitor leader clears the ${entrance.target} button`)
+        .toBeGreaterThanOrEqual(-0.5); // Allow half a CSS pixel at the antialiased edge.
+    }
     for (const [id, word, meaning, x, y] of [
       ["reception-counter", "reception counter", "接待柜台", 335, 672],
       ["monitor", "monitor", "显示器", 473, 497],

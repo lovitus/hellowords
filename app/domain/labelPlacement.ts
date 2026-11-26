@@ -15,6 +15,7 @@ import type {
 export interface ScenePlacementOptions {
   readonly selectedLabelId?: string | null;
   readonly protectedRegions?: readonly SceneLabelProtectedRegion[];
+  readonly portalCueRegions?: readonly SceneLabelProtectedRegion[];
   /** Intrinsic photo size when compact portrait labels must stay on the visible photograph. */
   readonly photoSize?: Pick<SceneLabelViewport, "width" | "height">;
   /** Words of the focused detail zone, placed before other words of equal rank. */
@@ -34,6 +35,12 @@ interface Segment {
   readonly y1: number;
   readonly x2: number;
   readonly y2: number;
+}
+
+interface PortalCircle {
+  x: number;
+  y: number;
+  radius: number;
 }
 
 interface Slot {
@@ -85,6 +92,9 @@ const PHOTO_VERTICAL_MARGIN = 5;
 /** Pill clearance; compact screens pack words slightly tighter, since their pills are taller. */
 const PILL_GAP = 3;
 const COMPACT_PILL_GAP = 2;
+// The 40px phone portal footprint includes a 4px halo. The leader's
+// widest stroke extends 1.5px to either side of its centre line.
+const PORTAL_INK_INSET = 4 - 1.5;
 const ANCHOR_CLEARANCE = 3;
 const CULL_MARGIN = 120;
 const SLOT_CELL_SIZE = 64;
@@ -161,13 +171,29 @@ function segmentTouchesRect(segment: Segment, rect: Rect): boolean {
     || segmentCrossesEdge(segment, rect.left, rect.bottom, rect.left, rect.top);
 }
 
+// A portal button is round. If it already covers the anchor, prefer a line
+// heading straight out of the button over one passing through its middle.
+function leaderPassesBehindPortal(line: Segment, cue: PortalCircle): boolean {
+  const cx = cue.x - line.x1;
+  const cy = cue.y - line.y1;
+  const dx = line.x2 - line.x1;
+  const dy = line.y2 - line.y1;
+  const projection = cx * dx + cy * dy;
+  if (projection <= 0) return false;
+  const t = Math.min(1, projection / (dx * dx + dy * dy));
+  const gapX = cx - t * dx;
+  const gapY = cy - t * dy;
+  const radius = cue.radius - PORTAL_INK_INSET;
+  return gapX * gapX + gapY * gapY < radius * radius;
+}
+
 function compareLabels(
-  first: { label: Label; lod: number; distance: number; selected: boolean; priority: boolean },
-  second: { label: Label; lod: number; distance: number; selected: boolean; priority: boolean },
+  first: { label: Label; lod: number; distance: number; selected: boolean; priority: number },
+  second: { label: Label; lod: number; distance: number; selected: boolean; priority: number },
   focusByDistance: boolean,
 ): number {
   return Number(second.selected) - Number(first.selected)
-    || Number(second.priority) - Number(first.priority)
+    || second.priority - first.priority
     || (focusByDistance && first.priority && second.priority ? first.distance - second.distance : 0)
     || first.lod - second.lod
     || first.distance - second.distance
@@ -194,11 +220,18 @@ export function computeScenePlacements(
   const right = (photo ? anchorRight : viewport.width) - VIEWPORT_MARGIN;
   const top = photo ? anchorTop + PHOTO_VERTICAL_MARGIN : VIEWPORT_MARGIN;
   const bottom = photo ? anchorBottom - PHOTO_VERTICAL_MARGIN : viewport.height - VIEWPORT_MARGIN;
-  const protectedRegions = options.protectedRegions ?? [];
+  const portalCues = options.portalCueRegions ?? [];
+  const chrome = options.protectedRegions ?? [];
+  const protectedRegions = photo || !portalCues.length ? chrome : [...chrome, ...portalCues];
+  const photoPortals = photo ? portalCues.map(rect => ({
+    x: (rect.left + rect.right) / 2,
+    y: (rect.top + rect.bottom) / 2,
+    radius: (rect.right - rect.left) / 2,
+  })) : [];
   const preferredOffsets = viewport.compact ? undefined : options.preferredOffsets;
   const pillGap = viewport.compact ? COMPACT_PILL_GAP : PILL_GAP;
   const leaderDistances = viewport.compact ? COMPACT_LEADER_DISTANCES : LEADER_DISTANCES;
-  const candidates: Array<{ label: Label; lod: number; distance: number; selected: boolean; priority: boolean; anchorX: number; anchorY: number; width: number; height: number }> = [];
+  const candidates: Array<{ label: Label; lod: number; distance: number; selected: boolean; priority: number; anchorX: number; anchorY: number; width: number; height: number }> = [];
   for (const label of labels) {
     if (label.minScale !== undefined && camera.scale < label.minScale) continue;
     if (label.maxScale !== undefined && camera.scale > label.maxScale) continue;
@@ -211,12 +244,16 @@ export function computeScenePlacements(
       || anchorY > anchorBottom
     ) continue;
     const size = scenePlacementSize(label, meaningVisible, viewport.compact);
+    let priority = Number(options.priorityLabelIds?.has(label.id) ?? false);
+    // A landmark next to an entrance has fewer clear directions left.
+    if (priority && photoPortals.some(cue =>
+      Math.hypot(anchorX - cue.x, anchorY - cue.y) < cue.radius - PORTAL_INK_INSET)) priority++;
     candidates.push({
       label,
       lod: Math.min(4, Math.max(0, Math.round(label.minLevel ?? 0))),
       distance: Math.hypot(anchorX - centerX, anchorY - centerY),
       selected: label.id === options.selectedLabelId,
-      priority: options.priorityLabelIds?.has(label.id) ?? false,
+      priority,
       anchorX,
       anchorY,
       width: size.width,
@@ -294,6 +331,11 @@ export function computeScenePlacements(
     for (const region of protectedRegions) {
       if (rectsOverlap(trialRect, region, 0)) return null;
     }
+    for (const cue of photoPortals) {
+      const gapX = Math.max(0, Math.abs(cue.x - centerX) - candidate.width / 2);
+      const gapY = Math.max(0, Math.abs(cue.y - centerY) - candidate.height / 2);
+      if (gapX * gapX + gapY * gapY < cue.radius * cue.radius) return null;
+    }
     trialSegment.x1 = candidate.anchorX;
     trialSegment.y1 = candidate.anchorY;
     trialSegment.x2 = centerX;
@@ -356,9 +398,13 @@ export function computeScenePlacements(
         const reach = distance + support;
         // On narrow screens the nearest corner of a diagonal pill sits
         // `distance` from the anchor, even for a long, thin word.
-        const pillCenterX = anchorX + (viewport.compact
+        const rayX = anchorX + (viewport.compact
           ? Math.sign(directionX) * width / 2 + directionX * distance
           : directionX * reach);
+        // A bilingual pill can slide along the photo edge while its vertical
+        // gap keeps the object and the end of its leader visible.
+        const pillCenterX = photoPortals.length && directionY
+          ? Math.max(left + width / 2, Math.min(right - width / 2, rayX)) : rayX;
         const pillCenterY = anchorY + (viewport.compact
           ? Math.sign(directionY) * height / 2 + directionY * distance
           : directionY * reach);
@@ -369,6 +415,11 @@ export function computeScenePlacements(
         const slot = freeSlot(candidate, pillCenterX, pillCenterY, distance === SHORT_LEADER_DISTANCE);
         if (!slot) continue;
         if (!preferred) {
+          // Keep a readable word even when every legal slot crosses a button.
+          if (photoPortals.length && photoPortals.some(cue => leaderPassesBehindPortal(slot.segment, cue))) {
+            closest ??= slot;
+            continue;
+          }
           // In a desktop detail crop, covering another focus word's anchor
           // prevents every leader from reaching it. Prefer an uncovered slot
           // but keep the first legal position if all of them cover an anchor.

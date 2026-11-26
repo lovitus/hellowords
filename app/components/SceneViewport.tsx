@@ -730,10 +730,8 @@ function initialSceneLabelMountWindow(scene: Scene, meaningVisible: boolean, sel
     photoSize: usesPortraitPhotoBounds(scene, viewport) ? scene : undefined,
     priorityLabelIds: portraitOverviewLabelIds(scene, viewport, camera.scale),
     selectedLabelId,
-    protectedRegions: [
-      ...buildViewerChromeProtectedRegions(viewport.width, viewport.height),
-      ...buildPortalCueProtectedRegions(scene.portals, camera, viewport),
-    ],
+    protectedRegions: buildViewerChromeProtectedRegions(viewport.width, viewport.height),
+    portalCueRegions: buildPortalCueProtectedRegions(scene.portals, camera, viewport),
   });
   return buildSceneLabelMountWindow(scene.labels, layout, viewport, { selectedLabelId });
 }
@@ -1488,15 +1486,13 @@ export function SceneViewport({
         preferredOffsets: !labelViewport.compact && !atlasOverviewMode && retainManualZoomSlotsRef.current
           ? labelPlacementOffsetsRef.current
           : undefined,
-        protectedRegions: [
-          ...buildViewerChromeProtectedRegions(
-            labelViewport.width,
-            labelViewport.height,
-            wordIndexOpen,
-            minimapCollapsedRef.current,
-          ),
-          ...portalCueRegions,
-        ],
+        protectedRegions: buildViewerChromeProtectedRegions(
+          labelViewport.width,
+          labelViewport.height,
+          wordIndexOpen,
+          minimapCollapsedRef.current,
+        ),
+        portalCueRegions,
       },
     );
     if (pendingKeyboardFocusLabelId) {

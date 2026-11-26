@@ -1462,6 +1462,7 @@ a:focus-visible {
   position: absolute;
   z-index: 9;
   display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
   border: 2px dashed rgba(231, 181, 86, 0.72);
   border-radius: 30px;
