@@ -1,9 +1,9 @@
-name: Verify conference room labels and phone return framing
+name: Verify the office atrium photograph and labels after returning
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Product commit with the photographed room labels and phone return framing
+        description: Product commit restoring the office atrium labels after a conference room visit
         required: true
         type: string
       recipient:
@@ -15,9 +15,10 @@ permissions:
   actions: read
 env:
   CI: "true"
-  BASE: cdd37fcb213689920e742f99678f23dceacb4cb2
-  BASE_RUN: "45710930463"
+  BASE: 3c56971221fbae6615b9d7839a108381bbc56522
+  BASE_RUN: "45715218160"
   PRODUCT: ${{ inputs.candidate }}
+  OFFICE_RETURN_TEST: returning to the office restores the atrium photograph and its own object labels
   ROOM_WORDS_TEST: conference room returns to a readable photograph and labels the photographed chair and credenza
   PHONE_RETURN_TEST: phone returns to the furnished room before Fit
   ROOM_PHOTO_SHA: d12438f3e95d9d580d0beb21b18baa7547d921ce18f205a61b279219a82533e1
@@ -50,7 +51,7 @@ jobs:
           run-id: ${{ env.BASE_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/previous
-      - name: Reproduce the misplaced far chair backrest and the small phone return photograph
+      - name: Reproduce the camera lens pinned to the returned office atrium
         id: baseline
         continue-on-error: true
         run: |
@@ -59,26 +60,20 @@ jobs:
           (cd "$RUNNER_TEMP/previous/dist" && sha256sum --quiet --check "$RUNNER_TEMP/evidence/baseline-dist.sha256")
           mv "$RUNNER_TEMP/previous/dist" dist
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "($ROOM_WORDS_TEST|$PHONE_RETURN_TEST)$" \
+          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "$OFFICE_RETURN_TEST$" \
             --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
           mv dist "$RUNNER_TEMP/previous/dist"
           mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old.json"
           mv artifacts/e2e/test-results "$RUNNER_TEMP/evidence/old-screens"
           test "$code" -eq 1
-          jq -e --arg room "$ROOM_WORDS_TEST" --arg phone "$PHONE_RETURN_TEST" --arg sha "$ROOM_PHOTO_SHA" '
-            def data($n): .attachments[] | select(.name == $n and .contentType == "application/json") | .body | @base64d | fromjson;
-            def first_error($reason): .status == "failed" and (.errors[0].message | contains($reason));
-            def projects($title; condition):
-              [.. | objects | select(has("tests") and (.file | endswith("/office-conference.spec.ts")) and .title == $title)
-               | .tests[] | select((.results | length) == 1 and (.results[0] | condition)) | .projectName] | sort;
-            .stats.unexpected == 3 and (.stats.expected + .stats.skipped) == 1 and .stats.flaky == 0 and (.errors | length == 0) and
-            projects($room; first_error("far chair backrest ends on the farthest left chair back") and
-              any(data("far-chair-backrest-geometry"); .visible == true and .inside == false and .sha256 == $sha)
-            ) == ["chromium","mobile-chromium"] and
-            projects($phone; first_error("the returned photograph fills half of the exploration area") and
-              any(data("returned-room-framing"); .coverage | type == "number" and . >= 0 and . < 0.5)
-            ) == ["mobile-chromium"] and
-            projects($phone; .status == "passed" or .status == "skipped") == ["chromium"]' "$RUNNER_TEMP/evidence/old.json"
+          jq -e --arg title "$OFFICE_RETURN_TEST" '
+            def office_words: .attachments[] | select(.name == "office-return-words" and .contentType == "application/json") | .body | @base64d | fromjson;
+            .stats.unexpected == 2 and .stats.expected == 0 and .stats.skipped == 0 and .stats.flaky == 0 and (.errors | length == 0) and
+              ([.. | objects | select(has("tests") and (.file | endswith("/office-conference.spec.ts")) and .title == $title)
+               | .tests[] | select((.results | length) == 1 and (.results[0] |
+                   .status == "failed" and (.errors[0].message | contains("the office overview does not pin a camera lens on the atrium")) and
+                   ([office_words] | length == 1 and (.[0] | .cameraLensPinned == true and (.foreignIds | type == "array")))))
+               | .projectName] | sort) == ["chromium","mobile-chromium"]' "$RUNNER_TEMP/evidence/old.json"
       - name: Verify scene data, camera geometry, navigation and label placement
         run: |
           ./node_modules/.bin/tsx --test tests/domain/labelCanvasHit.test.ts > "$RUNNER_TEMP/evidence/new-hits.log" 2>&1
@@ -94,8 +89,14 @@ jobs:
           npx --no-install tsx scripts/validate-scenes.ts > "$RUNNER_TEMP/evidence/release-gate.log" 2>&1 || code=$?
           test "$code" -eq 1
           sed -n 's/^Error: Human review required before release: //p' "$RUNNER_TEMP/evidence/release-gate.log" |
-            jq -Rse 'rtrimstr("\n") | split(", ") | sort == ["conference-room","office-building","video-conferencing-console"]'
-          ./node_modules/.bin/tsx --test tests/domain/worldContent.test.ts tests/domain/conferenceRoom.test.ts tests/domain/videoConferencingConsole.test.ts tests/domain/newFacilityScenes.test.ts tests/domain/sceneConversations.test.ts tests/domain/sceneGraph.test.ts tests/domain/worldAtlasVisualContract.test.ts tests/domain/sceneVisualQuality.test.ts > "$RUNNER_TEMP/evidence/contracts.log" 2>&1
+            jq -Rse 'rtrimstr("\n") == "office-building"'
+          ./node_modules/.bin/tsx --test \
+            tests/domain/worldContent.test.ts tests/domain/newFacilityScenes.test.ts \
+            tests/domain/openPlanWorkstation.test.ts tests/domain/serviceCore.test.ts \
+            tests/domain/conferenceRoom.test.ts tests/domain/videoConferencingConsole.test.ts \
+            tests/domain/sceneRepository.test.ts tests/domain/scenePresentation.test.ts \
+            tests/domain/sceneConversations.test.ts tests/domain/sceneGraph.test.ts \
+            tests/domain/worldAtlasVisualContract.test.ts tests/domain/sceneVisualQuality.test.ts > "$RUNNER_TEMP/evidence/contracts.log" 2>&1
           ./node_modules/.bin/tsx --test --test-name-pattern='fill spare first-screen space|preserve default LOD disclosure' tests/domain/sceneLabelDensity.test.ts > "$RUNNER_TEMP/evidence/density.log" 2>&1
           ./node_modules/.bin/tsx --test tests/domain/camera.test.ts tests/domain/navigation.test.ts tests/domain/labelLayout.test.ts tests/domain/labelPlacement.test.ts > "$RUNNER_TEMP/evidence/room-domain.log" 2>&1
           ./node_modules/.bin/tsx --test --test-name-pattern='painted portal geometry round-trips|painted child art bounds round-trip|parent portal and child camera handoffs are exact inverses|reduced motion starts from one stable fitted frame|continuity settlement contains the complete child scene' tests/domain/screenSpaceLabels.test.ts > "$RUNNER_TEMP/evidence/framing.log" 2>&1
@@ -125,7 +126,7 @@ jobs:
           ./node_modules/.bin/playwright test \
             tests/e2e/office-conference.spec.ts tests/e2e/hospital-radiology.spec.ts tests/e2e/world.spec.ts tests/e2e/new-spatial-scenes.spec.ts \
             --test-list-invert "$RUNNER_TEMP/desktop-exclusions.txt" \
-            --grep "$ROOM_WORDS_TEST|$PHONE_RETURN_TEST|office console keeps|office conference room keeps|mobile pinch from the gold display entrance|hospital radiology keeps|hospital console and couch|enters grounded (conference-room|video-conferencing-console|office-break-room)|enters a scene slice on zoom|root atlas wheel zoom stays|mobile viewport exposes touch-safe" \
+            --grep "$OFFICE_RETURN_TEST|$ROOM_WORDS_TEST|$PHONE_RETURN_TEST|office console keeps|office conference room keeps|mobile pinch from the gold display entrance|hospital radiology keeps|hospital console and couch|enters grounded (conference-room|video-conferencing-console|office-break-room)|enters a scene slice on zoom|root atlas wheel zoom stays|mobile viewport exposes touch-safe" \
             --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/new.log" 2>&1
       - name: Verify room labels, return framing and the office and hospital journeys
         run: |
@@ -182,6 +183,9 @@ jobs:
           console_sha = "191dcac69bbc53f5ec57497dc078f00d48c06104051886102b4fbf1ab0e863a5"
           radiology_sha = "b61a9331f765812aabc429d86ea935ba00e947fb86b45e487743a410c01cecc5"
           for project in ("chromium", "mobile-chromium"):
+              atrium = result(new, office, os.environ["OFFICE_RETURN_TEST"], project, "passed")
+              words = geometry(atrium, "office-return-words")
+              assert words["cameraLensPinned"] is False and words["foreignIds"] == [], (project, "atrium labels")
               room = result(new, office, os.environ["ROOM_WORDS_TEST"], project, "passed")
               chair = geometry(room, "far-chair-backrest-geometry")
               assert chair["visible"] and chair["inside"] and chair["sha256"] == os.environ["ROOM_PHOTO_SHA"]
@@ -247,6 +251,6 @@ jobs:
           path: ${{ runner.temp }}/home-route.cms
           if-no-files-found: error
           retention-days: 7
-      - name: Require all three baseline failures
+      - name: Require the office return failure on desktop and mobile
         if: ${{ !cancelled() }}
         run: test "${{ steps.baseline.outcome }}" = success
