@@ -429,7 +429,10 @@ test("returning to the office restores the atrium photograph and its own object 
   const returnedIds = await paintedIds();
   await shot("office-atrium-return");
   if (isMobile) {
-    const landmarks = ["reception-counter", "monitor", "glass-wall", "refrigerator", "server-rack"];
+    const landmarks = [
+      "reception-counter", "counter-edge", "wall-panel", "monitor", "conference-chair", "glass-wall",
+      "break-room", "refrigerator", "elevator", "server-rack", "air-duct", "chair-caster-pro-7",
+    ];
     const framing = await image.evaluate((img, landmarks) => {
       const stage = img.closest(".world-viewport")!;
       const frame = stage.getBoundingClientRect();
@@ -437,30 +440,27 @@ test("returning to the office restores the atrium photograph and its own object 
       const canvas = stage.querySelector<HTMLCanvasElement & { paintedLabels?: PaintedLabel[] }>("canvas.label-canvas")!;
       const layer = canvas.getBoundingClientRect();
       const painted = canvas.paintedLabels ?? [];
-      const monitor = painted.find(label => label.id === "monitor");
-      const leader = monitor && {
-        start: { x: layer.left + monitor.anchorX, y: layer.top + monitor.anchorY },
-        end: { x: layer.left + monitor.centerX, y: layer.top + monitor.centerY },
-      };
+      const leaders = painted.filter(label => label.opacity > 0.025).map(label => ({
+        id: label.id,
+        start: { x: layer.left + label.anchorX, y: layer.top + label.anchorY },
+        end: { x: layer.left + label.centerX, y: layer.top + label.centerY },
+      }));
       const entrances = [...stage.querySelectorAll<HTMLElement>("[data-testid='scene-hotspot']")].map(button => {
         const box = button.getBoundingClientRect();
         const center = { x: box.left + box.width / 2, y: box.top + box.height / 2 };
         const radius = Math.min(box.width, box.height) / 2;
         const hit = document.elementFromPoint(center.x, center.y);
-        let monitorInkClearance = null;
-        if (leader) {
-          const dx = leader.end.x - leader.start.x, dy = leader.end.y - leader.start.y;
-          const length = Math.hypot(dx, dy);
-          // The canvas draws an anchor-to-centre segment when longer than 5 CSS px.
-          if (length > 5) {
-            const projection = ((center.x - leader.start.x) * dx + (center.y - leader.start.y) * dy) / (length * length);
-            const t = Math.max(0, Math.min(1, projection));
-            const distance = Math.hypot(center.x - (leader.start.x + t * dx), center.y - (leader.start.y + t * dy));
-            monitorInkClearance = distance - radius - 1.5; // Half the widest canvas stroke.
-          }
+        const inkClearances: Record<string, number> = {};
+        for (const { id, start, end } of leaders) {
+          const dx = end.x - start.x, dy = end.y - start.y;
+          const lengthSquared = dx * dx + dy * dy;
+          if (lengthSquared <= 25) continue; // The canvas omits segments of 5 CSS px or less.
+          const px = center.x - start.x, py = center.y - start.y;
+          const t = Math.max(0, Math.min(1, (px * dx + py * dy) / lengthSquared));
+          inkClearances[id] = Math.hypot(px - t * dx, py - t * dy) - radius - 1.5; // Half the widest stroke.
         }
         return {
-          target: button.dataset.targetScene, center, radius, monitorInkClearance,
+          target: button.dataset.targetScene, center, radius, inkClearances, monitorInkClearance: inkClearances.monitor,
           fullyVisible: box.left >= frame.left && box.right <= frame.right && box.top >= frame.top && box.bottom <= frame.bottom,
           tappable: button.contains(hit),
         };
@@ -478,24 +478,27 @@ test("returning to the office restores the atrium photograph and its own object 
             return Math.hypot(dx, dy) >= radius - 0.5;
           });
       }).map(label => label.id);
-      return { entryWidthRatio: photo.width / frame.width, entrances, leader, readableLandmarks };
+      return { entryWidthRatio: photo.width / frame.width, entrances, leaders, leader: leaders.find(l => l.id === "monitor"), readableLandmarks };
     }, landmarks);
     await testInfo.attach("office-portrait-framing", { body: JSON.stringify(framing), contentType: "application/json" });
     expect(framing.entryWidthRatio, "the returned atrium gives its objects a closer view than the complete photograph").toBeGreaterThan(1.15);
     expect(framing.entrances.filter(e => e.fullyVisible && e.tappable).map(e => e.target).sort()).toEqual([
       "conference-room", "office-break-room", "office-reception-lobby", "open-plan-workstation", "service-core",
     ]);
-    expect(framing.readableLandmarks, "all five bilingual landmarks are readable together before opening a card")
+    expect(framing.readableLandmarks, "all twelve bilingual office labels are readable together before opening a card")
       .toEqual(expect.arrayContaining(landmarks));
     for (const entrance of framing.entrances) {
-      expect(entrance.monitorInkClearance, `the painted monitor leader clears the ${entrance.target} button`)
-        .toBeGreaterThanOrEqual(-0.5); // Allow half a CSS pixel at the antialiased edge.
+      for (const id of landmarks) {
+        expect(entrance.inkClearances[id], `the painted ${id} leader clears the ${entrance.target} button`)
+          .toBeGreaterThanOrEqual(-0.5); // Allow half a CSS pixel at the antialiased edge.
+      }
     }
     for (const [id, word, meaning, x, y] of [
       ["reception-counter", "reception counter", "接待柜台", 335, 672],
       ["monitor", "monitor", "显示器", 473, 497],
+      ["counter-edge", "counter edge", "柜台边缘", 241, 633],
     ] as const) {
-      expect((await projectPhoto(image, x, y)).visible, "the reception counter and monitor remain on screen").toBe(true);
+      expect((await projectPhoto(image, x, y)).visible, `the photographed ${word} remains on screen`).toBe(true);
       // Closing the previous card releases its reserved space on the next canvas frame.
       await expect.poll(() => paintedWordState(page, id), { message: `${word} is ready for a direct tap` })
         .toMatchObject({ interactive: true });

@@ -93,6 +93,8 @@ export interface Portal {
   readonly childSceneId: string;
   /** Audited visual region containing the object that opens this child scene. */
   readonly sourceVisualRegion?: string;
+  /** Optional button centre within the entrance, in photo coordinates, for portrait phones. */
+  readonly portraitMarker?: Point;
   readonly x: number;
   readonly y: number;
   readonly width: number;

@@ -1,4 +1,4 @@
-import type { Label, Portal, SceneDetailZone } from "./types";
+import type { Label, Point, Portal, SceneDetailZone } from "./types";
 
 export interface SceneLabelCamera {
   readonly x: number;
@@ -457,6 +457,17 @@ export function portalCueProtectedRegion(
   return { left: centerX - cueHalf, right: centerX + cueHalf, top: centerY - cueHalf, bottom: centerY + cueHalf };
 }
 
+const centeredMarkerOffset: Point = { x: 0, y: 0 };
+
+export function portalMarkerOffset(portal: Portal, scale: number, viewport: SceneLabelViewport): Point {
+  const anchor = portal.portraitMarker;
+  if (!anchor || viewport.width > 560 || viewport.width >= viewport.height) return centeredMarkerOffset;
+  return {
+    x: (anchor.x - portal.x - portal.width / 2) * scale,
+    y: (anchor.y - portal.y - portal.height / 2) * scale,
+  };
+}
+
 export function buildPortalCueProtectedRegions(
   portals: readonly Portal[],
   camera: SceneLabelCamera,
@@ -464,9 +475,10 @@ export function buildPortalCueProtectedRegions(
 ): SceneLabelProtectedRegion[] {
   const effectiveScale = camera.fit * camera.scale;
   return portals.flatMap((portal) => {
+    const offset = portalMarkerOffset(portal, effectiveScale, viewport);
     const cue = portalCueProtectedRegion(
-      camera.x + (portal.x + portal.width / 2) * effectiveScale,
-      camera.y + (portal.y + portal.height / 2) * effectiveScale,
+      camera.x + (portal.x + portal.width / 2) * effectiveScale + offset.x,
+      camera.y + (portal.y + portal.height / 2) * effectiveScale + offset.y,
       viewport,
     );
     return cue ? [cue] : [];

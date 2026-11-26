@@ -18,6 +18,7 @@ import {
   buildPortalCueProtectedRegions,
   COMPACT_PORTAL_CUE_SIZE,
   portalCueProtectedRegion,
+  portalMarkerOffset,
   buildSceneLabelMountWindow,
   buildVocabularyCueRevealStateFromSummary,
   buildVocabularyRevealSummary,
@@ -1380,6 +1381,7 @@ export function SceneViewport({
     let portalOverlapsMinimap = false;
     for (const region of interactionLayer.querySelectorAll<HTMLElement>(".scene-hotspot-region")) {
       const portal = scene.portals.find((candidate) => candidate.id === region.dataset.portalId);
+      const hotspot = region.querySelector<HTMLElement>(".scene-hotspot");
       if (portal) {
         const bounds = projectSceneRectToScreen(portal, camera);
         portalOverlapsMinimap = portalOverlapsMinimap
@@ -1391,15 +1393,21 @@ export function SceneViewport({
         const top = snapToDevicePixel(bounds.y);
         const right = snapToDevicePixel(bounds.x + bounds.width);
         const bottom = snapToDevicePixel(bounds.y + bounds.height);
-        const portalCenterX = bounds.x + bounds.width / 2;
-        // CSS grid centers the marker between these snapped edges. Use the
-        // same screen rectangle for its label exclusion, even at a half pixel.
-        const cue = portalCueProtectedRegion((left + right) / 2, (top + bottom) / 2, labelViewport);
+        const markerOffset = portalMarkerOffset(portal, camera.fit * camera.scale, labelViewport);
+        // The button and its label exclusion share the same snapped grid origin.
+        const cue = portalCueProtectedRegion(
+          (left + right) / 2 + markerOffset.x, (top + bottom) / 2 + markerOffset.y, labelViewport,
+        );
         if (cue) portalCueRegions.push(cue);
+        if (portal.portraitMarker && hotspot) {
+          setStylePropertyIfChanged(hotspot.style, "left", `${markerOffset.x.toFixed(2)}px`);
+          setStylePropertyIfChanged(hotspot.style, "top", `${markerOffset.y.toFixed(2)}px`);
+        }
         const captionWidth = Math.min(
           viewportWidth <= 700 ? 180 : 190,
           Math.max(0, viewportWidth - 24),
         );
+        const portalCenterX = bounds.x + bounds.width / 2 + markerOffset.x;
         const captionShift = portalCenterX >= 0 && portalCenterX <= viewportWidth
           ? snapToDevicePixel(clampCenteredOverlayShift(
               portalCenterX,
@@ -1424,7 +1432,6 @@ export function SceneViewport({
         "--portal-progress",
         selected ? portalProgress.toFixed(3) : "0",
       );
-      const hotspot = region.querySelector<HTMLElement>(".scene-hotspot");
       if (hotspot) {
         setDatasetValueIfChanged(hotspot, "candidate", String(selected));
         setDatasetValueIfChanged(hotspot, "cueState", selected

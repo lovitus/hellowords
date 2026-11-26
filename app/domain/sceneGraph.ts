@@ -360,6 +360,12 @@ function validatePortals(
     for (const key of ["width", "height"] as const) {
       requirePositive(issues, portal[key], `${path}.${key}`);
     }
+    const marker = portal.portraitMarker;
+    if (marker && (!inRange(marker.x, portal.x, portal.x + portal.width)
+      || !inRange(marker.y, portal.y, portal.y + portal.height))) {
+      error(issues, "portal.marker-out-of-bounds", `${path}.portraitMarker`,
+        "The portrait button must lie inside its entrance");
+    }
     for (const key of ["enterScale", "exitScale"] as const) {
       if (portal[key] !== undefined) {
         requirePositive(issues, portal[key], `${path}.${key}`);

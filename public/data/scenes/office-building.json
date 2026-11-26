@@ -1010,6 +1010,7 @@
       "translation": "探索接待大厅",
       "childSceneId": "office-reception-lobby",
       "sourceVisualRegion": "portal-office-reception-lobby",
+      "portraitMarker": { "x": 254, "y": 731 },
       "x": 170,
       "y": 663,
       "width": 180,
