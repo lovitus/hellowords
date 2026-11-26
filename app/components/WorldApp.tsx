@@ -1291,9 +1291,13 @@ export function WorldApp() {
             >
               ×
             </button>
-            <span className="eyebrow">{selectedLabel ? "WORD ENCOUNTER" : "相关词 · 图中未标注"}</span>
-            <strong>{selectedWord.word}</strong>
-            <p>{selectedWord.translation}</p>
+            <div className="word-dock__definition">
+              <span className={selectedLabel ? "eyebrow word-dock__encounter" : "eyebrow"}>
+                {selectedLabel ? "WORD ENCOUNTER" : "相关词 · 图中未标注"}
+              </span>
+              <strong>{selectedWord.word}</strong>
+              <p>{selectedWord.translation}</p>
+            </div>
             <button
               type="button"
               className="listen-button"

@@ -272,6 +272,53 @@ test("zooming into the office counter and rear monitor follows the photographed 
   }
 });
 
+test("phone can switch between the photographed rack and its light with a word card open", async ({ page, isMobile }, testInfo) => {
+  test.skip(!isMobile, "Portrait phone word card");
+  await openPhotographedRoute(page, true, [roomRoute[0]], "/scenes/office-atrium-premium-v1.jpg",
+    "9403fc42abf40af87d59f9a12401e5dcff76256fc13870a7780e79ae8e3a7cdf");
+  await page.getByTestId("scene-minimap").getByRole("button", { name: /^聚焦 Service core，/ }).tap();
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  await expect(viewer.locator(".scene-surface")).toHaveAttribute("data-scene-scale", "1.800");
+  const canvas = viewer.locator(".label-canvas");
+  const geometry = (id: string) => canvas.evaluate((el, id) => {
+    const label = (el as HTMLCanvasElement & { paintedLabels?: Array<{
+      id: string; centerX: number; centerY: number; width: number; height: number;
+      anchorX: number; anchorY: number; opacity: number; interactive: boolean;
+    }> }).paintedLabels?.find(word => word.id === id && word.interactive && word.opacity >= 0.52);
+    if (!label) return null;
+    const frame = el.getBoundingClientRect();
+    const x = frame.left + label.centerX, y = frame.top + label.centerY;
+    const dotX = frame.left + label.anchorX, dotY = frame.top + label.anchorY;
+    const dock = document.querySelector(".word-dock")?.getBoundingClientRect();
+    const dotClearance = dock ? Math.hypot(Math.max(dock.left - dotX, dotX - dock.right, 0),
+      Math.max(dock.top - dotY, dotY - dock.bottom, 0)) : null;
+    const pillClear = !dock || x + label.width / 2 <= dock.left || x - label.width / 2 >= dock.right ||
+      y + label.height / 2 <= dock.top || y - label.height / 2 >= dock.bottom;
+    return { x, y, dotX, dotY, dotClearance, pillClear };
+  }, id);
+
+  for (const [id, word, meaning] of [
+    ["server-rack", "server rack", "服务器机架"],
+    ["rack-light", "rack light", "机架指示灯"],
+    ["server-rack", "server rack", "服务器机架"],
+  ] as const) {
+    await expect.poll(() => geometry(id)).not.toBeNull();
+    const tap = (await geometry(id))!;
+    await page.touchscreen.tap(tap.x, tap.y);
+    const card = page.getByRole("complementary", { name: `${word} word details`, exact: true });
+    await expect(card.getByText(meaning, { exact: true })).toBeVisible();
+    await (await card.elementHandle()).waitForElementState("stable");
+    const after = (await geometry(id))!;
+    await testInfo.attach(`${id}-position`, { body: JSON.stringify(after), contentType: "application/json" });
+    await testInfo.attach(`${id}-card`, { body: await page.screenshot(), contentType: "image/png" });
+    expect(after.dotClearance, "the open card leaves the whole five-pixel anchor ring visible").toBeGreaterThanOrEqual(5);
+    expect(after.pillClear, "the selected word is visible on the photograph").toBe(true);
+  }
+  await page.getByRole("button", { name: "关闭单词卡" }).tap();
+  await expect(page.getByRole("complementary", { name: /word details$/ })).toHaveCount(0);
+  await expect(viewer.locator(".scene-surface")).toHaveAttribute("data-scene-scale", "1.800");
+});
+
 test("returning to the office restores the atrium photograph and its own object labels", async ({ page, isMobile }, testInfo) => {
   const office = "office-building";
   const officeAsset = "/scenes/office-atrium-premium-v1.jpg";
