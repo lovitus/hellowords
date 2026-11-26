@@ -1765,13 +1765,13 @@ export function SceneViewport({
     const sceneWordProgress = sceneWordProgressRef.current;
     if (sceneWordProgress) {
       // Per-user direction: no "本景还有 N 个词" count in ordinary scenes. The
-      // home atlas keeps its one-line hover instruction.
-      sceneWordProgress.hidden = !(atlasOverviewMode || VOCABULARY_HINTS_ENABLED);
+      // home atlas keeps a one-line instruction for the current selection.
+      sceneWordProgress.hidden = wordIndexOpen || !(atlasOverviewMode || VOCABULARY_HINTS_ENABLED);
       const total = scene.labels.length;
       const remaining = atlasOverviewMode ? total : Math.max(0, total - visibleCount);
       const maximumZoom = camera.scale >= maximumScale - 0.02;
       const action = atlasOverviewMode
-        ? "悬停大区显示该区锚点词，放大可见更多"
+        ? (visibleCount > 0 ? "点圆点或单词看释义" : "点分区名查看单词")
         : remaining === 0
           ? maximumZoom
             ? "本景词汇已全部在当前视野，已到最大倍率"
@@ -1781,9 +1781,7 @@ export function SceneViewport({
             : `放大或拖动探索其余 ${remaining} 个词`;
       const compact = viewportWidth <= 560;
       const text = atlasOverviewMode
-        ? compact
-          ? "悬停大区查看锚点词"
-          : action
+        ? action
         : compact
           ? `视野 ${visibleCount}/${total} · ${maximumZoom
             ? "拖动看词 / 已到最大倍率"
@@ -1794,7 +1792,7 @@ export function SceneViewport({
         sceneWordProgress,
         "aria-label",
         atlasOverviewMode
-          ? `首页有六个大类。悬停或聚焦大类查看该区锚点词，放大可见更多。`
+          ? "选择分区查看区内单词，选择实物圆点或词牌查看释义。放大可见更多。"
           : `当前视野 ${visibleCount} 个词，本场景共 ${total} 个词。${action}`,
       );
       setDatasetValueIfChanged(sceneWordProgress, "current", String(visibleCount));
@@ -3481,7 +3479,7 @@ export function SceneViewport({
                         data-testid="atlas-category-hit"
                         data-category-id={district.id}
                         aria-expanded={active}
-                        aria-label={`${district.label}，${district.translation}，${district.labelCount} 个词。悬停显示该区锚点词`}
+                        aria-label={`${district.label}，${district.translation}，${district.labelCount} 个词。选择后显示区内单词`}
                         disabled={!viewerInteractive}
                         onFocus={() => activateAtlasCategory(district.id)}
                         onBlur={() => scheduleAtlasHover(null)}
@@ -3669,7 +3667,7 @@ export function SceneViewport({
               {sceneUsesWheelPortalEntry(scene.id) ? "继续放大进入细节" : "点击入口进入细节"}
             </span>
             <span><i data-kind="vocabulary" aria-hidden="true" />
-              {atlasOverviewMode ? "悬停大区查看锚点词" : "放大显示更多词"}
+              {atlasOverviewMode ? "圆点标出实物" : "放大显示更多词"}
             </span>
           </aside>
           <p ref={vocabularyAnnouncementRef} className="sr-only" aria-live="polite" />

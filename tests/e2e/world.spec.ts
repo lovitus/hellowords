@@ -525,6 +525,13 @@ async function paintedAtlasWordPoint(page: Page, id: string) {
   }, id);
 }
 
+function atlasPhotoPoint(page: Page, x: number, y: number) {
+  return page.locator(".scene-art").evaluate((element, point) => {
+    const box = element.getBoundingClientRect();
+    return { x: box.left + box.width * point.x / 2604, y: box.top + box.height * point.y / 989 };
+  }, { x, y });
+}
+
 test("home atlas district journey search paints the selected tractor and keeps district navigation available", async ({ page, isMobile }, testInfo) => {
   await page.clock.install();
   const app = await openWorld(page);
@@ -588,11 +595,7 @@ test("home atlas district journey photo anchors open the preparation room and th
   const id = "school-prep-room-space";
   await expect.poll(() => paintedAtlasWordPoint(page, id)).not.toBeNull();
   // Both targets come from the original photograph, independently of overlays.
-  const photoPoint = (x: number, y: number) => page.locator(".scene-art").evaluate((element, point) => {
-    const box = element.getBoundingClientRect();
-    return { x: box.left + box.width * point.x / 2604, y: box.top + box.height * point.y / 989 };
-  }, { x, y });
-  const room = await photoPoint(700, 340);
+  const room = await atlasPhotoPoint(page, 700, 340);
   if (isMobile) await page.touchscreen.tap(room.x, room.y);
   else await page.mouse.click(room.x, room.y);
   const card = page.getByRole("complementary", { name: "preparation room word details", exact: true });
@@ -606,7 +609,7 @@ test("home atlas district journey photo anchors open the preparation room and th
   await activate(page.locator('[data-testid="scene-minimap-zone"][data-zone-id="school-entry-classroom"]'));
   const entrance = page.locator('[data-testid="scene-hotspot"][data-target-scene="school-campus"]');
   await entrance.click({ trial: true });
-  const gate = await photoPoint(170, 98);
+  const gate = await atlasPhotoPoint(page, 170, 98);
   if (isMobile) await page.touchscreen.tap(gate.x, gate.y);
   else await page.mouse.click(gate.x, gate.y);
   await expect(app).toHaveAttribute("data-scene-id", "school-campus");
@@ -614,6 +617,40 @@ test("home atlas district journey photo anchors open the preparation room and th
   await activate(page.getByRole("button", { name: "← 返回上一层", exact: true }));
   await expect(app).toHaveAttribute("data-scene-id", "world-map");
   await expect(app).toHaveAttribute("data-transition-state", "idle");
+});
+
+test("home atlas district journey mobile reads the city bus photo and enters and returns from the city street", async ({ page, isMobile }, testInfo) => {
+  test.skip(!isMobile, "This journey uses touch on the phone atlas.");
+  const app = await openWorld(page);
+  const transit = page.getByRole("button", { name: /^Transit\b/ });
+  const openPhotoWord = async (id: string, word: string, x: number, y: number) => {
+    await expect.poll(() => paintedAtlasWordPoint(page, id)).not.toBeNull();
+    const point = await atlasPhotoPoint(page, x, y);
+    await page.touchscreen.tap(point.x, point.y);
+    const card = page.getByRole("complementary", { name: `${word} word details`, exact: true });
+    await expect(card.locator("strong"), `the ${word} photo opens its own word card`).toHaveText(word);
+    await expect(app).toHaveAttribute("data-scene-id", "world-map");
+    return card;
+  };
+
+  await transit.tap();
+  const bus = await openPhotoWord("transport-city-bus", "city bus", 1809, 105);
+  await testInfo.attach("city-bus-on-map", { body: await page.screenshot(), contentType: "image/png" });
+  await bus.getByRole("button", { name: "关闭单词卡" }).tap();
+  await expect(bus).toBeHidden();
+  await page.locator('[data-testid="scene-hotspot"][data-target-scene="city-street"]').tap();
+  await expect(app).toHaveAttribute("data-scene-id", "city-street");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await testInfo.attach("city-street-from-atlas", { body: await page.screenshot(), contentType: "image/png" });
+  await page.getByRole("button", { name: "← 返回上一层", exact: true }).tap();
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+
+  await transit.tap();
+  const sedan = await openPhotoWord("transport-sedan", "sedan", 1839, 57.5);
+  await sedan.getByRole("button", { name: "关闭单词卡" }).tap();
+  await page.getByRole("button", { name: /^Wetland\b/ }).tap();
+  await openPhotoWord("wetland-pond", "pond", 1933, 628.5);
 });
 
 test("home atlas district journey pointer opens a Campus word drawn over Science", async ({ page, isMobile }, testInfo) => {

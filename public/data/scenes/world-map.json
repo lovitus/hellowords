@@ -14231,10 +14231,10 @@
       "translation": "探索城市",
       "childSceneId": "city-street",
       "sourceVisualRegion": "portal-enter-city",
-      "x": 1808,
-      "y": 20,
-      "width": 200,
-      "height": 150,
+      "x": 1968,
+      "y": 59,
+      "width": 84,
+      "height": 64,
       "enterScale": 3.75
     },
     {
@@ -14243,10 +14243,10 @@
       "translation": "探索自然",
       "childSceneId": "city-park",
       "sourceVisualRegion": "portal-enter-nature",
-      "x": 1740,
-      "y": 510,
-      "width": 480,
-      "height": 360,
+      "x": 2078,
+      "y": 521,
+      "width": 84,
+      "height": 40,
       "enterScale": 3.75
     },
     {
@@ -14316,21 +14316,21 @@
     },
     {
       "id": "portal-enter-city",
-      "description": "Complete visible road intersection and roundabout in the transport district",
+      "description": "Paved street entrance east of the roundabout beside the railway station",
       "kind": "object",
-      "x": 1808,
-      "y": 20,
-      "width": 200,
-      "height": 150
+      "x": 1968,
+      "y": 59,
+      "width": 84,
+      "height": 64
     },
     {
       "id": "portal-enter-nature",
-      "description": "Complete visible pond, reed margin and wetland vegetation habitat",
+      "description": "Path through the grass along the northern edge of the wetland",
       "kind": "object",
-      "x": 1740,
-      "y": 510,
-      "width": 480,
-      "height": 360
+      "x": 2078,
+      "y": 521,
+      "width": 84,
+      "height": 40
     },
     {
       "id": "portal-enter-community-garden",

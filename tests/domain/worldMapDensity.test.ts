@@ -48,12 +48,12 @@ const expectedPortals = [
   {
     childSceneId: "city-street",
     sourceVisualRegion: "portal-enter-city",
-    rectangle: { x: 1_808, y: 20, width: 200, height: 150 },
+    rectangle: { x: 1_968, y: 59, width: 84, height: 64 },
   },
   {
     childSceneId: "city-park",
     sourceVisualRegion: "portal-enter-nature",
-    rectangle: { x: 1_740, y: 510, width: 480, height: 360 },
+    rectangle: { x: 2_078, y: 521, width: 84, height: 40 },
   },
   {
     childSceneId: "community-garden",
