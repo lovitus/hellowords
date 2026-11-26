@@ -783,11 +783,11 @@
     }
   ],
   "anchorAudit": {
-    "status": "image-reviewed",
+    "status": "human-verified",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/video-conferencing-console-premium-v1.jpg",
     "reviewedAssetSha256": "191dcac69bbc53f5ec57497dc078f00d48c06104051886102b4fbf1ab0e863a5",
-    "rationale": "The 1600 by 900 image shows four round microphones in two rows, a tilted touch console and an inset table outlet. Each mapped word has an image crop for its visible object or part. Related words preserve names for concealed fittings, indistinguishable device features and alternate names for the same surface.",
+    "rationale": "The 1600 by 900 image shows four round microphones in two rows, a tilted touch console and an inset table outlet. Each mapped word has an image crop for its visible object or part. Related words preserve names for concealed fittings, indistinguishable device features and alternate names for the same surface. The user viewed the equipment desk and reported no apparent issue there on 2026-11-26.",
     "previousLabelCount": 152,
     "retainedLabelCount": 68,
     "removedLabelCount": 84,

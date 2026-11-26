@@ -243,3 +243,92 @@ test("phone returns to the furnished room before Fit", async ({ page, isMobile }
   await (await image.elementHandle()).waitForElementState("stable");
   expect((await projectPhoto(image, 940, 280)).crop, "Fit shows all four edges").toBeLessThanOrEqual(1);
 });
+
+test("returning to the office restores the atrium photograph and its own object labels", async ({ page, isMobile }, testInfo) => {
+  const office = "office-building";
+  const officeAsset = "/scenes/office-atrium-premium-v1.jpg";
+  if (!isMobile) await page.setViewportSize({ width: 1125, height: 610 });
+  const app = page.getByTestId("world-app");
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const minimap = page.getByTestId("scene-minimap");
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const shot = async (name: string) => testInfo.attach(name, { body: await page.screenshot(), contentType: "image/png" });
+  const paintedIds = () => viewer.locator("canvas.label-canvas").evaluate(canvas => {
+    const { paintedLabels = [] } = canvas as HTMLCanvasElement & { paintedLabels?: Array<{ id: string; opacity: number }> };
+    return paintedLabels.filter(label => label.opacity > 0.025).map(label => label.id);
+  });
+  const settled = async (id: string, asset: string) => {
+    await expect(app).toHaveAttribute("data-scene-id", id);
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+    await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
+    await expect.poll(() => image.evaluate((img: HTMLImageElement) =>
+      [img.currentSrc && new URL(img.currentSrc).pathname, img.naturalWidth, img.naturalHeight]
+    )).toEqual([asset, 1600, 900]);
+    await (await image.elementHandle()).waitForElementState("stable");
+  };
+
+  const [officeResponse, sha256] = await Promise.all([
+    page.waitForResponse(response => response.ok() && new URL(response.url()).pathname === "/data/scenes/office-building.json"),
+    openPhotographedRoute(page, isMobile, [roomRoute[0]], officeAsset,
+      "9403fc42abf40af87d59f9a12401e5dcff76256fc13870a7780e79ae8e3a7cdf"),
+  ]);
+  const officeData: { id: string; labels: Array<{ id: string }> } = await officeResponse.json();
+  expect(officeData.id).toBe(office);
+  const officeIds = new Set(officeData.labels.map(label => label.id));
+  const meanings = page.getByTestId("meaning-toggle");
+  if (await meanings.getAttribute("aria-pressed") === "false") await activate(meanings);
+  await shot("office-atrium-entry");
+  for (const [id, title, asset] of [
+    [room, "Conference room", roomAsset], [consoleScene, "Video-conferencing console", consoleAsset],
+  ] as const) {
+    await activate(minimap.getByRole("button", { name: `进入 ${title}`, exact: true }));
+    await settled(id, asset);
+    await expect.poll(async () => (await paintedIds()).some(labelId => labelId.startsWith(`${id}-`))).toBe(true);
+  }
+  const back = page.getByRole("button", { name: "← 返回上一层", exact: true });
+  for (const [id, asset] of [[room, roomAsset], [office, officeAsset]] as const) {
+    await activate(back);
+    await settled(id, asset);
+  }
+
+  await expect.poll(paintedIds).not.toHaveLength(0);
+  const returnedIds = await paintedIds();
+  await shot("office-atrium-return");
+  await activate(minimap.getByRole("button", { name: "收起小地图" }));
+
+  await activate(page.getByTestId("scene-word-index-toggle"));
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill("camera lens");
+  const lensResult = index.getByRole("button").filter({ has: page.getByText("camera lens", { exact: true }) });
+  const spatialId = await lensResult.getAttribute("data-label-id");
+  await shot("office-camera-lens-index");
+  await activate(lensResult);
+  const lensCard = page.getByRole("complementary", { name: "camera lens word details", exact: true });
+  await expect(lensCard).toBeVisible();
+  const afterLensIds = await paintedIds();
+  const observedIds = new Set([...returnedIds, ...afterLensIds]);
+  const foreignIds = [...observedIds].filter(id => !officeIds.has(id));
+  const cameraLensPinned = spatialId !== null || observedIds.has("camera-lens");
+  await testInfo.attach("office-return-words", {
+    body: JSON.stringify({ sha256, returnedIds, afterLensIds, spatialId, foreignIds, cameraLensPinned }),
+    contentType: "application/json",
+  });
+  await shot("office-camera-lens-card");
+  expect(cameraLensPinned, "the office overview does not pin a camera lens on the atrium").toBe(false);
+  expect(foreignIds, "every painted ID belongs to the returned office photograph").toEqual([]);
+  expect(spatialId, "the searchable camera lens has no spatial target").toBeNull();
+  await expect(lensCard.getByText("相关词 · 图中未标注", { exact: true })).toBeVisible();
+  await expect(lensCard.getByText("摄像头镜头", { exact: true })).toBeVisible();
+  await activate(lensCard.getByRole("button", { name: "关闭单词卡" }));
+  await expect(lensCard).toBeHidden();
+  const legend = await viewer.getByTestId("scene-cue-legend").boundingBox();
+  const conversation = await page.getByRole("button", { name: "情景会话", exact: true }).boundingBox();
+  expect(legend && conversation && (legend.x + legend.width <= conversation.x ||
+    legend.y >= conversation.y + conversation.height), "the zoom legend leaves the conversation button clear").toBe(true);
+
+  // The black monitor on the open-plan desk is visible through the left side of the atrium.
+  await checkPaintedWords(page, isMobile, testInfo, [
+    { word: "monitor", meaning: "显示器", outlines: [[[459, 486], [491, 485], [491, 507], [459, 508]]] },
+  ], sha256);
+});

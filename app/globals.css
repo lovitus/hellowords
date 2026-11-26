@@ -75,7 +75,7 @@ a:focus-visible {
   right: 0;
   height: 74px;
   display: grid;
-  grid-template-columns: minmax(185px, 1fr) minmax(220px, auto) minmax(300px, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 24px;
   padding: 0 30px;
@@ -128,9 +128,13 @@ a:focus-visible {
 
 .breadcrumbs {
   display: flex;
+  min-width: 0;
   align-items: center;
-  justify-content: center;
+  justify-content: safe center;
   gap: 2px;
+  overflow-x: auto;
+  padding: 5px 3px;
+  scrollbar-width: thin;
   white-space: nowrap;
 }
 
@@ -165,6 +169,11 @@ a:focus-visible {
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
+  white-space: nowrap;
+}
+
+.header-actions > button {
+  flex: none;
 }
 
 .discovery-count {
@@ -300,6 +309,7 @@ a:focus-visible {
 }
 
 .world-stage {
+  --conversation-width: calc(4rem + 22px);
   position: fixed;
   inset: 74px 0 0;
   overflow: hidden;
@@ -1781,6 +1791,10 @@ a:focus-visible {
   backdrop-filter: blur(10px);
 }
 
+.world-stage:has(> .scene-conversation-toggle) .scene-cue-legend {
+  right: calc(16px + var(--conversation-width) + 8px);
+}
+
 .scene-cue-legend > span {
   display: flex;
   min-height: 22px;
@@ -2368,6 +2382,11 @@ a:focus-visible {
     right: 16px;
   }
 
+  .world-stage:has(> .scene-conversation-toggle) .scene-cue-legend {
+    top: 68px;
+    right: 16px;
+  }
+
   .zoom-controls {
     right: 16px;
     bottom: 20px;
@@ -2446,6 +2465,10 @@ a:focus-visible {
     border-radius: 14px;
     gap: 1px;
     padding: 4px 7px 5px;
+  }
+
+  .world-stage:has(> .scene-conversation-toggle) .scene-minimap {
+    max-width: calc(100vw - 136px);
   }
 
   .scene-minimap__children {
@@ -2598,6 +2621,12 @@ a:focus-visible {
 
 }
 
+@media (max-width: 359px) {
+  .brand > span:last-child {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -2661,7 +2690,7 @@ a:focus-visible {
   }
 }
 /* Compact scene-bound language practice; native dialog preserves camera and focus. */
-.scene-conversation-toggle { position: absolute; z-index: 19; top: 16px; right: 16px; border: 1px solid #b8c8d6; border-radius: 8px; min-height: 44px; padding: 7px 10px; background: #f5faff; color: #18344c; white-space: nowrap; }
+.scene-conversation-toggle { position: absolute; z-index: 19; top: 16px; right: 16px; width: var(--conversation-width); border: 1px solid #b8c8d6; border-radius: 8px; min-height: 44px; padding: 7px 10px; background: #f5faff; color: #18344c; white-space: nowrap; }
 .scene-conversation { width: min(960px, calc(100vw - 24px)); max-height: calc(100dvh - 32px); padding: 18px; border: 1px solid #b8c8d6; border-radius: 14px; color: #18344c; background: #f5faff; overflow: auto; overscroll-behavior: contain; }
 .scene-conversation::backdrop { background: rgb(12 28 45 / 40%); }
 .scene-conversation header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }

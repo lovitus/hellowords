@@ -136,9 +136,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "aircraft-cabin": 120,
   "aircraft-galley-equipment": 145,
   "aircraft-lavatory": 120,
-  // The office atrium resolves reception, open work floor, meeting, pantry and
-  // building-service hardware without inferring people, companies or policies.
-  "office-building": 100,
+  // All five areas share one atrium photograph. Finer equipment stays searchable.
+  "office-building": 87,
   "office-elevator-car": 120,
   "open-plan-workstation": 140,
   "desktop-workstation-equipment": 145,
@@ -256,7 +255,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "aircraft-cabin": 142,
   "aircraft-galley-equipment": 150,
   "aircraft-lavatory": 138,
-  "office-building": 390,
+  "office-building": 87,
   "office-elevator-car": 150,
   "open-plan-workstation": 150,
   "desktop-workstation-equipment": 155,

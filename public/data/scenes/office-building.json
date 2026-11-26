@@ -9,4293 +9,960 @@
   "parentId": "urban-services",
   "labels": [
     {
-      "id": "office-building",
-      "word": "office building",
-      "translation": "写字楼",
-      "x": 28,
-      "y": 378,
-      "priority": 1,
-      "minLevel": 0,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "lobby",
-      "word": "lobby",
-      "translation": "大堂",
-      "x": 188,
-      "y": 378,
-      "priority": 1.001,
-      "minLevel": 0,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "reception",
-      "word": "reception",
-      "translation": "前台",
-      "x": 348,
-      "y": 378,
-      "priority": 1.002,
-      "minLevel": 0,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "atrium",
-      "word": "atrium",
-      "translation": "中庭",
-      "x": 28,
-      "y": 833,
-      "priority": 1.003,
-      "minLevel": 0,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "entrance",
-      "word": "entrance",
-      "translation": "入口",
-      "x": 188,
-      "y": 833,
-      "priority": 1.004,
-      "minLevel": 0,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
       "id": "directory-wall",
       "word": "directory wall",
       "translation": "导视墙",
-      "x": 348,
-      "y": 833,
+      "x": 246,
+      "y": 424,
       "priority": 1.005,
       "minLevel": 0,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "front-desk",
-      "word": "front desk",
-      "translation": "前台桌",
-      "x": 28,
-      "y": 378,
-      "priority": 1.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "visitor-chair",
-      "word": "visitor chair",
-      "translation": "访客椅",
-      "x": 188,
-      "y": 378,
-      "priority": 1.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "turnstile",
-      "word": "turnstile",
-      "translation": "闸机",
-      "x": 348,
-      "y": 378,
-      "priority": 1.008,
-      "minLevel": 1,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "lobby-bench",
-      "word": "lobby bench",
-      "translation": "大堂长椅",
-      "x": 28,
-      "y": 833,
-      "priority": 1.009,
-      "minLevel": 1,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "security-desk",
-      "word": "security desk",
-      "translation": "安保台",
-      "x": 188,
-      "y": 833,
-      "priority": 1.01,
-      "minLevel": 1,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "entrance-door",
-      "word": "entrance door",
-      "translation": "入口门",
-      "x": 348,
-      "y": 833,
-      "priority": 1.011,
-      "minLevel": 1,
-      "sourceVisualRegion": "reception-lobby",
+      "sourceVisualRegion": "atrium-photo-directory-wall",
       "semanticRealmId": "people-society"
     },
     {
       "id": "reception-counter",
       "word": "reception counter",
       "translation": "接待柜台",
-      "x": 28,
-      "y": 378,
+      "x": 335,
+      "y": 672,
       "priority": 1.012,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "desk-lamp",
-      "word": "desk lamp",
-      "translation": "台灯",
-      "x": 188,
-      "y": 378,
-      "priority": 1.013,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "visitor-badge",
-      "word": "visitor badge",
-      "translation": "访客证",
-      "x": 348,
-      "y": 378,
-      "priority": 1.014,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
+      "minLevel": 0,
+      "sourceVisualRegion": "atrium-photo-reception-counter",
       "semanticRealmId": "people-society"
     },
     {
       "id": "planter",
       "word": "planter",
       "translation": "植物盆",
-      "x": 28,
-      "y": 833,
+      "x": 42,
+      "y": 625,
       "priority": 1.015,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "floor-mat",
-      "word": "floor mat",
-      "translation": "地垫",
-      "x": 188,
-      "y": 833,
-      "priority": 1.016,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "ceiling-light",
-      "word": "ceiling light",
-      "translation": "顶灯",
-      "x": 348,
-      "y": 833,
-      "priority": 1.017,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-planter",
       "semanticRealmId": "people-society"
     },
     {
       "id": "counter-edge",
       "word": "counter edge",
       "translation": "柜台边缘",
-      "x": 28,
-      "y": 378,
+      "x": 241,
+      "y": 633,
       "priority": 1.018,
       "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
+      "sourceVisualRegion": "atrium-photo-counter-edge",
       "semanticRealmId": "people-society"
     },
     {
       "id": "chair-back",
       "word": "chair back",
       "translation": "椅背",
-      "x": 188,
-      "y": 378,
+      "x": 190,
+      "y": 590,
       "priority": 1.019,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "drawer-pull",
-      "word": "drawer pull",
-      "translation": "抽屉拉手",
-      "x": 348,
-      "y": 378,
-      "priority": 1.02,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "door-handle",
-      "word": "door handle",
-      "translation": "门把手",
-      "x": 28,
-      "y": 833,
-      "priority": 1.021,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "tile-joint",
-      "word": "tile joint",
-      "translation": "地砖接缝",
-      "x": 188,
-      "y": 833,
-      "priority": 1.022,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-chair-back",
       "semanticRealmId": "people-society"
     },
     {
       "id": "wall-panel",
       "word": "wall panel",
       "translation": "墙面板",
-      "x": 348,
-      "y": 833,
+      "x": 246,
+      "y": 326,
       "priority": 1.023,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "reception-bell",
-      "word": "reception bell",
-      "translation": "前台铃",
-      "x": 28,
-      "y": 378,
-      "priority": 1.024,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "badge-holder",
-      "word": "badge holder",
-      "translation": "证件夹",
-      "x": 188,
-      "y": 378,
-      "priority": 1.025,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "chair-leg",
-      "word": "chair leg",
-      "translation": "椅腿",
-      "x": 348,
-      "y": 378,
-      "priority": 1.026,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "mat-border",
-      "word": "mat border",
-      "translation": "地垫边缘",
-      "x": 28,
-      "y": 833,
-      "priority": 1.027,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "light-trim",
-      "word": "light trim",
-      "translation": "灯具饰条",
-      "x": 188,
-      "y": 833,
-      "priority": 1.028,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "skirting-board",
-      "word": "skirting board",
-      "translation": "踢脚板",
-      "x": 348,
-      "y": 833,
-      "priority": 1.029,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-wall-panel",
       "semanticRealmId": "people-society"
     },
     {
       "id": "open-plan-office",
       "word": "open plan office",
       "translation": "开放式办公室",
-      "x": 328,
-      "y": 408,
+      "x": 431,
+      "y": 482,
       "priority": 1.03,
       "minLevel": 0,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-open-plan-office",
       "semanticRealmId": "people-society"
     },
     {
       "id": "workstation",
       "word": "workstation",
       "translation": "工作站",
-      "x": 633,
-      "y": 408,
+      "x": 389,
+      "y": 503,
       "priority": 1.031,
       "minLevel": 0,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-workstation",
       "semanticRealmId": "people-society"
     },
     {
       "id": "desk",
       "word": "desk",
       "translation": "办公桌",
-      "x": 938,
-      "y": 408,
+      "x": 543,
+      "y": 517,
       "priority": 1.032,
-      "minLevel": 0,
-      "sourceVisualRegion": "open-plan-office",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-desk",
       "semanticRealmId": "people-society"
     },
     {
       "id": "monitor",
       "word": "monitor",
       "translation": "显示器",
-      "x": 328,
-      "y": 793,
+      "x": 473,
+      "y": 497,
       "priority": 1.033,
       "minLevel": 0,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-monitor",
       "semanticRealmId": "people-society"
     },
     {
       "id": "office-chair",
       "word": "office chair",
       "translation": "办公椅",
-      "x": 633,
-      "y": 793,
+      "x": 514,
+      "y": 523,
       "priority": 1.034,
       "minLevel": 0,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-office-chair",
       "semanticRealmId": "people-society"
     },
     {
       "id": "task-light",
       "word": "task light",
       "translation": "工作灯",
-      "x": 938,
-      "y": 793,
+      "x": 448,
+      "y": 505,
       "priority": 1.035,
-      "minLevel": 0,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "keyboard",
-      "word": "keyboard",
-      "translation": "键盘",
-      "x": 328,
-      "y": 408,
-      "priority": 1.036,
-      "minLevel": 1,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "mouse",
-      "word": "mouse",
-      "translation": "鼠标",
-      "x": 633,
-      "y": 408,
-      "priority": 1.037,
-      "minLevel": 1,
-      "sourceVisualRegion": "open-plan-office",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-task-light",
       "semanticRealmId": "people-society"
     },
     {
       "id": "desk-divider",
       "word": "desk divider",
       "translation": "桌面隔板",
-      "x": 938,
-      "y": 408,
+      "x": 576,
+      "y": 489,
       "priority": 1.038,
       "minLevel": 1,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-desk-divider",
       "semanticRealmId": "people-society"
     },
     {
       "id": "filing-cabinet",
       "word": "filing cabinet",
       "translation": "文件柜",
-      "x": 328,
-      "y": 793,
+      "x": 568,
+      "y": 549,
       "priority": 1.039,
       "minLevel": 1,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-filing-cabinet",
       "semanticRealmId": "people-society"
     },
     {
       "id": "office-plant",
       "word": "office plant",
       "translation": "办公绿植",
-      "x": 633,
-      "y": 793,
+      "x": 600,
+      "y": 486,
       "priority": 1.04,
       "minLevel": 1,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "overhead-cable-tray",
-      "word": "overhead cable tray",
-      "translation": "线缆托盘",
-      "x": 938,
-      "y": 793,
-      "priority": 1.041,
-      "minLevel": 1,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-office-plant",
       "semanticRealmId": "people-society"
     },
     {
       "id": "desk-drawer",
       "word": "desk drawer",
       "translation": "桌抽屉",
-      "x": 328,
-      "y": 408,
+      "x": 584,
+      "y": 527,
       "priority": 1.042,
       "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-desk-drawer",
       "semanticRealmId": "people-society"
     },
     {
       "id": "monitor-stand",
       "word": "monitor stand",
       "translation": "显示器支架",
-      "x": 633,
-      "y": 408,
+      "x": 474,
+      "y": 515,
       "priority": 1.043,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
+      "minLevel": 3,
+      "sourceVisualRegion": "atrium-photo-monitor-stand",
       "semanticRealmId": "people-society"
     },
     {
       "id": "chair-armrest",
       "word": "chair armrest",
       "translation": "椅子扶手",
-      "x": 938,
-      "y": 408,
+      "x": 488,
+      "y": 531,
       "priority": 1.044,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "partition-panel",
-      "word": "partition panel",
-      "translation": "隔断板",
-      "x": 328,
-      "y": 793,
-      "priority": 1.045,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "power-strip",
-      "word": "power strip",
-      "translation": "排插",
-      "x": 633,
-      "y": 793,
-      "priority": 1.046,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "notebook",
-      "word": "notebook",
-      "translation": "笔记本",
-      "x": 938,
-      "y": 793,
-      "priority": 1.047,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-bundle",
-      "word": "cable bundle",
-      "translation": "线缆束",
-      "x": 328,
-      "y": 408,
-      "priority": 1.048,
       "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-chair-armrest",
       "semanticRealmId": "people-society"
     },
     {
       "id": "drawer-handle",
       "word": "drawer handle",
       "translation": "抽屉拉手",
-      "x": 633,
-      "y": 408,
+      "x": 588,
+      "y": 541,
       "priority": 1.049,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
+      "minLevel": 4,
+      "sourceVisualRegion": "atrium-photo-drawer-handle",
       "semanticRealmId": "people-society"
     },
     {
       "id": "screen-bezel",
       "word": "screen bezel",
       "translation": "屏幕边框",
-      "x": 938,
-      "y": 408,
+      "x": 457,
+      "y": 495,
       "priority": 1.05,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
+      "minLevel": 4,
+      "sourceVisualRegion": "atrium-photo-screen-bezel",
       "semanticRealmId": "people-society"
     },
     {
       "id": "wheel-caster",
       "word": "wheel caster",
       "translation": "滚轮脚",
-      "x": 328,
-      "y": 793,
+      "x": 483,
+      "y": 577,
       "priority": 1.051,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "acoustic-panel",
-      "word": "acoustic panel",
-      "translation": "吸音板",
-      "x": 633,
-      "y": 793,
-      "priority": 1.052,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "floor-outlet",
-      "word": "floor outlet",
-      "translation": "地面插座",
-      "x": 938,
-      "y": 793,
-      "priority": 1.053,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "keycap",
-      "word": "keycap",
-      "translation": "键帽",
-      "x": 328,
-      "y": 408,
-      "priority": 1.054,
       "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "mouse-wheel",
-      "word": "mouse wheel",
-      "translation": "鼠标滚轮",
-      "x": 633,
-      "y": 408,
-      "priority": 1.055,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-wheel-caster",
       "semanticRealmId": "people-society"
     },
     {
       "id": "chair-base",
       "word": "chair base",
       "translation": "椅子底座",
-      "x": 938,
-      "y": 408,
+      "x": 526,
+      "y": 569,
       "priority": 1.056,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-clip",
-      "word": "cable clip",
-      "translation": "线缆夹",
-      "x": 328,
-      "y": 793,
-      "priority": 1.057,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
+      "minLevel": 3,
+      "sourceVisualRegion": "atrium-photo-chair-base",
       "semanticRealmId": "people-society"
     },
     {
       "id": "desk-edge",
       "word": "desk edge",
       "translation": "桌沿",
-      "x": 633,
-      "y": 793,
+      "x": 465,
+      "y": 527,
       "priority": 1.058,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "carpet-tile",
-      "word": "carpet tile",
-      "translation": "地毯块",
-      "x": 938,
-      "y": 793,
-      "priority": 1.059,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
+      "minLevel": 3,
+      "sourceVisualRegion": "atrium-photo-desk-edge",
       "semanticRealmId": "people-society"
     },
     {
       "id": "conference-room",
       "word": "conference room",
       "translation": "会议室",
-      "x": 788,
-      "y": 148,
+      "x": 767,
+      "y": 487,
       "priority": 1.06,
       "minLevel": 0,
-      "sourceVisualRegion": "conference-room",
+      "sourceVisualRegion": "atrium-photo-conference-room",
       "semanticRealmId": "people-society"
     },
     {
       "id": "meeting-table",
       "word": "meeting table",
       "translation": "会议桌",
-      "x": 1003,
-      "y": 148,
+      "x": 746,
+      "y": 525,
       "priority": 1.061,
       "minLevel": 0,
-      "sourceVisualRegion": "conference-room",
+      "sourceVisualRegion": "atrium-photo-meeting-table",
       "semanticRealmId": "people-society"
     },
     {
       "id": "conference-chair",
       "word": "conference chair",
       "translation": "会议椅",
-      "x": 1218,
-      "y": 148,
+      "x": 849,
+      "y": 548,
       "priority": 1.062,
       "minLevel": 0,
-      "sourceVisualRegion": "conference-room",
+      "sourceVisualRegion": "atrium-photo-conference-chair",
       "semanticRealmId": "people-society"
     },
     {
       "id": "glass-wall",
       "word": "glass wall",
       "translation": "玻璃墙",
-      "x": 788,
-      "y": 583,
+      "x": 706,
+      "y": 425,
       "priority": 1.063,
       "minLevel": 0,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "presentation-screen",
-      "word": "presentation screen",
-      "translation": "演示屏",
-      "x": 1003,
-      "y": 583,
-      "priority": 1.064,
-      "minLevel": 0,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "whiteboard",
-      "word": "whiteboard",
-      "translation": "白板",
-      "x": 1218,
-      "y": 583,
-      "priority": 1.065,
-      "minLevel": 0,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "boardroom",
-      "word": "boardroom",
-      "translation": "董事会议室",
-      "x": 788,
-      "y": 148,
-      "priority": 1.066,
-      "minLevel": 1,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "video-camera",
-      "word": "video camera",
-      "translation": "视频摄像头",
-      "x": 1003,
-      "y": 148,
-      "priority": 1.067,
-      "minLevel": 1,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "speakerphone",
-      "word": "speakerphone",
-      "translation": "免提电话",
-      "x": 1218,
-      "y": 148,
-      "priority": 1.068,
-      "minLevel": 1,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "marker-tray",
-      "word": "marker tray",
-      "translation": "白板笔托盘",
-      "x": 788,
-      "y": 583,
-      "priority": 1.069,
-      "minLevel": 1,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "sliding-door",
-      "word": "sliding door",
-      "translation": "推拉门",
-      "x": 1003,
-      "y": 583,
-      "priority": 1.07,
-      "minLevel": 1,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "ceiling-projector",
-      "word": "ceiling projector",
-      "translation": "顶置投影仪",
-      "x": 1218,
-      "y": 583,
-      "priority": 1.071,
-      "minLevel": 1,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "table-edge",
-      "word": "table edge",
-      "translation": "桌边",
-      "x": 788,
-      "y": 148,
-      "priority": 1.072,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
+      "sourceVisualRegion": "atrium-photo-glass-wall",
       "semanticRealmId": "people-society"
     },
     {
       "id": "boardroom-armrest",
       "word": "boardroom armrest",
       "translation": "椅子扶手",
-      "x": 1003,
-      "y": 148,
+      "x": 794,
+      "y": 546,
       "priority": 1.073,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "screen-frame",
-      "word": "screen frame",
-      "translation": "屏幕框",
-      "x": 1218,
-      "y": 148,
-      "priority": 1.074,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "whiteboard-rail",
-      "word": "whiteboard rail",
-      "translation": "白板导轨",
-      "x": 788,
-      "y": 583,
-      "priority": 1.075,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "camera-lens",
-      "word": "camera lens",
-      "translation": "摄像头镜头",
-      "x": 1003,
-      "y": 583,
-      "priority": 1.076,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-port",
-      "word": "cable port",
-      "translation": "线缆接口",
-      "x": 1218,
-      "y": 583,
-      "priority": 1.077,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "tabletop-seam",
-      "word": "tabletop seam",
-      "translation": "桌面接缝",
-      "x": 788,
-      "y": 148,
-      "priority": 1.078,
       "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "chair-wheel",
-      "word": "chair wheel",
-      "translation": "椅轮",
-      "x": 1003,
-      "y": 148,
-      "priority": 1.079,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "door-track",
-      "word": "door track",
-      "translation": "门轨",
-      "x": 1218,
-      "y": 148,
-      "priority": 1.08,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "projector-mount",
-      "word": "projector mount",
-      "translation": "投影仪支架",
-      "x": 788,
-      "y": 583,
-      "priority": 1.081,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
+      "sourceVisualRegion": "atrium-photo-boardroom-armrest",
       "semanticRealmId": "people-society"
     },
     {
       "id": "glass-mullion",
       "word": "glass mullion",
       "translation": "玻璃竖梃",
-      "x": 1003,
-      "y": 583,
+      "x": 822,
+      "y": 400,
       "priority": 1.082,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "marker-cap",
-      "word": "marker cap",
-      "translation": "白板笔帽",
-      "x": 1218,
-      "y": 583,
-      "priority": 1.083,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-glass-mullion",
       "semanticRealmId": "people-society"
     },
     {
       "id": "table-leg",
       "word": "table leg",
       "translation": "桌腿",
-      "x": 788,
-      "y": 148,
+      "x": 766,
+      "y": 564,
       "priority": 1.084,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "display-bezel",
-      "word": "display bezel",
-      "translation": "屏幕边框",
-      "x": 1003,
-      "y": 148,
-      "priority": 1.085,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "lens-ring",
-      "word": "lens ring",
-      "translation": "镜头环",
-      "x": 1218,
-      "y": 148,
-      "priority": 1.086,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "track-roller",
-      "word": "track roller",
-      "translation": "门轨滚轮",
-      "x": 788,
-      "y": 583,
-      "priority": 1.087,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "wall-socket",
-      "word": "wall socket",
-      "translation": "墙面插座",
-      "x": 1003,
-      "y": 583,
-      "priority": 1.088,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "carpet-seam",
-      "word": "carpet seam",
-      "translation": "地毯接缝",
-      "x": 1218,
-      "y": 583,
-      "priority": 1.089,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-table-leg",
       "semanticRealmId": "people-society"
     },
     {
       "id": "break-room",
       "word": "break room",
       "translation": "休息室",
-      "x": 1018,
-      "y": 408,
+      "x": 989,
+      "y": 589,
       "priority": 1.09,
       "minLevel": 0,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-break-room",
       "semanticRealmId": "people-society"
     },
     {
       "id": "kitchenette",
       "word": "kitchenette",
       "translation": "茶水间",
-      "x": 1198,
-      "y": 408,
+      "x": 1011,
+      "y": 451,
       "priority": 1.091,
       "minLevel": 0,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "pantry",
-      "word": "pantry",
-      "translation": "茶水间储藏区",
-      "x": 1378,
-      "y": 408,
-      "priority": 1.092,
-      "minLevel": 0,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "coffee-counter",
-      "word": "coffee counter",
-      "translation": "咖啡台",
-      "x": 1018,
-      "y": 773,
-      "priority": 1.093,
-      "minLevel": 0,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-kitchenette",
       "semanticRealmId": "people-society"
     },
     {
       "id": "refrigerator",
       "word": "refrigerator",
       "translation": "冰箱",
-      "x": 1198,
-      "y": 773,
+      "x": 1115,
+      "y": 460,
       "priority": 1.094,
       "minLevel": 0,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-refrigerator",
       "semanticRealmId": "people-society"
     },
     {
       "id": "dining-table",
       "word": "dining table",
       "translation": "餐桌",
-      "x": 1378,
-      "y": 773,
+      "x": 1039,
+      "y": 609,
       "priority": 1.095,
       "minLevel": 0,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "sink",
-      "word": "sink",
-      "translation": "水槽",
-      "x": 1018,
-      "y": 408,
-      "priority": 1.096,
-      "minLevel": 1,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "faucet",
-      "word": "faucet",
-      "translation": "水龙头",
-      "x": 1198,
-      "y": 408,
-      "priority": 1.097,
-      "minLevel": 1,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-dining-table",
       "semanticRealmId": "people-society"
     },
     {
       "id": "cabinet",
       "word": "cabinet",
       "translation": "橱柜",
-      "x": 1378,
-      "y": 408,
+      "x": 1040,
+      "y": 437,
       "priority": 1.098,
       "minLevel": 1,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "microwave",
-      "word": "microwave",
-      "translation": "微波炉",
-      "x": 1018,
-      "y": 773,
-      "priority": 1.099,
-      "minLevel": 1,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "kettle",
-      "word": "kettle",
-      "translation": "水壶",
-      "x": 1198,
-      "y": 773,
-      "priority": 1.1,
-      "minLevel": 1,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-cabinet",
       "semanticRealmId": "people-society"
     },
     {
       "id": "water-dispenser",
       "word": "water dispenser",
       "translation": "饮水机",
-      "x": 1378,
-      "y": 773,
+      "x": 1115,
+      "y": 509,
       "priority": 1.101,
-      "minLevel": 1,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-water-dispenser",
       "semanticRealmId": "people-society"
     },
     {
       "id": "countertop",
       "word": "countertop",
       "translation": "台面",
-      "x": 1018,
-      "y": 408,
+      "x": 995,
+      "y": 511,
       "priority": 1.102,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-countertop",
       "semanticRealmId": "people-society"
     },
     {
       "id": "backsplash",
       "word": "backsplash",
       "translation": "挡水板",
-      "x": 1198,
-      "y": 408,
+      "x": 1005,
+      "y": 483,
       "priority": 1.103,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cupboard-door",
-      "word": "cupboard door",
-      "translation": "橱柜门",
-      "x": 1378,
-      "y": 408,
-      "priority": 1.104,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-backsplash",
       "semanticRealmId": "people-society"
     },
     {
       "id": "fridge-handle",
       "word": "fridge handle",
       "translation": "冰箱把手",
-      "x": 1018,
-      "y": 773,
+      "x": 1132,
+      "y": 493,
       "priority": 1.105,
       "minLevel": 2,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "coffee-mug",
-      "word": "coffee mug",
-      "translation": "咖啡杯",
-      "x": 1198,
-      "y": 773,
-      "priority": 1.106,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-fridge-handle",
       "semanticRealmId": "people-society"
     },
     {
       "id": "bar-stool",
       "word": "bar stool",
       "translation": "吧台凳",
-      "x": 1378,
-      "y": 773,
+      "x": 953,
+      "y": 532,
       "priority": 1.107,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "tap-spout",
-      "word": "tap spout",
-      "translation": "水龙头出水口",
-      "x": 1018,
-      "y": 408,
-      "priority": 1.108,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cabinet-hinge",
-      "word": "cabinet hinge",
-      "translation": "橱柜铰链",
-      "x": 1198,
-      "y": 408,
-      "priority": 1.109,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "microwave-door",
-      "word": "microwave door",
-      "translation": "微波炉门",
-      "x": 1378,
-      "y": 408,
-      "priority": 1.11,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "kettle-lid",
-      "word": "kettle lid",
-      "translation": "水壶盖",
-      "x": 1018,
-      "y": 773,
-      "priority": 1.111,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-bar-stool",
       "semanticRealmId": "people-society"
     },
     {
       "id": "dining-table-edge",
       "word": "dining table edge",
       "translation": "桌边",
-      "x": 1198,
-      "y": 773,
+      "x": 1062,
+      "y": 583,
       "priority": 1.112,
       "minLevel": 3,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-dining-table-edge",
       "semanticRealmId": "people-society"
     },
     {
       "id": "chair-seat",
       "word": "chair seat",
       "translation": "椅面",
-      "x": 1378,
-      "y": 773,
+      "x": 984,
+      "y": 609,
       "priority": 1.113,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "sink-drain",
-      "word": "sink drain",
-      "translation": "水槽排水口",
-      "x": 1018,
-      "y": 408,
-      "priority": 1.114,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "faucet-aerator",
-      "word": "faucet aerator",
-      "translation": "水龙头起泡器",
-      "x": 1198,
-      "y": 408,
-      "priority": 1.115,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "shelf-bracket",
-      "word": "shelf bracket",
-      "translation": "搁板支架",
-      "x": 1378,
-      "y": 408,
-      "priority": 1.116,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fridge-seal",
-      "word": "fridge seal",
-      "translation": "冰箱密封条",
-      "x": 1018,
-      "y": 773,
-      "priority": 1.117,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "mug-handle",
-      "word": "mug handle",
-      "translation": "杯柄",
-      "x": 1198,
-      "y": 773,
-      "priority": 1.118,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-chair-seat",
       "semanticRealmId": "people-society"
     },
     {
       "id": "stool-foot",
       "word": "stool foot",
       "translation": "凳脚",
-      "x": 1378,
-      "y": 773,
+      "x": 914,
+      "y": 577,
       "priority": 1.119,
       "minLevel": 4,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-stool-foot",
       "semanticRealmId": "people-society"
     },
     {
       "id": "elevator",
       "word": "elevator",
       "translation": "电梯",
-      "x": 1348,
-      "y": 98,
+      "x": 1224,
+      "y": 446,
       "priority": 1.12,
       "minLevel": 0,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-elevator",
       "semanticRealmId": "people-society"
     },
     {
       "id": "stairwell",
       "word": "stairwell",
       "translation": "楼梯间",
-      "x": 1453,
-      "y": 98,
+      "x": 1427,
+      "y": 512,
       "priority": 1.121,
       "minLevel": 0,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "server-room",
-      "word": "server room",
-      "translation": "服务器机房",
-      "x": 1558,
-      "y": 98,
-      "priority": 1.122,
-      "minLevel": 0,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "hvac-duct",
-      "word": "HVAC duct",
-      "translation": "暖通风管",
-      "x": 1348,
-      "y": 813,
-      "priority": 1.123,
-      "minLevel": 0,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fire-panel",
-      "word": "fire panel",
-      "translation": "消防面板",
-      "x": 1453,
-      "y": 813,
-      "priority": 1.124,
-      "minLevel": 0,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-stairwell",
       "semanticRealmId": "people-society"
     },
     {
       "id": "service-core",
       "word": "service core",
       "translation": "设备核心",
-      "x": 1558,
-      "y": 813,
+      "x": 1333,
+      "y": 543,
       "priority": 1.125,
       "minLevel": 0,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-service-core",
       "semanticRealmId": "people-society"
     },
     {
       "id": "elevator-door",
       "word": "elevator door",
       "translation": "电梯门",
-      "x": 1348,
-      "y": 98,
+      "x": 1282,
+      "y": 530,
       "priority": 1.126,
       "minLevel": 1,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-elevator-door",
       "semanticRealmId": "people-society"
     },
     {
       "id": "stair-flight",
       "word": "stair flight",
       "translation": "楼梯段",
-      "x": 1453,
-      "y": 98,
+      "x": 1423,
+      "y": 473,
       "priority": 1.127,
       "minLevel": 1,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-stair-flight",
       "semanticRealmId": "people-society"
     },
     {
       "id": "handrail",
       "word": "handrail",
       "translation": "扶手",
-      "x": 1558,
-      "y": 98,
+      "x": 1344,
+      "y": 456,
       "priority": 1.128,
       "minLevel": 1,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-handrail",
       "semanticRealmId": "people-society"
     },
     {
       "id": "server-rack",
       "word": "server rack",
       "translation": "服务器机架",
-      "x": 1348,
-      "y": 813,
+      "x": 1431,
+      "y": 708,
       "priority": 1.129,
-      "minLevel": 1,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "network-switch",
-      "word": "network switch",
-      "translation": "网络交换机",
-      "x": 1453,
-      "y": 813,
-      "priority": 1.13,
-      "minLevel": 1,
-      "sourceVisualRegion": "service-core",
+      "minLevel": 0,
+      "sourceVisualRegion": "atrium-photo-server-rack",
       "semanticRealmId": "people-society"
     },
     {
       "id": "air-duct",
       "word": "air duct",
       "translation": "通风管道",
-      "x": 1558,
-      "y": 813,
+      "x": 1439,
+      "y": 160,
       "priority": 1.131,
-      "minLevel": 1,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "lift-button",
-      "word": "lift button",
-      "translation": "电梯按钮",
-      "x": 1348,
-      "y": 98,
-      "priority": 1.132,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
+      "minLevel": 0,
+      "sourceVisualRegion": "atrium-photo-air-duct",
       "semanticRealmId": "people-society"
     },
     {
       "id": "stair-tread",
       "word": "stair tread",
       "translation": "楼梯踏步",
-      "x": 1453,
-      "y": 98,
+      "x": 1403,
+      "y": 591,
       "priority": 1.133,
       "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "landing",
-      "word": "landing",
-      "translation": "楼梯平台",
-      "x": 1558,
-      "y": 98,
-      "priority": 1.134,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-stair-tread",
       "semanticRealmId": "people-society"
     },
     {
       "id": "rack-cabinet",
       "word": "rack cabinet",
       "translation": "机柜",
-      "x": 1348,
-      "y": 813,
+      "x": 1373,
+      "y": 718,
       "priority": 1.135,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "patch-panel",
-      "word": "patch panel",
-      "translation": "配线架",
-      "x": 1453,
-      "y": 813,
-      "priority": 1.136,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "sprinkler-pipe",
-      "word": "sprinkler pipe",
-      "translation": "喷淋管",
-      "x": 1558,
-      "y": 813,
-      "priority": 1.137,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-rack-cabinet",
       "semanticRealmId": "people-society"
     },
     {
       "id": "door-seam",
       "word": "door seam",
       "translation": "门缝",
-      "x": 1348,
-      "y": 98,
+      "x": 1262,
+      "y": 482,
       "priority": 1.138,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-door-seam",
       "semanticRealmId": "people-society"
     },
     {
       "id": "step-nosing",
       "word": "step nosing",
       "translation": "踏步前缘",
-      "x": 1453,
-      "y": 98,
+      "x": 1424,
+      "y": 519,
       "priority": 1.139,
       "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "rail-bracket",
-      "word": "rail bracket",
-      "translation": "扶手支架",
-      "x": 1558,
-      "y": 98,
-      "priority": 1.14,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-step-nosing",
       "semanticRealmId": "people-society"
     },
     {
       "id": "rack-light",
       "word": "rack light",
       "translation": "机架指示灯",
-      "x": 1348,
-      "y": 813,
+      "x": 1419,
+      "y": 744,
       "priority": 1.141,
       "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-tray",
-      "word": "cable tray",
-      "translation": "线缆托盘",
-      "x": 1453,
-      "y": 813,
-      "priority": 1.142,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-rack-light",
       "semanticRealmId": "people-society"
     },
     {
       "id": "duct-joint",
       "word": "duct joint",
       "translation": "风管接缝",
-      "x": 1558,
-      "y": 813,
+      "x": 1449,
+      "y": 155,
       "priority": 1.143,
       "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "call-button",
-      "word": "call button",
-      "translation": "呼梯按钮",
-      "x": 1348,
-      "y": 98,
-      "priority": 1.144,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-duct-joint",
       "semanticRealmId": "people-society"
     },
     {
       "id": "stair-riser",
       "word": "stair riser",
       "translation": "楼梯立板",
-      "x": 1453,
-      "y": 98,
+      "x": 1397,
+      "y": 574,
       "priority": 1.145,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "rack-vent",
-      "word": "rack vent",
-      "translation": "机架通风口",
-      "x": 1558,
-      "y": 98,
-      "priority": 1.146,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "rack-port",
-      "word": "rack port",
-      "translation": "线缆接口",
-      "x": 1348,
-      "y": 813,
-      "priority": 1.147,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-stair-riser",
       "semanticRealmId": "people-society"
     },
     {
       "id": "pipe-clamp",
       "word": "pipe clamp",
       "translation": "管箍",
-      "x": 1453,
-      "y": 813,
+      "x": 1543,
+      "y": 321,
       "priority": 1.148,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fire-alarm-cover",
-      "word": "fire alarm cover",
-      "translation": "火警面板盖",
-      "x": 1558,
-      "y": 813,
-      "priority": 1.149,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "visitor-kiosk-pro-1",
-      "word": "visitor kiosk",
-      "translation": "访客自助机",
-      "x": 32.5,
-      "y": 402,
-      "priority": 1.15,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "access-gate-pro-1",
-      "word": "access gate",
-      "translation": "门禁闸机",
-      "x": 97.5,
-      "y": 402,
-      "priority": 1.151,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "directory-panel-pro-1",
-      "word": "directory panel",
-      "translation": "目录面板",
-      "x": 162.5,
-      "y": 402,
-      "priority": 1.152,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "visitor-log-pro-1",
-      "word": "visitor log",
-      "translation": "访客登记簿",
-      "x": 227.5,
-      "y": 402,
-      "priority": 1.153,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "badge-scanner-pro-1",
-      "word": "badge scanner",
-      "translation": "证件扫描器",
-      "x": 292.5,
-      "y": 402,
-      "priority": 1.154,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "entry-barrier-pro-1",
-      "word": "entry barrier",
-      "translation": "入口隔栏",
-      "x": 357.5,
-      "y": 402,
-      "priority": 1.155,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "mail-shelf-pro-1",
-      "word": "mail shelf",
-      "translation": "邮件架",
-      "x": 32.5,
-      "y": 506,
-      "priority": 1.156,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "parcel-locker-pro-1",
-      "word": "parcel locker",
-      "translation": "包裹柜",
-      "x": 97.5,
-      "y": 506,
-      "priority": 1.157,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "waiting-sofa-pro-1",
-      "word": "waiting sofa",
-      "translation": "等候沙发",
-      "x": 162.5,
-      "y": 506,
-      "priority": 1.158,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "lounge-table-pro-1",
-      "word": "lounge table",
-      "translation": "休息桌",
-      "x": 227.5,
-      "y": 506,
-      "priority": 1.159,
-      "minLevel": 2,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "floor-lamp-pro-1",
-      "word": "floor lamp",
-      "translation": "落地灯",
-      "x": 292.5,
-      "y": 506,
-      "priority": 1.16,
       "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "wall-clock-pro-1",
-      "word": "wall clock",
-      "translation": "挂钟",
-      "x": 357.5,
-      "y": 506,
-      "priority": 1.161,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
+      "sourceVisualRegion": "atrium-photo-pipe-clamp",
       "semanticRealmId": "people-society"
     },
     {
       "id": "atrium-railing-pro-1",
       "word": "atrium railing",
       "translation": "中庭栏杆",
-      "x": 32.5,
-      "y": 610,
+      "x": 404,
+      "y": 321,
       "priority": 1.162,
       "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
+      "sourceVisualRegion": "atrium-photo-atrium-railing-pro-1",
       "semanticRealmId": "people-society"
     },
     {
       "id": "planter-box-pro-1",
       "word": "planter box",
       "translation": "种植箱",
-      "x": 97.5,
-      "y": 610,
+      "x": 372,
+      "y": 558,
       "priority": 1.163,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "reception-stool-pro-1",
-      "word": "reception stool",
-      "translation": "前台高脚凳",
-      "x": 162.5,
-      "y": 610,
-      "priority": 1.164,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "security-camera-pro-1",
-      "word": "security camera",
-      "translation": "安防摄像机",
-      "x": 227.5,
-      "y": 610,
-      "priority": 1.165,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "intercom-panel-pro-1",
-      "word": "intercom panel",
-      "translation": "对讲面板",
-      "x": 292.5,
-      "y": 610,
-      "priority": 1.166,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "door-closer-pro-1",
-      "word": "door closer",
-      "translation": "闭门器",
-      "x": 357.5,
-      "y": 610,
-      "priority": 1.167,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "door-threshold-pro-1",
-      "word": "door threshold",
-      "translation": "门槛",
-      "x": 32.5,
-      "y": 714,
-      "priority": 1.168,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "elevator-lobby-pro-1",
-      "word": "elevator lobby",
-      "translation": "电梯厅",
-      "x": 97.5,
-      "y": 714,
-      "priority": 1.169,
-      "minLevel": 3,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "lift-call-panel-pro-1",
-      "word": "lift call panel",
-      "translation": "电梯呼叫面板",
-      "x": 162.5,
-      "y": 714,
-      "priority": 1.17,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "marble-floor-pro-1",
-      "word": "marble floor",
-      "translation": "大理石地面",
-      "x": 227.5,
-      "y": 714,
-      "priority": 1.171,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-planter-box-pro-1",
       "semanticRealmId": "people-society"
     },
     {
       "id": "ceiling-pendant-pro-1",
       "word": "ceiling pendant",
       "translation": "吊灯",
-      "x": 292.5,
-      "y": 714,
+      "x": 180,
+      "y": 266,
       "priority": 1.172,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "wall-niche-pro-1",
-      "word": "wall niche",
-      "translation": "墙龛",
-      "x": 357.5,
-      "y": 714,
-      "priority": 1.173,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "coat-hook-pro-1",
-      "word": "coat hook",
-      "translation": "衣帽钩",
-      "x": 32.5,
-      "y": 818,
-      "priority": 1.174,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "brochure-stand-pro-1",
-      "word": "brochure stand",
-      "translation": "宣传册架",
-      "x": 97.5,
-      "y": 818,
-      "priority": 1.175,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "visitor-pass-pro-1",
-      "word": "visitor pass",
-      "translation": "访客通行证",
-      "x": 162.5,
-      "y": 818,
-      "priority": 1.176,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "parcel-shelf-pro-1",
-      "word": "parcel shelf",
-      "translation": "包裹架",
-      "x": 227.5,
-      "y": 818,
-      "priority": 1.177,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-ceiling-pendant-pro-1",
       "semanticRealmId": "people-society"
     },
     {
       "id": "lobby-column-pro-1",
       "word": "lobby column",
       "translation": "大堂立柱",
-      "x": 292.5,
-      "y": 818,
+      "x": 324,
+      "y": 460,
       "priority": 1.178,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "entrance-mat-pro-1",
-      "word": "entrance mat",
-      "translation": "入口垫",
-      "x": 357.5,
-      "y": 818,
-      "priority": 1.179,
-      "minLevel": 4,
-      "sourceVisualRegion": "reception-lobby",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "hot-desk-pro-2",
-      "word": "hot desk",
-      "translation": "共享办公桌",
-      "x": 356.67,
-      "y": 425,
-      "priority": 1.18,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "sit-stand-desk-pro-2",
-      "word": "sit stand desk",
-      "translation": "升降桌",
-      "x": 470,
-      "y": 425,
-      "priority": 1.181,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "monitor-arm-pro-2",
-      "word": "monitor arm",
-      "translation": "显示器支臂",
-      "x": 583.33,
-      "y": 425,
-      "priority": 1.182,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "docking-station-pro-2",
-      "word": "docking station",
-      "translation": "扩展坞",
-      "x": 696.67,
-      "y": 425,
-      "priority": 1.183,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "webcam-pro-2",
-      "word": "webcam",
-      "translation": "网络摄像头",
-      "x": 810,
-      "y": 425,
-      "priority": 1.184,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "headset-pro-2",
-      "word": "headset",
-      "translation": "耳机",
-      "x": 923.33,
-      "y": 425,
-      "priority": 1.185,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "desk-phone-pro-2",
-      "word": "desk phone",
-      "translation": "办公电话",
-      "x": 356.67,
-      "y": 515,
-      "priority": 1.186,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "document-tray-pro-2",
-      "word": "document tray",
-      "translation": "文件托盘",
-      "x": 470,
-      "y": 515,
-      "priority": 1.187,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "pinboard-pro-2",
-      "word": "pinboard",
-      "translation": "软木板",
-      "x": 583.33,
-      "y": 515,
-      "priority": 1.188,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "filing-tray-pro-2",
-      "word": "filing tray",
-      "translation": "文件托",
-      "x": 696.67,
-      "y": 515,
-      "priority": 1.189,
-      "minLevel": 2,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "storage-pedestal-pro-2",
-      "word": "storage pedestal",
-      "translation": "活动柜",
-      "x": 810,
-      "y": 515,
-      "priority": 1.19,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-grommet-pro-2",
-      "word": "cable grommet",
-      "translation": "走线孔",
-      "x": 923.33,
-      "y": 515,
-      "priority": 1.191,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "power-socket-pro-2",
-      "word": "power socket",
-      "translation": "电源插座",
-      "x": 356.67,
-      "y": 605,
-      "priority": 1.192,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "desk-mat-pro-2",
-      "word": "desk mat",
-      "translation": "桌垫",
-      "x": 470,
-      "y": 605,
-      "priority": 1.193,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "pen-holder-pro-2",
-      "word": "pen holder",
-      "translation": "笔筒",
-      "x": 583.33,
-      "y": 605,
-      "priority": 1.194,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "notebook-stand-pro-2",
-      "word": "notebook stand",
-      "translation": "笔记本支架",
-      "x": 696.67,
-      "y": 605,
-      "priority": 1.195,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-lobby-column-pro-1",
       "semanticRealmId": "people-society"
     },
     {
       "id": "office-shelf-pro-2",
       "word": "office shelf",
       "translation": "办公架",
-      "x": 810,
-      "y": 605,
+      "x": 590,
+      "y": 444,
       "priority": 1.196,
       "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "coat-rack-pro-2",
-      "word": "coat rack",
-      "translation": "衣帽架",
-      "x": 923.33,
-      "y": 605,
-      "priority": 1.197,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "privacy-screen-pro-2",
-      "word": "privacy screen",
-      "translation": "隐私挡板",
-      "x": 356.67,
-      "y": 695,
-      "priority": 1.198,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "acoustic-baffle-pro-2",
-      "word": "acoustic baffle",
-      "translation": "吸音吊片",
-      "x": 470,
-      "y": 695,
-      "priority": 1.199,
-      "minLevel": 3,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "ceiling-panel-pro-2",
-      "word": "ceiling panel",
-      "translation": "天花板",
-      "x": 583.33,
-      "y": 695,
-      "priority": 1.2,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "floor-box-pro-2",
-      "word": "floor box",
-      "translation": "地面接线盒",
-      "x": 696.67,
-      "y": 695,
-      "priority": 1.201,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "carpet-strip-pro-2",
-      "word": "carpet strip",
-      "translation": "地毯条",
-      "x": 810,
-      "y": 695,
-      "priority": 1.202,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "chair-roller-pro-2",
-      "word": "chair roller",
-      "translation": "座椅滚轮",
-      "x": 923.33,
-      "y": 695,
-      "priority": 1.203,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "monitor-cable-pro-2",
-      "word": "monitor cable",
-      "translation": "显示器线",
-      "x": 356.67,
-      "y": 785,
-      "priority": 1.204,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "keyboard-tray-pro-2",
-      "word": "keyboard tray",
-      "translation": "键盘托",
-      "x": 470,
-      "y": 785,
-      "priority": 1.205,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
+      "sourceVisualRegion": "atrium-photo-office-shelf-pro-2",
       "semanticRealmId": "people-society"
     },
     {
       "id": "workstation-leg-pro-2",
       "word": "workstation leg",
       "translation": "工作站桌腿",
-      "x": 583.33,
-      "y": 785,
+      "x": 453,
+      "y": 541,
       "priority": 1.206,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "footrest-pro-2",
-      "word": "footrest",
-      "translation": "脚踏",
-      "x": 696.67,
-      "y": 785,
-      "priority": 1.207,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "desk-partition-pro-2",
-      "word": "desk partition",
-      "translation": "桌面分隔板",
-      "x": 810,
-      "y": 785,
-      "priority": 1.208,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-sleeve-pro-2",
-      "word": "cable sleeve",
-      "translation": "线缆套",
-      "x": 923.33,
-      "y": 785,
-      "priority": 1.209,
-      "minLevel": 4,
-      "sourceVisualRegion": "open-plan-office",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "conference-folder-pro-3",
-      "word": "conference folder",
-      "translation": "会议议程",
-      "x": 801.67,
-      "y": 170,
-      "priority": 1.21,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "conference-display-pro-3",
-      "word": "conference display",
-      "translation": "会议显示屏",
-      "x": 885,
-      "y": 170,
-      "priority": 1.211,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "display-remote-pro-3",
-      "word": "display remote",
-      "translation": "显示器遥控器",
-      "x": 968.33,
-      "y": 170,
-      "priority": 1.212,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "camera-mount-pro-3",
-      "word": "camera mount",
-      "translation": "摄像机支架",
-      "x": 1051.67,
-      "y": 170,
-      "priority": 1.213,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "microphone-array-pro-3",
-      "word": "microphone array",
-      "translation": "麦克风阵列",
-      "x": 1135,
-      "y": 170,
-      "priority": 1.214,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "speaker-bar-pro-3",
-      "word": "speaker bar",
-      "translation": "扬声器条",
-      "x": 1218.33,
-      "y": 170,
-      "priority": 1.215,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "table-runner-pro-3",
-      "word": "table runner",
-      "translation": "桌旗",
-      "x": 801.67,
-      "y": 270,
-      "priority": 1.216,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "blind-track-pro-3",
-      "word": "blind track",
-      "translation": "百叶轨道",
-      "x": 885,
-      "y": 270,
-      "priority": 1.217,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "blackout-blind-pro-3",
-      "word": "blackout blind",
-      "translation": "遮光帘",
-      "x": 968.33,
-      "y": 270,
-      "priority": 1.218,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "acoustic-curtain-pro-3",
-      "word": "acoustic curtain",
-      "translation": "吸音帘",
-      "x": 1051.67,
-      "y": 270,
-      "priority": 1.219,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "sideboard-pro-3",
-      "word": "sideboard",
-      "translation": "餐边柜",
-      "x": 1135,
-      "y": 270,
-      "priority": 1.22,
       "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "credenza-pro-3",
-      "word": "credenza",
-      "translation": "会议边柜",
-      "x": 1218.33,
-      "y": 270,
-      "priority": 1.221,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "flip-chart-pro-3",
-      "word": "flip chart",
-      "translation": "活动挂图",
-      "x": 801.67,
-      "y": 370,
-      "priority": 1.222,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "presentation-clicker-pro-3",
-      "word": "presentation clicker",
-      "translation": "演示翻页器",
-      "x": 885,
-      "y": 370,
-      "priority": 1.223,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "pen-cup-pro-3",
-      "word": "pen cup",
-      "translation": "笔杯",
-      "x": 968.33,
-      "y": 370,
-      "priority": 1.224,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "notepad-pro-3",
-      "word": "notepad",
-      "translation": "便笺本",
-      "x": 1051.67,
-      "y": 370,
-      "priority": 1.225,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "water-carafe-pro-3",
-      "word": "water carafe",
-      "translation": "水壶",
-      "x": 1135,
-      "y": 370,
-      "priority": 1.226,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "glass-tumbler-pro-3",
-      "word": "glass tumbler",
-      "translation": "玻璃杯",
-      "x": 1218.33,
-      "y": 370,
-      "priority": 1.227,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "table-power-module-pro-3",
-      "word": "table power module",
-      "translation": "桌面电源模块",
-      "x": 801.67,
-      "y": 470,
-      "priority": 1.228,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "wall-outlet-pro-3",
-      "word": "wall outlet",
-      "translation": "墙面插座",
-      "x": 885,
-      "y": 470,
-      "priority": 1.229,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "glass-door-pro-3",
-      "word": "glass door",
-      "translation": "玻璃门",
-      "x": 968.33,
-      "y": 470,
-      "priority": 1.23,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "camera-tripod-pro-3",
-      "word": "camera tripod",
-      "translation": "摄像机三脚架",
-      "x": 1051.67,
-      "y": 470,
-      "priority": 1.231,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "lens-hood-pro-3",
-      "word": "lens hood",
-      "translation": "镜头遮光罩",
-      "x": 1135,
-      "y": 470,
-      "priority": 1.232,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "ceiling-microphone-pro-3",
-      "word": "ceiling microphone",
-      "translation": "天花麦克风",
-      "x": 1218.33,
-      "y": 470,
-      "priority": 1.233,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "projector-lens-pro-3",
-      "word": "projector lens",
-      "translation": "投影镜头",
-      "x": 801.67,
-      "y": 570,
-      "priority": 1.234,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "screen-cable-pro-3",
-      "word": "screen cable",
-      "translation": "屏幕线缆",
-      "x": 885,
-      "y": 570,
-      "priority": 1.235,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "conference-badge-pro-3",
-      "word": "conference badge",
-      "translation": "会议证",
-      "x": 968.33,
-      "y": 570,
-      "priority": 1.236,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "remote-tray-pro-3",
-      "word": "remote tray",
-      "translation": "遥控器托盘",
-      "x": 1051.67,
-      "y": 570,
-      "priority": 1.237,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "tabletop-grommet-pro-3",
-      "word": "tabletop grommet",
-      "translation": "桌面走线孔",
-      "x": 1135,
-      "y": 570,
-      "priority": 1.238,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "chair-swivel-pro-3",
-      "word": "chair swivel",
-      "translation": "座椅旋转件",
-      "x": 1218.33,
-      "y": 570,
-      "priority": 1.239,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "mechanical-room-pro-4",
-      "word": "mechanical room",
-      "translation": "机房",
-      "x": 1343.33,
-      "y": 148,
-      "priority": 1.24,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "electrical-room-pro-4",
-      "word": "electrical room",
-      "translation": "配电间",
-      "x": 1390,
-      "y": 148,
-      "priority": 1.241,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "data-center-pro-4",
-      "word": "data center",
-      "translation": "数据中心",
-      "x": 1436.67,
-      "y": 148,
-      "priority": 1.242,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "lift-shaft-pro-4",
-      "word": "lift shaft",
-      "translation": "电梯井",
-      "x": 1483.33,
-      "y": 148,
-      "priority": 1.243,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "switchgear-cabinet-pro-4",
-      "word": "switchgear cabinet",
-      "translation": "开关柜",
-      "x": 1530,
-      "y": 148,
-      "priority": 1.244,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "electrical-panel-pro-4",
-      "word": "electrical panel",
-      "translation": "配电面板",
-      "x": 1576.67,
-      "y": 148,
-      "priority": 1.245,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "breaker-panel-pro-4",
-      "word": "breaker panel",
-      "translation": "断路器面板",
-      "x": 1343.33,
-      "y": 304,
-      "priority": 1.246,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "transformer-cabinet-pro-4",
-      "word": "transformer cabinet",
-      "translation": "变压器柜",
-      "x": 1390,
-      "y": 304,
-      "priority": 1.247,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "ups-cabinet-pro-4",
-      "word": "UPS cabinet",
-      "translation": "不间断电源柜",
-      "x": 1436.67,
-      "y": 304,
-      "priority": 1.248,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "battery-cabinet-pro-4",
-      "word": "battery cabinet",
-      "translation": "电池柜",
-      "x": 1483.33,
-      "y": 304,
-      "priority": 1.249,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "server-blade-pro-4",
-      "word": "server blade",
-      "translation": "服务器刀片",
-      "x": 1530,
-      "y": 304,
-      "priority": 1.25,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "rack-shelf-pro-4",
-      "word": "rack shelf",
-      "translation": "机架层板",
-      "x": 1576.67,
-      "y": 304,
-      "priority": 1.251,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "patch-cord-pro-4",
-      "word": "patch cord",
-      "translation": "跳线",
-      "x": 1343.33,
-      "y": 460,
-      "priority": 1.252,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fiber-panel-pro-4",
-      "word": "fiber panel",
-      "translation": "光纤面板",
-      "x": 1390,
-      "y": 460,
-      "priority": 1.253,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "network-cable-pro-4",
-      "word": "network cable",
-      "translation": "网线",
-      "x": 1436.67,
-      "y": 460,
-      "priority": 1.254,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-ladder-pro-4",
-      "word": "cable ladder",
-      "translation": "电缆梯架",
-      "x": 1483.33,
-      "y": 460,
-      "priority": 1.255,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "supply-riser-pro-4",
-      "word": "supply riser",
-      "translation": "供给立管",
-      "x": 1530,
-      "y": 460,
-      "priority": 1.256,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "chilled-water-pipe-pro-4",
-      "word": "chilled water pipe",
-      "translation": "冷冻水管",
-      "x": 1576.67,
-      "y": 460,
-      "priority": 1.257,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "ventilation-grille-pro-4",
-      "word": "ventilation grille",
-      "translation": "通风格栅",
-      "x": 1343.33,
-      "y": 616,
-      "priority": 1.258,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "return-air-duct-pro-4",
-      "word": "return air duct",
-      "translation": "回风管",
-      "x": 1390,
-      "y": 616,
-      "priority": 1.259,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "filter-rack-pro-4",
-      "word": "filter rack",
-      "translation": "过滤器架",
-      "x": 1436.67,
-      "y": 616,
-      "priority": 1.26,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "access-hatch-pro-4",
-      "word": "access hatch",
-      "translation": "检修口",
-      "x": 1483.33,
-      "y": 616,
-      "priority": 1.261,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "sprinkler-valve-pro-4",
-      "word": "sprinkler valve",
-      "translation": "喷淋阀",
-      "x": 1530,
-      "y": 616,
-      "priority": 1.262,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fire-hose-reel-pro-4",
-      "word": "fire hose reel",
-      "translation": "消防卷盘",
-      "x": 1576.67,
-      "y": 616,
-      "priority": 1.263,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "smoke-detector-pro-4",
-      "word": "smoke detector",
-      "translation": "烟雾探测器",
-      "x": 1343.33,
-      "y": 772,
-      "priority": 1.264,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "alarm-beacon-pro-4",
-      "word": "alarm beacon",
-      "translation": "报警信标",
-      "x": 1390,
-      "y": 772,
-      "priority": 1.265,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "service-door-pro-4",
-      "word": "service door",
-      "translation": "设备门",
-      "x": 1436.67,
-      "y": 772,
-      "priority": 1.266,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "maintenance-rail-pro-4",
-      "word": "maintenance rail",
-      "translation": "检修栏杆",
-      "x": 1483.33,
-      "y": 772,
-      "priority": 1.267,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "duct-elbow-pro-4",
-      "word": "duct elbow",
-      "translation": "风管弯头",
-      "x": 1530,
-      "y": 772,
-      "priority": 1.268,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "pipe-flange-pro-4",
-      "word": "pipe flange",
-      "translation": "管道法兰",
-      "x": 1576.67,
-      "y": 772,
-      "priority": 1.269,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fan-coil-pro-5",
-      "word": "fan coil",
-      "translation": "风机盘管",
-      "x": 1343.33,
-      "y": 148,
-      "priority": 1.27,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "air-filter-pro-5",
-      "word": "air filter",
-      "translation": "空气滤网",
-      "x": 1390,
-      "y": 148,
-      "priority": 1.271,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "filter-frame-pro-5",
-      "word": "filter frame",
-      "translation": "滤网框",
-      "x": 1436.67,
-      "y": 148,
-      "priority": 1.272,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "volume-damper-pro-5",
-      "word": "volume damper",
-      "translation": "风量调节阀",
-      "x": 1483.33,
-      "y": 148,
-      "priority": 1.273,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "duct-grille-pro-5",
-      "word": "duct grille",
-      "translation": "风管格栅",
-      "x": 1530,
-      "y": 148,
-      "priority": 1.274,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-workstation-leg-pro-2",
       "semanticRealmId": "people-society"
     },
     {
       "id": "duct-collar-pro-5",
       "word": "duct collar",
       "translation": "风管套环",
-      "x": 1576.67,
-      "y": 148,
+      "x": 1509,
+      "y": 233,
       "priority": 1.275,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "pipe-valve-pro-5",
-      "word": "pipe valve",
-      "translation": "管道阀",
-      "x": 1343.33,
-      "y": 304,
-      "priority": 1.276,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "valve-handle-pro-5",
-      "word": "valve handle",
-      "translation": "阀门把手",
-      "x": 1390,
-      "y": 304,
-      "priority": 1.277,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "pressure-gauge-pro-5",
-      "word": "pressure gauge",
-      "translation": "压力表",
-      "x": 1436.67,
-      "y": 304,
-      "priority": 1.278,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "flow-meter-pro-5",
-      "word": "flow meter",
-      "translation": "流量计",
-      "x": 1483.33,
-      "y": 304,
-      "priority": 1.279,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "meter-cabinet-pro-5",
-      "word": "meter cabinet",
-      "translation": "仪表柜",
-      "x": 1530,
-      "y": 304,
-      "priority": 1.28,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "conduit-box-pro-5",
-      "word": "conduit box",
-      "translation": "线管盒",
-      "x": 1576.67,
-      "y": 304,
-      "priority": 1.281,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "conduit-strap-pro-5",
-      "word": "conduit strap",
-      "translation": "线管卡箍",
-      "x": 1343.33,
-      "y": 460,
-      "priority": 1.282,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-trunk-pro-5",
-      "word": "cable trunk",
-      "translation": "电缆槽",
-      "x": 1390,
-      "y": 460,
-      "priority": 1.283,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-gland-pro-5",
-      "word": "cable gland",
-      "translation": "电缆密封套",
-      "x": 1436.67,
-      "y": 460,
-      "priority": 1.284,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "switch-handle-pro-5",
-      "word": "switch handle",
-      "translation": "开关把手",
-      "x": 1483.33,
-      "y": 460,
-      "priority": 1.285,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "busbar-cover-pro-5",
-      "word": "busbar cover",
-      "translation": "母线护盖",
-      "x": 1530,
-      "y": 460,
-      "priority": 1.286,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "breaker-lever-pro-5",
-      "word": "breaker lever",
-      "translation": "断路器扳手",
-      "x": 1576.67,
-      "y": 460,
-      "priority": 1.287,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "power-meter-pro-5",
-      "word": "power meter",
-      "translation": "电力表",
-      "x": 1343.33,
-      "y": 616,
-      "priority": 1.288,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "emergency-light-pro-5",
-      "word": "emergency light",
-      "translation": "应急灯",
-      "x": 1390,
-      "y": 616,
-      "priority": 1.289,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "exit-light-pro-5",
-      "word": "exit light",
-      "translation": "出口灯",
-      "x": 1436.67,
-      "y": 616,
-      "priority": 1.29,
       "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "sprinkler-head-pro-5",
-      "word": "sprinkler head",
-      "translation": "喷淋头",
-      "x": 1483.33,
-      "y": 616,
-      "priority": 1.291,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fire-hose-pro-5",
-      "word": "fire hose",
-      "translation": "消防水带",
-      "x": 1530,
-      "y": 616,
-      "priority": 1.292,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "smoke-alarm-pro-5",
-      "word": "smoke alarm",
-      "translation": "烟雾报警器",
-      "x": 1576.67,
-      "y": 616,
-      "priority": 1.293,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fire-door-pro-5",
-      "word": "fire door",
-      "translation": "防火门",
-      "x": 1343.33,
-      "y": 772,
-      "priority": 1.294,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "access-panel-pro-5",
-      "word": "access panel",
-      "translation": "检修面板",
-      "x": 1390,
-      "y": 772,
-      "priority": 1.295,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "service-ladder-pro-5",
-      "word": "service ladder",
-      "translation": "检修梯",
-      "x": 1436.67,
-      "y": 772,
-      "priority": 1.296,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "floor-drain-pro-5",
-      "word": "floor drain",
-      "translation": "地漏",
-      "x": 1483.33,
-      "y": 772,
-      "priority": 1.297,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-duct-collar-pro-5",
       "semanticRealmId": "people-society"
     },
     {
       "id": "pipe-elbow-pro-5",
       "word": "pipe elbow",
       "translation": "管道弯头",
-      "x": 1530,
-      "y": 772,
+      "x": 1548,
+      "y": 349,
       "priority": 1.298,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "ceiling-hatch-pro-5",
-      "word": "ceiling hatch",
-      "translation": "天花检修口",
-      "x": 1576.67,
-      "y": 772,
-      "priority": 1.299,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "lift-indicator-pro-6",
-      "word": "lift indicator",
-      "translation": "电梯指示器",
-      "x": 1343.33,
-      "y": 148,
-      "priority": 1.3,
       "minLevel": 2,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-pipe-elbow-pro-5",
       "semanticRealmId": "people-society"
     },
     {
       "id": "elevator-jamb-pro-6",
       "word": "elevator jamb",
       "translation": "电梯门框",
-      "x": 1390,
-      "y": 148,
+      "x": 1315,
+      "y": 462,
       "priority": 1.301,
       "minLevel": 2,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-elevator-jamb-pro-6",
       "semanticRealmId": "people-society"
     },
     {
       "id": "elevator-sill-pro-6",
       "word": "elevator sill",
       "translation": "电梯门槛",
-      "x": 1436.67,
-      "y": 148,
+      "x": 1260,
+      "y": 699,
       "priority": 1.302,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "hoistway-door-pro-6",
-      "word": "hoistway door",
-      "translation": "电梯井门",
-      "x": 1483.33,
-      "y": 148,
-      "priority": 1.303,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
+      "minLevel": 3,
+      "sourceVisualRegion": "atrium-photo-elevator-sill-pro-6",
       "semanticRealmId": "people-society"
     },
     {
       "id": "stair-stringer-pro-6",
       "word": "stair stringer",
       "translation": "楼梯梁",
-      "x": 1530,
-      "y": 148,
+      "x": 1378,
+      "y": 484,
       "priority": 1.304,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "handrail-bracket-pro-6",
-      "word": "handrail bracket",
-      "translation": "扶手支架",
-      "x": 1576.67,
-      "y": 148,
-      "priority": 1.305,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "landing-edge-pro-6",
-      "word": "landing edge",
-      "translation": "平台边缘",
-      "x": 1343.33,
-      "y": 304,
-      "priority": 1.306,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "riser-panel-pro-6",
-      "word": "riser panel",
-      "translation": "立管面板",
-      "x": 1390,
-      "y": 304,
-      "priority": 1.307,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-tray-rung-pro-6",
-      "word": "cable tray rung",
-      "translation": "电缆桥架横档",
-      "x": 1436.67,
-      "y": 304,
-      "priority": 1.308,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "ladder-rung-pro-6",
-      "word": "ladder rung",
-      "translation": "梯子横档",
-      "x": 1483.33,
-      "y": 304,
-      "priority": 1.309,
-      "minLevel": 2,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "server-rail-pro-6",
-      "word": "server rail",
-      "translation": "服务器导轨",
-      "x": 1530,
-      "y": 304,
-      "priority": 1.31,
       "minLevel": 3,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-stair-stringer-pro-6",
       "semanticRealmId": "people-society"
     },
     {
       "id": "rack-handle-pro-6",
       "word": "rack handle",
       "translation": "机架把手",
-      "x": 1576.67,
-      "y": 304,
+      "x": 1504,
+      "y": 722,
       "priority": 1.311,
       "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "patch-cord-latch-pro-6",
-      "word": "patch cord latch",
-      "translation": "跳线卡扣",
-      "x": 1343.33,
-      "y": 460,
-      "priority": 1.312,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fiber-tray-pro-6",
-      "word": "fiber tray",
-      "translation": "光纤托盘",
-      "x": 1390,
-      "y": 460,
-      "priority": 1.313,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cable-splice-pro-6",
-      "word": "cable splice",
-      "translation": "电缆接头",
-      "x": 1436.67,
-      "y": 460,
-      "priority": 1.314,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "conduit-fitting-pro-6",
-      "word": "conduit fitting",
-      "translation": "导管接头",
-      "x": 1483.33,
-      "y": 460,
-      "priority": 1.315,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "busbar-terminal-pro-6",
-      "word": "busbar terminal",
-      "translation": "母线端子",
-      "x": 1530,
-      "y": 460,
-      "priority": 1.316,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "disconnect-switch-pro-6",
-      "word": "disconnect switch",
-      "translation": "隔离开关",
-      "x": 1576.67,
-      "y": 460,
-      "priority": 1.317,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fuse-holder-pro-6",
-      "word": "fuse holder",
-      "translation": "熔断器座",
-      "x": 1343.33,
-      "y": 616,
-      "priority": 1.318,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "panel-hinge-pro-6",
-      "word": "panel hinge",
-      "translation": "面板铰链",
-      "x": 1390,
-      "y": 616,
-      "priority": 1.319,
-      "minLevel": 3,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "panel-latch-pro-6",
-      "word": "panel latch",
-      "translation": "面板卡扣",
-      "x": 1436.67,
-      "y": 616,
-      "priority": 1.32,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "access-reader-pro-6",
-      "word": "access reader",
-      "translation": "门禁读卡器",
-      "x": 1483.33,
-      "y": 616,
-      "priority": 1.321,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "fire-alarm-strobe-pro-6",
-      "word": "fire alarm strobe",
-      "translation": "火灾报警闪光灯",
-      "x": 1530,
-      "y": 616,
-      "priority": 1.322,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "sprinkler-escutcheon-pro-6",
-      "word": "sprinkler escutcheon",
-      "translation": "喷淋装饰盖",
-      "x": 1576.67,
-      "y": 616,
-      "priority": 1.323,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "smoke-detector-base-pro-6",
-      "word": "smoke detector base",
-      "translation": "烟感底座",
-      "x": 1343.33,
-      "y": 772,
-      "priority": 1.324,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "duct-register-pro-6",
-      "word": "duct register",
-      "translation": "风管风口",
-      "x": 1390,
-      "y": 772,
-      "priority": 1.325,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "damper-blade-pro-6",
-      "word": "damper blade",
-      "translation": "风阀叶片",
-      "x": 1436.67,
-      "y": 772,
-      "priority": 1.326,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "pipe-support-pro-6",
-      "word": "pipe support",
-      "translation": "管道支架",
-      "x": 1483.33,
-      "y": 772,
-      "priority": 1.327,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "service-core-threshold-pro-6",
-      "word": "service-core threshold",
-      "translation": "设备核心门槛",
-      "x": 1530,
-      "y": 772,
-      "priority": 1.328,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "rack-identification-plate-pro-6",
-      "word": "rack identification plate",
-      "translation": "机架识别牌",
-      "x": 1576.67,
-      "y": 772,
-      "priority": 1.329,
-      "minLevel": 4,
-      "sourceVisualRegion": "service-core",
+      "sourceVisualRegion": "atrium-photo-rack-handle-pro-6",
       "semanticRealmId": "people-society"
     },
     {
       "id": "conference-table-corner-pro-7",
       "word": "conference table corner",
       "translation": "会议桌角",
-      "x": 801.67,
-      "y": 170,
+      "x": 776,
+      "y": 537,
       "priority": 1.33,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "table-leg-brace-pro-7",
-      "word": "table leg brace",
-      "translation": "桌腿撑",
-      "x": 885,
-      "y": 170,
-      "priority": 1.331,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
+      "minLevel": 4,
+      "sourceVisualRegion": "atrium-photo-conference-table-corner-pro-7",
       "semanticRealmId": "people-society"
     },
     {
       "id": "chair-backrest-pro-7",
       "word": "chair backrest",
       "translation": "椅背",
-      "x": 968.33,
-      "y": 170,
+      "x": 721,
+      "y": 546,
       "priority": 1.332,
       "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
+      "sourceVisualRegion": "atrium-photo-chair-backrest-pro-7",
       "semanticRealmId": "people-society"
     },
     {
       "id": "chair-seat-cushion-pro-7",
       "word": "chair seat cushion",
       "translation": "椅座垫",
-      "x": 1051.67,
-      "y": 170,
+      "x": 751,
+      "y": 557,
       "priority": 1.333,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "chair-arm-pad-pro-7",
-      "word": "chair arm pad",
-      "translation": "椅扶手垫",
-      "x": 1135,
-      "y": 170,
-      "priority": 1.334,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
+      "minLevel": 3,
+      "sourceVisualRegion": "atrium-photo-chair-seat-cushion-pro-7",
       "semanticRealmId": "people-society"
     },
     {
       "id": "chair-caster-pro-7",
       "word": "chair caster",
       "translation": "椅脚轮",
-      "x": 1218.33,
-      "y": 170,
+      "x": 866,
+      "y": 588,
       "priority": 1.335,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "glass-door-handle-pro-7",
-      "word": "glass door handle",
-      "translation": "玻璃门把手",
-      "x": 801.67,
-      "y": 270,
-      "priority": 1.336,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "glass-door-hinge-pro-7",
-      "word": "glass door hinge",
-      "translation": "玻璃门铰链",
-      "x": 885,
-      "y": 270,
-      "priority": 1.337,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "glass-seal-pro-7",
-      "word": "glass seal",
-      "translation": "玻璃密封条",
-      "x": 968.33,
-      "y": 270,
-      "priority": 1.338,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "glass-mullion-cap-pro-7",
-      "word": "glass mullion cap",
-      "translation": "玻璃竖框帽",
-      "x": 1051.67,
-      "y": 270,
-      "priority": 1.339,
-      "minLevel": 2,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "whiteboard-surface-pro-7",
-      "word": "whiteboard surface",
-      "translation": "白板面",
-      "x": 1135,
-      "y": 270,
-      "priority": 1.34,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "whiteboard-corner-pro-7",
-      "word": "whiteboard corner",
-      "translation": "白板角",
-      "x": 1218.33,
-      "y": 270,
-      "priority": 1.341,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "marker-rack-pro-7",
-      "word": "marker rack",
-      "translation": "标记笔架",
-      "x": 801.67,
-      "y": 370,
-      "priority": 1.342,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "marker-eraser-pro-7",
-      "word": "marker eraser",
-      "translation": "白板擦",
-      "x": 885,
-      "y": 370,
-      "priority": 1.343,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "presentation-remote-pro-7",
-      "word": "presentation remote",
-      "translation": "演示遥控器",
-      "x": 968.33,
-      "y": 370,
-      "priority": 1.344,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "projector-cable-pro-7",
-      "word": "projector cable",
-      "translation": "投影仪电缆",
-      "x": 1051.67,
-      "y": 370,
-      "priority": 1.345,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "camera-power-lead-pro-7",
-      "word": "camera power lead",
-      "translation": "摄像机电源线",
-      "x": 1135,
-      "y": 370,
-      "priority": 1.346,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "microphone-base-pro-7",
-      "word": "microphone base",
-      "translation": "麦克风底座",
-      "x": 1218.33,
-      "y": 370,
-      "priority": 1.347,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "speaker-grille-pro-7",
-      "word": "speaker grille",
-      "translation": "扬声器格栅",
-      "x": 801.67,
-      "y": 470,
-      "priority": 1.348,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "table-power-socket-pro-7",
-      "word": "table power socket",
-      "translation": "桌面电源插座",
-      "x": 885,
-      "y": 470,
-      "priority": 1.349,
-      "minLevel": 3,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "conference-badge-holder-pro-7",
-      "word": "conference badge holder",
-      "translation": "会议证件夹",
-      "x": 968.33,
-      "y": 470,
-      "priority": 1.35,
       "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "blind-cord-pro-7",
-      "word": "blind cord",
-      "translation": "百叶绳",
-      "x": 1051.67,
-      "y": 470,
-      "priority": 1.351,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "acoustic-panel-edge-pro-7",
-      "word": "acoustic panel edge",
-      "translation": "吸音板边",
-      "x": 1135,
-      "y": 470,
-      "priority": 1.352,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "ceiling-speaker-pro-7",
-      "word": "ceiling speaker",
-      "translation": "天花扬声器",
-      "x": 1218.33,
-      "y": 470,
-      "priority": 1.353,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "room-light-switch-pro-7",
-      "word": "room light switch",
-      "translation": "房间灯开关",
-      "x": 801.67,
-      "y": 570,
-      "priority": 1.354,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
+      "sourceVisualRegion": "atrium-photo-chair-caster-pro-7",
       "semanticRealmId": "people-society"
     },
     {
       "id": "meeting-table-edge-pro-7",
       "word": "meeting table edge",
       "translation": "会议桌边",
-      "x": 885,
-      "y": 570,
+      "x": 749,
+      "y": 534,
       "priority": 1.355,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "chair-foot-ring-pro-7",
-      "word": "chair foot ring",
-      "translation": "椅脚圈",
-      "x": 968.33,
-      "y": 570,
-      "priority": 1.356,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "screen-power-cable-pro-7",
-      "word": "screen power cable",
-      "translation": "屏幕电源线",
-      "x": 1051.67,
-      "y": 570,
-      "priority": 1.357,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "conference-room-clock-pro-7",
-      "word": "conference room clock",
-      "translation": "会议室时钟",
-      "x": 1135,
-      "y": 570,
-      "priority": 1.358,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "table-cable-tray-pro-7",
-      "word": "table cable tray",
-      "translation": "桌下电缆托盘",
-      "x": 1218.33,
-      "y": 570,
-      "priority": 1.359,
-      "minLevel": 4,
-      "sourceVisualRegion": "conference-room",
+      "minLevel": 3,
+      "sourceVisualRegion": "atrium-photo-meeting-table-edge-pro-7",
       "semanticRealmId": "people-society"
     },
     {
       "id": "backsplash-tile-pro-8",
       "word": "backsplash tile",
       "translation": "后挡板瓷砖",
-      "x": 1025.83,
-      "y": 423,
+      "x": 1012,
+      "y": 482,
       "priority": 1.36,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 4,
+      "sourceVisualRegion": "atrium-photo-backsplash-tile-pro-8",
       "semanticRealmId": "people-society"
     },
     {
       "id": "upper-cabinet-door-pro-8",
       "word": "upper cabinet door",
       "translation": "吊柜门",
-      "x": 1097.5,
-      "y": 423,
+      "x": 1078,
+      "y": 436,
       "priority": 1.361,
       "minLevel": 2,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cabinet-knob-pro-8",
-      "word": "cabinet knob",
-      "translation": "柜门旋钮",
-      "x": 1169.17,
-      "y": 423,
-      "priority": 1.362,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-upper-cabinet-door-pro-8",
       "semanticRealmId": "people-society"
     },
     {
       "id": "open-shelf-pro-8",
       "word": "open shelf",
       "translation": "开放搁板",
-      "x": 1240.83,
-      "y": 423,
+      "x": 932,
+      "y": 434,
       "priority": 1.363,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-open-shelf-pro-8",
       "semanticRealmId": "people-society"
     },
     {
       "id": "countertop-edge-pro-8",
       "word": "countertop edge",
       "translation": "台面边缘",
-      "x": 1312.5,
-      "y": 423,
+      "x": 1019,
+      "y": 514,
       "priority": 1.364,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "island-leg-pro-8",
-      "word": "island leg",
-      "translation": "中岛支腿",
-      "x": 1384.17,
-      "y": 423,
-      "priority": 1.365,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "sink-basin-pro-8",
-      "word": "sink basin",
-      "translation": "水槽盆",
-      "x": 1025.83,
-      "y": 509,
-      "priority": 1.366,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "faucet-handle-pro-8",
-      "word": "faucet handle",
-      "translation": "水龙头把手",
-      "x": 1097.5,
-      "y": 509,
-      "priority": 1.367,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "soap-pump-pro-8",
-      "word": "soap pump",
-      "translation": "洗手液泵",
-      "x": 1169.17,
-      "y": 509,
-      "priority": 1.368,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "coffee-brewer-pro-8",
-      "word": "coffee brewer",
-      "translation": "咖啡冲煮机",
-      "x": 1240.83,
-      "y": 509,
-      "priority": 1.369,
-      "minLevel": 2,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "carafe-pro-8",
-      "word": "carafe",
-      "translation": "咖啡壶",
-      "x": 1312.5,
-      "y": 509,
-      "priority": 1.37,
       "minLevel": 3,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "mug-shelf-pro-8",
-      "word": "mug shelf",
-      "translation": "马克杯搁板",
-      "x": 1384.17,
-      "y": 509,
-      "priority": 1.371,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-countertop-edge-pro-8",
       "semanticRealmId": "people-society"
     },
     {
       "id": "refrigerator-door-pro-8",
       "word": "refrigerator door",
       "translation": "冰箱门",
-      "x": 1025.83,
-      "y": 595,
+      "x": 1148,
+      "y": 490,
       "priority": 1.372,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "microwave-panel-pro-8",
-      "word": "microwave panel",
-      "translation": "微波炉面板",
-      "x": 1097.5,
-      "y": 595,
-      "priority": 1.373,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "microwave-keypad-pro-8",
-      "word": "microwave keypad",
-      "translation": "微波炉按键",
-      "x": 1169.17,
-      "y": 595,
-      "priority": 1.374,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "kettle-spout-pro-8",
-      "word": "kettle spout",
-      "translation": "水壶壶嘴",
-      "x": 1240.83,
-      "y": 595,
-      "priority": 1.375,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "toaster-slot-pro-8",
-      "word": "toaster slot",
-      "translation": "烤面包机槽",
-      "x": 1312.5,
-      "y": 595,
-      "priority": 1.376,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-refrigerator-door-pro-8",
       "semanticRealmId": "people-society"
     },
     {
       "id": "pendant-shade-pro-8",
       "word": "pendant shade",
       "translation": "吊灯灯罩",
-      "x": 1384.17,
-      "y": 595,
+      "x": 1021,
+      "y": 421,
       "priority": 1.377,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 1,
+      "sourceVisualRegion": "atrium-photo-pendant-shade-pro-8",
       "semanticRealmId": "people-society"
     },
     {
       "id": "bar-stool-seat-pro-8",
       "word": "bar stool seat",
       "translation": "吧台凳座面",
-      "x": 1025.83,
-      "y": 681,
+      "x": 913,
+      "y": 528,
       "priority": 1.378,
       "minLevel": 3,
-      "sourceVisualRegion": "break-room",
+      "sourceVisualRegion": "atrium-photo-bar-stool-seat-pro-8",
       "semanticRealmId": "people-society"
     },
     {
       "id": "table-top-pro-8",
       "word": "table top",
       "translation": "桌面",
-      "x": 1097.5,
-      "y": 681,
+      "x": 1066,
+      "y": 575,
       "priority": 1.379,
-      "minLevel": 3,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-table-top-pro-8",
       "semanticRealmId": "people-society"
     },
     {
       "id": "plant-pot-pro-8",
       "word": "plant pot",
       "translation": "花盆",
-      "x": 1169.17,
-      "y": 681,
+      "x": 1038,
+      "y": 566,
       "priority": 1.38,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cutting-board-pro-8",
-      "word": "cutting board",
-      "translation": "砧板",
-      "x": 1240.83,
-      "y": 681,
-      "priority": 1.381,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "bowl-rim-pro-8",
-      "word": "bowl rim",
-      "translation": "碗沿",
-      "x": 1312.5,
-      "y": 681,
-      "priority": 1.382,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "plate-stack-pro-8",
-      "word": "plate stack",
-      "translation": "盘子摞",
-      "x": 1384.17,
-      "y": 681,
-      "priority": 1.383,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "cup-rim-pro-8",
-      "word": "cup rim",
-      "translation": "杯沿",
-      "x": 1025.83,
-      "y": 767,
-      "priority": 1.384,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "undercounter-drawer-pro-8",
-      "word": "undercounter drawer",
-      "translation": "台下抽屉",
-      "x": 1097.5,
-      "y": 767,
-      "priority": 1.385,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "floor-tile-pro-8",
-      "word": "floor tile",
-      "translation": "地砖",
-      "x": 1169.17,
-      "y": 767,
-      "priority": 1.386,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 2,
+      "sourceVisualRegion": "atrium-photo-plant-pot-pro-8",
       "semanticRealmId": "people-society"
     },
     {
       "id": "cabinet-side-panel-pro-8",
       "word": "cabinet side panel",
       "translation": "柜体侧板",
-      "x": 1240.83,
-      "y": 767,
+      "x": 1086,
+      "y": 542,
       "priority": 1.387,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
-      "semanticRealmId": "people-society"
-    },
-    {
-      "id": "drawer-face-pro-8",
-      "word": "drawer face",
-      "translation": "抽屉面板",
-      "x": 1312.5,
-      "y": 767,
-      "priority": 1.388,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 3,
+      "sourceVisualRegion": "atrium-photo-cabinet-side-panel-pro-8",
       "semanticRealmId": "people-society"
     },
     {
       "id": "shelf-lip-pro-8",
       "word": "shelf lip",
       "translation": "搁板前沿",
-      "x": 1384.17,
-      "y": 767,
+      "x": 943,
+      "y": 463,
       "priority": 1.389,
-      "minLevel": 4,
-      "sourceVisualRegion": "break-room",
+      "minLevel": 3,
+      "sourceVisualRegion": "atrium-photo-shelf-lip-pro-8",
       "semanticRealmId": "people-society"
     }
   ],
@@ -4366,21 +1033,17 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/office-atrium-premium-v1.jpg",
     "reviewedAssetSha256": "9403fc42abf40af87d59f9a12401e5dcff76256fc13870a7780e79ae8e3a7cdf",
-    "rationale": "The office atrium clearly resolves a reception lobby, open-plan workstations, glass conference room, kitchenette and a service core with elevator, stairs, server racks, ducts and a fire panel; labels stay on those visible fixtures and surfaces. The professional vocabulary pass adds 120 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The earlier human review covered the atrium vocabulary. An agent reviewed the revised glass meeting-room entrance against the atrium image, identifying the meeting table and chair backs inside the glass and the coffee maker outside it.",
-    "previousLabelCount": 400,
-    "retainedLabelCount": 390,
-    "removedLabelCount": 10,
+    "rationale": "The five ground-floor areas were checked on the atrium photograph. Each mapped object or visible part has its own image bounds. The word index also includes equipment, concealed parts and alternate names without a distinct visible object in the overview.",
+    "previousLabelCount": 390,
+    "retainedLabelCount": 87,
+    "removedLabelCount": 303,
     "removedExamples": [
-      "employee identity",
-      "meeting agenda",
-      "company logo",
-      "network traffic",
-      "air quality",
-      "fire drill",
-      "office policy",
-      "salary",
-      "private data",
-      "productivity score"
+      "camera lens",
+      "conference folder",
+      "marker rack",
+      "webcam",
+      "fan coil",
+      "fire hose reel"
     ]
   },
   "visualRegions": [
@@ -4395,48 +1058,48 @@
     },
     {
       "id": "reception-lobby",
-      "description": "Entrance lobby with curved reception desk, visitor seating, directory wall and planted atrium at the left",
+      "description": "The illuminated wall directory, hanging lights and curved wood reception counter at the left of the atrium.",
       "kind": "object",
       "x": 0,
-      "y": 350,
-      "width": 390,
-      "height": 520
+      "y": 248,
+      "width": 410,
+      "height": 632
     },
     {
       "id": "open-plan-office",
-      "description": "Open plan work floor with desks, monitors, chairs, plants and ceiling cable trays in the centre",
+      "description": "Two rows of desks, screens, task chairs and drawer cabinets behind the curved reception counter.",
       "kind": "object",
-      "x": 300,
-      "y": 380,
-      "width": 680,
-      "height": 450
+      "x": 330,
+      "y": 405,
+      "width": 300,
+      "height": 275
     },
     {
       "id": "conference-room",
-      "description": "Glass conference room with long table, chairs, presentation screen, whiteboard and camera",
+      "description": "The freestanding glass enclosure in the centre of the ground floor, with a wood meeting table and dark chairs.",
       "kind": "object",
-      "x": 760,
-      "y": 120,
-      "width": 500,
-      "height": 500
+      "x": 625,
+      "y": 307,
+      "width": 273,
+      "height": 337
     },
     {
       "id": "break-room",
-      "description": "Break room kitchenette and pantry with coffee counter, refrigerator, sink, cabinets and dining table",
+      "description": "The kitchenette beside the glass enclosure, with pendant lights, open shelves, counter stools and a round dining table.",
       "kind": "object",
-      "x": 990,
-      "y": 380,
-      "width": 430,
-      "height": 430
+      "x": 889,
+      "y": 337,
+      "width": 283,
+      "height": 348
     },
     {
       "id": "service-core",
-      "description": "Service core with elevator doors, stairwell, server racks, HVAC duct and fire panel at the right",
+      "description": "The lift doors and open stairway on the right, with exposed ducts above and server cabinets beneath the stairs.",
       "kind": "object",
-      "x": 1320,
-      "y": 70,
-      "width": 280,
-      "height": 780
+      "x": 1155,
+      "y": 0,
+      "width": 445,
+      "height": 855
     },
     {
       "id": "portal-service-core",
@@ -4482,6 +1145,789 @@
       "y": 360,
       "width": 240,
       "height": 190
+    },
+    {
+      "id": "atrium-photo-directory-wall",
+      "description": "directory wall in the reception lobby of the atrium photograph",
+      "kind": "object",
+      "x": 231,
+      "y": 419,
+      "width": 28,
+      "height": 12
+    },
+    {
+      "id": "atrium-photo-reception-counter",
+      "description": "reception counter in the reception lobby of the atrium photograph",
+      "kind": "object",
+      "x": 317,
+      "y": 656,
+      "width": 36,
+      "height": 35
+    },
+    {
+      "id": "atrium-photo-planter",
+      "description": "planter in the reception lobby of the atrium photograph",
+      "kind": "object",
+      "x": 32,
+      "y": 616,
+      "width": 18,
+      "height": 15
+    },
+    {
+      "id": "atrium-photo-counter-edge",
+      "description": "counter edge in the reception lobby of the atrium photograph",
+      "kind": "part",
+      "x": 238,
+      "y": 632,
+      "width": 6,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-chair-back",
+      "description": "chair back in the reception lobby of the atrium photograph",
+      "kind": "part",
+      "x": 182,
+      "y": 582,
+      "width": 14,
+      "height": 14
+    },
+    {
+      "id": "atrium-photo-wall-panel",
+      "description": "wall panel in the reception lobby of the atrium photograph",
+      "kind": "part",
+      "x": 240,
+      "y": 323,
+      "width": 12,
+      "height": 6
+    },
+    {
+      "id": "atrium-photo-atrium-railing-pro-1",
+      "description": "atrium railing in the reception lobby of the atrium photograph",
+      "kind": "part",
+      "x": 403,
+      "y": 320,
+      "width": 2,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-planter-box-pro-1",
+      "description": "planter box in the reception lobby of the atrium photograph",
+      "kind": "part",
+      "x": 369,
+      "y": 557,
+      "width": 6,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-ceiling-pendant-pro-1",
+      "description": "ceiling pendant in the reception lobby of the atrium photograph",
+      "kind": "object",
+      "x": 177,
+      "y": 253,
+      "width": 6,
+      "height": 25
+    },
+    {
+      "id": "atrium-photo-lobby-column-pro-1",
+      "description": "lobby column in the reception lobby of the atrium photograph",
+      "kind": "object",
+      "x": 314,
+      "y": 439,
+      "width": 20,
+      "height": 39
+    },
+    {
+      "id": "atrium-photo-open-plan-office",
+      "description": "open plan office in the open plan office of the atrium photograph",
+      "kind": "object",
+      "x": 416,
+      "y": 471,
+      "width": 31,
+      "height": 22
+    },
+    {
+      "id": "atrium-photo-workstation",
+      "description": "workstation in the open plan office of the atrium photograph",
+      "kind": "object",
+      "x": 385,
+      "y": 501,
+      "width": 8,
+      "height": 4
+    },
+    {
+      "id": "atrium-photo-desk",
+      "description": "desk in the open plan office of the atrium photograph",
+      "kind": "object",
+      "x": 541,
+      "y": 516,
+      "width": 5,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-monitor",
+      "description": "monitor in the open plan office of the atrium photograph",
+      "kind": "object",
+      "x": 463,
+      "y": 490,
+      "width": 21,
+      "height": 13
+    },
+    {
+      "id": "atrium-photo-office-chair",
+      "description": "office chair in the open plan office of the atrium photograph",
+      "kind": "object",
+      "x": 509,
+      "y": 516,
+      "width": 9,
+      "height": 12
+    },
+    {
+      "id": "atrium-photo-task-light",
+      "description": "task light in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 447,
+      "y": 504,
+      "width": 3,
+      "height": 3
+    },
+    {
+      "id": "atrium-photo-desk-divider",
+      "description": "desk divider in the open plan office of the atrium photograph",
+      "kind": "object",
+      "x": 573,
+      "y": 485,
+      "width": 6,
+      "height": 12
+    },
+    {
+      "id": "atrium-photo-filing-cabinet",
+      "description": "filing cabinet in the open plan office of the atrium photograph",
+      "kind": "object",
+      "x": 561,
+      "y": 542,
+      "width": 11,
+      "height": 12
+    },
+    {
+      "id": "atrium-photo-office-plant",
+      "description": "office plant in the open plan office of the atrium photograph",
+      "kind": "object",
+      "x": 595,
+      "y": 482,
+      "width": 10,
+      "height": 8
+    },
+    {
+      "id": "atrium-photo-desk-drawer",
+      "description": "desk drawer in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 582,
+      "y": 526,
+      "width": 6,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-monitor-stand",
+      "description": "monitor stand in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 472,
+      "y": 513,
+      "width": 3,
+      "height": 4
+    },
+    {
+      "id": "atrium-photo-chair-armrest",
+      "description": "chair armrest in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 486,
+      "y": 530,
+      "width": 4,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-drawer-handle",
+      "description": "drawer handle in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 587,
+      "y": 540,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-screen-bezel",
+      "description": "screen bezel in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 457,
+      "y": 493,
+      "width": 1,
+      "height": 5
+    },
+    {
+      "id": "atrium-photo-wheel-caster",
+      "description": "wheel caster in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 482,
+      "y": 576,
+      "width": 2,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-chair-base",
+      "description": "chair base in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 524,
+      "y": 568,
+      "width": 4,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-desk-edge",
+      "description": "desk edge in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 463,
+      "y": 526,
+      "width": 5,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-office-shelf-pro-2",
+      "description": "office shelf in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 587,
+      "y": 443,
+      "width": 6,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-workstation-leg-pro-2",
+      "description": "workstation leg in the open plan office of the atrium photograph",
+      "kind": "part",
+      "x": 452,
+      "y": 538,
+      "width": 2,
+      "height": 7
+    },
+    {
+      "id": "atrium-photo-conference-room",
+      "description": "conference room in the conference room of the atrium photograph",
+      "kind": "object",
+      "x": 648,
+      "y": 356,
+      "width": 223,
+      "height": 240
+    },
+    {
+      "id": "atrium-photo-meeting-table",
+      "description": "meeting table in the conference room of the atrium photograph",
+      "kind": "object",
+      "x": 738,
+      "y": 520,
+      "width": 23,
+      "height": 10
+    },
+    {
+      "id": "atrium-photo-conference-chair",
+      "description": "conference chair in the conference room of the atrium photograph",
+      "kind": "object",
+      "x": 843,
+      "y": 535,
+      "width": 15,
+      "height": 22
+    },
+    {
+      "id": "atrium-photo-glass-wall",
+      "description": "glass wall in the conference room of the atrium photograph",
+      "kind": "object",
+      "x": 689,
+      "y": 373,
+      "width": 38,
+      "height": 91
+    },
+    {
+      "id": "atrium-photo-glass-mullion",
+      "description": "glass mullion in the conference room of the atrium photograph",
+      "kind": "object",
+      "x": 819,
+      "y": 351,
+      "width": 6,
+      "height": 96
+    },
+    {
+      "id": "atrium-photo-table-leg",
+      "description": "table leg in the conference room of the atrium photograph",
+      "kind": "part",
+      "x": 763,
+      "y": 544,
+      "width": 6,
+      "height": 43
+    },
+    {
+      "id": "atrium-photo-chair-backrest-pro-7",
+      "description": "chair backrest in the conference room of the atrium photograph",
+      "kind": "part",
+      "x": 713,
+      "y": 534,
+      "width": 14,
+      "height": 22
+    },
+    {
+      "id": "atrium-photo-boardroom-armrest",
+      "description": "boardroom armrest in the conference room of the atrium photograph",
+      "kind": "part",
+      "x": 787,
+      "y": 543,
+      "width": 13,
+      "height": 6
+    },
+    {
+      "id": "atrium-photo-chair-seat-cushion-pro-7",
+      "description": "chair seat cushion in the conference room of the atrium photograph",
+      "kind": "part",
+      "x": 744,
+      "y": 553,
+      "width": 13,
+      "height": 7
+    },
+    {
+      "id": "atrium-photo-meeting-table-edge-pro-7",
+      "description": "meeting table edge in the conference room of the atrium photograph",
+      "kind": "part",
+      "x": 746,
+      "y": 532,
+      "width": 8,
+      "height": 4
+    },
+    {
+      "id": "atrium-photo-conference-table-corner-pro-7",
+      "description": "conference table corner in the conference room of the atrium photograph",
+      "kind": "part",
+      "x": 773,
+      "y": 535,
+      "width": 7,
+      "height": 5
+    },
+    {
+      "id": "atrium-photo-chair-caster-pro-7",
+      "description": "chair caster in the conference room of the atrium photograph",
+      "kind": "part",
+      "x": 864,
+      "y": 585,
+      "width": 4,
+      "height": 6
+    },
+    {
+      "id": "atrium-photo-break-room",
+      "description": "break room in the break room of the atrium photograph",
+      "kind": "object",
+      "x": 951,
+      "y": 551,
+      "width": 163,
+      "height": 92
+    },
+    {
+      "id": "atrium-photo-kitchenette",
+      "description": "kitchenette in the break room of the atrium photograph",
+      "kind": "object",
+      "x": 931,
+      "y": 401,
+      "width": 154,
+      "height": 102
+    },
+    {
+      "id": "atrium-photo-refrigerator",
+      "description": "refrigerator in the break room of the atrium photograph",
+      "kind": "object",
+      "x": 1100,
+      "y": 440,
+      "width": 52,
+      "height": 101
+    },
+    {
+      "id": "atrium-photo-dining-table",
+      "description": "dining table in the break room of the atrium photograph",
+      "kind": "object",
+      "x": 1028,
+      "y": 589,
+      "width": 18,
+      "height": 56
+    },
+    {
+      "id": "atrium-photo-cabinet",
+      "description": "cabinet in the break room of the atrium photograph",
+      "kind": "object",
+      "x": 1034,
+      "y": 433,
+      "width": 12,
+      "height": 12
+    },
+    {
+      "id": "atrium-photo-countertop",
+      "description": "countertop in the break room of the atrium photograph",
+      "kind": "object",
+      "x": 987,
+      "y": 509,
+      "width": 21,
+      "height": 4
+    },
+    {
+      "id": "atrium-photo-backsplash",
+      "description": "backsplash in the break room of the atrium photograph",
+      "kind": "object",
+      "x": 986,
+      "y": 471,
+      "width": 40,
+      "height": 25
+    },
+    {
+      "id": "atrium-photo-bar-stool",
+      "description": "bar stool in the break room of the atrium photograph",
+      "kind": "object",
+      "x": 951,
+      "y": 531,
+      "width": 5,
+      "height": 2
+    },
+    {
+      "id": "atrium-photo-open-shelf-pro-8",
+      "description": "open shelf in the break room of the atrium photograph",
+      "kind": "object",
+      "x": 898,
+      "y": 381,
+      "width": 108,
+      "height": 78
+    },
+    {
+      "id": "atrium-photo-pendant-shade-pro-8",
+      "description": "pendant shade in the break room of the atrium photograph",
+      "kind": "object",
+      "x": 1011,
+      "y": 413,
+      "width": 21,
+      "height": 14
+    },
+    {
+      "id": "atrium-photo-upper-cabinet-door-pro-8",
+      "description": "upper cabinet door in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 1072,
+      "y": 433,
+      "width": 14,
+      "height": 14
+    },
+    {
+      "id": "atrium-photo-refrigerator-door-pro-8",
+      "description": "refrigerator door in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 1145,
+      "y": 445,
+      "width": 9,
+      "height": 105
+    },
+    {
+      "id": "atrium-photo-fridge-handle",
+      "description": "fridge handle in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 1129,
+      "y": 468,
+      "width": 6,
+      "height": 67
+    },
+    {
+      "id": "atrium-photo-water-dispenser",
+      "description": "water dispenser in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 1104,
+      "y": 496,
+      "width": 21,
+      "height": 26
+    },
+    {
+      "id": "atrium-photo-table-top-pro-8",
+      "description": "table top in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 1054,
+      "y": 570,
+      "width": 24,
+      "height": 9
+    },
+    {
+      "id": "atrium-photo-plant-pot-pro-8",
+      "description": "plant pot in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 1032,
+      "y": 562,
+      "width": 11,
+      "height": 10
+    },
+    {
+      "id": "atrium-photo-chair-seat",
+      "description": "chair seat in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 976,
+      "y": 605,
+      "width": 20,
+      "height": 8
+    },
+    {
+      "id": "atrium-photo-bar-stool-seat-pro-8",
+      "description": "bar stool seat in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 903,
+      "y": 525,
+      "width": 18,
+      "height": 5
+    },
+    {
+      "id": "atrium-photo-countertop-edge-pro-8",
+      "description": "countertop edge in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 1007,
+      "y": 512,
+      "width": 24,
+      "height": 5
+    },
+    {
+      "id": "atrium-photo-dining-table-edge",
+      "description": "dining table edge in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 1053,
+      "y": 581,
+      "width": 18,
+      "height": 4
+    },
+    {
+      "id": "atrium-photo-cabinet-side-panel-pro-8",
+      "description": "cabinet side panel in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 1076,
+      "y": 526,
+      "width": 19,
+      "height": 29
+    },
+    {
+      "id": "atrium-photo-shelf-lip-pro-8",
+      "description": "shelf lip in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 932,
+      "y": 461,
+      "width": 24,
+      "height": 4
+    },
+    {
+      "id": "atrium-photo-backsplash-tile-pro-8",
+      "description": "backsplash tile in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 1008,
+      "y": 480,
+      "width": 7,
+      "height": 4
+    },
+    {
+      "id": "atrium-photo-stool-foot",
+      "description": "stool foot in the break room of the atrium photograph",
+      "kind": "part",
+      "x": 912,
+      "y": 574,
+      "width": 4,
+      "height": 6
+    },
+    {
+      "id": "atrium-photo-service-core",
+      "description": "service core in the service core of the atrium photograph",
+      "kind": "object",
+      "x": 1181,
+      "y": 228,
+      "width": 361,
+      "height": 457
+    },
+    {
+      "id": "atrium-photo-elevator",
+      "description": "elevator in the service core of the atrium photograph",
+      "kind": "object",
+      "x": 1183,
+      "y": 244,
+      "width": 127,
+      "height": 449
+    },
+    {
+      "id": "atrium-photo-stairwell",
+      "description": "stairwell in the service core of the atrium photograph",
+      "kind": "object",
+      "x": 1355,
+      "y": 385,
+      "width": 146,
+      "height": 213
+    },
+    {
+      "id": "atrium-photo-server-rack",
+      "description": "server rack in the service core of the atrium photograph",
+      "kind": "object",
+      "x": 1416,
+      "y": 643,
+      "width": 28,
+      "height": 130
+    },
+    {
+      "id": "atrium-photo-elevator-door",
+      "description": "elevator door in the service core of the atrium photograph",
+      "kind": "object",
+      "x": 1267,
+      "y": 288,
+      "width": 38,
+      "height": 389
+    },
+    {
+      "id": "atrium-photo-stair-flight",
+      "description": "stair flight in the service core of the atrium photograph",
+      "kind": "object",
+      "x": 1407,
+      "y": 432,
+      "width": 45,
+      "height": 96
+    },
+    {
+      "id": "atrium-photo-handrail",
+      "description": "handrail in the service core of the atrium photograph",
+      "kind": "object",
+      "x": 1341,
+      "y": 451,
+      "width": 8,
+      "height": 13
+    },
+    {
+      "id": "atrium-photo-air-duct",
+      "description": "air duct in the service core of the atrium photograph",
+      "kind": "object",
+      "x": 1403,
+      "y": 146,
+      "width": 60,
+      "height": 27
+    },
+    {
+      "id": "atrium-photo-rack-cabinet",
+      "description": "rack cabinet in the service core of the atrium photograph",
+      "kind": "object",
+      "x": 1354,
+      "y": 623,
+      "width": 51,
+      "height": 161
+    },
+    {
+      "id": "atrium-photo-door-seam",
+      "description": "door seam in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1260,
+      "y": 460,
+      "width": 5,
+      "height": 44
+    },
+    {
+      "id": "atrium-photo-elevator-jamb-pro-6",
+      "description": "elevator jamb in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1312,
+      "y": 443,
+      "width": 6,
+      "height": 40
+    },
+    {
+      "id": "atrium-photo-stair-tread",
+      "description": "stair tread in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1393,
+      "y": 590,
+      "width": 20,
+      "height": 3
+    },
+    {
+      "id": "atrium-photo-stair-riser",
+      "description": "stair riser in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1389,
+      "y": 569,
+      "width": 20,
+      "height": 10
+    },
+    {
+      "id": "atrium-photo-pipe-elbow-pro-5",
+      "description": "pipe elbow in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1540,
+      "y": 341,
+      "width": 18,
+      "height": 15
+    },
+    {
+      "id": "atrium-photo-elevator-sill-pro-6",
+      "description": "elevator sill in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1251,
+      "y": 695,
+      "width": 17,
+      "height": 7
+    },
+    {
+      "id": "atrium-photo-step-nosing",
+      "description": "step nosing in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1416,
+      "y": 516,
+      "width": 16,
+      "height": 5
+    },
+    {
+      "id": "atrium-photo-stair-stringer-pro-6",
+      "description": "stair stringer in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1375,
+      "y": 479,
+      "width": 7,
+      "height": 11
+    },
+    {
+      "id": "atrium-photo-duct-joint",
+      "description": "duct joint in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1445,
+      "y": 147,
+      "width": 8,
+      "height": 15
+    },
+    {
+      "id": "atrium-photo-pipe-clamp",
+      "description": "pipe clamp in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1534,
+      "y": 317,
+      "width": 18,
+      "height": 7
+    },
+    {
+      "id": "atrium-photo-rack-light",
+      "description": "rack light in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1417,
+      "y": 742,
+      "width": 5,
+      "height": 5
+    },
+    {
+      "id": "atrium-photo-rack-handle-pro-6",
+      "description": "rack handle in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1501,
+      "y": 713,
+      "width": 6,
+      "height": 18
+    },
+    {
+      "id": "atrium-photo-duct-collar-pro-5",
+      "description": "duct collar in the service core of the atrium photograph",
+      "kind": "part",
+      "x": 1507,
+      "y": 226,
+      "width": 5,
+      "height": 16
     }
   ],
   "detailZones": [
@@ -4489,84 +1935,34 @@
       "id": "reception-lobby-detail",
       "title": "Reception lobby",
       "translation": "前台大堂",
-      "description": "Entrance, reception desk, visitor seating, directory wall and lobby details at the building arrival zone.",
+      "description": "The illuminated wall directory, hanging lights and curved wood reception counter at the left of the atrium.",
       "x": 0,
-      "y": 320,
+      "y": 248,
       "width": 410,
-      "height": 560,
+      "height": 632,
       "targetScale": 1.8,
       "labelIds": [
-        "office-building",
-        "lobby",
-        "reception",
-        "atrium",
-        "entrance",
         "directory-wall",
-        "front-desk",
-        "visitor-chair",
-        "turnstile",
-        "lobby-bench",
-        "security-desk",
-        "entrance-door",
         "reception-counter",
-        "desk-lamp",
-        "visitor-badge",
         "planter",
-        "floor-mat",
-        "ceiling-light",
         "counter-edge",
         "chair-back",
-        "drawer-pull",
-        "door-handle",
-        "tile-joint",
         "wall-panel",
-        "reception-bell",
-        "badge-holder",
-        "chair-leg",
-        "mat-border",
-        "light-trim",
-        "skirting-board",
-        "visitor-kiosk-pro-1",
-        "access-gate-pro-1",
-        "directory-panel-pro-1",
-        "visitor-log-pro-1",
-        "badge-scanner-pro-1",
-        "entry-barrier-pro-1",
-        "mail-shelf-pro-1",
-        "parcel-locker-pro-1",
-        "waiting-sofa-pro-1",
-        "lounge-table-pro-1",
-        "floor-lamp-pro-1",
-        "wall-clock-pro-1",
         "atrium-railing-pro-1",
         "planter-box-pro-1",
-        "reception-stool-pro-1",
-        "security-camera-pro-1",
-        "intercom-panel-pro-1",
-        "door-closer-pro-1",
-        "door-threshold-pro-1",
-        "elevator-lobby-pro-1",
-        "lift-call-panel-pro-1",
-        "marble-floor-pro-1",
         "ceiling-pendant-pro-1",
-        "wall-niche-pro-1",
-        "coat-hook-pro-1",
-        "brochure-stand-pro-1",
-        "visitor-pass-pro-1",
-        "parcel-shelf-pro-1",
-        "lobby-column-pro-1",
-        "entrance-mat-pro-1"
+        "lobby-column-pro-1"
       ]
     },
     {
       "id": "open-plan-detail",
       "title": "Open plan office",
       "translation": "开放式办公室",
-      "description": "Workstations, monitors, chairs, dividers and cable hardware across the central work floor.",
-      "x": 280,
-      "y": 350,
-      "width": 730,
-      "height": 520,
+      "description": "Two rows of desks, screens, task chairs and drawer cabinets behind the curved reception counter.",
+      "x": 330,
+      "y": 405,
+      "width": 300,
+      "height": 275,
       "targetScale": 1.8,
       "labelIds": [
         "open-plan-office",
@@ -4575,370 +1971,1634 @@
         "monitor",
         "office-chair",
         "task-light",
-        "keyboard",
-        "mouse",
         "desk-divider",
         "filing-cabinet",
         "office-plant",
-        "overhead-cable-tray",
         "desk-drawer",
         "monitor-stand",
         "chair-armrest",
-        "partition-panel",
-        "power-strip",
-        "notebook",
-        "cable-bundle",
         "drawer-handle",
         "screen-bezel",
         "wheel-caster",
-        "acoustic-panel",
-        "floor-outlet",
-        "keycap",
-        "mouse-wheel",
         "chair-base",
-        "cable-clip",
         "desk-edge",
-        "carpet-tile",
-        "hot-desk-pro-2",
-        "sit-stand-desk-pro-2",
-        "monitor-arm-pro-2",
-        "docking-station-pro-2",
-        "webcam-pro-2",
-        "headset-pro-2",
-        "desk-phone-pro-2",
-        "document-tray-pro-2",
-        "pinboard-pro-2",
-        "filing-tray-pro-2",
-        "storage-pedestal-pro-2",
-        "cable-grommet-pro-2",
-        "power-socket-pro-2",
-        "desk-mat-pro-2",
-        "pen-holder-pro-2",
-        "notebook-stand-pro-2",
         "office-shelf-pro-2",
-        "coat-rack-pro-2",
-        "privacy-screen-pro-2",
-        "acoustic-baffle-pro-2",
-        "ceiling-panel-pro-2",
-        "floor-box-pro-2",
-        "carpet-strip-pro-2",
-        "chair-roller-pro-2",
-        "monitor-cable-pro-2",
-        "keyboard-tray-pro-2",
-        "workstation-leg-pro-2",
-        "footrest-pro-2",
-        "desk-partition-pro-2",
-        "cable-sleeve-pro-2"
+        "workstation-leg-pro-2"
       ]
     },
     {
       "id": "conference-detail",
       "title": "Conference room",
       "translation": "会议室",
-      "description": "Glass meeting room with table, presentation screen, whiteboard and camera hardware.",
-      "x": 730,
-      "y": 100,
-      "width": 550,
-      "height": 540,
+      "description": "The freestanding glass enclosure in the centre of the ground floor, with a wood meeting table and dark chairs.",
+      "x": 625,
+      "y": 307,
+      "width": 273,
+      "height": 337,
       "targetScale": 1.8,
       "labelIds": [
         "conference-room",
         "meeting-table",
         "conference-chair",
         "glass-wall",
-        "presentation-screen",
-        "whiteboard",
-        "boardroom",
-        "video-camera",
-        "speakerphone",
-        "marker-tray",
-        "sliding-door",
-        "ceiling-projector",
-        "table-edge",
-        "boardroom-armrest",
-        "screen-frame",
-        "whiteboard-rail",
-        "camera-lens",
-        "cable-port",
-        "tabletop-seam",
-        "chair-wheel",
-        "door-track",
-        "projector-mount",
         "glass-mullion",
-        "marker-cap",
         "table-leg",
-        "display-bezel",
-        "lens-ring",
-        "track-roller",
-        "wall-socket",
-        "carpet-seam",
-        "conference-folder-pro-3",
-        "conference-display-pro-3",
-        "display-remote-pro-3",
-        "camera-mount-pro-3",
-        "microphone-array-pro-3",
-        "speaker-bar-pro-3",
-        "table-runner-pro-3",
-        "blind-track-pro-3",
-        "blackout-blind-pro-3",
-        "acoustic-curtain-pro-3",
-        "sideboard-pro-3",
-        "credenza-pro-3",
-        "flip-chart-pro-3",
-        "presentation-clicker-pro-3",
-        "pen-cup-pro-3",
-        "notepad-pro-3",
-        "water-carafe-pro-3",
-        "glass-tumbler-pro-3",
-        "table-power-module-pro-3",
-        "wall-outlet-pro-3",
-        "glass-door-pro-3",
-        "camera-tripod-pro-3",
-        "lens-hood-pro-3",
-        "ceiling-microphone-pro-3",
-        "projector-lens-pro-3",
-        "screen-cable-pro-3",
-        "conference-badge-pro-3",
-        "remote-tray-pro-3",
-        "tabletop-grommet-pro-3",
-        "chair-swivel-pro-3",
-        "conference-table-corner-pro-7",
-        "table-leg-brace-pro-7",
         "chair-backrest-pro-7",
+        "boardroom-armrest",
         "chair-seat-cushion-pro-7",
-        "chair-arm-pad-pro-7",
-        "chair-caster-pro-7",
-        "glass-door-handle-pro-7",
-        "glass-door-hinge-pro-7",
-        "glass-seal-pro-7",
-        "glass-mullion-cap-pro-7",
-        "whiteboard-surface-pro-7",
-        "whiteboard-corner-pro-7",
-        "marker-rack-pro-7",
-        "marker-eraser-pro-7",
-        "presentation-remote-pro-7",
-        "projector-cable-pro-7",
-        "camera-power-lead-pro-7",
-        "microphone-base-pro-7",
-        "speaker-grille-pro-7",
-        "table-power-socket-pro-7",
-        "conference-badge-holder-pro-7",
-        "blind-cord-pro-7",
-        "acoustic-panel-edge-pro-7",
-        "ceiling-speaker-pro-7",
-        "room-light-switch-pro-7",
         "meeting-table-edge-pro-7",
-        "chair-foot-ring-pro-7",
-        "screen-power-cable-pro-7",
-        "conference-room-clock-pro-7",
-        "table-cable-tray-pro-7"
+        "conference-table-corner-pro-7",
+        "chair-caster-pro-7"
       ]
     },
     {
       "id": "break-room-detail",
       "title": "Break room",
       "translation": "休息室",
-      "description": "Kitchenette, pantry, coffee counter, refrigerator, sink and dining furniture.",
-      "x": 960,
-      "y": 350,
-      "width": 470,
-      "height": 500,
+      "description": "The kitchenette beside the glass enclosure, with pendant lights, open shelves, counter stools and a round dining table.",
+      "x": 889,
+      "y": 337,
+      "width": 283,
+      "height": 348,
       "targetScale": 1.8,
       "labelIds": [
         "break-room",
         "kitchenette",
-        "pantry",
-        "coffee-counter",
         "refrigerator",
         "dining-table",
-        "sink",
-        "faucet",
         "cabinet",
-        "microwave",
-        "kettle",
-        "water-dispenser",
         "countertop",
         "backsplash",
-        "cupboard-door",
-        "fridge-handle",
-        "coffee-mug",
         "bar-stool",
-        "tap-spout",
-        "cabinet-hinge",
-        "microwave-door",
-        "kettle-lid",
-        "dining-table-edge",
-        "chair-seat",
-        "sink-drain",
-        "faucet-aerator",
-        "shelf-bracket",
-        "fridge-seal",
-        "mug-handle",
-        "stool-foot",
-        "backsplash-tile-pro-8",
-        "upper-cabinet-door-pro-8",
-        "cabinet-knob-pro-8",
         "open-shelf-pro-8",
-        "countertop-edge-pro-8",
-        "island-leg-pro-8",
-        "sink-basin-pro-8",
-        "faucet-handle-pro-8",
-        "soap-pump-pro-8",
-        "coffee-brewer-pro-8",
-        "carafe-pro-8",
-        "mug-shelf-pro-8",
-        "refrigerator-door-pro-8",
-        "microwave-panel-pro-8",
-        "microwave-keypad-pro-8",
-        "kettle-spout-pro-8",
-        "toaster-slot-pro-8",
         "pendant-shade-pro-8",
-        "bar-stool-seat-pro-8",
+        "upper-cabinet-door-pro-8",
+        "refrigerator-door-pro-8",
+        "fridge-handle",
+        "water-dispenser",
         "table-top-pro-8",
         "plant-pot-pro-8",
-        "cutting-board-pro-8",
-        "bowl-rim-pro-8",
-        "plate-stack-pro-8",
-        "cup-rim-pro-8",
-        "undercounter-drawer-pro-8",
-        "floor-tile-pro-8",
+        "chair-seat",
+        "bar-stool-seat-pro-8",
+        "countertop-edge-pro-8",
+        "dining-table-edge",
         "cabinet-side-panel-pro-8",
-        "drawer-face-pro-8",
-        "shelf-lip-pro-8"
+        "shelf-lip-pro-8",
+        "backsplash-tile-pro-8",
+        "stool-foot"
       ]
     },
     {
       "id": "service-core-detail",
       "title": "Service core",
       "translation": "设备核心",
-      "description": "Elevator, stairwell, server racks, HVAC duct and fire-safety panel in the right-hand core.",
-      "x": 1290,
-      "y": 50,
-      "width": 310,
-      "height": 820,
+      "description": "The lift doors and open stairway on the right, with exposed ducts above and server cabinets beneath the stairs.",
+      "x": 1155,
+      "y": 0,
+      "width": 445,
+      "height": 855,
       "targetScale": 1.8,
       "labelIds": [
+        "service-core",
         "elevator",
         "stairwell",
-        "server-room",
-        "hvac-duct",
-        "fire-panel",
-        "service-core",
+        "server-rack",
         "elevator-door",
         "stair-flight",
         "handrail",
-        "server-rack",
-        "network-switch",
         "air-duct",
-        "lift-button",
-        "stair-tread",
-        "landing",
         "rack-cabinet",
-        "patch-panel",
-        "sprinkler-pipe",
         "door-seam",
-        "step-nosing",
-        "rail-bracket",
-        "rack-light",
-        "cable-tray",
-        "duct-joint",
-        "call-button",
-        "stair-riser",
-        "rack-vent",
-        "rack-port",
-        "pipe-clamp",
-        "fire-alarm-cover",
-        "mechanical-room-pro-4",
-        "electrical-room-pro-4",
-        "data-center-pro-4",
-        "lift-shaft-pro-4",
-        "switchgear-cabinet-pro-4",
-        "electrical-panel-pro-4",
-        "breaker-panel-pro-4",
-        "transformer-cabinet-pro-4",
-        "ups-cabinet-pro-4",
-        "battery-cabinet-pro-4",
-        "server-blade-pro-4",
-        "rack-shelf-pro-4",
-        "patch-cord-pro-4",
-        "fiber-panel-pro-4",
-        "network-cable-pro-4",
-        "cable-ladder-pro-4",
-        "supply-riser-pro-4",
-        "chilled-water-pipe-pro-4",
-        "ventilation-grille-pro-4",
-        "return-air-duct-pro-4",
-        "filter-rack-pro-4",
-        "access-hatch-pro-4",
-        "sprinkler-valve-pro-4",
-        "fire-hose-reel-pro-4",
-        "smoke-detector-pro-4",
-        "alarm-beacon-pro-4",
-        "service-door-pro-4",
-        "maintenance-rail-pro-4",
-        "duct-elbow-pro-4",
-        "pipe-flange-pro-4",
-        "fan-coil-pro-5",
-        "air-filter-pro-5",
-        "filter-frame-pro-5",
-        "volume-damper-pro-5",
-        "duct-grille-pro-5",
-        "duct-collar-pro-5",
-        "pipe-valve-pro-5",
-        "valve-handle-pro-5",
-        "pressure-gauge-pro-5",
-        "flow-meter-pro-5",
-        "meter-cabinet-pro-5",
-        "conduit-box-pro-5",
-        "conduit-strap-pro-5",
-        "cable-trunk-pro-5",
-        "cable-gland-pro-5",
-        "switch-handle-pro-5",
-        "busbar-cover-pro-5",
-        "breaker-lever-pro-5",
-        "power-meter-pro-5",
-        "emergency-light-pro-5",
-        "exit-light-pro-5",
-        "sprinkler-head-pro-5",
-        "fire-hose-pro-5",
-        "smoke-alarm-pro-5",
-        "fire-door-pro-5",
-        "access-panel-pro-5",
-        "service-ladder-pro-5",
-        "floor-drain-pro-5",
-        "pipe-elbow-pro-5",
-        "ceiling-hatch-pro-5",
-        "lift-indicator-pro-6",
         "elevator-jamb-pro-6",
+        "stair-tread",
+        "stair-riser",
+        "pipe-elbow-pro-5",
         "elevator-sill-pro-6",
-        "hoistway-door-pro-6",
+        "step-nosing",
         "stair-stringer-pro-6",
-        "handrail-bracket-pro-6",
-        "landing-edge-pro-6",
-        "riser-panel-pro-6",
-        "cable-tray-rung-pro-6",
-        "ladder-rung-pro-6",
-        "server-rail-pro-6",
+        "duct-joint",
+        "pipe-clamp",
+        "rack-light",
         "rack-handle-pro-6",
-        "patch-cord-latch-pro-6",
-        "fiber-tray-pro-6",
-        "cable-splice-pro-6",
-        "conduit-fitting-pro-6",
-        "busbar-terminal-pro-6",
-        "disconnect-switch-pro-6",
-        "fuse-holder-pro-6",
-        "panel-hinge-pro-6",
-        "panel-latch-pro-6",
-        "access-reader-pro-6",
-        "fire-alarm-strobe-pro-6",
-        "sprinkler-escutcheon-pro-6",
-        "smoke-detector-base-pro-6",
-        "duct-register-pro-6",
-        "damper-blade-pro-6",
-        "pipe-support-pro-6",
-        "service-core-threshold-pro-6",
-        "rack-identification-plate-pro-6"
+        "duct-collar-pro-5"
       ]
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "office-building",
+      "word": "office building",
+      "translation": "写字楼"
+    },
+    {
+      "id": "lobby",
+      "word": "lobby",
+      "translation": "大堂"
+    },
+    {
+      "id": "reception",
+      "word": "reception",
+      "translation": "前台"
+    },
+    {
+      "id": "atrium",
+      "word": "atrium",
+      "translation": "中庭"
+    },
+    {
+      "id": "entrance",
+      "word": "entrance",
+      "translation": "入口"
+    },
+    {
+      "id": "front-desk",
+      "word": "front desk",
+      "translation": "前台桌"
+    },
+    {
+      "id": "visitor-chair",
+      "word": "visitor chair",
+      "translation": "访客椅"
+    },
+    {
+      "id": "turnstile",
+      "word": "turnstile",
+      "translation": "闸机"
+    },
+    {
+      "id": "lobby-bench",
+      "word": "lobby bench",
+      "translation": "大堂长椅"
+    },
+    {
+      "id": "security-desk",
+      "word": "security desk",
+      "translation": "安保台"
+    },
+    {
+      "id": "entrance-door",
+      "word": "entrance door",
+      "translation": "入口门"
+    },
+    {
+      "id": "desk-lamp",
+      "word": "desk lamp",
+      "translation": "台灯"
+    },
+    {
+      "id": "visitor-badge",
+      "word": "visitor badge",
+      "translation": "访客证"
+    },
+    {
+      "id": "floor-mat",
+      "word": "floor mat",
+      "translation": "地垫"
+    },
+    {
+      "id": "ceiling-light",
+      "word": "ceiling light",
+      "translation": "顶灯"
+    },
+    {
+      "id": "drawer-pull",
+      "word": "drawer pull",
+      "translation": "抽屉拉手"
+    },
+    {
+      "id": "door-handle",
+      "word": "door handle",
+      "translation": "门把手"
+    },
+    {
+      "id": "tile-joint",
+      "word": "tile joint",
+      "translation": "地砖接缝"
+    },
+    {
+      "id": "reception-bell",
+      "word": "reception bell",
+      "translation": "前台铃"
+    },
+    {
+      "id": "badge-holder",
+      "word": "badge holder",
+      "translation": "证件夹"
+    },
+    {
+      "id": "chair-leg",
+      "word": "chair leg",
+      "translation": "椅腿"
+    },
+    {
+      "id": "mat-border",
+      "word": "mat border",
+      "translation": "地垫边缘"
+    },
+    {
+      "id": "light-trim",
+      "word": "light trim",
+      "translation": "灯具饰条"
+    },
+    {
+      "id": "skirting-board",
+      "word": "skirting board",
+      "translation": "踢脚板"
+    },
+    {
+      "id": "keyboard",
+      "word": "keyboard",
+      "translation": "键盘"
+    },
+    {
+      "id": "mouse",
+      "word": "mouse",
+      "translation": "鼠标"
+    },
+    {
+      "id": "overhead-cable-tray",
+      "word": "overhead cable tray",
+      "translation": "线缆托盘"
+    },
+    {
+      "id": "partition-panel",
+      "word": "partition panel",
+      "translation": "隔断板"
+    },
+    {
+      "id": "power-strip",
+      "word": "power strip",
+      "translation": "排插"
+    },
+    {
+      "id": "notebook",
+      "word": "notebook",
+      "translation": "笔记本"
+    },
+    {
+      "id": "cable-bundle",
+      "word": "cable bundle",
+      "translation": "线缆束"
+    },
+    {
+      "id": "acoustic-panel",
+      "word": "acoustic panel",
+      "translation": "吸音板"
+    },
+    {
+      "id": "floor-outlet",
+      "word": "floor outlet",
+      "translation": "地面插座"
+    },
+    {
+      "id": "keycap",
+      "word": "keycap",
+      "translation": "键帽"
+    },
+    {
+      "id": "mouse-wheel",
+      "word": "mouse wheel",
+      "translation": "鼠标滚轮"
+    },
+    {
+      "id": "cable-clip",
+      "word": "cable clip",
+      "translation": "线缆夹"
+    },
+    {
+      "id": "carpet-tile",
+      "word": "carpet tile",
+      "translation": "地毯块"
+    },
+    {
+      "id": "presentation-screen",
+      "word": "presentation screen",
+      "translation": "演示屏"
+    },
+    {
+      "id": "whiteboard",
+      "word": "whiteboard",
+      "translation": "白板"
+    },
+    {
+      "id": "boardroom",
+      "word": "boardroom",
+      "translation": "董事会议室"
+    },
+    {
+      "id": "video-camera",
+      "word": "video camera",
+      "translation": "视频摄像头"
+    },
+    {
+      "id": "speakerphone",
+      "word": "speakerphone",
+      "translation": "免提电话"
+    },
+    {
+      "id": "marker-tray",
+      "word": "marker tray",
+      "translation": "白板笔托盘"
+    },
+    {
+      "id": "sliding-door",
+      "word": "sliding door",
+      "translation": "推拉门"
+    },
+    {
+      "id": "ceiling-projector",
+      "word": "ceiling projector",
+      "translation": "顶置投影仪"
+    },
+    {
+      "id": "table-edge",
+      "word": "table edge",
+      "translation": "桌边"
+    },
+    {
+      "id": "screen-frame",
+      "word": "screen frame",
+      "translation": "屏幕框"
+    },
+    {
+      "id": "whiteboard-rail",
+      "word": "whiteboard rail",
+      "translation": "白板导轨"
+    },
+    {
+      "id": "camera-lens",
+      "word": "camera lens",
+      "translation": "摄像头镜头"
+    },
+    {
+      "id": "cable-port",
+      "word": "cable port",
+      "translation": "线缆接口"
+    },
+    {
+      "id": "tabletop-seam",
+      "word": "tabletop seam",
+      "translation": "桌面接缝"
+    },
+    {
+      "id": "chair-wheel",
+      "word": "chair wheel",
+      "translation": "椅轮"
+    },
+    {
+      "id": "door-track",
+      "word": "door track",
+      "translation": "门轨"
+    },
+    {
+      "id": "projector-mount",
+      "word": "projector mount",
+      "translation": "投影仪支架"
+    },
+    {
+      "id": "marker-cap",
+      "word": "marker cap",
+      "translation": "白板笔帽"
+    },
+    {
+      "id": "display-bezel",
+      "word": "display bezel",
+      "translation": "屏幕边框"
+    },
+    {
+      "id": "lens-ring",
+      "word": "lens ring",
+      "translation": "镜头环"
+    },
+    {
+      "id": "track-roller",
+      "word": "track roller",
+      "translation": "门轨滚轮"
+    },
+    {
+      "id": "wall-socket",
+      "word": "wall socket",
+      "translation": "墙面插座"
+    },
+    {
+      "id": "carpet-seam",
+      "word": "carpet seam",
+      "translation": "地毯接缝"
+    },
+    {
+      "id": "pantry",
+      "word": "pantry",
+      "translation": "茶水间储藏区"
+    },
+    {
+      "id": "coffee-counter",
+      "word": "coffee counter",
+      "translation": "咖啡台"
+    },
+    {
+      "id": "sink",
+      "word": "sink",
+      "translation": "水槽"
+    },
+    {
+      "id": "faucet",
+      "word": "faucet",
+      "translation": "水龙头"
+    },
+    {
+      "id": "microwave",
+      "word": "microwave",
+      "translation": "微波炉"
+    },
+    {
+      "id": "kettle",
+      "word": "kettle",
+      "translation": "水壶"
+    },
+    {
+      "id": "cupboard-door",
+      "word": "cupboard door",
+      "translation": "橱柜门"
+    },
+    {
+      "id": "coffee-mug",
+      "word": "coffee mug",
+      "translation": "咖啡杯"
+    },
+    {
+      "id": "tap-spout",
+      "word": "tap spout",
+      "translation": "水龙头出水口"
+    },
+    {
+      "id": "cabinet-hinge",
+      "word": "cabinet hinge",
+      "translation": "橱柜铰链"
+    },
+    {
+      "id": "microwave-door",
+      "word": "microwave door",
+      "translation": "微波炉门"
+    },
+    {
+      "id": "kettle-lid",
+      "word": "kettle lid",
+      "translation": "水壶盖"
+    },
+    {
+      "id": "sink-drain",
+      "word": "sink drain",
+      "translation": "水槽排水口"
+    },
+    {
+      "id": "faucet-aerator",
+      "word": "faucet aerator",
+      "translation": "水龙头起泡器"
+    },
+    {
+      "id": "shelf-bracket",
+      "word": "shelf bracket",
+      "translation": "搁板支架"
+    },
+    {
+      "id": "fridge-seal",
+      "word": "fridge seal",
+      "translation": "冰箱密封条"
+    },
+    {
+      "id": "mug-handle",
+      "word": "mug handle",
+      "translation": "杯柄"
+    },
+    {
+      "id": "server-room",
+      "word": "server room",
+      "translation": "服务器机房"
+    },
+    {
+      "id": "hvac-duct",
+      "word": "HVAC duct",
+      "translation": "暖通风管"
+    },
+    {
+      "id": "fire-panel",
+      "word": "fire panel",
+      "translation": "消防面板"
+    },
+    {
+      "id": "network-switch",
+      "word": "network switch",
+      "translation": "网络交换机"
+    },
+    {
+      "id": "lift-button",
+      "word": "lift button",
+      "translation": "电梯按钮"
+    },
+    {
+      "id": "landing",
+      "word": "landing",
+      "translation": "楼梯平台"
+    },
+    {
+      "id": "patch-panel",
+      "word": "patch panel",
+      "translation": "配线架"
+    },
+    {
+      "id": "sprinkler-pipe",
+      "word": "sprinkler pipe",
+      "translation": "喷淋管"
+    },
+    {
+      "id": "rail-bracket",
+      "word": "rail bracket",
+      "translation": "扶手支架"
+    },
+    {
+      "id": "cable-tray",
+      "word": "cable tray",
+      "translation": "线缆托盘"
+    },
+    {
+      "id": "call-button",
+      "word": "call button",
+      "translation": "呼梯按钮"
+    },
+    {
+      "id": "rack-vent",
+      "word": "rack vent",
+      "translation": "机架通风口"
+    },
+    {
+      "id": "rack-port",
+      "word": "rack port",
+      "translation": "线缆接口"
+    },
+    {
+      "id": "fire-alarm-cover",
+      "word": "fire alarm cover",
+      "translation": "火警面板盖"
+    },
+    {
+      "id": "visitor-kiosk-pro-1",
+      "word": "visitor kiosk",
+      "translation": "访客自助机"
+    },
+    {
+      "id": "access-gate-pro-1",
+      "word": "access gate",
+      "translation": "门禁闸机"
+    },
+    {
+      "id": "directory-panel-pro-1",
+      "word": "directory panel",
+      "translation": "目录面板"
+    },
+    {
+      "id": "visitor-log-pro-1",
+      "word": "visitor log",
+      "translation": "访客登记簿"
+    },
+    {
+      "id": "badge-scanner-pro-1",
+      "word": "badge scanner",
+      "translation": "证件扫描器"
+    },
+    {
+      "id": "entry-barrier-pro-1",
+      "word": "entry barrier",
+      "translation": "入口隔栏"
+    },
+    {
+      "id": "mail-shelf-pro-1",
+      "word": "mail shelf",
+      "translation": "邮件架"
+    },
+    {
+      "id": "parcel-locker-pro-1",
+      "word": "parcel locker",
+      "translation": "包裹柜"
+    },
+    {
+      "id": "waiting-sofa-pro-1",
+      "word": "waiting sofa",
+      "translation": "等候沙发"
+    },
+    {
+      "id": "lounge-table-pro-1",
+      "word": "lounge table",
+      "translation": "休息桌"
+    },
+    {
+      "id": "floor-lamp-pro-1",
+      "word": "floor lamp",
+      "translation": "落地灯"
+    },
+    {
+      "id": "wall-clock-pro-1",
+      "word": "wall clock",
+      "translation": "挂钟"
+    },
+    {
+      "id": "reception-stool-pro-1",
+      "word": "reception stool",
+      "translation": "前台高脚凳"
+    },
+    {
+      "id": "security-camera-pro-1",
+      "word": "security camera",
+      "translation": "安防摄像机"
+    },
+    {
+      "id": "intercom-panel-pro-1",
+      "word": "intercom panel",
+      "translation": "对讲面板"
+    },
+    {
+      "id": "door-closer-pro-1",
+      "word": "door closer",
+      "translation": "闭门器"
+    },
+    {
+      "id": "door-threshold-pro-1",
+      "word": "door threshold",
+      "translation": "门槛"
+    },
+    {
+      "id": "elevator-lobby-pro-1",
+      "word": "elevator lobby",
+      "translation": "电梯厅"
+    },
+    {
+      "id": "lift-call-panel-pro-1",
+      "word": "lift call panel",
+      "translation": "电梯呼叫面板"
+    },
+    {
+      "id": "marble-floor-pro-1",
+      "word": "marble floor",
+      "translation": "大理石地面"
+    },
+    {
+      "id": "wall-niche-pro-1",
+      "word": "wall niche",
+      "translation": "墙龛"
+    },
+    {
+      "id": "coat-hook-pro-1",
+      "word": "coat hook",
+      "translation": "衣帽钩"
+    },
+    {
+      "id": "brochure-stand-pro-1",
+      "word": "brochure stand",
+      "translation": "宣传册架"
+    },
+    {
+      "id": "visitor-pass-pro-1",
+      "word": "visitor pass",
+      "translation": "访客通行证"
+    },
+    {
+      "id": "parcel-shelf-pro-1",
+      "word": "parcel shelf",
+      "translation": "包裹架"
+    },
+    {
+      "id": "entrance-mat-pro-1",
+      "word": "entrance mat",
+      "translation": "入口垫"
+    },
+    {
+      "id": "hot-desk-pro-2",
+      "word": "hot desk",
+      "translation": "共享办公桌"
+    },
+    {
+      "id": "sit-stand-desk-pro-2",
+      "word": "sit stand desk",
+      "translation": "升降桌"
+    },
+    {
+      "id": "monitor-arm-pro-2",
+      "word": "monitor arm",
+      "translation": "显示器支臂"
+    },
+    {
+      "id": "docking-station-pro-2",
+      "word": "docking station",
+      "translation": "扩展坞"
+    },
+    {
+      "id": "webcam-pro-2",
+      "word": "webcam",
+      "translation": "网络摄像头"
+    },
+    {
+      "id": "headset-pro-2",
+      "word": "headset",
+      "translation": "耳机"
+    },
+    {
+      "id": "desk-phone-pro-2",
+      "word": "desk phone",
+      "translation": "办公电话"
+    },
+    {
+      "id": "document-tray-pro-2",
+      "word": "document tray",
+      "translation": "文件托盘"
+    },
+    {
+      "id": "pinboard-pro-2",
+      "word": "pinboard",
+      "translation": "软木板"
+    },
+    {
+      "id": "filing-tray-pro-2",
+      "word": "filing tray",
+      "translation": "文件托"
+    },
+    {
+      "id": "storage-pedestal-pro-2",
+      "word": "storage pedestal",
+      "translation": "活动柜"
+    },
+    {
+      "id": "cable-grommet-pro-2",
+      "word": "cable grommet",
+      "translation": "走线孔"
+    },
+    {
+      "id": "power-socket-pro-2",
+      "word": "power socket",
+      "translation": "电源插座"
+    },
+    {
+      "id": "desk-mat-pro-2",
+      "word": "desk mat",
+      "translation": "桌垫"
+    },
+    {
+      "id": "pen-holder-pro-2",
+      "word": "pen holder",
+      "translation": "笔筒"
+    },
+    {
+      "id": "notebook-stand-pro-2",
+      "word": "notebook stand",
+      "translation": "笔记本支架"
+    },
+    {
+      "id": "coat-rack-pro-2",
+      "word": "coat rack",
+      "translation": "衣帽架"
+    },
+    {
+      "id": "privacy-screen-pro-2",
+      "word": "privacy screen",
+      "translation": "隐私挡板"
+    },
+    {
+      "id": "acoustic-baffle-pro-2",
+      "word": "acoustic baffle",
+      "translation": "吸音吊片"
+    },
+    {
+      "id": "ceiling-panel-pro-2",
+      "word": "ceiling panel",
+      "translation": "天花板"
+    },
+    {
+      "id": "floor-box-pro-2",
+      "word": "floor box",
+      "translation": "地面接线盒"
+    },
+    {
+      "id": "carpet-strip-pro-2",
+      "word": "carpet strip",
+      "translation": "地毯条"
+    },
+    {
+      "id": "chair-roller-pro-2",
+      "word": "chair roller",
+      "translation": "座椅滚轮"
+    },
+    {
+      "id": "monitor-cable-pro-2",
+      "word": "monitor cable",
+      "translation": "显示器线"
+    },
+    {
+      "id": "keyboard-tray-pro-2",
+      "word": "keyboard tray",
+      "translation": "键盘托"
+    },
+    {
+      "id": "footrest-pro-2",
+      "word": "footrest",
+      "translation": "脚踏"
+    },
+    {
+      "id": "desk-partition-pro-2",
+      "word": "desk partition",
+      "translation": "桌面分隔板"
+    },
+    {
+      "id": "cable-sleeve-pro-2",
+      "word": "cable sleeve",
+      "translation": "线缆套"
+    },
+    {
+      "id": "conference-folder-pro-3",
+      "word": "conference folder",
+      "translation": "会议议程"
+    },
+    {
+      "id": "conference-display-pro-3",
+      "word": "conference display",
+      "translation": "会议显示屏"
+    },
+    {
+      "id": "display-remote-pro-3",
+      "word": "display remote",
+      "translation": "显示器遥控器"
+    },
+    {
+      "id": "camera-mount-pro-3",
+      "word": "camera mount",
+      "translation": "摄像机支架"
+    },
+    {
+      "id": "microphone-array-pro-3",
+      "word": "microphone array",
+      "translation": "麦克风阵列"
+    },
+    {
+      "id": "speaker-bar-pro-3",
+      "word": "speaker bar",
+      "translation": "扬声器条"
+    },
+    {
+      "id": "table-runner-pro-3",
+      "word": "table runner",
+      "translation": "桌旗"
+    },
+    {
+      "id": "blind-track-pro-3",
+      "word": "blind track",
+      "translation": "百叶轨道"
+    },
+    {
+      "id": "blackout-blind-pro-3",
+      "word": "blackout blind",
+      "translation": "遮光帘"
+    },
+    {
+      "id": "acoustic-curtain-pro-3",
+      "word": "acoustic curtain",
+      "translation": "吸音帘"
+    },
+    {
+      "id": "sideboard-pro-3",
+      "word": "sideboard",
+      "translation": "餐边柜"
+    },
+    {
+      "id": "credenza-pro-3",
+      "word": "credenza",
+      "translation": "会议边柜"
+    },
+    {
+      "id": "flip-chart-pro-3",
+      "word": "flip chart",
+      "translation": "活动挂图"
+    },
+    {
+      "id": "presentation-clicker-pro-3",
+      "word": "presentation clicker",
+      "translation": "演示翻页器"
+    },
+    {
+      "id": "pen-cup-pro-3",
+      "word": "pen cup",
+      "translation": "笔杯"
+    },
+    {
+      "id": "notepad-pro-3",
+      "word": "notepad",
+      "translation": "便笺本"
+    },
+    {
+      "id": "water-carafe-pro-3",
+      "word": "water carafe",
+      "translation": "水壶"
+    },
+    {
+      "id": "glass-tumbler-pro-3",
+      "word": "glass tumbler",
+      "translation": "玻璃杯"
+    },
+    {
+      "id": "table-power-module-pro-3",
+      "word": "table power module",
+      "translation": "桌面电源模块"
+    },
+    {
+      "id": "wall-outlet-pro-3",
+      "word": "wall outlet",
+      "translation": "墙面插座"
+    },
+    {
+      "id": "glass-door-pro-3",
+      "word": "glass door",
+      "translation": "玻璃门"
+    },
+    {
+      "id": "camera-tripod-pro-3",
+      "word": "camera tripod",
+      "translation": "摄像机三脚架"
+    },
+    {
+      "id": "lens-hood-pro-3",
+      "word": "lens hood",
+      "translation": "镜头遮光罩"
+    },
+    {
+      "id": "ceiling-microphone-pro-3",
+      "word": "ceiling microphone",
+      "translation": "天花麦克风"
+    },
+    {
+      "id": "projector-lens-pro-3",
+      "word": "projector lens",
+      "translation": "投影镜头"
+    },
+    {
+      "id": "screen-cable-pro-3",
+      "word": "screen cable",
+      "translation": "屏幕线缆"
+    },
+    {
+      "id": "conference-badge-pro-3",
+      "word": "conference badge",
+      "translation": "会议证"
+    },
+    {
+      "id": "remote-tray-pro-3",
+      "word": "remote tray",
+      "translation": "遥控器托盘"
+    },
+    {
+      "id": "tabletop-grommet-pro-3",
+      "word": "tabletop grommet",
+      "translation": "桌面走线孔"
+    },
+    {
+      "id": "chair-swivel-pro-3",
+      "word": "chair swivel",
+      "translation": "座椅旋转件"
+    },
+    {
+      "id": "mechanical-room-pro-4",
+      "word": "mechanical room",
+      "translation": "机房"
+    },
+    {
+      "id": "electrical-room-pro-4",
+      "word": "electrical room",
+      "translation": "配电间"
+    },
+    {
+      "id": "data-center-pro-4",
+      "word": "data center",
+      "translation": "数据中心"
+    },
+    {
+      "id": "lift-shaft-pro-4",
+      "word": "lift shaft",
+      "translation": "电梯井"
+    },
+    {
+      "id": "switchgear-cabinet-pro-4",
+      "word": "switchgear cabinet",
+      "translation": "开关柜"
+    },
+    {
+      "id": "electrical-panel-pro-4",
+      "word": "electrical panel",
+      "translation": "配电面板"
+    },
+    {
+      "id": "breaker-panel-pro-4",
+      "word": "breaker panel",
+      "translation": "断路器面板"
+    },
+    {
+      "id": "transformer-cabinet-pro-4",
+      "word": "transformer cabinet",
+      "translation": "变压器柜"
+    },
+    {
+      "id": "ups-cabinet-pro-4",
+      "word": "UPS cabinet",
+      "translation": "不间断电源柜"
+    },
+    {
+      "id": "battery-cabinet-pro-4",
+      "word": "battery cabinet",
+      "translation": "电池柜"
+    },
+    {
+      "id": "server-blade-pro-4",
+      "word": "server blade",
+      "translation": "服务器刀片"
+    },
+    {
+      "id": "rack-shelf-pro-4",
+      "word": "rack shelf",
+      "translation": "机架层板"
+    },
+    {
+      "id": "patch-cord-pro-4",
+      "word": "patch cord",
+      "translation": "跳线"
+    },
+    {
+      "id": "fiber-panel-pro-4",
+      "word": "fiber panel",
+      "translation": "光纤面板"
+    },
+    {
+      "id": "network-cable-pro-4",
+      "word": "network cable",
+      "translation": "网线"
+    },
+    {
+      "id": "cable-ladder-pro-4",
+      "word": "cable ladder",
+      "translation": "电缆梯架"
+    },
+    {
+      "id": "supply-riser-pro-4",
+      "word": "supply riser",
+      "translation": "供给立管"
+    },
+    {
+      "id": "chilled-water-pipe-pro-4",
+      "word": "chilled water pipe",
+      "translation": "冷冻水管"
+    },
+    {
+      "id": "ventilation-grille-pro-4",
+      "word": "ventilation grille",
+      "translation": "通风格栅"
+    },
+    {
+      "id": "return-air-duct-pro-4",
+      "word": "return air duct",
+      "translation": "回风管"
+    },
+    {
+      "id": "filter-rack-pro-4",
+      "word": "filter rack",
+      "translation": "过滤器架"
+    },
+    {
+      "id": "access-hatch-pro-4",
+      "word": "access hatch",
+      "translation": "检修口"
+    },
+    {
+      "id": "sprinkler-valve-pro-4",
+      "word": "sprinkler valve",
+      "translation": "喷淋阀"
+    },
+    {
+      "id": "fire-hose-reel-pro-4",
+      "word": "fire hose reel",
+      "translation": "消防卷盘"
+    },
+    {
+      "id": "smoke-detector-pro-4",
+      "word": "smoke detector",
+      "translation": "烟雾探测器"
+    },
+    {
+      "id": "alarm-beacon-pro-4",
+      "word": "alarm beacon",
+      "translation": "报警信标"
+    },
+    {
+      "id": "service-door-pro-4",
+      "word": "service door",
+      "translation": "设备门"
+    },
+    {
+      "id": "maintenance-rail-pro-4",
+      "word": "maintenance rail",
+      "translation": "检修栏杆"
+    },
+    {
+      "id": "duct-elbow-pro-4",
+      "word": "duct elbow",
+      "translation": "风管弯头"
+    },
+    {
+      "id": "pipe-flange-pro-4",
+      "word": "pipe flange",
+      "translation": "管道法兰"
+    },
+    {
+      "id": "fan-coil-pro-5",
+      "word": "fan coil",
+      "translation": "风机盘管"
+    },
+    {
+      "id": "air-filter-pro-5",
+      "word": "air filter",
+      "translation": "空气滤网"
+    },
+    {
+      "id": "filter-frame-pro-5",
+      "word": "filter frame",
+      "translation": "滤网框"
+    },
+    {
+      "id": "volume-damper-pro-5",
+      "word": "volume damper",
+      "translation": "风量调节阀"
+    },
+    {
+      "id": "duct-grille-pro-5",
+      "word": "duct grille",
+      "translation": "风管格栅"
+    },
+    {
+      "id": "pipe-valve-pro-5",
+      "word": "pipe valve",
+      "translation": "管道阀"
+    },
+    {
+      "id": "valve-handle-pro-5",
+      "word": "valve handle",
+      "translation": "阀门把手"
+    },
+    {
+      "id": "pressure-gauge-pro-5",
+      "word": "pressure gauge",
+      "translation": "压力表"
+    },
+    {
+      "id": "flow-meter-pro-5",
+      "word": "flow meter",
+      "translation": "流量计"
+    },
+    {
+      "id": "meter-cabinet-pro-5",
+      "word": "meter cabinet",
+      "translation": "仪表柜"
+    },
+    {
+      "id": "conduit-box-pro-5",
+      "word": "conduit box",
+      "translation": "线管盒"
+    },
+    {
+      "id": "conduit-strap-pro-5",
+      "word": "conduit strap",
+      "translation": "线管卡箍"
+    },
+    {
+      "id": "cable-trunk-pro-5",
+      "word": "cable trunk",
+      "translation": "电缆槽"
+    },
+    {
+      "id": "cable-gland-pro-5",
+      "word": "cable gland",
+      "translation": "电缆密封套"
+    },
+    {
+      "id": "switch-handle-pro-5",
+      "word": "switch handle",
+      "translation": "开关把手"
+    },
+    {
+      "id": "busbar-cover-pro-5",
+      "word": "busbar cover",
+      "translation": "母线护盖"
+    },
+    {
+      "id": "breaker-lever-pro-5",
+      "word": "breaker lever",
+      "translation": "断路器扳手"
+    },
+    {
+      "id": "power-meter-pro-5",
+      "word": "power meter",
+      "translation": "电力表"
+    },
+    {
+      "id": "emergency-light-pro-5",
+      "word": "emergency light",
+      "translation": "应急灯"
+    },
+    {
+      "id": "exit-light-pro-5",
+      "word": "exit light",
+      "translation": "出口灯"
+    },
+    {
+      "id": "sprinkler-head-pro-5",
+      "word": "sprinkler head",
+      "translation": "喷淋头"
+    },
+    {
+      "id": "fire-hose-pro-5",
+      "word": "fire hose",
+      "translation": "消防水带"
+    },
+    {
+      "id": "smoke-alarm-pro-5",
+      "word": "smoke alarm",
+      "translation": "烟雾报警器"
+    },
+    {
+      "id": "fire-door-pro-5",
+      "word": "fire door",
+      "translation": "防火门"
+    },
+    {
+      "id": "access-panel-pro-5",
+      "word": "access panel",
+      "translation": "检修面板"
+    },
+    {
+      "id": "service-ladder-pro-5",
+      "word": "service ladder",
+      "translation": "检修梯"
+    },
+    {
+      "id": "floor-drain-pro-5",
+      "word": "floor drain",
+      "translation": "地漏"
+    },
+    {
+      "id": "ceiling-hatch-pro-5",
+      "word": "ceiling hatch",
+      "translation": "天花检修口"
+    },
+    {
+      "id": "lift-indicator-pro-6",
+      "word": "lift indicator",
+      "translation": "电梯指示器"
+    },
+    {
+      "id": "hoistway-door-pro-6",
+      "word": "hoistway door",
+      "translation": "电梯井门"
+    },
+    {
+      "id": "handrail-bracket-pro-6",
+      "word": "handrail bracket",
+      "translation": "扶手支架"
+    },
+    {
+      "id": "landing-edge-pro-6",
+      "word": "landing edge",
+      "translation": "平台边缘"
+    },
+    {
+      "id": "riser-panel-pro-6",
+      "word": "riser panel",
+      "translation": "立管面板"
+    },
+    {
+      "id": "cable-tray-rung-pro-6",
+      "word": "cable tray rung",
+      "translation": "电缆桥架横档"
+    },
+    {
+      "id": "ladder-rung-pro-6",
+      "word": "ladder rung",
+      "translation": "梯子横档"
+    },
+    {
+      "id": "server-rail-pro-6",
+      "word": "server rail",
+      "translation": "服务器导轨"
+    },
+    {
+      "id": "patch-cord-latch-pro-6",
+      "word": "patch cord latch",
+      "translation": "跳线卡扣"
+    },
+    {
+      "id": "fiber-tray-pro-6",
+      "word": "fiber tray",
+      "translation": "光纤托盘"
+    },
+    {
+      "id": "cable-splice-pro-6",
+      "word": "cable splice",
+      "translation": "电缆接头"
+    },
+    {
+      "id": "conduit-fitting-pro-6",
+      "word": "conduit fitting",
+      "translation": "导管接头"
+    },
+    {
+      "id": "busbar-terminal-pro-6",
+      "word": "busbar terminal",
+      "translation": "母线端子"
+    },
+    {
+      "id": "disconnect-switch-pro-6",
+      "word": "disconnect switch",
+      "translation": "隔离开关"
+    },
+    {
+      "id": "fuse-holder-pro-6",
+      "word": "fuse holder",
+      "translation": "熔断器座"
+    },
+    {
+      "id": "panel-hinge-pro-6",
+      "word": "panel hinge",
+      "translation": "面板铰链"
+    },
+    {
+      "id": "panel-latch-pro-6",
+      "word": "panel latch",
+      "translation": "面板卡扣"
+    },
+    {
+      "id": "access-reader-pro-6",
+      "word": "access reader",
+      "translation": "门禁读卡器"
+    },
+    {
+      "id": "fire-alarm-strobe-pro-6",
+      "word": "fire alarm strobe",
+      "translation": "火灾报警闪光灯"
+    },
+    {
+      "id": "sprinkler-escutcheon-pro-6",
+      "word": "sprinkler escutcheon",
+      "translation": "喷淋装饰盖"
+    },
+    {
+      "id": "smoke-detector-base-pro-6",
+      "word": "smoke detector base",
+      "translation": "烟感底座"
+    },
+    {
+      "id": "duct-register-pro-6",
+      "word": "duct register",
+      "translation": "风管风口"
+    },
+    {
+      "id": "damper-blade-pro-6",
+      "word": "damper blade",
+      "translation": "风阀叶片"
+    },
+    {
+      "id": "pipe-support-pro-6",
+      "word": "pipe support",
+      "translation": "管道支架"
+    },
+    {
+      "id": "service-core-threshold-pro-6",
+      "word": "service-core threshold",
+      "translation": "设备核心门槛"
+    },
+    {
+      "id": "rack-identification-plate-pro-6",
+      "word": "rack identification plate",
+      "translation": "机架识别牌"
+    },
+    {
+      "id": "table-leg-brace-pro-7",
+      "word": "table leg brace",
+      "translation": "桌腿撑"
+    },
+    {
+      "id": "chair-arm-pad-pro-7",
+      "word": "chair arm pad",
+      "translation": "椅扶手垫"
+    },
+    {
+      "id": "glass-door-handle-pro-7",
+      "word": "glass door handle",
+      "translation": "玻璃门把手"
+    },
+    {
+      "id": "glass-door-hinge-pro-7",
+      "word": "glass door hinge",
+      "translation": "玻璃门铰链"
+    },
+    {
+      "id": "glass-seal-pro-7",
+      "word": "glass seal",
+      "translation": "玻璃密封条"
+    },
+    {
+      "id": "glass-mullion-cap-pro-7",
+      "word": "glass mullion cap",
+      "translation": "玻璃竖框帽"
+    },
+    {
+      "id": "whiteboard-surface-pro-7",
+      "word": "whiteboard surface",
+      "translation": "白板面"
+    },
+    {
+      "id": "whiteboard-corner-pro-7",
+      "word": "whiteboard corner",
+      "translation": "白板角"
+    },
+    {
+      "id": "marker-rack-pro-7",
+      "word": "marker rack",
+      "translation": "标记笔架"
+    },
+    {
+      "id": "marker-eraser-pro-7",
+      "word": "marker eraser",
+      "translation": "白板擦"
+    },
+    {
+      "id": "presentation-remote-pro-7",
+      "word": "presentation remote",
+      "translation": "演示遥控器"
+    },
+    {
+      "id": "projector-cable-pro-7",
+      "word": "projector cable",
+      "translation": "投影仪电缆"
+    },
+    {
+      "id": "camera-power-lead-pro-7",
+      "word": "camera power lead",
+      "translation": "摄像机电源线"
+    },
+    {
+      "id": "microphone-base-pro-7",
+      "word": "microphone base",
+      "translation": "麦克风底座"
+    },
+    {
+      "id": "speaker-grille-pro-7",
+      "word": "speaker grille",
+      "translation": "扬声器格栅"
+    },
+    {
+      "id": "table-power-socket-pro-7",
+      "word": "table power socket",
+      "translation": "桌面电源插座"
+    },
+    {
+      "id": "conference-badge-holder-pro-7",
+      "word": "conference badge holder",
+      "translation": "会议证件夹"
+    },
+    {
+      "id": "blind-cord-pro-7",
+      "word": "blind cord",
+      "translation": "百叶绳"
+    },
+    {
+      "id": "acoustic-panel-edge-pro-7",
+      "word": "acoustic panel edge",
+      "translation": "吸音板边"
+    },
+    {
+      "id": "ceiling-speaker-pro-7",
+      "word": "ceiling speaker",
+      "translation": "天花扬声器"
+    },
+    {
+      "id": "room-light-switch-pro-7",
+      "word": "room light switch",
+      "translation": "房间灯开关"
+    },
+    {
+      "id": "chair-foot-ring-pro-7",
+      "word": "chair foot ring",
+      "translation": "椅脚圈"
+    },
+    {
+      "id": "screen-power-cable-pro-7",
+      "word": "screen power cable",
+      "translation": "屏幕电源线"
+    },
+    {
+      "id": "conference-room-clock-pro-7",
+      "word": "conference room clock",
+      "translation": "会议室时钟"
+    },
+    {
+      "id": "table-cable-tray-pro-7",
+      "word": "table cable tray",
+      "translation": "桌下电缆托盘"
+    },
+    {
+      "id": "cabinet-knob-pro-8",
+      "word": "cabinet knob",
+      "translation": "柜门旋钮"
+    },
+    {
+      "id": "island-leg-pro-8",
+      "word": "island leg",
+      "translation": "中岛支腿"
+    },
+    {
+      "id": "sink-basin-pro-8",
+      "word": "sink basin",
+      "translation": "水槽盆"
+    },
+    {
+      "id": "faucet-handle-pro-8",
+      "word": "faucet handle",
+      "translation": "水龙头把手"
+    },
+    {
+      "id": "soap-pump-pro-8",
+      "word": "soap pump",
+      "translation": "洗手液泵"
+    },
+    {
+      "id": "coffee-brewer-pro-8",
+      "word": "coffee brewer",
+      "translation": "咖啡冲煮机"
+    },
+    {
+      "id": "carafe-pro-8",
+      "word": "carafe",
+      "translation": "咖啡壶"
+    },
+    {
+      "id": "mug-shelf-pro-8",
+      "word": "mug shelf",
+      "translation": "马克杯搁板"
+    },
+    {
+      "id": "microwave-panel-pro-8",
+      "word": "microwave panel",
+      "translation": "微波炉面板"
+    },
+    {
+      "id": "microwave-keypad-pro-8",
+      "word": "microwave keypad",
+      "translation": "微波炉按键"
+    },
+    {
+      "id": "kettle-spout-pro-8",
+      "word": "kettle spout",
+      "translation": "水壶壶嘴"
+    },
+    {
+      "id": "toaster-slot-pro-8",
+      "word": "toaster slot",
+      "translation": "烤面包机槽"
+    },
+    {
+      "id": "cutting-board-pro-8",
+      "word": "cutting board",
+      "translation": "砧板"
+    },
+    {
+      "id": "bowl-rim-pro-8",
+      "word": "bowl rim",
+      "translation": "碗沿"
+    },
+    {
+      "id": "plate-stack-pro-8",
+      "word": "plate stack",
+      "translation": "盘子摞"
+    },
+    {
+      "id": "cup-rim-pro-8",
+      "word": "cup rim",
+      "translation": "杯沿"
+    },
+    {
+      "id": "undercounter-drawer-pro-8",
+      "word": "undercounter drawer",
+      "translation": "台下抽屉"
+    },
+    {
+      "id": "floor-tile-pro-8",
+      "word": "floor tile",
+      "translation": "地砖"
+    },
+    {
+      "id": "drawer-face-pro-8",
+      "word": "drawer face",
+      "translation": "抽屉面板"
     }
   ]
 }

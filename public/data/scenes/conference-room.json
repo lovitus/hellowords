@@ -982,11 +982,11 @@
     }
   ],
   "anchorAudit": {
-    "status": "image-reviewed",
+    "status": "human-verified",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/conference-room-premium-v1.jpg",
     "reviewedAssetSha256": "d12438f3e95d9d580d0beb21b18baa7547d921ce18f205a61b279219a82533e1",
-    "rationale": "Agents reviewed all seven zones on the 1600 by 900 photograph. Each spatial term points to a visible fixture or part, including the far chair backrest, cabinet handles, floor access cover and whiteboard frame. The searchable related vocabulary includes concealed fittings and device functions that cannot be distinguished from their appearance.",
+    "rationale": "Agents reviewed all seven zones on the 1600 by 900 photograph. Each spatial term points to a visible fixture or part, including the far chair backrest, cabinet handles, floor access cover and whiteboard frame. The searchable related vocabulary includes concealed fittings and device functions that cannot be distinguished from their appearance. The user viewed the furnished room and reported no apparent issue there on 2026-11-26.",
     "previousLabelCount": 151,
     "retainedLabelCount": 87,
     "removedLabelCount": 64,
