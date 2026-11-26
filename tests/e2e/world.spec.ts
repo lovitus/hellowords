@@ -497,6 +497,140 @@ test("the home atlas keeps its artwork clear and reveals only the hovered distri
   await expect(categories).toHaveCount(expectedCounts.length);
 });
 
+async function paintedAtlasWordPoint(page: Page, id: string) {
+  return page.locator(".label-canvas").evaluate((element, id) => {
+    const canvas = element as HTMLCanvasElement & { paintedLabels?: readonly PaintedLabel[] };
+    const word = canvas.paintedLabels?.find(label => label.id === id && label.interactive && label.opacity >= 0.52);
+    if (!word || !canvas.width || !canvas.height) return null;
+    const bounds = canvas.getBoundingClientRect();
+    const sample = document.createElement("canvas");
+    sample.width = sample.height = 3;
+    const ctx = sample.getContext("2d")!;
+    const sx = canvas.width / bounds.width;
+    const sy = canvas.height / bounds.height;
+    ctx.drawImage(canvas, (word.centerX - 1.5) * sx, (word.centerY - 1.5) * sy, 3 * sx, 3 * sy, 0, 0, 3, 3);
+    const pixels = ctx.getImageData(0, 0, 3, 3).data;
+    if (!pixels.some((value, index) => index % 4 === 3 && value > 0)) return null;
+    return { x: bounds.left + word.centerX, y: bounds.top + word.centerY };
+  }, id);
+}
+
+test("home atlas district journey search paints the selected tractor and keeps district navigation available", async ({ page, isMobile }, testInfo) => {
+  await page.clock.install();
+  const app = await openWorld(page);
+  const activate = (button: Locator) => isMobile ? button.tap() : button.click();
+  await activate(page.getByTestId("scene-word-index-toggle"));
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill("farm tractor");
+  const tractorId = "farm-yard-farm-tractor";
+  const photo = page.locator(".scene-art");
+  const entryBounds = await photo.boundingBox();
+  const result = index.locator(`[data-testid="scene-word-index-result"][data-label-id="${tractorId}"]`);
+  await expect(result).toBeVisible();
+  const resultBounds = (await result.boundingBox())!;
+  const resultX = resultBounds.x + resultBounds.width / 2;
+  const resultY = resultBounds.y + resultBounds.height / 2;
+  // Finish the camera move but hold time short of the passive 600 ms encounter.
+  await page.clock.pauseAt(new Date(await page.evaluate(() => Date.now()) + 100));
+  if (isMobile) await page.touchscreen.tap(resultX, resultY);
+  else await page.mouse.click(resultX, resultY);
+  await page.clock.runFor(384);
+  await expect(page.locator(".word-dock strong")).toHaveText("farm tractor");
+  await expect(index).toBeHidden();
+  await expect.poll(() => photo.boundingBox()).not.toEqual(entryBounds);
+  await expect.poll(() => paintedAtlasWordPoint(page, tractorId), {
+    message: "the searched tractor is drawn and interactive while its card is open",
+  }).not.toBeNull();
+  const encountered = () => page.evaluate(key => {
+    const words: string[] = JSON.parse(localStorage.getItem("hellowords:encountered-labels:v2") ?? "[]");
+    return words.includes(key);
+  }, labelDiscoveryKey({ id: tractorId }));
+  expect(await encountered()).toBe(false);
+  await clickPaintedWord(page, tractorId, isMobile ? "touch" : "mouse");
+  await expect.poll(encountered, { message: "the direct tap records the tractor before passive dwell" }).toBe(true);
+  await expect(page.locator(".word-dock strong")).toHaveText("farm tractor");
+  await page.clock.resume();
+  await testInfo.attach("tractor-on-map", { body: await page.screenshot(), contentType: "image/png" });
+
+  const layer = page.getByTestId("atlas-category-layer");
+  const campus = page.getByRole("button", { name: /^Campus\b/ });
+  if (isMobile) await campus.tap();
+  else await campus.hover();
+  await expect(layer).toHaveAttribute("data-active-category", "school");
+  await expect(page.locator('[data-testid="atlas-category-word"][data-category-id="school"][data-interactive="true"]').first()).toBeVisible();
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+
+  const minimap = page.getByTestId("scene-minimap");
+  await activate(minimap.locator('[data-testid="scene-minimap-district"][data-district-id="science"]'));
+  await expect(minimap.getByTestId("scene-minimap-districts")).toHaveAttribute("data-mode", "zones");
+  await expect(layer).toHaveAttribute("data-active-category", "science");
+  await expect(page.locator('[data-testid="atlas-category-word"][data-category-id="science"][data-interactive="true"]').first()).toBeVisible();
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+});
+
+test("home atlas district journey pointer opens a Campus word drawn over Science", async ({ page, isMobile }, testInfo) => {
+  test.skip(isMobile, "The desktop pointer crosses the neighboring district on the way to this word.");
+  const app = await openWorld(page);
+  const layer = page.getByTestId("atlas-category-layer");
+  const campus = page.getByRole("button", { name: /^Campus\b/ });
+  await campus.hover();
+  const id = "school-prep-recycling-bin";
+  await expect.poll(() => paintedAtlasWordPoint(page, id)).not.toBeNull();
+  const point = (await paintedAtlasWordPoint(page, id))!;
+  const science = page.locator('[data-testid="atlas-category"][data-category-id="science"]');
+  expect(await science.evaluate((element, point) => {
+    const rect = element.getBoundingClientRect();
+    return point.x >= rect.left && point.x <= rect.right && point.y >= rect.top && point.y <= rect.bottom;
+  }, point), "at the desktop entry camera the Campus pill lies over Science").toBe(true);
+
+  await page.mouse.move(point.x, point.y, { steps: 12 });
+  // Give a pending district change time to take effect while the reader pauses over the word.
+  await page.waitForTimeout(350);
+  await page.mouse.click(point.x, point.y);
+  const card = page.getByRole("complementary", { name: "blue recycling bin word details", exact: true });
+  await expect(card.locator("strong"), "the cross-boundary word opens its own card").toHaveText("blue recycling bin");
+  await testInfo.attach("campus-word-open", { body: await page.screenshot(), contentType: "image/png" });
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await card.getByRole("button", { name: "关闭单词卡" }).click();
+
+  await campus.hover();
+  await expect(layer).toHaveAttribute("data-active-category", "school");
+  await expect(page.locator('[data-testid="atlas-category"][data-active="true"]')).toHaveCount(1);
+  await expect.poll(() => renderedWordCount(page)).toBeGreaterThan(0);
+  await expect(page.locator('[data-testid="atlas-category-word"]:not([data-category-id="school"])')).toHaveCount(0);
+  const bounds = (await page.locator(VIEWPORT).boundingBox())!;
+  await page.mouse.move(bounds.x + bounds.width / 2, bounds.y + bounds.height - 3);
+  await expect(layer).toHaveAttribute("data-active-category", "none");
+  await expect(page.getByTestId("atlas-category-word")).toHaveCount(0);
+  await expect.poll(() => renderedWordCount(page)).toBe(0);
+});
+
+test("home atlas district journey keyboard tabs from the Campus title to a drawn word and back", async ({ page }, testInfo) => {
+  const app = await openWorld(page);
+  const campus = page.getByRole("button", { name: /^Campus\b/ });
+  const tabLimit = await page.locator("button:enabled, a[href], input, [tabindex='0']").count();
+  for (let i = 0; i < tabLimit && !await campus.evaluate(el => el === document.activeElement); i++) {
+    await page.keyboard.press("Tab");
+  }
+  await expect(campus).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect.poll(() => renderedWordCount(page)).toBeGreaterThan(0);
+  await page.keyboard.press("Tab");
+  const focused = page.locator('[data-testid="atlas-category-word"][data-category-id="school"]:focus');
+  await expect(focused, "Tab from Campus focuses a drawn Campus word").toBeVisible();
+  const id = (await focused.getAttribute("data-label-id"))!;
+  const word = (await focused.getAttribute("data-word"))!;
+  await expect.poll(() => paintedAtlasWordPoint(page, id)).not.toBeNull();
+  await testInfo.attach("focused-campus-word", { body: await page.screenshot(), contentType: "image/png" });
+  await page.keyboard.press("Shift+Tab");
+  await expect(campus).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(focused).toHaveAttribute("data-label-id", id);
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("complementary", { name: `${word} word details`, exact: true }).locator("strong")).toHaveText(word);
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+});
+
 test("five authored LOD bands use spare space and remain readable while zooming", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
   await openWorld(page);

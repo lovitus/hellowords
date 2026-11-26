@@ -653,6 +653,7 @@ export function WorldApp() {
     setFocusedAtlasZoneId(null);
     const target: SceneFocusTarget = {
       kind: "region",
+      atlasDistrictId: district.id,
       x: district.focusX,
       y: district.focusY,
       targetScale: district.targetScale,
@@ -666,12 +667,13 @@ export function WorldApp() {
     const target: SceneFocusTarget = {
       kind: "region",
       zoneId: zone.id,
+      atlasDistrictId: selectedAtlasDistrictId ?? undefined,
       x: zone.focusX,
       y: zone.focusY,
       targetScale: zone.targetScale,
     };
     return activeFocusTargetNavigatorRef.current?.(target, source) ?? false;
-  }, [scene?.id, sceneControlsLocked]);
+  }, [scene?.id, sceneControlsLocked, selectedAtlasDistrictId]);
 
   const focusSceneDetailZone = useCallback((zone: RootAtlasZone, source: "pointer" | "keyboard") => {
     if (sceneControlsLocked || !scene || scene.id === "world-map") return false;
@@ -693,6 +695,7 @@ export function WorldApp() {
       const target: SceneFocusTarget = {
         kind: "word",
         zoneId: zone?.id,
+        atlasDistrictId: rootAtlasDistricts.find((district) => district.labelIds.includes(word.id))?.id,
         x: word.x,
         y: word.y,
         targetScale: Math.min(
@@ -708,7 +711,7 @@ export function WorldApp() {
     setSceneWordIndexOpen(false);
     setSceneWordIndexQuery("");
     return true;
-  }, [scene, sceneControlsLocked]);
+  }, [rootAtlasDistricts, scene, sceneControlsLocked]);
 
   const selectViewportWord = useCallback((label: Label) => {
     keyboardIndexSelectionRef.current = false;

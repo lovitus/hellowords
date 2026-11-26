@@ -4,6 +4,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import {
+  Fragment,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -104,6 +105,7 @@ export type ScenePortalNavigator = (
 export interface SceneFocusTarget {
   readonly kind: "region" | "word";
   readonly zoneId?: string;
+  readonly atlasDistrictId?: string;
   /** Scene-space point that should land at the viewport centre. */
   readonly x: number;
   readonly y: number;
@@ -859,7 +861,7 @@ export function SceneViewport({
   const vocabularySummaryRef = useRef<HTMLButtonElement>(null);
   const sceneWordProgressRef = useRef<HTMLParagraphElement>(null);
   const atlasCategoryElementsRef = useRef(new Map<string, HTMLDivElement>());
-  const atlasCategoryCloseTimerRef = useRef<number | null>(null);
+  const pendingAtlasHoverRef = useRef<{ timer: number; districtId: string | null } | null>(null);
   const previewPhaseRef = useRef<"preview" | "armed">("preview");
   const committingRef = useRef(false);
   const parentZoomPrefetchRef = useRef(false);
@@ -936,55 +938,89 @@ export function SceneViewport({
       .filter((label) => labelIds.has(label.id))
       .sort((first, second) => first.priority - second.priority || first.id.localeCompare(second.id));
   }, [activeAtlasDistrict, scene.labels]);
+  const sceneWordCandidates = atlasOverviewMode ? activeAtlasLabels : scene.labels;
   const labelsForRender = useMemo(() => {
-    if (transitionPhase === "outgoing") return [] as Label[];
-    const candidates = atlasOverviewMode
-      ? selectedLabelId ? [] : activeAtlasLabels
-      : scene.labels;
-    return candidates.filter((label) => mountedLabelIds.has(label.id));
-  }, [activeAtlasLabels, atlasOverviewMode, mountedLabelIds, scene.labels, selectedLabelId, transitionPhase]);
+    if (transitionPhase === "outgoing") return [];
+    return sceneWordCandidates.filter((label) => mountedLabelIds.has(label.id));
+  }, [mountedLabelIds, sceneWordCandidates, transitionPhase]);
 
-  const cancelAtlasCategoryClose = useCallback(() => {
-    if (atlasCategoryCloseTimerRef.current === null) return;
-    window.clearTimeout(atlasCategoryCloseTimerRef.current);
-    atlasCategoryCloseTimerRef.current = null;
+  const cancelAtlasHover = useCallback(() => {
+    if (!pendingAtlasHoverRef.current) return;
+    window.clearTimeout(pendingAtlasHoverRef.current.timer);
+    pendingAtlasHoverRef.current = null;
   }, []);
 
   const activateAtlasCategory = useCallback((districtId: string) => {
-    cancelAtlasCategoryClose();
+    cancelAtlasHover();
     setAtlasCategoryId(districtId);
-  }, [cancelAtlasCategoryClose]);
+  }, [cancelAtlasHover]);
 
-  const scheduleAtlasCategoryClose = useCallback(() => {
-    cancelAtlasCategoryClose();
-    atlasCategoryCloseTimerRef.current = window.setTimeout(() => {
-      atlasCategoryCloseTimerRef.current = null;
-      setAtlasCategoryId(null);
+  const scheduleAtlasHover = useCallback((districtId: string | null) => {
+    if (pendingAtlasHoverRef.current?.districtId === districtId) return;
+    cancelAtlasHover();
+    const timer = window.setTimeout(() => {
+      pendingAtlasHoverRef.current = null;
+      setAtlasCategoryId(districtId);
     }, 160);
-  }, [cancelAtlasCategoryClose]);
+    pendingAtlasHoverRef.current = { timer, districtId };
+  }, [cancelAtlasHover]);
 
   const setAtlasCategoryElement = useCallback((districtId: string, element: HTMLDivElement | null) => {
     if (element) atlasCategoryElementsRef.current.set(districtId, element);
     else atlasCategoryElementsRef.current.delete(districtId);
   }, []);
 
-  const positionAtlasCategories = useCallback((camera: Camera) => {
+  const positionAtlasCategories = useCallback((camera: Camera, viewportWidth: number) => {
     if (!atlasOverviewMode || !atlasDistricts) return;
-    for (const district of atlasDistricts) {
+    const occupied: SceneLabelProtectedRegion[] = [];
+    const selectedId = selectedLabelIdRef.current;
+    const selected = selectedId && activeAtlasDistrict?.labelIds.includes(selectedId)
+      ? labelsById.get(selectedId) : undefined;
+    const scale = camera.fit * camera.scale;
+    const anchor = selected ? { x: camera.x + selected.x * scale, y: camera.y + selected.y * scale } : null;
+    const gap = viewportWidth <= 900 ? 10 : 3;
+    // Read the six intrinsic hit-box sizes before writing any projected positions.
+    const titles = activeAtlasDistrict ? atlasDistricts.map(({ id }) => {
+      const button = atlasCategoryElementsRef.current.get(id)?.firstElementChild;
+      return button instanceof HTMLButtonElement
+        ? { button, width: button.offsetWidth, height: button.offsetHeight } : null;
+    }) : [];
+    for (const [index, district] of atlasDistricts.entries()) {
       const element = atlasCategoryElementsRef.current.get(district.id);
       if (!element) continue;
       const bounds = projectSceneRectToScreen(district, camera);
+      const title = titles[index];
+      if (title) {
+        const centerX = bounds.x + bounds.width / 2;
+        const defaultY = bounds.y + bounds.height / 2;
+        const halfWidth = title.width / 2 + gap;
+        const halfHeight = title.height / 2 + gap;
+        let centerY = defaultY;
+        if (anchor && Math.abs(anchor.x - centerX) < halfWidth && Math.abs(anchor.y - defaultY) < halfHeight) {
+          // Put the nearest edge of the title clear of the photographed object.
+          centerY = anchor.y >= defaultY ? anchor.y - halfHeight : anchor.y + halfHeight;
+        }
+        const shift = centerY - defaultY;
+        setStylePropertyIfChanged(title.button.style, "margin-top", shift ? `${shift.toFixed(2)}px` : "");
+        occupied.push({
+          left: centerX - halfWidth, right: centerX + halfWidth,
+          top: centerY - halfHeight, bottom: centerY + halfHeight,
+        });
+      } else if (element.firstElementChild instanceof HTMLButtonElement) {
+        setStylePropertyIfChanged(element.firstElementChild.style, "margin-top", "");
+      }
       setStylePropertyIfChanged(element.style, "left", `${bounds.x.toFixed(2)}px`);
       setStylePropertyIfChanged(element.style, "top", `${bounds.y.toFixed(2)}px`);
       setStylePropertyIfChanged(element.style, "width", `${Math.max(0, bounds.width).toFixed(2)}px`);
       setStylePropertyIfChanged(element.style, "height", `${Math.max(0, bounds.height).toFixed(2)}px`);
       setDatasetValueIfChanged(element, "positioned", "true");
     }
-  }, [atlasDistricts, atlasOverviewMode]);
+    return occupied;
+  }, [activeAtlasDistrict, atlasDistricts, atlasOverviewMode, labelsById]);
 
   useEffect(() => () => {
-    cancelAtlasCategoryClose();
-  }, [cancelAtlasCategoryClose]);
+    cancelAtlasHover();
+  }, [cancelAtlasHover]);
 
   const setContinuousTileNode = useCallback((node: HTMLDivElement | null) => {
     continuousTileRef.current = node;
@@ -1338,7 +1374,7 @@ export function SceneViewport({
       });
       return;
     }
-    positionAtlasCategories(camera);
+    const titleRegions = positionAtlasCategories(camera, viewportWidth);
 
     const nextPreviewPhase = portalProgress >= PORTAL_ARMED_PROGRESS ? "armed" : "preview";
     if (activePortal && previewPortalRef.current?.id !== activePortal.id) {
@@ -1473,14 +1509,11 @@ export function SceneViewport({
       portalOverlapsMinimap ? "17" : "",
     );
 
-    const labelsForCameraLayout: readonly Label[] = atlasOverviewMode
-      ? selectedLabelId ? [] : activeAtlasLabels
-      : scene.labels;
     const activeElement = document.activeElement;
     const focusedLabelId = activeElement instanceof HTMLButtonElement
-      && activeElement.matches(".word-label")
-      && labelLayer.contains(activeElement)
-      ? activeElement.dataset.labelId ?? null
+      && activeElement.dataset.labelId
+      && labelElementsRef.current.get(activeElement.dataset.labelId) === activeElement
+      ? activeElement.dataset.labelId
       : null;
     let pendingKeyboardFocusLabelId = pendingKeyboardFocusLabelIdRef.current;
     const focusView = stationaryWordFocusViewRef.current;
@@ -1493,8 +1526,12 @@ export function SceneViewport({
       stationaryWordFocusViewRef.current = null;
     }
     const retainedFocusLabelId = stationaryWordFocusViewRef.current ? null : focusedLabelId;
+    const protectedRegions = buildViewerChromeProtectedRegions(
+      labelViewport.width, labelViewport.height, wordIndexOpen, minimapCollapsedRef.current,
+    );
+    if (titleRegions?.length) protectedRegions.push(...titleRegions);
     const layout = computeScenePlacements(
-      labelsForCameraLayout,
+      sceneWordCandidates,
       camera,
       labelViewport,
       meaningVisibleRef.current,
@@ -1507,12 +1544,7 @@ export function SceneViewport({
         preferredOffsets: !labelViewport.compact && !atlasOverviewMode && retainManualZoomSlotsRef.current
           ? labelPlacementOffsetsRef.current
           : undefined,
-        protectedRegions: buildViewerChromeProtectedRegions(
-          labelViewport.width,
-          labelViewport.height,
-          wordIndexOpen,
-          minimapCollapsedRef.current,
-        ),
+        protectedRegions,
         portalCueRegions,
       },
     );
@@ -1549,7 +1581,7 @@ export function SceneViewport({
     // The root atlas keeps the bounded window because it has 1,289 words.
     const nextMountedLabelIds = atlasOverviewMode
       ? buildSceneLabelMountWindow(
-        labelsForCameraLayout,
+        sceneWordCandidates,
         layout,
         labelViewport,
         {
@@ -1787,7 +1819,7 @@ export function SceneViewport({
       visibleItemsInPlacementOrder,
     );
     const revealSummary = buildVocabularyRevealSummary(
-      labelsForCameraLayout,
+      sceneWordCandidates,
       camera.scale,
       maximumScale,
       LABEL_ENCOUNTER_OPACITY,
@@ -2017,7 +2049,7 @@ export function SceneViewport({
       }
       setAttributeIfChanged(summaryElement, "aria-label", "继续放大，显示下一批词");
     }
-  }, [activeAtlasLabels, atlasOverviewMode, canEncounterWords, clampCamera, continuousTileDirection, continuousTileState, initialView, labelSemanticStyles, labelsById, onCameraFrame, positionAtlasCategories, reconcileSceneAssetForCamera, scene, sceneLabelIds, selectedLabelId, showPortalPreview, updateLabelDwell, vocabularyZoomCues, wordIndexOpen]);
+  }, [atlasOverviewMode, canEncounterWords, clampCamera, continuousTileDirection, continuousTileState, initialView, labelSemanticStyles, labelsById, onCameraFrame, positionAtlasCategories, reconcileSceneAssetForCamera, scene, sceneLabelIds, sceneWordCandidates, showPortalPreview, updateLabelDwell, vocabularyZoomCues, wordIndexOpen]);
 
   useLayoutEffect(() => {
     if (pendingLabelWindowPaintRef.current) {
@@ -2715,6 +2747,7 @@ export function SceneViewport({
       || !Number.isFinite(focusTarget.targetScale)
     ) return false;
 
+    if (focusTarget.atlasDistrictId) activateAtlasCategory(focusTarget.atlasDistrictId);
     stopWheelAnimation();
     cancelCameraAnimation();
     resetParentExitHysteresis();
@@ -2807,7 +2840,7 @@ export function SceneViewport({
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
     return true;
-  }, [cancelCameraAnimation, clampCamera, labelsById, requestCameraFrame, resetParentExitHysteresis, scene, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
+  }, [activateAtlasCategory, cancelCameraAnimation, clampCamera, labelsById, requestCameraFrame, resetParentExitHysteresis, scene, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
 
   useEffect(() => {
     if (!onFocusTargetNavigatorReady) return;
@@ -3045,9 +3078,9 @@ export function SceneViewport({
 
   const focusWord = useCallback((id: string) => {
     stationaryWordFocusViewRef.current = null;
-    if (atlasOverviewMode) cancelAtlasCategoryClose();
+    if (atlasOverviewMode) cancelAtlasHover();
     const state = labelPaintStateRef.current;
-    if (!atlasOverviewMode && !pendingKeyboardFocusLabelIdRef.current
+    if (!pendingKeyboardFocusLabelIdRef.current
       && state?.labels.some((word) => word.id === id && word.interactive)) {
       // Tabbing between words already on the canvas must preserve their spatial
       // layout and tab order. Camera movement resumes normal focus retention.
@@ -3059,16 +3092,18 @@ export function SceneViewport({
     } else {
       requestCameraFrame();
     }
-  }, [atlasOverviewMode, cancelAtlasCategoryClose, paintWordFocus, requestCameraFrame]);
+  }, [atlasOverviewMode, cancelAtlasHover, paintWordFocus, requestCameraFrame]);
 
   const blurWord = useCallback((event: React.FocusEvent<HTMLButtonElement>) => {
     const hadStationaryFocus = stationaryWordFocusViewRef.current !== null;
     stationaryWordFocusViewRef.current = null;
-    if (!atlasOverviewMode && event.relatedTarget instanceof HTMLButtonElement
-      && labelLayerRef.current?.contains(event.relatedTarget)) return;
+    const next = event.relatedTarget;
+    if (next instanceof HTMLButtonElement && next.dataset.labelId
+      && labelElementsRef.current.get(next.dataset.labelId) === next) return;
+    if (atlasOverviewMode) scheduleAtlasHover(null);
     if (hadStationaryFocus) paintWordFocus(null);
     else requestCameraFrame();
-  }, [atlasOverviewMode, paintWordFocus, requestCameraFrame]);
+  }, [atlasOverviewMode, paintWordFocus, requestCameraFrame, scheduleAtlasHover]);
 
   const wordButtons = useMemo(() => labelsForRender.map((label) => {
     const semanticStyle = labelSemanticStyles.get(label.id);
@@ -3100,14 +3135,12 @@ export function SceneViewport({
         aria-hidden="true"
         onClick={(event) => {
           event.stopPropagation();
-          if (atlasOverviewMode) setAtlasCategoryId(null);
+          if (atlasOverviewMode) cancelAtlasHover();
           selectedLabelIdRef.current = label.id;
           requestCameraFrame();
           reportClickedLabel(label);
           onSelectWord(label);
         }}
-        onPointerEnter={atlasOverviewMode ? cancelAtlasCategoryClose : undefined}
-        onPointerLeave={atlasOverviewMode ? scheduleAtlasCategoryClose : undefined}
         onFocus={() => focusWord(label.id)}
         onBlur={blurWord}
       >
@@ -3119,8 +3152,8 @@ export function SceneViewport({
         ) : null}
       </button>
     );
-  }), [atlasCategoryId, atlasOverviewMode, blurWord, cancelAtlasCategoryClose, focusWord, labelSemanticStyles,
-    labelsForRender, meaningVisible, onSelectWord, reportClickedLabel, requestCameraFrame, scheduleAtlasCategoryClose]);
+  }), [atlasCategoryId, atlasOverviewMode, blurWord, cancelAtlasHover, focusWord, labelSemanticStyles,
+    labelsForRender, meaningVisible, onSelectWord, reportClickedLabel, requestCameraFrame]);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!viewerInteractive || committingRef.current || continuitySettlingRef.current) return;
@@ -3164,7 +3197,7 @@ export function SceneViewport({
     const bounds = event.currentTarget.getBoundingClientRect();
     const hit = hitPaintedLabel(state.labels, event.clientX - bounds.left, event.clientY - bounds.top, event.pointerType);
     if (!hit) return;
-    if (atlasOverviewMode) setAtlasCategoryId(null);
+    if (atlasOverviewMode) cancelAtlasHover();
     selectedLabelIdRef.current = hit.id;
     requestCameraFrame();
     reportClickedLabel(hit.label);
@@ -3175,9 +3208,17 @@ export function SceneViewport({
     if (!atlasOverviewMode || !atlasDistricts || !viewerInteractiveRef.current) return;
     if (pointersRef.current.has(event.pointerId)) return;
     const target = event.target instanceof Element ? event.target : null;
-    const hoveredWord = target?.closest<HTMLElement>("[data-atlas-category-word=\"true\"]");
-    if (hoveredWord?.dataset.categoryId === atlasCategoryId) {
-      cancelAtlasCategoryClose();
+    const nameplate = target?.closest<HTMLElement>(".atlas-category-hit");
+    if (nameplate?.dataset.categoryId) {
+      activateAtlasCategory(nameplate.dataset.categoryId);
+      return;
+    }
+    if (target?.closest("button")) {
+      scheduleAtlasHover(null);
+      return;
+    }
+    if (atlasCategoryId && hoveredLabelIdRef.current) {
+      cancelAtlasHover();
       return;
     }
     const viewportBounds = event.currentTarget.getBoundingClientRect();
@@ -3192,10 +3233,15 @@ export function SceneViewport({
         && point.y >= bounds.y
         && point.y <= bounds.y + bounds.height;
     });
-    if (hoveredDistrict) {
-      activateAtlasCategory(hoveredDistrict.id);
-    } else if (atlasCategoryId) {
-      scheduleAtlasCategoryClose();
+    const districtId = hoveredDistrict?.id ?? null;
+    if (districtId === atlasCategoryId) {
+      cancelAtlasHover();
+    } else if (!atlasCategoryId && districtId) {
+      activateAtlasCategory(districtId);
+    } else {
+      // A placed word can sit across the district boundary from its anchor.
+      // Give the pointer time to reach it before replacing the word layer.
+      scheduleAtlasHover(districtId);
     }
   };
 
@@ -3321,7 +3367,9 @@ export function SceneViewport({
         aria-busy={interactionLocked}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
-        onPointerLeave={scheduleAtlasCategoryClose}
+        onPointerLeave={atlasOverviewMode ? (event) => {
+          if (event.pointerType !== "touch") scheduleAtlasHover(null);
+        } : undefined}
         onPointerUp={releasePointer}
         onPointerCancel={releasePointer}
         onLostPointerCapture={releasePointer}
@@ -3387,7 +3435,7 @@ export function SceneViewport({
           inert={motionFrozen ? true : undefined}
           aria-hidden={motionFrozen ? true : undefined}
         >
-          {atlasOverviewMode && atlasDistricts && !selectedLabelId ? (
+          {atlasOverviewMode && atlasDistricts ? (
             <div
               className="atlas-category-layer"
               data-testid="atlas-category-layer"
@@ -3397,33 +3445,35 @@ export function SceneViewport({
               {atlasDistricts.map((district) => {
                 const active = atlasCategoryId === district.id;
                 return (
-                  <div
-                    key={district.id}
-                    ref={(element) => setAtlasCategoryElement(district.id, element)}
-                    className="atlas-category-region"
-                    data-testid="atlas-category"
-                    data-category-id={district.id}
-                    data-active={String(active)}
-                    data-positioned="false"
-                  >
-                    <button
-                      type="button"
-                      className="atlas-category-hit"
-                      data-testid="atlas-category-hit"
+                  <Fragment key={district.id}>
+                    <div
+                      ref={(element) => setAtlasCategoryElement(district.id, element)}
+                      className="atlas-category-region"
+                      data-testid="atlas-category"
                       data-category-id={district.id}
-                      aria-expanded={active}
-                      aria-label={`${district.label}，${district.translation}，${district.labelCount} 个词。悬停显示该区锚点词`}
-                      disabled={!viewerInteractive}
-                      onFocus={() => activateAtlasCategory(district.id)}
-                      onBlur={scheduleAtlasCategoryClose}
-                      onClick={() => activateAtlasCategory(district.id)}
+                      data-active={String(active)}
+                      data-positioned="false"
                     >
-                      <span className="atlas-category-nameplate" data-testid="atlas-category-nameplate">
-                        <strong>{district.label}</strong>
-                        {meaningVisible ? <small>{district.translation}</small> : null}
-                      </span>
-                    </button>
-                  </div>
+                      <button
+                        type="button"
+                        className="atlas-category-hit"
+                        data-testid="atlas-category-hit"
+                        data-category-id={district.id}
+                        aria-expanded={active}
+                        aria-label={`${district.label}，${district.translation}，${district.labelCount} 个词。悬停显示该区锚点词`}
+                        disabled={!viewerInteractive}
+                        onFocus={() => activateAtlasCategory(district.id)}
+                        onBlur={() => scheduleAtlasHover(null)}
+                        onClick={() => activateAtlasCategory(district.id)}
+                      >
+                        <span className="atlas-category-nameplate" data-testid="atlas-category-nameplate">
+                          <strong>{district.label}</strong>
+                          {meaningVisible ? <small>{district.translation}</small> : null}
+                        </span>
+                      </button>
+                    </div>
+                    {active ? wordButtons : null}
+                  </Fragment>
                 );
               })}
             </div>
@@ -3562,7 +3612,7 @@ export function SceneViewport({
           aria-label="Words in this scene"
         >
           <canvas ref={attachLabelCanvas} width={0} height={0} className="label-canvas" aria-hidden="true" />
-          {wordButtons}
+          {atlasOverviewMode ? null : wordButtons}
         </div>
         <div className="viewport-vignette" aria-hidden="true" />
       </div>
