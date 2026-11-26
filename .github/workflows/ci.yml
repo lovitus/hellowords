@@ -1,121 +1,133 @@
-name: CI
-
+name: Verify the office photograph on a portrait phone
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
     inputs:
-      compare_published_baseline:
-        description: Compare the last audited product source on the same runner
-        type: boolean
-        default: false
-      milestone_release_preflight:
-        description: Run the 10k public-release preflight and verify the clean commit; does not publish
-        type: boolean
-        default: false
-
+      candidate:
+        description: Full SHA of the frozen product commit
+        type: string
+        required: true
 permissions:
+  actions: read
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 env:
   CI: "true"
-  WRANGLER_LOG_PATH: .wrangler/wrangler.log
-
+  BASE: 76356646e3d7ac57407dd2a0dfa243d4bf33ae9a
+  PRODUCT: ${{ inputs.candidate }}
 jobs:
-  verification:
-    name: Full verification
+  compare:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: product
     steps:
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+          sparse-checkout: .github
+      - name: Require a full product SHA
+        working-directory: .
+        run: '[[ "$PRODUCT" =~ ^[0-9a-f]{40}$ ]]'
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.candidate }}
+          path: product
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Bind the product and its single parent to the comparison
+        run: |
+          test "$(git rev-parse HEAD)" = "$PRODUCT"
+          test "$(git show -s --format=%P HEAD)" = "$BASE"
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
-      - run: npm ci
-      - name: Check 10k milestone release preflight
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run release:check -- --milestone
-      - run: npm run lint
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run typecheck
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run validate:data
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:unit
-        if: ${{ !inputs.milestone_release_preflight }}
-      # Tests use this exact build on the same runner: storage quotas cannot
-      # prevent a downstream test job from obtaining it.
-      - run: npm run build
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:ssr
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: node scripts/analyze-build.mjs
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npx playwright install --with-deps chromium
-      - name: Check out audited baseline for optional comparison
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        uses: actions/checkout@v6
+          cache-dependency-path: product/package-lock.json
+      - name: Install frozen dependencies
+        id: dependencies
+        run: npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
+      - name: Install Chromium
+        id: chromium
+        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
+      - uses: actions/download-artifact@v5
+        id: download
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         with:
-          ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-          path: baseline-reference
-          persist-credentials: false
-      - name: Prepare identical measurement harness for baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
-      - name: Build audited baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        working-directory: baseline-reference
-        run: npm ci && npm run build
-      - name: Measure audited baseline (diagnostic, not candidate acceptance)
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        continue-on-error: true
-        working-directory: baseline-reference
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-          PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-        run: npm run test:perf
-      - run: npm run test:perf
-        id: candidate_performance
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-      - name: Verify complete milestone candidate on the preflighted clean commit
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run verify:full
-      - run: npm run test:e2e
-        id: candidate_browser
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-      - name: Enforce both candidate gates
-        if: ${{ !cancelled() && !inputs.milestone_release_preflight }}
-        env:
-          PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
-          BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}
+          name: production-dist-${{ env.BASE }}
+          run-id: 45769355786
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/previous
+      - name: Verify the complete baseline production tree
+        id: baseline_manifest
+        if: ${{ !cancelled() && steps.download.outcome == 'success' }}
+        run: python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/previous" "$BASE"
+      - name: Run the candidate's phone return case against the old production build
+        id: baseline_browser
+        if: ${{ !cancelled() && steps.baseline_manifest.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: |
-          printf 'Performance: %s\nBrowser: %s\n' "$PERF_OUTCOME" "$BROWSER_OUTCOME"
-          test "$PERF_OUTCOME" = success && test "$BROWSER_OUTCOME" = success
-      # Retention is optional; every validation command above remains blocking.
-      # Missing downloadable output must never be used as release evidence.
+          test ! -e dist
+          mv "$RUNNER_TEMP/previous/dist" dist
+          trap 'mv dist "$RUNNER_TEMP/previous/dist"' EXIT
+          python ../.github/verify-office-phone.py run baseline
+      - name: Typecheck
+        id: types
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: npm run typecheck > "$RUNNER_TEMP/types.log" 2>&1
+      - name: Lint changed JavaScript and TypeScript files
+        id: lint
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: |
+          git diff --name-only -z --diff-filter=ACMRT "$BASE" "$PRODUCT" -- \
+            '*.js' '*.jsx' '*.ts' '*.tsx' '*.mjs' '*.cjs' '*.mts' '*.cts' > "$RUNNER_TEMP/lint-files"
+          xargs -0 -r ./node_modules/.bin/eslint -- < "$RUNNER_TEMP/lint-files" > "$RUNNER_TEMP/lint.log" 2>&1
+      - name: Check camera, word placement and canvas hit detection
+        id: domain
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: |
+          npm run validate:data -- --allow-image-reviewed > "$RUNNER_TEMP/scene-data.log" 2>&1
+          ./node_modules/.bin/tsx --test tests/domain/{camera,screenSpaceLabels,labelLayout,labelPlacement,labelCanvasHit}.test.ts \
+            > "$RUNNER_TEMP/domain.log" 2>&1
+      - name: Build the candidate once and verify its manifest
+        id: build
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: |
+          test ! -e dist
+          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
+          GITHUB_SHA="$PRODUCT" npm run analyze:build > "$RUNNER_TEMP/analysis.log" 2>&1
+          python ../.github/verify-office-phone.py manifest . "$PRODUCT"
+      - uses: actions/upload-artifact@v5
+        id: product_artifact
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          path: |
+            product/dist
+            product/artifacts/build/dist-manifest.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+      - name: Check the candidate's server-rendered page
+        id: ssr
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm run test:ssr > "$RUNNER_TEMP/ssr.log" 2>&1
+      - name: Run the six candidate journeys against the recorded build
+        id: candidate_browser
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.chromium.outcome == 'success' }}
+        run: python ../.github/verify-office-phone.py run candidate
+      - name: Save both observations and available attachments before enforcing acceptance
+        if: ${{ !cancelled() }}
+        working-directory: .
+        env:
+          STEP_RESULTS: ${{ toJSON(steps) }}
+        run: python .github/verify-office-phone.py evidence
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
-        continue-on-error: true
         with:
-          name: verification-${{ github.sha }}
-          path: |
-            artifacts/correctness
-            artifacts/build
-            artifacts/e2e
-            artifacts/perf
-            dist
-          include-hidden-files: true
-          if-no-files-found: warn
+          name: office-phone-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/evidence
+          if-no-files-found: error
           retention-days: 7
+      - name: Require the specified old failure, all six green cases and the independent checks
+        if: ${{ !cancelled() }}
+        working-directory: .
+        run: jq -es 'length == 2 and all(.[]; .accepted == true)' "$RUNNER_TEMP/evidence/"{baseline,candidate}.json
