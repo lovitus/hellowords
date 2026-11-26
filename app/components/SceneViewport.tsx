@@ -970,7 +970,10 @@ export function SceneViewport({
     else atlasCategoryElementsRef.current.delete(districtId);
   }, []);
 
-  const positionAtlasCategories = useCallback((camera: Camera, viewportWidth: number) => {
+  const positionAtlasCategories = useCallback((
+    camera: Camera, viewportWidth: number, viewportHeight: number,
+    chromeRegions: readonly SceneLabelProtectedRegion[],
+  ) => {
     if (!atlasOverviewMode || !atlasDistricts) return;
     const occupied: SceneLabelProtectedRegion[] = [];
     const selectedId = selectedLabelIdRef.current;
@@ -980,34 +983,51 @@ export function SceneViewport({
     const anchor = selected ? { x: camera.x + selected.x * scale, y: camera.y + selected.y * scale } : null;
     const gap = viewportWidth <= 900 ? 10 : 3;
     // Read the six intrinsic hit-box sizes before writing any projected positions.
-    const titles = activeAtlasDistrict ? atlasDistricts.map(({ id }) => {
+    const titles = atlasDistricts.map(({ id }) => {
       const button = atlasCategoryElementsRef.current.get(id)?.firstElementChild;
       return button instanceof HTMLButtonElement
         ? { button, width: button.offsetWidth, height: button.offsetHeight } : null;
-    }) : [];
+    });
     for (const [index, district] of atlasDistricts.entries()) {
       const element = atlasCategoryElementsRef.current.get(district.id);
       if (!element) continue;
       const bounds = projectSceneRectToScreen(district, camera);
       const title = titles[index];
       if (title) {
-        const centerX = bounds.x + bounds.width / 2;
+        const defaultX = bounds.x + bounds.width / 2;
         const defaultY = bounds.y + bounds.height / 2;
         const halfWidth = title.width / 2 + gap;
         const halfHeight = title.height / 2 + gap;
+        let centerX = defaultX;
         let centerY = defaultY;
-        if (anchor && Math.abs(anchor.x - centerX) < halfWidth && Math.abs(anchor.y - defaultY) < halfHeight) {
+        // Use the empty margin on the outside of each atlas row. Keep the title
+        // within its own column and clear of the minimap and navigation controls.
+        const upperRow = district.y + district.height / 2 < scene.height / 2;
+        const marginY = upperRow ? bounds.y - halfHeight : bounds.y + bounds.height + halfHeight;
+        const firstX = Math.max(bounds.x, 0) + title.width / 2;
+        const lastX = Math.min(bounds.x + bounds.width, viewportWidth) - title.width / 2;
+        if (firstX <= lastX && marginY >= halfHeight && marginY + halfHeight <= viewportHeight) {
+          for (const x of [Math.max(firstX, Math.min(lastX, defaultX)), lastX, firstX]) {
+            const covered = chromeRegions.some(region =>
+              x + halfWidth > region.left && x - halfWidth < region.right
+              && marginY + halfHeight > region.top && marginY - halfHeight < region.bottom);
+            if (covered) continue;
+            centerX = x;
+            centerY = marginY;
+            break;
+          }
+        }
+        if (anchor && Math.abs(anchor.x - centerX) < halfWidth && Math.abs(anchor.y - centerY) < halfHeight) {
           // Put the nearest edge of the title clear of the photographed object.
-          centerY = anchor.y >= defaultY ? anchor.y - halfHeight : anchor.y + halfHeight;
+          centerY = anchor.y >= centerY ? anchor.y - halfHeight : anchor.y + halfHeight;
         }
         const shift = centerY - defaultY;
+        setStylePropertyIfChanged(title.button.style, "margin-left", centerX !== defaultX ? `${(centerX - defaultX).toFixed(2)}px` : "");
         setStylePropertyIfChanged(title.button.style, "margin-top", shift ? `${shift.toFixed(2)}px` : "");
         occupied.push({
           left: centerX - halfWidth, right: centerX + halfWidth,
           top: centerY - halfHeight, bottom: centerY + halfHeight,
         });
-      } else if (element.firstElementChild instanceof HTMLButtonElement) {
-        setStylePropertyIfChanged(element.firstElementChild.style, "margin-top", "");
       }
       setStylePropertyIfChanged(element.style, "left", `${bounds.x.toFixed(2)}px`);
       setStylePropertyIfChanged(element.style, "top", `${bounds.y.toFixed(2)}px`);
@@ -1016,7 +1036,7 @@ export function SceneViewport({
       setDatasetValueIfChanged(element, "positioned", "true");
     }
     return occupied;
-  }, [activeAtlasDistrict, atlasDistricts, atlasOverviewMode, labelsById]);
+  }, [activeAtlasDistrict, atlasDistricts, atlasOverviewMode, labelsById, scene.height]);
 
   useEffect(() => () => {
     cancelAtlasHover();
@@ -1374,7 +1394,10 @@ export function SceneViewport({
       });
       return;
     }
-    const titleRegions = positionAtlasCategories(camera, viewportWidth);
+    const protectedRegions = buildViewerChromeProtectedRegions(
+      viewportWidth, viewportHeight, wordIndexOpen, minimapCollapsedRef.current,
+    );
+    const titleRegions = positionAtlasCategories(camera, viewportWidth, viewportHeight, protectedRegions);
 
     const nextPreviewPhase = portalProgress >= PORTAL_ARMED_PROGRESS ? "armed" : "preview";
     if (activePortal && previewPortalRef.current?.id !== activePortal.id) {
@@ -1526,9 +1549,6 @@ export function SceneViewport({
       stationaryWordFocusViewRef.current = null;
     }
     const retainedFocusLabelId = stationaryWordFocusViewRef.current ? null : focusedLabelId;
-    const protectedRegions = buildViewerChromeProtectedRegions(
-      labelViewport.width, labelViewport.height, wordIndexOpen, minimapCollapsedRef.current,
-    );
     if (titleRegions?.length) protectedRegions.push(...titleRegions);
     const layout = computeScenePlacements(
       sceneWordCandidates,
@@ -1538,6 +1558,7 @@ export function SceneViewport({
       {
         photoSize: usesPortraitPhotoBounds(scene, labelViewport) ? scene : undefined,
         selectedLabelId: retainedFocusLabelId ?? pendingKeyboardFocusLabelId ?? selectedLabelIdRef.current,
+        preserveAtlasAnchors: atlasOverviewMode && !activeFocusedDetailZone,
         priorityLabelIds: activeFocusedDetailZone
           ? new Set(activeFocusedDetailZone.labelIds)
           : portraitOverviewLabelIds(scene, labelViewport, camera.scale),

@@ -20,6 +20,8 @@ export interface ScenePlacementOptions {
   readonly photoSize?: Pick<SceneLabelViewport, "width" | "height">;
   /** Words of the focused detail zone, placed before other words of equal rank. */
   readonly priorityLabelIds?: ReadonlySet<string>;
+  /** On the district atlas, leave other landmarks at this detail level visible when a slot allows it. */
+  readonly preserveAtlasAnchors?: boolean;
   readonly preferredOffsets?: SceneLabelLayoutOptions["preferredOffsets"];
 }
 
@@ -270,9 +272,9 @@ export function computeScenePlacements(
   const slotCells = new Map<number, IndexedSlot[]>();
   let queryNumber = 0;
   const placed = new Map<string, SceneLabelLayoutItem>();
-  const coversUnplacedAnchor = (rect: Rect, selfId: string, priorityOnly = false): boolean => (
+  const coversUnplacedAnchor = (rect: Rect, selfId: string, priorityOnly = false, maxLod = 4): boolean => (
     candidates.some((other) => other.label.id !== selfId && (!priorityOnly || other.priority)
-      && !placed.has(other.label.id) && pointInRect(other.anchorX, other.anchorY, rect, ANCHOR_CLEARANCE))
+      && other.lod <= maxLod && !placed.has(other.label.id) && pointInRect(other.anchorX, other.anchorY, rect, ANCHOR_CLEARANCE))
   );
 
   // The leader ends at the pill center, so the pill and anchor bound the
@@ -420,10 +422,13 @@ export function computeScenePlacements(
             closest ??= slot;
             continue;
           }
-          // In a desktop detail crop, covering another focus word's anchor
-          // prevents every leader from reaching it. Prefer an uncovered slot
-          // but keep the first legal position if all of them cover an anchor.
-          if (candidate.priority && !viewport.compact && coversUnplacedAnchor(slot.rect, candidate.label.id, true)) {
+          // Keep a route to other landmarks. A district prioritizes dots at
+          // the same or earlier detail level; a focused crop prioritizes its
+          // own words. Keep the first legal slot if none leaves the dots clear.
+          const coversLandmark = options.preserveAtlasAnchors && distance !== SHORT_LEADER_DISTANCE
+            ? coversUnplacedAnchor(slot.rect, candidate.label.id, false, candidate.lod)
+            : candidate.priority && !viewport.compact && coversUnplacedAnchor(slot.rect, candidate.label.id, true);
+          if (coversLandmark) {
             closest ??= slot;
             continue;
           }

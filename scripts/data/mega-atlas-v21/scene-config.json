@@ -82,12 +82,12 @@
         "label": "Explore the school campus",
         "translation": "探索校园",
         "childSceneId": "school-campus",
-        "x": 1200,
-        "y": 600,
-        "width": 400,
-        "height": 200,
+        "x": 240,
+        "y": 120,
+        "width": 200,
+        "height": 152,
         "enterScale": 3.75,
-        "description": "Complete visible school interior and corridor area on the school atlas panel"
+        "description": "Iron school gate, brick gateposts and entrance steps on the campus panel"
       },
       {
         "id": "enter-supermarket-grocery",

@@ -14267,10 +14267,10 @@
       "translation": "探索校园",
       "childSceneId": "school-campus",
       "sourceVisualRegion": "portal-enter-school-campus",
-      "x": 600,
-      "y": 300,
-      "width": 200,
-      "height": 100,
+      "x": 120,
+      "y": 60,
+      "width": 100,
+      "height": 76,
       "enterScale": 3.75
     },
     {
@@ -14343,12 +14343,12 @@
     },
     {
       "id": "portal-enter-school-campus",
-      "description": "Complete visible school interior and corridor area on the school atlas panel",
+      "description": "Iron school gate, brick gateposts and entrance steps on the campus panel",
       "kind": "object",
-      "x": 600,
-      "y": 300,
-      "width": 200,
-      "height": 100
+      "x": 120,
+      "y": 60,
+      "width": 100,
+      "height": 76
     },
     {
       "id": "portal-enter-supermarket-grocery",

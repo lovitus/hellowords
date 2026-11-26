@@ -67,7 +67,7 @@ test("a reviewed spatial word enters its exact semantic realm without search fan
   const wetlandCategory = page.locator(
     '[data-testid="atlas-category"][data-category-id="wetland"]',
   );
-  await wetlandCategory.hover();
+  await wetlandCategory.getByTestId("atlas-category-hit").hover();
   const pond = page.locator(
     '[data-testid="atlas-category-word"][data-label-id="wetland-pond"]',
   );

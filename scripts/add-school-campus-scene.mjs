@@ -1,13 +1,15 @@
 import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import sharp from "sharp";
+import { isDeepStrictEqual, parseArgs } from "node:util";
 
 /**
  * Build the standalone school-campus scene from the already reviewed school
  * atlas panel. The panel is deliberately treated as a source photograph, not
  * as a reason to copy the atlas vocabulary: every label below names a new,
  * independently pointable detail that is absent from the current world.
+ * Run `node scripts/add-school-campus-scene.mjs --sync-portal` to sync the
+ * atlas entrance for an existing campus. An expanded campus uses this path by default.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
@@ -18,6 +20,7 @@ const sourceAsset = resolve(
 const publicAsset = resolve(projectRoot, "public/scenes/school-campus-premium-v1.jpg");
 const scenePath = resolve(projectRoot, "public/data/scenes/school-campus.json");
 const worldMapPath = resolve(projectRoot, "public/data/scenes/world-map.json");
+const configPath = resolve(projectRoot, "scripts/data/mega-atlas-v21/scene-config.json");
 const manifestPath = resolve(projectRoot, "public/data/scenes/manifest.json");
 
 const SOURCE_WIDTH = 1_672;
@@ -225,29 +228,6 @@ const sourceZones = [
   },
 ];
 
-const rootSchoolPortal = {
-  id: "enter-school-campus",
-  label: "Explore the school campus",
-  translation: "探索校园",
-  childSceneId: "school-campus",
-  sourceVisualRegion: "portal-enter-school-campus",
-  x: 600,
-  y: 300,
-  width: 200,
-  height: 100,
-  enterScale: 3.75,
-};
-
-const rootSchoolPortalRegion = {
-  id: rootSchoolPortal.sourceVisualRegion,
-  description: "Complete visible school interior and corridor area on the school atlas panel",
-  kind: "object",
-  x: rootSchoolPortal.x,
-  y: rootSchoolPortal.y,
-  width: rootSchoolPortal.width,
-  height: rootSchoolPortal.height,
-};
-
 function sha256(bytes) {
   return createHash("sha256").update(bytes).digest("hex");
 }
@@ -364,6 +344,7 @@ async function writeIfChanged(path, value) {
 }
 
 async function ensureAsset() {
+  const { default: sharp } = await import("sharp");
   const source = await readFile(sourceAsset);
   if (sha256(source) !== SOURCE_SHA256) {
     throw new Error("school source panel bytes changed; rerun the pixel audit before rebuilding");
@@ -387,6 +368,17 @@ async function ensureAsset() {
 
 async function updateWorldMap() {
   const worldMap = JSON.parse(await readFile(worldMapPath, "utf8"));
+  const config = JSON.parse(await readFile(configPath, "utf8"));
+  const entrance = config.scene.portals.find(({ childSceneId }) => childSceneId === "school-campus");
+  if (!entrance) throw new Error("Missing school-campus entrance in the atlas configuration");
+  const { id, label, translation, childSceneId, description, x, y, width, height, enterScale = 4 } = entrance;
+  const bounds = {
+    x: x * config.logicalScale, y: y * config.logicalScale,
+    width: width * config.logicalScale, height: height * config.logicalScale,
+  };
+  const sourceVisualRegion = `portal-${id}`;
+  const rootSchoolPortal = { id, label, translation, childSceneId, sourceVisualRegion, ...bounds, enterScale };
+  const rootSchoolPortalRegion = { id: sourceVisualRegion, description, kind: "object", ...bounds };
   const existingPortalIndex = worldMap.portals.findIndex(({ id }) => id === rootSchoolPortal.id);
   if (existingPortalIndex === -1) {
     worldMap.portals.push(rootSchoolPortal);
@@ -418,9 +410,29 @@ async function updateManifest() {
   return writeIfChanged(manifestPath, manifest);
 }
 
-export async function buildSchoolCampusScene() {
-  const assetChanged = await ensureAsset();
+export async function buildSchoolCampusScene({ syncPortal = false } = {}) {
+  let existing;
+  try {
+    existing = JSON.parse(await readFile(scenePath, "utf8"));
+  } catch (error) {
+    if (error.code !== "ENOENT" || syncPortal) throw error;
+  }
   const scene = buildScene();
+  // Later authoring passes add child portals, regions and words to the original scene.
+  if (syncPortal || (existing !== undefined && !isDeepStrictEqual(existing, scene))) {
+    if (existing?.id !== scene.id || existing.parentId !== scene.parentId) {
+      throw new Error("The school campus scene does not match its atlas entrance");
+    }
+    return {
+      assetChanged: false,
+      sceneChanged: false,
+      worldMapChanged: await updateWorldMap(),
+      manifestChanged: false,
+      labels: existing.labels.length,
+      zones: existing.detailZones.length,
+    };
+  }
+  const assetChanged = await ensureAsset();
   const sceneChanged = await writeIfChanged(scenePath, scene);
   const worldMapChanged = await updateWorldMap();
   const manifestChanged = await updateManifest();
@@ -435,7 +447,8 @@ export async function buildSchoolCampusScene() {
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve(import.meta.filename)) {
-  buildSchoolCampusScene()
+  const { values } = parseArgs({ options: { "sync-portal": { type: "boolean" } } });
+  buildSchoolCampusScene({ syncPortal: values["sync-portal"] })
     .then((result) => console.log(JSON.stringify(result, null, 2)))
     .catch((error) => {
       console.error(`add-school-campus-scene: ${error.message}`);

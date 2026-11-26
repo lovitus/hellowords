@@ -314,7 +314,9 @@ test("the home atlas keeps words hover-scoped to one district", async ({ page },
   await expect(words).toHaveCount(0);
 
   const campus = page.locator('[data-testid="atlas-category"][data-category-id="school"]');
-  await campus.hover();
+  const photo = await campus.boundingBox();
+  expect(photo).not.toBeNull();
+  await page.mouse.move(photo!.x + photo!.width / 2, photo!.y + photo!.height / 2);
   await expect(page.getByTestId("atlas-category-layer")).toHaveAttribute(
     "data-active-category",
     "school",

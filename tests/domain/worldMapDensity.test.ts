@@ -63,7 +63,7 @@ const expectedPortals = [
   {
     childSceneId: "school-campus",
     sourceVisualRegion: "portal-enter-school-campus",
-    rectangle: { x: 600, y: 300, width: 200, height: 100 },
+    rectangle: { x: 120, y: 60, width: 100, height: 76 },
   },
   {
     childSceneId: "supermarket-grocery",

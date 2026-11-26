@@ -263,6 +263,7 @@ async function zoomOutTo(page: Page, app: Locator, target: string) {
 
 test("starts as a calm target-language world and persists the meaning toggle", async ({
   page,
+  isMobile,
 }) => {
   await openWorld(page);
 
@@ -282,7 +283,9 @@ test("starts as a calm target-language world and persists the meaning toggle", a
   await toggle.click();
   await expect(toggle).toHaveAttribute("aria-pressed", "true");
   await expect(category.getByTestId("atlas-category-nameplate")).toContainText("校园");
-  await category.hover();
+  const title = category.getByTestId("atlas-category-hit");
+  if (isMobile) await title.tap();
+  else await title.hover();
   await expect(page.getByTestId("atlas-category-layer")).toHaveAttribute(
     "data-active-category",
     "school",
@@ -440,7 +443,7 @@ test("a selected word reveals its meaning while global scene meanings stay off",
   await expect(card).toBeHidden();
 });
 
-test("the home atlas keeps its artwork clear and reveals only the hovered district words", async ({ page }) => {
+test("the home atlas keeps its artwork clear and reveals only the hovered district words", async ({ page, isMobile }) => {
   await openWorld(page);
   const sceneContract = await currentSceneLabelContract(page);
   const progress = page.getByTestId("scene-word-progress");
@@ -468,7 +471,14 @@ test("the home atlas keeps its artwork clear and reveals only the hovered distri
 
   const categoryIds = ["school", "science", "transport", "farm", "market", "wetland"];
   for (let index = 0; index < expectedCounts.length; index += 1) {
-    await categories.nth(index).hover();
+    const district = categories.nth(index);
+    if (isMobile) {
+      await district.getByTestId("atlas-category-hit").tap();
+    } else {
+      const photo = await district.boundingBox();
+      expect(photo).not.toBeNull();
+      await page.mouse.move(photo!.x + photo!.width / 2, photo!.y + photo!.height / 2);
+    }
     await expect(page.getByTestId("atlas-category-layer")).toHaveAttribute(
       "data-active-category",
       categoryIds[index],
@@ -566,6 +576,44 @@ test("home atlas district journey search paints the selected tractor and keeps d
   await expect(layer).toHaveAttribute("data-active-category", "science");
   await expect(page.locator('[data-testid="atlas-category-word"][data-category-id="science"][data-interactive="true"]').first()).toBeVisible();
   await expect(app).toHaveAttribute("data-scene-id", "world-map");
+});
+
+test("home atlas district journey photo anchors open the preparation room and the school gate enters campus", async ({ page, isMobile }, testInfo) => {
+  const app = await openWorld(page);
+  const activate = (button: Locator) => isMobile ? button.tap() : button.click();
+  const campus = page.getByRole("button", { name: /^Campus\b/ });
+  if (isMobile) await campus.tap();
+  else await campus.hover();
+
+  const id = "school-prep-room-space";
+  await expect.poll(() => paintedAtlasWordPoint(page, id)).not.toBeNull();
+  // Both targets come from the original photograph, independently of overlays.
+  const photoPoint = (x: number, y: number) => page.locator(".scene-art").evaluate((element, point) => {
+    const box = element.getBoundingClientRect();
+    return { x: box.left + box.width * point.x / 2604, y: box.top + box.height * point.y / 989 };
+  }, { x, y });
+  const room = await photoPoint(700, 340);
+  if (isMobile) await page.touchscreen.tap(room.x, room.y);
+  else await page.mouse.click(room.x, room.y);
+  const card = page.getByRole("complementary", { name: "preparation room word details", exact: true });
+  await expect(card.locator("strong"), "the preparation room photo opens its own word card").toHaveText("preparation room");
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await testInfo.attach("preparation-room-on-map", { body: await page.screenshot(), contentType: "image/png" });
+  await activate(card.getByRole("button", { name: "关闭单词卡" }));
+
+  // Frame the gate on both viewports so the phone can reach the western edge of the atlas.
+  await activate(page.locator('[data-testid="scene-minimap-district"][data-district-id="school"]'));
+  await activate(page.locator('[data-testid="scene-minimap-zone"][data-zone-id="school-entry-classroom"]'));
+  const entrance = page.locator('[data-testid="scene-hotspot"][data-target-scene="school-campus"]');
+  await entrance.click({ trial: true });
+  const gate = await photoPoint(170, 98);
+  if (isMobile) await page.touchscreen.tap(gate.x, gate.y);
+  else await page.mouse.click(gate.x, gate.y);
+  await expect(app).toHaveAttribute("data-scene-id", "school-campus");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await activate(page.getByRole("button", { name: "← 返回上一层", exact: true }));
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
 });
 
 test("home atlas district journey pointer opens a Campus word drawn over Science", async ({ page, isMobile }, testInfo) => {

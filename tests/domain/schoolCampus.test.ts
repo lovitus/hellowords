@@ -131,10 +131,10 @@ test("the world atlas exposes the school campus through one reviewed portal", as
     translation: "探索校园",
     childSceneId: "school-campus",
     sourceVisualRegion: "portal-enter-school-campus",
-    x: 600,
-    y: 300,
-    width: 200,
-    height: 100,
+    x: 120,
+    y: 60,
+    width: 100,
+    height: 76,
     enterScale: 3.75,
   });
   assert.ok(root.visualRegions.some(({ id }) => id === "portal-enter-school-campus"));
