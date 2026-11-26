@@ -89,7 +89,7 @@
     {
       "id": "workstation",
       "word": "workstation",
-      "translation": "工作站",
+      "translation": "办公工位",
       "x": 389,
       "y": 503,
       "priority": 1.031,
@@ -397,7 +397,7 @@
     {
       "id": "water-dispenser",
       "word": "water dispenser",
-      "translation": "饮水机",
+      "translation": "冰箱取水口",
       "x": 1115,
       "y": 509,
       "priority": 1.101,
@@ -419,7 +419,7 @@
     {
       "id": "backsplash",
       "word": "backsplash",
-      "translation": "挡水板",
+      "translation": "防溅墙",
       "x": 1005,
       "y": 483,
       "priority": 1.103,
@@ -716,7 +716,7 @@
     {
       "id": "workstation-leg-pro-2",
       "word": "workstation leg",
-      "translation": "工作站桌腿",
+      "translation": "工位桌腿",
       "x": 453,
       "y": 541,
       "priority": 1.206,
@@ -848,7 +848,7 @@
     {
       "id": "backsplash-tile-pro-8",
       "word": "backsplash tile",
-      "translation": "后挡板瓷砖",
+      "translation": "防溅墙砖",
       "x": 1012,
       "y": 482,
       "priority": 1.36,

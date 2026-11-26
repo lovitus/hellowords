@@ -95,7 +95,7 @@ const sourceZones = [
       ["Open-plan center blank display", "中央工位空白屏幕", 847, 361, 1, [831, 349, 29, 23]],
       ["Open-plan center display bezel", "中央工位显示器边框", 845, 387, 2, [837, 385, 17, 4]],
       ["Open-plan center monitor arm", "中央工位显示器支臂", 834, 422, 1, [831, 419, 5, 5]],
-      ["Open-plan center arm elbow", "中央工位支臂肘接", 849, 441, 3, [846, 438, 6, 5]],
+      ["Center monitor arm joint", "中央工位显示器支臂关节", 849, 441, 3, [846, 438, 6, 5], "open-plan-center-arm-elbow"],
       ["Open-plan center support post", "中央工位支架立柱", 848, 462, 2, [846, 455, 5, 13]],
       ["Open-plan center keyboard", "中央工位键盘", 878, 490, 0, [868, 489, 19, 3]],
       ["Open-plan center key field", "中央工位按键区", 853, 486, 3, [845, 484, 16, 4]],
@@ -107,7 +107,7 @@ const sourceZones = [
       ["Open-plan center document folder", "中央工位文件夹", 995, 424, 2, [994, 421, 3, 6]],
       ["Open-plan center cable grommet", "中央工位穿线孔"],
       ["Open-plan center cable tray", "中央工位线缆托盘"],
-      ["Open-plan center vertical cable riser", "中央工位竖向线缆槽", 662, 574, 2, [660, 571, 4, 6]],
+      ["Center desk cable spine", "中央桌下理线链", 662, 574, 2, [660, 571, 4, 6], "open-plan-center-vertical-cable-riser"],
       ["Open-plan center desk leg", "中央工位桌腿", 615, 639, 1, [610, 619, 10, 36]],
       ["Open-plan center drawer pedestal", "中央工位抽屉柜", 952, 624, 0, [948, 611, 7, 24]],
       ["Open-plan center upper drawer", "中央工位上抽屉", 991, 592, 2, [979, 587, 21, 11]],
@@ -195,7 +195,7 @@ const sourceZones = [
     id: "cable-management-and-seating",
     title: "Cable management and seating",
     translation: "线缆管理与座椅",
-    description: "Follow the cable risers under the desks and inspect the chairs, their arms, bases and casters.",
+    description: "Follow the flexible cable spines under the desks and inspect the chairs, their arms, bases and casters.",
     x: 0,
     y: 430,
     width: 1_436,
@@ -205,9 +205,9 @@ const sourceZones = [
       ["Underdesk left cable tray", "左侧桌下线缆托盘"],
       ["Underdesk center cable tray", "中央桌下线缆托盘"],
       ["Underdesk right cable tray", "右侧桌下线缆托盘"],
-      ["Underdesk left cable riser", "左侧桌下线缆槽", 298, 584, 1, [295, 577, 5, 13]],
+      ["Left desk cable spine", "左侧桌下理线链", 298, 584, 1, [295, 577, 5, 13], "underdesk-left-cable-riser"],
       ["Underdesk center cable riser", "中央桌下线缆槽"],
-      ["Underdesk right cable riser", "右侧桌下线缆槽", 1235, 573, 1, [1232, 565, 5, 15]],
+      ["Right desk cable spine", "右侧桌下理线链", 1235, 573, 1, [1232, 565, 5, 15], "underdesk-right-cable-riser"],
       ["Underdesk left cable basket", "左侧桌下线缆篮"],
       ["Underdesk center cable basket", "中央桌下线缆篮"],
       ["Underdesk right cable basket", "右侧桌下线缆篮"],
@@ -240,7 +240,7 @@ const sourceZones = [
     height: SCENE_HEIGHT,
     targetScale: 2.45,
     labels: [
-      ["Open-plan linear ceiling light", "开放办公线性顶灯", 445, 42, 0, [429, 40, 31, 4]],
+      ["Open-plan linear ceiling light", "开放办公线性顶灯", 445, 48, 0, [429, 46, 31, 4]],
       ["Open-plan wood ceiling slat", "开放办公木质顶格栅", 678, 20, 1, [670, 19, 16, 2]],
       ["Open-plan acoustic ceiling panel", "开放办公吸音顶板"],
       ["Open-plan return-air grille", "开放办公回风格栅"],
@@ -285,8 +285,8 @@ function buildScene() {
   let priorityIndex = 0;
   for (const zone of sourceZones) {
     const labelIds = [];
-    for (const [word, translation, x, y, minLevel, bounds] of zone.labels) {
-      const id = `open-plan-workstation-${slugify(word)}`;
+    for (const [word, translation, x, y, minLevel, bounds, stableSlug = slugify(word)] of zone.labels) {
+      const id = `open-plan-workstation-${stableSlug}`;
       const priority = Number((1 + priorityIndex++ / 1000).toFixed(6));
       if (x === undefined) {
         relatedWords.push({ id, word, translation });
@@ -294,7 +294,7 @@ function buildScene() {
       }
       const [left, top, width, height] = bounds;
       const region = {
-        id: `open-plan-workstation-region-${slugify(word)}`,
+        id: `open-plan-workstation-region-${stableSlug}`,
         description: `Visible ${word.toLowerCase()} in the ${zone.title.toLowerCase()} area of the office photograph`,
         kind: "part",
         x: left, y: top, width, height,

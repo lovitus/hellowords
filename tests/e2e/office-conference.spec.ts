@@ -225,6 +225,19 @@ test("open-plan workstation labels its photographed mouse, drawer handle and sha
   const sha256 = await openPhotographedRoute(page, isMobile, workstationRoute, workstationAsset, workstationHash);
   await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
   await checkPaintedWords(page, isMobile, testInfo, [
+    // Traced on the original photograph. The white band slopes down toward
+    // the right, and the dark upper lip of the fixture sits outside it.
+    { word: "Open-plan linear ceiling light", meaning: "开放办公线性顶灯",
+      assertion: "linear ceiling light leader ends on the illuminated strip",
+      outlines: [[[340, 45], [780, 50], [1120, 54], [1120, 58], [780, 54], [340, 49]]] },
+    { word: "Left desk cable spine", meaning: "左侧桌下理线链",
+      outlines: [[[294, 552], [304, 552], [304, 585], [300, 606], [290, 609], [294, 585]]] },
+    { word: "Center desk cable spine", meaning: "中央桌下理线链",
+      outlines: [[[655, 542], [664, 542], [664, 568], [668, 592], [659, 593], [654, 576]]] },
+    { word: "Right desk cable spine", meaning: "右侧桌下理线链",
+      outlines: [[[1228, 550], [1238, 550], [1238, 576], [1243, 598], [1233, 598], [1228, 579]]] },
+    { word: "Center monitor arm joint", meaning: "中央工位显示器支臂关节",
+      outlines: [[[842, 438], [847, 435], [854, 439], [854, 446], [850, 450], [842, 447]]] },
     { word: "Open-plan left mouse", meaning: "左侧工位鼠标",
       assertion: "left mouse leader ends on the mouse body above its pad",
       outlines: [[[303, 491], [304, 488], [307, 486], [312, 484], [318, 484], [323, 486],

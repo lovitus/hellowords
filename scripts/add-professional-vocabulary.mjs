@@ -671,7 +671,7 @@ const groups = [
     chair roller=座椅滚轮
     monitor cable=显示器线
     keyboard tray=键盘托
-    workstation leg=工作站桌腿
+    workstation leg=工位桌腿
     footrest=脚踏
     desk partition=桌面分隔板
     cable sleeve=线缆套
@@ -2347,7 +2347,7 @@ const groups = [
     drain cover=排水盖
   `),
   group("office-building", "break-room", "break-room-detail", `
-    backsplash tile=后挡板瓷砖
+    backsplash tile=防溅墙砖
     upper cabinet door=吊柜门
     cabinet knob=柜门旋钮
     open shelf=开放搁板
