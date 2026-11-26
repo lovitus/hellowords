@@ -1,6 +1,6 @@
 import { expect, test, type Locator, type Page, type TestInfo } from "@playwright/test";
 import type { PaintedLabel } from "../../app/lib/label-canvas";
-import { clickPaintedWord, paintedWordState } from "./canvas-words";
+import { clickPaintedWord, paintedWordCount, paintedWordState } from "./canvas-words";
 import { checkMagnifiedObject, checkPaintedWords, magnify, openPhotographedRoute, pinch, projectPhoto, zoomBack, type PhotographedWord } from "./photo-journey";
 
 const room = "conference-room";
@@ -13,6 +13,59 @@ const workstation = "open-plan-workstation";
 const workstationRoute = [roomRoute[0], [workstation, "Open-plan workstation"]] as const;
 const workstationAsset = "/scenes/open-plan-workstation-premium-v1.jpg";
 const workstationHash = "9acbbe66dd5fb56faa58562c07219f723bb39d12d535648fa7be6e3abcd7f1df";
+
+async function readPhotoDot(page: Page, isMobile: boolean, testInfo: TestInfo,
+  scene: string, word: string, meaning: string, attachment: string) {
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const stable = async () => (await image.elementHandle()).waitForElementState("stable");
+  const app = page.getByTestId("world-app");
+  const card = page.getByRole("complementary", { name: `${word} word details`, exact: true });
+  const close = card.getByRole("button", { name: "关闭单词卡" });
+  await activate(page.getByTestId("scene-word-index-toggle"));
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill(word);
+  await activate(index.getByRole("button", { name: `${word}，${meaning}`, exact: true }));
+  await expect(card).toBeVisible();
+  await stable();
+  await activate(close);
+  await expect(card).toBeHidden();
+  await stable();
+  const anchor = () => viewer.locator(".label-canvas").evaluate((node, word) => {
+    const canvas = node as HTMLCanvasElement & { paintedLabels?: PaintedLabel[] };
+    const label = canvas.paintedLabels?.find(item => item.word === word && item.interactive && item.opacity >= 0.52);
+    if (!label) return null;
+    const frame = canvas.getBoundingClientRect();
+    const x = frame.left + label.anchorX, y = frame.top + label.anchorY;
+    if (x < frame.left || x >= frame.right || y < frame.top || y >= frame.bottom) return null;
+    const img = canvas.closest(".world-viewport")!.querySelector<HTMLImageElement>("img.scene-art")!;
+    const photo = img.getBoundingClientRect();
+    return {
+      x, y, photoX: (x - photo.left) * img.naturalWidth / photo.width, photoY: (y - photo.top) * img.naturalHeight / photo.height,
+      button: document.elementFromPoint(x, y)?.closest("button")?.getAttribute("aria-label") ?? null,
+    };
+  }, word);
+  if (!(await anchor())) {
+    await activate(viewer.getByRole("button", { name: "Zoom in", exact: true }));
+    await stable();
+  }
+  await expect.poll(anchor, { message: `${word} has a tappable dot in view` }).not.toBeNull();
+  const dot = (await anchor())!;
+  await testInfo.attach(`${attachment}-before-tap`, { body: await page.screenshot(), contentType: "image/png" });
+  if (isMobile) await page.touchscreen.tap(dot.x, dot.y);
+  else await page.mouse.click(dot.x, dot.y);
+  const changedScene = page.locator(`[data-testid="world-app"]:not([data-scene-id="${scene}"])`);
+  await page.getByRole("complementary", { name: / word details$/ }).or(changedScene).first().waitFor();
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  const actualScene = await app.getAttribute("data-scene-id");
+  await testInfo.attach(`${attachment}-result`, { body: await page.screenshot(), contentType: "image/png" });
+  await testInfo.attach(`${attachment}-hit`, { body: JSON.stringify({ word, dot, actualScene }), contentType: "application/json" });
+  expect(actualScene, `tapping the ${word} dot must keep ${scene} open`).toBe(scene);
+  await expect(card.locator("p").first()).toHaveText(meaning);
+  await activate(close);
+  await expect(card).toBeHidden();
+}
 
 // Traced independently on the 1600 × 900 close-up. The microphone outline
 // stops at its body, and the tilted touch screen stops inside its black bezel.
@@ -264,8 +317,21 @@ test("open-plan workstation labels its photographed mouse, drawer handle and sha
 test("open-plan workstation zoom keeps the printer and chair caster in the room and opens desktop equipment from the keyboard", async ({ page, isMobile }, testInfo) => {
   const activate = (control: Locator) => isMobile ? control.tap() : control.click();
   const equipment = "desktop-workstation-equipment";
+  const app = page.getByTestId("world-app");
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
   await openPhotographedRoute(page, isMobile, workstationRoute, workstationAsset, workstationHash);
-  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+  const minimap = page.getByTestId("scene-minimap");
+  await activate(minimap.locator('[data-zone-id="open-plan-workstation-zone-center-workstation-island"]'));
+  await activate(minimap.getByRole("button", { name: "收起小地图" }));
+  await readPhotoDot(page, isMobile, testInfo, workstation, "Open-plan center keyboard", "中央工位键盘", "center-keyboard-dot");
+  const entry = viewer.locator(`[data-testid="scene-hotspot"][data-target-scene="${equipment}"]`);
+  await activate(entry);
+  await expect(app).toHaveAttribute("data-scene-id", equipment);
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await testInfo.attach("center-keyboard-arrow-entry", { body: await page.screenshot(), contentType: "image/png" });
+  await activate(page.getByRole("button", { name: "← 返回上一层", exact: true }));
+  await expect(app).toHaveAttribute("data-scene-id", workstation);
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
   for (const [object, x, y, destination] of [
     ["shared printer", 543, 447, workstation],
     ["chair caster", 682, 743, workstation],
@@ -277,10 +343,52 @@ test("open-plan workstation zoom keeps the printer and chair caster in the room 
     }));
   }
   await activate(page.getByRole("button", { name: "← 返回上一层", exact: true }));
-  const app = page.getByTestId("world-app");
   await expect(app).toHaveAttribute("data-scene-id", workstation);
   await expect(app).toHaveAttribute("data-transition-state", "idle");
   await expect(page.locator(".viewer-shell:not([data-phase]) img.scene-art")).toHaveAttribute("src", workstationAsset);
+});
+
+test("desktop workstation equipment opens the photographed mouse from its dot and reads the related coat stand before zooming back", async ({ page, isMobile }, testInfo) => {
+  const equipment = "desktop-workstation-equipment";
+  const asset = "/scenes/desktop-workstation-equipment-premium-v1.jpg";
+  const sha256 = await openPhotographedRoute(page, isMobile, [...workstationRoute, [equipment, "Desktop workstation equipment"]], asset,
+    "1018242a50cc54d8d7eba6d9a0d6725037ed446fbfc8cdab2c5bf731f993d8a7");
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+  await checkPaintedWords(page, isMobile, testInfo, [
+    { word: "Desktop station desktop mouse", meaning: "桌面工位鼠标", openFromDot: true,
+      assertion: "Desktop station desktop mouse dot must land on the photographed mouse body above the mouse pad",
+      outlines: [[[1102, 419], [1105, 415], [1112, 411], [1120, 410], [1128, 411], [1136, 414],
+        [1143, 419], [1145, 426], [1146, 433], [1143, 436], [1136, 437], [1119, 437],
+        [1110, 435], [1104, 431], [1102, 426]]] },
+  ], sha256);
+
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  await (await image.elementHandle()).waitForElementState("stable");
+  const camera = () => viewer.locator(".scene-surface").evaluate(el => getComputedStyle(el).transform);
+  const originalCamera = await camera();
+  const related = "Desktop station coat stand";
+  await activate(page.getByTestId("scene-word-index-toggle"));
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill(related);
+  const result = index.getByTestId("scene-word-index-result").filter({ has: page.getByText(related, { exact: true }) });
+  await expect(result).toHaveAccessibleName(`${related}，桌面工位衣帽架，图中未标注`);
+  await activate(result);
+  const card = page.getByRole("complementary", { name: `${related} word details`, exact: true });
+  await expect(card.getByText("桌面工位衣帽架", { exact: true })).toBeVisible();
+  await expect(card.getByText("相关词 · 图中未标注", { exact: true })).toBeVisible();
+  await testInfo.attach("desktop-equipment-related-coat-stand", { body: await page.screenshot(), contentType: "image/png" });
+  await (await image.elementHandle()).waitForElementState("stable");
+  expect(await camera(), "reading the related coat stand keeps the same view of the mouse").toBe(originalCamera);
+  expect(await paintedWordCount(page, related), "the related coat stand has no painted label on this photograph").toBe(0);
+  await activate(card.getByRole("button", { name: "关闭单词卡" }));
+  await expect(card).toBeHidden();
+  await zoomBack(page, isMobile, equipment, workstation, workstationAsset);
+  await testInfo.attach("desktop-equipment-return-workstation", { body: await page.screenshot(), contentType: "image/png" });
+  await readPhotoDot(page, isMobile, testInfo, workstation, "Shared open-plan printer", "共享办公打印机", "desktop-equipment-return-printer");
+  await zoomBack(page, isMobile, workstation, "office-building", "/scenes/office-atrium-premium-v1.jpg");
+  await readPhotoDot(page, isMobile, testInfo, "office-building", "workstation", "办公工位", "desktop-equipment-return-atrium");
 });
 
 test("phone returns to the furnished room before Fit", async ({ page, isMobile }, testInfo) => {

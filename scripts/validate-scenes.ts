@@ -140,7 +140,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "office-building": 87,
   "office-elevator-car": 120,
   "open-plan-workstation": 111,
-  "desktop-workstation-equipment": 145,
+  "desktop-workstation-equipment": 91,
   "conference-room": 87,
   "video-conferencing-console": 68,
   // The standalone service-core photograph resolves electrical, HVAC, fire,
@@ -260,7 +260,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "office-elevator-car": 150,
   // The other 39 workstation terms stay searchable without a pin.
   "open-plan-workstation": 111,
-  "desktop-workstation-equipment": 155,
+  "desktop-workstation-equipment": 91,
   // The remaining 56 conference terms are searchable without a pin on the photograph.
   "conference-room": 87,
   "video-conferencing-console": 68,

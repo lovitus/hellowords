@@ -1009,12 +1009,12 @@
     },
     {
       "id": "portal-centre-desktop-workstation",
-      "description": "Exposed keyboard and mouse on the centre desktop, immediately to the right of the chair back.",
+      "description": "The centre keyboard, mouse and clear desktop in front of them, to the right of the chair back.",
       "kind": "object",
       "x": 823,
-      "y": 477,
-      "width": 121,
-      "height": 23
+      "y": 482,
+      "width": 166,
+      "height": 24
     }
   ],
   "detailZones": [
@@ -2654,10 +2654,14 @@
       "childSceneId": "desktop-workstation-equipment",
       "sourceVisualRegion": "portal-centre-desktop-workstation",
       "x": 823,
-      "y": 477,
-      "width": 121,
-      "height": 23,
-      "enterScale": 3.2
+      "y": 482,
+      "width": 166,
+      "height": 24,
+      "enterScale": 3.2,
+      "portraitMarker": {
+        "x": 971,
+        "y": 499
+      }
     }
   ]
 }

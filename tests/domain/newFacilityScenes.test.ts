@@ -65,8 +65,10 @@ const contracts = [
     parentId: "open-plan-workstation",
     asset: "/scenes/desktop-workstation-equipment-premium-v1.jpg",
     sha256: "1018242a50cc54d8d7eba6d9a0d6725037ed446fbfc8cdab2c5bf731f993d8a7",
-    labels: 150,
-    zoneSizes: [25, 25, 25, 25, 25, 25],
+    labels: 91,
+    related: 59,
+    audit: "image-reviewed",
+    zoneSizes: [13, 21, 18, 16, 11, 12],
   },
   {
     id: "microscope-workstation",
@@ -276,6 +278,11 @@ for (const contract of contracts) {
     assert.equal(scene.asset, contract.asset);
     assert.deepEqual([scene.width, scene.height], [1_600, 900]);
     assert.equal(scene.labels.length, contract.labels);
+    if ("related" in contract) {
+      assert.equal(scene.relatedWords.length, contract.related);
+      const vocabulary = [...scene.labels, ...scene.relatedWords];
+      assert.equal(new Set(vocabulary.map(({ id }) => id)).size, contract.labels + contract.related);
+    }
     assert.equal(scene.visualRegions.length, contract.labels + scene.portals.length);
     assert.deepEqual(scene.detailZones.map(({ labelIds }: { labelIds: string[] }) => labelIds.length), contract.zoneSizes);
     assert.equal(new Set(scene.labels.map(({ id }: { id: string }) => id)).size, contract.labels);
@@ -294,7 +301,7 @@ for (const contract of contracts) {
         );
       }
     }
-    assert.equal(scene.anchorAudit.status, "human-verified");
+    assert.equal(scene.anchorAudit.status, "audit" in contract ? contract.audit : "human-verified");
     assert.equal(scene.anchorAudit.reviewedAssetSha256, contract.sha256);
 
     const bytes = await readFile(resolve(projectRoot, `public${contract.asset}`));
@@ -335,7 +342,7 @@ test("security checkpoint and open-plan office expose bounded equipment entrance
   const office = await readJson("open-plan-workstation.json");
   const workstation = office.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "desktop-workstation-equipment");
   assert.ok(workstation);
-  assert.deepEqual([workstation.x, workstation.y, workstation.width, workstation.height], [823, 477, 121, 23]);
+  assert.deepEqual([workstation.x, workstation.y, workstation.width, workstation.height], [823, 482, 166, 24]);
   const region = office.visualRegions.find(({ id }: { id: string }) => id === workstation.sourceVisualRegion);
   assert.ok(region);
   assert.deepEqual([region.x, region.y, region.width, region.height], [workstation.x, workstation.y, workstation.width, workstation.height]);

@@ -21,7 +21,7 @@ const SCENE_WIDTH = 1_600;
 const SCENE_HEIGHT = 900;
 const SOURCE_SHA256 = "88fb49dacb4baf57134d1bf8e9f8c68253949939df87579091462fbc8f78d10f";
 const PUBLIC_ASSET_SHA256 = "9acbbe66dd5fb56faa58562c07219f723bb39d12d535648fa7be6e3abcd7f1df";
-const desktopBounds = { x: 823, y: 477, width: 121, height: 23 };
+const desktopBounds = { x: 823, y: 482, width: 166, height: 24 };
 export const desktopWorkstationPortal = {
   id: "enter-desktop-workstation-equipment",
   label: "Inspect the centre desktop workstation",
@@ -30,10 +30,11 @@ export const desktopWorkstationPortal = {
   sourceVisualRegion: "portal-centre-desktop-workstation",
   ...desktopBounds,
   enterScale: 3.2,
+  portraitMarker: { x: 971, y: 499 },
 };
 export const desktopWorkstationPortalRegion = {
   id: desktopWorkstationPortal.sourceVisualRegion,
-  description: "Exposed keyboard and mouse on the centre desktop, immediately to the right of the chair back.",
+  description: "The centre keyboard, mouse and clear desktop in front of them, to the right of the chair back.",
   kind: "object",
   ...desktopBounds,
 };
