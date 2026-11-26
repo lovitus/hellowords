@@ -1,121 +1,126 @@
-name: CI
-
+name: Verify the entrances on the office photograph
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
     inputs:
-      compare_published_baseline:
-        description: Compare the last audited product source on the same runner
-        type: boolean
-        default: false
-      milestone_release_preflight:
-        description: Run the 10k public-release preflight and verify the clean commit; does not publish
-        type: boolean
-        default: false
-
+      candidate:
+        description: Office entrance candidate commit
+        required: true
+        type: string
 permissions:
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
+  actions: read
 env:
   CI: "true"
-  WRANGLER_LOG_PATH: .wrangler/wrangler.log
-
+  BASE: fd230a1cc02f9eefceccf7bf0f0301af405ff225
+  PRODUCT: ${{ inputs.candidate }}
+  JOURNEY: zooming into the office counter and rear monitor follows the photographed entrances
 jobs:
-  verification:
-    name: Full verification
+  gestures:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.candidate }}
+          fetch-depth: 2
+          persist-credentials: false
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
-      - run: npm ci
-      - name: Check 10k milestone release preflight
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run release:check -- --milestone
-      - run: npm run lint
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run typecheck
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run validate:data
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:unit
-        if: ${{ !inputs.milestone_release_preflight }}
-      # Tests use this exact build on the same runner: storage quotas cannot
-      # prevent a downstream test job from obtaining it.
-      - run: npm run build
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:ssr
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: node scripts/analyze-build.mjs
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npx playwright install --with-deps chromium
-      - name: Check out audited baseline for optional comparison
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        uses: actions/checkout@v6
+      - run: |
+          test "$(git rev-parse HEAD)" = "$PRODUCT"
+          test "$(git rev-parse HEAD^)" = "$BASE"
+          npm ci
+          ./node_modules/.bin/playwright install --with-deps chromium
+      - uses: actions/download-artifact@v5
         with:
-          ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-          path: baseline-reference
-          persist-credentials: false
-      - name: Prepare identical measurement harness for baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
-      - name: Build audited baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        working-directory: baseline-reference
-        run: npm ci && npm run build
-      - name: Measure audited baseline (diagnostic, not candidate acceptance)
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
+          name: production-dist-${{ env.BASE }}
+          run-id: 45749628524
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/previous
+      - name: Observe the counter opening the workstations on the baseline
+        id: baseline
         continue-on-error: true
-        working-directory: baseline-reference
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-          PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-        run: npm run test:perf
-      - run: npm run test:perf
-        id: candidate_performance
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-      - name: Verify complete milestone candidate on the preflighted clean commit
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run verify:full
-      - run: npm run test:e2e
-        id: candidate_browser
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-      - name: Enforce both candidate gates
-        if: ${{ !cancelled() && !inputs.milestone_release_preflight }}
-        env:
-          PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
-          BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}
         run: |
-          printf 'Performance: %s\nBrowser: %s\n' "$PERF_OUTCOME" "$BROWSER_OUTCOME"
-          test "$PERF_OUTCOME" = success && test "$BROWSER_OUTCOME" = success
-      # Retention is optional; every validation command above remains blocking.
-      # Missing downloadable output must never be used as release evidence.
+          manifest="$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
+          jq -e --arg sha "$BASE" '.gitSha == $sha' "$manifest"
+          jq -r '.files[] | "\(.sha256)  \(.path)"' "$manifest" > "$RUNNER_TEMP/baseline.sha256"
+          mv "$RUNNER_TEMP/previous/dist" dist
+          (cd dist && sha256sum --quiet --check "$RUNNER_TEMP/baseline.sha256")
+          code=0
+          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "$JOURNEY" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/old.log" 2>&1 || code=$?
+          mv dist "$RUNNER_TEMP/previous/dist"
+          mv artifacts/e2e/results.json "$RUNNER_TEMP/old.json"
+          test "$code" -eq 1
+          jq -e '
+            .stats.unexpected == 2 and (.errors | length == 0) and
+            ([.. | objects | select(has("projectName") and has("results")) |
+              select(.results | length == 1) | . as $test | .results[0] |
+              select(.status == "failed") | .attachments[] |
+              select(.name == "reception-counter-gesture") | (.body | @base64d | fromjson) |
+              select(.scene == "open-plan-workstation" and .x == 335 and .y == 672) | $test.projectName]
+              | sort) == ["chromium","mobile-chromium"]' "$RUNNER_TEMP/old.json"
+      - name: Verify the two entrance contracts and candidate data
+        run: |
+          npm run typecheck
+          npm run validate:data -- --allow-image-reviewed > "$RUNNER_TEMP/data.log" 2>&1
+          npm exec -- tsx --test tests/domain/openPlanWorkstation.test.ts tests/domain/newFacilityScenes.test.ts
+      - name: Build and record the candidate
+        run: |
+          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
+          GITHUB_SHA="$PRODUCT" npm run analyze:build
+          jq -e --arg sha "$PRODUCT" '.gitSha == $sha' artifacts/build/dist-manifest.json
+          npm run test:ssr
+      - uses: actions/upload-artifact@v5
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          path: |
+            dist
+            artifacts/build/dist-manifest.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+      - name: Operate both entrances and magnify the ordinary object on both screen sizes
+        run: |
+          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "$JOURNEY" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/new.log" 2>&1
+          jq -e '.stats.expected == 2 and .stats.flaky == 0 and .stats.unexpected == 0 and .stats.skipped == 0 and (.errors | length == 0)' artifacts/e2e/results.json
+      - name: Keep the actual photographs and observed destinations
+        if: ${{ !cancelled() }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/office-evidence"
+          python - <<'PY'
+          import base64, json, os
+          from pathlib import Path
+          temp = Path(os.environ["RUNNER_TEMP"])
+          out = temp / "office-evidence"
+          for build, report in [("old", temp / "old.json"), ("new", Path("artifacts/e2e/results.json"))]:
+              if not report.is_file():
+                  continue
+              def collect(suite):
+                  for spec in suite.get("specs", []):
+                      for test in spec["tests"]:
+                          for result in test["results"]:
+                              for a in result["attachments"]:
+                                  if a["name"].endswith(("-end", "-gesture")) and "body" in a:
+                                      extension = "png" if a["contentType"] == "image/png" else "json"
+                                      file = f"{build}-{test['projectName']}-{a['name']}.{extension}"
+                                      (out / file).write_bytes(base64.b64decode(a["body"], validate=True))
+                              if result.get("error"):
+                                  print(build, test["projectName"], result["error"].get("message","")[:750])
+                  for child in suite.get("suites", []):
+                      collect(child)
+              collect(json.loads(report.read_text()))
+          PY
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
-        continue-on-error: true
         with:
-          name: verification-${{ github.sha }}
-          path: |
-            artifacts/correctness
-            artifacts/build
-            artifacts/e2e
-            artifacts/perf
-            dist
-          include-hidden-files: true
-          if-no-files-found: warn
+          name: office-entrance-evidence
+          path: ${{ runner.temp }}/office-evidence
+          if-no-files-found: error
           retention-days: 7
+      - name: Require the observed regression
+        if: ${{ !cancelled() }}
+        env:
+          BASELINE: ${{ steps.baseline.outcome }}
+        run: test "$BASELINE" = success
