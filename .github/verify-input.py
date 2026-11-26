@@ -19,23 +19,27 @@ pointer = (desktop, motion, "wheel zoom keeps the photographed point beneath the
 index_title = "keyboard selection from the scene word index keeps the next action on the selected card"
 index_cases = [(project, "e2e/world.spec.ts", index_title) for project in (desktop, phone)]
 prefix = "home atlas district journey "
-atlas_contracts = {
+atlas_screenshots = {
     prefix + "search paints the selected tractor and keeps district navigation available": (
-        (desktop, phone), "the searched tractor is drawn and interactive while its card is open",
-        ("toBeNull", "null"), "tractor-on-map",
+        (desktop, phone), "tractor-on-map",
     ),
     prefix + "pointer opens a Campus word drawn over Science": (
-        (desktop,), "the cross-boundary word opens its own card",
-        ("toHaveText", "blue recycling bin"), "campus-word-open",
+        (desktop,), "campus-word-open",
     ),
     prefix + "keyboard tabs from the Campus title to a drawn word and back": (
-        (desktop, phone), "Tab from Campus focuses a drawn Campus word",
-        ("toBeVisible", "atlas-category-word", "school"), "focused-campus-word",
+        (desktop, phone), "focused-campus-word",
     ),
 }
-atlas_cases = [(project, "e2e/world.spec.ts", title)
-              for title, (projects, _, _, _) in atlas_contracts.items() for project in projects]
+photo_title = os.environ["PHOTO_TITLE"]
+photo_assertion = "the preparation room photo opens its own word card"
+photo_screenshots = [name.strip() for name in os.environ["PHOTO_SCREENSHOTS"].split(",")]
+photo_cases = [(project, "e2e/world.spec.ts", photo_title) for project in (desktop, phone)]
+district_titles = (
+    "starts as a calm target-language world and persists the meaning toggle",
+    "the home atlas keeps its artwork clear and reveals only the hovered district words",
+)
 regressions = [
+    *((project, "e2e/world.spec.ts", title) for title, (projects, _) in atlas_screenshots.items() for project in projects),
     *index_cases, reverse_tab, pointer,
     (desktop, motion, "continuous wheel input advances in monotonic animation frames without a scale jump"),
     (desktop, "e2e/label-zoom-retention.spec.ts", verify["APARTMENT"]),
@@ -46,6 +50,9 @@ regressions = [
     (desktop, motion, "a warm adjacent transition avoids the loader, while outrunning the neighbor cache reveals it"),
     (phone, motion, "mobile keeps its warmed child and parent transitions free of a loader flash"),
     (desktop, motion, "reduced motion and keyboard navigation preserve the warm parent path"),
+    *((project, "e2e/world.spec.ts", title) for title in district_titles for project in (desktop, phone)),
+    (desktop, "e2e/scene-minimap.spec.ts", "the home atlas keeps words hover-scoped to one district"),
+    (desktop, "e2e/spatial-semantic-bridge.spec.ts", "a reviewed spatial word enters its exact semantic realm without search fanout"),
 ]
 gates = ("source", "dependencies", "chromium", "download", "baseline_manifest", "red", "build",
          "production", "green", "performance", "samples", "types", "lint", "domain")
@@ -62,6 +69,14 @@ def details(error):
 def headline(error):
     text = helpers["ANSI"].sub("", error.get("message", ""))
     return text.lstrip().partition("\n")[0].removeprefix("Error: ").strip()
+
+
+def check_inputs():
+    if prefix + "photo anchors" not in photo_title or not photo_title.isprintable() or " > " in photo_title:
+        raise ValueError("Supply the exact title of the photo journey")
+    if any(name == "screenshot" or not re.fullmatch(r"[\w .-]{1,100}", name) for name in photo_screenshots):
+        raise ValueError("Supply the named PNG attachments from a successful photo journey")
+    return True
 
 
 def retain_attempt(phase, number, case, result, folder):
@@ -97,18 +112,19 @@ def retain_attempt(phase, number, case, result, folder):
             path = dest / f"{index:02d}-{name}.png"
         path.write_bytes(data)
         receipts.append({"name": name, "file": path.relative_to(out).as_posix()})
-    if old:
-        _, expected, evidence_terms, _ = atlas_contracts[case[2]]
-        message = helpers["ANSI"].sub("", primary.get("message", ""))
-        error_ok = ([headline(error) for error in errors] == [expected] and headline(primary) == expected
-                    and all(term in message for term in evidence_terms)
-                    and any(frame["file"] == f"tests/{case[1]}" for frame in details(primary)["source"]))
-    else:
-        error_ok = not errors and not primary
     names = {a["name"] for a in receipts}
-    evidence_ok = not old or "screenshot" in names
-    if not old and case in atlas_cases:
-        evidence_ok = any(a["name"] == atlas_contracts[case[2]][3] and a["file"].endswith(".png") for a in receipts)
+    pngs = {a["name"] for a in receipts if a["file"].endswith(".png")}
+    if old:
+        record["accepted"] = (result["status"] == "failed" and result["retry"] == 0
+                              and [headline(e) for e in errors] == [photo_assertion]
+                              and headline(primary) == photo_assertion and "screenshot" in pngs
+                              and any(frame["file"] == f"tests/{case[1]}" for frame in details(primary)["source"]))
+        return record
+    evidence_ok = True
+    if case in photo_cases:
+        evidence_ok = set(photo_screenshots).issubset(pngs)
+    if case[2] in atlas_screenshots:
+        evidence_ok = atlas_screenshots[case[2]][1] in pngs
     if case in index_cases:
         evidence_ok = "basin-index-keyboard-focus" in names
     if case[2] == verify["RETURN"]:
@@ -118,14 +134,14 @@ def retain_attempt(phase, number, case, result, folder):
         evidence_ok = (len([a for a in receipts if a["name"] == "wheel-pointer-trajectory"]) == 1
                        and wheel.get("distinctScales", 0) > 2 and wheel["finalScale"] > 1.5 and wheel["finalDriftCssPx"] < 1
                        and wheel["peakDriftCssPx"] < 1)
-    record["accepted"] = bool(error_ok and evidence_ok and result["retry"] == 0
-                              and result["status"] == ("failed" if old else "passed"))
+    record["accepted"] = bool(not errors and not primary and evidence_ok
+                              and result["retry"] == 0 and result["status"] == "passed")
     return record
 
 
 def browser(phase):
     old = phase == "baseline"
-    cases = atlas_cases if old else [*atlas_cases, *regressions]
+    cases = photo_cases if old else [*photo_cases, *regressions]
     folder = temp / phase
     verify["run_browser"](phase, temp, cases)
     rows = {(project, file, title): {"project": project, "file": file, "title": title, "attempts": [], "accepted": False}
@@ -218,8 +234,9 @@ def summary():
             diagnostics[log] = helpers["process_error"](path)
     write(out / "summary.json", {"baseline": os.environ["BASE"], "baselineRun": int(os.environ["BASE_RUN"]),
                                  "requiredOldAtlasFailures": [{"project": project, "file": file, "title": title,
-                                                               "assertion": atlas_contracts[title][1]}
-                                                              for project, file, title in atlas_cases],
+                                                               "assertion": photo_assertion}
+                                                              for project, file, title in photo_cases],
+                                 "requiredPhotoScreenshots": photo_screenshots,
                                  "candidate": os.environ["PRODUCT"], "candidateRun": os.environ["GITHUB_RUN_ID"],
                                  "verificationCommit": os.environ["GITHUB_SHA"], "outcomes": outcomes,
                                  "diagnostics": diagnostics, "accepted": all(v == "success" for v in outcomes.values())})
@@ -228,12 +245,17 @@ def summary():
 
 if __name__ == "__main__":
     command = sys.argv[1]
-    if command in ("baseline", "candidate"):
+    if command == "inputs":
+        ok = check_inputs()
+    elif command in ("baseline", "candidate"):
         ok = browser(command)
     elif command == "performance":
         ok = performance()
     elif command == "domain":
-        ok = helpers["run_domain"](["camera"])
+        ok = helpers["run_domain"](["camera", "worldMapDensity", "schoolCampus"], {
+            "worldMapDensity": "world atlas keeps six exact, non-overlapping spatial entrances",
+            "schoolCampus": "the world atlas exposes the school campus through one reviewed portal",
+        })
     elif command == "summary":
         ok = summary()
     else:
