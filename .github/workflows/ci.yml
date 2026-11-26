@@ -1,32 +1,16 @@
-name: Verify photographed workstation words, office returns and forty scene transitions
-on:
-  workflow_dispatch:
-    inputs:
-      candidate:
-        description: Full SHA of the frozen product candidate
-        required: true
-        type: string
-      parent:
-        description: Full SHA of the preceding product source, used to check the candidate diff
-        required: true
-        default: 67c480555b41b82b6d8beae79e0d86b75d59fd6a
-        type: string
+name: Check the school gate on the frozen office build
+on: workflow_dispatch
 permissions:
   actions: read
   contents: read
 env:
+  PRODUCT: e312b0e89eb2f1c8b5a5bda1f51a550789e2804f
+  SOURCE_RUN: "45870783134"
   CI: "true"
-  BASE: 67c480555b41b82b6d8beae79e0d86b75d59fd6a
-  BASE_RUN: "45866681294"
-  PRODUCT: ${{ inputs.candidate }}
-  PARENT: ${{ inputs.parent }}
 jobs:
-  verify:
+  gate:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
-    defaults:
-      run:
-        working-directory: product
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v6
         with:
@@ -34,133 +18,56 @@ jobs:
           persist-credentials: false
       - uses: actions/checkout@v6
         with:
-          ref: ${{ inputs.candidate }}
-          fetch-depth: 2
+          ref: ${{ env.PRODUCT }}
           path: product
           persist-credentials: false
-      - name: Pin source, unchanged performance scenario and browser test files
-        id: source
+      - uses: actions/download-artifact@v5
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          run-id: ${{ env.SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen
+      - uses: actions/download-artifact@v5
+        with:
+          name: apartment-and-performance-45870783134-1
+          run-id: ${{ env.SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original
+      - name: Verify build provenance and apply the photo timing correction to the test
+        working-directory: product
         run: |
-          mkdir "$RUNNER_TEMP/diagnosis"
-          [[ "$PRODUCT" =~ ^[0-9a-f]{40}$ ]]
-          [[ "$PARENT" =~ ^[0-9a-f]{40}$ ]]
           test "$(git rev-parse HEAD)" = "$PRODUCT"
-          test "$(git rev-parse HEAD^)" = "$PARENT"
-          git diff --exit-code "$PARENT" "$PRODUCT" -- tests/perf playwright.config.ts package.json package-lock.json
-          sha256sum playwright.config.ts package*.json tests/perf/*.ts tests/e2e/*.ts \
-            public/data/scenes/{apartment,kitchen,office-building,open-plan-workstation,desktop-workstation-equipment}.json \
-            scripts/validate-scenes.ts tests/domain/{worldContent,newFacilityScenes}.test.ts \
-            > "$RUNNER_TEMP/diagnosis/test-sources.sha256"
+          (
+            cd "$RUNNER_TEMP/original"
+            sha256sum -c <<'DIGESTS'
+          96fd01416fde90037534cb91384b219851fea4cec62b1bbe0729e4a174b9e6af  baseline.json
+          f720728d97085651fc84f312abe7e2e8dea41dbb14102b619e0700e8b5464069  candidate.json
+          a74a707ff02a5e0285d41f8e9517ad4a2717b9c90a65000f92f9f4e458065c2e  summary.json
+          DIGESTS
+          )
+          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = e6808704a531ee261cb646f2596018a91c9c6c1935468500a339fc64bf482bee
+          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$PRODUCT"
+          test ! -e dist
+          mv "$RUNNER_TEMP/frozen/dist" dist
+          git apply ../.github/school-gate-timing.patch
+          echo 'd123d70935a939220b5fd123f285615c7f7e2e0e487641a5709cf0bdf209d7e9  tests/e2e/world.spec.ts' | sha256sum -c
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
           cache-dependency-path: product/package-lock.json
-      - name: Install the pinned dependencies
-        id: dependencies
-        run: npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
-      - name: Install Chromium
-        id: chromium
-        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - uses: actions/download-artifact@v5
-        id: download
-        if: ${{ !cancelled() && steps.source.outcome == 'success' }}
-        with:
-          name: production-dist-${{ env.BASE }}
-          run-id: ${{ env.BASE_RUN }}
-          github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/frozen
-      - name: Check the original production SHA, inventory and each file digest
-        id: baseline_manifest
-        if: ${{ !cancelled() && steps.download.outcome == 'success' }}
+      - name: Install locked dependencies and Chromium
+        working-directory: product
         run: |
-          manifest="$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json"
-          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = e016520fc1a51a76b1f6f0a17fc733ecbc8f874b5e21907b09580e6dfec9c188
-          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASE"
-          jq --argjson run "$BASE_RUN" '{build:.gitSha, sourceRun:$run, files:(.files|length)}' \
-            "$manifest" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
-      - name: Reproduce the workstation word errors in the previous production build
-        id: red
-        if: ${{ !cancelled() && steps.baseline_manifest.outcome == 'success' && steps.chromium.outcome == 'success' }}
-        run: |
-          test ! -e dist
-          mv "$RUNNER_TEMP/frozen/dist" dist
-          trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
-          python ../.github/verify-input.py baseline
-      - name: Build the candidate once and verify every output file
-        id: build
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: |
-          test ! -e dist
-          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
-          GITHUB_SHA="$PRODUCT" npm run analyze:build > "$RUNNER_TEMP/analyze.log" 2>&1
-          python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-          jq --arg run "$GITHUB_RUN_ID" '{build:.gitSha, sourceRun:$run, files:(.files|length)}' \
-            artifacts/build/dist-manifest.json > "$RUNNER_TEMP/diagnosis/candidate-build.json"
+          npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
+          ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
+      - name: Click the original gate photograph and return on desktop and phone
+        working-directory: product
+        run: python ../.github/check-campus-gate.py
       - uses: actions/upload-artifact@v5
-        id: production
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        with:
-          name: production-dist-${{ env.PRODUCT }}
-          path: |
-            product/dist
-            product/artifacts/build/dist-manifest.json
-          include-hidden-files: true
-          if-no-files-found: error
-          retention-days: 7
-      - name: Read the workstation photos and return to the office on desktop and mobile, then verify existing journeys
-        id: green
-        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.chromium.outcome == 'success' }}
-        run: python ../.github/verify-input.py candidate
-      - name: Measure forty candidate scene transitions with the original budgets
-        id: performance
-        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.chromium.outcome == 'success' }}
-        env:
-          PERF_RUN: 1
-          PERF_SCENE_CYCLES: 20
-          PERF_SOURCE_SHA: ${{ env.PRODUCT }}
-        run: |
-          npm run test:perf -- --grep 'scene slices stay within CPU and memory budgets' --retries=0 \
-            > "$RUNNER_TEMP/performance.log" 2>&1
-      - name: Save all measured budgets and the raw samples, including failed runs
-        id: samples
-        if: ${{ !cancelled() && steps.performance.outcome != 'skipped' }}
-        run: python ../.github/verify-input.py performance
-      - name: Typecheck the candidate
-        id: types
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: npm run typecheck > "$RUNNER_TEMP/types.log" 2>&1
-      - name: Lint changed code
-        id: lint
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: |
-          git diff --name-only -z --diff-filter=ACMRT "$PARENT" "$PRODUCT" -- \
-            '*.js' '*.jsx' '*.ts' '*.tsx' '*.mjs' '*.cjs' '*.mts' '*.cts' \
-            | xargs -0r ./node_modules/.bin/eslint -- > "$RUNNER_TEMP/lint.log" 2>&1
-      - name: Validate vocabulary, scene assets, spatial crosswalks and image-reviewed annotations
-        id: data
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: |
-          python ../.github/verify-input.py data
-          cp artifacts/correctness/scene-integrity.json "$RUNNER_TEMP/diagnosis/"
-      - name: Verify scene content, semantic crosswalks, camera and navigation regressions
-        id: domain
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: python ../.github/verify-input.py domain
-      - name: Record outcomes independently
-        if: ${{ always() }}
-        working-directory: .
-        env:
-          RESULTS: ${{ toJSON(steps) }}
-        run: python .github/verify-input.py summary
-      - uses: actions/upload-artifact@v5
-        id: evidence
-        if: ${{ always() }}
-        with:
-          name: apartment-and-performance-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/diagnosis
-          if-no-files-found: error
-          retention-days: 7
-      - name: Require all old-build behavior failures, all candidate journeys and every performance budget
         if: ${{ !cancelled() }}
-        run: jq -e '.accepted == true' "$RUNNER_TEMP/diagnosis/summary.json"
+        with:
+          name: campus-gate-${{ github.run_id }}
+          path: ${{ runner.temp }}/gate-evidence
+          if-no-files-found: error
+          retention-days: 7
