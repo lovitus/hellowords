@@ -1,9 +1,9 @@
-name: Verify visible-word encounters and warm navigation
+name: Verify canvas word keyboard access and warm navigation
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full encounter-timing candidate commit SHA
+        description: Full canvas word button candidate commit SHA
         required: true
         type: string
 permissions:
@@ -11,17 +11,19 @@ permissions:
   actions: read
 env:
   CI: "true"
-  BASE: fa26b2f34781a60eec48b78cf9f8a58999198650
+  BASE: 4f7e8b074664c28745dd13299c74578d4f95e1eb
   PRODUCT: ${{ inputs.candidate }}
   DWELL: apartment words need a fresh readable dwell after the scene word index closes
-  RED_ASSERTION: hidden apartment words must stay unencountered while the empty scene index is open
+  KEYBOARD: the apartment minimap reveals a detail zone and leaves its drawn words keyboard accessible
+  HOVER: the home atlas keeps words hover-scoped to one district
+  FIT: oak-tree fit fills safe slots and round-trips the exact label layout
   CROP: ordinary scenes hide the progress hint while the canvas counts only the current crop
   INDEX: the current-scene word index finds and focuses a real label without a scene jump
   WORDS: open-plan workstation labels its photographed mouse, drawer handle and shared printer before returning to the office
   ZOOM: open-plan workstation zoom keeps the printer and chair caster in the room and opens desktop equipment from the keyboard
   ATRIUM: returning to the office restores the atrium photograph and its own object labels
 jobs:
-  encounters:
+  canvas_words:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
@@ -44,7 +46,7 @@ jobs:
         continue-on-error: true
         with:
           name: production-dist-${{ env.BASE }}
-          run-id: 45759679904
+          run-id: 45762958125
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/previous
       - name: Verify the baseline artifact before starting its server
@@ -56,22 +58,11 @@ jobs:
           jq -e --arg sha "$BASE" '.gitSha == $sha and (.files | length > 0)' "$manifest"
           jq -r '.files[] | "\(.sha256)  \(.path)"' "$manifest" > "$RUNNER_TEMP/baseline.sha256"
           (cd "$RUNNER_TEMP/previous/dist" && sha256sum --quiet --check "$RUNNER_TEMP/baseline.sha256")
-      - name: Observe hidden words counting as encountered on the baseline
-        id: baseline
-        if: ${{ steps.base_artifact.outcome == 'success' }}
-        continue-on-error: true
-        run: |
-          mv "$RUNNER_TEMP/previous/dist" dist
-          code=0
-          ./node_modules/.bin/playwright test tests/e2e/world.spec.ts --grep "$DWELL$" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/old.log" 2>&1 || code=$?
-          mv dist "$RUNNER_TEMP/previous/dist"
-          mv artifacts/e2e "$RUNNER_TEMP/old"
-          test "$code" -eq 1
-      - name: Check candidate types, scene data and encounter history
+      - name: Check candidate types, scene data, label mounting and canvas hit detection
         run: |
           npm run typecheck > "$RUNNER_TEMP/types.log" 2>&1
           npm run validate:data -- --allow-image-reviewed > "$RUNNER_TEMP/data.log" 2>&1
-          npm exec -- tsx --test tests/domain/discovery.test.ts tests/domain/labelLayout.test.ts > "$RUNNER_TEMP/domain.log" 2>&1
+          npm exec -- tsx --test tests/domain/{discovery,labelLayout,labelCanvasHit,labelMountWindow}.test.ts > "$RUNNER_TEMP/domain.log" 2>&1
       - name: Build and record the candidate
         run: |
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
@@ -88,10 +79,21 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Exercise encounter timing, the word index and the return to the office
+      - name: Exercise keyboard, pointer, word index, Fit and office navigation
         run: |
+          cat > "$RUNNER_TEMP/canvas-cases.txt" <<EOF
+          e2e/world.spec.ts > $KEYBOARD
+          [chromium] > e2e/scene-minimap.spec.ts > $HOVER
+          e2e/world.spec.ts > $DWELL
+          e2e/world.spec.ts > $INDEX
+          e2e/label-zoom-retention.spec.ts > $CROP
+          e2e/label-zoom-retention.spec.ts > $FIT
+          e2e/office-conference.spec.ts > $WORDS
+          e2e/office-conference.spec.ts > $ZOOM
+          e2e/office-conference.spec.ts > $ATRIUM
+          EOF
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/{world,label-zoom-retention,office-conference}.spec.ts --grep "($DWELL|$CROP|$INDEX|$WORDS|$ZOOM|$ATRIUM)$" \
+          ./node_modules/.bin/playwright test --test-list "$RUNNER_TEMP/canvas-cases.txt" \
             --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/new.log" 2>&1 || code=$?
           mv artifacts/e2e "$RUNNER_TEMP/new"
           exit "$code"
@@ -103,9 +105,9 @@ jobs:
           from pathlib import Path
 
           temp = Path(os.environ["RUNNER_TEMP"])
-          out = temp / "encounter-evidence"
+          out = temp / "canvas-evidence"
           out.mkdir()
-          titles = {os.environ[k]: k for k in ("DWELL", "CROP", "INDEX", "WORDS", "ZOOM", "ATRIUM")}
+          titles = {os.environ[k]: k for k in ("KEYBOARD", "HOVER", "DWELL", "INDEX", "CROP", "FIT", "WORDS", "ZOOM", "ATRIUM")}
           projects = ("chromium", "mobile-chromium")
           screenshots = {"Open-plan-left-mouse-painted-card", "center keyboard-end", "office-atrium-return"}
 
@@ -116,11 +118,11 @@ jobs:
               for child in suite.get("suites", []):
                   yield from cases(child)
 
-          def check_build(build):
-              old = build == "old"
-              selected = ["DWELL"] if old else titles.values()
-              expected = {(case, project) for case in selected for project in projects}
-              report = json.loads((temp / build / "results.json").read_text())
+          def check_candidate():
+              expected = {(case, project) for case in titles.values() for project in projects
+                          if case != "HOVER" or project == "chromium"}
+              count = len(expected)
+              report = json.loads((temp / "new" / "results.json").read_text())
               stats = report["stats"]
               observations = []
               ok = not report["errors"]
@@ -133,7 +135,7 @@ jobs:
                   results = test["results"]
                   result = results[0] if results else {}
                   passed = (test["expectedStatus"] == "passed" and len(results) == 1 and result.get("retry") == 0
-                            and result.get("status") == ("failed" if old else "passed"))
+                            and result.get("status") == "passed")
                   observation = {"case": case, "project": project, "status": result.get("status")}
                   hidden_credit_evidence = False
                   for a in result.get("attachments", []):
@@ -145,51 +147,41 @@ jobs:
                               observation["previouslySeen"] = len(prior)
                               observation["unseenBeforeOpening"] = len(fresh)
                               observation["creditedWhileHidden"] = len(credited)
-                              hidden_credit_evidence = bool(fresh) and set(credited) <= set(fresh) and bool(credited) == old
+                              hidden_credit_evidence = bool(fresh) and not credited
                       if name in screenshots and a.get("contentType") == "image/png" and "body" in a:
                           png = base64.b64decode(a["body"], validate=True)
                           assert png.startswith(b"\x89PNG\r\n\x1a\n"), "invalid screenshot"
-                          (out / f"{build}-{project}-{name.replace(' ', '-')}.png").write_bytes(png)
-                  if old:
-                      matched = os.environ["RED_ASSERTION"] in result.get("error", {}).get("message", "")
-                      observation["matchedHiddenWordAssertion"] = matched
-                      passed = passed and matched
+                          (out / f"{project}-{name.replace(' ', '-')}.png").write_bytes(png)
                   if case == "DWELL":
                       passed = passed and hidden_credit_evidence
                   observation["accepted"] = passed
                   ok = ok and passed
                   observations.append(observation)
-              count = len(selected) * len(projects)
               ok = (ok and not expected and stats["flaky"] == stats["skipped"] == 0
-                    and stats["unexpected"] == (count if old else 0) and stats["expected"] == (0 if old else count))
-              evidence = {"commit": os.environ["BASE" if old else "PRODUCT"], "accepted": ok,
+                    and stats["unexpected"] == 0 and stats["expected"] == count)
+              evidence = {"commit": os.environ["PRODUCT"], "accepted": ok,
                           "missing": sorted(expected), "results": observations}
-              (out / f"{build}.json").write_text(json.dumps(evidence, indent=2) + "\n")
+              (out / "candidate.json").write_text(json.dumps(evidence, indent=2) + "\n")
               assert ok, "browser evidence did not meet the expected outcome"
 
-          failures = []
-          for build in ("old", "new"):
-              try:
-                  check_build(build)
-              except (AssertionError, KeyError, ValueError, FileNotFoundError) as error:
-                  # Assertion labels are controlled by this verifier; raw reporter errors stay on the runner.
-                  reason = str(error) if isinstance(error, AssertionError) else type(error).__name__
-                  failures.append(f"{build}: {reason}")
-          if failures:
-              (out / "incomplete.txt").write_text("\n".join(failures) + "\n")
-              raise SystemExit("\n".join(failures))
+          try:
+              check_candidate()
+          except (AssertionError, KeyError, ValueError, FileNotFoundError) as error:
+              reason = str(error) if isinstance(error, AssertionError) else type(error).__name__
+              (out / "incomplete.txt").write_text(reason + "\n")
+              raise SystemExit(reason)
           PY
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: encounter-evidence-${{ env.PRODUCT }}
-          path: ${{ runner.temp }}/encounter-evidence
+          name: canvas-word-evidence-${{ env.PRODUCT }}
+          path: ${{ runner.temp }}/canvas-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the observed regression
+      - name: Require the identified baseline build
         if: ${{ !cancelled() }}
         env:
-          BASELINE: ${{ steps.baseline.outcome }}
+          BASELINE: ${{ steps.base_artifact.outcome }}
         run: test "$BASELINE" = success
       - name: Prepare the same-runner performance comparison
         id: prepare_perf
