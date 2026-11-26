@@ -6,6 +6,10 @@ on:
         description: Full SHA of the frozen product commit
         type: string
         required: true
+      diagnose:
+        description: Diagnose only the two failures from run 45783267309 with its existing production build
+        type: boolean
+        default: false
 permissions:
   actions: read
   contents: read
@@ -15,6 +19,7 @@ env:
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   compare:
+    if: ${{ !inputs.diagnose }}
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     defaults:
@@ -131,3 +136,93 @@ jobs:
         if: ${{ !cancelled() }}
         working-directory: .
         run: jq -es 'length == 2 and all(.[]; .accepted == true)' "$RUNNER_TEMP/evidence/"{baseline,candidate}.json
+  diagnose:
+    if: ${{ inputs.diagnose }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: product
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+          sparse-checkout: .github
+      - name: Require the failed run's exact product SHA
+        working-directory: .
+        run: |
+          test "$PRODUCT" = 0c6407d600da8105ca07f3603be04a0d4626934f
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.candidate }}
+          path: product
+          persist-credentials: false
+      - name: Confirm the source and prepare the evidence directory
+        run: |
+          test "$(git rev-parse HEAD)" = "$PRODUCT"
+          mkdir "$RUNNER_TEMP/diagnosis"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: product/package-lock.json
+      - name: Install frozen dependencies
+        id: dependencies
+        run: npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
+      - uses: actions/download-artifact@v5
+        id: download
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          run-id: 45783267309
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen
+      - name: Verify the production SHA, inventory, byte counts and every digest
+        id: manifest
+        if: ${{ !cancelled() && steps.download.outcome == 'success' }}
+        run: |
+          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$PRODUCT"
+          jq '{gitSha, fileCount:(.files|length), bytes:([.files[].bytes]|add), sourceRun:45783267309}' \
+            "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/diagnosis/verified-build.json"
+          test ! -e dist
+          mv "$RUNNER_TEMP/frozen/dist" dist
+      - name: Diagnose the original data validation command
+        id: data
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: python ../.github/diagnose-office-phone.py data
+      - name: Diagnose all five domain files independently
+        id: domain
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: python ../.github/diagnose-office-phone.py domain
+      - name: Prepare Chromium
+        id: observer
+        if: ${{ !cancelled() && steps.manifest.outcome == 'success' && steps.dependencies.outcome == 'success' }}
+        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
+      - name: Diagnose the original phone office return
+        id: phone
+        if: ${{ !cancelled() && steps.observer.outcome == 'success' }}
+        run: python ../.github/diagnose-office-phone.py original
+      - name: Run the revised phone return against the identical production tree
+        id: revised_phone
+        if: ${{ !cancelled() && steps.observer.outcome == 'success' }}
+        run: |
+          git apply ../.github/office-return-reviewed.patch
+          printf '%s  %s\n' f39073f0ef322ea6197b6d8ce9e356a6e6e7c494a9b91f40c4c824c6a391b3f4 \
+            tests/e2e/office-conference.spec.ts | sha256sum --check --status
+          python ../.github/diagnose-office-phone.py revised
+      - name: Save the outcomes of each diagnostic
+        if: ${{ !cancelled() }}
+        working-directory: .
+        env:
+          STEP_RESULTS: ${{ toJSON(steps) }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/diagnosis"
+          jq -n --arg sha "$PRODUCT" --argjson steps "$STEP_RESULTS" \
+            '{product:$sha,sourceRun:45783267309,steps:($steps|with_entries(.value=.value.outcome))}' \
+            > "$RUNNER_TEMP/diagnosis/summary.json"
+      - uses: actions/upload-artifact@v5
+        if: ${{ !cancelled() }}
+        with:
+          name: office-phone-diagnosis-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/diagnosis
+          if-no-files-found: error
+          retention-days: 7

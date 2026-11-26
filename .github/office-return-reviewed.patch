@@ -1,0 +1,25 @@
+diff --git a/tests/e2e/office-conference.spec.ts b/tests/e2e/office-conference.spec.ts
+--- a/tests/e2e/office-conference.spec.ts
++++ b/tests/e2e/office-conference.spec.ts
+@@ -1,3 +1,3 @@
+ import { expect, test, type Locator, type Page, type TestInfo } from "@playwright/test";
+-import { clickPaintedWord } from "./canvas-words";
++import { clickPaintedWord, paintedWordState } from "./canvas-words";
+ import { checkMagnifiedObject, checkPaintedWords, magnify, openPhotographedRoute, pinch, projectPhoto, zoomBack, type PhotographedWord } from "./photo-journey";
+@@ -448,11 +448,16 @@
+     expect(framing.entrances.filter(e => e.fullyVisible && e.tappable).map(e => e.target).sort()).toEqual([
+       "conference-room", "office-break-room", "office-reception-lobby", "open-plan-workstation", "service-core",
+     ]);
++    expect(returnedIds, "both landmarks are painted together in the returned overview")
++      .toEqual(expect.arrayContaining(["reception-counter", "monitor"]));
+     for (const [id, word, meaning, x, y] of [
+       ["reception-counter", "reception counter", "接待柜台", 335, 672],
+       ["monitor", "monitor", "显示器", 473, 497],
+     ] as const) {
+       expect((await projectPhoto(image, x, y)).visible, "the reception counter and monitor remain on screen").toBe(true);
++      // Closing the previous card releases its reserved space on the next canvas frame.
++      await expect.poll(() => paintedWordState(page, id), { message: `${word} is ready for a direct tap` })
++        .toMatchObject({ interactive: true });
+       await clickPaintedWord(page, id, "touch");
+       const card = page.getByRole("complementary", { name: `${word} word details`, exact: true });
+       await expect(card.locator("p").first()).toHaveText(meaning);
