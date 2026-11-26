@@ -4,6 +4,7 @@ import math
 import os
 from pathlib import Path
 import runpy
+import shutil
 import sys
 
 
@@ -24,8 +25,10 @@ warm = {
 cases = {"baseline": fresh, "candidate": [*fresh, desktop, phone, *warm]}
 cache_shot = "office-cache-returned-card"
 screenshots = {"office-atrium-entry", "office-atrium-return", "monitor-view", "monitor-painted-card", "screenshot", cache_shot}
-gate_names = ("source", "changes", "dependencies", "chromium", "download", "baseline_manifest",
-              "red", "build", "production", "green", "types", "lint", "domain")
+original_gates = ("source", "changes", "dependencies", "chromium", "download", "baseline_manifest",
+                  "red", "build", "production", "green", "types", "lint", "domain")
+recheck_gates = ("source", "previous", "candidate_dist", "baseline_dist", "manifests",
+                 "candidate_evidence", "dependencies", "chromium", "red")
 
 reception = "office-reception-lobby"
 counter = "counter-edge"
@@ -124,11 +127,18 @@ def cache_matches(observation, old):
 
 def retain_attachments(result, folder, destination, observation):
     destination.mkdir(parents=True)
+    automatic_screenshots = 0
     for item in result.get("attachments", []):
         name = item.get("name")
         if name not in screenshots and name not in {geometry_name, "monitor-geometry", cache_attachment}:
             continue
+        archive_name = name
+        if name == "screenshot":
+            automatic_screenshots += 1
+            archive_name = f"screenshot-{automatic_screenshots}"
         try:
+            if archive_name in observation["attachments"]:
+                raise ValueError("Duplicate named attachment")
             data = diagnostics["attachment_data"](item, folder)
             if name not in screenshots:
                 if item["contentType"] != "application/json":
@@ -143,11 +153,9 @@ def retain_attachments(result, folder, destination, observation):
             else:
                 if item["contentType"] != "image/png" or not data.startswith(b"\x89PNG\r\n\x1a\n"):
                     raise ValueError("Expected PNG")
-                path = destination / f"{name}.png"
+                path = destination / f"{archive_name}.png"
                 path.write_bytes(data)
-            if name in observation["attachments"]:
-                raise ValueError("Duplicate attachment")
-            observation["attachments"][name] = str(path.relative_to(out))
+            observation["attachments"][archive_name] = str(path.relative_to(out))
         except (KeyError, TypeError, ValueError, OSError) as error:
             observation["attachmentErrors"].append({"name": name, "reason": type(error).__name__})
 
@@ -181,7 +189,10 @@ def read_phase(phase):
                 journey = "revalidate" if key in fresh else warm.get(key, "return")
                 destination = out / phase / key[0] / journey / f"result-{len(row['observations'])}-{index}"
                 retain_attachments(result, folder, destination, observation)
-                observation["missingAttachments"] = sorted(required_attachments(key) - observation["attachments"].keys())
+                required = required_attachments(key)
+                if old:
+                    required.update(("screenshot-1", "screenshot-2"))
+                observation["missingAttachments"] = sorted(required - observation["attachments"].keys())
                 error_ok = ([headline(e) for e in errors] == [assertion] and headline(primary) == assertion
                             if old else not errors and not primary)
                 if key == phone:
@@ -207,19 +218,71 @@ def read_phase(phase):
     return summary
 
 
+def reuse_candidate():
+    previous = temp / "previous"
+    source = json.loads((previous / "summary.json").read_bytes())
+    record = json.loads((previous / "candidate.json").read_bytes())
+    product = os.environ["PRODUCT"]
+    if (source["baseline"] != os.environ["BASE"] or source["baselineRun"] != 45804971418
+            or source["candidate"] != product or source["requiredAssertion"] != assertion
+            or source["acceptedPhases"] != {"candidate": True, "baseline": False}
+            or source["gates"] != dict.fromkeys(original_gates, "success")):
+        raise ValueError("The frozen run does not match the required gate outcomes")
+    rows = record["cases"]
+    if (record["phase"] != "candidate" or product != record["productSource"]
+            or product != record["productionArtifact"] or product != record["testCommit"]
+            or record["accepted"] is not True or record["exit"] != 0 or record["reportErrors"] or record["extraCases"]
+            or record["stats"] != {"expected": 7, "unexpected": 0, "skipped": 0, "flaky": 0}
+            or record["retries"] != {verify["DESKTOP"]: 0, verify["PHONE"]: 0}
+            or [(r["project"], r["file"], r["title"]) for r in rows] != cases["candidate"]
+            or not all(r["accepted"] is True for r in rows)):
+        raise ValueError("The frozen candidate lacks one or more successful regressions")
+    for row in rows:
+        key = (row["project"], row["file"], row["title"])
+        observation, = row["observations"]
+        attempt, = observation["attempts"]
+        if (observation["status"] != "expected" or observation["expectedStatus"] != "passed"
+                or attempt["status"] != "passed" or attempt["retry"] != 0 or attempt["accepted"] is not True
+                or attempt["errors"] or attempt["primaryError"] or attempt["missingAttachments"] or attempt["attachmentErrors"]):
+            raise ValueError("Invalid frozen browser attempt")
+        for name in required_attachments(key):
+            data = (previous / attempt["attachments"][name]).read_bytes()
+            if name in screenshots and not data.startswith(b"\x89PNG\r\n\x1a\n"):
+                raise ValueError("Invalid frozen screenshot")
+            if name == cache_attachment and (json.loads(data) != attempt["cache"] or not cache_matches(attempt, False)):
+                raise ValueError("Invalid frozen HTTP cache observation")
+            if name == geometry_name:
+                geometry = measure_geometry(json.loads(data))
+                if geometry != attempt["geometry"] or geometry["worst"]["inkClearance"] < -0.5:
+                    raise ValueError("Invalid frozen office return geometry")
+    for name in ("types", "lint"):
+        if json.loads((previous / f"{name}.json").read_bytes()) != {"exit": 0, "error": None}:
+            raise ValueError(f"Unsuccessful frozen {name} check")
+    domain, = json.loads((previous / "domain.json").read_bytes())
+    if (domain["file"] != "tests/domain/sceneRepository.test.ts" or domain["exit"] != 0
+            or domain["passed"] != domain["total"] or domain["total"] != 8
+            or domain["skipped"] or domain["failures"] or domain["passedFile"] is not True):
+        raise ValueError("Invalid frozen scene-repository results")
+    for name in ("candidate.json", "domain.json", "types.json", "lint.json"):
+        shutil.copyfile(previous / name, out / name)
+    shutil.copytree(previous / "candidate", out / "candidate")
+    shutil.copyfile(previous / "summary.json", out / "previous-summary.json")
+
+
 def write_evidence():
     out.mkdir(exist_ok=True)
     if Path("product/tests").is_dir():
         os.chdir("product")
     steps = json.loads(os.environ["RESULTS"])
-    gates = {name: steps.get(name, {}).get("outcome", "missing") for name in gate_names}
-    phases = {}
-    for phase in cases:
-        record = read_phase(phase)
-        diagnostics["save"](out / f"{phase}.json", record)
-        phases[phase] = record["accepted"]
+    gates = {name: steps.get(name, {}).get("outcome", "missing") for name in recheck_gates}
+    record = read_phase("baseline")
+    diagnostics["save"](out / "baseline.json", record)
+    phases = {"baseline": record["accepted"], "candidate": gates["candidate_evidence"] == "success"}
     diagnostics["save"](out / "summary.json", {
         "baseline": os.environ["BASE"], "baselineRun": 45804971418, "candidate": os.environ["PRODUCT"],
+        "baselineBrowserRun": os.environ["GITHUB_RUN_ID"], "candidateBrowserAndBuildRun": 45808079102,
+        "candidateEvidenceArtifact": "scene-http-cache-45808079102-1",
+        "candidateProductionArtifact": f"production-dist-{os.environ['PRODUCT']}",
         "requiredAssertion": assertion, "gates": gates, "acceptedPhases": phases,
         "accepted": all(phases.values()) and all(value == "success" for value in gates.values()),
     })
@@ -229,17 +292,9 @@ if __name__ == "__main__":
     command = sys.argv[1]
     if command == "evidence":
         write_evidence()
-    elif command == "domain":
-        sys.exit(0 if diagnostics["run_domain"](("sceneRepository",)) else 1)
-    elif command in {"types", "lint"}:
-        log = temp / f"{command}.log"
-        if command == "types":
-            args = ["npm", "run", "typecheck"]
-        else:
-            files = [os.fsdecode(name) for name in (temp / "lint-files").read_bytes().split(b"\0") if name]
-            args = ["./node_modules/.bin/eslint", "--", *files] if files else []
-        code = diagnostics["execute"](args, log) if args else 0
-        diagnostics["save"](out / f"{command}.json", {"exit": code, "error": diagnostics["process_error"](log) if code else None})
-        sys.exit(code)
-    else:
+    elif command == "reuse-candidate":
+        reuse_candidate()
+    elif command == "baseline":
         verify["run_browser"](command, temp, cases[command])
+    else:
+        raise SystemExit("Unknown verification command")

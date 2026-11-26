@@ -1,9 +1,9 @@
-name: Verify scene JSON revalidation across a same-origin update
+name: Recheck scene cache evidence against the frozen production builds
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the product commit containing the HTTP cache E2E
+        description: Full SHA of the candidate built in run 45808079102
         required: true
         type: string
 permissions:
@@ -25,104 +25,80 @@ jobs:
         with:
           sparse-checkout: .github
           persist-credentials: false
-      - name: Require a new full candidate SHA
-        working-directory: .
-        run: |
-          mkdir "$RUNNER_TEMP/diagnosis"
-          [[ "$PRODUCT" =~ ^[0-9a-f]{40}$ && "$PRODUCT" != "$BASE" ]]
       - uses: actions/checkout@v6
         with:
           ref: ${{ inputs.candidate }}
+          fetch-depth: 2
           path: product
           persist-credentials: false
-      - name: Verify the checkout and record the identical browser tests used for both builds
+      - name: Pin the product, its parent and the exact browser test sources
         id: source
         run: |
+          mkdir "$RUNNER_TEMP/diagnosis"
+          test "$PRODUCT" = 83c203b3752ea5f95fc6bc952552d8ddddaec6d1
           test "$(git rev-parse HEAD)" = "$PRODUCT"
+          test "$(git rev-parse HEAD^)" = "$BASE"
           sha256sum tests/e2e/{scene-cache-upgrade.spec,cache-motion.spec,office-conference.spec,photo-journey}.ts \
             > "$RUNNER_TEMP/diagnosis/browser-tests.sha256"
-      - name: Record the changed files to lint
-        id: changes
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          git -c 'credential.helper=!gh auth git-credential' fetch --quiet --no-tags --depth=1 origin "$BASE" \
-            > "$RUNNER_TEMP/fetch.log" 2>&1
-          git diff --name-only -z --diff-filter=ACMRT "$BASE" "$PRODUCT" -- \
-            '*.js' '*.jsx' '*.ts' '*.tsx' '*.mjs' '*.cjs' '*.mts' '*.cts' > "$RUNNER_TEMP/lint-files"
-      - uses: actions/setup-node@v7
-        id: node
-        if: ${{ !cancelled() && steps.source.outcome == 'success' }}
-        with:
-          node-version: "22"
-          cache: npm
-          cache-dependency-path: product/package-lock.json
-      - name: Install product dependencies
-        id: dependencies
-        if: ${{ !cancelled() && steps.node.outcome == 'success' }}
-        run: npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
-      - name: Install Chromium
-        id: chromium
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
       - uses: actions/download-artifact@v5
-        id: download
-        if: ${{ !cancelled() && steps.source.outcome == 'success' }}
+        id: previous
+        with:
+          name: scene-http-cache-45808079102-1
+          run-id: 45808079102
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/previous
+      - uses: actions/download-artifact@v5
+        id: candidate_dist
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          run-id: 45808079102
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/candidate-build
+      - uses: actions/download-artifact@v5
+        id: baseline_dist
         with:
           name: production-dist-${{ env.BASE }}
           run-id: 45804971418
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
-      - name: Verify the archived production manifest
-        id: baseline_manifest
-        if: ${{ !cancelled() && steps.download.outcome == 'success' }}
+      - name: Verify both production SHAs, inventories and file contents
+        id: manifests
         run: |
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASE"
+          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/candidate-build" "$PRODUCT"
           jq '{build:.gitSha,sourceRun:45804971418,files:(.files|length)}' \
             "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
-      - name: Reproduce stale JSON in the browser HTTP cache against the archived build
+          jq '{build:.gitSha,sourceRun:45808079102,files:(.files|length)}' \
+            "$RUNNER_TEMP/candidate-build/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/diagnosis/candidate-build.json"
+      - name: Verify the original evidence digest, seven candidate journeys and static and domain checks
+        id: candidate_evidence
+        run: |
+          (
+            cd "$RUNNER_TEMP/previous"
+            LC_ALL=C find . -type f -print0 | LC_ALL=C sort -z | xargs -0 sha256sum | sha256sum
+          ) > "$RUNNER_TEMP/diagnosis/source-evidence.sha256"
+          test "$(cut -d ' ' -f 1 "$RUNNER_TEMP/diagnosis/source-evidence.sha256")" \
+            = 16979fe41885d17f43a4cbb1210a2519462d3314dcb6f7cf28f00d73d8272636
+          cmp "$RUNNER_TEMP/previous/browser-tests.sha256" "$RUNNER_TEMP/diagnosis/browser-tests.sha256"
+          python ../.github/verify-scene-cache.py reuse-candidate
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: product/package-lock.json
+      - name: Install the pinned test dependencies
+        id: dependencies
+        run: npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
+      - name: Install Chromium
+        id: chromium
+        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
+      - name: Reproduce only the desktop and mobile stale translations on the frozen baseline
         id: red
-        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && steps.baseline_manifest.outcome == 'success' }}
         run: |
           test ! -e dist
           mv "$RUNNER_TEMP/frozen/dist" dist
           trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
           python ../.github/verify-scene-cache.py baseline
-      - name: Build the candidate once and verify its production manifest
-        id: build
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: |
-          test ! -e dist
-          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
-          GITHUB_SHA="$PRODUCT" npm run analyze:build > "$RUNNER_TEMP/analysis.log" 2>&1
-          python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - uses: actions/upload-artifact@v5
-        id: production
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        with:
-          name: production-dist-${{ env.PRODUCT }}
-          path: |
-            product/dist
-            product/artifacts/build/dist-manifest.json
-          include-hidden-files: true
-          if-no-files-found: error
-          retention-days: 7
-      - name: Check fresh JSON, retained warm scenes and the photographed office return
-        id: green
-        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && steps.build.outcome == 'success' }}
-        run: python ../.github/verify-scene-cache.py candidate
-      - name: Typecheck the candidate
-        id: types
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: python ../.github/verify-scene-cache.py types
-      - name: Lint the changed TypeScript and JavaScript
-        id: lint
-        if: ${{ !cancelled() && steps.changes.outcome == 'success' && steps.dependencies.outcome == 'success' }}
-        run: python ../.github/verify-scene-cache.py lint
-      - name: Verify the scene repository's request and decoded-image cache behavior
-        id: domain
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: python ../.github/verify-scene-cache.py domain
       - name: Record gate outcomes and missing browser observations
         if: ${{ !cancelled() }}
         working-directory: .
@@ -132,10 +108,10 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: scene-http-cache-${{ github.run_id }}-${{ github.run_attempt }}
+          name: scene-http-cache-recheck-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/diagnosis
           if-no-files-found: error
           retention-days: 7
-      - name: Require stale JSON on the old build and passing candidate cache and office journeys
+      - name: Require both old-build failures with all screenshots and the original passing candidate evidence
         if: ${{ !cancelled() }}
         run: jq -e '.accepted == true' "$RUNNER_TEMP/diagnosis/summary.json"
