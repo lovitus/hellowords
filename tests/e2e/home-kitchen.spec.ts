@@ -57,6 +57,80 @@ async function drawnWord(page: Page, word: string) {
   }, word);
 }
 
+function observeHingeFocus(button: HTMLElement | SVGElement) {
+  const viewer = document.querySelector(".viewer-shell:not([data-phase])")!;
+  const photo = viewer.querySelector<HTMLImageElement>(".scene-art")!;
+  const canvas = viewer.querySelector<HTMLCanvasElement>(".label-canvas")!;
+  const crop = document.createElement("canvas");
+  crop.width = crop.height = 11;
+  const context = crop.getContext("2d", { willReadFrequently: true })!;
+  context.imageSmoothingEnabled = false;
+  type Sample = { point: Point; color: number[]; ring: number };
+  type Frame = { ms: number; photoWidth: number; samples: Sample[] };
+  const frames: Frame[] = [];
+  const recent: Point[] = [];
+  const done = new Promise<Frame[]>((resolve) => {
+    button.addEventListener("click", () => {
+      const start = performance.now();
+      function sample() {
+        const image = photo.getBoundingClientRect(), bounds = canvas.getBoundingClientRect();
+        const point: Point = [image.x + 1246 * image.width / photo.naturalWidth,
+          image.y + 556 * image.height / photo.naturalHeight];
+        const frame: Frame = { ms: performance.now() - start, photoWidth: image.width, samples: [] };
+        if (canvas.width > 1 && canvas.height > 1 && canvas.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })) {
+          const sx = canvas.width / bounds.width, sy = canvas.height / bounds.height;
+          for (const [x, y] of [point, ...recent]) {
+            context.clearRect(0, 0, 11, 11);
+            context.drawImage(canvas, (x - bounds.x - 5.5) * sx, (y - bounds.y - 5.5) * sy,
+              11 * sx, 11 * sy, 0, 0, 11, 11);
+            const pixels = context.getImageData(0, 0, 11, 11).data;
+            const rgba = (dx: number, dy: number) => {
+              const offset = ((5 + dy) * 11 + 5 + dx) * 4;
+              return Array.from(pixels.slice(offset, offset + 4));
+            };
+            // The leader ends in a colored disc with a light rim four CSS pixels out.
+            const ring = [[-4, 0], [4, 0], [0, -4], [0, 4]]
+              .filter(([dx, dy]) => rgba(dx, dy).every(value => value > 205)).length;
+            frame.samples.push({ point: [x, y], color: rgba(0, 0), ring });
+          }
+        }
+        frames.push(frame);
+        recent.unshift(point);
+        if (recent.length > 3) recent.pop();
+        if (frame.ms < 550) requestAnimationFrame(sample);
+        else resolve(frames);
+      }
+      sample();
+    }, { once: true, capture: true });
+  });
+  return { done };
+}
+
+function misplacedHingePins(frames: Awaited<ReturnType<typeof observeHingeFocus>["done"]>) {
+  const last = frames[frames.length - 1];
+  const steady = last.samples[0];
+  if (!steady) return { steadyPin: false, movingPinFrames: 0, misplaced: [] };
+  const isPin = (sample: typeof steady) => sample.ring >= 2 && sample.color[3] >= 220
+    && sample.color.slice(0, 3).every((value, i) => Math.abs(value - steady.color[i]) <= 10);
+  const misplaced = [];
+  let movingPinFrames = 0;
+  let previousWidth = frames[0].photoWidth;
+  for (const { ms, photoWidth, samples } of frames) {
+    const [current, ...earlier] = samples;
+    if (photoWidth > previousWidth + 1 && photoWidth < last.photoWidth - 1 && current && isPin(current)) {
+      movingPinFrames++;
+    }
+    previousWidth = photoWidth;
+    if (!current || isPin(current)) continue;
+    // Look for the same ring at a former photo position, far enough away
+    // that the two discs cannot cover the same photographed hinge.
+    const stale = earlier.find(sample => Math.hypot(sample.point[0] - current.point[0],
+      sample.point[1] - current.point[1]) > 8 && isPin(sample));
+    if (stale) misplaced.push({ ms, photographedHinge: current.point, paintedDot: stale.point });
+  }
+  return { steadyPin: isPin(steady) && steady.color.slice(0, 3).some(value => value < 195), movingPinFrames, misplaced };
+}
+
 test("kitchen object anchor stays on each photographed object from home entry through card selection and apartment return", async ({ page, isMobile }, testInfo) => {
   const app = page.getByTestId("world-app");
   const minimap = page.getByTestId("scene-minimap");
@@ -189,9 +263,22 @@ test("apartment search distinguishes the photographed shower hinge from the unpi
 
   await activate(finderButton);
   await finder.getByRole("searchbox").fill("door hinge");
-  await activate(finder.getByRole("button", { name: "door hinge，门铰链", exact: true }));
+  const result = finder.getByRole("button", { name: "door hinge，门铰链", exact: true });
+  const observation = isMobile ? await result.evaluateHandle(observeHingeFocus) : null;
+  await activate(result);
   const hingeCard = page.getByRole("complementary", { name: "door hinge word details" });
   await expect(hingeCard.getByText("门铰链", { exact: true })).toBeVisible();
+  if (observation) {
+    const frames = await observation.evaluate(record => record.done);
+    await observation.dispose();
+    const { steadyPin, movingPinFrames, misplaced } = misplacedHingePins(frames);
+    await testInfo.attach("apartment-shower-hinge-focus-frames", {
+      body: JSON.stringify({ frames, movingPinFrames, misplaced }), contentType: "application/json",
+    });
+    expect(steadyPin, "the selected hinge has a painted dot and rim after focus settles").toBe(true);
+    expect(misplaced, "during mobile focus the painted dot must follow the photographed hinge").toEqual([]);
+    expect(movingPinFrames, "at least two moving camera frames must show the selected hinge pin").toBeGreaterThanOrEqual(2);
+  }
   // The black upper hinge occupies this small patch on the shower glass.
   await expect.poll(async () => {
     const point = await drawnWord(page, "door hinge");
