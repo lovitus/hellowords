@@ -1,4 +1,4 @@
-name: Measure scene word rendering and clear the previous frame
+name: Compare word placement geometry and warm scene navigation
 on:
   workflow_dispatch:
     inputs:
@@ -16,14 +16,18 @@ permissions:
 env:
   CI: "true"
   PRODUCT: ${{ inputs.product }}
-  BASE: 6ba0d25dbe085849405520e3fd5805053e5949b8
-  BASE_RUN: "45741082017"
+  BASE: 4dae0eaa88776720ef45cc42fc502fd9c5f86d41
+  BASE_RUN: "45753668035"
   WRANGLER_LOG_PATH: .wrangler/wrangler.log
 jobs:
   measure:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - run: cp scripts/compare-layout-samples.mts "$RUNNER_TEMP/"
       - uses: actions/checkout@v6
         with:
           ref: ${{ inputs.product }}
@@ -41,8 +45,8 @@ jobs:
           npm ci > "$RUNNER_TEMP/evidence/install.log" 2>&1
           npx playwright install --with-deps chromium > "$RUNNER_TEMP/evidence/browser-install.log" 2>&1
           npm run typecheck > "$RUNNER_TEMP/evidence/types.log" 2>&1
-          npx eslint app/lib/label-canvas.ts app/components/SceneViewport.tsx tests/e2e/label-zoom-retention.spec.ts > "$RUNNER_TEMP/evidence/lint.log" 2>&1
-          npx tsx --test tests/domain/labelCanvasHit.test.ts > "$RUNNER_TEMP/evidence/hit.log" 2>&1
+          npx eslint app/domain/labelPlacement.ts > "$RUNNER_TEMP/evidence/lint.log" 2>&1
+          npx tsx --test tests/domain/{labelPlacement,labelLayout,labelCanvasHit}.test.ts > "$RUNNER_TEMP/evidence/geometry-tests.log" 2>&1
       - uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASE }}
@@ -65,19 +69,13 @@ jobs:
           echo "$rc" > "$RUNNER_TEMP/evidence/old-performance.exit"
           mv artifacts/perf "$RUNNER_TEMP/evidence/old-perf"
           mv dist "$RUNNER_TEMP/previous/dist"
-      - name: Confirm that dropping the bitmap to zero can leave visible words
-        id: regression
-        continue-on-error: true
+      - name: Compare every placement field across the actual scene collection
         run: |
-          # Restore just the faulty clear in this disposable development preview.
-          sed -i 's/^    clearLabelCanvas(canvas);/    releaseLabelCanvas(canvas);/' app/lib/label-canvas.ts
-          sed -i 's/npm run start -- --hostname/npm run dev -- --hostname/' playwright.config.ts
-          code=0
-          npx playwright test tests/e2e/label-zoom-retention.spec.ts --project=chromium --retries=0 --grep 'ordinary scenes hide' > "$RUNNER_TEMP/evidence/red.log" 2>&1 || code=$?
-          git restore -- app/lib/label-canvas.ts playwright.config.ts
-          mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/red.json"
-          test "$code" = 1
-          jq -e '.stats.unexpected == 1 and (.errors | length == 0) and ([.. | objects | select(has("expectedStatus")) | .results[] | [.status, (.errors[0].message | contains("Opening the word index must clear the last visible word frame"))]] == [["failed",true]])' "$RUNNER_TEMP/evidence/red.json"
+          cp "$RUNNER_TEMP/compare-layout-samples.mts" scripts/
+          git show "$BASE:app/domain/labelPlacement.ts" > app/domain/previousPlacement.ts
+          npx tsx scripts/compare-layout-samples.mts > "$RUNNER_TEMP/evidence/geometry.json" 2> "$RUNNER_TEMP/evidence/geometry-error.log"
+          jq -e '.scenes > 0 and .layouts == .scenes*32 and .visible > 0' "$RUNNER_TEMP/evidence/geometry.json"
+          rm scripts/compare-layout-samples.mts app/domain/previousPlacement.ts
       - name: Build and identify the unchanged product candidate once
         id: build
         run: |
@@ -115,26 +113,10 @@ jobs:
         continue-on-error: true
         run: |
           rc=0
-          npx playwright test tests/e2e/{label-zoom-retention,home-kitchen,scene-minimap,cache-motion}.spec.ts \
-            --grep 'ordinary scenes hide|oak-tree fit fills|kitchen object anchor stays|the Apartment minimap focuses|root portal click settles apartment|reduced motion and keyboard navigation' \
+          npx playwright test tests/e2e/{label-zoom-retention,home-kitchen,scene-minimap,cache-motion,office-conference}.spec.ts \
+            --grep 'continuous zoom retains|ordinary scenes hide|oak-tree fit fills|kitchen object anchor stays|the Apartment minimap focuses|root portal click settles apartment|returning to the office restores|phone can switch between the photographed rack' \
             --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/interactions.log" 2>&1 || rc=$?
           mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/interactions.json"
-          exit "$rc"
-      - name: Exercise the regular canvas in a browser without offscreen transfer
-        id: fallback
-        continue-on-error: true
-        run: |
-          cp tests/e2e/label-zoom-retention.spec.ts tests/e2e/word-surface-fallback.spec.ts
-          cat >> tests/e2e/word-surface-fallback.spec.ts <<'TS'
-          test.beforeEach(async ({ page }) => {
-            await page.addInitScript(() => {
-              Object.defineProperty(HTMLCanvasElement.prototype, "transferControlToOffscreen", {value: undefined});
-            });
-          });
-          TS
-          rc=0
-          npx playwright test tests/e2e/word-surface-fallback.spec.ts --project=chromium --retries=0 --grep 'ordinary scenes hide' > "$RUNNER_TEMP/evidence/fallback.log" 2>&1 || rc=$?
-          mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/fallback.json"
           exit "$rc"
       - name: Keep diagnostic logs private
         if: ${{ !cancelled() }}
@@ -153,10 +135,8 @@ jobs:
           retention-days: 7
       - name: Enforce the unchanged performance and interaction requirements
         env:
-          RED: ${{ steps.regression.outcome }}
           GREEN: ${{ steps.interactions.outcome }}
-          FALLBACK: ${{ steps.fallback.outcome }}
           PERF: ${{ steps.performance.outcome }}
         run: |
-          printf 'Regression reproduction %s, interactions %s, fallback %s, performance %s\n' "$RED" "$GREEN" "$FALLBACK" "$PERF"
-          test "$RED/$GREEN/$FALLBACK/$PERF" = success/success/success/success
+          printf 'Interactions %s, performance %s\n' "$GREEN" "$PERF"
+          test "$GREEN/$PERF" = success/success
