@@ -56,14 +56,7 @@ const imageCache = new Map<string, ImageCacheEntry>();
 let residentSceneIds = new Set<string>();
 let manifestCache: Promise<SceneManifest> | null = null;
 
-/**
- * Sites keeps public JSON at stable paths, so a CDN can legitimately retain a
- * previous response after a new version is deployed. The published page
- * already carries a short cachebuster (`?v=...`); reuse it for scene data so a
- * fresh public artifact cannot hydrate an older scene definition. Local SSR
- * and unit-test callers have no browser location and intentionally keep the
- * canonical path unchanged.
- */
+/** Preserve the version in shared links. The bare site URL has no suffix. */
 export function sceneDataCacheSuffix(search?: string): string {
   const currentSearch = search ?? (typeof window === "undefined" ? "" : window.location.search);
   const version = new URLSearchParams(currentSearch).get("v");
@@ -182,7 +175,9 @@ export function retainSceneNeighborhood(
 
 export function loadSceneManifest(signal?: AbortSignal): Promise<SceneManifest> {
   if (!manifestCache) {
-    const request = fetch(sceneDataUrl("/data/scenes/manifest.json"))
+    // Scene JSON uses stable filenames across releases. A returning browser
+    // can have a still-fresh HTTP entry even after the app itself reloads.
+    const request = fetch(sceneDataUrl("/data/scenes/manifest.json"), { cache: "no-cache" })
       .then(async (response) => {
         if (!response.ok) throw new Error("Unable to load the world map");
         return validateManifest(await response.json());
@@ -206,6 +201,7 @@ export function loadScene(sceneId: string, signal?: AbortSignal): Promise<Scene>
     const ownedEntry = entry;
     ownedEntry.promise = fetch(
       sceneDataUrl(`/data/scenes/${encodeURIComponent(sceneId)}.json`),
+      { cache: "no-cache" },
     )
       .then(async (response) => {
         if (!response.ok) throw new Error(`Unable to load scene ${sceneId}`);
