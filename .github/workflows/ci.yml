@@ -1,256 +1,83 @@
-name: Verify the office atrium photograph and labels after returning
-on:
-  workflow_dispatch:
-    inputs:
-      candidate:
-        description: Product commit restoring the office atrium labels after a conference room visit
-        required: true
-        type: string
-      recipient:
-        description: Public certificate for the browser evidence
-        required: true
-        type: string
+name: Compare continued apartment navigation with idle time
+on: workflow_dispatch
+
 permissions:
   contents: read
   actions: read
+
 env:
   CI: "true"
-  BASE: 3c56971221fbae6615b9d7839a108381bbc56522
-  BASE_RUN: "45715218160"
-  PRODUCT: ${{ inputs.candidate }}
-  OFFICE_RETURN_TEST: returning to the office restores the atrium photograph and its own object labels
-  ROOM_WORDS_TEST: conference room returns to a readable photograph and labels the photographed chair and credenza
-  PHONE_RETURN_TEST: phone returns to the furnished room before Fit
-  ROOM_PHOTO_SHA: d12438f3e95d9d580d0beb21b18baa7547d921ce18f205a61b279219a82533e1
+  PRODUCT: c0e2a62b54f7851f2c46efd6fe861c758f53b00a
+  BUILD_RUN: "45850668568"
+
 jobs:
-  verify:
+  memory:
     runs-on: ubuntu-24.04
-    timeout-minutes: 35
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: ${{ inputs.candidate }}
-          fetch-depth: 2
+          path: probe
+          sparse-checkout: .github
           persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ env.PRODUCT }}
+          path: product
+          persist-credentials: false
+      - uses: actions/download-artifact@v5
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          run-id: ${{ env.BUILD_RUN }}
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen
+      - name: Verify the archived production files
+        working-directory: product
+        run: |
+          test "$(git rev-parse HEAD)" = "$PRODUCT"
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          frozen = Path(os.environ["RUNNER_TEMP"]) / "frozen"
+          raw = (frozen/"artifacts/build/dist-manifest.json").read_bytes()
+          assert hashlib.sha256(raw).hexdigest() == "71324f76b6ff4e9b6780535ca787d8d70c4b2bdac2fa910ad46b4878d60fc08d"
+          manifest = json.loads(raw)
+          assert manifest["gitSha"] == os.environ["PRODUCT"]
+          dist = frozen / "dist"
+          paths = list(dist.rglob("*"))
+          assert dist.is_dir() and not dist.is_symlink() and not any(p.is_symlink() for p in paths)
+          actual = {p.relative_to(dist).as_posix() for p in paths if p.is_file()}
+          files = manifest["files"]
+          assert len(actual) == len(files) == 392 and actual == {f["path"] for f in files}
+          for entry in files:
+              path = dist / entry["path"]
+              assert path.stat().st_size == entry["bytes"]
+              with path.open("rb") as stream:
+                  assert hashlib.file_digest(stream, "sha256").hexdigest() == entry["sha256"]
+          PY
+          test ! -e dist
+          mv "$RUNNER_TEMP/frozen/dist" dist
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
-      - name: Prepare the source and browser
+          cache-dependency-path: product/package-lock.json
+      - name: Install the locked browser and dependencies
+        working-directory: product
         run: |
-          mkdir -p "$RUNNER_TEMP/evidence"
-          test "$(git rev-parse HEAD)" = "$PRODUCT"
-          test "$(git rev-parse HEAD^)" = "$BASE"
-          sha256sum tests/e2e/{office-conference.spec,photo-journey,canvas-words}.ts playwright.config.ts > "$RUNNER_TEMP/evidence/browser-harness.sha256"
-          printf '%s\n' '[chromium] > e2e/office-conference.spec.ts > mobile pinch from the gold display entrance stays in the conference room' > "$RUNNER_TEMP/desktop-exclusions.txt"
-          npm ci
-          ./node_modules/.bin/playwright install --with-deps chromium
-      - uses: actions/download-artifact@v5
+          npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
+          ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
+      - name: Compare continued navigation and equally long idle periods
+        run: |
+          umask 077
+          node probe/.github/continued-use.mjs product "$RUNNER_TEMP/continued-use"
+          jq -e '.status == "complete"' "$RUNNER_TEMP/continued-use/run.json" >/dev/null
+          jq -e '[.pairs[].pair] == ["main-1", "main-2", "allocators-1"]' "$RUNNER_TEMP/continued-use/summary.json" >/dev/null
+      - name: Preserve the numeric checkpoint records
+        if: ${{ !cancelled() && hashFiles('probe/.github/continued-use.mjs') != '' }}
+        uses: actions/upload-artifact@v5
         with:
-          name: production-dist-${{ env.BASE }}
-          run-id: ${{ env.BASE_RUN }}
-          github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/previous
-      - name: Reproduce the camera lens pinned to the returned office atrium
-        id: baseline
-        continue-on-error: true
-        run: |
-          jq -e --arg sha "$BASE" '.gitSha == $sha' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
-          jq -r '.files[] | "\(.sha256)  \(.path)"' "$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/evidence/baseline-dist.sha256"
-          (cd "$RUNNER_TEMP/previous/dist" && sha256sum --quiet --check "$RUNNER_TEMP/evidence/baseline-dist.sha256")
-          mv "$RUNNER_TEMP/previous/dist" dist
-          code=0
-          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "$OFFICE_RETURN_TEST$" \
-            --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/old.log" 2>&1 || code=$?
-          mv dist "$RUNNER_TEMP/previous/dist"
-          mv artifacts/e2e/results.json "$RUNNER_TEMP/evidence/old.json"
-          mv artifacts/e2e/test-results "$RUNNER_TEMP/evidence/old-screens"
-          test "$code" -eq 1
-          jq -e --arg title "$OFFICE_RETURN_TEST" '
-            def office_words: .attachments[] | select(.name == "office-return-words" and .contentType == "application/json") | .body | @base64d | fromjson;
-            .stats.unexpected == 2 and .stats.expected == 0 and .stats.skipped == 0 and .stats.flaky == 0 and (.errors | length == 0) and
-              ([.. | objects | select(has("tests") and (.file | endswith("/office-conference.spec.ts")) and .title == $title)
-               | .tests[] | select((.results | length) == 1 and (.results[0] |
-                   .status == "failed" and (.errors[0].message | contains("the office overview does not pin a camera lens on the atrium")) and
-                   ([office_words] | length == 1 and (.[0] | .cameraLensPinned == true and (.foreignIds | type == "array")))))
-               | .projectName] | sort) == ["chromium","mobile-chromium"]' "$RUNNER_TEMP/evidence/old.json"
-      - name: Verify scene data, camera geometry, navigation and label placement
-        run: |
-          ./node_modules/.bin/tsx --test tests/domain/labelCanvasHit.test.ts > "$RUNNER_TEMP/evidence/new-hits.log" 2>&1
-          words='[(.labels[], .relatedWords[]?) | {id, word, translation}] | sort_by(.id)'
-          for scene in office-building conference-room video-conferencing-console; do
-            file="public/data/scenes/$scene.json"
-            git show "$BASE:$file" | jq -S "$words" > "$RUNNER_TEMP/$scene-words.json"
-            jq -S "$words" "$file" | cmp - "$RUNNER_TEMP/$scene-words.json"
-          done
-          npm run typecheck > "$RUNNER_TEMP/evidence/types.log" 2>&1
-          npm run validate:data -- --allow-image-reviewed > "$RUNNER_TEMP/evidence/scene-data.log" 2>&1
-          code=0
-          npx --no-install tsx scripts/validate-scenes.ts > "$RUNNER_TEMP/evidence/release-gate.log" 2>&1 || code=$?
-          test "$code" -eq 1
-          sed -n 's/^Error: Human review required before release: //p' "$RUNNER_TEMP/evidence/release-gate.log" |
-            jq -Rse 'rtrimstr("\n") == "office-building"'
-          ./node_modules/.bin/tsx --test \
-            tests/domain/worldContent.test.ts tests/domain/newFacilityScenes.test.ts \
-            tests/domain/openPlanWorkstation.test.ts tests/domain/serviceCore.test.ts \
-            tests/domain/conferenceRoom.test.ts tests/domain/videoConferencingConsole.test.ts \
-            tests/domain/sceneRepository.test.ts tests/domain/scenePresentation.test.ts \
-            tests/domain/sceneConversations.test.ts tests/domain/sceneGraph.test.ts \
-            tests/domain/worldAtlasVisualContract.test.ts tests/domain/sceneVisualQuality.test.ts > "$RUNNER_TEMP/evidence/contracts.log" 2>&1
-          ./node_modules/.bin/tsx --test --test-name-pattern='fill spare first-screen space|preserve default LOD disclosure' tests/domain/sceneLabelDensity.test.ts > "$RUNNER_TEMP/evidence/density.log" 2>&1
-          ./node_modules/.bin/tsx --test tests/domain/camera.test.ts tests/domain/navigation.test.ts tests/domain/labelLayout.test.ts tests/domain/labelPlacement.test.ts > "$RUNNER_TEMP/evidence/room-domain.log" 2>&1
-          ./node_modules/.bin/tsx --test --test-name-pattern='painted portal geometry round-trips|painted child art bounds round-trip|parent portal and child camera handoffs are exact inverses|reduced motion starts from one stable fitted frame|continuity settlement contains the complete child scene' tests/domain/screenSpaceLabels.test.ts > "$RUNNER_TEMP/evidence/framing.log" 2>&1
-      - name: Build the candidate once
-        run: |
-          GITHUB_SHA="$PRODUCT" npm run build
-          GITHUB_SHA="$PRODUCT" npm run analyze:build
-          jq -e --arg sha "$PRODUCT" '.gitSha == $sha' artifacts/build/dist-manifest.json
-          jq -r '.files[] | "\(.sha256)  \(.path)"' artifacts/build/dist-manifest.json > "$RUNNER_TEMP/evidence/candidate-dist.sha256"
-          (cd dist && sha256sum --quiet --check "$RUNNER_TEMP/evidence/candidate-dist.sha256")
-          printf 'baseline %s (run %s)\ncandidate %s (run %s)\n' "$BASE" "$BASE_RUN" "$PRODUCT" "$GITHUB_RUN_ID" > "$RUNNER_TEMP/evidence/builds.txt"
-          sha256sum "$RUNNER_TEMP/evidence/"{baseline,candidate}-dist.sha256 >> "$RUNNER_TEMP/evidence/builds.txt"
-          npm run test:ssr > "$RUNNER_TEMP/evidence/ssr.log" 2>&1
-      - uses: actions/upload-artifact@v5
-        id: production
-        with:
-          name: production-dist-${{ env.PRODUCT }}
-          path: |
-            dist
-            artifacts/build/dist-manifest.json
-          include-hidden-files: true
-          if-no-files-found: error
+          name: continued-use-${{ env.PRODUCT }}
+          path: ${{ runner.temp }}/continued-use/*.json
           retention-days: 7
-      - name: Follow the route on desktop and mobile Chromium
-        run: |
-          sha256sum --check "$RUNNER_TEMP/evidence/browser-harness.sha256"
-          ./node_modules/.bin/playwright test \
-            tests/e2e/office-conference.spec.ts tests/e2e/hospital-radiology.spec.ts tests/e2e/world.spec.ts tests/e2e/new-spatial-scenes.spec.ts \
-            --test-list-invert "$RUNNER_TEMP/desktop-exclusions.txt" \
-            --grep "$OFFICE_RETURN_TEST|$ROOM_WORDS_TEST|$PHONE_RETURN_TEST|office console keeps|office conference room keeps|mobile pinch from the gold display entrance|hospital radiology keeps|hospital console and couch|enters grounded (conference-room|video-conferencing-console|office-break-room)|enters a scene slice on zoom|root atlas wheel zoom stays|mobile viewport exposes touch-safe" \
-            --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/evidence/new.log" 2>&1
-      - name: Verify room labels, return framing and the office and hospital journeys
-        run: |
-          python - <<'PY'
-          import base64, json, os
-          from pathlib import Path
-
-          new = json.loads(Path("artifacts/e2e/results.json").read_text())
-          assert not new["errors"] and new["stats"]["unexpected"] == new["stats"]["flaky"] == 0
-          office = "office-conference.spec.ts"
-          hospital = "hospital-radiology.spec.ts"
-          office_words = "office console keeps the painted microphone, touch screen and video bar on their devices and zooms back to the conference room"
-          office_gestures = "office conference room keeps the bare tabletop and wall in view while magnifying the wall display opens its console"
-          mobile_pinch = "mobile pinch from the gold display entrance stays in the conference room"
-          hospital_words = "hospital radiology keeps ultrasound words on the photograph through Fit, continuous zoom and hospital return"
-          hospital_gestures = "hospital console and couch stay in the hospital while magnifying the scanner enters radiology"
-
-          def specs(suites):
-              for suite in suites:
-                  yield from suite.get("specs", [])
-                  yield from specs(suite.get("suites", []))
-
-          def result(report, file, title, project, *statuses):
-              matches = [t for s in specs(report["suites"]) if Path(s["file"]).name == file and s["title"] == title
-                         for t in s["tests"] if t["projectName"] == project]
-              assert len(matches) == 1, (project, title, len(matches))
-              runs = matches[0]["results"]
-              assert len(runs) == 1 and runs[0]["status"] in statuses, (project, title, [r["status"] for r in runs])
-              return runs[0]
-
-          def attachment(run, name, mime):
-              found = [a for a in run["attachments"] if a["name"] == name and a["contentType"] == mime]
-              assert len(found) == 1, (name, mime)
-              return base64.b64decode(found[0]["body"], validate=True)
-
-          def pngs(run, *names):
-              for name in names:
-                  assert attachment(run, name, "image/png").startswith(b"\x89PNG\r\n\x1a\n"), name
-
-          def geometry(run, name):
-              return json.loads(attachment(run, name, "application/json"))
-
-          def check_words(run, names, sha):
-              for name in names:
-                  pngs(run, name + "-view", name + "-painted-card")
-                  anchor = geometry(run, name + "-geometry")
-                  assert anchor["visible"] and anchor["inside"] and anchor["sha256"] == sha, name
-
-          def check_gesture(run, name, destination, x, y):
-              pngs(run, name + "-end")
-              g = geometry(run, name + "-gesture")
-              assert (g["scene"], g["x"], g["y"]) == (destination, x, y), (name, g)
-
-          console_sha = "191dcac69bbc53f5ec57497dc078f00d48c06104051886102b4fbf1ab0e863a5"
-          radiology_sha = "b61a9331f765812aabc429d86ea935ba00e947fb86b45e487743a410c01cecc5"
-          for project in ("chromium", "mobile-chromium"):
-              atrium = result(new, office, os.environ["OFFICE_RETURN_TEST"], project, "passed")
-              words = geometry(atrium, "office-return-words")
-              assert words["cameraLensPinned"] is False and words["foreignIds"] == [], (project, "atrium labels")
-              room = result(new, office, os.environ["ROOM_WORDS_TEST"], project, "passed")
-              chair = geometry(room, "far-chair-backrest-geometry")
-              assert chair["visible"] and chair["inside"] and chair["sha256"] == os.environ["ROOM_PHOTO_SHA"]
-              if project == "mobile-chromium":
-                  returned = result(new, office, os.environ["PHONE_RETURN_TEST"], project, "passed")
-                  coverage = geometry(returned, "returned-room-framing")["coverage"]
-                  assert type(coverage) in (int, float) and 0.5 <= coverage <= 1, coverage
-              else:
-                  result(new, office, os.environ["PHONE_RETURN_TEST"], project, "passed", "skipped")
-              green = result(new, office, office_words, project, "passed")
-              if project == "mobile-chromium":
-                  tap = geometry(green, "conversation-trigger-input")
-                  assert tap["centerHitsButton"], "conversation control was obscured before the tap"
-                  down_up = [e["type"] for e in tap["events"] if e["onButton"] and e["type"] in ("pointerdown", "pointerup")]
-                  assert down_up == ["pointerdown", "pointerup"], tap
-              check_words(green, ["right-microphone-pod", "meeting-console-screen", "conference-video-bar"], console_sha)
-              pngs(green, "console-entry", "right-microphone-pod-dot-card", "console-fit", "console-touch-screen-magnified",
-                   "console-conversation", "conference-room-return", "conference-room-fit")
-              entry = geometry(green, "console-entry-geometry")
-              assert entry["sha256"] == console_sha and len(entry["entryDevices"]) == 3
-              assert all(d["topLeft"]["visible"] and d["bottomRight"]["visible"] for d in entry["entryDevices"])
-              assert geometry(green, "right-microphone-pod-dot-geometry")["dotExposed"]
-              back = geometry(green, "console-retreat-gesture")
-              assert back["scene"] == "conference-room" and back["input"] == ("pinch" if project == "mobile-chromium" else "wheel")
-              assert any(0.74 < scale < back["retreat"][0] * 0.9 for scale in back["retreat"])
-              green = result(new, office, office_gestures, project, "passed")
-              check_gesture(green, "bare-tabletop", "conference-room", 890, 552)
-              check_gesture(green, "wall-below-video-bar", "conference-room", 930, 406)
-              check_gesture(green, "wall-display", "video-conferencing-console", 940, 280)
-              if project == "mobile-chromium":
-                  for run in (green, result(new, office, mobile_pinch, project, "passed")):
-                      pngs(run, "display-button-pinch-end")
-                      gesture = geometry(run, "display-button-pinch-geometry")
-                      assert gesture["scene"] == "conference-room" and gesture["before"] * 1.4 < gesture["after"] < 3.45
-
-              green = result(new, hospital, hospital_words, project, "passed")
-              check_words(green, ["ultrasound-cart-wheel", "ultrasound-monitor", "exam-couch-cushion"], radiology_sha)
-              pngs(green, "radiology-fit", "radiology-couch-magnified", "hospital-return")
-              green = result(new, hospital, hospital_gestures, project, "passed")
-              check_gesture(green, "console-monitor", "hospital", 766, 452)
-              check_gesture(green, "padded-couch-end", "hospital", 806, 536)
-              check_gesture(green, "scanner-bore", "radiology-suite", 900, 483)
-          PY
-      - name: Preserve browser evidence
-        if: ${{ !cancelled() }}
-        env:
-          RECIPIENT: ${{ inputs.recipient }}
-          DIST_DIGEST: ${{ steps.production.outputs.artifact-digest }}
-        run: |
-          set -o pipefail
-          if test -n "$DIST_DIGEST"; then
-            printf 'Production artifact SHA-256: %s\n' "$DIST_DIGEST" | tee -a "$RUNNER_TEMP/evidence/builds.txt" "$GITHUB_STEP_SUMMARY"
-          fi
-          if test -f artifacts/e2e/results.json; then cp artifacts/e2e/results.json "$RUNNER_TEMP/evidence/new.json"; fi
-          if test -d artifacts/e2e/test-results; then cp -R artifacts/e2e/test-results "$RUNNER_TEMP/evidence/new-screens"; fi
-          printf '%s\n' "$RECIPIENT" > "$RUNNER_TEMP/recipient.pem"
-          tar -C "$RUNNER_TEMP" -czf - evidence | openssl cms -encrypt -stream -binary -aes-256-cbc -outform DER \
-            -out "$RUNNER_TEMP/home-route.cms" "$RUNNER_TEMP/recipient.pem"
-      - uses: actions/upload-artifact@v5
-        if: ${{ !cancelled() }}
-        with:
-          name: home-route-evidence
-          path: ${{ runner.temp }}/home-route.cms
-          if-no-files-found: error
-          retention-days: 7
-      - name: Require the office return failure on desktop and mobile
-        if: ${{ !cancelled() }}
-        run: test "${{ steps.baseline.outcome }}" = success
+          if-no-files-found: warn
