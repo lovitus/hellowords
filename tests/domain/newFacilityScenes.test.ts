@@ -452,7 +452,7 @@ test("pathology lab opens a terminal histology sectioning workstation without co
 test("hospital bedspace, office reception and customs entrances use accurate separate crops", async () => {
   const contracts = [
     { file: "emergency-department.json", child: "hospital-inpatient-bedspace", rect: [1_220, 660, 70, 70] },
-    { file: "office-building.json", child: "office-reception-lobby", rect: [0, 500, 300, 360] },
+    { file: "office-building.json", child: "office-reception-lobby", rect: [170, 663, 180, 70] },
     { file: "baggage-claim.json", child: "airport-customs-hall", rect: [1_210, 75, 340, 320] },
     { file: "airport-customs-hall.json", child: "customs-baggage-examination", rect: [285, 230, 350, 300] },
   ];

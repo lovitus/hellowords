@@ -398,16 +398,16 @@ const parentPortal = {
   translation: "进入开放式办公工位",
   childSceneId: "open-plan-workstation",
   sourceVisualRegion: "portal-open-plan-left-workstations",
-  x: 330,
-  y: 410,
-  width: 270,
-  height: 270,
+  x: 460,
+  y: 476,
+  width: 138,
+  height: 69,
   enterScale: 3.5,
 };
 
 const parentRegion = {
   id: parentPortal.sourceVisualRegion,
-  description: "Two complete left-side desk rows, monitors, chairs and plant divider in the office-building photograph",
+  description: "Rear workstation screens, desktops and chair backs behind the reception counter.",
   kind: "object",
   x: parentPortal.x,
   y: parentPortal.y,

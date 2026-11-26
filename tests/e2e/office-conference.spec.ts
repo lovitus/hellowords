@@ -244,6 +244,34 @@ test("phone returns to the furnished room before Fit", async ({ page, isMobile }
   expect((await projectPhoto(image, 940, 280)).crop, "Fit shows all four edges").toBeLessThanOrEqual(1);
 });
 
+test("zooming into the office counter and rear monitor follows the photographed entrances", async ({ page, isMobile }, testInfo) => {
+  const office = "office-building";
+  const officeAsset = "/scenes/office-atrium-premium-v1.jpg";
+  const app = page.getByTestId("world-app");
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  await openPhotographedRoute(page, isMobile, [roomRoute[0]], officeAsset,
+    "9403fc42abf40af87d59f9a12401e5dcff76256fc13870a7780e79ae8e3a7cdf");
+  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+  for (const [object, x, y, destination, destinationAsset] of [
+    ["reception-counter", 335, 672, "office-reception-lobby", "/scenes/office-reception-lobby-premium-v1.jpg"],
+    ["rear-monitor", 473, 497, "open-plan-workstation", "/scenes/open-plan-workstation-premium-v1.jpg"],
+    ["wheel-caster", 483, 577, office, officeAsset],
+    ["chair-back", 190, 590, office, officeAsset],
+  ] as const) {
+    await test.step(object, async () => {
+      await checkMagnifiedObject(page, isMobile, testInfo, {
+        object, x, y, scene: office, asset: officeAsset, destination, destinationAsset, threshold: 3.5,
+      });
+      if (destination !== office) {
+        await activate(page.getByRole("button", { name: "← 返回上一层", exact: true }));
+        await expect(app).toHaveAttribute("data-scene-id", office);
+        await expect(app).toHaveAttribute("data-transition-state", "idle");
+        await expect(page.locator(".viewer-shell:not([data-phase])")).toHaveAttribute("data-interaction-locked", "false");
+      }
+    });
+  }
+});
+
 test("returning to the office restores the atrium photograph and its own object labels", async ({ page, isMobile }, testInfo) => {
   const office = "office-building";
   const officeAsset = "/scenes/office-atrium-premium-v1.jpg";

@@ -47,8 +47,8 @@ test("open-plan workstation asset and office entrance are reproducible and bound
   const parent = await readJson("office-building.json");
   const portal = parent.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "open-plan-workstation");
   assert.ok(portal);
-  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [330, 410, 270, 270]);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [460, 476, 138, 69]);
   const region = parent.visualRegions.find(({ id }: { id: string }) => id === portal.sourceVisualRegion);
   assert.ok(region);
-  assert.deepEqual([region.x, region.y, region.width, region.height], [330, 410, 270, 270]);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [portal.x, portal.y, portal.width, portal.height]);
 });
