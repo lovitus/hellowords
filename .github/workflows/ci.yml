@@ -1,4 +1,4 @@
-name: Verify home atlas district journeys, office returns and forty scene transitions
+name: Verify the gradual office return, atlas journeys and forty scene transitions
 on:
   workflow_dispatch:
     inputs:
@@ -11,8 +11,8 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASE: 1692c6d4712b493e3171327c55fcffd36db44bbe
-  BASE_RUN: "45834809033"
+  BASE: ffb60d76f81dc84235b458c0d568206c27de6a64
+  BASE_RUN: "45840264196"
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
@@ -41,6 +41,7 @@ jobs:
           test "$(git rev-parse HEAD^)" = "$BASE"
           git diff --exit-code "$BASE" "$PRODUCT" -- tests/perf playwright.config.ts package.json package-lock.json
           sha256sum playwright.config.ts package*.json tests/perf/*.ts tests/e2e/*.ts \
+            app/domain/navigation.ts tests/domain/navigation.test.ts \
             > "$RUNNER_TEMP/diagnosis/test-sources.sha256"
       - uses: actions/setup-node@v7
         with:
@@ -66,11 +67,11 @@ jobs:
         if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: |
           manifest="$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json"
-          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = 31654e4c9a60ddeb2de9c330326e2fa1b2c59d87314dbd5dcc1e06d884fbcb5e
+          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = 59b06606821a1675a0da6f3044b2e2a58a7987ed8369678104e6fe86e2f94533
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASE"
           jq --argjson run "$BASE_RUN" '{build:.gitSha, sourceRun:$run, files:(.files|length)}' \
             "$manifest" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
-      - name: Reproduce the mobile city bus photo failure on the archived build
+      - name: Reproduce the gradual wheel return failure on the archived office photograph
         id: red
         if: ${{ !cancelled() && steps.baseline_manifest.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: |
@@ -78,6 +79,18 @@ jobs:
           mv "$RUNNER_TEMP/frozen/dist" dist
           trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
           python ../.github/verify-input.py baseline
+      - name: Run the candidate state-machine case against the archived navigation source
+        id: domain_red
+        if: ${{ !cancelled() && steps.source.outcome == 'success' && steps.dependencies.outcome == 'success' }}
+        run: |
+          old="$RUNNER_TEMP/domain-baseline"
+          mkdir -p "$old/tests/domain"
+          git archive "$BASE" app/domain package.json tsconfig.json | tar -x -C "$old"
+          cp tests/domain/navigation.test.ts "$old/tests/domain/"
+          ln -s "$PWD/node_modules" "$old/node_modules"
+          verifier="$PWD/../.github/verify-input.py"
+          cd "$old"
+          python "$verifier" domain-baseline
       - name: Build the candidate once and verify every output file
         id: build
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
@@ -99,7 +112,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Verify the mobile city bus journey and all twenty-seven browser regressions
+      - name: Verify the gradual office return and all twenty-eight previous browser cases
         id: green
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: python ../.github/verify-input.py candidate
@@ -128,7 +141,7 @@ jobs:
           git diff --name-only -z --diff-filter=ACMRT "$BASE" "$PRODUCT" -- \
             '*.js' '*.jsx' '*.ts' '*.tsx' '*.mjs' '*.cjs' '*.mts' '*.cts' \
             | xargs -0r ./node_modules/.bin/eslint -- > "$RUNNER_TEMP/lint.log" 2>&1
-      - name: Verify camera semantics, the atlas portal crops and the school campus entrance
+      - name: Verify navigation, camera semantics, atlas portal crops and the school campus entrance
         id: domain
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         run: python ../.github/verify-input.py domain

@@ -1,4 +1,5 @@
 """Record exact old/new browser outcomes and every original scene performance limit."""
+import hashlib
 import json
 import math
 import os
@@ -7,6 +8,7 @@ import re
 import runpy
 import shutil
 import sys
+import xml.etree.ElementTree as ET
 
 
 helpers = runpy.run_path(str(Path(__file__).with_name("diagnose-office-phone.py")))
@@ -34,8 +36,13 @@ atlas_screenshots = {
     ),
 }
 bus_case = (phone, "e2e/world.spec.ts", prefix + "mobile reads the city bus photo and enters and returns from the city street")
-bus_assertion = "the city bus photo opens its own word card"
 bus_screenshots = ("city-bus-on-map", "city-street-from-atlas")
+office_case = (desktop, verify["OFFICE"], "a gradual second wheel gesture returns from the conference room to the office photograph")
+office_assertion = "a gradual second zoom-out returns to the office building"
+office_screenshot = "office-after-gradual-return"
+navigation_test = Path("tests/domain/navigation.test.ts")
+navigation_title = "an outward gesture can reach the exit on a later sample only if it started armed"
+navigation_assertion = "second gesture crosses on its third sample and requests exit once"
 district_titles = (
     "starts as a calm target-language world and persists the meaning toggle",
     "the home atlas keeps its artwork clear and reveals only the hovered district words",
@@ -56,7 +63,7 @@ regressions = [
     (desktop, "e2e/scene-minimap.spec.ts", "the home atlas keeps words hover-scoped to one district"),
     (desktop, "e2e/spatial-semantic-bridge.spec.ts", "a reviewed spatial word enters its exact semantic realm without search fanout"),
 ]
-gates = ("source", "dependencies", "chromium", "download", "baseline_manifest", "red", "build",
+gates = ("source", "dependencies", "chromium", "download", "baseline_manifest", "red", "domain_red", "build",
          "production", "green", "performance", "samples", "types", "lint", "domain")
 
 
@@ -111,12 +118,15 @@ def retain_attempt(phase, number, case, result, folder):
     if old:
         message = helpers["ANSI"].sub("", primary.get("message", ""))
         record["accepted"] = (result["status"] == "failed" and result["retry"] == 0
-                              and [headline(e) for e in errors] == [bus_assertion]
-                              and headline(primary) == bus_assertion and "screenshot" in pngs
-                              and "toHaveText" in message and "city bus word details" in message
+                              and [headline(e) for e in errors] == [office_assertion]
+                              and headline(primary) == office_assertion and "screenshot" in pngs
+                              and "toHaveAttribute" in message and "data-scene-id" in message
+                              and "office-building" in message and "conference-room" in message
                               and any(frame["file"] == f"tests/{case[1]}" for frame in details(primary)["source"]))
         return record
     evidence_ok = True
+    if case == office_case:
+        evidence_ok = office_screenshot in pngs
     if case == bus_case:
         evidence_ok = set(bus_screenshots).issubset(pngs)
     if case[2] in atlas_screenshots:
@@ -137,7 +147,7 @@ def retain_attempt(phase, number, case, result, folder):
 
 def browser(phase):
     old = phase == "baseline"
-    cases = [bus_case] if old else [bus_case, *regressions]
+    cases = [office_case] if old else [bus_case, *regressions, office_case]
     projects = {project for project, _, _ in cases}
     folder = temp / phase
     verify["run_browser"](phase, temp, cases)
@@ -176,6 +186,43 @@ def browser(phase):
         receipt["processError"] = helpers["process_error"](folder / "browser.log")
     write(out / f"{phase}.json", receipt)
     return receipt["accepted"]
+
+
+def navigation_result(baseline):
+    phase = "baseline" if baseline else "candidate"
+    report = temp / f"navigation-{phase}.xml" if baseline else temp / "navigation.xml"
+    row = {
+        "implementation": os.environ["BASE" if baseline else "PRODUCT"], "testSource": os.environ["PRODUCT"],
+        "implementationSha256": hashlib.sha256(Path("app/domain/navigation.ts").read_bytes()).hexdigest(),
+        "testSha256": hashlib.sha256(navigation_test.read_bytes()).hexdigest(),
+        "selectedTest": navigation_title, "accepted": False,
+    }
+    if baseline:
+        row["exit"] = helpers["execute"]([
+            "node", "--import", "tsx", "--test", "--test-name-pattern", "^" + re.escape(navigation_title) + "$",
+            "--test-reporter=junit", "--test-reporter-destination", str(report), str(navigation_test),
+        ], temp / "navigation-baseline.log")
+    try:
+        cases = ET.parse(report).findall(".//testcase")
+        active = [case for case in cases if case.find("skipped") is None]
+        selected, = [case for case in active if case.get("name") == navigation_title]
+        failure = selected.find("failure")
+        row["activeCases"] = len(active)
+        if baseline and failure is not None:
+            raw = "".join(failure.itertext())
+            message = failure.get("message", "")
+            row["error"] = helpers["details"](message, raw)
+            row["assertion"] = navigation_assertion
+            row["assertionError"] = "ERR_ASSERTION" in raw
+            row["accepted"] = (row["exit"] == 1 and len(active) == 1 and row["assertionError"]
+                               and navigation_assertion in message
+                               and any(frame["file"] == str(navigation_test) for frame in row["error"]["source"]))
+        elif not baseline:
+            row["accepted"] = failure is None
+    except (ET.ParseError, OSError, ValueError) as error:
+        row["reportError"] = type(error).__name__
+    write(out / f"navigation-{phase}.json", row)
+    return row["accepted"]
 
 
 def performance():
@@ -230,8 +277,9 @@ def summary():
         if outcomes[gate] == "failure" and path.exists():
             diagnostics[log] = helpers["process_error"](path)
     write(out / "summary.json", {"baseline": os.environ["BASE"], "baselineRun": int(os.environ["BASE_RUN"]),
-                                 "requiredOldAtlasFailures": [{"project": bus_case[0], "file": bus_case[1], "title": bus_case[2],
-                                                               "assertion": bus_assertion}],
+                                 "requiredOldOfficeFailure": {"project": office_case[0], "file": office_case[1], "title": office_case[2],
+                                                              "assertion": office_assertion},
+                                 "requiredNavigationCase": navigation_title, "requiredOfficeScreenshot": office_screenshot,
                                  "requiredBusScreenshots": bus_screenshots,
                                  "candidate": os.environ["PRODUCT"], "candidateRun": os.environ["GITHUB_RUN_ID"],
                                  "verificationCommit": os.environ["GITHUB_SHA"], "outcomes": outcomes,
@@ -245,11 +293,14 @@ if __name__ == "__main__":
         ok = browser(command)
     elif command == "performance":
         ok = performance()
+    elif command == "domain-baseline":
+        ok = navigation_result(True)
     elif command == "domain":
-        ok = helpers["run_domain"](["camera", "worldMapDensity", "schoolCampus"], {
+        domain_ok = helpers["run_domain"](["camera", "worldMapDensity", "schoolCampus", "navigation"], {
             "worldMapDensity": "world atlas keeps six exact, non-overlapping spatial entrances",
             "schoolCampus": "the world atlas exposes the school campus through one reviewed portal",
         })
+        ok = navigation_result(False) and domain_ok
     elif command == "summary":
         ok = summary()
     else:
