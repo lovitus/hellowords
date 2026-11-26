@@ -62,6 +62,46 @@ const SPRITE_CACHE_LIMIT = 500;
 const fontCache = new WeakMap<HTMLCanvasElement, string>();
 const widthCache = new Map<string, number>();
 const spriteCache = new Map<string, HTMLCanvasElement>();
+type WordCanvas = HTMLCanvasElement | OffscreenCanvas;
+type WordContext = CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D;
+const wordSurfaces = new WeakMap<HTMLCanvasElement, WordCanvas>();
+let supportsOffscreen2D: boolean | undefined;
+
+// Transfer once per mounted element. Keeping the drawing surface on the main
+// thread lets the camera and the words use the same input and animation frame.
+function wordSurface(canvas: HTMLCanvasElement): WordCanvas {
+  const existing = wordSurfaces.get(canvas);
+  if (existing) return existing;
+  let surface: WordCanvas = canvas;
+  if (typeof canvas.transferControlToOffscreen === "function" && typeof OffscreenCanvas !== "undefined") {
+    try {
+      // Probe 2D before irreversibly transferring the visible element.
+      supportsOffscreen2D ??= Boolean(new OffscreenCanvas(1, 1).getContext("2d"));
+      if (supportsOffscreen2D) surface = canvas.transferControlToOffscreen();
+    } catch {
+      // The regular canvas remains usable if transfer is unavailable or rejected.
+    }
+  }
+  wordSurfaces.set(canvas, surface);
+  return surface;
+}
+
+export function releaseLabelCanvas(canvas: HTMLCanvasElement): void {
+  const surface = wordSurfaces.get(canvas) ?? canvas;
+  if (surface.width) surface.width = 0;
+}
+
+function clearLabelCanvas(canvas: HTMLCanvasElement): void {
+  const surface = wordSurfaces.get(canvas);
+  if (!surface || surface === canvas) {
+    if (canvas.width) canvas.width = 0;
+  } else if (surface.width !== 1 || surface.height !== 1) {
+    // A zero-sized OffscreenCanvas can leave its last frame on the placeholder.
+    // Publish one transparent pixel and release the full-size drawing buffer.
+    surface.width = 1;
+    surface.height = 1;
+  }
+}
 
 export function hitPaintedLabel(
   labels: readonly PaintedLabel[],
@@ -237,7 +277,7 @@ function pillSprite(
   return sprite;
 }
 
-function paintLeaders(context: CanvasRenderingContext2D, items: readonly PaintedLabel[]): void {
+function paintLeaders(context: WordContext, items: readonly PaintedLabel[]): void {
   let started = false;
   for (const item of items) {
     if (Math.hypot(item.centerX - item.anchorX, item.centerY - item.anchorY) <= 5) continue;
@@ -261,7 +301,7 @@ function paintLeaders(context: CanvasRenderingContext2D, items: readonly Painted
 }
 
 function paintAnchors(
-  context: CanvasRenderingContext2D,
+  context: WordContext,
   items: readonly PaintedLabel[],
   styles: ReadonlyMap<string, LabelSemanticStyle>,
 ): void {
@@ -293,18 +333,18 @@ export function paintLabelCanvas(
 ): void {
   if (!canvas) return;
   if (!state || !state.labels.some((item) => item.opacity > 0.025)) {
-    // A zero-width bitmap has no stale pixels and needs no drawing context.
-    if (canvas.width) canvas.width = 0;
+    clearLabelCanvas(canvas);
     return;
   }
-  const context = canvas.getContext("2d");
+  const surface = wordSurface(canvas);
+  const context = surface.getContext("2d");
   if (!context) return;
   const dpr = Math.max(1, window.devicePixelRatio || 1);
   const pixelWidth = Math.round(state.width * dpr);
   const pixelHeight = Math.round(state.height * dpr);
-  if (canvas.width !== pixelWidth || canvas.height !== pixelHeight) {
-    if (canvas.height !== pixelHeight) canvas.height = pixelHeight;
-    if (canvas.width !== pixelWidth) canvas.width = pixelWidth;
+  if (surface.width !== pixelWidth || surface.height !== pixelHeight) {
+    if (surface.height !== pixelHeight) surface.height = pixelHeight;
+    if (surface.width !== pixelWidth) surface.width = pixelWidth;
   } else {
     context.setTransform(1, 0, 0, 1, 0, 0);
     context.clearRect(0, 0, pixelWidth, pixelHeight);
