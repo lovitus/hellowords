@@ -39,7 +39,7 @@ export async function paintedWordCount(page: Page, word: string): Promise<number
  * Words are drawn by the label canvas, so their DOM mirrors no longer sit at
  * the drawn position. Aim a real pointer click at the word's painted centre.
  */
-export async function clickPaintedWord(page: Page, labelId: string): Promise<void> {
+export async function clickPaintedWord(page: Page, labelId: string, input: "mouse" | "touch" = "mouse"): Promise<void> {
   const point = await page.locator(".label-canvas").evaluate((canvas, id) => {
     const painted = (canvas as HTMLCanvasElement & { paintedLabels?: PaintedWordPoint[] })
       .paintedLabels ?? [];
@@ -49,5 +49,6 @@ export async function clickPaintedWord(page: Page, labelId: string): Promise<voi
     return { x: bounds.left + label.centerX, y: bounds.top + label.centerY };
   }, labelId);
   expect(point, `word ${labelId} must be painted on the label canvas`).not.toBeNull();
-  await page.mouse.click(point!.x, point!.y);
+  if (input === "touch") await page.touchscreen.tap(point!.x, point!.y);
+  else await page.mouse.click(point!.x, point!.y);
 }

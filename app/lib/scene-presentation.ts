@@ -4,6 +4,7 @@ import { SPATIAL_LEXEME_REALMS } from "../domain/spatialLexemeRealms.generated";
 function buildScenePresentation(scene: Scene) {
   return {
     labelsById: new Map(scene.labels.map(label => [label.id, label])),
+    portraitOverviewLabelIds: scene.portraitOverviewLabelIds && new Set(scene.portraitOverviewLabelIds),
     labelSemanticStyles: buildLabelSemanticStyleMap(scene.labels, scene.visualRegions ?? [], SPATIAL_LEXEME_REALMS),
     vocabularyZoomCues: buildVocabularyZoomCues(scene.labels, scene.portals, scene.width, scene.height, 8, scene.detailZones),
   };

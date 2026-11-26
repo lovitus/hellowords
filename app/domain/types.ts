@@ -153,6 +153,8 @@ export interface Scene {
   readonly visualRegions?: readonly VisualRegion[];
   /** Authored local crops that turn a premium image into several explorations. */
   readonly detailZones?: readonly SceneDetailZone[];
+  /** Photographed landmarks to label first in the portrait overview. */
+  readonly portraitOverviewLabelIds?: readonly string[];
   readonly anchorAudit?: SceneAnchorAudit;
   readonly labels: readonly Label[];
   /** Searchable vocabulary without an independently identifiable point in this image. */
