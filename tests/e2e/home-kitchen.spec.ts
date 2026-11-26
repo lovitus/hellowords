@@ -50,6 +50,7 @@ async function drawnWord(page: Page, word: string) {
     const x = frame.left + item.anchorX, y = frame.top + item.anchorY;
     return {
       clickX: frame.left + item.centerX, clickY: frame.top + item.centerY,
+      anchorX: x, anchorY: y,
       anchorVisible: x >= frame.left && x < frame.right && y >= frame.top && y < frame.bottom,
       photoX: (x - photo.left) * image.naturalWidth / photo.width,
       photoY: (y - photo.top) * image.naturalHeight / photo.height,
@@ -219,6 +220,42 @@ test("kitchen object anchor stays on each photographed object from home entry th
         expect(faucetVisible, "the magnified faucet stays in view").toBe(true);
         await expect(app).toHaveAttribute("data-scene-id", "kitchen");
       }
+    });
+  }
+  if (isMobile) {
+    await test.step("tap the coffee machine dot, then enter using its arrow", async () => {
+      const entry = page.locator('.viewer-shell:not([data-phase]) [data-testid="scene-hotspot"][data-target-scene="coffee-machine"]');
+      const dot = await drawnWord(page, "coffee machine");
+      expect(dot?.anchorVisible, "the coffee machine anchor is inside the Coffee nook viewport").toBe(true);
+      await expect(entry).toBeInViewport();
+      await testInfo.attach("coffee-machine-dot-and-entry", {
+        body: JSON.stringify({ dot, entry: await entry.boundingBox() }), contentType: "application/json",
+      });
+      await testInfo.attach("coffee-machine-before-tap", { body: await page.screenshot(), contentType: "image/png" });
+      await page.touchscreen.tap(dot!.anchorX, dot!.anchorY);
+      const card = page.getByRole("complementary", { name: "coffee machine word details", exact: true });
+      const child = page.locator('[data-testid="world-app"][data-scene-id="coffee-machine"]');
+      await page.getByRole("complementary", { name: /word details/ }).or(child).first().waitFor();
+      await testInfo.attach("coffee-machine-dot-result", { body: await page.screenshot(), contentType: "image/png" });
+      const state = await app.evaluate((root) => {
+        const word = root.querySelector<HTMLElement>('aside[aria-label$="word details"] strong');
+        return {
+          scene: root.getAttribute("data-scene-id"),
+          word: word?.checkVisibility({ visibilityProperty: true, opacityProperty: true }) ? word.innerText.trim() : null,
+        };
+      });
+      await testInfo.attach("coffee-machine-tap-state", { body: JSON.stringify(state), contentType: "application/json" });
+      expect(state.scene, "tapping the coffee machine word dot must keep the kitchen open").toBe("kitchen");
+      await expect(card).toBeVisible();
+      await expect(card.locator("p").first()).toHaveText("咖啡机");
+      await activate(card.getByRole("button", { name: "关闭单词卡" }));
+      await activate(entry);
+      await expect(app).toHaveAttribute("data-scene-id", "coffee-machine");
+      await expect(app).toHaveAttribute("data-transition-state", "idle");
+      await testInfo.attach("coffee-machine-entry-result", { body: await page.screenshot(), contentType: "image/png" });
+      await activate(page.getByRole("button", { name: /返回上一层/ }));
+      await expect(app).toHaveAttribute("data-scene-id", "kitchen");
+      await expect(app).toHaveAttribute("data-transition-state", "idle");
     });
   }
   const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");

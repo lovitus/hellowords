@@ -1611,6 +1611,7 @@
       "y": 255,
       "width": 180,
       "height": 300,
+      "portraitMarker": { "x": 1426, "y": 519 },
       "enterScale": 3.6,
       "sourceVisualRegion": "portal-coffee-machine"
     }
