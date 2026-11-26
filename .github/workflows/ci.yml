@@ -1,121 +1,83 @@
-name: CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-  workflow_dispatch:
-    inputs:
-      compare_published_baseline:
-        description: Compare the last audited product source on the same runner
-        type: boolean
-        default: false
-      milestone_release_preflight:
-        description: Run the 10k public-release preflight and verify the clean commit; does not publish
-        type: boolean
-        default: false
-
+name: Verify apartment zoom and return to the office on frozen builds
+on: workflow_dispatch
 permissions:
+  actions: read
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 env:
   CI: "true"
-  WRANGLER_LOG_PATH: .wrangler/wrangler.log
-
+  BASELINE: 72540c6f36fa8024dd93a8eb0e40b207337a9afb
+  CANDIDATE: 76356646e3d7ac57407dd2a0dfa243d4bf33ae9a
+  OUTWARD: zooming back out in the apartment keeps readable words in their clear slots
+  OFFICE: returning to the office restores the atrium photograph and its own object labels
 jobs:
-  verification:
-    name: Full verification
+  compare:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
-      - run: npm ci
-      - name: Check 10k milestone release preflight
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run release:check -- --milestone
-      - run: npm run lint
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run typecheck
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run validate:data
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:unit
-        if: ${{ !inputs.milestone_release_preflight }}
-      # Tests use this exact build on the same runner: storage quotas cannot
-      # prevent a downstream test job from obtaining it.
-      - run: npm run build
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:ssr
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: node scripts/analyze-build.mjs
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npx playwright install --with-deps chromium
-      - name: Check out audited baseline for optional comparison
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        uses: actions/checkout@v6
+      - run: |
+          npm ci > "$RUNNER_TEMP/install.log" 2>&1
+          ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
+      - uses: actions/download-artifact@v5
         with:
-          ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-          path: baseline-reference
-          persist-credentials: false
-      - name: Prepare identical measurement harness for baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
-      - name: Build audited baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        working-directory: baseline-reference
-        run: npm ci && npm run build
-      - name: Measure audited baseline (diagnostic, not candidate acceptance)
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        continue-on-error: true
-        working-directory: baseline-reference
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-          PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-        run: npm run test:perf
-      - run: npm run test:perf
-        id: candidate_performance
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-      - name: Verify complete milestone candidate on the preflighted clean commit
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run verify:full
-      - run: npm run test:e2e
-        id: candidate_browser
-        continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-      - name: Enforce both candidate gates
-        if: ${{ !cancelled() && !inputs.milestone_release_preflight }}
-        env:
-          PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
-          BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}
+          name: production-dist-${{ env.BASELINE }}
+          run-id: 45765967579
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/baseline
+      - uses: actions/download-artifact@v5
+        with:
+          name: production-dist-${{ env.CANDIDATE }}
+          run-id: 45769355786
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/candidate
+      - name: Verify both dist trees and run the same desktop wheel sequence
         run: |
-          printf 'Performance: %s\nBrowser: %s\n' "$PERF_OUTCOME" "$BROWSER_OUTCOME"
-          test "$PERF_OUTCOME" = success && test "$BROWSER_OUTCOME" = success
-      # Retention is optional; every validation command above remains blocking.
-      # Missing downloadable output must never be used as release evidence.
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          for label in ('baseline', 'candidate'):
+              root = Path(os.environ['RUNNER_TEMP']) / label
+              dist = root / 'dist'
+              manifest = json.loads((root / 'artifacts/build/dist-manifest.json').read_bytes())
+              assert manifest['gitSha'] == os.environ[label.upper()]
+              files = manifest['files']
+              assert len(files) == len({r['path'] for r in files}) == 392
+              assert {p.relative_to(dist).as_posix() for p in dist.rglob('*') if p.is_file()} == {r['path'] for r in files}
+              for r in files:
+                  contents = (dist / r['path']).read_bytes()
+                  assert len(contents) == r['bytes'] and hashlib.sha256(contents).hexdigest() == r['sha256'], r['path']
+          PY
+          test ! -e dist
+          for label in baseline candidate; do
+            printf '[chromium] > e2e/label-zoom-retention.spec.ts > %s\n' "$OUTWARD" > "$RUNNER_TEMP/cases.txt"
+            if [[ "$label" == candidate ]]; then
+              for project in chromium mobile-chromium; do
+                printf '[%s] > e2e/office-conference.spec.ts > %s\n' "$project" "$OFFICE" >> "$RUNNER_TEMP/cases.txt"
+              done
+            fi
+            mv "$RUNNER_TEMP/$label/dist" dist
+            status=0
+            ./node_modules/.bin/playwright test --test-list "$RUNNER_TEMP/cases.txt" --retries=0 \
+              > "$RUNNER_TEMP/$label/test.log" 2>&1 || status=$?
+            printf '%s\n' "$status" > "$RUNNER_TEMP/$label/exit"
+            mv dist "$RUNNER_TEMP/$label/dist"
+            if [[ -d artifacts/e2e ]]; then mv artifacts/e2e "$RUNNER_TEMP/$label/report"; fi
+          done
+      - name: Extract geometry and office screenshots before judging results
+        if: ${{ !cancelled() }}
+        run: python .github/verify-apartment-frames.py
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
-        continue-on-error: true
         with:
-          name: verification-${{ github.sha }}
-          path: |
-            artifacts/correctness
-            artifacts/build
-            artifacts/e2e
-            artifacts/perf
-            dist
-          include-hidden-files: true
-          if-no-files-found: warn
+          name: apartment-office-evidence
+          path: ${{ runner.temp }}/evidence
+          if-no-files-found: error
           retention-days: 7
+      - name: Require old jump, new stability and both office returns
+        run: jq -e '.baseline.accepted and .candidate.accepted' "$RUNNER_TEMP/evidence/summary.json"
