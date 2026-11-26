@@ -16,11 +16,11 @@ desktop, phone = verify["DESKTOP"], verify["PHONE"]
 motion = "e2e/cache-motion.spec.ts"
 reverse_tab = (phone, "e2e/world.spec.ts", "portrait bilingual apartment returns keyboard focus from living room to the apartment word")
 pointer = (desktop, motion, "wheel zoom keeps the photographed point beneath the pointer throughout the gesture")
-assertions = {
-    reverse_tab: "Shift+Tab from living room returns to the apartment word",
-    pointer: "the photographed point stays within one CSS pixel of the pointer in every frame",
-}
+index_title = "keyboard selection from the scene word index keeps the next action on the selected card"
+index_cases = [(project, "e2e/world.spec.ts", index_title) for project in (desktop, phone)]
+focus_assertion = "the selected word card receives keyboard focus after its index result disappears"
 regressions = [
+    reverse_tab, pointer,
     (desktop, motion, "continuous wheel input advances in monotonic animation frames without a scale jump"),
     (desktop, "e2e/label-zoom-retention.spec.ts", verify["APARTMENT"]),
     (desktop, "e2e/continuous-semantic-zoom.spec.ts", "Apartment handoff settles to the complete child before a fresh outward gesture can exit"),
@@ -59,9 +59,10 @@ def retain_attempt(phase, number, case, result, folder):
     dest.mkdir(parents=True)
     for index, item in enumerate(result["attachments"], 1):
         name, mime = item["name"], item["contentType"]
-        if name == "error-context" and case == reverse_tab:
+        if name == "error-context" and case in index_cases:
             context = helpers["attachment_data"](item, folder).decode(errors="replace")
             record["activeInFailureSnapshot"] = [helpers["text"](line) for line in context.splitlines() if "[active]" in line][:5]
+            record["basinCardInSnapshot"] = "basin word details" in context
         if mime not in {"image/png", "application/json"} or not re.fullmatch(r"[\w .-]{1,100}", name):
             continue
         data = helpers["attachment_data"](item, folder)
@@ -81,14 +82,15 @@ def retain_attempt(phase, number, case, result, folder):
             path = dest / f"{index:02d}-{name}.png"
         path.write_bytes(data)
         receipts.append({"name": name, "file": path.relative_to(out).as_posix()})
-    error_ok = ([headline(error) for error in errors] == [assertions[case]] and headline(primary) == assertions[case]
+    error_ok = ([headline(error) for error in errors] == [focus_assertion] and headline(primary) == focus_assertion
+                and "basin word details" in primary["message"] and "toBeFocused" in primary["message"]
                 if old else not errors and not primary)
-    evidence_ok = True
+    evidence_ok = not old or any(a["name"] == "screenshot" for a in receipts)
     if case == pointer:
         wheel = record.get("wheel", {})
         evidence_ok = (len([a for a in receipts if a["name"] == "wheel-pointer-trajectory"]) == 1
                        and wheel.get("distinctScales", 0) > 2 and wheel["finalScale"] > 1.5 and wheel["finalDriftCssPx"] < 1
-                       and (wheel["peakDriftCssPx"] >= 1 if old else wheel["peakDriftCssPx"] < 1))
+                       and wheel["peakDriftCssPx"] < 1)
     record["accepted"] = bool(error_ok and evidence_ok and result["retry"] == 0
                               and result["status"] == ("failed" if old else "passed"))
     return record
@@ -96,7 +98,7 @@ def retain_attempt(phase, number, case, result, folder):
 
 def browser(phase):
     old = phase == "baseline"
-    cases = [*assertions] if old else [*assertions, *regressions]
+    cases = index_cases if old else [*index_cases, *regressions]
     folder = temp / phase
     verify["run_browser"](phase, temp, cases)
     rows = {(project, file, title): {"project": project, "file": file, "title": title, "attempts": [], "accepted": False}
@@ -187,7 +189,8 @@ def summary():
         path = temp / f"{log}.log"
         if outcomes[gate] == "failure" and path.exists():
             diagnostics[log] = helpers["process_error"](path)
-    write(out / "summary.json", {"baseline": os.environ["BASE"], "baselineRun": 45808079102,
+    write(out / "summary.json", {"baseline": os.environ["BASE"], "baselineRun": int(os.environ["BASE_RUN"]),
+                                 "requiredOldFocusAssertion": focus_assertion,
                                  "candidate": os.environ["PRODUCT"], "candidateRun": os.environ["GITHUB_RUN_ID"],
                                  "verificationCommit": os.environ["GITHUB_SHA"], "outcomes": outcomes,
                                  "diagnostics": diagnostics, "accepted": all(v == "success" for v in outcomes.values())})

@@ -1,4 +1,4 @@
-name: Verify apartment keyboard focus, wheel anchoring and forty scene transitions
+name: Verify keyboard selection from the scene word index and forty scene transitions
 on:
   workflow_dispatch:
     inputs:
@@ -11,7 +11,8 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASE: 83c203b3752ea5f95fc6bc952552d8ddddaec6d1
+  BASE: 38769117e6693c23c9d57dc75060e9fc2964be3b
+  BASE_RUN: "45814084523"
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
@@ -57,17 +58,19 @@ jobs:
         if: ${{ !cancelled() && steps.source.outcome == 'success' }}
         with:
           name: production-dist-${{ env.BASE }}
-          run-id: 45808079102
+          run-id: ${{ env.BASE_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
       - name: Check the original production SHA, inventory and each file digest
         id: baseline_manifest
         if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: |
+          manifest="$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json"
+          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = e67a3d9196015a6f498a97d538549bc7b80917a0e995062e2f4dc2a41ed302f1
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASE"
-          jq '{build:.gitSha, sourceRun:45808079102, files:(.files|length)}' \
-            "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
-      - name: Reproduce both reported behaviors with the candidate test sources
+          jq --argjson run "$BASE_RUN" '{build:.gitSha, sourceRun:$run, files:(.files|length)}' \
+            "$manifest" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
+      - name: Reproduce the lost keyboard focus after opening basin on desktop and phone
         id: red
         if: ${{ !cancelled() && steps.baseline_manifest.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: |
@@ -96,7 +99,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Verify keyboard focus, wheel motion, apartment slots and warm return journeys
+      - name: Verify basin card focus and return, wheel motion, apartment and office journeys
         id: green
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: python ../.github/verify-input.py candidate
