@@ -81,16 +81,21 @@ def validate_data():
     return code == 0
 
 
-def run_domain(names=DOMAIN):
+def run_domain(names=DOMAIN, selected_cases=None):
     records = []
     for name in names:
         source = f"tests/domain/{name}.test.ts"
         report, log = TEMP / f"{name}.xml", TEMP / f"{name}.log"
-        code = execute(["node", "--import", "tsx", "--test", "--test-reporter=junit",
+        selected = (selected_cases or {}).get(name)
+        selector = ["--test-name-pattern", "^" + re.escape(selected) + "$"] if selected else []
+        code = execute(["node", "--import", "tsx", "--test", *selector, "--test-reporter=junit",
                         "--test-reporter-destination", str(report), source], log)
         row = {"file": source, "exit": code, "passed": 0, "skipped": 0, "failures": []}
         try:
             tests = ET.parse(report).findall(".//testcase")
+            if selected:
+                row["selectedTest"] = selected
+                tests = [case for case in tests if case.get("name") == selected]
             for case in tests:
                 failure = case.find("failure")
                 if failure is not None:

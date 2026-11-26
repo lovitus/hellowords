@@ -1,9 +1,9 @@
-name: Verify the reception entrance and all twelve office return leaders
+name: Verify the photographed workstation words and return to the office
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the product commit containing the revised office return case
+        description: Full SHA of the product commit containing the revised photographed word case
         required: true
         type: string
 permissions:
@@ -11,7 +11,7 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASE: 899521c8bcbbfebe68f3c7c83bfd16a5b869a5b1
+  BASE: 77502f37470e973c7b3e468ddc84d10f78c00ccd
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
@@ -69,7 +69,7 @@ jobs:
         if: ${{ !cancelled() && steps.source.outcome == 'success' }}
         with:
           name: production-dist-${{ env.BASE }}
-          run-id: 45796779488
+          run-id: 45801730565
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
       - name: Verify the archived production manifest
@@ -77,16 +77,16 @@ jobs:
         if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: |
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASE"
-          jq '{build:.gitSha,sourceRun:45796779488,files:(.files|length)}' \
+          jq '{build:.gitSha,sourceRun:45801730565,files:(.files|length)}' \
             "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
-      - name: Run the candidate's phone return case against the archived build
+      - name: Run the revised workstation word journey against the archived build
         id: red
         if: ${{ !cancelled() && steps.chromium.outcome == 'success' && steps.baseline_manifest.outcome == 'success' }}
         run: |
           test ! -e dist
           mv "$RUNNER_TEMP/frozen/dist" dist
           trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
-          python ../.github/verify-office-leader.py baseline
+          python ../.github/verify-workstation-words.py baseline
       - name: Build the candidate once and verify its production manifest
         id: build
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
@@ -106,22 +106,26 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Check the return and all four photographed zoom targets on phone and desktop
+      - name: Record the shipped changes to the two scene vocabularies
+        id: vocabulary
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.baseline_manifest.outcome == 'success' }}
+        run: python ../.github/verify-workstation-words.py vocabulary
+      - name: Check the workstation words and the office return on phone and desktop
         id: green
         if: ${{ !cancelled() && steps.chromium.outcome == 'success' && steps.build.outcome == 'success' }}
-        run: python ../.github/verify-office-leader.py candidate
+        run: python ../.github/verify-workstation-words.py candidate
       - name: Typecheck the candidate
         id: types
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: python ../.github/verify-office-leader.py types
+        run: python ../.github/verify-workstation-words.py types
       - name: Lint the changed TypeScript and JavaScript
         id: lint
         if: ${{ !cancelled() && steps.changes.outcome == 'success' && steps.dependencies.outcome == 'success' }}
-        run: python ../.github/verify-office-leader.py lint
-      - name: Verify the office and navigation contracts, label placement, layout and canvas interaction
+        run: python ../.github/verify-workstation-words.py lint
+      - name: Verify workstation vocabulary, office content and scene-data contracts
         id: domain
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: python ../.github/verify-office-leader.py domain
+        run: python ../.github/verify-workstation-words.py domain
       - name: Validate scene data
         id: data
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
@@ -131,14 +135,14 @@ jobs:
         working-directory: .
         env:
           RESULTS: ${{ toJSON(steps) }}
-        run: python .github/verify-office-leader.py evidence
+        run: python .github/verify-workstation-words.py evidence
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: office-reception-leaders-${{ github.run_id }}-${{ github.run_attempt }}
+          name: office-workstation-words-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/diagnosis
           if-no-files-found: error
           retention-days: 7
-      - name: Require the counter edge to cross the old reception button and all candidate checks to pass
+      - name: Require the specified old photograph mismatch and every candidate check
         if: ${{ !cancelled() }}
         run: jq -e '.accepted == true' "$RUNNER_TEMP/diagnosis/summary.json"
