@@ -1,4 +1,5 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import { labelDiscoveryKey } from "../../app/domain/discovery";
 import { clickPaintedWord, paintedWordCount, paintedWordState } from "./canvas-words";
 
 const APP = '[data-testid="world-app"]';
@@ -340,6 +341,73 @@ test("loads the 10,000-word field only on request and searches all 44 shards onc
   await expect(selectedCard.locator("p").last()).toContainText(/\p{Script=Han}/u);
   await expect(page.getByTestId("meaning-toggle")).toHaveAttribute("aria-pressed", "false");
   await expect(field.locator(".semantic-zoom-field__node > span:not(.semantic-zoom-field__node-dot)")).toHaveCount(0);
+});
+
+test("apartment words need a fresh readable dwell after the scene word index closes", async ({ page, isMobile }, testInfo) => {
+  const dwellMs = 600;
+  await page.clock.install();
+  await openWorld(page);
+  const response = await page.request.get("/data/scenes/apartment.json");
+  expect(response.ok()).toBe(true);
+  const apartment: { labels: { id: string; lexemeId?: string }[] } = await response.json();
+  const keyById = new Map(apartment.labels.map(label => [label.id, labelDiscoveryKey(label)]));
+  const canvas = page.locator('[data-testid="world-app"][data-scene-id="apartment"] .viewer-shell:not([data-phase]) .label-canvas');
+  const snapshot = () => canvas.evaluate(el => {
+    const bounds = el.getBoundingClientRect();
+    const words = (el as HTMLCanvasElement & { paintedLabels?: {
+      id: string; opacity: number; interactive: boolean; centerX: number; centerY: number;
+    }[] }).paintedLabels ?? [];
+    return {
+      readable: words.filter(w => w.interactive && w.opacity >= 0.52 &&
+        w.centerX >= 0 && w.centerX < bounds.width && w.centerY >= 0 && w.centerY < bounds.height).map(w => w.id),
+      seen: JSON.parse(localStorage.getItem("hellowords:encountered-labels:v2") ?? "[]") as string[],
+    };
+  });
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  await activate(page.getByTestId("scene-minimap").locator('[data-target-scene="apartment"][data-testid="scene-minimap-child"]'));
+  await expect.poll(async () => (await snapshot()).readable.length, { intervals: [16] }).toBeGreaterThan(0);
+  const before = await snapshot();
+  await activate(page.getByTestId("scene-word-index-toggle"));
+  const index = page.getByTestId("scene-word-index");
+  await expect(index).toBeVisible();
+  const opened = await snapshot();
+  await index.getByRole("searchbox").fill("no-such-apartment-word");
+  await expect(index.getByTestId("scene-word-index-result")).toHaveCount(0);
+  const fresh = before.readable.filter(id => keyById.has(id) && !opened.seen.includes(keyById.get(id)!));
+  expect(fresh, "the index interrupts a group of previously unseen apartment words").not.toHaveLength(0);
+
+  // Hold the empty index beyond a full dwell, then control the precise
+  // interval after closing it regardless of the browser worker's speed.
+  await page.clock.pauseAt(new Date(await page.evaluate(() => Date.now()) + dwellMs + 100));
+  await page.clock.runFor(32);
+  const hidden = await snapshot();
+  expect(hidden.readable).toEqual([]);
+  const hiddenCredits = fresh.filter(id => hidden.seen.includes(keyById.get(id)!));
+  await testInfo.attach("index-hidden-encounters", {
+    body: JSON.stringify({ previouslySeen: opened.seen, fresh, hiddenCredits }), contentType: "application/json",
+  });
+  expect(hiddenCredits, "hidden apartment words must stay unencountered while the empty scene index is open").toEqual([]);
+
+  const close = index.getByTestId("scene-word-index-close");
+  const point = await close.evaluate(el => {
+    const r = el.getBoundingClientRect();
+    return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+  });
+  if (isMobile) await page.touchscreen.tap(point.x, point.y);
+  else await page.mouse.click(point.x, point.y);
+  await page.clock.runFor(dwellMs - 1);
+  await expect(index).toBeHidden();
+  const early = await snapshot();
+  const restored = fresh.filter(id => early.readable.includes(id));
+  expect(restored, "the photograph exposes previously unseen words again").not.toHaveLength(0);
+  expect(restored.filter(id => early.seen.includes(keyById.get(id)!)),
+    "closing the index starts a new full dwell for exposed words").toEqual([]);
+  await page.clock.resume();
+  await expect.poll(async () => {
+    const latest = await snapshot();
+    const stillReadable = restored.filter(id => latest.readable.includes(id));
+    return stillReadable.length > 0 && stillReadable.every(id => latest.seen.includes(keyById.get(id)!));
+  }, { message: "words that stay readable after closing the index are encountered" }).toBe(true);
 });
 
 test("a selected word reveals its meaning while global scene meanings stay off", async ({ page }) => {

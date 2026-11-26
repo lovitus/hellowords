@@ -876,7 +876,6 @@ export function SceneViewport({
   // depend on that state.
   const [interactionPositioned, setInteractionPositioned] = useState(false);
   const interactionPositionedRef = useRef(false);
-  const [encounterTick, setEncounterTick] = useState(0);
   const { labelsById, labelSemanticStyles, vocabularyZoomCues } = getScenePresentation(scene);
   const focusedDetailZone = useMemo(
     () => focusedDetailZoneId
@@ -989,6 +988,38 @@ export function SceneViewport({
   const viewerInteractive = transitionPhase === "active" && !interactionLocked && !motionFrozen;
   const viewerInteractiveRef = useRef(viewerInteractive);
   const meaningVisibleRef = useRef(meaningVisible);
+  const canEncounterWords = viewerInteractive && !wordIndexOpen;
+  const updateLabelDwell = useCallback(function advance(visibleIds: Iterable<string>) {
+    if (encounterDwellRef.current !== null) {
+      clearTimeout(encounterDwellRef.current);
+      encounterDwellRef.current = null;
+    }
+    const dwell = advanceLabelDwell(
+      visibleSinceRef.current, visibleIds, encounteredLabelIdsRef.current, performance.now(),
+    );
+    visibleSinceRef.current = dwell.visibleSince;
+    if (dwell.newlyEncounteredIds.length) {
+      const encountered = dwell.newlyEncounteredIds.flatMap((id) => {
+        const label = labelsById.get(id);
+        if (!label) return [];
+        encounteredLabelIdsRef.current.add(id);
+        return [label];
+      });
+      if (encountered.length) onLabelsEncountered(encountered);
+    }
+    if (dwell.nextCheckInMs !== null) {
+      // A camera frame replaces this set when the visible words change. While
+      // the picture is still, only their remaining reading time can change.
+      encounterDwellRef.current = setTimeout(() => {
+        encounterDwellRef.current = null;
+        advance(visibleSinceRef.current.keys());
+      }, Math.ceil(dwell.nextCheckInMs));
+    }
+  }, [labelsById, onLabelsEncountered]);
+
+  useLayoutEffect(() => {
+    if (canEncounterWords) return () => updateLabelDwell([]);
+  }, [canEncounterWords, updateLabelDwell]);
 
   useEffect(() => {
     onMotionFrozenChange?.(motionFrozen);
@@ -1256,19 +1287,11 @@ export function SceneViewport({
       || imminentParentExit;
     syncMotionFrozenLayer(labelLayer, frameMotionFrozen);
     syncMotionFrozenLayer(interactionLayer, frameMotionFrozen);
-    if (frameMotionFrozen) {
-      onCameraFrame?.({
-        sceneId: scene.id,
-        camera: { ...camera },
-        viewportWidth,
-        viewportHeight,
-      });
-      return;
-    }
     // During a scene handoff these overlays are hidden by the transition
     // layer. Keep the camera snapshot current, but avoid resolving collisions
     // and rewriting hundreds of label/portal styles that cannot be painted.
-    if (transitionPhaseRef.current !== "active") {
+    if (frameMotionFrozen || transitionPhaseRef.current !== "active") {
+      if (encounterDwellRef.current !== null) updateLabelDwell([]);
       onCameraFrame?.({
         sceneId: scene.id,
         camera: { ...camera },
@@ -1504,13 +1527,6 @@ export function SceneViewport({
       const opacity = ownsFocus ? Math.max(1, item.opacity) : item.opacity;
       if (opacity >= LABEL_ENCOUNTER_OPACITY) visibleCount += 1;
       else if (opacity > 0.025) emergingCount += 1;
-      if (
-        viewerInteractiveRef.current
-        && item.interactive
-        && item.opacity >= LABEL_ENCOUNTER_OPACITY
-      ) {
-        dwellEligibleLabelIds.push(item.id);
-      }
     }
     // Every placed word is painted from the layout result, including words
     // whose DOM mirror is not mounted. The DOM buttons only carry state for
@@ -1523,6 +1539,8 @@ export function SceneViewport({
       const ownsFocus = item.id === focusedLabelId;
       const opacity = ownsFocus ? Math.max(1, item.opacity) : item.opacity;
       if (opacity <= 0.025) continue;
+      const interactive = !wordIndexOpen && viewerInteractiveRef.current && (ownsFocus || item.interactive);
+      if (interactive && opacity >= LABEL_ENCOUNTER_OPACITY) dwellEligibleLabelIds.push(item.id);
       paintedLabels.push({
         id: item.id,
         label,
@@ -1537,7 +1555,7 @@ export function SceneViewport({
         // The word index is a deliberate reading surface; hide the spatial
         // words for its entire lifetime.
         opacity: wordIndexOpen ? 0 : opacity,
-        interactive: !wordIndexOpen && viewerInteractiveRef.current && (ownsFocus || item.interactive),
+        interactive,
       });
     }
     const paintState: LabelPaintState = {
@@ -1691,32 +1709,7 @@ export function SceneViewport({
       );
     }
 
-    if (encounterDwellRef.current) {
-      clearTimeout(encounterDwellRef.current);
-      encounterDwellRef.current = null;
-    }
-    const dwell = advanceLabelDwell(
-      visibleSinceRef.current,
-      dwellEligibleLabelIds,
-      encounteredLabelIdsRef.current,
-      performance.now(),
-    );
-    visibleSinceRef.current = dwell.visibleSince;
-    if (dwell.newlyEncounteredIds.length > 0) {
-      const encountered = dwell.newlyEncounteredIds.flatMap((id) => {
-        const label = labelsById.get(id);
-        if (!label) return [];
-        encounteredLabelIdsRef.current.add(id);
-        return [label];
-      });
-      if (encountered.length > 0) onLabelsEncountered(encountered);
-    }
-    if (dwell.nextCheckInMs !== null) {
-      encounterDwellRef.current = setTimeout(() => {
-        encounterDwellRef.current = null;
-        setEncounterTick((current) => current + 1);
-      }, Math.max(1, Math.ceil(dwell.nextCheckInMs)));
-    }
+    if (canEncounterWords) updateLabelDwell(dwellEligibleLabelIds);
 
     setDatasetValueIfChanged(interactionLayer, "sceneScale", sceneScaleValue);
     if (!interactionPositionedRef.current) {
@@ -1972,7 +1965,7 @@ export function SceneViewport({
       }
       setAttributeIfChanged(summaryElement, "aria-label", "继续放大，显示下一批词");
     }
-  }, [activeAtlasLabels, atlasOverviewMode, clampCamera, continuousTileDirection, continuousTileState, initialView, labelSemanticStyles, labelsById, onCameraFrame, onLabelsEncountered, positionAtlasCategories, reconcileSceneAssetForCamera, scene, sceneLabelIds, selectedLabelId, showPortalPreview, vocabularyZoomCues, wordIndexOpen]);
+  }, [activeAtlasLabels, atlasOverviewMode, canEncounterWords, clampCamera, continuousTileDirection, continuousTileState, initialView, labelSemanticStyles, labelsById, onCameraFrame, positionAtlasCategories, reconcileSceneAssetForCamera, scene, sceneLabelIds, selectedLabelId, showPortalPreview, updateLabelDwell, vocabularyZoomCues, wordIndexOpen]);
 
   useLayoutEffect(() => {
     if (pendingLabelWindowPaintRef.current) {
@@ -2090,10 +2083,6 @@ export function SceneViewport({
   useEffect(() => {
     resetParentExitHysteresis();
   }, [resetParentExitHysteresis, scene.id]);
-
-  useEffect(() => {
-    if (encounterTick > 0) requestCameraFrame();
-  }, [encounterTick, requestCameraFrame]);
 
   const resetCamera = useCallback((framing: "fit" | "entry" = "fit") => {
     const viewport = viewportRef.current;
@@ -2532,7 +2521,7 @@ export function SceneViewport({
         cancelAnimationFrame(frameRef.current);
         frameRef.current = null;
       }
-      applyCamera({ camera, width, height, dpr });
+      framePainterRef.current({ camera, width, height, dpr });
       scheduleNavigationCheck();
       if (!settled) {
         wheelAnimationRef.current = requestAnimationFrame(animate);
@@ -2543,7 +2532,7 @@ export function SceneViewport({
       wheelFrameTimeRef.current = null;
     };
     wheelAnimationRef.current = requestAnimationFrame(animate);
-  }, [applyCamera, cancelCameraAnimation, clampCamera, onPrefetchScene, portalForZoom, requestContinuousTile, sampleParentExitHysteresis, scene.height, scene.parentId, scene.width, scheduleNavigationCheck, showPortalPreview, updateZoomDirection, viewerInteractive]);
+  }, [cancelCameraAnimation, clampCamera, onPrefetchScene, portalForZoom, requestContinuousTile, sampleParentExitHysteresis, scene.height, scene.parentId, scene.width, scheduleNavigationCheck, showPortalPreview, updateZoomDirection, viewerInteractive]);
 
   const focusVocabularyTarget = useCallback((
     fallbackLabelId: string,
@@ -2982,7 +2971,6 @@ export function SceneViewport({
       if (wheelAnimationRef.current !== null) cancelAnimationFrame(wheelAnimationRef.current);
       if (pinchFrameRef.current !== null) cancelAnimationFrame(pinchFrameRef.current);
       if (navigationFrameRef.current !== null) cancelAnimationFrame(navigationFrameRef.current);
-      if (encounterDwellRef.current) clearTimeout(encounterDwellRef.current);
     },
     [],
   );

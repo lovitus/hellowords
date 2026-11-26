@@ -1237,7 +1237,7 @@ export function WorldApp() {
               selectedLabelId={selectedLabel?.id ?? null}
               portalTargetTitles={sceneTitles}
               transitionPhase={outgoingScene ? "incoming" : "active"}
-              interactionLocked={sceneControlsLocked || conversationOpen}
+              interactionLocked={sceneControlsLocked || conversationOpen || lexicalWorldOpen}
               onCommitScene={beginSceneCommit}
               onEnterScene={(sceneId, source) => navigate(sceneId, "forward", source)}
               onExitScene={() => goBack("zoom")}
