@@ -53,6 +53,7 @@ import { decodedSceneAssetCache } from "../lib/decoded-scene-asset-cache";
 import {
   hitPaintedLabel,
   paintLabelCanvas,
+  releaseLabelCanvas,
   type LabelPaintState,
   type PaintedLabel,
 } from "../lib/label-canvas";
@@ -761,7 +762,7 @@ export function SceneViewport({
   const labelCanvasRef = useRef<HTMLCanvasElement>(null);
   const attachLabelCanvas = useCallback((node: HTMLCanvasElement | null) => {
     const previous = labelCanvasRef.current;
-    if (previous && previous !== node && previous.width) previous.width = 0;
+    if (previous && previous !== node) releaseLabelCanvas(previous);
     labelCanvasRef.current = node;
   }, []);
   const hoveredLabelIdRef = useRef<string | null>(null);

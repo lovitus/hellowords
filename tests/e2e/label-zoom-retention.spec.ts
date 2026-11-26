@@ -616,8 +616,13 @@ test("ordinary scenes hide the progress hint while the canvas counts only the cu
     await expect(progress).toBeHidden();
     await expect(canvas).toBeVisible();
     const crop = await canvas.evaluate((element: HTMLCanvasElement & { paintedLabels?: readonly PaintedLabel[] }) => {
-      const context = element.getContext("2d");
+      // Sample the bitmap visible on the page, including a transferred canvas.
+      const capture = document.createElement("canvas");
+      capture.width = element.width;
+      capture.height = element.height;
+      const context = capture.getContext("2d", { willReadFrequently: true });
       if (!context || !element.paintedLabels) throw new Error("Missing painted word canvas");
+      context.drawImage(element, 0, 0);
       const bounds = element.getBoundingClientRect();
       const pixels = context.getImageData(0, 0, element.width, element.height).data;
       const words = element.paintedLabels.filter((label) => label.interactive && label.opacity >= 0.52);
@@ -642,6 +647,24 @@ test("ordinary scenes hide the progress hint while the canvas counts only the cu
 
   await waitForCameraSettled(page);
   const overview = await captureCrop();
+  await page.getByTestId("scene-word-index-toggle").click();
+  await expect(page.getByTestId("scene-word-index")).toBeVisible();
+  await expect.poll(() => canvas.evaluate((element: HTMLCanvasElement) => {
+    if (!element.width || !element.height) return false;
+    const capture = document.createElement("canvas");
+    capture.width = element.width;
+    capture.height = element.height;
+    const context = capture.getContext("2d", { willReadFrequently: true })!;
+    context.drawImage(element, 0, 0);
+    const pixels = context.getImageData(0, 0, capture.width, capture.height).data;
+    for (let alpha = 3; alpha < pixels.length; alpha += 4) {
+      if (pixels[alpha] > 0) return true;
+    }
+    return false;
+  }), { message: "Opening the word index must clear the last visible word frame" }).toBe(false);
+  await page.getByTestId("scene-word-index-close").click();
+  await waitForCameraSettled(page);
+  await captureCrop();
   await zoomThroughScales(page, [1.65, 2.3, 3.12, AUTHORED_MAX_SCALE]);
   await waitForCameraSettled(page);
   const detail = await captureCrop();
