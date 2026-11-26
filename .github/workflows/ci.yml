@@ -1,9 +1,9 @@
-name: Verify the entrances on the office photograph
+name: Verify word card clearance on the office photograph
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Office entrance candidate commit
+        description: Mobile word card candidate commit
         required: true
         type: string
 permissions:
@@ -11,9 +11,9 @@ permissions:
   actions: read
 env:
   CI: "true"
-  BASE: fd230a1cc02f9eefceccf7bf0f0301af405ff225
+  BASE: 81e0a36420813cc716b097835597ebb7dc66740d
   PRODUCT: ${{ inputs.candidate }}
-  JOURNEY: zooming into the office counter and rear monitor follows the photographed entrances
+  JOURNEY: phone can switch between the photographed rack and its light with a word card open
 jobs:
   gestures:
     runs-on: ubuntu-24.04
@@ -36,10 +36,10 @@ jobs:
       - uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASE }}
-          run-id: 45749628524
+          run-id: 45752214005
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/previous
-      - name: Observe the counter opening the workstations on the baseline
+      - name: Confirm the old phone word card covers part of the selected ring
         id: baseline
         continue-on-error: true
         run: |
@@ -49,23 +49,22 @@ jobs:
           mv "$RUNNER_TEMP/previous/dist" dist
           (cd dist && sha256sum --quiet --check "$RUNNER_TEMP/baseline.sha256")
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "$JOURNEY" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/old.log" 2>&1 || code=$?
+          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "$JOURNEY" --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/old.log" 2>&1 || code=$?
           mv dist "$RUNNER_TEMP/previous/dist"
           mv artifacts/e2e/results.json "$RUNNER_TEMP/old.json"
           test "$code" -eq 1
           jq -e '
-            .stats.unexpected == 2 and (.errors | length == 0) and
+            .stats.unexpected == 1 and (.errors | length == 0) and
             ([.. | objects | select(has("projectName") and has("results")) |
               select(.results | length == 1) | . as $test | .results[0] |
               select(.status == "failed") | .attachments[] |
-              select(.name == "reception-counter-gesture") | (.body | @base64d | fromjson) |
-              select(.scene == "open-plan-workstation" and .x == 335 and .y == 672) | $test.projectName]
-              | sort) == ["chromium","mobile-chromium"]' "$RUNNER_TEMP/old.json"
-      - name: Verify the two entrance contracts and candidate data
+              select(.name == "server-rack-position") | (.body | @base64d | fromjson) |
+              select(.dotClearance != null and .dotClearance < 5) | $test.projectName]
+              ) == ["mobile-chromium"]' "$RUNNER_TEMP/old.json"
+      - name: Check the changed components
         run: |
           npm run typecheck
-          npm run validate:data -- --allow-image-reviewed > "$RUNNER_TEMP/data.log" 2>&1
-          npm exec -- tsx --test tests/domain/openPlanWorkstation.test.ts tests/domain/newFacilityScenes.test.ts
+          ./node_modules/.bin/eslint app/components/WorldApp.tsx tests/e2e/office-conference.spec.ts
       - name: Build and record the candidate
         run: |
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
@@ -81,11 +80,12 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Operate both entrances and magnify the ordinary object on both screen sizes
+      - name: Read both objects on the phone and exercise the related word and explicit bridge controls
         run: |
-          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "$JOURNEY" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/new.log" 2>&1
-          jq -e '.stats.expected == 2 and .stats.flaky == 0 and .stats.unexpected == 0 and .stats.skipped == 0 and (.errors | length == 0)' artifacts/e2e/results.json
-      - name: Keep the actual photographs and observed destinations
+          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts tests/e2e/kitchen-vocabulary.spec.ts tests/e2e/spatial-semantic-bridge.spec.ts \
+            --grep "$JOURNEY|a related kitchen word opens|a reviewed spatial word enters" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/new.log" 2>&1
+          jq -e '.stats.expected == 4 and .stats.flaky == 0 and .stats.unexpected == 0 and .stats.skipped == 2 and (.errors | length == 0)' artifacts/e2e/results.json
+      - name: Keep the photographs and visible ring measurements
         if: ${{ !cancelled() }}
         run: |
           mkdir -p "$RUNNER_TEMP/office-evidence"
@@ -102,7 +102,7 @@ jobs:
                       for test in spec["tests"]:
                           for result in test["results"]:
                               for a in result["attachments"]:
-                                  if a["name"].endswith(("-end", "-gesture")) and "body" in a:
+                                  if a["name"].endswith(("-card", "-position")) and "body" in a:
                                       extension = "png" if a["contentType"] == "image/png" else "json"
                                       file = f"{build}-{test['projectName']}-{a['name']}.{extension}"
                                       (out / file).write_bytes(base64.b64decode(a["body"], validate=True))
@@ -115,7 +115,7 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: office-entrance-evidence
+          name: office-card-evidence
           path: ${{ runner.temp }}/office-evidence
           if-no-files-found: error
           retention-days: 7
