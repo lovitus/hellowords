@@ -20,6 +20,9 @@ index_title = "keyboard selection from the scene word index keeps the next actio
 index_cases = [(project, "e2e/world.spec.ts", index_title) for project in (desktop, phone)]
 prefix = "home atlas district journey "
 atlas_screenshots = {
+    prefix + "photo anchors open the preparation room and the school gate enters campus": (
+        (desktop, phone), "preparation-room-on-map",
+    ),
     prefix + "search paints the selected tractor and keeps district navigation available": (
         (desktop, phone), "tractor-on-map",
     ),
@@ -30,10 +33,9 @@ atlas_screenshots = {
         (desktop, phone), "focused-campus-word",
     ),
 }
-photo_title = os.environ["PHOTO_TITLE"]
-photo_assertion = "the preparation room photo opens its own word card"
-photo_screenshots = [name.strip() for name in os.environ["PHOTO_SCREENSHOTS"].split(",")]
-photo_cases = [(project, "e2e/world.spec.ts", photo_title) for project in (desktop, phone)]
+bus_case = (phone, "e2e/world.spec.ts", prefix + "mobile reads the city bus photo and enters and returns from the city street")
+bus_assertion = "the city bus photo opens its own word card"
+bus_screenshots = ("city-bus-on-map", "city-street-from-atlas")
 district_titles = (
     "starts as a calm target-language world and persists the meaning toggle",
     "the home atlas keeps its artwork clear and reveals only the hovered district words",
@@ -69,14 +71,6 @@ def details(error):
 def headline(error):
     text = helpers["ANSI"].sub("", error.get("message", ""))
     return text.lstrip().partition("\n")[0].removeprefix("Error: ").strip()
-
-
-def check_inputs():
-    if prefix + "photo anchors" not in photo_title or not photo_title.isprintable() or " > " in photo_title:
-        raise ValueError("Supply the exact title of the photo journey")
-    if any(name == "screenshot" or not re.fullmatch(r"[\w .-]{1,100}", name) for name in photo_screenshots):
-        raise ValueError("Supply the named PNG attachments from a successful photo journey")
-    return True
 
 
 def retain_attempt(phase, number, case, result, folder):
@@ -115,14 +109,16 @@ def retain_attempt(phase, number, case, result, folder):
     names = {a["name"] for a in receipts}
     pngs = {a["name"] for a in receipts if a["file"].endswith(".png")}
     if old:
+        message = helpers["ANSI"].sub("", primary.get("message", ""))
         record["accepted"] = (result["status"] == "failed" and result["retry"] == 0
-                              and [headline(e) for e in errors] == [photo_assertion]
-                              and headline(primary) == photo_assertion and "screenshot" in pngs
+                              and [headline(e) for e in errors] == [bus_assertion]
+                              and headline(primary) == bus_assertion and "screenshot" in pngs
+                              and "toHaveText" in message and "city bus word details" in message
                               and any(frame["file"] == f"tests/{case[1]}" for frame in details(primary)["source"]))
         return record
     evidence_ok = True
-    if case in photo_cases:
-        evidence_ok = set(photo_screenshots).issubset(pngs)
+    if case == bus_case:
+        evidence_ok = set(bus_screenshots).issubset(pngs)
     if case[2] in atlas_screenshots:
         evidence_ok = atlas_screenshots[case[2]][1] in pngs
     if case in index_cases:
@@ -141,7 +137,8 @@ def retain_attempt(phase, number, case, result, folder):
 
 def browser(phase):
     old = phase == "baseline"
-    cases = photo_cases if old else [*photo_cases, *regressions]
+    cases = [bus_case] if old else [bus_case, *regressions]
+    projects = {project for project, _, _ in cases}
     folder = temp / phase
     verify["run_browser"](phase, temp, cases)
     rows = {(project, file, title): {"project": project, "file": file, "title": title, "attempts": [], "accepted": False}
@@ -154,7 +151,7 @@ def browser(phase):
         receipt["errors"] = [details(e) for e in report["errors"]]
         receipt["stats"] = {k: report["stats"][k] for k in ("unexpected", "expected", "flaky", "skipped")}
         receipt["retries"] = {p["name"]: p["retries"] for p in report["config"]["projects"]
-                              if p["name"] in {desktop, phone}}
+                              if p["name"] in projects}
         seen = set()
         for key, test in verify["report_cases"](report):
             if key not in rows or key in seen:
@@ -173,7 +170,7 @@ def browser(phase):
         receipt["accepted"] = (receipt["exit"] == (1 if old else 0) and not receipt["errors"] and not receipt["extraOrDuplicate"]
                                and receipt["stats"] == {"unexpected": len(cases) if old else 0, "expected": 0 if old else len(cases),
                                                         "flaky": 0, "skipped": 0}
-                               and receipt["retries"] == {desktop: 0, phone: 0} and all(r["accepted"] for r in rows.values()))
+                               and receipt["retries"] == {project: 0 for project in projects} and all(r["accepted"] for r in rows.values()))
     except (OSError, KeyError, ValueError, TypeError) as error:
         receipt["reportError"] = type(error).__name__
         receipt["processError"] = helpers["process_error"](folder / "browser.log")
@@ -233,10 +230,9 @@ def summary():
         if outcomes[gate] == "failure" and path.exists():
             diagnostics[log] = helpers["process_error"](path)
     write(out / "summary.json", {"baseline": os.environ["BASE"], "baselineRun": int(os.environ["BASE_RUN"]),
-                                 "requiredOldAtlasFailures": [{"project": project, "file": file, "title": title,
-                                                               "assertion": photo_assertion}
-                                                              for project, file, title in photo_cases],
-                                 "requiredPhotoScreenshots": photo_screenshots,
+                                 "requiredOldAtlasFailures": [{"project": bus_case[0], "file": bus_case[1], "title": bus_case[2],
+                                                               "assertion": bus_assertion}],
+                                 "requiredBusScreenshots": bus_screenshots,
                                  "candidate": os.environ["PRODUCT"], "candidateRun": os.environ["GITHUB_RUN_ID"],
                                  "verificationCommit": os.environ["GITHUB_SHA"], "outcomes": outcomes,
                                  "diagnostics": diagnostics, "accepted": all(v == "success" for v in outcomes.values())})
@@ -245,9 +241,7 @@ def summary():
 
 if __name__ == "__main__":
     command = sys.argv[1]
-    if command == "inputs":
-        ok = check_inputs()
-    elif command in ("baseline", "candidate"):
+    if command in ("baseline", "candidate"):
         ok = browser(command)
     elif command == "performance":
         ok = performance()

@@ -6,24 +6,14 @@ on:
         description: Full SHA of the frozen product candidate
         required: true
         type: string
-      photo_title:
-        description: Full Playwright title containing "home atlas district journey photo anchors"
-        required: true
-        type: string
-      photo_screenshots:
-        description: Comma-separated PNG attachment names from the completed campus journey
-        required: true
-        type: string
 permissions:
   actions: read
   contents: read
 env:
   CI: "true"
-  BASE: 9bb42cf468bfd4d8404f18a872a3440275e1bc65
-  BASE_RUN: "45828001820"
+  BASE: 1692c6d4712b493e3171327c55fcffd36db44bbe
+  BASE_RUN: "45834809033"
   PRODUCT: ${{ inputs.candidate }}
-  PHOTO_TITLE: ${{ inputs.photo_title }}
-  PHOTO_SCREENSHOTS: ${{ inputs.photo_screenshots }}
 jobs:
   verify:
     runs-on: ubuntu-24.04
@@ -49,7 +39,6 @@ jobs:
           [[ "$PRODUCT" =~ ^[0-9a-f]{40}$ ]]
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASE"
-          python ../.github/verify-input.py inputs
           git diff --exit-code "$BASE" "$PRODUCT" -- tests/perf playwright.config.ts package.json package-lock.json
           sha256sum playwright.config.ts package*.json tests/perf/*.ts tests/e2e/*.ts \
             > "$RUNNER_TEMP/diagnosis/test-sources.sha256"
@@ -77,11 +66,11 @@ jobs:
         if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: |
           manifest="$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json"
-          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = 86f79833265b61ebae8cb3be8f1ada806360357c276fb79d5fa9d2ac5fb946f9
+          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = 31654e4c9a60ddeb2de9c330326e2fa1b2c59d87314dbd5dcc1e06d884fbcb5e
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASE"
           jq --argjson run "$BASE_RUN" '{build:.gitSha, sourceRun:$run, files:(.files|length)}' \
             "$manifest" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
-      - name: Reproduce the preparation room photo failure on the archived build on desktop and mobile
+      - name: Reproduce the mobile city bus photo failure on the archived build
         id: red
         if: ${{ !cancelled() && steps.baseline_manifest.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: |
@@ -110,7 +99,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Verify both photo-anchor journeys and the twenty-five browser regressions
+      - name: Verify the mobile city bus journey and all twenty-seven browser regressions
         id: green
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: python ../.github/verify-input.py candidate
