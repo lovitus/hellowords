@@ -26,7 +26,7 @@ atlas_contracts = {
     ),
     prefix + "pointer opens a Campus word drawn over Science": (
         (desktop,), "the cross-boundary word opens its own card",
-        ("toHaveText", "toilet cubicle door"), "campus-word-open",
+        ("toHaveText", "blue recycling bin"), "campus-word-open",
     ),
     prefix + "keyboard tabs from the Campus title to a drawn word and back": (
         (desktop, phone), "Tab from Campus focuses a drawn Campus word",
