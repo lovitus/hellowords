@@ -220,7 +220,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // veins, bark grooves, root forks and small fixture parts for 174 anchors.
   "city-park": 174,
   "city-street": 179,
-  apartment: 173,
+  // The remaining 24 home terms are searchable without a pin on the cutaway.
+  apartment: 149,
   "urban-services": 120,
   // The latest professional-depth passes add reviewed equipment, medicine,
   // airside, imaging, dispensing and conference-room bands to each facility.

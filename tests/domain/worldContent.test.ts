@@ -2078,7 +2078,8 @@ test("apartment keeps its room portals and newly reviewed fixture parts", async 
   const { scenes } = await loadWorld();
   const apartment = scenes.find((scene) => scene.id === "apartment");
   assert.ok(apartment);
-  assert.equal(apartment.labels.length, 173);
+  assert.equal(apartment.labels.length, 149);
+  assert.equal(apartment.labels.length + (apartment.relatedWords?.length ?? 0), 173);
   const words = new Set(apartment.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
     "sofa arm",
@@ -2098,9 +2099,9 @@ test("apartment keeps its room portals and newly reviewed fixture parts", async 
   assert.deepEqual(
     apartment.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["living-room-detail", 93],
-      ["kitchen-detail", 26],
-      ["bedroom-detail", 18],
+      ["living-room-detail", 72],
+      ["kitchen-detail", 24],
+      ["bedroom-detail", 17],
       ["bathroom-detail", 24],
       ["central-stair-upper-detail", 8],
       ["central-stair-lower-detail", 4],

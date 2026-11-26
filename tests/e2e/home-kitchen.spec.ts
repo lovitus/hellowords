@@ -162,3 +162,42 @@ test("kitchen object anchor stays on each photographed object from home entry th
   await expect(art).toHaveAttribute("src", "/scenes/apartment-bright-v2.jpg");
   await expect.poll(() => art.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
 });
+
+test("apartment search distinguishes the photographed shower hinge from the unpictured remote control", async ({ page, isMobile }, testInfo) => {
+  const activate = (button: Locator) => isMobile ? button.tap() : button.click();
+  const app = page.getByTestId("world-app");
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  await page.goto("/");
+  const entrance = viewer.getByTestId("scene-interaction-layer");
+  await expect(entrance).toHaveAttribute("data-positioned", "true");
+  await activate(entrance.locator('[data-testid="scene-hotspot"][data-target-scene="apartment"]'));
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
+  const finder = page.getByTestId("scene-word-index");
+  const finderButton = page.getByTestId("scene-word-index-toggle");
+  await activate(finderButton);
+  await expect(finder.getByTestId("scene-word-index-summary")).toContainText("173 个词");
+  await finder.getByRole("searchbox").fill("遥控器");
+  const remote = finder.getByTestId("scene-word-index-result");
+  await expect(remote).toHaveText(/remote control/);
+  expect(await remote.getAttribute("data-label-id"), "the remote control must be listed without a photo pin").toBeNull();
+  await activate(remote);
+  const remoteCard = page.getByRole("complementary", { name: "remote control word details" });
+  await expect(remoteCard.getByText("相关词 · 图中未标注", { exact: true })).toBeVisible();
+  await expect(viewer.locator(".scene-surface")).toHaveAttribute("data-scene-scale", "1.000");
+  await activate(remoteCard.getByRole("button", { name: "关闭单词卡" }));
+
+  await activate(finderButton);
+  await finder.getByRole("searchbox").fill("door hinge");
+  await activate(finder.getByRole("button", { name: "door hinge，门铰链", exact: true }));
+  const hingeCard = page.getByRole("complementary", { name: "door hinge word details" });
+  await expect(hingeCard.getByText("门铰链", { exact: true })).toBeVisible();
+  // The black upper hinge occupies this small patch on the shower glass.
+  await expect.poll(async () => {
+    const point = await drawnWord(page, "door hinge");
+    return point?.anchorVisible && point.photoX >= 1243 && point.photoX <= 1249
+      && point.photoY >= 550 && point.photoY <= 561;
+  }).toBe(true);
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await testInfo.attach("apartment-shower-hinge", { body: await page.screenshot(), contentType: "image/png" });
+});
