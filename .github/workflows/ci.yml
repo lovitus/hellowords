@@ -1,9 +1,9 @@
-name: Verify canvas word keyboard access and warm navigation
+name: Verify desktop zoom slot retention and warm navigation
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full canvas word button candidate commit SHA
+        description: Full candidate commit SHA for the frozen zoom fix
         required: true
         type: string
 permissions:
@@ -11,12 +11,15 @@ permissions:
   actions: read
 env:
   CI: "true"
-  BASE: 4f7e8b074664c28745dd13299c74578d4f95e1eb
+  BASE: 72540c6f36fa8024dd93a8eb0e40b207337a9afb
   PRODUCT: ${{ inputs.candidate }}
   DWELL: apartment words need a fresh readable dwell after the scene word index closes
   KEYBOARD: the apartment minimap reveals a detail zone and leaves its drawn words keyboard accessible
   HOVER: the home atlas keeps words hover-scoped to one district
   FIT: oak-tree fit fills safe slots and round-trips the exact label layout
+  INWARD: continuous zoom retains grounded labels and their object-relative slots
+  OUTWARD: zooming back out in the apartment keeps readable words in their clear slots
+  RED_ASSERTION: readable words must stay in their clear object-relative slots
   CROP: ordinary scenes hide the progress hint while the canvas counts only the current crop
   INDEX: the current-scene word index finds and focuses a real label without a scene jump
   WORDS: open-plan workstation labels its photographed mouse, drawer handle and shared printer before returning to the office
@@ -46,7 +49,7 @@ jobs:
         continue-on-error: true
         with:
           name: production-dist-${{ env.BASE }}
-          run-id: 45762958125
+          run-id: 45765967579
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/previous
       - name: Verify the baseline artifact before starting its server
@@ -58,6 +61,20 @@ jobs:
           jq -e --arg sha "$BASE" '.gitSha == $sha and (.files | length > 0)' "$manifest"
           jq -r '.files[] | "\(.sha256)  \(.path)"' "$manifest" > "$RUNNER_TEMP/baseline.sha256"
           (cd "$RUNNER_TEMP/previous/dist" && sha256sum --quiet --check "$RUNNER_TEMP/baseline.sha256")
+      - name: Reproduce the outward slot jump on the verified baseline build
+        id: baseline_regression
+        if: ${{ steps.base_artifact.outcome == 'success' }}
+        continue-on-error: true
+        run: |
+          test ! -e dist
+          mv "$RUNNER_TEMP/previous/dist" dist
+          trap 'mv dist "$RUNNER_TEMP/previous/dist"' EXIT
+          printf '[chromium] > e2e/label-zoom-retention.spec.ts > %s\n' "$OUTWARD" > "$RUNNER_TEMP/outward-case.txt"
+          code=0
+          ./node_modules/.bin/playwright test --test-list "$RUNNER_TEMP/outward-case.txt" \
+            --project=chromium --retries=0 > "$RUNNER_TEMP/old.log" 2>&1 || code=$?
+          mv artifacts/e2e "$RUNNER_TEMP/old"
+          test "$code" -eq 1
       - name: Check candidate types, scene data, label mounting and canvas hit detection
         run: |
           npm run typecheck > "$RUNNER_TEMP/types.log" 2>&1
@@ -79,7 +96,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Exercise keyboard, pointer, word index, Fit and office navigation
+      - name: Exercise both zoom directions, Fit, canvas interactions and office navigation
         run: |
           cat > "$RUNNER_TEMP/canvas-cases.txt" <<EOF
           e2e/world.spec.ts > $KEYBOARD
@@ -88,6 +105,8 @@ jobs:
           e2e/world.spec.ts > $INDEX
           e2e/label-zoom-retention.spec.ts > $CROP
           e2e/label-zoom-retention.spec.ts > $FIT
+          [chromium] > e2e/label-zoom-retention.spec.ts > $INWARD
+          [chromium] > e2e/label-zoom-retention.spec.ts > $OUTWARD
           e2e/office-conference.spec.ts > $WORDS
           e2e/office-conference.spec.ts > $ZOOM
           e2e/office-conference.spec.ts > $ATRIUM
@@ -101,13 +120,13 @@ jobs:
         if: ${{ !cancelled() }}
         run: |
           python - <<'PY'
-          import base64, json, os
+          import base64, json, os, re
           from pathlib import Path
 
           temp = Path(os.environ["RUNNER_TEMP"])
           out = temp / "canvas-evidence"
           out.mkdir()
-          titles = {os.environ[k]: k for k in ("KEYBOARD", "HOVER", "DWELL", "INDEX", "CROP", "FIT", "WORDS", "ZOOM", "ATRIUM")}
+          titles = {os.environ[k]: k for k in ("KEYBOARD", "HOVER", "DWELL", "INDEX", "CROP", "FIT", "INWARD", "OUTWARD", "WORDS", "ZOOM", "ATRIUM")}
           projects = ("chromium", "mobile-chromium")
           screenshots = {"Open-plan-left-mouse-painted-card", "center keyboard-end", "office-atrium-return"}
 
@@ -118,9 +137,50 @@ jobs:
               for child in suite.get("suites", []):
                   yield from cases(child)
 
+          def outward_changes(result):
+              attachments = [a for a in result.get("attachments", []) if a["name"] == "apartment-outward-slot-changes"
+                             and a.get("contentType") == "application/json"]
+              assert len(attachments) == 1, "missing or duplicate outward slot evidence"
+              changes = json.loads(base64.b64decode(attachments[0]["body"], validate=True))
+              assert isinstance(changes, list), "invalid outward slot evidence"
+              observed = []
+              for change in changes:
+                  match = re.fullmatch(r"(refrigerator-door|shelf-board) ([\d.]+)× → ([\d.]+)×: (?:(\d+\.\d) px|(disappeared))", change)
+                  assert match, "unexpected outward slot observation"
+                  word, before, after, pixels, _ = match.groups()
+                  observed.append({"word": word, "fromScale": float(before), "toScale": float(after),
+                                   "shiftPx": float(pixels) if pixels else None})
+              return observed
+
+          def check_baseline():
+              report = json.loads((temp / "old" / "results.json").read_text())
+              stats = report["stats"]
+              tests = list(cases(report))
+              ok = (not report["errors"] and len(tests) == 1 and stats["unexpected"] == 1
+                    and stats["expected"] == stats["flaky"] == stats["skipped"] == 0)
+              assertion = os.environ["RED_ASSERTION"]
+              observation = {"commit": os.environ["BASE"], "assertion": assertion}
+              if len(tests) == 1:
+                  case, test = tests[0]
+                  results = test["results"]
+                  result = results[0] if len(results) == 1 else {}
+                  errors = result.get("errors", [])
+                  headlines = [re.sub(r"\x1b\[[0-9;]*m", "", error.get("message", "")).split("\n", 1)[0]
+                               for error in errors]
+                  matched = bool(headlines) and all(line.removeprefix("Error: ") == assertion for line in headlines)
+                  changes = outward_changes(result)
+                  ok = (ok and case == "OUTWARD" and test["projectName"] == "chromium" and
+                        test["expectedStatus"] == "passed" and result.get("status") == "failed" and
+                        result.get("retry") == 0 and matched and any(c["shiftPx"] is not None for c in changes))
+                  observation.update(case=case, project=test["projectName"], status=result.get("status"),
+                                     matchedSlotJumpAssertion=matched, changes=changes)
+              observation["accepted"] = ok
+              (out / "baseline.json").write_text(json.dumps(observation, indent=2) + "\n")
+              assert ok, "baseline did not reproduce the specified outward slot jump"
+
           def check_candidate():
               expected = {(case, project) for case in titles.values() for project in projects
-                          if case != "HOVER" or project == "chromium"}
+                          if case not in ("HOVER", "INWARD", "OUTWARD") or project == "chromium"}
               count = len(expected)
               report = json.loads((temp / "new" / "results.json").read_text())
               stats = report["stats"]
@@ -154,6 +214,9 @@ jobs:
                           (out / f"{project}-{name.replace(' ', '-')}.png").write_bytes(png)
                   if case == "DWELL":
                       passed = passed and hidden_credit_evidence
+                  if case == "OUTWARD":
+                      observation["changes"] = outward_changes(result)
+                      passed = passed and not observation["changes"]
                   observation["accepted"] = passed
                   ok = ok and passed
                   observations.append(observation)
@@ -164,12 +227,16 @@ jobs:
               (out / "candidate.json").write_text(json.dumps(evidence, indent=2) + "\n")
               assert ok, "browser evidence did not meet the expected outcome"
 
-          try:
-              check_candidate()
-          except (AssertionError, KeyError, ValueError, FileNotFoundError) as error:
-              reason = str(error) if isinstance(error, AssertionError) else type(error).__name__
-              (out / "incomplete.txt").write_text(reason + "\n")
-              raise SystemExit(reason)
+          failures = []
+          for check in (check_baseline, check_candidate):
+              try:
+                  check()
+              except (AssertionError, KeyError, ValueError, FileNotFoundError) as error:
+                  reason = str(error) if isinstance(error, AssertionError) else type(error).__name__
+                  failures.append(f"{check.__name__}: {reason}")
+          if failures:
+              (out / "incomplete.txt").write_text("\n".join(failures) + "\n")
+              raise SystemExit("\n".join(failures))
           PY
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
@@ -178,11 +245,12 @@ jobs:
           path: ${{ runner.temp }}/canvas-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the identified baseline build
+      - name: Require the identified baseline build and a failing regression run
         if: ${{ !cancelled() }}
         env:
           BASELINE: ${{ steps.base_artifact.outcome }}
-        run: test "$BASELINE" = success
+          BASELINE_REGRESSION: ${{ steps.baseline_regression.outcome }}
+        run: test "$BASELINE" = success && test "$BASELINE_REGRESSION" = success
       - name: Prepare the same-runner performance comparison
         id: prepare_perf
         if: ${{ !cancelled() && steps.product_artifact.outcome == 'success' }}
