@@ -431,6 +431,8 @@ export function sceneVocabularyCueLimit(viewportWidth: number): number {
   return viewportWidth <= 700 ? 2 : 3;
 }
 
+export const COMPACT_PORTAL_CUE_SIZE = 40;
+
 /**
  * Converts authored portal rectangles to the screen-space footprint of their
  * always-visible gold button. The caption is transient and overlays the word
@@ -444,7 +446,7 @@ export function portalCueProtectedRegion(
   // Desktop keeps the generous 44px button plus its progress halo. Compact
   // scenes use the 32px control defined by the mobile stylesheet, leaving
   // dense branch overviews enough real vocabulary space without overlap.
-  const cueSize = viewport.compact ? 40 : 58;
+  const cueSize = viewport.compact ? COMPACT_PORTAL_CUE_SIZE : 58;
   const cueHalf = cueSize / 2;
   if (
     centerX < -cueHalf

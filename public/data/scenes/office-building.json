@@ -7,6 +7,7 @@
   "width": 1600,
   "height": 900,
   "parentId": "urban-services",
+  "portraitOverviewLabelIds": ["reception-counter", "monitor", "glass-wall", "refrigerator", "server-rack"],
   "labels": [
     {
       "id": "directory-wall",

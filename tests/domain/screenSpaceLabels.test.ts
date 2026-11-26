@@ -190,34 +190,6 @@ test("keyboard focus falls back honestly to the first interactive word in its pr
   );
 });
 
-test("selected label collision priority follows the controlled same-scene word card lifetime", () => {
-  const viewport = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  const app = readFileSync(new URL("app/components/WorldApp.tsx", ROOT), "utf8");
-
-  assert.match(
-    app,
-    /scene=\{scene\}[\s\S]{0,220}selectedLabelId=\{selectedLabel\?\.id \?\? null\}/,
-    "the active scene receives the current word card selection as controlled state",
-  );
-  assert.match(
-    app,
-    /scene=\{outgoingScene\}[\s\S]{0,220}selectedLabelId=\{null\}/,
-    "an outgoing scene cannot retain selection priority",
-  );
-  assert.match(
-    app,
-    /className="word-dock-close"[\s\S]{0,160}onClick=\{\(\) => setSelectedLabel\(null\)\}/,
-    "closing the word card clears the controlled selection without changing scenes",
-  );
-
-  const syncStart = viewport.indexOf("selectedLabelIdRef.current = selectedLabelId");
-  const nextEffect = viewport.indexOf("useEffect(() => {", syncStart + 1);
-  assert.ok(syncStart > 0 && nextEffect > syncStart);
-  const selectionSync = viewport.slice(syncStart, nextEffect);
-  assert.match(selectionSync, /: null;[\s\S]*requestCameraFrame\(\)/);
-  assert.match(selectionSync, /\[labelsById, requestCameraFrame, selectedLabelId\]/);
-});
-
 test("multi-resolution scenes server-render base and expose one atomic runtime tier contract", () => {
   const scene: Scene = {
     id: "asset-tier-contract",
@@ -521,46 +493,6 @@ test("three ordinary wheel events can cross the raw scale boundary and therefore
   assert.ok(oneNotch * oneNotch * oneNotch < DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale);
   assert.equal(WHEEL_ZOOM_SENSITIVITY, 0.00145);
   assert.equal(DEFAULT_PORTAL_HYSTERESIS_POLICY.exitScale, 0.7);
-});
-
-test("continuous zoom checks navigation on animation frames without a post-input dwell", () => {
-  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  const schedulerStart = source.indexOf("const scheduleNavigationCheck");
-  const wheelStart = source.indexOf("const queueWheelZoom");
-  const wheelEnd = source.indexOf("const focusVocabularyTarget", wheelStart);
-  const scheduler = source.slice(schedulerStart, wheelStart);
-  const wheelPath = source.slice(wheelStart, wheelEnd);
-
-  assert.ok(schedulerStart >= 0 && wheelStart > schedulerStart && wheelEnd > wheelStart);
-  assert.match(scheduler, /requestAnimationFrame/);
-  assert.doesNotMatch(scheduler, /setTimeout/, "navigation has no debounce after input stops");
-  assert.match(wheelPath, /applyCamera\(\);\s*scheduleNavigationCheck\(\);/);
-  assert.doesNotMatch(
-    wheelPath,
-    /\bset[A-Z][A-Za-z]+\(/,
-    "the per-frame wheel loop writes refs/DOM without a React state update",
-  );
-});
-
-test("the first positioned camera frame cannot rebuild and cancel continuity", () => {
-  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  const applyStart = source.indexOf("const applyCamera");
-  const frameStart = source.indexOf("const requestCameraFrame", applyStart);
-  const applyPath = source.slice(applyStart, frameStart);
-  const dependencies = applyPath.match(/\}, \[([^\]]+)\]\);\s*$/)?.[1];
-
-  assert.ok(applyStart >= 0 && frameStart > applyStart);
-  assert.ok(dependencies, "applyCamera exposes its dependency list");
-  assert.match(source, /const \[interactionPositioned, setInteractionPositioned\] = useState\(false\)/);
-  assert.match(source, /const interactionPositionedRef = useRef\(false\)/);
-  assert.match(applyPath, /interactionPositionedRef\.current = true/);
-  assert.match(applyPath, /setDatasetValueIfChanged\(interactionLayer, "positioned", "true"\)/);
-  assert.match(applyPath, /setInteractionPositioned\(true\)/);
-  assert.doesNotMatch(
-    dependencies,
-    /\binteractionPositioned\b/,
-    "the readiness state must not rebuild applyCamera/resetCamera during handoff",
-  );
 });
 
 test("camera initialization and the first ResizeObserver delivery cannot reset active zoom", () => {

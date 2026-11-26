@@ -1,4 +1,5 @@
 import { expect, test, type Locator, type Page, type TestInfo } from "@playwright/test";
+import { clickPaintedWord, paintedWordState } from "./canvas-words";
 import { checkMagnifiedObject, checkPaintedWords, magnify, openPhotographedRoute, pinch, projectPhoto, zoomBack, type PhotographedWord } from "./photo-journey";
 
 const room = "conference-room";
@@ -374,6 +375,8 @@ test("phone can switch between the photographed rack and its light with a word c
 });
 
 test("returning to the office restores the atrium photograph and its own object labels", async ({ page, isMobile }, testInfo) => {
+  const pageErrors: string[] = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
   const office = "office-building";
   const officeAsset = "/scenes/office-atrium-premium-v1.jpg";
   if (!isMobile) await page.setViewportSize({ width: 1125, height: 610 });
@@ -424,6 +427,48 @@ test("returning to the office restores the atrium photograph and its own object 
   await expect.poll(paintedIds).not.toHaveLength(0);
   const returnedIds = await paintedIds();
   await shot("office-atrium-return");
+  if (isMobile) {
+    const framing = await image.evaluate(img => {
+      const stage = img.closest(".world-viewport")!;
+      const frame = stage.getBoundingClientRect();
+      const photo = img.getBoundingClientRect();
+      const entrances = [...stage.querySelectorAll<HTMLElement>("[data-testid='scene-hotspot']")].map(button => {
+        const box = button.getBoundingClientRect();
+        const hit = document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2);
+        return {
+          target: button.dataset.targetScene,
+          fullyVisible: box.left >= frame.left && box.right <= frame.right && box.top >= frame.top && box.bottom <= frame.bottom,
+          tappable: button.contains(hit),
+        };
+      });
+      return { entryWidthRatio: photo.width / frame.width, entrances };
+    });
+    await testInfo.attach("office-portrait-framing", { body: JSON.stringify(framing), contentType: "application/json" });
+    expect(framing.entryWidthRatio, "the returned atrium gives its objects a closer view than the complete photograph").toBeGreaterThan(1.15);
+    expect(framing.entrances.filter(e => e.fullyVisible && e.tappable).map(e => e.target).sort()).toEqual([
+      "conference-room", "office-break-room", "office-reception-lobby", "open-plan-workstation", "service-core",
+    ]);
+    expect(returnedIds, "both landmarks are painted together in the returned overview")
+      .toEqual(expect.arrayContaining(["reception-counter", "monitor"]));
+    for (const [id, word, meaning, x, y] of [
+      ["reception-counter", "reception counter", "接待柜台", 335, 672],
+      ["monitor", "monitor", "显示器", 473, 497],
+    ] as const) {
+      expect((await projectPhoto(image, x, y)).visible, "the reception counter and monitor remain on screen").toBe(true);
+      // Closing the previous card releases its reserved space on the next canvas frame.
+      await expect.poll(() => paintedWordState(page, id), { message: `${word} is ready for a direct tap` })
+        .toMatchObject({ interactive: true });
+      await clickPaintedWord(page, id, "touch");
+      const card = page.getByRole("complementary", { name: `${word} word details`, exact: true });
+      await expect(card.locator("p").first()).toHaveText(meaning);
+      await card.getByRole("button", { name: "关闭单词卡" }).tap();
+      await expect(card).toBeHidden();
+    }
+    await viewer.locator('[data-testid="scene-hotspot"][data-target-scene="office-reception-lobby"]').tap();
+    await settled("office-reception-lobby", "/scenes/office-reception-lobby-premium-v1.jpg");
+    await back.tap();
+    await settled(office, officeAsset);
+  }
   await activate(minimap.getByRole("button", { name: "收起小地图" }));
 
   await activate(page.getByTestId("scene-word-index-toggle"));
@@ -460,4 +505,10 @@ test("returning to the office restores the atrium photograph and its own object 
   await checkPaintedWords(page, isMobile, testInfo, [
     { word: "monitor", meaning: "显示器", outlines: [[[459, 486], [491, 485], [491, 507], [459, 508]]] },
   ], sha256);
+  if (isMobile) {
+    await viewer.getByRole("button", { name: "Fit scene", exact: true }).tap();
+    await (await image.elementHandle()).waitForElementState("stable");
+    expect((await projectPhoto(image, 335, 672)).crop, "Fit restores all four edges of the atrium photograph").toBeLessThanOrEqual(1);
+  }
+  expect(pageErrors, "the office round trip finishes without a browser error").toEqual([]);
 });

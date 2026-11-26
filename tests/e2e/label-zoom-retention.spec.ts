@@ -453,17 +453,21 @@ test("zooming back out in the apartment keeps readable words in their clear slot
   await expect(app).toHaveAttribute("data-scene-id", "apartment");
   expect(await scale()).toBeCloseTo(initial.scale, 2);
   const frames = await stopLabelZoomTrace(page);
-  const failures: string[] = [];
+  const changes: Array<{ word: string; frameIndex: number; shiftPx: number | null }> = [];
+  const clearFrameCounts: Record<string, number> = {};
   for (const object of objects) {
-    let clearFrames = 0;
+    clearFrameCounts[object.id] = 0;
     for (let i = 1; i < frames.length; i += 1) {
       const frame = frames[i];
       const previous = frames[i - 1];
-      if (frame.motionFrozen || previous.motionFrozen || frame.scale >= previous.scale) continue;
+      if (frame.motionFrozen || previous.motionFrozen || frame.camera.scale >= previous.camera.scale) continue;
       const old = previous.labels.find(({ id }) => id === object.id);
       if (!old?.interactive || old.opacity < 0.52) continue;
-      const anchorX = frame.camera.x + object.x * frame.camera.scale;
-      const anchorY = frame.camera.y + object.y * frame.camera.scale;
+      const current = frame.labels.find(({ id }) => id === object.id);
+      // CSS rounds the photo transform. At an intersection that rounding can
+      // put a leader on the opposite side of its neighbor's actual anchor.
+      const anchorX = current?.anchorX ?? frame.camera.x + object.x * frame.camera.scale;
+      const anchorY = current?.anchorY ?? frame.camera.y + object.y * frame.camera.scale;
       const projected = {
         ...old, anchorX, anchorY,
         centerX: anchorX + (old.centerX - old.anchorX),
@@ -474,20 +478,21 @@ test("zooming back out in the apartment keeps readable words in their clear slot
         ...buildViewerChromeProtectedRegions(frame.viewport.right, frame.viewport.bottom),
       ];
       if (!anchorInsideViewport(projected, frame) || !slotIsClear(projected, frame, controls)) continue;
-      clearFrames += 1;
-      const current = frame.labels.find(({ id }) => id === object.id);
-      const at = `${object.id} ${previous.scale}× → ${frame.scale}×`;
-      if (!current?.interactive || current.opacity < 0.52) {
-        failures.push(`${at} disappeared`);
-      } else {
-        const shift = Math.hypot(current.centerX - projected.centerX, current.centerY - projected.centerY);
-        if (shift > 1) failures.push(`${at} shifted ${shift.toFixed(1)} CSS px`);
-      }
+      clearFrameCounts[object.id] += 1;
+      const shiftPx = current?.interactive && current.opacity >= 0.52
+        ? Math.hypot(current.centerX - projected.centerX, current.centerY - projected.centerY)
+        : null;
+      if (shiftPx === null || shiftPx > 1) changes.push({ word: object.id, frameIndex: i, shiftPx });
     }
-    expect(clearFrames, `${object.id} must have usable positions during zoom-out`).toBeGreaterThan(1);
   }
-  await testInfo.attach("apartment-outward-slot-changes", { body: JSON.stringify(failures), contentType: "application/json" });
-  expect.soft(failures, "readable words must stay in their clear object-relative slots").toEqual([]);
+  await testInfo.attach("apartment-outward-slot-changes", {
+    body: JSON.stringify({ clearFrameCounts, changes, frames }),
+    contentType: "application/json",
+  });
+  for (const object of objects) {
+    expect(clearFrameCounts[object.id], `${object.id} must have usable positions during zoom-out`).toBeGreaterThan(1);
+  }
+  expect.soft(changes, "readable words must stay in their clear object-relative slots").toEqual([]);
 
   await page.getByRole("button", { name: "Fit scene", exact: true }).click();
   await waitForCameraSettled(page);

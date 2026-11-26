@@ -16,6 +16,7 @@ import {
   advanceLabelDwell,
   createSceneAssetLoadState,
   buildPortalCueProtectedRegions,
+  COMPACT_PORTAL_CUE_SIZE,
   portalCueProtectedRegion,
   buildSceneLabelMountWindow,
   buildVocabularyCueRevealStateFromSummary,
@@ -264,11 +265,31 @@ export function fullyFittedSceneCamera(sceneSize: FrameSize, viewportSize: Frame
 function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
   return (scene.id === "apartment" || scene.parentId === "apartment"
     || scene.id === "baggage-drop-station" || scene.id === "radiology-suite"
-    || scene.id === "conference-room" || scene.id === "video-conferencing-console")
+    || scene.id === "office-building" || scene.id === "conference-room" || scene.id === "video-conferencing-console")
     && viewport.width <= 560 && viewport.height > viewport.width;
 }
 
 export function sceneEntryCamera(scene: Scene, viewport: FrameSize): SceneViewportCamera {
+  if (scene.id === "office-building" && usesPortraitPhotoBounds(scene, viewport)) {
+    // Frame the row of entrances from reception to the service core. The
+    // first and last buttons need a full touch target inside the photograph.
+    const centers = scene.portals.map(portal => portal.x + portal.width / 2);
+    const left = Math.min(...centers);
+    const right = Math.max(...centers);
+    const full = fullyFittedSceneCamera(scene, viewport);
+    if (right > left) {
+      const effectiveScale = Math.min(
+        (viewport.width - COMPACT_PORTAL_CUE_SIZE) / (right - left),
+        viewport.height / scene.height,
+      );
+      if (effectiveScale > full.fit) {
+        const camera = centeredSceneCamera(scene, viewport, effectiveScale / full.fit);
+        const x = (viewport.width - (left + right) * effectiveScale) / 2;
+        return { ...camera, x: Math.max(viewport.width - scene.width * effectiveScale, Math.min(0, x)) };
+      }
+    }
+    return full;
+  }
   // The apartment is a floor plan: keep all four rooms in view. Inside a
   // room, show more of the furnishings while leaving space for the map and controls.
   if ((scene.parentId === "apartment" || scene.id === "conference-room") && usesPortraitPhotoBounds(scene, viewport)) {
@@ -665,12 +686,24 @@ function distance(a: Point, b: Point): number {
   return Math.hypot(a.x - b.x, a.y - b.y);
 }
 
+function cameraAnimationProgress(frameTime: number, startedAt: number, duration: number): number {
+  // A callback can receive the start time of a frame already in progress
+  // when the gesture started. Keep that frame at the starting camera.
+  return Math.max(0, Math.min(1, (frameTime - startedAt) / duration));
+}
+
 function sceneLodLevel(scale: number): 0 | 1 | 2 | 3 | 4 {
   if (scale < 0.82) return 0;
   if (scale < 1.2) return 1;
   if (scale < 1.65) return 2;
   if (scale < 2.3) return 3;
   return 4;
+}
+
+function portraitOverviewLabelIds(scene: Scene, viewport: FrameSize, scale: number) {
+  if (scene.portraitOverviewLabelIds && usesPortraitPhotoBounds(scene, viewport) && sceneLodLevel(scale) <= 2) {
+    return getScenePresentation(scene).portraitOverviewLabelIds;
+  }
 }
 
 function portalAtScreenPoint(portals: readonly ScenePortal[], camera: Camera, point: Point): ScenePortal | undefined {
@@ -695,6 +728,7 @@ function initialSceneLabelMountWindow(scene: Scene, meaningVisible: boolean, sel
   const camera = sceneEntryCamera(scene, viewport);
   const layout = computeScenePlacements(scene.labels, camera, viewport, meaningVisible, {
     photoSize: usesPortraitPhotoBounds(scene, viewport) ? scene : undefined,
+    priorityLabelIds: portraitOverviewLabelIds(scene, viewport, camera.scale),
     selectedLabelId,
     protectedRegions: [
       ...buildViewerChromeProtectedRegions(viewport.width, viewport.height),
@@ -1450,7 +1484,7 @@ export function SceneViewport({
           ?? selectedLabelIdRef.current,
         priorityLabelIds: activeFocusedDetailZone
           ? new Set(activeFocusedDetailZone.labelIds)
-          : undefined,
+          : portraitOverviewLabelIds(scene, labelViewport, camera.scale),
         preferredOffsets: !labelViewport.compact && !atlasOverviewMode && retainManualZoomSlotsRef.current
           ? labelPlacementOffsetsRef.current
           : undefined,
@@ -2197,7 +2231,7 @@ export function SceneViewport({
     const duration = source === "zoom" ? 90 : readiness === "warm" ? 110 : 130;
     const startedAt = performance.now();
     const animate = (now: number) => {
-      const linear = Math.min(1, (now - startedAt) / duration);
+      const linear = cameraAnimationProgress(now, startedAt, duration);
       const eased = 1 - (1 - linear) ** 3;
       cameraRef.current = {
         fit: start.fit,
@@ -2632,7 +2666,7 @@ export function SceneViewport({
     const startedAt = performance.now();
     const duration = 240;
     const animate = (now: number) => {
-      const linear = Math.min(1, (now - startedAt) / duration);
+      const linear = cameraAnimationProgress(now, startedAt, duration);
       const eased = 1 - (1 - linear) ** 3;
       cameraRef.current = {
         fit: start.fit,
@@ -2740,7 +2774,7 @@ export function SceneViewport({
     const startedAt = performance.now();
     const duration = source === "keyboard" ? 220 : 260;
     const animate = (now: number) => {
-      const progress = Math.min(1, (now - startedAt) / duration);
+      const progress = cameraAnimationProgress(now, startedAt, duration);
       const eased = 1 - (1 - progress) ** 3;
       cameraRef.current = clampCamera({
         fit: start.fit,
@@ -2833,7 +2867,7 @@ export function SceneViewport({
           // immediately reversing scene ownership.
           const duration = continuityView.direction === "back" ? 80 : 60;
           const animate = (now: number) => {
-            const linear = Math.min(1, (now - startedAt) / duration);
+            const linear = cameraAnimationProgress(now, startedAt, duration);
             const eased = 1 - (1 - linear) ** 3;
             cameraRef.current = {
               fit: start.fit + (target.fit - start.fit) * eased,
