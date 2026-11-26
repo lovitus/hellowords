@@ -57,6 +57,50 @@ test("a fresh outward gesture crosses the armed child overview boundary", () => 
   assert.equal(freshGesture.exitRequested, true);
 });
 
+test("an outward gesture can reach the exit on a later sample only if it started armed", () => {
+  const cases = [
+    {
+      name: "second gesture crosses on its third sample and requests exit once",
+      samples: [[0, 0.80], [180, 0.77], [196, 0.73], [212, 0.70], [228, 0.68]],
+      exits: [212],
+    },
+    {
+      name: "one continuous gesture lasts longer than the quiet gap",
+      samples: [[0, 0.81], [100, 0.76], [200, 0.69]],
+      exits: [],
+    },
+    {
+      name: "second gesture stops above the boundary and the third crosses it",
+      samples: [[0, 0.80], [180, 0.78], [196, 0.75], [376, 0.72], [392, 0.69]],
+      exits: [392],
+    },
+    {
+      name: "reversing the second gesture requires a new overview gesture before exit",
+      samples: [[0, 0.80], [180, 0.77], [196, 0.85], [212, 0.76], [228, 0.69], [408, 0.68]],
+      exits: [408],
+    },
+  ] as const;
+
+  for (const { name, samples, exits } of cases) {
+    let state = createParentExitHysteresisState();
+    let previousScale = 1;
+    const exitTimes: number[] = [];
+    for (const [now, scale] of samples) {
+      const result = advanceParentExitHysteresis(state, {
+        now,
+        scale,
+        factor: scale / previousScale,
+        hasParent: true,
+        continuitySettled: true,
+      });
+      if (result.exitRequested) exitTimes.push(now);
+      state = result.state;
+      previousScale = scale;
+    }
+    assert.deepEqual(exitTimes, exits, name);
+  }
+});
+
 test("continuity and inward input clear parent-exit intent", () => {
   const armed = advanceParentExitHysteresis(createParentExitHysteresisState(), {
     now: 0,

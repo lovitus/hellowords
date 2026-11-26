@@ -388,6 +388,45 @@ test("phone can switch between the photographed rack and its light with a word c
   await expect(viewer.locator(".scene-surface")).toHaveAttribute("data-scene-scale", "1.800");
 });
 
+test("a gradual second wheel gesture returns from the conference room to the office photograph", async ({ page, isMobile }, testInfo) => {
+  test.skip(isMobile, "Desktop trackpad gesture");
+  await page.setViewportSize({ width: 1125, height: 610 });
+  await openPhotographedRoute(page, false, roomRoute, roomAsset, roomHash);
+  const app = page.getByTestId("world-app");
+  const viewport = page.locator(".viewer-shell:not([data-phase]) .world-viewport");
+  const surface = viewport.locator(".scene-surface");
+  await expect(surface).toHaveAttribute("data-scene-scale", "1.000");
+  await page.waitForTimeout(220); // Let the entry gesture's wheel guard expire.
+  const box = await viewport.boundingBox();
+  if (!box) throw new Error("Conference room viewport is missing");
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await page.mouse.wheel(0, 154);
+  await expect.poll(async () => Number(await surface.getAttribute("data-scene-scale"))).toBeCloseTo(0.80, 2);
+  await expect(app).toHaveAttribute("data-scene-id", room);
+  await page.waitForTimeout(220); // Lift fingers before the second outward gesture.
+
+  // One device stream, delivered on the page so controller latency cannot
+  // split it into several gestures. Only the later samples cross 0.70×.
+  await viewport.evaluate(element => {
+    const rect = element.getBoundingClientRect();
+    for (let sample = 0; sample < 4; sample++) {
+      element.dispatchEvent(new WheelEvent("wheel", {
+        bubbles: true, cancelable: true, deltaY: 28,
+        clientX: rect.left + rect.width / 2, clientY: rect.top + rect.height / 2,
+      }));
+    }
+  });
+  await expect(app, "a gradual second zoom-out returns to the office building")
+    .toHaveAttribute("data-scene-id", "office-building");
+  await expect(page.getByTestId("scene-interaction-layer")).toHaveAttribute("data-motion-frozen", "false");
+  await expect(viewport.locator("img.scene-art")).toHaveAttribute("src", "/scenes/office-atrium-premium-v1.jpg");
+  await expect.poll(() => paintedWordState(page, "reception-counter")).toMatchObject({ interactive: true });
+  await testInfo.attach("office-after-gradual-return", { body: await page.screenshot(), contentType: "image/png" });
+  await clickPaintedWord(page, "reception-counter");
+  await expect(page.getByRole("complementary", { name: "reception counter word details" })
+    .getByText("接待柜台", { exact: true })).toBeVisible();
+});
+
 test("returning to the office restores the atrium photograph and its own object labels", async ({ page, isMobile }, testInfo) => {
   const pageErrors: string[] = [];
   page.on("pageerror", error => pageErrors.push(error.message));

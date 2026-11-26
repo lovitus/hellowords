@@ -36,9 +36,11 @@ export const DEFAULT_PARENT_EXIT_HYSTERESIS_POLICY: ParentExitHysteresisPolicy =
 };
 
 export interface ParentExitHysteresisState {
-  /** An earlier outward gesture reached the child overview band. */
+  /** Outward input reached the child overview band. */
   readonly armed: boolean;
   readonly lastOutwardInputAt: number | null;
+  /** The boundary was armed before the current outward gesture began. */
+  readonly gestureStartedArmed: boolean;
 }
 
 export interface ParentExitZoomSample {
@@ -57,7 +59,7 @@ export interface ParentExitHysteresisResult {
 }
 
 export function createParentExitHysteresisState(): ParentExitHysteresisState {
-  return { armed: false, lastOutwardInputAt: null };
+  return { armed: false, lastOutwardInputAt: null, gestureStartedArmed: false };
 }
 
 /**
@@ -81,15 +83,16 @@ export function advanceParentExitHysteresis(
 
   const startsFreshGesture = previous.lastOutwardInputAt === null
     || sample.now - previous.lastOutwardInputAt >= policy.gestureGapMs;
-  const exitRequested = previous.armed
-    && startsFreshGesture
-    && sample.scale <= policy.exitScale;
+  const gestureStartedArmed = previous.armed
+    && (startsFreshGesture || previous.gestureStartedArmed);
+  const exitRequested = gestureStartedArmed && sample.scale <= policy.exitScale;
   const armed = !exitRequested && (previous.armed || sample.scale <= policy.armScale);
 
   return {
     state: {
       armed,
       lastOutwardInputAt: sample.now,
+      gestureStartedArmed: gestureStartedArmed && !exitRequested,
     },
     exitRequested,
   };
