@@ -1,9 +1,9 @@
-name: Verify the photographed open-plan workstation
+name: Verify visible-word encounters and warm navigation
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full workstation candidate commit SHA
+        description: Full encounter-timing candidate commit SHA
         required: true
         type: string
 permissions:
@@ -11,16 +11,19 @@ permissions:
   actions: read
 env:
   CI: "true"
-  BASE: abf4eb3b594774db089c4df9eb2e8f0eac025cf1
+  BASE: fa26b2f34781a60eec48b78cf9f8a58999198650
   PRODUCT: ${{ inputs.candidate }}
+  DWELL: apartment words need a fresh readable dwell after the scene word index closes
+  RED_ASSERTION: hidden apartment words must stay unencountered while the empty scene index is open
+  CROP: ordinary scenes hide the progress hint while the canvas counts only the current crop
+  INDEX: the current-scene word index finds and focuses a real label without a scene jump
   WORDS: open-plan workstation labels its photographed mouse, drawer handle and shared printer before returning to the office
   ZOOM: open-plan workstation zoom keeps the printer and chair caster in the room and opens desktop equipment from the keyboard
   ATRIUM: returning to the office restores the atrium photograph and its own object labels
-  CONSOLE: office console keeps the painted microphone, touch screen and video bar on their devices and zooms back to the conference room
 jobs:
-  workstation:
+  encounters:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
         with:
@@ -34,42 +37,49 @@ jobs:
       - run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASE"
-          npm ci
-          ./node_modules/.bin/playwright install --with-deps chromium
+          npm ci > "$RUNNER_TEMP/install.log" 2>&1
+          ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser-install.log" 2>&1
       - uses: actions/download-artifact@v5
+        id: download_baseline
+        continue-on-error: true
         with:
           name: production-dist-${{ env.BASE }}
-          run-id: 45756682147
+          run-id: 45759679904
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/previous
       - name: Verify the baseline artifact before starting its server
+        id: base_artifact
+        if: ${{ steps.download_baseline.outcome == 'success' }}
+        continue-on-error: true
         run: |
           manifest="$RUNNER_TEMP/previous/artifacts/build/dist-manifest.json"
           jq -e --arg sha "$BASE" '.gitSha == $sha and (.files | length > 0)' "$manifest"
           jq -r '.files[] | "\(.sha256)  \(.path)"' "$manifest" > "$RUNNER_TEMP/baseline.sha256"
           (cd "$RUNNER_TEMP/previous/dist" && sha256sum --quiet --check "$RUNNER_TEMP/baseline.sha256")
-      - name: Reproduce the mouse and printer defects on the baseline
+      - name: Observe hidden words counting as encountered on the baseline
         id: baseline
+        if: ${{ steps.base_artifact.outcome == 'success' }}
         continue-on-error: true
         run: |
           mv "$RUNNER_TEMP/previous/dist" dist
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "($WORDS|$ZOOM)$" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/old.log" 2>&1 || code=$?
+          ./node_modules/.bin/playwright test tests/e2e/world.spec.ts --grep "$DWELL$" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/old.log" 2>&1 || code=$?
           mv dist "$RUNNER_TEMP/previous/dist"
           mv artifacts/e2e "$RUNNER_TEMP/old"
           test "$code" -eq 1
-      - name: Check the candidate types, scene data and workstation contracts
+      - name: Check candidate types, scene data and encounter history
         run: |
-          npm run typecheck
+          npm run typecheck > "$RUNNER_TEMP/types.log" 2>&1
           npm run validate:data -- --allow-image-reviewed > "$RUNNER_TEMP/data.log" 2>&1
-          npm exec -- tsx --test tests/domain/openPlanWorkstation.test.ts tests/domain/newFacilityScenes.test.ts
+          npm exec -- tsx --test tests/domain/discovery.test.ts tests/domain/labelLayout.test.ts > "$RUNNER_TEMP/domain.log" 2>&1
       - name: Build and record the candidate
         run: |
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
-          GITHUB_SHA="$PRODUCT" npm run analyze:build
+          GITHUB_SHA="$PRODUCT" npm run analyze:build > "$RUNNER_TEMP/manifest.log" 2>&1
           jq -e --arg sha "$PRODUCT" '.gitSha == $sha' artifacts/build/dist-manifest.json
-          npm run test:ssr
+          npm run test:ssr > "$RUNNER_TEMP/ssr.log" 2>&1
       - uses: actions/upload-artifact@v5
+        id: product_artifact
         with:
           name: production-dist-${{ env.PRODUCT }}
           path: |
@@ -78,34 +88,26 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Exercise workstation words, zoom, office return and conference conversation
+      - name: Exercise encounter timing, the word index and the return to the office
         run: |
           code=0
-          ./node_modules/.bin/playwright test tests/e2e/office-conference.spec.ts --grep "($WORDS|$ZOOM|$ATRIUM|$CONSOLE)$" --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/new.log" 2>&1 || code=$?
+          ./node_modules/.bin/playwright test tests/e2e/{world,label-zoom-retention,office-conference}.spec.ts --grep "($DWELL|$CROP|$INDEX|$WORDS|$ZOOM|$ATRIUM)$" \
+            --project=chromium --project=mobile-chromium --retries=0 > "$RUNNER_TEMP/new.log" 2>&1 || code=$?
           mv artifacts/e2e "$RUNNER_TEMP/new"
           exit "$code"
       - name: Check each browser result and retain only the relevant evidence
         if: ${{ !cancelled() }}
         run: |
           python - <<'PY'
-          import base64, json, math, os
+          import base64, json, os
           from pathlib import Path
 
           temp = Path(os.environ["RUNNER_TEMP"])
-          out = temp / "workstation-evidence"
+          out = temp / "encounter-evidence"
           out.mkdir()
-          titles = {os.environ[k]: k for k in ("WORDS", "ZOOM", "ATRIUM", "CONSOLE")}
-          errors = {
-              "WORDS": "left mouse leader ends on the mouse body above its pad",
-              "ZOOM": "magnifying the photographed shared printer must leave open-plan-workstation open",
-          }
-          workstation = "open-plan-workstation"
-          equipment = "desktop-workstation-equipment"
-          photo_hash = "9acbbe66dd5fb56faa58562c07219f723bb39d12d535648fa7be6e3abcd7f1df"
-          words = ["Open-plan-left-mouse", "Open-plan-center-drawer-handle", "Shared-open-plan-printer"]
-          gestures = [("shared printer", 543, 447, workstation), ("chair caster", 682, 743, workstation),
-                      ("center keyboard", 853, 487, equipment)]
+          titles = {os.environ[k]: k for k in ("DWELL", "CROP", "INDEX", "WORDS", "ZOOM", "ATRIUM")}
           projects = ("chromium", "mobile-chromium")
+          screenshots = {"Open-plan-left-mouse-painted-card", "center keyboard-end", "office-atrium-return"}
 
           def cases(suite):
               for spec in suite.get("specs", []):
@@ -116,70 +118,54 @@ jobs:
 
           def check_build(build):
               old = build == "old"
-              selected = errors if old else titles.values()
+              selected = ["DWELL"] if old else titles.values()
               expected = {(case, project) for case in selected for project in projects}
               report = json.loads((temp / build / "results.json").read_text())
               stats = report["stats"]
-              count = len(expected)
               observations = []
+              ok = not report["errors"]
               for case, test in cases(report):
                   project = test["projectName"]
-                  assert (case, project) in expected, f"{build}: missing, extra or repeated test"
+                  if (case, project) not in expected:
+                      ok = False
+                      continue
                   expected.remove((case, project))
-                  result, = test["results"]
-                  attachments = {a["name"]: a for a in result["attachments"]}
-                  screenshots = {
-                      "WORDS": [f"{w}-{suffix}" for w in words for suffix in ("view", "painted-card")],
-                      "ZOOM": [f"{g[0]}-end" for g in gestures],
-                      "ATRIUM": ["office-atrium-return", "office-camera-lens-card"],
-                      "CONSOLE": ["console-conversation", "conference-room-return"],
-                  }[case]
-
-                  def body(name, kind):
-                      a = attachments[name]
-                      assert a["contentType"] == kind, name
-                      return base64.b64decode(a["body"], validate=True)
-
-                  for name in screenshots:
-                      if name not in attachments:
-                          continue
-                      png = body(name, "image/png")
-                      assert png.startswith(b"\x89PNG\r\n\x1a\n"), name
-                      (out / f"{build}-{project}-{name.replace(' ', '-')}.png").write_bytes(png)
-
-                  assert test["expectedStatus"] == "passed" and result["retry"] == 0, (build, case, project)
-                  assert result["status"] == ("failed" if old else "passed"), (build, case, project)
-                  observation = {"case": case, "project": project, "status": result["status"]}
+                  results = test["results"]
+                  result = results[0] if results else {}
+                  passed = (test["expectedStatus"] == "passed" and len(results) == 1 and result.get("retry") == 0
+                            and result.get("status") == ("failed" if old else "passed"))
+                  observation = {"case": case, "project": project, "status": result.get("status")}
+                  hidden_credit_evidence = False
+                  for a in result.get("attachments", []):
+                      name = a["name"]
+                      if case == "DWELL" and name == "index-hidden-encounters" and a["contentType"] == "application/json":
+                          counts = json.loads(base64.b64decode(a["body"], validate=True))
+                          prior, fresh, credited = (counts[k] for k in ("previouslySeen", "fresh", "hiddenCredits"))
+                          if all(isinstance(ids, list) and all(isinstance(i, str) for i in ids) for ids in (prior, fresh, credited)):
+                              observation["previouslySeen"] = len(prior)
+                              observation["unseenBeforeOpening"] = len(fresh)
+                              observation["creditedWhileHidden"] = len(credited)
+                              hidden_credit_evidence = bool(fresh) and set(credited) <= set(fresh) and bool(credited) == old
+                      if name in screenshots and a.get("contentType") == "image/png" and "body" in a:
+                          png = base64.b64decode(a["body"], validate=True)
+                          assert png.startswith(b"\x89PNG\r\n\x1a\n"), "invalid screenshot"
+                          (out / f"{build}-{project}-{name.replace(' ', '-')}.png").write_bytes(png)
                   if old:
-                      assert errors[case] in result["error"]["message"], (build, case, project)
-                      observation["assertion"] = errors[case]
-                  if case == "WORDS":
-                      anchors = []
-                      for word in (words[:1] if old else words):
-                          anchor = json.loads(body(f"{word}-geometry", "application/json"))
-                          assert anchor["sha256"] == photo_hash and anchor["inside"] is (not old), word
-                          assert all(math.isfinite(anchor[k]) for k in ("x", "y")), word
-                          anchors.append({"word": word, **{k: anchor[k] for k in ("x", "y", "inside")}})
-                          assert (f"{word}-view" if old else f"{word}-painted-card") in attachments, word
-                      observation.update(photoSha256=photo_hash, anchors=anchors)
-                  elif case == "ZOOM":
-                      observed = []
-                      for name, x, y, destination in (gestures[:1] if old else gestures):
-                          g = json.loads(body(f"{name}-gesture", "application/json"))
-                          assert (g["x"], g["y"], g["scene"]) == (x, y, equipment if old else destination), name
-                          assert math.isfinite(g["scale"]), name
-                          observed.append({"object": name, **{k: g[k] for k in ("x", "y", "scene", "scale")}})
-                          assert f"{name}-end" in attachments, name
-                      observation["gestures"] = observed
-                  else:
-                      assert all(name in attachments for name in screenshots), (build, case, project)
+                      matched = os.environ["RED_ASSERTION"] in result.get("error", {}).get("message", "")
+                      observation["matchedHiddenWordAssertion"] = matched
+                      passed = passed and matched
+                  if case == "DWELL":
+                      passed = passed and hidden_credit_evidence
+                  observation["accepted"] = passed
+                  ok = ok and passed
                   observations.append(observation)
-              assert not expected, f"{build}: incomplete browser coverage"
-              assert not report["errors"] and stats["flaky"] == stats["skipped"] == 0, build
-              assert stats["unexpected"] == (count if old else 0), build
-              assert stats["expected"] == (0 if old else count), build
-              evidence = {"commit": os.environ["BASE" if old else "PRODUCT"], "results": observations}
+              count = len(selected) * len(projects)
+              ok = (ok and not expected and stats["flaky"] == stats["skipped"] == 0
+                    and stats["unexpected"] == (count if old else 0) and stats["expected"] == (0 if old else count))
+              evidence = {"commit": os.environ["BASE" if old else "PRODUCT"], "accepted": ok,
+                          "missing": sorted(expected), "results": observations}
               (out / f"{build}.json").write_text(json.dumps(evidence, indent=2) + "\n")
+              assert ok, "browser evidence did not meet the expected outcome"
 
           failures = []
           for build in ("old", "new"):
@@ -196,8 +182,8 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: workstation-evidence-${{ env.PRODUCT }}
-          path: ${{ runner.temp }}/workstation-evidence
+          name: encounter-evidence-${{ env.PRODUCT }}
+          path: ${{ runner.temp }}/encounter-evidence
           if-no-files-found: error
           retention-days: 7
       - name: Require the observed regression
@@ -205,3 +191,65 @@ jobs:
         env:
           BASELINE: ${{ steps.baseline.outcome }}
         run: test "$BASELINE" = success
+      - name: Prepare the same-runner performance comparison
+        id: prepare_perf
+        if: ${{ !cancelled() && steps.product_artifact.outcome == 'success' }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/performance"
+          mv dist "$RUNNER_TEMP/candidate-dist"
+          cat > "$RUNNER_TEMP/measure.sh" <<'SH'
+          set -euo pipefail
+          build=$1
+          sha=$2
+          artifact=$3
+          out="$RUNNER_TEMP/performance/$build.json"
+          jq -n --arg sha "$sha" '{sha:$sha,complete:false}' > "$out"
+          test ! -e dist
+          mv "$artifact" dist
+          trap 'mv dist "$artifact"' EXIT
+          rc=0
+          PERF_RUN=1 PERF_SCENE_CYCLES=20 PERF_SOURCE_SHA="$sha" GITHUB_STEP_SUMMARY="$RUNNER_TEMP/$build-perf.md" \
+            npm run test:perf -- --grep 'scene slices stay within CPU and memory budgets' --retries=0 > "$RUNNER_TEMP/$build-perf.log" 2>&1 || rc=$?
+          mv artifacts/perf "$RUNNER_TEMP/$build-perf"
+          jq -e --arg sha "$sha" --argjson rc "$rc" '
+            def metric($name; $value; $limit):
+              {name:$name, value:$value, limit:$limit,
+               passed:(($value|type) == "number" and ($limit|type) == "number" and $value <= $limit)};
+            select(.gitSha == $sha and .scenario.cycles == 20 and .result.transitions == 40) |
+            .budgets as $b |
+            {sha:.gitSha,transitions:.result.transitions,testExit:$rc,complete:true,checks:[
+              metric("coldLcpMs";.cold.lcpMs;$b.coldLcpMs),
+              metric("visualTransitionP95Ms";.visualTransitionP95Ms;$b.warmTransitionP95Ms),
+              metric("browserCpuMsPerTransition";.result.browserCpuMsPerTransition;$b.browserCpuMsPerTransition),
+              metric("rendererTaskMsPerTransition";.result.rendererTaskMsPerTransition;$b.rendererTaskMsPerTransition),
+              metric("peakJsHeapUsedMiB";.result.memory.peakJsHeapUsedMiB;$b.peakJsHeapMiB),
+              metric("coldPeakPssMiB";.cold.memory.peakPssMiB;$b.peakPssMiB),
+              metric("peakPssMiB";.result.memory.peakPssMiB;$b.peakPssMiB),
+              metric("retainedPssDeltaMiB";.result.memory.pssDeltaMiB;$b.retainedPssDeltaMiB),
+              metric("liveDomNodes";.liveDomNodes;$b.peakDomNodes),
+              metric("longTasksOver50Ms";([.browserState.longTasks[]|select(. > 50)]|length);2)
+            ]} | .failed = [.checks[] | select(.passed|not) | .name]' \
+            "$RUNNER_TEMP/$build-perf/summary.json" > "$RUNNER_TEMP/$build-metrics.json"
+          mv "$RUNNER_TEMP/$build-metrics.json" "$out"
+          jq -r '.checks[] | "\(.name) = \(.value), limit \(.limit), passed \(.passed)"' "$out"
+          # The old build is a comparison. Its measured budget failures are retained.
+          if [[ "$build" == old ]]; then
+            jq -e 'all(.checks[]; (.value|type) == "number" and (.limit|type) == "number") and
+              .testExit == (if (.failed|length) == 0 then 0 else 1 end)' "$out"
+          else
+            jq -e '.testExit == 0 and (.failed|length) == 0' "$out"
+          fi
+          SH
+      - name: Record all baseline budgets over forty transitions
+        if: ${{ !cancelled() && steps.prepare_perf.outcome == 'success' && steps.base_artifact.outcome == 'success' }}
+        run: bash "$RUNNER_TEMP/measure.sh" old "$BASE" "$RUNNER_TEMP/previous/dist"
+      - name: Enforce all candidate budgets over forty transitions
+        if: ${{ !cancelled() && steps.prepare_perf.outcome == 'success' }}
+        run: bash "$RUNNER_TEMP/measure.sh" new "$PRODUCT" "$RUNNER_TEMP/candidate-dist"
+      - uses: actions/upload-artifact@v5
+        if: ${{ !cancelled() && steps.prepare_perf.outcome == 'success' }}
+        with:
+          name: navigation-performance-${{ env.PRODUCT }}
+          path: ${{ runner.temp }}/performance
+          if-no-files-found: error
+          retention-days: 7
