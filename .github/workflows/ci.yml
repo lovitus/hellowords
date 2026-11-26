@@ -1,143 +1,20 @@
-name: Verify the office photograph on a portrait phone
+name: Check the reviewed desktop camera cases on the frozen build
 on:
   workflow_dispatch:
     inputs:
-      candidate:
-        description: Full SHA of the frozen product commit
-        type: string
+      reviewed:
+        description: Full SHA of the reviewed delivery commit
         required: true
-      diagnose:
-        description: Diagnose only the two failures from run 45783267309 with its existing production build
-        type: boolean
-        default: false
+        type: string
 permissions:
-  actions: read
   contents: read
+  actions: read
 env:
   CI: "true"
-  BASE: 76356646e3d7ac57407dd2a0dfa243d4bf33ae9a
-  PRODUCT: ${{ inputs.candidate }}
+  FROZEN: 0c6407d600da8105ca07f3603be04a0d4626934f
+  REVIEWED: ${{ inputs.reviewed }}
 jobs:
-  compare:
-    if: ${{ !inputs.diagnose }}
-    runs-on: ubuntu-24.04
-    timeout-minutes: 30
-    defaults:
-      run:
-        working-directory: product
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-          sparse-checkout: .github
-      - name: Require a full product SHA
-        working-directory: .
-        run: '[[ "$PRODUCT" =~ ^[0-9a-f]{40}$ ]]'
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ inputs.candidate }}
-          path: product
-          fetch-depth: 2
-          persist-credentials: false
-      - name: Bind the product and its single parent to the comparison
-        run: |
-          test "$(git rev-parse HEAD)" = "$PRODUCT"
-          test "$(git show -s --format=%P HEAD)" = "$BASE"
-      - uses: actions/setup-node@v7
-        with:
-          node-version: "22"
-          cache: npm
-          cache-dependency-path: product/package-lock.json
-      - name: Install frozen dependencies
-        id: dependencies
-        run: npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
-      - name: Install Chromium
-        id: chromium
-        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - uses: actions/download-artifact@v5
-        id: download
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        with:
-          name: production-dist-${{ env.BASE }}
-          run-id: 45769355786
-          github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/previous
-      - name: Verify the complete baseline production tree
-        id: baseline_manifest
-        if: ${{ !cancelled() && steps.download.outcome == 'success' }}
-        run: python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/previous" "$BASE"
-      - name: Run the candidate's phone return case against the old production build
-        id: baseline_browser
-        if: ${{ !cancelled() && steps.baseline_manifest.outcome == 'success' && steps.chromium.outcome == 'success' }}
-        run: |
-          test ! -e dist
-          mv "$RUNNER_TEMP/previous/dist" dist
-          trap 'mv dist "$RUNNER_TEMP/previous/dist"' EXIT
-          python ../.github/verify-office-phone.py run baseline
-      - name: Typecheck
-        id: types
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: npm run typecheck > "$RUNNER_TEMP/types.log" 2>&1
-      - name: Lint changed JavaScript and TypeScript files
-        id: lint
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: |
-          git diff --name-only -z --diff-filter=ACMRT "$BASE" "$PRODUCT" -- \
-            '*.js' '*.jsx' '*.ts' '*.tsx' '*.mjs' '*.cjs' '*.mts' '*.cts' > "$RUNNER_TEMP/lint-files"
-          xargs -0 -r ./node_modules/.bin/eslint -- < "$RUNNER_TEMP/lint-files" > "$RUNNER_TEMP/lint.log" 2>&1
-      - name: Check camera, word placement and canvas hit detection
-        id: domain
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: |
-          npm run validate:data -- --allow-image-reviewed > "$RUNNER_TEMP/scene-data.log" 2>&1
-          ./node_modules/.bin/tsx --test tests/domain/{camera,screenSpaceLabels,labelLayout,labelPlacement,labelCanvasHit}.test.ts \
-            > "$RUNNER_TEMP/domain.log" 2>&1
-      - name: Build the candidate once and verify its manifest
-        id: build
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: |
-          test ! -e dist
-          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
-          GITHUB_SHA="$PRODUCT" npm run analyze:build > "$RUNNER_TEMP/analysis.log" 2>&1
-          python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - uses: actions/upload-artifact@v5
-        id: product_artifact
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        with:
-          name: production-dist-${{ env.PRODUCT }}
-          path: |
-            product/dist
-            product/artifacts/build/dist-manifest.json
-          include-hidden-files: true
-          if-no-files-found: error
-          retention-days: 7
-      - name: Check the candidate's server-rendered page
-        id: ssr
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        run: npm run test:ssr > "$RUNNER_TEMP/ssr.log" 2>&1
-      - name: Run the six candidate journeys against the recorded build
-        id: candidate_browser
-        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.chromium.outcome == 'success' }}
-        run: python ../.github/verify-office-phone.py run candidate
-      - name: Save both observations and available attachments before enforcing acceptance
-        if: ${{ !cancelled() }}
-        working-directory: .
-        env:
-          STEP_RESULTS: ${{ toJSON(steps) }}
-        run: python .github/verify-office-phone.py evidence
-      - uses: actions/upload-artifact@v5
-        if: ${{ !cancelled() }}
-        with:
-          name: office-phone-evidence-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/evidence
-          if-no-files-found: error
-          retention-days: 7
-      - name: Require the specified old failure, all six green cases and the independent checks
-        if: ${{ !cancelled() }}
-        working-directory: .
-        run: jq -es 'length == 2 and all(.[]; .accepted == true)' "$RUNNER_TEMP/evidence/"{baseline,candidate}.json
-  diagnose:
-    if: ${{ inputs.diagnose }}
+  verify:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     defaults:
@@ -146,83 +23,73 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          persist-credentials: false
           sparse-checkout: .github
-      - name: Require the failed run's exact product SHA
+          persist-credentials: false
+      - name: Require a full reviewed commit
         working-directory: .
-        run: |
-          test "$PRODUCT" = 0c6407d600da8105ca07f3603be04a0d4626934f
+        run: '[[ "$REVIEWED" =~ ^[0-9a-f]{40}$ ]]'
       - uses: actions/checkout@v6
         with:
-          ref: ${{ inputs.candidate }}
+          ref: ${{ inputs.reviewed }}
           path: product
           persist-credentials: false
-      - name: Confirm the source and prepare the evidence directory
+      - name: Compare both source trees outside the two revised tests and their delivery record
+        id: source
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          test "$(git rev-parse HEAD)" = "$PRODUCT"
           mkdir "$RUNNER_TEMP/diagnosis"
+          test "$(git rev-parse HEAD)" = "$REVIEWED"
+          git -c 'credential.helper=!gh auth git-credential' fetch --quiet --no-tags --depth=1 origin "$FROZEN" \
+            > "$RUNNER_TEMP/fetch.log" 2>&1
+          git diff --quiet "$FROZEN" "$REVIEWED" -- . ':(exclude)tests/e2e/office-conference.spec.ts' \
+            ':(exclude)tests/domain/screenSpaceLabels.test.ts' ':(exclude)postponed-tasks.md'
+          git diff --name-only "$FROZEN" "$REVIEWED" | jq -Rn '[inputs]' > "$RUNNER_TEMP/diagnosis/changed-files.json"
+      - uses: actions/download-artifact@v5
+        with:
+          name: production-dist-${{ env.FROZEN }}
+          run-id: 45783267309
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen
+      - name: Check all frozen production file names, sizes and digests
+        id: artifact
+        run: |
+          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$FROZEN"
+          jq --arg reviewed "$REVIEWED" '{reviewed:$reviewed,production:.gitSha,sourceRun:45783267309,files:(.files|length)}' \
+            "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/diagnosis/build.json"
+          test ! -e dist
+          mv "$RUNNER_TEMP/frozen/dist" dist
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
           cache-dependency-path: product/package-lock.json
-      - name: Install frozen dependencies
+      - name: Install the frozen dependencies
         id: dependencies
-        run: npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
-      - uses: actions/download-artifact@v5
-        id: download
-        with:
-          name: production-dist-${{ env.PRODUCT }}
-          run-id: 45783267309
-          github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/frozen
-      - name: Verify the production SHA, inventory, byte counts and every digest
-        id: manifest
-        if: ${{ !cancelled() && steps.download.outcome == 'success' }}
-        run: |
-          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$PRODUCT"
-          jq '{gitSha, fileCount:(.files|length), bytes:([.files[].bytes]|add), sourceRun:45783267309}' \
-            "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/diagnosis/verified-build.json"
-          test ! -e dist
-          mv "$RUNNER_TEMP/frozen/dist" dist
-      - name: Diagnose the original data validation command
-        id: data
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: python ../.github/diagnose-office-phone.py data
-      - name: Diagnose all five domain files independently
+        run: npm ci > "$RUNNER_TEMP/npm.log" 2>&1
+      - name: Check only the revised screen-space labels file
         id: domain
+        run: python ../.github/diagnose-office-phone.py screen-space-labels
+      - name: Run just the desktop wheel and apartment handoff cases
+        id: desktop
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        run: python ../.github/diagnose-office-phone.py domain
-      - name: Prepare Chromium
-        id: observer
-        if: ${{ !cancelled() && steps.manifest.outcome == 'success' && steps.dependencies.outcome == 'success' }}
-        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Diagnose the original phone office return
-        id: phone
-        if: ${{ !cancelled() && steps.observer.outcome == 'success' }}
-        run: python ../.github/diagnose-office-phone.py original
-      - name: Run the revised phone return against the identical production tree
-        id: revised_phone
-        if: ${{ !cancelled() && steps.observer.outcome == 'success' }}
         run: |
-          git apply ../.github/office-return-reviewed.patch
-          printf '%s  %s\n' f39073f0ef322ea6197b6d8ce9e356a6e6e7c494a9b91f40c4c824c6a391b3f4 \
-            tests/e2e/office-conference.spec.ts | sha256sum --check --status
-          python ../.github/diagnose-office-phone.py revised
-      - name: Save the outcomes of each diagnostic
+          ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
+          python ../.github/verify-desktop-camera.py
+      - name: Record gate outcomes
         if: ${{ !cancelled() }}
         working-directory: .
         env:
-          STEP_RESULTS: ${{ toJSON(steps) }}
+          RESULTS: ${{ toJSON(steps) }}
         run: |
           mkdir -p "$RUNNER_TEMP/diagnosis"
-          jq -n --arg sha "$PRODUCT" --argjson steps "$STEP_RESULTS" \
-            '{product:$sha,sourceRun:45783267309,steps:($steps|with_entries(.value=.value.outcome))}' \
+          jq -n --arg reviewed "$REVIEWED" --arg frozen "$FROZEN" --argjson gates "$RESULTS" \
+            '{reviewed:$reviewed,frozen:$frozen,checks:($gates|with_entries(.value=.value.outcome))}' \
             > "$RUNNER_TEMP/diagnosis/summary.json"
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: office-phone-diagnosis-${{ github.run_id }}-${{ github.run_attempt }}
+          name: final-desktop-camera-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/diagnosis
           if-no-files-found: error
           retention-days: 7

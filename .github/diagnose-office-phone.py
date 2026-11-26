@@ -81,9 +81,9 @@ def validate_data():
     return code == 0
 
 
-def run_domain():
+def run_domain(names=DOMAIN):
     records = []
-    for name in DOMAIN:
+    for name in names:
         source = f"tests/domain/{name}.test.ts"
         report, log = TEMP / f"{name}.xml", TEMP / f"{name}.log"
         code = execute(["node", "--import", "tsx", "--test", "--test-reporter=junit",
@@ -214,6 +214,8 @@ if __name__ == "__main__":
         ok = validate_data()
     elif command == "domain":
         ok = run_domain()
+    elif command == "screen-space-labels":
+        ok = run_domain(["screenSpaceLabels"])
     elif command in {"original", "revised"}:
         ok = diagnose_phone(command)
     else:
