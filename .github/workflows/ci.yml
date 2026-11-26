@@ -1,4 +1,4 @@
-name: Verify the apartment photograph, office returns and forty scene transitions
+name: Verify photographed workstation words, office returns and forty scene transitions
 on:
   workflow_dispatch:
     inputs:
@@ -9,15 +9,15 @@ on:
       parent:
         description: Full SHA of the preceding product source, used to check the candidate diff
         required: true
-        default: 49b13812fb9f101e809f6a75a1feb7b08fd715ab
+        default: 67c480555b41b82b6d8beae79e0d86b75d59fd6a
         type: string
 permissions:
   actions: read
   contents: read
 env:
   CI: "true"
-  BASE: 49b13812fb9f101e809f6a75a1feb7b08fd715ab
-  BASE_RUN: "45861829212"
+  BASE: 67c480555b41b82b6d8beae79e0d86b75d59fd6a
+  BASE_RUN: "45866681294"
   PRODUCT: ${{ inputs.candidate }}
   PARENT: ${{ inputs.parent }}
 jobs:
@@ -48,7 +48,8 @@ jobs:
           test "$(git rev-parse HEAD^)" = "$PARENT"
           git diff --exit-code "$PARENT" "$PRODUCT" -- tests/perf playwright.config.ts package.json package-lock.json
           sha256sum playwright.config.ts package*.json tests/perf/*.ts tests/e2e/*.ts \
-            public/data/scenes/{apartment,kitchen,office-building}.json scripts/validate-scenes.ts tests/domain/worldContent.test.ts \
+            public/data/scenes/{apartment,kitchen,office-building,open-plan-workstation,desktop-workstation-equipment}.json \
+            scripts/validate-scenes.ts tests/domain/{worldContent,newFacilityScenes}.test.ts \
             > "$RUNNER_TEMP/diagnosis/test-sources.sha256"
       - uses: actions/setup-node@v7
         with:
@@ -74,11 +75,11 @@ jobs:
         if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: |
           manifest="$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json"
-          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = a40151079c3ee968deead6f7994e2047eb8d30228a7d91cc233074c683103c3a
+          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = e016520fc1a51a76b1f6f0a17fc733ecbc8f874b5e21907b09580e6dfec9c188
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASE"
           jq --argjson run "$BASE_RUN" '{build:.gitSha, sourceRun:$run, files:(.files|length)}' \
             "$manifest" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
-      - name: Reproduce the mobile coffee machine dot opening a child scene on the previous build
+      - name: Reproduce the workstation word errors in the previous production build
         id: red
         if: ${{ !cancelled() && steps.baseline_manifest.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: |
@@ -107,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Verify both apartment photo journeys, kitchen round trips and previous browser cases
+      - name: Read the workstation photos and return to the office on desktop and mobile, then verify existing journeys
         id: green
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: python ../.github/verify-input.py candidate

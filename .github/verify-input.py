@@ -46,12 +46,20 @@ phone_hinge = (phone, home, apartment_title)
 kitchen_title = "kitchen object anchor stays on each photographed object from home entry through card selection and apartment return"
 kitchen_cases = [(project, home, kitchen_title) for project in (desktop, phone)]
 phone_coffee = (phone, home, kitchen_title)
-coffee_assertion = "tapping the coffee machine word dot must keep the kitchen open"
+mouse_title = "desktop workstation equipment opens the photographed mouse from its dot and reads the related coat stand before zooming back"
+mouse_cases = [(project, verify["OFFICE"], mouse_title) for project in (desktop, phone)]
+mouse_name = "Desktop-station-desktop-mouse"
+mouse_assertion = "Desktop station desktop mouse dot must land on the photographed mouse body above the mouse pad"
+keyboard_title = "open-plan workstation zoom keeps the printer and chair caster in the room and opens desktop equipment from the keyboard"
+keyboard_cases = [(project, verify["OFFICE"], keyboard_title) for project in (desktop, phone)]
+keyboard_assertion = "tapping the Open-plan center keyboard dot must keep open-plan-workstation open"
 district_titles = (
     "starts as a calm target-language world and persists the meaning toggle",
     "the home atlas keeps its artwork clear and reveals only the hovered district words",
 )
 regressions = [
+    *((project, "e2e/new-spatial-scenes.spec.ts",
+       "open-plan-workstation enters grounded desktop-workstation-equipment and returns warm") for project in (desktop, phone)),
     *((project, "e2e/world.spec.ts", title) for title, (projects, _) in atlas_screenshots.items() for project in projects),
     *index_cases, reverse_tab, pointer,
     (desktop, motion, "continuous wheel input advances in monotonic animation frames without a scale jump"),
@@ -108,6 +116,10 @@ def retain_attempt(phase, number, case, result, folder):
             path = dest / f"{index:02d}-{name}.json"
             if name == "coffee-machine-tap-state":
                 record["coffeeTap"] = body
+            if name == mouse_name + "-geometry":
+                record["mousePoint"] = {key: body[key] for key in ("sha256", "x", "y", "inside")}
+            if name == "center-keyboard-dot-hit":
+                record["keyboardTap"] = body
             if name == hinge_capture:
                 drift = [math.dist(s["photographedHinge"], s["paintedDot"]) for s in body["misplaced"]]
                 record["hinge"] = {"frames": len(body["frames"]), "misplaced": len(drift),
@@ -127,15 +139,31 @@ def retain_attempt(phase, number, case, result, folder):
         receipts.append({"name": name, "file": path.relative_to(out).as_posix()})
     names = {a["name"] for a in receipts}
     pngs = {a["name"] for a in receipts if a["file"].endswith(".png")}
+    mouse = record.get("mousePoint", {})
+    mouse_photo = mouse.get("sha256") == "1018242a50cc54d8d7eba6d9a0d6725037ed446fbfc8cdab2c5bf731f993d8a7"
     if old:
+        expected_message = mouse_assertion
+        red_evidence = (case in mouse_cases and mouse_photo and mouse.get("inside") is False
+                        and mouse_name + "-view" in pngs and abs(mouse["x"] - 1071.77) < 1 and abs(mouse["y"] - 430.39) < 1)
+        if case in keyboard_cases:
+            expected_message = keyboard_assertion
+            red_evidence = ({"center-keyboard-dot-result", "center-keyboard-dot-before-tap"}.issubset(pngs)
+                            and record.get("keyboardTap", {}).get("actualScene") == "desktop-workstation-equipment")
         record["accepted"] = (result["status"] == "failed" and result["retry"] == 0
-                              and case == phone_coffee and [headline(e) for e in errors] == [coffee_assertion]
-                              and headline(primary) == coffee_assertion
-                              and {"coffee-machine-before-tap", "coffee-machine-dot-result"}.issubset(pngs)
-                              and record.get("coffeeTap") == {"scene": "coffee-machine", "word": None}
-                              and any(frame["file"] == f"tests/{case[1]}" for frame in details(primary)["source"]))
+                              and red_evidence and [headline(e) for e in errors] == [expected_message]
+                              and headline(primary) == expected_message
+                              and any(frame["file"] in {f"tests/{case[1]}", "tests/e2e/photo-journey.ts"}
+                                      for frame in details(primary)["source"]))
         return record
     evidence_ok = True
+    if case in mouse_cases:
+        evidence_ok = (mouse_photo and mouse.get("inside") is True and
+                       {mouse_name + "-dot-card", "desktop-equipment-related-coat-stand",
+                        "desktop-equipment-return-workstation", "desktop-equipment-return-printer-result",
+                        "desktop-equipment-return-atrium-result"}.issubset(pngs))
+    if case in keyboard_cases:
+        evidence_ok = ({"center-keyboard-arrow-entry", "center-keyboard-dot-result"}.issubset(pngs)
+                       and record.get("keyboardTap", {}).get("actualScene") == "open-plan-workstation")
     if case == phone_coffee:
         evidence_ok = ({"coffee-machine-before-tap", "coffee-machine-dot-result", "coffee-machine-entry-result"}.issubset(pngs)
                        and record.get("coffeeTap") == {"scene": "kitchen", "word": "coffee machine"})
@@ -166,7 +194,8 @@ def retain_attempt(phase, number, case, result, folder):
 
 def browser(phase):
     old = phase == "baseline"
-    cases = [phone_coffee] if old else [*apartment_cases, *kitchen_cases, bus_case, *regressions, office_case]
+    workstation_cases = [*mouse_cases, *keyboard_cases]
+    cases = workstation_cases if old else [*workstation_cases, *apartment_cases, *kitchen_cases, bus_case, *regressions, office_case]
     projects = {project for project, _, _ in cases}
     folder = temp / phase
     verify["run_browser"](phase, temp, cases)
@@ -259,8 +288,10 @@ def summary():
         if outcomes[gate] == "failure" and path.exists():
             diagnostics[log] = helpers["process_error"](path)
     write(out / "summary.json", {"baseline": os.environ["BASE"], "baselineRun": int(os.environ["BASE_RUN"]),
-                                 "requiredOldKitchenFailure": {"project": phone, "file": home, "title": kitchen_title,
-                                                              "assertion": coffee_assertion},
+                                 "requiredOldMouseFailure": {"projects": [desktop, phone], "file": verify["OFFICE"],
+                                                             "title": mouse_title, "assertion": mouse_assertion},
+                                 "requiredOldKeyboardFailure": {"projects": [desktop, phone], "file": verify["OFFICE"],
+                                                                 "title": keyboard_title, "assertion": keyboard_assertion},
                                  "requiredApartmentScreenshot": apartment_screenshot,
                                  "requiredOfficeScreenshot": office_screenshot,
                                  "requiredBusScreenshots": bus_screenshots,
@@ -279,7 +310,7 @@ if __name__ == "__main__":
     elif command == "data":
         ok = helpers["validate_data"]()
     elif command == "domain":
-        ok = helpers["run_domain"](["worldContent", "spatialLexemeRealms", "camera", "navigation", "worldMapDensity", "schoolCampus"], {
+        ok = helpers["run_domain"](["worldContent", "spatialLexemeRealms", "camera", "navigation", "newFacilityScenes", "worldMapDensity", "schoolCampus"], {
             "worldMapDensity": "world atlas keeps six exact, non-overlapping spatial entrances",
             "schoolCampus": "the world atlas exposes the school campus through one reviewed portal",
         })
