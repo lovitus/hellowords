@@ -6,6 +6,11 @@ on:
         description: Full SHA of the frozen product candidate
         required: true
         type: string
+      parent:
+        description: Full SHA of the preceding product source, used to check the candidate diff
+        required: true
+        default: d33c9dd008d2efaf34147de92c633229e89d9825
+        type: string
 permissions:
   actions: read
   contents: read
@@ -14,6 +19,7 @@ env:
   BASE: d33c9dd008d2efaf34147de92c633229e89d9825
   BASE_RUN: "45845890780"
   PRODUCT: ${{ inputs.candidate }}
+  PARENT: ${{ inputs.parent }}
 jobs:
   verify:
     runs-on: ubuntu-24.04
@@ -37,9 +43,10 @@ jobs:
         run: |
           mkdir "$RUNNER_TEMP/diagnosis"
           [[ "$PRODUCT" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$PARENT" =~ ^[0-9a-f]{40}$ ]]
           test "$(git rev-parse HEAD)" = "$PRODUCT"
-          test "$(git rev-parse HEAD^)" = "$BASE"
-          git diff --exit-code "$BASE" "$PRODUCT" -- tests/perf playwright.config.ts package.json package-lock.json
+          test "$(git rev-parse HEAD^)" = "$PARENT"
+          git diff --exit-code "$PARENT" "$PRODUCT" -- tests/perf playwright.config.ts package.json package-lock.json
           sha256sum playwright.config.ts package*.json tests/perf/*.ts tests/e2e/*.ts \
             public/data/scenes/apartment.json scripts/validate-scenes.ts tests/domain/worldContent.test.ts \
             > "$RUNNER_TEMP/diagnosis/test-sources.sha256"
@@ -126,7 +133,7 @@ jobs:
         id: lint
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         run: |
-          git diff --name-only -z --diff-filter=ACMRT "$BASE" "$PRODUCT" -- \
+          git diff --name-only -z --diff-filter=ACMRT "$PARENT" "$PRODUCT" -- \
             '*.js' '*.jsx' '*.ts' '*.tsx' '*.mjs' '*.cjs' '*.mts' '*.cts' \
             | xargs -0r ./node_modules/.bin/eslint -- > "$RUNNER_TEMP/lint.log" 2>&1
       - name: Validate vocabulary, scene assets, spatial crosswalks and image-reviewed annotations
