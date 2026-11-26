@@ -1,6 +1,7 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
 import { buildViewerChromeProtectedRegions } from "../../app/components/SceneViewport";
 import type { PaintedLabel } from "../../app/lib/label-canvas";
+import { clickPaintedWord } from "./canvas-words";
 
 const APP = '[data-testid="world-app"]';
 const VIEWPORT = '[data-testid="world-viewport"]';
@@ -63,7 +64,7 @@ interface FitSceneSnapshot {
   };
 }
 
-async function openLeafScene(page: Page): Promise<Locator> {
+async function openScene(page: Page, sceneId = TARGET_SCENE): Promise<Locator> {
   await page.goto("/#world", { waitUntil: "domcontentloaded" });
   const app = page.locator(APP);
   await expect(app).toBeVisible();
@@ -71,11 +72,11 @@ async function openLeafScene(page: Page): Promise<Locator> {
   await expect(page.locator(INTERACTION_LAYER)).toHaveAttribute("data-positioned", "true");
 
   const portal = page.locator(
-    `[data-testid="scene-hotspot"][data-target-scene="${TARGET_SCENE}"]`,
+    `[data-testid="scene-hotspot"][data-target-scene="${sceneId}"]`,
   );
   await expect(portal).toBeVisible();
   await portal.click();
-  await expect(app).toHaveAttribute("data-scene-id", TARGET_SCENE);
+  await expect(app).toHaveAttribute("data-scene-id", sceneId);
   await expect(app).toHaveAttribute("data-scene-loading", "false");
   await expect(app).toHaveAttribute("data-transition-state", "idle");
   await expect(page.locator(INTERACTION_LAYER)).toHaveAttribute("data-positioned", "true");
@@ -422,6 +423,79 @@ function slotIsClear(
   });
 }
 
+test("zooming back out in the apartment keeps readable words in their clear slots", async ({ page, isMobile }, testInfo) => {
+  test.skip(isMobile, "This regression follows a desktop wheel gesture.");
+  const app = await openScene(page, "apartment");
+  await waitForCameraSettled(page);
+  const initial = await captureFitSceneSnapshot(page);
+  const response = await page.request.get("/data/scenes/apartment.json");
+  expect(response.ok()).toBe(true);
+  const apartment: SceneContract = await response.json();
+  const objects = apartment.labels.filter(({ id }) => id === "refrigerator-door" || id === "shelf-board");
+  expect(objects).toHaveLength(2);
+
+  const bounds = await page.locator(VIEWPORT).boundingBox();
+  if (!bounds) throw new Error("The apartment viewport has no wheel target");
+  await page.mouse.move(bounds.x + bounds.width * 0.39, bounds.y + bounds.height * 0.46);
+  const surface = page.locator(SURFACE);
+  const scale = async () => Number(await surface.getAttribute("data-scene-scale"));
+  for (const delta of [-140, 140]) {
+    if (delta > 0) await startLabelZoomTrace(page);
+    for (let notch = 0; notch < 4; notch += 1) {
+      const before = await scale();
+      await page.mouse.wheel(0, delta);
+      await expect.poll(async () => (await scale() - before) * -Math.sign(delta), { intervals: [16] })
+        .toBeGreaterThan(0.005);
+    }
+    await waitForCameraSettled(page);
+    if (delta < 0) expect(await scale(), "the inward wheel must reach the apartment detail").toBeGreaterThan(2.1);
+  }
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  expect(await scale()).toBeCloseTo(initial.scale, 2);
+  const frames = await stopLabelZoomTrace(page);
+  const failures: string[] = [];
+  for (const object of objects) {
+    let clearFrames = 0;
+    for (let i = 1; i < frames.length; i += 1) {
+      const frame = frames[i];
+      const previous = frames[i - 1];
+      if (frame.motionFrozen || previous.motionFrozen || frame.scale >= previous.scale) continue;
+      const old = previous.labels.find(({ id }) => id === object.id);
+      if (!old?.interactive || old.opacity < 0.52) continue;
+      const anchorX = frame.camera.x + object.x * frame.camera.scale;
+      const anchorY = frame.camera.y + object.y * frame.camera.scale;
+      const projected = {
+        ...old, anchorX, anchorY,
+        centerX: anchorX + (old.centerX - old.anchorX),
+        centerY: anchorY + (old.centerY - old.anchorY),
+      };
+      const controls = [
+        ...frame.controlBounds,
+        ...buildViewerChromeProtectedRegions(frame.viewport.right, frame.viewport.bottom),
+      ];
+      if (!anchorInsideViewport(projected, frame) || !slotIsClear(projected, frame, controls)) continue;
+      clearFrames += 1;
+      const current = frame.labels.find(({ id }) => id === object.id);
+      const at = `${object.id} ${previous.scale}× → ${frame.scale}×`;
+      if (!current?.interactive || current.opacity < 0.52) {
+        failures.push(`${at} disappeared`);
+      } else {
+        const shift = Math.hypot(current.centerX - projected.centerX, current.centerY - projected.centerY);
+        if (shift > 1) failures.push(`${at} shifted ${shift.toFixed(1)} CSS px`);
+      }
+    }
+    expect(clearFrames, `${object.id} must have usable positions during zoom-out`).toBeGreaterThan(1);
+  }
+  await testInfo.attach("apartment-outward-slot-changes", { body: JSON.stringify(failures), contentType: "application/json" });
+  expect.soft(failures, "readable words must stay in their clear object-relative slots").toEqual([]);
+
+  await page.getByRole("button", { name: "Fit scene", exact: true }).click();
+  await waitForCameraSettled(page);
+  expect(await captureFitSceneSnapshot(page)).toEqual(initial);
+  await clickPaintedWord(page, "refrigerator-door");
+  await expect(page.getByRole("complementary", { name: "refrigerator door word details" })).toContainText("冰箱门");
+});
+
 test("oak-tree fit fills safe slots and round-trips the exact label layout", async ({ page }, testInfo) => {
   const mobile = testInfo.project.name === "mobile-chromium";
   const app = await openOakTreeScene(page);
@@ -478,7 +552,7 @@ test("oak-tree fit fills safe slots and round-trips the exact label layout", asy
 // a wheel stream that samples different intermediate camera positions.
 test("continuous zoom retains grounded labels and their object-relative slots", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile-chromium");
-  const app = await openLeafScene(page);
+  const app = await openScene(page);
   const sceneContract = await page.evaluate(async (sceneId): Promise<SceneContract> => {
     const response = await fetch(`/data/scenes/${encodeURIComponent(sceneId)}.json`);
     if (!response.ok) throw new Error(`Unable to load scene contract for ${sceneId}`);
@@ -603,7 +677,7 @@ test("continuous zoom retains grounded labels and their object-relative slots", 
 });
 
 test("ordinary scenes hide the progress hint while the canvas counts only the current crop", async ({ page }) => {
-  const app = await openLeafScene(page);
+  const app = await openScene(page);
   const progress = page.getByTestId("scene-word-progress");
   const sceneContract = await page.evaluate(async (sceneId): Promise<SceneContract> => {
     const response = await fetch(`/data/scenes/${encodeURIComponent(sceneId)}.json`);

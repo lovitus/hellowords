@@ -2072,9 +2072,11 @@ export function SceneViewport({
   }, [scene.parentId]);
 
   const updateZoomDirection = useCallback((next: "in" | "out" | null, manual = false) => {
-    retainManualZoomSlotsRef.current = manual && next === "in";
+    // On either leg of a wheel gesture, recheck the last painted slots
+    // against the new camera before looking on the other side of an object.
+    retainManualZoomSlotsRef.current = manual && next !== null;
     const previous = zoomDirectionRef.current;
-    if (shouldResetLabelPlacementMemory(previous, next)) {
+    if (!manual && shouldResetLabelPlacementMemory(previous, next)) {
       labelPlacementOffsetsRef.current.clear();
     }
     zoomDirectionRef.current = next;
