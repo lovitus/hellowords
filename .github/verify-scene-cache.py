@@ -1,4 +1,4 @@
-"""Compare the photographed workstation words and verify the return to the atrium."""
+"""Compare HTTP cache observations across builds and check the existing warm-scene journeys."""
 import json
 import math
 import os
@@ -13,22 +13,24 @@ temp = diagnostics["TEMP"]
 out = diagnostics["OUT"]
 phone = verify["PHONE_RETURN"]
 desktop = (verify["DESKTOP"], verify["OFFICE"], verify["RETURN"])
-workstation_title = "open-plan workstation labels its photographed mouse, drawer handle and shared printer before returning to the office"
-workstations = [(project, verify["OFFICE"], workstation_title) for project in (verify["DESKTOP"], verify["PHONE"])]
-cases = {"baseline": [workstations[0]], "candidate": [*workstations, desktop, phone]}
-light = "Open-plan-linear-ceiling-light"
-workstation_photo = "9acbbe66dd5fb56faa58562c07219f723bb39d12d535648fa7be6e3abcd7f1df"
-workstation_words = {"Open-plan-left-mouse", "Open-plan-center-drawer-handle", "Shared-open-plan-printer", light,
-                     "Left-desk-cable-spine", "Center-desk-cable-spine", "Right-desk-cable-spine", "Center-monitor-arm-joint"}
-workstation_shots = {f"{word}-{suffix}" for word in workstation_words for suffix in ("view", "painted-card", "dot-card")}
-workstation_data = {f"{word}-{suffix}" for word in workstation_words for suffix in ("geometry", "dot-geometry")}
-screenshots = {"office-atrium-entry", "office-atrium-return", "monitor-view", "monitor-painted-card", "screenshot", *workstation_shots}
+motion = "e2e/cache-motion.spec.ts"
+cache_title = "a normal reopening shows the updated office word after returning from the console with a fresh HTTP cache entry"
+fresh = [(project, "e2e/scene-cache-upgrade.spec.ts", cache_title) for project in (verify["DESKTOP"], verify["PHONE"])]
+warm = {
+    (verify["DESKTOP"], motion, "a decoded parent stays hot when entering a child and zooming back out"): "decoded-parent",
+    (verify["DESKTOP"], motion, "a warm adjacent transition avoids the loader, while outrunning the neighbor cache reveals it"): "warm-adjacent",
+    (verify["PHONE"], motion, "mobile keeps its warmed child and parent transitions free of a loader flash"): "warm-mobile",
+}
+cases = {"baseline": fresh, "candidate": [*fresh, desktop, phone, *warm]}
+cache_shot = "office-cache-returned-card"
+screenshots = {"office-atrium-entry", "office-atrium-return", "monitor-view", "monitor-painted-card", "screenshot", cache_shot}
 gate_names = ("source", "changes", "dependencies", "chromium", "download", "baseline_manifest",
-              "red", "build", "production", "vocabulary", "green", "types", "lint", "domain", "data")
+              "red", "build", "production", "green", "types", "lint", "domain")
 
 reception = "office-reception-lobby"
 counter = "counter-edge"
-assertion = "linear ceiling light leader ends on the illuminated strip"
+assertion = "the reopened office card shows the deployed translation after returning from the console"
+cache_attachment = "office-cache-upgrade"
 geometry_name = "office-portrait-framing"
 entrances = {"conference-room", "office-break-room", reception, "open-plan-workstation", "service-core"}
 office_words = {
@@ -94,22 +96,37 @@ def error_details(error):
     return diagnostics["details"](error.get("message", ""), error.get("stack", ""), error.get("location"))
 
 
-def required_attachments(key, old):
-    if key in workstations:
-        if old:
-            return {f"{light}-geometry", f"{light}-view"}
-        return {f"{word}-{suffix}" for word in workstation_words for suffix in ("geometry", "view", "painted-card")}
+def required_attachments(key):
+    if key in fresh:
+        return {cache_attachment, cache_shot}
+    if key in warm:
+        return set()
     required = {"office-atrium-entry", "office-atrium-return", "monitor-view", "monitor-painted-card", "monitor-geometry"}
     if key == phone:
         required.add(geometry_name)
     return required
 
 
+def cache_matches(observation, old):
+    receipt = observation.get("cache", {})
+    requests = receipt.get("requests", [])
+    if not isinstance(requests, list) or not requests or not all(isinstance(r, dict) for r in requests):
+        return False
+    original_tag, deployed_tag = '"office-0"', '"office-1"'
+    first = requests[0]
+    if (first.get("etag") != original_tag or first.get("status") != 200
+            or any(r.get("etag") not in {original_tag, deployed_tag} or r.get("status") not in {200, 304} for r in requests)):
+        return False
+    deploy_requests = [r for r in requests if r["etag"] == deployed_tag]
+    return (receipt.get("cachedMeaning") == "挡水板" and receipt.get("returnedMeaning") == ("挡水板" if old else "防溅墙")
+            and (not deploy_requests if old else any(r["status"] == 200 for r in deploy_requests)))
+
+
 def retain_attachments(result, folder, destination, observation):
     destination.mkdir(parents=True)
     for item in result.get("attachments", []):
         name = item.get("name")
-        if name not in screenshots and name not in {geometry_name, "monitor-geometry", *workstation_data}:
+        if name not in screenshots and name not in {geometry_name, "monitor-geometry", cache_attachment}:
             continue
         try:
             data = diagnostics["attachment_data"](item, folder)
@@ -121,13 +138,8 @@ def retain_attachments(result, folder, destination, observation):
                 diagnostics["save"](path, geometry)
                 if name == geometry_name:
                     observation["geometry"] = measure_geometry(geometry)
-                elif name in workstation_data and not name.endswith("-dot-geometry"):
-                    stem = name.removesuffix("-geometry")
-                    if (geometry["word"].replace(" ", "-") != stem or geometry["sha256"] != workstation_photo
-                            or geometry["visible"] is not True or type(geometry["inside"]) is not bool
-                            or not all(math.isfinite(geometry[axis]) for axis in ("x", "y"))):
-                        raise ValueError("Unexpected workstation geometry")
-                    observation.setdefault("workstationAnchors", {})[stem] = {field: geometry[field] for field in ("x", "y", "inside")}
+                elif name == cache_attachment:
+                    observation["cache"] = geometry
             else:
                 if item["contentType"] != "image/png" or not data.startswith(b"\x89PNG\r\n\x1a\n"):
                     raise ValueError("Expected PNG")
@@ -166,20 +178,16 @@ def read_phase(phase):
                                "errors": [error_details(e) for e in errors], "primaryError": error_details(primary) if primary else None,
                                "attachments": {}, "attachmentErrors": []}
                 attempts.append(observation)
-                journey = "workstation" if key in workstations else "return"
+                journey = "revalidate" if key in fresh else warm.get(key, "return")
                 destination = out / phase / key[0] / journey / f"result-{len(row['observations'])}-{index}"
                 retain_attachments(result, folder, destination, observation)
-                observation["missingAttachments"] = sorted(required_attachments(key, old) - observation["attachments"].keys())
+                observation["missingAttachments"] = sorted(required_attachments(key) - observation["attachments"].keys())
                 error_ok = ([headline(e) for e in errors] == [assertion] and headline(primary) == assertion
                             if old else not errors and not primary)
-                if key in workstations:
-                    anchors = observation.get("workstationAnchors", {})
-                    if old:
-                        geometry_ok = anchors.get(light, {}).get("inside") is False
-                    else:
-                        geometry_ok = set(anchors) == workstation_words and all(anchor["inside"] for anchor in anchors.values())
-                elif key == phone:
+                if key == phone:
                     geometry_ok = "geometry" in observation and observation["geometry"]["worst"]["inkClearance"] >= -0.5
+                elif key in fresh:
+                    geometry_ok = cache_matches(observation, old)
                 else:
                     geometry_ok = True
                 observation["accepted"] = (result["retry"] == 0 and result["status"] == ("failed" if old else "passed")
@@ -189,7 +197,7 @@ def read_phase(phase):
                                and test["status"] == ("unexpected" if old else "expected") and len(attempts) == 1 and attempts[0]["accepted"])
         summary["accepted"] = (
             summary["exit"] == (1 if old else 0) and not summary["reportErrors"] and not summary["extraCases"]
-            and summary["stats"] == {"expected": 0 if old else len(rows), "unexpected": 1 if old else 0, "flaky": 0, "skipped": 0}
+            and summary["stats"] == {"expected": 0 if old else len(rows), "unexpected": len(rows) if old else 0, "flaky": 0, "skipped": 0}
             and summary["retries"] == dict.fromkeys(projects, 0) and all(row.get("accepted") for row in rows.values())
         )
     except (KeyError, TypeError, ValueError, OSError) as error:
@@ -211,40 +219,18 @@ def write_evidence():
         diagnostics["save"](out / f"{phase}.json", record)
         phases[phase] = record["accepted"]
     diagnostics["save"](out / "summary.json", {
-        "baseline": os.environ["BASE"], "baselineRun": 45801730565, "candidate": os.environ["PRODUCT"],
+        "baseline": os.environ["BASE"], "baselineRun": 45804971418, "candidate": os.environ["PRODUCT"],
         "requiredAssertion": assertion, "gates": gates, "acceptedPhases": phases,
         "accepted": all(phases.values()) and all(value == "success" for value in gates.values()),
     })
-
-
-def record_vocabulary():
-    result = {}
-    for scene_id in ("office-building", "open-plan-workstation"):
-        relative = Path("dist/client/data/scenes") / f"{scene_id}.json"
-        old = json.loads((temp / "frozen" / relative).read_bytes())
-        new = json.loads(relative.read_bytes())
-        def fields(scene):
-            return {item["id"]: {key: item.get(key) for key in ("word", "translation", "x", "y", "sourceVisualRegion")}
-                    for item in (*scene["labels"], *scene["relatedWords"])}
-        before, after = fields(old), fields(new)
-        result[scene_id] = {
-            "oldWords": len(before), "newWords": len(after), "oldSpatial": len(old["labels"]), "newSpatial": len(new["labels"]),
-            "changes": [{"id": key, "old": before.get(key), "new": after.get(key)} for key in sorted(before.keys() | after.keys())
-                        if before.get(key) != after.get(key)],
-        }
-    diagnostics["save"](out / "shipped-vocabulary.json", result)
 
 
 if __name__ == "__main__":
     command = sys.argv[1]
     if command == "evidence":
         write_evidence()
-    elif command == "vocabulary":
-        record_vocabulary()
     elif command == "domain":
-        office_content = "urban services adds hospital, airport and office vocabulary without breaking the transit branch"
-        files = ("openPlanWorkstation", "sceneGraph", "worldContent")
-        sys.exit(0 if diagnostics["run_domain"](files, {"worldContent": office_content}) else 1)
+        sys.exit(0 if diagnostics["run_domain"](("sceneRepository",)) else 1)
     elif command in {"types", "lint"}:
         log = temp / f"{command}.log"
         if command == "types":
