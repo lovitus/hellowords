@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { LexicalWorld } from "./LexicalWorld";
 import { SceneConversation } from "./SceneConversation";
 import {
@@ -33,6 +33,7 @@ import {
 } from "../domain";
 import { SPATIAL_LEXEME_REALMS } from "../domain/spatialLexemeRealms.generated";
 
+const ActiveSceneViewport = memo(SceneViewport);
 const MEANING_KEY = "hellowords:meaning-visible";
 // v1 counted every label as soon as its scene loaded, including words the user
 // never saw. Keep that data untouched, but start the truthful dwell-based model
@@ -621,6 +622,12 @@ export function WorldApp() {
     if (history.length < 2 || sceneControlsLocked) return;
     void navigate(history[history.length - 2].id, "back", source);
   }, [history, navigate, sceneControlsLocked]);
+
+  const enterActiveScene = useCallback(
+    (sceneId: string, source: "zoom" | "pointer" | "keyboard") => navigate(sceneId, "forward", source),
+    [navigate],
+  );
+  const exitActiveScene = useCallback(() => goBack("zoom"), [goBack]);
 
   const goToBreadcrumb = useCallback(
     (index: number, source: "pointer" | "keyboard") => {
@@ -1251,7 +1258,7 @@ export function WorldApp() {
                 atlasDistricts={outgoingScene.id === "world-map" ? rootAtlasDistricts : undefined}
               />
             ) : null}
-            <SceneViewport
+            <ActiveSceneViewport
               key={scene.id}
               scene={scene}
               meaningVisible={meaningVisible}
@@ -1260,8 +1267,8 @@ export function WorldApp() {
               transitionPhase={outgoingScene ? "incoming" : "active"}
               interactionLocked={sceneControlsLocked || conversationOpen || lexicalWorldOpen}
               onCommitScene={beginSceneCommit}
-              onEnterScene={(sceneId, source) => navigate(sceneId, "forward", source)}
-              onExitScene={() => goBack("zoom")}
+              onEnterScene={enterActiveScene}
+              onExitScene={exitActiveScene}
               onLabelsEncountered={recordEncounteredLabels}
               onLabelEncountered={recordEncounteredLabel}
               onSelectWord={selectViewportWord}
