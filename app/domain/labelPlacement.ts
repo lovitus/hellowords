@@ -48,7 +48,7 @@ interface IndexedSlot extends Slot {
 type Direction = readonly [number, number];
 
 /** Preferred order: right-hand side first (reading direction), then left, then vertical. */
-const DIRECTIONS: readonly Direction[] = ([
+const DIRECTIONS = ([
   [1, -1],
   [1, 0],
   [1, 1],
@@ -59,7 +59,7 @@ const DIRECTIONS: readonly Direction[] = ([
   [0, 1],
 ] as const).map(([x, y]) => {
   const length = Math.hypot(x, y);
-  return [x / length, y / length] as const;
+  return { x: x / length, y: y / length };
 });
 
 /** Distance from anchor to the nearest pill edge, tried shortest first. */
@@ -139,11 +139,11 @@ function cross(ax: number, ay: number, bx: number, by: number): number {
   return ax * by - ay * bx;
 }
 
-function segmentsIntersect(first: Segment, second: Segment): boolean {
-  const d1 = cross(second.x2 - second.x1, second.y2 - second.y1, first.x1 - second.x1, first.y1 - second.y1);
-  const d2 = cross(second.x2 - second.x1, second.y2 - second.y1, first.x2 - second.x1, first.y2 - second.y1);
-  const d3 = cross(first.x2 - first.x1, first.y2 - first.y1, second.x1 - first.x1, second.y1 - first.y1);
-  const d4 = cross(first.x2 - first.x1, first.y2 - first.y1, second.x2 - first.x1, second.y2 - first.y1);
+function segmentCrossesEdge(first: Segment, x1: number, y1: number, x2: number, y2: number): boolean {
+  const d1 = cross(x2 - x1, y2 - y1, first.x1 - x1, first.y1 - y1);
+  const d2 = cross(x2 - x1, y2 - y1, first.x2 - x1, first.y2 - y1);
+  const d3 = cross(first.x2 - first.x1, first.y2 - first.y1, x1 - first.x1, y1 - first.y1);
+  const d4 = cross(first.x2 - first.x1, first.y2 - first.y1, x2 - first.x1, y2 - first.y1);
   return ((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0))
     && ((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0));
 }
@@ -155,18 +155,10 @@ function segmentTouchesRect(segment: Segment, rect: Rect): boolean {
     || (segment.y1 < rect.top && segment.y2 < rect.top)
     || (segment.y1 > rect.bottom && segment.y2 > rect.bottom)) return false;
   if (pointInRect(segment.x1, segment.y1, rect, 0) || pointInRect(segment.x2, segment.y2, rect, 0)) return true;
-  const corners = [
-    { x: rect.left, y: rect.top },
-    { x: rect.right, y: rect.top },
-    { x: rect.right, y: rect.bottom },
-    { x: rect.left, y: rect.bottom },
-  ];
-  for (let index = 0; index < 4; index += 1) {
-    const start = corners[index];
-    const end = corners[(index + 1) % 4];
-    if (segmentsIntersect(segment, { x1: start.x, y1: start.y, x2: end.x, y2: end.y })) return true;
-  }
-  return false;
+  return segmentCrossesEdge(segment, rect.left, rect.top, rect.right, rect.top)
+    || segmentCrossesEdge(segment, rect.right, rect.top, rect.right, rect.bottom)
+    || segmentCrossesEdge(segment, rect.right, rect.bottom, rect.left, rect.bottom)
+    || segmentCrossesEdge(segment, rect.left, rect.bottom, rect.left, rect.top);
 }
 
 function compareLabels(
@@ -268,33 +260,48 @@ export function computeScenePlacements(
   }
 
   type Candidate = (typeof candidates)[number];
+  // Rejected trials never escape this layout. Only a legal slot needs its own geometry.
+  const trialRect = { left: 0, right: 0, top: 0, bottom: 0 };
+  const trialSegment = { x1: 0, y1: 0, x2: 0, y2: 0 };
+
+  function cellBlocksTrial(key: number): boolean {
+    const cell = slotCells.get(key);
+    if (!cell) return false;
+    for (const other of cell) {
+      if (other.lastQuery === queryNumber) continue;
+      other.lastQuery = queryNumber;
+      const leader = other.segment;
+      if (rectsOverlap(trialRect, other.rect, pillGap)
+        || pointInRect(leader.x1, leader.y1, trialRect, ANCHOR_CLEARANCE)
+        || segmentTouchesRect(trialSegment, other.rect)
+        || segmentCrossesEdge(trialSegment, leader.x1, leader.y1, leader.x2, leader.y2)
+        || segmentTouchesRect(leader, trialRect)) return true;
+    }
+    return false;
+  }
+
   function freeSlot(candidate: Candidate, centerX: number, centerY: number, short = false): Slot | null {
-    const rect = rectAt(centerX, centerY, candidate.width, candidate.height);
+    trialRect.left = centerX - candidate.width / 2;
+    trialRect.right = centerX + candidate.width / 2;
+    trialRect.top = centerY - candidate.height / 2;
+    trialRect.bottom = centerY + candidate.height / 2;
     if (
-      rect.left < left
-      || rect.right > right
-      || rect.top < top
-      || rect.bottom > bottom
+      trialRect.left < left
+      || trialRect.right > right
+      || trialRect.top < top
+      || trialRect.bottom > bottom
     ) return null;
-    if (protectedRegions.some((region) => rectsOverlap(rect, region, 0))) return null;
-    const segment = { x1: candidate.anchorX, y1: candidate.anchorY, x2: centerX, y2: centerY };
-    const query = ++queryNumber;
-    if (visitSlotCells(rect, segment, (key) => {
-      const cell = slotCells.get(key);
-      if (!cell) return false;
-      for (const other of cell) {
-        if (other.lastQuery === query) continue;
-        other.lastQuery = query;
-        if (rectsOverlap(rect, other.rect, pillGap)
-          || pointInRect(other.segment.x1, other.segment.y1, rect, ANCHOR_CLEARANCE)
-          || segmentTouchesRect(segment, other.rect)
-          || segmentsIntersect(segment, other.segment)
-          || segmentTouchesRect(other.segment, rect)) return true;
-      }
-      return false;
-    })) return null;
-    if (short && coversUnplacedAnchor(rect, candidate.label.id)) return null;
-    return { rect, segment };
+    for (const region of protectedRegions) {
+      if (rectsOverlap(trialRect, region, 0)) return null;
+    }
+    trialSegment.x1 = candidate.anchorX;
+    trialSegment.y1 = candidate.anchorY;
+    trialSegment.x2 = centerX;
+    trialSegment.y2 = centerY;
+    queryNumber++;
+    if (visitSlotCells(trialRect, trialSegment, cellBlocksTrial)) return null;
+    if (short && coversUnplacedAnchor(trialRect, candidate.label.id)) return null;
+    return { rect: { ...trialRect }, segment: { ...trialSegment } };
   }
 
   function occupy(candidate: Candidate, slot: Slot) {
@@ -344,7 +351,7 @@ export function computeScenePlacements(
     let closest: Slot | null = null;
     let smallestShift = Infinity;
     for (const distance of leaderDistances) {
-      for (const [directionX, directionY] of DIRECTIONS) {
+      for (const { x: directionX, y: directionY } of DIRECTIONS) {
         const support = (width / 2) * Math.abs(directionX) + (height / 2) * Math.abs(directionY);
         const reach = distance + support;
         // On narrow screens the nearest corner of a diagonal pill sits
