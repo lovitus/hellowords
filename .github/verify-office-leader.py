@@ -1,4 +1,4 @@
-"""Compare a single office return journey and retain its public observations."""
+"""Compare the returned office and preserve the adjacent photographed zoom checks."""
 import json
 import math
 import os
@@ -13,46 +13,65 @@ temp = diagnostics["TEMP"]
 out = diagnostics["OUT"]
 phone = verify["PHONE_RETURN"]
 desktop = (verify["DESKTOP"], verify["OFFICE"], verify["RETURN"])
-cases = {"baseline": [phone], "candidate": [phone, desktop]}
-screenshots = {"office-atrium-entry", "office-atrium-return", "monitor-view", "monitor-painted-card", "screenshot"}
-gate_names = ("source", "equivalent", "dependencies", "chromium", "download", "baseline_manifest",
-              "red", "build", "production", "green", "domain", "data")
+zoom_cases = [(project, verify["OFFICE"], verify["ENTRANCES"]) for project in (verify["PHONE"], verify["DESKTOP"])]
+cases = {"baseline": [phone], "candidate": [phone, desktop, *zoom_cases]}
+gestures = {f"{object_id}-gesture" for object_id in verify["OBJECTS"]}
+zoom_shots = {f"{object_id}-end" for object_id in verify["OBJECTS"]}
+screenshots = {"office-atrium-entry", "office-atrium-return", "monitor-view", "monitor-painted-card", "screenshot", *zoom_shots}
+gate_names = ("source", "changes", "dependencies", "chromium", "download", "baseline_manifest",
+              "red", "build", "production", "green", "types", "lint", "domain", "data")
 
-workstation = "open-plan-workstation"
-assertion = f"the painted monitor leader clears the {workstation} button"
+reception = "office-reception-lobby"
+counter = "counter-edge"
+assertion = "the painted counter-edge leader clears the office-reception-lobby button"
 geometry_name = "office-portrait-framing"
-entrances = {"conference-room", "office-break-room", "office-reception-lobby", workstation, "service-core"}
+entrances = {"conference-room", "office-break-room", reception, "open-plan-workstation", "service-core"}
+office_words = {
+    "reception-counter", counter, "wall-panel", "monitor", "conference-chair", "glass-wall",
+    "break-room", "refrigerator", "elevator", "server-rack", "air-duct", "chair-caster-pro-7",
+}
 
 
-def crossed_entrances(geometry):
-    start = geometry["leader"]["start"]
-    end = geometry["leader"]["end"]
+def ink_clearance(leader, entry):
+    start, end = leader["start"], leader["end"]
     dx, dy = end["x"] - start["x"], end["y"] - start["y"]
     length = math.hypot(dx, dy)
     if not math.isfinite(length) or length <= 5:
         raise ValueError("Missing painted leader")
-    clearances = {}
-    for entry in geometry["entrances"]:
-        target = entry["target"]
-        if target not in entrances or target in clearances:
-            raise ValueError("Unexpected or duplicate entrance")
-        center = entry["center"]
-        x, y = center["x"] - start["x"], center["y"] - start["y"]
-        t = max(0, min(1, (x * dx + y * dy) / (length * length)))
-        clearance = math.hypot(x - dx * t, y - dy * t) - entry["radius"] - 1.5
-        if entry["radius"] <= 0 or not math.isclose(clearance, entry["monitorInkClearance"], abs_tol=1e-6):
-            raise ValueError("Invalid painted clearance")
-        clearances[target] = clearance
-    if clearances.keys() != entrances:
-        raise ValueError("Incomplete entrance geometry")
-    return [target for target, clearance in clearances.items() if clearance < -0.5]
+    center = entry["center"]
+    x, y = center["x"] - start["x"], center["y"] - start["y"]
+    t = max(0, min(1, (x * dx + y * dy) / (length * length)))
+    clearance = math.hypot(x - dx * t, y - dy * t) - entry["radius"] - 1.5
+    if (entry["radius"] <= 0 or not math.isfinite(clearance)
+            or not math.isclose(clearance, entry["inkClearances"][leader["id"]], abs_tol=1e-6)):
+        raise ValueError("Painted clearance does not match its segment and circle")
+    return clearance
+
+
+def measure_geometry(geometry):
+    buttons = geometry["entrances"]
+    leaders = [leader for leader in geometry["leaders"] if leader["id"] in office_words]
+    if len(buttons) != len(entrances) or {button["target"] for button in buttons} != entrances:
+        raise ValueError("Incomplete entrance inventory")
+    if not all(button["fullyVisible"] is True and button["tappable"] is True for button in buttons):
+        raise ValueError("Entrance not visible or tappable")
+    if (set(geometry["readableLandmarks"]) != office_words
+            or len(leaders) != len(office_words) or {leader["id"] for leader in leaders} != office_words):
+        raise ValueError("Incomplete painted leader inventory")
+    pairs = [{"word": leader["id"], "target": button["target"], "inkClearance": ink_clearance(leader, button)}
+             for leader in leaders for button in buttons]
+    worst = min(pairs, key=lambda pair: pair["inkClearance"])
+    return {"leaders": len(leaders), "allPainted": len(geometry["leaders"]), "buttons": len(buttons),
+            "pairCount": len(pairs), "worst": worst,
+            "counterEdgeReception": next(pair["inkClearance"] for pair in pairs
+                                         if pair["word"] == counter and pair["target"] == reception)}
 
 
 def missing_record(phase):
     return {
         "phase": phase,
         "productSource": os.environ["BASE" if phase == "baseline" else "PRODUCT"],
-        "productionArtifact": os.environ["FROZEN" if phase == "baseline" else "PRODUCT"],
+        "productionArtifact": os.environ["BASE" if phase == "baseline" else "PRODUCT"],
         "testCommit": os.environ["PRODUCT"],
         "exit": None,
         "cases": [{"project": project, "file": file, "title": title, "observations": []} for project, file, title in cases[phase]],
@@ -70,22 +89,33 @@ def error_details(error):
     return diagnostics["details"](error.get("message", ""), error.get("stack", ""), error.get("location"))
 
 
+def required_attachments(key, old):
+    if key in zoom_cases:
+        return gestures | zoom_shots
+    required = {"office-atrium-entry", "office-atrium-return"}
+    if not old:
+        required.update(("monitor-view", "monitor-painted-card", "monitor-geometry"))
+    if key == phone:
+        required.add(geometry_name)
+    return required
+
+
 def retain_attachments(result, folder, destination, observation):
     destination.mkdir(parents=True)
     for item in result.get("attachments", []):
         name = item.get("name")
-        if name not in screenshots and name not in {geometry_name, "monitor-geometry"}:
+        if name not in screenshots and name not in {geometry_name, "monitor-geometry", *gestures}:
             continue
         try:
             data = diagnostics["attachment_data"](item, folder)
-            if name in {geometry_name, "monitor-geometry"}:
+            if name not in screenshots:
                 if item["contentType"] != "application/json":
                     raise ValueError("Expected JSON")
                 geometry = json.loads(data)
                 path = destination / f"{name}.json"
                 diagnostics["save"](path, geometry)
                 if name == geometry_name:
-                    observation["crossedEntrances"] = crossed_entrances(geometry)
+                    observation["geometry"] = measure_geometry(geometry)
             else:
                 if item["contentType"] != "image/png" or not data.startswith(b"\x89PNG\r\n\x1a\n"):
                     raise ValueError("Expected PNG")
@@ -124,18 +154,17 @@ def read_phase(phase):
                                "errors": [error_details(e) for e in errors], "primaryError": error_details(primary) if primary else None,
                                "attachments": {}, "attachmentErrors": []}
                 attempts.append(observation)
-                destination = out / phase / key[0] / f"result-{len(row['observations'])}-{index}"
+                journey = "zoom" if key in zoom_cases else "return"
+                destination = out / phase / key[0] / journey / f"result-{len(row['observations'])}-{index}"
                 retain_attachments(result, folder, destination, observation)
-                required = {"office-atrium-entry", "office-atrium-return"}
-                if not old:
-                    required.update(("monitor-view", "monitor-painted-card", "monitor-geometry"))
-                if key == phone:
-                    required.add(geometry_name)
-                observation["missingAttachments"] = sorted(required - observation["attachments"].keys())
+                observation["missingAttachments"] = sorted(required_attachments(key, old) - observation["attachments"].keys())
                 error_ok = ([headline(e) for e in errors] == [assertion] and headline(primary) == assertion
                             if old else not errors and not primary)
-                crossed = observation.get("crossedEntrances", [])
-                geometry_ok = key != phone or (workstation in crossed if old else not crossed)
+                geometry_ok = key != phone
+                if key == phone and "geometry" in observation:
+                    worst = observation["geometry"]["worst"]
+                    geometry_ok = (worst["word"] == counter and worst["target"] == reception and worst["inkClearance"] < -0.5
+                                   if old else worst["inkClearance"] >= -0.5)
                 observation["accepted"] = (result["retry"] == 0 and result["status"] == ("failed" if old else "passed")
                                            and error_ok and not observation["missingAttachments"] and not observation["attachmentErrors"]
                                            and geometry_ok)
@@ -165,7 +194,7 @@ def write_evidence():
         diagnostics["save"](out / f"{phase}.json", record)
         phases[phase] = record["accepted"]
     diagnostics["save"](out / "summary.json", {
-        "baseline": os.environ["BASE"], "baselineArtifact": os.environ["FROZEN"], "candidate": os.environ["PRODUCT"],
+        "baseline": os.environ["BASE"], "baselineRun": 45796779488, "candidate": os.environ["PRODUCT"],
         "requiredAssertion": assertion, "gates": gates, "acceptedPhases": phases,
         "accepted": all(phases.values()) and all(value == "success" for value in gates.values()),
     })
@@ -176,6 +205,17 @@ if __name__ == "__main__":
     if command == "evidence":
         write_evidence()
     elif command == "domain":
-        sys.exit(0 if diagnostics["run_domain"](("labelPlacement", "labelLayout", "screenSpaceLabels", "labelCanvasHit")) else 1)
+        files = ("openPlanWorkstation", "sceneGraph", "navigation", "labelLayout", "labelPlacement", "screenSpaceLabels", "labelCanvasHit")
+        sys.exit(0 if diagnostics["run_domain"](files) else 1)
+    elif command in {"types", "lint"}:
+        log = temp / f"{command}.log"
+        if command == "types":
+            args = ["npm", "run", "typecheck"]
+        else:
+            files = [os.fsdecode(name) for name in (temp / "lint-files").read_bytes().split(b"\0") if name]
+            args = ["./node_modules/.bin/eslint", "--", *files] if files else []
+        code = diagnostics["execute"](args, log) if args else 0
+        diagnostics["save"](out / f"{command}.json", {"exit": code, "error": diagnostics["process_error"](log) if code else None})
+        sys.exit(code)
     else:
         verify["run_browser"](command, temp, cases[command])

@@ -1,4 +1,4 @@
-name: Verify the office monitor leader after returning to the atrium
+name: Verify the reception entrance and all twelve office return leaders
 on:
   workflow_dispatch:
     inputs:
@@ -11,8 +11,7 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASE: ab818088afaca358ea2cb60e9d8a8cfe5aad99c3
-  FROZEN: 0c6407d600da8105ca07f3603be04a0d4626934f
+  BASE: 899521c8bcbbfebe68f3c7c83bfd16a5b869a5b1
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
@@ -30,27 +29,26 @@ jobs:
         working-directory: .
         run: |
           mkdir "$RUNNER_TEMP/diagnosis"
-          [[ "$PRODUCT" =~ ^[0-9a-f]{40}$ && "$PRODUCT" != "$BASE" && "$PRODUCT" != "$FROZEN" ]]
+          [[ "$PRODUCT" =~ ^[0-9a-f]{40}$ && "$PRODUCT" != "$BASE" ]]
       - uses: actions/checkout@v6
         with:
           ref: ${{ inputs.candidate }}
           path: product
           persist-credentials: false
-      - name: Verify checkout and record the identical browser test used on both builds
+      - name: Verify the checkout and record the identical browser tests used for both builds
         id: source
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
-          sha256sum tests/e2e/office-conference.spec.ts > "$RUNNER_TEMP/diagnosis/browser-test.sha256"
-      - name: Verify the archived build's source against the baseline
-        id: equivalent
+          sha256sum tests/e2e/{office-conference.spec,photo-journey}.ts > "$RUNNER_TEMP/diagnosis/browser-tests.sha256"
+      - name: Record the changed files to lint
+        id: changes
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          git -c 'credential.helper=!gh auth git-credential' fetch --quiet --no-tags --depth=1 origin "$FROZEN" "$BASE" \
+          git -c 'credential.helper=!gh auth git-credential' fetch --quiet --no-tags --depth=1 origin "$BASE" \
             > "$RUNNER_TEMP/fetch.log" 2>&1
-          git diff --quiet "$FROZEN" "$BASE" -- . ':(exclude)tests/e2e/office-conference.spec.ts' \
-            ':(exclude)tests/domain/screenSpaceLabels.test.ts' ':(exclude)postponed-tasks.md'
-          git diff --name-only "$FROZEN" "$BASE" | jq -Rn '[inputs]' > "$RUNNER_TEMP/diagnosis/baseline-source-diff.json"
+          git diff --name-only -z --diff-filter=ACMRT "$BASE" "$PRODUCT" -- \
+            '*.js' '*.jsx' '*.ts' '*.tsx' '*.mjs' '*.cjs' '*.mts' '*.cts' > "$RUNNER_TEMP/lint-files"
       - uses: actions/setup-node@v7
         id: node
         if: ${{ !cancelled() && steps.source.outcome == 'success' }}
@@ -68,18 +66,18 @@ jobs:
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
       - uses: actions/download-artifact@v5
         id: download
-        if: ${{ !cancelled() && steps.equivalent.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.source.outcome == 'success' }}
         with:
-          name: production-dist-${{ env.FROZEN }}
-          run-id: 45783267309
+          name: production-dist-${{ env.BASE }}
+          run-id: 45796779488
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
       - name: Verify the archived production manifest
         id: baseline_manifest
         if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: |
-          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$FROZEN"
-          jq --arg base "$BASE" '{baseline:$base,build:.gitSha,sourceRun:45783267309,files:(.files|length)}' \
+          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASE"
+          jq '{build:.gitSha,sourceRun:45796779488,files:(.files|length)}' \
             "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
       - name: Run the candidate's phone return case against the archived build
         id: red
@@ -108,11 +106,19 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Run the candidate's phone and desktop office return cases
+      - name: Check the return and all four photographed zoom targets on phone and desktop
         id: green
         if: ${{ !cancelled() && steps.chromium.outcome == 'success' && steps.build.outcome == 'success' }}
         run: python ../.github/verify-office-leader.py candidate
-      - name: Verify label placement, layout, screen-space labels and canvas hit detection
+      - name: Typecheck the candidate
+        id: types
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: python ../.github/verify-office-leader.py types
+      - name: Lint the changed TypeScript and JavaScript
+        id: lint
+        if: ${{ !cancelled() && steps.changes.outcome == 'success' && steps.dependencies.outcome == 'success' }}
+        run: python ../.github/verify-office-leader.py lint
+      - name: Verify the office and navigation contracts, label placement, layout and canvas interaction
         id: domain
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         run: python ../.github/verify-office-leader.py domain
@@ -129,10 +135,10 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: office-monitor-leader-${{ github.run_id }}-${{ github.run_attempt }}
+          name: office-reception-leaders-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/diagnosis
           if-no-files-found: error
           retention-days: 7
-      - name: Require the specified intersection on the old phone and passing candidate checks
+      - name: Require the counter edge to cross the old reception button and all candidate checks to pass
         if: ${{ !cancelled() }}
         run: jq -e '.accepted == true' "$RUNNER_TEMP/diagnosis/summary.json"
