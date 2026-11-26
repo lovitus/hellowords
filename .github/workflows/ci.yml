@@ -1,4 +1,4 @@
-name: Verify keyboard selection from the scene word index and forty scene transitions
+name: Verify home atlas district journeys, office returns and forty scene transitions
 on:
   workflow_dispatch:
     inputs:
@@ -11,8 +11,8 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASE: 38769117e6693c23c9d57dc75060e9fc2964be3b
-  BASE_RUN: "45814084523"
+  BASE: 8fa2d874bac87cf2d484f0a923bf8c32edf1ea15
+  BASE_RUN: "45821175087"
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   verify:
@@ -66,11 +66,11 @@ jobs:
         if: ${{ !cancelled() && steps.download.outcome == 'success' }}
         run: |
           manifest="$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json"
-          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = e67a3d9196015a6f498a97d538549bc7b80917a0e995062e2f4dc2a41ed302f1
+          test "$(sha256sum "$manifest" | cut -d' ' -f1)" = e89eddf4b221ebc156113f4bfec007012eb1b559972e3629179853ac164ebea5
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASE"
           jq --argjson run "$BASE_RUN" '{build:.gitSha, sourceRun:$run, files:(.files|length)}' \
             "$manifest" > "$RUNNER_TEMP/diagnosis/baseline-build.json"
-      - name: Reproduce the lost keyboard focus after opening basin on desktop and phone
+      - name: Reproduce the three atlas behaviors on the archived build
         id: red
         if: ${{ !cancelled() && steps.baseline_manifest.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: |
@@ -99,7 +99,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Verify basin card focus and return, wheel motion, apartment and office journeys
+      - name: Verify atlas selection, index and keyboard access, wheel motion and office returns
         id: green
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.chromium.outcome == 'success' }}
         run: python ../.github/verify-input.py candidate
@@ -142,10 +142,10 @@ jobs:
         id: evidence
         if: ${{ always() }}
         with:
-          name: input-and-performance-${{ github.run_id }}-${{ github.run_attempt }}
+          name: atlas-and-performance-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/diagnosis
           if-no-files-found: error
           retention-days: 7
-      - name: Require both old-build failures, all candidate journeys and every performance budget
+      - name: Require all old-build behavior failures, all candidate journeys and every performance budget
         if: ${{ !cancelled() }}
         run: jq -e '.accepted == true' "$RUNNER_TEMP/diagnosis/summary.json"

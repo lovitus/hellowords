@@ -18,9 +18,25 @@ reverse_tab = (phone, "e2e/world.spec.ts", "portrait bilingual apartment returns
 pointer = (desktop, motion, "wheel zoom keeps the photographed point beneath the pointer throughout the gesture")
 index_title = "keyboard selection from the scene word index keeps the next action on the selected card"
 index_cases = [(project, "e2e/world.spec.ts", index_title) for project in (desktop, phone)]
-focus_assertion = "the selected word card receives keyboard focus after its index result disappears"
+prefix = "home atlas district journey "
+atlas_contracts = {
+    prefix + "search paints the selected tractor and keeps district navigation available": (
+        (desktop, phone), "the searched tractor is drawn and interactive while its card is open",
+        ("toBeNull", "null"), "tractor-on-map",
+    ),
+    prefix + "pointer opens a Campus word drawn over Science": (
+        (desktop,), "the cross-boundary word opens its own card",
+        ("toHaveText", "toilet cubicle door"), "campus-word-open",
+    ),
+    prefix + "keyboard tabs from the Campus title to a drawn word and back": (
+        (desktop, phone), "Tab from Campus focuses a drawn Campus word",
+        ("toBeVisible", "atlas-category-word", "school"), "focused-campus-word",
+    ),
+}
+atlas_cases = [(project, "e2e/world.spec.ts", title)
+              for title, (projects, _, _, _) in atlas_contracts.items() for project in projects]
 regressions = [
-    reverse_tab, pointer,
+    *index_cases, reverse_tab, pointer,
     (desktop, motion, "continuous wheel input advances in monotonic animation frames without a scale jump"),
     (desktop, "e2e/label-zoom-retention.spec.ts", verify["APARTMENT"]),
     (desktop, "e2e/continuous-semantic-zoom.spec.ts", "Apartment handoff settles to the complete child before a fresh outward gesture can exit"),
@@ -59,10 +75,9 @@ def retain_attempt(phase, number, case, result, folder):
     dest.mkdir(parents=True)
     for index, item in enumerate(result["attachments"], 1):
         name, mime = item["name"], item["contentType"]
-        if name == "error-context" and case in index_cases:
+        if name == "error-context" and old:
             context = helpers["attachment_data"](item, folder).decode(errors="replace")
             record["activeInFailureSnapshot"] = [helpers["text"](line) for line in context.splitlines() if "[active]" in line][:5]
-            record["basinCardInSnapshot"] = "basin word details" in context
         if mime not in {"image/png", "application/json"} or not re.fullmatch(r"[\w .-]{1,100}", name):
             continue
         data = helpers["attachment_data"](item, folder)
@@ -82,10 +97,22 @@ def retain_attempt(phase, number, case, result, folder):
             path = dest / f"{index:02d}-{name}.png"
         path.write_bytes(data)
         receipts.append({"name": name, "file": path.relative_to(out).as_posix()})
-    error_ok = ([headline(error) for error in errors] == [focus_assertion] and headline(primary) == focus_assertion
-                and "basin word details" in primary["message"] and "toBeFocused" in primary["message"]
-                if old else not errors and not primary)
-    evidence_ok = not old or any(a["name"] == "screenshot" for a in receipts)
+    if old:
+        _, expected, evidence_terms, _ = atlas_contracts[case[2]]
+        message = helpers["ANSI"].sub("", primary.get("message", ""))
+        error_ok = ([headline(error) for error in errors] == [expected] and headline(primary) == expected
+                    and all(term in message for term in evidence_terms)
+                    and any(frame["file"] == f"tests/{case[1]}" for frame in details(primary)["source"]))
+    else:
+        error_ok = not errors and not primary
+    names = {a["name"] for a in receipts}
+    evidence_ok = not old or "screenshot" in names
+    if not old and case in atlas_cases:
+        evidence_ok = any(a["name"] == atlas_contracts[case[2]][3] and a["file"].endswith(".png") for a in receipts)
+    if case in index_cases:
+        evidence_ok = "basin-index-keyboard-focus" in names
+    if case[2] == verify["RETURN"]:
+        evidence_ok = {"office-atrium-return", "office-return-words"}.issubset(names)
     if case == pointer:
         wheel = record.get("wheel", {})
         evidence_ok = (len([a for a in receipts if a["name"] == "wheel-pointer-trajectory"]) == 1
@@ -98,7 +125,7 @@ def retain_attempt(phase, number, case, result, folder):
 
 def browser(phase):
     old = phase == "baseline"
-    cases = index_cases if old else [*index_cases, *regressions]
+    cases = atlas_cases if old else [*atlas_cases, *regressions]
     folder = temp / phase
     verify["run_browser"](phase, temp, cases)
     rows = {(project, file, title): {"project": project, "file": file, "title": title, "attempts": [], "accepted": False}
@@ -190,7 +217,9 @@ def summary():
         if outcomes[gate] == "failure" and path.exists():
             diagnostics[log] = helpers["process_error"](path)
     write(out / "summary.json", {"baseline": os.environ["BASE"], "baselineRun": int(os.environ["BASE_RUN"]),
-                                 "requiredOldFocusAssertion": focus_assertion,
+                                 "requiredOldAtlasFailures": [{"project": project, "file": file, "title": title,
+                                                               "assertion": atlas_contracts[title][1]}
+                                                              for project, file, title in atlas_cases],
                                  "candidate": os.environ["PRODUCT"], "candidateRun": os.environ["GITHUB_RUN_ID"],
                                  "verificationCommit": os.environ["GITHUB_SHA"], "outcomes": outcomes,
                                  "diagnostics": diagnostics, "accepted": all(v == "success" for v in outcomes.values())})
