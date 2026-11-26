@@ -15,26 +15,28 @@ async function readJson(file: string) {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8"));
 }
 
-test("open-plan workstation keeps 150 reviewed, independently pointable terms", async () => {
+test("open-plan workstation keeps all 150 words and grounds its photographed terms", async () => {
   const scene = await readJson("open-plan-workstation.json");
   assert.equal(scene.id, "open-plan-workstation");
   assert.equal(scene.parentId, "office-building");
   assert.equal(scene.asset, "/scenes/open-plan-workstation-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
-  assert.equal(scene.labels.length, 150);
-  assert.equal(scene.visualRegions.length, 151);
+  const allWords = [...scene.labels, ...scene.relatedWords];
+  assert.equal(allWords.length, 150);
+  assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
+  assert.ok(scene.relatedWords.every((word: object) => !("x" in word) && !("y" in word)));
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }: { id: string; labelIds: string[] }) => [id, labelIds.length]), [
-    ["open-plan-workstation-zone-left-workstation-island", 25],
-    ["open-plan-workstation-zone-center-workstation-island", 25],
-    ["open-plan-workstation-zone-right-workstation-island", 25],
-    ["open-plan-workstation-zone-shared-office-fittings", 25],
-    ["open-plan-workstation-zone-cable-management-and-seating", 25],
-    ["open-plan-workstation-zone-lighting-plants-and-floor", 25],
+    ["open-plan-workstation-zone-left-workstation-island", 23],
+    ["open-plan-workstation-zone-center-workstation-island", 22],
+    ["open-plan-workstation-zone-right-workstation-island", 23],
+    ["open-plan-workstation-zone-shared-office-fittings", 17],
+    ["open-plan-workstation-zone-cable-management-and-seating", 10],
+    ["open-plan-workstation-zone-lighting-plants-and-floor", 16],
   ]);
-  assert.deepEqual([0, 1, 2, 3, 4].map((level) => scene.labels.filter(({ minLevel }: { minLevel: number }) => minLevel === level).length), [45, 31, 40, 25, 9]);
-  assert.equal(new Set(scene.labels.map(({ id }: { id: string }) => id)).size, 150);
-  assert.equal(new Set(scene.labels.map(({ word }: { word: string }) => word.toLocaleLowerCase())).size, 150);
-  assert.equal(scene.anchorAudit.status, "human-verified");
+  assert.deepEqual([0, 1, 2, 3, 4].map((level) => scene.labels.filter(({ minLevel }: { minLevel: number }) => minLevel === level).length), [38, 23, 29, 17, 4]);
+  assert.equal(new Set(allWords.map(({ id }) => id)).size, 150);
+  assert.equal(new Set(allWords.map(({ word }) => word.toLocaleLowerCase())).size, 150);
+  assert.equal(scene.anchorAudit.status, "image-reviewed");
   assert.equal(scene.anchorAudit.reviewedAssetSha256, "9acbbe66dd5fb56faa58562c07219f723bb39d12d535648fa7be6e3abcd7f1df");
 });
 

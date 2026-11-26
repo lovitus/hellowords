@@ -7,6 +7,10 @@ const roomAsset = "/scenes/conference-room-premium-v1.jpg";
 const roomHash = "d12438f3e95d9d580d0beb21b18baa7547d921ce18f205a61b279219a82533e1";
 const consoleAsset = "/scenes/video-conferencing-console-premium-v1.jpg";
 const roomRoute = [["office-building", "Office building"], [room, "Conference room"]] as const;
+const workstation = "open-plan-workstation";
+const workstationRoute = [roomRoute[0], [workstation, "Open-plan workstation"]] as const;
+const workstationAsset = "/scenes/open-plan-workstation-premium-v1.jpg";
+const workstationHash = "9acbbe66dd5fb56faa58562c07219f723bb39d12d535648fa7be6e3abcd7f1df";
 
 // Traced independently on the 1600 × 900 close-up. The microphone outline
 // stops at its body, and the tilted touch screen stops inside its black bezel.
@@ -212,6 +216,56 @@ test("conference room returns to a readable photograph and labels the photograph
     { word: "credenza drawer handle", meaning: "边柜抽屉把手",
       outlines: [[[95, 573], [105, 572], [137, 565], [141, 565], [141, 567], [105, 576], [95, 576]]] },
   ], roomHash);
+});
+
+test("open-plan workstation labels its photographed mouse, drawer handle and shared printer before returning to the office", async ({ page, isMobile }, testInfo) => {
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const sha256 = await openPhotographedRoute(page, isMobile, workstationRoute, workstationAsset, workstationHash);
+  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+  await checkPaintedWords(page, isMobile, testInfo, [
+    { word: "Open-plan left mouse", meaning: "左侧工位鼠标",
+      assertion: "left mouse leader ends on the mouse body above its pad",
+      outlines: [[[303, 491], [304, 488], [307, 486], [312, 484], [318, 484], [323, 486],
+        [325, 488], [325, 490], [322, 492], [316, 494], [304, 494]]] },
+    { word: "Open-plan center drawer handle", meaning: "中央工位抽屉拉手",
+      assertion: "center drawer handle leader ends on a black pull of the center pedestal",
+      outlines: [
+        [[1002, 581], [1005, 581], [1006, 582], [1033, 582], [1034, 581], [1038, 581], [1038, 585], [1002, 585]],
+        [[1002, 627], [1005, 627], [1006, 628], [1033, 628], [1034, 627], [1038, 627], [1038, 632], [1002, 632]],
+        [[1002, 672], [1005, 672], [1006, 673], [1033, 673], [1034, 672], [1038, 672], [1038, 677], [1002, 677]],
+      ] },
+    { word: "Shared open-plan printer", meaning: "共享办公打印机",
+      assertion: "shared printer leader ends on the printer inside the wooden cubby",
+      outlines: [[[499, 425], [508, 421], [522, 419], [580, 419], [584, 422],
+        [584, 467], [575, 474], [499, 474]]] },
+  ], sha256);
+  await activate(page.getByRole("button", { name: "← 返回上一层", exact: true }));
+  const app = page.getByTestId("world-app");
+  await expect(app).toHaveAttribute("data-scene-id", "office-building");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(page.locator(".viewer-shell:not([data-phase]) img.scene-art")).toHaveAttribute("src", "/scenes/office-atrium-premium-v1.jpg");
+});
+
+test("open-plan workstation zoom keeps the printer and chair caster in the room and opens desktop equipment from the keyboard", async ({ page, isMobile }, testInfo) => {
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const equipment = "desktop-workstation-equipment";
+  await openPhotographedRoute(page, isMobile, workstationRoute, workstationAsset, workstationHash);
+  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+  for (const [object, x, y, destination] of [
+    ["shared printer", 543, 447, workstation],
+    ["chair caster", 682, 743, workstation],
+    ["center keyboard", 853, 487, equipment],
+  ] as const) {
+    await test.step(object, () => checkMagnifiedObject(page, isMobile, testInfo, {
+      object, x, y, scene: workstation, asset: workstationAsset, destination,
+      destinationAsset: "/scenes/desktop-workstation-equipment-premium-v1.jpg", threshold: 3.2,
+    }));
+  }
+  await activate(page.getByRole("button", { name: "← 返回上一层", exact: true }));
+  const app = page.getByTestId("world-app");
+  await expect(app).toHaveAttribute("data-scene-id", workstation);
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(page.locator(".viewer-shell:not([data-phase]) img.scene-art")).toHaveAttribute("src", workstationAsset);
 });
 
 test("phone returns to the furnished room before Fit", async ({ page, isMobile }, testInfo) => {

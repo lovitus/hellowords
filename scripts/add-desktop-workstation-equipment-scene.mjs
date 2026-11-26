@@ -2,6 +2,10 @@ import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import sharp from "sharp";
+import {
+  desktopWorkstationPortal as parentPortal,
+  desktopWorkstationPortalRegion as parentRegion,
+} from "./add-open-plan-workstation-scene.mjs";
 
 /**
  * Author the desktop workstation equipment terminal scene from its reviewed
@@ -391,29 +395,6 @@ async function ensureAsset() {
   await writeFile(publicAsset, output);
   return true;
 }
-
-const parentPortal = {
-  id: "enter-desktop-workstation-equipment",
-  label: "Inspect the centre desktop workstation",
-  translation: "查看中央桌面工位",
-  childSceneId: "desktop-workstation-equipment",
-  sourceVisualRegion: "portal-centre-desktop-workstation",
-  x: 500,
-  y: 390,
-  width: 430,
-  height: 390,
-  enterScale: 3.2,
-};
-
-const parentRegion = {
-  id: parentPortal.sourceVisualRegion,
-  description: "Complete centre workstation with monitor, keyboard, mouse, drawer pedestal, chair and under-desk cable routing",
-  kind: "object",
-  x: parentPortal.x,
-  y: parentPortal.y,
-  width: parentPortal.width,
-  height: parentPortal.height,
-};
 
 async function updateParent() {
   const parent = JSON.parse(await readFile(parentPath, "utf8"));

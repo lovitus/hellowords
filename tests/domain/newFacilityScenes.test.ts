@@ -335,10 +335,10 @@ test("security checkpoint and open-plan office expose bounded equipment entrance
   const office = await readJson("open-plan-workstation.json");
   const workstation = office.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "desktop-workstation-equipment");
   assert.ok(workstation);
-  assert.deepEqual([workstation.x, workstation.y, workstation.width, workstation.height], [500, 390, 430, 390]);
+  assert.deepEqual([workstation.x, workstation.y, workstation.width, workstation.height], [823, 477, 121, 23]);
   const region = office.visualRegions.find(({ id }: { id: string }) => id === workstation.sourceVisualRegion);
   assert.ok(region);
-  assert.deepEqual([region.x, region.y, region.width, region.height], [500, 390, 430, 390]);
+  assert.deepEqual([region.x, region.y, region.width, region.height], [workstation.x, workstation.y, workstation.width, workstation.height]);
 });
 
 test("baggage drop exposes a bounded central conveyor entrance", async () => {
