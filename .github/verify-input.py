@@ -39,13 +39,14 @@ office_case = (desktop, verify["OFFICE"], "a gradual second wheel gesture return
 office_screenshot = "office-after-gradual-return"
 home = "e2e/home-kitchen.spec.ts"
 apartment_title = "apartment search distinguishes the photographed shower hinge from the unpictured remote control"
-apartment_assertion = "during mobile focus the painted dot must follow the photographed hinge"
 hinge_capture = "apartment-shower-hinge-focus-frames"
 apartment_screenshot = "apartment-shower-hinge"
 apartment_cases = [(project, home, apartment_title) for project in (desktop, phone)]
 phone_hinge = (phone, home, apartment_title)
 kitchen_title = "kitchen object anchor stays on each photographed object from home entry through card selection and apartment return"
 kitchen_cases = [(project, home, kitchen_title) for project in (desktop, phone)]
+phone_coffee = (phone, home, kitchen_title)
+coffee_assertion = "tapping the coffee machine word dot must keep the kitchen open"
 district_titles = (
     "starts as a calm target-language world and persists the meaning toggle",
     "the home atlas keeps its artwork clear and reveals only the hovered district words",
@@ -105,6 +106,8 @@ def retain_attempt(phase, number, case, result, folder):
         if mime == "application/json":
             body = json.loads(data)
             path = dest / f"{index:02d}-{name}.json"
+            if name == "coffee-machine-tap-state":
+                record["coffeeTap"] = body
             if name == hinge_capture:
                 drift = [math.dist(s["photographedHinge"], s["paintedDot"]) for s in body["misplaced"]]
                 record["hinge"] = {"frames": len(body["frames"]), "misplaced": len(drift),
@@ -126,12 +129,16 @@ def retain_attempt(phase, number, case, result, folder):
     pngs = {a["name"] for a in receipts if a["file"].endswith(".png")}
     if old:
         record["accepted"] = (result["status"] == "failed" and result["retry"] == 0
-                              and case == phone_hinge and [headline(e) for e in errors] == [apartment_assertion]
-                              and headline(primary) == apartment_assertion and "screenshot" in pngs
-                              and record.get("hinge", {}).get("peakMisplacedCssPx", 0) > 8
+                              and case == phone_coffee and [headline(e) for e in errors] == [coffee_assertion]
+                              and headline(primary) == coffee_assertion
+                              and {"coffee-machine-before-tap", "coffee-machine-dot-result"}.issubset(pngs)
+                              and record.get("coffeeTap") == {"scene": "coffee-machine", "word": None}
                               and any(frame["file"] == f"tests/{case[1]}" for frame in details(primary)["source"]))
         return record
     evidence_ok = True
+    if case == phone_coffee:
+        evidence_ok = ({"coffee-machine-before-tap", "coffee-machine-dot-result", "coffee-machine-entry-result"}.issubset(pngs)
+                       and record.get("coffeeTap") == {"scene": "kitchen", "word": "coffee machine"})
     if case in apartment_cases:
         evidence_ok = apartment_screenshot in pngs
         if case == phone_hinge:
@@ -159,7 +166,7 @@ def retain_attempt(phase, number, case, result, folder):
 
 def browser(phase):
     old = phase == "baseline"
-    cases = [phone_hinge] if old else [*apartment_cases, *kitchen_cases, bus_case, *regressions, office_case]
+    cases = [phone_coffee] if old else [*apartment_cases, *kitchen_cases, bus_case, *regressions, office_case]
     projects = {project for project, _, _ in cases}
     folder = temp / phase
     verify["run_browser"](phase, temp, cases)
@@ -252,8 +259,8 @@ def summary():
         if outcomes[gate] == "failure" and path.exists():
             diagnostics[log] = helpers["process_error"](path)
     write(out / "summary.json", {"baseline": os.environ["BASE"], "baselineRun": int(os.environ["BASE_RUN"]),
-                                 "requiredOldApartmentFailures": {"projects": [phone], "file": home, "title": apartment_title,
-                                                                  "assertion": apartment_assertion},
+                                 "requiredOldKitchenFailure": {"project": phone, "file": home, "title": kitchen_title,
+                                                              "assertion": coffee_assertion},
                                  "requiredApartmentScreenshot": apartment_screenshot,
                                  "requiredOfficeScreenshot": office_screenshot,
                                  "requiredBusScreenshots": bus_screenshots,
