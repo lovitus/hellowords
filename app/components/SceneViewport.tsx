@@ -273,6 +273,7 @@ function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
   return (scene.id === "apartment" || scene.parentId === "apartment"
     || scene.id === "baggage-drop-station" || scene.id === "hospital"
     || scene.id === "radiology-suite" || scene.id === "pathology-lab"
+    || scene.id === "hospital-pharmacy" || scene.id === "tablet-counting-bench"
     || scene.id === "office-building" || scene.id === "conference-room" || scene.id === "video-conferencing-console")
     && viewport.width <= 560 && viewport.height > viewport.width;
 }

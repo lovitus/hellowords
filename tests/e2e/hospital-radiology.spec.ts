@@ -251,3 +251,88 @@ test("hospital console and couch stay in the hospital while magnifying the scann
     }));
   }
 });
+
+test("hospital pharmacy reads the photographed rolling cart and keeps amoxicillin in the index on the dispensing cabinet round trip", async ({ page, isMobile }, testInfo) => {
+  test.setTimeout(90_000);
+  const pharmacy = "hospital-pharmacy", asset = "/scenes/hospital-pharmacy-premium-v1.jpg";
+  const app = page.getByTestId("world-app"), viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const stable = async () => (await image.elementHandle()).waitForElementState("stable");
+  const camera = () => viewer.locator(".scene-surface").evaluate(el => getComputedStyle(el).transform);
+  const sha256 = await openPhotographedRoute(page, isMobile, [...hospitalRoute, [pharmacy, "Hospital pharmacy"]],
+    asset, "6bb0f995f40e5c980e1a191168eff6d25647b24f58289c5845ead2277eb651b3");
+  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+
+  // Trace the metal shelf edges, uprights, and handle on the 1600 × 900 photo.
+  // The upper medicine tray, lower bins, wooden cabinetry and wall unit have separate outlines.
+  const cart: PhotographedWord = {
+    word: "rolling cart", meaning: "移动推车", openFromDot: true,
+    assertion: "the rolling cart dot must land on the metal frame of the photographed cart at the front right",
+    outlines: [
+      [[1068, 602], [1335, 644], [1335, 667], [1068, 622]],
+      [[1068, 730], [1336, 791], [1336, 808], [1068, 745]],
+      [[1068, 856], [1210, 897], [1210, 899], [1163, 899], [1068, 873]],
+      [[1057, 588], [1069, 588], [1066, 880], [1054, 881]],
+      [[1336, 641], [1351, 641], [1352, 899], [1337, 899]],
+      [[1398, 568], [1408, 568], [1409, 880], [1399, 883]],
+      [[1336, 645], [1337, 620], [1341, 601], [1351, 585], [1392, 558], [1402, 557],
+        [1401, 565], [1359, 594], [1352, 604], [1348, 627], [1348, 645]],
+      [[1351, 644], [1397, 600], [1397, 619], [1351, 663]],
+      [[1353, 789], [1395, 731], [1395, 749], [1353, 805]],
+    ],
+  };
+  const readCart = () => checkPaintedWords(page, isMobile, testInfo, [cart], sha256);
+  await test.step("read the rolling cart on the pharmacy photograph", readCart);
+
+  const before = await camera();
+  await activate(page.getByTestId("scene-word-index-toggle"));
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill("amoxicillin");
+  await activate(index.getByRole("button").filter({ has: page.getByText("amoxicillin", { exact: true }) }));
+  const related = page.getByRole("complementary", { name: "amoxicillin word details", exact: true });
+  await expect(related.getByText("阿莫西林", { exact: true })).toBeVisible();
+  await expect(related.getByText("相关词 · 图中未标注", { exact: true })).toBeVisible();
+  await stable();
+  expect(await camera(), "reading amoxicillin keeps the same view of the pharmacy").toBe(before);
+  expect(await paintedWordCount(page, "amoxicillin"), "amoxicillin has no dot on the pharmacy photograph").toBe(0);
+  await testInfo.attach("amoxicillin-index", { body: await page.screenshot(), contentType: "image/png" });
+  await activate(related.getByRole("button", { name: "关闭单词卡" }));
+  await expect(related).toBeHidden();
+
+  await activate(viewer.getByRole("button", { name: "Fit scene", exact: true }));
+  await stable();
+  await activate(viewer.getByRole("button", { name: /^进入 Automated dispensing cabinet\b/ }));
+  await expect(app).toHaveAttribute("data-scene-id", "automated-dispensing-cabinet");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(image).toHaveAttribute("src", "/scenes/automated-dispensing-cabinet-premium-v1.jpg");
+  await activate(page.getByRole("button", { name: /返回上一层/ }));
+  await expect(app).toHaveAttribute("data-scene-id", pharmacy);
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(image).toHaveAttribute("src", asset);
+  await test.step("read the rolling cart after returning from the dispensing cabinet", readCart);
+  await test.step("magnifying the bottle on the cart stays in the pharmacy", () =>
+    checkMagnifiedObject(page, isMobile, testInfo, {
+      object: "cart-bottle", x: 1242, y: 569,
+      scene: pharmacy, asset, destination: pharmacy, destinationAsset: asset, threshold: 3.4,
+    }));
+
+  await test.step("zoom through the counting tray, inspect the blister pack, and read the cart back in the pharmacy", async () => {
+    const bench = "tablet-counting-bench", benchAsset = "/scenes/tablet-counting-bench-premium-v1.jpg";
+    await checkMagnifiedObject(page, isMobile, testInfo, {
+      object: "pharmacy-counting-tray", x: 530, y: 590,
+      scene: pharmacy, asset, destination: bench, destinationAsset: benchAsset, threshold: 3.4,
+    });
+    const blister = { x: 909, y: 478 };
+    await checkMagnifiedObject(page, isMobile, testInfo, {
+      object: "counting-bench-blister-pack", ...blister,
+      scene: bench, asset: benchAsset, destination: bench, destinationAsset: benchAsset, threshold: 3.4,
+    });
+    const scales = await zoomBack(page, isMobile, bench, pharmacy, asset, blister);
+    await testInfo.attach("counting-bench-retreat", {
+      body: JSON.stringify({ input: isMobile ? "pinch" : "wheel", scales, returned: await app.getAttribute("data-scene-id") }),
+      contentType: "application/json",
+    });
+    await readCart();
+  });
+});

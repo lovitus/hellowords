@@ -109,9 +109,10 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "pathology-lab": 110,
   "microscope-workstation": 145,
   "histology-sectioning-workstation": 108,
-  // The pharmacy close-up keeps storage, dispensing, compounding and generic
-  // medicine terms on visible shelves, counters and equipment.
-  "hospital-pharmacy": 100,
+  // The pharmacy and counting bench label visible objects. Generic medicine
+  // names remain searchable in the pharmacy index.
+  "hospital-pharmacy": 86,
+  "tablet-counting-bench": 57,
   "automated-dispensing-cabinet": 145,
   // The terminal raster resolves passenger processing, security, gate, baggage
   // claim and airside structures with a bounded, independently pointable set.
@@ -238,7 +239,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "pathology-lab": 110,
   "microscope-workstation": 155,
   "histology-sectioning-workstation": 120,
-  "hospital-pharmacy": 390,
+  "hospital-pharmacy": 86,
+  "tablet-counting-bench": 57,
   "automated-dispensing-cabinet": 150,
   airport: 390,
   // The baggage-claim render supports 95 distinct visible carousel, luggage,

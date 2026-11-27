@@ -178,6 +178,11 @@
       "parentId": "hospital-pharmacy"
     },
     {
+      "id": "tablet-counting-bench",
+      "title": "Tablet counting bench",
+      "parentId": "hospital-pharmacy"
+    },
+    {
       "id": "airport",
       "title": "Airport",
       "parentId": "urban-services"

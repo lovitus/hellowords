@@ -1330,18 +1330,18 @@ test("urban services exposes hospital, airport and office vocabulary through the
     '[data-testid="scene-minimap-child"][data-target-scene="hospital-pharmacy"]',
   ).click();
   await expect(app).toHaveAttribute("data-scene-id", "hospital-pharmacy");
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "390");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "86");
   const medicineZone = page.locator(
     '[data-testid="scene-minimap-zone"][data-zone-id="medicine-shelves-detail"]',
   );
-  await medicineZone.click();
-  if (testInfo.project.name === "mobile-chromium") {
-    await expect.poll(async () => Number(
-      await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
-    )).toBeGreaterThan(0);
-  } else {
-    await expect.poll(() => paintedWordCount(page, "losartan")).toBeGreaterThan(0);
-  }
+  if (input === "touch") await medicineZone.tap();
+  else await medicineZone.click();
+  await expect(medicineZone).toHaveAttribute("data-active", "true");
+  await expect.poll(() => paintedWordState(page, "medicine-shelf")).toMatchObject({ interactive: true });
+  await (await page.locator(".viewer-shell:not([data-phase]) img.scene-art").elementHandle()).waitForElementState("stable");
+  await clickPaintedWord(page, "medicine-shelf", input);
+  const shelfCard = page.getByRole("complementary", { name: "medicine shelf word details", exact: true });
+  await expect(shelfCard.getByText("药品货架", { exact: true })).toBeVisible();
 });
 
 test("root atlas wheel zoom stays on one scene until an entry is explicitly clicked", async ({ page }) => {

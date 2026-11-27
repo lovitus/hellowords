@@ -427,10 +427,10 @@ test("pathology laboratory and hospital pharmacy expose independently audited eq
   const pharmacy = await readJson("hospital-pharmacy.json");
   const cabinet = pharmacy.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "automated-dispensing-cabinet");
   assert.ok(cabinet);
-  assert.deepEqual([cabinet.x, cabinet.y, cabinet.width, cabinet.height], [1_120, 80, 480, 680]);
+  assert.deepEqual([cabinet.x, cabinet.y, cabinet.width, cabinet.height], [1_531, 475, 56, 13]);
   const cabinetRegion = pharmacy.visualRegions.find(({ id }: { id: string }) => id === cabinet.sourceVisualRegion);
   assert.ok(cabinetRegion);
-  assert.deepEqual([cabinetRegion.x, cabinetRegion.y, cabinetRegion.width, cabinetRegion.height], [1_120, 80, 480, 680]);
+  assert.deepEqual([cabinetRegion.x, cabinetRegion.y, cabinetRegion.width, cabinetRegion.height], [cabinet.x, cabinet.y, cabinet.width, cabinet.height]);
   assert.notEqual(cabinet.sourceVisualRegion, "automated-cabinet", "the accurate portal crop must not reuse the narrower legacy semantic region");
 });
 

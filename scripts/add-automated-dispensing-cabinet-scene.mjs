@@ -393,16 +393,16 @@ const parentPortal = {
   translation: "查看自动发药柜",
   childSceneId: "automated-dispensing-cabinet",
   sourceVisualRegion: "portal-automated-dispensing-cabinet",
-  x: 1_120,
-  y: 80,
-  width: 480,
-  height: 680,
+  x: 1_531,
+  y: 475,
+  width: 56,
+  height: 13,
   enterScale: 3.4,
 };
 
 const parentRegion = {
   id: parentPortal.sourceVisualRegion,
-  description: "Visible refrigerated medicine cabinet and automated dispensing cabinet bank along the pharmacy right wall",
+  description: "Silver drawer face below the dispensing cabinet display",
   kind: "object",
   x: parentPortal.x,
   y: parentPortal.y,

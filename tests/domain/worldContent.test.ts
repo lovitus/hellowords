@@ -121,6 +121,7 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "emergency-department", "emergency-triage-reception", "emergency-assessment-bay"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy", "automated-dispensing-cabinet"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy", "tablet-counting-bench"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "check-in-counter"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "check-in-counter", "baggage-drop-station"],
@@ -3160,7 +3161,8 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     ["operating-theatre", 109, 5, "emergency-department", ["operating room", "theatre operating table", "theatre anesthesia machine", "scrub bay", "sterile ceiling panel", "recovery vacuum outlet"]],
     ["pathology-lab", 110, 7, "hospital", ["microtome", "microscope", "pipette", "pipette plunger", "beaker", "staining tray", "blade holder", "desktop keyboard", "sample tray", "interior window", "glass-fronted cabinet"]],
     ["histology-sectioning-workstation", 108, 6, "pathology-lab", ["rotary microtome", "rotary handwheel", "microtome specimen head", "visible cutting blade", "section catch tray", "slide water bath", "sectioning tools", "cassette basket", "microtome control panel"]],
-    ["hospital-pharmacy", 390, 5, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "doxycycline", "cetirizine", "lamotrigine", "drawer cart", "cart shelf mat", "azithromycin", "nystatin", "dispensing chute", "prescription scanner", "calibration weight"]],
+    ["hospital-pharmacy", 86, 7, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "computer terminal", "pill counting tray", "mortar bowl", "graduated cylinder", "medicine bin", "pump dispenser"]],
+    ["tablet-counting-bench", 57, 6, "hospital-pharmacy", ["pill counting tray", "tablet", "counting spatula", "blister pack", "paper bag", "mortar", "pestle", "measuring cup", "label roll", "cardboard core", "bin", "fold", "shiny"]],
     ["airport", 390, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower", "aircraft fuselage", "body scanner", "claim chute", "carousel motor", "runway threshold", "ground power unit", "gate sign frame", "departure board frame", "luggage shell"]],
     ["baggage-claim", 95, 5, "airport", ["reclaim carousel", "hard-shell suitcase", "claim tag", "arrival foyer", "cart bay", "customs booth", "inspection tray", "arrivals reception counter", "arrival wall clock", "security camera dome"]],
     ["airport-baggage-conveyor", 150, 6, "baggage-drop-station", ["Airport incline belt", "Airport green hard-shell suitcase", "Airport blue ribbed suitcase", "Airport yellow transfer guard", "Airport front transfer roller", "Airport large conveyor motor", "Airport red emergency-stop button"]],
@@ -3198,6 +3200,14 @@ test("urban services adds hospital, airport and office vocabulary without breaki
   const pathologyTerms = new Set(pathologyIndex.map(word => word.word.toLowerCase()));
   for (const term of ["histopathology", "immunohistochemistry", "cold chain", "cryostat", "formalin jar"]) {
     assert.ok(pathologyTerms.has(term), `${term} remains in the pathology index`);
+  }
+  const pharmacy = byId.get("hospital-pharmacy")!;
+  const pharmacyIndex = pharmacy.relatedWords ?? [];
+  assert.equal(pharmacyIndex.length, 340);
+  assert.equal(new Set([...pharmacy.labels, ...pharmacyIndex].map(word => word.id)).size, 426);
+  const referenceTerms = new Set(pharmacyIndex.map(word => word.word.toLowerCase()));
+  for (const term of ["doxycycline", "cetirizine", "losartan", "amoxicillin", "calibration weight", "prescription scanner"]) {
+    assert.ok(referenceTerms.has(term), `${term} remains in the pharmacy index`);
   }
   assert.deepEqual(
     hospital.portals.map(({ childSceneId }) => childSceneId),
