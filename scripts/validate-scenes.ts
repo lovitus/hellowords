@@ -302,10 +302,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // molecular model; the 60-anchor ceiling excludes unsupported chemistry
   // while admitting separately visible edges, junctions and fracture parts.
   polymer: 60,
-  // The bright bathroom exposes a full suite of independently pointable
-  // fixtures plus readable hardware/textile subparts; the ceiling blocks
-  // invisible conditions while allowing the reviewed 133-anchor scene.
-  bathroom: 163,
+  // The closed toilet, cabinet and shower hardware support 104 photo points.
+  // The index retains the other words, including concealed hinges and drains.
+  bathroom: 104,
   // The bright bedroom resolves separate bedding, study, window, storage and
   // room-finish parts; the ceiling blocks moods, actions and hidden routines.
   bedroom: 164,

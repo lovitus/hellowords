@@ -2134,7 +2134,9 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
   assert.ok(bathroom);
   assert.equal(bathroom.parentId, "apartment");
   assert.equal(bathroom.asset, "/scenes/bathroom-premium-v1.jpg");
-  assert.equal(bathroom.labels.length, 163);
+  const bathroomVocabulary = [...bathroom.labels, ...(bathroom.relatedWords ?? [])];
+  assert.equal(new Set(bathroomVocabulary.map(({ id }) => id)).size, 163);
+  assert.equal(bathroomVocabulary.length, 163);
   assert.ok((bathroom.detailZones?.length ?? 0) >= 5);
   assert.deepEqual(bathroom.portals, [], "bathroom remains a terminal room");
 
@@ -2187,7 +2189,7 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
     "linear drain",
     "folded towels",
     "window pane",
-    "toilet bowl rim",
+    "toilet base",
     "showerhead nozzle",
     "glass door hinge",
     "niche shelf",
@@ -2201,6 +2203,12 @@ test("bathroom adds a dense terminal apartment room without overlapping sibling 
   }
   for (const unsupported of ["humidity", "cleanliness", "hot water"]) {
     assert.ok(!words.has(unsupported), `bathroom omits inferred ${unsupported}`);
+  }
+  const indexed = new Set(bathroom.relatedWords?.map(({ word }) => word));
+  // The lid is closed, the vanity drawers are shut, and the toothbrushes
+  // share a cup without a visible toothpaste tube.
+  for (const word of ["toilet bowl rim", "drawer organizer", "toothpaste tube"]) {
+    assert.ok(indexed.has(word) && !words.has(word), `${word} remains searchable in the bathroom`);
   }
   const bathroomLabels = new Map(bathroom.labels.map((label) => [label.id, label] as const));
   assert.deepEqual(
