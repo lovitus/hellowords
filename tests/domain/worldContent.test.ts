@@ -1003,27 +1003,36 @@ test("train carriage adds grounded coupler, cabin and track parts", async () => 
   const { scenes } = await loadWorld();
   const carriage = scenes.find((scene) => scene.id === "train-carriage");
   assert.ok(carriage);
-  assert.equal(carriage.labels.length, 100);
+  assert.equal(carriage.labels.length, 68);
+  assert.equal(carriage.relatedWords?.length, 32);
+  const vocabulary = [...carriage.labels, ...(carriage.relatedWords ?? [])];
+  assert.equal(new Set(vocabulary.map(label => label.id)).size, 100);
+  assert.equal(new Set(carriage.labels.map(label => `${label.x},${label.y}`)).size, carriage.labels.length);
   const words = new Set(carriage.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
     "buffer",
     "brake hose",
-    "sleeper",
+    "brake hose coupling",
+    "equipment hatch",
     "door seal",
     "window pane",
     "wall panel",
   ]) {
     assert.ok(words.has(required), `train carriage visibly grounds ${required}`);
   }
+  const index = new Set(carriage.relatedWords?.map(label => label.word));
+  for (const word of ["sleeper", "wheel bearing", "buffer spring", "coupler lock"]) {
+    assert.ok(index.has(word) && !words.has(word), `train carriage keeps ${word} in its index`);
+  }
   assert.deepEqual(
     carriage.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["carriage-shell", 9],
-      ["passenger-seating", 14],
+      ["carriage-shell", 10],
+      ["passenger-seating", 13],
       ["entry-vestibule", 14],
-      ["overhead-storage", 8],
-      ["bogie-assembly", 43],
-      ["underbody-equipment", 4],
+      ["overhead-storage", 6],
+      ["bogie-assembly", 11],
+      ["underbody-equipment", 6],
       ["coupler-and-brake-gear", 4],
       ["foreground-track", 4],
     ],
@@ -1031,16 +1040,17 @@ test("train carriage adds grounded coupler, cabin and track parts", async () => 
   assert.equal(
     carriage.detailZones?.find((zone) => zone.id === "coupler-and-brake-gear")?.targetScale,
     2.8,
-    "the coupler crop reaches the L4 brake hose in one focus gesture",
+    "the coupler crop reveals the hose and its metal fitting in one focus gesture",
   );
   const anchors = new Map(carriage.labels.map((label) => [label.id, [label.x, label.y]] as const));
   for (const [id, point] of [
-    ["buffer", [72, 660]],
-    ["brake-hose", [120, 720]],
-    ["sleeper", [980, 855]],
-    ["door-seal", [620, 350]],
-    ["window-pane", [1000, 380]],
-    ["wall-panel", [1080, 235]],
+    ["buffer", [130, 632]],
+    ["brake-hose", [92, 708]],
+    ["brake-hose-coupling-pro-1", [126, 690]],
+    ["equipment-hatch-pro-1", [1353, 582]],
+    ["door-seal", [669, 353]],
+    ["window-pane", [1005, 356]],
+    ["wall-panel", [1120, 299]],
   ] as const) {
     assert.deepEqual(anchors.get(id), point, `train carriage anchor ${id}`);
   }
@@ -1293,22 +1303,26 @@ test("premium battery pack expands only into clearly resolved electrical and the
   assert.ok(battery);
   assert.equal(battery.parentId, "electric-bus");
   assert.equal(battery.asset, "/scenes/battery-premium-v2.jpg");
-  assert.equal(battery.labels.length, 90);
+  assert.equal(battery.labels.length, 61);
+  assert.equal(battery.relatedWords?.length, 29);
+  const vocabulary = [...battery.labels, ...(battery.relatedWords ?? [])];
+  assert.equal(new Set(vocabulary.map(label => label.id)).size, 90);
+  assert.equal(new Set(battery.labels.map(label => `${label.x},${label.y}`)).size, battery.labels.length);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       battery.labels.filter((label) => label.minLevel === level).length
     )),
-    [7, 13, 27, 23, 20],
+    [8, 12, 15, 15, 11],
   );
   assert.deepEqual(
     battery.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["pack-shell", 39],
-      ["lid-and-seal", 5],
-      ["cell-module", 17],
+      ["pack-shell", 11],
+      ["lid-and-seal", 6],
+      ["cell-module", 18],
       ["power-electronics", 12],
-      ["power-terminal", 4],
-      ["thermal-management", 13],
+      ["power-terminal", 6],
+      ["thermal-management", 8],
     ],
   );
   assert.deepEqual(
@@ -1322,10 +1336,7 @@ test("premium battery pack expands only into clearly resolved electrical and the
   for (const visible of [
     "insulation sheet",
     "module clamp",
-    "cell spacer",
     "cable clamp",
-    "voltage sense wire",
-    "coolant manifold",
     "support rail",
     "vent grille",
     "enclosure rib",
@@ -1341,15 +1352,18 @@ test("premium battery pack expands only into clearly resolved electrical and the
     "cell holder rib",
     "module side wall",
     "wire loom",
-    "tube retainer",
-    "coolant tee",
-    "front wall bolt",
     "flange bolt",
     "mounting tab",
     "vent mesh",
-    "connector lock",
   ]) {
     assert.ok(words.has(visible), `battery visibly grounds ${visible}`);
+  }
+  const index = new Set(battery.relatedWords?.map(label => label.word));
+  for (const word of [
+    "lid hinge", "coolant manifold", "coolant tee", "tube retainer",
+    "connector lock", "front wall bolt", "cell spacer", "voltage sense wire",
+  ]) {
+    assert.ok(index.has(word) && !words.has(word), `battery keeps ${word} in its index`);
   }
   for (const unsupported of [
     "negative terminal",
@@ -1365,12 +1379,12 @@ test("premium battery pack expands only into clearly resolved electrical and the
 
   const labels = new Map(battery.labels.map((label) => [label.id, label] as const));
   assert.deepEqual(
-    ["insulation-sheet", "cable-clamp", "coolant-manifold", "mounting-hole", "cell-can", "lid-port", "coolant-tee", "connector-lock"].map((id) => {
+    ["insulation-sheet", "cable-clamp", "terminal-lug", "mounting-hole", "cell-can", "lid-port", "coolant-tube"].map((id) => {
       const label = labels.get(id);
       assert.ok(label);
       return [label.x, label.y];
     }),
-    [[460, 535], [790, 425], [820, 610], [1380, 790], [490, 465], [1278, 89], [815, 600], [1400, 345]],
+    [[421, 607], [1297, 421], [977, 446], [816, 797], [585, 458], [1284, 86], [540, 603]],
     "new battery parts stay anchored on the reviewed cutaway pixels",
   );
 });

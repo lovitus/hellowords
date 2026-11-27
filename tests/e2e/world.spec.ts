@@ -926,82 +926,59 @@ test("enters a scene slice on zoom and returns to its parent", async ({ page }) 
   ).toEqual(requestedBeforeRevisit);
 });
 
-test("battery pack exposes its expanded grounded vocabulary through the real portal path", async ({ page }) => {
+test("battery pack exposes its expanded grounded vocabulary through the real portal path", async ({ page, isMobile }) => {
   const app = await openWorld(page);
-  for (const target of ["city-street", "transit-hub", "electric-bus", "battery"]) {
-    await page.locator(
-      `[data-testid="scene-hotspot"][data-target-scene="${target}"]`,
-    ).first().click();
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const map = page.getByTestId("scene-minimap");
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const settled = async (target: string) => {
     await expect(app).toHaveAttribute("data-scene-id", target);
     await expect(app).toHaveAttribute("data-scene-loading", "false");
     await expect(app).toHaveAttribute("data-transition-state", "idle");
-    if (target === "hemoglobin") {
-      await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "51");
-      await expect.poll(() => page.locator(
-        '[data-testid="word-label"][data-visible="true"][data-interactive="true"]',
-      ).count()).toBeGreaterThan(8);
-      for (const [zoneId, word] of [
-        ["alpha-folds", "helix bundle"],
-        ["tetramer-core", "alpha beta dimer"],
-        ["heme-architecture", "heme plane"],
-        ["oxygen-coordination", "oxygen ligand"],
-        ["histidine-pocket", "histidine ring"],
-      ] as const) {
-        const zone = page.locator(
-          `[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`,
-        );
-        await zone.click();
-        await expect(zone).toHaveAttribute("data-active", "true");
-        await expect.poll(() => paintedWordCount(page, word)).toBeGreaterThan(0);
-      }
-      await page.getByRole("button", { name: "Fit scene" }).click();
-      await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "51");
-    }
+    await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
+  };
+  const focusZone = async (zoneId: string, labelId: string) => {
+    const zone = map.locator(`[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`);
+    await zone.scrollIntoViewIfNeeded();
+    await activate(zone);
+    await expect(zone).toHaveAttribute("data-active", "true");
+    await expect.poll(async () => {
+      const label = await paintedWordState(page, labelId);
+      return label?.interactive ? label.opacity : 0;
+    }, { message: `${labelId} becomes readable in ${zoneId}` }).toBeGreaterThanOrEqual(0.52);
+  };
+
+  for (const target of ["city-street", "transit-hub", "electric-bus", "battery"]) {
+    await activate(viewer.locator(
+      `[data-testid="scene-hotspot"][data-target-scene="${target}"]`,
+    ));
+    await settled(target);
   }
 
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "90");
-  await expect.poll(() => page.locator(
-    '[data-testid="word-label"][data-visible="true"][data-interactive="true"]',
-  ).count()).toBeGreaterThan(8);
+  if (!isMobile) await page.mouse.move(5, 5);
+  await expect(viewer.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "61");
+  await expect.poll(() => renderedWordCount(page)).toBeGreaterThan(8);
 
-  const indexToggle = page.getByTestId("scene-word-index-toggle");
-  await indexToggle.click();
+  await activate(page.getByTestId("scene-word-index-toggle"));
   const index = page.getByTestId("scene-word-index");
-  await expect(index).toBeVisible();
-  const search = index.getByRole("searchbox");
-  await search.fill("coolant tee");
-  await expect(index.getByTestId("scene-word-index-result").first()).toContainText("coolant tee");
-  await index.getByRole("button", { name: "关闭场景词索引" }).click();
+  // The index includes the 61 photographed objects and all 29 related words.
+  await expect(index.getByTestId("scene-word-index-summary")).toContainText("本场景 90 个词");
+  await index.getByRole("searchbox").fill("coolant tee");
+  await activate(index.getByRole("button", { name: "coolant tee，冷却液三通，图中未标注", exact: true }));
+  const coolant = page.getByRole("complementary", { name: "coolant tee word details", exact: true });
+  await expect(coolant.getByText("冷却液三通", { exact: true })).toBeVisible();
+  await expect(coolant.getByText("相关词 · 图中未标注", { exact: true })).toBeVisible();
+  await activate(coolant.getByRole("button", { name: "关闭单词卡" }));
+  await expect(coolant).toBeHidden();
 
-  const lidZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="lid-and-seal"]',
-  );
-  await lidZone.click();
-  await expect(lidZone).toHaveAttribute("data-active", "true");
-  await expect.poll(() => paintedWordCount(page, "lid port")).toBeGreaterThan(0);
+  await focusZone("lid-and-seal", "lid-port");
+  await focusZone("power-terminal", "terminal-lug");
 
-  const terminalZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="power-terminal"]',
-  );
-  await terminalZone.click();
-  await expect(terminalZone).toHaveAttribute("data-active", "true");
-  await expect.poll(() => paintedWordCount(page, "terminal lug")).toBeGreaterThan(0);
-
-  await page.getByTestId("scene-minimap-children").getByRole("button", {
-    name: "进入 Lithium-ion cell",
-  }).click();
-  await expect(app).toHaveAttribute("data-scene-id", "lithium-ion-cell");
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
-  const cellLidZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="positive-terminal-detail"]',
-  );
-  await cellLidZone.click();
-  await expect.poll(() => paintedWordCount(page, "positive terminal seal")).toBeGreaterThan(0);
-  const layerZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="unfolded-layer-edges"]',
-  );
-  await layerZone.click();
-  await expect.poll(() => paintedWordCount(page, "electrode fold")).toBeGreaterThan(0);
+  await activate(map.getByTestId("scene-minimap-children").getByRole("button", { name: "进入 Lithium-ion cell", exact: true }));
+  await settled("lithium-ion-cell");
+  await expect(viewer.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "60");
+  await focusZone("positive-terminal-detail", "positive-terminal-seal");
+  await focusZone("unfolded-layer-edges", "electrode-fold");
 });
 
 test("water tank exposes its new lid, water-surface, filter, and base parts", async ({ page }) => {

@@ -341,10 +341,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // such as the brake disc and emergency hammer stays in the scene index.
   "electric-bus": 63,
   "human-body": 90,
-  // The reviewed carriage raster exposes the complete cabin plus distinct
-  // door, seat, suspension and foreground track hardware; the ceiling blocks
-  // unsupported service claims while allowing the expanded 70-anchor audit.
-  "train-carriage": 100,
+  // The cabin, underfloor cabinet and exposed running gear have 68 distinct
+  // photo points. The slab has no separate sleeper, and bearings are hidden.
+  "train-carriage": 68,
   // The bright bogie raster resolves frame welds/ribs, wheel and motor
   // subparts, suspension seats, linkage pins and track fasteners; the ceiling
   // blocks maintenance actions, failure states and hidden load concepts.
@@ -352,10 +351,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The photo supports 100 platform, train, catenary and track points.
   // The scene index also includes fasteners and joints too small to identify.
   "railway-platform": 100,
-  // The battery cutaway resolves pack, module, cell, electrical, cooling and
-  // enclosure hardware; the ceiling blocks invisible electrochemistry and
-  // sensors that cannot be identified as separate objects in this frame.
-  battery: 90,
+  // The pack cutaway resolves 61 points, including the hole in the mounting
+  // ear. The floating lid has no visible hinge, and coolant flow is unmarked.
+  battery: 61,
   // The prismatic-cell cutaway resolves terminal seals, tab roots, winding
   // surfaces, sheet folds and collector edges while still excluding invisible
   // electrochemistry and performance claims.
