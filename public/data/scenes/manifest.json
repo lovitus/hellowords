@@ -213,6 +213,16 @@
       "parentId": "airport"
     },
     {
+      "id": "baggage-service-desk",
+      "title": "Baggage service desk",
+      "parentId": "baggage-claim"
+    },
+    {
+      "id": "suitcase-packing-table",
+      "title": "Suitcase packing table",
+      "parentId": "baggage-service-desk"
+    },
+    {
       "id": "airport-customs-hall",
       "title": "Airport customs hall",
       "parentId": "baggage-claim"

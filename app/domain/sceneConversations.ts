@@ -60,6 +60,42 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Here it is. Keep it when you contact the baggage service.", "给您，联系行李服务部门时请留好它。"],
     ] },
   ],
+  "baggage-service-desk": [
+    { title: "描述未到的箱子", roles: ["旅客", "行李服务员"], lines: [
+      ["My bag was the only one in our group that didn't arrive.", "我们一行人里，只有我的行李没到。"],
+      ["What does your suitcase look like?", "您的行李箱是什么样的？"],
+      ["It's burgundy, with a front pocket and two wheels.", "是酒红色的，前面有个口袋，底下有两个轮子。"],
+      ["Do you still have the tag receipt from check-in?", "您还留着值机时拿到的行李标签存根吗？"],
+      ["Yes, it's stuck to the back of my boarding pass.", "有，贴在我登机牌背面。"],
+      ["Let me copy the tag number onto the report.", "我把标签号码抄到报告上。"],
+    ] },
+    { title: "留下送达地址", roles: ["行李服务员", "旅客"], lines: [
+      ["Where can we deliver your bag if it turns up?", "找到行李后，可以送到哪里？"],
+      ["I'll be at this hotel until Friday morning.", "我会住在这家酒店，直到周五早上。"],
+      ["Please write the hotel address on this line.", "请在这一行写下酒店地址。"],
+      ["Can I give you a second phone number?", "我可以再留一个电话号码吗？"],
+      ["Yes. There's space for it under your address.", "可以，地址下面有空位。"],
+      ["Thanks. I'll keep the report number with my travel documents.", "谢谢，我会把报告编号和旅行证件放在一起。"],
+    ] },
+  ],
+  "suitcase-packing-table": [
+    { title: "从整理好的箱子里找东西", roles: ["旅伴甲", "旅伴乙"], lines: [
+      ["Have you seen my striped scarf?", "你看见我那条条纹围巾了吗？"],
+      ["Look in the mesh pocket next to the socks.", "看看袜子旁边的网袋。"],
+      ["Found it. Shall I put your sunglasses in there too?", "找到了。你的太阳镜也放进去吗？"],
+      ["I'd rather keep them with me for the ride.", "路上我想随身带着。"],
+      ["What about the travel adapter on the table?", "桌上的旅行转换插头呢？"],
+      ["I'll pack it with the rest of my chargers.", "我会把它和其他充电器放在一起。"],
+    ] },
+    { title: "整理衣物并合上箱子", roles: ["旅伴甲", "旅伴乙"], lines: [
+      ["Could you pass me the folded blue shirt?", "能把叠好的蓝衬衫递给我吗？"],
+      ["Here you go. Will it fit beside the trousers?", "给你。长裤旁边放得下吗？"],
+      ["Yes, if I tuck the sleeves in like this.", "可以，只要像这样把袖子往里折。"],
+      ["The buckle is under the pink T-shirt.", "搭扣压在粉色T恤下面了。"],
+      ["I've got it. The straps are holding everything in place now.", "找到了。现在束带把东西都固定好了。"],
+      ["Wait for me to zip the mesh pocket before you close the case.", "等我把网袋的拉链拉好，你再合上箱子。"],
+    ] },
+  ],
   "airport-customs-hall": [
     { title: "确认入境通道", roles: ["旅客", "海关工作人员"], lines: [
       ["I am not sure which arrivals channel I should use.", "我不确定应该走哪条入境通道。"],

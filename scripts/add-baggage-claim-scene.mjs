@@ -37,27 +37,19 @@ const sourceZones = [
     height: 740,
     targetScale: 2.45,
     labels: [
-      ["reclaim carousel", "行李提取转盘", 780, 600, 0],
-      ["carousel rim", "转盘边缘", 780, 460, 1],
-      ["carousel slat", "转盘板条", 780, 690, 2],
-      ["carousel roller", "转盘滚轮", 780, 620, 3],
+      ["reclaim carousel", "行李提取转盘", 803, 857, 0],
+      ["carousel rim", "转盘边缘", 1039, 807, 1],
+      ["carousel slat", "转盘板条", 828, 714, 2],
       ["reclaim carousel hub", "提取转盘中心", 780, 500, 1],
-      ["reclaim carousel rail", "提取转盘护栏", 780, 560, 2],
-      ["reclaim carousel support leg", "提取转盘支腿", 850, 580, 3],
-      ["reclaim carousel drive cover", "提取转盘驱动罩", 260, 650, 4],
-      ["reclaim carousel belt edge", "提取转盘皮带边缘", 500, 780, 3],
-      ["reclaim belt return roller", "提取皮带回程滚轮", 550, 800, 4],
-      ["reclaim belt tensioner", "提取皮带张紧器", 220, 650, 4],
-      ["reclaim chute", "行李提取滑道", 780, 320, 0],
-      ["reclaim chute door", "提取滑道门帘", 720, 255, 2],
-      ["luggage transfer tray", "行李转运托盘", 780, 350, 2],
+      ["reclaim carousel rail", "提取转盘护栏", 820, 567, 2],
+      ["reclaim carousel belt edge", "提取转盘皮带边缘", 883, 810, 3],
+      ["reclaim chute", "行李提取滑道", 710, 281, 0],
+      ["reclaim chute door", "提取滑道门帘", 715, 223, 2],
       ["carousel center cover", "转盘中心罩", 790, 500, 3],
-      ["carousel guardrail", "转盘护栏", 850, 560, 2],
-      ["carousel baggage shelf", "转盘行李搁台", 500, 460, 1],
-      ["carousel indicator light", "转盘指示灯", 780, 520, 4],
-      ["reclaim conveyor", "行李提取输送带", 720, 320, 1],
-      ["conveyor access panel", "输送带检修板", 600, 350, 4],
-      ["oversize baggage belt", "超大行李输送带", 650, 325, 0],
+      ["carousel guardrail", "转盘护栏", 891, 620, 2],
+      ["carousel indicator light", "转盘指示灯", 689, 457, 4],
+      ["reclaim conveyor", "行李提取输送带", 686, 297, 1],
+      ["conveyor access panel", "输送带检修板", 129, 613, 4],
     ],
   },
   {
@@ -71,29 +63,26 @@ const sourceZones = [
     height: 500,
     targetScale: 2.8,
     labels: [
-      ["hard-shell suitcase", "硬壳行李箱", 300, 500, 0],
-      ["fabric suitcase", "布面行李箱", 370, 430, 0],
-      ["red suitcase", "红色行李箱", 340, 405, 1],
-      ["blue suitcase", "蓝色行李箱", 480, 420, 1],
-      ["green suitcase", "绿色行李箱", 1_150, 520, 1],
-      ["brown suitcase", "棕色行李箱", 1_320, 560, 1],
-      ["black suitcase", "黑色行李箱", 1_320, 650, 1],
-      ["luggage duffel", "行李旅行袋", 1_050, 520, 0],
-      ["travel backpack", "旅行背包", 1_150, 700, 0],
+      ["hard-shell suitcase", "硬壳行李箱", 414, 615, 0],
+      ["fabric suitcase", "布面行李箱", 540, 693, 0],
+      ["red suitcase", "红色行李箱", 327, 420, 1],
+      ["blue suitcase", "蓝色行李箱", 1088, 750, 1],
+      ["green suitcase", "绿色行李箱", 915, 731, 1],
+      ["brown suitcase", "棕色行李箱", 1288, 511, 1],
+      ["black suitcase", "黑色行李箱", 1381, 575, 1],
+      ["luggage duffel", "行李旅行袋", 733, 738, 0],
+      ["travel backpack", "旅行背包", 1232, 683, 0],
       ["garment bag", "衣物袋", 200, 660, 0],
-      ["claim tag", "提取标签", 590, 740, 2],
-      ["claim-tag loop", "提取标签环", 600, 745, 4],
-      ["claim bag handle", "提取行李把手", 1_050, 530, 2],
-      ["case handle", "箱体把手", 300, 510, 2],
-      ["case wheel", "箱体轮", 305, 560, 3],
-      ["spinner wheel", "万向轮", 355, 565, 4],
-      ["zipper tab", "拉链片", 1_070, 520, 4],
-      ["luggage corner", "行李箱角", 1_300, 600, 3],
-      ["case shell", "箱体外壳", 310, 500, 2],
-      ["fabric strap", "布面背带", 1_050, 540, 3],
-      ["duffel handle", "旅行袋提手", 1_060, 500, 2],
-      ["suitcase latch", "行李箱扣锁", 300, 480, 3],
-      ["luggage wheel housing", "行李轮罩", 350, 550, 4],
+      ["claim tag", "提取标签", 612, 740, 2],
+      ["claim-tag loop", "提取标签环", 595, 730, 4],
+      ["claim bag handle", "提取行李把手", 1337, 619, 2],
+      ["case handle", "箱体把手", 1115, 775, 2],
+      ["case wheel", "箱体轮", 506, 624, 3],
+      ["luggage corner", "行李箱角", 1043, 736, 3],
+      ["case shell", "箱体外壳", 259, 457, 2],
+      ["fabric strap", "布面背带", 1315, 660, 3],
+      ["duffel handle", "旅行袋提手", 722, 685, 2],
+      ["luggage wheel housing", "行李轮罩", 935, 782, 4],
     ],
   },
   {
@@ -107,29 +96,25 @@ const sourceZones = [
     height: 700,
     targetScale: 2.35,
     labels: [
-      ["arrival foyer", "到达厅", 850, 200, 0],
-      ["baggage services desk", "行李服务台", 820, 300, 0],
-      ["service desk monitor", "服务台监视器", 820, 270, 2],
-      ["oversize baggage counter", "超大行李柜台", 800, 300, 1],
-      ["baggage service window", "行李服务窗口", 915, 230, 2],
-      ["cart bay", "行李车停放区", 1_450, 360, 0],
-      ["airport cart handlebar", "机场行李车把手", 1_450, 320, 2],
-      ["cart caster wheel", "行李车脚轮", 1_450, 420, 4],
+      ["arrival foyer", "到达厅", 543, 358, 0],
+      ["baggage services desk", "行李服务台", 105, 364, 0],
+      ["service desk monitor", "服务台监视器", 138, 290, 2],
+      ["cart bay", "行李车停放区", 1480, 374, 0],
+      ["airport cart handlebar", "机场行李车把手", 1457, 330, 2],
+      ["cart caster wheel", "行李车脚轮", 1415, 440, 4],
       ["cart rack", "行李车架", 1_450, 340, 1],
-      ["drinking fountain basin", "饮水机水盆", 1_550, 460, 2],
+      ["drinking fountain basin", "饮水机水盆", 1566, 416, 2],
       ["arrivals door", "到达厅门", 1_350, 220, 0],
       ["glass entrance", "玻璃入口", 1_380, 180, 1],
-      ["entrance transom", "入口上亮窗", 1_350, 120, 2],
-      ["arrival bench", "到达厅长椅", 1_600, 600, 0],
-      ["bench cushion", "长椅坐垫", 1_600, 600, 2],
-      ["arrival wall clock", "到达厅挂钟", 1_580, 100, 1],
+      ["entrance transom", "入口上亮窗", 1361, 85, 2],
+      ["arrival bench", "到达厅长椅", 1649, 553, 0],
+      ["bench cushion", "长椅坐垫", 1627, 522, 2],
+      ["arrival wall clock", "到达厅挂钟", 1592, 139, 1],
       ["arrival ceiling panel", "到达厅顶棚板", 800, 30, 2],
-      ["security camera dome", "半球安防摄像机", 1_520, 20, 3],
-      ["arrival floor tile", "到达厅地砖", 1_150, 450, 2],
-      ["arrival floor joint", "到达厅地面接缝", 1_200, 450, 4],
-      ["arrival wall panel", "到达厅墙板", 250, 170, 3],
+      ["security camera dome", "半球安防摄像机", 1545, 40, 3],
+      ["arrival floor tile", "到达厅地砖", 1210, 415, 2],
+      ["arrival wall panel", "到达厅墙板", 306, 60, 3],
       ["reclaim display screen", "行李提取显示屏", 200, 120, 1],
-      ["arrivals waste container", "到达厅废物容器", 1_590, 500, 2],
     ],
   },
   {
@@ -143,25 +128,21 @@ const sourceZones = [
     height: 620,
     targetScale: 2.55,
     labels: [
-      ["customs booth", "海关柜台间", 950, 240, 0],
-      ["customs inspection desk", "海关检查台", 800, 280, 0],
-      ["inspection tray", "检查托盘", 970, 300, 2],
-      ["transparent divider", "透明隔板", 840, 240, 1],
-      ["queue barrier rail", "排队隔离杆", 1_250, 360, 2],
-      ["border booth", "边检柜台间", 1_050, 240, 1],
-      ["booth window", "柜台窗", 1_050, 230, 3],
-      ["booth counter", "柜台台面", 1_050, 300, 2],
-      ["inspection counter", "检查柜台", 800, 320, 1],
-      ["baggage inspection table", "行李检查桌", 760, 330, 0],
-      ["customs queue barrier", "海关排队隔栏", 1_250, 350, 3],
-      ["service corridor door", "服务走廊门", 470, 180, 1],
-      ["conveyor access door", "输送带通道门", 480, 230, 2],
-      ["baggage container", "行李集装箱", 500, 200, 0],
-      ["container caster", "集装箱脚轮", 510, 260, 3],
-      ["cargo case", "货运行李箱", 500, 220, 1],
-      ["container handle", "集装箱把手", 520, 190, 4],
-      ["sorting cart", "分拣推车", 500, 300, 2],
-      ["belt curtain", "输送带帘", 700, 260, 4],
+      ["customs booth", "海关柜台间", 999, 272, 0],
+      ["customs inspection desk", "海关检查台", 837, 286, 0],
+      ["inspection tray", "检查托盘", 961, 295, 2],
+      ["transparent divider", "透明隔板", 906, 224, 1],
+      ["queue barrier rail", "排队隔离杆", 1257, 306, 2],
+      ["border booth", "边检柜台间", 1168, 281, 1],
+      ["booth window", "柜台窗", 1009, 210, 3],
+      ["booth counter", "柜台台面", 1029, 255, 2],
+      ["inspection counter", "检查柜台", 934, 340, 1],
+      ["customs queue barrier", "海关排队隔栏", 1072, 348, 3],
+      ["service corridor door", "服务走廊门", 465, 137, 1],
+      ["baggage container", "行李集装箱", 465, 232, 0],
+      ["container caster", "集装箱脚轮", 465, 260, 3],
+      ["cargo case", "货运行李箱", 415, 224, 1],
+      ["belt curtain", "输送带帘", 751, 203, 4],
     ],
   },
   {
@@ -175,17 +156,31 @@ const sourceZones = [
     height: 420,
     targetScale: 2.45,
     labels: [
-      ["arrivals reception counter", "到达厅接待柜台", 180, 300, 0],
-      ["reception monitor", "接待台监视器", 180, 280, 2],
-      ["desk counter", "柜台台面", 200, 300, 1],
-      ["desk front panel", "柜台前板", 180, 340, 3],
-      ["counter return", "柜台回转边", 350, 300, 2],
-      ["arrival wall display", "到达厅墙面显示屏", 210, 120, 1],
-      ["lobby planter", "大厅花盆", 20, 200, 0],
-      ["lobby plant", "大厅植物", 20, 240, 2],
-      ["counter monitor stand", "柜台监视器支架", 180, 290, 4],
+      ["arrivals reception counter", "到达厅接待柜台", 306, 327, 0],
+      ["reception monitor", "接待台监视器", 165, 284, 2],
+      ["desk counter", "柜台台面", 96, 325, 1],
+      ["desk front panel", "柜台前板", 195, 357, 3],
+      ["counter return", "柜台回转边", 332, 294, 2],
+      ["arrival wall display", "到达厅墙面显示屏", 208, 131, 1],
+      ["lobby planter", "大厅花盆", 17, 382, 0],
+      ["lobby plant", "大厅植物", 28, 249, 2],
+      ["counter monitor stand", "柜台监视器支架", 154, 305, 4],
     ],
   },
+];
+
+// These terms stay searchable. Their earlier points fall on the carousel
+// casing, another object, or a surface that cannot identify their function.
+const indexTerms = [
+  ["carousel roller", "转盘滚轮"], ["reclaim carousel support leg", "提取转盘支腿"],
+  ["reclaim carousel drive cover", "提取转盘驱动罩"], ["reclaim belt return roller", "提取皮带回程滚轮"],
+  ["reclaim belt tensioner", "提取皮带张紧器"], ["luggage transfer tray", "行李转运托盘"],
+  ["carousel baggage shelf", "转盘行李搁台"], ["oversize baggage belt", "超大行李输送带"],
+  ["spinner wheel", "万向轮"], ["zipper tab", "拉链片"], ["suitcase latch", "行李箱扣锁"],
+  ["oversize baggage counter", "超大行李柜台"], ["baggage service window", "行李服务窗口"],
+  ["arrival floor joint", "到达厅地面接缝"], ["arrivals waste container", "到达厅废物容器"],
+  ["baggage inspection table", "行李检查桌"], ["conveyor access door", "输送带通道门"],
+  ["container handle", "集装箱把手"], ["sorting cart", "分拣推车"],
 ];
 
 function sha256(bytes) {
@@ -222,7 +217,16 @@ function visualRegionFor(word, x, y, zoneTitle) {
   };
 }
 
-function buildScene() {
+const serviceDeskPortal = {
+  id: "enter-baggage-service-desk",
+  label: "Visit the baggage service desk",
+  translation: "进入行李服务柜台",
+  childSceneId: "baggage-service-desk",
+  sourceVisualRegion: "portal-baggage-service-desk",
+  x: 238, y: 328, width: 48, height: 24, enterScale: 3.4,
+};
+
+function buildScene(previousScene) {
   const labels = [];
   const visualRegions = [];
   const detailZones = [];
@@ -257,6 +261,16 @@ function buildScene() {
       labelIds,
     });
   }
+  // Other scene generators can attach their own entrances to this hall.
+  const portals = (previousScene?.portals ?? []).filter(portal => portal.id !== serviceDeskPortal.id);
+  const linkedRegions = new Set(portals.map(portal => portal.sourceVisualRegion));
+  visualRegions.push(...(previousScene?.visualRegions ?? []).filter(region => linkedRegions.has(region.id)));
+  const { x, y, width, height } = serviceDeskPortal;
+  visualRegions.push({
+    id: serviceDeskPortal.sourceVisualRegion, kind: "object",
+    description: "Honey-colored curved front panel beneath the pale countertop of the left arrivals desk",
+    x, y, width, height,
+  });
   return {
     id: "baggage-claim",
     title: "Baggage claim",
@@ -266,18 +280,21 @@ function buildScene() {
     width: SCENE_WIDTH,
     height: SCENE_HEIGHT,
     parentId: "airport",
+    portraitOverviewLabelIds: ["baggage-services-desk", "reclaim-carousel", "hard-shell-suitcase", "travel-backpack"].map(word => `baggage-claim-${word}`),
     visualRegions,
     detailZones,
     anchorAudit: {
-      status: "human-verified",
+      status: "image-reviewed",
       policy: "visible-object-or-part-only",
       reviewedAsset: "/scenes/baggage-claim-premium-v1.jpg",
       reviewedAssetSha256: PUBLIC_ASSET_SHA256,
-      rationale: "The source and resized baggage-claim photographs were inspected at native and final pixels. This batch retains 95 independently pointable carousel, luggage, arrivals, customs, service and reception objects or parts across five bounded exploration zones. Passenger identities, flight numbers, customs outcomes, airline brands, written screen content and inferred baggage-processing states were excluded.",
+      rationale: "The five zones retain the hall's original 95 terms. The visible counter, bags and handles, fountain, inspection booths, curtain, rails, and amber indicator are marked on the arrivals photograph. Hidden conveyor hardware, unidentifiable functions and uncertain small parts stay in the scene index.",
       previousLabelCount: 101,
-      retainedLabelCount: 95,
-      removedLabelCount: 6,
+      retainedLabelCount: labels.length,
+      removedLabelCount: 6 + indexTerms.length,
       removedExamples: [
+        "reclaim belt tensioner",
+        "arrivals waste container",
         "passenger identity",
         "flight number",
         "customs outcome",
@@ -287,7 +304,8 @@ function buildScene() {
       ],
     },
     labels,
-    portals: [],
+    relatedWords: indexTerms.map(([word, translation]) => ({ id: `baggage-claim-${slugify(word)}`, word, translation })),
+    portals: [...portals, serviceDeskPortal],
   };
 }
 
@@ -378,7 +396,13 @@ async function updateManifest() {
 
 export async function buildBaggageClaimScene() {
   const assetChanged = await ensureAsset();
-  const scene = buildScene();
+  let previousScene;
+  try {
+    previousScene = JSON.parse(await readFile(scenePath, "utf8"));
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+  const scene = buildScene(previousScene);
   const sceneChanged = await writeIfChanged(scenePath, scene);
   const airportChanged = await updateAirport();
   const manifestChanged = await updateManifest();

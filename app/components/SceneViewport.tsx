@@ -271,7 +271,8 @@ export function fullyFittedSceneCamera(sceneSize: FrameSize, viewportSize: Frame
 
 function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
   return (scene.id === "apartment" || scene.parentId === "apartment"
-    || scene.id === "baggage-drop-station" || scene.id === "hospital"
+    || scene.id === "baggage-drop-station" || scene.id === "baggage-claim"
+    || scene.id === "baggage-service-desk" || scene.id === "suitcase-packing-table" || scene.id === "hospital"
     || scene.id === "radiology-suite" || scene.id === "pathology-lab"
     || scene.id === "hospital-pharmacy" || scene.id === "tablet-counting-bench"
     || scene.id === "office-building" || scene.id === "conference-room" || scene.id === "video-conferencing-console")

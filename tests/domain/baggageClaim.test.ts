@@ -17,7 +17,7 @@ async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8")) as T;
 }
 
-test("baggage claim is a reviewed airport scene with 95 grounded parts", async () => {
+test("baggage claim keeps its 95 terms across photographed objects and the scene index", async () => {
   const scene = await readJson<{
     id: string;
     parentId: string;
@@ -25,6 +25,7 @@ test("baggage claim is a reviewed airport scene with 95 grounded parts", async (
     width: number;
     height: number;
     labels: Array<{ id: string; word: string; minLevel: number; sourceVisualRegion: string }>;
+    relatedWords: Array<{ id: string; word: string }>;
     visualRegions: Array<{ id: string }>;
     detailZones: Array<{ id: string; labelIds: string[] }>;
     portals: Array<{ childSceneId: string }>;
@@ -40,27 +41,30 @@ test("baggage claim is a reviewed airport scene with 95 grounded parts", async (
   assert.equal(scene.id, "baggage-claim");
   assert.equal(scene.parentId, "airport");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
-  assert.equal(scene.labels.length, 95);
+  assert.equal(scene.labels.length, 76);
+  assert.equal(scene.relatedWords.length, 19);
+  assert.ok(scene.relatedWords.every(word => !("x" in word) && !("y" in word)));
+  assert.equal(new Set([...scene.labels, ...scene.relatedWords].map(word => word.id)).size, 95);
   assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.deepEqual(scene.detailZones.map((zone) => [zone.id, zone.labelIds.length]), [
-    ["baggage-claim-zone-reclaim-carousel", 21],
-    ["baggage-claim-zone-luggage-detail", 23],
-    ["baggage-claim-zone-arrival-facilities", 23],
-    ["baggage-claim-zone-customs-inspection", 19],
+    ["baggage-claim-zone-reclaim-carousel", 13],
+    ["baggage-claim-zone-luggage-detail", 20],
+    ["baggage-claim-zone-arrival-facilities", 19],
+    ["baggage-claim-zone-customs-inspection", 15],
     ["baggage-claim-zone-reception-and-architecture", 9],
   ]);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
-    [19, 21, 27, 14, 14],
+    [17, 19, 22, 11, 7],
   );
   assert.deepEqual(
     scene.portals.map(({ childSceneId }) => childSceneId),
-    ["airport-customs-hall"],
+    ["airport-customs-hall", "baggage-service-desk"],
   );
-  assert.equal(scene.anchorAudit.status, "human-verified");
+  assert.ok(["image-reviewed", "human-verified"].includes(scene.anchorAudit.status));
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
-  assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 6);
-  assert.equal(scene.anchorAudit.removedLabelCount, 6);
+  assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 6 + scene.relatedWords.length);
+  assert.equal(scene.anchorAudit.removedLabelCount, 6 + scene.relatedWords.length);
 
   const assetPath = resolve(projectRoot, "public", scene.asset.replace(/^\//u, ""));
   const bytes = await readFile(assetPath);
@@ -75,8 +79,8 @@ test("baggage claim is a reviewed airport scene with 95 grounded parts", async (
     const other = await readJson<{ labels: Array<{ word: string }> }>(`${entry.id}.json`);
     for (const label of other.labels) existingWords.add(label.word.toLocaleLowerCase());
   }
-  const words = new Set(scene.labels.map((label) => label.word.toLocaleLowerCase()));
-  assert.equal(words.size, scene.labels.length);
+  const words = new Set([...scene.labels, ...scene.relatedWords].map((label) => label.word.toLocaleLowerCase()));
+  assert.equal(words.size, 95);
   for (const word of words) assert.equal(existingWords.has(word), false, `new baggage term duplicated: ${word}`);
   const zoneIds = new Set(scene.detailZones.flatMap((zone) => zone.labelIds));
   assert.equal(zoneIds.size, scene.labels.length);

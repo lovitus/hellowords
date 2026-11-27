@@ -120,6 +120,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The standalone baggage-claim photograph resolves carousel, luggage,
   // arrivals, customs and service fixtures without inferring flight states.
   "baggage-claim": 64,
+  "baggage-service-desk": 106,
+  "suitcase-packing-table": 90,
   // This photograph resolves 60 distinct labels. All 153 terms remain searchable.
   "check-in-counter": 60,
   // The photo resolves 71 objects and parts. The other 84 terms are searchable.
@@ -243,9 +245,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "tablet-counting-bench": 57,
   "automated-dispensing-cabinet": 150,
   airport: 390,
-  // The baggage-claim render supports 95 distinct visible carousel, luggage,
-  // arrivals, customs and reception parts without duplicate parent terms.
-  "baggage-claim": 95,
+  // Hidden conveyor mechanisms and unidentifiable small parts stay in the index.
+  "baggage-claim": 76,
+  "baggage-service-desk": 106,
+  "suitcase-packing-table": 90,
   "check-in-counter": 60,
   "baggage-drop-station": 71,
   "airport-conveyor-drive-unit": 155,

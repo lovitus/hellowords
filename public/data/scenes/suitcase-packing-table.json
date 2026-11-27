@@ -1,0 +1,2012 @@
+{
+  "id": "suitcase-packing-table",
+  "title": "Suitcase packing table",
+  "translation": "行李整理台",
+  "subtitle": "Look inside a packed suitcase and inspect clothing, shoes, toiletries and travel accessories.",
+  "asset": "/scenes/suitcase-packing-table-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "baggage-service-desk",
+  "portals": [],
+  "portraitOverviewLabelIds": [
+    "suitcase-packing-table-t-shirt",
+    "suitcase-packing-table-scarf",
+    "suitcase-packing-table-shoe",
+    "suitcase-packing-table-toothbrush",
+    "suitcase-packing-table-sunglasses",
+    "suitcase-packing-table-travel-adapter"
+  ],
+  "labels": [
+    {
+      "id": "suitcase-packing-table-socks",
+      "word": "socks",
+      "translation": "袜子",
+      "x": 252,
+      "y": 328,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-socks",
+      "lexemeId": "en-54f6d9fbe8ee576f"
+    },
+    {
+      "id": "suitcase-packing-table-scarf",
+      "word": "scarf",
+      "translation": "围巾",
+      "x": 272,
+      "y": 572,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-scarf"
+    },
+    {
+      "id": "suitcase-packing-table-mesh-divider",
+      "word": "mesh divider",
+      "translation": "网布隔层",
+      "x": 156,
+      "y": 153,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-mesh-divider"
+    },
+    {
+      "id": "suitcase-packing-table-sock-cuff",
+      "word": "sock cuff",
+      "translation": "袜口",
+      "x": 399,
+      "y": 213,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-sock-cuff"
+    },
+    {
+      "id": "suitcase-packing-table-sock-toe",
+      "word": "sock toe",
+      "translation": "袜尖",
+      "x": 146,
+      "y": 394,
+      "priority": 1.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-sock-toe"
+    },
+    {
+      "id": "suitcase-packing-table-sock-heel",
+      "word": "sock heel",
+      "translation": "袜跟",
+      "x": 355,
+      "y": 368,
+      "priority": 1.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-sock-heel"
+    },
+    {
+      "id": "suitcase-packing-table-ribbing",
+      "word": "ribbing",
+      "translation": "罗纹",
+      "x": 322,
+      "y": 198,
+      "priority": 1.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-ribbing"
+    },
+    {
+      "id": "suitcase-packing-table-stripe",
+      "word": "stripe",
+      "translation": "条纹",
+      "x": 229,
+      "y": 620,
+      "priority": 1.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-stripe"
+    },
+    {
+      "id": "suitcase-packing-table-fringe",
+      "word": "fringe",
+      "translation": "流苏",
+      "x": 394,
+      "y": 710,
+      "priority": 1.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-fringe"
+    },
+    {
+      "id": "suitcase-packing-table-knot",
+      "word": "knot",
+      "translation": "绳结",
+      "x": 275,
+      "y": 695,
+      "priority": 1.009,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-knot"
+    },
+    {
+      "id": "suitcase-packing-table-zipper",
+      "word": "zipper",
+      "translation": "拉链",
+      "x": 293,
+      "y": 92,
+      "priority": 1.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-zipper"
+    },
+    {
+      "id": "suitcase-packing-table-zipper-pull",
+      "word": "zipper pull",
+      "translation": "拉链拉片",
+      "x": 112,
+      "y": 116,
+      "priority": 1.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-zipper-pull"
+    },
+    {
+      "id": "suitcase-packing-table-thread",
+      "word": "thread",
+      "translation": "线",
+      "x": 304,
+      "y": 719,
+      "priority": 1.012,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-thread",
+      "lexemeId": "en-39200d1e8a8dbbb6"
+    },
+    {
+      "id": "suitcase-packing-table-shirt",
+      "word": "shirt",
+      "translation": "衬衫",
+      "x": 960,
+      "y": 295,
+      "priority": 1.013,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-shirt",
+      "lexemeId": "en-a52514252adf8606"
+    },
+    {
+      "id": "suitcase-packing-table-trousers",
+      "word": "trousers",
+      "translation": "长裤",
+      "x": 605,
+      "y": 433,
+      "priority": 1.014,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-trousers"
+    },
+    {
+      "id": "suitcase-packing-table-t-shirt",
+      "word": "T-shirt",
+      "translation": "T恤",
+      "x": 810,
+      "y": 683,
+      "priority": 1.015,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-t-shirt"
+    },
+    {
+      "id": "suitcase-packing-table-collar",
+      "word": "collar",
+      "translation": "衣领",
+      "x": 825,
+      "y": 153,
+      "priority": 1.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-collar",
+      "lexemeId": "en-8a46854926e5416b"
+    },
+    {
+      "id": "suitcase-packing-table-pocket",
+      "word": "pocket",
+      "translation": "裤袋",
+      "x": 600,
+      "y": 251,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-pocket",
+      "lexemeId": "en-62f5d588fd39c2bb"
+    },
+    {
+      "id": "suitcase-packing-table-chest-pocket",
+      "word": "chest pocket",
+      "translation": "胸前口袋",
+      "x": 987,
+      "y": 432,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-chest-pocket"
+    },
+    {
+      "id": "suitcase-packing-table-waistband",
+      "word": "waistband",
+      "translation": "裤腰",
+      "x": 669,
+      "y": 139,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-waistband"
+    },
+    {
+      "id": "suitcase-packing-table-belt-loop",
+      "word": "belt loop",
+      "translation": "裤耳",
+      "x": 701,
+      "y": 141,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-belt-loop"
+    },
+    {
+      "id": "suitcase-packing-table-button",
+      "word": "button",
+      "translation": "纽扣",
+      "x": 895,
+      "y": 345,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-button",
+      "lexemeId": "en-c3e2d78f3ff33572"
+    },
+    {
+      "id": "suitcase-packing-table-placket",
+      "word": "placket",
+      "translation": "衬衫门襟",
+      "x": 900,
+      "y": 395,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-placket"
+    },
+    {
+      "id": "suitcase-packing-table-neckline",
+      "word": "neckline",
+      "translation": "领口",
+      "x": 842,
+      "y": 601,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-neckline"
+    },
+    {
+      "id": "suitcase-packing-table-coral",
+      "word": "coral",
+      "translation": "珊瑚粉色",
+      "x": 980,
+      "y": 605,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-coral",
+      "lexemeId": "en-f39fd9073457c8ee"
+    },
+    {
+      "id": "suitcase-packing-table-cloth",
+      "word": "cloth",
+      "translation": "布料",
+      "x": 583,
+      "y": 574,
+      "priority": 1.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-cloth",
+      "lexemeId": "en-d6e28ffb3b198d85"
+    },
+    {
+      "id": "suitcase-packing-table-pocket-button",
+      "word": "pocket button",
+      "translation": "裤袋纽扣",
+      "x": 631,
+      "y": 279,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-pocket-button"
+    },
+    {
+      "id": "suitcase-packing-table-circular",
+      "word": "circular",
+      "translation": "圆形的",
+      "x": 902,
+      "y": 462,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-circular",
+      "lexemeId": "en-f5060d458702a74c"
+    },
+    {
+      "id": "suitcase-packing-table-carrying-handle",
+      "word": "carrying handle",
+      "translation": "箱把手",
+      "x": 783,
+      "y": 7,
+      "priority": 1.028,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-carrying-handle"
+    },
+    {
+      "id": "suitcase-packing-table-strap",
+      "word": "strap",
+      "translation": "束带",
+      "x": 700,
+      "y": 250,
+      "priority": 1.029,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-strap",
+      "lexemeId": "en-833a63294a4cb1fc"
+    },
+    {
+      "id": "suitcase-packing-table-buckle",
+      "word": "buckle",
+      "translation": "搭扣",
+      "x": 791,
+      "y": 398,
+      "priority": 1.03,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-buckle"
+    },
+    {
+      "id": "suitcase-packing-table-lining",
+      "word": "lining",
+      "translation": "内衬",
+      "x": 902,
+      "y": 61,
+      "priority": 1.031,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-lining",
+      "lexemeId": "en-2eec533c3767f8d1"
+    },
+    {
+      "id": "suitcase-packing-table-fabric-hinge",
+      "word": "fabric hinge",
+      "translation": "布铰链",
+      "x": 498,
+      "y": 406,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-fabric-hinge"
+    },
+    {
+      "id": "suitcase-packing-table-webbing",
+      "word": "webbing",
+      "translation": "织带",
+      "x": 645,
+      "y": 637,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-webbing"
+    },
+    {
+      "id": "suitcase-packing-table-release-tab",
+      "word": "release tab",
+      "translation": "搭扣释放片",
+      "x": 770,
+      "y": 399,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-release-tab"
+    },
+    {
+      "id": "suitcase-packing-table-gray",
+      "word": "gray",
+      "translation": "灰色",
+      "x": 899,
+      "y": 222,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-gray",
+      "lexemeId": "en-0e92d69f9b951b18"
+    },
+    {
+      "id": "suitcase-packing-table-hard-shell",
+      "word": "hard shell",
+      "translation": "硬质外壳",
+      "x": 288,
+      "y": 786,
+      "priority": 1.036,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-hard-shell"
+    },
+    {
+      "id": "suitcase-packing-table-wheel",
+      "word": "wheel",
+      "translation": "箱轮",
+      "x": 108,
+      "y": 852,
+      "priority": 1.037,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-wheel",
+      "lexemeId": "en-ba59926159d2aa25"
+    },
+    {
+      "id": "suitcase-packing-table-wheel-housing",
+      "word": "wheel housing",
+      "translation": "轮座",
+      "x": 445,
+      "y": 808,
+      "priority": 1.038,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-wheel-housing"
+    },
+    {
+      "id": "suitcase-packing-table-double-wheel",
+      "word": "double wheel",
+      "translation": "双轮",
+      "x": 568,
+      "y": 869,
+      "priority": 1.039,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-double-wheel"
+    },
+    {
+      "id": "suitcase-packing-table-wheel-hub",
+      "word": "wheel hub",
+      "translation": "轮毂",
+      "x": 938,
+      "y": 849,
+      "priority": 1.04,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-wheel-hub"
+    },
+    {
+      "id": "suitcase-packing-table-spoke",
+      "word": "spoke",
+      "translation": "轮辐",
+      "x": 608,
+      "y": 860,
+      "priority": 1.041,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-spoke",
+      "lexemeId": "en-5a6df92ae8c42422"
+    },
+    {
+      "id": "suitcase-packing-table-wheel-rim",
+      "word": "wheel rim",
+      "translation": "轮圈",
+      "x": 403,
+      "y": 853,
+      "priority": 1.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-wheel-rim"
+    },
+    {
+      "id": "suitcase-packing-table-teal",
+      "word": "teal",
+      "translation": "蓝绿色",
+      "x": 868,
+      "y": 790,
+      "priority": 1.043,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-teal"
+    },
+    {
+      "id": "suitcase-packing-table-bag",
+      "word": "bag",
+      "translation": "洗漱袋",
+      "x": 1282,
+      "y": 239,
+      "priority": 1.044,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-bag",
+      "lexemeId": "en-c018019b6a8b01ab"
+    },
+    {
+      "id": "suitcase-packing-table-toothbrush",
+      "word": "toothbrush",
+      "translation": "牙刷",
+      "x": 1515,
+      "y": 216,
+      "priority": 1.045,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-toothbrush"
+    },
+    {
+      "id": "suitcase-packing-table-comb",
+      "word": "comb",
+      "translation": "扁梳",
+      "x": 1330,
+      "y": 283,
+      "priority": 1.046,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-comb"
+    },
+    {
+      "id": "suitcase-packing-table-hairbrush",
+      "word": "hairbrush",
+      "translation": "发梳",
+      "x": 1397,
+      "y": 352,
+      "priority": 1.047,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-hairbrush"
+    },
+    {
+      "id": "suitcase-packing-table-bath-pouf",
+      "word": "bath pouf",
+      "translation": "沐浴球",
+      "x": 1209,
+      "y": 167,
+      "priority": 1.048,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-bath-pouf"
+    },
+    {
+      "id": "suitcase-packing-table-squeeze-tube",
+      "word": "squeeze tube",
+      "translation": "挤压软管",
+      "x": 1303,
+      "y": 135,
+      "priority": 1.049,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-squeeze-tube"
+    },
+    {
+      "id": "suitcase-packing-table-bottle",
+      "word": "bottle",
+      "translation": "小瓶",
+      "x": 1372,
+      "y": 160,
+      "priority": 1.05,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-bottle",
+      "lexemeId": "en-7def9c79e5be6d7a"
+    },
+    {
+      "id": "suitcase-packing-table-bottle-cap",
+      "word": "bottle cap",
+      "translation": "瓶盖",
+      "x": 1367,
+      "y": 100,
+      "priority": 1.051,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-bottle-cap"
+    },
+    {
+      "id": "suitcase-packing-table-bristles",
+      "word": "bristles",
+      "translation": "牙刷毛",
+      "x": 1525,
+      "y": 77,
+      "priority": 1.052,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-bristles"
+    },
+    {
+      "id": "suitcase-packing-table-comb-teeth",
+      "word": "comb teeth",
+      "translation": "梳齿",
+      "x": 1264,
+      "y": 312,
+      "priority": 1.053,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-comb-teeth"
+    },
+    {
+      "id": "suitcase-packing-table-brush-handle",
+      "word": "brush handle",
+      "translation": "发梳柄",
+      "x": 1520,
+      "y": 358,
+      "priority": 1.054,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-brush-handle"
+    },
+    {
+      "id": "suitcase-packing-table-mesh-pocket",
+      "word": "mesh pocket",
+      "translation": "网袋",
+      "x": 1227,
+      "y": 87,
+      "priority": 1.055,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-mesh-pocket"
+    },
+    {
+      "id": "suitcase-packing-table-bag-handle",
+      "word": "bag handle",
+      "translation": "袋提手",
+      "x": 1086,
+      "y": 151,
+      "priority": 1.056,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-bag-handle"
+    },
+    {
+      "id": "suitcase-packing-table-toiletry-bag-zipper",
+      "word": "toiletry bag zipper",
+      "translation": "洗漱包拉链",
+      "x": 1146,
+      "y": 209,
+      "priority": 1.057,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-toiletry-bag-zipper"
+    },
+    {
+      "id": "suitcase-packing-table-tube-cap",
+      "word": "tube cap",
+      "translation": "软管盖",
+      "x": 1287,
+      "y": 202,
+      "priority": 1.058,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-tube-cap"
+    },
+    {
+      "id": "suitcase-packing-table-toothbrush-grip",
+      "word": "toothbrush grip",
+      "translation": "牙刷防滑握位",
+      "x": 1516,
+      "y": 164,
+      "priority": 1.059,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-toothbrush-grip"
+    },
+    {
+      "id": "suitcase-packing-table-shoe",
+      "word": "shoe",
+      "translation": "鞋",
+      "x": 1099,
+      "y": 507,
+      "priority": 1.06,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-shoe",
+      "lexemeId": "en-efda1c925291a74c"
+    },
+    {
+      "id": "suitcase-packing-table-lace",
+      "word": "lace",
+      "translation": "鞋带",
+      "x": 1252,
+      "y": 484,
+      "priority": 1.061,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-lace",
+      "lexemeId": "en-97eb1d6128536a26"
+    },
+    {
+      "id": "suitcase-packing-table-toe-cap",
+      "word": "toe cap",
+      "translation": "鞋头包边",
+      "x": 1261,
+      "y": 389,
+      "priority": 1.062,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-toe-cap"
+    },
+    {
+      "id": "suitcase-packing-table-eyelet",
+      "word": "eyelet",
+      "translation": "鞋带孔",
+      "x": 1123,
+      "y": 455,
+      "priority": 1.063,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-eyelet"
+    },
+    {
+      "id": "suitcase-packing-table-shoe-tongue",
+      "word": "shoe tongue",
+      "translation": "鞋舌",
+      "x": 1148,
+      "y": 432,
+      "priority": 1.064,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-shoe-tongue"
+    },
+    {
+      "id": "suitcase-packing-table-insole",
+      "word": "insole",
+      "translation": "鞋垫",
+      "x": 1273,
+      "y": 639,
+      "priority": 1.065,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-insole"
+    },
+    {
+      "id": "suitcase-packing-table-lace-bow",
+      "word": "lace bow",
+      "translation": "鞋带蝴蝶结",
+      "x": 1186,
+      "y": 547,
+      "priority": 1.066,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-lace-bow"
+    },
+    {
+      "id": "suitcase-packing-table-lace-tip",
+      "word": "lace tip",
+      "translation": "鞋带头",
+      "x": 1118,
+      "y": 621,
+      "priority": 1.067,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-lace-tip"
+    },
+    {
+      "id": "suitcase-packing-table-stitching",
+      "word": "stitching",
+      "translation": "缝线",
+      "x": 1108,
+      "y": 466,
+      "priority": 1.068,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-stitching"
+    },
+    {
+      "id": "suitcase-packing-table-heel",
+      "word": "heel",
+      "translation": "鞋跟",
+      "x": 1159,
+      "y": 688,
+      "priority": 1.069,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-heel",
+      "lexemeId": "en-aee12eebcac8ca0b"
+    },
+    {
+      "id": "suitcase-packing-table-canvas",
+      "word": "canvas",
+      "translation": "帆布",
+      "x": 1220,
+      "y": 507,
+      "priority": 1.07,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-canvas",
+      "lexemeId": "en-a457e8f04aa796dc"
+    },
+    {
+      "id": "suitcase-packing-table-smooth",
+      "word": "smooth",
+      "translation": "光滑的",
+      "x": 1138,
+      "y": 391,
+      "priority": 1.071,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-smooth",
+      "lexemeId": "en-c0f1779c16d26bac"
+    },
+    {
+      "id": "suitcase-packing-table-sunglasses",
+      "word": "sunglasses",
+      "translation": "太阳镜",
+      "x": 1415,
+      "y": 461,
+      "priority": 1.072,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-sunglasses"
+    },
+    {
+      "id": "suitcase-packing-table-belt",
+      "word": "belt",
+      "translation": "腰带",
+      "x": 1391,
+      "y": 605,
+      "priority": 1.073,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-belt"
+    },
+    {
+      "id": "suitcase-packing-table-tinted-lens",
+      "word": "tinted lens",
+      "translation": "有色镜片",
+      "x": 1505,
+      "y": 463,
+      "priority": 1.074,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-tinted-lens"
+    },
+    {
+      "id": "suitcase-packing-table-nose-bridge",
+      "word": "nose bridge",
+      "translation": "眼镜鼻梁",
+      "x": 1458,
+      "y": 439,
+      "priority": 1.075,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-nose-bridge"
+    },
+    {
+      "id": "suitcase-packing-table-eyeglass-frame",
+      "word": "eyeglass frame",
+      "translation": "眼镜框",
+      "x": 1522,
+      "y": 421,
+      "priority": 1.076,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-eyeglass-frame"
+    },
+    {
+      "id": "suitcase-packing-table-temple-tip",
+      "word": "temple tip",
+      "translation": "镜腿末端",
+      "x": 1550,
+      "y": 467,
+      "priority": 1.077,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-temple-tip"
+    },
+    {
+      "id": "suitcase-packing-table-belt-buckle",
+      "word": "belt buckle",
+      "translation": "皮带扣",
+      "x": 1435,
+      "y": 647,
+      "priority": 1.078,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-belt-buckle"
+    },
+    {
+      "id": "suitcase-packing-table-buckle-prong",
+      "word": "buckle prong",
+      "translation": "带扣插针",
+      "x": 1434,
+      "y": 667,
+      "priority": 1.079,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-buckle-prong"
+    },
+    {
+      "id": "suitcase-packing-table-belt-keeper",
+      "word": "belt keeper",
+      "translation": "腰带固定圈",
+      "x": 1484,
+      "y": 659,
+      "priority": 1.08,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-belt-keeper"
+    },
+    {
+      "id": "suitcase-packing-table-brown",
+      "word": "brown",
+      "translation": "棕色",
+      "x": 1519,
+      "y": 601,
+      "priority": 1.081,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-brown",
+      "lexemeId": "en-5eb67f9f8409b9c3"
+    },
+    {
+      "id": "suitcase-packing-table-curved",
+      "word": "curved",
+      "translation": "弯曲的",
+      "x": 1466,
+      "y": 532,
+      "priority": 1.082,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-curved",
+      "lexemeId": "en-3f9927ac80c04ef4"
+    },
+    {
+      "id": "suitcase-packing-table-towel",
+      "word": "towel",
+      "translation": "毛巾",
+      "x": 1229,
+      "y": 785,
+      "priority": 1.083,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-towel",
+      "lexemeId": "en-10ca50a8a7148afd"
+    },
+    {
+      "id": "suitcase-packing-table-travel-adapter",
+      "word": "travel adapter",
+      "translation": "旅行转换插头",
+      "x": 1487,
+      "y": 813,
+      "priority": 1.084,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-suitcase-packing-table-travel-adapter"
+    },
+    {
+      "id": "suitcase-packing-table-plug-pin",
+      "word": "plug pin",
+      "translation": "插脚",
+      "x": 1442,
+      "y": 805,
+      "priority": 1.085,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-plug-pin"
+    },
+    {
+      "id": "suitcase-packing-table-socket-opening",
+      "word": "socket opening",
+      "translation": "插孔",
+      "x": 1522,
+      "y": 781,
+      "priority": 1.086,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-suitcase-packing-table-socket-opening"
+    },
+    {
+      "id": "suitcase-packing-table-terry-cloth",
+      "word": "terry cloth",
+      "translation": "毛圈布",
+      "x": 1345,
+      "y": 793,
+      "priority": 1.087,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-suitcase-packing-table-terry-cloth"
+    },
+    {
+      "id": "suitcase-packing-table-thick",
+      "word": "thick",
+      "translation": "厚的",
+      "x": 1116,
+      "y": 839,
+      "priority": 1.088,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-suitcase-packing-table-thick",
+      "lexemeId": "en-7b1291e7ed8a6f3e"
+    },
+    {
+      "id": "suitcase-packing-table-wood",
+      "word": "wood",
+      "translation": "木材",
+      "x": 1482,
+      "y": 863,
+      "priority": 1.089,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-suitcase-packing-table-wood",
+      "lexemeId": "en-99f7855eb789dfec"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "suitcase-packing-table-packing-list",
+      "word": "packing list",
+      "translation": "打包清单"
+    },
+    {
+      "id": "suitcase-packing-table-baggage-allowance",
+      "word": "baggage allowance",
+      "translation": "行李限额"
+    },
+    {
+      "id": "suitcase-packing-table-carry-on-allowance",
+      "word": "carry-on allowance",
+      "translation": "手提行李限额"
+    },
+    {
+      "id": "suitcase-packing-table-fragile-item",
+      "word": "fragile item",
+      "translation": "易碎品"
+    },
+    {
+      "id": "suitcase-packing-table-checked-baggage",
+      "word": "checked baggage",
+      "translation": "托运行李"
+    },
+    {
+      "id": "suitcase-packing-table-spare-change-of-clothes",
+      "word": "spare change of clothes",
+      "translation": "备用的一套衣服"
+    },
+    {
+      "id": "suitcase-packing-table-excess-baggage-fee",
+      "word": "excess baggage fee",
+      "translation": "超额行李费"
+    },
+    {
+      "id": "suitcase-packing-table-weight-limit",
+      "word": "weight limit",
+      "translation": "重量上限"
+    }
+  ],
+  "visualRegions": [
+    {
+      "id": "photo-suitcase-packing-table-socks",
+      "description": "socks in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 218,
+      "y": 311,
+      "width": 68,
+      "height": 35
+    },
+    {
+      "id": "photo-suitcase-packing-table-scarf",
+      "description": "scarf in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 235,
+      "y": 559,
+      "width": 74,
+      "height": 26
+    },
+    {
+      "id": "photo-suitcase-packing-table-mesh-divider",
+      "description": "mesh divider in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 132,
+      "y": 135,
+      "width": 49,
+      "height": 37
+    },
+    {
+      "id": "photo-suitcase-packing-table-sock-cuff",
+      "description": "sock cuff in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 389,
+      "y": 208,
+      "width": 20,
+      "height": 11
+    },
+    {
+      "id": "photo-suitcase-packing-table-sock-toe",
+      "description": "sock toe in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 134,
+      "y": 383,
+      "width": 24,
+      "height": 22
+    },
+    {
+      "id": "photo-suitcase-packing-table-sock-heel",
+      "description": "sock heel in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 340,
+      "y": 358,
+      "width": 31,
+      "height": 21
+    },
+    {
+      "id": "photo-suitcase-packing-table-ribbing",
+      "description": "ribbing in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 314,
+      "y": 186,
+      "width": 16,
+      "height": 25
+    },
+    {
+      "id": "photo-suitcase-packing-table-stripe",
+      "description": "stripe in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 212,
+      "y": 616,
+      "width": 35,
+      "height": 8
+    },
+    {
+      "id": "photo-suitcase-packing-table-fringe",
+      "description": "fringe in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 381,
+      "y": 698,
+      "width": 27,
+      "height": 24
+    },
+    {
+      "id": "photo-suitcase-packing-table-knot",
+      "description": "knot in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 270,
+      "y": 691,
+      "width": 10,
+      "height": 9
+    },
+    {
+      "id": "photo-suitcase-packing-table-zipper",
+      "description": "zipper in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 268,
+      "y": 89,
+      "width": 50,
+      "height": 7
+    },
+    {
+      "id": "photo-suitcase-packing-table-zipper-pull",
+      "description": "zipper pull in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 106,
+      "y": 107,
+      "width": 12,
+      "height": 18
+    },
+    {
+      "id": "photo-suitcase-packing-table-thread",
+      "description": "thread in the socks and scarf in the lid area",
+      "kind": "part",
+      "x": 302,
+      "y": 711,
+      "width": 5,
+      "height": 16
+    },
+    {
+      "id": "photo-suitcase-packing-table-shirt",
+      "description": "shirt in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 933,
+      "y": 273,
+      "width": 55,
+      "height": 44
+    },
+    {
+      "id": "photo-suitcase-packing-table-trousers",
+      "description": "trousers in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 574,
+      "y": 400,
+      "width": 62,
+      "height": 67
+    },
+    {
+      "id": "photo-suitcase-packing-table-t-shirt",
+      "description": "T-shirt in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 777,
+      "y": 657,
+      "width": 66,
+      "height": 53
+    },
+    {
+      "id": "photo-suitcase-packing-table-collar",
+      "description": "collar in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 810,
+      "y": 141,
+      "width": 31,
+      "height": 24
+    },
+    {
+      "id": "photo-suitcase-packing-table-pocket",
+      "description": "pocket in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 578,
+      "y": 245,
+      "width": 44,
+      "height": 12
+    },
+    {
+      "id": "photo-suitcase-packing-table-chest-pocket",
+      "description": "chest pocket in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 968,
+      "y": 417,
+      "width": 38,
+      "height": 30
+    },
+    {
+      "id": "photo-suitcase-packing-table-waistband",
+      "description": "waistband in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 657,
+      "y": 131,
+      "width": 24,
+      "height": 16
+    },
+    {
+      "id": "photo-suitcase-packing-table-belt-loop",
+      "description": "belt loop in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 695,
+      "y": 125,
+      "width": 13,
+      "height": 32
+    },
+    {
+      "id": "photo-suitcase-packing-table-button",
+      "description": "button in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 890,
+      "y": 340,
+      "width": 10,
+      "height": 10
+    },
+    {
+      "id": "photo-suitcase-packing-table-placket",
+      "description": "placket in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 891,
+      "y": 379,
+      "width": 18,
+      "height": 33
+    },
+    {
+      "id": "photo-suitcase-packing-table-neckline",
+      "description": "neckline in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 828,
+      "y": 597,
+      "width": 28,
+      "height": 8
+    },
+    {
+      "id": "photo-suitcase-packing-table-coral",
+      "description": "coral in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 967,
+      "y": 595,
+      "width": 26,
+      "height": 21
+    },
+    {
+      "id": "photo-suitcase-packing-table-cloth",
+      "description": "cloth in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 569,
+      "y": 558,
+      "width": 28,
+      "height": 32
+    },
+    {
+      "id": "photo-suitcase-packing-table-pocket-button",
+      "description": "pocket button in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 625,
+      "y": 273,
+      "width": 12,
+      "height": 12
+    },
+    {
+      "id": "photo-suitcase-packing-table-circular",
+      "description": "circular in the folded shirts and trousers area",
+      "kind": "part",
+      "x": 897,
+      "y": 457,
+      "width": 11,
+      "height": 11
+    },
+    {
+      "id": "photo-suitcase-packing-table-carrying-handle",
+      "description": "carrying handle in the suitcase handle, lining and straps area",
+      "kind": "part",
+      "x": 751,
+      "y": 4,
+      "width": 65,
+      "height": 7
+    },
+    {
+      "id": "photo-suitcase-packing-table-strap",
+      "description": "strap in the suitcase handle, lining and straps area",
+      "kind": "part",
+      "x": 687,
+      "y": 240,
+      "width": 27,
+      "height": 20
+    },
+    {
+      "id": "photo-suitcase-packing-table-buckle",
+      "description": "buckle in the suitcase handle, lining and straps area",
+      "kind": "part",
+      "x": 780,
+      "y": 388,
+      "width": 23,
+      "height": 21
+    },
+    {
+      "id": "photo-suitcase-packing-table-lining",
+      "description": "lining in the suitcase handle, lining and straps area",
+      "kind": "part",
+      "x": 871,
+      "y": 54,
+      "width": 62,
+      "height": 15
+    },
+    {
+      "id": "photo-suitcase-packing-table-fabric-hinge",
+      "description": "fabric hinge in the suitcase handle, lining and straps area",
+      "kind": "part",
+      "x": 487,
+      "y": 375,
+      "width": 22,
+      "height": 63
+    },
+    {
+      "id": "photo-suitcase-packing-table-webbing",
+      "description": "webbing in the suitcase handle, lining and straps area",
+      "kind": "part",
+      "x": 636,
+      "y": 627,
+      "width": 18,
+      "height": 21
+    },
+    {
+      "id": "photo-suitcase-packing-table-release-tab",
+      "description": "release tab in the suitcase handle, lining and straps area",
+      "kind": "part",
+      "x": 768,
+      "y": 393,
+      "width": 5,
+      "height": 13
+    },
+    {
+      "id": "photo-suitcase-packing-table-gray",
+      "description": "gray in the suitcase handle, lining and straps area",
+      "kind": "part",
+      "x": 891,
+      "y": 214,
+      "width": 16,
+      "height": 17
+    },
+    {
+      "id": "photo-suitcase-packing-table-hard-shell",
+      "description": "hard shell in the suitcase shell and wheels area",
+      "kind": "part",
+      "x": 252,
+      "y": 782,
+      "width": 72,
+      "height": 9
+    },
+    {
+      "id": "photo-suitcase-packing-table-wheel",
+      "description": "wheel in the suitcase shell and wheels area",
+      "kind": "part",
+      "x": 91,
+      "y": 836,
+      "width": 35,
+      "height": 33
+    },
+    {
+      "id": "photo-suitcase-packing-table-wheel-housing",
+      "description": "wheel housing in the suitcase shell and wheels area",
+      "kind": "part",
+      "x": 434,
+      "y": 803,
+      "width": 22,
+      "height": 11
+    },
+    {
+      "id": "photo-suitcase-packing-table-double-wheel",
+      "description": "double wheel in the suitcase shell and wheels area",
+      "kind": "part",
+      "x": 557,
+      "y": 863,
+      "width": 23,
+      "height": 13
+    },
+    {
+      "id": "photo-suitcase-packing-table-wheel-hub",
+      "description": "wheel hub in the suitcase shell and wheels area",
+      "kind": "part",
+      "x": 933,
+      "y": 844,
+      "width": 11,
+      "height": 11
+    },
+    {
+      "id": "photo-suitcase-packing-table-spoke",
+      "description": "spoke in the suitcase shell and wheels area",
+      "kind": "part",
+      "x": 605,
+      "y": 857,
+      "width": 6,
+      "height": 6
+    },
+    {
+      "id": "photo-suitcase-packing-table-wheel-rim",
+      "description": "wheel rim in the suitcase shell and wheels area",
+      "kind": "part",
+      "x": 401,
+      "y": 845,
+      "width": 4,
+      "height": 17
+    },
+    {
+      "id": "photo-suitcase-packing-table-teal",
+      "description": "teal in the suitcase shell and wheels area",
+      "kind": "part",
+      "x": 850,
+      "y": 787,
+      "width": 36,
+      "height": 6
+    },
+    {
+      "id": "photo-suitcase-packing-table-bag",
+      "description": "bag in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1248,
+      "y": 230,
+      "width": 68,
+      "height": 19
+    },
+    {
+      "id": "photo-suitcase-packing-table-toothbrush",
+      "description": "toothbrush in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1511,
+      "y": 198,
+      "width": 9,
+      "height": 37
+    },
+    {
+      "id": "photo-suitcase-packing-table-comb",
+      "description": "comb in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1307,
+      "y": 280,
+      "width": 47,
+      "height": 7
+    },
+    {
+      "id": "photo-suitcase-packing-table-hairbrush",
+      "description": "hairbrush in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1371,
+      "y": 340,
+      "width": 52,
+      "height": 25
+    },
+    {
+      "id": "photo-suitcase-packing-table-bath-pouf",
+      "description": "bath pouf in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1182,
+      "y": 149,
+      "width": 55,
+      "height": 37
+    },
+    {
+      "id": "photo-suitcase-packing-table-squeeze-tube",
+      "description": "squeeze tube in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1290,
+      "y": 112,
+      "width": 27,
+      "height": 46
+    },
+    {
+      "id": "photo-suitcase-packing-table-bottle",
+      "description": "bottle in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1362,
+      "y": 141,
+      "width": 21,
+      "height": 38
+    },
+    {
+      "id": "photo-suitcase-packing-table-bottle-cap",
+      "description": "bottle cap in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1356,
+      "y": 92,
+      "width": 22,
+      "height": 17
+    },
+    {
+      "id": "photo-suitcase-packing-table-bristles",
+      "description": "bristles in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1518,
+      "y": 64,
+      "width": 15,
+      "height": 26
+    },
+    {
+      "id": "photo-suitcase-packing-table-comb-teeth",
+      "description": "comb teeth in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1250,
+      "y": 306,
+      "width": 29,
+      "height": 13
+    },
+    {
+      "id": "photo-suitcase-packing-table-brush-handle",
+      "description": "brush handle in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1493,
+      "y": 350,
+      "width": 54,
+      "height": 17
+    },
+    {
+      "id": "photo-suitcase-packing-table-mesh-pocket",
+      "description": "mesh pocket in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1206,
+      "y": 76,
+      "width": 43,
+      "height": 23
+    },
+    {
+      "id": "photo-suitcase-packing-table-bag-handle",
+      "description": "bag handle in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1082,
+      "y": 136,
+      "width": 9,
+      "height": 31
+    },
+    {
+      "id": "photo-suitcase-packing-table-toiletry-bag-zipper",
+      "description": "toiletry bag zipper in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1142,
+      "y": 205,
+      "width": 9,
+      "height": 8
+    },
+    {
+      "id": "photo-suitcase-packing-table-tube-cap",
+      "description": "tube cap in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1276,
+      "y": 199,
+      "width": 23,
+      "height": 7
+    },
+    {
+      "id": "photo-suitcase-packing-table-toothbrush-grip",
+      "description": "toothbrush grip in the toiletry bag and brushes area",
+      "kind": "part",
+      "x": 1512,
+      "y": 155,
+      "width": 9,
+      "height": 18
+    },
+    {
+      "id": "photo-suitcase-packing-table-shoe",
+      "description": "shoe in the shoes and laces area",
+      "kind": "part",
+      "x": 1088,
+      "y": 489,
+      "width": 23,
+      "height": 37
+    },
+    {
+      "id": "photo-suitcase-packing-table-lace",
+      "description": "lace in the shoes and laces area",
+      "kind": "part",
+      "x": 1243,
+      "y": 481,
+      "width": 18,
+      "height": 7
+    },
+    {
+      "id": "photo-suitcase-packing-table-toe-cap",
+      "description": "toe cap in the shoes and laces area",
+      "kind": "part",
+      "x": 1242,
+      "y": 377,
+      "width": 38,
+      "height": 25
+    },
+    {
+      "id": "photo-suitcase-packing-table-eyelet",
+      "description": "eyelet in the shoes and laces area",
+      "kind": "part",
+      "x": 1119,
+      "y": 451,
+      "width": 9,
+      "height": 9
+    },
+    {
+      "id": "photo-suitcase-packing-table-shoe-tongue",
+      "description": "shoe tongue in the shoes and laces area",
+      "kind": "part",
+      "x": 1137,
+      "y": 427,
+      "width": 23,
+      "height": 11
+    },
+    {
+      "id": "photo-suitcase-packing-table-insole",
+      "description": "insole in the shoes and laces area",
+      "kind": "part",
+      "x": 1259,
+      "y": 621,
+      "width": 28,
+      "height": 36
+    },
+    {
+      "id": "photo-suitcase-packing-table-lace-bow",
+      "description": "lace bow in the shoes and laces area",
+      "kind": "part",
+      "x": 1174,
+      "y": 539,
+      "width": 24,
+      "height": 16
+    },
+    {
+      "id": "photo-suitcase-packing-table-lace-tip",
+      "description": "lace tip in the shoes and laces area",
+      "kind": "part",
+      "x": 1115,
+      "y": 616,
+      "width": 6,
+      "height": 11
+    },
+    {
+      "id": "photo-suitcase-packing-table-stitching",
+      "description": "stitching in the shoes and laces area",
+      "kind": "part",
+      "x": 1105,
+      "y": 459,
+      "width": 6,
+      "height": 15
+    },
+    {
+      "id": "photo-suitcase-packing-table-heel",
+      "description": "heel in the shoes and laces area",
+      "kind": "part",
+      "x": 1149,
+      "y": 685,
+      "width": 20,
+      "height": 6
+    },
+    {
+      "id": "photo-suitcase-packing-table-canvas",
+      "description": "canvas in the shoes and laces area",
+      "kind": "part",
+      "x": 1214,
+      "y": 497,
+      "width": 12,
+      "height": 21
+    },
+    {
+      "id": "photo-suitcase-packing-table-smooth",
+      "description": "smooth in the shoes and laces area",
+      "kind": "part",
+      "x": 1126,
+      "y": 384,
+      "width": 25,
+      "height": 15
+    },
+    {
+      "id": "photo-suitcase-packing-table-sunglasses",
+      "description": "sunglasses in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1399,
+      "y": 449,
+      "width": 32,
+      "height": 25
+    },
+    {
+      "id": "photo-suitcase-packing-table-belt",
+      "description": "belt in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1383,
+      "y": 585,
+      "width": 16,
+      "height": 40
+    },
+    {
+      "id": "photo-suitcase-packing-table-tinted-lens",
+      "description": "tinted lens in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1491,
+      "y": 453,
+      "width": 29,
+      "height": 21
+    },
+    {
+      "id": "photo-suitcase-packing-table-nose-bridge",
+      "description": "nose bridge in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1452,
+      "y": 436,
+      "width": 12,
+      "height": 6
+    },
+    {
+      "id": "photo-suitcase-packing-table-eyeglass-frame",
+      "description": "eyeglass frame in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1513,
+      "y": 419,
+      "width": 19,
+      "height": 5
+    },
+    {
+      "id": "photo-suitcase-packing-table-temple-tip",
+      "description": "temple tip in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1546,
+      "y": 465,
+      "width": 8,
+      "height": 5
+    },
+    {
+      "id": "photo-suitcase-packing-table-belt-buckle",
+      "description": "belt buckle in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1418,
+      "y": 644,
+      "width": 34,
+      "height": 6
+    },
+    {
+      "id": "photo-suitcase-packing-table-buckle-prong",
+      "description": "buckle prong in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1424,
+      "y": 665,
+      "width": 20,
+      "height": 4
+    },
+    {
+      "id": "photo-suitcase-packing-table-belt-keeper",
+      "description": "belt keeper in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1478,
+      "y": 647,
+      "width": 13,
+      "height": 24
+    },
+    {
+      "id": "photo-suitcase-packing-table-brown",
+      "description": "brown in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1515,
+      "y": 592,
+      "width": 8,
+      "height": 19
+    },
+    {
+      "id": "photo-suitcase-packing-table-curved",
+      "description": "curved in the sunglasses and belt area",
+      "kind": "part",
+      "x": 1456,
+      "y": 530,
+      "width": 20,
+      "height": 5
+    },
+    {
+      "id": "photo-suitcase-packing-table-towel",
+      "description": "towel in the towel and travel adapter area",
+      "kind": "part",
+      "x": 1193,
+      "y": 764,
+      "width": 73,
+      "height": 43
+    },
+    {
+      "id": "photo-suitcase-packing-table-travel-adapter",
+      "description": "travel adapter in the towel and travel adapter area",
+      "kind": "part",
+      "x": 1472,
+      "y": 806,
+      "width": 30,
+      "height": 15
+    },
+    {
+      "id": "photo-suitcase-packing-table-plug-pin",
+      "description": "plug pin in the towel and travel adapter area",
+      "kind": "part",
+      "x": 1434,
+      "y": 803,
+      "width": 17,
+      "height": 5
+    },
+    {
+      "id": "photo-suitcase-packing-table-socket-opening",
+      "description": "socket opening in the towel and travel adapter area",
+      "kind": "part",
+      "x": 1519,
+      "y": 778,
+      "width": 7,
+      "height": 6
+    },
+    {
+      "id": "photo-suitcase-packing-table-terry-cloth",
+      "description": "terry cloth in the towel and travel adapter area",
+      "kind": "part",
+      "x": 1329,
+      "y": 776,
+      "width": 33,
+      "height": 35
+    },
+    {
+      "id": "photo-suitcase-packing-table-thick",
+      "description": "thick in the towel and travel adapter area",
+      "kind": "part",
+      "x": 1109,
+      "y": 824,
+      "width": 14,
+      "height": 30
+    },
+    {
+      "id": "photo-suitcase-packing-table-wood",
+      "description": "wood in the towel and travel adapter area",
+      "kind": "part",
+      "x": 1455,
+      "y": 852,
+      "width": 55,
+      "height": 22
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "suitcase-packing-table-zone-mesh-lid-detail",
+      "title": "Socks and scarf in the lid",
+      "translation": "箱盖里的袜子和围巾",
+      "description": "A pair of gray socks and a striped scarf are visible through the mesh divider in the suitcase lid. The ends of the scarf have a cream fringe.",
+      "x": 38,
+      "y": 48,
+      "width": 439,
+      "height": 718,
+      "targetScale": 2.8,
+      "labelIds": [
+        "suitcase-packing-table-socks",
+        "suitcase-packing-table-scarf",
+        "suitcase-packing-table-mesh-divider",
+        "suitcase-packing-table-sock-cuff",
+        "suitcase-packing-table-sock-toe",
+        "suitcase-packing-table-sock-heel",
+        "suitcase-packing-table-ribbing",
+        "suitcase-packing-table-stripe",
+        "suitcase-packing-table-fringe",
+        "suitcase-packing-table-knot",
+        "suitcase-packing-table-zipper",
+        "suitcase-packing-table-zipper-pull",
+        "suitcase-packing-table-thread"
+      ]
+    },
+    {
+      "id": "suitcase-packing-table-zone-packed-clothes-detail",
+      "title": "Folded shirts and trousers",
+      "translation": "折好的衬衫、T恤和长裤",
+      "description": "Dark trousers sit beside a pale blue button-down shirt and a coral T-shirt. Their pockets, buttons and collars are exposed between the straps.",
+      "x": 537,
+      "y": 76,
+      "width": 491,
+      "height": 686,
+      "targetScale": 2.8,
+      "labelIds": [
+        "suitcase-packing-table-shirt",
+        "suitcase-packing-table-trousers",
+        "suitcase-packing-table-t-shirt",
+        "suitcase-packing-table-collar",
+        "suitcase-packing-table-pocket",
+        "suitcase-packing-table-chest-pocket",
+        "suitcase-packing-table-waistband",
+        "suitcase-packing-table-belt-loop",
+        "suitcase-packing-table-button",
+        "suitcase-packing-table-placket",
+        "suitcase-packing-table-neckline",
+        "suitcase-packing-table-coral",
+        "suitcase-packing-table-cloth",
+        "suitcase-packing-table-pocket-button",
+        "suitcase-packing-table-circular"
+      ]
+    },
+    {
+      "id": "suitcase-packing-table-zone-lining-and-straps-detail",
+      "title": "Suitcase handle, lining and straps",
+      "translation": "箱把手、内衬和束带",
+      "description": "A black carrying handle sits above the open case. Two gray straps cross over the clothes and clip together, and a wide fabric hinge joins the halves.",
+      "x": 465,
+      "y": 0,
+      "width": 588,
+      "height": 791,
+      "targetScale": 2.8,
+      "labelIds": [
+        "suitcase-packing-table-carrying-handle",
+        "suitcase-packing-table-strap",
+        "suitcase-packing-table-buckle",
+        "suitcase-packing-table-lining",
+        "suitcase-packing-table-fabric-hinge",
+        "suitcase-packing-table-webbing",
+        "suitcase-packing-table-release-tab",
+        "suitcase-packing-table-gray"
+      ]
+    },
+    {
+      "id": "suitcase-packing-table-zone-suitcase-and-wheels-detail",
+      "title": "Suitcase shell and wheels",
+      "translation": "行李箱外壳与箱轮",
+      "description": "A teal hard shell runs across the base of the case. The black wheel assemblies have small gray hubs and spokes.",
+      "x": 21,
+      "y": 738,
+      "width": 1029,
+      "height": 162,
+      "targetScale": 2.8,
+      "labelIds": [
+        "suitcase-packing-table-hard-shell",
+        "suitcase-packing-table-wheel",
+        "suitcase-packing-table-wheel-housing",
+        "suitcase-packing-table-double-wheel",
+        "suitcase-packing-table-wheel-hub",
+        "suitcase-packing-table-spoke",
+        "suitcase-packing-table-wheel-rim",
+        "suitcase-packing-table-teal"
+      ]
+    },
+    {
+      "id": "suitcase-packing-table-zone-toiletries-and-brushes-detail",
+      "title": "Toiletry bag and brushes",
+      "translation": "洗漱袋、牙刷和梳子",
+      "description": "An open bag holds a mesh bath pouf, a plain squeeze tube and a clear bottle. A toothbrush, comb and wooden hairbrush lie beside it.",
+      "x": 1067,
+      "y": 0,
+      "width": 519,
+      "height": 402,
+      "targetScale": 2.8,
+      "labelIds": [
+        "suitcase-packing-table-bag",
+        "suitcase-packing-table-toothbrush",
+        "suitcase-packing-table-comb",
+        "suitcase-packing-table-hairbrush",
+        "suitcase-packing-table-bath-pouf",
+        "suitcase-packing-table-squeeze-tube",
+        "suitcase-packing-table-bottle",
+        "suitcase-packing-table-bottle-cap",
+        "suitcase-packing-table-bristles",
+        "suitcase-packing-table-comb-teeth",
+        "suitcase-packing-table-brush-handle",
+        "suitcase-packing-table-mesh-pocket",
+        "suitcase-packing-table-bag-handle",
+        "suitcase-packing-table-toiletry-bag-zipper",
+        "suitcase-packing-table-tube-cap",
+        "suitcase-packing-table-toothbrush-grip"
+      ]
+    },
+    {
+      "id": "suitcase-packing-table-zone-shoes-and-laces-detail",
+      "title": "Shoes and laces",
+      "translation": "帆布鞋与鞋带",
+      "description": "Two matching blue shoes have white toe caps and laces. The bows leave the eyelets, tongues and pale insoles visible.",
+      "x": 1066,
+      "y": 342,
+      "width": 266,
+      "height": 362,
+      "targetScale": 2.8,
+      "labelIds": [
+        "suitcase-packing-table-shoe",
+        "suitcase-packing-table-lace",
+        "suitcase-packing-table-toe-cap",
+        "suitcase-packing-table-eyelet",
+        "suitcase-packing-table-shoe-tongue",
+        "suitcase-packing-table-insole",
+        "suitcase-packing-table-lace-bow",
+        "suitcase-packing-table-lace-tip",
+        "suitcase-packing-table-stitching",
+        "suitcase-packing-table-heel",
+        "suitcase-packing-table-canvas",
+        "suitcase-packing-table-smooth"
+      ]
+    },
+    {
+      "id": "suitcase-packing-table-zone-sunglasses-and-belt-detail",
+      "title": "Sunglasses and belt",
+      "translation": "太阳镜与腰带",
+      "description": "The dark lenses sit in a mottled frame. Below them, a brown belt is coiled with its metal buckle facing outward.",
+      "x": 1336,
+      "y": 404,
+      "width": 238,
+      "height": 298,
+      "targetScale": 2.8,
+      "labelIds": [
+        "suitcase-packing-table-sunglasses",
+        "suitcase-packing-table-belt",
+        "suitcase-packing-table-tinted-lens",
+        "suitcase-packing-table-nose-bridge",
+        "suitcase-packing-table-eyeglass-frame",
+        "suitcase-packing-table-temple-tip",
+        "suitcase-packing-table-belt-buckle",
+        "suitcase-packing-table-buckle-prong",
+        "suitcase-packing-table-belt-keeper",
+        "suitcase-packing-table-brown",
+        "suitcase-packing-table-curved"
+      ]
+    },
+    {
+      "id": "suitcase-packing-table-zone-towel-and-adapter-detail",
+      "title": "Towel and travel adapter",
+      "translation": "毛巾与旅行转换插头",
+      "description": "A thick gray towel lies beside a white travel adapter on the wooden tabletop. Two plug pins are visible at the side of the adapter.",
+      "x": 1054,
+      "y": 700,
+      "width": 546,
+      "height": 200,
+      "targetScale": 2.8,
+      "labelIds": [
+        "suitcase-packing-table-towel",
+        "suitcase-packing-table-travel-adapter",
+        "suitcase-packing-table-plug-pin",
+        "suitcase-packing-table-socket-opening",
+        "suitcase-packing-table-terry-cloth",
+        "suitcase-packing-table-thick",
+        "suitcase-packing-table-wood"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "image-reviewed",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/suitcase-packing-table-premium-v1.jpg",
+    "reviewedAssetSha256": "bb673805d31f21009b73821a8ecb78cab84b5982fe2f7d0b4665c9b0171d4f38",
+    "rationale": "The points land on visible suitcase parts, exposed garments, accessories and textures. Clothing points avoid crossed straps. The type of liquid inside a closed bottle, baggage limits and transport fees cannot be identified visually.",
+    "previousLabelCount": 98,
+    "retainedLabelCount": 90,
+    "removedLabelCount": 8,
+    "removedExamples": [
+      "packing list",
+      "baggage allowance",
+      "carry-on allowance"
+    ]
+  }
+}

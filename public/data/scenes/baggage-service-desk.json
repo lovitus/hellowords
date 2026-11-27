@@ -1,0 +1,2335 @@
+{
+  "id": "baggage-service-desk",
+  "title": "Baggage service desk",
+  "translation": "行李服务台",
+  "subtitle": "Report a missing bag at the counter and inspect the open suitcase on the packing table.",
+  "asset": "/scenes/baggage-service-desk-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "baggage-claim",
+  "portals": [
+    {
+      "id": "enter-suitcase-packing-table",
+      "label": "Inspect the open suitcase",
+      "translation": "进入行李整理台",
+      "childSceneId": "suitcase-packing-table",
+      "sourceVisualRegion": "portal-suitcase-packing-table",
+      "x": 1236,
+      "y": 731,
+      "width": 48,
+      "height": 26,
+      "enterScale": 3.4
+    }
+  ],
+  "portraitOverviewLabelIds": [
+    "baggage-service-desk-desk-bell",
+    "baggage-service-desk-upright-suitcase",
+    "baggage-service-desk-open-suitcase"
+  ],
+  "labels": [
+    {
+      "id": "baggage-service-desk-desk-telephone",
+      "word": "desk telephone",
+      "translation": "台式电话",
+      "x": 558,
+      "y": 255,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-desk-telephone"
+    },
+    {
+      "id": "baggage-service-desk-desktop-monitor",
+      "word": "desktop monitor",
+      "translation": "台式显示器",
+      "x": 294,
+      "y": 144,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-desktop-monitor"
+    },
+    {
+      "id": "baggage-service-desk-computer-keyboard",
+      "word": "computer keyboard",
+      "translation": "电脑键盘",
+      "x": 372,
+      "y": 246,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-computer-keyboard"
+    },
+    {
+      "id": "baggage-service-desk-potted-plant",
+      "word": "potted plant",
+      "translation": "盆栽",
+      "x": 76,
+      "y": 125,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-potted-plant"
+    },
+    {
+      "id": "baggage-service-desk-handset",
+      "word": "handset",
+      "translation": "电话听筒",
+      "x": 517,
+      "y": 223,
+      "priority": 1.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-handset"
+    },
+    {
+      "id": "baggage-service-desk-telephone-cord",
+      "word": "telephone cord",
+      "translation": "电话卷线",
+      "x": 473,
+      "y": 269,
+      "priority": 1.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-telephone-cord"
+    },
+    {
+      "id": "baggage-service-desk-keypad",
+      "word": "keypad",
+      "translation": "小键盘",
+      "x": 550,
+      "y": 227,
+      "priority": 1.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-keypad"
+    },
+    {
+      "id": "baggage-service-desk-phone-display",
+      "word": "phone display",
+      "translation": "电话显示屏",
+      "x": 576,
+      "y": 197,
+      "priority": 1.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-phone-display"
+    },
+    {
+      "id": "baggage-service-desk-stand",
+      "word": "stand",
+      "translation": "支架",
+      "x": 271,
+      "y": 230,
+      "priority": 1.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-stand",
+      "lexemeId": "en-d37a24b801c6e2e3"
+    },
+    {
+      "id": "baggage-service-desk-monitor-base",
+      "word": "monitor base",
+      "translation": "显示器底座",
+      "x": 307,
+      "y": 266,
+      "priority": 1.009,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-monitor-base"
+    },
+    {
+      "id": "baggage-service-desk-rear-panel",
+      "word": "rear panel",
+      "translation": "背面板",
+      "x": 325,
+      "y": 195,
+      "priority": 1.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-rear-panel"
+    },
+    {
+      "id": "baggage-service-desk-key",
+      "word": "key",
+      "translation": "按键",
+      "x": 425,
+      "y": 247,
+      "priority": 1.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-key"
+    },
+    {
+      "id": "baggage-service-desk-leaf",
+      "word": "leaf",
+      "translation": "叶片",
+      "x": 103,
+      "y": 163,
+      "priority": 1.012,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-leaf",
+      "lexemeId": "en-9f91161f43433e49"
+    },
+    {
+      "id": "baggage-service-desk-vine",
+      "word": "vine",
+      "translation": "藤蔓",
+      "x": 140,
+      "y": 243,
+      "priority": 1.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-vine"
+    },
+    {
+      "id": "baggage-service-desk-plant-pot",
+      "word": "plant pot",
+      "translation": "花盆",
+      "x": 73,
+      "y": 236,
+      "priority": 1.014,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-plant-pot"
+    },
+    {
+      "id": "baggage-service-desk-window-frame",
+      "word": "window frame",
+      "translation": "窗框",
+      "x": 438,
+      "y": 55,
+      "priority": 1.015,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-window-frame"
+    },
+    {
+      "id": "baggage-service-desk-airplane",
+      "word": "airplane",
+      "translation": "飞机",
+      "x": 416,
+      "y": 128,
+      "priority": 1.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-airplane",
+      "lexemeId": "en-0f48868342614a8b"
+    },
+    {
+      "id": "baggage-service-desk-jet-engine",
+      "word": "jet engine",
+      "translation": "喷气发动机",
+      "x": 405,
+      "y": 154,
+      "priority": 1.017,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-jet-engine"
+    },
+    {
+      "id": "baggage-service-desk-sky",
+      "word": "sky",
+      "translation": "天空",
+      "x": 104,
+      "y": 14,
+      "priority": 1.018,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-sky",
+      "lexemeId": "en-05f514fae7ca5710"
+    },
+    {
+      "id": "baggage-service-desk-vertical",
+      "word": "vertical",
+      "translation": "垂直的",
+      "x": 511,
+      "y": 64,
+      "priority": 1.019,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-vertical",
+      "lexemeId": "en-34da56029403e6f7"
+    },
+    {
+      "id": "baggage-service-desk-clipboard",
+      "word": "clipboard",
+      "translation": "写字夹板",
+      "x": 709,
+      "y": 332,
+      "priority": 1.02,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-clipboard"
+    },
+    {
+      "id": "baggage-service-desk-pen",
+      "word": "pen",
+      "translation": "笔",
+      "x": 651,
+      "y": 341,
+      "priority": 1.021,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-pen",
+      "lexemeId": "en-e21a6b0cb193057e"
+    },
+    {
+      "id": "baggage-service-desk-in-tray",
+      "word": "in tray",
+      "translation": "收件盘",
+      "x": 543,
+      "y": 311,
+      "priority": 1.022,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-in-tray"
+    },
+    {
+      "id": "baggage-service-desk-ring-binder",
+      "word": "ring binder",
+      "translation": "活页夹",
+      "x": 159,
+      "y": 318,
+      "priority": 1.023,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-ring-binder"
+    },
+    {
+      "id": "baggage-service-desk-form",
+      "word": "form",
+      "translation": "表格",
+      "x": 438,
+      "y": 314,
+      "priority": 1.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-form"
+    },
+    {
+      "id": "baggage-service-desk-metal-clip",
+      "word": "metal clip",
+      "translation": "金属夹",
+      "x": 642,
+      "y": 307,
+      "priority": 1.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-metal-clip"
+    },
+    {
+      "id": "baggage-service-desk-pen-clip",
+      "word": "pen clip",
+      "translation": "笔夹",
+      "x": 671,
+      "y": 335,
+      "priority": 1.026,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-pen-clip"
+    },
+    {
+      "id": "baggage-service-desk-desktop-tape-dispenser",
+      "word": "desktop tape dispenser",
+      "translation": "台式胶带座",
+      "x": 307,
+      "y": 326,
+      "priority": 1.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-desktop-tape-dispenser"
+    },
+    {
+      "id": "baggage-service-desk-roll-of-tape",
+      "word": "roll of tape",
+      "translation": "一卷胶带",
+      "x": 331,
+      "y": 298,
+      "priority": 1.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-roll-of-tape"
+    },
+    {
+      "id": "baggage-service-desk-binder-spine",
+      "word": "binder spine",
+      "translation": "活页夹背脊",
+      "x": 201,
+      "y": 315,
+      "priority": 1.029,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-binder-spine"
+    },
+    {
+      "id": "baggage-service-desk-finger-hole",
+      "word": "finger hole",
+      "translation": "指孔",
+      "x": 227,
+      "y": 317,
+      "priority": 1.03,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-finger-hole"
+    },
+    {
+      "id": "baggage-service-desk-writing-shelf",
+      "word": "writing shelf",
+      "translation": "书写搁板",
+      "x": 249,
+      "y": 438,
+      "priority": 1.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-writing-shelf"
+    },
+    {
+      "id": "baggage-service-desk-rounded-corner",
+      "word": "rounded corner",
+      "translation": "圆角",
+      "x": 104,
+      "y": 437,
+      "priority": 1.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-rounded-corner"
+    },
+    {
+      "id": "baggage-service-desk-line",
+      "word": "line",
+      "translation": "横线",
+      "x": 453,
+      "y": 327,
+      "priority": 1.033,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-line"
+    },
+    {
+      "id": "baggage-service-desk-sheet-of-paper",
+      "word": "sheet of paper",
+      "translation": "纸张",
+      "x": 607,
+      "y": 335,
+      "priority": 1.034,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-sheet-of-paper"
+    },
+    {
+      "id": "baggage-service-desk-desk-bell",
+      "word": "desk bell",
+      "translation": "柜台铃",
+      "x": 1082,
+      "y": 274,
+      "priority": 1.035,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-desk-bell"
+    },
+    {
+      "id": "baggage-service-desk-luggage-tag",
+      "word": "luggage tag",
+      "translation": "行李吊牌",
+      "x": 901,
+      "y": 251,
+      "priority": 1.036,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-luggage-tag"
+    },
+    {
+      "id": "baggage-service-desk-receipt-printer",
+      "word": "receipt printer",
+      "translation": "小票打印机",
+      "x": 700,
+      "y": 250,
+      "priority": 1.037,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-receipt-printer"
+    },
+    {
+      "id": "baggage-service-desk-sign-holder",
+      "word": "sign holder",
+      "translation": "标牌架",
+      "x": 801,
+      "y": 282,
+      "priority": 1.038,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-sign-holder"
+    },
+    {
+      "id": "baggage-service-desk-pictogram",
+      "word": "pictogram",
+      "translation": "象形图标",
+      "x": 798,
+      "y": 205,
+      "priority": 1.039,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-pictogram"
+    },
+    {
+      "id": "baggage-service-desk-string",
+      "word": "string",
+      "translation": "细绳",
+      "x": 930,
+      "y": 177,
+      "priority": 1.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-string",
+      "lexemeId": "en-473287f8298dba71"
+    },
+    {
+      "id": "baggage-service-desk-eyelet",
+      "word": "eyelet",
+      "translation": "穿绳孔",
+      "x": 945,
+      "y": 216,
+      "priority": 1.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-eyelet"
+    },
+    {
+      "id": "baggage-service-desk-tag-holder",
+      "word": "tag holder",
+      "translation": "吊牌架",
+      "x": 923,
+      "y": 288,
+      "priority": 1.042,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-tag-holder"
+    },
+    {
+      "id": "baggage-service-desk-stack-of-slips",
+      "word": "stack of slips",
+      "translation": "一叠纸单",
+      "x": 1011,
+      "y": 239,
+      "priority": 1.043,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-stack-of-slips"
+    },
+    {
+      "id": "baggage-service-desk-blank",
+      "word": "blank",
+      "translation": "空白的",
+      "x": 947,
+      "y": 258,
+      "priority": 1.044,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-blank"
+    },
+    {
+      "id": "baggage-service-desk-receipt",
+      "word": "receipt",
+      "translation": "小票",
+      "x": 663,
+      "y": 266,
+      "priority": 1.045,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-receipt"
+    },
+    {
+      "id": "baggage-service-desk-paper-slot",
+      "word": "paper slot",
+      "translation": "出纸口",
+      "x": 664,
+      "y": 238,
+      "priority": 1.046,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-paper-slot"
+    },
+    {
+      "id": "baggage-service-desk-push-button",
+      "word": "push button",
+      "translation": "铃钮",
+      "x": 1081,
+      "y": 250,
+      "priority": 1.047,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-push-button"
+    },
+    {
+      "id": "baggage-service-desk-bell-base",
+      "word": "bell base",
+      "translation": "铃座",
+      "x": 1100,
+      "y": 295,
+      "priority": 1.048,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-bell-base"
+    },
+    {
+      "id": "baggage-service-desk-counter-surface",
+      "word": "counter surface",
+      "translation": "柜台台面",
+      "x": 923,
+      "y": 318,
+      "priority": 1.049,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-counter-surface"
+    },
+    {
+      "id": "baggage-service-desk-counter-lip",
+      "word": "counter lip",
+      "translation": "柜台前沿",
+      "x": 789,
+      "y": 344,
+      "priority": 1.05,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-counter-lip"
+    },
+    {
+      "id": "baggage-service-desk-upright-suitcase",
+      "word": "upright suitcase",
+      "translation": "立式行李箱",
+      "x": 500,
+      "y": 711,
+      "priority": 1.051,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-upright-suitcase"
+    },
+    {
+      "id": "baggage-service-desk-front-pocket",
+      "word": "front pocket",
+      "translation": "前袋",
+      "x": 386,
+      "y": 705,
+      "priority": 1.052,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-front-pocket"
+    },
+    {
+      "id": "baggage-service-desk-telescoping-handle",
+      "word": "telescoping handle",
+      "translation": "伸缩拉杆",
+      "x": 439,
+      "y": 418,
+      "priority": 1.053,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-telescoping-handle"
+    },
+    {
+      "id": "baggage-service-desk-twin-wheels",
+      "word": "twin wheels",
+      "translation": "双轮",
+      "x": 338,
+      "y": 830,
+      "priority": 1.054,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-twin-wheels"
+    },
+    {
+      "id": "baggage-service-desk-carry-handle",
+      "word": "carry handle",
+      "translation": "手提把手",
+      "x": 404,
+      "y": 518,
+      "priority": 1.055,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-carry-handle"
+    },
+    {
+      "id": "baggage-service-desk-pull-rod",
+      "word": "pull rod",
+      "translation": "拉杆杆身",
+      "x": 470,
+      "y": 481,
+      "priority": 1.056,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-pull-rod"
+    },
+    {
+      "id": "baggage-service-desk-zipper-pull",
+      "word": "zipper pull",
+      "translation": "拉链拉片",
+      "x": 446,
+      "y": 564,
+      "priority": 1.057,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-zipper-pull"
+    },
+    {
+      "id": "baggage-service-desk-piping",
+      "word": "piping",
+      "translation": "包边条",
+      "x": 314,
+      "y": 664,
+      "priority": 1.058,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-piping"
+    },
+    {
+      "id": "baggage-service-desk-fabric",
+      "word": "fabric",
+      "translation": "织物",
+      "x": 352,
+      "y": 595,
+      "priority": 1.059,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-fabric",
+      "lexemeId": "en-ad2a542c84c7060f"
+    },
+    {
+      "id": "baggage-service-desk-burgundy",
+      "word": "burgundy",
+      "translation": "酒红色",
+      "x": 405,
+      "y": 747,
+      "priority": 1.06,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-burgundy"
+    },
+    {
+      "id": "baggage-service-desk-closed",
+      "word": "closed",
+      "translation": "合上的",
+      "x": 391,
+      "y": 548,
+      "priority": 1.061,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-closed",
+      "lexemeId": "en-c3eefb58d7c42440"
+    },
+    {
+      "id": "baggage-service-desk-toe-kick",
+      "word": "toe kick",
+      "translation": "柜底踢脚板",
+      "x": 160,
+      "y": 696,
+      "priority": 1.062,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-toe-kick"
+    },
+    {
+      "id": "baggage-service-desk-floor",
+      "word": "floor",
+      "translation": "地面",
+      "x": 167,
+      "y": 815,
+      "priority": 1.063,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-floor",
+      "lexemeId": "en-a3e1f4935b0919b3"
+    },
+    {
+      "id": "baggage-service-desk-speckled",
+      "word": "speckled",
+      "translation": "有斑点的",
+      "x": 253,
+      "y": 832,
+      "priority": 1.064,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-speckled"
+    },
+    {
+      "id": "baggage-service-desk-holdall",
+      "word": "holdall",
+      "translation": "旅行手提包",
+      "x": 1507,
+      "y": 88,
+      "priority": 1.065,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-holdall"
+    },
+    {
+      "id": "baggage-service-desk-wire-shelf",
+      "word": "wire shelf",
+      "translation": "金属网架搁板",
+      "x": 1474,
+      "y": 135,
+      "priority": 1.066,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-wire-shelf"
+    },
+    {
+      "id": "baggage-service-desk-bag-strap",
+      "word": "bag strap",
+      "translation": "包带",
+      "x": 1397,
+      "y": 88,
+      "priority": 1.067,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-bag-strap"
+    },
+    {
+      "id": "baggage-service-desk-bag-buckle",
+      "word": "bag buckle",
+      "translation": "包扣",
+      "x": 1406,
+      "y": 221,
+      "priority": 1.068,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-bag-buckle"
+    },
+    {
+      "id": "baggage-service-desk-reinforced-strap",
+      "word": "reinforced strap",
+      "translation": "加固带",
+      "x": 1485,
+      "y": 97,
+      "priority": 1.069,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-reinforced-strap"
+    },
+    {
+      "id": "baggage-service-desk-handle-grip",
+      "word": "handle grip",
+      "translation": "提手握柄",
+      "x": 1449,
+      "y": 20,
+      "priority": 1.07,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-handle-grip"
+    },
+    {
+      "id": "baggage-service-desk-hanging-tag",
+      "word": "hanging tag",
+      "translation": "悬挂的吊牌",
+      "x": 1472,
+      "y": 230,
+      "priority": 1.071,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-hanging-tag"
+    },
+    {
+      "id": "baggage-service-desk-rack-post",
+      "word": "rack post",
+      "translation": "货架立柱",
+      "x": 1562,
+      "y": 192,
+      "priority": 1.072,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-rack-post"
+    },
+    {
+      "id": "baggage-service-desk-rack-joint",
+      "word": "rack joint",
+      "translation": "货架连接件",
+      "x": 1559,
+      "y": 139,
+      "priority": 1.073,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-rack-joint"
+    },
+    {
+      "id": "baggage-service-desk-wire",
+      "word": "wire",
+      "translation": "金属丝",
+      "x": 1383,
+      "y": 136,
+      "priority": 1.074,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-wire",
+      "lexemeId": "en-9b2abfc29cc47494"
+    },
+    {
+      "id": "baggage-service-desk-gray",
+      "word": "gray",
+      "translation": "灰色",
+      "x": 1435,
+      "y": 243,
+      "priority": 1.075,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-gray",
+      "lexemeId": "en-0e92d69f9b951b18"
+    },
+    {
+      "id": "baggage-service-desk-bag-handle",
+      "word": "bag handle",
+      "translation": "提手",
+      "x": 1433,
+      "y": 162,
+      "priority": 1.076,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-bag-handle"
+    },
+    {
+      "id": "baggage-service-desk-open-suitcase",
+      "word": "open suitcase",
+      "translation": "敞开的行李箱",
+      "x": 909,
+      "y": 669,
+      "priority": 1.077,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-open-suitcase"
+    },
+    {
+      "id": "baggage-service-desk-packing-table",
+      "word": "packing table",
+      "translation": "行李整理台",
+      "x": 922,
+      "y": 774,
+      "priority": 1.078,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-packing-table"
+    },
+    {
+      "id": "baggage-service-desk-mesh-pocket",
+      "word": "mesh pocket",
+      "translation": "网袋",
+      "x": 1339,
+      "y": 437,
+      "priority": 1.079,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-mesh-pocket"
+    },
+    {
+      "id": "baggage-service-desk-buckle",
+      "word": "buckle",
+      "translation": "搭扣",
+      "x": 1170,
+      "y": 578,
+      "priority": 1.08,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-buckle"
+    },
+    {
+      "id": "baggage-service-desk-cross-straps",
+      "word": "cross straps",
+      "translation": "交叉束带",
+      "x": 1130,
+      "y": 552,
+      "priority": 1.081,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-cross-straps"
+    },
+    {
+      "id": "baggage-service-desk-zip-fastener",
+      "word": "zip fastener",
+      "translation": "拉链",
+      "x": 1364,
+      "y": 363,
+      "priority": 1.082,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-zip-fastener"
+    },
+    {
+      "id": "baggage-service-desk-mesh",
+      "word": "mesh",
+      "translation": "网布",
+      "x": 1223,
+      "y": 466,
+      "priority": 1.083,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-mesh"
+    },
+    {
+      "id": "baggage-service-desk-zip-slider",
+      "word": "zip slider",
+      "translation": "拉链头",
+      "x": 1172,
+      "y": 354,
+      "priority": 1.084,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-zip-slider"
+    },
+    {
+      "id": "baggage-service-desk-suitcase-lining",
+      "word": "suitcase lining",
+      "translation": "箱内衬布",
+      "x": 1117,
+      "y": 513,
+      "priority": 1.085,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-suitcase-lining"
+    },
+    {
+      "id": "baggage-service-desk-folded-shirt",
+      "word": "folded shirt",
+      "translation": "叠好的衬衫",
+      "x": 1318,
+      "y": 617,
+      "priority": 1.086,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-folded-shirt"
+    },
+    {
+      "id": "baggage-service-desk-shirt-button",
+      "word": "shirt button",
+      "translation": "衬衫纽扣",
+      "x": 1251,
+      "y": 644,
+      "priority": 1.087,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-shirt-button"
+    },
+    {
+      "id": "baggage-service-desk-placket",
+      "word": "placket",
+      "translation": "门襟",
+      "x": 1280,
+      "y": 615,
+      "priority": 1.088,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-placket"
+    },
+    {
+      "id": "baggage-service-desk-coral",
+      "word": "coral",
+      "translation": "珊瑚色",
+      "x": 1071,
+      "y": 558,
+      "priority": 1.089,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-coral",
+      "lexemeId": "en-f39fd9073457c8ee"
+    },
+    {
+      "id": "baggage-service-desk-turquoise",
+      "word": "turquoise",
+      "translation": "绿松石色",
+      "x": 988,
+      "y": 699,
+      "priority": 1.09,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-turquoise"
+    },
+    {
+      "id": "baggage-service-desk-shell-ridge",
+      "word": "shell ridge",
+      "translation": "箱壳凸棱",
+      "x": 1177,
+      "y": 754,
+      "priority": 1.091,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-shell-ridge"
+    },
+    {
+      "id": "baggage-service-desk-side-carry-handle",
+      "word": "side carry handle",
+      "translation": "箱侧提手",
+      "x": 1103,
+      "y": 695,
+      "priority": 1.092,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-side-carry-handle"
+    },
+    {
+      "id": "baggage-service-desk-wheel-spokes",
+      "word": "wheel spokes",
+      "translation": "轮辐",
+      "x": 1353,
+      "y": 848,
+      "priority": 1.093,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-wheel-spokes"
+    },
+    {
+      "id": "baggage-service-desk-wheel-tread",
+      "word": "wheel tread",
+      "translation": "轮子滚动面",
+      "x": 1396,
+      "y": 836,
+      "priority": 1.094,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-wheel-tread"
+    },
+    {
+      "id": "baggage-service-desk-zipper-teeth",
+      "word": "zipper teeth",
+      "translation": "拉链齿",
+      "x": 1303,
+      "y": 673,
+      "priority": 1.095,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-zipper-teeth"
+    },
+    {
+      "id": "baggage-service-desk-wheel-housing",
+      "word": "wheel housing",
+      "translation": "箱轮护罩",
+      "x": 1328,
+      "y": 788,
+      "priority": 1.096,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-wheel-housing"
+    },
+    {
+      "id": "baggage-service-desk-lid",
+      "word": "lid",
+      "translation": "箱盖",
+      "x": 1537,
+      "y": 386,
+      "priority": 1.097,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-lid"
+    },
+    {
+      "id": "baggage-service-desk-crew-neck",
+      "word": "crew neck",
+      "translation": "圆领",
+      "x": 1001,
+      "y": 543,
+      "priority": 1.098,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-crew-neck"
+    },
+    {
+      "id": "baggage-service-desk-wooden-counter",
+      "word": "wooden counter",
+      "translation": "木质柜台",
+      "x": 813,
+      "y": 436,
+      "priority": 1.099,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-wooden-counter"
+    },
+    {
+      "id": "baggage-service-desk-table-leg",
+      "word": "table leg",
+      "translation": "桌腿",
+      "x": 812,
+      "y": 860,
+      "priority": 1.1,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-baggage-service-desk-table-leg"
+    },
+    {
+      "id": "baggage-service-desk-worktop",
+      "word": "worktop",
+      "translation": "工作台面",
+      "x": 736,
+      "y": 665,
+      "priority": 1.101,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-worktop"
+    },
+    {
+      "id": "baggage-service-desk-wood-grain",
+      "word": "wood grain",
+      "translation": "木纹",
+      "x": 647,
+      "y": 473,
+      "priority": 1.102,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-baggage-service-desk-wood-grain"
+    },
+    {
+      "id": "baggage-service-desk-table-edge",
+      "word": "table edge",
+      "translation": "桌沿",
+      "x": 690,
+      "y": 756,
+      "priority": 1.103,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-baggage-service-desk-table-edge"
+    },
+    {
+      "id": "baggage-service-desk-bracket",
+      "word": "bracket",
+      "translation": "角撑",
+      "x": 597,
+      "y": 752,
+      "priority": 1.104,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-baggage-service-desk-bracket"
+    },
+    {
+      "id": "baggage-service-desk-worktable-corner",
+      "word": "worktable corner",
+      "translation": "工作台桌角",
+      "x": 544,
+      "y": 695,
+      "priority": 1.105,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-baggage-service-desk-worktable-corner"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "baggage-service-desk-delayed-baggage",
+      "word": "delayed baggage",
+      "translation": "延误行李"
+    },
+    {
+      "id": "baggage-service-desk-missing-baggage-report",
+      "word": "missing baggage report",
+      "translation": "行李遗失报告"
+    },
+    {
+      "id": "baggage-service-desk-claim-reference-number",
+      "word": "claim reference number",
+      "translation": "申报查询编号"
+    },
+    {
+      "id": "baggage-service-desk-delivery-address",
+      "word": "delivery address",
+      "translation": "送达地址"
+    },
+    {
+      "id": "baggage-service-desk-baggage-tracing",
+      "word": "baggage tracing",
+      "translation": "行李追踪"
+    },
+    {
+      "id": "baggage-service-desk-damage-report",
+      "word": "damage report",
+      "translation": "破损报告"
+    },
+    {
+      "id": "baggage-service-desk-proof-of-ownership",
+      "word": "proof of ownership",
+      "translation": "所有权证明"
+    },
+    {
+      "id": "baggage-service-desk-connecting-flight",
+      "word": "connecting flight",
+      "translation": "衔接航班"
+    },
+    {
+      "id": "baggage-service-desk-contact-number",
+      "word": "contact number",
+      "translation": "联系电话"
+    },
+    {
+      "id": "baggage-service-desk-collection-deadline",
+      "word": "collection deadline",
+      "translation": "领取期限"
+    }
+  ],
+  "visualRegions": [
+    {
+      "id": "photo-baggage-service-desk-desk-telephone",
+      "description": "desk telephone in the counter workstation area",
+      "kind": "part",
+      "x": 546,
+      "y": 253,
+      "width": 25,
+      "height": 5
+    },
+    {
+      "id": "photo-baggage-service-desk-desktop-monitor",
+      "description": "desktop monitor in the counter workstation area",
+      "kind": "part",
+      "x": 263,
+      "y": 122,
+      "width": 63,
+      "height": 44
+    },
+    {
+      "id": "photo-baggage-service-desk-computer-keyboard",
+      "description": "computer keyboard in the counter workstation area",
+      "kind": "part",
+      "x": 352,
+      "y": 243,
+      "width": 41,
+      "height": 7
+    },
+    {
+      "id": "photo-baggage-service-desk-potted-plant",
+      "description": "potted plant in the counter workstation area",
+      "kind": "part",
+      "x": 63,
+      "y": 110,
+      "width": 27,
+      "height": 30
+    },
+    {
+      "id": "photo-baggage-service-desk-handset",
+      "description": "handset in the counter workstation area",
+      "kind": "part",
+      "x": 512,
+      "y": 212,
+      "width": 11,
+      "height": 22
+    },
+    {
+      "id": "photo-baggage-service-desk-telephone-cord",
+      "description": "telephone cord in the counter workstation area",
+      "kind": "part",
+      "x": 465,
+      "y": 267,
+      "width": 17,
+      "height": 5
+    },
+    {
+      "id": "photo-baggage-service-desk-keypad",
+      "description": "keypad in the counter workstation area",
+      "kind": "part",
+      "x": 542,
+      "y": 221,
+      "width": 17,
+      "height": 12
+    },
+    {
+      "id": "photo-baggage-service-desk-phone-display",
+      "description": "phone display in the counter workstation area",
+      "kind": "part",
+      "x": 565,
+      "y": 193,
+      "width": 22,
+      "height": 8
+    },
+    {
+      "id": "photo-baggage-service-desk-stand",
+      "description": "stand in the counter workstation area",
+      "kind": "part",
+      "x": 264,
+      "y": 219,
+      "width": 15,
+      "height": 23
+    },
+    {
+      "id": "photo-baggage-service-desk-monitor-base",
+      "description": "monitor base in the counter workstation area",
+      "kind": "part",
+      "x": 295,
+      "y": 264,
+      "width": 24,
+      "height": 4
+    },
+    {
+      "id": "photo-baggage-service-desk-rear-panel",
+      "description": "rear panel in the counter workstation area",
+      "kind": "part",
+      "x": 307,
+      "y": 189,
+      "width": 36,
+      "height": 13
+    },
+    {
+      "id": "photo-baggage-service-desk-key",
+      "description": "key in the counter workstation area",
+      "kind": "part",
+      "x": 422,
+      "y": 246,
+      "width": 6,
+      "height": 3
+    },
+    {
+      "id": "photo-baggage-service-desk-leaf",
+      "description": "leaf in the counter workstation area",
+      "kind": "part",
+      "x": 97,
+      "y": 158,
+      "width": 12,
+      "height": 10
+    },
+    {
+      "id": "photo-baggage-service-desk-vine",
+      "description": "vine in the counter workstation area",
+      "kind": "part",
+      "x": 139,
+      "y": 238,
+      "width": 3,
+      "height": 10
+    },
+    {
+      "id": "photo-baggage-service-desk-plant-pot",
+      "description": "plant pot in the counter workstation area",
+      "kind": "part",
+      "x": 51,
+      "y": 217,
+      "width": 44,
+      "height": 38
+    },
+    {
+      "id": "photo-baggage-service-desk-window-frame",
+      "description": "window frame in the counter workstation area",
+      "kind": "part",
+      "x": 434,
+      "y": 39,
+      "width": 8,
+      "height": 33
+    },
+    {
+      "id": "photo-baggage-service-desk-airplane",
+      "description": "airplane in the counter workstation area",
+      "kind": "part",
+      "x": 409,
+      "y": 122,
+      "width": 14,
+      "height": 13
+    },
+    {
+      "id": "photo-baggage-service-desk-jet-engine",
+      "description": "jet engine in the counter workstation area",
+      "kind": "part",
+      "x": 399,
+      "y": 149,
+      "width": 12,
+      "height": 11
+    },
+    {
+      "id": "photo-baggage-service-desk-sky",
+      "description": "sky in the counter workstation area",
+      "kind": "part",
+      "x": 88,
+      "y": 9,
+      "width": 32,
+      "height": 11
+    },
+    {
+      "id": "photo-baggage-service-desk-vertical",
+      "description": "vertical in the counter workstation area",
+      "kind": "part",
+      "x": 509,
+      "y": 50,
+      "width": 5,
+      "height": 29
+    },
+    {
+      "id": "photo-baggage-service-desk-clipboard",
+      "description": "clipboard in the forms and stationery area",
+      "kind": "part",
+      "x": 707,
+      "y": 326,
+      "width": 5,
+      "height": 12
+    },
+    {
+      "id": "photo-baggage-service-desk-pen",
+      "description": "pen in the forms and stationery area",
+      "kind": "part",
+      "x": 642,
+      "y": 339,
+      "width": 18,
+      "height": 4
+    },
+    {
+      "id": "photo-baggage-service-desk-in-tray",
+      "description": "in tray in the forms and stationery area",
+      "kind": "part",
+      "x": 541,
+      "y": 304,
+      "width": 5,
+      "height": 14
+    },
+    {
+      "id": "photo-baggage-service-desk-ring-binder",
+      "description": "ring binder in the forms and stationery area",
+      "kind": "part",
+      "x": 136,
+      "y": 312,
+      "width": 46,
+      "height": 13
+    },
+    {
+      "id": "photo-baggage-service-desk-form",
+      "description": "form in the forms and stationery area",
+      "kind": "part",
+      "x": 427,
+      "y": 311,
+      "width": 23,
+      "height": 6
+    },
+    {
+      "id": "photo-baggage-service-desk-metal-clip",
+      "description": "metal clip in the forms and stationery area",
+      "kind": "part",
+      "x": 634,
+      "y": 305,
+      "width": 16,
+      "height": 4
+    },
+    {
+      "id": "photo-baggage-service-desk-pen-clip",
+      "description": "pen clip in the forms and stationery area",
+      "kind": "part",
+      "x": 669,
+      "y": 334,
+      "width": 5,
+      "height": 2
+    },
+    {
+      "id": "photo-baggage-service-desk-desktop-tape-dispenser",
+      "description": "desktop tape dispenser in the forms and stationery area",
+      "kind": "part",
+      "x": 301,
+      "y": 319,
+      "width": 12,
+      "height": 15
+    },
+    {
+      "id": "photo-baggage-service-desk-roll-of-tape",
+      "description": "roll of tape in the forms and stationery area",
+      "kind": "part",
+      "x": 328,
+      "y": 292,
+      "width": 7,
+      "height": 13
+    },
+    {
+      "id": "photo-baggage-service-desk-binder-spine",
+      "description": "binder spine in the forms and stationery area",
+      "kind": "part",
+      "x": 195,
+      "y": 308,
+      "width": 13,
+      "height": 15
+    },
+    {
+      "id": "photo-baggage-service-desk-finger-hole",
+      "description": "finger hole in the forms and stationery area",
+      "kind": "part",
+      "x": 224,
+      "y": 312,
+      "width": 7,
+      "height": 10
+    },
+    {
+      "id": "photo-baggage-service-desk-writing-shelf",
+      "description": "writing shelf in the forms and stationery area",
+      "kind": "part",
+      "x": 203,
+      "y": 431,
+      "width": 92,
+      "height": 14
+    },
+    {
+      "id": "photo-baggage-service-desk-rounded-corner",
+      "description": "rounded corner in the forms and stationery area",
+      "kind": "part",
+      "x": 101,
+      "y": 433,
+      "width": 7,
+      "height": 9
+    },
+    {
+      "id": "photo-baggage-service-desk-line",
+      "description": "line in the forms and stationery area",
+      "kind": "part",
+      "x": 446,
+      "y": 326,
+      "width": 14,
+      "height": 2
+    },
+    {
+      "id": "photo-baggage-service-desk-sheet-of-paper",
+      "description": "sheet of paper in the forms and stationery area",
+      "kind": "part",
+      "x": 596,
+      "y": 329,
+      "width": 22,
+      "height": 12
+    },
+    {
+      "id": "photo-baggage-service-desk-desk-bell",
+      "description": "desk bell in the tags and service bell area",
+      "kind": "part",
+      "x": 1070,
+      "y": 268,
+      "width": 24,
+      "height": 13
+    },
+    {
+      "id": "photo-baggage-service-desk-luggage-tag",
+      "description": "luggage tag in the tags and service bell area",
+      "kind": "part",
+      "x": 892,
+      "y": 232,
+      "width": 18,
+      "height": 38
+    },
+    {
+      "id": "photo-baggage-service-desk-receipt-printer",
+      "description": "receipt printer in the tags and service bell area",
+      "kind": "part",
+      "x": 693,
+      "y": 237,
+      "width": 14,
+      "height": 26
+    },
+    {
+      "id": "photo-baggage-service-desk-sign-holder",
+      "description": "sign holder in the tags and service bell area",
+      "kind": "part",
+      "x": 772,
+      "y": 280,
+      "width": 59,
+      "height": 4
+    },
+    {
+      "id": "photo-baggage-service-desk-pictogram",
+      "description": "pictogram in the tags and service bell area",
+      "kind": "part",
+      "x": 783,
+      "y": 194,
+      "width": 30,
+      "height": 23
+    },
+    {
+      "id": "photo-baggage-service-desk-string",
+      "description": "string in the tags and service bell area",
+      "kind": "part",
+      "x": 929,
+      "y": 172,
+      "width": 3,
+      "height": 11
+    },
+    {
+      "id": "photo-baggage-service-desk-eyelet",
+      "description": "eyelet in the tags and service bell area",
+      "kind": "part",
+      "x": 942,
+      "y": 213,
+      "width": 6,
+      "height": 6
+    },
+    {
+      "id": "photo-baggage-service-desk-tag-holder",
+      "description": "tag holder in the tags and service bell area",
+      "kind": "part",
+      "x": 906,
+      "y": 287,
+      "width": 34,
+      "height": 3
+    },
+    {
+      "id": "photo-baggage-service-desk-stack-of-slips",
+      "description": "stack of slips in the tags and service bell area",
+      "kind": "part",
+      "x": 1002,
+      "y": 228,
+      "width": 18,
+      "height": 22
+    },
+    {
+      "id": "photo-baggage-service-desk-blank",
+      "description": "blank in the tags and service bell area",
+      "kind": "part",
+      "x": 939,
+      "y": 250,
+      "width": 17,
+      "height": 16
+    },
+    {
+      "id": "photo-baggage-service-desk-receipt",
+      "description": "receipt in the tags and service bell area",
+      "kind": "part",
+      "x": 652,
+      "y": 258,
+      "width": 22,
+      "height": 16
+    },
+    {
+      "id": "photo-baggage-service-desk-paper-slot",
+      "description": "paper slot in the tags and service bell area",
+      "kind": "part",
+      "x": 652,
+      "y": 237,
+      "width": 24,
+      "height": 3
+    },
+    {
+      "id": "photo-baggage-service-desk-push-button",
+      "description": "push button in the tags and service bell area",
+      "kind": "part",
+      "x": 1079,
+      "y": 249,
+      "width": 4,
+      "height": 3
+    },
+    {
+      "id": "photo-baggage-service-desk-bell-base",
+      "description": "bell base in the tags and service bell area",
+      "kind": "part",
+      "x": 1093,
+      "y": 293,
+      "width": 14,
+      "height": 5
+    },
+    {
+      "id": "photo-baggage-service-desk-counter-surface",
+      "description": "counter surface in the tags and service bell area",
+      "kind": "part",
+      "x": 902,
+      "y": 311,
+      "width": 43,
+      "height": 15
+    },
+    {
+      "id": "photo-baggage-service-desk-counter-lip",
+      "description": "counter lip in the tags and service bell area",
+      "kind": "part",
+      "x": 766,
+      "y": 342,
+      "width": 47,
+      "height": 5
+    },
+    {
+      "id": "photo-baggage-service-desk-upright-suitcase",
+      "description": "upright suitcase in the upright soft suitcase area",
+      "kind": "part",
+      "x": 488,
+      "y": 679,
+      "width": 24,
+      "height": 65
+    },
+    {
+      "id": "photo-baggage-service-desk-front-pocket",
+      "description": "front pocket in the upright soft suitcase area",
+      "kind": "part",
+      "x": 356,
+      "y": 679,
+      "width": 60,
+      "height": 53
+    },
+    {
+      "id": "photo-baggage-service-desk-telescoping-handle",
+      "description": "telescoping handle in the upright soft suitcase area",
+      "kind": "part",
+      "x": 421,
+      "y": 414,
+      "width": 36,
+      "height": 8
+    },
+    {
+      "id": "photo-baggage-service-desk-twin-wheels",
+      "description": "twin wheels in the upright soft suitcase area",
+      "kind": "part",
+      "x": 329,
+      "y": 824,
+      "width": 18,
+      "height": 13
+    },
+    {
+      "id": "photo-baggage-service-desk-carry-handle",
+      "description": "carry handle in the upright soft suitcase area",
+      "kind": "part",
+      "x": 394,
+      "y": 516,
+      "width": 21,
+      "height": 5
+    },
+    {
+      "id": "photo-baggage-service-desk-pull-rod",
+      "description": "pull rod in the upright soft suitcase area",
+      "kind": "part",
+      "x": 468,
+      "y": 464,
+      "width": 5,
+      "height": 35
+    },
+    {
+      "id": "photo-baggage-service-desk-zipper-pull",
+      "description": "zipper pull in the upright soft suitcase area",
+      "kind": "part",
+      "x": 444,
+      "y": 560,
+      "width": 4,
+      "height": 9
+    },
+    {
+      "id": "photo-baggage-service-desk-piping",
+      "description": "piping in the upright soft suitcase area",
+      "kind": "part",
+      "x": 313,
+      "y": 654,
+      "width": 3,
+      "height": 20
+    },
+    {
+      "id": "photo-baggage-service-desk-fabric",
+      "description": "fabric in the upright soft suitcase area",
+      "kind": "part",
+      "x": 338,
+      "y": 588,
+      "width": 29,
+      "height": 15
+    },
+    {
+      "id": "photo-baggage-service-desk-burgundy",
+      "description": "burgundy in the upright soft suitcase area",
+      "kind": "part",
+      "x": 392,
+      "y": 737,
+      "width": 26,
+      "height": 20
+    },
+    {
+      "id": "photo-baggage-service-desk-closed",
+      "description": "closed in the upright soft suitcase area",
+      "kind": "part",
+      "x": 377,
+      "y": 546,
+      "width": 28,
+      "height": 4
+    },
+    {
+      "id": "photo-baggage-service-desk-toe-kick",
+      "description": "toe kick in the upright soft suitcase area",
+      "kind": "part",
+      "x": 143,
+      "y": 692,
+      "width": 34,
+      "height": 9
+    },
+    {
+      "id": "photo-baggage-service-desk-floor",
+      "description": "floor in the upright soft suitcase area",
+      "kind": "part",
+      "x": 143,
+      "y": 793,
+      "width": 49,
+      "height": 45
+    },
+    {
+      "id": "photo-baggage-service-desk-speckled",
+      "description": "speckled in the upright soft suitcase area",
+      "kind": "part",
+      "x": 239,
+      "y": 826,
+      "width": 28,
+      "height": 13
+    },
+    {
+      "id": "photo-baggage-service-desk-holdall",
+      "description": "holdall in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1488,
+      "y": 74,
+      "width": 38,
+      "height": 28
+    },
+    {
+      "id": "photo-baggage-service-desk-wire-shelf",
+      "description": "wire shelf in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1452,
+      "y": 133,
+      "width": 45,
+      "height": 5
+    },
+    {
+      "id": "photo-baggage-service-desk-bag-strap",
+      "description": "bag strap in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1394,
+      "y": 80,
+      "width": 7,
+      "height": 17
+    },
+    {
+      "id": "photo-baggage-service-desk-bag-buckle",
+      "description": "bag buckle in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1402,
+      "y": 218,
+      "width": 9,
+      "height": 6
+    },
+    {
+      "id": "photo-baggage-service-desk-reinforced-strap",
+      "description": "reinforced strap in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1482,
+      "y": 87,
+      "width": 7,
+      "height": 21
+    },
+    {
+      "id": "photo-baggage-service-desk-handle-grip",
+      "description": "handle grip in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1434,
+      "y": 18,
+      "width": 30,
+      "height": 5
+    },
+    {
+      "id": "photo-baggage-service-desk-hanging-tag",
+      "description": "hanging tag in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1467,
+      "y": 218,
+      "width": 11,
+      "height": 24
+    },
+    {
+      "id": "photo-baggage-service-desk-rack-post",
+      "description": "rack post in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1560,
+      "y": 174,
+      "width": 5,
+      "height": 37
+    },
+    {
+      "id": "photo-baggage-service-desk-rack-joint",
+      "description": "rack joint in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1555,
+      "y": 135,
+      "width": 9,
+      "height": 8
+    },
+    {
+      "id": "photo-baggage-service-desk-wire",
+      "description": "wire in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1378,
+      "y": 135,
+      "width": 11,
+      "height": 3
+    },
+    {
+      "id": "photo-baggage-service-desk-gray",
+      "description": "gray in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1427,
+      "y": 236,
+      "width": 16,
+      "height": 15
+    },
+    {
+      "id": "photo-baggage-service-desk-bag-handle",
+      "description": "bag handle in the tagged bags on the rack area",
+      "kind": "part",
+      "x": 1427,
+      "y": 160,
+      "width": 13,
+      "height": 4
+    },
+    {
+      "id": "photo-baggage-service-desk-open-suitcase",
+      "description": "open suitcase in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 889,
+      "y": 659,
+      "width": 41,
+      "height": 20
+    },
+    {
+      "id": "photo-baggage-service-desk-packing-table",
+      "description": "packing table in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 904,
+      "y": 770,
+      "width": 36,
+      "height": 8
+    },
+    {
+      "id": "photo-baggage-service-desk-mesh-pocket",
+      "description": "mesh pocket in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1299,
+      "y": 417,
+      "width": 80,
+      "height": 41
+    },
+    {
+      "id": "photo-baggage-service-desk-buckle",
+      "description": "buckle in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1160,
+      "y": 572,
+      "width": 21,
+      "height": 12
+    },
+    {
+      "id": "photo-baggage-service-desk-cross-straps",
+      "description": "cross straps in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1124,
+      "y": 548,
+      "width": 12,
+      "height": 8
+    },
+    {
+      "id": "photo-baggage-service-desk-zip-fastener",
+      "description": "zip fastener in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1347,
+      "y": 361,
+      "width": 34,
+      "height": 4
+    },
+    {
+      "id": "photo-baggage-service-desk-mesh",
+      "description": "mesh in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1210,
+      "y": 460,
+      "width": 27,
+      "height": 13
+    },
+    {
+      "id": "photo-baggage-service-desk-zip-slider",
+      "description": "zip slider in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1169,
+      "y": 351,
+      "width": 6,
+      "height": 6
+    },
+    {
+      "id": "photo-baggage-service-desk-suitcase-lining",
+      "description": "suitcase lining in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1105,
+      "y": 510,
+      "width": 24,
+      "height": 6
+    },
+    {
+      "id": "photo-baggage-service-desk-folded-shirt",
+      "description": "folded shirt in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1307,
+      "y": 609,
+      "width": 22,
+      "height": 17
+    },
+    {
+      "id": "photo-baggage-service-desk-shirt-button",
+      "description": "shirt button in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1247,
+      "y": 642,
+      "width": 8,
+      "height": 5
+    },
+    {
+      "id": "photo-baggage-service-desk-placket",
+      "description": "placket in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1278,
+      "y": 609,
+      "width": 5,
+      "height": 12
+    },
+    {
+      "id": "photo-baggage-service-desk-coral",
+      "description": "coral in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1061,
+      "y": 551,
+      "width": 20,
+      "height": 14
+    },
+    {
+      "id": "photo-baggage-service-desk-turquoise",
+      "description": "turquoise in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 973,
+      "y": 694,
+      "width": 31,
+      "height": 10
+    },
+    {
+      "id": "photo-baggage-service-desk-shell-ridge",
+      "description": "shell ridge in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1165,
+      "y": 752,
+      "width": 25,
+      "height": 4
+    },
+    {
+      "id": "photo-baggage-service-desk-side-carry-handle",
+      "description": "side carry handle in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1081,
+      "y": 689,
+      "width": 45,
+      "height": 12
+    },
+    {
+      "id": "photo-baggage-service-desk-wheel-spokes",
+      "description": "wheel spokes in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1350,
+      "y": 845,
+      "width": 6,
+      "height": 6
+    },
+    {
+      "id": "photo-baggage-service-desk-wheel-tread",
+      "description": "wheel tread in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1394,
+      "y": 831,
+      "width": 5,
+      "height": 10
+    },
+    {
+      "id": "photo-baggage-service-desk-zipper-teeth",
+      "description": "zipper teeth in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1293,
+      "y": 672,
+      "width": 20,
+      "height": 3
+    },
+    {
+      "id": "photo-baggage-service-desk-wheel-housing",
+      "description": "wheel housing in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1321,
+      "y": 782,
+      "width": 15,
+      "height": 12
+    },
+    {
+      "id": "photo-baggage-service-desk-lid",
+      "description": "lid in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 1533,
+      "y": 375,
+      "width": 8,
+      "height": 23
+    },
+    {
+      "id": "photo-baggage-service-desk-crew-neck",
+      "description": "crew neck in the open suitcase and clothes area",
+      "kind": "part",
+      "x": 999,
+      "y": 538,
+      "width": 5,
+      "height": 10
+    },
+    {
+      "id": "photo-baggage-service-desk-wooden-counter",
+      "description": "wooden counter in the counter and furniture area",
+      "kind": "part",
+      "x": 778,
+      "y": 403,
+      "width": 71,
+      "height": 66
+    },
+    {
+      "id": "photo-baggage-service-desk-table-leg",
+      "description": "table leg in the counter and furniture area",
+      "kind": "part",
+      "x": 807,
+      "y": 835,
+      "width": 11,
+      "height": 50
+    },
+    {
+      "id": "photo-baggage-service-desk-worktop",
+      "description": "worktop in the counter and furniture area",
+      "kind": "part",
+      "x": 704,
+      "y": 648,
+      "width": 65,
+      "height": 35
+    },
+    {
+      "id": "photo-baggage-service-desk-wood-grain",
+      "description": "wood grain in the counter and furniture area",
+      "kind": "part",
+      "x": 629,
+      "y": 454,
+      "width": 37,
+      "height": 38
+    },
+    {
+      "id": "photo-baggage-service-desk-table-edge",
+      "description": "table edge in the counter and furniture area",
+      "kind": "part",
+      "x": 672,
+      "y": 752,
+      "width": 37,
+      "height": 8
+    },
+    {
+      "id": "photo-baggage-service-desk-bracket",
+      "description": "bracket in the counter and furniture area",
+      "kind": "part",
+      "x": 591,
+      "y": 749,
+      "width": 12,
+      "height": 6
+    },
+    {
+      "id": "photo-baggage-service-desk-worktable-corner",
+      "description": "worktable corner in the counter and furniture area",
+      "kind": "part",
+      "x": 540,
+      "y": 691,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "id": "portal-suitcase-packing-table",
+      "description": "Turquoise front shell of the open suitcase on the packing table",
+      "kind": "object",
+      "x": 1236,
+      "y": 731,
+      "width": 48,
+      "height": 26
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "baggage-service-desk-zone-counter-workstation",
+      "title": "Counter workstation",
+      "translation": "柜台工位",
+      "description": "A desktop monitor, keyboard and telephone stand in front of the terminal window, beside a potted plant.",
+      "x": 0,
+      "y": 0,
+      "width": 624,
+      "height": 288,
+      "targetScale": 2.8,
+      "labelIds": [
+        "baggage-service-desk-desk-telephone",
+        "baggage-service-desk-desktop-monitor",
+        "baggage-service-desk-computer-keyboard",
+        "baggage-service-desk-potted-plant",
+        "baggage-service-desk-handset",
+        "baggage-service-desk-telephone-cord",
+        "baggage-service-desk-keypad",
+        "baggage-service-desk-phone-display",
+        "baggage-service-desk-stand",
+        "baggage-service-desk-monitor-base",
+        "baggage-service-desk-rear-panel",
+        "baggage-service-desk-key",
+        "baggage-service-desk-leaf",
+        "baggage-service-desk-vine",
+        "baggage-service-desk-plant-pot",
+        "baggage-service-desk-window-frame",
+        "baggage-service-desk-airplane",
+        "baggage-service-desk-jet-engine",
+        "baggage-service-desk-sky",
+        "baggage-service-desk-vertical"
+      ]
+    },
+    {
+      "id": "baggage-service-desk-zone-paperwork",
+      "title": "Forms and stationery",
+      "translation": "表单与文具",
+      "description": "One form lies in a tray and another is clipped to a board. A pen, a black ring binder and a tape dispenser share the writing ledge.",
+      "x": 85,
+      "y": 275,
+      "width": 654,
+      "height": 203,
+      "targetScale": 2.8,
+      "labelIds": [
+        "baggage-service-desk-clipboard",
+        "baggage-service-desk-pen",
+        "baggage-service-desk-in-tray",
+        "baggage-service-desk-ring-binder",
+        "baggage-service-desk-form",
+        "baggage-service-desk-metal-clip",
+        "baggage-service-desk-pen-clip",
+        "baggage-service-desk-desktop-tape-dispenser",
+        "baggage-service-desk-roll-of-tape",
+        "baggage-service-desk-binder-spine",
+        "baggage-service-desk-finger-hole",
+        "baggage-service-desk-writing-shelf",
+        "baggage-service-desk-rounded-corner",
+        "baggage-service-desk-line",
+        "baggage-service-desk-sheet-of-paper"
+      ]
+    },
+    {
+      "id": "baggage-service-desk-zone-tags-and-bell",
+      "title": "Tags and service bell",
+      "translation": "行李吊牌与柜台铃",
+      "description": "Blank luggage tags and a stack of paper slips stand in clear holders beside a suitcase pictogram, a receipt printer and a silver service bell.",
+      "x": 621,
+      "y": 100,
+      "width": 536,
+      "height": 255,
+      "targetScale": 2.8,
+      "labelIds": [
+        "baggage-service-desk-desk-bell",
+        "baggage-service-desk-luggage-tag",
+        "baggage-service-desk-receipt-printer",
+        "baggage-service-desk-sign-holder",
+        "baggage-service-desk-pictogram",
+        "baggage-service-desk-string",
+        "baggage-service-desk-eyelet",
+        "baggage-service-desk-tag-holder",
+        "baggage-service-desk-stack-of-slips",
+        "baggage-service-desk-blank",
+        "baggage-service-desk-receipt",
+        "baggage-service-desk-paper-slot",
+        "baggage-service-desk-push-button",
+        "baggage-service-desk-bell-base",
+        "baggage-service-desk-counter-surface",
+        "baggage-service-desk-counter-lip"
+      ]
+    },
+    {
+      "id": "baggage-service-desk-zone-upright-bag",
+      "title": "Upright soft suitcase",
+      "translation": "立式软面行李箱",
+      "description": "A burgundy wheeled suitcase stands on the floor in front of the curved wooden counter, with an extended handle and a zipped front pocket.",
+      "x": 0,
+      "y": 384,
+      "width": 540,
+      "height": 516,
+      "targetScale": 2.8,
+      "labelIds": [
+        "baggage-service-desk-upright-suitcase",
+        "baggage-service-desk-front-pocket",
+        "baggage-service-desk-telescoping-handle",
+        "baggage-service-desk-twin-wheels",
+        "baggage-service-desk-carry-handle",
+        "baggage-service-desk-pull-rod",
+        "baggage-service-desk-zipper-pull",
+        "baggage-service-desk-piping",
+        "baggage-service-desk-fabric",
+        "baggage-service-desk-burgundy",
+        "baggage-service-desk-closed",
+        "baggage-service-desk-toe-kick",
+        "baggage-service-desk-floor",
+        "baggage-service-desk-speckled"
+      ]
+    },
+    {
+      "id": "baggage-service-desk-zone-storage-rack",
+      "title": "Tagged bags on the rack",
+      "translation": "架上的挂牌行李",
+      "description": "A dark blue holdall and a gray bag rest on two wire shelves. Both have handles and blank hanging tags.",
+      "x": 1287,
+      "y": 0,
+      "width": 306,
+      "height": 309,
+      "targetScale": 2.8,
+      "labelIds": [
+        "baggage-service-desk-holdall",
+        "baggage-service-desk-wire-shelf",
+        "baggage-service-desk-bag-strap",
+        "baggage-service-desk-bag-buckle",
+        "baggage-service-desk-reinforced-strap",
+        "baggage-service-desk-handle-grip",
+        "baggage-service-desk-hanging-tag",
+        "baggage-service-desk-rack-post",
+        "baggage-service-desk-rack-joint",
+        "baggage-service-desk-wire",
+        "baggage-service-desk-gray",
+        "baggage-service-desk-bag-handle"
+      ]
+    },
+    {
+      "id": "baggage-service-desk-zone-open-suitcase",
+      "title": "Open suitcase and clothes",
+      "translation": "敞开的行李箱与衣物",
+      "description": "A turquoise suitcase holds folded clothes beneath crossed straps. Its open lid has a gray zipped mesh pocket.",
+      "x": 807,
+      "y": 276,
+      "width": 789,
+      "height": 610,
+      "targetScale": 2.8,
+      "labelIds": [
+        "baggage-service-desk-open-suitcase",
+        "baggage-service-desk-packing-table",
+        "baggage-service-desk-mesh-pocket",
+        "baggage-service-desk-buckle",
+        "baggage-service-desk-cross-straps",
+        "baggage-service-desk-zip-fastener",
+        "baggage-service-desk-mesh",
+        "baggage-service-desk-zip-slider",
+        "baggage-service-desk-suitcase-lining",
+        "baggage-service-desk-folded-shirt",
+        "baggage-service-desk-shirt-button",
+        "baggage-service-desk-placket",
+        "baggage-service-desk-coral",
+        "baggage-service-desk-turquoise",
+        "baggage-service-desk-shell-ridge",
+        "baggage-service-desk-side-carry-handle",
+        "baggage-service-desk-wheel-spokes",
+        "baggage-service-desk-wheel-tread",
+        "baggage-service-desk-zipper-teeth",
+        "baggage-service-desk-wheel-housing",
+        "baggage-service-desk-lid",
+        "baggage-service-desk-crew-neck"
+      ]
+    },
+    {
+      "id": "baggage-service-desk-zone-counter-and-table",
+      "title": "Counter and furniture",
+      "translation": "柜台与桌面",
+      "description": "The curved counter has vertical wood grain on its front. The packing table has a pale wooden top and square metal legs.",
+      "x": 523,
+      "y": 351,
+      "width": 525,
+      "height": 549,
+      "targetScale": 2.8,
+      "labelIds": [
+        "baggage-service-desk-wooden-counter",
+        "baggage-service-desk-table-leg",
+        "baggage-service-desk-worktop",
+        "baggage-service-desk-wood-grain",
+        "baggage-service-desk-table-edge",
+        "baggage-service-desk-bracket",
+        "baggage-service-desk-worktable-corner"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "image-reviewed",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/baggage-service-desk-premium-v1.jpg",
+    "reviewedAssetSha256": "e6960ee5da74727d72647a1483f2ccc58794a636778c82ba316b7df30c987f13",
+    "rationale": "Each point selects a visible object, component or directly observable feature of the service counter, luggage or packing table. Baggage status, documents' contents and ownership are recorded only as related vocabulary.",
+    "previousLabelCount": 116,
+    "retainedLabelCount": 106,
+    "removedLabelCount": 10,
+    "removedExamples": [
+      "delayed baggage",
+      "missing baggage report",
+      "claim reference number"
+    ]
+  }
+}
