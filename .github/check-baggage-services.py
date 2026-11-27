@@ -1,4 +1,4 @@
-"""Run the same pharmacy journey against a frozen bundle and its successor."""
+"""Compare the airport baggage service journey on two frozen production bundles."""
 from collections import Counter, defaultdict
 import json
 import os
@@ -12,18 +12,17 @@ helpers = runpy.run_path(str(controls / "verify-office-phone.py"))
 attachment_bytes = runpy.run_path(str(controls / "diagnose-office-phone.py"))["attachment_data"]
 phase = sys.argv[1]
 temp = Path(os.environ["RUNNER_TEMP"])
-output = temp / "pharmacy-evidence"
+output = temp / "baggage-evidence"
 output.mkdir(exist_ok=True)
 hospital = "e2e/hospital-radiology.spec.ts"
 pharmacy = "hospital pharmacy reads the photographed rolling cart and keeps amoxicillin in the index on the dispensing cabinet round trip"
-cart_error = "the rolling cart dot must land on the metal frame of the photographed cart at the front right"
-photo_sha = "6bb0f995f40e5c980e1a191168eff6d25647b24f58289c5845ead2277eb651b3"
-journeys = [(hospital, pharmacy)]
+airport = "baggage services opens the wooden counter and the open suitcase, then restores both parent scenes"
+desk_error = "magnifying the photographed service-desk-counter must leave baggage-service-desk open"
+journeys = [("e2e/baggage-services.spec.ts", airport)]
 if phase == "candidate":
     journeys.extend([
-        (hospital, "hospital reads the photographed microscope and keeps cancer in the index on department round trips"),
-        (hospital, "pathology lab reads the photographed microtome and keeps histopathology in the index on workstation round trips"),
-        ("e2e/world.spec.ts", "urban services exposes hospital, airport and office vocabulary through the transit path"),
+        ("e2e/airport-bag-drop.spec.ts", "airport check-in opens the nearest self-service kiosk from its dot and reads the card reader without moving the photograph"),
+        (hospital, pharmacy),
         ("e2e/office-conference.spec.ts", helpers["RETURN"]),
     ])
 cases = [(project, file, title) for project in ("chromium", "mobile-chromium") for file, title in journeys]
@@ -58,30 +57,28 @@ for suite in report["suites"]:
             attachments[name] += 1
             (output / f"{phase}-{project}-{len(rows)}-{name}-{attachments[name]}.{extension}").write_bytes(data)
         accepted = result["status"] == "passed" and not result["errors"]
-        cart = json_items["rolling-cart-geometry"]
+        counter = json_items["service-desk-counter-gesture"]
         if phase == "baseline":
             errors = result["errors"]
             accepted = (
                 result["status"] == "failed" and len(errors) == 1
-                and cart_error in errors[0].get("message", "")
-                and len(cart) == 1 and not cart[0]["inside"] and cart[0]["sha256"] == photo_sha
-                and abs(cart[0]["x"] - 1048) < 1 and abs(cart[0]["y"] - 508) < 1
-                and attachments["rolling-cart-view"] == 1
+                and desk_error in errors[0].get("message", "")
+                and len(counter) == 1 and counter[0]["scene"] == "baggage-claim"
+                and counter[0]["asset"] == "/scenes/baggage-claim-premium-v1.jpg"
+                and (counter[0]["x"], counter[0]["y"]) == (260, 340)
+                and counter[0]["scale"] >= 3.4 and attachments["service-desk-counter-end"] == 1
             )
-        elif title == pharmacy:
-            accepted = accepted and len(cart) >= 2 and all(dot["inside"] and dot["sha256"] == photo_sha for dot in cart)
-            for name in ("rolling-cart-view", "rolling-cart-painted-card", "rolling-cart-dot-geometry", "rolling-cart-dot-card"):
-                accepted = accepted and attachments[name] == len(cart)
-            accepted = accepted and attachments["amoxicillin-index"] == 1
-            for subject, scene in [
-                ("cart-bottle", "hospital-pharmacy"),
-                ("pharmacy-counting-tray", "tablet-counting-bench"),
-                ("counting-bench-blister-pack", "tablet-counting-bench"),
-            ]:
-                gestures = json_items[f"{subject}-gesture"]
-                accepted = accepted and len(gestures) == 1 and gestures[0]["scene"] == scene and attachments[f"{subject}-end"] == 1
-            retreat = json_items["counting-bench-retreat"]
-            accepted = accepted and len(retreat) == 1 and retreat[0]["returned"] == "hospital-pharmacy"
+        elif title == airport:
+            accepted = accepted and len(counter) == 1 and counter[0]["scene"] == "baggage-service-desk"
+            accepted = accepted and attachments["service-desk-counter-end"] == 1
+            suitcase = json_items["open-suitcase-shell-gesture"]
+            accepted = accepted and len(suitcase) == 1 and suitcase[0]["scene"] == "suitcase-packing-table"
+            accepted = accepted and attachments["open-suitcase-shell-end"] == 1
+            # Both parent photographs must once again have a pointable object.
+            for word in ("counter-bell", "baggage-services-desk"):
+                readings = json_items[f"{word}-geometry"]
+                accepted = accepted and readings and all(reading["inside"] for reading in readings)
+                accepted = accepted and attachments[f"{word}-dot-card"] == len(readings)
         row.update(status=result["status"], retry=result["retry"], attachments=dict(attachments),
                    accepted=bool(accepted and result["retry"] == 0))
 

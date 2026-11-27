@@ -1,4 +1,4 @@
-name: Verify pharmacy photo and tablet counting bench
+name: Verify airport baggage service and suitcase packing
 on:
   workflow_dispatch:
     inputs:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: c26655f8cf560fc1b5de8ea0c6246b8ec30f0d96
+  BASELINE: e742ded35e6ba930797935a8c4d33c83c6b73bac
   PRODUCT: ${{ inputs.candidate }}
 jobs:
-  pharmacy:
+  baggage:
     runs-on: ubuntu-24.04
     timeout-minutes: 18
     defaults:
@@ -34,14 +34,14 @@ jobs:
       - uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASELINE }}
-          run-id: "45940414005"
+          run-id: "45942657425"
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
       - name: Verify sources and frozen production files
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
-          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = 6e095f860999645893a59b2f0acbde08459156f2649d8ea285639c8d9cf74439
+          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = 8d0968ee625bc4d157316b1cdbdcb588a3f5fa40ba299388c9df3d7c47448cc1
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE"
       - uses: actions/setup-node@v7
         with:
@@ -52,37 +52,28 @@ jobs:
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Reproduce the misplaced rolling cart dot on the frozen pharmacy photograph
+      - name: Reproduce zooming the counter on the frozen baggage claim photograph
         id: red
         continue-on-error: true
         run: |
           test ! -e dist
           mv "$RUNNER_TEMP/frozen/dist" dist
           trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
-          python ../.github/check-hospital-photo.py baseline
+          python ../.github/check-baggage-services.py baseline
       - name: Validate the candidate vocabulary and pending image reviews
         run: npm run validate:data -- --allow-image-reviewed
-      - name: Typecheck, lint changed code and check the vocabulary generator
+      - name: Typecheck and lint changed code
         run: |
           npm run typecheck
           git diff --name-only -z "$BASELINE" "$PRODUCT" -- '*.ts' '*.mjs' | xargs -0r ./node_modules/.bin/eslint --
-          regen="$RUNNER_TEMP/hospital-regen"
-          mkdir -p "$regen/scripts" "$regen/public/data"
-          cp scripts/add-professional-vocabulary.mjs "$regen/scripts/"
-          cp -R public/data/scenes "$regen/public/data/"
-          node "$regen/scripts/add-professional-vocabulary.mjs"
-          cmp public/data/scenes/hospital.json "$regen/public/data/scenes/hospital.json"
-          cmp public/data/scenes/pathology-lab.json "$regen/public/data/scenes/pathology-lab.json"
-          cmp public/data/scenes/hospital-pharmacy.json "$regen/public/data/scenes/hospital-pharmacy.json"
-          cmp public/data/scenes/tablet-counting-bench.json "$regen/public/data/scenes/tablet-counting-bench.json"
       - name: Build the frozen candidate once and verify the manifest
         id: build
         run: |
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
           GITHUB_SHA="$PRODUCT" npm run analyze:build
           python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - name: Inspect the pharmacy cart, visit the counting bench and return to the pharmacy
-        run: python ../.github/check-hospital-photo.py candidate
+      - name: Enter the baggage service desk and packing table and return by zoom
+        run: python ../.github/check-baggage-services.py candidate
       - name: Run all domain and vocabulary checks
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: npm run test:unit
@@ -99,11 +90,11 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: pharmacy-photo-${{ github.run_id }}
-          path: ${{ runner.temp }}/pharmacy-evidence
+          name: airport-baggage-services-${{ github.run_id }}
+          path: ${{ runner.temp }}/baggage-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the observed cart dot on the old wooden cabinet
+      - name: Require the observed baseline zoom on the wooden counter
         run: test "$RED_OUTCOME" = success
         env:
           RED_OUTCOME: ${{ steps.red.outcome }}
