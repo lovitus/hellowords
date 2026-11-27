@@ -4,10 +4,10 @@ import { resolve } from "node:path";
 import sharp from "sharp";
 
 /**
- * Builds one standalone radiology scene from a reviewed source photograph.
+ * Builds the radiology suite from a reviewed source photograph.
  * Coordinates are authored in the 1672 x 941 source space and scaled only
- * after the final JPEG has been created. The scene is terminal for now: the
- * hospital portal enters it, while zooming remains inside this imaging study.
+ * after the final JPEG has been created. The ultrasound cart portal bounds
+ * below are measured on the final 1600 x 900 JPEG.
  */
 
 const projectRoot = resolve(import.meta.dirname, "..");
@@ -23,6 +23,17 @@ const SCENE_WIDTH = 1_600;
 const SCENE_HEIGHT = 900;
 const SOURCE_SHA256 = "367e11bf895045aae69a7f224d035fb1d082e5f4869afdc0dbc055fb86ea2dfe";
 const PUBLIC_ASSET_SHA256 = "b61a9331f765812aabc429d86ea935ba00e947fb86b45e487743a410c01cecc5";
+const ultrasoundCartPanelBounds = { x: 657, y: 710, width: 38, height: 52 };
+const ultrasoundExamPortal = {
+  id: "enter-ultrasound-exam-room",
+  label: "Enter the ultrasound exam room",
+  translation: "进入超声检查室",
+  childSceneId: "ultrasound-exam-room",
+  sourceVisualRegion: "portal-ultrasound-exam-room",
+  ...ultrasoundCartPanelBounds,
+  portraitMarker: { x: 676, y: 736, scaleToObject: true },
+  enterScale: 3.4,
+};
 const SCALE_X = SCENE_WIDTH / SOURCE_WIDTH;
 const SCALE_Y = SCENE_HEIGHT / SOURCE_HEIGHT;
 
@@ -271,7 +282,12 @@ function buildScene() {
     width: SCENE_WIDTH,
     height: SCENE_HEIGHT,
     parentId: "hospital",
-    visualRegions,
+    visualRegions: [...visualRegions, {
+      id: ultrasoundExamPortal.sourceVisualRegion,
+      description: "Stack of four dark horizontal slots on the front of the ultrasound cart, below the keypad and above the base",
+      kind: "part",
+      ...ultrasoundCartPanelBounds,
+    }],
     detailZones,
     anchorAudit: {
       status: "human-verified",
@@ -297,7 +313,7 @@ function buildScene() {
       word,
       translation,
     })),
-    portals: [],
+    portals: [ultrasoundExamPortal],
   };
 }
 

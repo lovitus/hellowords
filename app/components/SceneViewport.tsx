@@ -293,7 +293,8 @@ function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
     || scene.id === "baggage-service-desk" || scene.id === "suitcase-packing-table" || scene.id === "hospital"
     || scene.id === "aircraft-cabin" || scene.id === "passenger-seat-row" || scene.id === "inflight-meal-tray"
     || scene.id === "office-break-room" || scene.parentId === "office-break-room"
-    || scene.id === "radiology-suite" || scene.id === "pathology-lab" || scene.id === "hospital-inpatient-bedspace"
+    || scene.id === "radiology-suite" || scene.id === "ultrasound-exam-room"
+    || scene.id === "pathology-lab" || scene.id === "hospital-inpatient-bedspace"
     || scene.id === "hospital-pharmacy" || scene.id === "tablet-counting-bench"
     || scene.id === "office-building" || scene.id === "conference-room" || scene.id === "video-conferencing-console")
     && isPortraitPhone(viewport);

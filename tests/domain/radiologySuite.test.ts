@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import test from "node:test";
 import sharpModule from "sharp";
+import type { Portal } from "../../app/domain/types";
 
 const projectRoot = resolve(import.meta.dirname, "../..");
 const sceneRoot = resolve(projectRoot, "public/data/scenes");
@@ -47,7 +48,7 @@ interface RadiologyScene {
   readonly relatedWords: readonly Pick<RadiologyLabel, "id" | "word" | "translation">[];
   readonly visualRegions: readonly RadiologyRegion[];
   readonly detailZones: readonly RadiologyZone[];
-  readonly portals: readonly unknown[];
+  readonly portals: readonly Portal[];
   readonly anchorAudit: {
     readonly status: string;
     readonly policy: string;
@@ -63,7 +64,7 @@ async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8")) as T;
 }
 
-test("radiology suite is an audited terminal scene with distinct practical terms", async () => {
+test("radiology suite keeps its practical terms and enters the ultrasound exam room through the cart front", async () => {
   const scene = await readJson<RadiologyScene>("radiology-suite.json");
   assert.equal(scene.id, "radiology-suite");
   assert.equal(scene.parentId, "hospital");
@@ -75,13 +76,24 @@ test("radiology suite is an audited terminal scene with distinct practical terms
   assert.equal(new Set(vocabulary.map(({ id }) => id)).size, 87);
   assert.equal(new Set(vocabulary.map(({ word }) => word.toLowerCase())).size, 87);
   assert.ok(scene.relatedWords.every((word) => !("x" in word) && !("y" in word)));
-  assert.equal(scene.visualRegions.length, scene.labels.length);
+  assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.equal(scene.detailZones.length, 6);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter((label) => label.minLevel === level).length),
     [9, 13, 19, 18, 15],
   );
-  assert.deepEqual(scene.portals, []);
+  // Pixel bounds on the four dark slots in the cart front, below the controls.
+  const panel = { x: 657, y: 710, width: 38, height: 52 };
+  assert.deepEqual(scene.portals, [{
+    id: "enter-ultrasound-exam-room",
+    label: "Enter the ultrasound exam room",
+    translation: "进入超声检查室",
+    childSceneId: "ultrasound-exam-room",
+    sourceVisualRegion: "portal-ultrasound-exam-room",
+    ...panel,
+    portraitMarker: { x: 676, y: 736, scaleToObject: true },
+    enterScale: 3.4,
+  }]);
   assert.equal(scene.anchorAudit.status, "human-verified");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);
@@ -102,11 +114,26 @@ test("radiology suite is an audited terminal scene with distinct practical terms
   );
 
   const regions = new Map(scene.visualRegions.map((region) => [region.id, region]));
+  const panelRegion = regions.get("portal-ultrasound-exam-room");
+  assert.ok(panelRegion);
+  assert.deepEqual(
+    [panelRegion.x, panelRegion.y, panelRegion.width, panelRegion.height],
+    [panel.x, panel.y, panel.width, panel.height],
+  );
   for (const label of scene.labels) {
     const region = regions.get(label.sourceVisualRegion);
     assert.ok(region, `${label.id} keeps a visual audit region`);
     assert.ok(label.x >= region.x && label.x <= region.x + region.width, `${label.id} x`);
     assert.ok(label.y >= region.y && label.y <= region.y + region.height, `${label.id} y`);
+  }
+  for (const word of ["ultrasound machine", "ultrasound monitor", "ultrasound cart wheel", "exam couch cushion"]) {
+    const label = scene.labels.find((entry) => entry.word === word);
+    assert.ok(label);
+    assert.ok(
+      label.x < panel.x || label.x > panel.x + panel.width
+        || label.y < panel.y || label.y > panel.y + panel.height,
+      `${word} stays outside the entry panel`,
+    );
   }
   const zoneLabelIds = new Set(scene.detailZones.flatMap((zone) => zone.labelIds));
   assert.equal(zoneLabelIds.size, scene.labels.length);

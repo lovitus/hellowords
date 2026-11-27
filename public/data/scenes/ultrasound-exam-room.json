@@ -1,0 +1,1832 @@
+{
+  "id": "ultrasound-exam-room",
+  "title": "Ultrasound exam room",
+  "translation": "超声检查室",
+  "subtitle": "Explore the scanner controls, transducers and examination couch",
+  "asset": "/scenes/ultrasound-exam-room-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "radiology-suite",
+  "portraitOverviewLabelIds": [
+    "trackball",
+    "linear-probe",
+    "gel-bottle",
+    "examination-couch",
+    "rolling-stool",
+    "washbasin"
+  ],
+  "labels": [
+    {
+      "id": "monitor",
+      "word": "monitor",
+      "translation": "监视器",
+      "x": 357,
+      "y": 88,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "main-monitor",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "sonogram",
+      "word": "sonogram",
+      "translation": "超声图像",
+      "x": 509,
+      "y": 122,
+      "priority": 2.001,
+      "minLevel": 1,
+      "sourceVisualRegion": "main-monitor",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "monitor-bezel",
+      "word": "monitor bezel",
+      "translation": "显示器边框",
+      "x": 632,
+      "y": 109,
+      "priority": 4.002,
+      "minLevel": 3,
+      "sourceVisualRegion": "main-monitor",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "monitor-arm",
+      "word": "monitor arm",
+      "translation": "显示器支臂",
+      "x": 278,
+      "y": 237,
+      "priority": 2.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "monitor-arm",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "pivot-joint",
+      "word": "pivot joint",
+      "translation": "转动关节",
+      "x": 253,
+      "y": 201,
+      "priority": 4.004,
+      "minLevel": 3,
+      "sourceVisualRegion": "monitor-arm",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "monitor-arm-base",
+      "word": "monitor arm base",
+      "translation": "显示器支臂底座",
+      "x": 352,
+      "y": 261,
+      "priority": 5.005,
+      "minLevel": 4,
+      "sourceVisualRegion": "monitor-arm",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "secondary-display",
+      "word": "secondary display",
+      "translation": "辅助显示屏",
+      "x": 491,
+      "y": 298,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "secondary-screen",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "screen-frame",
+      "word": "screen frame",
+      "translation": "屏框",
+      "x": 402,
+      "y": 287,
+      "priority": 4.007,
+      "minLevel": 3,
+      "sourceVisualRegion": "secondary-screen",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trackball",
+      "word": "trackball",
+      "translation": "轨迹球",
+      "x": 617,
+      "y": 393,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "console-controls",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "control-panel",
+      "word": "control panel",
+      "translation": "控制面板",
+      "x": 579,
+      "y": 426,
+      "priority": 1.009,
+      "minLevel": 0,
+      "sourceVisualRegion": "console-controls",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "keypad",
+      "word": "keypad",
+      "translation": "小键盘",
+      "x": 496,
+      "y": 391,
+      "priority": 2.01,
+      "minLevel": 1,
+      "sourceVisualRegion": "console-controls",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "control-key",
+      "word": "control key",
+      "translation": "控制键",
+      "x": 533,
+      "y": 420,
+      "priority": 4.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "console-controls",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "rotary-knob",
+      "word": "rotary knob",
+      "translation": "旋钮",
+      "x": 589,
+      "y": 347,
+      "priority": 3.012,
+      "minLevel": 2,
+      "sourceVisualRegion": "console-controls",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "slider-bank",
+      "word": "slider bank",
+      "translation": "滑杆组",
+      "x": 683,
+      "y": 355,
+      "priority": 3.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "console-controls",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "slider-knob",
+      "word": "slider knob",
+      "translation": "滑块",
+      "x": 715,
+      "y": 383,
+      "priority": 5.014,
+      "minLevel": 4,
+      "sourceVisualRegion": "console-controls",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "slider-slot",
+      "word": "slider slot",
+      "translation": "滑槽",
+      "x": 741,
+      "y": 384,
+      "priority": 5.015,
+      "minLevel": 4,
+      "sourceVisualRegion": "console-controls",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trackball-bezel",
+      "word": "trackball bezel",
+      "translation": "轨迹球外圈",
+      "x": 645,
+      "y": 403,
+      "priority": 5.016,
+      "minLevel": 4,
+      "sourceVisualRegion": "console-controls",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "push-handle",
+      "word": "push handle",
+      "translation": "推把",
+      "x": 673,
+      "y": 481,
+      "priority": 2.017,
+      "minLevel": 1,
+      "sourceVisualRegion": "cart-handle",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "handle-mount",
+      "word": "handle mount",
+      "translation": "把手安装座",
+      "x": 754,
+      "y": 427,
+      "priority": 5.018,
+      "minLevel": 4,
+      "sourceVisualRegion": "cart-handle",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "linear-probe",
+      "word": "linear probe",
+      "translation": "线阵探头",
+      "x": 243,
+      "y": 370,
+      "priority": 1.019,
+      "minLevel": 0,
+      "sourceVisualRegion": "linear-probe",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "flat-probe-face",
+      "word": "flat probe face",
+      "translation": "探头平面",
+      "x": 244,
+      "y": 347,
+      "priority": 3.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "linear-probe",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "probe-grip",
+      "word": "probe grip",
+      "translation": "探头握柄",
+      "x": 246,
+      "y": 408,
+      "priority": 3.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "linear-probe",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "strain-relief",
+      "word": "strain relief",
+      "translation": "电缆护套",
+      "x": 245,
+      "y": 450,
+      "priority": 5.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "linear-probe",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "convex-probe",
+      "word": "convex probe",
+      "translation": "凸阵探头",
+      "x": 317,
+      "y": 394,
+      "priority": 1.023,
+      "minLevel": 0,
+      "sourceVisualRegion": "curved-probe",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "curved-probe-face",
+      "word": "curved probe face",
+      "translation": "探头弧面",
+      "x": 320,
+      "y": 372,
+      "priority": 3.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "curved-probe",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "probe-housing",
+      "word": "probe housing",
+      "translation": "探头外壳",
+      "x": 314,
+      "y": 425,
+      "priority": 4.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "curved-probe",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "probe-holder",
+      "word": "probe holder",
+      "translation": "探头架",
+      "x": 293,
+      "y": 474,
+      "priority": 2.026,
+      "minLevel": 1,
+      "sourceVisualRegion": "probe-rack",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "probe-cable",
+      "word": "probe cable",
+      "translation": "探头电缆",
+      "x": 239,
+      "y": 559,
+      "priority": 3.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "probe-rack",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "cable-loop",
+      "word": "cable loop",
+      "translation": "电缆环",
+      "x": 265,
+      "y": 706,
+      "priority": 4.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "probe-rack",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "gel-bottle",
+      "word": "gel bottle",
+      "translation": "耦合剂瓶",
+      "x": 384,
+      "y": 403,
+      "priority": 1.029,
+      "minLevel": 0,
+      "sourceVisualRegion": "gel-bottle",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "coupling-gel",
+      "word": "coupling gel",
+      "translation": "超声耦合剂",
+      "x": 393,
+      "y": 435,
+      "priority": 3.03,
+      "minLevel": 2,
+      "sourceVisualRegion": "gel-bottle",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "bottle-nozzle",
+      "word": "bottle nozzle",
+      "translation": "瓶嘴",
+      "x": 382,
+      "y": 314,
+      "priority": 4.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "gel-bottle",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "screw-cap",
+      "word": "screw cap",
+      "translation": "螺纹瓶盖",
+      "x": 382,
+      "y": 338,
+      "priority": 4.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "gel-bottle",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "bottle-holder",
+      "word": "bottle holder",
+      "translation": "瓶托",
+      "x": 389,
+      "y": 484,
+      "priority": 3.033,
+      "minLevel": 2,
+      "sourceVisualRegion": "gel-bottle",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "scanner-cabinet",
+      "word": "scanner cabinet",
+      "translation": "超声机柜体",
+      "x": 380,
+      "y": 608,
+      "priority": 1.034,
+      "minLevel": 0,
+      "sourceVisualRegion": "cart-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "ventilation-grille",
+      "word": "ventilation grille",
+      "translation": "散热格栅",
+      "x": 189,
+      "y": 568,
+      "priority": 3.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "cart-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "storage-drawer",
+      "word": "storage drawer",
+      "translation": "储物抽屉",
+      "x": 539,
+      "y": 616,
+      "priority": 2.036,
+      "minLevel": 1,
+      "sourceVisualRegion": "cart-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "recessed-pull",
+      "word": "recessed pull",
+      "translation": "内嵌拉手",
+      "x": 590,
+      "y": 637,
+      "priority": 4.037,
+      "minLevel": 3,
+      "sourceVisualRegion": "cart-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cart-base",
+      "word": "cart base",
+      "translation": "推车底座",
+      "x": 523,
+      "y": 754,
+      "priority": 3.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "cart-base",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "caster",
+      "word": "caster",
+      "translation": "脚轮",
+      "x": 671,
+      "y": 762,
+      "priority": 2.039,
+      "minLevel": 1,
+      "sourceVisualRegion": "cart-base",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wheel-tread",
+      "word": "wheel tread",
+      "translation": "轮面",
+      "x": 712,
+      "y": 776,
+      "priority": 4.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "cart-base",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "caster-swivel",
+      "word": "caster swivel",
+      "translation": "脚轮转轴",
+      "x": 680,
+      "y": 718,
+      "priority": 5.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "cart-base",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "linen-rack",
+      "word": "linen rack",
+      "translation": "布草架",
+      "x": 97,
+      "y": 290,
+      "priority": 2.042,
+      "minLevel": 1,
+      "sourceVisualRegion": "supply-shelf",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wire-shelf",
+      "word": "wire shelf",
+      "translation": "金属网架层板",
+      "x": 61,
+      "y": 527,
+      "priority": 3.043,
+      "minLevel": 2,
+      "sourceVisualRegion": "supply-shelf",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "upright-post",
+      "word": "upright post",
+      "translation": "立柱",
+      "x": 103,
+      "y": 443,
+      "priority": 4.044,
+      "minLevel": 3,
+      "sourceVisualRegion": "supply-shelf",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "folded-towels",
+      "word": "folded towels",
+      "translation": "叠好的毛巾",
+      "x": 51,
+      "y": 492,
+      "priority": 3.045,
+      "minLevel": 2,
+      "sourceVisualRegion": "supply-shelf",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "storage-basket",
+      "word": "storage basket",
+      "translation": "收纳篮",
+      "x": 39,
+      "y": 568,
+      "priority": 3.046,
+      "minLevel": 2,
+      "sourceVisualRegion": "supply-shelf",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "basket-handhold",
+      "word": "basket handhold",
+      "translation": "篮筐提手孔",
+      "x": 15,
+      "y": 564,
+      "priority": 5.047,
+      "minLevel": 4,
+      "sourceVisualRegion": "supply-shelf",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "shelf-caster",
+      "word": "shelf caster",
+      "translation": "货架脚轮",
+      "x": 120,
+      "y": 635,
+      "priority": 5.048,
+      "minLevel": 4,
+      "sourceVisualRegion": "supply-shelf",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "privacy-curtain",
+      "word": "privacy curtain",
+      "translation": "隐私围帘",
+      "x": 1521,
+      "y": 140,
+      "priority": 1.049,
+      "minLevel": 0,
+      "sourceVisualRegion": "privacy-curtain",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "curtain-fold",
+      "word": "curtain fold",
+      "translation": "帘褶",
+      "x": 1311,
+      "y": 59,
+      "priority": 4.05,
+      "minLevel": 3,
+      "sourceVisualRegion": "privacy-curtain",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "examination-couch",
+      "word": "examination couch",
+      "translation": "检查床",
+      "x": 1485,
+      "y": 548,
+      "priority": 1.051,
+      "minLevel": 0,
+      "sourceVisualRegion": "couch-upholstery",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "backrest",
+      "word": "backrest",
+      "translation": "靠背",
+      "x": 1208,
+      "y": 302,
+      "priority": 2.052,
+      "minLevel": 1,
+      "sourceVisualRegion": "couch-upholstery",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "seat-cushion",
+      "word": "seat cushion",
+      "translation": "座垫",
+      "x": 1289,
+      "y": 429,
+      "priority": 3.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "couch-upholstery",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "upholstery-seam",
+      "word": "upholstery seam",
+      "translation": "软垫接缝",
+      "x": 1514,
+      "y": 574,
+      "priority": 4.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "couch-upholstery",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "couch-paper-roll",
+      "word": "couch paper roll",
+      "translation": "检查床纸卷",
+      "x": 1282,
+      "y": 133,
+      "priority": 1.055,
+      "minLevel": 0,
+      "sourceVisualRegion": "couch-paper",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "roll-spindle",
+      "word": "roll spindle",
+      "translation": "纸卷轴",
+      "x": 1176,
+      "y": 142,
+      "priority": 4.056,
+      "minLevel": 3,
+      "sourceVisualRegion": "couch-paper",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "exam-table-paper",
+      "word": "exam table paper",
+      "translation": "检查床纸",
+      "x": 1319,
+      "y": 240,
+      "priority": 3.057,
+      "minLevel": 2,
+      "sourceVisualRegion": "couch-paper",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "pillow",
+      "word": "pillow",
+      "translation": "枕头",
+      "x": 1412,
+      "y": 316,
+      "priority": 2.058,
+      "minLevel": 1,
+      "sourceVisualRegion": "couch-linen",
+      "semanticRealmId": "body-daily-life",
+      "lexemeId": "en-f6000d4ef895fd96"
+    },
+    {
+      "id": "pillowcase",
+      "word": "pillowcase",
+      "translation": "枕套",
+      "x": 1531,
+      "y": 338,
+      "priority": 4.059,
+      "minLevel": 3,
+      "sourceVisualRegion": "couch-linen",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "towel",
+      "word": "towel",
+      "translation": "毛巾",
+      "x": 1452,
+      "y": 407,
+      "priority": 2.06,
+      "minLevel": 1,
+      "sourceVisualRegion": "couch-linen",
+      "semanticRealmId": "body-daily-life",
+      "lexemeId": "en-10ca50a8a7148afd"
+    },
+    {
+      "id": "towel-hem",
+      "word": "towel hem",
+      "translation": "毛巾折边",
+      "x": 1398,
+      "y": 447,
+      "priority": 5.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "couch-linen",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "couch-frame",
+      "word": "couch frame",
+      "translation": "检查床床架",
+      "x": 1355,
+      "y": 698,
+      "priority": 3.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "couch-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hinge-bracket",
+      "word": "hinge bracket",
+      "translation": "铰链支架",
+      "x": 1249,
+      "y": 500,
+      "priority": 4.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "couch-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "support-leg",
+      "word": "support leg",
+      "translation": "支腿",
+      "x": 1450,
+      "y": 757,
+      "priority": 3.064,
+      "minLevel": 2,
+      "sourceVisualRegion": "couch-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "adjustable-couch-foot",
+      "word": "adjustable couch foot",
+      "translation": "检查床调平脚",
+      "x": 1449,
+      "y": 890,
+      "priority": 5.065,
+      "minLevel": 4,
+      "sourceVisualRegion": "couch-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "crossbar",
+      "word": "crossbar",
+      "translation": "横撑",
+      "x": 1300,
+      "y": 578,
+      "priority": 4.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "couch-frame",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "rolling-stool",
+      "word": "rolling stool",
+      "translation": "移动圆凳",
+      "x": 1004,
+      "y": 523,
+      "priority": 1.067,
+      "minLevel": 0,
+      "sourceVisualRegion": "stool-seat",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "stool-seat",
+      "word": "stool seat",
+      "translation": "凳面",
+      "x": 1082,
+      "y": 529,
+      "priority": 3.068,
+      "minLevel": 2,
+      "sourceVisualRegion": "stool-seat",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "stitched-seam",
+      "word": "stitched seam",
+      "translation": "缝线",
+      "x": 1043,
+      "y": 552,
+      "priority": 5.069,
+      "minLevel": 4,
+      "sourceVisualRegion": "stool-seat",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "stool-column",
+      "word": "stool column",
+      "translation": "凳子立柱",
+      "x": 1010,
+      "y": 664,
+      "priority": 3.07,
+      "minLevel": 2,
+      "sourceVisualRegion": "stool-base",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "foot-ring",
+      "word": "foot ring",
+      "translation": "环形脚踏",
+      "x": 963,
+      "y": 753,
+      "priority": 2.071,
+      "minLevel": 1,
+      "sourceVisualRegion": "stool-base",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "stool-base",
+      "word": "stool base",
+      "translation": "凳座",
+      "x": 1025,
+      "y": 786,
+      "priority": 3.072,
+      "minLevel": 2,
+      "sourceVisualRegion": "stool-base",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "spoke",
+      "word": "spoke",
+      "translation": "支爪",
+      "x": 1099,
+      "y": 834,
+      "priority": 4.073,
+      "minLevel": 3,
+      "sourceVisualRegion": "stool-base",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "twin-wheel-caster",
+      "word": "twin wheel caster",
+      "translation": "双轮脚轮",
+      "x": 1189,
+      "y": 815,
+      "priority": 4.074,
+      "minLevel": 3,
+      "sourceVisualRegion": "stool-base",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "flooring",
+      "word": "flooring",
+      "translation": "地板",
+      "x": 795,
+      "y": 723,
+      "priority": 2.075,
+      "minLevel": 1,
+      "sourceVisualRegion": "floor",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "floor-texture",
+      "word": "floor texture",
+      "translation": "地板纹理",
+      "x": 771,
+      "y": 805,
+      "priority": 5.076,
+      "minLevel": 4,
+      "sourceVisualRegion": "floor",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "washbasin",
+      "word": "washbasin",
+      "translation": "洗手池",
+      "x": 724,
+      "y": 244,
+      "priority": 1.077,
+      "minLevel": 0,
+      "sourceVisualRegion": "sink",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "faucet",
+      "word": "faucet",
+      "translation": "水龙头",
+      "x": 749,
+      "y": 178,
+      "priority": 2.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "sink",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "spout",
+      "word": "spout",
+      "translation": "出水嘴",
+      "x": 782,
+      "y": 162,
+      "priority": 4.079,
+      "minLevel": 3,
+      "sourceVisualRegion": "sink",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "tap-handle",
+      "word": "tap handle",
+      "translation": "水龙头把手",
+      "x": 722,
+      "y": 193,
+      "priority": 4.08,
+      "minLevel": 3,
+      "sourceVisualRegion": "sink",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "drainpipe",
+      "word": "drainpipe",
+      "translation": "排水管",
+      "x": 754,
+      "y": 298,
+      "priority": 3.081,
+      "minLevel": 2,
+      "sourceVisualRegion": "sink",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "sink-trap",
+      "word": "sink trap",
+      "translation": "存水弯",
+      "x": 750,
+      "y": 342,
+      "priority": 5.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "sink",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "soap-dispenser",
+      "word": "soap dispenser",
+      "translation": "皂液器",
+      "x": 696,
+      "y": 102,
+      "priority": 2.083,
+      "minLevel": 1,
+      "sourceVisualRegion": "hand-hygiene",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "pump-head",
+      "word": "pump head",
+      "translation": "泵头",
+      "x": 699,
+      "y": 47,
+      "priority": 4.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "hand-hygiene",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "paper-towel-dispenser",
+      "word": "paper towel dispenser",
+      "translation": "擦手纸盒",
+      "x": 856,
+      "y": 59,
+      "priority": 2.085,
+      "minLevel": 1,
+      "sourceVisualRegion": "hand-hygiene",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "paper-towel",
+      "word": "paper towel",
+      "translation": "擦手纸",
+      "x": 849,
+      "y": 121,
+      "priority": 3.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-hygiene",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "glove-box",
+      "word": "glove box",
+      "translation": "手套盒",
+      "x": 944,
+      "y": 92,
+      "priority": 3.087,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-hygiene",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "examination-gloves",
+      "word": "examination gloves",
+      "translation": "检查手套",
+      "x": 986,
+      "y": 93,
+      "priority": 3.088,
+      "minLevel": 2,
+      "sourceVisualRegion": "hand-hygiene",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "cotton-balls",
+      "word": "cotton balls",
+      "translation": "棉球",
+      "x": 918,
+      "y": 212,
+      "priority": 2.089,
+      "minLevel": 1,
+      "sourceVisualRegion": "counter-supplies",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "glass-jar",
+      "word": "glass jar",
+      "translation": "玻璃罐",
+      "x": 889,
+      "y": 204,
+      "priority": 3.09,
+      "minLevel": 2,
+      "sourceVisualRegion": "counter-supplies",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "jar-lid",
+      "word": "jar lid",
+      "translation": "罐盖",
+      "x": 911,
+      "y": 169,
+      "priority": 4.091,
+      "minLevel": 3,
+      "sourceVisualRegion": "counter-supplies",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "tongue-depressors",
+      "word": "tongue depressors",
+      "translation": "压舌板",
+      "x": 963,
+      "y": 207,
+      "priority": 3.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "counter-supplies",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "metal-tray",
+      "word": "metal tray",
+      "translation": "金属托盘",
+      "x": 1011,
+      "y": 225,
+      "priority": 3.093,
+      "minLevel": 2,
+      "sourceVisualRegion": "counter-supplies",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "supply-caddy",
+      "word": "supply caddy",
+      "translation": "耗材收纳筐",
+      "x": 1088,
+      "y": 211,
+      "priority": 4.094,
+      "minLevel": 3,
+      "sourceVisualRegion": "counter-supplies",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "countertop",
+      "word": "countertop",
+      "translation": "台面",
+      "x": 920,
+      "y": 241,
+      "priority": 4.095,
+      "minLevel": 3,
+      "sourceVisualRegion": "counter-supplies",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "drawer-cabinet",
+      "word": "drawer cabinet",
+      "translation": "抽屉柜",
+      "x": 948,
+      "y": 362,
+      "priority": 2.096,
+      "minLevel": 1,
+      "sourceVisualRegion": "cabinet-and-bin",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "drawer-pull",
+      "word": "drawer pull",
+      "translation": "抽屉把手",
+      "x": 1043,
+      "y": 415,
+      "priority": 4.097,
+      "minLevel": 3,
+      "sourceVisualRegion": "cabinet-and-bin",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "pedal-bin",
+      "word": "pedal bin",
+      "translation": "脚踏垃圾桶",
+      "x": 832,
+      "y": 415,
+      "priority": 2.098,
+      "minLevel": 1,
+      "sourceVisualRegion": "cabinet-and-bin",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bin-lid",
+      "word": "bin lid",
+      "translation": "垃圾桶盖",
+      "x": 836,
+      "y": 322,
+      "priority": 4.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "cabinet-and-bin",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "foot-pedal",
+      "word": "foot pedal",
+      "translation": "脚踏板",
+      "x": 867,
+      "y": 504,
+      "priority": 5.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "cabinet-and-bin",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "window",
+      "word": "window",
+      "translation": "窗户",
+      "x": 65,
+      "y": 29,
+      "priority": 2.101,
+      "minLevel": 1,
+      "sourceVisualRegion": "window-and-plant",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-44ff7b02c80d38b2"
+    },
+    {
+      "id": "window-frame",
+      "word": "window frame",
+      "translation": "窗框",
+      "x": 161,
+      "y": 32,
+      "priority": 3.102,
+      "minLevel": 2,
+      "sourceVisualRegion": "window-and-plant",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "windowsill",
+      "word": "windowsill",
+      "translation": "窗台",
+      "x": 204,
+      "y": 214,
+      "priority": 3.103,
+      "minLevel": 2,
+      "sourceVisualRegion": "window-and-plant",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "potted-plant",
+      "word": "potted plant",
+      "translation": "盆栽",
+      "x": 136,
+      "y": 90,
+      "priority": 2.104,
+      "minLevel": 1,
+      "sourceVisualRegion": "window-and-plant",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "plant-pot",
+      "word": "plant pot",
+      "translation": "花盆",
+      "x": 170,
+      "y": 181,
+      "priority": 3.105,
+      "minLevel": 2,
+      "sourceVisualRegion": "window-and-plant",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trailing-stem",
+      "word": "trailing stem",
+      "translation": "下垂茎",
+      "x": 140,
+      "y": 290,
+      "priority": 4.106,
+      "minLevel": 3,
+      "sourceVisualRegion": "window-and-plant",
+      "semanticRealmId": "nature-life"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "sonographer",
+      "word": "sonographer",
+      "translation": "超声技师",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "ultrasonography",
+      "word": "ultrasonography",
+      "translation": "超声检查",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "ultrasound-wave",
+      "word": "ultrasound wave",
+      "translation": "超声波",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "acoustic-frequency",
+      "word": "acoustic frequency",
+      "translation": "声波频率",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "echo",
+      "word": "echo",
+      "translation": "回声",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "acoustic-impedance",
+      "word": "acoustic impedance",
+      "translation": "声阻抗",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "acoustic-coupling",
+      "word": "acoustic coupling",
+      "translation": "声耦合",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "piezoelectric-crystal",
+      "word": "piezoelectric crystal",
+      "translation": "压电晶体",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "pulse-repetition-frequency",
+      "word": "pulse repetition frequency",
+      "translation": "脉冲重复频率",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "focal-zone",
+      "word": "focal zone",
+      "translation": "聚焦区",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "scan-depth",
+      "word": "scan depth",
+      "translation": "扫描深度",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "image-gain",
+      "word": "image gain",
+      "translation": "图像增益",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "time-gain-compensation",
+      "word": "time gain compensation",
+      "translation": "时间增益补偿",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "image-freeze",
+      "word": "image freeze",
+      "translation": "图像冻结",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "cine-loop",
+      "word": "cine loop",
+      "translation": "电影回放",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "measurement-calipers",
+      "word": "measurement calipers",
+      "translation": "测量卡尺",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "scan-plane",
+      "word": "scan plane",
+      "translation": "扫查平面",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "longitudinal-view",
+      "word": "longitudinal view",
+      "translation": "纵切面",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "transverse-view",
+      "word": "transverse view",
+      "translation": "横切面",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "doppler-ultrasound",
+      "word": "Doppler ultrasound",
+      "translation": "多普勒超声",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "color-doppler",
+      "word": "color Doppler",
+      "translation": "彩色多普勒",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "spectral-doppler",
+      "word": "spectral Doppler",
+      "translation": "频谱多普勒",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "blood-flow",
+      "word": "blood flow",
+      "translation": "血流",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "acoustic-shadow",
+      "word": "acoustic shadow",
+      "translation": "声影",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "probe-orientation",
+      "word": "probe orientation",
+      "translation": "探头方向",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "image-artifact",
+      "word": "image artifact",
+      "translation": "图像伪影",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "probe-cover",
+      "word": "probe cover",
+      "translation": "探头保护套",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "disinfection",
+      "word": "disinfection",
+      "translation": "消毒",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "scan-report",
+      "word": "scan report",
+      "translation": "超声检查报告",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "follow-up-scan",
+      "word": "follow-up scan",
+      "translation": "复查超声",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "gauze-pads",
+      "word": "gauze pads",
+      "translation": "纱布块",
+      "semanticRealmId": "body-daily-life"
+    }
+  ],
+  "visualRegions": [
+    {
+      "id": "main-monitor",
+      "description": "Black ultrasound monitor with a silver rim and a grayscale fan-shaped image.",
+      "kind": "object",
+      "x": 308,
+      "y": 0,
+      "width": 336,
+      "height": 239
+    },
+    {
+      "id": "monitor-arm",
+      "description": "Two visible silver arm sections and their joint below the monitor.",
+      "kind": "object",
+      "x": 226,
+      "y": 130,
+      "width": 177,
+      "height": 170
+    },
+    {
+      "id": "secondary-screen",
+      "description": "Black rectangular display tilted forward above the physical controls.",
+      "kind": "object",
+      "x": 382,
+      "y": 233,
+      "width": 221,
+      "height": 130
+    },
+    {
+      "id": "console-controls",
+      "description": "Light grey input panel with a pale trackball, button bank, rotary controls and sliders.",
+      "kind": "object",
+      "x": 395,
+      "y": 306,
+      "width": 380,
+      "height": 152
+    },
+    {
+      "id": "cart-handle",
+      "description": "Curved metal handle projecting in front of the control panel.",
+      "kind": "object",
+      "x": 513,
+      "y": 410,
+      "width": 266,
+      "height": 97
+    },
+    {
+      "id": "linear-probe",
+      "description": "Probe on the left with a flat, straight contact face, tapered grip and flexible lead.",
+      "kind": "object",
+      "x": 207,
+      "y": 326,
+      "width": 80,
+      "height": 152
+    },
+    {
+      "id": "curved-probe",
+      "description": "Second probe with a convex blue face, pale housing and a narrower handle.",
+      "kind": "object",
+      "x": 280,
+      "y": 345,
+      "width": 78,
+      "height": 153
+    },
+    {
+      "id": "probe-rack",
+      "description": "Dark grey individual holders beneath the probes with leads looping toward the floor.",
+      "kind": "object",
+      "x": 208,
+      "y": 393,
+      "width": 165,
+      "height": 445
+    },
+    {
+      "id": "gel-bottle",
+      "description": "Blue nozzle, ribbed cap and translucent gel bottle in a grey cup.",
+      "kind": "object",
+      "x": 350,
+      "y": 297,
+      "width": 79,
+      "height": 220
+    },
+    {
+      "id": "cart-body",
+      "description": "Tall grey scanner cabinet with a row of vents and a bank of front drawers.",
+      "kind": "object",
+      "x": 168,
+      "y": 486,
+      "width": 479,
+      "height": 263
+    },
+    {
+      "id": "cart-base",
+      "description": "Heavy moulded base with distinct rolling wheels, tyres and brackets.",
+      "kind": "object",
+      "x": 108,
+      "y": 651,
+      "width": 620,
+      "height": 249
+    },
+    {
+      "id": "supply-shelf",
+      "description": "Chrome shelving along the left edge with folded blue and white linen and a perforated basket.",
+      "kind": "object",
+      "x": 0,
+      "y": 202,
+      "width": 151,
+      "height": 476
+    },
+    {
+      "id": "privacy-curtain",
+      "description": "Pale blue privacy curtain with vertical folds behind the couch.",
+      "kind": "object",
+      "x": 1112,
+      "y": 0,
+      "width": 488,
+      "height": 365
+    },
+    {
+      "id": "couch-upholstery",
+      "description": "Blue adjustable backrest and seat cushion with a seam and rounded edge.",
+      "kind": "object",
+      "x": 1137,
+      "y": 152,
+      "width": 463,
+      "height": 496
+    },
+    {
+      "id": "couch-paper",
+      "description": "Disposable paper running down the couch from a roll on two spindles.",
+      "kind": "object",
+      "x": 1160,
+      "y": 103,
+      "width": 440,
+      "height": 526
+    },
+    {
+      "id": "couch-linen",
+      "description": "White pillow in a pillowcase above a separate folded terry towel.",
+      "kind": "object",
+      "x": 1227,
+      "y": 258,
+      "width": 367,
+      "height": 220
+    },
+    {
+      "id": "couch-frame",
+      "description": "Light metal frame, hinged seat support and height-adjustable feet beneath the couch.",
+      "kind": "object",
+      "x": 1147,
+      "y": 392,
+      "width": 453,
+      "height": 508
+    },
+    {
+      "id": "stool-seat",
+      "description": "Dark blue padded stool with a stitched edge and a narrow rim below.",
+      "kind": "object",
+      "x": 870,
+      "y": 477,
+      "width": 289,
+      "height": 146
+    },
+    {
+      "id": "stool-base",
+      "description": "Shiny central column, circular footrest and black star base on twin-wheel casters.",
+      "kind": "object",
+      "x": 820,
+      "y": 605,
+      "width": 395,
+      "height": 295
+    },
+    {
+      "id": "floor",
+      "description": "Unobstructed brown wood-grain flooring between the scanner and the stool.",
+      "kind": "object",
+      "x": 729,
+      "y": 549,
+      "width": 147,
+      "height": 316
+    },
+    {
+      "id": "sink",
+      "description": "Wall-mounted white basin with curved spout, two taps and exposed metal drain trap.",
+      "kind": "object",
+      "x": 656,
+      "y": 105,
+      "width": 205,
+      "height": 250
+    },
+    {
+      "id": "hand-hygiene",
+      "description": "Wall-mounted soap container, paper dispenser and blue gloves in their box.",
+      "kind": "object",
+      "x": 667,
+      "y": 0,
+      "width": 366,
+      "height": 155
+    },
+    {
+      "id": "counter-supplies",
+      "description": "Small clear jars, cotton balls, wooden spatulas, a shallow metal tray and a perforated caddy.",
+      "kind": "object",
+      "x": 867,
+      "y": 140,
+      "width": 263,
+      "height": 117
+    },
+    {
+      "id": "cabinet-and-bin",
+      "description": "Drawers with metal pulls and a tall stainless steel pedal bin beside them.",
+      "kind": "object",
+      "x": 784,
+      "y": 238,
+      "width": 364,
+      "height": 301
+    },
+    {
+      "id": "window-and-plant",
+      "description": "Window frame and sill behind the green trailing plant in the corner.",
+      "kind": "object",
+      "x": 0,
+      "y": 0,
+      "width": 308,
+      "height": 378
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "scanner-console",
+      "title": "Scanner console",
+      "translation": "超声操作台",
+      "description": "Follow the large image monitor down its hinged arm to the tilted display, trackball and sliders.",
+      "x": 222,
+      "y": 0,
+      "width": 568,
+      "height": 511,
+      "targetScale": 2.35,
+      "labelIds": [
+        "monitor",
+        "sonogram",
+        "monitor-bezel",
+        "monitor-arm",
+        "pivot-joint",
+        "monitor-arm-base",
+        "secondary-display",
+        "screen-frame",
+        "trackball",
+        "control-panel",
+        "keypad",
+        "control-key",
+        "rotary-knob",
+        "slider-bank",
+        "slider-knob",
+        "slider-slot",
+        "trackball-bezel",
+        "push-handle",
+        "handle-mount"
+      ]
+    },
+    {
+      "id": "probes-and-gel",
+      "title": "Probes and gel",
+      "translation": "探头与耦合剂",
+      "description": "Compare the ends of the two probes, the separate sockets holding them and the blue-tipped gel bottle.",
+      "x": 203,
+      "y": 286,
+      "width": 247,
+      "height": 561,
+      "targetScale": 2.7,
+      "labelIds": [
+        "linear-probe",
+        "flat-probe-face",
+        "probe-grip",
+        "strain-relief",
+        "convex-probe",
+        "curved-probe-face",
+        "probe-housing",
+        "probe-holder",
+        "probe-cable",
+        "cable-loop",
+        "gel-bottle",
+        "coupling-gel",
+        "bottle-nozzle",
+        "screw-cap",
+        "bottle-holder"
+      ]
+    },
+    {
+      "id": "cart-and-storage",
+      "title": "Cart and storage",
+      "translation": "推车与收纳",
+      "description": "Trace the dark wheeled base of the scanner, its front drawers and the adjacent supply rack.",
+      "x": 0,
+      "y": 178,
+      "width": 727,
+      "height": 722,
+      "targetScale": 2.05,
+      "labelIds": [
+        "scanner-cabinet",
+        "ventilation-grille",
+        "storage-drawer",
+        "recessed-pull",
+        "cart-base",
+        "caster",
+        "wheel-tread",
+        "caster-swivel",
+        "linen-rack",
+        "wire-shelf",
+        "upright-post",
+        "folded-towels",
+        "storage-basket",
+        "basket-handhold",
+        "shelf-caster"
+      ]
+    },
+    {
+      "id": "exam-couch",
+      "title": "Examination couch",
+      "translation": "检查床",
+      "description": "Explore the blue padded couch, paper roll and steel frame in front of the privacy curtain.",
+      "x": 1110,
+      "y": 0,
+      "width": 490,
+      "height": 900,
+      "targetScale": 2.15,
+      "labelIds": [
+        "privacy-curtain",
+        "curtain-fold",
+        "examination-couch",
+        "backrest",
+        "seat-cushion",
+        "upholstery-seam",
+        "couch-paper-roll",
+        "roll-spindle",
+        "exam-table-paper",
+        "pillow",
+        "pillowcase",
+        "towel",
+        "towel-hem",
+        "couch-frame",
+        "hinge-bracket",
+        "support-leg",
+        "adjustable-couch-foot",
+        "crossbar"
+      ]
+    },
+    {
+      "id": "stool-and-floor",
+      "title": "Stool and floor",
+      "translation": "圆凳与地面",
+      "description": "Inspect the round stool from its padded seat down the chrome column to its foot ring and five-spoke base.",
+      "x": 722,
+      "y": 476,
+      "width": 505,
+      "height": 424,
+      "targetScale": 2.25,
+      "labelIds": [
+        "rolling-stool",
+        "stool-seat",
+        "stitched-seam",
+        "stool-column",
+        "foot-ring",
+        "stool-base",
+        "spoke",
+        "twin-wheel-caster",
+        "flooring",
+        "floor-texture"
+      ]
+    },
+    {
+      "id": "sink-and-supplies",
+      "title": "Sink and supplies",
+      "translation": "洗手池与耗材",
+      "description": "Find the handwashing fixtures, small supply containers, cabinet and pedal bin along the back wall.",
+      "x": 650,
+      "y": 0,
+      "width": 496,
+      "height": 539,
+      "targetScale": 2.35,
+      "labelIds": [
+        "washbasin",
+        "faucet",
+        "spout",
+        "tap-handle",
+        "drainpipe",
+        "sink-trap",
+        "soap-dispenser",
+        "pump-head",
+        "paper-towel-dispenser",
+        "paper-towel",
+        "glove-box",
+        "examination-gloves",
+        "cotton-balls",
+        "glass-jar",
+        "jar-lid",
+        "tongue-depressors",
+        "metal-tray",
+        "supply-caddy",
+        "countertop",
+        "drawer-cabinet",
+        "drawer-pull",
+        "pedal-bin",
+        "bin-lid",
+        "foot-pedal"
+      ]
+    },
+    {
+      "id": "window",
+      "title": "Window and plant",
+      "translation": "窗与盆栽",
+      "description": "Inspect the trailing plant, the plant pot and the light window ledge above the linen rack.",
+      "x": 0,
+      "y": 0,
+      "width": 308,
+      "height": 378,
+      "targetScale": 2.55,
+      "labelIds": [
+        "window",
+        "window-frame",
+        "windowsill",
+        "potted-plant",
+        "plant-pot",
+        "trailing-stem"
+      ]
+    }
+  ],
+  "portals": [],
+  "anchorAudit": {
+    "status": "image-reviewed",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/ultrasound-exam-room-v1.jpg",
+    "reviewedAssetSha256": "bc2801552de31c464efb0de5ac03866040c74f9aa258b0e11a42485fb062fb66",
+    "rationale": "The machine shows two differently shaped probe faces, a white trackball, separate sliders and knobs. The paper roll, padded couch, wheeled stool and wash area have independent visible points. Functions of unmarked controls, scan modes and medical findings cannot be established from the image. The new scene awaits human review.",
+    "previousLabelCount": 138,
+    "retainedLabelCount": 107,
+    "removedLabelCount": 31,
+    "removedExamples": [
+      "scan depth",
+      "image gain",
+      "color Doppler",
+      "probe cover"
+    ]
+  }
+}

@@ -96,6 +96,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The dedicated radiology photograph resolves CT, MRI, X-ray, mammography,
   // ultrasound and preparation fixtures without adding patient or dose claims.
   "radiology-suite": 64,
+  "ultrasound-exam-room": 75,
   // Acute-care scenes retain only visible triage, resuscitation, examination,
   // theatre, scrub, sterile-store and recovery fixtures.
   "emergency-department": 90,
@@ -235,6 +236,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   hospital: 124,
   // The remaining 13 radiology terms have no separate visible feature in this image.
   "radiology-suite": 74,
+  // The equipment, furniture and supplies in the seven photographed areas
+  // have 107 distinct points. Scan modes and unmarked settings belong in the index.
+  "ultrasound-exam-room": 107,
   "emergency-department": 108,
   "emergency-triage-reception": 302,
   // Keep the assessment scene bounded to its seven visually reviewed object groups.

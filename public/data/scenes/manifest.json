@@ -153,6 +153,11 @@
       "parentId": "hospital"
     },
     {
+      "id": "ultrasound-exam-room",
+      "title": "Ultrasound exam room",
+      "parentId": "radiology-suite"
+    },
+    {
       "id": "pathology-lab",
       "title": "Pathology lab",
       "parentId": "hospital"

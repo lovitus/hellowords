@@ -673,6 +673,15 @@
       "y": 834.962806,
       "width": 15.311005,
       "height": 17.215728
+    },
+    {
+      "id": "portal-ultrasound-exam-room",
+      "description": "Stack of four dark horizontal slots on the front of the ultrasound cart, below the keypad and above the base",
+      "kind": "part",
+      "x": 657,
+      "y": 710,
+      "width": 38,
+      "height": 52
     }
   ],
   "detailZones": [
@@ -1730,5 +1739,23 @@
       "translation": "X 光壁挂支架"
     }
   ],
-  "portals": []
+  "portals": [
+    {
+      "id": "enter-ultrasound-exam-room",
+      "label": "Enter the ultrasound exam room",
+      "translation": "进入超声检查室",
+      "childSceneId": "ultrasound-exam-room",
+      "sourceVisualRegion": "portal-ultrasound-exam-room",
+      "x": 657,
+      "y": 710,
+      "width": 38,
+      "height": 52,
+      "portraitMarker": {
+        "x": 676,
+        "y": 736,
+        "scaleToObject": true
+      },
+      "enterScale": 3.4
+    }
+  ]
 }

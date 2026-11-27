@@ -112,6 +112,7 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "pathology-lab", "microscope-workstation"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "pathology-lab", "histology-sectioning-workstation"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "radiology-suite"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "radiology-suite", "ultrasound-exam-room"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "emergency-department", "operating-theatre", "post-anesthesia-care-unit"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "emergency-department", "intensive-care-unit"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "emergency-department", "intensive-care-unit", "bedside-monitor-station"],
