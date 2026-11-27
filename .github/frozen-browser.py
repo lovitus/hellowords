@@ -1,4 +1,4 @@
-"""Read the two photographed sink bowls on frozen builds and verify the existing scene journeys."""
+"""Read fixtures on the frozen bathroom photograph and verify the existing scene journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -19,9 +19,12 @@ HANDOFF = (ZOOM_FILE, "Apartment handoff settles to the complete child before a 
 FURNITURE = ("e2e/home-kitchen.spec.ts", "apartment furniture and its parts open separate word cards on the photograph")
 KITCHEN = ("e2e/home-kitchen.spec.ts", "kitchen object anchor stays on each photographed object from home entry through card selection and apartment return")
 BOWLS = ("e2e/home-kitchen.spec.ts", "the two photographed kitchen sink bowls open their own words")
+BATHROOM = ("e2e/home-bathroom.spec.ts", "bathroom fixtures open their own words on the photograph and return to the apartment")
 SLOTS = ("e2e/label-zoom-retention.spec.ts", "zooming back out in the apartment keeps readable words in their clear slots")
 WORDS = ("bed", "duvet", "wardrobe", "wardrobe door", "wardrobe handle", "refrigerator", "refrigerator door", "refrigerator handle")
-RIGHT_BOWL_ASSERTION = "the photographed right bowl reads sink basin"
+BATHROOM_ASSERTION = "the toilet base is on the photographed ceramic pedestal"
+BATHROOM_PHOTO = "/scenes/bathroom-premium-v1.jpg"
+BATHROOM_PHOTO_SHA = "8b5e929be4f6fec90630342e9c31d1d40e4dfd4f7b207a1fb1c6108f5eb82f22"
 KITCHEN_PHOTO = "/scenes/kitchen-premium-v3.jpg"
 KITCHEN_PHOTO_SHA = "7623db6c6b87f6f386f6201d5a913de9f31eb016f0894b0a33eec52dc94a7f2e"
 PHOTO = "/scenes/apartment-bright-v2.jpg"
@@ -33,10 +36,10 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [(project, *BOWLS) for project in PROJECTS]
+cases = [(project, *BATHROOM) for project in PROJECTS]
 if phase == "candidate":
     cases += [("chromium", *APARTMENT), ("chromium", *SLOTS)]
-    cases += [(p, *journey) for p in PROJECTS for journey in (KITCHEN, FURNITURE, HANDOFF, OFFICE, BED)]
+    cases += [(p, *journey) for p in PROJECTS for journey in (BOWLS, KITCHEN, FURNITURE, HANDOFF, OFFICE, BED)]
 
 
 def visit(suite):
@@ -105,23 +108,24 @@ def right_bowl_reading(observed, names):
     return {key: readings[0][key] for key in ("scene", "word")}
 
 
-def failed_right_bowl_assertion(errors):
+def failed_bathroom_assertion(errors):
     if len(errors) != 1:
         return False
     message = re.sub(r"\x1b\[[0-9;]*m", "", errors[0].get("message", "")).strip()
-    return bool(message and message.splitlines()[0].removeprefix("Error: ").strip() == RIGHT_BOWL_ASSERTION
+    return bool(message and message.splitlines()[0].removeprefix("Error: ").strip() == BATHROOM_ASSERTION
                 and "Expected" in message and "Received" in message
                 and not re.search(r"\b(?:timed out|test timeout|timeout \d+ms)\b", message, re.I))
 
 
-for image, expected_sha in ((PHOTO, PHOTO_SHA), (KITCHEN_PHOTO, KITCHEN_PHOTO_SHA)):
+for image, expected_sha in ((PHOTO, PHOTO_SHA), (KITCHEN_PHOTO, KITCHEN_PHOTO_SHA),
+                            (BATHROOM_PHOTO, BATHROOM_PHOTO_SHA)):
     if hashlib.sha256((Path("dist/client") / image.lstrip("/")).read_bytes()).hexdigest() != expected_sha:
         raise ValueError(f"Frozen photograph differs: {image}")
 if phase == "baseline":
-    kitchen = json.loads(Path("dist/client/data/scenes/kitchen.json").read_bytes())
-    locations = {a["id"]: [a["x"], a["y"]] for a in kitchen["labels"]}
-    if locations.get("sink") != [170, 471] or locations.get("sink-basin") != [165, 470]:
-        raise ValueError("The frozen sink and basin positions differ from the measured baseline")
+    bathroom = json.loads(Path("dist/client/data/scenes/bathroom.json").read_bytes())
+    locations = {a["id"]: [a["x"], a["y"]] for a in bathroom["labels"]}
+    if locations.get("toilet-base-pro-2") != [1382.5, 588]:
+        raise ValueError("The old toilet base is no longer marked in the shower")
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
 reporter = temp / "results.json"
@@ -161,12 +165,22 @@ for spec in visit(report):
             row["maxReadable"] = max(f["readable"] for f in frames)
         if title == BOWLS[1]:
             row["rightBowlReading"] = right_bowl_reading(observed, names)
+        if title == BATHROOM[1]:
+            readings = observed.get("toilet-base-geometry", [])
+            pedestal = readings[0] if len(readings) == 1 else {}
+            row["pedestal"] = {key: pedestal.get(key) for key in ("word", "x", "y", "inside", "sha256")}
         if phase == "baseline":
-            wrong = {"scene": "kitchen", "word": None if project == "chromium" else "sink"}
-            row["accepted"] = (title == BOWLS[1] and result["status"] == "failed"
-                               and failed_right_bowl_assertion(errors) and row["rightBowlReading"] == wrong)
+            row["accepted"] = (title == BATHROOM[1] and result["status"] == "failed"
+                               and failed_bathroom_assertion(errors) and "toilet-base-view" in names
+                               and pedestal.get("sha256") == BATHROOM_PHOTO_SHA and pedestal.get("inside") is False
+                               and abs(pedestal["x"] - 1382.5) < 1 and abs(pedestal["y"] - 588) < 1)
         elif not errors and result["status"] == "passed":
-            if title == BOWLS[1]:
+            if title == BATHROOM[1]:
+                row["accepted"] = (pedestal.get("sha256") == BATHROOM_PHOTO_SHA and pedestal.get("inside") is True
+                                   and all(f"{word}-{kind}-card" in names
+                                           for word in ("toilet-base", "cabinet-door", "cabinet-handle")
+                                           for kind in ("dot", "painted")))
+            elif title == BOWLS[1]:
                 row["accepted"] = row["rightBowlReading"] == {"scene": "kitchen", "word": "sink basin"}
             elif title == KITCHEN[1]:
                 row["accepted"] = (all(word + "-geometry" in observed and word + "-view" in names

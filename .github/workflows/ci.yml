@@ -1,9 +1,9 @@
-name: Verify the photographed kitchen bowls and scene returns
+name: Verify bathroom photo point reading and scene returns
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the kitchen candidate following the apartment furniture build
+        description: Full SHA of the bathroom candidate following the kitchen build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 2c4666a84cbdaca46e683e9f656ec67da672bf78
+  BASELINE: 0e53291526feed16c6c9876edf4e52b0045378c7
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 91e9cf68232455e074ff22b9c5c27d41bb52e0eda840b2b6da5a10fdf976dba1
-  ARTIFACT_RUN: "45984887230"
+  MANIFEST_SHA256: f8185880b002f92af2652e28547fdd7744fdaa4437b82c8576cb0e4205ed0062
+  ARTIFACT_RUN: "45988678496"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -79,7 +79,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Read the right sink bowl on the frozen photograph on desktop and phone
+      - name: Locate the toilet pedestal on the frozen photograph on desktop and phone
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -108,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Read the kitchen bowls, original kitchen objects and apartment furniture, and return to the parent scenes
+      - name: Read bathroom fixtures and kitchen and apartment objects and return to the parent scenes
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true

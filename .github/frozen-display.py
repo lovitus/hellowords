@@ -29,8 +29,8 @@ def integrity(baseline):
         data_changes = subprocess.check_output(["git", "diff", "--name-only", "--no-renames",
                                                 os.environ["BASELINE"], PRODUCT, "--", "public/data", "public/scenes"],
                                                text=True).splitlines()
-        if data_changes != ["public/data/scenes/kitchen.json"]:
-            raise ValueError("Expected only the photographed kitchen scene data to change")
+        if data_changes != ["public/data/scenes/bathroom.json"]:
+            raise ValueError("Expected only the photographed bathroom scene data to change")
     frozen = TEMP / "frozen" if baseline else Path(".")
     sha = os.environ["BASELINE"] if baseline else PRODUCT
     raw = (frozen / "artifacts/build/dist-manifest.json").read_bytes()
@@ -66,8 +66,8 @@ def run(stage, command, env=None):
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "61b8a840f3ed3e3b04ec3bb06398f0ec517e7240accf9ac0cfb3ba49bde368ba",
-        "navigation-result.json": "eeb7e601cb1310c16bf5662ba968c03845bd66bbb2cc543af0515ea562a00f55",
+        "summary.json": "464013180752c412a7621d180e447de262ddbe9e65505147bd4ab654c44aa6c9",
+        "navigation-result.json": "7d2312f4c21031f9412968aac0402d8b7b8f92f7822871879a3d7e99517bc146",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
@@ -198,7 +198,7 @@ def record():
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "kitchen-photographed-sink-bowls", "outcomes": gates,
+                         "scope": "bathroom-photographed-fixtures", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")
