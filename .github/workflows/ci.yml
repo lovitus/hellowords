@@ -1,121 +1,97 @@
-name: CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-  workflow_dispatch:
-    inputs:
-      compare_published_baseline:
-        description: Compare the last audited product source on the same runner
-        type: boolean
-        default: false
-      milestone_release_preflight:
-        description: Run the 10k public-release preflight and verify the clean commit; does not publish
-        type: boolean
-        default: false
-
+name: Verify frozen display and vocabulary
+on: workflow_dispatch
 permissions:
+  actions: read
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 env:
   CI: "true"
-  WRANGLER_LOG_PATH: .wrangler/wrangler.log
-
+  PRODUCT: 5c98d78daead9ad0327e673fe80bd7f267780734
+  MANIFEST_SHA256: e491fb6283e0af803b1c64cebccaabda4feb2c271b3b14f908d6f80b5747b4d3
+  ARTIFACT_RUN: "45967043296"
 jobs:
-  verification:
-    name: Full verification
+  acceptance:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: product
     steps:
       - uses: actions/checkout@v6
+        with:
+          sparse-checkout: .github
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ env.PRODUCT }}
+          path: product
+          persist-credentials: false
+      - uses: actions/download-artifact@v5
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          run-id: ${{ env.ARTIFACT_RUN }}
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen
+      - name: Verify the candidate checkout, manifest and every frozen file
+        id: integrity
+        run: |
+          test "$(git rev-parse HEAD)" = "$PRODUCT"
+          python ../.github/frozen-display.py integrity
+          test ! -e dist
+          mv "$RUNNER_TEMP/frozen/dist" dist
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
-      - run: npm ci
-      - name: Check 10k milestone release preflight
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run release:check -- --milestone
-      - run: npm run lint
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run typecheck
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run validate:data
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:unit
-        if: ${{ !inputs.milestone_release_preflight }}
-      # Tests use this exact build on the same runner: storage quotas cannot
-      # prevent a downstream test job from obtaining it.
-      - run: npm run build
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npm run test:ssr
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: node scripts/analyze-build.mjs
-        if: ${{ !inputs.milestone_release_preflight }}
-      - run: npx playwright install --with-deps chromium
-      - name: Check out audited baseline for optional comparison
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        uses: actions/checkout@v6
-        with:
-          ref: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-          path: baseline-reference
-          persist-credentials: false
-      - name: Prepare identical measurement harness for baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        run: cp tests/perf/world-performance.spec.ts baseline-reference/tests/perf/world-performance.spec.ts
-      - name: Build audited baseline
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
-        working-directory: baseline-reference
-        run: npm ci && npm run build
-      - name: Measure audited baseline (diagnostic, not candidate acceptance)
-        if: ${{ inputs.compare_published_baseline && !inputs.milestone_release_preflight }}
+          cache-dependency-path: product/package-lock.json
+      - name: Install the locked dependencies
+        id: dependencies
+        run: npm ci > "$RUNNER_TEMP/npm.log" 2>&1
+      - name: Install the locked Chromium
+        id: browser
         continue-on-error: true
-        working-directory: baseline-reference
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-          PERF_SOURCE_SHA: 530f76ca4a1ce53e8ae7bf790bca3a618f40abd4
-        run: npm run test:perf
-      - run: npm run test:perf
-        id: candidate_performance
+        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
+      - name: Measure 20 scene navigation cycles on the frozen build
+        id: navigation
+        if: ${{ !cancelled() && steps.browser.outcome == 'success' }}
         continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-        env:
-          PERF_RUN: "1"
-          PERF_SCENE_CYCLES: "20"
-      - name: Verify complete milestone candidate on the preflighted clean commit
-        if: ${{ inputs.milestone_release_preflight }}
-        run: npm run verify:full
-      - run: npm run test:e2e
-        id: candidate_browser
+        run: python ../.github/frozen-display.py navigation
+      - name: Measure 44-shard vocabulary search on the same build
+        id: search
+        if: ${{ !cancelled() && steps.browser.outcome == 'success' }}
         continue-on-error: true
-        if: ${{ !inputs.milestone_release_preflight }}
-      - name: Enforce both candidate gates
-        if: ${{ !cancelled() && !inputs.milestone_release_preflight }}
+        run: python ../.github/frozen-display.py search
+      - name: Check the server-rendered product
+        id: ssr
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        continue-on-error: true
+        run: python ../.github/frozen-display.py ssr
+      - name: Run all domain unit tests
+        id: domain
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        continue-on-error: true
+        run: python ../.github/frozen-display.py domain
+      - name: Run all semantic and lexical-world unit tests
+        id: lexicon
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        continue-on-error: true
+        run: python ../.github/frozen-display.py lexicon
+      - name: Validate the complete dataset with strict human review
+        id: strict
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        continue-on-error: true
+        run: python ../.github/frozen-display.py strict
+      - name: Record each independent outcome
+        if: ${{ !cancelled() }}
         env:
-          PERF_OUTCOME: ${{ steps.candidate_performance.outcome }}
-          BROWSER_OUTCOME: ${{ steps.candidate_browser.outcome }}
-        run: |
-          printf 'Performance: %s\nBrowser: %s\n' "$PERF_OUTCOME" "$BROWSER_OUTCOME"
-          test "$PERF_OUTCOME" = success && test "$BROWSER_OUTCOME" = success
-      # Retention is optional; every validation command above remains blocking.
-      # Missing downloadable output must never be used as release evidence.
+          STEPS: ${{ toJSON(steps) }}
+        run: python ../.github/frozen-display.py record
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
-        continue-on-error: true
         with:
-          name: verification-${{ github.sha }}
-          path: |
-            artifacts/correctness
-            artifacts/build
-            artifacts/e2e
-            artifacts/perf
-            dist
-          include-hidden-files: true
-          if-no-files-found: warn
+          name: frozen-display-${{ github.run_id }}
+          path: ${{ runner.temp }}/frozen-display-evidence
+          if-no-files-found: error
           retention-days: 7
+      - name: Require the original gates to pass
+        if: ${{ !cancelled() }}
+        run: jq -e '.passed' "$RUNNER_TEMP/frozen-display-evidence/result.json"
