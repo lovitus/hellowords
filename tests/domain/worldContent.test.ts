@@ -450,7 +450,9 @@ test("known floating-label regressions stay removed and critical portals match v
   const cityStreet = byId.get("city-street");
   assert.ok(cityStreet);
   assert.equal(cityStreet.asset, "/scenes/city-street-bright-v4.jpg");
-  assert.equal(cityStreet.labels.length, 179, "city street keeps its expanded facade vocabulary");
+  assert.equal(cityStreet.labels.length, 145, "the street photo has 145 distinct points");
+  assert.equal(cityStreet.relatedWords?.length, 34);
+  assert.ok(cityStreet.relatedWords?.some(({ word }) => word === "museum pediment"));
   const streetWords = new Set(cityStreet.labels.map((label) => label.word));
   for (const visibleMuseumTerm of ["science museum", "museum entrance", "exhibit window", "telescope"]) {
     assert.ok(streetWords.has(visibleMuseumTerm), `city street shows ${visibleMuseumTerm}`);
@@ -848,12 +850,14 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
   const { scenes } = await loadWorld();
   const hub = scenes.find((scene) => scene.id === "transit-hub");
   assert.ok(hub);
-  assert.equal(hub.labels.length, 175);
+  assert.equal(hub.labels.length, 125);
+  assert.equal(hub.relatedWords?.length, 50);
+  assert.equal(new Set(hub.labels.map(label => `${label.x},${label.y}`)).size, hub.labels.length);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       hub.labels.filter((label) => label.minLevel === level).length
     )),
-    [9, 9, 46, 54, 57],
+    [10, 9, 31, 40, 35],
   );
   const words = new Set(hub.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -874,8 +878,6 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
     "trolley handle",
     "bollard cap",
     "bicycle handlebar",
-    "bicycle saddle",
-    "bicycle pedal",
     "trolley basket",
     "trolley frame",
     "trolley caster",
@@ -885,19 +887,13 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
     "floor reflection",
     "train nose",
     "train window frame",
-    "train door handle",
     "train headlight lens",
     "pantograph arm",
     "bus headlight",
-    "bus front grille",
     "charging connector",
     "floor tile",
     "platform canopy",
-    "boarding marker",
     "ticket validator",
-    "escalator comb",
-    "wayfinding panel",
-    "overhead mast",
     "ceiling beam joint",
     "escalator balustrade",
     "fare gate pedestal",
@@ -905,23 +901,28 @@ test("transit hub preserves its expanded rail, concourse and mobility vocabulary
   ]) {
     assert.ok(words.has(required), `transit hub visibly grounds ${required}`);
   }
+  const index = new Set(hub.relatedWords?.map(({ word }) => word));
+  for (const word of ["bicycle saddle", "bicycle pedal", "train door handle", "bus front grille",
+    "boarding marker", "escalator comb", "wayfinding panel", "overhead mast"]) {
+    assert.ok(index.has(word) && !words.has(word), `${word} is searchable without an unsupported photographic marker`);
+  }
   assert.deepEqual(
     hub.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["railway-zone", 78],
-      ["central-concourse", 66],
-      ["electric-bus-zone", 11],
-      ["foreground-mobility", 20],
+      ["railway-zone", 30],
+      ["central-concourse", 68],
+      ["electric-bus-zone", 10],
+      ["foreground-mobility", 17],
     ],
   );
   const labels = new Map(hub.labels.map((label) => [label.id, label] as const));
   assert.deepEqual(
-    ["roof-pane", "train-nose", "charging-connector"].map((id) => {
+    ["roof-pane", "train-nose", "charging-connector", "escalator-side-panel", "route-line"].map((id) => {
       const label = labels.get(id);
       assert.ok(label);
       return [label.x, label.y];
     }),
-    [[1000, 140], [100, 450], [1220, 570]],
+    [[511, 119], [211, 534], [1334, 574], [1051, 510], [932, 494]],
     "new transit hub parts stay anchored on their reviewed pixels",
   );
 });

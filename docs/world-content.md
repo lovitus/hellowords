@@ -119,7 +119,7 @@ Translations follow the meaning in the scene. For example, the heart cutaway dis
 | Bathroom | 166 → 163 | Daylight bathroom grounds bath, vanity, toilet, shower, plumbing, glass hardware, tile and linen details; invisible conditions remain removed |
 | Wardrobe interior | 72 → 60 | Premium wardrobe grounds cabinet frame, hanger and garment parts, accessory details and nearby daylight-corner objects; the final audit adds a window sill, door panel, jacket cuff and trouser leg while materials, stitching claims and actions remain removed |
 | Cotton shirt | 63 → 55 | Premium textile flat lay grounds garment construction, magnified weave, cotton source material and hand-sewing tools, plus visible yoke, buttonhole, seam and tool parts; machinery, factory actions and performance properties remain removed |
-| City street | 184 → 179 | Bright replacement preserves three destinations while removing pseudo-signage, anatomy-window imagery and unsupported street objects; added facade, roadway and mobility parts stay in existing regions |
+| City street | 184 → 145 | Four entrances, six detail zones and 145 photographed objects or parts. The index holds 34 more words, including museum pediment and door hinge. |
 | Urban services | 128 → 70 | Four districts have 70 distinct points on the aerial photograph. The index retains 50 additional terms, including emergency entrance, jet bridge seal and open office. |
 | Hospital | 450 → 440 | Bright atrium grounds departments, emergency, pathology, radiology, pharmacy, operating-theatre fixtures and a generic disease reference band; added clinical terms remain non-prescriptive |
 | Pathology lab | 460 → 450 | Close laboratory raster grounds microscopes, specimen handling, paraffin embedding, microtomy, staining, cold storage and a larger histology/diagnostic display vocabulary |
@@ -127,7 +127,7 @@ Translations follow the meaning in the scene. For example, the heart cutaway dis
 | Airport | 400 → 105 | Five zones have 105 distinct points on the terminal photograph. The index retains 285 additional terms, including suitcase lining and carousel motor. |
 | Office building | 400 → 390 | Warm atrium grounds reception, open-plan workstations, conference room, pantry and a deeper service-core vocabulary for power, data, HVAC and fire hardware |
 | City cafe | 137 → 130 | New daylight cafe grounds door, seating, counter, pastry-display and espresso subparts; added pastry/tableware parts remain inside the display crop |
-| Transit hub | 175 → 163 | Bright multimodal hall grounds separate rail, concourse, access and mobility fixtures; blank display readings and service abstractions remain removed |
+| Transit hub | 187 → 125 | The train, fare gates, escalators, electric bus and foreground furniture have individual points. All 175 words are searchable, including 50 available through the index. |
 | Electric bus | 101 → 85 | Premium vehicle cutaway grounds the body, passenger space, running gear, charging hardware and real battery-pack portal; added cabin glazing and seating parts remain grounded while people, branding and operating concepts stay removed |
 | Battery | 96 → 90 | Premium engineering cutaway grounds pack, module, cell, electrical, cooling and enclosure hardware; added shell, cooling and connector parts remain grounded while internal chemistry and unsupported sensor claims stay removed |
 | Lithium-ion cell | 70 → 60 | Premium prismatic-cell cutaway grounds enclosure, polarity-specific terminals, flattened winding and unfolded layers; the final audit adds terminal seals, a fill-port collar, cover lip, winding/core surfaces, tab roots, sheet folds and collector edge while ambiguous liquid, invisible charge motion, performance metrics and hazard states remain removed |
@@ -164,9 +164,10 @@ and device-pixel ratio select the decoded 5208 × 1978 tier in place for fine
 zooming. `city-street` uses `city-street-bright-v4.jpg`: a complete columned
 science museum with a telescope-and-mineral window stands at left, a complete
 blank-fronted brick cafe occupies the centre, and a complete arched-glass transit
-hall anchors the right above the crossing and accessible curb. Its final-pixel
-audit retains 179 distinct terms, and the three portal silhouettes remain
-disjoint and legible without words, logos, anatomy displays or pseudo-signage.
+hall anchors the right above the crossing and accessible curb. The photograph
+has separate points for the column capitals, shafts and bases, the entrance
+steps, and the telescope and mineral specimens in the window. Opening the
+street index makes all 179 words available.
 
 The transit hub now opens an `Urban services` masterplan. Its reviewed overview
 separates a hospital campus, airport terminal/runway and office tower, with

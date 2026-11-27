@@ -86,6 +86,7 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "wardrobe-interior": 32,
   "cotton-shirt": 32,
   "city-street": 32,
+  "transit-hub": 32,
   // The aerial view resolves 70 distinct points across the campuses and paths.
   // Interior rooms and parts hidden at this scale stay in the scene index.
   "urban-services": 70,
@@ -225,7 +226,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The final park raster also resolves bridge arches, pond waterlines, plant
   // veins, bark grooves, root forks and small fixture parts for 174 anchors.
   "city-park": 174,
-  "city-street": 179,
+  "city-street": 145,
   // The remaining 24 home terms are searchable without a pin on the cutaway.
   apartment: 149,
   "urban-services": 70,
@@ -310,9 +311,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The bright bedroom resolves separate bedding, study, window, storage and
   // room-finish parts; the ceiling blocks moods, actions and hidden routines.
   bedroom: 164,
-  // The terminal photograph resolves separate rail, bus, access, ticketing and
-  // mobility fixtures; the ceiling blocks blank display readings and services.
-  "transit-hub": 103,
+  // Fifty further railway and concourse terms are available in the index.
+  "transit-hub": 125,
   // The bright cafe resolves seating, tableware, pastry-display and espresso
   // equipment parts; the ceiling blocks people, branding and inferred service.
   "city-cafe": 130,
