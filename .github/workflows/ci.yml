@@ -1,4 +1,4 @@
-name: Verify hospital photo and department journeys
+name: Verify departing word layers on the frozen hospital build
 on:
   workflow_dispatch:
     inputs:
@@ -7,16 +7,16 @@ on:
         required: true
         type: string
 permissions:
-  actions: read
   contents: read
+  actions: read
 env:
   CI: "true"
-  BASELINE: 31e079843aa8e0ade74e08b70222ab0239dbcc99
+  BUILT: d19dbe3577131a6f1507ac18098f30edb5ae6deb
   PRODUCT: ${{ inputs.candidate }}
 jobs:
-  hospital:
+  verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 18
+    timeout-minutes: 12
     defaults:
       run:
         working-directory: product
@@ -28,79 +28,67 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: ${{ inputs.candidate }}
-          fetch-depth: 2
           path: product
+          fetch-depth: 0
           persist-credentials: false
       - uses: actions/download-artifact@v5
         with:
-          name: production-dist-${{ env.BASELINE }}
-          run-id: "45932339082"
+          name: production-dist-${{ env.BUILT }}
+          run-id: "45935682978"
           github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/frozen
-      - name: Verify sources and frozen production files
+          path: product
+      - name: Verify the identical product tree and frozen build
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
-          test "$(git rev-parse HEAD^)" = "$BASELINE"
-          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = bdd690b6267be35b05cdd694f57c944f1215009c917a42ba81d497f6d3e49467
-          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE"
+          git diff --exit-code "$BUILT" HEAD -- . ':!tests/domain/screenSpaceLabels.test.ts' ':!postponed-tasks.md'
+          test "$(sha256sum artifacts/build/dist-manifest.json | cut -d' ' -f1)" = 1ac352aa7e86bcd29548efa00134107cbb699b48eeb604d190e342e737a425bd
+          python ../.github/verify-office-phone.py manifest . "$BUILT"
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
           cache-dependency-path: product/package-lock.json
-      - name: Install pinned dependencies and Chromium
+      - name: Install pinned dependencies
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Reproduce the misplaced microscope dot in both viewports
-        id: red
-        continue-on-error: true
+      - name: Verify the assertion catches departing buttons when their suppression is removed
         run: |
-          test ! -e dist
-          mv "$RUNNER_TEMP/frozen/dist" dist
-          trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
-          python ../.github/check-hospital-photo.py baseline
-      - name: Validate the candidate vocabulary and pending image reviews
-        run: npm run validate:data -- --allow-image-reviewed
-      - name: Typecheck, lint and check the vocabulary contracts
+          trap 'git restore -- app/components/SceneViewport.tsx' EXIT
+          python - <<'PY'
+          from pathlib import Path
+          p = Path("app/components/SceneViewport.tsx")
+          text = p.read_text()
+          guard = '    if (transitionPhase === "outgoing") return [];\n'
+          assert text.count(guard) == 1
+          p.write_text(text.replace(guard, ""))
+          PY
+          if ./node_modules/.bin/tsx --test --test-name-pattern='dense scenes render' tests/domain/screenSpaceLabels.test.ts > "$RUNNER_TEMP/red.log" 2>&1; then exit 1; fi
+          grep -F "the departing scene cannot contribute an old word button" "$RUNNER_TEMP/red.log" >/dev/null
+      - name: Check the restored word layer, types, and vocabulary suites
         run: |
+          git diff --exit-code
           npm run typecheck
-          git diff --name-only -z "$BASELINE" "$PRODUCT" -- '*.ts' '*.mjs' | xargs -0r ./node_modules/.bin/eslint --
-          regen="$RUNNER_TEMP/hospital-regen"
-          mkdir -p "$regen/scripts" "$regen/public/data"
-          cp scripts/add-professional-vocabulary.mjs "$regen/scripts/"
-          cp -R public/data/scenes "$regen/public/data/"
-          node "$regen/scripts/add-professional-vocabulary.mjs"
-          cmp public/data/scenes/hospital.json "$regen/public/data/scenes/hospital.json"
-      - name: Build the frozen candidate once and verify the manifest
-        id: build
+          ./node_modules/.bin/eslint tests/domain/screenSpaceLabels.test.ts
+          ./node_modules/.bin/tsx --test tests/domain/screenSpaceLabels.test.ts
+          node --test tests/semantic/*.test.mjs tests/lexical-world/*.test.mjs
+      - name: Exercise district hover and keyboard focus on the frozen production files
         run: |
-          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
-          GITHUB_SHA="$PRODUCT" npm run analyze:build
-          python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - name: Read the microscope and return from the hospital, airport and office departments
-        run: python ../.github/check-hospital-photo.py candidate
-      - name: Run all domain and vocabulary checks
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        run: npm run test:unit
-      - uses: actions/upload-artifact@v5
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        with:
-          name: production-dist-${{ env.PRODUCT }}
-          path: |
-            product/dist
-            product/artifacts/build/dist-manifest.json
-          include-hidden-files: true
-          if-no-files-found: error
-          retention-days: 7
-      - uses: actions/upload-artifact@v5
-        if: ${{ !cancelled() }}
-        with:
-          name: hospital-photo-${{ github.run_id }}
-          path: ${{ runner.temp }}/hospital-evidence
-          if-no-files-found: error
-          retention-days: 7
-      - name: Require the observed microscope dot on the old laboratory sign
-        run: test "$RED_OUTCOME" = success
-        env:
-          RED_OUTCOME: ${{ steps.red.outcome }}
+          python - <<'PY'
+          import json, os, runpy
+          from pathlib import Path
+          h = runpy.run_path("../.github/verify-office-phone.py")
+          temp = Path(os.environ["RUNNER_TEMP"])
+          cases = [(project, "e2e/world.spec.ts", title)
+                   for project in ("chromium", "mobile-chromium")
+                   for title in ("the home atlas keeps its artwork clear and reveals only the hovered district words",
+                                 "home atlas district journey keyboard tabs from the Campus title to a drawn word and back")]
+          h["run_browser"]("supplement", temp, cases)
+          folder = temp / "supplement"
+          data = json.loads((folder / "results.json").read_bytes())
+          outcomes = [(key, [r["status"] for r in test["results"]])
+                      for suite in data["suites"] for key, test in h["report_cases"](suite)]
+          print(json.dumps(outcomes))
+          assert not data["errors"] and sorted(key for key, _ in outcomes) == sorted(cases)
+          assert all(status == ["passed"] for _, status in outcomes) and (folder / "exit").read_text().strip() == "0"
+          PY
