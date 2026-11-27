@@ -1,7 +1,7 @@
-import { expect, test, type Locator } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 import type { PaintedLabel } from "../../app/lib/label-canvas";
 import { clickPaintedWord } from "./canvas-words";
-import { checkMagnifiedObject, openPhotographedRoute, projectPhoto, zoomBack } from "./photo-journey";
+import { checkMagnifiedObject, checkPaintedWords, openPhotographedRoute, projectPhoto, zoomBack, type PhotographedWord } from "./photo-journey";
 
 const bedspace = "hospital-inpatient-bedspace";
 const emergency = "emergency-department";
@@ -16,6 +16,17 @@ const objects = [
   { name: "table-leg", word: "Bedspace table support leg", meaning: "床位区床旁桌支腿", x: 864, y: 652 },
   { name: "foot-caster", word: "Bedspace foot-end caster", meaning: "床位区床尾脚轮", x: 1346, y: 755 },
 ] as const;
+
+async function openBilingualBedspace(page: Page, isMobile: boolean) {
+  await openPhotographedRoute(page, isMobile, route, bedPhoto, bedPhotoHash);
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const minimap = page.getByTestId("scene-minimap");
+  await activate(minimap.getByRole("button", { name: "收起小地图" }));
+  await expect(minimap).toHaveAttribute("data-collapsed", "true");
+  const meaning = page.getByTestId("meaning-toggle");
+  await activate(meaning);
+  await expect(meaning).toHaveAttribute("aria-pressed", "true");
+}
 
 test("the inpatient bedspace opens the photographed table leg and foot caster and zooms back to emergency", async ({ page, isMobile }, testInfo) => {
   test.setTimeout(100_000);
@@ -37,13 +48,7 @@ test("the inpatient bedspace opens the photographed table leg and foot caster an
     }));
   });
 
-  await openPhotographedRoute(page, isMobile, route, bedPhoto, bedPhotoHash);
-  const minimap = page.getByTestId("scene-minimap");
-  await activate(minimap.getByRole("button", { name: "收起小地图" }));
-  await expect(minimap).toHaveAttribute("data-collapsed", "true");
-  const meaning = page.getByTestId("meaning-toggle");
-  await activate(meaning);
-  await expect(meaning).toHaveAttribute("aria-pressed", "true");
+  await openBilingualBedspace(page, isMobile);
   await expect(viewer.locator(".scene-surface")).toHaveAttribute("data-scene-scale", "1.000");
   await (await image.elementHandle()).waitForElementState("stable");
   await screenshot("bedspace-bilingual-overview");
@@ -115,3 +120,29 @@ test("the inpatient bedspace opens the photographed table leg and foot caster an
   expect(returnedWords.filter(label => !label.id.startsWith(`${emergency}-`)),
     "the returned emergency photograph has no visible words from another scene").toEqual([]);
 });
+
+// Traced on the same source photograph. The clear jug sits left of the blue
+// tumbler. The white handset hangs left of the separate red pull cord.
+const bedsideObjects: (PhotographedWord & { x: number; y: number })[] = [
+  {
+    word: "Bedspace bedside water jug", meaning: "床位区床旁水壶", openFromDot: true, x: 1218, y: 332,
+    outlines: [[[1209, 304], [1228, 304], [1232, 339], [1231, 355], [1207, 355], [1207, 324]]],
+    assertion: "the water-jug dot lands on the clear jug body on the bedside cabinet",
+  },
+  {
+    word: "Bedspace nurse-call handset", meaning: "床位区护士呼叫手柄", openFromDot: true, x: 1101, y: 235,
+    outlines: [[[1092, 202], [1109, 202], [1110, 224], [1108, 249], [1104, 254], [1095, 253], [1092, 244]]],
+    assertion: "the nurse-call dot lands on the white handset with the coiled cord",
+  },
+];
+
+for (const target of bedsideObjects) {
+  test(`the inpatient bedspace places the ${target.word} dot on the photographed object`, async ({ page, isMobile }, testInfo) => {
+    await openBilingualBedspace(page, isMobile);
+    await checkMagnifiedObject(page, isMobile, testInfo, {
+      object: target.word, x: target.x, y: target.y, scene: bedspace, asset: bedPhoto,
+      destination: bedspace, destinationAsset: bedPhoto, threshold: 3.4,
+    });
+    await checkPaintedWords(page, isMobile, testInfo, [target], bedPhotoHash);
+  });
+}

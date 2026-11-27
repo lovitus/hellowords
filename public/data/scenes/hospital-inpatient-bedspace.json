@@ -10,228 +10,120 @@
   "visualRegions": [
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-headwall-service-rail",
-      "description": "Bedspace headwall service rail visible in Bedhead services",
+      "description": "Lower metal channel of the long headwall assembly beneath its service outlets.",
       "kind": "object",
-      "x": 1022.009569,
-      "y": 189.373007,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-horizontal-utility-rail",
-      "description": "Bedspace horizontal utility rail visible in Bedhead services",
-      "kind": "object",
-      "x": 1041.148325,
-      "y": 198.937301,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1018,
+      "y": 236,
+      "width": 54,
+      "height": 8
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-upper-wall-light",
-      "description": "Bedspace upper wall light visible in Bedhead services",
+      "description": "Rectangular metal lamp housing high above the headboard.",
       "kind": "object",
-      "x": 1012.440191,
-      "y": 88.947928,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 970,
+      "y": 108,
+      "width": 104,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-light-diffuser",
-      "description": "Bedspace light diffuser visible in Bedhead services",
+      "description": "Illuminated white strip along the underside of the wall lamp.",
       "kind": "object",
-      "x": 1012.440191,
-      "y": 89.904357,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-oxygen-flowmeter",
-      "description": "Bedspace oxygen flowmeter visible in Bedhead services",
-      "kind": "object",
-      "x": 897.607656,
-      "y": 191.285866,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-oxygen-outlet",
-      "description": "Bedspace oxygen outlet visible in Bedhead services",
-      "kind": "object",
-      "x": 897.607656,
-      "y": 225.717322,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-suction-regulator",
-      "description": "Bedspace suction regulator visible in Bedhead services",
-      "kind": "object",
-      "x": 959.808612,
-      "y": 194.155154,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 977,
+      "y": 126,
+      "width": 92,
+      "height": 2
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-suction-canister",
-      "description": "Bedspace suction canister visible in Bedhead services",
+      "description": "Transparent collection canister beneath the blue lid to the left of the round gauge.",
       "kind": "object",
-      "x": 958.851675,
-      "y": 244.845909,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 880,
+      "y": 256,
+      "width": 18,
+      "height": 28
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-medical-gas-outlet",
-      "description": "Bedspace medical-gas outlet visible in Bedhead services",
+      "description": "Unoccupied circular wall outlet with a black centre and green surround.",
       "kind": "object",
-      "x": 935.885167,
-      "y": 219.978746,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 874,
+      "y": 212,
+      "width": 10,
+      "height": 10
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-green-gas-fitting",
-      "description": "Bedspace green gas fitting visible in Bedhead services",
+      "description": "Green face of the projecting fitting immediately below the round gauge.",
       "kind": "object",
-      "x": 897.607656,
-      "y": 197.024442,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 916.5,
+      "y": 210.5,
+      "width": 9,
+      "height": 9
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-yellow-gas-fitting",
-      "description": "Bedspace yellow gas fitting visible in Bedhead services",
+      "description": "Yellow projecting coupling between the green and pale wall fittings.",
       "kind": "object",
-      "x": 931.100478,
-      "y": 197.024442,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-blue-gas-fitting",
-      "description": "Bedspace blue gas fitting visible in Bedhead services",
-      "kind": "object",
-      "x": 964.593301,
-      "y": 197.024442,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 948.5,
+      "y": 211,
+      "width": 7,
+      "height": 10
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-nurse-call-handset",
-      "description": "Bedspace nurse-call handset visible in Bedhead services",
+      "description": "White pendant with a multicoloured keypad and coiled cord.",
       "kind": "object",
-      "x": 1127.272727,
-      "y": 213.283741,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-call-cord-socket",
-      "description": "Bedspace call-cord socket visible in Bedhead services",
-      "kind": "object",
-      "x": 1127.272727,
-      "y": 194.155154,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1095,
+      "y": 223,
+      "width": 12,
+      "height": 24
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-hanging-call-cord",
-      "description": "Bedspace hanging call cord visible in Bedhead services",
+      "description": "Vertical red pull cord between its wall plate and teardrop handle.",
       "kind": "object",
-      "x": 1127.272727,
-      "y": 270.669501,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-red-call-button",
-      "description": "Bedspace red call button visible in Bedhead services",
-      "kind": "object",
-      "x": 1127.272727,
-      "y": 208.501594,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1148,
+      "y": 249,
+      "width": 2,
+      "height": 38
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-power-outlet",
-      "description": "Bedspace power outlet visible in Bedhead services",
+      "description": "Unoccupied white electrical receptacle just left of the infusion pole.",
       "kind": "object",
-      "x": 1160.76555,
-      "y": 194.155154,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-data-outlet",
-      "description": "Bedspace data outlet visible in Bedhead services",
-      "kind": "object",
-      "x": 1189.473684,
-      "y": 194.155154,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 775,
+      "y": 210,
+      "width": 10,
+      "height": 14
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-wall-switch",
-      "description": "Bedspace wall switch visible in Bedhead services",
+      "description": "Left red rocker at the top of the paired wall outlet plate.",
       "kind": "object",
-      "x": 1227.751196,
-      "y": 197.024442,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1001.5,
+      "y": 208,
+      "width": 5,
+      "height": 4
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-outlet-faceplate",
-      "description": "Bedspace outlet faceplate visible in Bedhead services",
+      "description": "White rectangular faceplate of the rightmost electrical receptacle.",
       "kind": "object",
-      "x": 1160.76555,
-      "y": 198.937301,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-wall-mounted-examination-light",
-      "description": "Bedspace wall-mounted examination light visible in Bedhead services",
-      "kind": "object",
-      "x": 1041.148325,
-      "y": 166.418704,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-rail-end-cap",
-      "description": "Bedspace rail end cap visible in Bedhead services",
-      "kind": "object",
-      "x": 1261.244019,
-      "y": 198.937301,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-rail-mounting-bracket",
-      "description": "Bedspace rail mounting bracket visible in Bedhead services",
-      "kind": "object",
-      "x": 993.301435,
-      "y": 197.024442,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-tubing-hook",
-      "description": "Bedspace tubing hook visible in Bedhead services",
-      "kind": "object",
-      "x": 1227.751196,
-      "y": 222.848034,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1204.5,
+      "y": 211,
+      "width": 13,
+      "height": 20
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-wall-panel-seam",
-      "description": "Bedspace wall-panel seam visible in Bedhead services",
+      "description": "Horizontal joint behind the cabinet, left of the water pitcher.",
       "kind": "object",
-      "x": 1289.952153,
-      "y": 246.758767,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1162.5,
+      "y": 337,
+      "width": 15,
+      "height": 2
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-white-pillow",
@@ -496,255 +388,183 @@
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-patient-monitor",
-      "description": "Bedspace patient monitor visible in Monitor and infusion equipment",
+      "description": "Lower housing of the wall-mounted patient monitor below its black screen.",
       "kind": "object",
-      "x": 1289.952153,
-      "y": 141.551541,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1271,
+      "y": 199.5,
+      "width": 24,
+      "height": 5
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-monitor-screen",
-      "description": "Bedspace monitor screen visible in Monitor and infusion equipment",
+      "description": "Black display surface enclosed by the silver monitor housing.",
       "kind": "object",
-      "x": 1289.952153,
-      "y": 136.769394,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1274,
+      "y": 143,
+      "width": 62,
+      "height": 38
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-monitor-bezel",
-      "description": "Bedspace monitor bezel visible in Monitor and infusion equipment",
+      "description": "Thin silver vertical border immediately to the right of the black display.",
       "kind": "object",
-      "x": 1289.952153,
-      "y": 141.551541,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-monitor-control-knob",
-      "description": "Bedspace monitor control knob visible in Monitor and infusion equipment",
-      "kind": "object",
-      "x": 1242.105263,
-      "y": 184.590861,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1351.5,
+      "y": 137,
+      "width": 5,
+      "height": 46
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-monitor-support-arm",
-      "description": "Bedspace monitor support arm visible in Monitor and infusion equipment",
+      "description": "Upper metal strut between the wall mounting plate and the left edge of the monitor.",
       "kind": "object",
-      "x": 1289.952153,
-      "y": 218.065887,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1227,
+      "y": 160,
+      "width": 6,
+      "height": 2
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-monitor-cable",
-      "description": "Bedspace monitor cable visible in Monitor and infusion equipment",
+      "description": "Black cable dropping from the left underside of the monitor toward the wire basket.",
       "kind": "object",
-      "x": 1313.875598,
-      "y": 237.194474,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1255,
+      "y": 237.5,
+      "width": 2,
+      "height": 15
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-monitor-equipment-basket",
-      "description": "Bedspace monitor equipment basket visible in Monitor and infusion equipment",
+      "description": "Wire mesh of the basket holding coiled cables beneath the monitor.",
       "kind": "object",
-      "x": 1289.952153,
-      "y": 252.497343,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1314.5,
+      "y": 275,
+      "width": 17,
+      "height": 14
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-monitor-basket-rail",
-      "description": "Bedspace monitor basket rail visible in Monitor and infusion equipment",
+      "description": "Upper horizontal rim on the right half of the monitor basket.",
       "kind": "object",
-      "x": 1289.952153,
-      "y": 251.540914,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1319.5,
+      "y": 255,
+      "width": 19,
+      "height": 2
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-infusion-pole",
-      "description": "Bedspace infusion pole visible in Monitor and infusion equipment",
+      "description": "Narrow chrome pole above the pump, to the left of the hanging bag.",
       "kind": "object",
-      "x": 768.421053,
-      "y": 285.01594,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 792.5,
+      "y": 117,
+      "width": 3,
+      "height": 46
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-pole-hook",
-      "description": "Bedspace pole hook visible in Monitor and infusion equipment",
+      "description": "Outer bend of the rightmost unused hanging hook on the pole.",
       "kind": "object",
-      "x": 768.421053,
-      "y": 74.601488,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 837,
+      "y": 88,
+      "width": 2,
+      "height": 4
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-clear-fluid-bag",
-      "description": "Bedspace clear fluid bag visible in Monitor and infusion equipment",
+      "description": "Clear rectangular fluid bag to the right of the vertical infusion pole.",
       "kind": "object",
-      "x": 792.344498,
-      "y": 122.422954,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 808,
+      "y": 127.5,
+      "width": 16,
+      "height": 31
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-fluid-bag-port",
-      "description": "Bedspace fluid bag port visible in Monitor and infusion equipment",
+      "description": "Short outlet beneath the bag where its narrow line begins.",
       "kind": "object",
-      "x": 792.344498,
-      "y": 170.244421,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 814,
+      "y": 169.5,
+      "width": 4,
+      "height": 9
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-infusion-tubing",
-      "description": "Bedspace infusion tubing visible in Monitor and infusion equipment",
+      "description": "Translucent line descending from the fluid bag toward the pump.",
       "kind": "object",
-      "x": 777.990431,
-      "y": 371.09458,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 815.5,
+      "y": 202,
+      "width": 2,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-infusion-pump",
-      "description": "Bedspace infusion pump visible in Monitor and infusion equipment",
+      "description": "Front display area of the white pump mounted halfway up the pole.",
       "kind": "object",
-      "x": 777.990431,
-      "y": 232.412327,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 785,
+      "y": 253.5,
+      "width": 24,
+      "height": 27
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-pump-control-panel",
-      "description": "Bedspace pump control panel visible in Monitor and infusion equipment",
+      "description": "Coloured keypad below the infusion pump display.",
       "kind": "object",
-      "x": 777.990431,
-      "y": 227.630181,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-pump-clamp",
-      "description": "Bedspace pump clamp visible in Monitor and infusion equipment",
-      "kind": "object",
-      "x": 777.990431,
-      "y": 256.323061,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-pump-pole-bracket",
-      "description": "Bedspace pump pole bracket visible in Monitor and infusion equipment",
-      "kind": "object",
-      "x": 777.990431,
-      "y": 270.669501,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 788.5,
+      "y": 290.5,
+      "width": 23,
+      "height": 9
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-mobile-equipment-stand",
-      "description": "Bedspace mobile equipment stand visible in Monitor and infusion equipment",
+      "description": "Lower upright of the mobile pump stand where it runs down to the wheeled base.",
       "kind": "object",
-      "x": 806.698565,
-      "y": 466.737513,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 790.5,
+      "y": 438,
+      "width": 5,
+      "height": 70
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-stand-caster",
-      "description": "Bedspace stand caster visible in Monitor and infusion equipment",
+      "description": "Black twin caster beneath the left leg of the infusion stand.",
       "kind": "object",
-      "x": 801.913876,
-      "y": 533.687566,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 719,
+      "y": 567,
+      "width": 10,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-stand-base",
-      "description": "Bedspace stand base visible in Monitor and infusion equipment",
+      "description": "Leftward black spoke connecting the stand column to the caster.",
       "kind": "object",
-      "x": 792.344498,
-      "y": 514.55898,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-sensor-lead",
-      "description": "Bedspace sensor lead visible in Monitor and infusion equipment",
-      "kind": "object",
-      "x": 1232.535885,
-      "y": 246.758767,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-lead-connector",
-      "description": "Bedspace lead connector visible in Monitor and infusion equipment",
-      "kind": "object",
-      "x": 1232.535885,
-      "y": 208.501594,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-wall-diagnostic-unit",
-      "description": "Bedspace wall diagnostic unit visible in Monitor and infusion equipment",
-      "kind": "object",
-      "x": 749.282297,
-      "y": 241.976621,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-diagnostic-display",
-      "description": "Bedspace diagnostic display visible in Monitor and infusion equipment",
-      "kind": "object",
-      "x": 749.282297,
-      "y": 237.194474,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-equipment-handle",
-      "description": "Bedspace equipment handle visible in Monitor and infusion equipment",
-      "kind": "object",
-      "x": 754.066986,
-      "y": 270.669501,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 745,
+      "y": 548,
+      "width": 22,
+      "height": 4
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-bedside-cabinet",
-      "description": "Bedspace bedside cabinet visible in Bedside cabinet and supplies",
+      "description": "Middle wooden front of the freestanding bedside cabinet behind the bed.",
       "kind": "object",
-      "x": 1203.827751,
-      "y": 414.1339,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1244,
+      "y": 401.5,
+      "width": 52,
+      "height": 15
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-cabinet-top",
-      "description": "Bedspace cabinet top visible in Bedside cabinet and supplies",
+      "description": "Exposed wooden top surface to the right of the pitcher and cup.",
       "kind": "object",
-      "x": 1203.827751,
-      "y": 332.837407,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1255.5,
+      "y": 357,
+      "width": 19,
+      "height": 4
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-upper-drawer",
-      "description": "Bedspace upper drawer visible in Bedside cabinet and supplies",
+      "description": "Face of the upper wooden drawer to the left of its silver pull.",
       "kind": "object",
-      "x": 1203.827751,
-      "y": 385.44102,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1222.5,
+      "y": 375,
+      "width": 25,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-lower-drawer",
@@ -757,102 +577,57 @@
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-drawer-pull",
-      "description": "Bedspace drawer pull visible in Bedside cabinet and supplies",
+      "description": "Horizontal silver handle across the upper drawer front.",
       "kind": "object",
-      "x": 1203.827751,
-      "y": 390.223167,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1254.5,
+      "y": 381,
+      "width": 19,
+      "height": 2
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-cabinet-side-panel",
-      "description": "Bedspace cabinet side panel visible in Bedside cabinet and supplies",
+      "description": "Wooden left side of the cabinet between the bed rail and the front corner.",
       "kind": "object",
-      "x": 1270.813397,
-      "y": 423.698193,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1183.5,
+      "y": 381.5,
+      "width": 17,
+      "height": 33
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-bedside-water-jug",
-      "description": "Bedspace bedside water jug visible in Bedside cabinet and supplies",
+      "description": "Water-filled transparent pitcher on the left of the bedside cabinet top.",
       "kind": "object",
-      "x": 1170.334928,
-      "y": 308.926674,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1210,
+      "y": 320,
+      "width": 16,
+      "height": 24
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-jug-handle",
-      "description": "Bedspace jug handle visible in Bedside cabinet and supplies",
+      "description": "Leftmost vertical section of the clear loop handle on the pitcher.",
       "kind": "object",
-      "x": 1170.334928,
-      "y": 308.926674,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1200,
+      "y": 318,
+      "width": 2,
+      "height": 6
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-drinking-tumbler",
-      "description": "Bedspace drinking tumbler visible in Bedside cabinet and supplies",
+      "description": "White body of the blue-topped drinking cup next to the pitcher.",
       "kind": "object",
-      "x": 1232.535885,
-      "y": 313.70882,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-tumbler-rim",
-      "description": "Bedspace tumbler rim visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1232.535885,
-      "y": 306.057386,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-bedside-tray",
-      "description": "Bedspace bedside tray visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1175.119617,
-      "y": 318.490967,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-tissue-box",
-      "description": "Bedspace tissue box visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1141.626794,
-      "y": 323.273114,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-tissue-opening",
-      "description": "Bedspace tissue opening visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1141.626794,
-      "y": 313.70882,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-bedside-carafe",
-      "description": "Bedspace bedside carafe visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1199.043062,
-      "y": 308.926674,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1239,
+      "y": 331,
+      "width": 12,
+      "height": 18
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-bedside-table-edge",
-      "description": "Bedspace bedside table edge visible in Bedside cabinet and supplies",
+      "description": "Narrow front lip of the bedside cabinet top, above the upper drawer.",
       "kind": "object",
-      "x": 1251.674641,
-      "y": 337.619554,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1262,
+      "y": 364,
+      "width": 38,
+      "height": 2
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-table-support-leg",
@@ -864,58 +639,22 @@
       "height": 118
     },
     {
-      "id": "hospital-inpatient-bedspace-region-bedspace-cupboard-seam",
-      "description": "Bedspace cupboard seam visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1261.244019,
-      "y": 409.351753,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-wall-shelf",
-      "description": "Bedspace wall shelf visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1194.258373,
-      "y": 289.798087,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-shelf-bracket",
-      "description": "Bedspace shelf bracket visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1242.105263,
-      "y": 294.580234,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
       "id": "hospital-inpatient-bedspace-region-bedspace-bedside-cup-base",
-      "description": "Bedspace bedside cup base visible in Bedside cabinet and supplies",
+      "description": "Bottom edge of the white cup where it rests on the cabinet top.",
       "kind": "object",
-      "x": 1222.966507,
-      "y": 328.05526,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1238.5,
+      "y": 353,
+      "width": 11,
+      "height": 2
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-cabinet-corner",
-      "description": "Bedspace cabinet corner visible in Bedside cabinet and supplies",
+      "description": "Left front wooden corner where the cabinet side meets the drawer fronts.",
       "kind": "object",
-      "x": 1141.626794,
-      "y": 366.312434,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-tabletop-grain",
-      "description": "Bedspace tabletop grain visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1213.397129,
-      "y": 328.05526,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1208.5,
+      "y": 369,
+      "width": 3,
+      "height": 10
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-privacy-curtain",
@@ -1156,29 +895,17 @@
       "targetScale": 2.6,
       "labelIds": [
         "hospital-inpatient-bedspace-bedspace-headwall-service-rail",
-        "hospital-inpatient-bedspace-bedspace-horizontal-utility-rail",
         "hospital-inpatient-bedspace-bedspace-upper-wall-light",
         "hospital-inpatient-bedspace-bedspace-light-diffuser",
-        "hospital-inpatient-bedspace-bedspace-oxygen-flowmeter",
-        "hospital-inpatient-bedspace-bedspace-oxygen-outlet",
-        "hospital-inpatient-bedspace-bedspace-suction-regulator",
         "hospital-inpatient-bedspace-bedspace-suction-canister",
         "hospital-inpatient-bedspace-bedspace-medical-gas-outlet",
         "hospital-inpatient-bedspace-bedspace-green-gas-fitting",
         "hospital-inpatient-bedspace-bedspace-yellow-gas-fitting",
-        "hospital-inpatient-bedspace-bedspace-blue-gas-fitting",
         "hospital-inpatient-bedspace-bedspace-nurse-call-handset",
-        "hospital-inpatient-bedspace-bedspace-call-cord-socket",
         "hospital-inpatient-bedspace-bedspace-hanging-call-cord",
-        "hospital-inpatient-bedspace-bedspace-red-call-button",
         "hospital-inpatient-bedspace-bedspace-power-outlet",
-        "hospital-inpatient-bedspace-bedspace-data-outlet",
         "hospital-inpatient-bedspace-bedspace-wall-switch",
         "hospital-inpatient-bedspace-bedspace-outlet-faceplate",
-        "hospital-inpatient-bedspace-bedspace-wall-mounted-examination-light",
-        "hospital-inpatient-bedspace-bedspace-rail-end-cap",
-        "hospital-inpatient-bedspace-bedspace-rail-mounting-bracket",
-        "hospital-inpatient-bedspace-bedspace-tubing-hook",
         "hospital-inpatient-bedspace-bedspace-wall-panel-seam"
       ]
     },
@@ -1241,7 +968,7 @@
       "id": "hospital-inpatient-bedspace-zone-monitor-and-infusion",
       "title": "Monitor and infusion equipment",
       "translation": "监护与输液设备",
-      "description": "Explore the bedside monitor, equipment trolley, infusion pole, pump, tubing and cable fittings.",
+      "description": "Explore the silver-framed wall monitor, its wire basket, and the infusion pump and fluid bag on the wheeled stand.",
       "x": 574.162679,
       "y": 47.821467,
       "width": 880.382775,
@@ -1251,7 +978,6 @@
         "hospital-inpatient-bedspace-bedspace-patient-monitor",
         "hospital-inpatient-bedspace-bedspace-monitor-screen",
         "hospital-inpatient-bedspace-bedspace-monitor-bezel",
-        "hospital-inpatient-bedspace-bedspace-monitor-control-knob",
         "hospital-inpatient-bedspace-bedspace-monitor-support-arm",
         "hospital-inpatient-bedspace-bedspace-monitor-cable",
         "hospital-inpatient-bedspace-bedspace-monitor-equipment-basket",
@@ -1263,16 +989,9 @@
         "hospital-inpatient-bedspace-bedspace-infusion-tubing",
         "hospital-inpatient-bedspace-bedspace-infusion-pump",
         "hospital-inpatient-bedspace-bedspace-pump-control-panel",
-        "hospital-inpatient-bedspace-bedspace-pump-clamp",
-        "hospital-inpatient-bedspace-bedspace-pump-pole-bracket",
         "hospital-inpatient-bedspace-bedspace-mobile-equipment-stand",
         "hospital-inpatient-bedspace-bedspace-stand-caster",
-        "hospital-inpatient-bedspace-bedspace-stand-base",
-        "hospital-inpatient-bedspace-bedspace-sensor-lead",
-        "hospital-inpatient-bedspace-bedspace-lead-connector",
-        "hospital-inpatient-bedspace-bedspace-wall-diagnostic-unit",
-        "hospital-inpatient-bedspace-bedspace-diagnostic-display",
-        "hospital-inpatient-bedspace-bedspace-equipment-handle"
+        "hospital-inpatient-bedspace-bedspace-stand-base"
       ]
     },
     {
@@ -1295,19 +1014,10 @@
         "hospital-inpatient-bedspace-bedspace-bedside-water-jug",
         "hospital-inpatient-bedspace-bedspace-jug-handle",
         "hospital-inpatient-bedspace-bedspace-drinking-tumbler",
-        "hospital-inpatient-bedspace-bedspace-tumbler-rim",
-        "hospital-inpatient-bedspace-bedspace-bedside-tray",
-        "hospital-inpatient-bedspace-bedspace-tissue-box",
-        "hospital-inpatient-bedspace-bedspace-tissue-opening",
-        "hospital-inpatient-bedspace-bedspace-bedside-carafe",
         "hospital-inpatient-bedspace-bedspace-bedside-table-edge",
         "hospital-inpatient-bedspace-bedspace-table-support-leg",
-        "hospital-inpatient-bedspace-bedspace-cupboard-seam",
-        "hospital-inpatient-bedspace-bedspace-wall-shelf",
-        "hospital-inpatient-bedspace-bedspace-shelf-bracket",
         "hospital-inpatient-bedspace-bedspace-bedside-cup-base",
-        "hospital-inpatient-bedspace-bedspace-cabinet-corner",
-        "hospital-inpatient-bedspace-bedspace-tabletop-grain"
+        "hospital-inpatient-bedspace-bedspace-cabinet-corner"
       ]
     },
     {
@@ -1360,14 +1070,14 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/hospital-inpatient-bedspace-premium-v1.jpg",
     "reviewedAssetSha256": "237730a426a5b8406f6b152f1fd719e98c619685e28616eac4731c71fb4df54f",
-    "rationale": "The single grey overbed-table column, the small wheel under the head-end side rail and the right foot-end caster are distinct in the final photograph. The blue blanket hangs above the near-side rail. Hidden mechanisms, covered fittings and fabric details without a separate visible edge remain searchable.",
+    "rationale": "The finished photograph shows a separate overbed-table column, bed casters and a hanging blue blanket. The monitor has a black screen, a silver rim, a wall arm and a wire basket. The pole carries one pump and a clear bag. The cabinet top holds one handled pitcher and one blue-and-white cup. A tissue box, a separate diagnostic unit, concealed mechanisms and the gas identities of the wall fittings cannot be identified in this image and remain index terms.",
     "previousLabelCount": 158,
-    "retainedLabelCount": 126,
-    "removedLabelCount": 32,
+    "retainedLabelCount": 97,
+    "removedLabelCount": 61,
     "removedExamples": [
-      "Inpatient bed mattress",
-      "Bedspace mattress seam",
-      "Bedspace fitted sheet",
+      "Bedspace horizontal utility rail",
+      "Bedspace oxygen flowmeter",
+      "Bedspace oxygen outlet",
       "patient identity",
       "diagnosis",
       "vital signs",
@@ -1383,30 +1093,19 @@
       "id": "hospital-inpatient-bedspace-bedspace-headwall-service-rail",
       "word": "Bedspace headwall service rail",
       "translation": "床位区床头设备横轨",
-      "x": 1043.062201,
-      "y": 210.414453,
+      "x": 1045,
+      "y": 240,
       "priority": 1,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-headwall-service-rail",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-horizontal-utility-rail",
-      "word": "Bedspace horizontal utility rail",
-      "translation": "床位区水平设备轨",
-      "x": 1062.200957,
-      "y": 219.978746,
-      "priority": 1.001,
-      "minLevel": 1,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-horizontal-utility-rail",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-upper-wall-light",
       "word": "Bedspace upper wall light",
       "translation": "床位区上方壁灯",
-      "x": 1033.492823,
-      "y": 109.989373,
+      "x": 1022,
+      "y": 114,
       "priority": 1.002,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-upper-wall-light",
@@ -1416,52 +1115,19 @@
       "id": "hospital-inpatient-bedspace-bedspace-light-diffuser",
       "word": "Bedspace light diffuser",
       "translation": "床位区灯具扩散罩",
-      "x": 1033.492823,
-      "y": 110.945802,
+      "x": 1023,
+      "y": 127,
       "priority": 1.003,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-light-diffuser",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-oxygen-flowmeter",
-      "word": "Bedspace oxygen flowmeter",
-      "translation": "床位区氧气流量计",
-      "x": 918.660287,
-      "y": 212.327311,
-      "priority": 1.004,
-      "minLevel": 1,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-oxygen-flowmeter",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-oxygen-outlet",
-      "word": "Bedspace oxygen outlet",
-      "translation": "床位区氧气接口",
-      "x": 918.660287,
-      "y": 246.758767,
-      "priority": 1.005,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-oxygen-outlet",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-suction-regulator",
-      "word": "Bedspace suction regulator",
-      "translation": "床位区负压调节器",
-      "x": 980.861244,
-      "y": 215.196599,
-      "priority": 1.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-suction-regulator",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-suction-canister",
       "word": "Bedspace suction canister",
       "translation": "床位区负压收集罐",
-      "x": 979.904306,
-      "y": 265.887354,
+      "x": 889,
+      "y": 270,
       "priority": 1.007,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-suction-canister",
@@ -1471,8 +1137,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-medical-gas-outlet",
       "word": "Bedspace medical-gas outlet",
       "translation": "床位区医用气体接口",
-      "x": 956.937799,
-      "y": 241.020191,
+      "x": 879,
+      "y": 217,
       "priority": 1.008,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-medical-gas-outlet",
@@ -1482,8 +1148,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-green-gas-fitting",
       "word": "Bedspace green gas fitting",
       "translation": "床位区绿色气体接头",
-      "x": 918.660287,
-      "y": 218.065887,
+      "x": 921,
+      "y": 215,
       "priority": 1.009,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-green-gas-fitting",
@@ -1493,96 +1159,52 @@
       "id": "hospital-inpatient-bedspace-bedspace-yellow-gas-fitting",
       "word": "Bedspace yellow gas fitting",
       "translation": "床位区黄色气体接头",
-      "x": 952.15311,
-      "y": 218.065887,
+      "x": 952,
+      "y": 216,
       "priority": 1.01,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-yellow-gas-fitting",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-blue-gas-fitting",
-      "word": "Bedspace blue gas fitting",
-      "translation": "床位区蓝色气体接头",
-      "x": 985.645933,
-      "y": 218.065887,
-      "priority": 1.011,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-blue-gas-fitting",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-nurse-call-handset",
       "word": "Bedspace nurse-call handset",
       "translation": "床位区护士呼叫手柄",
-      "x": 1148.325359,
-      "y": 234.325186,
+      "x": 1101,
+      "y": 235,
       "priority": 1.012,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-nurse-call-handset",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-call-cord-socket",
-      "word": "Bedspace call-cord socket",
-      "translation": "床位区呼叫线插座",
-      "x": 1148.325359,
-      "y": 215.196599,
-      "priority": 1.013,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-call-cord-socket",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-hanging-call-cord",
       "word": "Bedspace hanging call cord",
       "translation": "床位区垂挂呼叫线",
-      "x": 1148.325359,
-      "y": 291.710946,
+      "x": 1149,
+      "y": 268,
       "priority": 1.014,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-hanging-call-cord",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-red-call-button",
-      "word": "Bedspace red call button",
-      "translation": "床位区红色呼叫按钮",
-      "x": 1148.325359,
-      "y": 229.543039,
-      "priority": 1.015,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-red-call-button",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-power-outlet",
       "word": "Bedspace power outlet",
       "translation": "床位区电源插座",
-      "x": 1181.818182,
-      "y": 215.196599,
+      "x": 780,
+      "y": 217,
       "priority": 1.016,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-power-outlet",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-data-outlet",
-      "word": "Bedspace data outlet",
-      "translation": "床位区数据接口",
-      "x": 1210.526316,
-      "y": 215.196599,
-      "priority": 1.017,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-data-outlet",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-wall-switch",
       "word": "Bedspace wall switch",
       "translation": "床位区墙壁开关",
-      "x": 1248.803828,
-      "y": 218.065887,
+      "x": 1004,
+      "y": 210,
       "priority": 1.018,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-wall-switch",
@@ -1592,63 +1214,19 @@
       "id": "hospital-inpatient-bedspace-bedspace-outlet-faceplate",
       "word": "Bedspace outlet faceplate",
       "translation": "床位区插座面板",
-      "x": 1181.818182,
-      "y": 219.978746,
+      "x": 1211,
+      "y": 221,
       "priority": 1.019,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-outlet-faceplate",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-wall-mounted-examination-light",
-      "word": "Bedspace wall-mounted examination light",
-      "translation": "床位区壁挂检查灯",
-      "x": 1062.200957,
-      "y": 187.460149,
-      "priority": 1.02,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-wall-mounted-examination-light",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-rail-end-cap",
-      "word": "Bedspace rail end cap",
-      "translation": "床位区横轨端盖",
-      "x": 1282.296651,
-      "y": 219.978746,
-      "priority": 1.021,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-rail-end-cap",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-rail-mounting-bracket",
-      "word": "Bedspace rail mounting bracket",
-      "translation": "床位区横轨固定支架",
-      "x": 1014.354067,
-      "y": 218.065887,
-      "priority": 1.022,
-      "minLevel": 4,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-rail-mounting-bracket",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-tubing-hook",
-      "word": "Bedspace tubing hook",
-      "translation": "床位区管线挂钩",
-      "x": 1248.803828,
-      "y": 243.889479,
-      "priority": 1.023,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-tubing-hook",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-wall-panel-seam",
       "word": "Bedspace wall-panel seam",
       "translation": "床位区墙板接缝",
-      "x": 1311.004785,
-      "y": 267.800213,
+      "x": 1170,
+      "y": 338,
       "priority": 1.024,
       "minLevel": 4,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-wall-panel-seam",
@@ -1977,8 +1555,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-patient-monitor",
       "word": "Bedspace patient monitor",
       "translation": "床位区患者监护仪",
-      "x": 1311.004785,
-      "y": 162.592986,
+      "x": 1283,
+      "y": 202,
       "priority": 1.075,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-patient-monitor",
@@ -1988,8 +1566,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-monitor-screen",
       "word": "Bedspace monitor screen",
       "translation": "床位区监护仪屏幕",
-      "x": 1311.004785,
-      "y": 157.81084,
+      "x": 1305,
+      "y": 162,
       "priority": 1.076,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-monitor-screen",
@@ -1999,30 +1577,19 @@
       "id": "hospital-inpatient-bedspace-bedspace-monitor-bezel",
       "word": "Bedspace monitor bezel",
       "translation": "床位区监护仪边框",
-      "x": 1311.004785,
-      "y": 162.592986,
+      "x": 1354,
+      "y": 160,
       "priority": 1.077,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-monitor-bezel",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-monitor-control-knob",
-      "word": "Bedspace monitor control knob",
-      "translation": "床位区监护仪旋钮",
-      "x": 1263.157895,
-      "y": 205.632306,
-      "priority": 1.078,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-monitor-control-knob",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-monitor-support-arm",
       "word": "Bedspace monitor support arm",
       "translation": "床位区监护仪支臂",
-      "x": 1311.004785,
-      "y": 239.107333,
+      "x": 1230,
+      "y": 161,
       "priority": 1.079,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-monitor-support-arm",
@@ -2032,8 +1599,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-monitor-cable",
       "word": "Bedspace monitor cable",
       "translation": "床位区监护仪线缆",
-      "x": 1334.92823,
-      "y": 258.235919,
+      "x": 1256,
+      "y": 245,
       "priority": 1.08,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-monitor-cable",
@@ -2043,8 +1610,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-monitor-equipment-basket",
       "word": "Bedspace monitor equipment basket",
       "translation": "床位区监护设备篮",
-      "x": 1311.004785,
-      "y": 273.538789,
+      "x": 1323,
+      "y": 282,
       "priority": 1.081,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-monitor-equipment-basket",
@@ -2054,8 +1621,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-monitor-basket-rail",
       "word": "Bedspace monitor basket rail",
       "translation": "床位区监护设备篮边",
-      "x": 1311.004785,
-      "y": 272.582359,
+      "x": 1329,
+      "y": 256,
       "priority": 1.082,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-monitor-basket-rail",
@@ -2065,8 +1632,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-infusion-pole",
       "word": "Bedspace infusion pole",
       "translation": "床位区输液杆",
-      "x": 789.473684,
-      "y": 306.057386,
+      "x": 794,
+      "y": 140,
       "priority": 1.083,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-infusion-pole",
@@ -2076,8 +1643,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-pole-hook",
       "word": "Bedspace pole hook",
       "translation": "床位区输液杆挂钩",
-      "x": 789.473684,
-      "y": 95.642933,
+      "x": 838,
+      "y": 90,
       "priority": 1.084,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-pole-hook",
@@ -2087,8 +1654,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-clear-fluid-bag",
       "word": "Bedspace clear fluid bag",
       "translation": "床位区透明输液袋",
-      "x": 813.397129,
-      "y": 143.4644,
+      "x": 816,
+      "y": 143,
       "priority": 1.085,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-clear-fluid-bag",
@@ -2098,8 +1665,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-fluid-bag-port",
       "word": "Bedspace fluid bag port",
       "translation": "床位区输液袋接口",
-      "x": 813.397129,
-      "y": 191.285866,
+      "x": 816,
+      "y": 174,
       "priority": 1.086,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-fluid-bag-port",
@@ -2109,8 +1676,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-infusion-tubing",
       "word": "Bedspace infusion tubing",
       "translation": "床位区输液管",
-      "x": 799.043062,
-      "y": 392.136026,
+      "x": 816.5,
+      "y": 208,
       "priority": 1.087,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-infusion-tubing",
@@ -2120,8 +1687,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-infusion-pump",
       "word": "Bedspace infusion pump",
       "translation": "床位区输液泵",
-      "x": 799.043062,
-      "y": 253.453773,
+      "x": 797,
+      "y": 267,
       "priority": 1.088,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-infusion-pump",
@@ -2131,41 +1698,19 @@
       "id": "hospital-inpatient-bedspace-bedspace-pump-control-panel",
       "word": "Bedspace pump control panel",
       "translation": "床位区输液泵控制面板",
-      "x": 799.043062,
-      "y": 248.671626,
+      "x": 800,
+      "y": 295,
       "priority": 1.089,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-pump-control-panel",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-pump-clamp",
-      "word": "Bedspace pump clamp",
-      "translation": "床位区输液泵夹",
-      "x": 799.043062,
-      "y": 277.364506,
-      "priority": 1.09,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-pump-clamp",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-pump-pole-bracket",
-      "word": "Bedspace pump pole bracket",
-      "translation": "床位区输液泵杆支架",
-      "x": 799.043062,
-      "y": 291.710946,
-      "priority": 1.091,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-pump-pole-bracket",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-mobile-equipment-stand",
       "word": "Bedspace mobile equipment stand",
       "translation": "床位区移动设备支架",
-      "x": 827.751196,
-      "y": 487.778959,
+      "x": 793,
+      "y": 473,
       "priority": 1.092,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-mobile-equipment-stand",
@@ -2175,8 +1720,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-stand-caster",
       "word": "Bedspace stand caster",
       "translation": "床位区支架脚轮",
-      "x": 822.966507,
-      "y": 554.729012,
+      "x": 724,
+      "y": 573,
       "priority": 1.093,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-stand-caster",
@@ -2186,74 +1731,19 @@
       "id": "hospital-inpatient-bedspace-bedspace-stand-base",
       "word": "Bedspace stand base",
       "translation": "床位区支架底座",
-      "x": 813.397129,
-      "y": 535.600425,
+      "x": 756,
+      "y": 550,
       "priority": 1.094,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-stand-base",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-sensor-lead",
-      "word": "Bedspace sensor lead",
-      "translation": "床位区传感器导线",
-      "x": 1253.588517,
-      "y": 267.800213,
-      "priority": 1.095,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-sensor-lead",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-lead-connector",
-      "word": "Bedspace lead connector",
-      "translation": "床位区导线接头",
-      "x": 1253.588517,
-      "y": 229.543039,
-      "priority": 1.096,
-      "minLevel": 4,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-lead-connector",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-wall-diagnostic-unit",
-      "word": "Bedspace wall diagnostic unit",
-      "translation": "床位区墙挂诊断设备",
-      "x": 770.334928,
-      "y": 263.018066,
-      "priority": 1.097,
-      "minLevel": 0,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-wall-diagnostic-unit",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-diagnostic-display",
-      "word": "Bedspace diagnostic display",
-      "translation": "床位区诊断设备显示窗",
-      "x": 770.334928,
-      "y": 258.235919,
-      "priority": 1.098,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-diagnostic-display",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-equipment-handle",
-      "word": "Bedspace equipment handle",
-      "translation": "床位区设备提手",
-      "x": 775.119617,
-      "y": 291.710946,
-      "priority": 1.099,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-equipment-handle",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-bedside-cabinet",
       "word": "Bedspace bedside cabinet",
       "translation": "床位区床旁柜",
-      "x": 1224.880383,
-      "y": 435.175345,
+      "x": 1270,
+      "y": 409,
       "priority": 1.1,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bedside-cabinet",
@@ -2263,8 +1753,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-cabinet-top",
       "word": "Bedspace cabinet top",
       "translation": "床位区床旁柜台面",
-      "x": 1224.880383,
-      "y": 353.878852,
+      "x": 1265,
+      "y": 359,
       "priority": 1.101,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-cabinet-top",
@@ -2274,8 +1764,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-upper-drawer",
       "word": "Bedspace upper drawer",
       "translation": "床位区床旁柜上抽屉",
-      "x": 1224.880383,
-      "y": 406.482465,
+      "x": 1235,
+      "y": 381,
       "priority": 1.102,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-upper-drawer",
@@ -2296,8 +1786,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-drawer-pull",
       "word": "Bedspace drawer pull",
       "translation": "床位区抽屉拉手",
-      "x": 1224.880383,
-      "y": 411.264612,
+      "x": 1264,
+      "y": 382,
       "priority": 1.104,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-drawer-pull",
@@ -2307,8 +1797,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-cabinet-side-panel",
       "word": "Bedspace cabinet side panel",
       "translation": "床位区床旁柜侧板",
-      "x": 1291.866029,
-      "y": 444.739639,
+      "x": 1192,
+      "y": 398,
       "priority": 1.105,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-cabinet-side-panel",
@@ -2318,8 +1808,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-bedside-water-jug",
       "word": "Bedspace bedside water jug",
       "translation": "床位区床旁水壶",
-      "x": 1191.38756,
-      "y": 329.968119,
+      "x": 1218,
+      "y": 332,
       "priority": 1.107,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bedside-water-jug",
@@ -2329,8 +1819,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-jug-handle",
       "word": "Bedspace jug handle",
       "translation": "床位区水壶提手",
-      "x": 1191.38756,
-      "y": 329.968119,
+      "x": 1201,
+      "y": 321,
       "priority": 1.108,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-jug-handle",
@@ -2340,74 +1830,19 @@
       "id": "hospital-inpatient-bedspace-bedspace-drinking-tumbler",
       "word": "Bedspace drinking tumbler",
       "translation": "床位区饮水杯",
-      "x": 1253.588517,
-      "y": 334.750266,
+      "x": 1245,
+      "y": 340,
       "priority": 1.109,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-drinking-tumbler",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-tumbler-rim",
-      "word": "Bedspace tumbler rim",
-      "translation": "床位区水杯杯口",
-      "x": 1253.588517,
-      "y": 327.098831,
-      "priority": 1.11,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-tumbler-rim",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-bedside-tray",
-      "word": "Bedspace bedside tray",
-      "translation": "床位区床旁托盘",
-      "x": 1196.172249,
-      "y": 339.532412,
-      "priority": 1.111,
-      "minLevel": 1,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bedside-tray",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-tissue-box",
-      "word": "Bedspace tissue box",
-      "translation": "床位区纸巾盒",
-      "x": 1162.679426,
-      "y": 344.314559,
-      "priority": 1.112,
-      "minLevel": 0,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-tissue-box",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-tissue-opening",
-      "word": "Bedspace tissue opening",
-      "translation": "床位区纸巾抽口",
-      "x": 1162.679426,
-      "y": 334.750266,
-      "priority": 1.113,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-tissue-opening",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-bedside-carafe",
-      "word": "Bedspace bedside carafe",
-      "translation": "床位区床旁玻璃壶",
-      "x": 1220.095694,
-      "y": 329.968119,
-      "priority": 1.114,
-      "minLevel": 1,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bedside-carafe",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-bedside-table-edge",
       "word": "Bedspace bedside table edge",
       "translation": "床位区床旁台边",
-      "x": 1272.727273,
-      "y": 358.660999,
+      "x": 1281,
+      "y": 365,
       "priority": 1.115,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bedside-table-edge",
@@ -2425,44 +1860,11 @@
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-cupboard-seam",
-      "word": "Bedspace cupboard seam",
-      "translation": "床位区床旁柜门缝",
-      "x": 1282.296651,
-      "y": 430.393199,
-      "priority": 1.118,
-      "minLevel": 4,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-cupboard-seam",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-wall-shelf",
-      "word": "Bedspace wall shelf",
-      "translation": "床位区墙面小搁板",
-      "x": 1215.311005,
-      "y": 310.839532,
-      "priority": 1.12,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-wall-shelf",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-shelf-bracket",
-      "word": "Bedspace shelf bracket",
-      "translation": "床位区搁板托架",
-      "x": 1263.157895,
-      "y": 315.621679,
-      "priority": 1.121,
-      "minLevel": 4,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-shelf-bracket",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-bedside-cup-base",
       "word": "Bedspace bedside cup base",
       "translation": "床位区床旁水杯杯底",
-      "x": 1244.019139,
-      "y": 349.096706,
+      "x": 1244,
+      "y": 354,
       "priority": 1.122,
       "minLevel": 4,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bedside-cup-base",
@@ -2472,22 +1874,11 @@
       "id": "hospital-inpatient-bedspace-bedspace-cabinet-corner",
       "word": "Bedspace cabinet corner",
       "translation": "床位区床旁柜转角",
-      "x": 1162.679426,
-      "y": 387.353879,
+      "x": 1210,
+      "y": 374,
       "priority": 1.123,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-cabinet-corner",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-tabletop-grain",
-      "word": "Bedspace tabletop grain",
-      "translation": "床位区柜台木纹",
-      "x": 1234.449761,
-      "y": 349.096706,
-      "priority": 1.124,
-      "minLevel": 4,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-tabletop-grain",
       "semanticRealmId": "body-daily-life"
     },
     {
@@ -2768,6 +2159,66 @@
   ],
   "relatedWords": [
     {
+      "id": "hospital-inpatient-bedspace-bedspace-horizontal-utility-rail",
+      "word": "Bedspace horizontal utility rail",
+      "translation": "床位区水平设备轨"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-oxygen-flowmeter",
+      "word": "Bedspace oxygen flowmeter",
+      "translation": "床位区氧气流量计"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-oxygen-outlet",
+      "word": "Bedspace oxygen outlet",
+      "translation": "床位区氧气接口"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-suction-regulator",
+      "word": "Bedspace suction regulator",
+      "translation": "床位区负压调节器"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-blue-gas-fitting",
+      "word": "Bedspace blue gas fitting",
+      "translation": "床位区蓝色气体接头"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-call-cord-socket",
+      "word": "Bedspace call-cord socket",
+      "translation": "床位区呼叫线插座"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-red-call-button",
+      "word": "Bedspace red call button",
+      "translation": "床位区红色呼叫按钮"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-data-outlet",
+      "word": "Bedspace data outlet",
+      "translation": "床位区数据接口"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-wall-mounted-examination-light",
+      "word": "Bedspace wall-mounted examination light",
+      "translation": "床位区壁挂检查灯"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-rail-end-cap",
+      "word": "Bedspace rail end cap",
+      "translation": "床位区横轨端盖"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-rail-mounting-bracket",
+      "word": "Bedspace rail mounting bracket",
+      "translation": "床位区横轨固定支架"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-tubing-hook",
+      "word": "Bedspace tubing hook",
+      "translation": "床位区管线挂钩"
+    },
+    {
       "id": "hospital-inpatient-bedspace-inpatient-bed-mattress",
       "word": "Inpatient bed mattress",
       "translation": "住院病床床垫"
@@ -2873,9 +2324,74 @@
       "translation": "床位区驱动器外壳"
     },
     {
+      "id": "hospital-inpatient-bedspace-bedspace-monitor-control-knob",
+      "word": "Bedspace monitor control knob",
+      "translation": "床位区监护仪旋钮"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-pump-clamp",
+      "word": "Bedspace pump clamp",
+      "translation": "床位区输液泵夹"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-pump-pole-bracket",
+      "word": "Bedspace pump pole bracket",
+      "translation": "床位区输液泵杆支架"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-sensor-lead",
+      "word": "Bedspace sensor lead",
+      "translation": "床位区传感器导线"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-lead-connector",
+      "word": "Bedspace lead connector",
+      "translation": "床位区导线接头"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-wall-diagnostic-unit",
+      "word": "Bedspace wall diagnostic unit",
+      "translation": "床位区墙挂诊断设备"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-diagnostic-display",
+      "word": "Bedspace diagnostic display",
+      "translation": "床位区诊断设备显示窗"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-equipment-handle",
+      "word": "Bedspace equipment handle",
+      "translation": "床位区设备提手"
+    },
+    {
       "id": "hospital-inpatient-bedspace-bedspace-cabinet-plinth",
       "word": "Bedspace cabinet plinth",
       "translation": "床位区床旁柜底座"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-tumbler-rim",
+      "word": "Bedspace tumbler rim",
+      "translation": "床位区水杯杯口"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-bedside-tray",
+      "word": "Bedspace bedside tray",
+      "translation": "床位区床旁托盘"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-tissue-box",
+      "word": "Bedspace tissue box",
+      "translation": "床位区纸巾盒"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-tissue-opening",
+      "word": "Bedspace tissue opening",
+      "translation": "床位区纸巾抽口"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-bedside-carafe",
+      "word": "Bedspace bedside carafe",
+      "translation": "床位区床旁玻璃壶"
     },
     {
       "id": "hospital-inpatient-bedspace-bedspace-cabinet-handle-recess",
@@ -2883,9 +2399,29 @@
       "translation": "床位区柜门凹槽拉手"
     },
     {
+      "id": "hospital-inpatient-bedspace-bedspace-cupboard-seam",
+      "word": "Bedspace cupboard seam",
+      "translation": "床位区床旁柜门缝"
+    },
+    {
       "id": "hospital-inpatient-bedspace-bedspace-bedside-wheel",
       "word": "Bedspace bedside wheel",
       "translation": "床位区床旁柜脚轮"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-wall-shelf",
+      "word": "Bedspace wall shelf",
+      "translation": "床位区墙面小搁板"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-shelf-bracket",
+      "word": "Bedspace shelf bracket",
+      "translation": "床位区搁板托架"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-tabletop-grain",
+      "word": "Bedspace tabletop grain",
+      "translation": "床位区柜台木纹"
     }
   ],
   "portals": []
