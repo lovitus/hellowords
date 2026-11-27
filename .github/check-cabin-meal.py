@@ -1,4 +1,4 @@
-"""Compare the airport baggage service journey on two frozen production bundles."""
+"""Verify photo gestures in the aircraft cabin across frozen production bundles."""
 from collections import Counter, defaultdict
 import json
 import os
@@ -12,25 +12,49 @@ helpers = runpy.run_path(str(controls / "verify-office-phone.py"))
 attachment_bytes = runpy.run_path(str(controls / "diagnose-office-phone.py"))["attachment_data"]
 phase = sys.argv[1]
 temp = Path(os.environ["RUNNER_TEMP"])
-output = temp / "baggage-evidence"
+output = temp / "cabin-evidence"
 output.mkdir(exist_ok=True)
-hospital = "e2e/hospital-radiology.spec.ts"
-pharmacy = "hospital pharmacy reads the photographed rolling cart and keeps amoxicillin in the index on the dispensing cabinet round trip"
+cabin = "aircraft cabin opens the passenger seat row and meal tray, then restores both parent scenes"
 airport = "baggage services opens the wooden counter and the open suitcase, then restores both parent scenes"
-desk_error = "magnifying the photographed service-desk-counter must leave baggage-service-desk open"
+seat_gesture = "seat-back-panel"
+cabin_photo = "/scenes/aircraft-cabin-premium-v1.jpg"
+row_photo = "/scenes/passenger-seat-row-premium-v1.jpg"
+meal_photo = "/scenes/inflight-meal-tray-premium-v1.jpg"
 claim_photo = "/scenes/baggage-claim-premium-v1.jpg"
 desk_photo = "/scenes/baggage-service-desk-premium-v1.jpg"
 table_photo = "/scenes/suitcase-packing-table-premium-v1.jpg"
-word_photos = (
-    ("desk bell", 1, "e6960ee5da74727d72647a1483f2ccc58794a636778c82ba316b7df30c987f13"),
-    ("T-shirt", 1, "bb673805d31f21009b73821a8ecb78cab84b5982fe2f7d0b4665c9b0171d4f38"),
-    ("baggage services desk", 1, "867f17349b32d7c2802e2710a9b765117e50480301c30e0dea5ee7a4f10457c0"),
-)
-journeys = [("e2e/baggage-services.spec.ts", airport)]
+contracts = {
+    cabin: {
+        "gestures": (
+            (seat_gesture, cabin_photo, (795, 452), "passenger-seat-row", False),
+            ("meal-tray-edge", row_photo, (478, 550), "inflight-meal-tray", False),
+            ("meal-food", meal_photo, (798, 613), "inflight-meal-tray", True),
+        ),
+        "words": (),
+        "taps": ("neck-pillow-arrival", "meal-food-arrival", "neck-pillow-return", "cabin-aisle-return"),
+        "tap_shots": ("before", "dot", "word"),
+        "returns": ("meal-tray-return", "seat-row-return"),
+    },
+    airport: {
+        "gestures": (
+            ("service-desk-counter", claim_photo, (260, 340), "baggage-service-desk", False),
+            ("open-suitcase-shell", desk_photo, (1260, 744), "suitcase-packing-table", False),
+            ("folded-shirt-fabric", table_photo, (813, 667), "suitcase-packing-table", True),
+        ),
+        "words": (
+            ("desk bell", "e6960ee5da74727d72647a1483f2ccc58794a636778c82ba316b7df30c987f13"),
+            ("T-shirt", "bb673805d31f21009b73821a8ecb78cab84b5982fe2f7d0b4665c9b0171d4f38"),
+            ("baggage services desk", "867f17349b32d7c2802e2710a9b765117e50480301c30e0dea5ee7a4f10457c0"),
+        ),
+        "taps": ("desk-bell-arrival", "desk-bell-return", "shirt-arrival", "claim-counter-return"),
+        "tap_shots": ("before", "card"),
+        "returns": ("packing-table-return", "baggage-service-desk-return"),
+    },
+}
+journeys = [("e2e/cabin-meal.spec.ts", cabin)]
 if phase == "candidate":
     journeys.extend([
-        ("e2e/airport-bag-drop.spec.ts", "airport check-in opens the nearest self-service kiosk from its dot and reads the card reader without moving the photograph"),
-        (hospital, pharmacy),
+        ("e2e/baggage-services.spec.ts", airport),
         ("e2e/office-conference.spec.ts", helpers["RETURN"]),
     ])
 cases = [(project, file, title) for project in ("chromium", "mobile-chromium") for file, title in journeys]
@@ -68,44 +92,41 @@ for suite in report["suites"]:
             attachments[name] += 1
             (output / f"{phase}-{project}-{len(rows)}-{name}-{attachments[name]}.{extension}").write_bytes(data)
         accepted = result["status"] == "passed" and not result["errors"]
-        counter = json_items["service-desk-counter-gesture"]
         if phase == "baseline":
             errors = result["errors"]
+            seat = json_items[f"{seat_gesture}-gesture"]
             accepted = (
                 result["status"] == "failed" and len(errors) == 1
-                and desk_error in errors[0].get("message", "")
-                and len(counter) == 1 and counter[0]["scene"] == "baggage-claim"
-                and counter[0]["asset"] == claim_photo
-                and (counter[0]["x"], counter[0]["y"]) == (260, 340)
-                and counter[0]["scale"] >= 3.4 and screenshots["service-desk-counter-end"] == 1
+                and f"magnifying the photographed {seat_gesture} must leave passenger-seat-row open" in errors[0].get("message", "")
+                and len(seat) == 1 and seat[0]["scene"] == "aircraft-cabin"
+                and seat[0]["asset"] == cabin_photo and seat[0]["screen"]["visible"]
+                and (seat[0]["x"], seat[0]["y"]) == (795, 452)
+                and seat[0]["scale"] >= 3.4 and screenshots[f"{seat_gesture}-end"] == 1
             )
-        elif title == airport:
-            for name, asset, xy, destination in (
-                ("service-desk-counter", claim_photo, (260, 340), "baggage-service-desk"),
-                ("open-suitcase-shell", desk_photo, (1260, 744), "suitcase-packing-table"),
-                ("folded-shirt-fabric", table_photo, (813, 667), "suitcase-packing-table"),
-            ):
+        elif title in contracts:
+            contract = contracts[title]
+            for name, asset, xy, destination, stays in contract["gestures"]:
                 gestures = json_items[f"{name}-gesture"]
                 accepted = accepted and len(gestures) == 1 and screenshots[f"{name}-end"] == 1
                 if len(gestures) == 1:
                     gesture = gestures[0]
                     accepted = accepted and (gesture["asset"], gesture["scene"]) == (asset, destination)
                     accepted = accepted and (gesture["x"], gesture["y"]) == xy and gesture["screen"]["visible"]
-                    if name == "folded-shirt-fabric":
+                    if stays:
                         accepted = accepted and gesture["scale"] >= 3.4
-            for word, count, digest in word_photos:
+            for word, digest in contract["words"]:
                 prefix = word.replace(" ", "-")
                 readings = json_items[f"{prefix}-geometry"]
                 dots = json_items[f"{prefix}-dot-geometry"]
-                accepted = accepted and len(readings) == len(dots) == count
+                accepted = accepted and len(readings) == len(dots) == 1
                 accepted = accepted and all(r["inside"] and r["visible"] and r["word"] == word
                                             and r["sha256"] == digest for r in readings)
                 accepted = accepted and all(dot["dotExposed"] for dot in dots)
-                accepted = accepted and all(screenshots[f"{prefix}-{suffix}"] == count
+                accepted = accepted and all(screenshots[f"{prefix}-{suffix}"] == 1
                                             for suffix in ("view", "painted-card", "dot-card"))
-            for name in ("desk-bell-arrival", "desk-bell-return", "shirt-arrival", "claim-counter-return"):
-                accepted = accepted and all(screenshots[f"{name}-{suffix}"] == 1 for suffix in ("before", "card"))
-            for name in ("packing-table-return", "baggage-service-desk-return"):
+            for name in contract["taps"]:
+                accepted = accepted and all(screenshots[f"{name}-{suffix}"] == 1 for suffix in contract["tap_shots"])
+            for name in contract["returns"]:
                 returns = json_items[name]
                 accepted = accepted and len(returns) == 1 and isinstance(returns[0], list) and len(returns[0]) >= 2
                 if accepted:

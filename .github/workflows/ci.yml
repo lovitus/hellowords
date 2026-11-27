@@ -1,4 +1,4 @@
-name: Verify airport baggage service and suitcase packing
+name: Verify aircraft seat and meal tray exploration
 on:
   workflow_dispatch:
     inputs:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: e742ded35e6ba930797935a8c4d33c83c6b73bac
+  BASELINE: 693ad9a81b2842f5dc2ab2c02b71cd7a2f02174d
   PRODUCT: ${{ inputs.candidate }}
 jobs:
-  baggage:
+  cabin:
     runs-on: ubuntu-24.04
     timeout-minutes: 18
     defaults:
@@ -34,14 +34,14 @@ jobs:
       - uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASELINE }}
-          run-id: "45942657425"
+          run-id: "45946027692"
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
       - name: Verify sources and frozen production files
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
-          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = 8d0968ee625bc4d157316b1cdbdcb588a3f5fa40ba299388c9df3d7c47448cc1
+          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = f82c4f6717ef98ff7ea5a1585ab8376ec0596174f04e144cfa09ba04ff3b7e69
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE"
       - uses: actions/setup-node@v7
         with:
@@ -52,28 +52,33 @@ jobs:
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Reproduce zooming the counter on the frozen baggage claim photograph
+      - name: Reproduce zooming the seat on the frozen aircraft cabin photograph
         id: red
         continue-on-error: true
         run: |
           test ! -e dist
           mv "$RUNNER_TEMP/frozen/dist" dist
           trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
-          python ../.github/check-baggage-services.py baseline
+          python ../.github/check-cabin-meal.py baseline
       - name: Validate the candidate vocabulary and pending image reviews
         run: npm run validate:data -- --allow-image-reviewed
       - name: Typecheck and lint changed code
         run: |
           npm run typecheck
-          git diff --name-only -z "$BASELINE" "$PRODUCT" -- '*.ts' '*.mjs' | xargs -0r ./node_modules/.bin/eslint --
+          git diff --name-only --diff-filter=ACMR -z "$BASELINE" "$PRODUCT" -- '*.ts' '*.tsx' '*.mjs' | xargs -0r ./node_modules/.bin/eslint --
       - name: Build the frozen candidate once and verify the manifest
         id: build
         run: |
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
           GITHUB_SHA="$PRODUCT" npm run analyze:build
           python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - name: Enter the baggage service desk and packing table and return by zoom
-        run: python ../.github/check-baggage-services.py candidate
+          sha256sum -c <<'PHOTOS'
+          43bc4ae1927274df211288acce769e17f16975ddfea8e0c57d8ce5349f697dbc  dist/scenes/aircraft-cabin-premium-v1.jpg
+          10027d910b150f8b0ae7e5b067f671ba55406fb42a3bfc0edd19014386edb00b  dist/scenes/passenger-seat-row-premium-v1.jpg
+          3f410b93713664f7ab367e5a1058f77f47da8bb0126f5a4051c6aed505c23c49  dist/scenes/inflight-meal-tray-premium-v1.jpg
+          PHOTOS
+      - name: Enter the passenger seat and meal tray and return by zoom
+        run: python ../.github/check-cabin-meal.py candidate
       - name: Run all domain and vocabulary checks
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: npm run test:unit
@@ -90,11 +95,11 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: airport-baggage-services-${{ github.run_id }}
-          path: ${{ runner.temp }}/baggage-evidence
+          name: passenger-seat-meal-${{ github.run_id }}
+          path: ${{ runner.temp }}/cabin-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the observed baseline zoom on the wooden counter
+      - name: Require the observed baseline zoom on the blue passenger seat
         run: test "$RED_OUTCOME" = success
         env:
           RED_OUTCOME: ${{ steps.red.outcome }}
