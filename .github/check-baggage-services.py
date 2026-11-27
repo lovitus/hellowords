@@ -18,6 +18,14 @@ hospital = "e2e/hospital-radiology.spec.ts"
 pharmacy = "hospital pharmacy reads the photographed rolling cart and keeps amoxicillin in the index on the dispensing cabinet round trip"
 airport = "baggage services opens the wooden counter and the open suitcase, then restores both parent scenes"
 desk_error = "magnifying the photographed service-desk-counter must leave baggage-service-desk open"
+claim_photo = "/scenes/baggage-claim-premium-v1.jpg"
+desk_photo = "/scenes/baggage-service-desk-premium-v1.jpg"
+table_photo = "/scenes/suitcase-packing-table-premium-v1.jpg"
+word_photos = (
+    ("desk bell", 2, "e6960ee5da74727d72647a1483f2ccc58794a636778c82ba316b7df30c987f13"),
+    ("T-shirt", 1, "bb673805d31f21009b73821a8ecb78cab84b5982fe2f7d0b4665c9b0171d4f38"),
+    ("baggage services desk", 1, "867f17349b32d7c2802e2710a9b765117e50480301c30e0dea5ee7a4f10457c0"),
+)
 journeys = [("e2e/baggage-services.spec.ts", airport)]
 if phase == "candidate":
     journeys.extend([
@@ -42,6 +50,7 @@ for suite in report["suites"]:
             continue
         result = attempts[0]
         json_items = defaultdict(list)
+        screenshots = Counter()
         attachments = Counter()
         for item in result["attachments"]:
             name = item["name"]
@@ -52,8 +61,10 @@ for suite in report["suites"]:
             extension = "json" if mime == "application/json" else "png"
             if extension == "json":
                 json_items[name].append(json.loads(data))
-            elif not data.startswith(b"\x89PNG\r\n\x1a\n"):
-                raise ValueError("Invalid image evidence")
+            else:
+                if not data.startswith(b"\x89PNG\r\n\x1a\n"):
+                    raise ValueError("Invalid image evidence")
+                screenshots[name] += 1
             attachments[name] += 1
             (output / f"{phase}-{project}-{len(rows)}-{name}-{attachments[name]}.{extension}").write_bytes(data)
         accepted = result["status"] == "passed" and not result["errors"]
@@ -64,21 +75,41 @@ for suite in report["suites"]:
                 result["status"] == "failed" and len(errors) == 1
                 and desk_error in errors[0].get("message", "")
                 and len(counter) == 1 and counter[0]["scene"] == "baggage-claim"
-                and counter[0]["asset"] == "/scenes/baggage-claim-premium-v1.jpg"
+                and counter[0]["asset"] == claim_photo
                 and (counter[0]["x"], counter[0]["y"]) == (260, 340)
-                and counter[0]["scale"] >= 3.4 and attachments["service-desk-counter-end"] == 1
+                and counter[0]["scale"] >= 3.4 and screenshots["service-desk-counter-end"] == 1
             )
         elif title == airport:
-            accepted = accepted and len(counter) == 1 and counter[0]["scene"] == "baggage-service-desk"
-            accepted = accepted and attachments["service-desk-counter-end"] == 1
-            suitcase = json_items["open-suitcase-shell-gesture"]
-            accepted = accepted and len(suitcase) == 1 and suitcase[0]["scene"] == "suitcase-packing-table"
-            accepted = accepted and attachments["open-suitcase-shell-end"] == 1
-            # Both parent photographs must once again have a pointable object.
-            for word in ("counter-bell", "baggage-services-desk"):
-                readings = json_items[f"{word}-geometry"]
-                accepted = accepted and readings and all(reading["inside"] for reading in readings)
-                accepted = accepted and attachments[f"{word}-dot-card"] == len(readings)
+            for name, asset, xy, destination in (
+                ("service-desk-counter", claim_photo, (260, 340), "baggage-service-desk"),
+                ("open-suitcase-shell", desk_photo, (1260, 744), "suitcase-packing-table"),
+                ("folded-shirt-fabric", table_photo, (813, 667), "suitcase-packing-table"),
+            ):
+                gestures = json_items[f"{name}-gesture"]
+                accepted = accepted and len(gestures) == 1 and screenshots[f"{name}-end"] == 1
+                if len(gestures) == 1:
+                    gesture = gestures[0]
+                    accepted = accepted and (gesture["asset"], gesture["scene"]) == (asset, destination)
+                    accepted = accepted and (gesture["x"], gesture["y"]) == xy and gesture["screen"]["visible"]
+                    if name == "folded-shirt-fabric":
+                        accepted = accepted and gesture["scale"] >= 3.4
+            for word, count, digest in word_photos:
+                prefix = word.replace(" ", "-")
+                readings = json_items[f"{prefix}-geometry"]
+                dots = json_items[f"{prefix}-dot-geometry"]
+                accepted = accepted and len(readings) == len(dots) == count
+                accepted = accepted and all(r["inside"] and r["visible"] and r["word"] == word
+                                            and r["sha256"] == digest for r in readings)
+                accepted = accepted and all(dot["dotExposed"] for dot in dots)
+                accepted = accepted and all(screenshots[f"{prefix}-{suffix}"] == count
+                                            for suffix in ("view", "painted-card", "dot-card"))
+            for name in ("packing-table-return", "baggage-service-desk-return"):
+                returns = json_items[name]
+                accepted = accepted and len(returns) == 1 and isinstance(returns[0], list) and len(returns[0]) >= 2
+                if accepted:
+                    scales = returns[0]
+                    accepted = all(type(value) in (int, float) for value in scales)
+                    accepted = accepted and any(0.74 < value < scales[0] * 0.9 for value in scales[1:])
         row.update(status=result["status"], retry=result["retry"], attachments=dict(attachments),
                    accepted=bool(accepted and result["retry"] == 0))
 
