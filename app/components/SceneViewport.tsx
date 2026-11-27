@@ -55,6 +55,7 @@ import {
 import { getScenePresentation } from "../lib/scene-presentation";
 import { decodedSceneAssetCache } from "../lib/decoded-scene-asset-cache";
 import {
+  canvasLabelSizer,
   hitPaintedLabel,
   paintLabelCanvas,
   releaseLabelCanvas,
@@ -1549,6 +1550,7 @@ export function SceneViewport({
       labelViewport,
       meaningVisibleRef.current,
       {
+        measureLabel: canvasLabelSizer(labelCanvasRef.current),
         photoSize: usesPortraitPhotoBounds(scene, labelViewport) ? scene : undefined,
         selectedLabelId: placementLabelId,
         preserveAtlasAnchors: atlasOverviewMode && !activeFocusedDetailZone,
@@ -3221,7 +3223,7 @@ export function SceneViewport({
     const state = labelPaintStateRef.current;
     if (!state) return;
     const bounds = event.currentTarget.getBoundingClientRect();
-    const hit = hitPaintedLabel(state.labels, event.clientX - bounds.left, event.clientY - bounds.top);
+    const hit = hitPaintedLabel(state.labels, event.clientX - bounds.left, event.clientY - bounds.top, "mouse", state.placementLabelId);
     const nextId = hit?.id ?? null;
     if (nextId === hoveredLabelIdRef.current) return;
     hoveredLabelIdRef.current = nextId;
@@ -3237,7 +3239,9 @@ export function SceneViewport({
     const state = labelPaintStateRef.current;
     if (!state) return false;
     const bounds = event.currentTarget.getBoundingClientRect();
-    const hit = hitPaintedLabel(state.labels, event.clientX - bounds.left, event.clientY - bounds.top, event.pointerType);
+    const hit = hitPaintedLabel(
+      state.labels, event.clientX - bounds.left, event.clientY - bounds.top, event.pointerType, state.placementLabelId,
+    );
     if (!hit) return false;
     if (atlasOverviewMode) cancelAtlasHover();
     else {

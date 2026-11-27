@@ -1,5 +1,6 @@
 import type { Label } from "../domain";
 import type { LabelSemanticStyle } from "../domain/labelSemanticStyle";
+import { scenePlacementSize } from "../domain/labelPlacement";
 
 /**
  * Canvas painter for scene word callouts.
@@ -55,15 +56,25 @@ const HIT_PADDING = 2;
 const MIN_TOUCH_TARGET = 28;
 const ANCHOR_RADIUS = 4;
 const ANCHOR_OUTER_RADIUS = ANCHOR_RADIUS + 1;
+const SINGLE_LINE_DESKTOP_HEIGHT = 12;
+const SINGLE_LINE_COMPACT_HEIGHT = 18;
+const TEXT_INSET = 5;
+const TEXT_GAP = 5;
+const LINE_HEIGHT = 13;
+const MAX_LINE_WIDTH = 246;
 /** Room around a pill for the focus ring; sprites are sized to it once. */
 const SPRITE_PAD = 4;
 const SPRITE_CACHE_LIMIT = 500;
 
 const fontCache = new WeakMap<HTMLCanvasElement, string>();
-const widthCache = new Map<string, number>();
 const spriteCache = new Map<string, HTMLCanvasElement>();
 export function releaseLabelCanvas(canvas: HTMLCanvasElement): void {
   if (canvas.width) canvas.width = 0;
+}
+
+function labelCornerRadius(height: number): number {
+  // Keep the first and last lines on the tinted surface of a multiline label.
+  return height > SINGLE_LINE_COMPACT_HEIGHT ? TEXT_INSET : height / 2;
 }
 
 export function hitPaintedLabel(
@@ -71,6 +82,7 @@ export function hitPaintedLabel(
   x: number,
   y: number,
   pointerType = "mouse",
+  preferredAnchorId?: string | null,
 ): PaintedLabel | null {
   let nearest: PaintedLabel | null = null;
   let nearestDistance = Infinity;
@@ -82,17 +94,24 @@ export function hitPaintedLabel(
     if (!item.interactive || item.opacity < 0.52) continue;
     const offsetX = Math.abs(x - item.centerX);
     const offsetY = Math.abs(y - item.centerY);
-    const radius = item.height / 2;
+    const halfHeight = item.height / 2;
     const dx = Math.max(0, offsetX - item.width / 2);
-    const dy = Math.max(0, offsetY - radius);
+    const dy = Math.max(0, offsetY - halfHeight);
     if (dx === 0 && dy === 0) {
+      const radius = labelCornerRadius(item.height);
       const capX = Math.max(0, offsetX - (item.width / 2 - radius));
-      if (capX * capX + offsetY * offsetY <= (radius + 0.5) ** 2) return item;
+      const capY = Math.max(0, offsetY - (halfHeight - radius));
+      if (capX * capX + capY * capY <= (radius + 0.5) ** 2) return item;
     }
     const anchorDx = x - item.anchorX;
     const anchorDy = y - item.anchorY;
     const distanceToAnchor = anchorDx * anchorDx + anchorDy * anchorDy;
-    if (distanceToAnchor <= anchorHitRadius * anchorHitRadius && distanceToAnchor < anchorDistanceSquared) {
+    // Some photographs name a button and its face at exactly the same point.
+    // A repeat tap there should reopen the word the reader just located.
+    if (distanceToAnchor <= anchorHitRadius * anchorHitRadius && (
+      distanceToAnchor < anchorDistanceSquared
+      || (distanceToAnchor === anchorDistanceSquared && item.id === preferredAnchorId)
+    )) {
       nearestAnchor = item;
       anchorDistanceSquared = distanceToAnchor;
     }
@@ -137,14 +156,103 @@ function fontFor(canvas: HTMLCanvasElement): string {
   return font;
 }
 
-function measure(context: CanvasRenderingContext2D, text: string, font: string): number {
-  const key = `${font}|${text}`;
-  const cached = widthCache.get(key);
-  if (cached !== undefined) return cached;
-  const width = context.measureText(text).width;
-  if (widthCache.size > 4000) widthCache.clear();
-  widthCache.set(key, width);
-  return width;
+interface LabelTextRun {
+  text: string;
+  x: number;
+  row: number;
+  translation: boolean;
+}
+
+function wrapLabelText(text: string, widthOf: (text: string) => number): string[] {
+  if (widthOf(text) <= MAX_LINE_WIDTH) return [text];
+  const lines: string[] = [];
+  let line = "";
+  for (const token of text.match(/\s*\p{Script=Han}|\s*[^\s\p{Script=Han}]+/gu) ?? []) {
+    if (line && widthOf(line + token) > MAX_LINE_WIDTH) {
+      lines.push(line);
+      line = "";
+    }
+    const next = line ? token : token.trimStart();
+    if (widthOf(next) <= MAX_LINE_WIDTH) {
+      line += next;
+    } else {
+      for (const char of next) {
+        if (line && widthOf(line + char) > MAX_LINE_WIDTH) {
+          lines.push(line);
+          line = "";
+        }
+        line += char;
+      }
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+function createLabelTypography(font: string) {
+  const canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 1;
+  const meter = canvas.getContext("2d");
+  if (!meter) return null;
+  meter.font = font;
+  const widthOf = (text: string) => meter.measureText(text).width;
+  function plan(label: Label, bilingual: boolean) {
+    const runs: LabelTextRun[] = [];
+    const englishWidth = widthOf(label.word);
+    const translation = bilingual ? label.translation : "";
+    const inlineWidth = englishWidth + (translation ? TEXT_GAP + widthOf(translation) : 0);
+    let width: number;
+    let rows = 1;
+    if (inlineWidth <= MAX_LINE_WIDTH) {
+      const original = scenePlacementSize(label, bilingual, false);
+      width = Math.max(original.width, Math.ceil(inlineWidth) + 12);
+      runs.push({ text: label.word, x: TEXT_INSET, row: 0, translation: false });
+      if (translation) runs.push({ text: translation, x: TEXT_INSET + englishWidth + TEXT_GAP, row: 0, translation: true });
+    } else {
+      const english = wrapLabelText(label.word, widthOf);
+      const meanings = translation ? wrapLabelText(translation, widthOf) : [];
+      for (const [row, text] of [...english, ...meanings].entries()) {
+        runs.push({ text, x: TEXT_INSET, row, translation: row >= english.length });
+      }
+      rows = runs.length;
+      width = Math.ceil(Math.max(...runs.map(run => widthOf(run.text)))) + 14;
+    }
+    const extraHeight = (rows - 1) * LINE_HEIGHT;
+    return {
+      rows,
+      runs,
+      desktop: { width, height: SINGLE_LINE_DESKTOP_HEIGHT + extraHeight },
+      compact: { width, height: SINGLE_LINE_COMPACT_HEIGHT + extraHeight },
+    };
+  }
+  const englishPlans = new WeakMap<Label, ReturnType<typeof plan>>();
+  const bilingualPlans = new WeakMap<Label, ReturnType<typeof plan>>();
+  function textLayout(label: Label, bilingual: boolean) {
+    const cache = bilingual ? bilingualPlans : englishPlans;
+    let layout = cache.get(label);
+    if (!layout) {
+      layout = plan(label, bilingual);
+      cache.set(label, layout);
+    }
+    return layout;
+  }
+  return {
+    textLayout,
+    size(label: Label, bilingual: boolean, compact: boolean) {
+      const layout = textLayout(label, bilingual);
+      return compact ? layout.compact : layout.desktop;
+    },
+  };
+}
+
+const typographyByFont = new Map<string, ReturnType<typeof createLabelTypography>>();
+function typographyFor(font: string) {
+  if (!typographyByFont.has(font)) typographyByFont.set(font, createLabelTypography(font));
+  return typographyByFont.get(font);
+}
+
+export function canvasLabelSizer(canvas: HTMLCanvasElement | null) {
+  return canvas ? typographyFor(fontFor(canvas))?.size : undefined;
 }
 
 function traceRoundRect(
@@ -153,8 +261,8 @@ function traceRoundRect(
   y: number,
   width: number,
   height: number,
+  radius: number,
 ) {
-  const radius = height / 2;
   context.beginPath();
   context.moveTo(x + radius, y);
   context.arcTo(x + width, y, x + width, y + height, radius);
@@ -179,6 +287,7 @@ function pillSprite(
 ): HTMLCanvasElement {
   const key = [
     dpr,
+    font,
     meaningVisible ? 1 : 0,
     active ? 1 : 0,
     palette.surface,
@@ -208,7 +317,8 @@ function pillSprite(
   context.font = font;
   context.textBaseline = "middle";
   context.textAlign = "left";
-  traceRoundRect(context, 0, 0, item.width, item.height);
+  const radius = labelCornerRadius(item.height);
+  traceRoundRect(context, 0, 0, item.width, item.height, radius);
   context.globalAlpha = active ? PILL_SURFACE_ALPHA_ACTIVE : PILL_SURFACE_ALPHA;
   context.fillStyle = palette.surface;
   context.fill();
@@ -217,25 +327,23 @@ function pillSprite(
   context.strokeStyle = palette.border;
   context.stroke();
   if (active) {
-    traceRoundRect(context, -2, -2, item.width + 4, item.height + 4);
+    traceRoundRect(context, -2, -2, item.width + 4, item.height + 4, radius + 2);
     context.globalAlpha = 0.95;
     context.lineWidth = 1.5;
     context.strokeStyle = "rgba(222, 158, 66, 0.95)";
     context.stroke();
   }
   context.globalAlpha = 1;
-  const textX = 5;
-  const textY = item.height / 2 + 0.5;
+  const layout = typographyFor(font)?.textLayout(item.label, meaningVisible);
+  if (!layout) return sprite;
+  const firstY = (item.height - (layout.rows - 1) * LINE_HEIGHT) / 2 + 0.5;
   context.lineWidth = 2;
   context.strokeStyle = "#ffffff";
-  context.strokeText(item.word, textX, textY);
-  context.fillStyle = palette.ink;
-  context.fillText(item.word, textX, textY);
-  if (meaningVisible && item.translation) {
-    const translationX = textX + measure(context, item.word, font) + 5;
-    context.strokeText(item.translation, translationX, textY);
-    context.fillStyle = palette.muted;
-    context.fillText(item.translation, translationX, textY);
+  for (const run of layout.runs) {
+    const y = firstY + run.row * LINE_HEIGHT;
+    context.strokeText(run.text, run.x, y);
+    context.fillStyle = run.translation ? palette.muted : palette.ink;
+    context.fillText(run.text, run.x, y);
   }
   return sprite;
 }

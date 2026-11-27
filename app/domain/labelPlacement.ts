@@ -13,6 +13,7 @@ import type {
  * are then reserved before the layout looks for alternatives.
  */
 export interface ScenePlacementOptions {
+  readonly measureLabel?: typeof scenePlacementSize;
   readonly selectedLabelId?: string | null;
   readonly protectedRegions?: readonly SceneLabelProtectedRegion[];
   readonly portalCueRegions?: readonly SceneLabelProtectedRegion[];
@@ -245,7 +246,7 @@ export function computeScenePlacements(
       || anchorY < anchorTop
       || anchorY > anchorBottom
     ) continue;
-    const size = scenePlacementSize(label, meaningVisible, viewport.compact);
+    const size = (options.measureLabel ?? scenePlacementSize)(label, meaningVisible, viewport.compact);
     let priority = Number(options.priorityLabelIds?.has(label.id) ?? false);
     // A landmark next to an entrance has fewer clear directions left.
     if (priority && photoPortals.some(cue =>

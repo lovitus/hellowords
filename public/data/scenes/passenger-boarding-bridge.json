@@ -352,7 +352,7 @@
     },
     {
       "id": "passenger-boarding-bridge-region-jet-bridge-ceiling-lamp-housing-41",
-      "description": "Ceiling light housing in the boarding bridge photograph",
+      "description": "Housing of the recessed light in the boarding bridge ceiling",
       "kind": "part",
       "x": 610,
       "y": 0,
@@ -1635,8 +1635,8 @@
     },
     {
       "id": "passenger-boarding-bridge-jet-bridge-ceiling-lamp-housing-41",
-      "word": "ceiling light housing",
-      "translation": "顶灯外壳",
+      "word": "recessed light housing",
+      "translation": "嵌入式顶灯外壳",
       "x": 630,
       "y": 13,
       "priority": 1.04,
