@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { expect, test, type Locator, type Page } from "@playwright/test";
-import { checkPaintedWords } from "./photo-journey";
+import { checkPaintedWords, projectPhoto } from "./photo-journey";
 
 type Point = readonly [number, number];
 type Mask = readonly (readonly Point[])[];
@@ -273,6 +273,62 @@ test("kitchen object anchor stays on each photographed object from home entry th
   await expect(app).toHaveAttribute("data-transition-state", "idle");
   await expect(art).toHaveAttribute("src", "/scenes/apartment-bright-v2.jpg");
   await expect.poll(() => art.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+});
+
+test("the two photographed kitchen sink bowls open their own words", async ({ page, isMobile }, testInfo) => {
+  const app = page.getByTestId("world-app");
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const activate = (element: Locator) => isMobile ? element.tap() : element.click();
+  const pointAt = (x: number, y: number) => isMobile ? page.touchscreen.tap(x, y) : page.mouse.click(x, y);
+  await page.goto("/");
+  for (const scene of ["apartment", "kitchen"]) {
+    await activate(viewer.locator(`[data-testid="scene-hotspot"][data-target-scene="${scene}"]`));
+    await expect(app).toHaveAttribute("data-scene-id", scene);
+    await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
+  }
+  await expect(image).toHaveAttribute("src", "/scenes/kitchen-premium-v3.jpg");
+  // The two interiors are visible in the photograph independently of the authored pins.
+  for (const [word, meaning, x, y] of [["sink basin", "水槽盆", 250, 451], ["sink", "水槽", 170, 471]] as const) {
+    const card = page.getByRole("complementary", { name: `${word} word details`, exact: true });
+    const close = card.getByRole("button", { name: "关闭单词卡" });
+    if (isMobile) {
+      await activate(page.getByTestId("scene-word-index-toggle"));
+      const index = page.getByTestId("scene-word-index");
+      await index.getByRole("searchbox").fill(word);
+      await activate(index.locator(`[data-word="${word}"]`));
+      await expect(card).toBeVisible();
+      await (await image.elementHandle()).waitForElementState("stable");
+      await activate(close);
+      await expect(card).toBeHidden();
+    }
+    await (await image.elementHandle()).waitForElementState("stable");
+    const point = await projectPhoto(image, x, y);
+    expect(point.visible).toBe(true);
+    await pointAt(point.x, point.y);
+    if (word === "sink basin") {
+      await page.evaluate(() => new Promise<void>(done => requestAnimationFrame(() => requestAnimationFrame(() => done()))));
+      const reading = {
+        scene: await app.getAttribute("data-scene-id"),
+        word: (await page.locator(".word-dock__definition strong").allTextContents())[0] ?? null,
+      };
+      await testInfo.attach("right-bowl-reading", { body: JSON.stringify(reading), contentType: "application/json" });
+      await testInfo.attach("right-bowl-result", { body: await page.screenshot(), contentType: "image/png" });
+      expect(reading, "the photographed right bowl reads sink basin").toEqual({ scene: "kitchen", word });
+    }
+    await expect(card.locator("p").first()).toHaveText(meaning);
+    await activate(close);
+    await expect(card).toBeHidden();
+    await expect.poll(() => drawnWord(page, word)).toMatchObject({ anchorVisible: true });
+    const label = (await drawnWord(page, word))!;
+    await pointAt(label.clickX, label.clickY);
+    await expect(card).toBeVisible();
+    await activate(close);
+    await expect(card).toBeHidden();
+  }
+  await activate(page.getByRole("button", { name: /返回上一层/ }));
+  await expect(app).toHaveAttribute("data-scene-id", "apartment");
+  await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
 });
 
 test("apartment search distinguishes the photographed shower hinge from the unpictured remote control", async ({ page, isMobile }, testInfo) => {
