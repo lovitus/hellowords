@@ -103,8 +103,10 @@ export type ScenePortalNavigator = (
   source: "pointer" | "keyboard",
 ) => boolean;
 
-export interface SceneFocusTarget {
-  readonly kind: "region" | "word";
+export type SceneFocusTarget = (
+  | { readonly kind: "region" }
+  | { readonly kind: "word"; readonly labelId: string }
+) & {
   readonly zoneId?: string;
   readonly atlasDistrictId?: string;
   /** Scene-space point that should land at the viewport centre. */
@@ -112,7 +114,7 @@ export interface SceneFocusTarget {
   readonly y: number;
   /** Authored logical scale; the camera still clamps it to its real ceiling. */
   readonly targetScale: number;
-}
+};
 
 export interface SceneAtlasDistrict {
   readonly id: string;
@@ -2821,6 +2823,18 @@ export function SceneViewport({
     });
     const applyTarget = () => {
       cameraRef.current = target;
+      // A reader can dismiss the card while the index camera is still moving.
+      // Keep the searched object in the settled frame, even after a quick close.
+      if (focusTarget.kind === "word" && !atlasOverviewMode
+        && (!selectedLabelIdRef.current || selectedLabelIdRef.current === focusTarget.labelId)) {
+        stationaryWordViewRef.current = {
+          camera: target,
+          viewportWidth: viewportSize.width,
+          viewportHeight: viewportSize.height,
+          meaningVisible: meaningVisibleRef.current,
+          placementLabelId: focusTarget.labelId,
+        };
+      }
       requestCameraFrame();
     };
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -2849,7 +2863,7 @@ export function SceneViewport({
     };
     cameraAnimationRef.current = requestAnimationFrame(animate);
     return true;
-  }, [activateAtlasCategory, cancelCameraAnimation, clampCamera, labelsById, requestCameraFrame, resetParentExitHysteresis, scene, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
+  }, [activateAtlasCategory, atlasOverviewMode, cancelCameraAnimation, clampCamera, labelsById, requestCameraFrame, resetParentExitHysteresis, scene, showPortalPreview, stopWheelAnimation, updateZoomDirection, viewerInteractive]);
 
   useEffect(() => {
     if (!onFocusTargetNavigatorReady) return;

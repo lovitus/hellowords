@@ -701,6 +701,7 @@ export function WorldApp() {
       const zone = scene.detailZones?.find((entry) => entry.labelIds.includes(word.id));
       const target: SceneFocusTarget = {
         kind: "word",
+        labelId: word.id,
         zoneId: zone?.id,
         atlasDistrictId: rootAtlasDistricts.find((district) => district.labelIds.includes(word.id))?.id,
         x: word.x,

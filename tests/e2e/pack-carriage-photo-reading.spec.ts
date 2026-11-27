@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { paintedWordCount } from "./canvas-words";
+import { paintedWordCount, paintedWordState } from "./canvas-words";
 import { projectPhoto } from "./photo-journey";
 
 test("the transit journey reads the battery mounting hole and carriage equipment hatch and keeps the lid hinge index-only", async ({ page, isMobile }, testInfo) => {
@@ -102,4 +102,75 @@ test("the transit journey reads the battery mounting hole and carriage equipment
   await navigate("进入 Train carriage", "train-carriage");
   await readObject("train-carriage", "/scenes/train-carriage-premium-v2.jpg", 1353, 582, "equipment hatch", "设备舱盖");
   await back("railway-platform", "/scenes/railway-platform-premium-v2.jpg");
+});
+
+test("on a narrow phone the photographed equipment hatch opens again after promptly closing its index card", async ({ page, isMobile }, testInfo) => {
+  test.skip(!isMobile, "This regression uses a 385 × 705 touch viewport.");
+  await page.setViewportSize({ width: 385, height: 705 });
+  const app = page.getByTestId("world-app");
+  const map = page.getByTestId("scene-minimap");
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const surface = viewer.locator(".scene-surface");
+  const cards = page.getByRole("complementary", { name: / word details$/ });
+  const hatchCard = page.getByRole("complementary", { name: "equipment hatch word details", exact: true });
+  const settled = async (scene: string) => {
+    await expect(app).toHaveAttribute("data-scene-id", scene);
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+    await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
+  };
+  const readCards = () => cards.evaluateAll(elements => elements.map(card => ({
+    word: card.querySelector("strong")?.textContent,
+    meaning: card.querySelector("p")?.textContent,
+  })));
+
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await settled("world-map");
+  const bilingual = page.getByTestId("meaning-toggle");
+  if (await bilingual.getAttribute("aria-pressed") !== "true") await bilingual.tap();
+  await expect(bilingual).toHaveAttribute("aria-pressed", "true");
+  for (const [id, title] of [
+    ["city-street", "City street"], ["transit-hub", "Transit hub"],
+    ["railway-platform", "Railway platform"], ["train-carriage", "Train carriage"],
+  ]) {
+    await map.getByRole("button", { name: `进入 ${title}`, exact: true }).tap();
+    await settled(id);
+  }
+  await expect(image).toHaveAttribute("src", "/scenes/train-carriage-premium-v2.jpg");
+  await map.getByRole("button", { name: "收起小地图", exact: true }).tap();
+  const overviewScale = Number(await surface.getAttribute("data-scene-scale"));
+  await page.getByTestId("scene-word-index-toggle").tap();
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill("equipment hatch");
+  await index.getByRole("button", { name: "equipment hatch，设备舱盖", exact: true }).tap();
+
+  // A reader can touch the close button while the card and the camera are still moving.
+  const close = await hatchCard.getByRole("button", { name: "关闭单词卡" }).evaluate(button => {
+    const rect = button.getBoundingClientRect();
+    return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+  });
+  await page.touchscreen.tap(close.x, close.y);
+  await expect(hatchCard).toBeHidden();
+  await expect.poll(async () => Number(await surface.getAttribute("data-scene-scale"))).toBeGreaterThan(overviewScale);
+  await (await image.elementHandle()).waitForElementState("stable");
+
+  const photo = { x: 1353, y: 582 };
+  const point = await projectPhoto(image, photo.x, photo.y);
+  const marker = await paintedWordState(page, "equipment-hatch-pro-1");
+  await testInfo.attach("hatch-before-touch", { body: await page.screenshot(), contentType: "image/png" });
+  expect(point.visible, "the focused carriage photograph keeps the equipment hatch on screen").toBe(true);
+  await page.touchscreen.tap(point.x, point.y);
+  await expect.soft.poll(readCards, {
+    message: "touching the photographed hatch after dismissing its index card must reopen the bilingual equipment hatch card",
+  }).toEqual([{ word: "equipment hatch", meaning: "设备舱盖" }]);
+  await testInfo.attach("hatch-touch-result", {
+    body: JSON.stringify({ photo, point, markerBeforeTouch: marker, cardsAfterTouch: await readCards() }),
+    contentType: "application/json",
+  });
+  await testInfo.attach("hatch-after-touch", { body: await page.screenshot(), contentType: "image/png" });
+  expect.soft(marker, "the hatch must retain an interactive marker once the search camera settles").toMatchObject({ interactive: true });
+  if (await cards.isVisible()) await cards.getByRole("button", { name: "关闭单词卡" }).tap();
+  await page.getByRole("button", { name: "← 返回上一层", exact: true }).tap();
+  await settled("railway-platform");
+  await expect(image).toHaveAttribute("src", "/scenes/railway-platform-premium-v2.jpg");
 });
