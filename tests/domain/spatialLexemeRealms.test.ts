@@ -27,8 +27,8 @@ test("the compact spatial realm index covers every authored lexeme link", async 
     .map((label) => ({ label, regions: scene.visualRegions ?? [] })));
 
   assert.equal(linkedLabels.length, SPATIAL_LEXEME_LINK_COUNT);
-  assert.equal(linkedLabels.length, 303);
-  assert.equal(Object.keys(SPATIAL_LEXEME_REALMS).length, 205);
+  assert.equal(linkedLabels.length, 332);
+  assert.equal(Object.keys(SPATIAL_LEXEME_REALMS).length, 220);
 
   let realmPaletteCount = 0;
   let fallbackPaletteCount = 0;

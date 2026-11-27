@@ -1,0 +1,1827 @@
+{
+  "id": "inflight-meal-tray",
+  "title": "Inflight meal tray",
+  "translation": "机上餐盘",
+  "subtitle": "Explore a tray of pasta and vegetables, bread, fruit, cake and orange juice.",
+  "asset": "/scenes/inflight-meal-tray-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "passenger-seat-row",
+  "portals": [],
+  "portraitOverviewLabelIds": [
+    "inflight-meal-tray-broccoli-floret"
+  ],
+  "labels": [
+    {
+      "id": "inflight-meal-tray-pasta",
+      "word": "pasta",
+      "translation": "意大利面",
+      "x": 462,
+      "y": 554,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-pasta",
+      "lexemeId": "en-a4c18ee0ada59e34"
+    },
+    {
+      "id": "inflight-meal-tray-broccoli-floret",
+      "word": "broccoli floret",
+      "translation": "西兰花小朵",
+      "x": 798,
+      "y": 613,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-broccoli-floret"
+    },
+    {
+      "id": "inflight-meal-tray-cherry-tomato",
+      "word": "cherry tomato",
+      "translation": "樱桃番茄",
+      "x": 381,
+      "y": 594,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-cherry-tomato"
+    },
+    {
+      "id": "inflight-meal-tray-penne",
+      "word": "penne",
+      "translation": "斜管意面",
+      "x": 730,
+      "y": 737,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-penne"
+    },
+    {
+      "id": "inflight-meal-tray-sauce",
+      "word": "sauce",
+      "translation": "酱汁",
+      "x": 529,
+      "y": 674,
+      "priority": 1.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-sauce",
+      "lexemeId": "en-549ce58984289d8f"
+    },
+    {
+      "id": "inflight-meal-tray-flower-buds",
+      "word": "flower buds",
+      "translation": "花蕾",
+      "x": 890,
+      "y": 508,
+      "priority": 1.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-flower-buds"
+    },
+    {
+      "id": "inflight-meal-tray-broccoli-stalk",
+      "word": "broccoli stalk",
+      "translation": "西兰花茎",
+      "x": 948,
+      "y": 546,
+      "priority": 1.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-broccoli-stalk"
+    },
+    {
+      "id": "inflight-meal-tray-tomato-seed",
+      "word": "tomato seed",
+      "translation": "番茄籽",
+      "x": 575,
+      "y": 778,
+      "priority": 1.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-tomato-seed"
+    },
+    {
+      "id": "inflight-meal-tray-cut-end",
+      "word": "cut end",
+      "translation": "切口",
+      "x": 390,
+      "y": 782,
+      "priority": 1.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-cut-end"
+    },
+    {
+      "id": "inflight-meal-tray-pasta-ridges",
+      "word": "pasta ridges",
+      "translation": "意面上的条纹",
+      "x": 327,
+      "y": 726,
+      "priority": 1.009,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-pasta-ridges"
+    },
+    {
+      "id": "inflight-meal-tray-tomato-sauce",
+      "word": "tomato sauce",
+      "translation": "番茄酱汁",
+      "x": 700,
+      "y": 451,
+      "priority": 1.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-tomato-sauce"
+    },
+    {
+      "id": "inflight-meal-tray-herb-flakes",
+      "word": "herb flakes",
+      "translation": "香草碎",
+      "x": 663,
+      "y": 682,
+      "priority": 1.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-herb-flakes"
+    },
+    {
+      "id": "inflight-meal-tray-foil-container",
+      "word": "foil container",
+      "translation": "铝箔餐盒",
+      "x": 842,
+      "y": 425,
+      "priority": 1.012,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-foil-container"
+    },
+    {
+      "id": "inflight-meal-tray-crimped-rim",
+      "word": "crimped rim",
+      "translation": "压褶盒沿",
+      "x": 1029,
+      "y": 819,
+      "priority": 1.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-crimped-rim"
+    },
+    {
+      "id": "inflight-meal-tray-aluminum",
+      "word": "aluminum",
+      "translation": "铝",
+      "x": 1069,
+      "y": 659,
+      "priority": 1.014,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-aluminum",
+      "lexemeId": "en-faaa92f6df65089f"
+    },
+    {
+      "id": "inflight-meal-tray-tomato-half",
+      "word": "tomato half",
+      "translation": "半颗番茄",
+      "x": 566,
+      "y": 748,
+      "priority": 1.015,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-tomato-half"
+    },
+    {
+      "id": "inflight-meal-tray-salad",
+      "word": "salad",
+      "translation": "沙拉",
+      "x": 368,
+      "y": 146,
+      "priority": 1.016,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-salad",
+      "lexemeId": "en-c6c3fa689e291bba"
+    },
+    {
+      "id": "inflight-meal-tray-cucumber",
+      "word": "cucumber",
+      "translation": "黄瓜",
+      "x": 456,
+      "y": 298,
+      "priority": 1.017,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-cucumber"
+    },
+    {
+      "id": "inflight-meal-tray-lettuce",
+      "word": "lettuce",
+      "translation": "生菜",
+      "x": 575,
+      "y": 124,
+      "priority": 1.018,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-lettuce"
+    },
+    {
+      "id": "inflight-meal-tray-carrot",
+      "word": "carrot",
+      "translation": "胡萝卜",
+      "x": 564,
+      "y": 209,
+      "priority": 1.019,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-carrot"
+    },
+    {
+      "id": "inflight-meal-tray-red-onion",
+      "word": "red onion",
+      "translation": "红洋葱",
+      "x": 415,
+      "y": 172,
+      "priority": 1.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-red-onion"
+    },
+    {
+      "id": "inflight-meal-tray-cucumber-peel",
+      "word": "cucumber peel",
+      "translation": "黄瓜皮",
+      "x": 393,
+      "y": 296,
+      "priority": 1.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-cucumber-peel"
+    },
+    {
+      "id": "inflight-meal-tray-cucumber-seeds",
+      "word": "cucumber seeds",
+      "translation": "黄瓜籽",
+      "x": 354,
+      "y": 272,
+      "priority": 1.022,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-cucumber-seeds"
+    },
+    {
+      "id": "inflight-meal-tray-onion-ring",
+      "word": "onion ring",
+      "translation": "洋葱圈",
+      "x": 462,
+      "y": 262,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-onion-ring"
+    },
+    {
+      "id": "inflight-meal-tray-carrot-strip",
+      "word": "carrot strip",
+      "translation": "胡萝卜丝",
+      "x": 592,
+      "y": 235,
+      "priority": 1.024,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-carrot-strip"
+    },
+    {
+      "id": "inflight-meal-tray-leaf",
+      "word": "leaf",
+      "translation": "叶片",
+      "x": 551,
+      "y": 333,
+      "priority": 1.025,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-leaf",
+      "lexemeId": "en-9f91161f43433e49"
+    },
+    {
+      "id": "inflight-meal-tray-salad-bowl",
+      "word": "salad bowl",
+      "translation": "沙拉碗",
+      "x": 411,
+      "y": 375,
+      "priority": 1.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-salad-bowl"
+    },
+    {
+      "id": "inflight-meal-tray-bowl-rim",
+      "word": "bowl rim",
+      "translation": "碗沿",
+      "x": 435,
+      "y": 104,
+      "priority": 1.027,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-bowl-rim"
+    },
+    {
+      "id": "inflight-meal-tray-strawberry",
+      "word": "strawberry",
+      "translation": "草莓",
+      "x": 823,
+      "y": 200,
+      "priority": 1.028,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-strawberry"
+    },
+    {
+      "id": "inflight-meal-tray-sponge-cake",
+      "word": "sponge cake",
+      "translation": "海绵蛋糕",
+      "x": 760,
+      "y": 124,
+      "priority": 1.029,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-sponge-cake"
+    },
+    {
+      "id": "inflight-meal-tray-kiwi",
+      "word": "kiwi",
+      "translation": "猕猴桃",
+      "x": 950,
+      "y": 147,
+      "priority": 1.03,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-kiwi"
+    },
+    {
+      "id": "inflight-meal-tray-grape",
+      "word": "grape",
+      "translation": "葡萄",
+      "x": 962,
+      "y": 218,
+      "priority": 1.031,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-grape"
+    },
+    {
+      "id": "inflight-meal-tray-cake-crumb",
+      "word": "cake crumb",
+      "translation": "蛋糕的松软内层",
+      "x": 746,
+      "y": 184,
+      "priority": 1.032,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-cake-crumb"
+    },
+    {
+      "id": "inflight-meal-tray-browned-top",
+      "word": "browned top",
+      "translation": "烤成金棕色的表面",
+      "x": 813,
+      "y": 98,
+      "priority": 1.033,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-browned-top"
+    },
+    {
+      "id": "inflight-meal-tray-kiwi-seeds",
+      "word": "kiwi seeds",
+      "translation": "猕猴桃籽",
+      "x": 910,
+      "y": 147,
+      "priority": 1.034,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-kiwi-seeds"
+    },
+    {
+      "id": "inflight-meal-tray-strawberry-dimple",
+      "word": "strawberry dimple",
+      "translation": "草莓表面的小凹点",
+      "x": 777,
+      "y": 220,
+      "priority": 1.035,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-strawberry-dimple"
+    },
+    {
+      "id": "inflight-meal-tray-fruit",
+      "word": "fruit",
+      "translation": "水果",
+      "x": 912,
+      "y": 182,
+      "priority": 1.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-fruit",
+      "lexemeId": "en-9209526aaa61b070"
+    },
+    {
+      "id": "inflight-meal-tray-dish",
+      "word": "dish",
+      "translation": "甜点盒",
+      "x": 676,
+      "y": 175,
+      "priority": 1.037,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-dish",
+      "lexemeId": "en-edcf27a66a5453a8"
+    },
+    {
+      "id": "inflight-meal-tray-cake-corner",
+      "word": "cake corner",
+      "translation": "蛋糕角",
+      "x": 710,
+      "y": 99,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-cake-corner"
+    },
+    {
+      "id": "inflight-meal-tray-bread",
+      "word": "bread",
+      "translation": "面包",
+      "x": 657,
+      "y": 345,
+      "priority": 1.039,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-bread",
+      "lexemeId": "en-985604c2b6024312"
+    },
+    {
+      "id": "inflight-meal-tray-butter",
+      "word": "butter",
+      "translation": "黄油",
+      "x": 943,
+      "y": 370,
+      "priority": 1.04,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-butter",
+      "lexemeId": "en-c9b82b90ae572c84"
+    },
+    {
+      "id": "inflight-meal-tray-crust",
+      "word": "crust",
+      "translation": "面包外皮",
+      "x": 682,
+      "y": 269,
+      "priority": 1.041,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-crust"
+    },
+    {
+      "id": "inflight-meal-tray-bread-crumb",
+      "word": "bread crumb",
+      "translation": "面包瓤",
+      "x": 798,
+      "y": 339,
+      "priority": 1.042,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-bread-crumb"
+    },
+    {
+      "id": "inflight-meal-tray-torn-edge",
+      "word": "torn edge",
+      "translation": "撕开的边缘",
+      "x": 848,
+      "y": 364,
+      "priority": 1.043,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-torn-edge"
+    },
+    {
+      "id": "inflight-meal-tray-air-pocket",
+      "word": "air pocket",
+      "translation": "气孔",
+      "x": 815,
+      "y": 317,
+      "priority": 1.044,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-air-pocket"
+    },
+    {
+      "id": "inflight-meal-tray-golden",
+      "word": "golden",
+      "translation": "金黄色的",
+      "x": 715,
+      "y": 365,
+      "priority": 1.045,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-golden",
+      "lexemeId": "en-dd56de4137951d9c"
+    },
+    {
+      "id": "inflight-meal-tray-butter-tub",
+      "word": "butter tub",
+      "translation": "黄油小盒",
+      "x": 1021,
+      "y": 373,
+      "priority": 1.046,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-butter-tub"
+    },
+    {
+      "id": "inflight-meal-tray-foil-lid",
+      "word": "foil lid",
+      "translation": "铝箔盖",
+      "x": 945,
+      "y": 283,
+      "priority": 1.047,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-foil-lid"
+    },
+    {
+      "id": "inflight-meal-tray-fold",
+      "word": "fold",
+      "translation": "折痕",
+      "x": 991,
+      "y": 311,
+      "priority": 1.048,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-fold",
+      "lexemeId": "en-255541b1d8c61855"
+    },
+    {
+      "id": "inflight-meal-tray-orange-juice",
+      "word": "orange juice",
+      "translation": "橙汁",
+      "x": 1172,
+      "y": 218,
+      "priority": 1.049,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-orange-juice"
+    },
+    {
+      "id": "inflight-meal-tray-cup",
+      "word": "cup",
+      "translation": "杯子",
+      "x": 1307,
+      "y": 80,
+      "priority": 1.05,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-cup",
+      "lexemeId": "en-c6171781d65f3ccc"
+    },
+    {
+      "id": "inflight-meal-tray-liquid",
+      "word": "liquid",
+      "translation": "液体",
+      "x": 1211,
+      "y": 104,
+      "priority": 1.051,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-liquid",
+      "lexemeId": "en-42110162e06395fd"
+    },
+    {
+      "id": "inflight-meal-tray-bubble",
+      "word": "bubble",
+      "translation": "气泡",
+      "x": 1204,
+      "y": 66,
+      "priority": 1.052,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-bubble",
+      "lexemeId": "en-df4ac416257333cf"
+    },
+    {
+      "id": "inflight-meal-tray-liquid-level",
+      "word": "liquid level",
+      "translation": "液面高度",
+      "x": 1226,
+      "y": 188,
+      "priority": 1.053,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-liquid-level"
+    },
+    {
+      "id": "inflight-meal-tray-cup-rim",
+      "word": "cup rim",
+      "translation": "杯沿",
+      "x": 1336,
+      "y": 75,
+      "priority": 1.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-cup-rim"
+    },
+    {
+      "id": "inflight-meal-tray-transparent",
+      "word": "transparent",
+      "translation": "透明的",
+      "x": 1109,
+      "y": 44,
+      "priority": 1.055,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-transparent",
+      "lexemeId": "en-10e9f5602d2492b3"
+    },
+    {
+      "id": "inflight-meal-tray-cup-base",
+      "word": "cup base",
+      "translation": "杯底",
+      "x": 1162,
+      "y": 278,
+      "priority": 1.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-cup-base"
+    },
+    {
+      "id": "inflight-meal-tray-fork",
+      "word": "fork",
+      "translation": "餐叉",
+      "x": 1167,
+      "y": 451,
+      "priority": 1.057,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-fork",
+      "lexemeId": "en-8d0c7ac992af2f49"
+    },
+    {
+      "id": "inflight-meal-tray-knife",
+      "word": "knife",
+      "translation": "餐刀",
+      "x": 1247,
+      "y": 410,
+      "priority": 1.058,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-knife",
+      "lexemeId": "en-3d4d101cd7ea9e5e"
+    },
+    {
+      "id": "inflight-meal-tray-spoon",
+      "word": "spoon",
+      "translation": "餐勺",
+      "x": 1337,
+      "y": 411,
+      "priority": 1.059,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-spoon",
+      "lexemeId": "en-7f480e744a79953e"
+    },
+    {
+      "id": "inflight-meal-tray-napkin",
+      "word": "napkin",
+      "translation": "餐巾纸",
+      "x": 1164,
+      "y": 582,
+      "priority": 1.06,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-napkin"
+    },
+    {
+      "id": "inflight-meal-tray-tine",
+      "word": "tine",
+      "translation": "叉齿",
+      "x": 1152,
+      "y": 355,
+      "priority": 1.061,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-tine"
+    },
+    {
+      "id": "inflight-meal-tray-fork-neck",
+      "word": "fork neck",
+      "translation": "叉颈",
+      "x": 1191,
+      "y": 500,
+      "priority": 1.062,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-fork-neck"
+    },
+    {
+      "id": "inflight-meal-tray-knife-tip",
+      "word": "knife tip",
+      "translation": "刀尖",
+      "x": 1246,
+      "y": 308,
+      "priority": 1.063,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-knife-tip"
+    },
+    {
+      "id": "inflight-meal-tray-knife-handle",
+      "word": "knife handle",
+      "translation": "刀柄",
+      "x": 1350,
+      "y": 795,
+      "priority": 1.064,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-knife-handle"
+    },
+    {
+      "id": "inflight-meal-tray-spoon-bowl",
+      "word": "spoon bowl",
+      "translation": "勺斗",
+      "x": 1351,
+      "y": 460,
+      "priority": 1.065,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-spoon-bowl"
+    },
+    {
+      "id": "inflight-meal-tray-spoon-handle",
+      "word": "spoon handle",
+      "translation": "勺柄",
+      "x": 1423,
+      "y": 674,
+      "priority": 1.066,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-spoon-handle"
+    },
+    {
+      "id": "inflight-meal-tray-paper",
+      "word": "paper",
+      "translation": "纸",
+      "x": 1196,
+      "y": 772,
+      "priority": 1.067,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-paper",
+      "lexemeId": "en-382635c9325bf327"
+    },
+    {
+      "id": "inflight-meal-tray-folded-edge",
+      "word": "folded edge",
+      "translation": "折叠边",
+      "x": 1196,
+      "y": 853,
+      "priority": 1.068,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-folded-edge"
+    },
+    {
+      "id": "inflight-meal-tray-shiny",
+      "word": "shiny",
+      "translation": "有光泽的",
+      "x": 1308,
+      "y": 379,
+      "priority": 1.069,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-inflight-meal-tray-shiny",
+      "lexemeId": "en-619fd9c3e9b18b53"
+    },
+    {
+      "id": "inflight-meal-tray-napkin-corner",
+      "word": "napkin corner",
+      "translation": "餐巾角",
+      "x": 1057,
+      "y": 279,
+      "priority": 1.07,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-napkin-corner"
+    },
+    {
+      "id": "inflight-meal-tray-serving-tray",
+      "word": "serving tray",
+      "translation": "餐食托盘",
+      "x": 195,
+      "y": 843,
+      "priority": 1.071,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-serving-tray"
+    },
+    {
+      "id": "inflight-meal-tray-tray-table",
+      "word": "tray table",
+      "translation": "飞机小桌板",
+      "x": 1498,
+      "y": 499,
+      "priority": 1.072,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-tray-table"
+    },
+    {
+      "id": "inflight-meal-tray-tray-rim",
+      "word": "tray rim",
+      "translation": "托盘边缘",
+      "x": 1348,
+      "y": 886,
+      "priority": 1.073,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-tray-rim"
+    },
+    {
+      "id": "inflight-meal-tray-rounded-corner",
+      "word": "rounded corner",
+      "translation": "圆角",
+      "x": 1484,
+      "y": 878,
+      "priority": 1.074,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-rounded-corner"
+    },
+    {
+      "id": "inflight-meal-tray-window",
+      "word": "window",
+      "translation": "舷窗",
+      "x": 30,
+      "y": 58,
+      "priority": 1.075,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-window",
+      "lexemeId": "en-44ff7b02c80d38b2"
+    },
+    {
+      "id": "inflight-meal-tray-seat-back",
+      "word": "seat back",
+      "translation": "座椅靠背",
+      "x": 625,
+      "y": 29,
+      "priority": 1.076,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-inflight-meal-tray-seat-back"
+    },
+    {
+      "id": "inflight-meal-tray-window-surround",
+      "word": "window surround",
+      "translation": "舷窗内框",
+      "x": 93,
+      "y": 122,
+      "priority": 1.077,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-window-surround"
+    },
+    {
+      "id": "inflight-meal-tray-upholstery",
+      "word": "upholstery",
+      "translation": "座椅面料",
+      "x": 480,
+      "y": 55,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-inflight-meal-tray-upholstery"
+    },
+    {
+      "id": "inflight-meal-tray-table-hinge",
+      "word": "table hinge",
+      "translation": "桌板铰链",
+      "x": 1455,
+      "y": 159,
+      "priority": 1.079,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-inflight-meal-tray-table-hinge"
+    },
+    {
+      "id": "inflight-meal-tray-support-arm",
+      "word": "support arm",
+      "translation": "支撑臂",
+      "x": 303,
+      "y": 63,
+      "priority": 1.08,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-inflight-meal-tray-support-arm"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "inflight-meal-tray-meal-service",
+      "word": "meal service",
+      "translation": "供餐服务"
+    },
+    {
+      "id": "inflight-meal-tray-vegetarian-meal",
+      "word": "vegetarian meal",
+      "translation": "素食餐"
+    },
+    {
+      "id": "inflight-meal-tray-special-meal-request",
+      "word": "special meal request",
+      "translation": "特殊餐食申请"
+    },
+    {
+      "id": "inflight-meal-tray-advance-order",
+      "word": "advance order",
+      "translation": "提前预订"
+    },
+    {
+      "id": "inflight-meal-tray-ingredient-list",
+      "word": "ingredient list",
+      "translation": "配料表"
+    },
+    {
+      "id": "inflight-meal-tray-food-allergy",
+      "word": "food allergy",
+      "translation": "食物过敏"
+    },
+    {
+      "id": "inflight-meal-tray-second-helping",
+      "word": "second helping",
+      "translation": "再来一份"
+    },
+    {
+      "id": "inflight-meal-tray-drink-refill",
+      "word": "drink refill",
+      "translation": "饮料续杯"
+    },
+    {
+      "id": "inflight-meal-tray-tray-collection",
+      "word": "tray collection",
+      "translation": "回收餐盘"
+    }
+  ],
+  "visualRegions": [
+    {
+      "id": "photo-inflight-meal-tray-pasta",
+      "description": "pasta in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 448,
+      "y": 537,
+      "width": 29,
+      "height": 34
+    },
+    {
+      "id": "photo-inflight-meal-tray-broccoli-floret",
+      "description": "broccoli floret in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 777,
+      "y": 596,
+      "width": 43,
+      "height": 35
+    },
+    {
+      "id": "photo-inflight-meal-tray-cherry-tomato",
+      "description": "cherry tomato in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 364,
+      "y": 581,
+      "width": 35,
+      "height": 26
+    },
+    {
+      "id": "photo-inflight-meal-tray-penne",
+      "description": "penne in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 716,
+      "y": 715,
+      "width": 29,
+      "height": 45
+    },
+    {
+      "id": "photo-inflight-meal-tray-sauce",
+      "description": "sauce in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 512,
+      "y": 663,
+      "width": 34,
+      "height": 23
+    },
+    {
+      "id": "photo-inflight-meal-tray-flower-buds",
+      "description": "flower buds in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 876,
+      "y": 498,
+      "width": 28,
+      "height": 21
+    },
+    {
+      "id": "photo-inflight-meal-tray-broccoli-stalk",
+      "description": "broccoli stalk in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 933,
+      "y": 539,
+      "width": 31,
+      "height": 14
+    },
+    {
+      "id": "photo-inflight-meal-tray-tomato-seed",
+      "description": "tomato seed in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 571,
+      "y": 775,
+      "width": 8,
+      "height": 6
+    },
+    {
+      "id": "photo-inflight-meal-tray-cut-end",
+      "description": "cut end in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 382,
+      "y": 775,
+      "width": 16,
+      "height": 15
+    },
+    {
+      "id": "photo-inflight-meal-tray-pasta-ridges",
+      "description": "pasta ridges in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 317,
+      "y": 720,
+      "width": 20,
+      "height": 13
+    },
+    {
+      "id": "photo-inflight-meal-tray-tomato-sauce",
+      "description": "tomato sauce in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 683,
+      "y": 442,
+      "width": 35,
+      "height": 19
+    },
+    {
+      "id": "photo-inflight-meal-tray-herb-flakes",
+      "description": "herb flakes in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 660,
+      "y": 676,
+      "width": 7,
+      "height": 12
+    },
+    {
+      "id": "photo-inflight-meal-tray-foil-container",
+      "description": "foil container in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 821,
+      "y": 420,
+      "width": 43,
+      "height": 10
+    },
+    {
+      "id": "photo-inflight-meal-tray-crimped-rim",
+      "description": "crimped rim in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 1019,
+      "y": 813,
+      "width": 20,
+      "height": 12
+    },
+    {
+      "id": "photo-inflight-meal-tray-aluminum",
+      "description": "aluminum in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 1064,
+      "y": 645,
+      "width": 11,
+      "height": 28
+    },
+    {
+      "id": "photo-inflight-meal-tray-tomato-half",
+      "description": "tomato half in the pasta with tomatoes and broccoli area",
+      "kind": "part",
+      "x": 558,
+      "y": 742,
+      "width": 17,
+      "height": 13
+    },
+    {
+      "id": "photo-inflight-meal-tray-salad",
+      "description": "salad in the side salad area",
+      "kind": "part",
+      "x": 348,
+      "y": 131,
+      "width": 41,
+      "height": 30
+    },
+    {
+      "id": "photo-inflight-meal-tray-cucumber",
+      "description": "cucumber in the side salad area",
+      "kind": "part",
+      "x": 439,
+      "y": 286,
+      "width": 35,
+      "height": 24
+    },
+    {
+      "id": "photo-inflight-meal-tray-lettuce",
+      "description": "lettuce in the side salad area",
+      "kind": "part",
+      "x": 559,
+      "y": 113,
+      "width": 32,
+      "height": 22
+    },
+    {
+      "id": "photo-inflight-meal-tray-carrot",
+      "description": "carrot in the side salad area",
+      "kind": "part",
+      "x": 554,
+      "y": 200,
+      "width": 21,
+      "height": 18
+    },
+    {
+      "id": "photo-inflight-meal-tray-red-onion",
+      "description": "red onion in the side salad area",
+      "kind": "part",
+      "x": 409,
+      "y": 164,
+      "width": 13,
+      "height": 17
+    },
+    {
+      "id": "photo-inflight-meal-tray-cucumber-peel",
+      "description": "cucumber peel in the side salad area",
+      "kind": "part",
+      "x": 391,
+      "y": 288,
+      "width": 5,
+      "height": 17
+    },
+    {
+      "id": "photo-inflight-meal-tray-cucumber-seeds",
+      "description": "cucumber seeds in the side salad area",
+      "kind": "part",
+      "x": 347,
+      "y": 266,
+      "width": 15,
+      "height": 12
+    },
+    {
+      "id": "photo-inflight-meal-tray-onion-ring",
+      "description": "onion ring in the side salad area",
+      "kind": "part",
+      "x": 449,
+      "y": 259,
+      "width": 27,
+      "height": 7
+    },
+    {
+      "id": "photo-inflight-meal-tray-carrot-strip",
+      "description": "carrot strip in the side salad area",
+      "kind": "part",
+      "x": 589,
+      "y": 226,
+      "width": 7,
+      "height": 18
+    },
+    {
+      "id": "photo-inflight-meal-tray-leaf",
+      "description": "leaf in the side salad area",
+      "kind": "part",
+      "x": 535,
+      "y": 328,
+      "width": 32,
+      "height": 11
+    },
+    {
+      "id": "photo-inflight-meal-tray-salad-bowl",
+      "description": "salad bowl in the side salad area",
+      "kind": "part",
+      "x": 380,
+      "y": 364,
+      "width": 63,
+      "height": 23
+    },
+    {
+      "id": "photo-inflight-meal-tray-bowl-rim",
+      "description": "bowl rim in the side salad area",
+      "kind": "part",
+      "x": 418,
+      "y": 102,
+      "width": 34,
+      "height": 4
+    },
+    {
+      "id": "photo-inflight-meal-tray-strawberry",
+      "description": "strawberry in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 804,
+      "y": 188,
+      "width": 38,
+      "height": 24
+    },
+    {
+      "id": "photo-inflight-meal-tray-sponge-cake",
+      "description": "sponge cake in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 739,
+      "y": 113,
+      "width": 42,
+      "height": 23
+    },
+    {
+      "id": "photo-inflight-meal-tray-kiwi",
+      "description": "kiwi in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 940,
+      "y": 140,
+      "width": 20,
+      "height": 15
+    },
+    {
+      "id": "photo-inflight-meal-tray-grape",
+      "description": "grape in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 949,
+      "y": 209,
+      "width": 26,
+      "height": 19
+    },
+    {
+      "id": "photo-inflight-meal-tray-cake-crumb",
+      "description": "cake crumb in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 735,
+      "y": 171,
+      "width": 22,
+      "height": 26
+    },
+    {
+      "id": "photo-inflight-meal-tray-browned-top",
+      "description": "browned top in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 799,
+      "y": 92,
+      "width": 28,
+      "height": 12
+    },
+    {
+      "id": "photo-inflight-meal-tray-kiwi-seeds",
+      "description": "kiwi seeds in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 904,
+      "y": 142,
+      "width": 13,
+      "height": 11
+    },
+    {
+      "id": "photo-inflight-meal-tray-strawberry-dimple",
+      "description": "strawberry dimple in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 775,
+      "y": 218,
+      "width": 5,
+      "height": 5
+    },
+    {
+      "id": "photo-inflight-meal-tray-fruit",
+      "description": "fruit in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 901,
+      "y": 174,
+      "width": 22,
+      "height": 16
+    },
+    {
+      "id": "photo-inflight-meal-tray-dish",
+      "description": "dish in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 674,
+      "y": 165,
+      "width": 5,
+      "height": 21
+    },
+    {
+      "id": "photo-inflight-meal-tray-cake-corner",
+      "description": "cake corner in the fruit and sponge cake area",
+      "kind": "part",
+      "x": 706,
+      "y": 95,
+      "width": 8,
+      "height": 8
+    },
+    {
+      "id": "photo-inflight-meal-tray-bread",
+      "description": "bread in the bread and butter area",
+      "kind": "part",
+      "x": 635,
+      "y": 330,
+      "width": 44,
+      "height": 31
+    },
+    {
+      "id": "photo-inflight-meal-tray-butter",
+      "description": "butter in the bread and butter area",
+      "kind": "part",
+      "x": 922,
+      "y": 359,
+      "width": 42,
+      "height": 22
+    },
+    {
+      "id": "photo-inflight-meal-tray-crust",
+      "description": "crust in the bread and butter area",
+      "kind": "part",
+      "x": 667,
+      "y": 263,
+      "width": 31,
+      "height": 12
+    },
+    {
+      "id": "photo-inflight-meal-tray-bread-crumb",
+      "description": "bread crumb in the bread and butter area",
+      "kind": "part",
+      "x": 786,
+      "y": 326,
+      "width": 25,
+      "height": 26
+    },
+    {
+      "id": "photo-inflight-meal-tray-torn-edge",
+      "description": "torn edge in the bread and butter area",
+      "kind": "part",
+      "x": 841,
+      "y": 360,
+      "width": 14,
+      "height": 9
+    },
+    {
+      "id": "photo-inflight-meal-tray-air-pocket",
+      "description": "air pocket in the bread and butter area",
+      "kind": "part",
+      "x": 811,
+      "y": 313,
+      "width": 9,
+      "height": 9
+    },
+    {
+      "id": "photo-inflight-meal-tray-golden",
+      "description": "golden in the bread and butter area",
+      "kind": "part",
+      "x": 706,
+      "y": 357,
+      "width": 19,
+      "height": 17
+    },
+    {
+      "id": "photo-inflight-meal-tray-butter-tub",
+      "description": "butter tub in the bread and butter area",
+      "kind": "part",
+      "x": 1017,
+      "y": 363,
+      "width": 8,
+      "height": 21
+    },
+    {
+      "id": "photo-inflight-meal-tray-foil-lid",
+      "description": "foil lid in the bread and butter area",
+      "kind": "part",
+      "x": 928,
+      "y": 275,
+      "width": 34,
+      "height": 17
+    },
+    {
+      "id": "photo-inflight-meal-tray-fold",
+      "description": "fold in the bread and butter area",
+      "kind": "part",
+      "x": 984,
+      "y": 309,
+      "width": 15,
+      "height": 4
+    },
+    {
+      "id": "photo-inflight-meal-tray-orange-juice",
+      "description": "orange juice in the cup of orange juice area",
+      "kind": "part",
+      "x": 1146,
+      "y": 204,
+      "width": 53,
+      "height": 28
+    },
+    {
+      "id": "photo-inflight-meal-tray-cup",
+      "description": "cup in the cup of orange juice area",
+      "kind": "part",
+      "x": 1301,
+      "y": 67,
+      "width": 12,
+      "height": 27
+    },
+    {
+      "id": "photo-inflight-meal-tray-liquid",
+      "description": "liquid in the cup of orange juice area",
+      "kind": "part",
+      "x": 1193,
+      "y": 95,
+      "width": 36,
+      "height": 19
+    },
+    {
+      "id": "photo-inflight-meal-tray-bubble",
+      "description": "bubble in the cup of orange juice area",
+      "kind": "part",
+      "x": 1201,
+      "y": 63,
+      "width": 6,
+      "height": 6
+    },
+    {
+      "id": "photo-inflight-meal-tray-liquid-level",
+      "description": "liquid level in the cup of orange juice area",
+      "kind": "part",
+      "x": 1215,
+      "y": 186,
+      "width": 22,
+      "height": 4
+    },
+    {
+      "id": "photo-inflight-meal-tray-cup-rim",
+      "description": "cup rim in the cup of orange juice area",
+      "kind": "part",
+      "x": 1334,
+      "y": 65,
+      "width": 5,
+      "height": 20
+    },
+    {
+      "id": "photo-inflight-meal-tray-transparent",
+      "description": "transparent in the cup of orange juice area",
+      "kind": "part",
+      "x": 1099,
+      "y": 36,
+      "width": 20,
+      "height": 17
+    },
+    {
+      "id": "photo-inflight-meal-tray-cup-base",
+      "description": "cup base in the cup of orange juice area",
+      "kind": "part",
+      "x": 1148,
+      "y": 276,
+      "width": 28,
+      "height": 4
+    },
+    {
+      "id": "photo-inflight-meal-tray-fork",
+      "description": "fork in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1151,
+      "y": 440,
+      "width": 32,
+      "height": 22
+    },
+    {
+      "id": "photo-inflight-meal-tray-knife",
+      "description": "knife in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1233,
+      "y": 389,
+      "width": 28,
+      "height": 43
+    },
+    {
+      "id": "photo-inflight-meal-tray-spoon",
+      "description": "spoon in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1319,
+      "y": 393,
+      "width": 37,
+      "height": 36
+    },
+    {
+      "id": "photo-inflight-meal-tray-napkin",
+      "description": "napkin in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1145,
+      "y": 563,
+      "width": 38,
+      "height": 39
+    },
+    {
+      "id": "photo-inflight-meal-tray-tine",
+      "description": "tine in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1150,
+      "y": 338,
+      "width": 5,
+      "height": 35
+    },
+    {
+      "id": "photo-inflight-meal-tray-fork-neck",
+      "description": "fork neck in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1187,
+      "y": 493,
+      "width": 9,
+      "height": 14
+    },
+    {
+      "id": "photo-inflight-meal-tray-knife-tip",
+      "description": "knife tip in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1242,
+      "y": 305,
+      "width": 9,
+      "height": 6
+    },
+    {
+      "id": "photo-inflight-meal-tray-knife-handle",
+      "description": "knife handle in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1343,
+      "y": 780,
+      "width": 15,
+      "height": 31
+    },
+    {
+      "id": "photo-inflight-meal-tray-spoon-bowl",
+      "description": "spoon bowl in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1342,
+      "y": 453,
+      "width": 18,
+      "height": 15
+    },
+    {
+      "id": "photo-inflight-meal-tray-spoon-handle",
+      "description": "spoon handle in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1417,
+      "y": 656,
+      "width": 13,
+      "height": 36
+    },
+    {
+      "id": "photo-inflight-meal-tray-paper",
+      "description": "paper in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1185,
+      "y": 755,
+      "width": 22,
+      "height": 34
+    },
+    {
+      "id": "photo-inflight-meal-tray-folded-edge",
+      "description": "folded edge in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1181,
+      "y": 851,
+      "width": 31,
+      "height": 5
+    },
+    {
+      "id": "photo-inflight-meal-tray-shiny",
+      "description": "shiny in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1303,
+      "y": 374,
+      "width": 10,
+      "height": 11
+    },
+    {
+      "id": "photo-inflight-meal-tray-napkin-corner",
+      "description": "napkin corner in the cutlery and napkin area",
+      "kind": "part",
+      "x": 1054,
+      "y": 275,
+      "width": 7,
+      "height": 9
+    },
+    {
+      "id": "photo-inflight-meal-tray-serving-tray",
+      "description": "serving tray in the serving tray and folding table area",
+      "kind": "part",
+      "x": 178,
+      "y": 832,
+      "width": 35,
+      "height": 23
+    },
+    {
+      "id": "photo-inflight-meal-tray-tray-table",
+      "description": "tray table in the serving tray and folding table area",
+      "kind": "part",
+      "x": 1468,
+      "y": 474,
+      "width": 60,
+      "height": 50
+    },
+    {
+      "id": "photo-inflight-meal-tray-tray-rim",
+      "description": "tray rim in the serving tray and folding table area",
+      "kind": "part",
+      "x": 1323,
+      "y": 884,
+      "width": 50,
+      "height": 5
+    },
+    {
+      "id": "photo-inflight-meal-tray-rounded-corner",
+      "description": "rounded corner in the serving tray and folding table area",
+      "kind": "part",
+      "x": 1477,
+      "y": 875,
+      "width": 14,
+      "height": 6
+    },
+    {
+      "id": "photo-inflight-meal-tray-window",
+      "description": "window in the window, seat back and hinges area",
+      "kind": "part",
+      "x": 25,
+      "y": 49,
+      "width": 11,
+      "height": 18
+    },
+    {
+      "id": "photo-inflight-meal-tray-seat-back",
+      "description": "seat back in the window, seat back and hinges area",
+      "kind": "part",
+      "x": 584,
+      "y": 16,
+      "width": 83,
+      "height": 26
+    },
+    {
+      "id": "photo-inflight-meal-tray-window-surround",
+      "description": "window surround in the window, seat back and hinges area",
+      "kind": "part",
+      "x": 83,
+      "y": 107,
+      "width": 21,
+      "height": 31
+    },
+    {
+      "id": "photo-inflight-meal-tray-upholstery",
+      "description": "upholstery in the window, seat back and hinges area",
+      "kind": "part",
+      "x": 458,
+      "y": 44,
+      "width": 45,
+      "height": 23
+    },
+    {
+      "id": "photo-inflight-meal-tray-table-hinge",
+      "description": "table hinge in the window, seat back and hinges area",
+      "kind": "part",
+      "x": 1443,
+      "y": 151,
+      "width": 24,
+      "height": 17
+    },
+    {
+      "id": "photo-inflight-meal-tray-support-arm",
+      "description": "support arm in the window, seat back and hinges area",
+      "kind": "part",
+      "x": 294,
+      "y": 49,
+      "width": 19,
+      "height": 28
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "inflight-meal-tray-zone-pasta-and-broccoli-detail",
+      "title": "Pasta with tomatoes and broccoli",
+      "translation": "番茄西兰花意面",
+      "description": "Short ridged tubes of pasta sit in red sauce with halved cherry tomatoes and green broccoli florets. The silver foil dish has a crimped rim.",
+      "x": 185,
+      "y": 403,
+      "width": 926,
+      "height": 458,
+      "targetScale": 2.8,
+      "labelIds": [
+        "inflight-meal-tray-pasta",
+        "inflight-meal-tray-broccoli-floret",
+        "inflight-meal-tray-cherry-tomato",
+        "inflight-meal-tray-penne",
+        "inflight-meal-tray-sauce",
+        "inflight-meal-tray-flower-buds",
+        "inflight-meal-tray-broccoli-stalk",
+        "inflight-meal-tray-tomato-seed",
+        "inflight-meal-tray-cut-end",
+        "inflight-meal-tray-pasta-ridges",
+        "inflight-meal-tray-tomato-sauce",
+        "inflight-meal-tray-herb-flakes",
+        "inflight-meal-tray-foil-container",
+        "inflight-meal-tray-crimped-rim",
+        "inflight-meal-tray-aluminum",
+        "inflight-meal-tray-tomato-half"
+      ]
+    },
+    {
+      "id": "inflight-meal-tray-zone-salad-detail",
+      "title": "Side salad",
+      "translation": "配餐沙拉",
+      "description": "Cucumber slices, shredded carrot, red onion and ruffled lettuce sit in a small white bowl. The pale centers of the cucumber slices show their seeds.",
+      "x": 244,
+      "y": 89,
+      "width": 402,
+      "height": 314,
+      "targetScale": 2.8,
+      "labelIds": [
+        "inflight-meal-tray-salad",
+        "inflight-meal-tray-cucumber",
+        "inflight-meal-tray-lettuce",
+        "inflight-meal-tray-carrot",
+        "inflight-meal-tray-red-onion",
+        "inflight-meal-tray-cucumber-peel",
+        "inflight-meal-tray-cucumber-seeds",
+        "inflight-meal-tray-onion-ring",
+        "inflight-meal-tray-carrot-strip",
+        "inflight-meal-tray-leaf",
+        "inflight-meal-tray-salad-bowl",
+        "inflight-meal-tray-bowl-rim"
+      ]
+    },
+    {
+      "id": "inflight-meal-tray-zone-fruit-and-cake-detail",
+      "title": "Fruit and sponge cake",
+      "translation": "水果与海绵蛋糕",
+      "description": "A strawberry, a slice of kiwi and green grapes share a clear dessert dish with a square of sponge cake. The cake has a browned top and an airy crumb.",
+      "x": 658,
+      "y": 45,
+      "width": 367,
+      "height": 227,
+      "targetScale": 2.8,
+      "labelIds": [
+        "inflight-meal-tray-strawberry",
+        "inflight-meal-tray-sponge-cake",
+        "inflight-meal-tray-kiwi",
+        "inflight-meal-tray-grape",
+        "inflight-meal-tray-cake-crumb",
+        "inflight-meal-tray-browned-top",
+        "inflight-meal-tray-kiwi-seeds",
+        "inflight-meal-tray-strawberry-dimple",
+        "inflight-meal-tray-fruit",
+        "inflight-meal-tray-dish",
+        "inflight-meal-tray-cake-corner"
+      ]
+    },
+    {
+      "id": "inflight-meal-tray-zone-bread-and-butter-detail",
+      "title": "Bread and butter",
+      "translation": "面包与黄油",
+      "description": "The torn side of the bread roll exposes its soft, porous interior. A pat of butter sits in a small tub with the foil lid peeled back.",
+      "x": 590,
+      "y": 235,
+      "width": 452,
+      "height": 178,
+      "targetScale": 2.8,
+      "labelIds": [
+        "inflight-meal-tray-bread",
+        "inflight-meal-tray-butter",
+        "inflight-meal-tray-crust",
+        "inflight-meal-tray-bread-crumb",
+        "inflight-meal-tray-torn-edge",
+        "inflight-meal-tray-air-pocket",
+        "inflight-meal-tray-golden",
+        "inflight-meal-tray-butter-tub",
+        "inflight-meal-tray-foil-lid",
+        "inflight-meal-tray-fold"
+      ]
+    },
+    {
+      "id": "inflight-meal-tray-zone-juice-cup-detail",
+      "title": "Cup of orange juice",
+      "translation": "一杯橙汁",
+      "description": "Orange juice fills part of a clear cup. Small bubbles line the liquid surface below the rim.",
+      "x": 1050,
+      "y": 0,
+      "width": 301,
+      "height": 287,
+      "targetScale": 2.8,
+      "labelIds": [
+        "inflight-meal-tray-orange-juice",
+        "inflight-meal-tray-cup",
+        "inflight-meal-tray-liquid",
+        "inflight-meal-tray-bubble",
+        "inflight-meal-tray-liquid-level",
+        "inflight-meal-tray-cup-rim",
+        "inflight-meal-tray-transparent",
+        "inflight-meal-tray-cup-base"
+      ]
+    },
+    {
+      "id": "inflight-meal-tray-zone-cutlery-and-napkin-detail",
+      "title": "Cutlery and napkin",
+      "translation": "刀叉勺与餐巾",
+      "description": "A metal fork, a round-tipped dinner knife and a spoon rest on a folded paper napkin. The four tines of the fork point toward the juice.",
+      "x": 1044,
+      "y": 263,
+      "width": 460,
+      "height": 614,
+      "targetScale": 2.8,
+      "labelIds": [
+        "inflight-meal-tray-fork",
+        "inflight-meal-tray-knife",
+        "inflight-meal-tray-spoon",
+        "inflight-meal-tray-napkin",
+        "inflight-meal-tray-tine",
+        "inflight-meal-tray-fork-neck",
+        "inflight-meal-tray-knife-tip",
+        "inflight-meal-tray-knife-handle",
+        "inflight-meal-tray-spoon-bowl",
+        "inflight-meal-tray-spoon-handle",
+        "inflight-meal-tray-paper",
+        "inflight-meal-tray-folded-edge",
+        "inflight-meal-tray-shiny",
+        "inflight-meal-tray-napkin-corner"
+      ]
+    },
+    {
+      "id": "inflight-meal-tray-zone-serving-tray-and-table-detail",
+      "title": "Serving tray and folding table",
+      "translation": "餐食托盘与折叠桌板",
+      "description": "A navy serving tray with a raised rim rests on the gray folding table.",
+      "x": 100,
+      "y": 411,
+      "width": 1449,
+      "height": 489,
+      "targetScale": 2.8,
+      "labelIds": [
+        "inflight-meal-tray-serving-tray",
+        "inflight-meal-tray-tray-table",
+        "inflight-meal-tray-tray-rim",
+        "inflight-meal-tray-rounded-corner"
+      ]
+    },
+    {
+      "id": "inflight-meal-tray-zone-seat-and-hinges-detail",
+      "title": "Window, seat back and hinges",
+      "translation": "舷窗、椅背与铰链",
+      "description": "The edge of the cabin window, dark seat upholstery and the fittings for the table are visible behind the meal.",
+      "x": 0,
+      "y": 0,
+      "width": 1510,
+      "height": 216,
+      "targetScale": 2.8,
+      "labelIds": [
+        "inflight-meal-tray-window",
+        "inflight-meal-tray-seat-back",
+        "inflight-meal-tray-window-surround",
+        "inflight-meal-tray-upholstery",
+        "inflight-meal-tray-table-hinge",
+        "inflight-meal-tray-support-arm"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "image-reviewed",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/inflight-meal-tray-premium-v1.jpg",
+    "reviewedAssetSha256": "3f410b93713664f7ab367e5a1058f77f47da8bb0126f5a4051c6aed505c23c49",
+    "rationale": "Points identify exposed food, utensils, surfaces and cabin fittings seen around this meal. Recipe details, meal orders and allergies belong in the index.",
+    "previousLabelCount": 90,
+    "retainedLabelCount": 81,
+    "removedLabelCount": 9,
+    "removedExamples": [
+      "meal service",
+      "vegetarian meal",
+      "special meal request"
+    ]
+  }
+}

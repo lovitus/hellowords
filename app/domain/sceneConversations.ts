@@ -96,6 +96,42 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Wait for me to zip the mesh pocket before you close the case.", "等我把网袋的拉链拉好，你再合上箱子。"],
     ] },
   ],
+  "passenger-seat-row": [
+    { title: "找到靠窗座位", roles: ["旅客", "邻座"], lines: [
+      ["Excuse me, I think I have the window seat.", "劳驾，我的座位应该在靠窗那边。"],
+      ["Let me step into the aisle so you can get past.", "我到过道上站一下，让你进去。"],
+      ["Thanks. Is this neck pillow yours?", "谢谢。这个颈枕是你的吗？"],
+      ["Yes, I'll move it over to my seat.", "是我的，我把它拿到我座位上。"],
+      ["My bag fits under the seat in front of me.", "我的包刚好能放在前面的座椅下面。"],
+      ["Great, you've still got room for your feet.", "挺好，你还有地方放脚。"],
+    ] },
+    { title: "使用椅背屏幕", roles: ["旅客", "乘务员"], lines: [
+      ["How do I get back to the movie I was watching?", "怎么回到我刚才看的电影？"],
+      ["Touch the screen and select the film again.", "点一下屏幕，再选那部电影。"],
+      ["I can see the picture, but I can't hear anything.", "我能看到画面，但是听不到声音。"],
+      ["Is the headphone plug pushed all the way in?", "耳机插头插到底了吗？"],
+      ["There we go. I can hear it now.", "好了，现在有声音了。"],
+      ["You can adjust the volume on the screen.", "可以在屏幕上调音量。"],
+    ] },
+  ],
+  "inflight-meal-tray": [
+    { title: "领取预订的餐食", roles: ["旅客", "乘务员"], lines: [
+      ["I ordered a vegetarian meal when I booked my flight.", "我订机票时预订了素食餐。"],
+      ["May I check the seat number on your boarding pass?", "可以看一下您登机牌上的座位号吗？"],
+      ["Of course. I'm in the window seat, fourteen A.", "当然。我坐十四排 A 座，靠窗。"],
+      ["Here is your pasta with tomato sauce and broccoli.", "这是您的番茄酱西兰花意面。"],
+      ["Could I have orange juice with that, please?", "能给我配一杯橙汁吗？"],
+      ["Certainly. I'll put the cup beside your salad.", "当然，我把杯子放在沙拉旁边。"],
+    ] },
+    { title: "收餐盘时留下甜点", roles: ["乘务员", "旅客"], lines: [
+      ["Have you finished with your meal tray?", "您的餐盘可以收了吗？"],
+      ["I've finished the pasta, but I'd like to keep the cake.", "意面我吃完了，蛋糕想留着。"],
+      ["Go ahead and take the dessert dish off the tray.", "您可以把甜点盒从托盘上拿下来。"],
+      ["Could you leave me a napkin as well?", "也给我留一张餐巾纸好吗？"],
+      ["Here's a fresh one. Shall I take the empty cup?", "给您一张新的。空杯子我也收走好吗？"],
+      ["Yes, thank you. That's everything.", "好的，谢谢。其余的都可以收了。"],
+    ] },
+  ],
   "airport-customs-hall": [
     { title: "确认入境通道", roles: ["旅客", "海关工作人员"], lines: [
       ["I am not sure which arrivals channel I should use.", "我不确定应该走哪条入境通道。"],

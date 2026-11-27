@@ -132,9 +132,10 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "carry-on-baggage-scanner": 145,
   "boarding-gate": 100,
   "passenger-boarding-bridge": 120,
-  // The connected wide-body cabin resolves the entry, galley, seating,
-  // overhead-service, lavatory and room-fabric parts without flight claims.
-  "aircraft-cabin": 120,
+  // Distant or hidden cabin fittings are searchable from the scene index.
+  "aircraft-cabin": 83,
+  "passenger-seat-row": 100,
+  "inflight-meal-tray": 81,
   "aircraft-galley-equipment": 145,
   "aircraft-lavatory": 120,
   // All five areas share one atrium photograph. Finer equipment stays searchable.
@@ -256,7 +257,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "carry-on-baggage-scanner": 150,
   "boarding-gate": 120,
   "passenger-boarding-bridge": 150,
-  "aircraft-cabin": 142,
+  "aircraft-cabin": 83,
+  "passenger-seat-row": 100,
+  "inflight-meal-tray": 81,
   "aircraft-galley-equipment": 150,
   "aircraft-lavatory": 138,
   "office-building": 87,

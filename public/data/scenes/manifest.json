@@ -518,6 +518,16 @@
       "parentId": "passenger-boarding-bridge"
     },
     {
+      "id": "passenger-seat-row",
+      "title": "Passenger seat row",
+      "parentId": "aircraft-cabin"
+    },
+    {
+      "id": "inflight-meal-tray",
+      "title": "Inflight meal tray",
+      "parentId": "passenger-seat-row"
+    },
+    {
       "id": "aircraft-galley-equipment",
       "title": "Aircraft galley equipment",
       "parentId": "aircraft-cabin"

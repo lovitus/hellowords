@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { SCENE_CONVERSATIONS } from "../../app/domain/sceneConversations";
 
-test("scene practice supplies 528 original bilingual turns in thirty-nine reachable scenes", () => {
+test("scene practice supplies 552 original bilingual turns in forty-one reachable scenes", () => {
   const manifest = JSON.parse(readFileSync(new URL("../../public/data/scenes/manifest.json", import.meta.url), "utf8"));
   const scenes = manifest.scenes as Array<{ id: string; parentId: string | null }>;
   const parentById = new Map(scenes.map(({ id, parentId }) => [id, parentId] as const));
@@ -29,7 +29,7 @@ test("scene practice supplies 528 original bilingual turns in thirty-nine reacha
     "pathology-lab",
     "histology-sectioning-workstation",
   ]);
-  assert.equal(Object.keys(SCENE_CONVERSATIONS).length, 39);
+  assert.equal(Object.keys(SCENE_CONVERSATIONS).length, 41);
   for (const [sceneId, conversations] of Object.entries(SCENE_CONVERSATIONS)) {
     assert.ok(reachesRoot(sceneId), `${sceneId} must lead back to ${manifest.rootSceneId}`);
     assert.equal(conversations.length, expandedMedicalScenes.has(sceneId) ? 3 : 2);
@@ -44,7 +44,7 @@ test("scene practice supplies 528 original bilingual turns in thirty-nine reacha
       }
     }
   }
-  assert.equal(sentences.size, 528);
+  assert.equal(sentences.size, 552);
   assert.ok(SCENE_CONVERSATIONS["video-conferencing-console"]);
   assert.ok(SCENE_CONVERSATIONS["school-locker-bank"]);
   assert.ok(SCENE_CONVERSATIONS["airport-conveyor-drive-unit"]);

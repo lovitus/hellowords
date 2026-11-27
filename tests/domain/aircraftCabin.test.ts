@@ -27,6 +27,7 @@ interface Scene {
   readonly width: number;
   readonly height: number;
   readonly labels: readonly Label[];
+  readonly relatedWords: readonly { readonly id: string; readonly word: string }[];
   readonly visualRegions: readonly {
     readonly id: string;
     readonly x: number;
@@ -51,39 +52,42 @@ async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8")) as T;
 }
 
-test("aircraft cabin keeps 142 reviewed door, galley, seating and lavatory terms", async () => {
+test("aircraft cabin keeps 142 original terms across photograph and index", async () => {
   const scene = await readJson<Scene>("aircraft-cabin.json");
   assert.equal(scene.id, "aircraft-cabin");
   assert.equal(scene.parentId, "passenger-boarding-bridge");
   assert.equal(scene.asset, "/scenes/aircraft-cabin-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
-  assert.equal(scene.labels.length, 142);
-  assert.equal(scene.visualRegions.length, 144);
+  assert.equal(scene.labels.length, 83);
+  assert.equal(scene.relatedWords.length, 59);
+  assert.equal(scene.visualRegions.length, 86);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), [
-    ["aircraft-cabin-zone-entry-door-hardware", 22],
-    ["aircraft-cabin-zone-forward-galley", 26],
-    ["aircraft-cabin-zone-overhead-psu", 20],
-    ["aircraft-cabin-zone-cabin-seating", 26],
-    ["aircraft-cabin-zone-aisle-floor", 14],
-    ["aircraft-cabin-zone-lavatory", 23],
-    ["aircraft-cabin-zone-right-door-jamb", 11],
+    ["aircraft-cabin-zone-entry-door-hardware", 12],
+    ["aircraft-cabin-zone-forward-galley", 16],
+    ["aircraft-cabin-zone-overhead-psu", 13],
+    ["aircraft-cabin-zone-cabin-seating", 14],
+    ["aircraft-cabin-zone-aisle-floor", 7],
+    ["aircraft-cabin-zone-lavatory", 13],
+    ["aircraft-cabin-zone-right-door-jamb", 8],
   ]);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter(({ minLevel }) => minLevel === level).length),
-    [14, 14, 38, 38, 38],
+    [14, 14, 18, 18, 19],
   );
-  assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 142);
-  assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 142);
+  const originalTerms = [...scene.labels, ...scene.relatedWords];
+  assert.equal(new Set(originalTerms.map(({ id }) => id)).size, 142);
+  assert.equal(new Set(originalTerms.map(({ word }) => word.toLocaleLowerCase())).size, 142);
   assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), [
     "aircraft-lavatory",
     "aircraft-galley-equipment",
+    "passenger-seat-row",
   ]);
-  assert.equal(scene.anchorAudit.status, "human-verified");
+  assert.equal(scene.anchorAudit.status, "image-reviewed");
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);
   assert.equal(scene.anchorAudit.reviewedAssetSha256, "43bc4ae1927274df211288acce769e17f16975ddfea8e0c57d8ce5349f697dbc");
-  assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 8);
-  assert.equal(scene.anchorAudit.removedLabelCount, 8);
+  assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 67);
+  assert.equal(scene.anchorAudit.removedLabelCount, 67);
 
   const regions = new Map(scene.visualRegions.map((region) => [region.id, region]));
   for (const label of scene.labels) {

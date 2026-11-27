@@ -1,0 +1,2213 @@
+{
+  "id": "passenger-seat-row",
+  "title": "Passenger seat row",
+  "translation": "乘客座位",
+  "subtitle": "Look around a window seat, find your headphones and inspect the meal on the fold-down table.",
+  "asset": "/scenes/passenger-seat-row-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "aircraft-cabin",
+  "portals": [
+    {
+      "id": "enter-inflight-meal-tray",
+      "label": "Inspect the meal tray",
+      "translation": "查看机上餐盘",
+      "childSceneId": "inflight-meal-tray",
+      "sourceVisualRegion": "portal-inflight-meal-tray",
+      "x": 425,
+      "y": 542,
+      "width": 71,
+      "height": 14,
+      "portraitMarker": {
+        "x": 428,
+        "y": 545
+      },
+      "enterScale": 3.4
+    }
+  ],
+  "portraitOverviewLabelIds": [
+    "passenger-seat-row-neck-pillow",
+    "passenger-seat-row-foil-dish"
+  ],
+  "labels": [
+    {
+      "id": "passenger-seat-row-seatback-screen",
+      "word": "seatback screen",
+      "translation": "椅背屏幕",
+      "x": 340,
+      "y": 54,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-seatback-screen"
+    },
+    {
+      "id": "passenger-seat-row-magazine",
+      "word": "magazine",
+      "translation": "杂志",
+      "x": 259,
+      "y": 343,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-magazine",
+      "lexemeId": "en-208be34b55c3475d"
+    },
+    {
+      "id": "passenger-seat-row-seat-pocket",
+      "word": "seat pocket",
+      "translation": "椅背袋",
+      "x": 231,
+      "y": 432,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-seat-pocket"
+    },
+    {
+      "id": "passenger-seat-row-screen-bezel",
+      "word": "screen bezel",
+      "translation": "屏幕边框",
+      "x": 251,
+      "y": 103,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-screen-bezel"
+    },
+    {
+      "id": "passenger-seat-row-latch",
+      "word": "latch",
+      "translation": "锁扣",
+      "x": 362,
+      "y": 188,
+      "priority": 1.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-latch"
+    },
+    {
+      "id": "passenger-seat-row-magazine-cover",
+      "word": "magazine cover",
+      "translation": "杂志封面",
+      "x": 223,
+      "y": 391,
+      "priority": 1.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-magazine-cover"
+    },
+    {
+      "id": "passenger-seat-row-page-edges",
+      "word": "page edges",
+      "translation": "书页边缘",
+      "x": 265,
+      "y": 280,
+      "priority": 1.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-page-edges"
+    },
+    {
+      "id": "passenger-seat-row-cover-photograph",
+      "word": "cover photograph",
+      "translation": "封面照片",
+      "x": 291,
+      "y": 321,
+      "priority": 1.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-cover-photograph"
+    },
+    {
+      "id": "passenger-seat-row-plastic-housing",
+      "word": "plastic housing",
+      "translation": "塑料外壳",
+      "x": 155,
+      "y": 135,
+      "priority": 1.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-plastic-housing"
+    },
+    {
+      "id": "passenger-seat-row-recess",
+      "word": "recess",
+      "translation": "凹槽",
+      "x": 390,
+      "y": 164,
+      "priority": 1.009,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-recess"
+    },
+    {
+      "id": "passenger-seat-row-pocket-fabric",
+      "word": "pocket fabric",
+      "translation": "袋内布料",
+      "x": 361,
+      "y": 310,
+      "priority": 1.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-pocket-fabric"
+    },
+    {
+      "id": "passenger-seat-row-seat-pocket-lip",
+      "word": "seat-pocket lip",
+      "translation": "椅背袋口边缘",
+      "x": 318,
+      "y": 363,
+      "priority": 1.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-seat-pocket-lip"
+    },
+    {
+      "id": "passenger-seat-row-screen-corner",
+      "word": "screen corner",
+      "translation": "屏幕一角",
+      "x": 439,
+      "y": 79,
+      "priority": 1.012,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-screen-corner"
+    },
+    {
+      "id": "passenger-seat-row-dark",
+      "word": "dark",
+      "translation": "深色的",
+      "x": 301,
+      "y": 92,
+      "priority": 1.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-dark"
+    },
+    {
+      "id": "passenger-seat-row-airplane-window",
+      "word": "airplane window",
+      "translation": "飞机舷窗",
+      "x": 839,
+      "y": 79,
+      "priority": 1.014,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-airplane-window"
+    },
+    {
+      "id": "passenger-seat-row-cloud",
+      "word": "cloud",
+      "translation": "云",
+      "x": 945,
+      "y": 150,
+      "priority": 1.015,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-cloud",
+      "lexemeId": "en-56681010b753e1ab"
+    },
+    {
+      "id": "passenger-seat-row-window-surround",
+      "word": "window surround",
+      "translation": "窗户饰框",
+      "x": 918,
+      "y": 229,
+      "priority": 1.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-window-surround"
+    },
+    {
+      "id": "passenger-seat-row-blue-sky",
+      "word": "blue sky",
+      "translation": "蓝天",
+      "x": 888,
+      "y": 21,
+      "priority": 1.017,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-blue-sky"
+    },
+    {
+      "id": "passenger-seat-row-cabin-window-seal",
+      "word": "cabin window seal",
+      "translation": "舷窗密封条",
+      "x": 736,
+      "y": 70,
+      "priority": 1.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-cabin-window-seal"
+    },
+    {
+      "id": "passenger-seat-row-distant-clouds",
+      "word": "distant clouds",
+      "translation": "远处的云",
+      "x": 870,
+      "y": 56,
+      "priority": 1.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-distant-clouds"
+    },
+    {
+      "id": "passenger-seat-row-cloud-bank",
+      "word": "cloud bank",
+      "translation": "云团",
+      "x": 839,
+      "y": 135,
+      "priority": 1.02,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-cloud-bank"
+    },
+    {
+      "id": "passenger-seat-row-window-reveal",
+      "word": "window reveal",
+      "translation": "窗洞侧壁",
+      "x": 716,
+      "y": 124,
+      "priority": 1.021,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-window-reveal"
+    },
+    {
+      "id": "passenger-seat-row-cabin-wall",
+      "word": "cabin wall",
+      "translation": "客舱内壁",
+      "x": 1139,
+      "y": 117,
+      "priority": 1.022,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-cabin-wall"
+    },
+    {
+      "id": "passenger-seat-row-wall-seam",
+      "word": "wall seam",
+      "translation": "墙板接缝",
+      "x": 557,
+      "y": 83,
+      "priority": 1.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-wall-seam"
+    },
+    {
+      "id": "passenger-seat-row-cream-colored",
+      "word": "cream-colored",
+      "translation": "奶油色的",
+      "x": 1178,
+      "y": 234,
+      "priority": 1.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-cream-colored"
+    },
+    {
+      "id": "passenger-seat-row-curved-edge",
+      "word": "curved edge",
+      "translation": "弧形边缘",
+      "x": 991,
+      "y": 214,
+      "priority": 1.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-curved-edge"
+    },
+    {
+      "id": "passenger-seat-row-fold-down-table",
+      "word": "fold-down table",
+      "translation": "折叠桌板",
+      "x": 688,
+      "y": 535,
+      "priority": 1.026,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-fold-down-table"
+    },
+    {
+      "id": "passenger-seat-row-meal-tray",
+      "word": "meal tray",
+      "translation": "餐盘",
+      "x": 326,
+      "y": 535,
+      "priority": 1.027,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-meal-tray"
+    },
+    {
+      "id": "passenger-seat-row-support-arm",
+      "word": "support arm",
+      "translation": "支撑臂",
+      "x": 177,
+      "y": 557,
+      "priority": 1.028,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-support-arm"
+    },
+    {
+      "id": "passenger-seat-row-pivot-pin",
+      "word": "pivot pin",
+      "translation": "枢轴销",
+      "x": 218,
+      "y": 585,
+      "priority": 1.029,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-pivot-pin"
+    },
+    {
+      "id": "passenger-seat-row-table-lip",
+      "word": "table lip",
+      "translation": "桌板边沿",
+      "x": 557,
+      "y": 613,
+      "priority": 1.03,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-table-lip"
+    },
+    {
+      "id": "passenger-seat-row-raised-rim",
+      "word": "raised rim",
+      "translation": "凸起边缘",
+      "x": 285,
+      "y": 433,
+      "priority": 1.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-raised-rim"
+    },
+    {
+      "id": "passenger-seat-row-rounded-table-corner",
+      "word": "rounded table corner",
+      "translation": "桌板圆角",
+      "x": 661,
+      "y": 603,
+      "priority": 1.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-rounded-table-corner"
+    },
+    {
+      "id": "passenger-seat-row-tray-corner",
+      "word": "tray corner",
+      "translation": "托盘角",
+      "x": 637,
+      "y": 542,
+      "priority": 1.033,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-tray-corner"
+    },
+    {
+      "id": "passenger-seat-row-level",
+      "word": "level",
+      "translation": "水平的",
+      "x": 435,
+      "y": 581,
+      "priority": 1.034,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-level"
+    },
+    {
+      "id": "passenger-seat-row-table-hinge",
+      "word": "table hinge",
+      "translation": "桌板铰链",
+      "x": 146,
+      "y": 515,
+      "priority": 1.035,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-table-hinge"
+    },
+    {
+      "id": "passenger-seat-row-bread-roll",
+      "word": "bread roll",
+      "translation": "小圆面包",
+      "x": 632,
+      "y": 360,
+      "priority": 1.036,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-bread-roll"
+    },
+    {
+      "id": "passenger-seat-row-foil-dish",
+      "word": "foil dish",
+      "translation": "铝箔餐盒",
+      "x": 529,
+      "y": 518,
+      "priority": 1.037,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-foil-dish"
+    },
+    {
+      "id": "passenger-seat-row-orange-juice",
+      "word": "orange juice",
+      "translation": "橙汁",
+      "x": 572,
+      "y": 291,
+      "priority": 1.038,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-orange-juice"
+    },
+    {
+      "id": "passenger-seat-row-fork",
+      "word": "fork",
+      "translation": "餐叉",
+      "x": 348,
+      "y": 456,
+      "priority": 1.039,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-fork",
+      "lexemeId": "en-8d0c7ac992af2f49"
+    },
+    {
+      "id": "passenger-seat-row-broccoli-floret",
+      "word": "broccoli floret",
+      "translation": "西兰花小朵",
+      "x": 488,
+      "y": 450,
+      "priority": 1.04,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-broccoli-floret"
+    },
+    {
+      "id": "passenger-seat-row-penne",
+      "word": "penne",
+      "translation": "斜管意面",
+      "x": 568,
+      "y": 479,
+      "priority": 1.041,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-penne"
+    },
+    {
+      "id": "passenger-seat-row-salad",
+      "word": "salad",
+      "translation": "沙拉",
+      "x": 445,
+      "y": 327,
+      "priority": 1.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-salad",
+      "lexemeId": "en-c6c3fa689e291bba"
+    },
+    {
+      "id": "passenger-seat-row-lettuce",
+      "word": "lettuce",
+      "translation": "生菜",
+      "x": 425,
+      "y": 312,
+      "priority": 1.043,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-lettuce"
+    },
+    {
+      "id": "passenger-seat-row-radish-slice",
+      "word": "radish slice",
+      "translation": "萝卜片",
+      "x": 493,
+      "y": 322,
+      "priority": 1.044,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-radish-slice"
+    },
+    {
+      "id": "passenger-seat-row-cherry-tomato",
+      "word": "cherry tomato",
+      "translation": "樱桃番茄",
+      "x": 505,
+      "y": 341,
+      "priority": 1.045,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-cherry-tomato"
+    },
+    {
+      "id": "passenger-seat-row-grated-cheese",
+      "word": "grated cheese",
+      "translation": "磨碎的奶酪",
+      "x": 547,
+      "y": 413,
+      "priority": 1.046,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-grated-cheese"
+    },
+    {
+      "id": "passenger-seat-row-tomato-sauce",
+      "word": "tomato sauce",
+      "translation": "番茄酱汁",
+      "x": 512,
+      "y": 484,
+      "priority": 1.047,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-tomato-sauce"
+    },
+    {
+      "id": "passenger-seat-row-crust",
+      "word": "crust",
+      "translation": "面包外皮",
+      "x": 664,
+      "y": 367,
+      "priority": 1.048,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-crust"
+    },
+    {
+      "id": "passenger-seat-row-napkin",
+      "word": "napkin",
+      "translation": "餐巾",
+      "x": 309,
+      "y": 453,
+      "priority": 1.049,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-napkin"
+    },
+    {
+      "id": "passenger-seat-row-table-knife",
+      "word": "table knife",
+      "translation": "餐刀",
+      "x": 377,
+      "y": 466,
+      "priority": 1.05,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-table-knife"
+    },
+    {
+      "id": "passenger-seat-row-fork-tine",
+      "word": "fork tine",
+      "translation": "叉齿",
+      "x": 387,
+      "y": 387,
+      "priority": 1.051,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-fork-tine"
+    },
+    {
+      "id": "passenger-seat-row-cup-rim",
+      "word": "cup rim",
+      "translation": "杯口",
+      "x": 575,
+      "y": 214,
+      "priority": 1.052,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-cup-rim"
+    },
+    {
+      "id": "passenger-seat-row-clear-cup",
+      "word": "clear cup",
+      "translation": "透明杯",
+      "x": 547,
+      "y": 240,
+      "priority": 1.053,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-clear-cup"
+    },
+    {
+      "id": "passenger-seat-row-salad-bowl",
+      "word": "salad bowl",
+      "translation": "沙拉碗",
+      "x": 433,
+      "y": 377,
+      "priority": 1.054,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-salad-bowl"
+    },
+    {
+      "id": "passenger-seat-row-crimped-edge",
+      "word": "crimped edge",
+      "translation": "压褶边",
+      "x": 636,
+      "y": 392,
+      "priority": 1.055,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-crimped-edge"
+    },
+    {
+      "id": "passenger-seat-row-window-seat",
+      "word": "window seat",
+      "translation": "靠窗座位",
+      "x": 1372,
+      "y": 292,
+      "priority": 1.056,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-window-seat"
+    },
+    {
+      "id": "passenger-seat-row-lap-belt",
+      "word": "lap belt",
+      "translation": "腰式安全带",
+      "x": 817,
+      "y": 727,
+      "priority": 1.057,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-lap-belt"
+    },
+    {
+      "id": "passenger-seat-row-armrest-button",
+      "word": "armrest button",
+      "translation": "扶手按钮",
+      "x": 865,
+      "y": 340,
+      "priority": 1.058,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-armrest-button"
+    },
+    {
+      "id": "passenger-seat-row-seat-cushion",
+      "word": "seat cushion",
+      "translation": "座椅坐垫",
+      "x": 733,
+      "y": 675,
+      "priority": 1.059,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-seat-cushion"
+    },
+    {
+      "id": "passenger-seat-row-headrest-wing",
+      "word": "headrest wing",
+      "translation": "头枕侧翼",
+      "x": 1491,
+      "y": 87,
+      "priority": 1.06,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-headrest-wing"
+    },
+    {
+      "id": "passenger-seat-row-upholstery",
+      "word": "upholstery",
+      "translation": "座椅面料",
+      "x": 1415,
+      "y": 284,
+      "priority": 1.061,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-upholstery"
+    },
+    {
+      "id": "passenger-seat-row-armrest-cap",
+      "word": "armrest cap",
+      "translation": "扶手顶盖",
+      "x": 873,
+      "y": 309,
+      "priority": 1.062,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-armrest-cap"
+    },
+    {
+      "id": "passenger-seat-row-belt-tongue",
+      "word": "belt tongue",
+      "translation": "安全带插舌",
+      "x": 927,
+      "y": 743,
+      "priority": 1.063,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-belt-tongue"
+    },
+    {
+      "id": "passenger-seat-row-lift-lever-buckle",
+      "word": "lift-lever buckle",
+      "translation": "掀盖式带扣",
+      "x": 1062,
+      "y": 736,
+      "priority": 1.064,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-lift-lever-buckle"
+    },
+    {
+      "id": "passenger-seat-row-buckle-edge",
+      "word": "buckle edge",
+      "translation": "带扣边缘",
+      "x": 1021,
+      "y": 759,
+      "priority": 1.065,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-buckle-edge"
+    },
+    {
+      "id": "passenger-seat-row-rectangular-cutout",
+      "word": "rectangular cutout",
+      "translation": "矩形开孔",
+      "x": 946,
+      "y": 752,
+      "priority": 1.066,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-rectangular-cutout"
+    },
+    {
+      "id": "passenger-seat-row-belt-webbing",
+      "word": "belt webbing",
+      "translation": "安全带织带",
+      "x": 1195,
+      "y": 754,
+      "priority": 1.067,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-belt-webbing"
+    },
+    {
+      "id": "passenger-seat-row-stitch-line",
+      "word": "stitch line",
+      "translation": "车缝线",
+      "x": 850,
+      "y": 736,
+      "priority": 1.068,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-stitch-line"
+    },
+    {
+      "id": "passenger-seat-row-navy-blue",
+      "word": "navy blue",
+      "translation": "藏青色",
+      "x": 1268,
+      "y": 737,
+      "priority": 1.069,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-navy-blue"
+    },
+    {
+      "id": "passenger-seat-row-seat-seam",
+      "word": "seat seam",
+      "translation": "座椅接缝",
+      "x": 1451,
+      "y": 292,
+      "priority": 1.07,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-seat-seam"
+    },
+    {
+      "id": "passenger-seat-row-front-armrest",
+      "word": "front armrest",
+      "translation": "前景扶手",
+      "x": 1129,
+      "y": 852,
+      "priority": 1.071,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-front-armrest"
+    },
+    {
+      "id": "passenger-seat-row-neck-pillow",
+      "word": "neck pillow",
+      "translation": "颈枕",
+      "x": 1050,
+      "y": 375,
+      "priority": 1.072,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-neck-pillow"
+    },
+    {
+      "id": "passenger-seat-row-headphones",
+      "word": "headphones",
+      "translation": "头戴式耳机",
+      "x": 845,
+      "y": 573,
+      "priority": 1.073,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-headphones",
+      "lexemeId": "en-86d6e84ef9a21b74"
+    },
+    {
+      "id": "passenger-seat-row-blanket",
+      "word": "blanket",
+      "translation": "毛毯",
+      "x": 1155,
+      "y": 571,
+      "priority": 1.074,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-blanket",
+      "lexemeId": "en-7cd0fc6ee61e2a57"
+    },
+    {
+      "id": "passenger-seat-row-headband",
+      "word": "headband",
+      "translation": "头梁",
+      "x": 887,
+      "y": 496,
+      "priority": 1.075,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-headband"
+    },
+    {
+      "id": "passenger-seat-row-ear-cushion",
+      "word": "ear cushion",
+      "translation": "耳垫",
+      "x": 869,
+      "y": 567,
+      "priority": 1.076,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-ear-cushion"
+    },
+    {
+      "id": "passenger-seat-row-earcup",
+      "word": "earcup",
+      "translation": "耳罩",
+      "x": 941,
+      "y": 571,
+      "priority": 1.077,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-earcup"
+    },
+    {
+      "id": "passenger-seat-row-audio-cable",
+      "word": "audio cable",
+      "translation": "耳机线",
+      "x": 871,
+      "y": 660,
+      "priority": 1.078,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-audio-cable"
+    },
+    {
+      "id": "passenger-seat-row-audio-plug",
+      "word": "audio plug",
+      "translation": "音频插头",
+      "x": 940,
+      "y": 658,
+      "priority": 1.079,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-audio-plug"
+    },
+    {
+      "id": "passenger-seat-row-snap-fastener",
+      "word": "snap fastener",
+      "translation": "按扣",
+      "x": 1023,
+      "y": 504,
+      "priority": 1.08,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-snap-fastener"
+    },
+    {
+      "id": "passenger-seat-row-pillow-strap",
+      "word": "pillow strap",
+      "translation": "颈枕扣带",
+      "x": 1003,
+      "y": 502,
+      "priority": 1.081,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-pillow-strap"
+    },
+    {
+      "id": "passenger-seat-row-fleece",
+      "word": "fleece",
+      "translation": "绒面料",
+      "x": 1074,
+      "y": 578,
+      "priority": 1.082,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-fleece"
+    },
+    {
+      "id": "passenger-seat-row-blanket-edge",
+      "word": "blanket edge",
+      "translation": "毛毯边缘",
+      "x": 1235,
+      "y": 620,
+      "priority": 1.083,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-blanket-edge"
+    },
+    {
+      "id": "passenger-seat-row-fold",
+      "word": "fold",
+      "translation": "褶层",
+      "x": 1177,
+      "y": 652,
+      "priority": 1.084,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-fold",
+      "lexemeId": "en-255541b1d8c61855"
+    },
+    {
+      "id": "passenger-seat-row-soft",
+      "word": "soft",
+      "translation": "柔软的",
+      "x": 926,
+      "y": 433,
+      "priority": 1.085,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-soft",
+      "lexemeId": "en-f5f445528f4a0134"
+    },
+    {
+      "id": "passenger-seat-row-u-shaped",
+      "word": "U-shaped",
+      "translation": "U形的",
+      "x": 1137,
+      "y": 426,
+      "priority": 1.086,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-u-shaped"
+    },
+    {
+      "id": "passenger-seat-row-padded",
+      "word": "padded",
+      "translation": "带软垫的",
+      "x": 911,
+      "y": 573,
+      "priority": 1.087,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-padded"
+    },
+    {
+      "id": "passenger-seat-row-underseat-bag",
+      "word": "underseat bag",
+      "translation": "座椅下的随身包",
+      "x": 396,
+      "y": 793,
+      "priority": 1.088,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-underseat-bag"
+    },
+    {
+      "id": "passenger-seat-row-cabin-carpet",
+      "word": "cabin carpet",
+      "translation": "机舱地毯",
+      "x": 563,
+      "y": 841,
+      "priority": 1.089,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-passenger-seat-row-cabin-carpet"
+    },
+    {
+      "id": "passenger-seat-row-bag-handles",
+      "word": "bag handles",
+      "translation": "包提手",
+      "x": 376,
+      "y": 703,
+      "priority": 1.09,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-bag-handles"
+    },
+    {
+      "id": "passenger-seat-row-outer-pocket",
+      "word": "outer pocket",
+      "translation": "外侧口袋",
+      "x": 418,
+      "y": 771,
+      "priority": 1.091,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-passenger-seat-row-outer-pocket"
+    },
+    {
+      "id": "passenger-seat-row-bag-zipper",
+      "word": "bag zipper",
+      "translation": "包拉链",
+      "x": 430,
+      "y": 748,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-bag-zipper"
+    },
+    {
+      "id": "passenger-seat-row-zip-pull",
+      "word": "zip pull",
+      "translation": "拉链拉片",
+      "x": 284,
+      "y": 737,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-zip-pull"
+    },
+    {
+      "id": "passenger-seat-row-webbing-strap",
+      "word": "webbing strap",
+      "translation": "织带提手",
+      "x": 335,
+      "y": 811,
+      "priority": 1.094,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-webbing-strap"
+    },
+    {
+      "id": "passenger-seat-row-seat-mounting-foot",
+      "word": "seat mounting foot",
+      "translation": "座椅安装脚",
+      "x": 194,
+      "y": 883,
+      "priority": 1.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-seat-mounting-foot"
+    },
+    {
+      "id": "passenger-seat-row-mounting-bolt",
+      "word": "mounting bolt",
+      "translation": "固定螺栓",
+      "x": 214,
+      "y": 869,
+      "priority": 1.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-mounting-bolt"
+    },
+    {
+      "id": "passenger-seat-row-vent-grille",
+      "word": "vent grille",
+      "translation": "通风格栅",
+      "x": 607,
+      "y": 723,
+      "priority": 1.097,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-passenger-seat-row-vent-grille"
+    },
+    {
+      "id": "passenger-seat-row-olive-green",
+      "word": "olive green",
+      "translation": "橄榄绿",
+      "x": 468,
+      "y": 796,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-passenger-seat-row-olive-green"
+    },
+    {
+      "id": "passenger-seat-row-speckled-carpet",
+      "word": "speckled carpet",
+      "translation": "斑点地毯",
+      "x": 534,
+      "y": 794,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-passenger-seat-row-speckled-carpet"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "passenger-seat-row-seat-assignment",
+      "word": "seat assignment",
+      "translation": "座位分配"
+    },
+    {
+      "id": "passenger-seat-row-aisle-seat",
+      "word": "aisle seat",
+      "translation": "靠过道座位"
+    },
+    {
+      "id": "passenger-seat-row-middle-seat",
+      "word": "middle seat",
+      "translation": "中间座位"
+    },
+    {
+      "id": "passenger-seat-row-seat-preference",
+      "word": "seat preference",
+      "translation": "座位偏好"
+    },
+    {
+      "id": "passenger-seat-row-extra-legroom",
+      "word": "extra legroom",
+      "translation": "额外的腿部空间"
+    },
+    {
+      "id": "passenger-seat-row-seat-pitch",
+      "word": "seat pitch",
+      "translation": "座椅排距"
+    },
+    {
+      "id": "passenger-seat-row-upright-position",
+      "word": "upright position",
+      "translation": "直立位置"
+    },
+    {
+      "id": "passenger-seat-row-seat-recline",
+      "word": "seat recline",
+      "translation": "椅背后仰"
+    },
+    {
+      "id": "passenger-seat-row-window-shade",
+      "word": "window shade",
+      "translation": "舷窗遮光板"
+    },
+    {
+      "id": "passenger-seat-row-inflight-entertainment",
+      "word": "inflight entertainment",
+      "translation": "机上娱乐"
+    }
+  ],
+  "visualRegions": [
+    {
+      "id": "photo-passenger-seat-row-seatback-screen",
+      "description": "seatback screen in the screen and seat pocket area",
+      "kind": "part",
+      "x": 299,
+      "y": 26,
+      "width": 83,
+      "height": 57
+    },
+    {
+      "id": "photo-passenger-seat-row-magazine",
+      "description": "magazine in the screen and seat pocket area",
+      "kind": "part",
+      "x": 237,
+      "y": 327,
+      "width": 44,
+      "height": 32
+    },
+    {
+      "id": "photo-passenger-seat-row-seat-pocket",
+      "description": "seat pocket in the screen and seat pocket area",
+      "kind": "part",
+      "x": 216,
+      "y": 425,
+      "width": 30,
+      "height": 15
+    },
+    {
+      "id": "photo-passenger-seat-row-screen-bezel",
+      "description": "screen bezel in the screen and seat pocket area",
+      "kind": "part",
+      "x": 245,
+      "y": 79,
+      "width": 12,
+      "height": 48
+    },
+    {
+      "id": "photo-passenger-seat-row-latch",
+      "description": "latch in the screen and seat pocket area",
+      "kind": "part",
+      "x": 356,
+      "y": 174,
+      "width": 13,
+      "height": 28
+    },
+    {
+      "id": "photo-passenger-seat-row-magazine-cover",
+      "description": "magazine cover in the screen and seat pocket area",
+      "kind": "part",
+      "x": 211,
+      "y": 380,
+      "width": 24,
+      "height": 22
+    },
+    {
+      "id": "photo-passenger-seat-row-page-edges",
+      "description": "page edges in the screen and seat pocket area",
+      "kind": "part",
+      "x": 257,
+      "y": 277,
+      "width": 17,
+      "height": 6
+    },
+    {
+      "id": "photo-passenger-seat-row-cover-photograph",
+      "description": "cover photograph in the screen and seat pocket area",
+      "kind": "part",
+      "x": 283,
+      "y": 312,
+      "width": 16,
+      "height": 19
+    },
+    {
+      "id": "photo-passenger-seat-row-plastic-housing",
+      "description": "plastic housing in the screen and seat pocket area",
+      "kind": "part",
+      "x": 125,
+      "y": 117,
+      "width": 60,
+      "height": 36
+    },
+    {
+      "id": "photo-passenger-seat-row-recess",
+      "description": "recess in the screen and seat pocket area",
+      "kind": "part",
+      "x": 386,
+      "y": 160,
+      "width": 8,
+      "height": 9
+    },
+    {
+      "id": "photo-passenger-seat-row-pocket-fabric",
+      "description": "pocket fabric in the screen and seat pocket area",
+      "kind": "part",
+      "x": 353,
+      "y": 304,
+      "width": 17,
+      "height": 12
+    },
+    {
+      "id": "photo-passenger-seat-row-seat-pocket-lip",
+      "description": "seat-pocket lip in the screen and seat pocket area",
+      "kind": "part",
+      "x": 311,
+      "y": 361,
+      "width": 15,
+      "height": 5
+    },
+    {
+      "id": "photo-passenger-seat-row-screen-corner",
+      "description": "screen corner in the screen and seat pocket area",
+      "kind": "part",
+      "x": 437,
+      "y": 77,
+      "width": 5,
+      "height": 4
+    },
+    {
+      "id": "photo-passenger-seat-row-dark",
+      "description": "dark in the screen and seat pocket area",
+      "kind": "part",
+      "x": 292,
+      "y": 86,
+      "width": 18,
+      "height": 13
+    },
+    {
+      "id": "photo-passenger-seat-row-airplane-window",
+      "description": "airplane window in the window and sky area",
+      "kind": "part",
+      "x": 815,
+      "y": 64,
+      "width": 49,
+      "height": 31
+    },
+    {
+      "id": "photo-passenger-seat-row-cloud",
+      "description": "cloud in the window and sky area",
+      "kind": "part",
+      "x": 929,
+      "y": 141,
+      "width": 33,
+      "height": 18
+    },
+    {
+      "id": "photo-passenger-seat-row-window-surround",
+      "description": "window surround in the window and sky area",
+      "kind": "part",
+      "x": 891,
+      "y": 226,
+      "width": 55,
+      "height": 7
+    },
+    {
+      "id": "photo-passenger-seat-row-blue-sky",
+      "description": "blue sky in the window and sky area",
+      "kind": "part",
+      "x": 870,
+      "y": 15,
+      "width": 37,
+      "height": 13
+    },
+    {
+      "id": "photo-passenger-seat-row-cabin-window-seal",
+      "description": "cabin window seal in the window and sky area",
+      "kind": "part",
+      "x": 735,
+      "y": 61,
+      "width": 3,
+      "height": 19
+    },
+    {
+      "id": "photo-passenger-seat-row-distant-clouds",
+      "description": "distant clouds in the window and sky area",
+      "kind": "part",
+      "x": 861,
+      "y": 54,
+      "width": 19,
+      "height": 5
+    },
+    {
+      "id": "photo-passenger-seat-row-cloud-bank",
+      "description": "cloud bank in the window and sky area",
+      "kind": "part",
+      "x": 824,
+      "y": 130,
+      "width": 31,
+      "height": 10
+    },
+    {
+      "id": "photo-passenger-seat-row-window-reveal",
+      "description": "window reveal in the window and sky area",
+      "kind": "part",
+      "x": 712,
+      "y": 114,
+      "width": 9,
+      "height": 20
+    },
+    {
+      "id": "photo-passenger-seat-row-cabin-wall",
+      "description": "cabin wall in the window and sky area",
+      "kind": "part",
+      "x": 1113,
+      "y": 94,
+      "width": 52,
+      "height": 46
+    },
+    {
+      "id": "photo-passenger-seat-row-wall-seam",
+      "description": "wall seam in the window and sky area",
+      "kind": "part",
+      "x": 556,
+      "y": 74,
+      "width": 3,
+      "height": 19
+    },
+    {
+      "id": "photo-passenger-seat-row-cream-colored",
+      "description": "cream-colored in the window and sky area",
+      "kind": "part",
+      "x": 1166,
+      "y": 224,
+      "width": 25,
+      "height": 21
+    },
+    {
+      "id": "photo-passenger-seat-row-curved-edge",
+      "description": "curved edge in the window and sky area",
+      "kind": "part",
+      "x": 987,
+      "y": 212,
+      "width": 9,
+      "height": 5
+    },
+    {
+      "id": "photo-passenger-seat-row-fold-down-table",
+      "description": "fold-down table in the tray table and fittings area",
+      "kind": "part",
+      "x": 679,
+      "y": 526,
+      "width": 18,
+      "height": 18
+    },
+    {
+      "id": "photo-passenger-seat-row-meal-tray",
+      "description": "meal tray in the tray table and fittings area",
+      "kind": "part",
+      "x": 302,
+      "y": 531,
+      "width": 49,
+      "height": 9
+    },
+    {
+      "id": "photo-passenger-seat-row-support-arm",
+      "description": "support arm in the tray table and fittings area",
+      "kind": "part",
+      "x": 163,
+      "y": 551,
+      "width": 28,
+      "height": 12
+    },
+    {
+      "id": "photo-passenger-seat-row-pivot-pin",
+      "description": "pivot pin in the tray table and fittings area",
+      "kind": "part",
+      "x": 214,
+      "y": 582,
+      "width": 8,
+      "height": 7
+    },
+    {
+      "id": "photo-passenger-seat-row-table-lip",
+      "description": "table lip in the tray table and fittings area",
+      "kind": "part",
+      "x": 539,
+      "y": 611,
+      "width": 37,
+      "height": 5
+    },
+    {
+      "id": "photo-passenger-seat-row-raised-rim",
+      "description": "raised rim in the tray table and fittings area",
+      "kind": "part",
+      "x": 278,
+      "y": 431,
+      "width": 14,
+      "height": 5
+    },
+    {
+      "id": "photo-passenger-seat-row-rounded-table-corner",
+      "description": "rounded table corner in the tray table and fittings area",
+      "kind": "part",
+      "x": 657,
+      "y": 601,
+      "width": 8,
+      "height": 4
+    },
+    {
+      "id": "photo-passenger-seat-row-tray-corner",
+      "description": "tray corner in the tray table and fittings area",
+      "kind": "part",
+      "x": 633,
+      "y": 540,
+      "width": 8,
+      "height": 5
+    },
+    {
+      "id": "photo-passenger-seat-row-level",
+      "description": "level in the tray table and fittings area",
+      "kind": "part",
+      "x": 424,
+      "y": 578,
+      "width": 22,
+      "height": 6
+    },
+    {
+      "id": "photo-passenger-seat-row-table-hinge",
+      "description": "table hinge in the tray table and fittings area",
+      "kind": "part",
+      "x": 141,
+      "y": 512,
+      "width": 10,
+      "height": 7
+    },
+    {
+      "id": "photo-passenger-seat-row-bread-roll",
+      "description": "bread roll in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 611,
+      "y": 345,
+      "width": 43,
+      "height": 30
+    },
+    {
+      "id": "photo-passenger-seat-row-foil-dish",
+      "description": "foil dish in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 509,
+      "y": 512,
+      "width": 41,
+      "height": 12
+    },
+    {
+      "id": "photo-passenger-seat-row-orange-juice",
+      "description": "orange juice in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 552,
+      "y": 277,
+      "width": 40,
+      "height": 29
+    },
+    {
+      "id": "photo-passenger-seat-row-fork",
+      "description": "fork in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 344,
+      "y": 450,
+      "width": 9,
+      "height": 13
+    },
+    {
+      "id": "photo-passenger-seat-row-broccoli-floret",
+      "description": "broccoli floret in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 474,
+      "y": 439,
+      "width": 29,
+      "height": 22
+    },
+    {
+      "id": "photo-passenger-seat-row-penne",
+      "description": "penne in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 560,
+      "y": 476,
+      "width": 17,
+      "height": 7
+    },
+    {
+      "id": "photo-passenger-seat-row-salad",
+      "description": "salad in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 433,
+      "y": 316,
+      "width": 24,
+      "height": 22
+    },
+    {
+      "id": "photo-passenger-seat-row-lettuce",
+      "description": "lettuce in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 418,
+      "y": 307,
+      "width": 14,
+      "height": 11
+    },
+    {
+      "id": "photo-passenger-seat-row-radish-slice",
+      "description": "radish slice in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 486,
+      "y": 317,
+      "width": 14,
+      "height": 10
+    },
+    {
+      "id": "photo-passenger-seat-row-cherry-tomato",
+      "description": "cherry tomato in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 499,
+      "y": 338,
+      "width": 12,
+      "height": 7
+    },
+    {
+      "id": "photo-passenger-seat-row-grated-cheese",
+      "description": "grated cheese in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 538,
+      "y": 409,
+      "width": 19,
+      "height": 9
+    },
+    {
+      "id": "photo-passenger-seat-row-tomato-sauce",
+      "description": "tomato sauce in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 505,
+      "y": 480,
+      "width": 14,
+      "height": 8
+    },
+    {
+      "id": "photo-passenger-seat-row-crust",
+      "description": "crust in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 658,
+      "y": 360,
+      "width": 13,
+      "height": 15
+    },
+    {
+      "id": "photo-passenger-seat-row-napkin",
+      "description": "napkin in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 298,
+      "y": 447,
+      "width": 22,
+      "height": 12
+    },
+    {
+      "id": "photo-passenger-seat-row-table-knife",
+      "description": "table knife in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 373,
+      "y": 460,
+      "width": 9,
+      "height": 12
+    },
+    {
+      "id": "photo-passenger-seat-row-fork-tine",
+      "description": "fork tine in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 386,
+      "y": 380,
+      "width": 3,
+      "height": 14
+    },
+    {
+      "id": "photo-passenger-seat-row-cup-rim",
+      "description": "cup rim in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 568,
+      "y": 213,
+      "width": 14,
+      "height": 3
+    },
+    {
+      "id": "photo-passenger-seat-row-clear-cup",
+      "description": "clear cup in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 541,
+      "y": 236,
+      "width": 12,
+      "height": 8
+    },
+    {
+      "id": "photo-passenger-seat-row-salad-bowl",
+      "description": "salad bowl in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 427,
+      "y": 373,
+      "width": 12,
+      "height": 9
+    },
+    {
+      "id": "photo-passenger-seat-row-crimped-edge",
+      "description": "crimped edge in the meal, drink and cutlery area",
+      "kind": "part",
+      "x": 629,
+      "y": 390,
+      "width": 15,
+      "height": 4
+    },
+    {
+      "id": "photo-passenger-seat-row-window-seat",
+      "description": "window seat in the seat and lap belt area",
+      "kind": "part",
+      "x": 1348,
+      "y": 272,
+      "width": 48,
+      "height": 41
+    },
+    {
+      "id": "photo-passenger-seat-row-lap-belt",
+      "description": "lap belt in the seat and lap belt area",
+      "kind": "part",
+      "x": 798,
+      "y": 720,
+      "width": 39,
+      "height": 14
+    },
+    {
+      "id": "photo-passenger-seat-row-armrest-button",
+      "description": "armrest button in the seat and lap belt area",
+      "kind": "part",
+      "x": 859,
+      "y": 334,
+      "width": 13,
+      "height": 13
+    },
+    {
+      "id": "photo-passenger-seat-row-seat-cushion",
+      "description": "seat cushion in the seat and lap belt area",
+      "kind": "part",
+      "x": 712,
+      "y": 661,
+      "width": 42,
+      "height": 29
+    },
+    {
+      "id": "photo-passenger-seat-row-headrest-wing",
+      "description": "headrest wing in the seat and lap belt area",
+      "kind": "part",
+      "x": 1479,
+      "y": 63,
+      "width": 24,
+      "height": 49
+    },
+    {
+      "id": "photo-passenger-seat-row-upholstery",
+      "description": "upholstery in the seat and lap belt area",
+      "kind": "part",
+      "x": 1406,
+      "y": 268,
+      "width": 18,
+      "height": 32
+    },
+    {
+      "id": "photo-passenger-seat-row-armrest-cap",
+      "description": "armrest cap in the seat and lap belt area",
+      "kind": "part",
+      "x": 853,
+      "y": 306,
+      "width": 41,
+      "height": 7
+    },
+    {
+      "id": "photo-passenger-seat-row-belt-tongue",
+      "description": "belt tongue in the seat and lap belt area",
+      "kind": "part",
+      "x": 920,
+      "y": 740,
+      "width": 14,
+      "height": 7
+    },
+    {
+      "id": "photo-passenger-seat-row-lift-lever-buckle",
+      "description": "lift-lever buckle in the seat and lap belt area",
+      "kind": "part",
+      "x": 1043,
+      "y": 725,
+      "width": 38,
+      "height": 23
+    },
+    {
+      "id": "photo-passenger-seat-row-buckle-edge",
+      "description": "buckle edge in the seat and lap belt area",
+      "kind": "part",
+      "x": 1019,
+      "y": 756,
+      "width": 4,
+      "height": 7
+    },
+    {
+      "id": "photo-passenger-seat-row-rectangular-cutout",
+      "description": "rectangular cutout in the seat and lap belt area",
+      "kind": "part",
+      "x": 937,
+      "y": 749,
+      "width": 18,
+      "height": 6
+    },
+    {
+      "id": "photo-passenger-seat-row-belt-webbing",
+      "description": "belt webbing in the seat and lap belt area",
+      "kind": "part",
+      "x": 1177,
+      "y": 748,
+      "width": 36,
+      "height": 13
+    },
+    {
+      "id": "photo-passenger-seat-row-stitch-line",
+      "description": "stitch line in the seat and lap belt area",
+      "kind": "part",
+      "x": 848,
+      "y": 725,
+      "width": 4,
+      "height": 22
+    },
+    {
+      "id": "photo-passenger-seat-row-navy-blue",
+      "description": "navy blue in the seat and lap belt area",
+      "kind": "part",
+      "x": 1259,
+      "y": 731,
+      "width": 18,
+      "height": 12
+    },
+    {
+      "id": "photo-passenger-seat-row-seat-seam",
+      "description": "seat seam in the seat and lap belt area",
+      "kind": "part",
+      "x": 1449,
+      "y": 283,
+      "width": 5,
+      "height": 19
+    },
+    {
+      "id": "photo-passenger-seat-row-front-armrest",
+      "description": "front armrest in the seat and lap belt area",
+      "kind": "part",
+      "x": 1103,
+      "y": 844,
+      "width": 53,
+      "height": 17
+    },
+    {
+      "id": "photo-passenger-seat-row-neck-pillow",
+      "description": "neck pillow in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 1027,
+      "y": 363,
+      "width": 47,
+      "height": 24
+    },
+    {
+      "id": "photo-passenger-seat-row-headphones",
+      "description": "headphones in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 833,
+      "y": 558,
+      "width": 24,
+      "height": 30
+    },
+    {
+      "id": "photo-passenger-seat-row-blanket",
+      "description": "blanket in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 1130,
+      "y": 557,
+      "width": 51,
+      "height": 28
+    },
+    {
+      "id": "photo-passenger-seat-row-headband",
+      "description": "headband in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 875,
+      "y": 492,
+      "width": 24,
+      "height": 8
+    },
+    {
+      "id": "photo-passenger-seat-row-ear-cushion",
+      "description": "ear cushion in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 864,
+      "y": 557,
+      "width": 11,
+      "height": 21
+    },
+    {
+      "id": "photo-passenger-seat-row-earcup",
+      "description": "earcup in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 930,
+      "y": 560,
+      "width": 22,
+      "height": 23
+    },
+    {
+      "id": "photo-passenger-seat-row-audio-cable",
+      "description": "audio cable in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 860,
+      "y": 659,
+      "width": 22,
+      "height": 3
+    },
+    {
+      "id": "photo-passenger-seat-row-audio-plug",
+      "description": "audio plug in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 935,
+      "y": 657,
+      "width": 11,
+      "height": 3
+    },
+    {
+      "id": "photo-passenger-seat-row-snap-fastener",
+      "description": "snap fastener in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 1019,
+      "y": 500,
+      "width": 9,
+      "height": 8
+    },
+    {
+      "id": "photo-passenger-seat-row-pillow-strap",
+      "description": "pillow strap in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 998,
+      "y": 498,
+      "width": 10,
+      "height": 8
+    },
+    {
+      "id": "photo-passenger-seat-row-fleece",
+      "description": "fleece in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 1059,
+      "y": 569,
+      "width": 30,
+      "height": 19
+    },
+    {
+      "id": "photo-passenger-seat-row-blanket-edge",
+      "description": "blanket edge in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 1225,
+      "y": 618,
+      "width": 21,
+      "height": 5
+    },
+    {
+      "id": "photo-passenger-seat-row-fold",
+      "description": "fold in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 1163,
+      "y": 649,
+      "width": 29,
+      "height": 7
+    },
+    {
+      "id": "photo-passenger-seat-row-soft",
+      "description": "soft in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 916,
+      "y": 424,
+      "width": 21,
+      "height": 19
+    },
+    {
+      "id": "photo-passenger-seat-row-u-shaped",
+      "description": "U-shaped in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 1124,
+      "y": 417,
+      "width": 27,
+      "height": 19
+    },
+    {
+      "id": "photo-passenger-seat-row-padded",
+      "description": "padded in the pillow, headphones and blanket area",
+      "kind": "part",
+      "x": 909,
+      "y": 568,
+      "width": 5,
+      "height": 10
+    },
+    {
+      "id": "photo-passenger-seat-row-underseat-bag",
+      "description": "underseat bag in the bag below the seat area",
+      "kind": "part",
+      "x": 373,
+      "y": 781,
+      "width": 47,
+      "height": 25
+    },
+    {
+      "id": "photo-passenger-seat-row-cabin-carpet",
+      "description": "cabin carpet in the bag below the seat area",
+      "kind": "part",
+      "x": 540,
+      "y": 825,
+      "width": 47,
+      "height": 32
+    },
+    {
+      "id": "photo-passenger-seat-row-bag-handles",
+      "description": "bag handles in the bag below the seat area",
+      "kind": "part",
+      "x": 370,
+      "y": 697,
+      "width": 13,
+      "height": 12
+    },
+    {
+      "id": "photo-passenger-seat-row-outer-pocket",
+      "description": "outer pocket in the bag below the seat area",
+      "kind": "part",
+      "x": 405,
+      "y": 766,
+      "width": 26,
+      "height": 11
+    },
+    {
+      "id": "photo-passenger-seat-row-bag-zipper",
+      "description": "bag zipper in the bag below the seat area",
+      "kind": "part",
+      "x": 420,
+      "y": 746,
+      "width": 20,
+      "height": 4
+    },
+    {
+      "id": "photo-passenger-seat-row-zip-pull",
+      "description": "zip pull in the bag below the seat area",
+      "kind": "part",
+      "x": 282,
+      "y": 732,
+      "width": 5,
+      "height": 10
+    },
+    {
+      "id": "photo-passenger-seat-row-webbing-strap",
+      "description": "webbing strap in the bag below the seat area",
+      "kind": "part",
+      "x": 328,
+      "y": 799,
+      "width": 14,
+      "height": 24
+    },
+    {
+      "id": "photo-passenger-seat-row-seat-mounting-foot",
+      "description": "seat mounting foot in the bag below the seat area",
+      "kind": "part",
+      "x": 186,
+      "y": 880,
+      "width": 17,
+      "height": 6
+    },
+    {
+      "id": "photo-passenger-seat-row-mounting-bolt",
+      "description": "mounting bolt in the bag below the seat area",
+      "kind": "part",
+      "x": 212,
+      "y": 867,
+      "width": 5,
+      "height": 5
+    },
+    {
+      "id": "photo-passenger-seat-row-vent-grille",
+      "description": "vent grille in the bag below the seat area",
+      "kind": "part",
+      "x": 590,
+      "y": 720,
+      "width": 34,
+      "height": 7
+    },
+    {
+      "id": "photo-passenger-seat-row-olive-green",
+      "description": "olive green in the bag below the seat area",
+      "kind": "part",
+      "x": 463,
+      "y": 789,
+      "width": 10,
+      "height": 15
+    },
+    {
+      "id": "photo-passenger-seat-row-speckled-carpet",
+      "description": "speckled carpet in the bag below the seat area",
+      "kind": "part",
+      "x": 520,
+      "y": 784,
+      "width": 29,
+      "height": 20
+    },
+    {
+      "id": "portal-inflight-meal-tray",
+      "description": "Dark blue front rim of the removable meal tray above the gray folding table",
+      "kind": "object",
+      "x": 425,
+      "y": 542,
+      "width": 71,
+      "height": 14
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "passenger-seat-row-zone-entertainment-and-pocket",
+      "title": "Screen and seat pocket",
+      "translation": "屏幕与椅背袋",
+      "description": "A dark screen is set into the seat ahead, above a latch and a travel magazine in the rigid seat pocket.",
+      "x": 0,
+      "y": 0,
+      "width": 512,
+      "height": 519,
+      "targetScale": 2.8,
+      "labelIds": [
+        "passenger-seat-row-seatback-screen",
+        "passenger-seat-row-magazine",
+        "passenger-seat-row-seat-pocket",
+        "passenger-seat-row-screen-bezel",
+        "passenger-seat-row-latch",
+        "passenger-seat-row-magazine-cover",
+        "passenger-seat-row-page-edges",
+        "passenger-seat-row-cover-photograph",
+        "passenger-seat-row-plastic-housing",
+        "passenger-seat-row-recess",
+        "passenger-seat-row-pocket-fabric",
+        "passenger-seat-row-seat-pocket-lip",
+        "passenger-seat-row-screen-corner",
+        "passenger-seat-row-dark"
+      ]
+    },
+    {
+      "id": "passenger-seat-row-zone-window",
+      "title": "Window and sky",
+      "translation": "舷窗与天空",
+      "description": "An oval window in the cream cabin wall frames blue sky and banks of white clouds.",
+      "x": 501,
+      "y": 0,
+      "width": 772,
+      "height": 299,
+      "targetScale": 2.8,
+      "labelIds": [
+        "passenger-seat-row-airplane-window",
+        "passenger-seat-row-cloud",
+        "passenger-seat-row-window-surround",
+        "passenger-seat-row-blue-sky",
+        "passenger-seat-row-cabin-window-seal",
+        "passenger-seat-row-distant-clouds",
+        "passenger-seat-row-cloud-bank",
+        "passenger-seat-row-window-reveal",
+        "passenger-seat-row-cabin-wall",
+        "passenger-seat-row-wall-seam",
+        "passenger-seat-row-cream-colored",
+        "passenger-seat-row-curved-edge"
+      ]
+    },
+    {
+      "id": "passenger-seat-row-zone-folding-table",
+      "title": "Tray table and fittings",
+      "translation": "折叠桌与连接件",
+      "description": "A blue removable meal tray sits on a pale fold-down table. The metal support and pivot are exposed near the aisle.",
+      "x": 50,
+      "y": 279,
+      "width": 725,
+      "height": 360,
+      "targetScale": 2.8,
+      "labelIds": [
+        "passenger-seat-row-fold-down-table",
+        "passenger-seat-row-meal-tray",
+        "passenger-seat-row-support-arm",
+        "passenger-seat-row-pivot-pin",
+        "passenger-seat-row-table-lip",
+        "passenger-seat-row-raised-rim",
+        "passenger-seat-row-rounded-table-corner",
+        "passenger-seat-row-tray-corner",
+        "passenger-seat-row-level",
+        "passenger-seat-row-table-hinge"
+      ]
+    },
+    {
+      "id": "passenger-seat-row-zone-meal-and-cutlery",
+      "title": "Meal, drink and cutlery",
+      "translation": "餐食、饮料与餐具",
+      "description": "Pasta, broccoli, salad and a bread roll sit beside a drink. A fork and knife rest on a folded white napkin.",
+      "x": 241,
+      "y": 207,
+      "width": 487,
+      "height": 340,
+      "targetScale": 2.8,
+      "labelIds": [
+        "passenger-seat-row-bread-roll",
+        "passenger-seat-row-foil-dish",
+        "passenger-seat-row-orange-juice",
+        "passenger-seat-row-fork",
+        "passenger-seat-row-broccoli-floret",
+        "passenger-seat-row-penne",
+        "passenger-seat-row-salad",
+        "passenger-seat-row-lettuce",
+        "passenger-seat-row-radish-slice",
+        "passenger-seat-row-cherry-tomato",
+        "passenger-seat-row-grated-cheese",
+        "passenger-seat-row-tomato-sauce",
+        "passenger-seat-row-crust",
+        "passenger-seat-row-napkin",
+        "passenger-seat-row-table-knife",
+        "passenger-seat-row-fork-tine",
+        "passenger-seat-row-cup-rim",
+        "passenger-seat-row-clear-cup",
+        "passenger-seat-row-salad-bowl",
+        "passenger-seat-row-crimped-edge"
+      ]
+    },
+    {
+      "id": "passenger-seat-row-zone-window-seat",
+      "title": "Seat and lap belt",
+      "translation": "座椅与腰式安全带",
+      "description": "The navy seat has a padded headrest, two gray armrests, woven upholstery and the two separated halves of a lap belt.",
+      "x": 644,
+      "y": 0,
+      "width": 956,
+      "height": 900,
+      "targetScale": 2.8,
+      "labelIds": [
+        "passenger-seat-row-window-seat",
+        "passenger-seat-row-lap-belt",
+        "passenger-seat-row-armrest-button",
+        "passenger-seat-row-seat-cushion",
+        "passenger-seat-row-headrest-wing",
+        "passenger-seat-row-upholstery",
+        "passenger-seat-row-armrest-cap",
+        "passenger-seat-row-belt-tongue",
+        "passenger-seat-row-lift-lever-buckle",
+        "passenger-seat-row-buckle-edge",
+        "passenger-seat-row-rectangular-cutout",
+        "passenger-seat-row-belt-webbing",
+        "passenger-seat-row-stitch-line",
+        "passenger-seat-row-navy-blue",
+        "passenger-seat-row-seat-seam",
+        "passenger-seat-row-front-armrest"
+      ]
+    },
+    {
+      "id": "passenger-seat-row-zone-onboard-comfort",
+      "title": "Pillow, headphones and blanket",
+      "translation": "颈枕、耳机与毛毯",
+      "description": "A U-shaped neck pillow, a pair of wired headphones and a folded gray blanket lie separately on the blue seat.",
+      "x": 770,
+      "y": 329,
+      "width": 543,
+      "height": 408,
+      "targetScale": 2.8,
+      "labelIds": [
+        "passenger-seat-row-neck-pillow",
+        "passenger-seat-row-headphones",
+        "passenger-seat-row-blanket",
+        "passenger-seat-row-headband",
+        "passenger-seat-row-ear-cushion",
+        "passenger-seat-row-earcup",
+        "passenger-seat-row-audio-cable",
+        "passenger-seat-row-audio-plug",
+        "passenger-seat-row-snap-fastener",
+        "passenger-seat-row-pillow-strap",
+        "passenger-seat-row-fleece",
+        "passenger-seat-row-blanket-edge",
+        "passenger-seat-row-fold",
+        "passenger-seat-row-soft",
+        "passenger-seat-row-u-shaped",
+        "passenger-seat-row-padded"
+      ]
+    },
+    {
+      "id": "passenger-seat-row-zone-underseat-storage",
+      "title": "Bag below the seat",
+      "translation": "座椅下的随身包",
+      "description": "A small canvas bag sits on the speckled carpet near a metal seat foot. Its handles and outer pocket are visible.",
+      "x": 89,
+      "y": 630,
+      "width": 566,
+      "height": 270,
+      "targetScale": 2.8,
+      "labelIds": [
+        "passenger-seat-row-underseat-bag",
+        "passenger-seat-row-cabin-carpet",
+        "passenger-seat-row-bag-handles",
+        "passenger-seat-row-outer-pocket",
+        "passenger-seat-row-bag-zipper",
+        "passenger-seat-row-zip-pull",
+        "passenger-seat-row-webbing-strap",
+        "passenger-seat-row-seat-mounting-foot",
+        "passenger-seat-row-mounting-bolt",
+        "passenger-seat-row-vent-grille",
+        "passenger-seat-row-olive-green",
+        "passenger-seat-row-speckled-carpet"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "image-reviewed",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/passenger-seat-row-premium-v1.jpg",
+    "reviewedAssetSha256": "10027d910b150f8b0ae7e5b067f671ba55406fb42a3bfc0edd19014386edb00b",
+    "rationale": "Points follow the objects visible around the window seat, including the screen, lap belt, soft goods, meal and bag. Seat preferences and measurements are available in the index.",
+    "previousLabelCount": 110,
+    "retainedLabelCount": 100,
+    "removedLabelCount": 10,
+    "removedExamples": [
+      "seat assignment",
+      "aisle seat",
+      "middle seat"
+    ]
+  }
+}
