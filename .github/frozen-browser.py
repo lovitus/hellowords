@@ -1,4 +1,4 @@
-"""Verify the photographed route from airport security through the gate and jet bridge."""
+"""Verify composited bilingual labels and retain the photographed journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -47,6 +47,8 @@ APRON = ("e2e/airport-apron.spec.ts",
          "the airport ground vehicle leads through the apron to the baggage cart and both photographs remain readable on return")
 GATE_BRIDGE = ("e2e/boarding-gate-bridge.spec.ts",
                "the boarding gate clock and bridge handset stay readable on the route to the aircraft cabin and back")
+ELEVATOR = ("e2e/bilingual-photo-labels.spec.ts",
+            "the elevator photograph keeps the full bilingual button labels readable when meanings change")
 STREET_PHOTO = "/scenes/city-street-bright-v4.jpg"
 TRANSIT_PHOTO = "/scenes/transit-hub-premium-v2.jpg"
 BUS_PHOTO = "/scenes/electric-bus-premium-v2.jpg"
@@ -62,8 +64,9 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [(project, *GATE_BRIDGE) for project in PROJECTS]
+cases = [(project, *ELEVATOR) for project in PROJECTS]
 if phase == "candidate":
+    cases.extend((project, *GATE_BRIDGE) for project in PROJECTS)
     cases.extend((project, *APRON) for project in PROJECTS)
     cases.extend((project, *RECEPTION) for project in PROJECTS)
     cases.extend((project, *ULTRASOUND) for project in PROJECTS)
@@ -75,6 +78,23 @@ if phase == "candidate":
     cases.append(("mobile-chromium", *NARROW))
     cases.extend((project, *journey) for project in PROJECTS
                  for journey in (OVERVIEW, DISTRICT_ZONES, TERMINAL, OFFICE, BAGGAGE, CHECKIN, SECURITY, MINIMAP, BATTERY_PORTALS))
+    placement = "e2e/label-zoom-retention.spec.ts"
+    cases.extend((project, placement, title) for project in PROJECTS for title in (
+        "oak-tree fit fills safe slots and round-trips the exact label layout",
+        "ordinary scenes hide the progress hint while the canvas counts only the current crop"))
+    cases.extend(("chromium", placement, title) for title in (
+        "zooming back out in the apartment keeps readable words in their clear slots",
+        "continuous zoom retains grounded labels and their object-relative slots"))
+    cases.extend((project, "e2e/world.spec.ts", title) for project, title in (
+        ("chromium", "five authored LOD bands use spare space and remain readable while zooming"),
+        ("mobile-chromium", "mobile viewport exposes touch-safe labels and hotspots"),
+        ("mobile-chromium", "portrait bilingual apartment returns keyboard focus from living room to the apartment word")))
+    cases.extend((project, "e2e/semantic-density.spec.ts",
+                  "zooming the city artwork keeps its word labels at their original reading size") for project in PROJECTS)
+project_filter = os.environ["TEST_PROJECT"]
+if project_filter not in PROJECTS:
+    raise ValueError("Unknown project")
+cases = [case for case in cases if case[0] == project_filter]
 
 
 def visit(suite):
@@ -110,6 +130,12 @@ def inventory(scene_id, asset, photo_sha, source_sha, count, *, revised_density=
         raise ValueError(f"The calibrated photograph and index counts differ in {scene_id}")
     renamed = {key: {"original": originals[key][:2], "current": value[:2]}
                for key, value in current.items() if originals[key][:2] != value[:2]}
+    expected_renames = {}
+    if phase == "candidate" and scene_id == "passenger-boarding-bridge":
+        expected_renames["passenger-boarding-bridge-jet-bridge-ceiling-lamp-housing-41"] = {
+            "original": ("ceiling light housing", "顶灯外壳"), "current": ("recessed light housing", "嵌入式顶灯外壳")}
+    if renamed != expected_renames or any(current[key][2] != value[2] for key, value in originals.items()):
+        raise ValueError(f"Unexpected change to bilingual vocabulary or lexeme links in {scene_id}")
     coordinates = Counter((entry["x"], entry["y"]) for entry in labels)
     shared = sum(count > 1 for count in coordinates.values())
     if phase == "candidate" and (shared or any({"x", "y", "priority"} & entry.keys() for entry in index)):
@@ -469,10 +495,6 @@ def gate_bridge_journey(observed, images, result, project):
     if not entered(airport, security, (530, 465)) or not entered(security, gate, (1425, 221)):
         return False
     first = reading("gate-clock", gate, (315, 213), clock)
-    if phase == "baseline":
-        return (result["status"] == "failed" and len(result["errors"]) == 1 and first == []
-                and "the photograph at (315, 213) reads gate wall clock" in result["errors"][0].get("message", "")
-                and "enter-passenger-boarding-bridge-result" not in observed)
     return (result["status"] == "passed" and not result["errors"] and first == [clock]
             and entered(gate, bridge, (915, 536)) and reading("bridge-handset", bridge, (347, 291), handset) == [handset]
             and entered(bridge, cabin, (756, 325)) and reading("cabin-aisle", cabin, (883, 760), aisle) == [aisle]
@@ -482,6 +504,49 @@ def gate_bridge_journey(observed, images, result, project):
                 ("gate-clock", gate, clock), ("bridge-handset", bridge, handset),
                 ("returned-bridge-handset", bridge, handset), ("returned-gate-clock", gate, clock))))
             and visible_scene("returned-airport", None, airport).get("cards") == [])
+
+
+def elevator_readings(observed, images, result, project):
+    size = (1011, 1851) if project == "mobile-chromium" else (1440, 900)
+    long_word = "Elevator-car upper-middle raised center"
+    long_meaning = "电梯轿厢上中排按钮凸面"
+    short_word = "Elevator-car center button"
+    short_meaning = "电梯轿厢中排按钮"
+
+    def stage(name):
+        values = observed.get(name + "-result", [])
+        return values[0] if len(values) == 1 and isinstance(values[0], dict) and images.get(name) == size else {}
+
+    def words(reading):
+        runs = reading.get("runs", [])
+        english = " ".join(row["text"] for row in runs if not re.search("[\u3400-\u9fff]", row["text"]))
+        chinese = "".join(row["text"] for row in runs if re.search("[\u3400-\u9fff]", row["text"]))
+        return english, chinese
+
+    first = stage("long-button")
+    if phase == "baseline":
+        right = first.get("pill", {}).get("right")
+        return (result["status"] == "failed" and len(result["errors"]) == 1
+                and words(first) == (long_word, long_meaning) and first.get("readable") is False
+                and isinstance(right, (float, int)) and math.isfinite(right)
+                and any(run.get("clipped") is True and run["text"] == long_meaning and run["ink"]["right"] > right
+                        for run in first.get("runs", []))
+                and "short-button-result" not in observed)
+    for name, text, meaning, count in (
+            ("long-button", long_word, long_meaning, 2), ("long-button-english", long_word, "", 1),
+            ("long-button-restored", long_word, long_meaning, 2), ("short-button", short_word, short_meaning, 1)):
+        reading = stage(name)
+        if (words(reading) != (text, meaning) or reading.get("rows") != count or reading.get("readable") is not True
+                or (count == 2 and reading.get("cornerRadius") != 5)
+                or any(not re.search(r"(?:^| )10\.5px ", run["font"]) for run in reading["runs"])
+                or any(run.get("clipped") is not False or run.get("overlaid") != [] or run.get("coveredBy") != []
+                       for run in reading["runs"])):
+            return False
+    for name, word, meaning in (("long-button", long_word, long_meaning), ("short-button", short_word, short_meaning)):
+        tapped = stage(name + "-photo")
+        if tapped.get("point", {}).get("visible") is not True or tapped.get("actual") != [{"word": word, "meaning": meaning}]:
+            return False
+    return result["status"] == "passed" and not result["errors"]
 
 
 scenes = {
@@ -499,10 +564,10 @@ scenes = {
                                "c3eeb913e647bcabce72d92bec8aad6dd06f53f2b9b856e75658f745b2dedefc", 100),
     "boarding-gate": inventory("boarding-gate", "/scenes/airport-boarding-gate-premium-v1.jpg",
                                "12c9298681df0b7fa1f282fab91ba9af5f05f5a9ddcc16a3b51a5b9e9765436b",
-                               "4178341546565684f7100fcd2d295aecff2f3dca89fbc84d9048c735a1a29a20", 120, revised_density=(79, 41)),
+                               "4e877e4aff08185eb75a2d26d37d903679068c0574efa30f0e9fe4d4cd5a00c8", 120, revised_density=(79, 41)),
     "passenger-boarding-bridge": inventory("passenger-boarding-bridge", "/scenes/airport-boarding-bridge-premium-v1.jpg",
                                           "f2d8b7c4fde68f8c8abf1b05d708536bd956a64e892ffa620dd9732b80d52835",
-                                          "a5601fd189e7eed458a239bb873b659a30dc11eb32c79e7aba5c77df6939b2ac", 150, revised_density=(110, 40)),
+                                          "4fb2753473a220845fe11a3d18b8a471fe963981fbc76e6f581f97a01c4675c4", 150, revised_density=(110, 40)),
 }
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
@@ -514,7 +579,7 @@ with (temp / "command.log").open("wb") as log:
     ], env={**os.environ, "PLAYWRIGHT_JSON_OUTPUT_FILE": str(reporter)}, stdout=log, stderr=subprocess.STDOUT).returncode
 
 subprocess.run(["openssl", "cms", "-encrypt", "-binary", "-aes-256-cbc", "-outform", "DER",
-                "-in", str(reporter), "-out", str(out / "playwright.json.cms"),
+                "-in", str(reporter), "-out", str(out / f"playwright-{project_filter}.json.cms"),
                 str(Path(__file__).with_name("evidence-recipient.crt"))], check=True)
 rows, seen = [], []
 report = json.loads(reporter.read_bytes())
@@ -537,6 +602,9 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == ELEVATOR[1]:
+            row["accepted"] = elevator_readings(observed, images, result, project)
+            continue
         if title == GATE_BRIDGE[1]:
             row["accepted"] = gate_bridge_journey(observed, images, result, project)
             continue
@@ -596,7 +664,7 @@ for spec in visit(report):
 
 accepted = (code == (1 if phase == "baseline" else 0) and not report.get("errors")
             and Counter(seen) == Counter(cases) and all(row["accepted"] for row in rows))
-(out / "result.json").write_text(json.dumps({"phase": phase, "exit": code, "accepted": accepted,
+(out / f"result-{project_filter}.json").write_text(json.dumps({"phase": phase, "project": project_filter, "exit": code, "accepted": accepted,
                                            "scenes": scenes,
                                            "reportSha256": hashlib.sha256(reporter.read_bytes()).hexdigest(),
                                            "cases": rows}, indent=2) + "\n")

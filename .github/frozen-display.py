@@ -13,8 +13,13 @@ TEMP = Path(os.environ["RUNNER_TEMP"])
 OUT = TEMP / "frozen-display-evidence"
 OUT.mkdir(exist_ok=True)
 PRODUCT = os.environ["PRODUCT"]
-GATES = ("integrity", "dependencies", "browser", "baseline", "spatial", "misplaced", "build", "product_artifact", "journeys",
-         "navigation", "lint", "types", "domain", "strict", "structure")
+DEVICES = ("chromium", "mobile-chromium")
+JOB_GATES = {
+    "build": ("dependencies", "integrity", "baseline", "spatial", "build", "product_artifact"),
+    "quality": ("dependencies", "lint", "types", "domain", "strict", "structure"),
+    **{device: ("dependencies", "browser", "misplaced", "journeys") for device in DEVICES},
+    "performance": ("dependencies", "browser", "navigation"),
+}
 
 
 def save(name, body):
@@ -161,8 +166,10 @@ def spatial():
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "45c86ae002b0798e288d7de96626a151fef701944b68e68e0cf538da675bce9f",
-        "navigation-result.json": "b858a68005283a2388d3f752b62a1272b67dca220473b8c2e5fdc4097982d927",
+        "summary.json": "2e6efde87e1e40fdf029a7cbad7c3d4e66c69a6f208c2f27281a7750bd13f91f",
+        "navigation-result.json": "13477539117962ec0931ca8f978a42bccc1ba744b1a623860e8d35eab1b8b599",
+        "domain.json": "ca18acbb0b7c54b168cab705e37eb1b7c2abdcb242e83963dae28235bc54f208",
+        "domain.out.cms": "e2bfe7fa8092b972daa2dfb0ca4c913398c909db6ce0db3acb5994fb78a645e2",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
@@ -177,8 +184,22 @@ def baseline_performance():
     if (summary["gitSha"] != os.environ["BASELINE"] or summary["scenario"]["cycles"] != 20
             or metrics["transitions"] != 40 or report["exit"] != 1 or len(report["cases"]) != 1
             or report["cases"][0]["status"] != "failed" or report["cases"][0]["retry"] != 0
-            or exceeded != ["rendererTaskMsPerTransition", "retainedPssDeltaMiB"]):
+            or exceeded != ["peakPssMiB", "rendererTaskMsPerTransition", "retainedPssDeltaMiB"]):
         raise ValueError("The frozen measurements do not match the original renderer and memory budget failures")
+    domain = json.loads((root / "domain.json").read_bytes())
+    scenes = TEMP / "frozen/dist/client/data/scenes"
+    counter = json.loads((scenes / "check-in-counter.json").read_bytes())
+    words = {row["word"].lower() for row in counter["labels"] + counter["relatedWords"]}
+    scene_ids = json.loads((scenes / "manifest.json").read_bytes())["scenes"]
+    conflicts = [(s["id"], w["id"], w["word"].lower()) for s in scene_ids if s["id"] != "check-in-counter"
+                 for w in json.loads((scenes / (s["id"] + ".json")).read_bytes())["labels"] if w["word"].lower() in words]
+    expected_conflict = ("passenger-boarding-bridge", "passenger-boarding-bridge-jet-bridge-ceiling-lamp-housing-41",
+                         "ceiling light housing")
+    if domain["exit"] != 1 or domain["counts"]["fail"] != 1 or domain["counts"]["tests"] != 164 or conflicts != [expected_conflict]:
+        raise ValueError("The original check-in counter conflict does not match the archived domain failure")
+    save("baseline-domain.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
+                                  "counts": domain["counts"], "conflicts": conflicts,
+                                  "streamSha256": domain["streamSha256"]["out"]})
     save("baseline-performance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
                                       "cycles": 20, "transitions": 40, "measurements": readings,
                                       "budgets": summary["budgets"], "exceeded": exceeded, "sourceDigests": digests})
@@ -247,21 +268,23 @@ def code_check(stage):
 
 
 def domain():
-    changed = subprocess.check_output(["git", "diff", "--diff-filter=ACMR", "--name-only", os.environ["BASELINE"],
-                                       PRODUCT, "--", "tests/domain/*.test.ts"], text=True).splitlines()
-    files = sorted(set(changed) | {
-        f"tests/domain/{name}.test.ts" for name in ("camera", "navigation", "semanticZoom", "semanticZoomBoundary",
-                                                    "newFacilityScenes", "worldContent", "sceneVisualQuality",
-                                                    "airportSecurityGate", "aircraftCabin", "aircraftLavatory",
-                                                    "baggageClaim", "baggageDropStation", "checkInCounter", "labelCanvasHit",
-                                                    "cityStreetBrightV4", "radiologySuite", "spatialLexemeRealms")
-    })
-    code = run("domain", ["./node_modules/.bin/tsx", "--test", "--test-reporter=tap", *files])
-    text = (TEMP / "domain.out").read_text()
-    counts = {key: int(value) for key, value in
-              re.findall(r"^# (tests|pass|fail|cancelled|skipped|todo) (\d+)$", text, re.M)}
-    save("domain.json", {**diagnostics("domain", code), "counts": counts, "files": files})
-    return code or (0 if counts.get("tests") and counts.get("fail") == 0 else 1)
+    suites = {}
+    for stage, patterns, runner in (
+            ("domain", ("tests/domain/*.test.ts",), "./node_modules/.bin/tsx"),
+            ("semantic-lexical", ("tests/semantic/*.test.mjs", "tests/lexical-world/*.test.mjs"), "node")):
+        files = [str(file) for pattern in patterns for file in sorted(Path(".").glob(pattern))]
+        if not files:
+            raise ValueError("No test files in " + stage)
+        code = run(stage, [runner, "--test", "--test-reporter=tap", *files])
+        text = (TEMP / f"{stage}.out").read_text()
+        counts = {key: int(value) for key, value in
+                  re.findall(r"^# (tests|pass|fail|cancelled|skipped|todo) (\d+)$", text, re.M)}
+        passed = bool(not code and counts.get("tests") and not counts["fail"] and not counts.get("cancelled"))
+        suites[stage] = {**diagnostics(stage, code), "counts": counts, "files": files, "passed": passed}
+        save(stage + ".json", suites[stage])
+    passed = all(suite["passed"] for suite in suites.values())
+    save("unit.json", {"passed": passed, "suites": {name: suite["counts"] for name, suite in suites.items()}})
+    return 0 if passed else 1
 
 
 def structure():
@@ -294,12 +317,51 @@ def strict():
     return code or (0 if len(reports) == 3 else 1)
 
 
-def record():
+def receipt():
+    role = os.environ.get("TEST_PROJECT") or os.environ["JOB"]
     steps = json.loads(os.environ["STEPS"])
-    gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
+    save(f"steps-{role}.json", {"gitSha": PRODUCT, "run": os.environ["GITHUB_RUN_ID"],
+                               "outcomes": {g: steps.get(g, {}).get("outcome", "missing") for g in JOB_GATES[role]}})
+
+
+def record():
+    gates = {}
+    for role, required in JOB_GATES.items():
+        path = OUT / f"steps-{role}.json"
+        note = json.loads(path.read_bytes()) if path.is_file() else {}
+        outcomes = note.get("outcomes", {}) if (note.get("gitSha"), note.get("run")) == (
+            PRODUCT, os.environ["GITHUB_RUN_ID"]) else {}
+        for gate in required:
+            gates[f"{role}/{gate}"] = outcomes.get(gate, "missing")
+    needs = json.loads(os.environ["JOBS"])
+    for job in ("build", "quality", "journeys", "performance"):
+        gates["job/" + job] = needs.get(job, {}).get("result", "missing")
+    for phase in ("baseline", "candidate"):
+        phase_dir = OUT / phase
+        phase_dir.mkdir(exist_ok=True)
+        devices = {}
+        for device in DEVICES:
+            path = phase_dir / f"result-{device}.json"
+            result = json.loads(path.read_bytes()) if path.is_file() else {}
+            match = (result.get("phase"), result.get("project")) == (phase, device)
+            ok = match and result.get("accepted") is True and bool(result.get("cases"))
+            gates[f"reports/{phase}/{device}"] = "success" if ok else "failure" if result else "missing"
+            devices[device] = result if match else {}
+        cases = [case for device in DEVICES for case in devices[device].get("cases", [])]
+        passed = all(gates[f"reports/{phase}/{d}"] == "success" for d in DEVICES)
+        scene_data = devices[DEVICES[0]].get("scenes", {})
+        same_scenes = bool(scene_data) and all(d.get("scenes") == scene_data for d in devices.values())
+        inventory_expected = 2 if phase == "baseline" else 46
+        inventory_ok = same_scenes and len(cases) == inventory_expected
+        gates[f"reports/{phase}/inventory"] = "success" if inventory_ok else "failure"
+        (phase_dir / "result.json").write_text(json.dumps({
+            "phase": phase, "accepted": passed and inventory_ok, "cases": cases, "scenes": scene_data,
+            "devices": {device: {key: data.get(key) for key in ("exit", "accepted", "reportSha256")}
+                        for device, data in devices.items()},
+        }, indent=2) + "\n")
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "boarding-gate-bridge", "outcomes": gates,
+                         "scope": "bilingual-photo-labels", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")
@@ -314,6 +376,8 @@ elif stage == "baseline-performance":
     baseline_performance()
 elif stage == "record":
     record()
+elif stage == "receipt":
+    receipt()
 elif stage == "domain":
     sys.exit(domain())
 elif stage == "spatial":

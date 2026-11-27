@@ -1,9 +1,9 @@
-name: Verify boarding gate and jet bridge photograph reading
+name: Verify bilingual photograph labels
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the boarding gate and jet bridge candidate
+        description: Full SHA of the reviewed product candidate
         required: true
         type: string
 permissions:
@@ -11,100 +11,70 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 516d1369c42a3e45f043573fc7a45ed9699d3d86
+  BASELINE: 58d3ccaf703d347e3a8326915d8f4563cc2f746d
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 9ff6ef23a6633c38b944bfba81b6012651263cd3a5046878972e20c0df8f9c7b
-  ARTIFACT_RUN: "46050727079"
+  MANIFEST_SHA256: 4820769ca8a924039a2b01153e374460b1eeb2b9e024b47d196dc74349476190
+  ARTIFACT_RUN: "46055404253"
 jobs:
-  acceptance:
+  build:
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
-    defaults:
-      run:
-        working-directory: product
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v6
+      - &control
+        uses: actions/checkout@v6
         with:
           sparse-checkout: .github
           persist-credentials: false
-      - uses: actions/checkout@v6
+      - &dependencies
+        id: dependencies
+        uses: ./.github/actions/product
         with:
-          ref: ${{ env.PRODUCT }}
-          fetch-depth: 2
-          path: product
-          persist-credentials: false
-      - uses: actions/download-artifact@v5
+          sha: ${{ env.PRODUCT }}
+      - &original_product
+        uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASELINE }}
           run-id: ${{ env.ARTIFACT_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
-      - name: Verify the candidate checkout, manifest and every frozen file
+      - name: Verify the original product manifest and every archived file
         id: integrity
-        run: |
-          test "$(git rev-parse HEAD)" = "$PRODUCT"
-          test "$(git show -s --format=%P HEAD)" = "$BASELINE"
-          python ../.github/frozen-display.py baseline-integrity
-      - name: Retrieve the original completed 40-transition measurement
-        uses: actions/download-artifact@v5
+        working-directory: product
+        run: python ../.github/frozen-display.py baseline-integrity
+      - name: Retrieve the archived baseline measurements
         id: original_evidence
+        uses: actions/download-artifact@v5
         continue-on-error: true
         with:
           name: frozen-display-${{ env.ARTIFACT_RUN }}
           run-id: ${{ env.ARTIFACT_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/original-evidence
-      - name: Verify the original renderer and retained memory budget failures
+      - name: Verify the original performance failures and the check-in counter word collision
         id: baseline
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.original_evidence.outcome == 'success' }}
         continue-on-error: true
+        working-directory: product
         run: python ../.github/frozen-display.py baseline-performance
-      - uses: actions/setup-node@v7
-        with:
-          node-version: "22"
-          cache: npm
-          cache-dependency-path: product/package-lock.json
-      - name: Install the locked dependencies
-        id: dependencies
-        run: npm ci > "$RUNNER_TEMP/npm.log" 2>&1
-      - name: Verify both builds retain the matching spatial vocabulary index
+      - name: Verify the spatial vocabulary index in both versions
         id: spatial
-        if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.dependencies.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.integrity.outcome == 'success' }}
         continue-on-error: true
+        working-directory: product
         run: python ../.github/frozen-display.py spatial
-      - name: Lint the product
-        id: lint
-        continue-on-error: true
-        run: python ../.github/frozen-display.py lint
-      - name: Typecheck the product
-        id: types
-        continue-on-error: true
-        run: python ../.github/frozen-display.py types
-      - name: Install the locked Chromium
-        id: browser
-        continue-on-error: true
-        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce the missing gate clock card on both devices in the frozen build
-        id: misplaced
-        if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
-        continue-on-error: true
-        run: |
-          test ! -e dist
-          mv "$RUNNER_TEMP/frozen/dist" dist
-          trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
-          python ../.github/frozen-browser.py baseline
-      - name: Build the verified candidate once
+      - name: Build once and verify every candidate file
         id: build
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.integrity.outcome == 'success' }}
+        working-directory: product
         run: |
           test ! -e dist
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
           GITHUB_SHA="$PRODUCT" npm run analyze:build > "$RUNNER_TEMP/build-analysis.log" 2>&1
           python ../.github/frozen-display.py candidate-integrity
-      - name: Retain this exact candidate build
+      - name: Preserve the verified production files for all browser jobs
         id: product_artifact
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         uses: actions/upload-artifact@v5
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         with:
           name: production-dist-${{ env.PRODUCT }}
           path: |
@@ -113,43 +83,138 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Read the gate clock and bridge handset on the round trip to the cabin and retain the existing journeys
-        id: journeys
-        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
-        continue-on-error: true
-        run: python ../.github/frozen-browser.py candidate
-      - name: Measure the original 20 navigation cycles against the original budgets
-        id: navigation
-        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
-        continue-on-error: true
-        run: python ../.github/frozen-display.py navigation
-      - name: Run the affected domain and scene contracts
-        id: domain
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        continue-on-error: true
-        run: python ../.github/frozen-display.py domain
-      - name: Run strict source and human-review validation
-        id: strict
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        continue-on-error: true
-        run: python ../.github/frozen-display.py strict
-      - name: Record structural integrity and all outstanding image reviews independently
-        id: structure
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        continue-on-error: true
-        run: python ../.github/frozen-display.py structure
-      - name: Record each independent outcome
+      - &receipt
+        name: Record the outcomes of this job
         if: ${{ !cancelled() }}
         env:
           STEPS: ${{ toJSON(steps) }}
-        run: python ../.github/frozen-display.py record
-      - uses: actions/upload-artifact@v5
+          JOB: ${{ github.job }}
+        working-directory: .
+        run: python .github/frozen-display.py receipt
+      - &evidence
+        name: Preserve this job's evidence
         if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: evidence-${{ github.job }}-${{ env.TEST_PROJECT }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/frozen-display-evidence
+          if-no-files-found: error
+          retention-days: 7
+  quality:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: product
+    steps:
+      - *control
+      - *dependencies
+      - name: Lint the product
+        id: lint
+        continue-on-error: true
+        run: python ../.github/frozen-display.py lint
+      - name: Typecheck the product
+        id: types
+        continue-on-error: true
+        run: python ../.github/frozen-display.py types
+      - name: Run all domain, semantic and lexical unit tests
+        id: domain
+        continue-on-error: true
+        run: python ../.github/frozen-display.py domain
+      - name: Validate the complete source and human image reviews
+        id: strict
+        continue-on-error: true
+        run: python ../.github/frozen-display.py strict
+      - name: Record structural integrity separately from pending image reviews
+        id: structure
+        continue-on-error: true
+        run: python ../.github/frozen-display.py structure
+      - *receipt
+      - *evidence
+  journeys:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium, mobile-chromium]
+    env:
+      TEST_PROJECT: ${{ matrix.project }}
+    defaults:
+      run:
+        working-directory: product
+    steps:
+      - *control
+      - *dependencies
+      - *original_product
+      - &browser
+        name: Install the locked Chromium
+        id: browser
+        run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
+      - name: Read the long elevator button in the archived build
+        id: misplaced
+        continue-on-error: true
+        run: |
+          test ! -e dist
+          mv "$RUNNER_TEMP/frozen/dist" dist
+          trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
+          python ../.github/frozen-browser.py baseline
+      - &candidate_product
+        name: Retrieve the single verified candidate build
+        uses: actions/download-artifact@v5
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          path: product
+      - name: Read the elevator and existing photographed journeys
+        id: journeys
+        continue-on-error: true
+        run: python ../.github/frozen-browser.py candidate
+      - *receipt
+      - *evidence
+  performance:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: product
+    steps:
+      - *control
+      - *dependencies
+      - *candidate_product
+      - *browser
+      - name: Measure the original 40 navigation transitions and unchanged budgets
+        id: navigation
+        continue-on-error: true
+        run: python ../.github/frozen-display.py navigation
+      - *receipt
+      - *evidence
+  acceptance:
+    needs: [build, quality, journeys, performance]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - *control
+      - name: Collect evidence from every independent job
+        uses: actions/download-artifact@v5
+        with:
+          pattern: evidence-*-${{ github.run_id }}
+          merge-multiple: true
+          path: ${{ runner.temp }}/frozen-display-evidence
+      - name: Aggregate the required jobs and both device reports
+        env:
+          JOBS: ${{ toJSON(needs) }}
+        run: python .github/frozen-display.py record
+      - name: Retain the final results including any failed checks
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v5
         with:
           name: frozen-display-${{ github.run_id }}
           path: ${{ runner.temp }}/frozen-display-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the original gates to pass
+      - name: Require every gate to pass
         if: ${{ !cancelled() }}
         run: jq -e '.passed' "$RUNNER_TEMP/frozen-display-evidence/result.json"
