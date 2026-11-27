@@ -1,17 +1,24 @@
-name: Verify frozen display and vocabulary
-on: workflow_dispatch
+name: Verify photographed bedspace targets and frozen candidate display
+on:
+  workflow_dispatch:
+    inputs:
+      candidate:
+        description: Full SHA of the single candidate commit following the frozen office build
+        required: true
+        type: string
 permissions:
   actions: read
   contents: read
 env:
   CI: "true"
-  PRODUCT: 5c98d78daead9ad0327e673fe80bd7f267780734
+  BASELINE: 5c98d78daead9ad0327e673fe80bd7f267780734
+  PRODUCT: ${{ inputs.candidate }}
   MANIFEST_SHA256: e491fb6283e0af803b1c64cebccaabda4feb2c271b3b14f908d6f80b5747b4d3
   ARTIFACT_RUN: "45967043296"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 40
     defaults:
       run:
         working-directory: product
@@ -23,11 +30,12 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: ${{ env.PRODUCT }}
+          fetch-depth: 2
           path: product
           persist-credentials: false
       - uses: actions/download-artifact@v5
         with:
-          name: production-dist-${{ env.PRODUCT }}
+          name: production-dist-${{ env.BASELINE }}
           run-id: ${{ env.ARTIFACT_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
@@ -35,9 +43,9 @@ jobs:
         id: integrity
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
-          python ../.github/frozen-display.py integrity
-          test ! -e dist
-          mv "$RUNNER_TEMP/frozen/dist" dist
+          test "$(git show -s --format=%P HEAD)" = "$BASELINE"
+          git diff --exit-code --quiet "$BASELINE" "$PRODUCT" -- tests/perf playwright.config.ts
+          python ../.github/frozen-display.py baseline-integrity
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -50,19 +58,53 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
+      - name: Reproduce the photographed bedspace failures on the frozen baseline
+        id: baseline
+        if: ${{ !cancelled() && steps.browser.outcome == 'success' }}
+        continue-on-error: true
+        run: |
+          test ! -e dist
+          mv "$RUNNER_TEMP/frozen/dist" dist
+          trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
+          python ../.github/frozen-browser.py baseline
+      - name: Build the verified candidate once
+        id: build
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: |
+          test ! -e dist
+          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
+          GITHUB_SHA="$PRODUCT" npm run analyze:build > "$RUNNER_TEMP/build-analysis.log" 2>&1
+          python ../.github/frozen-display.py candidate-integrity
+      - name: Retain this exact candidate build
+        id: product_artifact
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          path: |
+            product/dist
+            product/artifacts/build/dist-manifest.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+      - name: Check bedspace, quick coffee taps, hospital entrance and return
+        id: journeys
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
+        continue-on-error: true
+        run: python ../.github/frozen-browser.py candidate
       - name: Measure 20 scene navigation cycles on the frozen build
         id: navigation
-        if: ${{ !cancelled() && steps.browser.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
         run: python ../.github/frozen-display.py navigation
       - name: Measure 44-shard vocabulary search on the same build
         id: search
-        if: ${{ !cancelled() && steps.browser.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
         run: python ../.github/frozen-display.py search
       - name: Check the server-rendered product
         id: ssr
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         continue-on-error: true
         run: python ../.github/frozen-display.py ssr
       - name: Run all domain unit tests
@@ -80,6 +122,11 @@ jobs:
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         continue-on-error: true
         run: python ../.github/frozen-display.py strict
+      - name: Record structural integrity and all outstanding image reviews independently
+        id: structure
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        continue-on-error: true
+        run: python ../.github/frozen-display.py structure
       - name: Record each independent outcome
         if: ${{ !cancelled() }}
         env:

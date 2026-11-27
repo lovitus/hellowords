@@ -20,23 +20,26 @@ SCENARIOS = {
     "search": ("the lexical world searches 44 shards without duplicate requests or an unbounded DOM",
                "semantic-summary.json"),
 }
-GATES = ("integrity", "dependencies", "browser", *SCENARIOS, "ssr", "domain", "lexicon", "strict")
+GATES = ("integrity", "dependencies", "browser", "baseline", "build", "product_artifact", "journeys",
+         *SCENARIOS, "ssr", "domain", "lexicon", "strict", "structure")
 
 
 def save(name, body):
     (OUT / name).write_text(json.dumps(body, indent=2) + "\n")
 
 
-def integrity():
-    frozen = TEMP / "frozen"
+def integrity(baseline):
+    frozen = TEMP / "frozen" if baseline else Path(".")
+    sha = os.environ["BASELINE"] if baseline else PRODUCT
     raw = (frozen / "artifacts/build/dist-manifest.json").read_bytes()
-    if hashlib.sha256(raw).hexdigest() != os.environ["MANIFEST_SHA256"]:
+    digest = hashlib.sha256(raw).hexdigest()
+    if baseline and digest != os.environ["MANIFEST_SHA256"]:
         raise ValueError("Frozen manifest digest differs")
     manifest = json.loads(raw)
     root = frozen / "dist"
     files = manifest["files"]
     actual = {p.relative_to(root).as_posix() for p in root.rglob("*") if p.is_file()}
-    if (manifest["gitSha"] != PRODUCT or not files or len(actual) != len(files)
+    if (manifest["gitSha"] != sha or not files or len(actual) != len(files)
             or actual != {entry["path"] for entry in files}):
         raise ValueError("Frozen file inventory or candidate differs")
     for entry in files:
@@ -44,12 +47,13 @@ def integrity():
         if len(data) != entry["bytes"] or hashlib.sha256(data).hexdigest() != entry["sha256"]:
             raise ValueError("Frozen file digest or length differs")
         # The data validators read public/ while the browser reads dist/client/.
-        if entry["path"].startswith(("client/data/", "client/scenes/")):
+        if not baseline and entry["path"].startswith(("client/data/", "client/scenes/")):
             source = Path("public") / entry["path"].removeprefix("client/")
             if source.read_bytes() != data:
                 raise ValueError("The checked-out data differs from the frozen build")
-    save("integrity.json", {"sourceRun": os.environ["ARTIFACT_RUN"], "gitSha": PRODUCT,
-                            "manifestSha256": os.environ["MANIFEST_SHA256"], "verifiedFiles": len(files)})
+    name = "baseline-integrity.json" if baseline else "candidate-integrity.json"
+    save(name, {"sourceRun": os.environ["ARTIFACT_RUN" if baseline else "GITHUB_RUN_ID"], "gitSha": sha,
+                "manifestSha256": digest, "verifiedFiles": len(files)})
 
 
 def run(stage, command, env=None):
@@ -144,6 +148,15 @@ def strict_data():
     return code or (0 if len(reports) == 3 and scene_report.is_file() else 1)
 
 
+def structure():
+    code = run("structure", ["npm", "run", "validate:data", "--", "--allow-image-reviewed"])
+    report = Path("artifacts/correctness/scene-integrity.json")
+    if not code and report.is_file():
+        shutil.copyfile(report, OUT / "structural-scene-integrity.json")
+        return 0
+    return code or 1
+
+
 def record():
     steps = json.loads(os.environ["STEPS"])
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
@@ -157,12 +170,14 @@ def record():
 
 
 stage = sys.argv[1]
-if stage == "integrity":
-    integrity()
+if stage in ("baseline-integrity", "candidate-integrity"):
+    integrity(stage == "baseline-integrity")
 elif stage == "record":
     record()
 elif stage == "strict":
     sys.exit(strict_data())
+elif stage == "structure":
+    sys.exit(structure())
 elif stage in SCENARIOS:
     sys.exit(performance(stage))
 else:
