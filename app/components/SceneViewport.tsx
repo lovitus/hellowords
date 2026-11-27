@@ -291,6 +291,7 @@ function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
   return (scene.id === "apartment" || scene.parentId === "apartment"
     || scene.id === "baggage-drop-station" || scene.id === "baggage-claim"
     || scene.id === "airport-apron" || scene.id === "airport-baggage-cart"
+    || scene.id === "boarding-gate" || scene.id === "passenger-boarding-bridge"
     || scene.id === "baggage-service-desk" || scene.id === "suitcase-packing-table" || scene.id === "hospital"
     || scene.id === "aircraft-cabin" || scene.id === "passenger-seat-row" || scene.id === "inflight-meal-tray"
     || scene.id === "office-break-room" || scene.parentId === "office-break-room"

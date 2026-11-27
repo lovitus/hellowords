@@ -23,8 +23,10 @@ const contracts = [
     sha256: "f2d8b7c4fde68f8c8abf1b05d708536bd956a64e892ffa620dd9732b80d52835",
     source: "scripts/assets/airport-boarding-bridge-v1.png",
     sourceSha256: "0c4fb4c93ddf746e6c7f9e9ab370ca6eda2c168c3bde2e3f4656b1c149548cba",
-    labels: 150,
-    zoneSizes: [25, 25, 25, 25, 25, 25],
+    labels: 110,
+    related: 40,
+    audit: "image-reviewed",
+    zoneSizes: [25, 19, 15, 19, 21, 11],
   },
   {
     id: "office-elevator-car",

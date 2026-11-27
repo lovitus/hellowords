@@ -136,8 +136,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The five checkpoint areas have 75 photographed labels and 57 index-only terms.
   "security-checkpoint": 75,
   "carry-on-baggage-scanner": 145,
-  "boarding-gate": 100,
-  "passenger-boarding-bridge": 120,
+  "boarding-gate": 79,
+  "passenger-boarding-bridge": 110,
   // Distant or hidden cabin fittings are searchable from the scene index.
   "aircraft-cabin": 83,
   "passenger-seat-row": 100,
@@ -277,8 +277,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "airport-conveyor-drive-unit": 155,
   "security-checkpoint": 75,
   "carry-on-baggage-scanner": 150,
-  "boarding-gate": 120,
-  "passenger-boarding-bridge": 150,
+  "boarding-gate": 79,
+  "passenger-boarding-bridge": 110,
   "aircraft-cabin": 83,
   "passenger-seat-row": 100,
   "inflight-meal-tray": 81,

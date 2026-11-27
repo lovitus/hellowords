@@ -184,19 +184,19 @@ test("airport security separates photographed objects from searchable equipment 
   ]);
 });
 
-test("boarding gate keeps 120 reviewed lounge, bridge and airside terms", async () => {
+test("boarding gate separates photographed lounge and airside objects from index-only terms", async () => {
   const scene = await readJson<Scene>("boarding-gate.json");
   await assertReviewedScene(scene, {
     id: "boarding-gate",
     parentId: "security-checkpoint",
     asset: "/scenes/airport-boarding-gate-premium-v1.jpg",
     sha256: "12c9298681df0b7fa1f282fab91ba9af5f05f5a9ddcc16a3b51a5b9e9765436b",
-    labelCount: 120,
-    relatedCount: 0,
-    reviewStatuses: ["human-verified"],
+    labelCount: 79,
+    relatedCount: 41,
+    reviewStatuses: ["image-reviewed", "human-verified"],
     zoneIds: ["lounge", "boarding-podium", "podium-floor", "boarding-bridge", "aircraft-cabin", "airside-service"],
-    zoneSizes: [25, 20, 10, 25, 25, 15],
-    lodCounts: [12, 12, 33, 31, 32],
+    zoneSizes: [20, 14, 4, 16, 15, 10],
+    lodCounts: [10, 9, 22, 22, 16],
     sourceAsset: "scripts/assets/airport-boarding-gate-v1.png",
     sourceSha256: "18fc652ba8bc9a697d9afa6ca85b21f0728d0e20286484fa5902925d3f85ffc8",
     sourceWidth: 1_672,

@@ -9,20 +9,11 @@
   "parentId": "security-checkpoint",
   "visualRegions": [
     {
-      "id": "boarding-gate-region-terminal-gate-lounge",
-      "description": "Pixel-audited “terminal gate lounge” inside the Gate lounge crop of the airport photograph",
-      "kind": "part",
-      "x": 180,
-      "y": 430,
-      "width": 40,
-      "height": 40
-    },
-    {
       "id": "boarding-gate-region-lounge-seat",
       "description": "Pixel-audited “lounge seat” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 80,
-      "y": 530,
+      "x": 101,
+      "y": 590,
       "width": 40,
       "height": 40
     },
@@ -30,8 +21,8 @@
       "id": "boarding-gate-region-lounge-armrest",
       "description": "Pixel-audited “lounge armrest” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 130,
-      "y": 530,
+      "x": 83,
+      "y": 656,
       "width": 40,
       "height": 40
     },
@@ -39,17 +30,8 @@
       "id": "boarding-gate-region-lounge-seat-leg",
       "description": "Pixel-audited “lounge seat leg” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 100,
-      "y": 600,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-lounge-seat-bracket",
-      "description": "Pixel-audited “lounge seat bracket” inside the Gate lounge crop of the airport photograph",
-      "kind": "part",
-      "x": 130,
-      "y": 600,
+      "x": 34,
+      "y": 802,
       "width": 40,
       "height": 40
     },
@@ -57,35 +39,8 @@
       "id": "boarding-gate-region-lounge-seat-cushion",
       "description": "Pixel-audited “lounge seat cushion” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 80,
-      "y": 480,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-overhead-luggage-shelf",
-      "description": "Pixel-audited “overhead luggage shelf” inside the Gate lounge crop of the airport photograph",
-      "kind": "part",
-      "x": 330,
-      "y": 100,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-lounge-side-table",
-      "description": "Pixel-audited “lounge side table” inside the Gate lounge crop of the airport photograph",
-      "kind": "part",
-      "x": 240,
-      "y": 480,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-gate-charging-shelf",
-      "description": "Pixel-audited “gate charging shelf” inside the Gate lounge crop of the airport photograph",
-      "kind": "part",
-      "x": 280,
-      "y": 580,
+      "x": 49,
+      "y": 695,
       "width": 40,
       "height": 40
     },
@@ -111,8 +66,8 @@
       "id": "boarding-gate-region-gate-wall-clock",
       "description": "Pixel-audited “gate wall clock” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 160,
-      "y": 180,
+      "x": 295,
+      "y": 193,
       "width": 40,
       "height": 40
     },
@@ -120,8 +75,8 @@
       "id": "boarding-gate-region-gate-planter",
       "description": "Pixel-audited “gate planter” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 80,
-      "y": 380,
+      "x": 168,
+      "y": 449,
       "width": 40,
       "height": 40
     },
@@ -129,8 +84,8 @@
       "id": "boarding-gate-region-gate-waste-bin",
       "description": "Pixel-audited “gate waste bin” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 400,
-      "y": 410,
+      "x": 223,
+      "y": 438,
       "width": 40,
       "height": 40
     },
@@ -138,8 +93,8 @@
       "id": "boarding-gate-region-gate-water-fountain",
       "description": "Pixel-audited “gate water fountain” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 410,
-      "y": 280,
+      "x": 287,
+      "y": 395,
       "width": 40,
       "height": 40
     },
@@ -147,8 +102,8 @@
       "id": "boarding-gate-region-blank-gate-display",
       "description": "Pixel-audited “blank gate display” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 330,
-      "y": 230,
+      "x": 446,
+      "y": 195,
       "width": 40,
       "height": 40
     },
@@ -156,8 +111,8 @@
       "id": "boarding-gate-region-gate-display-bezel",
       "description": "Pixel-audited “gate display bezel” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 330,
-      "y": 230,
+      "x": 503,
+      "y": 191,
       "width": 40,
       "height": 40
     },
@@ -165,8 +120,8 @@
       "id": "boarding-gate-region-lounge-window-mullion",
       "description": "Pixel-audited “lounge window mullion” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 440,
-      "y": 160,
+      "x": 70,
+      "y": 275,
       "width": 40,
       "height": 40
     },
@@ -174,8 +129,8 @@
       "id": "boarding-gate-region-lounge-floor-tile",
       "description": "Pixel-audited “lounge floor tile” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 230,
-      "y": 780,
+      "x": 395,
+      "y": 817,
       "width": 40,
       "height": 40
     },
@@ -183,8 +138,8 @@
       "id": "boarding-gate-region-carpet-runner",
       "description": "Pixel-audited “carpet runner” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 180,
-      "y": 680,
+      "x": 302,
+      "y": 655,
       "width": 40,
       "height": 40
     },
@@ -192,8 +147,8 @@
       "id": "boarding-gate-region-lounge-floor-seam",
       "description": "Pixel-audited “lounge floor seam” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 280,
-      "y": 800,
+      "x": 441,
+      "y": 706,
       "width": 40,
       "height": 40
     },
@@ -201,8 +156,8 @@
       "id": "boarding-gate-region-gate-lighting-strip",
       "description": "Pixel-audited “gate lighting strip” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 330,
-      "y": 50,
+      "x": 685,
+      "y": 1,
       "width": 40,
       "height": 40
     },
@@ -210,8 +165,8 @@
       "id": "boarding-gate-region-seating-row",
       "description": "Pixel-audited “seating row” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 130,
-      "y": 530,
+      "x": 64,
+      "y": 452,
       "width": 40,
       "height": 40
     },
@@ -219,8 +174,8 @@
       "id": "boarding-gate-region-seat-pedestal",
       "description": "Pixel-audited “seat pedestal” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 120,
-      "y": 630,
+      "x": 82,
+      "y": 742,
       "width": 40,
       "height": 40
     },
@@ -228,8 +183,8 @@
       "id": "boarding-gate-region-lounge-seat-frame",
       "description": "Pixel-audited “lounge seat frame” inside the Gate lounge crop of the airport photograph",
       "kind": "part",
-      "x": 100,
-      "y": 580,
+      "x": 206,
+      "y": 688,
       "width": 40,
       "height": 40
     },
@@ -237,8 +192,8 @@
       "id": "boarding-gate-region-boarding-gate-podium",
       "description": "Pixel-audited “boarding gate podium” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 560,
-      "y": 280,
+      "x": 447,
+      "y": 515,
       "width": 40,
       "height": 40
     },
@@ -246,8 +201,8 @@
       "id": "boarding-gate-region-gate-boarding-reader",
       "description": "Pixel-audited “gate boarding reader” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 630,
-      "y": 280,
+      "x": 650,
+      "y": 426,
       "width": 40,
       "height": 40
     },
@@ -255,26 +210,8 @@
       "id": "boarding-gate-region-reader-stand",
       "description": "Pixel-audited “reader stand” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 630,
-      "y": 330,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-podium-monitor-housing",
-      "description": "Pixel-audited “podium monitor housing” inside the Boarding podium crop of the airport photograph",
-      "kind": "part",
-      "x": 560,
-      "y": 230,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-podium-keyboard-deck",
-      "description": "Pixel-audited “podium keyboard deck” inside the Boarding podium crop of the airport photograph",
-      "kind": "part",
-      "x": 560,
-      "y": 310,
+      "x": 520,
+      "y": 475,
       "width": 40,
       "height": 40
     },
@@ -282,8 +219,8 @@
       "id": "boarding-gate-region-podium-microphone",
       "description": "Pixel-audited “podium microphone” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 580,
-      "y": 200,
+      "x": 504,
+      "y": 332,
       "width": 40,
       "height": 40
     },
@@ -291,8 +228,8 @@
       "id": "boarding-gate-region-podium-shelf",
       "description": "Pixel-audited “podium shelf” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 550,
-      "y": 360,
+      "x": 460,
+      "y": 437,
       "width": 40,
       "height": 40
     },
@@ -300,8 +237,8 @@
       "id": "boarding-gate-region-gate-stanchion",
       "description": "Pixel-audited “gate stanchion” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 780,
-      "y": 330,
+      "x": 560,
+      "y": 579,
       "width": 40,
       "height": 40
     },
@@ -309,8 +246,8 @@
       "id": "boarding-gate-region-gate-belt-strap",
       "description": "Pixel-audited “gate belt strap” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 740,
-      "y": 330,
+      "x": 485,
+      "y": 490,
       "width": 40,
       "height": 40
     },
@@ -318,8 +255,8 @@
       "id": "boarding-gate-region-boarding-gate-barrier-foot",
       "description": "Pixel-audited “boarding gate barrier foot” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 780,
-      "y": 380,
+      "x": 551,
+      "y": 730,
       "width": 40,
       "height": 40
     },
@@ -327,8 +264,8 @@
       "id": "boarding-gate-region-self-boarding-gate",
       "description": "Pixel-audited “self-boarding gate” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 680,
-      "y": 280,
+      "x": 542,
+      "y": 448,
       "width": 40,
       "height": 40
     },
@@ -336,8 +273,8 @@
       "id": "boarding-gate-region-gate-glass-panel",
       "description": "Pixel-audited “gate glass panel” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 720,
-      "y": 300,
+      "x": 732,
+      "y": 528,
       "width": 40,
       "height": 40
     },
@@ -345,8 +282,8 @@
       "id": "boarding-gate-region-gate-access-pedestal",
       "description": "Pixel-audited “gate access pedestal” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 760,
-      "y": 280,
+      "x": 665,
+      "y": 584,
       "width": 40,
       "height": 40
     },
@@ -354,17 +291,8 @@
       "id": "boarding-gate-region-boarding-reader-bezel",
       "description": "Pixel-audited “boarding reader bezel” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 630,
-      "y": 280,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-gate-latch-plate",
-      "description": "Pixel-audited “gate latch plate” inside the Boarding podium crop of the airport photograph",
-      "kind": "part",
-      "x": 720,
-      "y": 320,
+      "x": 669,
+      "y": 420,
       "width": 40,
       "height": 40
     },
@@ -372,8 +300,8 @@
       "id": "boarding-gate-region-podium-screen-frame",
       "description": "Pixel-audited “podium screen frame” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 560,
-      "y": 230,
+      "x": 414,
+      "y": 341,
       "width": 40,
       "height": 40
     },
@@ -381,26 +309,8 @@
       "id": "boarding-gate-region-gate-queue-post",
       "description": "Pixel-audited “gate queue post” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 780,
-      "y": 330,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-boarding-podium-pass-slot",
-      "description": "Pixel-audited “boarding podium pass slot” inside the Boarding podium crop of the airport photograph",
-      "kind": "part",
-      "x": 630,
-      "y": 300,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-podium-cable-cover",
-      "description": "Pixel-audited “podium cable cover” inside the Boarding podium crop of the airport photograph",
-      "kind": "part",
-      "x": 580,
-      "y": 360,
+      "x": 395,
+      "y": 553,
       "width": 40,
       "height": 40
     },
@@ -408,8 +318,8 @@
       "id": "boarding-gate-region-podium-foot",
       "description": "Pixel-audited “podium foot” inside the Boarding podium crop of the airport photograph",
       "kind": "part",
-      "x": 560,
-      "y": 390,
+      "x": 448,
+      "y": 589,
       "width": 40,
       "height": 40
     },
@@ -417,53 +327,8 @@
       "id": "boarding-gate-region-gate-floor-stripe",
       "description": "Pixel-audited “gate floor stripe” inside the Gate floor and access lane crop of the airport photograph",
       "kind": "part",
-      "x": 630,
-      "y": 580,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-gate-queue-mat",
-      "description": "Pixel-audited “gate queue mat” inside the Gate floor and access lane crop of the airport photograph",
-      "kind": "part",
-      "x": 580,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-podium-drawer",
-      "description": "Pixel-audited “podium drawer” inside the Gate floor and access lane crop of the airport photograph",
-      "kind": "part",
-      "x": 560,
-      "y": 480,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-podium-wheel",
-      "description": "Pixel-audited “podium wheel” inside the Gate floor and access lane crop of the airport photograph",
-      "kind": "part",
-      "x": 560,
-      "y": 500,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-gate-barrier-rail",
-      "description": "Pixel-audited “gate barrier rail” inside the Gate floor and access lane crop of the airport photograph",
-      "kind": "part",
-      "x": 760,
-      "y": 580,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-reader-cable",
-      "description": "Pixel-audited “reader cable” inside the Gate floor and access lane crop of the airport photograph",
-      "kind": "part",
-      "x": 640,
-      "y": 480,
+      "x": 775,
+      "y": 788,
       "width": 40,
       "height": 40
     },
@@ -477,29 +342,11 @@
       "height": 40
     },
     {
-      "id": "boarding-gate-region-boarding-mat",
-      "description": "Pixel-audited “boarding mat” inside the Gate floor and access lane crop of the airport photograph",
-      "kind": "part",
-      "x": 630,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
       "id": "boarding-gate-region-gate-footplate",
       "description": "Pixel-audited “gate footplate” inside the Gate floor and access lane crop of the airport photograph",
       "kind": "part",
-      "x": 780,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-podium-side-panel",
-      "description": "Pixel-audited “podium side panel” inside the Gate floor and access lane crop of the airport photograph",
-      "kind": "part",
-      "x": 560,
-      "y": 530,
+      "x": 773,
+      "y": 631,
       "width": 40,
       "height": 40
     },
@@ -513,20 +360,11 @@
       "height": 40
     },
     {
-      "id": "boarding-gate-region-terminal-rotunda",
-      "description": "Pixel-audited “terminal rotunda” inside the Passenger boarding bridge crop of the airport photograph",
-      "kind": "part",
-      "x": 890,
-      "y": 220,
-      "width": 40,
-      "height": 40
-    },
-    {
       "id": "boarding-gate-region-bridge-support-column",
       "description": "Pixel-audited “bridge support column” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 880,
-      "y": 480,
+      "x": 1093,
+      "y": 533,
       "width": 40,
       "height": 40
     },
@@ -534,8 +372,8 @@
       "id": "boarding-gate-region-bridge-tunnel-corridor",
       "description": "Pixel-audited “bridge tunnel corridor” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 1010,
-      "y": 280,
+      "x": 937,
+      "y": 463,
       "width": 40,
       "height": 40
     },
@@ -543,8 +381,8 @@
       "id": "boarding-gate-region-bridge-floor-joint",
       "description": "Pixel-audited “bridge floor joint” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 1030,
-      "y": 680,
+      "x": 858,
+      "y": 533,
       "width": 40,
       "height": 40
     },
@@ -552,8 +390,8 @@
       "id": "boarding-gate-region-boarding-bridge-handrail",
       "description": "Pixel-audited “boarding bridge handrail” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 980,
-      "y": 430,
+      "x": 866,
+      "y": 363,
       "width": 40,
       "height": 40
     },
@@ -570,8 +408,8 @@
       "id": "boarding-gate-region-bridge-ceiling-light",
       "description": "Pixel-audited “bridge ceiling light” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 980,
-      "y": 80,
+      "x": 925,
+      "y": 194,
       "width": 40,
       "height": 40
     },
@@ -579,17 +417,8 @@
       "id": "boarding-gate-region-bridge-bellows",
       "description": "Pixel-audited “bridge bellows” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 1150,
-      "y": 260,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-aircraft-end-rotunda",
-      "description": "Pixel-audited “aircraft-end rotunda” inside the Passenger boarding bridge crop of the airport photograph",
-      "kind": "part",
-      "x": 1160,
-      "y": 280,
+      "x": 1104,
+      "y": 136,
       "width": 40,
       "height": 40
     },
@@ -597,8 +426,8 @@
       "id": "boarding-gate-region-boarding-bridge-window",
       "description": "Pixel-audited “boarding bridge window” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 980,
-      "y": 230,
+      "x": 862,
+      "y": 322,
       "width": 40,
       "height": 40
     },
@@ -606,8 +435,8 @@
       "id": "boarding-gate-region-boarding-bridge-door",
       "description": "Pixel-audited “boarding bridge door” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 880,
-      "y": 200,
+      "x": 974,
+      "y": 323,
       "width": 40,
       "height": 40
     },
@@ -615,17 +444,8 @@
       "id": "boarding-gate-region-bridge-threshold",
       "description": "Pixel-audited “bridge threshold” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 880,
-      "y": 400,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-bridge-guide-rail",
-      "description": "Pixel-audited “bridge guide rail” inside the Passenger boarding bridge crop of the airport photograph",
-      "kind": "part",
-      "x": 1030,
-      "y": 480,
+      "x": 882,
+      "y": 554,
       "width": 40,
       "height": 40
     },
@@ -639,20 +459,11 @@
       "height": 40
     },
     {
-      "id": "boarding-gate-region-bridge-emergency-door",
-      "description": "Pixel-audited “bridge emergency door” inside the Passenger boarding bridge crop of the airport photograph",
-      "kind": "part",
-      "x": 860,
-      "y": 630,
-      "width": 40,
-      "height": 40
-    },
-    {
       "id": "boarding-gate-region-bridge-floor-mat",
       "description": "Pixel-audited “bridge floor mat” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 980,
-      "y": 580,
+      "x": 845,
+      "y": 515,
       "width": 40,
       "height": 40
     },
@@ -660,8 +471,8 @@
       "id": "boarding-gate-region-bridge-wall-panel",
       "description": "Pixel-audited “bridge wall panel” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 1060,
-      "y": 330,
+      "x": 934,
+      "y": 107,
       "width": 40,
       "height": 40
     },
@@ -669,53 +480,8 @@
       "id": "boarding-gate-region-bridge-window-mullion",
       "description": "Pixel-audited “bridge window mullion” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 1030,
-      "y": 230,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-bridge-door-hinge",
-      "description": "Pixel-audited “bridge door hinge” inside the Passenger boarding bridge crop of the airport photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 210,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-passenger-bridge-door-seal",
-      "description": "Pixel-audited “passenger bridge door seal” inside the Passenger boarding bridge crop of the airport photograph",
-      "kind": "part",
-      "x": 880,
-      "y": 230,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-bridge-ceiling-baffle",
-      "description": "Pixel-audited “bridge ceiling baffle” inside the Passenger boarding bridge crop of the airport photograph",
-      "kind": "part",
-      "x": 930,
-      "y": 80,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-bridge-pivot-cover",
-      "description": "Pixel-audited “bridge pivot cover” inside the Passenger boarding bridge crop of the airport photograph",
-      "kind": "part",
-      "x": 910,
-      "y": 200,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-rotunda-handrail",
-      "description": "Pixel-audited “rotunda handrail” inside the Passenger boarding bridge crop of the airport photograph",
-      "kind": "part",
-      "x": 1100,
-      "y": 380,
+      "x": 833,
+      "y": 325,
       "width": 40,
       "height": 40
     },
@@ -723,8 +489,8 @@
       "id": "boarding-gate-region-bridge-sill",
       "description": "Pixel-audited “bridge sill” inside the Passenger boarding bridge crop of the airport photograph",
       "kind": "part",
-      "x": 980,
-      "y": 400,
+      "x": 862,
+      "y": 427,
       "width": 40,
       "height": 40
     },
@@ -741,8 +507,8 @@
       "id": "boarding-gate-region-aircraft-door-frame",
       "description": "Pixel-audited “aircraft door frame” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1280,
-      "y": 230,
+      "x": 1456,
+      "y": 258,
       "width": 40,
       "height": 40
     },
@@ -750,8 +516,8 @@
       "id": "boarding-gate-region-aircraft-door-handle",
       "description": "Pixel-audited “aircraft door handle” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1260,
-      "y": 310,
+      "x": 1131,
+      "y": 322,
       "width": 40,
       "height": 40
     },
@@ -759,8 +525,8 @@
       "id": "boarding-gate-region-aircraft-door-sill",
       "description": "Pixel-audited “aircraft door sill” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1280,
-      "y": 400,
+      "x": 1335,
+      "y": 463,
       "width": 40,
       "height": 40
     },
@@ -768,8 +534,8 @@
       "id": "boarding-gate-region-aircraft-door-seal",
       "description": "Pixel-audited “aircraft door seal” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1300,
-      "y": 230,
+      "x": 1447,
+      "y": 289,
       "width": 40,
       "height": 40
     },
@@ -777,8 +543,8 @@
       "id": "boarding-gate-region-aircraft-handrail",
       "description": "Pixel-audited “aircraft handrail” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1250,
-      "y": 320,
+      "x": 1435,
+      "y": 349,
       "width": 40,
       "height": 40
     },
@@ -786,8 +552,8 @@
       "id": "boarding-gate-region-aircraft-galley-curtain",
       "description": "Pixel-audited “aircraft galley curtain” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1430,
-      "y": 280,
+      "x": 1365,
+      "y": 309,
       "width": 40,
       "height": 40
     },
@@ -795,8 +561,8 @@
       "id": "boarding-gate-region-cabin-aisle",
       "description": "Pixel-audited “cabin aisle” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1450,
-      "y": 480,
+      "x": 1366,
+      "y": 444,
       "width": 40,
       "height": 40
     },
@@ -804,17 +570,8 @@
       "id": "boarding-gate-region-cabin-seat-row",
       "description": "Pixel-audited “cabin seat row” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1480,
-      "y": 430,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-cabin-seat-shell",
-      "description": "Pixel-audited “cabin seat shell” inside the Aircraft doorway and cabin crop of the airport photograph",
-      "kind": "part",
-      "x": 1510,
-      "y": 430,
+      "x": 1329,
+      "y": 327,
       "width": 40,
       "height": 40
     },
@@ -822,26 +579,8 @@
       "id": "boarding-gate-region-cabin-seat-cushion",
       "description": "Pixel-audited “cabin seat cushion” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1510,
-      "y": 480,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-aircraft-seatback-pocket",
-      "description": "Pixel-audited “aircraft seatback pocket” inside the Aircraft doorway and cabin crop of the airport photograph",
-      "kind": "part",
-      "x": 1510,
-      "y": 510,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-aircraft-tray-table",
-      "description": "Pixel-audited “aircraft tray table” inside the Aircraft doorway and cabin crop of the airport photograph",
-      "kind": "part",
-      "x": 1490,
-      "y": 500,
+      "x": 1288,
+      "y": 376,
       "width": 40,
       "height": 40
     },
@@ -849,8 +588,8 @@
       "id": "boarding-gate-region-aircraft-armrest",
       "description": "Pixel-audited “aircraft armrest” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1520,
-      "y": 480,
+      "x": 1314,
+      "y": 358,
       "width": 40,
       "height": 40
     },
@@ -858,35 +597,8 @@
       "id": "boarding-gate-region-aircraft-overhead-bin",
       "description": "Pixel-audited “aircraft overhead bin” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1480,
-      "y": 160,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-aircraft-reading-light",
-      "description": "Pixel-audited “aircraft reading light” inside the Aircraft doorway and cabin crop of the airport photograph",
-      "kind": "part",
-      "x": 1460,
-      "y": 140,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-cabin-air-vent-nozzle",
-      "description": "Pixel-audited “cabin air vent nozzle” inside the Aircraft doorway and cabin crop of the airport photograph",
-      "kind": "part",
-      "x": 1440,
-      "y": 150,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-cabin-window-shade",
-      "description": "Pixel-audited “cabin window shade” inside the Aircraft doorway and cabin crop of the airport photograph",
-      "kind": "part",
-      "x": 1480,
-      "y": 230,
+      "x": 1319,
+      "y": 229,
       "width": 40,
       "height": 40
     },
@@ -894,8 +606,8 @@
       "id": "boarding-gate-region-cabin-window",
       "description": "Pixel-audited “cabin window” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1520,
-      "y": 230,
+      "x": 1313,
+      "y": 300,
       "width": 40,
       "height": 40
     },
@@ -903,44 +615,8 @@
       "id": "boarding-gate-region-cabin-wall-panel",
       "description": "Pixel-audited “cabin wall panel” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1430,
-      "y": 240,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-aircraft-lavatory-door",
-      "description": "Pixel-audited “aircraft lavatory door” inside the Aircraft doorway and cabin crop of the airport photograph",
-      "kind": "part",
-      "x": 1360,
-      "y": 530,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-cabin-service-cart",
-      "description": "Pixel-audited “cabin service cart” inside the Aircraft doorway and cabin crop of the airport photograph",
-      "kind": "part",
-      "x": 1380,
-      "y": 500,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-aircraft-luggage-compartment",
-      "description": "Pixel-audited “aircraft luggage compartment” inside the Aircraft doorway and cabin crop of the airport photograph",
-      "kind": "part",
-      "x": 1230,
-      "y": 480,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-aircraft-door-latch",
-      "description": "Pixel-audited “aircraft door latch” inside the Aircraft doorway and cabin crop of the airport photograph",
-      "kind": "part",
-      "x": 1290,
-      "y": 310,
+      "x": 1322,
+      "y": 281,
       "width": 40,
       "height": 40
     },
@@ -948,8 +624,8 @@
       "id": "boarding-gate-region-aircraft-threshold-strip",
       "description": "Pixel-audited “aircraft threshold strip” inside the Aircraft doorway and cabin crop of the airport photograph",
       "kind": "part",
-      "x": 1280,
-      "y": 410,
+      "x": 1400,
+      "y": 469,
       "width": 40,
       "height": 40
     },
@@ -957,8 +633,8 @@
       "id": "boarding-gate-region-apron-paving",
       "description": "Pixel-audited “apron paving” inside the Airside service edge crop of the airport photograph",
       "kind": "part",
-      "x": 1480,
-      "y": 780,
+      "x": 1202,
+      "y": 817,
       "width": 40,
       "height": 40
     },
@@ -966,8 +642,8 @@
       "id": "boarding-gate-region-airside-safety-line",
       "description": "Pixel-audited “airside safety line” inside the Airside service edge crop of the airport photograph",
       "kind": "part",
-      "x": 1430,
-      "y": 680,
+      "x": 1233,
+      "y": 794,
       "width": 40,
       "height": 40
     },
@@ -975,8 +651,8 @@
       "id": "boarding-gate-region-airside-wheel-chock",
       "description": "Pixel-audited “airside wheel chock” inside the Airside service edge crop of the airport photograph",
       "kind": "part",
-      "x": 1300,
-      "y": 680,
+      "x": 1131,
+      "y": 623,
       "width": 40,
       "height": 40
     },
@@ -990,20 +666,11 @@
       "height": 40
     },
     {
-      "id": "boarding-gate-region-service-stair",
-      "description": "Pixel-audited “service stair” inside the Airside service edge crop of the airport photograph",
-      "kind": "part",
-      "x": 1200,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
       "id": "boarding-gate-region-ground-power-cable",
       "description": "Pixel-audited “ground-power cable” inside the Airside service edge crop of the airport photograph",
       "kind": "part",
-      "x": 1330,
-      "y": 730,
+      "x": 1184,
+      "y": 530,
       "width": 40,
       "height": 40
     },
@@ -1011,17 +678,8 @@
       "id": "boarding-gate-region-airside-cone",
       "description": "Pixel-audited “airside cone” inside the Airside service edge crop of the airport photograph",
       "kind": "part",
-      "x": 1430,
-      "y": 760,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-airside-bollard",
-      "description": "Pixel-audited “airside bollard” inside the Airside service edge crop of the airport photograph",
-      "kind": "part",
-      "x": 1530,
-      "y": 630,
+      "x": 1192,
+      "y": 723,
       "width": 40,
       "height": 40
     },
@@ -1029,26 +687,8 @@
       "id": "boarding-gate-region-jet-bridge-safety-rail",
       "description": "Pixel-audited “jet-bridge safety rail” inside the Airside service edge crop of the airport photograph",
       "kind": "part",
-      "x": 1280,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-airside-drainage-channel",
-      "description": "Pixel-audited “airside drainage channel” inside the Airside service edge crop of the airport photograph",
-      "kind": "part",
-      "x": 1480,
-      "y": 860,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-aircraft-side-light",
-      "description": "Pixel-audited “aircraft-side light” inside the Airside service edge crop of the airport photograph",
-      "kind": "part",
-      "x": 1230,
-      "y": 580,
+      "x": 1007,
+      "y": 697,
       "width": 40,
       "height": 40
     },
@@ -1056,8 +696,8 @@
       "id": "boarding-gate-region-service-cart-wheel",
       "description": "Pixel-audited “service cart wheel” inside the Airside service edge crop of the airport photograph",
       "kind": "part",
-      "x": 1380,
-      "y": 700,
+      "x": 1382,
+      "y": 788,
       "width": 40,
       "height": 40
     },
@@ -1065,17 +705,8 @@
       "id": "boarding-gate-region-ground-unit-wheel",
       "description": "Pixel-audited “ground-unit wheel” inside the Airside service edge crop of the airport photograph",
       "kind": "part",
-      "x": 1480,
-      "y": 680,
-      "width": 40,
-      "height": 40
-    },
-    {
-      "id": "boarding-gate-region-aircraft-step",
-      "description": "Pixel-audited “aircraft step” inside the Airside service edge crop of the airport photograph",
-      "kind": "part",
-      "x": 1230,
-      "y": 630,
+      "x": 1319,
+      "y": 722,
       "width": 40,
       "height": 40
     },
@@ -1083,8 +714,8 @@
       "id": "boarding-gate-region-aircraft-fuselage-panel",
       "description": "Pixel-audited “aircraft fuselage panel” inside the Airside service edge crop of the airport photograph",
       "kind": "part",
-      "x": 1480,
-      "y": 580,
+      "x": 1508,
+      "y": 455,
       "width": 40,
       "height": 40
     },
@@ -1092,10 +723,10 @@
       "id": "portal-passenger-boarding-bridge",
       "description": "Open boarding-bridge corridor entrance between the gate lounge and aircraft-side bridge",
       "kind": "object",
-      "x": 795,
-      "y": 195,
-      "width": 218,
-      "height": 330
+      "x": 885,
+      "y": 521,
+      "width": 60,
+      "height": 30
     }
   ],
   "detailZones": [
@@ -1103,22 +734,17 @@
       "id": "boarding-gate-zone-lounge",
       "title": "Gate lounge",
       "translation": "登机候机区",
-      "description": "Explore the lounge seats, charging shelf, blank display and finish details.",
+      "description": "The seating rows face the wall clock, blank display, drinking fountain and waste bin.",
       "x": 0,
       "y": 0,
-      "width": 500,
+      "width": 713,
       "height": 900,
       "targetScale": 3.15,
       "labelIds": [
-        "boarding-gate-terminal-gate-lounge",
         "boarding-gate-lounge-seat",
         "boarding-gate-lounge-armrest",
         "boarding-gate-lounge-seat-leg",
-        "boarding-gate-lounge-seat-bracket",
         "boarding-gate-lounge-seat-cushion",
-        "boarding-gate-overhead-luggage-shelf",
-        "boarding-gate-lounge-side-table",
-        "boarding-gate-gate-charging-shelf",
         "boarding-gate-gate-wall-panel",
         "boarding-gate-gate-acoustic-baffle",
         "boarding-gate-gate-wall-clock",
@@ -1141,18 +767,16 @@
       "id": "boarding-gate-zone-boarding-podium",
       "title": "Boarding podium",
       "translation": "登机台",
-      "description": "Inspect the boarding podium, reader stand, glass gate and queue hardware.",
-      "x": 500,
+      "description": "The counter, microphone, readers, glass gate and retractable belt occupy the gate lane.",
+      "x": 407,
       "y": 0,
-      "width": 350,
-      "height": 450,
+      "width": 443,
+      "height": 758,
       "targetScale": 3.15,
       "labelIds": [
         "boarding-gate-boarding-gate-podium",
         "boarding-gate-gate-boarding-reader",
         "boarding-gate-reader-stand",
-        "boarding-gate-podium-monitor-housing",
-        "boarding-gate-podium-keyboard-deck",
         "boarding-gate-podium-microphone",
         "boarding-gate-podium-shelf",
         "boarding-gate-gate-stanchion",
@@ -1162,50 +786,39 @@
         "boarding-gate-gate-glass-panel",
         "boarding-gate-gate-access-pedestal",
         "boarding-gate-boarding-reader-bezel",
-        "boarding-gate-gate-latch-plate",
         "boarding-gate-podium-screen-frame",
-        "boarding-gate-gate-queue-post",
-        "boarding-gate-boarding-podium-pass-slot",
-        "boarding-gate-podium-cable-cover",
-        "boarding-gate-podium-foot"
+        "boarding-gate-gate-queue-post"
       ]
     },
     {
       "id": "boarding-gate-zone-podium-floor",
       "title": "Gate floor and access lane",
       "translation": "登机区地面与通道",
-      "description": "Follow the access lane, mats, floor joints and podium base hardware.",
-      "x": 500,
+      "description": "The metal podium base and glass post foot stand beside the floor stripe and tile joint.",
+      "x": 460,
       "y": 450,
-      "width": 350,
+      "width": 390,
       "height": 450,
       "targetScale": 3.15,
       "labelIds": [
+        "boarding-gate-podium-foot",
         "boarding-gate-gate-floor-stripe",
-        "boarding-gate-gate-queue-mat",
-        "boarding-gate-podium-drawer",
-        "boarding-gate-podium-wheel",
-        "boarding-gate-gate-barrier-rail",
-        "boarding-gate-reader-cable",
         "boarding-gate-gate-floor-joint",
-        "boarding-gate-boarding-mat",
-        "boarding-gate-gate-footplate",
-        "boarding-gate-podium-side-panel"
+        "boarding-gate-gate-footplate"
       ]
     },
     {
       "id": "boarding-gate-zone-boarding-bridge",
       "title": "Passenger boarding bridge",
       "translation": "旅客登机廊桥",
-      "description": "Study the rotunda, bridge tunnel, bellows, rails, windows and service doors.",
-      "x": 850,
+      "description": "The glazed corridor leads past its rail and threshold to the bellows and support wheel.",
+      "x": 845,
       "y": 0,
-      "width": 350,
+      "width": 355,
       "height": 900,
       "targetScale": 3.15,
       "labelIds": [
         "boarding-gate-passenger-boarding-bridge",
-        "boarding-gate-terminal-rotunda",
         "boarding-gate-bridge-support-column",
         "boarding-gate-bridge-tunnel-corridor",
         "boarding-gate-bridge-floor-joint",
@@ -1213,21 +826,13 @@
         "boarding-gate-bridge-sidewall",
         "boarding-gate-bridge-ceiling-light",
         "boarding-gate-bridge-bellows",
-        "boarding-gate-aircraft-end-rotunda",
         "boarding-gate-boarding-bridge-window",
         "boarding-gate-boarding-bridge-door",
         "boarding-gate-bridge-threshold",
-        "boarding-gate-bridge-guide-rail",
         "boarding-gate-bridge-support-wheel",
-        "boarding-gate-bridge-emergency-door",
         "boarding-gate-bridge-floor-mat",
         "boarding-gate-bridge-wall-panel",
         "boarding-gate-bridge-window-mullion",
-        "boarding-gate-bridge-door-hinge",
-        "boarding-gate-passenger-bridge-door-seal",
-        "boarding-gate-bridge-ceiling-baffle",
-        "boarding-gate-bridge-pivot-cover",
-        "boarding-gate-rotunda-handrail",
         "boarding-gate-bridge-sill"
       ]
     },
@@ -1235,10 +840,10 @@
       "id": "boarding-gate-zone-aircraft-cabin",
       "title": "Aircraft doorway and cabin",
       "translation": "飞机舱门与客舱",
-      "description": "Inspect the aircraft doorway, cabin seats, overhead storage and service fittings.",
-      "x": 1200,
+      "description": "The open aircraft door reveals the curtain, cabin windows, seats and overhead bins.",
+      "x": 1143,
       "y": 0,
-      "width": 400,
+      "width": 457,
       "height": 550,
       "targetScale": 3.15,
       "labelIds": [
@@ -1251,21 +856,11 @@
         "boarding-gate-aircraft-galley-curtain",
         "boarding-gate-cabin-aisle",
         "boarding-gate-cabin-seat-row",
-        "boarding-gate-cabin-seat-shell",
         "boarding-gate-cabin-seat-cushion",
-        "boarding-gate-aircraft-seatback-pocket",
-        "boarding-gate-aircraft-tray-table",
         "boarding-gate-aircraft-armrest",
         "boarding-gate-aircraft-overhead-bin",
-        "boarding-gate-aircraft-reading-light",
-        "boarding-gate-cabin-air-vent-nozzle",
-        "boarding-gate-cabin-window-shade",
         "boarding-gate-cabin-window",
         "boarding-gate-cabin-wall-panel",
-        "boarding-gate-aircraft-lavatory-door",
-        "boarding-gate-cabin-service-cart",
-        "boarding-gate-aircraft-luggage-compartment",
-        "boarding-gate-aircraft-door-latch",
         "boarding-gate-aircraft-threshold-strip"
       ]
     },
@@ -1273,66 +868,49 @@
       "id": "boarding-gate-zone-airside-service",
       "title": "Airside service edge",
       "translation": "机坪服务边缘",
-      "description": "Follow the apron paving, safety line, service carts, cable and ground equipment.",
-      "x": 1200,
-      "y": 550,
-      "width": 400,
-      "height": 350,
+      "description": "The cone, wheel chock, ground equipment and marked pavement sit below the aircraft.",
+      "x": 1019,
+      "y": 467,
+      "width": 581,
+      "height": 433,
       "targetScale": 3.15,
       "labelIds": [
         "boarding-gate-apron-paving",
         "boarding-gate-airside-safety-line",
         "boarding-gate-airside-wheel-chock",
         "boarding-gate-airside-baggage-cart",
-        "boarding-gate-service-stair",
         "boarding-gate-ground-power-cable",
         "boarding-gate-airside-cone",
-        "boarding-gate-airside-bollard",
         "boarding-gate-jet-bridge-safety-rail",
-        "boarding-gate-airside-drainage-channel",
-        "boarding-gate-aircraft-side-light",
         "boarding-gate-service-cart-wheel",
         "boarding-gate-ground-unit-wheel",
-        "boarding-gate-aircraft-step",
         "boarding-gate-aircraft-fuselage-panel"
       ]
     }
   ],
   "anchorAudit": {
-    "status": "human-verified",
+    "status": "image-reviewed",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/airport-boarding-gate-premium-v1.jpg",
     "reviewedAssetSha256": "12c9298681df0b7fa1f282fab91ba9af5f05f5a9ddcc16a3b51a5b9e9765436b",
-    "rationale": "The final 1600 by 900 boarding-gate photograph was inspected at source and output resolution. It retains 120 independently pointable lounge, podium, boarding-bridge, aircraft-cabin and airside service parts. Gate numbers, airline identity, passenger actions, flight status, hidden aircraft systems and operational claims were excluded.",
+    "rationale": "The clock, readers, queue posts, bridge interior, aircraft doorway and ground equipment were located on the released photograph. Unresolved shelf functions, hidden podium mechanisms, distant cabin fittings and earlier operational exclusions have no map points.",
     "previousLabelCount": 128,
-    "retainedLabelCount": 120,
-    "removedLabelCount": 8,
+    "retainedLabelCount": 79,
+    "removedLabelCount": 49,
     "removedExamples": [
-      "gate number",
-      "airline brand",
-      "boarding action",
-      "flight delay",
-      "passenger identity",
-      "aircraft control"
+      "gate charging shelf",
+      "boarding podium pass slot",
+      "cabin air vent nozzle",
+      "passenger identity"
     ]
   },
   "labels": [
     {
-      "id": "boarding-gate-terminal-gate-lounge",
-      "word": "terminal gate lounge",
-      "translation": "航站楼登机候机区",
-      "x": 200,
-      "y": 450,
-      "priority": 1,
-      "minLevel": 0,
-      "sourceVisualRegion": "boarding-gate-region-terminal-gate-lounge"
-    },
-    {
       "id": "boarding-gate-lounge-seat",
       "word": "lounge seat",
       "translation": "候机座椅",
-      "x": 100,
-      "y": 550,
+      "x": 121,
+      "y": 610,
       "priority": 1.001,
       "minLevel": 0,
       "sourceVisualRegion": "boarding-gate-region-lounge-seat"
@@ -1341,8 +919,8 @@
       "id": "boarding-gate-lounge-armrest",
       "word": "lounge armrest",
       "translation": "候机座椅扶手",
-      "x": 150,
-      "y": 550,
+      "x": 103,
+      "y": 676,
       "priority": 1.002,
       "minLevel": 1,
       "sourceVisualRegion": "boarding-gate-region-lounge-armrest"
@@ -1351,61 +929,21 @@
       "id": "boarding-gate-lounge-seat-leg",
       "word": "lounge seat leg",
       "translation": "候机座椅椅腿",
-      "x": 120,
-      "y": 620,
+      "x": 54,
+      "y": 822,
       "priority": 1.003,
       "minLevel": 1,
       "sourceVisualRegion": "boarding-gate-region-lounge-seat-leg"
     },
     {
-      "id": "boarding-gate-lounge-seat-bracket",
-      "word": "lounge seat bracket",
-      "translation": "候机座椅支架",
-      "x": 150,
-      "y": 620,
-      "priority": 1.004,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-lounge-seat-bracket"
-    },
-    {
       "id": "boarding-gate-lounge-seat-cushion",
       "word": "lounge seat cushion",
       "translation": "候机座椅坐垫",
-      "x": 100,
-      "y": 500,
+      "x": 69,
+      "y": 715,
       "priority": 1.005,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-lounge-seat-cushion"
-    },
-    {
-      "id": "boarding-gate-overhead-luggage-shelf",
-      "word": "overhead luggage shelf",
-      "translation": "头顶行李搁板",
-      "x": 350,
-      "y": 120,
-      "priority": 1.006,
-      "minLevel": 3,
-      "sourceVisualRegion": "boarding-gate-region-overhead-luggage-shelf"
-    },
-    {
-      "id": "boarding-gate-lounge-side-table",
-      "word": "lounge side table",
-      "translation": "候机边桌",
-      "x": 260,
-      "y": 500,
-      "priority": 1.007,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-lounge-side-table"
-    },
-    {
-      "id": "boarding-gate-gate-charging-shelf",
-      "word": "gate charging shelf",
-      "translation": "登机区充电搁板",
-      "x": 300,
-      "y": 600,
-      "priority": 1.008,
-      "minLevel": 2,
-      "sourceVisualRegion": "boarding-gate-region-gate-charging-shelf"
     },
     {
       "id": "boarding-gate-gate-wall-panel",
@@ -1431,18 +969,18 @@
       "id": "boarding-gate-gate-wall-clock",
       "word": "gate wall clock",
       "translation": "登机区挂钟",
-      "x": 180,
-      "y": 200,
-      "priority": 1.011,
-      "minLevel": 2,
+      "x": 315,
+      "y": 213,
+      "priority": 0.5,
+      "minLevel": 0,
       "sourceVisualRegion": "boarding-gate-region-gate-wall-clock"
     },
     {
       "id": "boarding-gate-gate-planter",
       "word": "gate planter",
       "translation": "登机区花盆",
-      "x": 100,
-      "y": 400,
+      "x": 188,
+      "y": 469,
       "priority": 1.012,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-gate-planter"
@@ -1451,8 +989,8 @@
       "id": "boarding-gate-gate-waste-bin",
       "word": "gate waste bin",
       "translation": "登机区垃圾桶",
-      "x": 420,
-      "y": 430,
+      "x": 243,
+      "y": 458,
       "priority": 1.013,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-gate-waste-bin"
@@ -1461,8 +999,8 @@
       "id": "boarding-gate-gate-water-fountain",
       "word": "gate water fountain",
       "translation": "登机区饮水机",
-      "x": 430,
-      "y": 300,
+      "x": 307,
+      "y": 415,
       "priority": 1.014,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-gate-water-fountain"
@@ -1471,8 +1009,8 @@
       "id": "boarding-gate-blank-gate-display",
       "word": "blank gate display",
       "translation": "空白登机屏",
-      "x": 350,
-      "y": 250,
+      "x": 466,
+      "y": 215,
       "priority": 1.015,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-blank-gate-display"
@@ -1481,8 +1019,8 @@
       "id": "boarding-gate-gate-display-bezel",
       "word": "gate display bezel",
       "translation": "登机屏边框",
-      "x": 350,
-      "y": 250,
+      "x": 523,
+      "y": 211,
       "priority": 1.016,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-gate-display-bezel"
@@ -1491,8 +1029,8 @@
       "id": "boarding-gate-lounge-window-mullion",
       "word": "lounge window mullion",
       "translation": "候机窗竖框",
-      "x": 460,
-      "y": 180,
+      "x": 90,
+      "y": 295,
       "priority": 1.017,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-lounge-window-mullion"
@@ -1501,8 +1039,8 @@
       "id": "boarding-gate-lounge-floor-tile",
       "word": "lounge floor tile",
       "translation": "候机区地砖",
-      "x": 250,
-      "y": 800,
+      "x": 415,
+      "y": 837,
       "priority": 1.018,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-lounge-floor-tile"
@@ -1511,8 +1049,8 @@
       "id": "boarding-gate-carpet-runner",
       "word": "carpet runner",
       "translation": "地毯通道",
-      "x": 200,
-      "y": 700,
+      "x": 322,
+      "y": 675,
       "priority": 1.019,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-carpet-runner"
@@ -1521,8 +1059,8 @@
       "id": "boarding-gate-lounge-floor-seam",
       "word": "lounge floor seam",
       "translation": "候机区地面接缝",
-      "x": 300,
-      "y": 820,
+      "x": 461,
+      "y": 726,
       "priority": 1.02,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-lounge-floor-seam"
@@ -1531,8 +1069,8 @@
       "id": "boarding-gate-gate-lighting-strip",
       "word": "gate lighting strip",
       "translation": "登机区灯带",
-      "x": 350,
-      "y": 70,
+      "x": 705,
+      "y": 21,
       "priority": 1.021,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-gate-lighting-strip"
@@ -1541,8 +1079,8 @@
       "id": "boarding-gate-seating-row",
       "word": "seating row",
       "translation": "座椅排",
-      "x": 150,
-      "y": 550,
+      "x": 84,
+      "y": 472,
       "priority": 1.022,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-seating-row"
@@ -1551,8 +1089,8 @@
       "id": "boarding-gate-seat-pedestal",
       "word": "seat pedestal",
       "translation": "座椅底座",
-      "x": 140,
-      "y": 650,
+      "x": 102,
+      "y": 762,
       "priority": 1.023,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-seat-pedestal"
@@ -1561,8 +1099,8 @@
       "id": "boarding-gate-lounge-seat-frame",
       "word": "lounge seat frame",
       "translation": "候机座椅框架",
-      "x": 120,
-      "y": 600,
+      "x": 226,
+      "y": 708,
       "priority": 1.024,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-lounge-seat-frame"
@@ -1571,8 +1109,8 @@
       "id": "boarding-gate-boarding-gate-podium",
       "word": "boarding gate podium",
       "translation": "登机闸台",
-      "x": 580,
-      "y": 300,
+      "x": 467,
+      "y": 535,
       "priority": 1.025,
       "minLevel": 0,
       "sourceVisualRegion": "boarding-gate-region-boarding-gate-podium"
@@ -1581,8 +1119,8 @@
       "id": "boarding-gate-gate-boarding-reader",
       "word": "gate boarding reader",
       "translation": "登机读卡器",
-      "x": 650,
-      "y": 300,
+      "x": 670,
+      "y": 446,
       "priority": 1.026,
       "minLevel": 0,
       "sourceVisualRegion": "boarding-gate-region-gate-boarding-reader"
@@ -1591,38 +1129,18 @@
       "id": "boarding-gate-reader-stand",
       "word": "reader stand",
       "translation": "读卡器支架",
-      "x": 650,
-      "y": 350,
+      "x": 540,
+      "y": 495,
       "priority": 1.027,
       "minLevel": 1,
       "sourceVisualRegion": "boarding-gate-region-reader-stand"
     },
     {
-      "id": "boarding-gate-podium-monitor-housing",
-      "word": "podium monitor housing",
-      "translation": "登机台显示器外壳",
-      "x": 580,
-      "y": 250,
-      "priority": 1.028,
-      "minLevel": 1,
-      "sourceVisualRegion": "boarding-gate-region-podium-monitor-housing"
-    },
-    {
-      "id": "boarding-gate-podium-keyboard-deck",
-      "word": "podium keyboard deck",
-      "translation": "登机台键盘台面",
-      "x": 580,
-      "y": 330,
-      "priority": 1.029,
-      "minLevel": 2,
-      "sourceVisualRegion": "boarding-gate-region-podium-keyboard-deck"
-    },
-    {
       "id": "boarding-gate-podium-microphone",
       "word": "podium microphone",
       "translation": "登机台麦克风",
-      "x": 600,
-      "y": 220,
+      "x": 524,
+      "y": 352,
       "priority": 1.03,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-podium-microphone"
@@ -1631,8 +1149,8 @@
       "id": "boarding-gate-podium-shelf",
       "word": "podium shelf",
       "translation": "登机台搁板",
-      "x": 570,
-      "y": 380,
+      "x": 480,
+      "y": 457,
       "priority": 1.031,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-podium-shelf"
@@ -1641,8 +1159,8 @@
       "id": "boarding-gate-gate-stanchion",
       "word": "gate stanchion",
       "translation": "登机区隔离柱",
-      "x": 800,
-      "y": 350,
+      "x": 580,
+      "y": 599,
       "priority": 1.032,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-gate-stanchion"
@@ -1651,8 +1169,8 @@
       "id": "boarding-gate-gate-belt-strap",
       "word": "gate belt strap",
       "translation": "登机区隔离带",
-      "x": 760,
-      "y": 350,
+      "x": 505,
+      "y": 510,
       "priority": 1.033,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-gate-belt-strap"
@@ -1661,8 +1179,8 @@
       "id": "boarding-gate-boarding-gate-barrier-foot",
       "word": "boarding gate barrier foot",
       "translation": "登机区栏杆底座",
-      "x": 800,
-      "y": 400,
+      "x": 571,
+      "y": 750,
       "priority": 1.034,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-boarding-gate-barrier-foot"
@@ -1671,8 +1189,8 @@
       "id": "boarding-gate-self-boarding-gate",
       "word": "self-boarding gate",
       "translation": "自助登机闸机",
-      "x": 700,
-      "y": 300,
+      "x": 562,
+      "y": 468,
       "priority": 1.035,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-self-boarding-gate"
@@ -1681,8 +1199,8 @@
       "id": "boarding-gate-gate-glass-panel",
       "word": "gate glass panel",
       "translation": "登机闸机玻璃板",
-      "x": 740,
-      "y": 320,
+      "x": 752,
+      "y": 548,
       "priority": 1.036,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-gate-glass-panel"
@@ -1691,8 +1209,8 @@
       "id": "boarding-gate-gate-access-pedestal",
       "word": "gate access pedestal",
       "translation": "登机门禁立柱",
-      "x": 780,
-      "y": 300,
+      "x": 685,
+      "y": 604,
       "priority": 1.037,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-gate-access-pedestal"
@@ -1701,28 +1219,18 @@
       "id": "boarding-gate-boarding-reader-bezel",
       "word": "boarding reader bezel",
       "translation": "登机读卡器边框",
-      "x": 650,
-      "y": 300,
+      "x": 689,
+      "y": 440,
       "priority": 1.038,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-boarding-reader-bezel"
     },
     {
-      "id": "boarding-gate-gate-latch-plate",
-      "word": "gate latch plate",
-      "translation": "登机闸机锁扣板",
-      "x": 740,
-      "y": 340,
-      "priority": 1.039,
-      "minLevel": 3,
-      "sourceVisualRegion": "boarding-gate-region-gate-latch-plate"
-    },
-    {
       "id": "boarding-gate-podium-screen-frame",
       "word": "podium screen frame",
       "translation": "登机台屏幕框",
-      "x": 580,
-      "y": 250,
+      "x": 434,
+      "y": 361,
       "priority": 1.04,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-podium-screen-frame"
@@ -1731,38 +1239,18 @@
       "id": "boarding-gate-gate-queue-post",
       "word": "gate queue post",
       "translation": "登机排队柱",
-      "x": 800,
-      "y": 350,
+      "x": 415,
+      "y": 573,
       "priority": 1.041,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-gate-queue-post"
     },
     {
-      "id": "boarding-gate-boarding-podium-pass-slot",
-      "word": "boarding podium pass slot",
-      "translation": "登机台登机牌插槽",
-      "x": 650,
-      "y": 320,
-      "priority": 1.042,
-      "minLevel": 3,
-      "sourceVisualRegion": "boarding-gate-region-boarding-podium-pass-slot"
-    },
-    {
-      "id": "boarding-gate-podium-cable-cover",
-      "word": "podium cable cover",
-      "translation": "登机台电缆盖",
-      "x": 600,
-      "y": 380,
-      "priority": 1.043,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-podium-cable-cover"
-    },
-    {
       "id": "boarding-gate-podium-foot",
       "word": "podium foot",
       "translation": "登机台脚座",
-      "x": 580,
-      "y": 410,
+      "x": 468,
+      "y": 609,
       "priority": 1.044,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-podium-foot"
@@ -1771,61 +1259,11 @@
       "id": "boarding-gate-gate-floor-stripe",
       "word": "gate floor stripe",
       "translation": "登机区地面条",
-      "x": 650,
-      "y": 600,
+      "x": 795,
+      "y": 808,
       "priority": 1.045,
       "minLevel": 0,
       "sourceVisualRegion": "boarding-gate-region-gate-floor-stripe"
-    },
-    {
-      "id": "boarding-gate-gate-queue-mat",
-      "word": "gate queue mat",
-      "translation": "登机排队垫",
-      "x": 600,
-      "y": 700,
-      "priority": 1.046,
-      "minLevel": 0,
-      "sourceVisualRegion": "boarding-gate-region-gate-queue-mat"
-    },
-    {
-      "id": "boarding-gate-podium-drawer",
-      "word": "podium drawer",
-      "translation": "登机台抽屉",
-      "x": 580,
-      "y": 500,
-      "priority": 1.047,
-      "minLevel": 1,
-      "sourceVisualRegion": "boarding-gate-region-podium-drawer"
-    },
-    {
-      "id": "boarding-gate-podium-wheel",
-      "word": "podium wheel",
-      "translation": "登机台轮",
-      "x": 580,
-      "y": 520,
-      "priority": 1.048,
-      "minLevel": 1,
-      "sourceVisualRegion": "boarding-gate-region-podium-wheel"
-    },
-    {
-      "id": "boarding-gate-gate-barrier-rail",
-      "word": "gate barrier rail",
-      "translation": "登机区隔离栏杆",
-      "x": 780,
-      "y": 600,
-      "priority": 1.049,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-gate-barrier-rail"
-    },
-    {
-      "id": "boarding-gate-reader-cable",
-      "word": "reader cable",
-      "translation": "读卡器电缆",
-      "x": 660,
-      "y": 500,
-      "priority": 1.05,
-      "minLevel": 2,
-      "sourceVisualRegion": "boarding-gate-region-reader-cable"
     },
     {
       "id": "boarding-gate-gate-floor-joint",
@@ -1838,34 +1276,14 @@
       "sourceVisualRegion": "boarding-gate-region-gate-floor-joint"
     },
     {
-      "id": "boarding-gate-boarding-mat",
-      "word": "boarding mat",
-      "translation": "登机垫",
-      "x": 650,
-      "y": 700,
-      "priority": 1.052,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-boarding-mat"
-    },
-    {
       "id": "boarding-gate-gate-footplate",
       "word": "gate footplate",
       "translation": "登机闸机脚板",
-      "x": 800,
-      "y": 700,
+      "x": 793,
+      "y": 651,
       "priority": 1.053,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-gate-footplate"
-    },
-    {
-      "id": "boarding-gate-podium-side-panel",
-      "word": "podium side panel",
-      "translation": "登机台侧板",
-      "x": 580,
-      "y": 550,
-      "priority": 1.054,
-      "minLevel": 3,
-      "sourceVisualRegion": "boarding-gate-region-podium-side-panel"
     },
     {
       "id": "boarding-gate-passenger-boarding-bridge",
@@ -1878,21 +1296,11 @@
       "sourceVisualRegion": "boarding-gate-region-passenger-boarding-bridge"
     },
     {
-      "id": "boarding-gate-terminal-rotunda",
-      "word": "terminal rotunda",
-      "translation": "航站楼旋转厅",
-      "x": 910,
-      "y": 240,
-      "priority": 1.056,
-      "minLevel": 0,
-      "sourceVisualRegion": "boarding-gate-region-terminal-rotunda"
-    },
-    {
       "id": "boarding-gate-bridge-support-column",
       "word": "bridge support column",
       "translation": "廊桥支柱",
-      "x": 900,
-      "y": 500,
+      "x": 1113,
+      "y": 553,
       "priority": 1.057,
       "minLevel": 1,
       "sourceVisualRegion": "boarding-gate-region-bridge-support-column"
@@ -1901,8 +1309,8 @@
       "id": "boarding-gate-bridge-tunnel-corridor",
       "word": "bridge tunnel corridor",
       "translation": "廊桥通道",
-      "x": 1030,
-      "y": 300,
+      "x": 957,
+      "y": 483,
       "priority": 1.058,
       "minLevel": 1,
       "sourceVisualRegion": "boarding-gate-region-bridge-tunnel-corridor"
@@ -1911,8 +1319,8 @@
       "id": "boarding-gate-bridge-floor-joint",
       "word": "bridge floor joint",
       "translation": "廊桥地面接缝",
-      "x": 1050,
-      "y": 700,
+      "x": 878,
+      "y": 553,
       "priority": 1.059,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-bridge-floor-joint"
@@ -1921,8 +1329,8 @@
       "id": "boarding-gate-boarding-bridge-handrail",
       "word": "boarding bridge handrail",
       "translation": "登机廊桥扶手",
-      "x": 1000,
-      "y": 450,
+      "x": 886,
+      "y": 383,
       "priority": 1.06,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-boarding-bridge-handrail"
@@ -1941,8 +1349,8 @@
       "id": "boarding-gate-bridge-ceiling-light",
       "word": "bridge ceiling light",
       "translation": "廊桥顶灯",
-      "x": 1000,
-      "y": 100,
+      "x": 945,
+      "y": 214,
       "priority": 1.062,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-bridge-ceiling-light"
@@ -1951,28 +1359,18 @@
       "id": "boarding-gate-bridge-bellows",
       "word": "bridge bellows",
       "translation": "廊桥伸缩罩",
-      "x": 1170,
-      "y": 280,
+      "x": 1124,
+      "y": 156,
       "priority": 1.063,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-bridge-bellows"
     },
     {
-      "id": "boarding-gate-aircraft-end-rotunda",
-      "word": "aircraft-end rotunda",
-      "translation": "飞机端旋转厅",
-      "x": 1180,
-      "y": 300,
-      "priority": 1.064,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-aircraft-end-rotunda"
-    },
-    {
       "id": "boarding-gate-boarding-bridge-window",
       "word": "boarding bridge window",
       "translation": "登机廊桥窗",
-      "x": 1000,
-      "y": 250,
+      "x": 882,
+      "y": 342,
       "priority": 1.065,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-boarding-bridge-window"
@@ -1981,8 +1379,8 @@
       "id": "boarding-gate-boarding-bridge-door",
       "word": "boarding bridge door",
       "translation": "登机廊桥门",
-      "x": 900,
-      "y": 220,
+      "x": 994,
+      "y": 343,
       "priority": 1.066,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-boarding-bridge-door"
@@ -1991,21 +1389,11 @@
       "id": "boarding-gate-bridge-threshold",
       "word": "bridge threshold",
       "translation": "廊桥门槛",
-      "x": 900,
-      "y": 420,
+      "x": 902,
+      "y": 574,
       "priority": 1.067,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-bridge-threshold"
-    },
-    {
-      "id": "boarding-gate-bridge-guide-rail",
-      "word": "bridge guide rail",
-      "translation": "廊桥导轨",
-      "x": 1050,
-      "y": 500,
-      "priority": 1.068,
-      "minLevel": 2,
-      "sourceVisualRegion": "boarding-gate-region-bridge-guide-rail"
     },
     {
       "id": "boarding-gate-bridge-support-wheel",
@@ -2018,21 +1406,11 @@
       "sourceVisualRegion": "boarding-gate-region-bridge-support-wheel"
     },
     {
-      "id": "boarding-gate-bridge-emergency-door",
-      "word": "bridge emergency door",
-      "translation": "廊桥应急门",
-      "x": 880,
-      "y": 650,
-      "priority": 1.07,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-bridge-emergency-door"
-    },
-    {
       "id": "boarding-gate-bridge-floor-mat",
       "word": "bridge floor mat",
       "translation": "廊桥地垫",
-      "x": 1000,
-      "y": 600,
+      "x": 865,
+      "y": 535,
       "priority": 1.071,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-bridge-floor-mat"
@@ -2041,8 +1419,8 @@
       "id": "boarding-gate-bridge-wall-panel",
       "word": "bridge wall panel",
       "translation": "廊桥墙板",
-      "x": 1080,
-      "y": 350,
+      "x": 954,
+      "y": 127,
       "priority": 1.072,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-bridge-wall-panel"
@@ -2051,68 +1429,18 @@
       "id": "boarding-gate-bridge-window-mullion",
       "word": "bridge window mullion",
       "translation": "廊桥窗竖框",
-      "x": 1050,
-      "y": 250,
+      "x": 853,
+      "y": 345,
       "priority": 1.073,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-bridge-window-mullion"
     },
     {
-      "id": "boarding-gate-bridge-door-hinge",
-      "word": "bridge door hinge",
-      "translation": "廊桥门铰链",
-      "x": 900,
-      "y": 230,
-      "priority": 1.074,
-      "minLevel": 2,
-      "sourceVisualRegion": "boarding-gate-region-bridge-door-hinge"
-    },
-    {
-      "id": "boarding-gate-passenger-bridge-door-seal",
-      "word": "passenger bridge door seal",
-      "translation": "旅客廊桥门密封条",
-      "x": 900,
-      "y": 250,
-      "priority": 1.075,
-      "minLevel": 3,
-      "sourceVisualRegion": "boarding-gate-region-passenger-bridge-door-seal"
-    },
-    {
-      "id": "boarding-gate-bridge-ceiling-baffle",
-      "word": "bridge ceiling baffle",
-      "translation": "廊桥吸音板",
-      "x": 950,
-      "y": 100,
-      "priority": 1.076,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-bridge-ceiling-baffle"
-    },
-    {
-      "id": "boarding-gate-bridge-pivot-cover",
-      "word": "bridge pivot cover",
-      "translation": "廊桥转轴盖",
-      "x": 930,
-      "y": 220,
-      "priority": 1.077,
-      "minLevel": 2,
-      "sourceVisualRegion": "boarding-gate-region-bridge-pivot-cover"
-    },
-    {
-      "id": "boarding-gate-rotunda-handrail",
-      "word": "rotunda handrail",
-      "translation": "旋转厅扶手",
-      "x": 1120,
-      "y": 400,
-      "priority": 1.078,
-      "minLevel": 3,
-      "sourceVisualRegion": "boarding-gate-region-rotunda-handrail"
-    },
-    {
       "id": "boarding-gate-bridge-sill",
       "word": "bridge sill",
       "translation": "廊桥窗台",
-      "x": 1000,
-      "y": 420,
+      "x": 882,
+      "y": 447,
       "priority": 1.079,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-bridge-sill"
@@ -2131,8 +1459,8 @@
       "id": "boarding-gate-aircraft-door-frame",
       "word": "aircraft door frame",
       "translation": "飞机舱门框",
-      "x": 1300,
-      "y": 250,
+      "x": 1476,
+      "y": 278,
       "priority": 1.081,
       "minLevel": 0,
       "sourceVisualRegion": "boarding-gate-region-aircraft-door-frame"
@@ -2141,8 +1469,8 @@
       "id": "boarding-gate-aircraft-door-handle",
       "word": "aircraft door handle",
       "translation": "飞机舱门把手",
-      "x": 1280,
-      "y": 330,
+      "x": 1151,
+      "y": 342,
       "priority": 1.082,
       "minLevel": 1,
       "sourceVisualRegion": "boarding-gate-region-aircraft-door-handle"
@@ -2151,8 +1479,8 @@
       "id": "boarding-gate-aircraft-door-sill",
       "word": "aircraft door sill",
       "translation": "飞机舱门槛",
-      "x": 1300,
-      "y": 420,
+      "x": 1355,
+      "y": 483,
       "priority": 1.083,
       "minLevel": 1,
       "sourceVisualRegion": "boarding-gate-region-aircraft-door-sill"
@@ -2161,8 +1489,8 @@
       "id": "boarding-gate-aircraft-door-seal",
       "word": "aircraft door seal",
       "translation": "飞机舱门密封条",
-      "x": 1320,
-      "y": 250,
+      "x": 1467,
+      "y": 309,
       "priority": 1.084,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-aircraft-door-seal"
@@ -2171,8 +1499,8 @@
       "id": "boarding-gate-aircraft-handrail",
       "word": "aircraft handrail",
       "translation": "飞机舱门扶手",
-      "x": 1270,
-      "y": 340,
+      "x": 1455,
+      "y": 369,
       "priority": 1.085,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-aircraft-handrail"
@@ -2181,8 +1509,8 @@
       "id": "boarding-gate-aircraft-galley-curtain",
       "word": "aircraft galley curtain",
       "translation": "飞机厨房帘",
-      "x": 1450,
-      "y": 300,
+      "x": 1385,
+      "y": 329,
       "priority": 1.086,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-aircraft-galley-curtain"
@@ -2191,8 +1519,8 @@
       "id": "boarding-gate-cabin-aisle",
       "word": "cabin aisle",
       "translation": "客舱过道",
-      "x": 1470,
-      "y": 500,
+      "x": 1386,
+      "y": 464,
       "priority": 1.087,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-cabin-aisle"
@@ -2201,58 +1529,28 @@
       "id": "boarding-gate-cabin-seat-row",
       "word": "cabin seat row",
       "translation": "客舱座椅排",
-      "x": 1500,
-      "y": 450,
+      "x": 1349,
+      "y": 347,
       "priority": 1.088,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-cabin-seat-row"
     },
     {
-      "id": "boarding-gate-cabin-seat-shell",
-      "word": "cabin seat shell",
-      "translation": "客舱座椅外壳",
-      "x": 1530,
-      "y": 450,
-      "priority": 1.089,
-      "minLevel": 2,
-      "sourceVisualRegion": "boarding-gate-region-cabin-seat-shell"
-    },
-    {
       "id": "boarding-gate-cabin-seat-cushion",
       "word": "cabin seat cushion",
       "translation": "客舱座椅坐垫",
-      "x": 1530,
-      "y": 500,
+      "x": 1308,
+      "y": 396,
       "priority": 1.09,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-cabin-seat-cushion"
     },
     {
-      "id": "boarding-gate-aircraft-seatback-pocket",
-      "word": "aircraft seatback pocket",
-      "translation": "飞机座椅背袋",
-      "x": 1530,
-      "y": 530,
-      "priority": 1.091,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-aircraft-seatback-pocket"
-    },
-    {
-      "id": "boarding-gate-aircraft-tray-table",
-      "word": "aircraft tray table",
-      "translation": "飞机小桌板",
-      "x": 1510,
-      "y": 520,
-      "priority": 1.092,
-      "minLevel": 2,
-      "sourceVisualRegion": "boarding-gate-region-aircraft-tray-table"
-    },
-    {
       "id": "boarding-gate-aircraft-armrest",
       "word": "aircraft armrest",
       "translation": "飞机座椅扶手",
-      "x": 1540,
-      "y": 500,
+      "x": 1334,
+      "y": 378,
       "priority": 1.093,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-aircraft-armrest"
@@ -2261,48 +1559,18 @@
       "id": "boarding-gate-aircraft-overhead-bin",
       "word": "aircraft overhead bin",
       "translation": "飞机头顶行李舱",
-      "x": 1500,
-      "y": 180,
+      "x": 1339,
+      "y": 249,
       "priority": 1.094,
       "minLevel": 4,
       "sourceVisualRegion": "boarding-gate-region-aircraft-overhead-bin"
     },
     {
-      "id": "boarding-gate-aircraft-reading-light",
-      "word": "aircraft reading light",
-      "translation": "飞机阅读灯",
-      "x": 1480,
-      "y": 160,
-      "priority": 1.095,
-      "minLevel": 2,
-      "sourceVisualRegion": "boarding-gate-region-aircraft-reading-light"
-    },
-    {
-      "id": "boarding-gate-cabin-air-vent-nozzle",
-      "word": "cabin air vent nozzle",
-      "translation": "客舱通风口喷嘴",
-      "x": 1460,
-      "y": 170,
-      "priority": 1.096,
-      "minLevel": 3,
-      "sourceVisualRegion": "boarding-gate-region-cabin-air-vent-nozzle"
-    },
-    {
-      "id": "boarding-gate-cabin-window-shade",
-      "word": "cabin window shade",
-      "translation": "客舱窗遮板",
-      "x": 1500,
-      "y": 250,
-      "priority": 1.097,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-cabin-window-shade"
-    },
-    {
       "id": "boarding-gate-cabin-window",
       "word": "cabin window",
       "translation": "客舱窗",
-      "x": 1540,
-      "y": 250,
+      "x": 1333,
+      "y": 320,
       "priority": 1.098,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-cabin-window"
@@ -2311,58 +1579,18 @@
       "id": "boarding-gate-cabin-wall-panel",
       "word": "cabin wall panel",
       "translation": "客舱墙板",
-      "x": 1450,
-      "y": 260,
+      "x": 1342,
+      "y": 301,
       "priority": 1.099,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-cabin-wall-panel"
     },
     {
-      "id": "boarding-gate-aircraft-lavatory-door",
-      "word": "aircraft lavatory door",
-      "translation": "飞机洗手间门",
-      "x": 1380,
-      "y": 550,
-      "priority": 1.1,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-aircraft-lavatory-door"
-    },
-    {
-      "id": "boarding-gate-cabin-service-cart",
-      "word": "cabin service cart",
-      "translation": "客舱服务车",
-      "x": 1400,
-      "y": 520,
-      "priority": 1.101,
-      "minLevel": 2,
-      "sourceVisualRegion": "boarding-gate-region-cabin-service-cart"
-    },
-    {
-      "id": "boarding-gate-aircraft-luggage-compartment",
-      "word": "aircraft luggage compartment",
-      "translation": "飞机行李舱",
-      "x": 1250,
-      "y": 500,
-      "priority": 1.102,
-      "minLevel": 3,
-      "sourceVisualRegion": "boarding-gate-region-aircraft-luggage-compartment"
-    },
-    {
-      "id": "boarding-gate-aircraft-door-latch",
-      "word": "aircraft door latch",
-      "translation": "飞机舱门插销",
-      "x": 1310,
-      "y": 330,
-      "priority": 1.103,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-aircraft-door-latch"
-    },
-    {
       "id": "boarding-gate-aircraft-threshold-strip",
       "word": "aircraft threshold strip",
       "translation": "飞机门槛条",
-      "x": 1300,
-      "y": 430,
+      "x": 1420,
+      "y": 489,
       "priority": 1.104,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-aircraft-threshold-strip"
@@ -2371,8 +1599,8 @@
       "id": "boarding-gate-apron-paving",
       "word": "apron paving",
       "translation": "机坪铺面",
-      "x": 1500,
-      "y": 800,
+      "x": 1222,
+      "y": 837,
       "priority": 1.105,
       "minLevel": 0,
       "sourceVisualRegion": "boarding-gate-region-apron-paving"
@@ -2381,8 +1609,8 @@
       "id": "boarding-gate-airside-safety-line",
       "word": "airside safety line",
       "translation": "机坪安全线",
-      "x": 1450,
-      "y": 700,
+      "x": 1253,
+      "y": 814,
       "priority": 1.106,
       "minLevel": 0,
       "sourceVisualRegion": "boarding-gate-region-airside-safety-line"
@@ -2391,8 +1619,8 @@
       "id": "boarding-gate-airside-wheel-chock",
       "word": "airside wheel chock",
       "translation": "机坪轮挡",
-      "x": 1320,
-      "y": 700,
+      "x": 1151,
+      "y": 643,
       "priority": 1.107,
       "minLevel": 1,
       "sourceVisualRegion": "boarding-gate-region-airside-wheel-chock"
@@ -2408,21 +1636,11 @@
       "sourceVisualRegion": "boarding-gate-region-airside-baggage-cart"
     },
     {
-      "id": "boarding-gate-service-stair",
-      "word": "service stair",
-      "translation": "服务梯",
-      "x": 1220,
-      "y": 700,
-      "priority": 1.109,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-service-stair"
-    },
-    {
       "id": "boarding-gate-ground-power-cable",
       "word": "ground-power cable",
       "translation": "地面电源电缆",
-      "x": 1350,
-      "y": 750,
+      "x": 1204,
+      "y": 550,
       "priority": 1.11,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-ground-power-cable"
@@ -2431,58 +1649,28 @@
       "id": "boarding-gate-airside-cone",
       "word": "airside cone",
       "translation": "机坪锥桶",
-      "x": 1450,
-      "y": 780,
+      "x": 1212,
+      "y": 743,
       "priority": 1.111,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-airside-cone"
     },
     {
-      "id": "boarding-gate-airside-bollard",
-      "word": "airside bollard",
-      "translation": "机坪防撞柱",
-      "x": 1550,
-      "y": 650,
-      "priority": 1.112,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-airside-bollard"
-    },
-    {
       "id": "boarding-gate-jet-bridge-safety-rail",
       "word": "jet-bridge safety rail",
       "translation": "登机廊桥安全栏",
-      "x": 1300,
-      "y": 700,
+      "x": 1027,
+      "y": 717,
       "priority": 1.113,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-jet-bridge-safety-rail"
     },
     {
-      "id": "boarding-gate-airside-drainage-channel",
-      "word": "airside drainage channel",
-      "translation": "机坪排水沟",
-      "x": 1500,
-      "y": 880,
-      "priority": 1.114,
-      "minLevel": 3,
-      "sourceVisualRegion": "boarding-gate-region-airside-drainage-channel"
-    },
-    {
-      "id": "boarding-gate-aircraft-side-light",
-      "word": "aircraft-side light",
-      "translation": "机身侧灯",
-      "x": 1250,
-      "y": 600,
-      "priority": 1.115,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-aircraft-side-light"
-    },
-    {
       "id": "boarding-gate-service-cart-wheel",
       "word": "service cart wheel",
       "translation": "服务车轮",
-      "x": 1400,
-      "y": 720,
+      "x": 1402,
+      "y": 808,
       "priority": 1.116,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-service-cart-wheel"
@@ -2491,28 +1679,18 @@
       "id": "boarding-gate-ground-unit-wheel",
       "word": "ground-unit wheel",
       "translation": "地面设备轮",
-      "x": 1500,
-      "y": 700,
+      "x": 1339,
+      "y": 742,
       "priority": 1.117,
       "minLevel": 3,
       "sourceVisualRegion": "boarding-gate-region-ground-unit-wheel"
     },
     {
-      "id": "boarding-gate-aircraft-step",
-      "word": "aircraft step",
-      "translation": "飞机踏步",
-      "x": 1250,
-      "y": 650,
-      "priority": 1.118,
-      "minLevel": 4,
-      "sourceVisualRegion": "boarding-gate-region-aircraft-step"
-    },
-    {
       "id": "boarding-gate-aircraft-fuselage-panel",
       "word": "aircraft fuselage panel",
       "translation": "飞机机身面板",
-      "x": 1500,
-      "y": 600,
+      "x": 1528,
+      "y": 475,
       "priority": 1.119,
       "minLevel": 2,
       "sourceVisualRegion": "boarding-gate-region-aircraft-fuselage-panel"
@@ -2525,11 +1703,226 @@
       "translation": "进入旅客登机廊桥",
       "childSceneId": "passenger-boarding-bridge",
       "sourceVisualRegion": "portal-passenger-boarding-bridge",
-      "x": 795,
-      "y": 195,
-      "width": 218,
-      "height": 330,
+      "x": 885,
+      "y": 521,
+      "width": 60,
+      "height": 30,
+      "portraitMarker": {
+        "x": 915,
+        "y": 536,
+        "scaleToObject": true
+      },
       "enterScale": 3.45
     }
+  ],
+  "relatedWords": [
+    {
+      "id": "boarding-gate-terminal-gate-lounge",
+      "word": "terminal gate lounge",
+      "translation": "航站楼登机候机区"
+    },
+    {
+      "id": "boarding-gate-lounge-seat-bracket",
+      "word": "lounge seat bracket",
+      "translation": "候机座椅支架"
+    },
+    {
+      "id": "boarding-gate-overhead-luggage-shelf",
+      "word": "overhead luggage shelf",
+      "translation": "头顶行李搁板"
+    },
+    {
+      "id": "boarding-gate-lounge-side-table",
+      "word": "lounge side table",
+      "translation": "候机边桌"
+    },
+    {
+      "id": "boarding-gate-gate-charging-shelf",
+      "word": "gate charging shelf",
+      "translation": "登机区充电搁板"
+    },
+    {
+      "id": "boarding-gate-podium-monitor-housing",
+      "word": "podium monitor housing",
+      "translation": "登机台显示器外壳"
+    },
+    {
+      "id": "boarding-gate-podium-keyboard-deck",
+      "word": "podium keyboard deck",
+      "translation": "登机台键盘台面"
+    },
+    {
+      "id": "boarding-gate-gate-latch-plate",
+      "word": "gate latch plate",
+      "translation": "登机闸机锁扣板"
+    },
+    {
+      "id": "boarding-gate-boarding-podium-pass-slot",
+      "word": "boarding podium pass slot",
+      "translation": "登机台登机牌插槽"
+    },
+    {
+      "id": "boarding-gate-podium-cable-cover",
+      "word": "podium cable cover",
+      "translation": "登机台电缆盖"
+    },
+    {
+      "id": "boarding-gate-gate-queue-mat",
+      "word": "gate queue mat",
+      "translation": "登机排队垫"
+    },
+    {
+      "id": "boarding-gate-podium-drawer",
+      "word": "podium drawer",
+      "translation": "登机台抽屉"
+    },
+    {
+      "id": "boarding-gate-podium-wheel",
+      "word": "podium wheel",
+      "translation": "登机台轮"
+    },
+    {
+      "id": "boarding-gate-gate-barrier-rail",
+      "word": "gate barrier rail",
+      "translation": "登机区隔离栏杆"
+    },
+    {
+      "id": "boarding-gate-reader-cable",
+      "word": "reader cable",
+      "translation": "读卡器电缆"
+    },
+    {
+      "id": "boarding-gate-boarding-mat",
+      "word": "boarding mat",
+      "translation": "登机垫"
+    },
+    {
+      "id": "boarding-gate-podium-side-panel",
+      "word": "podium side panel",
+      "translation": "登机台侧板"
+    },
+    {
+      "id": "boarding-gate-terminal-rotunda",
+      "word": "terminal rotunda",
+      "translation": "航站楼旋转厅"
+    },
+    {
+      "id": "boarding-gate-aircraft-end-rotunda",
+      "word": "aircraft-end rotunda",
+      "translation": "飞机端旋转厅"
+    },
+    {
+      "id": "boarding-gate-bridge-guide-rail",
+      "word": "bridge guide rail",
+      "translation": "廊桥导轨"
+    },
+    {
+      "id": "boarding-gate-bridge-emergency-door",
+      "word": "bridge emergency door",
+      "translation": "廊桥应急门"
+    },
+    {
+      "id": "boarding-gate-bridge-door-hinge",
+      "word": "bridge door hinge",
+      "translation": "廊桥门铰链"
+    },
+    {
+      "id": "boarding-gate-passenger-bridge-door-seal",
+      "word": "passenger bridge door seal",
+      "translation": "旅客廊桥门密封条"
+    },
+    {
+      "id": "boarding-gate-bridge-ceiling-baffle",
+      "word": "bridge ceiling baffle",
+      "translation": "廊桥吸音板"
+    },
+    {
+      "id": "boarding-gate-bridge-pivot-cover",
+      "word": "bridge pivot cover",
+      "translation": "廊桥转轴盖"
+    },
+    {
+      "id": "boarding-gate-rotunda-handrail",
+      "word": "rotunda handrail",
+      "translation": "旋转厅扶手"
+    },
+    {
+      "id": "boarding-gate-cabin-seat-shell",
+      "word": "cabin seat shell",
+      "translation": "客舱座椅外壳"
+    },
+    {
+      "id": "boarding-gate-aircraft-seatback-pocket",
+      "word": "aircraft seatback pocket",
+      "translation": "飞机座椅背袋"
+    },
+    {
+      "id": "boarding-gate-aircraft-tray-table",
+      "word": "aircraft tray table",
+      "translation": "飞机小桌板"
+    },
+    {
+      "id": "boarding-gate-aircraft-reading-light",
+      "word": "aircraft reading light",
+      "translation": "飞机阅读灯"
+    },
+    {
+      "id": "boarding-gate-cabin-air-vent-nozzle",
+      "word": "cabin air vent nozzle",
+      "translation": "客舱通风口喷嘴"
+    },
+    {
+      "id": "boarding-gate-cabin-window-shade",
+      "word": "cabin window shade",
+      "translation": "客舱窗遮板"
+    },
+    {
+      "id": "boarding-gate-aircraft-lavatory-door",
+      "word": "aircraft lavatory door",
+      "translation": "飞机洗手间门"
+    },
+    {
+      "id": "boarding-gate-cabin-service-cart",
+      "word": "cabin service cart",
+      "translation": "客舱服务车"
+    },
+    {
+      "id": "boarding-gate-aircraft-luggage-compartment",
+      "word": "aircraft luggage compartment",
+      "translation": "飞机行李舱"
+    },
+    {
+      "id": "boarding-gate-aircraft-door-latch",
+      "word": "aircraft door latch",
+      "translation": "飞机舱门插销"
+    },
+    {
+      "id": "boarding-gate-service-stair",
+      "word": "service stair",
+      "translation": "服务梯"
+    },
+    {
+      "id": "boarding-gate-airside-bollard",
+      "word": "airside bollard",
+      "translation": "机坪防撞柱"
+    },
+    {
+      "id": "boarding-gate-airside-drainage-channel",
+      "word": "airside drainage channel",
+      "translation": "机坪排水沟"
+    },
+    {
+      "id": "boarding-gate-aircraft-side-light",
+      "word": "aircraft-side light",
+      "translation": "机身侧灯"
+    },
+    {
+      "id": "boarding-gate-aircraft-step",
+      "word": "aircraft step",
+      "translation": "飞机踏步"
+    }
+  ],
+  "portraitOverviewLabelIds": [
+    "boarding-gate-gate-wall-clock"
   ]
 }
