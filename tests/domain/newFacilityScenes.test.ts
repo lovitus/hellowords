@@ -418,10 +418,11 @@ test("pathology laboratory and hospital pharmacy expose independently audited eq
   const pathology = await readJson("pathology-lab.json");
   const microscope = pathology.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "microscope-workstation");
   assert.ok(microscope);
-  assert.deepEqual([microscope.x, microscope.y, microscope.width, microscope.height], [20, 360, 300, 400]);
+  assert.deepEqual([microscope.x, microscope.y, microscope.width, microscope.height], [178, 688, 40, 34]);
   const microscopeRegion = pathology.visualRegions.find(({ id }: { id: string }) => id === microscope.sourceVisualRegion);
   assert.ok(microscopeRegion);
-  assert.deepEqual([microscopeRegion.x, microscopeRegion.y, microscopeRegion.width, microscopeRegion.height], [20, 360, 300, 400]);
+  assert.deepEqual([microscopeRegion.x, microscopeRegion.y, microscopeRegion.width, microscopeRegion.height],
+    [microscope.x, microscope.y, microscope.width, microscope.height]);
 
   const pharmacy = await readJson("hospital-pharmacy.json");
   const cabinet = pharmacy.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "automated-dispensing-cabinet");
@@ -439,7 +440,7 @@ test("pathology lab opens a terminal histology sectioning workstation without co
     childSceneId === "histology-sectioning-workstation"
   ));
   assert.ok(portal);
-  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [1_270, 520, 70, 70]);
+  assert.deepEqual([portal.x, portal.y, portal.width, portal.height], [1_260, 712, 58, 28]);
   assert.equal(portal.enterScale, 3.35);
   const coveredLabels = pathology.labels.filter(({ x, y }: { x: number; y: number }) => (
     x >= portal.x && x <= portal.x + portal.width && y >= portal.y && y <= portal.y + portal.height

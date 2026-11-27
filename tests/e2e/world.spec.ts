@@ -1310,18 +1310,20 @@ test("urban services exposes hospital, airport and office vocabulary through the
     '[data-testid="scene-minimap-child"][data-target-scene="pathology-lab"]',
   ).click();
   await expect(app).toHaveAttribute("data-scene-id", "pathology-lab");
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "450");
-  const labDisplayZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="clinical-display-detail"]',
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "110");
+  const sectioningZone = page.locator(
+    '[data-testid="scene-minimap-zone"][data-zone-id="sectioning-machine-detail"]',
   );
-  await labDisplayZone.click();
-  if (testInfo.project.name === "mobile-chromium") {
-    await expect.poll(async () => Number(
-      await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
-    )).toBeGreaterThan(0);
-  } else {
-    await expect.poll(() => paintedWordCount(page, "histology slide")).toBeGreaterThan(0);
-  }
+  const input = testInfo.project.name === "mobile-chromium" ? "touch" : "mouse";
+  if (input === "touch") await sectioningZone.tap();
+  else await sectioningZone.click();
+  await expect(sectioningZone).toHaveAttribute("data-active", "true");
+  await expect.poll(() => paintedWordState(page, "microtome")).toMatchObject({ interactive: true });
+  await (await page.locator(".viewer-shell:not([data-phase]) img.scene-art").elementHandle()).waitForElementState("stable");
+  await clickPaintedWord(page, "microtome", input);
+  const microtomeCard = page.getByRole("complementary", { name: "microtome word details", exact: true });
+  await expect(microtomeCard.getByText("切片机", { exact: true })).toBeVisible();
+  await microtomeCard.getByRole("button", { name: "关闭单词卡" }).click();
   await page.getByRole("button", { name: "← 返回上一层" }).click();
   await expect(app).toHaveAttribute("data-scene-id", "hospital");
   await page.locator(

@@ -348,16 +348,16 @@ const parentPortal = {
   translation: "查看组织切片工作台",
   childSceneId: "histology-sectioning-workstation",
   sourceVisualRegion: "portal-histology-sectioning-workstation",
-  x: 1_270,
-  y: 520,
-  width: 70,
-  height: 70,
+  x: 1_260,
+  y: 712,
+  width: 58,
+  height: 28,
   enterScale: 3.35,
 };
 
 const parentRegion = {
   id: parentPortal.sourceVisualRegion,
-  description: "Visible right-side microtome and tissue-sectioning equipment in the pathology laboratory photograph",
+  description: "Cream-colored base below the blade holder of the foreground microtome",
   kind: "object",
   x: parentPortal.x,
   y: parentPortal.y,
