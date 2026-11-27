@@ -1,4 +1,4 @@
-name: Verify pathology photo and workstation journeys
+name: Verify pharmacy photo and tablet counting bench
 on:
   workflow_dispatch:
     inputs:
@@ -11,11 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: e3f2547770119c6e01deaf9f84d049214c494424
-  BASELINE_BUILD: d19dbe3577131a6f1507ac18098f30edb5ae6deb
+  BASELINE: c26655f8cf560fc1b5de8ea0c6246b8ec30f0d96
   PRODUCT: ${{ inputs.candidate }}
 jobs:
-  hospital:
+  pharmacy:
     runs-on: ubuntu-24.04
     timeout-minutes: 18
     defaults:
@@ -34,16 +33,16 @@ jobs:
           persist-credentials: false
       - uses: actions/download-artifact@v5
         with:
-          name: production-dist-${{ env.BASELINE_BUILD }}
-          run-id: "45935682978"
+          name: production-dist-${{ env.BASELINE }}
+          run-id: "45940414005"
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
       - name: Verify sources and frozen production files
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
-          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = 1ac352aa7e86bcd29548efa00134107cbb699b48eeb604d190e342e737a425bd
-          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE_BUILD"
+          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = 6e095f860999645893a59b2f0acbde08459156f2649d8ea285639c8d9cf74439
+          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE"
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -53,7 +52,7 @@ jobs:
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Reproduce the misplaced microtome dot in both viewports
+      - name: Reproduce the misplaced rolling cart dot on the frozen pharmacy photograph
         id: red
         continue-on-error: true
         run: |
@@ -63,7 +62,7 @@ jobs:
           python ../.github/check-hospital-photo.py baseline
       - name: Validate the candidate vocabulary and pending image reviews
         run: npm run validate:data -- --allow-image-reviewed
-      - name: Typecheck, lint and check the vocabulary contracts
+      - name: Typecheck, lint changed code and check the vocabulary generator
         run: |
           npm run typecheck
           git diff --name-only -z "$BASELINE" "$PRODUCT" -- '*.ts' '*.mjs' | xargs -0r ./node_modules/.bin/eslint --
@@ -74,13 +73,15 @@ jobs:
           node "$regen/scripts/add-professional-vocabulary.mjs"
           cmp public/data/scenes/hospital.json "$regen/public/data/scenes/hospital.json"
           cmp public/data/scenes/pathology-lab.json "$regen/public/data/scenes/pathology-lab.json"
+          cmp public/data/scenes/hospital-pharmacy.json "$regen/public/data/scenes/hospital-pharmacy.json"
+          cmp public/data/scenes/tablet-counting-bench.json "$regen/public/data/scenes/tablet-counting-bench.json"
       - name: Build the frozen candidate once and verify the manifest
         id: build
         run: |
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
           GITHUB_SHA="$PRODUCT" npm run analyze:build
           python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - name: Read the microtome and return from both workstations and nearby facilities
+      - name: Inspect the pharmacy cart, visit the counting bench and return to the pharmacy
         run: python ../.github/check-hospital-photo.py candidate
       - name: Run all domain and vocabulary checks
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
@@ -98,11 +99,11 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: pathology-photo-${{ github.run_id }}
-          path: ${{ runner.temp }}/hospital-evidence
+          name: pharmacy-photo-${{ github.run_id }}
+          path: ${{ runner.temp }}/pharmacy-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the observed microtome dot on the old sample container
+      - name: Require the observed cart dot on the old wooden cabinet
         run: test "$RED_OUTCOME" = success
         env:
           RED_OUTCOME: ${{ steps.red.outcome }}
