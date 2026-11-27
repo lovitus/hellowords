@@ -13,7 +13,7 @@ TEMP = Path(os.environ["RUNNER_TEMP"])
 OUT = TEMP / "frozen-display-evidence"
 OUT.mkdir(exist_ok=True)
 PRODUCT = os.environ["PRODUCT"]
-GATES = ("integrity", "dependencies", "browser", "baseline", "misplaced", "build", "product_artifact", "journeys",
+GATES = ("integrity", "dependencies", "browser", "baseline", "spatial", "misplaced", "build", "product_artifact", "journeys",
          "navigation", "lint", "types", "domain", "strict", "structure")
 
 
@@ -50,21 +50,31 @@ def integrity(baseline):
                 raise ValueError("The checked-out data differs from the frozen build")
     scene_root = root / "client/data/scenes"
     scene_ids = {scene["id"] for scene in json.loads((scene_root / "manifest.json").read_bytes())["scenes"]}
-    images = {json.loads((scene_root / f"{scene}.json").read_bytes())["asset"] for scene in scene_ids}
+    scene_images = {scene: json.loads((scene_root / f"{scene}.json").read_bytes())["asset"] for scene in scene_ids}
+    image_files = {e["path"]: e["sha256"] for e in files if e["path"].startswith("client/scenes/")}
     if not baseline:
         old_root = TEMP / "frozen/dist/client/data/scenes"
         old_ids = {entry["id"] for entry in json.loads((old_root / "manifest.json").read_bytes())["scenes"]}
-        old_images = {json.loads((old_root / f"{scene}.json").read_bytes())["asset"] for scene in old_ids}
-        new_id = "ultrasound-exam-room"
-        child = json.loads((scene_root / f"{new_id}.json").read_bytes())
-        parent = json.loads((scene_root / "radiology-suite.json").read_bytes())
-        if (new_id in old_ids or scene_ids != old_ids | {new_id} or child["parentId"] != parent["id"]
-                or sum(portal["childSceneId"] == new_id for portal in parent["portals"]) != 1
-                or child["asset"] in old_images or images != old_images | {child["asset"]}):
-            raise ValueError("Scene or photograph inventory differs from the expected radiology room addition")
+        old_images = {scene: json.loads((old_root / f"{scene}.json").read_bytes())["asset"] for scene in old_ids}
+        old_manifest = json.loads((TEMP / "frozen/artifacts/build/dist-manifest.json").read_bytes())
+        old_files = {e["path"]: e["sha256"] for e in old_manifest["files"] if e["path"].startswith("client/scenes/")}
+        hospital, reception, dialysis = [json.loads((scene_root / f"{scene}.json").read_bytes())
+                                        for scene in ("hospital", "hospital-reception", "hemodialysis-unit")]
+        previous_dialysis = json.loads((old_root / "hemodialysis-unit.json").read_bytes())
+        photo_path = "client" + reception["asset"]
+        if (len(old_ids) != 111 or scene_ids - old_ids != {reception["id"], dialysis["id"]} or old_ids - scene_ids
+                or not old_images.items() <= scene_images.items() or not old_files.items() <= image_files.items()
+                or image_files.keys() - old_files.keys() != {photo_path}
+                or dialysis["asset"] != previous_dialysis["asset"]
+                or len(set(scene_images.values())) != len(set(old_images.values())) + 2):
+            raise ValueError("The hospital expansion must retain the previous scenes and photographs and add only the reception image")
+        for parent, child in ((hospital, reception), (reception, dialysis)):
+            if child["parentId"] != parent["id"] or sum(p["childSceneId"] == child["id"] for p in parent["portals"]) != 1:
+                raise ValueError("The hospital must link to reception and reception to dialysis")
     name = "baseline-integrity.json" if baseline else "candidate-integrity.json"
     save(name, {"sourceRun": os.environ["ARTIFACT_RUN" if baseline else "GITHUB_RUN_ID"], "gitSha": sha,
-                "manifestSha256": digest, "verifiedFiles": len(files), "scenes": len(scene_ids), "images": len(images)})
+                "manifestSha256": digest, "verifiedFiles": len(files), "scenes": len(scene_ids),
+                "images": len(set(scene_images.values())), "packagedSceneFiles": len(image_files)})
 
 
 def run(stage, command, env=None):
@@ -72,11 +82,77 @@ def run(stage, command, env=None):
         return subprocess.run(command, stdout=stdout, stderr=stderr, env=env, check=False).returncode
 
 
+def diagnostics(stage, code):
+    digests = {}
+    for stream in ("out", "err"):
+        raw = TEMP / f"{stage}.{stream}"
+        digests[stream] = hashlib.sha256(raw.read_bytes()).hexdigest()
+        subprocess.run(["openssl", "cms", "-encrypt", "-binary", "-aes-256-cbc", "-outform", "DER",
+                        "-in", str(raw), "-out", str(OUT / f"{stage}.{stream}.cms"),
+                        str(Path(__file__).with_name("evidence-recipient.crt"))], check=True)
+    error = (TEMP / f"{stage}.err").read_text(errors="replace")
+    if code == 0:
+        cause = "passed"
+    elif "Error: Spatial realm index is stale;" in error:
+        cause = "stale-spatial-vocabulary-index"
+    elif "Error: Human review required before release:" in error:
+        cause = "outstanding-human-image-reviews"
+    elif "Error: Invalid scene graph:" in error:
+        cause = "invalid-scene-graph"
+    elif re.search(r"^Error: (?:Premium scene|Scene|Label|Portal|Manifest|Asset|World)\b", error, re.M):
+        cause = "invalid-scene-content"
+    else:
+        cause = "unclassified-command-failure"
+    details = {"exit": code, "reason": cause, "streamSha256": digests}
+    # Only publish identifiers from the scene manifest. All free-form diagnostic
+    # text, machine paths and runtime stacks remain in the encrypted streams.
+    if code:
+        scene_error = re.search(r"^Error: (?:Premium scene|Scene|Label|Portal) ([a-z0-9-]+)(?:/|\s)", error, re.M)
+        if scene_error:
+            known = json.loads(Path("public/data/scenes/manifest.json").read_bytes())["scenes"]
+            if any(scene["id"] == scene_error.group(1) for scene in known):
+                details["scene"] = scene_error.group(1)
+        location = re.search(r"(?m)^\s*at .*?/(scripts/validate-scenes\.ts|app/domain/sceneGraph\.ts):(\d+):\d+", error)
+        if location:
+            details["source"] = f"{location.group(1)}:{location.group(2)}"
+    return details
+
+
+def spatial():
+    old = TEMP / "frozen-spatial-index"
+    old.mkdir()
+    old_public = TEMP / "frozen/dist/client"
+    (old / "public").symlink_to(old_public, target_is_directory=True)
+    generator = Path("scripts/generate-spatial-realm-index.mjs")
+    generated = Path("app/domain/spatialLexemeRealms.generated.ts")
+    for relative in (generator, generated):
+        target = old / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(subprocess.check_output(["git", "show", f"{os.environ['BASELINE']}:{relative}"]))
+    inventory = json.loads((old_public / "data/scenes/manifest.json").read_bytes())
+    linked = sum(bool(label.get("lexemeId")) for scene in inventory["scenes"]
+                 for label in json.loads((old_public / "data/scenes" / f"{scene['id']}.json").read_bytes())["labels"])
+    # Read the exported constant through the same TS runtime as the project's domain tests.
+    exported = int(subprocess.check_output(
+        ["./node_modules/.bin/tsx", "-e",
+         "console.log(require(process.argv[1]).SPATIAL_LEXEME_LINK_COUNT)", str(old / generated)], text=True))
+    red = run("spatial-baseline", ["node", str(old / generator), "--check"])
+    baseline = diagnostics("spatial-baseline", red)
+    green = run("spatial-candidate", ["npm", "run", "--silent", "validate:spatial-realms"])
+    candidate = diagnostics("spatial-candidate", green)
+    if green == 0:
+        candidate["report"] = json.loads((TEMP / "spatial-candidate.out").read_bytes())
+    save("spatial-index.json", {"baseline": {**baseline, "authored": linked, "indexed": exported},
+                                "candidate": candidate})
+    return 0 if (baseline["reason"] == "stale-spatial-vocabulary-index" and linked == 390 and exported == 387
+                 and green == 0 and candidate["report"].get("status") == "current") else 1
+
+
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "2d9c74f6c4b74727969c065ec76e1b83c569c24e9ff846d97db567c52e5e8802",
-        "navigation-result.json": "c864f7393efece2571aa452cdbaf901a4b92230ed625bae6edb94cc9a750c1d0",
+        "summary.json": "500e7adb2553989eaa703232757680de988c9a2d24b82a1545dcdf8ddc6074f5",
+        "navigation-result.json": "9671219aa577fde8c01c599bc4058336d59169fc6716e46015363667bccf9ce1",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
@@ -91,8 +167,8 @@ def baseline_performance():
     if (summary["gitSha"] != os.environ["BASELINE"] or summary["scenario"]["cycles"] != 20
             or metrics["transitions"] != 40 or report["exit"] != 1 or len(report["cases"]) != 1
             or report["cases"][0]["status"] != "failed" or report["cases"][0]["retry"] != 0
-            or exceeded != ["retainedPssDeltaMiB"]):
-        raise ValueError("The frozen measurements do not match the recorded baseline retained memory budget failure")
+            or exceeded != ["peakPssMiB", "rendererTaskMsPerTransition", "retainedPssDeltaMiB"]):
+        raise ValueError("The frozen measurements do not match the original CPU and memory budget failures")
     save("baseline-performance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
                                       "cycles": 20, "transitions": 40, "measurements": readings,
                                       "budgets": summary["budgets"], "exceeded": exceeded, "sourceDigests": digests})
@@ -167,19 +243,20 @@ def domain():
         f"tests/domain/{name}.test.ts" for name in ("camera", "navigation", "semanticZoom", "semanticZoomBoundary",
                                                     "newFacilityScenes", "worldContent", "sceneVisualQuality",
                                                     "airportSecurityGate", "baggageClaim", "checkInCounter", "labelCanvasHit",
-                                                    "cityStreetBrightV4")
+                                                    "cityStreetBrightV4", "radiologySuite", "spatialLexemeRealms")
     })
     code = run("domain", ["./node_modules/.bin/tsx", "--test", "--test-reporter=tap", *files])
     text = (TEMP / "domain.out").read_text()
     counts = {key: int(value) for key, value in
               re.findall(r"^# (tests|pass|fail|cancelled|skipped|todo) (\d+)$", text, re.M)}
-    save("domain.json", {"exit": code, "counts": counts, "files": files})
+    save("domain.json", {**diagnostics("domain", code), "counts": counts, "files": files})
     return code or (0 if counts.get("tests") and counts.get("fail") == 0 else 1)
 
 
 def structure():
     code = run("structure", ["npm", "run", "validate:data", "--", "--allow-image-reviewed"])
     report = Path("artifacts/correctness/scene-integrity.json")
+    save("structure-result.json", {**diagnostics("structure", code), "reportProduced": not code and report.is_file()})
     if not code and report.is_file():
         shutil.copyfile(report, OUT / "structural-scene-integrity.json")
         return 0
@@ -188,6 +265,7 @@ def structure():
 
 def strict():
     code = run("strict", ["npm", "run", "--silent", "validate:data"])
+    status = diagnostics("strict", code)
     stdout = (TEMP / "strict.out").read_text()
     reports = []
     for match in re.finditer(r"(?m)^\{", stdout):
@@ -200,7 +278,7 @@ def strict():
                 break
     pending = re.search(r"^Error: Human review required before release: ([a-z0-9,-]+(?: [a-z0-9,-]+)*)$",
                         (TEMP / "strict.err").read_text(), re.M)
-    save("strict-data.json", {"exit": code, "reports": reports,
+    save("strict-data.json", {**status, "reports": reports,
                               "pendingHumanReview": pending.group(1).split(", ") if pending else None})
     return code or (0 if len(reports) == 3 else 1)
 
@@ -210,7 +288,7 @@ def record():
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "radiology-ultrasound-exam-room", "outcomes": gates,
+                         "scope": "hospital-reception-dialysis", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")
@@ -227,6 +305,8 @@ elif stage == "record":
     record()
 elif stage == "domain":
     sys.exit(domain())
+elif stage == "spatial":
+    sys.exit(spatial())
 elif stage == "navigation":
     sys.exit(navigation())
 elif stage == "strict":

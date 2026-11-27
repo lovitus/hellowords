@@ -1,9 +1,9 @@
-name: Verify the ultrasound examination room and its return to radiology
+name: Verify the hospital reception and dialysis round trip
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the ultrasound examination room following the frozen carriage word build
+        description: Full SHA of the hospital reception and dialysis candidate
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 7e8d5709c92c3abdd582aa429957a9f43c742f7f
+  BASELINE: 7eafc63001dfcd4da5f3e43337ddd1c97bd7d01e
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 69f15dc711bbcdc8539896f1f095d28259758e96d4c7b33c0e6b99db4265f4ce
-  ARTIFACT_RUN: "46034795817"
+  MANIFEST_SHA256: 10a4fe689fcc7a64ccee49d26706fec8880c216f5b069003b8a52ac1fd1ce80f
+  ARTIFACT_RUN: "46039903146"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -54,7 +54,7 @@ jobs:
           run-id: ${{ env.ARTIFACT_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/original-evidence
-      - name: Verify the recorded retained memory budget failure against the frozen build
+      - name: Verify the original CPU and memory budget measurements against the frozen build
         id: baseline
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.original_evidence.outcome == 'success' }}
         continue-on-error: true
@@ -67,6 +67,11 @@ jobs:
       - name: Install the locked dependencies
         id: dependencies
         run: npm ci > "$RUNNER_TEMP/npm.log" 2>&1
+      - name: Verify the original stale spatial vocabulary index and the candidate index
+        id: spatial
+        if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.dependencies.outcome == 'success' }}
+        continue-on-error: true
+        run: python ../.github/frozen-display.py spatial
       - name: Lint the product
         id: lint
         continue-on-error: true
@@ -79,7 +84,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reach radiology in the frozen application and verify the missing room entrance
+      - name: Reach the hospital and attempt the missing reception entrance in the frozen application
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -108,7 +113,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Enter and leave the ultrasound room on desktop and phone and retain the existing journeys
+      - name: Enter reception and dialysis and return on desktop and phone and retain the existing journeys
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true

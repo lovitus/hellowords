@@ -1,4 +1,4 @@
-"""Compare the radiology room entrance on both devices and retain previously verified journeys."""
+"""Compare the hospital reception and dialysis round trip on both devices."""
 import base64
 from collections import Counter
 import hashlib
@@ -41,6 +41,8 @@ RADIOLOGY = ("e2e/hospital-radiology.spec.ts",
              "hospital radiology keeps ultrasound words on the photograph through Fit, continuous zoom and hospital return")
 ULTRASOUND = ("e2e/ultrasound-exam-room.spec.ts",
               "the photographed ultrasound machine opens its exam room and remains readable after returning to radiology")
+RECEPTION = ("e2e/hospital-reception-dialysis.spec.ts",
+             "the hospital reception desk leads through its dialysis doorway and both photographs remain readable on return")
 STREET_PHOTO = "/scenes/city-street-bright-v4.jpg"
 TRANSIT_PHOTO = "/scenes/transit-hub-premium-v2.jpg"
 BUS_PHOTO = "/scenes/electric-bus-premium-v2.jpg"
@@ -56,8 +58,9 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [(project, *ULTRASOUND) for project in PROJECTS]
+cases = [(project, *RECEPTION) for project in PROJECTS]
 if phase == "candidate":
+    cases.extend((project, *ULTRASOUND) for project in PROJECTS)
     cases.extend((project, *RADIOLOGY) for project in PROJECTS)
     cases.append(("mobile-chromium", *HATCH))
     cases.append(("chromium", *PACK_CARRIAGE))
@@ -284,14 +287,6 @@ def ultrasound_journey(observed, images, result, project):
     if (not card_matches(before, parent_id, parent_photo, machine) or entrance.get("sourceScene") != parent_id
             or entrance.get("sourcePhoto") != parent_photo):
         return False
-    if phase == "baseline":
-        wrong_card = {"word": "exam couch cushion", "meaning": "检查床垫"} if mobile else {
-            "word": "ultrasound control panel", "meaning": "超声控制面板"}
-        return (result["status"] == "failed" and len(result["errors"]) == 1
-                and entrance.get("entranceCount") == 0 and "hitTarget" in entrance and entrance["hitTarget"] is None
-                and card_matches(entrance, parent_id, parent_photo, [wrong_card])
-                and all(stage + "-result" not in observed for stage in
-                        ("exam-room-trackball", "exam-room-at-maximum-zoom", "radiology-machine-after-return")))
     trackball = read("exam-room-trackball", (617, 393))
     terminal = read("exam-room-at-maximum-zoom")
     maximum, scale = terminal.get("maximumScale"), terminal.get("scale")
@@ -304,6 +299,65 @@ def ultrasound_journey(observed, images, result, project):
             and terminal.get("semanticState") == "idle" and terminal.get("nextPlane") == "spatial-terminal"
             and isinstance(maximum, (int, float)) and isinstance(scale, (int, float))
             and maximum > 1 and abs(scale - maximum) <= 0.021 and card_matches(returned, parent_id, parent_photo, machine))
+
+
+def reception_journey(observed, images, result, project):
+    mobile = project == "mobile-chromium"
+    viewport = (385, 705) if mobile else (1440, 900)
+    pixels = (1011, 1851) if mobile else (1440, 900)
+    hospital = ("hospital", "/scenes/hospital-atrium-premium-v1.jpg")
+    reception = ("hospital-reception", "/scenes/hospital-reception-v1.jpg")
+    dialysis = ("hemodialysis-unit", "/scenes/hemodialysis-unit-premium-v1.jpg")
+
+    def reading(stage, coordinates=None):
+        rows = observed.get(stage + "-result", [])
+        if len(rows) != 1 or images.get(stage) != pixels:
+            return {}
+        row = rows[0]
+        if coordinates is not None:
+            point = row.get("point", {})
+            if ((row.get("x"), row.get("y")) != coordinates or point.get("visible") is not True
+                    or not all(isinstance(value := point.get(axis), (int, float)) and 0 <= value < bound
+                               for axis, bound in zip(("x", "y"), viewport))):
+                return {}
+        return row
+
+    def location(row):
+        return row.get("scene"), row.get("photo")
+
+    def entered(row, origin, destination):
+        return ((row.get("sourceScene"), row.get("sourcePhoto")) == origin and location(row) == destination
+                and row.get("hitTarget") == destination[0] and row.get("entranceCount") == 1 and row.get("cards") == [])
+
+    def card(row, scene, word, meaning):
+        return location(row) == scene and row.get("cards") == [{"word": word, "meaning": meaning}]
+
+    first = reading("enter-hospital-reception", (123, 651))
+    if (first.get("sourceScene"), first.get("sourcePhoto")) != hospital:
+        return False
+    if phase == "baseline":
+        return (result["status"] == "failed" and len(result["errors"]) == 1 and first.get("entranceCount") == 0
+                and "hitTarget" in first and first["hitTarget"] is None
+                and location(first) == hospital and isinstance(first.get("cards"), list)
+                and "reception-service-bell-result" not in observed and "enter-hemodialysis-unit-result" not in observed)
+    bell = reading("reception-service-bell", (134, 664))
+    second = reading("enter-hemodialysis-unit", (1391, 526))
+    chair = reading("dialysis-reclining-chair", (344, 430))
+    terminal = reading("dialysis-maximum-zoom")
+    maximum, scale = terminal.get("maximumScale"), terminal.get("scale")
+    disease = reading("dialysis-chronic-kidney-disease-index")
+    camera = disease.get("cameraBefore")
+    back_reception = reading("reception-service-bell-after-return", (134, 664))
+    back_hospital = reading("hospital-reception-desk-after-return", (81, 614))
+    return (result["status"] == "passed" and not result["errors"] and entered(first, hospital, reception)
+            and card(bell, reception, "service bell", "服务铃") and entered(second, reception, dialysis)
+            and card(chair, dialysis, "reclining dialysis chair", "透析躺椅")
+            and location(terminal) == dialysis and terminal.get("nextPlane") == "spatial-terminal"
+            and isinstance(maximum, (int, float)) and isinstance(scale, (int, float))
+            and maximum > 1 and abs(maximum - scale) <= 0.05
+            and card(disease, dialysis, "chronic kidney disease", "慢性肾脏病")
+            and disease.get("markerCount") == 0 and isinstance(camera, str) and bool(camera) and camera == disease.get("cameraAfter")
+            and card(back_reception, reception, "service bell", "服务铃") and card(back_hospital, hospital, "reception desk", "接待台"))
 
 
 scenes = {
@@ -353,6 +407,9 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == RECEPTION[1]:
+            row["accepted"] = reception_journey(observed, images, result, project)
+            continue
         if title == ULTRASOUND[1]:
             row["accepted"] = ultrasound_journey(observed, images, result, project)
             continue
