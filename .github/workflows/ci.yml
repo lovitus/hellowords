@@ -1,9 +1,9 @@
-name: Verify city street and transit hub vocabulary on the photographs
+name: Verify electric bus and railway platform vocabulary on the photographs
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the street and transit candidate following the frozen bilingual build
+        description: Full SHA of the bus and platform candidate following the frozen street and transit build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 5a61ad0df64beb1cb3b74fbc319dbd592b890f32
+  BASELINE: a981d11b9ee055dab948f05ceb98cadce2afb16d
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: fd05a5ed97975049dae3f5334c202d9001b0edc3b784397dd2a649c26f1dfcd9
-  ARTIFACT_RUN: "46008681040"
+  MANIFEST_SHA256: 01a8efbbdbd4ffcc2f320052282e61106380593309b9d501a880299db33863dd
+  ARTIFACT_RUN: "46011472647"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -54,7 +54,7 @@ jobs:
           run-id: ${{ env.ARTIFACT_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/original-evidence
-      - name: Verify the existing passing performance measurement against the frozen build
+      - name: Verify the recorded renderer budget failure against the frozen build
         id: baseline
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.original_evidence.outcome == 'success' }}
         continue-on-error: true
@@ -79,7 +79,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce the wrong column card, missing escalator card and misplaced museum pediment
+      - name: Reproduce both missing photographed words and the misplaced emergency hammer
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -108,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Read the street and transit objects on return and retain the previous journeys
+      - name: Read the bus and platform objects and retain the street, office and previous journeys
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true

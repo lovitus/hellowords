@@ -1,4 +1,4 @@
-"""Compare photographed street and station objects and retain the existing city journeys."""
+"""Compare photographed bus and rail objects and retain the existing city journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -30,8 +30,12 @@ NARROW = ("e2e/urban-services-overview.spec.ts",
           "the bilingual phone reads the silver terminal roof after returning through the photographed airport entrance")
 STREET_TRANSIT = ("e2e/street-transit-photo-reading.spec.ts",
                   "the street and transit round trip reads the museum column shaft and silver escalator side panel and keeps the pediment in the word index")
+BUS_PLATFORM = ("e2e/bus-platform-photo-reading.spec.ts",
+                "the transit hub journey reads bus seat upholstery and a platform tactile tile and keeps the emergency hammer in the index")
 STREET_PHOTO = "/scenes/city-street-bright-v4.jpg"
 TRANSIT_PHOTO = "/scenes/transit-hub-premium-v2.jpg"
+BUS_PHOTO = "/scenes/electric-bus-premium-v2.jpg"
+PLATFORM_PHOTO = "/scenes/railway-platform-premium-v2.jpg"
 TERMINAL_SHA = "428e5f9dbcca0f19e8fcedc540a9715362bc55b9b2e51e31d39a4659133f31e1"
 OVERVIEW_SHA = "0cc4d2fc02d402b2f5b215711e72d7d93635e889064891bf42477d42e063a19d"
 PROJECTS = ("chromium", "mobile-chromium")
@@ -41,8 +45,9 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [("chromium", *STREET_TRANSIT)]
+cases = [("chromium", *BUS_PLATFORM)]
 if phase == "candidate":
+    cases.append(("chromium", *STREET_TRANSIT))
     cases.append(("mobile-chromium", *NARROW))
     cases.extend((project, *journey) for project in PROJECTS
                  for journey in (OVERVIEW, DISTRICT_ZONES, TERMINAL, OFFICE, BAGGAGE, CHECKIN, SECURITY, MINIMAP))
@@ -155,54 +160,70 @@ def terminal_readings(observed, images, result):
             and all(name in images for name in ("returned-terminal-shell-reading", "returned-terminal-suitcase-lining")))
 
 
+def photographed_word(observed, images, name, scene, photo, coordinates, card):
+    entries = observed.get(name + "-result", [])
+    if len(entries) != 1 or images.get(name) != (1440, 900):
+        return False
+    reading = entries[0]
+    if not {"point", "word", "meaning"} <= reading.keys():
+        return False
+    point = reading["point"]
+    return (reading.get("scene") == scene and reading.get("photo") == photo
+            and (reading.get("x"), reading.get("y")) == coordinates
+            and (reading["word"], reading["meaning"]) == card
+            and point.get("visible") is True
+            and all(isinstance(point.get(axis), (int, float)) and 0 <= point[axis] < limit
+                    for axis, limit in (("x", 1440), ("y", 900))))
+
+
 def street_transit_readings(observed, images, result):
-    checks = set()
-    for visits, scene, photo, coordinates, old_card, new_card in (
-        (("street-arrival", "street-return"), "city-street", STREET_PHOTO, (361, 422),
-         ("facade block", "立面石块"), ("column shaft", "柱身")),
-        (("transit-arrival", "transit-reentry"), "transit-hub", TRANSIT_PHOTO, (1051, 510),
-         (None, None), ("escalator side panel", "扶梯侧板")),
+    for visits, scene, photo, coordinates, card in (
+        (("street-arrival", "street-return"), "city-street", STREET_PHOTO, (361, 422), ("column shaft", "柱身")),
+        (("transit-arrival", "transit-reentry"), "transit-hub", TRANSIT_PHOTO, (1051, 510), ("escalator side panel", "扶梯侧板")),
     ):
         for visit in visits:
-            entries = observed.get(visit + "-result", [])
-            if len(entries) != 1 or images.get(visit) != (1440, 900):
+            if not photographed_word(observed, images, visit, scene, photo, coordinates, card):
                 return False
-            reading = entries[0]
-            if not {"point", "word", "meaning"} <= reading.keys():
-                return False
-            point = reading["point"]
-            if (reading.get("scene") != scene or reading.get("photo") != photo
-                    or (reading.get("x"), reading.get("y")) != coordinates
-                    or (reading["word"], reading["meaning"]) != (old_card if phase == "baseline" else new_card)
-                    or point.get("visible") is not True
-                    or not all(isinstance(point.get(axis), (int, float)) and 0 <= point[axis] < limit
-                               for axis, limit in (("x", 1440), ("y", 900)))):
-                return False
-            checks.add(f"{visit} reads the photographed {new_card[0]}")
-    if images.get("pediment-search-card") != (1440, 900):
+    return images.get("pediment-search-card") == (1440, 900) and result["status"] == "passed" and not result["errors"]
+
+
+def bus_platform_readings(observed, images, result):
+    cards = (("seat upholstery", "座椅面料", "electric-bus", BUS_PHOTO, (777, 465)),
+             ("tactile tile", "盲道砖", "railway-platform", PLATFORM_PHOTO, (743, 839)))
+    for word, meaning, scene, photo, point in cards:
+        card = (None, None) if phase == "baseline" else (word, meaning)
+        if not photographed_word(observed, images, word.replace(" ", "-"), scene, photo, point, card):
+            return False
+    hammer = observed.get("emergency-hammer-index-result", [])
+    if len(hammer) != 1 or images.get("emergency-hammer-index") != (1440, 900):
+        return False
+    reading = hammer[0]
+    before, after = reading.get("before"), reading.get("after")
+    if (reading.get("scene") != "electric-bus" or not all(isinstance(v, str) and v for v in (before, after))
+            or type(reading.get("paintedMarkers")) is not int):
         return False
     if phase == "candidate":
-        return result["status"] == "passed" and not result["errors"]
-    messages = [re.sub(r"\x1b\[[0-9;]*m", "", error.get("message", "")).strip() for error in result["errors"]]
-    if result["status"] != "failed" or not messages or any(not m for m in messages):
-        return False
-    headings = {message.splitlines()[0].removeprefix("Error: ").strip() for message in messages}
-    # This test uses soft expectations so the same trip records the bad readings and the old spatial index entry.
-    placed = any("toHaveAccessibleName" in m and '"museum pediment，博物馆山花"' in m for m in messages)
-    painted = any("the photograph has no museum pediment marker" in m
-                  and re.search(r"(?m)^Received:\s*[1-9]\d*\s*$", m) for m in messages)
-    allowed = checks | {"the related word preserves the street framing", "the photograph has no museum pediment marker"}
-    return (checks <= headings and placed and painted
-            and all(m.splitlines()[0].removeprefix("Error: ").strip() in allowed
-                    or ("toHaveAccessibleName" in m and '"museum pediment，博物馆山花"' in m)
-                    or ("toBeVisible" in m and "相关词 · 图中未标注" in m and "museum pediment" in m) for m in messages))
+        return (result["status"] == "passed" and not result["errors"]
+                and reading.get("indexName") == "emergency hammer，安全锤，图中未标注" and reading.get("related") is True
+                and reading["paintedMarkers"] == 0 and before == after)
+    expected = {f"clicking the photographed {word} opens its word card" for word, *_ in cards}
+    expected.add("the emergency hammer is index-only and preserves the bus framing")
+    headings = [re.sub(r"\x1b\[[0-9;]*m", "", err.get("message", "")).partition("\n")[0].removeprefix("Error: ").strip()
+                for err in result["errors"]]
+    return (result["status"] == "failed" and Counter(headings) == Counter(expected)
+            and reading.get("indexName") == "emergency hammer，安全锤" and reading.get("related") is False
+            and reading["paintedMarkers"] > 0 and before != after)
 
 
 scenes = {
     "city-street": inventory("city-street", STREET_PHOTO, "e280b0047e7bf0dbcf7f1ff392c38d5b88f06e11bb6304f3d998f47f37438fdf",
-                             "146d4670e5fb9fbb2f5db5c06e02280ffd995188d395f282bee4175af4cd4961", 179),
+                             "c7a161b33a84d256719168a40eff7c84b096be98ab8d610e485686182fe7965b", 179),
     "transit-hub": inventory("transit-hub", TRANSIT_PHOTO, "0404f4a4fcfef1cba37b54231530085b708e498b1e21dd94e5585477f68652f9",
-                             "c8e112d0200da7b0250786a283b7085ca8fa9f1947f70e3deb528b091607d353", 175),
+                             "c737033542f712314d9fc0f3b0dc474370fe540a930c46fed24e694cb39bd199", 175),
+    "electric-bus": inventory("electric-bus", BUS_PHOTO, "71fd16eaad65c46a9aa9ea0c85cb87b788337e44c57b76f0365449dda38a9a63",
+                              "f0c26cf80d1d3895e083f0998bdbf42a341e9a375bad201488f8f96ff06fa6fa", 85),
+    "railway-platform": inventory("railway-platform", PLATFORM_PHOTO, "85250ba12bfa202f5f9d43b690d44d32118647620f0fe1c39ce3830baa682fb0",
+                                  "77f1bee182e52d92f83dbcab72cff7877f2f169cadcd3a8e7dbef6d6c761a9d5", 126),
 }
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
@@ -237,6 +258,9 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == BUS_PLATFORM[1]:
+            row["accepted"] = bus_platform_readings(observed, images, result)
+            continue
         if title == STREET_TRANSIT[1]:
             row["accepted"] = street_transit_readings(observed, images, result)
             continue
