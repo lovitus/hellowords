@@ -1,4 +1,4 @@
-"""Compare the rendered apartment photograph on the frozen and candidate builds."""
+"""Read the apartment furniture on both builds and check the candidate's slot and navigation regressions."""
 import base64
 from collections import Counter
 import hashlib
@@ -16,6 +16,10 @@ OFFICE = ("e2e/office-conference.spec.ts", "returning to the office restores the
 ZOOM_FILE = "e2e/continuous-semantic-zoom.spec.ts"
 APARTMENT = (ZOOM_FILE, "the fitted apartment photograph stays aligned with its words after handoff")
 HANDOFF = (ZOOM_FILE, "Apartment handoff settles to the complete child before a fresh outward gesture can exit")
+FURNITURE = ("e2e/home-kitchen.spec.ts", "apartment furniture and its parts open separate word cards on the photograph")
+SLOTS = ("e2e/label-zoom-retention.spec.ts", "zooming back out in the apartment keeps readable words in their clear slots")
+WORDS = ("bed", "duvet", "wardrobe", "wardrobe door", "wardrobe handle", "refrigerator", "refrigerator door", "refrigerator handle")
+BED_ASSERTION = "reading the bed dot after closing its card must open bed in the apartment"
 PHOTO = "/scenes/apartment-bright-v2.jpg"
 PHOTO_SHA = "90b90990ed24ec4324aa0b9345a0db650baf1a8bd03267ab6f53d5984d8c5ff2"
 PROJECTS = ("chromium", "mobile-chromium")
@@ -25,8 +29,9 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [("chromium", *APARTMENT)]
+cases = [(project, *FURNITURE) for project in PROJECTS]
 if phase == "candidate":
+    cases += [("chromium", *APARTMENT), ("chromium", *SLOTS)]
     cases += [(p, *journey) for p in PROJECTS for journey in (HANDOFF, OFFICE, BED)]
 
 
@@ -75,8 +80,41 @@ def apartment_frames(observed):
     return frames
 
 
+def confirmed_furniture(observed, names):
+    for word in WORDS:
+        key = word.replace(" ", "-")
+        geometry = observed.get(key + "-geometry", [])
+        dot = observed.get(key + "-dot-geometry", [])
+        if (len(geometry) != 1 or len(dot) != 1 or geometry[0].get("word") != word
+                or geometry[0].get("sha256") != PHOTO_SHA or geometry[0].get("inside") is not True
+                or geometry[0].get("visible") is not True or dot[0].get("dotExposed") is not True
+                or key + "-painted-card" not in names or key + "-dot-card" not in names):
+            return False
+    return True
+
+
+def misplaced_bed_result(errors):
+    """Read the received word and scene from the ordinary Playwright object diff."""
+    if len(errors) != 1:
+        return None
+    lines = re.sub(r"\x1b\[[0-9;]*m", "", errors[0].get("message", "")).strip().splitlines()
+    if not lines or lines[0].removeprefix("Error: ").strip() != BED_ASSERTION:
+        return None
+    actual = {}
+    for line in lines[1:]:
+        match = re.fullmatch(r'[ +]\s*"(scene|word)":\s*("[a-z ]+"|null),?\s*', line)
+        if match:
+            actual[match[1]] = json.loads(match[2])
+    return actual
+
+
 if hashlib.sha256((Path("dist/client") / PHOTO.lstrip("/")).read_bytes()).hexdigest() != PHOTO_SHA:
     raise ValueError("The real apartment photograph differs")
+if phase == "baseline":
+    apartment = json.loads(Path("dist/client/data/scenes/apartment.json").read_bytes())
+    locations = {a["id"]: [a["x"], a["y"]] for a in apartment["labels"]}
+    if locations.get("bed") != [350, 748] or locations.get("duvet") != locations["bed"]:
+        raise ValueError("The frozen bed and duvet no longer share the observed photograph position")
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
 reporter = temp / "results.json"
@@ -104,8 +142,6 @@ for spec in visit(report):
         result = attempts[0]
         names, observed = keep_attachments(result["attachments"], f"{project}-{len(rows)}")
         errors = result["errors"]
-        tags = [re.sub(r"\x1b\[[0-9;]*m", "", error.get("message", "")).strip()
-                .split("\n")[0].removeprefix("Error: ").strip() for error in errors]
         source_lines = [{"file": Path(location["file"]).name, "line": location.get("line")}
                         for error in errors if (location := error.get("location"))
                         and Path(location.get("file", "")).name in {Path(case[1]).name, "photo-journey.ts"}]
@@ -117,15 +153,20 @@ for spec in visit(report):
             row["maxOverflowPx"] = max(f["overflow"] for f in frames)
             row["maxReadable"] = max(f["readable"] for f in frames)
         if phase == "baseline":
-            row["accepted"] = (result["status"] == "failed" and title == APARTMENT[1]
-                               and tags == ["the four-room photograph stays inside the viewport on every unfrozen frame"]
-                               and any(f["overflow"] > 1 and (f["width"] > f["viewportWidth"] + 1
-                                       or f["height"] > f["viewportHeight"] + 1) for f in frames))
+            wrong = {"scene": "apartment", "word": "duvet"} if project == "chromium" else {"scene": "bedroom", "word": None}
+            row["clickedBedResult"] = misplaced_bed_result(errors)
+            row["accepted"] = (title == FURNITURE[1] and result["status"] == "failed" and "apartment-bed-dot-result" in names
+                               and row["clickedBedResult"] == wrong)
         elif not errors and result["status"] == "passed":
-            if title == APARTMENT[1]:
+            if title == FURNITURE[1]:
+                row["accepted"] = "apartment-bed-dot-result" in names and confirmed_furniture(observed, names)
+            elif title == SLOTS[1]:
+                trace = observed.get("apartment-outward-slot-changes", [])
+                row["accepted"] = (len(trace) == 1 and trace[0]["changes"] == []
+                                   and all(trace[0]["clearFrameCounts"].get(key, 0) > 1
+                                           for key in ("refrigerator-door", "shelf-board")))
+            elif title == APARTMENT[1]:
                 row["accepted"] = bool(frames) and row["maxReadable"] > 0 and row["maxOverflowPx"] <= 1
-            elif title == HANDOFF[1]:
-                row["accepted"] = True
             elif title == OFFICE[1]:
                 office = observed.get("office-return-words", [])
                 row["accepted"] = (len(office) == 1 and bool(office[0]["returnedIds"])
@@ -133,9 +174,11 @@ for spec in visit(report):
             elif title == BED[1]:
                 bed = observed.get("emergency-return-words", [])
                 row["accepted"] = (len(bed) == 1 and bool(bed[0]["words"]) and "emergency-return" in names)
+            else:
+                row["accepted"] = True
 
-accepted = (not report.get("errors") and Counter(seen) == Counter(cases) and all(row["accepted"] for row in rows)
-            and (code == 1 if phase == "baseline" else code == 0))
+accepted = (code == (1 if phase == "baseline" else 0) and not report.get("errors")
+            and Counter(seen) == Counter(cases) and all(row["accepted"] for row in rows))
 (out / "result.json").write_text(json.dumps({"phase": phase, "exit": code, "accepted": accepted,
                                            "reportSha256": hashlib.sha256(reporter.read_bytes()).hexdigest(),
                                            "cases": rows}, indent=2) + "\n")

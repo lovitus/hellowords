@@ -1,9 +1,9 @@
-name: Verify the fitted apartment photograph and scene returns
+name: Verify photographed apartment furniture and scene returns
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the candidate following the frozen bedside build
+        description: Full SHA of the candidate following the fitted apartment build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: b3c2a62b5eb38a6855d9005084ee165a1fe12c68
+  BASELINE: bdb5a985b15149b3bffc0e4d6cb77d52915f4f09
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: ea3511121cdbfc0b96836caed4100f886c8270eb1624f73a957cb5c4c1daec30
-  ARTIFACT_RUN: "45974598019"
+  MANIFEST_SHA256: 11f03789b55e5ef71ef73ff7d0e3a07595e1e86d6f1038cac3a504c4c8a5e568
+  ARTIFACT_RUN: "45979304407"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -45,6 +45,20 @@ jobs:
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git show -s --format=%P HEAD)" = "$BASELINE"
           python ../.github/frozen-display.py baseline-integrity
+      - name: Retrieve the original completed 40-transition measurement
+        uses: actions/download-artifact@v5
+        id: original_evidence
+        continue-on-error: true
+        with:
+          name: frozen-display-${{ env.ARTIFACT_RUN }}
+          run-id: ${{ env.ARTIFACT_RUN }}
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original-evidence
+      - name: Verify the existing performance failure against the frozen build
+        id: baseline
+        if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.original_evidence.outcome == 'success' }}
+        continue-on-error: true
+        run: python ../.github/frozen-display.py baseline-performance
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -65,9 +79,9 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce the fitted apartment photograph alignment failure
-        id: baseline
-        if: ${{ !cancelled() && steps.browser.outcome == 'success' }}
+      - name: Reproduce the shared bed and duvet position on the frozen photograph
+        id: misplaced
+        if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
         run: |
           test ! -e dist
@@ -94,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Verify the apartment photograph and handoff, office atrium and hospital returns
+      - name: Read photographed furniture, verify refrigerator and shelf positions, and return to the parent scenes
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true

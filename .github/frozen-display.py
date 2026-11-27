@@ -13,7 +13,7 @@ TEMP = Path(os.environ["RUNNER_TEMP"])
 OUT = TEMP / "frozen-display-evidence"
 OUT.mkdir(exist_ok=True)
 PRODUCT = os.environ["PRODUCT"]
-GATES = ("integrity", "dependencies", "browser", "baseline", "build", "product_artifact", "journeys",
+GATES = ("integrity", "dependencies", "browser", "baseline", "misplaced", "build", "product_artifact", "journeys",
          "navigation", "lint", "types", "domain", "strict", "structure")
 
 
@@ -23,14 +23,9 @@ def save(name, body):
 
 def integrity(baseline):
     if baseline:
-        # The measurement helper can tighten its scale read. The sampler,
-        # thresholds, measurement loop and every budget assertion stay pinned.
+        # Both builds use the very same sampler, real navigation route and budgets.
         subprocess.run(["git", "diff", "--quiet", os.environ["BASELINE"], PRODUCT, "--", "tests/perf",
-                        "playwright.config.ts", "package.json", "package-lock.json",
-                        ":(exclude)tests/perf/world-performance.spec.ts"], check=True)
-        measurement = Path("tests/perf/world-performance.spec.ts").read_bytes()
-        if hashlib.sha256(measurement).hexdigest() != "9b781a13004524377ca96614ba4cdc0ad74ae35d31b8e477848bf1d389b16670":
-            raise ValueError("The measurement differs from the reviewed handoff and original budgets")
+                        "playwright.config.ts", "package.json", "package-lock.json"], check=True)
     frozen = TEMP / "frozen" if baseline else Path(".")
     sha = os.environ["BASELINE"] if baseline else PRODUCT
     raw = (frozen / "artifacts/build/dist-manifest.json").read_bytes()
@@ -61,6 +56,31 @@ def integrity(baseline):
 def run(stage, command, env=None):
     with (TEMP / f"{stage}.out").open("wb") as stdout, (TEMP / f"{stage}.err").open("wb") as stderr:
         return subprocess.run(command, stdout=stdout, stderr=stderr, env=env, check=False).returncode
+
+
+def baseline_performance():
+    root = TEMP / "original-evidence"
+    digests = {
+        "summary.json": "33ddd9ff04cbf4e0376c1e647d65ddad4526221d12af96812c9358b1f8cdc4cb",
+        "navigation-result.json": "148762c30b0c7fdc2e1a608d15580f264dd7d3d9947c28d7d2f0516b975bfe40",
+    }
+    for name, expected in digests.items():
+        if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
+            raise ValueError("The original navigation evidence differs")
+    summary = json.loads((root / "summary.json").read_bytes())
+    report = json.loads((root / "navigation-result.json").read_bytes())
+    metrics = summary["result"]
+    readings = {"rendererTaskMsPerTransition": metrics["rendererTaskMsPerTransition"],
+                "peakPssMiB": metrics["memory"]["peakPssMiB"],
+                "retainedPssDeltaMiB": metrics["memory"]["pssDeltaMiB"]}
+    if (summary["gitSha"] != os.environ["BASELINE"] or summary["scenario"]["cycles"] != 20
+            or metrics["transitions"] != 40 or report["exit"] != 1 or len(report["cases"]) != 1
+            or report["cases"][0]["status"] != "failed"
+            or not all(value > summary["budgets"][name] for name, value in readings.items())):
+        raise ValueError("The frozen measurements do not match the completed baseline failure")
+    save("baseline-performance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
+                                      "cycles": 20, "transitions": 40, "measurements": readings,
+                                      "budgets": summary["budgets"], "sourceDigests": digests})
 
 
 def navigation():
@@ -173,7 +193,7 @@ def record():
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "apartment-photo-handoff", "outcomes": gates,
+                         "scope": "apartment-furniture-photo-targets", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")
@@ -184,6 +204,8 @@ def record():
 stage = sys.argv[1]
 if stage in ("baseline-integrity", "candidate-integrity"):
     integrity(stage == "baseline-integrity")
+elif stage == "baseline-performance":
+    baseline_performance()
 elif stage == "record":
     record()
 elif stage == "domain":
