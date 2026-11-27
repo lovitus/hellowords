@@ -105,9 +105,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "intensive-care-unit": 140,
   "bedside-monitor-station": 140,
   "infusion-pump-rack": 140,
-  // The dedicated pathology lab keeps microscope, specimen, embedding, staining
-  // and cold-storage terms in one focused educational bench.
-  "pathology-lab": 100,
+  // The lab photograph shows instruments, glassware, storage and work surfaces.
+  "pathology-lab": 110,
   "microscope-workstation": 145,
   "histology-sectioning-workstation": 108,
   // The pharmacy close-up keeps storage, dispensing, compounding and generic
@@ -236,7 +235,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "intensive-care-unit": 159,
   "bedside-monitor-station": 150,
   "infusion-pump-rack": 150,
-  "pathology-lab": 450,
+  "pathology-lab": 110,
   "microscope-workstation": 155,
   "histology-sectioning-workstation": 120,
   "hospital-pharmacy": 390,

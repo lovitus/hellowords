@@ -398,16 +398,16 @@ const parentPortal = {
   translation: "查看显微镜工作台",
   childSceneId: "microscope-workstation",
   sourceVisualRegion: "portal-microscope-workstation",
-  x: 20,
-  y: 360,
-  width: 300,
-  height: 400,
+  x: 178,
+  y: 688,
+  width: 40,
+  height: 34,
   enterScale: 3.4,
 };
 
 const parentRegion = {
   id: parentPortal.sourceVisualRegion,
-  description: "Complete left-front compound microscope, stage, controls and surrounding glass workbench in the pathology laboratory photograph",
+  description: "Front right corner of the left microscope's cream-colored base",
   kind: "object",
   x: parentPortal.x,
   y: parentPortal.y,

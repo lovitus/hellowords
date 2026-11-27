@@ -3158,7 +3158,7 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     ["emergency-triage-reception", 302, 7, "emergency-department", ["triage-left registration monitor", "patient check-in station", "triage patient chair", "triage-reception wheelchair", "triage-room door handle", "open circulation floor"]],
     ["emergency-assessment-bay", 148, 7, "emergency-triage-reception", ["assessment couch", "vitals monitor", "bedhead panel", "bay supply cart", "bay sink", "bay privacy curtain"]],
     ["operating-theatre", 109, 5, "emergency-department", ["operating room", "theatre operating table", "theatre anesthesia machine", "scrub bay", "sterile ceiling panel", "recovery vacuum outlet"]],
-    ["pathology-lab", 450, 6, "hospital", ["histopathology", "microscope", "tissue cassette", "microtome", "staining tray", "cold cabinet", "immunohistochemistry", "slide digitizer", "cryostat", "cold chain", "blade holder", "wax scraper", "section bath", "pipette plunger", "freezer door"]],
+    ["pathology-lab", 110, 7, "hospital", ["microtome", "microscope", "pipette", "pipette plunger", "beaker", "staining tray", "blade holder", "desktop keyboard", "sample tray", "interior window", "glass-fronted cabinet"]],
     ["histology-sectioning-workstation", 108, 6, "pathology-lab", ["rotary microtome", "rotary handwheel", "microtome specimen head", "visible cutting blade", "section catch tray", "slide water bath", "sectioning tools", "cassette basket", "microtome control panel"]],
     ["hospital-pharmacy", 390, 5, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "doxycycline", "cetirizine", "lamotrigine", "drawer cart", "cart shelf mat", "azithromycin", "nystatin", "dispensing chute", "prescription scanner", "calibration weight"]],
     ["airport", 390, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower", "aircraft fuselage", "body scanner", "claim chute", "carousel motor", "runway threshold", "ground power unit", "gate sign frame", "departure board frame", "luggage shell"]],
@@ -3190,6 +3190,14 @@ test("urban services adds hospital, airport and office vocabulary without breaki
   const clinicalReference = new Set(hospitalIndex.map(word => word.word.toLowerCase()));
   for (const term of ["diagnosis", "mri scanner", "cancer", "paracetamol", "cardiology", "hypertension", "suction unit", "table strap", "defibrillator", "pulse oximeter", "mri bore", "positioning laser"]) {
     assert.ok(clinicalReference.has(term), `${term} remains in the hospital index`);
+  }
+  const pathology = byId.get("pathology-lab")!;
+  const pathologyIndex = pathology.relatedWords ?? [];
+  assert.equal(pathologyIndex.length, 402);
+  assert.equal(new Set([...pathology.labels, ...pathologyIndex].map(word => word.id)).size, 512);
+  const pathologyTerms = new Set(pathologyIndex.map(word => word.word.toLowerCase()));
+  for (const term of ["histopathology", "immunohistochemistry", "cold chain", "cryostat", "formalin jar"]) {
+    assert.ok(pathologyTerms.has(term), `${term} remains in the pathology index`);
   }
   assert.deepEqual(
     hospital.portals.map(({ childSceneId }) => childSceneId),

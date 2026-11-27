@@ -136,6 +136,76 @@ test("hospital reads the photographed microscope and keeps cancer in the index o
   }
 });
 
+test("pathology lab reads the photographed microtome and keeps histopathology in the index on workstation round trips", async ({ page, isMobile }, testInfo) => {
+  test.setTimeout(90_000);
+  const labPhoto = "/scenes/pathology-lab-premium-v1.jpg";
+  const app = page.getByTestId("world-app");
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const stable = async () => (await image.elementHandle()).waitForElementState("stable");
+  const camera = () => viewer.locator(".scene-surface").evaluate(el => getComputedStyle(el).transform);
+  const sha256 = await openPhotographedRoute(page, isMobile, [...hospitalRoute, ["pathology-lab", "Pathology lab"]],
+    labPhoto, "1b841750b386bf6d6072971c04a44f15bfcd863413fe0fca8066995bd26a6d7b");
+  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+
+  // Outer edge of the foreground microtome on the 1600 × 900 photograph.
+  // The small enclosure behind it and the specimen bottles to its left have their own outlines.
+  const microtome: PhotographedWord = {
+    word: "microtome", meaning: "切片机", openFromDot: true,
+    assertion: "the microtome dot must land on the photographed sectioning instrument at the right of the bench",
+    outlines: [
+      [[1168, 691], [1171, 688], [1267, 655], [1267, 643], [1293, 639], [1305, 638],
+        [1304, 631], [1288, 622], [1307, 593], [1313, 588], [1300, 581], [1302, 568],
+        [1306, 563], [1321, 562], [1326, 553], [1332, 520], [1335, 510], [1341, 506],
+        [1417, 487], [1425, 486], [1592, 500], [1599, 503], [1599, 678], [1586, 690],
+        [1529, 721], [1409, 787], [1401, 788], [1397, 791], [1387, 792], [1373, 790],
+        [1373, 787], [1198, 749], [1194, 751], [1183, 750], [1175, 746], [1166, 736]],
+    ],
+  };
+  const readMicrotome = () => checkPaintedWords(page, isMobile, testInfo, [microtome], sha256);
+  await test.step("read the microtome in the pathology photograph", readMicrotome);
+
+  await stable();
+  const before = await camera();
+  await activate(page.getByTestId("scene-word-index-toggle"));
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill("histopathology");
+  await activate(index.getByRole("button").filter({ has: page.getByText("histopathology", { exact: true }) }));
+  const related = page.getByRole("complementary", { name: "histopathology word details", exact: true });
+  await expect(related.getByText("组织病理学", { exact: true })).toBeVisible();
+  await expect(related.getByText("相关词 · 图中未标注", { exact: true })).toBeVisible();
+  await stable();
+  expect(await camera(), "reading histopathology keeps the same view of the lab bench").toBe(before);
+  expect(await paintedWordCount(page, "histopathology"), "histopathology has no painted word on the lab photograph").toBe(0);
+  await testInfo.attach("histopathology-index", { body: await page.screenshot(), contentType: "image/png" });
+  await activate(related.getByRole("button", { name: "关闭单词卡" }));
+  await expect(related).toBeHidden();
+
+  for (const [id, entrance] of [
+    ["microscope-workstation", /^进入 Microscope workstation\b/],
+    ["histology-sectioning-workstation", /^进入 Histology sectioning workstation\b/],
+  ] as const) {
+    await test.step(`enter ${id} and read the microtome on return`, async () => {
+      await activate(viewer.getByRole("button", { name: "Fit scene", exact: true }));
+      await stable();
+      await activate(viewer.getByRole("button", { name: entrance }));
+      await expect(app).toHaveAttribute("data-scene-id", id);
+      await expect(app).toHaveAttribute("data-transition-state", "idle");
+      await activate(page.getByRole("button", { name: /返回上一层/ }));
+      await expect(app).toHaveAttribute("data-scene-id", "pathology-lab");
+      await expect(app).toHaveAttribute("data-transition-state", "idle");
+      await expect(image).toHaveAttribute("src", labPhoto);
+      await readMicrotome();
+    });
+  }
+  await test.step("magnifying the pass-through window stays in the pathology lab", () =>
+    checkMagnifiedObject(page, isMobile, testInfo, {
+      object: "pass-through-window", x: 189, y: 375,
+      scene: "pathology-lab", asset: labPhoto, destination: "pathology-lab", destinationAsset: labPhoto, threshold: 3.4,
+    }));
+});
+
 test("hospital radiology keeps ultrasound words on the photograph through Fit, continuous zoom and hospital return", async ({ page, isMobile }, testInfo) => {
   const app = page.getByTestId("world-app");
   const viewer = page.locator(".viewer-shell:not([data-phase])");
