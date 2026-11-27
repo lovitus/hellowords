@@ -335,7 +335,7 @@ async function ensureAsset() {
   return true;
 }
 
-const scannerBoreBounds = { x: 865, y: 450, width: 70, height: 60 };
+const scannerBoreBounds = { x: 881, y: 417, width: 78, height: 83 };
 const radiologyPortal = {
   id: "enter-radiology-suite",
   label: "Enter the radiology suite",
@@ -343,12 +343,13 @@ const radiologyPortal = {
   childSceneId: "radiology-suite",
   sourceVisualRegion: "portal-radiology-scanner-bore",
   ...scannerBoreBounds,
+  portraitMarker: { x: 954, y: 429 },
   enterScale: 3.4,
 };
 
 const scannerBoreRegion = {
   id: radiologyPortal.sourceVisualRegion,
-  description: "Round scanner opening and inner rim above the patient table in the central blue-lit room",
+  description: "Bore and upper-right housing of the blue-room scanner",
   kind: "part",
   ...scannerBoreBounds,
 };

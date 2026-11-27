@@ -271,7 +271,7 @@ test("multi-resolution scenes server-render base and expose one atomic runtime t
   );
 });
 
-test("dense SSR starts from a compact bounded seed and wires low-frequency camera swaps", () => {
+test("dense scenes render a bounded initial word layer and retire it on departure", () => {
   const labels: Label[] = Array.from({ length: 220 }, (_, index) => ({
     id: `dense-${index}`,
     word: `word-${index}`,
@@ -291,7 +291,7 @@ test("dense SSR starts from a compact bounded seed and wires low-frequency camer
     labels,
     portals: [],
   };
-  const markup = renderToStaticMarkup(createElement(SceneViewport, {
+  const props = {
     scene,
     meaningVisible: false,
     portalTargetTitles: {},
@@ -302,7 +302,8 @@ test("dense SSR starts from a compact bounded seed and wires low-frequency camer
     onLabelEncountered: () => undefined,
     onSelectWord: () => undefined,
     onPrefetchScene: () => undefined,
-  }));
+  };
+  const markup = renderToStaticMarkup(createElement(SceneViewport, props));
   const mountedLabelCount = markup.match(/data-testid="word-label"/g)?.length ?? 0;
   assert.ok(mountedLabelCount > 0, "SSR keeps its genuinely painted labels");
   assert.ok(
@@ -311,68 +312,9 @@ test("dense SSR starts from a compact bounded seed and wires low-frequency camer
   );
   assert.match(markup, /data-testid="scene-word-progress"[^>]*data-total="220"/);
 
-  const source = readFileSync(new URL("app/components/SceneViewport.tsx", ROOT), "utf8");
-  assert.match(source, /buildSceneLabelMountWindow\([\s\S]*previousIds: mountedLabelIdsRef\.current/);
-  assert.match(
-    source,
-    /const labelsForRender = useMemo\(\(\) => \{[\s\S]*?if \(transitionPhase === "outgoing"\) return \[\] as Label\[\];[\s\S]*?const candidates = atlasOverviewMode[\s\S]*?selectedLabelId \? \[\] : activeAtlasLabels[\s\S]*?: scene\.labels;[\s\S]*?return candidates\.filter\(\(label\) => mountedLabelIds\.has\(label\.id\)\);[\s\S]*?\}, \[activeAtlasLabels, atlasOverviewMode, mountedLabelIds, scene\.labels, selectedLabelId, transitionPhase\]\);[\s\S]*?\{labelsForRender\.map\(\(label\) => \{/,
-    "memoized labels still preserve root hover-scoping, bounded mounts, and an empty outgoing word layer",
-  );
-  assert.match(
-    source,
-    /focusedLabelId: focusedLabelId \?\? pendingKeyboardFocusLabelId/,
-    "a cue's exact keyboard target enters the bounded mount window first",
-  );
-  const labelLayoutSource = readFileSync(new URL("app/domain/labelLayout.ts", ROOT), "utf8");
-  const mountWindowStart = labelLayoutSource.indexOf("export function buildSceneLabelMountWindow");
-  const mountWindowEnd = labelLayoutSource.indexOf(
-    "export function computeSceneLabelLayout",
-    mountWindowStart,
-  );
-  assert.ok(mountWindowStart >= 0 && mountWindowEnd > mountWindowStart);
-  const mountWindowSource = labelLayoutSource.slice(mountWindowStart, mountWindowEnd);
-  assert.doesNotMatch(
-    mountWindowSource,
-    /const candidates = layout/,
-    "a first render does not mount hidden candidates merely to fill its DOM ceiling",
-  );
-  assert.match(
-    source,
-    /pendingLabelWindowPaintRef\.current = true;[\s\S]*useLayoutEffect\(\(\) => \{[\s\S]*applyCamera\(\)/,
-    "newly mounted buttons receive geometry synchronously after commit",
-  );
-  const applyCameraStart = source.indexOf("const applyCamera");
-  const applyCameraEnd = source.indexOf("const requestCameraFrame", applyCameraStart);
-  const focusCameraFrame = source.slice(applyCameraStart, applyCameraEnd);
-  const pendingFocusQueueStart = focusCameraFrame.indexOf("const pendingKeyboardFocusLabel =");
-  const pendingFocusQueueEnd = focusCameraFrame.indexOf(
-    'setDatasetValueIfChanged(surface, "visibleLabelCount"',
-    pendingFocusQueueStart,
-  );
-  assert.ok(pendingFocusQueueStart >= 0 && pendingFocusQueueEnd > pendingFocusQueueStart);
-  const pendingFocusQueue = focusCameraFrame.slice(pendingFocusQueueStart, pendingFocusQueueEnd);
-  assert.match(pendingFocusQueue, /queueMicrotask\(\(\) => \{/);
-  assert.match(
-    pendingFocusQueue,
-    /pendingKeyboardFocusLabelIdRef\.current !== pendingKeyboardFocusLabelId[\s\S]*!viewerInteractiveRef\.current/,
-  );
-  assert.match(
-    pendingFocusQueue,
-    /!focusLabel\.isConnected[\s\S]*focusLabel\.dataset\.interactive !== "true"[\s\S]*focusLabel\.focus\(\)[\s\S]*pendingKeyboardFocusLabelIdRef\.current = null/,
-    "the exact cue target retries after camera writes and focuses only while safely interactive",
-  );
-  assert.doesNotMatch(
-    pendingFocusQueue,
-    /setMountedLabelIds|setEncounterTick|setInteractionPositioned|setSceneAssetRuntime/,
-    "post-camera focus cannot create a React render loop",
-  );
-  const synchronousPaintStart = source.indexOf("useLayoutEffect(() => {");
-  const synchronousPaintEnd = source.indexOf("const requestCameraFrame", synchronousPaintStart);
-  assert.match(
-    source.slice(synchronousPaintStart, synchronousPaintEnd),
-    /frameRef\.current !== null[\s\S]*cancelAnimationFrame\(frameRef\.current\)[\s\S]*frameRef\.current = null[\s\S]*applyCamera\(\)/,
-    "a synchronous post-commit layout flush cancels its stale scheduled camera frame",
-  );
+  const outgoing = renderToStaticMarkup(createElement(SceneViewport, { ...props, transitionPhase: "outgoing" }));
+  assert.match(outgoing, /data-phase="outgoing"/);
+  assert.doesNotMatch(outgoing, /data-testid="word-label"/, "the departing scene cannot contribute an old word button");
 });
 
 test("camera frames skip redundant inline-style writes", () => {

@@ -89,10 +89,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The urban-services overview anchors three clearly separated campus blocks
   // and their shared connectors before handing off to the specialist scenes.
   "urban-services": 80,
-  // The hospital raster visibly separates emergency, pathology, radiology,
-  // pharmacy and operating-theatre areas; its floor keeps disease and INN terms
-  // in the clinical-reference band without turning them into treatment advice.
-  hospital: 100,
+  // Five departments plus the atrium have photographed objects and signs.
+  // Clinical conditions and the names of medicines stay in the hospital index.
+  hospital: 124,
   // The dedicated radiology photograph resolves CT, MRI, X-ray, mammography,
   // ultrasound and preparation fixtures without adding patient or dose claims.
   "radiology-suite": 64,
@@ -225,7 +224,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "urban-services": 120,
   // The latest professional-depth passes add reviewed equipment, medicine,
   // airside, imaging, dispensing and conference-room bands to each facility.
-  hospital: 440,
+  hospital: 124,
   // The remaining 13 radiology terms have no separate visible feature in this image.
   "radiology-suite": 74,
   "emergency-department": 108,
