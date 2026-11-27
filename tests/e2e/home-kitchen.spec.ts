@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import { checkPaintedWords } from "./photo-journey";
 
 type Point = readonly [number, number];
 type Mask = readonly (readonly Point[])[];
@@ -324,4 +325,70 @@ test("apartment search distinguishes the photographed shower hinge from the unpi
   }).toBe(true);
   await expect(app).toHaveAttribute("data-scene-id", "apartment");
   await testInfo.attach("apartment-shower-hinge", { body: await page.screenshot(), contentType: "image/png" });
+});
+
+test("apartment furniture and its parts open separate word cards on the photograph", async ({ page, isMobile }, testInfo) => {
+  test.setTimeout(100_000);
+  const photo = page.waitForResponse(response =>
+    response.ok() && new URL(response.url()).pathname === "/scenes/apartment-bright-v2.jpg",
+  );
+  await page.goto("/");
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const entrance = viewer.locator('[data-testid="scene-hotspot"][data-target-scene="apartment"]');
+  if (isMobile) await entrance.tap();
+  else await entrance.click();
+  await expect(page.getByTestId("world-app")).toHaveAttribute("data-scene-id", "apartment");
+  await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
+  const hash = createHash("sha256").update(await (await photo).body()).digest("hex");
+  expect(hash).toBe("90b90990ed24ec4324aa0b9345a0db650baf1a8bd03267ab6f53d5984d8c5ff2");
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const image = viewer.locator("img.scene-art");
+  const bedCard = page.getByRole("complementary", { name: "bed word details", exact: true });
+  await activate(page.getByTestId("scene-word-index-toggle"));
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill("bed");
+  await activate(index.locator('[data-testid="scene-word-index-result"][data-word="bed"]'));
+  await expect(bedCard).toBeVisible();
+  await (await image.elementHandle()).waitForElementState("stable");
+  await activate(bedCard.getByRole("button", { name: "关闭单词卡" }));
+  await expect(bedCard).toBeHidden();
+  await (await image.elementHandle()).waitForElementState("stable");
+  await expect.poll(() => drawnWord(page, "bed")).toMatchObject({ anchorVisible: true });
+  const bed = (await drawnWord(page, "bed"))!;
+  if (isMobile) await page.touchscreen.tap(bed.anchorX, bed.anchorY);
+  else await page.mouse.click(bed.anchorX, bed.anchorY);
+  const anyCard = page.getByRole("complementary", { name: / word details$/ });
+  await anyCard.or(page.locator('[data-testid="world-app"]:not([data-scene-id="apartment"])')).first().waitFor();
+  await testInfo.attach("apartment-bed-dot-result", { body: await page.screenshot(), contentType: "image/png" });
+  expect({
+    scene: await page.getByTestId("world-app").getAttribute("data-scene-id"),
+    word: await anyCard.count() ? await anyCard.locator("strong").first().innerText() : null,
+  }, "reading the bed dot after closing its card must open bed in the apartment").toEqual({ scene: "apartment", word: "bed" });
+  await activate(bedCard.getByRole("button", { name: "关闭单词卡" }));
+  const meaning = page.getByTestId("meaning-toggle");
+  await activate(meaning);
+  await expect(meaning).toHaveAttribute("aria-pressed", "true");
+
+  // Interior patches traced on the cutaway: the exposed timber footboard,
+  // white duvet, wardrobe plinth and door, and three stainless-steel surfaces.
+  await checkPaintedWords(page, isMobile, testInfo, [
+    { word: "bed", meaning: "床", openFromDot: true,
+      assertion: "the bed dot must land on the exposed timber footboard",
+      outlines: [[[182,791],[414,791],[425,806],[180,808]]] },
+    { word: "duvet", meaning: "被子", openFromDot: true,
+      outlines: [[[215,739],[397,739],[410,783],[188,783]]] },
+    { word: "wardrobe", meaning: "衣柜", openFromDot: true,
+      outlines: [[[527,758],[596,758],[596,769],[527,769]]] },
+    { word: "wardrobe door", meaning: "衣柜门", openFromDot: true,
+      outlines: [[[634,545],[680,545],[680,624],[634,624]]] },
+    { word: "wardrobe handle", meaning: "衣柜把手", openFromDot: true,
+      outlines: [[[579,632],[584,632],[584,663],[579,663]]] },
+    { word: "refrigerator", meaning: "冰箱", openFromDot: true,
+      outlines: [[[943,357],[1047,357],[1047,424],[943,424]]] },
+    { word: "refrigerator door", meaning: "冰箱门", openFromDot: true,
+      outlines: [[[1011,194],[1048,194],[1048,334],[1011,334]]] },
+    { word: "refrigerator handle", meaning: "冰箱把手", openFromDot: true,
+      outlines: [[[988,214],[995,214],[995,318],[988,318]]] },
+  ], hash);
+  await expect(page.getByTestId("world-app")).toHaveAttribute("data-scene-id", "apartment");
 });
