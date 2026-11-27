@@ -209,24 +209,42 @@ export async function checkPaintedWords(page: Page, isMobile: boolean, testInfo:
 export async function zoomBack(page: Page, isMobile: boolean, child: string, parent: string, parentAsset: string, gestureFocus?: Point) {
   const app = page.getByTestId("world-app");
   const viewer = page.locator(".viewer-shell:not([data-phase])");
-  const scale = async () => Number(await viewer.locator(".scene-surface").getAttribute("data-scene-scale"));
-  const zoomed = await scale(), retreat: number[] = [];
-  await expect.poll(async () => {
-    if (await app.getAttribute("data-scene-id") === child && await viewer.getAttribute("data-interaction-locked") === "false") {
-      retreat.push(await scale());
-      if (gestureFocus) {
-        const point = await projectPhoto(viewer.locator("img.scene-art"), gestureFocus.x, gestureFocus.y);
-        await zoomPhoto(page, isMobile, point, 0.7);
-      } else {
-        const control = viewer.getByRole("button", { name: "Zoom out", exact: true });
-        if (isMobile) await control.tap();
-        else await control.click();
-      }
-    }
-    return app.getAttribute("data-scene-id");
-  }, { intervals: [400], timeout: 8_000 }).toBe(parent);
-  expect(retreat.some((value) => value < zoomed * 0.9 && value > 0.74), "zooming out crosses an intermediate magnification").toBe(true);
+  const readView = () => app.evaluate(root => {
+    const active = root.querySelector<HTMLElement>(".viewer-shell:not([data-phase])");
+    return {
+      scene: root.dataset.sceneId,
+      ready: root.dataset.transitionState === "idle" && active?.dataset.interactionLocked === "false",
+      scale: Number(active?.querySelector<HTMLElement>(".scene-surface")?.dataset.sceneScale),
+    };
+  });
+  await expect(app).toHaveAttribute("data-scene-id", child);
   await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
+  const retreat: number[] = [];
+  for (let action = 0; action < 16; action++) {
+    // Separate outward gestures so reaching the overview can arm the next one.
+    if (action > 0) await page.waitForTimeout(400);
+    const before = await readView();
+    if (before.scene !== child || !before.ready) break;
+    retreat.push(before.scale);
+    if (gestureFocus) {
+      const point = await projectPhoto(viewer.locator("img.scene-art"), gestureFocus.x, gestureFocus.y);
+      await zoomPhoto(page, isMobile, point, 0.7);
+    } else {
+      const control = viewer.getByRole("button", { name: "Zoom out", exact: true });
+      if (isMobile) await control.tap();
+      else await control.click();
+    }
+    // At the scale floor, the camera can stay put while the parent opens.
+    await expect.poll(async () => {
+      const after = await readView();
+      return after.scene !== child || !after.ready || after.scale < before.scale;
+    }, { message: `zoom out from ${before.scale}× in ${child} reduces the scale or starts the return` }).toBe(true);
+  }
+  await expect(app, `zooming out of ${child} opens ${parent}`).toHaveAttribute("data-scene-id", parent);
+  expect(retreat.some((value) => value < retreat[0] * 0.9 && value > 0.74), "zooming out crosses an intermediate magnification").toBe(true);
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
   await expect(viewer.locator("img.scene-art")).toHaveAttribute("src", parentAsset);
   return retreat;
 }

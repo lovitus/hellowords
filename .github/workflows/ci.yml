@@ -1,4 +1,4 @@
-name: Diagnose the frozen mobile baggage service return
+name: Verify the revised return gesture on the frozen mobile baggage journey
 on:
   workflow_dispatch:
     inputs:
@@ -24,7 +24,9 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          sparse-checkout: .github
+          sparse-checkout: |
+            .github
+            tests/e2e
           persist-credentials: false
       - uses: actions/checkout@v6
         with:
@@ -40,23 +42,45 @@ jobs:
           path: product
       - uses: actions/download-artifact@v5
         with:
+          name: passenger-seat-meal-45949933105
+          run-id: "45949933105"
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/baggage-diagnostic/history/45949933105
+      - uses: actions/download-artifact@v5
+        with:
           name: passenger-seat-meal-45950843653
           run-id: "45950843653"
           github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/prior-cabin
-      - name: Verify the original production files, baseline and five passed journeys
+          path: ${{ runner.temp }}/baggage-diagnostic/history/45950843653
+      - uses: actions/download-artifact@v5
+        with:
+          name: mobile-baggage-return-45952337921
+          run-id: "45952337921"
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/baggage-diagnostic/history/45952337921
+      - name: Verify the frozen product and all three prior evidence bundles
         run: |
           test "$PRODUCT" = 57402fb3787ffdabde34ce3d2355a63a2853d4fe
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
           echo '4bf2cbb16b9fa91ace6b0668668cf045bb5351742705bb85b4418551c451bd98  artifacts/build/dist-manifest.json' | sha256sum -c -
           python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-          cd "$RUNNER_TEMP/prior-cabin"
+          cd "$RUNNER_TEMP/baggage-diagnostic/history"
           sha256sum -c <<'RECEIPTS'
-          12dc7495e3b72e9d6d199eef12141e3cfd12ded7587b966e902498783c0c0b3f  baseline.json
-          4bbba172ed6a40df2ee34f412c9269325ab2630a725aa27e955929f030e8568b  candidate.json
+          12dc7495e3b72e9d6d199eef12141e3cfd12ded7587b966e902498783c0c0b3f  45949933105/baseline.json
+          12dc7495e3b72e9d6d199eef12141e3cfd12ded7587b966e902498783c0c0b3f  45950843653/baseline.json
+          4bbba172ed6a40df2ee34f412c9269325ab2630a725aa27e955929f030e8568b  45950843653/candidate.json
+          5edb4bd69dbe3b52a78a6c07e6caefcab242647a1c14fb6d82e934ae6c83063b  45952337921/mobile-baggage.json
           RECEIPTS
           python "$GITHUB_WORKSPACE/.github/check-cabin-meal.py" prior
+      - name: Use the reviewed test helper with the original test case
+        run: |
+          echo '990fb261442a8636d12baeedfe50347965ea5f489aff02b9067fd9d11082916c  tests/e2e/photo-journey.ts' | sha256sum -c -
+          cp "$GITHUB_WORKSPACE/tests/e2e/photo-journey.ts" tests/e2e/photo-journey.ts
+          test "$(git diff --name-only HEAD)" = tests/e2e/photo-journey.ts
+          echo '8d6eaa12e6bceecf0d45297266ddd9fa9654a4b997c206142ba83d0c93cc79d8  tests/e2e/photo-journey.ts' | sha256sum -c -
+          sha256sum tests/e2e/photo-journey.ts > "$RUNNER_TEMP/baggage-diagnostic/revised-helper.sha256"
+          git diff -- tests/e2e/photo-journey.ts > "$RUNNER_TEMP/baggage-diagnostic/revised-helper.patch"
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -66,12 +90,12 @@ jobs:
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Run the original mobile baggage journey once on the original files
+      - name: Run only mobile baggage once using the revised gesture and original acceptance conditions
         run: python ../.github/check-cabin-meal.py mobile-baggage
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: mobile-baggage-return-${{ github.run_id }}
+          name: mobile-baggage-gesture-${{ github.run_id }}
           path: ${{ runner.temp }}/baggage-diagnostic
           if-no-files-found: error
           retention-days: 7

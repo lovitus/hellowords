@@ -54,9 +54,10 @@ contracts = {
 }
 projects = ("chromium", "mobile-chromium")
 if phase == "prior":
-    prior = temp / "prior-cabin"
+    prior = output / "history" / "45950843653"
     baseline = json.loads((prior / "baseline.json").read_bytes())
     previous = json.loads((prior / "candidate.json").read_bytes())
+    diagnosis = json.loads((output / "history" / "45952337921" / "mobile-baggage.json").read_bytes())
     target = ("mobile-chromium", airport)
     expected = {(project, journey) for project in projects for journey in (cabin, airport, helpers["RETURN"])}
     previous_results = {(r["project"], r["journey"]): r for r in previous["cases"]}
@@ -70,6 +71,13 @@ if phase == "prior":
             or any(r["attempts"] != 1 or r["retry"] != 0 or r["accepted"] != (key != target)
                    or r["status"] != ("failed" if key == target else "passed") for key, r in previous_results.items())):
         raise ValueError("The pinned prior run must have five accepted rows and the one original mobile baggage failure")
+    if (diagnosis["product"] != os.environ["PRODUCT"] or diagnosis["phase"] != "mobile-baggage"
+            or diagnosis["accepted"] is not False or len(diagnosis["cases"]) != 1):
+        raise ValueError("The previous single mobile failure must be preserved")
+    failure = diagnosis["cases"][0]
+    if ((failure["project"], failure["journey"]) != target or failure["status"] != "failed"
+            or failure["attempts"] != 1 or failure["retry"] != 0 or failure["steps"][-1]["durationMs"] != 8003):
+        raise ValueError("Original mobile return timeout observation differs from the diagnostic run")
     for name in ("baseline.json", "candidate.json"):
         (output / f"original-{name}").write_bytes((prior / name).read_bytes())
     print("Verified both baseline observations, five accepted candidate journeys and the original mobile baggage failure.")
@@ -189,7 +197,7 @@ receipt = {
 }
 if phase == "mobile-baggage":
     before = json.loads((output / "original-candidate.json").read_bytes())
-    receipt["priorRun"] = "45950843653"
+    receipt["historyRuns"] = ["45949933105", "45950843653", "45952337921"]
     receipt["carriedForward"] = [{"project": row["project"], "journey": row["journey"]}
                                  for row in before["cases"] if row["accepted"]]
     receipt["globalErrors"] = [summarize_error(error) for error in report["errors"]]
