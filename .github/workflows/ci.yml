@@ -1,4 +1,4 @@
-name: Verify photographed airport kiosk and return journeys
+name: Verify airport security photo and return journeys
 on:
   workflow_dispatch:
     inputs:
@@ -11,7 +11,7 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: e312b0e89eb2f1c8b5a5bda1f51a550789e2804f
+  BASELINE: 5f11c5d20908dd1c7bc9b8308c482117838978a2
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   airport:
@@ -34,14 +34,14 @@ jobs:
       - uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASELINE }}
-          run-id: "45870783134"
+          run-id: "45929455622"
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
       - name: Verify sources and frozen production files
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
-          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = e6808704a531ee261cb646f2596018a91c9c6c1935468500a339fc64bf482bee
+          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = 1732ce581d4a9fe84c73991cdef8d7c55cd9a0e8e2aaa05a391507d6ad3498bf
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE"
       - uses: actions/setup-node@v7
         with:
@@ -66,14 +66,14 @@ jobs:
         run: |
           npm run typecheck
           git diff --name-only -z "$BASELINE" "$PRODUCT" -- '*.ts' '*.mjs' | xargs -0r ./node_modules/.bin/eslint --
-          ./node_modules/.bin/tsx --test tests/domain/{checkInCounter,baggageDropStation,worldContent}.test.ts
+          ./node_modules/.bin/tsx --test tests/domain/{airportSecurityGate,newFacilityScenes,spatialLexemeRealms,checkInCounter,baggageDropStation,worldContent}.test.ts
       - name: Build the frozen candidate once and verify the manifest
         id: build
         run: |
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
           GITHUB_SHA="$PRODUCT" npm run analyze:build
           python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - name: Click the kiosk and traverse the airport, office and campus journeys
+      - name: Click the checkpoint post and traverse the airport, office and campus journeys
         run: python ../.github/check-airport-kiosk.py candidate
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
