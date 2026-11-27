@@ -1,16 +1,25 @@
-name: Check the school gate on the frozen office build
-on: workflow_dispatch
+name: Verify photographed airport kiosk and return journeys
+on:
+  workflow_dispatch:
+    inputs:
+      candidate:
+        description: Full product commit SHA
+        required: true
+        type: string
 permissions:
   actions: read
   contents: read
 env:
-  PRODUCT: e312b0e89eb2f1c8b5a5bda1f51a550789e2804f
-  SOURCE_RUN: "45870783134"
   CI: "true"
+  BASELINE: e312b0e89eb2f1c8b5a5bda1f51a550789e2804f
+  PRODUCT: ${{ inputs.candidate }}
 jobs:
-  gate:
+  airport:
     runs-on: ubuntu-24.04
-    timeout-minutes: 12
+    timeout-minutes: 18
+    defaults:
+      run:
+        working-directory: product
     steps:
       - uses: actions/checkout@v6
         with:
@@ -18,56 +27,72 @@ jobs:
           persist-credentials: false
       - uses: actions/checkout@v6
         with:
-          ref: ${{ env.PRODUCT }}
+          ref: ${{ inputs.candidate }}
+          fetch-depth: 2
           path: product
           persist-credentials: false
       - uses: actions/download-artifact@v5
         with:
-          name: production-dist-${{ env.PRODUCT }}
-          run-id: ${{ env.SOURCE_RUN }}
+          name: production-dist-${{ env.BASELINE }}
+          run-id: "45870783134"
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
-      - uses: actions/download-artifact@v5
-        with:
-          name: apartment-and-performance-45870783134-1
-          run-id: ${{ env.SOURCE_RUN }}
-          github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/original
-      - name: Verify build provenance and apply the photo timing correction to the test
-        working-directory: product
+      - name: Verify sources and frozen production files
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
-          (
-            cd "$RUNNER_TEMP/original"
-            sha256sum -c <<'DIGESTS'
-          96fd01416fde90037534cb91384b219851fea4cec62b1bbe0729e4a174b9e6af  baseline.json
-          f720728d97085651fc84f312abe7e2e8dea41dbb14102b619e0700e8b5464069  candidate.json
-          a74a707ff02a5e0285d41f8e9517ad4a2717b9c90a65000f92f9f4e458065c2e  summary.json
-          DIGESTS
-          )
+          test "$(git rev-parse HEAD^)" = "$BASELINE"
           test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = e6808704a531ee261cb646f2596018a91c9c6c1935468500a339fc64bf482bee
-          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$PRODUCT"
-          test ! -e dist
-          mv "$RUNNER_TEMP/frozen/dist" dist
-          git apply ../.github/school-gate-timing.patch
-          echo 'd123d70935a939220b5fd123f285615c7f7e2e0e487641a5709cf0bdf209d7e9  tests/e2e/world.spec.ts' | sha256sum -c
+          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE"
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
           cache-dependency-path: product/package-lock.json
-      - name: Install locked dependencies and Chromium
-        working-directory: product
+      - name: Install pinned dependencies and Chromium
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Click the original gate photograph and return on desktop and phone
-        working-directory: product
-        run: python ../.github/check-campus-gate.py
+      - name: Reproduce the shared dot on the floor in both viewports
+        id: red
+        continue-on-error: true
+        run: |
+          test ! -e dist
+          mv "$RUNNER_TEMP/frozen/dist" dist
+          trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
+          python ../.github/check-airport-kiosk.py baseline
+      - name: Validate the candidate vocabulary and pending image reviews
+        run: npm run validate:data -- --allow-image-reviewed
+      - name: Typecheck, lint and verify the airport scene contracts
+        run: |
+          npm run typecheck
+          git diff --name-only -z "$BASELINE" "$PRODUCT" -- '*.ts' '*.mjs' | xargs -0r ./node_modules/.bin/eslint --
+          ./node_modules/.bin/tsx --test tests/domain/{checkInCounter,baggageDropStation,worldContent}.test.ts
+      - name: Build the frozen candidate once and verify the manifest
+        id: build
+        run: |
+          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
+          GITHUB_SHA="$PRODUCT" npm run analyze:build
+          python ../.github/verify-office-phone.py manifest . "$PRODUCT"
+      - name: Click the kiosk and traverse the airport, office and campus journeys
+        run: python ../.github/check-airport-kiosk.py candidate
+      - uses: actions/upload-artifact@v5
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        with:
+          name: production-dist-${{ env.PRODUCT }}
+          path: |
+            product/dist
+            product/artifacts/build/dist-manifest.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: campus-gate-${{ github.run_id }}
-          path: ${{ runner.temp }}/gate-evidence
+          name: airport-photo-${{ github.run_id }}
+          path: ${{ runner.temp }}/kiosk-evidence
           if-no-files-found: error
           retention-days: 7
+      - name: Require the observed old floor dot
+        run: test "$RED_OUTCOME" = success
+        env:
+          RED_OUTCOME: ${{ steps.red.outcome }}
