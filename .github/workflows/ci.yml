@@ -1,4 +1,4 @@
-name: Verify hospital photo and department journeys
+name: Verify pathology photo and workstation journeys
 on:
   workflow_dispatch:
     inputs:
@@ -11,7 +11,8 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 31e079843aa8e0ade74e08b70222ab0239dbcc99
+  BASELINE: e3f2547770119c6e01deaf9f84d049214c494424
+  BASELINE_BUILD: d19dbe3577131a6f1507ac18098f30edb5ae6deb
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   hospital:
@@ -33,16 +34,16 @@ jobs:
           persist-credentials: false
       - uses: actions/download-artifact@v5
         with:
-          name: production-dist-${{ env.BASELINE }}
-          run-id: "45932339082"
+          name: production-dist-${{ env.BASELINE_BUILD }}
+          run-id: "45935682978"
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
       - name: Verify sources and frozen production files
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
-          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = bdd690b6267be35b05cdd694f57c944f1215009c917a42ba81d497f6d3e49467
-          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE"
+          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = 1ac352aa7e86bcd29548efa00134107cbb699b48eeb604d190e342e737a425bd
+          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE_BUILD"
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -52,7 +53,7 @@ jobs:
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Reproduce the misplaced microscope dot in both viewports
+      - name: Reproduce the misplaced microtome dot in both viewports
         id: red
         continue-on-error: true
         run: |
@@ -72,13 +73,14 @@ jobs:
           cp -R public/data/scenes "$regen/public/data/"
           node "$regen/scripts/add-professional-vocabulary.mjs"
           cmp public/data/scenes/hospital.json "$regen/public/data/scenes/hospital.json"
+          cmp public/data/scenes/pathology-lab.json "$regen/public/data/scenes/pathology-lab.json"
       - name: Build the frozen candidate once and verify the manifest
         id: build
         run: |
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
           GITHUB_SHA="$PRODUCT" npm run analyze:build
           python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - name: Read the microscope and return from the hospital, airport and office departments
+      - name: Read the microtome and return from both workstations and nearby facilities
         run: python ../.github/check-hospital-photo.py candidate
       - name: Run all domain and vocabulary checks
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
@@ -96,11 +98,11 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: hospital-photo-${{ github.run_id }}
+          name: pathology-photo-${{ github.run_id }}
           path: ${{ runner.temp }}/hospital-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the observed microscope dot on the old laboratory sign
+      - name: Require the observed microtome dot on the old sample container
         run: test "$RED_OUTCOME" = success
         env:
           RED_OUTCOME: ${{ steps.red.outcome }}

@@ -1,4 +1,4 @@
-"""Compare microscope clicks on frozen hospital photos and the candidate."""
+"""Compare microtome clicks on the frozen laboratory photo and the candidate."""
 import json
 import os
 from pathlib import Path
@@ -13,9 +13,11 @@ temp = Path(os.environ["RUNNER_TEMP"])
 output = temp / "hospital-evidence"
 output.mkdir(exist_ok=True)
 hospital = ("e2e/hospital-radiology.spec.ts", "hospital reads the photographed microscope and keeps cancer in the index on department round trips")
-journeys = [hospital]
+lab = (hospital[0], "pathology lab reads the photographed microtome and keeps histopathology in the index on workstation round trips")
+journeys = [lab]
 if phase == "candidate":
     journeys.extend([
+        hospital,
         ("e2e/hospital-radiology.spec.ts", "hospital console and couch stay in the hospital while magnifying the scanner enters radiology"),
         ("e2e/hospital-radiology.spec.ts", "hospital radiology keeps ultrasound words on the photograph through Fit, continuous zoom and hospital return"),
         ("e2e/world.spec.ts", "urban services exposes hospital, airport and office vocabulary through the transit path"),
@@ -37,17 +39,17 @@ for suite in report["suites"]:
         geometry = []
         for i, item in enumerate(result["attachments"]):
             name = item["name"]
-            if name == "microscope-geometry":
+            if name == ("microtome-geometry" if title == lab[1] else "microscope-geometry"):
                 geometry.append(json.loads(attachment_bytes(item, folder)))
-            elif item["contentType"] == "image/png" and (name.startswith(("microscope", "hospital")) or name == "screenshot"):
+            elif item["contentType"] == "image/png" and (name.startswith(("microtome", "histopathology", "microscope", "hospital")) or name == "screenshot"):
                 (output / f"{phase}-{project}-{len(rows)}-{i}-{name}.png").write_bytes(attachment_bytes(item, folder))
         accepted = result["status"] == "passed"
         if phase == "baseline":
             message = "\n".join(e.get("message", "") for e in result.get("errors", []))
             accepted = bool(result["status"] == "failed" and len(geometry) == 1 and not geometry[0]["inside"]
-                            and abs(geometry[0]["x"] - 523) < 1 and abs(geometry[0]["y"] - 276) < 1
-                            and "dot must land on the photographed microscope" in message)
-        elif title == hospital[1]:
+                            and abs(geometry[0]["x"] - 948) < 1 and abs(geometry[0]["y"] - 733) < 1
+                            and "dot must land on the photographed sectioning instrument" in message)
+        elif title in (lab[1], hospital[1]):
             accepted = bool(accepted and len(geometry) == 3 and all(g["inside"] for g in geometry))
         rows.append({"project": project, "journey": title, "status": result["status"], "geometry": geometry,
                      "accepted": accepted and len(attempts) == 1 and result["retry"] == 0})
