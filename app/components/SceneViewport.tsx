@@ -782,6 +782,9 @@ export function SceneViewport({
     && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
   const effectiveInitialView = continuityViewForMotion(initialView, reducedContinuityAtMount);
+  // React seeds the surface on mount. Clearing the handoff must not remove
+  // the transform and scale that the camera has since painted on this node.
+  const [initialSurfaceCamera] = useState(() => effectiveInitialView?.camera);
   const atlasOverviewMode = scene.id === "world-map" && Boolean(atlasDistricts?.length);
   const transitionPhaseRef = useRef(transitionPhase);
   const [atlasCategoryId, setAtlasCategoryId] = useState<string | null>(null);
@@ -3054,11 +3057,19 @@ export function SceneViewport({
     };
   }, [initialView, reducedContinuityAtMount, requestCameraFrame, resetCamera, resetParentExitHysteresis, scene]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const wasInteractive = viewerInteractiveRef.current;
     viewerInteractiveRef.current = viewerInteractive;
     if (meaningVisibleRef.current !== meaningVisible) retainManualZoomSlotsRef.current = false;
     meaningVisibleRef.current = meaningVisible;
-    requestCameraFrame();
+    if (viewerInteractive && !wasInteractive) {
+      // The first clickable frame must use the settled camera for both the
+      // photograph and its words, even if an animation frame is still queued.
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+      framePainterRef.current();
+    } else {
+      requestCameraFrame();
+    }
   }, [meaningVisible, requestCameraFrame, viewerInteractive]);
 
   useEffect(() => {
@@ -3431,14 +3442,14 @@ export function SceneViewport({
         <div
           ref={surfaceRef}
           className="scene-surface"
-          data-zoom-level={effectiveInitialView ? sceneLodLevel(effectiveInitialView.camera.scale) : 0}
-          data-lod-level={effectiveInitialView ? sceneLodLevel(effectiveInitialView.camera.scale) : 0}
-          data-scene-scale={effectiveInitialView?.camera.scale.toFixed(3)}
+          data-zoom-level={initialSurfaceCamera ? sceneLodLevel(initialSurfaceCamera.scale) : 0}
+          data-lod-level={initialSurfaceCamera ? sceneLodLevel(initialSurfaceCamera.scale) : 0}
+          data-scene-scale={initialSurfaceCamera?.scale.toFixed(3)}
           style={{
             width: scene.width,
             height: scene.height,
-            ...(effectiveInitialView ? {
-              transform: `translate3d(${effectiveInitialView.camera.x}px, ${effectiveInitialView.camera.y}px, 0) scale(${effectiveInitialView.camera.fit * effectiveInitialView.camera.scale})`,
+            ...(initialSurfaceCamera ? {
+              transform: `translate3d(${initialSurfaceCamera.x}px, ${initialSurfaceCamera.y}px, 0) scale(${initialSurfaceCamera.fit * initialSurfaceCamera.scale})`,
             } : {}),
           } as CSSProperties}
         >

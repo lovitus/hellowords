@@ -1,4 +1,5 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
+import type { PaintedLabel } from "../../app/lib/label-canvas";
 import {
   LEXICAL_WORLD_OVERVIEW_IMAGE,
   lexicalWorldRealmTiles,
@@ -512,6 +513,52 @@ async function assertSemanticProgressIsTruthful(field: Locator): Promise<void> {
   expect(snapshot.text).toContain(`拖动探索其余 ${snapshot.remaining.toLocaleString("en-US")} 词`);
 }
 
+test("the fitted apartment photograph stays aligned with its words after handoff", async ({ page }, testInfo) => {
+  const app = await openWorld(page);
+  const entrance = page.locator(`${HOTSPOT}[data-target-scene="apartment"]`);
+  await expect(entrance).toBeVisible();
+  const [observation] = await Promise.all([
+    app.evaluate(async root => {
+      const frames = [];
+      let photo = "";
+      while (frames.length < 12) {
+        await new Promise<void>(done => requestAnimationFrame(() => done()));
+        if (root.getAttribute("data-scene-id") !== "apartment") continue;
+        const viewport = root.querySelector(".viewer-shell:not([data-phase]) .world-viewport");
+        const art = viewport?.querySelector<HTMLImageElement>(".scene-art");
+        const controls = viewport?.querySelector<HTMLElement>(".scene-interaction-layer");
+        if (!viewport || !art || controls?.dataset.motionFrozen !== "false") continue;
+        const bounds = viewport.getBoundingClientRect();
+        const image = art.getBoundingClientRect();
+        const canvas = viewport.querySelector<HTMLCanvasElement & { paintedLabels?: PaintedLabel[] }>(".label-canvas");
+        const words = canvas?.paintedLabels?.filter(w => w.interactive && w.opacity >= 0.52) ?? [];
+        // Project the authored 1600 × 900 coordinates through the photograph
+        // actually on screen, independently of the camera used by the canvas.
+        const anchorError = words.reduce((largest, w) => Math.max(largest, Math.hypot(
+          image.left - bounds.left + w.label.x * image.width / 1600 - w.anchorX,
+          image.top - bounds.top + w.label.y * image.height / 900 - w.anchorY,
+        )), 0);
+        photo = new URL(art.currentSrc || art.src).pathname;
+        frames.push({
+          width: image.width, height: image.height, viewportWidth: bounds.width, viewportHeight: bounds.height,
+          overflow: Math.max(0, bounds.left - image.left, bounds.top - image.top,
+            image.right - bounds.right, image.bottom - bounds.bottom),
+          readable: words.length, anchorError,
+        });
+      }
+      return { scene: "apartment", photo, frames };
+    }),
+    entrance.click(),
+  ]);
+  await testInfo.attach("apartment-photo-frames", { body: JSON.stringify(observation), contentType: "application/json" });
+  expect(observation.photo).toBe("/scenes/apartment-bright-v2.jpg");
+  expect(Math.max(...observation.frames.map(f => f.overflow)),
+    "the four-room photograph stays inside the viewport on every unfrozen frame").toBeLessThanOrEqual(1);
+  expect(Math.min(...observation.frames.map(f => f.readable)), "every unfrozen frame has readable words").toBeGreaterThan(0);
+  expect(Math.max(...observation.frames.map(f => f.anchorError)),
+    "the apartment word dots stay on the fitted photograph").toBeLessThanOrEqual(1);
+});
+
 test("Apartment handoff settles to the complete child before a fresh outward gesture can exit", async ({ page }) => {
   const app = await openWorld(page);
   const parentScene = await app.getAttribute("data-scene-id");
@@ -557,12 +604,16 @@ test("Apartment handoff settles to the complete child before a fresh outward ges
   // Start the outward stream only after the fitted child has completed its
   // settle and then observed a real quiet gap. Scene-id/idle are intentionally
   // earlier than the continuity-camera completion.
+  await expect(app).toHaveAttribute("data-transition-cache", "idle");
   await page.waitForTimeout(220);
 
   // Multiple samples from one wheel stream may reveal the child overview, but
   // cannot cascade immediately back to the parent scene.
   await dispatchWheelBurstAtViewportCenter(page, 240, 4);
-  await expect.poll(async () => Number(await childSurface.getAttribute("data-scene-scale"))).toBeLessThanOrEqual(0.7);
+  await expect.poll(async () => {
+    const scale = Number(await childSurface.getAttribute("data-scene-scale"));
+    return scale > 0 && scale <= 0.7;
+  }).toBe(true);
   await expect(app).toHaveAttribute("data-scene-id", "apartment");
 
   // After a real quiet gap, a second outward gesture deliberately crosses the

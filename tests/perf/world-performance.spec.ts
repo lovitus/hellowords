@@ -132,16 +132,32 @@ async function dispatchWheelBurstAtViewportCenter(page: Page, deltaY: number, co
   expect(delivered).toBe(count);
 }
 
+async function waitForFittedHandoff(app: Locator, sceneId: string) {
+  // Only the current navigation can restore the idle cache after its settled event.
+  await expect.poll(() => app.evaluate((root) => {
+    const shell = root.querySelector(".viewer-shell:not([data-phase])");
+    return {
+      sceneId: root.getAttribute("data-scene-id"),
+      cache: root.getAttribute("data-transition-cache"),
+      transition: root.getAttribute("data-transition-state"),
+      loading: root.getAttribute("data-scene-loading"),
+      locked: shell?.getAttribute("data-interaction-locked"),
+      scale: shell?.querySelector(".scene-surface")?.getAttribute("data-scene-scale"),
+      frozen: shell?.querySelector('[data-testid="scene-interaction-layer"]')
+        ?.getAttribute("data-motion-frozen"),
+    };
+  }), { intervals: [16, 32, 64] }).toEqual({
+    sceneId, cache: "idle", transition: "idle", loading: "false",
+    locked: "false", scale: "1.000", frozen: "false",
+  });
+}
+
 async function exitToParent(page: Page, app: Locator, parent: string) {
   const child = await currentScene(app);
   const activeShell = page.locator(".viewer-shell:not([data-phase])");
   const viewport = activeShell.locator(VIEWPORT);
-  const surface = page.locator(".viewer-shell:not([data-phase]) .scene-surface");
-  const interactionLayer = page.locator(
-    ".viewer-shell:not([data-phase]) [data-testid='scene-interaction-layer']",
-  );
-  await expect(surface).toHaveAttribute("data-scene-scale", "1.000");
-  await expect(interactionLayer).toHaveAttribute("data-motion-frozen", "false");
+  const surface = activeShell.locator(".scene-surface");
+  await waitForFittedHandoff(app, child);
   const box = await viewport.boundingBox();
   expect(box).not.toBeNull();
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
@@ -155,7 +171,10 @@ async function exitToParent(page: Page, app: Locator, parent: string) {
   const started = performance.now();
   await dispatchWheelBurstAtViewportCenter(page, 240, 4);
   await expect.poll(
-    async () => Number(await surface.getAttribute("data-scene-scale")),
+    async () => {
+      const scale = Number(await surface.getAttribute("data-scene-scale"));
+      return Number.isFinite(scale) && scale > 0 ? scale : NaN;
+    },
     { intervals: [16, 32, 64], timeout: 4_000 },
   ).toBeLessThanOrEqual(0.7);
   await expect(app).toHaveAttribute("data-scene-id", child);
@@ -167,10 +186,12 @@ async function exitToParent(page: Page, app: Locator, parent: string) {
   ).toBe(parent);
   await expect(app).not.toHaveAttribute("data-scene-loading", "true");
   await expect(app).toHaveAttribute("data-transition-state", "idle");
-  await expect(activeShell.locator(".scene-surface")).toHaveAttribute("data-scene-scale", "1.000");
+  await expect(surface).toHaveAttribute("data-scene-scale", "1.000");
   await expect(activeShell.locator("[data-testid='scene-interaction-layer']"))
     .toHaveAttribute("data-motion-frozen", "false");
-  return performance.now() - started;
+  const durationMs = performance.now() - started;
+  await waitForFittedHandoff(app, parent);
+  return durationMs;
 }
 
 function scenarioSummary(metrics: BrowserMetricsSummary, transitionMs: number[]) {
