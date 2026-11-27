@@ -336,7 +336,7 @@ test("security checkpoint and open-plan office expose bounded equipment entrance
   const boarding = checkpoint.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "boarding-gate");
   assert.ok(scanner);
   assert.ok(boarding);
-  assert.deepEqual([scanner.x, scanner.y, scanner.width, scanner.height], [850, 120, 300, 420]);
+  assert.deepEqual([scanner.x, scanner.y, scanner.width, scanner.height], [618, 239, 93, 47]);
   assert.ok(scanner.x + scanner.width <= boarding.x, "scanner and boarding-gate crops must not overlap");
 
   const office = await readJson("open-plan-workstation.json");

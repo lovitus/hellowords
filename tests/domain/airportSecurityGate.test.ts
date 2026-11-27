@@ -14,6 +14,7 @@ const decodeImage = sharpModule as unknown as (input: string | Buffer) => {
 interface Label {
   readonly id: string;
   readonly word: string;
+  readonly lexemeId?: string;
   readonly x: number;
   readonly y: number;
   readonly minLevel: number;
@@ -27,6 +28,7 @@ interface Scene {
   readonly width: number;
   readonly height: number;
   readonly labels: readonly Label[];
+  readonly relatedWords?: readonly { readonly id: string; readonly word: string }[];
   readonly visualRegions: readonly {
     readonly id: string;
     readonly x: number;
@@ -68,6 +70,8 @@ async function assertReviewedScene(scene: Scene, expected: {
   readonly asset: string;
   readonly sha256: string;
   readonly labelCount: number;
+  readonly relatedCount: number;
+  readonly reviewStatuses: readonly string[];
   readonly zoneIds: readonly string[];
   readonly zoneSizes: readonly number[];
   readonly lodCounts: readonly number[];
@@ -81,6 +85,11 @@ async function assertReviewedScene(scene: Scene, expected: {
   assert.equal(scene.asset, expected.asset);
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
   assert.equal(scene.labels.length, expected.labelCount);
+  const relatedWords = scene.relatedWords ?? [];
+  assert.equal(relatedWords.length, expected.relatedCount);
+  const vocabulary = [...scene.labels, ...relatedWords];
+  assert.equal(new Set(vocabulary.map(({ id }) => id)).size, vocabulary.length);
+  assert.equal(new Set(vocabulary.map(({ word }) => word.toLowerCase())).size, vocabulary.length);
   assert.equal(scene.visualRegions.length, expected.labelCount + scene.portals.length);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), expected.zoneIds.map((zoneId, index) => [
     `${scene.id}-zone-${zoneId}`,
@@ -90,15 +99,13 @@ async function assertReviewedScene(scene: Scene, expected: {
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter(({ minLevel }) => minLevel === level).length),
     expected.lodCounts,
   );
-  assert.equal(new Set(scene.labels.map(({ id }) => id)).size, expected.labelCount);
-  assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, expected.labelCount);
-  assert.equal(scene.anchorAudit.status, "human-verified");
+  assert.ok(expected.reviewStatuses.includes(scene.anchorAudit.status), `unexpected review status for ${scene.id}`);
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, expected.asset);
   assert.equal(scene.anchorAudit.reviewedAssetSha256, expected.sha256);
   assert.equal(scene.anchorAudit.retainedLabelCount, expected.labelCount);
-  assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 8);
-  assert.equal(scene.anchorAudit.removedLabelCount, 8);
+  assert.equal(scene.anchorAudit.previousLabelCount, vocabulary.length + 8);
+  assert.equal(scene.anchorAudit.removedLabelCount, expected.relatedCount + 8);
 
   const regions = new Map(scene.visualRegions.map((region) => [region.id, region]));
   for (const label of scene.labels) {
@@ -128,22 +135,26 @@ async function assertReviewedScene(scene: Scene, expected: {
   );
 }
 
-test("airport security checkpoint keeps 103 reviewed queue, document and screening terms", async () => {
+test("airport security separates photographed objects from searchable equipment and procedure terms", async () => {
   const scene = await readJson<Scene>("security-checkpoint.json");
   await assertReviewedScene(scene, {
     id: "security-checkpoint",
     parentId: "airport",
     asset: "/scenes/airport-security-checkpoint-premium-v1.jpg",
     sha256: "8a12c6f335b1107d676112bf52033cc30d51aa352e9fbacf0bde609a3ef85e20",
-    labelCount: 103,
+    labelCount: 75,
+    relatedCount: 57,
+    reviewStatuses: ["image-reviewed", "human-verified"],
     zoneIds: ["queue-divestiture", "document-check", "ct-screening", "secondary-inspection", "sterile-exit"],
-    zoneSizes: [20, 20, 25, 18, 20],
-    lodCounts: [10, 10, 26, 29, 28],
+    zoneSizes: [17, 11, 14, 15, 18],
+    lodCounts: [10, 10, 19, 17, 19],
     sourceAsset: "scripts/assets/airport-security-checkpoint-v1.png",
     sourceSha256: "adaa3e827861232004337543ba3880a8c93dbcf3d474842876bcaa4abdf7f022",
     sourceWidth: 1_672,
     sourceHeight: 941,
   });
+  assert.deepEqual(scene.labels.filter(({ lexemeId }) => lexemeId).map(({ word }) => word).sort(),
+    ["blue", "frame", "glass", "keyboard", "mat", "rim", "stack", "yellow"]);
   assert.deepEqual(scene.portals, [
     {
       id: "enter-carry-on-baggage-scanner",
@@ -151,10 +162,11 @@ test("airport security checkpoint keeps 103 reviewed queue, document and screeni
       translation: "查看随身行李扫描器",
       childSceneId: "carry-on-baggage-scanner",
       sourceVisualRegion: "portal-carry-on-baggage-scanner",
-      x: 850,
-      y: 120,
-      width: 300,
-      height: 420,
+      x: 618,
+      y: 239,
+      width: 93,
+      height: 47,
+      portraitMarker: { x: 704, y: 284 },
       enterScale: 3.35,
     },
     {
@@ -163,10 +175,10 @@ test("airport security checkpoint keeps 103 reviewed queue, document and screeni
       translation: "进入登机口",
       childSceneId: "boarding-gate",
       sourceVisualRegion: "portal-boarding-gate",
-      x: 1_250,
-      y: 140,
-      width: 350,
-      height: 380,
+      x: 1_360,
+      y: 156,
+      width: 130,
+      height: 131,
       enterScale: 3.4,
     },
   ]);
@@ -180,6 +192,8 @@ test("boarding gate keeps 120 reviewed lounge, bridge and airside terms", async 
     asset: "/scenes/airport-boarding-gate-premium-v1.jpg",
     sha256: "12c9298681df0b7fa1f282fab91ba9af5f05f5a9ddcc16a3b51a5b9e9765436b",
     labelCount: 120,
+    relatedCount: 0,
+    reviewStatuses: ["human-verified"],
     zoneIds: ["lounge", "boarding-podium", "podium-floor", "boarding-bridge", "aircraft-cabin", "airside-service"],
     zoneSizes: [25, 20, 10, 25, 25, 15],
     lodCounts: [12, 12, 33, 31, 32],

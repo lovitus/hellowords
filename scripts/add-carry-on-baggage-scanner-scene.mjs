@@ -393,22 +393,25 @@ const parentPortal = {
   translation: "查看随身行李扫描器",
   childSceneId: "carry-on-baggage-scanner",
   sourceVisualRegion: "portal-carry-on-baggage-scanner",
-  x: 850,
-  y: 120,
-  width: 300,
-  height: 420,
+  x: 618,
+  y: 239,
+  width: 93,
+  height: 47,
+  portraitMarker: { x: 704, y: 284 },
   enterScale: 3.35,
 };
 
 const parentRegion = {
   id: parentPortal.sourceVisualRegion,
-  description: "Complete CT scanner housing, tunnel, conveyor, operator screen and tray-return bank in the checkpoint photograph",
+  description: "Dark side panel of the baggage scanner between the two tall screening arches",
   kind: "object",
   x: parentPortal.x,
   y: parentPortal.y,
   width: parentPortal.width,
   height: parentPortal.height,
 };
+
+export { parentPortal as scannerEntrance, parentRegion as scannerEntranceRegion };
 
 async function updateParent() {
   const parent = JSON.parse(await readFile(parentPath, "utf8"));

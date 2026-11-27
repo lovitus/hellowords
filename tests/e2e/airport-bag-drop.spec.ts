@@ -225,6 +225,90 @@ test("airport check-in opens the nearest self-service kiosk from its dot and rea
   await expectScene(page, "check-in-counter");
 });
 
+test("airport security checkpoint reads the front stanchion pole, looks up its collar and returns from both child scenes", async ({ page, isMobile }, testInfo) => {
+  test.setTimeout(90_000);
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const stable = async () => (await image.elementHandle()).waitForElementState("stable");
+  const camera = () => viewer.locator(".scene-surface").evaluate(el => getComputedStyle(el).transform);
+  const fit = async () => {
+    await activate(viewer.getByRole("button", { name: "Fit scene", exact: true }));
+    await stable();
+  };
+  const pole = "stanchion pole";
+  // Visible silver shaft on the 1600 × 900 photograph, from below the belt
+  // fitting to the bottom edge. The signpost immediately to its right is separate.
+  const shaft: Outline = [[377, 737], [391, 737], [399, 899], [384, 899]];
+
+  async function readPole(visit: string) {
+    await expectScene(page, "security-checkpoint");
+    await expect(image).toHaveAttribute("src", "/scenes/airport-security-checkpoint-premium-v1.jpg");
+    const card = await focusFromIndex(image, activate, pole);
+    const close = card.getByRole("button", { name: "关闭单词卡" });
+    await activate(close);
+    await expect(card).toBeHidden();
+    await stable();
+    await expect.poll(() => paintedPoint(viewer, pole)).toMatchObject({ anchorVisible: true });
+    const dot = (await paintedPoint(viewer, pole))!;
+    await testInfo.attach(`${visit}-pole-geometry`, { body: JSON.stringify({ shaft, ...dot }), contentType: "application/json" });
+    await testInfo.attach(`${visit}-pole-before-tap`, { body: await page.screenshot(), contentType: "image/png" });
+    expect(containsPoint(shaft, dot.photoX, dot.photoY),
+      "the stanchion pole dot must land on the visible shaft of the front queue post").toBe(true);
+    if (isMobile) await page.touchscreen.tap(dot.anchorX, dot.anchorY);
+    else await page.mouse.click(dot.anchorX, dot.anchorY);
+    await expect(card.locator("strong")).toHaveText(pole);
+    await expect(card.getByText("隔离柱杆", { exact: true })).toBeVisible();
+    await activate(close);
+    await expect(card).toBeHidden();
+    await stable();
+  }
+
+  await openAirportRoute(page, isMobile, "airport");
+  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+  await fit();
+  await activate(viewer.getByRole("button", { name: /^进入 Security checkpoint\b/ }));
+  await readPole("checkpoint-arrival");
+
+  const before = await camera();
+  const collar = "queue post collar";
+  const related = await focusFromIndex(image, activate, collar, "隔离柱环");
+  await expect(related.getByText("隔离柱环", { exact: true })).toBeVisible();
+  await expect(related.getByText("相关词 · 图中未标注", { exact: true })).toBeVisible();
+  expect(await camera(), "looking up the collar keeps the same view of the front post").toBe(before);
+  expect(await paintedWordCount(page, collar), "the collar has no painted word on this photograph").toBe(0);
+  await activate(related.getByRole("button", { name: "关闭单词卡" }));
+  await expect(related).toBeHidden();
+
+  const housing = "baggage scanner housing";
+  const housingCard = await focusFromIndex(image, activate, housing);
+  const closeHousing = housingCard.getByRole("button", { name: "关闭单词卡" });
+  await activate(closeHousing);
+  await expect(housingCard).toBeHidden();
+  await stable();
+  await expect.poll(() => paintedPoint(viewer, housing)).toMatchObject({ anchorVisible: true });
+  const housingDot = (await paintedPoint(viewer, housing))!;
+  if (isMobile) await page.touchscreen.tap(housingDot.anchorX, housingDot.anchorY);
+  else await page.mouse.click(housingDot.anchorX, housingDot.anchorY);
+  await expect(housingCard.locator("strong")).toHaveText(housing);
+  await expectScene(page, "security-checkpoint");
+  await activate(closeHousing);
+  await expect(housingCard).toBeHidden();
+
+  for (const [id, entrance] of [
+    ["carry-on-baggage-scanner", /^进入 Carry-on baggage scanner\b/],
+    ["boarding-gate", /^进入 Boarding gate\b/],
+  ] as const) {
+    await test.step(`enter ${id} and read the checkpoint post on return`, async () => {
+      await fit();
+      await activate(viewer.getByRole("button", { name: entrance }));
+      await expectScene(page, id);
+      await activate(page.getByRole("button", { name: /返回上一层/ }));
+      await readPole(`return-from-${id}`);
+    });
+  }
+});
+
 test("airport bag drop keeps photographed scale, platform and suitcase words on their objects and zooms back to check-in", async ({ page, isMobile }, testInfo) => {
   test.setTimeout(90_000);
   const app = page.getByTestId("world-app");
