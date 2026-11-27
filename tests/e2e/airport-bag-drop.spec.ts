@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { expect, test, type CDPSession, type Locator, type Page } from "@playwright/test";
+import { paintedWordCount } from "./canvas-words";
 
 type Point = readonly [number, number];
 type Outline = readonly Point[];
@@ -62,12 +63,26 @@ function paintedPoint(viewer: Locator, word: string) {
     const frame = canvas.getBoundingClientRect();
     const x = frame.left + label.anchorX, y = frame.top + label.anchorY;
     return {
+      anchorX: x, anchorY: y,
       photoX: (x - photo.left) * image.naturalWidth / photo.width,
       photoY: (y - photo.top) * image.naturalHeight / photo.height,
       anchorVisible: x >= frame.left && x < frame.right && y >= frame.top && y < frame.bottom,
       clickX: frame.left + label.centerX, clickY: frame.top + label.centerY,
     };
   }, word);
+}
+
+async function focusFromIndex(image: Locator, activate: (control: Locator) => Promise<void>, word: string, query = word) {
+  const page = image.page();
+  await activate(page.getByTestId("scene-word-index-toggle"));
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill(query);
+  await activate(index.getByRole("button").filter({ has: page.getByText(word, { exact: true }) }));
+  await expect(index).toBeHidden();
+  const card = page.getByRole("complementary", { name: `${word} word details`, exact: true });
+  await expect(card).toBeVisible();
+  await (await image.elementHandle()).waitForElementState("stable");
+  return card;
 }
 
 async function expectScene(page: Page, id: string) {
@@ -159,6 +174,57 @@ async function pinch(viewer: Locator, touch: CDPSession, center: { x: number; y:
   return { center, factor, fingers, frames };
 }
 
+test("airport check-in opens the nearest self-service kiosk from its dot and reads the card reader without moving the photograph", async ({ page, isMobile }, testInfo) => {
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const stable = async () => (await image.elementHandle()).waitForElementState("stable");
+  await openAirportRoute(page, isMobile, "airport");
+  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+  await activate(viewer.getByRole("button", { name: "Fit scene", exact: true }));
+  await stable();
+  await activate(viewer.getByRole("button", { name: /^进入 Check-in counter\b/ }));
+  await expectScene(page, "check-in-counter");
+  await expect(image).toHaveAttribute("src", "/scenes/check-in-counter-premium-v1.jpg");
+
+  const kiosk = "check-in self-service kiosk";
+  const card = await focusFromIndex(image, activate, kiosk);
+  await expect(card.getByText("值机自助机", { exact: true })).toBeVisible();
+  const close = card.getByRole("button", { name: "关闭单词卡" });
+  await activate(close);
+  await expect(card).toBeHidden();
+  await stable();
+  await expect.poll(() => paintedPoint(viewer, kiosk)).toMatchObject({ anchorVisible: true });
+  // Front of the nearest machine in the 1600 × 900 photograph. The narrow
+  // strip of floor to its right separates this machine from the next kiosk.
+  const front: Outline = [[669, 568], [681, 561], [779, 542], [789, 544], [795, 552],
+    [836, 701], [838, 715], [837, 899], [713, 899], [712, 782], [666, 592], [664, 580]];
+  await testInfo.attach("check-in-kiosk-before-tap", { body: await page.screenshot(), contentType: "image/png" });
+  const dot = (await paintedPoint(viewer, kiosk))!;
+  const onFront = containsPoint(front, dot.photoX, dot.photoY);
+  await testInfo.attach("check-in-kiosk-dot-geometry", { body: JSON.stringify({ ...dot, front, onFront }), contentType: "application/json" });
+  expect(onFront, "the check-in self-service kiosk dot must land on the photographed front of the nearest kiosk").toBe(true);
+  if (isMobile) await page.touchscreen.tap(dot.anchorX, dot.anchorY);
+  else await page.mouse.click(dot.anchorX, dot.anchorY);
+  await expect(card.getByText("值机自助机", { exact: true })).toBeVisible();
+  await testInfo.attach("check-in-kiosk-dot-card", { body: await page.screenshot(), contentType: "image/png" });
+  await activate(close);
+  await expect(card).toBeHidden();
+
+  await stable();
+  const camera = () => viewer.locator(".scene-surface").evaluate(el => getComputedStyle(el).transform);
+  const before = await camera();
+  const reader = "check-in kiosk card reader";
+  const related = await focusFromIndex(image, activate, reader);
+  await expect(related.getByText("值机自助机读卡器", { exact: true })).toBeVisible();
+  await expect(related.getByText("相关词 · 图中未标注", { exact: true })).toBeVisible();
+  await testInfo.attach("check-in-related-card-reader", { body: await page.screenshot(), contentType: "image/png" });
+  await stable();
+  expect(await camera(), "reading the related card reader keeps the same view of the kiosk").toBe(before);
+  expect(await paintedWordCount(page, reader), "the card reader has no painted anchor on this photograph").toBe(0);
+  await expectScene(page, "check-in-counter");
+});
+
 test("airport bag drop keeps photographed scale, platform and suitcase words on their objects and zooms back to check-in", async ({ page, isMobile }, testInfo) => {
   test.setTimeout(90_000);
   const app = page.getByTestId("world-app");
@@ -172,18 +238,6 @@ test("airport bag drop keeps photographed scale, platform and suitcase words on 
   const station = "baggage-drop-station";
   const conveyor = "airport-baggage-conveyor";
   const touch = isMobile ? await page.context().newCDPSession(page) : null;
-
-  async function focusFromIndex(word: string, query = word) {
-    await activate(page.getByTestId("scene-word-index-toggle"));
-    const index = page.getByTestId("scene-word-index");
-    await index.getByRole("searchbox").fill(query);
-    await activate(index.getByRole("button").filter({ has: page.getByText(word, { exact: true }) }));
-    await expect(index).toBeHidden();
-    const card = page.getByRole("complementary", { name: `${word} word details`, exact: true });
-    await expect(card).toBeVisible();
-    await (await image.elementHandle()).waitForElementState("stable");
-    return card;
-  }
 
   async function zoomIn() {
     const before = await photoWidth();
@@ -238,7 +292,7 @@ test("airport bag drop keeps photographed scale, platform and suitcase words on 
 
   for (const [i, target] of objects.entries()) {
     await test.step(target.word, async () => {
-      const card = await focusFromIndex(target.word);
+      const card = await focusFromIndex(image, activate, target.word);
       const close = card.getByRole("button", { name: "关闭单词卡" });
       const name = target.word.replaceAll(" ", "-");
 
@@ -265,7 +319,7 @@ test("airport bag drop keeps photographed scale, platform and suitcase words on 
       // the overview. Re-center the chosen object after magnifying the view.
       for (let step = 0; step < 3 && !(await paintedPoint(viewer, target.word))?.anchorVisible; step++) {
         await zoomIn();
-        await focusFromIndex(target.word);
+        await focusFromIndex(image, activate, target.word);
         await activate(close);
         await expect(card).toBeHidden();
       }
@@ -298,7 +352,7 @@ test("airport bag drop keeps photographed scale, platform and suitcase words on 
   expect((await photoPoint(image, 955, 407)).visible, "the same right suitcase stays in the magnified frame").toBe(true);
   await screenshot("right-suitcase-magnified");
   const suitcaseCamera = await surface.evaluate((node) => getComputedStyle(node).transform);
-  const related = await focusFromIndex("bag-drop queue belt", "行李托运隔离带");
+  const related = await focusFromIndex(image, activate, "bag-drop queue belt", "行李托运隔离带");
   await expect(related.getByText("行李托运隔离带", { exact: true })).toBeVisible();
   await expect(surface).toHaveCSS("transform", suitcaseCamera);
   await activate(related.getByRole("button", { name: "关闭单词卡" }));

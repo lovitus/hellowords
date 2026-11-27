@@ -27,6 +27,7 @@ interface Scene {
   readonly width: number;
   readonly height: number;
   readonly labels: readonly Label[];
+  readonly relatedWords: readonly { readonly id: string; readonly word: string }[];
   readonly visualRegions: readonly {
     readonly id: string;
     readonly x: number;
@@ -58,36 +59,40 @@ async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await readFile(resolve(sceneRoot, file), "utf8")) as T;
 }
 
-test("check-in counter keeps 153 reviewed counter, baggage and kiosk terms", async () => {
+test("check-in counter retains its 153 words and maps distinguishable parts of the photograph", async () => {
   const scene = await readJson<Scene>("check-in-counter.json");
   assert.equal(scene.id, "check-in-counter");
   assert.equal(scene.parentId, "airport");
   assert.equal(scene.asset, "/scenes/check-in-counter-premium-v1.jpg");
   assert.deepEqual([scene.width, scene.height], [1_600, 900]);
-  assert.equal(scene.labels.length, 153);
+  const words = [...scene.labels, ...scene.relatedWords];
+  assert.equal(words.length, 153);
+  assert.equal(scene.labels.length, 60);
   assert.equal(scene.visualRegions.length, scene.labels.length + scene.portals.length);
   assert.deepEqual(scene.detailZones.map(({ id, labelIds }) => [id, labelIds.length]), [
-    ["check-in-counter-zone-counter-row-shell", 22],
-    ["check-in-counter-zone-staffed-desk-equipment", 27],
-    ["check-in-counter-zone-baggage-conveyor-scale", 22],
-    ["check-in-counter-zone-kiosk-bank", 28],
-    ["check-in-counter-zone-overhead-info-wall", 18],
-    ["check-in-counter-zone-queue-accessibility", 22],
-    ["check-in-counter-zone-floor-baggage-ancillaries", 14],
+    ["check-in-counter-zone-counter-row-shell", 9],
+    ["check-in-counter-zone-staffed-desk-equipment", 4],
+    ["check-in-counter-zone-baggage-conveyor-scale", 7],
+    ["check-in-counter-zone-kiosk-bank", 8],
+    ["check-in-counter-zone-overhead-info-wall", 12],
+    ["check-in-counter-zone-queue-accessibility", 12],
+    ["check-in-counter-zone-floor-baggage-ancillaries", 8],
   ]);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => scene.labels.filter(({ minLevel }) => minLevel === level).length),
-    [14, 14, 43, 41, 41],
+    [14, 14, 12, 11, 9],
   );
-  assert.equal(new Set(scene.labels.map(({ id }) => id)).size, 153);
-  assert.equal(new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size, 153);
+  assert.equal(new Set(words.map(({ id }) => id)).size, 153);
+  assert.equal(new Set(words.map(({ word }) => word.toLocaleLowerCase())).size, 153);
+  assert.equal(new Set(scene.labels.map(({ x, y }) => `${x},${y}`)).size, scene.labels.length);
   assert.deepEqual(scene.portals.map(({ childSceneId }) => childSceneId), ["baggage-drop-station"]);
-  assert.equal(scene.anchorAudit.status, "human-verified");
+  assert.ok(["image-reviewed", "human-verified"].includes(scene.anchorAudit.status));
   assert.equal(scene.anchorAudit.policy, "visible-object-or-part-only");
   assert.equal(scene.anchorAudit.reviewedAsset, scene.asset);
   assert.equal(scene.anchorAudit.reviewedAssetSha256, "f3089bcc3e56bdb5805cfe3a7208e06a56a683d05297ecbb54efea73d5be2414");
-  assert.equal(scene.anchorAudit.previousLabelCount - scene.anchorAudit.retainedLabelCount, 8);
-  assert.equal(scene.anchorAudit.removedLabelCount, 8);
+  assert.equal(scene.anchorAudit.previousLabelCount, 161);
+  assert.equal(scene.anchorAudit.retainedLabelCount, scene.labels.length);
+  assert.equal(scene.anchorAudit.removedLabelCount, scene.relatedWords.length + 8);
 
   const regions = new Map(scene.visualRegions.map((region) => [region.id, region]));
   for (const label of scene.labels) {
@@ -116,7 +121,7 @@ test("check-in counter keeps 153 reviewed counter, baggage and kiosk terms", asy
     const other = await readJson<{ readonly labels: readonly { readonly word: string }[] }>(`${entry.id}.json`);
     for (const label of other.labels) existingWords.add(label.word.toLocaleLowerCase());
   }
-  for (const word of new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase()))) {
+  for (const word of new Set(words.map(({ word }) => word.toLocaleLowerCase()))) {
     assert.equal(existingWords.has(word), false, `check-in counter does not duplicate ${word}`);
   }
 

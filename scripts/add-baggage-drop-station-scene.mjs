@@ -453,6 +453,8 @@ const parentRegion = {
   height: parentPortal.height,
 };
 
+export { parentPortal as baggageDropPortal, parentRegion as baggageDropPortalRegion };
+
 async function updateParent() {
   const parent = JSON.parse(await readFile(parentPath, "utf8"));
   const portalIndex = parent.portals.findIndex(({ id }) => id === parentPortal.id);

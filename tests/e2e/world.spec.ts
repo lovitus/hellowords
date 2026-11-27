@@ -606,14 +606,40 @@ test("home atlas district journey photo anchors open the preparation room and th
 
   // Frame the gate on both viewports so the phone can reach the western edge of the atlas.
   await activate(page.locator('[data-testid="scene-minimap-district"][data-district-id="school"]'));
-  await activate(page.locator('[data-testid="scene-minimap-zone"][data-zone-id="school-entry-classroom"]'));
-  const entrance = page.locator('[data-testid="scene-hotspot"][data-target-scene="school-campus"]');
-  await entrance.click({ trial: true });
+  const zone = page.locator('[data-testid="scene-minimap-zone"][data-zone-id="school-entry-classroom"]');
+  const targetScale = Number(await zone.getAttribute("data-target-scale"));
+  expect(targetScale).toBeGreaterThan(1);
+  await activate(zone);
+  await expect(page.locator(".scene-surface")).toHaveAttribute("data-scene-scale", targetScale.toFixed(3));
+  const photo = await page.locator(".scene-art").elementHandle();
+  await photo.waitForElementState("stable");
+
+  // Capture the native hit before navigation replaces the atlas photograph.
+  const gatePress = await photo.evaluateHandle(image => {
+    let observed: { targetScene: string | null; x: number; y: number; photoX: number; photoY: number; scale: number } | null = null;
+    window.addEventListener("pointerdown", event => {
+      const bounds = image.getBoundingClientRect();
+      observed = {
+        targetScene: event.target instanceof Element
+          ? event.target.closest("[data-target-scene]")?.getAttribute("data-target-scene") ?? null
+          : null,
+        x: event.clientX, y: event.clientY,
+        photoX: (event.clientX - bounds.left) / bounds.width * 2604,
+        photoY: (event.clientY - bounds.top) / bounds.height * 989,
+        scale: Number(image.closest(".scene-surface")?.getAttribute("data-scene-scale")),
+      };
+    }, { capture: true, once: true });
+    return () => observed;
+  });
   const gate = await atlasPhotoPoint(page, 170, 98);
   if (isMobile) await page.touchscreen.tap(gate.x, gate.y);
   else await page.mouse.click(gate.x, gate.y);
+  const press = await gatePress.evaluate(read => read());
+  await testInfo.attach("school-gate-press", { body: JSON.stringify(press), contentType: "application/json" });
+  expect(press?.targetScene, "pressing the photographed gate must hit the campus entrance").toBe("school-campus");
   await expect(app).toHaveAttribute("data-scene-id", "school-campus");
   await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await testInfo.attach("campus-from-school-gate", { body: await page.screenshot(), contentType: "image/png" });
   await activate(page.getByRole("button", { name: "← 返回上一层", exact: true }));
   await expect(app).toHaveAttribute("data-scene-id", "world-map");
   await expect(app).toHaveAttribute("data-transition-state", "idle");

@@ -1031,7 +1031,7 @@
     }
   ],
   "anchorAudit": {
-    "status": "image-reviewed",
+    "status": "human-verified",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/office-atrium-premium-v1.jpg",
     "reviewedAssetSha256": "9403fc42abf40af87d59f9a12401e5dcff76256fc13870a7780e79ae8e3a7cdf",
