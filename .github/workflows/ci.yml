@@ -1,9 +1,9 @@
-name: Verify reopening an indexed carriage word on a narrow phone
+name: Verify the ultrasound examination room and its return to radiology
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the indexed word fix following the frozen battery and carriage build
+        description: Full SHA of the ultrasound examination room following the frozen carriage word build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 2e81fccd3b1e8a4cd2798ac3dbc5715f83f8abc8
+  BASELINE: 7e8d5709c92c3abdd582aa429957a9f43c742f7f
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 7ffb45ba3a45fc6d6671a34275c2f67a020b838b834262aa974c117053e29e86
-  ARTIFACT_RUN: "46029408548"
+  MANIFEST_SHA256: 69f15dc711bbcdc8539896f1f095d28259758e96d4c7b33c0e6b99db4265f4ce
+  ARTIFACT_RUN: "46034795817"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -79,7 +79,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce the missing carriage hatch after promptly dismissing its bilingual word card
+      - name: Reach radiology in the frozen application and verify the missing room entrance
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -108,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Reopen the photographed hatch by touch and retain the existing journeys
+      - name: Enter and leave the ultrasound room on desktop and phone and retain the existing journeys
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true

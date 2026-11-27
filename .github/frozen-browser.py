@@ -1,4 +1,4 @@
-"""Compare the indexed carriage hatch on a bilingual phone and retain the existing journeys."""
+"""Compare the radiology room entrance on both devices and retain previously verified journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -37,6 +37,10 @@ PACK_CARRIAGE = ("e2e/pack-carriage-photo-reading.spec.ts",
                  "the transit journey reads the battery mounting hole and carriage equipment hatch and keeps the lid hinge index-only")
 HATCH = ("e2e/pack-carriage-photo-reading.spec.ts",
          "on a narrow phone the photographed equipment hatch opens again after promptly closing its index card")
+RADIOLOGY = ("e2e/hospital-radiology.spec.ts",
+             "hospital radiology keeps ultrasound words on the photograph through Fit, continuous zoom and hospital return")
+ULTRASOUND = ("e2e/ultrasound-exam-room.spec.ts",
+              "the photographed ultrasound machine opens its exam room and remains readable after returning to radiology")
 STREET_PHOTO = "/scenes/city-street-bright-v4.jpg"
 TRANSIT_PHOTO = "/scenes/transit-hub-premium-v2.jpg"
 BUS_PHOTO = "/scenes/electric-bus-premium-v2.jpg"
@@ -52,8 +56,10 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [("mobile-chromium", *HATCH)]
+cases = [(project, *ULTRASOUND) for project in PROJECTS]
 if phase == "candidate":
+    cases.extend((project, *RADIOLOGY) for project in PROJECTS)
+    cases.append(("mobile-chromium", *HATCH))
     cases.append(("chromium", *PACK_CARRIAGE))
     cases.append(("chromium", *BUS_PLATFORM))
     cases.append(("chromium", *STREET_TRANSIT))
@@ -229,14 +235,75 @@ def indexed_hatch(observed, images, result):
         return False
     marker = reading["markerBeforeTouch"]
     cards = reading.get("cardsAfterTouch")
-    if phase == "candidate":
-        return (result["status"] == "passed" and not result["errors"] and isinstance(marker, dict)
-                and marker.get("interactive") is True and cards == [{"word": "equipment hatch", "meaning": "设备舱盖"}])
-    expected = {"touching the photographed hatch after dismissing its index card must reopen the bilingual equipment hatch card",
-                "the hatch must retain an interactive marker once the search camera settles"}
-    headings = [re.sub(r"\x1b\[[0-9;]*m", "", err.get("message", "")).partition("\n")[0].removeprefix("Error: ").strip()
-                for err in result["errors"]]
-    return result["status"] == "failed" and Counter(headings) == Counter(expected) and marker is None and cards == []
+    return (result["status"] == "passed" and not result["errors"] and isinstance(marker, dict)
+            and marker.get("interactive") is True and cards == [{"word": "equipment hatch", "meaning": "设备舱盖"}])
+
+
+def radiology_readings(observed, images, result):
+    if result["status"] != "passed" or result["errors"]:
+        return False
+    for word in ("ultrasound cart wheel", "ultrasound monitor", "exam couch cushion"):
+        name = word.replace(" ", "-")
+        observations = observed.get(name + "-geometry", [])
+        if (len(observations) != 1 or observations[0].get("word") != word or observations[0].get("inside") is not True
+                or observations[0].get("visible") is not True
+                or observations[0].get("sha256") != "b61a9331f765812aabc429d86ea935ba00e947fb86b45e487743a410c01cecc5"
+                or name + "-view" not in images or name + "-painted-card" not in images):
+            return False
+    return all(name in images for name in ("radiology-fit", "radiology-couch-magnified", "hospital-return"))
+
+
+def ultrasound_journey(observed, images, result, project):
+    parent_id = "radiology-suite"
+    parent_photo = "/scenes/radiology-suite-premium-v1.jpg"
+    child_id = "ultrasound-exam-room"
+    child_photo = "/scenes/ultrasound-exam-room-v1.jpg"
+    machine = [{"word": "ultrasound machine", "meaning": "超声机"}]
+    mobile = project == "mobile-chromium"
+    viewport = (385, 705) if mobile else (1440, 900)
+    pixels = (1011, 1851) if mobile else (1440, 900)
+
+    def read(stage, photo_point=None):
+        rows = observed.get(stage + "-result", [])
+        if len(rows) != 1 or images.get(stage) != pixels:
+            return {}
+        row = rows[0]
+        if photo_point is not None:
+            point = row.get("point", {})
+            if ((row.get("x"), row.get("y")) != photo_point or point.get("visible") is not True
+                    or not all(isinstance(value := point.get(axis), (int, float)) and 0 <= value < bound
+                               for axis, bound in zip(("x", "y"), viewport))):
+                return {}
+        return row
+
+    def card_matches(row, scene, photo, cards):
+        return row.get("scene") == scene and row.get("photo") == photo and row.get("cards") == cards
+
+    before = read("radiology-machine-before-entering", (652, 612))
+    entrance = read("radiology-machine-entrance", (676, 736))
+    if (not card_matches(before, parent_id, parent_photo, machine) or entrance.get("sourceScene") != parent_id
+            or entrance.get("sourcePhoto") != parent_photo):
+        return False
+    if phase == "baseline":
+        wrong_card = {"word": "exam couch cushion", "meaning": "检查床垫"} if mobile else {
+            "word": "ultrasound control panel", "meaning": "超声控制面板"}
+        return (result["status"] == "failed" and len(result["errors"]) == 1
+                and entrance.get("entranceCount") == 0 and "hitTarget" in entrance and entrance["hitTarget"] is None
+                and card_matches(entrance, parent_id, parent_photo, [wrong_card])
+                and all(stage + "-result" not in observed for stage in
+                        ("exam-room-trackball", "exam-room-at-maximum-zoom", "radiology-machine-after-return")))
+    trackball = read("exam-room-trackball", (617, 393))
+    terminal = read("exam-room-at-maximum-zoom")
+    maximum, scale = terminal.get("maximumScale"), terminal.get("scale")
+    returned = read("radiology-machine-after-return", (652, 612))
+    return (result["status"] == "passed" and not result["errors"]
+            and entrance.get("entranceCount") == 1 and entrance.get("hitTarget") == child_id
+            and card_matches(entrance, child_id, child_photo, [])
+            and card_matches(trackball, child_id, child_photo, [{"word": "trackball", "meaning": "轨迹球"}])
+            and terminal.get("scene") == child_id and terminal.get("photo") == child_photo
+            and terminal.get("semanticState") == "idle" and terminal.get("nextPlane") == "spatial-terminal"
+            and isinstance(maximum, (int, float)) and isinstance(scale, (int, float))
+            and maximum > 1 and abs(scale - maximum) <= 0.021 and card_matches(returned, parent_id, parent_photo, machine))
 
 
 scenes = {
@@ -286,6 +353,12 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == ULTRASOUND[1]:
+            row["accepted"] = ultrasound_journey(observed, images, result, project)
+            continue
+        if title == RADIOLOGY[1]:
+            row["accepted"] = phase == "candidate" and radiology_readings(observed, images, result)
+            continue
         if title == HATCH[1]:
             row["accepted"] = indexed_hatch(observed, images, result)
             continue

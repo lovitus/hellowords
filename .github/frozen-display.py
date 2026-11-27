@@ -48,9 +48,23 @@ def integrity(baseline):
             source = Path("public") / entry["path"].removeprefix("client/")
             if source.read_bytes() != data:
                 raise ValueError("The checked-out data differs from the frozen build")
+    scene_root = root / "client/data/scenes"
+    scene_ids = {scene["id"] for scene in json.loads((scene_root / "manifest.json").read_bytes())["scenes"]}
+    images = {json.loads((scene_root / f"{scene}.json").read_bytes())["asset"] for scene in scene_ids}
+    if not baseline:
+        old_root = TEMP / "frozen/dist/client/data/scenes"
+        old_ids = {entry["id"] for entry in json.loads((old_root / "manifest.json").read_bytes())["scenes"]}
+        old_images = {json.loads((old_root / f"{scene}.json").read_bytes())["asset"] for scene in old_ids}
+        new_id = "ultrasound-exam-room"
+        child = json.loads((scene_root / f"{new_id}.json").read_bytes())
+        parent = json.loads((scene_root / "radiology-suite.json").read_bytes())
+        if (new_id in old_ids or scene_ids != old_ids | {new_id} or child["parentId"] != parent["id"]
+                or sum(portal["childSceneId"] == new_id for portal in parent["portals"]) != 1
+                or child["asset"] in old_images or images != old_images | {child["asset"]}):
+            raise ValueError("Scene or photograph inventory differs from the expected radiology room addition")
     name = "baseline-integrity.json" if baseline else "candidate-integrity.json"
     save(name, {"sourceRun": os.environ["ARTIFACT_RUN" if baseline else "GITHUB_RUN_ID"], "gitSha": sha,
-                "manifestSha256": digest, "verifiedFiles": len(files)})
+                "manifestSha256": digest, "verifiedFiles": len(files), "scenes": len(scene_ids), "images": len(images)})
 
 
 def run(stage, command, env=None):
@@ -61,8 +75,8 @@ def run(stage, command, env=None):
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "3f49a8ae287ba5a08fea44537f7e07d5199edee835db4898e1bb8550a17e9d1f",
-        "navigation-result.json": "af451bcc38c7ee7ffd756e3cd5277539754e291bd41992784f3934c9396481a4",
+        "summary.json": "2d9c74f6c4b74727969c065ec76e1b83c569c24e9ff846d97db567c52e5e8802",
+        "navigation-result.json": "c864f7393efece2571aa452cdbaf901a4b92230ed625bae6edb94cc9a750c1d0",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
@@ -77,7 +91,7 @@ def baseline_performance():
     if (summary["gitSha"] != os.environ["BASELINE"] or summary["scenario"]["cycles"] != 20
             or metrics["transitions"] != 40 or report["exit"] != 1 or len(report["cases"]) != 1
             or report["cases"][0]["status"] != "failed" or report["cases"][0]["retry"] != 0
-            or report["cases"][0]["assertionLines"] != [386] or exceeded != ["retainedPssDeltaMiB"]):
+            or exceeded != ["retainedPssDeltaMiB"]):
         raise ValueError("The frozen measurements do not match the recorded baseline retained memory budget failure")
     save("baseline-performance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
                                       "cycles": 20, "transitions": 40, "measurements": readings,
@@ -196,7 +210,7 @@ def record():
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "narrow-indexed-hatch", "outcomes": gates,
+                         "scope": "radiology-ultrasound-exam-room", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")
