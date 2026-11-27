@@ -1,9 +1,9 @@
-name: Verify bathroom photo point reading and scene returns
+name: Verify minimap and photograph click destinations
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the bathroom candidate following the kitchen build
+        description: Full SHA of the minimap candidate following the frozen bathroom build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 0e53291526feed16c6c9876edf4e52b0045378c7
+  BASELINE: 510715c78a010767a580f24ea1f340beaec27a55
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: f8185880b002f92af2652e28547fdd7744fdaa4437b82c8576cb0e4205ed0062
-  ARTIFACT_RUN: "45988678496"
+  MANIFEST_SHA256: 8277d119d31e7323a686e1d38229f91fbcdc71aa2f8cf31a8ab1a51098997b23
+  ARTIFACT_RUN: "45993179711"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -79,7 +79,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Locate the toilet pedestal on the frozen photograph on desktop and phone
+      - name: Reproduce a desktop click on the visible apartment button opening the campus
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -108,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Read bathroom fixtures and kitchen and apartment objects and return to the parent scenes
+      - name: Click minimap and photograph controls on both devices and follow the deep oxygen route
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true

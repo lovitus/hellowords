@@ -26,11 +26,6 @@ def integrity(baseline):
         # Both builds use the very same sampler, real navigation route and budgets.
         subprocess.run(["git", "diff", "--quiet", os.environ["BASELINE"], PRODUCT, "--", "tests/perf",
                         "playwright.config.ts", "package.json", "package-lock.json"], check=True)
-        data_changes = subprocess.check_output(["git", "diff", "--name-only", "--no-renames",
-                                                os.environ["BASELINE"], PRODUCT, "--", "public/data", "public/scenes"],
-                                               text=True).splitlines()
-        if data_changes != ["public/data/scenes/bathroom.json"]:
-            raise ValueError("Expected only the photographed bathroom scene data to change")
     frozen = TEMP / "frozen" if baseline else Path(".")
     sha = os.environ["BASELINE"] if baseline else PRODUCT
     raw = (frozen / "artifacts/build/dist-manifest.json").read_bytes()
@@ -66,8 +61,8 @@ def run(stage, command, env=None):
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "464013180752c412a7621d180e447de262ddbe9e65505147bd4ab654c44aa6c9",
-        "navigation-result.json": "7d2312f4c21031f9412968aac0402d8b7b8f92f7822871879a3d7e99517bc146",
+        "summary.json": "ae94afcf81b7f461cc6d4ec74592354af08cbac2a8bdce82282ad7b95d3bba77",
+        "navigation-result.json": "aa391ffcb683fb34f6965915d02d6a914debc17a09d51c8e0006505ef26db5ea",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
@@ -78,14 +73,15 @@ def baseline_performance():
     readings = {"rendererTaskMsPerTransition": metrics["rendererTaskMsPerTransition"],
                 "peakPssMiB": metrics["memory"]["peakPssMiB"],
                 "retainedPssDeltaMiB": metrics["memory"]["pssDeltaMiB"]}
+    exceeded = sorted(name for name, value in readings.items() if value > summary["budgets"][name])
     if (summary["gitSha"] != os.environ["BASELINE"] or summary["scenario"]["cycles"] != 20
             or metrics["transitions"] != 40 or report["exit"] != 1 or len(report["cases"]) != 1
             or report["cases"][0]["status"] != "failed"
-            or not all(value > summary["budgets"][name] for name, value in readings.items())):
+            or exceeded != ["peakPssMiB", "rendererTaskMsPerTransition"]):
         raise ValueError("The frozen measurements do not match the completed baseline failure")
     save("baseline-performance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
                                       "cycles": 20, "transitions": 40, "measurements": readings,
-                                      "budgets": summary["budgets"], "sourceDigests": digests})
+                                      "budgets": summary["budgets"], "exceeded": exceeded, "sourceDigests": digests})
 
 
 def navigation():
@@ -198,7 +194,7 @@ def record():
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "bathroom-photographed-fixtures", "outcomes": gates,
+                         "scope": "photograph-minimap-hit-targets", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")
