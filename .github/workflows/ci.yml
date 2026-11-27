@@ -1,4 +1,4 @@
-name: Verify airport security photo and return journeys
+name: Verify hospital photo and department journeys
 on:
   workflow_dispatch:
     inputs:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 5f11c5d20908dd1c7bc9b8308c482117838978a2
+  BASELINE: 31e079843aa8e0ade74e08b70222ab0239dbcc99
   PRODUCT: ${{ inputs.candidate }}
 jobs:
-  airport:
+  hospital:
     runs-on: ubuntu-24.04
     timeout-minutes: 18
     defaults:
@@ -34,14 +34,14 @@ jobs:
       - uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASELINE }}
-          run-id: "45929455622"
+          run-id: "45932339082"
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
       - name: Verify sources and frozen production files
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
-          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = 1732ce581d4a9fe84c73991cdef8d7c55cd9a0e8e2aaa05a391507d6ad3498bf
+          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = bdd690b6267be35b05cdd694f57c944f1215009c917a42ba81d497f6d3e49467
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE"
       - uses: actions/setup-node@v7
         with:
@@ -52,29 +52,37 @@ jobs:
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Reproduce the shared dot on the floor in both viewports
+      - name: Reproduce the misplaced microscope dot in both viewports
         id: red
         continue-on-error: true
         run: |
           test ! -e dist
           mv "$RUNNER_TEMP/frozen/dist" dist
           trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
-          python ../.github/check-airport-kiosk.py baseline
+          python ../.github/check-hospital-photo.py baseline
       - name: Validate the candidate vocabulary and pending image reviews
         run: npm run validate:data -- --allow-image-reviewed
-      - name: Typecheck, lint and verify the airport scene contracts
+      - name: Typecheck, lint and check the vocabulary contracts
         run: |
           npm run typecheck
           git diff --name-only -z "$BASELINE" "$PRODUCT" -- '*.ts' '*.mjs' | xargs -0r ./node_modules/.bin/eslint --
-          ./node_modules/.bin/tsx --test tests/domain/{airportSecurityGate,newFacilityScenes,spatialLexemeRealms,checkInCounter,baggageDropStation,worldContent}.test.ts
+          regen="$RUNNER_TEMP/hospital-regen"
+          mkdir -p "$regen/scripts" "$regen/public/data"
+          cp scripts/add-professional-vocabulary.mjs "$regen/scripts/"
+          cp -R public/data/scenes "$regen/public/data/"
+          node "$regen/scripts/add-professional-vocabulary.mjs"
+          cmp public/data/scenes/hospital.json "$regen/public/data/scenes/hospital.json"
       - name: Build the frozen candidate once and verify the manifest
         id: build
         run: |
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
           GITHUB_SHA="$PRODUCT" npm run analyze:build
           python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - name: Click the checkpoint post and traverse the airport, office and campus journeys
-        run: python ../.github/check-airport-kiosk.py candidate
+      - name: Read the microscope and return from the hospital, airport and office departments
+        run: python ../.github/check-hospital-photo.py candidate
+      - name: Run all domain and vocabulary checks
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm run test:unit
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         with:
@@ -88,11 +96,11 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: airport-photo-${{ github.run_id }}
-          path: ${{ runner.temp }}/kiosk-evidence
+          name: hospital-photo-${{ github.run_id }}
+          path: ${{ runner.temp }}/hospital-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the observed old floor dot
+      - name: Require the observed microscope dot on the old laboratory sign
         run: test "$RED_OUTCOME" = success
         env:
           RED_OUTCOME: ${{ steps.red.outcome }}
