@@ -58,19 +58,20 @@ def integrity(baseline):
         old_images = {scene: json.loads((old_root / f"{scene}.json").read_bytes())["asset"] for scene in old_ids}
         old_manifest = json.loads((TEMP / "frozen/artifacts/build/dist-manifest.json").read_bytes())
         old_files = {e["path"]: e["sha256"] for e in old_manifest["files"] if e["path"].startswith("client/scenes/")}
-        hospital, reception, dialysis = [json.loads((scene_root / f"{scene}.json").read_bytes())
-                                        for scene in ("hospital", "hospital-reception", "hemodialysis-unit")]
-        previous_dialysis = json.loads((old_root / "hemodialysis-unit.json").read_bytes())
-        photo_path = "client" + reception["asset"]
-        if (len(old_ids) != 111 or scene_ids - old_ids != {reception["id"], dialysis["id"]} or old_ids - scene_ids
+        airport, apron, cart = [json.loads((scene_root / f"{scene}.json").read_bytes())
+                                for scene in ("airport", "airport-apron", "airport-baggage-cart")]
+        photo_path = "client/scenes/airport-apron-v1.jpg"
+        cart_photo_path = "client/scenes/airport-baggage-cart-v1.jpg"
+        if (len(old_ids) != 113 or scene_ids - old_ids != {"airport-apron", "airport-baggage-cart"} or old_ids - scene_ids
                 or not old_images.items() <= scene_images.items() or not old_files.items() <= image_files.items()
-                or image_files.keys() - old_files.keys() != {photo_path}
-                or dialysis["asset"] != previous_dialysis["asset"]
+                or image_files.keys() - old_files.keys() != {photo_path, cart_photo_path} or "client" + apron["asset"] != photo_path
+                or "client" + cart["asset"] != cart_photo_path
+                or any((scene["width"], scene["height"]) != (1600, 900) for scene in (apron, cart))
                 or len(set(scene_images.values())) != len(set(old_images.values())) + 2):
-            raise ValueError("The hospital expansion must retain the previous scenes and photographs and add only the reception image")
-        for parent, child in ((hospital, reception), (reception, dialysis)):
+            raise ValueError("The airport expansion must retain the previous scenes and photographs and add only the apron and cart images")
+        for parent, child in ((airport, apron), (apron, cart)):
             if child["parentId"] != parent["id"] or sum(p["childSceneId"] == child["id"] for p in parent["portals"]) != 1:
-                raise ValueError("The hospital must link to reception and reception to dialysis")
+                raise ValueError("The airport must link to the apron and the apron to the cart")
     name = "baseline-integrity.json" if baseline else "candidate-integrity.json"
     save(name, {"sourceRun": os.environ["ARTIFACT_RUN" if baseline else "GITHUB_RUN_ID"], "gitSha": sha,
                 "manifestSha256": digest, "verifiedFiles": len(files), "scenes": len(scene_ids),
@@ -129,30 +130,50 @@ def spatial():
         target = old / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(subprocess.check_output(["git", "show", f"{os.environ['BASELINE']}:{relative}"]))
-    inventory = json.loads((old_public / "data/scenes/manifest.json").read_bytes())
-    linked = sum(bool(label.get("lexemeId")) for scene in inventory["scenes"]
-                 for label in json.loads((old_public / "data/scenes" / f"{scene['id']}.json").read_bytes())["labels"])
+    def references(public):
+        root = public / "data/scenes"
+        scenes = json.loads((root / "manifest.json").read_bytes())["scenes"]
+        return {(scene["id"], label["id"], label["word"], label["lexemeId"])
+                for scene in scenes for label in json.loads((root / f"{scene['id']}.json").read_bytes())["labels"]
+                if label.get("lexemeId")}
+
+    old_refs = references(old_public)
+    current_refs = references(Path("public"))
+    old_ids = {entry[3] for entry in old_refs}
+    added = sorted(current_refs - old_refs)
+    cart_words = {"handle": "en-c2a116aa910d147b", "pocket": "en-62f5d588fd39c2bb", "fabric": "en-ad2a542c84c7060f",
+                  "canvas": "en-a457e8f04aa796dc", "blanket": "en-7cd0fc6ee61e2a57", "strap": "en-833a63294a4cb1fc",
+                  "tire": "en-c91e5b2418a7d741"}
+    expected_additions = {("airport-baggage-cart", word, word, lexeme) for word, lexeme in cart_words.items()}
     # Read the exported constant through the same TS runtime as the project's domain tests.
     exported = int(subprocess.check_output(
         ["./node_modules/.bin/tsx", "-e",
          "console.log(require(process.argv[1]).SPATIAL_LEXEME_LINK_COUNT)", str(old / generated)], text=True))
-    red = run("spatial-baseline", ["node", str(old / generator), "--check"])
-    baseline = diagnostics("spatial-baseline", red)
+    old_code = run("spatial-baseline", ["node", str(old / generator), "--check"])
+    baseline = diagnostics("spatial-baseline", old_code)
+    if old_code == 0:
+        baseline["report"] = json.loads((TEMP / "spatial-baseline.out").read_bytes())
     green = run("spatial-candidate", ["npm", "run", "--silent", "validate:spatial-realms"])
     candidate = diagnostics("spatial-candidate", green)
     if green == 0:
         candidate["report"] = json.loads((TEMP / "spatial-candidate.out").read_bytes())
-    save("spatial-index.json", {"baseline": {**baseline, "authored": linked, "indexed": exported},
-                                "candidate": candidate})
-    return 0 if (baseline["reason"] == "stale-spatial-vocabulary-index" and linked == 390 and exported == 387
-                 and green == 0 and candidate["report"].get("status") == "current") else 1
+    save("spatial-index.json", {"baseline": {**baseline, "authored": len(old_refs), "indexed": exported},
+                                "candidate": {**candidate, "authored": len(current_refs),
+                                              "addedReferences": added, "removedReferences": sorted(old_refs - current_refs)}})
+    current_ids = {entry[3] for entry in current_refs}
+    return 0 if (old_code == 0 and green == 0 and len(old_refs) == exported == 397 and len(old_ids) == 239
+                 and old_refs <= current_refs and set(added) == expected_additions and old_ids == current_ids
+                 and all(result["report"].get("status") == "current"
+                         and result["report"].get("linkedLabelCount") == len(refs)
+                         and result["report"].get("uniqueLexemeCount") == len(current_ids)
+                         for result, refs in ((baseline, old_refs), (candidate, current_refs)))) else 1
 
 
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "500e7adb2553989eaa703232757680de988c9a2d24b82a1545dcdf8ddc6074f5",
-        "navigation-result.json": "9671219aa577fde8c01c599bc4058336d59169fc6716e46015363667bccf9ce1",
+        "summary.json": "49a69d284dc2aea7a498ef0d362246b257209826c83fb06cd549b1bc469416a7",
+        "navigation-result.json": "a4bc88969759f576850e67592fdfded9f2fed26595498ae33ad32733f7e7abf5",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
@@ -167,8 +188,8 @@ def baseline_performance():
     if (summary["gitSha"] != os.environ["BASELINE"] or summary["scenario"]["cycles"] != 20
             or metrics["transitions"] != 40 or report["exit"] != 1 or len(report["cases"]) != 1
             or report["cases"][0]["status"] != "failed" or report["cases"][0]["retry"] != 0
-            or exceeded != ["peakPssMiB", "rendererTaskMsPerTransition", "retainedPssDeltaMiB"]):
-        raise ValueError("The frozen measurements do not match the original CPU and memory budget failures")
+            or exceeded != ["rendererTaskMsPerTransition"]):
+        raise ValueError("The frozen measurements do not match the original rendering budget failure")
     save("baseline-performance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
                                       "cycles": 20, "transitions": 40, "measurements": readings,
                                       "budgets": summary["budgets"], "exceeded": exceeded, "sourceDigests": digests})
@@ -288,7 +309,7 @@ def record():
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "hospital-reception-dialysis", "outcomes": gates,
+                         "scope": "airport-apron", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")

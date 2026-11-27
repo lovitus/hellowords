@@ -1,4 +1,4 @@
-"""Compare the hospital reception and dialysis round trip on both devices."""
+"""Compare the airport apron and baggage cart round trip on both devices."""
 import base64
 from collections import Counter
 import hashlib
@@ -43,6 +43,8 @@ ULTRASOUND = ("e2e/ultrasound-exam-room.spec.ts",
               "the photographed ultrasound machine opens its exam room and remains readable after returning to radiology")
 RECEPTION = ("e2e/hospital-reception-dialysis.spec.ts",
              "the hospital reception desk leads through its dialysis doorway and both photographs remain readable on return")
+APRON = ("e2e/airport-apron.spec.ts",
+         "the airport ground vehicle leads through the apron to the baggage cart and both photographs remain readable on return")
 STREET_PHOTO = "/scenes/city-street-bright-v4.jpg"
 TRANSIT_PHOTO = "/scenes/transit-hub-premium-v2.jpg"
 BUS_PHOTO = "/scenes/electric-bus-premium-v2.jpg"
@@ -58,8 +60,9 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [(project, *RECEPTION) for project in PROJECTS]
+cases = [(project, *APRON) for project in PROJECTS]
 if phase == "candidate":
+    cases.extend((project, *RECEPTION) for project in PROJECTS)
     cases.extend((project, *ULTRASOUND) for project in PROJECTS)
     cases.extend((project, *RADIOLOGY) for project in PROJECTS)
     cases.append(("mobile-chromium", *HATCH))
@@ -335,11 +338,6 @@ def reception_journey(observed, images, result, project):
     first = reading("enter-hospital-reception", (123, 651))
     if (first.get("sourceScene"), first.get("sourcePhoto")) != hospital:
         return False
-    if phase == "baseline":
-        return (result["status"] == "failed" and len(result["errors"]) == 1 and first.get("entranceCount") == 0
-                and "hitTarget" in first and first["hitTarget"] is None
-                and location(first) == hospital and isinstance(first.get("cards"), list)
-                and "reception-service-bell-result" not in observed and "enter-hemodialysis-unit-result" not in observed)
     bell = reading("reception-service-bell", (134, 664))
     second = reading("enter-hemodialysis-unit", (1391, 526))
     chair = reading("dialysis-reclining-chair", (344, 430))
@@ -358,6 +356,67 @@ def reception_journey(observed, images, result, project):
             and card(disease, dialysis, "chronic kidney disease", "慢性肾脏病")
             and disease.get("markerCount") == 0 and isinstance(camera, str) and bool(camera) and camera == disease.get("cameraAfter")
             and card(back_reception, reception, "service bell", "服务铃") and card(back_hospital, hospital, "reception desk", "接待台"))
+
+
+def apron_journey(observed, images, result, project):
+    viewport = (385, 705) if project == "mobile-chromium" else (1440, 900)
+    pixels = (1011, 1851) if project == "mobile-chromium" else (1440, 900)
+    terminal = ("airport", "/scenes/airport-terminal-premium-v1.jpg")
+    apron = ("airport-apron", "/scenes/airport-apron-v1.jpg")
+    cart = ("airport-baggage-cart", "/scenes/airport-baggage-cart-v1.jpg")
+
+    def reading(stage, point=None):
+        rows = observed.get(stage + "-result", [])
+        if len(rows) != 1 or images.get(stage) != pixels:
+            return {}
+        row = rows[0]
+        if point is not None:
+            touch = row.get("point", {})
+            if ((row.get("x"), row.get("y")) != point or touch.get("visible") is not True
+                    or not all(isinstance(value := touch.get(axis), (int, float)) and 0 <= value < bound
+                               for axis, bound in zip(("x", "y"), viewport))):
+                return {}
+        return row
+
+    def location(row):
+        return row.get("scene"), row.get("photo")
+
+    def entered(row, origin, destination):
+        return ((row.get("sourceScene"), row.get("sourcePhoto")) == origin and location(row) == destination
+                and row.get("hitTarget") == destination[0] and row.get("entranceCount") == 1 and row.get("cards") == [])
+
+    def card(row, target, word, translation):
+        return location(row) == target and row.get("cards") == [{"word": word, "meaning": translation}]
+
+    first = reading("enter-airport-apron", (885, 457))
+    if (first.get("sourceScene"), first.get("sourcePhoto")) != terminal:
+        return False
+    if phase == "baseline":
+        return (result["status"] == "failed" and len(result["errors"]) == 1 and first.get("entranceCount") == 0
+                and "hitTarget" in first and first["hitTarget"] is None and location(first) == terminal
+                and isinstance(first.get("cards"), list) and "apron-wheel-chock-result" not in observed
+                and "enter-airport-baggage-cart-result" not in observed)
+    chock = reading("apron-wheel-chock", (1213, 492))
+    second = reading("enter-airport-baggage-cart", (808, 715))
+    bag = reading("baggage-cart-first-object", (1155, 475))
+    zoom = reading("baggage-cart-maximum-zoom")
+    maximum, scale, steps = zoom.get("maximumScale"), zoom.get("scale"), zoom.get("zoomSteps")
+    allowance = reading("baggage-cart-related-index")
+    camera = allowance.get("cameraBefore")
+    back_apron = reading("apron-wheel-chock-after-return", (1213, 492))
+    back_terminal = reading("terminal-ground-vehicle-after-return", (1029, 479))
+    return (result["status"] == "passed" and not result["errors"] and entered(first, terminal, apron)
+            and card(chock, apron, "wheel chock", "轮挡") and entered(second, apron, cart)
+            and card(bag, cart, "duffel bag", "旅行袋") and location(zoom) == cart
+            and zoom.get("nextPlane") == "spatial-terminal" and zoom.get("dialogs") == 0
+            and isinstance(maximum, (int, float)) and isinstance(scale, (int, float)) and maximum > 1
+            and abs(maximum - scale) < 0.021 and isinstance(steps, list) and bool(steps)
+            and all(isinstance(step, (int, float)) and math.isfinite(step) for step in steps)
+            and abs(maximum - steps[-1]) < 0.021
+            and card(allowance, cart, "baggage allowance", "行李限额") and allowance.get("markerCount") == 0
+            and allowance.get("indexName") == "baggage allowance，行李限额，图中未标注"
+            and isinstance(camera, str) and bool(camera) and camera == allowance.get("cameraAfter")
+            and card(back_apron, apron, "wheel chock", "轮挡") and card(back_terminal, terminal, "ground vehicle", "地面车辆"))
 
 
 scenes = {
@@ -407,6 +466,9 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == APRON[1]:
+            row["accepted"] = apron_journey(observed, images, result, project)
+            continue
         if title == RECEPTION[1]:
             row["accepted"] = reception_journey(observed, images, result, project)
             continue

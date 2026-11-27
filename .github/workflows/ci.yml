@@ -1,9 +1,9 @@
-name: Verify the hospital reception and dialysis round trip
+name: Verify the airport apron and baggage cart round trip
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the hospital reception and dialysis candidate
+        description: Full SHA of the airport apron candidate
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 7eafc63001dfcd4da5f3e43337ddd1c97bd7d01e
+  BASELINE: 5599de505cd731cd9666d99d2d4f397616b05c82
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 10a4fe689fcc7a64ccee49d26706fec8880c216f5b069003b8a52ac1fd1ce80f
-  ARTIFACT_RUN: "46039903146"
+  MANIFEST_SHA256: 2cb7390aadac03e25ad3e040b41b7e5e22265942064ea1f18e4be107d8e2d45b
+  ARTIFACT_RUN: "46045582061"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -54,7 +54,7 @@ jobs:
           run-id: ${{ env.ARTIFACT_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/original-evidence
-      - name: Verify the original CPU and memory budget measurements against the frozen build
+      - name: Verify the measured rendering budget failure in the frozen build
         id: baseline
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.original_evidence.outcome == 'success' }}
         continue-on-error: true
@@ -67,7 +67,7 @@ jobs:
       - name: Install the locked dependencies
         id: dependencies
         run: npm ci > "$RUNNER_TEMP/npm.log" 2>&1
-      - name: Verify the original stale spatial vocabulary index and the candidate index
+      - name: Verify both builds retain the matching spatial vocabulary index
         id: spatial
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.dependencies.outcome == 'success' }}
         continue-on-error: true
@@ -84,7 +84,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reach the hospital and attempt the missing reception entrance in the frozen application
+      - name: Touch the ground vehicle at the airport and verify the missing apron entrance in the frozen build
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -113,7 +113,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Enter reception and dialysis and return on desktop and phone and retain the existing journeys
+      - name: Visit the apron and baggage cart from the terminal on desktop and phone and retain the existing journeys
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
