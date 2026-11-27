@@ -1,0 +1,1774 @@
+{
+  "id": "airport-apron",
+  "title": "Airport apron",
+  "translation": "机场停机坪",
+  "subtitle": "A belt loader at an open cargo hold, a baggage tug and a loaded trailer at the aircraft stand",
+  "asset": "/scenes/airport-apron-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "airport",
+  "portraitOverviewLabelIds": [
+    "wheel-chock",
+    "baggage-tug"
+  ],
+  "visualRegions": [
+    {
+      "id": "airliner-body",
+      "description": "The long white passenger airliner has a row of dark cabin windows and a tall blue vertical tail.",
+      "kind": "object",
+      "x": 220,
+      "y": 12,
+      "width": 1222,
+      "height": 341
+    },
+    {
+      "id": "flight-deck",
+      "description": "Dark flight deck windows are visible above the curved nose, with a small wiper on the forward pane.",
+      "kind": "object",
+      "x": 1128,
+      "y": 64,
+      "width": 311,
+      "height": 258
+    },
+    {
+      "id": "left-wing",
+      "description": "The near wing extends past the left edge of the image. Its leading edge meets the fuselage above the engine.",
+      "kind": "object",
+      "x": 0,
+      "y": 185,
+      "width": 693,
+      "height": 144
+    },
+    {
+      "id": "turbofan",
+      "description": "The silver engine nacelle surrounds an open intake with exposed dark fan blades and a central spinner.",
+      "kind": "object",
+      "x": 289,
+      "y": 247,
+      "width": 292,
+      "height": 196
+    },
+    {
+      "id": "main-wheels",
+      "description": "Dark main landing gear wheels are partly visible beneath the engine.",
+      "kind": "object",
+      "x": 374,
+      "y": 425,
+      "width": 85,
+      "height": 46
+    },
+    {
+      "id": "open-hold",
+      "description": "A raised hatch exposes a dark cargo hold with luggage inside. A thin stay runs along the side of the opening.",
+      "kind": "object",
+      "x": 822,
+      "y": 161,
+      "width": 233,
+      "height": 181
+    },
+    {
+      "id": "loading-conveyor",
+      "description": "A black belt runs up a white boom with yellow guardrails, a rounded lower end and diagonal warning stripes.",
+      "kind": "object",
+      "x": 473,
+      "y": 268,
+      "width": 563,
+      "height": 237
+    },
+    {
+      "id": "loader-chassis",
+      "description": "The white self-propelled belt loader has a wheeled chassis, an inclined lifting mechanism and a rear driving position.",
+      "kind": "object",
+      "x": 567,
+      "y": 342,
+      "width": 466,
+      "height": 215
+    },
+    {
+      "id": "tug-body",
+      "description": "The yellow tow tractor has a perforated front grille, paired headlights, a bumper and small front wheels.",
+      "kind": "object",
+      "x": 0,
+      "y": 539,
+      "width": 506,
+      "height": 328
+    },
+    {
+      "id": "tug-cab",
+      "description": "A black seat, steering wheel, overhead guard and amber beacon are visible on the open tow tractor.",
+      "kind": "object",
+      "x": 77,
+      "y": 296,
+      "width": 417,
+      "height": 434
+    },
+    {
+      "id": "hitch",
+      "description": "A metal tow hitch on the tug connects to the dark drawbar of the baggage trailer.",
+      "kind": "object",
+      "x": 480,
+      "y": 666,
+      "width": 157,
+      "height": 70
+    },
+    {
+      "id": "trailer",
+      "description": "The open metal baggage trailer has a rail-sided bed, a wheel arch and red-and-white reflective markings.",
+      "kind": "object",
+      "x": 614,
+      "y": 514,
+      "width": 694,
+      "height": 339
+    },
+    {
+      "id": "hard-case",
+      "description": "The teal hard-shell case has molded ribs, a recessed handle, small wheels and a hanging white barcode tag.",
+      "kind": "object",
+      "x": 729,
+      "y": 533,
+      "width": 194,
+      "height": 166
+    },
+    {
+      "id": "soft-case",
+      "description": "The burgundy fabric suitcase has a soft front pocket, two zip pulls and a padded top handle.",
+      "kind": "object",
+      "x": 911,
+      "y": 522,
+      "width": 162,
+      "height": 177
+    },
+    {
+      "id": "duffel",
+      "description": "The yellow duffel bag rests at the right of the trailer with black webbing straps and loop handles.",
+      "kind": "object",
+      "x": 1062,
+      "y": 566,
+      "width": 182,
+      "height": 143
+    },
+    {
+      "id": "nose-gear",
+      "description": "Paired black nose wheels and a metal shock strut support the aircraft behind the orange wedge.",
+      "kind": "object",
+      "x": 1104,
+      "y": 327,
+      "width": 136,
+      "height": 176
+    },
+    {
+      "id": "wheel-stop",
+      "description": "An orange wedge with three dark grooves sits directly against the right side of the nose wheel.",
+      "kind": "object",
+      "x": 1170,
+      "y": 476,
+      "width": 91,
+      "height": 32
+    },
+    {
+      "id": "crew-member",
+      "description": "A ground crew member in a fluorescent vest stands behind the aircraft nose gear.",
+      "kind": "object",
+      "x": 1088,
+      "y": 366,
+      "width": 34,
+      "height": 61
+    },
+    {
+      "id": "apron-cone",
+      "description": "The tall orange traffic cone has a white reflective band and a wide black base.",
+      "kind": "object",
+      "x": 1516,
+      "y": 447,
+      "width": 78,
+      "height": 132
+    },
+    {
+      "id": "stand-pavement",
+      "description": "Painted red, white and yellow markings and a rectangular drainage grate are visible across the concrete apron.",
+      "kind": "object",
+      "x": 1041,
+      "y": 496,
+      "width": 559,
+      "height": 404
+    },
+    {
+      "id": "passenger-bridge",
+      "description": "The gray boarding bridge has an accordion canopy, an enclosed bridge section and a vertical support column.",
+      "kind": "object",
+      "x": 1220,
+      "y": 0,
+      "width": 380,
+      "height": 444
+    },
+    {
+      "id": "glazed-terminal",
+      "description": "The window brace crosses the glazed walkway above the terminal windows on the ground floor.",
+      "kind": "object",
+      "x": 1496,
+      "y": 0,
+      "width": 104,
+      "height": 402
+    },
+    {
+      "id": "distant-carts",
+      "description": "Covered baggage carts are parked in front of the terminal, behind the aircraft nose gear.",
+      "kind": "object",
+      "x": 1284,
+      "y": 366,
+      "width": 91,
+      "height": 50
+    },
+    {
+      "id": "baggage-trailer-frame",
+      "kind": "part",
+      "description": "The exposed galvanized side beam below the teal suitcase on the loaded foreground trailer.",
+      "x": 772,
+      "y": 706,
+      "width": 72,
+      "height": 18
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "parked-airliner",
+      "title": "Parked airliner",
+      "translation": "停靠的客机",
+      "x": 215,
+      "y": 0,
+      "width": 1233,
+      "height": 365,
+      "targetScale": 1.65,
+      "description": "Trace the aircraft from the blue tail fin to its flight deck and rounded nose.",
+      "labelIds": [
+        "passenger-jet",
+        "fuselage",
+        "tail-fin",
+        "cabin-window",
+        "forward-passenger-door",
+        "door-window",
+        "cockpit-windows",
+        "windshield-wiper",
+        "nose-cone"
+      ]
+    },
+    {
+      "id": "wing-and-engine",
+      "title": "Wing and engine",
+      "translation": "机翼与发动机",
+      "x": 0,
+      "y": 177,
+      "width": 706,
+      "height": 302,
+      "targetScale": 1.9,
+      "description": "Follow the polished wing over the engine cowling, intake and fan.",
+      "labelIds": [
+        "airplane-wing",
+        "leading-edge",
+        "wing-root",
+        "engine-pylon",
+        "jet-engine",
+        "engine-cowling",
+        "intake-lip",
+        "fan-blade",
+        "fan-spinner",
+        "main-landing-gear"
+      ]
+    },
+    {
+      "id": "cargo-loading",
+      "title": "Cargo loading",
+      "translation": "货舱装载",
+      "x": 463,
+      "y": 159,
+      "width": 600,
+      "height": 398,
+      "targetScale": 2,
+      "description": "An inclined belt connects the equipment chassis to the open cargo compartment.",
+      "labelIds": [
+        "cargo-hold",
+        "cargo-hatch",
+        "hatch-support-strut",
+        "hold-light",
+        "loading-belt",
+        "conveyor-guardrail",
+        "conveyor-boom",
+        "hazard-stripes",
+        "belt-loader",
+        "lift-arm",
+        "hydraulic-cylinder",
+        "operator-seat",
+        "loader-wheel",
+        "stabilizer-foot"
+      ]
+    },
+    {
+      "id": "baggage-tractor",
+      "title": "Baggage tug",
+      "translation": "行李牵引车",
+      "x": 0,
+      "y": 294,
+      "width": 628,
+      "height": 579,
+      "targetScale": 1.95,
+      "description": "Explore the yellow tow tractor, its driving position and its connection to the loaded trailer.",
+      "labelIds": [
+        "baggage-tug",
+        "hood",
+        "headlight",
+        "front-grille",
+        "front-bumper",
+        "cooling-vents",
+        "front-tire",
+        "wheel-rim",
+        "tractor-seat",
+        "steering-wheel",
+        "steering-column",
+        "side-mirror",
+        "overhead-guard",
+        "amber-beacon",
+        "footwell",
+        "tow-hitch",
+        "drawbar",
+        "hitch-pin"
+      ]
+    },
+    {
+      "id": "baggage-trailer",
+      "title": "Baggage trailer and bags",
+      "translation": "行李拖车与行李",
+      "x": 605,
+      "y": 510,
+      "width": 711,
+      "height": 345,
+      "targetScale": 1.9,
+      "description": "Three different bags are visible on the open-sided trailer behind the tug.",
+      "labelIds": [
+        "baggage-trailer",
+        "trailer-railing",
+        "trailer-bed",
+        "mudguard",
+        "trailer-wheel",
+        "reflective-marking",
+        "hard-sided-suitcase",
+        "recessed-carry-handle",
+        "baggage-tag",
+        "tag-barcode",
+        "suitcase-wheel",
+        "soft-sided-suitcase",
+        "zippered-pocket",
+        "zipper-pull",
+        "duffel-bag",
+        "webbing-strap",
+        "carry-handles"
+      ]
+    },
+    {
+      "id": "stand-safety",
+      "title": "Aircraft stand",
+      "translation": "机位与地面标识",
+      "x": 1036,
+      "y": 316,
+      "width": 564,
+      "height": 584,
+      "targetScale": 1.85,
+      "description": "Locate the chock against the nose wheels, the ground crew member and the painted markings on the pavement.",
+      "labelIds": [
+        "nose-landing-gear",
+        "nose-wheel",
+        "landing-gear-strut",
+        "gear-door",
+        "wheel-chock",
+        "ground-crew-member",
+        "high-visibility-vest",
+        "traffic-cone",
+        "reflective-band",
+        "apron-pavement",
+        "yellow-stand-marking",
+        "red-boundary-line",
+        "white-stripe",
+        "drainage-grate",
+        "concrete-joint"
+      ]
+    },
+    {
+      "id": "bridge-and-terminal",
+      "title": "Boarding bridge and terminal",
+      "translation": "登机桥与航站楼",
+      "x": 1190,
+      "y": 0,
+      "width": 410,
+      "height": 447,
+      "targetScale": 1.85,
+      "description": "The boarding bridge meets the aircraft near the terminal glazing, above small covered baggage carts.",
+      "labelIds": [
+        "passenger-boarding-bridge",
+        "accordion-canopy",
+        "bridge-support-column",
+        "terminal-windows",
+        "walkway-brace",
+        "covered-baggage-cart"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "passenger-jet",
+      "word": "passenger jet",
+      "translation": "喷气式客机",
+      "x": 789,
+      "y": 115,
+      "priority": 1.01,
+      "minLevel": 0,
+      "sourceVisualRegion": "airliner-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "fuselage",
+      "word": "fuselage",
+      "translation": "机身",
+      "x": 1080,
+      "y": 169,
+      "priority": 2.011,
+      "minLevel": 1,
+      "sourceVisualRegion": "airliner-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "tail-fin",
+      "word": "tail fin",
+      "translation": "垂直尾翼",
+      "x": 271,
+      "y": 106,
+      "priority": 2.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "airliner-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cabin-window",
+      "word": "cabin window",
+      "translation": "客舱舷窗",
+      "x": 773,
+      "y": 164,
+      "priority": 3.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "airliner-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "forward-passenger-door",
+      "word": "forward passenger door",
+      "translation": "前客舱门",
+      "x": 998,
+      "y": 98,
+      "priority": 3.014,
+      "minLevel": 2,
+      "sourceVisualRegion": "airliner-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "door-window",
+      "word": "door window",
+      "translation": "舱门观察窗",
+      "x": 989,
+      "y": 130,
+      "priority": 5.015,
+      "minLevel": 4,
+      "sourceVisualRegion": "airliner-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cockpit-windows",
+      "word": "cockpit windows",
+      "translation": "驾驶舱风挡",
+      "x": 1234,
+      "y": 101,
+      "priority": 2.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "flight-deck",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "windshield-wiper",
+      "word": "windshield wiper",
+      "translation": "风挡刮水器",
+      "x": 1306,
+      "y": 116,
+      "priority": 5.017,
+      "minLevel": 4,
+      "sourceVisualRegion": "flight-deck",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "nose-cone",
+      "word": "nose cone",
+      "translation": "机头锥",
+      "x": 1389,
+      "y": 207,
+      "priority": 2.018,
+      "minLevel": 1,
+      "sourceVisualRegion": "flight-deck",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "airplane-wing",
+      "word": "airplane wing",
+      "translation": "机翼",
+      "x": 184,
+      "y": 220,
+      "priority": 1.019,
+      "minLevel": 0,
+      "sourceVisualRegion": "left-wing",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "leading-edge",
+      "word": "leading edge",
+      "translation": "机翼前缘",
+      "x": 85,
+      "y": 208,
+      "priority": 3.02,
+      "minLevel": 2,
+      "sourceVisualRegion": "left-wing",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wing-root",
+      "word": "wing root",
+      "translation": "翼根",
+      "x": 662,
+      "y": 278,
+      "priority": 4.021,
+      "minLevel": 3,
+      "sourceVisualRegion": "left-wing",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "engine-pylon",
+      "word": "engine pylon",
+      "translation": "发动机吊架",
+      "x": 342,
+      "y": 295,
+      "priority": 4.022,
+      "minLevel": 3,
+      "sourceVisualRegion": "left-wing",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "jet-engine",
+      "word": "jet engine",
+      "translation": "喷气发动机",
+      "x": 396,
+      "y": 311,
+      "priority": 1.023,
+      "minLevel": 0,
+      "sourceVisualRegion": "turbofan",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "engine-cowling",
+      "word": "engine cowling",
+      "translation": "发动机整流罩",
+      "x": 419,
+      "y": 383,
+      "priority": 3.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "turbofan",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "intake-lip",
+      "word": "intake lip",
+      "translation": "进气口唇边",
+      "x": 549,
+      "y": 312,
+      "priority": 4.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "turbofan",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "fan-blade",
+      "word": "fan blade",
+      "translation": "风扇叶片",
+      "x": 496,
+      "y": 324,
+      "priority": 3.026,
+      "minLevel": 2,
+      "sourceVisualRegion": "turbofan",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "fan-spinner",
+      "word": "fan spinner",
+      "translation": "风扇整流锥",
+      "x": 480,
+      "y": 348,
+      "priority": 5.027,
+      "minLevel": 4,
+      "sourceVisualRegion": "turbofan",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "main-landing-gear",
+      "word": "main landing gear",
+      "translation": "主起落架",
+      "x": 437,
+      "y": 453,
+      "priority": 4.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "main-wheels",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cargo-hold",
+      "word": "cargo hold",
+      "translation": "货舱",
+      "x": 948,
+      "y": 255,
+      "priority": 1.029,
+      "minLevel": 0,
+      "sourceVisualRegion": "open-hold",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cargo-hatch",
+      "word": "cargo hatch",
+      "translation": "货舱门",
+      "x": 932,
+      "y": 204,
+      "priority": 2.03,
+      "minLevel": 1,
+      "sourceVisualRegion": "open-hold",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hatch-support-strut",
+      "word": "hatch support strut",
+      "translation": "舱门支撑杆",
+      "x": 993,
+      "y": 204,
+      "priority": 5.031,
+      "minLevel": 4,
+      "sourceVisualRegion": "open-hold",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hold-light",
+      "word": "hold light",
+      "translation": "货舱灯",
+      "x": 990,
+      "y": 231,
+      "priority": 5.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "open-hold",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "loading-belt",
+      "word": "loading belt",
+      "translation": "装载传送带",
+      "x": 699,
+      "y": 396,
+      "priority": 2.033,
+      "minLevel": 1,
+      "sourceVisualRegion": "loading-conveyor",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "conveyor-guardrail",
+      "word": "conveyor guardrail",
+      "translation": "传送带护栏",
+      "x": 805,
+      "y": 301,
+      "priority": 3.034,
+      "minLevel": 2,
+      "sourceVisualRegion": "loading-conveyor",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "conveyor-boom",
+      "word": "conveyor boom",
+      "translation": "传送带输送臂",
+      "x": 786,
+      "y": 400,
+      "priority": 4.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "loading-conveyor",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hazard-stripes",
+      "word": "hazard stripes",
+      "translation": "警示斜纹",
+      "x": 715,
+      "y": 453,
+      "priority": 4.036,
+      "minLevel": 3,
+      "sourceVisualRegion": "loading-conveyor",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "belt-loader",
+      "word": "belt loader",
+      "translation": "行李传送带车",
+      "x": 810,
+      "y": 488,
+      "priority": 1.037,
+      "minLevel": 0,
+      "sourceVisualRegion": "loader-chassis",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "lift-arm",
+      "word": "lift arm",
+      "translation": "举升臂",
+      "x": 868,
+      "y": 415,
+      "priority": 3.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "loader-chassis",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hydraulic-cylinder",
+      "word": "hydraulic cylinder",
+      "translation": "液压缸",
+      "x": 821,
+      "y": 444,
+      "priority": 4.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "loader-chassis",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "operator-seat",
+      "word": "operator seat",
+      "translation": "操作员座椅",
+      "x": 975,
+      "y": 432,
+      "priority": 3.04,
+      "minLevel": 2,
+      "sourceVisualRegion": "loader-chassis",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "loader-wheel",
+      "word": "loader wheel",
+      "translation": "传送带车车轮",
+      "x": 739,
+      "y": 518,
+      "priority": 4.041,
+      "minLevel": 3,
+      "sourceVisualRegion": "loader-chassis",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "stabilizer-foot",
+      "word": "stabilizer foot",
+      "translation": "支撑脚",
+      "x": 1002,
+      "y": 523,
+      "priority": 5.042,
+      "minLevel": 4,
+      "sourceVisualRegion": "loader-chassis",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "baggage-tug",
+      "word": "baggage tug",
+      "translation": "行李牵引车",
+      "x": 322,
+      "y": 722,
+      "priority": 1.043,
+      "minLevel": 0,
+      "sourceVisualRegion": "tug-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hood",
+      "word": "hood",
+      "translation": "发动机罩",
+      "x": 162,
+      "y": 589,
+      "priority": 2.044,
+      "minLevel": 1,
+      "sourceVisualRegion": "tug-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "headlight",
+      "word": "headlight",
+      "translation": "前照灯",
+      "x": 177,
+      "y": 637,
+      "priority": 2.045,
+      "minLevel": 1,
+      "sourceVisualRegion": "tug-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "front-grille",
+      "word": "front grille",
+      "translation": "前格栅",
+      "x": 108,
+      "y": 664,
+      "priority": 3.046,
+      "minLevel": 2,
+      "sourceVisualRegion": "tug-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "front-bumper",
+      "word": "front bumper",
+      "translation": "前保险杠",
+      "x": 174,
+      "y": 772,
+      "priority": 3.047,
+      "minLevel": 2,
+      "sourceVisualRegion": "tug-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cooling-vents",
+      "word": "cooling vents",
+      "translation": "散热槽",
+      "x": 268,
+      "y": 674,
+      "priority": 4.048,
+      "minLevel": 3,
+      "sourceVisualRegion": "tug-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "front-tire",
+      "word": "front tire",
+      "translation": "前轮胎",
+      "x": 245,
+      "y": 819,
+      "priority": 3.049,
+      "minLevel": 2,
+      "sourceVisualRegion": "tug-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wheel-rim",
+      "word": "wheel rim",
+      "translation": "轮辋",
+      "x": 455,
+      "y": 690,
+      "priority": 4.05,
+      "minLevel": 3,
+      "sourceVisualRegion": "tug-body",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "tractor-seat",
+      "word": "tractor seat",
+      "translation": "牵引车座椅",
+      "x": 339,
+      "y": 526,
+      "priority": 2.051,
+      "minLevel": 1,
+      "sourceVisualRegion": "tug-cab",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "steering-wheel",
+      "word": "steering wheel",
+      "translation": "方向盘",
+      "x": 224,
+      "y": 478,
+      "priority": 2.052,
+      "minLevel": 1,
+      "sourceVisualRegion": "tug-cab",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "steering-column",
+      "word": "steering column",
+      "translation": "转向柱",
+      "x": 239,
+      "y": 546,
+      "priority": 4.053,
+      "minLevel": 3,
+      "sourceVisualRegion": "tug-cab",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "side-mirror",
+      "word": "side mirror",
+      "translation": "后视镜",
+      "x": 103,
+      "y": 542,
+      "priority": 4.054,
+      "minLevel": 3,
+      "sourceVisualRegion": "tug-cab",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "overhead-guard",
+      "word": "overhead guard",
+      "translation": "驾驶位防护顶棚",
+      "x": 241,
+      "y": 348,
+      "priority": 3.055,
+      "minLevel": 2,
+      "sourceVisualRegion": "tug-cab",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "amber-beacon",
+      "word": "amber beacon",
+      "translation": "黄色警示灯",
+      "x": 174,
+      "y": 318,
+      "priority": 3.056,
+      "minLevel": 2,
+      "sourceVisualRegion": "tug-cab",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "footwell",
+      "word": "footwell",
+      "translation": "驾驶位脚部空间",
+      "x": 309,
+      "y": 680,
+      "priority": 4.057,
+      "minLevel": 3,
+      "sourceVisualRegion": "tug-cab",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "tow-hitch",
+      "word": "tow hitch",
+      "translation": "牵引钩",
+      "x": 508,
+      "y": 697,
+      "priority": 3.058,
+      "minLevel": 2,
+      "sourceVisualRegion": "hitch",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "drawbar",
+      "word": "drawbar",
+      "translation": "牵引杆",
+      "x": 583,
+      "y": 707,
+      "priority": 3.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "hitch",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hitch-pin",
+      "word": "hitch pin",
+      "translation": "牵引销",
+      "x": 542,
+      "y": 699,
+      "priority": 5.06,
+      "minLevel": 4,
+      "sourceVisualRegion": "hitch",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "baggage-trailer",
+      "word": "baggage trailer",
+      "translation": "行李拖车",
+      "x": 662,
+      "y": 718,
+      "priority": 1.061,
+      "minLevel": 0,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trailer-railing",
+      "word": "trailer railing",
+      "translation": "拖车栏杆",
+      "x": 707,
+      "y": 624,
+      "priority": 3.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trailer-bed",
+      "word": "trailer bed",
+      "translation": "拖车载货平台",
+      "x": 1101,
+      "y": 700,
+      "priority": 4.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "mudguard",
+      "word": "mudguard",
+      "translation": "挡泥板",
+      "x": 980,
+      "y": 713,
+      "priority": 4.064,
+      "minLevel": 3,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trailer-wheel",
+      "word": "trailer wheel",
+      "translation": "拖车车轮",
+      "x": 993,
+      "y": 786,
+      "priority": 3.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "reflective-marking",
+      "word": "reflective marking",
+      "translation": "反光标识",
+      "x": 1225,
+      "y": 731,
+      "priority": 5.066,
+      "minLevel": 4,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hard-sided-suitcase",
+      "word": "hard-sided suitcase",
+      "translation": "硬壳行李箱",
+      "x": 791,
+      "y": 593,
+      "priority": 2.067,
+      "minLevel": 1,
+      "sourceVisualRegion": "hard-case",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "recessed-carry-handle",
+      "word": "recessed carry handle",
+      "translation": "嵌入式提手",
+      "x": 823,
+      "y": 557,
+      "priority": 4.068,
+      "minLevel": 3,
+      "sourceVisualRegion": "hard-case",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "baggage-tag",
+      "word": "baggage tag",
+      "translation": "行李标签",
+      "x": 869,
+      "y": 598,
+      "priority": 3.069,
+      "minLevel": 2,
+      "sourceVisualRegion": "hard-case",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "tag-barcode",
+      "word": "tag barcode",
+      "translation": "标签条形码",
+      "x": 866,
+      "y": 585,
+      "priority": 5.07,
+      "minLevel": 4,
+      "sourceVisualRegion": "hard-case",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "suitcase-wheel",
+      "word": "suitcase wheel",
+      "translation": "行李箱轮子",
+      "x": 755,
+      "y": 683,
+      "priority": 5.071,
+      "minLevel": 4,
+      "sourceVisualRegion": "hard-case",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "soft-sided-suitcase",
+      "word": "soft-sided suitcase",
+      "translation": "软壳行李箱",
+      "x": 1008,
+      "y": 603,
+      "priority": 2.072,
+      "minLevel": 1,
+      "sourceVisualRegion": "soft-case",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "zippered-pocket",
+      "word": "zippered pocket",
+      "translation": "拉链口袋",
+      "x": 985,
+      "y": 657,
+      "priority": 4.073,
+      "minLevel": 3,
+      "sourceVisualRegion": "soft-case",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "zipper-pull",
+      "word": "zipper pull",
+      "translation": "拉链头",
+      "x": 951,
+      "y": 586,
+      "priority": 5.074,
+      "minLevel": 4,
+      "sourceVisualRegion": "soft-case",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "duffel-bag",
+      "word": "duffel bag",
+      "translation": "旅行袋",
+      "x": 1142,
+      "y": 662,
+      "priority": 1.075,
+      "minLevel": 0,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "webbing-strap",
+      "word": "webbing strap",
+      "translation": "织带",
+      "x": 1188,
+      "y": 670,
+      "priority": 4.076,
+      "minLevel": 3,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "carry-handles",
+      "word": "carry handles",
+      "translation": "手提带",
+      "x": 1168,
+      "y": 592,
+      "priority": 3.077,
+      "minLevel": 2,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "nose-landing-gear",
+      "word": "nose landing gear",
+      "translation": "前起落架",
+      "x": 1180,
+      "y": 397,
+      "priority": 2.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "nose-gear",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "nose-wheel",
+      "word": "nose wheel",
+      "translation": "前起落架机轮",
+      "x": 1168,
+      "y": 468,
+      "priority": 3.079,
+      "minLevel": 2,
+      "sourceVisualRegion": "nose-gear",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "landing-gear-strut",
+      "word": "landing gear strut",
+      "translation": "起落架支柱",
+      "x": 1183,
+      "y": 375,
+      "priority": 4.08,
+      "minLevel": 3,
+      "sourceVisualRegion": "nose-gear",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "gear-door",
+      "word": "gear door",
+      "translation": "起落架舱门",
+      "x": 1161,
+      "y": 358,
+      "priority": 5.081,
+      "minLevel": 4,
+      "sourceVisualRegion": "nose-gear",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wheel-chock",
+      "word": "wheel chock",
+      "translation": "轮挡",
+      "x": 1213,
+      "y": 492,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "wheel-stop",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "ground-crew-member",
+      "word": "ground crew member",
+      "translation": "地勤人员",
+      "x": 1104,
+      "y": 402,
+      "priority": 2.083,
+      "minLevel": 1,
+      "sourceVisualRegion": "crew-member",
+      "semanticRealmId": "people-society"
+    },
+    {
+      "id": "high-visibility-vest",
+      "word": "high-visibility vest",
+      "translation": "高可视反光背心",
+      "x": 1105,
+      "y": 392,
+      "priority": 4.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "crew-member",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "traffic-cone",
+      "word": "traffic cone",
+      "translation": "交通锥",
+      "x": 1553,
+      "y": 548,
+      "priority": 2.085,
+      "minLevel": 1,
+      "sourceVisualRegion": "apron-cone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "reflective-band",
+      "word": "reflective band",
+      "translation": "反光带",
+      "x": 1554,
+      "y": 524,
+      "priority": 4.086,
+      "minLevel": 3,
+      "sourceVisualRegion": "apron-cone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "apron-pavement",
+      "word": "apron pavement",
+      "translation": "机坪道面",
+      "x": 1362,
+      "y": 646,
+      "priority": 2.087,
+      "minLevel": 1,
+      "sourceVisualRegion": "stand-pavement",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "yellow-stand-marking",
+      "word": "yellow stand marking",
+      "translation": "黄色机位标线",
+      "x": 1378,
+      "y": 509,
+      "priority": 3.088,
+      "minLevel": 2,
+      "sourceVisualRegion": "stand-pavement",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "red-boundary-line",
+      "word": "red boundary line",
+      "translation": "红色边界线",
+      "x": 1463,
+      "y": 807,
+      "priority": 3.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "stand-pavement",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "white-stripe",
+      "word": "white stripe",
+      "translation": "白色条带",
+      "x": 1441,
+      "y": 768,
+      "priority": 4.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "stand-pavement",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "drainage-grate",
+      "word": "drainage grate",
+      "translation": "排水格栅",
+      "x": 1357,
+      "y": 820,
+      "priority": 3.091,
+      "minLevel": 2,
+      "sourceVisualRegion": "stand-pavement",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "concrete-joint",
+      "word": "concrete joint",
+      "translation": "混凝土接缝",
+      "x": 1172,
+      "y": 864,
+      "priority": 5.092,
+      "minLevel": 4,
+      "sourceVisualRegion": "stand-pavement",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "passenger-boarding-bridge",
+      "word": "passenger boarding bridge",
+      "translation": "旅客登机桥",
+      "x": 1461,
+      "y": 144,
+      "priority": 1.093,
+      "minLevel": 0,
+      "sourceVisualRegion": "passenger-bridge",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "accordion-canopy",
+      "word": "accordion canopy",
+      "translation": "风琴式伸缩篷",
+      "x": 1337,
+      "y": 62,
+      "priority": 3.094,
+      "minLevel": 2,
+      "sourceVisualRegion": "passenger-bridge",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bridge-support-column",
+      "word": "bridge support column",
+      "translation": "登机桥支柱",
+      "x": 1457,
+      "y": 364,
+      "priority": 4.095,
+      "minLevel": 3,
+      "sourceVisualRegion": "passenger-bridge",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "terminal-windows",
+      "word": "terminal windows",
+      "translation": "航站楼窗户",
+      "x": 1537,
+      "y": 331,
+      "priority": 2.096,
+      "minLevel": 1,
+      "sourceVisualRegion": "glazed-terminal",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "walkway-brace",
+      "word": "walkway brace",
+      "translation": "廊桥斜撑",
+      "x": 1556,
+      "y": 146,
+      "priority": 4.097,
+      "minLevel": 3,
+      "sourceVisualRegion": "glazed-terminal",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "covered-baggage-cart",
+      "word": "covered baggage cart",
+      "translation": "封闭式行李车",
+      "x": 1335,
+      "y": 390,
+      "priority": 4.098,
+      "minLevel": 3,
+      "sourceVisualRegion": "distant-carts",
+      "semanticRealmId": "objects-technology"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "checked-baggage",
+      "word": "checked baggage",
+      "translation": "托运行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "carry-on-baggage",
+      "word": "carry-on baggage",
+      "translation": "随身行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "personal-item",
+      "word": "personal item",
+      "translation": "随身小件物品",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "gate-checked-bag",
+      "word": "gate-checked bag",
+      "translation": "登机口托运的行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "transfer-baggage",
+      "word": "transfer baggage",
+      "translation": "中转行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "priority-baggage",
+      "word": "priority baggage",
+      "translation": "优先行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "oversized-baggage",
+      "word": "oversized baggage",
+      "translation": "超大行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "overweight-baggage",
+      "word": "overweight baggage",
+      "translation": "超重行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "excess-baggage",
+      "word": "excess baggage",
+      "translation": "超额行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "fragile-baggage",
+      "word": "fragile baggage",
+      "translation": "易碎行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "special-baggage",
+      "word": "special baggage",
+      "translation": "特殊行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "sports-equipment",
+      "word": "sports equipment",
+      "translation": "体育器材",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "musical-instrument",
+      "word": "musical instrument",
+      "translation": "乐器",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "folding-stroller",
+      "word": "folding stroller",
+      "translation": "折叠式婴儿车",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "mobility-aid",
+      "word": "mobility aid",
+      "translation": "行动辅助器具",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wheelchair-battery",
+      "word": "wheelchair battery",
+      "translation": "轮椅电池",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "delayed-baggage",
+      "word": "delayed baggage",
+      "translation": "延误行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "damaged-baggage",
+      "word": "damaged baggage",
+      "translation": "受损行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "unclaimed-baggage",
+      "word": "unclaimed baggage",
+      "translation": "无人认领的行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "rush-baggage",
+      "word": "rush baggage",
+      "translation": "需加急转运的行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "baggage-claim-check",
+      "word": "baggage claim check",
+      "translation": "行李领取凭证",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "priority-tag",
+      "word": "priority tag",
+      "translation": "优先行李标签",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "fragile-tag",
+      "word": "fragile tag",
+      "translation": "易碎标签",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "destination-code",
+      "word": "destination code",
+      "translation": "目的地机场代码",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bag-tag-number",
+      "word": "bag tag number",
+      "translation": "行李牌号码",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "loading-instruction",
+      "word": "loading instruction",
+      "translation": "装载指示",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "load-sheet",
+      "word": "load sheet",
+      "translation": "载重平衡单",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "unit-load-device",
+      "word": "unit load device",
+      "translation": "航空集装器",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cargo-net",
+      "word": "cargo net",
+      "translation": "货网",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "tie-down-strap",
+      "word": "tie-down strap",
+      "translation": "系留带",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "ground-support-equipment",
+      "word": "ground support equipment",
+      "translation": "航空地面保障设备",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "baggage-handler",
+      "word": "baggage handler",
+      "translation": "行李装卸员",
+      "semanticRealmId": "people-society"
+    },
+    {
+      "id": "ramp-agent",
+      "word": "ramp agent",
+      "translation": "机坪地勤员",
+      "semanticRealmId": "people-society"
+    },
+    {
+      "id": "aircraft-marshaller",
+      "word": "aircraft marshaller",
+      "translation": "航空器引导员",
+      "semanticRealmId": "people-society"
+    },
+    {
+      "id": "load-controller",
+      "word": "load controller",
+      "translation": "载重平衡员",
+      "semanticRealmId": "people-society"
+    },
+    {
+      "id": "ground-handling-company",
+      "word": "ground handling company",
+      "translation": "地面服务公司",
+      "semanticRealmId": "people-society"
+    },
+    {
+      "id": "baggage-handling",
+      "word": "baggage handling",
+      "translation": "行李处理",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "baggage-sorting",
+      "word": "baggage sorting",
+      "translation": "行李分拣",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "baggage-transfer",
+      "word": "baggage transfer",
+      "translation": "行李转运",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "through-checking",
+      "word": "through-checking",
+      "translation": "行李直挂",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "baggage-recheck",
+      "word": "baggage recheck",
+      "translation": "行李重新托运",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "baggage-reconciliation",
+      "word": "baggage reconciliation",
+      "translation": "旅客与托运行李核对",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "aircraft-loading",
+      "word": "aircraft loading",
+      "translation": "飞机装载",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "baggage-unloading",
+      "word": "baggage unloading",
+      "translation": "行李卸载",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "bulk-loading",
+      "word": "bulk loading",
+      "translation": "散装装载",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "weight-and-balance",
+      "word": "weight and balance",
+      "translation": "重量与平衡",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "aircraft-turnaround",
+      "word": "aircraft turnaround",
+      "translation": "飞机过站保障",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "aircraft-pushback",
+      "word": "aircraft pushback",
+      "translation": "飞机推出",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "aircraft-towing",
+      "word": "aircraft towing",
+      "translation": "飞机牵引",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "handover",
+      "word": "handover",
+      "translation": "工作交接",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "connecting-flight",
+      "word": "connecting flight",
+      "translation": "衔接航班",
+      "semanticRealmId": "actions-events"
+    },
+    {
+      "id": "transfer-time",
+      "word": "transfer time",
+      "translation": "转机时间",
+      "semanticRealmId": "space-time-measure"
+    },
+    {
+      "id": "baggage-allowance",
+      "word": "baggage allowance",
+      "translation": "行李限额",
+      "semanticRealmId": "space-time-measure"
+    },
+    {
+      "id": "piece-allowance",
+      "word": "piece allowance",
+      "translation": "行李件数限额",
+      "semanticRealmId": "space-time-measure"
+    },
+    {
+      "id": "weight-allowance",
+      "word": "weight allowance",
+      "translation": "行李重量限额",
+      "semanticRealmId": "space-time-measure"
+    },
+    {
+      "id": "baggage-sorting-area",
+      "word": "baggage sorting area",
+      "translation": "行李分拣区",
+      "semanticRealmId": "space-time-measure"
+    },
+    {
+      "id": "transfer-desk",
+      "word": "transfer desk",
+      "translation": "中转服务台",
+      "semanticRealmId": "space-time-measure"
+    }
+  ],
+  "portals": [
+    {
+      "id": "enter-airport-baggage-cart",
+      "label": "Explore the baggage cart",
+      "translation": "探索行李拖车",
+      "childSceneId": "airport-baggage-cart",
+      "sourceVisualRegion": "baggage-trailer-frame",
+      "x": 772,
+      "y": 706,
+      "width": 72,
+      "height": 18,
+      "portraitMarker": {
+        "x": 808,
+        "y": 715,
+        "scaleToObject": true
+      },
+      "enterScale": 3.4
+    }
+  ],
+  "anchorAudit": {
+    "status": "image-reviewed",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/airport-apron-v1.jpg",
+    "reviewedAssetSha256": "916bbdda11e87282f6c0460979750d30315d3d69c5c851f8e2c958bd6c386bb3",
+    "rationale": "The orange chock touches the aircraft nose wheel. The belt loader reaches the open hold, and the yellow tug is connected to an open trailer carrying three different bags. Baggage routing, handling documents, job titles and passenger allowances are kept in the word index. Awaiting human review.",
+    "previousLabelCount": 146,
+    "retainedLabelCount": 89,
+    "removedLabelCount": 57,
+    "removedExamples": [
+      "transfer baggage",
+      "load sheet",
+      "baggage reconciliation",
+      "piece allowance"
+    ]
+  }
+}

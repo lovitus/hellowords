@@ -203,6 +203,16 @@
       "parentId": "urban-services"
     },
     {
+      "id": "airport-apron",
+      "title": "Airport apron",
+      "parentId": "airport"
+    },
+    {
+      "id": "airport-baggage-cart",
+      "title": "Baggage cart",
+      "parentId": "airport-apron"
+    },
+    {
       "id": "check-in-counter",
       "title": "Check-in counter",
       "parentId": "airport"

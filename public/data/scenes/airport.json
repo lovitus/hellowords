@@ -7,6 +7,7 @@
   "width": 1600,
   "height": 900,
   "parentId": "urban-services",
+  "portraitOverviewLabelIds": ["ground-vehicle", "luggage-shell-pro-8", "carousel-island-pro-5", "self-service-kiosk", "metal-detector"],
   "labels": [
     {
       "id": "airport",
@@ -762,8 +763,8 @@
       "translation": "地面车辆",
       "x": 1029,
       "y": 479,
-      "priority": 1.149,
-      "minLevel": 4,
+      "priority": 1,
+      "minLevel": 0,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
     },
@@ -1200,6 +1201,19 @@
       "width": 270,
       "height": 220,
       "enterScale": 3.5
+    },
+    {
+      "id": "enter-airport-apron",
+      "label": "Explore the apron",
+      "translation": "探索停机坪",
+      "childSceneId": "airport-apron",
+      "sourceVisualRegion": "apron-service-vehicle",
+      "x": 871,
+      "y": 449,
+      "width": 28,
+      "height": 16,
+      "portraitMarker": { "x": 885, "y": 457, "scaleToObject": true },
+      "enterScale": 3.4
     }
   ],
   "anchorAudit": {
@@ -1207,7 +1221,7 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/airport-terminal-premium-v1.jpg",
     "reviewedAssetSha256": "428e5f9dbcca0f19e8fcedc540a9715362bc55b9b2e51e31d39a4659133f31e1",
-    "rationale": "All 390 terminal terms were checked against the 1600 × 900 photograph. Separate anchors now identify the check-in screens, kiosks, screening arches, boarding bridge, aircraft, control tower, suitcases and the reclaim island. Hidden machinery, documents, unreadable signs and unidentifiable equipment remain available in the scene index. The same photograph and its three entrances are retained. Human review of the revised points is pending.",
+    "rationale": "All 390 terminal terms were checked against the 1600 × 900 photograph. Separate anchors identify the check-in screens, kiosks, screening arches, boarding bridge, aircraft, control tower, suitcases and reclaim island. The small service vehicle visible under the bridge opens the apron. Hidden machinery, documents and unreadable signs remain available in the index. Human review of the revised points is pending.",
     "previousLabelCount": 400,
     "retainedLabelCount": 105,
     "removedLabelCount": 295,
@@ -1230,6 +1244,15 @@
     ]
   },
   "visualRegions": [
+    {
+      "id": "apron-service-vehicle",
+      "description": "White and yellow service vehicle under the jet bridge, visible through the terminal window behind the seats.",
+      "kind": "object",
+      "x": 871,
+      "y": 449,
+      "width": 28,
+      "height": 16
+    },
     {
       "id": "whole-airport",
       "description": "Complete bright airport terminal connecting passenger processing to aircraft, apron and runway",

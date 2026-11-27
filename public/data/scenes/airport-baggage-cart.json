@@ -1,0 +1,1725 @@
+{
+  "id": "airport-baggage-cart",
+  "title": "Baggage cart",
+  "translation": "行李拖车",
+  "subtitle": "Inspect the bags, handles and fittings on an apron trailer",
+  "asset": "/scenes/airport-baggage-cart-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "airport-apron",
+  "portraitOverviewLabelIds": [
+    "duffel-bag",
+    "hard-shell-spinner",
+    "folded-stroller",
+    "violin-case",
+    "luggage-strap",
+    "baggage-cart"
+  ],
+  "labels": [
+    {
+      "id": "hard-shell-spinner",
+      "word": "hard-shell spinner",
+      "translation": "硬壳万向轮行李箱",
+      "x": 316,
+      "y": 509,
+      "priority": 1.1,
+      "minLevel": 0,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "telescopic-handle",
+      "word": "telescopic handle",
+      "translation": "伸缩拉杆",
+      "x": 343,
+      "y": 111,
+      "priority": 1.101,
+      "minLevel": 0,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "handle-grip",
+      "word": "handle grip",
+      "translation": "握把",
+      "x": 277,
+      "y": 28,
+      "priority": 2.102,
+      "minLevel": 1,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "release-button",
+      "word": "release button",
+      "translation": "释放按钮",
+      "x": 283,
+      "y": 8,
+      "priority": 5.103,
+      "minLevel": 4,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "telescopic-tube",
+      "word": "telescopic tube",
+      "translation": "伸缩管",
+      "x": 221,
+      "y": 138,
+      "priority": 3.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "handle",
+      "word": "handle",
+      "translation": "提手",
+      "x": 306,
+      "y": 199,
+      "priority": 2.105,
+      "minLevel": 1,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-c2a116aa910d147b"
+    },
+    {
+      "id": "handle-mounting-block",
+      "word": "handle mounting block",
+      "translation": "提手固定座",
+      "x": 252,
+      "y": 218,
+      "priority": 5.106,
+      "minLevel": 4,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "molded-shell",
+      "word": "molded shell",
+      "translation": "模压箱壳",
+      "x": 462,
+      "y": 406,
+      "priority": 3.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "vertical-groove",
+      "word": "vertical groove",
+      "translation": "纵向凹槽",
+      "x": 283,
+      "y": 465,
+      "priority": 4.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "rounded-corner",
+      "word": "rounded corner",
+      "translation": "圆角",
+      "x": 169,
+      "y": 254,
+      "priority": 4.109,
+      "minLevel": 3,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "combination-lock",
+      "word": "combination lock",
+      "translation": "密码锁",
+      "x": 207,
+      "y": 379,
+      "priority": 2.11,
+      "minLevel": 1,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "number-dial",
+      "word": "number dial",
+      "translation": "数字拨轮",
+      "x": 208,
+      "y": 368,
+      "priority": 5.111,
+      "minLevel": 4,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "locking-zipper-pull",
+      "word": "locking zipper pull",
+      "translation": "可锁拉链头",
+      "x": 183,
+      "y": 378,
+      "priority": 4.111999999999999,
+      "minLevel": 3,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "baggage-tag",
+      "word": "baggage tag",
+      "translation": "行李牌",
+      "x": 418,
+      "y": 337,
+      "priority": 1.113,
+      "minLevel": 0,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "printed-barcode",
+      "word": "printed barcode",
+      "translation": "条形码",
+      "x": 409,
+      "y": 293,
+      "priority": 3.114,
+      "minLevel": 2,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "swivel-caster",
+      "word": "swivel caster",
+      "translation": "万向脚轮",
+      "x": 260,
+      "y": 731,
+      "priority": 2.115,
+      "minLevel": 1,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wheel-housing",
+      "word": "wheel housing",
+      "translation": "轮座",
+      "x": 272,
+      "y": 680,
+      "priority": 4.116,
+      "minLevel": 3,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "twin-wheels",
+      "word": "twin wheels",
+      "translation": "双轮",
+      "x": 486,
+      "y": 655,
+      "priority": 4.117,
+      "minLevel": 3,
+      "sourceVisualRegion": "spinner",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "soft-sided-suitcase",
+      "word": "soft-sided suitcase",
+      "translation": "软壳行李箱",
+      "x": 574,
+      "y": 284,
+      "priority": 1.118,
+      "minLevel": 0,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "pocket",
+      "word": "pocket",
+      "translation": "口袋",
+      "x": 752,
+      "y": 474,
+      "priority": 2.119,
+      "minLevel": 1,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-62f5d588fd39c2bb"
+    },
+    {
+      "id": "pocket-opening",
+      "word": "pocket opening",
+      "translation": "袋口",
+      "x": 784,
+      "y": 368,
+      "priority": 4.119999999999999,
+      "minLevel": 3,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "pocket-zipper-pull",
+      "word": "pocket zipper pull",
+      "translation": "口袋拉链头",
+      "x": 649,
+      "y": 402,
+      "priority": 4.1209999999999996,
+      "minLevel": 3,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "zipper-teeth",
+      "word": "zipper teeth",
+      "translation": "拉链齿",
+      "x": 760,
+      "y": 376,
+      "priority": 5.122,
+      "minLevel": 4,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "double-zipper",
+      "word": "double zipper",
+      "translation": "双头拉链",
+      "x": 743,
+      "y": 279,
+      "priority": 3.123,
+      "minLevel": 2,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "fabric-handle",
+      "word": "fabric handle",
+      "translation": "布提手",
+      "x": 675,
+      "y": 224,
+      "priority": 3.124,
+      "minLevel": 2,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "side-handle",
+      "word": "side handle",
+      "translation": "侧提手",
+      "x": 545,
+      "y": 432,
+      "priority": 2.125,
+      "minLevel": 1,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "handle-webbing",
+      "word": "handle webbing",
+      "translation": "提手织带",
+      "x": 546,
+      "y": 382,
+      "priority": 4.1259999999999994,
+      "minLevel": 3,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "edge-piping",
+      "word": "edge piping",
+      "translation": "包边滚条",
+      "x": 816,
+      "y": 593,
+      "priority": 4.127,
+      "minLevel": 3,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "fabric",
+      "word": "fabric",
+      "translation": "面料",
+      "x": 786,
+      "y": 515,
+      "priority": 5.127999999999999,
+      "minLevel": 4,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-ad2a542c84c7060f"
+    },
+    {
+      "id": "roller-wheel",
+      "word": "roller wheel",
+      "translation": "滚轮",
+      "x": 579,
+      "y": 642,
+      "priority": 3.129,
+      "minLevel": 2,
+      "sourceVisualRegion": "roller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "duffel-bag",
+      "word": "duffel bag",
+      "translation": "旅行袋",
+      "x": 1155,
+      "y": 475,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "canvas",
+      "word": "canvas",
+      "translation": "帆布",
+      "x": 1356,
+      "y": 446,
+      "priority": 2.1310000000000002,
+      "minLevel": 1,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-a457e8f04aa796dc"
+    },
+    {
+      "id": "shoulder-strap",
+      "word": "shoulder strap",
+      "translation": "肩带",
+      "x": 1376,
+      "y": 493,
+      "priority": 1.1320000000000001,
+      "minLevel": 0,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "shoulder-pad",
+      "word": "shoulder pad",
+      "translation": "肩垫",
+      "x": 1281,
+      "y": 557,
+      "priority": 2.133,
+      "minLevel": 1,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "strap-adjuster",
+      "word": "strap adjuster",
+      "translation": "肩带调节扣",
+      "x": 1199,
+      "y": 584,
+      "priority": 3.134,
+      "minLevel": 2,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "snap-hook",
+      "word": "snap hook",
+      "translation": "弹簧钩",
+      "x": 1011,
+      "y": 448,
+      "priority": 3.1350000000000002,
+      "minLevel": 2,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "d-ring",
+      "word": "D-ring",
+      "translation": "D形环",
+      "x": 993,
+      "y": 414,
+      "priority": 4.135999999999999,
+      "minLevel": 3,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "swivel-joint",
+      "word": "swivel joint",
+      "translation": "旋转接头",
+      "x": 1009,
+      "y": 463,
+      "priority": 5.137,
+      "minLevel": 4,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "webbing-loop",
+      "word": "webbing loop",
+      "translation": "织带环",
+      "x": 1006,
+      "y": 493,
+      "priority": 4.138,
+      "minLevel": 3,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "handle-wrap",
+      "word": "handle wrap",
+      "translation": "提手包套",
+      "x": 1163,
+      "y": 295,
+      "priority": 3.1390000000000002,
+      "minLevel": 2,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "handle-attachment",
+      "word": "handle attachment",
+      "translation": "提手缝接处",
+      "x": 1115,
+      "y": 416,
+      "priority": 4.14,
+      "minLevel": 3,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "main-zipper",
+      "word": "main zipper",
+      "translation": "主拉链",
+      "x": 1230,
+      "y": 357,
+      "priority": 3.141,
+      "minLevel": 2,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "zip-pull",
+      "word": "zip pull",
+      "translation": "拉链头",
+      "x": 923,
+      "y": 408,
+      "priority": 4.1419999999999995,
+      "minLevel": 3,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "side-seam",
+      "word": "side seam",
+      "translation": "侧缝",
+      "x": 1433,
+      "y": 548,
+      "priority": 4.143,
+      "minLevel": 3,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "reinforced-bottom-edge",
+      "word": "reinforced bottom edge",
+      "translation": "加固底边",
+      "x": 1430,
+      "y": 591,
+      "priority": 5.143999999999999,
+      "minLevel": 4,
+      "sourceVisualRegion": "duffel",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "folded-stroller",
+      "word": "folded stroller",
+      "translation": "折叠婴儿车",
+      "x": 644,
+      "y": 148,
+      "priority": 1.145,
+      "minLevel": 0,
+      "sourceVisualRegion": "stroller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "push-handle",
+      "word": "push handle",
+      "translation": "推把",
+      "x": 482,
+      "y": 131,
+      "priority": 2.146,
+      "minLevel": 1,
+      "sourceVisualRegion": "stroller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "foam-grip",
+      "word": "foam grip",
+      "translation": "泡棉握套",
+      "x": 495,
+      "y": 103,
+      "priority": 3.1470000000000002,
+      "minLevel": 2,
+      "sourceVisualRegion": "stroller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "stroller-frame",
+      "word": "stroller frame",
+      "translation": "婴儿车架",
+      "x": 675,
+      "y": 186,
+      "priority": 2.148,
+      "minLevel": 1,
+      "sourceVisualRegion": "stroller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "folding-joint",
+      "word": "folding joint",
+      "translation": "折叠关节",
+      "x": 839,
+      "y": 163,
+      "priority": 4.149,
+      "minLevel": 3,
+      "sourceVisualRegion": "stroller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "pivot-pin",
+      "word": "pivot pin",
+      "translation": "枢轴销",
+      "x": 541,
+      "y": 201,
+      "priority": 5.1499999999999995,
+      "minLevel": 4,
+      "sourceVisualRegion": "stroller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "stroller-canopy",
+      "word": "stroller canopy",
+      "translation": "婴儿车遮阳篷",
+      "x": 657,
+      "y": 105,
+      "priority": 3.1510000000000002,
+      "minLevel": 2,
+      "sourceVisualRegion": "stroller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "stroller-wheel",
+      "word": "stroller wheel",
+      "translation": "婴儿车轮",
+      "x": 878,
+      "y": 229,
+      "priority": 3.152,
+      "minLevel": 2,
+      "sourceVisualRegion": "stroller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wheel-spoke",
+      "word": "wheel spoke",
+      "translation": "轮辐",
+      "x": 888,
+      "y": 251,
+      "priority": 4.153,
+      "minLevel": 3,
+      "sourceVisualRegion": "stroller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hub-cap",
+      "word": "hub cap",
+      "translation": "轮毂盖",
+      "x": 865,
+      "y": 267,
+      "priority": 5.154,
+      "minLevel": 4,
+      "sourceVisualRegion": "stroller",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "violin-case",
+      "word": "violin case",
+      "translation": "小提琴盒",
+      "x": 1164,
+      "y": 202,
+      "priority": 1.155,
+      "minLevel": 0,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "case-lid",
+      "word": "case lid",
+      "translation": "盒盖",
+      "x": 1252,
+      "y": 177,
+      "priority": 3.156,
+      "minLevel": 2,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "carrying-handle",
+      "word": "carrying handle",
+      "translation": "箱盒提手",
+      "x": 1094,
+      "y": 149,
+      "priority": 2.157,
+      "minLevel": 1,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "metal-clasp",
+      "word": "metal clasp",
+      "translation": "金属搭扣",
+      "x": 1028,
+      "y": 254,
+      "priority": 3.158,
+      "minLevel": 2,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "case-rim",
+      "word": "case rim",
+      "translation": "盒口边缘",
+      "x": 1146,
+      "y": 236,
+      "priority": 4.159,
+      "minLevel": 3,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "contrast-stitching",
+      "word": "contrast stitching",
+      "translation": "撞色缝线",
+      "x": 1078,
+      "y": 185,
+      "priority": 5.159999999999999,
+      "minLevel": 4,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "handle-bracket",
+      "word": "handle bracket",
+      "translation": "提手支架",
+      "x": 1051,
+      "y": 166,
+      "priority": 5.161,
+      "minLevel": 4,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "blanket",
+      "word": "blanket",
+      "translation": "毯子",
+      "x": 1340,
+      "y": 261,
+      "priority": 1.1620000000000001,
+      "minLevel": 0,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-7cd0fc6ee61e2a57"
+    },
+    {
+      "id": "fleece",
+      "word": "fleece",
+      "translation": "摇粒绒",
+      "x": 1460,
+      "y": 254,
+      "priority": 3.1630000000000003,
+      "minLevel": 2,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "blanket-roll",
+      "word": "blanket roll",
+      "translation": "毯卷",
+      "x": 1275,
+      "y": 293,
+      "priority": 2.164,
+      "minLevel": 1,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "strap",
+      "word": "strap",
+      "translation": "带子",
+      "x": 1404,
+      "y": 317,
+      "priority": 3.165,
+      "minLevel": 2,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-833a63294a4cb1fc"
+    },
+    {
+      "id": "blanket-strap-buckle",
+      "word": "blanket strap buckle",
+      "translation": "毯带卡扣",
+      "x": 1419,
+      "y": 263,
+      "priority": 5.1659999999999995,
+      "minLevel": 4,
+      "sourceVisualRegion": "special-baggage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "luggage-strap",
+      "word": "luggage strap",
+      "translation": "行李束带",
+      "x": 893,
+      "y": 645,
+      "priority": 1.167,
+      "minLevel": 0,
+      "sourceVisualRegion": "tag-and-strap",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cam-buckle",
+      "word": "cam buckle",
+      "translation": "凸轮搭扣",
+      "x": 822,
+      "y": 660,
+      "priority": 2.168,
+      "minLevel": 1,
+      "sourceVisualRegion": "tag-and-strap",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "metal-lever",
+      "word": "metal lever",
+      "translation": "金属压片",
+      "x": 819,
+      "y": 647,
+      "priority": 4.169,
+      "minLevel": 3,
+      "sourceVisualRegion": "tag-and-strap",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "buckle-hinge",
+      "word": "buckle hinge",
+      "translation": "扣具铰链",
+      "x": 804,
+      "y": 638,
+      "priority": 5.17,
+      "minLevel": 4,
+      "sourceVisualRegion": "tag-and-strap",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cross-stitching",
+      "word": "cross stitching",
+      "translation": "交叉缝线",
+      "x": 872,
+      "y": 659,
+      "priority": 4.170999999999999,
+      "minLevel": 3,
+      "sourceVisualRegion": "tag-and-strap",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "tag-holder",
+      "word": "tag holder",
+      "translation": "挂牌套",
+      "x": 562,
+      "y": 710,
+      "priority": 2.172,
+      "minLevel": 1,
+      "sourceVisualRegion": "tag-and-strap",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "name-card",
+      "word": "name card",
+      "translation": "姓名卡",
+      "x": 613,
+      "y": 706,
+      "priority": 3.173,
+      "minLevel": 2,
+      "sourceVisualRegion": "tag-and-strap",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "clear-loop",
+      "word": "clear loop",
+      "translation": "透明系环",
+      "x": 657,
+      "y": 667,
+      "priority": 3.174,
+      "minLevel": 2,
+      "sourceVisualRegion": "tag-and-strap",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "plastic-sleeve",
+      "word": "plastic sleeve",
+      "translation": "塑料套",
+      "x": 673,
+      "y": 703,
+      "priority": 4.175,
+      "minLevel": 3,
+      "sourceVisualRegion": "tag-and-strap",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "baggage-cart",
+      "word": "baggage cart",
+      "translation": "行李拖车",
+      "x": 1017,
+      "y": 710,
+      "priority": 1.1760000000000002,
+      "minLevel": 0,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wooden-deck",
+      "word": "wooden deck",
+      "translation": "木质车板",
+      "x": 450,
+      "y": 743,
+      "priority": 2.177,
+      "minLevel": 1,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wood-grain",
+      "word": "wood grain",
+      "translation": "木纹",
+      "x": 354,
+      "y": 749,
+      "priority": 5.178,
+      "minLevel": 4,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "side-rail",
+      "word": "side rail",
+      "translation": "侧栏杆",
+      "x": 71,
+      "y": 199,
+      "priority": 2.1790000000000003,
+      "minLevel": 1,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "corner-post",
+      "word": "corner post",
+      "translation": "角立柱",
+      "x": 101,
+      "y": 486,
+      "priority": 3.18,
+      "minLevel": 2,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "rail-collar",
+      "word": "rail collar",
+      "translation": "护栏套环",
+      "x": 102,
+      "y": 353,
+      "priority": 4.181,
+      "minLevel": 3,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "top-rail",
+      "word": "top rail",
+      "translation": "上横杆",
+      "x": 1160,
+      "y": 123,
+      "priority": 3.182,
+      "minLevel": 2,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bent-tubing",
+      "word": "bent tubing",
+      "translation": "弯管",
+      "x": 1563,
+      "y": 166,
+      "priority": 4.183,
+      "minLevel": 3,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "rail-joint",
+      "word": "rail joint",
+      "translation": "栏杆连接处",
+      "x": 79,
+      "y": 741,
+      "priority": 5.183999999999999,
+      "minLevel": 4,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "side-panel",
+      "word": "side panel",
+      "translation": "侧挡板",
+      "x": 1511,
+      "y": 468,
+      "priority": 3.185,
+      "minLevel": 2,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "amber-reflector",
+      "word": "amber reflector",
+      "translation": "琥珀色反光片",
+      "x": 251,
+      "y": 824,
+      "priority": 2.186,
+      "minLevel": 1,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "red-reflector",
+      "word": "red reflector",
+      "translation": "红色反光片",
+      "x": 56,
+      "y": 796,
+      "priority": 4.186999999999999,
+      "minLevel": 3,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "edge-beam",
+      "word": "edge beam",
+      "translation": "边梁",
+      "x": 773,
+      "y": 744,
+      "priority": 3.188,
+      "minLevel": 2,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "rivet-head",
+      "word": "rivet head",
+      "translation": "铆钉头",
+      "x": 643,
+      "y": 769,
+      "priority": 5.189,
+      "minLevel": 4,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "galvanized-steel",
+      "word": "galvanized steel",
+      "translation": "镀锌钢材",
+      "x": 441,
+      "y": 797,
+      "priority": 4.1899999999999995,
+      "minLevel": 3,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "tire",
+      "word": "tire",
+      "translation": "轮胎",
+      "x": 1441,
+      "y": 740,
+      "priority": 2.1910000000000003,
+      "minLevel": 1,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-c91e5b2418a7d741"
+    },
+    {
+      "id": "tire-tread",
+      "word": "tire tread",
+      "translation": "轮胎花纹",
+      "x": 1262,
+      "y": 784,
+      "priority": 4.191999999999999,
+      "minLevel": 3,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wheel-rim",
+      "word": "wheel rim",
+      "translation": "轮辋",
+      "x": 1424,
+      "y": 845,
+      "priority": 3.193,
+      "minLevel": 2,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "lug-nut",
+      "word": "lug nut",
+      "translation": "车轮螺母",
+      "x": 1382,
+      "y": 778,
+      "priority": 5.194,
+      "minLevel": 4,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "mounting-bracket",
+      "word": "mounting bracket",
+      "translation": "安装支架",
+      "x": 1146,
+      "y": 754,
+      "priority": 4.194999999999999,
+      "minLevel": 3,
+      "sourceVisualRegion": "trailer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "belt-loader",
+      "word": "belt loader",
+      "translation": "行李传送车",
+      "x": 1443,
+      "y": 63,
+      "priority": 1.1960000000000002,
+      "minLevel": 0,
+      "sourceVisualRegion": "apron-background",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "conveyor-belt",
+      "word": "conveyor belt",
+      "translation": "传送带",
+      "x": 1246,
+      "y": 43,
+      "priority": 2.197,
+      "minLevel": 1,
+      "sourceVisualRegion": "apron-background",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "nose-gear-wheel",
+      "word": "nose gear wheel",
+      "translation": "前起落架机轮",
+      "x": 608,
+      "y": 64,
+      "priority": 3.198,
+      "minLevel": 2,
+      "sourceVisualRegion": "apron-background",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "traffic-cone",
+      "word": "traffic cone",
+      "translation": "交通锥",
+      "x": 1066,
+      "y": 53,
+      "priority": 1.199,
+      "minLevel": 0,
+      "sourceVisualRegion": "apron-background",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "aircraft-engine",
+      "word": "aircraft engine",
+      "translation": "飞机发动机",
+      "x": 121,
+      "y": 39,
+      "priority": 2.2,
+      "minLevel": 1,
+      "sourceVisualRegion": "apron-background",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "apron-pavement",
+      "word": "apron pavement",
+      "translation": "机坪道面",
+      "x": 914,
+      "y": 84,
+      "priority": 2.201,
+      "minLevel": 1,
+      "sourceVisualRegion": "apron-background",
+      "semanticRealmId": "objects-technology"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "baggage-allowance",
+      "word": "baggage allowance",
+      "translation": "行李限额",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "weight-limit",
+      "word": "weight limit",
+      "translation": "重量限制",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "size-limit",
+      "word": "size limit",
+      "translation": "尺寸限制",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "combined-dimensions",
+      "word": "combined dimensions",
+      "translation": "三边长度之和",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "piece-allowance",
+      "word": "piece allowance",
+      "translation": "行李件数限额",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "checked-baggage",
+      "word": "checked baggage",
+      "translation": "托运行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "carry-on-baggage",
+      "word": "carry-on baggage",
+      "translation": "随身行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "personal-item",
+      "word": "personal item",
+      "translation": "随身小件物品",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "gate-checked-bag",
+      "word": "gate-checked bag",
+      "translation": "登机口托运的行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "oversized-baggage",
+      "word": "oversized baggage",
+      "translation": "超大行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "overweight-baggage",
+      "word": "overweight baggage",
+      "translation": "超重行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "excess-baggage-fee",
+      "word": "excess baggage fee",
+      "translation": "超额行李费",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "additional-bag",
+      "word": "additional bag",
+      "translation": "额外一件行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "special-baggage",
+      "word": "special baggage",
+      "translation": "特殊行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "fragile-item",
+      "word": "fragile item",
+      "translation": "易碎物品",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "musical-instrument",
+      "word": "musical instrument",
+      "translation": "乐器",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "sports-equipment",
+      "word": "sports equipment",
+      "translation": "运动器材",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "mobility-aid",
+      "word": "mobility aid",
+      "translation": "助行辅具",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "travel-cot",
+      "word": "travel cot",
+      "translation": "便携婴儿床",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "car-seat",
+      "word": "car seat",
+      "translation": "儿童汽车安全座椅",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "garment-bag",
+      "word": "garment bag",
+      "translation": "西装袋",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "ski-bag",
+      "word": "ski bag",
+      "translation": "滑雪板袋",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bicycle-case",
+      "word": "bicycle case",
+      "translation": "自行车箱",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "luggage-cover",
+      "word": "luggage cover",
+      "translation": "行李箱保护套",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "packing-cube",
+      "word": "packing cube",
+      "translation": "行李收纳袋",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "luggage-scale",
+      "word": "luggage scale",
+      "translation": "行李秤",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "identification-tag",
+      "word": "identification tag",
+      "translation": "身份识别牌",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "owner-information",
+      "word": "owner information",
+      "translation": "物主信息",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "contact-number",
+      "word": "contact number",
+      "translation": "联系电话",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "destination-airport",
+      "word": "destination airport",
+      "translation": "目的地机场",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bag-tag-number",
+      "word": "bag tag number",
+      "translation": "行李牌号",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "baggage-claim-check",
+      "word": "baggage claim check",
+      "translation": "行李领取凭证",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "baggage-receipt",
+      "word": "baggage receipt",
+      "translation": "行李托运收据",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "through-check",
+      "word": "through-check",
+      "translation": "行李直挂",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "connecting-flight",
+      "word": "connecting flight",
+      "translation": "转机航班",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "final-destination",
+      "word": "final destination",
+      "translation": "最终目的地",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "priority-baggage",
+      "word": "priority baggage",
+      "translation": "优先行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "fragile-sticker",
+      "word": "fragile sticker",
+      "translation": "易碎标签",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "late-bag",
+      "word": "late bag",
+      "translation": "晚到行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "missing-bag",
+      "word": "missing bag",
+      "translation": "遗失行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "delayed-baggage",
+      "word": "delayed baggage",
+      "translation": "延误行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "damaged-baggage",
+      "word": "damaged baggage",
+      "translation": "破损行李",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "damage-report",
+      "word": "damage report",
+      "translation": "破损报告",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "lost-property",
+      "word": "lost property",
+      "translation": "失物",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "proof-of-ownership",
+      "word": "proof of ownership",
+      "translation": "所有权证明",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "replacement-cost",
+      "word": "replacement cost",
+      "translation": "重置费用",
+      "semanticRealmId": "objects-technology"
+    }
+  ],
+  "visualRegions": [
+    {
+      "id": "spinner",
+      "description": "Examine the standing teal suitcase from its extended handle to the little paired swivel wheels.",
+      "kind": "object",
+      "x": 120,
+      "y": 0,
+      "width": 402,
+      "height": 773
+    },
+    {
+      "id": "roller",
+      "description": "Follow the burgundy fabric case, its distinct zipped front pocket, padded handles and bottom roller.",
+      "kind": "object",
+      "x": 491,
+      "y": 193,
+      "width": 393,
+      "height": 485
+    },
+    {
+      "id": "duffel",
+      "description": "Trace the detachable strap from its metal snap hook across the padded shoulder section to the opposite end.",
+      "kind": "object",
+      "x": 875,
+      "y": 268,
+      "width": 621,
+      "height": 388
+    },
+    {
+      "id": "stroller",
+      "description": "Find the folded navy stroller above the suitcases, including its curved handle, pivot, wheels and metal frame.",
+      "kind": "object",
+      "x": 423,
+      "y": 76,
+      "width": 508,
+      "height": 264
+    },
+    {
+      "id": "special-baggage",
+      "description": "Compare the contoured black instrument case and its metal fittings with the rolled fleece blanket beside it.",
+      "kind": "object",
+      "x": 884,
+      "y": 118,
+      "width": 638,
+      "height": 236
+    },
+    {
+      "id": "tag-and-strap",
+      "description": "Inspect the transparent luggage tag holder and the loose orange woven belt resting on the wooden deck.",
+      "kind": "object",
+      "x": 537,
+      "y": 594,
+      "width": 445,
+      "height": 147
+    },
+    {
+      "id": "trailer",
+      "description": "Inspect the galvanized side rails, wooden deck and reflectors, then follow the exposed right wheel down to its hub.",
+      "kind": "object",
+      "x": 16,
+      "y": 100,
+      "width": 1582,
+      "height": 800
+    },
+    {
+      "id": "apron-background",
+      "description": "Look beyond the rear rail at the angled baggage belt, the aircraft wheel and a cone on the concrete apron.",
+      "kind": "object",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 153
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "spinner-detail",
+      "title": "Hard-shell suitcase",
+      "translation": "硬壳行李箱",
+      "description": "Examine the standing teal suitcase from its extended handle to the little paired swivel wheels.",
+      "x": 120,
+      "y": 0,
+      "width": 402,
+      "height": 773,
+      "targetScale": 2.05,
+      "labelIds": [
+        "hard-shell-spinner",
+        "telescopic-handle",
+        "handle-grip",
+        "release-button",
+        "telescopic-tube",
+        "handle",
+        "handle-mounting-block",
+        "molded-shell",
+        "vertical-groove",
+        "rounded-corner",
+        "combination-lock",
+        "number-dial",
+        "locking-zipper-pull",
+        "baggage-tag",
+        "printed-barcode",
+        "swivel-caster",
+        "wheel-housing",
+        "twin-wheels"
+      ]
+    },
+    {
+      "id": "roller-detail",
+      "title": "Fabric suitcase",
+      "translation": "软壳拉杆箱",
+      "description": "Follow the burgundy fabric case, its distinct zipped front pocket, padded handles and bottom roller.",
+      "x": 491,
+      "y": 193,
+      "width": 393,
+      "height": 485,
+      "targetScale": 2.35,
+      "labelIds": [
+        "soft-sided-suitcase",
+        "pocket",
+        "pocket-opening",
+        "pocket-zipper-pull",
+        "zipper-teeth",
+        "double-zipper",
+        "fabric-handle",
+        "side-handle",
+        "handle-webbing",
+        "edge-piping",
+        "fabric",
+        "roller-wheel"
+      ]
+    },
+    {
+      "id": "duffel-detail",
+      "title": "Canvas duffel",
+      "translation": "帆布旅行袋",
+      "description": "Trace the detachable strap from its metal snap hook across the padded shoulder section to the opposite end.",
+      "x": 875,
+      "y": 268,
+      "width": 621,
+      "height": 388,
+      "targetScale": 2.2,
+      "labelIds": [
+        "duffel-bag",
+        "canvas",
+        "shoulder-strap",
+        "shoulder-pad",
+        "strap-adjuster",
+        "snap-hook",
+        "d-ring",
+        "swivel-joint",
+        "webbing-loop",
+        "handle-wrap",
+        "handle-attachment",
+        "main-zipper",
+        "zip-pull",
+        "side-seam",
+        "reinforced-bottom-edge"
+      ]
+    },
+    {
+      "id": "stroller-detail",
+      "title": "Folded stroller",
+      "translation": "折叠婴儿车",
+      "description": "Find the folded navy stroller above the suitcases, including its curved handle, pivot, wheels and metal frame.",
+      "x": 423,
+      "y": 76,
+      "width": 508,
+      "height": 264,
+      "targetScale": 2.55,
+      "labelIds": [
+        "folded-stroller",
+        "push-handle",
+        "foam-grip",
+        "stroller-frame",
+        "folding-joint",
+        "pivot-pin",
+        "stroller-canopy",
+        "stroller-wheel",
+        "wheel-spoke",
+        "hub-cap"
+      ]
+    },
+    {
+      "id": "special-baggage-detail",
+      "title": "Instrument and travel blanket",
+      "translation": "乐器箱与旅行毯",
+      "description": "Compare the contoured black instrument case and its metal fittings with the rolled fleece blanket beside it.",
+      "x": 884,
+      "y": 118,
+      "width": 638,
+      "height": 236,
+      "targetScale": 2.55,
+      "labelIds": [
+        "violin-case",
+        "case-lid",
+        "carrying-handle",
+        "metal-clasp",
+        "case-rim",
+        "contrast-stitching",
+        "handle-bracket",
+        "blanket",
+        "fleece",
+        "blanket-roll",
+        "strap",
+        "blanket-strap-buckle"
+      ]
+    },
+    {
+      "id": "tag-and-strap-detail",
+      "title": "Tags and straps",
+      "translation": "挂牌与束带",
+      "description": "Inspect the transparent luggage tag holder and the loose orange woven belt resting on the wooden deck.",
+      "x": 537,
+      "y": 594,
+      "width": 445,
+      "height": 147,
+      "targetScale": 2.8,
+      "labelIds": [
+        "luggage-strap",
+        "cam-buckle",
+        "metal-lever",
+        "buckle-hinge",
+        "cross-stitching",
+        "tag-holder",
+        "name-card",
+        "clear-loop",
+        "plastic-sleeve"
+      ]
+    },
+    {
+      "id": "trailer-detail",
+      "title": "Trailer frame and wheels",
+      "translation": "拖车车身与车轮",
+      "description": "Inspect the galvanized side rails, wooden deck and reflectors, then follow the exposed right wheel down to its hub.",
+      "x": 16,
+      "y": 100,
+      "width": 1582,
+      "height": 800,
+      "targetScale": 1.8,
+      "labelIds": [
+        "baggage-cart",
+        "wooden-deck",
+        "wood-grain",
+        "side-rail",
+        "corner-post",
+        "rail-collar",
+        "top-rail",
+        "bent-tubing",
+        "rail-joint",
+        "side-panel",
+        "amber-reflector",
+        "red-reflector",
+        "edge-beam",
+        "rivet-head",
+        "galvanized-steel",
+        "tire",
+        "tire-tread",
+        "wheel-rim",
+        "lug-nut",
+        "mounting-bracket"
+      ]
+    },
+    {
+      "id": "apron-background-detail",
+      "title": "Around the cart",
+      "translation": "拖车周边",
+      "description": "Look beyond the rear rail at the angled baggage belt, the aircraft wheel and a cone on the concrete apron.",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 153,
+      "targetScale": 2,
+      "labelIds": [
+        "belt-loader",
+        "conveyor-belt",
+        "nose-gear-wheel",
+        "traffic-cone",
+        "aircraft-engine",
+        "apron-pavement"
+      ]
+    }
+  ],
+  "portals": [],
+  "anchorAudit": {
+    "status": "image-reviewed",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/airport-baggage-cart-v1.jpg",
+    "reviewedAssetSha256": "e6ffb436ce80e0c0386f39a802d4c929ca80d67db79f1fb88ff58e2f0643d91a",
+    "rationale": "The cart shows a teal hard-shell case, burgundy fabric case, mustard duffel, folded stroller, instrument case and blanket. Their tags, closures and the trailer hardware have separate visible points. Allowances, documentation and claims are searchable in the word index. Awaiting human review.",
+    "previousLabelCount": 148,
+    "retainedLabelCount": 102,
+    "removedLabelCount": 46,
+    "removedExamples": [
+      "baggage allowance",
+      "baggage receipt",
+      "proof of ownership"
+    ]
+  }
+}

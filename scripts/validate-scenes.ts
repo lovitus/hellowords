@@ -121,6 +121,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The terminal raster resolves passenger processing, security, gate, baggage
   // claim and airside structures with a bounded, independently pointable set.
   airport: 100,
+  "airport-apron": 65,
+  "airport-baggage-cart": 75,
   // The standalone baggage-claim photograph resolves carousel, luggage,
   // arrivals, customs and service fixtures without inferring flight states.
   "baggage-claim": 64,
@@ -263,6 +265,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The terminal photo resolves 105 points, including the kiosk screens and luggage shells.
   // Concealed mechanisms and unreadable documents belong in the scene index.
   airport: 105,
+  // Exterior equipment and the luggage on the trailer have separate close-ups.
+  "airport-apron": 89,
+  "airport-baggage-cart": 102,
   // Hidden conveyor mechanisms and unidentifiable small parts stay in the index.
   "baggage-claim": 76,
   "baggage-service-desk": 106,

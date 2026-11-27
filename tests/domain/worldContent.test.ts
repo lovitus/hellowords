@@ -124,6 +124,7 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy", "automated-dispensing-cabinet"],
     ["world-map", "city-street", "transit-hub", "urban-services", "hospital", "hospital-pharmacy", "tablet-counting-bench"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "airport", "airport-apron", "airport-baggage-cart"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim", "baggage-service-desk"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim", "baggage-service-desk", "suitcase-packing-table"],
@@ -3277,7 +3278,7 @@ test("urban services adds hospital, airport and office vocabulary without breaki
   );
   assert.deepEqual(
     byId.get("airport")?.portals.map(({ childSceneId }) => childSceneId),
-    ["baggage-claim", "security-checkpoint", "check-in-counter"],
+    ["baggage-claim", "security-checkpoint", "check-in-counter", "airport-apron"],
   );
   assert.deepEqual(
     byId.get("airport-baggage-conveyor")?.portals.map(({ childSceneId }) => childSceneId),
